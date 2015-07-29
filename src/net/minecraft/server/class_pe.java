@@ -1,0 +1,34 @@
+package net.minecraft.server;
+
+import net.minecraft.server.class_aas;
+import net.minecraft.server.class_di;
+import net.minecraft.server.class_eu;
+import net.minecraft.server.class_fb;
+import net.minecraft.server.class_pd;
+import net.minecraft.server.class_pr;
+import net.minecraft.server.class_qa;
+
+public class class_pe extends class_pd {
+   private class_pr r;
+
+   public class_pe(String var1, class_pr var2, class_pr var3) {
+      super(var1, var2);
+      this.r = var3;
+   }
+
+   public class_pr i() {
+      return this.q;
+   }
+
+   public class_pr j() {
+      return this.r;
+   }
+
+   public class_eu b(class_qa var1) {
+      class_eu var2 = this.r == null?this.q.f_():this.r.f_();
+      class_aas var3 = this.r instanceof class_qa?((class_qa)this.r).bA():null;
+      String var4 = "death.attack." + this.p;
+      String var5 = var4 + ".item";
+      return var3 != null && var3.s() && class_di.c(var5)?new class_fb(var5, new Object[]{var1.f_(), var2, var3.B()}):new class_fb(var4, new Object[]{var1.f_(), var2});
+   }
+}

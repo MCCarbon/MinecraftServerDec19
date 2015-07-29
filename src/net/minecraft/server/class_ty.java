@@ -1,0 +1,115 @@
+package net.minecraft.server;
+
+import net.minecraft.server.class_aar;
+import net.minecraft.server.class_aas;
+import net.minecraft.server.class_aau;
+import net.minecraft.server.class_aen;
+import net.minecraft.server.class_agj;
+import net.minecraft.server.class_cj;
+import net.minecraft.server.class_oo;
+import net.minecraft.server.class_po;
+import net.minecraft.server.class_re;
+import net.minecraft.server.class_rj;
+import net.minecraft.server.class_rl;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_se;
+import net.minecraft.server.class_sh;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sr;
+import net.minecraft.server.class_tf;
+import net.minecraft.server.class_tw;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.class_xa;
+
+public class class_ty extends class_tw {
+   public class_ty(class_aen var1) {
+      super(var1);
+      this.a(0.9F, 1.3F);
+      ((class_tf)this.u()).a(true);
+      this.i.a(0, new class_rj(this));
+      this.i.a(1, new class_se(this, 2.0D));
+      this.i.a(2, new class_re(this, 1.0D));
+      this.i.a(3, new class_sr(this, 1.25D, class_aau.Q, false));
+      this.i.a(4, new class_rl(this, 1.25D));
+      this.i.a(5, new class_si(this, 1.0D));
+      this.i.a(6, new class_rr(this, class_xa.class, 6.0F));
+      this.i.a(7, new class_sh(this));
+   }
+
+   protected void aY() {
+      super.aY();
+      this.a(class_wl.a).a(10.0D);
+      this.a(class_wl.d).a(0.20000000298023224D);
+   }
+
+   protected String C() {
+      return "mob.cow.say";
+   }
+
+   protected String bp() {
+      return "mob.cow.hurt";
+   }
+
+   protected String bq() {
+      return "mob.cow.hurt";
+   }
+
+   protected void a(class_cj var1, class_agj var2) {
+      this.a("mob.cow.step", 0.15F, 1.0F);
+   }
+
+   protected float bC() {
+      return 0.4F;
+   }
+
+   protected class_aar D() {
+      return class_aau.aH;
+   }
+
+   protected void b(boolean var1, int var2) {
+      int var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
+
+      int var4;
+      for(var4 = 0; var4 < var3; ++var4) {
+         this.a(class_aau.aH, 1);
+      }
+
+      var3 = this.V.nextInt(3) + 1 + this.V.nextInt(1 + var2);
+
+      for(var4 = 0; var4 < var3; ++var4) {
+         if(this.av()) {
+            this.a(class_aau.bl, 1);
+         } else {
+            this.a(class_aau.bk, 1);
+         }
+      }
+
+   }
+
+   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+      if(var3 != null && var3.b() == class_aau.ay && !var1.bH.d && !this.j_()) {
+         if(--var3.b == 0) {
+            var1.a((class_oo)var2, (class_aas)(new class_aas(class_aau.aI)));
+         } else if(!var1.bp.a(new class_aas(class_aau.aI))) {
+            var1.a(new class_aas(class_aau.aI), false);
+         }
+
+         return true;
+      } else {
+         return super.a(var1, var2, var3);
+      }
+   }
+
+   public class_ty b(class_po var1) {
+      return new class_ty(this.o);
+   }
+
+   public float aU() {
+      return this.K;
+   }
+
+   // $FF: synthetic method
+   public class_po a(class_po var1) {
+      return this.b(var1);
+   }
+}
