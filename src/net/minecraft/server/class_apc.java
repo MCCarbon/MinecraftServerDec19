@@ -13,9 +13,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_afx;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_anb;
 import net.minecraft.server.IBlockData;
@@ -95,7 +95,7 @@ public class class_apc {
          Collections.shuffle(this.e, new Random(var1.K()));
       }
 
-      this.f = class_anq.a().a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"  ###  ", " #   # ", "#     #", "#  #  #", "#     #", " #   # ", "  ###  "}).a(new String[]{"       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       "}).a('#', class_ano.a(class_ans.a(class_agk.h))).b();
+      this.f = class_anq.a().a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"  ###  ", " #   # ", "#     #", "#  #  #", "#     #", " #   # ", "  ###  "}).a(new String[]{"       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       "}).a('#', class_ano.a(class_ans.a(Blocks.BEDROCK))).b();
    }
 
    public class_dn a() {
@@ -248,7 +248,7 @@ public class class_apc {
    private void j() {
       this.i = 0;
       this.h = 0;
-      class_ari.class_a_in_class_ari[] var1 = class_afx.a((class_aen)this.d);
+      class_ari.class_a_in_class_ari[] var1 = class_afx.a((World)this.d);
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
@@ -289,7 +289,7 @@ public class class_apc {
       class_aqk var2 = new class_aqk(var1);
 
       class_cj var3;
-      for(var3 = this.d.r(class_aqk.a).b(); this.d.p(var3).getBlock() == class_agk.h && var3.o() > this.d.G(); var3 = var3.b()) {
+      for(var3 = this.d.r(class_aqk.a).b(); this.d.p(var3).getBlock() == Blocks.BEDROCK && var3.o() > this.d.G(); var3 = var3.b()) {
          ;
       }
 
@@ -336,8 +336,8 @@ public class class_apc {
                for(int var3 = 0; var3 < this.f.b(); ++var3) {
                   for(int var4 = 0; var4 < this.f.a(); ++var4) {
                      class_ano var5 = var1.a(var2, var3, var4);
-                     if(var5.a().getBlock() == class_agk.h || var5.a().getBlock() == class_agk.bF) {
-                        this.d.a((class_cj)var5.d(), (IBlockData)class_agk.bH.S());
+                     if(var5.a().getBlock() == Blocks.BEDROCK || var5.a().getBlock() == Blocks.END_PORTAL) {
+                        this.d.a((class_cj)var5.d(), (IBlockData)Blocks.END_STONE.getBlockData());
                      }
                   }
                }

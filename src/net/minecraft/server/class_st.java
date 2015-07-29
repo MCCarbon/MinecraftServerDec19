@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_ow;
 import net.minecraft.server.class_pr;
@@ -40,17 +40,17 @@ public class class_st extends class_rp {
                class_aas var3 = var1.a(var2);
                class_aas var4 = null;
                if(var3 != null) {
-                  class_aar var5 = var3.b();
+                  Item var5 = var3.b();
                   int var6;
-                  if((var5 == class_aau.R || var5 == class_aau.bV || var5 == class_aau.bU) && var3.b > 3) {
+                  if((var5 == Items.R || var5 == Items.bV || var5 == Items.bU) && var3.b > 3) {
                      var6 = var3.b / 2;
                      var3.b -= var6;
                      var4 = new class_aas(var5, var6, var3.i());
-                  } else if(var5 == class_aau.Q && var3.b > 5) {
+                  } else if(var5 == Items.Q && var3.b > 5) {
                      var6 = var3.b / 2 / 3 * 3;
                      int var7 = var6 / 3;
                      var3.b -= var6;
-                     var4 = new class_aas(class_aau.R, var7, 0);
+                     var4 = new class_aas(Items.R, var7, 0);
                   }
 
                   if(var3.b <= 0) {

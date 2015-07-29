@@ -2,49 +2,49 @@ package net.minecraft.server;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
-import net.minecraft.server.class_di;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
+import net.minecraft.server.LocaleI18n;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public class class_akc extends Block {
-   public static final class_any a = class_any.a("variant", class_akc.class_a_in_class_akc.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("variant", class_akc.class_a_in_class_akc.class);
    public static final int b;
    public static final int N;
    public static final int O;
 
    public class_akc() {
-      super(class_atk.e);
-      this.j(this.M.b().set(a, class_akc.class_a_in_class_akc.a));
+      super(Material.e);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_akc.class_a_in_class_akc.a));
       this.a(CreativeTab.b);
    }
 
-   public String f() {
-      return class_di.a(this.a() + "." + class_akc.class_a_in_class_akc.a.c() + ".name");
+   public String getName() {
+      return LocaleI18n.get(this.getInternalName() + "." + class_akc.class_a_in_class_akc.a.c() + ".name");
    }
 
-   public class_atl g(IBlockData var1) {
-      return var1.get(a) == class_akc.class_a_in_class_akc.a?class_atl.y:class_atl.G;
+   public MaterialMapColor getMapColor(IBlockData var1) {
+      return var1.get(a) == class_akc.class_a_in_class_akc.a?MaterialMapColor.y:MaterialMapColor.G;
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_akc.class_a_in_class_akc)var1.get(a)).a();
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_akc.class_a_in_class_akc)var1.get(a)).a();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_akc.class_a_in_class_akc.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_akc.class_a_in_class_akc.a(var1));
    }
 
    static {
@@ -53,7 +53,7 @@ public class class_akc extends Block {
       O = class_akc.class_a_in_class_akc.c.a();
    }
 
-   public static enum class_a_in_class_akc implements class_ny {
+   public static enum class_a_in_class_akc implements INamable {
       a(0, "prismarine", "rough"),
       b(1, "prismarine_bricks", "bricks"),
       c(2, "dark_prismarine", "dark");
@@ -85,7 +85,7 @@ public class class_akc extends Block {
          return d[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.f;
       }
 

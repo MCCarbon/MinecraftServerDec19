@@ -7,23 +7,23 @@ import java.util.Map;
 import java.util.Map.Entry;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.IBlockState;
 
 public class class_ant implements Predicate {
-   private final class_anm a;
+   private final BlockStateList a;
    private final Map b = Maps.newHashMap();
 
-   private class_ant(class_anm var1) {
+   private class_ant(BlockStateList var1) {
       this.a = var1;
    }
 
    public static class_ant a(Block var0) {
-      return new class_ant(var0.R());
+      return new class_ant(var0.getBlockStateList());
    }
 
    public boolean a(IBlockData var1) {
-      if(var1 != null && var1.getBlock().equals(this.a.c())) {
+      if(var1 != null && var1.getBlock().equals(this.a.getBlock())) {
          Iterator var2 = this.b.entrySet().iterator();
 
          Entry var3;

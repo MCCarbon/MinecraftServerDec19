@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aih;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
@@ -23,11 +23,11 @@ public class class_vr extends class_vn {
    public double a;
    public double b;
 
-   public class_vr(class_aen var1) {
+   public class_vr(World var1) {
       super(var1);
    }
 
-   public class_vr(class_aen var1, double var2, double var4, double var6) {
+   public class_vr(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 
@@ -64,7 +64,7 @@ public class class_vr extends class_vn {
    public void a(class_pc var1) {
       super.a(var1);
       if(!var1.c() && this.o.R().b("doEntityDrops")) {
-         this.a(new class_aas(class_agk.al, 1), 0.0F);
+         this.a(new class_aas(Blocks.FURNACE, 1), 0.0F);
       }
 
    }
@@ -110,7 +110,7 @@ public class class_vr extends class_vn {
    }
 
    public boolean a(class_xa var1, class_aas var2, class_oo var3) {
-      if(var2 != null && var2.b() == class_aau.j) {
+      if(var2 != null && var2.b() == Items.j) {
          if(!var1.bH.d) {
             --var2.b;
          }
@@ -151,6 +151,6 @@ public class class_vr extends class_vn {
    }
 
    public IBlockData u() {
-      return (this.j()?class_agk.am:class_agk.al).S().set(class_aih.a, class_cq.c);
+      return (this.j()?Blocks.LIT_FURNACE:Blocks.FURNACE).getBlockData().set(class_aih.a, class_cq.c);
    }
 }

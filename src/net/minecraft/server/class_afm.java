@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ub;
 
 public class class_afm extends class_aez {
@@ -12,7 +12,7 @@ public class class_afm extends class_aez {
       this.as.C = -100;
       this.as.E = 1;
       this.as.K = 1;
-      this.ak = class_agk.bw.S();
+      this.ak = Blocks.MYCELIM.getBlockData();
       this.at.clear();
       this.au.clear();
       this.av.clear();

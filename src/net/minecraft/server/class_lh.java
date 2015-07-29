@@ -11,9 +11,9 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aeb;
 import net.minecraft.server.class_aeh;
@@ -26,7 +26,7 @@ import net.minecraft.server.class_alv;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amx;
 import net.minecraft.server.class_aok;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
@@ -539,7 +539,7 @@ public class class_lh extends class_xa implements class_ye {
 		int var6 = class_nu.c(this.u);
 		class_cj var7 = new class_cj(var4, var5, var6);
 		Block var8 = this.o.p(var7).getBlock();
-		if (var8.v() == class_atk.a) {
+		if (var8.getMaterial() == Material.a) {
 			Block var9 = this.o.p(var7.b()).getBlock();
 			if (var9 instanceof class_ahz || var9 instanceof class_alv || var9 instanceof class_aia) {
 				var7 = var7.b();
@@ -625,8 +625,8 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public void a(class_aas var1) {
-		class_aar var2 = var1.b();
-		if (var2 == class_aau.bQ) {
+		Item var2 = var1.b();
+		if (var2 == Items.bQ) {
 			this.a.a((class_ff) (new class_gh("MC|BOpen", new class_em(Unpooled.buffer()))));
 		}
 

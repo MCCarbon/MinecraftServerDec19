@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Items;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aic;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_dn;
@@ -111,7 +111,7 @@ public class class_ame extends class_amg {
 		a("base", "b"), b("square_bottom_left", "bl", "   ", "   ", "#  "), c("square_bottom_right", "br", "   ", "   ", "  #"), d("square_top_left", "tl", "#  ", "   ", "   "), e("square_top_right", "tr", "  #", "   ", "   "), f("stripe_bottom", "bs", "   ", "   ", "###"), g("stripe_top", "ts", "###", "   ", "   "), h("stripe_left", "ls", "#  ", "#  ", "#  "), i("stripe_right", "rs", "  #", "  #", "  #"), j("stripe_center", "cs", " # ", " # ", " # "), k("stripe_middle", "ms", "   ", "###",
 				"   "), l("stripe_downright", "drs", "#  ", " # ", "  #"), m("stripe_downleft", "dls", "  #", " # ", "#  "), n("small_stripes", "ss", "# #", "# #", "   "), o("cross", "cr", "# #", " # ", "# #"), p("straight_cross", "sc", " # ", "###", " # "), q("triangle_bottom", "bt", "   ", " # ", "# #"), r("triangle_top", "tt", "# #", " # ", "   "), s("triangles_bottom", "bts", "   ", "# #", " # "), t("triangles_top", "tts", " # ", "# #", "   "), u("diagonal_left", "ld", "## ", "#  ", "   "), v(
 				"diagonal_up_right", "rd", "   ", "  #", " ##"), w("diagonal_up_left", "lud", "   ", "#  ", "## "), x("diagonal_right", "rud", " ##", "  #", "   "), y("circle", "mc", "   ", " # ", "   "), z("rhombus", "mr", " # ", "# #", " # "), A("half_vertical", "vh", "## ", "## ", "## "), B("half_horizontal", "hh", "###", "###", "   "), C("half_vertical_right", "vhr", " ##", " ##", " ##"), D("half_horizontal_bottom", "hhb", "   ", "###", "###"), E("border", "bo", "###", "# #", "###"), F(
-				"curly_border", "cbo", new class_aas(class_agk.bn)), G("creeper", "cre", new class_aas(class_aau.ca, 1, 4)), H("gradient", "gra", "# #", " # ", " # "), I("gradient_up", "gru", " # ", " # ", "# #"), J("bricks", "bri", new class_aas(class_agk.V)), K("skull", "sku", new class_aas(class_aau.ca, 1, 1)), L("flower", "flo", new class_aas(class_agk.O, 1, class_aic.class_a_in_class_aic.j.b())), M("mojang", "moj", new class_aas(class_aau.aq, 1, 1));
+				"curly_border", "cbo", new class_aas(Blocks.VINE)), G("creeper", "cre", new class_aas(Items.ca, 1, 4)), H("gradient", "gra", "# #", " # ", " # "), I("gradient_up", "gru", " # ", " # ", "# #"), J("bricks", "bri", new class_aas(Blocks.BRICK_BLOCK)), K("skull", "sku", new class_aas(Items.ca, 1, 1)), L("flower", "flo", new class_aas(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.j.b())), M("mojang", "moj", new class_aas(Items.aq, 1, 1));
 
 		private String N;
 		private String O;

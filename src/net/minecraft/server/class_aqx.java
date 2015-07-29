@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahj;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.class_ajs;
@@ -11,7 +11,7 @@ import net.minecraft.server.class_ajt;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aqy;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 
@@ -26,7 +26,7 @@ public class class_aqx extends class_aqy {
       this.h = var2;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       int var4 = this.a(var2);
       if(!this.a(var1, var2, var3, var4)) {
          return false;
@@ -35,23 +35,23 @@ public class class_aqx extends class_aqy {
 
          for(int var5 = 0; var5 < var4; ++var5) {
             Block var6 = var1.p(var3.b(var5)).getBlock();
-            if(var6.v() == class_atk.a || var6.v() == class_atk.j) {
+            if(var6.getMaterial() == Material.a || var6.getMaterial() == Material.j) {
                this.a(var1, var3.b(var5), this.b);
             }
 
             if(var5 < var4 - 1) {
                var6 = var1.p(var3.a(1, var5, 0)).getBlock();
-               if(var6.v() == class_atk.a || var6.v() == class_atk.j) {
+               if(var6.getMaterial() == Material.a || var6.getMaterial() == Material.j) {
                   this.a(var1, var3.a(1, var5, 0), this.b);
                }
 
                var6 = var1.p(var3.a(1, var5, 1)).getBlock();
-               if(var6.v() == class_atk.a || var6.v() == class_atk.j) {
+               if(var6.getMaterial() == Material.a || var6.getMaterial() == Material.j) {
                   this.a(var1, var3.a(1, var5, 1), this.b);
                }
 
                var6 = var1.p(var3.a(0, var5, 1)).getBlock();
-               if(var6.v() == class_atk.a || var6.v() == class_atk.j) {
+               if(var6.getMaterial() == Material.a || var6.getMaterial() == Material.j) {
                   this.a(var1, var3.a(0, var5, 1), this.b);
                }
             }
@@ -61,7 +61,7 @@ public class class_aqx extends class_aqy {
       }
    }
 
-   private void a(class_aen var1, int var2, int var3, int var4, int var5, Random var6) {
+   private void a(World var1, int var2, int var3, int var4, int var5, Random var6) {
       int var7 = var6.nextInt(5) + (this.h?this.a:3);
       int var8 = 0;
 
@@ -74,7 +74,7 @@ public class class_aqx extends class_aqy {
 
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       this.b(var1, var3.e().c());
       this.b(var1, var3.g(2).c());
       this.b(var1, var3.e().e(2));
@@ -91,7 +91,7 @@ public class class_aqx extends class_aqy {
 
    }
 
-   private void b(class_aen var1, class_cj var2) {
+   private void b(World var1, class_cj var2) {
       for(int var3 = -2; var3 <= 2; ++var3) {
          for(int var4 = -2; var4 <= 2; ++var4) {
             if(Math.abs(var3) != 2 || Math.abs(var4) != 2) {
@@ -102,16 +102,16 @@ public class class_aqx extends class_aqy {
 
    }
 
-   private void c(class_aen var1, class_cj var2) {
+   private void c(World var1, class_cj var2) {
       for(int var3 = 2; var3 >= -3; --var3) {
          class_cj var4 = var2.b(var3);
          Block var5 = var1.p(var4).getBlock();
-         if(var5 == class_agk.c || var5 == class_agk.d) {
+         if(var5 == Blocks.GRASS || var5 == Blocks.DIRT) {
             this.a(var1, var4, g);
             break;
          }
 
-         if(var5.v() != class_atk.a && var3 < 0) {
+         if(var5.getMaterial() != Material.a && var3 < 0) {
             break;
          }
       }
@@ -119,8 +119,8 @@ public class class_aqx extends class_aqy {
    }
 
    static {
-      e = class_agk.r.S().set(class_ajt.b, class_ajw.class_a_in_class_ajw.b);
-      f = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.b).set(class_aja.b, Boolean.valueOf(false));
-      g = class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
+      e = Blocks.LOG.getBlockData().set(class_ajt.b, class_ajw.class_a_in_class_ajw.b);
+      f = Blocks.LEAVES.getBlockData().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.b).set(class_aja.b, Boolean.valueOf(false));
+      g = Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
    }
 }

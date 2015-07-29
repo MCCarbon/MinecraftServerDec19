@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_amr;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_yx;
@@ -20,6 +20,6 @@ public class class_yk extends class_yx {
    }
 
    public static boolean c_(class_aas var0) {
-      return var0 != null && var0.b() != null && var0.b() == class_aau.ay;
+      return var0 != null && var0.b() != null && var0.b() == Items.ay;
    }
 }

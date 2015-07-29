@@ -8,21 +8,21 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_ads;
 import net.minecraft.server.class_aej;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_aia;
 import net.minecraft.server.class_ajd;
 import net.minecraft.server.class_alv;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anp;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_b;
@@ -30,7 +30,7 @@ import net.minecraft.server.class_c;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dp;
 import net.minecraft.server.class_dr;
@@ -65,7 +65,7 @@ public abstract class class_pr implements class_m {
    public class_pr l;
    public class_pr m;
    public boolean n;
-   public class_aen o;
+   public World o;
    public double p;
    public double q;
    public double r;
@@ -148,7 +148,7 @@ public abstract class class_pr implements class_m {
       this.J();
    }
 
-   public class_pr(class_aen var1) {
+   public class_pr(World var1) {
       this.c = b++;
       this.j = 1.0D;
       this.f = a;
@@ -543,7 +543,7 @@ public abstract class class_pr implements class_m {
          int var59 = class_nu.c(this.u);
          class_cj var26 = new class_cj(var57, var58, var59);
          Block var60 = this.o.p(var26).getBlock();
-         if(var60.v() == class_atk.a) {
+         if(var60.getMaterial() == Material.a) {
             Block var28 = this.o.p(var26.b()).getBlock();
             if(var28 instanceof class_ahz || var28 instanceof class_alv || var28 instanceof class_aia) {
                var60 = var28;
@@ -568,7 +568,7 @@ public abstract class class_pr implements class_m {
             double var61 = this.s - var7;
             double var64 = this.t - var9;
             double var66 = this.u - var11;
-            if(var60 != class_agk.au) {
+            if(var60 != Blocks.LADDER) {
                var64 = 0.0D;
             }
 
@@ -578,7 +578,7 @@ public abstract class class_pr implements class_m {
 
             this.M = (float)((double)this.M + (double)class_nu.a(var61 * var61 + var66 * var66) * 0.6D);
             this.N = (float)((double)this.N + (double)class_nu.a(var61 * var61 + var64 * var64 + var66 * var66) * 0.6D);
-            if(this.N > (float)this.h && var60.v() != class_atk.a) {
+            if(this.N > (float)this.h && var60.getMaterial() != Material.a) {
                this.h = (int)this.N + 1;
                if(this.V()) {
                   float var34 = class_nu.a(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.35F;
@@ -660,11 +660,11 @@ public abstract class class_pr implements class_m {
    }
 
    protected void a(class_cj var1, Block var2) {
-      Block.StepSound var3 = var2.H;
-      if(this.o.p(var1.a()).getBlock() == class_agk.aH) {
-         var3 = class_agk.aH.H;
+      Block.StepSound var3 = var2.stepSound;
+      if(this.o.p(var1.a()).getBlock() == Blocks.SNOW_LAYER) {
+         var3 = Blocks.SNOW_LAYER.stepSound;
          this.a(var3.c(), var3.d() * 0.15F, var3.e());
-      } else if(!var2.v().d()) {
+      } else if(!var2.getMaterial().d()) {
          this.a(var3.c(), var3.d() * 0.15F, var3.e());
       }
 
@@ -737,7 +737,7 @@ public abstract class class_pr implements class_m {
    }
 
    public boolean W() {
-      if(this.o.a(this.aT().b(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), class_atk.h, this)) {
+      if(this.o.a(this.aT().b(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.h, this)) {
          if(!this.Y && !this.aa) {
             this.X();
          }
@@ -792,8 +792,8 @@ public abstract class class_pr implements class_m {
       class_cj var4 = new class_cj(var1, var2, var3);
       IBlockData var5 = this.o.p(var4);
       Block var6 = var5.getBlock();
-      if(var6.b() != -1) {
-         this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, -this.v * 4.0D, 1.5D, -this.x * 4.0D, new int[]{Block.f(var5)});
+      if(var6.getRenderType() != -1) {
+         this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, -this.v * 4.0D, 1.5D, -this.x * 4.0D, new int[]{Block.getCombinedId(var5)});
       }
 
    }
@@ -802,13 +802,13 @@ public abstract class class_pr implements class_m {
       return "game.neutral.swim.splash";
    }
 
-   public boolean a(class_atk var1) {
+   public boolean a(Material var1) {
       double var2 = this.t + (double)this.aU();
       class_cj var4 = new class_cj(this.s, var2, this.u);
       IBlockData var5 = this.o.p(var4);
       Block var6 = var5.getBlock();
-      if(var6.v() == var1) {
-         float var7 = class_ajd.b(var5.getBlock().c(var5)) - 0.11111111F;
+      if(var6.getMaterial() == var1) {
+         float var7 = class_ajd.b(var5.getBlock().toLegacyData(var5)) - 0.11111111F;
          float var8 = (float)(var4.o() + 1) - var7;
          boolean var9 = var2 < (double)var8;
          return !var9 && this instanceof class_xa?false:var9;
@@ -818,7 +818,7 @@ public abstract class class_pr implements class_m {
    }
 
    public boolean ab() {
-      return this.o.a(this.aT().b(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), class_atk.i);
+      return this.o.a(this.aT().b(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.i);
    }
 
    public void a(float var1, float var2, float var3) {
@@ -844,7 +844,7 @@ public abstract class class_pr implements class_m {
       return this.o.e(var2)?this.o.o(var2):0.0F;
    }
 
-   public void a(class_aen var1) {
+   public void a(World var1) {
       this.o = var1;
    }
 
@@ -1172,11 +1172,11 @@ public abstract class class_pr implements class_m {
       return var2;
    }
 
-   public class_vm a(class_aar var1, int var2) {
+   public class_vm a(Item var1, int var2) {
       return this.a(var1, var2, 0.0F);
    }
 
-   public class_vm a(class_aar var1, int var2, float var3) {
+   public class_vm a(Item var1, int var2, float var3) {
       return this.a(new class_aas(var1, var2, 0), var3);
    }
 
@@ -1207,7 +1207,7 @@ public abstract class class_pr implements class_m {
             int var5 = class_nu.c(this.u + (double)(((float)((var2 >> 2) % 2) - 0.5F) * this.J * 0.8F));
             if(var1.n() != var4 || var1.o() != var3 || var1.p() != var5) {
                var1.c(var4, var3, var5);
-               if(this.o.p(var1).getBlock().y()) {
+               if(this.o.p(var1).getBlock().isVisuallyOpaque()) {
                   return true;
                }
             }
@@ -1334,7 +1334,7 @@ public abstract class class_pr implements class_m {
       } else {
          if(!this.o.D && !var1.equals(this.an)) {
             this.an = var1;
-            class_anp.class_b_in_class_anp var2 = class_agk.aY.f(this.o, var1);
+            class_anp.class_b_in_class_anp var2 = Blocks.PORTAL.f(this.o, var1);
             double var3 = var2.b().k() == class_cq.class_a_in_class_cq.a?(double)var2.a().p():(double)var2.a().n();
             double var5 = var2.b().k() == class_cq.class_a_in_class_cq.a?this.u:this.s;
             var5 = Math.abs(class_nu.c(var5 - (double)(var2.b().e().c() == class_cq.class_b_in_class_cq.b?1:0), var3, var3 - (double)var2.d()));
@@ -1512,7 +1512,7 @@ public abstract class class_pr implements class_m {
             var1 = "generic";
          }
 
-         return class_di.a("entity." + var1 + ".name");
+         return LocaleI18n.get("entity." + var1 + ".name");
       }
    }
 
@@ -1582,7 +1582,7 @@ public abstract class class_pr implements class_m {
          this.o.B.a("reposition");
          var2.ap().a(this, var3, var4, var5);
          this.o.B.c("reloading");
-         class_pr var6 = class_pt.a((String)class_pt.b(this), (class_aen)var5);
+         class_pr var6 = class_pt.a((String)class_pt.b(this), (World)var5);
          if(var6 != null) {
             var6.n(this);
             if(var3 == 1 && var1 == 1) {
@@ -1601,11 +1601,11 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public float a(class_aej var1, class_aen var2, class_cj var3, IBlockData var4) {
+   public float a(class_aej var1, World var2, class_cj var3, IBlockData var4) {
       return var4.getBlock().a(this);
    }
 
-   public boolean a(class_aej var1, class_aen var2, class_cj var3, IBlockData var4, float var5) {
+   public boolean a(class_aej var1, World var2, class_cj var3, IBlockData var4, float var5) {
       return true;
    }
 
@@ -1773,7 +1773,7 @@ public abstract class class_pr implements class_m {
       return new class_awh(this.s, this.t, this.u);
    }
 
-   public class_aen e() {
+   public World e() {
       return this.o;
    }
 

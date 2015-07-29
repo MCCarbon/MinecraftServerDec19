@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adl;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oj;
@@ -32,7 +32,7 @@ public class class_yj extends class_xz {
          class_yj.this.a((class_oj)this);
       }
    };
-   private class_aen j;
+   private World j;
    private class_cj k;
    private Random l = new Random();
    public int f;
@@ -40,7 +40,7 @@ public class class_yj extends class_xz {
    public int[] h = new int[]{-1, -1, -1};
    public int[] i = new int[]{-1, -1, -1};
 
-   public class_yj(class_wz var1, class_aen var2, class_cj var3) {
+   public class_yj(class_wz var1, World var2, class_cj var3) {
       this.j = var2;
       this.k = var3;
       this.f = var1.e.cl();
@@ -55,7 +55,7 @@ public class class_yj extends class_xz {
       }));
       this.a((class_yx)(new class_yx(this.a, 1, 35, 47) {
          public boolean a(class_aas var1) {
-            return var1.b() == class_aau.aY && class_zy.a(var1.i()) == class_zy.l;
+            return var1.b() == Items.aY && class_zy.a(var1.i()) == class_zy.l;
          }
       }));
 
@@ -112,28 +112,28 @@ public class class_yj extends class_xz {
                for(var4 = -1; var4 <= 1; ++var4) {
                   for(int var5 = -1; var5 <= 1; ++var5) {
                      if((var4 != 0 || var5 != 0) && this.j.d(this.k.a(var5, 0, var4)) && this.j.d(this.k.a(var5, 1, var4))) {
-                        if(this.j.p(this.k.a(var5 * 2, 0, var4 * 2)).getBlock() == class_agk.X) {
+                        if(this.j.p(this.k.a(var5 * 2, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
 
-                        if(this.j.p(this.k.a(var5 * 2, 1, var4 * 2)).getBlock() == class_agk.X) {
+                        if(this.j.p(this.k.a(var5 * 2, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
 
                         if(var5 != 0 && var4 != 0) {
-                           if(this.j.p(this.k.a(var5 * 2, 0, var4)).getBlock() == class_agk.X) {
+                           if(this.j.p(this.k.a(var5 * 2, 0, var4)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5 * 2, 1, var4)).getBlock() == class_agk.X) {
+                           if(this.j.p(this.k.a(var5 * 2, 1, var4)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5, 0, var4 * 2)).getBlock() == class_agk.X) {
+                           if(this.j.p(this.k.a(var5, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5, 1, var4 * 2)).getBlock() == class_agk.X) {
+                           if(this.j.p(this.k.a(var5, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
                         }
@@ -187,17 +187,17 @@ public class class_yj extends class_xz {
       } else {
          if(!this.j.D) {
             List var6 = this.a(var3, var2, this.g[var2]);
-            boolean var7 = var3.b() == class_aau.aN;
+            boolean var7 = var3.b() == Items.aN;
             if(var6 != null) {
                var1.b(var5);
                if(var7) {
-                  var3.a((class_aar)class_aau.cg);
+                  var3.a((Item)Items.cg);
                }
 
                for(int var8 = 0; var8 < var6.size(); ++var8) {
                   class_adl var9 = (class_adl)var6.get(var8);
                   if(var7) {
-                     class_aau.cg.a(var3, var9);
+                     Items.cg.a(var3, var9);
                   } else {
                      var3.a(var9.b, var9.c);
                   }
@@ -224,7 +224,7 @@ public class class_yj extends class_xz {
    private List a(class_aas var1, int var2, int var3) {
       this.l.setSeed((long)(this.f + var2));
       List var4 = class_adk.b(this.l, var1, var3);
-      if(var1.b() == class_aau.aN && var4 != null && var4.size() > 1) {
+      if(var1.b() == Items.aN && var4 != null && var4.size() > 1) {
          var4.remove(this.l.nextInt(var4.size()));
       }
 
@@ -245,7 +245,7 @@ public class class_yj extends class_xz {
    }
 
    public boolean a(class_xa var1) {
-      return this.j.p(this.k).getBlock() != class_agk.bC?false:var1.e((double)this.k.n() + 0.5D, (double)this.k.o() + 0.5D, (double)this.k.p() + 0.5D) <= 64.0D;
+      return this.j.p(this.k).getBlock() != Blocks.ENCHANTING_TABLE?false:var1.e((double)this.k.n() + 0.5D, (double)this.k.o() + 0.5D, (double)this.k.p() + 0.5D) <= 64.0D;
    }
 
    public class_aas b(class_xa var1, int var2) {
@@ -262,7 +262,7 @@ public class class_yj extends class_xz {
             if(!this.a(var5, 2, 38, true)) {
                return null;
             }
-         } else if(var5.b() == class_aau.aY && class_zy.a(var5.i()) == class_zy.l) {
+         } else if(var5.b() == Items.aY && class_zy.a(var5.i()) == class_zy.l) {
             if(!this.a(var5, 1, 2, true)) {
                return null;
             }

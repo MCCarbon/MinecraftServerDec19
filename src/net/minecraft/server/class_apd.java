@@ -39,7 +39,7 @@ public class class_apd extends class_aoy {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new class_cj(var1, 0, var2)).v().c();
+      return this.b.c(new class_cj(var1, 0, var2)).getMaterial().isSolid();
    }
 
    public class_cj h() {

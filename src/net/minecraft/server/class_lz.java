@@ -17,7 +17,7 @@ import java.util.Map;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.EnumChatFormat;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aoc;
 import net.minecraft.server.class_aoe;
@@ -120,7 +120,7 @@ public abstract class class_lz {
       String var6 = var5 == null?var3.getName():var5.getName();
       var4.a(var3);
       class_dn var7 = this.a(var2);
-      var2.a((class_aen)this.h.a(var2.am));
+      var2.a((World)this.h.a(var2.am));
       var2.c.a((class_lg)var2.o);
       String var8 = "local";
       if(var1.b() != null) {
@@ -172,7 +172,7 @@ public abstract class class_lz {
 
       var2.g_();
       if(var7 != null && var7.b("Riding", 10)) {
-         class_pr var17 = class_pt.a((class_dn)var7.n("Riding"), (class_aen)var9);
+         class_pr var17 = class_pt.a((class_dn)var7.n("Riding"), (World)var9);
          if(var17 != null) {
             var17.n = true;
             var9.a(var17);
@@ -506,7 +506,7 @@ public abstract class class_lz {
          var3.B.b();
       }
 
-      var1.a((class_aen)var4);
+      var1.a((World)var4);
    }
 
    public void e() {
@@ -771,7 +771,7 @@ public abstract class class_lz {
       return null;
    }
 
-   private void a(class_lh var1, class_lh var2, class_aen var3) {
+   private void a(class_lh var1, class_lh var2, World var3) {
       if(var2 != null) {
          var1.c.a(var2.c.b());
       } else if(this.s != null) {

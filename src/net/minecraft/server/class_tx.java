@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import com.google.common.collect.Sets;
 import java.util.Set;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -35,7 +35,7 @@ public class class_tx extends class_tw {
    public int by;
    public boolean bz;
 
-   public class_tx(class_aen var1) {
+   public class_tx(World var1) {
       super(var1);
       this.a(0.4F, 0.7F);
       this.by = this.V.nextInt(6000) + 6000;
@@ -77,7 +77,7 @@ public class class_tx extends class_tw {
       this.bs += this.bx * 2.0F;
       if(!this.o.D && !this.j_() && !this.cA() && --this.by <= 0) {
          this.a("mob.chicken.plop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
-         this.a(class_aau.aR, 1);
+         this.a(Items.aR, 1);
          this.by = this.V.nextInt(6000) + 6000;
       }
 
@@ -102,21 +102,21 @@ public class class_tx extends class_tw {
       this.a("mob.chicken.step", 0.15F, 1.0F);
    }
 
-   protected class_aar D() {
-      return class_aau.I;
+   protected Item D() {
+      return Items.I;
    }
 
    protected void b(boolean var1, int var2) {
       int var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.I, 1);
+         this.a(Items.I, 1);
       }
 
       if(this.av()) {
-         this.a(class_aau.bn, 1);
+         this.a(Items.bn, 1);
       } else {
-         this.a(class_aau.bm, 1);
+         this.a(Items.bm, 1);
       }
 
    }
@@ -179,6 +179,6 @@ public class class_tx extends class_tw {
    }
 
    static {
-      bA = Sets.newHashSet((Object[])(new class_aar[]{class_aau.P, class_aau.bj, class_aau.bi, class_aau.cK}));
+      bA = Sets.newHashSet((Object[])(new Item[]{Items.P, Items.bj, Items.bi, Items.cK}));
    }
 }

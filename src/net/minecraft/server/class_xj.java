@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
@@ -16,7 +16,7 @@ public final class class_xj {
       double var10 = var0.v;
       double var12 = var0.w;
       double var14 = var0.x;
-      class_aen var16 = var0.o;
+      World var16 = var0.o;
       class_awh var17 = new class_awh(var4, var6, var8);
       class_awh var18 = new class_awh(var4 + var10, var6 + var12, var8 + var14);
       class_awg var19 = var16.a(var17, var18, false, true, false);

@@ -3,15 +3,15 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -93,7 +93,7 @@ public class class_tz extends class_tw implements class_ok {
    private String[] ca = new String[3];
    private boolean cb = false;
 
-   public class_tz(class_aen var1) {
+   public class_tz(World var1) {
       super(var1);
       this.a(1.4F, 1.6F);
       this.ab = false;
@@ -145,15 +145,15 @@ public class class_tz extends class_tw implements class_ok {
          switch(var1) {
          case 0:
          default:
-            return class_di.a("entity.horse.name");
+            return LocaleI18n.get("entity.horse.name");
          case 1:
-            return class_di.a("entity.donkey.name");
+            return LocaleI18n.get("entity.donkey.name");
          case 2:
-            return class_di.a("entity.mule.name");
+            return LocaleI18n.get("entity.mule.name");
          case 3:
-            return class_di.a("entity.zombiehorse.name");
+            return LocaleI18n.get("entity.zombiehorse.name");
          case 4:
-            return class_di.a("entity.skeletonhorse.name");
+            return LocaleI18n.get("entity.skeletonhorse.name");
          }
       }
    }
@@ -240,8 +240,8 @@ public class class_tz extends class_tw implements class_ok {
       if(var1 == null) {
          return 0;
       } else {
-         class_aar var2 = var1.b();
-         return var2 == class_aau.cn?1:(var2 == class_aau.co?2:(var2 == class_aau.cp?3:0));
+         Item var2 = var1.b();
+         return var2 == Items.cn?1:(var2 == Items.co?2:(var2 == Items.cp?3:0));
       }
    }
 
@@ -318,7 +318,7 @@ public class class_tz extends class_tw implements class_ok {
 
    public void cT() {
       if(!this.o.D && this.cL()) {
-         this.a(class_aar.a((Block)class_agk.ae), 1);
+         this.a(Item.getByBlock((Block)Blocks.CHEST), 1);
          this.p(false);
       }
    }
@@ -344,8 +344,8 @@ public class class_tz extends class_tw implements class_ok {
          }
 
          Block var4 = this.o.p(new class_cj(this.s, this.t - 0.2D - (double)this.A, this.u)).getBlock();
-         if(var4.v() != class_atk.a && !this.R()) {
-            Block.StepSound var5 = var4.H;
+         if(var4.getMaterial() != Material.a && !this.R()) {
+            Block.StepSound var5 = var4.stepSound;
             this.o.a((class_pr)this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
          }
 
@@ -438,10 +438,10 @@ public class class_tz extends class_tw implements class_ok {
       return var1 == 3?"mob.horse.zombie.death":(var1 == 4?"mob.horse.skeleton.death":(var1 != 1 && var1 != 2?"mob.horse.death":"mob.horse.donkey.death"));
    }
 
-   protected class_aar D() {
+   protected Item D() {
       boolean var1 = this.V.nextInt(4) == 0;
       int var2 = this.cA();
-      return var2 == 4?class_aau.aZ:(var2 == 3?(var1?null:class_aau.bv):class_aau.aH);
+      return var2 == 4?Items.aZ:(var2 == 3?(var1?null:Items.bv):Items.aH);
    }
 
    protected String bp() {
@@ -476,12 +476,12 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    protected void a(class_cj var1, Block var2) {
-      Block.StepSound var3 = var2.H;
-      if(this.o.p(var1.a()).getBlock() == class_agk.aH) {
-         var3 = class_agk.aH.H;
+      Block.StepSound var3 = var2.stepSound;
+      if(this.o.p(var1.a()).getBlock() == Blocks.SNOW_LAYER) {
+         var3 = Blocks.SNOW_LAYER.stepSound;
       }
 
-      if(!var2.v().d()) {
+      if(!var2.getMaterial().d()) {
          int var4 = this.cA();
          if(this.l != null && var4 != 1 && var4 != 2) {
             ++this.bY;
@@ -538,7 +538,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public boolean a(class_xa var1, class_oo var2, class_aas var3) {
-      if(var3 != null && var3.b() == class_aau.bM) {
+      if(var3 != null && var3.b() == Items.bM) {
          return super.a(var1, var2, var3);
       } else if(!this.cD() && this.dg()) {
          return false;
@@ -551,11 +551,11 @@ public class class_tz extends class_tw implements class_ok {
          if(var3 != null) {
             if(this.dd()) {
                byte var4 = -1;
-               if(var3.b() == class_aau.cn) {
+               if(var3.b() == Items.cn) {
                   var4 = 1;
-               } else if(var3.b() == class_aau.co) {
+               } else if(var3.b() == Items.co) {
                   var4 = 2;
-               } else if(var3.b() == class_aau.cp) {
+               } else if(var3.b() == Items.cp) {
                   var4 = 3;
                }
 
@@ -575,22 +575,22 @@ public class class_tz extends class_tw implements class_ok {
                float var5 = 0.0F;
                short var6 = 0;
                byte var7 = 0;
-               if(var3.b() == class_aau.Q) {
+               if(var3.b() == Items.Q) {
                   var5 = 2.0F;
                   var6 = 20;
                   var7 = 3;
-               } else if(var3.b() == class_aau.ba) {
+               } else if(var3.b() == Items.ba) {
                   var5 = 1.0F;
                   var6 = 30;
                   var7 = 3;
-               } else if(Block.a(var3.b()) == class_agk.cx) {
+               } else if(Block.getByItem(var3.b()) == Blocks.HAY_BLOCK) {
                   var5 = 20.0F;
                   var6 = 180;
-               } else if(var3.b() == class_aau.e) {
+               } else if(var3.b() == Items.e) {
                   var5 = 3.0F;
                   var6 = 60;
                   var7 = 3;
-               } else if(var3.b() == class_aau.bZ) {
+               } else if(var3.b() == Items.bZ) {
                   var5 = 4.0F;
                   var6 = 60;
                   var7 = 5;
@@ -598,7 +598,7 @@ public class class_tz extends class_tw implements class_ok {
                      var8 = true;
                      this.a((class_xa)var1);
                   }
-               } else if(var3.b() == class_aau.aq) {
+               } else if(var3.b() == Items.aq) {
                   var5 = 10.0F;
                   var6 = 240;
                   var7 = 10;
@@ -637,14 +637,14 @@ public class class_tz extends class_tw implements class_ok {
                return true;
             }
 
-            if(!var8 && this.de() && !this.cL() && var3.b() == class_aar.a((Block)class_agk.ae)) {
+            if(!var8 && this.de() && !this.cL() && var3.b() == Item.getByBlock((Block)Blocks.CHEST)) {
                this.p(true);
                this.a("mob.chickenplop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
                var8 = true;
                this.dp();
             }
 
-            if(!var8 && this.cE() && !this.cV() && var3.b() == class_aau.aC) {
+            if(!var8 && this.cE() && !this.cV() && var3.b() == Items.aC) {
                this.c(var1);
                return true;
             }
@@ -731,7 +731,7 @@ public class class_tz extends class_tw implements class_ok {
             this.h(1.0F);
          }
 
-         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.t) - 1, class_nu.c(this.u))).getBlock() == class_agk.c) {
+         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.t) - 1, class_nu.c(this.u))).getBlock() == Blocks.GRASS) {
             this.s(true);
          }
 
@@ -1038,11 +1038,11 @@ public class class_tz extends class_tw implements class_ok {
 
       if(var1.b("SaddleItem", 10)) {
          var9 = class_aas.a(var1.n("SaddleItem"));
-         if(var9 != null && var9.b() == class_aau.aC) {
+         if(var9 != null && var9.b() == Items.aC) {
             this.bP.a(0, var9);
          }
       } else if(var1.o("Saddle")) {
-         this.bP.a(0, new class_aas(class_aau.aC));
+         this.bP.a(0, new class_aas(Items.aC));
       }
 
       this.dq();
@@ -1204,8 +1204,8 @@ public class class_tz extends class_tw implements class_ok {
       return (0.44999998807907104D + this.V.nextDouble() * 0.3D + this.V.nextDouble() * 0.3D + this.V.nextDouble() * 0.3D) * 0.25D;
    }
 
-   public static boolean a(class_aar var0) {
-      return var0 == class_aau.cn || var0 == class_aau.co || var0 == class_aau.cp;
+   public static boolean a(Item var0) {
+      return var0 == Items.cn || var0 == Items.co || var0 == Items.cp;
    }
 
    public boolean k_() {
@@ -1224,7 +1224,7 @@ public class class_tz extends class_tw implements class_ok {
             return true;
          }
 
-         if(var2 != null && var2.b() == class_aar.a((Block)class_agk.ae) && !this.cL()) {
+         if(var2 != null && var2.b() == Item.getByBlock((Block)Blocks.CHEST) && !this.cL()) {
             this.p(true);
             this.dp();
             return true;
@@ -1233,7 +1233,7 @@ public class class_tz extends class_tw implements class_ok {
 
       int var3 = var1 - 400;
       if(var3 >= 0 && var3 < 2 && var3 < this.bP.o_()) {
-         if(var3 == 0 && var2 != null && var2.b() != class_aau.aC) {
+         if(var3 == 0 && var2 != null && var2.b() != Items.aC) {
             return false;
          } else if(var3 != 1 || (var2 == null || a(var2.b())) && this.dd()) {
             this.bP.a(var3, var2);

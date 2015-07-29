@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afn;
 import net.minecraft.server.class_ahm;
@@ -77,7 +77,7 @@ public class class_afh extends class_aez {
       }
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       int var4;
       int var5;
       int var6;
@@ -140,7 +140,7 @@ public class class_afh extends class_aez {
          return var2;
       } else {
          return this.az != class_aez.Q.az && this.az != class_aez.R.az?new class_afn(var1, this) {
-            public void a(class_aen var1, Random var2, class_cj var3) {
+            public void a(World var1, Random var2, class_cj var3) {
                this.aE.a(var1, var2, var3);
             }
          }:new class_afn(var1, this) {

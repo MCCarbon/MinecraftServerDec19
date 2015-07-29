@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 import net.minecraft.server.class_zy;
 
-public class class_aaa extends class_zg {
+public class class_aaa extends ItemBlock {
    public class_aaa(Block var1) {
       super(var1);
       this.e(0);

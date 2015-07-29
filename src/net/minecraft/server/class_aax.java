@@ -4,15 +4,15 @@ import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multisets;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahj;
-import net.minecraft.server.class_alh;
+import net.minecraft.server.BlockStone;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.class_cj;
@@ -27,7 +27,7 @@ public class class_aax extends class_zt {
       this.a(true);
    }
 
-   public class_avf a(class_aas var1, class_aen var2) {
+   public class_avf a(class_aas var1, World var2) {
       String var3 = "map_" + var1.i();
       class_avf var4 = (class_avf)var2.a(class_avf.class, var3);
       if(var4 == null && !var2.D) {
@@ -44,7 +44,7 @@ public class class_aax extends class_zt {
       return var4;
    }
 
-   public void a(class_aen var1, class_pr var2, class_avf var3) {
+   public void a(World var1, class_pr var2, class_avf var3) {
       if(var1.t.p().a() == var3.d && var2 instanceof class_xa) {
          int var4 = 1 << var3.e;
          int var5 = var3.b;
@@ -83,9 +83,9 @@ public class class_aax extends class_zt {
                            int var28 = var19 + var20 * 231871;
                            var28 = var28 * var28 * 31287121 + var28 * 11;
                            if((var28 >> 20 & 1) == 0) {
-                              var21.add(class_agk.d.g(class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.a)), 10);
+                              var21.add(Blocks.DIRT.getMapColor(Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.a)), 10);
                            } else {
-                              var21.add(class_agk.b.g(class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.a)), 100);
+                              var21.add(Blocks.STONE.getMapColor(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE)), 100);
                            }
 
                            var26 = 100.0D;
@@ -95,26 +95,26 @@ public class class_aax extends class_zt {
                            for(int var29 = 0; var29 < var4; ++var29) {
                               for(int var30 = 0; var30 < var4; ++var30) {
                                  int var31 = var22.b(var29 + var23, var30 + var24) + 1;
-                                 IBlockData var32 = class_agk.a.S();
+                                 IBlockData var32 = Blocks.AIR.getBlockData();
                                  if(var31 > 1) {
                                     do {
                                        --var31;
                                        var32 = var22.g(var35.c(var29 + var23, var31, var30 + var24));
-                                    } while(var32.getBlock().g(var32) == class_atl.b && var31 > 0);
+                                    } while(var32.getBlock().getMapColor(var32) == MaterialMapColor.b && var31 > 0);
 
-                                    if(var31 > 0 && var32.getBlock().v().d()) {
+                                    if(var31 > 0 && var32.getBlock().getMaterial().d()) {
                                        int var33 = var31 - 1;
 
                                        Block var34;
                                        do {
                                           var34 = var22.a(var29 + var23, var33--, var30 + var24);
                                           ++var25;
-                                       } while(var33 > 0 && var34.v().d());
+                                       } while(var33 > 0 && var34.getMaterial().d());
                                     }
                                  }
 
                                  var26 += (double)var31 / (double)(var4 * var4);
-                                 var21.add(var32.getBlock().g(var32));
+                                 var21.add(var32.getBlock().getMapColor(var32));
                               }
                            }
                         }
@@ -130,8 +130,8 @@ public class class_aax extends class_zt {
                            var37 = 0;
                         }
 
-                        class_atl var38 = (class_atl)Iterables.getFirst(Multisets.copyHighestCountFirst(var21), class_atl.b);
-                        if(var38 == class_atl.n) {
+                        MaterialMapColor var38 = (MaterialMapColor)Iterables.getFirst(Multisets.copyHighestCountFirst(var21), MaterialMapColor.b);
+                        if(var38 == MaterialMapColor.n) {
                            var36 = (double)var25 * 0.1D + (double)(var12 + var15 & 1) * 0.2D;
                            var37 = 1;
                            if(var36 < 0.5D) {
@@ -146,7 +146,7 @@ public class class_aax extends class_zt {
                         var13 = var26;
                         if(var15 >= 0 && var16 * var16 + var17 * var17 < var9 * var9 && (!var18 || (var12 + var15 & 1) != 0)) {
                            byte var39 = var3.f[var12 + var15 * 128];
-                           byte var40 = (byte)(var38.M * 4 + var37);
+                           byte var40 = (byte)(var38.color * 4 + var37);
                            if(var39 != var40) {
                               var3.f[var12 + var15 * 128] = var40;
                               var3.a(var12, var15);
@@ -162,7 +162,7 @@ public class class_aax extends class_zt {
       }
    }
 
-   public void a(class_aas var1, class_aen var2, class_pr var3, int var4, boolean var5) {
+   public void a(class_aas var1, World var2, class_pr var3, int var4, boolean var5) {
       if(!var2.D) {
          class_avf var6 = this.a(var1, var2);
          if(var3 instanceof class_xa) {
@@ -177,13 +177,13 @@ public class class_aax extends class_zt {
       }
    }
 
-   public class_ff a(class_aas var1, class_aen var2, class_xa var3) {
+   public class_ff a(class_aas var1, World var2, class_xa var3) {
       return this.a(var1, var2).a(var1, var2, var3);
    }
 
-   public void b(class_aas var1, class_aen var2, class_xa var3) {
+   public void b(class_aas var1, World var2, class_xa var3) {
       if(var1.n() && var1.o().o("map_is_scaling")) {
-         class_avf var4 = class_aau.bf.a(var1, var2);
+         class_avf var4 = Items.bf.a(var1, var2);
          var1.b(var2.b("map"));
          class_avf var5 = new class_avf("map_" + var1.i());
          var5.e = (byte)(var4.e + 1);

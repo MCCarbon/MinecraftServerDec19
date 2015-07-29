@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_ahm;
 import net.minecraft.server.class_aic;
@@ -45,7 +45,7 @@ public class class_afp extends class_aez {
       }
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       double var4 = af.a((double)(var3.n() + 8) / 200.0D, (double)(var3.p() + 8) / 200.0D);
       int var6;
       int var7;

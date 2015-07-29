@@ -4,31 +4,31 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_ajd;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 
 public class class_ahp extends class_ajd {
 	int a;
 
-	protected class_ahp(class_atk var1) {
+	protected class_ahp(Material var1) {
 		super(var1);
 	}
 
-	private void f(class_aen var1, class_cj var2, IBlockData var3) {
-		var1.a((class_cj) var2, (IBlockData) b(this.J).S().set(b, var3.get(b)), 2);
+	private void f(World var1, class_cj var2, IBlockData var3) {
+		var1.a((class_cj) var2, (IBlockData) b(this.material).getBlockData().set(b, var3.get(b)), 2);
 	}
 
-	public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+	public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
 		int var5 = ((Integer) var3.get(b)).intValue();
 		byte var6 = 1;
-		if (this.J == class_atk.i && !var1.t.l()) {
+		if (this.material == Material.i && !var1.t.l()) {
 			var6 = 2;
 		}
 
@@ -57,16 +57,16 @@ public class class_ahp extends class_ajd {
 				}
 			}
 
-			if (this.a >= 2 && this.J == class_atk.h) {
+			if (this.a >= 2 && this.material == Material.h) {
 				IBlockData var16 = var1.p(var2.b());
-				if (var16.getBlock().v().a()) {
+				if (var16.getBlock().getMaterial().a()) {
 					var14 = 0;
-				} else if (var16.getBlock().v() == this.J && ((Integer) var16.get(b)).intValue() == 0) {
+				} else if (var16.getBlock().getMaterial() == this.material && ((Integer) var16.get(b)).intValue() == 0) {
 					var14 = 0;
 				}
 			}
 
-			if (this.J == class_atk.i && var5 < 8 && var14 < 8 && var14 > var5 && var4.nextInt(4) != 0) {
+			if (this.material == Material.i && var5 < 8 && var14 < 8 && var14 > var5 && var4.nextInt(4) != 0) {
 				var7 *= 4;
 			}
 
@@ -89,8 +89,8 @@ public class class_ahp extends class_ajd {
 
 		IBlockData var13 = var1.p(var2.b());
 		if (this.h(var1, var2.b(), var13)) {
-			if (this.J == class_atk.i && var1.p(var2.b()).getBlock().v() == class_atk.h) {
-				var1.a(var2.b(), class_agk.b.S());
+			if (this.material == Material.i && var1.p(var2.b()).getBlock().getMaterial() == Material.h) {
+				var1.a(var2.b(), Blocks.STONE.getBlockData());
 				this.e(var1, var2.b());
 				return;
 			}
@@ -121,22 +121,22 @@ public class class_ahp extends class_ajd {
 
 	}
 
-	private void a(class_aen var1, class_cj var2, IBlockData var3, int var4) {
+	private void a(World var1, class_cj var2, IBlockData var3, int var4) {
 		if (this.h(var1, var2, var3)) {
-			if (var3.getBlock() != class_agk.a) {
-				if (this.J == class_atk.i) {
+			if (var3.getBlock() != Blocks.AIR) {
+				if (this.material == Material.i) {
 					this.e(var1, var2);
 				} else {
 					var3.getBlock().b(var1, var2, var3, 0);
 				}
 			}
 
-			var1.a((class_cj) var2, (IBlockData) this.S().set(b, Integer.valueOf(var4)), 3);
+			var1.a((class_cj) var2, (IBlockData) this.getBlockData().set(b, Integer.valueOf(var4)), 3);
 		}
 
 	}
 
-	private int a(class_aen var1, class_cj var2, int var3, class_cq var4) {
+	private int a(World var1, class_cj var2, int var3, class_cq var4) {
 		int var5 = 1000;
 		Iterator var6 = class_cq.class_c_in_class_cq.a.iterator();
 
@@ -157,7 +157,7 @@ public class class_ahp extends class_ajd {
 					var8 = var2.a(var7);
 					var9 = var1.p(var8);
 				} while (this.g(var1, var8, var9));
-			} while (var9.getBlock().v() == this.J && ((Integer) var9.get(b)).intValue() <= 0);
+			} while (var9.getBlock().getMaterial() == this.material && ((Integer) var9.get(b)).intValue() <= 0);
 
 			if (!this.g(var1, var8.b(), var9)) {
 				return var3;
@@ -172,7 +172,7 @@ public class class_ahp extends class_ajd {
 		}
 	}
 
-	private Set f(class_aen var1, class_cj var2) {
+	private Set f(World var1, class_cj var2) {
 		int var3 = 1000;
 		EnumSet var4 = EnumSet.noneOf(class_cq.class);
 		Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
@@ -191,7 +191,7 @@ public class class_ahp extends class_ajd {
 					var7 = var2.a(var6);
 					var8 = var1.p(var7);
 				} while (this.g(var1, var7, var8));
-			} while (var8.getBlock().v() == this.J && ((Integer) var8.get(b)).intValue() <= 0);
+			} while (var8.getBlock().getMaterial() == this.material && ((Integer) var8.get(b)).intValue() <= 0);
 
 			int var9;
 			if (this.g(var1, var7.b(), var1.p(var7.b()))) {
@@ -211,12 +211,12 @@ public class class_ahp extends class_ajd {
 		}
 	}
 
-	private boolean g(class_aen var1, class_cj var2, IBlockData var3) {
+	private boolean g(World var1, class_cj var2, IBlockData var3) {
 		Block var4 = var1.p(var2).getBlock();
-		return !(var4 instanceof class_ahl) && var4 != class_agk.an && var4 != class_agk.au && var4 != class_agk.aM ? (var4.J == class_atk.E ? true : var4.J.c()) : true;
+		return !(var4 instanceof class_ahl) && var4 != Blocks.STANDING_SIGN && var4 != Blocks.LADDER && var4 != Blocks.REEDS ? (var4.material == Material.E ? true : var4.material.isSolid()) : true;
 	}
 
-	protected int a(class_aen var1, class_cj var2, int var3) {
+	protected int a(World var1, class_cj var2, int var3) {
 		int var4 = this.e((class_aer) var1, var2);
 		if (var4 < 0) {
 			return var3;
@@ -233,12 +233,12 @@ public class class_ahp extends class_ajd {
 		}
 	}
 
-	private boolean h(class_aen var1, class_cj var2, IBlockData var3) {
-		class_atk var4 = var3.getBlock().v();
-		return var4 != this.J && var4 != class_atk.i && !this.g(var1, var2, var3);
+	private boolean h(World var1, class_cj var2, IBlockData var3) {
+		Material var4 = var3.getBlock().getMaterial();
+		return var4 != this.material && var4 != Material.i && !this.g(var1, var2, var3);
 	}
 
-	public void c(class_aen var1, class_cj var2, IBlockData var3) {
+	public void c(World var1, class_cj var2, IBlockData var3) {
 		if (!this.e(var1, var2, var3)) {
 			var1.a((class_cj) var2, (Block) this, this.a(var1));
 		}

@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.class_ald;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_auz;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
@@ -78,7 +78,7 @@ public class class_rf extends class_rm {
 
       float var8 = 0.91F;
       if(this.a.C) {
-         var8 = this.a.o.p(new class_cj(class_nu.d((float)var4), class_nu.d((float)var5) - 1, class_nu.d((float)var6))).getBlock().L * 0.91F;
+         var8 = this.a.o.p(new class_cj(class_nu.d((float)var4), class_nu.d((float)var5) - 1, class_nu.d((float)var6))).getBlock().frictionFactor * 0.91F;
       }
 
       float var9 = 0.16277136F / (var8 * var8 * var8);
@@ -118,7 +118,7 @@ public class class_rf extends class_rm {
       int var21 = class_nu.d(this.a.J + 1.0F);
       if(var4 != var17 || var6 != var18) {
          Block var22 = this.a.o.p(new class_cj(var4, var5, var6)).getBlock();
-         boolean var23 = !this.a(var22) && (var22.v() != class_atk.a || !this.a(this.a.o.p(new class_cj(var4, var5 - 1, var6)).getBlock()));
+         boolean var23 = !this.a(var22) && (var22.getMaterial() != Material.a || !this.a(this.a.o.p(new class_cj(var4, var5 - 1, var6)).getBlock()));
          if(var23 && 0 == class_auz.a(this.a.o, this.a, var17, var5, var18, var19, var20, var21, false, false, true) && 1 == class_auz.a(this.a.o, this.a, var4, var5 + 1, var6, var19, var20, var21, false, false, true) && 1 == class_auz.a(this.a.o, this.a, var17, var5 + 1, var18, var19, var20, var21, false, false, true)) {
             var2.t().a();
          }
@@ -128,10 +128,10 @@ public class class_rf extends class_rm {
          class_oo var25 = this.a(var1);
          if(var25 != null) {
             class_aas var26 = var1.b((class_oo)var25);
-            if(var26 != null && var26.b() == class_aau.cb) {
+            if(var26 != null && var26.b() == Items.cb) {
                var26.a(1, (class_qa)var1);
                if(var26.b == 0) {
-                  class_aas var24 = new class_aas(class_aau.aT);
+                  class_aas var24 = new class_aas(Items.aT);
                   var24.d(var26.o());
                   var1.a((class_oo)var25, (class_aas)var24);
                }
@@ -149,7 +149,7 @@ public class class_rf extends class_rm {
       for(int var4 = 0; var4 < var3; ++var4) {
          class_oo var5 = var2[var4];
          class_aas var6 = var1.b((class_oo)var5);
-         if(var6 != null && var6.b() == class_aau.cb) {
+         if(var6 != null && var6.b() == Items.cb) {
             return var5;
          }
       }

@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auw;
 import net.minecraft.server.class_auz;
@@ -20,7 +20,7 @@ public class class_tf extends class_tg {
    protected class_auz a;
    private boolean f;
 
-   public class_tf(class_qb var1, class_aen var2) {
+   public class_tf(class_qb var1, World var2) {
       super(var1, var2);
    }
 
@@ -45,7 +45,7 @@ public class class_tf extends class_tg {
          int var3 = 0;
 
          do {
-            if(var2 != class_agk.i && var2 != class_agk.j) {
+            if(var2 != Blocks.FLOWING_WATER && var2 != Blocks.WATER) {
                return var1;
             }
 
@@ -151,16 +151,16 @@ public class class_tf extends class_tg {
                double var18 = (double)var15 + 0.5D - var7.c;
                if(var16 * var8 + var18 * var10 >= 0.0D) {
                   Block var20 = this.c.p(new class_cj(var14, var2 - 1, var15)).getBlock();
-                  class_atk var21 = var20.v();
-                  if(var21 == class_atk.a) {
+                  Material var21 = var20.getMaterial();
+                  if(var21 == Material.a) {
                      return false;
                   }
 
-                  if(var21 == class_atk.h && !this.b.V()) {
+                  if(var21 == Material.h && !this.b.V()) {
                      return false;
                   }
 
-                  if(var21 == class_atk.i) {
+                  if(var21 == Material.i) {
                      return false;
                   }
                }
@@ -180,7 +180,7 @@ public class class_tf extends class_tg {
          double var16 = (double)var13.p() + 0.5D - var7.c;
          if(var14 * var8 + var16 * var10 >= 0.0D) {
             Block var18 = this.c.p(var13).getBlock();
-            if(!var18.b(this.c, var13)) {
+            if(!var18.isPassable(this.c, var13)) {
                return false;
             }
          }

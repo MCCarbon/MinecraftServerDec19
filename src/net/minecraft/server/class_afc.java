@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aic;
-import net.minecraft.server.class_alh;
+import net.minecraft.server.BlockStone;
 import net.minecraft.server.class_api;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_aqb;
@@ -21,11 +21,11 @@ import net.minecraft.server.class_are;
 import net.minecraft.server.class_arg;
 import net.minecraft.server.class_arj;
 import net.minecraft.server.class_arp;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 
 public class class_afc {
-   protected class_aen a;
+   protected World a;
    protected Random b;
    protected class_cj c;
    protected class_api d;
@@ -65,11 +65,11 @@ public class class_afc {
    public boolean L;
 
    public class_afc() {
-      this.f = new class_arg(class_agk.m, 7);
-      this.g = new class_arg(class_agk.n, 6);
-      this.s = new class_aqm(class_agk.N, class_aic.class_a_in_class_aic.a);
-      this.t = new class_aqb(class_agk.P);
-      this.u = new class_aqb(class_agk.Q);
+      this.f = new class_arg(Blocks.SAND, 7);
+      this.g = new class_arg(Blocks.GRAVEL, 6);
+      this.s = new class_aqm(Blocks.YELLOW_FLOWER, class_aic.class_a_in_class_aic.a);
+      this.t = new class_aqb(Blocks.BROWN_MUSHROOM);
+      this.u = new class_aqb(Blocks.RED_MUSHROOM);
       this.v = new class_aqr();
       this.w = new class_are();
       this.x = new class_aqc();
@@ -82,7 +82,7 @@ public class class_afc {
       this.L = true;
    }
 
-   public void a(class_aen var1, Random var2, class_aez var3, class_cj var4) {
+   public void a(World var1, Random var2, class_aez var3, class_cj var4) {
       if(this.a != null) {
          throw new RuntimeException("Already decorating");
       } else {
@@ -96,17 +96,17 @@ public class class_afc {
 
          this.b = var2;
          this.c = var4;
-         this.h = new class_arb(class_agk.d.S(), this.d.I);
-         this.i = new class_arb(class_agk.n.S(), this.d.M);
-         this.j = new class_arb(class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.b), this.d.Q);
-         this.k = new class_arb(class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.d), this.d.U);
-         this.l = new class_arb(class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.f), this.d.Y);
-         this.m = new class_arb(class_agk.q.S(), this.d.ac);
-         this.n = new class_arb(class_agk.p.S(), this.d.ag);
-         this.o = new class_arb(class_agk.o.S(), this.d.ak);
-         this.p = new class_arb(class_agk.aC.S(), this.d.ao);
-         this.q = new class_arb(class_agk.ag.S(), this.d.as);
-         this.r = new class_arb(class_agk.x.S(), this.d.aw);
+         this.h = new class_arb(Blocks.DIRT.getBlockData(), this.d.I);
+         this.i = new class_arb(Blocks.GRAVEL.getBlockData(), this.d.M);
+         this.j = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.GRANITE), this.d.Q);
+         this.k = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.DIORITE), this.d.U);
+         this.l = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.ANDESITE), this.d.Y);
+         this.m = new class_arb(Blocks.COAL_ORE.getBlockData(), this.d.ac);
+         this.n = new class_arb(Blocks.IRON_ORE.getBlockData(), this.d.ag);
+         this.o = new class_arb(Blocks.GOLD_ORE.getBlockData(), this.d.ak);
+         this.p = new class_arb(Blocks.REDSTONE_ORE.getBlockData(), this.d.ao);
+         this.q = new class_arb(Blocks.DIAMOND_ORE.getBlockData(), this.d.as);
+         this.r = new class_arb(Blocks.LAPIS_ORE.getBlockData(), this.d.aw);
          this.a(var3);
          this.a = null;
          this.b = null;
@@ -173,7 +173,7 @@ public class class_afc {
             var8 = this.c.a(var4, var12, var5);
             class_aic.class_a_in_class_aic var9 = var1.a(this.b, var8);
             class_aic var10 = var9.a().a();
-            if(var10.v() != class_atk.a) {
+            if(var10.getMaterial() != Material.a) {
                this.s.a(var10, var9);
                this.s.b(this.a, this.b, var8);
             }
@@ -307,7 +307,7 @@ public class class_afc {
             if(var11 > 0) {
                var12 = this.b.nextInt(var11);
                var8 = this.c.a(var4, var12, var5);
-               (new class_arj(class_agk.i)).b(this.a, this.b, var8);
+               (new class_arj(Blocks.FLOWING_WATER)).b(this.a, this.b, var8);
             }
          }
 
@@ -316,7 +316,7 @@ public class class_afc {
             var5 = this.b.nextInt(16) + 8;
             var11 = this.b.nextInt(this.b.nextInt(this.b.nextInt(240) + 8) + 8);
             var7 = this.c.a(var4, var11, var5);
-            (new class_arj(class_agk.k)).b(this.a, this.b, var7);
+            (new class_arj(Blocks.FLOWING_LAVA)).b(this.a, this.b, var7);
          }
       }
 

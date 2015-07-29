@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asn;
@@ -46,7 +46,7 @@ public abstract class class_asp extends class_asn {
       this.c = new class_cj(var1.g("TPX"), var1.g("TPY"), var1.g("TPZ"));
    }
 
-   public boolean a(class_aen var1, Random var2, class_arw var3) {
+   public boolean a(World var1, Random var2, class_arw var3) {
       this.b.a(var3);
       this.a.b(var1, this.c, this.b);
       Map var4 = this.a.a(this.c, this.b);
@@ -61,7 +61,7 @@ public abstract class class_asp extends class_asn {
       return true;
    }
 
-   protected abstract void a(String var1, class_cj var2, class_aen var3, Random var4, class_arw var5);
+   protected abstract void a(String var1, class_cj var2, World var3, Random var4, class_arw var5);
 
    private void h() {
       Block.class_c_in_class_agj var1 = this.b.c();

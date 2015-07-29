@@ -4,11 +4,11 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
@@ -68,7 +68,7 @@ public class class_uw extends class_wi implements class_wk {
       }
    };
 
-   public class_uw(class_aen var1) {
+   public class_uw(World var1) {
       super(var1);
       this.bA = new class_le(this.f_(), class_oh.class_a_in_class_oh.f, class_oh.class_b_in_class_oh.a, true, false);
       this.i(this.bv());
@@ -293,7 +293,7 @@ public class class_uw extends class_wi implements class_wk {
                         int var10 = var16 + var20;
                         class_cj var11 = new class_cj(var21, var9, var10);
                         Block var12 = this.o.p(var11).getBlock();
-                        if(var12.v() != class_atk.a && a(var12)) {
+                        if(var12.getMaterial() != Material.a && a(var12)) {
                            var18 = this.o.b(var11, true) || var18;
                         }
                      }
@@ -315,7 +315,7 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    public static boolean a(Block var0) {
-      return var0 != class_agk.h && var0 != class_agk.bF && var0 != class_agk.bG && var0 != class_agk.bX && var0 != class_agk.cv;
+      return var0 != Blocks.BEDROCK && var0 != Blocks.END_PORTAL && var0 != Blocks.END_PORTAL_FRAME && var0 != Blocks.COMMAND_BLOCK && var0 != Blocks.BARRIER;
    }
 
    public void n() {
@@ -440,7 +440,7 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    protected void b(boolean var1, int var2) {
-      class_vm var3 = this.a(class_aau.cc, 1);
+      class_vm var3 = this.a(Items.cc, 1);
       if(var3 != null) {
          var3.u();
       }

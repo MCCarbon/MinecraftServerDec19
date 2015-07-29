@@ -1,35 +1,35 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agd;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ana;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 
 public class class_ahr extends class_agd {
-   protected class_ahr(class_atk var1) {
+   protected class_ahr(Material var1) {
       super(var1);
-      this.a(1.0F);
+      this.setLightLevel(1.0F);
    }
 
-   public class_amg a(class_aen var1, int var2) {
+   public class_amg a(World var1, int var2) {
       return new class_ana();
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
@@ -37,7 +37,7 @@ public class class_ahr extends class_agd {
       return 0;
    }
 
-   public class_atl g(IBlockData var1) {
-      return class_atl.E;
+   public MaterialMapColor getMapColor(IBlockData var1) {
+      return MaterialMapColor.E;
    }
 }

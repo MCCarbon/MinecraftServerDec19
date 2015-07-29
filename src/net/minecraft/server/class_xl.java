@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pc;
@@ -11,17 +11,17 @@ import net.minecraft.server.class_qb;
 import net.minecraft.server.class_xf;
 
 public class class_xl extends class_xf {
-   public class_xl(class_aen var1) {
+   public class_xl(World var1) {
       super(var1);
       this.a(0.3125F, 0.3125F);
    }
 
-   public class_xl(class_aen var1, class_qa var2, double var3, double var5, double var7) {
+   public class_xl(World var1, class_qa var2, double var3, double var5, double var7) {
       super(var1, var2, var3, var5, var7);
       this.a(0.3125F, 0.3125F);
    }
 
-   public class_xl(class_aen var1, double var2, double var4, double var6, double var8, double var10, double var12) {
+   public class_xl(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
       super(var1, var2, var4, var6, var8, var10, var12);
       this.a(0.3125F, 0.3125F);
    }
@@ -46,7 +46,7 @@ public class class_xl extends class_xf {
             if(var2) {
                class_cj var3 = var1.a().a(var1.b);
                if(this.o.d(var3)) {
-                  this.o.a(var3, class_agk.ab.S());
+                  this.o.a(var3, Blocks.FIRE.getBlockData());
                }
             }
          }

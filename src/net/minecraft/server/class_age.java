@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -15,14 +15,14 @@ import net.minecraft.server.class_pr;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_age extends Block {
-   protected class_age(class_atk var1) {
-      this(var1, var1.r());
+   protected class_age(Material var1) {
+      this(var1, var1.getMapColor());
    }
 
-   protected class_age(class_atk var1, class_atl var2) {
+   protected class_age(Material var1, MaterialMapColor var2) {
       super(var1, var2);
       this.a((CreativeTab)CreativeTab.d);
-      this.a(true);
+      this.setTicking(true);
    }
 
    public void a(class_aer var1, class_cj var2) {
@@ -33,30 +33,30 @@ public abstract class class_age extends Block {
       boolean var2 = this.e(var1) > 0;
       float var3 = 0.0625F;
       if(var2) {
-         this.a(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.03125F, 0.9375F);
+         this.setSizes(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.03125F, 0.9375F);
       } else {
-         this.a(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.0625F, 0.9375F);
+         this.setSizes(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.0625F, 0.9375F);
       }
 
    }
 
-   public int a(class_aen var1) {
+   public int a(World var1) {
       return 20;
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean b(class_aer var1, class_cj var2) {
+   public boolean isPassable(class_aer var1, class_cj var2) {
       return true;
    }
 
@@ -64,11 +64,11 @@ public abstract class class_age extends Block {
       return true;
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
+   public boolean d(World var1, class_cj var2) {
       return this.m(var1, var2.b());
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!this.m(var1, var2.b())) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -76,14 +76,14 @@ public abstract class class_age extends Block {
 
    }
 
-   private boolean m(class_aen var1, class_cj var2) {
-      return class_aen.a((class_aer)var1, (class_cj)var2) || var1.p(var2).getBlock() instanceof class_ahz;
+   private boolean m(World var1, class_cj var2) {
+      return World.a((class_aer)var1, (class_cj)var2) || var1.p(var2).getBlock() instanceof class_ahz;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Random var4) {
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       if(!var1.D) {
          int var5 = this.e(var3);
          if(var5 > 0) {
@@ -93,7 +93,7 @@ public abstract class class_age extends Block {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
       if(!var1.D) {
          int var5 = this.e(var3);
          if(var5 == 0) {
@@ -103,7 +103,7 @@ public abstract class class_age extends Block {
       }
    }
 
-   protected void a(class_aen var1, class_cj var2, IBlockData var3, int var4) {
+   protected void a(World var1, class_cj var2, IBlockData var3, int var4) {
       int var5 = this.f(var1, var2);
       boolean var6 = var4 > 0;
       boolean var7 = var5 > 0;
@@ -131,7 +131,7 @@ public abstract class class_age extends Block {
       return new class_awf((double)((float)var1.n() + 0.125F), (double)var1.o(), (double)((float)var1.p() + 0.125F), (double)((float)(var1.n() + 1) - 0.125F), (double)var1.o() + 0.25D, (double)((float)(var1.p() + 1) - 0.125F));
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       if(this.e(var3) > 0) {
          this.e(var1, var2);
       }
@@ -139,7 +139,7 @@ public abstract class class_age extends Block {
       super.b(var1, var2, var3);
    }
 
-   protected void e(class_aen var1, class_cj var2) {
+   protected void e(World var1, class_cj var2) {
       var1.c((class_cj)var2, (Block)this);
       var1.c((class_cj)var2.b(), (Block)this);
    }
@@ -152,7 +152,7 @@ public abstract class class_age extends Block {
       return var4 == class_cq.b?this.e(var3):0;
    }
 
-   public boolean i() {
+   public boolean isPowerSource() {
       return true;
    }
 
@@ -160,14 +160,14 @@ public abstract class class_age extends Block {
       float var1 = 0.5F;
       float var2 = 0.125F;
       float var3 = 0.5F;
-      this.a(0.0F, 0.375F, 0.0F, 1.0F, 0.625F, 1.0F);
+      this.setSizes(0.0F, 0.375F, 0.0F, 1.0F, 0.625F, 1.0F);
    }
 
    public int k() {
       return 1;
    }
 
-   protected abstract int f(class_aen var1, class_cj var2);
+   protected abstract int f(World var1, class_cj var2);
 
    protected abstract int e(IBlockData var1);
 

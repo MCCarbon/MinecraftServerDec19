@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 
-public class class_atj extends class_atk {
-   public class_atj(class_atl var1) {
+public class class_atj extends Material {
+   public class_atj(MaterialMapColor var1) {
       super(var1);
       this.i();
       this.n();
@@ -14,7 +14,7 @@ public class class_atj extends class_atk {
       return true;
    }
 
-   public boolean c() {
+   public boolean isSolid() {
       return false;
    }
 

@@ -3,8 +3,8 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -17,11 +17,11 @@ import net.minecraft.server.class_uz;
 import net.minecraft.server.class_xa;
 
 public class class_vb extends class_uz {
-   public class_vb(class_aen var1) {
+   public class_vb(World var1) {
       super(var1);
    }
 
-   public class_vb(class_aen var1, class_cj var2) {
+   public class_vb(World var1, class_cj var2) {
       super(var1, var2);
       this.b((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D);
       float var3 = 0.125F;
@@ -67,7 +67,7 @@ public class class_vb extends class_uz {
          List var7;
          Iterator var8;
          class_qb var9;
-         if(var2 != null && var2.b() == class_aau.cq) {
+         if(var2 != null && var2.b() == Items.cq) {
             var5 = 7.0D;
             var7 = this.o.a(class_qb.class, new class_awf(this.s - var5, this.t - var5, this.u - var5, this.s + var5, this.t + var5, this.u + var5));
             var8 = var7.iterator();
@@ -105,14 +105,14 @@ public class class_vb extends class_uz {
       return this.o.p(this.a).getBlock() instanceof class_ahz;
    }
 
-   public static class_vb a(class_aen var0, class_cj var1) {
+   public static class_vb a(World var0, class_cj var1) {
       class_vb var2 = new class_vb(var0, var1);
       var2.n = true;
       var0.a((class_pr)var2);
       return var2;
    }
 
-   public static class_vb b(class_aen var0, class_cj var1) {
+   public static class_vb b(World var0, class_cj var1) {
       int var2 = var1.n();
       int var3 = var1.o();
       int var4 = var1.p();

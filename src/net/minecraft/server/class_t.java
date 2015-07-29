@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -29,7 +29,7 @@ public class class_t extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       class_lh var3 = var2.length == 0?b(var1):a(var1, var2[0]);
-      class_aar var4 = var2.length >= 2?f(var1, var2[1]):null;
+      Item var4 = var2.length >= 2?f(var1, var2[1]):null;
       int var5 = var2.length >= 3?a(var2[2], -1):-1;
       int var6 = var2.length >= 4?a(var2[3], -1):-1;
       class_dn var7 = null;
@@ -65,7 +65,7 @@ public class class_t extends class_i {
    }
 
    public List a(class_m var1, String[] var2, class_cj var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, class_aar.e.getKeys()):null);
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.ITEM_REGISTRY.getKeys()):null);
    }
 
    protected String[] d() {

@@ -3,9 +3,9 @@ package net.minecraft.server;
 import com.google.common.base.Predicates;
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.class_akq;
 import net.minecraft.server.class_alk;
@@ -22,12 +22,12 @@ public class class_aqg extends class_aql {
    private final IBlockData d;
 
    public class_aqg() {
-      this.b = class_agk.U.S().set(class_alk.N, class_alk.class_a_in_class_alk.b).set(class_aio.a, class_aio.class_a_in_class_aio.b);
-      this.c = class_agk.A.S();
-      this.d = class_agk.i.S();
+      this.b = Blocks.STONE_SLAB.getBlockData().set(class_alk.N, class_alk.class_a_in_class_alk.b).set(class_aio.a, class_aio.class_a_in_class_aio.b);
+      this.c = Blocks.SANDSTONE.getBlockData();
+      this.d = Blocks.FLOWING_WATER.getBlockData();
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       while(var1.d(var3) && var3.o() > 2) {
          var3 = var3.b();
       }
@@ -96,6 +96,6 @@ public class class_aqg extends class_aql {
    }
 
    static {
-      a = class_ant.a((Block)class_agk.m).a(class_akq.a, Predicates.equalTo(class_akq.class_a_in_class_akq.a));
+      a = class_ant.a((Block)Blocks.SAND).a(class_akq.a, Predicates.equalTo(class_akq.class_a_in_class_akq.a));
    }
 }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
@@ -9,7 +9,7 @@ import net.minecraft.server.class_ud;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_abi extends class_aar {
+public class class_abi extends Item {
    public class_abi() {
       this.h = 1;
       this.a(CreativeTab.e);

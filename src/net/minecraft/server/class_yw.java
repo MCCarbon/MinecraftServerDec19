@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aaq;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abc;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.class_act;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_oj;
@@ -49,7 +49,7 @@ public class class_yw extends class_yx {
       }
 
       this.c = 0;
-      if(var1.b() == class_aar.a(class_agk.ai)) {
+      if(var1.b() == Item.getByBlock(Blocks.CRAFTING_TABLE)) {
          this.b.b((class_my)class_mt.h);
       }
 
@@ -57,7 +57,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.i);
       }
 
-      if(var1.b() == class_aar.a(class_agk.al)) {
+      if(var1.b() == Item.getByBlock(Blocks.FURNACE)) {
          this.b.b((class_my)class_mt.j);
       }
 
@@ -65,15 +65,15 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.l);
       }
 
-      if(var1.b() == class_aau.R) {
+      if(var1.b() == Items.R) {
          this.b.b((class_my)class_mt.m);
       }
 
-      if(var1.b() == class_aau.bb) {
+      if(var1.b() == Items.bb) {
          this.b.b((class_my)class_mt.n);
       }
 
-      if(var1.b() instanceof class_abc && ((class_abc)var1.b()).g() != class_aar.class_a_in_class_aar.a) {
+      if(var1.b() instanceof class_abc && ((class_abc)var1.b()).g() != Item.class_a_in_class_aar.a) {
          this.b.b((class_my)class_mt.o);
       }
 
@@ -81,15 +81,15 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.r);
       }
 
-      if(var1.b() == class_aar.a(class_agk.bC)) {
+      if(var1.b() == Item.getByBlock(Blocks.ENCHANTING_TABLE)) {
          this.b.b((class_my)class_mt.E);
       }
 
-      if(var1.b() == class_aar.a(class_agk.X)) {
+      if(var1.b() == Item.getByBlock(Blocks.BOOKSHELF)) {
          this.b.b((class_my)class_mt.G);
       }
 
-      if(var1.b() == class_aau.aq && var1.i() == 1) {
+      if(var1.b() == Items.aq && var1.i() == 1) {
          this.b.b((class_my)class_mt.M);
       }
 

@@ -1,24 +1,24 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agf;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_cj;
 
 public class class_akg extends class_agf {
-   public static final class_any b = class_any.a("shape", class_agf.class_b_in_class_agf.class);
+   public static final BlockStateEnum b = BlockStateEnum.of("shape", class_agf.class_b_in_class_agf.class);
 
    protected class_akg() {
       super(false);
-      this.j(this.M.b().set(b, class_agf.class_b_in_class_agf.a));
+      this.setBlockData(this.blockStateList.getFirst().set(b, class_agf.class_b_in_class_agf.a));
    }
 
-   protected void b(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
-      if(var4.i() && (new class_agf.class_a_in_class_agf(var1, var2, var3)).a() == 3) {
+   protected void b(World var1, class_cj var2, IBlockData var3, Block var4) {
+      if(var4.isPowerSource() && (new class_agf.class_a_in_class_agf(var1, var2, var3)).a() == 3) {
          this.a(var1, var2, var3, false);
       }
 
@@ -28,11 +28,11 @@ public class class_akg extends class_agf {
       return b;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(b, class_agf.class_b_in_class_agf.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(b, class_agf.class_b_in_class_agf.a(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_agf.class_b_in_class_agf)var1.get(b)).a();
    }
 
@@ -160,8 +160,8 @@ public class class_akg extends class_agf {
       }
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{b});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{b});
    }
 
    // $FF: synthetic class

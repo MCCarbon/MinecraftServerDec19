@@ -1,27 +1,27 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_qa;
 
 public class class_akp extends Block {
-   public static final class_any N = class_any.a("axis", class_cq.class_a_in_class_cq.class);
+   public static final BlockStateEnum N = BlockStateEnum.of("axis", class_cq.class_a_in_class_cq.class);
 
-   protected class_akp(class_atk var1) {
-      super(var1, var1.r());
+   protected class_akp(Material var1) {
+      super(var1, var1.getMapColor());
    }
 
-   protected class_akp(class_atk var1, class_atl var2) {
+   protected class_akp(Material var1, MaterialMapColor var2) {
       super(var1, var2);
    }
 
@@ -46,7 +46,7 @@ public class class_akp extends Block {
       }
    }
 
-   public IBlockData a(int var1) {
+   public IBlockData fromLegacyData(int var1) {
       class_cq.class_a_in_class_cq var2 = class_cq.class_a_in_class_cq.b;
       int var3 = var1 & 12;
       if(var3 == 4) {
@@ -55,10 +55,10 @@ public class class_akp extends Block {
          var2 = class_cq.class_a_in_class_cq.c;
       }
 
-      return this.S().set(N, var2);
+      return this.getBlockData().set(N, var2);
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       int var2 = 0;
       class_cq.class_a_in_class_cq var3 = (class_cq.class_a_in_class_cq)var1.get(N);
       if(var3 == class_cq.class_a_in_class_cq.a) {
@@ -70,15 +70,15 @@ public class class_akp extends Block {
       return var2;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{N});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{N});
    }
 
    protected class_aas i(IBlockData var1) {
-      return new class_aas(class_aar.a((Block)this));
+      return new class_aas(Item.getByBlock((Block)this));
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
       return super.a(var1, var2, var3, var4, var5, var6, var7, var8).set(N, var3.k());
    }
 

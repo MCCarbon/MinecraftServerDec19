@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aej;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_pd;
@@ -147,7 +147,7 @@ public class class_pc {
       class_qa var2 = var1.bu();
       String var3 = "death.attack." + this.p;
       String var4 = var3 + ".player";
-      return var2 != null && class_di.c(var4)?new class_fb(var4, new Object[]{var1.f_(), var2.f_()}):new class_fb(var3, new Object[]{var1.f_()});
+      return var2 != null && LocaleI18n.c(var4)?new class_fb(var4, new Object[]{var1.f_(), var2.f_()}):new class_fb(var3, new Object[]{var1.f_()});
    }
 
    public boolean o() {

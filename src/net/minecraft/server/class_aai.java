@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 
-public class class_aai extends class_aar {
+public class class_aai extends Item {
 }

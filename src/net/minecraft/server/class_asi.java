@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_asj;
 import net.minecraft.server.class_ask;
@@ -131,7 +131,7 @@ public class class_asi extends class_ask {
       public class_a_in_class_asi() {
       }
 
-      public class_a_in_class_asi(class_aen var1, Random var2, int var3, int var4) {
+      public class_a_in_class_asi(World var1, Random var2, int var3, int var4) {
          super(var3, var4);
          class_asj.b();
          class_asj.class_m_in_class_asj var5 = new class_asj.class_m_in_class_asj(0, var2, (var3 << 4) + 2, (var4 << 4) + 2);

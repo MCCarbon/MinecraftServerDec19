@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aej;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awg;
@@ -18,12 +18,12 @@ import net.minecraft.server.class_xf;
 public class class_xu extends class_xf {
    private static final int e = class_qi.a(class_xu.class);
 
-   public class_xu(class_aen var1) {
+   public class_xu(World var1) {
       super(var1);
       this.a(0.3125F, 0.3125F);
    }
 
-   public class_xu(class_aen var1, class_qa var2, double var3, double var5, double var7) {
+   public class_xu(World var1, class_qa var2, double var3, double var5, double var7) {
       super(var1, var2, var3, var5, var7);
       this.a(0.3125F, 0.3125F);
    }
@@ -36,7 +36,7 @@ public class class_xu extends class_xf {
       return false;
    }
 
-   public float a(class_aej var1, class_aen var2, class_cj var3, IBlockData var4) {
+   public float a(class_aej var1, World var2, class_cj var3, IBlockData var4) {
       float var5 = super.a(var1, var2, var3, var4);
       Block var6 = var4.getBlock();
       if(this.l() && class_uw.a(var6)) {

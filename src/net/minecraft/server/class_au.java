@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -70,7 +70,7 @@ public class class_au extends class_i {
                var22 = true;
             }
 
-            class_aen var23 = var1.e();
+            World var23 = var1.e();
             if(var23 instanceof class_lg) {
                class_lg var24 = (class_lg)var23;
                int[] var25 = new int[var4.d()];

@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicates;
 import java.util.List;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -24,7 +24,7 @@ import net.minecraft.server.class_qb;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_za extends class_aar {
+public class class_za extends Item {
    private static final int[] k = new int[]{13, 15, 16, 11};
    public static final String[] a = new String[]{"minecraft:items/empty_armor_slot_boots", "minecraft:items/empty_armor_slot_leggings", "minecraft:items/empty_armor_slot_chestplate", "minecraft:items/empty_armor_slot_helmet"};
    private static final class_cr l = new class_cn() {
@@ -132,7 +132,7 @@ public class class_za extends class_aar {
       return this.m.b() == var2.b()?true:super.a(var1, var2);
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       class_pw var5 = class_qb.c(var1);
       class_aas var6 = var3.a(var5);
       if(var6 == null) {
@@ -175,8 +175,8 @@ public class class_za extends class_aar {
          return this.i;
       }
 
-      public class_aar b() {
-         return this == a?class_aau.aH:(this == b?class_aau.l:(this == d?class_aau.m:(this == c?class_aau.l:(this == e?class_aau.k:null))));
+      public Item b() {
+         return this == a?Items.aH:(this == b?Items.l:(this == d?Items.m:(this == c?Items.l:(this == e?Items.k:null))));
       }
    }
 }

@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_age;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
@@ -18,9 +18,9 @@ public class class_akb extends class_age {
    public static final class_anw a = class_anw.a("powered");
    private final class_akb.class_a_in_class_akb b;
 
-   protected class_akb(class_atk var1, class_akb.class_a_in_class_akb var2) {
+   protected class_akb(Material var1, class_akb.class_a_in_class_akb var2) {
       super(var1);
-      this.j(this.M.b().set(a, Boolean.valueOf(false)));
+      this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
       this.b = var2;
    }
 
@@ -32,7 +32,7 @@ public class class_akb extends class_age {
       return var1.set(a, Boolean.valueOf(var2 > 0));
    }
 
-   protected int f(class_aen var1, class_cj var2) {
+   protected int f(World var1, class_cj var2) {
       class_awf var3 = this.a(var2);
       List var4;
       switch(class_akb.SyntheticClass_1.a[this.b.ordinal()]) {
@@ -60,16 +60,16 @@ public class class_akb extends class_age {
       return 0;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, Boolean.valueOf(var1 == 1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, Boolean.valueOf(var1 == 1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((Boolean)var1.get(a)).booleanValue()?1:0;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class

@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_om;
@@ -35,7 +35,7 @@ import net.minecraft.server.class_xa;
 public class class_wp extends class_wi {
    private static final int a = class_qi.a(class_wp.class);
 
-   public class_wp(class_aen var1) {
+   public class_wp(World var1) {
       super(var1);
       this.a(1.4F, 0.9F);
       this.i.a(1, new class_rj(this));
@@ -54,7 +54,7 @@ public class class_wp extends class_wi {
       return (double)(this.K * 0.5F);
    }
 
-   protected class_tg b(class_aen var1) {
+   protected class_tg b(World var1) {
       return new class_th(this, var1);
    }
 
@@ -93,14 +93,14 @@ public class class_wp extends class_wi {
       this.a("mob.spider.step", 0.15F, 1.0F);
    }
 
-   protected class_aar D() {
-      return class_aau.H;
+   protected Item D() {
+      return Items.H;
    }
 
    protected void b(boolean var1, int var2) {
       super.b(var1, var2);
       if(var1 && (this.V.nextInt(3) == 0 || this.V.nextInt(1 + var2) > 0)) {
-         this.a(class_aau.bE, 1);
+         this.a(Items.bE, 1);
       }
 
    }

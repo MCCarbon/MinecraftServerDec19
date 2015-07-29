@@ -3,9 +3,9 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_amg;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_amm;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_df;
@@ -50,7 +50,7 @@ public abstract class class_asn {
 
    protected abstract void a(class_dn var1);
 
-   public void a(class_aen var1, class_dn var2) {
+   public void a(World var1, class_dn var2) {
       if(var2.d("BB")) {
          this.l = new class_arw(var2.m("BB"));
       }
@@ -66,7 +66,7 @@ public abstract class class_asn {
    public void a(class_asn var1, List var2, Random var3) {
    }
 
-   public abstract boolean a(class_aen var1, Random var2, class_arw var3);
+   public abstract boolean a(World var1, Random var2, class_arw var3);
 
    public class_arw c() {
       return this.l;
@@ -95,7 +95,7 @@ public abstract class class_asn {
       return new class_cj(this.l.f());
    }
 
-   protected boolean a(class_aen var1, class_arw var2) {
+   protected boolean a(World var1, class_arw var2) {
       int var3 = Math.max(this.l.a - 1, var2.a);
       int var4 = Math.max(this.l.b - 1, var2.b);
       int var5 = Math.max(this.l.c - 1, var2.c);
@@ -108,11 +108,11 @@ public abstract class class_asn {
       int var11;
       for(var10 = var3; var10 <= var6; ++var10) {
          for(var11 = var5; var11 <= var8; ++var11) {
-            if(var1.p(var9.c(var10, var4, var11)).getBlock().v().d()) {
+            if(var1.p(var9.c(var10, var4, var11)).getBlock().getMaterial().d()) {
                return true;
             }
 
-            if(var1.p(var9.c(var10, var7, var11)).getBlock().v().d()) {
+            if(var1.p(var9.c(var10, var7, var11)).getBlock().getMaterial().d()) {
                return true;
             }
          }
@@ -120,11 +120,11 @@ public abstract class class_asn {
 
       for(var10 = var3; var10 <= var6; ++var10) {
          for(var11 = var4; var11 <= var7; ++var11) {
-            if(var1.p(var9.c(var10, var11, var5)).getBlock().v().d()) {
+            if(var1.p(var9.c(var10, var11, var5)).getBlock().getMaterial().d()) {
                return true;
             }
 
-            if(var1.p(var9.c(var10, var11, var8)).getBlock().v().d()) {
+            if(var1.p(var9.c(var10, var11, var8)).getBlock().getMaterial().d()) {
                return true;
             }
          }
@@ -132,11 +132,11 @@ public abstract class class_asn {
 
       for(var10 = var5; var10 <= var8; ++var10) {
          for(var11 = var4; var11 <= var7; ++var11) {
-            if(var1.p(var9.c(var3, var11, var10)).getBlock().v().d()) {
+            if(var1.p(var9.c(var3, var11, var10)).getBlock().getMaterial().d()) {
                return true;
             }
 
-            if(var1.p(var9.c(var6, var11, var10)).getBlock().v().d()) {
+            if(var1.p(var9.c(var6, var11, var10)).getBlock().getMaterial().d()) {
                return true;
             }
          }
@@ -187,7 +187,7 @@ public abstract class class_asn {
       }
    }
 
-   protected void a(class_aen var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
+   protected void a(World var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
       class_cj var7 = new class_cj(this.a(var3, var5), this.d(var4), this.b(var3, var5));
       if(var6.b((class_df)var7)) {
          if(this.b != Block.class_a_in_class_agj.a) {
@@ -202,30 +202,30 @@ public abstract class class_asn {
       }
    }
 
-   protected IBlockData a(class_aen var1, int var2, int var3, int var4, class_arw var5) {
+   protected IBlockData a(World var1, int var2, int var3, int var4, class_arw var5) {
       int var6 = this.a(var2, var4);
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
       class_cj var9 = new class_cj(var6, var7, var8);
-      return !var5.b((class_df)var9)?class_agk.a.S():var1.p(var9);
+      return !var5.b((class_df)var9)?Blocks.AIR.getBlockData():var1.p(var9);
    }
 
-   protected void a(class_aen var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8) {
+   protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       for(int var9 = var4; var9 <= var7; ++var9) {
          for(int var10 = var3; var10 <= var6; ++var10) {
             for(int var11 = var5; var11 <= var8; ++var11) {
-               this.a(var1, class_agk.a.S(), var10, var9, var11, var2);
+               this.a(var1, Blocks.AIR.getBlockData(), var10, var9, var11, var2);
             }
          }
       }
 
    }
 
-   protected void a(class_aen var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, IBlockData var10, boolean var11) {
+   protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, IBlockData var10, boolean var11) {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var11 || this.a(var1, var13, var12, var14, var2).getBlock().v() != class_atk.a) {
+               if(!var11 || this.a(var1, var13, var12, var14, var2).getBlock().getMaterial() != Material.a) {
                   if(var12 != var4 && var12 != var7 && var13 != var3 && var13 != var6 && var14 != var5 && var14 != var8) {
                      this.a(var1, var10, var13, var12, var14, var2);
                   } else {
@@ -238,11 +238,11 @@ public abstract class class_asn {
 
    }
 
-   protected void a(class_aen var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, boolean var9, Random var10, class_asn.class_a_in_class_asn var11) {
+   protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, boolean var9, Random var10, class_asn.class_a_in_class_asn var11) {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var9 || this.a(var1, var13, var12, var14, var2).getBlock().v() != class_atk.a) {
+               if(!var9 || this.a(var1, var13, var12, var14, var2).getBlock().getMaterial() != Material.a) {
                   var11.a(var10, var13, var12, var14, var12 == var4 || var12 == var7 || var13 == var3 || var13 == var6 || var14 == var5 || var14 == var8);
                   this.a(var1, var11.a(), var13, var12, var14, var2);
                }
@@ -252,11 +252,11 @@ public abstract class class_asn {
 
    }
 
-   protected void a(class_aen var1, class_arw var2, Random var3, float var4, int var5, int var6, int var7, int var8, int var9, int var10, IBlockData var11, IBlockData var12, boolean var13) {
+   protected void a(World var1, class_arw var2, Random var3, float var4, int var5, int var6, int var7, int var8, int var9, int var10, IBlockData var11, IBlockData var12, boolean var13) {
       for(int var14 = var6; var14 <= var9; ++var14) {
          for(int var15 = var5; var15 <= var8; ++var15) {
             for(int var16 = var7; var16 <= var10; ++var16) {
-               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).getBlock().v() != class_atk.a)) {
+               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).getBlock().getMaterial() != Material.a)) {
                   if(var14 != var6 && var14 != var9 && var15 != var5 && var15 != var8 && var16 != var7 && var16 != var10) {
                      this.a(var1, var12, var15, var14, var16, var2);
                   } else {
@@ -269,14 +269,14 @@ public abstract class class_asn {
 
    }
 
-   protected void a(class_aen var1, class_arw var2, Random var3, float var4, int var5, int var6, int var7, IBlockData var8) {
+   protected void a(World var1, class_arw var2, Random var3, float var4, int var5, int var6, int var7, IBlockData var8) {
       if(var3.nextFloat() < var4) {
          this.a(var1, var8, var5, var6, var7, var2);
       }
 
    }
 
-   protected void a(class_aen var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, boolean var10) {
+   protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, boolean var10) {
       float var11 = (float)(var6 - var3 + 1);
       float var12 = (float)(var7 - var4 + 1);
       float var13 = (float)(var8 - var5 + 1);
@@ -291,7 +291,7 @@ public abstract class class_asn {
 
             for(int var20 = var5; var20 <= var8; ++var20) {
                float var21 = ((float)var20 - var15) / (var13 * 0.5F);
-               if(!var10 || this.a(var1, var18, var16, var20, var2).getBlock().v() != class_atk.a) {
+               if(!var10 || this.a(var1, var18, var16, var20, var2).getBlock().getMaterial() != Material.a) {
                   float var22 = var19 * var19 + var17 * var17 + var21 * var21;
                   if(var22 <= 1.05F) {
                      this.a(var1, var9, var18, var16, var20, var2);
@@ -303,23 +303,23 @@ public abstract class class_asn {
 
    }
 
-   protected void b(class_aen var1, int var2, int var3, int var4, class_arw var5) {
+   protected void b(World var1, int var2, int var3, int var4, class_arw var5) {
       class_cj var6 = new class_cj(this.a(var2, var4), this.d(var3), this.b(var2, var4));
       if(var5.b((class_df)var6)) {
          while(!var1.d(var6) && var6.o() < 255) {
-            var1.a((class_cj)var6, (IBlockData)class_agk.a.S(), 2);
+            var1.a((class_cj)var6, (IBlockData)Blocks.AIR.getBlockData(), 2);
             var6 = var6.a();
          }
 
       }
    }
 
-   protected void b(class_aen var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
+   protected void b(World var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
       int var7 = this.a(var3, var5);
       int var8 = this.d(var4);
       int var9 = this.b(var3, var5);
       if(var6.b((class_df)(new class_cj(var7, var8, var9)))) {
-         while((var1.d(new class_cj(var7, var8, var9)) || var1.p(new class_cj(var7, var8, var9)).getBlock().v().d()) && var8 > 1) {
+         while((var1.d(new class_cj(var7, var8, var9)) || var1.p(new class_cj(var7, var8, var9)).getBlock().getMaterial().d()) && var8 > 1) {
             var1.a((class_cj)(new class_cj(var7, var8, var9)), (IBlockData)var2, 2);
             --var8;
          }
@@ -327,11 +327,11 @@ public abstract class class_asn {
       }
    }
 
-   protected boolean a(class_aen var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
+   protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
       class_cj var9 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((class_df)var9) && var1.p(var9).getBlock() != class_agk.ae) {
-         IBlockData var10 = class_agk.ae.S();
-         var1.a((class_cj)var9, (IBlockData)class_agk.ae.f(var1, var9, var10), 2);
+      if(var2.b((class_df)var9) && var1.p(var9).getBlock() != Blocks.CHEST) {
+         IBlockData var10 = Blocks.CHEST.getBlockData();
+         var1.a((class_cj)var9, (IBlockData)Blocks.CHEST.f(var1, var9, var10), 2);
          class_amg var11 = var1.s(var9);
          if(var11 instanceof class_ami) {
             class_od.a(var3, var7, (class_oj)((class_ami)var11), var8);
@@ -343,10 +343,10 @@ public abstract class class_asn {
       }
    }
 
-   protected boolean a(class_aen var1, class_arw var2, Random var3, int var4, int var5, int var6, class_cq var7, List var8, int var9) {
+   protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, class_cq var7, List var8, int var9) {
       class_cj var10 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((class_df)var10) && var1.p(var10).getBlock() != class_agk.z) {
-         this.a(var1, class_agk.z.S().set(class_ahk.a, var7), var4, var5, var6, var2);
+      if(var2.b((class_df)var10) && var1.p(var10).getBlock() != Blocks.DISPENSER) {
+         this.a(var1, Blocks.DISPENSER.getBlockData().set(class_ahk.a, var7), var4, var5, var6, var2);
          class_amg var11 = var1.s(var10);
          if(var11 instanceof class_amm) {
             class_od.a(var3, var8, (class_amm)var11, var9);
@@ -358,9 +358,9 @@ public abstract class class_asn {
       }
    }
 
-   protected void a(class_aen var1, class_arw var2, Random var3, int var4, int var5, int var6, class_cq var7) {
-      this.a(var1, class_agk.ao.S().set(class_ahl.a, var7), var4, var5, var6, var2);
-      this.a(var1, class_agk.ao.S().set(class_ahl.a, var7).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
+   protected void a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, class_cq var7) {
+      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7), var4, var5, var6, var2);
+      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
    }
 
    public void a(int var1, int var2, int var3) {
@@ -435,7 +435,7 @@ public abstract class class_asn {
       protected IBlockData a;
 
       protected class_a_in_class_asn() {
-         this.a = class_agk.a.S();
+         this.a = Blocks.AIR.getBlockData();
       }
 
       public abstract void a(Random var1, int var2, int var3, int var4, boolean var5);

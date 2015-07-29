@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajd;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -19,7 +19,7 @@ import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_zn extends class_aar {
+public class class_zn extends Item {
    private Block a;
 
    public class_zn(Block var1) {
@@ -28,8 +28,8 @@ public class class_zn extends class_aar {
       this.a(CreativeTab.f);
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
-      boolean var5 = this.a == class_agk.a;
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+      boolean var5 = this.a == Blocks.AIR;
       class_awg var6 = this.a(var2, var3, var5);
       if(var6 == null) {
          return new class_or(class_oq.b, var1);
@@ -41,8 +41,8 @@ public class class_zn extends class_aar {
             }
 
             if(!var5) {
-               if(this.a == class_agk.a) {
-                  return new class_or(class_oq.a, new class_aas(class_aau.ay));
+               if(this.a == Blocks.AIR) {
+                  return new class_or(class_oq.a, new class_aas(Items.ay));
                }
 
                class_cj var10 = var7.a(var6.b);
@@ -51,8 +51,8 @@ public class class_zn extends class_aar {
                }
 
                if(this.a(var2, var10) && !var3.bH.d) {
-                  var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
-                  return new class_or(class_oq.a, new class_aas(class_aau.ay));
+                  var3.b(class_nc.ad[Item.getId((Item)this)]);
+                  return new class_or(class_oq.a, new class_aas(Items.ay));
                }
 
                return new class_or(class_oq.a, var1);
@@ -63,17 +63,17 @@ public class class_zn extends class_aar {
             }
 
             IBlockData var8 = var2.p(var7);
-            class_atk var9 = var8.getBlock().v();
-            if(var9 == class_atk.h && ((Integer)var8.get(class_ajd.b)).intValue() == 0) {
+            Material var9 = var8.getBlock().getMaterial();
+            if(var9 == Material.h && ((Integer)var8.get(class_ajd.b)).intValue() == 0) {
                var2.g(var7);
-               var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
-               return new class_or(class_oq.a, this.a(var1, var3, class_aau.az));
+               var3.b(class_nc.ad[Item.getId((Item)this)]);
+               return new class_or(class_oq.a, this.a(var1, var3, Items.az));
             }
 
-            if(var9 == class_atk.i && ((Integer)var8.get(class_ajd.b)).intValue() == 0) {
+            if(var9 == Material.i && ((Integer)var8.get(class_ajd.b)).intValue() == 0) {
                var2.g(var7);
-               var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
-               return new class_or(class_oq.a, this.a(var1, var3, class_aau.aA));
+               var3.b(class_nc.ad[Item.getId((Item)this)]);
+               return new class_or(class_oq.a, this.a(var1, var3, Items.aA));
             }
          }
 
@@ -81,7 +81,7 @@ public class class_zn extends class_aar {
       }
    }
 
-   private class_aas a(class_aas var1, class_xa var2, class_aar var3) {
+   private class_aas a(class_aas var1, class_xa var2, Item var3) {
       if(var2.bH.d) {
          return var1;
       } else if(--var1.b <= 0) {
@@ -95,16 +95,16 @@ public class class_zn extends class_aar {
       }
    }
 
-   public boolean a(class_aen var1, class_cj var2) {
-      if(this.a == class_agk.a) {
+   public boolean a(World var1, class_cj var2) {
+      if(this.a == Blocks.AIR) {
          return false;
       } else {
-         class_atk var3 = var1.p(var2).getBlock().v();
+         Material var3 = var1.p(var2).getBlock().getMaterial();
          boolean var4 = !var3.a();
          if(!var1.d(var2) && !var4) {
             return false;
          } else {
-            if(var1.t.l() && this.a == class_agk.i) {
+            if(var1.t.l() && this.a == Blocks.FLOWING_WATER) {
                int var5 = var2.n();
                int var6 = var2.o();
                int var7 = var2.p();
@@ -118,7 +118,7 @@ public class class_zn extends class_aar {
                   var1.b(var2, true);
                }
 
-               var1.a((class_cj)var2, (IBlockData)this.a.S(), 3);
+               var1.a((class_cj)var2, (IBlockData)this.a.getBlockData(), 3);
             }
 
             return true;

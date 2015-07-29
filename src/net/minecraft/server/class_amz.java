@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_all;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 import net.minecraft.server.class_nz;
 import net.minecraft.server.class_pr;
 
@@ -123,7 +123,7 @@ public class class_amz extends class_amg {
    public void a(class_amz.class_a_in_class_amz var1) {
       this.l = var1;
       IBlockData var2 = this.b.p(this.v());
-      if(var2.getBlock() == class_agk.dc) {
+      if(var2.getBlock() == Blocks.STRUCTURE_BLOCK) {
          this.b.a((class_cj)this.v(), (IBlockData)var2.set(class_all.a, var1), 2);
       }
 
@@ -181,7 +181,7 @@ public class class_amz extends class_amg {
       while(var4.hasNext()) {
          class_cj.class_a_in_class_cj var5 = (class_cj.class_a_in_class_cj)var4.next();
          IBlockData var6 = this.b.p(var5);
-         if(var6.getBlock() == class_agk.dc) {
+         if(var6.getBlock() == Blocks.STRUCTURE_BLOCK) {
             class_amg var7 = this.b.s(var5);
             if(var7 != null && var7 instanceof class_amz) {
                var3.add((class_amz)var7);
@@ -272,7 +272,7 @@ public class class_amz extends class_amg {
       }
    }
 
-   public static enum class_a_in_class_amz implements class_ny {
+   public static enum class_a_in_class_amz implements INamable {
       a("save", 0),
       b("load", 1),
       c("corner", 2),
@@ -287,7 +287,7 @@ public class class_amz extends class_amg {
          this.g = var4;
       }
 
-      public String l() {
+      public String getName() {
          return this.f;
       }
 

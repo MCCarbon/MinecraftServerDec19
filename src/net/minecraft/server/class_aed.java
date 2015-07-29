@@ -4,7 +4,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.class_dn;
@@ -76,7 +76,7 @@ public abstract class class_aed implements class_m {
       return this.e;
    }
 
-   public void a(class_aen var1) {
+   public void a(World var1) {
       if(var1.D) {
          this.b = 0;
       }

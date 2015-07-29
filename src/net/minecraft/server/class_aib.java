@@ -3,19 +3,19 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alo;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_apd;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -31,51 +31,51 @@ public class class_aib extends Block {
    private final Map S = Maps.newIdentityHashMap();
 
    public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      return !class_aen.a(var2, var3.b()) && !class_agk.ab.e(var2, var3.b())?var1.set(b, Boolean.valueOf(this.e(var2, var3.c()))).set(N, Boolean.valueOf(this.e(var2, var3.f()))).set(O, Boolean.valueOf(this.e(var2, var3.d()))).set(P, Boolean.valueOf(this.e(var2, var3.e()))).set(Q, Boolean.valueOf(this.e(var2, var3.a()))):this.S();
+      return !World.a(var2, var3.b()) && !Blocks.FIRE.e(var2, var3.b())?var1.set(b, Boolean.valueOf(this.e(var2, var3.c()))).set(N, Boolean.valueOf(this.e(var2, var3.f()))).set(O, Boolean.valueOf(this.e(var2, var3.d()))).set(P, Boolean.valueOf(this.e(var2, var3.e()))).set(Q, Boolean.valueOf(this.e(var2, var3.a()))):this.getBlockData();
    }
 
    protected class_aib() {
-      super(class_atk.o);
-      this.j(this.M.b().set(a, Integer.valueOf(0)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, Boolean.valueOf(false)));
-      this.a(true);
+      super(Material.o);
+      this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, Boolean.valueOf(false)));
+      this.setTicking(true);
    }
 
    public static void l() {
-      class_agk.ab.a(class_agk.f, 5, 20);
-      class_agk.ab.a(class_agk.bL, 5, 20);
-      class_agk.ab.a(class_agk.bM, 5, 20);
-      class_agk.ab.a(class_agk.bo, 5, 20);
-      class_agk.ab.a(class_agk.bp, 5, 20);
-      class_agk.ab.a(class_agk.bq, 5, 20);
-      class_agk.ab.a(class_agk.br, 5, 20);
-      class_agk.ab.a(class_agk.bs, 5, 20);
-      class_agk.ab.a(class_agk.bt, 5, 20);
-      class_agk.ab.a(class_agk.aO, 5, 20);
-      class_agk.ab.a(class_agk.aP, 5, 20);
-      class_agk.ab.a(class_agk.aQ, 5, 20);
-      class_agk.ab.a(class_agk.aR, 5, 20);
-      class_agk.ab.a(class_agk.aS, 5, 20);
-      class_agk.ab.a(class_agk.aT, 5, 20);
-      class_agk.ab.a(class_agk.ad, 5, 20);
-      class_agk.ab.a(class_agk.bV, 5, 20);
-      class_agk.ab.a(class_agk.bU, 5, 20);
-      class_agk.ab.a(class_agk.bW, 5, 20);
-      class_agk.ab.a(class_agk.r, 5, 5);
-      class_agk.ab.a(class_agk.s, 5, 5);
-      class_agk.ab.a(class_agk.t, 30, 60);
-      class_agk.ab.a(class_agk.u, 30, 60);
-      class_agk.ab.a(class_agk.X, 30, 20);
-      class_agk.ab.a(class_agk.W, 15, 100);
-      class_agk.ab.a(class_agk.H, 60, 100);
-      class_agk.ab.a(class_agk.cF, 60, 100);
-      class_agk.ab.a(class_agk.N, 60, 100);
-      class_agk.ab.a(class_agk.O, 60, 100);
-      class_agk.ab.a(class_agk.I, 60, 100);
-      class_agk.ab.a(class_agk.L, 30, 60);
-      class_agk.ab.a(class_agk.bn, 15, 100);
-      class_agk.ab.a(class_agk.cA, 5, 5);
-      class_agk.ab.a(class_agk.cx, 60, 20);
-      class_agk.ab.a(class_agk.cy, 60, 20);
+      Blocks.FIRE.a(Blocks.PLANKS, 5, 20);
+      Blocks.FIRE.a(Blocks.DOUBLE_WOODEN_SLAB, 5, 20);
+      Blocks.FIRE.a(Blocks.WOODEN_SLAB, 5, 20);
+      Blocks.FIRE.a(Blocks.FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.JUGLE_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.DARK_OAK_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.ACACIA_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.JUNGLE_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.DARK_OAK_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.ACACIA_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.OAK_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.JUNGKE_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.LOG, 5, 5);
+      Blocks.FIRE.a(Blocks.LOG2, 5, 5);
+      Blocks.FIRE.a(Blocks.LEAVES, 30, 60);
+      Blocks.FIRE.a(Blocks.LEAVES2, 30, 60);
+      Blocks.FIRE.a(Blocks.BOOKSHELF, 30, 20);
+      Blocks.FIRE.a(Blocks.TNT, 15, 100);
+      Blocks.FIRE.a(Blocks.TALLGRASS, 60, 100);
+      Blocks.FIRE.a(Blocks.DOUBLE_PLANT, 60, 100);
+      Blocks.FIRE.a(Blocks.YELLOW_FLOWER, 60, 100);
+      Blocks.FIRE.a(Blocks.RED_FLOWER, 60, 100);
+      Blocks.FIRE.a(Blocks.DEADBUSH, 60, 100);
+      Blocks.FIRE.a(Blocks.WOOL, 30, 60);
+      Blocks.FIRE.a(Blocks.VINE, 15, 100);
+      Blocks.FIRE.a(Blocks.COAL_BLOCK, 5, 5);
+      Blocks.FIRE.a(Blocks.HAY_BLOCK, 60, 20);
+      Blocks.FIRE.a(Blocks.CARPET, 60, 20);
    }
 
    public void a(Block var1, int var2, int var3) {
@@ -83,15 +83,15 @@ public class class_aib extends Block {
       this.S.put(var1, Integer.valueOf(var3));
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
@@ -99,19 +99,19 @@ public class class_aib extends Block {
       return 0;
    }
 
-   public int a(class_aen var1) {
+   public int a(World var1) {
       return 30;
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       if(var1.R().b("doFireTick")) {
          if(!this.d(var1, var2)) {
             var1.g(var2);
          }
 
          Block var5 = var1.p(var2.b()).getBlock();
-         boolean var6 = var5 == class_agk.aV;
-         if(var1.t instanceof class_apd && var5 == class_agk.h) {
+         boolean var6 = var5 == Blocks.NETHERRACK;
+         if(var1.t instanceof class_apd && var5 == Blocks.BEDROCK) {
             var6 = true;
          }
 
@@ -127,7 +127,7 @@ public class class_aib extends Block {
             var1.a((class_cj)var2, (Block)this, this.a(var1) + var4.nextInt(10));
             if(!var6) {
                if(!this.f(var1, var2)) {
-                  if(!class_aen.a((class_aer)var1, (class_cj)var2.b()) || var7 > 3) {
+                  if(!World.a((class_aer)var1, (class_cj)var2.b()) || var7 > 3) {
                      var1.g(var2);
                   }
 
@@ -188,7 +188,7 @@ public class class_aib extends Block {
       }
    }
 
-   protected boolean e(class_aen var1, class_cj var2) {
+   protected boolean e(World var1, class_cj var2) {
       return var1.C(var2) || var1.C(var2.e()) || var1.C(var2.f()) || var1.C(var2.c()) || var1.C(var2.d());
    }
 
@@ -206,7 +206,7 @@ public class class_aib extends Block {
       return var2 == null?0:var2.intValue();
    }
 
-   private void a(class_aen var1, class_cj var2, int var3, Random var4, int var5) {
+   private void a(World var1, class_cj var2, int var3, Random var4, int var5) {
       int var6 = this.c(var1.p(var2).getBlock());
       if(var4.nextInt(var3) < var6) {
          IBlockData var7 = var1.p(var2);
@@ -216,19 +216,19 @@ public class class_aib extends Block {
                var8 = 15;
             }
 
-            var1.a((class_cj)var2, (IBlockData)this.S().set(a, Integer.valueOf(var8)), 3);
+            var1.a((class_cj)var2, (IBlockData)this.getBlockData().set(a, Integer.valueOf(var8)), 3);
          } else {
             var1.g(var2);
          }
 
-         if(var7.getBlock() == class_agk.W) {
-            class_agk.W.d(var1, var2, var7.set(class_alo.a, Boolean.valueOf(true)));
+         if(var7.getBlock() == Blocks.TNT) {
+            Blocks.TNT.d(var1, var2, var7.set(class_alo.a, Boolean.valueOf(true)));
          }
       }
 
    }
 
-   private boolean f(class_aen var1, class_cj var2) {
+   private boolean f(World var1, class_cj var2) {
       class_cq[] var3 = class_cq.values();
       int var4 = var3.length;
 
@@ -242,7 +242,7 @@ public class class_aib extends Block {
       return false;
    }
 
-   private int m(class_aen var1, class_cj var2) {
+   private int m(World var1, class_cj var2) {
       if(!var1.d(var2)) {
          return 0;
       } else {
@@ -267,20 +267,20 @@ public class class_aib extends Block {
       return this.d(var1.p(var2).getBlock()) > 0;
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
-      return class_aen.a((class_aer)var1, (class_cj)var2.b()) || this.f(var1, var2);
+   public boolean d(World var1, class_cj var2) {
+      return World.a((class_aer)var1, (class_cj)var2.b()) || this.f(var1, var2);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
-      if(!class_aen.a((class_aer)var1, (class_cj)var2.b()) && !this.f(var1, var2)) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+      if(!World.a((class_aer)var1, (class_cj)var2.b()) && !this.f(var1, var2)) {
          var1.g(var2);
       }
 
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
-      if(var1.t.p().a() > 0 || !class_agk.aY.e(var1, var2)) {
-         if(!class_aen.a((class_aer)var1, (class_cj)var2.b()) && !this.f(var1, var2)) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
+      if(var1.t.p().a() > 0 || !Blocks.PORTAL.e(var1, var2)) {
+         if(!World.a((class_aer)var1, (class_cj)var2.b()) && !this.f(var1, var2)) {
             var1.g(var2);
          } else {
             var1.a((class_cj)var2, (Block)this, this.a(var1) + var1.s.nextInt(10));
@@ -288,19 +288,19 @@ public class class_aib extends Block {
       }
    }
 
-   public class_atl g(IBlockData var1) {
-      return class_atl.f;
+   public MaterialMapColor getMapColor(IBlockData var1) {
+      return MaterialMapColor.f;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, Integer.valueOf(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a, b, N, O, P, Q});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a, b, N, O, P, Q});
    }
 }

@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_pc;
@@ -12,15 +12,15 @@ import net.minecraft.server.class_tx;
 import net.minecraft.server.class_xo;
 
 public class class_xp extends class_xo {
-   public class_xp(class_aen var1) {
+   public class_xp(World var1) {
       super(var1);
    }
 
-   public class_xp(class_aen var1, class_qa var2) {
+   public class_xp(World var1, class_qa var2) {
       super(var1, var2);
    }
 
-   public class_xp(class_aen var1, double var2, double var4, double var6) {
+   public class_xp(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 
@@ -46,7 +46,7 @@ public class class_xp extends class_xo {
       double var5 = 0.08D;
 
       for(int var6 = 0; var6 < 8; ++var6) {
-         this.o.a(class_cy.K, this.s, this.t, this.u, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, new int[]{class_aar.b(class_aau.aR)});
+         this.o.a(class_cy.K, this.s, this.t, this.u, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, ((double)this.V.nextFloat() - 0.5D) * 0.08D, new int[]{Item.getId(Items.aR)});
       }
 
       if(!this.o.D) {

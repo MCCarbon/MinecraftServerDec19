@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_acs;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_yg;
 
 public class class_acw implements class_acs {
@@ -35,7 +35,7 @@ public class class_acw implements class_acs {
       return var2;
    }
 
-   public boolean a(class_yg var1, class_aen var2) {
+   public boolean a(class_yg var1, World var2) {
       ArrayList var3 = Lists.newArrayList((Iterable)this.b);
 
       for(int var4 = 0; var4 < var1.h(); ++var4) {

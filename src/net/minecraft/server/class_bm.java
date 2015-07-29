@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -49,7 +49,7 @@ public class class_bm extends class_i {
             var4 = new class_cj(var6, var8, var10);
          }
 
-         class_aen var12 = var1.e();
+         World var12 = var1.e();
          if(!var12.e(var4)) {
             throw new class_bz("commands.summon.outOfWorld", new Object[0]);
          } else if("LightningBolt".equals(var3)) {

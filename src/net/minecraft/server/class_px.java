@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.World;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -19,7 +19,7 @@ public class class_px extends class_pr {
    private class_xa f;
    private int g;
 
-   public class_px(class_aen var1, double var2, double var4, double var6, int var8) {
+   public class_px(World var1, double var2, double var4, double var6, int var8) {
       super(var1);
       this.a(0.5F, 0.5F);
       this.b(var2, var4, var6);
@@ -34,7 +34,7 @@ public class class_px extends class_pr {
       return false;
    }
 
-   public class_px(class_aen var1) {
+   public class_px(World var1) {
       super(var1);
       this.a(0.25F, 0.25F);
    }
@@ -52,7 +52,7 @@ public class class_px extends class_pr {
       this.q = this.t;
       this.r = this.u;
       this.w -= 0.029999999329447746D;
-      if(this.o.p(new class_cj(this)).getBlock().v() == class_atk.i) {
+      if(this.o.p(new class_cj(this)).getBlock().getMaterial() == Material.i) {
          this.w = 0.20000000298023224D;
          this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
          this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -90,7 +90,7 @@ public class class_px extends class_pr {
       this.d(this.v, this.w, this.x);
       float var13 = 0.98F;
       if(this.C) {
-         var13 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.98F;
+         var13 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.98F;
       }
 
       this.v *= (double)var13;
@@ -109,7 +109,7 @@ public class class_px extends class_pr {
    }
 
    public boolean W() {
-      return this.o.a((class_awf)this.aT(), (class_atk)class_atk.h, (class_pr)this);
+      return this.o.a((class_awf)this.aT(), (Material)Material.h, (class_pr)this);
    }
 
    protected void g(int var1) {

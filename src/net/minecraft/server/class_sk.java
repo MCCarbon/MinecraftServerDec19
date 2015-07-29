@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -40,7 +40,7 @@ public class class_sk extends class_rm {
    }
 
    protected boolean f() {
-      return this.a.bA() != null && this.a.bA().b() == class_aau.f;
+      return this.a.bA() != null && this.a.bA().b() == Items.f;
    }
 
    public boolean b() {

@@ -1,20 +1,20 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aia;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
-import net.minecraft.server.class_di;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.LocaleI18n;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public class class_alv extends Block {
@@ -23,30 +23,30 @@ public class class_alv extends Block {
    public static final class_anw N = class_anw.a("east");
    public static final class_anw O = class_anw.a("south");
    public static final class_anw P = class_anw.a("west");
-   public static final class_any Q = class_any.a("variant", class_alv.class_a_in_class_alv.class);
+   public static final BlockStateEnum Q = BlockStateEnum.of("variant", class_alv.class_a_in_class_alv.class);
 
    public class_alv(Block var1) {
-      super(var1.J);
-      this.j(this.M.b().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, class_alv.class_a_in_class_alv.a));
-      this.c(var1.w);
-      this.b(var1.x / 3.0F);
-      this.a(var1.H);
+      super(var1.material);
+      this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, class_alv.class_a_in_class_alv.a));
+      this.setStrength(var1.strength);
+      this.setExplosionResist(var1.explosionResist / 3.0F);
+      this.setStepSound(var1.stepSound);
       this.a(CreativeTab.b);
    }
 
-   public String f() {
-      return class_di.a(this.a() + "." + class_alv.class_a_in_class_alv.a.c() + ".name");
+   public String getName() {
+      return LocaleI18n.get(this.getInternalName() + "." + class_alv.class_a_in_class_alv.a.c() + ".name");
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean b(class_aer var1, class_cj var2) {
+   public boolean isPassable(class_aer var1, class_cj var2) {
       return false;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
@@ -86,29 +86,29 @@ public class class_alv extends Block {
          var10 = 0.6875F;
       }
 
-      this.a(var7, 0.0F, var9, var8, var11, var10);
+      this.setSizes(var7, 0.0F, var9, var8, var11, var10);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
-      this.a(var1, var2);
-      this.F = 1.5D;
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+      this.isReplaceable(var1, var2);
+      this.maxY = 1.5D;
       return super.a(var1, var2, var3);
    }
 
    public boolean e(class_aer var1, class_cj var2) {
       Block var3 = var1.p(var2).getBlock();
-      return var3 == class_agk.cv?false:(var3 != this && !(var3 instanceof class_aia)?(var3.J.k() && var3.d()?var3.J != class_atk.C:false):true);
+      return var3 == Blocks.BARRIER?false:(var3 != this && !(var3 instanceof class_aia)?(var3.material.k() && var3.isFullCube()?var3.material != Material.C:false):true);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_alv.class_a_in_class_alv)var1.get(Q)).a();
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(Q, class_alv.class_a_in_class_alv.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(Q, class_alv.class_a_in_class_alv.a(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_alv.class_a_in_class_alv)var1.get(Q)).a();
    }
 
@@ -121,11 +121,11 @@ public class class_alv extends Block {
       return var1.set(a, Boolean.valueOf(!var8 || !var2.d(var3.a()))).set(b, Boolean.valueOf(var4)).set(N, Boolean.valueOf(var5)).set(O, Boolean.valueOf(var6)).set(P, Boolean.valueOf(var7));
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a, b, N, P, O, Q});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a, b, N, P, O, Q});
    }
 
-   public static enum class_a_in_class_alv implements class_ny {
+   public static enum class_a_in_class_alv implements INamable {
       a(0, "cobblestone", "normal"),
       b(1, "mossy_cobblestone", "mossy");
 
@@ -156,7 +156,7 @@ public class class_alv extends Block {
          return c[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.e;
       }
 

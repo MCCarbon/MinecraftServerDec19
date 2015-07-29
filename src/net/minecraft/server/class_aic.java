@@ -4,34 +4,34 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import java.util.Collection;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ago;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 
 public abstract class class_aic extends class_ago {
-	protected class_any a;
+	protected BlockStateEnum a;
 
 	protected class_aic() {
-		this.j(this.M.b().set(this.n(), this.l() == class_aic.class_b_in_class_aic.b ? class_aic.class_a_in_class_aic.b : class_aic.class_a_in_class_aic.a));
+		this.setBlockData(this.blockStateList.getFirst().set(this.n(), this.l() == class_aic.class_b_in_class_aic.b ? class_aic.class_a_in_class_aic.b : class_aic.class_a_in_class_aic.a));
 	}
 
-	public int a(IBlockData var1) {
+	public int getDropData(IBlockData var1) {
 		return ((class_aic.class_a_in_class_aic) var1.get(this.n())).b();
 	}
 
-	public IBlockData a(int var1) {
-		return this.S().set(this.n(), class_aic.class_a_in_class_aic.a(this.l(), var1));
+	public IBlockData fromLegacyData(int var1) {
+		return this.getBlockData().set(this.n(), class_aic.class_a_in_class_aic.a(this.l(), var1));
 	}
 
 	public abstract class_aic.class_b_in_class_aic l();
 
 	public IBlockState n() {
 		if (this.a == null) {
-			this.a = class_any.a("type", class_aic.class_a_in_class_aic.class, new Predicate() {
+			this.a = BlockStateEnum.a("type", class_aic.class_a_in_class_aic.class, new Predicate() {
 				public boolean a(class_aic.class_a_in_class_aic var1) {
 					return var1.a() == class_aic.this.l();
 				}
@@ -46,15 +46,15 @@ public abstract class class_aic extends class_ago {
 		return this.a;
 	}
 
-	public int c(IBlockData var1) {
+	public int toLegacyData(IBlockData var1) {
 		return ((class_aic.class_a_in_class_aic) var1.get(this.n())).b();
 	}
 
-	protected class_anm e() {
-		return new class_anm(this, new IBlockState[] { this.n() });
+	protected BlockStateList createBlockStateList() {
+		return new BlockStateList(this, new IBlockState[] { this.n() });
 	}
 
-	public static enum class_a_in_class_aic implements class_ny {
+	public static enum class_a_in_class_aic implements INamable {
 		a(class_aic.class_b_in_class_aic.a, 0, "dandelion"), b(class_aic.class_b_in_class_aic.b, 0, "poppy"), c(class_aic.class_b_in_class_aic.b, 1, "blue_orchid", "blueOrchid"), d(class_aic.class_b_in_class_aic.b, 2, "allium"), e(class_aic.class_b_in_class_aic.b, 3, "houstonia"), f(class_aic.class_b_in_class_aic.b, 4, "red_tulip", "tulipRed"), g(class_aic.class_b_in_class_aic.b, 5, "orange_tulip", "tulipOrange"), h(class_aic.class_b_in_class_aic.b, 6, "white_tulip", "tulipWhite"), i(
 				class_aic.class_b_in_class_aic.b, 7, "pink_tulip", "tulipPink"), j(class_aic.class_b_in_class_aic.b, 8, "oxeye_daisy", "oxeyeDaisy");
 
@@ -96,7 +96,7 @@ public abstract class class_aic extends class_ago {
 			return this.n;
 		}
 
-		public String l() {
+		public String getName() {
 			return this.n;
 		}
 
@@ -131,7 +131,7 @@ public abstract class class_aic extends class_ago {
 		a, b;
 
 		public class_aic a() {
-			return this == a ? class_agk.N : class_agk.O;
+			return this == a ? Blocks.YELLOW_FLOWER : Blocks.RED_FLOWER;
 		}
 	}
 }

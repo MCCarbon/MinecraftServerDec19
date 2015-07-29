@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ana;
 import net.minecraft.server.class_awg;
@@ -17,11 +17,11 @@ import net.minecraft.server.class_xo;
 public class class_xq extends class_xo {
    private class_qa d;
 
-   public class_xq(class_aen var1) {
+   public class_xq(World var1) {
       super(var1);
    }
 
-   public class_xq(class_aen var1, class_qa var2) {
+   public class_xq(World var1, class_qa var2) {
       super(var1, var2);
       this.d = var2;
    }

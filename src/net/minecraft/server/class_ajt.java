@@ -1,19 +1,19 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aje;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.MaterialMapColor;
 
 public class class_ajt extends class_aje {
-   public static final class_any b = class_any.a("variant", class_ajw.class_a_in_class_ajw.class, new Predicate() {
+   public static final BlockStateEnum b = BlockStateEnum.a("variant", class_ajw.class_a_in_class_ajw.class, new Predicate() {
       public boolean a(class_ajw.class_a_in_class_ajw var1) {
          return var1.a() < 4;
       }
@@ -25,10 +25,10 @@ public class class_ajt extends class_aje {
    });
 
    public class_ajt() {
-      this.j(this.M.b().set(b, class_ajw.class_a_in_class_ajw.a).set(a, class_aje.class_a_in_class_aje.b));
+      this.setBlockData(this.blockStateList.getFirst().set(b, class_ajw.class_a_in_class_ajw.a).set(a, class_aje.class_a_in_class_aje.b));
    }
 
-   public class_atl g(IBlockData var1) {
+   public MaterialMapColor getMapColor(IBlockData var1) {
       class_ajw.class_a_in_class_ajw var2 = (class_ajw.class_a_in_class_ajw)var1.get(b);
       switch(class_ajt.SyntheticClass_1.b[((class_aje.class_a_in_class_aje)var1.get(a)).ordinal()]) {
       case 1:
@@ -42,7 +42,7 @@ public class class_ajt extends class_aje {
          case 2:
             return class_ajw.class_a_in_class_ajw.f.c();
          case 3:
-            return class_atl.p;
+            return MaterialMapColor.p;
          case 4:
             return class_ajw.class_a_in_class_ajw.b.c();
          }
@@ -51,8 +51,8 @@ public class class_ajt extends class_aje {
       }
    }
 
-   public IBlockData a(int var1) {
-      IBlockData var2 = this.S().set(b, class_ajw.class_a_in_class_ajw.a((var1 & 3) % 4));
+   public IBlockData fromLegacyData(int var1) {
+      IBlockData var2 = this.getBlockData().set(b, class_ajw.class_a_in_class_ajw.a((var1 & 3) % 4));
       switch(var1 & 12) {
       case 0:
          var2 = var2.set(a, class_aje.class_a_in_class_aje.b);
@@ -70,7 +70,7 @@ public class class_ajt extends class_aje {
       return var2;
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_ajw.class_a_in_class_ajw)var1.get(b)).a();
       switch(class_ajt.SyntheticClass_1.b[((class_aje.class_a_in_class_aje)var1.get(a)).ordinal()]) {
@@ -87,15 +87,15 @@ public class class_ajt extends class_aje {
       return var3;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{b, a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{b, a});
    }
 
    protected class_aas i(IBlockData var1) {
-      return new class_aas(class_aar.a((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(b)).a());
+      return new class_aas(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(b)).a());
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_ajw.class_a_in_class_ajw)var1.get(b)).a();
    }
 

@@ -4,11 +4,11 @@ import com.google.common.collect.Maps;
 import java.util.List;
 import java.util.Map;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
@@ -72,11 +72,11 @@ public class class_ax extends class_i {
          int var16 = var4 + 1;
          int var5 = this.e(var2[var4]);
 
-         class_aar var6;
+         Item var6;
          try {
             var6 = f(var1, var2[var16]);
          } catch (class_cb var15) {
-            if(Block.getByName(var2[var16]) != class_agk.a) {
+            if(Block.getByName(var2[var16]) != Blocks.AIR) {
                throw var15;
             }
 
@@ -104,7 +104,7 @@ public class class_ax extends class_i {
          if(var3) {
             var1.a(class_n.class_a_in_class_n.d, 0);
             class_cj var18 = a(var1, var2, 1, false);
-            class_aen var11 = var1.e();
+            World var11 = var1.e();
             class_amg var12 = var11.s(var18);
             if(var12 == null || !(var12 instanceof class_oj)) {
                throw new class_bz("commands.replaceitem.noContainer", new Object[]{Integer.valueOf(var18.n()), Integer.valueOf(var18.o()), Integer.valueOf(var18.p())});
@@ -144,7 +144,7 @@ public class class_ax extends class_i {
    }
 
    public List a(class_m var1, String[] var2, class_cj var3) {
-      return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):(var2.length >= 2 && var2.length <= 4 && var2[0].equals("block")?a(var2, 1, var3):(var2.length == 3 && var2[0].equals("entity") || var2.length == 5 && var2[0].equals("block")?a(var2, a.keySet()):((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?null:a(var2, class_aar.e.getKeys())))));
+      return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):(var2.length >= 2 && var2.length <= 4 && var2[0].equals("block")?a(var2, 1, var3):(var2.length == 3 && var2[0].equals("entity") || var2.length == 5 && var2[0].equals("block")?a(var2, a.keySet()):((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?null:a(var2, Item.ITEM_REGISTRY.getKeys())))));
    }
 
    protected String[] d() {

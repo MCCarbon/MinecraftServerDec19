@@ -5,9 +5,9 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aak;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
@@ -71,7 +71,7 @@ public class class_ace {
    }
 
    protected static boolean b(class_aas var0, class_aas var1) {
-      class_aar var2 = var0.b();
+      Item var2 = var0.b();
       int var3 = 0;
 
       for(int var4 = b.size(); var3 < var4; ++var3) {
@@ -101,7 +101,7 @@ public class class_ace {
    public static class_aas d(class_aas var0, class_aas var1) {
       if(var1 != null) {
          class_acd var2 = class_abe.i(var1);
-         class_aar var3 = var1.b();
+         Item var3 = var1.b();
          int var4 = 0;
 
          int var5;
@@ -109,7 +109,7 @@ public class class_ace {
          for(var5 = b.size(); var4 < var5; ++var4) {
             var6 = (class_ace.class_b_in_class_ace)b.get(var4);
             if(var6.a == var3 && var6.b.apply(var0)) {
-               return class_abe.a(new class_aas((class_aar)var6.c), var2);
+               return class_abe.a(new class_aas((Item)var6.c), var2);
             }
          }
 
@@ -127,22 +127,22 @@ public class class_ace {
    }
 
    public static void a() {
-      class_ace.class_a_in_class_ace var0 = new class_ace.class_a_in_class_ace(class_aau.bA);
-      class_ace.class_a_in_class_ace var1 = new class_ace.class_a_in_class_ace(class_aau.bZ);
-      class_ace.class_a_in_class_ace var2 = new class_ace.class_a_in_class_ace(class_aau.aE);
-      class_ace.class_a_in_class_ace var3 = new class_ace.class_a_in_class_ace(class_aau.bF);
-      class_ace.class_a_in_class_ace var4 = new class_ace.class_a_in_class_ace(class_aau.bt);
-      class_ace.class_a_in_class_ace var5 = new class_ace.class_a_in_class_ace(class_aau.aV);
-      class_ace.class_a_in_class_ace var6 = new class_ace.class_a_in_class_ace(class_aau.bH);
-      class_ace.class_a_in_class_ace var7 = new class_ace.class_a_in_class_ace(class_aau.ba);
-      class_ace.class_a_in_class_ace var8 = new class_ace.class_a_in_class_ace(class_aau.aW, class_aak.class_a_in_class_aak.d.a());
-      class_ace.class_a_in_class_ace var9 = new class_ace.class_a_in_class_ace(class_aau.bL);
-      class_ace.class_a_in_class_ace var10 = new class_ace.class_a_in_class_ace(class_aau.bE);
-      class_ace.class_a_in_class_ace var11 = new class_ace.class_a_in_class_ace(class_aau.by);
-      class_ace.class_a_in_class_ace var12 = new class_ace.class_a_in_class_ace(class_aau.bG);
-      a(new class_ace.class_a_in_class_ace(class_aau.bB));
-      a(new class_ace.class_a_in_class_ace(class_aau.bC));
-      a(class_aau.bB, new class_ace.class_a_in_class_ace(class_aau.J), class_aau.bC);
+      class_ace.class_a_in_class_ace var0 = new class_ace.class_a_in_class_ace(Items.bA);
+      class_ace.class_a_in_class_ace var1 = new class_ace.class_a_in_class_ace(Items.bZ);
+      class_ace.class_a_in_class_ace var2 = new class_ace.class_a_in_class_ace(Items.aE);
+      class_ace.class_a_in_class_ace var3 = new class_ace.class_a_in_class_ace(Items.bF);
+      class_ace.class_a_in_class_ace var4 = new class_ace.class_a_in_class_ace(Items.bt);
+      class_ace.class_a_in_class_ace var5 = new class_ace.class_a_in_class_ace(Items.aV);
+      class_ace.class_a_in_class_ace var6 = new class_ace.class_a_in_class_ace(Items.bH);
+      class_ace.class_a_in_class_ace var7 = new class_ace.class_a_in_class_ace(Items.ba);
+      class_ace.class_a_in_class_ace var8 = new class_ace.class_a_in_class_ace(Items.aW, class_aak.class_a_in_class_aak.d.a());
+      class_ace.class_a_in_class_ace var9 = new class_ace.class_a_in_class_ace(Items.bL);
+      class_ace.class_a_in_class_ace var10 = new class_ace.class_a_in_class_ace(Items.bE);
+      class_ace.class_a_in_class_ace var11 = new class_ace.class_a_in_class_ace(Items.by);
+      class_ace.class_a_in_class_ace var12 = new class_ace.class_a_in_class_ace(Items.bG);
+      a(new class_ace.class_a_in_class_ace(Items.bB));
+      a(new class_ace.class_a_in_class_ace(Items.bC));
+      a(Items.bB, new class_ace.class_a_in_class_ace(Items.J), Items.bC);
       a((class_acd)class_acf.a, (Predicate)var9, (class_acd)class_acf.b);
       a((class_acd)class_acf.a, (Predicate)var11, (class_acd)class_acf.b);
       a((class_acd)class_acf.a, (Predicate)var4, (class_acd)class_acf.b);
@@ -207,14 +207,14 @@ public class class_ace {
    }
 
    static class class_a_in_class_ace implements Predicate {
-      private final class_aar a;
+      private final Item a;
       private final int b;
 
-      public class_a_in_class_ace(class_aar var1) {
+      public class_a_in_class_ace(Item var1) {
          this(var1, -1);
       }
 
-      public class_a_in_class_ace(class_aar var1, int var2) {
+      public class_a_in_class_ace(Item var1, int var2) {
          this.a = var1;
          this.b = var2;
       }

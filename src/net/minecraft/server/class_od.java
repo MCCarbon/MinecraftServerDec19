@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_amm;
 import net.minecraft.server.class_oc;
@@ -16,7 +16,7 @@ public class class_od extends class_oc.class_a_in_class_oc {
    private int c;
    private int d;
 
-   public class_od(class_aar var1, int var2, int var3, int var4, int var5) {
+   public class_od(Item var1, int var2, int var3, int var4, int var5) {
       super(var5);
       this.b = new class_aas(var1, 1, var2);
       this.c = var3;

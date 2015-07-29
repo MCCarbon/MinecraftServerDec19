@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_ave;
 import net.minecraft.server.class_cj;
@@ -121,7 +121,7 @@ public class class_avf extends class_avd {
 
    }
 
-   private void a(int var1, class_aen var2, String var3, double var4, double var6, double var8) {
+   private void a(int var1, World var2, String var3, double var4, double var6, double var8) {
       int var10 = 1 << this.e;
       float var11 = (float)(var4 - (double)this.b) / (float)var10;
       float var12 = (float)(var6 - (double)this.c) / (float)var10;
@@ -164,7 +164,7 @@ public class class_avf extends class_avd {
       this.h.put(var3, new class_ave((byte)var1, var13, var14, var15));
    }
 
-   public class_ff a(class_aas var1, class_aen var2, class_xa var3) {
+   public class_ff a(class_aas var1, World var2, class_xa var3) {
       class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.i.get(var3);
       return var4 == null?null:var4.a(var1);
    }

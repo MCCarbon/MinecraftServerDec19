@@ -14,7 +14,7 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_b;
@@ -374,7 +374,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       return this.o.a("spawn-protection", super.aw());
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_xa var3) {
+   public boolean a(World var1, class_cj var2, class_xa var3) {
       if(var1.t.p().a() != 0) {
          return false;
       } else if(this.aP().m().d()) {

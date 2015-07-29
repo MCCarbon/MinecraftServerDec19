@@ -26,7 +26,7 @@ import net.minecraft.server.class_aet;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.class_aiu;
 import net.minecraft.server.class_ajd;
@@ -39,7 +39,7 @@ import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.class_arw;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
@@ -66,7 +66,7 @@ import net.minecraft.server.class_qb;
 import net.minecraft.server.class_tr;
 import net.minecraft.server.class_xa;
 
-public abstract class class_aen implements class_aer {
+public abstract class World implements class_aer {
    private int a = 63;
    protected boolean e;
    public final List f = Lists.newArrayList();
@@ -108,7 +108,7 @@ public abstract class class_aen implements class_aer {
    private final class_aoe N;
    int[] H;
 
-   protected class_aen(class_avo var1, class_avn var2, class_aoy var3, class_nv var4, boolean var5) {
+   protected World(class_avo var1, class_avn var2, class_aoy var3, class_nv var4, boolean var5) {
       this.L = this.s.nextInt(12000);
       this.F = true;
       this.G = true;
@@ -121,7 +121,7 @@ public abstract class class_aen implements class_aer {
       this.N = var3.o();
    }
 
-   public class_aen b() {
+   public World b() {
       return this;
    }
 
@@ -175,7 +175,7 @@ public abstract class class_aen implements class_aer {
    }
 
    public boolean d(class_cj var1) {
-      return this.p(var1).getBlock().v() == class_atk.a;
+      return this.p(var1).getBlock().getMaterial() == Material.a;
    }
 
    public boolean e(class_cj var1) {
@@ -256,7 +256,7 @@ public abstract class class_aen implements class_aer {
             return false;
          } else {
             Block var7 = var6.getBlock();
-            if(var5.r() != var7.r() || var5.t() != var7.t()) {
+            if(var5.getLightOpacity() != var7.getLightOpacity() || var5.getLightLevel() != var7.getLightLevel()) {
                this.B.a("checkLight");
                this.x(var1);
                this.B.b();
@@ -279,21 +279,21 @@ public abstract class class_aen implements class_aer {
    }
 
    public boolean g(class_cj var1) {
-      return this.a((class_cj)var1, (IBlockData)class_agk.a.S(), 3);
+      return this.a((class_cj)var1, (IBlockData)Blocks.AIR.getBlockData(), 3);
    }
 
    public boolean b(class_cj var1, boolean var2) {
       IBlockData var3 = this.p(var1);
       Block var4 = var3.getBlock();
-      if(var4.v() == class_atk.a) {
+      if(var4.getMaterial() == Material.a) {
          return false;
       } else {
-         this.b(2001, var1, Block.f(var3));
+         this.b(2001, var1, Block.getCombinedId(var3));
          if(var2) {
             var4.b(this, var1, var3, 0);
          }
 
-         return this.a((class_cj)var1, (IBlockData)class_agk.a.S(), 3);
+         return this.a((class_cj)var1, (IBlockData)Blocks.AIR.getBlockData(), 3);
       }
    }
 
@@ -391,7 +391,7 @@ public abstract class class_aen implements class_aer {
             var6.a("Source block type", new Callable() {
                public String a() throws Exception {
                   try {
-                     return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(Block.getId(var2)), var2.a(), var2.getClass().getCanonicalName()});
+                     return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(Block.getId(var2)), var2.getInternalName(), var2.getClass().getCanonicalName()});
                   } catch (Throwable var2x) {
                      return "ID #" + Block.getId(var2);
                   }
@@ -426,7 +426,7 @@ public abstract class class_aen implements class_aer {
          } else {
             for(var2 = var2.b(); var2.o() > var1.o(); var2 = var2.b()) {
                Block var3 = this.p(var2).getBlock();
-               if(var3.r() > 0 && !var3.v().d()) {
+               if(var3.getLightOpacity() > 0 && !var3.getMaterial().d()) {
                   return false;
                }
             }
@@ -454,7 +454,7 @@ public abstract class class_aen implements class_aer {
 
    public int c(class_cj var1, boolean var2) {
       if(var1.n() >= -30000000 && var1.p() >= -30000000 && var1.n() < 30000000 && var1.p() < 30000000) {
-         if(var2 && this.p(var1).getBlock().u()) {
+         if(var2 && this.p(var1).getBlock().useNeighborBrightness()) {
             int var8 = this.c(var1.a(), false);
             int var4 = this.c(var1.f(), false);
             int var5 = this.c(var1.e(), false);
@@ -558,7 +558,7 @@ public abstract class class_aen implements class_aer {
 
    public IBlockData p(class_cj var1) {
       if(!this.a(var1)) {
-         return class_agk.a.S();
+         return Blocks.AIR.getBlockData();
       } else {
          class_aok var2 = this.f(var1);
          return var2.g(var1);
@@ -842,7 +842,7 @@ public abstract class class_aen implements class_aer {
       class_aoe var10 = this.ag();
       boolean var11 = var1.aV();
       boolean var12 = this.a(var10, var1);
-      IBlockData var13 = class_agk.b.S();
+      IBlockData var13 = Blocks.STONE.getBlockData();
       class_cj.class_a_in_class_cj var14 = new class_cj.class_a_in_class_cj();
 
       for(int var15 = var4; var15 < var5; ++var15) {
@@ -927,7 +927,7 @@ public abstract class class_aen implements class_aer {
                   if(var10 >= -30000000 && var10 < 30000000 && var11 >= -30000000 && var11 < 30000000) {
                      var13 = this.p(var9);
                   } else {
-                     var13 = class_agk.h.S();
+                     var13 = Blocks.BEDROCK.getBlockData();
                   }
 
                   var13.getBlock().a(this, (class_cj)var9, (IBlockData)var13, (class_awf)var1, (List)var2, (class_pr)null);
@@ -974,8 +974,8 @@ public abstract class class_aen implements class_aer {
       class_cj var4;
       for(var3 = new class_cj(var1.n(), var2.g() + 16, var1.p()); var3.o() >= 0; var3 = var4) {
          var4 = var3.b();
-         class_atk var5 = var2.a(var4).v();
-         if(var5.c() && var5 != class_atk.j) {
+         Material var5 = var2.a(var4).getMaterial();
+         if(var5.isSolid() && var5 != Material.j) {
             break;
          }
       }
@@ -1272,7 +1272,7 @@ public abstract class class_aen implements class_aer {
          for(int var10 = var4; var10 <= var5; ++var10) {
             for(int var11 = var6; var11 <= var7; ++var11) {
                Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
-               if(var12.v() != class_atk.a) {
+               if(var12.getMaterial() != Material.a) {
                   return true;
                }
             }
@@ -1295,7 +1295,7 @@ public abstract class class_aen implements class_aer {
          for(int var10 = var4; var10 <= var5; ++var10) {
             for(int var11 = var6; var11 <= var7; ++var11) {
                Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
-               if(var12.v().d()) {
+               if(var12.getMaterial().d()) {
                   return true;
                }
             }
@@ -1319,7 +1319,7 @@ public abstract class class_aen implements class_aer {
             for(int var10 = var4; var10 < var5; ++var10) {
                for(int var11 = var6; var11 < var7; ++var11) {
                   Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
-                  if(var12 == class_agk.ab || var12 == class_agk.k || var12 == class_agk.l) {
+                  if(var12 == Blocks.FIRE || var12 == Blocks.FLOWING_LAVA || var12 == Blocks.LAVA) {
                      return true;
                   }
                }
@@ -1330,7 +1330,7 @@ public abstract class class_aen implements class_aer {
       return false;
    }
 
-   public boolean a(class_awf var1, class_atk var2, class_pr var3) {
+   public boolean a(class_awf var1, Material var2, class_pr var3) {
       int var4 = class_nu.c(var1.a);
       int var5 = class_nu.c(var1.d + 1.0D);
       int var6 = class_nu.c(var1.b);
@@ -1350,11 +1350,11 @@ public abstract class class_aen implements class_aer {
                   var12.c(var13, var14, var15);
                   IBlockData var16 = this.p(var12);
                   Block var17 = var16.getBlock();
-                  if(var17.v() == var2) {
+                  if(var17.getMaterial() == var2) {
                      double var18 = (double)((float)(var14 + 1) - class_ajd.b(((Integer)var16.get(class_ajd.b)).intValue()));
                      if((double)var7 >= var18) {
                         var10 = true;
-                        var11 = var17.a((class_aen)this, var12, (class_pr)var3, (class_awh)var11);
+                        var11 = var17.a((World)this, var12, (class_pr)var3, (class_awh)var11);
                      }
                   }
                }
@@ -1373,7 +1373,7 @@ public abstract class class_aen implements class_aer {
       }
    }
 
-   public boolean a(class_awf var1, class_atk var2) {
+   public boolean a(class_awf var1, Material var2) {
       int var3 = class_nu.c(var1.a);
       int var4 = class_nu.c(var1.d + 1.0D);
       int var5 = class_nu.c(var1.b);
@@ -1385,7 +1385,7 @@ public abstract class class_aen implements class_aer {
       for(int var10 = var3; var10 < var4; ++var10) {
          for(int var11 = var5; var11 < var6; ++var11) {
             for(int var12 = var7; var12 < var8; ++var12) {
-               if(this.p(var9.c(var10, var11, var12)).getBlock().v() == var2) {
+               if(this.p(var9.c(var10, var11, var12)).getBlock().getMaterial() == var2) {
                   return true;
                }
             }
@@ -1395,7 +1395,7 @@ public abstract class class_aen implements class_aer {
       return false;
    }
 
-   public boolean b(class_awf var1, class_atk var2) {
+   public boolean b(class_awf var1, Material var2) {
       int var3 = class_nu.c(var1.a);
       int var4 = class_nu.c(var1.d + 1.0D);
       int var5 = class_nu.c(var1.b);
@@ -1409,7 +1409,7 @@ public abstract class class_aen implements class_aer {
             for(int var12 = var7; var12 < var8; ++var12) {
                IBlockData var13 = this.p(var9.c(var10, var11, var12));
                Block var14 = var13.getBlock();
-               if(var14.v() == var2) {
+               if(var14.getMaterial() == var2) {
                   int var15 = ((Integer)var13.get(class_ajd.b)).intValue();
                   double var16 = (double)(var11 + 1);
                   if(var15 < 8) {
@@ -1471,7 +1471,7 @@ public abstract class class_aen implements class_aer {
 
    public boolean a(class_xa var1, class_cj var2, class_cq var3) {
       var2 = var2.a(var3);
-      if(this.p(var2).getBlock() == class_agk.ab) {
+      if(this.p(var2).getBlock() == Blocks.FIRE) {
          this.a(var1, 1004, var2, 0);
          this.g(var2);
          return true;
@@ -1568,7 +1568,7 @@ public abstract class class_aen implements class_aer {
    public static boolean a(class_aer var0, class_cj var1) {
       IBlockData var2 = var0.p(var1);
       Block var3 = var2.getBlock();
-      return var3.v().k() && var3.d()?true:(var3 instanceof class_ald?var2.get(class_ald.b) == class_ald.class_a_in_class_ald.a:(var3 instanceof class_aio?var2.get(class_aio.a) == class_aio.class_a_in_class_aio.a:(var3 instanceof class_aiu?true:(var3 instanceof class_aky?((Integer)var2.get(class_aky.a)).intValue() == 7:false))));
+      return var3.getMaterial().k() && var3.isFullCube()?true:(var3 instanceof class_ald?var2.get(class_ald.b) == class_ald.class_a_in_class_ald.a:(var3 instanceof class_aio?var2.get(class_aio.a) == class_aio.class_a_in_class_aio.a:(var3 instanceof class_aiu?true:(var3 instanceof class_aky?((Integer)var2.get(class_aky.a)).intValue() == 7:false))));
    }
 
    public boolean d(class_cj var1, boolean var2) {
@@ -1580,7 +1580,7 @@ public abstract class class_aen implements class_aer {
             return var2;
          } else {
             Block var4 = this.p(var1).getBlock();
-            return var4.v().k() && var4.d();
+            return var4.getMaterial().k() && var4.isFullCube();
          }
       }
    }
@@ -1727,7 +1727,7 @@ public abstract class class_aen implements class_aer {
          Block var9 = var3.a(var8);
          var5 += var1;
          var6 += var2;
-         if(var9.v() == class_atk.a && this.k(var8) <= this.s.nextInt(8) && this.b(class_aet.a, var8) <= 0) {
+         if(var9.getMaterial() == Material.a && this.k(var8) <= this.s.nextInt(8) && this.b(class_aet.a, var8) <= 0) {
             class_xa var10 = this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, 8.0D);
             if(var10 != null && var10.e((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D) > 4.0D) {
                this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + this.s.nextFloat() * 0.2F);
@@ -1767,7 +1767,7 @@ public abstract class class_aen implements class_aer {
          if(var1.o() >= 0 && var1.o() < 256 && this.b(class_aet.b, var1) < 10) {
             IBlockData var5 = this.p(var1);
             Block var6 = var5.getBlock();
-            if((var6 == class_agk.j || var6 == class_agk.i) && ((Integer)var5.get(class_ajd.b)).intValue() == 0) {
+            if((var6 == Blocks.WATER || var6 == Blocks.FLOWING_WATER) && ((Integer)var5.get(class_ajd.b)).intValue() == 0) {
                if(!var2) {
                   return true;
                }
@@ -1784,7 +1784,7 @@ public abstract class class_aen implements class_aer {
    }
 
    private boolean F(class_cj var1) {
-      return this.p(var1).getBlock().v() == class_atk.h;
+      return this.p(var1).getBlock().getMaterial() == Material.h;
    }
 
    public boolean f(class_cj var1, boolean var2) {
@@ -1797,7 +1797,7 @@ public abstract class class_aen implements class_aer {
       } else {
          if(var1.o() >= 0 && var1.o() < 256 && this.b(class_aet.b, var1) < 10) {
             Block var5 = this.p(var1).getBlock();
-            if(var5.v() == class_atk.a && class_agk.aH.d(this, var1)) {
+            if(var5.getMaterial() == Material.a && Blocks.SNOW_LAYER.d(this, var1)) {
                return true;
             }
          }
@@ -1821,9 +1821,9 @@ public abstract class class_aen implements class_aer {
          return 15;
       } else {
          Block var3 = this.p(var1).getBlock();
-         int var4 = var2 == class_aet.a?0:var3.t();
-         int var5 = var3.r();
-         if(var5 >= 15 && var3.t() > 0) {
+         int var4 = var2 == class_aet.a?0:var3.getLightLevel();
+         int var5 = var3.getLightOpacity();
+         if(var5 >= 15 && var3.getLightLevel() > 0) {
             var5 = 1;
          }
 
@@ -1921,7 +1921,7 @@ public abstract class class_aen implements class_aer {
                   int var26 = var12 + var24.h();
                   int var27 = var13 + var24.i();
                   var20.c(var25, var26, var27);
-                  int var28 = Math.max(1, this.p(var20).getBlock().r());
+                  int var28 = Math.max(1, this.p(var20).getBlock().getLightOpacity());
                   var16 = this.b((class_aet)var1, (class_cj)var20);
                   if(var16 == var14 - var28 && var4 < this.H.length) {
                      this.H[var4++] = var25 - var7 + 32 | var26 - var8 + 32 << 6 | var27 - var9 + 32 << 12 | var14 - var28 << 18;
@@ -2133,8 +2133,8 @@ public abstract class class_aen implements class_aer {
 
    public boolean a(Block var1, class_cj var2, boolean var3, class_cq var4, class_pr var5, class_aas var6) {
       Block var7 = this.p(var2).getBlock();
-      class_awf var8 = var3?null:var1.a(this, var2, var1.S());
-      return var8 != null && !this.a(var8, var5)?false:(var7.v() == class_atk.q && var1 == class_agk.cf?true:var7.v().j() && var1.a(this, var2, var4, var6));
+      class_awf var8 = var3?null:var1.a(this, var2, var1.getBlockData());
+      return var8 != null && !this.a(var8, var5)?false:(var7.getMaterial() == Material.q && var1 == Blocks.ANVIL?true:var7.getMaterial().j() && var1.a(this, var2, var4, var6));
    }
 
    public int G() {
@@ -2192,7 +2192,7 @@ public abstract class class_aen implements class_aer {
    public int c(class_cj var1, class_cq var2) {
       IBlockData var3 = this.p(var1);
       Block var4 = var3.getBlock();
-      return var4.x()?this.y(var1):var4.a((class_aer)this, var1, (IBlockData)var3, (class_cq)var2);
+      return var4.isOccluding()?this.y(var1):var4.a((class_aer)this, var1, (IBlockData)var3, (class_cq)var2);
    }
 
    public boolean z(class_cj var1) {
@@ -2481,7 +2481,7 @@ public abstract class class_aen implements class_aer {
       var2.a((String)"Level name", (Object)(this.x == null?"????":this.x.k()));
       var2.a("All players", new Callable() {
          public String a() {
-            return class_aen.this.j.size() + " total; " + class_aen.this.j.toString();
+            return World.this.j.size() + " total; " + World.this.j.toString();
          }
 
          // $FF: synthetic method
@@ -2491,7 +2491,7 @@ public abstract class class_aen implements class_aer {
       });
       var2.a("Chunk stats", new Callable() {
          public String a() {
-            return class_aen.this.v.f();
+            return World.this.v.f();
          }
 
          // $FF: synthetic method
@@ -2537,12 +2537,12 @@ public abstract class class_aen implements class_aer {
          class_cj var5 = var1.a(var4);
          if(this.e(var5)) {
             IBlockData var6 = this.p(var5);
-            if(class_agk.cj.e(var6.getBlock())) {
+            if(Blocks.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
                var6.getBlock().a(this, var5, var6, var2);
-            } else if(var6.getBlock().x()) {
+            } else if(var6.getBlock().isOccluding()) {
                var5 = var5.a(var4);
                var6 = this.p(var5);
-               if(class_agk.cj.e(var6.getBlock())) {
+               if(Blocks.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
                   var6.getBlock().a(this, var5, var6, var2);
                }
             }

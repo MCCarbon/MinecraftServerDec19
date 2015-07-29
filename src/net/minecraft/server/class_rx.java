@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
@@ -86,5 +86,5 @@ public abstract class class_rx extends class_rm {
       return false;
    }
 
-   protected abstract boolean a(class_aen var1, class_cj var2);
+   protected abstract boolean a(World var1, class_cj var2);
 }

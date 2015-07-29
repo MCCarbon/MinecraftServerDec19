@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_aco;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
@@ -68,11 +68,11 @@ public class class_ym extends class_yx {
       }
 
       this.b = 0;
-      if(var1.b() == class_aau.l) {
+      if(var1.b() == Items.l) {
          this.a.b((class_my)class_mt.k);
       }
 
-      if(var1.b() == class_aau.aX) {
+      if(var1.b() == Items.aX) {
          this.a.b((class_my)class_mt.p);
       }
 

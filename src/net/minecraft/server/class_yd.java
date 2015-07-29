@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_ace;
 import net.minecraft.server.class_acf;
@@ -150,7 +150,7 @@ public class class_yd extends class_xz {
       }
 
       public static boolean b_(class_aas var0) {
-         return var0 != null && (var0.b() == class_aau.bB || var0.b() == class_aau.bD);
+         return var0 != null && (var0.b() == Items.bB || var0.b() == Items.bD);
       }
    }
 }

@@ -5,11 +5,11 @@ import com.google.common.collect.Maps;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alp;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
@@ -21,7 +21,7 @@ public class class_akm extends class_alp {
    private static Map b = Maps.newHashMap();
    private final boolean N;
 
-   private boolean a(class_aen var1, class_cj var2, boolean var3) {
+   private boolean a(World var1, class_cj var2, boolean var3) {
       if(!b.containsKey(var1)) {
          b.put(var1, Lists.newArrayList());
       }
@@ -48,15 +48,15 @@ public class class_akm extends class_alp {
 
    protected class_akm(boolean var1) {
       this.N = var1;
-      this.a(true);
+      this.setTicking(true);
       this.a((CreativeTab)null);
    }
 
-   public int a(class_aen var1) {
+   public int a(World var1) {
       return 2;
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
       if(this.N) {
          class_cq[] var4 = class_cq.values();
          int var5 = var4.length;
@@ -69,7 +69,7 @@ public class class_akm extends class_alp {
 
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       if(this.N) {
          class_cq[] var4 = class_cq.values();
          int var5 = var4.length;
@@ -86,15 +86,15 @@ public class class_akm extends class_alp {
       return this.N && var3.get(a) != var4?15:0;
    }
 
-   private boolean g(class_aen var1, class_cj var2, IBlockData var3) {
+   private boolean g(World var1, class_cj var2, IBlockData var3) {
       class_cq var4 = ((class_cq)var3.get(a)).d();
       return var1.b(var2.a(var4), var4);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Random var4) {
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       boolean var5 = this.g(var1, var2, var3);
       List var6 = (List)b.get(var1);
 
@@ -104,7 +104,7 @@ public class class_akm extends class_alp {
 
       if(this.N) {
          if(var5) {
-            var1.a((class_cj)var2, (IBlockData)class_agk.aE.S().set(a, var3.get(a)), 3);
+            var1.a((class_cj)var2, (IBlockData)Blocks.UNLIT_REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
             if(this.a(var1, var2, true)) {
                var1.a((double)((float)var2.n() + 0.5F), (double)((float)var2.o() + 0.5F), (double)((float)var2.p() + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F);
 
@@ -119,12 +119,12 @@ public class class_akm extends class_alp {
             }
          }
       } else if(!var5 && !this.a(var1, var2, false)) {
-         var1.a((class_cj)var2, (IBlockData)class_agk.aF.S().set(a, var3.get(a)), 3);
+         var1.a((class_cj)var2, (IBlockData)Blocks.REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
       }
 
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2, var3)) {
          if(this.N == this.g(var1, var2, var3)) {
             var1.a((class_cj)var2, (Block)this, this.a(var1));
@@ -137,16 +137,16 @@ public class class_akm extends class_alp {
       return var4 == class_cq.a?this.a(var1, var2, var3, var4):0;
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aar.a(class_agk.aF);
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Item.getByBlock(Blocks.REDSTONE_TORCH);
    }
 
-   public boolean i() {
+   public boolean isPowerSource() {
       return true;
    }
 
    public boolean b(Block var1) {
-      return var1 == class_agk.aE || var1 == class_agk.aF;
+      return var1 == Blocks.UNLIT_REDSTONE_TORCH || var1 == Blocks.REDSTONE_TORCH;
    }
 
    static class class_a_in_class_akm {

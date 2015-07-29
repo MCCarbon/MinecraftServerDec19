@@ -1,37 +1,37 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ago;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_xa;
 
 public class class_ahf extends class_ago {
    protected class_ahf() {
-      super(class_atk.l);
+      super(Material.l);
       float var1 = 0.4F;
-      this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 0.8F, 0.5F + var1);
+      this.setSizes(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 0.8F, 0.5F + var1);
    }
 
-   public class_atl g(IBlockData var1) {
-      return class_atl.o;
+   public MaterialMapColor getMapColor(IBlockData var1) {
+      return MaterialMapColor.o;
    }
 
    protected boolean c(Block var1) {
-      return var1 == class_agk.m || var1 == class_agk.cz || var1 == class_agk.cu || var1 == class_agk.d;
+      return var1 == Blocks.SAND || var1 == Blocks.HARDENED_CLAY || var1 == Blocks.STAINED_HARDENED_CLAY || var1 == Blocks.DIRT;
    }
 
-   public boolean a(class_aen var1, class_cj var2) {
+   public boolean isReplaceable(World var1, class_cj var2) {
       return true;
    }
 
@@ -39,14 +39,14 @@ public class class_ahf extends class_ago {
       return var1.nextInt(3);
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aau.A;
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Items.A;
    }
 
-   public void a(class_aen var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
-      if(!var1.D && var6 != null && var6.b() == class_aau.bg) {
+   public void a(World var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
+      if(!var1.D && var6 != null && var6.b() == Items.bg) {
          var2.b(class_nc.ab[Block.getId((Block)this)]);
-         a(var1, var3, new class_aas(class_agk.I, 1, 0));
+         a(var1, var3, new class_aas(Blocks.DEADBUSH, 1, 0));
       } else {
          super.a(var1, var2, var3, var4, var5, var6);
       }

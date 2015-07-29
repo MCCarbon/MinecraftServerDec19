@@ -6,9 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
@@ -29,7 +29,7 @@ import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
 
 public class class_apk implements class_aoh {
-   private class_aen a;
+   private World a;
    private Random b;
    private final IBlockData[] c = new IBlockData[256];
    private final class_arr d;
@@ -39,7 +39,7 @@ public class class_apk implements class_aoh {
    private class_aqu h;
    private class_aqu i;
 
-   public class_apk(class_aen var1, long var2, boolean var4, String var5) {
+   public class_apk(World var1, long var2, boolean var4, String var5) {
       this.a = var1;
       this.b = new Random(var2);
       this.d = class_arr.a(var5);
@@ -72,11 +72,11 @@ public class class_apk implements class_aoh {
       }
 
       if(this.d.b().containsKey("lake")) {
-         this.h = new class_aqu(class_agk.j);
+         this.h = new class_aqu(Blocks.WATER);
       }
 
       if(this.d.b().containsKey("lava_lake")) {
-         this.i = new class_aqu(class_agk.l);
+         this.i = new class_aqu(Blocks.LAVA);
       }
 
       this.g = this.d.b().containsKey("dungeon");
@@ -90,13 +90,13 @@ public class class_apk implements class_aoh {
 
          for(int var11 = var10.d(); var11 < var10.d() + var10.b(); ++var11) {
             IBlockData var12 = var10.c();
-            if(var12.getBlock() != class_agk.a) {
+            if(var12.getBlock() != Blocks.AIR) {
                var8 = false;
                this.c[var11] = var12;
             }
          }
 
-         if(var10.c().getBlock() == class_agk.a) {
+         if(var10.c().getBlock() == Blocks.AIR) {
             var14 += var10.b();
          } else {
             var13 += var10.b() + var14;
@@ -218,7 +218,7 @@ public class class_apk implements class_aoh {
       return var3.a(var1);
    }
 
-   public class_cj a(class_aen var1, String var2, class_cj var3) {
+   public class_cj a(World var1, String var2, class_cj var3) {
       if("Stronghold".equals(var2)) {
          Iterator var4 = this.e.iterator();
 

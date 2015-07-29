@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
@@ -42,13 +42,13 @@ public class class_be extends class_i {
             var5 = a(var2[4], 0, 15);
          }
 
-         class_aen var6 = var1.e();
+         World var6 = var1.e();
          if(!var6.e(var3)) {
             throw new class_bz("commands.setblock.outOfWorld", new Object[0]);
          } else {
             class_dn var7 = new class_dn();
             boolean var8 = false;
-            if(var2.length >= 7 && var4.B()) {
+            if(var2.length >= 7 && var4.isTileEntity()) {
                String var9 = a(var1, var2, 6).c();
 
                try {
@@ -62,7 +62,7 @@ public class class_be extends class_i {
             if(var2.length >= 6) {
                if(var2[5].equals("destroy")) {
                   var6.b(var3, true);
-                  if(var4 == class_agk.a) {
+                  if(var4 == Blocks.AIR) {
                      a(var1, this, "commands.setblock.success", new Object[0]);
                      return;
                   }
@@ -77,10 +77,10 @@ public class class_be extends class_i {
                   ((class_oj)var13).l();
                }
 
-               var6.a(var3, class_agk.a.S(), var4 == class_agk.a?2:4);
+               var6.a(var3, Blocks.AIR.getBlockData(), var4 == Blocks.AIR?2:4);
             }
 
-            IBlockData var10 = var4.a(var5);
+            IBlockData var10 = var4.fromLegacyData(var5);
             if(!var6.a((class_cj)var3, (IBlockData)var10, 2)) {
                throw new class_bz("commands.setblock.noChange", new Object[0]);
             } else {

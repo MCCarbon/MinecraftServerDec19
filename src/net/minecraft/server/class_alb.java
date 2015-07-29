@@ -1,33 +1,33 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agg;
 import net.minecraft.server.class_aiq;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.CreativeTab;
 import net.minecraft.server.class_zy;
 
 public class class_alb extends class_aiq {
-   public static final class_any a = class_any.a("color", class_zy.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("color", class_zy.class);
 
-   public class_alb(class_atk var1) {
+   public class_alb(Material var1) {
       super(var1, false);
-      this.j(this.M.b().set(a, class_zy.a));
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_zy.a));
       this.a((CreativeTab)CreativeTab.b);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_zy)var1.get(a)).a();
    }
 
-   public class_atl g(IBlockData var1) {
+   public MaterialMapColor getMapColor(IBlockData var1) {
       return ((class_zy)var1.get(a)).e();
    }
 
@@ -39,33 +39,33 @@ public class class_alb extends class_aiq {
       return true;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_zy.b(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_zy.b(var1));
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
       if(!var1.D) {
          class_agg.f(var1, var2);
       }
 
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       if(!var1.D) {
          class_agg.f(var1, var2);
       }
 
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_zy)var1.get(a)).a();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 }

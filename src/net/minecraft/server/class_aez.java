@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Set;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aey;
 import net.minecraft.server.class_afc;
 import net.minecraft.server.class_afe;
@@ -28,7 +28,7 @@ import net.minecraft.server.class_aft;
 import net.minecraft.server.class_afu;
 import net.minecraft.server.class_afv;
 import net.minecraft.server.class_afw;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aic;
 import net.minecraft.server.class_akq;
 import net.minecraft.server.class_alm;
@@ -42,7 +42,7 @@ import net.minecraft.server.class_arl;
 import net.minecraft.server.class_arm;
 import net.minecraft.server.class_arn;
 import net.minecraft.server.class_atb;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_qc;
@@ -149,8 +149,8 @@ public abstract class class_aez {
    protected class_arl aC;
 
    protected class_aez(int var1) {
-      this.ak = class_agk.c.S();
-      this.al = class_agk.d.S();
+      this.ak = Blocks.GRASS.getBlockData();
+      this.al = Blocks.DIRT.getBlockData();
       this.am = 5169201;
       this.an = a.a;
       this.ao = a.b;
@@ -301,7 +301,7 @@ public abstract class class_aez {
       }
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       this.as.a(var1, var2, this, var3);
    }
 
@@ -309,11 +309,11 @@ public abstract class class_aez {
       return this.ax;
    }
 
-   public void a(class_aen var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
       this.b(var1, var2, var3, var4, var5, var6);
    }
 
-   public final void b(class_aen var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public final void b(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
       int var8 = var1.G();
       IBlockData var9 = this.ak;
       IBlockData var10 = this.al;
@@ -325,26 +325,26 @@ public abstract class class_aez {
 
       for(int var16 = 255; var16 >= 0; --var16) {
          if(var16 <= var2.nextInt(5)) {
-            var3.a(var14, var16, var13, class_agk.h.S());
+            var3.a(var14, var16, var13, Blocks.BEDROCK.getBlockData());
          } else {
             IBlockData var17 = var3.a(var14, var16, var13);
-            if(var17.getBlock().v() == class_atk.a) {
+            if(var17.getBlock().getMaterial() == Material.a) {
                var11 = -1;
-            } else if(var17.getBlock() == class_agk.b) {
+            } else if(var17.getBlock() == Blocks.STONE) {
                if(var11 == -1) {
                   if(var12 <= 0) {
                      var9 = null;
-                     var10 = class_agk.b.S();
+                     var10 = Blocks.STONE.getBlockData();
                   } else if(var16 >= var8 - 4 && var16 <= var8 + 1) {
                      var9 = this.ak;
                      var10 = this.al;
                   }
 
-                  if(var16 < var8 && (var9 == null || var9.getBlock().v() == class_atk.a)) {
+                  if(var16 < var8 && (var9 == null || var9.getBlock().getMaterial() == Material.a)) {
                      if(this.a((class_cj)var15.c(var4, var16, var5)) < 0.15F) {
-                        var9 = class_agk.aI.S();
+                        var9 = Blocks.ICE.getBlockData();
                      } else {
-                        var9 = class_agk.j.S();
+                        var9 = Blocks.WATER.getBlockData();
                      }
                   }
 
@@ -353,17 +353,17 @@ public abstract class class_aez {
                      var3.a(var14, var16, var13, var9);
                   } else if(var16 < var8 - 7 - var12) {
                      var9 = null;
-                     var10 = class_agk.b.S();
-                     var3.a(var14, var16, var13, class_agk.n.S());
+                     var10 = Blocks.STONE.getBlockData();
+                     var3.a(var14, var16, var13, Blocks.GRAVEL.getBlockData());
                   } else {
                      var3.a(var14, var16, var13, var10);
                   }
                } else if(var11 > 0) {
                   --var11;
                   var3.a(var14, var16, var13, var10);
-                  if(var11 == 0 && var10.getBlock() == class_agk.m) {
+                  if(var11 == 0 && var10.getBlock() == Blocks.SAND) {
                      var11 = var2.nextInt(4) + Math.max(0, var16 - 63);
-                     var10 = var10.get(class_akq.a) == class_akq.class_a_in_class_akq.b?class_agk.cM.S():class_agk.A.S();
+                     var10 = var10.get(class_akq.a) == class_akq.class_a_in_class_akq.b?Blocks.RED_SANDSTONE.getBlockData():Blocks.SANDSTONE.getBlockData();
                   }
                }
             }

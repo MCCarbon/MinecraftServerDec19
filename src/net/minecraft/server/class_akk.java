@@ -7,38 +7,38 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahh;
 import net.minecraft.server.class_ako;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 
 public class class_akk extends Block {
-   public static final class_any a = class_any.a("north", class_akk.class_a_in_class_akk.class);
-   public static final class_any b = class_any.a("east", class_akk.class_a_in_class_akk.class);
-   public static final class_any N = class_any.a("south", class_akk.class_a_in_class_akk.class);
-   public static final class_any O = class_any.a("west", class_akk.class_a_in_class_akk.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("north", class_akk.class_a_in_class_akk.class);
+   public static final BlockStateEnum b = BlockStateEnum.of("east", class_akk.class_a_in_class_akk.class);
+   public static final BlockStateEnum N = BlockStateEnum.of("south", class_akk.class_a_in_class_akk.class);
+   public static final BlockStateEnum O = BlockStateEnum.of("west", class_akk.class_a_in_class_akk.class);
    public static final class_anz P = class_anz.a("power", 0, 15);
    private boolean Q = true;
    private final Set R = Sets.newHashSet();
 
    public class_akk() {
-      super(class_atk.q);
-      this.j(this.M.b().set(a, class_akk.class_a_in_class_akk.c).set(b, class_akk.class_a_in_class_akk.c).set(N, class_akk.class_a_in_class_akk.c).set(O, class_akk.class_a_in_class_akk.c).set(P, Integer.valueOf(0)));
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
+      super(Material.q);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_akk.class_a_in_class_akk.c).set(b, class_akk.class_a_in_class_akk.c).set(N, class_akk.class_a_in_class_akk.c).set(O, class_akk.class_a_in_class_akk.c).set(P, Integer.valueOf(0)));
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
    }
 
    public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
@@ -52,31 +52,31 @@ public class class_akk extends Block {
    private class_akk.class_a_in_class_akk c(class_aer var1, class_cj var2, class_cq var3) {
       class_cj var4 = var2.a(var3);
       Block var5 = var1.p(var2.a(var3)).getBlock();
-      if(a(var1.p(var4), var3) || !var5.w() && d(var1.p(var4.b()))) {
+      if(a(var1.p(var4), var3) || !var5.isSoildFullCube() && d(var1.p(var4.b()))) {
          return class_akk.class_a_in_class_akk.b;
       } else {
          Block var6 = var1.p(var2.a()).getBlock();
-         return !var6.w() && var5.w() && d(var1.p(var4.a()))?class_akk.class_a_in_class_akk.a:class_akk.class_a_in_class_akk.c;
+         return !var6.isSoildFullCube() && var5.isSoildFullCube() && d(var1.p(var4.a()))?class_akk.class_a_in_class_akk.a:class_akk.class_a_in_class_akk.c;
       }
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
-      return class_aen.a((class_aer)var1, (class_cj)var2.b()) || var1.p(var2.b()).getBlock() == class_agk.aX;
+   public boolean d(World var1, class_cj var2) {
+      return World.a((class_aer)var1, (class_cj)var2.b()) || var1.p(var2.b()).getBlock() == Blocks.GLOWSTONE;
    }
 
-   private IBlockData e(class_aen var1, class_cj var2, IBlockData var3) {
+   private IBlockData e(World var1, class_cj var2, IBlockData var3) {
       var3 = this.a(var1, var2, var2, var3);
       ArrayList var4 = Lists.newArrayList((Iterable)this.R);
       this.R.clear();
@@ -90,11 +90,11 @@ public class class_akk extends Block {
       return var3;
    }
 
-   private IBlockData a(class_aen var1, class_cj var2, class_cj var3, IBlockData var4) {
+   private IBlockData a(World var1, class_cj var2, class_cj var3, IBlockData var4) {
       IBlockData var5 = var4;
       int var6 = ((Integer)var4.get(P)).intValue();
       byte var7 = 0;
-      int var14 = this.a((class_aen)var1, (class_cj)var3, var7);
+      int var14 = this.a((World)var1, (class_cj)var3, var7);
       this.Q = false;
       int var8 = var1.A(var2);
       this.Q = true;
@@ -114,11 +114,11 @@ public class class_akk extends Block {
                var9 = this.a(var1, var12, var9);
             }
 
-            if(var1.p(var12).getBlock().x() && !var1.p(var2.a()).getBlock().x()) {
+            if(var1.p(var12).getBlock().isOccluding() && !var1.p(var2.a()).getBlock().isOccluding()) {
                if(var13 && var2.o() >= var3.o()) {
                   var9 = this.a(var1, var12.a(), var9);
                }
-            } else if(!var1.p(var12).getBlock().x() && var13 && var2.o() <= var3.o()) {
+            } else if(!var1.p(var12).getBlock().isOccluding() && var13 && var2.o() <= var3.o()) {
                var9 = this.a(var1, var12.b(), var9);
             }
          }
@@ -155,7 +155,7 @@ public class class_akk extends Block {
       }
    }
 
-   private void e(class_aen var1, class_cj var2) {
+   private void e(World var1, class_cj var2) {
       if(var1.p(var2).getBlock() == this) {
          var1.c((class_cj)var2, (Block)this);
          class_cq[] var3 = class_cq.values();
@@ -169,7 +169,7 @@ public class class_akk extends Block {
       }
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
       if(!var1.D) {
          this.e(var1, var2, var3);
          Iterator var4 = class_cq.class_c_in_class_cq.b.iterator();
@@ -192,7 +192,7 @@ public class class_akk extends Block {
          while(var4.hasNext()) {
             var5 = (class_cq)var4.next();
             class_cj var6 = var2.a(var5);
-            if(var1.p(var6).getBlock().x()) {
+            if(var1.p(var6).getBlock().isOccluding()) {
                this.e(var1, var6.a());
             } else {
                this.e(var1, var6.b());
@@ -202,7 +202,7 @@ public class class_akk extends Block {
       }
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       super.b(var1, var2, var3);
       if(!var1.D) {
          class_cq[] var4 = class_cq.values();
@@ -227,7 +227,7 @@ public class class_akk extends Block {
          while(var8.hasNext()) {
             var9 = (class_cq)var8.next();
             class_cj var10 = var2.a(var9);
-            if(var1.p(var10).getBlock().x()) {
+            if(var1.p(var10).getBlock().isOccluding()) {
                this.e(var1, var10.a());
             } else {
                this.e(var1, var10.b());
@@ -237,7 +237,7 @@ public class class_akk extends Block {
       }
    }
 
-   private int a(class_aen var1, class_cj var2, int var3) {
+   private int a(World var1, class_cj var2, int var3) {
       if(var1.p(var2).getBlock() != this) {
          return var3;
       } else {
@@ -246,7 +246,7 @@ public class class_akk extends Block {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          if(this.d(var1, var2)) {
             this.e(var1, var2, var3);
@@ -258,8 +258,8 @@ public class class_akk extends Block {
       }
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aau.aE;
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Items.aE;
    }
 
    public int b(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
@@ -301,9 +301,9 @@ public class class_akk extends Block {
       class_cj var4 = var2.a(var3);
       IBlockData var5 = var1.p(var4);
       Block var6 = var5.getBlock();
-      boolean var7 = var6.x();
-      boolean var8 = var1.p(var2.a()).getBlock().x();
-      return !var8 && var7 && e(var1, var4.a())?true:(a(var5, var3)?true:(var6 == class_agk.bc && var5.get(class_ahh.O) == var3?true:!var7 && e(var1, var4.b())));
+      boolean var7 = var6.isOccluding();
+      boolean var8 = var1.p(var2.a()).getBlock().isOccluding();
+      return !var8 && var7 && e(var1, var4.a())?true:(a(var5, var3)?true:(var6 == Blocks.POWERED_REPEATER && var5.get(class_ahh.O) == var3?true:!var7 && e(var1, var4.b())));
    }
 
    protected static boolean e(class_aer var0, class_cj var1) {
@@ -316,25 +316,25 @@ public class class_akk extends Block {
 
    protected static boolean a(IBlockData var0, class_cq var1) {
       Block var2 = var0.getBlock();
-      if(var2 == class_agk.af) {
+      if(var2 == Blocks.REDSTONE_WIRE) {
          return true;
-      } else if(class_agk.bb.e(var2)) {
+      } else if(Blocks.UNPOWERED_REPEATER.e(var2)) {
          class_cq var3 = (class_cq)var0.get(class_ako.O);
          return var3 == var1 || var3.d() == var1;
       } else {
-         return var2.i() && var1 != null;
+         return var2.isPowerSource() && var1 != null;
       }
    }
 
-   public boolean i() {
+   public boolean isPowerSource() {
       return this.Q;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(P, Integer.valueOf(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(P, Integer.valueOf(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((Integer)var1.get(P)).intValue();
    }
 
@@ -370,8 +370,8 @@ public class class_akk extends Block {
       }
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a, b, N, O, P});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a, b, N, O, P});
    }
 
    // $FF: synthetic class
@@ -417,7 +417,7 @@ public class class_akk extends Block {
       }
    }
 
-   static enum class_a_in_class_akk implements class_ny {
+   static enum class_a_in_class_akk implements INamable {
       a("up"),
       b("side"),
       c("none");
@@ -429,10 +429,10 @@ public class class_akk extends Block {
       }
 
       public String toString() {
-         return this.l();
+         return this.getName();
       }
 
-      public String l() {
+      public String getName() {
          return this.d;
       }
    }

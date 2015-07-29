@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aiv;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anx;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -20,12 +20,12 @@ public class class_aiz extends Block {
    public static final class_anx a;
 
    protected class_aiz() {
-      super(class_atk.q);
-      this.j(this.M.b().set(a, class_cq.c));
+      super(Material.q);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.c));
       this.a(CreativeTab.c);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       this.a((class_aer)var1, (class_cj)var2);
       return super.a(var1, var2, var3);
    }
@@ -36,54 +36,54 @@ public class class_aiz extends Block {
          float var4 = 0.1875F;
          switch(class_aiz.SyntheticClass_1.a[((class_cq)var3.get(a)).ordinal()]) {
          case 1:
-            this.a(0.0F, 0.0F, 1.0F - var4, 1.0F, 1.0F, 1.0F);
+            this.setSizes(0.0F, 0.0F, 1.0F - var4, 1.0F, 1.0F, 1.0F);
             break;
          case 2:
-            this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, var4);
+            this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, var4);
             break;
          case 3:
-            this.a(1.0F - var4, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+            this.setSizes(1.0F - var4, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
             break;
          case 4:
          default:
-            this.a(0.0F, 0.0F, 0.0F, var4, 1.0F, 1.0F);
+            this.setSizes(0.0F, 0.0F, 0.0F, var4, 1.0F, 1.0F);
          }
 
       }
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
-      return var1.p(var2.e()).getBlock().x()?true:(var1.p(var2.f()).getBlock().x()?true:(var1.p(var2.c()).getBlock().x()?true:var1.p(var2.d()).getBlock().x()));
+   public boolean d(World var1, class_cj var2) {
+      return var1.p(var2.e()).getBlock().isOccluding()?true:(var1.p(var2.f()).getBlock().isOccluding()?true:(var1.p(var2.c()).getBlock().isOccluding()?true:var1.p(var2.d()).getBlock().isOccluding()));
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
       if(var3.k().c() && this.a(var1, var2, var3)) {
-         return this.S().set(a, var3);
+         return this.getBlockData().set(a, var3);
       } else {
          Iterator var9 = class_cq.class_c_in_class_cq.a.iterator();
 
          class_cq var10;
          do {
             if(!var9.hasNext()) {
-               return this.S();
+               return this.getBlockData();
             }
 
             var10 = (class_cq)var9.next();
          } while(!this.a(var1, var2, var10));
 
-         return this.S().set(a, var10);
+         return this.getBlockData().set(a, var10);
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       class_cq var5 = (class_cq)var3.get(a);
       if(!this.a(var1, var2, var5)) {
          this.b(var1, var2, var3, 0);
@@ -93,20 +93,20 @@ public class class_aiz extends Block {
       super.a(var1, var2, var3, var4);
    }
 
-   protected boolean a(class_aen var1, class_cj var2, class_cq var3) {
-      return var1.p(var2.a(var3.d())).getBlock().x();
+   protected boolean a(World var1, class_cj var2, class_cq var3) {
+      return var1.p(var2.a(var3.d())).getBlock().isOccluding();
    }
 
-   public IBlockData a(int var1) {
+   public IBlockData fromLegacyData(int var1) {
       class_cq var2 = class_cq.a(var1);
       if(var2.k() == class_cq.class_a_in_class_cq.b) {
          var2 = class_cq.c;
       }
 
-      return this.S().set(a, var2);
+      return this.getBlockData().set(a, var2);
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_cq)var1.get(a)).a();
    }
 
@@ -118,8 +118,8 @@ public class class_aiz extends Block {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
    static {

@@ -3,29 +3,29 @@ package net.minecraft.server;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.Material;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_ake extends class_aio {
-   public static final class_any b = class_any.a("variant", class_ake.class_c_in_class_ake.class);
+   public static final BlockStateEnum b = BlockStateEnum.of("variant", class_ake.class_c_in_class_ake.class);
 
    public class_ake() {
-      super(class_atk.e);
-      IBlockData var1 = this.M.b();
+      super(Material.e);
+      IBlockData var1 = this.blockStateList.getFirst();
       if(!this.l()) {
          var1 = var1.set(a, class_aio.class_a_in_class_aio.b);
       }
 
-      this.j(var1.set(b, class_ake.class_c_in_class_ake.a));
+      this.setBlockData(var1.set(b, class_ake.class_c_in_class_ake.a));
       this.a(CreativeTab.b);
    }
 
-   public IBlockData a(int var1) {
-      IBlockData var2 = this.S().set(b, class_ake.class_c_in_class_ake.a);
+   public IBlockData fromLegacyData(int var1) {
+      IBlockData var2 = this.getBlockData().set(b, class_ake.class_c_in_class_ake.a);
       if(!this.l()) {
          var2 = var2.set(a, (var1 & 8) == 0?class_aio.class_a_in_class_aio.b:class_aio.class_a_in_class_aio.a);
       }
@@ -33,7 +33,7 @@ public abstract class class_ake extends class_aio {
       return var2;
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       int var2 = 0;
       if(!this.l() && var1.get(a) == class_aio.class_a_in_class_aio.a) {
          var2 |= 8;
@@ -42,12 +42,12 @@ public abstract class class_ake extends class_aio {
       return var2;
    }
 
-   protected class_anm e() {
-      return this.l()?new class_anm(this, new IBlockState[]{b}):new class_anm(this, new IBlockState[]{a, b});
+   protected BlockStateList createBlockStateList() {
+      return this.l()?new BlockStateList(this, new IBlockState[]{b}):new BlockStateList(this, new IBlockState[]{a, b});
    }
 
    public String b(int var1) {
-      return super.a();
+      return super.getInternalName();
    }
 
    public IBlockState n() {
@@ -58,10 +58,10 @@ public abstract class class_ake extends class_aio {
       return class_ake.class_c_in_class_ake.a;
    }
 
-   public static enum class_c_in_class_ake implements class_ny {
+   public static enum class_c_in_class_ake implements INamable {
       a;
 
-      public String l() {
+      public String getName() {
          return "default";
       }
    }

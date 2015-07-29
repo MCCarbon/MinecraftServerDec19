@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_oo;
@@ -45,13 +45,13 @@ public class class_uc extends class_qj {
    private class_rb bx;
    private class_sr by;
 
-   public class_uc(class_aen var1) {
+   public class_uc(World var1) {
       super(var1);
       this.a(0.6F, 0.7F);
       ((class_tf)this.u()).a(true);
       this.i.a(1, new class_rj(this));
       this.i.a(2, this.bu);
-      this.i.a(3, this.by = new class_sr(this, 0.6D, class_aau.aW, true));
+      this.i.a(3, this.by = new class_sr(this, 0.6D, Items.aW, true));
       this.i.a(5, new class_rk(this, 1.0D, 10.0F, 5.0F));
       this.i.a(6, new class_sb(this, 0.8D));
       this.i.a(7, new class_rq(this, 0.3F));
@@ -126,8 +126,8 @@ public class class_uc extends class_qj {
       return 0.4F;
    }
 
-   protected class_aar D() {
-      return class_aau.aH;
+   protected Item D() {
+      return Items.aH;
    }
 
    public boolean r(class_pr var1) {
@@ -151,7 +151,7 @@ public class class_uc extends class_qj {
          if(this.e(var1) && !this.o.D && !this.d(var3)) {
             this.bu.a(!this.cC());
          }
-      } else if(this.by.f() && var3 != null && var3.b() == class_aau.aW && var1.h(this) < 9.0D) {
+      } else if(this.by.f() && var3 != null && var3.b() == Items.aW && var1.h(this) < 9.0D) {
          if(!var1.bH.d) {
             --var3.b;
          }
@@ -188,7 +188,7 @@ public class class_uc extends class_qj {
    }
 
    public boolean d(class_aas var1) {
-      return var1 != null && var1.b() == class_aau.aW;
+      return var1 != null && var1.b() == Items.aW;
    }
 
    public boolean a(class_tw var1) {
@@ -224,7 +224,7 @@ public class class_uc extends class_qj {
          }
 
          Block var2 = this.o.p(var1.b()).getBlock();
-         if(var2 == class_agk.c || var2.v() == class_atk.j) {
+         if(var2 == Blocks.GRASS || var2.getMaterial() == Material.j) {
             return true;
          }
       }
@@ -233,7 +233,7 @@ public class class_uc extends class_qj {
    }
 
    public String e_() {
-      return this.l_()?this.aO():(this.cA()?class_di.a("entity.Cat.name"):super.e_());
+      return this.l_()?this.aO():(this.cA()?LocaleI18n.get("entity.Cat.name"):super.e_());
    }
 
    public void n(boolean var1) {

@@ -1,18 +1,18 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.class_xa;
 
 public class class_vt extends class_vn {
-   public class_vt(class_aen var1) {
+   public class_vt(World var1) {
       super(var1);
    }
 
-   public class_vt(class_aen var1, double var2, double var4, double var6) {
+   public class_vt(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 

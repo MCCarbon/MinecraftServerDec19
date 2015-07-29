@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afx;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_wb;
 
 public class class_afw extends class_aez {
@@ -13,8 +13,8 @@ public class class_afw extends class_aez {
       this.av.clear();
       this.aw.clear();
       this.at.add(new class_aez.class_c_in_class_aez(class_wb.class, 10, 4, 4));
-      this.ak = class_agk.d.S();
-      this.al = class_agk.d.S();
+      this.ak = Blocks.DIRT.getBlockData();
+      this.al = Blocks.DIRT.getBlockData();
       this.as = new class_afx();
    }
 }

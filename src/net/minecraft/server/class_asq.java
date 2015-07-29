@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_asn;
@@ -87,7 +87,7 @@ public class class_asq extends class_ask {
       public class_a_in_class_asq() {
       }
 
-      public class_a_in_class_asq(class_aen var1, Random var2, int var3, int var4, int var5) {
+      public class_a_in_class_asq(World var1, Random var2, int var3, int var4, int var5) {
          super(var3, var4);
          List var6 = class_asr.a(var2, var5);
          class_asr.class_k_in_class_asr var7 = new class_asr.class_k_in_class_asr(var1.w(), 0, var2, (var3 << 4) + 2, (var4 << 4) + 2, var6, var5);

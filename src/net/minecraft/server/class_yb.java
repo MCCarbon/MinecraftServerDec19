@@ -3,12 +3,12 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Map;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aga;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_oj;
@@ -32,14 +32,14 @@ public class class_yb extends class_xz {
          class_yb.this.a((class_oj)this);
       }
    };
-   private class_aen i;
+   private World i;
    private class_cj j;
    public int a;
    private int k;
    private String l;
    private final class_xa m;
 
-   public class_yb(class_wz var1, final class_aen var2, final class_cj var3, class_xa var4) {
+   public class_yb(class_wz var1, final World var2, final class_cj var3, class_xa var4) {
       this.j = var3;
       this.i = var2;
       this.m = var4;
@@ -74,7 +74,7 @@ public class class_yb extends class_xz {
 
             class_yb.this.a = 0;
             IBlockData var5 = var2.p(var3);
-            if(!var1.bH.d && !var2.D && var5.getBlock() == class_agk.cf && var1.bd().nextFloat() < 0.12F) {
+            if(!var1.bH.d && !var2.D && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
                int var4 = ((Integer)var5.get(class_aga.b)).intValue();
                ++var4;
                if(var4 > 2) {
@@ -128,7 +128,7 @@ public class class_yb extends class_xz {
          int var17 = var3 + var1.A() + (var6 == null?0:var6.A());
          this.k = 0;
          if(var6 != null) {
-            boolean var8 = var6.b() == class_aau.cg && !class_aau.cg.h(var6).c_();
+            boolean var8 = var6.b() == Items.cg && !Items.cg.h(var6).c_();
             int var9;
             int var10;
             int var11;
@@ -191,7 +191,7 @@ public class class_yb extends class_xz {
                   var13 = ((Integer)var19.get(var21)).intValue();
                   var13 = var12 == var13?var13 + 1:Math.max(var13, var12);
                   boolean var14 = var21.a(var1);
-                  if(this.m.bH.d || var1.b() == class_aau.cg) {
+                  if(this.m.bH.d || var1.b() == Items.cg) {
                      var14 = true;
                   }
 
@@ -296,7 +296,7 @@ public class class_yb extends class_xz {
    }
 
    public boolean a(class_xa var1) {
-      return this.i.p(this.j).getBlock() != class_agk.cf?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
+      return this.i.p(this.j).getBlock() != Blocks.ANVIL?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
    }
 
    public class_aas b(class_xa var1, int var2) {

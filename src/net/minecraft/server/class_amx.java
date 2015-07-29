@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.gson.JsonParseException;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_bz;
@@ -65,7 +65,7 @@ public class class_amx extends class_amg {
             return new class_awh((double)class_amx.this.c.n() + 0.5D, (double)class_amx.this.c.o() + 0.5D, (double)class_amx.this.c.p() + 0.5D);
          }
 
-         public class_aen e() {
+         public World e() {
             return class_amx.this.b;
          }
 
@@ -147,7 +147,7 @@ public class class_amx extends class_amg {
             return new class_awh((double)class_amx.this.c.n() + 0.5D, (double)class_amx.this.c.o() + 0.5D, (double)class_amx.this.c.p() + 0.5D);
          }
 
-         public class_aen e() {
+         public World e() {
             return var1.e();
          }
 

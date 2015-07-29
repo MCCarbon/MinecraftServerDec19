@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ams;
 import net.minecraft.server.class_amt;
 import net.minecraft.server.IBlockData;
@@ -28,12 +28,12 @@ public class class_vs extends class_vq implements class_ams {
    private int b = -1;
    private class_cj c;
 
-   public class_vs(class_aen var1) {
+   public class_vs(World var1) {
       super(var1);
       this.c = class_cj.a;
    }
 
-   public class_vs(class_aen var1, double var2, double var4, double var6) {
+   public class_vs(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
       this.c = class_cj.a;
    }
@@ -43,7 +43,7 @@ public class class_vs extends class_vq implements class_ams {
    }
 
    public IBlockData u() {
-      return class_agk.cp.S();
+      return Blocks.HOPPER.getBlockData();
    }
 
    public int w() {
@@ -78,7 +78,7 @@ public class class_vs extends class_vq implements class_ams {
       this.a = var1;
    }
 
-   public class_aen z() {
+   public World z() {
       return this.o;
    }
 
@@ -131,7 +131,7 @@ public class class_vs extends class_vq implements class_ams {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(class_aar.a((Block)class_agk.cp), 1, 0.0F);
+         this.a(Item.getByBlock((Block)Blocks.HOPPER), 1, 0.0F);
       }
 
    }

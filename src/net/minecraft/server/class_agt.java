@@ -2,20 +2,20 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acf;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ame;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -32,38 +32,38 @@ public class class_agt extends Block {
    public static final class_anz a = class_anz.a("level", 0, 3);
 
    public class_agt() {
-      super(class_atk.f, class_atl.m);
-      this.j(this.M.b().set(a, Integer.valueOf(0)));
+      super(Material.f, MaterialMapColor.m);
+      this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
+   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       float var7 = 0.125F;
-      this.a(0.0F, 0.0F, 0.0F, var7, 1.0F, 1.0F);
+      this.setSizes(0.0F, 0.0F, 0.0F, var7, 1.0F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, var7);
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, var7);
       super.a(var1, var2, var3, var4, var5, var6);
-      this.a(1.0F - var7, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+      this.setSizes(1.0F - var7, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
-      this.a(0.0F, 0.0F, 1.0F - var7, 1.0F, 1.0F, 1.0F);
+      this.setSizes(0.0F, 0.0F, 1.0F - var7, 1.0F, 1.0F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       this.j();
    }
 
    public void j() {
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
       int var5 = ((Integer)var3.get(a)).intValue();
       float var6 = (float)var2.o() + (6.0F + (float)(3 * var5)) / 16.0F;
       if(!var1.D && var4.av() && var5 > 0 && var4.aT().b <= (double)var6) {
@@ -73,18 +73,18 @@ public class class_agt extends Block {
 
    }
 
-   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else if(var6 == null) {
          return true;
       } else {
          int var11 = ((Integer)var3.get(a)).intValue();
-         class_aar var12 = var6.b();
-         if(var12 == class_aau.az) {
+         Item var12 = var6.b();
+         if(var12 == Items.az) {
             if(var11 < 3) {
                if(!var4.bH.d) {
-                  var4.a((class_oo)var5, (class_aas)(new class_aas(class_aau.ay)));
+                  var4.a((class_oo)var5, (class_aas)(new class_aas(Items.ay)));
                }
 
                var4.b(class_nc.I);
@@ -94,10 +94,10 @@ public class class_agt extends Block {
             return true;
          } else {
             class_aas var14;
-            if(var12 == class_aau.bD) {
+            if(var12 == Items.bD) {
                if(var11 > 0) {
                   if(!var4.bH.d) {
-                     var14 = class_abe.a(new class_aas(class_aau.bB), class_acf.a);
+                     var14 = class_abe.a(new class_aas(Items.bB), class_acf.a);
                      var4.b(class_nc.J);
                      if(--var6.b == 0) {
                         var4.a((class_oo)var5, (class_aas)var14);
@@ -153,12 +153,12 @@ public class class_agt extends Block {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, int var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, int var4) {
       var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(class_nu.a(var4, 0, 3))), 2);
       var1.e(var2, this);
    }
 
-   public void k(class_aen var1, class_cj var2) {
+   public void k(World var1, class_cj var2) {
       if(var1.s.nextInt(20) == 1) {
          IBlockData var3 = var1.p(var2);
          if(((Integer)var3.get(a)).intValue() < 3) {
@@ -168,27 +168,27 @@ public class class_agt extends Block {
       }
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aau.bJ;
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Items.bJ;
    }
 
    public boolean Q() {
       return true;
    }
 
-   public int l(class_aen var1, class_cj var2) {
+   public int l(World var1, class_cj var2) {
       return ((Integer)var1.p(var2).get(a)).intValue();
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, Integer.valueOf(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 }

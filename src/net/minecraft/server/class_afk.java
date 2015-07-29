@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.class_ajs;
 import net.minecraft.server.class_ajt;
@@ -54,7 +54,7 @@ public class class_afk extends class_aez {
       return var1.nextInt(4) == 0?new class_arm(class_alm.class_a_in_class_alm.c):new class_arm(class_alm.class_a_in_class_alm.b);
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       super.a(var1, var2, var3);
       int var4 = var2.nextInt(16) + 8;
       int var5 = var2.nextInt(16) + 8;
@@ -72,8 +72,8 @@ public class class_afk extends class_aez {
    }
 
    static {
-      aE = class_agk.r.S().set(class_ajt.b, class_ajw.class_a_in_class_ajw.d);
-      aF = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.d).set(class_aja.b, Boolean.valueOf(false));
-      aG = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.a).set(class_aja.b, Boolean.valueOf(false));
+      aE = Blocks.LOG.getBlockData().set(class_ajt.b, class_ajw.class_a_in_class_ajw.d);
+      aF = Blocks.LEAVES.getBlockData().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.d).set(class_aja.b, Boolean.valueOf(false));
+      aG = Blocks.LEAVES.getBlockData().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.a).set(class_aja.b, Boolean.valueOf(false));
    }
 }

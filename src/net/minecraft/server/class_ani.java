@@ -3,23 +3,23 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ane;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 
 public class class_ani {
-   private final class_aen a;
+   private final World a;
    private final class_cj b;
    private final class_cj c;
    private final class_cq d;
    private final List e = Lists.newArrayList();
    private final List f = Lists.newArrayList();
 
-   public class_ani(class_aen var1, class_cj var2, class_cq var3, boolean var4) {
+   public class_ani(World var1, class_cj var2, class_cq var3, boolean var4) {
       this.a = var1;
       this.b = var2;
       if(var4) {
@@ -48,7 +48,7 @@ public class class_ani {
       } else {
          for(int var2 = 0; var2 < this.e.size(); ++var2) {
             class_cj var3 = (class_cj)this.e.get(var2);
-            if(this.a.p(var3).getBlock() == class_agk.cE && !this.b(var3)) {
+            if(this.a.p(var3).getBlock() == Blocks.SLINE && !this.b(var3)) {
                return false;
             }
          }
@@ -59,7 +59,7 @@ public class class_ani {
 
    private boolean a(class_cj var1) {
       Block var2 = this.a.p(var1).getBlock();
-      if(var2.v() == class_atk.a) {
+      if(var2.getMaterial() == Material.a) {
          return true;
       } else if(!class_ane.a(var2, this.a, var1, this.d, false)) {
          return true;
@@ -72,10 +72,10 @@ public class class_ani {
          if(var3 + this.e.size() > 12) {
             return false;
          } else {
-            while(var2 == class_agk.cE) {
+            while(var2 == Blocks.SLINE) {
                class_cj var4 = var1.a(this.d.d(), var3);
                var2 = this.a.p(var4).getBlock();
-               if(var2.v() == class_atk.a || !class_ane.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
+               if(var2.getMaterial() == Material.a || !class_ane.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
                   break;
                }
 
@@ -103,7 +103,7 @@ public class class_ani {
 
                   for(int var8 = 0; var8 <= var7 + var10; ++var8) {
                      class_cj var9 = (class_cj)this.e.get(var8);
-                     if(this.a.p(var9).getBlock() == class_agk.cE && !this.b(var9)) {
+                     if(this.a.p(var9).getBlock() == Blocks.SLINE && !this.b(var9)) {
                         return false;
                      }
                   }
@@ -112,7 +112,7 @@ public class class_ani {
                }
 
                var2 = this.a.p(var6).getBlock();
-               if(var2.v() == class_atk.a) {
+               if(var2.getMaterial() == Material.a) {
                   return true;
                }
 

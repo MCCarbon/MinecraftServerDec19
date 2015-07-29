@@ -6,11 +6,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_aax;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.class_cj;
@@ -139,14 +139,14 @@ public class class_lj {
          class_va var2 = (class_va)this.a;
          class_aas var3 = var2.o();
          if(var3 != null && var3.b() instanceof class_aax) {
-            class_avf var4 = class_aau.bf.a(var3, this.a.o);
+            class_avf var4 = Items.bf.a(var3, this.a.o);
             Iterator var5 = var1.iterator();
 
             while(var5.hasNext()) {
                class_xa var6 = (class_xa)var5.next();
                class_lh var7 = (class_lh)var6;
                var4.a(var7, var3);
-               class_ff var8 = class_aau.bf.a((class_aas)var3, (class_aen)this.a.o, (class_xa)var7);
+               class_ff var8 = Items.bf.a((class_aas)var3, (World)this.a.o, (class_xa)var7);
                if(var8 != null) {
                   var7.a.a(var8);
                }
@@ -482,7 +482,7 @@ public class class_lj {
                return new class_fk(this.a, 51);
             } else if(this.a instanceof class_vl) {
                class_vl var5 = (class_vl)this.a;
-               return new class_fk(this.a, 70, Block.f(var5.l()));
+               return new class_fk(this.a, 70, Block.getCombinedId(var5.l()));
             } else if(this.a instanceof class_uy) {
                return new class_fk(this.a, 78);
             } else if(this.a instanceof class_vc) {

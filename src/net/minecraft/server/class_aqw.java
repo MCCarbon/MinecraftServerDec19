@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alu;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anw;
@@ -15,7 +15,7 @@ public class class_aqw extends class_aqy {
       super(var1, var2, var3, var4, var5);
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       int var4 = this.a(var2);
       if(!this.a(var1, var2, var3, var4)) {
          return false;
@@ -87,14 +87,14 @@ public class class_aqw extends class_aqy {
       }
    }
 
-   private void a(class_aen var1, Random var2, class_cj var3, class_anw var4) {
+   private void a(World var1, Random var2, class_cj var3, class_anw var4) {
       if(var2.nextInt(3) > 0 && var1.d(var3)) {
-         this.a(var1, var3, class_agk.bn.S().set(var4, Boolean.valueOf(true)));
+         this.a(var1, var3, Blocks.VINE.getBlockData().set(var4, Boolean.valueOf(true)));
       }
 
    }
 
-   private void c(class_aen var1, class_cj var2, int var3) {
+   private void c(World var1, class_cj var2, int var3) {
       byte var4 = 2;
 
       for(int var5 = -var4; var5 <= 0; ++var5) {

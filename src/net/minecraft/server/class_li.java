@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_abw;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_agu;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ami;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_ff;
@@ -25,7 +25,7 @@ import net.minecraft.server.class_ou;
 import net.minecraft.server.class_xa;
 
 public class class_li {
-   public class_aen a;
+   public World a;
    public class_lh b;
    private class_aeq.class_a_in_class_aeq c;
    private boolean d;
@@ -37,7 +37,7 @@ public class class_li {
    private int j;
    private int k;
 
-   public class_li(class_aen var1) {
+   public class_li(World var1) {
       this.c = class_aeq.class_a_in_class_aeq.a;
       this.f = class_cj.a;
       this.i = class_cj.a;
@@ -79,10 +79,10 @@ public class class_li {
       if(this.h) {
          int var1 = this.g - this.j;
          Block var2 = this.a.p(this.i).getBlock();
-         if(var2.v() == class_atk.a) {
+         if(var2.getMaterial() == Material.a) {
             this.h = false;
          } else {
-            var3 = var2.a((class_xa)this.b, (class_aen)this.b.o, (class_cj)this.i) * (float)(var1 + 1);
+            var3 = var2.a((class_xa)this.b, (World)this.b.o, (class_cj)this.i) * (float)(var1 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
                this.a.c(this.b.F(), this.i, var4);
@@ -96,13 +96,13 @@ public class class_li {
          }
       } else if(this.d) {
          Block var5 = this.a.p(this.f).getBlock();
-         if(var5.v() == class_atk.a) {
+         if(var5.getMaterial() == Material.a) {
             this.a.c(this.b.F(), this.f, -1);
             this.k = -1;
             this.d = false;
          } else {
             int var6 = this.g - this.e;
-            var3 = var5.a((class_xa)this.b, (class_aen)this.b.o, (class_cj)this.i) * (float)(var6 + 1);
+            var3 = var5.a((class_xa)this.b, (World)this.b.o, (class_cj)this.i) * (float)(var6 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
                this.a.c(this.b.F(), this.f, var4);
@@ -141,12 +141,12 @@ public class class_li {
          this.a.a((class_xa)null, (class_cj)var1, (class_cq)var2);
          this.e = this.g;
          float var6 = 1.0F;
-         if(var3.v() != class_atk.a) {
-            var3.a((class_aen)this.a, (class_cj)var1, (class_xa)this.b);
-            var6 = var3.a((class_xa)this.b, (class_aen)this.b.o, (class_cj)var1);
+         if(var3.getMaterial() != Material.a) {
+            var3.a((World)this.a, (class_cj)var1, (class_xa)this.b);
+            var6 = var3.a((class_xa)this.b, (World)this.b.o, (class_cj)var1);
          }
 
-         if(var3.v() != class_atk.a && var6 >= 1.0F) {
+         if(var3.getMaterial() != Material.a && var6 >= 1.0F) {
             this.b(var1);
          } else {
             this.d = true;
@@ -163,8 +163,8 @@ public class class_li {
       if(var1.equals(this.f)) {
          int var2 = this.g - this.e;
          Block var3 = this.a.p(var1).getBlock();
-         if(var3.v() != class_atk.a) {
-            float var4 = var3.a((class_xa)this.b, (class_aen)this.b.o, (class_cj)var1) * (float)(var2 + 1);
+         if(var3.getMaterial() != Material.a) {
+            float var4 = var3.a((class_xa)this.b, (World)this.b.o, (class_cj)var1) * (float)(var2 + 1);
             if(var4 >= 0.7F) {
                this.d = false;
                this.a.c(this.b.F(), var1, -1);
@@ -187,7 +187,7 @@ public class class_li {
 
    private boolean c(class_cj var1) {
       IBlockData var2 = this.a.p(var1);
-      var2.getBlock().a((class_aen)this.a, var1, (IBlockData)var2, (class_xa)this.b);
+      var2.getBlock().a((World)this.a, var1, (IBlockData)var2, (class_xa)this.b);
       boolean var3 = this.a.g(var1);
       if(var3) {
          var2.getBlock().d(this.a, var1, var2);
@@ -219,7 +219,7 @@ public class class_li {
             }
          }
 
-         this.a.a(this.b, 2001, var1, Block.f(var2));
+         this.a.a(this.b, 2001, var1, Block.getCombinedId(var2));
          boolean var8 = this.c(var1);
          if(this.d()) {
             this.b.a.a((class_ff)(new class_fv(this.a, var1)));
@@ -243,7 +243,7 @@ public class class_li {
       }
    }
 
-   public class_oq a(class_xa var1, class_aen var2, class_aas var3, class_oo var4) {
+   public class_oq a(class_xa var1, World var2, class_aas var3, class_oo var4) {
       if(this.c == class_aeq.class_a_in_class_aeq.e) {
          return class_oq.b;
       } else {
@@ -273,7 +273,7 @@ public class class_li {
       }
    }
 
-   public class_oq a(class_xa var1, class_aen var2, class_aas var3, class_oo var4, class_cj var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_xa var1, World var2, class_aas var3, class_oo var4, class_cj var5, class_cq var6, float var7, float var8, float var9) {
       if(this.c == class_aeq.class_a_in_class_aeq.e) {
          class_amg var14 = var2.s(var5);
          if(var14 instanceof class_ou) {

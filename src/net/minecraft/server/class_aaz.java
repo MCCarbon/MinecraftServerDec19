@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agf;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ck;
 import net.minecraft.server.class_cn;
@@ -19,13 +19,13 @@ import net.minecraft.server.class_vn;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_aaz extends class_aar {
+public class class_aaz extends Item {
    private static final class_cr a = new class_cn() {
       private final class_cn b = new class_cn();
 
       public class_aas b(class_ck var1, class_aas var2) {
          class_cq var3 = class_ahk.b(var1.f());
-         class_aen var4 = var1.i();
+         World var4 = var1.i();
          double var5 = var1.a() + (double)var3.g() * 1.125D;
          double var7 = Math.floor(var1.b()) + (double)var3.h();
          double var9 = var1.c() + (double)var3.i() * 1.125D;
@@ -40,7 +40,7 @@ public class class_aaz extends class_aar {
                var14 = 0.1D;
             }
          } else {
-            if(var12.getBlock().v() != class_atk.a || !class_agf.d(var4.p(var11.b()))) {
+            if(var12.getBlock().getMaterial() != Material.a || !class_agf.d(var4.p(var11.b()))) {
                return this.b.a(var1, var2);
             }
 
@@ -76,7 +76,7 @@ public class class_aaz extends class_aar {
       class_ahk.N.register(this, a);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.p(var4);
       if(class_agf.d(var10)) {
          if(!var3.D) {

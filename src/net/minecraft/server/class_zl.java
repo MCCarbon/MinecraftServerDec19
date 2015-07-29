@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aat;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
@@ -21,7 +21,7 @@ import net.minecraft.server.class_xd;
 import net.minecraft.server.class_zc;
 import net.minecraft.server.CreativeTab;
 
-public class class_zl extends class_aar {
+public class class_zl extends Item {
    public class_zl() {
       this.h = 1;
       this.e(384);
@@ -51,7 +51,7 @@ public class class_zl extends class_aar {
       return var1 != null && var1.b() instanceof class_zc;
    }
 
-   public void a(class_aas var1, class_aen var2, class_qa var3, int var4) {
+   public void a(class_aas var1, World var2, class_qa var3, int var4) {
       if(var3 instanceof class_xa) {
          class_xa var5 = (class_xa)var3;
          boolean var6 = var5.bH.d || class_adk.a(class_adm.w, var1) > 0;
@@ -59,10 +59,10 @@ public class class_zl extends class_aar {
          if(var6 || var7 > -1) {
             class_aas var8 = var7 > -1?var5.bp.a(var7):null;
             if(var8 == null) {
-               var8 = new class_aas(class_aau.g);
+               var8 = new class_aas(Items.g);
             }
 
-            class_zc var9 = (class_zc)((class_zc)(var8.b() instanceof class_zc?var8.b():class_aau.g));
+            class_zc var9 = (class_zc)((class_zc)(var8.b() instanceof class_zc?var8.b():Items.g));
             int var10 = this.e(var1) - var4;
             float var11 = b(var10);
             if((double)var11 >= 0.1D) {
@@ -87,14 +87,14 @@ public class class_zl extends class_aar {
                }
 
                var1.a(1, (class_qa)var5);
-               var2.a((class_pr)var5, "random.bow", 1.0F, 1.0F / (g.nextFloat() * 0.4F + 1.2F) + var11 * 0.5F);
+               var2.a((class_pr)var5, "random.bow", 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + var11 * 0.5F);
                if(var6) {
                   var12.c = 2;
                } else {
                   var5.bp.a(var7, 1);
                }
 
-               var5.b(class_nc.ad[class_aar.b((class_aar)this)]);
+               var5.b(class_nc.ad[Item.getId((Item)this)]);
                if(!var2.D) {
                   var2.a((class_pr)var12);
                }
@@ -122,7 +122,7 @@ public class class_zl extends class_aar {
       return class_abz.e;
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       if((var3.bH.d || this.a(var3.bp) > -1) && var4 == class_oo.a) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);

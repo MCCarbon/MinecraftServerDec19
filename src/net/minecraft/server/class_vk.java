@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -34,7 +34,7 @@ public class class_vk extends class_pr {
    private double as;
    private double at;
 
-   public class_vk(class_aen var1) {
+   public class_vk(World var1) {
       super(var1);
       this.d = true;
       this.e = 0.07D;
@@ -64,7 +64,7 @@ public class class_vk extends class_pr {
       return true;
    }
 
-   public class_vk(class_aen var1, double var2, double var4, double var6) {
+   public class_vk(World var1, double var2, double var4, double var6) {
       this(var1);
       this.b(var2, var4, var6);
       this.v = 0.0D;
@@ -97,7 +97,7 @@ public class class_vk extends class_pr {
                }
 
                if(!var3 && this.o.R().b("doEntityDrops")) {
-                  this.a(class_aau.aG, 1, 0.0F);
+                  this.a(Items.aG, 1, 0.0F);
                }
 
                this.J();
@@ -134,7 +134,7 @@ public class class_vk extends class_pr {
          double var5 = this.aT().b + (this.aT().e - this.aT().b) * (double)(var4 + 0) / (double)var1 - 0.125D;
          double var7 = this.aT().b + (this.aT().e - this.aT().b) * (double)(var4 + 1) / (double)var1 - 0.125D;
          class_awf var9 = new class_awf(this.aT().a, var5, this.aT().c, this.aT().d, var7, this.aT().f);
-         if(this.o.b(var9, class_atk.h)) {
+         if(this.o.b(var9, Material.h)) {
             var2 += 1.0D / (double)var1;
          }
       }
@@ -241,10 +241,10 @@ public class class_vk extends class_pr {
                int var12 = class_nu.c(this.t) + var25;
                class_cj var27 = new class_cj(var23, var12, var10);
                Block var14 = this.o.p(var27).getBlock();
-               if(var14 == class_agk.aH) {
+               if(var14 == Blocks.SNOW_LAYER) {
                   this.o.g(var27);
                   this.D = false;
-               } else if(var14 == class_agk.bx) {
+               } else if(var14 == Blocks.WATERLILY) {
                   this.o.b(var27, true);
                   this.D = false;
                }
@@ -263,11 +263,11 @@ public class class_vk extends class_pr {
                this.J();
                if(this.o.R().b("doEntityDrops")) {
                   for(var22 = 0; var22 < 3; ++var22) {
-                     this.a(class_aar.a(class_agk.f), 1, 0.0F);
+                     this.a(Item.getByBlock(Blocks.PLANKS), 1, 0.0F);
                   }
 
                   for(var22 = 0; var22 < 2; ++var22) {
-                     this.a(class_aau.A, 1, 0.0F);
+                     this.a(Items.A, 1, 0.0F);
                   }
                }
             }
@@ -350,18 +350,18 @@ public class class_vk extends class_pr {
                if(this.o.R().b("doEntityDrops")) {
                   int var6;
                   for(var6 = 0; var6 < 3; ++var6) {
-                     this.a(class_aar.a(class_agk.f), 1, 0.0F);
+                     this.a(Item.getByBlock(Blocks.PLANKS), 1, 0.0F);
                   }
 
                   for(var6 = 0; var6 < 2; ++var6) {
-                     this.a(class_aau.A, 1, 0.0F);
+                     this.a(Items.A, 1, 0.0F);
                   }
                }
             }
 
             this.O = 0.0F;
          }
-      } else if(this.o.p((new class_cj(this)).b()).getBlock().v() != class_atk.h && var1 < 0.0D) {
+      } else if(this.o.p((new class_cj(this)).b()).getBlock().getMaterial() != Material.h && var1 < 0.0D) {
          this.O = (float)((double)this.O - var1);
       }
 

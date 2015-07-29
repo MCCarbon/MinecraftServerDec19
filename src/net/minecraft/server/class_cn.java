@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.class_ck;
 import net.minecraft.server.class_cq;
@@ -26,7 +26,7 @@ public class class_cn implements class_cr {
       return var2;
    }
 
-   public static void a(class_aen var0, class_aas var1, int var2, class_cq var3, class_cz var4) {
+   public static void a(World var0, class_aas var1, int var2, class_cq var3, class_cz var4) {
       double var5 = var4.a();
       double var7 = var4.b();
       double var9 = var4.c();

@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 
-public class class_abx extends class_zg {
+public class class_abx extends ItemBlock {
    private final Block b;
    private String[] c;
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_auw;
 import net.minecraft.server.class_auy;
 import net.minecraft.server.class_awg;
@@ -9,7 +9,7 @@ import net.minecraft.server.class_qb;
 import net.minecraft.server.class_tg;
 
 public class class_ti extends class_tg {
-   public class_ti(class_qb var1, class_aen var2) {
+   public class_ti(class_qb var1, World var2) {
       super(var1, var2);
    }
 

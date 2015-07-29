@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.class_aan;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_abf;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
 import net.minecraft.server.class_xa;
@@ -18,7 +18,7 @@ public class class_aao extends class_aan {
       return var1.i() == 0?class_abf.c:class_abf.d;
    }
 
-   protected void a(class_aas var1, class_aen var2, class_xa var3) {
+   protected void a(class_aas var1, World var2, class_xa var3) {
       if(!var2.D) {
          var3.c(new class_pl(class_pm.v, 2400, 0));
       }

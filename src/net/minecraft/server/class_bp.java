@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
@@ -45,13 +45,13 @@ public class class_bp extends class_i {
                var5 = a(var2[4], -1, 15);
             }
 
-            class_aen var6 = var1.e();
+            World var6 = var1.e();
             if(!var6.e(var3)) {
                throw new class_bz("commands.testforblock.outOfWorld", new Object[0]);
             } else {
                class_dn var7 = new class_dn();
                boolean var8 = false;
-               if(var2.length >= 6 && var4.B()) {
+               if(var2.length >= 6 && var4.isTileEntity()) {
                   String var9 = a(var1, var2, 5).c();
 
                   try {
@@ -65,10 +65,10 @@ public class class_bp extends class_i {
                IBlockData var14 = var6.p(var3);
                Block var10 = var14.getBlock();
                if(var10 != var4) {
-                  throw new class_bz("commands.testforblock.failed.tile", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), var10.f(), var4.f()});
+                  throw new class_bz("commands.testforblock.failed.tile", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), var10.getName(), var4.getName()});
                } else {
                   if(var5 > -1) {
-                     int var11 = var14.getBlock().c(var14);
+                     int var11 = var14.getBlock().toLegacyData(var14);
                      if(var11 != var5) {
                         throw new class_bz("commands.testforblock.failed.data", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), Integer.valueOf(var11), Integer.valueOf(var5)});
                      }

@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_om;
@@ -11,7 +11,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wo;
 
 public class class_wh extends class_wo {
-   public class_wh(class_aen var1) {
+   public class_wh(World var1) {
       super(var1);
       this.ab = true;
    }
@@ -45,12 +45,12 @@ public class class_wh extends class_wo {
       return new class_wh(this.o);
    }
 
-   protected class_aar D() {
-      return class_aau.bH;
+   protected Item D() {
+      return Items.bH;
    }
 
    protected void b(boolean var1, int var2) {
-      class_aar var3 = this.D();
+      Item var3 = this.D();
       if(var3 != null && this.cB() > 1) {
          int var4 = this.V.nextInt(4) - 2;
          if(var2 > 0) {

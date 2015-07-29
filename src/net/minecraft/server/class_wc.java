@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -22,7 +22,7 @@ public class class_wc extends class_wi {
    private int a = 0;
    private boolean b = false;
 
-   public class_wc(class_aen var1) {
+   public class_wc(World var1) {
       super(var1);
       this.b_ = 3;
       this.a(0.4F, 0.3F);
@@ -66,7 +66,7 @@ public class class_wc extends class_wi {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 
-   protected class_aar D() {
+   protected Item D() {
       return null;
    }
 

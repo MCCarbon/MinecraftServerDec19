@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
@@ -34,7 +34,7 @@ public abstract class class_aso {
       return this.a;
    }
 
-   public void a(class_aen var1, Random var2, class_arw var3) {
+   public void a(World var1, Random var2, class_arw var3) {
       Iterator var4 = this.a.iterator();
 
       while(var4.hasNext()) {
@@ -79,7 +79,7 @@ public abstract class class_aso {
    public void a(class_dn var1) {
    }
 
-   public void a(class_aen var1, class_dn var2) {
+   public void a(World var1, class_dn var2) {
       this.c = var2.g("ChunkX");
       this.d = var2.g("ChunkZ");
       if(var2.d("BB")) {
@@ -98,7 +98,7 @@ public abstract class class_aso {
    public void b(class_dn var1) {
    }
 
-   protected void a(class_aen var1, Random var2, int var3) {
+   protected void a(World var1, Random var2, int var3) {
       int var4 = var1.G() - var3;
       int var5 = this.b.d() + 1;
       if(var5 < var4) {
@@ -116,7 +116,7 @@ public abstract class class_aso {
 
    }
 
-   protected void a(class_aen var1, Random var2, int var3, int var4) {
+   protected void a(World var1, Random var2, int var3, int var4) {
       int var5 = var4 - var3 + 1 - this.b.d();
       boolean var6 = true;
       int var10;

@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -21,13 +21,13 @@ public class class_agq extends Block {
    public static final class_anz a = class_anz.a("age", 0, 15);
 
    protected class_agq() {
-      super(class_atk.A);
-      this.j(this.M.b().set(a, Integer.valueOf(0)));
-      this.a(true);
+      super(Material.A);
+      this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
+      this.setTicking(true);
       this.a(CreativeTab.c);
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       class_cj var5 = var2.a();
       if(var1.d(var5)) {
          int var6;
@@ -38,7 +38,7 @@ public class class_agq extends Block {
          if(var6 < 3) {
             int var7 = ((Integer)var3.get(a)).intValue();
             if(var7 == 15) {
-               var1.a(var5, this.S());
+               var1.a(var5, this.getBlockData());
                IBlockData var8 = var3.set(a, Integer.valueOf(0));
                var1.a((class_cj)var2, (IBlockData)var8, 4);
                this.a(var1, var5, var8, (Block)this);
@@ -50,57 +50,57 @@ public class class_agq extends Block {
       }
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       float var4 = 0.0625F;
       return new class_awf((double)((float)var2.n() + var4), (double)var2.o(), (double)((float)var2.p() + var4), (double)((float)(var2.n() + 1) - var4), (double)((float)(var2.o() + 1) - var4), (double)((float)(var2.p() + 1) - var4));
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
+   public boolean d(World var1, class_cj var2) {
       return super.d(var1, var2)?this.e(var1, var2):false;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2)) {
          var1.b(var2, true);
       }
 
    }
 
-   public boolean e(class_aen var1, class_cj var2) {
+   public boolean e(World var1, class_cj var2) {
       Iterator var3 = class_cq.class_c_in_class_cq.a.iterator();
 
       while(var3.hasNext()) {
          class_cq var4 = (class_cq)var3.next();
-         if(var1.p(var2.a(var4)).getBlock().v().a()) {
+         if(var1.p(var2.a(var4)).getBlock().getMaterial().a()) {
             return false;
          }
       }
 
       Block var5 = var1.p(var2.b()).getBlock();
-      return var5 == class_agk.aK || var5 == class_agk.m;
+      return var5 == Blocks.CACTUS || var5 == Blocks.SAND;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
       var4.a(class_pc.h, 1.0F);
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, Integer.valueOf(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, Integer.valueOf(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 }

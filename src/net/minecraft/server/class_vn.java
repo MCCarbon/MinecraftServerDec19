@@ -5,11 +5,11 @@ import java.util.Iterator;
 import java.util.Map;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agf;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aka;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
@@ -54,13 +54,13 @@ public abstract class class_vn extends class_pr implements class_ov {
    private double aw;
    private double ax;
 
-   public class_vn(class_aen var1) {
+   public class_vn(World var1) {
       super(var1);
       this.k = true;
       this.a(0.98F, 0.7F);
    }
 
-   public static class_vn a(class_aen var0, double var1, double var3, double var5, class_vn.class_a_in_class_vn var7) {
+   public static class_vn a(World var0, double var1, double var3, double var5, class_vn.class_a_in_class_vn var7) {
       switch(class_vn.SyntheticClass_1.a[var7.ordinal()]) {
       case 1:
          return new class_vo(var0, var1, var3, var5);
@@ -104,7 +104,7 @@ public abstract class class_vn extends class_pr implements class_ov {
       return true;
    }
 
-   public class_vn(class_aen var1, double var2, double var4, double var6) {
+   public class_vn(World var1, double var2, double var4, double var6) {
       this(var1);
       this.b(var2, var4, var6);
       this.v = 0.0D;
@@ -151,7 +151,7 @@ public abstract class class_vn extends class_pr implements class_ov {
    public void a(class_pc var1) {
       this.J();
       if(this.o.R().b("doEntityDrops")) {
-         class_aas var2 = new class_aas(class_aau.aB, 1);
+         class_aas var2 = new class_aas(Items.aB, 1);
          if(this.h != null) {
             var2.c(this.h);
          }
@@ -253,7 +253,7 @@ public abstract class class_vn extends class_pr implements class_ov {
          IBlockData var5 = this.o.p(var4);
          if(class_agf.d(var5)) {
             this.a(var4, var5);
-            if(var5.getBlock() == class_agk.cs) {
+            if(var5.getBlock() == Blocks.ACTIVATOR_RAIL) {
                this.a(var14, var2, var16, ((Boolean)var5.get(class_aka.N)).booleanValue());
             }
          } else {
@@ -332,7 +332,7 @@ public abstract class class_vn extends class_pr implements class_ov {
       boolean var4 = false;
       boolean var5 = false;
       class_agf var6 = (class_agf)var2.getBlock();
-      if(var6 == class_agk.D) {
+      if(var6 == Blocks.GOLDEN_RAIL) {
          var4 = ((Boolean)var2.get(class_aka.N)).booleanValue();
          var5 = !var4;
       }
@@ -474,15 +474,15 @@ public abstract class class_vn extends class_pr implements class_ov {
             this.v += this.v / var40 * var42;
             this.x += this.x / var40 * var42;
          } else if(var9 == class_agf.class_b_in_class_agf.b) {
-            if(this.o.p(var1.e()).getBlock().x()) {
+            if(this.o.p(var1.e()).getBlock().isOccluding()) {
                this.v = 0.02D;
-            } else if(this.o.p(var1.f()).getBlock().x()) {
+            } else if(this.o.p(var1.f()).getBlock().isOccluding()) {
                this.v = -0.02D;
             }
          } else if(var9 == class_agf.class_b_in_class_agf.a) {
-            if(this.o.p(var1.c()).getBlock().x()) {
+            if(this.o.p(var1.c()).getBlock().isOccluding()) {
                this.x = 0.02D;
-            } else if(this.o.p(var1.d()).getBlock().x()) {
+            } else if(this.o.p(var1.d()).getBlock().isOccluding()) {
                this.x = -0.02D;
             }
          }
@@ -570,16 +570,16 @@ public abstract class class_vn extends class_pr implements class_ov {
          if(var1.b("DisplayTile", 8)) {
             var3 = Block.getByName(var1.k("DisplayTile"));
             if(var3 == null) {
-               this.a(class_agk.a.S());
+               this.a(Blocks.AIR.getBlockData());
             } else {
-               this.a(var3.a(var2));
+               this.a(var3.fromLegacyData(var2));
             }
          } else {
             var3 = Block.getById(var1.g("DisplayTile"));
             if(var3 == null) {
-               this.a(class_agk.a.S());
+               this.a(Blocks.AIR.getBlockData());
             } else {
-               this.a(var3.a(var2));
+               this.a(var3.fromLegacyData(var2));
             }
          }
 
@@ -598,7 +598,7 @@ public abstract class class_vn extends class_pr implements class_ov {
          IBlockData var2 = this.t();
          MinecraftKey var3 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var2.getBlock());
          var1.a("DisplayTile", var3 == null?"":var3.toString());
-         var1.a("DisplayData", var2.getBlock().c(var2));
+         var1.a("DisplayData", var2.getBlock().toLegacyData(var2));
          var1.a("DisplayOffset", this.v());
       }
 
@@ -708,11 +708,11 @@ public abstract class class_vn extends class_pr implements class_ov {
    public abstract class_vn.class_a_in_class_vn s();
 
    public IBlockData t() {
-      return !this.x()?this.u():Block.d(this.H().c(d));
+      return !this.x()?this.u():Block.getByCombinedId(this.H().c(d));
    }
 
    public IBlockData u() {
-      return class_agk.a.S();
+      return Blocks.AIR.getBlockData();
    }
 
    public int v() {
@@ -724,7 +724,7 @@ public abstract class class_vn extends class_pr implements class_ov {
    }
 
    public void a(IBlockData var1) {
-      this.H().b(d, Integer.valueOf(Block.f(var1)));
+      this.H().b(d, Integer.valueOf(Block.getCombinedId(var1)));
       this.a(true);
    }
 

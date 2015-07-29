@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
 import net.minecraft.server.class_aql;
@@ -16,7 +16,7 @@ public class class_arb extends class_aql {
    private final Predicate c;
 
    public class_arb(IBlockData var1, int var2) {
-      this(var1, var2, class_ans.a(class_agk.b));
+      this(var1, var2, class_ans.a(Blocks.STONE));
    }
 
    public class_arb(IBlockData var1, int var2, Predicate var3) {
@@ -25,7 +25,7 @@ public class class_arb extends class_aql {
       this.c = var3;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       float var4 = var2.nextFloat() * 3.1415927F;
       double var5 = (double)((float)(var3.n() + 8) + class_nu.a(var4) * (float)this.b / 8.0F);
       double var7 = (double)((float)(var3.n() + 8) - class_nu.a(var4) * (float)this.b / 8.0F);

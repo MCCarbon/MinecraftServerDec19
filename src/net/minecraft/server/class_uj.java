@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aic;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
@@ -46,7 +46,7 @@ public class class_uj extends class_ua {
    private int bs;
    private int bt;
 
-   public class_uj(class_aen var1) {
+   public class_uj(World var1) {
       super(var1);
       this.a(1.4F, 2.9F);
       ((class_tf)this.u()).a(true);
@@ -117,8 +117,8 @@ public class class_uj extends class_ua {
          int var3 = class_nu.c(this.u);
          IBlockData var4 = this.o.p(new class_cj(var1, var2, var3));
          Block var5 = var4.getBlock();
-         if(var5.v() != class_atk.a) {
-            this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.f(var4)});
+         if(var5.getMaterial() != Material.a) {
+            this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.getCombinedId(var4)});
          }
       }
 
@@ -177,13 +177,13 @@ public class class_uj extends class_ua {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aar.a((Block)class_agk.O), 1, (float)class_aic.class_a_in_class_aic.b.b());
+         this.a(Item.getByBlock((Block)Blocks.RED_FLOWER), 1, (float)class_aic.class_a_in_class_aic.b.b());
       }
 
       var4 = 3 + this.V.nextInt(3);
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         this.a(class_aau.l, 1);
+         this.a(Items.l, 1);
       }
 
    }

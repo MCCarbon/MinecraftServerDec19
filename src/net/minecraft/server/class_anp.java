@@ -6,7 +6,7 @@ import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
 import java.util.Iterator;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_ano;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -61,7 +61,7 @@ public class class_anp {
       return new class_anp.class_b_in_class_anp(var1, var2, var3, var4, this.d, this.c, this.b);
    }
 
-   public class_anp.class_b_in_class_anp a(class_aen var1, class_cj var2) {
+   public class_anp.class_b_in_class_anp a(World var1, class_cj var2) {
       LoadingCache var3 = a(var1, false);
       int var4 = Math.max(Math.max(this.d, this.c), this.b);
       Iterator var5 = class_cj.a(var2, var2.a(var4 - 1, var4 - 1, var4 - 1)).iterator();
@@ -91,7 +91,7 @@ public class class_anp {
       return null;
    }
 
-   public static LoadingCache a(class_aen var0, boolean var1) {
+   public static LoadingCache a(World var0, boolean var1) {
       return CacheBuilder.newBuilder().build(new class_anp.class_a_in_class_anp(var0, var1));
    }
 
@@ -155,10 +155,10 @@ public class class_anp {
    }
 
    static class class_a_in_class_anp extends CacheLoader {
-      private final class_aen a;
+      private final World a;
       private final boolean b;
 
-      public class_a_in_class_anp(class_aen var1, boolean var2) {
+      public class_a_in_class_anp(World var1, boolean var2) {
          this.a = var1;
          this.b = var2;
       }

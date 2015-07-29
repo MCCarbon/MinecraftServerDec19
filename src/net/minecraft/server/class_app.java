@@ -3,12 +3,12 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aeu;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahx;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
@@ -41,7 +41,7 @@ public class class_app implements class_aoh {
    public class_ata a;
    public class_ata b;
    public class_ata c;
-   private class_aen m;
+   private World m;
    private final boolean n;
    private class_aes o;
    private final double[] p;
@@ -62,8 +62,8 @@ public class class_app implements class_aoh {
    double[] f;
    double[] g;
 
-   public class_app(class_aen var1, long var2, boolean var4, String var5) {
-      this.s = class_agk.j;
+   public class_app(World var1, long var2, boolean var4, String var5) {
+      this.s = Blocks.WATER;
       this.t = new double[256];
       this.u = new class_apm();
       this.v = new class_asi();
@@ -95,7 +95,7 @@ public class class_app implements class_aoh {
 
       if(var5 != null) {
          this.r = class_api.class_a_in_class_api.a(var5).b();
-         this.s = this.r.E?class_agk.l:class_agk.j;
+         this.s = this.r.E?Blocks.LAVA:Blocks.WATER;
          var1.b(this.r.q);
       }
 
@@ -140,9 +140,9 @@ public class class_app implements class_aoh {
 
                      for(int var49 = 0; var49 < 4; ++var49) {
                         if((var45 += var47) > 0.0D) {
-                           var3.a(var4 * 4 + var42, var12 * 8 + var31, var7 * 4 + var49, class_agk.b.S());
+                           var3.a(var4 * 4 + var42, var12 * 8 + var31, var7 * 4 + var49, Blocks.STONE.getBlockData());
                         } else if(var12 * 8 + var31 < this.r.q) {
-                           var3.a(var4 * 4 + var42, var12 * 8 + var31, var7 * 4 + var49, this.s.S());
+                           var3.a(var4 * 4 + var42, var12 * 8 + var31, var7 * 4 + var49, this.s.getBlockData());
                         }
                      }
 
@@ -359,7 +359,7 @@ public class class_app implements class_aoh {
          var14 = this.h.nextInt(16) + 8;
          var15 = this.h.nextInt(256);
          var16 = this.h.nextInt(16) + 8;
-         (new class_aqu(class_agk.j)).b(this.m, this.h, var6.a(var14, var15, var16));
+         (new class_aqu(Blocks.WATER)).b(this.m, this.h, var6.a(var14, var15, var16));
       }
 
       if(!var12 && this.h.nextInt(this.r.D / 10) == 0 && this.r.C) {
@@ -367,7 +367,7 @@ public class class_app implements class_aoh {
          var15 = this.h.nextInt(this.h.nextInt(248) + 8);
          var16 = this.h.nextInt(16) + 8;
          if(var15 < this.m.G() || this.h.nextInt(this.r.D / 8) == 0) {
-            (new class_aqu(class_agk.l)).b(this.m, this.h, var6.a(var14, var15, var16));
+            (new class_aqu(Blocks.LAVA)).b(this.m, this.h, var6.a(var14, var15, var16));
          }
       }
 
@@ -389,11 +389,11 @@ public class class_app implements class_aoh {
             class_cj var18 = this.m.q(var6.a(var14, 0, var15));
             class_cj var19 = var18.b();
             if(this.m.v(var19)) {
-               this.m.a((class_cj)var19, (IBlockData)class_agk.aI.S(), 2);
+               this.m.a((class_cj)var19, (IBlockData)Blocks.ICE.getBlockData(), 2);
             }
 
             if(this.m.f(var18, true)) {
-               this.m.a((class_cj)var18, (IBlockData)class_agk.aH.S(), 2);
+               this.m.a((class_cj)var18, (IBlockData)Blocks.SNOW_LAYER.getBlockData(), 2);
             }
          }
       }
@@ -444,7 +444,7 @@ public class class_app implements class_aoh {
       return var3.a(var1);
    }
 
-   public class_cj a(class_aen var1, String var2, class_cj var3) {
+   public class_cj a(World var1, String var2, class_cj var3) {
       return "Stronghold".equals(var2) && this.v != null?this.v.b(var1, var3):null;
    }
 

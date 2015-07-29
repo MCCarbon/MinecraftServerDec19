@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_agl;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
@@ -18,7 +18,7 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 import net.minecraft.server.class_zy;
 
-public class class_zz extends class_aar {
+public class class_zz extends Item {
    public static final int[] a = new int[]{1973019, 11743532, 3887386, 5320730, 2437522, 8073150, 2651799, 11250603, 4408131, 14188952, 4312372, 14602026, 6719955, 12801229, 15435844, 15790320};
 
    public class_zz() {
@@ -32,7 +32,7 @@ public class class_zz extends class_aar {
       return super.a() + "." + class_zy.a(var2).d();
    }
 
-   public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       if(!var2.a(var4.a(var6), var6, var1)) {
          return class_oq.b;
       } else {
@@ -48,7 +48,7 @@ public class class_zz extends class_aar {
          } else if(var10 == class_zy.m) {
             IBlockData var11 = var3.p(var4);
             Block var12 = var11.getBlock();
-            if(var12 == class_agk.r && var11.get(class_ajw.a) == class_ajw.class_a_in_class_ajw.d) {
+            if(var12 == Blocks.LOG && var11.get(class_ajw.a) == class_ajw.class_a_in_class_ajw.d) {
                if(var6 == class_cq.a) {
                   return class_oq.b;
                }
@@ -59,7 +59,7 @@ public class class_zz extends class_aar {
 
                var4 = var4.a(var6);
                if(var3.d(var4)) {
-                  IBlockData var13 = class_agk.bN.a(var3, var4, var6, var7, var8, var9, 0, var2);
+                  IBlockData var13 = Blocks.COCOA.a(var3, var4, var6, var7, var8, var9, 0, var2);
                   var3.a((class_cj)var4, (IBlockData)var13, 2);
                   if(!var2.bH.d) {
                      --var1.b;
@@ -74,7 +74,7 @@ public class class_zz extends class_aar {
       }
    }
 
-   public static boolean a(class_aas var0, class_aen var1, class_cj var2) {
+   public static boolean a(class_aas var0, World var1, class_cj var2) {
       IBlockData var3 = var1.p(var2);
       if(var3.getBlock() instanceof class_agl) {
          class_agl var4 = (class_agl)var3.getBlock();

@@ -1,65 +1,65 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.CreativeTab;
 
 public class class_akf extends Block {
-   public static final class_any a = class_any.a("variant", class_akf.class_a_in_class_akf.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("variant", class_akf.class_a_in_class_akf.class);
 
    public class_akf() {
-      super(class_atk.e);
-      this.j(this.M.b().set(a, class_akf.class_a_in_class_akf.a));
+      super(Material.e);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_akf.class_a_in_class_akf.a));
       this.a(CreativeTab.b);
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
       if(var7 == class_akf.class_a_in_class_akf.c.a()) {
          switch(class_akf.SyntheticClass_1.a[var3.k().ordinal()]) {
          case 1:
-            return this.S().set(a, class_akf.class_a_in_class_akf.e);
+            return this.getBlockData().set(a, class_akf.class_a_in_class_akf.e);
          case 2:
-            return this.S().set(a, class_akf.class_a_in_class_akf.d);
+            return this.getBlockData().set(a, class_akf.class_a_in_class_akf.d);
          case 3:
          default:
-            return this.S().set(a, class_akf.class_a_in_class_akf.c);
+            return this.getBlockData().set(a, class_akf.class_a_in_class_akf.c);
          }
       } else {
-         return var7 == class_akf.class_a_in_class_akf.b.a()?this.S().set(a, class_akf.class_a_in_class_akf.b):this.S().set(a, class_akf.class_a_in_class_akf.a);
+         return var7 == class_akf.class_a_in_class_akf.b.a()?this.getBlockData().set(a, class_akf.class_a_in_class_akf.b):this.getBlockData().set(a, class_akf.class_a_in_class_akf.a);
       }
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.get(a);
       return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?var2.a():class_akf.class_a_in_class_akf.c.a();
    }
 
    protected class_aas i(IBlockData var1) {
       class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.get(a);
-      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.i(var1):new class_aas(class_aar.a((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
+      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.i(var1):new class_aas(Item.getByBlock((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
    }
 
-   public class_atl g(IBlockData var1) {
-      return class_atl.p;
+   public MaterialMapColor getMapColor(IBlockData var1) {
+      return MaterialMapColor.p;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_akf.class_a_in_class_akf.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_akf.class_a_in_class_akf.a(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_akf.class_a_in_class_akf)var1.get(a)).a();
    }
 
@@ -84,8 +84,8 @@ public class class_akf extends Block {
       }
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class
@@ -147,7 +147,7 @@ public class class_akf extends Block {
       }
    }
 
-   public static enum class_a_in_class_akf implements class_ny {
+   public static enum class_a_in_class_akf implements INamable {
       a(0, "default", "default"),
       b(1, "chiseled", "chiseled"),
       c(2, "lines_y", "lines"),
@@ -181,7 +181,7 @@ public class class_akf extends Block {
          return f[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.h;
       }
 

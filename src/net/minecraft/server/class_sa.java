@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_rm;
 
 public class class_sa extends class_rm {
-   class_aen a;
+   World a;
    class_qb b;
    class_qa c;
    int d;

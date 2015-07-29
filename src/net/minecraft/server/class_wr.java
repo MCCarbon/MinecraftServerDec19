@@ -4,13 +4,13 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -68,7 +68,7 @@ public class class_wr extends class_wi {
    private float by = -1.0F;
    private float bz;
 
-   public class_wr(class_aen var1) {
+   public class_wr(World var1) {
       super(var1);
       ((class_tf)this.u()).b(true);
       this.i.a(0, new class_rj(this));
@@ -221,7 +221,7 @@ public class class_wr extends class_wi {
                int var9 = var4 + class_nu.a((Random)this.V, 7, 40) * class_nu.a((Random)this.V, -1, 1);
                int var10 = var5 + class_nu.a((Random)this.V, 7, 40) * class_nu.a((Random)this.V, -1, 1);
                int var11 = var6 + class_nu.a((Random)this.V, 7, 40) * class_nu.a((Random)this.V, -1, 1);
-               if(class_aen.a((class_aer)this.o, (class_cj)(new class_cj(var9, var10 - 1, var11))) && this.o.l(new class_cj(var9, var10, var11)) < 10) {
+               if(World.a((class_aer)this.o, (class_cj)(new class_cj(var9, var10 - 1, var11))) && this.o.l(new class_cj(var9, var10, var11)) < 10) {
                   var7.b((double)var9, (double)var10, (double)var11);
                   if(!this.o.b((double)var9, (double)var10, (double)var11, 7.0D) && this.o.a((class_awf)var7.aT(), (class_pr)var7) && this.o.a((class_pr)var7, (class_awf)var7.aT()).isEmpty() && !this.o.d(var7.aT())) {
                      this.o.a((class_pr)var7);
@@ -281,8 +281,8 @@ public class class_wr extends class_wi {
       this.a("mob.zombie.step", 0.15F, 1.0F);
    }
 
-   protected class_aar D() {
-      return class_aau.bv;
+   protected Item D() {
+      return Items.bv;
    }
 
    public class_qf bz() {
@@ -292,13 +292,13 @@ public class class_wr extends class_wi {
    protected void br() {
       switch(this.V.nextInt(3)) {
       case 0:
-         this.a(class_aau.l, 1);
+         this.a(Items.l, 1);
          break;
       case 1:
-         this.a(class_aau.bU, 1);
+         this.a(Items.bU, 1);
          break;
       case 2:
-         this.a(class_aau.bV, 1);
+         this.a(Items.bV, 1);
       }
 
    }
@@ -308,9 +308,9 @@ public class class_wr extends class_wi {
       if(this.V.nextFloat() < (this.o.ab() == class_om.d?0.05F:0.01F)) {
          int var2 = this.V.nextInt(3);
          if(var2 == 0) {
-            this.a((class_pw)class_pw.a, (class_aas)(new class_aas(class_aau.n)));
+            this.a((class_pw)class_pw.a, (class_aas)(new class_aas(Items.n)));
          } else {
-            this.a((class_pw)class_pw.a, (class_aas)(new class_aas(class_aau.a)));
+            this.a((class_pw)class_pw.a, (class_aas)(new class_aas(Items.a)));
          }
       }
 
@@ -386,7 +386,7 @@ public class class_wr extends class_wi {
    }
 
    protected boolean a(class_aas var1) {
-      return var1.b() == class_aau.aR && this.j_() && this.aw()?false:super.a(var1);
+      return var1.b() == Items.aR && this.j_() && this.aw()?false:super.a(var1);
    }
 
    public class_qd a(class_on var1, class_qd var2) {
@@ -429,7 +429,7 @@ public class class_wr extends class_wi {
       if(this.a((class_pw)class_pw.f) == null) {
          Calendar var8 = this.o.Z();
          if(var8.get(2) + 1 == 10 && var8.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.a((class_pw)class_pw.f, (class_aas)(new class_aas(this.V.nextFloat() < 0.1F?class_agk.aZ:class_agk.aU)));
+            this.a((class_pw)class_pw.f, (class_aas)(new class_aas(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN)));
             this.bp[class_pw.f.b()] = 0.0F;
          }
       }
@@ -450,7 +450,7 @@ public class class_wr extends class_wi {
    }
 
    public boolean a(class_xa var1, class_oo var2, class_aas var3) {
-      if(var3 != null && var3.b() == class_aau.aq && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
+      if(var3 != null && var3.b() == Items.aq && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
          if(!var1.bH.d) {
             --var3.b;
          }
@@ -512,7 +512,7 @@ public class class_wr extends class_wi {
             for(int var5 = (int)this.t - 4; var5 < (int)this.t + 4 && var2 < 14; ++var5) {
                for(int var6 = (int)this.u - 4; var6 < (int)this.u + 4 && var2 < 14; ++var6) {
                   Block var7 = this.o.p(var3.c(var4, var5, var6)).getBlock();
-                  if(var7 == class_agk.bi || var7 == class_agk.C) {
+                  if(var7 == Blocks.IRON_BARS || var7 == Blocks.BED) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;
                      }
@@ -553,7 +553,7 @@ public class class_wr extends class_wi {
       super.a(var1);
       if(var1.j() instanceof class_wa && !(this instanceof class_wj) && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new class_aas(class_aau.ca, 1, 2), 0.0F);
+         this.a(new class_aas(Items.ca, 1, 2), 0.0F);
       }
 
    }

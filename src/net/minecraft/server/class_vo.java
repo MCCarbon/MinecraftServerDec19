@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_agu;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cq;
@@ -16,18 +16,18 @@ import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yf;
 
 public class class_vo extends class_vq {
-   public class_vo(class_aen var1) {
+   public class_vo(World var1) {
       super(var1);
    }
 
-   public class_vo(class_aen var1, double var2, double var4, double var6) {
+   public class_vo(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(class_aar.a((Block)class_agk.ae), 1, 0.0F);
+         this.a(Item.getByBlock((Block)Blocks.CHEST), 1, 0.0F);
       }
 
    }
@@ -41,7 +41,7 @@ public class class_vo extends class_vq {
    }
 
    public IBlockData u() {
-      return class_agk.ae.S().set(class_agu.a, class_cq.c);
+      return Blocks.CHEST.getBlockData().set(class_agu.a, class_cq.c);
    }
 
    public int w() {

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
@@ -36,13 +36,13 @@ public class class_xk extends class_pr {
    private UUID as;
    private class_cj at;
 
-   public class_xk(class_aen var1) {
+   public class_xk(World var1) {
       super(var1);
       this.a(0.3125F, 0.3125F);
       this.T = true;
    }
 
-   public class_xk(class_aen var1, class_qa var2, class_pr var3, class_cq.class_a_in_class_cq var4) {
+   public class_xk(World var1, class_qa var2, class_pr var3, class_cq.class_a_in_class_cq var4) {
       this(var1);
       this.a = var2;
       class_cj var5 = new class_cj(var2);

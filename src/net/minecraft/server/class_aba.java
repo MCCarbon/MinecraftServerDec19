@@ -3,9 +3,9 @@ package net.minecraft.server;
 import com.google.common.base.Function;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 
-public class class_aba extends class_zg {
+public class class_aba extends ItemBlock {
    protected final Block b;
    protected final Function c;
 

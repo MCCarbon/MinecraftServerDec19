@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.class_wz;
@@ -44,7 +44,7 @@ public class class_yp extends class_xz {
             }
 
             public boolean a(class_aas var1) {
-               return var1 == null?false:(var1.b() instanceof class_za?((class_za)var1.b()).b == var6:(var1.b() != class_aar.a(class_agk.aU) && var1.b() != class_aau.ca?false:var6 == class_pw.f));
+               return var1 == null?false:(var1.b() instanceof class_za?((class_za)var1.b()).b == var6:(var1.b() != Item.getByBlock(Blocks.PUMPKIN) && var1.b() != Items.ca?false:var6 == class_pw.f));
             }
          }));
       }

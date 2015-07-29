@@ -9,9 +9,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adl;
 import net.minecraft.server.class_adm;
@@ -57,7 +57,7 @@ public class class_adk {
 
    public static Map a(class_aas var0) {
       LinkedHashMap var1 = Maps.newLinkedHashMap();
-      class_du var2 = var0.b() == class_aau.cg?class_aau.cg.h(var0):var0.p();
+      class_du var2 = var0.b() == Items.cg?Items.cg.h(var0):var0.p();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.c(); ++var3) {
             class_adi var4 = class_adi.c(var2.b(var3).f("id"));
@@ -82,8 +82,8 @@ public class class_adk {
             var7.a("id", (short)class_adi.b(var5));
             var7.a("lvl", (short)var6);
             var2.a((class_eb)var7);
-            if(var1.b() == class_aau.cg) {
-               class_aau.cg.a(var1, new class_adl(var5, var6));
+            if(var1.b() == Items.cg) {
+               Items.cg.a(var1, new class_adl(var5, var6));
             }
          }
       }
@@ -92,7 +92,7 @@ public class class_adk {
          if(var1.n()) {
             var1.o().p("ench");
          }
-      } else if(var1.b() != class_aau.cg) {
+      } else if(var1.b() != Items.cg) {
          var1.a((String)"ench", (class_eb)var2);
       }
 
@@ -242,7 +242,7 @@ public class class_adk {
    }
 
    public static int a(Random var0, int var1, int var2, class_aas var3) {
-      class_aar var4 = var3.b();
+      Item var4 = var3.b();
       int var5 = var4.c();
       if(var5 <= 0) {
          return 0;
@@ -257,9 +257,9 @@ public class class_adk {
    }
 
    public static class_aas a(Random var0, class_aas var1, int var2) {
-      boolean var3 = var1.b() == class_aau.aN;
+      boolean var3 = var1.b() == Items.aN;
       if(var3) {
-         var1.a((class_aar)class_aau.cg);
+         var1.a((Item)Items.cg);
       }
 
       List var4 = b(var0, var1, var2);
@@ -268,7 +268,7 @@ public class class_adk {
       while(var5.hasNext()) {
          class_adl var6 = (class_adl)var5.next();
          if(var3) {
-            class_aau.cg.a(var1, var6);
+            Items.cg.a(var1, var6);
          } else {
             var1.a(var6.b, var6.c);
          }
@@ -279,7 +279,7 @@ public class class_adk {
 
    public static List b(Random var0, class_aas var1, int var2) {
       ArrayList var3 = Lists.newArrayList();
-      class_aar var4 = var1.b();
+      Item var4 = var1.b();
       int var5 = var4.c() / 2;
       if(var5 <= 0) {
          return var3;
@@ -320,8 +320,8 @@ public class class_adk {
 
    public static List a(int var0, class_aas var1) {
       ArrayList var2 = Lists.newArrayList();
-      class_aar var3 = var1.b();
-      boolean var4 = var1.b() == class_aau.aN;
+      Item var3 = var1.b();
+      boolean var4 = var1.b() == Items.aN;
       Iterator var5 = class_adi.b.iterator();
 
       while(true) {

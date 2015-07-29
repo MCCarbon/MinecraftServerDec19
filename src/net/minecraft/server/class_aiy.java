@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agd;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_dn;
@@ -26,12 +26,12 @@ public class class_aiy extends class_agd {
    public static final class_anw a = class_anw.a("has_record");
 
    protected class_aiy() {
-      super(class_atk.d, class_atl.l);
-      this.j(this.M.b().set(a, Boolean.valueOf(false)));
+      super(Material.d, MaterialMapColor.l);
+      this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
       this.a(CreativeTab.c);
    }
 
-   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       if(((Boolean)var3.get(a)).booleanValue()) {
          this.e(var1, var2, var3);
          var3 = var3.set(a, Boolean.valueOf(false));
@@ -42,7 +42,7 @@ public class class_aiy extends class_agd {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_aas var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_aas var4) {
       if(!var1.D) {
          class_amg var5 = var1.s(var2);
          if(var5 instanceof class_aiy.class_a_in_class_aiy) {
@@ -52,7 +52,7 @@ public class class_aiy extends class_agd {
       }
    }
 
-   private void e(class_aen var1, class_cj var2, IBlockData var3) {
+   private void e(World var1, class_cj var2, IBlockData var3) {
       if(!var1.D) {
          class_amg var4 = var1.s(var2);
          if(var4 instanceof class_aiy.class_a_in_class_aiy) {
@@ -75,18 +75,18 @@ public class class_aiy extends class_agd {
       }
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       this.e(var1, var2, var3);
       super.b(var1, var2, var3);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, float var4, int var5) {
+   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
       if(!var1.D) {
          super.a(var1, var2, var3, var4, 0);
       }
    }
 
-   public class_amg a(class_aen var1, int var2) {
+   public class_amg a(World var1, int var2) {
       return new class_aiy.class_a_in_class_aiy();
    }
 
@@ -94,32 +94,32 @@ public class class_aiy extends class_agd {
       return true;
    }
 
-   public int l(class_aen var1, class_cj var2) {
+   public int l(World var1, class_cj var2) {
       class_amg var3 = var1.s(var2);
       if(var3 instanceof class_aiy.class_a_in_class_aiy) {
          class_aas var4 = ((class_aiy.class_a_in_class_aiy)var3).a();
          if(var4 != null) {
-            return class_aar.b(var4.b()) + 1 - class_aar.b(class_aau.ct);
+            return Item.getId(var4.b()) + 1 - Item.getId(Items.ct);
          }
       }
 
       return 0;
    }
 
-   public int b() {
+   public int getRenderType() {
       return 3;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, Boolean.valueOf(var1 > 0));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, Boolean.valueOf(var1 > 0));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((Boolean)var1.get(a)).booleanValue()?1:0;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
    public static class class_a_in_class_aiy extends class_amg {
@@ -130,7 +130,7 @@ public class class_aiy extends class_agd {
          if(var1.b("RecordItem", 10)) {
             this.a(class_aas.a(var1.n("RecordItem")));
          } else if(var1.g("Record") > 0) {
-            this.a(new class_aas(class_aar.c(var1.g("Record"))));
+            this.a(new class_aas(Item.getById(var1.g("Record"))));
          }
 
       }

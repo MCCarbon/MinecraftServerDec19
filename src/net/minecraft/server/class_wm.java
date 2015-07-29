@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajh;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
@@ -25,7 +25,7 @@ import net.minecraft.server.class_xa;
 public class class_wm extends class_wi {
    private class_wm.class_b_in_class_wm a;
 
-   public class_wm(class_aen var1) {
+   public class_wm(World var1) {
       super(var1);
       this.a(0.4F, 0.3F);
       this.i.a(1, new class_rj(this));
@@ -83,7 +83,7 @@ public class class_wm extends class_wi {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 
-   protected class_aar D() {
+   protected Item D() {
       return null;
    }
 
@@ -93,7 +93,7 @@ public class class_wm extends class_wi {
    }
 
    public float a(class_cj var1) {
-      return this.o.p(var1.b()).getBlock() == class_agk.b?10.0F:super.a(var1);
+      return this.o.p(var1.b()).getBlock() == Blocks.STONE?10.0F:super.a(var1);
    }
 
    protected boolean n_() {
@@ -154,11 +154,11 @@ public class class_wm extends class_wi {
          if(!this.c) {
             super.c();
          } else {
-            class_aen var1 = this.a.o;
+            World var1 = this.a.o;
             class_cj var2 = (new class_cj(this.a.s, this.a.t + 0.5D, this.a.u)).a(this.b);
             IBlockData var3 = var1.p(var2);
             if(class_ajh.d(var3)) {
-               var1.a((class_cj)var2, (IBlockData)class_agk.be.S().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
+               var1.a((class_cj)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
                this.a.A();
                this.a.J();
             }
@@ -189,7 +189,7 @@ public class class_wm extends class_wi {
       public void e() {
          --this.b;
          if(this.b <= 0) {
-            class_aen var1 = this.a.o;
+            World var1 = this.a.o;
             Random var2 = this.a.bd();
             class_cj var3 = new class_cj(this.a);
 
@@ -198,7 +198,7 @@ public class class_wm extends class_wi {
                   for(int var6 = 0; var6 <= 10 && var6 >= -10; var6 = var6 <= 0?1 - var6:0 - var6) {
                      class_cj var7 = var3.a(var5, var4, var6);
                      IBlockData var8 = var1.p(var7);
-                     if(var8.getBlock() == class_agk.be) {
+                     if(var8.getBlock() == Blocks.MONSTER_EGG) {
                         if(var1.R().b("mobGriefing")) {
                            var1.b(var7, true);
                         } else {

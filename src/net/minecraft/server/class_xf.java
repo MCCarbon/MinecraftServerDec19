@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
@@ -29,7 +29,7 @@ public abstract class class_xf extends class_pr {
    public double c;
    public double d;
 
-   public class_xf(class_aen var1) {
+   public class_xf(World var1) {
       super(var1);
       this.a(1.0F, 1.0F);
    }
@@ -37,7 +37,7 @@ public abstract class class_xf extends class_pr {
    protected void h() {
    }
 
-   public class_xf(class_aen var1, double var2, double var4, double var6, double var8, double var10, double var12) {
+   public class_xf(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
       super(var1);
       this.a(1.0F, 1.0F);
       this.b(var2, var4, var6, this.y, this.z);
@@ -48,7 +48,7 @@ public abstract class class_xf extends class_pr {
       this.d = var12 / var14 * 0.1D;
    }
 
-   public class_xf(class_aen var1, class_qa var2, double var3, double var5, double var7) {
+   public class_xf(World var1, class_qa var2, double var3, double var5, double var7) {
       super(var1);
       this.a = var2;
       this.a(1.0F, 1.0F);

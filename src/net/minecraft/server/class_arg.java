@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 
 public class class_arg extends class_aql {
@@ -18,8 +18,8 @@ public class class_arg extends class_aql {
       this.b = var2;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
-      if(var1.p(var3).getBlock().v() != class_atk.h) {
+   public boolean b(World var1, Random var2, class_cj var3) {
+      if(var1.p(var3).getBlock().getMaterial() != Material.h) {
          return false;
       } else {
          int var4 = var2.nextInt(this.b - 2) + 2;
@@ -33,8 +33,8 @@ public class class_arg extends class_aql {
                   for(int var10 = var3.o() - var5; var10 <= var3.o() + var5; ++var10) {
                      class_cj var11 = new class_cj(var6, var10, var7);
                      Block var12 = var1.p(var11).getBlock();
-                     if(var12 == class_agk.d || var12 == class_agk.c) {
-                        var1.a((class_cj)var11, (IBlockData)this.a.S(), 2);
+                     if(var12 == Blocks.DIRT || var12 == Blocks.GRASS) {
+                        var1.a((class_cj)var11, (IBlockData)this.a.getBlockData(), 2);
                      }
                   }
                }

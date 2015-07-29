@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ars;
 import net.minecraft.server.class_nu;
 
@@ -153,7 +153,7 @@ public class class_arr {
             }
          }
 
-         if(var6 == class_agk.a) {
+         if(var6 == Blocks.AIR) {
             var5 = 0;
          }
 
@@ -253,9 +253,9 @@ public class class_arr {
    public static class_arr e() {
       class_arr var0 = new class_arr();
       var0.a(class_aez.q.az);
-      var0.c().add(new class_ars(1, class_agk.h));
-      var0.c().add(new class_ars(2, class_agk.d));
-      var0.c().add(new class_ars(1, class_agk.c));
+      var0.c().add(new class_ars(1, Blocks.BEDROCK));
+      var0.c().add(new class_ars(2, Blocks.DIRT));
+      var0.c().add(new class_ars(1, Blocks.GRASS));
       var0.d();
       var0.b().put("village", Maps.newHashMap());
       return var0;

@@ -5,23 +5,23 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aej;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiv;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anx;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -30,8 +30,8 @@ import net.minecraft.server.CreativeTab;
 
 public class class_ald extends Block {
    public static final class_anx a;
-   public static final class_any b;
-   public static final class_any N;
+   public static final BlockStateEnum b;
+   public static final BlockStateEnum N;
    private static final int[][] O;
    private final Block P;
    private final IBlockData Q;
@@ -39,39 +39,39 @@ public class class_ald extends Block {
    private int S;
 
    protected class_ald(IBlockData var1) {
-      super(var1.getBlock().J);
-      this.j(this.M.b().set(a, class_cq.c).set(b, class_ald.class_a_in_class_ald.b).set(N, class_ald.class_b_in_class_ald.a));
+      super(var1.getBlock().material);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.c).set(b, class_ald.class_a_in_class_ald.b).set(N, class_ald.class_b_in_class_ald.a));
       this.P = var1.getBlock();
       this.Q = var1;
-      this.c(this.P.w);
-      this.b(this.P.x / 3.0F);
-      this.a((Block.StepSound)this.P.H);
-      this.e(255);
+      this.setStrength(this.P.strength);
+      this.setExplosionResist(this.P.explosionResist / 3.0F);
+      this.setStepSound((Block.StepSound)this.P.stepSound);
+      this.setLightOpacity(255);
       this.a((CreativeTab)CreativeTab.b);
    }
 
    public void a(class_aer var1, class_cj var2) {
       if(this.R) {
-         this.a(0.5F * (float)(this.S % 2), 0.5F * (float)(this.S / 4 % 2), 0.5F * (float)(this.S / 2 % 2), 0.5F + 0.5F * (float)(this.S % 2), 0.5F + 0.5F * (float)(this.S / 4 % 2), 0.5F + 0.5F * (float)(this.S / 2 % 2));
+         this.setSizes(0.5F * (float)(this.S % 2), 0.5F * (float)(this.S / 4 % 2), 0.5F * (float)(this.S / 2 % 2), 0.5F + 0.5F * (float)(this.S % 2), 0.5F + 0.5F * (float)(this.S / 4 % 2), 0.5F + 0.5F * (float)(this.S / 2 % 2));
       } else {
-         this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+         this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       }
 
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
    public void e(class_aer var1, class_cj var2) {
       if(var1.p(var2).get(b) == class_ald.class_a_in_class_ald.a) {
-         this.a(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
+         this.setSizes(0.0F, 0.5F, 0.0F, 1.0F, 1.0F, 1.0F);
       } else {
-         this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
+         this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.5F, 1.0F);
       }
 
    }
@@ -296,7 +296,7 @@ public class class_ald extends Block {
          }
       }
 
-      this.a(var9, var7, var11, var10, var8, var12);
+      this.setSizes(var9, var7, var11, var10, var8, var12);
       return var13;
    }
 
@@ -383,13 +383,13 @@ public class class_ald extends Block {
       }
 
       if(var13) {
-         this.a(var9, var7, var11, var10, var8, var12);
+         this.setSizes(var9, var7, var11, var10, var8, var12);
       }
 
       return var13;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
       this.e(var1, var2);
       super.a(var1, var2, var3, var4, var5, var6);
       boolean var7 = this.h(var1, var2);
@@ -398,14 +398,14 @@ public class class_ald extends Block {
          super.a(var1, var2, var3, var4, var5, var6);
       }
 
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(class_aen var1, class_cj var2, class_xa var3) {
+   public void a(World var1, class_cj var2, class_xa var3) {
       this.P.a(var1, var2, var3);
    }
 
-   public void d(class_aen var1, class_cj var2, IBlockData var3) {
+   public void d(World var1, class_cj var2, IBlockData var3) {
       this.P.d(var1, var2, var3);
    }
 
@@ -413,11 +413,11 @@ public class class_ald extends Block {
       return this.P.a(var1);
    }
 
-   public int a(class_aen var1) {
+   public int a(World var1) {
       return this.P.a(var1);
    }
 
-   public class_awh a(class_aen var1, class_cj var2, class_pr var3, class_awh var4) {
+   public class_awh a(World var1, class_cj var2, class_pr var3, class_awh var4) {
       return this.P.a(var1, var2, var3, var4);
    }
 
@@ -429,46 +429,46 @@ public class class_ald extends Block {
       return this.P.a(var1, var2);
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
+   public boolean d(World var1, class_cj var2) {
       return this.P.d(var1, var2);
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
-      this.a(var1, var2, (IBlockData)this.Q, (Block)class_agk.a);
+   public void c(World var1, class_cj var2, IBlockData var3) {
+      this.a(var1, var2, (IBlockData)this.Q, (Block)Blocks.AIR);
       this.P.c(var1, var2, this.Q);
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       this.P.b(var1, var2, this.Q);
    }
 
-   public void a(class_aen var1, class_cj var2, class_pr var3) {
+   public void a(World var1, class_cj var2, class_pr var3) {
       this.P.a(var1, var2, var3);
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       this.P.b(var1, var2, var3, var4);
    }
 
-   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       return this.P.a(var1, var2, this.Q, var4, var5, var6, class_cq.a, 0.0F, 0.0F, 0.0F);
    }
 
-   public void a(class_aen var1, class_cj var2, class_aej var3) {
+   public void a(World var1, class_cj var2, class_aej var3) {
       this.P.a(var1, var2, var3);
    }
 
-   public class_atl g(IBlockData var1) {
-      return this.P.g(this.Q);
+   public MaterialMapColor getMapColor(IBlockData var1) {
+      return this.P.getMapColor(this.Q);
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
       IBlockData var9 = super.a(var1, var2, var3, var4, var5, var6, var7, var8);
       var9 = var9.set(a, var8.aR()).set(N, class_ald.class_b_in_class_ald.a);
       return var3 != class_cq.a && (var3 == class_cq.b || (double)var5 <= 0.5D)?var9.set(b, class_ald.class_a_in_class_ald.b):var9.set(b, class_ald.class_a_in_class_ald.a);
    }
 
-   public class_awg a(class_aen var1, class_cj var2, class_awh var3, class_awh var4) {
+   public class_awg a(World var1, class_cj var2, class_awh var3, class_awh var4) {
       class_awg[] var5 = new class_awg[8];
       IBlockData var6 = var1.p(var2);
       int var7 = ((class_cq)var6.get(a)).b();
@@ -510,13 +510,13 @@ public class class_ald extends Block {
       return var20;
    }
 
-   public IBlockData a(int var1) {
-      IBlockData var2 = this.S().set(b, (var1 & 4) > 0?class_ald.class_a_in_class_ald.a:class_ald.class_a_in_class_ald.b);
+   public IBlockData fromLegacyData(int var1) {
+      IBlockData var2 = this.getBlockData().set(b, (var1 & 4) > 0?class_ald.class_a_in_class_ald.a:class_ald.class_a_in_class_ald.b);
       var2 = var2.set(a, class_cq.a(5 - (var1 & 3)));
       return var2;
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       int var2 = 0;
       if(var1.get(b) == class_ald.class_a_in_class_ald.a) {
          var2 |= 4;
@@ -602,14 +602,14 @@ public class class_ald extends Block {
       }
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a, b, N});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a, b, N});
    }
 
    static {
       a = class_aiv.O;
-      b = class_any.a("half", class_ald.class_a_in_class_ald.class);
-      N = class_any.a("shape", class_ald.class_b_in_class_ald.class);
+      b = BlockStateEnum.of("half", class_ald.class_a_in_class_ald.class);
+      N = BlockStateEnum.of("shape", class_ald.class_b_in_class_ald.class);
       O = new int[][]{{4, 5}, {5, 7}, {6, 7}, {4, 6}, {0, 1}, {1, 3}, {2, 3}, {0, 2}};
    }
 
@@ -668,7 +668,7 @@ public class class_ald extends Block {
       }
    }
 
-   public static enum class_b_in_class_ald implements class_ny {
+   public static enum class_b_in_class_ald implements INamable {
       a("straight"),
       b("inner_left"),
       c("inner_right"),
@@ -685,12 +685,12 @@ public class class_ald extends Block {
          return this.f;
       }
 
-      public String l() {
+      public String getName() {
          return this.f;
       }
    }
 
-   public static enum class_a_in_class_ald implements class_ny {
+   public static enum class_a_in_class_ald implements INamable {
       a("top"),
       b("bottom");
 
@@ -704,7 +704,7 @@ public class class_ald extends Block {
          return this.c;
       }
 
-      public String l() {
+      public String getName() {
          return this.c;
       }
    }

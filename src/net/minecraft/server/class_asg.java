@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_ash;
 import net.minecraft.server.class_ask;
@@ -110,11 +110,11 @@ public class class_asg extends class_ask {
       public class_a_in_class_asg() {
       }
 
-      public class_a_in_class_asg(class_aen var1, Random var2, int var3, int var4) {
+      public class_a_in_class_asg(World var1, Random var2, int var3, int var4) {
          this(var1, var2, var3, var4, var1.b(new class_cj(var3 * 16 + 8, 0, var4 * 16 + 8)));
       }
 
-      public class_a_in_class_asg(class_aen var1, Random var2, int var3, int var4, class_aez var5) {
+      public class_a_in_class_asg(World var1, Random var2, int var3, int var4, class_aez var5) {
          super(var3, var4);
          if(var5 != class_aez.K && var5 != class_aez.L) {
             if(var5 == class_aez.v) {

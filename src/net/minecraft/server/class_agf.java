@@ -3,50 +3,50 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_agf extends Block {
    protected final boolean a;
 
-   public static boolean e(class_aen var0, class_cj var1) {
+   public static boolean e(World var0, class_cj var1) {
       return d(var0.p(var1));
    }
 
    public static boolean d(IBlockData var0) {
       Block var1 = var0.getBlock();
-      return var1 == class_agk.av || var1 == class_agk.D || var1 == class_agk.E || var1 == class_agk.cs;
+      return var1 == Blocks.RAIL || var1 == Blocks.GOLDEN_RAIL || var1 == Blocks.DETECTOR_RAIL || var1 == Blocks.ACTIVATOR_RAIL;
    }
 
    protected class_agf(boolean var1) {
-      super(class_atk.q);
+      super(Material.q);
       this.a = var1;
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
       this.a(CreativeTab.e);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public class_awg a(class_aen var1, class_cj var2, class_awh var3, class_awh var4) {
-      this.a(var1, var2);
+   public class_awg a(World var1, class_cj var2, class_awh var3, class_awh var4) {
+      this.isReplaceable(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
 
@@ -54,22 +54,22 @@ public abstract class class_agf extends Block {
       IBlockData var3 = var1.p(var2);
       class_agf.class_b_in_class_agf var4 = var3.getBlock() == this?(class_agf.class_b_in_class_agf)var3.get(this.n()):null;
       if(var4 != null && var4.c()) {
-         this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
+         this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
       } else {
-         this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
+         this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
       }
 
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
-      return class_aen.a((class_aer)var1, (class_cj)var2.b());
+   public boolean d(World var1, class_cj var2) {
+      return World.a((class_aer)var1, (class_cj)var2.b());
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
       if(!var1.D) {
          var3 = this.a(var1, var2, var3, true);
          if(this.a) {
@@ -79,21 +79,21 @@ public abstract class class_agf extends Block {
 
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          class_agf.class_b_in_class_agf var5 = (class_agf.class_b_in_class_agf)var3.get(this.n());
          boolean var6 = false;
-         if(!class_aen.a((class_aer)var1, (class_cj)var2.b())) {
+         if(!World.a((class_aer)var1, (class_cj)var2.b())) {
             var6 = true;
          }
 
-         if(var5 == class_agf.class_b_in_class_agf.c && !class_aen.a((class_aer)var1, (class_cj)var2.f())) {
+         if(var5 == class_agf.class_b_in_class_agf.c && !World.a((class_aer)var1, (class_cj)var2.f())) {
             var6 = true;
-         } else if(var5 == class_agf.class_b_in_class_agf.d && !class_aen.a((class_aer)var1, (class_cj)var2.e())) {
+         } else if(var5 == class_agf.class_b_in_class_agf.d && !World.a((class_aer)var1, (class_cj)var2.e())) {
             var6 = true;
-         } else if(var5 == class_agf.class_b_in_class_agf.e && !class_aen.a((class_aer)var1, (class_cj)var2.c())) {
+         } else if(var5 == class_agf.class_b_in_class_agf.e && !World.a((class_aer)var1, (class_cj)var2.c())) {
             var6 = true;
-         } else if(var5 == class_agf.class_b_in_class_agf.f && !class_aen.a((class_aer)var1, (class_cj)var2.d())) {
+         } else if(var5 == class_agf.class_b_in_class_agf.f && !World.a((class_aer)var1, (class_cj)var2.d())) {
             var6 = true;
          }
 
@@ -107,10 +107,10 @@ public abstract class class_agf extends Block {
       }
    }
 
-   protected void b(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   protected void b(World var1, class_cj var2, IBlockData var3, Block var4) {
    }
 
-   protected IBlockData a(class_aen var1, class_cj var2, IBlockData var3, boolean var4) {
+   protected IBlockData a(World var1, class_cj var2, IBlockData var3, boolean var4) {
       return var1.D?var3:(new class_agf.class_a_in_class_agf(var1, var2, var3)).a(var1.z(var2), var4).b();
    }
 
@@ -118,7 +118,7 @@ public abstract class class_agf extends Block {
       return 0;
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       super.b(var1, var2, var3);
       if(((class_agf.class_b_in_class_agf)var3.get(this.n())).c()) {
          var1.c((class_cj)var2.a(), (Block)this);
@@ -202,7 +202,7 @@ public abstract class class_agf extends Block {
       }
    }
 
-   public static enum class_b_in_class_agf implements class_ny {
+   public static enum class_b_in_class_agf implements INamable {
       a(0, "north_south"),
       b(1, "east_west"),
       c(2, "ascending_east"),
@@ -243,7 +243,7 @@ public abstract class class_agf extends Block {
          return k[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.m;
       }
 
@@ -261,14 +261,14 @@ public abstract class class_agf extends Block {
    }
 
    public class class_a_in_class_agf {
-      private final class_aen b;
+      private final World b;
       private final class_cj c;
       private final class_agf d;
       private IBlockData e;
       private final boolean f;
       private final List g = Lists.newArrayList();
 
-      public class_a_in_class_agf(class_aen var2, class_cj var3, IBlockData var4) {
+      public class_a_in_class_agf(World var2, class_cj var3, IBlockData var4) {
          this.b = var2;
          this.c = var3;
          this.e = var4;

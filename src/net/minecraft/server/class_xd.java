@@ -4,13 +4,13 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adk;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
@@ -49,7 +49,7 @@ public class class_xd extends class_pr implements class_xi {
    private double ax;
    private int ay;
 
-   public class_xd(class_aen var1) {
+   public class_xd(World var1) {
       super(var1);
       this.h = -1;
       this.i = -1;
@@ -59,12 +59,12 @@ public class class_xd extends class_pr implements class_xi {
       this.a(0.5F, 0.5F);
    }
 
-   public class_xd(class_aen var1, double var2, double var4, double var6) {
+   public class_xd(World var1, double var2, double var4, double var6) {
       this(var1);
       this.b(var2, var4, var6);
    }
 
-   public class_xd(class_aen var1, class_qa var2) {
+   public class_xd(World var1, class_qa var2) {
       this(var1, var2.s, var2.t + (double)var2.aU() - 0.10000000149011612D, var2.u);
       this.e = var2;
       if(var2 instanceof class_xa) {
@@ -115,7 +115,7 @@ public class class_xd extends class_pr implements class_xi {
       class_cj var13 = new class_cj(this.h, this.i, this.as);
       IBlockData var2 = this.o.p(var13);
       Block var3 = var2.getBlock();
-      if(var3.v() != class_atk.a) {
+      if(var3.getMaterial() != Material.a) {
          var3.a((class_aer)this.o, (class_cj)var13);
          class_awf var4 = var3.a(this.o, var13, var2);
          if(var4 != null && var4.a(new class_awh(this.s, this.t, this.u))) {
@@ -128,7 +128,7 @@ public class class_xd extends class_pr implements class_xi {
       }
 
       if(this.a) {
-         int var15 = var3.c(var2);
+         int var15 = var3.toLegacyData(var2);
          if(var3 == this.at && var15 == this.au) {
             ++this.av;
             if(this.av >= 1200) {
@@ -290,7 +290,7 @@ public class class_xd extends class_pr implements class_xi {
          this.as = var8.p();
          IBlockData var9 = this.o.p(var8);
          this.at = var9.getBlock();
-         this.au = this.at.c(var9);
+         this.au = this.at.toLegacyData(var9);
          this.v = (double)((float)(var1.c.a - this.s));
          this.w = (double)((float)(var1.c.b - this.t));
          this.x = (double)((float)(var1.c.c - this.u));
@@ -302,8 +302,8 @@ public class class_xd extends class_pr implements class_xi {
          this.a = true;
          this.d = 7;
          this.a(false);
-         if(this.at.v() != class_atk.a) {
-            this.at.a((class_aen)this.o, var8, (IBlockData)var9, (class_pr)this);
+         if(this.at.getMaterial() != Material.a) {
+            this.at.a((World)this.o, var8, (IBlockData)var9, (class_pr)this);
          }
       }
 
@@ -393,7 +393,7 @@ public class class_xd extends class_pr implements class_xi {
    }
 
    protected class_aas j() {
-      return new class_aas(class_aau.g);
+      return new class_aas(Items.g);
    }
 
    protected boolean s_() {

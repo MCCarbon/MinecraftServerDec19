@@ -6,11 +6,11 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_lg;
@@ -72,7 +72,7 @@ public final class class_aeu {
                                  var18 = var16.o();
                                  var19 = var16.p();
                                  var20 = var1.p(var16).getBlock();
-                              } while(var20.x());
+                              } while(var20.isOccluding());
 
                               int var21 = 0;
 
@@ -102,7 +102,7 @@ public final class class_aeu {
                                        if(var1.a(var40, var27, var30) && a(class_qe.a(var27.b), var1, var30)) {
                                           class_qb var33;
                                           try {
-                                             var33 = (class_qb)var27.b.getConstructor(new Class[]{class_aen.class}).newInstance(new Object[]{var1});
+                                             var33 = (class_qb)var27.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
                                           } catch (Exception var35) {
                                              var35.printStackTrace();
                                              return var36;
@@ -157,7 +157,7 @@ public final class class_aeu {
       }
    }
 
-   protected static class_cj a(class_aen var0, int var1, int var2) {
+   protected static class_cj a(World var0, int var1, int var2) {
       class_aok var3 = var0.a(var1, var2);
       int var4 = var1 * 16 + var0.s.nextInt(16);
       int var5 = var2 * 16 + var0.s.nextInt(16);
@@ -166,27 +166,27 @@ public final class class_aeu {
       return new class_cj(var4, var7, var5);
    }
 
-   public static boolean a(class_qb.class_a_in_class_qb var0, class_aen var1, class_cj var2) {
+   public static boolean a(class_qb.class_a_in_class_qb var0, World var1, class_cj var2) {
       if(!var1.ag().a(var2)) {
          return false;
       } else {
          Block var3 = var1.p(var2).getBlock();
          if(var0 == class_qb.class_a_in_class_qb.c) {
-            return var3.v().d() && var1.p(var2.b()).getBlock().v().d() && !var1.p(var2.a()).getBlock().x();
+            return var3.getMaterial().d() && var1.p(var2.b()).getBlock().getMaterial().d() && !var1.p(var2.a()).getBlock().isOccluding();
          } else {
             class_cj var4 = var2.b();
-            if(!class_aen.a((class_aer)var1, (class_cj)var4)) {
+            if(!World.a((class_aer)var1, (class_cj)var4)) {
                return false;
             } else {
                Block var5 = var1.p(var4).getBlock();
-               boolean var6 = var5 != class_agk.h && var5 != class_agk.cv;
-               return var6 && !var3.x() && !var3.v().d() && !var1.p(var2.a()).getBlock().x();
+               boolean var6 = var5 != Blocks.BEDROCK && var5 != Blocks.BARRIER;
+               return var6 && !var3.isOccluding() && !var3.getMaterial().d() && !var1.p(var2.a()).getBlock().isOccluding();
             }
          }
       }
    }
 
-   public static void a(class_aen var0, class_aez var1, int var2, int var3, int var4, int var5, Random var6) {
+   public static void a(World var0, class_aez var1, int var2, int var3, int var4, int var5, Random var6) {
       List var7 = var1.a(class_qc.b);
       if(!var7.isEmpty()) {
          while(var6.nextFloat() < var1.g()) {
@@ -206,7 +206,7 @@ public final class class_aeu {
                   if(a(class_qb.class_a_in_class_qb.a, var0, var18)) {
                      class_qb var19;
                      try {
-                        var19 = (class_qb)var8.b.getConstructor(new Class[]{class_aen.class}).newInstance(new Object[]{var0});
+                        var19 = (class_qb)var8.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var0});
                      } catch (Exception var21) {
                         var21.printStackTrace();
                         continue;

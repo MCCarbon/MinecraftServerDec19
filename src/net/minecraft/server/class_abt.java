@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aee;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_ajd;
 import net.minecraft.server.class_amg;
@@ -13,7 +13,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_on;
@@ -28,30 +28,30 @@ import net.minecraft.server.class_qd;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_abt extends class_aar {
+public class class_abt extends Item {
    public class_abt() {
       this.a(true);
       this.a(CreativeTab.f);
    }
 
    public String a(class_aas var1) {
-      String var2 = ("" + class_di.a(this.a() + ".name")).trim();
+      String var2 = ("" + LocaleI18n.get(this.a() + ".name")).trim();
       String var3 = class_pt.b(var1.i());
       if(var3 != null) {
-         var2 = var2 + " " + class_di.a("entity." + var3 + ".name");
+         var2 = var2 + " " + LocaleI18n.get("entity." + var3 + ".name");
       }
 
       return var2;
    }
 
-   public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       if(var3.D) {
          return class_oq.a;
       } else if(!var2.a(var4.a(var6), var6, var1)) {
          return class_oq.b;
       } else {
          IBlockData var10 = var3.p(var4);
-         if(var10.getBlock() == class_agk.ac) {
+         if(var10.getBlock() == Blocks.MOB_SPAWNER) {
             class_amg var11 = var3.s(var4);
             if(var11 instanceof class_amv) {
                class_aee var12 = ((class_amv)var11).b();
@@ -87,7 +87,7 @@ public class class_abt extends class_aar {
       }
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       if(var2.D) {
          return new class_or(class_oq.b, var1);
       } else {
@@ -116,7 +116,7 @@ public class class_abt extends class_aar {
                         --var1.b;
                      }
 
-                     var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
+                     var3.b(class_nc.ad[Item.getId((Item)this)]);
                      return new class_or(class_oq.a, var1);
                   }
                }
@@ -127,7 +127,7 @@ public class class_abt extends class_aar {
       }
    }
 
-   public static class_pr a(class_aen var0, int var1, double var2, double var4, double var6) {
+   public static class_pr a(World var0, int var1, double var2, double var4, double var6) {
       if(!class_pt.a.containsKey(Integer.valueOf(var1))) {
          return null;
       } else {

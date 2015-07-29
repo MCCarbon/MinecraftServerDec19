@@ -173,7 +173,7 @@ public class class_c {
       var0.a("Block type", new Callable() {
          public String a() throws Exception {
             try {
-               return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var4), var2.a(), var2.getClass().getCanonicalName()});
+               return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var4), var2.getInternalName(), var2.getClass().getCanonicalName()});
             } catch (Throwable var2x) {
                return "ID #" + var4;
             }

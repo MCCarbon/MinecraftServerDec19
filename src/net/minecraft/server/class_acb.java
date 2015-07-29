@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_nc;
@@ -11,14 +11,14 @@ import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
 
-public class class_acb extends class_aar {
+public class class_acb extends Item {
    public class_acb() {
       this.d(1);
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       var3.a(var1);
-      var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
+      var3.b(class_nc.ad[Item.getId((Item)this)]);
       return new class_or(class_oq.a, var1);
    }
 

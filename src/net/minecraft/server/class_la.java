@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aoc;
 import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_avd;
@@ -51,7 +51,7 @@ public class class_la extends class_lg {
    protected void a() {
    }
 
-   public class_aen b() {
+   public World b() {
       this.z = this.a.U();
       this.C = this.a.aa();
       String var1 = class_tr.a(this.t);
@@ -61,7 +61,7 @@ public class class_la extends class_lg {
          this.z.a((String)var1, (class_avd)this.A);
       } else {
          this.A = var2;
-         this.A.a((class_aen)this);
+         this.A.a((World)this);
       }
 
       return this;

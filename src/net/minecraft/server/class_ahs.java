@@ -2,41 +2,41 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agd;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_anb;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
 
 public class class_ahs extends class_agd {
-   protected class_ahs(class_atk var1) {
+   protected class_ahs(Material var1) {
       super(var1);
-      this.a(1.0F);
+      this.setLightLevel(1.0F);
    }
 
-   public class_amg a(class_aen var1, int var2) {
+   public class_amg a(World var1, int var2) {
       return new class_anb();
    }
 
    public void a(class_aer var1, class_cj var2) {
       float var3 = 0.0625F;
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, var3, 1.0F);
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, var3, 1.0F);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
@@ -44,14 +44,14 @@ public class class_ahs extends class_agd {
       return 0;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
       if(var4.m == null && var4.l == null && !var1.D) {
          var4.c(1);
       }
 
    }
 
-   public class_atl g(IBlockData var1) {
-      return class_atl.E;
+   public MaterialMapColor getMapColor(IBlockData var1) {
+      return MaterialMapColor.E;
    }
 }

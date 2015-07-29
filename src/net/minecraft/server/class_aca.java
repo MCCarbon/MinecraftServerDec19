@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_abx;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajd;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nc;
@@ -22,7 +22,7 @@ public class class_aca extends class_abx {
       super(var1, false);
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       class_awg var5 = this.a(var2, var3, true);
       if(var5 == null) {
          return new class_or(class_oq.b, var1);
@@ -39,13 +39,13 @@ public class class_aca extends class_abx {
 
             class_cj var7 = var6.a();
             IBlockData var8 = var2.p(var6);
-            if(var8.getBlock().v() == class_atk.h && ((Integer)var8.get(class_ajd.b)).intValue() == 0 && var2.d(var7)) {
-               var2.a(var7, class_agk.bx.S());
+            if(var8.getBlock().getMaterial() == Material.h && ((Integer)var8.get(class_ajd.b)).intValue() == 0 && var2.d(var7)) {
+               var2.a(var7, Blocks.WATERLILY.getBlockData());
                if(!var3.bH.d) {
                   --var1.b;
                }
 
-               var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
+               var3.b(class_nc.ad[Item.getId((Item)this)]);
                return new class_or(class_oq.a, var1);
             }
          }

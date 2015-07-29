@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Arrays;
 import java.util.concurrent.Callable;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_b;
@@ -63,7 +63,7 @@ public class class_wz implements class_oj {
       return -1;
    }
 
-   public int a(class_aar var1, int var2, int var3, class_dn var4) {
+   public int a(Item var1, int var2, int var3, class_dn var4) {
       int var5 = 0;
 
       int var6;
@@ -116,7 +116,7 @@ public class class_wz implements class_oj {
    }
 
    private int e(class_aas var1) {
-      class_aar var2 = var1.b();
+      Item var2 = var1.b();
       int var3 = var1.b;
       int var4 = this.d(var1);
       if(var4 < 0) {
@@ -199,7 +199,7 @@ public class class_wz implements class_oj {
          } catch (Throwable var5) {
             class_b var3 = class_b.a(var5, "Adding item to inventory");
             class_c var4 = var3.a("Item being added");
-            var4.a((String)"Item ID", (Object)Integer.valueOf(class_aar.b(var1.b())));
+            var4.a((String)"Item ID", (Object)Integer.valueOf(Item.getId(var1.b())));
             var4.a((String)"Item data", (Object)Integer.valueOf(var1.i()));
             var4.a("Item name", new Callable() {
                public String a() throws Exception {
@@ -400,7 +400,7 @@ public class class_wz implements class_oj {
    }
 
    public boolean b(Block var1) {
-      if(var1.v().l()) {
+      if(var1.getMaterial().l()) {
          return true;
       } else {
          class_aas var2 = this.a(this.d);

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aoj;
@@ -242,7 +242,7 @@ public class class_lf implements class_aoh {
       return this.e.a(var1, var2);
    }
 
-   public class_cj a(class_aen var1, String var2, class_cj var3) {
+   public class_cj a(World var1, String var2, class_cj var3) {
       return this.e.a(var1, var2, var3);
    }
 

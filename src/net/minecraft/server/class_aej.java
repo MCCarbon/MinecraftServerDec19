@@ -9,11 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.class_ads;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -29,7 +29,7 @@ public class class_aej {
    private final boolean a;
    private final boolean b;
    private final Random c = new Random();
-   private final class_aen d;
+   private final World d;
    private final double e;
    private final double f;
    private final double g;
@@ -38,7 +38,7 @@ public class class_aej {
    private final List j = Lists.newArrayList();
    private final Map k = Maps.newHashMap();
 
-   public class_aej(class_aen var1, class_pr var2, double var3, double var5, double var7, float var9, boolean var10, boolean var11) {
+   public class_aej(World var1, class_pr var2, double var3, double var5, double var7, float var9, boolean var10, boolean var11) {
       this.d = var1;
       this.h = var2;
       this.i = var9;
@@ -74,7 +74,7 @@ public class class_aej {
                   for(float var21 = 0.3F; var14 > 0.0F; var14 -= 0.22500001F) {
                      class_cj var22 = new class_cj(var15, var17, var19);
                      IBlockData var23 = this.d.p(var22);
-                     if(var23.getBlock().v() != class_atk.a) {
+                     if(var23.getBlock().getMaterial() != Material.a) {
                         float var24 = this.h != null?this.h.a(this, this.d, var22, var23):var23.getBlock().a((class_pr)null);
                         var14 -= (var24 + 0.3F) * 0.3F;
                      }
@@ -173,12 +173,12 @@ public class class_aej {
                this.d.a(class_cy.l, var5, var7, var9, var11, var13, var15, new int[0]);
             }
 
-            if(var4.v() != class_atk.a) {
+            if(var4.getMaterial() != Material.a) {
                if(var4.a(this)) {
                   var4.a(this.d, var3, this.d.p(var3), 1.0F / this.i, 0);
                }
 
-               this.d.a((class_cj)var3, (IBlockData)class_agk.a.S(), 3);
+               this.d.a((class_cj)var3, (IBlockData)Blocks.AIR.getBlockData(), 3);
                var4.a(this.d, var3, this);
             }
          }
@@ -189,8 +189,8 @@ public class class_aej {
 
          while(var2.hasNext()) {
             var3 = (class_cj)var2.next();
-            if(this.d.p(var3).getBlock().v() == class_atk.a && this.d.p(var3.b()).getBlock().q() && this.c.nextInt(3) == 0) {
-               this.d.a(var3, class_agk.ab.S());
+            if(this.d.p(var3).getBlock().getMaterial() == Material.a && this.d.p(var3.b()).getBlock().isFullBlock() && this.c.nextInt(3) == 0) {
+               this.d.a(var3, Blocks.FIRE.getBlockData());
             }
          }
       }

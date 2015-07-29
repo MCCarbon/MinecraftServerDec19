@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahi;
 import net.minecraft.server.class_ahw;
 import net.minecraft.server.class_amg;
@@ -14,10 +14,10 @@ import net.minecraft.server.class_ang;
 import net.minecraft.server.class_anh;
 import net.minecraft.server.class_ani;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -31,19 +31,19 @@ public class class_ane extends class_ahi {
    private final boolean N;
 
    public class_ane(boolean var1) {
-      super(class_atk.H);
-      this.j(this.M.b().set(b, class_cq.c).set(a, Boolean.valueOf(false)));
+      super(Material.H);
+      this.setBlockData(this.blockStateList.getFirst().set(b, class_cq.c).set(a, Boolean.valueOf(false)));
       this.N = var1;
-      this.a(STEP_SOUND_STONE2);
-      this.c(0.5F);
+      this.setStepSound(STEP_SOUND_STONE2);
+      this.setStrength(0.5F);
       this.a(CreativeTab.d);
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
       var1.a((class_cj)var2, (IBlockData)var3.set(b, a(var1, var2, var4)), 2);
       if(!var1.D) {
          this.e(var1, var2, var3);
@@ -51,25 +51,25 @@ public class class_ane extends class_ahi {
 
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          this.e(var1, var2, var3);
       }
 
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
       if(!var1.D && var1.s(var2) == null) {
          this.e(var1, var2, var3);
       }
 
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.S().set(b, a(var1, var2, var8)).set(a, Boolean.valueOf(false));
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData().set(b, a(var1, var2, var8)).set(a, Boolean.valueOf(false));
    }
 
-   private void e(class_aen var1, class_cj var2, IBlockData var3) {
+   private void e(World var1, class_cj var2, IBlockData var3) {
       class_cq var4 = (class_cq)var3.get(b);
       boolean var5 = this.a(var1, var2, var4);
       if(var5 && !((Boolean)var3.get(a)).booleanValue()) {
@@ -83,7 +83,7 @@ public class class_ane extends class_ahi {
 
    }
 
-   private boolean a(class_aen var1, class_cj var2, class_cq var3) {
+   private boolean a(World var1, class_cj var2, class_cq var3) {
       class_cq[] var4 = class_cq.values();
       int var5 = var4.length;
 
@@ -113,7 +113,7 @@ public class class_ane extends class_ahi {
       }
    }
 
-   public boolean a(class_aen var1, class_cj var2, IBlockData var3, int var4, int var5) {
+   public boolean a(World var1, class_cj var2, IBlockData var3, int var4, int var5) {
       class_cq var6 = (class_cq)var3.get(b);
       if(!var1.D) {
          boolean var7 = this.a(var1, var2, var6);
@@ -140,13 +140,13 @@ public class class_ane extends class_ahi {
             ((class_ang)var13).h();
          }
 
-         var1.a((class_cj)var2, (IBlockData)class_agk.M.S().set(class_anh.a, var6).set(class_anh.b, this.N?class_anf.class_a_in_class_anf.b:class_anf.class_a_in_class_anf.a), 3);
-         var1.a(var2, class_anh.a(this.a(var5), var6, false, true));
+         var1.a((class_cj)var2, (IBlockData)Blocks.PISTON_EXTENSION.getBlockData().set(class_anh.a, var6).set(class_anh.b, this.N?class_anf.class_a_in_class_anf.b:class_anf.class_a_in_class_anf.a), 3);
+         var1.a(var2, class_anh.a(this.fromLegacyData(var5), var6, false, true));
          if(this.N) {
             class_cj var8 = var2.a(var6.g() * 2, var6.h() * 2, var6.i() * 2);
             Block var9 = var1.p(var8).getBlock();
             boolean var10 = false;
-            if(var9 == class_agk.M) {
+            if(var9 == Blocks.PISTON_EXTENSION) {
                class_amg var11 = var1.s(var8);
                if(var11 instanceof class_ang) {
                   class_ang var12 = (class_ang)var11;
@@ -157,7 +157,7 @@ public class class_ane extends class_ahi {
                }
             }
 
-            if(!var10 && var9.v() != class_atk.a && a(var9, var1, var8, var6.d(), false) && (var9.k() == 0 || var9 == class_agk.J || var9 == class_agk.F)) {
+            if(!var10 && var9.getMaterial() != Material.a && a(var9, var1, var8, var6.d(), false) && (var9.k() == 0 || var9 == Blocks.PISTON || var9 == Blocks.STICKY_PISTON)) {
                this.a(var1, var2, var6, false);
             }
          } else {
@@ -178,45 +178,45 @@ public class class_ane extends class_ahi {
          if(var5 != null) {
             switch(class_ane.SyntheticClass_1.a[var5.ordinal()]) {
             case 1:
-               this.a(0.0F, 0.25F, 0.0F, 1.0F, 1.0F, 1.0F);
+               this.setSizes(0.0F, 0.25F, 0.0F, 1.0F, 1.0F, 1.0F);
                break;
             case 2:
-               this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
+               this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
                break;
             case 3:
-               this.a(0.0F, 0.0F, 0.25F, 1.0F, 1.0F, 1.0F);
+               this.setSizes(0.0F, 0.0F, 0.25F, 1.0F, 1.0F, 1.0F);
                break;
             case 4:
-               this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.75F);
+               this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 0.75F);
                break;
             case 5:
-               this.a(0.25F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+               this.setSizes(0.25F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
                break;
             case 6:
-               this.a(0.0F, 0.0F, 0.0F, 0.75F, 1.0F, 1.0F);
+               this.setSizes(0.0F, 0.0F, 0.0F, 0.75F, 1.0F, 1.0F);
             }
          }
       } else {
-         this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+         this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       }
 
    }
 
    public void j() {
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       this.a((class_aer)var1, (class_cj)var2);
       return super.a(var1, var2, var3);
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
@@ -225,7 +225,7 @@ public class class_ane extends class_ahi {
       return var1 > 5?null:class_cq.a(var1);
    }
 
-   public static class_cq a(class_aen var0, class_cj var1, class_qa var2) {
+   public static class_cq a(World var0, class_cj var1, class_qa var2) {
       if(class_nu.e((float)var2.s - (float)var1.n()) < 2.0F && class_nu.e((float)var2.u - (float)var1.p()) < 2.0F) {
          double var3 = var2.t + (double)var2.aU();
          if(var3 - (double)var1.o() > 2.0D) {
@@ -240,16 +240,16 @@ public class class_ane extends class_ahi {
       return var2.aR().d();
    }
 
-   public static boolean a(Block var0, class_aen var1, class_cj var2, class_cq var3, boolean var4) {
-      if(var0 == class_agk.Z) {
+   public static boolean a(Block var0, World var1, class_cj var2, class_cq var3, boolean var4) {
+      if(var0 == Blocks.OBSIDIAN) {
          return false;
       } else if(!var1.ag().a(var2)) {
          return false;
       } else if(var2.o() < 0 || var3 == class_cq.a && var2.o() == 0) {
          return false;
       } else if(var2.o() <= var1.V() - 1 && (var3 != class_cq.b || var2.o() != var1.V() - 1)) {
-         if(var0 != class_agk.J && var0 != class_agk.F) {
-            if(var0.g(var1, var2) == -1.0F) {
+         if(var0 != Blocks.PISTON && var0 != Blocks.STICKY_PISTON) {
+            if(var0.getStrength(var1, var2) == -1.0F) {
                return false;
             }
 
@@ -274,7 +274,7 @@ public class class_ane extends class_ahi {
       }
    }
 
-   private boolean a(class_aen var1, class_cj var2, class_cq var3, boolean var4) {
+   private boolean a(World var1, class_cj var2, class_cq var3, boolean var4) {
       if(!var4) {
          var1.g(var2.a(var3));
       }
@@ -305,10 +305,10 @@ public class class_ane extends class_ahi {
             var12 = (class_cj)var6.get(var11);
             var18 = var1.p(var12);
             Block var14 = var18.getBlock();
-            var14.c(var18);
+            var14.toLegacyData(var18);
             var1.g(var12);
             var12 = var12.a(var10);
-            var1.a((class_cj)var12, (IBlockData)class_agk.M.S().set(b, var3), 4);
+            var1.a((class_cj)var12, (IBlockData)Blocks.PISTON_EXTENSION.getBlockData().set(b, var3), 4);
             var1.a(var12, class_anh.a(var18, var3, var4, false));
             --var8;
             var9[var8] = var14;
@@ -317,8 +317,8 @@ public class class_ane extends class_ahi {
          class_cj var16 = var2.a(var3);
          if(var4) {
             class_anf.class_a_in_class_anf var17 = this.N?class_anf.class_a_in_class_anf.b:class_anf.class_a_in_class_anf.a;
-            var18 = class_agk.K.S().set(class_anf.b, var3).set(class_anf.a, var17);
-            IBlockData var20 = class_agk.M.S().set(class_anh.a, var3).set(class_anh.b, this.N?class_anf.class_a_in_class_anf.b:class_anf.class_a_in_class_anf.a);
+            var18 = Blocks.PISTON_HEAD.getBlockData().set(class_anf.b, var3).set(class_anf.a, var17);
+            IBlockData var20 = Blocks.PISTON_EXTENSION.getBlockData().set(class_anh.a, var3).set(class_anh.b, this.N?class_anf.class_a_in_class_anf.b:class_anf.class_a_in_class_anf.a);
             var1.a((class_cj)var16, (IBlockData)var20, 4);
             var1.a(var16, class_anh.a(var18, var3, true, false));
          }
@@ -333,7 +333,7 @@ public class class_ane extends class_ahi {
          }
 
          if(var4) {
-            var1.c((class_cj)var16, (Block)class_agk.K);
+            var1.c((class_cj)var16, (Block)Blocks.PISTON_HEAD);
             var1.c((class_cj)var2, (Block)this);
          }
 
@@ -341,11 +341,11 @@ public class class_ane extends class_ahi {
       }
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(b, b(var1)).set(a, Boolean.valueOf((var1 & 8) > 0));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(b, b(var1)).set(a, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_cq)var1.get(b)).a();
       if(((Boolean)var1.get(a)).booleanValue()) {
@@ -363,8 +363,8 @@ public class class_ane extends class_ahi {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(b)));
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{b, a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{b, a});
    }
 
    // $FF: synthetic class

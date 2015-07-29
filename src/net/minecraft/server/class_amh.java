@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.Arrays;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_ace;
 import net.minecraft.server.class_agn;
 import net.minecraft.server.class_amu;
@@ -26,7 +26,7 @@ public class class_amh extends class_amu implements class_kn, class_oz {
    private class_aas[] g = new class_aas[4];
    private int h;
    private boolean[] i;
-   private class_aar j;
+   private Item j;
    private String k;
 
    public String e_() {
@@ -225,8 +225,8 @@ public class class_amh extends class_amu implements class_kn, class_oz {
       if(var1 == 3) {
          return class_ace.a(var2);
       } else {
-         class_aar var3 = var2.b();
-         return var3 == class_aau.bB || var3 == class_aau.bD;
+         Item var3 = var2.b();
+         return var3 == Items.bB || var3 == Items.bD;
       }
    }
 

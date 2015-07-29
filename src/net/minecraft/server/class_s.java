@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -32,7 +32,7 @@ public class class_s extends class_i {
       } else {
          var1.a(class_n.class_a_in_class_n.b, 0);
          class_cj var3 = a(var1, var2, 0, false);
-         class_aen var4 = var1.e();
+         World var4 = var1.e();
          if(!var4.e(var3)) {
             throw new class_bz("commands.blockdata.outOfWorld", new Object[0]);
          } else {

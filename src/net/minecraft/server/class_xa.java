@@ -10,19 +10,19 @@ import java.util.List;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aed;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_agh;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiv;
 import net.minecraft.server.class_amx;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
@@ -82,7 +82,7 @@ import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yp;
 import net.minecraft.server.class_yu;
 import net.minecraft.server.class_za;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 
 public abstract class class_xa extends class_qa {
    private static final int a = class_qi.a(class_xa.class);
@@ -124,7 +124,7 @@ public abstract class class_xa extends class_qa {
    private boolean bP = false;
    public class_ve bN;
 
-   public class_xa(class_aen var1, GameProfile var2) {
+   public class_xa(World var1, GameProfile var2) {
       super(var1);
       this.aq = a(var2);
       this.bO = var2;
@@ -390,7 +390,7 @@ public abstract class class_xa extends class_qa {
       this.b(this.s, this.t, this.u);
       this.w = 0.10000000149011612D;
       if(this.e_().equals("Notch")) {
-         this.a(new class_aas(class_aau.e, 1), true, false);
+         this.a(new class_aas(Items.e, 1), true, false);
       }
 
       if(!this.o.R().b("keepInventory")) {
@@ -551,7 +551,7 @@ public abstract class class_xa extends class_qa {
          var2 *= var5;
       }
 
-      if(this.a((class_atk)class_atk.h) && !class_adk.i(this)) {
+      if(this.a((Material)Material.h) && !class_adk.i(this)) {
          var2 /= 5.0F;
       }
 
@@ -1002,9 +1002,9 @@ public abstract class class_xa extends class_qa {
    public void a(boolean var1, boolean var2, boolean var3) {
       this.a(0.6F, 1.8F);
       IBlockData var4 = this.o.p(this.bE);
-      if(this.bE != null && var4.getBlock() == class_agk.C) {
+      if(this.bE != null && var4.getBlock() == Blocks.BED) {
          this.o.a((class_cj)this.bE, (IBlockData)var4.set(class_agh.b, Boolean.valueOf(false)), 4);
-         class_cj var5 = class_agh.a((class_aen)this.o, (class_cj)this.bE, 0);
+         class_cj var5 = class_agh.a((World)this.o, (class_cj)this.bE, 0);
          if(var5 == null) {
             var5 = this.bE.a();
          }
@@ -1025,12 +1025,12 @@ public abstract class class_xa extends class_qa {
    }
 
    private boolean p() {
-      return this.o.p(this.bE).getBlock() == class_agk.C;
+      return this.o.p(this.bE).getBlock() == Blocks.BED;
    }
 
-   public static class_cj a(class_aen var0, class_cj var1, boolean var2) {
+   public static class_cj a(World var0, class_cj var1, boolean var2) {
       Block var3 = var0.p(var1).getBlock();
-      if(var3 != class_agk.C) {
+      if(var3 != Blocks.BED) {
          if(!var2) {
             return null;
          } else {
@@ -1039,7 +1039,7 @@ public abstract class class_xa extends class_qa {
             return var4 && var5?var1:null;
          }
       } else {
-         return class_agh.a((class_aen)var0, (class_cj)var1, 0);
+         return class_agh.a((World)var0, (class_cj)var1, 0);
       }
    }
 
@@ -1119,7 +1119,7 @@ public abstract class class_xa extends class_qa {
    public void k(double var1, double var3, double var5) {
       if(this.m == null) {
          int var7;
-         if(this.a((class_atk)class_atk.h)) {
+         if(this.a((Material)Material.h)) {
             var7 = Math.round(class_nu.a(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(class_nc.p, var7);
@@ -1501,7 +1501,7 @@ public abstract class class_xa extends class_qa {
                   if(class_qb.c(var2) != var3) {
                      return false;
                   }
-               } else if(var3 != class_pw.f || var2.b() != class_aau.ca && !(var2.b() instanceof class_zg)) {
+               } else if(var3 != class_pw.f || var2.b() != Items.ca && !(var2.b() instanceof ItemBlock)) {
                   return false;
                }
             }

@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.class_nc;
@@ -19,8 +19,8 @@ public class class_aac extends class_zt {
       this.a(CreativeTab.f);
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
-      class_aas var5 = new class_aas(class_aau.bf, 1, var2.b("map"));
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+      class_aas var5 = new class_aas(Items.bf, 1, var2.b("map"));
       String var6 = "map_" + var5.i();
       class_avf var7 = new class_avf(var6);
       var2.a((String)var6, (class_avd)var7);
@@ -36,7 +36,7 @@ public class class_aac extends class_zt {
             var3.a(var5, false);
          }
 
-         var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
+         var3.b(class_nc.ad[Item.getId((Item)this)]);
          return new class_or(class_oq.a, var1);
       }
    }

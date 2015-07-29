@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aed;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -21,7 +21,7 @@ public class class_amj extends class_amg {
          return new class_awh((double)class_amj.this.c.n() + 0.5D, (double)class_amj.this.c.o() + 0.5D, (double)class_amj.this.c.p() + 0.5D);
       }
 
-      public class_aen e() {
+      public World e() {
          return class_amj.this.z();
       }
 

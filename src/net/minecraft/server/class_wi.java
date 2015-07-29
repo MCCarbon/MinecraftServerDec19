@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_adk;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_wd;
 import net.minecraft.server.class_wl;
 
 public abstract class class_wi extends class_qh implements class_wd {
-   public class_wi(class_aen var1) {
+   public class_wi(World var1) {
       super(var1);
       this.b_ = 5;
    }

@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import java.util.Arrays;
 import java.util.List;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -29,7 +29,7 @@ import net.minecraft.server.class_vn;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_za;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 
 public class class_uy extends class_qa {
    private static final class_dc br = new class_dc(0.0F, 0.0F, 0.0F);
@@ -64,7 +64,7 @@ public class class_uy extends class_qa {
    private class_dc bH;
    private class_dc bI;
 
-   public class_uy(class_aen var1) {
+   public class_uy(World var1) {
       super(var1);
       this.bx = new class_aas[2];
       this.by = new class_aas[4];
@@ -79,7 +79,7 @@ public class class_uy extends class_qa {
       this.a(0.5F, 1.975F);
    }
 
-   public class_uy(class_aen var1, double var2, double var4, double var6) {
+   public class_uy(World var1, double var2, double var4, double var6) {
       this(var1);
       this.b(var2, var4, var6);
    }
@@ -149,7 +149,7 @@ public class class_uy extends class_qa {
          var3 = class_pw.c;
       }
 
-      if(var2 != null && class_qb.c(var2) != var3 && (var3 != class_pw.f || !(var2.b() instanceof class_zg))) {
+      if(var2 != null && class_qb.c(var2) != var3 && (var3 != class_pw.f || !(var2.b() instanceof ItemBlock))) {
          return false;
       } else {
          this.a(var3, var2);
@@ -348,12 +348,12 @@ public class class_uy extends class_qa {
       } else if(!this.o.D && !var1.v()) {
          class_pw var5 = class_pw.a;
          boolean var6 = var3 != null;
-         class_aar var7 = var6?var3.b():null;
+         Item var7 = var6?var3.b():null;
          if(var6 && var7 instanceof class_za) {
             var5 = ((class_za)var7).b;
          }
 
-         if(var6 && (var7 == class_aau.ca || var7 == class_aar.a(class_agk.aU))) {
+         if(var6 && (var7 == Items.ca || var7 == Item.getByBlock(Blocks.PUMPKIN))) {
             var5 = class_pw.f;
          }
 
@@ -407,7 +407,7 @@ public class class_uy extends class_qa {
       if(var5 == null || (this.bB & 1 << var2.c() + 8) == 0) {
          if(var5 != null || (this.bB & 1 << var2.c() + 16) == 0) {
             class_aas var6;
-            if(var1.bH.d && (var5 == null || var5.b() == class_aar.a(class_agk.a)) && var3 != null) {
+            if(var1.bH.d && (var5 == null || var5.b() == Item.getByBlock(Blocks.AIR)) && var3 != null) {
                var6 = var3.k();
                var6.b = 1;
                this.a(var2, var6);
@@ -485,7 +485,7 @@ public class class_uy extends class_qa {
 
    private void C() {
       if(this.o instanceof class_lg) {
-         ((class_lg)this.o).a(class_cy.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.f(class_agk.f.S())});
+         ((class_lg)this.o).a(class_cy.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.getCombinedId(Blocks.PLANKS.getBlockData())});
       }
 
    }
@@ -503,7 +503,7 @@ public class class_uy extends class_qa {
    }
 
    private void D() {
-      Block.a(this.o, new class_cj(this), new class_aas(class_aau.cm));
+      Block.a(this.o, new class_cj(this), new class_aas(Items.cm));
       this.E();
    }
 

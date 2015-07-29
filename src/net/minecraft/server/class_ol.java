@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_oj;
@@ -12,15 +12,15 @@ import net.minecraft.server.class_vm;
 public class class_ol {
    private static final Random a = new Random();
 
-   public static void a(class_aen var0, class_cj var1, class_oj var2) {
+   public static void a(World var0, class_cj var1, class_oj var2) {
       a(var0, (double)var1.n(), (double)var1.o(), (double)var1.p(), var2);
    }
 
-   public static void a(class_aen var0, class_pr var1, class_oj var2) {
+   public static void a(World var0, class_pr var1, class_oj var2) {
       a(var0, var1.s, var1.t, var1.u, var2);
    }
 
-   private static void a(class_aen var0, double var1, double var3, double var5, class_oj var7) {
+   private static void a(World var0, double var1, double var3, double var5, class_oj var7) {
       for(int var8 = 0; var8 < var7.o_(); ++var8) {
          class_aas var9 = var7.a(var8);
          if(var9 != null) {
@@ -30,7 +30,7 @@ public class class_ol {
 
    }
 
-   private static void a(class_aen var0, double var1, double var3, double var5, class_aas var7) {
+   private static void a(World var0, double var1, double var3, double var5, class_aas var7) {
       float var8 = a.nextFloat() * 0.8F + 0.1F;
       float var9 = a.nextFloat() * 0.8F + 0.1F;
       float var10 = a.nextFloat() * 0.8F + 0.1F;

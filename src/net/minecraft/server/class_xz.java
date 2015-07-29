@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_nu;
@@ -185,7 +185,7 @@ public abstract class class_xz {
                if(var16 != null && var16.a(var4)) {
                   var17 = this.b(var4, var1);
                   if(var17 != null) {
-                     class_aar var20 = var17.b();
+                     Item var20 = var17.b();
                      var5 = var17.k();
                      if(var16.d() != null && var16.d().b() == var20) {
                         this.a(var1, var2, true, var4);

@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arn;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 
 public class class_aqn extends class_arn {
@@ -19,14 +19,14 @@ public class class_aqn extends class_arn {
       this.a = var2;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       Block var4;
-      while(((var4 = var1.p(var3).getBlock()).v() == class_atk.a || var4.v() == class_atk.j) && var3.o() > 0) {
+      while(((var4 = var1.p(var3).getBlock()).getMaterial() == Material.a || var4.getMaterial() == Material.j) && var3.o() > 0) {
          var3 = var3.b();
       }
 
       Block var5 = var1.p(var3).getBlock();
-      if(var5 == class_agk.d || var5 == class_agk.c) {
+      if(var5 == Blocks.DIRT || var5 == Blocks.GRASS) {
          var3 = var3.a();
          this.a(var1, var3, this.b);
 
@@ -41,7 +41,7 @@ public class class_aqn extends class_arn {
                   int var12 = var11 - var3.p();
                   if(Math.abs(var10) != var8 || Math.abs(var12) != var8 || var2.nextInt(2) != 0) {
                      class_cj var13 = new class_cj(var9, var6, var11);
-                     if(!var1.p(var13).getBlock().q()) {
+                     if(!var1.p(var13).getBlock().isFullBlock()) {
                         this.a(var1, var13, this.a);
                      }
                   }

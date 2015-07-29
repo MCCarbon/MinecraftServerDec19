@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiw;
 import net.minecraft.server.class_aql;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 
 public class class_aqr extends class_aql {
@@ -21,9 +21,9 @@ public class class_aqr extends class_aql {
       super(false);
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       if(this.a == null) {
-         this.a = var2.nextBoolean()?class_agk.bg:class_agk.bh;
+         this.a = var2.nextBoolean()?Blocks.BROWN_MUSHROOM_BLOCK:Blocks.RED_MUSHROOM_BLOCK;
       }
 
       int var4 = var2.nextInt(3) + 4;
@@ -43,7 +43,7 @@ public class class_aqr extends class_aql {
                for(var10 = var3.p() - var7; var10 <= var3.p() + var7 && var5; ++var10) {
                   if(var6 >= 0 && var6 < 256) {
                      Block var11 = var1.p(var8.c(var9, var6, var10)).getBlock();
-                     if(var11.v() != class_atk.a && var11.v() != class_atk.j) {
+                     if(var11.getMaterial() != Material.a && var11.getMaterial() != Material.j) {
                         var5 = false;
                      }
                   } else {
@@ -57,11 +57,11 @@ public class class_aqr extends class_aql {
             return false;
          } else {
             Block var19 = var1.p(var3.b()).getBlock();
-            if(var19 != class_agk.d && var19 != class_agk.c && var19 != class_agk.bw) {
+            if(var19 != Blocks.DIRT && var19 != Blocks.GRASS && var19 != Blocks.MYCELIM) {
                return false;
             } else {
                int var20 = var3.o() + var4;
-               if(this.a == class_agk.bh) {
+               if(this.a == Blocks.RED_MUSHROOM_BLOCK) {
                   var20 = var3.o() + var4 - 3;
                }
 
@@ -72,7 +72,7 @@ public class class_aqr extends class_aql {
                      ++var9;
                   }
 
-                  if(this.a == class_agk.bg) {
+                  if(this.a == Blocks.BROWN_MUSHROOM_BLOCK) {
                      var9 = 3;
                   }
 
@@ -97,7 +97,7 @@ public class class_aqr extends class_aql {
                         }
 
                         class_aiw.class_a_in_class_aiw var17 = class_aiw.class_a_in_class_aiw.a(var16);
-                        if(this.a == class_agk.bg || var21 < var3.o() + var4) {
+                        if(this.a == Blocks.BROWN_MUSHROOM_BLOCK || var21 < var3.o() + var4) {
                            if((var14 == var10 || var14 == var23) && (var15 == var12 || var15 == var13)) {
                               continue;
                            }
@@ -141,8 +141,8 @@ public class class_aqr extends class_aql {
 
                         if(var3.o() >= var3.o() + var4 - 1 || var17 != class_aiw.class_a_in_class_aiw.k) {
                            class_cj var18 = new class_cj(var14, var21, var15);
-                           if(!var1.p(var18).getBlock().q()) {
-                              this.a(var1, var18, this.a.S().set(class_aiw.a, var17));
+                           if(!var1.p(var18).getBlock().isFullBlock()) {
+                              this.a(var1, var18, this.a.getBlockData().set(class_aiw.a, var17));
                            }
                         }
                      }
@@ -151,8 +151,8 @@ public class class_aqr extends class_aql {
 
                for(var21 = 0; var21 < var4; ++var21) {
                   Block var22 = var1.p(var3.b(var21)).getBlock();
-                  if(!var22.q()) {
-                     this.a(var1, var3.b(var21), this.a.S().set(class_aiw.a, class_aiw.class_a_in_class_aiw.j));
+                  if(!var22.isFullBlock()) {
+                     this.a(var1, var3.b(var21), this.a.getBlockData().set(class_aiw.a, class_aiw.class_a_in_class_aiw.j));
                   }
                }
 

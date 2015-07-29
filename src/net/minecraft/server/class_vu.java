@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aee;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -15,7 +15,7 @@ public class class_vu extends class_vn {
          class_vu.this.o.a((class_pr)class_vu.this, (byte)((byte)var1));
       }
 
-      public class_aen a() {
+      public World a() {
          return class_vu.this.o;
       }
 
@@ -24,11 +24,11 @@ public class class_vu extends class_vn {
       }
    };
 
-   public class_vu(class_aen var1) {
+   public class_vu(World var1) {
       super(var1);
    }
 
-   public class_vu(class_aen var1, double var2, double var4, double var6) {
+   public class_vu(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 
@@ -37,7 +37,7 @@ public class class_vu extends class_vn {
    }
 
    public IBlockData u() {
-      return class_agk.ac.S();
+      return Blocks.MOB_SPAWNER.getBlockData();
    }
 
    protected void a(class_dn var1) {

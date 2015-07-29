@@ -2,29 +2,29 @@ package net.minecraft.server;
 
 import com.google.common.collect.Sets;
 import java.util.Set;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_zv;
 
 public class class_abc extends class_zv {
    private static final Set c;
 
-   protected class_abc(class_aar.class_a_in_class_aar var1) {
+   protected class_abc(Item.class_a_in_class_aar var1) {
       super(2.0F, var1, c);
    }
 
    public boolean b(Block var1) {
-      return var1 == class_agk.Z?this.b.d() == 3:(var1 != class_agk.ah && var1 != class_agk.ag?(var1 != class_agk.bP && var1 != class_agk.bT?(var1 != class_agk.R && var1 != class_agk.o?(var1 != class_agk.S && var1 != class_agk.p?(var1 != class_agk.y && var1 != class_agk.x?(var1 != class_agk.aC && var1 != class_agk.aD?(var1.v() == class_atk.e?true:(var1.v() == class_atk.f?true:var1.v() == class_atk.g)):this.b.d() >= 2):this.b.d() >= 1):this.b.d() >= 1):this.b.d() >= 2):this.b.d() >= 2):this.b.d() >= 2);
+      return var1 == Blocks.OBSIDIAN?this.b.d() == 3:(var1 != Blocks.DIAMOND_BLOCK && var1 != Blocks.DIAMOND_ORE?(var1 != Blocks.EMERALD_ORE && var1 != Blocks.EMERALD_BLOCK?(var1 != Blocks.GOLD_BLOCK && var1 != Blocks.GOLD_ORE?(var1 != Blocks.IRON_BLOCK && var1 != Blocks.IRON_ORE?(var1 != Blocks.LAPIS_BLOCK && var1 != Blocks.LAPIS_ORE?(var1 != Blocks.REDSTONE_ORE && var1 != Blocks.LIT_REDSTONE_ORE?(var1.getMaterial() == Material.e?true:(var1.getMaterial() == Material.f?true:var1.getMaterial() == Material.g)):this.b.d() >= 2):this.b.d() >= 1):this.b.d() >= 1):this.b.d() >= 2):this.b.d() >= 2):this.b.d() >= 2);
    }
 
    public float a(class_aas var1, Block var2) {
-      return var2.v() != class_atk.f && var2.v() != class_atk.g && var2.v() != class_atk.e?super.a(var1, var2):this.a;
+      return var2.getMaterial() != Material.f && var2.getMaterial() != Material.g && var2.getMaterial() != Material.e?super.a(var1, var2):this.a;
    }
 
    static {
-      c = Sets.newHashSet((Object[])(new Block[]{class_agk.cs, class_agk.q, class_agk.e, class_agk.E, class_agk.ah, class_agk.ag, class_agk.T, class_agk.D, class_agk.R, class_agk.o, class_agk.aI, class_agk.S, class_agk.p, class_agk.y, class_agk.x, class_agk.aD, class_agk.Y, class_agk.aV, class_agk.cB, class_agk.av, class_agk.aC, class_agk.A, class_agk.cM, class_agk.b, class_agk.U}));
+      c = Sets.newHashSet((Object[])(new Block[]{Blocks.ACTIVATOR_RAIL, Blocks.COAL_ORE, Blocks.COBBLESTONE, Blocks.DETECTOR_RAIL, Blocks.DIAMOND_BLOCK, Blocks.DIAMOND_ORE, Blocks.DOUBLE_SANDSTONE_SLAB, Blocks.GOLDEN_RAIL, Blocks.GOLD_BLOCK, Blocks.GOLD_ORE, Blocks.ICE, Blocks.IRON_BLOCK, Blocks.IRON_ORE, Blocks.LAPIS_BLOCK, Blocks.LAPIS_ORE, Blocks.LIT_REDSTONE_ORE, Blocks.MOSSY_COBBLESTONE, Blocks.NETHERRACK, Blocks.PACKED_ICE, Blocks.RAIL, Blocks.REDSTONE_ORE, Blocks.SANDSTONE, Blocks.RED_SANDSTONE, Blocks.STONE, Blocks.STONE_SLAB}));
    }
 }

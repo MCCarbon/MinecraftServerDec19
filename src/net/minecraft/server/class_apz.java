@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_cj;
@@ -19,7 +19,7 @@ public class class_apz extends class_aql {
       this.b = var2;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       while(true) {
          label50: {
             if(var3.o() > 3) {
@@ -28,7 +28,7 @@ public class class_apz extends class_aql {
                }
 
                Block var4 = var1.p(var3.b()).getBlock();
-               if(var4 != class_agk.c && var4 != class_agk.d && var4 != class_agk.b) {
+               if(var4 != Blocks.GRASS && var4 != Blocks.DIRT && var4 != Blocks.STONE) {
                   break label50;
                }
             }
@@ -49,7 +49,7 @@ public class class_apz extends class_aql {
                while(var10.hasNext()) {
                   class_cj var11 = (class_cj)var10.next();
                   if(var11.i(var3) <= (double)(var9 * var9)) {
-                     var1.a((class_cj)var11, (IBlockData)this.a.S(), 4);
+                     var1.a((class_cj)var11, (IBlockData)this.a.getBlockData(), 4);
                   }
                }
 

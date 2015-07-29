@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nw;
@@ -28,7 +28,7 @@ public interface class_aoh {
 
    List a(class_qc var1, class_cj var2);
 
-   class_cj a(class_aen var1, String var2, class_cj var3);
+   class_cj a(World var1, String var2, class_cj var3);
 
    int g();
 

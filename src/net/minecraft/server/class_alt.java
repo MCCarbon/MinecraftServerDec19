@@ -4,18 +4,18 @@ import com.google.common.base.Objects;
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiv;
 import net.minecraft.server.class_als;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.class_anx;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -29,33 +29,33 @@ public class class_alt extends Block {
    public static final class_anw O;
 
    public class_alt() {
-      super(class_atk.q);
-      this.j(this.M.b().set(a, class_cq.c).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)));
+      super(Material.q);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.c).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)));
       this.a(CreativeTab.d);
-      this.a(true);
+      this.setTicking(true);
    }
 
    public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      return var1.set(O, Boolean.valueOf(!class_aen.a(var2, var3.b())));
+      return var1.set(O, Boolean.valueOf(!World.a(var2, var3.b())));
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean b(class_aen var1, class_cj var2, class_cq var3) {
-      return var3.k().c() && var1.p(var2.a(var3.d())).getBlock().x();
+   public boolean b(World var1, class_cj var2, class_cq var3) {
+      return var3.k().c() && var1.p(var2.a(var3.d())).getBlock().isOccluding();
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
+   public boolean d(World var1, class_cj var2) {
       Iterator var3 = class_cq.class_c_in_class_cq.a.iterator();
 
       class_cq var4;
@@ -65,13 +65,13 @@ public class class_alt extends Block {
          }
 
          var4 = (class_cq)var3.next();
-      } while(!var1.p(var2.a(var4)).getBlock().x());
+      } while(!var1.p(var2.a(var4)).getBlock().isOccluding());
 
       return true;
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      IBlockData var9 = this.S().set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false));
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      IBlockData var9 = this.getBlockData().set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false));
       if(var3.k().c()) {
          var9 = var9.set(a, var3);
       }
@@ -79,15 +79,15 @@ public class class_alt extends Block {
       return var9;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
       this.a(var1, var2, var3, false, false, -1, (IBlockData)null);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(var4 != this) {
          if(this.e(var1, var2, var3)) {
             class_cq var5 = (class_cq)var3.get(a);
-            if(!var1.p(var2.a(var5.d())).getBlock().x()) {
+            if(!var1.p(var2.a(var5.d())).getBlock().isOccluding()) {
                this.b(var1, var2, var3, 0);
                var1.g(var2);
             }
@@ -96,11 +96,11 @@ public class class_alt extends Block {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, boolean var4, boolean var5, int var6, IBlockData var7) {
+   public void a(World var1, class_cj var2, IBlockData var3, boolean var4, boolean var5, int var6, IBlockData var7) {
       class_cq var8 = (class_cq)var3.get(a);
       boolean var9 = ((Boolean)var3.get(N)).booleanValue();
       boolean var10 = ((Boolean)var3.get(b)).booleanValue();
-      boolean var11 = !class_aen.a((class_aer)var1, (class_cj)var2.b());
+      boolean var11 = !World.a((class_aer)var1, (class_cj)var2.b());
       boolean var12 = !var4;
       boolean var13 = false;
       int var14 = 0;
@@ -110,14 +110,14 @@ public class class_alt extends Block {
       for(int var16 = 1; var16 < 42; ++var16) {
          var17 = var2.a(var8, var16);
          IBlockData var18 = var1.p(var17);
-         if(var18.getBlock() == class_agk.bR) {
+         if(var18.getBlock() == Blocks.TRIPWIRE_HOOK) {
             if(var18.get(a) == var8.d()) {
                var14 = var16;
             }
             break;
          }
 
-         if(var18.getBlock() != class_agk.bS && var16 != var6) {
+         if(var18.getBlock() != Blocks.TRIPWIRE && var16 != var6) {
             var15[var16] = null;
             var12 = false;
          } else {
@@ -140,7 +140,7 @@ public class class_alt extends Block {
 
       var12 &= var14 > 1;
       var13 &= var12;
-      IBlockData var22 = this.S().set(N, Boolean.valueOf(var12)).set(b, Boolean.valueOf(var13));
+      IBlockData var22 = this.getBlockData().set(N, Boolean.valueOf(var12)).set(b, Boolean.valueOf(var13));
       if(var14 > 0) {
          var17 = var2.a(var8, var14);
          class_cq var24 = var8.d();
@@ -161,7 +161,7 @@ public class class_alt extends Block {
          for(int var23 = 1; var23 < var14; ++var23) {
             class_cj var25 = var2.a(var8, var23);
             IBlockData var26 = var15[var23];
-            if(var26 != null && var1.p(var25).getBlock() != class_agk.a) {
+            if(var26 != null && var1.p(var25).getBlock() != Blocks.AIR) {
                var1.a((class_cj)var25, (IBlockData)var26.set(N, Boolean.valueOf(var12)), 3);
             }
          }
@@ -169,14 +169,14 @@ public class class_alt extends Block {
 
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Random var4) {
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       this.a(var1, var2, var3, false, true, -1, (IBlockData)null);
    }
 
-   private void a(class_aen var1, class_cj var2, boolean var3, boolean var4, boolean var5, boolean var6) {
+   private void a(World var1, class_cj var2, boolean var3, boolean var4, boolean var5, boolean var6) {
       if(var4 && !var6) {
          var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.1D, (double)var2.p() + 0.5D, "random.click", 0.4F, 0.6F);
       } else if(!var4 && var6) {
@@ -189,12 +189,12 @@ public class class_alt extends Block {
 
    }
 
-   private void a(class_aen var1, class_cj var2, class_cq var3) {
+   private void a(World var1, class_cj var2, class_cq var3) {
       var1.c((class_cj)var2, (Block)this);
       var1.c((class_cj)var2.a(var3.d()), (Block)this);
    }
 
-   private boolean e(class_aen var1, class_cj var2, IBlockData var3) {
+   private boolean e(World var1, class_cj var2, IBlockData var3) {
       if(!this.d(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -208,21 +208,21 @@ public class class_alt extends Block {
       float var3 = 0.1875F;
       switch(class_alt.SyntheticClass_1.a[((class_cq)var1.p(var2).get(a)).ordinal()]) {
       case 1:
-         this.a(0.0F, 0.2F, 0.5F - var3, var3 * 2.0F, 0.8F, 0.5F + var3);
+         this.setSizes(0.0F, 0.2F, 0.5F - var3, var3 * 2.0F, 0.8F, 0.5F + var3);
          break;
       case 2:
-         this.a(1.0F - var3 * 2.0F, 0.2F, 0.5F - var3, 1.0F, 0.8F, 0.5F + var3);
+         this.setSizes(1.0F - var3 * 2.0F, 0.2F, 0.5F - var3, 1.0F, 0.8F, 0.5F + var3);
          break;
       case 3:
-         this.a(0.5F - var3, 0.2F, 0.0F, 0.5F + var3, 0.8F, var3 * 2.0F);
+         this.setSizes(0.5F - var3, 0.2F, 0.0F, 0.5F + var3, 0.8F, var3 * 2.0F);
          break;
       case 4:
-         this.a(0.5F - var3, 0.2F, 1.0F - var3 * 2.0F, 0.5F + var3, 0.8F, 1.0F);
+         this.setSizes(0.5F - var3, 0.2F, 1.0F - var3 * 2.0F, 0.5F + var3, 0.8F, 1.0F);
       }
 
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       boolean var4 = ((Boolean)var3.get(N)).booleanValue();
       boolean var5 = ((Boolean)var3.get(b)).booleanValue();
       if(var4 || var5) {
@@ -245,15 +245,15 @@ public class class_alt extends Block {
       return !((Boolean)var3.get(b)).booleanValue()?0:(var3.get(a) == var4?15:0);
    }
 
-   public boolean i() {
+   public boolean isPowerSource() {
       return true;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_cq.b(var1 & 3)).set(b, Boolean.valueOf((var1 & 8) > 0)).set(N, Boolean.valueOf((var1 & 4) > 0));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_cq.b(var1 & 3)).set(b, Boolean.valueOf((var1 & 8) > 0)).set(N, Boolean.valueOf((var1 & 4) > 0));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_cq)var1.get(a)).b();
       if(((Boolean)var1.get(b)).booleanValue()) {
@@ -275,8 +275,8 @@ public class class_alt extends Block {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a, b, N, O});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a, b, N, O});
    }
 
    static {

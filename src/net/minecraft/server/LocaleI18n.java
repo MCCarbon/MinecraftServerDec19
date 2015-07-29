@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_dj;
 
-public class class_di {
+public class LocaleI18n {
    private static class_dj a = class_dj.a();
    private static class_dj b = new class_dj();
 
-   public static String a(String var0) {
+   public static String get(String var0) {
       return a.a(var0);
    }
 

@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_agl;
 import net.minecraft.server.class_ago;
 import net.minecraft.server.class_aja;
@@ -10,8 +10,8 @@ import net.minecraft.server.class_ajs;
 import net.minecraft.server.class_ajt;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_apx;
@@ -24,25 +24,25 @@ import net.minecraft.server.class_arh;
 import net.minecraft.server.class_ark;
 import net.minecraft.server.class_arn;
 import net.minecraft.server.class_cj;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.CreativeTab;
 
 public class class_aks extends class_ago implements class_agl {
-   public static final class_any a = class_any.a("type", class_ajw.class_a_in_class_ajw.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("type", class_ajw.class_a_in_class_ajw.class);
    public static final class_anz b = class_anz.a("stage", 0, 1);
 
    protected class_aks() {
-      this.j(this.M.b().set(a, class_ajw.class_a_in_class_ajw.a).set(b, Integer.valueOf(0)));
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_ajw.class_a_in_class_ajw.a).set(b, Integer.valueOf(0)));
       float var1 = 0.4F;
-      this.a(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var1 * 2.0F, 0.5F + var1);
+      this.setSizes(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var1 * 2.0F, 0.5F + var1);
       this.a(CreativeTab.c);
    }
 
-   public String f() {
-      return class_di.a(this.a() + "." + class_ajw.class_a_in_class_ajw.a.d() + ".name");
+   public String getName() {
+      return LocaleI18n.get(this.getInternalName() + "." + class_ajw.class_a_in_class_ajw.a.d() + ".name");
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       if(!var1.D) {
          super.b(var1, var2, var3, var4);
          if(var1.l(var2.a()) >= 9 && var4.nextInt(7) == 0) {
@@ -52,7 +52,7 @@ public class class_aks extends class_ago implements class_agl {
       }
    }
 
-   public void d(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void d(World var1, class_cj var2, IBlockData var3, Random var4) {
       if(((Integer)var3.get(b)).intValue() == 0) {
          var1.a((class_cj)var2, (IBlockData)var3.a(b), 4);
       } else {
@@ -61,7 +61,7 @@ public class class_aks extends class_ago implements class_agl {
 
    }
 
-   public void e(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void e(World var1, class_cj var2, IBlockData var3, Random var4) {
       Object var5 = var4.nextInt(10) == 0?new class_apx(true):new class_arn(true);
       int var6 = 0;
       int var7 = 0;
@@ -90,8 +90,8 @@ public class class_aks extends class_ago implements class_agl {
          var5 = new class_apy(true, false);
          break;
       case 3:
-         var9 = class_agk.r.S().set(class_ajt.b, class_ajw.class_a_in_class_ajw.d);
-         IBlockData var10 = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.d).set(class_aja.b, Boolean.valueOf(false));
+         var9 = Blocks.LOG.getBlockData().set(class_ajt.b, class_ajw.class_a_in_class_ajw.d);
+         IBlockData var10 = Blocks.LEAVES.getBlockData().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.d).set(class_aja.b, Boolean.valueOf(false));
 
          label82:
          for(var6 = 0; var6 >= -1; --var6) {
@@ -131,7 +131,7 @@ public class class_aks extends class_ago implements class_agl {
       case 6:
       }
 
-      var9 = class_agk.a.S();
+      var9 = Blocks.AIR.getBlockData();
       if(var8) {
          var1.a((class_cj)var2.a(var6, 0, var7), (IBlockData)var9, 4);
          var1.a((class_cj)var2.a(var6 + 1, 0, var7), (IBlockData)var9, 4);
@@ -154,44 +154,44 @@ public class class_aks extends class_ago implements class_agl {
 
    }
 
-   private boolean a(class_aen var1, class_cj var2, int var3, int var4, class_ajw.class_a_in_class_ajw var5) {
+   private boolean a(World var1, class_cj var2, int var3, int var4, class_ajw.class_a_in_class_ajw var5) {
       return this.a(var1, var2.a(var3, 0, var4), var5) && this.a(var1, var2.a(var3 + 1, 0, var4), var5) && this.a(var1, var2.a(var3, 0, var4 + 1), var5) && this.a(var1, var2.a(var3 + 1, 0, var4 + 1), var5);
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_ajw.class_a_in_class_ajw var3) {
+   public boolean a(World var1, class_cj var2, class_ajw.class_a_in_class_ajw var3) {
       IBlockData var4 = var1.p(var2);
       return var4.getBlock() == this && var4.get(a) == var3;
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_ajw.class_a_in_class_ajw)var1.get(a)).a();
    }
 
-   public boolean a(class_aen var1, class_cj var2, IBlockData var3, boolean var4) {
+   public boolean a(World var1, class_cj var2, IBlockData var3, boolean var4) {
       return true;
    }
 
-   public boolean a(class_aen var1, Random var2, class_cj var3, IBlockData var4) {
+   public boolean a(World var1, Random var2, class_cj var3, IBlockData var4) {
       return (double)var1.s.nextFloat() < 0.45D;
    }
 
-   public void b(class_aen var1, Random var2, class_cj var3, IBlockData var4) {
+   public void b(World var1, Random var2, class_cj var3, IBlockData var4) {
       this.d(var1, var3, var4, var2);
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_ajw.class_a_in_class_ajw.a(var1 & 7)).set(b, Integer.valueOf((var1 & 8) >> 3));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_ajw.class_a_in_class_ajw.a(var1 & 7)).set(b, Integer.valueOf((var1 & 8) >> 3));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_ajw.class_a_in_class_ajw)var1.get(a)).a();
       var3 |= ((Integer)var1.get(b)).intValue() << 3;
       return var3;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a, b});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a, b});
    }
 
    // $FF: synthetic class

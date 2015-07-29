@@ -1,44 +1,44 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_alk extends class_aio {
    public static final class_anw b = class_anw.a("seamless");
-   public static final class_any N = class_any.a("variant", class_alk.class_a_in_class_alk.class);
+   public static final BlockStateEnum N = BlockStateEnum.of("variant", class_alk.class_a_in_class_alk.class);
 
    public class_alk() {
-      super(class_atk.e);
-      IBlockData var1 = this.M.b();
+      super(Material.e);
+      IBlockData var1 = this.blockStateList.getFirst();
       if(this.l()) {
          var1 = var1.set(b, Boolean.valueOf(false));
       } else {
          var1 = var1.set(a, class_aio.class_a_in_class_aio.b);
       }
 
-      this.j(var1.set(N, class_alk.class_a_in_class_alk.a));
+      this.setBlockData(var1.set(N, class_alk.class_a_in_class_alk.a));
       this.a((CreativeTab)CreativeTab.b);
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aar.a((Block)class_agk.U);
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Item.getByBlock((Block)Blocks.STONE_SLAB);
    }
 
    public String b(int var1) {
-      return super.a() + "." + class_alk.class_a_in_class_alk.a(var1).d();
+      return super.getInternalName() + "." + class_alk.class_a_in_class_alk.a(var1).d();
    }
 
    public IBlockState n() {
@@ -49,8 +49,8 @@ public abstract class class_alk extends class_aio {
       return class_alk.class_a_in_class_alk.a(var1.i() & 7);
    }
 
-   public IBlockData a(int var1) {
-      IBlockData var2 = this.S().set(N, class_alk.class_a_in_class_alk.a(var1 & 7));
+   public IBlockData fromLegacyData(int var1) {
+      IBlockData var2 = this.getBlockData().set(N, class_alk.class_a_in_class_alk.a(var1 & 7));
       if(this.l()) {
          var2 = var2.set(b, Boolean.valueOf((var1 & 8) != 0));
       } else {
@@ -60,7 +60,7 @@ public abstract class class_alk extends class_aio {
       return var2;
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_alk.class_a_in_class_alk)var1.get(N)).a();
       if(this.l()) {
@@ -74,39 +74,39 @@ public abstract class class_alk extends class_aio {
       return var3;
    }
 
-   protected class_anm e() {
-      return this.l()?new class_anm(this, new IBlockState[]{b, N}):new class_anm(this, new IBlockState[]{a, N});
+   protected BlockStateList createBlockStateList() {
+      return this.l()?new BlockStateList(this, new IBlockState[]{b, N}):new BlockStateList(this, new IBlockState[]{a, N});
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_alk.class_a_in_class_alk)var1.get(N)).a();
    }
 
-   public class_atl g(IBlockData var1) {
+   public MaterialMapColor getMapColor(IBlockData var1) {
       return ((class_alk.class_a_in_class_alk)var1.get(N)).c();
    }
 
-   public static enum class_a_in_class_alk implements class_ny {
-       a(0, class_atl.m, "stone"),
-       b(1, class_atl.d, "sandstone", "sand"),
-       c(2, class_atl.o, "wood_old", "wood"),
-       d(3, class_atl.m, "cobblestone", "cobble"),
-       e(4, class_atl.D, "brick"),
-       f(5, class_atl.m, "stone_brick", "smoothStoneBrick"),
-       g(6, class_atl.K, "nether_brick", "netherBrick"),
-       h(7, class_atl.p, "quartz");
+   public static enum class_a_in_class_alk implements INamable {
+       a(0, MaterialMapColor.m, "stone"),
+       b(1, MaterialMapColor.d, "sandstone", "sand"),
+       c(2, MaterialMapColor.o, "wood_old", "wood"),
+       d(3, MaterialMapColor.m, "cobblestone", "cobble"),
+       e(4, MaterialMapColor.D, "brick"),
+       f(5, MaterialMapColor.m, "stone_brick", "smoothStoneBrick"),
+       g(6, MaterialMapColor.K, "nether_brick", "netherBrick"),
+       h(7, MaterialMapColor.p, "quartz");
 
       private static final class_alk.class_a_in_class_alk[] i;
       private final int j;
-      private final class_atl k;
+      private final MaterialMapColor k;
       private final String l;
       private final String m;
 
-      private class_a_in_class_alk(int var3, class_atl var4, String var5) {
+      private class_a_in_class_alk(int var3, MaterialMapColor var4, String var5) {
          this(var3, var4, var5, var5);
       }
 
-      private class_a_in_class_alk(int var3, class_atl var4, String var5, String var6) {
+      private class_a_in_class_alk(int var3, MaterialMapColor var4, String var5, String var6) {
          this.j = var3;
          this.k = var4;
          this.l = var5;
@@ -117,7 +117,7 @@ public abstract class class_alk extends class_aio {
          return this.j;
       }
 
-      public class_atl c() {
+      public MaterialMapColor c() {
          return this.k;
       }
 
@@ -133,7 +133,7 @@ public abstract class class_alk extends class_aio {
          return i[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.l;
       }
 

@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
@@ -21,9 +21,9 @@ public abstract class class_tw extends class_po implements class_pp {
    private int bs;
    private class_xa bt;
 
-   public class_tw(class_aen var1) {
+   public class_tw(World var1) {
       super(var1);
-      this.bv = class_agk.c;
+      this.bv = Blocks.GRASS;
    }
 
    protected void cc() {
@@ -62,7 +62,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    public float a(class_cj var1) {
-      return this.o.p(var1.b()).getBlock() == class_agk.c?10.0F:this.o.o(var1) - 0.5F;
+      return this.o.p(var1.b()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
    }
 
    public void b(class_dn var1) {
@@ -96,7 +96,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    public boolean d(class_aas var1) {
-      return var1 == null?false:var1.b() == class_aau.Q;
+      return var1 == null?false:var1.b() == Items.Q;
    }
 
    public boolean a(class_xa var1, class_oo var2, class_aas var3) {

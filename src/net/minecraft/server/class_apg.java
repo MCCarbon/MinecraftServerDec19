@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
@@ -104,7 +104,7 @@ public class class_apg extends class_apn {
                      for(int var43 = var37 + 1; !var58 && var43 >= var56 - 1; --var43) {
                         if(var43 >= 0 && var43 < 256) {
                            IBlockData var44 = var5.a(var41, var43, var42);
-                           if(var44.getBlock() == class_agk.i || var44.getBlock() == class_agk.j) {
+                           if(var44.getBlock() == Blocks.FLOWING_WATER || var44.getBlock() == Blocks.WATER) {
                               var58 = true;
                            }
 
@@ -130,16 +130,16 @@ public class class_apg extends class_apn {
                               double var50 = ((double)(var49 - 1) + 0.5D - var8) / var30;
                               if((var60 * var60 + var46 * var46) * (double)this.d[var49 - 1] + var50 * var50 / 6.0D < 1.0D) {
                                  IBlockData var52 = var5.a(var42, var49, var45);
-                                 if(var52.getBlock() == class_agk.c) {
+                                 if(var52.getBlock() == Blocks.GRASS) {
                                     var48 = true;
                                  }
 
-                                 if(var52.getBlock() == class_agk.b || var52.getBlock() == class_agk.d || var52.getBlock() == class_agk.c) {
+                                 if(var52.getBlock() == Blocks.STONE || var52.getBlock() == Blocks.DIRT || var52.getBlock() == Blocks.GRASS) {
                                     if(var49 - 1 < 10) {
-                                       var5.a(var42, var49, var45, class_agk.k.S());
+                                       var5.a(var42, var49, var45, Blocks.FLOWING_LAVA.getBlockData());
                                     } else {
-                                       var5.a(var42, var49, var45, class_agk.a.S());
-                                       if(var48 && var5.a(var42, var49 - 1, var45).getBlock() == class_agk.d) {
+                                       var5.a(var42, var49, var45, Blocks.AIR.getBlockData());
+                                       if(var48 && var5.a(var42, var49 - 1, var45).getBlock() == Blocks.DIRT) {
                                           var59.c(var42 + var3 * 16, 0, var45 + var4 * 16);
                                           var5.a(var42, var49 - 1, var45, this.c.b((class_cj)var59).ak);
                                        }
@@ -161,7 +161,7 @@ public class class_apg extends class_apn {
 
    }
 
-   protected void a(class_aen var1, int var2, int var3, int var4, int var5, class_aph var6) {
+   protected void a(World var1, int var2, int var3, int var4, int var5, class_aph var6) {
       if(this.b.nextInt(50) == 0) {
          double var7 = (double)(var2 * 16 + this.b.nextInt(16));
          double var9 = (double)(this.b.nextInt(this.b.nextInt(40) + 8) + 20);

@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_aqs;
 import net.minecraft.server.class_aqt;
@@ -19,13 +19,13 @@ public class class_afj extends class_aez {
       super(var1);
       this.aD = var2;
       if(var2) {
-         this.ak = class_agk.aJ.S();
+         this.ak = Blocks.SNOW.getBlockData();
       }
 
       this.au.clear();
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       if(this.aD) {
          int var4;
          int var5;

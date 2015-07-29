@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abf;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
@@ -13,7 +13,7 @@ import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_od;
 
-public class class_aad extends class_aar {
+public class class_aad extends Item {
    public boolean f_(class_aas var1) {
       return false;
    }
@@ -68,7 +68,7 @@ public class class_aad extends class_aar {
    }
 
    public class_od a(Random var1, int var2, int var3, int var4) {
-      class_aas var5 = new class_aas(class_aau.aN);
+      class_aas var5 = new class_aas(Items.aN);
       class_adk.a(var1, var5, 30);
       return new class_od(var5, var2, var3, var4);
    }

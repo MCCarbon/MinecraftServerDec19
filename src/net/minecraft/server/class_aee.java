@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -287,7 +287,7 @@ public abstract class class_aee {
 
    public abstract void a(int var1);
 
-   public abstract class_aen a();
+   public abstract World a();
 
    public abstract class_cj b();
 

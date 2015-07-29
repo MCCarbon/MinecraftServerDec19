@@ -5,9 +5,9 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alb;
 import net.minecraft.server.class_alc;
 import net.minecraft.server.class_amu;
@@ -103,11 +103,11 @@ public class class_amf extends class_amu implements class_kn, class_oj {
       for(var8 = var3 + 1; var8 < 256; ++var8) {
          IBlockData var9 = this.b.p(var7.c(var2, var8, var4));
          float[] var10;
-         if(var9.getBlock() == class_agk.cG) {
+         if(var9.getBlock() == Blocks.STAINED_GLASS) {
             var10 = class_uf.a((class_zy)var9.get(class_alb.a));
          } else {
-            if(var9.getBlock() != class_agk.cH) {
-               if(var9.getBlock().r() >= 15 && var9.getBlock() != class_agk.h) {
+            if(var9.getBlock() != Blocks.STAINED_GLASS_PANE) {
+               if(var9.getBlock().getLightOpacity() >= 15 && var9.getBlock() != Blocks.BEDROCK) {
                   this.i = false;
                   this.f.clear();
                   break;
@@ -146,7 +146,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
             for(int var11 = var2 - var8; var11 <= var2 + var8 && var17; ++var11) {
                for(int var12 = var4 - var8; var12 <= var4 + var8; ++var12) {
                   Block var13 = this.b.p(new class_cj(var11, var15, var12)).getBlock();
-                  if(var13 != class_agk.bT && var13 != class_agk.R && var13 != class_agk.ah && var13 != class_agk.S) {
+                  if(var13 != Blocks.EMERALD_BLOCK && var13 != Blocks.GOLD_BLOCK && var13 != Blocks.DIAMOND_BLOCK && var13 != Blocks.IRON_BLOCK) {
                      var17 = false;
                      break;
                   }
@@ -266,7 +266,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
    }
 
    public boolean b(int var1, class_aas var2) {
-      return var2.b() == class_aau.bR || var2.b() == class_aau.k || var2.b() == class_aau.m || var2.b() == class_aau.l;
+      return var2.b() == Items.bR || var2.b() == Items.k || var2.b() == Items.m || var2.b() == Items.l;
    }
 
    public String k() {

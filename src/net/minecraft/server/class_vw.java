@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pr;
@@ -10,13 +10,13 @@ public class class_vw extends class_pr {
    public int a;
    private class_qa b;
 
-   public class_vw(class_aen var1) {
+   public class_vw(World var1) {
       super(var1);
       this.k = true;
       this.a(0.98F, 0.98F);
    }
 
-   public class_vw(class_aen var1, double var2, double var4, double var6, class_qa var8) {
+   public class_vw(World var1, double var2, double var4, double var6, class_qa var8) {
       this(var1);
       this.b(var2, var4, var6);
       float var9 = (float)(Math.random() * 3.1415927410125732D * 2.0D);

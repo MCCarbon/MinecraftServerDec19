@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aej;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agf;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -17,11 +17,11 @@ import net.minecraft.server.class_xd;
 public class class_vv extends class_vn {
    private int a = -1;
 
-   public class_vv(class_aen var1) {
+   public class_vv(World var1) {
       super(var1);
    }
 
-   public class_vv(class_aen var1, double var2, double var4, double var6) {
+   public class_vv(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 
@@ -30,7 +30,7 @@ public class class_vv extends class_vn {
    }
 
    public IBlockData u() {
-      return class_agk.W.S();
+      return Blocks.TNT.getBlockData();
    }
 
    public void t_() {
@@ -67,7 +67,7 @@ public class class_vv extends class_vn {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
       if(!var1.c() && this.o.R().b("doEntityDrops")) {
-         this.a(new class_aas(class_agk.W, 1), 0.0F);
+         this.a(new class_aas(Blocks.TNT, 1), 0.0F);
       }
 
       if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {
@@ -120,11 +120,11 @@ public class class_vv extends class_vn {
       return this.a > -1;
    }
 
-   public float a(class_aej var1, class_aen var2, class_cj var3, IBlockData var4) {
+   public float a(class_aej var1, World var2, class_cj var3, IBlockData var4) {
       return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.a())?super.a(var1, var2, var3, var4):0.0F;
    }
 
-   public boolean a(class_aej var1, class_aen var2, class_cj var3, IBlockData var4, float var5) {
+   public boolean a(class_aej var1, World var2, class_cj var3, IBlockData var4, float var5) {
       return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.a())?super.a(var1, var2, var3, var4, var5):false;
    }
 

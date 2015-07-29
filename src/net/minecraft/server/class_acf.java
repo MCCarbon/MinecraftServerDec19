@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_acd;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_kc;
+import net.minecraft.server.Bootstrap;
 
 public class class_acf {
    public static class_acd a;
@@ -51,7 +51,7 @@ public class class_acf {
    }
 
    static {
-      if(!class_kc.a()) {
+      if(!Bootstrap.isInitDone()) {
          throw new RuntimeException("Accessed Potions before Bootstrap!");
       } else {
          a = a("water");

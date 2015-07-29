@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
@@ -27,6 +27,6 @@ public class class_bi extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       Object var3 = var1 instanceof class_xa?((class_xa)var1).o:MinecraftServer.N().a(0);
-      var1.a(new class_fb("commands.seed.success", new Object[]{Long.valueOf(((class_aen)var3).K())}));
+      var1.a(new class_fb("commands.seed.success", new Object[]{Long.valueOf(((World)var3).K())}));
    }
 }

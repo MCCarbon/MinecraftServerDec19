@@ -12,13 +12,13 @@ import java.util.Random;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahw;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
@@ -26,7 +26,7 @@ import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aol;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apj;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
@@ -46,7 +46,7 @@ public class class_aok {
    private final int[] f;
    private final boolean[] g;
    private boolean h;
-   private final class_aen i;
+   private final World i;
    private final int[] j;
    public final int a;
    public final int b;
@@ -64,7 +64,7 @@ public class class_aok {
    private int v;
    private ConcurrentLinkedQueue w;
 
-   public class_aok(class_aen var1, int var2, int var3) {
+   public class_aok(World var1, int var2, int var3) {
       this.d = new class_aol[16];
       this.e = new byte[256];
       this.f = new int[256];
@@ -86,7 +86,7 @@ public class class_aok {
       Arrays.fill(this.e, (byte)-1);
    }
 
-   public class_aok(class_aen var1, class_aph var2, int var3, int var4) {
+   public class_aok(World var1, class_aph var2, int var3, int var4) {
       this(var1, var3, var4);
       short var5 = 256;
       boolean var6 = !var1.t.m();
@@ -96,7 +96,7 @@ public class class_aok {
             for(int var9 = 0; var9 < var5; ++var9) {
                int var10 = var7 * var5 * 16 | var8 * var5 | var9;
                IBlockData var11 = var2.a(var10);
-               if(var11.getBlock().v() != class_atk.a) {
+               if(var11.getBlock().getMaterial() != Material.a) {
                   int var12 = var9 >> 4;
                   if(this.d[var12] == null) {
                      this.d[var12] = new class_aol(var12 << 4, var6);
@@ -336,15 +336,15 @@ public class class_aok {
    }
 
    public int b(class_cj var1) {
-      return this.a(var1).r();
+      return this.a(var1).getLightOpacity();
    }
 
    private int e(int var1, int var2, int var3) {
-      return this.f(var1, var2, var3).r();
+      return this.f(var1, var2, var3).getLightOpacity();
    }
 
    private Block f(int var1, int var2, int var3) {
-      Block var4 = class_agk.a;
+      Block var4 = Blocks.AIR;
       if(var2 >= 0 && var2 >> 4 < this.d.length) {
          class_aol var5 = this.d[var2 >> 4];
          if(var5 != null) {
@@ -402,14 +402,14 @@ public class class_aok {
       if(this.i.H() == class_aes.g) {
          IBlockData var7 = null;
          if(var1.o() == 60) {
-            var7 = class_agk.cv.S();
+            var7 = Blocks.BARRIER.getBlockData();
          }
 
          if(var1.o() == 70) {
             var7 = class_apj.b(var1.n(), var1.p());
          }
 
-         return var7 == null?class_agk.a.S():var7;
+         return var7 == null?Blocks.AIR.getBlockData():var7;
       } else {
          try {
             if(var1.o() >= 0 && var1.o() >> 4 < this.d.length) {
@@ -422,7 +422,7 @@ public class class_aok {
                }
             }
 
-            return class_agk.a.S();
+            return Blocks.AIR.getBlockData();
          } catch (Throwable var6) {
             class_b var3 = class_b.a(var6, "Getting block state");
             class_c var4 = var3.a("Block being got");
@@ -473,7 +473,7 @@ public class class_aok {
          class_aol var11 = this.d[var4 >> 4];
          boolean var12 = false;
          if(var11 == null) {
-            if(var9 == class_agk.a) {
+            if(var9 == Blocks.AIR) {
                return null;
             }
 
@@ -496,8 +496,8 @@ public class class_aok {
             if(var12) {
                this.b();
             } else {
-               int var13 = var9.r();
-               int var14 = var10.r();
+               int var13 = var9.getLightOpacity();
+               int var14 = var10.getLightOpacity();
                if(var13 > 0) {
                   if(var4 >= var7) {
                      this.d(var3, var4 + 1, var5);
@@ -526,7 +526,7 @@ public class class_aok {
             if(var9 instanceof class_ahw) {
                var15 = this.a(var1, class_aok.class_a_in_class_aok.c);
                if(var15 == null) {
-                  var15 = ((class_ahw)var9).a(this.i, var9.c(var2));
+                  var15 = ((class_ahw)var9).a(this.i, var9.toLegacyData(var2));
                   this.i.a(var1, var15);
                }
 
@@ -639,7 +639,7 @@ public class class_aok {
 
    private class_amg i(class_cj var1) {
       Block var2 = this.a(var1);
-      return !var2.B()?null:((class_ahw)var2).a(this.i, this.c(var1));
+      return !var2.isTileEntity()?null:((class_ahw)var2).a(this.i, this.c(var1));
    }
 
    public class_amg a(class_cj var1, class_aok.class_a_in_class_aok var2) {
@@ -878,8 +878,8 @@ public class class_aok {
          while(true) {
             while(var5.o() > 0 && var7 == -1) {
                Block var8 = this.a(var5);
-               class_atk var9 = var8.v();
-               if(!var9.c() && !var9.d()) {
+               Material var9 = var8.getMaterial();
+               if(!var9.isSolid() && !var9.d()) {
                   var5 = var5.b();
                } else {
                   var7 = var5.o() + 1;
@@ -906,7 +906,7 @@ public class class_aok {
 
       while(!this.w.isEmpty()) {
          class_cj var2 = (class_cj)this.w.poll();
-         if(this.a(var2, class_aok.class_a_in_class_aok.c) == null && this.a(var2).B()) {
+         if(this.a(var2, class_aok.class_a_in_class_aok.c) == null && this.a(var2).isTileEntity()) {
             class_amg var3 = this.i(var2);
             this.i.a(var2, var3);
             this.i.b(var2, var2);
@@ -1003,14 +1003,14 @@ public class class_aok {
          for(int var6 = 0; var6 < 16; ++var6) {
             class_cj var7 = var1.a(var4, (var3 << 4) + var6, var5);
             boolean var8 = var6 == 0 || var6 == 15 || var4 == 0 || var4 == 15 || var5 == 0 || var5 == 15;
-            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).v() == class_atk.a) {
+            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).getMaterial() == Material.a) {
                class_cq[] var9 = class_cq.values();
                int var10 = var9.length;
 
                for(int var11 = 0; var11 < var10; ++var11) {
                   class_cq var12 = var9[var11];
                   class_cj var13 = var7.a(var12);
-                  if(this.i.p(var13).getBlock().t() > 0) {
+                  if(this.i.p(var13).getBlock().getLightLevel() > 0) {
                      this.i.x(var13);
                   }
                }
@@ -1111,7 +1111,7 @@ public class class_aok {
 
       for(var7 = var6.o(); var7 > 0; --var7) {
          var6.c(var6.n(), var7, var6.p());
-         if(this.a((class_cj)var6).t() > 0) {
+         if(this.a((class_cj)var6).getLightLevel() > 0) {
             this.i.x(var6);
          }
       }
@@ -1123,7 +1123,7 @@ public class class_aok {
       return this.h;
    }
 
-   public class_aen p() {
+   public World p() {
       return this.i;
    }
 

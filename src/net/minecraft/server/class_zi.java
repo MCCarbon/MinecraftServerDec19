@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
@@ -19,13 +19,13 @@ import net.minecraft.server.class_vk;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_zi extends class_aar {
+public class class_zi extends Item {
    public class_zi() {
       this.h = 1;
       this.a(CreativeTab.e);
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       float var5 = 1.0F;
       float var6 = var3.B + (var3.z - var3.B) * var5;
       float var7 = var3.A + (var3.y - var3.A) * var5;
@@ -65,7 +65,7 @@ public class class_zi extends class_aar {
             return new class_or(class_oq.b, var1);
          } else if(var25.a == class_awg.class_a_in_class_awg.b) {
             class_cj var34 = var25.a();
-            if(var2.p(var34).getBlock() == class_agk.aH) {
+            if(var2.p(var34).getBlock() == Blocks.SNOW_LAYER) {
                var34 = var34.b();
             }
 
@@ -82,7 +82,7 @@ public class class_zi extends class_aar {
                   --var1.b;
                }
 
-               var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
+               var3.b(class_nc.ad[Item.getId((Item)this)]);
                return new class_or(class_oq.a, var1);
             }
          } else {

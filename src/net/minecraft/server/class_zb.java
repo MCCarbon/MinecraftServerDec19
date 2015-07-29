@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -18,23 +18,23 @@ import net.minecraft.server.class_uy;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_zb extends class_aar {
+public class class_zb extends Item {
    public class_zb() {
       this.a(CreativeTab.c);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       if(var6 == class_cq.a) {
          return class_oq.b;
       } else {
-         boolean var10 = var3.p(var4).getBlock().a(var3, var4);
+         boolean var10 = var3.p(var4).getBlock().isReplaceable(var3, var4);
          class_cj var11 = var10?var4:var4.a(var6);
          if(!var2.a(var11, var6, var1)) {
             return class_oq.b;
          } else {
             class_cj var12 = var11.a();
-            boolean var13 = !var3.d(var11) && !var3.p(var11).getBlock().a(var3, var11);
-            var13 |= !var3.d(var12) && !var3.p(var12).getBlock().a(var3, var12);
+            boolean var13 = !var3.d(var11) && !var3.p(var11).getBlock().isReplaceable(var3, var11);
+            var13 |= !var3.d(var12) && !var3.p(var12).getBlock().isReplaceable(var3, var12);
             if(var13) {
                return class_oq.b;
             } else {

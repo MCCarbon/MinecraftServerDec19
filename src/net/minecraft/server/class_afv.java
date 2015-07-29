@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahj;
 import net.minecraft.server.class_ahm;
 import net.minecraft.server.class_alm;
@@ -50,7 +50,7 @@ public class class_afv extends class_aez {
       return var1.nextInt(5) > 0?new class_arm(class_alm.class_a_in_class_alm.c):new class_arm(class_alm.class_a_in_class_alm.b);
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       int var4;
       int var5;
       int var6;
@@ -78,14 +78,14 @@ public class class_afv extends class_aez {
       super.a(var1, var2, var3);
    }
 
-   public void a(class_aen var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
       if(this.aI == 1 || this.aI == 2) {
-         this.ak = class_agk.c.S();
-         this.al = class_agk.d.S();
+         this.ak = Blocks.GRASS.getBlockData();
+         this.al = Blocks.DIRT.getBlockData();
          if(var6 > 1.75D) {
-            this.ak = class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b);
+            this.ak = Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b);
          } else if(var6 > -0.95D) {
-            this.ak = class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
+            this.ak = Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
          }
       }
 
@@ -97,6 +97,6 @@ public class class_afv extends class_aez {
    }
 
    static {
-      aH = new class_apz(class_agk.Y, 0);
+      aH = new class_apz(Blocks.MOSSY_COBBLESTONE, 0);
    }
 }

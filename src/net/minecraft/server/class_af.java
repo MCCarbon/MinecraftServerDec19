@@ -4,9 +4,9 @@ import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
@@ -52,7 +52,7 @@ public class class_af extends class_i {
          if(var9 > '耀') {
             throw new class_bz("commands.fill.tooManyBlocks", new Object[]{Integer.valueOf(var9), Integer.valueOf('耀')});
          } else if(var7.o() >= 0 && var8.o() < 256) {
-            class_aen var10 = var1.e();
+            World var10 = var1.e();
 
             for(int var11 = var7.p(); var11 < var8.p() + 16; var11 += 16) {
                for(int var12 = var7.n(); var12 < var8.n() + 16; var12 += 16) {
@@ -64,7 +64,7 @@ public class class_af extends class_i {
 
             class_dn var22 = new class_dn();
             boolean var23 = false;
-            if(var2.length >= 10 && var5.B()) {
+            if(var2.length >= 10 && var5.isTileEntity()) {
                String var13 = a(var1, var2, 9).c();
 
                try {
@@ -91,7 +91,7 @@ public class class_af extends class_i {
                               if(!var10.d(var17)) {
                                  continue;
                               }
-                           } else if(var2[8].equals("replace") && !var5.B()) {
+                           } else if(var2[8].equals("replace") && !var5.isTileEntity()) {
                               if(var2.length > 9) {
                                  Block var18 = class_i.g(var1, var2[9]);
                                  if(var10.p(var17).getBlock() != var18) {
@@ -102,14 +102,14 @@ public class class_af extends class_i {
                               if(var2.length > 10) {
                                  int var28 = class_i.a(var2[10]);
                                  var19 = var10.p(var17);
-                                 if(var19.getBlock().c(var19) != var28) {
+                                 if(var19.getBlock().toLegacyData(var19) != var28) {
                                     continue;
                                  }
                               }
                            }
                         } else if(var16 != var7.n() && var16 != var8.n() && var15 != var7.o() && var15 != var8.o() && var14 != var7.p() && var14 != var8.p()) {
                            if(var2[8].equals("hollow")) {
-                              var10.a((class_cj)var17, (IBlockData)class_agk.a.S(), 2);
+                              var10.a((class_cj)var17, (IBlockData)Blocks.AIR.getBlockData(), 2);
                               var24.add(var17);
                            }
                            continue;
@@ -122,10 +122,10 @@ public class class_af extends class_i {
                            ((class_oj)var29).l();
                         }
 
-                        var10.a(var17, class_agk.cv.S(), var5 == class_agk.cv?2:4);
+                        var10.a(var17, Blocks.BARRIER.getBlockData(), var5 == Blocks.BARRIER?2:4);
                      }
 
-                     var19 = var5.a(var6);
+                     var19 = var5.fromLegacyData(var6);
                      if(var10.a((class_cj)var17, (IBlockData)var19, 2)) {
                         var24.add(var17);
                         ++var9;

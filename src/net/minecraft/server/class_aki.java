@@ -3,39 +3,39 @@ package net.minecraft.server;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_akq;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.Material;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public class class_aki extends Block {
-   public static final class_any a = class_any.a("type", class_aki.class_a_in_class_aki.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("type", class_aki.class_a_in_class_aki.class);
 
    public class_aki() {
-      super(class_atk.e, class_akq.class_a_in_class_akq.b.c());
-      this.j(this.M.b().set(a, class_aki.class_a_in_class_aki.a));
+      super(Material.e, class_akq.class_a_in_class_akq.b.c());
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_aki.class_a_in_class_aki.a));
       this.a(CreativeTab.b);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_aki.class_a_in_class_aki)var1.get(a)).a();
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_aki.class_a_in_class_aki.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_aki.class_a_in_class_aki.a(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_aki.class_a_in_class_aki)var1.get(a)).a();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public static enum class_a_in_class_aki implements class_ny {
+   public static enum class_a_in_class_aki implements INamable {
       a(0, "red_sandstone", "default"),
       b(1, "chiseled_red_sandstone", "chiseled"),
       c(2, "smooth_red_sandstone", "smooth");
@@ -67,7 +67,7 @@ public class class_aki extends Block {
          return d[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.f;
       }
 

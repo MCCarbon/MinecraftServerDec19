@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auu;
 import net.minecraft.server.class_cj;
@@ -55,7 +55,7 @@ public class class_auy extends class_auu {
          for(int var7 = var3; var7 < var3 + this.d; ++var7) {
             for(int var8 = var4; var8 < var4 + this.e; ++var8) {
                Block var9 = this.a.p(var5.c(var6, var7, var8)).getBlock();
-               if(var9.v() != class_atk.h) {
+               if(var9.getMaterial() != Material.h) {
                   return 0;
                }
             }

@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_pp;
 import net.minecraft.server.class_qh;
 
 public abstract class class_ua extends class_qh implements class_pp {
-   public class_ua(class_aen var1) {
+   public class_ua(World var1) {
       super(var1);
    }
 

@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_mt;
@@ -32,7 +32,7 @@ public class class_vm extends class_pr {
    private String h;
    public float a;
 
-   public class_vm(class_aen var1, double var2, double var4, double var6) {
+   public class_vm(World var1, double var2, double var4, double var6) {
       super(var1);
       this.f = 5;
       this.a = (float)(Math.random() * 3.141592653589793D * 2.0D);
@@ -44,7 +44,7 @@ public class class_vm extends class_pr {
       this.x = (double)((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D));
    }
 
-   public class_vm(class_aen var1, double var2, double var4, double var6, class_aas var8) {
+   public class_vm(World var1, double var2, double var4, double var6, class_aas var8) {
       this(var1, var2, var4, var6);
       this.a(var8);
    }
@@ -53,12 +53,12 @@ public class class_vm extends class_pr {
       return false;
    }
 
-   public class_vm(class_aen var1) {
+   public class_vm(World var1) {
       super(var1);
       this.f = 5;
       this.a = (float)(Math.random() * 3.141592653589793D * 2.0D);
       this.a(0.25F, 0.25F);
-      this.a(new class_aas(class_agk.a, 0));
+      this.a(new class_aas(Blocks.AIR, 0));
    }
 
    protected void h() {
@@ -82,7 +82,7 @@ public class class_vm extends class_pr {
          this.d(this.v, this.w, this.x);
          boolean var1 = (int)this.p != (int)this.s || (int)this.q != (int)this.t || (int)this.r != (int)this.u;
          if(var1 || this.W % 25 == 0) {
-            if(this.o.p(new class_cj(this)).getBlock().v() == class_atk.i) {
+            if(this.o.p(new class_cj(this)).getBlock().getMaterial() == Material.i) {
                this.w = 0.20000000298023224D;
                this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
                this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -96,7 +96,7 @@ public class class_vm extends class_pr {
 
          float var2 = 0.98F;
          if(this.C) {
-            var2 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.98F;
+            var2 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.98F;
          }
 
          this.v *= (double)var2;
@@ -174,7 +174,7 @@ public class class_vm extends class_pr {
    }
 
    public boolean W() {
-      if(this.o.a((class_awf)this.aT(), (class_atk)class_atk.h, (class_pr)this)) {
+      if(this.o.a((class_awf)this.aT(), (Material)Material.h, (class_pr)this)) {
          if(!this.Y && !this.aa) {
             this.X();
          }
@@ -194,7 +194,7 @@ public class class_vm extends class_pr {
    public boolean a(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
-      } else if(this.l() != null && this.l().b() == class_aau.cc && var1.c()) {
+      } else if(this.l() != null && this.l().b() == Items.cc && var1.c()) {
          return false;
       } else {
          this.ac();
@@ -253,27 +253,27 @@ public class class_vm extends class_pr {
          class_aas var2 = this.l();
          int var3 = var2.b;
          if(this.e == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.e_())) && var1.bp.a(var2)) {
-            if(var2.b() == class_aar.a(class_agk.r)) {
+            if(var2.b() == Item.getByBlock(Blocks.LOG)) {
                var1.b((class_my)class_mt.g);
             }
 
-            if(var2.b() == class_aar.a(class_agk.s)) {
+            if(var2.b() == Item.getByBlock(Blocks.LOG2)) {
                var1.b((class_my)class_mt.g);
             }
 
-            if(var2.b() == class_aau.aH) {
+            if(var2.b() == Items.aH) {
                var1.b((class_my)class_mt.t);
             }
 
-            if(var2.b() == class_aau.k) {
+            if(var2.b() == Items.k) {
                var1.b((class_my)class_mt.w);
             }
 
-            if(var2.b() == class_aau.bx) {
+            if(var2.b() == Items.bx) {
                var1.b((class_my)class_mt.A);
             }
 
-            if(var2.b() == class_aau.k && this.n() != null) {
+            if(var2.b() == Items.k && this.n() != null) {
                class_xa var4 = this.o.a(this.n());
                if(var4 != null && var4 != var1) {
                   var4.b((class_my)class_mt.x);
@@ -294,7 +294,7 @@ public class class_vm extends class_pr {
    }
 
    public String e_() {
-      return this.l_()?this.aO():class_di.a("item." + this.l().a());
+      return this.l_()?this.aO():LocaleI18n.get("item." + this.l().a());
    }
 
    public boolean aF() {
@@ -316,7 +316,7 @@ public class class_vm extends class_pr {
             b.error("Item entity " + this.F() + " has no item?!");
          }
 
-         return new class_aas(class_agk.b);
+         return new class_aas(Blocks.STONE);
       } else {
          return var1;
       }

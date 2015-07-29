@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 
@@ -15,9 +15,9 @@ public class class_aew implements class_aer {
    protected int b;
    protected class_aok[][] c;
    protected boolean d;
-   protected class_aen e;
+   protected World e;
 
-   public class_aew(class_aen var1, class_cj var2, class_cj var3, int var4) {
+   public class_aew(World var1, class_cj var2, class_cj var3, int var4) {
       this.e = var1;
       this.a = var2.n() - var4 >> 4;
       this.b = var2.p() - var4 >> 4;
@@ -63,11 +63,11 @@ public class class_aew implements class_aer {
          }
       }
 
-      return class_agk.a.S();
+      return Blocks.AIR.getBlockData();
    }
 
    public boolean d(class_cj var1) {
-      return this.p(var1).getBlock().v() == class_atk.a;
+      return this.p(var1).getBlock().getMaterial() == Material.a;
    }
 
    public int a(class_cj var1, class_cq var2) {

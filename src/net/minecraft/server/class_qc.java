@@ -1,24 +1,24 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_tt;
 import net.minecraft.server.class_tw;
 import net.minecraft.server.class_uk;
 import net.minecraft.server.class_wd;
 
 public enum class_qc {
-    a(class_wd.class, 70, class_atk.a, false, false),
-    b(class_tw.class, 10, class_atk.a, true, true),
-    c(class_tt.class, 15, class_atk.a, true, false),
-    d(class_uk.class, 5, class_atk.h, true, false);
+    a(class_wd.class, 70, Material.a, false, false),
+    b(class_tw.class, 10, Material.a, true, true),
+    c(class_tt.class, 15, Material.a, true, false),
+    d(class_uk.class, 5, Material.h, true, false);
 
    private final Class e;
    private final int f;
-   private final class_atk g;
+   private final Material g;
    private final boolean h;
    private final boolean i;
 
-   private class_qc(Class var3, int var4, class_atk var5, boolean var6, boolean var7) {
+   private class_qc(Class var3, int var4, Material var5, boolean var6, boolean var7) {
       this.e = var3;
       this.f = var4;
       this.g = var5;

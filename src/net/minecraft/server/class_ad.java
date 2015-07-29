@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awh;
@@ -40,7 +40,7 @@ public class class_ad extends class_i {
          final class_cj var10 = new class_cj(var4, var6, var8);
          byte var11 = 4;
          if("detect".equals(var2[4]) && var2.length > 10) {
-            class_aen var12 = var3.e();
+            World var12 = var3.e();
             double var13 = b(var4, var2[5], false);
             double var15 = b(var6, var2[6], false);
             double var17 = b(var8, var2[7], false);
@@ -48,7 +48,7 @@ public class class_ad extends class_i {
             int var20 = a(var2[9], -1, 15);
             class_cj var21 = new class_cj(var13, var15, var17);
             IBlockData var22 = var12.p(var21);
-            if(var22.getBlock() != var19 || var20 >= 0 && var22.getBlock().c(var22) != var20) {
+            if(var22.getBlock() != var19 || var20 >= 0 && var22.getBlock().toLegacyData(var22) != var20) {
                throw new class_bz("commands.execute.failed", new Object[]{"detect", var3.e_()});
             }
 
@@ -81,7 +81,7 @@ public class class_ad extends class_i {
                return new class_awh(var4, var6, var8);
             }
 
-            public class_aen e() {
+            public World e() {
                return var3.o;
             }
 

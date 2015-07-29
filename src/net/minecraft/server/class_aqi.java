@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_cj;
 
 public class class_aqi extends class_aql {
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       Iterator var4 = class_cj.b(var3.a(-1, -2, -1), var3.a(1, 2, 1)).iterator();
 
       while(true) {
@@ -19,15 +19,15 @@ public class class_aqi extends class_aql {
             boolean var8 = var5.p() == var3.p();
             boolean var9 = Math.abs(var5.o() - var3.o()) == 2;
             if(var6 && var7 && var8) {
-               this.a(var1, new class_cj(var5), class_agk.db.S());
+               this.a(var1, new class_cj(var5), Blocks.END_GATEWAY.getBlockData());
             } else if(var7) {
-               this.a(var1, var5, class_agk.a.S());
+               this.a(var1, var5, Blocks.AIR.getBlockData());
             } else if(var9 && var6 && var8) {
-               this.a(var1, var5, class_agk.h.S());
+               this.a(var1, var5, Blocks.BEDROCK.getBlockData());
             } else if((var6 || var8) && !var9) {
-               this.a(var1, var5, class_agk.h.S());
+               this.a(var1, var5, Blocks.BEDROCK.getBlockData());
             } else {
-               this.a(var1, var5, class_agk.a.S());
+               this.a(var1, var5, Blocks.AIR.getBlockData());
             }
          }
 

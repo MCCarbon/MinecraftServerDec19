@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.UUID;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
@@ -20,7 +20,7 @@ public abstract class class_qj extends class_tw implements class_qg {
    protected static final int bt = class_qi.a(class_qj.class);
    protected class_so bu = new class_so(this);
 
-   public class_qj(class_aen var1) {
+   public class_qj(World var1) {
       super(var1);
       this.cB();
    }

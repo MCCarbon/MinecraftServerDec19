@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_adi;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_kc;
+import net.minecraft.server.Bootstrap;
 
 public class class_adm {
    public static final class_adi a = a("protection");
@@ -41,7 +41,7 @@ public class class_adm {
    }
 
    static {
-      if(!class_kc.a()) {
+      if(!Bootstrap.isInitDone()) {
          throw new RuntimeException("Accessed MobEffects before Bootstrap!");
       }
    }

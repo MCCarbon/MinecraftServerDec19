@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
@@ -17,7 +17,7 @@ public class class_xe extends class_pr {
    private int d;
    private boolean e;
 
-   public class_xe(class_aen var1) {
+   public class_xe(World var1) {
       super(var1);
       this.a(0.25F, 0.25F);
    }
@@ -25,7 +25,7 @@ public class class_xe extends class_pr {
    protected void h() {
    }
 
-   public class_xe(class_aen var1, double var2, double var4, double var6) {
+   public class_xe(World var1, double var2, double var4, double var6) {
       super(var1);
       this.d = 0;
       this.a(0.25F, 0.25F);
@@ -117,7 +117,7 @@ public class class_xe extends class_pr {
          if(this.d > 80 && !this.o.D) {
             this.J();
             if(this.e) {
-               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t, this.u, new class_aas(class_aau.bK))));
+               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t, this.u, new class_aas(Items.bK))));
             } else {
                this.o.b(2003, new class_cj(this), 0);
             }

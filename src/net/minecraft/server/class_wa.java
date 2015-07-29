@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pc;
@@ -37,7 +37,7 @@ public class class_wa extends class_wi {
    private int bv = 3;
    private int bw = 0;
 
-   public class_wa(class_aen var1) {
+   public class_wa(World var1) {
       super(var1);
       this.i.a(1, new class_rj(this));
       this.i.a(2, new class_sp(this));
@@ -140,13 +140,13 @@ public class class_wa extends class_wi {
    public void a(class_pc var1) {
       super.a(var1);
       if(var1.j() instanceof class_wn) {
-         int var2 = class_aar.b(class_aau.ct);
-         int var3 = class_aar.b(class_aau.cE);
+         int var2 = Item.getId(Items.ct);
+         int var3 = Item.getId(Items.cE);
          int var4 = var2 + this.V.nextInt(var3 - var2 + 1);
-         this.a(class_aar.c(var4), 1);
+         this.a(Item.getById(var4), 1);
       } else if(var1.j() instanceof class_wa && var1.j() != this && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new class_aas(class_aau.ca, 1, 4), 0.0F);
+         this.a(new class_aas(Items.ca, 1, 4), 0.0F);
       }
 
    }
@@ -159,8 +159,8 @@ public class class_wa extends class_wi {
       return this.ac.a(b) == 1;
    }
 
-   protected class_aar D() {
-      return class_aau.J;
+   protected Item D() {
+      return Items.J;
    }
 
    public int cB() {
@@ -177,7 +177,7 @@ public class class_wa extends class_wi {
    }
 
    protected boolean a(class_xa var1, class_oo var2, class_aas var3) {
-      if(var3 != null && var3.b() == class_aau.d) {
+      if(var3 != null && var3.b() == Items.d) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.a((class_oo)var2);
          if(!this.o.D) {

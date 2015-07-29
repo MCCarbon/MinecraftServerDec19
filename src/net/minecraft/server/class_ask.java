@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.Callable;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
 import net.minecraft.server.class_arw;
@@ -30,7 +30,7 @@ public abstract class class_ask extends class_apn {
 
    public abstract String a();
 
-   protected final synchronized void a(class_aen var1, final int var2, final int var3, int var4, int var5, class_aph var6) {
+   protected final synchronized void a(World var1, final int var2, final int var3, int var4, int var5, class_aph var6) {
       this.a(var1);
       if(!this.e.containsKey(Long.valueOf(class_aeh.a(var2, var3)))) {
          this.b.nextInt();
@@ -83,7 +83,7 @@ public abstract class class_ask extends class_apn {
       }
    }
 
-   public synchronized boolean a(class_aen var1, Random var2, class_aeh var3) {
+   public synchronized boolean a(World var1, Random var2, class_aeh var3) {
       this.a(var1);
       int var4 = (var3.a << 4) + 8;
       int var5 = (var3.b << 4) + 8;
@@ -134,7 +134,7 @@ public abstract class class_ask extends class_apn {
       }
    }
 
-   public boolean a(class_aen var1, class_cj var2) {
+   public boolean a(World var1, class_cj var2) {
       this.a(var1);
       Iterator var3 = this.e.values().iterator();
 
@@ -150,7 +150,7 @@ public abstract class class_ask extends class_apn {
       return true;
    }
 
-   public class_cj b(class_aen var1, class_cj var2) {
+   public class_cj b(World var1, class_cj var2) {
       this.c = var1;
       this.a(var1);
       this.b.setSeed(var1.K());
@@ -207,7 +207,7 @@ public abstract class class_ask extends class_apn {
       return null;
    }
 
-   private void a(class_aen var1) {
+   private void a(World var1) {
       if(this.d == null) {
          this.d = (class_asm)var1.a(class_asm.class, this.a());
          if(this.d == null) {

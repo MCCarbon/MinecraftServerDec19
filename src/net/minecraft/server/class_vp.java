@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aed;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -32,7 +32,7 @@ public class class_vp extends class_vn {
          return new class_awh(class_vp.this.s, class_vp.this.t, class_vp.this.u);
       }
 
-      public class_aen e() {
+      public World e() {
          return class_vp.this.o;
       }
 
@@ -42,11 +42,11 @@ public class class_vp extends class_vn {
    };
    private int d = 0;
 
-   public class_vp(class_aen var1) {
+   public class_vp(World var1) {
       super(var1);
    }
 
-   public class_vp(class_aen var1, double var2, double var4, double var6) {
+   public class_vp(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 
@@ -73,7 +73,7 @@ public class class_vp extends class_vn {
    }
 
    public IBlockData u() {
-      return class_agk.bX.S();
+      return Blocks.COMMAND_BLOCK.getBlockData();
    }
 
    public class_aed j() {

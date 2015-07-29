@@ -5,10 +5,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aex;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
@@ -60,7 +60,7 @@ public class class_u extends class_i {
                }
 
                if(var6.b >= 0 && var6.e < 256 && var7.b >= 0 && var7.e < 256) {
-                  class_aen var12 = var1.e();
+                  World var12 = var1.e();
                   if(var12.a(var6) && var12.a(var7)) {
                      boolean var13 = false;
                      if(var2.length >= 10) {
@@ -90,14 +90,14 @@ public class class_u extends class_i {
                               class_cj var22 = new class_cj(var21, var20, var19);
                               class_cj var23 = var22.a((class_df)var18);
                               IBlockData var24 = var12.p(var22);
-                              if((!var13 || var24.getBlock() != class_agk.a) && (var10 == null || var24.getBlock() == var10 && (var11 < 0 || var24.getBlock().c(var24) == var11))) {
+                              if((!var13 || var24.getBlock() != Blocks.AIR) && (var10 == null || var24.getBlock() == var10 && (var11 < 0 || var24.getBlock().toLegacyData(var24) == var11))) {
                                  class_amg var25 = var12.s(var22);
                                  if(var25 != null) {
                                     class_dn var26 = new class_dn();
                                     var25.b(var26);
                                     var15.add(new class_u.class_a_in_class_u(var23, var24, var26));
                                     var17.addLast(var22);
-                                 } else if(!var24.getBlock().q() && !var24.getBlock().d()) {
+                                 } else if(!var24.getBlock().isFullBlock() && !var24.getBlock().isFullCube()) {
                                     var16.add(new class_u.class_a_in_class_u(var23, var24, (class_dn)null));
                                     var17.addFirst(var22);
                                  } else {
@@ -112,7 +112,7 @@ public class class_u extends class_i {
                      if(var9) {
                         Iterator var27;
                         class_cj var29;
-                        for(var27 = var17.iterator(); var27.hasNext(); var12.a((class_cj)var29, (IBlockData)class_agk.cv.S(), 2)) {
+                        for(var27 = var17.iterator(); var27.hasNext(); var12.a((class_cj)var29, (IBlockData)Blocks.BARRIER.getBlockData(), 2)) {
                            var29 = (class_cj)var27.next();
                            class_amg var31 = var12.s(var29);
                            if(var31 instanceof class_oj) {
@@ -124,7 +124,7 @@ public class class_u extends class_i {
 
                         while(var27.hasNext()) {
                            var29 = (class_cj)var27.next();
-                           var12.a((class_cj)var29, (IBlockData)class_agk.a.S(), 3);
+                           var12.a((class_cj)var29, (IBlockData)Blocks.AIR.getBlockData(), 3);
                         }
                      }
 
@@ -137,7 +137,7 @@ public class class_u extends class_i {
                      Iterator var32;
                      class_u.class_a_in_class_u var33;
                      class_amg var34;
-                     for(var32 = var30.iterator(); var32.hasNext(); var12.a((class_cj)var33.a, (IBlockData)class_agk.cv.S(), 2)) {
+                     for(var32 = var30.iterator(); var32.hasNext(); var12.a((class_cj)var33.a, (IBlockData)Blocks.BARRIER.getBlockData(), 2)) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
                         var34 = var12.s(var33.a);
                         if(var34 instanceof class_oj) {

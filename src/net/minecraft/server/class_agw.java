@@ -2,17 +2,17 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -27,9 +27,9 @@ public class class_agw extends Block {
    public static final class_anw Q = class_anw.a("down");
 
    protected class_agw() {
-      super(class_atk.k);
+      super(Material.k);
       this.a(CreativeTab.c);
-      this.j(this.M.b().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, Boolean.valueOf(false)));
+      this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, Boolean.valueOf(false)));
    }
 
    public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
@@ -39,52 +39,52 @@ public class class_agw extends Block {
       Block var7 = var2.p(var3.f()).getBlock();
       Block var8 = var2.p(var3.d()).getBlock();
       Block var9 = var2.p(var3.e()).getBlock();
-      return var1.set(Q, Boolean.valueOf(var4 == this || var4 == class_agk.cS || var4 == class_agk.bH)).set(P, Boolean.valueOf(var5 == this || var5 == class_agk.cS)).set(a, Boolean.valueOf(var6 == this || var6 == class_agk.cS)).set(b, Boolean.valueOf(var7 == this || var7 == class_agk.cS)).set(N, Boolean.valueOf(var8 == this || var8 == class_agk.cS)).set(O, Boolean.valueOf(var9 == this || var9 == class_agk.cS));
+      return var1.set(Q, Boolean.valueOf(var4 == this || var4 == Blocks.CHORUS_FLOWER || var4 == Blocks.END_STONE)).set(P, Boolean.valueOf(var5 == this || var5 == Blocks.CHORUS_FLOWER)).set(a, Boolean.valueOf(var6 == this || var6 == Blocks.CHORUS_FLOWER)).set(b, Boolean.valueOf(var7 == this || var7 == Blocks.CHORUS_FLOWER)).set(N, Boolean.valueOf(var8 == this || var8 == Blocks.CHORUS_FLOWER)).set(O, Boolean.valueOf(var9 == this || var9 == Blocks.CHORUS_FLOWER));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return 0;
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       if(!this.e(var1, var2)) {
          var1.b(var2, true);
       }
 
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aau.cI;
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Items.cI;
    }
 
    public int a(Random var1) {
       return var1.nextInt(2);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return super.a(var1, var2, var3);
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
+   public boolean d(World var1, class_cj var2) {
       return super.d(var1, var2)?this.e(var1, var2):false;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2)) {
          var1.a((class_cj)var2, (Block)this, 1);
       }
 
    }
 
-   public boolean e(class_aen var1, class_cj var2) {
+   public boolean e(World var1, class_cj var2) {
       boolean var3 = var1.d(var2.a());
       boolean var4 = var1.d(var2.b());
       Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
@@ -96,7 +96,7 @@ public class class_agw extends Block {
          do {
             if(!var5.hasNext()) {
                Block var10 = var1.p(var2.b()).getBlock();
-               if(var10 != this && var10 != class_agk.bH) {
+               if(var10 != this && var10 != Blocks.END_STONE) {
                   return false;
                }
 
@@ -113,12 +113,12 @@ public class class_agw extends Block {
          }
 
          var9 = var1.p(var7.b()).getBlock();
-      } while(var9 != this && var9 != class_agk.bH);
+      } while(var9 != this && var9 != Blocks.END_STONE);
 
       return true;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a, b, N, O, P, Q});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a, b, N, O, P, Q});
    }
 }

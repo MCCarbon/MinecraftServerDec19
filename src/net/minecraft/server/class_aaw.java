@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aja;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 
-public class class_aaw extends class_zg {
+public class class_aaw extends ItemBlock {
    private final class_aja b;
 
    public class_aaw(class_aja var1) {

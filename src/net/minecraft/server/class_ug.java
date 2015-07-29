@@ -3,8 +3,8 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ane;
 import net.minecraft.server.class_anf;
 import net.minecraft.server.IBlockData;
@@ -42,7 +42,7 @@ public class class_ug extends class_ua implements class_wd {
    private class_cj bv;
    private int bw;
 
-   public class_ug(class_aen var1) {
+   public class_ug(World var1) {
       super(var1);
       this.a(1.0F, 1.0F);
       this.aM = 180.0F;
@@ -99,13 +99,13 @@ public class class_ug extends class_ua implements class_wd {
 
       if(!this.o.D) {
          IBlockData var2 = this.o.p(var1);
-         if(var2.getBlock() != class_agk.a) {
+         if(var2.getBlock() != Blocks.AIR) {
             class_cq var3;
-            if(var2.getBlock() == class_agk.M) {
+            if(var2.getBlock() == Blocks.PISTON_EXTENSION) {
                var3 = (class_cq)var2.get(class_ane.b);
                var1 = var1.a(var3);
                this.ac.b(b, var1);
-            } else if(var2.getBlock() == class_agk.K) {
+            } else if(var2.getBlock() == Blocks.PISTON_HEAD) {
                var3 = (class_cq)var2.get(class_anf.b);
                var1 = var1.a(var3);
                this.ac.b(b, var1);

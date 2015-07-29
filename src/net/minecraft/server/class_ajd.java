@@ -2,18 +2,18 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahp;
 import net.minecraft.server.class_alf;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -24,15 +24,15 @@ import net.minecraft.server.class_pr;
 public abstract class class_ajd extends Block {
    public static final class_anz b = class_anz.a("level", 0, 15);
 
-   protected class_ajd(class_atk var1) {
+   protected class_ajd(Material var1) {
       super(var1);
-      this.j(this.M.b().set(b, Integer.valueOf(0)));
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-      this.a(true);
+      this.setBlockData(this.blockStateList.getFirst().set(b, Integer.valueOf(0)));
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+      this.setTicking(true);
    }
 
-   public boolean b(class_aer var1, class_cj var2) {
-      return this.J != class_atk.i;
+   public boolean isPassable(class_aer var1, class_cj var2) {
+      return this.material != Material.i;
    }
 
    public static float b(int var0) {
@@ -44,7 +44,7 @@ public abstract class class_ajd extends Block {
    }
 
    protected int e(class_aer var1, class_cj var2) {
-      return var1.p(var2).getBlock().v() == this.J?((Integer)var1.p(var2).get(b)).intValue():-1;
+      return var1.p(var2).getBlock().getMaterial() == this.material?((Integer)var1.p(var2).get(b)).intValue():-1;
    }
 
    protected int f(class_aer var1, class_cj var2) {
@@ -52,11 +52,11 @@ public abstract class class_ajd extends Block {
       return var3 >= 8?0:var3;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
@@ -65,19 +65,19 @@ public abstract class class_ajd extends Block {
    }
 
    public boolean b(class_aer var1, class_cj var2, class_cq var3) {
-      class_atk var4 = var1.p(var2).getBlock().v();
-      return var4 == this.J?false:(var3 == class_cq.b?true:(var4 == class_atk.w?false:super.b(var1, var2, var3)));
+      Material var4 = var1.p(var2).getBlock().getMaterial();
+      return var4 == this.material?false:(var3 == class_cq.b?true:(var4 == Material.w?false:super.b(var1, var2, var3)));
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
-   public int b() {
+   public int getRenderType() {
       return 1;
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
@@ -98,7 +98,7 @@ public abstract class class_ajd extends Block {
          int var8 = this.f(var1, var7);
          int var9;
          if(var8 < 0) {
-            if(!var1.p(var7).getBlock().v().c()) {
+            if(!var1.p(var7).getBlock().getMaterial().isSolid()) {
                var8 = this.f(var1, var7.b());
                if(var8 >= 0) {
                   var9 = var8 - (var4 - 8);
@@ -129,31 +129,31 @@ public abstract class class_ajd extends Block {
       return var3.a();
    }
 
-   public class_awh a(class_aen var1, class_cj var2, class_pr var3, class_awh var4) {
+   public class_awh a(World var1, class_cj var2, class_pr var3, class_awh var4) {
       return var4.e(this.h(var1, var2));
    }
 
-   public int a(class_aen var1) {
-      return this.J == class_atk.h?5:(this.J == class_atk.i?(var1.t.m()?10:30):0);
+   public int a(World var1) {
+      return this.material == Material.h?5:(this.material == Material.i?(var1.t.m()?10:30):0);
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   public boolean e(class_aen var1, class_cj var2, IBlockData var3) {
-      if(this.J == class_atk.i) {
+   public boolean e(World var1, class_cj var2, IBlockData var3) {
+      if(this.material == Material.i) {
          boolean var4 = false;
          class_cq[] var5 = class_cq.values();
          int var6 = var5.length;
 
          for(int var7 = 0; var7 < var6; ++var7) {
             class_cq var8 = var5[var7];
-            if(var8 != class_cq.a && var1.p(var2.a(var8)).getBlock().v() == class_atk.h) {
+            if(var8 != class_cq.a && var1.p(var2.a(var8)).getBlock().getMaterial() == Material.h) {
                var4 = true;
                break;
             }
@@ -162,13 +162,13 @@ public abstract class class_ajd extends Block {
          if(var4) {
             Integer var9 = (Integer)var3.get(b);
             if(var9.intValue() == 0) {
-               var1.a(var2, class_agk.Z.S());
+               var1.a(var2, Blocks.OBSIDIAN.getBlockData());
                this.e(var1, var2);
                return true;
             }
 
             if(var9.intValue() <= 4) {
-               var1.a(var2, class_agk.e.S());
+               var1.a(var2, Blocks.COBBLESTONE.getBlockData());
                this.e(var1, var2);
                return true;
             }
@@ -178,7 +178,7 @@ public abstract class class_ajd extends Block {
       return false;
    }
 
-   protected void e(class_aen var1, class_cj var2) {
+   protected void e(World var1, class_cj var2) {
       double var3 = (double)var2.n();
       double var5 = (double)var2.o();
       double var7 = (double)var2.p();
@@ -190,33 +190,33 @@ public abstract class class_ajd extends Block {
 
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(b, Integer.valueOf(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(b, Integer.valueOf(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((Integer)var1.get(b)).intValue();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{b});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{b});
    }
 
-   public static class_ahp a(class_atk var0) {
-      if(var0 == class_atk.h) {
-         return class_agk.i;
-      } else if(var0 == class_atk.i) {
-         return class_agk.k;
+   public static class_ahp a(Material var0) {
+      if(var0 == Material.h) {
+         return Blocks.FLOWING_WATER;
+      } else if(var0 == Material.i) {
+         return Blocks.FLOWING_LAVA;
       } else {
          throw new IllegalArgumentException("Invalid material");
       }
    }
 
-   public static class_alf b(class_atk var0) {
-      if(var0 == class_atk.h) {
-         return class_agk.j;
-      } else if(var0 == class_atk.i) {
-         return class_agk.l;
+   public static class_alf b(Material var0) {
+      if(var0 == Material.h) {
+         return Blocks.WATER;
+      } else if(var0 == Material.i) {
+         return Blocks.LAVA;
       } else {
          throw new IllegalArgumentException("Invalid material");
       }

@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.TreeMap;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -29,7 +29,7 @@ import net.minecraft.server.class_wv;
 import net.minecraft.server.class_xa;
 
 public class class_tp {
-   private class_aen a;
+   private World a;
    private final List b = Lists.newArrayList();
    private class_cj c;
    private class_cj d;
@@ -49,7 +49,7 @@ public class class_tp {
       this.k = Lists.newArrayList();
    }
 
-   public class_tp(class_aen var1) {
+   public class_tp(World var1) {
       this.c = class_cj.a;
       this.d = class_cj.a;
       this.j = new TreeMap();
@@ -57,7 +57,7 @@ public class class_tp {
       this.a = var1;
    }
 
-   public void a(class_aen var1) {
+   public void a(World var1) {
       this.a = var1;
    }
 
@@ -98,7 +98,7 @@ public class class_tp {
    }
 
    private boolean a(class_cj var1, class_cj var2) {
-      if(!class_aen.a((class_aer)this.a, (class_cj)var2.b())) {
+      if(!World.a((class_aer)this.a, (class_cj)var2.b())) {
          return false;
       } else {
          int var3 = var2.n() - var1.n() / 2;
@@ -107,7 +107,7 @@ public class class_tp {
          for(int var5 = var3; var5 < var3 + var1.n(); ++var5) {
             for(int var6 = var2.o(); var6 < var2.o() + var1.o(); ++var6) {
                for(int var7 = var4; var7 < var4 + var1.p(); ++var7) {
-                  if(this.a.p(new class_cj(var5, var6, var7)).getBlock().x()) {
+                  if(this.a.p(new class_cj(var5, var6, var7)).getBlock().isOccluding()) {
                      return false;
                   }
                }
@@ -332,7 +332,7 @@ public class class_tp {
 
    private boolean f(class_cj var1) {
       Block var2 = this.a.p(var1).getBlock();
-      return var2 instanceof class_ahl?var2.v() == class_atk.d:false;
+      return var2 instanceof class_ahl?var2.getMaterial() == Material.d:false;
    }
 
    private void n() {

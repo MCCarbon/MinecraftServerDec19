@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aal;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.class_za;
@@ -21,7 +21,7 @@ public enum class_adj {
    j,
    k;
 
-   public boolean a(class_aar var1) {
+   public boolean a(Item var1) {
       if(this == a) {
          return true;
       } else if(this == j && var1.m()) {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
@@ -56,7 +56,7 @@ public class class_in implements class_ff {
       var1.a(this);
    }
 
-   public class_pr a(class_aen var1) {
+   public class_pr a(World var1) {
       return var1.a(this.a);
    }
 

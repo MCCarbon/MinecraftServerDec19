@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aky;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
@@ -13,21 +13,21 @@ import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 
-public class class_zh extends class_aar {
+public class class_zh extends Item {
    private Block a;
 
    public class_zh(Block var1) {
       this.a = var1;
    }
 
-   public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.p(var4);
       Block var11 = var10.getBlock();
-      if(var11 == class_agk.aH && ((Integer)var10.get(class_aky.a)).intValue() < 1) {
+      if(var11 == Blocks.SNOW_LAYER && ((Integer)var10.get(class_aky.a)).intValue() < 1) {
          var6 = class_cq.b;
-      } else if(!var11.a(var3, var4)) {
+      } else if(!var11.isReplaceable(var3, var4)) {
          var4 = var4.a(var6);
       }
 
@@ -41,11 +41,11 @@ public class class_zh extends class_aar {
             if(var3.a((class_cj)var4, (IBlockData)var12, 3)) {
                var12 = var3.p(var4);
                if(var12.getBlock() == this.a) {
-                  class_zg.a(var3, var2, var4, var1);
+                  ItemBlock.a(var3, var2, var4, var1);
                   var12.getBlock().a(var3, var4, var12, var2, var1);
                }
 
-               var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.a.H.b(), (this.a.H.d() + 1.0F) / 2.0F, this.a.H.e() * 0.8F);
+               var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.a.stepSound.b(), (this.a.stepSound.d() + 1.0F) / 2.0F, this.a.stepSound.e() * 0.8F);
                --var1.b;
                return class_oq.a;
             }

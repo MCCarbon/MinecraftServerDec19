@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
 import java.util.Calendar;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_apa;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -65,7 +65,7 @@ public class class_wn extends class_wi implements class_wk {
       }
    };
 
-   public class_wn(class_aen var1) {
+   public class_wn(World var1) {
       super(var1);
       this.i.a(1, new class_rj(this));
       this.i.a(2, new class_sm(this));
@@ -178,13 +178,13 @@ public class class_wn extends class_wi implements class_wk {
          }
       } else if(var1.j() instanceof class_wa && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new class_aas(class_aau.ca, 1, this.cB() == 1?1:0), 0.0F);
+         this.a(new class_aas(Items.ca, 1, this.cB() == 1?1:0), 0.0F);
       }
 
    }
 
-   protected class_aar D() {
-      return class_aau.g;
+   protected Item D() {
+      return Items.g;
    }
 
    protected void b(boolean var1, int var2) {
@@ -194,34 +194,34 @@ public class class_wn extends class_wi implements class_wk {
          var3 = this.V.nextInt(3 + var2) - 1;
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(class_aau.j, 1);
+            this.a(Items.j, 1);
          }
       } else {
          var3 = this.V.nextInt(3 + var2);
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(class_aau.g, 1);
+            this.a(Items.g, 1);
          }
       }
 
       var3 = this.V.nextInt(3 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.aZ, 1);
+         this.a(Items.aZ, 1);
       }
 
    }
 
    protected void br() {
       if(this.cB() == 1) {
-         this.a(new class_aas(class_aau.ca, 1, 1), 0.0F);
+         this.a(new class_aas(Items.ca, 1, 1), 0.0F);
       }
 
    }
 
    protected void a(class_on var1) {
       super.a(var1);
-      this.a(class_pw.a, new class_aas(class_aau.f));
+      this.a(class_pw.a, new class_aas(Items.f));
    }
 
    public class_qd a(class_on var1, class_qd var2) {
@@ -229,7 +229,7 @@ public class class_wn extends class_wi implements class_wk {
       if(this.o.t instanceof class_apa && this.bd().nextInt(5) > 0) {
          this.i.a(4, this.bs);
          this.a(1);
-         this.a(class_pw.a, new class_aas(class_aau.s));
+         this.a(class_pw.a, new class_aas(Items.s));
          this.a((class_qk)class_wl.e).a(4.0D);
       } else {
          this.i.a(4, this.c);
@@ -241,7 +241,7 @@ public class class_wn extends class_wi implements class_wk {
       if(this.a((class_pw)class_pw.f) == null) {
          Calendar var3 = this.o.Z();
          if(var3.get(2) + 1 == 10 && var3.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.a(class_pw.f, new class_aas(this.V.nextFloat() < 0.1F?class_agk.aZ:class_agk.aU));
+            this.a(class_pw.f, new class_aas(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN));
             this.bp[class_pw.f.b()] = 0.0F;
          }
       }
@@ -253,7 +253,7 @@ public class class_wn extends class_wi implements class_wk {
       this.i.a((class_rm)this.bs);
       this.i.a((class_rm)this.c);
       class_aas var1 = this.bA();
-      if(var1 != null && var1.b() == class_aau.f) {
+      if(var1 != null && var1.b() == Items.f) {
          this.i.a(4, this.c);
       } else {
          this.i.a(4, this.bs);

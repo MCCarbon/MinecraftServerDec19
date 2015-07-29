@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_kc;
+import net.minecraft.server.Bootstrap;
 import net.minecraft.server.class_pk;
 
 public class class_pm {
@@ -41,7 +41,7 @@ public class class_pm {
    }
 
    static {
-      if(!class_kc.a()) {
+      if(!Bootstrap.isInitDone()) {
          throw new RuntimeException("Accessed MobEffects before Bootstrap!");
       } else {
          a = a("speed");

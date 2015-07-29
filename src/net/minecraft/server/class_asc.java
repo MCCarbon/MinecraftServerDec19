@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_asd;
 import net.minecraft.server.class_ask;
@@ -48,7 +48,7 @@ public class class_asc extends class_ask {
       public class_a_in_class_asc() {
       }
 
-      public class_a_in_class_asc(class_aen var1, Random var2, int var3, int var4) {
+      public class_a_in_class_asc(World var1, Random var2, int var3, int var4) {
          super(var3, var4);
          class_asd.class_q_in_class_asd var5 = new class_asd.class_q_in_class_asd(var2, (var3 << 4) + 2, (var4 << 4) + 2);
          this.a.add(var5);

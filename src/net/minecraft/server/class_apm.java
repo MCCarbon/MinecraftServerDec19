@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import com.google.common.base.Objects;
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_akq;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 
@@ -110,7 +110,7 @@ public class class_apm extends class_apn {
                      for(int var44 = var38 + 1; !var59 && var44 >= var57 - 1; --var44) {
                         if(var44 >= 0 && var44 < 256) {
                            IBlockData var45 = var5.a(var42, var44, var43);
-                           if(var45.getBlock() == class_agk.i || var45.getBlock() == class_agk.j) {
+                           if(var45.getBlock() == Blocks.FLOWING_WATER || var45.getBlock() == Blocks.WATER) {
                               var59 = true;
                            }
 
@@ -136,23 +136,23 @@ public class class_apm extends class_apn {
                               double var51 = ((double)(var50 - 1) + 0.5D - var8) / var31;
                               if(var51 > -0.7D && var61 * var61 + var51 * var51 + var47 * var47 < 1.0D) {
                                  IBlockData var53 = var5.a(var43, var50, var46);
-                                 IBlockData var54 = (IBlockData)Objects.firstNonNull(var5.a(var43, var50 + 1, var46), class_agk.a.S());
-                                 if(var53.getBlock() == class_agk.c || var53.getBlock() == class_agk.bw) {
+                                 IBlockData var54 = (IBlockData)Objects.firstNonNull(var5.a(var43, var50 + 1, var46), Blocks.AIR.getBlockData());
+                                 if(var53.getBlock() == Blocks.GRASS || var53.getBlock() == Blocks.MYCELIM) {
                                     var49 = true;
                                  }
 
                                  if(this.a(var53, var54)) {
                                     if(var50 - 1 < 10) {
-                                       var5.a(var43, var50, var46, class_agk.l.S());
+                                       var5.a(var43, var50, var46, Blocks.LAVA.getBlockData());
                                     } else {
-                                       var5.a(var43, var50, var46, class_agk.a.S());
-                                       if(var54.getBlock() == class_agk.m) {
-                                          var5.a(var43, var50 + 1, var46, var54.get(class_akq.a) == class_akq.class_a_in_class_akq.b?class_agk.cM.S():class_agk.A.S());
+                                       var5.a(var43, var50, var46, Blocks.AIR.getBlockData());
+                                       if(var54.getBlock() == Blocks.SAND) {
+                                          var5.a(var43, var50 + 1, var46, var54.get(class_akq.a) == class_akq.class_a_in_class_akq.b?Blocks.RED_SANDSTONE.getBlockData():Blocks.SANDSTONE.getBlockData());
                                        }
 
-                                       if(var49 && var5.a(var43, var50 - 1, var46).getBlock() == class_agk.d) {
+                                       if(var49 && var5.a(var43, var50 - 1, var46).getBlock() == Blocks.DIRT) {
                                           var60.c(var43 + var3 * 16, 0, var46 + var4 * 16);
-                                          var5.a(var43, var50 - 1, var46, this.c.b((class_cj)var60).ak.getBlock().S());
+                                          var5.a(var43, var50 - 1, var46, this.c.b((class_cj)var60).ak.getBlock().getBlockData());
                                        }
                                     }
                                  }
@@ -173,10 +173,10 @@ public class class_apm extends class_apn {
    }
 
    protected boolean a(IBlockData var1, IBlockData var2) {
-      return var1.getBlock() == class_agk.b?true:(var1.getBlock() == class_agk.d?true:(var1.getBlock() == class_agk.c?true:(var1.getBlock() == class_agk.cz?true:(var1.getBlock() == class_agk.cu?true:(var1.getBlock() == class_agk.A?true:(var1.getBlock() == class_agk.cM?true:(var1.getBlock() == class_agk.bw?true:(var1.getBlock() == class_agk.aH?true:(var1.getBlock() == class_agk.m || var1.getBlock() == class_agk.n) && var2.getBlock().v() != class_atk.h))))))));
+      return var1.getBlock() == Blocks.STONE?true:(var1.getBlock() == Blocks.DIRT?true:(var1.getBlock() == Blocks.GRASS?true:(var1.getBlock() == Blocks.HARDENED_CLAY?true:(var1.getBlock() == Blocks.STAINED_HARDENED_CLAY?true:(var1.getBlock() == Blocks.SANDSTONE?true:(var1.getBlock() == Blocks.RED_SANDSTONE?true:(var1.getBlock() == Blocks.MYCELIM?true:(var1.getBlock() == Blocks.SNOW_LAYER?true:(var1.getBlock() == Blocks.SAND || var1.getBlock() == Blocks.GRAVEL) && var2.getBlock().getMaterial() != Material.h))))))));
    }
 
-   protected void a(class_aen var1, int var2, int var3, int var4, int var5, class_aph var6) {
+   protected void a(World var1, int var2, int var3, int var4, int var5, class_aph var6) {
       int var7 = this.b.nextInt(this.b.nextInt(this.b.nextInt(15) + 1) + 1);
       if(this.b.nextInt(7) != 0) {
          var7 = 0;

@@ -27,7 +27,7 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_cm;
 import net.minecraft.server.class_cw;
 
-public class class_anm {
+public class BlockStateList {
 	private static final Pattern a = Pattern.compile("^[a-z0-9_]+$");
 	private static final Function b = new Function() {
 		public String a(IBlockState var1) {
@@ -43,7 +43,7 @@ public class class_anm {
 	private final ImmutableSortedMap d;
 	private final ImmutableList e;
 
-	public class_anm(Block var1, IBlockState... var2) {
+	public BlockStateList(Block var1, IBlockState... var2) {
 		this.c = var1;
 		HashMap var3 = Maps.newHashMap();
 		IBlockState[] var4 = var2;
@@ -64,7 +64,7 @@ public class class_anm {
 		while (var14.hasNext()) {
 			List var8 = (List) var14.next();
 			Map var9 = class_cw.b(this.d.values(), var8);
-			class_anm.class_a_in_class_anm var10 = new class_anm.class_a_in_class_anm(var1, ImmutableMap.copyOf(var9), null);
+			BlockStateList.class_a_in_class_anm var10 = new BlockStateList.class_a_in_class_anm(var1, ImmutableMap.copyOf(var9), null);
 			var11.put(var9, var10);
 			var12.add(var10);
 		}
@@ -72,7 +72,7 @@ public class class_anm {
 		var14 = var12.iterator();
 
 		while (var14.hasNext()) {
-			class_anm.class_a_in_class_anm var15 = (class_anm.class_a_in_class_anm) var14.next();
+			BlockStateList.class_a_in_class_anm var15 = (BlockStateList.class_a_in_class_anm) var14.next();
 			var15.a(var11);
 		}
 
@@ -117,11 +117,11 @@ public class class_anm {
 		return var1;
 	}
 
-	public IBlockData b() {
+	public IBlockData getFirst() {
 		return (IBlockData) this.e.get(0);
 	}
 
-	public Block c() {
+	public Block getBlock() {
 		return this.c;
 	}
 
@@ -149,7 +149,7 @@ public class class_anm {
 
 		public <T extends Comparable<T>> T get(IBlockState<T> var1) {
 			if (!this.b.containsKey(var1)) {
-				throw new IllegalArgumentException("Cannot get property " + var1 + " as it does not exist in " + this.a.R());
+				throw new IllegalArgumentException("Cannot get property " + var1 + " as it does not exist in " + this.a.getBlockStateList());
 			} else {
 				return var1.b().cast(this.b.get(var1));
 			}
@@ -157,7 +157,7 @@ public class class_anm {
 
 		public <T extends Comparable<T>, V extends T> IBlockData set(IBlockState<T> var1, V var2) {
 			if (!this.b.containsKey(var1)) {
-				throw new IllegalArgumentException("Cannot set property " + var1 + " as it does not exist in " + this.a.R());
+				throw new IllegalArgumentException("Cannot set property " + var1 + " as it does not exist in " + this.a.getBlockStateList());
 			} else if (!var1.c().contains(var2)) {
 				throw new IllegalArgumentException("Cannot set property " + var1 + " to " + var2 + " on block " + Block.BLOCK_REGISTRY.getKey(this.a) + ", it is not an allowed value");
 			} else {

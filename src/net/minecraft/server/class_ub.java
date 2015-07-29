@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_po;
@@ -14,22 +14,22 @@ import net.minecraft.server.class_vm;
 import net.minecraft.server.class_xa;
 
 public class class_ub extends class_ty {
-   public class_ub(class_aen var1) {
+   public class_ub(World var1) {
       super(var1);
       this.a(0.9F, 1.3F);
-      this.bv = class_agk.bw;
+      this.bv = Blocks.MYCELIM;
    }
 
    public boolean a(class_xa var1, class_oo var2, class_aas var3) {
-      if(var3 != null && var3.b() == class_aau.B && this.l() >= 0 && !var1.bH.d) {
+      if(var3 != null && var3.b() == Items.B && this.l() >= 0 && !var1.bH.d) {
          if(--var3.b == 0) {
-            var1.a((class_oo)var2, (class_aas)(new class_aas(class_aau.C)));
-         } else if(!var1.bp.a(new class_aas(class_aau.C))) {
-            var1.a(new class_aas(class_aau.C), false);
+            var1.a((class_oo)var2, (class_aas)(new class_aas(Items.C)));
+         } else if(!var1.bp.a(new class_aas(Items.C))) {
+            var1.a(new class_aas(Items.C), false);
          }
 
          return true;
-      } else if(var3 != null && var3.b() == class_aau.bg && this.l() >= 0) {
+      } else if(var3 != null && var3.b() == Items.bg && this.l() >= 0) {
          this.J();
          this.o.a(class_cy.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.o.D) {
@@ -44,7 +44,7 @@ public class class_ub extends class_ty {
             this.o.a((class_pr)var4);
 
             for(int var5 = 0; var5 < 5; ++var5) {
-               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t + (double)this.K, this.u, new class_aas(class_agk.Q))));
+               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t + (double)this.K, this.u, new class_aas(Blocks.RED_MUSHROOM))));
             }
 
             var3.a(1, (class_qa)var1);

@@ -8,9 +8,9 @@ import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.class_df;
 import net.minecraft.server.class_nu;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 
-public enum class_cq implements class_ny {
+public enum class_cq implements INamable {
 
 	a(0, 1, -1, "down", class_cq.class_b_in_class_cq.b, class_cq.class_a_in_class_cq.b, new class_df(0, -1, 0)), b(1, 0, -1, "up", class_cq.class_b_in_class_cq.a, class_cq.class_a_in_class_cq.b, new class_df(0, 1, 0)), c(2, 3, 2, "north", class_cq.class_b_in_class_cq.b, class_cq.class_a_in_class_cq.c, new class_df(0, 0, -1)), d(3, 2, 0, "south", class_cq.class_b_in_class_cq.a, class_cq.class_a_in_class_cq.c, new class_df(0, 0, 1)), e(4, 5, 1, "west", class_cq.class_b_in_class_cq.b,
 			class_cq.class_a_in_class_cq.a, new class_df(-1, 0, 0)), f(5, 4, 3, "east", class_cq.class_b_in_class_cq.a, class_cq.class_a_in_class_cq.a, new class_df(1, 0, 0));
@@ -122,7 +122,7 @@ public enum class_cq implements class_ny {
 		return this.j;
 	}
 
-	public String l() {
+	public String getName() {
 		return this.j;
 	}
 
@@ -295,7 +295,7 @@ public enum class_cq implements class_ny {
 		}
 	}
 
-	public static enum class_a_in_class_cq implements Predicate, class_ny {
+	public static enum class_a_in_class_cq implements Predicate, INamable {
 		a("x", class_cq.class_c_in_class_cq.a), b("y", class_cq.class_c_in_class_cq.b), c("z", class_cq.class_c_in_class_cq.a);
 
 		private static final Map d;
@@ -331,7 +331,7 @@ public enum class_cq implements class_ny {
 			return this.f;
 		}
 
-		public String l() {
+		public String getName() {
 			return this.e;
 		}
 

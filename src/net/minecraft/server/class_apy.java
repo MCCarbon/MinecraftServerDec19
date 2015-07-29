@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajs;
 import net.minecraft.server.class_ajt;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 
 public class class_apy extends class_apw {
@@ -22,7 +22,7 @@ public class class_apy extends class_apw {
       this.c = var2;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       int var4 = var2.nextInt(3) + 5;
       if(this.c) {
          var4 += var2.nextInt(7);
@@ -61,7 +61,7 @@ public class class_apy extends class_apw {
             return false;
          } else {
             Block var16 = var1.p(var3.b()).getBlock();
-            if((var16 == class_agk.c || var16 == class_agk.d || var16 == class_agk.ak) && var3.o() < 256 - var4 - 1) {
+            if((var16 == Blocks.GRASS || var16 == Blocks.DIRT || var16 == Blocks.FARMLAND) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
 
                int var17;
@@ -77,7 +77,7 @@ public class class_apy extends class_apw {
                         if(Math.abs(var11) != var9 || Math.abs(var13) != var9 || var2.nextInt(2) != 0 && var18 != 0) {
                            class_cj var14 = new class_cj(var10, var17, var12);
                            Block var15 = var1.p(var14).getBlock();
-                           if(var15.v() == class_atk.a || var15.v() == class_atk.j) {
+                           if(var15.getMaterial() == Material.a || var15.getMaterial() == Material.j) {
                               this.a(var1, var14, b);
                            }
                         }
@@ -87,7 +87,7 @@ public class class_apy extends class_apw {
 
                for(var17 = 0; var17 < var4; ++var17) {
                   Block var19 = var1.p(var3.b(var17)).getBlock();
-                  if(var19.v() == class_atk.a || var19.v() == class_atk.j) {
+                  if(var19.getMaterial() == Material.a || var19.getMaterial() == Material.j) {
                      this.a(var1, var3.b(var17), a);
                   }
                }
@@ -103,7 +103,7 @@ public class class_apy extends class_apw {
    }
 
    static {
-      a = class_agk.r.S().set(class_ajt.b, class_ajw.class_a_in_class_ajw.c);
-      b = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.c).set(class_ajs.b, Boolean.valueOf(false));
+      a = Blocks.LOG.getBlockData().set(class_ajt.b, class_ajw.class_a_in_class_ajw.c);
+      b = Blocks.LEAVES.getBlockData().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.c).set(class_ajs.b, Boolean.valueOf(false));
    }
 }

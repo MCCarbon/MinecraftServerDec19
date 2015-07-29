@@ -3,17 +3,17 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aed;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agd;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amj;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_oo;
@@ -24,15 +24,15 @@ public class class_aha extends class_agd {
    public static final class_anw a = class_anw.a("triggered");
 
    public class_aha() {
-      super(class_atk.f, class_atl.q);
-      this.j(this.M.b().set(a, Boolean.valueOf(false)));
+      super(Material.f, MaterialMapColor.q);
+      this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
    }
 
-   public class_amg a(class_aen var1, int var2) {
+   public class_amg a(World var1, int var2) {
       return new class_amj();
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          boolean var5 = var1.z(var2);
          boolean var6 = ((Boolean)var3.get(a)).booleanValue();
@@ -46,7 +46,7 @@ public class class_aha extends class_agd {
 
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       class_amg var5 = var1.s(var2);
       if(var5 instanceof class_amj) {
          ((class_amj)var5).b().a(var1);
@@ -55,11 +55,11 @@ public class class_aha extends class_agd {
 
    }
 
-   public int a(class_aen var1) {
+   public int a(World var1) {
       return 1;
    }
 
-   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       class_amg var11 = var1.s(var2);
       return var11 instanceof class_amj?((class_amj)var11).b().a(var4):false;
    }
@@ -68,12 +68,12 @@ public class class_aha extends class_agd {
       return true;
    }
 
-   public int l(class_aen var1, class_cj var2) {
+   public int l(World var1, class_cj var2) {
       class_amg var3 = var1.s(var2);
       return var3 instanceof class_amj?((class_amj)var3).b().j():0;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
       class_amg var6 = var1.s(var2);
       if(var6 instanceof class_amj) {
          class_aed var7 = ((class_amj)var6).b();
@@ -92,15 +92,15 @@ public class class_aha extends class_agd {
       return 0;
    }
 
-   public int b() {
+   public int getRenderType() {
       return 3;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, Boolean.valueOf((var1 & 1) > 0));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, Boolean.valueOf((var1 & 1) > 0));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       int var2 = 0;
       if(((Boolean)var1.get(a)).booleanValue()) {
          var2 |= 1;
@@ -109,11 +109,11 @@ public class class_aha extends class_agd {
       return var2;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.S().set(a, Boolean.valueOf(false));
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData().set(a, Boolean.valueOf(false));
    }
 }

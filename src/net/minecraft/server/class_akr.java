@@ -2,44 +2,44 @@ package net.minecraft.server;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public class class_akr extends Block {
-   public static final class_any a = class_any.a("type", class_akr.class_a_in_class_akr.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("type", class_akr.class_a_in_class_akr.class);
 
    public class_akr() {
-      super(class_atk.e);
-      this.j(this.M.b().set(a, class_akr.class_a_in_class_akr.a));
+      super(Material.e);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_akr.class_a_in_class_akr.a));
       this.a(CreativeTab.b);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_akr.class_a_in_class_akr)var1.get(a)).a();
    }
 
-   public class_atl g(IBlockData var1) {
-      return class_atl.d;
+   public MaterialMapColor getMapColor(IBlockData var1) {
+      return MaterialMapColor.d;
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_akr.class_a_in_class_akr.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_akr.class_a_in_class_akr.a(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_akr.class_a_in_class_akr)var1.get(a)).a();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public static enum class_a_in_class_akr implements class_ny {
+   public static enum class_a_in_class_akr implements INamable {
       a(0, "sandstone", "default"),
       b(1, "chiseled_sandstone", "chiseled"),
       c(2, "smooth_sandstone", "smooth");
@@ -71,7 +71,7 @@ public class class_akr extends Block {
          return d[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.f;
       }
 

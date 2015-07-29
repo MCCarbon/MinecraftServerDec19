@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aaq;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.class_aco;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aih;
 import net.minecraft.server.class_amu;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yk;
 import net.minecraft.server.class_yl;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 import net.minecraft.server.class_zv;
 
 public class class_amr extends class_amu implements class_kn, class_oz {
@@ -176,7 +176,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
                   if(this.h[1] != null) {
                      --this.h[1].b;
                      if(this.h[1].b == 0) {
-                        class_aar var3 = this.h[1].b().q();
+                        Item var3 = this.h[1].b().q();
                         this.h[1] = var3 != null?new class_aas(var3):null;
                      }
                   }
@@ -230,8 +230,8 @@ public class class_amr extends class_amu implements class_kn, class_oz {
             ++this.h[2].b;
          }
 
-         if(this.h[0].b() == class_aar.a(class_agk.v) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == class_aau.ay) {
-            this.h[1] = new class_aas(class_aau.az);
+         if(this.h[0].b() == Item.getByBlock(Blocks.SPONGE) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.ay) {
+            this.h[1] = new class_aas(Items.az);
          }
 
          --this.h[0].b;
@@ -246,23 +246,23 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       if(var0 == null) {
          return 0;
       } else {
-         class_aar var1 = var0.b();
-         if(var1 instanceof class_zg && Block.a(var1) != class_agk.a) {
-            Block var2 = Block.a(var1);
-            if(var2 == class_agk.bM) {
+         Item var1 = var0.b();
+         if(var1 instanceof ItemBlock && Block.getByItem(var1) != Blocks.AIR) {
+            Block var2 = Block.getByItem(var1);
+            if(var2 == Blocks.WOODEN_SLAB) {
                return 150;
             }
 
-            if(var2.v() == class_atk.d) {
+            if(var2.getMaterial() == Material.d) {
                return 300;
             }
 
-            if(var2 == class_agk.cA) {
+            if(var2 == Blocks.COAL_BLOCK) {
                return 16000;
             }
          }
 
-         return var1 instanceof class_zv && ((class_zv)var1).h().equals("WOOD")?200:(var1 instanceof class_abw && ((class_abw)var1).h().equals("WOOD")?200:(var1 instanceof class_aaq && ((class_aaq)var1).g().equals("WOOD")?200:(var1 == class_aau.A?100:(var1 == class_aau.j?1600:(var1 == class_aau.aA?20000:(var1 == class_aar.a(class_agk.g)?100:(var1 == class_aau.bx?2400:0)))))));
+         return var1 instanceof class_zv && ((class_zv)var1).h().equals("WOOD")?200:(var1 instanceof class_abw && ((class_abw)var1).h().equals("WOOD")?200:(var1 instanceof class_aaq && ((class_aaq)var1).g().equals("WOOD")?200:(var1 == Items.A?100:(var1 == Items.j?1600:(var1 == Items.aA?20000:(var1 == Item.getByBlock(Blocks.SAPLING)?100:(var1 == Items.bx?2400:0)))))));
       }
    }
 
@@ -294,8 +294,8 @@ public class class_amr extends class_amu implements class_kn, class_oz {
 
    public boolean b(int var1, class_aas var2, class_cq var3) {
       if(var3 == class_cq.a && var1 == 1) {
-         class_aar var4 = var2.b();
-         if(var4 != class_aau.az && var4 != class_aau.ay) {
+         Item var4 = var2.b();
+         if(var4 != Items.az && var4 != Items.ay) {
             return false;
          }
       }

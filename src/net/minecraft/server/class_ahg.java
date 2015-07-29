@@ -3,14 +3,14 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agf;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_vp;
 import net.minecraft.server.class_xz;
 
 public class class_ahg extends class_agf {
-   public static final class_any b = class_any.a("shape", class_agf.class_b_in_class_agf.class, new Predicate() {
+   public static final BlockStateEnum b = BlockStateEnum.a("shape", class_agf.class_b_in_class_agf.class, new Predicate() {
       public boolean a(class_agf.class_b_in_class_agf var1) {
          return var1 != class_agf.class_b_in_class_agf.j && var1 != class_agf.class_b_in_class_agf.i && var1 != class_agf.class_b_in_class_agf.g && var1 != class_agf.class_b_in_class_agf.h;
       }
@@ -37,19 +37,19 @@ public class class_ahg extends class_agf {
 
    public class_ahg() {
       super(true);
-      this.j(this.M.b().set(N, Boolean.valueOf(false)).set(b, class_agf.class_b_in_class_agf.a));
-      this.a(true);
+      this.setBlockData(this.blockStateList.getFirst().set(N, Boolean.valueOf(false)).set(b, class_agf.class_b_in_class_agf.a));
+      this.setTicking(true);
    }
 
-   public int a(class_aen var1) {
+   public int a(World var1) {
       return 20;
    }
 
-   public boolean i() {
+   public boolean isPowerSource() {
       return true;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
       if(!var1.D) {
          if(!((Boolean)var3.get(N)).booleanValue()) {
             this.e(var1, var2, var3);
@@ -57,10 +57,10 @@ public class class_ahg extends class_agf {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Random var4) {
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       if(!var1.D && ((Boolean)var3.get(N)).booleanValue()) {
          this.e(var1, var2, var3);
       }
@@ -74,7 +74,7 @@ public class class_ahg extends class_agf {
       return !((Boolean)var3.get(N)).booleanValue()?0:(var4 == class_cq.b?15:0);
    }
 
-   private void e(class_aen var1, class_cj var2, IBlockData var3) {
+   private void e(World var1, class_cj var2, IBlockData var3) {
       boolean var4 = ((Boolean)var3.get(N)).booleanValue();
       boolean var5 = false;
       List var6 = this.a(var1, var2, class_vn.class, new Predicate[0]);
@@ -103,7 +103,7 @@ public class class_ahg extends class_agf {
       var1.e(var2, this);
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
       super.c(var1, var2, var3);
       this.e(var1, var2, var3);
    }
@@ -116,7 +116,7 @@ public class class_ahg extends class_agf {
       return true;
    }
 
-   public int l(class_aen var1, class_cj var2) {
+   public int l(World var1, class_cj var2) {
       if(((Boolean)var1.p(var2).get(N)).booleanValue()) {
          List var3 = this.a(var1, var2, class_vp.class, new Predicate[0]);
          if(!var3.isEmpty()) {
@@ -132,7 +132,7 @@ public class class_ahg extends class_agf {
       return 0;
    }
 
-   protected List a(class_aen var1, class_cj var2, Class var3, Predicate... var4) {
+   protected List a(World var1, class_cj var2, Class var3, Predicate... var4) {
       class_awf var5 = this.a(var2);
       return var4.length != 1?var1.a(var3, var5):var1.a(var3, var5, var4[0]);
    }
@@ -142,11 +142,11 @@ public class class_ahg extends class_agf {
       return new class_awf((double)((float)var1.n() + 0.2F), (double)var1.o(), (double)((float)var1.p() + 0.2F), (double)((float)(var1.n() + 1) - 0.2F), (double)((float)(var1.o() + 1) - 0.2F), (double)((float)(var1.p() + 1) - 0.2F));
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(b, class_agf.class_b_in_class_agf.a(var1 & 7)).set(N, Boolean.valueOf((var1 & 8) > 0));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(b, class_agf.class_b_in_class_agf.a(var1 & 7)).set(N, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_agf.class_b_in_class_agf)var1.get(b)).a();
       if(((Boolean)var1.get(N)).booleanValue()) {
@@ -280,8 +280,8 @@ public class class_ahg extends class_agf {
       }
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{b, N});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{b, N});
    }
 
    // $FF: synthetic class

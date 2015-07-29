@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pl;
@@ -12,7 +12,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wp;
 
 public class class_vz extends class_wp {
-   public class_vz(class_aen var1) {
+   public class_vz(World var1) {
       super(var1);
       this.a(0.7F, 0.5F);
    }

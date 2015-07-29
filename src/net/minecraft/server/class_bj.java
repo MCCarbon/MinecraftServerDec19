@@ -10,8 +10,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.World;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_ca;
@@ -85,7 +85,7 @@ public class class_bj extends class_i {
       }
    }
 
-   private void a(class_m var1, List var2, class_bj.class_a_in_class_bj var3, double var4, double var6, class_aen var8, boolean var9) throws class_bz {
+   private void a(class_m var1, List var2, class_bj.class_a_in_class_bj var3, double var4, double var6, World var8, boolean var9) throws class_bz {
       Random var10 = new Random();
       double var11 = var3.a - var6;
       double var13 = var3.b - var6;
@@ -117,7 +117,7 @@ public class class_bj extends class_i {
       return var2.size();
    }
 
-   private int a(class_bj.class_a_in_class_bj var1, double var2, class_aen var4, Random var5, double var6, double var8, double var10, double var12, class_bj.class_a_in_class_bj[] var14, boolean var15) throws class_bz {
+   private int a(class_bj.class_a_in_class_bj var1, double var2, World var4, Random var5, double var6, double var8, double var10, double var12, class_bj.class_a_in_class_bj[] var14, boolean var15) throws class_bz {
       boolean var16 = true;
       double var18 = 3.4028234663852886E38D;
 
@@ -186,7 +186,7 @@ public class class_bj extends class_i {
       }
    }
 
-   private double a(List var1, class_aen var2, class_bj.class_a_in_class_bj[] var3, boolean var4) {
+   private double a(List var1, World var2, class_bj.class_a_in_class_bj[] var3, boolean var4) {
       double var5 = 0.0D;
       int var7 = 0;
       HashMap var8 = Maps.newHashMap();
@@ -292,7 +292,7 @@ public class class_bj extends class_i {
          return var9;
       }
 
-      public int a(class_aen var1) {
+      public int a(World var1) {
          class_cj var2 = new class_cj(this.a, 256.0D, this.b);
 
          do {
@@ -301,25 +301,25 @@ public class class_bj extends class_i {
             }
 
             var2 = var2.b();
-         } while(var1.p(var2).getBlock().v() == class_atk.a);
+         } while(var1.p(var2).getBlock().getMaterial() == Material.a);
 
          return var2.o() + 1;
       }
 
-      public boolean b(class_aen var1) {
+      public boolean b(World var1) {
          class_cj var2 = new class_cj(this.a, 256.0D, this.b);
 
-         class_atk var3;
+         Material var3;
          do {
             if(var2.o() <= 0) {
                return false;
             }
 
             var2 = var2.b();
-            var3 = var1.p(var2).getBlock().v();
-         } while(var3 == class_atk.a);
+            var3 = var1.p(var2).getBlock().getMaterial();
+         } while(var3 == Material.a);
 
-         return !var3.d() && var3 != class_atk.o;
+         return !var3.d() && var3 != Material.o;
       }
 
       public void a(Random var1, double var2, double var4, double var6, double var8) {

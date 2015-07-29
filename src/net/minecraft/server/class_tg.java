@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_aew;
 import net.minecraft.server.class_auv;
@@ -19,7 +19,7 @@ import net.minecraft.server.class_wl;
 
 public abstract class class_tg {
    protected class_qb b;
-   protected class_aen c;
+   protected World c;
    protected class_auv d;
    protected double e;
    private final class_ql a;
@@ -29,7 +29,7 @@ public abstract class class_tg {
    private float i = 1.0F;
    private final class_auw j;
 
-   public class_tg(class_qb var1, class_aen var2) {
+   public class_tg(class_qb var1, World var2) {
       this.b = var1;
       this.c = var2;
       this.a = var1.a((class_qk)class_wl.b);

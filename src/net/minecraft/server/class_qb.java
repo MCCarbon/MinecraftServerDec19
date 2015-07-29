@@ -4,13 +4,13 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.class_adk;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -51,7 +51,7 @@ import net.minecraft.server.class_we;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.class_za;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 import net.minecraft.server.class_zl;
 
 public abstract class class_qb extends class_qa {
@@ -77,7 +77,7 @@ public abstract class class_qb extends class_qa {
    private class_pr bx;
    private class_dn by;
 
-   public class_qb(class_aen var1) {
+   public class_qb(World var1) {
       super(var1);
       this.i = new class_rn(var1 != null && var1.B != null?var1.B:null);
       this.bn = new class_rn(var1 != null && var1.B != null?var1.B:null);
@@ -104,7 +104,7 @@ public abstract class class_qb extends class_qa {
       this.by().b(class_wl.b).a(16.0D);
    }
 
-   protected class_tg b(class_aen var1) {
+   protected class_tg b(World var1) {
       return new class_tf(this, var1);
    }
 
@@ -230,12 +230,12 @@ public abstract class class_qb extends class_qa {
       return null;
    }
 
-   protected class_aar D() {
+   protected Item D() {
       return null;
    }
 
    protected void b(boolean var1, int var2) {
-      class_aar var3 = this.D();
+      Item var3 = this.D();
       if(var3 != null) {
          int var4 = this.V.nextInt(3);
          if(var2 > 0) {
@@ -477,7 +477,7 @@ public abstract class class_qb extends class_qa {
             this.a(var5, 0.0F);
          }
 
-         if(var2.b() == class_aau.k && var1.n() != null) {
+         if(var2.b() == Items.k && var1.n() != null) {
             class_xa var8 = this.o.a(var1.n());
             if(var8 != null) {
                var8.b((class_my)class_mt.x);
@@ -734,7 +734,7 @@ public abstract class class_qb extends class_qa {
 
                var4 = false;
                if(var9 == null) {
-                  class_aar var10 = a(var8, var2);
+                  Item var10 = a(var8, var2);
                   if(var10 != null) {
                      this.a(var8, new class_aas(var10));
                   }
@@ -746,58 +746,58 @@ public abstract class class_qb extends class_qa {
    }
 
    public static class_pw c(class_aas var0) {
-      return var0.b() != class_aar.a(class_agk.aU) && var0.b() != class_aau.ca?(var0.b() instanceof class_za?((class_za)var0.b()).b:class_pw.a):class_pw.f;
+      return var0.b() != Item.getByBlock(Blocks.PUMPKIN) && var0.b() != Items.ca?(var0.b() instanceof class_za?((class_za)var0.b()).b:class_pw.a):class_pw.f;
    }
 
-   public static class_aar a(class_pw var0, int var1) {
+   public static Item a(class_pw var0, int var1) {
       switch(class_qb.SyntheticClass_1.b[var0.ordinal()]) {
       case 1:
          if(var1 == 0) {
-            return class_aau.S;
+            return Items.S;
          } else if(var1 == 1) {
-            return class_aau.ai;
+            return Items.ai;
          } else if(var1 == 2) {
-            return class_aau.W;
+            return Items.W;
          } else if(var1 == 3) {
-            return class_aau.aa;
+            return Items.aa;
          } else if(var1 == 4) {
-            return class_aau.ae;
+            return Items.ae;
          }
       case 2:
          if(var1 == 0) {
-            return class_aau.T;
+            return Items.T;
          } else if(var1 == 1) {
-            return class_aau.aj;
+            return Items.aj;
          } else if(var1 == 2) {
-            return class_aau.X;
+            return Items.X;
          } else if(var1 == 3) {
-            return class_aau.ab;
+            return Items.ab;
          } else if(var1 == 4) {
-            return class_aau.af;
+            return Items.af;
          }
       case 3:
          if(var1 == 0) {
-            return class_aau.U;
+            return Items.U;
          } else if(var1 == 1) {
-            return class_aau.ak;
+            return Items.ak;
          } else if(var1 == 2) {
-            return class_aau.Y;
+            return Items.Y;
          } else if(var1 == 3) {
-            return class_aau.ac;
+            return Items.ac;
          } else if(var1 == 4) {
-            return class_aau.ag;
+            return Items.ag;
          }
       case 4:
          if(var1 == 0) {
-            return class_aau.V;
+            return Items.V;
          } else if(var1 == 1) {
-            return class_aau.al;
+            return Items.al;
          } else if(var1 == 2) {
-            return class_aau.Z;
+            return Items.Z;
          } else if(var1 == 3) {
-            return class_aau.ad;
+            return Items.ad;
          } else if(var1 == 4) {
-            return class_aau.ah;
+            return Items.ah;
          }
       default:
          return null;
@@ -872,7 +872,7 @@ public abstract class class_qb extends class_qa {
          this.a(true, !var1.bH.d);
          return true;
       } else {
-         if(var2 != null && var2.b() == class_aau.cq && this.cp()) {
+         if(var2 != null && var2.b() == Items.cq && this.cp()) {
             if(!(this instanceof class_qj) || !((class_qj)this).cA()) {
                this.a(var1, true);
                --var2.b;
@@ -915,7 +915,7 @@ public abstract class class_qb extends class_qa {
          this.bw = false;
          this.bx = null;
          if(!this.o.D && var2) {
-            this.a(class_aau.cq, 1);
+            this.a(Items.cq, 1);
          }
 
          if(!this.o.D && var1 && this.o instanceof class_lg) {
@@ -996,7 +996,7 @@ public abstract class class_qb extends class_qa {
          var3 = class_pw.c;
       }
 
-      if(var2 != null && c(var2) != var3 && (var3 != class_pw.f || !(var2.b() instanceof class_zg))) {
+      if(var2 != null && c(var2) != var3 && (var3 != class_pw.f || !(var2.b() instanceof ItemBlock))) {
          return false;
       } else {
          this.a(var3, var2);

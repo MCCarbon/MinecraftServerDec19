@@ -3,10 +3,10 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_awf;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
 
 public class class_aoj extends class_aok {
-   public class_aoj(class_aen var1, int var2, int var3) {
+   public class_aoj(World var1, int var2, int var3) {
       super(var1, var2, var3);
    }
 
@@ -30,7 +30,7 @@ public class class_aoj extends class_aok {
    }
 
    public Block a(class_cj var1) {
-      return class_agk.a;
+      return Blocks.AIR;
    }
 
    public int b(class_cj var1) {

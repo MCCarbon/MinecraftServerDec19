@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_oo;
@@ -22,14 +22,14 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.class_xa;
 
 public class class_ty extends class_tw {
-   public class_ty(class_aen var1) {
+   public class_ty(World var1) {
       super(var1);
       this.a(0.9F, 1.3F);
       ((class_tf)this.u()).a(true);
       this.i.a(0, new class_rj(this));
       this.i.a(1, new class_se(this, 2.0D));
       this.i.a(2, new class_re(this, 1.0D));
-      this.i.a(3, new class_sr(this, 1.25D, class_aau.Q, false));
+      this.i.a(3, new class_sr(this, 1.25D, Items.Q, false));
       this.i.a(4, new class_rl(this, 1.25D));
       this.i.a(5, new class_si(this, 1.0D));
       this.i.a(6, new class_rr(this, class_xa.class, 6.0F));
@@ -62,8 +62,8 @@ public class class_ty extends class_tw {
       return 0.4F;
    }
 
-   protected class_aar D() {
-      return class_aau.aH;
+   protected Item D() {
+      return Items.aH;
    }
 
    protected void b(boolean var1, int var2) {
@@ -71,27 +71,27 @@ public class class_ty extends class_tw {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.aH, 1);
+         this.a(Items.aH, 1);
       }
 
       var3 = this.V.nextInt(3) + 1 + this.V.nextInt(1 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
-            this.a(class_aau.bl, 1);
+            this.a(Items.bl, 1);
          } else {
-            this.a(class_aau.bk, 1);
+            this.a(Items.bk, 1);
          }
       }
 
    }
 
    public boolean a(class_xa var1, class_oo var2, class_aas var3) {
-      if(var3 != null && var3.b() == class_aau.ay && !var1.bH.d && !this.j_()) {
+      if(var3 != null && var3.b() == Items.ay && !var1.bH.d && !this.j_()) {
          if(--var3.b == 0) {
-            var1.a((class_oo)var2, (class_aas)(new class_aas(class_aau.aI)));
-         } else if(!var1.bp.a(new class_aas(class_aau.aI))) {
-            var1.a(new class_aas(class_aau.aI), false);
+            var1.a((class_oo)var2, (class_aas)(new class_aas(Items.aI)));
+         } else if(!var1.bp.a(new class_aas(Items.aI))) {
+            var1.a(new class_aas(Items.aI), false);
          }
 
          return true;

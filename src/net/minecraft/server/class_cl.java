@@ -1,21 +1,21 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ck;
 
 public class class_cl implements class_ck {
-   private final class_aen a;
+   private final World a;
    private final class_cj b;
 
-   public class_cl(class_aen var1, class_cj var2) {
+   public class_cl(World var1, class_cj var2) {
       this.a = var1;
       this.b = var2;
    }
 
-   public class_aen i() {
+   public World i() {
       return this.a;
    }
 
@@ -37,7 +37,7 @@ public class class_cl implements class_ck {
 
    public int f() {
       IBlockData var1 = this.a.p(this.b);
-      return var1.getBlock().c(var1);
+      return var1.getBlock().toLegacyData(var1);
    }
 
    public class_amg h() {

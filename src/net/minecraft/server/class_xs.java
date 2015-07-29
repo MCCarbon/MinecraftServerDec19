@@ -3,12 +3,12 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajd;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
@@ -25,20 +25,20 @@ import net.minecraft.server.class_xo;
 public class class_xs extends class_xo {
    private class_aas d;
 
-   public class_xs(class_aen var1) {
+   public class_xs(World var1) {
       super(var1);
-      this.d = class_abe.a(new class_aas(class_aau.bB), class_acf.a);
+      this.d = class_abe.a(new class_aas(Items.bB), class_acf.a);
    }
 
-   public class_xs(class_aen var1, class_qa var2, class_aas var3) {
+   public class_xs(World var1, class_qa var2, class_aas var3) {
       super(var1, var2);
-      this.d = class_abe.a(new class_aas(class_aau.bB), class_acf.a);
+      this.d = class_abe.a(new class_aas(Items.bB), class_acf.a);
       this.d = var3;
    }
 
-   public class_xs(class_aen var1, double var2, double var4, double var6, class_aas var8) {
+   public class_xs(World var1, double var2, double var4, double var6, class_aas var8) {
       super(var1, var2, var4, var6);
-      this.d = class_abe.a(new class_aas(class_aau.bB), class_acf.a);
+      this.d = class_abe.a(new class_aas(Items.bB), class_acf.a);
       this.d = var8;
    }
 
@@ -112,8 +112,8 @@ public class class_xs extends class_xo {
    }
 
    private void a(class_cj var1) {
-      if(this.o.p(var1).getBlock() == class_agk.ab) {
-         this.o.a((class_cj)var1, (IBlockData)class_agk.i.S().set(class_ajd.b, Integer.valueOf(7)), 2);
+      if(this.o.p(var1).getBlock() == Blocks.FIRE) {
+         this.o.a((class_cj)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(class_ajd.b, Integer.valueOf(7)), 2);
       }
 
    }

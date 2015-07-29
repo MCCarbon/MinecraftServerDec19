@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_acs;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_yg;
 
@@ -37,7 +37,7 @@ public class class_acv implements class_acs {
       return var2;
    }
 
-   public boolean a(class_yg var1, class_aen var2) {
+   public boolean a(class_yg var1, World var2) {
       for(int var3 = 0; var3 <= 3 - this.a; ++var3) {
          for(int var4 = 0; var4 <= 3 - this.b; ++var4) {
             if(this.a(var1, var3, var4, true)) {

@@ -7,14 +7,14 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -54,7 +54,7 @@ public class class_wb extends class_wi {
    private static final int bv;
    private boolean bw;
 
-   public class_wb(class_aen var1) {
+   public class_wb(World var1) {
       super(var1);
       this.a(0.6F, 2.9F);
       this.S = 1.0F;
@@ -102,16 +102,16 @@ public class class_wb extends class_wi {
       super.b(var1);
       IBlockData var2 = this.cB();
       var1.a("carried", (short)Block.getId(var2.getBlock()));
-      var1.a("carriedData", (short)var2.getBlock().c(var2));
+      var1.a("carriedData", (short)var2.getBlock().toLegacyData(var2));
    }
 
    public void a(class_dn var1) {
       super.a(var1);
       IBlockData var2;
       if(var1.b("carried", 8)) {
-         var2 = Block.getByName(var1.k("carried")).a(var1.f("carriedData") & '\uffff');
+         var2 = Block.getByName(var1.k("carried")).fromLegacyData(var1.f("carriedData") & '\uffff');
       } else {
-         var2 = Block.getById(var1.f("carried")).a(var1.f("carriedData") & '\uffff');
+         var2 = Block.getById(var1.f("carried")).fromLegacyData(var1.f("carriedData") & '\uffff');
       }
 
       this.a(var2);
@@ -119,7 +119,7 @@ public class class_wb extends class_wi {
 
    private boolean a(class_xa var1) {
       class_aas var2 = var1.bp.b[3];
-      if(var2 != null && var2.b() == class_aar.a(class_agk.aU)) {
+      if(var2 != null && var2.b() == Item.getByBlock(Blocks.PUMPKIN)) {
          return false;
       } else {
          class_awh var3 = var1.d(1.0F).a();
@@ -194,7 +194,7 @@ public class class_wb extends class_wi {
       var0.u = var5;
       boolean var13 = false;
       class_cj var14 = new class_cj(var0);
-      class_aen var15 = var0.o;
+      World var15 = var0.o;
       Random var16 = var0.bd();
       if(var15.e(var14)) {
          boolean var17 = false;
@@ -202,7 +202,7 @@ public class class_wb extends class_wi {
          while(!var17 && var14.o() > 0) {
             class_cj var18 = var14.b();
             Block var19 = var15.p(var18).getBlock();
-            if(var19.v().c()) {
+            if(var19.getMaterial().isSolid()) {
                var17 = true;
             } else {
                --var0.t;
@@ -253,12 +253,12 @@ public class class_wb extends class_wi {
       return "mob.endermen.death";
    }
 
-   protected class_aar D() {
-      return class_aau.bw;
+   protected Item D() {
+      return Items.bw;
    }
 
    protected void b(boolean var1, int var2) {
-      class_aar var3 = this.D();
+      Item var3 = this.D();
       if(var3 != null) {
          int var4 = this.V.nextInt(2 + var2);
 
@@ -269,17 +269,17 @@ public class class_wb extends class_wi {
 
       IBlockData var6 = this.cB();
       if(var6 != bs) {
-         this.a(new class_aas(var6.getBlock(), 1, var6.getBlock().c(var6)), 0.0F);
+         this.a(new class_aas(var6.getBlock(), 1, var6.getBlock().toLegacyData(var6)), 0.0F);
       }
 
    }
 
    public void a(IBlockData var1) {
-      this.ac.b(bt, Short.valueOf((short)(Block.f(var1) & '\uffff')));
+      this.ac.b(bt, Short.valueOf((short)(Block.getCombinedId(var1) & '\uffff')));
    }
 
    public IBlockData cB() {
-      return Block.d(this.ac.b(bt) & '\uffff');
+      return Block.getByCombinedId(this.ac.b(bt) & '\uffff');
    }
 
    public boolean a(class_pc var1, float var2) {
@@ -332,21 +332,21 @@ public class class_wb extends class_wi {
    static {
       b = (new class_qm(a, "Attacking speed boost", 0.15000000596046448D, 0)).a(false);
       c = Sets.newIdentityHashSet();
-      bs = class_agk.a.S();
-      c.add(class_agk.c);
-      c.add(class_agk.d);
-      c.add(class_agk.m);
-      c.add(class_agk.n);
-      c.add(class_agk.N);
-      c.add(class_agk.O);
-      c.add(class_agk.P);
-      c.add(class_agk.Q);
-      c.add(class_agk.W);
-      c.add(class_agk.aK);
-      c.add(class_agk.aL);
-      c.add(class_agk.aU);
-      c.add(class_agk.bk);
-      c.add(class_agk.bw);
+      bs = Blocks.AIR.getBlockData();
+      c.add(Blocks.GRASS);
+      c.add(Blocks.DIRT);
+      c.add(Blocks.SAND);
+      c.add(Blocks.GRAVEL);
+      c.add(Blocks.YELLOW_FLOWER);
+      c.add(Blocks.RED_FLOWER);
+      c.add(Blocks.BROWN_MUSHROOM);
+      c.add(Blocks.RED_MUSHROOM);
+      c.add(Blocks.TNT);
+      c.add(Blocks.CACTUS);
+      c.add(Blocks.CLAY);
+      c.add(Blocks.PUMPKIN);
+      c.add(Blocks.MELON_BLOCK);
+      c.add(Blocks.MYCELIM);
       bt = class_qi.a(class_wb.class);
       bu = class_qi.a(class_wb.class);
       bv = class_qi.a(class_wb.class);
@@ -365,7 +365,7 @@ public class class_wb extends class_wi {
 
       public void e() {
          Random var1 = this.a.bd();
-         class_aen var2 = this.a.o;
+         World var2 = this.a.o;
          int var3 = class_nu.c(this.a.s - 2.0D + var1.nextDouble() * 4.0D);
          int var4 = class_nu.c(this.a.t + var1.nextDouble() * 3.0D);
          int var5 = class_nu.c(this.a.u - 2.0D + var1.nextDouble() * 4.0D);
@@ -393,7 +393,7 @@ public class class_wb extends class_wi {
 
       public void e() {
          Random var1 = this.a.bd();
-         class_aen var2 = this.a.o;
+         World var2 = this.a.o;
          int var3 = class_nu.c(this.a.s - 1.0D + var1.nextDouble() * 2.0D);
          int var4 = class_nu.c(this.a.t + var1.nextDouble() * 2.0D);
          int var5 = class_nu.c(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
@@ -407,8 +407,8 @@ public class class_wb extends class_wi {
 
       }
 
-      private boolean a(class_aen var1, class_cj var2, Block var3, Block var4, Block var5) {
-         return !var3.d(var1, var2)?false:(var4.v() != class_atk.a?false:(var5.v() == class_atk.a?false:var5.d()));
+      private boolean a(World var1, class_cj var2, Block var3, Block var4, Block var5) {
+         return !var3.d(var1, var2)?false:(var4.getMaterial() != Material.a?false:(var5.getMaterial() == Material.a?false:var5.isFullCube()));
       }
    }
 

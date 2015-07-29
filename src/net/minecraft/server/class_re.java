@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
@@ -18,7 +18,7 @@ import net.minecraft.server.class_xa;
 
 public class class_re extends class_rm {
    private class_tw d;
-   class_aen a;
+   World a;
    private class_tw e;
    int b;
    double c;

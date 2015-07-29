@@ -9,9 +9,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amz;
 import net.minecraft.server.IBlockData;
@@ -50,7 +50,7 @@ public class class_asv {
       return this.d;
    }
 
-   public void a(class_aen var1, class_cj var2, class_cj var3, boolean var4) {
+   public void a(World var1, class_cj var2, class_cj var3, boolean var4) {
       if(var3.n() >= 1 && var3.o() >= 1 && var3.p() >= 1) {
          class_cj var5 = var2.a((class_df)var3).a(-1, -1, -1);
          ArrayList var6 = Lists.newArrayList();
@@ -74,7 +74,7 @@ public class class_asv {
                   var16.p("y");
                   var16.p("z");
                   var7.add(new class_asv.class_a_in_class_asv(var13, var14, var16, null));
-               } else if(!var14.getBlock().q() && !var14.getBlock().d()) {
+               } else if(!var14.getBlock().isFullBlock() && !var14.getBlock().isFullCube()) {
                   var8.add(new class_asv.class_a_in_class_asv(var13, var14, (class_dn)null, null));
                } else {
                   var6.add(new class_asv.class_a_in_class_asv(var13, var14, (class_dn)null, null));
@@ -96,7 +96,7 @@ public class class_asv {
       }
    }
 
-   private void a(class_aen var1, class_cj var2, class_cj var3) {
+   private void a(World var1, class_cj var2, class_cj var3) {
       List var4 = var1.a(class_pr.class, new class_awf(var2, var3), new Predicate() {
          public boolean a(class_pr var1) {
             return !(var1 instanceof class_xa);
@@ -144,7 +144,7 @@ public class class_asv {
          } while(var4 != null && !var4.b((class_df)var7));
 
          IBlockData var8 = var6.b;
-         if(var8.getBlock() == class_agk.dc && var6.c != null) {
+         if(var8.getBlock() == Blocks.STRUCTURE_BLOCK && var6.c != null) {
             class_amz.class_a_in_class_amz var9 = class_amz.class_a_in_class_amz.valueOf(var6.c.k("mode"));
             if(var9 == class_amz.class_a_in_class_amz.d) {
                var3.put(var7, var6.c.k("metadata"));
@@ -163,12 +163,12 @@ public class class_asv {
       return this.a(var2, var1.b(), var1.c());
    }
 
-   public void a(class_aen var1, class_cj var2, class_asu var3) {
+   public void a(World var1, class_cj var2, class_asu var3) {
       var3.i();
       this.b(var1, var2, var3);
    }
 
-   public void b(class_aen var1, class_cj var2, class_asu var3) {
+   public void b(World var1, class_cj var2, class_asu var3) {
       if(!this.a.isEmpty() && this.c.n() >= 1 && this.c.o() >= 1 && this.c.p() >= 1) {
          class_arw var4 = var3.g();
          Iterator var5 = this.a.iterator();
@@ -196,7 +196,7 @@ public class class_asv {
                                  }
 
                                  var6 = (class_asv.class_a_in_class_asv)var5.next();
-                              } while(var3.f() && var6.b.getBlock() == class_agk.a);
+                              } while(var3.f() && var6.b.getBlock() == Blocks.AIR);
 
                               var12 = this.a(var3, var6.a).a((class_df)var2);
                            } while(var4 != null && !var4.b((class_df)var12));
@@ -213,8 +213,8 @@ public class class_asv {
 
                      var6 = (class_asv.class_a_in_class_asv)var5.next();
                      var7 = var6.b.getBlock();
-                  } while(var3.f() && var7 == class_agk.a);
-               } while(var3.h() && var7 == class_agk.dc);
+                  } while(var3.f() && var7 == Blocks.AIR);
+               } while(var3.h() && var7 == Blocks.STRUCTURE_BLOCK);
 
                var8 = this.a(var3, var6.a).a((class_df)var2);
             } while(var4 != null && !var4.b((class_df)var8));
@@ -229,7 +229,7 @@ public class class_asv {
                      ((class_oj)var11).l();
                   }
 
-                  var1.a((class_cj)var8, (IBlockData)class_agk.cv.S(), 4);
+                  var1.a((class_cj)var8, (IBlockData)Blocks.BARRIER.getBlockData(), 4);
                }
             }
 
@@ -246,7 +246,7 @@ public class class_asv {
       }
    }
 
-   private void a(class_aen var1, class_cj var2, Block.class_a_in_class_agj var3, Block.class_c_in_class_agj var4, class_arw var5) {
+   private void a(World var1, class_cj var2, Block.class_a_in_class_agj var3, Block.class_c_in_class_agj var4, class_arw var5) {
       Iterator var6 = this.b.iterator();
 
       while(true) {
@@ -371,7 +371,7 @@ public class class_asv {
          class_asv.class_a_in_class_asv var4 = (class_asv.class_a_in_class_asv)var3.next();
          var5 = new class_dn();
          var5.a((String)"pos", (class_eb)this.a(new int[]{var4.a.n(), var4.a.o(), var4.a.p()}));
-         var5.a("state", Block.f(var4.b));
+         var5.a("state", Block.getCombinedId(var4.b));
          if(var4.c != null) {
             var5.a((String)"nbt", (class_eb)var4.c);
          }
@@ -410,7 +410,7 @@ public class class_asv {
          class_du var6 = var5.c("pos", 3);
          class_cj var7 = new class_cj(var6.c(0), var6.c(1), var6.c(2));
          int var8 = var5.g("state");
-         IBlockData var9 = Block.d(var8);
+         IBlockData var9 = Block.getByCombinedId(var8);
          class_dn var10;
          if(var5.d("nbt")) {
             var10 = var5.n("nbt");

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
@@ -36,11 +36,11 @@ public class class_afn extends class_aez {
       this.ao = var2.ao + 0.2F;
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       this.aE.as.a(var1, var2, this, var3);
    }
 
-   public void a(class_aen var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
       this.aE.a(var1, var2, var3, var4, var5, var6);
    }
 

@@ -1,18 +1,18 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ags;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_on;
@@ -55,7 +55,7 @@ public class class_ue extends class_tw {
    private int bB;
    private class_xa bC;
 
-   public class_ue(class_aen var1) {
+   public class_ue(World var1) {
       super(var1);
       this.bA = class_ue.class_b_in_class_ue.b;
       this.bB = 0;
@@ -67,9 +67,9 @@ public class class_ue extends class_tw {
       this.h.a(2.5F);
       this.i.a(1, new class_rj(this));
       this.i.a(1, new class_ue.class_g_in_class_ue(this, 1.33D));
-      this.i.a(2, new class_sr(this, 1.0D, class_aau.bU, false));
-      this.i.a(2, new class_sr(this, 1.0D, class_aau.bZ, false));
-      this.i.a(2, new class_sr(this, 1.0D, class_aar.a((Block)class_agk.N), false));
+      this.i.a(2, new class_sr(this, 1.0D, Items.bU, false));
+      this.i.a(2, new class_sr(this, 1.0D, Items.bZ, false));
+      this.i.a(2, new class_sr(this, 1.0D, Item.getByBlock((Block)Blocks.YELLOW_FLOWER), false));
       this.i.a(3, new class_re(this, 0.8D));
       this.i.a(5, new class_ue.class_h_in_class_ue(this));
       this.i.a(5, new class_si(this, 0.6D));
@@ -266,7 +266,7 @@ public class class_ue extends class_tw {
    }
 
    protected void br() {
-      this.a(new class_aas(class_aau.bt, 1), 0.0F);
+      this.a(new class_aas(Items.bt, 1), 0.0F);
    }
 
    protected void b(boolean var1, int var2) {
@@ -274,23 +274,23 @@ public class class_ue extends class_tw {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.bu, 1);
+         this.a(Items.bu, 1);
       }
 
       var3 = this.V.nextInt(2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
-            this.a(class_aau.br, 1);
+            this.a(Items.br, 1);
          } else {
-            this.a(class_aau.bq, 1);
+            this.a(Items.bq, 1);
          }
       }
 
    }
 
-   private boolean a(class_aar var1) {
-      return var1 == class_aau.bU || var1 == class_aau.bZ || var1 == class_aar.a((Block)class_agk.N);
+   private boolean a(Item var1) {
+      return var1 == Items.bU || var1 == Items.bZ || var1 == Item.getByBlock((Block)Blocks.YELLOW_FLOWER);
    }
 
    public class_ue b(class_po var1) {
@@ -318,7 +318,7 @@ public class class_ue extends class_tw {
          this.bn.a(2, new class_sz(this, class_xa.class, true));
          this.bn.a(2, new class_sz(this, class_ul.class, true));
          if(!this.l_()) {
-            this.a((String)class_di.a("entity.KillerBunny.name"));
+            this.a((String)LocaleI18n.get("entity.KillerBunny.name"));
          }
       }
 
@@ -353,9 +353,9 @@ public class class_ue extends class_tw {
    }
 
    protected void cE() {
-      class_ags var1 = (class_ags)class_agk.cb;
+      class_ags var1 = (class_ags)Blocks.CARROTS;
       IBlockData var2 = var1.b(var1.n());
-      this.o.a(class_cy.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.f(var2)});
+      this.o.a(class_cy.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.getCombinedId(var2)});
       this.bB = 100;
    }
 
@@ -463,12 +463,12 @@ public class class_ue extends class_tw {
          super.e();
          this.c.q().a((double)this.b.n() + 0.5D, (double)(this.b.o() + 1), (double)this.b.p() + 0.5D, 10.0F, (float)this.c.cd());
          if(this.f()) {
-            class_aen var1 = this.c.o;
+            World var1 = this.c.o;
             class_cj var2 = this.b.a();
             IBlockData var3 = var1.p(var2);
             Block var4 = var3.getBlock();
             if(this.e && var4 instanceof class_ags && ((class_ags)var4).e(var3)) {
-               var1.a((class_cj)var2, (IBlockData)class_agk.a.S(), 2);
+               var1.a((class_cj)var2, (IBlockData)Blocks.AIR.getBlockData(), 2);
                var1.b(var2, true);
                this.c.cE();
             }
@@ -479,9 +479,9 @@ public class class_ue extends class_tw {
 
       }
 
-      protected boolean a(class_aen var1, class_cj var2) {
+      protected boolean a(World var1, class_cj var2) {
          Block var3 = var1.p(var2).getBlock();
-         if(var3 == class_agk.ak) {
+         if(var3 == Blocks.FARMLAND) {
             var2 = var2.a();
             IBlockData var4 = var1.p(var2);
             var3 = var4.getBlock();

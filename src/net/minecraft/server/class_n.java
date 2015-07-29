@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
@@ -53,7 +53,7 @@ public class class_n {
                return var1.d();
             }
 
-            public class_aen e() {
+            public World e() {
                return var1.e();
             }
 

@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_oo;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_vc;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_aap extends class_aar {
+public class class_aap extends Item {
    private final Class a;
 
    public class_aap(Class var1) {
@@ -22,7 +22,7 @@ public class class_aap extends class_aar {
       this.a(CreativeTab.c);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       if(var6 == class_cq.a) {
          return class_oq.b;
       } else if(var6 == class_cq.b) {
@@ -46,7 +46,7 @@ public class class_aap extends class_aar {
       }
    }
 
-   private class_uz a(class_aen var1, class_cj var2, class_cq var3) {
+   private class_uz a(World var1, class_cj var2, class_cq var3) {
       return (class_uz)(this.a == class_vc.class?new class_vc(var1, var2, var3):(this.a == class_va.class?new class_va(var1, var2, var3):null));
    }
 }

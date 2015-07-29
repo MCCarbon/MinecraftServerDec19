@@ -12,7 +12,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aex;
 import net.minecraft.server.Block;
@@ -46,7 +46,7 @@ public class class_aov implements class_aop, class_awc {
       this.d = var1;
    }
 
-   public class_aok a(class_aen var1, int var2, int var3) throws IOException {
+   public class_aok a(World var1, int var2, int var3) throws IOException {
       class_aeh var4 = new class_aeh(var2, var3);
       class_dn var5 = (class_dn)this.b.get(var4);
       if(var5 == null) {
@@ -61,7 +61,7 @@ public class class_aov implements class_aop, class_awc {
       return this.a(var1, var2, var3, var5);
    }
 
-   protected class_aok a(class_aen var1, int var2, int var3, class_dn var4) {
+   protected class_aok a(World var1, int var2, int var3, class_dn var4) {
       if(!var4.b("Level", 10)) {
          a.error("Chunk file at " + var2 + "," + var3 + " is missing level data, skipping");
          return null;
@@ -84,7 +84,7 @@ public class class_aov implements class_aop, class_awc {
       }
    }
 
-   public void a(class_aen var1, class_aok var2) throws IOException, class_aeo {
+   public void a(World var1, class_aok var2) throws IOException, class_aeo {
       var1.J();
 
       try {
@@ -144,7 +144,7 @@ public class class_aov implements class_aop, class_awc {
       var3.close();
    }
 
-   public void b(class_aen var1, class_aok var2) throws IOException {
+   public void b(World var1, class_aok var2) throws IOException {
    }
 
    public void a() {
@@ -165,7 +165,7 @@ public class class_aov implements class_aop, class_awc {
 
    }
 
-   private void a(class_aok var1, class_aen var2, class_dn var3) {
+   private void a(class_aok var1, World var2, class_dn var3) {
       var3.a("V", (byte)1);
       var3.a("xPos", var1.a);
       var3.a("zPos", var1.b);
@@ -279,7 +279,7 @@ public class class_aov implements class_aop, class_awc {
 
    }
 
-   private class_aok a(class_aen var1, class_dn var2) {
+   private class_aok a(World var1, class_dn var2) {
       int var3 = var2.g("xPos");
       int var4 = var2.g("zPos");
       class_aok var5 = new class_aok(var1, var3, var4);

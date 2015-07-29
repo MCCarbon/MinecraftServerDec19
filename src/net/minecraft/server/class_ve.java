@@ -5,12 +5,12 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aak;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adk;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
@@ -59,13 +59,13 @@ public class class_ve extends class_pr {
       return f;
    }
 
-   public class_ve(class_aen var1) {
+   public class_ve(World var1) {
       super(var1);
       this.a(0.25F, 0.25F);
       this.ah = true;
    }
 
-   public class_ve(class_aen var1, class_xa var2) {
+   public class_ve(World var1, class_xa var2) {
       super(var1);
       this.ah = true;
       this.b = var2;
@@ -121,7 +121,7 @@ public class class_ve extends class_pr {
       } else {
          if(!this.o.D) {
             class_aas var1 = this.b.bA();
-            if(this.b.I || !this.b.ai() || var1 == null || var1.b() != class_aau.aT || this.h(this.b) > 1024.0D) {
+            if(this.b.I || !this.b.ai() || var1 == null || var1.b() != Items.aT || this.h(this.b) > 1024.0D) {
                this.J();
                this.b.bN = null;
                return;
@@ -246,7 +246,7 @@ public class class_ve extends class_pr {
                double var17 = var14.b + var15 * (double)var36 / (double)var34;
                var19 = var14.b + var15 * (double)(var36 + 1) / (double)var34;
                class_awf var21 = new class_awf(var14.a, var17, var14.c, var14.d, var19, var14.f);
-               if(this.o.b(var21, class_atk.h)) {
+               if(this.o.b(var21, Material.h)) {
                   var35 += 1.0D / (double)var34;
                }
             }
@@ -294,7 +294,7 @@ public class class_ve extends class_pr {
                         var41 = (double)((float)class_nu.c(this.aT().b) + 1.0F);
                         var23 = this.u + (double)(var18 * (float)this.ay * 0.1F);
                         var25 = var37.p(new class_cj((int)var19, (int)var41 - 1, (int)var23)).getBlock();
-                        if(var25 == class_agk.j || var25 == class_agk.i) {
+                        if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
                            if(this.V.nextFloat() < 0.15F) {
                               var37.a(class_cy.e, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
                            }
@@ -323,7 +323,7 @@ public class class_ve extends class_pr {
                         var41 = (double)((float)class_nu.c(this.aT().b) + 1.0F);
                         var23 = this.u + (double)(class_nu.b(var40) * var18 * 0.1F);
                         var25 = var37.p(new class_cj((int)var19, (int)var41 - 1, (int)var23)).getBlock();
-                        if(var25 == class_agk.j || var25 == class_agk.i) {
+                        if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
                            var37.a(class_cy.f, var19, var41, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                         }
                      }
@@ -455,8 +455,8 @@ public class class_ve extends class_pr {
    }
 
    static {
-      d = Arrays.asList(new class_vf[]{(new class_vf(new class_aas(class_aau.V), 10)).a(0.9F), new class_vf(new class_aas(class_aau.aH), 10), new class_vf(new class_aas(class_aau.aZ), 10), new class_vf(new class_aas(class_aau.bB), 10), new class_vf(new class_aas(class_aau.H), 5), (new class_vf(new class_aas(class_aau.aT), 2)).a(0.9F), new class_vf(new class_aas(class_aau.B), 10), new class_vf(new class_aas(class_aau.A), 5), new class_vf(new class_aas(class_aau.aY, 10, class_zy.p.b()), 1), new class_vf(new class_aas(class_agk.bR), 10), new class_vf(new class_aas(class_aau.bv), 10)});
-      e = Arrays.asList(new class_vf[]{new class_vf(new class_aas(class_agk.bx), 1), new class_vf(new class_aas(class_aau.cr), 1), new class_vf(new class_aas(class_aau.aC), 1), (new class_vf(new class_aas(class_aau.f), 1)).a(0.25F).a(), (new class_vf(new class_aas(class_aau.aT), 1)).a(0.25F).a(), (new class_vf(new class_aas(class_aau.aN), 1)).a()});
-      f = Arrays.asList(new class_vf[]{new class_vf(new class_aas(class_aau.aW, 1, class_aak.class_a_in_class_aak.a.a()), 60), new class_vf(new class_aas(class_aau.aW, 1, class_aak.class_a_in_class_aak.b.a()), 25), new class_vf(new class_aas(class_aau.aW, 1, class_aak.class_a_in_class_aak.c.a()), 2), new class_vf(new class_aas(class_aau.aW, 1, class_aak.class_a_in_class_aak.d.a()), 13)});
+      d = Arrays.asList(new class_vf[]{(new class_vf(new class_aas(Items.V), 10)).a(0.9F), new class_vf(new class_aas(Items.aH), 10), new class_vf(new class_aas(Items.aZ), 10), new class_vf(new class_aas(Items.bB), 10), new class_vf(new class_aas(Items.H), 5), (new class_vf(new class_aas(Items.aT), 2)).a(0.9F), new class_vf(new class_aas(Items.B), 10), new class_vf(new class_aas(Items.A), 5), new class_vf(new class_aas(Items.aY, 10, class_zy.p.b()), 1), new class_vf(new class_aas(Blocks.TRIPWIRE_HOOK), 10), new class_vf(new class_aas(Items.bv), 10)});
+      e = Arrays.asList(new class_vf[]{new class_vf(new class_aas(Blocks.WATERLILY), 1), new class_vf(new class_aas(Items.cr), 1), new class_vf(new class_aas(Items.aC), 1), (new class_vf(new class_aas(Items.f), 1)).a(0.25F).a(), (new class_vf(new class_aas(Items.aT), 1)).a(0.25F).a(), (new class_vf(new class_aas(Items.aN), 1)).a()});
+      f = Arrays.asList(new class_vf[]{new class_vf(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 60), new class_vf(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.b.a()), 25), new class_vf(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.c.a()), 2), new class_vf(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.d.a()), 13)});
    }
 }

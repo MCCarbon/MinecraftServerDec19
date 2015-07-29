@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afc;
 import net.minecraft.server.class_aqk;
@@ -43,7 +43,7 @@ public class class_afx extends class_afc {
 
    }
 
-   public static class_ari.class_a_in_class_ari[] a(class_aen var0) {
+   public static class_ari.class_a_in_class_ari[] a(World var0) {
       Random var1 = new Random(var0.K());
       long var2 = var1.nextLong() & 65535L;
       return (class_ari.class_a_in_class_ari[])M.getUnchecked(Long.valueOf(var2));

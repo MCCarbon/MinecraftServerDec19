@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
@@ -64,7 +64,7 @@ public class class_ang extends class_amg implements class_kn {
          --var1;
       }
 
-      class_awf var3 = class_agk.M.a(this.b, this.c, this.a, var1, this.f);
+      class_awf var3 = Blocks.PISTON_EXTENSION.a(this.b, this.c, this.a, var1, this.f);
       if(var3 != null) {
          List var4 = this.b.b((class_pr)null, (class_awf)var3);
          if(!var4.isEmpty()) {
@@ -74,7 +74,7 @@ public class class_ang extends class_amg implements class_kn {
             while(true) {
                while(var5.hasNext()) {
                   class_pr var6 = (class_pr)var5.next();
-                  if(this.a.getBlock() == class_agk.cE && this.g) {
+                  if(this.a.getBlock() == Blocks.SLINE && this.g) {
                      switch(class_ang.SyntheticClass_1.a[this.f.k().ordinal()]) {
                      case 1:
                         var6.v = (double)this.f.g();
@@ -103,7 +103,7 @@ public class class_ang extends class_amg implements class_kn {
          this.j = this.i = 1.0F;
          this.b.t(this.c);
          this.y();
-         if(this.b.p(this.c).getBlock() == class_agk.M) {
+         if(this.b.p(this.c).getBlock() == Blocks.PISTON_EXTENSION) {
             this.b.a((class_cj)this.c, (IBlockData)this.a, 3);
             this.b.d(this.c, this.a.getBlock());
          }
@@ -117,7 +117,7 @@ public class class_ang extends class_amg implements class_kn {
          this.a(1.0F, 0.25F);
          this.b.t(this.c);
          this.y();
-         if(this.b.p(this.c).getBlock() == class_agk.M) {
+         if(this.b.p(this.c).getBlock() == Blocks.PISTON_EXTENSION) {
             this.b.a((class_cj)this.c, (IBlockData)this.a, 3);
             this.b.d(this.c, this.a.getBlock());
          }
@@ -137,7 +137,7 @@ public class class_ang extends class_amg implements class_kn {
 
    public void a(class_dn var1) {
       super.a(var1);
-      this.a = Block.getById(var1.g("blockId")).a(var1.g("blockData"));
+      this.a = Block.getById(var1.g("blockId")).fromLegacyData(var1.g("blockData"));
       this.f = class_cq.a(var1.g("facing"));
       this.j = this.i = var1.i("progress");
       this.g = var1.o("extending");
@@ -146,7 +146,7 @@ public class class_ang extends class_amg implements class_kn {
    public void b(class_dn var1) {
       super.b(var1);
       var1.a("blockId", Block.getId(this.a.getBlock()));
-      var1.a("blockData", this.a.getBlock().c(this.a));
+      var1.a("blockData", this.a.getBlock().toLegacyData(this.a));
       var1.a("facing", this.f.a());
       var1.a("progress", this.j);
       var1.a("extending", this.g);

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.collect.Sets;
 import java.util.Set;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qh;
@@ -25,8 +25,8 @@ public class class_sr extends class_rm {
    private boolean l;
    private boolean m;
 
-   public class_sr(class_qh var1, double var2, class_aar var4, boolean var5) {
-      this(var1, var2, var5, Sets.newHashSet((Object[])(new class_aar[]{var4})));
+   public class_sr(class_qh var1, double var2, Item var4, boolean var5) {
+      this(var1, var2, var5, Sets.newHashSet((Object[])(new Item[]{var4})));
    }
 
    public class_sr(class_qh var1, double var2, boolean var4, Set var5) {

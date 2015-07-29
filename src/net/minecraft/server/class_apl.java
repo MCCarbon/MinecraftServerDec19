@@ -3,9 +3,9 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahx;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
@@ -23,14 +23,14 @@ import net.minecraft.server.class_aqv;
 import net.minecraft.server.class_arb;
 import net.minecraft.server.class_asc;
 import net.minecraft.server.class_ata;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
 
 public class class_apl implements class_aoh {
-   private final class_aen h;
+   private final World h;
    private final boolean i;
    private final Random j;
    private double[] k = new double[256];
@@ -60,12 +60,12 @@ public class class_apl implements class_aoh {
    double[] f;
    double[] g;
 
-   public class_apl(class_aen var1, boolean var2, long var3) {
-      this.w = new class_arb(class_agk.co.S(), 14, class_ans.a(class_agk.aV));
-      this.x = new class_aqq(class_agk.k, true);
-      this.y = new class_aqq(class_agk.k, false);
-      this.z = new class_aqb(class_agk.P);
-      this.A = new class_aqb(class_agk.Q);
+   public class_apl(World var1, boolean var2, long var3) {
+      this.w = new class_arb(Blocks.QUARTZ_ORE.getBlockData(), 14, class_ans.a(Blocks.NETHERRACK));
+      this.x = new class_aqq(Blocks.FLOWING_LAVA, true);
+      this.y = new class_aqq(Blocks.FLOWING_LAVA, false);
+      this.z = new class_aqb(Blocks.BROWN_MUSHROOM);
+      this.A = new class_aqb(Blocks.RED_MUSHROOM);
       this.B = new class_asc();
       this.C = new class_apo();
       this.h = var1;
@@ -117,11 +117,11 @@ public class class_apl implements class_aoh {
                      for(int var48 = 0; var48 < 4; ++var48) {
                         IBlockData var49 = null;
                         if(var11 * 8 + var30 < var5) {
-                           var49 = class_agk.l.S();
+                           var49 = Blocks.LAVA.getBlockData();
                         }
 
                         if(var44 > 0.0D) {
-                           var49 = class_agk.aV.S();
+                           var49 = Blocks.NETHERRACK.getBlockData();
                         }
 
                         int var50 = var41 + var9 * 4;
@@ -159,34 +159,34 @@ public class class_apl implements class_aoh {
             boolean var10 = this.l[var7 + var8 * 16] + this.j.nextDouble() * 0.2D > 0.0D;
             int var11 = (int)(this.m[var7 + var8 * 16] / 3.0D + 3.0D + this.j.nextDouble() * 0.25D);
             int var12 = -1;
-            IBlockData var13 = class_agk.aV.S();
-            IBlockData var14 = class_agk.aV.S();
+            IBlockData var13 = Blocks.NETHERRACK.getBlockData();
+            IBlockData var14 = Blocks.NETHERRACK.getBlockData();
 
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
                   IBlockData var16 = var3.a(var8, var15, var7);
-                  if(var16.getBlock() != null && var16.getBlock().v() != class_atk.a) {
-                     if(var16.getBlock() == class_agk.aV) {
+                  if(var16.getBlock() != null && var16.getBlock().getMaterial() != Material.a) {
+                     if(var16.getBlock() == Blocks.NETHERRACK) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
                               var13 = null;
-                              var14 = class_agk.aV.S();
+                              var14 = Blocks.NETHERRACK.getBlockData();
                            } else if(var15 >= var4 - 4 && var15 <= var4 + 1) {
-                              var13 = class_agk.aV.S();
-                              var14 = class_agk.aV.S();
+                              var13 = Blocks.NETHERRACK.getBlockData();
+                              var14 = Blocks.NETHERRACK.getBlockData();
                               if(var10) {
-                                 var13 = class_agk.n.S();
-                                 var14 = class_agk.aV.S();
+                                 var13 = Blocks.GRAVEL.getBlockData();
+                                 var14 = Blocks.NETHERRACK.getBlockData();
                               }
 
                               if(var9) {
-                                 var13 = class_agk.aW.S();
-                                 var14 = class_agk.aW.S();
+                                 var13 = Blocks.SOUL_SAND.getBlockData();
+                                 var14 = Blocks.SOUL_SAND.getBlockData();
                               }
                            }
 
-                           if(var15 < var4 && (var13 == null || var13.getBlock().v() == class_atk.a)) {
-                              var13 = class_agk.l.S();
+                           if(var15 < var4 && (var13 == null || var13.getBlock().getMaterial() == Material.a)) {
+                              var13 = Blocks.LAVA.getBlockData();
                            }
 
                            var12 = var11;
@@ -204,7 +204,7 @@ public class class_apl implements class_aoh {
                      var12 = -1;
                   }
                } else {
-                  var3.a(var8, var15, var7, class_agk.h.S());
+                  var3.a(var8, var15, var7, Blocks.BEDROCK.getBlockData());
                }
             }
          }
@@ -378,7 +378,7 @@ public class class_apl implements class_aoh {
             return this.B.b();
          }
 
-         if(this.B.a(this.h, var2) && this.h.p(var2.b()).getBlock() == class_agk.by) {
+         if(this.B.a(this.h, var2) && this.h.p(var2.b()).getBlock() == Blocks.NETHER_BRICK) {
             return this.B.b();
          }
       }
@@ -387,7 +387,7 @@ public class class_apl implements class_aoh {
       return var3.a(var1);
    }
 
-   public class_cj a(class_aen var1, String var2, class_cj var3) {
+   public class_cj a(World var1, String var2, class_cj var3) {
       return null;
    }
 

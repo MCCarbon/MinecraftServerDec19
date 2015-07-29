@@ -3,11 +3,11 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_aoy;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -18,7 +18,7 @@ import net.minecraft.server.class_to;
 import net.minecraft.server.class_tp;
 
 public class class_tr extends class_avd {
-   private class_aen b;
+   private World b;
    private final List c = Lists.newArrayList();
    private final List d = Lists.newArrayList();
    private final List e = Lists.newArrayList();
@@ -28,13 +28,13 @@ public class class_tr extends class_avd {
       super(var1);
    }
 
-   public class_tr(class_aen var1) {
+   public class_tr(World var1) {
       super(a(var1.t));
       this.b = var1;
       this.c();
    }
 
-   public void a(class_aen var1) {
+   public void a(World var1) {
       this.b = var1;
       Iterator var2 = this.e.iterator();
 
@@ -224,7 +224,7 @@ public class class_tr extends class_avd {
 
    private boolean f(class_cj var1) {
       Block var2 = this.b.p(var1).getBlock();
-      return var2 instanceof class_ahl?var2.v() == class_atk.d:false;
+      return var2 instanceof class_ahl?var2.getMaterial() == Material.d:false;
    }
 
    public void a(class_dn var1) {

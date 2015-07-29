@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aiv;
 import net.minecraft.server.class_aku;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anx;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_cj;
@@ -16,7 +16,7 @@ public class class_alw extends class_aku {
    public static final class_anx a;
 
    public class_alw() {
-      this.j(this.M.b().set(a, class_cq.c));
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.c));
    }
 
    public void a(class_aer var1, class_cj var2) {
@@ -26,26 +26,26 @@ public class class_alw extends class_aku {
       float var6 = 0.0F;
       float var7 = 1.0F;
       float var8 = 0.125F;
-      this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+      this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       switch(class_alw.SyntheticClass_1.a[var3.ordinal()]) {
       case 1:
-         this.a(var6, var4, 1.0F - var8, var7, var5, 1.0F);
+         this.setSizes(var6, var4, 1.0F - var8, var7, var5, 1.0F);
          break;
       case 2:
-         this.a(var6, var4, 0.0F, var7, var5, var8);
+         this.setSizes(var6, var4, 0.0F, var7, var5, var8);
          break;
       case 3:
-         this.a(1.0F - var8, var4, var6, 1.0F, var5, var7);
+         this.setSizes(1.0F - var8, var4, var6, 1.0F, var5, var7);
          break;
       case 4:
-         this.a(0.0F, var4, var6, var8, var5, var7);
+         this.setSizes(0.0F, var4, var6, var8, var5, var7);
       }
 
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       class_cq var5 = (class_cq)var3.get(a);
-      if(!var1.p(var2.a(var5.d())).getBlock().v().a()) {
+      if(!var1.p(var2.a(var5.d())).getBlock().getMaterial().a()) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
       }
@@ -53,16 +53,16 @@ public class class_alw extends class_aku {
       super.a(var1, var2, var3, var4);
    }
 
-   public IBlockData a(int var1) {
+   public IBlockData fromLegacyData(int var1) {
       class_cq var2 = class_cq.a(var1);
       if(var2.k() == class_cq.class_a_in_class_cq.b) {
          var2 = class_cq.c;
       }
 
-      return this.S().set(a, var2);
+      return this.getBlockData().set(a, var2);
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_cq)var1.get(a)).a();
    }
 
@@ -74,8 +74,8 @@ public class class_alw extends class_aku {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
    static {

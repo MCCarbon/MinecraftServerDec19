@@ -10,7 +10,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.Map.Entry;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asf;
@@ -107,12 +107,12 @@ public class class_ase extends class_ask {
       public class_a_in_class_ase() {
       }
 
-      public class_a_in_class_ase(class_aen var1, Random var2, int var3, int var4) {
+      public class_a_in_class_ase(World var1, Random var2, int var3, int var4) {
          super(var3, var4);
          this.b(var1, var2, var3, var4);
       }
 
-      private void b(class_aen var1, Random var2, int var3, int var4) {
+      private void b(World var1, Random var2, int var3, int var4) {
          var2.setSeed(var1.K());
          long var5 = var2.nextLong();
          long var7 = var2.nextLong();
@@ -127,7 +127,7 @@ public class class_ase extends class_ask {
          this.d = true;
       }
 
-      public void a(class_aen var1, Random var2, class_arw var3) {
+      public void a(World var1, Random var2, class_arw var3) {
          if(!this.d) {
             this.a.clear();
             this.b(var1, var2, this.e(), this.f());

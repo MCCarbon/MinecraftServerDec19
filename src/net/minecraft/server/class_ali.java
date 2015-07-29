@@ -2,40 +2,40 @@ package net.minecraft.server;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.Material;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public class class_ali extends Block {
-   public static final class_any a = class_any.a("variant", class_ali.class_a_in_class_ali.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("variant", class_ali.class_a_in_class_ali.class);
    public static final int b;
    public static final int N;
    public static final int O;
    public static final int P;
 
    public class_ali() {
-      super(class_atk.e);
-      this.j(this.M.b().set(a, class_ali.class_a_in_class_ali.a));
+      super(Material.e);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_ali.class_a_in_class_ali.a));
       this.a(CreativeTab.b);
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_ali.class_a_in_class_ali)var1.get(a)).a();
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_ali.class_a_in_class_ali.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_ali.class_a_in_class_ali.a(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_ali.class_a_in_class_ali)var1.get(a)).a();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
    static {
@@ -45,7 +45,7 @@ public class class_ali extends Block {
       P = class_ali.class_a_in_class_ali.d.a();
    }
 
-   public static enum class_a_in_class_ali implements class_ny {
+   public static enum class_a_in_class_ali implements INamable {
       a(0, "stonebrick", "default"),
       b(1, "mossy_stonebrick", "mossy"),
       c(2, "cracked_stonebrick", "cracked"),
@@ -78,7 +78,7 @@ public class class_ali extends Block {
          return e[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.g;
       }
 

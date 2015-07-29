@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_qh;
@@ -13,7 +13,7 @@ public class class_ri extends class_rm {
    private double c;
    private double d;
    private double e;
-   private class_aen f;
+   private World f;
 
    public class_ri(class_qh var1, double var2) {
       this.a = var1;

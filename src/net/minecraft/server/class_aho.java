@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amm;
@@ -21,11 +21,11 @@ public class class_aho extends class_ahk {
       return this.P;
    }
 
-   public class_amg a(class_aen var1, int var2) {
+   public class_amg a(World var1, int var2) {
       return new class_amn();
    }
 
-   protected void f(class_aen var1, class_cj var2) {
+   protected void f(World var1, class_cj var2) {
       class_cl var3 = new class_cl(var1, var2);
       class_amm var4 = (class_amm)var3.h();
       if(var4 != null) {

@@ -5,10 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aak;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -58,7 +58,7 @@ public class class_wg extends class_wi {
    private boolean by;
    private class_si bz;
 
-   public class_wg(class_aen var1) {
+   public class_wg(World var1) {
       super(var1);
       this.b_ = 10;
       this.a(0.85F, 0.85F);
@@ -94,7 +94,7 @@ public class class_wg extends class_wi {
       var1.a("Elder", this.cC());
    }
 
-   protected class_tg b(class_aen var1) {
+   protected class_tg b(World var1) {
       return new class_ti(this, var1);
    }
 
@@ -213,7 +213,7 @@ public class class_wg extends class_wi {
    }
 
    public float a(class_cj var1) {
-      return this.o.p(var1).getBlock().v() == class_atk.h?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
+      return this.o.p(var1).getBlock().getMaterial() == Material.h?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
    }
 
    public void m() {
@@ -350,17 +350,17 @@ public class class_wg extends class_wi {
    protected void b(boolean var1, int var2) {
       int var3 = this.V.nextInt(3) + this.V.nextInt(var2 + 1);
       if(var3 > 0) {
-         this.a(new class_aas(class_aau.cF, var3, 0), 1.0F);
+         this.a(new class_aas(Items.cF, var3, 0), 1.0F);
       }
 
       if(this.V.nextInt(3 + var2) > 1) {
-         this.a(new class_aas(class_aau.aW, 1, class_aak.class_a_in_class_aak.a.a()), 1.0F);
+         this.a(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 1.0F);
       } else if(this.V.nextInt(3 + var2) > 1) {
-         this.a(new class_aas(class_aau.cG), 1.0F);
+         this.a(new class_aas(Items.cG), 1.0F);
       }
 
       if(var1 && this.cC()) {
-         this.a(new class_aas(class_agk.v, 1, 1), 1.0F);
+         this.a(new class_aas(Blocks.SPONGE, 1, 1), 1.0F);
       }
 
    }

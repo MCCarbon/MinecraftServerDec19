@@ -3,8 +3,8 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_dn;
@@ -15,11 +15,11 @@ import net.minecraft.server.class_xa;
 public class class_vc extends class_uz {
    public class_vc.class_a_in_class_vc c;
 
-   public class_vc(class_aen var1) {
+   public class_vc(World var1) {
       super(var1);
    }
 
-   public class_vc(class_aen var1, class_cj var2, class_cq var3) {
+   public class_vc(World var1, class_cj var2, class_cq var3) {
       super(var1, var2);
       ArrayList var4 = Lists.newArrayList();
       class_vc.class_a_in_class_vc[] var5 = class_vc.class_a_in_class_vc.values();
@@ -82,7 +82,7 @@ public class class_vc extends class_uz {
             }
          }
 
-         this.a(new class_aas(class_aau.ap), 0.0F);
+         this.a(new class_aas(Items.ap), 0.0F);
       }
    }
 

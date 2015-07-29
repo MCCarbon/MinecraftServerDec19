@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_eu;
@@ -50,7 +50,7 @@ public class class_ml implements class_m {
       return new class_awh(0.0D, 0.0D, 0.0D);
    }
 
-   public class_aen e() {
+   public World e() {
       return MinecraftServer.N().e();
    }
 

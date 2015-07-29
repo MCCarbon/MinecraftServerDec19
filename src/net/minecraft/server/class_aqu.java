@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 
 public class class_aqu extends class_aql {
@@ -18,7 +18,7 @@ public class class_aqu extends class_aql {
       this.a = var1;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       for(var3 = var3.a(-8, 0, -8); var3.o() > 5 && var1.d(var3); var3 = var3.b()) {
          ;
       }
@@ -62,7 +62,7 @@ public class class_aqu extends class_aql {
                for(var8 = 0; var8 < 8; ++var8) {
                   var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
                   if(var31) {
-                     class_atk var10 = var1.p(var3.a(var6, var8, var30)).getBlock().v();
+                     Material var10 = var1.p(var3.a(var6, var8, var30)).getBlock().getMaterial();
                      if(var8 >= 4 && var10.d()) {
                         return false;
                      }
@@ -79,7 +79,7 @@ public class class_aqu extends class_aql {
             for(var30 = 0; var30 < 16; ++var30) {
                for(var8 = 0; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
-                     var1.a((class_cj)var3.a(var6, var8, var30), (IBlockData)(var8 >= 4?class_agk.a.S():this.a.S()), 2);
+                     var1.a((class_cj)var3.a(var6, var8, var30), (IBlockData)(var8 >= 4?Blocks.AIR.getBlockData():this.a.getBlockData()), 2);
                   }
                }
             }
@@ -90,12 +90,12 @@ public class class_aqu extends class_aql {
                for(var8 = 4; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
                      class_cj var32 = var3.a(var6, var8 - 1, var30);
-                     if(var1.p(var32).getBlock() == class_agk.d && var1.b(class_aet.a, var3.a(var6, var8, var30)) > 0) {
+                     if(var1.p(var32).getBlock() == Blocks.DIRT && var1.b(class_aet.a, var3.a(var6, var8, var30)) > 0) {
                         class_aez var33 = var1.b(var32);
-                        if(var33.ak.getBlock() == class_agk.bw) {
-                           var1.a((class_cj)var32, (IBlockData)class_agk.bw.S(), 2);
+                        if(var33.ak.getBlock() == Blocks.MYCELIM) {
+                           var1.a((class_cj)var32, (IBlockData)Blocks.MYCELIM.getBlockData(), 2);
                         } else {
-                           var1.a((class_cj)var32, (IBlockData)class_agk.c.S(), 2);
+                           var1.a((class_cj)var32, (IBlockData)Blocks.GRASS.getBlockData(), 2);
                         }
                      }
                   }
@@ -103,25 +103,25 @@ public class class_aqu extends class_aql {
             }
          }
 
-         if(this.a.v() == class_atk.i) {
+         if(this.a.getMaterial() == Material.i) {
             for(var6 = 0; var6 < 16; ++var6) {
                for(var30 = 0; var30 < 16; ++var30) {
                   for(var8 = 0; var8 < 8; ++var8) {
                      var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
-                     if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.p(var3.a(var6, var8, var30)).getBlock().v().a()) {
-                        var1.a((class_cj)var3.a(var6, var8, var30), (IBlockData)class_agk.b.S(), 2);
+                     if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.p(var3.a(var6, var8, var30)).getBlock().getMaterial().a()) {
+                        var1.a((class_cj)var3.a(var6, var8, var30), (IBlockData)Blocks.STONE.getBlockData(), 2);
                      }
                   }
                }
             }
          }
 
-         if(this.a.v() == class_atk.h) {
+         if(this.a.getMaterial() == Material.h) {
             for(var6 = 0; var6 < 16; ++var6) {
                for(var30 = 0; var30 < 16; ++var30) {
                   byte var34 = 4;
                   if(var1.v(var3.a(var6, var34, var30))) {
-                     var1.a((class_cj)var3.a(var6, var34, var30), (IBlockData)class_agk.aI.S(), 2);
+                     var1.a((class_cj)var3.a(var6, var34, var30), (IBlockData)Blocks.ICE.getBlockData(), 2);
                   }
                }
             }

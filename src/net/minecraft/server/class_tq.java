@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeu;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -16,7 +16,7 @@ import net.minecraft.server.class_wr;
 import net.minecraft.server.class_xa;
 
 public class class_tq {
-   private class_aen a;
+   private World a;
    private boolean b;
    private int c = -1;
    private int d;
@@ -26,7 +26,7 @@ public class class_tq {
    private int h;
    private int i;
 
-   public class_tq(class_aen var1) {
+   public class_tq(World var1) {
       this.a = var1;
    }
 

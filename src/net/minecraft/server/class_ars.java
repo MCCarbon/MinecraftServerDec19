@@ -18,12 +18,12 @@ public class class_ars {
       this.c = 1;
       this.a = var1;
       this.c = var2;
-      this.b = var3.S();
+      this.b = var3.getBlockData();
    }
 
    public class_ars(int var1, int var2, Block var3, int var4) {
       this(var1, var2, var3);
-      this.b = var3.a(var4);
+      this.b = var3.fromLegacyData(var4);
    }
 
    public int b() {
@@ -39,7 +39,7 @@ public class class_ars {
    }
 
    private int f() {
-      return this.b.getBlock().c(this.b);
+      return this.b.getBlock().toLegacyData(this.b);
    }
 
    public int d() {

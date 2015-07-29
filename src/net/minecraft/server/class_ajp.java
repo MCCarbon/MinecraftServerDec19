@@ -1,50 +1,50 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.class_akq;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
-import net.minecraft.server.class_di;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
+import net.minecraft.server.LocaleI18n;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_ajp extends class_aio {
    public static final class_anw b = class_anw.a("seamless");
-   public static final class_any N = class_any.a("variant", class_ajp.class_a_in_class_ajp.class);
+   public static final BlockStateEnum N = BlockStateEnum.of("variant", class_ajp.class_a_in_class_ajp.class);
 
    public class_ajp() {
-      super(class_atk.e);
-      IBlockData var1 = this.M.b();
+      super(Material.e);
+      IBlockData var1 = this.blockStateList.getFirst();
       if(this.l()) {
          var1 = var1.set(b, Boolean.valueOf(false));
       } else {
          var1 = var1.set(a, class_aio.class_a_in_class_aio.b);
       }
 
-      this.j(var1.set(N, class_ajp.class_a_in_class_ajp.a));
+      this.setBlockData(var1.set(N, class_ajp.class_a_in_class_ajp.a));
       this.a((CreativeTab)CreativeTab.b);
    }
 
-   public String f() {
-      return class_di.a(this.a() + ".red_sandstone.name");
+   public String getName() {
+      return LocaleI18n.get(this.getInternalName() + ".red_sandstone.name");
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aar.a((Block)class_agk.cP);
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Item.getByBlock((Block)Blocks.STONE_SLAB2);
    }
 
    public String b(int var1) {
-      return super.a() + "." + class_ajp.class_a_in_class_ajp.a(var1).d();
+      return super.getInternalName() + "." + class_ajp.class_a_in_class_ajp.a(var1).d();
    }
 
    public IBlockState n() {
@@ -55,8 +55,8 @@ public abstract class class_ajp extends class_aio {
       return class_ajp.class_a_in_class_ajp.a(var1.i() & 7);
    }
 
-   public IBlockData a(int var1) {
-      IBlockData var2 = this.S().set(N, class_ajp.class_a_in_class_ajp.a(var1 & 7));
+   public IBlockData fromLegacyData(int var1) {
+      IBlockData var2 = this.getBlockData().set(N, class_ajp.class_a_in_class_ajp.a(var1 & 7));
       if(this.l()) {
          var2 = var2.set(b, Boolean.valueOf((var1 & 8) != 0));
       } else {
@@ -66,7 +66,7 @@ public abstract class class_ajp extends class_aio {
       return var2;
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_ajp.class_a_in_class_ajp)var1.get(N)).a();
       if(this.l()) {
@@ -80,27 +80,27 @@ public abstract class class_ajp extends class_aio {
       return var3;
    }
 
-   protected class_anm e() {
-      return this.l()?new class_anm(this, new IBlockState[]{b, N}):new class_anm(this, new IBlockState[]{a, N});
+   protected BlockStateList createBlockStateList() {
+      return this.l()?new BlockStateList(this, new IBlockState[]{b, N}):new BlockStateList(this, new IBlockState[]{a, N});
    }
 
-   public class_atl g(IBlockData var1) {
+   public MaterialMapColor getMapColor(IBlockData var1) {
       return ((class_ajp.class_a_in_class_ajp)var1.get(N)).c();
    }
 
-   public int a(IBlockData var1) {
+   public int getDropData(IBlockData var1) {
       return ((class_ajp.class_a_in_class_ajp)var1.get(N)).a();
    }
 
-   public static enum class_a_in_class_ajp implements class_ny {
+   public static enum class_a_in_class_ajp implements INamable {
       a(0, "red_sandstone", class_akq.class_a_in_class_akq.b.c());
 
       private static final class_ajp.class_a_in_class_ajp[] b;
       private final int c;
       private final String d;
-      private final class_atl e;
+      private final MaterialMapColor e;
 
-      private class_a_in_class_ajp(int var3, String var4, class_atl var5) {
+      private class_a_in_class_ajp(int var3, String var4, MaterialMapColor var5) {
          this.c = var3;
          this.d = var4;
          this.e = var5;
@@ -110,7 +110,7 @@ public abstract class class_ajp extends class_aio {
          return this.c;
       }
 
-      public class_atl c() {
+      public MaterialMapColor c() {
          return this.e;
       }
 
@@ -126,7 +126,7 @@ public abstract class class_ajp extends class_aio {
          return b[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.d;
       }
 

@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_qb;
 
 public abstract class class_py extends class_qb {
-   public class_py(class_aen var1) {
+   public class_py(World var1) {
       super(var1);
    }
 
@@ -33,14 +33,14 @@ public abstract class class_py extends class_qb {
       } else {
          float var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.91F;
+            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.91F;
          }
 
          float var4 = 0.16277136F / (var3 * var3 * var3);
          this.a(var1, var2, this.C?0.1F * var4:0.02F);
          var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.91F;
+            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.91F;
          }
 
          this.d(this.v, this.w, this.x);

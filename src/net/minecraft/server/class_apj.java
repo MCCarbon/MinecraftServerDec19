@@ -3,10 +3,10 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
@@ -20,9 +20,9 @@ public class class_apj implements class_aoh {
    private static final List a = Lists.newArrayList();
    private static final int b;
    private static final int c;
-   private final class_aen d;
+   private final World d;
 
-   public class_apj(class_aen var1) {
+   public class_apj(World var1) {
       this.d = var1;
    }
 
@@ -34,7 +34,7 @@ public class class_apj implements class_aoh {
          for(int var5 = 0; var5 < 16; ++var5) {
             int var6 = var1 * 16 + var4;
             var7 = var2 * 16 + var5;
-            var3.a(var4, 60, var5, class_agk.cv.S());
+            var3.a(var4, 60, var5, Blocks.BARRIER.getBlockData());
             IBlockData var8 = b(var6, var7);
             if(var8 != null) {
                var3.a(var4, 70, var5, var8);
@@ -106,7 +106,7 @@ public class class_apj implements class_aoh {
       return var3.a(var1);
    }
 
-   public class_cj a(class_aen var1, String var2, class_cj var3) {
+   public class_cj a(World var1, String var2, class_cj var3) {
       return null;
    }
 
@@ -126,7 +126,7 @@ public class class_apj implements class_aoh {
 
       while(var0.hasNext()) {
          Block var1 = (Block)var0.next();
-         a.addAll(var1.R().a());
+         a.addAll(var1.getBlockStateList().a());
       }
 
       b = class_nu.f(class_nu.c((float)a.size()));

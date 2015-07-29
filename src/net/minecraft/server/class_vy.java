@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_nu;
@@ -27,7 +27,7 @@ public class class_vy extends class_wi {
    private int b;
    private static final int c = class_qi.a(class_vy.class);
 
-   public class_vy(class_aen var1) {
+   public class_vy(World var1) {
       super(var1);
       this.ab = true;
       this.b_ = 10;
@@ -109,8 +109,8 @@ public class class_vy extends class_wi {
    public void e(float var1, float var2) {
    }
 
-   protected class_aar D() {
-      return class_aau.bx;
+   protected Item D() {
+      return Items.bx;
    }
 
    public boolean av() {
@@ -122,7 +122,7 @@ public class class_vy extends class_wi {
          int var3 = this.V.nextInt(2 + var2);
 
          for(int var4 = 0; var4 < var3; ++var4) {
-            this.a(class_aau.bx, 1);
+            this.a(Items.bx, 1);
          }
       }
 

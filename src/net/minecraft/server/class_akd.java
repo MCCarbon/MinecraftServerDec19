@@ -1,20 +1,20 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiv;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_ano;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.class_anq;
 import net.minecraft.server.class_ant;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_cy;
@@ -31,7 +31,7 @@ public class class_akd extends class_aiv {
    private class_anp P;
    private static final Predicate Q = new Predicate() {
       public boolean a(IBlockData var1) {
-         return var1 != null && (var1.getBlock() == class_agk.aU || var1.getBlock() == class_agk.aZ);
+         return var1 != null && (var1.getBlock() == Blocks.PUMPKIN || var1.getBlock() == Blocks.LIT_PUMPKIN);
       }
 
       // $FF: synthetic method
@@ -41,29 +41,29 @@ public class class_akd extends class_aiv {
    };
 
    protected class_akd() {
-      super(class_atk.C, class_atl.q);
-      this.j(this.M.b().set(O, class_cq.c));
-      this.a(true);
+      super(Material.C, MaterialMapColor.q);
+      this.setBlockData(this.blockStateList.getFirst().set(O, class_cq.c));
+      this.setTicking(true);
       this.a(CreativeTab.b);
    }
 
-   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, class_cj var2, IBlockData var3) {
       super.c(var1, var2, var3);
       this.f(var1, var2);
    }
 
-   public boolean e(class_aen var1, class_cj var2) {
+   public boolean e(World var1, class_cj var2) {
       return this.l().a(var1, var2) != null || this.o().a(var1, var2) != null;
    }
 
-   private void f(class_aen var1, class_cj var2) {
+   private void f(World var1, class_cj var2) {
       class_anp.class_b_in_class_anp var3;
       int var4;
       int var6;
       if((var3 = this.n().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.n().b(); ++var4) {
             class_ano var5 = var3.a(0, var4, 0);
-            var1.a((class_cj)var5.d(), (IBlockData)class_agk.a.S(), 2);
+            var1.a((class_cj)var5.d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
          }
 
          class_uh var9 = new class_uh(var1);
@@ -77,12 +77,12 @@ public class class_akd extends class_aiv {
 
          for(var6 = 0; var6 < this.n().b(); ++var6) {
             class_ano var7 = var3.a(0, var6, 0);
-            var1.b(var7.d(), class_agk.a);
+            var1.b(var7.d(), Blocks.AIR);
          }
       } else if((var3 = this.p().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.p().c(); ++var4) {
             for(int var12 = 0; var12 < this.p().b(); ++var12) {
-               var1.a((class_cj)var3.a(var4, var12, 0).d(), (IBlockData)class_agk.a.S(), 2);
+               var1.a((class_cj)var3.a(var4, var12, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
             }
          }
 
@@ -99,15 +99,15 @@ public class class_akd extends class_aiv {
          for(var6 = 0; var6 < this.p().c(); ++var6) {
             for(int var14 = 0; var14 < this.p().b(); ++var14) {
                class_ano var8 = var3.a(var6, var14, 0);
-               var1.b(var8.d(), class_agk.a);
+               var1.b(var8.d(), Blocks.AIR);
             }
          }
       }
 
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
-      return var1.p(var2).getBlock().J.j() && class_aen.a((class_aer)var1, (class_cj)var2.b());
+   public boolean d(World var1, class_cj var2) {
+      return var1.p(var2).getBlock().material.j() && World.a((class_aer)var1, (class_cj)var2.b());
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
@@ -118,25 +118,25 @@ public class class_akd extends class_aiv {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(O)));
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.S().set(O, var8.aR().d());
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData().set(O, var8.aR().d());
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(O, class_cq.b(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(O, class_cq.b(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_cq)var1.get(O)).b();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{O});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{O});
    }
 
    protected class_anp l() {
       if(this.a == null) {
-         this.a = class_anq.a().a(new String[]{" ", "#", "#"}).a('#', class_ano.a(class_ant.a(class_agk.aJ))).b();
+         this.a = class_anq.a().a(new String[]{" ", "#", "#"}).a('#', class_ano.a(class_ant.a(Blocks.SNOW))).b();
       }
 
       return this.a;
@@ -144,7 +144,7 @@ public class class_akd extends class_aiv {
 
    protected class_anp n() {
       if(this.b == null) {
-         this.b = class_anq.a().a(new String[]{"^", "#", "#"}).a('^', class_ano.a(Q)).a('#', class_ano.a(class_ant.a(class_agk.aJ))).b();
+         this.b = class_anq.a().a(new String[]{"^", "#", "#"}).a('^', class_ano.a(Q)).a('#', class_ano.a(class_ant.a(Blocks.SNOW))).b();
       }
 
       return this.b;
@@ -152,7 +152,7 @@ public class class_akd extends class_aiv {
 
    protected class_anp o() {
       if(this.N == null) {
-         this.N = class_anq.a().a(new String[]{"~ ~", "###", "~#~"}).a('#', class_ano.a(class_ant.a(class_agk.S))).a('~', class_ano.a(class_ant.a(class_agk.a))).b();
+         this.N = class_anq.a().a(new String[]{"~ ~", "###", "~#~"}).a('#', class_ano.a(class_ant.a(Blocks.IRON_BLOCK))).a('~', class_ano.a(class_ant.a(Blocks.AIR))).b();
       }
 
       return this.N;
@@ -160,7 +160,7 @@ public class class_akd extends class_aiv {
 
    protected class_anp p() {
       if(this.P == null) {
-         this.P = class_anq.a().a(new String[]{"~^~", "###", "~#~"}).a('^', class_ano.a(Q)).a('#', class_ano.a(class_ant.a(class_agk.S))).a('~', class_ano.a(class_ant.a(class_agk.a))).b();
+         this.P = class_anq.a().a(new String[]{"~^~", "###", "~#~"}).a('^', class_ano.a(Q)).a('#', class_ano.a(class_ant.a(Blocks.IRON_BLOCK))).a('~', class_ano.a(class_ant.a(Blocks.AIR))).b();
       }
 
       return this.P;

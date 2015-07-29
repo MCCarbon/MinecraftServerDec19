@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoi;
 
@@ -25,23 +25,23 @@ public class class_aol {
 
    public IBlockData a(int var1, int var2, int var3) {
       IBlockData var4 = (IBlockData)Block.BLOCKDATA_REGISTRY.get(this.d[var2 << 8 | var3 << 4 | var1]);
-      return var4 != null?var4:class_agk.a.S();
+      return var4 != null?var4:Blocks.AIR.getBlockData();
    }
 
    public void a(int var1, int var2, int var3, IBlockData var4) {
       IBlockData var5 = this.a(var1, var2, var3);
       Block var6 = var5.getBlock();
       Block var7 = var4.getBlock();
-      if(var6 != class_agk.a) {
+      if(var6 != Blocks.AIR) {
          --this.b;
-         if(var6.A()) {
+         if(var6.isTicking()) {
             --this.c;
          }
       }
 
-      if(var7 != class_agk.a) {
+      if(var7 != Blocks.AIR) {
          ++this.b;
-         if(var7.A()) {
+         if(var7.isTicking()) {
             ++this.c;
          }
       }
@@ -55,7 +55,7 @@ public class class_aol {
 
    public int c(int var1, int var2, int var3) {
       IBlockData var4 = this.a(var1, var2, var3);
-      return var4.getBlock().c(var4);
+      return var4.getBlock().toLegacyData(var4);
    }
 
    public boolean a() {
@@ -94,9 +94,9 @@ public class class_aol {
          for(int var2 = 0; var2 < 16; ++var2) {
             for(int var3 = 0; var3 < 16; ++var3) {
                Block var4 = this.b(var1, var2, var3);
-               if(var4 != class_agk.a) {
+               if(var4 != Blocks.AIR) {
                   ++this.b;
-                  if(var4.A()) {
+                  if(var4.isTicking()) {
                      ++this.c;
                   }
                }

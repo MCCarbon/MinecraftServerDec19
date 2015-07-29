@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_agu;
 import net.minecraft.server.class_aiu;
@@ -438,18 +438,18 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       return b(var0.z(), var0.A(), var0.B() + 1.0D, var0.C());
    }
 
-   public static List a(class_aen var0, double var1, double var3, double var5) {
+   public static List a(World var0, double var1, double var3, double var5) {
       return var0.a(class_vm.class, new class_awf(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), class_pv.a);
    }
 
-   public static class_oj b(class_aen var0, double var1, double var3, double var5) {
+   public static class_oj b(World var0, double var1, double var3, double var5) {
       Object var7 = null;
       int var8 = class_nu.c(var1);
       int var9 = class_nu.c(var3);
       int var10 = class_nu.c(var5);
       class_cj var11 = new class_cj(var8, var9, var10);
       Block var12 = var0.p(var11).getBlock();
-      if(var12.B()) {
+      if(var12.isTileEntity()) {
          class_amg var13 = var0.s(var11);
          if(var13 instanceof class_oj) {
             var7 = (class_oj)var13;

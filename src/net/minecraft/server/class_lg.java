@@ -15,12 +15,12 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_aef;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_aej;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aes;
@@ -30,7 +30,7 @@ import net.minecraft.server.class_aex;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
@@ -40,7 +40,7 @@ import net.minecraft.server.class_aop;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_aqa;
 import net.minecraft.server.class_arw;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
@@ -85,7 +85,7 @@ import net.minecraft.server.class_xa;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_lg extends class_aen implements class_of {
+public class class_lg extends World implements class_of {
    private static final Logger a = LogManager.getLogger();
    private final MinecraftServer I;
    private final class_lb J;
@@ -110,7 +110,7 @@ public class class_lg extends class_aen implements class_of {
       this.I = var1;
       this.J = new class_lb(this);
       this.K = new class_ld(this);
-      this.t.a((class_aen)this);
+      this.t.a((World)this);
       this.v = this.l();
       this.Q = new class_aev(this);
       this.C();
@@ -118,7 +118,7 @@ public class class_lg extends class_aen implements class_of {
       this.ag().a(var1.aI());
    }
 
-   public class_aen b() {
+   public World b() {
       this.z = new class_avz(this.w);
       String var1 = class_tr.a(this.t);
       class_tr var2 = (class_tr)this.z.a(class_tr.class, var1);
@@ -127,7 +127,7 @@ public class class_lg extends class_aen implements class_of {
          this.z.a((String)var1, (class_avd)this.A);
       } else {
          this.A = var2;
-         this.A.a((class_aen)this);
+         this.A.a((World)this);
       }
 
       this.C = new class_kl(this.I);
@@ -314,11 +314,11 @@ public class class_lg extends class_aen implements class_of {
                var9 = this.q(new class_cj(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
                class_cj var10 = var9.b();
                if(this.w(var10)) {
-                  this.a((class_cj)var10, (IBlockData)class_agk.aI.S());
+                  this.a((class_cj)var10, (IBlockData)Blocks.ICE.getBlockData());
                }
 
                if(this.T() && this.f(var9, true)) {
-                  this.a((class_cj)var9, (IBlockData)class_agk.aH.S());
+                  this.a((class_cj)var9, (IBlockData)Blocks.SNOW_LAYER.getBlockData());
                }
 
                if(this.T() && this.b((class_cj)var10).e()) {
@@ -344,9 +344,9 @@ public class class_lg extends class_aen implements class_of {
                         ++var2;
                         IBlockData var18 = var12.a(var15, var17, var16);
                         Block var19 = var18.getBlock();
-                        if(var19.A()) {
+                        if(var19.isTicking()) {
                            ++var1;
-                           var19.a((class_aen)this, new class_cj(var15 + var5, var17 + var12.d(), var16 + var6), (IBlockData)var18, (Random)this.s);
+                           var19.a((World)this, new class_cj(var15 + var5, var17 + var12.d(), var16 + var6), (IBlockData)var18, (Random)this.s);
                         }
                      }
                   }
@@ -385,13 +385,13 @@ public class class_lg extends class_aen implements class_of {
    public void a(class_cj var1, Block var2, int var3, int var4) {
       class_aex var5 = new class_aex(var1, var2);
       byte var6 = 0;
-      if(this.e && var2.v() != class_atk.a) {
+      if(this.e && var2.getMaterial() != Material.a) {
          if(var2.P()) {
             var6 = 8;
             if(this.a((class_cj)var5.a.a(-var6, -var6, -var6), (class_cj)var5.a.a(var6, var6, var6))) {
                IBlockData var7 = this.p(var5.a);
-               if(var7.getBlock().v() != class_atk.a && var7.getBlock() == var5.a()) {
-                  var7.getBlock().b((class_aen)this, var5.a, var7, (Random)this.s);
+               if(var7.getBlock().getMaterial() != Material.a && var7.getBlock() == var5.a()) {
+                  var7.getBlock().b((World)this, var5.a, var7, (Random)this.s);
                }
             }
 
@@ -402,7 +402,7 @@ public class class_lg extends class_aen implements class_of {
       }
 
       if(this.a((class_cj)var1.a(-var6, -var6, -var6), (class_cj)var1.a(var6, var6, var6))) {
-         if(var2.v() != class_atk.a) {
+         if(var2.getMaterial() != Material.a) {
             var5.a((long)var3 + this.x.f());
             var5.a(var4);
          }
@@ -418,7 +418,7 @@ public class class_lg extends class_aen implements class_of {
    public void b(class_cj var1, Block var2, int var3, int var4) {
       class_aex var5 = new class_aex(var1, var2);
       var5.a(var4);
-      if(var2.v() != class_atk.a) {
+      if(var2.getMaterial() != Material.a) {
          var5.a((long)var3 + this.x.f());
       }
 
@@ -482,9 +482,9 @@ public class class_lg extends class_aen implements class_of {
                byte var5 = 0;
                if(this.a((class_cj)var4.a.a(-var5, -var5, -var5), (class_cj)var4.a.a(var5, var5, var5))) {
                   IBlockData var6 = this.p(var4.a);
-                  if(var6.getBlock().v() != class_atk.a && Block.a(var6.getBlock(), var4.a())) {
+                  if(var6.getBlock().getMaterial() != Material.a && Block.a(var6.getBlock(), var4.a())) {
                      try {
-                        var6.getBlock().b((class_aen)this, var4.a, var6, (Random)this.s);
+                        var6.getBlock().b((World)this, var4.a, var6, (Random)this.s);
                      } catch (Throwable var10) {
                         class_b var8 = class_b.a(var10, "Exception while ticking a block");
                         class_c var9 = var8.a("Block being ticked");
@@ -586,7 +586,7 @@ public class class_lg extends class_aen implements class_of {
    }
 
    public boolean a(class_xa var1, class_cj var2) {
-      return !this.I.a((class_aen)this, (class_cj)var2, (class_xa)var1) && this.ag().a(var2);
+      return !this.I.a((World)this, (class_cj)var2, (class_xa)var1) && this.ag().a(var2);
    }
 
    public void a(class_aeq var1) {
@@ -947,7 +947,7 @@ public class class_lg extends class_aen implements class_of {
    }
 
    static {
-      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(class_aau.A, 0, 1, 3, 10), new class_od(class_aar.a(class_agk.f), 0, 1, 3, 10), new class_od(class_aar.a(class_agk.r), 0, 1, 3, 10), new class_od(class_aau.v, 0, 1, 1, 3), new class_od(class_aau.r, 0, 1, 1, 5), new class_od(class_aau.u, 0, 1, 1, 3), new class_od(class_aau.q, 0, 1, 1, 5), new class_od(class_aau.e, 0, 2, 3, 5), new class_od(class_aau.R, 0, 2, 3, 3), new class_od(class_aar.a(class_agk.s), 0, 1, 3, 10)}));
+      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.A, 0, 1, 3, 10), new class_od(Item.getByBlock(Blocks.PLANKS), 0, 1, 3, 10), new class_od(Item.getByBlock(Blocks.LOG), 0, 1, 3, 10), new class_od(Items.v, 0, 1, 1, 3), new class_od(Items.r, 0, 1, 1, 5), new class_od(Items.u, 0, 1, 1, 3), new class_od(Items.q, 0, 1, 1, 5), new class_od(Items.e, 0, 2, 3, 5), new class_od(Items.R, 0, 2, 3, 3), new class_od(Item.getByBlock(Blocks.LOG2), 0, 1, 3, 10)}));
    }
 
    static class class_a_in_class_lg extends ArrayList {

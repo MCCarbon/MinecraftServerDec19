@@ -4,20 +4,20 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.class_aje;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 
 public class class_apx extends class_apw {
    private Random k;
-   private class_aen l;
+   private World l;
    private class_cj m;
    int a;
    int b;
@@ -91,8 +91,8 @@ public class class_apx extends class_apw {
          for(int var6 = -var4; var6 <= var4; ++var6) {
             if(Math.pow((double)Math.abs(var5) + 0.5D, 2.0D) + Math.pow((double)Math.abs(var6) + 0.5D, 2.0D) <= (double)(var2 * var2)) {
                class_cj var7 = var1.a(var5, 0, var6);
-               class_atk var8 = this.l.p(var7).getBlock().v();
-               if(var8 == class_atk.a || var8 == class_atk.j) {
+               Material var8 = this.l.p(var7).getBlock().getMaterial();
+               if(var8 == Material.a || var8 == Material.j) {
                   this.a(this.l, var7, var3);
                }
             }
@@ -124,7 +124,7 @@ public class class_apx extends class_apw {
 
    void a(class_cj var1) {
       for(int var2 = 0; var2 < this.i; ++var2) {
-         this.a(var1.b(var2), this.b(var2), class_agk.t.S().set(class_aja.b, Boolean.valueOf(false)));
+         this.a(var1.b(var2), this.b(var2), Blocks.LEAVES.getBlockData().set(class_aja.b, Boolean.valueOf(false)));
       }
 
    }
@@ -139,7 +139,7 @@ public class class_apx extends class_apw {
       for(int var9 = 0; var9 <= var5; ++var9) {
          class_cj var10 = var1.a((double)(0.5F + (float)var9 * var6), (double)(0.5F + (float)var9 * var7), (double)(0.5F + (float)var9 * var8));
          class_aje.class_a_in_class_aje var11 = this.b(var1, var10);
-         this.a(this.l, var10, var3.S().set(class_aje.a, var11));
+         this.a(this.l, var10, var3.getBlockData().set(class_aje.a, var11));
       }
 
    }
@@ -184,7 +184,7 @@ public class class_apx extends class_apw {
    void c() {
       class_cj var1 = this.m;
       class_cj var2 = this.m.b(this.b);
-      Block var3 = class_agk.r;
+      Block var3 = Blocks.LOG;
       this.a(var1, var2, var3);
       if(this.g == 2) {
          this.a(var1.f(), var2.f(), var3);
@@ -202,7 +202,7 @@ public class class_apx extends class_apw {
          int var3 = var2.q();
          class_cj var4 = new class_cj(this.m.n(), var3, this.m.p());
          if(!var4.equals(var2) && this.c(var3 - this.m.o())) {
-            this.a(var4, var2, class_agk.r);
+            this.a(var4, var2, Blocks.LOG);
          }
       }
 
@@ -232,7 +232,7 @@ public class class_apx extends class_apw {
       this.i = 5;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       this.l = var1;
       this.m = var3;
       this.k = new Random(var2.nextLong());
@@ -253,7 +253,7 @@ public class class_apx extends class_apw {
 
    private boolean f() {
       Block var1 = this.l.p(this.m.b()).getBlock();
-      if(var1 != class_agk.d && var1 != class_agk.c && var1 != class_agk.ak) {
+      if(var1 != Blocks.DIRT && var1 != Blocks.GRASS && var1 != Blocks.FARMLAND) {
          return false;
       } else {
          int var2 = this.a(this.m, this.m.b(this.a - 1));

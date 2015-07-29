@@ -19,17 +19,17 @@ import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_acb;
 import net.minecraft.server.class_acc;
 import net.minecraft.server.class_aed;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amj;
 import net.minecraft.server.class_amx;
 import net.minecraft.server.class_amz;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_b;
@@ -447,7 +447,7 @@ public class class_lo implements class_ic, class_kn {
             return;
          } else {
             if(var1.c() == class_ir.class_a_in_class_ir.a) {
-               if(!this.d.a((class_aen)var2, (class_cj)var3, (class_xa)this.b) && var2.ag().a(var3)) {
+               if(!this.d.a((World)var2, (class_cj)var3, (class_xa)this.b) && var2.ag().a(var3)) {
                   this.b.c.a(var3, var1.b());
                } else {
                   this.b.a.a((class_ff)(new class_fv(var2, var3)));
@@ -459,7 +459,7 @@ public class class_lo implements class_ic, class_kn {
                   this.b.c.e();
                }
 
-               if(var2.p(var3).getBlock().v() != class_atk.a) {
+               if(var2.p(var3).getBlock().getMaterial() != Material.a) {
                   this.b.a.a((class_ff)(new class_fv(var2, var3)));
                }
             }
@@ -483,7 +483,7 @@ public class class_lo implements class_ic, class_kn {
          class_fb var7 = new class_fb("build.tooHigh", new Object[]{Integer.valueOf(this.d.an())});
          var7.b().a(EnumChatFormat.RED);
          this.b.a.a((class_ff)(new class_fz(var7)));
-      } else if(this.r && this.b.e((double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D) < 64.0D && !this.d.a((class_aen)var2, (class_cj)var5, (class_xa)this.b) && var2.ag().a(var5)) {
+      } else if(this.r && this.b.e((double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D) < 64.0D && !this.d.a((World)var2, (class_cj)var5, (class_xa)this.b) && var2.ag().a(var5)) {
          this.b.c.a(this.b, var2, var4, var3, var5, var6, var1.d(), var1.e(), var1.f());
       }
 
@@ -548,7 +548,7 @@ public class class_lo implements class_ic, class_kn {
                   var8.a((class_pr)this.b, false);
                }
 
-               this.b.a((class_aen)var8);
+               this.b.a((World)var8);
                this.d.ap().a(this.b, var7);
                this.b.a(var2.s, var2.t, var2.u);
                this.b.c.a(var8);
@@ -704,7 +704,7 @@ public class class_lo implements class_ic, class_kn {
    public void a(class_in var1) {
       class_fh.a(var1, this, this.b.u());
       class_lg var2 = this.d.a(this.b.am);
-      class_pr var3 = var1.a((class_aen)var2);
+      class_pr var3 = var1.a((World)var2);
       this.b.z();
       if(var3 != null) {
          boolean var4 = this.b.t(var3);
@@ -960,7 +960,7 @@ public class class_lo implements class_ic, class_kn {
                   return;
                }
 
-               if(var67.b() == class_aau.bP && var67.b() == var72.b()) {
+               if(var67.b() == Items.bP && var67.b() == var72.b()) {
                   var72.a((String)"pages", (class_eb)var67.o().c("pages", 8));
                }
 
@@ -989,11 +989,11 @@ public class class_lo implements class_ic, class_kn {
 
             var72 = this.b.bA();
             if(var72 != null) {
-               if(var67.b() == class_aau.bQ && var72.b() == class_aau.bP) {
+               if(var67.b() == Items.bQ && var72.b() == Items.bP) {
                   var72.a((String)"author", (class_eb)(new class_ea(this.b.e_())));
                   var72.a((String)"title", (class_eb)(new class_ea(var67.o().k("title"))));
                   var72.a((String)"pages", (class_eb)var67.o().c("pages", 8));
-                  var72.a(class_aau.bQ);
+                  var72.a(Items.bQ);
                }
 
                return;

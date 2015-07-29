@@ -2,29 +2,29 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_alh;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStone;
 import net.minecraft.server.class_ali;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_wm;
 import net.minecraft.server.CreativeTab;
 
 public class class_ajh extends Block {
-   public static final class_any a = class_any.a("variant", class_ajh.class_a_in_class_ajh.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("variant", class_ajh.class_a_in_class_ajh.class);
 
    public class_ajh() {
-      super(class_atk.B);
-      this.j(this.M.b().set(a, class_ajh.class_a_in_class_ajh.a));
-      this.c(0.0F);
+      super(Material.B);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_ajh.class_a_in_class_ajh.a));
+      this.setStrength(0.0F);
       this.a(CreativeTab.c);
    }
 
@@ -34,27 +34,27 @@ public class class_ajh extends Block {
 
    public static boolean d(IBlockData var0) {
       Block var1 = var0.getBlock();
-      return var0 == class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.a) || var1 == class_agk.e || var1 == class_agk.bf;
+      return var0 == Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE) || var1 == Blocks.COBBLESTONE || var1 == Blocks.STONEBRICK;
    }
 
    protected class_aas i(IBlockData var1) {
       switch(class_ajh.SyntheticClass_1.a[((class_ajh.class_a_in_class_ajh)var1.get(a)).ordinal()]) {
       case 1:
-         return new class_aas(class_agk.e);
+         return new class_aas(Blocks.COBBLESTONE);
       case 2:
-         return new class_aas(class_agk.bf);
+         return new class_aas(Blocks.STONEBRICK);
       case 3:
-         return new class_aas(class_agk.bf, 1, class_ali.class_a_in_class_ali.b.a());
+         return new class_aas(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.b.a());
       case 4:
-         return new class_aas(class_agk.bf, 1, class_ali.class_a_in_class_ali.c.a());
+         return new class_aas(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.c.a());
       case 5:
-         return new class_aas(class_agk.bf, 1, class_ali.class_a_in_class_ali.d.a());
+         return new class_aas(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.d.a());
       default:
-         return new class_aas(class_agk.b);
+         return new class_aas(Blocks.STONE);
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, float var4, int var5) {
+   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
       if(!var1.D && var1.R().b("doTileDrops")) {
          class_wm var6 = new class_wm(var1);
          var6.b((double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, 0.0F, 0.0F);
@@ -64,21 +64,21 @@ public class class_ajh extends Block {
 
    }
 
-   public int j(class_aen var1, class_cj var2) {
+   public int j(World var1, class_cj var2) {
       IBlockData var3 = var1.p(var2);
-      return var3.getBlock().c(var3);
+      return var3.getBlock().toLegacyData(var3);
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_ajh.class_a_in_class_ajh.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_ajh.class_a_in_class_ajh.a(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_ajh.class_a_in_class_ajh)var1.get(a)).a();
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class
@@ -120,35 +120,35 @@ public class class_ajh extends Block {
       }
    }
 
-   public static enum class_a_in_class_ajh implements class_ny {
+   public static enum class_a_in_class_ajh implements INamable {
       a(0, "stone") {
          public IBlockData d() {
-            return class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.a);
+            return Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE);
          }
       },
       b(1, "cobblestone", "cobble") {
          public IBlockData d() {
-            return class_agk.e.S();
+            return Blocks.COBBLESTONE.getBlockData();
          }
       },
       c(2, "stone_brick", "brick") {
          public IBlockData d() {
-            return class_agk.bf.S().set(class_ali.a, class_ali.class_a_in_class_ali.a);
+            return Blocks.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.a);
          }
       },
       d(3, "mossy_brick", "mossybrick") {
          public IBlockData d() {
-            return class_agk.bf.S().set(class_ali.a, class_ali.class_a_in_class_ali.b);
+            return Blocks.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.b);
          }
       },
       e(4, "cracked_brick", "crackedbrick") {
          public IBlockData d() {
-            return class_agk.bf.S().set(class_ali.a, class_ali.class_a_in_class_ali.c);
+            return Blocks.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.c);
          }
       },
       f(5, "chiseled_brick", "chiseledbrick") {
          public IBlockData d() {
-            return class_agk.bf.S().set(class_ali.a, class_ali.class_a_in_class_ali.d);
+            return Blocks.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.d);
          }
       };
 
@@ -183,7 +183,7 @@ public class class_ajh extends Block {
          return g[var0];
       }
 
-      public String l() {
+      public String getName() {
          return this.i;
       }
 

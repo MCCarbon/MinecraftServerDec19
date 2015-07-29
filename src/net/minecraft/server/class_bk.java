@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amj;
 import net.minecraft.server.class_amx;
@@ -90,7 +90,7 @@ public class class_bk extends class_i {
          if(var6 == null) {
             throw new class_bz("commands.stats.failed", new Object[0]);
          } else {
-            class_aen var7 = var1.e();
+            World var7 = var1.e();
             class_n var8;
             class_cj var9;
             class_amg var10;

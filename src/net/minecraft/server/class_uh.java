@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_pc;
@@ -25,7 +25,7 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xm;
 
 public class class_uh extends class_ua implements class_wk {
-   public class_uh(class_aen var1) {
+   public class_uh(World var1) {
       super(var1);
       this.a(0.7F, 1.9F);
       ((class_tf)this.u()).a(true);
@@ -61,23 +61,23 @@ public class class_uh extends class_ua implements class_wk {
             var2 = class_nu.c(this.t);
             var3 = class_nu.c(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
             class_cj var5 = new class_cj(var1, var2, var3);
-            if(this.o.p(var5).getBlock().v() == class_atk.a && this.o.b(new class_cj(var1, 0, var3)).a(var5) < 0.8F && class_agk.aH.d(this.o, var5)) {
-               this.o.a(var5, class_agk.aH.S());
+            if(this.o.p(var5).getBlock().getMaterial() == Material.a && this.o.b(new class_cj(var1, 0, var3)).a(var5) < 0.8F && Blocks.SNOW_LAYER.d(this.o, var5)) {
+               this.o.a(var5, Blocks.SNOW_LAYER.getBlockData());
             }
          }
       }
 
    }
 
-   protected class_aar D() {
-      return class_aau.aF;
+   protected Item D() {
+      return Items.aF;
    }
 
    protected void b(boolean var1, int var2) {
       int var3 = this.V.nextInt(16);
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.aF, 1);
+         this.a(Items.aF, 1);
       }
 
    }

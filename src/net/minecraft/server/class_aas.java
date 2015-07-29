@@ -4,14 +4,14 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import java.text.DecimalFormat;
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_abf;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.class_adg;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -38,7 +38,7 @@ public final class class_aas {
    public static final DecimalFormat a = new DecimalFormat("#.###");
    public int b;
    public int c;
-   private class_aar d;
+   private Item d;
    private class_dn e;
    private int f;
    private class_va g;
@@ -56,18 +56,18 @@ public final class class_aas {
    }
 
    public class_aas(Block var1, int var2, int var3) {
-      this(class_aar.a(var1), var2, var3);
+      this(Item.getByBlock(var1), var2, var3);
    }
 
-   public class_aas(class_aar var1) {
-      this((class_aar)var1, 1);
+   public class_aas(Item var1) {
+      this((Item)var1, 1);
    }
 
-   public class_aas(class_aar var1, int var2) {
-      this((class_aar)var1, var2, 0);
+   public class_aas(Item var1, int var2) {
+      this((Item)var1, var2, 0);
    }
 
-   public class_aas(class_aar var1, int var2, int var3) {
+   public class_aas(Item var1, int var2, int var3) {
       this.h = null;
       this.i = false;
       this.j = null;
@@ -104,14 +104,14 @@ public final class class_aas {
       return var2;
    }
 
-   public class_aar b() {
+   public Item b() {
       return this.d;
    }
 
-   public class_oq a(class_xa var1, class_aen var2, class_cj var3, class_oo var4, class_cq var5, float var6, float var7, float var8) {
+   public class_oq a(class_xa var1, World var2, class_cj var3, class_oo var4, class_cq var5, float var6, float var7, float var8) {
       class_oq var9 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
       if(var9 == class_oq.a) {
-         var1.b(class_nc.ad[class_aar.b(this.d)]);
+         var1.b(class_nc.ad[Item.getId(this.d)]);
       }
 
       return var9;
@@ -121,16 +121,16 @@ public final class class_aas {
       return this.b().a(this, var1);
    }
 
-   public class_or a(class_aen var1, class_xa var2, class_oo var3) {
+   public class_or a(World var1, class_xa var2, class_oo var3) {
       return this.b().a(this, var1, var2, var3);
    }
 
-   public class_aas a(class_aen var1, class_qa var2) {
+   public class_aas a(World var1, class_qa var2) {
       return this.b().a(this, var1, var2);
    }
 
    public class_dn b(class_dn var1) {
-      MinecraftKey var2 = (MinecraftKey)class_aar.e.getKey(this.d);
+      MinecraftKey var2 = (MinecraftKey)Item.ITEM_REGISTRY.getKey(this.d);
       var1.a("id", var2 == null?"minecraft:air":var2.toString());
       var1.a("Count", (byte)this.b);
       var1.a("Damage", (short)this.f);
@@ -143,9 +143,9 @@ public final class class_aas {
 
    public void c(class_dn var1) {
       if(var1.b("id", 8)) {
-         this.d = class_aar.d(var1.k("id"));
+         this.d = Item.getByName(var1.k("id"));
       } else {
-         this.d = class_aar.c(var1.f("id"));
+         this.d = Item.getById(var1.f("id"));
       }
 
       this.b = var1.e("Count");
@@ -236,7 +236,7 @@ public final class class_aas {
                --this.b;
                if(var2 instanceof class_xa) {
                   class_xa var3 = (class_xa)var2;
-                  var3.b(class_nc.ae[class_aar.b(this.d)]);
+                  var3.b(class_nc.ae[Item.getId(this.d)]);
                }
 
                if(this.b < 0) {
@@ -253,15 +253,15 @@ public final class class_aas {
    public void a(class_qa var1, class_xa var2) {
       boolean var3 = this.d.a(this, (class_qa)var1, var2);
       if(var3) {
-         var2.b(class_nc.ad[class_aar.b(this.d)]);
+         var2.b(class_nc.ad[Item.getId(this.d)]);
       }
 
    }
 
-   public void a(class_aen var1, Block var2, class_cj var3, class_xa var4) {
+   public void a(World var1, Block var2, class_cj var3, class_xa var4) {
       boolean var5 = this.d.a(this, var1, var2, var3, var4);
       if(var5) {
-         var4.b(class_nc.ad[class_aar.b(this.d)]);
+         var4.b(class_nc.ad[Item.getId(this.d)]);
       }
 
    }
@@ -315,7 +315,7 @@ public final class class_aas {
       return this.b + "x" + this.d.a() + "@" + this.f;
    }
 
-   public void a(class_aen var1, class_pr var2, int var3, boolean var4) {
+   public void a(World var1, class_pr var2, int var3, boolean var4) {
       if(this.c > 0) {
          --this.c;
       }
@@ -323,8 +323,8 @@ public final class class_aas {
       this.d.a(this, var1, var2, var3, var4);
    }
 
-   public void a(class_aen var1, class_xa var2, int var3) {
-      var2.a(class_nc.ac[class_aar.b(this.d)], var3);
+   public void a(World var1, class_xa var2, int var3) {
+      var2.a(class_nc.ac[Item.getId(this.d)], var3);
       this.d.b(this, var1, var2);
    }
 
@@ -336,7 +336,7 @@ public final class class_aas {
       return this.b().f(this);
    }
 
-   public void a(class_aen var1, class_qa var2, int var3) {
+   public void a(World var1, class_qa var2, int var3) {
       this.b().a(this, var1, var2, var3);
    }
 
@@ -497,7 +497,7 @@ public final class class_aas {
       return (Multimap)var2;
    }
 
-   public void a(class_aar var1) {
+   public void a(Item var1) {
       this.d = var1;
    }
 

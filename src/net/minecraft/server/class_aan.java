@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_abz;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_aan extends class_aar {
+public class class_aan extends Item {
    public final int a;
    private final int b;
    private final float c;
@@ -35,20 +35,20 @@ public class class_aan extends class_aar {
       this(var1, 0.6F, var2);
    }
 
-   public class_aas a(class_aas var1, class_aen var2, class_qa var3) {
+   public class_aas a(class_aas var1, World var2, class_qa var3) {
       --var1.b;
       if(var3 instanceof class_xa) {
          class_xa var4 = (class_xa)var3;
          var4.cn().a(this, var1);
          var2.a((class_pr)var4, "random.burp", 0.5F, var2.s.nextFloat() * 0.1F + 0.9F);
          this.a(var1, var2, var4);
-         var4.b(class_nc.ad[class_aar.b((class_aar)this)]);
+         var4.b(class_nc.ad[Item.getId((Item)this)]);
       }
 
       return var1;
    }
 
-   protected void a(class_aas var1, class_aen var2, class_xa var3) {
+   protected void a(class_aas var1, World var2, class_xa var3) {
       if(!var2.D && this.l != null && var2.s.nextFloat() < this.m) {
          var3.c(new class_pl(this.l));
       }
@@ -63,7 +63,7 @@ public class class_aan extends class_aar {
       return class_abz.b;
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       if(var3.j(this.k)) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);

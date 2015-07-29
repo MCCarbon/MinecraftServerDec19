@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.CreativeTab;
 
-public class class_zr extends class_aar {
+public class class_zr extends Item {
    public class_zr() {
       this.a(true);
       this.e(0);

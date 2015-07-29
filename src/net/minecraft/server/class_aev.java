@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajx;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anp;
@@ -47,7 +47,7 @@ public class class_aev {
                   int var12 = var4 + var10;
                   int var13 = var5 + var9 * var7 - var8 * var6;
                   boolean var14 = var10 < 0;
-                  this.a.a((class_cj)(new class_cj(var11, var12, var13)), (IBlockData)(var14?class_agk.Z.S():class_agk.a.S()));
+                  this.a.a((class_cj)(new class_cj(var11, var12, var13)), (IBlockData)(var14?Blocks.OBSIDIAN.getBlockData():Blocks.AIR.getBlockData()));
                }
             }
          }
@@ -79,8 +79,8 @@ public class class_aev {
             for(int var14 = -128; var14 <= 128; ++var14) {
                for(class_cj var15 = var30.a(var13, this.a.W() - 1 - var30.o(), var14); var15.o() >= 0; var15 = var16) {
                   var16 = var15.b();
-                  if(this.a.p(var15).getBlock() == class_agk.aY) {
-                     while(this.a.p(var16 = var15.b()).getBlock() == class_agk.aY) {
+                  if(this.a.p(var15).getBlock() == Blocks.PORTAL) {
+                     while(this.a.p(var16 = var15.b()).getBlock() == Blocks.PORTAL) {
                         var15 = var16;
                      }
 
@@ -104,7 +104,7 @@ public class class_aev {
          double var31 = (double)((class_cj)var9).n() + 0.5D;
          double var32 = (double)((class_cj)var9).o() + 0.5D;
          double var33 = (double)((class_cj)var9).p() + 0.5D;
-         class_anp.class_b_in_class_anp var18 = class_agk.aY.f(this.a, (class_cj)var9);
+         class_anp.class_b_in_class_anp var18 = Blocks.PORTAL.f(this.a, (class_cj)var9);
          boolean var19 = var18.b().e().c() == class_cq.class_b_in_class_cq.b;
          double var20 = var18.b().k() == class_cq.class_a_in_class_cq.a?(double)var18.a().p():(double)var18.a().n();
          var32 = (double)(var18.a().o() + 1) - var1.aI().b * (double)var18.e();
@@ -204,7 +204,7 @@ public class class_aev {
                               var28 = var20 + var26;
                               int var29 = var17 + (var25 - 1) * var23 - var24 * var22;
                               var13.c(var27, var28, var29);
-                              if(var26 < 0 && !this.a.p(var13).getBlock().v().a() || var26 >= 0 && !this.a.d(var13)) {
+                              if(var26 < 0 && !this.a.p(var13).getBlock().getMaterial().a() || var26 >= 0 && !this.a.d(var13)) {
                                  continue label293;
                               }
                            }
@@ -250,7 +250,7 @@ public class class_aev {
                               var27 = var20 + var25;
                               var28 = var17 + (var24 - 1) * var23;
                               var13.c(var26, var27, var28);
-                              if(var25 < 0 && !this.a.p(var13).getBlock().v().a() || var25 >= 0 && !this.a.d(var13)) {
+                              if(var25 < 0 && !this.a.p(var13).getBlock().getMaterial().a() || var25 >= 0 && !this.a.d(var13)) {
                                  continue label231;
                               }
                            }
@@ -293,13 +293,13 @@ public class class_aev {
                   var24 = var16 + var22;
                   var25 = var17 + (var21 - 1) * var19 - var20 * var31;
                   boolean var35 = var22 < 0;
-                  this.a.a((class_cj)(new class_cj(var23, var24, var25)), (IBlockData)(var35?class_agk.Z.S():class_agk.a.S()));
+                  this.a.a((class_cj)(new class_cj(var23, var24, var25)), (IBlockData)(var35?Blocks.OBSIDIAN.getBlockData():Blocks.AIR.getBlockData()));
                }
             }
          }
       }
 
-      IBlockData var32 = class_agk.aY.S().set(class_ajx.a, var31 != 0?class_cq.class_a_in_class_cq.a:class_cq.class_a_in_class_cq.c);
+      IBlockData var32 = Blocks.PORTAL.getBlockData().set(class_ajx.a, var31 != 0?class_cq.class_a_in_class_cq.a:class_cq.class_a_in_class_cq.c);
 
       for(var21 = 0; var21 < 4; ++var21) {
          for(var22 = 0; var22 < 4; ++var22) {
@@ -308,7 +308,7 @@ public class class_aev {
                var25 = var16 + var23;
                var26 = var17 + (var22 - 1) * var19;
                boolean var36 = var22 == 0 || var22 == 3 || var23 == -1 || var23 == 3;
-               this.a.a(new class_cj(var24, var25, var26), var36?class_agk.Z.S():var32, 2);
+               this.a.a(new class_cj(var24, var25, var26), var36?Blocks.OBSIDIAN.getBlockData():var32, 2);
             }
          }
 

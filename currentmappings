@@ -10,3 +10,17 @@ cs Registry
 anl IBlockData
 aoa IBlockState
 zu CreativeTab
+kc Bootstrap
+aar Item
+agk Blocks
+aau Items
+atk Material
+atl MaterialMapColor
+anm BlockStateList
+zg ItemBlock
+alh BlockStone
+alh$a BlockStone$EnumStoneVariant
+any BlockStateEnum
+di LocaleI18n
+ny INamable
+aen World

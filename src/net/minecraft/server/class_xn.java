@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pl;
@@ -13,15 +13,15 @@ import net.minecraft.server.class_xd;
 public class class_xn extends class_xd {
    private int f = 200;
 
-   public class_xn(class_aen var1) {
+   public class_xn(World var1) {
       super(var1);
    }
 
-   public class_xn(class_aen var1, class_qa var2) {
+   public class_xn(World var1, class_qa var2) {
       super(var1, var2);
    }
 
-   public class_xn(class_aen var1, double var2, double var4, double var6) {
+   public class_xn(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 
@@ -34,7 +34,7 @@ public class class_xn extends class_xd {
    }
 
    protected class_aas j() {
-      return new class_aas(class_aau.h);
+      return new class_aas(Items.h);
    }
 
    protected void b(class_qa var1) {

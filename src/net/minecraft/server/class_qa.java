@@ -9,19 +9,19 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.class_adk;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiz;
 import net.minecraft.server.class_alr;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_awp;
@@ -136,7 +136,7 @@ public abstract class class_qa extends class_pr {
       this.a(class_pc.j, Float.MAX_VALUE);
    }
 
-   public class_qa(class_aen var1) {
+   public class_qa(World var1) {
       super(var1);
       this.aY();
       this.i(this.bv());
@@ -172,14 +172,14 @@ public abstract class class_qa extends class_pr {
          IBlockData var6 = this.o.p(var5);
          Block var7 = var6.getBlock();
          float var8 = (float)class_nu.f(this.O - 3.0F);
-         if(var7.v() != class_atk.a) {
+         if(var7.getMaterial() != Material.a) {
             double var9 = (double)Math.min(0.2F + var8 / 15.0F, 10.0F);
             if(var9 > 2.5D) {
                var9 = 2.5D;
             }
 
             int var11 = (int)(150.0D * var9);
-            ((class_lg)this.o).a(class_cy.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{Block.f(var6)});
+            ((class_lg)this.o).a(class_cy.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{Block.getCombinedId(var6)});
          }
       }
 
@@ -212,7 +212,7 @@ public abstract class class_qa extends class_pr {
 
       boolean var7 = var1 && ((class_xa)this).bH.a;
       if(this.ai()) {
-         if(this.a((class_atk)class_atk.h)) {
+         if(this.a((Material)Material.h)) {
             if(!this.aZ() && !this.a(class_pm.m) && !var7) {
                this.i(this.j(this.aB()));
                if(this.aB() == -20) {
@@ -749,7 +749,7 @@ public abstract class class_qa extends class_pr {
          var6 = var6.a(-this.z * 3.1415927F / 180.0F);
          var6 = var6.b(-this.y * 3.1415927F / 180.0F);
          var6 = var6.b(this.s, this.t + (double)this.aU(), this.u);
-         this.o.a(class_cy.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[]{class_aar.b(var1.b())});
+         this.o.a(class_cy.K, var6.a, var6.b, var6.c, var3.a, var3.b + 0.05D, var3.c, new int[]{Item.getId(var1.b())});
       }
 
    }
@@ -830,14 +830,14 @@ public abstract class class_qa extends class_pr {
          class_cj var4 = new class_cj(var1, var2, var3);
          IBlockData var5 = this.o.p(var4);
          Block var6 = var5.getBlock();
-         return var6 != class_agk.au && var6 != class_agk.bn?var6 instanceof class_alr && this.a(var4, var5):true;
+         return var6 != Blocks.LADDER && var6 != Blocks.VINE?var6 instanceof class_alr && this.a(var4, var5):true;
       }
    }
 
    private boolean a(class_cj var1, IBlockData var2) {
       if(((Boolean)var2.get(class_alr.b)).booleanValue()) {
          IBlockData var3 = this.o.p(var1.b());
-         if(var3.getBlock() == class_agk.au && var3.get(class_aiz.a) == var2.get(class_alr.a)) {
+         if(var3.getBlock() == Blocks.LADDER && var3.get(class_aiz.a) == var2.get(class_alr.a)) {
             return true;
          }
       }
@@ -861,8 +861,8 @@ public abstract class class_qa extends class_pr {
          int var7 = class_nu.c(this.t - 0.20000000298023224D);
          int var8 = class_nu.c(this.u);
          Block var9 = this.o.p(new class_cj(var6, var7, var8)).getBlock();
-         if(var9.v() != class_atk.a) {
-            Block.StepSound var10 = var9.H;
+         if(var9.getMaterial() != Material.a) {
+            Block.StepSound var10 = var9.stepSound;
             this.a(var10.c(), var10.d() * 0.5F, var10.e() * 0.75F);
          }
       }
@@ -1097,12 +1097,12 @@ public abstract class class_qa extends class_pr {
                int var13 = (int)(this.u + (double)var11);
                class_awf var2 = this.aT().c((double)var10, 1.0D, (double)var11);
                if(this.o.a(var2).isEmpty()) {
-                  if(class_aen.a((class_aer)this.o, (class_cj)(new class_cj(var12, (int)this.t, var13)))) {
+                  if(World.a((class_aer)this.o, (class_cj)(new class_cj(var12, (int)this.t, var13)))) {
                      this.a(this.s + (double)var10, this.t + 1.0D, this.u + (double)var11);
                      return;
                   }
 
-                  if(class_aen.a((class_aer)this.o, (class_cj)(new class_cj(var12, (int)this.t - 1, var13))) || this.o.p(new class_cj(var12, (int)this.t - 1, var13)).getBlock().v() == class_atk.h) {
+                  if(World.a((class_aer)this.o, (class_cj)(new class_cj(var12, (int)this.t - 1, var13))) || this.o.p(new class_cj(var12, (int)this.t - 1, var13)).getBlock().getMaterial() == Material.h) {
                      var3 = this.s + (double)var10;
                      var5 = this.t + 1.0D;
                      var7 = this.u + (double)var11;
@@ -1178,7 +1178,7 @@ public abstract class class_qa extends class_pr {
          } else if(!this.ab() || this instanceof class_xa && ((class_xa)this).bH.b) {
             float var8 = 0.91F;
             if(this.C) {
-               var8 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.91F;
+               var8 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.91F;
             }
 
             float var4 = 0.16277136F / (var8 * var8 * var8);
@@ -1191,7 +1191,7 @@ public abstract class class_qa extends class_pr {
             this.a(var1, var2, var5);
             var8 = 0.91F;
             if(this.C) {
-               var8 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.91F;
+               var8 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.91F;
             }
 
             if(this.k_()) {
@@ -1728,9 +1728,9 @@ public abstract class class_qa extends class_pr {
                var7 = var7.b(-this.y * 3.1415927F / 180.0F);
                var7 = var7.b(this.s, this.t + (double)this.aU(), this.u);
                if(var1.f()) {
-                  this.o.a(class_cy.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{class_aar.b(var1.b()), var1.i()});
+                  this.o.a(class_cy.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.getId(var1.b()), var1.i()});
                } else {
-                  this.o.a(class_cy.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{class_aar.b(var1.b())});
+                  this.o.a(class_cy.K, var7.a, var7.b, var7.c, var4.a, var4.b + 0.05D, var4.c, new int[]{Item.getId(var1.b())});
                }
             }
 

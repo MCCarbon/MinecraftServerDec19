@@ -1,22 +1,22 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.CreativeTab;
 
 public class class_ajf extends Block {
    protected class_ajf() {
-      super(class_atk.C, class_atl.u);
+      super(Material.C, MaterialMapColor.u);
       this.a(CreativeTab.b);
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aau.bh;
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Items.bh;
    }
 
    public int a(Random var1) {

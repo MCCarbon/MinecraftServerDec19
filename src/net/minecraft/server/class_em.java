@@ -20,7 +20,7 @@ import java.nio.channels.GatheringByteChannel;
 import java.nio.channels.ScatteringByteChannel;
 import java.nio.charset.Charset;
 import java.util.UUID;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -167,7 +167,7 @@ public class class_em extends ByteBuf {
 		if (var1 == null) {
 			this.writeShort(-1);
 		} else {
-			this.writeShort(class_aar.b(var1.b()));
+			this.writeShort(Item.getId(var1.b()));
 			this.writeByte(var1.b);
 			this.writeShort(var1.i());
 			class_dn var2 = null;
@@ -186,7 +186,7 @@ public class class_em extends ByteBuf {
 		if (var2 >= 0) {
 			byte var3 = this.readByte();
 			short var4 = this.readShort();
-			var1 = new class_aas(class_aar.c(var2), var3, var4);
+			var1 = new class_aas(Item.getById(var2), var3, var4);
 			var1.d(this.h());
 		}
 

@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aee;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -13,10 +13,10 @@ import net.minecraft.server.class_kn;
 public class class_amv extends class_amg implements class_kn {
    private final class_aee a = new class_aee() {
       public void a(int var1) {
-         class_amv.this.b.c(class_amv.this.c, class_agk.ac, var1, 0);
+         class_amv.this.b.c(class_amv.this.c, Blocks.MOB_SPAWNER, var1, 0);
       }
 
-      public class_aen a() {
+      public World a() {
          return class_amv.this.b;
       }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
@@ -17,7 +17,7 @@ public class class_fv implements class_ff {
    public class_fv() {
    }
 
-   public class_fv(class_aen var1, class_cj var2) {
+   public class_fv(World var1, class_cj var2) {
       this.a = var2;
       this.b = var1.p(var2);
    }

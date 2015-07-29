@@ -2,57 +2,57 @@ package net.minecraft.server;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
+import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public class class_ajw extends Block {
-	public static final class_any a = class_any.a("variant", class_ajw.class_a_in_class_ajw.class);
+	public static final BlockStateEnum a = BlockStateEnum.of("variant", class_ajw.class_a_in_class_ajw.class);
 
 	public class_ajw() {
-		super(class_atk.d);
-		this.j(this.M.b().set(a, class_ajw.class_a_in_class_ajw.a));
+		super(Material.d);
+		this.setBlockData(this.blockStateList.getFirst().set(a, class_ajw.class_a_in_class_ajw.a));
 		this.a(CreativeTab.b);
 	}
 
-	public int a(IBlockData var1) {
+	public int getDropData(IBlockData var1) {
 		return ((class_ajw.class_a_in_class_ajw) var1.get(a)).a();
 	}
 
-	public IBlockData a(int var1) {
-		return this.S().set(a, class_ajw.class_a_in_class_ajw.a(var1));
+	public IBlockData fromLegacyData(int var1) {
+		return this.getBlockData().set(a, class_ajw.class_a_in_class_ajw.a(var1));
 	}
 
-	public class_atl g(IBlockData var1) {
+	public MaterialMapColor getMapColor(IBlockData var1) {
 		return ((class_ajw.class_a_in_class_ajw) var1.get(a)).c();
 	}
 
-	public int c(IBlockData var1) {
+	public int toLegacyData(IBlockData var1) {
 		return ((class_ajw.class_a_in_class_ajw) var1.get(a)).a();
 	}
 
-	protected class_anm e() {
-		return new class_anm(this, new IBlockState[] { a });
+	protected BlockStateList createBlockStateList() {
+		return new BlockStateList(this, new IBlockState[] { a });
 	}
 
-	public static enum class_a_in_class_ajw implements class_ny {
-		a(0, "oak", class_atl.o), b(1, "spruce", class_atl.J), c(2, "birch", class_atl.d), d(3, "jungle", class_atl.l), e(4, "acacia", class_atl.q), f(5, "dark_oak", "big_oak", class_atl.B);
+	public static enum class_a_in_class_ajw implements INamable {
+		a(0, "oak", MaterialMapColor.o), b(1, "spruce", MaterialMapColor.J), c(2, "birch", MaterialMapColor.d), d(3, "jungle", MaterialMapColor.l), e(4, "acacia", MaterialMapColor.q), f(5, "dark_oak", "big_oak", MaterialMapColor.B);
 
 		private static final class_ajw.class_a_in_class_ajw[] g;
 		private final int h;
 		private final String i;
 		private final String j;
-		private final class_atl k;
+		private final MaterialMapColor k;
 
-		private class_a_in_class_ajw(int var3, String var4, class_atl var5) {
+		private class_a_in_class_ajw(int var3, String var4, MaterialMapColor var5) {
 			this(var3, var4, var4, var5);
 		}
 
-		private class_a_in_class_ajw(int var3, String var4, String var5, class_atl var6) {
+		private class_a_in_class_ajw(int var3, String var4, String var5, MaterialMapColor var6) {
 			this.h = var3;
 			this.i = var4;
 			this.j = var5;
@@ -63,7 +63,7 @@ public class class_ajw extends Block {
 			return this.h;
 		}
 
-		public class_atl c() {
+		public MaterialMapColor c() {
 			return this.k;
 		}
 
@@ -79,7 +79,7 @@ public class class_ajw extends Block {
 			return g[var0];
 		}
 
-		public String l() {
+		public String getName() {
 			return this.i;
 		}
 

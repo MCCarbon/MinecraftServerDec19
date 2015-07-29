@@ -3,43 +3,43 @@ package net.minecraft.server;
 import com.google.common.cache.LoadingCache;
 import java.util.Random;
 import net.minecraft.server.class_abt;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiq;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_ano;
 import net.minecraft.server.class_anp;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_pr;
 
 public class class_ajx extends class_aiq {
-   public static final class_any a;
+   public static final BlockStateEnum a;
 
    public class_ajx() {
-      super(class_atk.E, false);
-      this.j(this.M.b().set(a, class_cq.class_a_in_class_cq.a));
-      this.a(true);
+      super(Material.E, false);
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.class_a_in_class_cq.a));
+      this.setTicking(true);
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       super.b(var1, var2, var3, var4);
       if(var1.t.d() && var1.R().b("doMobSpawning") && var4.nextInt(2000) < var1.ab().a()) {
          int var5 = var2.o();
 
          class_cj var6;
-         for(var6 = var2; !class_aen.a((class_aer)var1, (class_cj)var6) && var6.o() > 0; var6 = var6.b()) {
+         for(var6 = var2; !World.a((class_aer)var1, (class_cj)var6) && var6.o() > 0; var6 = var6.b()) {
             ;
          }
 
-         if(var5 > 0 && !var1.p(var6.a()).getBlock().x()) {
+         if(var5 > 0 && !var1.p(var6.a()).getBlock().isOccluding()) {
             class_pr var7 = class_abt.a(var1, 57, (double)var6.n() + 0.5D, (double)var6.o() + 1.1D, (double)var6.p() + 0.5D);
             if(var7 != null) {
                var7.aj = var7.aq();
@@ -49,7 +49,7 @@ public class class_ajx extends class_aiq {
 
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
@@ -65,18 +65,18 @@ public class class_ajx extends class_aiq {
          var5 = 0.5F;
       }
 
-      this.a(0.5F - var4, 0.0F, 0.5F - var5, 0.5F + var4, 1.0F, 0.5F + var5);
+      this.setSizes(0.5F - var4, 0.0F, 0.5F - var5, 0.5F + var4, 1.0F, 0.5F + var5);
    }
 
    public static int a(class_cq.class_a_in_class_cq var0) {
       return var0 == class_cq.class_a_in_class_cq.a?1:(var0 == class_cq.class_a_in_class_cq.c?2:0);
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean e(class_aen var1, class_cj var2) {
+   public boolean e(World var1, class_cj var2) {
       class_ajx.class_a_in_class_ajx var3 = new class_ajx.class_a_in_class_ajx(var1, var2, class_cq.class_a_in_class_cq.a);
       if(var3.d() && var3.e == 0) {
          var3.e();
@@ -92,18 +92,18 @@ public class class_ajx extends class_aiq {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       class_cq.class_a_in_class_cq var5 = (class_cq.class_a_in_class_cq)var3.get(a);
       class_ajx.class_a_in_class_ajx var6;
       if(var5 == class_cq.class_a_in_class_cq.a) {
          var6 = new class_ajx.class_a_in_class_ajx(var1, var2, class_cq.class_a_in_class_cq.a);
          if(!var6.d() || var6.e < var6.h * var6.g) {
-            var1.a(var2, class_agk.a.S());
+            var1.a(var2, Blocks.AIR.getBlockData());
          }
       } else if(var5 == class_cq.class_a_in_class_cq.c) {
          var6 = new class_ajx.class_a_in_class_ajx(var1, var2, class_cq.class_a_in_class_cq.c);
          if(!var6.d() || var6.e < var6.h * var6.g) {
-            var1.a(var2, class_agk.a.S());
+            var1.a(var2, Blocks.AIR.getBlockData());
          }
       }
 
@@ -113,18 +113,18 @@ public class class_ajx extends class_aiq {
       return 0;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
       if(var4.m == null && var4.l == null) {
          var4.d(var2);
       }
 
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, (var1 & 3) == 2?class_cq.class_a_in_class_cq.c:class_cq.class_a_in_class_cq.a);
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, (var1 & 3) == 2?class_cq.class_a_in_class_cq.c:class_cq.class_a_in_class_cq.a);
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return a((class_cq.class_a_in_class_cq)var1.get(a));
    }
 
@@ -149,11 +149,11 @@ public class class_ajx extends class_aiq {
       }
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public class_anp.class_b_in_class_anp f(class_aen var1, class_cj var2) {
+   public class_anp.class_b_in_class_anp f(World var1, class_cj var2) {
       class_cq.class_a_in_class_cq var3 = class_cq.class_a_in_class_cq.c;
       class_ajx.class_a_in_class_ajx var4 = new class_ajx.class_a_in_class_ajx(var1, var2, class_cq.class_a_in_class_cq.a);
       LoadingCache var5 = class_anp.a(var1, true);
@@ -179,7 +179,7 @@ public class class_ajx extends class_aiq {
             for(int var14 = 0; var14 < var4.b(); ++var14) {
                for(int var15 = 0; var15 < var4.a(); ++var15) {
                   class_ano var16 = var13.a(var14, var15, 1);
-                  if(var16.a() != null && var16.a().getBlock().v() != class_atk.a) {
+                  if(var16.a() != null && var16.a().getBlock().getMaterial() != Material.a) {
                      ++var6[var12.ordinal()];
                   }
                }
@@ -202,7 +202,7 @@ public class class_ajx extends class_aiq {
    }
 
    static {
-      a = class_any.a("axis", class_cq.class_a_in_class_cq.class, (Enum[])(new class_cq.class_a_in_class_cq[]{class_cq.class_a_in_class_cq.a, class_cq.class_a_in_class_cq.c}));
+      a = BlockStateEnum.a("axis", class_cq.class_a_in_class_cq.class, (Enum[])(new class_cq.class_a_in_class_cq[]{class_cq.class_a_in_class_cq.a, class_cq.class_a_in_class_cq.c}));
    }
 
    // $FF: synthetic class
@@ -243,7 +243,7 @@ public class class_ajx extends class_aiq {
    }
 
    public static class class_a_in_class_ajx {
-      private final class_aen a;
+      private final World a;
       private final class_cq.class_a_in_class_cq b;
       private final class_cq c;
       private final class_cq d;
@@ -252,7 +252,7 @@ public class class_ajx extends class_aiq {
       private int g;
       private int h;
 
-      public class_a_in_class_ajx(class_aen var1, class_cj var2, class_cq.class_a_in_class_cq var3) {
+      public class_a_in_class_ajx(World var1, class_cj var2, class_cq.class_a_in_class_cq var3) {
          this.a = var1;
          this.b = var3;
          if(var3 == class_cq.class_a_in_class_cq.a) {
@@ -287,13 +287,13 @@ public class class_ajx extends class_aiq {
          int var3;
          for(var3 = 0; var3 < 22; ++var3) {
             class_cj var4 = var1.a(var2, var3);
-            if(!this.a(this.a.p(var4).getBlock()) || this.a.p(var4.b()).getBlock() != class_agk.Z) {
+            if(!this.a(this.a.p(var4).getBlock()) || this.a.p(var4.b()).getBlock() != Blocks.OBSIDIAN) {
                break;
             }
          }
 
          Block var5 = this.a.p(var1.a(var2, var3)).getBlock();
-         return var5 == class_agk.Z?var3:0;
+         return var5 == Blocks.OBSIDIAN?var3:0;
       }
 
       public int a() {
@@ -315,18 +315,18 @@ public class class_ajx extends class_aiq {
                   break label56;
                }
 
-               if(var3 == class_agk.aY) {
+               if(var3 == Blocks.PORTAL) {
                   ++this.e;
                }
 
                if(var1 == 0) {
                   var3 = this.a.p(var2.a(this.d)).getBlock();
-                  if(var3 != class_agk.Z) {
+                  if(var3 != Blocks.OBSIDIAN) {
                      break label56;
                   }
                } else if(var1 == this.h - 1) {
                   var3 = this.a.p(var2.a(this.c)).getBlock();
-                  if(var3 != class_agk.Z) {
+                  if(var3 != Blocks.OBSIDIAN) {
                      break label56;
                   }
                }
@@ -334,7 +334,7 @@ public class class_ajx extends class_aiq {
          }
 
          for(var1 = 0; var1 < this.h; ++var1) {
-            if(this.a.p(this.f.a(this.c, var1).b(this.g)).getBlock() != class_agk.Z) {
+            if(this.a.p(this.f.a(this.c, var1).b(this.g)).getBlock() != Blocks.OBSIDIAN) {
                this.g = 0;
                break;
             }
@@ -351,7 +351,7 @@ public class class_ajx extends class_aiq {
       }
 
       protected boolean a(Block var1) {
-         return var1.J == class_atk.a || var1 == class_agk.ab || var1 == class_agk.aY;
+         return var1.material == Material.a || var1 == Blocks.FIRE || var1 == Blocks.PORTAL;
       }
 
       public boolean d() {
@@ -363,7 +363,7 @@ public class class_ajx extends class_aiq {
             class_cj var2 = this.f.a(this.c, var1);
 
             for(int var3 = 0; var3 < this.g; ++var3) {
-               this.a.a((class_cj)var2.b(var3), (IBlockData)class_agk.aY.S().set(class_ajx.a, this.b), 2);
+               this.a.a((class_cj)var2.b(var3), (IBlockData)Blocks.PORTAL.getBlockData().set(class_ajx.a, this.b), 2);
             }
          }
 

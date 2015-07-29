@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.collect.Maps;
 import java.util.Map;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_arx;
 import net.minecraft.server.class_ary;
 import net.minecraft.server.class_asa;
@@ -48,7 +48,7 @@ public class class_asl {
       return (String)e.get(var0.getClass());
    }
 
-   public static class_aso a(class_dn var0, class_aen var1) {
+   public static class_aso a(class_dn var0, World var1) {
       class_aso var2 = null;
 
       try {
@@ -70,7 +70,7 @@ public class class_asl {
       return var2;
    }
 
-   public static class_asn b(class_dn var0, class_aen var1) {
+   public static class_asn b(class_dn var0, World var1) {
       class_asn var2 = null;
 
       try {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
 import net.minecraft.server.class_pw;
@@ -25,6 +25,6 @@ public class class_adh extends class_adi {
    }
 
    public boolean a(class_aas var1) {
-      return var1.b() == class_aau.bg?true:super.a(var1);
+      return var1.b() == Items.bg?true:super.a(var1);
    }
 }

@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nc;
@@ -14,12 +14,12 @@ import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_zk extends class_aar {
+public class class_zk extends Item {
    public class_zk() {
       this.a(CreativeTab.k);
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       class_awg var5 = this.a(var2, var3, true);
       if(var5 == null) {
          return new class_or(class_oq.b, var1);
@@ -34,15 +34,15 @@ public class class_zk extends class_aar {
                return new class_or(class_oq.b, var1);
             }
 
-            if(var2.p(var6).getBlock().v() == class_atk.h) {
+            if(var2.p(var6).getBlock().getMaterial() == Material.h) {
                --var1.b;
-               var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
+               var3.b(class_nc.ad[Item.getId((Item)this)]);
                if(var1.b <= 0) {
-                  return new class_or(class_oq.a, new class_aas(class_aau.bB));
+                  return new class_or(class_oq.a, new class_aas(Items.bB));
                }
 
-               if(!var3.bp.a(new class_aas(class_aau.bB))) {
-                  var3.a(new class_aas(class_aau.bB), false);
+               if(!var3.bp.a(new class_aas(Items.bB))) {
+                  var3.a(new class_aas(Items.bB), false);
                }
 
                return new class_or(class_oq.a, var1);

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apd;
 import net.minecraft.server.class_cj;
@@ -16,7 +16,7 @@ public class class_uq extends class_pr {
    public int b;
    private static final int c = class_qi.a(class_uq.class);
 
-   public class_uq(class_aen var1) {
+   public class_uq(World var1) {
       super(var1);
       this.k = true;
       this.a(2.0F, 2.0F);
@@ -40,8 +40,8 @@ public class class_uq extends class_pr {
       this.ac.b(c, Integer.valueOf(this.b));
       if(!this.o.D) {
          class_cj var1 = new class_cj(this);
-         if(this.o.t instanceof class_apd && this.o.p(var1).getBlock() != class_agk.ab) {
-            this.o.a(var1, class_agk.ab.S());
+         if(this.o.t instanceof class_apd && this.o.p(var1).getBlock() != Blocks.FIRE) {
+            this.o.a(var1, Blocks.FIRE.getBlockData());
          }
       }
 

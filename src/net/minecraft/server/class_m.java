@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_eu;
@@ -20,7 +20,7 @@ public interface class_m {
 
    class_awh d();
 
-   class_aen e();
+   World e();
 
    class_pr f();
 

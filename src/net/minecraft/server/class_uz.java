@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahh;
 import net.minecraft.server.class_awf;
@@ -19,12 +19,12 @@ public abstract class class_uz extends class_pr {
    protected class_cj a;
    public class_cq b;
 
-   public class_uz(class_aen var1) {
+   public class_uz(World var1) {
       super(var1);
       this.a(0.5F, 0.5F);
    }
 
-   public class_uz(class_aen var1, class_cj var2) {
+   public class_uz(World var1, class_cj var2) {
       this(var1);
       this.a = var2;
    }
@@ -104,7 +104,7 @@ public abstract class class_uz extends class_pr {
             for(int var6 = 0; var6 < var2; ++var6) {
                class_cj var7 = var3.a(var4, var5).b(var6);
                Block var8 = this.o.p(var7).getBlock();
-               if(!var8.v().a() && !class_ahh.d(var8)) {
+               if(!var8.getMaterial().a() && !class_ahh.d(var8)) {
                   return false;
                }
             }

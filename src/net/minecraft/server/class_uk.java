@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pp;
@@ -9,7 +9,7 @@ import net.minecraft.server.class_qb;
 import net.minecraft.server.class_xa;
 
 public abstract class class_uk extends class_qb implements class_pp {
-   public class_uk(class_aen var1) {
+   public class_uk(World var1) {
       super(var1);
    }
 

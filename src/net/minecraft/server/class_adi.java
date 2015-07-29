@@ -22,7 +22,7 @@ import net.minecraft.server.class_adu;
 import net.minecraft.server.class_adv;
 import net.minecraft.server.class_adw;
 import net.minecraft.server.RegistryMaterials;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -31,7 +31,7 @@ import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qf;
 
 public abstract class class_adi {
-   public static final RegistryMaterials b = new RegistryMaterials();
+   public static final RegistryMaterials<MinecraftKey, class_adi> b = new RegistryMaterials<MinecraftKey, class_adi>();
    private final class_pw[] a;
    private final class_adi.class_a_in_class_adi e;
    public class_adj c;
@@ -55,8 +55,8 @@ public abstract class class_adi {
       this.a = var3;
    }
 
-   public Iterable a(class_qa var1) {
-      ArrayList var2 = Lists.newArrayList();
+   public Iterable<?> a(class_qa var1) {
+      ArrayList<class_aas> var2 = Lists.newArrayList();
       class_pw[] var3 = this.a;
       int var4 = var3.length;
 
@@ -113,8 +113,8 @@ public abstract class class_adi {
    }
 
    public String d(int var1) {
-      String var2 = class_di.a(this.a());
-      return var2 + " " + class_di.a("enchantment.level." + var1);
+      String var2 = LocaleI18n.get(this.a());
+      return var2 + " " + LocaleI18n.get("enchantment.level." + var1);
    }
 
    public boolean a(class_aas var1) {

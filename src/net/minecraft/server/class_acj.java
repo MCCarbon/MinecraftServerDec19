@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.class_act;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ame;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
@@ -20,7 +20,7 @@ public class class_acj {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          class_zy var5 = var2[var4];
-         var1.a(new class_aas(class_aau.cH, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new class_aas(class_agk.L, 1, var5.a()), Character.valueOf('|'), class_aau.A});
+         var1.a(new class_aas(Items.cH, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new class_aas(Blocks.WOOL, 1, var5.a()), Character.valueOf('|'), Items.A});
       }
 
       var1.a(new class_acj.class_b_in_class_acj());
@@ -35,12 +35,12 @@ public class class_acj {
       private class_a_in_class_acj() {
       }
 
-      public boolean a(class_yg var1, class_aen var2) {
+      public boolean a(class_yg var1, World var2) {
          boolean var3 = false;
 
          for(int var4 = 0; var4 < var1.o_(); ++var4) {
             class_aas var5 = var1.a(var4);
-            if(var5 != null && var5.b() == class_aau.cH) {
+            if(var5 != null && var5.b() == Items.cH) {
                if(var3) {
                   return false;
                }
@@ -65,7 +65,7 @@ public class class_acj {
 
          for(int var3 = 0; var3 < var1.o_(); ++var3) {
             class_aas var4 = var1.a(var3);
-            if(var4 != null && var4.b() == class_aau.cH) {
+            if(var4 != null && var4.b() == Items.cH) {
                var2 = var4.k();
                var2.b = 1;
                break;
@@ -79,7 +79,7 @@ public class class_acj {
             class_aas var6;
             for(int var5 = 0; var5 < var1.o_(); ++var5) {
                var6 = var1.a(var5);
-               if(var6 != null && var6.b() == class_aau.aY) {
+               if(var6 != null && var6.b() == Items.aY) {
                   var9 = var6.i();
                   break;
                }
@@ -140,8 +140,8 @@ public class class_acj {
 
                   for(var9 = 0; var9 < var1.o_() && var6; ++var9) {
                      class_aas var10 = var1.a(var9);
-                     if(var10 != null && var10.b() != class_aau.cH) {
-                        if(var10.b() == class_aau.aY) {
+                     if(var10 != null && var10.b() != Items.cH) {
+                        if(var10.b() == Items.aY) {
                            if(var8) {
                               var6 = false;
                               break;
@@ -169,8 +169,8 @@ public class class_acj {
                      var9 = var13 / 3;
                      int var14 = var13 % 3;
                      class_aas var11 = var1.a(var13);
-                     if(var11 != null && var11.b() != class_aau.cH) {
-                        if(var11.b() != class_aau.aY) {
+                     if(var11 != null && var11.b() != Items.cH) {
+                        if(var11.b() != Items.aY) {
                            var6 = false;
                            break;
                         }
@@ -214,14 +214,14 @@ public class class_acj {
       private class_b_in_class_acj() {
       }
 
-      public boolean a(class_yg var1, class_aen var2) {
+      public boolean a(class_yg var1, World var2) {
          class_aas var3 = null;
          class_aas var4 = null;
 
          for(int var5 = 0; var5 < var1.o_(); ++var5) {
             class_aas var6 = var1.a(var5);
             if(var6 != null) {
-               if(var6.b() != class_aau.cH) {
+               if(var6.b() != Items.cH) {
                   return false;
                }
 

@@ -3,9 +3,9 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_agv;
 import net.minecraft.server.class_ahx;
 import net.minecraft.server.IBlockData;
@@ -16,7 +16,7 @@ import net.minecraft.server.class_aqj;
 import net.minecraft.server.class_arx;
 import net.minecraft.server.class_ata;
 import net.minecraft.server.class_ate;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_nw;
@@ -29,7 +29,7 @@ public class class_apq implements class_aoh {
    private class_ata i;
    public class_ata a;
    public class_ata b;
-   private class_aen j;
+   private World j;
    private class_arx k = new class_arx(this);
    private class_ate l;
    private double[] m;
@@ -39,7 +39,7 @@ public class class_apq implements class_aoh {
    double[] e;
    private class_aqj o = new class_aqj();
 
-   public class_apq(class_aen var1, long var2) {
+   public class_apq(World var1, long var2) {
       this.j = var1;
       this.f = new Random(var2);
       this.g = new class_ata(this.f, 16);
@@ -85,7 +85,7 @@ public class class_apq implements class_aoh {
                      for(int var47 = 0; var47 < 8; ++var47) {
                         IBlockData var48 = null;
                         if(var43 > 0.0D) {
-                           var48 = class_agk.bH.S();
+                           var48 = Blocks.END_STONE.getBlockData();
                         }
 
                         int var49 = var40 + var8 * 8;
@@ -115,18 +115,18 @@ public class class_apq implements class_aoh {
          for(int var3 = 0; var3 < 16; ++var3) {
             byte var4 = 1;
             int var5 = -1;
-            IBlockData var6 = class_agk.bH.S();
-            IBlockData var7 = class_agk.bH.S();
+            IBlockData var6 = Blocks.END_STONE.getBlockData();
+            IBlockData var7 = Blocks.END_STONE.getBlockData();
 
             for(int var8 = 127; var8 >= 0; --var8) {
                IBlockData var9 = var1.a(var2, var8, var3);
-               if(var9.getBlock().v() == class_atk.a) {
+               if(var9.getBlock().getMaterial() == Material.a) {
                   var5 = -1;
-               } else if(var9.getBlock() == class_agk.b) {
+               } else if(var9.getBlock() == Blocks.STONE) {
                   if(var5 == -1) {
                      if(var4 <= 0) {
-                        var6 = class_agk.a.S();
-                        var7 = class_agk.bH.S();
+                        var6 = Blocks.AIR.getBlockData();
+                        var7 = Blocks.END_STONE.getBlockData();
                      }
 
                      var5 = var4;
@@ -290,7 +290,7 @@ public class class_apq implements class_aoh {
             int var10 = this.j.m(var4.a(var8, 0, var9)).o();
             if(var10 > 0) {
                int var11 = var10 - 1;
-               if(this.j.d(var4.a(var8, var11 + 1, var9)) && this.j.p(var4.a(var8, var11, var9)).getBlock() == class_agk.bH) {
+               if(this.j.d(var4.a(var8, var11 + 1, var9)) && this.j.p(var4.a(var8, var11, var9)).getBlock() == Blocks.END_STONE) {
                   class_agv.a(this.j, var4.a(var8, var11 + 1, var9), this.f, 8);
                }
             }
@@ -327,7 +327,7 @@ public class class_apq implements class_aoh {
       return this.j.b(var2).a(var1);
    }
 
-   public class_cj a(class_aen var1, String var2, class_cj var3) {
+   public class_cj a(World var1, String var2, class_cj var3) {
       return null;
    }
 

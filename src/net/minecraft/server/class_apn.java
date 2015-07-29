@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aph;
 
 public class class_apn {
    protected int a = 8;
    protected Random b = new Random();
-   protected class_aen c;
+   protected World c;
 
-   public void a(class_aoh var1, class_aen var2, int var3, int var4, class_aph var5) {
+   public void a(class_aoh var1, World var2, int var3, int var4, class_aph var5) {
       int var6 = this.a;
       this.c = var2;
       this.b.setSeed(var2.K());
@@ -28,6 +28,6 @@ public class class_apn {
 
    }
 
-   protected void a(class_aen var1, int var2, int var3, int var4, int var5, class_aph var6) {
+   protected void a(World var1, int var2, int var3, int var4, int var5, class_aph var6) {
    }
 }

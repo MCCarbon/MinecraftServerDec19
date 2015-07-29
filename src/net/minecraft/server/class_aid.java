@@ -1,75 +1,75 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agd;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aic;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.class_alm;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amq;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 
 public class class_aid extends class_agd {
    public static final class_anz a = class_anz.a("legacy_data", 0, 15);
-   public static final class_any b = class_any.a("contents", class_aid.class_a_in_class_aid.class);
+   public static final BlockStateEnum b = BlockStateEnum.of("contents", class_aid.class_a_in_class_aid.class);
 
    public class_aid() {
-      super(class_atk.q);
-      this.j(this.M.b().set(b, class_aid.class_a_in_class_aid.a).set(a, Integer.valueOf(0)));
+      super(Material.q);
+      this.setBlockData(this.blockStateList.getFirst().set(b, class_aid.class_a_in_class_aid.a).set(a, Integer.valueOf(0)));
       this.j();
    }
 
-   public String f() {
-      return class_di.a("item.flowerPot.name");
+   public String getName() {
+      return LocaleI18n.get("item.flowerPot.name");
    }
 
    public void j() {
       float var1 = 0.375F;
       float var2 = var1 / 2.0F;
-      this.a(0.5F - var2, 0.0F, 0.5F - var2, 0.5F + var2, var1, 0.5F + var2);
+      this.setSizes(0.5F - var2, 0.0F, 0.5F - var2, 0.5F + var2, var1, 0.5F + var2);
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public int b() {
+   public int getRenderType() {
       return 3;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
-      if(var6 != null && var6.b() instanceof class_zg) {
+   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+      if(var6 != null && var6.b() instanceof ItemBlock) {
          class_amq var11 = this.f(var1, var2);
          if(var11 == null) {
             return false;
          } else if(var11.b() != null) {
             return false;
          } else {
-            Block var12 = Block.a(var6.b());
+            Block var12 = Block.getByItem(var6.b());
             if(!this.a(var12, var6.i())) {
                return false;
             } else {
@@ -90,27 +90,27 @@ public class class_aid extends class_agd {
    }
 
    private boolean a(Block var1, int var2) {
-      return var1 != class_agk.N && var1 != class_agk.O && var1 != class_agk.aK && var1 != class_agk.P && var1 != class_agk.Q && var1 != class_agk.g && var1 != class_agk.I?var1 == class_agk.H && var2 == class_alm.class_a_in_class_alm.c.a():true;
+      return var1 != Blocks.YELLOW_FLOWER && var1 != Blocks.RED_FLOWER && var1 != Blocks.CACTUS && var1 != Blocks.BROWN_MUSHROOM && var1 != Blocks.RED_MUSHROOM && var1 != Blocks.SAPLING && var1 != Blocks.DEADBUSH?var1 == Blocks.TALLGRASS && var2 == class_alm.class_a_in_class_alm.c.a():true;
    }
 
-   public int j(class_aen var1, class_cj var2) {
+   public int j(World var1, class_cj var2) {
       class_amq var3 = this.f(var1, var2);
       return var3 != null && var3.b() != null?var3.c():0;
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
-      return super.d(var1, var2) && class_aen.a((class_aer)var1, (class_cj)var2.b());
+   public boolean d(World var1, class_cj var2) {
+      return super.d(var1, var2) && World.a((class_aer)var1, (class_cj)var2.b());
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
-      if(!class_aen.a((class_aer)var1, (class_cj)var2.b())) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+      if(!World.a((class_aer)var1, (class_cj)var2.b())) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
       }
 
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       class_amq var4 = this.f(var1, var2);
       if(var4 != null && var4.b() != null) {
          a(var1, var2, new class_aas(var4.b(), 1, var4.c()));
@@ -119,86 +119,86 @@ public class class_aid extends class_agd {
       super.b(var1, var2, var3);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, class_xa var4) {
       super.a(var1, var2, var3, var4);
       if(var4.bH.d) {
          class_amq var5 = this.f(var1, var2);
          if(var5 != null) {
-            var5.a((class_aar)null, 0);
+            var5.a((Item)null, 0);
          }
       }
 
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aau.bT;
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Items.bT;
    }
 
-   private class_amq f(class_aen var1, class_cj var2) {
+   private class_amq f(World var1, class_cj var2) {
       class_amg var3 = var1.s(var2);
       return var3 instanceof class_amq?(class_amq)var3:null;
    }
 
-   public class_amg a(class_aen var1, int var2) {
+   public class_amg a(World var1, int var2) {
       Object var3 = null;
       int var4 = 0;
       switch(var2) {
       case 1:
-         var3 = class_agk.O;
+         var3 = Blocks.RED_FLOWER;
          var4 = class_aic.class_a_in_class_aic.b.b();
          break;
       case 2:
-         var3 = class_agk.N;
+         var3 = Blocks.YELLOW_FLOWER;
          break;
       case 3:
-         var3 = class_agk.g;
+         var3 = Blocks.SAPLING;
          var4 = class_ajw.class_a_in_class_ajw.a.a();
          break;
       case 4:
-         var3 = class_agk.g;
+         var3 = Blocks.SAPLING;
          var4 = class_ajw.class_a_in_class_ajw.b.a();
          break;
       case 5:
-         var3 = class_agk.g;
+         var3 = Blocks.SAPLING;
          var4 = class_ajw.class_a_in_class_ajw.c.a();
          break;
       case 6:
-         var3 = class_agk.g;
+         var3 = Blocks.SAPLING;
          var4 = class_ajw.class_a_in_class_ajw.d.a();
          break;
       case 7:
-         var3 = class_agk.Q;
+         var3 = Blocks.RED_MUSHROOM;
          break;
       case 8:
-         var3 = class_agk.P;
+         var3 = Blocks.BROWN_MUSHROOM;
          break;
       case 9:
-         var3 = class_agk.aK;
+         var3 = Blocks.CACTUS;
          break;
       case 10:
-         var3 = class_agk.I;
+         var3 = Blocks.DEADBUSH;
          break;
       case 11:
-         var3 = class_agk.H;
+         var3 = Blocks.TALLGRASS;
          var4 = class_alm.class_a_in_class_alm.c.a();
          break;
       case 12:
-         var3 = class_agk.g;
+         var3 = Blocks.SAPLING;
          var4 = class_ajw.class_a_in_class_ajw.e.a();
          break;
       case 13:
-         var3 = class_agk.g;
+         var3 = Blocks.SAPLING;
          var4 = class_ajw.class_a_in_class_ajw.f.a();
       }
 
-      return new class_amq(class_aar.a((Block)var3), var4);
+      return new class_amq(Item.getByBlock((Block)var3), var4);
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{b, a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{b, a});
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((Integer)var1.get(a)).intValue();
    }
 
@@ -207,11 +207,11 @@ public class class_aid extends class_agd {
       class_amg var5 = var2.s(var3);
       if(var5 instanceof class_amq) {
          class_amq var6 = (class_amq)var5;
-         class_aar var7 = var6.b();
-         if(var7 instanceof class_zg) {
+         Item var7 = var6.b();
+         if(var7 instanceof ItemBlock) {
             int var8 = var6.c();
-            Block var9 = Block.a(var7);
-            if(var9 == class_agk.g) {
+            Block var9 = Block.getByItem(var7);
+            if(var9 == Blocks.SAPLING) {
                switch(class_aid.SyntheticClass_1.a[class_ajw.class_a_in_class_ajw.a(var8).ordinal()]) {
                case 1:
                   var4 = class_aid.class_a_in_class_aid.l;
@@ -234,7 +234,7 @@ public class class_aid extends class_agd {
                default:
                   var4 = class_aid.class_a_in_class_aid.a;
                }
-            } else if(var9 == class_agk.H) {
+            } else if(var9 == Blocks.TALLGRASS) {
                switch(var8) {
                case 0:
                   var4 = class_aid.class_a_in_class_aid.t;
@@ -245,9 +245,9 @@ public class class_aid extends class_agd {
                default:
                   var4 = class_aid.class_a_in_class_aid.a;
                }
-            } else if(var9 == class_agk.N) {
+            } else if(var9 == Blocks.YELLOW_FLOWER) {
                var4 = class_aid.class_a_in_class_aid.k;
-            } else if(var9 == class_agk.O) {
+            } else if(var9 == Blocks.RED_FLOWER) {
                switch(class_aid.SyntheticClass_1.b[class_aic.class_a_in_class_aic.a(class_aic.class_b_in_class_aic.b, var8).ordinal()]) {
                case 1:
                   var4 = class_aid.class_a_in_class_aid.b;
@@ -279,13 +279,13 @@ public class class_aid extends class_agd {
                default:
                   var4 = class_aid.class_a_in_class_aid.a;
                }
-            } else if(var9 == class_agk.Q) {
+            } else if(var9 == Blocks.RED_MUSHROOM) {
                var4 = class_aid.class_a_in_class_aid.r;
-            } else if(var9 == class_agk.P) {
+            } else if(var9 == Blocks.BROWN_MUSHROOM) {
                var4 = class_aid.class_a_in_class_aid.s;
-            } else if(var9 == class_agk.I) {
+            } else if(var9 == Blocks.DEADBUSH) {
                var4 = class_aid.class_a_in_class_aid.t;
-            } else if(var9 == class_agk.aK) {
+            } else if(var9 == Blocks.CACTUS) {
                var4 = class_aid.class_a_in_class_aid.v;
             }
          }
@@ -397,7 +397,7 @@ public class class_aid extends class_agd {
       }
    }
 
-   public static enum class_a_in_class_aid implements class_ny {
+   public static enum class_a_in_class_aid implements INamable {
       a("empty"),
       b("rose"),
       c("blue_orchid"),
@@ -431,7 +431,7 @@ public class class_aid extends class_agd {
          return this.w;
       }
 
-      public String l() {
+      public String getName() {
          return this.w;
       }
    }

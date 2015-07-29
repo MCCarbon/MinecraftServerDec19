@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
@@ -34,7 +34,7 @@ public class class_aea {
       this(var1, (class_aas)null, var2);
    }
 
-   public class_aea(class_aas var1, class_aar var2) {
+   public class_aea(class_aas var1, Item var2) {
       this(var1, new class_aas(var2));
    }
 

@@ -3,14 +3,14 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.World;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
@@ -38,10 +38,10 @@ public class class_wq extends class_wi implements class_wk {
    private static final UUID a = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
    private static final class_qm b;
    private static final int c;
-   private static final class_aar[] bs;
+   private static final Item[] bs;
    private int bt;
 
-   public class_wq(class_aen var1) {
+   public class_wq(World var1) {
       super(var1);
       this.a(0.6F, 1.95F);
       this.i.a(1, new class_rj(this));
@@ -91,7 +91,7 @@ public class class_wq extends class_wi implements class_wk {
                this.a(false);
                class_aas var6 = this.bA();
                this.a(class_pw.a, (class_aas)null);
-               if(var6 != null && var6.b() == class_aau.bB) {
+               if(var6 != null && var6.b() == Items.bB) {
                   List var5 = class_abe.h(var6);
                   if(var5 != null) {
                      Iterator var3 = var5.iterator();
@@ -107,7 +107,7 @@ public class class_wq extends class_wi implements class_wk {
             }
          } else {
             class_acd var1 = null;
-            if(this.V.nextFloat() < 0.15F && this.a(class_atk.h) && !this.a(class_pm.m)) {
+            if(this.V.nextFloat() < 0.15F && this.a(Material.h) && !this.a(class_pm.m)) {
                var1 = class_acf.s;
             } else if(this.V.nextFloat() < 0.15F && this.av() && !this.a(class_pm.l)) {
                var1 = class_acf.l;
@@ -118,7 +118,7 @@ public class class_wq extends class_wi implements class_wk {
             }
 
             if(var1 != null) {
-               this.a(class_pw.a, class_abe.a(new class_aas(class_aau.bB), var1));
+               this.a(class_pw.a, class_abe.a(new class_aas(Items.bB), var1));
                this.bt = this.bA().l();
                this.a(true);
                class_ql var2 = this.a(class_wl.d);
@@ -153,7 +153,7 @@ public class class_wq extends class_wi implements class_wk {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          int var5 = this.V.nextInt(3);
-         class_aar var6 = bs[this.V.nextInt(bs.length)];
+         Item var6 = bs[this.V.nextInt(bs.length)];
          if(var2 > 0) {
             var5 += this.V.nextInt(var2 + 1);
          }
@@ -181,7 +181,7 @@ public class class_wq extends class_wi implements class_wk {
             var12 = class_acf.H;
          }
 
-         class_xs var13 = new class_xs(this.o, this, class_abe.a(new class_aas(class_aau.bC), var12));
+         class_xs var13 = new class_xs(this.o, this, class_abe.a(new class_aas(Items.bC), var12));
          var13.z -= -20.0F;
          var13.c(var5, var7 + (double)(var11 * 0.2F), var9, 0.75F, 8.0F);
          this.o.a((class_pr)var13);
@@ -195,6 +195,6 @@ public class class_wq extends class_wi implements class_wk {
    static {
       b = (new class_qm(a, "Drinking speed penalty", -0.25D, 0)).a(false);
       c = class_qi.a(class_wq.class);
-      bs = new class_aar[]{class_aau.aV, class_aau.ba, class_aau.aE, class_aau.bE, class_aau.bD, class_aau.J, class_aau.A, class_aau.A};
+      bs = new Item[]{Items.aV, Items.ba, Items.aE, Items.bE, Items.bD, Items.J, Items.A, Items.A};
    }
 }

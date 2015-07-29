@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_oo;
@@ -10,7 +10,7 @@ import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 
 public class class_ru extends class_rm {
-   class_aen a;
+   World a;
    protected class_qh b;
    int c;
    double d;

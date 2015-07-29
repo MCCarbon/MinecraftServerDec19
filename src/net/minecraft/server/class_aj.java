@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -34,7 +34,7 @@ public class class_aj extends class_i {
          throw new class_cf("commands.give.usage", new Object[0]);
       } else {
          class_lh var3 = a(var1, var2[0]);
-         class_aar var4 = f(var1, var2[1]);
+         Item var4 = f(var1, var2[1]);
          int var5 = var2.length >= 3?a(var2[2], 1, 64):1;
          int var6 = var2.length >= 4?a(var2[3]):0;
          class_aas var7 = new class_aas(var4, var5, var6);
@@ -76,7 +76,7 @@ public class class_aj extends class_i {
    }
 
    public List a(class_m var1, String[] var2, class_cj var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, class_aar.e.getKeys()):null);
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.ITEM_REGISTRY.getKeys()):null);
    }
 
    protected String[] d() {

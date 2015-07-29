@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
@@ -14,7 +14,7 @@ public class class_xg extends class_pr {
    private int b;
    private int c;
 
-   public class_xg(class_aen var1) {
+   public class_xg(World var1) {
       super(var1);
       this.a(0.25F, 0.25F);
    }
@@ -23,7 +23,7 @@ public class class_xg extends class_pr {
       this.ac.a(a, 5);
    }
 
-   public class_xg(class_aen var1, double var2, double var4, double var6, class_aas var8) {
+   public class_xg(World var1, double var2, double var4, double var6, class_aas var8) {
       super(var1);
       this.b = 0;
       this.a(0.25F, 0.25F);

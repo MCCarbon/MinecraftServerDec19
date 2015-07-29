@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_acs;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_yg;
 
 public class class_acu implements class_acs {
-   public boolean a(class_yg var1, class_aen var2) {
+   public boolean a(class_yg var1, World var2) {
       ArrayList var3 = Lists.newArrayList();
 
       for(int var4 = 0; var4 < var1.o_(); ++var4) {
@@ -49,7 +49,7 @@ public class class_acu implements class_acs {
          class_aas var10 = (class_aas)var2.get(0);
          var4 = (class_aas)var2.get(1);
          if(var10.b() == var4.b() && var10.b == 1 && var4.b == 1 && var10.b().m()) {
-            class_aar var11 = var10.b();
+            Item var11 = var10.b();
             int var6 = var11.l() - var10.h();
             int var7 = var11.l() - var4.h();
             int var8 = var6 + var7 + var11.l() * 5 / 100;

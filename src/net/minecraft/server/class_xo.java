@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
@@ -33,7 +33,7 @@ public abstract class class_xo extends class_pr implements class_xi {
    public class_pr c;
    private int au;
 
-   public class_xo(class_aen var1) {
+   public class_xo(World var1) {
       super(var1);
       this.d = -1;
       this.e = -1;
@@ -41,12 +41,12 @@ public abstract class class_xo extends class_pr implements class_xi {
       this.a(0.25F, 0.25F);
    }
 
-   public class_xo(class_aen var1, double var2, double var4, double var6) {
+   public class_xo(World var1, double var2, double var4, double var6) {
       this(var1);
       this.b(var2, var4, var6);
    }
 
-   public class_xo(class_aen var1, class_qa var2) {
+   public class_xo(World var1, class_qa var2) {
       this(var1, var2.s, var2.t + (double)var2.aU() - 0.10000000149011612D, var2.u);
       this.h = var2;
    }
@@ -163,7 +163,7 @@ public abstract class class_xo extends class_pr implements class_xi {
       }
 
       if(var3 != null) {
-         if(var3.a == class_awg.class_a_in_class_awg.b && this.o.p(var3.a()).getBlock() == class_agk.aY) {
+         if(var3.a == class_awg.class_a_in_class_awg.b && this.o.p(var3.a()).getBlock() == Blocks.PORTAL) {
             this.d(var3.a());
          } else {
             this.a(var3);

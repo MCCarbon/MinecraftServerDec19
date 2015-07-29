@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_tz;
 import net.minecraft.server.class_xa;
@@ -20,7 +20,7 @@ public class class_yo extends class_xz {
       int var6 = (var5 - 4) * 18;
       this.a(new class_yx(var2, 0, 8, 18) {
          public boolean a(class_aas var1) {
-            return super.a(var1) && var1.b() == class_aau.aC && !this.e();
+            return super.a(var1) && var1.b() == Items.aC && !this.e();
          }
       });
       this.a(new class_yx(var2, 1, 8, 36) {

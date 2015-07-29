@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wl;
 
 public class class_wf extends class_wi {
-   public class_wf(class_aen var1) {
+   public class_wf(World var1) {
       super(var1);
       this.a(this.J * 6.0F, this.K * 6.0F);
    }

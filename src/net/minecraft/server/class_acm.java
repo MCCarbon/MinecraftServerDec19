@@ -3,9 +3,9 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_acs;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -15,7 +15,7 @@ import net.minecraft.server.class_zz;
 public class class_acm implements class_acs {
    private class_aas a;
 
-   public boolean a(class_yg var1, class_aen var2) {
+   public boolean a(class_yg var1, World var2) {
       this.a = null;
       int var3 = 0;
       int var4 = 0;
@@ -27,26 +27,26 @@ public class class_acm implements class_acs {
       for(int var9 = 0; var9 < var1.o_(); ++var9) {
          class_aas var10 = var1.a(var9);
          if(var10 != null) {
-            if(var10.b() == class_aau.J) {
+            if(var10.b() == Items.J) {
                ++var4;
-            } else if(var10.b() == class_aau.cf) {
+            } else if(var10.b() == Items.cf) {
                ++var6;
-            } else if(var10.b() == class_aau.aY) {
+            } else if(var10.b() == Items.aY) {
                ++var5;
-            } else if(var10.b() == class_aau.aM) {
+            } else if(var10.b() == Items.aM) {
                ++var3;
-            } else if(var10.b() == class_aau.aV) {
+            } else if(var10.b() == Items.aV) {
                ++var7;
-            } else if(var10.b() == class_aau.k) {
+            } else if(var10.b() == Items.k) {
                ++var7;
-            } else if(var10.b() == class_aau.bO) {
+            } else if(var10.b() == Items.bO) {
                ++var8;
-            } else if(var10.b() == class_aau.I) {
+            } else if(var10.b() == Items.I) {
                ++var8;
-            } else if(var10.b() == class_aau.bz) {
+            } else if(var10.b() == Items.bz) {
                ++var8;
             } else {
-               if(var10.b() != class_aau.ca) {
+               if(var10.b() != Items.ca) {
                   return false;
                }
 
@@ -60,7 +60,7 @@ public class class_acm implements class_acs {
          class_dn var16;
          class_dn var19;
          if(var4 >= 1 && var3 == 1 && var7 == 0) {
-            this.a = new class_aas(class_aau.ce);
+            this.a = new class_aas(Items.ce);
             if(var6 > 0) {
                var16 = new class_dn();
                var19 = new class_dn();
@@ -68,7 +68,7 @@ public class class_acm implements class_acs {
 
                for(int var22 = 0; var22 < var1.o_(); ++var22) {
                   class_aas var26 = var1.a(var22);
-                  if(var26 != null && var26.b() == class_aau.cf && var26.n() && var26.o().b("Explosion", 10)) {
+                  if(var26 != null && var26.b() == Items.cf && var26.n() && var26.o().b("Explosion", 10)) {
                      var25.a((class_eb)var26.o().n("Explosion"));
                   }
                }
@@ -81,7 +81,7 @@ public class class_acm implements class_acs {
 
             return true;
          } else if(var4 == 1 && var3 == 0 && var6 == 0 && var5 > 0 && var8 <= 1) {
-            this.a = new class_aas(class_aau.cf);
+            this.a = new class_aas(Items.cf);
             var16 = new class_dn();
             var19 = new class_dn();
             byte var23 = 0;
@@ -90,19 +90,19 @@ public class class_acm implements class_acs {
             for(int var13 = 0; var13 < var1.o_(); ++var13) {
                class_aas var14 = var1.a(var13);
                if(var14 != null) {
-                  if(var14.b() == class_aau.aY) {
+                  if(var14.b() == Items.aY) {
                      var12.add(Integer.valueOf(class_zz.a[var14.i() & 15]));
-                  } else if(var14.b() == class_aau.aV) {
+                  } else if(var14.b() == Items.aV) {
                      var19.a("Flicker", true);
-                  } else if(var14.b() == class_aau.k) {
+                  } else if(var14.b() == Items.k) {
                      var19.a("Trail", true);
-                  } else if(var14.b() == class_aau.bO) {
+                  } else if(var14.b() == Items.bO) {
                      var23 = 1;
-                  } else if(var14.b() == class_aau.I) {
+                  } else if(var14.b() == Items.I) {
                      var23 = 4;
-                  } else if(var14.b() == class_aau.bz) {
+                  } else if(var14.b() == Items.bz) {
                      var23 = 2;
-                  } else if(var14.b() == class_aau.ca) {
+                  } else if(var14.b() == Items.ca) {
                      var23 = 3;
                   }
                }
@@ -125,9 +125,9 @@ public class class_acm implements class_acs {
             for(int var17 = 0; var17 < var1.o_(); ++var17) {
                class_aas var11 = var1.a(var17);
                if(var11 != null) {
-                  if(var11.b() == class_aau.aY) {
+                  if(var11.b() == Items.aY) {
                      var15.add(Integer.valueOf(class_zz.a[var11.i() & 15]));
-                  } else if(var11.b() == class_aau.cf) {
+                  } else if(var11.b() == Items.cf) {
                      this.a = var11.k();
                      this.a.b = 1;
                   }

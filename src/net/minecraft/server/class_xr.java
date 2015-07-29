@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
@@ -9,15 +9,15 @@ import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xo;
 
 public class class_xr extends class_xo {
-   public class_xr(class_aen var1) {
+   public class_xr(World var1) {
       super(var1);
    }
 
-   public class_xr(class_aen var1, class_qa var2) {
+   public class_xr(World var1, class_qa var2) {
       super(var1, var2);
    }
 
-   public class_xr(class_aen var1, double var2, double var4, double var6) {
+   public class_xr(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 

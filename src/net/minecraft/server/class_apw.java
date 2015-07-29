@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aql;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 
 public abstract class class_apw extends class_aql {
@@ -14,16 +14,16 @@ public abstract class class_apw extends class_aql {
    }
 
    protected boolean a(Block var1) {
-      class_atk var2 = var1.v();
-      return var2 == class_atk.a || var2 == class_atk.j || var1 == class_agk.c || var1 == class_agk.d || var1 == class_agk.r || var1 == class_agk.s || var1 == class_agk.g || var1 == class_agk.bn;
+      Material var2 = var1.getMaterial();
+      return var2 == Material.a || var2 == Material.j || var1 == Blocks.GRASS || var1 == Blocks.DIRT || var1 == Blocks.LOG || var1 == Blocks.LOG2 || var1 == Blocks.SAPLING || var1 == Blocks.VINE;
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
    }
 
-   protected void a(class_aen var1, class_cj var2) {
-      if(var1.p(var2).getBlock() != class_agk.d) {
-         this.a(var1, var2, class_agk.d.S());
+   protected void a(World var1, class_cj var2) {
+      if(var1.p(var2).getBlock() != Blocks.DIRT) {
+         this.a(var1, var2, Blocks.DIRT.getBlockData());
       }
 
    }

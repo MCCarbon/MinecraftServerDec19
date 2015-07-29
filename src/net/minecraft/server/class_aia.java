@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiv;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -26,14 +26,14 @@ public class class_aia extends class_aiv {
    public static final class_anw N = class_anw.a("in_wall");
 
    public class_aia(class_ajw.class_a_in_class_ajw var1) {
-      super(class_atk.d, var1.c());
-      this.j(this.M.b().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)));
+      super(Material.d, var1.c());
+      this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)));
       this.a(CreativeTab.d);
    }
 
    public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
       class_cq.class_a_in_class_cq var4 = ((class_cq)var1.get(O)).k();
-      if(var4 == class_cq.class_a_in_class_cq.c && (var2.p(var3.e()).getBlock() == class_agk.bZ || var2.p(var3.f()).getBlock() == class_agk.bZ) || var4 == class_cq.class_a_in_class_cq.a && (var2.p(var3.c()).getBlock() == class_agk.bZ || var2.p(var3.d()).getBlock() == class_agk.bZ)) {
+      if(var4 == class_cq.class_a_in_class_cq.c && (var2.p(var3.e()).getBlock() == Blocks.COBBLESTONE_WALL || var2.p(var3.f()).getBlock() == Blocks.COBBLESTONE_WALL) || var4 == class_cq.class_a_in_class_cq.a && (var2.p(var3.c()).getBlock() == Blocks.COBBLESTONE_WALL || var2.p(var3.d()).getBlock() == Blocks.COBBLESTONE_WALL)) {
          var1 = var1.set(N, Boolean.valueOf(true));
       }
 
@@ -48,11 +48,11 @@ public class class_aia extends class_aiv {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(O)));
    }
 
-   public boolean d(class_aen var1, class_cj var2) {
-      return var1.p(var2.b()).getBlock().v().a()?super.d(var1, var2):false;
+   public boolean d(World var1, class_cj var2) {
+      return var1.p(var2.b()).getBlock().getMaterial().a()?super.d(var1, var2):false;
    }
 
-   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, class_cj var2, IBlockData var3) {
       if(((Boolean)var3.get(a)).booleanValue()) {
          return null;
       } else {
@@ -64,30 +64,30 @@ public class class_aia extends class_aiv {
    public void a(class_aer var1, class_cj var2) {
       class_cq.class_a_in_class_cq var3 = ((class_cq)var1.p(var2).get(O)).k();
       if(var3 == class_cq.class_a_in_class_cq.c) {
-         this.a(0.0F, 0.0F, 0.375F, 1.0F, 1.0F, 0.625F);
+         this.setSizes(0.0F, 0.0F, 0.375F, 1.0F, 1.0F, 0.625F);
       } else {
-         this.a(0.375F, 0.0F, 0.0F, 0.625F, 1.0F, 1.0F);
+         this.setSizes(0.375F, 0.0F, 0.0F, 0.625F, 1.0F, 1.0F);
       }
 
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return false;
    }
 
-   public boolean d() {
+   public boolean isFullCube() {
       return false;
    }
 
-   public boolean b(class_aer var1, class_cj var2) {
+   public boolean isPassable(class_aer var1, class_cj var2) {
       return ((Boolean)var1.p(var2).get(a)).booleanValue();
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.S().set(O, var8.aR()).set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false));
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData().set(O, var8.aR()).set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false));
    }
 
-   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       if(((Boolean)var3.get(a)).booleanValue()) {
          var3 = var3.set(a, Boolean.valueOf(false));
          var1.a((class_cj)var2, (IBlockData)var3, 2);
@@ -105,10 +105,10 @@ public class class_aia extends class_aiv {
       return true;
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          boolean var5 = var1.z(var2);
-         if(var5 || var4.i()) {
+         if(var5 || var4.isPowerSource()) {
             if(var5 && !((Boolean)var3.get(a)).booleanValue() && !((Boolean)var3.get(b)).booleanValue()) {
                var1.a((class_cj)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)).set(b, Boolean.valueOf(true)), 2);
                var1.a((class_xa)null, 1003, var2, 0);
@@ -123,11 +123,11 @@ public class class_aia extends class_aiv {
       }
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(O, class_cq.b(var1)).set(a, Boolean.valueOf((var1 & 4) != 0)).set(b, Boolean.valueOf((var1 & 8) != 0));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(O, class_cq.b(var1)).set(a, Boolean.valueOf((var1 & 4) != 0)).set(b, Boolean.valueOf((var1 & 8) != 0));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_cq)var1.get(O)).b();
       if(((Boolean)var1.get(b)).booleanValue()) {
@@ -141,7 +141,7 @@ public class class_aia extends class_aiv {
       return var3;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{O, a, b, N});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{O, a, b, N});
    }
 }

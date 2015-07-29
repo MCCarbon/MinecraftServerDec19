@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afa;
@@ -42,7 +42,7 @@ public class class_afd {
       this.c = var5[1];
    }
 
-   public class_afd(class_aen var1) {
+   public class_afd(World var1) {
       this(var1.K(), var1.Q().u(), var1.Q().B());
    }
 

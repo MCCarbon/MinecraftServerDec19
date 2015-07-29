@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 
-public class class_zj extends class_aar {
+public class class_zj extends Item {
    public boolean f_(class_aas var1) {
       return var1.b == 1;
    }

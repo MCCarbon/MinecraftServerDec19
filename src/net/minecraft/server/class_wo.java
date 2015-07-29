@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_aok;
@@ -36,7 +36,7 @@ public class class_wo extends class_qb implements class_wd {
    public float c;
    private boolean br;
 
-   public class_wo(class_aen var1) {
+   public class_wo(World var1) {
       super(var1);
       this.f = new class_wo.class_d_in_class_wo(this);
       this.i.a(1, new class_wo.class_b_in_class_wo(this));
@@ -107,7 +107,7 @@ public class class_wo extends class_qb implements class_wd {
             float var4 = this.V.nextFloat() * 0.5F + 0.5F;
             float var5 = class_nu.a(var3) * (float)var1 * 0.5F * var4;
             float var6 = class_nu.b(var3) * (float)var1 * 0.5F * var4;
-            class_aen var10000 = this.o;
+            World var10000 = this.o;
             class_cy var10001 = this.n();
             double var10002 = this.s + (double)var5;
             double var10004 = this.u + (double)var6;
@@ -223,8 +223,8 @@ public class class_wo extends class_qb implements class_wd {
       return "mob.slime." + (this.cB() > 1?"big":"small");
    }
 
-   protected class_aar D() {
-      return this.cB() == 1?class_aau.aO:null;
+   protected Item D() {
+      return this.cB() == 1?Items.aO:null;
    }
 
    public boolean cf() {

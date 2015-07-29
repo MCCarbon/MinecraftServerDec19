@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_pr;
@@ -29,7 +29,7 @@ public class class_ui extends class_uk {
    private float bz;
    private float bA;
 
-   public class_ui(class_aen var1) {
+   public class_ui(World var1) {
       super(var1);
       this.a(0.95F, 0.95F);
       this.V.setSeed((long)(1 + this.F()));
@@ -62,7 +62,7 @@ public class class_ui extends class_uk {
       return 0.4F;
    }
 
-   protected class_aar D() {
+   protected Item D() {
       return null;
    }
 
@@ -74,13 +74,13 @@ public class class_ui extends class_uk {
       int var3 = this.V.nextInt(3 + var2) + 1;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(new class_aas(class_aau.aY, 1, class_zy.p.b()), 0.0F);
+         this.a(new class_aas(Items.aY, 1, class_zy.p.b()), 0.0F);
       }
 
    }
 
    public boolean V() {
-      return this.o.a((class_awf)this.aT().b(0.0D, -0.6000000238418579D, 0.0D), (class_atk)class_atk.h, (class_pr)this);
+      return this.o.a((class_awf)this.aT().b(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.h, (class_pr)this);
    }
 
    public void m() {

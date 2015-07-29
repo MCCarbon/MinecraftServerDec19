@@ -2,18 +2,18 @@ package net.minecraft.server;
 
 import com.mojang.authlib.GameProfile;
 import java.util.UUID;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_akv;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amy;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_eb;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_oq;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_abp extends class_aar {
+public class class_abp extends Item {
    private static final String[] a = new String[]{"skeleton", "wither", "zombie", "char", "creeper", "dragon"};
 
    public class_abp() {
@@ -32,15 +32,15 @@ public class class_abp extends class_aar {
       this.a(true);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       if(var6 == class_cq.a) {
          return class_oq.b;
       } else {
          IBlockData var10 = var3.p(var4);
          Block var11 = var10.getBlock();
-         boolean var12 = var11.a(var3, var4);
+         boolean var12 = var11.isReplaceable(var3, var4);
          if(!var12) {
-            if(!var3.p(var4).getBlock().v().a()) {
+            if(!var3.p(var4).getBlock().getMaterial().a()) {
                return class_oq.b;
             }
 
@@ -49,11 +49,11 @@ public class class_abp extends class_aar {
 
          if(!var2.a(var4, var6, var1)) {
             return class_oq.b;
-         } else if(!class_agk.ce.d(var3, var4)) {
+         } else if(!Blocks.SKULL.d(var3, var4)) {
             return class_oq.b;
          } else {
             if(!var3.D) {
-               var3.a((class_cj)var4, (IBlockData)class_agk.ce.S().set(class_akv.a, var6), 3);
+               var3.a((class_cj)var4, (IBlockData)Blocks.SKULL.getBlockData().set(class_akv.a, var6), 3);
                int var13 = 0;
                if(var6 == class_cq.b) {
                   var13 = class_nu.c((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
@@ -79,7 +79,7 @@ public class class_abp extends class_aar {
                   }
 
                   var15.b(var13);
-                  class_agk.ce.a(var3, var4, var15);
+                  Blocks.SKULL.a(var3, var4, var15);
                }
 
                --var1.b;
@@ -106,13 +106,13 @@ public class class_abp extends class_aar {
    public String a(class_aas var1) {
       if(var1.i() == 3 && var1.n()) {
          if(var1.o().b("SkullOwner", 8)) {
-            return class_di.a("item.skull.player.name", new Object[]{var1.o().k("SkullOwner")});
+            return LocaleI18n.a("item.skull.player.name", new Object[]{var1.o().k("SkullOwner")});
          }
 
          if(var1.o().b("SkullOwner", 10)) {
             class_dn var2 = var1.o().n("SkullOwner");
             if(var2.b("Name", 8)) {
-               return class_di.a("item.skull.player.name", new Object[]{var2.k("Name")});
+               return LocaleI18n.a("item.skull.player.name", new Object[]{var2.k("Name")});
             }
          }
       }

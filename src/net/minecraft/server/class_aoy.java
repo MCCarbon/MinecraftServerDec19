@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.class_afg;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aoz;
@@ -18,7 +18,7 @@ import net.minecraft.server.class_lh;
 
 public abstract class class_aoy {
    public static final float[] a = new float[]{1.0F, 0.75F, 0.5F, 0.25F, 0.0F, 0.25F, 0.5F, 0.75F};
-   protected class_aen b;
+   protected World b;
    private class_aes g;
    private String h;
    protected class_afd c;
@@ -27,7 +27,7 @@ public abstract class class_aoy {
    protected final float[] f = new float[16];
    private final float[] i = new float[4];
 
-   public final void a(class_aen var1) {
+   public final void a(World var1) {
       this.b = var1;
       this.g = var1.Q().u();
       this.h = var1.Q().B();
@@ -63,7 +63,7 @@ public abstract class class_aoy {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new class_cj(var1, 0, var2)) == class_agk.c;
+      return this.b.c(new class_cj(var1, 0, var2)) == Blocks.GRASS;
    }
 
    public float a(long var1, float var3) {

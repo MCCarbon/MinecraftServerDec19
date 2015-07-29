@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.class_alq;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anw;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.CreativeTab;
 
@@ -20,15 +20,15 @@ public abstract class class_aja extends class_alq {
    int[] N;
 
    public class_aja() {
-      super(class_atk.j, false);
-      this.a(true);
+      super(Material.j, false);
+      this.setTicking(true);
       this.a(CreativeTab.c);
-      this.c(0.2F);
-      this.e(1);
-      this.a(STEP_SOUND_GRASS);
+      this.setStrength(0.2F);
+      this.setLightOpacity(1);
+      this.setStepSound(STEP_SOUND_GRASS);
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       byte var4 = 1;
       int var5 = var4 + 1;
       int var6 = var2.n();
@@ -40,7 +40,7 @@ public abstract class class_aja extends class_alq {
                for(int var11 = -var4; var11 <= var4; ++var11) {
                   class_cj var12 = var2.a(var9, var10, var11);
                   IBlockData var13 = var1.p(var12);
-                  if(var13.getBlock().v() == class_atk.j && !((Boolean)var13.get(b)).booleanValue()) {
+                  if(var13.getBlock().getMaterial() == Material.j && !((Boolean)var13.get(b)).booleanValue()) {
                      var1.a((class_cj)var12, (IBlockData)var13.set(b, Boolean.valueOf(true)), 4);
                   }
                }
@@ -50,7 +50,7 @@ public abstract class class_aja extends class_alq {
 
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       if(!var1.D) {
          if(((Boolean)var3.get(b)).booleanValue() && ((Boolean)var3.get(a)).booleanValue()) {
             byte var5 = 4;
@@ -120,8 +120,8 @@ public abstract class class_aja extends class_alq {
                   for(var15 = -var5; var15 <= var5; ++var15) {
                      for(var16 = -var5; var16 <= var5; ++var16) {
                         Block var17 = var1.p(var13.c(var7 + var14, var8 + var15, var9 + var16)).getBlock();
-                        if(var17 != class_agk.r && var17 != class_agk.s) {
-                           if(var17.v() == class_atk.j) {
+                        if(var17 != Blocks.LOG && var17 != Blocks.LOG2) {
+                           if(var17.getMaterial() == Material.j) {
                               this.N[(var14 + var12) * var11 + (var15 + var12) * var10 + var16 + var12] = -2;
                            } else {
                               this.N[(var14 + var12) * var11 + (var15 + var12) * var10 + var16 + var12] = -1;
@@ -147,7 +147,7 @@ public abstract class class_aja extends class_alq {
       }
    }
 
-   private void e(class_aen var1, class_cj var2) {
+   private void e(World var1, class_cj var2) {
       this.b(var1, var2, var1.p(var2), 0);
       var1.g(var2);
    }
@@ -156,11 +156,11 @@ public abstract class class_aja extends class_alq {
       return var1.nextInt(20) == 0?1:0;
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aar.a(class_agk.g);
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Item.getByBlock(Blocks.SAPLING);
    }
 
-   public void a(class_aen var1, class_cj var2, IBlockData var3, float var4, int var5) {
+   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
       if(!var1.D) {
          int var6 = this.d(var3);
          if(var5 > 0) {
@@ -171,8 +171,8 @@ public abstract class class_aja extends class_alq {
          }
 
          if(var1.s.nextInt(var6) == 0) {
-            class_aar var7 = this.a(var3, var1.s, var5);
-            a(var1, var2, new class_aas(var7, 1, this.a(var3)));
+            Item var7 = this.getDropType(var3, var1.s, var5);
+            a(var1, var2, new class_aas(var7, 1, this.getDropData(var3)));
          }
 
          var6 = 200;
@@ -188,18 +188,18 @@ public abstract class class_aja extends class_alq {
 
    }
 
-   protected void a(class_aen var1, class_cj var2, IBlockData var3, int var4) {
+   protected void a(World var1, class_cj var2, IBlockData var3, int var4) {
    }
 
    protected int d(IBlockData var1) {
       return 20;
    }
 
-   public boolean c() {
+   public boolean isOpaqueCube() {
       return !this.R;
    }
 
-   public boolean y() {
+   public boolean isVisuallyOpaque() {
       return false;
    }
 

@@ -1,30 +1,30 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.class_akp;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_any;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.BlockStateEnum;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_aje extends class_akp {
-   public static final class_any a = class_any.a("axis", class_aje.class_a_in_class_aje.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("axis", class_aje.class_a_in_class_aje.class);
 
    public class_aje() {
-      super(class_atk.d);
+      super(Material.d);
       this.a(CreativeTab.b);
-      this.c(2.0F);
-      this.a(STEP_SOUND_WOOD);
+      this.setStrength(2.0F);
+      this.setStepSound(STEP_SOUND_WOOD);
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, class_cj var2, IBlockData var3) {
       byte var4 = 4;
       int var5 = var4 + 1;
       if(var1.a(var2.a(-var5, -var5, -var5), var2.a(var5, var5, var5))) {
@@ -33,7 +33,7 @@ public abstract class class_aje extends class_akp {
          while(var6.hasNext()) {
             class_cj var7 = (class_cj)var6.next();
             IBlockData var8 = var1.p(var7);
-            if(var8.getBlock().v() == class_atk.j && !((Boolean)var8.get(class_aja.b)).booleanValue()) {
+            if(var8.getBlock().getMaterial() == Material.j && !((Boolean)var8.get(class_aja.b)).booleanValue()) {
                var1.a((class_cj)var7, (IBlockData)var8.set(class_aja.b, Boolean.valueOf(true)), 4);
             }
          }
@@ -41,8 +41,8 @@ public abstract class class_aje extends class_akp {
       }
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.a(var7).set(a, class_aje.class_a_in_class_aje.a(var3.k()));
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.fromLegacyData(var7).set(a, class_aje.class_a_in_class_aje.a(var3.k()));
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
@@ -125,7 +125,7 @@ public abstract class class_aje extends class_akp {
       }
    }
 
-   public static enum class_a_in_class_aje implements class_ny {
+   public static enum class_a_in_class_aje implements INamable {
       a("x"),
       b("y"),
       c("z"),
@@ -154,7 +154,7 @@ public abstract class class_aje extends class_akp {
          }
       }
 
-      public String l() {
+      public String getName() {
          return this.e;
       }
    }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.class_xa;
@@ -13,7 +13,7 @@ public class class_amp extends class_amg implements class_kn {
 
    public void c() {
       if(++this.h % 20 * 4 == 0) {
-         this.b.c(this.c, class_agk.bQ, 1, this.g);
+         this.b.c(this.c, Blocks.ENDER_CHEST, 1, this.g);
       }
 
       this.f = this.a;
@@ -70,12 +70,12 @@ public class class_amp extends class_amg implements class_kn {
 
    public void b() {
       ++this.g;
-      this.b.c(this.c, class_agk.bQ, 1, this.g);
+      this.b.c(this.c, Blocks.ENDER_CHEST, 1, this.g);
    }
 
    public void d() {
       --this.g;
-      this.b.c(this.c, class_agk.bQ, 1, this.g);
+      this.b.c(this.c, Blocks.ENDER_CHEST, 1, this.g);
    }
 
    public boolean a(class_xa var1) {

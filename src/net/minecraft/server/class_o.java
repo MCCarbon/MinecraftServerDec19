@@ -19,7 +19,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.EnumChatFormat;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awj;
@@ -85,7 +85,7 @@ public class class_o {
 				Iterator var9 = var7.iterator();
 
 				while (var9.hasNext()) {
-					class_aen var10 = (class_aen) var9.next();
+					World var10 = (World) var9.next();
 					if (var10 != null) {
 						ArrayList var11 = Lists.newArrayList();
 						var11.addAll(a(var4, var5));
@@ -96,7 +96,7 @@ public class class_o {
 						var11.addAll(f(var4));
 						var11.addAll(a(var4, var6));
 						var11.addAll(g(var4));
-						var8.addAll(a((Map) var4, (Class) var2, (List) var11, (String) var5, (class_aen) var10, var6));
+						var8.addAll(a((Map) var4, (Class) var2, (List) var11, (String) var5, (World) var10, var6));
 					}
 				}
 
@@ -395,7 +395,7 @@ public class class_o {
 		return var1;
 	}
 
-	private static List a(Map var0, Class var1, List var2, String var3, class_aen var4, class_cj var5) {
+	private static List a(Map var0, Class var1, List var2, String var3, World var4, class_cj var5) {
 		ArrayList var6 = Lists.newArrayList();
 		String var7 = b(var0, "type");
 		var7 = var7 != null && var7.startsWith("!") ? var7.substring(1) : var7;

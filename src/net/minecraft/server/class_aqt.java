@@ -1,21 +1,21 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aql;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 
 public class class_aqt extends class_aql {
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       while(var1.d(var3) && var3.o() > 2) {
          var3 = var3.b();
       }
 
-      if(var1.p(var3).getBlock() != class_agk.aJ) {
+      if(var1.p(var3).getBlock() != Blocks.SNOW) {
          return false;
       } else {
          var3 = var3.b(var2.nextInt(4));
@@ -38,14 +38,14 @@ public class class_aqt extends class_aql {
                   float var12 = (float)class_nu.a(var11) - 0.25F;
                   if((var9 == 0 && var11 == 0 || var10 * var10 + var12 * var12 <= var7 * var7) && (var9 != -var8 && var9 != var8 && var11 != -var8 && var11 != var8 || var2.nextFloat() <= 0.75F)) {
                      Block var13 = var1.p(var3.a(var9, var6, var11)).getBlock();
-                     if(var13.v() == class_atk.a || var13 == class_agk.d || var13 == class_agk.aJ || var13 == class_agk.aI) {
-                        this.a(var1, var3.a(var9, var6, var11), class_agk.cB.S());
+                     if(var13.getMaterial() == Material.a || var13 == Blocks.DIRT || var13 == Blocks.SNOW || var13 == Blocks.ICE) {
+                        this.a(var1, var3.a(var9, var6, var11), Blocks.PACKED_ICE.getBlockData());
                      }
 
                      if(var6 != 0 && var8 > 1) {
                         var13 = var1.p(var3.a(var9, -var6, var11)).getBlock();
-                        if(var13.v() == class_atk.a || var13 == class_agk.d || var13 == class_agk.aJ || var13 == class_agk.aI) {
-                           this.a(var1, var3.a(var9, -var6, var11), class_agk.cB.S());
+                        if(var13.getMaterial() == Material.a || var13 == Blocks.DIRT || var13 == Blocks.SNOW || var13 == Blocks.ICE) {
+                           this.a(var1, var3.a(var9, -var6, var11), Blocks.PACKED_ICE.getBlockData());
                         }
                      }
                   }
@@ -70,11 +70,11 @@ public class class_aqt extends class_aql {
 
                while(var15.o() > 50) {
                   Block var17 = var1.p(var15).getBlock();
-                  if(var17.v() != class_atk.a && var17 != class_agk.d && var17 != class_agk.aJ && var17 != class_agk.aI && var17 != class_agk.cB) {
+                  if(var17.getMaterial() != Material.a && var17 != Blocks.DIRT && var17 != Blocks.SNOW && var17 != Blocks.ICE && var17 != Blocks.PACKED_ICE) {
                      break;
                   }
 
-                  this.a(var1, var15, class_agk.cB.S());
+                  this.a(var1, var15, Blocks.PACKED_ICE.getBlockData());
                   var15 = var15.b();
                   --var16;
                   if(var16 <= 0) {

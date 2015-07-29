@@ -1,27 +1,27 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_atk;
-import net.minecraft.server.class_atl;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
-import net.minecraft.server.class_ny;
+import net.minecraft.server.INamable;
 import net.minecraft.server.class_qa;
 
 public class class_aiw extends Block {
-   public static final class_any a = class_any.a("variant", class_aiw.class_a_in_class_aiw.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("variant", class_aiw.class_a_in_class_aiw.class);
    private final Block b;
 
-   public class_aiw(class_atk var1, class_atl var2, Block var3) {
+   public class_aiw(Material var1, MaterialMapColor var2, Block var3) {
       super(var1, var2);
-      this.j(this.M.b().set(a, class_aiw.class_a_in_class_aiw.l));
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_aiw.class_a_in_class_aiw.l));
       this.b = var3;
    }
 
@@ -29,32 +29,32 @@ public class class_aiw extends Block {
       return Math.max(0, var1.nextInt(10) - 7);
    }
 
-   public class_atl g(IBlockData var1) {
+   public MaterialMapColor getMapColor(IBlockData var1) {
       switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.get(a)).ordinal()]) {
       case 1:
-         return class_atl.e;
+         return MaterialMapColor.e;
       case 2:
-         return class_atl.d;
+         return MaterialMapColor.d;
       case 3:
-         return class_atl.d;
+         return MaterialMapColor.d;
       default:
-         return super.g(var1);
+         return super.getMapColor(var1);
       }
    }
 
-   public class_aar a(IBlockData var1, Random var2, int var3) {
-      return class_aar.a(this.b);
+   public Item getDropType(IBlockData var1, Random var2, int var3) {
+      return Item.getByBlock(this.b);
    }
 
-   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.S();
+   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData();
    }
 
-   public IBlockData a(int var1) {
-      return this.S().set(a, class_aiw.class_a_in_class_aiw.a(var1));
+   public IBlockData fromLegacyData(int var1) {
+      return this.getBlockData().set(a, class_aiw.class_a_in_class_aiw.a(var1));
    }
 
-   public int c(IBlockData var1) {
+   public int toLegacyData(IBlockData var1) {
       return ((class_aiw.class_a_in_class_aiw)var1.get(a)).a();
    }
 
@@ -188,8 +188,8 @@ public class class_aiw extends Block {
       }
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class
@@ -305,7 +305,7 @@ public class class_aiw extends Block {
       }
    }
 
-   public static enum class_a_in_class_aiw implements class_ny {
+   public static enum class_a_in_class_aiw implements INamable {
       a(1, "north_west"),
       b(2, "north"),
       c(3, "north_east"),
@@ -346,7 +346,7 @@ public class class_aiw extends Block {
          return var1 == null?n[0]:var1;
       }
 
-      public String l() {
+      public String getName() {
          return this.p;
       }
 

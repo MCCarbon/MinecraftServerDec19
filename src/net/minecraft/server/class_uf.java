@@ -3,13 +3,13 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_on;
@@ -52,21 +52,21 @@ public class class_uf extends class_tw {
       return (float[])bu.get(var0);
    }
 
-   public class_uf(class_aen var1) {
+   public class_uf(World var1) {
       super(var1);
       this.a(0.9F, 1.3F);
       ((class_tf)this.u()).a(true);
       this.i.a(0, new class_rj(this));
       this.i.a(1, new class_se(this, 1.25D));
       this.i.a(2, new class_re(this, 1.0D));
-      this.i.a(3, new class_sr(this, 1.1D, class_aau.Q, false));
+      this.i.a(3, new class_sr(this, 1.1D, Items.Q, false));
       this.i.a(4, new class_rl(this, 1.1D));
       this.i.a(5, this.bx);
       this.i.a(6, new class_si(this, 1.0D));
       this.i.a(7, new class_rr(this, class_xa.class, 6.0F));
       this.i.a(8, new class_sh(this));
-      this.bt.a(0, new class_aas(class_aau.aY));
-      this.bt.a(1, new class_aas(class_aau.aY));
+      this.bt.a(0, new class_aas(Items.aY));
+      this.bt.a(1, new class_aas(Items.aY));
    }
 
    protected void cc() {
@@ -95,33 +95,33 @@ public class class_uf extends class_tw {
 
    protected void b(boolean var1, int var2) {
       if(!this.cB()) {
-         this.a(new class_aas(class_aar.a(class_agk.L), 1, this.cA().a()), 0.0F);
+         this.a(new class_aas(Item.getByBlock(Blocks.WOOL), 1, this.cA().a()), 0.0F);
       }
 
       int var3 = this.V.nextInt(2) + 1 + this.V.nextInt(1 + var2);
 
       for(int var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
-            this.a(class_aau.bp, 1);
+            this.a(Items.bp, 1);
          } else {
-            this.a(class_aau.bo, 1);
+            this.a(Items.bo, 1);
          }
       }
 
    }
 
-   protected class_aar D() {
-      return class_aar.a(class_agk.L);
+   protected Item D() {
+      return Item.getByBlock(Blocks.WOOL);
    }
 
    public boolean a(class_xa var1, class_oo var2, class_aas var3) {
-      if(var3 != null && var3.b() == class_aau.bg && !this.cB() && !this.j_()) {
+      if(var3 != null && var3.b() == Items.bg && !this.cB() && !this.j_()) {
          if(!this.o.D) {
             this.m(true);
             int var4 = 1 + this.V.nextInt(3);
 
             for(int var5 = 0; var5 < var4; ++var5) {
-               class_vm var6 = this.a(new class_aas(class_aar.a(class_agk.L), 1, this.cA().a()), 1.0F);
+               class_vm var6 = this.a(new class_aas(Item.getByBlock(Blocks.WOOL), 1, this.cA().a()), 1.0F);
                var6.w += (double)(this.V.nextFloat() * 0.05F);
                var6.v += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
                var6.x += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
@@ -219,7 +219,7 @@ public class class_uf extends class_tw {
       this.bt.a(1).b(var4);
       class_aas var5 = class_act.a().a(this.bt, ((class_uf)var1).o);
       int var6;
-      if(var5 != null && var5.b() == class_aau.aY) {
+      if(var5 != null && var5.b() == Items.aY) {
          var6 = var5.i();
       } else {
          var6 = this.o.s.nextBoolean()?var3:var4;

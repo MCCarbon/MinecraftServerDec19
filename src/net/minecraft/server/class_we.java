@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -29,7 +29,7 @@ public class class_we extends class_py implements class_wd {
    private static final int a = class_qi.a(class_we.class);
    private int b = 1;
 
-   public class_we(class_aen var1) {
+   public class_we(World var1) {
       super(var1);
       this.a(4.0F, 4.0F);
       this.ab = true;
@@ -92,8 +92,8 @@ public class class_we extends class_py implements class_wd {
       return "mob.ghast.death";
    }
 
-   protected class_aar D() {
-      return class_aau.J;
+   protected Item D() {
+      return Items.J;
    }
 
    protected void b(boolean var1, int var2) {
@@ -101,13 +101,13 @@ public class class_we extends class_py implements class_wd {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.by, 1);
+         this.a(Items.by, 1);
       }
 
       var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.J, 1);
+         this.a(Items.J, 1);
       }
 
    }
@@ -165,7 +165,7 @@ public class class_we extends class_py implements class_wd {
          class_qa var1 = this.b.w();
          double var2 = 64.0D;
          if(var1.h(this.b) < var2 * var2 && this.b.t(var1)) {
-            class_aen var4 = this.b.o;
+            World var4 = this.b.o;
             ++this.a;
             if(this.a == 10) {
                var4.a((class_xa)null, 1007, new class_cj(this.b), 0);

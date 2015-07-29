@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_aax;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -22,11 +22,11 @@ public class class_va extends class_uz {
    private static final int d = class_qi.a(class_va.class);
    private float e = 1.0F;
 
-   public class_va(class_aen var1) {
+   public class_va(World var1) {
       super(var1);
    }
 
-   public class_va(class_aen var1, class_cj var2, class_cq var3) {
+   public class_va(World var1, class_cj var2, class_cq var3) {
       super(var1, var2);
       this.a((class_cq)var3);
    }
@@ -79,7 +79,7 @@ public class class_va extends class_uz {
          }
 
          if(var2) {
-            this.a(new class_aas(class_aau.bS), 0.0F);
+            this.a(new class_aas(Items.bS), 0.0F);
          }
 
          if(var3 != null && this.V.nextFloat() < this.e) {
@@ -93,7 +93,7 @@ public class class_va extends class_uz {
 
    private void b(class_aas var1) {
       if(var1 != null) {
-         if(var1.b() == class_aau.bf) {
+         if(var1.b() == Items.bf) {
             class_avf var2 = ((class_aax)var1.b()).a(var1, this.o);
             var2.h.remove("frame-" + this.F());
          }
@@ -120,7 +120,7 @@ public class class_va extends class_uz {
       this.H().b(c, var1);
       this.H().i(c);
       if(var2 && this.a != null) {
-         this.o.e(this.a, class_agk.a);
+         this.o.e(this.a, Blocks.AIR);
       }
 
    }
@@ -136,7 +136,7 @@ public class class_va extends class_uz {
    private void a(int var1, boolean var2) {
       this.H().b(d, Byte.valueOf((byte)(var1 % 8)));
       if(var2 && this.a != null) {
-         this.o.e(this.a, class_agk.a);
+         this.o.e(this.a, Blocks.AIR);
       }
 
    }

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apq;
@@ -55,12 +55,12 @@ public class class_arx extends class_ask {
       public class_a_in_class_arx() {
       }
 
-      public class_a_in_class_arx(class_aen var1, class_apq var2, Random var3, int var4, int var5) {
+      public class_a_in_class_arx(World var1, class_apq var2, Random var3, int var4, int var5) {
          super(var4, var5);
          this.a(var1, var2, var3, var4, var5);
       }
 
-      private void a(class_aen var1, class_apq var2, Random var3, int var4, int var5) {
+      private void a(World var1, class_apq var2, Random var3, int var4, int var5) {
          Block.class_c_in_class_agj var6 = Block.class_c_in_class_agj.values()[var3.nextInt(Block.class_c_in_class_agj.values().length)];
          class_aph var7 = new class_aph();
          var2.a(var4, var5, var7);

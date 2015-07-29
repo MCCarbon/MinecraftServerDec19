@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import com.google.common.collect.Sets;
 import java.util.Set;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -38,7 +38,7 @@ public class class_ud extends class_tw {
    private static final Set bt;
    private final class_rf bu;
 
-   public class_ud(class_aen var1) {
+   public class_ud(World var1) {
       super(var1);
       this.a(0.9F, 0.9F);
       ((class_tf)this.u()).a(true);
@@ -46,7 +46,7 @@ public class class_ud extends class_tw {
       this.i.a(1, new class_se(this, 1.25D));
       this.i.a(2, this.bu = new class_rf(this, 0.3F));
       this.i.a(3, new class_re(this, 1.0D));
-      this.i.a(4, new class_sr(this, 1.2D, class_aau.cb, false));
+      this.i.a(4, new class_sr(this, 1.2D, Items.cb, false));
       this.i.a(4, new class_sr(this, 1.2D, false, bt));
       this.i.a(5, new class_rl(this, 1.1D));
       this.i.a(6, new class_si(this, 1.0D));
@@ -62,11 +62,11 @@ public class class_ud extends class_tw {
 
    public boolean ck() {
       class_aas var1 = ((class_xa)this.l).bA();
-      if(var1 != null && var1.b() == class_aau.cb) {
+      if(var1 != null && var1.b() == Items.cb) {
          return true;
       } else {
          var1 = ((class_xa)this.l).bB();
-         return var1 != null && var1.b() == class_aau.cb;
+         return var1 != null && var1.b() == Items.cb;
       }
    }
 
@@ -112,8 +112,8 @@ public class class_ud extends class_tw {
       }
    }
 
-   protected class_aar D() {
-      return this.av()?class_aau.ao:class_aau.an;
+   protected Item D() {
+      return this.av()?Items.ao:Items.an;
    }
 
    protected void b(boolean var1, int var2) {
@@ -121,14 +121,14 @@ public class class_ud extends class_tw {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
-            this.a(class_aau.ao, 1);
+            this.a(Items.ao, 1);
          } else {
-            this.a(class_aau.an, 1);
+            this.a(Items.an, 1);
          }
       }
 
       if(this.cA()) {
-         this.a(class_aau.aC, 1);
+         this.a(Items.aC, 1);
       }
 
    }
@@ -149,7 +149,7 @@ public class class_ud extends class_tw {
    public void a(class_vi var1) {
       if(!this.o.D && !this.I) {
          class_wj var2 = new class_wj(this.o);
-         var2.a((class_pw)class_pw.a, (class_aas)(new class_aas(class_aau.D)));
+         var2.a((class_pw)class_pw.a, (class_aas)(new class_aas(Items.D)));
          var2.b(this.s, this.t, this.u, this.y, this.z);
          var2.k(this.cs());
          if(this.l_()) {
@@ -188,6 +188,6 @@ public class class_ud extends class_tw {
    }
 
    static {
-      bt = Sets.newHashSet((Object[])(new class_aar[]{class_aau.bU, class_aau.bV, class_aau.cL}));
+      bt = Sets.newHashSet((Object[])(new Item[]{Items.bU, Items.bV, Items.cL}));
    }
 }

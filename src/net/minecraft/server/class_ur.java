@@ -3,13 +3,13 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aej;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apd;
 import net.minecraft.server.class_aqk;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_aus;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auv;
@@ -76,7 +76,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    private final class_aus bU = new class_aus();
    private class_auv bV;
 
-   public class_ur(class_aen var1) {
+   public class_ur(World var1) {
       super(var1);
       this.bs = new class_up[]{this.bt = new class_up(this, "head", 6.0F, 6.0F), this.bu = new class_up(this, "neck", 6.0F, 6.0F), this.bv = new class_up(this, "body", 8.0F, 8.0F), this.bw = new class_up(this, "tail", 4.0F, 4.0F), this.bx = new class_up(this, "tail", 4.0F, 4.0F), this.by = new class_up(this, "tail", 4.0F, 4.0F), this.bz = new class_up(this, "wing", 4.0F, 4.0F), this.bA = new class_up(this, "wing", 4.0F, 4.0F)};
       this.i(this.bv());
@@ -814,8 +814,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             for(int var12 = var4; var12 <= var7; ++var12) {
                class_cj var13 = new class_cj(var10, var11, var12);
                Block var14 = this.o.p(var13).getBlock();
-               if(var14.v() != class_atk.a && var14.v() != class_atk.o) {
-                  if(var14 != class_agk.cv && var14 != class_agk.Z && var14 != class_agk.bH && var14 != class_agk.h && var14 != class_agk.bX && var14 != class_agk.bi && this.o.R().b("mobGriefing")) {
+               if(var14.getMaterial() != Material.a && var14.getMaterial() != Material.o) {
+                  if(var14 != Blocks.BARRIER && var14 != Blocks.OBSIDIAN && var14 != Blocks.END_STONE && var14 != Blocks.BEDROCK && var14 != Blocks.COMMAND_BLOCK && var14 != Blocks.IRON_BARS && this.o.R().b("mobGriefing")) {
                      var9 = this.o.g(var13) || var9;
                   } else {
                      var8 = true;
@@ -1194,7 +1194,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       return false;
    }
 
-   public class_aen a() {
+   public World a() {
       return this.o;
    }
 

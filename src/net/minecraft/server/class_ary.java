@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_adk;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ami;
@@ -101,8 +101,8 @@ public class class_ary {
    }
 
    static {
-      d = Lists.newArrayList((Object[])(new class_od[]{new class_od(class_aau.k, 0, 2, 7, 5), new class_od(class_aau.l, 0, 4, 8, 10), new class_od(class_aau.m, 0, 2, 7, 15), new class_od(class_aau.bR, 0, 2, 6, 2), new class_od(class_aau.cK, 0, 1, 10, 5), new class_od(class_aau.aC, 0, 1, 1, 3), new class_od(class_aau.cn, 0, 1, 1, 1), new class_od(class_aau.co, 0, 1, 1, 1), new class_od(class_aau.cp, 0, 1, 1, 1)}));
-      e = Lists.newArrayList((Object[])(new class_aar[]{class_aau.w, class_aau.ah, class_aau.af, class_aau.ag, class_aau.ae, class_aau.y, class_aau.x, class_aau.n, class_aau.ad, class_aau.ab, class_aau.ac, class_aau.aa, class_aau.b, class_aau.a}));
+      d = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 2, 7, 5), new class_od(Items.l, 0, 4, 8, 10), new class_od(Items.m, 0, 2, 7, 15), new class_od(Items.bR, 0, 2, 6, 2), new class_od(Items.cK, 0, 1, 10, 5), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
+      e = Lists.newArrayList((Object[])(new Item[]{Items.w, Items.ah, Items.af, Items.ag, Items.ae, Items.y, Items.x, Items.n, Items.ad, Items.ab, Items.ac, Items.aa, Items.b, Items.a}));
       f = new class_ary.class_b_in_class_ary() {
          public void a() {
          }
@@ -306,7 +306,7 @@ public class class_ary {
          this.a(this.c);
       }
 
-      protected void a(String var1, class_cj var2, class_aen var3, Random var4, class_arw var5) {
+      protected void a(String var1, class_cj var2, World var3, Random var4, class_arw var5) {
          if(var1.startsWith("Chest")) {
             class_cj var6 = var2.b();
             if(var5.b((class_df)var6)) {
@@ -316,7 +316,7 @@ public class class_ary {
                   Iterator var9 = class_ary.e.iterator();
 
                   while(var9.hasNext()) {
-                     class_aar var10 = (class_aar)var9.next();
+                     Item var10 = (Item)var9.next();
                      var8.add(new class_od(class_adk.a(var4, new class_aas(var10), 20 + var4.nextInt(20)), 1, 1, 3));
                   }
 

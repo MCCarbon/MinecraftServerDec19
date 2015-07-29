@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_di;
+import net.minecraft.server.World;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.MinecraftKey;
@@ -25,7 +25,7 @@ import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
-public class class_abe extends class_aar {
+public class class_abe extends Item {
    public class_abe() {
       this.d(1);
       this.a(true);
@@ -50,7 +50,7 @@ public class class_abe extends class_aar {
       return var1;
    }
 
-   public class_aas a(class_aas var1, class_aen var2, class_qa var3) {
+   public class_aas a(class_aas var1, World var2, class_qa var3) {
       class_xa var4 = var3 instanceof class_xa?(class_xa)var3:null;
       if(var4 == null || !var4.bH.d) {
          --var1.b;
@@ -67,16 +67,16 @@ public class class_abe extends class_aar {
       }
 
       if(var4 != null) {
-         var4.b(class_nc.ad[class_aar.b((class_aar)this)]);
+         var4.b(class_nc.ad[Item.getId((Item)this)]);
       }
 
       if(var4 == null || !var4.bH.d) {
          if(var1.b <= 0) {
-            return new class_aas(class_aau.bD);
+            return new class_aas(Items.bD);
          }
 
          if(var4 != null) {
-            var4.bp.a(new class_aas(class_aau.bD));
+            var4.bp.a(new class_aas(Items.bD));
          }
       }
 
@@ -91,7 +91,7 @@ public class class_abe extends class_aar {
       return class_abz.c;
    }
 
-   public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
       var3.c(var4);
       return new class_or(class_oq.a, var1);
    }
@@ -137,7 +137,7 @@ public class class_abe extends class_aar {
    }
 
    public String a(class_aas var1) {
-      return class_di.a(i(var1).a());
+      return LocaleI18n.get(i(var1).a());
    }
 
    public static class_acd i(class_aas var0) {

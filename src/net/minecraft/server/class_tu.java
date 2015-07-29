@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Calendar;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -18,7 +18,7 @@ public class class_tu extends class_tt {
    private static final int a = class_qi.a(class_tu.class);
    private class_cj b;
 
-   public class_tu(class_aen var1) {
+   public class_tu(World var1) {
       super(var1);
       this.a(0.5F, 0.9F);
       this.a(true);
@@ -94,7 +94,7 @@ public class class_tu extends class_tt {
       class_cj var1 = new class_cj(this);
       class_cj var2 = var1.a();
       if(this.n()) {
-         if(!this.o.p(var2).getBlock().x()) {
+         if(!this.o.p(var2).getBlock().isOccluding()) {
             this.a(false);
             this.o.a((class_xa)null, 1015, var1, 0);
          } else {
@@ -126,7 +126,7 @@ public class class_tu extends class_tt {
          float var10 = class_nu.g(var9 - this.y);
          this.bd = 0.5F;
          this.y += var10;
-         if(this.V.nextInt(100) == 0 && this.o.p(var2).getBlock().x()) {
+         if(this.V.nextInt(100) == 0 && this.o.p(var2).getBlock().isOccluding()) {
             this.a(true);
          }
       }

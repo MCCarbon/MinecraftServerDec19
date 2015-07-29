@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_pd;
@@ -29,6 +29,6 @@ public class class_pe extends class_pd {
       class_aas var3 = this.r instanceof class_qa?((class_qa)this.r).bA():null;
       String var4 = "death.attack." + this.p;
       String var5 = var4 + ".item";
-      return var3 != null && var3.s() && class_di.c(var5)?new class_fb(var5, new Object[]{var1.f_(), var2, var3.B()}):new class_fb(var4, new Object[]{var1.f_(), var2});
+      return var3 != null && var3.s() && LocaleI18n.c(var5)?new class_fb(var5, new Object[]{var1.f_(), var2, var3.B()}):new class_fb(var4, new Object[]{var1.f_(), var2});
    }
 }

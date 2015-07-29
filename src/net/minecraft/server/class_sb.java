@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_agh;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ami;
 import net.minecraft.server.IBlockData;
@@ -48,23 +48,23 @@ public class class_sb extends class_rx {
 
    }
 
-   protected boolean a(class_aen var1, class_cj var2) {
+   protected boolean a(World var1, class_cj var2) {
       if(!var1.d(var2.a())) {
          return false;
       } else {
          IBlockData var3 = var1.p(var2);
          Block var4 = var3.getBlock();
-         if(var4 == class_agk.ae) {
+         if(var4 == Blocks.CHEST) {
             class_amg var5 = var1.s(var2);
             if(var5 instanceof class_ami && ((class_ami)var5).l < 1) {
                return true;
             }
          } else {
-            if(var4 == class_agk.am) {
+            if(var4 == Blocks.LIT_FURNACE) {
                return true;
             }
 
-            if(var4 == class_agk.C && var3.get(class_agh.a) != class_agh.class_a_in_class_agh.a) {
+            if(var4 == Blocks.BED && var3.get(class_agh.a) != class_agh.class_a_in_class_agh.a) {
                return true;
             }
          }

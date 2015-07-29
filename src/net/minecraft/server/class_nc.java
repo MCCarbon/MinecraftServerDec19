@@ -7,13 +7,13 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aco;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.class_act;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_mt;
@@ -21,7 +21,7 @@ import net.minecraft.server.class_mv;
 import net.minecraft.server.class_mw;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_pt;
-import net.minecraft.server.class_zg;
+import net.minecraft.server.ItemBlock;
 
 public class class_nc {
    protected static Map a = Maps.newHashMap();
@@ -112,9 +112,9 @@ public class class_nc {
       var1 = var0.iterator();
 
       while(var1.hasNext()) {
-         class_aar var6 = (class_aar)var1.next();
+         Item var6 = (Item)var1.next();
          if(var6 != null) {
-            int var3 = class_aar.b(var6);
+            int var3 = Item.getId(var6);
             String var4 = a(var6);
             if(var4 != null) {
                ac[var3] = (new class_mw("stat.craftItem.", var4, new class_fb("stat.craftItem", new Object[]{(new class_aas(var6)).B()}), var6)).h();
@@ -130,11 +130,11 @@ public class class_nc {
 
       while(var0.hasNext()) {
          Block var1 = (Block)var0.next();
-         class_aar var2 = class_aar.a(var1);
+         Item var2 = Item.getByBlock(var1);
          if(var2 != null) {
             int var3 = Block.getId(var1);
             String var4 = a(var2);
-            if(var4 != null && var1.L()) {
+            if(var4 != null && var1.useBreakStat()) {
                ab[var3] = (new class_mw("stat.mineBlock.", var4, new class_fb("stat.mineBlock", new Object[]{(new class_aas(var1)).B()}), var2)).h();
                e.add((class_mw)ab[var3]);
             }
@@ -145,16 +145,16 @@ public class class_nc {
    }
 
    private static void d() {
-      Iterator var0 = class_aar.e.iterator();
+      Iterator var0 = Item.ITEM_REGISTRY.iterator();
 
       while(var0.hasNext()) {
-         class_aar var1 = (class_aar)var0.next();
+         Item var1 = (Item)var0.next();
          if(var1 != null) {
-            int var2 = class_aar.b(var1);
+            int var2 = Item.getId(var1);
             String var3 = a(var1);
             if(var3 != null) {
                ad[var2] = (new class_mw("stat.useItem.", var3, new class_fb("stat.useItem", new Object[]{(new class_aas(var1)).B()}), var1)).h();
-               if(!(var1 instanceof class_zg)) {
+               if(!(var1 instanceof ItemBlock)) {
                   d.add((class_mw)ad[var2]);
                }
             }
@@ -165,12 +165,12 @@ public class class_nc {
    }
 
    private static void e() {
-      Iterator var0 = class_aar.e.iterator();
+      Iterator var0 = Item.ITEM_REGISTRY.iterator();
 
       while(var0.hasNext()) {
-         class_aar var1 = (class_aar)var0.next();
+         Item var1 = (Item)var0.next();
          if(var1 != null) {
-            int var2 = class_aar.b(var1);
+            int var2 = Item.getId(var1);
             String var3 = a(var1);
             if(var3 != null && var1.m()) {
                ae[var2] = (new class_mw("stat.breakItem.", var3, new class_fb("stat.breakItem", new Object[]{(new class_aas(var1)).B()}), var1)).h();
@@ -181,26 +181,26 @@ public class class_nc {
       a(ae);
    }
 
-   private static String a(class_aar var0) {
-      MinecraftKey var1 = (MinecraftKey)class_aar.e.getKey(var0);
+   private static String a(Item var0) {
+      MinecraftKey var1 = (MinecraftKey)Item.ITEM_REGISTRY.getKey(var0);
       return var1 != null?var1.toString().replace(':', '.'):null;
    }
 
    private static void a(class_my[] var0) {
-      a(var0, class_agk.j, class_agk.i);
-      a(var0, class_agk.l, class_agk.k);
-      a(var0, class_agk.aZ, class_agk.aU);
-      a(var0, class_agk.am, class_agk.al);
-      a(var0, class_agk.aD, class_agk.aC);
-      a(var0, class_agk.bc, class_agk.bb);
-      a(var0, class_agk.ck, class_agk.cj);
-      a(var0, class_agk.aF, class_agk.aE);
-      a(var0, class_agk.bK, class_agk.bJ);
-      a(var0, class_agk.T, class_agk.U);
-      a(var0, class_agk.bL, class_agk.bM);
-      a(var0, class_agk.cO, class_agk.cP);
-      a(var0, class_agk.c, class_agk.d);
-      a(var0, class_agk.ak, class_agk.d);
+      a(var0, Blocks.WATER, Blocks.FLOWING_WATER);
+      a(var0, Blocks.LAVA, Blocks.FLOWING_LAVA);
+      a(var0, Blocks.LIT_PUMPKIN, Blocks.PUMPKIN);
+      a(var0, Blocks.LIT_FURNACE, Blocks.FURNACE);
+      a(var0, Blocks.LIT_REDSTONE_ORE, Blocks.REDSTONE_ORE);
+      a(var0, Blocks.POWERED_REPEATER, Blocks.UNPOWERED_REPEATER);
+      a(var0, Blocks.POWERED_COMPARATOR, Blocks.UNPOWERED_COMPARATOR);
+      a(var0, Blocks.REDSTONE_TORCH, Blocks.UNLIT_REDSTONE_TORCH);
+      a(var0, Blocks.LIT_REDSTONE_LAMP, Blocks.REDSTONE_LAMP);
+      a(var0, Blocks.DOUBLE_SANDSTONE_SLAB, Blocks.STONE_SLAB);
+      a(var0, Blocks.DOUBLE_WOODEN_SLAB, Blocks.WOODEN_SLAB);
+      a(var0, Blocks.DOUBLE_STONE_SLAB2, Blocks.STONE_SLAB2);
+      a(var0, Blocks.GRASS, Blocks.DIRT);
+      a(var0, Blocks.FARMLAND, Blocks.DIRT);
    }
 
    private static void a(class_my[] var0, Block var1, Block var2) {

@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_nu;
@@ -21,14 +21,14 @@ public abstract class class_po extends class_qh {
    private float bt = -1.0F;
    private float bu;
 
-   public class_po(class_aen var1) {
+   public class_po(World var1) {
       super(var1);
    }
 
    public abstract class_po a(class_po var1);
 
    public boolean a(class_xa var1, class_oo var2, class_aas var3) {
-      if(var3 != null && var3.b() == class_aau.bM) {
+      if(var3 != null && var3.b() == Items.bM) {
          if(!this.o.D) {
             Class var4 = class_pt.a(var3.i());
             if(var4 != null && this.getClass() == var4) {

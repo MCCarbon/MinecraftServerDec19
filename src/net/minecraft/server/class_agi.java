@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aar;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_ahd;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anm;
+import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_cj;
@@ -22,15 +22,15 @@ public class class_agi extends class_ahd {
       return 3;
    }
 
-   protected class_aar o() {
-      return class_aau.cK;
+   protected Item o() {
+      return Items.cK;
    }
 
-   protected class_aar p() {
-      return class_aau.cL;
+   protected Item p() {
+      return Items.cL;
    }
 
-   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
       if(var4.nextInt(3) == 0) {
          this.e(var1, var2, var3);
       } else {
@@ -39,11 +39,11 @@ public class class_agi extends class_ahd {
 
    }
 
-   protected int b(class_aen var1) {
+   protected int b(World var1) {
       return super.b(var1) / 3;
    }
 
-   protected class_anm e() {
-      return new class_anm(this, new IBlockState[]{a});
+   protected BlockStateList createBlockStateList() {
+      return new BlockStateList(this, new IBlockState[]{a});
    }
 }

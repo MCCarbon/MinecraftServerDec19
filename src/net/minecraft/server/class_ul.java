@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import net.minecraft.server.class_aan;
-import net.minecraft.server.class_aar;
+import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -57,7 +57,7 @@ public class class_ul extends class_qj {
    private float bD;
    private float bE;
 
-   public class_ul(class_aen var1) {
+   public class_ul(World var1) {
       super(var1);
       this.a(0.6F, 0.8F);
       ((class_tf)this.u()).a(true);
@@ -157,8 +157,8 @@ public class class_ul extends class_qj {
       return 0.4F;
    }
 
-   protected class_aar D() {
-      return class_aar.c(-1);
+   protected Item D() {
+      return Item.getById(-1);
    }
 
    public void m() {
@@ -273,7 +273,7 @@ public class class_ul extends class_qj {
                   this.h((float)var4.h(var3));
                   return true;
                }
-            } else if(var3.b() == class_aau.aY) {
+            } else if(var3.b() == Items.aY) {
                class_zy var5 = class_zy.a(var3.i());
                if(var5 != this.cL()) {
                   this.a(var5);
@@ -292,7 +292,7 @@ public class class_ul extends class_qj {
             this.h.n();
             this.d((class_qa)null);
          }
-      } else if(var3 != null && var3.b() == class_aau.aZ && !this.cK()) {
+      } else if(var3 != null && var3.b() == Items.aZ && !this.cK()) {
          if(!var1.bH.d) {
             --var3.b;
          }

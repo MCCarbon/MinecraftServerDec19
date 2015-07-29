@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.UUID;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qb;
@@ -19,7 +19,7 @@ public abstract class class_qh extends class_qb {
    private class_rm c;
    private boolean bs;
 
-   public class_qh(class_aen var1) {
+   public class_qh(World var1) {
       super(var1);
       this.a = class_cj.a;
       this.b = -1.0F;

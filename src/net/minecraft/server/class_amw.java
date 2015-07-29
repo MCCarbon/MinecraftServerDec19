@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_nu;
@@ -28,27 +28,27 @@ public class class_amw extends class_amg {
       this.p_();
    }
 
-   public void a(class_aen var1, class_cj var2) {
-      if(var1.p(var2.a()).getBlock().v() == class_atk.a) {
-         class_atk var3 = var1.p(var2.b()).getBlock().v();
+   public void a(World var1, class_cj var2) {
+      if(var1.p(var2.a()).getBlock().getMaterial() == Material.a) {
+         Material var3 = var1.p(var2.b()).getBlock().getMaterial();
          byte var4 = 0;
-         if(var3 == class_atk.e) {
+         if(var3 == Material.e) {
             var4 = 1;
          }
 
-         if(var3 == class_atk.p) {
+         if(var3 == Material.p) {
             var4 = 2;
          }
 
-         if(var3 == class_atk.s) {
+         if(var3 == Material.s) {
             var4 = 3;
          }
 
-         if(var3 == class_atk.d) {
+         if(var3 == Material.d) {
             var4 = 4;
          }
 
-         var1.c(var2, class_agk.B, var4, this.a);
+         var1.c(var2, Blocks.NOTEBLOCK, var4, this.a);
       }
    }
 }

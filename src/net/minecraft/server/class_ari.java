@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -18,7 +18,7 @@ public class class_ari extends class_aql {
       this.a = var1;
    }
 
-   public boolean b(class_aen var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, class_cj var3) {
       if(this.a == null) {
          throw new IllegalStateException("Decoration requires priming with a spike");
       } else {
@@ -27,7 +27,7 @@ public class class_ari extends class_aql {
          while(var4.hasNext()) {
             class_cj.class_a_in_class_cj var5 = (class_cj.class_a_in_class_cj)var4.next();
             if(var5.c((double)var3.n(), (double)var5.o(), (double)var3.p()) <= (double)(this.a.c() * this.a.c() + 1)) {
-               this.a(var1, var5, class_agk.Z.S());
+               this.a(var1, var5, Blocks.OBSIDIAN.getBlockData());
             }
          }
 
@@ -35,12 +35,12 @@ public class class_ari extends class_aql {
             for(int var6 = -2; var6 <= 2; ++var6) {
                for(int var8 = -2; var8 <= 2; ++var8) {
                   if(class_nu.a(var6) == 2 || class_nu.a(var8) == 2) {
-                     this.a(var1, var3.a(var6, this.a.d(), var8), class_agk.bi.S());
-                     this.a(var1, var3.a(var6, this.a.d() + 1, var8), class_agk.bi.S());
-                     this.a(var1, var3.a(var6, this.a.d() + 2, var8), class_agk.bi.S());
+                     this.a(var1, var3.a(var6, this.a.d(), var8), Blocks.IRON_BARS.getBlockData());
+                     this.a(var1, var3.a(var6, this.a.d() + 1, var8), Blocks.IRON_BARS.getBlockData());
+                     this.a(var1, var3.a(var6, this.a.d() + 2, var8), Blocks.IRON_BARS.getBlockData());
                   }
 
-                  this.a(var1, var3.a(var6, this.a.d() + 3, var8), class_agk.bi.S());
+                  this.a(var1, var3.a(var6, this.a.d() + 3, var8), Blocks.IRON_BARS.getBlockData());
                }
             }
          }
@@ -48,7 +48,7 @@ public class class_ari extends class_aql {
          class_uq var7 = new class_uq(var1);
          var7.b((double)((float)var3.n() + 0.5F), (double)(var3.o() + this.a.d() + 1), (double)((float)var3.p() + 0.5F), var2.nextFloat() * 360.0F, 0.0F);
          var1.a((class_pr)var7);
-         this.a(var1, var3.b(this.a.d()), class_agk.h.S());
+         this.a(var1, var3.b(this.a.d()), Blocks.BEDROCK.getBlockData());
          return true;
       }
    }

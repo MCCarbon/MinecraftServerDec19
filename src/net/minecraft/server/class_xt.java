@@ -6,9 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
@@ -23,22 +23,22 @@ public class class_xt extends class_xd {
    private final Set g;
    private class_aas h;
 
-   public class_xt(class_aen var1) {
+   public class_xt(World var1) {
       super(var1);
       this.g = Sets.newHashSet();
    }
 
-   public class_xt(class_aen var1, double var2, double var4, double var6) {
+   public class_xt(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
       this.g = Sets.newHashSet();
    }
 
-   public class_xt(class_aen var1, double var2, double var4, double var6, class_aas var8) {
+   public class_xt(World var1, double var2, double var4, double var6, class_aas var8) {
       this(var1, var2, var4, var6);
       this.a(var8);
    }
 
-   public class_xt(class_aen var1, class_qa var2, class_aas var3) {
+   public class_xt(World var1, class_qa var2, class_aas var3) {
       super(var1, var2);
       this.g = Sets.newHashSet();
       this.a(var3);
@@ -130,6 +130,6 @@ public class class_xt extends class_xd {
    }
 
    protected class_aas j() {
-      return this.g.isEmpty()?new class_aas(class_aau.g):this.h;
+      return this.g.isEmpty()?new class_aas(Items.g):this.h;
    }
 }

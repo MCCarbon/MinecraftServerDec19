@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -20,11 +20,11 @@ public abstract class class_vq extends class_vn implements class_ou {
    private class_aas[] a = new class_aas[36];
    private boolean b = true;
 
-   public class_vq(class_aen var1) {
+   public class_vq(World var1) {
       super(var1);
    }
 
-   public class_vq(class_aen var1, double var2, double var4, double var6) {
+   public class_vq(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
    }
 

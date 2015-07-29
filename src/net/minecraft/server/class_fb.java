@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import net.minecraft.server.class_di;
+import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_es;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_ez;
@@ -41,7 +41,7 @@ public class class_fb extends class_es {
    synchronized void g() {
       Object var1 = this.f;
       synchronized(this.f) {
-         long var2 = class_di.a();
+         long var2 = LocaleI18n.a();
          if(var2 == this.g) {
             return;
          }
@@ -51,12 +51,12 @@ public class class_fb extends class_es {
       }
 
       try {
-         this.b(class_di.a(this.d));
+         this.b(LocaleI18n.get(this.d));
       } catch (class_fc var6) {
          this.b.clear();
 
          try {
-            this.b(class_di.b(this.d));
+            this.b(LocaleI18n.b(this.d));
          } catch (class_fc var5) {
             throw var6;
          }

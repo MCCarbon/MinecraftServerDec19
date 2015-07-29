@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pc;
@@ -11,11 +11,11 @@ import net.minecraft.server.class_xf;
 public class class_xh extends class_xf {
    public int e = 1;
 
-   public class_xh(class_aen var1) {
+   public class_xh(World var1) {
       super(var1);
    }
 
-   public class_xh(class_aen var1, class_qa var2, double var3, double var5, double var7) {
+   public class_xh(World var1, class_qa var2, double var3, double var5, double var7) {
       super(var1, var2, var3, var5, var7);
    }
 

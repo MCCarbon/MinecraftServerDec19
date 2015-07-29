@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import java.util.Arrays;
 import java.util.Random;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_agz;
 import net.minecraft.server.class_ahj;
 import net.minecraft.server.class_akq;
@@ -12,7 +12,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_atb;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_zy;
 
@@ -32,8 +32,8 @@ public class class_afl extends class_aez {
       this.b();
       this.a(2.0F, 0.0F);
       this.au.clear();
-      this.ak = class_agk.m.S().set(class_akq.a, class_akq.class_a_in_class_akq.b);
-      this.al = class_agk.cu.S();
+      this.ak = Blocks.SAND.getBlockData().set(class_akq.a, class_akq.class_a_in_class_akq.b);
+      this.al = Blocks.STAINED_HARDENED_CLAY.getBlockData();
       this.as.A = -999;
       this.as.D = 20;
       this.as.F = 3;
@@ -50,11 +50,11 @@ public class class_afl extends class_aez {
       return this.aA;
    }
 
-   public void a(class_aen var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, class_cj var3) {
       super.a(var1, var2, var3);
    }
 
-   public void a(class_aen var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
       if(this.aD == null || this.aE != var1.K()) {
          this.a(var1.K());
       }
@@ -89,7 +89,7 @@ public class class_afl extends class_aez {
       var10 = var4 & 15;
       var11 = var5 & 15;
       int var23 = var1.G();
-      IBlockData var13 = class_agk.cu.S();
+      IBlockData var13 = Blocks.STAINED_HARDENED_CLAY.getBlockData();
       IBlockData var24 = this.al;
       int var15 = (int)(var6 / 3.0D + 3.0D + var2.nextDouble() * 0.25D);
       boolean var25 = Math.cos(var6 / 3.0D * 3.141592653589793D) > 0.0D;
@@ -97,43 +97,43 @@ public class class_afl extends class_aez {
       boolean var26 = false;
 
       for(int var19 = 255; var19 >= 0; --var19) {
-         if(var3.a(var11, var19, var10).getBlock().v() == class_atk.a && var19 < (int)var22) {
-            var3.a(var11, var19, var10, class_agk.b.S());
+         if(var3.a(var11, var19, var10).getBlock().getMaterial() == Material.a && var19 < (int)var22) {
+            var3.a(var11, var19, var10, Blocks.STONE.getBlockData());
          }
 
          if(var19 <= var2.nextInt(5)) {
-            var3.a(var11, var19, var10, class_agk.h.S());
+            var3.a(var11, var19, var10, Blocks.BEDROCK.getBlockData());
          } else {
             IBlockData var20 = var3.a(var11, var19, var10);
-            if(var20.getBlock().v() == class_atk.a) {
+            if(var20.getBlock().getMaterial() == Material.a) {
                var17 = -1;
-            } else if(var20.getBlock() == class_agk.b) {
+            } else if(var20.getBlock() == Blocks.STONE) {
                IBlockData var21;
                if(var17 == -1) {
                   var26 = false;
                   if(var15 <= 0) {
                      var13 = null;
-                     var24 = class_agk.b.S();
+                     var24 = Blocks.STONE.getBlockData();
                   } else if(var19 >= var23 - 4 && var19 <= var23 + 1) {
-                     var13 = class_agk.cu.S();
+                     var13 = Blocks.STAINED_HARDENED_CLAY.getBlockData();
                      var24 = this.al;
                   }
 
-                  if(var19 < var23 && (var13 == null || var13.getBlock().v() == class_atk.a)) {
-                     var13 = class_agk.j.S();
+                  if(var19 < var23 && (var13 == null || var13.getBlock().getMaterial() == Material.a)) {
+                     var13 = Blocks.WATER.getBlockData();
                   }
 
                   var17 = var15 + Math.max(0, var19 - var23);
                   if(var19 < var23 - 1) {
                      var3.a(var11, var19, var10, var24);
-                     if(var24.getBlock() == class_agk.cu) {
-                        var3.a(var11, var19, var10, var24.getBlock().S().set(class_agz.a, class_zy.b));
+                     if(var24.getBlock() == Blocks.STAINED_HARDENED_CLAY) {
+                        var3.a(var11, var19, var10, var24.getBlock().getBlockData().set(class_agz.a, class_zy.b));
                      }
                   } else if(this.aJ && var19 > 86 + var15 * 2) {
                      if(var25) {
-                        var3.a(var11, var19, var10, class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b));
+                        var3.a(var11, var19, var10, Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b));
                      } else {
-                        var3.a(var11, var19, var10, class_agk.c.S());
+                        var3.a(var11, var19, var10, Blocks.GRASS.getBlockData());
                      }
                   } else if(var19 <= var23 + 3 + var15) {
                      var3.a(var11, var19, var10, this.ak);
@@ -141,12 +141,12 @@ public class class_afl extends class_aez {
                   } else {
                      if(var19 >= 64 && var19 <= 127) {
                         if(var25) {
-                           var21 = class_agk.cz.S();
+                           var21 = Blocks.HARDENED_CLAY.getBlockData();
                         } else {
                            var21 = this.a(var4, var19, var5);
                         }
                      } else {
-                        var21 = class_agk.cu.S().set(class_agz.a, class_zy.b);
+                        var21 = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.b);
                      }
 
                      var3.a(var11, var19, var10, var21);
@@ -154,7 +154,7 @@ public class class_afl extends class_aez {
                } else if(var17 > 0) {
                   --var17;
                   if(var26) {
-                     var3.a(var11, var19, var10, class_agk.cu.S().set(class_agz.a, class_zy.b));
+                     var3.a(var11, var19, var10, Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.b));
                   } else {
                      var21 = this.a(var4, var19, var5);
                      var3.a(var11, var19, var10, var21);
@@ -168,7 +168,7 @@ public class class_afl extends class_aez {
 
    private void a(long var1) {
       this.aD = new IBlockData[64];
-      Arrays.fill(this.aD, class_agk.cz.S());
+      Arrays.fill(this.aD, Blocks.HARDENED_CLAY.getBlockData());
       Random var3 = new Random(var1);
       this.aH = new class_atb(var3, 1);
 
@@ -176,7 +176,7 @@ public class class_afl extends class_aez {
       for(var4 = 0; var4 < 64; ++var4) {
          var4 += var3.nextInt(5) + 1;
          if(var4 < 64) {
-            this.aD[var4] = class_agk.cu.S().set(class_agz.a, class_zy.b);
+            this.aD[var4] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.b);
          }
       }
 
@@ -191,7 +191,7 @@ public class class_afl extends class_aez {
          var7 = var3.nextInt(64);
 
          for(var8 = 0; var7 + var8 < 64 && var8 < var6; ++var8) {
-            this.aD[var7 + var8] = class_agk.cu.S().set(class_agz.a, class_zy.e);
+            this.aD[var7 + var8] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.e);
          }
       }
 
@@ -203,7 +203,7 @@ public class class_afl extends class_aez {
          var8 = var3.nextInt(64);
 
          for(var9 = 0; var8 + var9 < 64 && var9 < var7; ++var9) {
-            this.aD[var8 + var9] = class_agk.cu.S().set(class_agz.a, class_zy.m);
+            this.aD[var8 + var9] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.m);
          }
       }
 
@@ -214,7 +214,7 @@ public class class_afl extends class_aez {
          var9 = var3.nextInt(64);
 
          for(int var10 = 0; var9 + var10 < 64 && var10 < var8; ++var10) {
-            this.aD[var9 + var10] = class_agk.cu.S().set(class_agz.a, class_zy.o);
+            this.aD[var9 + var10] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.o);
          }
       }
 
@@ -226,13 +226,13 @@ public class class_afl extends class_aez {
          var8 += var3.nextInt(16) + 4;
 
          for(int var11 = 0; var8 + var11 < 64 && var11 < var12; ++var11) {
-            this.aD[var8 + var11] = class_agk.cu.S().set(class_agz.a, class_zy.a);
+            this.aD[var8 + var11] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.a);
             if(var8 + var11 > 1 && var3.nextBoolean()) {
-               this.aD[var8 + var11 - 1] = class_agk.cu.S().set(class_agz.a, class_zy.i);
+               this.aD[var8 + var11 - 1] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.i);
             }
 
             if(var8 + var11 < 63 && var3.nextBoolean()) {
-               this.aD[var8 + var11 + 1] = class_agk.cu.S().set(class_agz.a, class_zy.i);
+               this.aD[var8 + var11 + 1] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.i);
             }
          }
       }

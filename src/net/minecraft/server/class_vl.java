@@ -4,15 +4,15 @@ import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Iterator;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_aga;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahw;
 import net.minecraft.server.class_ahx;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_atk;
+import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_c;
 import net.minecraft.server.class_cj;
@@ -34,11 +34,11 @@ public class class_vl extends class_pr {
    private float h = 2.0F;
    public class_dn c;
 
-   public class_vl(class_aen var1) {
+   public class_vl(World var1) {
       super(var1);
    }
 
-   public class_vl(class_aen var1, double var2, double var4, double var6, IBlockData var8) {
+   public class_vl(World var1, double var2, double var4, double var6, IBlockData var8) {
       super(var1);
       this.d = var8;
       this.k = true;
@@ -65,7 +65,7 @@ public class class_vl extends class_pr {
 
    public void t_() {
       Block var1 = this.d.getBlock();
-      if(var1.v() == class_atk.a) {
+      if(var1.getMaterial() == Material.a) {
          this.J();
       } else {
          this.p = this.s;
@@ -93,7 +93,7 @@ public class class_vl extends class_pr {
                this.v *= 0.699999988079071D;
                this.x *= 0.699999988079071D;
                this.w *= -0.5D;
-               if(this.o.p(var2).getBlock() != class_agk.M) {
+               if(this.o.p(var2).getBlock() != Blocks.PISTON_EXTENSION) {
                   this.J();
                   if(!this.e) {
                      if(this.o.a(var1, var2, true, class_cq.b, (class_pr)null, (class_aas)null) && !class_ahx.e(this.o, var2.b()) && this.o.a((class_cj)var2, (IBlockData)this.d, 3)) {
@@ -121,13 +121,13 @@ public class class_vl extends class_pr {
                            }
                         }
                      } else if(this.b && this.o.R().b("doEntityDrops")) {
-                        this.a(new class_aas(var1, 1, var1.a(this.d)), 0.0F);
+                        this.a(new class_aas(var1, 1, var1.getDropData(this.d)), 0.0F);
                      }
                   }
                }
             } else if(this.a > 100 && !this.o.D && (var2.o() < 1 || var2.o() > 256) || this.a > 600) {
                if(this.b && this.o.R().b("doEntityDrops")) {
-                  this.a(new class_aas(var1, 1, var1.a(this.d)), 0.0F);
+                  this.a(new class_aas(var1, 1, var1.getDropData(this.d)), 0.0F);
                }
 
                this.J();
@@ -143,7 +143,7 @@ public class class_vl extends class_pr {
          int var4 = class_nu.f(var1 - 1.0F);
          if(var4 > 0) {
             ArrayList var5 = Lists.newArrayList((Iterable)this.o.b((class_pr)this, (class_awf)this.aT()));
-            boolean var6 = var3 == class_agk.cf;
+            boolean var6 = var3 == Blocks.ANVIL;
             class_pc var7 = var6?class_pc.n:class_pc.o;
             Iterator var8 = var5.iterator();
 
@@ -167,10 +167,10 @@ public class class_vl extends class_pr {
    }
 
    protected void b(class_dn var1) {
-      Block var2 = this.d != null?this.d.getBlock():class_agk.a;
+      Block var2 = this.d != null?this.d.getBlock():Blocks.AIR;
       MinecraftKey var3 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var2);
       var1.a("Block", var3 == null?"":var3.toString());
-      var1.a("Data", (byte)var2.c(this.d));
+      var1.a("Data", (byte)var2.toLegacyData(this.d));
       var1.a("Time", (byte)this.a);
       var1.a("DropItem", this.b);
       var1.a("HurtEntities", this.f);
@@ -185,11 +185,11 @@ public class class_vl extends class_pr {
    protected void a(class_dn var1) {
       int var2 = var1.e("Data") & 255;
       if(var1.b("Block", 8)) {
-         this.d = Block.getByName(var1.k("Block")).a(var2);
+         this.d = Block.getByName(var1.k("Block")).fromLegacyData(var2);
       } else if(var1.b("TileID", 99)) {
-         this.d = Block.getById(var1.g("TileID")).a(var2);
+         this.d = Block.getById(var1.g("TileID")).fromLegacyData(var2);
       } else {
-         this.d = Block.getById(var1.e("Tile") & 255).a(var2);
+         this.d = Block.getById(var1.e("Tile") & 255).fromLegacyData(var2);
       }
 
       this.a = var1.e("Time") & 255;
@@ -198,7 +198,7 @@ public class class_vl extends class_pr {
          this.f = var1.o("HurtEntities");
          this.h = var1.i("FallHurtAmount");
          this.g = var1.g("FallHurtMax");
-      } else if(var3 == class_agk.cf) {
+      } else if(var3 == Blocks.ANVIL) {
          this.f = true;
       }
 
@@ -210,8 +210,8 @@ public class class_vl extends class_pr {
          this.c = var1.n("TileEntityData");
       }
 
-      if(var3 == null || var3.v() == class_atk.a) {
-         this.d = class_agk.m.S();
+      if(var3 == null || var3.getMaterial() == Material.a) {
+         this.d = Blocks.SAND.getBlockData();
       }
 
    }
@@ -225,7 +225,7 @@ public class class_vl extends class_pr {
       if(this.d != null) {
          Block var2 = this.d.getBlock();
          var1.a((String)"Immitating block ID", (Object)Integer.valueOf(Block.getId(var2)));
-         var1.a((String)"Immitating block data", (Object)Integer.valueOf(var2.c(this.d)));
+         var1.a((String)"Immitating block data", (Object)Integer.valueOf(var2.toLegacyData(this.d)));
       }
 
    }

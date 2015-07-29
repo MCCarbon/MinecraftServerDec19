@@ -3,8 +3,8 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
@@ -153,7 +153,7 @@ public class class_ana extends class_amg implements class_kn {
       this.p_();
    }
 
-   private static class_cj a(class_aen var0, class_cj var1, int var2, boolean var3) {
+   private static class_cj a(World var0, class_cj var1, int var2, boolean var3) {
       class_cj var4 = null;
 
       for(int var5 = -var2; var5 <= var2; ++var5) {
@@ -162,7 +162,7 @@ public class class_ana extends class_amg implements class_kn {
                for(int var7 = 255; var7 > (var4 == null?0:var4.o()); --var7) {
                   class_cj var8 = new class_cj(var1.n() + var5, var7, var1.p() + var6);
                   IBlockData var9 = var0.p(var8);
-                  if(var9.getBlock().w() && (var3 || var9.getBlock() != class_agk.h)) {
+                  if(var9.getBlock().isSoildFullCube() && (var3 || var9.getBlock() != Blocks.BEDROCK)) {
                      var4 = var8;
                      break;
                   }
@@ -174,7 +174,7 @@ public class class_ana extends class_amg implements class_kn {
       return var4 == null?var1:var4;
    }
 
-   private static class_aok a(class_aen var0, class_awh var1) {
+   private static class_aok a(World var0, class_awh var1) {
       return var0.a(class_nu.c(var1.a / 16.0D), class_nu.c(var1.c / 16.0D));
    }
 
@@ -200,9 +200,9 @@ public class class_ana extends class_amg implements class_kn {
 
                      var8 = (class_cj)var7.next();
                      var9 = var0.g(var8);
-                  } while(var9.getBlock() != class_agk.bH);
-               } while(var0.a(var8.b(1)).w());
-            } while(var0.a(var8.b(2)).w());
+                  } while(var9.getBlock() != Blocks.END_STONE);
+               } while(var0.a(var8.b(1)).isSoildFullCube());
+            } while(var0.a(var8.b(2)).isSoildFullCube());
 
             var10 = var8.d(0.0D, 0.0D, 0.0D);
          } while(var4 != null && var10 >= var5);

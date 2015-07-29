@@ -3,16 +3,16 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
+import net.minecraft.server.Items;
 import net.minecraft.server.class_acs;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.class_uf;
 import net.minecraft.server.class_yg;
 import net.minecraft.server.class_za;
 import net.minecraft.server.class_zy;
 
 public class class_ach implements class_acs {
-   public boolean a(class_yg var1, class_aen var2) {
+   public boolean a(class_yg var1, World var2) {
       class_aas var3 = null;
       ArrayList var4 = Lists.newArrayList();
 
@@ -27,7 +27,7 @@ public class class_ach implements class_acs {
 
                var3 = var6;
             } else {
-               if(var6.b() != class_aau.aY) {
+               if(var6.b() != Items.aY) {
                   return false;
                }
 
@@ -74,7 +74,7 @@ public class class_ach implements class_acs {
                   ++var5;
                }
             } else {
-               if(var8.b() != class_aau.aY) {
+               if(var8.b() != Items.aY) {
                   return null;
                }
 

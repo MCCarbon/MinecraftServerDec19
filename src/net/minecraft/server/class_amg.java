@@ -3,9 +3,9 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.concurrent.Callable;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiy;
 import net.minecraft.server.class_ame;
 import net.minecraft.server.class_amf;
@@ -41,7 +41,7 @@ public abstract class class_amg {
    private static final Logger a = LogManager.getLogger();
    private static Map f = Maps.newHashMap();
    private static Map g = Maps.newHashMap();
-   protected class_aen b;
+   protected World b;
    protected class_cj c;
    protected boolean d;
    private int h;
@@ -61,11 +61,11 @@ public abstract class class_amg {
       }
    }
 
-   public class_aen z() {
+   public World z() {
       return this.b;
    }
 
-   public void a(class_aen var1) {
+   public void a(World var1) {
       this.b = var1;
    }
 
@@ -113,7 +113,7 @@ public abstract class class_amg {
    public int u() {
       if(this.h == -1) {
          IBlockData var1 = this.b.p(this.c);
-         this.h = var1.getBlock().c(var1);
+         this.h = var1.getBlock().toLegacyData(var1);
       }
 
       return this.h;
@@ -122,9 +122,9 @@ public abstract class class_amg {
    public void p_() {
       if(this.b != null) {
          IBlockData var1 = this.b.p(this.c);
-         this.h = var1.getBlock().c(var1);
+         this.h = var1.getBlock().toLegacyData(var1);
          this.b.b(this.c, this);
-         if(this.w() != class_agk.a) {
+         if(this.w() != Blocks.AIR) {
             this.b.e(this.c, this.w());
          }
       }
@@ -186,7 +186,7 @@ public abstract class class_amg {
                int var1 = Block.getId(class_amg.this.b.p(class_amg.this.c).getBlock());
 
                try {
-                  return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var1), Block.getById(var1).a(), Block.getById(var1).getClass().getCanonicalName()});
+                  return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var1), Block.getById(var1).getInternalName(), Block.getById(var1).getClass().getCanonicalName()});
                } catch (Throwable var3) {
                   return "ID #" + var1;
                }
@@ -200,7 +200,7 @@ public abstract class class_amg {
          var1.a("Actual block data value", new Callable() {
             public String a() throws Exception {
                IBlockData var1 = class_amg.this.b.p(class_amg.this.c);
-               int var2 = var1.getBlock().c(var1);
+               int var2 = var1.getBlock().toLegacyData(var1);
                if(var2 < 0) {
                   return "Unknown? (Got " + var2 + ")";
                } else {

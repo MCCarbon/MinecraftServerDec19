@@ -5,10 +5,10 @@ import com.google.common.base.Predicates;
 import com.google.common.collect.Collections2;
 import com.google.common.collect.Lists;
 import java.util.Collection;
-import net.minecraft.server.class_any;
+import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.class_cq;
 
-public class class_anx extends class_any {
+public class class_anx extends BlockStateEnum {
    protected class_anx(String var1, Collection var2) {
       super(var1, class_cq.class, var2);
    }

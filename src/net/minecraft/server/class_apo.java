@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agk;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
@@ -106,7 +106,7 @@ public class class_apo extends class_apn {
                      for(int var44 = var38 + 1; !var56 && var44 >= var54 - 1; --var44) {
                         if(var44 >= 0 && var44 < 128) {
                            IBlockData var45 = var5.a(var42, var44, var43);
-                           if(var45.getBlock() == class_agk.k || var45.getBlock() == class_agk.l) {
+                           if(var45.getBlock() == Blocks.FLOWING_LAVA || var45.getBlock() == Blocks.LAVA) {
                               var56 = true;
                            }
 
@@ -129,8 +129,8 @@ public class class_apo extends class_apn {
                            double var49 = ((double)(var48 - 1) + 0.5D - var8) / var31;
                            if(var49 > -0.7D && var57 * var57 + var49 * var49 + var46 * var46 < 1.0D) {
                               IBlockData var51 = var5.a(var42, var48, var58);
-                              if(var51.getBlock() == class_agk.aV || var51.getBlock() == class_agk.d || var51.getBlock() == class_agk.c) {
-                                 var5.a(var42, var48, var58, class_agk.a.S());
+                              if(var51.getBlock() == Blocks.NETHERRACK || var51.getBlock() == Blocks.DIRT || var51.getBlock() == Blocks.GRASS) {
+                                 var5.a(var42, var48, var58, Blocks.AIR.getBlockData());
                               }
                            }
                         }
@@ -147,7 +147,7 @@ public class class_apo extends class_apn {
 
    }
 
-   protected void a(class_aen var1, int var2, int var3, int var4, int var5, class_aph var6) {
+   protected void a(World var1, int var2, int var3, int var4, int var5, class_aph var6) {
       int var7 = this.b.nextInt(this.b.nextInt(this.b.nextInt(10) + 1) + 1);
       if(this.b.nextInt(5) != 0) {
          var7 = 0;

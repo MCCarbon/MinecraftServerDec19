@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.util.UUID;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_aau;
-import net.minecraft.server.class_aen;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_om;
@@ -31,7 +31,7 @@ public class class_wj extends class_wr {
    private int bt;
    private UUID bu;
 
-   public class_wj(class_aen var1) {
+   public class_wj(World var1) {
       super(var1);
       this.ab = true;
    }
@@ -164,13 +164,13 @@ public class class_wj extends class_wr {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.bv, 1);
+         this.a(Items.bv, 1);
       }
 
       var3 = this.V.nextInt(2 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aau.bz, 1);
+         this.a(Items.bz, 1);
       }
 
    }
@@ -180,11 +180,11 @@ public class class_wj extends class_wr {
    }
 
    protected void br() {
-      this.a(class_aau.m, 1);
+      this.a(Items.m, 1);
    }
 
    protected void a(class_on var1) {
-      this.a((class_pw)class_pw.a, (class_aas)(new class_aas(class_aau.D)));
+      this.a((class_pw)class_pw.a, (class_aas)(new class_aas(Items.D)));
    }
 
    public class_qd a(class_on var1, class_qd var2) {
