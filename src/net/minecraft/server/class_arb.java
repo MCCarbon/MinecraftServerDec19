@@ -4,22 +4,22 @@ import com.google.common.base.Predicate;
 import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 
 public class class_arb extends class_aql {
-   private final class_anl a;
+   private final IBlockData a;
    private final int b;
    private final Predicate c;
 
-   public class_arb(class_anl var1, int var2) {
+   public class_arb(IBlockData var1, int var2) {
       this(var1, var2, class_ans.a(class_agk.b));
    }
 
-   public class_arb(class_anl var1, int var2, Predicate var3) {
+   public class_arb(IBlockData var1, int var2, Predicate var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
@@ -60,7 +60,7 @@ public class class_arb extends class_aql {
                         if(var38 * var38 + var41 * var41 + var44 * var44 < 1.0D) {
                            class_cj var46 = new class_cj(var37, var40, var43);
                            if(this.c.apply(var1.p(var46))) {
-                              var1.a((class_cj)var46, (class_anl)this.a, 2);
+                              var1.a((class_cj)var46, (IBlockData)this.a, 2);
                            }
                         }
                      }

@@ -8,8 +8,8 @@ import net.minecraft.server.class_aau;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
@@ -19,7 +19,7 @@ import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_gm;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_pc;
@@ -37,7 +37,7 @@ public class class_xd extends class_pr implements class_xi {
    private int h;
    private int i;
    private int as;
-   private class_agj at;
+   private Block at;
    private int au;
    protected boolean a;
    protected int b;
@@ -113,8 +113,8 @@ public class class_xd extends class_pr implements class_xi {
       }
 
       class_cj var13 = new class_cj(this.h, this.i, this.as);
-      class_anl var2 = this.o.p(var13);
-      class_agj var3 = var2.c();
+      IBlockData var2 = this.o.p(var13);
+      Block var3 = var2.getBlock();
       if(var3.v() != class_atk.a) {
          var3.a((class_aer)this.o, (class_cj)var13);
          class_awf var4 = var3.a(this.o, var13, var2);
@@ -288,8 +288,8 @@ public class class_xd extends class_pr implements class_xi {
          this.h = var8.n();
          this.i = var8.o();
          this.as = var8.p();
-         class_anl var9 = this.o.p(var8);
-         this.at = var9.c();
+         IBlockData var9 = this.o.p(var8);
+         this.at = var9.getBlock();
          this.au = this.at.c(var9);
          this.v = (double)((float)(var1.c.a - this.s));
          this.w = (double)((float)(var1.c.b - this.t));
@@ -303,7 +303,7 @@ public class class_xd extends class_pr implements class_xi {
          this.d = 7;
          this.a(false);
          if(this.at.v() != class_atk.a) {
-            this.at.a((class_aen)this.o, var8, (class_anl)var9, (class_pr)this);
+            this.at.a((class_aen)this.o, var8, (IBlockData)var9, (class_pr)this);
          }
       }
 
@@ -341,7 +341,7 @@ public class class_xd extends class_pr implements class_xi {
       var1.a("yTile", (short)this.i);
       var1.a("zTile", (short)this.as);
       var1.a("life", (short)this.av);
-      class_jz var2 = (class_jz)class_agj.c.b(this.at);
+      MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.at);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("inData", (byte)this.au);
       var1.a("shake", (byte)this.d);
@@ -356,9 +356,9 @@ public class class_xd extends class_pr implements class_xi {
       this.as = var1.f("zTile");
       this.av = var1.f("life");
       if(var1.b("inTile", 8)) {
-         this.at = class_agj.b(var1.k("inTile"));
+         this.at = Block.getByName(var1.k("inTile"));
       } else {
-         this.at = class_agj.c(var1.e("inTile") & 255);
+         this.at = Block.getById(var1.e("inTile") & 255);
       }
 
       this.au = var1.e("inData") & 255;

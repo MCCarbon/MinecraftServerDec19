@@ -2,40 +2,40 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aio;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_ny;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public abstract class class_ake extends class_aio {
    public static final class_any b = class_any.a("variant", class_ake.class_c_in_class_ake.class);
 
    public class_ake() {
       super(class_atk.e);
-      class_anl var1 = this.M.b();
+      IBlockData var1 = this.M.b();
       if(!this.l()) {
-         var1 = var1.a(a, class_aio.class_a_in_class_aio.b);
+         var1 = var1.set(a, class_aio.class_a_in_class_aio.b);
       }
 
-      this.j(var1.a(b, class_ake.class_c_in_class_ake.a));
-      this.a(class_zu.b);
+      this.j(var1.set(b, class_ake.class_c_in_class_ake.a));
+      this.a(CreativeTab.b);
    }
 
-   public class_anl a(int var1) {
-      class_anl var2 = this.S().a(b, class_ake.class_c_in_class_ake.a);
+   public IBlockData a(int var1) {
+      IBlockData var2 = this.S().set(b, class_ake.class_c_in_class_ake.a);
       if(!this.l()) {
-         var2 = var2.a(a, (var1 & 8) == 0?class_aio.class_a_in_class_aio.b:class_aio.class_a_in_class_aio.a);
+         var2 = var2.set(a, (var1 & 8) == 0?class_aio.class_a_in_class_aio.b:class_aio.class_a_in_class_aio.a);
       }
 
       return var2;
    }
 
-   public int c(class_anl var1) {
+   public int c(IBlockData var1) {
       int var2 = 0;
-      if(!this.l() && var1.b(a) == class_aio.class_a_in_class_aio.a) {
+      if(!this.l() && var1.get(a) == class_aio.class_a_in_class_aio.a) {
          var2 |= 8;
       }
 
@@ -43,14 +43,14 @@ public abstract class class_ake extends class_aio {
    }
 
    protected class_anm e() {
-      return this.l()?new class_anm(this, new class_aoa[]{b}):new class_anm(this, new class_aoa[]{a, b});
+      return this.l()?new class_anm(this, new IBlockState[]{b}):new class_anm(this, new IBlockState[]{a, b});
    }
 
    public String b(int var1) {
       return super.a();
    }
 
-   public class_aoa n() {
+   public IBlockState n() {
       return b;
    }
 

@@ -8,14 +8,14 @@ import net.minecraft.server.class_abf;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aiy;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_abg extends class_aar {
    private static final Map b = Maps.newHashMap();
@@ -24,13 +24,13 @@ public class class_abg extends class_aar {
    protected class_abg(String var1) {
       this.a = var1;
       this.h = 1;
-      this.a(class_zu.f);
+      this.a(CreativeTab.f);
       b.put("records." + var1, this);
    }
 
    public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      class_anl var10 = var3.p(var4);
-      if(var10.c() == class_agk.aN && !((Boolean)var10.b(class_aiy.a)).booleanValue()) {
+      IBlockData var10 = var3.p(var4);
+      if(var10.getBlock() == class_agk.aN && !((Boolean)var10.get(class_aiy.a)).booleanValue()) {
          if(var3.D) {
             return class_oq.a;
          } else {

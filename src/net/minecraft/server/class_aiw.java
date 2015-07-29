@@ -3,11 +3,11 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_cj;
@@ -15,13 +15,13 @@ import net.minecraft.server.class_cq;
 import net.minecraft.server.class_ny;
 import net.minecraft.server.class_qa;
 
-public class class_aiw extends class_agj {
+public class class_aiw extends Block {
    public static final class_any a = class_any.a("variant", class_aiw.class_a_in_class_aiw.class);
-   private final class_agj b;
+   private final Block b;
 
-   public class_aiw(class_atk var1, class_atl var2, class_agj var3) {
+   public class_aiw(class_atk var1, class_atl var2, Block var3) {
       super(var1, var2);
-      this.j(this.M.b().a(a, class_aiw.class_a_in_class_aiw.l));
+      this.j(this.M.b().set(a, class_aiw.class_a_in_class_aiw.l));
       this.b = var3;
    }
 
@@ -29,8 +29,8 @@ public class class_aiw extends class_agj {
       return Math.max(0, var1.nextInt(10) - 7);
    }
 
-   public class_atl g(class_anl var1) {
-      switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.b(a)).ordinal()]) {
+   public class_atl g(IBlockData var1) {
+      switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.get(a)).ordinal()]) {
       case 1:
          return class_atl.e;
       case 2:
@@ -42,93 +42,93 @@ public class class_aiw extends class_agj {
       }
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return class_aar.a(this.b);
    }
 
-   public class_anl a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
       return this.S();
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, class_aiw.class_a_in_class_aiw.a(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, class_aiw.class_a_in_class_aiw.a(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((class_aiw.class_a_in_class_aiw)var1.b(a)).a();
+   public int c(IBlockData var1) {
+      return ((class_aiw.class_a_in_class_aiw)var1.get(a)).a();
    }
 
-   public class_anl a(class_anl var1, class_agj.class_c_in_class_agj var2) {
-      if(var1.c() != this) {
+   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      if(var1.getBlock() != this) {
          return var1;
       } else {
          switch(class_aiw.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
-            switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.b(a)).ordinal()]) {
+            switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.get(a)).ordinal()]) {
             case 3:
                break;
             case 4:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.i);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.i);
             case 5:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.h);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.h);
             case 6:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.g);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.g);
             case 7:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.f);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.f);
             case 8:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.d);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.d);
             case 9:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.c);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.c);
             case 10:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.b);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.b);
             case 11:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.a);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.a);
             default:
                return var1;
             }
          case 2:
-            switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.b(a)).ordinal()]) {
+            switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.get(a)).ordinal()]) {
             case 3:
                break;
             case 4:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.g);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.g);
             case 5:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.d);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.d);
             case 6:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.a);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.a);
             case 7:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.h);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.h);
             case 8:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.b);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.b);
             case 9:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.i);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.i);
             case 10:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.f);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.f);
             case 11:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.c);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.c);
             default:
                return var1;
             }
          case 3:
-            switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.b(a)).ordinal()]) {
+            switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.get(a)).ordinal()]) {
             case 3:
                break;
             case 4:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.c);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.c);
             case 5:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.f);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.f);
             case 6:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.i);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.i);
             case 7:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.b);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.b);
             case 8:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.h);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.h);
             case 9:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.a);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.a);
             case 10:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.d);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.d);
             case 11:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.g);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.g);
             default:
                return var1;
             }
@@ -138,49 +138,49 @@ public class class_aiw extends class_agj {
       }
    }
 
-   public class_anl a(class_anl var1, class_agj.class_a_in_class_agj var2) {
-      if(var1.c() != this) {
+   public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
+      if(var1.getBlock() != this) {
          return var1;
       } else {
-         class_aiw.class_a_in_class_aiw var3 = (class_aiw.class_a_in_class_aiw)var1.b(a);
+         class_aiw.class_a_in_class_aiw var3 = (class_aiw.class_a_in_class_aiw)var1.get(a);
          switch(class_aiw.SyntheticClass_1.c[var2.ordinal()]) {
          case 1:
             switch(class_aiw.SyntheticClass_1.a[var3.ordinal()]) {
             case 4:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.g);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.g);
             case 5:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.h);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.h);
             case 6:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.i);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.i);
             case 7:
             case 8:
             default:
                return super.a(var1, var2);
             case 9:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.a);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.a);
             case 10:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.b);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.b);
             case 11:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.c);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.c);
             }
          case 2:
             switch(class_aiw.SyntheticClass_1.a[var3.ordinal()]) {
             case 4:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.c);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.c);
             case 5:
             case 10:
             default:
                break;
             case 6:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.a);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.a);
             case 7:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.f);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.f);
             case 8:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.d);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.d);
             case 9:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.i);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.i);
             case 11:
-               return var1.a(a, class_aiw.class_a_in_class_aiw.g);
+               return var1.set(a, class_aiw.class_a_in_class_aiw.g);
             }
          }
 
@@ -189,7 +189,7 @@ public class class_aiw extends class_agj {
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class
@@ -199,37 +199,37 @@ public class class_aiw extends class_agj {
       // $FF: synthetic field
       static final int[] b;
       // $FF: synthetic field
-      static final int[] c = new int[class_agj.class_a_in_class_agj.values().length];
+      static final int[] c = new int[Block.class_a_in_class_agj.values().length];
 
       static {
          try {
-            c[class_agj.class_a_in_class_agj.b.ordinal()] = 1;
+            c[Block.class_a_in_class_agj.b.ordinal()] = 1;
          } catch (NoSuchFieldError var16) {
             ;
          }
 
          try {
-            c[class_agj.class_a_in_class_agj.c.ordinal()] = 2;
+            c[Block.class_a_in_class_agj.c.ordinal()] = 2;
          } catch (NoSuchFieldError var15) {
             ;
          }
 
-         b = new int[class_agj.class_c_in_class_agj.values().length];
+         b = new int[Block.class_c_in_class_agj.values().length];
 
          try {
-            b[class_agj.class_c_in_class_agj.c.ordinal()] = 1;
+            b[Block.class_c_in_class_agj.c.ordinal()] = 1;
          } catch (NoSuchFieldError var14) {
             ;
          }
 
          try {
-            b[class_agj.class_c_in_class_agj.d.ordinal()] = 2;
+            b[Block.class_c_in_class_agj.d.ordinal()] = 2;
          } catch (NoSuchFieldError var13) {
             ;
          }
 
          try {
-            b[class_agj.class_c_in_class_agj.b.ordinal()] = 3;
+            b[Block.class_c_in_class_agj.b.ordinal()] = 3;
          } catch (NoSuchFieldError var12) {
             ;
          }

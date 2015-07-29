@@ -12,7 +12,7 @@ import net.minecraft.server.class_acd;
 import net.minecraft.server.class_ace;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.class_aib;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_alo;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amm;
 import net.minecraft.server.class_amy;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ck;
@@ -69,38 +69,38 @@ public class class_kc {
    }
 
    static void b() {
-      class_ahk.N.a(class_aau.g, new class_kb() {
+      class_ahk.N.register(class_aau.g, new class_kb() {
          protected class_xi a(class_aen var1, class_cz var2, class_aas var3) {
             class_xd var4 = new class_xd(var1, var2.a(), var2.b(), var2.c());
             var4.c = 1;
             return var4;
          }
       });
-      class_ahk.N.a(class_aau.i, new class_kb() {
+      class_ahk.N.register(class_aau.i, new class_kb() {
          protected class_xi a(class_aen var1, class_cz var2, class_aas var3) {
             class_xt var4 = new class_xt(var1, var2.a(), var2.b(), var2.c(), var3);
             var4.c = 1;
             return var4;
          }
       });
-      class_ahk.N.a(class_aau.h, new class_kb() {
+      class_ahk.N.register(class_aau.h, new class_kb() {
          protected class_xi a(class_aen var1, class_cz var2, class_aas var3) {
             class_xn var4 = new class_xn(var1, var2.a(), var2.b(), var2.c());
             var4.c = 1;
             return var4;
          }
       });
-      class_ahk.N.a(class_aau.aR, new class_kb() {
+      class_ahk.N.register(class_aau.aR, new class_kb() {
          protected class_xi a(class_aen var1, class_cz var2, class_aas var3) {
             return new class_xp(var1, var2.a(), var2.b(), var2.c());
          }
       });
-      class_ahk.N.a(class_aau.aF, new class_kb() {
+      class_ahk.N.register(class_aau.aF, new class_kb() {
          protected class_xi a(class_aen var1, class_cz var2, class_aas var3) {
             return new class_xm(var1, var2.a(), var2.b(), var2.c());
          }
       });
-      class_ahk.N.a(class_aau.bN, new class_kb() {
+      class_ahk.N.register(class_aau.bN, new class_kb() {
          protected class_xi a(class_aen var1, class_cz var2, class_aas var3) {
             return new class_xr(var1, var2.a(), var2.b(), var2.c());
          }
@@ -113,7 +113,7 @@ public class class_kc {
             return super.b() * 1.25F;
          }
       });
-      class_ahk.N.a(class_aau.bC, new class_cr() {
+      class_ahk.N.register(class_aau.bC, new class_cr() {
          private final class_cn b = new class_cn();
 
          public class_aas a(class_ck var1, final class_aas var2) {
@@ -132,7 +132,7 @@ public class class_kc {
             }).a(var1, var2);
          }
       });
-      class_ahk.N.a(class_aau.bM, new class_cn() {
+      class_ahk.N.register(class_aau.bM, new class_cn() {
          public class_aas b(class_ck var1, class_aas var2) {
             class_cq var3 = class_ahk.b(var1.f());
             double var4 = var1.a() + (double)var3.g();
@@ -147,7 +147,7 @@ public class class_kc {
             return var2;
          }
       });
-      class_ahk.N.a(class_aau.ce, new class_cn() {
+      class_ahk.N.register(class_aau.ce, new class_cn() {
          public class_aas b(class_ck var1, class_aas var2) {
             class_cq var3 = class_ahk.b(var1.f());
             double var4 = var1.a() + (double)var3.g();
@@ -163,7 +163,7 @@ public class class_kc {
             var1.i().b(1002, var1.d(), 0);
          }
       });
-      class_ahk.N.a(class_aau.bO, new class_cn() {
+      class_ahk.N.register(class_aau.bO, new class_cn() {
          public class_aas b(class_ck var1, class_aas var2) {
             class_cq var3 = class_ahk.b(var1.f());
             class_cz var4 = class_ahk.a(var1);
@@ -184,7 +184,7 @@ public class class_kc {
             var1.i().b(1009, var1.d(), 0);
          }
       });
-      class_ahk.N.a(class_aau.aG, new class_cn() {
+      class_ahk.N.register(class_aau.aG, new class_cn() {
          private final class_cn b = new class_cn();
 
          public class_aas b(class_ck var1, class_aas var2) {
@@ -194,12 +194,12 @@ public class class_kc {
             double var7 = var1.b() + (double)((float)var3.h() * 1.125F);
             double var9 = var1.c() + (double)((float)var3.i() * 1.125F);
             class_cj var11 = var1.d().a(var3);
-            class_atk var12 = var4.p(var11).c().v();
+            class_atk var12 = var4.p(var11).getBlock().v();
             double var13;
             if(class_atk.h.equals(var12)) {
                var13 = 1.0D;
             } else {
-               if(!class_atk.a.equals(var12) || !class_atk.h.equals(var4.p(var11.b()).c().v())) {
+               if(!class_atk.a.equals(var12) || !class_atk.h.equals(var4.p(var11.b()).getBlock().v())) {
                   return this.b.a(var1, var2);
                }
 
@@ -231,22 +231,22 @@ public class class_kc {
             }
          }
       };
-      class_ahk.N.a(class_aau.aA, var0);
-      class_ahk.N.a(class_aau.az, var0);
-      class_ahk.N.a(class_aau.ay, new class_cn() {
+      class_ahk.N.register(class_aau.aA, var0);
+      class_ahk.N.register(class_aau.az, var0);
+      class_ahk.N.register(class_aau.ay, new class_cn() {
          private final class_cn b = new class_cn();
 
          public class_aas b(class_ck var1, class_aas var2) {
             class_aen var3 = var1.i();
             class_cj var4 = var1.d().a(class_ahk.b(var1.f()));
-            class_anl var5 = var3.p(var4);
-            class_agj var6 = var5.c();
+            IBlockData var5 = var3.p(var4);
+            Block var6 = var5.getBlock();
             class_atk var7 = var6.v();
             class_aar var8;
-            if(class_atk.h.equals(var7) && var6 instanceof class_ajd && ((Integer)var5.b(class_ajd.b)).intValue() == 0) {
+            if(class_atk.h.equals(var7) && var6 instanceof class_ajd && ((Integer)var5.get(class_ajd.b)).intValue() == 0) {
                var8 = class_aau.az;
             } else {
-               if(!class_atk.i.equals(var7) || !(var6 instanceof class_ajd) || ((Integer)var5.b(class_ajd.b)).intValue() != 0) {
+               if(!class_atk.i.equals(var7) || !(var6 instanceof class_ajd) || ((Integer)var5.get(class_ajd.b)).intValue() != 0) {
                   return super.b(var1, var2);
                }
 
@@ -264,7 +264,7 @@ public class class_kc {
             return var2;
          }
       });
-      class_ahk.N.a(class_aau.d, new class_cn() {
+      class_ahk.N.register(class_aau.d, new class_cn() {
          private boolean b = true;
 
          protected class_aas b(class_ck var1, class_aas var2) {
@@ -275,8 +275,8 @@ public class class_kc {
                if(var2.a(1, (Random)var3.s)) {
                   var2.b = 0;
                }
-            } else if(var3.p(var4).c() == class_agk.W) {
-               class_agk.W.d(var3, var4, class_agk.W.S().a(class_alo.a, Boolean.valueOf(true)));
+            } else if(var3.p(var4).getBlock() == class_agk.W) {
+               class_agk.W.d(var3, var4, class_agk.W.S().set(class_alo.a, Boolean.valueOf(true)));
                var3.g(var4);
             } else {
                this.b = false;
@@ -294,7 +294,7 @@ public class class_kc {
 
          }
       });
-      class_ahk.N.a(class_aau.aY, new class_cn() {
+      class_ahk.N.register(class_aau.aY, new class_cn() {
          private boolean b = true;
 
          protected class_aas b(class_ck var1, class_aas var2) {
@@ -324,7 +324,7 @@ public class class_kc {
 
          }
       });
-      class_ahk.N.a(class_aar.a(class_agk.W), new class_cn() {
+      class_ahk.N.register(class_aar.a(class_agk.W), new class_cn() {
          protected class_aas b(class_ck var1, class_aas var2) {
             class_aen var3 = var1.i();
             class_cj var4 = var1.d().a(class_ahk.b(var1.f()));
@@ -335,7 +335,7 @@ public class class_kc {
             return var2;
          }
       });
-      class_ahk.N.a(class_aau.ca, new class_cn() {
+      class_ahk.N.register(class_aau.ca, new class_cn() {
          private boolean b = true;
 
          protected class_aas b(class_ck var1, class_aas var2) {
@@ -345,7 +345,7 @@ public class class_kc {
             class_akv var6 = class_agk.ce;
             if(var3.d(var5) && var6.b(var3, var5, var2)) {
                if(!var3.D) {
-                  var3.a((class_cj)var5, (class_anl)var6.S().a(class_akv.a, class_cq.b), 3);
+                  var3.a((class_cj)var5, (IBlockData)var6.S().set(class_akv.a, class_cq.b), 3);
                   class_amg var7 = var3.s(var5);
                   if(var7 instanceof class_amy) {
                      if(var2.i() == 3) {
@@ -389,7 +389,7 @@ public class class_kc {
 
          }
       });
-      class_ahk.N.a(class_aar.a(class_agk.aU), new class_cn() {
+      class_ahk.N.register(class_aar.a(class_agk.aU), new class_cn() {
          private boolean b = true;
 
          protected class_aas b(class_ck var1, class_aas var2) {
@@ -398,7 +398,7 @@ public class class_kc {
             class_akd var5 = (class_akd)class_agk.aU;
             if(var3.d(var4) && var5.e(var3, var4)) {
                if(!var3.D) {
-                  var3.a((class_cj)var4, (class_anl)var5.S(), 3);
+                  var3.a((class_cj)var4, (IBlockData)var5.S(), 3);
                }
 
                --var2.b;
@@ -427,7 +427,7 @@ public class class_kc {
             d();
          }
 
-         class_agj.U();
+         Block.U();
          class_aib.l();
          class_pk.k();
          class_adi.e();

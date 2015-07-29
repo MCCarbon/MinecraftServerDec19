@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.List;
 import java.util.Map;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awq;
 import net.minecraft.server.class_awr;
 import net.minecraft.server.class_aws;
@@ -16,11 +16,11 @@ public interface class_awt {
 	class_awt e = new class_awr("playerKillCount");
 	class_awt f = new class_awr("totalKillCount");
 	class_awt g = new class_aws("health");
-	class_awt[] h = new class_awt[] { new class_awq("teamkill.", class_a.a), new class_awq("teamkill.", class_a.b), new class_awq("teamkill.", class_a.c), new class_awq("teamkill.", class_a.d), new class_awq("teamkill.", class_a.e), new class_awq("teamkill.", class_a.f), new class_awq("teamkill.", class_a.g), new class_awq("teamkill.", class_a.h), new class_awq("teamkill.", class_a.i), new class_awq("teamkill.", class_a.j), new class_awq("teamkill.", class_a.k),
-			new class_awq("teamkill.", class_a.l), new class_awq("teamkill.", class_a.m), new class_awq("teamkill.", class_a.n), new class_awq("teamkill.", class_a.o), new class_awq("teamkill.", class_a.p) };
+	class_awt[] h = new class_awt[] { new class_awq("teamkill.", EnumChatFormat.BLACK), new class_awq("teamkill.", EnumChatFormat.DARK_BLUE), new class_awq("teamkill.", EnumChatFormat.DARK_GREEN), new class_awq("teamkill.", EnumChatFormat.DARK_AQUA), new class_awq("teamkill.", EnumChatFormat.DARK_RED), new class_awq("teamkill.", EnumChatFormat.DARK_PURPLE), new class_awq("teamkill.", EnumChatFormat.GOLD), new class_awq("teamkill.", EnumChatFormat.GRAY), new class_awq("teamkill.", EnumChatFormat.DARK_GRAY), new class_awq("teamkill.", EnumChatFormat.BLUE), new class_awq("teamkill.", EnumChatFormat.GREEN),
+			new class_awq("teamkill.", EnumChatFormat.AQUA), new class_awq("teamkill.", EnumChatFormat.RED), new class_awq("teamkill.", EnumChatFormat.LIGHT_PURPLE), new class_awq("teamkill.", EnumChatFormat.YELLOW), new class_awq("teamkill.", EnumChatFormat.WHITE) };
 
-	class_awt[] i = new class_awt[] { new class_awq("killedByTeam.", class_a.a), new class_awq("killedByTeam.", class_a.b), new class_awq("killedByTeam.", class_a.c), new class_awq("killedByTeam.", class_a.d), new class_awq("killedByTeam.", class_a.e), new class_awq("killedByTeam.", class_a.f), new class_awq("killedByTeam.", class_a.g), new class_awq("killedByTeam.", class_a.h), new class_awq("killedByTeam.", class_a.i), new class_awq("killedByTeam.", class_a.j),
-			new class_awq("killedByTeam.", class_a.k), new class_awq("killedByTeam.", class_a.l), new class_awq("killedByTeam.", class_a.m), new class_awq("killedByTeam.", class_a.n), new class_awq("killedByTeam.", class_a.o), new class_awq("killedByTeam.", class_a.p) };
+	class_awt[] i = new class_awt[] { new class_awq("killedByTeam.", EnumChatFormat.BLACK), new class_awq("killedByTeam.", EnumChatFormat.DARK_BLUE), new class_awq("killedByTeam.", EnumChatFormat.DARK_GREEN), new class_awq("killedByTeam.", EnumChatFormat.DARK_AQUA), new class_awq("killedByTeam.", EnumChatFormat.DARK_RED), new class_awq("killedByTeam.", EnumChatFormat.DARK_PURPLE), new class_awq("killedByTeam.", EnumChatFormat.GOLD), new class_awq("killedByTeam.", EnumChatFormat.GRAY), new class_awq("killedByTeam.", EnumChatFormat.DARK_GRAY), new class_awq("killedByTeam.", EnumChatFormat.BLUE),
+			new class_awq("killedByTeam.", EnumChatFormat.GREEN), new class_awq("killedByTeam.", EnumChatFormat.AQUA), new class_awq("killedByTeam.", EnumChatFormat.RED), new class_awq("killedByTeam.", EnumChatFormat.LIGHT_PURPLE), new class_awq("killedByTeam.", EnumChatFormat.YELLOW), new class_awq("killedByTeam.", EnumChatFormat.WHITE) };
 
 	String a();
 

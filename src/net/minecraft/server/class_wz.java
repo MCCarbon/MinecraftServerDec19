@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.concurrent.Callable;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.class_dn;
@@ -297,7 +297,7 @@ public class class_wz implements class_oj {
 
    }
 
-   public float a(class_agj var1) {
+   public float a(Block var1) {
       float var2 = 1.0F;
       if(this.a[this.d] != null) {
          var2 *= this.a[this.d].a(var1);
@@ -399,7 +399,7 @@ public class class_wz implements class_oj {
       return 64;
    }
 
-   public boolean b(class_agj var1) {
+   public boolean b(Block var1) {
       if(var1.v().l()) {
          return true;
       } else {

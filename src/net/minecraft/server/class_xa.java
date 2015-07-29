@@ -17,11 +17,11 @@ import net.minecraft.server.class_aed;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_agh;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aiv;
 import net.minecraft.server.class_amx;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awj;
@@ -440,7 +440,7 @@ public abstract class class_xa extends class_qa {
    private Collection e(class_pr var1) {
       class_awk var2 = this.cr().h(this.e_());
       if(var2 != null) {
-         int var3 = var2.l().b();
+         int var3 = var2.l().getId();
          if(var3 >= 0 && var3 < class_awt.i.length) {
             Iterator var4 = this.cr().a(class_awt.i[var3]).iterator();
 
@@ -454,7 +454,7 @@ public abstract class class_xa extends class_qa {
 
       class_awk var7 = this.cr().h(var1.e_());
       if(var7 != null) {
-         int var8 = var7.l().b();
+         int var8 = var7.l().getId();
          if(var8 >= 0 && var8 < class_awt.h.length) {
             return this.cr().a(class_awt.h[var8]);
          }
@@ -517,7 +517,7 @@ public abstract class class_xa extends class_qa {
       this.o.a((class_pr)var1);
    }
 
-   public float a(class_agj var1) {
+   public float a(Block var1) {
       float var2 = this.bp.a(var1);
       if(var2 > 1.0F) {
          int var3 = class_adk.e(this);
@@ -562,7 +562,7 @@ public abstract class class_xa extends class_qa {
       return var2;
    }
 
-   public boolean b(class_agj var1) {
+   public boolean b(Block var1) {
       return this.bp.b(var1);
    }
 
@@ -946,7 +946,7 @@ public abstract class class_xa extends class_qa {
 
       this.a(0.2F, 0.2F);
       if(this.o.e(var1)) {
-         class_cq var7 = (class_cq)this.o.p(var1).b(class_aiv.O);
+         class_cq var7 = (class_cq)this.o.p(var1).get(class_aiv.O);
          float var3 = 0.5F;
          float var8 = 0.5F;
          switch(class_xa.SyntheticClass_1.a[var7.ordinal()]) {
@@ -1001,9 +1001,9 @@ public abstract class class_xa extends class_qa {
 
    public void a(boolean var1, boolean var2, boolean var3) {
       this.a(0.6F, 1.8F);
-      class_anl var4 = this.o.p(this.bE);
-      if(this.bE != null && var4.c() == class_agk.C) {
-         this.o.a((class_cj)this.bE, (class_anl)var4.a(class_agh.b, Boolean.valueOf(false)), 4);
+      IBlockData var4 = this.o.p(this.bE);
+      if(this.bE != null && var4.getBlock() == class_agk.C) {
+         this.o.a((class_cj)this.bE, (IBlockData)var4.set(class_agh.b, Boolean.valueOf(false)), 4);
          class_cj var5 = class_agh.a((class_aen)this.o, (class_cj)this.bE, 0);
          if(var5 == null) {
             var5 = this.bE.a();
@@ -1025,17 +1025,17 @@ public abstract class class_xa extends class_qa {
    }
 
    private boolean p() {
-      return this.o.p(this.bE).c() == class_agk.C;
+      return this.o.p(this.bE).getBlock() == class_agk.C;
    }
 
    public static class_cj a(class_aen var0, class_cj var1, boolean var2) {
-      class_agj var3 = var0.p(var1).c();
+      Block var3 = var0.p(var1).getBlock();
       if(var3 != class_agk.C) {
          if(!var2) {
             return null;
          } else {
             boolean var4 = var3.g();
-            boolean var5 = var0.p(var1.a()).c().g();
+            boolean var5 = var0.p(var1.a()).getBlock().g();
             return var4 && var5?var1:null;
          }
       } else {
@@ -1306,7 +1306,7 @@ public abstract class class_xa extends class_qa {
          return false;
       } else {
          class_cj var4 = var1.a(var2.d());
-         class_agj var5 = this.o.p(var4).c();
+         Block var5 = this.o.p(var4).getBlock();
          return var3.d(var5) || var3.x();
       }
    }

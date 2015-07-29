@@ -5,7 +5,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ft;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 
 public class class_amq extends class_amg {
    private class_aar a;
@@ -21,7 +21,7 @@ public class class_amq extends class_amg {
 
    public void b(class_dn var1) {
       super.b(var1);
-      class_jz var2 = (class_jz)class_aar.e.b(this.a);
+      MinecraftKey var2 = (MinecraftKey)class_aar.e.getKey(this.a);
       var1.a("Item", var2 == null?"":var2.toString());
       var1.a("Data", this.f);
    }

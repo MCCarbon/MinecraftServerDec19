@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_acd;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_kc;
 
 public class class_acf {
@@ -42,7 +42,7 @@ public class class_acf {
    public static class_acd I;
 
    private static class_acd a(String var0) {
-      class_acd var1 = (class_acd)class_acd.a.c(new class_jz(var0));
+      class_acd var1 = (class_acd)class_acd.a.get(new MinecraftKey(var0));
       if(var1 == null) {
          throw new IllegalStateException("Invalid Potion requested: " + var0);
       } else {

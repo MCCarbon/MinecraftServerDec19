@@ -2,20 +2,20 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.class_ajs;
 import net.minecraft.server.class_ajt;
 import net.minecraft.server.class_ajw;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 
 public class class_ark extends class_apw {
-   private static final class_anl a;
-   private static final class_anl b;
+   private static final IBlockData a;
+   private static final IBlockData b;
 
    public class_ark(boolean var1) {
       super(var1);
@@ -43,7 +43,7 @@ public class class_ark extends class_apw {
             for(int var12 = var3.n() - var21; var12 <= var3.n() + var21 && var8; ++var12) {
                for(var13 = var3.p() - var21; var13 <= var3.p() + var21 && var8; ++var13) {
                   if(var9 >= 0 && var9 < 256) {
-                     class_agj var14 = var1.p(var11.c(var12, var9, var13)).c();
+                     Block var14 = var1.p(var11.c(var12, var9, var13)).getBlock();
                      if(var14.v() != class_atk.a && var14.v() != class_atk.j) {
                         var8 = false;
                      }
@@ -57,7 +57,7 @@ public class class_ark extends class_apw {
          if(!var8) {
             return false;
          } else {
-            class_agj var20 = var1.p(var3.b()).c();
+            Block var20 = var1.p(var3.b()).getBlock();
             if((var20 == class_agk.c || var20 == class_agk.d || var20 == class_agk.ak) && var3.o() < 256 - var4 - 1) {
                this.a(var1, var3.b());
                var21 = var2.nextInt(2);
@@ -75,7 +75,7 @@ public class class_ark extends class_apw {
                         int var18 = var17 - var3.p();
                         if(Math.abs(var16) != var21 || Math.abs(var18) != var21 || var21 <= 0) {
                            class_cj var19 = new class_cj(var15, var24, var17);
-                           if(!var1.p(var19).c().q()) {
+                           if(!var1.p(var19).getBlock().q()) {
                               this.a(var1, var19, b);
                            }
                         }
@@ -97,7 +97,7 @@ public class class_ark extends class_apw {
                var13 = var2.nextInt(3);
 
                for(var24 = 0; var24 < var4 - var13; ++var24) {
-                  class_agj var25 = var1.p(var3.b(var24)).c();
+                  Block var25 = var1.p(var3.b(var24)).getBlock();
                   if(var25.v() == class_atk.a || var25.v() == class_atk.j) {
                      this.a(var1, var3.b(var24), a);
                   }
@@ -114,7 +114,7 @@ public class class_ark extends class_apw {
    }
 
    static {
-      a = class_agk.r.S().a(class_ajt.b, class_ajw.class_a_in_class_ajw.b);
-      b = class_agk.t.S().a(class_ajs.Q, class_ajw.class_a_in_class_ajw.b).a(class_aja.b, Boolean.valueOf(false));
+      a = class_agk.r.S().set(class_ajt.b, class_ajw.class_a_in_class_ajw.b);
+      b = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.b).set(class_aja.b, Boolean.valueOf(false));
    }
 }

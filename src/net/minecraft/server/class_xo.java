@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.UUID;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
@@ -11,7 +11,7 @@ import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_pr;
@@ -23,7 +23,7 @@ public abstract class class_xo extends class_pr implements class_xi {
    private int d;
    private int e;
    private int f;
-   private class_agj g;
+   private Block g;
    protected boolean a;
    public int b;
    private class_qa h;
@@ -91,7 +91,7 @@ public abstract class class_xo extends class_pr implements class_xi {
       }
 
       if(this.a) {
-         if(this.o.p(new class_cj(this.d, this.e, this.f)).c() == this.g) {
+         if(this.o.p(new class_cj(this.d, this.e, this.f)).getBlock() == this.g) {
             ++this.as;
             if(this.as == 1200) {
                this.J();
@@ -163,7 +163,7 @@ public abstract class class_xo extends class_pr implements class_xi {
       }
 
       if(var3 != null) {
-         if(var3.a == class_awg.class_a_in_class_awg.b && this.o.p(var3.a()).c() == class_agk.aY) {
+         if(var3.a == class_awg.class_a_in_class_awg.b && this.o.p(var3.a()).getBlock() == class_agk.aY) {
             this.d(var3.a());
          } else {
             this.a(var3);
@@ -222,7 +222,7 @@ public abstract class class_xo extends class_pr implements class_xi {
       var1.a("xTile", (short)this.d);
       var1.a("yTile", (short)this.e);
       var1.a("zTile", (short)this.f);
-      class_jz var2 = (class_jz)class_agj.c.b(this.g);
+      MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.g);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("shake", (byte)this.b);
       var1.a("inGround", (byte)(this.a?1:0));
@@ -238,9 +238,9 @@ public abstract class class_xo extends class_pr implements class_xi {
       this.e = var1.f("yTile");
       this.f = var1.f("zTile");
       if(var1.b("inTile", 8)) {
-         this.g = class_agj.b(var1.k("inTile"));
+         this.g = Block.getByName(var1.k("inTile"));
       } else {
-         this.g = class_agj.c(var1.e("inTile") & 255);
+         this.g = Block.getById(var1.e("inTile") & 255);
       }
 
       this.b = var1.e("shake") & 255;

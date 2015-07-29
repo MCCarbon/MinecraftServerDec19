@@ -4,7 +4,7 @@ import java.util.Random;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
@@ -89,7 +89,7 @@ public class class_wp extends class_wi {
       return "mob.spider.death";
    }
 
-   protected void a(class_cj var1, class_agj var2) {
+   protected void a(class_cj var1, Block var2) {
       this.a("mob.spider.step", 0.15F, 1.0F);
    }
 

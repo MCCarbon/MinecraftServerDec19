@@ -3,10 +3,10 @@ package net.minecraft.server;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahd;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ow;
 import net.minecraft.server.class_rx;
@@ -55,8 +55,8 @@ public class class_ro extends class_rx {
       if(this.f()) {
          class_aen var1 = this.c.o;
          class_cj var2 = this.b.a();
-         class_anl var3 = var1.p(var2);
-         class_agj var4 = var3.c();
+         IBlockData var3 = var1.p(var2);
+         Block var4 = var3.getBlock();
          if(this.f == 0 && var4 instanceof class_ahd && ((class_ahd)var4).e(var3)) {
             var1.b(var2, true);
          } else if(this.f == 1 && var4 == class_agk.a) {
@@ -67,13 +67,13 @@ public class class_ro extends class_rx {
                boolean var8 = false;
                if(var7 != null) {
                   if(var7.b() == class_aau.P) {
-                     var1.a((class_cj)var2, (class_anl)class_agk.aj.S(), 3);
+                     var1.a((class_cj)var2, (IBlockData)class_agk.aj.S(), 3);
                      var8 = true;
                   } else if(var7.b() == class_aau.bV) {
-                     var1.a((class_cj)var2, (class_anl)class_agk.cc.S(), 3);
+                     var1.a((class_cj)var2, (IBlockData)class_agk.cc.S(), 3);
                      var8 = true;
                   } else if(var7.b() == class_aau.bU) {
-                     var1.a((class_cj)var2, (class_anl)class_agk.cb.S(), 3);
+                     var1.a((class_cj)var2, (IBlockData)class_agk.cb.S(), 3);
                      var8 = true;
                   }
                }
@@ -95,11 +95,11 @@ public class class_ro extends class_rx {
    }
 
    protected boolean a(class_aen var1, class_cj var2) {
-      class_agj var3 = var1.p(var2).c();
+      Block var3 = var1.p(var2).getBlock();
       if(var3 == class_agk.ak) {
          var2 = var2.a();
-         class_anl var4 = var1.p(var2);
-         var3 = var4.c();
+         IBlockData var4 = var1.p(var2);
+         var3 = var4.getBlock();
          if(var3 instanceof class_ahd && ((class_ahd)var3).e(var4) && this.e && (this.f == 0 || this.f < 0)) {
             this.f = 0;
             return true;

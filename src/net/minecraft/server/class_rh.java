@@ -3,10 +3,10 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_alm;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ant;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
@@ -30,7 +30,7 @@ public class class_rh extends class_rm {
          return false;
       } else {
          class_cj var1 = new class_cj(this.c.s, this.c.t, this.c.u);
-         return b.apply(this.d.p(var1))?true:this.d.p(var1.b()).c() == class_agk.c;
+         return b.apply(this.d.p(var1))?true:this.d.p(var1.b()).getBlock() == class_agk.c;
       }
    }
 
@@ -64,10 +64,10 @@ public class class_rh extends class_rm {
             this.c.x();
          } else {
             class_cj var2 = var1.b();
-            if(this.d.p(var2).c() == class_agk.c) {
+            if(this.d.p(var2).getBlock() == class_agk.c) {
                if(this.d.R().b("mobGriefing")) {
-                  this.d.b(2001, var2, class_agj.a((class_agj)class_agk.c));
-                  this.d.a((class_cj)var2, (class_anl)class_agk.d.S(), 2);
+                  this.d.b(2001, var2, Block.getId((Block)class_agk.c));
+                  this.d.a((class_cj)var2, (IBlockData)class_agk.d.S(), 2);
                }
 
                this.c.x();
@@ -78,6 +78,6 @@ public class class_rh extends class_rm {
    }
 
    static {
-      b = class_ant.a((class_agj)class_agk.H).a(class_alm.a, Predicates.equalTo(class_alm.class_a_in_class_alm.b));
+      b = class_ant.a((Block)class_agk.H).a(class_alm.a, Predicates.equalTo(class_alm.class_a_in_class_alm.b));
    }
 }

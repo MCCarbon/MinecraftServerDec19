@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agu;
 import net.minecraft.server.class_aiu;
 import net.minecraft.server.class_amg;
@@ -448,7 +448,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       int var9 = class_nu.c(var3);
       int var10 = class_nu.c(var5);
       class_cj var11 = new class_cj(var8, var9, var10);
-      class_agj var12 = var0.p(var11).c();
+      Block var12 = var0.p(var11).getBlock();
       if(var12.B()) {
          class_amg var13 = var0.s(var11);
          if(var13 instanceof class_oj) {

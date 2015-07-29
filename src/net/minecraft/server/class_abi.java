@@ -7,12 +7,12 @@ import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_ud;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_abi extends class_aar {
    public class_abi() {
       this.h = 1;
-      this.a(class_zu.e);
+      this.a(CreativeTab.e);
    }
 
    public boolean a(class_aas var1, class_xa var2, class_qa var3, class_oo var4) {

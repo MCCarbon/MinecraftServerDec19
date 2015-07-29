@@ -5,7 +5,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agf;
 import net.minecraft.server.class_ahk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ck;
@@ -17,7 +17,7 @@ import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_aaz extends class_aar {
    private static final class_cr a = new class_cn() {
@@ -30,8 +30,8 @@ public class class_aaz extends class_aar {
          double var7 = Math.floor(var1.b()) + (double)var3.h();
          double var9 = var1.c() + (double)var3.i() * 1.125D;
          class_cj var11 = var1.d().a(var3);
-         class_anl var12 = var4.p(var11);
-         class_agf.class_b_in_class_agf var13 = var12.c() instanceof class_agf?(class_agf.class_b_in_class_agf)var12.b(((class_agf)var12.c()).n()):class_agf.class_b_in_class_agf.a;
+         IBlockData var12 = var4.p(var11);
+         class_agf.class_b_in_class_agf var13 = var12.getBlock() instanceof class_agf?(class_agf.class_b_in_class_agf)var12.get(((class_agf)var12.getBlock()).n()):class_agf.class_b_in_class_agf.a;
          double var14;
          if(class_agf.d(var12)) {
             if(var13.c()) {
@@ -40,12 +40,12 @@ public class class_aaz extends class_aar {
                var14 = 0.1D;
             }
          } else {
-            if(var12.c().v() != class_atk.a || !class_agf.d(var4.p(var11.b()))) {
+            if(var12.getBlock().v() != class_atk.a || !class_agf.d(var4.p(var11.b()))) {
                return this.b.a(var1, var2);
             }
 
-            class_anl var16 = var4.p(var11.b());
-            class_agf.class_b_in_class_agf var17 = var16.c() instanceof class_agf?(class_agf.class_b_in_class_agf)var16.b(((class_agf)var16.c()).n()):class_agf.class_b_in_class_agf.a;
+            IBlockData var16 = var4.p(var11.b());
+            class_agf.class_b_in_class_agf var17 = var16.getBlock() instanceof class_agf?(class_agf.class_b_in_class_agf)var16.get(((class_agf)var16.getBlock()).n()):class_agf.class_b_in_class_agf.a;
             if(var3 != class_cq.a && var17.c()) {
                var14 = -0.4D;
             } else {
@@ -72,15 +72,15 @@ public class class_aaz extends class_aar {
    public class_aaz(class_vn.class_a_in_class_vn var1) {
       this.h = 1;
       this.b = var1;
-      this.a(class_zu.e);
-      class_ahk.N.a(this, a);
+      this.a(CreativeTab.e);
+      class_ahk.N.register(this, a);
    }
 
    public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      class_anl var10 = var3.p(var4);
+      IBlockData var10 = var3.p(var4);
       if(class_agf.d(var10)) {
          if(!var3.D) {
-            class_agf.class_b_in_class_agf var11 = var10.c() instanceof class_agf?(class_agf.class_b_in_class_agf)var10.b(((class_agf)var10.c()).n()):class_agf.class_b_in_class_agf.a;
+            class_agf.class_b_in_class_agf var11 = var10.getBlock() instanceof class_agf?(class_agf.class_b_in_class_agf)var10.get(((class_agf)var10.getBlock()).n()):class_agf.class_b_in_class_agf.a;
             double var12 = 0.0D;
             if(var11.c()) {
                var12 = 0.5D;

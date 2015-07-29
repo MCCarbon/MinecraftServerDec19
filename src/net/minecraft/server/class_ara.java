@@ -10,7 +10,7 @@ import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ami;
 import net.minecraft.server.class_amv;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
@@ -45,7 +45,7 @@ public class class_ara extends class_aql {
          for(var15 = -1; var15 <= 4; ++var15) {
             for(var16 = var11; var16 <= var12; ++var16) {
                var17 = var3.a(var14, var15, var16);
-               class_atk var18 = var1.p(var17).c().v();
+               class_atk var18 = var1.p(var17).getBlock().v();
                boolean var19 = var18.a();
                if(var15 == -1 && !var19) {
                   return false;
@@ -68,16 +68,16 @@ public class class_ara extends class_aql {
                for(var16 = var11; var16 <= var12; ++var16) {
                   var17 = var3.a(var14, var15, var16);
                   if(var14 != var6 && var15 != -1 && var16 != var11 && var14 != var7 && var15 != 4 && var16 != var12) {
-                     if(var1.p(var17).c() != class_agk.ae) {
+                     if(var1.p(var17).getBlock() != class_agk.ae) {
                         var1.g(var17);
                      }
-                  } else if(var17.o() >= 0 && !var1.p(var17.b()).c().v().a()) {
+                  } else if(var17.o() >= 0 && !var1.p(var17.b()).getBlock().v().a()) {
                      var1.g(var17);
-                  } else if(var1.p(var17).c().v().a() && var1.p(var17).c() != class_agk.ae) {
+                  } else if(var1.p(var17).getBlock().v().a() && var1.p(var17).getBlock() != class_agk.ae) {
                      if(var15 == -1 && var2.nextInt(4) != 0) {
-                        var1.a((class_cj)var17, (class_anl)class_agk.Y.S(), 2);
+                        var1.a((class_cj)var17, (IBlockData)class_agk.Y.S(), 2);
                      } else {
-                        var1.a((class_cj)var17, (class_anl)class_agk.e.S(), 2);
+                        var1.a((class_cj)var17, (IBlockData)class_agk.e.S(), 2);
                      }
                   }
                }
@@ -96,13 +96,13 @@ public class class_ara extends class_aql {
 
                   while(var21.hasNext()) {
                      class_cq var22 = (class_cq)var21.next();
-                     if(var1.p(var26.a(var22)).c().v().a()) {
+                     if(var1.p(var26.a(var22)).getBlock().v().a()) {
                         ++var20;
                      }
                   }
 
                   if(var20 == 1) {
-                     var1.a((class_cj)var26, (class_anl)class_agk.ae.f(var1, var26, class_agk.ae.S()), 2);
+                     var1.a((class_cj)var26, (IBlockData)class_agk.ae.f(var1, var26, class_agk.ae.S()), 2);
                      List var27 = class_od.a(c, new class_od[]{class_aau.cg.b(var2)});
                      class_amg var28 = var1.s(var26);
                      if(var28 instanceof class_ami) {
@@ -114,7 +114,7 @@ public class class_ara extends class_aql {
             }
          }
 
-         var1.a((class_cj)var3, (class_anl)class_agk.ac.S(), 2);
+         var1.a((class_cj)var3, (IBlockData)class_agk.ac.S(), 2);
          class_amg var23 = var1.s(var3);
          if(var23 instanceof class_amv) {
             ((class_amv)var23).b().a(this.a(var2));

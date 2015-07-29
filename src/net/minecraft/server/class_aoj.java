@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aet;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_aok;
@@ -29,7 +29,7 @@ public class class_aoj extends class_aok {
    public void b() {
    }
 
-   public class_agj a(class_cj var1) {
+   public Block a(class_cj var1) {
       return class_agk.a;
    }
 

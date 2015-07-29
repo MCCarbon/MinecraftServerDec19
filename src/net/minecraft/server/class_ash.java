@@ -19,7 +19,7 @@ import net.minecraft.server.class_als;
 import net.minecraft.server.class_alt;
 import net.minecraft.server.class_alu;
 import net.minecraft.server.class_ane;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
@@ -84,15 +84,15 @@ public class class_ash {
             this.a(var1, class_agk.a.S(), 1, 3, 4, var3);
             this.a(var1, class_agk.a.S(), 5, 3, 4, var3);
             this.a(var1, class_agk.a.S(), 5, 3, 5, var3);
-            this.a(var1, class_agk.ca.S().a(class_aid.b, class_aid.class_a_in_class_aid.r), 1, 3, 5, var3);
+            this.a(var1, class_agk.ca.S().set(class_aid.b, class_aid.class_a_in_class_aid.r), 1, 3, 5, var3);
             this.a(var1, class_agk.ai.S(), 3, 2, 6, var3);
             this.a(var1, class_agk.bE.S(), 4, 2, 6, var3);
             this.a(var1, class_agk.aO.S(), 1, 2, 1, var3);
             this.a(var1, class_agk.aO.S(), 5, 2, 1, var3);
-            class_anl var4 = class_agk.bU.S().a(class_ald.a, class_cq.c);
-            class_anl var5 = class_agk.bU.S().a(class_ald.a, class_cq.f);
-            class_anl var6 = class_agk.bU.S().a(class_ald.a, class_cq.e);
-            class_anl var7 = class_agk.bU.S().a(class_ald.a, class_cq.d);
+            IBlockData var4 = class_agk.bU.S().set(class_ald.a, class_cq.c);
+            IBlockData var5 = class_agk.bU.S().set(class_ald.a, class_cq.f);
+            IBlockData var6 = class_agk.bU.S().set(class_ald.a, class_cq.e);
+            IBlockData var7 = class_agk.bU.S().set(class_ald.a, class_cq.d);
             this.a(var1, var3, 0, 4, 1, 6, 4, 1, var4, var4, false);
             this.a(var1, var3, 0, 4, 2, 0, 4, 7, var5, var5, false);
             this.a(var1, var3, 6, 4, 2, 6, 4, 7, var6, var6, false);
@@ -215,10 +215,10 @@ public class class_ash {
             this.a(var1, var3, 4, 9, 10, 4, 9, 10, false, var2, k);
             this.a(var1, var3, 7, 9, 10, 7, 9, 10, false, var2, k);
             this.a(var1, var3, 5, 9, 7, 6, 9, 7, false, var2, k);
-            class_anl var9 = class_agk.aw.S().a(class_ald.a, class_cq.f);
-            class_anl var10 = class_agk.aw.S().a(class_ald.a, class_cq.e);
-            class_anl var6 = class_agk.aw.S().a(class_ald.a, class_cq.d);
-            class_anl var7 = class_agk.aw.S().a(class_ald.a, class_cq.c);
+            IBlockData var9 = class_agk.aw.S().set(class_ald.a, class_cq.f);
+            IBlockData var10 = class_agk.aw.S().set(class_ald.a, class_cq.e);
+            IBlockData var6 = class_agk.aw.S().set(class_ald.a, class_cq.d);
+            IBlockData var7 = class_agk.aw.S().set(class_ald.a, class_cq.c);
             this.a(var1, var7, 5, 9, 6, var3);
             this.a(var1, var7, 6, 9, 6, var3);
             this.a(var1, var6, 5, 9, 8, var3);
@@ -263,10 +263,10 @@ public class class_ash {
             this.a(var1, var3, 7, -2, 1, 9, -2, 1, false, var2, k);
             this.a(var1, var3, 6, -3, 1, 6, -3, 1, false, var2, k);
             this.a(var1, var3, 6, -1, 1, 6, -1, 1, false, var2, k);
-            this.a(var1, class_agk.bR.S().a(class_alt.a, class_cq.f).a(class_alt.N, Boolean.valueOf(true)), 1, -3, 8, var3);
-            this.a(var1, class_agk.bR.S().a(class_alt.a, class_cq.e).a(class_alt.N, Boolean.valueOf(true)), 4, -3, 8, var3);
-            this.a(var1, class_agk.bS.S().a(class_als.N, Boolean.valueOf(true)), 2, -3, 8, var3);
-            this.a(var1, class_agk.bS.S().a(class_als.N, Boolean.valueOf(true)), 3, -3, 8, var3);
+            this.a(var1, class_agk.bR.S().set(class_alt.a, class_cq.f).set(class_alt.N, Boolean.valueOf(true)), 1, -3, 8, var3);
+            this.a(var1, class_agk.bR.S().set(class_alt.a, class_cq.e).set(class_alt.N, Boolean.valueOf(true)), 4, -3, 8, var3);
+            this.a(var1, class_agk.bS.S().set(class_als.N, Boolean.valueOf(true)), 2, -3, 8, var3);
+            this.a(var1, class_agk.bS.S().set(class_als.N, Boolean.valueOf(true)), 3, -3, 8, var3);
             this.a(var1, class_agk.af.S(), 5, -3, 7, var3);
             this.a(var1, class_agk.af.S(), 5, -3, 6, var3);
             this.a(var1, class_agk.af.S(), 5, -3, 5, var3);
@@ -280,12 +280,12 @@ public class class_ash {
                this.g = this.a(var1, var3, var2, 3, -2, 1, class_cq.c, j, 2);
             }
 
-            this.a(var1, class_agk.bn.S().a(class_alu.O, Boolean.valueOf(true)), 3, -2, 2, var3);
-            this.a(var1, class_agk.bR.S().a(class_alt.a, class_cq.c).a(class_alt.N, Boolean.valueOf(true)), 7, -3, 1, var3);
-            this.a(var1, class_agk.bR.S().a(class_alt.a, class_cq.d).a(class_alt.N, Boolean.valueOf(true)), 7, -3, 5, var3);
-            this.a(var1, class_agk.bS.S().a(class_als.N, Boolean.valueOf(true)), 7, -3, 2, var3);
-            this.a(var1, class_agk.bS.S().a(class_als.N, Boolean.valueOf(true)), 7, -3, 3, var3);
-            this.a(var1, class_agk.bS.S().a(class_als.N, Boolean.valueOf(true)), 7, -3, 4, var3);
+            this.a(var1, class_agk.bn.S().set(class_alu.O, Boolean.valueOf(true)), 3, -2, 2, var3);
+            this.a(var1, class_agk.bR.S().set(class_alt.a, class_cq.c).set(class_alt.N, Boolean.valueOf(true)), 7, -3, 1, var3);
+            this.a(var1, class_agk.bR.S().set(class_alt.a, class_cq.d).set(class_alt.N, Boolean.valueOf(true)), 7, -3, 5, var3);
+            this.a(var1, class_agk.bS.S().set(class_als.N, Boolean.valueOf(true)), 7, -3, 2, var3);
+            this.a(var1, class_agk.bS.S().set(class_als.N, Boolean.valueOf(true)), 7, -3, 3, var3);
+            this.a(var1, class_agk.bS.S().set(class_als.N, Boolean.valueOf(true)), 7, -3, 4, var3);
             this.a(var1, class_agk.af.S(), 8, -3, 6, var3);
             this.a(var1, class_agk.af.S(), 9, -3, 6, var3);
             this.a(var1, class_agk.af.S(), 9, -3, 5, var3);
@@ -295,8 +295,8 @@ public class class_ash {
                this.h = this.a(var1, var3, var2, 9, -2, 3, class_cq.e, j, 2);
             }
 
-            this.a(var1, class_agk.bn.S().a(class_alu.N, Boolean.valueOf(true)), 8, -1, 3, var3);
-            this.a(var1, class_agk.bn.S().a(class_alu.N, Boolean.valueOf(true)), 8, -2, 3, var3);
+            this.a(var1, class_agk.bn.S().set(class_alu.N, Boolean.valueOf(true)), 8, -1, 3, var3);
+            this.a(var1, class_agk.bn.S().set(class_alu.N, Boolean.valueOf(true)), 8, -2, 3, var3);
             if(!this.e) {
                this.e = this.a(var1, var3, var2, 8, -3, 3, class_od.a(i, new class_od[]{class_aau.cg.b(var2)}), 2 + var2.nextInt(5));
             }
@@ -315,7 +315,7 @@ public class class_ash {
             this.a(var1, class_agk.bf.a(class_ali.P), 8, -2, 11, var3);
             this.a(var1, class_agk.bf.a(class_ali.P), 9, -2, 11, var3);
             this.a(var1, class_agk.bf.a(class_ali.P), 10, -2, 11, var3);
-            class_anl var11 = class_agk.ay.S().a(class_ajc.a, class_ajc.class_a_in_class_ajc.e);
+            IBlockData var11 = class_agk.ay.S().set(class_ajc.a, class_ajc.class_a_in_class_ajc.e);
             this.a(var1, var11, 8, -2, 12, var3);
             this.a(var1, var11, 9, -2, 12, var3);
             this.a(var1, var11, 10, -2, 12, var3);
@@ -325,10 +325,10 @@ public class class_ash {
             this.a(var1, class_agk.af.S(), 8, -2, 9, var3);
             this.a(var1, class_agk.af.S(), 8, -2, 10, var3);
             this.a(var1, class_agk.af.S(), 10, -1, 9, var3);
-            this.a(var1, class_agk.F.S().a(class_ane.b, class_cq.b), 9, -2, 8, var3);
-            this.a(var1, class_agk.F.S().a(class_ane.b, class_cq.e), 10, -2, 8, var3);
-            this.a(var1, class_agk.F.S().a(class_ane.b, class_cq.e), 10, -1, 8, var3);
-            this.a(var1, class_agk.bb.S().a(class_ako.O, class_cq.c), 10, -2, 10, var3);
+            this.a(var1, class_agk.F.S().set(class_ane.b, class_cq.b), 9, -2, 8, var3);
+            this.a(var1, class_agk.F.S().set(class_ane.b, class_cq.e), 10, -2, 8, var3);
+            this.a(var1, class_agk.F.S().set(class_ane.b, class_cq.e), 10, -1, 8, var3);
+            this.a(var1, class_agk.bb.S().set(class_ako.O, class_cq.c), 10, -2, 10, var3);
             if(!this.f) {
                this.f = this.a(var1, var3, var2, 9, -3, 10, class_od.a(i, new class_od[]{class_aau.cg.b(var2)}), 2 + var2.nextInt(5));
             }
@@ -406,10 +406,10 @@ public class class_ash {
             }
          }
 
-         class_anl var14 = class_agk.bO.S().a(class_ald.a, class_cq.c);
-         class_anl var15 = class_agk.bO.S().a(class_ald.a, class_cq.d);
-         class_anl var16 = class_agk.bO.S().a(class_ald.a, class_cq.f);
-         class_anl var7 = class_agk.bO.S().a(class_ald.a, class_cq.e);
+         IBlockData var14 = class_agk.bO.S().set(class_ald.a, class_cq.c);
+         IBlockData var15 = class_agk.bO.S().set(class_ald.a, class_cq.d);
+         IBlockData var16 = class_agk.bO.S().set(class_ald.a, class_cq.f);
+         IBlockData var7 = class_agk.bO.S().set(class_ald.a, class_cq.e);
          int var8 = ~class_zy.b.b() & 15;
          int var9 = ~class_zy.l.b() & 15;
          this.a(var1, var3, 0, 0, 0, 4, 9, 4, class_agk.A.S(), class_agk.a.S(), false);

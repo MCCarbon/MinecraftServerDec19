@@ -15,7 +15,7 @@ import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aex;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_aoi;
 import net.minecraft.server.class_aok;
@@ -29,7 +29,7 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_dx;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pt;
 import org.apache.logging.log4j.LogManager;
@@ -264,7 +264,7 @@ public class class_aov implements class_aop, class_awc {
          while(var28.hasNext()) {
             class_aex var29 = (class_aex)var28.next();
             class_dn var30 = new class_dn();
-            class_jz var31 = (class_jz)class_agj.c.b(var29.a());
+            MinecraftKey var31 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var29.a());
             var30.a("i", var31 == null?"":var31.toString());
             var30.a("x", var29.a.n());
             var30.a("y", var29.a.o());
@@ -363,11 +363,11 @@ public class class_aov implements class_aop, class_awc {
          if(var29 != null) {
             for(int var31 = 0; var31 < var29.c(); ++var31) {
                class_dn var35 = var29.b(var31);
-               class_agj var36;
+               Block var36;
                if(var35.b("i", 8)) {
-                  var36 = class_agj.b(var35.k("i"));
+                  var36 = Block.getByName(var35.k("i"));
                } else {
-                  var36 = class_agj.c(var35.g("i"));
+                  var36 = Block.getById(var35.g("i"));
                }
 
                var1.b(new class_cj(var35.g("x"), var35.g("y"), var35.g("z")), var36, var35.g("t"), var35.g("p"));

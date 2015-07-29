@@ -7,18 +7,18 @@ import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agd;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aic;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.class_alm;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amq;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
 import net.minecraft.server.class_anz;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -35,7 +35,7 @@ public class class_aid extends class_agd {
 
    public class_aid() {
       super(class_atk.q);
-      this.j(this.M.b().a(b, class_aid.class_a_in_class_aid.a).a(a, Integer.valueOf(0)));
+      this.j(this.M.b().set(b, class_aid.class_a_in_class_aid.a).set(a, Integer.valueOf(0)));
       this.j();
    }
 
@@ -61,7 +61,7 @@ public class class_aid extends class_agd {
       return false;
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_anl var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       if(var6 != null && var6.b() instanceof class_zg) {
          class_amq var11 = this.f(var1, var2);
          if(var11 == null) {
@@ -69,7 +69,7 @@ public class class_aid extends class_agd {
          } else if(var11.b() != null) {
             return false;
          } else {
-            class_agj var12 = class_agj.a(var6.b());
+            Block var12 = Block.a(var6.b());
             if(!this.a(var12, var6.i())) {
                return false;
             } else {
@@ -89,7 +89,7 @@ public class class_aid extends class_agd {
       }
    }
 
-   private boolean a(class_agj var1, int var2) {
+   private boolean a(Block var1, int var2) {
       return var1 != class_agk.N && var1 != class_agk.O && var1 != class_agk.aK && var1 != class_agk.P && var1 != class_agk.Q && var1 != class_agk.g && var1 != class_agk.I?var1 == class_agk.H && var2 == class_alm.class_a_in_class_alm.c.a():true;
    }
 
@@ -102,7 +102,7 @@ public class class_aid extends class_agd {
       return super.d(var1, var2) && class_aen.a((class_aer)var1, (class_cj)var2.b());
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
       if(!class_aen.a((class_aer)var1, (class_cj)var2.b())) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -110,7 +110,7 @@ public class class_aid extends class_agd {
 
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3) {
       class_amq var4 = this.f(var1, var2);
       if(var4 != null && var4.b() != null) {
          a(var1, var2, new class_aas(var4.b(), 1, var4.c()));
@@ -119,7 +119,7 @@ public class class_aid extends class_agd {
       super.b(var1, var2, var3);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_xa var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4) {
       super.a(var1, var2, var3, var4);
       if(var4.bH.d) {
          class_amq var5 = this.f(var1, var2);
@@ -130,7 +130,7 @@ public class class_aid extends class_agd {
 
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return class_aau.bT;
    }
 
@@ -191,18 +191,18 @@ public class class_aid extends class_agd {
          var4 = class_ajw.class_a_in_class_ajw.f.a();
       }
 
-      return new class_amq(class_aar.a((class_agj)var3), var4);
+      return new class_amq(class_aar.a((Block)var3), var4);
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{b, a});
+      return new class_anm(this, new IBlockState[]{b, a});
    }
 
-   public int c(class_anl var1) {
-      return ((Integer)var1.b(a)).intValue();
+   public int c(IBlockData var1) {
+      return ((Integer)var1.get(a)).intValue();
    }
 
-   public class_anl a(class_anl var1, class_aer var2, class_cj var3) {
+   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
       class_aid.class_a_in_class_aid var4 = class_aid.class_a_in_class_aid.a;
       class_amg var5 = var2.s(var3);
       if(var5 instanceof class_amq) {
@@ -210,7 +210,7 @@ public class class_aid extends class_agd {
          class_aar var7 = var6.b();
          if(var7 instanceof class_zg) {
             int var8 = var6.c();
-            class_agj var9 = class_agj.a(var7);
+            Block var9 = Block.a(var7);
             if(var9 == class_agk.g) {
                switch(class_aid.SyntheticClass_1.a[class_ajw.class_a_in_class_ajw.a(var8).ordinal()]) {
                case 1:
@@ -291,7 +291,7 @@ public class class_aid extends class_agd {
          }
       }
 
-      return var1.a(b, var4);
+      return var1.set(b, var4);
    }
 
    // $FF: synthetic class

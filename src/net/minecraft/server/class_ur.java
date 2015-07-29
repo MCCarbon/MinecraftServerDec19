@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aej;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apd;
@@ -813,7 +813,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
          for(int var11 = var3; var11 <= var6; ++var11) {
             for(int var12 = var4; var12 <= var7; ++var12) {
                class_cj var13 = new class_cj(var10, var11, var12);
-               class_agj var14 = this.o.p(var13).c();
+               Block var14 = this.o.p(var13).getBlock();
                if(var14.v() != class_atk.a && var14.v() != class_atk.o) {
                   if(var14 != class_agk.cv && var14 != class_agk.Z && var14 != class_agk.bH && var14 != class_agk.h && var14 != class_agk.bX && var14 != class_agk.bi && this.o.R().b("mobGriefing")) {
                      var9 = this.o.g(var13) || var9;

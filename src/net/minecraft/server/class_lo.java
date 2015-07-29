@@ -17,14 +17,14 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_acb;
 import net.minecraft.server.class_acc;
 import net.minecraft.server.class_aed;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amj;
 import net.minecraft.server.class_amx;
@@ -459,7 +459,7 @@ public class class_lo implements class_ic, class_kn {
                   this.b.c.e();
                }
 
-               if(var2.p(var3).c().v() != class_atk.a) {
+               if(var2.p(var3).getBlock().v() != class_atk.a) {
                   this.b.a.a((class_ff)(new class_fv(var2, var3)));
                }
             }
@@ -481,7 +481,7 @@ public class class_lo implements class_ic, class_kn {
       this.b.z();
       if(var5.o() >= this.d.an() - 1 && (var6 == class_cq.b || var5.o() >= this.d.an())) {
          class_fb var7 = new class_fb("build.tooHigh", new Object[]{Integer.valueOf(this.d.an())});
-         var7.b().a(class_a.m);
+         var7.b().a(EnumChatFormat.RED);
          this.b.a.a((class_ff)(new class_fz(var7)));
       } else if(this.r && this.b.e((double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D) < 64.0D && !this.d.a((class_aen)var2, (class_cj)var5, (class_xa)this.b) && var2.ag().a(var5)) {
          this.b.c.a(this.b, var2, var4, var3, var5, var6, var1.d(), var1.e(), var1.f());
@@ -569,7 +569,7 @@ public class class_lo implements class_ic, class_kn {
       c.info(this.b.e_() + " lost connection: " + var1);
       this.d.aH();
       class_fb var2 = new class_fb("multiplayer.player.left", new Object[]{this.b.f_()});
-      var2.b().a(class_a.o);
+      var2.b().a(EnumChatFormat.YELLOW);
       this.d.ap().a((class_eu)var2);
       this.b.q();
       this.d.ap().e(this.b);
@@ -626,7 +626,7 @@ public class class_lo implements class_ic, class_kn {
       class_fh.a(var1, this, this.b.u());
       if(this.b.y() == class_xa.class_b_in_class_xa.c) {
          class_fb var4 = new class_fb("chat.cannotSend", new Object[0]);
-         var4.b().a(class_a.m);
+         var4.b().a(EnumChatFormat.RED);
          this.a((class_ff)(new class_fz(var4)));
       } else {
          this.b.z();
@@ -896,7 +896,7 @@ public class class_lo implements class_ic, class_kn {
          class_eu[] var6 = var1.b();
 
          for(int var7 = 0; var7 < var6.length; ++var7) {
-            var5.a[var7] = new class_fa(class_a.a(var6[var7].c()));
+            var5.a[var7] = new class_fa(EnumChatFormat.stripFormatting(var6[var7].c()));
          }
 
          var5.p_();
@@ -1104,9 +1104,9 @@ public class class_lo implements class_ic, class_kn {
                   var75.b(new class_cj(var61.readInt(), var61.readInt(), var61.readInt()));
                   var75.c(new class_cj(var61.readInt(), var61.readInt(), var61.readInt()));
                   String var8 = var61.c(32);
-                  var75.a(class_agj.class_a_in_class_agj.valueOf(var8));
+                  var75.a(Block.class_a_in_class_agj.valueOf(var8));
                   String var9 = var61.c(32);
-                  var75.a(class_agj.class_c_in_class_agj.valueOf(var9));
+                  var75.a(Block.class_c_in_class_agj.valueOf(var9));
                   var75.b(var61.c(128));
                   var75.a(var61.readBoolean());
                   if(var76 == 2) {

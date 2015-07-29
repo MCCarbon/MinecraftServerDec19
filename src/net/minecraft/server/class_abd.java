@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_zg;
 
 public class class_abd extends class_zg {
-   public class_abd(class_agj var1) {
+   public class_abd(Block var1) {
       super(var1);
    }
 

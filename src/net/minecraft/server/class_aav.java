@@ -5,7 +5,7 @@ import java.util.List;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -15,15 +15,15 @@ import net.minecraft.server.class_oq;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_vb;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_aav extends class_aar {
    public class_aav() {
-      this.a(class_zu.i);
+      this.a(CreativeTab.i);
    }
 
    public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      class_agj var10 = var3.p(var4).c();
+      Block var10 = var3.p(var4).getBlock();
       if(var10 instanceof class_ahz) {
          if(var3.D) {
             return class_oq.a;

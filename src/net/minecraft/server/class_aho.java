@@ -35,7 +35,7 @@ public class class_aho extends class_ahk {
          } else {
             class_aas var6 = var4.a(var5);
             if(var6 != null) {
-               class_cq var7 = (class_cq)var1.p(var2).b(a);
+               class_cq var7 = (class_cq)var1.p(var2).get(a);
                class_cj var8 = var2.a(var7);
                class_oj var9 = class_amt.b(var1, (double)var8.n(), (double)var8.o(), (double)var8.p());
                class_aas var10;

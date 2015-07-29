@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.class_atk;
@@ -223,7 +223,7 @@ public class class_tr extends class_avd {
    }
 
    private boolean f(class_cj var1) {
-      class_agj var2 = this.b.p(var1).c();
+      Block var2 = this.b.p(var1).getBlock();
       return var2 instanceof class_ahl?var2.v() == class_atk.d:false;
    }
 

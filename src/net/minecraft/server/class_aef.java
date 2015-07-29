@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 
 public class class_aef {
    private class_cj a;
-   private class_agj b;
+   private Block b;
    private int c;
    private int d;
 
-   public class_aef(class_cj var1, class_agj var2, int var3, int var4) {
+   public class_aef(class_cj var1, Block var2, int var3, int var4) {
       this.a = var1;
       this.c = var3;
       this.d = var4;
@@ -28,7 +28,7 @@ public class class_aef {
       return this.d;
    }
 
-   public class_agj d() {
+   public Block d() {
       return this.b;
    }
 

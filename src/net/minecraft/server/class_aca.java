@@ -4,10 +4,10 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_abx;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ajd;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
@@ -18,7 +18,7 @@ import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
 
 public class class_aca extends class_abx {
-   public class_aca(class_agj var1) {
+   public class_aca(Block var1) {
       super(var1, false);
    }
 
@@ -38,8 +38,8 @@ public class class_aca extends class_abx {
             }
 
             class_cj var7 = var6.a();
-            class_anl var8 = var2.p(var6);
-            if(var8.c().v() == class_atk.h && ((Integer)var8.b(class_ajd.b)).intValue() == 0 && var2.d(var7)) {
+            IBlockData var8 = var2.p(var6);
+            if(var8.getBlock().v() == class_atk.h && ((Integer)var8.get(class_ajd.b)).intValue() == 0 && var2.d(var7)) {
                var2.a(var7, class_agk.bx.S());
                if(!var3.bH.d) {
                   --var1.b;

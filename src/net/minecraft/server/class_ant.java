@@ -5,10 +5,10 @@ import com.google.common.collect.Maps;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 
 public class class_ant implements Predicate {
    private final class_anm a;
@@ -18,12 +18,12 @@ public class class_ant implements Predicate {
       this.a = var1;
    }
 
-   public static class_ant a(class_agj var0) {
+   public static class_ant a(Block var0) {
       return new class_ant(var0.R());
    }
 
-   public boolean a(class_anl var1) {
-      if(var1 != null && var1.c().equals(this.a.c())) {
+   public boolean a(IBlockData var1) {
+      if(var1 != null && var1.getBlock().equals(this.a.c())) {
          Iterator var2 = this.b.entrySet().iterator();
 
          Entry var3;
@@ -34,7 +34,7 @@ public class class_ant implements Predicate {
             }
 
             var3 = (Entry)var2.next();
-            var4 = var1.b((class_aoa)var3.getKey());
+            var4 = var1.get((IBlockState)var3.getKey());
          } while(((Predicate)var3.getValue()).apply(var4));
 
          return false;
@@ -43,7 +43,7 @@ public class class_ant implements Predicate {
       }
    }
 
-   public class_ant a(class_aoa var1, Predicate var2) {
+   public class_ant a(IBlockState var1, Predicate var2) {
       if(!this.a.d().contains(var1)) {
          throw new IllegalArgumentException(this.a + " cannot support property " + var1);
       } else {
@@ -54,6 +54,6 @@ public class class_ant implements Predicate {
 
    // $FF: synthetic method
    public boolean apply(Object var1) {
-      return this.a((class_anl)var1);
+      return this.a((IBlockData)var1);
    }
 }

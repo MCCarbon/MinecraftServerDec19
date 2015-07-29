@@ -5,10 +5,10 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
@@ -16,17 +16,17 @@ import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_ny;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public abstract class class_agf extends class_agj {
+public abstract class class_agf extends Block {
    protected final boolean a;
 
    public static boolean e(class_aen var0, class_cj var1) {
       return d(var0.p(var1));
    }
 
-   public static boolean d(class_anl var0) {
-      class_agj var1 = var0.c();
+   public static boolean d(IBlockData var0) {
+      Block var1 = var0.getBlock();
       return var1 == class_agk.av || var1 == class_agk.D || var1 == class_agk.E || var1 == class_agk.cs;
    }
 
@@ -34,10 +34,10 @@ public abstract class class_agf extends class_agj {
       super(class_atk.q);
       this.a = var1;
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
-      this.a(class_zu.e);
+      this.a(CreativeTab.e);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
@@ -51,8 +51,8 @@ public abstract class class_agf extends class_agj {
    }
 
    public void a(class_aer var1, class_cj var2) {
-      class_anl var3 = var1.p(var2);
-      class_agf.class_b_in_class_agf var4 = var3.c() == this?(class_agf.class_b_in_class_agf)var3.b(this.n()):null;
+      IBlockData var3 = var1.p(var2);
+      class_agf.class_b_in_class_agf var4 = var3.getBlock() == this?(class_agf.class_b_in_class_agf)var3.get(this.n()):null;
       if(var4 != null && var4.c()) {
          this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
       } else {
@@ -69,19 +69,19 @@ public abstract class class_agf extends class_agj {
       return class_aen.a((class_aer)var1, (class_cj)var2.b());
    }
 
-   public void c(class_aen var1, class_cj var2, class_anl var3) {
+   public void c(class_aen var1, class_cj var2, IBlockData var3) {
       if(!var1.D) {
          var3 = this.a(var1, var2, var3, true);
          if(this.a) {
-            this.a(var1, var2, (class_anl)var3, (class_agj)this);
+            this.a(var1, var2, (IBlockData)var3, (Block)this);
          }
       }
 
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
       if(!var1.D) {
-         class_agf.class_b_in_class_agf var5 = (class_agf.class_b_in_class_agf)var3.b(this.n());
+         class_agf.class_b_in_class_agf var5 = (class_agf.class_b_in_class_agf)var3.get(this.n());
          boolean var6 = false;
          if(!class_aen.a((class_aer)var1, (class_cj)var2.b())) {
             var6 = true;
@@ -107,10 +107,10 @@ public abstract class class_agf extends class_agj {
       }
    }
 
-   protected void b(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   protected void b(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
    }
 
-   protected class_anl a(class_aen var1, class_cj var2, class_anl var3, boolean var4) {
+   protected IBlockData a(class_aen var1, class_cj var2, IBlockData var3, boolean var4) {
       return var1.D?var3:(new class_agf.class_a_in_class_agf(var1, var2, var3)).a(var1.z(var2), var4).b();
    }
 
@@ -118,20 +118,20 @@ public abstract class class_agf extends class_agj {
       return 0;
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3) {
       super.b(var1, var2, var3);
-      if(((class_agf.class_b_in_class_agf)var3.b(this.n())).c()) {
-         var1.c((class_cj)var2.a(), (class_agj)this);
+      if(((class_agf.class_b_in_class_agf)var3.get(this.n())).c()) {
+         var1.c((class_cj)var2.a(), (Block)this);
       }
 
       if(this.a) {
-         var1.c((class_cj)var2, (class_agj)this);
-         var1.c((class_cj)var2.b(), (class_agj)this);
+         var1.c((class_cj)var2, (Block)this);
+         var1.c((class_cj)var2.b(), (Block)this);
       }
 
    }
 
-   public abstract class_aoa n();
+   public abstract IBlockState n();
 
    // $FF: synthetic class
    static class SyntheticClass_1 {
@@ -264,16 +264,16 @@ public abstract class class_agf extends class_agj {
       private final class_aen b;
       private final class_cj c;
       private final class_agf d;
-      private class_anl e;
+      private IBlockData e;
       private final boolean f;
       private final List g = Lists.newArrayList();
 
-      public class_a_in_class_agf(class_aen var2, class_cj var3, class_anl var4) {
+      public class_a_in_class_agf(class_aen var2, class_cj var3, IBlockData var4) {
          this.b = var2;
          this.c = var3;
          this.e = var4;
-         this.d = (class_agf)var4.c();
-         class_agf.class_b_in_class_agf var5 = (class_agf.class_b_in_class_agf)var4.b(class_agf.this.n());
+         this.d = (class_agf)var4.getBlock();
+         class_agf.class_b_in_class_agf var5 = (class_agf.class_b_in_class_agf)var4.get(class_agf.this.n());
          this.f = this.d.a;
          this.a(var5);
       }
@@ -341,7 +341,7 @@ public abstract class class_agf extends class_agj {
       }
 
       private class_agf.class_a_in_class_agf b(class_cj var1) {
-         class_anl var3 = this.b.p(var1);
+         IBlockData var3 = this.b.p(var1);
          if(class_agf.d(var3)) {
             return class_agf.this.new class_a_in_class_agf(this.b, var1, var3);
          } else {
@@ -451,8 +451,8 @@ public abstract class class_agf extends class_agj {
             var10 = class_agf.class_b_in_class_agf.a;
          }
 
-         this.e = this.e.a(this.d.n(), var10);
-         this.b.a((class_cj)this.c, (class_anl)this.e, 3);
+         this.e = this.e.set(this.d.n(), var10);
+         this.b.a((class_cj)this.c, (IBlockData)this.e, 3);
       }
 
       private boolean d(class_cj var1) {
@@ -572,9 +572,9 @@ public abstract class class_agf extends class_agj {
          }
 
          this.a(var11);
-         this.e = this.e.a(this.d.n(), var11);
+         this.e = this.e.set(this.d.n(), var11);
          if(var2 || this.b.p(this.c) != this.e) {
-            this.b.a((class_cj)this.c, (class_anl)this.e, 3);
+            this.b.a((class_cj)this.c, (IBlockData)this.e, 3);
 
             for(int var12 = 0; var12 < this.g.size(); ++var12) {
                class_agf.class_a_in_class_agf var13 = this.b((class_cj)this.g.get(var12));
@@ -590,7 +590,7 @@ public abstract class class_agf extends class_agj {
          return this;
       }
 
-      public class_anl b() {
+      public IBlockData b() {
          return this.e;
       }
    }

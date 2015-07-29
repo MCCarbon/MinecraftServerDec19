@@ -10,11 +10,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amz;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asu;
 import net.minecraft.server.class_awf;
@@ -65,7 +65,7 @@ public class class_asv {
             while(var11.hasNext()) {
                class_cj.class_a_in_class_cj var12 = (class_cj.class_a_in_class_cj)var11.next();
                class_cj var13 = var12.b(var9);
-               class_anl var14 = var1.p(var12);
+               IBlockData var14 = var1.p(var12);
                class_amg var15 = var1.s(var12);
                if(var15 != null) {
                   class_dn var16 = new class_dn();
@@ -74,7 +74,7 @@ public class class_asv {
                   var16.p("y");
                   var16.p("z");
                   var7.add(new class_asv.class_a_in_class_asv(var13, var14, var16, null));
-               } else if(!var14.c().q() && !var14.c().d()) {
+               } else if(!var14.getBlock().q() && !var14.getBlock().d()) {
                   var8.add(new class_asv.class_a_in_class_asv(var13, var14, (class_dn)null, null));
                } else {
                   var6.add(new class_asv.class_a_in_class_asv(var13, var14, (class_dn)null, null));
@@ -143,8 +143,8 @@ public class class_asv {
             var7 = this.a(var2, var6.a).a((class_df)var1);
          } while(var4 != null && !var4.b((class_df)var7));
 
-         class_anl var8 = var6.b;
-         if(var8.c() == class_agk.dc && var6.c != null) {
+         IBlockData var8 = var6.b;
+         if(var8.getBlock() == class_agk.dc && var6.c != null) {
             class_amz.class_a_in_class_amz var9 = class_amz.class_a_in_class_amz.valueOf(var6.c.k("mode"));
             if(var9 == class_amz.class_a_in_class_amz.d) {
                var3.put(var7, var6.c.k("metadata"));
@@ -175,7 +175,7 @@ public class class_asv {
 
          while(true) {
             class_asv.class_a_in_class_asv var6;
-            class_agj var7;
+            Block var7;
             class_cj var8;
             do {
                do {
@@ -196,12 +196,12 @@ public class class_asv {
                                  }
 
                                  var6 = (class_asv.class_a_in_class_asv)var5.next();
-                              } while(var3.f() && var6.b.c() == class_agk.a);
+                              } while(var3.f() && var6.b.getBlock() == class_agk.a);
 
                               var12 = this.a(var3, var6.a).a((class_df)var2);
                            } while(var4 != null && !var4.b((class_df)var12));
 
-                           var1.b(var12, var6.b.c());
+                           var1.b(var12, var6.b.getBlock());
                            if(var6.c != null) {
                               class_amg var13 = var1.s(var12);
                               if(var13 != null) {
@@ -212,15 +212,15 @@ public class class_asv {
                      }
 
                      var6 = (class_asv.class_a_in_class_asv)var5.next();
-                     var7 = var6.b.c();
+                     var7 = var6.b.getBlock();
                   } while(var3.f() && var7 == class_agk.a);
                } while(var3.h() && var7 == class_agk.dc);
 
                var8 = this.a(var3, var6.a).a((class_df)var2);
             } while(var4 != null && !var4.b((class_df)var8));
 
-            class_anl var9 = var7.a(var6.b, var3.b());
-            class_anl var10 = var7.a(var9, var3.c());
+            IBlockData var9 = var7.a(var6.b, var3.b());
+            IBlockData var10 = var7.a(var9, var3.c());
             class_amg var11;
             if(var6.c != null) {
                var11 = var1.s(var8);
@@ -229,11 +229,11 @@ public class class_asv {
                      ((class_oj)var11).l();
                   }
 
-                  var1.a((class_cj)var8, (class_anl)class_agk.cv.S(), 4);
+                  var1.a((class_cj)var8, (IBlockData)class_agk.cv.S(), 4);
                }
             }
 
-            if(var1.a((class_cj)var8, (class_anl)var10, 2) && var6.c != null) {
+            if(var1.a((class_cj)var8, (IBlockData)var10, 2) && var6.c != null) {
                var11 = var1.s(var8);
                if(var11 != null) {
                   var6.c.a("x", var8.n());
@@ -246,7 +246,7 @@ public class class_asv {
       }
    }
 
-   private void a(class_aen var1, class_cj var2, class_agj.class_a_in_class_agj var3, class_agj.class_c_in_class_agj var4, class_arw var5) {
+   private void a(class_aen var1, class_cj var2, Block.class_a_in_class_agj var3, Block.class_c_in_class_agj var4, class_arw var5) {
       Iterator var6 = this.b.iterator();
 
       while(true) {
@@ -297,7 +297,7 @@ public class class_asv {
       }
    }
 
-   public class_cj a(class_agj.class_c_in_class_agj var1) {
+   public class_cj a(Block.class_c_in_class_agj var1) {
       switch(class_asv.SyntheticClass_1.a[var1.ordinal()]) {
       case 1:
       case 2:
@@ -307,7 +307,7 @@ public class class_asv {
       }
    }
 
-   private class_cj a(class_cj var1, class_agj.class_a_in_class_agj var2, class_agj.class_c_in_class_agj var3) {
+   private class_cj a(class_cj var1, Block.class_a_in_class_agj var2, Block.class_c_in_class_agj var3) {
       int var4 = var1.n();
       int var5 = var1.o();
       int var6 = var1.p();
@@ -335,7 +335,7 @@ public class class_asv {
       }
    }
 
-   private class_awh a(class_awh var1, class_agj.class_a_in_class_agj var2, class_agj.class_c_in_class_agj var3) {
+   private class_awh a(class_awh var1, Block.class_a_in_class_agj var2, Block.class_c_in_class_agj var3) {
       double var4 = var1.a;
       double var6 = var1.b;
       double var8 = var1.c;
@@ -371,7 +371,7 @@ public class class_asv {
          class_asv.class_a_in_class_asv var4 = (class_asv.class_a_in_class_asv)var3.next();
          var5 = new class_dn();
          var5.a((String)"pos", (class_eb)this.a(new int[]{var4.a.n(), var4.a.o(), var4.a.p()}));
-         var5.a("state", class_agj.f(var4.b));
+         var5.a("state", Block.f(var4.b));
          if(var4.c != null) {
             var5.a((String)"nbt", (class_eb)var4.c);
          }
@@ -410,7 +410,7 @@ public class class_asv {
          class_du var6 = var5.c("pos", 3);
          class_cj var7 = new class_cj(var6.c(0), var6.c(1), var6.c(2));
          int var8 = var5.g("state");
-         class_anl var9 = class_agj.d(var8);
+         IBlockData var9 = Block.d(var8);
          class_dn var10;
          if(var5.d("nbt")) {
             var10 = var5.n("nbt");
@@ -468,37 +468,37 @@ public class class_asv {
       // $FF: synthetic field
       static final int[] a;
       // $FF: synthetic field
-      static final int[] b = new int[class_agj.class_a_in_class_agj.values().length];
+      static final int[] b = new int[Block.class_a_in_class_agj.values().length];
 
       static {
          try {
-            b[class_agj.class_a_in_class_agj.b.ordinal()] = 1;
+            b[Block.class_a_in_class_agj.b.ordinal()] = 1;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            b[class_agj.class_a_in_class_agj.c.ordinal()] = 2;
+            b[Block.class_a_in_class_agj.c.ordinal()] = 2;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
-         a = new int[class_agj.class_c_in_class_agj.values().length];
+         a = new int[Block.class_c_in_class_agj.values().length];
 
          try {
-            a[class_agj.class_c_in_class_agj.d.ordinal()] = 1;
+            a[Block.class_c_in_class_agj.d.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.b.ordinal()] = 2;
+            a[Block.class_c_in_class_agj.b.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.c.ordinal()] = 3;
+            a[Block.class_c_in_class_agj.c.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }
@@ -525,17 +525,17 @@ public class class_asv {
 
    static class class_a_in_class_asv {
       public final class_cj a;
-      public final class_anl b;
+      public final IBlockData b;
       public final class_dn c;
 
-      private class_a_in_class_asv(class_cj var1, class_anl var2, class_dn var3) {
+      private class_a_in_class_asv(class_cj var1, IBlockData var2, class_dn var3) {
          this.a = var1;
          this.b = var2;
          this.c = var3;
       }
 
       // $FF: synthetic method
-      class_a_in_class_asv(class_cj var1, class_anl var2, class_dn var3, Object var4) {
+      class_a_in_class_asv(class_cj var1, IBlockData var2, class_dn var3, Object var4) {
          this(var1, var2, var3);
       }
    }

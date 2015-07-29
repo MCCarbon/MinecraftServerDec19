@@ -4,7 +4,7 @@ import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
@@ -51,7 +51,7 @@ public class class_aew implements class_aer {
       return this.c[var2][var3].a(var1, class_aok.class_a_in_class_aok.a);
    }
 
-   public class_anl p(class_cj var1) {
+   public IBlockData p(class_cj var1) {
       if(var1.o() >= 0 && var1.o() < 256) {
          int var2 = (var1.n() >> 4) - this.a;
          int var3 = (var1.p() >> 4) - this.b;
@@ -67,11 +67,11 @@ public class class_aew implements class_aer {
    }
 
    public boolean d(class_cj var1) {
-      return this.p(var1).c().v() == class_atk.a;
+      return this.p(var1).getBlock().v() == class_atk.a;
    }
 
    public int a(class_cj var1, class_cq var2) {
-      class_anl var3 = this.p(var1);
-      return var3.c().b((class_aer)this, var1, var3, (class_cq)var2);
+      IBlockData var3 = this.p(var1);
+      return var3.getBlock().b((class_aer)this, var1, var3, (class_cq)var2);
    }
 }

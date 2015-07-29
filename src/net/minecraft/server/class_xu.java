@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aej;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_om;
@@ -36,9 +36,9 @@ public class class_xu extends class_xf {
       return false;
    }
 
-   public float a(class_aej var1, class_aen var2, class_cj var3, class_anl var4) {
+   public float a(class_aej var1, class_aen var2, class_cj var3, IBlockData var4) {
       float var5 = super.a(var1, var2, var3, var4);
-      class_agj var6 = var4.c();
+      Block var6 = var4.getBlock();
       if(this.l() && class_uw.a(var6)) {
          var5 = Math.min(0.8F, var5);
       }

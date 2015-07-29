@@ -61,7 +61,7 @@ public class class_uh extends class_ua implements class_wk {
             var2 = class_nu.c(this.t);
             var3 = class_nu.c(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
             class_cj var5 = new class_cj(var1, var2, var3);
-            if(this.o.p(var5).c().v() == class_atk.a && this.o.b(new class_cj(var1, 0, var3)).a(var5) < 0.8F && class_agk.aH.d(this.o, var5)) {
+            if(this.o.p(var5).getBlock().v() == class_atk.a && this.o.b(new class_cj(var1, 0, var3)).a(var5) < 0.8F && class_agk.aH.d(this.o, var5)) {
                this.o.a(var5, class_agk.aH.S());
             }
          }

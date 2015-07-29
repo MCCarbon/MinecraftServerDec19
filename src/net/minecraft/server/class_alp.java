@@ -4,13 +4,13 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahz;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anx;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
@@ -18,9 +18,9 @@ import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_qa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_alp extends class_agj {
+public class class_alp extends Block {
    public static final class_anx a = class_anx.a("facing", new Predicate() {
       public boolean a(class_cq var1) {
          return var1 != class_cq.a;
@@ -34,12 +34,12 @@ public class class_alp extends class_agj {
 
    protected class_alp() {
       super(class_atk.q);
-      this.j(this.M.b().a(a, class_cq.b));
+      this.j(this.M.b().set(a, class_cq.b));
       this.a(true);
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
@@ -55,7 +55,7 @@ public class class_alp extends class_agj {
       if(class_aen.a((class_aer)var1, (class_cj)var2)) {
          return true;
       } else {
-         class_agj var3 = var1.p(var2).c();
+         Block var3 = var1.p(var2).getBlock();
          return var3 instanceof class_ahz || var3 == class_agk.w || var3 == class_agk.bZ || var3 == class_agk.cG;
       }
    }
@@ -81,9 +81,9 @@ public class class_alp extends class_agj {
       return var5 && var1.d(var4, true) || var3.equals(class_cq.b) && this.e(var1, var4);
    }
 
-   public class_anl a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
       if(this.a(var1, var2, var3)) {
-         return this.S().a(a, var3);
+         return this.S().set(a, var3);
       } else {
          Iterator var9 = class_cq.class_c_in_class_cq.a.iterator();
 
@@ -96,23 +96,23 @@ public class class_alp extends class_agj {
             var10 = (class_cq)var9.next();
          } while(!var1.d(var2.a(var10.d()), true));
 
-         return this.S().a(a, var10);
+         return this.S().set(a, var10);
       }
    }
 
-   public void c(class_aen var1, class_cj var2, class_anl var3) {
+   public void c(class_aen var1, class_cj var2, IBlockData var3) {
       this.f(var1, var2, var3);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   protected boolean e(class_aen var1, class_cj var2, class_anl var3) {
+   protected boolean e(class_aen var1, class_cj var2, IBlockData var3) {
       if(!this.f(var1, var2, var3)) {
          return true;
       } else {
-         class_cq var4 = (class_cq)var3.b(a);
+         class_cq var4 = (class_cq)var3.get(a);
          class_cq.class_a_in_class_cq var5 = var4.k();
          class_cq var6 = var4.d();
          boolean var7 = false;
@@ -132,11 +132,11 @@ public class class_alp extends class_agj {
       }
    }
 
-   protected boolean f(class_aen var1, class_cj var2, class_anl var3) {
-      if(var3.c() == this && this.a(var1, var2, (class_cq)var3.b(a))) {
+   protected boolean f(class_aen var1, class_cj var2, IBlockData var3) {
+      if(var3.getBlock() == this && this.a(var1, var2, (class_cq)var3.get(a))) {
          return true;
       } else {
-         if(var1.p(var2).c() == this) {
+         if(var1.p(var2).getBlock() == this) {
             this.b(var1, var2, var3, 0);
             var1.g(var2);
          }
@@ -146,7 +146,7 @@ public class class_alp extends class_agj {
    }
 
    public class_awg a(class_aen var1, class_cj var2, class_awh var3, class_awh var4) {
-      class_cq var5 = (class_cq)var1.p(var2).b(a);
+      class_cq var5 = (class_cq)var1.p(var2).get(a);
       float var6 = 0.15F;
       if(var5 == class_cq.f) {
          this.a(0.0F, 0.2F, 0.5F - var6, var6 * 2.0F, 0.8F, 0.5F + var6);
@@ -164,33 +164,33 @@ public class class_alp extends class_agj {
       return super.a(var1, var2, var3, var4);
    }
 
-   public class_anl a(int var1) {
-      class_anl var2 = this.S();
+   public IBlockData a(int var1) {
+      IBlockData var2 = this.S();
       switch(var1) {
       case 1:
-         var2 = var2.a(a, class_cq.f);
+         var2 = var2.set(a, class_cq.f);
          break;
       case 2:
-         var2 = var2.a(a, class_cq.e);
+         var2 = var2.set(a, class_cq.e);
          break;
       case 3:
-         var2 = var2.a(a, class_cq.d);
+         var2 = var2.set(a, class_cq.d);
          break;
       case 4:
-         var2 = var2.a(a, class_cq.c);
+         var2 = var2.set(a, class_cq.c);
          break;
       case 5:
       default:
-         var2 = var2.a(a, class_cq.b);
+         var2 = var2.set(a, class_cq.b);
       }
 
       return var2;
    }
 
-   public int c(class_anl var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3;
-      switch(class_alp.SyntheticClass_1.a[((class_cq)var1.b(a)).ordinal()]) {
+      switch(class_alp.SyntheticClass_1.a[((class_cq)var1.get(a)).ordinal()]) {
       case 1:
          var3 = var2 | 1;
          break;
@@ -212,16 +212,16 @@ public class class_alp extends class_agj {
       return var3;
    }
 
-   public class_anl a(class_anl var1, class_agj.class_c_in_class_agj var2) {
-      return var1.c() != this?var1:var1.a(a, var2.a((class_cq)var1.b(a)));
+   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      return var1.getBlock() != this?var1:var1.set(a, var2.a((class_cq)var1.get(a)));
    }
 
-   public class_anl a(class_anl var1, class_agj.class_a_in_class_agj var2) {
-      return var1.c() != this?var1:this.a(var1, var2.a((class_cq)var1.b(a)));
+   public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class

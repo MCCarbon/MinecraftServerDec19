@@ -5,13 +5,13 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aav;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aia;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anw;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_awf;
@@ -20,9 +20,9 @@ import net.minecraft.server.class_cq;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_ahz extends class_agj {
+public class class_ahz extends Block {
    public static final class_anw a = class_anw.a("north");
    public static final class_anw b = class_anw.a("east");
    public static final class_anw N = class_anw.a("south");
@@ -34,11 +34,11 @@ public class class_ahz extends class_agj {
 
    public class_ahz(class_atk var1, class_atl var2) {
       super(var1, var2);
-      this.j(this.M.b().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false)));
-      this.a(class_zu.c);
+      this.j(this.M.b().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)));
+      this.a(CreativeTab.c);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_awf var4, List var5, class_pr var6) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
       boolean var7 = this.e(var1, var2.c());
       boolean var8 = this.e(var1, var2.d());
       boolean var9 = this.e(var1, var2.e());
@@ -127,48 +127,48 @@ public class class_ahz extends class_agj {
    }
 
    public boolean e(class_aer var1, class_cj var2) {
-      class_agj var3 = var1.p(var2).c();
+      Block var3 = var1.p(var2).getBlock();
       return var3 == class_agk.cv?false:((!(var3 instanceof class_ahz) || var3.J != this.J) && !(var3 instanceof class_aia)?(var3.J.k() && var3.d()?var3.J != class_atk.C:false):true);
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_anl var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       return var1.D?true:class_aav.a(var4, var1, var2);
    }
 
-   public int c(class_anl var1) {
+   public int c(IBlockData var1) {
       return 0;
    }
 
-   public class_anl a(class_anl var1, class_aer var2, class_cj var3) {
-      return var1.a(a, Boolean.valueOf(this.e(var2, var3.c()))).a(b, Boolean.valueOf(this.e(var2, var3.f()))).a(N, Boolean.valueOf(this.e(var2, var3.d()))).a(O, Boolean.valueOf(this.e(var2, var3.e())));
+   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+      return var1.set(a, Boolean.valueOf(this.e(var2, var3.c()))).set(b, Boolean.valueOf(this.e(var2, var3.f()))).set(N, Boolean.valueOf(this.e(var2, var3.d()))).set(O, Boolean.valueOf(this.e(var2, var3.e())));
    }
 
-   public class_anl a(class_anl var1, class_agj.class_c_in_class_agj var2) {
-      if(var1.c() != this) {
+   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      if(var1.getBlock() != this) {
          return var1;
       } else {
          switch(class_ahz.SyntheticClass_1.a[var2.ordinal()]) {
          case 1:
-            return var1.a(a, var1.b(N)).a(b, var1.b(O)).a(N, var1.b(a)).a(O, var1.b(b));
+            return var1.set(a, var1.get(N)).set(b, var1.get(O)).set(N, var1.get(a)).set(O, var1.get(b));
          case 2:
-            return var1.a(a, var1.b(b)).a(b, var1.b(N)).a(N, var1.b(O)).a(O, var1.b(a));
+            return var1.set(a, var1.get(b)).set(b, var1.get(N)).set(N, var1.get(O)).set(O, var1.get(a));
          case 3:
-            return var1.a(a, var1.b(O)).a(b, var1.b(a)).a(N, var1.b(b)).a(O, var1.b(N));
+            return var1.set(a, var1.get(O)).set(b, var1.get(a)).set(N, var1.get(b)).set(O, var1.get(N));
          default:
             return var1;
          }
       }
    }
 
-   public class_anl a(class_anl var1, class_agj.class_a_in_class_agj var2) {
-      if(var1.c() != this) {
+   public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
+      if(var1.getBlock() != this) {
          return var1;
       } else {
          switch(class_ahz.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
-            return var1.a(a, var1.b(N)).a(N, var1.b(a));
+            return var1.set(a, var1.get(N)).set(N, var1.get(a));
          case 2:
-            return var1.a(b, var1.b(O)).a(O, var1.b(b));
+            return var1.set(b, var1.get(O)).set(O, var1.get(b));
          default:
             return super.a(var1, var2);
          }
@@ -176,7 +176,7 @@ public class class_ahz extends class_agj {
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a, b, O, N});
+      return new class_anm(this, new IBlockState[]{a, b, O, N});
    }
 
    // $FF: synthetic class
@@ -184,37 +184,37 @@ public class class_ahz extends class_agj {
       // $FF: synthetic field
       static final int[] a;
       // $FF: synthetic field
-      static final int[] b = new int[class_agj.class_a_in_class_agj.values().length];
+      static final int[] b = new int[Block.class_a_in_class_agj.values().length];
 
       static {
          try {
-            b[class_agj.class_a_in_class_agj.b.ordinal()] = 1;
+            b[Block.class_a_in_class_agj.b.ordinal()] = 1;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            b[class_agj.class_a_in_class_agj.c.ordinal()] = 2;
+            b[Block.class_a_in_class_agj.c.ordinal()] = 2;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
-         a = new int[class_agj.class_c_in_class_agj.values().length];
+         a = new int[Block.class_c_in_class_agj.values().length];
 
          try {
-            a[class_agj.class_c_in_class_agj.c.ordinal()] = 1;
+            a[Block.class_c_in_class_agj.c.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.d.ordinal()] = 2;
+            a[Block.class_c_in_class_agj.d.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.b.ordinal()] = 3;
+            a[Block.class_c_in_class_agj.b.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

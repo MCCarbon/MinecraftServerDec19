@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auu;
@@ -54,7 +54,7 @@ public class class_auy extends class_auu {
       for(int var6 = var2; var6 < var2 + this.c; ++var6) {
          for(int var7 = var3; var7 < var3 + this.d; ++var7) {
             for(int var8 = var4; var8 < var4 + this.e; ++var8) {
-               class_agj var9 = this.a.p(var5.c(var6, var7, var8)).c();
+               Block var9 = this.a.p(var5.c(var6, var7, var8)).getBlock();
                if(var9.v() != class_atk.h) {
                   return 0;
                }

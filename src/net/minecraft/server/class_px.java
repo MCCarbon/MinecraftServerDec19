@@ -52,7 +52,7 @@ public class class_px extends class_pr {
       this.q = this.t;
       this.r = this.u;
       this.w -= 0.029999999329447746D;
-      if(this.o.p(new class_cj(this)).c().v() == class_atk.i) {
+      if(this.o.p(new class_cj(this)).getBlock().v() == class_atk.i) {
          this.w = 0.20000000298023224D;
          this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
          this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -90,7 +90,7 @@ public class class_px extends class_pr {
       this.d(this.v, this.w, this.x);
       float var13 = 0.98F;
       if(this.C) {
-         var13 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).c().L * 0.98F;
+         var13 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.98F;
       }
 
       this.v *= (double)var13;

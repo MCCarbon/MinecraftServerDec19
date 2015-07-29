@@ -32,7 +32,7 @@ import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aic;
 import net.minecraft.server.class_akq;
 import net.minecraft.server.class_alm;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_apx;
@@ -128,8 +128,8 @@ public abstract class class_aez {
    public String ah;
    public int ai;
    public int aj;
-   public class_anl ak;
-   public class_anl al;
+   public IBlockData ak;
+   public IBlockData al;
    public int am;
    public float an;
    public float ao;
@@ -315,8 +315,8 @@ public abstract class class_aez {
 
    public final void b(class_aen var1, Random var2, class_aph var3, int var4, int var5, double var6) {
       int var8 = var1.G();
-      class_anl var9 = this.ak;
-      class_anl var10 = this.al;
+      IBlockData var9 = this.ak;
+      IBlockData var10 = this.al;
       int var11 = -1;
       int var12 = (int)(var6 / 3.0D + 3.0D + var2.nextDouble() * 0.25D);
       int var13 = var4 & 15;
@@ -327,10 +327,10 @@ public abstract class class_aez {
          if(var16 <= var2.nextInt(5)) {
             var3.a(var14, var16, var13, class_agk.h.S());
          } else {
-            class_anl var17 = var3.a(var14, var16, var13);
-            if(var17.c().v() == class_atk.a) {
+            IBlockData var17 = var3.a(var14, var16, var13);
+            if(var17.getBlock().v() == class_atk.a) {
                var11 = -1;
-            } else if(var17.c() == class_agk.b) {
+            } else if(var17.getBlock() == class_agk.b) {
                if(var11 == -1) {
                   if(var12 <= 0) {
                      var9 = null;
@@ -340,7 +340,7 @@ public abstract class class_aez {
                      var10 = this.al;
                   }
 
-                  if(var16 < var8 && (var9 == null || var9.c().v() == class_atk.a)) {
+                  if(var16 < var8 && (var9 == null || var9.getBlock().v() == class_atk.a)) {
                      if(this.a((class_cj)var15.c(var4, var16, var5)) < 0.15F) {
                         var9 = class_agk.aI.S();
                      } else {
@@ -361,9 +361,9 @@ public abstract class class_aez {
                } else if(var11 > 0) {
                   --var11;
                   var3.a(var14, var16, var13, var10);
-                  if(var11 == 0 && var10.c() == class_agk.m) {
+                  if(var11 == 0 && var10.getBlock() == class_agk.m) {
                      var11 = var2.nextInt(4) + Math.max(0, var16 - 63);
-                     var10 = var10.b(class_akq.a) == class_akq.class_a_in_class_akq.b?class_agk.cM.S():class_agk.A.S();
+                     var10 = var10.get(class_akq.a) == class_akq.class_a_in_class_akq.b?class_agk.cM.S():class_agk.A.S();
                   }
                }
             }

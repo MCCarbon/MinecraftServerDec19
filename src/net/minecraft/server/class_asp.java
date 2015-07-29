@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asn;
 import net.minecraft.server.class_asu;
@@ -64,7 +64,7 @@ public abstract class class_asp extends class_asn {
    protected abstract void a(String var1, class_cj var2, class_aen var3, Random var4, class_arw var5);
 
    private void h() {
-      class_agj.class_c_in_class_agj var1 = this.b.c();
+      Block.class_c_in_class_agj var1 = this.b.c();
       class_cj var2 = this.a.a(var1);
       this.l = new class_arw(0, 0, 0, var2.n(), var2.o() - 1, var2.p());
       switch(class_asp.SyntheticClass_1.a[var1.ordinal()]) {
@@ -92,29 +92,29 @@ public abstract class class_asp extends class_asn {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_agj.class_c_in_class_agj.values().length];
+      static final int[] a = new int[Block.class_c_in_class_agj.values().length];
 
       static {
          try {
-            a[class_agj.class_c_in_class_agj.a.ordinal()] = 1;
+            a[Block.class_c_in_class_agj.a.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.b.ordinal()] = 2;
+            a[Block.class_c_in_class_agj.b.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.d.ordinal()] = 3;
+            a[Block.class_c_in_class_agj.d.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.c.ordinal()] = 4;
+            a[Block.class_c_in_class_agj.c.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }

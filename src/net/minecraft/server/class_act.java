@@ -29,7 +29,7 @@ import net.minecraft.server.class_acx;
 import net.minecraft.server.class_acy;
 import net.minecraft.server.class_acz;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ajp;
 import net.minecraft.server.class_ajw;
@@ -238,8 +238,8 @@ public class class_act {
          class_aas var15 = null;
          if(var2[var4 + 1] instanceof class_aar) {
             var15 = new class_aas((class_aar)var2[var4 + 1]);
-         } else if(var2[var4 + 1] instanceof class_agj) {
-            var15 = new class_aas((class_agj)var2[var4 + 1], 1, 32767);
+         } else if(var2[var4 + 1] instanceof Block) {
+            var15 = new class_aas((Block)var2[var4 + 1], 1, 32767);
          } else if(var2[var4 + 1] instanceof class_aas) {
             var15 = (class_aas)var2[var4 + 1];
          }
@@ -275,11 +275,11 @@ public class class_act {
          } else if(var7 instanceof class_aar) {
             var3.add(new class_aas((class_aar)var7));
          } else {
-            if(!(var7 instanceof class_agj)) {
+            if(!(var7 instanceof Block)) {
                throw new IllegalArgumentException("Invalid shapeless recipe: unknown type " + var7.getClass().getName() + "!");
             }
 
-            var3.add(new class_aas((class_agj)var7));
+            var3.add(new class_aas((Block)var7));
          }
       }
 

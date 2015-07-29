@@ -4,10 +4,10 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ajd;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
@@ -17,15 +17,15 @@ import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_zn extends class_aar {
-   private class_agj a;
+   private Block a;
 
-   public class_zn(class_agj var1) {
+   public class_zn(Block var1) {
       this.h = 1;
       this.a = var1;
-      this.a(class_zu.f);
+      this.a(CreativeTab.f);
    }
 
    public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
@@ -62,15 +62,15 @@ public class class_zn extends class_aar {
                return new class_or(class_oq.b, var1);
             }
 
-            class_anl var8 = var2.p(var7);
-            class_atk var9 = var8.c().v();
-            if(var9 == class_atk.h && ((Integer)var8.b(class_ajd.b)).intValue() == 0) {
+            IBlockData var8 = var2.p(var7);
+            class_atk var9 = var8.getBlock().v();
+            if(var9 == class_atk.h && ((Integer)var8.get(class_ajd.b)).intValue() == 0) {
                var2.g(var7);
                var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
                return new class_or(class_oq.a, this.a(var1, var3, class_aau.az));
             }
 
-            if(var9 == class_atk.i && ((Integer)var8.b(class_ajd.b)).intValue() == 0) {
+            if(var9 == class_atk.i && ((Integer)var8.get(class_ajd.b)).intValue() == 0) {
                var2.g(var7);
                var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
                return new class_or(class_oq.a, this.a(var1, var3, class_aau.aA));
@@ -99,7 +99,7 @@ public class class_zn extends class_aar {
       if(this.a == class_agk.a) {
          return false;
       } else {
-         class_atk var3 = var1.p(var2).c().v();
+         class_atk var3 = var1.p(var2).getBlock().v();
          boolean var4 = !var3.a();
          if(!var1.d(var2) && !var4) {
             return false;
@@ -118,7 +118,7 @@ public class class_zn extends class_aar {
                   var1.b(var2, true);
                }
 
-               var1.a((class_cj)var2, (class_anl)this.a.S(), 3);
+               var1.a((class_cj)var2, (IBlockData)this.a.S(), 3);
             }
 
             return true;

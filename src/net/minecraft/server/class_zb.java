@@ -16,25 +16,25 @@ import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_uy;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_zb extends class_aar {
    public class_zb() {
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
    }
 
    public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       if(var6 == class_cq.a) {
          return class_oq.b;
       } else {
-         boolean var10 = var3.p(var4).c().a(var3, var4);
+         boolean var10 = var3.p(var4).getBlock().a(var3, var4);
          class_cj var11 = var10?var4:var4.a(var6);
          if(!var2.a(var11, var6, var1)) {
             return class_oq.b;
          } else {
             class_cj var12 = var11.a();
-            boolean var13 = !var3.d(var11) && !var3.p(var11).c().a(var3, var11);
-            var13 |= !var3.d(var12) && !var3.p(var12).c().a(var3, var12);
+            boolean var13 = !var3.d(var11) && !var3.p(var11).getBlock().a(var3, var11);
+            var13 |= !var3.d(var12) && !var3.p(var12).getBlock().a(var3, var12);
             if(var13) {
                return class_oq.b;
             } else {

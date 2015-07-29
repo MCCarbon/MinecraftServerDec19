@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cd;
 import net.minecraft.server.class_cf;
@@ -43,8 +43,8 @@ public class class_ap extends class_i {
             class_eu var4 = b(var1, var2, 1, !(var1 instanceof class_xa));
             class_fb var5 = new class_fb("commands.message.display.incoming", new Object[]{var1.f_(), var4.f()});
             class_fb var6 = new class_fb("commands.message.display.outgoing", new Object[]{var3.f_(), var4.f()});
-            var5.b().a(class_a.h).b(Boolean.valueOf(true));
-            var6.b().a(class_a.h).b(Boolean.valueOf(true));
+            var5.b().a(EnumChatFormat.GRAY).b(Boolean.valueOf(true));
+            var6.b().a(EnumChatFormat.GRAY).b(Boolean.valueOf(true));
             var3.a((class_eu)var5);
             var1.a(var6);
          }

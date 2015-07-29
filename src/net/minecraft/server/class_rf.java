@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.class_ald;
 import net.minecraft.server.class_atk;
@@ -78,7 +78,7 @@ public class class_rf extends class_rm {
 
       float var8 = 0.91F;
       if(this.a.C) {
-         var8 = this.a.o.p(new class_cj(class_nu.d((float)var4), class_nu.d((float)var5) - 1, class_nu.d((float)var6))).c().L * 0.91F;
+         var8 = this.a.o.p(new class_cj(class_nu.d((float)var4), class_nu.d((float)var5) - 1, class_nu.d((float)var6))).getBlock().L * 0.91F;
       }
 
       float var9 = 0.16277136F / (var8 * var8 * var8);
@@ -117,8 +117,8 @@ public class class_rf extends class_rm {
       int var20 = class_nu.d(this.a.K + var1.K + 1.0F);
       int var21 = class_nu.d(this.a.J + 1.0F);
       if(var4 != var17 || var6 != var18) {
-         class_agj var22 = this.a.o.p(new class_cj(var4, var5, var6)).c();
-         boolean var23 = !this.a(var22) && (var22.v() != class_atk.a || !this.a(this.a.o.p(new class_cj(var4, var5 - 1, var6)).c()));
+         Block var22 = this.a.o.p(new class_cj(var4, var5, var6)).getBlock();
+         boolean var23 = !this.a(var22) && (var22.v() != class_atk.a || !this.a(this.a.o.p(new class_cj(var4, var5 - 1, var6)).getBlock()));
          if(var23 && 0 == class_auz.a(this.a.o, this.a, var17, var5, var18, var19, var20, var21, false, false, true) && 1 == class_auz.a(this.a.o, this.a, var4, var5 + 1, var6, var19, var20, var21, false, false, true) && 1 == class_auz.a(this.a.o, this.a, var17, var5 + 1, var18, var19, var20, var21, false, false, true)) {
             var2.t().a();
          }
@@ -157,7 +157,7 @@ public class class_rf extends class_rm {
       return null;
    }
 
-   private boolean a(class_agj var1) {
+   private boolean a(Block var1) {
       return var1 instanceof class_ald || var1 instanceof class_aio;
    }
 

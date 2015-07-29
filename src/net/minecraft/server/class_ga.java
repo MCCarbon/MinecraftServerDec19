@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_em;
@@ -33,7 +33,7 @@ public class class_ga implements class_ff {
       this.b = new class_ga.class_a_in_class_ga[var1.e()];
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         this.b[var2] = new class_ga.class_a_in_class_ga(var1.readShort(), (class_anl)class_agj.d.a(var1.e()));
+         this.b[var2] = new class_ga.class_a_in_class_ga(var1.readShort(), (IBlockData)Block.BLOCKDATA_REGISTRY.get(var1.e()));
       }
 
    }
@@ -48,7 +48,7 @@ public class class_ga implements class_ff {
       for(int var4 = 0; var4 < var3; ++var4) {
          class_ga.class_a_in_class_ga var5 = var2[var4];
          var1.writeShort(var5.b());
-         var1.b(class_agj.d.a(var5.c()));
+         var1.b(Block.BLOCKDATA_REGISTRY.getId(var5.c()));
       }
 
    }
@@ -65,9 +65,9 @@ public class class_ga implements class_ff {
 
    public class class_a_in_class_ga {
       private final short b;
-      private final class_anl c;
+      private final IBlockData c;
 
-      public class_a_in_class_ga(short var2, class_anl var3) {
+      public class_a_in_class_ga(short var2, IBlockData var3) {
          this.b = var2;
          this.c = var3;
       }
@@ -85,7 +85,7 @@ public class class_ga implements class_ff {
          return this.b;
       }
 
-      public class_anl c() {
+      public IBlockData c() {
          return this.c;
       }
    }

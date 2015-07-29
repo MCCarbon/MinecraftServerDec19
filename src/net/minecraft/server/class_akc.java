@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_di;
 import net.minecraft.server.class_ny;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_akc extends class_agj {
+public class class_akc extends Block {
    public static final class_any a = class_any.a("variant", class_akc.class_a_in_class_akc.class);
    public static final int b;
    public static final int N;
@@ -19,32 +19,32 @@ public class class_akc extends class_agj {
 
    public class_akc() {
       super(class_atk.e);
-      this.j(this.M.b().a(a, class_akc.class_a_in_class_akc.a));
-      this.a(class_zu.b);
+      this.j(this.M.b().set(a, class_akc.class_a_in_class_akc.a));
+      this.a(CreativeTab.b);
    }
 
    public String f() {
       return class_di.a(this.a() + "." + class_akc.class_a_in_class_akc.a.c() + ".name");
    }
 
-   public class_atl g(class_anl var1) {
-      return var1.b(a) == class_akc.class_a_in_class_akc.a?class_atl.y:class_atl.G;
+   public class_atl g(IBlockData var1) {
+      return var1.get(a) == class_akc.class_a_in_class_akc.a?class_atl.y:class_atl.G;
    }
 
-   public int a(class_anl var1) {
-      return ((class_akc.class_a_in_class_akc)var1.b(a)).a();
+   public int a(IBlockData var1) {
+      return ((class_akc.class_a_in_class_akc)var1.get(a)).a();
    }
 
-   public int c(class_anl var1) {
-      return ((class_akc.class_a_in_class_akc)var1.b(a)).a();
+   public int c(IBlockData var1) {
+      return ((class_akc.class_a_in_class_akc)var1.get(a)).a();
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, class_akc.class_a_in_class_akc.a(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, class_akc.class_a_in_class_akc.a(var1));
    }
 
    static {

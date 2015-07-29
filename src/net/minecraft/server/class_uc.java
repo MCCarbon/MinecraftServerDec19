@@ -5,7 +5,7 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
@@ -223,7 +223,7 @@ public class class_uc extends class_qj {
             return false;
          }
 
-         class_agj var2 = this.o.p(var1.b()).c();
+         Block var2 = this.o.p(var1.b()).getBlock();
          if(var2 == class_agk.c || var2.v() == class_atk.j) {
             return true;
          }

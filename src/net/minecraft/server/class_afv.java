@@ -83,9 +83,9 @@ public class class_afv extends class_aez {
          this.ak = class_agk.c.S();
          this.al = class_agk.d.S();
          if(var6 > 1.75D) {
-            this.ak = class_agk.d.S().a(class_ahj.a, class_ahj.class_a_in_class_ahj.b);
+            this.ak = class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b);
          } else if(var6 > -0.95D) {
-            this.ak = class_agk.d.S().a(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
+            this.ak = class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
          }
       }
 

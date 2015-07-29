@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_adi;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_kc;
 
 public class class_adm {
@@ -32,7 +32,7 @@ public class class_adm {
    public static final class_adi y = a("lure");
 
    private static class_adi a(String var0) {
-      class_adi var1 = (class_adi)class_adi.b.c(new class_jz(var0));
+      class_adi var1 = (class_adi)class_adi.b.get(new MinecraftKey(var0));
       if(var1 == null) {
          throw new IllegalStateException("Invalid Enchantment requested: " + var0);
       } else {

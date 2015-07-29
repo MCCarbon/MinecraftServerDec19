@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agf;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_ahz;
@@ -38,7 +38,7 @@ public class class_auz extends class_auu {
          var2 = (int)var1.aT().b;
          class_cj.class_a_in_class_cj var3 = new class_cj.class_a_in_class_cj(class_nu.c(var1.s), var2, class_nu.c(var1.u));
 
-         for(class_agj var4 = this.a.p(var3).c(); var4 == class_agk.i || var4 == class_agk.j; var4 = this.a.p(var3).c()) {
+         for(Block var4 = this.a.p(var3).getBlock(); var4 == class_agk.i || var4 == class_agk.j; var4 = this.a.p(var3).getBlock()) {
             ++var2;
             var3.c(class_nu.c(var1.s), var2, class_nu.c(var1.u));
          }
@@ -146,7 +146,7 @@ public class class_auz extends class_auu {
          for(int var15 = var3; var15 < var3 + var6; ++var15) {
             for(int var16 = var4; var16 < var4 + var7; ++var16) {
                var13.c(var14, var15, var16);
-               class_agj var17 = var0.p(var13).c();
+               Block var17 = var0.p(var13).getBlock();
                if(var17.v() != class_atk.a) {
                   if(var17 != class_agk.bd && var17 != class_agk.cw) {
                      if(var17 != class_agk.i && var17 != class_agk.j) {
@@ -164,8 +164,8 @@ public class class_auz extends class_auu {
                      var11 = true;
                   }
 
-                  if(var1.o.p(var13).c() instanceof class_agf) {
-                     if(!(var1.o.p(var12).c() instanceof class_agf) && !(var1.o.p(var12.b()).c() instanceof class_agf)) {
+                  if(var1.o.p(var13).getBlock() instanceof class_agf) {
+                     if(!(var1.o.p(var12).getBlock() instanceof class_agf) && !(var1.o.p(var12.b()).getBlock() instanceof class_agf)) {
                         return -3;
                      }
                   } else if(!var17.b(var0, var13) && (!var9 || !(var17 instanceof class_ahl) || var17.v() != class_atk.d)) {

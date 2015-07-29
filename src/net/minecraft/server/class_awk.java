@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Sets;
 import java.util.Collection;
 import java.util.Set;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_awp;
 
@@ -18,12 +18,12 @@ public class class_awk extends class_awp {
    private boolean h = true;
    private class_awp.class_a_in_class_awp i;
    private class_awp.class_a_in_class_awp j;
-   private class_a k;
+   private EnumChatFormat k;
 
    public class_awk(class_awn var1, String var2) {
       this.i = class_awp.class_a_in_class_awp.a;
       this.j = class_awp.class_a_in_class_awp.a;
-      this.k = class_a.v;
+      this.k = EnumChatFormat.RESET;
       this.a = var1;
       this.b = var2;
       this.d = var2;
@@ -129,11 +129,11 @@ public class class_awk extends class_awp {
       return var1;
    }
 
-   public void a(class_a var1) {
+   public void a(EnumChatFormat var1) {
       this.k = var1;
    }
 
-   public class_a l() {
+   public EnumChatFormat l() {
       return this.k;
    }
 }

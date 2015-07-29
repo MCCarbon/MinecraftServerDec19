@@ -2,36 +2,36 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vl;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_ahx extends class_agj {
+public class class_ahx extends Block {
    public static boolean N;
 
    public class_ahx() {
       super(class_atk.p);
-      this.a((class_zu)class_zu.b);
+      this.a((CreativeTab)CreativeTab.b);
    }
 
    public class_ahx(class_atk var1) {
       super(var1);
    }
 
-   public void c(class_aen var1, class_cj var2, class_anl var3) {
-      var1.a((class_cj)var2, (class_agj)this, this.a(var1));
+   public void c(class_aen var1, class_cj var2, IBlockData var3) {
+      var1.a((class_cj)var2, (Block)this, this.a(var1));
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
-      var1.a((class_cj)var2, (class_agj)this, this.a(var1));
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+      var1.a((class_cj)var2, (Block)this, this.a(var1));
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
       if(!var1.D) {
          this.f(var1, var2);
       }
@@ -71,7 +71,7 @@ public class class_ahx extends class_agj {
    }
 
    public static boolean e(class_aen var0, class_cj var1) {
-      class_agj var2 = var0.p(var1).c();
+      Block var2 = var0.p(var1).getBlock();
       class_atk var3 = var2.J;
       return var2 == class_agk.ab || var3 == class_atk.a || var3 == class_atk.h || var3 == class_atk.i;
    }

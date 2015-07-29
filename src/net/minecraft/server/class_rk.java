@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_pr;
@@ -72,8 +72,8 @@ public class class_rk extends class_rm {
    }
 
    private boolean a(class_cj var1) {
-      class_anl var2 = this.a.p(var1);
-      class_agj var3 = var2.c();
+      IBlockData var2 = this.a.p(var1);
+      Block var3 = var2.getBlock();
       return var3 == class_agk.a?true:!var3.d();
    }
 

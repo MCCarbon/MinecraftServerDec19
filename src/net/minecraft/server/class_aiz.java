@@ -3,38 +3,38 @@ package net.minecraft.server;
 import java.util.Iterator;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_aiv;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anx;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_qa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_aiz extends class_agj {
+public class class_aiz extends Block {
    public static final class_anx a;
 
    protected class_aiz() {
       super(class_atk.q);
-      this.j(this.M.b().a(a, class_cq.c));
-      this.a(class_zu.c);
+      this.j(this.M.b().set(a, class_cq.c));
+      this.a(CreativeTab.c);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       this.a((class_aer)var1, (class_cj)var2);
       return super.a(var1, var2, var3);
    }
 
    public void a(class_aer var1, class_cj var2) {
-      class_anl var3 = var1.p(var2);
-      if(var3.c() == this) {
+      IBlockData var3 = var1.p(var2);
+      if(var3.getBlock() == this) {
          float var4 = 0.1875F;
-         switch(class_aiz.SyntheticClass_1.a[((class_cq)var3.b(a)).ordinal()]) {
+         switch(class_aiz.SyntheticClass_1.a[((class_cq)var3.get(a)).ordinal()]) {
          case 1:
             this.a(0.0F, 0.0F, 1.0F - var4, 1.0F, 1.0F, 1.0F);
             break;
@@ -61,12 +61,12 @@ public class class_aiz extends class_agj {
    }
 
    public boolean d(class_aen var1, class_cj var2) {
-      return var1.p(var2.e()).c().x()?true:(var1.p(var2.f()).c().x()?true:(var1.p(var2.c()).c().x()?true:var1.p(var2.d()).c().x()));
+      return var1.p(var2.e()).getBlock().x()?true:(var1.p(var2.f()).getBlock().x()?true:(var1.p(var2.c()).getBlock().x()?true:var1.p(var2.d()).getBlock().x()));
    }
 
-   public class_anl a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
       if(var3.k().c() && this.a(var1, var2, var3)) {
-         return this.S().a(a, var3);
+         return this.S().set(a, var3);
       } else {
          Iterator var9 = class_cq.class_c_in_class_cq.a.iterator();
 
@@ -79,12 +79,12 @@ public class class_aiz extends class_agj {
             var10 = (class_cq)var9.next();
          } while(!this.a(var1, var2, var10));
 
-         return this.S().a(a, var10);
+         return this.S().set(a, var10);
       }
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
-      class_cq var5 = (class_cq)var3.b(a);
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+      class_cq var5 = (class_cq)var3.get(a);
       if(!this.a(var1, var2, var5)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -94,32 +94,32 @@ public class class_aiz extends class_agj {
    }
 
    protected boolean a(class_aen var1, class_cj var2, class_cq var3) {
-      return var1.p(var2.a(var3.d())).c().x();
+      return var1.p(var2.a(var3.d())).getBlock().x();
    }
 
-   public class_anl a(int var1) {
+   public IBlockData a(int var1) {
       class_cq var2 = class_cq.a(var1);
       if(var2.k() == class_cq.class_a_in_class_cq.b) {
          var2 = class_cq.c;
       }
 
-      return this.S().a(a, var2);
+      return this.S().set(a, var2);
    }
 
-   public int c(class_anl var1) {
-      return ((class_cq)var1.b(a)).a();
+   public int c(IBlockData var1) {
+      return ((class_cq)var1.get(a)).a();
    }
 
-   public class_anl a(class_anl var1, class_agj.class_c_in_class_agj var2) {
-      return var1.c() != this?var1:var1.a(a, var2.a((class_cq)var1.b(a)));
+   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      return var1.getBlock() != this?var1:var1.set(a, var2.a((class_cq)var1.get(a)));
    }
 
-   public class_anl a(class_anl var1, class_agj.class_a_in_class_agj var2) {
-      return var1.c() != this?var1:this.a(var1, var2.a((class_cq)var1.b(a)));
+   public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 
    static {

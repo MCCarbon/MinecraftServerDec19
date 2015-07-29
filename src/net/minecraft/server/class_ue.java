@@ -4,10 +4,10 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ags;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -69,7 +69,7 @@ public class class_ue extends class_tw {
       this.i.a(1, new class_ue.class_g_in_class_ue(this, 1.33D));
       this.i.a(2, new class_sr(this, 1.0D, class_aau.bU, false));
       this.i.a(2, new class_sr(this, 1.0D, class_aau.bZ, false));
-      this.i.a(2, new class_sr(this, 1.0D, class_aar.a((class_agj)class_agk.N), false));
+      this.i.a(2, new class_sr(this, 1.0D, class_aar.a((Block)class_agk.N), false));
       this.i.a(3, new class_re(this, 0.8D));
       this.i.a(5, new class_ue.class_h_in_class_ue(this));
       this.i.a(5, new class_si(this, 0.6D));
@@ -290,7 +290,7 @@ public class class_ue extends class_tw {
    }
 
    private boolean a(class_aar var1) {
-      return var1 == class_aau.bU || var1 == class_aau.bZ || var1 == class_aar.a((class_agj)class_agk.N);
+      return var1 == class_aau.bU || var1 == class_aau.bZ || var1 == class_aar.a((Block)class_agk.N);
    }
 
    public class_ue b(class_po var1) {
@@ -354,8 +354,8 @@ public class class_ue extends class_tw {
 
    protected void cE() {
       class_ags var1 = (class_ags)class_agk.cb;
-      class_anl var2 = var1.b(var1.n());
-      this.o.a(class_cy.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{class_agj.f(var2)});
+      IBlockData var2 = var1.b(var1.n());
+      this.o.a(class_cy.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.f(var2)});
       this.bB = 100;
    }
 
@@ -465,10 +465,10 @@ public class class_ue extends class_tw {
          if(this.f()) {
             class_aen var1 = this.c.o;
             class_cj var2 = this.b.a();
-            class_anl var3 = var1.p(var2);
-            class_agj var4 = var3.c();
+            IBlockData var3 = var1.p(var2);
+            Block var4 = var3.getBlock();
             if(this.e && var4 instanceof class_ags && ((class_ags)var4).e(var3)) {
-               var1.a((class_cj)var2, (class_anl)class_agk.a.S(), 2);
+               var1.a((class_cj)var2, (IBlockData)class_agk.a.S(), 2);
                var1.b(var2, true);
                this.c.cE();
             }
@@ -480,11 +480,11 @@ public class class_ue extends class_tw {
       }
 
       protected boolean a(class_aen var1, class_cj var2) {
-         class_agj var3 = var1.p(var2).c();
+         Block var3 = var1.p(var2).getBlock();
          if(var3 == class_agk.ak) {
             var2 = var2.a();
-            class_anl var4 = var1.p(var2);
-            var3 = var4.c();
+            IBlockData var4 = var1.p(var2);
+            var3 = var4.getBlock();
             if(var3 instanceof class_ags && ((class_ags)var3).e(var4) && this.d && !this.e) {
                this.e = true;
                return true;

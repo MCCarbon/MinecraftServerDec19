@@ -19,7 +19,7 @@ import net.minecraft.server.class_aeb;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_aia;
 import net.minecraft.server.class_alv;
@@ -530,7 +530,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	}
 
-	protected void a(double var1, boolean var3, class_agj var4, class_cj var5) {
+	protected void a(double var1, boolean var3, Block var4, class_cj var5) {
 	}
 
 	public void a(double var1, boolean var3) {
@@ -538,12 +538,12 @@ public class class_lh extends class_xa implements class_ye {
 		int var5 = class_nu.c(this.t - 0.20000000298023224D);
 		int var6 = class_nu.c(this.u);
 		class_cj var7 = new class_cj(var4, var5, var6);
-		class_agj var8 = this.o.p(var7).c();
+		Block var8 = this.o.p(var7).getBlock();
 		if (var8.v() == class_atk.a) {
-			class_agj var9 = this.o.p(var7.b()).c();
+			Block var9 = this.o.p(var7.b()).getBlock();
 			if (var9 instanceof class_ahz || var9 instanceof class_alv || var9 instanceof class_aia) {
 				var7 = var7.b();
-				var8 = this.o.p(var7).c();
+				var8 = this.o.p(var7).getBlock();
 			}
 		}
 

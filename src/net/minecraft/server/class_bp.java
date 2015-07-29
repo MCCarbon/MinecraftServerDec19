@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
@@ -36,7 +36,7 @@ public class class_bp extends class_i {
       } else {
          var1.a(class_n.class_a_in_class_n.b, 0);
          class_cj var3 = a(var1, var2, 0, false);
-         class_agj var4 = class_agj.b(var2[3]);
+         Block var4 = Block.getByName(var2[3]);
          if(var4 == null) {
             throw new class_cb("commands.setblock.notFound", new Object[]{var2[3]});
          } else {
@@ -62,13 +62,13 @@ public class class_bp extends class_i {
                   }
                }
 
-               class_anl var14 = var6.p(var3);
-               class_agj var10 = var14.c();
+               IBlockData var14 = var6.p(var3);
+               Block var10 = var14.getBlock();
                if(var10 != var4) {
                   throw new class_bz("commands.testforblock.failed.tile", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), var10.f(), var4.f()});
                } else {
                   if(var5 > -1) {
-                     int var11 = var14.c().c(var14);
+                     int var11 = var14.getBlock().c(var14);
                      if(var11 != var5) {
                         throw new class_bz("commands.testforblock.failed.data", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p()), Integer.valueOf(var11), Integer.valueOf(var5)});
                      }
@@ -96,6 +96,6 @@ public class class_bp extends class_i {
    }
 
    public List a(class_m var1, String[] var2, class_cj var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, class_agj.c.c()):null);
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.BLOCK_REGISTRY.getKeys()):null);
    }
 }

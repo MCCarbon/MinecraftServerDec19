@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agh;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ami;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_rx;
 import net.minecraft.server.class_uc;
@@ -52,8 +52,8 @@ public class class_sb extends class_rx {
       if(!var1.d(var2.a())) {
          return false;
       } else {
-         class_anl var3 = var1.p(var2);
-         class_agj var4 = var3.c();
+         IBlockData var3 = var1.p(var2);
+         Block var4 = var3.getBlock();
          if(var4 == class_agk.ae) {
             class_amg var5 = var1.s(var2);
             if(var5 instanceof class_ami && ((class_ami)var5).l < 1) {
@@ -64,7 +64,7 @@ public class class_sb extends class_rx {
                return true;
             }
 
-            if(var4 == class_agk.C && var3.b(class_agh.a) != class_agh.class_a_in_class_agh.a) {
+            if(var4 == class_agk.C && var3.get(class_agh.a) != class_agh.class_a_in_class_agh.a) {
                return true;
             }
          }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ck;
 
@@ -36,8 +36,8 @@ public class class_cl implements class_ck {
    }
 
    public int f() {
-      class_anl var1 = this.a.p(this.b);
-      return var1.c().c(var1);
+      IBlockData var1 = this.a.p(this.b);
+      return var1.getBlock().c(var1);
    }
 
    public class_amg h() {

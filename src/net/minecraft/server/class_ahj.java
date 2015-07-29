@@ -2,61 +2,61 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ny;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_ahj extends class_agj {
+public class class_ahj extends Block {
 	public static final class_any a = class_any.a("variant", class_ahj.class_a_in_class_ahj.class);
 	public static final class_anw b = class_anw.a("snowy");
 
 	protected class_ahj() {
 		super(class_atk.c);
-		this.j(this.M.b().a(a, class_ahj.class_a_in_class_ahj.a).a(b, Boolean.valueOf(false)));
-		this.a(class_zu.b);
+		this.j(this.M.b().set(a, class_ahj.class_a_in_class_ahj.a).set(b, Boolean.valueOf(false)));
+		this.a(CreativeTab.b);
 	}
 
-	public class_atl g(class_anl var1) {
-		return ((class_ahj.class_a_in_class_ahj) var1.b(a)).d();
+	public class_atl g(IBlockData var1) {
+		return ((class_ahj.class_a_in_class_ahj) var1.get(a)).d();
 	}
 
-	public class_anl a(class_anl var1, class_aer var2, class_cj var3) {
-		if (var1.b(a) == class_ahj.class_a_in_class_ahj.c) {
-			class_agj var4 = var2.p(var3.a()).c();
-			var1 = var1.a(b, Boolean.valueOf(var4 == class_agk.aJ || var4 == class_agk.aH));
+	public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+		if (var1.get(a) == class_ahj.class_a_in_class_ahj.c) {
+			Block var4 = var2.p(var3.a()).getBlock();
+			var1 = var1.set(b, Boolean.valueOf(var4 == class_agk.aJ || var4 == class_agk.aH));
 		}
 
 		return var1;
 	}
 
 	public int j(class_aen var1, class_cj var2) {
-		class_anl var3 = var1.p(var2);
-		return var3.c() != this ? 0 : ((class_ahj.class_a_in_class_ahj) var3.b(a)).a();
+		IBlockData var3 = var1.p(var2);
+		return var3.getBlock() != this ? 0 : ((class_ahj.class_a_in_class_ahj) var3.get(a)).a();
 	}
 
-	public class_anl a(int var1) {
-		return this.S().a(a, class_ahj.class_a_in_class_ahj.a(var1));
+	public IBlockData a(int var1) {
+		return this.S().set(a, class_ahj.class_a_in_class_ahj.a(var1));
 	}
 
-	public int c(class_anl var1) {
-		return ((class_ahj.class_a_in_class_ahj) var1.b(a)).a();
+	public int c(IBlockData var1) {
+		return ((class_ahj.class_a_in_class_ahj) var1.get(a)).a();
 	}
 
 	protected class_anm e() {
-		return new class_anm(this, new class_aoa[] { a, b });
+		return new class_anm(this, new IBlockState[] { a, b });
 	}
 
-	public int a(class_anl var1) {
-		class_ahj.class_a_in_class_ahj var2 = (class_ahj.class_a_in_class_ahj) var1.b(a);
+	public int a(IBlockData var1) {
+		class_ahj.class_a_in_class_ahj var2 = (class_ahj.class_a_in_class_ahj) var1.get(a);
 		if (var2 == class_ahj.class_a_in_class_ahj.c) {
 			var2 = class_ahj.class_a_in_class_ahj.a;
 		}

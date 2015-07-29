@@ -3,10 +3,10 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ajh;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_pc;
@@ -79,7 +79,7 @@ public class class_wm extends class_wi {
       }
    }
 
-   protected void a(class_cj var1, class_agj var2) {
+   protected void a(class_cj var1, Block var2) {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 
@@ -93,7 +93,7 @@ public class class_wm extends class_wi {
    }
 
    public float a(class_cj var1) {
-      return this.o.p(var1.b()).c() == class_agk.b?10.0F:super.a(var1);
+      return this.o.p(var1.b()).getBlock() == class_agk.b?10.0F:super.a(var1);
    }
 
    protected boolean n_() {
@@ -134,7 +134,7 @@ public class class_wm extends class_wi {
             if(var1.nextInt(10) == 0) {
                this.b = class_cq.a(var1);
                class_cj var2 = (new class_cj(this.a.s, this.a.t + 0.5D, this.a.u)).a(this.b);
-               class_anl var3 = this.a.o.p(var2);
+               IBlockData var3 = this.a.o.p(var2);
                if(class_ajh.d(var3)) {
                   this.c = true;
                   return true;
@@ -156,9 +156,9 @@ public class class_wm extends class_wi {
          } else {
             class_aen var1 = this.a.o;
             class_cj var2 = (new class_cj(this.a.s, this.a.t + 0.5D, this.a.u)).a(this.b);
-            class_anl var3 = var1.p(var2);
+            IBlockData var3 = var1.p(var2);
             if(class_ajh.d(var3)) {
-               var1.a((class_cj)var2, (class_anl)class_agk.be.S().a(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
+               var1.a((class_cj)var2, (IBlockData)class_agk.be.S().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
                this.a.A();
                this.a.J();
             }
@@ -197,12 +197,12 @@ public class class_wm extends class_wi {
                for(int var5 = 0; var5 <= 10 && var5 >= -10; var5 = var5 <= 0?1 - var5:0 - var5) {
                   for(int var6 = 0; var6 <= 10 && var6 >= -10; var6 = var6 <= 0?1 - var6:0 - var6) {
                      class_cj var7 = var3.a(var5, var4, var6);
-                     class_anl var8 = var1.p(var7);
-                     if(var8.c() == class_agk.be) {
+                     IBlockData var8 = var1.p(var7);
+                     if(var8.getBlock() == class_agk.be) {
                         if(var1.R().b("mobGriefing")) {
                            var1.b(var7, true);
                         } else {
-                           var1.a((class_cj)var7, (class_anl)((class_ajh.class_a_in_class_ajh)var8.b(class_ajh.a)).d(), 3);
+                           var1.a((class_cj)var7, (IBlockData)((class_ajh.class_a_in_class_ajh)var8.get(class_ajh.a)).d(), 3);
                         }
 
                         if(var2.nextBoolean()) {

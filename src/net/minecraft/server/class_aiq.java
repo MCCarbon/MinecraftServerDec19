@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 
-public class class_aiq extends class_agj {
+public class class_aiq extends Block {
    private boolean a;
 
    protected class_aiq(class_atk var1, boolean var2) {

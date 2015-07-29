@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awl;
@@ -234,7 +234,7 @@ public class class_bc extends class_i {
                var6.add(var8);
             } catch (class_bz var11) {
                class_fb var10 = new class_fb(var11.getMessage(), var11.a());
-               var10.b().a(class_a.m);
+               var10.b().a(EnumChatFormat.RED);
                var1.a(var10);
             }
          }
@@ -345,7 +345,7 @@ public class class_bc extends class_i {
             throw new class_cf("commands.scoreboard.teams.option.usage", new Object[0]);
          } else if(var2.length == 4) {
             if(var5.equalsIgnoreCase("color")) {
-               throw new class_cf("commands.scoreboard.teams.option.noValue", new Object[]{var5, a(class_a.a(true, false))});
+               throw new class_cf("commands.scoreboard.teams.option.noValue", new Object[]{var5, a(EnumChatFormat.getNames(true, false))});
             } else if(!var5.equalsIgnoreCase("friendlyfire") && !var5.equalsIgnoreCase("seeFriendlyInvisibles")) {
                if(!var5.equalsIgnoreCase("nametagVisibility") && !var5.equalsIgnoreCase("deathMessageVisibility")) {
                   throw new class_cf("commands.scoreboard.teams.option.usage", new Object[0]);
@@ -358,14 +358,14 @@ public class class_bc extends class_i {
          } else {
             String var6 = var2[var3];
             if(var5.equalsIgnoreCase("color")) {
-               class_a var7 = class_a.b(var6);
-               if(var7 == null || var7.c()) {
-                  throw new class_cf("commands.scoreboard.teams.option.noValue", new Object[]{var5, a(class_a.a(true, false))});
+               EnumChatFormat var7 = EnumChatFormat.getByName(var6);
+               if(var7 == null || var7.isFormatting()) {
+                  throw new class_cf("commands.scoreboard.teams.option.noValue", new Object[]{var5, a(EnumChatFormat.getNames(true, false))});
                }
 
                var4.a(var7);
                var4.b(var7.toString());
-               var4.c(class_a.v.toString());
+               var4.c(EnumChatFormat.RESET.toString());
             } else if(var5.equalsIgnoreCase("friendlyfire")) {
                if(!var6.equalsIgnoreCase("true") && !var6.equalsIgnoreCase("false")) {
                   throw new class_cf("commands.scoreboard.teams.option.noValue", new Object[]{var5, a(Arrays.asList(new String[]{"true", "false"}))});
@@ -426,7 +426,7 @@ public class class_bc extends class_i {
          }
 
          class_fb var7 = new class_fb("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.b()});
-         var7.b().a(class_a.c);
+         var7.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var7);
          var1.a(new class_fa(a(var6.toArray())));
       } else {
@@ -437,7 +437,7 @@ public class class_bc extends class_i {
          }
 
          class_fb var10 = new class_fb("commands.scoreboard.teams.list.count", new Object[]{Integer.valueOf(var9.size())});
-         var10.b().a(class_a.c);
+         var10.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var10);
          Iterator var11 = var9.iterator();
 
@@ -597,7 +597,7 @@ public class class_bc extends class_i {
          throw new class_bz("commands.scoreboard.objectives.list.empty", new Object[0]);
       } else {
          class_fb var4 = new class_fb("commands.scoreboard.objectives.list.count", new Object[]{Integer.valueOf(var3.size())});
-         var4.b().a(class_a.c);
+         var4.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var4);
          Iterator var5 = var3.iterator();
 
@@ -642,7 +642,7 @@ public class class_bc extends class_i {
          }
 
          class_fb var7 = new class_fb("commands.scoreboard.players.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5});
-         var7.b().a(class_a.c);
+         var7.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var7);
          Iterator var8 = var6.values().iterator();
 
@@ -658,7 +658,7 @@ public class class_bc extends class_i {
          }
 
          class_fb var11 = new class_fb("commands.scoreboard.players.list.count", new Object[]{Integer.valueOf(var10.size())});
-         var11.b().a(class_a.c);
+         var11.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var11);
          var1.a(new class_fa(a(var10.toArray())));
       }
@@ -920,7 +920,7 @@ public class class_bc extends class_i {
 
                      if(var2.length == 5) {
                         if(var2[3].equalsIgnoreCase("color")) {
-                           return a(var2, class_a.a(true, false));
+                           return a(var2, EnumChatFormat.getNames(true, false));
                         }
 
                         if(!var2[3].equalsIgnoreCase("nametagVisibility") && !var2[3].equalsIgnoreCase("deathMessageVisibility")) {

@@ -16,11 +16,11 @@ import net.minecraft.server.class_abz;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aiz;
 import net.minecraft.server.class_alr;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
@@ -163,14 +163,14 @@ public abstract class class_qa extends class_pr {
       this.by().b(class_wl.d);
    }
 
-   protected void a(double var1, boolean var3, class_agj var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
       if(!this.V()) {
          this.W();
       }
 
       if(!this.o.D && this.O > 3.0F && var3) {
-         class_anl var6 = this.o.p(var5);
-         class_agj var7 = var6.c();
+         IBlockData var6 = this.o.p(var5);
+         Block var7 = var6.getBlock();
          float var8 = (float)class_nu.f(this.O - 3.0F);
          if(var7.v() != class_atk.a) {
             double var9 = (double)Math.min(0.2F + var8 / 15.0F, 10.0F);
@@ -179,7 +179,7 @@ public abstract class class_qa extends class_pr {
             }
 
             int var11 = (int)(150.0D * var9);
-            ((class_lg)this.o).a(class_cy.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{class_agj.f(var6)});
+            ((class_lg)this.o).a(class_cy.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{Block.f(var6)});
          }
       }
 
@@ -828,16 +828,16 @@ public abstract class class_qa extends class_pr {
          return false;
       } else {
          class_cj var4 = new class_cj(var1, var2, var3);
-         class_anl var5 = this.o.p(var4);
-         class_agj var6 = var5.c();
+         IBlockData var5 = this.o.p(var4);
+         Block var6 = var5.getBlock();
          return var6 != class_agk.au && var6 != class_agk.bn?var6 instanceof class_alr && this.a(var4, var5):true;
       }
    }
 
-   private boolean a(class_cj var1, class_anl var2) {
-      if(((Boolean)var2.b(class_alr.b)).booleanValue()) {
-         class_anl var3 = this.o.p(var1.b());
-         if(var3.c() == class_agk.au && var3.b(class_aiz.a) == var2.b(class_alr.a)) {
+   private boolean a(class_cj var1, IBlockData var2) {
+      if(((Boolean)var2.get(class_alr.b)).booleanValue()) {
+         IBlockData var3 = this.o.p(var1.b());
+         if(var3.getBlock() == class_agk.au && var3.get(class_aiz.a) == var2.get(class_alr.a)) {
             return true;
          }
       }
@@ -860,9 +860,9 @@ public abstract class class_qa extends class_pr {
          int var6 = class_nu.c(this.s);
          int var7 = class_nu.c(this.t - 0.20000000298023224D);
          int var8 = class_nu.c(this.u);
-         class_agj var9 = this.o.p(new class_cj(var6, var7, var8)).c();
+         Block var9 = this.o.p(new class_cj(var6, var7, var8)).getBlock();
          if(var9.v() != class_atk.a) {
-            class_agj.class_d_in_class_agj var10 = var9.H;
+            Block.StepSound var10 = var9.H;
             this.a(var10.c(), var10.d() * 0.5F, var10.e() * 0.75F);
          }
       }
@@ -1102,7 +1102,7 @@ public abstract class class_qa extends class_pr {
                      return;
                   }
 
-                  if(class_aen.a((class_aer)this.o, (class_cj)(new class_cj(var12, (int)this.t - 1, var13))) || this.o.p(new class_cj(var12, (int)this.t - 1, var13)).c().v() == class_atk.h) {
+                  if(class_aen.a((class_aer)this.o, (class_cj)(new class_cj(var12, (int)this.t - 1, var13))) || this.o.p(new class_cj(var12, (int)this.t - 1, var13)).getBlock().v() == class_atk.h) {
                      var3 = this.s + (double)var10;
                      var5 = this.t + 1.0D;
                      var7 = this.u + (double)var11;
@@ -1178,7 +1178,7 @@ public abstract class class_qa extends class_pr {
          } else if(!this.ab() || this instanceof class_xa && ((class_xa)this).bH.b) {
             float var8 = 0.91F;
             if(this.C) {
-               var8 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).c().L * 0.91F;
+               var8 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.91F;
             }
 
             float var4 = 0.16277136F / (var8 * var8 * var8);
@@ -1191,7 +1191,7 @@ public abstract class class_qa extends class_pr {
             this.a(var1, var2, var5);
             var8 = 0.91F;
             if(this.C) {
-               var8 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).c().L * 0.91F;
+               var8 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.91F;
             }
 
             if(this.k_()) {

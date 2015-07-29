@@ -6,30 +6,30 @@ import com.google.common.collect.Lists;
 import java.util.Collection;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ago;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_ny;
 
 public abstract class class_aic extends class_ago {
 	protected class_any a;
 
 	protected class_aic() {
-		this.j(this.M.b().a(this.n(), this.l() == class_aic.class_b_in_class_aic.b ? class_aic.class_a_in_class_aic.b : class_aic.class_a_in_class_aic.a));
+		this.j(this.M.b().set(this.n(), this.l() == class_aic.class_b_in_class_aic.b ? class_aic.class_a_in_class_aic.b : class_aic.class_a_in_class_aic.a));
 	}
 
-	public int a(class_anl var1) {
-		return ((class_aic.class_a_in_class_aic) var1.b(this.n())).b();
+	public int a(IBlockData var1) {
+		return ((class_aic.class_a_in_class_aic) var1.get(this.n())).b();
 	}
 
-	public class_anl a(int var1) {
-		return this.S().a(this.n(), class_aic.class_a_in_class_aic.a(this.l(), var1));
+	public IBlockData a(int var1) {
+		return this.S().set(this.n(), class_aic.class_a_in_class_aic.a(this.l(), var1));
 	}
 
 	public abstract class_aic.class_b_in_class_aic l();
 
-	public class_aoa n() {
+	public IBlockState n() {
 		if (this.a == null) {
 			this.a = class_any.a("type", class_aic.class_a_in_class_aic.class, new Predicate() {
 				public boolean a(class_aic.class_a_in_class_aic var1) {
@@ -46,12 +46,12 @@ public abstract class class_aic extends class_ago {
 		return this.a;
 	}
 
-	public int c(class_anl var1) {
-		return ((class_aic.class_a_in_class_aic) var1.b(this.n())).b();
+	public int c(IBlockData var1) {
+		return ((class_aic.class_a_in_class_aic) var1.get(this.n())).b();
 	}
 
 	protected class_anm e() {
-		return new class_anm(this, new class_aoa[] { this.n() });
+		return new class_anm(this, new IBlockState[] { this.n() });
 	}
 
 	public static enum class_a_in_class_aic implements class_ny {

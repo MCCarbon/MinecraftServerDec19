@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_agu;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_vn;
@@ -27,7 +27,7 @@ public class class_vo extends class_vq {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(class_aar.a((class_agj)class_agk.ae), 1, 0.0F);
+         this.a(class_aar.a((Block)class_agk.ae), 1, 0.0F);
       }
 
    }
@@ -40,8 +40,8 @@ public class class_vo extends class_vq {
       return class_vn.class_a_in_class_vn.b;
    }
 
-   public class_anl u() {
-      return class_agk.ae.S().a(class_agu.a, class_cq.c);
+   public IBlockData u() {
+      return class_agk.ae.S().set(class_agu.a, class_cq.c);
    }
 
    public int w() {

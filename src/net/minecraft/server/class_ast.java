@@ -12,13 +12,13 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_asv;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dx;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import org.apache.commons.io.IOUtils;
 
 public class class_ast {
    private final Map a = Maps.newHashMap();
 
-   public class_asv a(class_jz var1) {
+   public class_asv a(MinecraftKey var1) {
       String var2 = var1.a();
       if(this.a.containsKey(var2)) {
          return (class_asv)this.a.get(var2);
@@ -34,7 +34,7 @@ public class class_ast {
       }
    }
 
-   public boolean b(class_jz var1) {
+   public boolean b(MinecraftKey var1) {
       String var2 = var1.a();
       File var3 = MinecraftServer.N().d("structures");
       File var4 = new File(var3, var2 + ".nbt");
@@ -58,7 +58,7 @@ public class class_ast {
       }
    }
 
-   private boolean d(class_jz var1) {
+   private boolean d(MinecraftKey var1) {
       String var2 = var1.b();
       String var3 = var1.a();
       InputStream var4 = null;
@@ -84,7 +84,7 @@ public class class_ast {
       this.a.put(var1, var4);
    }
 
-   public boolean c(class_jz var1) {
+   public boolean c(MinecraftKey var1) {
       String var2 = var1.a();
       if(!this.a.containsKey(var2)) {
          return false;

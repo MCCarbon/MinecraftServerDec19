@@ -5,7 +5,7 @@ import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ajh;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_aql;
@@ -23,7 +23,7 @@ public class class_aff extends class_aez {
 
    protected class_aff(int var1, boolean var2) {
       super(var1);
-      this.aD = new class_arb(class_agk.be.S().a(class_ajh.a, class_ajh.class_a_in_class_ajh.a), 9);
+      this.aD = new class_arb(class_agk.be.S().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a), 9);
       this.aE = new class_ark(false);
       this.aF = 0;
       this.aG = 1;
@@ -52,8 +52,8 @@ public class class_aff extends class_aez {
          var7 = var2.nextInt(28) + 4;
          int var8 = var2.nextInt(16);
          class_cj var9 = var3.a(var6, var7, var8);
-         if(var1.p(var9).c() == class_agk.b) {
-            var1.a((class_cj)var9, (class_anl)class_agk.bP.S(), 2);
+         if(var1.p(var9).getBlock() == class_agk.b) {
+            var1.a((class_cj)var9, (IBlockData)class_agk.bP.S(), 2);
          }
       }
 

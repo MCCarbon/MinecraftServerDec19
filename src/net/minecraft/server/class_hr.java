@@ -40,7 +40,7 @@ public class class_hr implements class_ff {
          this.d = var1.f();
          this.i = var1.k();
          this.e = var1.i().e;
-         this.f = var1.l().b();
+         this.f = var1.l().getId();
       }
 
       if(var2 == 0) {

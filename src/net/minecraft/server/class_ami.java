@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agu;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amu;
@@ -204,7 +204,7 @@ public class class_ami extends class_amu implements class_kn, class_oj {
       if(this.b == null) {
          return false;
       } else {
-         class_agj var2 = this.b.p(var1).c();
+         Block var2 = this.b.p(var1).getBlock();
          return var2 instanceof class_agu && ((class_agu)var2).b == this.n();
       }
    }

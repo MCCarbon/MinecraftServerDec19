@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Calendar;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_nu;
@@ -94,7 +94,7 @@ public class class_tu extends class_tt {
       class_cj var1 = new class_cj(this);
       class_cj var2 = var1.a();
       if(this.n()) {
-         if(!this.o.p(var2).c().x()) {
+         if(!this.o.p(var2).getBlock().x()) {
             this.a(false);
             this.o.a((class_xa)null, 1015, var1, 0);
          } else {
@@ -126,7 +126,7 @@ public class class_tu extends class_tt {
          float var10 = class_nu.g(var9 - this.y);
          this.bd = 0.5F;
          this.y += var10;
-         if(this.V.nextInt(100) == 0 && this.o.p(var2).c().x()) {
+         if(this.V.nextInt(100) == 0 && this.o.p(var2).getBlock().x()) {
             this.a(true);
          }
       }
@@ -140,7 +140,7 @@ public class class_tu extends class_tt {
    public void e(float var1, float var2) {
    }
 
-   protected void a(double var1, boolean var3, class_agj var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
    }
 
    public boolean aK() {

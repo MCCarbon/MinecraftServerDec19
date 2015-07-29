@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ane;
 import net.minecraft.server.class_atk;
@@ -35,7 +35,7 @@ public class class_ani {
    public boolean a() {
       this.e.clear();
       this.f.clear();
-      class_agj var1 = this.a.p(this.c).c();
+      Block var1 = this.a.p(this.c).getBlock();
       if(!class_ane.a(var1, this.a, this.c, this.d, false)) {
          if(var1.k() != 1) {
             return false;
@@ -48,7 +48,7 @@ public class class_ani {
       } else {
          for(int var2 = 0; var2 < this.e.size(); ++var2) {
             class_cj var3 = (class_cj)this.e.get(var2);
-            if(this.a.p(var3).c() == class_agk.cE && !this.b(var3)) {
+            if(this.a.p(var3).getBlock() == class_agk.cE && !this.b(var3)) {
                return false;
             }
          }
@@ -58,7 +58,7 @@ public class class_ani {
    }
 
    private boolean a(class_cj var1) {
-      class_agj var2 = this.a.p(var1).c();
+      Block var2 = this.a.p(var1).getBlock();
       if(var2.v() == class_atk.a) {
          return true;
       } else if(!class_ane.a(var2, this.a, var1, this.d, false)) {
@@ -74,7 +74,7 @@ public class class_ani {
          } else {
             while(var2 == class_agk.cE) {
                class_cj var4 = var1.a(this.d.d(), var3);
-               var2 = this.a.p(var4).c();
+               var2 = this.a.p(var4).getBlock();
                if(var2.v() == class_atk.a || !class_ane.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
                   break;
                }
@@ -103,7 +103,7 @@ public class class_ani {
 
                   for(int var8 = 0; var8 <= var7 + var10; ++var8) {
                      class_cj var9 = (class_cj)this.e.get(var8);
-                     if(this.a.p(var9).c() == class_agk.cE && !this.b(var9)) {
+                     if(this.a.p(var9).getBlock() == class_agk.cE && !this.b(var9)) {
                         return false;
                      }
                   }
@@ -111,7 +111,7 @@ public class class_ani {
                   return true;
                }
 
-               var2 = this.a.p(var6).c();
+               var2 = this.a.p(var6).getBlock();
                if(var2.v() == class_atk.a) {
                   return true;
                }

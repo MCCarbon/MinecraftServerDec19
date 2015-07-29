@@ -22,7 +22,7 @@ import net.minecraft.server.class_pw;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_za extends class_aar {
    private static final int[] k = new int[]{13, 15, 16, 11};
@@ -64,8 +64,8 @@ public class class_za extends class_aar {
       this.c = var1.b(var3);
       this.e(var1.a(var3));
       this.h = 1;
-      this.a(class_zu.j);
-      class_ahk.N.a(this, l);
+      this.a(CreativeTab.j);
+      class_ahk.N.register(this, l);
    }
 
    public int c() {

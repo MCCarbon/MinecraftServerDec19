@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awt;
 import net.minecraft.server.class_awu;
 import net.minecraft.server.class_eu;
@@ -59,7 +59,7 @@ public class class_my {
 
    public class_eu e() {
       class_eu var1 = this.a.f();
-      var1.b().a(class_a.h);
+      var1.b().a(EnumChatFormat.GRAY);
       var1.b().a(new class_ew(class_ew.class_a_in_class_ew.b, new class_fa(this.e)));
       return var1;
    }

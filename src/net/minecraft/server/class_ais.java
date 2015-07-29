@@ -1,18 +1,18 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_ais extends class_agj {
+public class class_ais extends Block {
    public class_ais() {
       super(class_atk.e);
-      this.a(class_zu.b);
+      this.a(CreativeTab.b);
    }
 
-   public class_atl g(class_anl var1) {
+   public class_atl g(IBlockData var1) {
       return class_atl.q;
    }
 }

@@ -11,7 +11,7 @@ import net.minecraft.server.class_aax;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ff;
@@ -482,7 +482,7 @@ public class class_lj {
                return new class_fk(this.a, 51);
             } else if(this.a instanceof class_vl) {
                class_vl var5 = (class_vl)this.a;
-               return new class_fk(this.a, 70, class_agj.f(var5.l()));
+               return new class_fk(this.a, 70, Block.f(var5.l()));
             } else if(this.a instanceof class_uy) {
                return new class_fk(this.a, 78);
             } else if(this.a instanceof class_vc) {

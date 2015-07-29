@@ -7,7 +7,7 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aax;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_abl;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_kc;
 import net.minecraft.server.class_za;
 import net.minecraft.server.class_zb;
@@ -211,7 +211,7 @@ public class class_aau {
    public static final class_aar cM;
 
    private static class_aar a(String var0) {
-      class_aar var1 = (class_aar)class_aar.e.c(new class_jz(var0));
+      class_aar var1 = (class_aar)class_aar.e.get(new MinecraftKey(var0));
       if(var1 == null) {
          throw new IllegalStateException("Invalid Item requested: " + var0);
       } else {

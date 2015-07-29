@@ -6,11 +6,11 @@ import com.google.common.collect.Multisets;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahj;
 import net.minecraft.server.class_alh;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_avd;
@@ -83,9 +83,9 @@ public class class_aax extends class_zt {
                            int var28 = var19 + var20 * 231871;
                            var28 = var28 * var28 * 31287121 + var28 * 11;
                            if((var28 >> 20 & 1) == 0) {
-                              var21.add(class_agk.d.g(class_agk.d.S().a(class_ahj.a, class_ahj.class_a_in_class_ahj.a)), 10);
+                              var21.add(class_agk.d.g(class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.a)), 10);
                            } else {
-                              var21.add(class_agk.b.g(class_agk.b.S().a(class_alh.a, class_alh.class_a_in_class_alh.a)), 100);
+                              var21.add(class_agk.b.g(class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.a)), 100);
                            }
 
                            var26 = 100.0D;
@@ -95,17 +95,17 @@ public class class_aax extends class_zt {
                            for(int var29 = 0; var29 < var4; ++var29) {
                               for(int var30 = 0; var30 < var4; ++var30) {
                                  int var31 = var22.b(var29 + var23, var30 + var24) + 1;
-                                 class_anl var32 = class_agk.a.S();
+                                 IBlockData var32 = class_agk.a.S();
                                  if(var31 > 1) {
                                     do {
                                        --var31;
                                        var32 = var22.g(var35.c(var29 + var23, var31, var30 + var24));
-                                    } while(var32.c().g(var32) == class_atl.b && var31 > 0);
+                                    } while(var32.getBlock().g(var32) == class_atl.b && var31 > 0);
 
-                                    if(var31 > 0 && var32.c().v().d()) {
+                                    if(var31 > 0 && var32.getBlock().v().d()) {
                                        int var33 = var31 - 1;
 
-                                       class_agj var34;
+                                       Block var34;
                                        do {
                                           var34 = var22.a(var29 + var23, var33--, var30 + var24);
                                           ++var25;
@@ -114,7 +114,7 @@ public class class_aax extends class_zt {
                                  }
 
                                  var26 += (double)var31 / (double)(var4 * var4);
-                                 var21.add(var32.c().g(var32));
+                                 var21.add(var32.getBlock().g(var32));
                               }
                            }
                         }

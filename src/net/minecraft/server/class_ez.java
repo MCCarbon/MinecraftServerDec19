@@ -9,14 +9,14 @@ import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import java.lang.reflect.Type;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_et;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_ew;
 
 public class class_ez {
    private class_ez a;
-   private class_a b;
+   private EnumChatFormat b;
    private Boolean c;
    private Boolean d;
    private Boolean e;
@@ -26,7 +26,7 @@ public class class_ez {
    private class_ew i;
    private String j;
    private static final class_ez k = new class_ez() {
-      public class_a a() {
+      public EnumChatFormat a() {
          return null;
       }
 
@@ -62,7 +62,7 @@ public class class_ez {
          return null;
       }
 
-      public class_ez a(class_a var1) {
+      public class_ez a(EnumChatFormat var1) {
          throw new UnsupportedOperationException();
       }
 
@@ -111,7 +111,7 @@ public class class_ez {
       }
    };
 
-   public class_a a() {
+   public EnumChatFormat a() {
       return this.b == null?this.o().a():this.b;
    }
 
@@ -151,7 +151,7 @@ public class class_ez {
       return this.j == null?this.o().j():this.j;
    }
 
-   public class_ez a(class_a var1) {
+   public class_ez a(EnumChatFormat var1) {
       this.b = var1;
       return this;
    }
@@ -326,7 +326,7 @@ public class class_ez {
                }
 
                if(var5.has("color")) {
-                  var4.b = (class_a)var3.deserialize(var5.get("color"), class_a.class);
+                  var4.b = (EnumChatFormat)var3.deserialize(var5.get("color"), EnumChatFormat.class);
                }
 
                if(var5.has("insertion")) {

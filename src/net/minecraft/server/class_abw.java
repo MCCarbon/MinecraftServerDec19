@@ -5,7 +5,7 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
@@ -17,7 +17,7 @@ import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qm;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_abw extends class_aar {
    private float a;
@@ -27,7 +27,7 @@ public class class_abw extends class_aar {
       this.b = var1;
       this.h = 1;
       this.e(var1.a());
-      this.a(class_zu.j);
+      this.a(CreativeTab.j);
       this.a = 4.0F + var1.c();
    }
 
@@ -35,7 +35,7 @@ public class class_abw extends class_aar {
       return this.b.c();
    }
 
-   public float a(class_aas var1, class_agj var2) {
+   public float a(class_aas var1, Block var2) {
       if(var2 == class_agk.G) {
          return 15.0F;
       } else {
@@ -49,7 +49,7 @@ public class class_abw extends class_aar {
       return true;
    }
 
-   public boolean a(class_aas var1, class_aen var2, class_agj var3, class_cj var4, class_qa var5) {
+   public boolean a(class_aas var1, class_aen var2, Block var3, class_cj var4, class_qa var5) {
       if((double)var3.g(var2, var4) != 0.0D) {
          var1.a(2, (class_qa)var5);
       }
@@ -70,7 +70,7 @@ public class class_abw extends class_aar {
       return new class_or(class_oq.a, var1);
    }
 
-   public boolean b(class_agj var1) {
+   public boolean b(Block var1) {
       return var1 == class_agk.G;
    }
 

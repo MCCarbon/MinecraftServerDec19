@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_zr extends class_aar {
    public class_zr() {
       this.a(true);
       this.e(0);
-      this.a(class_zu.l);
+      this.a(CreativeTab.l);
    }
 
    public String e_(class_aas var1) {

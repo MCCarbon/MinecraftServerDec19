@@ -3,14 +3,14 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 
 public class class_ano {
    private final class_aen a;
    private final class_cj b;
    private final boolean c;
-   private class_anl d;
+   private IBlockData d;
    private class_amg e;
    private boolean f;
 
@@ -20,7 +20,7 @@ public class class_ano {
       this.c = var3;
    }
 
-   public class_anl a() {
+   public IBlockData a() {
       if(this.d == null && (this.c || this.a.e(this.b))) {
          this.d = this.a.p(this.b);
       }

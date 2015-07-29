@@ -64,7 +64,7 @@ public class class_yh extends class_xz {
    }
 
    public boolean a(class_xa var1) {
-      return this.g.p(this.h).c() != class_agk.ai?false:var1.e((double)this.h.n() + 0.5D, (double)this.h.o() + 0.5D, (double)this.h.p() + 0.5D) <= 64.0D;
+      return this.g.p(this.h).getBlock() != class_agk.ai?false:var1.e((double)this.h.n() + 0.5D, (double)this.h.o() + 0.5D, (double)this.h.p() + 0.5D) <= 64.0D;
    }
 
    public class_aas b(class_xa var1, int var2) {

@@ -4,15 +4,15 @@ import java.util.Random;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.class_alq;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public abstract class class_aja extends class_alq {
    public static final class_anw a = class_anw.a("decayable");
@@ -22,13 +22,13 @@ public abstract class class_aja extends class_alq {
    public class_aja() {
       super(class_atk.j, false);
       this.a(true);
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
       this.c(0.2F);
       this.e(1);
-      this.a(h);
+      this.a(STEP_SOUND_GRASS);
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3) {
       byte var4 = 1;
       int var5 = var4 + 1;
       int var6 = var2.n();
@@ -39,9 +39,9 @@ public abstract class class_aja extends class_alq {
             for(int var10 = -var4; var10 <= var4; ++var10) {
                for(int var11 = -var4; var11 <= var4; ++var11) {
                   class_cj var12 = var2.a(var9, var10, var11);
-                  class_anl var13 = var1.p(var12);
-                  if(var13.c().v() == class_atk.j && !((Boolean)var13.b(b)).booleanValue()) {
-                     var1.a((class_cj)var12, (class_anl)var13.a(b, Boolean.valueOf(true)), 4);
+                  IBlockData var13 = var1.p(var12);
+                  if(var13.getBlock().v() == class_atk.j && !((Boolean)var13.get(b)).booleanValue()) {
+                     var1.a((class_cj)var12, (IBlockData)var13.set(b, Boolean.valueOf(true)), 4);
                   }
                }
             }
@@ -50,9 +50,9 @@ public abstract class class_aja extends class_alq {
 
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
       if(!var1.D) {
-         if(((Boolean)var3.b(b)).booleanValue() && ((Boolean)var3.b(a)).booleanValue()) {
+         if(((Boolean)var3.get(b)).booleanValue() && ((Boolean)var3.get(a)).booleanValue()) {
             byte var5 = 4;
             int var6 = var5 + 1;
             int var7 = var2.n();
@@ -119,7 +119,7 @@ public abstract class class_aja extends class_alq {
 
                   for(var15 = -var5; var15 <= var5; ++var15) {
                      for(var16 = -var5; var16 <= var5; ++var16) {
-                        class_agj var17 = var1.p(var13.c(var7 + var14, var8 + var15, var9 + var16)).c();
+                        Block var17 = var1.p(var13.c(var7 + var14, var8 + var15, var9 + var16)).getBlock();
                         if(var17 != class_agk.r && var17 != class_agk.s) {
                            if(var17.v() == class_atk.j) {
                               this.N[(var14 + var12) * var11 + (var15 + var12) * var10 + var16 + var12] = -2;
@@ -138,7 +138,7 @@ public abstract class class_aja extends class_alq {
 
             int var18 = this.N[var12 * var11 + var12 * var10 + var12];
             if(var18 >= 0) {
-               var1.a((class_cj)var2, (class_anl)var3.a(b, Boolean.valueOf(false)), 4);
+               var1.a((class_cj)var2, (IBlockData)var3.set(b, Boolean.valueOf(false)), 4);
             } else {
                this.e(var1, var2);
             }
@@ -156,11 +156,11 @@ public abstract class class_aja extends class_alq {
       return var1.nextInt(20) == 0?1:0;
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return class_aar.a(class_agk.g);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, float var4, int var5) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, float var4, int var5) {
       if(!var1.D) {
          int var6 = this.d(var3);
          if(var5 > 0) {
@@ -188,10 +188,10 @@ public abstract class class_aja extends class_alq {
 
    }
 
-   protected void a(class_aen var1, class_cj var2, class_anl var3, int var4) {
+   protected void a(class_aen var1, class_cj var2, IBlockData var3, int var4) {
    }
 
-   protected int d(class_anl var1) {
+   protected int d(IBlockData var1) {
       return 20;
    }
 

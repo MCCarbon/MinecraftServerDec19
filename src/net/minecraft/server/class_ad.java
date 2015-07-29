@@ -3,8 +3,8 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -44,11 +44,11 @@ public class class_ad extends class_i {
             double var13 = b(var4, var2[5], false);
             double var15 = b(var6, var2[6], false);
             double var17 = b(var8, var2[7], false);
-            class_agj var19 = g(var1, var2[8]);
+            Block var19 = g(var1, var2[8]);
             int var20 = a(var2[9], -1, 15);
             class_cj var21 = new class_cj(var13, var15, var17);
-            class_anl var22 = var12.p(var21);
-            if(var22.c() != var19 || var20 >= 0 && var22.c().c(var22) != var20) {
+            IBlockData var22 = var12.p(var21);
+            if(var22.getBlock() != var19 || var20 >= 0 && var22.getBlock().c(var22) != var20) {
                throw new class_bz("commands.execute.failed", new Object[]{"detect", var3.e_()});
             }
 
@@ -112,7 +112,7 @@ public class class_ad extends class_i {
    }
 
    public List a(class_m var1, String[] var2, class_cj var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, class_agj.c.c()):null)));
+      return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)));
    }
 
    public boolean b(String[] var1, int var2) {

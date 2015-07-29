@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_eu;
@@ -32,7 +32,7 @@ public class class_pb {
    public void a() {
       this.j();
       if(this.b.k_()) {
-         class_agj var1 = this.b.o.p(new class_cj(this.b.s, this.b.aT().b, this.b.u)).c();
+         Block var1 = this.b.o.p(new class_cj(this.b.s, this.b.aT().b, this.b.u)).getBlock();
          if(var1 == class_agk.au) {
             this.h = "ladder";
          } else if(var1 == class_agk.bn) {

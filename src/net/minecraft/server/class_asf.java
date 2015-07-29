@@ -9,7 +9,7 @@ import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_akc;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
@@ -455,7 +455,7 @@ public class class_asf {
       public boolean a(class_aen var1, Random var2, class_arw var3) {
          this.a(var1, var3, 1, 8, 0, 14, 8, 14, a);
          byte var4 = 7;
-         class_anl var5 = b;
+         IBlockData var5 = b;
          this.a(var1, var3, 0, var4, 0, 0, var4, 15, var5, var5, false);
          this.a(var1, var3, 15, var4, 0, 15, var4, 15, var5, var5, false);
          this.a(var1, var3, 1, var4, 0, 15, var4, 0, var5, var5, false);
@@ -549,7 +549,7 @@ public class class_asf {
          }
 
          int var8;
-         class_anl var9;
+         IBlockData var9;
          for(var8 = 1; var8 <= 7; ++var8) {
             var9 = b;
             if(var8 == 2 || var8 == 6) {
@@ -662,7 +662,7 @@ public class class_asf {
          }
 
          for(int var8 = 1; var8 <= 7; ++var8) {
-            class_anl var9 = b;
+            IBlockData var9 = b;
             if(var8 == 2 || var8 == 6) {
                var9 = a;
             }
@@ -1844,12 +1844,12 @@ public class class_asf {
    }
 
    public abstract static class class_r_in_class_asf extends class_asn {
-      protected static final class_anl a;
-      protected static final class_anl b;
-      protected static final class_anl c;
-      protected static final class_anl d;
-      protected static final class_anl e;
-      protected static final class_anl f;
+      protected static final IBlockData a;
+      protected static final IBlockData b;
+      protected static final IBlockData c;
+      protected static final IBlockData d;
+      protected static final IBlockData e;
+      protected static final IBlockData f;
       protected static final int g;
       protected static final int h;
       protected static final int i;
@@ -1914,7 +1914,7 @@ public class class_asf {
          for(int var10 = var4; var10 <= var7; ++var10) {
             for(int var11 = var3; var11 <= var6; ++var11) {
                for(int var12 = var5; var12 <= var8; ++var12) {
-                  if(!var9 || this.a(var1, var11, var10, var12, var2).c().v() != class_atk.a) {
+                  if(!var9 || this.a(var1, var11, var10, var12, var2).getBlock().v() != class_atk.a) {
                      if(this.d(var10) >= var1.G()) {
                         this.a(var1, class_agk.a.S(), var11, var10, var12, var2);
                      } else {
@@ -1943,7 +1943,7 @@ public class class_asf {
 
       }
 
-      protected void a(class_aen var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, class_anl var9) {
+      protected void a(class_aen var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9) {
          for(int var10 = var4; var10 <= var7; ++var10) {
             for(int var11 = var3; var11 <= var6; ++var11) {
                for(int var12 = var5; var12 <= var8; ++var12) {

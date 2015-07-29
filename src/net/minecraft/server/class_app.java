@@ -7,10 +7,10 @@ import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aeu;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahx;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_apg;
@@ -47,7 +47,7 @@ public class class_app implements class_aoh {
    private final double[] p;
    private final float[] q;
    private class_api r;
-   private class_agj s;
+   private Block s;
    private double[] t;
    private class_apn u;
    private class_asi v;
@@ -389,11 +389,11 @@ public class class_app implements class_aoh {
             class_cj var18 = this.m.q(var6.a(var14, 0, var15));
             class_cj var19 = var18.b();
             if(this.m.v(var19)) {
-               this.m.a((class_cj)var19, (class_anl)class_agk.aI.S(), 2);
+               this.m.a((class_cj)var19, (IBlockData)class_agk.aI.S(), 2);
             }
 
             if(this.m.f(var18, true)) {
-               this.m.a((class_cj)var18, (class_anl)class_agk.aH.S(), 2);
+               this.m.a((class_cj)var18, (IBlockData)class_agk.aH.S(), 2);
             }
          }
       }

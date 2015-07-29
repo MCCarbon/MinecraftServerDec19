@@ -13,7 +13,7 @@ import net.minecraft.server.class_akg;
 import net.minecraft.server.class_alp;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amv;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
@@ -313,7 +313,7 @@ public class class_asa {
 
             for(int var4 = this.l.a; var4 <= this.l.d; ++var4) {
                for(int var5 = this.l.c; var5 <= this.l.f; ++var5) {
-                  if(this.a(var1, var4, this.l.b - 1, var5, var3).c().v() == class_atk.a) {
+                  if(this.a(var1, var4, this.l.b - 1, var5, var3).getBlock().v() == class_atk.a) {
                      this.a(var1, class_agk.f.S(), var4, this.l.b - 1, var5, var3);
                   }
                }
@@ -465,8 +465,8 @@ public class class_asa {
 
       protected boolean a(class_aen var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
          class_cj var9 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-         if(var2.b((class_df)var9) && var1.p(var9).c().v() == class_atk.a) {
-            class_anl var10 = class_agk.av.S().a(class_akg.b, var3.nextBoolean()?class_agf.class_b_in_class_agf.a:class_agf.class_b_in_class_agf.b);
+         if(var2.b((class_df)var9) && var1.p(var9).getBlock().v() == class_atk.a) {
+            IBlockData var10 = class_agk.av.S().set(class_akg.b, var3.nextBoolean()?class_agf.class_b_in_class_agf.a:class_agf.class_b_in_class_agf.b);
             this.a(var1, var10, var4, var5, var6, var2);
             class_vo var11 = new class_vo(var1, (double)((float)var9.n() + 0.5F), (double)((float)var9.o() + 0.5F), (double)((float)var9.p() + 0.5F));
             class_od.a(var3, var7, (class_oj)var11, var8);
@@ -513,8 +513,8 @@ public class class_asa {
                this.a(var1, var3, var2, 0.05F, 2, 2, var10 - 2, class_agk.G.S());
                this.a(var1, var3, var2, 0.05F, 0, 2, var10 + 2, class_agk.G.S());
                this.a(var1, var3, var2, 0.05F, 2, 2, var10 + 2, class_agk.G.S());
-               this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, class_agk.aa.S().a(class_alp.a, class_cq.d));
-               this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, class_agk.aa.S().a(class_alp.a, class_cq.c));
+               this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, class_agk.aa.S().set(class_alp.a, class_cq.d));
+               this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, class_agk.aa.S().set(class_alp.a, class_cq.c));
                if(var2.nextInt(100) == 0) {
                   this.a(var1, var3, var2, 2, 0, var10 - 1, class_od.a(class_asa.a, new class_od[]{class_aau.cg.b(var2)}), 3 + var2.nextInt(4));
                }
@@ -531,7 +531,7 @@ public class class_asa {
                   class_cj var14 = new class_cj(var13, var11, var12);
                   if(var3.b((class_df)var14)) {
                      this.c = true;
-                     var1.a((class_cj)var14, (class_anl)class_agk.ac.S(), 2);
+                     var1.a((class_cj)var14, (IBlockData)class_agk.ac.S(), 2);
                      class_amg var15 = var1.s(var14);
                      if(var15 instanceof class_amv) {
                         ((class_amv)var15).b().a("CaveSpider");
@@ -543,8 +543,8 @@ public class class_asa {
             for(var9 = 0; var9 <= 2; ++var9) {
                for(var10 = 0; var10 <= var8; ++var10) {
                   byte var17 = -1;
-                  class_anl var19 = this.a(var1, var9, var17, var10, var3);
-                  if(var19.c().v() == class_atk.a) {
+                  IBlockData var19 = this.a(var1, var9, var17, var10, var3);
+                  if(var19.getBlock().v() == class_atk.a) {
                      byte var20 = -1;
                      this.a(var1, class_agk.f.S(), var9, var20, var10, var3);
                   }
@@ -552,11 +552,11 @@ public class class_asa {
             }
 
             if(this.a) {
-               class_anl var16 = class_agk.av.S().a(class_akg.b, class_agf.class_b_in_class_agf.a);
+               IBlockData var16 = class_agk.av.S().set(class_akg.b, class_agf.class_b_in_class_agf.a);
 
                for(var10 = 0; var10 <= var8; ++var10) {
-                  class_anl var18 = this.a(var1, 1, -1, var10, var3);
-                  if(var18.c().v() != class_atk.a && var18.c().q()) {
+                  IBlockData var18 = this.a(var1, 1, -1, var10, var3);
+                  if(var18.getBlock().v() != class_atk.a && var18.getBlock().q()) {
                      this.a(var1, var3, var2, 0.7F, 1, 0, var10, var16);
                   }
                }

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
 import net.minecraft.server.class_cj;
@@ -103,8 +103,8 @@ public class class_apg extends class_apn {
                   for(var42 = var57; !var58 && var42 < var39; ++var42) {
                      for(int var43 = var37 + 1; !var58 && var43 >= var56 - 1; --var43) {
                         if(var43 >= 0 && var43 < 256) {
-                           class_anl var44 = var5.a(var41, var43, var42);
-                           if(var44.c() == class_agk.i || var44.c() == class_agk.j) {
+                           IBlockData var44 = var5.a(var41, var43, var42);
+                           if(var44.getBlock() == class_agk.i || var44.getBlock() == class_agk.j) {
                               var58 = true;
                            }
 
@@ -129,17 +129,17 @@ public class class_apg extends class_apn {
                            for(int var49 = var37; var49 > var56; --var49) {
                               double var50 = ((double)(var49 - 1) + 0.5D - var8) / var30;
                               if((var60 * var60 + var46 * var46) * (double)this.d[var49 - 1] + var50 * var50 / 6.0D < 1.0D) {
-                                 class_anl var52 = var5.a(var42, var49, var45);
-                                 if(var52.c() == class_agk.c) {
+                                 IBlockData var52 = var5.a(var42, var49, var45);
+                                 if(var52.getBlock() == class_agk.c) {
                                     var48 = true;
                                  }
 
-                                 if(var52.c() == class_agk.b || var52.c() == class_agk.d || var52.c() == class_agk.c) {
+                                 if(var52.getBlock() == class_agk.b || var52.getBlock() == class_agk.d || var52.getBlock() == class_agk.c) {
                                     if(var49 - 1 < 10) {
                                        var5.a(var42, var49, var45, class_agk.k.S());
                                     } else {
                                        var5.a(var42, var49, var45, class_agk.a.S());
-                                       if(var48 && var5.a(var42, var49 - 1, var45).c() == class_agk.d) {
+                                       if(var48 && var5.a(var42, var49 - 1, var45).getBlock() == class_agk.d) {
                                           var59.c(var42 + var3 * 16, 0, var45 + var4 * 16);
                                           var5.a(var42, var49 - 1, var45, this.c.b((class_cj)var59).ak);
                                        }

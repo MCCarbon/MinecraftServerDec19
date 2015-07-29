@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_age;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anz;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_cj;
@@ -22,7 +22,7 @@ public class class_alz extends class_age {
 
    protected class_alz(class_atk var1, int var2, class_atl var3) {
       super(var1, var3);
-      this.j(this.M.b().a(a, Integer.valueOf(0)));
+      this.j(this.M.b().set(a, Integer.valueOf(0)));
       this.b = var2;
    }
 
@@ -36,27 +36,27 @@ public class class_alz extends class_age {
       }
    }
 
-   protected int e(class_anl var1) {
-      return ((Integer)var1.b(a)).intValue();
+   protected int e(IBlockData var1) {
+      return ((Integer)var1.get(a)).intValue();
    }
 
-   protected class_anl a(class_anl var1, int var2) {
-      return var1.a(a, Integer.valueOf(var2));
+   protected IBlockData a(IBlockData var1, int var2) {
+      return var1.set(a, Integer.valueOf(var2));
    }
 
    public int a(class_aen var1) {
       return 10;
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, Integer.valueOf(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, Integer.valueOf(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((Integer)var1.b(a)).intValue();
+   public int c(IBlockData var1) {
+      return ((Integer)var1.get(a)).intValue();
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 }

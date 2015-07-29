@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import com.google.common.base.Objects;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 
-public abstract class class_anv implements class_aoa {
+public abstract class class_anv implements IBlockState {
    private final Class a;
    private final String b;
 

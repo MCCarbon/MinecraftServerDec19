@@ -4,7 +4,7 @@ import java.util.List;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -59,8 +59,8 @@ public class class_v extends class_i {
                         var12.c(var16, var15, var14);
                         var13.c(var16 + var11.n(), var15 + var11.o(), var14 + var11.p());
                         boolean var17 = false;
-                        class_anl var18 = var9.p(var12);
-                        if(!var10 || var18.c() != class_agk.a) {
+                        IBlockData var18 = var9.p(var12);
+                        if(!var10 || var18.getBlock() != class_agk.a) {
                            if(var18 == var9.p(var13)) {
                               class_amg var19 = var9.s(var12);
                               class_amg var20 = var9.s(var13);

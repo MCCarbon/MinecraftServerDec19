@@ -3,25 +3,25 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_ahz;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_pr;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public abstract class class_age extends class_agj {
+public abstract class class_age extends Block {
    protected class_age(class_atk var1) {
       this(var1, var1.r());
    }
 
    protected class_age(class_atk var1, class_atl var2) {
       super(var1, var2);
-      this.a((class_zu)class_zu.d);
+      this.a((CreativeTab)CreativeTab.d);
       this.a(true);
    }
 
@@ -29,7 +29,7 @@ public abstract class class_age extends class_agj {
       this.d(var1.p(var2));
    }
 
-   protected void d(class_anl var1) {
+   protected void d(IBlockData var1) {
       boolean var2 = this.e(var1) > 0;
       float var3 = 0.0625F;
       if(var2) {
@@ -44,7 +44,7 @@ public abstract class class_age extends class_agj {
       return 20;
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
@@ -68,7 +68,7 @@ public abstract class class_age extends class_agj {
       return this.m(var1, var2.b());
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
       if(!this.m(var1, var2.b())) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -77,13 +77,13 @@ public abstract class class_age extends class_agj {
    }
 
    private boolean m(class_aen var1, class_cj var2) {
-      return class_aen.a((class_aer)var1, (class_cj)var2) || var1.p(var2).c() instanceof class_ahz;
+      return class_aen.a((class_aer)var1, (class_cj)var2) || var1.p(var2).getBlock() instanceof class_ahz;
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
       if(!var1.D) {
          int var5 = this.e(var3);
          if(var5 > 0) {
@@ -93,7 +93,7 @@ public abstract class class_age extends class_agj {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_pr var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
       if(!var1.D) {
          int var5 = this.e(var3);
          if(var5 == 0) {
@@ -103,13 +103,13 @@ public abstract class class_age extends class_agj {
       }
    }
 
-   protected void a(class_aen var1, class_cj var2, class_anl var3, int var4) {
+   protected void a(class_aen var1, class_cj var2, IBlockData var3, int var4) {
       int var5 = this.f(var1, var2);
       boolean var6 = var4 > 0;
       boolean var7 = var5 > 0;
       if(var4 != var5) {
          var3 = this.a(var3, var5);
-         var1.a((class_cj)var2, (class_anl)var3, 2);
+         var1.a((class_cj)var2, (IBlockData)var3, 2);
          this.e(var1, var2);
          var1.b(var2, var2);
       }
@@ -121,7 +121,7 @@ public abstract class class_age extends class_agj {
       }
 
       if(var7) {
-         var1.a((class_cj)var2, (class_agj)this, this.a(var1));
+         var1.a((class_cj)var2, (Block)this, this.a(var1));
       }
 
    }
@@ -131,7 +131,7 @@ public abstract class class_age extends class_agj {
       return new class_awf((double)((float)var1.n() + 0.125F), (double)var1.o(), (double)((float)var1.p() + 0.125F), (double)((float)(var1.n() + 1) - 0.125F), (double)var1.o() + 0.25D, (double)((float)(var1.p() + 1) - 0.125F));
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3) {
       if(this.e(var3) > 0) {
          this.e(var1, var2);
       }
@@ -140,15 +140,15 @@ public abstract class class_age extends class_agj {
    }
 
    protected void e(class_aen var1, class_cj var2) {
-      var1.c((class_cj)var2, (class_agj)this);
-      var1.c((class_cj)var2.b(), (class_agj)this);
+      var1.c((class_cj)var2, (Block)this);
+      var1.c((class_cj)var2.b(), (Block)this);
    }
 
-   public int a(class_aer var1, class_cj var2, class_anl var3, class_cq var4) {
+   public int a(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
       return this.e(var3);
    }
 
-   public int b(class_aer var1, class_cj var2, class_anl var3, class_cq var4) {
+   public int b(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
       return var4 == class_cq.b?this.e(var3):0;
    }
 
@@ -169,7 +169,7 @@ public abstract class class_age extends class_agj {
 
    protected abstract int f(class_aen var1, class_cj var2);
 
-   protected abstract int e(class_anl var1);
+   protected abstract int e(IBlockData var1);
 
-   protected abstract class_anl a(class_anl var1, int var2);
+   protected abstract IBlockData a(IBlockData var1, int var2);
 }

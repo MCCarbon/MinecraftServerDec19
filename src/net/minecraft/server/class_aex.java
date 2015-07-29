@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 
 public class class_aex implements Comparable {
    private static long d;
-   private final class_agj e;
+   private final Block e;
    public final class_cj a;
    public long b;
    public int c;
    private long f;
 
-   public class_aex(class_cj var1, class_agj var2) {
+   public class_aex(class_cj var1, Block var2) {
       this.f = (long)(d++);
       this.a = var1;
       this.e = var2;
@@ -22,7 +22,7 @@ public class class_aex implements Comparable {
          return false;
       } else {
          class_aex var2 = (class_aex)var1;
-         return this.a.equals(var2.a) && class_agj.a(this.e, var2.e);
+         return this.a.equals(var2.a) && Block.a(this.e, var2.e);
       }
    }
 
@@ -44,10 +44,10 @@ public class class_aex implements Comparable {
    }
 
    public String toString() {
-      return class_agj.a(this.e) + ": " + this.a + ", " + this.b + ", " + this.c + ", " + this.f;
+      return Block.getId(this.e) + ": " + this.a + ", " + this.b + ", " + this.c + ", " + this.f;
    }
 
-   public class_agj a() {
+   public Block a() {
       return this.e;
    }
 

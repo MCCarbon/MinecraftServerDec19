@@ -4,7 +4,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aed;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -72,7 +72,7 @@ public class class_vp extends class_vn {
       return class_vn.class_a_in_class_vn.g;
    }
 
-   public class_anl u() {
+   public IBlockData u() {
       return class_agk.bX.S();
    }
 

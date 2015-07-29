@@ -8,7 +8,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awl;
@@ -306,9 +306,9 @@ public class class_awn {
          return "belowName";
       default:
          if(var0 >= 3 && var0 <= 18) {
-            class_a var1 = class_a.a(var0 - 3);
-            if(var1 != null && var1 != class_a.v) {
-               return "sidebar.team." + var1.e();
+            EnumChatFormat var1 = EnumChatFormat.getById(var0 - 3);
+            if(var1 != null && var1 != EnumChatFormat.RESET) {
+               return "sidebar.team." + var1.getName();
             }
          }
 
@@ -326,9 +326,9 @@ public class class_awn {
       } else {
          if(var0.startsWith("sidebar.team.")) {
             String var1 = var0.substring("sidebar.team.".length());
-            class_a var2 = class_a.b(var1);
-            if(var2 != null && var2.b() >= 0) {
-               return var2.b() + 3;
+            EnumChatFormat var2 = EnumChatFormat.getByName(var1);
+            if(var2 != null && var2.getId() >= 0) {
+               return var2.getId() + 3;
             }
          }
 

@@ -8,7 +8,7 @@ import net.minecraft.server.class_aez;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_agv;
 import net.minecraft.server.class_ahx;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aph;
@@ -83,7 +83,7 @@ public class class_apq implements class_aoh {
                      double var45 = (var34 - var32) * var41;
 
                      for(int var47 = 0; var47 < 8; ++var47) {
-                        class_anl var48 = null;
+                        IBlockData var48 = null;
                         if(var43 > 0.0D) {
                            var48 = class_agk.bH.S();
                         }
@@ -115,14 +115,14 @@ public class class_apq implements class_aoh {
          for(int var3 = 0; var3 < 16; ++var3) {
             byte var4 = 1;
             int var5 = -1;
-            class_anl var6 = class_agk.bH.S();
-            class_anl var7 = class_agk.bH.S();
+            IBlockData var6 = class_agk.bH.S();
+            IBlockData var7 = class_agk.bH.S();
 
             for(int var8 = 127; var8 >= 0; --var8) {
-               class_anl var9 = var1.a(var2, var8, var3);
-               if(var9.c().v() == class_atk.a) {
+               IBlockData var9 = var1.a(var2, var8, var3);
+               if(var9.getBlock().v() == class_atk.a) {
                   var5 = -1;
-               } else if(var9.c() == class_agk.b) {
+               } else if(var9.getBlock() == class_agk.b) {
                   if(var5 == -1) {
                      if(var4 <= 0) {
                         var6 = class_agk.a.S();
@@ -290,7 +290,7 @@ public class class_apq implements class_aoh {
             int var10 = this.j.m(var4.a(var8, 0, var9)).o();
             if(var10 > 0) {
                int var11 = var10 - 1;
-               if(this.j.d(var4.a(var8, var11 + 1, var9)) && this.j.p(var4.a(var8, var11, var9)).c() == class_agk.bH) {
+               if(this.j.d(var4.a(var8, var11 + 1, var9)) && this.j.p(var4.a(var8, var11, var9)).getBlock() == class_agk.bH) {
                   class_agv.a(this.j, var4.a(var8, var11 + 1, var9), this.f, 8);
                }
             }

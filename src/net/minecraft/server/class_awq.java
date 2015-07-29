@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awt;
 
 public class class_awq implements class_awt {
    private final String j;
 
-   public class_awq(String var1, class_a var2) {
-      this.j = var1 + var2.e();
+   public class_awq(String var1, EnumChatFormat var2) {
+      this.j = var1 + var2.getName();
       class_awt.a.put(this.j, this);
    }
 

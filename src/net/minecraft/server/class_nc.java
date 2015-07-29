@@ -12,10 +12,10 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aco;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.class_act;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_fb;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_mv;
 import net.minecraft.server.class_mw;
@@ -126,13 +126,13 @@ public class class_nc {
    }
 
    private static void c() {
-      Iterator var0 = class_agj.c.iterator();
+      Iterator var0 = Block.BLOCK_REGISTRY.iterator();
 
       while(var0.hasNext()) {
-         class_agj var1 = (class_agj)var0.next();
+         Block var1 = (Block)var0.next();
          class_aar var2 = class_aar.a(var1);
          if(var2 != null) {
-            int var3 = class_agj.a(var1);
+            int var3 = Block.getId(var1);
             String var4 = a(var2);
             if(var4 != null && var1.L()) {
                ab[var3] = (new class_mw("stat.mineBlock.", var4, new class_fb("stat.mineBlock", new Object[]{(new class_aas(var1)).B()}), var2)).h();
@@ -182,7 +182,7 @@ public class class_nc {
    }
 
    private static String a(class_aar var0) {
-      class_jz var1 = (class_jz)class_aar.e.b(var0);
+      MinecraftKey var1 = (MinecraftKey)class_aar.e.getKey(var0);
       return var1 != null?var1.toString().replace(':', '.'):null;
    }
 
@@ -203,9 +203,9 @@ public class class_nc {
       a(var0, class_agk.ak, class_agk.d);
    }
 
-   private static void a(class_my[] var0, class_agj var1, class_agj var2) {
-      int var3 = class_agj.a(var1);
-      int var4 = class_agj.a(var2);
+   private static void a(class_my[] var0, Block var1, Block var2) {
+      int var3 = Block.getId(var1);
+      int var4 = Block.getId(var2);
       if(var0[var3] != null && var0[var4] == null) {
          var0[var4] = var0[var3];
       } else {

@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_all;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_ast;
 import net.minecraft.server.class_asu;
@@ -22,7 +22,7 @@ import net.minecraft.server.class_df;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ft;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_ny;
 import net.minecraft.server.class_nz;
 import net.minecraft.server.class_pr;
@@ -33,14 +33,14 @@ public class class_amz extends class_amg {
    private String g = "";
    private class_cj h = new class_cj(1, 1, 1);
    private class_cj i = new class_cj(0, 0, 0);
-   private class_agj.class_a_in_class_agj j;
-   private class_agj.class_c_in_class_agj k;
+   private Block.class_a_in_class_agj j;
+   private Block.class_c_in_class_agj k;
    private class_amz.class_a_in_class_amz l;
    private boolean m;
 
    public class_amz() {
-      this.j = class_agj.class_a_in_class_agj.a;
-      this.k = class_agj.class_c_in_class_agj.a;
+      this.j = Block.class_a_in_class_agj.a;
+      this.k = Block.class_c_in_class_agj.a;
       this.l = class_amz.class_a_in_class_amz.d;
    }
 
@@ -70,15 +70,15 @@ public class class_amz extends class_amg {
       this.i = new class_cj(var1.g("sizeX"), var1.g("sizeY"), var1.g("sizeZ"));
 
       try {
-         this.k = class_agj.class_c_in_class_agj.valueOf(var1.k("rotation"));
+         this.k = Block.class_c_in_class_agj.valueOf(var1.k("rotation"));
       } catch (IllegalArgumentException var5) {
-         this.k = class_agj.class_c_in_class_agj.a;
+         this.k = Block.class_c_in_class_agj.a;
       }
 
       try {
-         this.j = class_agj.class_a_in_class_agj.valueOf(var1.k("mirror"));
+         this.j = Block.class_a_in_class_agj.valueOf(var1.k("mirror"));
       } catch (IllegalArgumentException var4) {
-         this.j = class_agj.class_a_in_class_agj.a;
+         this.j = Block.class_a_in_class_agj.a;
       }
 
       try {
@@ -108,11 +108,11 @@ public class class_amz extends class_amg {
       this.i = var1;
    }
 
-   public void a(class_agj.class_a_in_class_agj var1) {
+   public void a(Block.class_a_in_class_agj var1) {
       this.j = var1;
    }
 
-   public void a(class_agj.class_c_in_class_agj var1) {
+   public void a(Block.class_c_in_class_agj var1) {
       this.k = var1;
    }
 
@@ -122,9 +122,9 @@ public class class_amz extends class_amg {
 
    public void a(class_amz.class_a_in_class_amz var1) {
       this.l = var1;
-      class_anl var2 = this.b.p(this.v());
-      if(var2.c() == class_agk.dc) {
-         this.b.a((class_cj)this.v(), (class_anl)var2.a(class_all.a, var1), 2);
+      IBlockData var2 = this.b.p(this.v());
+      if(var2.getBlock() == class_agk.dc) {
+         this.b.a((class_cj)this.v(), (IBlockData)var2.set(class_all.a, var1), 2);
       }
 
    }
@@ -180,8 +180,8 @@ public class class_amz extends class_amg {
 
       while(var4.hasNext()) {
          class_cj.class_a_in_class_cj var5 = (class_cj.class_a_in_class_cj)var4.next();
-         class_anl var6 = this.b.p(var5);
-         if(var6.c() == class_agk.dc) {
+         IBlockData var6 = this.b.p(var5);
+         if(var6.getBlock() == class_agk.dc) {
             class_amg var7 = this.b.s(var5);
             if(var7 != null && var7 instanceof class_amz) {
                var3.add((class_amz)var7);
@@ -234,10 +234,10 @@ public class class_amz extends class_amg {
       } else {
          class_cj var1 = this.v().a((class_df)this.h);
          class_ast var2 = ((class_all)this.w()).l();
-         class_asv var3 = var2.a(new class_jz(this.a));
+         class_asv var3 = var2.a(new MinecraftKey(this.a));
          var3.a(this.b, var1, this.i, !this.m);
          var3.a(this.f);
-         var2.c(new class_jz(this.a));
+         var2.c(new MinecraftKey(this.a));
          return true;
       }
    }
@@ -248,7 +248,7 @@ public class class_amz extends class_amg {
       } else {
          class_cj var1 = this.v().a((class_df)this.h);
          class_ast var2 = ((class_all)this.w()).l();
-         class_asv var3 = var2.a(new class_jz(this.a));
+         class_asv var3 = var2.a(new MinecraftKey(this.a));
          if(!class_nz.b(var3.b())) {
             this.f = var3.b();
          }

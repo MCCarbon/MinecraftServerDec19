@@ -9,7 +9,7 @@ import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_ajd;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amv;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -26,12 +26,12 @@ import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_abt extends class_aar {
    public class_abt() {
       this.a(true);
-      this.a(class_zu.f);
+      this.a(CreativeTab.f);
    }
 
    public String a(class_aas var1) {
@@ -50,8 +50,8 @@ public class class_abt extends class_aar {
       } else if(!var2.a(var4.a(var6), var6, var1)) {
          return class_oq.b;
       } else {
-         class_anl var10 = var3.p(var4);
-         if(var10.c() == class_agk.ac) {
+         IBlockData var10 = var3.p(var4);
+         if(var10.getBlock() == class_agk.ac) {
             class_amg var11 = var3.s(var4);
             if(var11 instanceof class_amv) {
                class_aee var12 = ((class_amv)var11).b();
@@ -105,7 +105,7 @@ public class class_abt extends class_aar {
                   return new class_or(class_oq.b, var1);
                }
 
-               if(var2.p(var6).c() instanceof class_ajd) {
+               if(var2.p(var6).getBlock() instanceof class_ajd) {
                   class_pr var7 = a(var2, var1.i(), (double)var6.n() + 0.5D, (double)var6.o() + 0.5D, (double)var6.p() + 0.5D);
                   if(var7 != null) {
                      if(var7 instanceof class_qa && var1.s()) {

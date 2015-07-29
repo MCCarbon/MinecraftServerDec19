@@ -4,10 +4,10 @@ import com.google.common.base.Predicate;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aic;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -115,10 +115,10 @@ public class class_uj extends class_ua {
          int var1 = class_nu.c(this.s);
          int var2 = class_nu.c(this.t - 0.20000000298023224D);
          int var3 = class_nu.c(this.u);
-         class_anl var4 = this.o.p(new class_cj(var1, var2, var3));
-         class_agj var5 = var4.c();
+         IBlockData var4 = this.o.p(new class_cj(var1, var2, var3));
+         Block var5 = var4.getBlock();
          if(var5.v() != class_atk.a) {
-            this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{class_agj.f(var4)});
+            this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.f(var4)});
          }
       }
 
@@ -168,7 +168,7 @@ public class class_uj extends class_ua {
       return "mob.irongolem.death";
    }
 
-   protected void a(class_cj var1, class_agj var2) {
+   protected void a(class_cj var1, Block var2) {
       this.a("mob.irongolem.walk", 1.0F, 1.0F);
    }
 
@@ -177,7 +177,7 @@ public class class_uj extends class_ua {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(class_aar.a((class_agj)class_agk.O), 1, (float)class_aic.class_a_in_class_aic.b.b());
+         this.a(class_aar.a((Block)class_agk.O), 1, (float)class_aic.class_a_in_class_aic.b.b());
       }
 
       var4 = 3 + this.V.nextInt(3);

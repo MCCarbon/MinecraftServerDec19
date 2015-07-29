@@ -3,13 +3,13 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_aje;
 import net.minecraft.server.class_ajw;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atl;
 
 public class class_ajt extends class_aje {
@@ -25,12 +25,12 @@ public class class_ajt extends class_aje {
    });
 
    public class_ajt() {
-      this.j(this.M.b().a(b, class_ajw.class_a_in_class_ajw.a).a(a, class_aje.class_a_in_class_aje.b));
+      this.j(this.M.b().set(b, class_ajw.class_a_in_class_ajw.a).set(a, class_aje.class_a_in_class_aje.b));
    }
 
-   public class_atl g(class_anl var1) {
-      class_ajw.class_a_in_class_ajw var2 = (class_ajw.class_a_in_class_ajw)var1.b(b);
-      switch(class_ajt.SyntheticClass_1.b[((class_aje.class_a_in_class_aje)var1.b(a)).ordinal()]) {
+   public class_atl g(IBlockData var1) {
+      class_ajw.class_a_in_class_ajw var2 = (class_ajw.class_a_in_class_ajw)var1.get(b);
+      switch(class_ajt.SyntheticClass_1.b[((class_aje.class_a_in_class_aje)var1.get(a)).ordinal()]) {
       case 1:
       case 2:
       case 3:
@@ -51,29 +51,29 @@ public class class_ajt extends class_aje {
       }
    }
 
-   public class_anl a(int var1) {
-      class_anl var2 = this.S().a(b, class_ajw.class_a_in_class_ajw.a((var1 & 3) % 4));
+   public IBlockData a(int var1) {
+      IBlockData var2 = this.S().set(b, class_ajw.class_a_in_class_ajw.a((var1 & 3) % 4));
       switch(var1 & 12) {
       case 0:
-         var2 = var2.a(a, class_aje.class_a_in_class_aje.b);
+         var2 = var2.set(a, class_aje.class_a_in_class_aje.b);
          break;
       case 4:
-         var2 = var2.a(a, class_aje.class_a_in_class_aje.a);
+         var2 = var2.set(a, class_aje.class_a_in_class_aje.a);
          break;
       case 8:
-         var2 = var2.a(a, class_aje.class_a_in_class_aje.c);
+         var2 = var2.set(a, class_aje.class_a_in_class_aje.c);
          break;
       default:
-         var2 = var2.a(a, class_aje.class_a_in_class_aje.d);
+         var2 = var2.set(a, class_aje.class_a_in_class_aje.d);
       }
 
       return var2;
    }
 
-   public int c(class_anl var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_ajw.class_a_in_class_ajw)var1.b(b)).a();
-      switch(class_ajt.SyntheticClass_1.b[((class_aje.class_a_in_class_aje)var1.b(a)).ordinal()]) {
+      int var3 = var2 | ((class_ajw.class_a_in_class_ajw)var1.get(b)).a();
+      switch(class_ajt.SyntheticClass_1.b[((class_aje.class_a_in_class_aje)var1.get(a)).ordinal()]) {
       case 1:
          var3 |= 4;
          break;
@@ -88,15 +88,15 @@ public class class_ajt extends class_aje {
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{b, a});
+      return new class_anm(this, new IBlockState[]{b, a});
    }
 
-   protected class_aas i(class_anl var1) {
-      return new class_aas(class_aar.a((class_agj)this), 1, ((class_ajw.class_a_in_class_ajw)var1.b(b)).a());
+   protected class_aas i(IBlockData var1) {
+      return new class_aas(class_aar.a((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(b)).a());
    }
 
-   public int a(class_anl var1) {
-      return ((class_ajw.class_a_in_class_ajw)var1.b(b)).a();
+   public int a(IBlockData var1) {
+      return ((class_ajw.class_a_in_class_ajw)var1.get(b)).a();
    }
 
    // $FF: synthetic class

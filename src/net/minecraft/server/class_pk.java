@@ -5,8 +5,8 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.UUID;
 import java.util.Map.Entry;
-import net.minecraft.server.class_cx;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.RegistryMaterials;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pg;
 import net.minecraft.server.class_ph;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.class_xa;
 
 public class class_pk {
-   public static final class_cx b = new class_cx();
+   public static final RegistryMaterials b = new RegistryMaterials();
    private final Map a = Maps.newHashMap();
    private final boolean c;
    private final int d;
@@ -33,15 +33,15 @@ public class class_pk {
    private boolean h;
 
    public static class_pk a(int var0) {
-      return (class_pk)b.a(var0);
+      return (class_pk)b.get(var0);
    }
 
    public static int a(class_pk var0) {
-      return b.a(var0);
+      return b.getId(var0);
    }
 
    public static class_pk b(String var0) {
-      return (class_pk)b.c(new class_jz(var0));
+      return (class_pk)b.get(new MinecraftKey(var0));
    }
 
    protected class_pk(boolean var1, int var2) {
@@ -187,30 +187,30 @@ public class class_pk {
    }
 
    public static void k() {
-      b.a(1, new class_jz("speed"), (new class_pk(false, 8171462)).c("effect.moveSpeed").b(0, 0).a(class_wl.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2).j());
-      b.a(2, new class_jz("slowness"), (new class_pk(true, 5926017)).c("effect.moveSlowdown").b(1, 0).a(class_wl.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15000000596046448D, 2));
-      b.a(3, new class_jz("haste"), (new class_pk(false, 14270531)).c("effect.digSpeed").b(2, 0).a(1.5D).j());
-      b.a(4, new class_jz("mining_fatigue"), (new class_pk(true, 4866583)).c("effect.digSlowDown").b(3, 0));
-      b.a(5, new class_jz("strength"), (new class_ph(false, 9643043, 1.3D)).c("effect.damageBoost").b(4, 0).a(class_wl.e, "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", 2.5D, 2).j());
-      b.a(6, new class_jz("instant_health"), (new class_pj(false, 16262179)).c("effect.heal").j());
-      b.a(7, new class_jz("instant_damage"), (new class_pj(true, 4393481)).c("effect.harm").j());
-      b.a(8, new class_jz("jump_boost"), (new class_pk(false, 2293580)).c("effect.jump").b(2, 1).j());
-      b.a(9, new class_jz("nausea"), (new class_pk(true, 5578058)).c("effect.confusion").b(3, 1).a(0.25D));
-      b.a(10, new class_jz("regeneration"), (new class_pk(false, 13458603)).c("effect.regeneration").b(7, 0).a(0.25D).j());
-      b.a(11, new class_jz("resistance"), (new class_pk(false, 10044730)).c("effect.resistance").b(6, 1).j());
-      b.a(12, new class_jz("fire_resistance"), (new class_pk(false, 14981690)).c("effect.fireResistance").b(7, 1).j());
-      b.a(13, new class_jz("water_breathing"), (new class_pk(false, 3035801)).c("effect.waterBreathing").b(0, 2).j());
-      b.a(14, new class_jz("invisibility"), (new class_pk(false, 8356754)).c("effect.invisibility").b(0, 1).j());
-      b.a(15, new class_jz("blindness"), (new class_pk(true, 2039587)).c("effect.blindness").b(5, 1).a(0.25D));
-      b.a(16, new class_jz("night_vision"), (new class_pk(false, 2039713)).c("effect.nightVision").b(4, 1).j());
-      b.a(17, new class_jz("hunger"), (new class_pk(true, 5797459)).c("effect.hunger").b(1, 1));
-      b.a(18, new class_jz("weakness"), (new class_ph(true, 4738376, -0.5D)).c("effect.weakness").b(5, 0).a(class_wl.e, "22653B89-116E-49DC-9B6B-9971489B5BE5", 2.0D, 0));
-      b.a(19, new class_jz("poison"), (new class_pk(true, 5149489)).c("effect.poison").b(6, 0).a(0.25D));
-      b.a(20, new class_jz("wither"), (new class_pk(true, 3484199)).c("effect.wither").b(1, 2).a(0.25D));
-      b.a(21, new class_jz("health_boost"), (new class_pi(false, 16284963)).c("effect.healthBoost").b(2, 2).a(class_wl.a, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", 4.0D, 0).j());
-      b.a(22, new class_jz("absorption"), (new class_pg(false, 2445989)).c("effect.absorption").b(2, 2).j());
-      b.a(23, new class_jz("saturation"), (new class_pj(false, 16262179)).c("effect.saturation").j());
-      b.a(24, new class_jz("glowing"), (new class_pk(false, 9740385)).c("effect.glowing").b(4, 2));
-      b.a(25, new class_jz("levitation"), (new class_pk(true, 13565951)).c("potion.levitation").b(3, 2));
+      b.register(1, new MinecraftKey("speed"), (new class_pk(false, 8171462)).c("effect.moveSpeed").b(0, 0).a(class_wl.d, "91AEAA56-376B-4498-935B-2F7F68070635", 0.20000000298023224D, 2).j());
+      b.register(2, new MinecraftKey("slowness"), (new class_pk(true, 5926017)).c("effect.moveSlowdown").b(1, 0).a(class_wl.d, "7107DE5E-7CE8-4030-940E-514C1F160890", -0.15000000596046448D, 2));
+      b.register(3, new MinecraftKey("haste"), (new class_pk(false, 14270531)).c("effect.digSpeed").b(2, 0).a(1.5D).j());
+      b.register(4, new MinecraftKey("mining_fatigue"), (new class_pk(true, 4866583)).c("effect.digSlowDown").b(3, 0));
+      b.register(5, new MinecraftKey("strength"), (new class_ph(false, 9643043, 1.3D)).c("effect.damageBoost").b(4, 0).a(class_wl.e, "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", 2.5D, 2).j());
+      b.register(6, new MinecraftKey("instant_health"), (new class_pj(false, 16262179)).c("effect.heal").j());
+      b.register(7, new MinecraftKey("instant_damage"), (new class_pj(true, 4393481)).c("effect.harm").j());
+      b.register(8, new MinecraftKey("jump_boost"), (new class_pk(false, 2293580)).c("effect.jump").b(2, 1).j());
+      b.register(9, new MinecraftKey("nausea"), (new class_pk(true, 5578058)).c("effect.confusion").b(3, 1).a(0.25D));
+      b.register(10, new MinecraftKey("regeneration"), (new class_pk(false, 13458603)).c("effect.regeneration").b(7, 0).a(0.25D).j());
+      b.register(11, new MinecraftKey("resistance"), (new class_pk(false, 10044730)).c("effect.resistance").b(6, 1).j());
+      b.register(12, new MinecraftKey("fire_resistance"), (new class_pk(false, 14981690)).c("effect.fireResistance").b(7, 1).j());
+      b.register(13, new MinecraftKey("water_breathing"), (new class_pk(false, 3035801)).c("effect.waterBreathing").b(0, 2).j());
+      b.register(14, new MinecraftKey("invisibility"), (new class_pk(false, 8356754)).c("effect.invisibility").b(0, 1).j());
+      b.register(15, new MinecraftKey("blindness"), (new class_pk(true, 2039587)).c("effect.blindness").b(5, 1).a(0.25D));
+      b.register(16, new MinecraftKey("night_vision"), (new class_pk(false, 2039713)).c("effect.nightVision").b(4, 1).j());
+      b.register(17, new MinecraftKey("hunger"), (new class_pk(true, 5797459)).c("effect.hunger").b(1, 1));
+      b.register(18, new MinecraftKey("weakness"), (new class_ph(true, 4738376, -0.5D)).c("effect.weakness").b(5, 0).a(class_wl.e, "22653B89-116E-49DC-9B6B-9971489B5BE5", 2.0D, 0));
+      b.register(19, new MinecraftKey("poison"), (new class_pk(true, 5149489)).c("effect.poison").b(6, 0).a(0.25D));
+      b.register(20, new MinecraftKey("wither"), (new class_pk(true, 3484199)).c("effect.wither").b(1, 2).a(0.25D));
+      b.register(21, new MinecraftKey("health_boost"), (new class_pi(false, 16284963)).c("effect.healthBoost").b(2, 2).a(class_wl.a, "5D6F0BA2-1186-46AC-B896-C61C5CEE99CC", 4.0D, 0).j());
+      b.register(22, new MinecraftKey("absorption"), (new class_pg(false, 2445989)).c("effect.absorption").b(2, 2).j());
+      b.register(23, new MinecraftKey("saturation"), (new class_pj(false, 16262179)).c("effect.saturation").j());
+      b.register(24, new MinecraftKey("glowing"), (new class_pk(false, 9740385)).c("effect.glowing").b(4, 2));
+      b.register(25, new MinecraftKey("levitation"), (new class_pk(true, 13565951)).c("potion.levitation").b(3, 2));
    }
 }

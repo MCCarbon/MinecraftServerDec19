@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -9,7 +9,7 @@ import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -20,7 +20,7 @@ public abstract class class_xf extends class_pr {
    private int e = -1;
    private int f = -1;
    private int g = -1;
-   private class_agj h;
+   private Block h;
    private boolean i;
    public class_qa a;
    private int as;
@@ -69,7 +69,7 @@ public abstract class class_xf extends class_pr {
          super.t_();
          this.f(1);
          if(this.i) {
-            if(this.o.p(new class_cj(this.e, this.f, this.g)).c() == this.h) {
+            if(this.o.p(new class_cj(this.e, this.f, this.g)).getBlock() == this.h) {
                ++this.as;
                if(this.as == 600) {
                   this.J();
@@ -130,7 +130,7 @@ public abstract class class_xf extends class_pr {
       var1.a("xTile", (short)this.e);
       var1.a("yTile", (short)this.f);
       var1.a("zTile", (short)this.g);
-      class_jz var2 = (class_jz)class_agj.c.b(this.h);
+      MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.h);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("inGround", (byte)(this.i?1:0));
       var1.a((String)"direction", (class_eb)this.a((double[])(new double[]{this.v, this.w, this.x})));
@@ -141,9 +141,9 @@ public abstract class class_xf extends class_pr {
       this.f = var1.f("yTile");
       this.g = var1.f("zTile");
       if(var1.b("inTile", 8)) {
-         this.h = class_agj.b(var1.k("inTile"));
+         this.h = Block.getByName(var1.k("inTile"));
       } else {
-         this.h = class_agj.c(var1.e("inTile") & 255);
+         this.h = Block.getById(var1.e("inTile") & 255);
       }
 
       this.i = var1.e("inGround") == 1;

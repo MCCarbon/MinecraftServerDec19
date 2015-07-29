@@ -64,7 +64,7 @@ public class class_afs extends class_aez {
             this.ak = class_agk.b.S();
             this.al = class_agk.b.S();
          } else if(var6 > -0.5D) {
-            this.ak = class_agk.d.S().a(class_ahj.a, class_ahj.class_a_in_class_ahj.b);
+            this.ak = class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b);
          }
 
          this.b(var1, var2, var3, var4, var5, var6);

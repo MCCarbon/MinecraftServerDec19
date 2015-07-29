@@ -10,11 +10,11 @@ import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xr;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_aag extends class_aar {
    public class_aag() {
-      this.a(class_zu.f);
+      this.a(CreativeTab.f);
    }
 
    public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {

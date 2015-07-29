@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
 import net.minecraft.server.class_nu;
@@ -105,8 +105,8 @@ public class class_apo extends class_apn {
                   for(int var43 = var55; !var56 && var43 < var40; ++var43) {
                      for(int var44 = var38 + 1; !var56 && var44 >= var54 - 1; --var44) {
                         if(var44 >= 0 && var44 < 128) {
-                           class_anl var45 = var5.a(var42, var44, var43);
-                           if(var45.c() == class_agk.k || var45.c() == class_agk.l) {
+                           IBlockData var45 = var5.a(var42, var44, var43);
+                           if(var45.getBlock() == class_agk.k || var45.getBlock() == class_agk.l) {
                               var56 = true;
                            }
 
@@ -128,8 +128,8 @@ public class class_apo extends class_apn {
                         for(int var48 = var38; var48 > var54; --var48) {
                            double var49 = ((double)(var48 - 1) + 0.5D - var8) / var31;
                            if(var49 > -0.7D && var57 * var57 + var49 * var49 + var46 * var46 < 1.0D) {
-                              class_anl var51 = var5.a(var42, var48, var58);
-                              if(var51.c() == class_agk.aV || var51.c() == class_agk.d || var51.c() == class_agk.c) {
+                              IBlockData var51 = var5.a(var42, var48, var58);
+                              if(var51.getBlock() == class_agk.aV || var51.getBlock() == class_agk.d || var51.getBlock() == class_agk.c) {
                                  var5.a(var42, var48, var58, class_agk.a.S());
                               }
                            }

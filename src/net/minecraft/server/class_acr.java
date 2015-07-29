@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_act;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_zy;
 
@@ -16,7 +16,7 @@ public class class_acr {
 
    public void a(class_act var1) {
       for(int var2 = 0; var2 < this.a.length; ++var2) {
-         class_agj var3 = (class_agj)this.a[var2][0];
+         Block var3 = (Block)this.a[var2][0];
          class_aas var4 = (class_aas)this.a[var2][1];
          var1.a(new class_aas(var3), new Object[]{"###", "###", "###", Character.valueOf('#'), var4});
          var1.a(var4, new Object[]{"#", Character.valueOf('#'), var3});

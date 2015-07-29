@@ -10,7 +10,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ami;
 import net.minecraft.server.class_arw;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_asv;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_df;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_ob;
 import net.minecraft.server.class_od;
 import net.minecraft.server.class_oj;
@@ -47,14 +47,14 @@ public class class_ary {
       class_asl.a(class_ary.class_a_in_class_ary.class, "ECP");
    }
 
-   private static class_ary.class_a_in_class_ary b(class_ary.class_a_in_class_ary var0, class_cj var1, String var2, class_agj.class_c_in_class_agj var3, boolean var4) {
+   private static class_ary.class_a_in_class_ary b(class_ary.class_a_in_class_ary var0, class_cj var1, String var2, Block.class_c_in_class_agj var3, boolean var4) {
       class_ary.class_a_in_class_ary var5 = new class_ary.class_a_in_class_ary(var2, var0.c, var3, var4);
       class_cj var6 = var0.a.a(var0.b, var1, var5.a, var5.b, class_cj.a);
       var5.a(var6.n(), var6.o(), var6.p());
       return var5;
    }
 
-   public static void a(class_cj var0, class_agj.class_c_in_class_agj var1, List var2, Random var3) {
+   public static void a(class_cj var0, Block.class_c_in_class_agj var1, List var2, Random var3) {
       k.a();
       f.a();
       i.a();
@@ -111,7 +111,7 @@ public class class_ary {
             if(var1 > 8) {
                return false;
             } else {
-               class_agj.class_c_in_class_agj var6 = var2.b.c();
+               Block.class_c_in_class_agj var6 = var2.b.c();
                class_ary.class_a_in_class_ary var7;
                var4.add(var7 = class_ary.b(var2, var3, "base_floor", var6, true));
                int var8 = var5.nextInt(3);
@@ -133,16 +133,16 @@ public class class_ary {
          }
       };
       g = new ArrayList();
-      g.add(new class_ob(class_agj.class_c_in_class_agj.a, new class_cj(1, -1, 0)));
-      g.add(new class_ob(class_agj.class_c_in_class_agj.b, new class_cj(6, -1, 1)));
-      g.add(new class_ob(class_agj.class_c_in_class_agj.d, new class_cj(0, -1, 5)));
-      g.add(new class_ob(class_agj.class_c_in_class_agj.c, new class_cj(5, -1, 6)));
+      g.add(new class_ob(Block.class_c_in_class_agj.a, new class_cj(1, -1, 0)));
+      g.add(new class_ob(Block.class_c_in_class_agj.b, new class_cj(6, -1, 1)));
+      g.add(new class_ob(Block.class_c_in_class_agj.d, new class_cj(0, -1, 5)));
+      g.add(new class_ob(Block.class_c_in_class_agj.c, new class_cj(5, -1, 6)));
       h = new class_ary.class_b_in_class_ary() {
          public void a() {
          }
 
          public boolean a(int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5) {
-            class_agj.class_c_in_class_agj var6 = var2.b.c();
+            Block.class_c_in_class_agj var6 = var2.b.c();
             class_ary.class_a_in_class_ary var7;
             var4.add(var7 = class_ary.b(var2, new class_cj(3 + var5.nextInt(2), -3, 3 + var5.nextInt(2)), "tower_base", var6, true));
             var4.add(var7 = class_ary.b(var7, new class_cj(0, 7, 0), "tower_piece", var6, true));
@@ -163,7 +163,7 @@ public class class_ary {
                   class_ob var11 = (class_ob)var13.next();
                   if(var5.nextBoolean()) {
                      class_ary.class_a_in_class_ary var12;
-                     var4.add(var12 = class_ary.b(var8, (class_cj)var11.b(), "bridge_end", var6.a((class_agj.class_c_in_class_agj)var11.a()), true));
+                     var4.add(var12 = class_ary.b(var8, (class_cj)var11.b(), "bridge_end", var6.a((Block.class_c_in_class_agj)var11.a()), true));
                      class_ary.b(class_ary.i, var1 + 1, var12, (class_cj)null, var4, var5);
                   }
                }
@@ -188,7 +188,7 @@ public class class_ary {
          }
 
          public boolean a(int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5) {
-            class_agj.class_c_in_class_agj var7 = var2.b.c();
+            Block.class_c_in_class_agj var7 = var2.b.c();
             int var8 = var5.nextInt(4) + 1;
             byte var9 = 0;
             class_ary.class_a_in_class_ary var6;
@@ -217,22 +217,22 @@ public class class_ary {
                return false;
             }
 
-            var4.add(var6 = class_ary.b(var6, new class_cj(4, var9, 0), "bridge_end", var7.a(class_agj.class_c_in_class_agj.c), true));
+            var4.add(var6 = class_ary.b(var6, new class_cj(4, var9, 0), "bridge_end", var7.a(Block.class_c_in_class_agj.c), true));
             var6.m = -1;
             return true;
          }
       };
       j = new ArrayList();
-      j.add(new class_ob(class_agj.class_c_in_class_agj.a, new class_cj(4, -1, 0)));
-      j.add(new class_ob(class_agj.class_c_in_class_agj.b, new class_cj(12, -1, 4)));
-      j.add(new class_ob(class_agj.class_c_in_class_agj.d, new class_cj(0, -1, 8)));
-      j.add(new class_ob(class_agj.class_c_in_class_agj.c, new class_cj(8, -1, 12)));
+      j.add(new class_ob(Block.class_c_in_class_agj.a, new class_cj(4, -1, 0)));
+      j.add(new class_ob(Block.class_c_in_class_agj.b, new class_cj(12, -1, 4)));
+      j.add(new class_ob(Block.class_c_in_class_agj.d, new class_cj(0, -1, 8)));
+      j.add(new class_ob(Block.class_c_in_class_agj.c, new class_cj(8, -1, 12)));
       k = new class_ary.class_b_in_class_ary() {
          public void a() {
          }
 
          public boolean a(int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5) {
-            class_agj.class_c_in_class_agj var7 = var2.b.c();
+            Block.class_c_in_class_agj var7 = var2.b.c();
             class_ary.class_a_in_class_ary var6;
             var4.add(var6 = class_ary.b(var2, new class_cj(-3, 4, -3), "fat_tower_base", var7, true));
             var4.add(var6 = class_ary.b(var6, new class_cj(0, 4, 0), "fat_tower_middle", var7, true));
@@ -245,7 +245,7 @@ public class class_ary {
                   class_ob var10 = (class_ob)var9.next();
                   if(var5.nextBoolean()) {
                      class_ary.class_a_in_class_ary var11;
-                     var4.add(var11 = class_ary.b(var6, (class_cj)var10.b(), "bridge_end", var7.a((class_agj.class_c_in_class_agj)var10.a()), true));
+                     var4.add(var11 = class_ary.b(var6, (class_cj)var10.b(), "bridge_end", var7.a((Block.class_c_in_class_agj)var10.a()), true));
                      class_ary.b(class_ary.i, var1 + 1, var11, (class_cj)null, var4, var5);
                   }
                }
@@ -265,13 +265,13 @@ public class class_ary {
 
    public static class class_a_in_class_ary extends class_asp {
       private String d;
-      private class_agj.class_c_in_class_agj e;
+      private Block.class_c_in_class_agj e;
       private boolean f;
 
       public class_a_in_class_ary() {
       }
 
-      public class_a_in_class_ary(String var1, class_cj var2, class_agj.class_c_in_class_agj var3, boolean var4) {
+      public class_a_in_class_ary(String var1, class_cj var2, Block.class_c_in_class_agj var3, boolean var4) {
          super(0);
          this.d = var1;
          this.e = var3;
@@ -280,7 +280,7 @@ public class class_ary {
       }
 
       private void a(class_cj var1) {
-         class_asv var2 = class_ary.a.a(new class_jz("endcity/" + this.d));
+         class_asv var2 = class_ary.a.a(new MinecraftKey("endcity/" + this.d));
          class_asu var3 = null;
          if(this.f) {
             var3 = class_ary.b.a().a(this.e);
@@ -301,7 +301,7 @@ public class class_ary {
       protected void b(class_dn var1) {
          super.b(var1);
          this.d = var1.k("Template");
-         this.e = class_agj.class_c_in_class_agj.valueOf(var1.k("Rot"));
+         this.e = Block.class_c_in_class_agj.valueOf(var1.k("Rot"));
          this.f = var1.o("OW");
          this.a(this.c);
       }

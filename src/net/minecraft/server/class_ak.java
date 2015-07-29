@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_ce;
@@ -62,7 +62,7 @@ public class class_ak extends class_i {
 
       int var7 = Math.min((var13 + 1) * 7, var3.size());
       class_fb var14 = new class_fb("commands.help.header", new Object[]{Integer.valueOf(var13 + 1), Integer.valueOf(var5 + 1)});
-      var14.b().a(class_a.c);
+      var14.b().a(EnumChatFormat.DARK_GREEN);
       var1.a(var14);
 
       for(int var15 = var13 * 7; var15 < var7; ++var15) {
@@ -74,7 +74,7 @@ public class class_ak extends class_i {
 
       if(var13 == 0 && var1 instanceof class_xa) {
          class_fb var16 = new class_fb("commands.help.footer", new Object[0]);
-         var16.b().a(class_a.k);
+         var16.b().a(EnumChatFormat.GREEN);
          var1.a(var16);
       }
 

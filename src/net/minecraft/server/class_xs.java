@@ -10,7 +10,7 @@ import net.minecraft.server.class_acf;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ajd;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.class_cj;
@@ -112,8 +112,8 @@ public class class_xs extends class_xo {
    }
 
    private void a(class_cj var1) {
-      if(this.o.p(var1).c() == class_agk.ab) {
-         this.o.a((class_cj)var1, (class_anl)class_agk.i.S().a(class_ajd.b, Integer.valueOf(7)), 2);
+      if(this.o.p(var1).getBlock() == class_agk.ab) {
+         this.o.a((class_cj)var1, (IBlockData)class_agk.i.S().set(class_ajd.b, Integer.valueOf(7)), 2);
       }
 
    }

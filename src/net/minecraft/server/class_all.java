@@ -6,10 +6,10 @@ import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agd;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amz;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_ast;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
@@ -32,11 +32,11 @@ public class class_all extends class_agd {
       return new class_amz();
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_anl var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       return false;
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_qa var4, class_aas var5) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
    }
 
    public int a(Random var1) {
@@ -47,23 +47,23 @@ public class class_all extends class_agd {
       return 3;
    }
 
-   public class_anl a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.S().a(a, class_amz.class_a_in_class_amz.d);
+   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.S().set(a, class_amz.class_a_in_class_amz.d);
    }
 
    public class_ast l() {
       return this.b;
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, class_amz.class_a_in_class_amz.a(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, class_amz.class_a_in_class_amz.a(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((class_amz.class_a_in_class_amz)var1.b(a)).a();
+   public int c(IBlockData var1) {
+      return ((class_amz.class_a_in_class_amz)var1.get(a)).a();
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 }

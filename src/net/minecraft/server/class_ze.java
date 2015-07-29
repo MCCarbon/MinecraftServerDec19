@@ -7,7 +7,7 @@ import net.minecraft.server.class_ale;
 import net.minecraft.server.class_alw;
 import net.minecraft.server.class_ame;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_di;
@@ -17,14 +17,14 @@ import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.class_zg;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 import net.minecraft.server.class_zy;
 
 public class class_ze extends class_zg {
    public class_ze() {
       super(class_agk.cK);
       this.h = 16;
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
       this.a(true);
       this.e(0);
    }
@@ -32,7 +32,7 @@ public class class_ze extends class_zg {
    public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
       if(var6 == class_cq.a) {
          return class_oq.b;
-      } else if(!var3.p(var4).c().v().a()) {
+      } else if(!var3.p(var4).getBlock().v().a()) {
          return class_oq.b;
       } else {
          var4 = var4.a(var6);
@@ -45,9 +45,9 @@ public class class_ze extends class_zg {
          } else {
             if(var6 == class_cq.b) {
                int var10 = class_nu.c((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
-               var3.a((class_cj)var4, (class_anl)class_agk.cK.S().a(class_ale.a, Integer.valueOf(var10)), 3);
+               var3.a((class_cj)var4, (IBlockData)class_agk.cK.S().set(class_ale.a, Integer.valueOf(var10)), 3);
             } else {
-               var3.a((class_cj)var4, (class_anl)class_agk.cL.S().a(class_alw.a, var6), 3);
+               var3.a((class_cj)var4, (IBlockData)class_agk.cL.S().set(class_alw.a, var6), 3);
             }
 
             --var1.b;

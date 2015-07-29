@@ -6,12 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_alb;
 import net.minecraft.server.class_alc;
 import net.minecraft.server.class_amu;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -101,13 +101,13 @@ public class class_amf extends class_amu implements class_kn, class_oj {
 
       int var8;
       for(var8 = var3 + 1; var8 < 256; ++var8) {
-         class_anl var9 = this.b.p(var7.c(var2, var8, var4));
+         IBlockData var9 = this.b.p(var7.c(var2, var8, var4));
          float[] var10;
-         if(var9.c() == class_agk.cG) {
-            var10 = class_uf.a((class_zy)var9.b(class_alb.a));
+         if(var9.getBlock() == class_agk.cG) {
+            var10 = class_uf.a((class_zy)var9.get(class_alb.a));
          } else {
-            if(var9.c() != class_agk.cH) {
-               if(var9.c().r() >= 15 && var9.c() != class_agk.h) {
+            if(var9.getBlock() != class_agk.cH) {
+               if(var9.getBlock().r() >= 15 && var9.getBlock() != class_agk.h) {
                   this.i = false;
                   this.f.clear();
                   break;
@@ -117,7 +117,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
                continue;
             }
 
-            var10 = class_uf.a((class_zy)var9.b(class_alc.a));
+            var10 = class_uf.a((class_zy)var9.get(class_alc.a));
          }
 
          if(!var6) {
@@ -145,7 +145,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
 
             for(int var11 = var2 - var8; var11 <= var2 + var8 && var17; ++var11) {
                for(int var12 = var4 - var8; var12 <= var4 + var8; ++var12) {
-                  class_agj var13 = this.b.p(new class_cj(var11, var15, var12)).c();
+                  Block var13 = this.b.p(new class_cj(var11, var15, var12)).getBlock();
                   if(var13 != class_agk.bT && var13 != class_agk.R && var13 != class_agk.ah && var13 != class_agk.S) {
                      var17 = false;
                      break;

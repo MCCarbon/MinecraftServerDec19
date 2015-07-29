@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 
-public class class_afz extends class_agj {
+public class class_afz extends Block {
    protected class_afz() {
       super(class_atk.a);
    }
@@ -16,7 +16,7 @@ public class class_afz extends class_agj {
       return -1;
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
@@ -24,11 +24,11 @@ public class class_afz extends class_agj {
       return false;
    }
 
-   public boolean a(class_anl var1, boolean var2) {
+   public boolean a(IBlockData var1, boolean var2) {
       return false;
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, float var4, int var5) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, float var4, int var5) {
    }
 
    public boolean a(class_aen var1, class_cj var2) {

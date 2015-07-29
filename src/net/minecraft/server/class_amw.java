@@ -29,8 +29,8 @@ public class class_amw extends class_amg {
    }
 
    public void a(class_aen var1, class_cj var2) {
-      if(var1.p(var2.a()).c().v() == class_atk.a) {
-         class_atk var3 = var1.p(var2.b()).c().v();
+      if(var1.p(var2.a()).getBlock().v() == class_atk.a) {
+         class_atk var3 = var1.p(var2.b()).getBlock().v();
          byte var4 = 0;
          if(var3 == class_atk.e) {
             var4 = 1;

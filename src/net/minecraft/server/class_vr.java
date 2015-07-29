@@ -5,7 +5,7 @@ import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aih;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_cy;
@@ -69,7 +69,7 @@ public class class_vr extends class_vn {
 
    }
 
-   protected void a(class_cj var1, class_anl var2) {
+   protected void a(class_cj var1, IBlockData var2) {
       super.a(var1, var2);
       double var3 = this.a * this.a + this.b * this.b;
       if(var3 > 1.0E-4D && this.v * this.v + this.x * this.x > 0.001D) {
@@ -150,7 +150,7 @@ public class class_vr extends class_vn {
 
    }
 
-   public class_anl u() {
-      return (this.j()?class_agk.am:class_agk.al).S().a(class_aih.a, class_cq.c);
+   public IBlockData u() {
+      return (this.j()?class_agk.am:class_agk.al).S().set(class_aih.a, class_cq.c);
    }
 }

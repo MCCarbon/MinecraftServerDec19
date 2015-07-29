@@ -5,12 +5,12 @@ import java.util.UUID;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_akv;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amy;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_di;
@@ -21,13 +21,13 @@ import net.minecraft.server.class_nu;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_abp extends class_aar {
    private static final String[] a = new String[]{"skeleton", "wither", "zombie", "char", "creeper", "dragon"};
 
    public class_abp() {
-      this.a((class_zu)class_zu.c);
+      this.a((CreativeTab)CreativeTab.c);
       this.e(0);
       this.a(true);
    }
@@ -36,11 +36,11 @@ public class class_abp extends class_aar {
       if(var6 == class_cq.a) {
          return class_oq.b;
       } else {
-         class_anl var10 = var3.p(var4);
-         class_agj var11 = var10.c();
+         IBlockData var10 = var3.p(var4);
+         Block var11 = var10.getBlock();
          boolean var12 = var11.a(var3, var4);
          if(!var12) {
-            if(!var3.p(var4).c().v().a()) {
+            if(!var3.p(var4).getBlock().v().a()) {
                return class_oq.b;
             }
 
@@ -53,7 +53,7 @@ public class class_abp extends class_aar {
             return class_oq.b;
          } else {
             if(!var3.D) {
-               var3.a((class_cj)var4, (class_anl)class_agk.ce.S().a(class_akv.a, var6), 3);
+               var3.a((class_cj)var4, (IBlockData)class_agk.ce.S().set(class_akv.a, var6), 3);
                int var13 = 0;
                if(var6 == class_cq.b) {
                   var13 = class_nu.c((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_cj;
 
@@ -16,7 +16,7 @@ public class class_aqc extends class_aql {
 
             for(int var7 = 0; var7 < var6; ++var7) {
                if(class_agk.aK.e(var1, var5)) {
-                  var1.a((class_cj)var5.b(var7), (class_anl)class_agk.aK.S(), 2);
+                  var1.a((class_cj)var5.b(var7), (IBlockData)class_agk.aK.S(), 2);
                }
             }
          }

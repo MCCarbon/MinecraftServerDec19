@@ -10,9 +10,9 @@ import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.class_ads;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
@@ -73,9 +73,9 @@ public class class_aej {
 
                   for(float var21 = 0.3F; var14 > 0.0F; var14 -= 0.22500001F) {
                      class_cj var22 = new class_cj(var15, var17, var19);
-                     class_anl var23 = this.d.p(var22);
-                     if(var23.c().v() != class_atk.a) {
-                        float var24 = this.h != null?this.h.a(this, this.d, var22, var23):var23.c().a((class_pr)null);
+                     IBlockData var23 = this.d.p(var22);
+                     if(var23.getBlock().v() != class_atk.a) {
+                        float var24 = this.h != null?this.h.a(this, this.d, var22, var23):var23.getBlock().a((class_pr)null);
                         var14 -= (var24 + 0.3F) * 0.3F;
                      }
 
@@ -152,7 +152,7 @@ public class class_aej {
 
          while(var2.hasNext()) {
             var3 = (class_cj)var2.next();
-            class_agj var4 = this.d.p(var3).c();
+            Block var4 = this.d.p(var3).getBlock();
             if(var1) {
                double var5 = (double)((float)var3.n() + this.d.s.nextFloat());
                double var7 = (double)((float)var3.o() + this.d.s.nextFloat());
@@ -178,7 +178,7 @@ public class class_aej {
                   var4.a(this.d, var3, this.d.p(var3), 1.0F / this.i, 0);
                }
 
-               this.d.a((class_cj)var3, (class_anl)class_agk.a.S(), 3);
+               this.d.a((class_cj)var3, (IBlockData)class_agk.a.S(), 3);
                var4.a(this.d, var3, this);
             }
          }
@@ -189,7 +189,7 @@ public class class_aej {
 
          while(var2.hasNext()) {
             var3 = (class_cj)var2.next();
-            if(this.d.p(var3).c().v() == class_atk.a && this.d.p(var3.b()).c().q() && this.c.nextInt(3) == 0) {
+            if(this.d.p(var3).getBlock().v() == class_atk.a && this.d.p(var3.b()).getBlock().q() && this.c.nextInt(3) == 0) {
                this.d.a(var3, class_agk.ab.S());
             }
          }

@@ -12,7 +12,7 @@ import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_aan extends class_aar {
    public final int a;
@@ -28,7 +28,7 @@ public class class_aan extends class_aar {
       this.b = var1;
       this.d = var3;
       this.c = var2;
-      this.a(class_zu.h);
+      this.a(CreativeTab.h);
    }
 
    public class_aan(int var1, boolean var2) {

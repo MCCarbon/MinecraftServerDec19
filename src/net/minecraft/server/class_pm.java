@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_kc;
 import net.minecraft.server.class_pk;
 
@@ -32,7 +32,7 @@ public class class_pm {
    public static final class_pk y;
 
    private static class_pk a(String var0) {
-      class_pk var1 = (class_pk)class_pk.b.c(new class_jz(var0));
+      class_pk var1 = (class_pk)class_pk.b.get(new MinecraftKey(var0));
       if(var1 == null) {
          throw new IllegalStateException("Invalid MobEffect requested: " + var0);
       } else {

@@ -12,7 +12,7 @@ import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_dn;
@@ -21,7 +21,7 @@ import net.minecraft.server.class_eb;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_ew;
 import net.minecraft.server.class_fa;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -42,20 +42,20 @@ public final class class_aas {
    private class_dn e;
    private int f;
    private class_va g;
-   private class_agj h;
+   private Block h;
    private boolean i;
-   private class_agj j;
+   private Block j;
    private boolean k;
 
-   public class_aas(class_agj var1) {
-      this((class_agj)var1, 1);
+   public class_aas(Block var1) {
+      this((Block)var1, 1);
    }
 
-   public class_aas(class_agj var1, int var2) {
-      this((class_agj)var1, var2, 0);
+   public class_aas(Block var1, int var2) {
+      this((Block)var1, var2, 0);
    }
 
-   public class_aas(class_agj var1, int var2, int var3) {
+   public class_aas(Block var1, int var2, int var3) {
       this(class_aar.a(var1), var2, var3);
    }
 
@@ -117,7 +117,7 @@ public final class class_aas {
       return var9;
    }
 
-   public float a(class_agj var1) {
+   public float a(Block var1) {
       return this.b().a(this, var1);
    }
 
@@ -130,7 +130,7 @@ public final class class_aas {
    }
 
    public class_dn b(class_dn var1) {
-      class_jz var2 = (class_jz)class_aar.e.b(this.d);
+      MinecraftKey var2 = (MinecraftKey)class_aar.e.getKey(this.d);
       var1.a("id", var2 == null?"minecraft:air":var2.toString());
       var1.a("Count", (byte)this.b);
       var1.a("Damage", (short)this.f);
@@ -258,7 +258,7 @@ public final class class_aas {
 
    }
 
-   public void a(class_aen var1, class_agj var2, class_cj var3, class_xa var4) {
+   public void a(class_aen var1, Block var2, class_cj var3, class_xa var4) {
       boolean var5 = this.d.a(this, var1, var2, var3, var4);
       if(var5) {
          var4.b(class_nc.ad[class_aar.b(this.d)]);
@@ -266,7 +266,7 @@ public final class class_aas {
 
    }
 
-   public boolean b(class_agj var1) {
+   public boolean b(Block var1) {
       return this.d.b(var1);
    }
 
@@ -518,7 +518,7 @@ public final class class_aas {
       return var2;
    }
 
-   public boolean c(class_agj var1) {
+   public boolean c(Block var1) {
       if(var1 == this.h) {
          return this.i;
       } else {
@@ -527,7 +527,7 @@ public final class class_aas {
             class_du var2 = this.e.c("CanDestroy", 8);
 
             for(int var3 = 0; var3 < var2.c(); ++var3) {
-               class_agj var4 = class_agj.b(var2.g(var3));
+               Block var4 = Block.getByName(var2.g(var3));
                if(var4 == var1) {
                   this.i = true;
                   return true;
@@ -540,7 +540,7 @@ public final class class_aas {
       }
    }
 
-   public boolean d(class_agj var1) {
+   public boolean d(Block var1) {
       if(var1 == this.j) {
          return this.k;
       } else {
@@ -549,7 +549,7 @@ public final class class_aas {
             class_du var2 = this.e.c("CanPlaceOn", 8);
 
             for(int var3 = 0; var3 < var2.c(); ++var3) {
-               class_agj var4 = class_agj.b(var2.g(var3));
+               Block var4 = Block.getByName(var2.g(var3));
                if(var4 == var1) {
                   this.k = true;
                   return true;

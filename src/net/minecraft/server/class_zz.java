@@ -3,11 +3,11 @@ package net.minecraft.server;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_agl;
 import net.minecraft.server.class_ajw;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_oo;
@@ -15,7 +15,7 @@ import net.minecraft.server.class_oq;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_uf;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 import net.minecraft.server.class_zy;
 
 public class class_zz extends class_aar {
@@ -24,7 +24,7 @@ public class class_zz extends class_aar {
    public class_zz() {
       this.a(true);
       this.e(0);
-      this.a(class_zu.l);
+      this.a(CreativeTab.l);
    }
 
    public String e_(class_aas var1) {
@@ -46,9 +46,9 @@ public class class_zz extends class_aar {
                return class_oq.a;
             }
          } else if(var10 == class_zy.m) {
-            class_anl var11 = var3.p(var4);
-            class_agj var12 = var11.c();
-            if(var12 == class_agk.r && var11.b(class_ajw.a) == class_ajw.class_a_in_class_ajw.d) {
+            IBlockData var11 = var3.p(var4);
+            Block var12 = var11.getBlock();
+            if(var12 == class_agk.r && var11.get(class_ajw.a) == class_ajw.class_a_in_class_ajw.d) {
                if(var6 == class_cq.a) {
                   return class_oq.b;
                }
@@ -59,8 +59,8 @@ public class class_zz extends class_aar {
 
                var4 = var4.a(var6);
                if(var3.d(var4)) {
-                  class_anl var13 = class_agk.bN.a(var3, var4, var6, var7, var8, var9, 0, var2);
-                  var3.a((class_cj)var4, (class_anl)var13, 2);
+                  IBlockData var13 = class_agk.bN.a(var3, var4, var6, var7, var8, var9, 0, var2);
+                  var3.a((class_cj)var4, (IBlockData)var13, 2);
                   if(!var2.bH.d) {
                      --var1.b;
                   }
@@ -75,9 +75,9 @@ public class class_zz extends class_aar {
    }
 
    public static boolean a(class_aas var0, class_aen var1, class_cj var2) {
-      class_anl var3 = var1.p(var2);
-      if(var3.c() instanceof class_agl) {
-         class_agl var4 = (class_agl)var3.c();
+      IBlockData var3 = var1.p(var2);
+      if(var3.getBlock() instanceof class_agl) {
+         class_agl var4 = (class_agl)var3.getBlock();
          if(var4.a(var1, var2, var3, var1.D)) {
             if(!var1.D) {
                if(var4.a(var1, var1.s, var2, var3)) {

@@ -18,7 +18,7 @@ import net.minecraft.server.class_afx;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_anb;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ano;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.class_anq;
@@ -289,7 +289,7 @@ public class class_apc {
       class_aqk var2 = new class_aqk(var1);
 
       class_cj var3;
-      for(var3 = this.d.r(class_aqk.a).b(); this.d.p(var3).c() == class_agk.h && var3.o() > this.d.G(); var3 = var3.b()) {
+      for(var3 = this.d.r(class_aqk.a).b(); this.d.p(var3).getBlock() == class_agk.h && var3.o() > this.d.G(); var3 = var3.b()) {
          ;
       }
 
@@ -336,8 +336,8 @@ public class class_apc {
                for(int var3 = 0; var3 < this.f.b(); ++var3) {
                   for(int var4 = 0; var4 < this.f.a(); ++var4) {
                      class_ano var5 = var1.a(var2, var3, var4);
-                     if(var5.a().c() == class_agk.h || var5.a().c() == class_agk.bF) {
-                        this.d.a((class_cj)var5.d(), (class_anl)class_agk.bH.S());
+                     if(var5.a().getBlock() == class_agk.h || var5.a().getBlock() == class_agk.bF) {
+                        this.d.a((class_cj)var5.d(), (IBlockData)class_agk.bH.S());
                      }
                   }
                }

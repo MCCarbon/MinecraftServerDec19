@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_aa;
 import net.minecraft.server.class_ab;
 import net.minecraft.server.class_ac;
@@ -149,7 +149,7 @@ public class class_bd extends class_j implements class_h {
       }
 
       class_fb var8 = new class_fb("chat.type.admin", new Object[]{var1.e_(), new class_fb(var4, var5)});
-      var8.b().a(class_a.h);
+      var8.b().a(EnumChatFormat.GRAY);
       var8.b().b(Boolean.valueOf(true));
       if(var6) {
          Iterator var9 = var7.ap().v().iterator();

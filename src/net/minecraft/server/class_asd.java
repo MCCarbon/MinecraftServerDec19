@@ -7,12 +7,12 @@ import java.util.Random;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ald;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amv;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
@@ -188,7 +188,7 @@ public class class_asd {
       }
 
       public boolean a(class_aen var1, Random var2, class_arw var3) {
-         class_anl var4 = class_agk.bA.S().a(class_ald.a, class_cq.d);
+         IBlockData var4 = class_agk.bA.S().set(class_ald.a, class_cq.d);
 
          for(int var5 = 0; var5 <= 9; ++var5) {
             int var6 = Math.max(1, 7 - var5);
@@ -476,7 +476,7 @@ public class class_asd {
             this.a(var1, var3, 11, 7, var4, 11, 8, var4, class_agk.bz.S(), class_agk.bz.S(), false);
          }
 
-         class_anl var9 = class_agk.bA.S().a(class_ald.a, class_cq.c);
+         IBlockData var9 = class_agk.bA.S().set(class_ald.a, class_cq.c);
 
          int var5;
          int var7;
@@ -511,8 +511,8 @@ public class class_asd {
          this.a(var1, var3, 9, 5, 2, 10, 5, 3, class_agk.by.S(), class_agk.by.S(), false);
          this.a(var1, var3, 9, 5, 9, 10, 5, 10, class_agk.by.S(), class_agk.by.S(), false);
          this.a(var1, var3, 10, 5, 4, 10, 5, 8, class_agk.by.S(), class_agk.by.S(), false);
-         class_anl var10 = var9.a(class_ald.a, class_cq.f);
-         class_anl var11 = var9.a(class_ald.a, class_cq.e);
+         IBlockData var10 = var9.set(class_ald.a, class_cq.f);
+         IBlockData var11 = var9.set(class_ald.a, class_cq.e);
          this.a(var1, var11, 4, 5, 2, var3);
          this.a(var1, var11, 4, 5, 3, var3);
          this.a(var1, var11, 4, 5, 9, var3);
@@ -638,7 +638,7 @@ public class class_asd {
          this.a(var1, class_agk.k.S(), 6, 5, 6, var3);
          class_cj var6 = new class_cj(this.a(6, 6), this.d(5), this.b(6, 6));
          if(var3.b((class_df)var6)) {
-            var1.a((class_agj)class_agk.k, (class_cj)var6, (Random)var2);
+            var1.a((Block)class_agk.k, (class_cj)var6, (Random)var2);
          }
 
          return true;
@@ -695,7 +695,7 @@ public class class_asd {
             class_cj var4 = new class_cj(this.a(3, 5), this.d(5), this.b(3, 5));
             if(var3.b((class_df)var4)) {
                this.b = true;
-               var1.a((class_cj)var4, (class_anl)class_agk.ac.S(), 2);
+               var1.a((class_cj)var4, (IBlockData)class_agk.ac.S(), 2);
                class_amg var5 = var1.s(var4);
                if(var5 instanceof class_amv) {
                   ((class_amv)var5).b().a("Blaze");

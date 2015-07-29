@@ -1,27 +1,27 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.MinecraftKey;
 
 public class class_ars {
    private final int a;
-   private class_anl b;
+   private IBlockData b;
    private int c;
    private int d;
 
-   public class_ars(int var1, class_agj var2) {
+   public class_ars(int var1, Block var2) {
       this(3, var1, var2);
    }
 
-   public class_ars(int var1, int var2, class_agj var3) {
+   public class_ars(int var1, int var2, Block var3) {
       this.c = 1;
       this.a = var1;
       this.c = var2;
       this.b = var3.S();
    }
 
-   public class_ars(int var1, int var2, class_agj var3, int var4) {
+   public class_ars(int var1, int var2, Block var3, int var4) {
       this(var1, var2, var3);
       this.b = var3.a(var4);
    }
@@ -30,16 +30,16 @@ public class class_ars {
       return this.c;
    }
 
-   public class_anl c() {
+   public IBlockData c() {
       return this.b;
    }
 
-   private class_agj e() {
-      return this.b.c();
+   private Block e() {
+      return this.b.getBlock();
    }
 
    private int f() {
-      return this.b.c().c(this.b);
+      return this.b.getBlock().c(this.b);
    }
 
    public int d() {
@@ -53,13 +53,13 @@ public class class_ars {
    public String toString() {
       String var1;
       if(this.a >= 3) {
-         class_jz var2 = (class_jz)class_agj.c.b(this.e());
+         MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.e());
          var1 = var2 == null?"null":var2.toString();
          if(this.c > 1) {
             var1 = this.c + "*" + var1;
          }
       } else {
-         var1 = Integer.toString(class_agj.a(this.e()));
+         var1 = Integer.toString(Block.getId(this.e()));
          if(this.c > 1) {
             var1 = this.c + "x" + var1;
          }

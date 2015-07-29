@@ -4,14 +4,14 @@ import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_alu;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.class_aqy;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 
 public class class_aqw extends class_aqy {
-   public class_aqw(boolean var1, int var2, int var3, class_anl var4, class_anl var5) {
+   public class_aqw(boolean var1, int var2, int var3, IBlockData var4, IBlockData var5) {
       super(var1, var2, var3, var4, var5);
    }
 
@@ -45,7 +45,7 @@ public class class_aqw extends class_aqy {
 
          for(int var13 = 0; var13 < var4; ++var13) {
             class_cj var14 = var3.b(var13);
-            if(this.a(var1.p(var14).c())) {
+            if(this.a(var1.p(var14).getBlock())) {
                this.a(var1, var14, this.b);
                if(var13 > 0) {
                   this.a(var1, var2, var14.e(), class_alu.N);
@@ -55,7 +55,7 @@ public class class_aqw extends class_aqy {
 
             if(var13 < var4 - 1) {
                class_cj var15 = var14.f();
-               if(this.a(var1.p(var15).c())) {
+               if(this.a(var1.p(var15).getBlock())) {
                   this.a(var1, var15, this.b);
                   if(var13 > 0) {
                      this.a(var1, var2, var15.f(), class_alu.P);
@@ -64,7 +64,7 @@ public class class_aqw extends class_aqy {
                }
 
                class_cj var16 = var14.d().f();
-               if(this.a(var1.p(var16).c())) {
+               if(this.a(var1.p(var16).getBlock())) {
                   this.a(var1, var16, this.b);
                   if(var13 > 0) {
                      this.a(var1, var2, var16.f(), class_alu.P);
@@ -73,7 +73,7 @@ public class class_aqw extends class_aqy {
                }
 
                class_cj var17 = var14.d();
-               if(this.a(var1.p(var17).c())) {
+               if(this.a(var1.p(var17).getBlock())) {
                   this.a(var1, var17, this.b);
                   if(var13 > 0) {
                      this.a(var1, var2, var17.e(), class_alu.N);
@@ -89,7 +89,7 @@ public class class_aqw extends class_aqy {
 
    private void a(class_aen var1, Random var2, class_cj var3, class_anw var4) {
       if(var2.nextInt(3) > 0 && var1.d(var3)) {
-         this.a(var1, var3, class_agk.bn.S().a(var4, Boolean.valueOf(true)));
+         this.a(var1, var3, class_agk.bn.S().set(var4, Boolean.valueOf(true)));
       }
 
    }

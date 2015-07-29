@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Collection;
 import java.util.Iterator;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
@@ -71,7 +71,7 @@ public class class_awo extends class_avd {
 
          var5.a(var6);
          if(var3.b("TeamColor", 8)) {
-            var5.a(class_a.b(var3.k("TeamColor")));
+            var5.a(EnumChatFormat.getByName(var3.k("TeamColor")));
          }
 
          var5.b(var3.k("Prefix"));
@@ -179,8 +179,8 @@ public class class_awo extends class_avd {
          class_dn var5 = new class_dn();
          var5.a("Name", var4.b());
          var5.a("DisplayName", var4.c());
-         if(var4.l().b() >= 0) {
-            var5.a("TeamColor", var4.l().e());
+         if(var4.l().getId() >= 0) {
+            var5.a("TeamColor", var4.l().getName());
          }
 
          var5.a("Prefix", var4.e());

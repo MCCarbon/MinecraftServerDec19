@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_mt;
@@ -21,7 +21,7 @@ public class class_ms extends class_my {
 		this(var1, var2, var3, var4, new class_aas(var5), var6);
 	}
 
-	public class_ms(String var1, String var2, int var3, int var4, class_agj var5, class_ms var6) {
+	public class_ms(String var1, String var2, int var3, int var4, Block var5, class_ms var6) {
 		this(var1, var2, var3, var4, new class_aas(var5), var6);
 	}
 
@@ -72,7 +72,7 @@ public class class_ms extends class_my {
 
 	public class_eu e() {
 		class_eu var1 = super.e();
-		var1.b().a(this.g() ? class_a.f : class_a.k);
+		var1.b().a(this.g() ? EnumChatFormat.DARK_PURPLE : EnumChatFormat.GREEN);
 		return var1;
 	}
 

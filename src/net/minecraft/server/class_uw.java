@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
@@ -292,7 +292,7 @@ public class class_uw extends class_wi implements class_wk {
                         int var9 = var1 + var7;
                         int var10 = var16 + var20;
                         class_cj var11 = new class_cj(var21, var9, var10);
-                        class_agj var12 = this.o.p(var11).c();
+                        Block var12 = this.o.p(var11).getBlock();
                         if(var12.v() != class_atk.a && a(var12)) {
                            var18 = this.o.b(var11, true) || var18;
                         }
@@ -314,7 +314,7 @@ public class class_uw extends class_wi implements class_wk {
       }
    }
 
-   public static boolean a(class_agj var0) {
+   public static boolean a(Block var0) {
       return var0 != class_agk.h && var0 != class_agk.bF && var0 != class_agk.bG && var0 != class_agk.bX && var0 != class_agk.cv;
    }
 

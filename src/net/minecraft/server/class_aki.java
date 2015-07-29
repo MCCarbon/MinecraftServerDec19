@@ -1,38 +1,38 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_akq;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_ny;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_aki extends class_agj {
+public class class_aki extends Block {
    public static final class_any a = class_any.a("type", class_aki.class_a_in_class_aki.class);
 
    public class_aki() {
       super(class_atk.e, class_akq.class_a_in_class_akq.b.c());
-      this.j(this.M.b().a(a, class_aki.class_a_in_class_aki.a));
-      this.a(class_zu.b);
+      this.j(this.M.b().set(a, class_aki.class_a_in_class_aki.a));
+      this.a(CreativeTab.b);
    }
 
-   public int a(class_anl var1) {
-      return ((class_aki.class_a_in_class_aki)var1.b(a)).a();
+   public int a(IBlockData var1) {
+      return ((class_aki.class_a_in_class_aki)var1.get(a)).a();
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, class_aki.class_a_in_class_aki.a(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, class_aki.class_a_in_class_aki.a(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((class_aki.class_a_in_class_aki)var1.b(a)).a();
+   public int c(IBlockData var1) {
+      return ((class_aki.class_a_in_class_aki)var1.get(a)).a();
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 
    public static enum class_a_in_class_aki implements class_ny {

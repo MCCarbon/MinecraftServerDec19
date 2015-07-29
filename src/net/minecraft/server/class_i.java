@@ -13,7 +13,7 @@ import java.util.List;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aar;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_ca;
 import net.minecraft.server.class_cb;
@@ -22,7 +22,7 @@ import net.minecraft.server.class_cj;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_h;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_k;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
@@ -344,8 +344,8 @@ public abstract class class_i implements class_k {
    }
 
    public static class_aar f(class_m var0, String var1) throws class_cb {
-      class_jz var2 = new class_jz(var1);
-      class_aar var3 = (class_aar)class_aar.e.c(var2);
+      MinecraftKey var2 = new MinecraftKey(var1);
+      class_aar var3 = (class_aar)class_aar.e.get(var2);
       if(var3 == null) {
          throw new class_cb("commands.give.item.notFound", new Object[]{var2});
       } else {
@@ -353,12 +353,12 @@ public abstract class class_i implements class_k {
       }
    }
 
-   public static class_agj g(class_m var0, String var1) throws class_cb {
-      class_jz var2 = new class_jz(var1);
-      if(!class_agj.c.d(var2)) {
+   public static Block g(class_m var0, String var1) throws class_cb {
+      MinecraftKey var2 = new MinecraftKey(var1);
+      if(!Block.BLOCK_REGISTRY.has(var2)) {
          throw new class_cb("commands.give.block.notFound", new Object[]{var2});
       } else {
-         class_agj var3 = (class_agj)class_agj.c.c(var2);
+         Block var3 = (Block)Block.BLOCK_REGISTRY.get(var2);
          if(var3 == null) {
             throw new class_cb("commands.give.block.notFound", new Object[]{var2});
          } else {
@@ -476,7 +476,7 @@ public abstract class class_i implements class_k {
 
             while(var4.hasNext()) {
                Object var6 = var4.next();
-               if(var6 instanceof class_jz && a(var2, ((class_jz)var6).a())) {
+               if(var6 instanceof MinecraftKey && a(var2, ((MinecraftKey)var6).a())) {
                   var3.add(String.valueOf(var6));
                }
             }

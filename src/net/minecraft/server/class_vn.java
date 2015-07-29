@@ -8,10 +8,10 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agf;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aka;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
@@ -19,7 +19,7 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_ov;
@@ -250,11 +250,11 @@ public abstract class class_vn extends class_pr implements class_ov {
          }
 
          class_cj var4 = new class_cj(var14, var2, var16);
-         class_anl var5 = this.o.p(var4);
+         IBlockData var5 = this.o.p(var4);
          if(class_agf.d(var5)) {
             this.a(var4, var5);
-            if(var5.c() == class_agk.cs) {
-               this.a(var14, var2, var16, ((Boolean)var5.b(class_aka.N)).booleanValue());
+            if(var5.getBlock() == class_agk.cs) {
+               this.a(var14, var2, var16, ((Boolean)var5.get(class_aka.N)).booleanValue());
             }
          } else {
             this.n();
@@ -325,20 +325,20 @@ public abstract class class_vn extends class_pr implements class_ov {
 
    }
 
-   protected void a(class_cj var1, class_anl var2) {
+   protected void a(class_cj var1, IBlockData var2) {
       this.O = 0.0F;
       class_awh var3 = this.k(this.s, this.t, this.u);
       this.t = (double)var1.o();
       boolean var4 = false;
       boolean var5 = false;
-      class_agf var6 = (class_agf)var2.c();
+      class_agf var6 = (class_agf)var2.getBlock();
       if(var6 == class_agk.D) {
-         var4 = ((Boolean)var2.b(class_aka.N)).booleanValue();
+         var4 = ((Boolean)var2.get(class_aka.N)).booleanValue();
          var5 = !var4;
       }
 
       double var7 = 0.0078125D;
-      class_agf.class_b_in_class_agf var9 = (class_agf.class_b_in_class_agf)var2.b(var6.n());
+      class_agf.class_b_in_class_agf var9 = (class_agf.class_b_in_class_agf)var2.get(var6.n());
       switch(class_vn.SyntheticClass_1.b[var9.ordinal()]) {
       case 1:
          this.v -= 0.0078125D;
@@ -474,15 +474,15 @@ public abstract class class_vn extends class_pr implements class_ov {
             this.v += this.v / var40 * var42;
             this.x += this.x / var40 * var42;
          } else if(var9 == class_agf.class_b_in_class_agf.b) {
-            if(this.o.p(var1.e()).c().x()) {
+            if(this.o.p(var1.e()).getBlock().x()) {
                this.v = 0.02D;
-            } else if(this.o.p(var1.f()).c().x()) {
+            } else if(this.o.p(var1.f()).getBlock().x()) {
                this.v = -0.02D;
             }
          } else if(var9 == class_agf.class_b_in_class_agf.a) {
-            if(this.o.p(var1.c()).c().x()) {
+            if(this.o.p(var1.c()).getBlock().x()) {
                this.x = 0.02D;
-            } else if(this.o.p(var1.d()).c().x()) {
+            } else if(this.o.p(var1.d()).getBlock().x()) {
                this.x = -0.02D;
             }
          }
@@ -520,9 +520,9 @@ public abstract class class_vn extends class_pr implements class_ov {
          --var8;
       }
 
-      class_anl var10 = this.o.p(new class_cj(var7, var8, var9));
+      IBlockData var10 = this.o.p(new class_cj(var7, var8, var9));
       if(class_agf.d(var10)) {
-         class_agf.class_b_in_class_agf var11 = (class_agf.class_b_in_class_agf)var10.b(((class_agf)var10.c()).n());
+         class_agf.class_b_in_class_agf var11 = (class_agf.class_b_in_class_agf)var10.get(((class_agf)var10.getBlock()).n());
          int[][] var12 = i[var11.a()];
          double var13 = 0.0D;
          double var15 = (double)var7 + 0.5D + (double)var12[0][0] * 0.5D;
@@ -566,16 +566,16 @@ public abstract class class_vn extends class_pr implements class_ov {
    protected void a(class_dn var1) {
       if(var1.o("CustomDisplayTile")) {
          int var2 = var1.g("DisplayData");
-         class_agj var3;
+         Block var3;
          if(var1.b("DisplayTile", 8)) {
-            var3 = class_agj.b(var1.k("DisplayTile"));
+            var3 = Block.getByName(var1.k("DisplayTile"));
             if(var3 == null) {
                this.a(class_agk.a.S());
             } else {
                this.a(var3.a(var2));
             }
          } else {
-            var3 = class_agj.c(var1.g("DisplayTile"));
+            var3 = Block.getById(var1.g("DisplayTile"));
             if(var3 == null) {
                this.a(class_agk.a.S());
             } else {
@@ -595,10 +595,10 @@ public abstract class class_vn extends class_pr implements class_ov {
    protected void b(class_dn var1) {
       if(this.x()) {
          var1.a("CustomDisplayTile", true);
-         class_anl var2 = this.t();
-         class_jz var3 = (class_jz)class_agj.c.b(var2.c());
+         IBlockData var2 = this.t();
+         MinecraftKey var3 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var2.getBlock());
          var1.a("DisplayTile", var3 == null?"":var3.toString());
-         var1.a("DisplayData", var2.c().c(var2));
+         var1.a("DisplayData", var2.getBlock().c(var2));
          var1.a("DisplayOffset", this.v());
       }
 
@@ -707,11 +707,11 @@ public abstract class class_vn extends class_pr implements class_ov {
 
    public abstract class_vn.class_a_in_class_vn s();
 
-   public class_anl t() {
-      return !this.x()?this.u():class_agj.d(this.H().c(d));
+   public IBlockData t() {
+      return !this.x()?this.u():Block.d(this.H().c(d));
    }
 
-   public class_anl u() {
+   public IBlockData u() {
       return class_agk.a.S();
    }
 
@@ -723,8 +723,8 @@ public abstract class class_vn extends class_pr implements class_ov {
       return 6;
    }
 
-   public void a(class_anl var1) {
-      this.H().b(d, Integer.valueOf(class_agj.f(var1)));
+   public void a(IBlockData var1) {
+      this.H().b(d, Integer.valueOf(Block.f(var1)));
       this.a(true);
    }
 

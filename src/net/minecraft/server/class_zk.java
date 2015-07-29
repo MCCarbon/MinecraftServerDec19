@@ -12,11 +12,11 @@ import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_zk extends class_aar {
    public class_zk() {
-      this.a(class_zu.k);
+      this.a(CreativeTab.k);
    }
 
    public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
@@ -34,7 +34,7 @@ public class class_zk extends class_aar {
                return new class_or(class_oq.b, var1);
             }
 
-            if(var2.p(var6).c().v() == class_atk.h) {
+            if(var2.p(var6).getBlock().v() == class_atk.h) {
                --var1.b;
                var3.b(class_nc.ad[class_aar.b((class_aar)this)]);
                if(var1.b <= 0) {

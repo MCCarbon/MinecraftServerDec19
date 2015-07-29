@@ -9,12 +9,12 @@ import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agd;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahi;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amy;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_ano;
 import net.minecraft.server.class_anp;
@@ -22,7 +22,7 @@ import net.minecraft.server.class_anq;
 import net.minecraft.server.class_ant;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.class_anx;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -49,7 +49,7 @@ public class class_akv extends class_agd {
 
    protected class_akv() {
       super(class_atk.q);
-      this.j(this.M.b().a(a, class_cq.c).a(b, Boolean.valueOf(false)));
+      this.j(this.M.b().set(a, class_cq.c).set(b, Boolean.valueOf(false)));
       this.a(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
    }
 
@@ -66,7 +66,7 @@ public class class_akv extends class_agd {
    }
 
    public void a(class_aer var1, class_cj var2) {
-      switch(class_akv.SyntheticClass_1.a[((class_cq)var1.p(var2).b(a)).ordinal()]) {
+      switch(class_akv.SyntheticClass_1.a[((class_cq)var1.p(var2).get(a)).ordinal()]) {
       case 1:
       default:
          this.a(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
@@ -86,13 +86,13 @@ public class class_akv extends class_agd {
 
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       this.a((class_aer)var1, (class_cj)var2);
       return super.a(var1, var2, var3);
    }
 
-   public class_anl a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.S().a(a, var8.aR()).a(b, Boolean.valueOf(false));
+   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.S().set(a, var8.aR()).set(b, Boolean.valueOf(false));
    }
 
    public class_amg a(class_aen var1, int var2) {
@@ -104,21 +104,21 @@ public class class_akv extends class_agd {
       return var3 instanceof class_amy?((class_amy)var3).d():super.j(var1, var2);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, float var4, int var5) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, float var4, int var5) {
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_xa var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4) {
       if(var4.bH.d) {
-         var3 = var3.a(b, Boolean.valueOf(true));
-         var1.a((class_cj)var2, (class_anl)var3, 4);
+         var3 = var3.set(b, Boolean.valueOf(true));
+         var1.a((class_cj)var2, (IBlockData)var3, 4);
       }
 
       super.a(var1, var2, var3, var4);
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3) {
       if(!var1.D) {
-         if(!((Boolean)var3.b(b)).booleanValue()) {
+         if(!((Boolean)var3.get(b)).booleanValue()) {
             class_amg var4 = var1.s(var2);
             if(var4 instanceof class_amy) {
                class_amy var5 = (class_amy)var4;
@@ -138,7 +138,7 @@ public class class_akv extends class_agd {
       }
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return class_aau.ca;
    }
 
@@ -154,13 +154,13 @@ public class class_akv extends class_agd {
             int var6;
             for(var6 = 0; var6 < 3; ++var6) {
                class_ano var7 = var5.a(var6, 0, 0);
-               var1.a((class_cj)var7.d(), (class_anl)var7.a().a(b, Boolean.valueOf(true)), 2);
+               var1.a((class_cj)var7.d(), (IBlockData)var7.a().set(b, Boolean.valueOf(true)), 2);
             }
 
             for(var6 = 0; var6 < var4.c(); ++var6) {
                for(int var13 = 0; var13 < var4.b(); ++var13) {
                   class_ano var8 = var5.a(var6, var13, 0);
-                  var1.a((class_cj)var8.d(), (class_anl)class_agk.a.S(), 2);
+                  var1.a((class_cj)var8.d(), (IBlockData)class_agk.a.S(), 2);
                }
             }
 
@@ -195,30 +195,30 @@ public class class_akv extends class_agd {
       }
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, class_cq.a(var1 & 7)).a(b, Boolean.valueOf((var1 & 8) > 0));
+   public IBlockData a(int var1) {
+      return this.S().set(a, class_cq.a(var1 & 7)).set(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(class_anl var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_cq)var1.b(a)).a();
-      if(((Boolean)var1.b(b)).booleanValue()) {
+      int var3 = var2 | ((class_cq)var1.get(a)).a();
+      if(((Boolean)var1.get(b)).booleanValue()) {
          var3 |= 8;
       }
 
       return var3;
    }
 
-   public class_anl a(class_anl var1, class_agj.class_c_in_class_agj var2) {
-      return var1.c() != this?var1:var1.a(a, var2.a((class_cq)var1.b(a)));
+   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      return var1.getBlock() != this?var1:var1.set(a, var2.a((class_cq)var1.get(a)));
    }
 
-   public class_anl a(class_anl var1, class_agj.class_a_in_class_agj var2) {
-      return var1.c() != this?var1:this.a(var1, var2.a((class_cq)var1.b(a)));
+   public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a, b});
+      return new class_anm(this, new IBlockState[]{a, b});
    }
 
    protected class_anp l() {
@@ -242,7 +242,7 @@ public class class_akv extends class_agd {
       b = class_anw.a("nodrop");
       N = new Predicate() {
          public boolean a(class_ano var1) {
-            return var1.a() != null && var1.a().c() == class_agk.ce && var1.b() instanceof class_amy && ((class_amy)var1.b()).d() == 1;
+            return var1.a() != null && var1.a().getBlock() == class_agk.ce && var1.b() instanceof class_amy && ((class_amy)var1.b()).d() == 1;
          }
 
          // $FF: synthetic method

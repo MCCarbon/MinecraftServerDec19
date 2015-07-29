@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_aut;
@@ -41,7 +41,7 @@ public class class_tf extends class_tg {
    private int p() {
       if(this.b.V() && this.h()) {
          int var1 = (int)this.b.aT().b;
-         class_agj var2 = this.c.p(new class_cj(class_nu.c(this.b.s), var1, class_nu.c(this.b.u))).c();
+         Block var2 = this.c.p(new class_cj(class_nu.c(this.b.s), var1, class_nu.c(this.b.u))).getBlock();
          int var3 = 0;
 
          do {
@@ -50,7 +50,7 @@ public class class_tf extends class_tg {
             }
 
             ++var1;
-            var2 = this.c.p(new class_cj(class_nu.c(this.b.s), var1, class_nu.c(this.b.u))).c();
+            var2 = this.c.p(new class_cj(class_nu.c(this.b.s), var1, class_nu.c(this.b.u))).getBlock();
             ++var3;
          } while(var3 <= 16);
 
@@ -150,7 +150,7 @@ public class class_tf extends class_tg {
                double var16 = (double)var14 + 0.5D - var7.a;
                double var18 = (double)var15 + 0.5D - var7.c;
                if(var16 * var8 + var18 * var10 >= 0.0D) {
-                  class_agj var20 = this.c.p(new class_cj(var14, var2 - 1, var15)).c();
+                  Block var20 = this.c.p(new class_cj(var14, var2 - 1, var15)).getBlock();
                   class_atk var21 = var20.v();
                   if(var21 == class_atk.a) {
                      return false;
@@ -179,7 +179,7 @@ public class class_tf extends class_tg {
          double var14 = (double)var13.n() + 0.5D - var7.a;
          double var16 = (double)var13.p() + 0.5D - var7.c;
          if(var14 * var8 + var16 * var10 >= 0.0D) {
-            class_agj var18 = this.c.p(var13).c();
+            Block var18 = this.c.p(var13).getBlock();
             if(!var18.b(this.c, var13)) {
                return false;
             }

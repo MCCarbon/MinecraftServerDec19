@@ -5,9 +5,9 @@ import java.util.Set;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -24,7 +24,7 @@ public class class_abm extends class_zv {
       super(1.0F, var1, c);
    }
 
-   public boolean b(class_agj var1) {
+   public boolean b(Block var1) {
       return var1 == class_agk.aH?true:var1 == class_agk.aJ;
    }
 
@@ -32,14 +32,14 @@ public class class_abm extends class_zv {
       if(!var2.a(var4.a(var6), var6, var1)) {
          return class_oq.b;
       } else {
-         class_anl var10 = var3.p(var4);
-         class_agj var11 = var10.c();
-         if(var6 != class_cq.a && var3.p(var4.a()).c().v() == class_atk.a) {
+         IBlockData var10 = var3.p(var4);
+         Block var11 = var10.getBlock();
+         if(var6 != class_cq.a && var3.p(var4.a()).getBlock().v() == class_atk.a) {
             if(var11 != class_agk.c) {
                return class_oq.b;
             } else {
-               class_anl var12 = class_agk.da.S();
-               class_agj var13 = var12.c();
+               IBlockData var12 = class_agk.da.S();
+               Block var13 = var12.getBlock();
                var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), var13.H.c(), (var13.H.d() + 1.0F) / 2.0F, var13.H.e() * 0.8F);
                if(var3.D) {
                   return class_oq.a;
@@ -56,6 +56,6 @@ public class class_abm extends class_zv {
    }
 
    static {
-      c = Sets.newHashSet((Object[])(new class_agj[]{class_agk.aL, class_agk.d, class_agk.ak, class_agk.c, class_agk.n, class_agk.bw, class_agk.m, class_agk.aJ, class_agk.aH, class_agk.aW, class_agk.da}));
+      c = Sets.newHashSet((Object[])(new Block[]{class_agk.aL, class_agk.d, class_agk.ak, class_agk.c, class_agk.n, class_agk.bw, class_agk.m, class_agk.aJ, class_agk.aH, class_agk.aW, class_agk.da}));
    }
 }

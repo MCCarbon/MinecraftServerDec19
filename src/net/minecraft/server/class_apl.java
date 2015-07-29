@@ -7,7 +7,7 @@ import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahx;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
@@ -115,7 +115,7 @@ public class class_apl implements class_aoh {
                      double var46 = (var35 - var33) * var42;
 
                      for(int var48 = 0; var48 < 4; ++var48) {
-                        class_anl var49 = null;
+                        IBlockData var49 = null;
                         if(var11 * 8 + var30 < var5) {
                            var49 = class_agk.l.S();
                         }
@@ -159,14 +159,14 @@ public class class_apl implements class_aoh {
             boolean var10 = this.l[var7 + var8 * 16] + this.j.nextDouble() * 0.2D > 0.0D;
             int var11 = (int)(this.m[var7 + var8 * 16] / 3.0D + 3.0D + this.j.nextDouble() * 0.25D);
             int var12 = -1;
-            class_anl var13 = class_agk.aV.S();
-            class_anl var14 = class_agk.aV.S();
+            IBlockData var13 = class_agk.aV.S();
+            IBlockData var14 = class_agk.aV.S();
 
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
-                  class_anl var16 = var3.a(var8, var15, var7);
-                  if(var16.c() != null && var16.c().v() != class_atk.a) {
-                     if(var16.c() == class_agk.aV) {
+                  IBlockData var16 = var3.a(var8, var15, var7);
+                  if(var16.getBlock() != null && var16.getBlock().v() != class_atk.a) {
+                     if(var16.getBlock() == class_agk.aV) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
                               var13 = null;
@@ -185,7 +185,7 @@ public class class_apl implements class_aoh {
                               }
                            }
 
-                           if(var15 < var4 && (var13 == null || var13.c().v() == class_atk.a)) {
+                           if(var15 < var4 && (var13 == null || var13.getBlock().v() == class_atk.a)) {
                               var13 = class_agk.l.S();
                            }
 
@@ -378,7 +378,7 @@ public class class_apl implements class_aoh {
             return this.B.b();
          }
 
-         if(this.B.a(this.h, var2) && this.h.p(var2.b()).c() == class_agk.by) {
+         if(this.B.a(this.h, var2) && this.h.p(var2.b()).getBlock() == class_agk.by) {
             return this.B.b();
          }
       }

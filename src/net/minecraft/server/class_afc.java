@@ -98,9 +98,9 @@ public class class_afc {
          this.c = var4;
          this.h = new class_arb(class_agk.d.S(), this.d.I);
          this.i = new class_arb(class_agk.n.S(), this.d.M);
-         this.j = new class_arb(class_agk.b.S().a(class_alh.a, class_alh.class_a_in_class_alh.b), this.d.Q);
-         this.k = new class_arb(class_agk.b.S().a(class_alh.a, class_alh.class_a_in_class_alh.d), this.d.U);
-         this.l = new class_arb(class_agk.b.S().a(class_alh.a, class_alh.class_a_in_class_alh.f), this.d.Y);
+         this.j = new class_arb(class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.b), this.d.Q);
+         this.k = new class_arb(class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.d), this.d.U);
+         this.l = new class_arb(class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.f), this.d.Y);
          this.m = new class_arb(class_agk.q.S(), this.d.ac);
          this.n = new class_arb(class_agk.p.S(), this.d.ag);
          this.o = new class_arb(class_agk.o.S(), this.d.ak);

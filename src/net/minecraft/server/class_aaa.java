@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_zg;
 import net.minecraft.server.class_zy;
 
 public class class_aaa extends class_zg {
-   public class_aaa(class_agj var1) {
+   public class_aaa(Block var1) {
       super(var1);
       this.e(0);
       this.a(true);

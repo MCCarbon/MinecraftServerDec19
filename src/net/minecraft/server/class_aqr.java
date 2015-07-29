@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aiw;
 import net.minecraft.server.class_aql;
@@ -10,9 +10,9 @@ import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 
 public class class_aqr extends class_aql {
-   private class_agj a;
+   private Block a;
 
-   public class_aqr(class_agj var1) {
+   public class_aqr(Block var1) {
       super(true);
       this.a = var1;
    }
@@ -42,7 +42,7 @@ public class class_aqr extends class_aql {
             for(var9 = var3.n() - var7; var9 <= var3.n() + var7 && var5; ++var9) {
                for(var10 = var3.p() - var7; var10 <= var3.p() + var7 && var5; ++var10) {
                   if(var6 >= 0 && var6 < 256) {
-                     class_agj var11 = var1.p(var8.c(var9, var6, var10)).c();
+                     Block var11 = var1.p(var8.c(var9, var6, var10)).getBlock();
                      if(var11.v() != class_atk.a && var11.v() != class_atk.j) {
                         var5 = false;
                      }
@@ -56,7 +56,7 @@ public class class_aqr extends class_aql {
          if(!var5) {
             return false;
          } else {
-            class_agj var19 = var1.p(var3.b()).c();
+            Block var19 = var1.p(var3.b()).getBlock();
             if(var19 != class_agk.d && var19 != class_agk.c && var19 != class_agk.bw) {
                return false;
             } else {
@@ -141,8 +141,8 @@ public class class_aqr extends class_aql {
 
                         if(var3.o() >= var3.o() + var4 - 1 || var17 != class_aiw.class_a_in_class_aiw.k) {
                            class_cj var18 = new class_cj(var14, var21, var15);
-                           if(!var1.p(var18).c().q()) {
-                              this.a(var1, var18, this.a.S().a(class_aiw.a, var17));
+                           if(!var1.p(var18).getBlock().q()) {
+                              this.a(var1, var18, this.a.S().set(class_aiw.a, var17));
                            }
                         }
                      }
@@ -150,9 +150,9 @@ public class class_aqr extends class_aql {
                }
 
                for(var21 = 0; var21 < var4; ++var21) {
-                  class_agj var22 = var1.p(var3.b(var21)).c();
+                  Block var22 = var1.p(var3.b(var21)).getBlock();
                   if(!var22.q()) {
-                     this.a(var1, var3.b(var21), this.a.S().a(class_aiw.a, class_aiw.class_a_in_class_aiw.j));
+                     this.a(var1, var3.b(var21), this.a.S().set(class_aiw.a, class_aiw.class_a_in_class_aiw.j));
                   }
                }
 

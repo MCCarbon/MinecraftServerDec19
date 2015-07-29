@@ -15,7 +15,7 @@ import net.minecraft.server.class_aen;
 import net.minecraft.server.class_di;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -23,13 +23,13 @@ import net.minecraft.server.class_or;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_abe extends class_aar {
    public class_abe() {
       this.d(1);
       this.a(true);
-      this.a((class_zu)class_zu.k);
+      this.a((CreativeTab)CreativeTab.k);
    }
 
    public static List h(class_aas var0) {
@@ -145,7 +145,7 @@ public class class_abe extends class_aar {
    }
 
    public static class_aas a(class_aas var0, class_acd var1) {
-      class_jz var2 = (class_jz)class_acd.a.b(var1);
+      MinecraftKey var2 = (MinecraftKey)class_acd.a.getKey(var1);
       if(var2 != null) {
          class_dn var3 = var0.n()?var0.o():new class_dn();
          var3.a("Potion", var2.toString());

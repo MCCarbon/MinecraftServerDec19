@@ -3,17 +3,17 @@ package net.minecraft.server;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
-public class class_jz {
+public class MinecraftKey {
    protected final String a;
    protected final String b;
 
-   protected class_jz(int var1, String... var2) {
+   protected MinecraftKey(int var1, String... var2) {
       this.a = StringUtils.isEmpty(var2[0])?"minecraft":var2[0].toLowerCase();
       this.b = var2[1];
       Validate.notNull(this.b);
    }
 
-   public class_jz(String var1) {
+   public MinecraftKey(String var1) {
       this(0, a(var1));
    }
 
@@ -45,10 +45,10 @@ public class class_jz {
    public boolean equals(Object var1) {
       if(this == var1) {
          return true;
-      } else if(!(var1 instanceof class_jz)) {
+      } else if(!(var1 instanceof MinecraftKey)) {
          return false;
       } else {
-         class_jz var2 = (class_jz)var1;
+         MinecraftKey var2 = (MinecraftKey)var1;
          return this.a.equals(var2.a) && this.b.equals(var2.b);
       }
    }

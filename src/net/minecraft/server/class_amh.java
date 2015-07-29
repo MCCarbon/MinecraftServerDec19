@@ -7,7 +7,7 @@ import net.minecraft.server.class_aau;
 import net.minecraft.server.class_ace;
 import net.minecraft.server.class_agn;
 import net.minecraft.server.class_amu;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_dn;
@@ -70,16 +70,16 @@ public class class_amh extends class_amu implements class_kn, class_oz {
          boolean[] var6 = this.m();
          if(!Arrays.equals(var6, this.i)) {
             this.i = var6;
-            class_anl var4 = this.b.p(this.v());
-            if(!(var4.c() instanceof class_agn)) {
+            IBlockData var4 = this.b.p(this.v());
+            if(!(var4.getBlock() instanceof class_agn)) {
                return;
             }
 
             for(int var5 = 0; var5 < class_agn.a.length; ++var5) {
-               var4 = var4.a(class_agn.a[var5], Boolean.valueOf(var6[var5]));
+               var4 = var4.set(class_agn.a[var5], Boolean.valueOf(var6[var5]));
             }
 
-            this.b.a((class_cj)this.c, (class_anl)var4, 2);
+            this.b.a((class_cj)this.c, (IBlockData)var4, 2);
          }
       }
 

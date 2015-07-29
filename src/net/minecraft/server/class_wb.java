@@ -11,9 +11,9 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
@@ -48,7 +48,7 @@ public class class_wb extends class_wi {
    private static final UUID a = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
    private static final class_qm b;
    private static final Set c;
-   private static final class_anl bs;
+   private static final IBlockData bs;
    private static final int bt;
    private static final int bu;
    private static final int bv;
@@ -100,18 +100,18 @@ public class class_wb extends class_wi {
 
    public void b(class_dn var1) {
       super.b(var1);
-      class_anl var2 = this.cB();
-      var1.a("carried", (short)class_agj.a(var2.c()));
-      var1.a("carriedData", (short)var2.c().c(var2));
+      IBlockData var2 = this.cB();
+      var1.a("carried", (short)Block.getId(var2.getBlock()));
+      var1.a("carriedData", (short)var2.getBlock().c(var2));
    }
 
    public void a(class_dn var1) {
       super.a(var1);
-      class_anl var2;
+      IBlockData var2;
       if(var1.b("carried", 8)) {
-         var2 = class_agj.b(var1.k("carried")).a(var1.f("carriedData") & '\uffff');
+         var2 = Block.getByName(var1.k("carried")).a(var1.f("carriedData") & '\uffff');
       } else {
-         var2 = class_agj.c(var1.f("carried")).a(var1.f("carriedData") & '\uffff');
+         var2 = Block.getById(var1.f("carried")).a(var1.f("carriedData") & '\uffff');
       }
 
       this.a(var2);
@@ -201,7 +201,7 @@ public class class_wb extends class_wi {
 
          while(!var17 && var14.o() > 0) {
             class_cj var18 = var14.b();
-            class_agj var19 = var15.p(var18).c();
+            Block var19 = var15.p(var18).getBlock();
             if(var19.v().c()) {
                var17 = true;
             } else {
@@ -267,19 +267,19 @@ public class class_wb extends class_wi {
          }
       }
 
-      class_anl var6 = this.cB();
+      IBlockData var6 = this.cB();
       if(var6 != bs) {
-         this.a(new class_aas(var6.c(), 1, var6.c().c(var6)), 0.0F);
+         this.a(new class_aas(var6.getBlock(), 1, var6.getBlock().c(var6)), 0.0F);
       }
 
    }
 
-   public void a(class_anl var1) {
-      this.ac.b(bt, Short.valueOf((short)(class_agj.f(var1) & '\uffff')));
+   public void a(IBlockData var1) {
+      this.ac.b(bt, Short.valueOf((short)(Block.f(var1) & '\uffff')));
    }
 
-   public class_anl cB() {
-      return class_agj.d(this.ac.b(bt) & '\uffff');
+   public IBlockData cB() {
+      return Block.d(this.ac.b(bt) & '\uffff');
    }
 
    public boolean a(class_pc var1, float var2) {
@@ -370,8 +370,8 @@ public class class_wb extends class_wi {
          int var4 = class_nu.c(this.a.t + var1.nextDouble() * 3.0D);
          int var5 = class_nu.c(this.a.u - 2.0D + var1.nextDouble() * 4.0D);
          class_cj var6 = new class_cj(var3, var4, var5);
-         class_anl var7 = var2.p(var6);
-         class_agj var8 = var7.c();
+         IBlockData var7 = var2.p(var6);
+         Block var8 = var7.getBlock();
          if(class_wb.c.contains(var8)) {
             this.a.a(var7);
             var2.a(var6, class_wb.bs);
@@ -398,16 +398,16 @@ public class class_wb extends class_wi {
          int var4 = class_nu.c(this.a.t + var1.nextDouble() * 2.0D);
          int var5 = class_nu.c(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
          class_cj var6 = new class_cj(var3, var4, var5);
-         class_agj var7 = var2.p(var6).c();
-         class_agj var8 = var2.p(var6.b()).c();
-         if(this.a(var2, var6, this.a.cB().c(), var7, var8)) {
-            var2.a((class_cj)var6, (class_anl)this.a.cB(), 3);
+         Block var7 = var2.p(var6).getBlock();
+         Block var8 = var2.p(var6.b()).getBlock();
+         if(this.a(var2, var6, this.a.cB().getBlock(), var7, var8)) {
+            var2.a((class_cj)var6, (IBlockData)this.a.cB(), 3);
             this.a.a(class_wb.bs);
          }
 
       }
 
-      private boolean a(class_aen var1, class_cj var2, class_agj var3, class_agj var4, class_agj var5) {
+      private boolean a(class_aen var1, class_cj var2, Block var3, Block var4, Block var5) {
          return !var3.d(var1, var2)?false:(var4.v() != class_atk.a?false:(var5.v() == class_atk.a?false:var5.d()));
       }
    }

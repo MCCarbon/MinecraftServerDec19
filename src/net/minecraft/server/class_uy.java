@@ -6,7 +6,7 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
@@ -485,7 +485,7 @@ public class class_uy extends class_qa {
 
    private void C() {
       if(this.o instanceof class_lg) {
-         ((class_lg)this.o).a(class_cy.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{class_agj.f(class_agk.f.S())});
+         ((class_lg)this.o).a(class_cy.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.f(class_agk.f.S())});
       }
 
    }
@@ -503,7 +503,7 @@ public class class_uy extends class_qa {
    }
 
    private void D() {
-      class_agj.a(this.o, new class_cj(this), new class_aas(class_aau.cm));
+      Block.a(this.o, new class_cj(this), new class_aas(class_aau.cm));
       this.E();
    }
 
@@ -512,7 +512,7 @@ public class class_uy extends class_qa {
       for(var1 = 0; var1 < this.bx.length; ++var1) {
          if(this.bx[var1] != null && this.bx[var1].b > 0) {
             if(this.bx[var1] != null) {
-               class_agj.a(this.o, (new class_cj(this)).a(), this.bx[var1]);
+               Block.a(this.o, (new class_cj(this)).a(), this.bx[var1]);
             }
 
             this.bx[var1] = null;
@@ -522,7 +522,7 @@ public class class_uy extends class_qa {
       for(var1 = 0; var1 < this.by.length; ++var1) {
          if(this.by[var1] != null && this.by[var1].b > 0) {
             if(this.by[var1] != null) {
-               class_agj.a(this.o, (new class_cj(this)).a(), this.by[var1]);
+               Block.a(this.o, (new class_cj(this)).a(), this.by[var1]);
             }
 
             this.by[var1] = null;

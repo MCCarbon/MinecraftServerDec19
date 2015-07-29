@@ -6,12 +6,12 @@ import java.util.Iterator;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aga;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahw;
 import net.minecraft.server.class_ahx;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_c;
@@ -19,13 +19,13 @@ import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 
 public class class_vl extends class_pr {
-   private class_anl d;
+   private IBlockData d;
    public int a;
    public boolean b = true;
    private boolean e;
@@ -38,7 +38,7 @@ public class class_vl extends class_pr {
       super(var1);
    }
 
-   public class_vl(class_aen var1, double var2, double var4, double var6, class_anl var8) {
+   public class_vl(class_aen var1, double var2, double var4, double var6, IBlockData var8) {
       super(var1);
       this.d = var8;
       this.k = true;
@@ -64,7 +64,7 @@ public class class_vl extends class_pr {
    }
 
    public void t_() {
-      class_agj var1 = this.d.c();
+      Block var1 = this.d.getBlock();
       if(var1.v() == class_atk.a) {
          this.J();
       } else {
@@ -74,7 +74,7 @@ public class class_vl extends class_pr {
          class_cj var2;
          if(this.a++ == 0) {
             var2 = new class_cj(this);
-            if(this.o.p(var2).c() == var1) {
+            if(this.o.p(var2).getBlock() == var1) {
                this.o.g(var2);
             } else if(!this.o.D) {
                this.J();
@@ -93,10 +93,10 @@ public class class_vl extends class_pr {
                this.v *= 0.699999988079071D;
                this.x *= 0.699999988079071D;
                this.w *= -0.5D;
-               if(this.o.p(var2).c() != class_agk.M) {
+               if(this.o.p(var2).getBlock() != class_agk.M) {
                   this.J();
                   if(!this.e) {
-                     if(this.o.a(var1, var2, true, class_cq.b, (class_pr)null, (class_aas)null) && !class_ahx.e(this.o, var2.b()) && this.o.a((class_cj)var2, (class_anl)this.d, 3)) {
+                     if(this.o.a(var1, var2, true, class_cq.b, (class_pr)null, (class_aas)null) && !class_ahx.e(this.o, var2.b()) && this.o.a((class_cj)var2, (IBlockData)this.d, 3)) {
                         if(var1 instanceof class_ahx) {
                            ((class_ahx)var1).a_(this.o, var2);
                         }
@@ -138,7 +138,7 @@ public class class_vl extends class_pr {
    }
 
    public void e(float var1, float var2) {
-      class_agj var3 = this.d.c();
+      Block var3 = this.d.getBlock();
       if(this.f) {
          int var4 = class_nu.f(var1 - 1.0F);
          if(var4 > 0) {
@@ -153,12 +153,12 @@ public class class_vl extends class_pr {
             }
 
             if(var6 && (double)this.V.nextFloat() < 0.05000000074505806D + (double)var4 * 0.05D) {
-               int var10 = ((Integer)this.d.b(class_aga.b)).intValue();
+               int var10 = ((Integer)this.d.get(class_aga.b)).intValue();
                ++var10;
                if(var10 > 2) {
                   this.e = true;
                } else {
-                  this.d = this.d.a(class_aga.b, Integer.valueOf(var10));
+                  this.d = this.d.set(class_aga.b, Integer.valueOf(var10));
                }
             }
          }
@@ -167,8 +167,8 @@ public class class_vl extends class_pr {
    }
 
    protected void b(class_dn var1) {
-      class_agj var2 = this.d != null?this.d.c():class_agk.a;
-      class_jz var3 = (class_jz)class_agj.c.b(var2);
+      Block var2 = this.d != null?this.d.getBlock():class_agk.a;
+      MinecraftKey var3 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var2);
       var1.a("Block", var3 == null?"":var3.toString());
       var1.a("Data", (byte)var2.c(this.d));
       var1.a("Time", (byte)this.a);
@@ -185,15 +185,15 @@ public class class_vl extends class_pr {
    protected void a(class_dn var1) {
       int var2 = var1.e("Data") & 255;
       if(var1.b("Block", 8)) {
-         this.d = class_agj.b(var1.k("Block")).a(var2);
+         this.d = Block.getByName(var1.k("Block")).a(var2);
       } else if(var1.b("TileID", 99)) {
-         this.d = class_agj.c(var1.g("TileID")).a(var2);
+         this.d = Block.getById(var1.g("TileID")).a(var2);
       } else {
-         this.d = class_agj.c(var1.e("Tile") & 255).a(var2);
+         this.d = Block.getById(var1.e("Tile") & 255).a(var2);
       }
 
       this.a = var1.e("Time") & 255;
-      class_agj var3 = this.d.c();
+      Block var3 = this.d.getBlock();
       if(var1.b("HurtEntities", 99)) {
          this.f = var1.o("HurtEntities");
          this.h = var1.i("FallHurtAmount");
@@ -223,14 +223,14 @@ public class class_vl extends class_pr {
    public void a(class_c var1) {
       super.a(var1);
       if(this.d != null) {
-         class_agj var2 = this.d.c();
-         var1.a((String)"Immitating block ID", (Object)Integer.valueOf(class_agj.a(var2)));
+         Block var2 = this.d.getBlock();
+         var1.a((String)"Immitating block ID", (Object)Integer.valueOf(Block.getId(var2)));
          var1.a((String)"Immitating block data", (Object)Integer.valueOf(var2.c(this.d)));
       }
 
    }
 
-   public class_anl l() {
+   public IBlockData l() {
       return this.d;
    }
 }

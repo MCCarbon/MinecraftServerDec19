@@ -5,14 +5,14 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_xa;
@@ -30,36 +30,36 @@ public class class_ajs extends class_aja {
    });
 
    public class_ajs() {
-      this.j(this.M.b().a(Q, class_ajw.class_a_in_class_ajw.a).a(b, Boolean.valueOf(true)).a(a, Boolean.valueOf(true)));
+      this.j(this.M.b().set(Q, class_ajw.class_a_in_class_ajw.a).set(b, Boolean.valueOf(true)).set(a, Boolean.valueOf(true)));
    }
 
-   protected void a(class_aen var1, class_cj var2, class_anl var3, int var4) {
-      if(var3.b(Q) == class_ajw.class_a_in_class_ajw.a && var1.s.nextInt(var4) == 0) {
+   protected void a(class_aen var1, class_cj var2, IBlockData var3, int var4) {
+      if(var3.get(Q) == class_ajw.class_a_in_class_ajw.a && var1.s.nextInt(var4) == 0) {
          a(var1, var2, new class_aas(class_aau.e));
       }
 
    }
 
-   protected int d(class_anl var1) {
-      return var1.b(Q) == class_ajw.class_a_in_class_ajw.d?40:super.d(var1);
+   protected int d(IBlockData var1) {
+      return var1.get(Q) == class_ajw.class_a_in_class_ajw.d?40:super.d(var1);
    }
 
-   protected class_aas i(class_anl var1) {
-      return new class_aas(class_aar.a((class_agj)this), 1, ((class_ajw.class_a_in_class_ajw)var1.b(Q)).a());
+   protected class_aas i(IBlockData var1) {
+      return new class_aas(class_aar.a((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a());
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(Q, this.b(var1)).a(a, Boolean.valueOf((var1 & 4) == 0)).a(b, Boolean.valueOf((var1 & 8) > 0));
+   public IBlockData a(int var1) {
+      return this.S().set(Q, this.b(var1)).set(a, Boolean.valueOf((var1 & 4) == 0)).set(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(class_anl var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_ajw.class_a_in_class_ajw)var1.b(Q)).a();
-      if(!((Boolean)var1.b(a)).booleanValue()) {
+      int var3 = var2 | ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a();
+      if(!((Boolean)var1.get(a)).booleanValue()) {
          var3 |= 4;
       }
 
-      if(((Boolean)var1.b(b)).booleanValue()) {
+      if(((Boolean)var1.get(b)).booleanValue()) {
          var3 |= 8;
       }
 
@@ -71,17 +71,17 @@ public class class_ajs extends class_aja {
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{Q, b, a});
+      return new class_anm(this, new IBlockState[]{Q, b, a});
    }
 
-   public int a(class_anl var1) {
-      return ((class_ajw.class_a_in_class_ajw)var1.b(Q)).a();
+   public int a(IBlockData var1) {
+      return ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a();
    }
 
-   public void a(class_aen var1, class_xa var2, class_cj var3, class_anl var4, class_amg var5, class_aas var6) {
+   public void a(class_aen var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
       if(!var1.D && var6 != null && var6.b() == class_aau.bg) {
-         var2.b(class_nc.ab[class_agj.a((class_agj)this)]);
-         a(var1, var3, new class_aas(class_aar.a((class_agj)this), 1, ((class_ajw.class_a_in_class_ajw)var4.b(Q)).a()));
+         var2.b(class_nc.ab[Block.getId((Block)this)]);
+         a(var1, var3, new class_aas(class_aar.a((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var4.get(Q)).a()));
       } else {
          super.a(var1, var2, var3, var4, var5, var6);
       }

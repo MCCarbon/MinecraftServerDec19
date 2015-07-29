@@ -4,10 +4,10 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_age;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anw;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -20,16 +20,16 @@ public class class_akb extends class_age {
 
    protected class_akb(class_atk var1, class_akb.class_a_in_class_akb var2) {
       super(var1);
-      this.j(this.M.b().a(a, Boolean.valueOf(false)));
+      this.j(this.M.b().set(a, Boolean.valueOf(false)));
       this.b = var2;
    }
 
-   protected int e(class_anl var1) {
-      return ((Boolean)var1.b(a)).booleanValue()?15:0;
+   protected int e(IBlockData var1) {
+      return ((Boolean)var1.get(a)).booleanValue()?15:0;
    }
 
-   protected class_anl a(class_anl var1, int var2) {
-      return var1.a(a, Boolean.valueOf(var2 > 0));
+   protected IBlockData a(IBlockData var1, int var2) {
+      return var1.set(a, Boolean.valueOf(var2 > 0));
    }
 
    protected int f(class_aen var1, class_cj var2) {
@@ -60,16 +60,16 @@ public class class_akb extends class_age {
       return 0;
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, Boolean.valueOf(var1 == 1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, Boolean.valueOf(var1 == 1));
    }
 
-   public int c(class_anl var1) {
-      return ((Boolean)var1.b(a)).booleanValue()?1:0;
+   public int c(IBlockData var1) {
+      return ((Boolean)var1.get(a)).booleanValue()?1:0;
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class

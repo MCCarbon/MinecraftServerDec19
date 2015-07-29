@@ -8,7 +8,7 @@ import net.minecraft.server.class_aak;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ali;
 import net.minecraft.server.class_zy;
@@ -26,7 +26,7 @@ public class class_aco {
       this.a(class_agk.p, new class_aas(class_aau.l), 0.7F);
       this.a(class_agk.o, new class_aas(class_aau.m), 1.0F);
       this.a(class_agk.ag, new class_aas(class_aau.k), 1.0F);
-      this.a((class_agj)class_agk.m, new class_aas(class_agk.w), 0.1F);
+      this.a((Block)class_agk.m, new class_aas(class_agk.w), 0.1F);
       this.a(class_aau.an, new class_aas(class_aau.ao), 0.35F);
       this.a(class_aau.bk, new class_aas(class_aau.bl), 0.35F);
       this.a(class_aau.bm, new class_aas(class_aau.bn), 0.35F);
@@ -36,7 +36,7 @@ public class class_aco {
       this.a(new class_aas(class_agk.bf, 1, class_ali.b), new class_aas(class_agk.bf, 1, class_ali.O), 0.1F);
       this.a(class_aau.aK, new class_aas(class_aau.aJ), 0.3F);
       this.a(class_agk.aL, new class_aas(class_agk.cz), 0.35F);
-      this.a((class_agj)class_agk.aK, new class_aas(class_aau.aY, 1, class_zy.n.b()), 0.2F);
+      this.a((Block)class_agk.aK, new class_aas(class_aau.aY, 1, class_zy.n.b()), 0.2F);
       this.a(class_agk.r, new class_aas(class_aau.j, 1, 1), 0.15F);
       this.a(class_agk.s, new class_aas(class_aau.j, 1, 1), 0.15F);
       this.a(class_agk.bP, new class_aas(class_aau.bR), 1.0F);
@@ -60,7 +60,7 @@ public class class_aco {
       this.a(class_agk.co, new class_aas(class_aau.cj), 0.2F);
    }
 
-   public void a(class_agj var1, class_aas var2, float var3) {
+   public void a(Block var1, class_aas var2, float var3) {
       this.a(class_aar.a(var1), var2, var3);
    }
 

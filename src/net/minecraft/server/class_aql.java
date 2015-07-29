@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 
 public abstract class class_aql {
@@ -21,11 +21,11 @@ public abstract class class_aql {
    public void e() {
    }
 
-   protected void a(class_aen var1, class_cj var2, class_anl var3) {
+   protected void a(class_aen var1, class_cj var2, IBlockData var3) {
       if(this.a) {
-         var1.a((class_cj)var2, (class_anl)var3, 3);
+         var1.a((class_cj)var2, (IBlockData)var3, 3);
       } else {
-         var1.a((class_cj)var2, (class_anl)var3, 2);
+         var1.a((class_cj)var2, (IBlockData)var3, 2);
       }
 
    }

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
@@ -12,12 +12,12 @@ public class class_fu implements class_ff {
    private class_cj a;
    private int b;
    private int c;
-   private class_agj d;
+   private Block d;
 
    public class_fu() {
    }
 
-   public class_fu(class_cj var1, class_agj var2, int var3, int var4) {
+   public class_fu(class_cj var1, Block var2, int var3, int var4) {
       this.a = var1;
       this.b = var3;
       this.c = var4;
@@ -28,14 +28,14 @@ public class class_fu implements class_ff {
       this.a = var1.c();
       this.b = var1.readUnsignedByte();
       this.c = var1.readUnsignedByte();
-      this.d = class_agj.c(var1.e() & 4095);
+      this.d = Block.getById(var1.e() & 4095);
    }
 
    public void b(class_em var1) throws IOException {
       var1.a(this.a);
       var1.writeByte(this.b);
       var1.writeByte(this.c);
-      var1.b(class_agj.a(this.d) & 4095);
+      var1.b(Block.getId(this.d) & 4095);
    }
 
    public void a(class_fj var1) {

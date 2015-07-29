@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_atk;
@@ -15,7 +15,7 @@ public class class_aqt extends class_aql {
          var3 = var3.b();
       }
 
-      if(var1.p(var3).c() != class_agk.aJ) {
+      if(var1.p(var3).getBlock() != class_agk.aJ) {
          return false;
       } else {
          var3 = var3.b(var2.nextInt(4));
@@ -37,13 +37,13 @@ public class class_aqt extends class_aql {
                for(int var11 = -var8; var11 <= var8; ++var11) {
                   float var12 = (float)class_nu.a(var11) - 0.25F;
                   if((var9 == 0 && var11 == 0 || var10 * var10 + var12 * var12 <= var7 * var7) && (var9 != -var8 && var9 != var8 && var11 != -var8 && var11 != var8 || var2.nextFloat() <= 0.75F)) {
-                     class_agj var13 = var1.p(var3.a(var9, var6, var11)).c();
+                     Block var13 = var1.p(var3.a(var9, var6, var11)).getBlock();
                      if(var13.v() == class_atk.a || var13 == class_agk.d || var13 == class_agk.aJ || var13 == class_agk.aI) {
                         this.a(var1, var3.a(var9, var6, var11), class_agk.cB.S());
                      }
 
                      if(var6 != 0 && var8 > 1) {
-                        var13 = var1.p(var3.a(var9, -var6, var11)).c();
+                        var13 = var1.p(var3.a(var9, -var6, var11)).getBlock();
                         if(var13.v() == class_atk.a || var13 == class_agk.d || var13 == class_agk.aJ || var13 == class_agk.aI) {
                            this.a(var1, var3.a(var9, -var6, var11), class_agk.cB.S());
                         }
@@ -69,7 +69,7 @@ public class class_aqt extends class_aql {
                }
 
                while(var15.o() > 50) {
-                  class_agj var17 = var1.p(var15).c();
+                  Block var17 = var1.p(var15).getBlock();
                   if(var17.v() != class_atk.a && var17 != class_agk.d && var17 != class_agk.aJ && var17 != class_agk.aI && var17 != class_agk.cB) {
                      break;
                   }

@@ -4,9 +4,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_dn;
@@ -16,9 +16,9 @@ import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 
 public class class_zg extends class_aar {
-   protected final class_agj a;
+   protected final Block a;
 
-   public class_zg(class_agj var1) {
+   public class_zg(Block var1) {
       this.a = var1;
    }
 
@@ -28,8 +28,8 @@ public class class_zg extends class_aar {
    }
 
    public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      class_anl var10 = var3.p(var4);
-      class_agj var11 = var10.c();
+      IBlockData var10 = var3.p(var4);
+      Block var11 = var10.getBlock();
       if(!var11.a(var3, var4)) {
          var4 = var4.a(var6);
       }
@@ -40,10 +40,10 @@ public class class_zg extends class_aar {
          return class_oq.b;
       } else if(var3.a(this.a, var4, false, var6, (class_pr)null, var1)) {
          int var12 = this.a(var1.i());
-         class_anl var13 = this.a.a(var3, var4, var6, var7, var8, var9, var12, var2);
-         if(var3.a((class_cj)var4, (class_anl)var13, 3)) {
+         IBlockData var13 = this.a.a(var3, var4, var6, var7, var8, var9, var12, var2);
+         if(var3.a((class_cj)var4, (IBlockData)var13, 3)) {
             var13 = var3.p(var4);
-            if(var13.c() == this.a) {
+            if(var13.getBlock() == this.a) {
                a(var3, var2, var4, var1);
                this.a.a(var3, var4, var13, var2, var1);
             }
@@ -98,7 +98,7 @@ public class class_zg extends class_aar {
       return this.a.a();
    }
 
-   public class_agj d() {
+   public Block d() {
       return this.a;
    }
 

@@ -10,14 +10,14 @@ import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahd;
 import net.minecraft.server.class_aiz;
 import net.minecraft.server.class_akr;
 import net.minecraft.server.class_ald;
 import net.minecraft.server.class_alp;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
@@ -269,19 +269,19 @@ public class class_asr {
          this.a(var1, class_agk.aO.S(), 1, 1, 0, var3);
          this.a(var1, class_agk.aO.S(), 1, 2, 0, var3);
          this.a(var1, class_agk.L.a(class_zy.a.b()), 1, 3, 0, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.f), 2, 3, 0, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.c), 1, 3, 1, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.e), 0, 3, 0, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.d), 1, 3, -1, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.f), 2, 3, 0, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.c), 1, 3, 1, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.e), 0, 3, 0, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.d), 1, 3, -1, var3);
          return true;
       }
    }
 
    public static class class_b_in_class_asr extends class_asr.class_n_in_class_asr {
-      private class_agj a;
-      private class_agj b;
-      private class_agj c;
-      private class_agj d;
+      private Block a;
+      private Block b;
+      private Block c;
+      private Block d;
 
       public class_b_in_class_asr() {
       }
@@ -298,21 +298,21 @@ public class class_asr {
 
       protected void a(class_dn var1) {
          super.a(var1);
-         var1.a("CA", class_agj.c.a((Object)this.a));
-         var1.a("CB", class_agj.c.a((Object)this.b));
-         var1.a("CC", class_agj.c.a((Object)this.c));
-         var1.a("CD", class_agj.c.a((Object)this.d));
+         var1.a("CA", Block.BLOCK_REGISTRY.getId(this.a));
+         var1.a("CB", Block.BLOCK_REGISTRY.getId(this.b));
+         var1.a("CC", Block.BLOCK_REGISTRY.getId(this.c));
+         var1.a("CD", Block.BLOCK_REGISTRY.getId(this.d));
       }
 
       protected void b(class_dn var1) {
          super.b(var1);
-         this.a = class_agj.c(var1.g("CA"));
-         this.b = class_agj.c(var1.g("CB"));
-         this.c = class_agj.c(var1.g("CC"));
-         this.d = class_agj.c(var1.g("CD"));
+         this.a = Block.getById(var1.g("CA"));
+         this.b = Block.getById(var1.g("CB"));
+         this.c = Block.getById(var1.g("CC"));
+         this.d = Block.getById(var1.g("CD"));
       }
 
-      private class_agj a(Random var1) {
+      private Block a(Random var1) {
          switch(var1.nextInt(10)) {
          case 0:
          case 1:
@@ -388,8 +388,8 @@ public class class_asr {
    }
 
    public static class class_c_in_class_asr extends class_asr.class_n_in_class_asr {
-      private class_agj a;
-      private class_agj b;
+      private Block a;
+      private Block b;
 
       public class_c_in_class_asr() {
       }
@@ -404,17 +404,17 @@ public class class_asr {
 
       protected void a(class_dn var1) {
          super.a(var1);
-         var1.a("CA", class_agj.c.a((Object)this.a));
-         var1.a("CB", class_agj.c.a((Object)this.b));
+         var1.a("CA", Block.BLOCK_REGISTRY.getId(this.a));
+         var1.a("CB", Block.BLOCK_REGISTRY.getId(this.b));
       }
 
       protected void b(class_dn var1) {
          super.b(var1);
-         this.a = class_agj.c(var1.g("CA"));
-         this.b = class_agj.c(var1.g("CB"));
+         this.a = Block.getById(var1.g("CA"));
+         this.b = Block.getById(var1.g("CB"));
       }
 
-      private class_agj a(Random var1) {
+      private Block a(Random var1) {
          switch(var1.nextInt(10)) {
          case 0:
          case 1:
@@ -548,8 +548,8 @@ public class class_asr {
          this.a(var1, class_agk.aO.S(), 2, 1, 4, var3);
          this.a(var1, class_agk.aB.S(), 2, 2, 4, var3);
          this.a(var1, class_agk.f.S(), 1, 1, 5, var3);
-         this.a(var1, class_agk.ad.S().a(class_ald.a, class_cq.c), 2, 1, 5, var3);
-         this.a(var1, class_agk.ad.S().a(class_ald.a, class_cq.e), 1, 1, 4, var3);
+         this.a(var1, class_agk.ad.S().set(class_ald.a, class_cq.c), 2, 1, 5, var3);
+         this.a(var1, class_agk.ad.S().set(class_ald.a, class_cq.e), 1, 1, 4, var3);
          if(!this.b && var3.b((class_df)(new class_cj(this.a(5, 5), this.d(1), this.b(5, 5))))) {
             this.b = true;
             this.a(var1, var3, var2, 5, 1, 5, a, 3 + var2.nextInt(6));
@@ -557,8 +557,8 @@ public class class_asr {
 
          int var4;
          for(var4 = 6; var4 <= 8; ++var4) {
-            if(this.a(var1, var4, 0, -1, var3).c().v() == class_atk.a && this.a(var1, var4, -1, -1, var3).c().v() != class_atk.a) {
-               this.a(var1, class_agk.aw.S().a(class_ald.a, class_cq.c), var4, 0, -1, var3);
+            if(this.a(var1, var4, 0, -1, var3).getBlock().v() == class_atk.a && this.a(var1, var4, -1, -1, var3).getBlock().v() != class_atk.a) {
+               this.a(var1, class_agk.aw.S().set(class_ald.a, class_cq.c), var4, 0, -1, var3);
             }
          }
 
@@ -627,10 +627,10 @@ public class class_asr {
          this.a(var1, class_agk.f.S(), 8, 4, 2, var3);
          this.a(var1, class_agk.f.S(), 8, 4, 3, var3);
          this.a(var1, class_agk.f.S(), 8, 4, 4, var3);
-         class_anl var4 = class_agk.ad.S().a(class_ald.a, class_cq.c);
-         class_anl var5 = class_agk.ad.S().a(class_ald.a, class_cq.d);
-         class_anl var6 = class_agk.ad.S().a(class_ald.a, class_cq.e);
-         class_anl var7 = class_agk.ad.S().a(class_ald.a, class_cq.f);
+         IBlockData var4 = class_agk.ad.S().set(class_ald.a, class_cq.c);
+         IBlockData var5 = class_agk.ad.S().set(class_ald.a, class_cq.d);
+         IBlockData var6 = class_agk.ad.S().set(class_ald.a, class_cq.e);
+         IBlockData var7 = class_agk.ad.S().set(class_ald.a, class_cq.f);
 
          int var8;
          int var9;
@@ -693,10 +693,10 @@ public class class_asr {
          this.a(var1, class_agk.f.S(), 5, 5, 10, var3);
          this.a(var1, class_agk.a.S(), 2, 1, 0, var3);
          this.a(var1, class_agk.a.S(), 2, 2, 0, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.c), 2, 3, 1, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.c), 2, 3, 1, var3);
          this.a(var1, var3, var2, 2, 1, 0, class_cq.c);
          this.a(var1, var3, 1, 0, -1, 3, 2, -1, class_agk.a.S(), class_agk.a.S(), false);
-         if(this.a(var1, 2, 0, -1, var3).c().v() == class_atk.a && this.a(var1, 2, -1, -1, var3).c().v() != class_atk.a) {
+         if(this.a(var1, 2, 0, -1, var3).getBlock().v() == class_atk.a && this.a(var1, 2, -1, -1, var3).getBlock().v() != class_atk.a) {
             this.a(var1, var4, 2, 0, -1, var3);
          }
 
@@ -765,9 +765,9 @@ public class class_asr {
          this.a(var1, class_agk.f.S(), 0, 4, 3, var3);
          this.a(var1, class_agk.f.S(), 8, 4, 2, var3);
          this.a(var1, class_agk.f.S(), 8, 4, 3, var3);
-         class_anl var4 = class_agk.ad.S().a(class_ald.a, class_cq.c);
-         class_anl var5 = class_agk.ad.S().a(class_ald.a, class_cq.d);
-         class_anl var6 = class_agk.ad.S().a(class_ald.a, class_cq.e);
+         IBlockData var4 = class_agk.ad.S().set(class_ald.a, class_cq.c);
+         IBlockData var5 = class_agk.ad.S().set(class_ald.a, class_cq.d);
+         IBlockData var6 = class_agk.ad.S().set(class_ald.a, class_cq.e);
 
          int var7;
          int var8;
@@ -800,15 +800,15 @@ public class class_asr {
          this.a(var1, class_agk.T.S(), 6, 1, 2, var3);
          this.a(var1, class_agk.a.S(), 2, 1, 0, var3);
          this.a(var1, class_agk.a.S(), 2, 2, 0, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.c), 2, 3, 1, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.c), 2, 3, 1, var3);
          this.a(var1, var3, var2, 2, 1, 0, class_cq.c);
-         if(this.a(var1, 2, 0, -1, var3).c().v() == class_atk.a && this.a(var1, 2, -1, -1, var3).c().v() != class_atk.a) {
+         if(this.a(var1, 2, 0, -1, var3).getBlock().v() == class_atk.a && this.a(var1, 2, -1, -1, var3).getBlock().v() != class_atk.a) {
             this.a(var1, var4, 2, 0, -1, var3);
          }
 
          this.a(var1, class_agk.a.S(), 6, 1, 5, var3);
          this.a(var1, class_agk.a.S(), 6, 2, 5, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.d), 6, 3, 4, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.d), 6, 3, 4, var3);
          this.a(var1, var3, var2, 6, 1, 5, class_cq.d);
 
          for(var7 = 0; var7 < 5; ++var7) {
@@ -906,8 +906,8 @@ public class class_asr {
          this.a(var1, class_agk.a.S(), 1, 1, 0, var3);
          this.a(var1, class_agk.a.S(), 1, 2, 0, var3);
          this.a(var1, var3, var2, 1, 1, 0, class_cq.c);
-         if(this.a(var1, 1, 0, -1, var3).c().v() == class_atk.a && this.a(var1, 1, -1, -1, var3).c().v() != class_atk.a) {
-            this.a(var1, class_agk.aw.S().a(class_ald.a, class_cq.c), 1, 0, -1, var3);
+         if(this.a(var1, 1, 0, -1, var3).getBlock().v() == class_atk.a && this.a(var1, 1, -1, -1, var3).getBlock().v() != class_atk.a) {
+            this.a(var1, class_agk.aw.S().set(class_ald.a, class_cq.c), 1, 0, -1, var3);
          }
 
          for(int var4 = 0; var4 < 5; ++var4) {
@@ -956,8 +956,8 @@ public class class_asr {
          int var5;
          for(int var4 = -1; var4 <= 2; ++var4) {
             for(var5 = 0; var5 <= 8; ++var5) {
-               this.a(var1, class_agk.ad.S().a(class_ald.a, class_cq.c), var5, 6 + var4, var4, var3);
-               this.a(var1, class_agk.ad.S().a(class_ald.a, class_cq.d), var5, 6 + var4, 5 - var4, var3);
+               this.a(var1, class_agk.ad.S().set(class_ald.a, class_cq.c), var5, 6 + var4, var4, var3);
+               this.a(var1, class_agk.ad.S().set(class_ald.a, class_cq.d), var5, 6 + var4, 5 - var4, var3);
             }
          }
 
@@ -995,8 +995,8 @@ public class class_asr {
          this.a(var1, var3, 1, 4, 4, 7, 4, 4, class_agk.f.S(), class_agk.f.S(), false);
          this.a(var1, var3, 1, 3, 4, 7, 3, 4, class_agk.X.S(), class_agk.X.S(), false);
          this.a(var1, class_agk.f.S(), 7, 1, 4, var3);
-         this.a(var1, class_agk.ad.S().a(class_ald.a, class_cq.f), 7, 1, 3, var3);
-         class_anl var7 = class_agk.ad.S().a(class_ald.a, class_cq.c);
+         this.a(var1, class_agk.ad.S().set(class_ald.a, class_cq.f), 7, 1, 3, var3);
+         IBlockData var7 = class_agk.ad.S().set(class_ald.a, class_cq.c);
          this.a(var1, var7, 6, 1, 4, var3);
          this.a(var1, var7, 5, 1, 4, var3);
          this.a(var1, var7, 4, 1, 4, var3);
@@ -1009,8 +1009,8 @@ public class class_asr {
          this.a(var1, class_agk.a.S(), 1, 1, 0, var3);
          this.a(var1, class_agk.a.S(), 1, 2, 0, var3);
          this.a(var1, var3, var2, 1, 1, 0, class_cq.c);
-         if(this.a(var1, 1, 0, -1, var3).c().v() == class_atk.a && this.a(var1, 1, -1, -1, var3).c().v() != class_atk.a) {
-            this.a(var1, class_agk.aw.S().a(class_ald.a, class_cq.c), 1, 0, -1, var3);
+         if(this.a(var1, 1, 0, -1, var3).getBlock().v() == class_atk.a && this.a(var1, 1, -1, -1, var3).getBlock().v() != class_atk.a) {
+            this.a(var1, class_agk.aw.S().set(class_ald.a, class_cq.c), 1, 0, -1, var3);
          }
 
          for(var5 = 0; var5 < 6; ++var5) {
@@ -1076,9 +1076,9 @@ public class class_asr {
          this.a(var1, class_agk.e.S(), 2, 1, 7, var3);
          this.a(var1, class_agk.e.S(), 3, 1, 6, var3);
          this.a(var1, class_agk.e.S(), 3, 1, 7, var3);
-         class_anl var4 = class_agk.aw.S().a(class_ald.a, class_cq.c);
-         class_anl var5 = class_agk.aw.S().a(class_ald.a, class_cq.e);
-         class_anl var6 = class_agk.aw.S().a(class_ald.a, class_cq.f);
+         IBlockData var4 = class_agk.aw.S().set(class_ald.a, class_cq.c);
+         IBlockData var5 = class_agk.aw.S().set(class_ald.a, class_cq.e);
+         IBlockData var6 = class_agk.aw.S().set(class_ald.a, class_cq.f);
          this.a(var1, var4, 1, 1, 5, var3);
          this.a(var1, var4, 2, 1, 6, var3);
          this.a(var1, var4, 3, 1, 5, var3);
@@ -1099,11 +1099,11 @@ public class class_asr {
          this.a(var1, class_agk.bj.S(), 0, 3, 6, var3);
          this.a(var1, class_agk.bj.S(), 4, 3, 6, var3);
          this.a(var1, class_agk.bj.S(), 2, 3, 8, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.d), 2, 4, 7, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.f), 1, 4, 6, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.e), 3, 4, 6, var3);
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.c), 2, 4, 5, var3);
-         class_anl var7 = class_agk.au.S().a(class_aiz.a, class_cq.e);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.d), 2, 4, 7, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.f), 1, 4, 6, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.e), 3, 4, 6, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.c), 2, 4, 5, var3);
+         IBlockData var7 = class_agk.au.S().set(class_aiz.a, class_cq.e);
 
          int var8;
          for(var8 = 1; var8 <= 9; ++var8) {
@@ -1113,7 +1113,7 @@ public class class_asr {
          this.a(var1, class_agk.a.S(), 2, 1, 0, var3);
          this.a(var1, class_agk.a.S(), 2, 2, 0, var3);
          this.a(var1, var3, var2, 2, 1, 0, class_cq.c);
-         if(this.a(var1, 2, 0, -1, var3).c().v() == class_atk.a && this.a(var1, 2, -1, -1, var3).c().v() != class_atk.a) {
+         if(this.a(var1, 2, 0, -1, var3).getBlock().v() == class_atk.a && this.a(var1, 2, -1, -1, var3).getBlock().v() != class_atk.a) {
             this.a(var1, var4, 2, 0, -1, var3);
          }
 
@@ -1199,8 +1199,8 @@ public class class_asr {
          this.a(var1, class_agk.f.S(), 3, 3, 0, var3);
          this.a(var1, class_agk.f.S(), 3, 2, 0, var3);
          this.a(var1, class_agk.f.S(), 3, 1, 0, var3);
-         if(this.a(var1, 2, 0, -1, var3).c().v() == class_atk.a && this.a(var1, 2, -1, -1, var3).c().v() != class_atk.a) {
-            this.a(var1, class_agk.aw.S().a(class_ald.a, class_cq.c), 2, 0, -1, var3);
+         if(this.a(var1, 2, 0, -1, var3).getBlock().v() == class_atk.a && this.a(var1, 2, -1, -1, var3).getBlock().v() != class_atk.a) {
+            this.a(var1, class_agk.aw.S().set(class_ald.a, class_cq.c), 2, 0, -1, var3);
          }
 
          this.a(var1, var3, 1, 1, 1, 3, 3, 3, class_agk.a.S(), class_agk.a.S(), false);
@@ -1224,14 +1224,14 @@ public class class_asr {
          }
 
          if(this.a) {
-            class_anl var4 = class_agk.au.S().a(class_aiz.a, class_cq.d);
+            IBlockData var4 = class_agk.au.S().set(class_aiz.a, class_cq.d);
             this.a(var1, var4, 3, 1, 3, var3);
             this.a(var1, var4, 3, 2, 3, var3);
             this.a(var1, var4, 3, 3, 3, var3);
             this.a(var1, var4, 3, 4, 3, var3);
          }
 
-         this.a(var1, class_agk.aa.S().a(class_alp.a, class_cq.c), 2, 3, 1, var3);
+         this.a(var1, class_agk.aa.S().set(class_alp.a, class_cq.c), 2, 3, 1, var3);
 
          for(int var6 = 0; var6 < 5; ++var6) {
             for(int var5 = 0; var5 < 5; ++var5) {
@@ -1336,16 +1336,16 @@ public class class_asr {
       }
 
       public boolean a(class_aen var1, Random var2, class_arw var3) {
-         class_anl var4 = this.a(class_agk.n.S());
-         class_anl var5 = this.a(class_agk.e.S());
+         IBlockData var4 = this.a(class_agk.n.S());
+         IBlockData var5 = this.a(class_agk.e.S());
 
          for(int var6 = this.l.a; var6 <= this.l.d; ++var6) {
             for(int var7 = this.l.c; var7 <= this.l.f; ++var7) {
                class_cj var8 = new class_cj(var6, 64, var7);
                if(var3.b((class_df)var8)) {
                   var8 = var1.r(var8).b();
-                  var1.a((class_cj)var8, (class_anl)var4, 2);
-                  var1.a((class_cj)var8.b(), (class_anl)var5, 2);
+                  var1.a((class_cj)var8, (IBlockData)var4, 2);
+                  var1.a((class_cj)var8.b(), (IBlockData)var5, 2);
                }
             }
          }
@@ -1565,29 +1565,29 @@ public class class_asr {
          return var2;
       }
 
-      protected class_anl a(class_anl var1) {
+      protected IBlockData a(IBlockData var1) {
          if(this.b) {
-            if(var1.c() == class_agk.r || var1.c() == class_agk.s) {
+            if(var1.getBlock() == class_agk.r || var1.getBlock() == class_agk.s) {
                return class_agk.A.S();
             }
 
-            if(var1.c() == class_agk.e) {
+            if(var1.getBlock() == class_agk.e) {
                return class_agk.A.a(class_akr.class_a_in_class_akr.a.a());
             }
 
-            if(var1.c() == class_agk.f) {
+            if(var1.getBlock() == class_agk.f) {
                return class_agk.A.a(class_akr.class_a_in_class_akr.c.a());
             }
 
-            if(var1.c() == class_agk.ad) {
-               return class_agk.bO.S().a(class_ald.a, var1.b(class_ald.a));
+            if(var1.getBlock() == class_agk.ad) {
+               return class_agk.bO.S().set(class_ald.a, var1.get(class_ald.a));
             }
 
-            if(var1.c() == class_agk.aw) {
-               return class_agk.bO.S().a(class_ald.a, var1.b(class_ald.a));
+            if(var1.getBlock() == class_agk.aw) {
+               return class_agk.bO.S().set(class_ald.a, var1.get(class_ald.a));
             }
 
-            if(var1.c() == class_agk.n) {
+            if(var1.getBlock() == class_agk.n) {
                return class_agk.A.S();
             }
          }
@@ -1595,19 +1595,19 @@ public class class_asr {
          return var1;
       }
 
-      protected void a(class_aen var1, class_anl var2, int var3, int var4, int var5, class_arw var6) {
-         class_anl var7 = this.a(var2);
+      protected void a(class_aen var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
+         IBlockData var7 = this.a(var2);
          super.a(var1, var7, var3, var4, var5, var6);
       }
 
-      protected void a(class_aen var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, class_anl var9, class_anl var10, boolean var11) {
-         class_anl var12 = this.a(var9);
-         class_anl var13 = this.a(var10);
+      protected void a(class_aen var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, IBlockData var10, boolean var11) {
+         IBlockData var12 = this.a(var9);
+         IBlockData var13 = this.a(var10);
          super.a(var1, var2, var3, var4, var5, var6, var7, var8, var12, var13, var11);
       }
 
-      protected void b(class_aen var1, class_anl var2, int var3, int var4, int var5, class_arw var6) {
-         class_anl var7 = this.a(var2);
+      protected void b(class_aen var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
+         IBlockData var7 = this.a(var2);
          super.b(var1, var7, var3, var4, var5, var6);
       }
 

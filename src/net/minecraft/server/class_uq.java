@@ -40,7 +40,7 @@ public class class_uq extends class_pr {
       this.ac.b(c, Integer.valueOf(this.b));
       if(!this.o.D) {
          class_cj var1 = new class_cj(this);
-         if(this.o.t instanceof class_apd && this.o.p(var1).c() != class_agk.ab) {
+         if(this.o.t instanceof class_apd && this.o.p(var1).getBlock() != class_agk.ab) {
             this.o.a(var1, class_agk.ab.S());
          }
       }

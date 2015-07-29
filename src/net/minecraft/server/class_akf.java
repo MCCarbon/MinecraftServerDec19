@@ -3,78 +3,78 @@ package net.minecraft.server;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 import net.minecraft.server.class_ny;
 import net.minecraft.server.class_qa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_akf extends class_agj {
+public class class_akf extends Block {
    public static final class_any a = class_any.a("variant", class_akf.class_a_in_class_akf.class);
 
    public class_akf() {
       super(class_atk.e);
-      this.j(this.M.b().a(a, class_akf.class_a_in_class_akf.a));
-      this.a(class_zu.b);
+      this.j(this.M.b().set(a, class_akf.class_a_in_class_akf.a));
+      this.a(CreativeTab.b);
    }
 
-   public class_anl a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
       if(var7 == class_akf.class_a_in_class_akf.c.a()) {
          switch(class_akf.SyntheticClass_1.a[var3.k().ordinal()]) {
          case 1:
-            return this.S().a(a, class_akf.class_a_in_class_akf.e);
+            return this.S().set(a, class_akf.class_a_in_class_akf.e);
          case 2:
-            return this.S().a(a, class_akf.class_a_in_class_akf.d);
+            return this.S().set(a, class_akf.class_a_in_class_akf.d);
          case 3:
          default:
-            return this.S().a(a, class_akf.class_a_in_class_akf.c);
+            return this.S().set(a, class_akf.class_a_in_class_akf.c);
          }
       } else {
-         return var7 == class_akf.class_a_in_class_akf.b.a()?this.S().a(a, class_akf.class_a_in_class_akf.b):this.S().a(a, class_akf.class_a_in_class_akf.a);
+         return var7 == class_akf.class_a_in_class_akf.b.a()?this.S().set(a, class_akf.class_a_in_class_akf.b):this.S().set(a, class_akf.class_a_in_class_akf.a);
       }
    }
 
-   public int a(class_anl var1) {
-      class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.b(a);
+   public int a(IBlockData var1) {
+      class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.get(a);
       return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?var2.a():class_akf.class_a_in_class_akf.c.a();
    }
 
-   protected class_aas i(class_anl var1) {
-      class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.b(a);
-      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.i(var1):new class_aas(class_aar.a((class_agj)this), 1, class_akf.class_a_in_class_akf.c.a());
+   protected class_aas i(IBlockData var1) {
+      class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.get(a);
+      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.i(var1):new class_aas(class_aar.a((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
    }
 
-   public class_atl g(class_anl var1) {
+   public class_atl g(IBlockData var1) {
       return class_atl.p;
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, class_akf.class_a_in_class_akf.a(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, class_akf.class_a_in_class_akf.a(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((class_akf.class_a_in_class_akf)var1.b(a)).a();
+   public int c(IBlockData var1) {
+      return ((class_akf.class_a_in_class_akf)var1.get(a)).a();
    }
 
-   public class_anl a(class_anl var1, class_agj.class_c_in_class_agj var2) {
-      if(var1.c() != this) {
+   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      if(var1.getBlock() != this) {
          return var1;
       } else {
          switch(class_akf.SyntheticClass_1.c[var2.ordinal()]) {
          case 1:
          case 2:
-            switch(class_akf.SyntheticClass_1.b[((class_akf.class_a_in_class_akf)var1.b(a)).ordinal()]) {
+            switch(class_akf.SyntheticClass_1.b[((class_akf.class_a_in_class_akf)var1.get(a)).ordinal()]) {
             case 1:
-               return var1.a(a, class_akf.class_a_in_class_akf.e);
+               return var1.set(a, class_akf.class_a_in_class_akf.e);
             case 2:
-               return var1.a(a, class_akf.class_a_in_class_akf.d);
+               return var1.set(a, class_akf.class_a_in_class_akf.d);
             default:
                return var1;
             }
@@ -85,7 +85,7 @@ public class class_akf extends class_agj {
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class
@@ -95,17 +95,17 @@ public class class_akf extends class_agj {
       // $FF: synthetic field
       static final int[] b;
       // $FF: synthetic field
-      static final int[] c = new int[class_agj.class_c_in_class_agj.values().length];
+      static final int[] c = new int[Block.class_c_in_class_agj.values().length];
 
       static {
          try {
-            c[class_agj.class_c_in_class_agj.d.ordinal()] = 1;
+            c[Block.class_c_in_class_agj.d.ordinal()] = 1;
          } catch (NoSuchFieldError var7) {
             ;
          }
 
          try {
-            c[class_agj.class_c_in_class_agj.b.ordinal()] = 2;
+            c[Block.class_c_in_class_agj.b.ordinal()] = 2;
          } catch (NoSuchFieldError var6) {
             ;
          }

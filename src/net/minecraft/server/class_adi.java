@@ -21,9 +21,9 @@ import net.minecraft.server.class_adt;
 import net.minecraft.server.class_adu;
 import net.minecraft.server.class_adv;
 import net.minecraft.server.class_adw;
-import net.minecraft.server.class_cx;
+import net.minecraft.server.RegistryMaterials;
 import net.minecraft.server.class_di;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pw;
@@ -31,22 +31,22 @@ import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qf;
 
 public abstract class class_adi {
-   public static final class_cx b = new class_cx();
+   public static final RegistryMaterials b = new RegistryMaterials();
    private final class_pw[] a;
    private final class_adi.class_a_in_class_adi e;
    public class_adj c;
    protected String d;
 
    public static class_adi c(int var0) {
-      return (class_adi)b.a(var0);
+      return (class_adi)b.get(var0);
    }
 
    public static int b(class_adi var0) {
-      return b.a(var0);
+      return b.getId(var0);
    }
 
    public static class_adi b(String var0) {
-      return (class_adi)b.c(new class_jz(var0));
+      return (class_adi)b.get(new MinecraftKey(var0));
    }
 
    protected class_adi(class_adi.class_a_in_class_adi var1, class_adj var2, class_pw[] var3) {
@@ -128,31 +128,31 @@ public abstract class class_adi {
    }
 
    public static void e() {
-      b.a(0, new class_jz("protection"), new class_ads(class_adi.class_a_in_class_adi.a, class_ads.class_a_in_class_ads.a, class_pw.values()));
-      b.a(1, new class_jz("fire_protection"), new class_ads(class_adi.class_a_in_class_adi.b, class_ads.class_a_in_class_ads.b, class_pw.values()));
-      b.a(2, new class_jz("feather_falling"), new class_ads(class_adi.class_a_in_class_adi.b, class_ads.class_a_in_class_ads.c, class_pw.values()));
-      b.a(3, new class_jz("blast_protection"), new class_ads(class_adi.class_a_in_class_adi.c, class_ads.class_a_in_class_ads.d, class_pw.values()));
-      b.a(4, new class_jz("projectile_protection"), new class_ads(class_adi.class_a_in_class_adi.b, class_ads.class_a_in_class_ads.e, class_pw.values()));
-      b.a(5, new class_jz("respiration"), new class_adr(class_adi.class_a_in_class_adi.c, class_pw.values()));
-      b.a(6, new class_jz("aqua_affinity"), new class_adw(class_adi.class_a_in_class_adi.c, class_pw.values()));
-      b.a(7, new class_jz("thorns"), new class_adt(class_adi.class_a_in_class_adi.d, class_pw.values()));
-      b.a(8, new class_jz("depth_strider"), new class_adv(class_adi.class_a_in_class_adi.c, class_pw.values()));
-      b.a(16, new class_jz("sharpness"), new class_adf(class_adi.class_a_in_class_adi.a, 0, new class_pw[]{class_pw.a}));
-      b.a(17, new class_jz("smite"), new class_adf(class_adi.class_a_in_class_adi.b, 1, new class_pw[]{class_pw.a}));
-      b.a(18, new class_jz("bane_of_arthropods"), new class_adf(class_adi.class_a_in_class_adi.b, 2, new class_pw[]{class_pw.a}));
-      b.a(19, new class_jz("knockback"), new class_adp(class_adi.class_a_in_class_adi.b, new class_pw[]{class_pw.a}));
-      b.a(20, new class_jz("fire_aspect"), new class_adn(class_adi.class_a_in_class_adi.c, new class_pw[]{class_pw.a}));
-      b.a(21, new class_jz("looting"), new class_adq(class_adi.class_a_in_class_adi.c, class_adj.g, new class_pw[]{class_pw.a}));
-      b.a(32, new class_jz("efficiency"), new class_adh(class_adi.class_a_in_class_adi.a, new class_pw[]{class_pw.a}));
-      b.a(33, new class_jz("silk_touch"), new class_adu(class_adi.class_a_in_class_adi.d, new class_pw[]{class_pw.a}));
-      b.a(34, new class_jz("unbreaking"), new class_adg(class_adi.class_a_in_class_adi.b, new class_pw[]{class_pw.a}));
-      b.a(35, new class_jz("fortune"), new class_adq(class_adi.class_a_in_class_adi.c, class_adj.h, new class_pw[]{class_pw.a}));
-      b.a(48, new class_jz("power"), new class_adb(class_adi.class_a_in_class_adi.a, new class_pw[]{class_pw.a}));
-      b.a(49, new class_jz("punch"), new class_ade(class_adi.class_a_in_class_adi.c, new class_pw[]{class_pw.a}));
-      b.a(50, new class_jz("flame"), new class_adc(class_adi.class_a_in_class_adi.c, new class_pw[]{class_pw.a}));
-      b.a(51, new class_jz("infinity"), new class_add(class_adi.class_a_in_class_adi.d, new class_pw[]{class_pw.a}));
-      b.a(61, new class_jz("luck_of_the_sea"), new class_adq(class_adi.class_a_in_class_adi.c, class_adj.i, new class_pw[]{class_pw.a}));
-      b.a(62, new class_jz("lure"), new class_ado(class_adi.class_a_in_class_adi.c, class_adj.i, new class_pw[]{class_pw.a}));
+      b.register(0, new MinecraftKey("protection"), new class_ads(class_adi.class_a_in_class_adi.a, class_ads.class_a_in_class_ads.a, class_pw.values()));
+      b.register(1, new MinecraftKey("fire_protection"), new class_ads(class_adi.class_a_in_class_adi.b, class_ads.class_a_in_class_ads.b, class_pw.values()));
+      b.register(2, new MinecraftKey("feather_falling"), new class_ads(class_adi.class_a_in_class_adi.b, class_ads.class_a_in_class_ads.c, class_pw.values()));
+      b.register(3, new MinecraftKey("blast_protection"), new class_ads(class_adi.class_a_in_class_adi.c, class_ads.class_a_in_class_ads.d, class_pw.values()));
+      b.register(4, new MinecraftKey("projectile_protection"), new class_ads(class_adi.class_a_in_class_adi.b, class_ads.class_a_in_class_ads.e, class_pw.values()));
+      b.register(5, new MinecraftKey("respiration"), new class_adr(class_adi.class_a_in_class_adi.c, class_pw.values()));
+      b.register(6, new MinecraftKey("aqua_affinity"), new class_adw(class_adi.class_a_in_class_adi.c, class_pw.values()));
+      b.register(7, new MinecraftKey("thorns"), new class_adt(class_adi.class_a_in_class_adi.d, class_pw.values()));
+      b.register(8, new MinecraftKey("depth_strider"), new class_adv(class_adi.class_a_in_class_adi.c, class_pw.values()));
+      b.register(16, new MinecraftKey("sharpness"), new class_adf(class_adi.class_a_in_class_adi.a, 0, new class_pw[]{class_pw.a}));
+      b.register(17, new MinecraftKey("smite"), new class_adf(class_adi.class_a_in_class_adi.b, 1, new class_pw[]{class_pw.a}));
+      b.register(18, new MinecraftKey("bane_of_arthropods"), new class_adf(class_adi.class_a_in_class_adi.b, 2, new class_pw[]{class_pw.a}));
+      b.register(19, new MinecraftKey("knockback"), new class_adp(class_adi.class_a_in_class_adi.b, new class_pw[]{class_pw.a}));
+      b.register(20, new MinecraftKey("fire_aspect"), new class_adn(class_adi.class_a_in_class_adi.c, new class_pw[]{class_pw.a}));
+      b.register(21, new MinecraftKey("looting"), new class_adq(class_adi.class_a_in_class_adi.c, class_adj.g, new class_pw[]{class_pw.a}));
+      b.register(32, new MinecraftKey("efficiency"), new class_adh(class_adi.class_a_in_class_adi.a, new class_pw[]{class_pw.a}));
+      b.register(33, new MinecraftKey("silk_touch"), new class_adu(class_adi.class_a_in_class_adi.d, new class_pw[]{class_pw.a}));
+      b.register(34, new MinecraftKey("unbreaking"), new class_adg(class_adi.class_a_in_class_adi.b, new class_pw[]{class_pw.a}));
+      b.register(35, new MinecraftKey("fortune"), new class_adq(class_adi.class_a_in_class_adi.c, class_adj.h, new class_pw[]{class_pw.a}));
+      b.register(48, new MinecraftKey("power"), new class_adb(class_adi.class_a_in_class_adi.a, new class_pw[]{class_pw.a}));
+      b.register(49, new MinecraftKey("punch"), new class_ade(class_adi.class_a_in_class_adi.c, new class_pw[]{class_pw.a}));
+      b.register(50, new MinecraftKey("flame"), new class_adc(class_adi.class_a_in_class_adi.c, new class_pw[]{class_pw.a}));
+      b.register(51, new MinecraftKey("infinity"), new class_add(class_adi.class_a_in_class_adi.d, new class_pw[]{class_pw.a}));
+      b.register(61, new MinecraftKey("luck_of_the_sea"), new class_adq(class_adi.class_a_in_class_adi.c, class_adj.i, new class_pw[]{class_pw.a}));
+      b.register(62, new MinecraftKey("lure"), new class_ado(class_adi.class_a_in_class_adi.c, class_adj.i, new class_pw[]{class_pw.a}));
    }
 
    public static enum class_a_in_class_adi {

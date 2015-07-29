@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -17,15 +17,15 @@ import net.minecraft.server.class_wz;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yh;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_ahc extends class_agj {
+public class class_ahc extends Block {
    protected class_ahc() {
       super(class_atk.d);
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_anl var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {

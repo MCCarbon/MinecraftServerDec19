@@ -17,11 +17,11 @@ import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahw;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aol;
 import net.minecraft.server.class_aph;
@@ -95,8 +95,8 @@ public class class_aok {
          for(int var8 = 0; var8 < 16; ++var8) {
             for(int var9 = 0; var9 < var5; ++var9) {
                int var10 = var7 * var5 * 16 | var8 * var5 | var9;
-               class_anl var11 = var2.a(var10);
-               if(var11.c().v() != class_atk.a) {
+               IBlockData var11 = var2.a(var10);
+               if(var11.getBlock().v() != class_atk.a) {
                   int var12 = var9 >> 4;
                   if(this.d[var12] == null) {
                      this.d[var12] = new class_aol(var12 << 4, var6);
@@ -343,8 +343,8 @@ public class class_aok {
       return this.f(var1, var2, var3).r();
    }
 
-   private class_agj f(int var1, int var2, int var3) {
-      class_agj var4 = class_agk.a;
+   private Block f(int var1, int var2, int var3) {
+      Block var4 = class_agk.a;
       if(var2 >= 0 && var2 >> 4 < this.d.length) {
          class_aol var5 = this.d[var2 >> 4];
          if(var5 != null) {
@@ -360,7 +360,7 @@ public class class_aok {
       return var4;
    }
 
-   public class_agj a(final int var1, final int var2, final int var3) {
+   public Block a(final int var1, final int var2, final int var3) {
       try {
          return this.f(var1 & 15, var2, var3 & 15);
       } catch (class_e var6) {
@@ -379,7 +379,7 @@ public class class_aok {
       }
    }
 
-   public class_agj a(final class_cj var1) {
+   public Block a(final class_cj var1) {
       try {
          return this.f(var1.n() & 15, var1.o(), var1.p() & 15);
       } catch (class_e var4) {
@@ -398,9 +398,9 @@ public class class_aok {
       }
    }
 
-   public class_anl g(final class_cj var1) {
+   public IBlockData g(final class_cj var1) {
       if(this.i.H() == class_aes.g) {
-         class_anl var7 = null;
+         IBlockData var7 = null;
          if(var1.o() == 60) {
             var7 = class_agk.cv.S();
          }
@@ -454,7 +454,7 @@ public class class_aok {
       return this.g(var1.n() & 15, var1.o(), var1.p() & 15);
    }
 
-   public class_anl a(class_cj var1, class_anl var2) {
+   public IBlockData a(class_cj var1, IBlockData var2) {
       int var3 = var1.n() & 15;
       int var4 = var1.o();
       int var5 = var1.p() & 15;
@@ -464,12 +464,12 @@ public class class_aok {
       }
 
       int var7 = this.j[var6];
-      class_anl var8 = this.g(var1);
+      IBlockData var8 = this.g(var1);
       if(var8 == var2) {
          return null;
       } else {
-         class_agj var9 = var2.c();
-         class_agj var10 = var8.c();
+         Block var9 = var2.getBlock();
+         Block var10 = var8.getBlock();
          class_aol var11 = this.d[var4 >> 4];
          boolean var12 = false;
          if(var11 == null) {
@@ -638,7 +638,7 @@ public class class_aok {
    }
 
    private class_amg i(class_cj var1) {
-      class_agj var2 = this.a(var1);
+      Block var2 = this.a(var1);
       return !var2.B()?null:((class_ahw)var2).a(this.i, this.c(var1));
    }
 
@@ -877,7 +877,7 @@ public class class_aok {
 
          while(true) {
             while(var5.o() > 0 && var7 == -1) {
-               class_agj var8 = this.a(var5);
+               Block var8 = this.a(var5);
                class_atk var9 = var8.v();
                if(!var9.c() && !var9.d()) {
                   var5 = var5.b();
@@ -1010,7 +1010,7 @@ public class class_aok {
                for(int var11 = 0; var11 < var10; ++var11) {
                   class_cq var12 = var9[var11];
                   class_cj var13 = var7.a(var12);
-                  if(this.i.p(var13).c().t() > 0) {
+                  if(this.i.p(var13).getBlock().t() > 0) {
                      this.i.x(var13);
                   }
                }

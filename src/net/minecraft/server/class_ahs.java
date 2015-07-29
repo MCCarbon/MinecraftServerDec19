@@ -7,7 +7,7 @@ import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agd;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_anb;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_awf;
@@ -29,7 +29,7 @@ public class class_ahs extends class_agd {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, var3, 1.0F);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_awf var4, List var5, class_pr var6) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
    }
 
    public boolean c() {
@@ -44,14 +44,14 @@ public class class_ahs extends class_agd {
       return 0;
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_pr var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
       if(var4.m == null && var4.l == null && !var1.D) {
          var4.c(1);
       }
 
    }
 
-   public class_atl g(class_anl var1) {
+   public class_atl g(IBlockData var1) {
       return class_atl.E;
    }
 }

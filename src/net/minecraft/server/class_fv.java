@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
@@ -12,7 +12,7 @@ import net.minecraft.server.class_fj;
 
 public class class_fv implements class_ff {
    private class_cj a;
-   private class_anl b;
+   private IBlockData b;
 
    public class_fv() {
    }
@@ -24,12 +24,12 @@ public class class_fv implements class_ff {
 
    public void a(class_em var1) throws IOException {
       this.a = var1.c();
-      this.b = (class_anl)class_agj.d.a(var1.e());
+      this.b = (IBlockData)Block.BLOCKDATA_REGISTRY.get(var1.e());
    }
 
    public void b(class_em var1) throws IOException {
       var1.a(this.a);
-      var1.b(class_agj.d.a(this.b));
+      var1.b(Block.BLOCKDATA_REGISTRY.getId(this.b));
    }
 
    public void a(class_fj var1) {

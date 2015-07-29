@@ -2,31 +2,31 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_cj;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 import net.minecraft.server.class_zy;
 
-public class class_amc extends class_agj {
+public class class_amc extends Block {
    public static final class_any a = class_any.a("color", class_zy.class);
 
    protected class_amc() {
       super(class_atk.r);
-      this.j(this.M.b().a(a, class_zy.a));
+      this.j(this.M.b().set(a, class_zy.a));
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
       this.a(true);
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
       this.b(0);
    }
 
-   public class_atl g(class_anl var1) {
-      return ((class_zy)var1.b(a)).e();
+   public class_atl g(IBlockData var1) {
+      return ((class_zy)var1.get(a)).e();
    }
 
    public boolean c() {
@@ -55,11 +55,11 @@ public class class_amc extends class_agj {
       return super.d(var1, var2) && this.e(var1, var2);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   private boolean e(class_aen var1, class_cj var2, class_anl var3) {
+   private boolean e(class_aen var1, class_cj var2, IBlockData var3) {
       if(!this.e(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -73,19 +73,19 @@ public class class_amc extends class_agj {
       return !var1.d(var2.b());
    }
 
-   public int a(class_anl var1) {
-      return ((class_zy)var1.b(a)).a();
+   public int a(IBlockData var1) {
+      return ((class_zy)var1.get(a)).a();
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, class_zy.b(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, class_zy.b(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((class_zy)var1.b(a)).a();
+   public int c(IBlockData var1) {
+      return ((class_zy)var1.get(a)).a();
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 }

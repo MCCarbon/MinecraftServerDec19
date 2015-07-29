@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_dd;
+import net.minecraft.server.RegistrySimple;
 
-public class class_cp extends class_dd {
+public class class_cp extends RegistrySimple {
    private final Object a;
 
    public class_cp(Object var1) {
@@ -10,7 +10,7 @@ public class class_cp extends class_dd {
    }
 
    public Object c(Object var1) {
-      Object var2 = super.c(var1);
+      Object var2 = super.get(var1);
       return var2 == null?this.a:var2;
    }
 }

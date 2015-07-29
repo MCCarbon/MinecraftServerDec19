@@ -9,7 +9,7 @@ import net.minecraft.server.class_ajs;
 import net.minecraft.server.class_ajt;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.class_alm;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_aqn;
@@ -24,9 +24,9 @@ import net.minecraft.server.class_uc;
 
 public class class_afk extends class_aez {
    private boolean aD;
-   private static final class_anl aE;
-   private static final class_anl aF;
-   private static final class_anl aG;
+   private static final IBlockData aE;
+   private static final IBlockData aF;
+   private static final IBlockData aG;
 
    public class_afk(int var1, boolean var2) {
       super(var1);
@@ -72,8 +72,8 @@ public class class_afk extends class_aez {
    }
 
    static {
-      aE = class_agk.r.S().a(class_ajt.b, class_ajw.class_a_in_class_ajw.d);
-      aF = class_agk.t.S().a(class_ajs.Q, class_ajw.class_a_in_class_ajw.d).a(class_aja.b, Boolean.valueOf(false));
-      aG = class_agk.t.S().a(class_ajs.Q, class_ajw.class_a_in_class_ajw.a).a(class_aja.b, Boolean.valueOf(false));
+      aE = class_agk.r.S().set(class_ajt.b, class_ajw.class_a_in_class_ajw.d);
+      aF = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.d).set(class_aja.b, Boolean.valueOf(false));
+      aG = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.a).set(class_aja.b, Boolean.valueOf(false));
    }
 }

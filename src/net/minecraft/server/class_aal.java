@@ -4,7 +4,7 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aat;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -13,14 +13,14 @@ import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_ve;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_aal extends class_aar {
    public class_aal() {
       this.e(64);
       this.d(1);
-      this.a(class_zu.i);
-      this.a(new class_jz("cast"), new class_aat() {
+      this.a(CreativeTab.i);
+      this.a(new MinecraftKey("cast"), new class_aat() {
       });
    }
 

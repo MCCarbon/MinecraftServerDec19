@@ -2,24 +2,24 @@ package net.minecraft.server;
 
 import com.google.common.collect.ImmutableList;
 import java.util.List;
-import net.minecraft.server.class_co;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.RegistryBlocks;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
 
 public class class_acd {
-   private static final class_jz b = new class_jz("water");
-   public static final class_co a;
+   private static final MinecraftKey b = new MinecraftKey("water");
+   public static final RegistryBlocks a;
    private static int c;
    private final String d;
    private final ImmutableList e;
 
    public static int a(class_acd var0) {
-      return a.a((Object)var0);
+      return a.getId((Object)var0);
    }
 
    public static class_acd a(String var0) {
-      return (class_acd)a.c(new class_jz(var0));
+      return (class_acd)a.get(new MinecraftKey(var0));
    }
 
    public class_acd(class_pl... var1) {
@@ -32,7 +32,7 @@ public class class_acd {
    }
 
    public String a() {
-      return this.d == null?"potion.effect." + ((class_jz)a.b(this)).a():this.d;
+      return this.d == null?"potion.effect." + ((MinecraftKey)a.getKey(this)).a():this.d;
    }
 
    public List b() {
@@ -78,10 +78,10 @@ public class class_acd {
    }
 
    protected static void a(String var0, class_acd var1) {
-      a.a(c++, new class_jz(var0), var1);
+      a.register(c++, new MinecraftKey(var0), var1);
    }
 
    static {
-      a = new class_co(b);
+      a = new RegistryBlocks(b);
    }
 }

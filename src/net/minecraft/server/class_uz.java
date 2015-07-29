@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_ahh;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -103,7 +103,7 @@ public abstract class class_uz extends class_pr {
          for(int var5 = 0; var5 < var1; ++var5) {
             for(int var6 = 0; var6 < var2; ++var6) {
                class_cj var7 = var3.a(var4, var5).b(var6);
-               class_agj var8 = this.o.p(var7).c();
+               Block var8 = this.o.p(var7).getBlock();
                if(!var8.v().a() && !class_ahh.d(var8)) {
                   return false;
                }
@@ -217,7 +217,7 @@ public abstract class class_uz extends class_pr {
       return this.a;
    }
 
-   public float a(class_agj.class_c_in_class_agj var1) {
+   public float a(Block.class_c_in_class_agj var1) {
       if(this.b.k() != class_cq.class_a_in_class_cq.b) {
          switch(class_uz.SyntheticClass_1.a[var1.ordinal()]) {
          case 1:
@@ -234,30 +234,30 @@ public abstract class class_uz extends class_pr {
       return super.a(var1);
    }
 
-   public float a(class_agj.class_a_in_class_agj var1) {
+   public float a(Block.class_a_in_class_agj var1) {
       return this.a(var1.a(this.b));
    }
 
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_agj.class_c_in_class_agj.values().length];
+      static final int[] a = new int[Block.class_c_in_class_agj.values().length];
 
       static {
          try {
-            a[class_agj.class_c_in_class_agj.c.ordinal()] = 1;
+            a[Block.class_c_in_class_agj.c.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.d.ordinal()] = 2;
+            a[Block.class_c_in_class_agj.d.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.b.ordinal()] = 3;
+            a[Block.class_c_in_class_agj.b.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

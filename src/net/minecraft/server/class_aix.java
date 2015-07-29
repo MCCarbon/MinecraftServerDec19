@@ -6,27 +6,27 @@ import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aet;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aiq;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_aix extends class_aiq {
    public class_aix() {
       super(class_atk.w, false);
       this.L = 0.98F;
       this.a(true);
-      this.a(class_zu.b);
+      this.a(CreativeTab.b);
    }
 
-   public void a(class_aen var1, class_xa var2, class_cj var3, class_anl var4, class_amg var5, class_aas var6) {
-      var2.b(class_nc.ab[class_agj.a((class_agj)this)]);
+   public void a(class_aen var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
+      var2.b(class_nc.ab[Block.getId((Block)this)]);
       var2.a(0.025F);
       if(this.K() && class_adk.a(class_adm.q, var6) > 0) {
          class_aas var9 = this.i(var4);
@@ -41,7 +41,7 @@ public class class_aix extends class_aiq {
 
          int var7 = class_adk.a(class_adm.s, var6);
          this.b(var1, var3, var4, var7);
-         class_atk var8 = var1.p(var3.b()).c().v();
+         class_atk var8 = var1.p(var3.b()).getBlock().v();
          if(var8.c() || var8.d()) {
             var1.a(var3, class_agk.i.S());
          }
@@ -53,7 +53,7 @@ public class class_aix extends class_aiq {
       return 0;
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
       if(var1.b(class_aet.b, var2) > 11 - this.r()) {
          if(var1.t.l()) {
             var1.g(var2);

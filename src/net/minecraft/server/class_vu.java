@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.class_aee;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pr;
@@ -36,7 +36,7 @@ public class class_vu extends class_vn {
       return class_vn.class_a_in_class_vn.e;
    }
 
-   public class_anl u() {
+   public IBlockData u() {
       return class_agk.ac.S();
    }
 

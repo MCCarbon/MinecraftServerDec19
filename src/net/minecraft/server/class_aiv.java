@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_anx;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_cq;
 
-public abstract class class_aiv extends class_agj {
+public abstract class class_aiv extends Block {
    public static final class_anx O;
 
    protected class_aiv(class_atk var1) {

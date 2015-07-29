@@ -6,7 +6,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.class_aco;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aih;
 import net.minecraft.server.class_amu;
@@ -247,8 +247,8 @@ public class class_amr extends class_amu implements class_kn, class_oz {
          return 0;
       } else {
          class_aar var1 = var0.b();
-         if(var1 instanceof class_zg && class_agj.a(var1) != class_agk.a) {
-            class_agj var2 = class_agj.a(var1);
+         if(var1 instanceof class_zg && Block.a(var1) != class_agk.a) {
+            Block var2 = Block.a(var1);
             if(var2 == class_agk.bM) {
                return 150;
             }

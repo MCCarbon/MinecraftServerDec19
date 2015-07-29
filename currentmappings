@@ -1,0 +1,12 @@
+agj Block
+agj$d Block$StepSound
+a EnumChatFormat
+jz MinecraftKey
+co RegistryBlocks
+cx RegistryMaterials
+ct RegistryID
+dd RegistrySimple
+cs Registry
+anl IBlockData
+aoa IBlockState
+zu CreativeTab

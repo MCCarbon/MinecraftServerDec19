@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 import net.minecraft.server.class_qb;
@@ -14,7 +14,7 @@ public abstract class class_py extends class_qb {
    public void e(float var1, float var2) {
    }
 
-   protected void a(double var1, boolean var3, class_agj var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
    }
 
    public void g(float var1, float var2) {
@@ -33,14 +33,14 @@ public abstract class class_py extends class_qb {
       } else {
          float var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).c().L * 0.91F;
+            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.91F;
          }
 
          float var4 = 0.16277136F / (var3 * var3 * var3);
          this.a(var1, var2, this.C?0.1F * var4:0.02F);
          var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).c().L * 0.91F;
+            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.91F;
          }
 
          this.d(this.v, this.w, this.x);

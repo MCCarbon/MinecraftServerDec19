@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aph;
@@ -35,7 +35,7 @@ public class class_apj implements class_aoh {
             int var6 = var1 * 16 + var4;
             var7 = var2 * 16 + var5;
             var3.a(var4, 60, var5, class_agk.cv.S());
-            class_anl var8 = b(var6, var7);
+            IBlockData var8 = b(var6, var7);
             if(var8 != null) {
                var3.a(var4, 70, var5, var8);
             }
@@ -55,15 +55,15 @@ public class class_apj implements class_aoh {
       return var9;
    }
 
-   public static class_anl b(int var0, int var1) {
-      class_anl var2 = null;
+   public static IBlockData b(int var0, int var1) {
+      IBlockData var2 = null;
       if(var0 > 0 && var1 > 0 && var0 % 2 != 0 && var1 % 2 != 0) {
          var0 /= 2;
          var1 /= 2;
          if(var0 <= b && var1 <= c) {
             int var3 = class_nu.a(var0 * b + var1);
             if(var3 < a.size()) {
-               var2 = (class_anl)a.get(var3);
+               var2 = (IBlockData)a.get(var3);
             }
          }
       }
@@ -122,10 +122,10 @@ public class class_apj implements class_aoh {
    }
 
    static {
-      Iterator var0 = class_agj.c.iterator();
+      Iterator var0 = Block.BLOCK_REGISTRY.iterator();
 
       while(var0.hasNext()) {
-         class_agj var1 = (class_agj)var0.next();
+         Block var1 = (Block)var0.next();
          a.addAll(var1.R().a());
       }
 

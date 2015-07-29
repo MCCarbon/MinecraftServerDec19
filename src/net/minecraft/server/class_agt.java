@@ -8,12 +8,12 @@ import net.minecraft.server.class_aau;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acf;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_ame;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anz;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_awf;
@@ -28,15 +28,15 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_za;
 import net.minecraft.server.class_ze;
 
-public class class_agt extends class_agj {
+public class class_agt extends Block {
    public static final class_anz a = class_anz.a("level", 0, 3);
 
    public class_agt() {
       super(class_atk.f, class_atl.m);
-      this.j(this.M.b().a(a, Integer.valueOf(0)));
+      this.j(this.M.b().set(a, Integer.valueOf(0)));
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_awf var4, List var5, class_pr var6) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       float var7 = 0.125F;
@@ -63,8 +63,8 @@ public class class_agt extends class_agj {
       return false;
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_pr var4) {
-      int var5 = ((Integer)var3.b(a)).intValue();
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
+      int var5 = ((Integer)var3.get(a)).intValue();
       float var6 = (float)var2.o() + (6.0F + (float)(3 * var5)) / 16.0F;
       if(!var1.D && var4.av() && var5 > 0 && var4.aT().b <= (double)var6) {
          var4.N();
@@ -73,13 +73,13 @@ public class class_agt extends class_agj {
 
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_anl var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else if(var6 == null) {
          return true;
       } else {
-         int var11 = ((Integer)var3.b(a)).intValue();
+         int var11 = ((Integer)var3.get(a)).intValue();
          class_aar var12 = var6.b();
          if(var12 == class_aau.az) {
             if(var11 < 3) {
@@ -153,22 +153,22 @@ public class class_agt extends class_agj {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, int var4) {
-      var1.a((class_cj)var2, (class_anl)var3.a(a, Integer.valueOf(class_nu.a(var4, 0, 3))), 2);
+   public void a(class_aen var1, class_cj var2, IBlockData var3, int var4) {
+      var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(class_nu.a(var4, 0, 3))), 2);
       var1.e(var2, this);
    }
 
    public void k(class_aen var1, class_cj var2) {
       if(var1.s.nextInt(20) == 1) {
-         class_anl var3 = var1.p(var2);
-         if(((Integer)var3.b(a)).intValue() < 3) {
-            var1.a((class_cj)var2, (class_anl)var3.a(a), 2);
+         IBlockData var3 = var1.p(var2);
+         if(((Integer)var3.get(a)).intValue() < 3) {
+            var1.a((class_cj)var2, (IBlockData)var3.a(a), 2);
          }
 
       }
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return class_aau.bJ;
    }
 
@@ -177,18 +177,18 @@ public class class_agt extends class_agj {
    }
 
    public int l(class_aen var1, class_cj var2) {
-      return ((Integer)var1.p(var2).b(a)).intValue();
+      return ((Integer)var1.p(var2).get(a)).intValue();
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, Integer.valueOf(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, Integer.valueOf(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((Integer)var1.b(a)).intValue();
+   public int c(IBlockData var1) {
+      return ((Integer)var1.get(a)).intValue();
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 }

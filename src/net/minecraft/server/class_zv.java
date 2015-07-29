@@ -5,13 +5,13 @@ import java.util.Set;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qm;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_zv extends class_aar {
    private Set c;
@@ -26,10 +26,10 @@ public class class_zv extends class_aar {
       this.e(var2.a());
       this.a = var2.b();
       this.d = var1 + var2.c();
-      this.a(class_zu.i);
+      this.a(CreativeTab.i);
    }
 
-   public float a(class_aas var1, class_agj var2) {
+   public float a(class_aas var1, Block var2) {
       return this.c.contains(var2)?this.a:1.0F;
    }
 
@@ -38,7 +38,7 @@ public class class_zv extends class_aar {
       return true;
    }
 
-   public boolean a(class_aas var1, class_aen var2, class_agj var3, class_cj var4, class_qa var5) {
+   public boolean a(class_aas var1, class_aen var2, Block var3, class_cj var4, class_qa var5) {
       if((double)var3.g(var2, var4) != 0.0D) {
          var1.a(1, (class_qa)var5);
       }

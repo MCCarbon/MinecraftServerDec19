@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aba;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 
 public class class_yz extends class_aba {
-   public class_yz(class_agj var1) {
+   public class_yz(Block var1) {
       super(var1, var1, new String[]{"intact", "slightlyDamaged", "veryDamaged"});
    }
 

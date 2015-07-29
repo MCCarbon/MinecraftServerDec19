@@ -6,7 +6,7 @@ import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_apd;
 import net.minecraft.server.class_aqi;
@@ -161,8 +161,8 @@ public class class_ana extends class_amg implements class_kn {
             if(var5 != 0 || var6 != 0 || var3) {
                for(int var7 = 255; var7 > (var4 == null?0:var4.o()); --var7) {
                   class_cj var8 = new class_cj(var1.n() + var5, var7, var1.p() + var6);
-                  class_anl var9 = var0.p(var8);
-                  if(var9.c().w() && (var3 || var9.c() != class_agk.h)) {
+                  IBlockData var9 = var0.p(var8);
+                  if(var9.getBlock().w() && (var3 || var9.getBlock() != class_agk.h)) {
                      var4 = var8;
                      break;
                   }
@@ -191,7 +191,7 @@ public class class_ana extends class_amg implements class_kn {
          double var10;
          do {
             do {
-               class_anl var9;
+               IBlockData var9;
                do {
                   do {
                      if(!var7.hasNext()) {
@@ -200,7 +200,7 @@ public class class_ana extends class_amg implements class_kn {
 
                      var8 = (class_cj)var7.next();
                      var9 = var0.g(var8);
-                  } while(var9.c() != class_agk.bH);
+                  } while(var9.getBlock() != class_agk.bH);
                } while(var0.a(var8.b(1)).w());
             } while(var0.a(var8.b(2)).w());
 

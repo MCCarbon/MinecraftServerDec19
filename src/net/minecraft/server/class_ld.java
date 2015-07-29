@@ -361,7 +361,7 @@ public class class_ld {
                var3 = (this.d[0] >> 8 & 15) + this.c.b * 16;
                class_cj var4 = new class_cj(var1, var2, var3);
                this.a((class_ff)(new class_fv(class_ld.this.b, var4)));
-               if(class_ld.this.b.p(var4).c().B()) {
+               if(class_ld.this.b.p(var4).getBlock().B()) {
                   this.a(class_ld.this.b.s(var4));
                }
             } else {
@@ -389,7 +389,7 @@ public class class_ld {
                      var3 = this.d[var1] & 255;
                      var7 = (this.d[var1] >> 8 & 15) + this.c.b * 16;
                      class_cj var8 = new class_cj(var2, var3, var7);
-                     if(class_ld.this.b.p(var8).c().B()) {
+                     if(class_ld.this.b.p(var8).getBlock().B()) {
                         this.a(class_ld.this.b.s(var8));
                      }
                   }

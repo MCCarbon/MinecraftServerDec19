@@ -3,42 +3,42 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_alh;
 import net.minecraft.server.class_ali;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_ny;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_wm;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_ajh extends class_agj {
+public class class_ajh extends Block {
    public static final class_any a = class_any.a("variant", class_ajh.class_a_in_class_ajh.class);
 
    public class_ajh() {
       super(class_atk.B);
-      this.j(this.M.b().a(a, class_ajh.class_a_in_class_ajh.a));
+      this.j(this.M.b().set(a, class_ajh.class_a_in_class_ajh.a));
       this.c(0.0F);
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
    }
 
    public int a(Random var1) {
       return 0;
    }
 
-   public static boolean d(class_anl var0) {
-      class_agj var1 = var0.c();
-      return var0 == class_agk.b.S().a(class_alh.a, class_alh.class_a_in_class_alh.a) || var1 == class_agk.e || var1 == class_agk.bf;
+   public static boolean d(IBlockData var0) {
+      Block var1 = var0.getBlock();
+      return var0 == class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.a) || var1 == class_agk.e || var1 == class_agk.bf;
    }
 
-   protected class_aas i(class_anl var1) {
-      switch(class_ajh.SyntheticClass_1.a[((class_ajh.class_a_in_class_ajh)var1.b(a)).ordinal()]) {
+   protected class_aas i(IBlockData var1) {
+      switch(class_ajh.SyntheticClass_1.a[((class_ajh.class_a_in_class_ajh)var1.get(a)).ordinal()]) {
       case 1:
          return new class_aas(class_agk.e);
       case 2:
@@ -54,7 +54,7 @@ public class class_ajh extends class_agj {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, float var4, int var5) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, float var4, int var5) {
       if(!var1.D && var1.R().b("doTileDrops")) {
          class_wm var6 = new class_wm(var1);
          var6.b((double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, 0.0F, 0.0F);
@@ -65,20 +65,20 @@ public class class_ajh extends class_agj {
    }
 
    public int j(class_aen var1, class_cj var2) {
-      class_anl var3 = var1.p(var2);
-      return var3.c().c(var3);
+      IBlockData var3 = var1.p(var2);
+      return var3.getBlock().c(var3);
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(a, class_ajh.class_a_in_class_ajh.a(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(a, class_ajh.class_a_in_class_ajh.a(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((class_ajh.class_a_in_class_ajh)var1.b(a)).a();
+   public int c(IBlockData var1) {
+      return ((class_ajh.class_a_in_class_ajh)var1.get(a)).a();
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 
    // $FF: synthetic class
@@ -122,33 +122,33 @@ public class class_ajh extends class_agj {
 
    public static enum class_a_in_class_ajh implements class_ny {
       a(0, "stone") {
-         public class_anl d() {
-            return class_agk.b.S().a(class_alh.a, class_alh.class_a_in_class_alh.a);
+         public IBlockData d() {
+            return class_agk.b.S().set(class_alh.a, class_alh.class_a_in_class_alh.a);
          }
       },
       b(1, "cobblestone", "cobble") {
-         public class_anl d() {
+         public IBlockData d() {
             return class_agk.e.S();
          }
       },
       c(2, "stone_brick", "brick") {
-         public class_anl d() {
-            return class_agk.bf.S().a(class_ali.a, class_ali.class_a_in_class_ali.a);
+         public IBlockData d() {
+            return class_agk.bf.S().set(class_ali.a, class_ali.class_a_in_class_ali.a);
          }
       },
       d(3, "mossy_brick", "mossybrick") {
-         public class_anl d() {
-            return class_agk.bf.S().a(class_ali.a, class_ali.class_a_in_class_ali.b);
+         public IBlockData d() {
+            return class_agk.bf.S().set(class_ali.a, class_ali.class_a_in_class_ali.b);
          }
       },
       e(4, "cracked_brick", "crackedbrick") {
-         public class_anl d() {
-            return class_agk.bf.S().a(class_ali.a, class_ali.class_a_in_class_ali.c);
+         public IBlockData d() {
+            return class_agk.bf.S().set(class_ali.a, class_ali.class_a_in_class_ali.c);
          }
       },
       f(5, "chiseled_brick", "chiseledbrick") {
-         public class_anl d() {
-            return class_agk.bf.S().a(class_ali.a, class_ali.class_a_in_class_ali.d);
+         public IBlockData d() {
+            return class_agk.bf.S().set(class_ali.a, class_ali.class_a_in_class_ali.d);
          }
       };
 
@@ -191,9 +191,9 @@ public class class_ajh extends class_agj {
          return this.j;
       }
 
-      public abstract class_anl d();
+      public abstract IBlockData d();
 
-      public static class_ajh.class_a_in_class_ajh a(class_anl var0) {
+      public static class_ajh.class_a_in_class_ajh a(IBlockData var0) {
          class_ajh.class_a_in_class_ajh[] var1 = values();
          int var2 = var1.length;
 

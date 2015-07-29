@@ -4,8 +4,8 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.Callable;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_cj;
 
@@ -168,8 +168,8 @@ public class class_c {
       return this.d;
    }
 
-   public static void a(class_c var0, final class_cj var1, final class_agj var2, final int var3) {
-      final int var4 = class_agj.a(var2);
+   public static void a(class_c var0, final class_cj var1, final Block var2, final int var3) {
+      final int var4 = Block.getId(var2);
       var0.a("Block type", new Callable() {
          public String a() throws Exception {
             try {
@@ -211,7 +211,7 @@ public class class_c {
       });
    }
 
-   public static void a(class_c var0, final class_cj var1, final class_anl var2) {
+   public static void a(class_c var0, final class_cj var1, final IBlockData var2) {
       var0.a("Block", new Callable() {
          public String a() throws Exception {
             return var2.toString();

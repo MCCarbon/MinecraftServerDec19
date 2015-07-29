@@ -8,7 +8,7 @@ import net.minecraft.server.class_abz;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -19,16 +19,16 @@ import net.minecraft.server.class_wz;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_zc;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_zl extends class_aar {
    public class_zl() {
       this.h = 1;
       this.e(384);
-      this.a(class_zu.j);
-      this.a(new class_jz("pull"), new class_aat() {
+      this.a(CreativeTab.j);
+      this.a(new MinecraftKey("pull"), new class_aat() {
       });
-      this.a(new class_jz("pulling"), new class_aat() {
+      this.a(new MinecraftKey("pulling"), new class_aat() {
       });
    }
 

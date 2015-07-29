@@ -18,7 +18,7 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_awf;
@@ -123,7 +123,7 @@ public class class_o {
 		var2 = var2 != null && var2.startsWith("!") ? var2.substring(1) : var2;
 		if (var2 != null && !class_pt.b(var2)) {
 			class_fb var3 = new class_fb("commands.generic.entity.invalidType", new Object[] { var2 });
-			var3.b().a(class_a.m);
+			var3.b().a(EnumChatFormat.RED);
 			var0.a(var3);
 			return false;
 		} else {

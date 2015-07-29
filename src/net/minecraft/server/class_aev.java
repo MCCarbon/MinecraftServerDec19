@@ -7,7 +7,7 @@ import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ajx;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -47,7 +47,7 @@ public class class_aev {
                   int var12 = var4 + var10;
                   int var13 = var5 + var9 * var7 - var8 * var6;
                   boolean var14 = var10 < 0;
-                  this.a.a((class_cj)(new class_cj(var11, var12, var13)), (class_anl)(var14?class_agk.Z.S():class_agk.a.S()));
+                  this.a.a((class_cj)(new class_cj(var11, var12, var13)), (IBlockData)(var14?class_agk.Z.S():class_agk.a.S()));
                }
             }
          }
@@ -79,8 +79,8 @@ public class class_aev {
             for(int var14 = -128; var14 <= 128; ++var14) {
                for(class_cj var15 = var30.a(var13, this.a.W() - 1 - var30.o(), var14); var15.o() >= 0; var15 = var16) {
                   var16 = var15.b();
-                  if(this.a.p(var15).c() == class_agk.aY) {
-                     while(this.a.p(var16 = var15.b()).c() == class_agk.aY) {
+                  if(this.a.p(var15).getBlock() == class_agk.aY) {
+                     while(this.a.p(var16 = var15.b()).getBlock() == class_agk.aY) {
                         var15 = var16;
                      }
 
@@ -204,7 +204,7 @@ public class class_aev {
                               var28 = var20 + var26;
                               int var29 = var17 + (var25 - 1) * var23 - var24 * var22;
                               var13.c(var27, var28, var29);
-                              if(var26 < 0 && !this.a.p(var13).c().v().a() || var26 >= 0 && !this.a.d(var13)) {
+                              if(var26 < 0 && !this.a.p(var13).getBlock().v().a() || var26 >= 0 && !this.a.d(var13)) {
                                  continue label293;
                               }
                            }
@@ -250,7 +250,7 @@ public class class_aev {
                               var27 = var20 + var25;
                               var28 = var17 + (var24 - 1) * var23;
                               var13.c(var26, var27, var28);
-                              if(var25 < 0 && !this.a.p(var13).c().v().a() || var25 >= 0 && !this.a.d(var13)) {
+                              if(var25 < 0 && !this.a.p(var13).getBlock().v().a() || var25 >= 0 && !this.a.d(var13)) {
                                  continue label231;
                               }
                            }
@@ -293,13 +293,13 @@ public class class_aev {
                   var24 = var16 + var22;
                   var25 = var17 + (var21 - 1) * var19 - var20 * var31;
                   boolean var35 = var22 < 0;
-                  this.a.a((class_cj)(new class_cj(var23, var24, var25)), (class_anl)(var35?class_agk.Z.S():class_agk.a.S()));
+                  this.a.a((class_cj)(new class_cj(var23, var24, var25)), (IBlockData)(var35?class_agk.Z.S():class_agk.a.S()));
                }
             }
          }
       }
 
-      class_anl var32 = class_agk.aY.S().a(class_ajx.a, var31 != 0?class_cq.class_a_in_class_cq.a:class_cq.class_a_in_class_cq.c);
+      IBlockData var32 = class_agk.aY.S().set(class_ajx.a, var31 != 0?class_cq.class_a_in_class_cq.a:class_cq.class_a_in_class_cq.c);
 
       for(var21 = 0; var21 < 4; ++var21) {
          for(var22 = 0; var22 < 4; ++var22) {
@@ -318,7 +318,7 @@ public class class_aev {
                var25 = var16 + var23;
                var26 = var17 + (var22 - 1) * var19;
                class_cj var37 = new class_cj(var24, var25, var26);
-               this.a.c(var37, this.a.p(var37).c());
+               this.a.c(var37, this.a.p(var37).getBlock());
             }
          }
       }

@@ -6,15 +6,15 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aiv;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.class_anx;
 import net.minecraft.server.class_any;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
@@ -26,7 +26,7 @@ import net.minecraft.server.class_ny;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_xa;
 
-public class class_ahl extends class_agj {
+public class class_ahl extends Block {
    public static final class_anx a;
    public static final class_anw b;
    public static final class_any N;
@@ -35,7 +35,7 @@ public class class_ahl extends class_agj {
 
    protected class_ahl(class_atk var1) {
       super(var1);
-      this.j(this.M.b().a(a, class_cq.c).a(b, Boolean.valueOf(false)).a(N, class_ahl.class_b_in_class_ahl.a).a(O, Boolean.valueOf(false)).a(P, class_ahl.class_a_in_class_ahl.b));
+      this.j(this.M.b().set(a, class_cq.c).set(b, Boolean.valueOf(false)).set(N, class_ahl.class_b_in_class_ahl.a).set(O, Boolean.valueOf(false)).set(P, class_ahl.class_a_in_class_ahl.b));
    }
 
    public String f() {
@@ -54,7 +54,7 @@ public class class_ahl extends class_agj {
       return false;
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       this.a((class_aer)var1, (class_cj)var2);
       return super.a(var1, var2, var3);
    }
@@ -107,31 +107,31 @@ public class class_ahl extends class_agj {
 
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_anl var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       if(this.J == class_atk.f) {
          return true;
       } else {
-         class_cj var11 = var3.b(P) == class_ahl.class_a_in_class_ahl.b?var2:var2.b();
-         class_anl var12 = var2.equals(var11)?var3:var1.p(var11);
-         if(var12.c() != this) {
+         class_cj var11 = var3.get(P) == class_ahl.class_a_in_class_ahl.b?var2:var2.b();
+         IBlockData var12 = var2.equals(var11)?var3:var1.p(var11);
+         if(var12.getBlock() != this) {
             return false;
          } else {
             var3 = var12.a(b);
-            var1.a((class_cj)var11, (class_anl)var3, 2);
+            var1.a((class_cj)var11, (IBlockData)var3, 2);
             var1.b(var11, var2);
-            var1.a(var4, ((Boolean)var3.b(b)).booleanValue()?1003:1006, var2, 0);
+            var1.a(var4, ((Boolean)var3.get(b)).booleanValue()?1003:1006, var2, 0);
             return true;
          }
       }
    }
 
    public void a(class_aen var1, class_cj var2, boolean var3) {
-      class_anl var4 = var1.p(var2);
-      if(var4.c() == this) {
-         class_cj var5 = var4.b(P) == class_ahl.class_a_in_class_ahl.b?var2:var2.b();
-         class_anl var6 = var2 == var5?var4:var1.p(var5);
-         if(var6.c() == this && ((Boolean)var6.b(b)).booleanValue() != var3) {
-            var1.a((class_cj)var5, (class_anl)var6.a(b, Boolean.valueOf(var3)), 2);
+      IBlockData var4 = var1.p(var2);
+      if(var4.getBlock() == this) {
+         class_cj var5 = var4.get(P) == class_ahl.class_a_in_class_ahl.b?var2:var2.b();
+         IBlockData var6 = var2 == var5?var4:var1.p(var5);
+         if(var6.getBlock() == this && ((Boolean)var6.get(b)).booleanValue() != var3) {
+            var1.a((class_cj)var5, (IBlockData)var6.set(b, Boolean.valueOf(var3)), 2);
             var1.b(var5, var2);
             var1.a((class_xa)null, var3?1003:1006, var2, 0);
          }
@@ -139,11 +139,11 @@ public class class_ahl extends class_agj {
       }
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
-      if(var3.b(P) == class_ahl.class_a_in_class_ahl.a) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
+      if(var3.get(P) == class_ahl.class_a_in_class_ahl.a) {
          class_cj var5 = var2.b();
-         class_anl var6 = var1.p(var5);
-         if(var6.c() != this) {
+         IBlockData var6 = var1.p(var5);
+         if(var6.getBlock() != this) {
             var1.g(var2);
          } else if(var4 != this) {
             this.a(var1, var5, var6, var4);
@@ -151,8 +151,8 @@ public class class_ahl extends class_agj {
       } else {
          boolean var9 = false;
          class_cj var10 = var2.a();
-         class_anl var7 = var1.p(var10);
-         if(var7.c() != this) {
+         IBlockData var7 = var1.p(var10);
+         if(var7.getBlock() != this) {
             var1.g(var2);
             var9 = true;
          }
@@ -160,7 +160,7 @@ public class class_ahl extends class_agj {
          if(!class_aen.a((class_aer)var1, (class_cj)var2.b())) {
             var1.g(var2);
             var9 = true;
-            if(var7.c() == this) {
+            if(var7.getBlock() == this) {
                var1.g(var10);
             }
          }
@@ -171,10 +171,10 @@ public class class_ahl extends class_agj {
             }
          } else {
             boolean var8 = var1.z(var2) || var1.z(var10);
-            if((var8 || var4.i()) && var4 != this && var8 != ((Boolean)var7.b(O)).booleanValue()) {
-               var1.a((class_cj)var10, (class_anl)var7.a(O, Boolean.valueOf(var8)), 2);
-               if(var8 != ((Boolean)var3.b(b)).booleanValue()) {
-                  var1.a((class_cj)var2, (class_anl)var3.a(b, Boolean.valueOf(var8)), 2);
+            if((var8 || var4.i()) && var4 != this && var8 != ((Boolean)var7.get(O)).booleanValue()) {
+               var1.a((class_cj)var10, (IBlockData)var7.set(O, Boolean.valueOf(var8)), 2);
+               if(var8 != ((Boolean)var3.get(b)).booleanValue()) {
+                  var1.a((class_cj)var2, (IBlockData)var3.set(b, Boolean.valueOf(var8)), 2);
                   var1.b(var2, var2);
                   var1.a((class_xa)null, var8?1003:1006, var2, 0);
                }
@@ -184,8 +184,8 @@ public class class_ahl extends class_agj {
 
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
-      return var1.b(P) == class_ahl.class_a_in_class_ahl.a?null:this.l();
+   public class_aar a(IBlockData var1, Random var2, int var3) {
+      return var1.get(P) == class_ahl.class_a_in_class_ahl.a?null:this.l();
    }
 
    public class_awg a(class_aen var1, class_cj var2, class_awh var3, class_awh var4) {
@@ -202,14 +202,14 @@ public class class_ahl extends class_agj {
    }
 
    public static int e(class_aer var0, class_cj var1) {
-      class_anl var2 = var0.p(var1);
-      int var3 = var2.c().c(var2);
+      IBlockData var2 = var0.p(var1);
+      int var3 = var2.getBlock().c(var2);
       boolean var4 = i(var3);
-      class_anl var5 = var0.p(var1.b());
-      int var6 = var5.c().c(var5);
+      IBlockData var5 = var0.p(var1.b());
+      int var6 = var5.getBlock().c(var5);
       int var7 = var4?var6:var3;
-      class_anl var8 = var0.p(var1.a());
-      int var9 = var8.c().c(var8);
+      IBlockData var8 = var0.p(var1.a());
+      int var9 = var8.getBlock().c(var8);
       int var10 = var4?var3:var9;
       boolean var11 = (var10 & 1) != 0;
       boolean var12 = (var10 & 2) != 0;
@@ -220,58 +220,58 @@ public class class_ahl extends class_agj {
       return this == class_agk.aA?class_aau.aD:(this == class_agk.ap?class_aau.at:(this == class_agk.aq?class_aau.au:(this == class_agk.ar?class_aau.av:(this == class_agk.as?class_aau.aw:(this == class_agk.at?class_aau.ax:class_aau.as)))));
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_xa var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4) {
       class_cj var5 = var2.b();
-      if(var4.bH.d && var3.b(P) == class_ahl.class_a_in_class_ahl.a && var1.p(var5).c() == this) {
+      if(var4.bH.d && var3.get(P) == class_ahl.class_a_in_class_ahl.a && var1.p(var5).getBlock() == this) {
          var1.g(var5);
       }
 
    }
 
-   public class_anl a(class_anl var1, class_aer var2, class_cj var3) {
-      class_anl var4;
-      if(var1.b(P) == class_ahl.class_a_in_class_ahl.b) {
+   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+      IBlockData var4;
+      if(var1.get(P) == class_ahl.class_a_in_class_ahl.b) {
          var4 = var2.p(var3.a());
-         if(var4.c() == this) {
-            var1 = var1.a(N, var4.b(N)).a(O, var4.b(O));
+         if(var4.getBlock() == this) {
+            var1 = var1.set(N, var4.get(N)).set(O, var4.get(O));
          }
       } else {
          var4 = var2.p(var3.b());
-         if(var4.c() == this) {
-            var1 = var1.a(a, var4.b(a)).a(b, var4.b(b));
+         if(var4.getBlock() == this) {
+            var1 = var1.set(a, var4.get(a)).set(b, var4.get(b));
          }
       }
 
       return var1;
    }
 
-   public class_anl a(class_anl var1, class_agj.class_c_in_class_agj var2) {
-      return var1.c() == this && var1.b(P) == class_ahl.class_a_in_class_ahl.b?var1.a(a, var2.a((class_cq)var1.b(a))):var1;
+   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      return var1.getBlock() == this && var1.get(P) == class_ahl.class_a_in_class_ahl.b?var1.set(a, var2.a((class_cq)var1.get(a))):var1;
    }
 
-   public class_anl a(class_anl var1, class_agj.class_a_in_class_agj var2) {
-      return var1.c() == this && var1.b(P) == class_ahl.class_a_in_class_ahl.b?this.a(var1, var2.a((class_cq)var1.b(a))):var1;
+   public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
+      return var1.getBlock() == this && var1.get(P) == class_ahl.class_a_in_class_ahl.b?this.a(var1, var2.a((class_cq)var1.get(a))):var1;
    }
 
-   public class_anl a(int var1) {
-      return (var1 & 8) > 0?this.S().a(P, class_ahl.class_a_in_class_ahl.a).a(N, (var1 & 1) > 0?class_ahl.class_b_in_class_ahl.b:class_ahl.class_b_in_class_ahl.a).a(O, Boolean.valueOf((var1 & 2) > 0)):this.S().a(P, class_ahl.class_a_in_class_ahl.b).a(a, class_cq.b(var1 & 3).f()).a(b, Boolean.valueOf((var1 & 4) > 0));
+   public IBlockData a(int var1) {
+      return (var1 & 8) > 0?this.S().set(P, class_ahl.class_a_in_class_ahl.a).set(N, (var1 & 1) > 0?class_ahl.class_b_in_class_ahl.b:class_ahl.class_b_in_class_ahl.a).set(O, Boolean.valueOf((var1 & 2) > 0)):this.S().set(P, class_ahl.class_a_in_class_ahl.b).set(a, class_cq.b(var1 & 3).f()).set(b, Boolean.valueOf((var1 & 4) > 0));
    }
 
-   public int c(class_anl var1) {
+   public int c(IBlockData var1) {
       byte var2 = 0;
       int var3;
-      if(var1.b(P) == class_ahl.class_a_in_class_ahl.a) {
+      if(var1.get(P) == class_ahl.class_a_in_class_ahl.a) {
          var3 = var2 | 8;
-         if(var1.b(N) == class_ahl.class_b_in_class_ahl.b) {
+         if(var1.get(N) == class_ahl.class_b_in_class_ahl.b) {
             var3 |= 1;
          }
 
-         if(((Boolean)var1.b(O)).booleanValue()) {
+         if(((Boolean)var1.get(O)).booleanValue()) {
             var3 |= 2;
          }
       } else {
-         var3 = var2 | ((class_cq)var1.b(a)).e().b();
-         if(((Boolean)var1.b(b)).booleanValue()) {
+         var3 = var2 | ((class_cq)var1.get(a)).e().b();
+         if(((Boolean)var1.get(b)).booleanValue()) {
             var3 |= 4;
          }
       }
@@ -308,7 +308,7 @@ public class class_ahl extends class_agj {
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{P, a, b, N, O});
+      return new class_anm(this, new IBlockState[]{P, a, b, N, O});
    }
 
    static {

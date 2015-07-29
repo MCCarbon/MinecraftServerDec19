@@ -3,10 +3,10 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -15,7 +15,7 @@ import net.minecraft.server.class_kn;
 import net.minecraft.server.class_pr;
 
 public class class_ang extends class_amg implements class_kn {
-   private class_anl a;
+   private IBlockData a;
    private class_cq f;
    private boolean g;
    private boolean h;
@@ -26,14 +26,14 @@ public class class_ang extends class_amg implements class_kn {
    public class_ang() {
    }
 
-   public class_ang(class_anl var1, class_cq var2, boolean var3, boolean var4) {
+   public class_ang(IBlockData var1, class_cq var2, boolean var3, boolean var4) {
       this.a = var1;
       this.f = var2;
       this.g = var3;
       this.h = var4;
    }
 
-   public class_anl b() {
+   public IBlockData b() {
       return this.a;
    }
 
@@ -74,7 +74,7 @@ public class class_ang extends class_amg implements class_kn {
             while(true) {
                while(var5.hasNext()) {
                   class_pr var6 = (class_pr)var5.next();
-                  if(this.a.c() == class_agk.cE && this.g) {
+                  if(this.a.getBlock() == class_agk.cE && this.g) {
                      switch(class_ang.SyntheticClass_1.a[this.f.k().ordinal()]) {
                      case 1:
                         var6.v = (double)this.f.g();
@@ -103,9 +103,9 @@ public class class_ang extends class_amg implements class_kn {
          this.j = this.i = 1.0F;
          this.b.t(this.c);
          this.y();
-         if(this.b.p(this.c).c() == class_agk.M) {
-            this.b.a((class_cj)this.c, (class_anl)this.a, 3);
-            this.b.d(this.c, this.a.c());
+         if(this.b.p(this.c).getBlock() == class_agk.M) {
+            this.b.a((class_cj)this.c, (IBlockData)this.a, 3);
+            this.b.d(this.c, this.a.getBlock());
          }
       }
 
@@ -117,9 +117,9 @@ public class class_ang extends class_amg implements class_kn {
          this.a(1.0F, 0.25F);
          this.b.t(this.c);
          this.y();
-         if(this.b.p(this.c).c() == class_agk.M) {
-            this.b.a((class_cj)this.c, (class_anl)this.a, 3);
-            this.b.d(this.c, this.a.c());
+         if(this.b.p(this.c).getBlock() == class_agk.M) {
+            this.b.a((class_cj)this.c, (IBlockData)this.a, 3);
+            this.b.d(this.c, this.a.getBlock());
          }
 
       } else {
@@ -137,7 +137,7 @@ public class class_ang extends class_amg implements class_kn {
 
    public void a(class_dn var1) {
       super.a(var1);
-      this.a = class_agj.c(var1.g("blockId")).a(var1.g("blockData"));
+      this.a = Block.getById(var1.g("blockId")).a(var1.g("blockData"));
       this.f = class_cq.a(var1.g("facing"));
       this.j = this.i = var1.i("progress");
       this.g = var1.o("extending");
@@ -145,8 +145,8 @@ public class class_ang extends class_amg implements class_kn {
 
    public void b(class_dn var1) {
       super.b(var1);
-      var1.a("blockId", class_agj.a(this.a.c()));
-      var1.a("blockData", this.a.c().c(this.a));
+      var1.a("blockId", Block.getId(this.a.getBlock()));
+      var1.a("blockData", this.a.getBlock().c(this.a));
       var1.a("facing", this.f.a());
       var1.a("progress", this.j);
       var1.a("extending", this.g);

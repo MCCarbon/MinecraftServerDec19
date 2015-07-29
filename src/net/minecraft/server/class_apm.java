@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_akq;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
 import net.minecraft.server.class_atk;
@@ -109,8 +109,8 @@ public class class_apm extends class_apn {
                   for(var43 = var58; !var59 && var43 < var40; ++var43) {
                      for(int var44 = var38 + 1; !var59 && var44 >= var57 - 1; --var44) {
                         if(var44 >= 0 && var44 < 256) {
-                           class_anl var45 = var5.a(var42, var44, var43);
-                           if(var45.c() == class_agk.i || var45.c() == class_agk.j) {
+                           IBlockData var45 = var5.a(var42, var44, var43);
+                           if(var45.getBlock() == class_agk.i || var45.getBlock() == class_agk.j) {
                               var59 = true;
                            }
 
@@ -135,9 +135,9 @@ public class class_apm extends class_apn {
                            for(int var50 = var38; var50 > var57; --var50) {
                               double var51 = ((double)(var50 - 1) + 0.5D - var8) / var31;
                               if(var51 > -0.7D && var61 * var61 + var51 * var51 + var47 * var47 < 1.0D) {
-                                 class_anl var53 = var5.a(var43, var50, var46);
-                                 class_anl var54 = (class_anl)Objects.firstNonNull(var5.a(var43, var50 + 1, var46), class_agk.a.S());
-                                 if(var53.c() == class_agk.c || var53.c() == class_agk.bw) {
+                                 IBlockData var53 = var5.a(var43, var50, var46);
+                                 IBlockData var54 = (IBlockData)Objects.firstNonNull(var5.a(var43, var50 + 1, var46), class_agk.a.S());
+                                 if(var53.getBlock() == class_agk.c || var53.getBlock() == class_agk.bw) {
                                     var49 = true;
                                  }
 
@@ -146,13 +146,13 @@ public class class_apm extends class_apn {
                                        var5.a(var43, var50, var46, class_agk.l.S());
                                     } else {
                                        var5.a(var43, var50, var46, class_agk.a.S());
-                                       if(var54.c() == class_agk.m) {
-                                          var5.a(var43, var50 + 1, var46, var54.b(class_akq.a) == class_akq.class_a_in_class_akq.b?class_agk.cM.S():class_agk.A.S());
+                                       if(var54.getBlock() == class_agk.m) {
+                                          var5.a(var43, var50 + 1, var46, var54.get(class_akq.a) == class_akq.class_a_in_class_akq.b?class_agk.cM.S():class_agk.A.S());
                                        }
 
-                                       if(var49 && var5.a(var43, var50 - 1, var46).c() == class_agk.d) {
+                                       if(var49 && var5.a(var43, var50 - 1, var46).getBlock() == class_agk.d) {
                                           var60.c(var43 + var3 * 16, 0, var46 + var4 * 16);
-                                          var5.a(var43, var50 - 1, var46, this.c.b((class_cj)var60).ak.c().S());
+                                          var5.a(var43, var50 - 1, var46, this.c.b((class_cj)var60).ak.getBlock().S());
                                        }
                                     }
                                  }
@@ -172,8 +172,8 @@ public class class_apm extends class_apn {
 
    }
 
-   protected boolean a(class_anl var1, class_anl var2) {
-      return var1.c() == class_agk.b?true:(var1.c() == class_agk.d?true:(var1.c() == class_agk.c?true:(var1.c() == class_agk.cz?true:(var1.c() == class_agk.cu?true:(var1.c() == class_agk.A?true:(var1.c() == class_agk.cM?true:(var1.c() == class_agk.bw?true:(var1.c() == class_agk.aH?true:(var1.c() == class_agk.m || var1.c() == class_agk.n) && var2.c().v() != class_atk.h))))))));
+   protected boolean a(IBlockData var1, IBlockData var2) {
+      return var1.getBlock() == class_agk.b?true:(var1.getBlock() == class_agk.d?true:(var1.getBlock() == class_agk.c?true:(var1.getBlock() == class_agk.cz?true:(var1.getBlock() == class_agk.cu?true:(var1.getBlock() == class_agk.A?true:(var1.getBlock() == class_agk.cM?true:(var1.getBlock() == class_agk.bw?true:(var1.getBlock() == class_agk.aH?true:(var1.getBlock() == class_agk.m || var1.getBlock() == class_agk.n) && var2.getBlock().v() != class_atk.h))))))));
    }
 
    protected void a(class_aen var1, int var2, int var3, int var4, int var5, class_aph var6) {

@@ -9,7 +9,7 @@ import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_cj;
@@ -60,7 +60,7 @@ public final class class_aeu {
                               int var17;
                               int var18;
                               int var19;
-                              class_agj var20;
+                              Block var20;
                               do {
                                  if(!var42.hasNext()) {
                                     continue label132;
@@ -71,7 +71,7 @@ public final class class_aeu {
                                  var17 = var16.n();
                                  var18 = var16.o();
                                  var19 = var16.p();
-                                 var20 = var1.p(var16).c();
+                                 var20 = var1.p(var16).getBlock();
                               } while(var20.x());
 
                               int var21 = 0;
@@ -170,17 +170,17 @@ public final class class_aeu {
       if(!var1.ag().a(var2)) {
          return false;
       } else {
-         class_agj var3 = var1.p(var2).c();
+         Block var3 = var1.p(var2).getBlock();
          if(var0 == class_qb.class_a_in_class_qb.c) {
-            return var3.v().d() && var1.p(var2.b()).c().v().d() && !var1.p(var2.a()).c().x();
+            return var3.v().d() && var1.p(var2.b()).getBlock().v().d() && !var1.p(var2.a()).getBlock().x();
          } else {
             class_cj var4 = var2.b();
             if(!class_aen.a((class_aer)var1, (class_cj)var4)) {
                return false;
             } else {
-               class_agj var5 = var1.p(var4).c();
+               Block var5 = var1.p(var4).getBlock();
                boolean var6 = var5 != class_agk.h && var5 != class_agk.cv;
-               return var6 && !var3.x() && !var3.v().d() && !var1.p(var2.a()).c().x();
+               return var6 && !var3.x() && !var3.v().d() && !var1.p(var2.a()).getBlock().x();
             }
          }
       }

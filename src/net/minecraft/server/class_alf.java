@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahp;
 import net.minecraft.server.class_ajd;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -21,20 +21,20 @@ public class class_alf extends class_ajd {
 
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2, var3)) {
          this.f(var1, var2, var3);
       }
 
    }
 
-   private void f(class_aen var1, class_cj var2, class_anl var3) {
+   private void f(class_aen var1, class_cj var2, IBlockData var3) {
       class_ahp var4 = a(this.J);
-      var1.a((class_cj)var2, (class_anl)var4.S().a(b, var3.b(b)), 2);
-      var1.a((class_cj)var2, (class_agj)var4, this.a(var1));
+      var1.a((class_cj)var2, (IBlockData)var4.S().set(b, var3.get(b)), 2);
+      var1.a((class_cj)var2, (Block)var4, this.a(var1));
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
       if(this.J == class_atk.i) {
          if(var1.R().b("doFireTick")) {
             int var5 = var4.nextInt(3);
@@ -43,7 +43,7 @@ public class class_alf extends class_ajd {
 
                for(int var7 = 0; var7 < var5; ++var7) {
                   var6 = var6.a(var4.nextInt(3) - 1, 1, var4.nextInt(3) - 1);
-                  class_agj var8 = var1.p(var6).c();
+                  Block var8 = var1.p(var6).getBlock();
                   if(var8.J == class_atk.a) {
                      if(this.f(var1, var6)) {
                         var1.a(var6, class_agk.ab.S());
@@ -81,6 +81,6 @@ public class class_alf extends class_ajd {
    }
 
    private boolean m(class_aen var1, class_cj var2) {
-      return var1.p(var2).c().v().h();
+      return var1.p(var2).getBlock().v().h();
    }
 }

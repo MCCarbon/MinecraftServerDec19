@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_om;
@@ -67,7 +67,7 @@ public class class_rd extends class_rg {
       if(this.g == 240 && this.a.o.ab() == class_om.d) {
          this.a.o.g(this.b);
          this.a.o.b(1012, this.b, 0);
-         this.a.o.b(2001, this.b, class_agj.a((class_agj)this.c));
+         this.a.o.b(2001, this.b, Block.getId((Block)this.c));
       }
 
    }

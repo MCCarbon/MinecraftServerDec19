@@ -8,7 +8,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
@@ -17,7 +17,7 @@ import net.minecraft.server.class_awh;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_jz;
+import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_nu;
@@ -37,7 +37,7 @@ public class class_ve extends class_pr {
    private int g = -1;
    private int h = -1;
    private int i = -1;
-   private class_agj as;
+   private Block as;
    private boolean at;
    public int a;
    public class_xa b;
@@ -145,7 +145,7 @@ public class class_ve extends class_pr {
          }
 
          if(this.at) {
-            if(this.o.p(new class_cj(this.g, this.h, this.i)).c() == this.as) {
+            if(this.o.p(new class_cj(this.g, this.h, this.i)).getBlock() == this.as) {
                ++this.au;
                if(this.au == 1200) {
                   this.J();
@@ -273,7 +273,7 @@ public class class_ve extends class_pr {
                   float var16;
                   float var18;
                   double var23;
-                  class_agj var25;
+                  Block var25;
                   float var40;
                   double var41;
                   if(this.ay > 0) {
@@ -293,7 +293,7 @@ public class class_ve extends class_pr {
                         var19 = this.s + (double)(var40 * (float)this.ay * 0.1F);
                         var41 = (double)((float)class_nu.c(this.aT().b) + 1.0F);
                         var23 = this.u + (double)(var18 * (float)this.ay * 0.1F);
-                        var25 = var37.p(new class_cj((int)var19, (int)var41 - 1, (int)var23)).c();
+                        var25 = var37.p(new class_cj((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == class_agk.j || var25 == class_agk.i) {
                            if(this.V.nextFloat() < 0.15F) {
                               var37.a(class_cy.e, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
@@ -322,7 +322,7 @@ public class class_ve extends class_pr {
                         var19 = this.s + (double)(class_nu.a(var40) * var18 * 0.1F);
                         var41 = (double)((float)class_nu.c(this.aT().b) + 1.0F);
                         var23 = this.u + (double)(class_nu.b(var40) * var18 * 0.1F);
-                        var25 = var37.p(new class_cj((int)var19, (int)var41 - 1, (int)var23)).c();
+                        var25 = var37.p(new class_cj((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == class_agk.j || var25 == class_agk.i) {
                            var37.a(class_cy.f, var19, var41, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                         }
@@ -362,7 +362,7 @@ public class class_ve extends class_pr {
       var1.a("xTile", (short)this.g);
       var1.a("yTile", (short)this.h);
       var1.a("zTile", (short)this.i);
-      class_jz var2 = (class_jz)class_agj.c.b(this.as);
+      MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.as);
       var1.a("inTile", var2 == null?"":var2.toString());
       var1.a("shake", (byte)this.a);
       var1.a("inGround", (byte)(this.at?1:0));
@@ -373,9 +373,9 @@ public class class_ve extends class_pr {
       this.h = var1.f("yTile");
       this.i = var1.f("zTile");
       if(var1.b("inTile", 8)) {
-         this.as = class_agj.b(var1.k("inTile"));
+         this.as = Block.getByName(var1.k("inTile"));
       } else {
-         this.as = class_agj.c(var1.e("inTile") & 255);
+         this.as = Block.getById(var1.e("inTile") & 255);
       }
 
       this.a = var1.e("shake") & 255;

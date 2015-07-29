@@ -8,7 +8,7 @@ import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_apa;
 import net.minecraft.server.class_cj;
@@ -106,7 +106,7 @@ public class class_wn extends class_wi implements class_wk {
       return "mob.skeleton.death";
    }
 
-   protected void a(class_cj var1, class_agj var2) {
+   protected void a(class_cj var1, Block var2) {
       this.a("mob.skeleton.step", 0.15F, 1.0F);
    }
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_aut;
@@ -74,7 +74,7 @@ public abstract class class_rg extends class_rm {
    }
 
    private class_ahl a(class_cj var1) {
-      class_agj var2 = this.a.o.p(var1).c();
+      Block var2 = this.a.o.p(var1).getBlock();
       return var2 instanceof class_ahl && var2.v() == class_atk.d?(class_ahl)var2:null;
    }
 }

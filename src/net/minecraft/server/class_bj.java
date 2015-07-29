@@ -301,7 +301,7 @@ public class class_bj extends class_i {
             }
 
             var2 = var2.b();
-         } while(var1.p(var2).c().v() == class_atk.a);
+         } while(var1.p(var2).getBlock().v() == class_atk.a);
 
          return var2.o() + 1;
       }
@@ -316,7 +316,7 @@ public class class_bj extends class_i {
             }
 
             var2 = var2.b();
-            var3 = var1.p(var2).c().v();
+            var3 = var1.p(var2).getBlock().v();
          } while(var3 == class_atk.a);
 
          return !var3.d() && var3 != class_atk.o;

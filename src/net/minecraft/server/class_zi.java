@@ -17,12 +17,12 @@ import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vk;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_zi extends class_aar {
    public class_zi() {
       this.h = 1;
-      this.a(class_zu.e);
+      this.a(CreativeTab.e);
    }
 
    public class_or a(class_aas var1, class_aen var2, class_xa var3, class_oo var4) {
@@ -65,7 +65,7 @@ public class class_zi extends class_aar {
             return new class_or(class_oq.b, var1);
          } else if(var25.a == class_awg.class_a_in_class_awg.b) {
             class_cj var34 = var25.a();
-            if(var2.p(var34).c() == class_agk.aH) {
+            if(var2.p(var34).getBlock() == class_agk.aH) {
                var34 = var34.b();
             }
 

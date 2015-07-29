@@ -674,7 +674,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    static class class_b_in_class_wv implements class_wv.class_f_in_class_wv {
       public void a(class_aeb var1, Random var2) {
-         class_adi var3 = (class_adi)class_adi.b.a(var2);
+         class_adi var3 = (class_adi)class_adi.b.get(var2);
          int var4 = class_nu.a(var2, var3.d(), var3.b());
          class_aas var5 = class_aau.cg.a(new class_adl(var3, var4));
          int var6 = 2 + var2.nextInt(5 + var4 * 10) + 3 * var4;

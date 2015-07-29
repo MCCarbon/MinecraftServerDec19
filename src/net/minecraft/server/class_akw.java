@@ -6,12 +6,12 @@ import net.minecraft.server.class_atk;
 import net.minecraft.server.class_atl;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_akw extends class_aiq {
    public class_akw() {
       super(class_atk.B, false, class_atl.c);
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
       this.L = 0.8F;
    }
 

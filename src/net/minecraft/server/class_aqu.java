@@ -4,17 +4,17 @@ import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.class_aez;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 
 public class class_aqu extends class_aql {
-   private class_agj a;
+   private Block a;
 
-   public class_aqu(class_agj var1) {
+   public class_aqu(Block var1) {
       this.a = var1;
    }
 
@@ -62,12 +62,12 @@ public class class_aqu extends class_aql {
                for(var8 = 0; var8 < 8; ++var8) {
                   var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
                   if(var31) {
-                     class_atk var10 = var1.p(var3.a(var6, var8, var30)).c().v();
+                     class_atk var10 = var1.p(var3.a(var6, var8, var30)).getBlock().v();
                      if(var8 >= 4 && var10.d()) {
                         return false;
                      }
 
-                     if(var8 < 4 && !var10.a() && var1.p(var3.a(var6, var8, var30)).c() != this.a) {
+                     if(var8 < 4 && !var10.a() && var1.p(var3.a(var6, var8, var30)).getBlock() != this.a) {
                         return false;
                      }
                   }
@@ -79,7 +79,7 @@ public class class_aqu extends class_aql {
             for(var30 = 0; var30 < 16; ++var30) {
                for(var8 = 0; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
-                     var1.a((class_cj)var3.a(var6, var8, var30), (class_anl)(var8 >= 4?class_agk.a.S():this.a.S()), 2);
+                     var1.a((class_cj)var3.a(var6, var8, var30), (IBlockData)(var8 >= 4?class_agk.a.S():this.a.S()), 2);
                   }
                }
             }
@@ -90,12 +90,12 @@ public class class_aqu extends class_aql {
                for(var8 = 4; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
                      class_cj var32 = var3.a(var6, var8 - 1, var30);
-                     if(var1.p(var32).c() == class_agk.d && var1.b(class_aet.a, var3.a(var6, var8, var30)) > 0) {
+                     if(var1.p(var32).getBlock() == class_agk.d && var1.b(class_aet.a, var3.a(var6, var8, var30)) > 0) {
                         class_aez var33 = var1.b(var32);
-                        if(var33.ak.c() == class_agk.bw) {
-                           var1.a((class_cj)var32, (class_anl)class_agk.bw.S(), 2);
+                        if(var33.ak.getBlock() == class_agk.bw) {
+                           var1.a((class_cj)var32, (IBlockData)class_agk.bw.S(), 2);
                         } else {
-                           var1.a((class_cj)var32, (class_anl)class_agk.c.S(), 2);
+                           var1.a((class_cj)var32, (IBlockData)class_agk.c.S(), 2);
                         }
                      }
                   }
@@ -108,8 +108,8 @@ public class class_aqu extends class_aql {
                for(var30 = 0; var30 < 16; ++var30) {
                   for(var8 = 0; var8 < 8; ++var8) {
                      var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
-                     if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.p(var3.a(var6, var8, var30)).c().v().a()) {
-                        var1.a((class_cj)var3.a(var6, var8, var30), (class_anl)class_agk.b.S(), 2);
+                     if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.p(var3.a(var6, var8, var30)).getBlock().v().a()) {
+                        var1.a((class_cj)var3.a(var6, var8, var30), (IBlockData)class_agk.b.S(), 2);
                      }
                   }
                }
@@ -121,7 +121,7 @@ public class class_aqu extends class_aql {
                for(var30 = 0; var30 < 16; ++var30) {
                   byte var34 = 4;
                   if(var1.v(var3.a(var6, var34, var30))) {
-                     var1.a((class_cj)var3.a(var6, var34, var30), (class_anl)class_agk.aI.S(), 2);
+                     var1.a((class_cj)var3.a(var6, var34, var30), (IBlockData)class_agk.aI.S(), 2);
                   }
                }
             }

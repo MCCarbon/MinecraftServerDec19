@@ -12,14 +12,14 @@ import net.minecraft.server.class_uz;
 import net.minecraft.server.class_va;
 import net.minecraft.server.class_vc;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_aap extends class_aar {
    private final Class a;
 
    public class_aap(Class var1) {
       this.a = var1;
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
    }
 
    public class_oq a(class_aas var1, class_xa var2, class_aen var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {

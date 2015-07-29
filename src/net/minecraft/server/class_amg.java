@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.concurrent.Callable;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aiy;
 import net.minecraft.server.class_ame;
@@ -29,7 +29,7 @@ import net.minecraft.server.class_amz;
 import net.minecraft.server.class_ana;
 import net.minecraft.server.class_anb;
 import net.minecraft.server.class_ang;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_c;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
@@ -45,7 +45,7 @@ public abstract class class_amg {
    protected class_cj c;
    protected boolean d;
    private int h;
-   protected class_agj e;
+   protected Block e;
 
    public class_amg() {
       this.c = class_cj.a;
@@ -112,8 +112,8 @@ public abstract class class_amg {
 
    public int u() {
       if(this.h == -1) {
-         class_anl var1 = this.b.p(this.c);
-         this.h = var1.c().c(var1);
+         IBlockData var1 = this.b.p(this.c);
+         this.h = var1.getBlock().c(var1);
       }
 
       return this.h;
@@ -121,8 +121,8 @@ public abstract class class_amg {
 
    public void p_() {
       if(this.b != null) {
-         class_anl var1 = this.b.p(this.c);
-         this.h = var1.c().c(var1);
+         IBlockData var1 = this.b.p(this.c);
+         this.h = var1.getBlock().c(var1);
          this.b.b(this.c, this);
          if(this.w() != class_agk.a) {
             this.b.e(this.c, this.w());
@@ -135,9 +135,9 @@ public abstract class class_amg {
       return this.c;
    }
 
-   public class_agj w() {
+   public Block w() {
       if(this.e == null) {
-         this.e = this.b.p(this.c).c();
+         this.e = this.b.p(this.c).getBlock();
       }
 
       return this.e;
@@ -183,10 +183,10 @@ public abstract class class_amg {
          class_c.a(var1, this.c, this.w(), this.u());
          var1.a("Actual block type", new Callable() {
             public String a() throws Exception {
-               int var1 = class_agj.a(class_amg.this.b.p(class_amg.this.c).c());
+               int var1 = Block.getId(class_amg.this.b.p(class_amg.this.c).getBlock());
 
                try {
-                  return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var1), class_agj.c(var1).a(), class_agj.c(var1).getClass().getCanonicalName()});
+                  return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var1), Block.getById(var1).a(), Block.getById(var1).getClass().getCanonicalName()});
                } catch (Throwable var3) {
                   return "ID #" + var1;
                }
@@ -199,8 +199,8 @@ public abstract class class_amg {
          });
          var1.a("Actual block data value", new Callable() {
             public String a() throws Exception {
-               class_anl var1 = class_amg.this.b.p(class_amg.this.c);
-               int var2 = var1.c().c(var1);
+               IBlockData var1 = class_amg.this.b.p(class_amg.this.c);
+               int var2 = var1.getBlock().c(var1);
                if(var2 < 0) {
                   return "Unknown? (Got " + var2 + ")";
                } else {

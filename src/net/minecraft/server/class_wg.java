@@ -213,7 +213,7 @@ public class class_wg extends class_wi {
    }
 
    public float a(class_cj var1) {
-      return this.o.p(var1).c().v() == class_atk.h?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
+      return this.o.p(var1).getBlock().v() == class_atk.h?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
    }
 
    public void m() {

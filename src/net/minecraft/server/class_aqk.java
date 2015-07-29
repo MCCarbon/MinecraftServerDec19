@@ -52,7 +52,7 @@ public class class_aqk extends class_aql {
 
       while(var10.hasNext()) {
          class_cq var11 = (class_cq)var10.next();
-         this.a(var1, var9.a(var11), class_agk.aa.S().a(class_alp.a, var11));
+         this.a(var1, var9.a(var11), class_agk.aa.S().set(class_alp.a, var11));
       }
 
       if(this.c) {

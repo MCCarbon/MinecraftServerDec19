@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import com.google.common.base.Function;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_zg;
 
 public class class_aba extends class_zg {
-   protected final class_agj b;
+   protected final Block b;
    protected final Function c;
 
-   public class_aba(class_agj var1, class_agj var2, Function var3) {
+   public class_aba(Block var1, Block var2, Function var3) {
       super(var1);
       this.b = var2;
       this.c = var3;
@@ -17,7 +17,7 @@ public class class_aba extends class_zg {
       this.a(true);
    }
 
-   public class_aba(class_agj var1, class_agj var2, final String[] var3) {
+   public class_aba(Block var1, Block var2, final String[] var3) {
       this(var1, var2, new Function() {
          public String a(class_aas var1) {
             int var2 = var1.i();

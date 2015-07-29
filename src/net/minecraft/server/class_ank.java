@@ -6,18 +6,18 @@ import com.google.common.collect.Iterables;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map.Entry;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.IBlockState;
 
-public abstract class class_ank implements class_anl {
+public abstract class class_ank implements IBlockData {
    private static final Joiner a = Joiner.on(',');
    private static final Function b = new Function() {
       public String a(Entry var1) {
          if(var1 == null) {
             return "<NULL>";
          } else {
-            class_aoa var2 = (class_aoa)var1.getKey();
+            IBlockState var2 = (IBlockState)var1.getKey();
             return var2.a() + "=" + var2.a((Comparable)var1.getValue());
          }
       }
@@ -28,8 +28,8 @@ public abstract class class_ank implements class_anl {
       }
    };
 
-   public class_anl a(class_aoa var1) {
-      return this.a(var1, (Comparable)a(var1.c(), this.b(var1)));
+   public IBlockData a(IBlockState var1) {
+      return this.set(var1, (Comparable)a(var1.c(), this.get(var1)));
    }
 
    protected static Object a(Collection var0, Object var1) {
@@ -50,10 +50,10 @@ public abstract class class_ank implements class_anl {
 
    public String toString() {
       StringBuilder var1 = new StringBuilder();
-      var1.append(class_agj.c.b(this.c()));
-      if(!this.b().isEmpty()) {
+      var1.append(Block.BLOCK_REGISTRY.getKey(this.getBlock()));
+      if(!this.getStatesAndValues().isEmpty()) {
          var1.append("[");
-         a.appendTo(var1, Iterables.transform(this.b().entrySet(), b));
+         a.appendTo(var1, Iterables.transform(this.getStatesAndValues().entrySet(), b));
          var1.append("]");
       }
 

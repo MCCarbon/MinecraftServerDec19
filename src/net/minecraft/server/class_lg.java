@@ -29,10 +29,10 @@ import net.minecraft.server.class_aev;
 import net.minecraft.server.class_aex;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aol;
@@ -314,15 +314,15 @@ public class class_lg extends class_aen implements class_of {
                var9 = this.q(new class_cj(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
                class_cj var10 = var9.b();
                if(this.w(var10)) {
-                  this.a((class_cj)var10, (class_anl)class_agk.aI.S());
+                  this.a((class_cj)var10, (IBlockData)class_agk.aI.S());
                }
 
                if(this.T() && this.f(var9, true)) {
-                  this.a((class_cj)var9, (class_anl)class_agk.aH.S());
+                  this.a((class_cj)var9, (IBlockData)class_agk.aH.S());
                }
 
                if(this.T() && this.b((class_cj)var10).e()) {
-                  this.p(var10).c().k(this, var10);
+                  this.p(var10).getBlock().k(this, var10);
                }
             }
 
@@ -342,11 +342,11 @@ public class class_lg extends class_aen implements class_of {
                         int var16 = var14 >> 8 & 15;
                         int var17 = var14 >> 16 & 15;
                         ++var2;
-                        class_anl var18 = var12.a(var15, var17, var16);
-                        class_agj var19 = var18.c();
+                        IBlockData var18 = var12.a(var15, var17, var16);
+                        Block var19 = var18.getBlock();
                         if(var19.A()) {
                            ++var1;
-                           var19.a((class_aen)this, new class_cj(var15 + var5, var17 + var12.d(), var16 + var6), (class_anl)var18, (Random)this.s);
+                           var19.a((class_aen)this, new class_cj(var15 + var5, var17 + var12.d(), var16 + var6), (IBlockData)var18, (Random)this.s);
                         }
                      }
                   }
@@ -373,25 +373,25 @@ public class class_lg extends class_aen implements class_of {
       return !var4.isEmpty()?((class_qa)var4.get(this.s.nextInt(var4.size()))).c():var2;
    }
 
-   public boolean a(class_cj var1, class_agj var2) {
+   public boolean a(class_cj var1, Block var2) {
       class_aex var3 = new class_aex(var1, var2);
       return this.V.contains(var3);
    }
 
-   public void a(class_cj var1, class_agj var2, int var3) {
+   public void a(class_cj var1, Block var2, int var3) {
       this.a(var1, var2, var3, 0);
    }
 
-   public void a(class_cj var1, class_agj var2, int var3, int var4) {
+   public void a(class_cj var1, Block var2, int var3, int var4) {
       class_aex var5 = new class_aex(var1, var2);
       byte var6 = 0;
       if(this.e && var2.v() != class_atk.a) {
          if(var2.P()) {
             var6 = 8;
             if(this.a((class_cj)var5.a.a(-var6, -var6, -var6), (class_cj)var5.a.a(var6, var6, var6))) {
-               class_anl var7 = this.p(var5.a);
-               if(var7.c().v() != class_atk.a && var7.c() == var5.a()) {
-                  var7.c().b((class_aen)this, var5.a, var7, (Random)this.s);
+               IBlockData var7 = this.p(var5.a);
+               if(var7.getBlock().v() != class_atk.a && var7.getBlock() == var5.a()) {
+                  var7.getBlock().b((class_aen)this, var5.a, var7, (Random)this.s);
                }
             }
 
@@ -415,7 +415,7 @@ public class class_lg extends class_aen implements class_of {
 
    }
 
-   public void b(class_cj var1, class_agj var2, int var3, int var4) {
+   public void b(class_cj var1, Block var2, int var3, int var4) {
       class_aex var5 = new class_aex(var1, var2);
       var5.a(var4);
       if(var2.v() != class_atk.a) {
@@ -481,10 +481,10 @@ public class class_lg extends class_aen implements class_of {
                var11.remove();
                byte var5 = 0;
                if(this.a((class_cj)var4.a.a(-var5, -var5, -var5), (class_cj)var4.a.a(var5, var5, var5))) {
-                  class_anl var6 = this.p(var4.a);
-                  if(var6.c().v() != class_atk.a && class_agj.a(var6.c(), var4.a())) {
+                  IBlockData var6 = this.p(var4.a);
+                  if(var6.getBlock().v() != class_atk.a && Block.a(var6.getBlock(), var4.a())) {
                      try {
-                        var6.c().b((class_aen)this, var4.a, var6, (Random)this.s);
+                        var6.getBlock().b((class_aen)this, var4.a, var6, (Random)this.s);
                      } catch (Throwable var10) {
                         class_b var8 = class_b.a(var10, "Exception while ticking a block");
                         class_c var9 = var8.a("Block being ticked");
@@ -829,7 +829,7 @@ public class class_lg extends class_aen implements class_of {
       return var11;
    }
 
-   public void c(class_cj var1, class_agj var2, int var3, int var4) {
+   public void c(class_cj var1, Block var2, int var3, int var4) {
       class_aef var5 = new class_aef(var1, var2, var3, var4);
       Iterator var6 = this.S[this.T].iterator();
 
@@ -864,8 +864,8 @@ public class class_lg extends class_aen implements class_of {
    }
 
    private boolean a(class_aef var1) {
-      class_anl var2 = this.p(var1.a());
-      return var2.c() == var1.d()?var2.c().a(this, var1.a(), var2, var1.b(), var1.c()):false;
+      IBlockData var2 = this.p(var1.a());
+      return var2.getBlock() == var1.d()?var2.getBlock().a(this, var1.a(), var2, var1.b(), var1.c()):false;
    }
 
    public void p() {

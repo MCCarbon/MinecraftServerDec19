@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
@@ -62,7 +62,7 @@ public class class_wc extends class_wi {
       return "mob.silverfish.kill";
    }
 
-   protected void a(class_cj var1, class_agj var2) {
+   protected void a(class_cj var1, Block var2) {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 

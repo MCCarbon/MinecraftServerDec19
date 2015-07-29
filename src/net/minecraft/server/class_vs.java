@@ -4,11 +4,11 @@ import java.util.List;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ams;
 import net.minecraft.server.class_amt;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_oj;
@@ -42,7 +42,7 @@ public class class_vs extends class_vq implements class_ams {
       return class_vn.class_a_in_class_vn.f;
    }
 
-   public class_anl u() {
+   public IBlockData u() {
       return class_agk.cp.S();
    }
 
@@ -131,7 +131,7 @@ public class class_vs extends class_vq implements class_ams {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(class_aar.a((class_agj)class_agk.cp), 1, 0.0F);
+         this.a(class_aar.a((Block)class_agk.cp), 1, 0.0F);
       }
 
    }

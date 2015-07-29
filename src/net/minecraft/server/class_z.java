@@ -88,7 +88,7 @@ public class class_z extends class_i {
    }
 
    public List a(class_m var1, String[] var2, class_cj var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, class_pk.b.c()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, class_pk.b.getKeys()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
    }
 
    protected String[] d() {

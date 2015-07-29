@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoi;
 
 public class class_aol {
@@ -23,15 +23,15 @@ public class class_aol {
 
    }
 
-   public class_anl a(int var1, int var2, int var3) {
-      class_anl var4 = (class_anl)class_agj.d.a(this.d[var2 << 8 | var3 << 4 | var1]);
+   public IBlockData a(int var1, int var2, int var3) {
+      IBlockData var4 = (IBlockData)Block.BLOCKDATA_REGISTRY.get(this.d[var2 << 8 | var3 << 4 | var1]);
       return var4 != null?var4:class_agk.a.S();
    }
 
-   public void a(int var1, int var2, int var3, class_anl var4) {
-      class_anl var5 = this.a(var1, var2, var3);
-      class_agj var6 = var5.c();
-      class_agj var7 = var4.c();
+   public void a(int var1, int var2, int var3, IBlockData var4) {
+      IBlockData var5 = this.a(var1, var2, var3);
+      Block var6 = var5.getBlock();
+      Block var7 = var4.getBlock();
       if(var6 != class_agk.a) {
          --this.b;
          if(var6.A()) {
@@ -46,16 +46,16 @@ public class class_aol {
          }
       }
 
-      this.d[var2 << 8 | var3 << 4 | var1] = (char)class_agj.d.a(var4);
+      this.d[var2 << 8 | var3 << 4 | var1] = (char)Block.BLOCKDATA_REGISTRY.getId(var4);
    }
 
-   public class_agj b(int var1, int var2, int var3) {
-      return this.a(var1, var2, var3).c();
+   public Block b(int var1, int var2, int var3) {
+      return this.a(var1, var2, var3).getBlock();
    }
 
    public int c(int var1, int var2, int var3) {
-      class_anl var4 = this.a(var1, var2, var3);
-      return var4.c().c(var4);
+      IBlockData var4 = this.a(var1, var2, var3);
+      return var4.getBlock().c(var4);
    }
 
    public boolean a() {
@@ -93,7 +93,7 @@ public class class_aol {
       for(int var1 = 0; var1 < 16; ++var1) {
          for(int var2 = 0; var2 < 16; ++var2) {
             for(int var3 = 0; var3 < 16; ++var3) {
-               class_agj var4 = this.b(var1, var2, var3);
+               Block var4 = this.b(var1, var2, var3);
                if(var4 != class_agk.a) {
                   ++this.b;
                   if(var4.A()) {

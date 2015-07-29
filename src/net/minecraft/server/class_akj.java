@@ -5,9 +5,9 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -16,7 +16,7 @@ import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 
-public class class_akj extends class_agj {
+public class class_akj extends Block {
    private final boolean a;
 
    public class_akj(boolean var1) {
@@ -42,7 +42,7 @@ public class class_akj extends class_agj {
       super.a(var1, var2, var3);
    }
 
-   public boolean a(class_aen var1, class_cj var2, class_anl var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(class_aen var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
       this.e(var1, var2);
       return super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9, var10);
    }
@@ -55,14 +55,14 @@ public class class_akj extends class_agj {
 
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
       if(this == class_agk.aD) {
          var1.a(var2, class_agk.aC.S());
       }
 
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return class_aau.aE;
    }
 
@@ -74,9 +74,9 @@ public class class_akj extends class_agj {
       return 4 + var1.nextInt(2);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, float var4, int var5) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, float var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
-      if(this.a(var3, var1.s, var5) != class_aar.a((class_agj)this)) {
+      if(this.a(var3, var1.s, var5) != class_aar.a((Block)this)) {
          int var6 = 1 + var1.s.nextInt(5);
          this.b(var1, var2, var6);
       }
@@ -91,27 +91,27 @@ public class class_akj extends class_agj {
          double var7 = (double)((float)var2.n() + var3.nextFloat());
          double var9 = (double)((float)var2.o() + var3.nextFloat());
          double var11 = (double)((float)var2.p() + var3.nextFloat());
-         if(var6 == 0 && !var1.p(var2.a()).c().c()) {
+         if(var6 == 0 && !var1.p(var2.a()).getBlock().c()) {
             var9 = (double)var2.o() + var4 + 1.0D;
          }
 
-         if(var6 == 1 && !var1.p(var2.b()).c().c()) {
+         if(var6 == 1 && !var1.p(var2.b()).getBlock().c()) {
             var9 = (double)var2.o() - var4;
          }
 
-         if(var6 == 2 && !var1.p(var2.d()).c().c()) {
+         if(var6 == 2 && !var1.p(var2.d()).getBlock().c()) {
             var11 = (double)var2.p() + var4 + 1.0D;
          }
 
-         if(var6 == 3 && !var1.p(var2.c()).c().c()) {
+         if(var6 == 3 && !var1.p(var2.c()).getBlock().c()) {
             var11 = (double)var2.p() - var4;
          }
 
-         if(var6 == 4 && !var1.p(var2.f()).c().c()) {
+         if(var6 == 4 && !var1.p(var2.f()).getBlock().c()) {
             var7 = (double)var2.n() + var4 + 1.0D;
          }
 
-         if(var6 == 5 && !var1.p(var2.e()).c().c()) {
+         if(var6 == 5 && !var1.p(var2.e()).getBlock().c()) {
             var7 = (double)var2.n() - var4;
          }
 
@@ -122,7 +122,7 @@ public class class_akj extends class_agj {
 
    }
 
-   protected class_aas i(class_anl var1) {
+   protected class_aas i(IBlockData var1) {
       return new class_aas(class_agk.aC);
    }
 }

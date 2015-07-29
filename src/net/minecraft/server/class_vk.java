@@ -5,7 +5,7 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
@@ -240,7 +240,7 @@ public class class_vk extends class_pr {
             for(int var25 = 0; var25 < 2; ++var25) {
                int var12 = class_nu.c(this.t) + var25;
                class_cj var27 = new class_cj(var23, var12, var10);
-               class_agj var14 = this.o.p(var27).c();
+               Block var14 = this.o.p(var27).getBlock();
                if(var14 == class_agk.aH) {
                   this.o.g(var27);
                   this.D = false;
@@ -341,7 +341,7 @@ public class class_vk extends class_pr {
       }
    }
 
-   protected void a(double var1, boolean var3, class_agj var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
       if(var3) {
          if(this.O > 3.0F) {
             this.e(this.O, 1.0F);
@@ -361,7 +361,7 @@ public class class_vk extends class_pr {
 
             this.O = 0.0F;
          }
-      } else if(this.o.p((new class_cj(this)).b()).c().v() != class_atk.h && var1 < 0.0D) {
+      } else if(this.o.p((new class_cj(this)).b()).getBlock().v() != class_atk.h && var1 < 0.0D) {
          this.O = (float)((double)this.O - var1);
       }
 

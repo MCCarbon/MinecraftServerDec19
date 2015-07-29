@@ -7,7 +7,7 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
@@ -318,7 +318,7 @@ public class class_tz extends class_tw implements class_ok {
 
    public void cT() {
       if(!this.o.D && this.cL()) {
-         this.a(class_aar.a((class_agj)class_agk.ae), 1);
+         this.a(class_aar.a((Block)class_agk.ae), 1);
          this.p(false);
       }
    }
@@ -343,9 +343,9 @@ public class class_tz extends class_tw implements class_ok {
             this.l.a(class_pc.i, (float)var3);
          }
 
-         class_agj var4 = this.o.p(new class_cj(this.s, this.t - 0.2D - (double)this.A, this.u)).c();
+         Block var4 = this.o.p(new class_cj(this.s, this.t - 0.2D - (double)this.A, this.u)).getBlock();
          if(var4.v() != class_atk.a && !this.R()) {
-            class_agj.class_d_in_class_agj var5 = var4.H;
+            Block.StepSound var5 = var4.H;
             this.o.a((class_pr)this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
          }
 
@@ -475,9 +475,9 @@ public class class_tz extends class_tw implements class_ok {
       return var1 != 3 && var1 != 4?(var1 != 1 && var1 != 2?"mob.horse.angry":"mob.horse.donkey.angry"):null;
    }
 
-   protected void a(class_cj var1, class_agj var2) {
-      class_agj.class_d_in_class_agj var3 = var2.H;
-      if(this.o.p(var1.a()).c() == class_agk.aH) {
+   protected void a(class_cj var1, Block var2) {
+      Block.StepSound var3 = var2.H;
+      if(this.o.p(var1.a()).getBlock() == class_agk.aH) {
          var3 = class_agk.aH.H;
       }
 
@@ -493,7 +493,7 @@ public class class_tz extends class_tw implements class_ok {
             } else if(this.bY <= 5) {
                this.a("mob.horse.wood", var3.d() * 0.15F, var3.e());
             }
-         } else if(var3 == class_agj.f) {
+         } else if(var3 == Block.STEP_SOUND_WOOD) {
             this.a("mob.horse.wood", var3.d() * 0.15F, var3.e());
          } else {
             this.a("mob.horse.soft", var3.d() * 0.15F, var3.e());
@@ -583,7 +583,7 @@ public class class_tz extends class_tw implements class_ok {
                   var5 = 1.0F;
                   var6 = 30;
                   var7 = 3;
-               } else if(class_agj.a(var3.b()) == class_agk.cx) {
+               } else if(Block.a(var3.b()) == class_agk.cx) {
                   var5 = 20.0F;
                   var6 = 180;
                } else if(var3.b() == class_aau.e) {
@@ -637,7 +637,7 @@ public class class_tz extends class_tw implements class_ok {
                return true;
             }
 
-            if(!var8 && this.de() && !this.cL() && var3.b() == class_aar.a((class_agj)class_agk.ae)) {
+            if(!var8 && this.de() && !this.cL() && var3.b() == class_aar.a((Block)class_agk.ae)) {
                this.p(true);
                this.a("mob.chickenplop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
                var8 = true;
@@ -731,7 +731,7 @@ public class class_tz extends class_tw implements class_ok {
             this.h(1.0F);
          }
 
-         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.t) - 1, class_nu.c(this.u))).c() == class_agk.c) {
+         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.t) - 1, class_nu.c(this.u))).getBlock() == class_agk.c) {
             this.s(true);
          }
 
@@ -1224,7 +1224,7 @@ public class class_tz extends class_tw implements class_ok {
             return true;
          }
 
-         if(var2 != null && var2.b() == class_aar.a((class_agj)class_agk.ae) && !this.cL()) {
+         if(var2 != null && var2.b() == class_aar.a((Block)class_agk.ae) && !this.cL()) {
             this.p(true);
             this.dp();
             return true;

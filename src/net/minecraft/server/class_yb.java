@@ -9,7 +9,7 @@ import net.minecraft.server.class_adk;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aga;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ow;
@@ -73,15 +73,15 @@ public class class_yb extends class_xz {
             }
 
             class_yb.this.a = 0;
-            class_anl var5 = var2.p(var3);
-            if(!var1.bH.d && !var2.D && var5.c() == class_agk.cf && var1.bd().nextFloat() < 0.12F) {
-               int var4 = ((Integer)var5.b(class_aga.b)).intValue();
+            IBlockData var5 = var2.p(var3);
+            if(!var1.bH.d && !var2.D && var5.getBlock() == class_agk.cf && var1.bd().nextFloat() < 0.12F) {
+               int var4 = ((Integer)var5.get(class_aga.b)).intValue();
                ++var4;
                if(var4 > 2) {
                   var2.g(var3);
                   var2.b(1020, var3, 0);
                } else {
-                  var2.a((class_cj)var3, (class_anl)var5.a(class_aga.b, Integer.valueOf(var4)), 2);
+                  var2.a((class_cj)var3, (IBlockData)var5.set(class_aga.b, Integer.valueOf(var4)), 2);
                   var2.b(1021, var3, 0);
                }
             } else if(!var2.D) {
@@ -296,7 +296,7 @@ public class class_yb extends class_xz {
    }
 
    public boolean a(class_xa var1) {
-      return this.i.p(this.j).c() != class_agk.cf?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
+      return this.i.p(this.j).getBlock() != class_agk.cf?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
    }
 
    public class_aas b(class_xa var1, int var2) {

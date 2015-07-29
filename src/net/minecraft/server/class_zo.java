@@ -11,11 +11,11 @@ import net.minecraft.server.class_or;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_ud;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
 public class class_zo extends class_aar {
    public class_zo() {
-      this.a(class_zu.e);
+      this.a(CreativeTab.e);
       this.d(1);
       this.e(25);
    }

@@ -25,7 +25,7 @@ import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.class_aiu;
@@ -33,7 +33,7 @@ import net.minecraft.server.class_ajd;
 import net.minecraft.server.class_aky;
 import net.minecraft.server.class_ald;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
@@ -161,13 +161,13 @@ public abstract class class_aen implements class_aer {
       this.x.d(true);
    }
 
-   public class_agj c(class_cj var1) {
+   public Block c(class_cj var1) {
       class_cj var2;
       for(var2 = new class_cj(var1.n(), this.G(), var1.p()); !this.d(var2.a()); var2 = var2.a()) {
          ;
       }
 
-      return this.p(var2).c();
+      return this.p(var2).getBlock();
    }
 
    private boolean a(class_cj var1) {
@@ -175,7 +175,7 @@ public abstract class class_aen implements class_aer {
    }
 
    public boolean d(class_cj var1) {
-      return this.p(var1).c().v() == class_atk.a;
+      return this.p(var1).getBlock().v() == class_atk.a;
    }
 
    public boolean e(class_cj var1) {
@@ -243,19 +243,19 @@ public abstract class class_aen implements class_aer {
       return this.v.d(var1, var2);
    }
 
-   public boolean a(class_cj var1, class_anl var2, int var3) {
+   public boolean a(class_cj var1, IBlockData var2, int var3) {
       if(!this.a(var1)) {
          return false;
       } else if(!this.D && this.x.u() == class_aes.g) {
          return false;
       } else {
          class_aok var4 = this.f(var1);
-         class_agj var5 = var2.c();
-         class_anl var6 = var4.a(var1, var2);
+         Block var5 = var2.getBlock();
+         IBlockData var6 = var4.a(var1, var2);
          if(var6 == null) {
             return false;
          } else {
-            class_agj var7 = var6.c();
+            Block var7 = var6.getBlock();
             if(var5.r() != var7.r() || var5.t() != var7.t()) {
                this.B.a("checkLight");
                this.x(var1);
@@ -267,7 +267,7 @@ public abstract class class_aen implements class_aer {
             }
 
             if(!this.D && (var3 & 1) != 0) {
-               this.b(var1, var6.c());
+               this.b(var1, var6.getBlock());
                if(var5.Q()) {
                   this.e(var1, var5);
                }
@@ -279,26 +279,26 @@ public abstract class class_aen implements class_aer {
    }
 
    public boolean g(class_cj var1) {
-      return this.a((class_cj)var1, (class_anl)class_agk.a.S(), 3);
+      return this.a((class_cj)var1, (IBlockData)class_agk.a.S(), 3);
    }
 
    public boolean b(class_cj var1, boolean var2) {
-      class_anl var3 = this.p(var1);
-      class_agj var4 = var3.c();
+      IBlockData var3 = this.p(var1);
+      Block var4 = var3.getBlock();
       if(var4.v() == class_atk.a) {
          return false;
       } else {
-         this.b(2001, var1, class_agj.f(var3));
+         this.b(2001, var1, Block.f(var3));
          if(var2) {
             var4.b(this, var1, var3, 0);
          }
 
-         return this.a((class_cj)var1, (class_anl)class_agk.a.S(), 3);
+         return this.a((class_cj)var1, (IBlockData)class_agk.a.S(), 3);
       }
    }
 
-   public boolean a(class_cj var1, class_anl var2) {
-      return this.a((class_cj)var1, (class_anl)var2, 3);
+   public boolean a(class_cj var1, IBlockData var2) {
+      return this.a((class_cj)var1, (IBlockData)var2, 3);
    }
 
    public void h(class_cj var1) {
@@ -308,7 +308,7 @@ public abstract class class_aen implements class_aer {
 
    }
 
-   public void b(class_cj var1, class_agj var2) {
+   public void b(class_cj var1, Block var2) {
       if(this.x.u() != class_aes.g) {
          this.c(var1, var2);
       }
@@ -343,7 +343,7 @@ public abstract class class_aen implements class_aer {
 
    }
 
-   public void c(class_cj var1, class_agj var2) {
+   public void c(class_cj var1, Block var2) {
       this.d(var1.e(), var2);
       this.d(var1.f(), var2);
       this.d(var1.b(), var2);
@@ -352,7 +352,7 @@ public abstract class class_aen implements class_aer {
       this.d(var1.d(), var2);
    }
 
-   public void a(class_cj var1, class_agj var2, class_cq var3) {
+   public void a(class_cj var1, Block var2, class_cq var3) {
       if(var3 != class_cq.e) {
          this.d(var1.e(), var2);
       }
@@ -379,21 +379,21 @@ public abstract class class_aen implements class_aer {
 
    }
 
-   public void d(class_cj var1, final class_agj var2) {
+   public void d(class_cj var1, final Block var2) {
       if(!this.D) {
-         class_anl var3 = this.p(var1);
+         IBlockData var3 = this.p(var1);
 
          try {
-            var3.c().a(this, var1, var3, var2);
+            var3.getBlock().a(this, var1, var3, var2);
          } catch (Throwable var7) {
             class_b var5 = class_b.a(var7, "Exception while updating neighbours");
             class_c var6 = var5.a("Block being updated");
             var6.a("Source block type", new Callable() {
                public String a() throws Exception {
                   try {
-                     return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(class_agj.a(var2)), var2.a(), var2.getClass().getCanonicalName()});
+                     return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(Block.getId(var2)), var2.a(), var2.getClass().getCanonicalName()});
                   } catch (Throwable var2x) {
-                     return "ID #" + class_agj.a(var2);
+                     return "ID #" + Block.getId(var2);
                   }
                }
 
@@ -408,7 +408,7 @@ public abstract class class_aen implements class_aer {
       }
    }
 
-   public boolean a(class_cj var1, class_agj var2) {
+   public boolean a(class_cj var1, Block var2) {
       return false;
    }
 
@@ -425,7 +425,7 @@ public abstract class class_aen implements class_aer {
             return false;
          } else {
             for(var2 = var2.b(); var2.o() > var1.o(); var2 = var2.b()) {
-               class_agj var3 = this.p(var2).c();
+               Block var3 = this.p(var2).getBlock();
                if(var3.r() > 0 && !var3.v().d()) {
                   return false;
                }
@@ -454,7 +454,7 @@ public abstract class class_aen implements class_aer {
 
    public int c(class_cj var1, boolean var2) {
       if(var1.n() >= -30000000 && var1.p() >= -30000000 && var1.n() < 30000000 && var1.p() < 30000000) {
-         if(var2 && this.p(var1).c().u()) {
+         if(var2 && this.p(var1).getBlock().u()) {
             int var8 = this.c(var1.a(), false);
             int var4 = this.c(var1.f(), false);
             int var5 = this.c(var1.e(), false);
@@ -556,7 +556,7 @@ public abstract class class_aen implements class_aer {
       return this.t.n()[this.l(var1)];
    }
 
-   public class_anl p(class_cj var1) {
+   public IBlockData p(class_cj var1) {
       if(!this.a(var1)) {
          return class_agk.a.S();
       } else {
@@ -587,8 +587,8 @@ public abstract class class_aen implements class_aer {
             int var10 = class_nu.c(var1.b);
             int var11 = class_nu.c(var1.c);
             class_cj var12 = new class_cj(var9, var10, var11);
-            class_anl var13 = this.p(var12);
-            class_agj var14 = var13.c();
+            IBlockData var13 = this.p(var12);
+            Block var14 = var13.getBlock();
             if((!var4 || var14.a(this, var12, var13) != null) && var14.a(var13, var3)) {
                class_awg var15 = var14.a(this, var12, var1, var2);
                if(var15 != null) {
@@ -684,8 +684,8 @@ public abstract class class_aen implements class_aer {
                var10 = class_nu.c(var1.b) - (var36 == class_cq.b?1:0);
                var11 = class_nu.c(var1.c) - (var36 == class_cq.d?1:0);
                var12 = new class_cj(var9, var10, var11);
-               class_anl var37 = this.p(var12);
-               class_agj var38 = var37.c();
+               IBlockData var37 = this.p(var12);
+               Block var38 = var37.getBlock();
                if(!var4 || var38.a(this, var12, var37) != null) {
                   if(var38.a(var37, var3)) {
                      class_awg var39 = var38.a(this, var12, var1, var2);
@@ -842,7 +842,7 @@ public abstract class class_aen implements class_aer {
       class_aoe var10 = this.ag();
       boolean var11 = var1.aV();
       boolean var12 = this.a(var10, var1);
-      class_anl var13 = class_agk.b.S();
+      IBlockData var13 = class_agk.b.S();
       class_cj.class_a_in_class_cj var14 = new class_cj.class_a_in_class_cj();
 
       for(int var15 = var4; var15 < var5; ++var15) {
@@ -856,12 +856,12 @@ public abstract class class_aen implements class_aer {
                      var1.h(true);
                   }
 
-                  class_anl var18 = var13;
+                  IBlockData var18 = var13;
                   if(var10.a((class_cj)var14) || !var12) {
                      var18 = this.p(var14);
                   }
 
-                  var18.c().a(this, (class_cj)var14, (class_anl)var18, (class_awf)var2, (List)var3, (class_pr)var1);
+                  var18.getBlock().a(this, (class_cj)var14, (IBlockData)var18, (class_awf)var2, (List)var3, (class_pr)var1);
                }
             }
          }
@@ -923,14 +923,14 @@ public abstract class class_aen implements class_aer {
             if(this.e((class_cj)var9.c(var10, 64, var11))) {
                for(int var12 = var5 - 1; var12 < var6; ++var12) {
                   var9.c(var10, var12, var11);
-                  class_anl var13;
+                  IBlockData var13;
                   if(var10 >= -30000000 && var10 < 30000000 && var11 >= -30000000 && var11 < 30000000) {
                      var13 = this.p(var9);
                   } else {
                      var13 = class_agk.h.S();
                   }
 
-                  var13.c().a(this, (class_cj)var9, (class_anl)var13, (class_awf)var1, (List)var2, (class_pr)null);
+                  var13.getBlock().a(this, (class_cj)var9, (IBlockData)var13, (class_awf)var1, (List)var2, (class_pr)null);
                }
             }
          }
@@ -983,13 +983,13 @@ public abstract class class_aen implements class_aer {
       return var3;
    }
 
-   public void a(class_cj var1, class_agj var2, int var3) {
+   public void a(class_cj var1, Block var2, int var3) {
    }
 
-   public void a(class_cj var1, class_agj var2, int var3, int var4) {
+   public void a(class_cj var1, Block var2, int var3, int var4) {
    }
 
-   public void b(class_cj var1, class_agj var2, int var3, int var4) {
+   public void b(class_cj var1, Block var2, int var3, int var4) {
    }
 
    public void j() {
@@ -1271,7 +1271,7 @@ public abstract class class_aen implements class_aer {
       for(int var9 = var2; var9 <= var3; ++var9) {
          for(int var10 = var4; var10 <= var5; ++var10) {
             for(int var11 = var6; var11 <= var7; ++var11) {
-               class_agj var12 = this.p(var8.c(var9, var10, var11)).c();
+               Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
                if(var12.v() != class_atk.a) {
                   return true;
                }
@@ -1294,7 +1294,7 @@ public abstract class class_aen implements class_aer {
       for(int var9 = var2; var9 <= var3; ++var9) {
          for(int var10 = var4; var10 <= var5; ++var10) {
             for(int var11 = var6; var11 <= var7; ++var11) {
-               class_agj var12 = this.p(var8.c(var9, var10, var11)).c();
+               Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
                if(var12.v().d()) {
                   return true;
                }
@@ -1318,7 +1318,7 @@ public abstract class class_aen implements class_aer {
          for(int var9 = var2; var9 < var3; ++var9) {
             for(int var10 = var4; var10 < var5; ++var10) {
                for(int var11 = var6; var11 < var7; ++var11) {
-                  class_agj var12 = this.p(var8.c(var9, var10, var11)).c();
+                  Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
                   if(var12 == class_agk.ab || var12 == class_agk.k || var12 == class_agk.l) {
                      return true;
                   }
@@ -1348,10 +1348,10 @@ public abstract class class_aen implements class_aer {
             for(int var14 = var6; var14 < var7; ++var14) {
                for(int var15 = var8; var15 < var9; ++var15) {
                   var12.c(var13, var14, var15);
-                  class_anl var16 = this.p(var12);
-                  class_agj var17 = var16.c();
+                  IBlockData var16 = this.p(var12);
+                  Block var17 = var16.getBlock();
                   if(var17.v() == var2) {
-                     double var18 = (double)((float)(var14 + 1) - class_ajd.b(((Integer)var16.b(class_ajd.b)).intValue()));
+                     double var18 = (double)((float)(var14 + 1) - class_ajd.b(((Integer)var16.get(class_ajd.b)).intValue()));
                      if((double)var7 >= var18) {
                         var10 = true;
                         var11 = var17.a((class_aen)this, var12, (class_pr)var3, (class_awh)var11);
@@ -1385,7 +1385,7 @@ public abstract class class_aen implements class_aer {
       for(int var10 = var3; var10 < var4; ++var10) {
          for(int var11 = var5; var11 < var6; ++var11) {
             for(int var12 = var7; var12 < var8; ++var12) {
-               if(this.p(var9.c(var10, var11, var12)).c().v() == var2) {
+               if(this.p(var9.c(var10, var11, var12)).getBlock().v() == var2) {
                   return true;
                }
             }
@@ -1407,10 +1407,10 @@ public abstract class class_aen implements class_aer {
       for(int var10 = var3; var10 < var4; ++var10) {
          for(int var11 = var5; var11 < var6; ++var11) {
             for(int var12 = var7; var12 < var8; ++var12) {
-               class_anl var13 = this.p(var9.c(var10, var11, var12));
-               class_agj var14 = var13.c();
+               IBlockData var13 = this.p(var9.c(var10, var11, var12));
+               Block var14 = var13.getBlock();
                if(var14.v() == var2) {
-                  int var15 = ((Integer)var13.b(class_ajd.b)).intValue();
+                  int var15 = ((Integer)var13.get(class_ajd.b)).intValue();
                   double var16 = (double)(var11 + 1);
                   if(var15 < 8) {
                      var16 = (double)(var11 + 1) - (double)var15 / 8.0D;
@@ -1471,7 +1471,7 @@ public abstract class class_aen implements class_aer {
 
    public boolean a(class_xa var1, class_cj var2, class_cq var3) {
       var2 = var2.a(var3);
-      if(this.p(var2).c() == class_agk.ab) {
+      if(this.p(var2).getBlock() == class_agk.ab) {
          this.a(var1, 1004, var2, 0);
          this.g(var2);
          return true;
@@ -1560,15 +1560,15 @@ public abstract class class_aen implements class_aer {
    }
 
    public boolean u(class_cj var1) {
-      class_anl var2 = this.p(var1);
-      class_awf var3 = var2.c().a(this, var1, var2);
+      IBlockData var2 = this.p(var1);
+      class_awf var3 = var2.getBlock().a(this, var1, var2);
       return var3 != null && var3.a() >= 1.0D;
    }
 
    public static boolean a(class_aer var0, class_cj var1) {
-      class_anl var2 = var0.p(var1);
-      class_agj var3 = var2.c();
-      return var3.v().k() && var3.d()?true:(var3 instanceof class_ald?var2.b(class_ald.b) == class_ald.class_a_in_class_ald.a:(var3 instanceof class_aio?var2.b(class_aio.a) == class_aio.class_a_in_class_aio.a:(var3 instanceof class_aiu?true:(var3 instanceof class_aky?((Integer)var2.b(class_aky.a)).intValue() == 7:false))));
+      IBlockData var2 = var0.p(var1);
+      Block var3 = var2.getBlock();
+      return var3.v().k() && var3.d()?true:(var3 instanceof class_ald?var2.get(class_ald.b) == class_ald.class_a_in_class_ald.a:(var3 instanceof class_aio?var2.get(class_aio.a) == class_aio.class_a_in_class_aio.a:(var3 instanceof class_aiu?true:(var3 instanceof class_aky?((Integer)var2.get(class_aky.a)).intValue() == 7:false))));
    }
 
    public boolean d(class_cj var1, boolean var2) {
@@ -1579,7 +1579,7 @@ public abstract class class_aen implements class_aer {
          if(var3.f()) {
             return var2;
          } else {
-            class_agj var4 = this.p(var1).c();
+            Block var4 = this.p(var1).getBlock();
             return var4.v().k() && var4.d();
          }
       }
@@ -1724,7 +1724,7 @@ public abstract class class_aen implements class_aer {
          int var6 = var4 >> 8 & 15;
          int var7 = var4 >> 16 & 255;
          class_cj var8 = new class_cj(var5, var7, var6);
-         class_agj var9 = var3.a(var8);
+         Block var9 = var3.a(var8);
          var5 += var1;
          var6 += var2;
          if(var9.v() == class_atk.a && this.k(var8) <= this.s.nextInt(8) && this.b(class_aet.a, var8) <= 0) {
@@ -1744,7 +1744,7 @@ public abstract class class_aen implements class_aer {
       this.E();
    }
 
-   public void a(class_agj var1, class_cj var2, Random var3) {
+   public void a(Block var1, class_cj var2, Random var3) {
       this.e = true;
       var1.b(this, var2, this.p(var2), var3);
       this.e = false;
@@ -1765,9 +1765,9 @@ public abstract class class_aen implements class_aer {
          return false;
       } else {
          if(var1.o() >= 0 && var1.o() < 256 && this.b(class_aet.b, var1) < 10) {
-            class_anl var5 = this.p(var1);
-            class_agj var6 = var5.c();
-            if((var6 == class_agk.j || var6 == class_agk.i) && ((Integer)var5.b(class_ajd.b)).intValue() == 0) {
+            IBlockData var5 = this.p(var1);
+            Block var6 = var5.getBlock();
+            if((var6 == class_agk.j || var6 == class_agk.i) && ((Integer)var5.get(class_ajd.b)).intValue() == 0) {
                if(!var2) {
                   return true;
                }
@@ -1784,7 +1784,7 @@ public abstract class class_aen implements class_aer {
    }
 
    private boolean F(class_cj var1) {
-      return this.p(var1).c().v() == class_atk.h;
+      return this.p(var1).getBlock().v() == class_atk.h;
    }
 
    public boolean f(class_cj var1, boolean var2) {
@@ -1796,7 +1796,7 @@ public abstract class class_aen implements class_aer {
          return true;
       } else {
          if(var1.o() >= 0 && var1.o() < 256 && this.b(class_aet.b, var1) < 10) {
-            class_agj var5 = this.p(var1).c();
+            Block var5 = this.p(var1).getBlock();
             if(var5.v() == class_atk.a && class_agk.aH.d(this, var1)) {
                return true;
             }
@@ -1820,7 +1820,7 @@ public abstract class class_aen implements class_aer {
       if(var2 == class_aet.a && this.i(var1)) {
          return 15;
       } else {
-         class_agj var3 = this.p(var1).c();
+         Block var3 = this.p(var1).getBlock();
          int var4 = var2 == class_aet.a?0:var3.t();
          int var5 = var3.r();
          if(var5 >= 15 && var3.t() > 0) {
@@ -1921,7 +1921,7 @@ public abstract class class_aen implements class_aer {
                   int var26 = var12 + var24.h();
                   int var27 = var13 + var24.i();
                   var20.c(var25, var26, var27);
-                  int var28 = Math.max(1, this.p(var20).c().r());
+                  int var28 = Math.max(1, this.p(var20).getBlock().r());
                   var16 = this.b((class_aet)var1, (class_cj)var20);
                   if(var16 == var14 - var28 && var4 < this.H.length) {
                      this.H[var4++] = var25 - var7 + 32 | var26 - var8 + 32 << 6 | var27 - var9 + 32 << 12 | var14 - var28 << 18;
@@ -2131,8 +2131,8 @@ public abstract class class_aen implements class_aer {
       this.g.addAll(var1);
    }
 
-   public boolean a(class_agj var1, class_cj var2, boolean var3, class_cq var4, class_pr var5, class_aas var6) {
-      class_agj var7 = this.p(var2).c();
+   public boolean a(Block var1, class_cj var2, boolean var3, class_cq var4, class_pr var5, class_aas var6) {
+      Block var7 = this.p(var2).getBlock();
       class_awf var8 = var3?null:var1.a(this, var2, var1.S());
       return var8 != null && !this.a(var8, var5)?false:(var7.v() == class_atk.q && var1 == class_agk.cf?true:var7.v().j() && var1.a(this, var2, var4, var6));
    }
@@ -2146,8 +2146,8 @@ public abstract class class_aen implements class_aer {
    }
 
    public int a(class_cj var1, class_cq var2) {
-      class_anl var3 = this.p(var1);
-      return var3.c().b((class_aer)this, var1, var3, (class_cq)var2);
+      IBlockData var3 = this.p(var1);
+      return var3.getBlock().b((class_aer)this, var1, var3, (class_cq)var2);
    }
 
    public class_aes H() {
@@ -2190,9 +2190,9 @@ public abstract class class_aen implements class_aer {
    }
 
    public int c(class_cj var1, class_cq var2) {
-      class_anl var3 = this.p(var1);
-      class_agj var4 = var3.c();
-      return var4.x()?this.y(var1):var4.a((class_aer)this, var1, (class_anl)var3, (class_cq)var2);
+      IBlockData var3 = this.p(var1);
+      Block var4 = var3.getBlock();
+      return var4.x()?this.y(var1):var4.a((class_aer)this, var1, (IBlockData)var3, (class_cq)var2);
    }
 
    public boolean z(class_cj var1) {
@@ -2361,7 +2361,7 @@ public abstract class class_aen implements class_aer {
       return this.v;
    }
 
-   public void c(class_cj var1, class_agj var2, int var3, int var4) {
+   public void c(class_cj var1, Block var2, int var3, int var4) {
       var2.a(this, var1, this.p(var1), var3, var4);
    }
 
@@ -2529,21 +2529,21 @@ public abstract class class_aen implements class_aer {
       return this.C;
    }
 
-   public void e(class_cj var1, class_agj var2) {
+   public void e(class_cj var1, Block var2) {
       Iterator var3 = class_cq.class_c_in_class_cq.a.iterator();
 
       while(var3.hasNext()) {
          class_cq var4 = (class_cq)var3.next();
          class_cj var5 = var1.a(var4);
          if(this.e(var5)) {
-            class_anl var6 = this.p(var5);
-            if(class_agk.cj.e(var6.c())) {
-               var6.c().a(this, var5, var6, var2);
-            } else if(var6.c().x()) {
+            IBlockData var6 = this.p(var5);
+            if(class_agk.cj.e(var6.getBlock())) {
+               var6.getBlock().a(this, var5, var6, var2);
+            } else if(var6.getBlock().x()) {
                var5 = var5.a(var4);
                var6 = this.p(var5);
-               if(class_agk.cj.e(var6.c())) {
-                  var6.c().a(this, var5, var6, var2);
+               if(class_agk.cj.e(var6.getBlock())) {
+                  var6.getBlock().a(this, var5, var6, var2);
                }
             }
          }

@@ -2,23 +2,23 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahj;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.class_ajs;
 import net.minecraft.server.class_ajt;
 import net.minecraft.server.class_ajw;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aqy;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_nu;
 
 public class class_aqx extends class_aqy {
-   private static final class_anl e;
-   private static final class_anl f;
-   private static final class_anl g;
+   private static final IBlockData e;
+   private static final IBlockData f;
+   private static final IBlockData g;
    private boolean h;
 
    public class_aqx(boolean var1, boolean var2) {
@@ -34,23 +34,23 @@ public class class_aqx extends class_aqy {
          this.a(var1, var3.n(), var3.p(), var3.o() + var4, 0, var2);
 
          for(int var5 = 0; var5 < var4; ++var5) {
-            class_agj var6 = var1.p(var3.b(var5)).c();
+            Block var6 = var1.p(var3.b(var5)).getBlock();
             if(var6.v() == class_atk.a || var6.v() == class_atk.j) {
                this.a(var1, var3.b(var5), this.b);
             }
 
             if(var5 < var4 - 1) {
-               var6 = var1.p(var3.a(1, var5, 0)).c();
+               var6 = var1.p(var3.a(1, var5, 0)).getBlock();
                if(var6.v() == class_atk.a || var6.v() == class_atk.j) {
                   this.a(var1, var3.a(1, var5, 0), this.b);
                }
 
-               var6 = var1.p(var3.a(1, var5, 1)).c();
+               var6 = var1.p(var3.a(1, var5, 1)).getBlock();
                if(var6.v() == class_atk.a || var6.v() == class_atk.j) {
                   this.a(var1, var3.a(1, var5, 1), this.b);
                }
 
-               var6 = var1.p(var3.a(0, var5, 1)).c();
+               var6 = var1.p(var3.a(0, var5, 1)).getBlock();
                if(var6.v() == class_atk.a || var6.v() == class_atk.j) {
                   this.a(var1, var3.a(0, var5, 1), this.b);
                }
@@ -105,7 +105,7 @@ public class class_aqx extends class_aqy {
    private void c(class_aen var1, class_cj var2) {
       for(int var3 = 2; var3 >= -3; --var3) {
          class_cj var4 = var2.b(var3);
-         class_agj var5 = var1.p(var4).c();
+         Block var5 = var1.p(var4).getBlock();
          if(var5 == class_agk.c || var5 == class_agk.d) {
             this.a(var1, var4, g);
             break;
@@ -119,8 +119,8 @@ public class class_aqx extends class_aqy {
    }
 
    static {
-      e = class_agk.r.S().a(class_ajt.b, class_ajw.class_a_in_class_ajw.b);
-      f = class_agk.t.S().a(class_ajs.Q, class_ajw.class_a_in_class_ajw.b).a(class_aja.b, Boolean.valueOf(false));
-      g = class_agk.d.S().a(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
+      e = class_agk.r.S().set(class_ajt.b, class_ajw.class_a_in_class_ajw.b);
+      f = class_agk.t.S().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.b).set(class_aja.b, Boolean.valueOf(false));
+      g = class_agk.d.S().set(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
    }
 }

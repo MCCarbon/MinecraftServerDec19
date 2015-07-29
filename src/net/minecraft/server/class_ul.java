@@ -6,7 +6,7 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
@@ -122,7 +122,7 @@ public class class_ul extends class_qj {
       this.ac.a(by, new Byte((byte)class_zy.o.a()));
    }
 
-   protected void a(class_cj var1, class_agj var2) {
+   protected void a(class_cj var1, Block var2) {
       this.a("mob.wolf.step", 0.15F, 1.0F);
    }
 

@@ -82,7 +82,7 @@ public class class_vm extends class_pr {
          this.d(this.v, this.w, this.x);
          boolean var1 = (int)this.p != (int)this.s || (int)this.q != (int)this.t || (int)this.r != (int)this.u;
          if(var1 || this.W % 25 == 0) {
-            if(this.o.p(new class_cj(this)).c().v() == class_atk.i) {
+            if(this.o.p(new class_cj(this)).getBlock().v() == class_atk.i) {
                this.w = 0.20000000298023224D;
                this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
                this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -96,7 +96,7 @@ public class class_vm extends class_pr {
 
          float var2 = 0.98F;
          if(this.C) {
-            var2 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).c().L * 0.98F;
+            var2 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().L * 0.98F;
          }
 
          this.v *= (double)var2;

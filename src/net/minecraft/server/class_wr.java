@@ -9,7 +9,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -277,7 +277,7 @@ public class class_wr extends class_wi {
       return "mob.zombie.death";
    }
 
-   protected void a(class_cj var1, class_agj var2) {
+   protected void a(class_cj var1, Block var2) {
       this.a("mob.zombie.step", 0.15F, 1.0F);
    }
 
@@ -511,7 +511,7 @@ public class class_wr extends class_wi {
          for(int var4 = (int)this.s - 4; var4 < (int)this.s + 4 && var2 < 14; ++var4) {
             for(int var5 = (int)this.t - 4; var5 < (int)this.t + 4 && var2 < 14; ++var5) {
                for(int var6 = (int)this.u - 4; var6 < (int)this.u + 4 && var2 < 14; ++var6) {
-                  class_agj var7 = this.o.p(var3.c(var4, var5, var6)).c();
+                  Block var7 = this.o.p(var3.c(var4, var5, var6)).getBlock();
                   if(var7 == class_agk.bi || var7 == class_agk.C) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;

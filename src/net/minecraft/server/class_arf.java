@@ -2,21 +2,21 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.class_ajn;
 import net.minecraft.server.class_ajo;
 import net.minecraft.server.class_ajw;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
 
 public class class_arf extends class_apw {
-   private static final class_anl a;
-   private static final class_anl b;
+   private static final IBlockData a;
+   private static final IBlockData b;
 
    public class_arf(boolean var1) {
       super(var1);
@@ -29,7 +29,7 @@ public class class_arf extends class_apw {
       int var7 = var3.p();
       if(var6 >= 1 && var6 + var4 + 1 < 256) {
          class_cj var8 = var3.b();
-         class_agj var9 = var1.p(var8).c();
+         Block var9 = var1.p(var8).getBlock();
          if(var9 != class_agk.c && var9 != class_agk.d) {
             return false;
          } else if(!this.a(var1, var3, var4)) {
@@ -57,7 +57,7 @@ public class class_arf extends class_apw {
 
                var17 = var6 + var16;
                class_cj var18 = new class_cj(var13, var17, var14);
-               class_atk var19 = var1.p(var18).c().v();
+               class_atk var19 = var1.p(var18).getBlock().v();
                if(var19 == class_atk.a || var19 == class_atk.j) {
                   this.b(var1, var18);
                   this.b(var1, var18.f());
@@ -151,7 +151,7 @@ public class class_arf extends class_apw {
 
          for(int var10 = -var9; var10 <= var9; ++var10) {
             for(int var11 = -var9; var11 <= var9; ++var11) {
-               if(!this.a(var1.p(var7.c(var4 + var10, var5 + var8, var6 + var11)).c())) {
+               if(!this.a(var1.p(var7.c(var4 + var10, var5 + var8, var6 + var11)).getBlock())) {
                   return false;
                }
             }
@@ -162,7 +162,7 @@ public class class_arf extends class_apw {
    }
 
    private void b(class_aen var1, class_cj var2) {
-      if(this.a(var1.p(var2).c())) {
+      if(this.a(var1.p(var2).getBlock())) {
          this.a(var1, var2, a);
       }
 
@@ -170,7 +170,7 @@ public class class_arf extends class_apw {
 
    private void a(class_aen var1, int var2, int var3, int var4) {
       class_cj var5 = new class_cj(var2, var3, var4);
-      class_agj var6 = var1.p(var5).c();
+      Block var6 = var1.p(var5).getBlock();
       if(var6.v() == class_atk.a) {
          this.a(var1, var5, b);
       }
@@ -178,7 +178,7 @@ public class class_arf extends class_apw {
    }
 
    static {
-      a = class_agk.s.S().a(class_ajo.b, class_ajw.class_a_in_class_ajw.f);
-      b = class_agk.u.S().a(class_ajn.Q, class_ajw.class_a_in_class_ajw.f).a(class_aja.b, Boolean.valueOf(false));
+      a = class_agk.s.S().set(class_ajo.b, class_ajw.class_a_in_class_ajw.f);
+      b = class_agk.u.S().set(class_ajn.Q, class_ajw.class_a_in_class_ajw.f).set(class_aja.b, Boolean.valueOf(false));
    }
 }

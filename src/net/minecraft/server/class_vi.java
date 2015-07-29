@@ -24,13 +24,13 @@ public class class_vi extends class_vh {
       this.c = this.V.nextInt(3) + 1;
       class_cj var8 = new class_cj(this);
       if(!var1.D && var1.R().b("doFireTick") && (var1.ab() == class_om.c || var1.ab() == class_om.d) && var1.a((class_cj)var8, (int)10)) {
-         if(var1.p(var8).c().v() == class_atk.a && class_agk.ab.d(var1, var8)) {
+         if(var1.p(var8).getBlock().v() == class_atk.a && class_agk.ab.d(var1, var8)) {
             var1.a(var8, class_agk.ab.S());
          }
 
          for(int var9 = 0; var9 < 4; ++var9) {
             class_cj var10 = var8.a(this.V.nextInt(3) - 1, this.V.nextInt(3) - 1, this.V.nextInt(3) - 1);
-            if(var1.p(var10).c().v() == class_atk.a && class_agk.ab.d(var1, var10)) {
+            if(var1.p(var10).getBlock().v() == class_atk.a && class_agk.ab.d(var1, var10)) {
                var1.a(var10, class_agk.ab.S());
             }
          }
@@ -54,7 +54,7 @@ public class class_vi extends class_vh {
             this.b = 1;
             this.a = this.V.nextLong();
             class_cj var1 = new class_cj(this);
-            if(!this.o.D && this.o.R().b("doFireTick") && this.o.a((class_cj)var1, (int)10) && this.o.p(var1).c().v() == class_atk.a && class_agk.ab.d(this.o, var1)) {
+            if(!this.o.D && this.o.R().b("doFireTick") && this.o.a((class_cj)var1, (int)10) && this.o.p(var1).getBlock().v() == class_atk.a && class_agk.ab.d(this.o, var1)) {
                this.o.a(var1, class_agk.ab.S());
             }
          }

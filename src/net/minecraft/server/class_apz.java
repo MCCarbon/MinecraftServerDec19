@@ -3,17 +3,17 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_cj;
 
 public class class_apz extends class_aql {
-   private final class_agj a;
+   private final Block a;
    private final int b;
 
-   public class_apz(class_agj var1, int var2) {
+   public class_apz(Block var1, int var2) {
       super(false);
       this.a = var1;
       this.b = var2;
@@ -27,7 +27,7 @@ public class class_apz extends class_aql {
                   break label50;
                }
 
-               class_agj var4 = var1.p(var3.b()).c();
+               Block var4 = var1.p(var3.b()).getBlock();
                if(var4 != class_agk.c && var4 != class_agk.d && var4 != class_agk.b) {
                   break label50;
                }
@@ -49,7 +49,7 @@ public class class_apz extends class_aql {
                while(var10.hasNext()) {
                   class_cj var11 = (class_cj)var10.next();
                   if(var11.i(var3) <= (double)(var9 * var9)) {
-                     var1.a((class_cj)var11, (class_anl)this.a.S(), 4);
+                     var1.a((class_cj)var11, (IBlockData)this.a.S(), 4);
                   }
                }
 

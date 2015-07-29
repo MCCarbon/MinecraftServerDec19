@@ -4,21 +4,21 @@ import java.util.Random;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_pr;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_aly extends class_agj {
+public class class_aly extends Block {
    public class_aly() {
       super(class_atk.G);
-      this.a(class_zu.c);
+      this.a(CreativeTab.c);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_pr var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, class_pr var4) {
       var4.aC();
    }
 
@@ -26,7 +26,7 @@ public class class_aly extends class_agj {
       return false;
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
@@ -34,7 +34,7 @@ public class class_aly extends class_agj {
       return false;
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return class_aau.H;
    }
 

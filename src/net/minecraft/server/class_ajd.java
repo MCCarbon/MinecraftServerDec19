@@ -5,14 +5,14 @@ import java.util.Random;
 import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahp;
 import net.minecraft.server.class_alf;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anz;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awh;
@@ -21,12 +21,12 @@ import net.minecraft.server.class_cq;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_pr;
 
-public abstract class class_ajd extends class_agj {
+public abstract class class_ajd extends Block {
    public static final class_anz b = class_anz.a("level", 0, 15);
 
    protected class_ajd(class_atk var1) {
       super(var1);
-      this.j(this.M.b().a(b, Integer.valueOf(0)));
+      this.j(this.M.b().set(b, Integer.valueOf(0)));
       this.a(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       this.a(true);
    }
@@ -44,7 +44,7 @@ public abstract class class_ajd extends class_agj {
    }
 
    protected int e(class_aer var1, class_cj var2) {
-      return var1.p(var2).c().v() == this.J?((Integer)var1.p(var2).b(b)).intValue():-1;
+      return var1.p(var2).getBlock().v() == this.J?((Integer)var1.p(var2).get(b)).intValue():-1;
    }
 
    protected int f(class_aer var1, class_cj var2) {
@@ -60,16 +60,16 @@ public abstract class class_ajd extends class_agj {
       return false;
    }
 
-   public boolean a(class_anl var1, boolean var2) {
-      return var2 && ((Integer)var1.b(b)).intValue() == 0;
+   public boolean a(IBlockData var1, boolean var2) {
+      return var2 && ((Integer)var1.get(b)).intValue() == 0;
    }
 
    public boolean b(class_aer var1, class_cj var2, class_cq var3) {
-      class_atk var4 = var1.p(var2).c().v();
+      class_atk var4 = var1.p(var2).getBlock().v();
       return var4 == this.J?false:(var3 == class_cq.b?true:(var4 == class_atk.w?false:super.b(var1, var2, var3)));
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
@@ -77,7 +77,7 @@ public abstract class class_ajd extends class_agj {
       return 1;
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
@@ -98,7 +98,7 @@ public abstract class class_ajd extends class_agj {
          int var8 = this.f(var1, var7);
          int var9;
          if(var8 < 0) {
-            if(!var1.p(var7).c().v().c()) {
+            if(!var1.p(var7).getBlock().v().c()) {
                var8 = this.f(var1, var7.b());
                if(var8 >= 0) {
                   var9 = var8 - (var4 - 8);
@@ -111,7 +111,7 @@ public abstract class class_ajd extends class_agj {
          }
       }
 
-      if(((Integer)var1.p(var2).b(b)).intValue() >= 8) {
+      if(((Integer)var1.p(var2).get(b)).intValue() >= 8) {
          var5 = class_cq.class_c_in_class_cq.a.iterator();
 
          do {
@@ -137,15 +137,15 @@ public abstract class class_ajd extends class_agj {
       return this.J == class_atk.h?5:(this.J == class_atk.i?(var1.t.m()?10:30):0);
    }
 
-   public void c(class_aen var1, class_cj var2, class_anl var3) {
+   public void c(class_aen var1, class_cj var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   public boolean e(class_aen var1, class_cj var2, class_anl var3) {
+   public boolean e(class_aen var1, class_cj var2, IBlockData var3) {
       if(this.J == class_atk.i) {
          boolean var4 = false;
          class_cq[] var5 = class_cq.values();
@@ -153,14 +153,14 @@ public abstract class class_ajd extends class_agj {
 
          for(int var7 = 0; var7 < var6; ++var7) {
             class_cq var8 = var5[var7];
-            if(var8 != class_cq.a && var1.p(var2.a(var8)).c().v() == class_atk.h) {
+            if(var8 != class_cq.a && var1.p(var2.a(var8)).getBlock().v() == class_atk.h) {
                var4 = true;
                break;
             }
          }
 
          if(var4) {
-            Integer var9 = (Integer)var3.b(b);
+            Integer var9 = (Integer)var3.get(b);
             if(var9.intValue() == 0) {
                var1.a(var2, class_agk.Z.S());
                this.e(var1, var2);
@@ -190,16 +190,16 @@ public abstract class class_ajd extends class_agj {
 
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(b, Integer.valueOf(var1));
+   public IBlockData a(int var1) {
+      return this.S().set(b, Integer.valueOf(var1));
    }
 
-   public int c(class_anl var1) {
-      return ((Integer)var1.b(b)).intValue();
+   public int c(IBlockData var1) {
+      return ((Integer)var1.get(b)).intValue();
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{b});
+      return new class_anm(this, new IBlockState[]{b});
    }
 
    public static class_ahp a(class_atk var0) {

@@ -4,7 +4,7 @@ import java.util.Random;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_alu;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cq;
@@ -19,8 +19,8 @@ public class class_aro extends class_aql {
             for(int var6 = 0; var6 < var5; ++var6) {
                class_cq var7 = var4[var6];
                if(class_agk.bn.b(var1, var3, var7)) {
-                  class_anl var8 = class_agk.bn.S().a(class_alu.b, Boolean.valueOf(var7 == class_cq.c)).a(class_alu.N, Boolean.valueOf(var7 == class_cq.f)).a(class_alu.O, Boolean.valueOf(var7 == class_cq.d)).a(class_alu.P, Boolean.valueOf(var7 == class_cq.e));
-                  var1.a((class_cj)var3, (class_anl)var8, 2);
+                  IBlockData var8 = class_agk.bn.S().set(class_alu.b, Boolean.valueOf(var7 == class_cq.c)).set(class_alu.N, Boolean.valueOf(var7 == class_cq.f)).set(class_alu.O, Boolean.valueOf(var7 == class_cq.d)).set(class_alu.P, Boolean.valueOf(var7 == class_cq.e));
+                  var1.a((class_cj)var3, (IBlockData)var8, 2);
                   break;
                }
             }

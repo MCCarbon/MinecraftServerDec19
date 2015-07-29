@@ -43,8 +43,8 @@ public class class_afu extends class_aez {
          int var11 = var5 & 15;
 
          for(int var12 = 255; var12 >= 0; --var12) {
-            if(var3.a(var11, var12, var10).c().v() != class_atk.a) {
-               if(var12 == 62 && var3.a(var11, var12, var10).c() != class_agk.j) {
+            if(var3.a(var11, var12, var10).getBlock().v() != class_atk.a) {
+               if(var12 == 62 && var3.a(var11, var12, var10).getBlock() != class_agk.j) {
                   var3.a(var11, var12, var10, class_agk.j.S());
                   if(var8 < 0.12D) {
                      var3.a(var11, var12 + 1, var10, class_agk.bx.S());

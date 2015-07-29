@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_arw;
 
 public class class_asu {
-   private class_agj.class_a_in_class_agj a;
-   private class_agj.class_c_in_class_agj b;
+   private Block.class_a_in_class_agj a;
+   private Block.class_c_in_class_agj b;
    private boolean c;
    private boolean d;
    private class_aeh e;
@@ -14,10 +14,10 @@ public class class_asu {
    private boolean g;
 
    public class_asu() {
-      this(class_agj.class_a_in_class_agj.a, class_agj.class_c_in_class_agj.a, false, false, (class_arw)null);
+      this(Block.class_a_in_class_agj.a, Block.class_c_in_class_agj.a, false, false, (class_arw)null);
    }
 
-   public class_asu(class_agj.class_a_in_class_agj var1, class_agj.class_c_in_class_agj var2, boolean var3, boolean var4, class_arw var5) {
+   public class_asu(Block.class_a_in_class_agj var1, Block.class_c_in_class_agj var2, boolean var3, boolean var4, class_arw var5) {
       this.b = var2;
       this.a = var1;
       this.c = var3;
@@ -31,12 +31,12 @@ public class class_asu {
       return (new class_asu(this.a, this.b, this.c, this.d, this.f)).a(this.e).c(this.g);
    }
 
-   public class_asu a(class_agj.class_a_in_class_agj var1) {
+   public class_asu a(Block.class_a_in_class_agj var1) {
       this.a = var1;
       return this;
    }
 
-   public class_asu a(class_agj.class_c_in_class_agj var1) {
+   public class_asu a(Block.class_c_in_class_agj var1) {
       this.b = var1;
       return this;
    }
@@ -61,7 +61,7 @@ public class class_asu {
       return this;
    }
 
-   public class_agj.class_a_in_class_agj b() {
+   public Block.class_a_in_class_agj b() {
       return this.a;
    }
 
@@ -70,7 +70,7 @@ public class class_asu {
       return this;
    }
 
-   public class_agj.class_c_in_class_agj c() {
+   public Block.class_c_in_class_agj c() {
       return this.b;
    }
 

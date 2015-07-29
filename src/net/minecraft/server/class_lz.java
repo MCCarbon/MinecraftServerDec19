@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_a;
+import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aoc;
@@ -154,7 +154,7 @@ public abstract class class_lz {
          var14 = new class_fb("multiplayer.player.joined", new Object[]{var2.f_()});
       }
 
-      var14.b().a(class_a.o);
+      var14.b().a(EnumChatFormat.YELLOW);
       this.a((class_eu)var14);
       this.c(var2);
       var12.a(var2.s, var2.t, var2.u, var2.y, var2.z);

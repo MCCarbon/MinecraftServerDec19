@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_cj;
 import net.minecraft.server.class_cy;
@@ -17,7 +17,7 @@ import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 
 public abstract class class_tw extends class_po implements class_pp {
-   protected class_agj bv;
+   protected Block bv;
    private int bs;
    private class_xa bt;
 
@@ -62,7 +62,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    public float a(class_cj var1) {
-      return this.o.p(var1.b()).c() == class_agk.c?10.0F:this.o.o(var1) - 0.5F;
+      return this.o.p(var1.b()).getBlock() == class_agk.c?10.0F:this.o.o(var1) - 0.5F;
    }
 
    public void b(class_dn var1) {
@@ -80,7 +80,7 @@ public abstract class class_tw extends class_po implements class_pp {
       int var2 = class_nu.c(this.aT().b);
       int var3 = class_nu.c(this.u);
       class_cj var4 = new class_cj(var1, var2, var3);
-      return this.o.p(var4.b()).c() == this.bv && this.o.k(var4) > 8 && super.cf();
+      return this.o.p(var4.b()).getBlock() == this.bv && this.o.k(var4) > 8 && super.cf();
    }
 
    public int y() {

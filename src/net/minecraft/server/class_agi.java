@@ -5,10 +5,10 @@ import net.minecraft.server.class_aar;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_ahd;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anz;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_cj;
 
 public class class_agi extends class_ahd {
@@ -30,7 +30,7 @@ public class class_agi extends class_ahd {
       return class_aau.cL;
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
       if(var4.nextInt(3) == 0) {
          this.e(var1, var2, var3);
       } else {
@@ -44,6 +44,6 @@ public class class_agi extends class_ahd {
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a});
+      return new class_anm(this, new IBlockState[]{a});
    }
 }

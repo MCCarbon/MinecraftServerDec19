@@ -102,7 +102,7 @@ public class class_vb extends class_uz {
    }
 
    public boolean j() {
-      return this.o.p(this.a).c() instanceof class_ahz;
+      return this.o.p(this.a).getBlock() instanceof class_ahz;
    }
 
    public static class_vb a(class_aen var0, class_cj var1) {

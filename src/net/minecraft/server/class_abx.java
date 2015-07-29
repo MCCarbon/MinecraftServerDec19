@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_zg;
 
 public class class_abx extends class_zg {
-   private final class_agj b;
+   private final Block b;
    private String[] c;
 
-   public class_abx(class_agj var1, boolean var2) {
+   public class_abx(Block var1, boolean var2) {
       super(var1);
       this.b = var1;
       if(var2) {

@@ -9,7 +9,7 @@ import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_agk;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aph;
@@ -31,7 +31,7 @@ import net.minecraft.server.class_qc;
 public class class_apk implements class_aoh {
    private class_aen a;
    private Random b;
-   private final class_anl[] c = new class_anl[256];
+   private final IBlockData[] c = new IBlockData[256];
    private final class_arr d;
    private final List e = Lists.newArrayList();
    private final boolean f;
@@ -89,14 +89,14 @@ public class class_apk implements class_aoh {
          class_ars var10 = (class_ars)var9.next();
 
          for(int var11 = var10.d(); var11 < var10.d() + var10.b(); ++var11) {
-            class_anl var12 = var10.c();
-            if(var12.c() != class_agk.a) {
+            IBlockData var12 = var10.c();
+            if(var12.getBlock() != class_agk.a) {
                var8 = false;
                this.c[var11] = var12;
             }
          }
 
-         if(var10.c().c() == class_agk.a) {
+         if(var10.c().getBlock() == class_agk.a) {
             var14 += var10.b();
          } else {
             var13 += var10.b() + var14;
@@ -113,7 +113,7 @@ public class class_apk implements class_aoh {
 
       int var7;
       for(int var4 = 0; var4 < this.c.length; ++var4) {
-         class_anl var5 = this.c[var4];
+         IBlockData var5 = this.c[var4];
          if(var5 != null) {
             for(int var6 = 0; var6 < 16; ++var6) {
                for(var7 = 0; var7 < 16; ++var7) {

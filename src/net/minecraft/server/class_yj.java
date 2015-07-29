@@ -112,28 +112,28 @@ public class class_yj extends class_xz {
                for(var4 = -1; var4 <= 1; ++var4) {
                   for(int var5 = -1; var5 <= 1; ++var5) {
                      if((var4 != 0 || var5 != 0) && this.j.d(this.k.a(var5, 0, var4)) && this.j.d(this.k.a(var5, 1, var4))) {
-                        if(this.j.p(this.k.a(var5 * 2, 0, var4 * 2)).c() == class_agk.X) {
+                        if(this.j.p(this.k.a(var5 * 2, 0, var4 * 2)).getBlock() == class_agk.X) {
                            ++var3;
                         }
 
-                        if(this.j.p(this.k.a(var5 * 2, 1, var4 * 2)).c() == class_agk.X) {
+                        if(this.j.p(this.k.a(var5 * 2, 1, var4 * 2)).getBlock() == class_agk.X) {
                            ++var3;
                         }
 
                         if(var5 != 0 && var4 != 0) {
-                           if(this.j.p(this.k.a(var5 * 2, 0, var4)).c() == class_agk.X) {
+                           if(this.j.p(this.k.a(var5 * 2, 0, var4)).getBlock() == class_agk.X) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5 * 2, 1, var4)).c() == class_agk.X) {
+                           if(this.j.p(this.k.a(var5 * 2, 1, var4)).getBlock() == class_agk.X) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5, 0, var4 * 2)).c() == class_agk.X) {
+                           if(this.j.p(this.k.a(var5, 0, var4 * 2)).getBlock() == class_agk.X) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5, 1, var4 * 2)).c() == class_agk.X) {
+                           if(this.j.p(this.k.a(var5, 1, var4 * 2)).getBlock() == class_agk.X) {
                               ++var3;
                            }
                         }
@@ -245,7 +245,7 @@ public class class_yj extends class_xz {
    }
 
    public boolean a(class_xa var1) {
-      return this.j.p(this.k).c() != class_agk.bC?false:var1.e((double)this.k.n() + 0.5D, (double)this.k.o() + 0.5D, (double)this.k.p() + 0.5D) <= 64.0D;
+      return this.j.p(this.k).getBlock() != class_agk.bC?false:var1.e((double)this.k.n() + 0.5D, (double)this.k.o() + 0.5D, (double)this.k.p() + 0.5D) <= 64.0D;
    }
 
    public class_aas b(class_xa var1, int var2) {

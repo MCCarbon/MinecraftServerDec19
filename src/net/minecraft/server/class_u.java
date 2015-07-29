@@ -7,10 +7,10 @@ import java.util.LinkedList;
 import java.util.List;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aex;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -50,7 +50,7 @@ public class class_u extends class_i {
             throw new class_bz("commands.clone.tooManyBlocks", new Object[]{Integer.valueOf(var8), Integer.valueOf('耀')});
          } else {
             boolean var9 = false;
-            class_agj var10 = null;
+            Block var10 = null;
             int var11 = -1;
             if((var2.length < 11 || !var2[10].equals("force") && !var2[10].equals("move")) && var6.a(var7)) {
                throw new class_bz("commands.clone.noOverlap", new Object[0]);
@@ -89,15 +89,15 @@ public class class_u extends class_i {
                            for(int var21 = var6.a; var21 <= var6.d; ++var21) {
                               class_cj var22 = new class_cj(var21, var20, var19);
                               class_cj var23 = var22.a((class_df)var18);
-                              class_anl var24 = var12.p(var22);
-                              if((!var13 || var24.c() != class_agk.a) && (var10 == null || var24.c() == var10 && (var11 < 0 || var24.c().c(var24) == var11))) {
+                              IBlockData var24 = var12.p(var22);
+                              if((!var13 || var24.getBlock() != class_agk.a) && (var10 == null || var24.getBlock() == var10 && (var11 < 0 || var24.getBlock().c(var24) == var11))) {
                                  class_amg var25 = var12.s(var22);
                                  if(var25 != null) {
                                     class_dn var26 = new class_dn();
                                     var25.b(var26);
                                     var15.add(new class_u.class_a_in_class_u(var23, var24, var26));
                                     var17.addLast(var22);
-                                 } else if(!var24.c().q() && !var24.c().d()) {
+                                 } else if(!var24.getBlock().q() && !var24.getBlock().d()) {
                                     var16.add(new class_u.class_a_in_class_u(var23, var24, (class_dn)null));
                                     var17.addFirst(var22);
                                  } else {
@@ -112,7 +112,7 @@ public class class_u extends class_i {
                      if(var9) {
                         Iterator var27;
                         class_cj var29;
-                        for(var27 = var17.iterator(); var27.hasNext(); var12.a((class_cj)var29, (class_anl)class_agk.cv.S(), 2)) {
+                        for(var27 = var17.iterator(); var27.hasNext(); var12.a((class_cj)var29, (IBlockData)class_agk.cv.S(), 2)) {
                            var29 = (class_cj)var27.next();
                            class_amg var31 = var12.s(var29);
                            if(var31 instanceof class_oj) {
@@ -124,7 +124,7 @@ public class class_u extends class_i {
 
                         while(var27.hasNext()) {
                            var29 = (class_cj)var27.next();
-                           var12.a((class_cj)var29, (class_anl)class_agk.a.S(), 3);
+                           var12.a((class_cj)var29, (IBlockData)class_agk.a.S(), 3);
                         }
                      }
 
@@ -137,7 +137,7 @@ public class class_u extends class_i {
                      Iterator var32;
                      class_u.class_a_in_class_u var33;
                      class_amg var34;
-                     for(var32 = var30.iterator(); var32.hasNext(); var12.a((class_cj)var33.a, (class_anl)class_agk.cv.S(), 2)) {
+                     for(var32 = var30.iterator(); var32.hasNext(); var12.a((class_cj)var33.a, (IBlockData)class_agk.cv.S(), 2)) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
                         var34 = var12.s(var33.a);
                         if(var34 instanceof class_oj) {
@@ -150,12 +150,12 @@ public class class_u extends class_i {
 
                      while(var32.hasNext()) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
-                        if(var12.a((class_cj)var33.a, (class_anl)var33.b, 2)) {
+                        if(var12.a((class_cj)var33.a, (IBlockData)var33.b, 2)) {
                            ++var8;
                         }
                      }
 
-                     for(var32 = var15.iterator(); var32.hasNext(); var12.a((class_cj)var33.a, (class_anl)var33.b, 2)) {
+                     for(var32 = var15.iterator(); var32.hasNext(); var12.a((class_cj)var33.a, (IBlockData)var33.b, 2)) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
                         var34 = var12.s(var33.a);
                         if(var33.c != null && var34 != null) {
@@ -171,7 +171,7 @@ public class class_u extends class_i {
 
                      while(var32.hasNext()) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
-                        var12.b(var33.a, var33.b.c());
+                        var12.b(var33.a, var33.b.getBlock());
                      }
 
                      List var35 = var12.a(var6, false);
@@ -205,15 +205,15 @@ public class class_u extends class_i {
    }
 
    public List a(class_m var1, String[] var2, class_cj var3) {
-      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, class_agj.c.c()):null)))));
+      return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)))));
    }
 
    static class class_a_in_class_u {
       public final class_cj a;
-      public final class_anl b;
+      public final IBlockData b;
       public final class_dn c;
 
-      public class_a_in_class_u(class_cj var1, class_anl var2, class_dn var3) {
+      public class_a_in_class_u(class_cj var1, IBlockData var2, class_dn var3) {
          this.a = var1;
          this.b = var2;
          this.c = var3;

@@ -7,13 +7,13 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aau;
 import net.minecraft.server.class_aen;
 import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anm;
 import net.minecraft.server.class_anw;
-import net.minecraft.server.class_aoa;
+import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_cj;
@@ -21,9 +21,9 @@ import net.minecraft.server.class_cq;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zu;
+import net.minecraft.server.CreativeTab;
 
-public class class_alu extends class_agj {
+public class class_alu extends Block {
    public static final class_anw a = class_anw.a("up");
    public static final class_anw b = class_anw.a("north");
    public static final class_anw N = class_anw.a("east");
@@ -33,13 +33,13 @@ public class class_alu extends class_agj {
 
    public class_alu() {
       super(class_atk.l);
-      this.j(this.M.b().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false)).a(P, Boolean.valueOf(false)));
+      this.j(this.M.b().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)));
       this.a(true);
-      this.a((class_zu)class_zu.c);
+      this.a((CreativeTab)CreativeTab.c);
    }
 
-   public class_anl a(class_anl var1, class_aer var2, class_cj var3) {
-      return var1.a(a, Boolean.valueOf(var2.p(var3.a()).c().w()));
+   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+      return var1.set(a, Boolean.valueOf(var2.p(var3.a()).getBlock().w()));
    }
 
    public void j() {
@@ -67,7 +67,7 @@ public class class_alu extends class_agj {
       float var8 = 0.0F;
       float var9 = 0.0F;
       boolean var10 = false;
-      if(((Boolean)var1.p(var2).b(P)).booleanValue()) {
+      if(((Boolean)var1.p(var2).get(P)).booleanValue()) {
          var7 = Math.max(var7, 0.0625F);
          var4 = 0.0F;
          var5 = 0.0F;
@@ -77,7 +77,7 @@ public class class_alu extends class_agj {
          var10 = true;
       }
 
-      if(((Boolean)var1.p(var2).b(N)).booleanValue()) {
+      if(((Boolean)var1.p(var2).get(N)).booleanValue()) {
          var4 = Math.min(var4, 0.9375F);
          var7 = 1.0F;
          var5 = 0.0F;
@@ -87,7 +87,7 @@ public class class_alu extends class_agj {
          var10 = true;
       }
 
-      if(((Boolean)var1.p(var2).b(b)).booleanValue()) {
+      if(((Boolean)var1.p(var2).get(b)).booleanValue()) {
          var9 = Math.max(var9, 0.0625F);
          var6 = 0.0F;
          var4 = 0.0F;
@@ -97,7 +97,7 @@ public class class_alu extends class_agj {
          var10 = true;
       }
 
-      if(((Boolean)var1.p(var2).b(O)).booleanValue()) {
+      if(((Boolean)var1.p(var2).get(O)).booleanValue()) {
          var6 = Math.min(var6, 0.9375F);
          var9 = 1.0F;
          var4 = 0.0F;
@@ -107,7 +107,7 @@ public class class_alu extends class_agj {
          var10 = true;
       }
 
-      if(!var10 && this.c(var1.p(var2.a()).c())) {
+      if(!var10 && this.c(var1.p(var2.a()).getBlock())) {
          var5 = Math.min(var5, 0.9375F);
          var8 = 1.0F;
          var4 = 0.0F;
@@ -119,35 +119,35 @@ public class class_alu extends class_agj {
       this.a(var4, var5, var6, var7, var8, var9);
    }
 
-   public class_awf a(class_aen var1, class_cj var2, class_anl var3) {
+   public class_awf a(class_aen var1, class_cj var2, IBlockData var3) {
       return null;
    }
 
    public boolean b(class_aen var1, class_cj var2, class_cq var3) {
       switch(class_alu.SyntheticClass_1.a[var3.ordinal()]) {
       case 1:
-         return this.c(var1.p(var2.a()).c());
+         return this.c(var1.p(var2.a()).getBlock());
       case 2:
       case 3:
       case 4:
       case 5:
-         return this.c(var1.p(var2.a(var3.d())).c());
+         return this.c(var1.p(var2.a(var3.d())).getBlock());
       default:
          return false;
       }
    }
 
-   private boolean c(class_agj var1) {
+   private boolean c(Block var1) {
       return var1.d() && var1.J.c();
    }
 
-   private boolean e(class_aen var1, class_cj var2, class_anl var3) {
-      class_anl var4 = var3;
+   private boolean e(class_aen var1, class_cj var2, IBlockData var3) {
+      IBlockData var4 = var3;
       Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
 
       while(true) {
          class_anw var7;
-         class_anl var8;
+         IBlockData var8;
          do {
             class_cq var6;
             do {
@@ -158,7 +158,7 @@ public class class_alu extends class_agj {
                      }
 
                      if(var4 != var3) {
-                        var1.a((class_cj)var2, (class_anl)var3, 2);
+                        var1.a((class_cj)var2, (IBlockData)var3, 2);
                      }
 
                      return true;
@@ -166,17 +166,17 @@ public class class_alu extends class_agj {
 
                   var6 = (class_cq)var5.next();
                   var7 = a(var6);
-               } while(!((Boolean)var3.b(var7)).booleanValue());
-            } while(this.c(var1.p(var2.a(var6)).c()));
+               } while(!((Boolean)var3.get(var7)).booleanValue());
+            } while(this.c(var1.p(var2.a(var6)).getBlock()));
 
             var8 = var1.p(var2.a());
-         } while(var8.c() == this && ((Boolean)var8.b(var7)).booleanValue());
+         } while(var8.getBlock() == this && ((Boolean)var8.get(var7)).booleanValue());
 
-         var3 = var3.a(var7, Boolean.valueOf(false));
+         var3 = var3.set(var7, Boolean.valueOf(false));
       }
    }
 
-   public void a(class_aen var1, class_cj var2, class_anl var3, class_agj var4) {
+   public void a(class_aen var1, class_cj var2, IBlockData var3, Block var4) {
       if(!var1.D && !this.e(var1, var2, var3)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -184,7 +184,7 @@ public class class_alu extends class_agj {
 
    }
 
-   public void b(class_aen var1, class_cj var2, class_anl var3, Random var4) {
+   public void b(class_aen var1, class_cj var2, IBlockData var3, Random var4) {
       if(!var1.D) {
          if(var1.s.nextInt(4) == 0) {
             byte var5 = 4;
@@ -195,7 +195,7 @@ public class class_alu extends class_agj {
             for(int var8 = -var5; var8 <= var5; ++var8) {
                for(int var9 = -var5; var9 <= var5; ++var9) {
                   for(int var10 = -1; var10 <= 1; ++var10) {
-                     if(var1.p(var2.a(var8, var10, var9)).c() == this) {
+                     if(var1.p(var2.a(var8, var10, var9)).getBlock() == this) {
                         --var6;
                         if(var6 <= 0) {
                            var7 = true;
@@ -211,60 +211,60 @@ public class class_alu extends class_agj {
             class_cq var24;
             if(var18 == class_cq.b && var2.o() < 255 && var1.d(var19)) {
                if(!var7) {
-                  class_anl var21 = var3;
+                  IBlockData var21 = var3;
                   Iterator var23 = class_cq.class_c_in_class_cq.a.iterator();
 
                   while(true) {
                      do {
                         if(!var23.hasNext()) {
-                           if(((Boolean)var21.b(b)).booleanValue() || ((Boolean)var21.b(N)).booleanValue() || ((Boolean)var21.b(O)).booleanValue() || ((Boolean)var21.b(P)).booleanValue()) {
-                              var1.a((class_cj)var19, (class_anl)var21, 2);
+                           if(((Boolean)var21.get(b)).booleanValue() || ((Boolean)var21.get(N)).booleanValue() || ((Boolean)var21.get(O)).booleanValue() || ((Boolean)var21.get(P)).booleanValue()) {
+                              var1.a((class_cj)var19, (IBlockData)var21, 2);
                            }
 
                            return;
                         }
 
                         var24 = (class_cq)var23.next();
-                     } while(!var4.nextBoolean() && this.c(var1.p(var19.a(var24)).c()));
+                     } while(!var4.nextBoolean() && this.c(var1.p(var19.a(var24)).getBlock()));
 
-                     var21 = var21.a(a(var24), Boolean.valueOf(false));
+                     var21 = var21.set(a(var24), Boolean.valueOf(false));
                   }
                }
             } else {
                class_cj var20;
-               if(var18.k().c() && !((Boolean)var3.b(a(var18))).booleanValue()) {
+               if(var18.k().c() && !((Boolean)var3.get(a(var18))).booleanValue()) {
                   if(!var7) {
                      var20 = var2.a(var18);
-                     class_agj var22 = var1.p(var20).c();
+                     Block var22 = var1.p(var20).getBlock();
                      if(var22.J == class_atk.a) {
                         var24 = var18.e();
                         class_cq var25 = var18.f();
-                        boolean var26 = ((Boolean)var3.b(a(var24))).booleanValue();
-                        boolean var27 = ((Boolean)var3.b(a(var25))).booleanValue();
+                        boolean var26 = ((Boolean)var3.get(a(var24))).booleanValue();
+                        boolean var27 = ((Boolean)var3.get(a(var25))).booleanValue();
                         class_cj var28 = var20.a(var24);
                         class_cj var17 = var20.a(var25);
-                        if(var26 && this.c(var1.p(var28).c())) {
-                           var1.a((class_cj)var20, (class_anl)this.S().a(a(var24), Boolean.valueOf(true)), 2);
-                        } else if(var27 && this.c(var1.p(var17).c())) {
-                           var1.a((class_cj)var20, (class_anl)this.S().a(a(var25), Boolean.valueOf(true)), 2);
-                        } else if(var26 && var1.d(var28) && this.c(var1.p(var2.a(var24)).c())) {
-                           var1.a((class_cj)var28, (class_anl)this.S().a(a(var18.d()), Boolean.valueOf(true)), 2);
-                        } else if(var27 && var1.d(var17) && this.c(var1.p(var2.a(var25)).c())) {
-                           var1.a((class_cj)var17, (class_anl)this.S().a(a(var18.d()), Boolean.valueOf(true)), 2);
-                        } else if(this.c(var1.p(var20.a()).c())) {
-                           var1.a((class_cj)var20, (class_anl)this.S(), 2);
+                        if(var26 && this.c(var1.p(var28).getBlock())) {
+                           var1.a((class_cj)var20, (IBlockData)this.S().set(a(var24), Boolean.valueOf(true)), 2);
+                        } else if(var27 && this.c(var1.p(var17).getBlock())) {
+                           var1.a((class_cj)var20, (IBlockData)this.S().set(a(var25), Boolean.valueOf(true)), 2);
+                        } else if(var26 && var1.d(var28) && this.c(var1.p(var2.a(var24)).getBlock())) {
+                           var1.a((class_cj)var28, (IBlockData)this.S().set(a(var18.d()), Boolean.valueOf(true)), 2);
+                        } else if(var27 && var1.d(var17) && this.c(var1.p(var2.a(var25)).getBlock())) {
+                           var1.a((class_cj)var17, (IBlockData)this.S().set(a(var18.d()), Boolean.valueOf(true)), 2);
+                        } else if(this.c(var1.p(var20.a()).getBlock())) {
+                           var1.a((class_cj)var20, (IBlockData)this.S(), 2);
                         }
                      } else if(var22.J.k() && var22.d()) {
-                        var1.a((class_cj)var2, (class_anl)var3.a(a(var18), Boolean.valueOf(true)), 2);
+                        var1.a((class_cj)var2, (IBlockData)var3.set(a(var18), Boolean.valueOf(true)), 2);
                      }
 
                   }
                } else {
                   if(var2.o() > 1) {
                      var20 = var2.b();
-                     class_anl var11 = var1.p(var20);
-                     class_agj var12 = var11.c();
-                     class_anl var13;
+                     IBlockData var11 = var1.p(var20);
+                     Block var12 = var11.getBlock();
+                     IBlockData var13;
                      Iterator var14;
                      class_cq var15;
                      if(var12.J == class_atk.a) {
@@ -274,12 +274,12 @@ public class class_alu extends class_agj {
                         while(var14.hasNext()) {
                            var15 = (class_cq)var14.next();
                            if(var4.nextBoolean()) {
-                              var13 = var13.a(a(var15), Boolean.valueOf(false));
+                              var13 = var13.set(a(var15), Boolean.valueOf(false));
                            }
                         }
 
-                        if(((Boolean)var13.b(b)).booleanValue() || ((Boolean)var13.b(N)).booleanValue() || ((Boolean)var13.b(O)).booleanValue() || ((Boolean)var13.b(P)).booleanValue()) {
-                           var1.a((class_cj)var20, (class_anl)var13, 2);
+                        if(((Boolean)var13.get(b)).booleanValue() || ((Boolean)var13.get(N)).booleanValue() || ((Boolean)var13.get(O)).booleanValue() || ((Boolean)var13.get(P)).booleanValue()) {
+                           var1.a((class_cj)var20, (IBlockData)var13, 2);
                         }
                      } else if(var12 == this) {
                         var13 = var11;
@@ -288,13 +288,13 @@ public class class_alu extends class_agj {
                         while(var14.hasNext()) {
                            var15 = (class_cq)var14.next();
                            class_anw var16 = a(var15);
-                           if(var4.nextBoolean() && ((Boolean)var3.b(var16)).booleanValue()) {
-                              var13 = var13.a(var16, Boolean.valueOf(true));
+                           if(var4.nextBoolean() && ((Boolean)var3.get(var16)).booleanValue()) {
+                              var13 = var13.set(var16, Boolean.valueOf(true));
                            }
                         }
 
-                        if(((Boolean)var13.b(b)).booleanValue() || ((Boolean)var13.b(N)).booleanValue() || ((Boolean)var13.b(O)).booleanValue() || ((Boolean)var13.b(P)).booleanValue()) {
-                           var1.a((class_cj)var20, (class_anl)var13, 2);
+                        if(((Boolean)var13.get(b)).booleanValue() || ((Boolean)var13.get(N)).booleanValue() || ((Boolean)var13.get(O)).booleanValue() || ((Boolean)var13.get(P)).booleanValue()) {
+                           var1.a((class_cj)var20, (IBlockData)var13, 2);
                         }
                      }
                   }
@@ -305,12 +305,12 @@ public class class_alu extends class_agj {
       }
    }
 
-   public class_anl a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      class_anl var9 = this.S().a(a, Boolean.valueOf(false)).a(b, Boolean.valueOf(false)).a(N, Boolean.valueOf(false)).a(O, Boolean.valueOf(false)).a(P, Boolean.valueOf(false));
-      return var3.k().c()?var9.a(a(var3.d()), Boolean.valueOf(true)):var9;
+   public IBlockData a(class_aen var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      IBlockData var9 = this.S().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false));
+      return var3.k().c()?var9.set(a(var3.d()), Boolean.valueOf(true)):var9;
    }
 
-   public class_aar a(class_anl var1, Random var2, int var3) {
+   public class_aar a(IBlockData var1, Random var2, int var3) {
       return null;
    }
 
@@ -318,9 +318,9 @@ public class class_alu extends class_agj {
       return 0;
    }
 
-   public void a(class_aen var1, class_xa var2, class_cj var3, class_anl var4, class_amg var5, class_aas var6) {
+   public void a(class_aen var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
       if(!var1.D && var6 != null && var6.b() == class_aau.bg) {
-         var2.b(class_nc.ab[class_agj.a((class_agj)this)]);
+         var2.b(class_nc.ab[Block.getId((Block)this)]);
          a((class_aen)var1, (class_cj)var3, (class_aas)(new class_aas(class_agk.bn, 1, 0)));
       } else {
          super.a(var1, var2, var3, var4, var5, var6);
@@ -328,25 +328,25 @@ public class class_alu extends class_agj {
 
    }
 
-   public class_anl a(int var1) {
-      return this.S().a(O, Boolean.valueOf((var1 & 1) > 0)).a(P, Boolean.valueOf((var1 & 2) > 0)).a(b, Boolean.valueOf((var1 & 4) > 0)).a(N, Boolean.valueOf((var1 & 8) > 0));
+   public IBlockData a(int var1) {
+      return this.S().set(O, Boolean.valueOf((var1 & 1) > 0)).set(P, Boolean.valueOf((var1 & 2) > 0)).set(b, Boolean.valueOf((var1 & 4) > 0)).set(N, Boolean.valueOf((var1 & 8) > 0));
    }
 
-   public int c(class_anl var1) {
+   public int c(IBlockData var1) {
       int var2 = 0;
-      if(((Boolean)var1.b(O)).booleanValue()) {
+      if(((Boolean)var1.get(O)).booleanValue()) {
          var2 |= 1;
       }
 
-      if(((Boolean)var1.b(P)).booleanValue()) {
+      if(((Boolean)var1.get(P)).booleanValue()) {
          var2 |= 2;
       }
 
-      if(((Boolean)var1.b(b)).booleanValue()) {
+      if(((Boolean)var1.get(b)).booleanValue()) {
          var2 |= 4;
       }
 
-      if(((Boolean)var1.b(N)).booleanValue()) {
+      if(((Boolean)var1.get(N)).booleanValue()) {
          var2 |= 8;
       }
 
@@ -354,35 +354,35 @@ public class class_alu extends class_agj {
    }
 
    protected class_anm e() {
-      return new class_anm(this, new class_aoa[]{a, b, N, O, P});
+      return new class_anm(this, new IBlockState[]{a, b, N, O, P});
    }
 
-   public class_anl a(class_anl var1, class_agj.class_c_in_class_agj var2) {
-      if(var1.c() != this) {
+   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      if(var1.getBlock() != this) {
          return var1;
       } else {
          switch(class_alu.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
-            return var1.a(b, var1.b(O)).a(N, var1.b(P)).a(O, var1.b(b)).a(P, var1.b(N));
+            return var1.set(b, var1.get(O)).set(N, var1.get(P)).set(O, var1.get(b)).set(P, var1.get(N));
          case 2:
-            return var1.a(b, var1.b(N)).a(N, var1.b(O)).a(O, var1.b(P)).a(P, var1.b(b));
+            return var1.set(b, var1.get(N)).set(N, var1.get(O)).set(O, var1.get(P)).set(P, var1.get(b));
          case 3:
-            return var1.a(b, var1.b(P)).a(N, var1.b(b)).a(O, var1.b(N)).a(P, var1.b(O));
+            return var1.set(b, var1.get(P)).set(N, var1.get(b)).set(O, var1.get(N)).set(P, var1.get(O));
          default:
             return var1;
          }
       }
    }
 
-   public class_anl a(class_anl var1, class_agj.class_a_in_class_agj var2) {
-      if(var1.c() != this) {
+   public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
+      if(var1.getBlock() != this) {
          return var1;
       } else {
          switch(class_alu.SyntheticClass_1.c[var2.ordinal()]) {
          case 1:
-            return var1.a(b, var1.b(O)).a(O, var1.b(b));
+            return var1.set(b, var1.get(O)).set(O, var1.get(b));
          case 2:
-            return var1.a(N, var1.b(P)).a(P, var1.b(N));
+            return var1.set(N, var1.get(P)).set(P, var1.get(N));
          default:
             return super.a(var1, var2);
          }
@@ -406,14 +406,14 @@ public class class_alu extends class_agj {
       }
    }
 
-   public static int d(class_anl var0) {
+   public static int d(IBlockData var0) {
       int var1 = 0;
       class_anw[] var2 = Q;
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
          class_anw var5 = var2[var4];
-         if(((Boolean)var0.b(var5)).booleanValue()) {
+         if(((Boolean)var0.get(var5)).booleanValue()) {
             ++var1;
          }
       }
@@ -432,37 +432,37 @@ public class class_alu extends class_agj {
       // $FF: synthetic field
       static final int[] b;
       // $FF: synthetic field
-      static final int[] c = new int[class_agj.class_a_in_class_agj.values().length];
+      static final int[] c = new int[Block.class_a_in_class_agj.values().length];
 
       static {
          try {
-            c[class_agj.class_a_in_class_agj.b.ordinal()] = 1;
+            c[Block.class_a_in_class_agj.b.ordinal()] = 1;
          } catch (NoSuchFieldError var10) {
             ;
          }
 
          try {
-            c[class_agj.class_a_in_class_agj.c.ordinal()] = 2;
+            c[Block.class_a_in_class_agj.c.ordinal()] = 2;
          } catch (NoSuchFieldError var9) {
             ;
          }
 
-         b = new int[class_agj.class_c_in_class_agj.values().length];
+         b = new int[Block.class_c_in_class_agj.values().length];
 
          try {
-            b[class_agj.class_c_in_class_agj.c.ordinal()] = 1;
+            b[Block.class_c_in_class_agj.c.ordinal()] = 1;
          } catch (NoSuchFieldError var8) {
             ;
          }
 
          try {
-            b[class_agj.class_c_in_class_agj.d.ordinal()] = 2;
+            b[Block.class_c_in_class_agj.d.ordinal()] = 2;
          } catch (NoSuchFieldError var7) {
             ;
          }
 
          try {
-            b[class_agj.class_c_in_class_agj.b.ordinal()] = 3;
+            b[Block.class_c_in_class_agj.b.ordinal()] = 3;
          } catch (NoSuchFieldError var6) {
             ;
          }

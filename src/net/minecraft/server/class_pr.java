@@ -14,13 +14,13 @@ import net.minecraft.server.class_adk;
 import net.minecraft.server.class_ads;
 import net.minecraft.server.class_aej;
 import net.minecraft.server.class_aen;
-import net.minecraft.server.class_agj;
+import net.minecraft.server.Block;
 import net.minecraft.server.class_agk;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_aia;
 import net.minecraft.server.class_ajd;
 import net.minecraft.server.class_alv;
-import net.minecraft.server.class_anl;
+import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.class_atk;
 import net.minecraft.server.class_awf;
@@ -542,9 +542,9 @@ public abstract class class_pr implements class_m {
          int var58 = class_nu.c(this.t - 0.20000000298023224D);
          int var59 = class_nu.c(this.u);
          class_cj var26 = new class_cj(var57, var58, var59);
-         class_agj var60 = this.o.p(var26).c();
+         Block var60 = this.o.p(var26).getBlock();
          if(var60.v() == class_atk.a) {
-            class_agj var28 = this.o.p(var26.b()).c();
+            Block var28 = this.o.p(var26.b()).getBlock();
             if(var28 instanceof class_ahz || var28 instanceof class_alv || var28 instanceof class_aia) {
                var60 = var28;
                var26 = var26.b();
@@ -642,10 +642,10 @@ public abstract class class_pr implements class_m {
             for(int var4 = var1.o(); var4 <= var2.o(); ++var4) {
                for(int var5 = var1.p(); var5 <= var2.p(); ++var5) {
                   class_cj var6 = new class_cj(var3, var4, var5);
-                  class_anl var7 = this.o.p(var6);
+                  IBlockData var7 = this.o.p(var6);
 
                   try {
-                     var7.c().a(this.o, var6, var7, this);
+                     var7.getBlock().a(this.o, var6, var7, this);
                   } catch (Throwable var11) {
                      class_b var9 = class_b.a(var11, "Colliding entity with block");
                      class_c var10 = var9.a("Block being collided with");
@@ -659,9 +659,9 @@ public abstract class class_pr implements class_m {
 
    }
 
-   protected void a(class_cj var1, class_agj var2) {
-      class_agj.class_d_in_class_agj var3 = var2.H;
-      if(this.o.p(var1.a()).c() == class_agk.aH) {
+   protected void a(class_cj var1, Block var2) {
+      Block.StepSound var3 = var2.H;
+      if(this.o.p(var1.a()).getBlock() == class_agk.aH) {
          var3 = class_agk.aH.H;
          this.a(var3.c(), var3.d() * 0.15F, var3.e());
       } else if(!var2.v().d()) {
@@ -689,7 +689,7 @@ public abstract class class_pr implements class_m {
       return true;
    }
 
-   protected void a(double var1, boolean var3, class_agj var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
       if(var3) {
          if(this.O > 0.0F) {
             if(var4 != null) {
@@ -790,10 +790,10 @@ public abstract class class_pr implements class_m {
       int var2 = class_nu.c(this.t - 0.20000000298023224D);
       int var3 = class_nu.c(this.u);
       class_cj var4 = new class_cj(var1, var2, var3);
-      class_anl var5 = this.o.p(var4);
-      class_agj var6 = var5.c();
+      IBlockData var5 = this.o.p(var4);
+      Block var6 = var5.getBlock();
       if(var6.b() != -1) {
-         this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, -this.v * 4.0D, 1.5D, -this.x * 4.0D, new int[]{class_agj.f(var5)});
+         this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, -this.v * 4.0D, 1.5D, -this.x * 4.0D, new int[]{Block.f(var5)});
       }
 
    }
@@ -805,10 +805,10 @@ public abstract class class_pr implements class_m {
    public boolean a(class_atk var1) {
       double var2 = this.t + (double)this.aU();
       class_cj var4 = new class_cj(this.s, var2, this.u);
-      class_anl var5 = this.o.p(var4);
-      class_agj var6 = var5.c();
+      IBlockData var5 = this.o.p(var4);
+      Block var6 = var5.getBlock();
       if(var6.v() == var1) {
-         float var7 = class_ajd.b(var5.c().c(var5)) - 0.11111111F;
+         float var7 = class_ajd.b(var5.getBlock().c(var5)) - 0.11111111F;
          float var8 = (float)(var4.o() + 1) - var7;
          boolean var9 = var2 < (double)var8;
          return !var9 && this instanceof class_xa?false:var9;
@@ -1207,7 +1207,7 @@ public abstract class class_pr implements class_m {
             int var5 = class_nu.c(this.u + (double)(((float)((var2 >> 2) % 2) - 0.5F) * this.J * 0.8F));
             if(var1.n() != var4 || var1.o() != var3 || var1.p() != var5) {
                var1.c(var4, var3, var5);
-               if(this.o.p(var1).c().y()) {
+               if(this.o.p(var1).getBlock().y()) {
                   return true;
                }
             }
@@ -1601,11 +1601,11 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public float a(class_aej var1, class_aen var2, class_cj var3, class_anl var4) {
-      return var4.c().a(this);
+   public float a(class_aej var1, class_aen var2, class_cj var3, IBlockData var4) {
+      return var4.getBlock().a(this);
    }
 
-   public boolean a(class_aej var1, class_aen var2, class_cj var3, class_anl var4, float var5) {
+   public boolean a(class_aej var1, class_aen var2, class_cj var3, IBlockData var4, float var5) {
       return true;
    }
 
@@ -1819,7 +1819,7 @@ public abstract class class_pr implements class_m {
    public void c(class_lh var1) {
    }
 
-   public float a(class_agj.class_c_in_class_agj var1) {
+   public float a(Block.class_c_in_class_agj var1) {
       float var2 = class_nu.g(this.y);
       switch(class_pr.SyntheticClass_1.a[var1.ordinal()]) {
       case 1:
@@ -1833,7 +1833,7 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public float a(class_agj.class_a_in_class_agj var1) {
+   public float a(Block.class_a_in_class_agj var1) {
       float var2 = class_nu.g(this.y);
       switch(class_pr.SyntheticClass_1.b[var1.ordinal()]) {
       case 1:
@@ -1850,37 +1850,37 @@ public abstract class class_pr implements class_m {
       // $FF: synthetic field
       static final int[] a;
       // $FF: synthetic field
-      static final int[] b = new int[class_agj.class_a_in_class_agj.values().length];
+      static final int[] b = new int[Block.class_a_in_class_agj.values().length];
 
       static {
          try {
-            b[class_agj.class_a_in_class_agj.b.ordinal()] = 1;
+            b[Block.class_a_in_class_agj.b.ordinal()] = 1;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            b[class_agj.class_a_in_class_agj.c.ordinal()] = 2;
+            b[Block.class_a_in_class_agj.c.ordinal()] = 2;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
-         a = new int[class_agj.class_c_in_class_agj.values().length];
+         a = new int[Block.class_c_in_class_agj.values().length];
 
          try {
-            a[class_agj.class_c_in_class_agj.c.ordinal()] = 1;
+            a[Block.class_c_in_class_agj.c.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.d.ordinal()] = 2;
+            a[Block.class_c_in_class_agj.d.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_agj.class_c_in_class_agj.b.ordinal()] = 3;
+            a[Block.class_c_in_class_agj.b.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }
