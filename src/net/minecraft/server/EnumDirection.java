@@ -22,6 +22,15 @@ public enum EnumDirection implements INamable {
 	private static final EnumDirection[] BY_ID = new EnumDirection[6];
 	private static final EnumDirection[] HORIZONTAL_BY_ID = new EnumDirection[4];
 
+	static {
+		for (EnumDirection direction : values()) {
+			BY_ID[direction.getId()] = direction;
+			if (direction.getHorizontalId() != -1) {
+				HORIZONTAL_BY_ID[direction.getHorizontalId()] = direction;
+			}
+		}
+	}
+
 	public static EnumDirection getById(int id) {
 		return BY_ID[MathHelper.abs(id % BY_ID.length)];
 	}
