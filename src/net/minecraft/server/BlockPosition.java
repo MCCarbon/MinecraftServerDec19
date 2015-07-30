@@ -116,8 +116,8 @@ public class BlockPosition extends BaseBlockPosition {
 		return this.shift(direction, 1);
 	}
 
-	public BlockPosition shift(EnumDirection diection, int dist) {
-		return dist == 0 ? this : new BlockPosition(this.getX() + diection.getAdjacentX() * dist, this.getY() + diection.getAdjacentY() * dist, this.getZ() + diection.getAdjacentZ() * dist);
+	public BlockPosition shift(EnumDirection direction, int dist) {
+		return dist == 0 ? this : new BlockPosition(this.getX() + direction.getAdjacentX() * dist, this.getY() + direction.getAdjacentY() * dist, this.getZ() + direction.getAdjacentZ() * dist);
 	}
 
 	public BlockPosition crossProduct(BaseBlockPosition var1) {

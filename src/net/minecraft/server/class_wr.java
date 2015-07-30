@@ -17,7 +17,7 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pk;
 import net.minecraft.server.class_pl;
@@ -449,7 +449,7 @@ public class class_wr extends class_wi {
       return (class_qd)var7;
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(var3 != null && var3.b() == Items.aq && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
          if(!var1.bH.d) {
             --var3.b;

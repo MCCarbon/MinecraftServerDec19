@@ -1,18 +1,18 @@
 package net.minecraft.server;
 
 import java.util.UUID;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 
 public abstract class class_oh {
    private final UUID g;
-   protected class_eu a;
+   protected IChatBaseComponent a;
    protected float b;
    protected class_oh.class_a_in_class_oh c;
    protected class_oh.class_b_in_class_oh d;
    protected boolean e;
    protected boolean f;
 
-   public class_oh(UUID var1, class_eu var2, class_oh.class_a_in_class_oh var3, class_oh.class_b_in_class_oh var4, boolean var5, boolean var6) {
+   public class_oh(UUID var1, IChatBaseComponent var2, class_oh.class_a_in_class_oh var3, class_oh.class_b_in_class_oh var4, boolean var5, boolean var6) {
       this.g = var1;
       this.a = var2;
       this.c = var3;
@@ -26,7 +26,7 @@ public abstract class class_oh {
       return this.g;
    }
 
-   public class_eu e() {
+   public IChatBaseComponent e() {
       return this.a;
    }
 

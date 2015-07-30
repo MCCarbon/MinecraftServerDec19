@@ -10,7 +10,7 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_uz;
@@ -58,7 +58,7 @@ public class class_vb extends class_uz {
    public void a(class_dn var1) {
    }
 
-   public boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       if(this.o.D) {
          return true;
       } else {

@@ -9,7 +9,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
@@ -61,11 +61,11 @@ public class class_ad extends class_i {
                return var3.e_();
             }
 
-            public class_eu f_() {
+            public IChatBaseComponent f_() {
                return var3.f_();
             }
 
-            public void a(class_eu var1x) {
+            public void a(IChatBaseComponent var1x) {
                var1.a(var1x);
             }
 

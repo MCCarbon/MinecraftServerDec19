@@ -7,7 +7,7 @@ import net.minecraft.server.class_ael;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_fa;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_gj;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
@@ -63,7 +63,7 @@ public class class_ai extends class_i {
 
          while(var3.hasNext()) {
             class_lh var4 = (class_lh)var3.next();
-            var4.a.a((class_ff)(new class_gj(var4, (byte)var2)));
+            var4.a.a((Packet)(new class_gj(var4, (byte)var2)));
          }
       }
 

@@ -1,30 +1,30 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_ic;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayIn;
 
-public class class_is implements class_ff {
+public class class_is implements Packet {
    private int a;
    private class_is.class_a_in_class_is b;
    private int c;
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.e();
-      this.b = (class_is.class_a_in_class_is)var1.a(class_is.class_a_in_class_is.class);
-      this.c = var1.e();
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readVarInt();
+      this.b = (class_is.class_a_in_class_is)var1.readEnum(class_is.class_a_in_class_is.class);
+      this.c = var1.readVarInt();
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.b(this.a);
-      var1.a((Enum)this.b);
-      var1.b(this.c);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeVarInt(this.a);
+      var1.writeEnum((Enum)this.b);
+      var1.writeVarInt(this.c);
    }
 
-   public void a(class_ic var1) {
-      var1.a(this);
+   public void a(PacketListenerPlayIn var1) {
+      var1.handle(this);
    }
 
    public class_is.class_a_in_class_is b() {
@@ -37,8 +37,8 @@ public class class_is implements class_ff {
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_ic)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayIn)var1);
    }
 
    public static enum class_a_in_class_is {

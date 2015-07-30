@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.World;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
@@ -18,7 +18,7 @@ public class class_aaf extends Item {
       this.a(CreativeTab.f);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       --var1.b;
       var2.a((class_pr)var3, "random.bow", 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
       if(!var2.D) {

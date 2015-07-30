@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_fs implements class_ff {
+public class class_fs implements Packet {
    private int a;
    private BlockPosition b;
    private int c;
@@ -21,25 +21,25 @@ public class class_fs implements class_ff {
       this.c = var3;
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.e();
-      this.b = var1.c();
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readVarInt();
+      this.b = var1.readBlockPosition();
       this.c = var1.readUnsignedByte();
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.b(this.a);
-      var1.a(this.b);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeVarInt(this.a);
+      var1.writeBlockPosition(this.b);
       var1.writeByte(this.c);
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

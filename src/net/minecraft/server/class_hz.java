@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
-public class class_hz implements class_ff {
+public class class_hz implements Packet {
    private int a;
    private int b;
    private int c;
@@ -21,7 +21,7 @@ public class class_hz implements class_ff {
    }
 
    public class_hz(class_pr var1) {
-      this.a = var1.F();
+      this.a = var1.getId();
       this.b = MathHelper.floor(var1.s * 32.0D);
       this.c = MathHelper.floor(var1.t * 32.0D);
       this.d = MathHelper.floor(var1.u * 32.0D);
@@ -40,8 +40,8 @@ public class class_hz implements class_ff {
       this.g = var7;
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.e();
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readVarInt();
       this.b = var1.readInt();
       this.c = var1.readInt();
       this.d = var1.readInt();
@@ -50,8 +50,8 @@ public class class_hz implements class_ff {
       this.g = var1.readBoolean();
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.b(this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeVarInt(this.a);
       var1.writeInt(this.b);
       var1.writeInt(this.c);
       var1.writeInt(this.d);
@@ -60,13 +60,13 @@ public class class_hz implements class_ff {
       var1.writeBoolean(this.g);
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

@@ -18,7 +18,7 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dr;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_hl;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_mt;
@@ -26,7 +26,7 @@ import net.minecraft.server.class_my;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.class_qa;
@@ -867,7 +867,7 @@ public abstract class class_qb extends class_qa {
       return this.bv;
    }
 
-   public final boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public final boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       if(this.cq() && this.cr() == var1) {
          this.a(true, !var1.bH.d);
          return true;
@@ -890,7 +890,7 @@ public abstract class class_qb extends class_qa {
       }
    }
 
-   protected boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   protected boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       return false;
    }
 
@@ -919,7 +919,7 @@ public abstract class class_qb extends class_qa {
          }
 
          if(!this.o.D && var1 && this.o instanceof class_lg) {
-            ((class_lg)this.o).t().a((class_pr)this, (class_ff)(new class_hl(1, this, (class_pr)null)));
+            ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_hl(1, this, (class_pr)null)));
          }
       }
 
@@ -941,7 +941,7 @@ public abstract class class_qb extends class_qa {
       this.bw = true;
       this.bx = var1;
       if(!this.o.D && var2 && this.o instanceof class_lg) {
-         ((class_lg)this.o).t().a((class_pr)this, (class_ff)(new class_hl(1, this, this.bx)));
+         ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_hl(1, this, this.bx)));
       }
 
    }

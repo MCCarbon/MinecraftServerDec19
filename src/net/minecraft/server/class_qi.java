@@ -15,7 +15,7 @@ import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dc;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_em;
+import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.class_pr;
 import org.apache.commons.lang3.ObjectUtils;
 
@@ -161,7 +161,7 @@ public class class_qi {
       return this.e;
    }
 
-   public static void a(List var0, class_em var1) throws IOException {
+   public static void a(List var0, PacketDataSerializer var1) throws IOException {
       if(var0 != null) {
          Iterator var2 = var0.iterator();
 
@@ -199,7 +199,7 @@ public class class_qi {
       return var1;
    }
 
-   public void a(class_em var1) throws IOException {
+   public void a(PacketDataSerializer var1) throws IOException {
       this.f.readLock().lock();
       Iterator var2 = this.d.values().iterator();
 
@@ -228,7 +228,7 @@ public class class_qi {
       return var1;
    }
 
-   private static void a(class_em var0, class_qi.class_a_in_class_qi var1) throws IOException {
+   private static void a(PacketDataSerializer var0, class_qi.class_a_in_class_qi var1) throws IOException {
       int var2 = (var1.c() << 5 | var1.a() & 31) & 255;
       var0.writeByte(var2);
       switch(var1.c()) {
@@ -245,7 +245,7 @@ public class class_qi {
          var0.writeFloat(((Float)var1.b()).floatValue());
          break;
       case 4:
-         var0.a((String)var1.b());
+         var0.writeString((String)var1.b());
          break;
       case 5:
          class_aas var3 = (class_aas)var1.b();
@@ -266,7 +266,7 @@ public class class_qi {
 
    }
 
-   public static List b(class_em var0) throws IOException {
+   public static List b(PacketDataSerializer var0) throws IOException {
       ArrayList var1 = null;
 
       for(byte var2 = var0.readByte(); var2 != 127; var2 = var0.readByte()) {
@@ -291,7 +291,7 @@ public class class_qi {
             var5 = new class_qi.class_a_in_class_qi(var3, var4, Float.valueOf(var0.readFloat()));
             break;
          case 4:
-            var5 = new class_qi.class_a_in_class_qi(var3, var4, var0.c(32767));
+            var5 = new class_qi.class_a_in_class_qi(var3, var4, var0.readString(32767));
             break;
          case 5:
             var5 = new class_qi.class_a_in_class_qi(var3, var4, var0.i());

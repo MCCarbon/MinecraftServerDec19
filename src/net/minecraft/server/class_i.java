@@ -24,7 +24,7 @@ import net.minecraft.server.class_ca;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cd;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_h;
 import net.minecraft.server.MinecraftKey;
@@ -239,11 +239,11 @@ public abstract class class_i implements class_k {
       }
    }
 
-   public static class_eu a(class_m var0, String[] var1, int var2) throws class_cd {
+   public static IChatBaseComponent a(class_m var0, String[] var1, int var2) throws class_cd {
       return b(var0, var1, var2, false);
    }
 
-   public static class_eu b(class_m var0, String[] var1, int var2, boolean var3) throws class_cd {
+   public static IChatBaseComponent b(class_m var0, String[] var1, int var2, boolean var3) throws class_cd {
       class_fa var4 = new class_fa("");
 
       for(int var5 = var2; var5 < var1.length; ++var5) {
@@ -253,7 +253,7 @@ public abstract class class_i implements class_k {
 
          Object var6 = new class_fa(var1[var5]);
          if(var3) {
-            class_eu var7 = class_o.b(var0, var1[var5]);
+            IChatBaseComponent var7 = class_o.b(var0, var1[var5]);
             if(var7 == null) {
                if(class_o.b(var1[var5])) {
                   throw new class_cd();
@@ -263,7 +263,7 @@ public abstract class class_i implements class_k {
             }
          }
 
-         var4.a((class_eu)var6);
+         var4.a((IChatBaseComponent)var6);
       }
 
       return var4;
@@ -399,7 +399,7 @@ public abstract class class_i implements class_k {
       return var1.toString();
    }
 
-   public static class_eu a(List var0) {
+   public static IChatBaseComponent a(List var0) {
       class_fa var1 = new class_fa("");
 
       for(int var2 = 0; var2 < var0.size(); ++var2) {
@@ -411,7 +411,7 @@ public abstract class class_i implements class_k {
             }
          }
 
-         var1.a((class_eu)var0.get(var2));
+         var1.a((IChatBaseComponent)var0.get(var2));
       }
 
       return var1;

@@ -37,7 +37,7 @@ import net.minecraft.server.class_dr;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ew;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_lg;
@@ -45,7 +45,7 @@ import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pt;
@@ -136,7 +136,7 @@ public abstract class class_pr implements class_m {
    private final List aB;
    protected boolean ar;
 
-   public int F() {
+   public int getId() {
       return this.c;
    }
 
@@ -1217,7 +1217,7 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       return false;
    }
 
@@ -1680,7 +1680,7 @@ public abstract class class_pr implements class_m {
       return true;
    }
 
-   public class_eu f_() {
+   public IChatBaseComponent f_() {
       class_fa var1 = new class_fa(this.e_());
       var1.b().a(this.aS());
       var1.b().a(this.aM().toString());
@@ -1758,7 +1758,7 @@ public abstract class class_pr implements class_m {
       return false;
    }
 
-   public void a(class_eu var1) {
+   public void a(IChatBaseComponent var1) {
    }
 
    public boolean a(int var1, String var2) {
@@ -1797,7 +1797,7 @@ public abstract class class_pr implements class_m {
       this.aA.a(var1.aW());
    }
 
-   public class_oq a(class_xa var1, Vec3D var2, class_aas var3, class_oo var4) {
+   public class_oq a(class_xa var1, Vec3D var2, class_aas var3, EnumUsedHand var4) {
       return class_oq.b;
    }
 

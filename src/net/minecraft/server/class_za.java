@@ -14,7 +14,7 @@ import net.minecraft.server.class_cn;
 import net.minecraft.server.class_cr;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pv;
@@ -132,7 +132,7 @@ public class class_za extends Item {
       return this.m.b() == var2.b()?true:super.a(var1, var2);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       class_pw var5 = class_qb.c(var1);
       class_aas var6 = var3.a(var5);
       if(var6 == null) {

@@ -7,7 +7,7 @@ import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ol;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_ot;
 import net.minecraft.server.class_ou;
 import net.minecraft.server.class_pc;
@@ -147,7 +147,7 @@ public abstract class class_vq extends class_vn implements class_ou {
 
    }
 
-   public boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       if(!this.o.D) {
          var1.a((class_oj)this);
       }

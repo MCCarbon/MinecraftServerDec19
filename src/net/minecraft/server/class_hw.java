@@ -3,52 +3,52 @@ package net.minecraft.server;
 import java.io.IOException;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_eu;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.IChatBaseComponent;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_hw implements class_ff {
+public class class_hw implements Packet {
    private World a;
    private BlockPosition b;
-   private class_eu[] c;
+   private IChatBaseComponent[] c;
 
    public class_hw() {
    }
 
-   public class_hw(World var1, BlockPosition var2, class_eu[] var3) {
+   public class_hw(World var1, BlockPosition var2, IChatBaseComponent[] var3) {
       this.a = var1;
       this.b = var2;
-      this.c = new class_eu[]{var3[0], var3[1], var3[2], var3[3]};
+      this.c = new IChatBaseComponent[]{var3[0], var3[1], var3[2], var3[3]};
    }
 
-   public void a(class_em var1) throws IOException {
-      this.b = var1.c();
-      this.c = new class_eu[4];
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.b = var1.readBlockPosition();
+      this.c = new IChatBaseComponent[4];
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         this.c[var2] = var1.d();
+         this.c[var2] = var1.readChat();
       }
 
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a(this.b);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeBlockPosition(this.b);
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         var1.a(this.c[var2]);
+         var1.writeChat(this.c[var2]);
       }
 
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

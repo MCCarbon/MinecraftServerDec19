@@ -17,7 +17,7 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_lg;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -342,7 +342,7 @@ public class class_uy extends class_qa {
 
    }
 
-   public class_oq a(class_xa var1, Vec3D var2, class_aas var3, class_oo var4) {
+   public class_oq a(class_xa var1, Vec3D var2, class_aas var3, EnumUsedHand var4) {
       if(this.t()) {
          return class_oq.b;
       } else if(!this.o.D && !var1.v()) {
@@ -402,7 +402,7 @@ public class class_uy extends class_qa {
       }
    }
 
-   private void a(class_xa var1, class_pw var2, class_aas var3, class_oo var4) {
+   private void a(class_xa var1, class_pw var2, class_aas var3, EnumUsedHand var4) {
       class_aas var5 = this.a(var2);
       if(var5 == null || (this.bB & 1 << var2.c() + 8) == 0) {
          if(var5 != null || (this.bB & 1 << var2.c() + 16) == 0) {
@@ -420,7 +420,7 @@ public class class_uy extends class_qa {
                }
             } else {
                this.a(var2, var3);
-               var1.a((class_oo)var4, (class_aas)var5);
+               var1.a((EnumUsedHand)var4, (class_aas)var5);
             }
          }
       }

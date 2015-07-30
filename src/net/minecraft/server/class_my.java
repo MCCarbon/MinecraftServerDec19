@@ -6,7 +6,7 @@ import java.util.Locale;
 import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awt;
 import net.minecraft.server.class_awu;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ew;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_mz;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_nc;
 
 public class class_my {
    public final String e;
-   private final class_eu a;
+   private final IChatBaseComponent a;
    public boolean f;
    private final class_mz b;
    private final class_awt c;
@@ -26,7 +26,7 @@ public class class_my {
    public static class_mz i;
    public static class_mz j;
 
-   public class_my(String var1, class_eu var2, class_mz var3) {
+   public class_my(String var1, IChatBaseComponent var2, class_mz var3) {
       this.e = var1;
       this.a = var2;
       this.b = var3;
@@ -34,7 +34,7 @@ public class class_my {
       class_awt.a.put(this.c.a(), this.c);
    }
 
-   public class_my(String var1, class_eu var2) {
+   public class_my(String var1, IChatBaseComponent var2) {
       this(var1, var2, g);
    }
 
@@ -57,16 +57,16 @@ public class class_my {
       return false;
    }
 
-   public class_eu e() {
-      class_eu var1 = this.a.f();
+   public IChatBaseComponent e() {
+      IChatBaseComponent var1 = this.a.f();
       var1.b().a(EnumChatFormat.GRAY);
       var1.b().a(new class_ew(class_ew.class_a_in_class_ew.b, new class_fa(this.e)));
       return var1;
    }
 
-   public class_eu j() {
-      class_eu var1 = this.e();
-      class_eu var2 = (new class_fa("[")).a(var1).a("]");
+   public IChatBaseComponent j() {
+      IChatBaseComponent var1 = this.e();
+      IChatBaseComponent var2 = (new class_fa("[")).a(var1).a("]");
       var2.a(var1.b());
       return var2;
    }

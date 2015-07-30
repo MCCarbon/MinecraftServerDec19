@@ -12,7 +12,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_oj;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pv;
 import net.minecraft.server.class_vm;
@@ -54,7 +54,7 @@ public class class_vs extends class_vq implements class_ams {
       return 5;
    }
 
-   public boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       if(!this.o.D) {
          var1.a((class_oj)this);
       }

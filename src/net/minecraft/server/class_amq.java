@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.Item;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.MinecraftKey;
 
@@ -37,7 +37,7 @@ public class class_amq extends class_amg {
       this.f = var1.g("Data");
    }
 
-   public class_ff z_() {
+   public Packet z_() {
       class_dn var1 = new class_dn();
       this.b(var1);
       var1.p("Item");

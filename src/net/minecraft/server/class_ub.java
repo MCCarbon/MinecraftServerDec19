@@ -5,7 +5,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -20,10 +20,10 @@ public class class_ub extends class_ty {
       this.bv = Blocks.MYCELIM;
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(var3 != null && var3.b() == Items.B && this.l() >= 0 && !var1.bH.d) {
          if(--var3.b == 0) {
-            var1.a((class_oo)var2, (class_aas)(new class_aas(Items.C)));
+            var1.a((EnumUsedHand)var2, (class_aas)(new class_aas(Items.C)));
          } else if(!var1.bp.a(new class_aas(Items.C))) {
             var1.a(new class_aas(Items.C), false);
          }

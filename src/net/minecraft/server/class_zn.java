@@ -13,7 +13,7 @@ import net.minecraft.server.class_awg;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
@@ -28,7 +28,7 @@ public class class_zn extends Item {
       this.a(CreativeTab.f);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       boolean var5 = this.a == Blocks.AIR;
       class_awg var6 = this.a(var2, var3, var5);
       if(var6 == null) {

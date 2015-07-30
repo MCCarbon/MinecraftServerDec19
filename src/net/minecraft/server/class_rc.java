@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_ul;
 import net.minecraft.server.class_xa;
@@ -47,12 +47,12 @@ public class class_rc extends class_rm {
    }
 
    private boolean a(class_xa var1) {
-      class_oo[] var2 = class_oo.values();
+      EnumUsedHand[] var2 = EnumUsedHand.values();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         class_oo var5 = var2[var4];
-         class_aas var6 = var1.b((class_oo)var5);
+         EnumUsedHand var5 = var2[var4];
+         class_aas var6 = var1.b((EnumUsedHand)var5);
          if(var6 != null) {
             if(this.a.cA() && var6.b() == Items.aZ) {
                return true;

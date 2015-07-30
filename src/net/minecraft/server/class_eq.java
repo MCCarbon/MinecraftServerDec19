@@ -6,7 +6,7 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.CorruptedFrameException;
 import java.util.List;
-import net.minecraft.server.class_em;
+import net.minecraft.server.PacketDataSerializer;
 
 public class class_eq extends ByteToMessageDecoder {
    protected void decode(ChannelHandlerContext var1, ByteBuf var2, List var3) throws Exception {
@@ -21,10 +21,10 @@ public class class_eq extends ByteToMessageDecoder {
 
          var4[var5] = var2.readByte();
          if(var4[var5] >= 0) {
-            class_em var6 = new class_em(Unpooled.wrappedBuffer(var4));
+            PacketDataSerializer var6 = new PacketDataSerializer(Unpooled.wrappedBuffer(var4));
 
             try {
-               int var7 = var6.e();
+               int var7 = var6.readVarInt();
                if(var2.readableBytes() < var7) {
                   var2.resetReaderIndex();
                   return;

@@ -8,15 +8,15 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import java.net.InetSocketAddress;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_ln;
+import net.minecraft.server.ServerConnection;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class class_ll extends ChannelInboundHandlerAdapter {
    private static final Logger a = LogManager.getLogger();
-   private class_ln b;
+   private ServerConnection b;
 
-   public class_ll(class_ln var1) {
+   public class_ll(ServerConnection var1) {
       this.b = var1;
    }
 
@@ -28,7 +28,7 @@ public class class_ll extends ChannelInboundHandlerAdapter {
       try {
          if(var3.readUnsignedByte() == 254) {
             InetSocketAddress var5 = (InetSocketAddress)var1.channel().remoteAddress();
-            MinecraftServer var6 = this.b.d();
+            MinecraftServer var6 = this.b.getMinecraftServer();
             int var7 = var3.readableBytes();
             String var8;
             switch(var7) {

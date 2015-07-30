@@ -32,7 +32,7 @@ public class class_ui extends class_uk {
    public class_ui(World var1) {
       super(var1);
       this.a(0.95F, 0.95F);
-      this.V.setSeed((long)(1 + this.F()));
+      this.V.setSeed((long)(1 + this.getId()));
       this.bw = 1.0F / (this.V.nextFloat() + 1.0F) * 0.2F;
       this.i.a(0, new class_ui.class_a_in_class_ui(this));
    }

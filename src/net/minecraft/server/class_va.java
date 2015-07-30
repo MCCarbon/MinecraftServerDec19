@@ -10,7 +10,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qi;
@@ -95,7 +95,7 @@ public class class_va extends class_uz {
       if(var1 != null) {
          if(var1.b() == Items.bf) {
             class_avf var2 = ((class_aax)var1.b()).a(var1, this.o);
-            var2.h.remove("frame-" + this.F());
+            var2.h.remove("frame-" + this.getId());
          }
 
          var1.a((class_va)null);
@@ -168,7 +168,7 @@ public class class_va extends class_uz {
       super.a(var1);
    }
 
-   public boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       if(this.o() == null) {
          if(var2 != null && !this.o.D) {
             this.a(var2);

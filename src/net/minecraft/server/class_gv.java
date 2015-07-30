@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_gv implements class_ff {
+public class class_gv implements Packet {
    protected int a;
    protected byte b;
    protected byte c;
@@ -23,15 +23,15 @@ public class class_gv implements class_ff {
       this.a = var1;
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.e();
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readVarInt();
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.b(this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeVarInt(this.a);
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
@@ -41,8 +41,8 @@ public class class_gv implements class_ff {
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 
    public static class class_c_in_class_gv extends class_gv {
@@ -58,15 +58,15 @@ public class class_gv implements class_ff {
          this.g = var4;
       }
 
-      public void a(class_em var1) throws IOException {
-         super.a(var1);
+      public void decode(PacketDataSerializer var1) throws IOException {
+         super.decode(var1);
          this.e = var1.readByte();
          this.f = var1.readByte();
          this.g = var1.readBoolean();
       }
 
-      public void b(class_em var1) throws IOException {
-         super.b(var1);
+      public void encode(PacketDataSerializer var1) throws IOException {
+         super.encode(var1);
          var1.writeByte(this.e);
          var1.writeByte(this.f);
          var1.writeBoolean(this.g);
@@ -74,8 +74,8 @@ public class class_gv implements class_ff {
 
       // $FF: synthetic method
       // $FF: bridge method
-      public void a(class_ep var1) {
-         super.a((class_fj)var1);
+      public void handle(PacketListener var1) {
+         super.a((PacketListenerPlayOut)var1);
       }
    }
 
@@ -91,16 +91,16 @@ public class class_gv implements class_ff {
          this.g = var5;
       }
 
-      public void a(class_em var1) throws IOException {
-         super.a(var1);
+      public void decode(PacketDataSerializer var1) throws IOException {
+         super.decode(var1);
          this.b = var1.readByte();
          this.c = var1.readByte();
          this.d = var1.readByte();
          this.g = var1.readBoolean();
       }
 
-      public void b(class_em var1) throws IOException {
-         super.b(var1);
+      public void encode(PacketDataSerializer var1) throws IOException {
+         super.encode(var1);
          var1.writeByte(this.b);
          var1.writeByte(this.c);
          var1.writeByte(this.d);
@@ -109,8 +109,8 @@ public class class_gv implements class_ff {
 
       // $FF: synthetic method
       // $FF: bridge method
-      public void a(class_ep var1) {
-         super.a((class_fj)var1);
+      public void handle(PacketListener var1) {
+         super.a((PacketListenerPlayOut)var1);
       }
    }
 
@@ -130,8 +130,8 @@ public class class_gv implements class_ff {
          this.h = true;
       }
 
-      public void a(class_em var1) throws IOException {
-         super.a(var1);
+      public void decode(PacketDataSerializer var1) throws IOException {
+         super.decode(var1);
          this.b = var1.readByte();
          this.c = var1.readByte();
          this.d = var1.readByte();
@@ -140,8 +140,8 @@ public class class_gv implements class_ff {
          this.g = var1.readBoolean();
       }
 
-      public void b(class_em var1) throws IOException {
-         super.b(var1);
+      public void encode(PacketDataSerializer var1) throws IOException {
+         super.encode(var1);
          var1.writeByte(this.b);
          var1.writeByte(this.c);
          var1.writeByte(this.d);
@@ -152,8 +152,8 @@ public class class_gv implements class_ff {
 
       // $FF: synthetic method
       // $FF: bridge method
-      public void a(class_ep var1) {
-         super.a((class_fj)var1);
+      public void handle(PacketListener var1) {
+         super.a((PacketListenerPlayOut)var1);
       }
    }
 }

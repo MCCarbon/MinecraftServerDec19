@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.class_aoe;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_hg implements class_ff {
+public class class_hg implements Packet {
    private class_hg.class_a_in_class_hg a;
    private int b;
    private double c;
@@ -33,8 +33,8 @@ public class class_hg implements class_ff {
       this.h = var1.p();
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = (class_hg.class_a_in_class_hg)var1.a(class_hg.class_a_in_class_hg.class);
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = (class_hg.class_a_in_class_hg)var1.readEnum(class_hg.class_a_in_class_hg.class);
       switch(class_hg.SyntheticClass_1.a[this.a.ordinal()]) {
       case 1:
          this.e = var1.readDouble();
@@ -42,33 +42,33 @@ public class class_hg implements class_ff {
       case 2:
          this.f = var1.readDouble();
          this.e = var1.readDouble();
-         this.g = var1.f();
+         this.g = var1.readVarLong();
          break;
       case 3:
          this.c = var1.readDouble();
          this.d = var1.readDouble();
          break;
       case 4:
-         this.i = var1.e();
+         this.i = var1.readVarInt();
          break;
       case 5:
-         this.h = var1.e();
+         this.h = var1.readVarInt();
          break;
       case 6:
          this.c = var1.readDouble();
          this.d = var1.readDouble();
          this.f = var1.readDouble();
          this.e = var1.readDouble();
-         this.g = var1.f();
-         this.b = var1.e();
-         this.i = var1.e();
-         this.h = var1.e();
+         this.g = var1.readVarLong();
+         this.b = var1.readVarInt();
+         this.i = var1.readVarInt();
+         this.h = var1.readVarInt();
       }
 
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a((Enum)this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeEnum((Enum)this.a);
       switch(class_hg.SyntheticClass_1.a[this.a.ordinal()]) {
       case 1:
          var1.writeDouble(this.e);
@@ -76,39 +76,39 @@ public class class_hg implements class_ff {
       case 2:
          var1.writeDouble(this.f);
          var1.writeDouble(this.e);
-         var1.b(this.g);
+         var1.writeVarLong(this.g);
          break;
       case 3:
          var1.writeDouble(this.c);
          var1.writeDouble(this.d);
          break;
       case 4:
-         var1.b(this.i);
+         var1.writeVarInt(this.i);
          break;
       case 5:
-         var1.b(this.h);
+         var1.writeVarInt(this.h);
          break;
       case 6:
          var1.writeDouble(this.c);
          var1.writeDouble(this.d);
          var1.writeDouble(this.f);
          var1.writeDouble(this.e);
-         var1.b(this.g);
-         var1.b(this.b);
-         var1.b(this.i);
-         var1.b(this.h);
+         var1.writeVarLong(this.g);
+         var1.writeVarInt(this.b);
+         var1.writeVarInt(this.i);
+         var1.writeVarInt(this.h);
       }
 
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 
    // $FF: synthetic class

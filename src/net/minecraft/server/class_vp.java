@@ -8,8 +8,8 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eu;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.IChatBaseComponent;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_vn;
@@ -21,7 +21,7 @@ public class class_vp extends class_vn {
    private final class_aed c = new class_aed() {
       public void h() {
          class_vp.this.H().b(class_vp.a, this.l());
-         class_vp.this.H().b(class_vp.b, class_eu.class_a_in_class_eu.a(this.k()));
+         class_vp.this.H().b(class_vp.b, IChatBaseComponent.class_a_in_class_eu.a(this.k()));
       }
 
       public BlockPosition c() {
@@ -60,7 +60,7 @@ public class class_vp extends class_vn {
       super.a(var1);
       this.c.b(var1);
       this.H().b(a, this.j().l());
-      this.H().b(b, class_eu.class_a_in_class_eu.a(this.j().k()));
+      this.H().b(b, IChatBaseComponent.class_a_in_class_eu.a(this.j().k()));
    }
 
    protected void b(class_dn var1) {
@@ -88,7 +88,7 @@ public class class_vp extends class_vn {
 
    }
 
-   public boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       this.c.a(var1);
       return false;
    }
@@ -97,7 +97,7 @@ public class class_vp extends class_vn {
       super.d(var1);
       if(var1 == b) {
          try {
-            this.c.b(class_eu.class_a_in_class_eu.a(this.H().e(b)));
+            this.c.b(IChatBaseComponent.class_a_in_class_eu.a(this.H().e(b)));
          } catch (Throwable var3) {
             ;
          }

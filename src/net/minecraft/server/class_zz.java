@@ -10,7 +10,7 @@ import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_uf;
@@ -32,7 +32,7 @@ public class class_zz extends Item {
       return super.a() + "." + class_zy.a(var2).d();
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(!var2.a(var4.shift(var6), var6, var1)) {
          return class_oq.b;
       } else {
@@ -94,7 +94,7 @@ public class class_zz extends Item {
       return false;
    }
 
-   public boolean a(class_aas var1, class_xa var2, class_qa var3, class_oo var4) {
+   public boolean a(class_aas var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
       if(var3 instanceof class_uf) {
          class_uf var5 = (class_uf)var3;
          class_zy var6 = class_zy.a(var1.i());

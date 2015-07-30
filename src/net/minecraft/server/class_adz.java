@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_aea;
 import net.minecraft.server.class_aeb;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_xa;
 
 public interface class_adz {
@@ -17,5 +17,5 @@ public interface class_adz {
 
    void a_(class_aas var1);
 
-   class_eu f_();
+   IChatBaseComponent f_();
 }

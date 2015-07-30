@@ -4,12 +4,12 @@ import java.io.IOException;
 import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Set;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_fi implements class_ff {
+public class class_fi implements Packet {
    private double a;
    private double b;
    private double c;
@@ -29,7 +29,7 @@ public class class_fi implements class_ff {
       this.f = var9;
    }
 
-   public void a(class_em var1) throws IOException {
+   public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readDouble();
       this.b = var1.readDouble();
       this.c = var1.readDouble();
@@ -38,7 +38,7 @@ public class class_fi implements class_ff {
       this.f = class_fi.class_a_in_class_fi.a(var1.readUnsignedByte());
    }
 
-   public void b(class_em var1) throws IOException {
+   public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeDouble(this.a);
       var1.writeDouble(this.b);
       var1.writeDouble(this.c);
@@ -47,14 +47,14 @@ public class class_fi implements class_ff {
       var1.writeByte(class_fi.class_a_in_class_fi.a(this.f));
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 
    public static enum class_a_in_class_fi {

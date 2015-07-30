@@ -11,7 +11,7 @@ import com.google.gson.JsonSerializer;
 import java.lang.reflect.Type;
 import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_et;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ew;
 
 public class class_ez {
@@ -353,7 +353,7 @@ public class class_ez {
                   if(var6 != null) {
                      var7 = var6.getAsJsonPrimitive("action");
                      class_ew.class_a_in_class_ew var11 = var7 == null?null:class_ew.class_a_in_class_ew.a(var7.getAsString());
-                     class_eu var12 = (class_eu)var3.deserialize(var6.get("value"), class_eu.class);
+                     IChatBaseComponent var12 = (IChatBaseComponent)var3.deserialize(var6.get("value"), IChatBaseComponent.class);
                      if(var11 != null && var12 != null && var11.a()) {
                         var4.i = new class_ew(var11, var12);
                      }

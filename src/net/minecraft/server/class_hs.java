@@ -3,12 +3,12 @@ package net.minecraft.server;
 import java.io.IOException;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_hs implements class_ff {
+public class class_hs implements Packet {
    private String a = "";
    private String b = "";
    private int c;
@@ -38,34 +38,34 @@ public class class_hs implements class_ff {
       this.d = class_hs.class_a_in_class_hs.b;
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.c(40);
-      this.d = (class_hs.class_a_in_class_hs)var1.a(class_hs.class_a_in_class_hs.class);
-      this.b = var1.c(16);
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readString(40);
+      this.d = (class_hs.class_a_in_class_hs)var1.readEnum(class_hs.class_a_in_class_hs.class);
+      this.b = var1.readString(16);
       if(this.d != class_hs.class_a_in_class_hs.b) {
-         this.c = var1.e();
+         this.c = var1.readVarInt();
       }
 
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a(this.a);
-      var1.a((Enum)this.d);
-      var1.a(this.b);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeString(this.a);
+      var1.writeEnum((Enum)this.d);
+      var1.writeString(this.b);
       if(this.d != class_hs.class_a_in_class_hs.b) {
-         var1.b(this.c);
+         var1.writeVarInt(this.c);
       }
 
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 
    public static enum class_a_in_class_hs {

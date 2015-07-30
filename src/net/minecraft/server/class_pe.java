@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pr;
@@ -24,8 +24,8 @@ public class class_pe extends class_pd {
       return this.r;
    }
 
-   public class_eu b(class_qa var1) {
-      class_eu var2 = this.r == null?this.q.f_():this.r.f_();
+   public IChatBaseComponent b(class_qa var1) {
+      IChatBaseComponent var2 = this.r == null?this.q.f_():this.r.f_();
       class_aas var3 = this.r instanceof class_qa?((class_qa)this.r).bA():null;
       String var4 = "death.attack." + this.p;
       String var5 = var4 + ".item";

@@ -14,7 +14,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_gm;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.MathHelper;
@@ -162,7 +162,7 @@ public class class_wg extends class_wi {
          if(this.bw != null) {
             return this.bw;
          } else {
-            class_pr var1 = this.o.a(this.ac.c(b));
+            class_pr var1 = this.o.getEntityById(this.ac.c(b));
             if(var1 instanceof class_qa) {
                this.bw = (class_qa)var1;
                return this.bw;
@@ -310,7 +310,7 @@ public class class_wg extends class_wi {
          boolean var2 = true;
          boolean var3 = true;
          boolean var4 = true;
-         if((this.W + this.F()) % 1200 == 0) {
+         if((this.W + this.getId()) % 1200 == 0) {
             class_pk var5 = class_pm.d;
             List var6 = this.o.b(class_lh.class, new Predicate() {
                public boolean a(class_lh var1) {
@@ -335,7 +335,7 @@ public class class_wg extends class_wi {
                   var8 = (class_lh)var7.next();
                } while(var8.a((class_pk)var5) && var8.b((class_pk)var5).c() >= 2 && var8.b((class_pk)var5).b() >= 1200);
 
-               var8.a.a((class_ff)(new class_gm(10, 0.0F)));
+               var8.a.a((Packet)(new class_gm(10, 0.0F)));
                var8.c(new class_pl(var5, 6000, 2));
             }
          }
@@ -440,12 +440,12 @@ public class class_wg extends class_wi {
             this.g.aL = this.g.y;
             float var10 = (float)(this.e * this.g.a((class_qk)class_wl.d).e());
             this.g.k(this.g.bJ() + (var10 - this.g.bJ()) * 0.125F);
-            double var11 = Math.sin((double)(this.g.W + this.g.F()) * 0.5D) * 0.05D;
+            double var11 = Math.sin((double)(this.g.W + this.g.getId()) * 0.5D) * 0.05D;
             double var13 = Math.cos((double)(this.g.y * 3.1415927F / 180.0F));
             double var15 = Math.sin((double)(this.g.y * 3.1415927F / 180.0F));
             this.g.v += var11 * var13;
             this.g.x += var11 * var15;
-            var11 = Math.sin((double)(this.g.W + this.g.F()) * 0.75D) * 0.05D;
+            var11 = Math.sin((double)(this.g.W + this.g.getId()) * 0.75D) * 0.05D;
             this.g.w += var11 * (var15 + var13) * 0.25D;
             this.g.w += (double)this.g.bJ() * var3 * 0.1D;
             class_qy var17 = this.g.q();
@@ -510,7 +510,7 @@ public class class_wg extends class_wi {
          } else {
             ++this.b;
             if(this.b == 0) {
-               this.a.b(this.a.w().F());
+               this.a.b(this.a.w().getId());
                this.a.o.a((class_pr)this.a, (byte)21);
             } else if(this.b >= this.a.cB()) {
                float var2 = 1.0F;

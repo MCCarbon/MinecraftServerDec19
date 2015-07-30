@@ -6,7 +6,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_qh;
@@ -27,7 +27,7 @@ public abstract class class_po extends class_qh {
 
    public abstract class_po a(class_po var1);
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(var3 != null && var3.b() == Items.bM) {
          if(!this.o.D) {
             Class var4 = class_pt.a(var3.i());

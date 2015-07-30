@@ -6,12 +6,12 @@ import java.util.Collection;
 import java.util.Iterator;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awp;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_hr implements class_ff {
+public class class_hr implements Packet {
    private String a = "";
    private String b = "";
    private String c = "";
@@ -64,59 +64,59 @@ public class class_hr implements class_ff {
       }
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.c(16);
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readString(16);
       this.h = var1.readByte();
       if(this.h == 0 || this.h == 2) {
-         this.b = var1.c(32);
-         this.c = var1.c(16);
-         this.d = var1.c(16);
+         this.b = var1.readString(32);
+         this.c = var1.readString(16);
+         this.d = var1.readString(16);
          this.i = var1.readByte();
-         this.e = var1.c(32);
+         this.e = var1.readString(32);
          this.f = var1.readByte();
       }
 
       if(this.h == 0 || this.h == 3 || this.h == 4) {
-         int var2 = var1.e();
+         int var2 = var1.readVarInt();
 
          for(int var3 = 0; var3 < var2; ++var3) {
-            this.g.add(var1.c(40));
+            this.g.add(var1.readString(40));
          }
       }
 
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a(this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeString(this.a);
       var1.writeByte(this.h);
       if(this.h == 0 || this.h == 2) {
-         var1.a(this.b);
-         var1.a(this.c);
-         var1.a(this.d);
+         var1.writeString(this.b);
+         var1.writeString(this.c);
+         var1.writeString(this.d);
          var1.writeByte(this.i);
-         var1.a(this.e);
+         var1.writeString(this.e);
          var1.writeByte(this.f);
       }
 
       if(this.h == 0 || this.h == 3 || this.h == 4) {
-         var1.b(this.g.size());
+         var1.writeVarInt(this.g.size());
          Iterator var2 = this.g.iterator();
 
          while(var2.hasNext()) {
             String var3 = (String)var2.next();
-            var1.a(var3);
+            var1.writeString(var3);
          }
       }
 
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

@@ -4,7 +4,7 @@ import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
 import java.util.zip.Deflater;
-import net.minecraft.server.class_em;
+import net.minecraft.server.PacketDataSerializer;
 
 public class class_ej extends MessageToByteEncoder {
    private final byte[] a = new byte[8192];
@@ -18,14 +18,14 @@ public class class_ej extends MessageToByteEncoder {
 
    protected void a(ChannelHandlerContext var1, ByteBuf var2, ByteBuf var3) throws Exception {
       int var4 = var2.readableBytes();
-      class_em var5 = new class_em(var3);
+      PacketDataSerializer var5 = new PacketDataSerializer(var3);
       if(var4 < this.c) {
-         var5.b(0);
+         var5.writeVarInt(0);
          var5.writeBytes(var2);
       } else {
          byte[] var6 = new byte[var4];
          var2.readBytes(var6);
-         var5.b(var6.length);
+         var5.writeVarInt(var6.length);
          this.b.setInput(var6, 0, var4);
          this.b.finish();
 

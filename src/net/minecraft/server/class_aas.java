@@ -18,12 +18,12 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ew;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
@@ -108,7 +108,7 @@ public final class class_aas {
       return this.d;
    }
 
-   public class_oq a(class_xa var1, World var2, BlockPosition var3, class_oo var4, EnumDirection var5, float var6, float var7, float var8) {
+   public class_oq a(class_xa var1, World var2, BlockPosition var3, EnumUsedHand var4, EnumDirection var5, float var6, float var7, float var8) {
       class_oq var9 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
       if(var9 == class_oq.a) {
          var1.b(class_nc.ad[Item.getId(this.d)]);
@@ -121,7 +121,7 @@ public final class class_aas {
       return this.b().a(this, var1);
    }
 
-   public class_or a(World var1, class_xa var2, class_oo var3) {
+   public class_or a(World var1, class_xa var2, EnumUsedHand var3) {
       return this.b().a(this, var1, var2, var3);
    }
 
@@ -270,7 +270,7 @@ public final class class_aas {
       return this.d.b(var1);
    }
 
-   public boolean a(class_xa var1, class_qa var2, class_oo var3) {
+   public boolean a(class_xa var1, class_qa var2, EnumUsedHand var3) {
       return this.d.a(this, var1, var2, var3);
    }
 
@@ -501,13 +501,13 @@ public final class class_aas {
       this.d = var1;
    }
 
-   public class_eu B() {
+   public IChatBaseComponent B() {
       class_fa var1 = new class_fa(this.q());
       if(this.s()) {
          var1.b().b(Boolean.valueOf(true));
       }
 
-      class_eu var2 = (new class_fa("[")).a(var1).a("]");
+      IChatBaseComponent var2 = (new class_fa("[")).a(var1).a("]");
       if(this.d != null) {
          class_dn var3 = new class_dn();
          this.b(var3);

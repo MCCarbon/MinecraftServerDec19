@@ -141,7 +141,7 @@ public class class_kp extends MinecraftServer implements class_kk {
          k.info("Starting Minecraft server on " + (this.u().isEmpty()?"*":this.u()) + ":" + this.R());
 
          try {
-            this.aq().a(var3, this.R());
+            this.aq().initNetwork(var3, this.R());
          } catch (IOException var17) {
             k.warn("**** FAILED TO BIND TO PORT!");
             k.warn("The exception was: {}", new Object[]{var17.toString()});

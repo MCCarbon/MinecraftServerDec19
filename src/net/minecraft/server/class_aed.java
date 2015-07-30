@@ -9,7 +9,7 @@ import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
@@ -20,7 +20,7 @@ public abstract class class_aed implements class_m {
    private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
    private int b;
    private boolean c = true;
-   private class_eu d = null;
+   private IChatBaseComponent d = null;
    private String e = "";
    private String f = "@";
    private final class_n g = new class_n();
@@ -29,7 +29,7 @@ public abstract class class_aed implements class_m {
       return this.b;
    }
 
-   public class_eu k() {
+   public IChatBaseComponent k() {
       return this.d;
    }
 
@@ -39,7 +39,7 @@ public abstract class class_aed implements class_m {
       var1.a("CustomName", this.f);
       var1.a("TrackOutput", this.c);
       if(this.d != null && this.c) {
-         var1.a("LastOutput", class_eu.class_a_in_class_eu.a(this.d));
+         var1.a("LastOutput", IChatBaseComponent.class_a_in_class_eu.a(this.d));
       }
 
       this.g.b(var1);
@@ -57,7 +57,7 @@ public abstract class class_aed implements class_m {
       }
 
       if(var1.b("LastOutput", 8) && this.c) {
-         this.d = class_eu.class_a_in_class_eu.a(var1.k("LastOutput"));
+         this.d = IChatBaseComponent.class_a_in_class_eu.a(var1.k("LastOutput"));
       }
 
       this.g.a(var1);
@@ -123,7 +123,7 @@ public abstract class class_aed implements class_m {
       return this.f;
    }
 
-   public class_eu f_() {
+   public IChatBaseComponent f_() {
       return new class_fa(this.e_());
    }
 
@@ -131,7 +131,7 @@ public abstract class class_aed implements class_m {
       this.f = var1;
    }
 
-   public void a(class_eu var1) {
+   public void a(IChatBaseComponent var1) {
       if(this.c && this.e() != null && !this.e().D) {
          this.d = (new class_fa("[" + a.format(new Date()) + "] ")).a(var1);
          this.h();
@@ -150,7 +150,7 @@ public abstract class class_aed implements class_m {
 
    public abstract void h();
 
-   public void b(class_eu var1) {
+   public void b(IChatBaseComponent var1) {
       this.d = var1;
    }
 

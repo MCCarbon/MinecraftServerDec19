@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.class_wy;
 
-public class class_gx implements class_ff {
+public class class_gx implements Packet {
    private boolean a;
    private boolean b;
    private boolean c;
@@ -27,7 +27,7 @@ public class class_gx implements class_ff {
       this.b(var1.b());
    }
 
-   public void a(class_em var1) throws IOException {
+   public void decode(PacketDataSerializer var1) throws IOException {
       byte var2 = var1.readByte();
       this.a((var2 & 1) > 0);
       this.b((var2 & 2) > 0);
@@ -37,7 +37,7 @@ public class class_gx implements class_ff {
       this.b(var1.readFloat());
    }
 
-   public void b(class_em var1) throws IOException {
+   public void encode(PacketDataSerializer var1) throws IOException {
       byte var2 = 0;
       if(this.a()) {
          var2 = (byte)(var2 | 1);
@@ -60,7 +60,7 @@ public class class_gx implements class_ff {
       var1.writeFloat(this.f);
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
@@ -106,7 +106,7 @@ public class class_gx implements class_ff {
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

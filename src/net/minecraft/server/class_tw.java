@@ -9,7 +9,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_pp;
@@ -99,7 +99,7 @@ public abstract class class_tw extends class_po implements class_pp {
       return var1 == null?false:var1.b() == Items.Q;
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(var3 != null) {
          if(this.d(var3) && this.l() == 0 && this.bs <= 0) {
             this.a(var1, var3);

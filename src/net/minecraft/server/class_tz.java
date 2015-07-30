@@ -20,7 +20,7 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ok;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_ow;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pk;
@@ -537,7 +537,7 @@ public class class_tz extends class_tw implements class_ok {
 
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(var3 != null && var3.b() == Items.bM) {
          return super.a(var1, var2, var3);
       } else if(!this.cD() && this.dg()) {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Items;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_rm;
@@ -94,7 +94,7 @@ public class class_sk extends class_rm {
             }
          }
       } else if(--this.c <= 0 && this.e >= -60) {
-         this.a.c(class_oo.a);
+         this.a.c(EnumUsedHand.MAIN_HAND);
       }
 
    }

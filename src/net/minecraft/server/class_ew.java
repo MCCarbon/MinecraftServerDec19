@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import com.google.common.collect.Maps;
 import java.util.Map;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 
 public class class_ew {
    private final class_ew.class_a_in_class_ew a;
-   private final class_eu b;
+   private final IChatBaseComponent b;
 
-   public class_ew(class_ew.class_a_in_class_ew var1, class_eu var2) {
+   public class_ew(class_ew.class_a_in_class_ew var1, IChatBaseComponent var2) {
       this.a = var1;
       this.b = var2;
    }
@@ -17,7 +17,7 @@ public class class_ew {
       return this.a;
    }
 
-   public class_eu b() {
+   public IChatBaseComponent b() {
       return this.b;
    }
 

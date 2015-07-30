@@ -10,7 +10,7 @@ import net.minecraft.server.class_adm;
 import net.minecraft.server.World;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
@@ -122,8 +122,8 @@ public class class_zl extends Item {
       return class_abz.e;
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
-      if((var3.bH.d || this.a(var3.bp) > -1) && var4 == class_oo.a) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+      if((var3.bH.d || this.a(var3.bp) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);
       } else {

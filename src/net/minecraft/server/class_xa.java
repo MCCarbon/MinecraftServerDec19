@@ -36,9 +36,9 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_et;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_hm;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_mt;
@@ -47,7 +47,7 @@ import net.minecraft.server.class_nc;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_om;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_op;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_ot;
@@ -746,7 +746,7 @@ public abstract class class_xa extends class_qa {
    public void a(class_aas var1) {
    }
 
-   public class_oq a(class_pr var1, class_aas var2, class_oo var3) {
+   public class_oq a(class_pr var1, class_aas var2, EnumUsedHand var3) {
       if(this.v()) {
          if(var1 instanceof class_oj) {
             this.a((class_oj)var1);
@@ -763,7 +763,7 @@ public abstract class class_xa extends class_qa {
 
                if(var2.a(this, (class_qa)var1, var3)) {
                   if(var2.b <= 0 && !this.bH.d) {
-                     this.a((class_oo)var3, (class_aas)null);
+                     this.a((EnumUsedHand)var3, (class_aas)null);
                   }
 
                   return class_oq.a;
@@ -774,7 +774,7 @@ public abstract class class_xa extends class_qa {
          } else {
             if(var2 != null && var2 == this.bA()) {
                if(var2.b <= 0 && !this.bH.d) {
-                  this.a((class_oo)var3, (class_aas)null);
+                  this.a((EnumUsedHand)var3, (class_aas)null);
                } else if(var2.b < var4.b && this.bH.d) {
                   var2.b = var4.b;
                }
@@ -833,7 +833,7 @@ public abstract class class_xa extends class_qa {
                   }
 
                   if(var1 instanceof class_lh && var1.G) {
-                     ((class_lh)var1).a.a((class_ff)(new class_hm(var1)));
+                     ((class_lh)var1).a.a((Packet)(new class_hm(var1)));
                      var1.G = false;
                      var1.v = var8;
                      var1.w = var10;
@@ -870,7 +870,7 @@ public abstract class class_xa extends class_qa {
                   if(var15 != null && var16 instanceof class_qa) {
                      var15.a((class_qa)var16, this);
                      if(var15.b <= 0) {
-                        this.a((class_oo)class_oo.a, (class_aas)null);
+                        this.a((EnumUsedHand)EnumUsedHand.MAIN_HAND, (class_aas)null);
                      }
                   }
 
@@ -1051,7 +1051,7 @@ public abstract class class_xa extends class_qa {
       return this.bD && this.d >= 100;
    }
 
-   public void b(class_eu var1) {
+   public void b(IChatBaseComponent var1) {
    }
 
    public BlockPosition cj() {
@@ -1404,7 +1404,7 @@ public abstract class class_xa extends class_qa {
       return this.cr().h(this.e_());
    }
 
-   public class_eu f_() {
+   public IChatBaseComponent f_() {
       class_fa var1 = new class_fa(class_awk.a(this.bP(), this.e_()));
       var1.b().a(new class_et(class_et.class_a_in_class_et.d, "/msg " + this.e_() + " "));
       var1.b().a(this.aS());

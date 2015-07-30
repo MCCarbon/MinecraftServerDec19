@@ -29,17 +29,17 @@ import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_ek;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.NetworkManager;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fx;
-import net.minecraft.server.class_fz;
+import net.minecraft.server.PacketPlayOutChat;
 import net.minecraft.server.class_gh;
 import net.minecraft.server.class_gj;
 import net.minecraft.server.class_gm;
-import net.minecraft.server.class_gt;
+import net.minecraft.server.PacketPlayOutLogin;
 import net.minecraft.server.class_gx;
 import net.minecraft.server.class_gz;
 import net.minecraft.server.class_he;
@@ -113,7 +113,7 @@ public abstract class class_lz {
       this.e = 8;
    }
 
-   public void a(class_ek var1, class_lh var2) {
+   public void a(NetworkManager var1, class_lh var2) {
       GameProfile var3 = var2.cf();
       class_lv var4 = this.h.aF();
       GameProfile var5 = var4.a(var3.getId());
@@ -123,22 +123,22 @@ public abstract class class_lz {
       var2.a((World)this.h.a(var2.am));
       var2.c.a((class_lg)var2.o);
       String var8 = "local";
-      if(var1.b() != null) {
-         var8 = var1.b().toString();
+      if(var1.getAddress() != null) {
+         var8 = var1.getAddress().toString();
       }
 
-      f.info(var2.e_() + "[" + var8 + "] logged in with entity id " + var2.F() + " at (" + var2.s + ", " + var2.t + ", " + var2.u + ")");
+      f.info(var2.e_() + "[" + var8 + "] logged in with entity id " + var2.getId() + " at (" + var2.s + ", " + var2.t + ", " + var2.u + ")");
       class_lg var9 = this.h.a(var2.am);
       class_avn var10 = var9.Q();
       BlockPosition var11 = var9.N();
       this.a(var2, (class_lh)null, var9);
       class_lo var12 = new class_lo(this.h, var1, var2);
-      var12.a((class_ff)(new class_gt(var2.F(), var2.c.b(), var10.t(), var9.t.p().a(), var9.ab(), this.p(), var10.u(), var9.R().b("reducedDebugInfo"))));
-      var12.a((class_ff)(new class_gh("MC|Brand", (new class_em(Unpooled.buffer())).a(this.c().getServerModName()))));
-      var12.a((class_ff)(new class_fx(var10.y(), var10.z())));
-      var12.a((class_ff)(new class_ht(var11)));
-      var12.a((class_ff)(new class_gx(var2.bH)));
-      var12.a((class_ff)(new class_hi(var2.bp.d)));
+      var12.a((Packet)(new PacketPlayOutLogin(var2.getId(), var2.c.b(), var10.t(), var9.t.p().a(), var9.ab(), this.p(), var10.u(), var9.R().b("reducedDebugInfo"))));
+      var12.a((Packet)(new class_gh("MC|Brand", (new PacketDataSerializer(Unpooled.buffer())).writeString(this.c().getServerModName()))));
+      var12.a((Packet)(new class_fx(var10.y(), var10.z())));
+      var12.a((Packet)(new class_ht(var11)));
+      var12.a((Packet)(new class_gx(var2.bH)));
+      var12.a((Packet)(new class_hi(var2.bp.d)));
       int var13 = this.h(var3)?this.m.a(var3):0;
       var13 = this.h.T() && this.h.d[0].Q().v()?4:var13;
       var13 = this.t?4:var13;
@@ -155,7 +155,7 @@ public abstract class class_lz {
       }
 
       var14.b().a(EnumChatFormat.YELLOW);
-      this.a((class_eu)var14);
+      this.a((IChatBaseComponent)var14);
       this.c(var2);
       var12.a(var2.s, var2.t, var2.u, var2.y, var2.z);
       this.b(var2, var9);
@@ -167,7 +167,7 @@ public abstract class class_lz {
 
       while(var15.hasNext()) {
          class_pl var16 = (class_pl)var15.next();
-         var12.a((class_ff)(new class_ib(var2.F(), var16)));
+         var12.a((Packet)(new class_ib(var2.getId(), var16)));
       }
 
       var2.g_();
@@ -189,7 +189,7 @@ public abstract class class_lz {
 
       while(var4.hasNext()) {
          class_awk var5 = (class_awk)var4.next();
-         var2.a.a((class_ff)(new class_hr(var5, 0)));
+         var2.a.a((Packet)(new class_hr(var5, 0)));
       }
 
       for(int var9 = 0; var9 < 19; ++var9) {
@@ -199,7 +199,7 @@ public abstract class class_lz {
             Iterator var7 = var6.iterator();
 
             while(var7.hasNext()) {
-               class_ff var8 = (class_ff)var7.next();
+               Packet var8 = (Packet)var7.next();
                var2.a.a(var8);
             }
 
@@ -213,23 +213,23 @@ public abstract class class_lz {
       this.p = var1[0].P().e();
       var1[0].ag().a(new class_aoc() {
          public void a(class_aoe var1, double var2) {
-            class_lz.this.a((class_ff)(new class_hg(var1, class_hg.class_a_in_class_hg.a)));
+            class_lz.this.a((Packet)(new class_hg(var1, class_hg.class_a_in_class_hg.a)));
          }
 
          public void a(class_aoe var1, double var2, double var4, long var6) {
-            class_lz.this.a((class_ff)(new class_hg(var1, class_hg.class_a_in_class_hg.b)));
+            class_lz.this.a((Packet)(new class_hg(var1, class_hg.class_a_in_class_hg.b)));
          }
 
          public void a(class_aoe var1, double var2, double var4) {
-            class_lz.this.a((class_ff)(new class_hg(var1, class_hg.class_a_in_class_hg.c)));
+            class_lz.this.a((Packet)(new class_hg(var1, class_hg.class_a_in_class_hg.c)));
          }
 
          public void a(class_aoe var1, int var2) {
-            class_lz.this.a((class_ff)(new class_hg(var1, class_hg.class_a_in_class_hg.e)));
+            class_lz.this.a((Packet)(new class_hg(var1, class_hg.class_a_in_class_hg.e)));
          }
 
          public void b(class_aoe var1, int var2) {
-            class_lz.this.a((class_ff)(new class_hg(var1, class_hg.class_a_in_class_hg.f)));
+            class_lz.this.a((Packet)(new class_hg(var1, class_hg.class_a_in_class_hg.f)));
          }
 
          public void b(class_aoe var1, double var2) {
@@ -280,14 +280,14 @@ public abstract class class_lz {
    public void c(class_lh var1) {
       this.i.add(var1);
       this.j.put(var1.aM(), var1);
-      this.a((class_ff)(new class_gz(class_gz.class_a_in_class_gz.a, new class_lh[]{var1})));
+      this.a((Packet)(new class_gz(class_gz.class_a_in_class_gz.a, new class_lh[]{var1})));
       class_lg var2 = this.h.a(var1.am);
       var2.a((class_pr)var1);
       this.a((class_lh)var1, (class_lg)null);
 
       for(int var3 = 0; var3 < this.i.size(); ++var3) {
          class_lh var4 = (class_lh)this.i.get(var3);
-         var1.a.a((class_ff)(new class_gz(class_gz.class_a_in_class_gz.a, new class_lh[]{var4})));
+         var1.a.a((Packet)(new class_gz(class_gz.class_a_in_class_gz.a, new class_lh[]{var4})));
       }
 
    }
@@ -315,7 +315,7 @@ public abstract class class_lz {
          this.o.remove(var3);
       }
 
-      this.a((class_ff)(new class_gz(class_gz.class_a_in_class_gz.e, new class_lh[]{var1})));
+      this.a((Packet)(new class_gz(class_gz.class_a_in_class_gz.e, new class_lh[]{var1})));
    }
 
    public String a(SocketAddress var1, GameProfile var2) {
@@ -395,7 +395,7 @@ public abstract class class_lz {
       class_lh var7 = new class_lh(this.h, this.h.a(var1.am), var1.cf(), (class_li)var6);
       var7.a = var1.a;
       var7.a((class_xa)var1, var3);
-      var7.e(var1.F());
+      var7.e(var1.getId());
       var7.o(var1);
       var7.a(var1.bR());
       class_lg var8 = this.h.a(var1.am);
@@ -407,7 +407,7 @@ public abstract class class_lz {
             var7.b((double)((float)var9.getX() + 0.5F), (double)((float)var9.getY() + 0.1F), (double)((float)var9.getZ() + 0.5F), 0.0F, 0.0F);
             var7.a((BlockPosition)var4, var5);
          } else {
-            var7.a.a((class_ff)(new class_gm(0, 0.0F)));
+            var7.a.a((Packet)(new class_gm(0, 0.0F)));
          }
       }
 
@@ -417,11 +417,11 @@ public abstract class class_lz {
          var7.b(var7.s, var7.t + 1.0D, var7.u);
       }
 
-      var7.a.a((class_ff)(new class_he(var7.am, var7.o.ab(), var7.o.Q().u(), var7.c.b())));
+      var7.a.a((Packet)(new class_he(var7.am, var7.o.ab(), var7.o.Q().u(), var7.c.b())));
       var9 = var8.N();
       var7.a.a(var7.s, var7.t, var7.u, var7.y, var7.z);
-      var7.a.a((class_ff)(new class_ht(var9)));
-      var7.a.a((class_ff)(new class_ho(var7.bK, var7.bJ, var7.bI)));
+      var7.a.a((Packet)(new class_ht(var9)));
+      var7.a.a((Packet)(new class_ho(var7.bK, var7.bJ, var7.bI)));
       this.b(var7, var8);
       var8.u().a(var7);
       var8.a((class_pr)var7);
@@ -437,7 +437,7 @@ public abstract class class_lz {
       class_lg var4 = this.h.a(var1.am);
       var1.am = var2;
       class_lg var5 = this.h.a(var1.am);
-      var1.a.a((class_ff)(new class_he(var1.am, var1.o.ab(), var1.o.Q().u(), var1.c.b())));
+      var1.a.a((Packet)(new class_he(var1.am, var1.o.ab(), var1.o.Q().u(), var1.c.b())));
       var4.f(var1);
       var1.I = false;
       this.a(var1, var3, var4, var5);
@@ -450,7 +450,7 @@ public abstract class class_lz {
 
       while(var6.hasNext()) {
          class_pl var7 = (class_pl)var6.next();
-         var1.a.a((class_ff)(new class_ib(var1.F(), var7)));
+         var1.a.a((Packet)(new class_ib(var1.getId(), var7)));
       }
 
    }
@@ -512,20 +512,20 @@ public abstract class class_lz {
 
    public void e() {
       if(++this.u > 600) {
-         this.a((class_ff)(new class_gz(class_gz.class_a_in_class_gz.c, this.i)));
+         this.a((Packet)(new class_gz(class_gz.class_a_in_class_gz.c, this.i)));
          this.u = 0;
       }
 
    }
 
-   public void a(class_ff var1) {
+   public void a(Packet var1) {
       for(int var2 = 0; var2 < this.i.size(); ++var2) {
          ((class_lh)this.i.get(var2)).a.a(var1);
       }
 
    }
 
-   public void a(class_ff var1, int var2) {
+   public void a(Packet var1, int var2) {
       for(int var3 = 0; var3 < this.i.size(); ++var3) {
          class_lh var4 = (class_lh)this.i.get(var3);
          if(var4.am == var2) {
@@ -535,7 +535,7 @@ public abstract class class_lz {
 
    }
 
-   public void a(class_xa var1, class_eu var2) {
+   public void a(class_xa var1, IChatBaseComponent var2) {
       class_awp var3 = var1.bP();
       if(var3 != null) {
          Collection var4 = var3.d();
@@ -552,7 +552,7 @@ public abstract class class_lz {
       }
    }
 
-   public void b(class_xa var1, class_eu var2) {
+   public void b(class_xa var1, IChatBaseComponent var2) {
       class_awp var3 = var1.bP();
       if(var3 == null) {
          this.a(var2);
@@ -627,7 +627,7 @@ public abstract class class_lz {
    private void b(class_lh var1, int var2) {
       if(var1 != null && var1.a != null) {
          byte var3 = var2 <= 0?24:(var2 >= 4?28:(byte)(24 + var2));
-         var1.a.a((class_ff)(new class_gj(var1, var3)));
+         var1.a.a((Packet)(new class_gj(var1, var3)));
       }
 
    }
@@ -655,11 +655,11 @@ public abstract class class_lz {
       return var3;
    }
 
-   public void a(double var1, double var3, double var5, double var7, int var9, class_ff var10) {
+   public void a(double var1, double var3, double var5, double var7, int var9, Packet var10) {
       this.a((class_xa)null, var1, var3, var5, var7, var9, var10);
    }
 
-   public void a(class_xa var1, double var2, double var4, double var6, double var8, int var10, class_ff var11) {
+   public void a(class_xa var1, double var2, double var4, double var6, double var8, int var10, Packet var11) {
       for(int var12 = 0; var12 < this.i.size(); ++var12) {
          class_lh var13 = (class_lh)this.i.get(var12);
          if(var13 != var1 && var13.am == var10) {
@@ -710,12 +710,12 @@ public abstract class class_lz {
 
    public void b(class_lh var1, class_lg var2) {
       class_aoe var3 = this.h.d[0].ag();
-      var1.a.a((class_ff)(new class_hg(var3, class_hg.class_a_in_class_hg.d)));
-      var1.a.a((class_ff)(new class_hu(var2.L(), var2.M(), var2.R().b("doDaylightCycle"))));
+      var1.a.a((Packet)(new class_hg(var3, class_hg.class_a_in_class_hg.d)));
+      var1.a.a((Packet)(new class_hu(var2.L(), var2.M(), var2.R().b("doDaylightCycle"))));
       if(var2.T()) {
-         var1.a.a((class_ff)(new class_gm(1, 0.0F)));
-         var1.a.a((class_ff)(new class_gm(7, var2.j(1.0F))));
-         var1.a.a((class_ff)(new class_gm(8, var2.h(1.0F))));
+         var1.a.a((Packet)(new class_gm(1, 0.0F)));
+         var1.a.a((Packet)(new class_gm(7, var2.j(1.0F))));
+         var1.a.a((Packet)(new class_gm(8, var2.h(1.0F))));
       }
 
    }
@@ -723,7 +723,7 @@ public abstract class class_lz {
    public void f(class_lh var1) {
       var1.a(var1.bq);
       var1.r();
-      var1.a.a((class_ff)(new class_hi(var1.bp.d)));
+      var1.a.a((Packet)(new class_hi(var1.bp.d)));
    }
 
    public int o() {
@@ -789,13 +789,13 @@ public abstract class class_lz {
 
    }
 
-   public void a(class_eu var1, boolean var2) {
+   public void a(IChatBaseComponent var1, boolean var2) {
       this.h.a(var1);
       int var3 = var2?1:0;
-      this.a((class_ff)(new class_fz(var1, (byte)var3)));
+      this.a((Packet)(new PacketPlayOutChat(var1, (byte)var3)));
    }
 
-   public void a(class_eu var1) {
+   public void a(IChatBaseComponent var1) {
       this.a(var1, true);
    }
 

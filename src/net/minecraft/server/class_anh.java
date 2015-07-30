@@ -23,7 +23,7 @@ import net.minecraft.server.class_awg;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_xa;
 
 public class class_anh extends class_agd {
@@ -79,7 +79,7 @@ public class class_anh extends class_agd {
       return false;
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(!var1.D && var1.s(var2) == null) {
          var1.g(var2);
          return true;

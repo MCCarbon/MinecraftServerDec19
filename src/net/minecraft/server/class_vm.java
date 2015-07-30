@@ -313,7 +313,7 @@ public class class_vm extends class_pr {
       class_aas var1 = this.H().f(c);
       if(var1 == null) {
          if(this.o != null) {
-            b.error("Item entity " + this.F() + " has no item?!");
+            b.error("Item entity " + this.getId() + " has no item?!");
          }
 
          return new class_aas(Blocks.STONE);

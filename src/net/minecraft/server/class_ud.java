@@ -11,7 +11,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pw;
@@ -101,7 +101,7 @@ public class class_ud extends class_tw {
       this.a("mob.pig.step", 0.15F, 1.0F);
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(super.a(var1, var2, var3)) {
          return true;
       } else if(!this.cA() || this.o.D || this.l != null && this.l != var1) {

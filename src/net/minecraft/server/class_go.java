@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aol;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_go implements class_ff {
+public class class_go implements Packet {
    private int a;
    private int b;
    private class_go.class_a_in_class_go c;
@@ -27,24 +27,24 @@ public class class_go implements class_ff {
       this.c = a(var1, var2, !var1.p().t.m(), var3);
    }
 
-   public void a(class_em var1) throws IOException {
+   public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readInt();
       this.b = var1.readInt();
       this.d = var1.readBoolean();
       this.c = new class_go.class_a_in_class_go();
       this.c.b = var1.readShort();
-      this.c.a = var1.a();
+      this.c.a = var1.readArray();
    }
 
-   public void b(class_em var1) throws IOException {
+   public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeInt(this.a);
       var1.writeInt(this.b);
       var1.writeBoolean(this.d);
       var1.writeShort((short)(this.c.b & '\uffff'));
-      var1.a(this.c.a);
+      var1.writeArray(this.c.a);
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
@@ -112,8 +112,8 @@ public class class_go implements class_ff {
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 
    public static class class_a_in_class_go {

@@ -9,7 +9,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_auz;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qh;
@@ -125,15 +125,15 @@ public class class_rf extends class_rm {
       }
 
       if(!var1.bH.d && this.c >= this.b * 0.5F && this.a.bd().nextFloat() < 0.006F && !this.d) {
-         class_oo var25 = this.a(var1);
+         EnumUsedHand var25 = this.a(var1);
          if(var25 != null) {
-            class_aas var26 = var1.b((class_oo)var25);
+            class_aas var26 = var1.b((EnumUsedHand)var25);
             if(var26 != null && var26.b() == Items.cb) {
                var26.a(1, (class_qa)var1);
                if(var26.b == 0) {
                   class_aas var24 = new class_aas(Items.aT);
                   var24.d(var26.o());
-                  var1.a((class_oo)var25, (class_aas)var24);
+                  var1.a((EnumUsedHand)var25, (class_aas)var24);
                }
             }
          }
@@ -142,13 +142,13 @@ public class class_rf extends class_rm {
       this.a.g(0.0F, var7);
    }
 
-   protected class_oo a(class_xa var1) {
-      class_oo[] var2 = class_oo.values();
+   protected EnumUsedHand a(class_xa var1) {
+      EnumUsedHand[] var2 = EnumUsedHand.values();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         class_oo var5 = var2[var4];
-         class_aas var6 = var1.b((class_oo)var5);
+         EnumUsedHand var5 = var2[var4];
+         class_aas var6 = var1.b((EnumUsedHand)var5);
          if(var6 != null && var6.b() == Items.cb) {
             return var5;
          }

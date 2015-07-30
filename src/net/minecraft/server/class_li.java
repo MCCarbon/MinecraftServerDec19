@@ -12,13 +12,13 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fv;
 import net.minecraft.server.class_gz;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_oj;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_ou;
@@ -49,7 +49,7 @@ public class class_li {
       this.c = var1;
       var1.a(this.b.bH);
       this.b.t();
-      this.b.b.ap().a((class_ff)(new class_gz(class_gz.class_a_in_class_gz.b, new class_lh[]{this.b})));
+      this.b.b.ap().a((Packet)(new class_gz(class_gz.class_a_in_class_gz.b, new class_lh[]{this.b})));
    }
 
    public class_aeq.class_a_in_class_aeq b() {
@@ -85,7 +85,7 @@ public class class_li {
             var3 = var2.a((class_xa)this.b, (World)this.b.o, (BlockPosition)this.i) * (float)(var1 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
-               this.a.c(this.b.F(), this.i, var4);
+               this.a.c(this.b.getId(), this.i, var4);
                this.k = var4;
             }
 
@@ -97,7 +97,7 @@ public class class_li {
       } else if(this.d) {
          Block var5 = this.a.p(this.f).getBlock();
          if(var5.getMaterial() == Material.AIR) {
-            this.a.c(this.b.F(), this.f, -1);
+            this.a.c(this.b.getId(), this.f, -1);
             this.k = -1;
             this.d = false;
          } else {
@@ -105,7 +105,7 @@ public class class_li {
             var3 = var5.a((class_xa)this.b, (World)this.b.o, (BlockPosition)this.i) * (float)(var6 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
-               this.a.c(this.b.F(), this.f, var4);
+               this.a.c(this.b.getId(), this.f, var4);
                this.k = var4;
             }
          }
@@ -152,7 +152,7 @@ public class class_li {
             this.d = true;
             this.f = var1;
             int var5 = (int)(var6 * 10.0F);
-            this.a.c(this.b.F(), var1, var5);
+            this.a.c(this.b.getId(), var1, var5);
             this.k = var5;
          }
 
@@ -167,7 +167,7 @@ public class class_li {
             float var4 = var3.a((class_xa)this.b, (World)this.b.o, (BlockPosition)var1) * (float)(var2 + 1);
             if(var4 >= 0.7F) {
                this.d = false;
-               this.a.c(this.b.F(), var1, -1);
+               this.a.c(this.b.getId(), var1, -1);
                this.b(var1);
             } else if(!this.h) {
                this.d = false;
@@ -182,7 +182,7 @@ public class class_li {
 
    public void e() {
       this.d = false;
-      this.a.c(this.b.F(), this.f, -1);
+      this.a.c(this.b.getId(), this.f, -1);
    }
 
    private boolean c(BlockPosition var1) {
@@ -222,7 +222,7 @@ public class class_li {
          this.a.a(this.b, 2001, var1, Block.getCombinedId(var2));
          boolean var8 = this.c(var1);
          if(this.d()) {
-            this.b.a.a((class_ff)(new class_fv(this.a, var1)));
+            this.b.a.a((Packet)(new class_fv(this.a, var1)));
          } else {
             class_aas var5 = this.b.bA();
             class_aas var6 = var5 == null?null:var5.k();
@@ -230,7 +230,7 @@ public class class_li {
             if(var5 != null) {
                var5.a(this.a, var2.getBlock(), var1, this.b);
                if(var5.b == 0) {
-                  this.b.a((class_oo)class_oo.a, (class_aas)null);
+                  this.b.a((EnumUsedHand)EnumUsedHand.MAIN_HAND, (class_aas)null);
                }
             }
 
@@ -243,7 +243,7 @@ public class class_li {
       }
    }
 
-   public class_oq a(class_xa var1, World var2, class_aas var3, class_oo var4) {
+   public class_oq a(class_xa var1, World var2, class_aas var3, EnumUsedHand var4) {
       if(this.c == class_aeq.class_a_in_class_aeq.e) {
          return class_oq.b;
       } else {
@@ -252,7 +252,7 @@ public class class_li {
          class_or var7 = var3.a(var2, var1, var4);
          class_aas var8 = (class_aas)var7.b();
          if(var8 != var3 || var8.b != var5 || var8.l() > 0 || var8.i() != var6) {
-            var1.a((class_oo)var4, (class_aas)var8);
+            var1.a((EnumUsedHand)var4, (class_aas)var8);
             if(this.d()) {
                var8.b = var5;
                if(var8.e()) {
@@ -261,7 +261,7 @@ public class class_li {
             }
 
             if(var8.b == 0) {
-               var1.a((class_oo)var4, (class_aas)null);
+               var1.a((EnumUsedHand)var4, (class_aas)null);
             }
 
             if(!var1.bS()) {
@@ -273,7 +273,7 @@ public class class_li {
       }
    }
 
-   public class_oq a(class_xa var1, World var2, class_aas var3, class_oo var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(class_xa var1, World var2, class_aas var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
       if(this.c == class_aeq.class_a_in_class_aeq.e) {
          class_amg var14 = var2.s(var5);
          if(var14 instanceof class_ou) {

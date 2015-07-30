@@ -7,7 +7,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import io.netty.handler.codec.DecoderException;
 import java.util.List;
 import java.util.zip.Inflater;
-import net.minecraft.server.class_em;
+import net.minecraft.server.PacketDataSerializer;
 
 public class class_ei extends ByteToMessageDecoder {
    private final Inflater a;
@@ -20,8 +20,8 @@ public class class_ei extends ByteToMessageDecoder {
 
    protected void decode(ChannelHandlerContext var1, ByteBuf var2, List var3) throws Exception {
       if(var2.readableBytes() != 0) {
-         class_em var4 = new class_em(var2);
-         int var5 = var4.e();
+         PacketDataSerializer var4 = new PacketDataSerializer(var2);
+         int var5 = var4.readVarInt();
          if(var5 == 0) {
             var3.add(var4.readBytes(var4.readableBytes()));
          } else {

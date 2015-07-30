@@ -40,27 +40,27 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_ea;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_ek;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.NetworkManager;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_f;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fh;
 import net.minecraft.server.class_fi;
 import net.minecraft.server.class_fv;
 import net.minecraft.server.class_fy;
-import net.minecraft.server.class_fz;
+import net.minecraft.server.PacketPlayOutChat;
 import net.minecraft.server.class_gb;
 import net.minecraft.server.class_gi;
-import net.minecraft.server.class_gn;
+import net.minecraft.server.PacketPlayOutKeepAlive;
 import net.minecraft.server.class_he;
 import net.minecraft.server.class_hz;
-import net.minecraft.server.class_ic;
+import net.minecraft.server.PacketListenerPlayIn;
 import net.minecraft.server.class_id;
-import net.minecraft.server.class_ie;
+import net.minecraft.server.PacketPlayInChat;
 import net.minecraft.server.class_ig;
 import net.minecraft.server.class_ih;
 import net.minecraft.server.class_ii;
@@ -68,11 +68,11 @@ import net.minecraft.server.class_ij;
 import net.minecraft.server.class_ik;
 import net.minecraft.server.class_il;
 import net.minecraft.server.class_im;
-import net.minecraft.server.class_in;
-import net.minecraft.server.class_io;
-import net.minecraft.server.class_ip;
+import net.minecraft.server.PacketPlayInUseEntity;
+import net.minecraft.server.PacketPlayInKeepAlive;
+import net.minecraft.server.PacketPlayInFlying;
 import net.minecraft.server.class_iq;
-import net.minecraft.server.class_ir;
+import net.minecraft.server.PacketPlayInBlockDig;
 import net.minecraft.server.class_is;
 import net.minecraft.server.class_it;
 import net.minecraft.server.class_iu;
@@ -82,7 +82,7 @@ import net.minecraft.server.class_ix;
 import net.minecraft.server.class_iy;
 import net.minecraft.server.class_iz;
 import net.minecraft.server.class_ja;
-import net.minecraft.server.class_jb;
+import net.minecraft.server.PacketPlayInUseItem;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_lh;
@@ -93,7 +93,7 @@ import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_no;
 import net.minecraft.server.class_oj;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_px;
 import net.minecraft.server.class_tz;
@@ -111,9 +111,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_lo implements class_ic, class_kn {
+public class class_lo implements PacketListenerPlayIn, class_kn {
    private static final Logger c = LogManager.getLogger();
-   public final class_ek a;
+   public final NetworkManager a;
    private final MinecraftServer d;
    public class_lh b;
    private int e;
@@ -131,10 +131,10 @@ public class class_lo implements class_ic, class_kn {
    private double q;
    private boolean r = true;
 
-   public class_lo(MinecraftServer var1, class_ek var2, class_lh var3) {
+   public class_lo(MinecraftServer var1, NetworkManager var2, class_lh var3) {
       this.d = var1;
       this.a = var2;
-      var2.a((class_ep)this);
+      var2.setPacketListener((PacketListener)this);
       this.b = var3;
       var3.a = this;
    }
@@ -147,7 +147,7 @@ public class class_lo implements class_ic, class_kn {
          this.k = (long)this.e;
          this.j = this.d();
          this.i = (int)this.j;
-         this.a((class_ff)(new class_gn(this.i)));
+         this.a((Packet)(new PacketPlayOutKeepAlive(this.i)));
       }
 
       this.d.c.b();
@@ -165,35 +165,35 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public class_ek a() {
+   public NetworkManager a() {
       return this.a;
    }
 
    public void c(String var1) {
       final class_fa var2 = new class_fa(var1);
-      this.a.a(new class_gi(var2), new GenericFutureListener() {
+      this.a.sendPacket(new class_gi(var2), new GenericFutureListener() {
          public void operationComplete(Future var1) throws Exception {
-            class_lo.this.a.a((class_eu)var2);
+            class_lo.this.a.a((IChatBaseComponent)var2);
          }
       }, new GenericFutureListener[0]);
-      this.a.k();
+      this.a.disableAutoRead();
       Futures.getUnchecked(this.d.a(new Runnable() {
          public void run() {
-            class_lo.this.a.l();
+            class_lo.this.a.handleDisconnection();
          }
       }));
    }
 
-   public void a(class_it var1) {
+   public void handle(class_it var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.a(var1.a(), var1.b(), var1.c(), var1.d());
    }
 
-   private boolean b(class_ip var1) {
-      return !Doubles.isFinite(var1.a()) || !Doubles.isFinite(var1.b()) || !Doubles.isFinite(var1.c()) || !Floats.isFinite(var1.e()) || !Floats.isFinite(var1.d());
+   private boolean b(PacketPlayInFlying var1) {
+      return !Doubles.isFinite(var1.getX()) || !Doubles.isFinite(var1.getY()) || !Doubles.isFinite(var1.getZ()) || !Floats.isFinite(var1.getPitch()) || !Floats.isFinite(var1.getYaw());
    }
 
-   public void a(class_ip var1) {
+   public void handle(PacketPlayInFlying var1) {
       class_fh.a(var1, this, this.b.u());
       if(this.b(var1)) {
          this.c("Invalid move packet received");
@@ -205,10 +205,10 @@ public class class_lo implements class_ic, class_kn {
             double var5 = this.b.t;
             double var7 = this.b.u;
             double var9 = 0.0D;
-            double var11 = var1.a() - this.o;
-            double var13 = var1.b() - this.p;
-            double var15 = var1.c() - this.q;
-            if(var1.g()) {
+            double var11 = var1.getX() - this.o;
+            double var13 = var1.getY() - this.p;
+            double var15 = var1.getZ() - this.q;
+            if(var1.hasPos()) {
                var9 = var11 * var11 + var13 * var13 + var15 * var15;
                if(!this.r && var9 < 0.25D) {
                   this.r = true;
@@ -227,12 +227,12 @@ public class class_lo implements class_ic, class_kn {
                   var19 = this.b.s;
                   var21 = this.b.t;
                   var23 = this.b.u;
-                  if(var1.h()) {
-                     var44 = var1.d();
-                     var18 = var1.e();
+                  if(var1.hasLook()) {
+                     var44 = var1.getYaw();
+                     var18 = var1.getPitch();
                   }
 
-                  this.b.C = var1.f();
+                  this.b.C = var1.isOnGround();
                   this.b.l();
                   this.b.a(var19, var21, var23, var44, var18);
                   if(this.b.m != null) {
@@ -243,7 +243,7 @@ public class class_lo implements class_ic, class_kn {
                   if(this.b.m != null) {
                      if(var9 > 4.0D) {
                         class_pr var45 = this.b.m;
-                        this.b.a.a((class_ff)(new class_hz(var45)));
+                        this.b.a.a((Packet)(new class_hz(var45)));
                         this.a(this.b.s, this.b.t, this.b.u, this.b.y, this.b.z);
                      }
 
@@ -276,23 +276,23 @@ public class class_lo implements class_ic, class_kn {
                var23 = this.b.u;
                float var25 = this.b.y;
                float var26 = this.b.z;
-               if(var1.g() && var1.b() == -999.0D) {
-                  var1.a(false);
+               if(var1.hasPos() && var1.getY() == -999.0D) {
+                  var1.setHasPos(false);
                }
 
-               if(var1.g()) {
-                  var19 = var1.a();
-                  var21 = var1.b();
-                  var23 = var1.c();
-                  if(Math.abs(var1.a()) > 3.0E7D || Math.abs(var1.c()) > 3.0E7D) {
+               if(var1.hasPos()) {
+                  var19 = var1.getX();
+                  var21 = var1.getY();
+                  var23 = var1.getZ();
+                  if(Math.abs(var1.getX()) > 3.0E7D || Math.abs(var1.getZ()) > 3.0E7D) {
                      this.c("Illegal position");
                      return;
                   }
                }
 
-               if(var1.h()) {
-                  var25 = var1.d();
-                  var26 = var1.e();
+               if(var1.hasLook()) {
+                  var25 = var1.getYaw();
+                  var26 = var1.getPitch();
                }
 
                this.b.l();
@@ -314,12 +314,12 @@ public class class_lo implements class_ic, class_kn {
 
                float var37 = 0.0625F;
                boolean var38 = var2.a((class_pr)this.b, (class_awf)this.b.aT().d((double)var37, (double)var37, (double)var37)).isEmpty();
-               if(this.b.C && !var1.f() && var29 > 0.0D) {
+               if(this.b.C && !var1.isOnGround() && var29 > 0.0D) {
                   this.b.bG();
                }
 
                this.b.d(var27, var29, var31);
-               this.b.C = var1.f();
+               this.b.C = var1.isOnGround();
                double var39 = var29;
                var27 = var19 - this.b.s;
                var29 = var21 - this.b.t;
@@ -359,9 +359,9 @@ public class class_lo implements class_ic, class_kn {
                   this.g = 0;
                }
 
-               this.b.C = var1.f();
+               this.b.C = var1.isOnGround();
                this.d.ap().d(this.b);
-               this.b.a(this.b.t - var17, var1.f());
+               this.b.a(this.b.t - var17, var1.isOnGround());
             } else if(this.e - this.f > 20) {
                this.a(this.o, this.p, this.q, this.b.y, this.b.z);
             }
@@ -402,20 +402,20 @@ public class class_lo implements class_ic, class_kn {
       }
 
       this.b.a(this.o, this.p, this.q, var10, var11);
-      this.b.a.a((class_ff)(new class_fi(var1, var3, var5, var7, var8, var9)));
+      this.b.a.a((Packet)(new class_fi(var1, var3, var5, var7, var8, var9)));
    }
 
-   public void a(class_ir var1) {
+   public void handle(PacketPlayInBlockDig var1) {
       class_fh.a(var1, this, this.b.u());
       class_lg var2 = this.d.a(this.b.am);
-      BlockPosition var3 = var1.a();
+      BlockPosition var3 = var1.getPosition();
       this.b.z();
-      switch(class_lo.SyntheticClass_1.a[var1.c().ordinal()]) {
+      switch(class_lo.SyntheticClass_1.a[var1.getDigType().ordinal()]) {
       case 1:
          if(!this.b.v()) {
-            class_aas var12 = this.b.b((class_oo)class_oo.b);
-            this.b.a((class_oo)class_oo.b, (class_aas)this.b.b((class_oo)class_oo.a));
-            this.b.a((class_oo)class_oo.a, (class_aas)var12);
+            class_aas var12 = this.b.b((EnumUsedHand)EnumUsedHand.OFF_HAND);
+            this.b.a((EnumUsedHand)EnumUsedHand.OFF_HAND, (class_aas)this.b.b((EnumUsedHand)EnumUsedHand.MAIN_HAND));
+            this.b.a((EnumUsedHand)EnumUsedHand.MAIN_HAND, (class_aas)var12);
          }
 
          return;
@@ -446,21 +446,21 @@ public class class_lo implements class_ic, class_kn {
          } else if(var3.getY() >= this.d.an()) {
             return;
          } else {
-            if(var1.c() == class_ir.class_a_in_class_ir.a) {
+            if(var1.getDigType() == PacketPlayInBlockDig.EnumPlayerDigType.START_DESTROY_BLOCK) {
                if(!this.d.a((World)var2, (BlockPosition)var3, (class_xa)this.b) && var2.ag().a(var3)) {
-                  this.b.c.a(var3, var1.b());
+                  this.b.c.a(var3, var1.getFace());
                } else {
-                  this.b.a.a((class_ff)(new class_fv(var2, var3)));
+                  this.b.a.a((Packet)(new class_fv(var2, var3)));
                }
             } else {
-               if(var1.c() == class_ir.class_a_in_class_ir.c) {
+               if(var1.getDigType() == PacketPlayInBlockDig.EnumPlayerDigType.STOP_DESTROY_BLOCK) {
                   this.b.c.a(var3);
-               } else if(var1.c() == class_ir.class_a_in_class_ir.b) {
+               } else if(var1.getDigType() == PacketPlayInBlockDig.EnumPlayerDigType.ABORT_DESTROY_BLOCK) {
                   this.b.c.e();
                }
 
                if(var2.p(var3).getBlock().getMaterial() != Material.AIR) {
-                  this.b.a.a((class_ff)(new class_fv(var2, var3)));
+                  this.b.a.a((Packet)(new class_fv(var2, var3)));
                }
             }
 
@@ -471,50 +471,50 @@ public class class_lo implements class_ic, class_kn {
       }
    }
 
-   public void a(class_ja var1) {
+   public void handle(class_ja var1) {
       class_fh.a(var1, this, this.b.u());
       class_lg var2 = this.d.a(this.b.am);
-      class_oo var3 = var1.c();
-      class_aas var4 = this.b.b((class_oo)var3);
+      EnumUsedHand var3 = var1.c();
+      class_aas var4 = this.b.b((EnumUsedHand)var3);
       BlockPosition var5 = var1.a();
       EnumDirection var6 = var1.b();
       this.b.z();
       if(var5.getY() >= this.d.an() - 1 && (var6 == EnumDirection.UP || var5.getY() >= this.d.an())) {
          class_fb var7 = new class_fb("build.tooHigh", new Object[]{Integer.valueOf(this.d.an())});
          var7.b().a(EnumChatFormat.RED);
-         this.b.a.a((class_ff)(new class_fz(var7)));
+         this.b.a.a((Packet)(new PacketPlayOutChat(var7)));
       } else if(this.r && this.b.e((double)var5.getX() + 0.5D, (double)var5.getY() + 0.5D, (double)var5.getZ() + 0.5D) < 64.0D && !this.d.a((World)var2, (BlockPosition)var5, (class_xa)this.b) && var2.ag().a(var5)) {
          this.b.c.a(this.b, var2, var4, var3, var5, var6, var1.d(), var1.e(), var1.f());
       }
 
-      this.b.a.a((class_ff)(new class_fv(var2, var5)));
-      this.b.a.a((class_ff)(new class_fv(var2, var5.shift(var6))));
-      var4 = this.b.b((class_oo)var3);
+      this.b.a.a((Packet)(new class_fv(var2, var5)));
+      this.b.a.a((Packet)(new class_fv(var2, var5.shift(var6))));
+      var4 = this.b.b((EnumUsedHand)var3);
       if(var4 != null && var4.b == 0) {
-         this.b.a((class_oo)var3, (class_aas)null);
+         this.b.a((EnumUsedHand)var3, (class_aas)null);
          var4 = null;
       }
 
    }
 
-   public void a(class_jb var1) {
+   public void handle(PacketPlayInUseItem var1) {
       class_fh.a(var1, this, this.b.u());
       class_lg var2 = this.d.a(this.b.am);
-      class_oo var3 = var1.a();
-      class_aas var4 = this.b.b((class_oo)var3);
+      EnumUsedHand var3 = var1.getActiveHand();
+      class_aas var4 = this.b.b((EnumUsedHand)var3);
       this.b.z();
       if(var4 != null) {
          this.b.c.a(this.b, var2, var4, var3);
-         var4 = this.b.b((class_oo)var3);
+         var4 = this.b.b((EnumUsedHand)var3);
          if(var4 != null && var4.b == 0) {
-            this.b.a((class_oo)var3, (class_aas)null);
+            this.b.a((EnumUsedHand)var3, (class_aas)null);
             var4 = null;
          }
 
       }
    }
 
-   public void a(class_iz var1) {
+   public void handle(class_iz var1) {
       class_fh.a(var1, this, this.b.u());
       if(this.b.v()) {
          class_pr var2 = null;
@@ -538,7 +538,7 @@ public class class_lo implements class_ic, class_kn {
                class_lg var7 = this.b.u();
                class_lg var8 = (class_lg)var2.o;
                this.b.am = var2.am;
-               this.a((class_ff)(new class_he(this.b.am, var7.ab(), var7.Q().u(), this.b.c.b())));
+               this.a((Packet)(new class_he(this.b.am, var7.ab(), var7.Q().u(), this.b.c.b())));
                var7.f(this.b);
                this.b.I = false;
                this.b.b(var2.s, var2.t, var2.u, var2.y, var2.z);
@@ -562,15 +562,15 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_iu var1) {
+   public void handle(class_iu var1) {
    }
 
-   public void a(class_eu var1) {
+   public void disconnect(IChatBaseComponent var1) {
       c.info(this.b.e_() + " lost connection: " + var1);
       this.d.aH();
       class_fb var2 = new class_fb("multiplayer.player.left", new Object[]{this.b.f_()});
       var2.b().a(EnumChatFormat.YELLOW);
-      this.d.ap().a((class_eu)var2);
+      this.d.ap().a((IChatBaseComponent)var2);
       this.b.q();
       this.d.ap().e(this.b);
       if(this.d.T() && this.b.e_().equals(this.d.S())) {
@@ -580,9 +580,9 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(final class_ff var1) {
-      if(var1 instanceof class_fz) {
-         class_fz var2 = (class_fz)var1;
+   public void a(final Packet var1) {
+      if(var1 instanceof PacketPlayOutChat) {
+         PacketPlayOutChat var2 = (PacketPlayOutChat)var1;
          class_xa.class_b_in_class_xa var3 = this.b.y();
          if(var3 == class_xa.class_b_in_class_xa.c) {
             return;
@@ -612,7 +612,7 @@ public class class_lo implements class_ic, class_kn {
       }
    }
 
-   public void a(class_iv var1) {
+   public void handle(class_iv var1) {
       class_fh.a(var1, this, this.b.u());
       if(var1.a() >= 0 && var1.a() < class_wz.i()) {
          this.b.bp.d = var1.a();
@@ -622,15 +622,15 @@ public class class_lo implements class_ic, class_kn {
       }
    }
 
-   public void a(class_ie var1) {
+   public void handle(PacketPlayInChat var1) {
       class_fh.a(var1, this, this.b.u());
       if(this.b.y() == class_xa.class_b_in_class_xa.c) {
          class_fb var4 = new class_fb("chat.cannotSend", new Object[0]);
          var4.b().a(EnumChatFormat.RED);
-         this.a((class_ff)(new class_fz(var4)));
+         this.a((Packet)(new PacketPlayOutChat(var4)));
       } else {
          this.b.z();
-         String var2 = var1.a();
+         String var2 = var1.getMessage();
          var2 = StringUtils.normalizeSpace(var2);
 
          for(int var3 = 0; var3 < var2.length(); ++var3) {
@@ -659,13 +659,13 @@ public class class_lo implements class_ic, class_kn {
       this.d.P().a(this.b, var1);
    }
 
-   public void a(class_iy var1) {
+   public void handle(class_iy var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
-      this.b.a((class_oo)var1.a());
+      this.b.a((EnumUsedHand)var1.a());
    }
 
-   public void a(class_is var1) {
+   public void handle(class_is var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
       switch(class_lo.SyntheticClass_1.b[var1.b().ordinal()]) {
@@ -701,10 +701,10 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_in var1) {
+   public void handle(PacketPlayInUseEntity var1) {
       class_fh.a(var1, this, this.b.u());
       class_lg var2 = this.d.a(this.b.am);
-      class_pr var3 = var1.a((World)var2);
+      class_pr var3 = var1.getEntity((World)var2);
       this.b.z();
       if(var3 != null) {
          boolean var4 = this.b.t(var3);
@@ -714,17 +714,17 @@ public class class_lo implements class_ic, class_kn {
          }
 
          if(this.b.h(var3) < var5) {
-            class_oo var7;
+            EnumUsedHand var7;
             class_aas var8;
-            if(var1.a() == class_in.class_a_in_class_in.a) {
-               var7 = var1.b();
-               var8 = this.b.b((class_oo)var7);
+            if(var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.INTERACT) {
+               var7 = var1.getUsedHand();
+               var8 = this.b.b((EnumUsedHand)var7);
                this.b.a(var3, var8, var7);
-            } else if(var1.a() == class_in.class_a_in_class_in.c) {
-               var7 = var1.b();
-               var8 = this.b.b((class_oo)var7);
-               var3.a((class_xa)this.b, (Vec3D)var1.c(), (class_aas)var8, (class_oo)var7);
-            } else if(var1.a() == class_in.class_a_in_class_in.b) {
+            } else if(var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.INTERACT_AT) {
+               var7 = var1.getUsedHand();
+               var8 = this.b.b((EnumUsedHand)var7);
+               var3.a((class_xa)this.b, (Vec3D)var1.getInteractAt(), (class_aas)var8, (EnumUsedHand)var7);
+            } else if(var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.ATTACK) {
                if(var3 instanceof class_vm || var3 instanceof class_px || var3 instanceof class_xd || var3 == this.b) {
                   this.c("Attempting to attack an invalid entity");
                   this.d.f("Player " + this.b.e_() + " tried to attack an invalid entity");
@@ -738,7 +738,7 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_ig var1) {
+   public void handle(class_ig var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
       class_ig.class_a_in_class_ig var2 = var1.a();
@@ -772,12 +772,12 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_il var1) {
+   public void handle(class_il var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.p();
    }
 
-   public void a(class_ik var1) {
+   public void handle(class_ik var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
       if(this.b.br.d == var1.a() && this.b.br.c(this.b)) {
@@ -792,14 +792,14 @@ public class class_lo implements class_ic, class_kn {
          } else {
             class_aas var5 = this.b.br.a(var1.b(), var1.c(), var1.f(), this.b);
             if(class_aas.b(var1.e(), var5)) {
-               this.b.a.a((class_ff)(new class_gb(var1.a(), var1.d(), true)));
+               this.b.a.a((Packet)(new class_gb(var1.a(), var1.d(), true)));
                this.b.g = true;
                this.b.br.b();
                this.b.o();
                this.b.g = false;
             } else {
                this.n.a(this.b.br.d, Short.valueOf(var1.d()));
-               this.b.a.a((class_ff)(new class_gb(var1.a(), var1.d(), false)));
+               this.b.a.a((Packet)(new class_gb(var1.a(), var1.d(), false)));
                this.b.br.a(this.b, false);
                ArrayList var6 = Lists.newArrayList();
 
@@ -814,7 +814,7 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_ij var1) {
+   public void handle(class_ij var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
       if(this.b.br.d == var1.a() && this.b.br.c(this.b) && !this.b.v()) {
@@ -824,7 +824,7 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_iw var1) {
+   public void handle(class_iw var1) {
       class_fh.a(var1, this, this.b.u());
       if(this.b.c.d()) {
          boolean var2 = var1.a() < 0;
@@ -867,7 +867,7 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_ii var1) {
+   public void handle(class_ii var1) {
       class_fh.a(var1, this, this.b.u());
       Short var2 = (Short)this.n.a(this.b.br.d);
       if(var2 != null && var1.b() == var2.shortValue() && this.b.br.d == var1.a() && !this.b.br.c(this.b) && !this.b.v()) {
@@ -876,7 +876,7 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_ix var1) {
+   public void handle(class_ix var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
       class_lg var2 = this.d.a(this.b.am);
@@ -893,7 +893,7 @@ public class class_lo implements class_ic, class_kn {
             return;
          }
 
-         class_eu[] var6 = var1.b();
+         IChatBaseComponent[] var6 = var1.b();
 
          for(int var7 = 0; var7 < var6.length; ++var7) {
             var5.a[var7] = new class_fa(EnumChatFormat.stripFormatting(var6[var7].c()));
@@ -905,8 +905,8 @@ public class class_lo implements class_ic, class_kn {
 
    }
 
-   public void a(class_io var1) {
-      if(var1.a() == this.i) {
+   public void handle(PacketPlayInKeepAlive var1) {
+      if(var1.getKeepAliveId() == this.i) {
          int var2 = (int)(this.d() - this.j);
          this.b.h = (this.b.h * 3 + var2) / 4;
       }
@@ -917,12 +917,12 @@ public class class_lo implements class_ic, class_kn {
       return System.nanoTime() / 1000000L;
    }
 
-   public void a(class_iq var1) {
+   public void handle(class_iq var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.bH.b = var1.b() && this.b.bH.c;
    }
 
-   public void a(class_id var1) {
+   public void handle(class_id var1) {
       class_fh.a(var1, this, this.b.u());
       ArrayList var2 = Lists.newArrayList();
       Iterator var3 = this.d.a((class_m)this.b, (String)var1.a(), (BlockPosition)var1.b()).iterator();
@@ -932,21 +932,21 @@ public class class_lo implements class_ic, class_kn {
          var2.add(var4);
       }
 
-      this.b.a.a((class_ff)(new class_fy((String[])var2.toArray(new String[var2.size()]))));
+      this.b.a.a((Packet)(new class_fy((String[])var2.toArray(new String[var2.size()]))));
    }
 
-   public void a(class_ih var1) {
+   public void handle(class_ih var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.a(var1);
    }
 
-   public void a(class_im var1) {
+   public void handle(class_im var1) {
       class_fh.a(var1, this, this.b.u());
       class_aas var67;
       class_aas var72;
-      class_em var61;
+      PacketDataSerializer var61;
       if("MC|BEdit".equals(var1.a())) {
-         var61 = new class_em(Unpooled.wrappedBuffer((ByteBuf)var1.b()));
+         var61 = new PacketDataSerializer(Unpooled.wrappedBuffer((ByteBuf)var1.b()));
 
          try {
             var67 = var61.i();
@@ -975,7 +975,7 @@ public class class_lo implements class_ic, class_kn {
 
          return;
       } else if("MC|BSign".equals(var1.a())) {
-         var61 = new class_em(Unpooled.wrappedBuffer((ByteBuf)var1.b()));
+         var61 = new PacketDataSerializer(Unpooled.wrappedBuffer((ByteBuf)var1.b()));
 
          try {
             var67 = var61.i();
@@ -1018,7 +1018,7 @@ public class class_lo implements class_ic, class_kn {
          }
       } else if("MC|AdvCdm".equals(var1.a())) {
          if(!this.d.al()) {
-            this.b.a((class_eu)(new class_fb("advMode.notEnabled", new Object[0])));
+            this.b.a((IChatBaseComponent)(new class_fb("advMode.notEnabled", new Object[0])));
          } else if(this.b.a(2, "") && this.b.bH.d) {
             var61 = var1.b();
 
@@ -1031,23 +1031,23 @@ public class class_lo implements class_ic, class_kn {
                      var4 = ((class_amj)var5).b();
                   }
                } else if(var63 == 1) {
-                  class_pr var69 = this.b.o.a(var61.readInt());
+                  class_pr var69 = this.b.o.getEntityById(var61.readInt());
                   if(var69 instanceof class_vp) {
                      var4 = ((class_vp)var69).j();
                   }
                }
 
-               String var71 = var61.c(var61.readableBytes());
+               String var71 = var61.readString(var61.readableBytes());
                boolean var6 = var61.readBoolean();
                if(var4 != null) {
                   var4.a(var71);
                   var4.a(var6);
                   if(!var6) {
-                     var4.b((class_eu)null);
+                     var4.b((IChatBaseComponent)null);
                   }
 
                   var4.h();
-                  this.b.a((class_eu)(new class_fb("advMode.setCommand.success", new Object[]{var71})));
+                  this.b.a((IChatBaseComponent)(new class_fb("advMode.setCommand.success", new Object[]{var71})));
                }
             } catch (Exception var54) {
                c.error((String)"Couldn\'t set command block", (Throwable)var54);
@@ -1055,7 +1055,7 @@ public class class_lo implements class_ic, class_kn {
                var61.release();
             }
          } else {
-            this.b.a((class_eu)(new class_fb("advMode.notAllowed", new Object[0])));
+            this.b.a((IChatBaseComponent)(new class_fb("advMode.notAllowed", new Object[0])));
          }
       } else if("MC|Beacon".equals(var1.a())) {
          if(this.b.br instanceof class_yc) {
@@ -1080,7 +1080,7 @@ public class class_lo implements class_ic, class_kn {
          if(this.b.br instanceof class_yb) {
             class_yb var62 = (class_yb)this.b.br;
             if(var1.b() != null && var1.b().readableBytes() >= 1) {
-               String var65 = class_f.a(var1.b().c(32767));
+               String var65 = class_f.a(var1.b().readString(32767));
                if(var65.length() <= 30) {
                   var62.a(var65);
                }
@@ -1098,31 +1098,31 @@ public class class_lo implements class_ic, class_kn {
                if(var70 instanceof class_amz) {
                   class_amz var75 = (class_amz)var70;
                   byte var76 = var61.readByte();
-                  String var77 = var61.c(32);
+                  String var77 = var61.readString(32);
                   var75.a(class_amz.class_a_in_class_amz.valueOf(var77));
-                  var75.a(var61.c(64));
+                  var75.a(var61.readString(64));
                   var75.b(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
                   var75.c(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
-                  String var8 = var61.c(32);
+                  String var8 = var61.readString(32);
                   var75.a(Block.class_a_in_class_agj.valueOf(var8));
-                  String var9 = var61.c(32);
+                  String var9 = var61.readString(32);
                   var75.a(Block.class_c_in_class_agj.valueOf(var9));
-                  var75.b(var61.c(128));
+                  var75.b(var61.readString(128));
                   var75.a(var61.readBoolean());
                   if(var76 == 2) {
                      if(var75.m()) {
-                        this.b.b((class_eu)(new class_fa("Structure saved")));
+                        this.b.b((IChatBaseComponent)(new class_fa("Structure saved")));
                      } else {
-                        this.b.b((class_eu)(new class_fa("Structure NOT saved")));
+                        this.b.b((IChatBaseComponent)(new class_fa("Structure NOT saved")));
                      }
                   } else if(var76 == 3) {
                      if(var75.n()) {
-                        this.b.b((class_eu)(new class_fa("Structure loaded")));
+                        this.b.b((IChatBaseComponent)(new class_fa("Structure loaded")));
                      } else {
-                        this.b.b((class_eu)(new class_fa("Structure prepared")));
+                        this.b.b((IChatBaseComponent)(new class_fa("Structure prepared")));
                      }
                   } else if(var76 == 4 && var75.l()) {
-                     this.b.b((class_eu)(new class_fa("Size detected")));
+                     this.b.b((IChatBaseComponent)(new class_fa("Size detected")));
                   }
 
                   var75.p_();
@@ -1210,46 +1210,46 @@ public class class_lo implements class_ic, class_kn {
             ;
          }
 
-         a = new int[class_ir.class_a_in_class_ir.values().length];
+         a = new int[PacketPlayInBlockDig.EnumPlayerDigType.values().length];
 
          try {
-            a[class_ir.class_a_in_class_ir.g.ordinal()] = 1;
+            a[PacketPlayInBlockDig.EnumPlayerDigType.SWAP_HELD_ITEMS.ordinal()] = 1;
          } catch (NoSuchFieldError var7) {
             ;
          }
 
          try {
-            a[class_ir.class_a_in_class_ir.e.ordinal()] = 2;
+            a[PacketPlayInBlockDig.EnumPlayerDigType.DROP_ITEM.ordinal()] = 2;
          } catch (NoSuchFieldError var6) {
             ;
          }
 
          try {
-            a[class_ir.class_a_in_class_ir.d.ordinal()] = 3;
+            a[PacketPlayInBlockDig.EnumPlayerDigType.DROP_ALL_ITEMS.ordinal()] = 3;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            a[class_ir.class_a_in_class_ir.f.ordinal()] = 4;
+            a[PacketPlayInBlockDig.EnumPlayerDigType.RELEASE_USE_ITEM.ordinal()] = 4;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_ir.class_a_in_class_ir.a.ordinal()] = 5;
+            a[PacketPlayInBlockDig.EnumPlayerDigType.START_DESTROY_BLOCK.ordinal()] = 5;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_ir.class_a_in_class_ir.b.ordinal()] = 6;
+            a[PacketPlayInBlockDig.EnumPlayerDigType.ABORT_DESTROY_BLOCK.ordinal()] = 6;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_ir.class_a_in_class_ir.c.ordinal()] = 7;
+            a[PacketPlayInBlockDig.EnumPlayerDigType.STOP_DESTROY_BLOCK.ordinal()] = 7;
          } catch (NoSuchFieldError var1) {
             ;
          }

@@ -8,16 +8,16 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_ea;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
 import net.minecraft.server.class_fa;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_gg;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_nz;
 import net.minecraft.server.class_oj;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
@@ -55,7 +55,7 @@ public class class_acc extends Item {
       return super.a(var1);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(!var2.D) {
          this.a(var1, var3);
       }
@@ -78,19 +78,19 @@ public class class_acc extends Item {
 
                   Object var7;
                   try {
-                     class_eu var11 = class_eu.class_a_in_class_eu.b(var6);
+                     IChatBaseComponent var11 = IChatBaseComponent.class_a_in_class_eu.b(var6);
                      var7 = class_ev.a(var2, var11, var2);
                   } catch (Exception var9) {
                      var7 = new class_fa(var6);
                   }
 
-                  var4.a(var5, new class_ea(class_eu.class_a_in_class_eu.a((class_eu)var7)));
+                  var4.a(var5, new class_ea(IChatBaseComponent.class_a_in_class_eu.a((IChatBaseComponent)var7)));
                }
 
                var3.a((String)"pages", (class_eb)var4);
                if(var2 instanceof class_lh && var2.bA() == var1) {
                   class_yx var10 = var2.br.a((class_oj)var2.bp, var2.bp.d);
-                  ((class_lh)var2).a.a((class_ff)(new class_gg(0, var10.e, var1)));
+                  ((class_lh)var2).a.a((Packet)(new class_gg(0, var10.e, var1)));
                }
 
             }

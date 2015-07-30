@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_xa;
@@ -13,7 +13,7 @@ public class class_abb extends Item {
       this.a(CreativeTab.i);
    }
 
-   public boolean a(class_aas var1, class_xa var2, class_qa var3, class_oo var4) {
+   public boolean a(class_aas var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
       if(!var1.s()) {
          return false;
       } else if(var3 instanceof class_qb) {

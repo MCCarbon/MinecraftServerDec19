@@ -5,7 +5,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -176,10 +176,10 @@ public class class_wa extends class_wi {
       this.ac.b(b, Byte.valueOf((byte)1));
    }
 
-   protected boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   protected boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(var3 != null && var3.b() == Items.d) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
-         var1.a((class_oo)var2);
+         var1.a((EnumUsedHand)var2);
          if(!this.o.D) {
             this.cD();
             var3.a(1, (class_qa)var1);

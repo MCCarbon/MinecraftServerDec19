@@ -4,7 +4,7 @@ import java.util.Iterator;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aep;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fs;
 import net.minecraft.server.class_gq;
 import net.minecraft.server.class_gs;
@@ -68,7 +68,7 @@ public class class_lc implements class_aep {
    }
 
    public void a(int var1, BlockPosition var2, int var3) {
-      this.a.ap().a((class_ff)(new class_gq(var1, var2, var3, true)));
+      this.a.ap().a((Packet)(new class_gq(var1, var2, var3, true)));
    }
 
    public void b(int var1, BlockPosition var2, int var3) {
@@ -76,12 +76,12 @@ public class class_lc implements class_aep {
 
       while(var4.hasNext()) {
          class_lh var5 = (class_lh)var4.next();
-         if(var5 != null && var5.o == this.b && var5.F() != var1) {
+         if(var5 != null && var5.o == this.b && var5.getId() != var1) {
             double var6 = (double)var2.getX() - var5.s;
             double var8 = (double)var2.getY() - var5.t;
             double var10 = (double)var2.getZ() - var5.u;
             if(var6 * var6 + var8 * var8 + var10 * var10 < 1024.0D) {
-               var5.a.a((class_ff)(new class_fs(var1, var2, var3)));
+               var5.a.a((Packet)(new class_fs(var1, var2, var3)));
             }
          }
       }

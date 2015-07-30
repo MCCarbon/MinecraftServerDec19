@@ -3,13 +3,13 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.List;
 import net.minecraft.server.class_aok;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.class_go;
 
-public class class_gp implements class_ff {
+public class class_gp implements Packet {
    private int[] a;
    private int[] b;
    private class_go.class_a_in_class_go[] c;
@@ -35,9 +35,9 @@ public class class_gp implements class_ff {
 
    }
 
-   public void a(class_em var1) throws IOException {
+   public void decode(PacketDataSerializer var1) throws IOException {
       this.d = var1.readBoolean();
-      int var2 = var1.e();
+      int var2 = var1.readVarInt();
       this.a = new int[var2];
       this.b = new int[var2];
       this.c = new class_go.class_a_in_class_go[var2];
@@ -57,9 +57,9 @@ public class class_gp implements class_ff {
 
    }
 
-   public void b(class_em var1) throws IOException {
+   public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeBoolean(this.d);
-      var1.b(this.c.length);
+      var1.writeVarInt(this.c.length);
 
       int var2;
       for(var2 = 0; var2 < this.a.length; ++var2) {
@@ -74,13 +74,13 @@ public class class_gp implements class_ff {
 
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

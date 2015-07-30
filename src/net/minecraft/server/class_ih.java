@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_ic;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayIn;
 import net.minecraft.server.class_pz;
 import net.minecraft.server.class_xa;
 
-public class class_ih implements class_ff {
+public class class_ih implements Packet {
    private String a;
    private int b;
    private class_xa.class_b_in_class_xa c;
@@ -16,26 +16,26 @@ public class class_ih implements class_ff {
    private int e;
    private class_pz f;
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.c(7);
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readString(7);
       this.b = var1.readByte();
-      this.c = (class_xa.class_b_in_class_xa)var1.a(class_xa.class_b_in_class_xa.class);
+      this.c = (class_xa.class_b_in_class_xa)var1.readEnum(class_xa.class_b_in_class_xa.class);
       this.d = var1.readBoolean();
       this.e = var1.readUnsignedByte();
-      this.f = (class_pz)var1.a(class_pz.class);
+      this.f = (class_pz)var1.readEnum(class_pz.class);
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a(this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeString(this.a);
       var1.writeByte(this.b);
-      var1.a((Enum)this.c);
+      var1.writeEnum((Enum)this.c);
       var1.writeBoolean(this.d);
       var1.writeByte(this.e);
-      var1.a((Enum)this.f);
+      var1.writeEnum((Enum)this.f);
    }
 
-   public void a(class_ic var1) {
-      var1.a(this);
+   public void a(PacketListenerPlayIn var1) {
+      var1.handle(this);
    }
 
    public String a() {
@@ -60,7 +60,7 @@ public class class_ih implements class_ff {
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_ic)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayIn)var1);
    }
 }

@@ -33,7 +33,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -143,7 +143,7 @@ public abstract class class_amg {
       return this.e;
    }
 
-   public class_ff z_() {
+   public Packet z_() {
       return null;
    }
 

@@ -121,7 +121,7 @@ public class class_uw extends class_wi implements class_wk {
       double var6;
       double var8;
       if(!this.o.D && this.n(0) > 0) {
-         class_pr var1 = this.o.a(this.n(0));
+         class_pr var1 = this.o.getEntityById(this.n(0));
          if(var1 != null) {
             if(this.t < var1.t || !this.cB() && this.t < var1.t + 5.0D) {
                if(this.w < 0.0D) {
@@ -159,7 +159,7 @@ public class class_uw extends class_wi implements class_wk {
          var21 = this.n(var20 + 1);
          class_pr var3 = null;
          if(var21 > 0) {
-            var3 = this.o.a(var21);
+            var3 = this.o.getEntityById(var21);
          }
 
          if(var3 != null) {
@@ -237,7 +237,7 @@ public class class_uw extends class_wi implements class_wk {
 
                var13 = this.n(var1);
                if(var13 > 0) {
-                  class_pr var15 = this.o.a(var13);
+                  class_pr var15 = this.o.getEntityById(var13);
                   if(var15 != null && var15.ai() && this.h(var15) <= 900.0D && this.t(var15)) {
                      if(var15 instanceof class_xa && ((class_xa)var15).bH.a) {
                         this.a(var1, 0);
@@ -257,10 +257,10 @@ public class class_uw extends class_wi implements class_wk {
                      if(var5 != this && var5.ai() && this.t(var5)) {
                         if(var5 instanceof class_xa) {
                            if(!((class_xa)var5).bH.a) {
-                              this.a(var1, var5.F());
+                              this.a(var1, var5.getId());
                            }
                         } else {
-                           this.a(var1, var5.F());
+                           this.a(var1, var5.getId());
                         }
                         break;
                      }
@@ -272,7 +272,7 @@ public class class_uw extends class_wi implements class_wk {
          }
 
          if(this.w() != null) {
-            this.a(0, this.w().F());
+            this.a(0, this.w().getId());
          } else {
             this.a(0, 0);
          }

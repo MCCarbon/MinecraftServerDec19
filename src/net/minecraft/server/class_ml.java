@@ -4,7 +4,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
@@ -30,11 +30,11 @@ public class class_ml implements class_m {
       return "Rcon";
    }
 
-   public class_eu f_() {
+   public IChatBaseComponent f_() {
       return new class_fa(this.e_());
    }
 
-   public void a(class_eu var1) {
+   public void a(IChatBaseComponent var1) {
       this.b.append(var1.c());
    }
 

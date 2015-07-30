@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.MathHelper;
 import org.apache.commons.lang3.Validate;
 
-public class class_gs implements class_ff {
+public class class_gs implements Packet {
    private String a;
    private int b;
    private int c = Integer.MAX_VALUE;
@@ -30,8 +30,8 @@ public class class_gs implements class_ff {
       var9 = MathHelper.clamp(var9, 0.0F, 255.0F);
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.c(256);
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readString(256);
       this.b = var1.readInt();
       this.c = var1.readInt();
       this.d = var1.readInt();
@@ -39,8 +39,8 @@ public class class_gs implements class_ff {
       this.f = var1.readUnsignedByte();
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a(this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeString(this.a);
       var1.writeInt(this.b);
       var1.writeInt(this.c);
       var1.writeInt(this.d);
@@ -48,13 +48,13 @@ public class class_gs implements class_ff {
       var1.writeByte(this.f);
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

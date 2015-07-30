@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_kn;
@@ -113,8 +113,8 @@ public class class_amo extends class_amg implements class_kn, class_op {
       this.p = var1;
    }
 
-   public class_eu f_() {
-      return (class_eu)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
+   public IChatBaseComponent f_() {
+      return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
    }
 
    public class_xz a(class_wz var1, class_xa var2) {

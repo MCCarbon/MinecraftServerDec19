@@ -4,7 +4,7 @@ import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
@@ -70,8 +70,8 @@ public class class_ms extends class_my {
 		return true;
 	}
 
-	public class_eu e() {
-		class_eu var1 = super.e();
+	public IChatBaseComponent e() {
+		IChatBaseComponent var1 = super.e();
 		var1.b().a(this.g() ? EnumChatFormat.DARK_PURPLE : EnumChatFormat.GREEN);
 		return var1;
 	}

@@ -7,7 +7,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cc;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
@@ -35,8 +35,8 @@ public class class_aq extends class_i {
          String var4 = a(var2, 1);
 
          try {
-            class_eu var5 = class_eu.class_a_in_class_eu.a(var4);
-            var3.a((class_eu)class_ev.a(var1, var5, var3));
+            IChatBaseComponent var5 = IChatBaseComponent.class_a_in_class_eu.a(var4);
+            var3.a((IChatBaseComponent)class_ev.a(var1, var5, var3));
          } catch (JsonParseException var7) {
         	 throw class_aq.a(var7);
          }

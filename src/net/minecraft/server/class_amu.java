@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_op;
@@ -41,7 +41,7 @@ public abstract class class_amu extends class_amg implements class_op, class_ou 
       this.a = var1;
    }
 
-   public class_eu f_() {
-      return (class_eu)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
+   public IChatBaseComponent f_() {
+      return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
    }
 }

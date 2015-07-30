@@ -9,11 +9,11 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_et;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
 import net.minecraft.server.class_ez;
 import net.minecraft.server.class_fa;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_hw;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
@@ -21,7 +21,7 @@ import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 
 public class class_amx extends class_amg {
-   public final class_eu[] a = new class_eu[]{new class_fa(""), new class_fa(""), new class_fa(""), new class_fa("")};
+   public final IChatBaseComponent[] a = new IChatBaseComponent[]{new class_fa(""), new class_fa(""), new class_fa(""), new class_fa("")};
    public int f = -1;
    private boolean g = true;
    private class_xa h;
@@ -31,7 +31,7 @@ public class class_amx extends class_amg {
       super.b(var1);
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         String var3 = class_eu.class_a_in_class_eu.a(this.a[var2]);
+         String var3 = IChatBaseComponent.class_a_in_class_eu.a(this.a[var2]);
          var1.a("Text" + (var2 + 1), var3);
       }
 
@@ -46,11 +46,11 @@ public class class_amx extends class_amg {
             return "Sign";
          }
 
-         public class_eu f_() {
+         public IChatBaseComponent f_() {
             return new class_fa(this.e_());
          }
 
-         public void a(class_eu var1) {
+         public void a(IChatBaseComponent var1) {
          }
 
          public boolean a(int var1, String var2) {
@@ -85,7 +85,7 @@ public class class_amx extends class_amg {
          String var4 = var1.k("Text" + (var3 + 1));
 
          try {
-            class_eu var5 = class_eu.class_a_in_class_eu.b(var4);
+            IChatBaseComponent var5 = IChatBaseComponent.class_a_in_class_eu.b(var4);
 
             try {
                this.a[var3] = class_ev.a(var2, var5, (class_pr)null);
@@ -100,8 +100,8 @@ public class class_amx extends class_amg {
       this.i.a(var1);
    }
 
-   public class_ff z_() {
-      class_eu[] var1 = new class_eu[4];
+   public Packet z_() {
+      IChatBaseComponent[] var1 = new IChatBaseComponent[4];
       System.arraycopy(this.a, 0, var1, 0, 4);
       return new class_hw(this.b, this.c, var1);
    }
@@ -128,11 +128,11 @@ public class class_amx extends class_amg {
             return var1.e_();
          }
 
-         public class_eu f_() {
+         public IChatBaseComponent f_() {
             return var1.f_();
          }
 
-         public void a(class_eu var1x) {
+         public void a(IChatBaseComponent var1x) {
          }
 
          public boolean a(int var1x, String var2) {

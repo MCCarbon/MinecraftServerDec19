@@ -16,9 +16,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.Map.Entry;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fr;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_ms;
@@ -76,14 +76,14 @@ public class class_mx extends class_nd {
       if(var2.d() && var4 == 0 && var3 > 0) {
          this.g = true;
          if(this.c.aB()) {
-            this.c.ap().a((class_eu)(new class_fb("chat.type.achievement", new Object[]{var1.f_(), var2.j()})));
+            this.c.ap().a((IChatBaseComponent)(new class_fb("chat.type.achievement", new Object[]{var1.f_(), var2.j()})));
          }
       }
 
       if(var2.d() && var4 > 0 && var3 == 0) {
          this.g = true;
          if(this.c.aB()) {
-            this.c.ap().a((class_eu)(new class_fb("chat.type.achievement.taken", new Object[]{var1.f_(), var2.j()})));
+            this.c.ap().a((IChatBaseComponent)(new class_fb("chat.type.achievement.taken", new Object[]{var1.f_(), var2.j()})));
          }
       }
 
@@ -190,7 +190,7 @@ public class class_mx extends class_nd {
          }
       }
 
-      var1.a.a((class_ff)(new class_fr(var3)));
+      var1.a.a((Packet)(new class_fr(var3)));
    }
 
    public void b(class_lh var1) {
@@ -205,7 +205,7 @@ public class class_mx extends class_nd {
          }
       }
 
-      var1.a.a((class_ff)(new class_fr(var2)));
+      var1.a.a((Packet)(new class_fr(var2)));
    }
 
    public boolean e() {

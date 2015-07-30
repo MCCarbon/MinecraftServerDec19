@@ -6,12 +6,12 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_gk implements class_ff {
+public class class_gk implements Packet {
    private double a;
    private double b;
    private double c;
@@ -38,7 +38,7 @@ public class class_gk implements class_ff {
 
    }
 
-   public void a(class_em var1) throws IOException {
+   public void decode(PacketDataSerializer var1) throws IOException {
       this.a = (double)var1.readFloat();
       this.b = (double)var1.readFloat();
       this.c = (double)var1.readFloat();
@@ -61,7 +61,7 @@ public class class_gk implements class_ff {
       this.h = var1.readFloat();
    }
 
-   public void b(class_em var1) throws IOException {
+   public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeFloat((float)this.a);
       var1.writeFloat((float)this.b);
       var1.writeFloat((float)this.c);
@@ -87,13 +87,13 @@ public class class_gk implements class_ff {
       var1.writeFloat(this.h);
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

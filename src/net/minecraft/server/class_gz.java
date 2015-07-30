@@ -8,14 +8,14 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aeq;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_eu;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.IChatBaseComponent;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.class_lh;
 
-public class class_gz implements class_ff {
+public class class_gz implements Packet {
    private class_gz.class_a_in_class_gz a;
    private final List b = Lists.newArrayList();
 
@@ -45,53 +45,53 @@ public class class_gz implements class_ff {
 
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = (class_gz.class_a_in_class_gz)var1.a(class_gz.class_a_in_class_gz.class);
-      int var2 = var1.e();
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = (class_gz.class_a_in_class_gz)var1.readEnum(class_gz.class_a_in_class_gz.class);
+      int var2 = var1.readVarInt();
 
       for(int var3 = 0; var3 < var2; ++var3) {
          GameProfile var4 = null;
          int var5 = 0;
          class_aeq.class_a_in_class_aeq var6 = null;
-         class_eu var7 = null;
+         IChatBaseComponent var7 = null;
          switch(class_gz.SyntheticClass_1.a[this.a.ordinal()]) {
          case 1:
-            var4 = new GameProfile(var1.g(), var1.c(16));
-            int var8 = var1.e();
+            var4 = new GameProfile(var1.readUUID(), var1.readString(16));
+            int var8 = var1.readVarInt();
             int var9 = 0;
 
             for(; var9 < var8; ++var9) {
-               String var10 = var1.c(32767);
-               String var11 = var1.c(32767);
+               String var10 = var1.readString(32767);
+               String var11 = var1.readString(32767);
                if(var1.readBoolean()) {
-                  var4.getProperties().put(var10, new Property(var10, var11, var1.c(32767)));
+                  var4.getProperties().put(var10, new Property(var10, var11, var1.readString(32767)));
                } else {
                   var4.getProperties().put(var10, new Property(var10, var11));
                }
             }
 
-            var6 = class_aeq.class_a_in_class_aeq.a(var1.e());
-            var5 = var1.e();
+            var6 = class_aeq.class_a_in_class_aeq.a(var1.readVarInt());
+            var5 = var1.readVarInt();
             if(var1.readBoolean()) {
-               var7 = var1.d();
+               var7 = var1.readChat();
             }
             break;
          case 2:
-            var4 = new GameProfile(var1.g(), (String)null);
-            var6 = class_aeq.class_a_in_class_aeq.a(var1.e());
+            var4 = new GameProfile(var1.readUUID(), (String)null);
+            var6 = class_aeq.class_a_in_class_aeq.a(var1.readVarInt());
             break;
          case 3:
-            var4 = new GameProfile(var1.g(), (String)null);
-            var5 = var1.e();
+            var4 = new GameProfile(var1.readUUID(), (String)null);
+            var5 = var1.readVarInt();
             break;
          case 4:
-            var4 = new GameProfile(var1.g(), (String)null);
+            var4 = new GameProfile(var1.readUUID(), (String)null);
             if(var1.readBoolean()) {
-               var7 = var1.d();
+               var7 = var1.readChat();
             }
             break;
          case 5:
-            var4 = new GameProfile(var1.g(), (String)null);
+            var4 = new GameProfile(var1.readUUID(), (String)null);
          }
 
          this.b.add(new class_gz.class_b_in_class_gz(var4, var5, var6, var7));
@@ -99,9 +99,9 @@ public class class_gz implements class_ff {
 
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a((Enum)this.a);
-      var1.b(this.b.size());
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeEnum((Enum)this.a);
+      var1.writeVarInt(this.b.size());
       Iterator var2 = this.b.iterator();
 
       while(true) {
@@ -109,51 +109,51 @@ public class class_gz implements class_ff {
             class_gz.class_b_in_class_gz var3 = (class_gz.class_b_in_class_gz)var2.next();
             switch(class_gz.SyntheticClass_1.a[this.a.ordinal()]) {
             case 1:
-               var1.a(var3.a().getId());
-               var1.a(var3.a().getName());
-               var1.b(var3.a().getProperties().size());
+               var1.writeUUID(var3.a().getId());
+               var1.writeString(var3.a().getName());
+               var1.writeVarInt(var3.a().getProperties().size());
                Iterator var4 = var3.a().getProperties().values().iterator();
 
                while(var4.hasNext()) {
                   Property var5 = (Property)var4.next();
-                  var1.a(var5.getName());
-                  var1.a(var5.getValue());
+                  var1.writeString(var5.getName());
+                  var1.writeString(var5.getValue());
                   if(var5.hasSignature()) {
                      var1.writeBoolean(true);
-                     var1.a(var5.getSignature());
+                     var1.writeString(var5.getSignature());
                   } else {
                      var1.writeBoolean(false);
                   }
                }
 
-               var1.b(var3.c().a());
-               var1.b(var3.b());
+               var1.writeVarInt(var3.c().a());
+               var1.writeVarInt(var3.b());
                if(var3.d() == null) {
                   var1.writeBoolean(false);
                } else {
                   var1.writeBoolean(true);
-                  var1.a(var3.d());
+                  var1.writeChat(var3.d());
                }
                break;
             case 2:
-               var1.a(var3.a().getId());
-               var1.b(var3.c().a());
+               var1.writeUUID(var3.a().getId());
+               var1.writeVarInt(var3.c().a());
                break;
             case 3:
-               var1.a(var3.a().getId());
-               var1.b(var3.b());
+               var1.writeUUID(var3.a().getId());
+               var1.writeVarInt(var3.b());
                break;
             case 4:
-               var1.a(var3.a().getId());
+               var1.writeUUID(var3.a().getId());
                if(var3.d() == null) {
                   var1.writeBoolean(false);
                } else {
                   var1.writeBoolean(true);
-                  var1.a(var3.d());
+                  var1.writeChat(var3.d());
                }
                break;
             case 5:
-               var1.a(var3.a().getId());
+               var1.writeUUID(var3.a().getId());
             }
          }
 
@@ -161,7 +161,7 @@ public class class_gz implements class_ff {
       }
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
@@ -171,8 +171,8 @@ public class class_gz implements class_ff {
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 
    // $FF: synthetic class
@@ -218,9 +218,9 @@ public class class_gz implements class_ff {
       private final int b;
       private final class_aeq.class_a_in_class_aeq c;
       private final GameProfile d;
-      private final class_eu e;
+      private final IChatBaseComponent e;
 
-      public class_b_in_class_gz(GameProfile var2, int var3, class_aeq.class_a_in_class_aeq var4, class_eu var5) {
+      public class_b_in_class_gz(GameProfile var2, int var3, class_aeq.class_a_in_class_aeq var4, IChatBaseComponent var5) {
          this.d = var2;
          this.b = var3;
          this.c = var4;
@@ -239,12 +239,12 @@ public class class_gz implements class_ff {
          return this.c;
       }
 
-      public class_eu d() {
+      public IChatBaseComponent d() {
          return this.e;
       }
 
       public String toString() {
-         return Objects.toStringHelper((Object)this).add("latency", this.b).add("gameMode", this.c).add("profile", this.d).add("displayName", this.e == null?null:class_eu.class_a_in_class_eu.a(this.e)).toString();
+         return Objects.toStringHelper((Object)this).add("latency", this.b).add("gameMode", this.c).add("profile", this.d).add("displayName", this.e == null?null:IChatBaseComponent.class_a_in_class_eu.a(this.e)).toString();
       }
    }
 

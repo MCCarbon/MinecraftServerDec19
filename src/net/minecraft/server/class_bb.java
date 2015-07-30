@@ -5,7 +5,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
@@ -25,8 +25,8 @@ public class class_bb extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length > 0 && var2[0].length() > 0) {
-         class_eu var3 = b(var1, var2, 0, true);
-         MinecraftServer.N().ap().a((class_eu)(new class_fb("chat.type.announcement", new Object[]{var1.f_(), var3})));
+         IChatBaseComponent var3 = b(var1, var2, 0, true);
+         MinecraftServer.N().ap().a((IChatBaseComponent)(new class_fb("chat.type.announcement", new Object[]{var1.f_(), var3})));
       } else {
          throw new class_cf("commands.say.usage", new Object[0]);
       }

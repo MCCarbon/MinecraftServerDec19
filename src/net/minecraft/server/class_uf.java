@@ -13,7 +13,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qd;
@@ -114,7 +114,7 @@ public class class_uf extends class_tw {
       return Item.getByBlock(Blocks.WOOL);
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(var3 != null && var3.b() == Items.bg && !this.cB() && !this.j_()) {
          if(!this.o.D) {
             this.m(true);

@@ -52,9 +52,9 @@ import net.minecraft.server.class_b;
 import net.minecraft.server.class_bd;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_g;
 import net.minecraft.server.class_hu;
 import net.minecraft.server.class_i;
@@ -68,7 +68,7 @@ import net.minecraft.server.class_la;
 import net.minecraft.server.class_lc;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_lh;
-import net.minecraft.server.class_ln;
+import net.minecraft.server.ServerConnection;
 import net.minecraft.server.class_lv;
 import net.minecraft.server.class_lz;
 import net.minecraft.server.class_m;
@@ -98,7 +98,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	private final List<class_kn> p = Lists.newArrayList();
 	protected final class_l b;
 	public final class_nv c = new class_nv();
-	private final class_ln q;
+	private final ServerConnection q;
 	private final class_jt r = new class_jt();
 	private final Random s = new Random();
 	private String t;
@@ -147,7 +147,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.e = var2;
 		l = this;
 		this.o = var1;
-		this.q = new class_ln(this);
+		this.q = new ServerConnection(this);
 		this.Z = new class_lv(this, var3);
 		this.b = this.h();
 		this.m = new class_avj(var1);
@@ -339,7 +339,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		if (!this.N) {
 			k.info("Stopping server");
 			if (this.aq() != null) {
-				this.aq().b();
+				this.aq().shutdownNetwork();
 			}
 
 			if (this.v != null) {
@@ -386,7 +386,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 			if (this.i()) {
 				this.ab = az();
 				long var1 = 0L;
-				this.r.a((class_eu) (new class_fa(this.E)));
+				this.r.a((IChatBaseComponent) (new class_fa(this.E)));
 				this.r.a(new class_jt.class_c_in_class_jt("15w31b", 50));
 				this.a(this.r);
 
@@ -550,7 +550,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				this.c.a(var4.Q().k());
 				if (this.y % 20 == 0) {
 					this.c.a("timeSync");
-					this.v.a((class_ff) (new class_hu(var4.L(), var4.M(), var4.R().b("doDaylightCycle"))), var4.t.p().a());
+					this.v.a((Packet) (new class_hu(var4.L(), var4.M(), var4.R().b("doDaylightCycle"))), var4.t.p().a());
 					this.c.b();
 				}
 
@@ -584,7 +584,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		}
 
 		this.c.c("connection");
-		this.aq().c();
+		this.aq().handleNetwork();
 		this.c.c("players");
 		this.v.e();
 		this.c.c("tickables");
@@ -837,7 +837,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return "Server";
 	}
 
-	public void a(class_eu var1) {
+	public void a(IChatBaseComponent var1) {
 		k.info(var1.c());
 	}
 
@@ -1079,7 +1079,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 	}
 
-	public class_ln aq() {
+	public ServerConnection aq() {
 		return this.q;
 	}
 
@@ -1145,7 +1145,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.G = var1;
 	}
 
-	public class_eu f_() {
+	public IChatBaseComponent f_() {
 		return new class_fa(this.e_());
 	}
 

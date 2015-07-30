@@ -5,7 +5,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_qa;
@@ -20,7 +20,7 @@ public class class_zo extends Item {
       this.e(25);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(var3.aw() && var3.m instanceof class_ud) {
          class_ud var5 = (class_ud)var3.m;
          if(var5.cB().h() && var1.j() - var1.i() >= 7) {

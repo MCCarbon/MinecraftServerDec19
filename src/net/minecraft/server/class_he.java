@@ -3,13 +3,13 @@ package net.minecraft.server;
 import java.io.IOException;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aes;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.class_om;
 
-public class class_he implements class_ff {
+public class class_he implements Packet {
    private int a;
    private class_om b;
    private class_aeq.class_a_in_class_aeq c;
@@ -25,31 +25,31 @@ public class class_he implements class_ff {
       this.d = var3;
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
-   public void a(class_em var1) throws IOException {
+   public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readInt();
       this.b = class_om.a(var1.readUnsignedByte());
       this.c = class_aeq.class_a_in_class_aeq.a(var1.readUnsignedByte());
-      this.d = class_aes.a(var1.c(16));
+      this.d = class_aes.a(var1.readString(16));
       if(this.d == null) {
          this.d = class_aes.b;
       }
 
    }
 
-   public void b(class_em var1) throws IOException {
+   public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeInt(this.a);
       var1.writeByte(this.b.a());
       var1.writeByte(this.c.a());
-      var1.a(this.d.a());
+      var1.writeString(this.d.a());
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

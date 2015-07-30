@@ -61,7 +61,7 @@ public class class_px extends class_pr {
 
       this.j(this.s, (this.aT().b + this.aT().e) / 2.0D, this.u);
       double var1 = 8.0D;
-      if(this.g < this.a - 20 + this.F() % 100) {
+      if(this.g < this.a - 20 + this.getId() % 100) {
          if(this.f == null || this.f.h(this) > var1 * var1) {
             this.f = this.o.a(this, var1);
          }

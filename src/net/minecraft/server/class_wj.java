@@ -8,7 +8,7 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pw;
@@ -175,7 +175,7 @@ public class class_wj extends class_wr {
 
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       return false;
    }
 

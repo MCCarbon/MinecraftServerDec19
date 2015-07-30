@@ -9,7 +9,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 
 public class class_ame extends class_amg {
@@ -66,7 +66,7 @@ public class class_ame extends class_amg {
 		this.g = true;
 	}
 
-	public class_ff z_() {
+	public Packet z_() {
 		class_dn var1 = new class_dn();
 		this.b(var1);
 		return new class_ft(this.c, 6, var1);

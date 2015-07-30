@@ -2,54 +2,54 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_eu;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_ic;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.IChatBaseComponent;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayIn;
 
-public class class_ix implements class_ff {
+public class class_ix implements Packet {
    private BlockPosition a;
-   private class_eu[] b;
+   private IChatBaseComponent[] b;
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.c();
-      this.b = new class_eu[4];
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readBlockPosition();
+      this.b = new IChatBaseComponent[4];
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         String var3 = var1.c(384);
-         class_eu var4 = class_eu.class_a_in_class_eu.a(var3);
+         String var3 = var1.readString(384);
+         IChatBaseComponent var4 = IChatBaseComponent.class_a_in_class_eu.a(var3);
          this.b[var2] = var4;
       }
 
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a(this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeBlockPosition(this.a);
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         class_eu var3 = this.b[var2];
-         String var4 = class_eu.class_a_in_class_eu.a(var3);
-         var1.a(var4);
+         IChatBaseComponent var3 = this.b[var2];
+         String var4 = IChatBaseComponent.class_a_in_class_eu.a(var3);
+         var1.writeString(var4);
       }
 
    }
 
-   public void a(class_ic var1) {
-      var1.a(this);
+   public void a(PacketListenerPlayIn var1) {
+      var1.handle(this);
    }
 
    public BlockPosition a() {
       return this.a;
    }
 
-   public class_eu[] b() {
+   public IChatBaseComponent[] b() {
       return this.b;
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_ic)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayIn)var1);
    }
 }

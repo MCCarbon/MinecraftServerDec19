@@ -7,7 +7,7 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_em;
+import net.minecraft.server.PacketDataSerializer;
 
 public class class_aeb extends ArrayList {
    public class_aeb() {
@@ -37,7 +37,7 @@ public class class_aeb extends ArrayList {
       return class_aas.c(var1, var2) && (!var2.n() || var1.n() && class_dy.a(var2.o(), var1.o(), false));
    }
 
-   public void a(class_em var1) {
+   public void a(PacketDataSerializer var1) {
       var1.writeByte((byte)(this.size() & 255));
 
       for(int var2 = 0; var2 < this.size(); ++var2) {

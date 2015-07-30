@@ -6,7 +6,7 @@ import net.minecraft.server.class_abe;
 import net.minecraft.server.World;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
@@ -18,7 +18,7 @@ public class class_abv extends class_abe {
       return LocaleI18n.get("splash_" + i(var1).a());
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(!var3.bH.d) {
          --var1.b;
       }

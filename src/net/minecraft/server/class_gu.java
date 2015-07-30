@@ -3,12 +3,12 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.Collection;
 import net.minecraft.server.class_ave;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 
-public class class_gu implements class_ff {
+public class class_gu implements Packet {
    private int a;
    private byte b;
    private class_ave[] c;
@@ -39,10 +39,10 @@ public class class_gu implements class_ff {
 
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = var1.e();
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = var1.readVarInt();
       this.b = var1.readByte();
-      this.c = new class_ave[var1.e()];
+      this.c = new class_ave[var1.readVarInt()];
 
       for(int var2 = 0; var2 < this.c.length; ++var2) {
          short var3 = (short)var1.readByte();
@@ -54,15 +54,15 @@ public class class_gu implements class_ff {
          this.g = var1.readUnsignedByte();
          this.d = var1.readUnsignedByte();
          this.e = var1.readUnsignedByte();
-         this.h = var1.a();
+         this.h = var1.readArray();
       }
 
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.b(this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeVarInt(this.a);
       var1.writeByte(this.b);
-      var1.b(this.c.length);
+      var1.writeVarInt(this.c.length);
       class_ave[] var2 = this.c;
       int var3 = var2.length;
 
@@ -78,18 +78,18 @@ public class class_gu implements class_ff {
          var1.writeByte(this.g);
          var1.writeByte(this.d);
          var1.writeByte(this.e);
-         var1.a(this.h);
+         var1.writeArray(this.h);
       }
 
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 }

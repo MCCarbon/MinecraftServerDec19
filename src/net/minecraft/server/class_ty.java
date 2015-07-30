@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_re;
 import net.minecraft.server.class_rj;
@@ -86,10 +86,10 @@ public class class_ty extends class_tw {
 
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(var3 != null && var3.b() == Items.ay && !var1.bH.d && !this.j_()) {
          if(--var3.b == 0) {
-            var1.a((class_oo)var2, (class_aas)(new class_aas(Items.aI)));
+            var1.a((EnumUsedHand)var2, (class_aas)(new class_aas(Items.aI)));
          } else if(!var1.bp.a(new class_aas(Items.aI))) {
             var1.a(new class_aas(Items.aI), false);
          }

@@ -7,7 +7,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
@@ -35,7 +35,7 @@ public class class_ah extends class_i {
          var4.a(var3);
          var4.O = 0.0F;
          if(var1.e().R().b("sendCommandFeedback")) {
-            var4.a((class_eu)(new class_fb("gameMode.changed", new Object[0])));
+            var4.a((IChatBaseComponent)(new class_fb("gameMode.changed", new Object[0])));
          }
 
          class_fb var5 = new class_fb("gameMode." + var3.b(), new Object[0]);

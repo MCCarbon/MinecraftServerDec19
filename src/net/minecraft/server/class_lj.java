@@ -14,7 +14,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fk;
 import net.minecraft.server.class_fl;
 import net.minecraft.server.class_fn;
@@ -112,11 +112,11 @@ public class class_lj {
    }
 
    public boolean equals(Object var1) {
-      return var1 instanceof class_lj?((class_lj)var1).a.F() == this.a.F():false;
+      return var1 instanceof class_lj?((class_lj)var1).a.getId() == this.a.getId():false;
    }
 
    public int hashCode() {
-      return this.a.F();
+      return this.a.getId();
    }
 
    public void a(List var1) {
@@ -132,7 +132,7 @@ public class class_lj {
 
       if(this.w != this.a.m || this.a.m != null && this.m % 60 == 0) {
          this.w = this.a.m;
-         this.a((class_ff)(new class_hl(0, this.a, this.a.m)));
+         this.a((Packet)(new class_hl(0, this.a, this.a.m)));
       }
 
       if(this.a instanceof class_va && this.m % 10 == 0) {
@@ -146,7 +146,7 @@ public class class_lj {
                class_xa var6 = (class_xa)var5.next();
                class_lh var7 = (class_lh)var6;
                var4.a(var7, var3);
-               class_ff var8 = Items.bf.a((class_aas)var3, (World)this.a.o, (class_xa)var7);
+               Packet var8 = Items.bf.a((class_aas)var3, (World)this.a.o, (class_xa)var7);
                if(var8 != null) {
                   var7.a.a(var8);
                }
@@ -176,17 +176,17 @@ public class class_lj {
                if(var29 >= -128 && var29 < 128 && var30 >= -128 && var30 < 128 && var9 >= -128 && var9 < 128 && this.v <= 400 && !this.x && this.y == this.a.C) {
                   if((!var11 || !var12) && !(this.a instanceof class_xd)) {
                      if(var11) {
-                        var10 = new class_gv.class_a_in_class_gv(this.a.F(), (byte)var29, (byte)var30, (byte)var9, this.a.C);
+                        var10 = new class_gv.class_a_in_class_gv(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, this.a.C);
                      } else if(var12) {
-                        var10 = new class_gv.class_c_in_class_gv(this.a.F(), (byte)var27, (byte)var28, this.a.C);
+                        var10 = new class_gv.class_c_in_class_gv(this.a.getId(), (byte)var27, (byte)var28, this.a.C);
                      }
                   } else {
-                     var10 = new class_gv.class_b_in_class_gv(this.a.F(), (byte)var29, (byte)var30, (byte)var9, (byte)var27, (byte)var28, this.a.C);
+                     var10 = new class_gv.class_b_in_class_gv(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, (byte)var27, (byte)var28, this.a.C);
                   }
                } else {
                   this.y = this.a.C;
                   this.v = 0;
-                  var10 = new class_hz(this.a.F(), var23, var24, var26, (byte)var27, (byte)var28, this.a.C);
+                  var10 = new class_hz(this.a.getId(), var23, var24, var26, (byte)var27, (byte)var28, this.a.C);
                }
             }
 
@@ -200,12 +200,12 @@ public class class_lj {
                   this.j = this.a.v;
                   this.k = this.a.w;
                   this.l = this.a.x;
-                  this.a((class_ff)(new class_hm(this.a.F(), this.j, this.k, this.l)));
+                  this.a((Packet)(new class_hm(this.a.getId(), this.j, this.k, this.l)));
                }
             }
 
             if(var10 != null) {
-               this.a((class_ff)var10);
+               this.a((Packet)var10);
             }
 
             this.b();
@@ -226,7 +226,7 @@ public class class_lj {
             var24 = MathHelper.floor(this.a.z * 256.0F / 360.0F);
             boolean var25 = Math.abs(var23 - this.g) >= 4 || Math.abs(var24 - this.h) >= 4;
             if(var25) {
-               this.a((class_ff)(new class_gv.class_c_in_class_gv(this.a.F(), (byte)var23, (byte)var24, this.a.C)));
+               this.a((Packet)(new class_gv.class_c_in_class_gv(this.a.getId(), (byte)var23, (byte)var24, this.a.C)));
                this.g = var23;
                this.h = var24;
             }
@@ -240,7 +240,7 @@ public class class_lj {
 
          var23 = MathHelper.floor(this.a.aE() * 256.0F / 360.0F);
          if(Math.abs(var23 - this.i) >= 4) {
-            this.a((class_ff)(new class_hf(this.a, (byte)var23)));
+            this.a((Packet)(new class_hf(this.a, (byte)var23)));
             this.i = var23;
          }
 
@@ -249,7 +249,7 @@ public class class_lj {
 
       ++this.m;
       if(this.a.G) {
-         this.b((class_ff)(new class_hm(this.a)));
+         this.b((Packet)(new class_hm(this.a)));
          this.a.G = false;
       }
 
@@ -258,14 +258,14 @@ public class class_lj {
    private void b() {
       class_qi var1 = this.a.H();
       if(var1.a()) {
-         this.b((class_ff)(new class_hk(this.a.F(), var1, false)));
+         this.b((Packet)(new class_hk(this.a.getId(), var1, false)));
       }
 
       if(this.a instanceof class_qa) {
          class_qr var2 = (class_qr)((class_qa)this.a).by();
          Set var3 = var2.b();
          if(!var3.isEmpty()) {
-            this.b((class_ff)(new class_ia(this.a.F(), var3)));
+            this.b((Packet)(new class_ia(this.a.getId(), var3)));
          }
 
          var3.clear();
@@ -273,7 +273,7 @@ public class class_lj {
 
    }
 
-   public void a(class_ff var1) {
+   public void a(Packet var1) {
       Iterator var2 = this.o.iterator();
 
       while(var2.hasNext()) {
@@ -283,7 +283,7 @@ public class class_lj {
 
    }
 
-   public void b(class_ff var1) {
+   public void b(Packet var1) {
       this.a(var1);
       if(this.a instanceof class_lh) {
          ((class_lh)this.a).a.a(var1);
@@ -316,17 +316,17 @@ public class class_lj {
          if(this.c(var1)) {
             if(!this.o.contains(var1) && (this.e(var1) || this.a.n)) {
                this.o.add(var1);
-               class_ff var2 = this.c();
+               Packet var2 = this.c();
                var1.a.a(var2);
                if(!this.a.H().d()) {
-                  var1.a.a((class_ff)(new class_hk(this.a.F(), this.a.H(), true)));
+                  var1.a.a((Packet)(new class_hk(this.a.getId(), this.a.H(), true)));
                }
 
                if(this.a instanceof class_qa) {
                   class_qr var3 = (class_qr)((class_qa)this.a).by();
                   Collection var4 = var3.c();
                   if(!var4.isEmpty()) {
-                     var1.a.a((class_ff)(new class_ia(this.a.F(), var4)));
+                     var1.a.a((Packet)(new class_ia(this.a.getId(), var4)));
                   }
                }
 
@@ -334,15 +334,15 @@ public class class_lj {
                this.k = this.a.w;
                this.l = this.a.x;
                if(this.u && !(var2 instanceof class_fn)) {
-                  var1.a.a((class_ff)(new class_hm(this.a.F(), this.a.v, this.a.w, this.a.x)));
+                  var1.a.a((Packet)(new class_hm(this.a.getId(), this.a.v, this.a.w, this.a.x)));
                }
 
                if(this.a.m != null) {
-                  var1.a.a((class_ff)(new class_hl(0, this.a, this.a.m)));
+                  var1.a.a((Packet)(new class_hl(0, this.a, this.a.m)));
                }
 
                if(this.a instanceof class_qb && ((class_qb)this.a).cr() != null) {
-                  var1.a.a((class_ff)(new class_hl(1, this.a, ((class_qb)this.a).cr())));
+                  var1.a.a((Packet)(new class_hl(1, this.a, ((class_qb)this.a).cr())));
                }
 
                if(this.a instanceof class_qa) {
@@ -353,7 +353,7 @@ public class class_lj {
                      class_pw var6 = var8[var5];
                      class_aas var7 = ((class_qa)this.a).a(var6);
                      if(var7 != null) {
-                        var1.a.a((class_ff)(new class_hn(this.a.F(), var6, var7)));
+                        var1.a.a((Packet)(new class_hn(this.a.getId(), var6, var7)));
                      }
                   }
                }
@@ -361,7 +361,7 @@ public class class_lj {
                if(this.a instanceof class_xa) {
                   class_xa var9 = (class_xa)this.a;
                   if(var9.bK()) {
-                     var1.a.a((class_ff)(new class_ha(var9, new BlockPosition(this.a))));
+                     var1.a.a((Packet)(new class_ha(var9, new BlockPosition(this.a))));
                   }
                }
 
@@ -371,7 +371,7 @@ public class class_lj {
 
                   while(var12.hasNext()) {
                      class_pl var13 = (class_pl)var12.next();
-                     var1.a.a((class_ff)(new class_ib(this.a.F(), var13)));
+                     var1.a.a((Packet)(new class_ib(this.a.getId(), var13)));
                   }
                }
 
@@ -403,7 +403,7 @@ public class class_lj {
 
    }
 
-   private class_ff c() {
+   private Packet c() {
       if(this.a.I) {
          p.warn("Fetching addPacket for removed entity");
       }
@@ -422,18 +422,18 @@ public class class_lj {
          return new class_fn((class_qa)this.a);
       } else if(this.a instanceof class_ve) {
          class_xa var9 = ((class_ve)this.a).b;
-         return new class_fk(this.a, 90, var9 != null?var9.F():this.a.F());
+         return new class_fk(this.a, 90, var9 != null?var9.getId():this.a.getId());
       } else {
          class_pr var8;
          if(this.a instanceof class_xn) {
             var8 = ((class_xn)this.a).e;
-            return new class_fk(this.a, 91, var8 != null?var8.F():this.a.F());
+            return new class_fk(this.a, 91, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof class_xt) {
             var8 = ((class_xt)this.a).e;
-            return new class_fk(this.a, 92, var8 != null?var8.F():this.a.F());
+            return new class_fk(this.a, 92, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof class_xd) {
             var8 = ((class_xd)this.a).e;
-            return new class_fk(this.a, 60, var8 != null?var8.F():this.a.F());
+            return new class_fk(this.a, 60, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof class_xm) {
             return new class_fk(this.a, 61);
          } else if(this.a instanceof class_xs) {
@@ -459,7 +459,7 @@ public class class_lj {
                }
 
                if(var7.a != null) {
-                  var2 = new class_fk(this.a, var10, ((class_xf)this.a).a.F());
+                  var2 = new class_fk(this.a, var10, ((class_xf)this.a).a.getId());
                } else {
                   var2 = new class_fk(this.a, var10, 0);
                }

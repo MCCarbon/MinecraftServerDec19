@@ -16,7 +16,7 @@ import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
@@ -177,7 +177,7 @@ public class class_aax extends class_zt {
       }
    }
 
-   public class_ff a(class_aas var1, World var2, class_xa var3) {
+   public Packet a(class_aas var1, World var2, class_xa var3) {
       return this.a(var1, var2).a(var1, var2, var3);
    }
 

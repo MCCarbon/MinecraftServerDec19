@@ -52,7 +52,7 @@ import net.minecraft.server.class_bu;
 import net.minecraft.server.class_bv;
 import net.minecraft.server.class_bw;
 import net.minecraft.server.class_bx;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_h;
 import net.minecraft.server.class_i;
@@ -176,12 +176,12 @@ public class class_bd extends class_j implements class_h {
                var12 = var1 instanceof class_ml && MinecraftServer.N().q();
             } while(!var11 && !var12 && (var1 instanceof class_ml || var1 instanceof MinecraftServer));
 
-            var10.a((class_eu)var8);
+            var10.a((IChatBaseComponent)var8);
          }
       }
 
       if(var1 != var7 && var7.d[0].R().b("logAdminCommands")) {
-         var7.a((class_eu)var8);
+         var7.a((IChatBaseComponent)var8);
       }
 
       boolean var13 = var7.d[0].R().b("sendCommandFeedback");

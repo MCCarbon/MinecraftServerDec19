@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.World;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_qa;
@@ -43,7 +43,7 @@ public class class_aay extends Item {
       return class_abz.c;
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       var3.c(var4);
       return new class_or(class_oq.a, var1);
    }

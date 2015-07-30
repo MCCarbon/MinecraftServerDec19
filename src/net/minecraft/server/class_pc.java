@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aej;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pe;
@@ -143,7 +143,7 @@ public class class_pc {
       return this;
    }
 
-   public class_eu b(class_qa var1) {
+   public IChatBaseComponent b(class_qa var1) {
       class_qa var2 = var1.bu();
       String var3 = "death.attack." + this.p;
       String var4 = var3 + ".player";

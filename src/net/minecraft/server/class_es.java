@@ -5,15 +5,15 @@ import com.google.common.collect.Iterators;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ez;
 import net.minecraft.server.class_fa;
 
-public abstract class class_es implements class_eu {
+public abstract class class_es implements IChatBaseComponent {
    protected List a = Lists.newArrayList();
    private class_ez b;
 
-   public class_eu a(class_eu var1) {
+   public IChatBaseComponent a(IChatBaseComponent var1) {
       var1.b().a(this.b());
       this.a.add(var1);
       return this;
@@ -23,16 +23,16 @@ public abstract class class_es implements class_eu {
       return this.a;
    }
 
-   public class_eu a(String var1) {
-      return this.a((class_eu)(new class_fa(var1)));
+   public IChatBaseComponent a(String var1) {
+      return this.a((IChatBaseComponent)(new class_fa(var1)));
    }
 
-   public class_eu a(class_ez var1) {
+   public IChatBaseComponent a(class_ez var1) {
       this.b = var1;
       Iterator var2 = this.a.iterator();
 
       while(var2.hasNext()) {
-         class_eu var3 = (class_eu)var2.next();
+         IChatBaseComponent var3 = (IChatBaseComponent)var2.next();
          var3.b().a(this.b());
       }
 
@@ -45,7 +45,7 @@ public abstract class class_es implements class_eu {
          Iterator var1 = this.a.iterator();
 
          while(var1.hasNext()) {
-            class_eu var2 = (class_eu)var1.next();
+            IChatBaseComponent var2 = (IChatBaseComponent)var1.next();
             var2.b().a(this.b);
          }
       }
@@ -62,7 +62,7 @@ public abstract class class_es implements class_eu {
       Iterator var2 = this.iterator();
 
       while(var2.hasNext()) {
-         class_eu var3 = (class_eu)var2.next();
+         IChatBaseComponent var3 = (IChatBaseComponent)var2.next();
          var1.append(var3.e());
       }
 
@@ -71,25 +71,25 @@ public abstract class class_es implements class_eu {
 
    public static Iterator a(Iterable var0) {
       Iterator var1 = Iterators.concat(Iterators.transform(var0.iterator(), new Function() {
-         public Iterator a(class_eu var1) {
+         public Iterator a(IChatBaseComponent var1) {
             return var1.iterator();
          }
 
          // $FF: synthetic method
          public Object apply(Object var1) {
-            return this.a((class_eu)var1);
+            return this.a((IChatBaseComponent)var1);
          }
       }));
       var1 = Iterators.transform(var1, new Function() {
-         public class_eu a(class_eu var1) {
-            class_eu var2 = var1.f();
+         public IChatBaseComponent a(IChatBaseComponent var1) {
+            IChatBaseComponent var2 = var1.f();
             var2.a(var2.b().n());
             return var2;
          }
 
          // $FF: synthetic method
          public Object apply(Object var1) {
-            return this.a((class_eu)var1);
+            return this.a((IChatBaseComponent)var1);
          }
       });
       return var1;

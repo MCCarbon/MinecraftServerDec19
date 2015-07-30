@@ -7,9 +7,9 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cc;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_hv;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
@@ -58,7 +58,7 @@ public class class_bs extends class_i {
                   int var12 = a(var2[3]);
                   int var13 = a(var2[4]);
                   class_hv var14 = new class_hv(var11, var12, var13);
-                  var3.a.a((class_ff)var14);
+                  var3.a.a((Packet)var14);
                   a(var1, this, "commands.title.success", new Object[0]);
                }
             } else if(var2.length < 3) {
@@ -66,22 +66,22 @@ public class class_bs extends class_i {
             } else {
                String var10 = a(var2, 2);
 
-               class_eu var6;
+               IChatBaseComponent var6;
                try {
-                  var6 = class_eu.class_a_in_class_eu.a(var10);
+                  var6 = IChatBaseComponent.class_a_in_class_eu.a(var10);
                } catch (JsonParseException var9) {
             	   throw class_bs.a(var9);
                }
 
                class_hv var7 = new class_hv(var4, class_ev.a(var1, var6, var3));
-               var3.a.a((class_ff)var7);
+               var3.a.a((Packet)var7);
                a(var1, this, "commands.title.success", new Object[0]);
             }
          } else if(var2.length != 2) {
             throw new class_cf("commands.title.usage", new Object[0]);
          } else {
-            class_hv var5 = new class_hv(var4, (class_eu)null);
-            var3.a.a((class_ff)var5);
+            class_hv var5 = new class_hv(var4, (IChatBaseComponent)null);
+            var3.a.a((Packet)var5);
             a(var1, this, "commands.title.success", new Object[0]);
          }
       }

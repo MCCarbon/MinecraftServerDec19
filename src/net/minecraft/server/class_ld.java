@@ -9,7 +9,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fv;
 import net.minecraft.server.class_ga;
 import net.minecraft.server.class_go;
@@ -291,7 +291,7 @@ public class class_ld {
          if(this.b.contains(var1)) {
             class_aok var2 = class_ld.this.b.a(this.c.a, this.c.b);
             if(var2.i()) {
-               var1.a.a((class_ff)(new class_go(var2, true, 0)));
+               var1.a.a((Packet)(new class_go(var2, true, 0)));
             }
 
             this.b.remove(var1);
@@ -340,7 +340,7 @@ public class class_ld {
 
       }
 
-      public void a(class_ff var1) {
+      public void a(Packet var1) {
          for(int var2 = 0; var2 < this.b.size(); ++var2) {
             class_lh var3 = (class_lh)this.b.get(var2);
             if(!var3.f.contains(this.c)) {
@@ -360,7 +360,7 @@ public class class_ld {
                var2 = this.d[0] & 255;
                var3 = (this.d[0] >> 8 & 15) + this.c.b * 16;
                BlockPosition var4 = new BlockPosition(var1, var2, var3);
-               this.a((class_ff)(new class_fv(class_ld.this.b, var4)));
+               this.a((Packet)(new class_fv(class_ld.this.b, var4)));
                if(class_ld.this.b.p(var4).getBlock().isTileEntity()) {
                   this.a(class_ld.this.b.s(var4));
                }
@@ -369,7 +369,7 @@ public class class_ld {
                if(this.e == 64) {
                   var1 = this.c.a * 16;
                   var2 = this.c.b * 16;
-                  this.a((class_ff)(new class_go(class_ld.this.b.a(this.c.a, this.c.b), false, this.f)));
+                  this.a((Packet)(new class_go(class_ld.this.b.a(this.c.a, this.c.b), false, this.f)));
 
                   for(var3 = 0; var3 < 16; ++var3) {
                      if((this.f & 1 << var3) != 0) {
@@ -382,7 +382,7 @@ public class class_ld {
                      }
                   }
                } else {
-                  this.a((class_ff)(new class_ga(this.e, this.d, class_ld.this.b.a(this.c.a, this.c.b))));
+                  this.a((Packet)(new class_ga(this.e, this.d, class_ld.this.b.a(this.c.a, this.c.b))));
 
                   for(var1 = 0; var1 < this.e; ++var1) {
                      var2 = (this.d[var1] >> 12 & 15) + this.c.a * 16;
@@ -403,7 +403,7 @@ public class class_ld {
 
       private void a(class_amg var1) {
          if(var1 != null) {
-            class_ff var2 = var1.z_();
+            Packet var2 = var1.z_();
             if(var2 != null) {
                this.a(var2);
             }

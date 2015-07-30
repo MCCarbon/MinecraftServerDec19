@@ -17,7 +17,7 @@ import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
@@ -44,7 +44,7 @@ public class class_abt extends Item {
       return var2;
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var3.D) {
          return class_oq.a;
       } else if(!var2.a(var4.shift(var6), var6, var1)) {
@@ -87,7 +87,7 @@ public class class_abt extends Item {
       }
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(var2.D) {
          return new class_or(class_oq.b, var1);
       } else {

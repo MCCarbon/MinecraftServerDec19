@@ -11,20 +11,20 @@ import com.google.gson.JsonSerializer;
 import com.mojang.authlib.GameProfile;
 import java.lang.reflect.Type;
 import java.util.UUID;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_nk;
 
 public class class_jt {
-   private class_eu a;
+   private IChatBaseComponent a;
    private class_jt.class_a_in_class_jt b;
    private class_jt.class_c_in_class_jt c;
    private String d;
 
-   public class_eu a() {
+   public IChatBaseComponent a() {
       return this.a;
    }
 
-   public void a(class_eu var1) {
+   public void a(IChatBaseComponent var1) {
       this.a = var1;
    }
 
@@ -57,7 +57,7 @@ public class class_jt {
          JsonObject var4 = class_nk.l(var1, "status");
          class_jt var5 = new class_jt();
          if(var4.has("description")) {
-            var5.a((class_eu)var3.deserialize(var4.get("description"), class_eu.class));
+            var5.a((IChatBaseComponent)var3.deserialize(var4.get("description"), IChatBaseComponent.class));
          }
 
          if(var4.has("players")) {

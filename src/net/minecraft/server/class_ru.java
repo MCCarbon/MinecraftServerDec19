@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qh;
@@ -89,7 +89,7 @@ public class class_ru extends class_rm {
       if(var2 <= var4 && this.c <= 0) {
          this.c = 20;
          if(this.b.bA() != null) {
-            this.b.a(class_oo.a);
+            this.b.a(EnumUsedHand.MAIN_HAND);
          }
 
          this.b.r(var1);

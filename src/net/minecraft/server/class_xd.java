@@ -17,7 +17,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_gm;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lh;
@@ -267,7 +267,7 @@ public class class_xd extends class_pr implements class_xi {
 
                this.b(var6);
                if(this.e != null && var6 != this.e && var6 instanceof class_xa && this.e instanceof class_lh) {
-                  ((class_lh)this.e).a.a((class_ff)(new class_gm(6, 0.0F)));
+                  ((class_lh)this.e).a.a((Packet)(new class_gm(6, 0.0F)));
                }
             }
 

@@ -12,7 +12,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
@@ -22,7 +22,7 @@ public class class_aca extends class_abx {
       super(var1, false);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       class_awg var5 = this.a(var2, var3, true);
       if(var5 == null) {
          return new class_or(class_oq.b, var1);

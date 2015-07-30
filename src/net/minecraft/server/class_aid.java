@@ -25,7 +25,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.INamable;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.ItemBlock;
 
@@ -61,7 +61,7 @@ public class class_aid extends class_agd {
       return false;
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var6 != null && var6.b() instanceof ItemBlock) {
          class_amq var11 = this.f(var1, var2);
          if(var11 == null) {

@@ -32,7 +32,7 @@ import net.minecraft.server.class_dr;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_dz;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fq;
 import net.minecraft.server.class_hn;
 import net.minecraft.server.class_hy;
@@ -40,7 +40,7 @@ import net.minecraft.server.class_lb;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pb;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pk;
@@ -78,7 +78,7 @@ public abstract class class_qa extends class_pr {
    private final class_aas[] bp = new class_aas[2];
    private final class_aas[] bq = new class_aas[4];
    public boolean at;
-   public class_oo au;
+   public EnumUsedHand au;
    public int av;
    public int aw;
    public int ax;
@@ -975,13 +975,13 @@ public abstract class class_qa extends class_pr {
       return this.a(class_pm.c)?6 - (1 + this.b(class_pm.c).c()) * 1:(this.a(class_pm.d)?6 + (1 + this.b(class_pm.d).c()) * 2:6);
    }
 
-   public void a(class_oo var1) {
+   public void a(EnumUsedHand var1) {
       if(!this.at || this.av >= this.n() / 2 || this.av < 0) {
          this.av = -1;
          this.at = true;
          this.au = var1;
          if(this.o instanceof class_lg) {
-            ((class_lg)this.o).t().a((class_pr)this, (class_ff)(new class_fq(this, var1 == class_oo.a?0:3)));
+            ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_fq(this, var1 == EnumUsedHand.MAIN_HAND?0:3)));
          }
       }
 
@@ -1030,21 +1030,21 @@ public abstract class class_qa extends class_pr {
       return this.a(class_pw.b);
    }
 
-   public class_aas b(class_oo var1) {
-      if(var1 == class_oo.a) {
+   public class_aas b(EnumUsedHand var1) {
+      if(var1 == EnumUsedHand.MAIN_HAND) {
          return this.a(class_pw.a);
-      } else if(var1 == class_oo.b) {
+      } else if(var1 == EnumUsedHand.OFF_HAND) {
          return this.a(class_pw.b);
       } else {
          throw new IllegalArgumentException("Invalid hand " + var1);
       }
    }
 
-   public void a(class_oo var1, class_aas var2) {
-      if(var1 == class_oo.a) {
+   public void a(EnumUsedHand var1, class_aas var2) {
+      if(var1 == EnumUsedHand.MAIN_HAND) {
          this.a(class_pw.a, var2);
       } else {
-         if(var1 != class_oo.b) {
+         if(var1 != EnumUsedHand.OFF_HAND) {
             throw new IllegalArgumentException("Invalid hand " + var1);
          }
 
@@ -1305,7 +1305,7 @@ public abstract class class_qa extends class_pr {
 
             class_aas var7 = this.a(var5);
             if(!class_aas.b(var7, var6)) {
-               ((class_lg)this.o).t().a((class_pr)this, (class_ff)(new class_hn(this.F(), var5, var7)));
+               ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_hn(this.getId(), var5, var7)));
                if(var6 != null) {
                   this.by().a(var6.a(var5));
                }
@@ -1558,15 +1558,15 @@ public abstract class class_qa extends class_pr {
       if(!var1.I && !this.o.D) {
          class_lb var3 = ((class_lg)this.o).t();
          if(var1 instanceof class_vm) {
-            var3.a((class_pr)var1, (class_ff)(new class_hy(var1.F(), this.F())));
+            var3.a((class_pr)var1, (Packet)(new class_hy(var1.getId(), this.getId())));
          }
 
          if(var1 instanceof class_xd) {
-            var3.a((class_pr)var1, (class_ff)(new class_hy(var1.F(), this.F())));
+            var3.a((class_pr)var1, (Packet)(new class_hy(var1.getId(), this.getId())));
          }
 
          if(var1 instanceof class_px) {
-            var3.a((class_pr)var1, (class_ff)(new class_hy(var1.F(), this.F())));
+            var3.a((class_pr)var1, (Packet)(new class_hy(var1.getId(), this.getId())));
          }
       }
 
@@ -1656,8 +1656,8 @@ public abstract class class_qa extends class_pr {
       return (this.ac.c(as) & 1) > 0;
    }
 
-   public class_oo bT() {
-      return (this.ac.c(as) & 2) > 0?class_oo.b:class_oo.a;
+   public EnumUsedHand bT() {
+      return (this.ac.c(as) & 2) > 0?EnumUsedHand.OFF_HAND:EnumUsedHand.MAIN_HAND;
    }
 
    protected void bU() {
@@ -1678,14 +1678,14 @@ public abstract class class_qa extends class_pr {
 
    }
 
-   public void c(class_oo var1) {
+   public void c(EnumUsedHand var1) {
       class_aas var2 = this.b(var1);
       if(var2 != null && !this.bS()) {
          this.bl = var2;
          this.bm = var2.l();
          if(!this.o.D) {
             int var3 = 1;
-            if(var1 == class_oo.b) {
+            if(var1 == EnumUsedHand.OFF_HAND) {
                var3 |= 2;
             }
 

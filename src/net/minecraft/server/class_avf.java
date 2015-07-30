@@ -12,7 +12,7 @@ import net.minecraft.server.class_ave;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_gu;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_va;
@@ -105,7 +105,7 @@ public class class_avf extends class_avd {
       if(var2.y()) {
          class_va var7 = var2.z();
          BlockPosition var8 = var7.n();
-         this.a(1, var1.o, "frame-" + var7.F(), (double)var8.getX(), (double)var8.getZ(), (double)(var7.b.getHorizontalId() * 90));
+         this.a(1, var1.o, "frame-" + var7.getId(), (double)var8.getX(), (double)var8.getZ(), (double)(var7.b.getHorizontalId() * 90));
       }
 
       if(var2.n() && var2.o().b("Decorations", 9)) {
@@ -164,7 +164,7 @@ public class class_avf extends class_avd {
       this.h.put(var3, new class_ave((byte)var1, var13, var14, var15));
    }
 
-   public class_ff a(class_aas var1, World var2, class_xa var3) {
+   public Packet a(class_aas var1, World var2, class_xa var3) {
       class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.i.get(var3);
       return var4 == null?null:var4.a(var1);
    }
@@ -205,7 +205,7 @@ public class class_avf extends class_avd {
          this.a = var2;
       }
 
-      public class_ff a(class_aas var1) {
+      public Packet a(class_aas var1) {
          if(this.d) {
             this.d = false;
             return new class_gu(var1.i(), class_avf.this.e, class_avf.this.h.values(), class_avf.this.f, this.e, this.f, this.g + 1 - this.e, this.h + 1 - this.f);

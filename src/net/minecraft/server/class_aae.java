@@ -11,7 +11,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
@@ -24,7 +24,7 @@ public class class_aae extends Item {
       this.a(CreativeTab.f);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.p(var4);
       if(var2.a(var4.shift(var6), var6, var1) && var10.getBlock() == Blocks.END_PORTAL_FRAME && !((Boolean)var10.get(class_aht.b)).booleanValue()) {
          if(var3.D) {
@@ -115,7 +115,7 @@ public class class_aae extends Item {
       }
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       class_awg var5 = this.a(var2, var3, false);
       if(var5 != null && var5.a == class_awg.class_a_in_class_awg.b && var2.p(var5.a()).getBlock() == Blocks.END_PORTAL_FRAME) {
          return new class_or(class_oq.a, var1);

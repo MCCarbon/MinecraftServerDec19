@@ -48,7 +48,7 @@ public class class_rd extends class_rg {
 
    public void d() {
       super.d();
-      this.a.o.c(this.a.F(), this.b, -1);
+      this.a.o.c(this.a.getId(), this.b, -1);
    }
 
    public void e() {
@@ -60,7 +60,7 @@ public class class_rd extends class_rg {
       ++this.g;
       int var1 = (int)((float)this.g / 240.0F * 10.0F);
       if(var1 != this.h) {
-         this.a.o.c(this.a.F(), this.b, var1);
+         this.a.o.c(this.a.getId(), this.b, var1);
          this.h = var1;
       }
 

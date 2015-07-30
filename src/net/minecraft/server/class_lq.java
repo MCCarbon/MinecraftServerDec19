@@ -19,10 +19,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 import javax.crypto.SecretKey;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_ek;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.NetworkManager;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_jh;
 import net.minecraft.server.class_ji;
 import net.minecraft.server.class_jj;
@@ -44,7 +44,7 @@ public class class_lq implements class_jl, class_kn {
 	private static final Random d = new Random();
 	private final byte[] e = new byte[4];
 	private final MinecraftServer f;
-	public final class_ek a;
+	public final NetworkManager a;
 	private class_lq.class_a_in_class_lq g;
 	private int h;
 	private GameProfile i;
@@ -52,7 +52,7 @@ public class class_lq implements class_jl, class_kn {
 	private SecretKey k;
 	private class_lh l;
 
-	public class_lq(MinecraftServer var1, class_ek var2) {
+	public class_lq(MinecraftServer var1, NetworkManager var2) {
 		this.g = class_lq.class_a_in_class_lq.a;
 		this.j = "";
 		this.f = var1;
@@ -82,8 +82,8 @@ public class class_lq implements class_jl, class_kn {
 		try {
 			c.info("Disconnecting " + this.d() + ": " + var1);
 			class_fa var2 = new class_fa(var1);
-			this.a.a((class_ff) (new class_jk(var2)));
-			this.a.a((class_eu) var2);
+			this.a.a((Packet) (new class_jk(var2)));
+			this.a.a((IChatBaseComponent) var2);
 		} catch (Exception var3) {
 			c.error((String) "Error whilst disconnecting player", (Throwable) var3);
 		}
@@ -95,20 +95,20 @@ public class class_lq implements class_jl, class_kn {
 			this.i = this.a(this.i);
 		}
 
-		String var1 = this.f.ap().a(this.a.b(), this.i);
+		String var1 = this.f.ap().a(this.a.getAddress(), this.i);
 		if (var1 != null) {
 			this.a(var1);
 		} else {
 			this.g = class_lq.class_a_in_class_lq.f;
-			if (this.f.aK() >= 0 && !this.a.c()) {
-				this.a.a(new class_jj(this.f.aK()), new ChannelFutureListener() {
+			if (this.f.aK() >= 0 && !this.a.isLocal()) {
+				this.a.sendPacket(new class_jj(this.f.aK()), new ChannelFutureListener() {
 					public void operationComplete(ChannelFuture var1) throws Exception {
 						class_lq.this.a.a(class_lq.this.f.aK());
 					}
 				}, new GenericFutureListener[0]);
 			}
 
-			this.a.a((class_ff) (new class_jh(this.i)));
+			this.a.a((Packet) (new class_jh(this.i)));
 			class_lh var2 = this.f.ap().a(this.i.getId());
 			if (var2 != null) {
 				this.g = class_lq.class_a_in_class_lq.e;
@@ -120,20 +120,20 @@ public class class_lq implements class_jl, class_kn {
 
 	}
 
-	public void a(class_eu var1) {
+	public void disconnect(IChatBaseComponent var1) {
 		c.info(this.d() + " lost connection: " + var1.c());
 	}
 
 	public String d() {
-		return this.i != null ? this.i.toString() + " (" + this.a.b().toString() + ")" : String.valueOf(this.a.b());
+		return this.i != null ? this.i.toString() + " (" + this.a.getAddress().toString() + ")" : String.valueOf(this.a.getAddress());
 	}
 
 	public void a(class_jm var1) {
 		Validate.validState(this.g == class_lq.class_a_in_class_lq.a, "Unexpected hello packet", new Object[0]);
 		this.i = var1.a();
-		if (this.f.af() && !this.a.c()) {
+		if (this.f.af() && !this.a.isLocal()) {
 			this.g = class_lq.class_a_in_class_lq.b;
-			this.a.a((class_ff) (new class_ji(this.j, this.f.Q().getPublic(), this.e)));
+			this.a.a((Packet) (new class_ji(this.j, this.f.Q().getPublic(), this.e)));
 		} else {
 			this.g = class_lq.class_a_in_class_lq.d;
 		}
@@ -148,7 +148,7 @@ public class class_lq implements class_jl, class_kn {
 		} else {
 			this.k = var1.a(var2);
 			this.g = class_lq.class_a_in_class_lq.c;
-			this.a.a(this.k);
+			this.a.enableEncryption(this.k);
 			(new Thread("User Authenticator #" + b.incrementAndGet()) {
 				public void run() {
 					GameProfile var1 = class_lq.this.i;

@@ -10,7 +10,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cd;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_lx;
@@ -38,7 +38,7 @@ public class class_q extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].length() > 1) {
-         class_eu var3 = var2.length >= 2?a(var1, var2, 1):null;
+         IChatBaseComponent var3 = var2.length >= 2?a(var1, var2, 1):null;
          Matcher var4 = a.matcher(var2[0]);
          if(var4.matches()) {
             this.a(var1, var2[0], var3 == null?null:var3.c());

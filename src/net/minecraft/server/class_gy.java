@@ -1,20 +1,20 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_ep;
-import net.minecraft.server.class_eu;
-import net.minecraft.server.class_ff;
-import net.minecraft.server.class_fj;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.PacketListener;
+import net.minecraft.server.IChatBaseComponent;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.class_pb;
 import net.minecraft.server.class_qa;
 
-public class class_gy implements class_ff {
+public class class_gy implements Packet {
    public class_gy.class_a_in_class_gy a;
    public int b;
    public int c;
    public int d;
-   public class_eu e;
+   public IChatBaseComponent e;
 
    public class_gy() {
    }
@@ -25,50 +25,50 @@ public class class_gy implements class_ff {
       switch(class_gy.SyntheticClass_1.a[var2.ordinal()]) {
       case 1:
          this.d = var1.f();
-         this.c = var3 == null?-1:var3.F();
+         this.c = var3 == null?-1:var3.getId();
          break;
       case 2:
-         this.b = var1.h().F();
-         this.c = var3 == null?-1:var3.F();
+         this.b = var1.h().getId();
+         this.c = var3 == null?-1:var3.getId();
          this.e = var1.b();
       }
 
    }
 
-   public void a(class_em var1) throws IOException {
-      this.a = (class_gy.class_a_in_class_gy)var1.a(class_gy.class_a_in_class_gy.class);
+   public void decode(PacketDataSerializer var1) throws IOException {
+      this.a = (class_gy.class_a_in_class_gy)var1.readEnum(class_gy.class_a_in_class_gy.class);
       if(this.a == class_gy.class_a_in_class_gy.b) {
-         this.d = var1.e();
+         this.d = var1.readVarInt();
          this.c = var1.readInt();
       } else if(this.a == class_gy.class_a_in_class_gy.c) {
-         this.b = var1.e();
+         this.b = var1.readVarInt();
          this.c = var1.readInt();
-         this.e = var1.d();
+         this.e = var1.readChat();
       }
 
    }
 
-   public void b(class_em var1) throws IOException {
-      var1.a((Enum)this.a);
+   public void encode(PacketDataSerializer var1) throws IOException {
+      var1.writeEnum((Enum)this.a);
       if(this.a == class_gy.class_a_in_class_gy.b) {
-         var1.b(this.d);
+         var1.writeVarInt(this.d);
          var1.writeInt(this.c);
       } else if(this.a == class_gy.class_a_in_class_gy.c) {
-         var1.b(this.b);
+         var1.writeVarInt(this.b);
          var1.writeInt(this.c);
-         var1.a(this.e);
+         var1.writeChat(this.e);
       }
 
    }
 
-   public void a(class_fj var1) {
+   public void a(PacketListenerPlayOut var1) {
       var1.a(this);
    }
 
    // $FF: synthetic method
    // $FF: bridge method
-   public void a(class_ep var1) {
-      this.a((class_fj)var1);
+   public void handle(PacketListener var1) {
+      this.a((PacketListenerPlayOut)var1);
    }
 
    // $FF: synthetic class

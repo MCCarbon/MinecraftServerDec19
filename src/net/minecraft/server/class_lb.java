@@ -10,7 +10,7 @@ import net.minecraft.server.class_aok;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_lj;
@@ -135,13 +135,13 @@ public class class_lb {
       }
 
       try {
-         if(this.d.b(var1.F())) {
+         if(this.d.b(var1.getId())) {
             throw new IllegalStateException("Entity is already tracked!");
          }
 
          class_lj var5 = new class_lj(var1, var2, var3, var4);
          this.c.add(var5);
-         this.d.a(var1.F(), var5);
+         this.d.a(var1.getId(), var5);
          var5.b(this.b.j);
       } catch (Throwable var11) {
          class_b var6 = class_b.a(var11, "Adding entity to track");
@@ -164,7 +164,7 @@ public class class_lb {
          });
          var1.a(var7);
          class_c var8 = var6.a("Entity That Is Already Tracked");
-         ((class_lj)this.d.a(var1.F())).a.a(var8);
+         ((class_lj)this.d.a(var1.getId())).a.a(var8);
 
          try {
             throw new class_e(var6);
@@ -186,7 +186,7 @@ public class class_lb {
          }
       }
 
-      class_lj var5 = (class_lj)this.d.d(var1.F());
+      class_lj var5 = (class_lj)this.d.d(var1.getId());
       if(var5 != null) {
          this.c.remove(var5);
          var5.a();
@@ -234,16 +234,16 @@ public class class_lb {
 
    }
 
-   public void a(class_pr var1, class_ff var2) {
-      class_lj var3 = (class_lj)this.d.a(var1.F());
+   public void a(class_pr var1, Packet var2) {
+      class_lj var3 = (class_lj)this.d.a(var1.getId());
       if(var3 != null) {
          var3.a(var2);
       }
 
    }
 
-   public void b(class_pr var1, class_ff var2) {
-      class_lj var3 = (class_lj)this.d.a(var1.F());
+   public void b(class_pr var1, Packet var2) {
+      class_lj var3 = (class_lj)this.d.a(var1.getId());
       if(var3 != null) {
          var3.b(var2);
       }

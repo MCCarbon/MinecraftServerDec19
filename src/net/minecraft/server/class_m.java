@@ -3,16 +3,16 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_n;
 import net.minecraft.server.class_pr;
 
 public interface class_m {
    String e_();
 
-   class_eu f_();
+   IChatBaseComponent f_();
 
-   void a(class_eu var1);
+   void a(IChatBaseComponent var1);
 
    boolean a(int var1, String var2);
 

@@ -9,7 +9,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_on;
@@ -59,7 +59,7 @@ public class class_bm extends class_i {
             class_dn var13 = new class_dn();
             boolean var14 = false;
             if(var2.length >= 5) {
-               class_eu var15 = a(var1, var2, 4);
+               IChatBaseComponent var15 = a(var1, var2, 4);
 
                try {
                   var13 = class_ed.a(var15.c());

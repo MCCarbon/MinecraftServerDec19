@@ -13,7 +13,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pe;
 import net.minecraft.server.class_pr;
@@ -329,7 +329,7 @@ public class class_vk extends class_pr {
    protected void a(class_dn var1) {
    }
 
-   public boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       if(this.l != null && this.l instanceof class_xa && this.l != var1) {
          return true;
       } else {

@@ -59,7 +59,7 @@ public class class_xq extends class_xo {
       if(!this.o.D) {
          if(var2 instanceof class_lh) {
             class_lh var7 = (class_lh)var2;
-            if(var7.a.a().g() && var7.o == this.o && !var7.bK()) {
+            if(var7.a.a().isActive() && var7.o == this.o && !var7.bK()) {
                if(this.V.nextFloat() < 0.05F && this.o.R().b("doMobSpawning")) {
                   class_wc var8 = new class_wc(this.o);
                   var8.a(true);

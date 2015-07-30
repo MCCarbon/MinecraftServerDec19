@@ -2085,7 +2085,7 @@ public abstract class World implements class_aer {
       return var5;
    }
 
-   public class_pr a(int var1) {
+   public class_pr getEntityById(int var1) {
       return (class_pr)this.l.a(var1);
    }
 

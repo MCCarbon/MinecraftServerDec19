@@ -23,14 +23,14 @@ import net.minecraft.server.class_fb;
 import net.minecraft.server.class_nk;
 import net.minecraft.server.class_nt;
 
-public interface class_eu extends Iterable {
-   class_eu a(class_ez var1);
+public interface IChatBaseComponent extends Iterable {
+   IChatBaseComponent a(class_ez var1);
 
    class_ez b();
 
-   class_eu a(String var1);
+   IChatBaseComponent a(String var1);
 
-   class_eu a(class_eu var1);
+   IChatBaseComponent a(IChatBaseComponent var1);
 
    String e();
 
@@ -38,23 +38,23 @@ public interface class_eu extends Iterable {
 
    List a();
 
-   class_eu f();
+   IChatBaseComponent f();
 
    public static class class_a_in_class_eu implements JsonDeserializer, JsonSerializer {
       private static final Gson a;
 
-      public class_eu a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
+      public IChatBaseComponent a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
          if(var1.isJsonPrimitive()) {
             return new class_fa(var1.getAsString());
          } else if(!var1.isJsonObject()) {
             if(var1.isJsonArray()) {
                JsonArray var11 = var1.getAsJsonArray();
-               class_eu var15 = null;
+               IChatBaseComponent var15 = null;
                Iterator var14 = var11.iterator();
 
                while(var14.hasNext()) {
                   JsonElement var17 = (JsonElement)var14.next();
-                  class_eu var18 = this.a((JsonElement)var17, (Type)var17.getClass(), (JsonDeserializationContext)var3);
+                  IChatBaseComponent var18 = this.a((JsonElement)var17, (Type)var17.getClass(), (JsonDeserializationContext)var3);
                   if(var15 == null) {
                      var15 = var18;
                   } else {
@@ -116,12 +116,12 @@ public interface class_eu extends Iterable {
                }
 
                for(int var16 = 0; var16 < var13.size(); ++var16) {
-                  ((class_eu)var5).a(this.a(var13.get(var16), var2, var3));
+                  ((IChatBaseComponent)var5).a(this.a(var13.get(var16), var2, var3));
                }
             }
 
-            ((class_eu)var5).a((class_ez)var3.deserialize(var1, class_ez.class));
-            return (class_eu)var5;
+            ((IChatBaseComponent)var5).a((class_ez)var3.deserialize(var1, class_ez.class));
+            return (IChatBaseComponent)var5;
          }
       }
 
@@ -139,7 +139,7 @@ public interface class_eu extends Iterable {
 
       }
 
-      public JsonElement a(class_eu var1, Type var2, JsonSerializationContext var3) {
+      public JsonElement a(IChatBaseComponent var1, Type var2, JsonSerializationContext var3) {
         JsonObject var4 = new JsonObject();
         if(!var1.b().g()) {
            this.a(var1.b(), var4, var3);
@@ -150,8 +150,8 @@ public interface class_eu extends Iterable {
            Iterator var6 = var1.a().iterator();
 
            while(var6.hasNext()) {
-              class_eu var7 = (class_eu)var6.next();
-              var5.add(this.a((class_eu)var7, (Type)var7.getClass(), (JsonSerializationContext)var3));
+              IChatBaseComponent var7 = (IChatBaseComponent)var6.next();
+              var5.add(this.a((IChatBaseComponent)var7, (Type)var7.getClass(), (JsonSerializationContext)var3));
            }
 
            var4.add("extra", var5);
@@ -169,8 +169,8 @@ public interface class_eu extends Iterable {
 
               for(int var9 = 0; var9 < var8; ++var9) {
                  Object var10 = var16[var9];
-                 if(var10 instanceof class_eu) {
-                    var14.add(this.a((class_eu)((class_eu)var10), (Type)var10.getClass(), (JsonSerializationContext)var3));
+                 if(var10 instanceof IChatBaseComponent) {
+                    var14.add(this.a((IChatBaseComponent)((IChatBaseComponent)var10), (Type)var10.getClass(), (JsonSerializationContext)var3));
                  } else {
                     var14.add(new JsonPrimitive(String.valueOf(var10)));
                  }
@@ -197,21 +197,21 @@ public interface class_eu extends Iterable {
         return var4;
       }
 
-      public static String a(class_eu var0) {
+      public static String a(IChatBaseComponent var0) {
          return a.toJson((Object)var0);
       }
 
-      public static class_eu a(String var0) {
-         return (class_eu)class_nk.a(a, var0, class_eu.class, true);
+      public static IChatBaseComponent a(String var0) {
+         return (IChatBaseComponent)class_nk.a(a, var0, IChatBaseComponent.class, true);
       }
 
-      public static class_eu b(final String var0) {
-    	 return (class_eu)class_nk.a(a, var0, class_eu.class, true);
+      public static IChatBaseComponent b(final String var0) {
+    	 return (IChatBaseComponent)class_nk.a(a, var0, IChatBaseComponent.class, true);
 	  }
 
       // $FF: synthetic method
       public JsonElement serialize(Object var1, Type var2, JsonSerializationContext var3) {
-         return this.a((class_eu)var1, var2, var3);
+         return this.a((IChatBaseComponent)var1, var2, var3);
       }
 
       // $FF: synthetic method
@@ -221,7 +221,7 @@ public interface class_eu extends Iterable {
 
       static {
          GsonBuilder var0 = new GsonBuilder();
-         var0.registerTypeHierarchyAdapter(class_eu.class, new class_eu.class_a_in_class_eu());
+         var0.registerTypeHierarchyAdapter(IChatBaseComponent.class, new IChatBaseComponent.class_a_in_class_eu());
          var0.registerTypeHierarchyAdapter(class_ez.class, new class_ez.class_a_in_class_ez());
          var0.registerTypeAdapterFactory(new class_nt());
          a = var0.create();

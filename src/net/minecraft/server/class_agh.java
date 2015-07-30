@@ -18,10 +18,10 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.INamable;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 
@@ -35,7 +35,7 @@ public class class_agh extends class_aiv {
       this.l();
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {
@@ -51,7 +51,7 @@ public class class_agh extends class_aiv {
             if(((Boolean)var3.get(b)).booleanValue()) {
                class_xa var12 = this.f(var1, var2);
                if(var12 != null) {
-                  var4.b((class_eu)(new class_fb("tile.bed.occupied", new Object[0])));
+                  var4.b((IChatBaseComponent)(new class_fb("tile.bed.occupied", new Object[0])));
                   return true;
                }
 
@@ -66,9 +66,9 @@ public class class_agh extends class_aiv {
                return true;
             } else {
                if(var13 == class_xa.class_a_in_class_xa.c) {
-                  var4.b((class_eu)(new class_fb("tile.bed.noSleep", new Object[0])));
+                  var4.b((IChatBaseComponent)(new class_fb("tile.bed.noSleep", new Object[0])));
                } else if(var13 == class_xa.class_a_in_class_xa.f) {
-                  var4.b((class_eu)(new class_fb("tile.bed.notSafe", new Object[0])));
+                  var4.b((IChatBaseComponent)(new class_fb("tile.bed.notSafe", new Object[0])));
                }
 
                return true;

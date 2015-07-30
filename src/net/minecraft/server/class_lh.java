@@ -37,12 +37,12 @@ import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_em;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.PacketDataSerializer;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fq;
-import net.minecraft.server.class_fz;
+import net.minecraft.server.PacketPlayOutChat;
 import net.minecraft.server.class_gc;
 import net.minecraft.server.class_gd;
 import net.minecraft.server.class_ge;
@@ -192,12 +192,12 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void h_() {
 		super.h_();
-		this.a.a((class_ff) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.a)));
+		this.a.a((Packet) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.a)));
 	}
 
 	public void j() {
 		super.j();
-		this.a.a((class_ff) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.b)));
+		this.a.a((Packet) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.b)));
 	}
 
 	public void t_() {
@@ -224,7 +224,7 @@ public class class_lh extends class_xa implements class_ye {
 				var3.remove();
 			}
 
-			this.a.a((class_ff) (new class_hb(var2)));
+			this.a.a((Packet) (new class_hb(var2)));
 		}
 
 		if (!this.f.isEmpty()) {
@@ -251,9 +251,9 @@ public class class_lh extends class_xa implements class_ye {
 
 			if (!var6.isEmpty()) {
 				if (var6.size() == 1) {
-					this.a.a((class_ff) (new class_go((class_aok) var6.get(0), true, '\uffff')));
+					this.a.a((Packet) (new class_go((class_aok) var6.get(0), true, '\uffff')));
 				} else {
-					this.a.a((class_ff) (new class_gp(var6)));
+					this.a.a((Packet) (new class_gp(var6)));
 				}
 
 				Iterator var11 = var9.iterator();
@@ -294,7 +294,7 @@ public class class_lh extends class_xa implements class_ye {
 			for (int var1 = 0; var1 < this.bp.o_(); ++var1) {
 				class_aas var6 = this.bp.a(var1);
 				if (var6 != null && var6.b().f()) {
-					class_ff var8 = ((class_zt) var6.b()).a(var6, this.o, this);
+					Packet var8 = ((class_zt) var6.b()).a(var6, this.o, this);
 					if (var8 != null) {
 						this.a.a(var8);
 					}
@@ -302,7 +302,7 @@ public class class_lh extends class_xa implements class_ye {
 			}
 
 			if (this.bo() != this.bT || this.bU != this.bs.a() || this.bs.e() == 0.0F != this.bV) {
-				this.a.a((class_ff) (new class_hp(this.bo(), this.bs.a(), this.bs.e())));
+				this.a.a((Packet) (new class_hp(this.bo(), this.bs.a(), this.bs.e())));
 				this.bT = this.bo();
 				this.bU = this.bs.a();
 				this.bV = this.bs.e() == 0.0F;
@@ -321,7 +321,7 @@ public class class_lh extends class_xa implements class_ye {
 
 			if (this.bJ != this.bW) {
 				this.bW = this.bJ;
-				this.a.a((class_ff) (new class_ho(this.bK, this.bJ, this.bI)));
+				this.a.a((Packet) (new class_ho(this.bK, this.bJ, this.bI)));
 			}
 
 			if (this.W % 20 * 5 == 0 && !this.A().a((class_ms) class_mt.L)) {
@@ -373,14 +373,14 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public void a(class_pc var1) {
-		this.a.a((class_ff) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.c)));
+		this.a.a((Packet) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.c)));
 		if (this.o.R().b("showDeathMessages")) {
 			class_awp var2 = this.bP();
 			if (var2 != null && var2.j() != class_awp.class_a_in_class_awp.a) {
 				if (var2.j() == class_awp.class_a_in_class_awp.c) {
-					this.b.ap().a((class_xa) this, (class_eu) this.bt().b());
+					this.b.ap().a((class_xa) this, (IChatBaseComponent) this.bt().b());
 				} else if (var2.j() == class_awp.class_a_in_class_awp.d) {
-					this.b.ap().b((class_xa) this, (class_eu) this.bt().b());
+					this.b.ap().b((class_xa) this, (IChatBaseComponent) this.bt().b());
 				}
 			} else {
 				this.b.ap().a(this.bt().b());
@@ -455,7 +455,7 @@ public class class_lh extends class_xa implements class_ye {
 			this.b((class_my) class_mt.D);
 			this.o.e((class_pr) this);
 			this.i = true;
-			this.a.a((class_ff) (new class_gm(4, 0.0F)));
+			this.a.a((Packet) (new class_gm(4, 0.0F)));
 		} else {
 			if (this.am == 0 && var1 == 1) {
 				this.b((class_my) class_mt.C);
@@ -483,7 +483,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	private void a(class_amg var1) {
 		if (var1 != null) {
-			class_ff var2 = var1.z_();
+			Packet var2 = var1.z_();
 			if (var2 != null) {
 				this.a.a(var2);
 			}
@@ -500,9 +500,9 @@ public class class_lh extends class_xa implements class_ye {
 		class_xa.class_a_in_class_xa var2 = super.a(var1);
 		if (var2 == class_xa.class_a_in_class_xa.a) {
 			class_ha var3 = new class_ha(this, var1);
-			this.u().t().a((class_pr) this, (class_ff) var3);
+			this.u().t().a((class_pr) this, (Packet) var3);
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
-			this.a.a((class_ff) var3);
+			this.a.a((Packet) var3);
 		}
 
 		return var2;
@@ -524,7 +524,7 @@ public class class_lh extends class_xa implements class_ye {
 		class_pr var2 = this.m;
 		super.a((class_pr) var1);
 		if (var1 != var2) {
-			this.a.a((class_ff) (new class_hl(0, this, this.m)));
+			this.a.a((Packet) (new class_hl(0, this, this.m)));
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
 		}
 
@@ -552,7 +552,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void a(class_amx var1) {
 		var1.a((class_xa) this);
-		this.a.a((class_ff) (new class_gw(var1.v())));
+		this.a.a((Packet) (new class_gw(var1.v())));
 	}
 
 	private void cu() {
@@ -561,7 +561,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void a(class_op var1) {
 		this.cu();
-		this.a.a((class_ff) (new class_gd(this.cc, var1.k(), var1.f_())));
+		this.a.a((Packet) (new class_gd(this.cc, var1.k(), var1.f_())));
 		this.br = var1.a(this.bp, this);
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
@@ -575,18 +575,18 @@ public class class_lh extends class_xa implements class_ye {
 		if (var1 instanceof class_ou) {
 			class_ou var2 = (class_ou) var1;
 			if (var2.r_() && !this.a((class_ot) var2.i()) && !this.v()) {
-				this.a.a((class_ff) (new class_fz(new class_fb("container.isLocked", new Object[] { var1.f_() }), (byte) 2)));
-				this.a.a((class_ff) (new class_gs("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
+				this.a.a((Packet) (new PacketPlayOutChat(new class_fb("container.isLocked", new Object[] { var1.f_() }), (byte) 2)));
+				this.a.a((Packet) (new class_gs("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
 				return;
 			}
 		}
 
 		this.cu();
 		if (var1 instanceof class_op) {
-			this.a.a((class_ff) (new class_gd(this.cc, ((class_op) var1).k(), var1.f_(), var1.o_())));
+			this.a.a((Packet) (new class_gd(this.cc, ((class_op) var1).k(), var1.f_(), var1.o_())));
 			this.br = ((class_op) var1).a(this.bp, this);
 		} else {
-			this.a.a((class_ff) (new class_gd(this.cc, "minecraft:container", var1.f_(), var1.o_())));
+			this.a.a((Packet) (new class_gd(this.cc, "minecraft:container", var1.f_(), var1.o_())));
 			this.br = new class_yf(this.bp, var1, this);
 		}
 
@@ -600,14 +600,14 @@ public class class_lh extends class_xa implements class_ye {
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
 		class_yr var2 = ((class_ys) this.br).e();
-		class_eu var3 = var1.f_();
-		this.a.a((class_ff) (new class_gd(this.cc, "minecraft:villager", var3, var2.o_())));
+		IChatBaseComponent var3 = var1.f_();
+		this.a.a((Packet) (new class_gd(this.cc, "minecraft:villager", var3, var2.o_())));
 		class_aeb var4 = var1.a_((class_xa) this);
 		if (var4 != null) {
-			class_em var5 = new class_em(Unpooled.buffer());
+			PacketDataSerializer var5 = new PacketDataSerializer(Unpooled.buffer());
 			var5.writeInt(this.cc);
 			var4.a(var5);
-			this.a.a((class_ff) (new class_gh("MC|TrList", var5)));
+			this.a.a((Packet) (new class_gh("MC|TrList", var5)));
 		}
 
 	}
@@ -618,7 +618,7 @@ public class class_lh extends class_xa implements class_ye {
 		}
 
 		this.cu();
-		this.a.a((class_ff) (new class_gd(this.cc, "EntityHorse", var2.f_(), var2.o_(), var1.F())));
+		this.a.a((Packet) (new class_gd(this.cc, "EntityHorse", var2.f_(), var2.o_(), var1.getId())));
 		this.br = new class_yo(this.bp, var2, var1, this);
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
@@ -627,7 +627,7 @@ public class class_lh extends class_xa implements class_ye {
 	public void a(class_aas var1) {
 		Item var2 = var1.b();
 		if (var2 == Items.bQ) {
-			this.a.a((class_ff) (new class_gh("MC|BOpen", new class_em(Unpooled.buffer()))));
+			this.a.a((Packet) (new class_gh("MC|BOpen", new PacketDataSerializer(Unpooled.buffer()))));
 		}
 
 	}
@@ -635,7 +635,7 @@ public class class_lh extends class_xa implements class_ye {
 	public void a(class_xz var1, int var2, class_aas var3) {
 		if (!(var1.a(var2) instanceof class_yw)) {
 			if (!this.g) {
-				this.a.a((class_ff) (new class_gg(var1.d, var2, var3)));
+				this.a.a((Packet) (new class_gg(var1.d, var2, var3)));
 			}
 		}
 	}
@@ -645,29 +645,29 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public void a(class_xz var1, List var2) {
-		this.a.a((class_ff) (new class_ge(var1.d, var2)));
-		this.a.a((class_ff) (new class_gg(-1, -1, this.bp.o())));
+		this.a.a((Packet) (new class_ge(var1.d, var2)));
+		this.a.a((Packet) (new class_gg(-1, -1, this.bp.o())));
 	}
 
 	public void a(class_xz var1, int var2, int var3) {
-		this.a.a((class_ff) (new class_gf(var1.d, var2, var3)));
+		this.a.a((Packet) (new class_gf(var1.d, var2, var3)));
 	}
 
 	public void a(class_xz var1, class_oj var2) {
 		for (int var3 = 0; var3 < var2.g(); ++var3) {
-			this.a.a((class_ff) (new class_gf(var1.d, var3, var2.a_(var3))));
+			this.a.a((Packet) (new class_gf(var1.d, var3, var2.a_(var3))));
 		}
 
 	}
 
 	public void n() {
-		this.a.a((class_ff) (new class_gc(this.br.d)));
+		this.a.a((Packet) (new class_gc(this.br.d)));
 		this.p();
 	}
 
 	public void o() {
 		if (!this.g) {
-			this.a.a((class_ff) (new class_gg(-1, -1, this.bp.o())));
+			this.a.a((Packet) (new class_gg(-1, -1, this.bp.o())));
 		}
 	}
 
@@ -741,13 +741,13 @@ public class class_lh extends class_xa implements class_ye {
 		this.bT = -1.0E8F;
 	}
 
-	public void b(class_eu var1) {
-		this.a.a((class_ff) (new class_fz(var1)));
+	public void b(IChatBaseComponent var1) {
+		this.a.a((Packet) (new PacketPlayOutChat(var1)));
 	}
 
 	protected void s() {
 		if (this.bl != null && this.bS()) {
-			this.a.a((class_ff) (new class_gj(this, (byte) 9)));
+			this.a.a((Packet) (new class_gj(this, (byte) 9)));
 			super.s();
 		}
 
@@ -763,17 +763,17 @@ public class class_lh extends class_xa implements class_ye {
 
 	protected void a(class_pl var1) {
 		super.a((class_pl) var1);
-		this.a.a((class_ff) (new class_ib(this.F(), var1)));
+		this.a.a((Packet) (new class_ib(this.getId(), var1)));
 	}
 
 	protected void a(class_pl var1, boolean var2) {
 		super.a((class_pl) var1, var2);
-		this.a.a((class_ff) (new class_ib(this.F(), var1)));
+		this.a.a((Packet) (new class_ib(this.getId(), var1)));
 	}
 
 	protected void b(class_pl var1) {
 		super.b((class_pl) var1);
-		this.a.a((class_ff) (new class_hc(this.F(), var1.a())));
+		this.a.a((Packet) (new class_hc(this.getId(), var1.a())));
 	}
 
 	public void a(double var1, double var3, double var5) {
@@ -790,7 +790,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void t() {
 		if (this.a != null) {
-			this.a.a((class_ff) (new class_gx(this.bH)));
+			this.a.a((Packet) (new class_gx(this.bH)));
 			this.B();
 		}
 	}
@@ -801,7 +801,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void a(class_aeq.class_a_in_class_aeq var1) {
 		this.c.a(var1);
-		this.a.a((class_ff) (new class_gm(3, (float) var1.a())));
+		this.a.a((Packet) (new class_gm(3, (float) var1.a())));
 		if (var1 == class_aeq.class_a_in_class_aeq.e) {
 			this.a((class_pr) null);
 		} else {
@@ -816,8 +816,8 @@ public class class_lh extends class_xa implements class_ye {
 		return this.c.b() == class_aeq.class_a_in_class_aeq.e;
 	}
 
-	public void a(class_eu var1) {
-		this.a.a((class_ff) (new class_fz(var1)));
+	public void a(IChatBaseComponent var1) {
+		this.a.a((Packet) (new PacketPlayOutChat(var1)));
 	}
 
 	public boolean a(int var1, String var2) {
@@ -836,7 +836,7 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public String w() {
-		String var1 = this.a.a.b().toString();
+		String var1 = this.a.a.getAddress().toString();
 		var1 = var1.substring(var1.indexOf("/") + 1);
 		var1 = var1.substring(0, var1.indexOf(":"));
 		return var1;
@@ -855,7 +855,7 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public void a(String var1, String var2) {
-		this.a.a((class_ff) (new class_hd(var1, var2)));
+		this.a.a((Packet) (new class_hd(var1, var2)));
 	}
 
 	public BlockPosition c() {
@@ -872,9 +872,9 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void d(class_pr var1) {
 		if (var1 instanceof class_xa) {
-			this.a.a((class_ff) (new class_hb(new int[] { var1.F() })));
+			this.a.a((Packet) (new class_hb(new int[] { var1.getId() })));
 		} else {
-			this.bQ.add(Integer.valueOf(var1.F()));
+			this.bQ.add(Integer.valueOf(var1.getId()));
 		}
 
 	}
@@ -898,7 +898,7 @@ public class class_lh extends class_xa implements class_ye {
 		class_pr var2 = this.C();
 		this.cb = (class_pr) (var1 == null ? this : var1);
 		if (var2 != this.cb) {
-			this.a.a((class_ff) (new class_hh(this.cb)));
+			this.a.a((Packet) (new class_hh(this.cb)));
 			this.a(this.cb.s, this.cb.t, this.cb.u);
 		}
 
@@ -917,7 +917,7 @@ public class class_lh extends class_xa implements class_ye {
 		return this.ca;
 	}
 
-	public class_eu E() {
+	public IChatBaseComponent E() {
 		return null;
 	}
 }

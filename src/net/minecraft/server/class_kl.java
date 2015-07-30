@@ -13,7 +13,7 @@ import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awl;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_awo;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_hj;
 import net.minecraft.server.class_hq;
 import net.minecraft.server.class_hr;
@@ -32,7 +32,7 @@ public class class_kl extends class_awn {
    public void a(class_awl var1) {
       super.a(var1);
       if(this.b.contains(var1.d())) {
-         this.a.ap().a((class_ff)(new class_hs(var1)));
+         this.a.ap().a((Packet)(new class_hs(var1)));
       }
 
       this.b();
@@ -40,13 +40,13 @@ public class class_kl extends class_awn {
 
    public void a(String var1) {
       super.a(var1);
-      this.a.ap().a((class_ff)(new class_hs(var1)));
+      this.a.ap().a((Packet)(new class_hs(var1)));
       this.b();
    }
 
    public void a(String var1, class_awj var2) {
       super.a(var1, var2);
-      this.a.ap().a((class_ff)(new class_hs(var1, var2)));
+      this.a.ap().a((Packet)(new class_hs(var1, var2)));
       this.b();
    }
 
@@ -55,7 +55,7 @@ public class class_kl extends class_awn {
       super.a(var1, var2);
       if(var3 != var2 && var3 != null) {
          if(this.h(var3) > 0) {
-            this.a.ap().a((class_ff)(new class_hj(var1, var2)));
+            this.a.ap().a((Packet)(new class_hj(var1, var2)));
          } else {
             this.g(var3);
          }
@@ -63,7 +63,7 @@ public class class_kl extends class_awn {
 
       if(var2 != null) {
          if(this.b.contains(var2)) {
-            this.a.ap().a((class_ff)(new class_hj(var1, var2)));
+            this.a.ap().a((Packet)(new class_hj(var1, var2)));
          } else {
             this.e(var2);
          }
@@ -75,7 +75,7 @@ public class class_kl extends class_awn {
    public boolean a(String var1, String var2) {
       if(super.a(var1, var2)) {
          class_awk var3 = this.d(var2);
-         this.a.ap().a((class_ff)(new class_hr(var3, Arrays.asList(new String[]{var1}), 3)));
+         this.a.ap().a((Packet)(new class_hr(var3, Arrays.asList(new String[]{var1}), 3)));
          this.b();
          return true;
       } else {
@@ -85,7 +85,7 @@ public class class_kl extends class_awn {
 
    public void a(String var1, class_awk var2) {
       super.a(var1, var2);
-      this.a.ap().a((class_ff)(new class_hr(var2, Arrays.asList(new String[]{var1}), 4)));
+      this.a.ap().a((Packet)(new class_hr(var2, Arrays.asList(new String[]{var1}), 4)));
       this.b();
    }
 
@@ -97,7 +97,7 @@ public class class_kl extends class_awn {
    public void b(class_awj var1) {
       super.b(var1);
       if(this.b.contains(var1)) {
-         this.a.ap().a((class_ff)(new class_hq(var1, 2)));
+         this.a.ap().a((Packet)(new class_hq(var1, 2)));
       }
 
       this.b();
@@ -114,19 +114,19 @@ public class class_kl extends class_awn {
 
    public void a(class_awk var1) {
       super.a(var1);
-      this.a.ap().a((class_ff)(new class_hr(var1, 0)));
+      this.a.ap().a((Packet)(new class_hr(var1, 0)));
       this.b();
    }
 
    public void b(class_awk var1) {
       super.b(var1);
-      this.a.ap().a((class_ff)(new class_hr(var1, 2)));
+      this.a.ap().a((Packet)(new class_hr(var1, 2)));
       this.b();
    }
 
    public void c(class_awk var1) {
       super.c(var1);
-      this.a.ap().a((class_ff)(new class_hr(var1, 1)));
+      this.a.ap().a((Packet)(new class_hr(var1, 1)));
       this.b();
    }
 
@@ -170,7 +170,7 @@ public class class_kl extends class_awn {
          Iterator var5 = var2.iterator();
 
          while(var5.hasNext()) {
-            class_ff var6 = (class_ff)var5.next();
+            Packet var6 = (Packet)var5.next();
             var4.a.a(var6);
          }
       }
@@ -200,7 +200,7 @@ public class class_kl extends class_awn {
          Iterator var5 = var2.iterator();
 
          while(var5.hasNext()) {
-            class_ff var6 = (class_ff)var5.next();
+            Packet var6 = (Packet)var5.next();
             var4.a.a(var6);
          }
       }

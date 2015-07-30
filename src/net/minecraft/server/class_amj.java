@@ -6,7 +6,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.class_n;
 import net.minecraft.server.class_pr;
@@ -49,7 +49,7 @@ public class class_amj extends class_amg {
       this.a.b(var1);
    }
 
-   public class_ff z_() {
+   public Packet z_() {
       class_dn var1 = new class_dn();
       this.b(var1);
       return new class_ft(this.c, 2, var1);

@@ -12,7 +12,7 @@ import net.minecraft.server.class_du;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_oj;
@@ -391,8 +391,8 @@ public class class_wz implements class_oj {
       return false;
    }
 
-   public class_eu f_() {
-      return (class_eu)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
+   public IChatBaseComponent f_() {
+      return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
    }
 
    public int q_() {

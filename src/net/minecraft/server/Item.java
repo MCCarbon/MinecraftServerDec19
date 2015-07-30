@@ -89,7 +89,7 @@ import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pl;
@@ -187,7 +187,7 @@ public class Item {
 		return this;
 	}
 
-	public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+	public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
 		return class_oq.b;
 	}
 
@@ -195,7 +195,7 @@ public class Item {
 		return 1.0F;
 	}
 
-	public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+	public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
 		return new class_or(class_oq.b, var1);
 	}
 
@@ -250,7 +250,7 @@ public class Item {
 		return false;
 	}
 
-	public boolean a(class_aas var1, class_xa var2, class_qa var3, class_oo var4) {
+	public boolean a(class_aas var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
 		return false;
 	}
 

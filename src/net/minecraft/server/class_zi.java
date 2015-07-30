@@ -11,7 +11,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pr;
@@ -25,7 +25,7 @@ public class class_zi extends Item {
       this.a(CreativeTab.e);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       float var5 = 1.0F;
       float var6 = var3.B + (var3.z - var3.B) * var5;
       float var7 = var3.A + (var3.y - var3.A) * var5;

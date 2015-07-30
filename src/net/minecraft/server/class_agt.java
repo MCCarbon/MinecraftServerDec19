@@ -22,7 +22,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.class_za;
@@ -73,7 +73,7 @@ public class class_agt extends Block {
 
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else if(var6 == null) {
@@ -84,7 +84,7 @@ public class class_agt extends Block {
          if(var12 == Items.az) {
             if(var11 < 3) {
                if(!var4.bH.d) {
-                  var4.a((class_oo)var5, (class_aas)(new class_aas(Items.ay)));
+                  var4.a((EnumUsedHand)var5, (class_aas)(new class_aas(Items.ay)));
                }
 
                var4.b(class_nc.I);
@@ -100,7 +100,7 @@ public class class_agt extends Block {
                      var14 = class_abe.a(new class_aas(Items.bB), class_acf.a);
                      var4.b(class_nc.J);
                      if(--var6.b == 0) {
-                        var4.a((class_oo)var5, (class_aas)var14);
+                        var4.a((EnumUsedHand)var5, (class_aas)var14);
                      } else if(!var4.bp.a(var14)) {
                         var4.a(var14, false);
                      } else if(var4 instanceof class_lh) {
@@ -133,7 +133,7 @@ public class class_agt extends Block {
                   }
 
                   if(var6.b == 0) {
-                     var4.a((class_oo)var5, (class_aas)var14);
+                     var4.a((EnumUsedHand)var5, (class_aas)var14);
                   } else if(!var4.bp.a(var14)) {
                      var4.a(var14, false);
                   } else if(var4 instanceof class_lh) {

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_ep;
+import net.minecraft.server.PacketListener;
 import net.minecraft.server.class_fi;
 import net.minecraft.server.class_fk;
 import net.minecraft.server.class_fl;
@@ -17,7 +17,7 @@ import net.minecraft.server.class_fv;
 import net.minecraft.server.class_fw;
 import net.minecraft.server.class_fx;
 import net.minecraft.server.class_fy;
-import net.minecraft.server.class_fz;
+import net.minecraft.server.PacketPlayOutChat;
 import net.minecraft.server.class_ga;
 import net.minecraft.server.class_gb;
 import net.minecraft.server.class_gc;
@@ -31,13 +31,13 @@ import net.minecraft.server.class_gj;
 import net.minecraft.server.class_gk;
 import net.minecraft.server.class_gl;
 import net.minecraft.server.class_gm;
-import net.minecraft.server.class_gn;
+import net.minecraft.server.PacketPlayOutKeepAlive;
 import net.minecraft.server.class_go;
 import net.minecraft.server.class_gp;
 import net.minecraft.server.class_gq;
 import net.minecraft.server.class_gr;
 import net.minecraft.server.class_gs;
-import net.minecraft.server.class_gt;
+import net.minecraft.server.PacketPlayOutLogin;
 import net.minecraft.server.class_gu;
 import net.minecraft.server.class_gv;
 import net.minecraft.server.class_gw;
@@ -73,7 +73,7 @@ import net.minecraft.server.class_hz;
 import net.minecraft.server.class_ia;
 import net.minecraft.server.class_ib;
 
-public interface class_fj extends class_ep {
+public interface PacketListenerPlayOut extends PacketListener {
    void a(class_fk var1);
 
    void a(class_fl var1);
@@ -102,7 +102,7 @@ public interface class_fj extends class_ep {
 
    void a(class_fv var1);
 
-   void a(class_fz var1);
+   void a(PacketPlayOutChat var1);
 
    void a(class_fy var1);
 
@@ -136,7 +136,7 @@ public interface class_fj extends class_ep {
 
    void a(class_gm var1);
 
-   void a(class_gn var1);
+   void a(PacketPlayOutKeepAlive var1);
 
    void a(class_go var1);
 
@@ -144,7 +144,7 @@ public interface class_fj extends class_ep {
 
    void a(class_gq var1);
 
-   void a(class_gt var1);
+   void a(PacketPlayOutLogin var1);
 
    void a(class_gv var1);
 

@@ -53,7 +53,7 @@ import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_ff;
+import net.minecraft.server.Packet;
 import net.minecraft.server.class_fm;
 import net.minecraft.server.class_fu;
 import net.minecraft.server.class_gj;
@@ -772,12 +772,12 @@ public class class_lg extends World implements class_of {
 
    protected void b(class_pr var1) {
       super.b(var1);
-      this.l.a(var1.F(), var1);
+      this.l.a(var1.getId(), var1);
       this.N.put(var1.aM(), var1);
       class_pr[] var2 = var1.aD();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            this.l.a(var2[var3].F(), var2[var3]);
+            this.l.a(var2[var3].getId(), var2[var3]);
          }
       }
 
@@ -785,12 +785,12 @@ public class class_lg extends World implements class_of {
 
    protected void c(class_pr var1) {
       super.c(var1);
-      this.l.d(var1.F());
+      this.l.d(var1.getId());
       this.N.remove(var1.aM());
       class_pr[] var2 = var1.aD();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            this.l.d(var2[var3].F());
+            this.l.d(var2[var3].getId());
          }
       }
 
@@ -822,7 +822,7 @@ public class class_lg extends World implements class_of {
       while(var12.hasNext()) {
          class_xa var13 = (class_xa)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((class_lh)var13).a.a((class_ff)(new class_gk(var2, var4, var6, var8, var11.e(), (Vec3D)var11.b().get(var13))));
+            ((class_lh)var13).a.a((Packet)(new class_gk(var2, var4, var6, var8, var11.e(), (Vec3D)var11.b().get(var13))));
          }
       }
 
@@ -876,22 +876,22 @@ public class class_lg extends World implements class_of {
       boolean var1 = this.T();
       super.q();
       if(this.o != this.p) {
-         this.I.ap().a((class_ff)(new class_gm(7, this.p)), this.t.p().a());
+         this.I.ap().a((Packet)(new class_gm(7, this.p)), this.t.p().a());
       }
 
       if(this.q != this.r) {
-         this.I.ap().a((class_ff)(new class_gm(8, this.r)), this.t.p().a());
+         this.I.ap().a((Packet)(new class_gm(8, this.r)), this.t.p().a());
       }
 
       if(var1 != this.T()) {
          if(var1) {
-            this.I.ap().a((class_ff)(new class_gm(2, 0.0F)));
+            this.I.ap().a((Packet)(new class_gm(2, 0.0F)));
          } else {
-            this.I.ap().a((class_ff)(new class_gm(1, 0.0F)));
+            this.I.ap().a((Packet)(new class_gm(1, 0.0F)));
          }
 
-         this.I.ap().a((class_ff)(new class_gm(7, this.p)));
-         this.I.ap().a((class_ff)(new class_gm(8, this.r)));
+         this.I.ap().a((Packet)(new class_gm(7, this.p)));
+         this.I.ap().a((Packet)(new class_gm(8, this.r)));
       }
 
    }
@@ -928,7 +928,7 @@ public class class_lg extends World implements class_of {
          BlockPosition var22 = var21.c();
          double var23 = var22.distanceSquared(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
-            var21.a.a((class_ff)var19);
+            var21.a.a((Packet)var19);
          }
       }
 

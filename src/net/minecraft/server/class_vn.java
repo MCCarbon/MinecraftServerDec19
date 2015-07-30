@@ -16,7 +16,7 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.MinecraftKey;
@@ -757,7 +757,7 @@ public abstract class class_vn extends class_pr implements class_ov {
       return this.h;
    }
 
-   public class_eu f_() {
+   public IChatBaseComponent f_() {
       if(this.l_()) {
          class_fa var2 = new class_fa(this.h);
          var2.b().a(this.aS());

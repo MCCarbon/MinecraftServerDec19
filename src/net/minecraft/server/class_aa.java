@@ -5,7 +5,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
@@ -28,8 +28,8 @@ public class class_aa extends class_i {
       if(var2.length <= 0) {
          throw new class_cf("commands.me.usage", new Object[0]);
       } else {
-         class_eu var3 = b(var1, var2, 0, !(var1 instanceof class_xa));
-         MinecraftServer.N().ap().a((class_eu)(new class_fb("chat.type.emote", new Object[]{var1.f_(), var3})));
+         IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof class_xa));
+         MinecraftServer.N().ap().a((IChatBaseComponent)(new class_fb("chat.type.emote", new Object[]{var1.f_(), var3})));
       }
    }
 

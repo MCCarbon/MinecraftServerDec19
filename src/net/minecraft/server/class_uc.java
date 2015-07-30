@@ -13,7 +13,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_pr;
@@ -146,7 +146,7 @@ public class class_uc extends class_qj {
    protected void b(boolean var1, int var2) {
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(this.cA()) {
          if(this.e(var1) && !this.o.D && !this.d(var3)) {
             this.bu.a(!this.cC());

@@ -7,7 +7,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_pa;
 import net.minecraft.server.class_pc;
@@ -60,17 +60,17 @@ public class class_pb {
 
    }
 
-   public class_eu b() {
+   public IChatBaseComponent b() {
       if(this.a.isEmpty()) {
          return new class_fb("death.attack.generic", new Object[]{this.b.f_()});
       } else {
          class_pa var1 = this.i();
          class_pa var2 = (class_pa)this.a.get(this.a.size() - 1);
-         class_eu var4 = var2.h();
+         IChatBaseComponent var4 = var2.h();
          class_pr var5 = var2.a().j();
          Object var3;
          if(var1 != null && var2.a() == class_pc.i) {
-            class_eu var6 = var1.h();
+            IChatBaseComponent var6 = var1.h();
             if(var1.a() != class_pc.i && var1.a() != class_pc.j) {
                if(var6 == null || var4 != null && var6.equals(var4)) {
                   if(var4 != null) {
@@ -99,7 +99,7 @@ public class class_pb {
             var3 = var2.a().b(this.b);
          }
 
-         return (class_eu)var3;
+         return (IChatBaseComponent)var3;
       }
    }
 

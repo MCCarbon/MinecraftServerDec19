@@ -7,7 +7,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_xa;
@@ -19,7 +19,7 @@ public class class_aac extends class_zt {
       this.a(CreativeTab.f);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, class_oo var4) {
+   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
       class_aas var5 = new class_aas(Items.bf, 1, var2.b("map"));
       String var6 = "map_" + var5.i();
       class_avf var7 = new class_avf(var6);

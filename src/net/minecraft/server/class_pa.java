@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_qa;
 
@@ -37,7 +37,7 @@ public class class_pa {
       return this.e;
    }
 
-   public class_eu h() {
+   public IChatBaseComponent h() {
       return this.a().j() == null?null:this.a().j().f_();
    }
 

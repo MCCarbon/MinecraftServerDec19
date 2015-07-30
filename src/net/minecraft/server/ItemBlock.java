@@ -10,7 +10,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
@@ -28,7 +28,7 @@ public class ItemBlock extends Item {
 		return this;
 	}
 
-	public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+	public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
 		IBlockData var10 = var3.p(var4);
 		Block var11 = var10.getBlock();
 		if (!var11.isReplaceable(var3, var4)) {

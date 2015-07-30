@@ -11,7 +11,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_pr;
@@ -260,7 +260,7 @@ public class class_ul extends class_qj {
       this.a((class_qk)class_wl.e).a(4.0D);
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       if(this.cA()) {
          if(var3 != null) {
             if(var3.b() instanceof class_aan) {

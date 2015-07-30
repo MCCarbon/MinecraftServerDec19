@@ -17,14 +17,14 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_ob;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_ow;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
@@ -184,7 +184,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
       super.cc();
    }
 
-   public boolean a(class_xa var1, class_oo var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
       boolean var4 = var3 != null && var3.b() == Items.bM;
       if(!var4 && this.ai() && !this.cD() && !this.j_()) {
          if(!this.o.D && (this.by == null || !this.by.isEmpty())) {
@@ -451,7 +451,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    }
 
-   public class_eu f_() {
+   public IChatBaseComponent f_() {
       String var1 = this.aO();
       if(var1 != null && !var1.isEmpty()) {
          class_fa var4 = new class_fa(var1);

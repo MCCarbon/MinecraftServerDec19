@@ -27,7 +27,7 @@ import net.minecraft.server.class_awl;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_eu;
+import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
@@ -54,7 +54,7 @@ public class class_o {
 		return var3.size() == 1 ? (class_pr) var3.get(0) : null;
 	}
 
-	public static class_eu b(class_m var0, String var1) {
+	public static IChatBaseComponent b(class_m var0, String var1) {
 		List var2 = b(var0, var1, class_pr.class);
 		if (var2.isEmpty()) {
 			return null;

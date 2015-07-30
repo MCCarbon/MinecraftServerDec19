@@ -11,7 +11,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oo;
+import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_vn;
@@ -109,7 +109,7 @@ public class class_vr extends class_vn {
       super.o();
    }
 
-   public boolean a(class_xa var1, class_aas var2, class_oo var3) {
+   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
       if(var2 != null && var2.b() == Items.j) {
          if(!var1.bH.d) {
             --var2.b;
