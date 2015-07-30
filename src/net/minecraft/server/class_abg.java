@@ -9,8 +9,8 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aiy;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -28,7 +28,7 @@ public class class_abg extends Item {
       b.put("records." + var1, this);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.p(var4);
       if(var10.getBlock() == Blocks.JUKEBOX && !((Boolean)var10.get(class_aiy.a)).booleanValue()) {
          if(var3.D) {

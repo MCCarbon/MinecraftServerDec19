@@ -11,11 +11,11 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amv;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -44,10 +44,10 @@ public class class_abt extends Item {
       return var2;
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var3.D) {
          return class_oq.a;
-      } else if(!var2.a(var4.a(var6), var6, var1)) {
+      } else if(!var2.a(var4.shift(var6), var6, var1)) {
          return class_oq.b;
       } else {
          IBlockData var10 = var3.p(var4);
@@ -66,13 +66,13 @@ public class class_abt extends Item {
             }
          }
 
-         var4 = var4.a(var6);
+         var4 = var4.shift(var6);
          double var14 = 0.0D;
-         if(var6 == class_cq.b && var10 instanceof class_ahz) {
+         if(var6 == EnumDirection.UP && var10 instanceof class_ahz) {
             var14 = 0.5D;
          }
 
-         class_pr var13 = a(var3, var1.i(), (double)var4.n() + 0.5D, (double)var4.o() + var14, (double)var4.p() + 0.5D);
+         class_pr var13 = a(var3, var1.i(), (double)var4.getX() + 0.5D, (double)var4.getY() + var14, (double)var4.getZ() + 0.5D);
          if(var13 != null) {
             if(var13 instanceof class_qa && var1.s()) {
                var13.a(var1.q());
@@ -96,7 +96,7 @@ public class class_abt extends Item {
             return new class_or(class_oq.b, var1);
          } else {
             if(var5.a == class_awg.class_a_in_class_awg.b) {
-               class_cj var6 = var5.a();
+               BlockPosition var6 = var5.a();
                if(!var2.a(var3, var6)) {
                   return new class_or(class_oq.b, var1);
                }
@@ -106,7 +106,7 @@ public class class_abt extends Item {
                }
 
                if(var2.p(var6).getBlock() instanceof class_ajd) {
-                  class_pr var7 = a(var2, var1.i(), (double)var6.n() + 0.5D, (double)var6.o() + 0.5D, (double)var6.p() + 0.5D);
+                  class_pr var7 = a(var2, var1.i(), (double)var6.getX() + 0.5D, (double)var6.getY() + 0.5D, (double)var6.getZ() + 0.5D);
                   if(var7 != null) {
                      if(var7 instanceof class_qa && var1.s()) {
                         var7.a(var1.q());
@@ -137,10 +137,10 @@ public class class_abt extends Item {
             var8 = class_pt.a(var1, var0);
             if(var8 instanceof class_qa) {
                class_qb var10 = (class_qb)var8;
-               var8.b(var2, var4, var6, class_nu.g(var0.s.nextFloat() * 360.0F), 0.0F);
+               var8.b(var2, var4, var6, MathHelper.clampAngle(var0.s.nextFloat() * 360.0F), 0.0F);
                var10.aN = var10.y;
                var10.aL = var10.y;
-               var10.a((class_on)var0.E(new class_cj(var10)), (class_qd)null);
+               var10.a((class_on)var0.E(new BlockPosition(var10)), (class_qd)null);
                var0.a(var8);
                var10.z();
             }

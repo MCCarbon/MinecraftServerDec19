@@ -13,7 +13,7 @@ import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.CreativeTab;
 
@@ -31,8 +31,8 @@ public class class_aln extends Block {
       this.a(CreativeTab.c);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      return var1.set(b, Boolean.valueOf(this.c(var2.p(var3.c()).getBlock()))).set(O, Boolean.valueOf(this.c(var2.p(var3.d()).getBlock()))).set(P, Boolean.valueOf(this.c(var2.p(var3.e()).getBlock()))).set(N, Boolean.valueOf(this.c(var2.p(var3.f()).getBlock())));
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+      return var1.set(b, Boolean.valueOf(this.c(var2.p(var3.shiftNorth()).getBlock()))).set(O, Boolean.valueOf(this.c(var2.p(var3.shiftSouth()).getBlock()))).set(P, Boolean.valueOf(this.c(var2.p(var3.shiftWest()).getBlock()))).set(N, Boolean.valueOf(this.c(var2.p(var3.shiftEast()).getBlock())));
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
@@ -47,11 +47,11 @@ public class class_aln extends Block {
       return false;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
-      boolean var7 = this.c(var1.p(var2.c()).getBlock());
-      boolean var8 = this.c(var1.p(var2.d()).getBlock());
-      boolean var9 = this.c(var1.p(var2.e()).getBlock());
-      boolean var10 = this.c(var1.p(var2.f()).getBlock());
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+      boolean var7 = this.c(var1.p(var2.shiftNorth()).getBlock());
+      boolean var8 = this.c(var1.p(var2.shiftSouth()).getBlock());
+      boolean var9 = this.c(var1.p(var2.shiftWest()).getBlock());
+      boolean var10 = this.c(var1.p(var2.shiftEast()).getBlock());
       if(var9 && var10) {
          this.setSizes(0.0F, 0.0F, 0.4375F, 1.0F, 1.0F, 0.5625F);
          super.a(var1, var2, var3, var4, var5, var6);
@@ -86,15 +86,15 @@ public class class_aln extends Block {
       this.setSizes(0.4375F, 0.4375F, 0.0F, 0.5625F, 1.0F, 0.5625F);
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       float var3 = 0.4375F;
       float var4 = 0.5625F;
       float var5 = 0.4375F;
       float var6 = 0.5625F;
-      boolean var7 = this.c(var1.p(var2.c()).getBlock());
-      boolean var8 = this.c(var1.p(var2.d()).getBlock());
-      boolean var9 = this.c(var1.p(var2.e()).getBlock());
-      boolean var10 = this.c(var1.p(var2.f()).getBlock());
+      boolean var7 = this.c(var1.p(var2.shiftNorth()).getBlock());
+      boolean var8 = this.c(var1.p(var2.shiftSouth()).getBlock());
+      boolean var9 = this.c(var1.p(var2.shiftWest()).getBlock());
+      boolean var10 = this.c(var1.p(var2.shiftEast()).getBlock());
       if(var9 && var10) {
          var3 = 0.0F;
          var4 = 1.0F;

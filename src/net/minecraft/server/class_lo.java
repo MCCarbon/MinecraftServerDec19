@@ -31,11 +31,11 @@ import net.minecraft.server.class_amx;
 import net.minecraft.server.class_amz;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_ea;
@@ -408,7 +408,7 @@ public class class_lo implements class_ic, class_kn {
    public void a(class_ir var1) {
       class_fh.a(var1, this, this.b.u());
       class_lg var2 = this.d.a(this.b.am);
-      class_cj var3 = var1.a();
+      BlockPosition var3 = var1.a();
       this.b.z();
       switch(class_lo.SyntheticClass_1.a[var1.c().ordinal()]) {
       case 1:
@@ -437,17 +437,17 @@ public class class_lo implements class_ic, class_kn {
       case 5:
       case 6:
       case 7:
-         double var4 = this.b.s - ((double)var3.n() + 0.5D);
-         double var6 = this.b.t - ((double)var3.o() + 0.5D) + 1.5D;
-         double var8 = this.b.u - ((double)var3.p() + 0.5D);
+         double var4 = this.b.s - ((double)var3.getX() + 0.5D);
+         double var6 = this.b.t - ((double)var3.getY() + 0.5D) + 1.5D;
+         double var8 = this.b.u - ((double)var3.getZ() + 0.5D);
          double var10 = var4 * var4 + var6 * var6 + var8 * var8;
          if(var10 > 36.0D) {
             return;
-         } else if(var3.o() >= this.d.an()) {
+         } else if(var3.getY() >= this.d.an()) {
             return;
          } else {
             if(var1.c() == class_ir.class_a_in_class_ir.a) {
-               if(!this.d.a((World)var2, (class_cj)var3, (class_xa)this.b) && var2.ag().a(var3)) {
+               if(!this.d.a((World)var2, (BlockPosition)var3, (class_xa)this.b) && var2.ag().a(var3)) {
                   this.b.c.a(var3, var1.b());
                } else {
                   this.b.a.a((class_ff)(new class_fv(var2, var3)));
@@ -459,7 +459,7 @@ public class class_lo implements class_ic, class_kn {
                   this.b.c.e();
                }
 
-               if(var2.p(var3).getBlock().getMaterial() != Material.a) {
+               if(var2.p(var3).getBlock().getMaterial() != Material.AIR) {
                   this.b.a.a((class_ff)(new class_fv(var2, var3)));
                }
             }
@@ -476,19 +476,19 @@ public class class_lo implements class_ic, class_kn {
       class_lg var2 = this.d.a(this.b.am);
       class_oo var3 = var1.c();
       class_aas var4 = this.b.b((class_oo)var3);
-      class_cj var5 = var1.a();
-      class_cq var6 = var1.b();
+      BlockPosition var5 = var1.a();
+      EnumDirection var6 = var1.b();
       this.b.z();
-      if(var5.o() >= this.d.an() - 1 && (var6 == class_cq.b || var5.o() >= this.d.an())) {
+      if(var5.getY() >= this.d.an() - 1 && (var6 == EnumDirection.UP || var5.getY() >= this.d.an())) {
          class_fb var7 = new class_fb("build.tooHigh", new Object[]{Integer.valueOf(this.d.an())});
          var7.b().a(EnumChatFormat.RED);
          this.b.a.a((class_ff)(new class_fz(var7)));
-      } else if(this.r && this.b.e((double)var5.n() + 0.5D, (double)var5.o() + 0.5D, (double)var5.p() + 0.5D) < 64.0D && !this.d.a((World)var2, (class_cj)var5, (class_xa)this.b) && var2.ag().a(var5)) {
+      } else if(this.r && this.b.e((double)var5.getX() + 0.5D, (double)var5.getY() + 0.5D, (double)var5.getZ() + 0.5D) < 64.0D && !this.d.a((World)var2, (BlockPosition)var5, (class_xa)this.b) && var2.ag().a(var5)) {
          this.b.c.a(this.b, var2, var4, var3, var5, var6, var1.d(), var1.e(), var1.f());
       }
 
       this.b.a.a((class_ff)(new class_fv(var2, var5)));
-      this.b.a.a((class_ff)(new class_fv(var2, var5.a(var6))));
+      this.b.a.a((class_ff)(new class_fv(var2, var5.shift(var6))));
       var4 = this.b.b((class_oo)var3);
       if(var4 != null && var4.b == 0) {
          this.b.a((class_oo)var3, (class_aas)null);
@@ -723,7 +723,7 @@ public class class_lo implements class_ic, class_kn {
             } else if(var1.a() == class_in.class_a_in_class_in.c) {
                var7 = var1.b();
                var8 = this.b.b((class_oo)var7);
-               var3.a((class_xa)this.b, (class_awh)var1.c(), (class_aas)var8, (class_oo)var7);
+               var3.a((class_xa)this.b, (Vec3D)var1.c(), (class_aas)var8, (class_oo)var7);
             } else if(var1.a() == class_in.class_a_in_class_in.b) {
                if(var3 instanceof class_vm || var3 instanceof class_px || var3 instanceof class_xd || var3 == this.b) {
                   this.c("Attempting to attack an invalid entity");
@@ -832,7 +832,7 @@ public class class_lo implements class_ic, class_kn {
          if(var3 != null && var3.n() && var3.o().b("BlockEntityTag", 10)) {
             class_dn var4 = var3.o().n("BlockEntityTag");
             if(var4.d("x") && var4.d("y") && var4.d("z")) {
-               class_cj var5 = new class_cj(var4.g("x"), var4.g("y"), var4.g("z"));
+               BlockPosition var5 = new BlockPosition(var4.g("x"), var4.g("y"), var4.g("z"));
                class_amg var6 = this.b.o.s(var5);
                if(var6 != null) {
                   class_dn var7 = new class_dn();
@@ -880,7 +880,7 @@ public class class_lo implements class_ic, class_kn {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
       class_lg var2 = this.d.a(this.b.am);
-      class_cj var3 = var1.a();
+      BlockPosition var3 = var1.a();
       if(var2.e(var3)) {
          class_amg var4 = var2.s(var3);
          if(!(var4 instanceof class_amx)) {
@@ -925,7 +925,7 @@ public class class_lo implements class_ic, class_kn {
    public void a(class_id var1) {
       class_fh.a(var1, this, this.b.u());
       ArrayList var2 = Lists.newArrayList();
-      Iterator var3 = this.d.a((class_m)this.b, (String)var1.a(), (class_cj)var1.b()).iterator();
+      Iterator var3 = this.d.a((class_m)this.b, (String)var1.a(), (BlockPosition)var1.b()).iterator();
 
       while(var3.hasNext()) {
          String var4 = (String)var3.next();
@@ -1026,7 +1026,7 @@ public class class_lo implements class_ic, class_kn {
                byte var63 = var61.readByte();
                class_aed var4 = null;
                if(var63 == 0) {
-                  class_amg var5 = this.b.o.s(new class_cj(var61.readInt(), var61.readInt(), var61.readInt()));
+                  class_amg var5 = this.b.o.s(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
                   if(var5 instanceof class_amj) {
                      var4 = ((class_amj)var5).b();
                   }
@@ -1093,7 +1093,7 @@ public class class_lo implements class_ic, class_kn {
 
          try {
             if(this.b.a(4, "") && this.b.bH.d) {
-               class_cj var66 = new class_cj(var61.readInt(), var61.readInt(), var61.readInt());
+               BlockPosition var66 = new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt());
                class_amg var70 = this.b.o.s(var66);
                if(var70 instanceof class_amz) {
                   class_amz var75 = (class_amz)var70;
@@ -1101,8 +1101,8 @@ public class class_lo implements class_ic, class_kn {
                   String var77 = var61.c(32);
                   var75.a(class_amz.class_a_in_class_amz.valueOf(var77));
                   var75.a(var61.c(64));
-                  var75.b(new class_cj(var61.readInt(), var61.readInt(), var61.readInt()));
-                  var75.c(new class_cj(var61.readInt(), var61.readInt(), var61.readInt()));
+                  var75.b(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
+                  var75.c(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
                   String var8 = var61.c(32);
                   var75.a(Block.class_a_in_class_agj.valueOf(var8));
                   String var9 = var61.c(32);

@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_aex implements Comparable {
    private static long d;
    private final Block e;
-   public final class_cj a;
+   public final BlockPosition a;
    public long b;
    public int c;
    private long f;
 
-   public class_aex(class_cj var1, Block var2) {
+   public class_aex(BlockPosition var1, Block var2) {
       this.f = (long)(d++);
       this.a = var1;
       this.e = var2;

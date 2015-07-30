@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
@@ -9,14 +9,14 @@ import net.minecraft.server.class_fj;
 
 public class class_gq implements class_ff {
    private int a;
-   private class_cj b;
+   private BlockPosition b;
    private int c;
    private boolean d;
 
    public class_gq() {
    }
 
-   public class_gq(int var1, class_cj var2, int var3, boolean var4) {
+   public class_gq(int var1, BlockPosition var2, int var3, boolean var4) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

@@ -4,7 +4,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.class_act;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_wz;
 import net.minecraft.server.class_xa;
@@ -18,9 +18,9 @@ public class class_yh extends class_xz {
    public class_yg a = new class_yg(this, 3, 3);
    public class_oj f = new class_yv();
    private World g;
-   private class_cj h;
+   private BlockPosition h;
 
-   public class_yh(class_wz var1, World var2, class_cj var3) {
+   public class_yh(class_wz var1, World var2, BlockPosition var3) {
       this.g = var2;
       this.h = var3;
       this.a((class_yx)(new class_yw(var1.e, this.a, this.f, 0, 124, 35)));
@@ -64,7 +64,7 @@ public class class_yh extends class_xz {
    }
 
    public boolean a(class_xa var1) {
-      return this.g.p(this.h).getBlock() != Blocks.CRAFTING_TABLE?false:var1.e((double)this.h.n() + 0.5D, (double)this.h.o() + 0.5D, (double)this.h.p() + 0.5D) <= 64.0D;
+      return this.g.p(this.h).getBlock() != Blocks.CRAFTING_TABLE?false:var1.e((double)this.h.getX() + 0.5D, (double)this.h.getY() + 0.5D, (double)this.h.getZ() + 0.5D) <= 64.0D;
    }
 
    public class_aas b(class_xa var1, int var2) {

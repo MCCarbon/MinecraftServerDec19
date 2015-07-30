@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_m;
@@ -42,12 +42,12 @@ public class class_ml implements class_m {
       return true;
    }
 
-   public class_cj c() {
-      return new class_cj(0, 0, 0);
+   public BlockPosition c() {
+      return new BlockPosition(0, 0, 0);
    }
 
-   public class_awh d() {
-      return new class_awh(0.0D, 0.0D, 0.0D);
+   public Vec3D d() {
+      return new Vec3D(0.0D, 0.0D, 0.0D);
    }
 
    public World e() {

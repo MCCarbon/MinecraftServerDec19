@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wl;
 
@@ -22,7 +22,7 @@ public class class_wf extends class_wi {
       this.a(class_wl.e).a(50.0D);
    }
 
-   public float a(class_cj var1) {
+   public float a(BlockPosition var1) {
       return this.o.o(var1) - 0.5F;
    }
 }

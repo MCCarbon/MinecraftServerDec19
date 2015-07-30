@@ -7,8 +7,8 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajh;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pd;
 import net.minecraft.server.class_qf;
@@ -79,7 +79,7 @@ public class class_wm extends class_wi {
       }
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.silverfish.step", 0.15F, 1.0F);
    }
 
@@ -92,8 +92,8 @@ public class class_wm extends class_wi {
       super.t_();
    }
 
-   public float a(class_cj var1) {
-      return this.o.p(var1.b()).getBlock() == Blocks.STONE?10.0F:super.a(var1);
+   public float a(BlockPosition var1) {
+      return this.o.p(var1.shiftDown()).getBlock() == Blocks.STONE?10.0F:super.a(var1);
    }
 
    protected boolean n_() {
@@ -115,7 +115,7 @@ public class class_wm extends class_wi {
 
    static class class_a_in_class_wm extends class_si {
       private final class_wm a;
-      private class_cq b;
+      private EnumDirection b;
       private boolean c;
 
       public class_a_in_class_wm(class_wm var1) {
@@ -132,8 +132,8 @@ public class class_wm extends class_wi {
          } else {
             Random var1 = this.a.bd();
             if(var1.nextInt(10) == 0) {
-               this.b = class_cq.a(var1);
-               class_cj var2 = (new class_cj(this.a.s, this.a.t + 0.5D, this.a.u)).a(this.b);
+               this.b = EnumDirection.getRandom(var1);
+               BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
                IBlockData var3 = this.a.o.p(var2);
                if(class_ajh.d(var3)) {
                   this.c = true;
@@ -155,10 +155,10 @@ public class class_wm extends class_wi {
             super.c();
          } else {
             World var1 = this.a.o;
-            class_cj var2 = (new class_cj(this.a.s, this.a.t + 0.5D, this.a.u)).a(this.b);
+            BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
             IBlockData var3 = var1.p(var2);
             if(class_ajh.d(var3)) {
-               var1.a((class_cj)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
+               var1.a((BlockPosition)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
                this.a.A();
                this.a.J();
             }
@@ -191,18 +191,18 @@ public class class_wm extends class_wi {
          if(this.b <= 0) {
             World var1 = this.a.o;
             Random var2 = this.a.bd();
-            class_cj var3 = new class_cj(this.a);
+            BlockPosition var3 = new BlockPosition(this.a);
 
             for(int var4 = 0; var4 <= 5 && var4 >= -5; var4 = var4 <= 0?1 - var4:0 - var4) {
                for(int var5 = 0; var5 <= 10 && var5 >= -10; var5 = var5 <= 0?1 - var5:0 - var5) {
                   for(int var6 = 0; var6 <= 10 && var6 >= -10; var6 = var6 <= 0?1 - var6:0 - var6) {
-                     class_cj var7 = var3.a(var5, var4, var6);
+                     BlockPosition var7 = var3.add(var5, var4, var6);
                      IBlockData var8 = var1.p(var7);
                      if(var8.getBlock() == Blocks.MONSTER_EGG) {
                         if(var1.R().b("mobGriefing")) {
                            var1.b(var7, true);
                         } else {
-                           var1.a((class_cj)var7, (IBlockData)((class_ajh.class_a_in_class_ajh)var8.get(class_ajh.a)).d(), 3);
+                           var1.a((BlockPosition)var7, (IBlockData)((class_ajh.class_a_in_class_ajh)var8.get(class_ajh.a)).d(), 3);
                         }
 
                         if(var2.nextBoolean()) {

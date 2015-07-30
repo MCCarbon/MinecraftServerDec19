@@ -17,13 +17,13 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_ca;
 import net.minecraft.server.class_cd;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_o;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
@@ -46,11 +46,11 @@ public class class_bj extends class_i {
          throw new class_cf("commands.spreadplayers.usage", new Object[0]);
       } else {
          byte var3 = 0;
-         class_cj var4 = var1.c();
-         double var10000 = (double)var4.n();
+         BlockPosition var4 = var1.c();
+         double var10000 = (double)var4.getX();
          int var17 = var3 + 1;
          double var5 = b(var10000, var2[var3], true);
-         double var7 = b((double)var4.p(), var2[var17++], true);
+         double var7 = b((double)var4.getZ(), var2[var17++], true);
          double var9 = a(var2[var17++], 0.0D);
          double var11 = a(var2[var17++], var9 + 1.0D);
          boolean var13 = d(var2[var17++]);
@@ -205,7 +205,7 @@ public class class_bj extends class_i {
             var11 = var3[var7++];
          }
 
-         var10.a((double)((float)class_nu.c(var11.a) + 0.5F), (double)var11.a(var2), (double)class_nu.c(var11.b) + 0.5D);
+         var10.a((double)((float)MathHelper.floor(var11.a) + 0.5F), (double)var11.a(var2), (double)MathHelper.floor(var11.b) + 0.5D);
          double var17 = Double.MAX_VALUE;
 
          for(int var14 = 0; var14 < var3.length; ++var14) {
@@ -234,7 +234,7 @@ public class class_bj extends class_i {
       return var11;
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length >= 1 && var2.length <= 2?b(var2, 0, var3):null;
    }
 
@@ -263,7 +263,7 @@ public class class_bj extends class_i {
       }
 
       float b() {
-         return class_nu.a(this.a * this.a + this.b * this.b);
+         return MathHelper.sqrt(this.a * this.a + this.b * this.b);
       }
 
       public void b(class_bj.class_a_in_class_bj var1) {
@@ -293,38 +293,38 @@ public class class_bj extends class_i {
       }
 
       public int a(World var1) {
-         class_cj var2 = new class_cj(this.a, 256.0D, this.b);
+         BlockPosition var2 = new BlockPosition(this.a, 256.0D, this.b);
 
          do {
-            if(var2.o() <= 0) {
+            if(var2.getY() <= 0) {
                return 257;
             }
 
-            var2 = var2.b();
-         } while(var1.p(var2).getBlock().getMaterial() == Material.a);
+            var2 = var2.shiftDown();
+         } while(var1.p(var2).getBlock().getMaterial() == Material.AIR);
 
-         return var2.o() + 1;
+         return var2.getY() + 1;
       }
 
       public boolean b(World var1) {
-         class_cj var2 = new class_cj(this.a, 256.0D, this.b);
+         BlockPosition var2 = new BlockPosition(this.a, 256.0D, this.b);
 
          Material var3;
          do {
-            if(var2.o() <= 0) {
+            if(var2.getY() <= 0) {
                return false;
             }
 
-            var2 = var2.b();
+            var2 = var2.shiftDown();
             var3 = var1.p(var2).getBlock().getMaterial();
-         } while(var3 == Material.a);
+         } while(var3 == Material.AIR);
 
-         return !var3.d() && var3 != Material.o;
+         return !var3.isLiquid() && var3 != Material.FIRE;
       }
 
       public void a(Random var1, double var2, double var4, double var6, double var8) {
-         this.a = class_nu.a(var1, var2, var6);
-         this.b = class_nu.a(var1, var4, var8);
+         this.a = MathHelper.getRandomDoubleInRange(var1, var2, var6);
+         this.b = MathHelper.getRandomDoubleInRange(var1, var4, var8);
       }
    }
 }

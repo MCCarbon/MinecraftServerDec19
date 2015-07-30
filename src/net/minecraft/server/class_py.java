@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_qb;
 
 public abstract class class_py extends class_qb {
@@ -14,7 +14,7 @@ public abstract class class_py extends class_qb {
    public void e(float var1, float var2) {
    }
 
-   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, BlockPosition var5) {
    }
 
    public void g(float var1, float var2) {
@@ -33,14 +33,14 @@ public abstract class class_py extends class_qb {
       } else {
          float var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.91F;
+            var3 = this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().b) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.91F;
          }
 
          float var4 = 0.16277136F / (var3 * var3 * var3);
          this.a(var1, var2, this.C?0.1F * var4:0.02F);
          var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.91F;
+            var3 = this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().b) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.91F;
          }
 
          this.d(this.v, this.w, this.x);
@@ -52,7 +52,7 @@ public abstract class class_py extends class_qb {
       this.aD = this.aE;
       double var8 = this.s - this.p;
       double var5 = this.u - this.r;
-      float var7 = class_nu.a(var8 * var8 + var5 * var5) * 4.0F;
+      float var7 = MathHelper.sqrt(var8 * var8 + var5 * var5) * 4.0F;
       if(var7 > 1.0F) {
          var7 = 1.0F;
       }

@@ -7,7 +7,7 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahd;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ow;
 import net.minecraft.server.class_rx;
 import net.minecraft.server.class_wv;
@@ -51,10 +51,10 @@ public class class_ro extends class_rx {
 
    public void e() {
       super.e();
-      this.c.q().a((double)this.b.n() + 0.5D, (double)(this.b.o() + 1), (double)this.b.p() + 0.5D, 10.0F, (float)this.c.cd());
+      this.c.q().a((double)this.b.getX() + 0.5D, (double)(this.b.getY() + 1), (double)this.b.getZ() + 0.5D, 10.0F, (float)this.c.cd());
       if(this.f()) {
          World var1 = this.c.o;
-         class_cj var2 = this.b.a();
+         BlockPosition var2 = this.b.shiftUp();
          IBlockData var3 = var1.p(var2);
          Block var4 = var3.getBlock();
          if(this.f == 0 && var4 instanceof class_ahd && ((class_ahd)var4).e(var3)) {
@@ -67,13 +67,13 @@ public class class_ro extends class_rx {
                boolean var8 = false;
                if(var7 != null) {
                   if(var7.b() == Items.P) {
-                     var1.a((class_cj)var2, (IBlockData)Blocks.WHEAT.getBlockData(), 3);
+                     var1.a((BlockPosition)var2, (IBlockData)Blocks.WHEAT.getBlockData(), 3);
                      var8 = true;
                   } else if(var7.b() == Items.bV) {
-                     var1.a((class_cj)var2, (IBlockData)Blocks.POTATOES.getBlockData(), 3);
+                     var1.a((BlockPosition)var2, (IBlockData)Blocks.POTATOES.getBlockData(), 3);
                      var8 = true;
                   } else if(var7.b() == Items.bU) {
-                     var1.a((class_cj)var2, (IBlockData)Blocks.CARROTS.getBlockData(), 3);
+                     var1.a((BlockPosition)var2, (IBlockData)Blocks.CARROTS.getBlockData(), 3);
                      var8 = true;
                   }
                }
@@ -94,10 +94,10 @@ public class class_ro extends class_rx {
 
    }
 
-   protected boolean a(World var1, class_cj var2) {
+   protected boolean a(World var1, BlockPosition var2) {
       Block var3 = var1.p(var2).getBlock();
       if(var3 == Blocks.FARMLAND) {
-         var2 = var2.a();
+         var2 = var2.shiftUp();
          IBlockData var4 = var1.p(var2);
          var3 = var4.getBlock();
          if(var3 instanceof class_ahd && ((class_ahd)var3).e(var4) && this.e && (this.f == 0 || this.f < 0)) {

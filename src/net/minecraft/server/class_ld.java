@@ -8,7 +8,7 @@ import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aoy;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fv;
 import net.minecraft.server.class_ga;
@@ -16,7 +16,7 @@ import net.minecraft.server.class_go;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_ns;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -86,12 +86,12 @@ public class class_ld {
       return var6;
    }
 
-   public void a(class_cj var1) {
-      int var2 = var1.n() >> 4;
-      int var3 = var1.p() >> 4;
+   public void a(BlockPosition var1) {
+      int var2 = var1.getX() >> 4;
+      int var3 = var1.getZ() >> 4;
       class_ld.class_a_in_class_ld var4 = this.a(var2, var3, false);
       if(var4 != null) {
-         var4.a(var1.n() & 15, var1.o(), var1.p() & 15);
+         var4.a(var1.getX() & 15, var1.getY(), var1.getZ() & 15);
       }
 
    }
@@ -218,7 +218,7 @@ public class class_ld {
    }
 
    public void a(int var1) {
-      var1 = class_nu.a(var1, 3, 32);
+      var1 = MathHelper.clamp(var1, 3, 32);
       if(var1 != this.g) {
          int var2 = var1 - this.g;
          ArrayList var3 = Lists.newArrayList((Iterable)this.c);
@@ -359,7 +359,7 @@ public class class_ld {
                var1 = (this.d[0] >> 12 & 15) + this.c.a * 16;
                var2 = this.d[0] & 255;
                var3 = (this.d[0] >> 8 & 15) + this.c.b * 16;
-               class_cj var4 = new class_cj(var1, var2, var3);
+               BlockPosition var4 = new BlockPosition(var1, var2, var3);
                this.a((class_ff)(new class_fv(class_ld.this.b, var4)));
                if(class_ld.this.b.p(var4).getBlock().isTileEntity()) {
                   this.a(class_ld.this.b.s(var4));
@@ -388,7 +388,7 @@ public class class_ld {
                      var2 = (this.d[var1] >> 12 & 15) + this.c.a * 16;
                      var3 = this.d[var1] & 255;
                      var7 = (this.d[var1] >> 8 & 15) + this.c.b * 16;
-                     class_cj var8 = new class_cj(var2, var3, var7);
+                     BlockPosition var8 = new BlockPosition(var2, var3, var7);
                      if(class_ld.this.b.p(var8).getBlock().isTileEntity()) {
                         this.a(class_ld.this.b.s(var8));
                      }

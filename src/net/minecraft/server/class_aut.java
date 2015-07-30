@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 
 public class class_aut {
    public final int a;
@@ -29,7 +29,7 @@ public class class_aut {
       float var2 = (float)(var1.a - this.a);
       float var3 = (float)(var1.b - this.b);
       float var4 = (float)(var1.c - this.c);
-      return class_nu.c(var2 * var2 + var3 * var3 + var4 * var4);
+      return MathHelper.sqrt(var2 * var2 + var3 * var3 + var4 * var4);
    }
 
    public float b(class_aut var1) {

@@ -18,7 +18,7 @@ public class class_akc extends Block {
    public static final int O;
 
    public class_akc() {
-      super(Material.e);
+      super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_akc.class_a_in_class_akc.a));
       this.a(CreativeTab.b);
    }
@@ -28,7 +28,7 @@ public class class_akc extends Block {
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return var1.get(a) == class_akc.class_a_in_class_akc.a?MaterialMapColor.y:MaterialMapColor.G;
+      return var1.get(a) == class_akc.class_a_in_class_akc.a?MaterialMapColor.COLOR24:MaterialMapColor.COLOR32;
    }
 
    public int getDropData(IBlockData var1) {

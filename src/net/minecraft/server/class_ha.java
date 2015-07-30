@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
@@ -10,12 +10,12 @@ import net.minecraft.server.class_xa;
 
 public class class_ha implements class_ff {
    private int a;
-   private class_cj b;
+   private BlockPosition b;
 
    public class_ha() {
    }
 
-   public class_ha(class_xa var1, class_cj var2) {
+   public class_ha(class_xa var1, BlockPosition var2) {
       this.a = var1.F();
       this.b = var2;
    }

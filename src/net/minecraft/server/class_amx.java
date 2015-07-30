@@ -4,9 +4,9 @@ import com.google.gson.JsonParseException;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_et;
 import net.minecraft.server.class_eu;
@@ -57,12 +57,12 @@ public class class_amx extends class_amg {
             return true;
          }
 
-         public class_cj c() {
+         public BlockPosition c() {
             return class_amx.this.c;
          }
 
-         public class_awh d() {
-            return new class_awh((double)class_amx.this.c.n() + 0.5D, (double)class_amx.this.c.o() + 0.5D, (double)class_amx.this.c.p() + 0.5D);
+         public Vec3D d() {
+            return new Vec3D((double)class_amx.this.c.getX() + 0.5D, (double)class_amx.this.c.getY() + 0.5D, (double)class_amx.this.c.getZ() + 0.5D);
          }
 
          public World e() {
@@ -139,12 +139,12 @@ public class class_amx extends class_amg {
             return var1x <= 2;
          }
 
-         public class_cj c() {
+         public BlockPosition c() {
             return class_amx.this.c;
          }
 
-         public class_awh d() {
-            return new class_awh((double)class_amx.this.c.n() + 0.5D, (double)class_amx.this.c.o() + 0.5D, (double)class_amx.this.c.p() + 0.5D);
+         public Vec3D d() {
+            return new Vec3D((double)class_amx.this.c.getX() + 0.5D, (double)class_amx.this.c.getY() + 0.5D, (double)class_amx.this.c.getZ() + 0.5D);
          }
 
          public World e() {

@@ -24,3 +24,16 @@ any BlockStateEnum
 di LocaleI18n
 ny INamable
 aen World
+ajk BlockGrass
+ati MaterialGas
+atj MaterialLiquid
+ath MaterialDecoration
+cj BlockPosition
+cj$a BlockPosition$MutableBlockPosition
+cq EnumDirection
+cq$b EnumAxisDirection
+cq$a EnumAxis
+cq&c EnumDirectionLimit
+df BaseBlockPosition
+nu MathHelper
+awh Vec3D

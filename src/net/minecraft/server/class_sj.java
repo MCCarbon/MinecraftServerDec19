@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
@@ -81,13 +81,13 @@ public class class_sj extends class_rm {
             return;
          }
 
-         var4 = class_nu.a(var1) / this.i;
-         float var5 = class_nu.a(var4, 0.1F, 1.0F);
+         var4 = MathHelper.sqrt(var1) / this.i;
+         float var5 = MathHelper.clamp(var4, 0.1F, 1.0F);
          this.b.a(this.c, var5);
-         this.d = class_nu.d(var4 * (float)(this.h - this.g) + (float)this.g);
+         this.d = MathHelper.floor(var4 * (float)(this.h - this.g) + (float)this.g);
       } else if(this.d < 0) {
-         var4 = class_nu.a(var1) / this.i;
-         this.d = class_nu.d(var4 * (float)(this.h - this.g) + (float)this.g);
+         var4 = MathHelper.sqrt(var1) / this.i;
+         this.d = MathHelper.floor(var4 * (float)(this.h - this.g) + (float)this.g);
       }
 
    }

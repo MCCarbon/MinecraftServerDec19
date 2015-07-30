@@ -4,8 +4,8 @@ import net.minecraft.server.class_aan;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_xa;
@@ -20,13 +20,13 @@ public class class_abj extends class_aan {
       this.c = var4;
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      if(var6 != class_cq.b) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+      if(var6 != EnumDirection.UP) {
          return class_oq.b;
-      } else if(!var2.a(var4.a(var6), var6, var1)) {
+      } else if(!var2.a(var4.shift(var6), var6, var1)) {
          return class_oq.b;
-      } else if(var3.p(var4).getBlock() == this.c && var3.d(var4.a())) {
-         var3.a(var4.a(), this.b.getBlockData());
+      } else if(var3.p(var4).getBlock() == this.c && var3.d(var4.shiftUp())) {
+         var3.a(var4.shiftUp(), this.b.getBlockData());
          --var1.b;
          return class_oq.a;
       } else {

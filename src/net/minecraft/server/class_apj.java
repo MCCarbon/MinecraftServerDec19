@@ -11,8 +11,8 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aph;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
 
@@ -61,7 +61,7 @@ public class class_apj implements class_aoh {
          var0 /= 2;
          var1 /= 2;
          if(var0 <= b && var1 <= c) {
-            int var3 = class_nu.a(var0 * b + var1);
+            int var3 = MathHelper.abs(var0 * b + var1);
             if(var3 < a.size()) {
                var2 = (IBlockData)a.get(var3);
             }
@@ -101,12 +101,12 @@ public class class_apj implements class_aoh {
       return "DebugLevelSource";
    }
 
-   public List a(class_qc var1, class_cj var2) {
+   public List a(class_qc var1, BlockPosition var2) {
       class_aez var3 = this.d.b(var2);
       return var3.a(var1);
    }
 
-   public class_cj a(World var1, String var2, class_cj var3) {
+   public BlockPosition a(World var1, String var2, BlockPosition var3) {
       return null;
    }
 
@@ -117,8 +117,8 @@ public class class_apj implements class_aoh {
    public void a(class_aok var1, int var2, int var3) {
    }
 
-   public class_aok a(class_cj var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public class_aok a(BlockPosition var1) {
+      return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 
    static {
@@ -129,7 +129,7 @@ public class class_apj implements class_aoh {
          a.addAll(var1.getBlockStateList().a());
       }
 
-      b = class_nu.f(class_nu.c((float)a.size()));
-      c = class_nu.f((float)a.size() / (float)b);
+      b = MathHelper.ceil(MathHelper.sqrt((float)a.size()));
+      c = MathHelper.ceil((float)a.size() / (float)b);
    }
 }

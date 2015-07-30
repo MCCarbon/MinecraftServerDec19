@@ -3,9 +3,9 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
@@ -52,7 +52,7 @@ public class class_px extends class_pr {
       this.q = this.t;
       this.r = this.u;
       this.w -= 0.029999999329447746D;
-      if(this.o.p(new class_cj(this)).getBlock().getMaterial() == Material.i) {
+      if(this.o.p(new BlockPosition(this)).getBlock().getMaterial() == Material.LAVA) {
          this.w = 0.20000000298023224D;
          this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
          this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -90,7 +90,7 @@ public class class_px extends class_pr {
       this.d(this.v, this.w, this.x);
       float var13 = 0.98F;
       if(this.C) {
-         var13 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.98F;
+         var13 = this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().b) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.98F;
       }
 
       this.v *= (double)var13;
@@ -109,7 +109,7 @@ public class class_px extends class_pr {
    }
 
    public boolean W() {
-      return this.o.a((class_awf)this.aT(), (Material)Material.h, (class_pr)this);
+      return this.o.a((class_awf)this.aT(), (Material)Material.WATER, (class_pr)this);
    }
 
    protected void g(int var1) {

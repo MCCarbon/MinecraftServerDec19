@@ -18,9 +18,9 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asu;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_df;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dp;
 import net.minecraft.server.class_dt;
@@ -35,10 +35,10 @@ import net.minecraft.server.class_xa;
 public class class_asv {
    private final List a = Lists.newArrayList();
    private final List b = Lists.newArrayList();
-   private class_cj c = new class_cj(0, 0, 0);
+   private BlockPosition c = new BlockPosition(0, 0, 0);
    private String d = "?";
 
-   public class_cj a() {
+   public BlockPosition a() {
       return this.c;
    }
 
@@ -50,21 +50,21 @@ public class class_asv {
       return this.d;
    }
 
-   public void a(World var1, class_cj var2, class_cj var3, boolean var4) {
-      if(var3.n() >= 1 && var3.o() >= 1 && var3.p() >= 1) {
-         class_cj var5 = var2.a((class_df)var3).a(-1, -1, -1);
+   public void a(World var1, BlockPosition var2, BlockPosition var3, boolean var4) {
+      if(var3.getX() >= 1 && var3.getY() >= 1 && var3.getZ() >= 1) {
+         BlockPosition var5 = var2.add((BaseBlockPosition)var3).add(-1, -1, -1);
          ArrayList var6 = Lists.newArrayList();
          ArrayList var7 = Lists.newArrayList();
          ArrayList var8 = Lists.newArrayList();
-         class_cj var9 = new class_cj(Math.min(var2.n(), var5.n()), Math.min(var2.o(), var5.o()), Math.min(var2.p(), var5.p()));
-         class_cj var10 = new class_cj(Math.max(var2.n(), var5.n()), Math.max(var2.o(), var5.o()), Math.max(var2.p(), var5.p()));
+         BlockPosition var9 = new BlockPosition(Math.min(var2.getX(), var5.getX()), Math.min(var2.getY(), var5.getY()), Math.min(var2.getZ(), var5.getZ()));
+         BlockPosition var10 = new BlockPosition(Math.max(var2.getX(), var5.getX()), Math.max(var2.getY(), var5.getY()), Math.max(var2.getZ(), var5.getZ()));
          this.c = var3;
-         Iterator var11 = class_cj.b(var9, var10).iterator();
+         Iterator var11 = BlockPosition.allInCubeM(var9, var10).iterator();
 
          while(true) {
             while(var11.hasNext()) {
-               class_cj.class_a_in_class_cj var12 = (class_cj.class_a_in_class_cj)var11.next();
-               class_cj var13 = var12.b(var9);
+               BlockPosition.MutableBlockPosition var12 = (BlockPosition.MutableBlockPosition)var11.next();
+               BlockPosition var13 = var12.substract(var9);
                IBlockData var14 = var1.p(var12);
                class_amg var15 = var1.s(var12);
                if(var15 != null) {
@@ -86,7 +86,7 @@ public class class_asv {
             this.a.addAll(var7);
             this.a.addAll(var8);
             if(var4) {
-               this.a(var1, var9, var10.a(1, 1, 1));
+               this.a(var1, var9, var10.add(1, 1, 1));
             } else {
                this.b.clear();
             }
@@ -96,7 +96,7 @@ public class class_asv {
       }
    }
 
-   private void a(World var1, class_cj var2, class_cj var3) {
+   private void a(World var1, BlockPosition var2, BlockPosition var3) {
       List var4 = var1.a(class_pr.class, new class_awf(var2, var3), new Predicate() {
          public boolean a(class_pr var1) {
             return !(var1 instanceof class_xa);
@@ -109,39 +109,39 @@ public class class_asv {
       });
       this.b.clear();
 
-      class_awh var7;
+      Vec3D var7;
       class_dn var8;
-      class_cj var9;
+      BlockPosition var9;
       for(Iterator var5 = var4.iterator(); var5.hasNext(); this.b.add(new class_asv.class_b_in_class_asv(var7, var9, var8, null))) {
          class_pr var6 = (class_pr)var5.next();
-         var7 = new class_awh(var6.s - (double)var2.n(), var6.t - (double)var2.o(), var6.u - (double)var2.p());
+         var7 = new Vec3D(var6.s - (double)var2.getX(), var6.t - (double)var2.getY(), var6.u - (double)var2.getZ());
          var8 = new class_dn();
          var6.d(var8);
          if(var6 instanceof class_vc) {
-            var9 = ((class_vc)var6).n().b(var2);
+            var9 = ((class_vc)var6).n().substract(var2);
          } else {
-            var9 = new class_cj(var7);
+            var9 = new BlockPosition(var7);
          }
       }
 
    }
 
-   public Map a(class_cj var1, class_asu var2) {
+   public Map a(BlockPosition var1, class_asu var2) {
       HashMap var3 = Maps.newHashMap();
       class_arw var4 = var2.g();
       Iterator var5 = this.a.iterator();
 
       while(true) {
          class_asv.class_a_in_class_asv var6;
-         class_cj var7;
+         BlockPosition var7;
          do {
             if(!var5.hasNext()) {
                return var3;
             }
 
             var6 = (class_asv.class_a_in_class_asv)var5.next();
-            var7 = this.a(var2, var6.a).a((class_df)var1);
-         } while(var4 != null && !var4.b((class_df)var7));
+            var7 = this.a(var2, var6.a).add((BaseBlockPosition)var1);
+         } while(var4 != null && !var4.b((BaseBlockPosition)var7));
 
          IBlockData var8 = var6.b;
          if(var8.getBlock() == Blocks.STRUCTURE_BLOCK && var6.c != null) {
@@ -153,30 +153,30 @@ public class class_asv {
       }
    }
 
-   public class_cj a(class_asu var1, class_cj var2, class_asv var3, class_asu var4, class_cj var5) {
-      class_cj var6 = this.a(var1, var2);
-      class_cj var7 = var3.a(var4, var5);
-      return var6.b(var7);
+   public BlockPosition a(class_asu var1, BlockPosition var2, class_asv var3, class_asu var4, BlockPosition var5) {
+      BlockPosition var6 = this.a(var1, var2);
+      BlockPosition var7 = var3.a(var4, var5);
+      return var6.substract(var7);
    }
 
-   public class_cj a(class_asu var1, class_cj var2) {
+   public BlockPosition a(class_asu var1, BlockPosition var2) {
       return this.a(var2, var1.b(), var1.c());
    }
 
-   public void a(World var1, class_cj var2, class_asu var3) {
+   public void a(World var1, BlockPosition var2, class_asu var3) {
       var3.i();
       this.b(var1, var2, var3);
    }
 
-   public void b(World var1, class_cj var2, class_asu var3) {
-      if(!this.a.isEmpty() && this.c.n() >= 1 && this.c.o() >= 1 && this.c.p() >= 1) {
+   public void b(World var1, BlockPosition var2, class_asu var3) {
+      if(!this.a.isEmpty() && this.c.getX() >= 1 && this.c.getY() >= 1 && this.c.getZ() >= 1) {
          class_arw var4 = var3.g();
          Iterator var5 = this.a.iterator();
 
          while(true) {
             class_asv.class_a_in_class_asv var6;
             Block var7;
-            class_cj var8;
+            BlockPosition var8;
             do {
                do {
                   do {
@@ -184,7 +184,7 @@ public class class_asv {
                         var5 = this.a.iterator();
 
                         while(true) {
-                           class_cj var12;
+                           BlockPosition var12;
                            do {
                               do {
                                  if(!var5.hasNext()) {
@@ -198,8 +198,8 @@ public class class_asv {
                                  var6 = (class_asv.class_a_in_class_asv)var5.next();
                               } while(var3.f() && var6.b.getBlock() == Blocks.AIR);
 
-                              var12 = this.a(var3, var6.a).a((class_df)var2);
-                           } while(var4 != null && !var4.b((class_df)var12));
+                              var12 = this.a(var3, var6.a).add((BaseBlockPosition)var2);
+                           } while(var4 != null && !var4.b((BaseBlockPosition)var12));
 
                            var1.b(var12, var6.b.getBlock());
                            if(var6.c != null) {
@@ -216,8 +216,8 @@ public class class_asv {
                   } while(var3.f() && var7 == Blocks.AIR);
                } while(var3.h() && var7 == Blocks.STRUCTURE_BLOCK);
 
-               var8 = this.a(var3, var6.a).a((class_df)var2);
-            } while(var4 != null && !var4.b((class_df)var8));
+               var8 = this.a(var3, var6.a).add((BaseBlockPosition)var2);
+            } while(var4 != null && !var4.b((BaseBlockPosition)var8));
 
             IBlockData var9 = var7.a(var6.b, var3.b());
             IBlockData var10 = var7.a(var9, var3.c());
@@ -229,16 +229,16 @@ public class class_asv {
                      ((class_oj)var11).l();
                   }
 
-                  var1.a((class_cj)var8, (IBlockData)Blocks.BARRIER.getBlockData(), 4);
+                  var1.a((BlockPosition)var8, (IBlockData)Blocks.BARRIER.getBlockData(), 4);
                }
             }
 
-            if(var1.a((class_cj)var8, (IBlockData)var10, 2) && var6.c != null) {
+            if(var1.a((BlockPosition)var8, (IBlockData)var10, 2) && var6.c != null) {
                var11 = var1.s(var8);
                if(var11 != null) {
-                  var6.c.a("x", var8.n());
-                  var6.c.a("y", var8.o());
-                  var6.c.a("z", var8.p());
+                  var6.c.a("x", var8.getX());
+                  var6.c.a("y", var8.getY());
+                  var6.c.a("z", var8.getZ());
                   var11.a(var6.c);
                }
             }
@@ -246,28 +246,28 @@ public class class_asv {
       }
    }
 
-   private void a(World var1, class_cj var2, Block.class_a_in_class_agj var3, Block.class_c_in_class_agj var4, class_arw var5) {
+   private void a(World var1, BlockPosition var2, Block.class_a_in_class_agj var3, Block.class_c_in_class_agj var4, class_arw var5) {
       Iterator var6 = this.b.iterator();
 
       while(true) {
          class_asv.class_b_in_class_asv var7;
-         class_cj var8;
+         BlockPosition var8;
          do {
             if(!var6.hasNext()) {
                return;
             }
 
             var7 = (class_asv.class_b_in_class_asv)var6.next();
-            var8 = this.a(var7.b, var3, var4).a((class_df)var2);
-         } while(var5 != null && !var5.b((class_df)var8));
+            var8 = this.a(var7.b, var3, var4).add((BaseBlockPosition)var2);
+         } while(var5 != null && !var5.b((BaseBlockPosition)var8));
 
          class_dn var9 = var7.c;
-         class_awh var10 = this.a(var7.a, var3, var4);
-         class_awh var11 = var10.b((double)var2.n(), (double)var2.o(), (double)var2.p());
+         Vec3D var10 = this.a(var7.a, var3, var4);
+         Vec3D var11 = var10.add((double)var2.getX(), (double)var2.getY(), (double)var2.getZ());
          class_du var12 = new class_du();
-         var12.a((class_eb)(new class_dp(var11.a)));
-         var12.a((class_eb)(new class_dp(var11.b)));
-         var12.a((class_eb)(new class_dp(var11.c)));
+         var12.a((class_eb)(new class_dp(var11.x)));
+         var12.a((class_eb)(new class_dp(var11.y)));
+         var12.a((class_eb)(new class_dp(var11.z)));
          var9.a((String)"Pos", (class_eb)var12);
          UUID var13 = UUID.randomUUID();
          var9.a("UUIDMost", var13.getMostSignificantBits());
@@ -284,12 +284,12 @@ public class class_asv {
             if(var14 instanceof class_vc) {
                var14.a(var3);
                var14.a(var4);
-               var14.b((double)var8.n(), (double)var8.o(), (double)var8.p());
-               var14.b(var11.a, var11.b, var11.c, var14.y, var14.z);
+               var14.b((double)var8.getX(), (double)var8.getY(), (double)var8.getZ());
+               var14.b(var11.x, var11.y, var11.z, var14.y, var14.z);
             } else {
                float var15 = var14.a(var3);
                var15 += var14.y - var14.a(var4);
-               var14.b(var11.a, var11.b, var11.c, var15, var14.z);
+               var14.b(var11.x, var11.y, var11.z, var15, var14.z);
             }
 
             var1.a(var14);
@@ -297,20 +297,20 @@ public class class_asv {
       }
    }
 
-   public class_cj a(Block.class_c_in_class_agj var1) {
+   public BlockPosition a(Block.class_c_in_class_agj var1) {
       switch(class_asv.SyntheticClass_1.a[var1.ordinal()]) {
       case 1:
       case 2:
-         return new class_cj(this.c.p(), this.c.o(), this.c.n());
+         return new BlockPosition(this.c.getZ(), this.c.getY(), this.c.getX());
       default:
          return this.c;
       }
    }
 
-   private class_cj a(class_cj var1, Block.class_a_in_class_agj var2, Block.class_c_in_class_agj var3) {
-      int var4 = var1.n();
-      int var5 = var1.o();
-      int var6 = var1.p();
+   private BlockPosition a(BlockPosition var1, Block.class_a_in_class_agj var2, Block.class_c_in_class_agj var3) {
+      int var4 = var1.getX();
+      int var5 = var1.getY();
+      int var6 = var1.getZ();
       boolean var7 = true;
       switch(class_asv.SyntheticClass_1.b[var2.ordinal()]) {
       case 1:
@@ -325,20 +325,20 @@ public class class_asv {
 
       switch(class_asv.SyntheticClass_1.a[var3.ordinal()]) {
       case 1:
-         return new class_cj(var6, var5, -var4);
+         return new BlockPosition(var6, var5, -var4);
       case 2:
-         return new class_cj(-var6, var5, var4);
+         return new BlockPosition(-var6, var5, var4);
       case 3:
-         return new class_cj(-var4, var5, -var6);
+         return new BlockPosition(-var4, var5, -var6);
       default:
-         return var7?new class_cj(var4, var5, var6):var1;
+         return var7?new BlockPosition(var4, var5, var6):var1;
       }
    }
 
-   private class_awh a(class_awh var1, Block.class_a_in_class_agj var2, Block.class_c_in_class_agj var3) {
-      double var4 = var1.a;
-      double var6 = var1.b;
-      double var8 = var1.c;
+   private Vec3D a(Vec3D var1, Block.class_a_in_class_agj var2, Block.class_c_in_class_agj var3) {
+      double var4 = var1.x;
+      double var6 = var1.y;
+      double var8 = var1.z;
       boolean var10 = true;
       switch(class_asv.SyntheticClass_1.b[var2.ordinal()]) {
       case 1:
@@ -353,13 +353,13 @@ public class class_asv {
 
       switch(class_asv.SyntheticClass_1.a[var3.ordinal()]) {
       case 1:
-         return new class_awh(var8, var6, 1.0D - var4);
+         return new Vec3D(var8, var6, 1.0D - var4);
       case 2:
-         return new class_awh(1.0D - var8, var6, var4);
+         return new Vec3D(1.0D - var8, var6, var4);
       case 3:
-         return new class_awh(1.0D - var4, var6, 1.0D - var8);
+         return new Vec3D(1.0D - var4, var6, 1.0D - var8);
       default:
-         return var10?new class_awh(var4, var6, var8):var1;
+         return var10?new Vec3D(var4, var6, var8):var1;
       }
    }
 
@@ -370,7 +370,7 @@ public class class_asv {
       for(Iterator var3 = this.a.iterator(); var3.hasNext(); var2.a((class_eb)var5)) {
          class_asv.class_a_in_class_asv var4 = (class_asv.class_a_in_class_asv)var3.next();
          var5 = new class_dn();
-         var5.a((String)"pos", (class_eb)this.a(new int[]{var4.a.n(), var4.a.o(), var4.a.p()}));
+         var5.a((String)"pos", (class_eb)this.a(new int[]{var4.a.getX(), var4.a.getY(), var4.a.getZ()}));
          var5.a("state", Block.getCombinedId(var4.b));
          if(var4.c != null) {
             var5.a((String)"nbt", (class_eb)var4.c);
@@ -383,8 +383,8 @@ public class class_asv {
       for(Iterator var8 = this.b.iterator(); var8.hasNext(); var7.a((class_eb)var6)) {
          class_asv.class_b_in_class_asv var9 = (class_asv.class_b_in_class_asv)var8.next();
          var6 = new class_dn();
-         var6.a((String)"pos", (class_eb)this.a(new double[]{var9.a.a, var9.a.b, var9.a.c}));
-         var6.a((String)"blockPos", (class_eb)this.a(new int[]{var9.b.n(), var9.b.o(), var9.b.p()}));
+         var6.a((String)"pos", (class_eb)this.a(new double[]{var9.a.x, var9.a.y, var9.a.z}));
+         var6.a((String)"blockPos", (class_eb)this.a(new int[]{var9.b.getX(), var9.b.getY(), var9.b.getZ()}));
          if(var9.c != null) {
             var6.a((String)"nbt", (class_eb)var9.c);
          }
@@ -392,7 +392,7 @@ public class class_asv {
 
       var1.a((String)"blocks", (class_eb)var2);
       var1.a((String)"entities", (class_eb)var7);
-      var1.a((String)"size", (class_eb)this.a(new int[]{this.c.n(), this.c.o(), this.c.p()}));
+      var1.a((String)"size", (class_eb)this.a(new int[]{this.c.getX(), this.c.getY(), this.c.getZ()}));
       var1.a("version", (int)1);
       var1.a("author", this.d);
    }
@@ -401,14 +401,14 @@ public class class_asv {
       this.a.clear();
       this.b.clear();
       class_du var2 = var1.c("size", 3);
-      this.c = new class_cj(var2.c(0), var2.c(1), var2.c(2));
+      this.c = new BlockPosition(var2.c(0), var2.c(1), var2.c(2));
       this.d = var1.k("author");
       class_du var3 = var1.c("blocks", 10);
 
       for(int var4 = 0; var4 < var3.c(); ++var4) {
          class_dn var5 = var3.b(var4);
          class_du var6 = var5.c("pos", 3);
-         class_cj var7 = new class_cj(var6.c(0), var6.c(1), var6.c(2));
+         BlockPosition var7 = new BlockPosition(var6.c(0), var6.c(1), var6.c(2));
          int var8 = var5.g("state");
          IBlockData var9 = Block.getByCombinedId(var8);
          class_dn var10;
@@ -426,9 +426,9 @@ public class class_asv {
       for(int var13 = 0; var13 < var12.c(); ++var13) {
          class_dn var14 = var12.b(var13);
          class_du var15 = var14.c("pos", 6);
-         class_awh var16 = new class_awh(var15.e(0), var15.e(1), var15.e(2));
+         Vec3D var16 = new Vec3D(var15.e(0), var15.e(1), var15.e(2));
          class_du var17 = var14.c("blockPos", 3);
-         class_cj var18 = new class_cj(var17.c(0), var17.c(1), var17.c(2));
+         BlockPosition var18 = new BlockPosition(var17.c(0), var17.c(1), var17.c(2));
          if(var14.d("nbt")) {
             class_dn var11 = var14.n("nbt");
             this.b.add(new class_asv.class_b_in_class_asv(var16, var18, var11, null));
@@ -507,35 +507,35 @@ public class class_asv {
    }
 
    static class class_b_in_class_asv {
-      public final class_awh a;
-      public final class_cj b;
+      public final Vec3D a;
+      public final BlockPosition b;
       public final class_dn c;
 
-      private class_b_in_class_asv(class_awh var1, class_cj var2, class_dn var3) {
+      private class_b_in_class_asv(Vec3D var1, BlockPosition var2, class_dn var3) {
          this.a = var1;
          this.b = var2;
          this.c = var3;
       }
 
       // $FF: synthetic method
-      class_b_in_class_asv(class_awh var1, class_cj var2, class_dn var3, Object var4) {
+      class_b_in_class_asv(Vec3D var1, BlockPosition var2, class_dn var3, Object var4) {
          this(var1, var2, var3);
       }
    }
 
    static class class_a_in_class_asv {
-      public final class_cj a;
+      public final BlockPosition a;
       public final IBlockData b;
       public final class_dn c;
 
-      private class_a_in_class_asv(class_cj var1, IBlockData var2, class_dn var3) {
+      private class_a_in_class_asv(BlockPosition var1, IBlockData var2, class_dn var3) {
          this.a = var1;
          this.b = var2;
          this.c = var3;
       }
 
       // $FF: synthetic method
-      class_a_in_class_asv(class_cj var1, IBlockData var2, class_dn var3, Object var4) {
+      class_a_in_class_asv(BlockPosition var1, IBlockData var2, class_dn var3, Object var4) {
          this(var1, var2, var3);
       }
    }

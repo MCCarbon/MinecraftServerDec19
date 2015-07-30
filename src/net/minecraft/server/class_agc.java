@@ -4,11 +4,11 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_agc extends Block {
    protected class_agc() {
-      super(Material.I);
+      super(Material.BANNER);
       this.setUnbreakable();
       this.setExplosionResist(6000001.0F);
       this.disableBreakStat();
@@ -23,6 +23,6 @@ public class class_agc extends Block {
       return false;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
    }
 }

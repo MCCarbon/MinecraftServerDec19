@@ -9,7 +9,7 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
 import net.minecraft.server.class_zy;
 
@@ -17,7 +17,7 @@ public class class_amc extends Block {
    public static final BlockStateEnum a = BlockStateEnum.of("color", class_zy.class);
 
    protected class_amc() {
-      super(Material.r);
+      super(Material.WOOL);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_zy.a));
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
       this.setTicking(true);
@@ -41,7 +41,7 @@ public class class_amc extends Block {
       this.b(0);
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       this.b(0);
    }
 
@@ -51,15 +51,15 @@ public class class_amc extends Block {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, var3, 1.0F);
    }
 
-   public boolean d(World var1, class_cj var2) {
+   public boolean d(World var1, BlockPosition var2) {
       return super.d(var1, var2) && this.e(var1, var2);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   private boolean e(World var1, class_cj var2, IBlockData var3) {
+   private boolean e(World var1, BlockPosition var2, IBlockData var3) {
       if(!this.e(var1, var2)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -69,8 +69,8 @@ public class class_amc extends Block {
       }
    }
 
-   private boolean e(World var1, class_cj var2) {
-      return !var1.d(var2.b());
+   private boolean e(World var1, BlockPosition var2) {
+      return !var1.d(var2.shiftDown());
    }
 
    public int getDropData(IBlockData var1) {

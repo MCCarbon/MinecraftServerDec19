@@ -9,7 +9,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_agi extends class_ahd {
    public static final class_anz a = class_anz.a("age", 0, 3);
@@ -30,7 +30,7 @@ public class class_agi extends class_ahd {
       return Items.cL;
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(var4.nextInt(3) == 0) {
          this.e(var1, var2, var3);
       } else {

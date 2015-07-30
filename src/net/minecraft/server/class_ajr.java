@@ -11,7 +11,7 @@ import net.minecraft.server.CreativeTab;
 
 public class class_ajr extends Block {
    public class_ajr() {
-      super(Material.e);
+      super(Material.STONE);
       this.a(CreativeTab.b);
    }
 
@@ -20,6 +20,6 @@ public class class_ajr extends Block {
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return MaterialMapColor.E;
+      return MaterialMapColor.COLOR30;
    }
 }

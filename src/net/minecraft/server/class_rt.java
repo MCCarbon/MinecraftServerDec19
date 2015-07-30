@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_rm;
@@ -28,7 +28,7 @@ public class class_rt extends class_rm {
       } else if(this.b.bd().nextInt(500) != 0) {
          return false;
       } else {
-         this.a = this.d.af().a(new class_cj(this.b), 0);
+         this.a = this.d.af().a(new BlockPosition(this.b), 0);
          if(this.a == null) {
             return false;
          } else if(this.f() && this.b.o(true)) {

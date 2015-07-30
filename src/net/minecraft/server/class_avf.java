@@ -9,12 +9,12 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.World;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_ave;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_gu;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_va;
 import net.minecraft.server.class_xa;
 
@@ -34,8 +34,8 @@ public class class_avf extends class_avd {
 
    public void a(double var1, double var3, int var5) {
       int var6 = 128 * (1 << var5);
-      int var7 = class_nu.c((var1 + 64.0D) / (double)var6);
-      int var8 = class_nu.c((var3 + 64.0D) / (double)var6);
+      int var7 = MathHelper.floor((var1 + 64.0D) / (double)var6);
+      int var8 = MathHelper.floor((var3 + 64.0D) / (double)var6);
       this.b = var7 * var6 + var6 / 2 - 64;
       this.c = var8 * var6 + var6 / 2 - 64;
    }
@@ -45,7 +45,7 @@ public class class_avf extends class_avd {
       this.b = var1.g("xCenter");
       this.c = var1.g("zCenter");
       this.e = var1.e("scale");
-      this.e = (byte)class_nu.a(this.e, 0, 4);
+      this.e = (byte)MathHelper.clamp(this.e, 0, 4);
       short var2 = var1.f("width");
       short var3 = var1.f("height");
       if(var2 == 128 && var3 == 128) {
@@ -104,8 +104,8 @@ public class class_avf extends class_avd {
 
       if(var2.y()) {
          class_va var7 = var2.z();
-         class_cj var8 = var7.n();
-         this.a(1, var1.o, "frame-" + var7.F(), (double)var8.n(), (double)var8.p(), (double)(var7.b.b() * 90));
+         BlockPosition var8 = var7.n();
+         this.a(1, var1.o, "frame-" + var7.F(), (double)var8.getX(), (double)var8.getZ(), (double)(var7.b.getHorizontalId() * 90));
       }
 
       if(var2.n() && var2.o().b("Decorations", 9)) {

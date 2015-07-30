@@ -146,7 +146,7 @@ public class class_amm extends class_amu implements class_oj {
    }
 
    public boolean a(class_xa var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.s(this.c) != this?false:var1.e((double)this.c.getX() + 0.5D, (double)this.c.getY() + 0.5D, (double)this.c.getZ() + 0.5D) <= 64.0D;
    }
 
    public void b(class_xa var1) {

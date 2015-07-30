@@ -14,8 +14,8 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 
@@ -24,8 +24,8 @@ public class class_aht extends Block {
    public static final class_anw b;
 
    public class_aht() {
-      super(Material.e, MaterialMapColor.C);
-      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.c).set(b, Boolean.valueOf(false)));
+      super(Material.STONE, MaterialMapColor.COLOR28);
+      this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Boolean.valueOf(false)));
    }
 
    public boolean isOpaqueCube() {
@@ -36,7 +36,7 @@ public class class_aht extends Block {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.8125F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       if(((Boolean)var1.p(var2).get(b)).booleanValue()) {
@@ -51,25 +51,25 @@ public class class_aht extends Block {
       return null;
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.getBlockData().set(a, var8.aR().d()).set(b, Boolean.valueOf(false));
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData().set(a, var8.aR().getOpposite()).set(b, Boolean.valueOf(false));
    }
 
    public boolean Q() {
       return true;
    }
 
-   public int l(World var1, class_cj var2) {
+   public int l(World var1, BlockPosition var2) {
       return ((Boolean)var1.p(var2).get(b)).booleanValue()?15:0;
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(b, Boolean.valueOf((var1 & 4) != 0)).set(a, class_cq.b(var1 & 3));
+      return this.getBlockData().set(b, Boolean.valueOf((var1 & 4) != 0)).set(a, EnumDirection.getByHorizontalId(var1 & 3));
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_cq)var1.get(a)).b();
+      int var3 = var2 | ((EnumDirection)var1.get(a)).getHorizontalId();
       if(((Boolean)var1.get(b)).booleanValue()) {
          var3 |= 4;
       }
@@ -78,11 +78,11 @@ public class class_aht extends Block {
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(a, var2.a((class_cq)var1.get(a)));
+      return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
    }
 
    protected BlockStateList createBlockStateList() {

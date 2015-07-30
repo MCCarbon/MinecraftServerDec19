@@ -21,8 +21,8 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.INamable;
 import net.minecraft.server.class_oo;
@@ -37,7 +37,7 @@ public class class_ahb extends class_ahh implements class_ahw {
 
    public class_ahb(boolean var1) {
       super(var1);
-      this.setBlockData(this.blockStateList.getFirst().set(O, class_cq.c).set(a, Boolean.valueOf(false)).set(b, class_ahb.class_a_in_class_ahb.a));
+      this.setBlockData(this.blockStateList.getFirst().set(O, EnumDirection.NORTH).set(a, Boolean.valueOf(false)).set(b, class_ahb.class_a_in_class_ahb.a));
       this.isTileEntity = true;
    }
 
@@ -56,14 +56,14 @@ public class class_ahb extends class_ahh implements class_ahw {
    protected IBlockData e(IBlockData var1) {
       Boolean var2 = (Boolean)var1.get(a);
       class_ahb.class_a_in_class_ahb var3 = (class_ahb.class_a_in_class_ahb)var1.get(b);
-      class_cq var4 = (class_cq)var1.get(O);
+      EnumDirection var4 = (EnumDirection)var1.get(O);
       return Blocks.POWERED_COMPARATOR.getBlockData().set(O, var4).set(a, var2).set(b, var3);
    }
 
    protected IBlockData k(IBlockData var1) {
       Boolean var2 = (Boolean)var1.get(a);
       class_ahb.class_a_in_class_ahb var3 = (class_ahb.class_a_in_class_ahb)var1.get(b);
-      class_cq var4 = (class_cq)var1.get(O);
+      EnumDirection var4 = (EnumDirection)var1.get(O);
       return Blocks.UNPOWERED_COMPARATOR.getBlockData().set(O, var4).set(a, var2).set(b, var3);
    }
 
@@ -71,16 +71,16 @@ public class class_ahb extends class_ahh implements class_ahw {
       return this.N || ((Boolean)var1.get(a)).booleanValue();
    }
 
-   protected int a(class_aer var1, class_cj var2, IBlockData var3) {
+   protected int a(class_aer var1, BlockPosition var2, IBlockData var3) {
       class_amg var4 = var1.s(var2);
       return var4 instanceof class_amk?((class_amk)var4).b():0;
    }
 
-   private int j(World var1, class_cj var2, IBlockData var3) {
+   private int j(World var1, BlockPosition var2, IBlockData var3) {
       return var3.get(b) == class_ahb.class_a_in_class_ahb.b?Math.max(this.f(var1, var2, var3) - this.c((class_aer) var1, var2, var3), 0):this.f(var1, var2, var3);
    }
 
-   protected boolean e(World var1, class_cj var2, IBlockData var3) {
+   protected boolean e(World var1, BlockPosition var2, IBlockData var3) {
       int var4 = this.f(var1, var2, var3);
       if(var4 >= 15) {
          return true;
@@ -92,19 +92,19 @@ public class class_ahb extends class_ahh implements class_ahw {
       }
    }
 
-   protected int f(World var1, class_cj var2, IBlockData var3) {
+   protected int f(World var1, BlockPosition var2, IBlockData var3) {
       int var4 = super.f(var1, var2, var3);
-      class_cq var5 = (class_cq)var3.get(O);
-      class_cj var6 = var2.a(var5);
+      EnumDirection var5 = (EnumDirection)var3.get(O);
+      BlockPosition var6 = var2.shift(var5);
       Block var7 = var1.p(var6).getBlock();
       if(var7.Q()) {
          var4 = var7.l(var1, var6);
       } else if(var4 < 15 && var7.isOccluding()) {
-         var6 = var6.a(var5);
+         var6 = var6.shift(var5);
          var7 = var1.p(var6).getBlock();
          if(var7.Q()) {
             var4 = var7.l(var1, var6);
-         } else if(var7.getMaterial() == Material.a) {
+         } else if(var7.getMaterial() == Material.AIR) {
             class_va var8 = this.a(var1, var5, var6);
             if(var8 != null) {
                var4 = var8.q();
@@ -115,8 +115,8 @@ public class class_ahb extends class_ahh implements class_ahw {
       return var4;
    }
 
-   private class_va a(World var1, final class_cq var2, class_cj var3) {
-      List var4 = var1.a(class_va.class, new class_awf((double)var3.n(), (double)var3.o(), (double)var3.p(), (double)(var3.n() + 1), (double)(var3.o() + 1), (double)(var3.p() + 1)), new Predicate() {
+   private class_va a(World var1, final EnumDirection var2, BlockPosition var3) {
+      List var4 = var1.a(class_va.class, new class_awf((double)var3.getX(), (double)var3.getY(), (double)var3.getZ(), (double)(var3.getX() + 1), (double)(var3.getY() + 1), (double)(var3.getZ() + 1)), new Predicate() {
          public boolean a(class_pr var1) {
             return var1 != null && var1.aR() == var2;
          }
@@ -129,20 +129,20 @@ public class class_ahb extends class_ahh implements class_ahw {
       return var4.size() == 1?(class_va)var4.get(0):null;
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(!var4.bH.e) {
          return false;
       } else {
          var3 = var3.a(b);
-         var1.a((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, "random.click", 0.3F, var3.get(b) == class_ahb.class_a_in_class_ahb.b?0.55F:0.5F);
-         var1.a((class_cj)var2, (IBlockData)var3, 2);
+         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, var3.get(b) == class_ahb.class_a_in_class_ahb.b?0.55F:0.5F);
+         var1.a((BlockPosition)var2, (IBlockData)var3, 2);
          this.k(var1, var2, var3);
          return true;
       }
    }
 
-   protected void g(World var1, class_cj var2, IBlockData var3) {
-      if(!var1.a((class_cj)var2, (Block)this)) {
+   protected void g(World var1, BlockPosition var2, IBlockData var3) {
+      if(!var1.a((BlockPosition)var2, (Block)this)) {
          int var4 = this.j(var1, var2, var3);
          class_amg var5 = var1.s(var2);
          int var6 = var5 instanceof class_amk?((class_amk)var5).b():0;
@@ -157,7 +157,7 @@ public class class_ahb extends class_ahh implements class_ahw {
       }
    }
 
-   private void k(World var1, class_cj var2, IBlockData var3) {
+   private void k(World var1, BlockPosition var2, IBlockData var3) {
       int var4 = this.j(var1, var2, var3);
       class_amg var5 = var1.s(var2);
       int var6 = 0;
@@ -171,9 +171,9 @@ public class class_ahb extends class_ahh implements class_ahw {
          boolean var9 = this.e(var1, var2, var3);
          boolean var8 = this.l(var3);
          if(var8 && !var9) {
-            var1.a((class_cj)var2, (IBlockData)var3.set(a, Boolean.valueOf(false)), 2);
+            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(false)), 2);
          } else if(!var8 && var9) {
-            var1.a((class_cj)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 2);
+            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 2);
          }
 
          this.h(var1, var2, var3);
@@ -181,26 +181,26 @@ public class class_ahb extends class_ahh implements class_ahw {
 
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(this.N) {
-         var1.a((class_cj)var2, (IBlockData)this.k(var3).set(a, Boolean.valueOf(true)), 4);
+         var1.a((BlockPosition)var2, (IBlockData)this.k(var3).set(a, Boolean.valueOf(true)), 4);
       }
 
       this.k(var1, var2, var3);
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       super.c(var1, var2, var3);
       var1.a(var2, this.a(var1, 0));
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       super.b(var1, var2, var3);
       var1.t(var2);
       this.h(var1, var2, var3);
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, int var4, int var5) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, int var4, int var5) {
       super.a(var1, var2, var3, var4, var5);
       class_amg var6 = var1.s(var2);
       return var6 == null?false:var6.c(var4, var5);
@@ -211,12 +211,12 @@ public class class_ahb extends class_ahh implements class_ahw {
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(O, class_cq.b(var1)).set(a, Boolean.valueOf((var1 & 8) > 0)).set(b, (var1 & 4) > 0?class_ahb.class_a_in_class_ahb.b:class_ahb.class_a_in_class_ahb.a);
+      return this.getBlockData().set(O, EnumDirection.getByHorizontalId(var1)).set(a, Boolean.valueOf((var1 & 8) > 0)).set(b, (var1 & 4) > 0?class_ahb.class_a_in_class_ahb.b:class_ahb.class_a_in_class_ahb.a);
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_cq)var1.get(O)).b();
+      int var3 = var2 | ((EnumDirection)var1.get(O)).getHorizontalId();
       if(((Boolean)var1.get(a)).booleanValue()) {
          var3 |= 8;
       }
@@ -229,19 +229,19 @@ public class class_ahb extends class_ahh implements class_ahw {
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(O, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:var1.set(O, var2.a((EnumDirection)var1.get(O)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(O)));
    }
 
    protected BlockStateList createBlockStateList() {
       return new BlockStateList(this, new IBlockState[]{O, b, a});
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.getBlockData().set(O, var8.aR().d()).set(a, Boolean.valueOf(false)).set(b, class_ahb.class_a_in_class_ahb.a);
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData().set(O, var8.aR().getOpposite()).set(a, Boolean.valueOf(false)).set(b, class_ahb.class_a_in_class_ahb.a);
    }
 
    public static enum class_a_in_class_ahb implements INamable {

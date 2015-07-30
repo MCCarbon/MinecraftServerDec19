@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_eu;
@@ -11,13 +11,13 @@ import net.minecraft.server.class_fj;
 
 public class class_hw implements class_ff {
    private World a;
-   private class_cj b;
+   private BlockPosition b;
    private class_eu[] c;
 
    public class_hw() {
    }
 
-   public class_hw(World var1, class_cj var2, class_eu[] var3) {
+   public class_hw(World var1, BlockPosition var2, class_eu[] var3) {
       this.a = var1;
       this.b = var2;
       this.c = new class_eu[]{var3[0], var3[1], var3[2], var3[3]};

@@ -30,11 +30,11 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_ng;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -96,7 +96,7 @@ public class class_aok {
             for(int var9 = 0; var9 < var5; ++var9) {
                int var10 = var7 * var5 * 16 | var8 * var5 | var9;
                IBlockData var11 = var2.a(var10);
-               if(var11.getBlock().getMaterial() != Material.a) {
+               if(var11.getBlock().getMaterial() != Material.AIR) {
                   int var12 = var9 >> 4;
                   if(this.d[var12] == null) {
                      this.d[var12] = new class_aol(var12 << 4, var6);
@@ -114,8 +114,8 @@ public class class_aok {
       return var1 == this.a && var2 == this.b;
    }
 
-   public int f(class_cj var1) {
-      return this.b(var1.n() & 15, var1.p() & 15);
+   public int f(BlockPosition var1) {
+      return this.b(var1.getX() & 15, var1.getZ() & 15);
    }
 
    public int b(int var1, int var2) {
@@ -170,7 +170,7 @@ public class class_aok {
                      class_aol var7 = this.d[var5 >> 4];
                      if(var7 != null) {
                         var7.a(var2, var5 & 15, var3, var4);
-                        this.i.n(new class_cj((this.a << 4) + var2, var5, (this.b << 4) + var3));
+                        this.i.n(new BlockPosition((this.a << 4) + var2, var5, (this.b << 4) + var3));
                      }
                   }
 
@@ -190,7 +190,7 @@ public class class_aok {
 
    private void h(boolean var1) {
       this.i.B.a("recheckGaps");
-      if(this.i.a((class_cj)(new class_cj(this.a * 16 + 8, 0, this.b * 16 + 8)), (int)16)) {
+      if(this.i.a((BlockPosition)(new BlockPosition(this.a * 16 + 8, 0, this.b * 16 + 8)), (int)16)) {
          for(int var2 = 0; var2 < 16; ++var2) {
             for(int var3 = 0; var3 < 16; ++var3) {
                if(this.g[var2 + var3 * 16]) {
@@ -201,17 +201,17 @@ public class class_aok {
                   int var7 = Integer.MAX_VALUE;
 
                   Iterator var8;
-                  class_cq var9;
-                  for(var8 = class_cq.class_c_in_class_cq.a.iterator(); var8.hasNext(); var7 = Math.min(var7, this.i.b(var5 + var9.g(), var6 + var9.i()))) {
-                     var9 = (class_cq)var8.next();
+                  EnumDirection var9;
+                  for(var8 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator(); var8.hasNext(); var7 = Math.min(var7, this.i.b(var5 + var9.getAdjacentX(), var6 + var9.getAdjacentZ()))) {
+                     var9 = (EnumDirection)var8.next();
                   }
 
                   this.c(var5, var6, var7);
-                  var8 = class_cq.class_c_in_class_cq.a.iterator();
+                  var8 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
                   while(var8.hasNext()) {
-                     var9 = (class_cq)var8.next();
-                     this.c(var5 + var9.g(), var6 + var9.i(), var4);
+                     var9 = (EnumDirection)var8.next();
+                     this.c(var5 + var9.getAdjacentX(), var6 + var9.getAdjacentZ(), var4);
                   }
 
                   if(var1) {
@@ -229,7 +229,7 @@ public class class_aok {
    }
 
    private void c(int var1, int var2, int var3) {
-      int var4 = this.i.m(new class_cj(var1, 0, var2)).o();
+      int var4 = this.i.m(new BlockPosition(var1, 0, var2)).getY();
       if(var4 > var3) {
          this.a(var1, var2, var3, var4 + 1);
       } else if(var4 < var3) {
@@ -239,9 +239,9 @@ public class class_aok {
    }
 
    private void a(int var1, int var2, int var3, int var4) {
-      if(var4 > var3 && this.i.a((class_cj)(new class_cj(var1, 0, var2)), (int)16)) {
+      if(var4 > var3 && this.i.a((BlockPosition)(new BlockPosition(var1, 0, var2)), (int)16)) {
          for(int var5 = var3; var5 < var4; ++var5) {
-            this.i.c(class_aet.a, new class_cj(var1, var5, var2));
+            this.i.c(class_aet.a, new BlockPosition(var1, var5, var2));
          }
 
          this.q = true;
@@ -274,7 +274,7 @@ public class class_aok {
                   var9 = this.d[var8 >> 4];
                   if(var9 != null) {
                      var9.a(var1, var8 & 15, var3, 15);
-                     this.i.n(new class_cj((this.a << 4) + var1, var8, (this.b << 4) + var3));
+                     this.i.n(new BlockPosition((this.a << 4) + var1, var8, (this.b << 4) + var3));
                   }
                }
             } else {
@@ -282,7 +282,7 @@ public class class_aok {
                   var9 = this.d[var8 >> 4];
                   if(var9 != null) {
                      var9.a(var1, var8 & 15, var3, 0);
-                     this.i.n(new class_cj((this.a << 4) + var1, var8, (this.b << 4) + var3));
+                     this.i.n(new BlockPosition((this.a << 4) + var1, var8, (this.b << 4) + var3));
                   }
                }
             }
@@ -321,11 +321,11 @@ public class class_aok {
          }
 
          if(!this.i.t.m()) {
-            Iterator var11 = class_cq.class_c_in_class_cq.a.iterator();
+            Iterator var11 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
             while(var11.hasNext()) {
-               class_cq var12 = (class_cq)var11.next();
-               this.a(var6 + var12.g(), var7 + var12.i(), var13, var14);
+               EnumDirection var12 = (EnumDirection)var11.next();
+               this.a(var6 + var12.getAdjacentX(), var7 + var12.getAdjacentZ(), var13, var14);
             }
 
             this.a(var6, var7, var13, var14);
@@ -335,7 +335,7 @@ public class class_aok {
       }
    }
 
-   public int b(class_cj var1) {
+   public int b(BlockPosition var1) {
       return this.a(var1).getLightOpacity();
    }
 
@@ -367,7 +367,7 @@ public class class_aok {
          class_c var5 = var6.a().a("Block being got");
          var5.a("Location", new Callable() {
             public String a() throws Exception {
-               return class_c.a(new class_cj(class_aok.this.a * 16 + var1, var2, class_aok.this.b * 16 + var3));
+               return class_c.a(new BlockPosition(class_aok.this.a * 16 + var1, var2, class_aok.this.b * 16 + var3));
             }
 
             // $FF: synthetic method
@@ -379,9 +379,9 @@ public class class_aok {
       }
    }
 
-   public Block a(final class_cj var1) {
+   public Block a(final BlockPosition var1) {
       try {
-         return this.f(var1.n() & 15, var1.o(), var1.p() & 15);
+         return this.f(var1.getX() & 15, var1.getY(), var1.getZ() & 15);
       } catch (class_e var4) {
          class_c var3 = var4.a().a("Block being got");
          var3.a("Location", new Callable() {
@@ -398,26 +398,26 @@ public class class_aok {
       }
    }
 
-   public IBlockData g(final class_cj var1) {
+   public IBlockData g(final BlockPosition var1) {
       if(this.i.H() == class_aes.g) {
          IBlockData var7 = null;
-         if(var1.o() == 60) {
+         if(var1.getY() == 60) {
             var7 = Blocks.BARRIER.getBlockData();
          }
 
-         if(var1.o() == 70) {
-            var7 = class_apj.b(var1.n(), var1.p());
+         if(var1.getY() == 70) {
+            var7 = class_apj.b(var1.getX(), var1.getZ());
          }
 
          return var7 == null?Blocks.AIR.getBlockData():var7;
       } else {
          try {
-            if(var1.o() >= 0 && var1.o() >> 4 < this.d.length) {
-               class_aol var2 = this.d[var1.o() >> 4];
+            if(var1.getY() >= 0 && var1.getY() >> 4 < this.d.length) {
+               class_aol var2 = this.d[var1.getY() >> 4];
                if(var2 != null) {
-                  int var8 = var1.n() & 15;
-                  int var9 = var1.o() & 15;
-                  int var5 = var1.p() & 15;
+                  int var8 = var1.getX() & 15;
+                  int var9 = var1.getY() & 15;
+                  int var5 = var1.getZ() & 15;
                   return var2.a(var8, var9, var5);
                }
             }
@@ -450,14 +450,14 @@ public class class_aok {
       }
    }
 
-   public int c(class_cj var1) {
-      return this.g(var1.n() & 15, var1.o(), var1.p() & 15);
+   public int c(BlockPosition var1) {
+      return this.g(var1.getX() & 15, var1.getY(), var1.getZ() & 15);
    }
 
-   public IBlockData a(class_cj var1, IBlockData var2) {
-      int var3 = var1.n() & 15;
-      int var4 = var1.o();
-      int var5 = var1.p() & 15;
+   public IBlockData a(BlockPosition var1, IBlockData var2) {
+      int var3 = var1.getX() & 15;
+      int var4 = var1.getY();
+      int var5 = var1.getZ() & 15;
       int var6 = var5 << 4 | var3;
       if(var4 >= this.f[var6] - 1) {
          this.f[var6] = -999;
@@ -541,18 +541,18 @@ public class class_aok {
       }
    }
 
-   public int a(class_aet var1, class_cj var2) {
-      int var3 = var2.n() & 15;
-      int var4 = var2.o();
-      int var5 = var2.p() & 15;
+   public int a(class_aet var1, BlockPosition var2) {
+      int var3 = var2.getX() & 15;
+      int var4 = var2.getY();
+      int var5 = var2.getZ() & 15;
       class_aol var6 = this.d[var4 >> 4];
       return var6 == null?(this.d(var2)?var1.c:0):(var1 == class_aet.a?(this.i.t.m()?0:var6.d(var3, var4 & 15, var5)):(var1 == class_aet.b?var6.e(var3, var4 & 15, var5):var1.c));
    }
 
-   public void a(class_aet var1, class_cj var2, int var3) {
-      int var4 = var2.n() & 15;
-      int var5 = var2.o();
-      int var6 = var2.p() & 15;
+   public void a(class_aet var1, BlockPosition var2, int var3) {
+      int var4 = var2.getX() & 15;
+      int var5 = var2.getY();
+      int var6 = var2.getZ() & 15;
       class_aol var7 = this.d[var5 >> 4];
       if(var7 == null) {
          var7 = this.d[var5 >> 4] = new class_aol(var5 >> 4 << 4, !this.i.t.m());
@@ -570,10 +570,10 @@ public class class_aok {
 
    }
 
-   public int a(class_cj var1, int var2) {
-      int var3 = var1.n() & 15;
-      int var4 = var1.o();
-      int var5 = var1.p() & 15;
+   public int a(BlockPosition var1, int var2) {
+      int var3 = var1.getX() & 15;
+      int var4 = var1.getY();
+      int var5 = var1.getZ() & 15;
       class_aol var6 = this.d[var4 >> 4];
       if(var6 == null) {
          return !this.i.t.m() && var2 < class_aet.a.c?class_aet.a.c - var2:0;
@@ -591,14 +591,14 @@ public class class_aok {
 
    public void a(class_pr var1) {
       this.r = true;
-      int var2 = class_nu.c(var1.s / 16.0D);
-      int var3 = class_nu.c(var1.u / 16.0D);
+      int var2 = MathHelper.floor(var1.s / 16.0D);
+      int var3 = MathHelper.floor(var1.u / 16.0D);
       if(var2 != this.a || var3 != this.b) {
          c.warn("Wrong location! (" + var2 + ", " + var3 + ") should be (" + this.a + ", " + this.b + "), " + var1, new Object[]{var1});
          var1.J();
       }
 
-      int var4 = class_nu.c(var1.t / 16.0D);
+      int var4 = MathHelper.floor(var1.t / 16.0D);
       if(var4 < 0) {
          var4 = 0;
       }
@@ -630,19 +630,19 @@ public class class_aok {
       this.m[var2].remove(var1);
    }
 
-   public boolean d(class_cj var1) {
-      int var2 = var1.n() & 15;
-      int var3 = var1.o();
-      int var4 = var1.p() & 15;
+   public boolean d(BlockPosition var1) {
+      int var2 = var1.getX() & 15;
+      int var3 = var1.getY();
+      int var4 = var1.getZ() & 15;
       return var3 >= this.j[var4 << 4 | var2];
    }
 
-   private class_amg i(class_cj var1) {
+   private class_amg i(BlockPosition var1) {
       Block var2 = this.a(var1);
       return !var2.isTileEntity()?null:((class_ahw)var2).a(this.i, this.c(var1));
    }
 
-   public class_amg a(class_cj var1, class_aok.class_a_in_class_aok var2) {
+   public class_amg a(BlockPosition var1, class_aok.class_a_in_class_aok var2) {
       class_amg var3 = (class_amg)this.l.get(var1);
       if(var3 == null) {
          if(var2 == class_aok.class_a_in_class_aok.a) {
@@ -667,7 +667,7 @@ public class class_aok {
 
    }
 
-   public void a(class_cj var1, class_amg var2) {
+   public void a(BlockPosition var1, class_amg var2) {
       var2.a(this.i);
       var2.a(var1);
       if(this.a(var1) instanceof class_ahw) {
@@ -680,7 +680,7 @@ public class class_aok {
       }
    }
 
-   public void e(class_cj var1) {
+   public void e(BlockPosition var1) {
       if(this.h) {
          class_amg var2 = (class_amg)this.l.remove(var1);
          if(var2 != null) {
@@ -727,10 +727,10 @@ public class class_aok {
    }
 
    public void a(class_pr var1, class_awf var2, List var3, Predicate var4) {
-      int var5 = class_nu.c((var2.b - 2.0D) / 16.0D);
-      int var6 = class_nu.c((var2.e + 2.0D) / 16.0D);
-      var5 = class_nu.a(var5, 0, this.m.length - 1);
-      var6 = class_nu.a(var6, 0, this.m.length - 1);
+      int var5 = MathHelper.floor((var2.b - 2.0D) / 16.0D);
+      int var6 = MathHelper.floor((var2.e + 2.0D) / 16.0D);
+      var5 = MathHelper.clamp(var5, 0, this.m.length - 1);
+      var6 = MathHelper.clamp(var6, 0, this.m.length - 1);
 
       label68:
       for(int var7 = var5; var7 <= var6; ++var7) {
@@ -771,10 +771,10 @@ public class class_aok {
    }
 
    public void a(Class var1, class_awf var2, List var3, Predicate var4) {
-      int var5 = class_nu.c((var2.b - 2.0D) / 16.0D);
-      int var6 = class_nu.c((var2.e + 2.0D) / 16.0D);
-      var5 = class_nu.a(var5, 0, this.m.length - 1);
-      var6 = class_nu.a(var6, 0, this.m.length - 1);
+      int var5 = MathHelper.floor((var2.b - 2.0D) / 16.0D);
+      int var6 = MathHelper.floor((var2.e + 2.0D) / 16.0D);
+      var5 = MathHelper.clamp(var5, 0, this.m.length - 1);
+      var6 = MathHelper.clamp(var6, 0, this.m.length - 1);
 
       label33:
       for(int var7 = var5; var7 <= var6; ++var7) {
@@ -865,24 +865,24 @@ public class class_aok {
 
    }
 
-   public class_cj h(class_cj var1) {
-      int var2 = var1.n() & 15;
-      int var3 = var1.p() & 15;
+   public BlockPosition h(BlockPosition var1) {
+      int var2 = var1.getX() & 15;
+      int var3 = var1.getZ() & 15;
       int var4 = var2 | var3 << 4;
-      class_cj var5 = new class_cj(var1.n(), this.f[var4], var1.p());
-      if(var5.o() == -999) {
+      BlockPosition var5 = new BlockPosition(var1.getX(), this.f[var4], var1.getZ());
+      if(var5.getY() == -999) {
          int var6 = this.g() + 15;
-         var5 = new class_cj(var1.n(), var6, var1.p());
+         var5 = new BlockPosition(var1.getX(), var6, var1.getZ());
          int var7 = -1;
 
          while(true) {
-            while(var5.o() > 0 && var7 == -1) {
+            while(var5.getY() > 0 && var7 == -1) {
                Block var8 = this.a(var5);
                Material var9 = var8.getMaterial();
-               if(!var9.isSolid() && !var9.d()) {
-                  var5 = var5.b();
+               if(!var9.isSolid() && !var9.isLiquid()) {
+                  var5 = var5.shiftDown();
                } else {
-                  var7 = var5.o() + 1;
+                  var7 = var5.getY() + 1;
                }
             }
 
@@ -891,7 +891,7 @@ public class class_aok {
          }
       }
 
-      return new class_cj(var1.n(), this.f[var4], var1.p());
+      return new BlockPosition(var1.getX(), this.f[var4], var1.getZ());
    }
 
    public void b(boolean var1) {
@@ -905,7 +905,7 @@ public class class_aok {
       }
 
       while(!this.w.isEmpty()) {
-         class_cj var2 = (class_cj)this.w.poll();
+         BlockPosition var2 = (BlockPosition)this.w.poll();
          if(this.a(var2, class_aok.class_a_in_class_aok.c) == null && this.a(var2).isTileEntity()) {
             class_amg var3 = this.i(var2);
             this.i.a(var2, var3);
@@ -953,9 +953,9 @@ public class class_aok {
       }
    }
 
-   public class_aez a(class_cj var1, class_afd var2) {
-      int var3 = var1.n() & 15;
-      int var4 = var1.p() & 15;
+   public class_aez a(BlockPosition var1, class_afd var2) {
+      int var3 = var1.getX() & 15;
+      int var4 = var1.getZ() & 15;
       int var5 = this.e[var4 << 4 | var3] & 255;
       class_aez var6;
       if(var5 == 255) {
@@ -988,7 +988,7 @@ public class class_aok {
    }
 
    public void m() {
-      class_cj var1 = new class_cj(this.a << 4, 0, this.b << 4);
+      BlockPosition var1 = new BlockPosition(this.a << 4, 0, this.b << 4);
 
       for(int var2 = 0; var2 < 8; ++var2) {
          if(this.v >= 4096) {
@@ -1001,15 +1001,15 @@ public class class_aok {
          ++this.v;
 
          for(int var6 = 0; var6 < 16; ++var6) {
-            class_cj var7 = var1.a(var4, (var3 << 4) + var6, var5);
+            BlockPosition var7 = var1.add(var4, (var3 << 4) + var6, var5);
             boolean var8 = var6 == 0 || var6 == 15 || var4 == 0 || var4 == 15 || var5 == 0 || var5 == 15;
-            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).getMaterial() == Material.a) {
-               class_cq[] var9 = class_cq.values();
+            if(this.d[var3] == null && var8 || this.d[var3] != null && this.d[var3].b(var4, var6, var5).getMaterial() == Material.AIR) {
+               EnumDirection[] var9 = EnumDirection.values();
                int var10 = var9.length;
 
                for(int var11 = 0; var11 < var10; ++var11) {
-                  class_cq var12 = var9[var11];
-                  class_cj var13 = var7.a(var12);
+                  EnumDirection var12 = var9[var11];
+                  BlockPosition var13 = var7.shift(var12);
                   if(this.i.p(var13).getBlock().getLightLevel() > 0) {
                      this.i.x(var13);
                   }
@@ -1025,9 +1025,9 @@ public class class_aok {
    public void n() {
       this.n = true;
       this.o = true;
-      class_cj var1 = new class_cj(this.a << 4, 0, this.b << 4);
+      BlockPosition var1 = new BlockPosition(this.a << 4, 0, this.b << 4);
       if(!this.i.t.m()) {
-         if(this.i.a(var1.a(-1, 0, -1), var1.a(16, this.i.G(), 16))) {
+         if(this.i.a(var1.add(-1, 0, -1), var1.add(16, this.i.G(), 16))) {
             label44:
             for(int var2 = 0; var2 < 16; ++var2) {
                for(int var3 = 0; var3 < 16; ++var3) {
@@ -1039,12 +1039,12 @@ public class class_aok {
             }
 
             if(this.o) {
-               Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
+               Iterator var5 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
                while(var5.hasNext()) {
-                  class_cq var6 = (class_cq)var5.next();
-                  int var4 = var6.c() == class_cq.class_b_in_class_cq.a?16:1;
-                  this.i.f(var1.a(var6, var4)).a(var6.d());
+                  EnumDirection var6 = (EnumDirection)var5.next();
+                  int var4 = var6.getAxisDirection() == EnumDirection.EnumAxisDirection.POSITIVE?16:1;
+                  this.i.f(var1.shift(var6, var4)).a(var6.getOpposite());
                }
 
                this.y();
@@ -1064,22 +1064,22 @@ public class class_aok {
       this.h(false);
    }
 
-   private void a(class_cq var1) {
+   private void a(EnumDirection var1) {
       if(this.n) {
          int var2;
-         if(var1 == class_cq.f) {
+         if(var1 == EnumDirection.EAST) {
             for(var2 = 0; var2 < 16; ++var2) {
                this.e(15, var2);
             }
-         } else if(var1 == class_cq.e) {
+         } else if(var1 == EnumDirection.WEST) {
             for(var2 = 0; var2 < 16; ++var2) {
                this.e(0, var2);
             }
-         } else if(var1 == class_cq.d) {
+         } else if(var1 == EnumDirection.SOUTH) {
             for(var2 = 0; var2 < 16; ++var2) {
                this.e(var2, 15);
             }
-         } else if(var1 == class_cq.c) {
+         } else if(var1 == EnumDirection.NORTH) {
             for(var2 = 0; var2 < 16; ++var2) {
                this.e(var2, 0);
             }
@@ -1092,13 +1092,13 @@ public class class_aok {
       int var3 = this.g();
       boolean var4 = false;
       boolean var5 = false;
-      class_cj.class_a_in_class_cj var6 = new class_cj.class_a_in_class_cj((this.a << 4) + var1, 0, (this.b << 4) + var2);
+      BlockPosition.MutableBlockPosition var6 = new BlockPosition.MutableBlockPosition((this.a << 4) + var1, 0, (this.b << 4) + var2);
 
       int var7;
       for(var7 = var3 + 16 - 1; var7 > this.i.G() || var7 > 0 && !var5; --var7) {
-         var6.c(var6.n(), var7, var6.p());
-         int var8 = this.b((class_cj)var6);
-         if(var8 == 255 && var6.o() < this.i.G()) {
+         var6.setPosition(var6.getX(), var7, var6.getZ());
+         int var8 = this.b((BlockPosition)var6);
+         if(var8 == 255 && var6.getY() < this.i.G()) {
             var5 = true;
          }
 
@@ -1109,9 +1109,9 @@ public class class_aok {
          }
       }
 
-      for(var7 = var6.o(); var7 > 0; --var7) {
-         var6.c(var6.n(), var7, var6.p());
-         if(this.a((class_cj)var6).getLightLevel() > 0) {
+      for(var7 = var6.getY(); var7 > 0; --var7) {
+         var6.setPosition(var6.getX(), var7, var6.getZ());
+         if(this.a((BlockPosition)var6).getLightLevel() > 0) {
             this.i.x(var6);
          }
       }

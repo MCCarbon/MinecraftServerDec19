@@ -7,9 +7,9 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qk;
@@ -64,7 +64,7 @@ public class class_tx extends class_tw {
       this.bw = this.bs;
       this.bu = this.bt;
       this.bt = (float)((double)this.bt + (double)(this.C?-1:4) * 0.3D);
-      this.bt = class_nu.a(this.bt, 0.0F, 1.0F);
+      this.bt = MathHelper.clamp(this.bt, 0.0F, 1.0F);
       if(!this.C && this.bx < 1.0F) {
          this.bx = 1.0F;
       }
@@ -98,7 +98,7 @@ public class class_tx extends class_tw {
       return "mob.chicken.hurt";
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.chicken.step", 0.15F, 1.0F);
    }
 
@@ -154,8 +154,8 @@ public class class_tx extends class_tw {
 
    public void al() {
       super.al();
-      float var1 = class_nu.a(this.aL * 3.1415927F / 180.0F);
-      float var2 = class_nu.b(this.aL * 3.1415927F / 180.0F);
+      float var1 = MathHelper.sin(this.aL * 3.1415927F / 180.0F);
+      float var2 = MathHelper.cos(this.aL * 3.1415927F / 180.0F);
       float var3 = 0.1F;
       float var4 = 0.0F;
       this.l.b(this.s + (double)(var3 * var1), this.t + (double)(this.K * 0.5F) + this.l.am() + (double)var4, this.u - (double)(var3 * var2));

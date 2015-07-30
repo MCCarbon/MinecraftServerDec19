@@ -5,10 +5,10 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
@@ -61,8 +61,8 @@ public abstract class class_tw extends class_po implements class_pp {
       }
    }
 
-   public float a(class_cj var1) {
-      return this.o.p(var1.b()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
+   public float a(BlockPosition var1) {
+      return this.o.p(var1.shiftDown()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
    }
 
    public void b(class_dn var1) {
@@ -76,11 +76,11 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    public boolean cf() {
-      int var1 = class_nu.c(this.s);
-      int var2 = class_nu.c(this.aT().b);
-      int var3 = class_nu.c(this.u);
-      class_cj var4 = new class_cj(var1, var2, var3);
-      return this.o.p(var4.b()).getBlock() == this.bv && this.o.k(var4) > 8 && super.cf();
+      int var1 = MathHelper.floor(this.s);
+      int var2 = MathHelper.floor(this.aT().b);
+      int var3 = MathHelper.floor(this.u);
+      BlockPosition var4 = new BlockPosition(var1, var2, var3);
+      return this.o.p(var4.shiftDown()).getBlock() == this.bv && this.o.k(var4) > 8 && super.cf();
    }
 
    public int y() {

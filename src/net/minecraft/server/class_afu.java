@@ -8,7 +8,7 @@ import net.minecraft.server.class_aic;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_wo;
 
 public class class_afu extends class_aez {
@@ -32,7 +32,7 @@ public class class_afu extends class_aez {
       return this.aC;
    }
 
-   public class_aic.class_a_in_class_aic a(Random var1, class_cj var2) {
+   public class_aic.class_a_in_class_aic a(Random var1, BlockPosition var2) {
       return class_aic.class_a_in_class_aic.c;
    }
 
@@ -43,7 +43,7 @@ public class class_afu extends class_aez {
          int var11 = var5 & 15;
 
          for(int var12 = 255; var12 >= 0; --var12) {
-            if(var3.a(var11, var12, var10).getBlock().getMaterial() != Material.a) {
+            if(var3.a(var11, var12, var10).getBlock().getMaterial() != Material.AIR) {
                if(var12 == 62 && var3.a(var11, var12, var10).getBlock() != Blocks.WATER) {
                   var3.a(var11, var12, var10, Blocks.WATER.getBlockData());
                   if(var8 < 0.12D) {

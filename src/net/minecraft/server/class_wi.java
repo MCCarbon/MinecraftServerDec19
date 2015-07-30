@@ -3,8 +3,8 @@ package net.minecraft.server;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -79,7 +79,7 @@ public abstract class class_wi extends class_qh implements class_wd {
       boolean var4 = var1.a(class_pc.a((class_qa)this), var2);
       if(var4) {
          if(var3 > 0) {
-            var1.g((double)(-class_nu.a(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F), 0.1D, (double)(class_nu.b(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F));
+            var1.g((double)(-MathHelper.sin(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F), 0.1D, (double)(MathHelper.cos(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F));
             this.v *= 0.6D;
             this.x *= 0.6D;
          }
@@ -95,12 +95,12 @@ public abstract class class_wi extends class_qh implements class_wd {
       return var4;
    }
 
-   public float a(class_cj var1) {
+   public float a(BlockPosition var1) {
       return 0.5F - this.o.o(var1);
    }
 
    protected boolean n_() {
-      class_cj var1 = new class_cj(this.s, this.aT().b, this.u);
+      BlockPosition var1 = new BlockPosition(this.s, this.aT().b, this.u);
       if(this.o.b(class_aet.a, var1) > this.V.nextInt(32)) {
          return false;
       } else {

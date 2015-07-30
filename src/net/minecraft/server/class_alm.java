@@ -16,7 +16,7 @@ import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.INamable;
 import net.minecraft.server.class_xa;
@@ -25,17 +25,17 @@ public class class_alm extends class_ago implements class_agl {
    public static final BlockStateEnum a = BlockStateEnum.of("type", class_alm.class_a_in_class_alm.class);
 
    protected class_alm() {
-      super(Material.l);
+      super(Material.REPLACEABLE_PLANT);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_alm.class_a_in_class_alm.a));
       float var1 = 0.4F;
       this.setSizes(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 0.8F, 0.5F + var1);
    }
 
-   public boolean f(World var1, class_cj var2, IBlockData var3) {
-      return this.c(var1.p(var2.b()).getBlock());
+   public boolean f(World var1, BlockPosition var2, IBlockData var3) {
+      return this.c(var1.p(var2.shiftDown()).getBlock());
    }
 
-   public boolean isReplaceable(World var1, class_cj var2) {
+   public boolean isReplaceable(World var1, BlockPosition var2) {
       return true;
    }
 
@@ -47,7 +47,7 @@ public class class_alm extends class_ago implements class_agl {
       return 1 + var2.nextInt(var1 * 2 + 1);
    }
 
-   public void a(World var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
       if(!var1.D && var6 != null && var6.b() == Items.bg) {
          var2.b(class_nc.ab[Block.getId((Block)this)]);
          a(var1, var3, new class_aas(Blocks.TALLGRASS, 1, ((class_alm.class_a_in_class_alm)var4.get(a)).a()));
@@ -57,20 +57,20 @@ public class class_alm extends class_ago implements class_agl {
 
    }
 
-   public int j(World var1, class_cj var2) {
+   public int j(World var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       return var3.getBlock().toLegacyData(var3);
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, boolean var4) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, boolean var4) {
       return var3.get(a) != class_alm.class_a_in_class_alm.a;
    }
 
-   public boolean a(World var1, Random var2, class_cj var3, IBlockData var4) {
+   public boolean a(World var1, Random var2, BlockPosition var3, IBlockData var4) {
       return true;
    }
 
-   public void b(World var1, Random var2, class_cj var3, IBlockData var4) {
+   public void b(World var1, Random var2, BlockPosition var3, IBlockData var4) {
       class_ahm.class_b_in_class_ahm var5 = class_ahm.class_b_in_class_ahm.c;
       if(var4.get(a) == class_alm.class_a_in_class_alm.c) {
          var5 = class_ahm.class_b_in_class_ahm.d;

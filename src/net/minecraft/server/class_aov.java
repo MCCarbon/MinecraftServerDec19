@@ -24,7 +24,7 @@ import net.minecraft.server.class_aop;
 import net.minecraft.server.class_aou;
 import net.minecraft.server.class_awb;
 import net.minecraft.server.class_awc;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_dx;
@@ -266,9 +266,9 @@ public class class_aov implements class_aop, class_awc {
             class_dn var30 = new class_dn();
             MinecraftKey var31 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var29.a());
             var30.a("i", var31 == null?"":var31.toString());
-            var30.a("x", var29.a.n());
-            var30.a("y", var29.a.o());
-            var30.a("z", var29.a.p());
+            var30.a("x", var29.a.getX());
+            var30.a("y", var29.a.getY());
+            var30.a("z", var29.a.getZ());
             var30.a("t", (int)(var29.b - var26));
             var30.a("p", var29.c);
             var27.a((class_eb)var30);
@@ -370,7 +370,7 @@ public class class_aov implements class_aop, class_awc {
                   var36 = Block.getById(var35.g("i"));
                }
 
-               var1.b(new class_cj(var35.g("x"), var35.g("y"), var35.g("z")), var36, var35.g("t"), var35.g("p"));
+               var1.b(new BlockPosition(var35.g("x"), var35.g("y"), var35.g("z")), var36, var35.g("t"), var35.g("p"));
             }
          }
       }

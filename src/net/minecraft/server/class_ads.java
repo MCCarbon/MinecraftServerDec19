@@ -4,7 +4,7 @@ import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.class_qa;
@@ -38,7 +38,7 @@ public class class_ads extends class_adi {
          return 0;
       } else {
          float var3 = (float)(6 + var1 * var1) / 3.0F;
-         return this.a == class_ads.class_a_in_class_ads.a?class_nu.d(var3 * 0.75F):(this.a == class_ads.class_a_in_class_ads.b && var2.o()?class_nu.d(var3 * 1.25F):(this.a == class_ads.class_a_in_class_ads.c && var2 == class_pc.i?class_nu.d(var3 * 2.5F):(this.a == class_ads.class_a_in_class_ads.d && var2.c()?class_nu.d(var3 * 1.5F):(this.a == class_ads.class_a_in_class_ads.e && var2.a()?class_nu.d(var3 * 1.5F):0))));
+         return this.a == class_ads.class_a_in_class_ads.a?MathHelper.floor(var3 * 0.75F):(this.a == class_ads.class_a_in_class_ads.b && var2.o()?MathHelper.floor(var3 * 1.25F):(this.a == class_ads.class_a_in_class_ads.c && var2 == class_pc.i?MathHelper.floor(var3 * 2.5F):(this.a == class_ads.class_a_in_class_ads.d && var2.c()?MathHelper.floor(var3 * 1.5F):(this.a == class_ads.class_a_in_class_ads.e && var2.a()?MathHelper.floor(var3 * 1.5F):0))));
       }
    }
 
@@ -58,7 +58,7 @@ public class class_ads extends class_adi {
    public static int a(class_qa var0, int var1) {
       int var2 = class_adk.a(class_adm.b, var0);
       if(var2 > 0) {
-         var1 -= class_nu.d((float)var1 * (float)var2 * 0.15F);
+         var1 -= MathHelper.floor((float)var1 * (float)var2 * 0.15F);
       }
 
       return var1;
@@ -67,7 +67,7 @@ public class class_ads extends class_adi {
    public static double a(class_qa var0, double var1) {
       int var3 = class_adk.a(class_adm.d, var0);
       if(var3 > 0) {
-         var1 -= (double)class_nu.c(var1 * (double)((float)var3 * 0.15F));
+         var1 -= (double)MathHelper.floor(var1 * (double)((float)var3 * 0.15F));
       }
 
       return var1;

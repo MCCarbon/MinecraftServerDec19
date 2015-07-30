@@ -9,14 +9,14 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_le;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oh;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
@@ -135,7 +135,7 @@ public class class_uw extends class_wi implements class_wk {
             var4 = var1.u - this.u;
             var6 = var2 * var2 + var4 * var4;
             if(var6 > 9.0D) {
-               var8 = (double)class_nu.a(var6);
+               var8 = (double)MathHelper.sqrt(var6);
                this.v += (var2 / var8 * 0.5D - this.v) * 0.6000000238418579D;
                this.x += (var4 / var8 * 0.5D - this.x) * 0.6000000238418579D;
             }
@@ -143,7 +143,7 @@ public class class_uw extends class_wi implements class_wk {
       }
 
       if(this.v * this.v + this.x * this.x > 0.05000000074505806D) {
-         this.y = (float)class_nu.b(this.x, this.v) * 57.295776F - 90.0F;
+         this.y = (float)MathHelper.b(this.x, this.v) * 57.295776F - 90.0F;
       }
 
       super.m();
@@ -169,9 +169,9 @@ public class class_uw extends class_wi implements class_wk {
             double var10 = var3.s - var4;
             double var12 = var3.t + (double)var3.aU() - var6;
             double var14 = var3.u - var8;
-            double var16 = (double)class_nu.a(var10 * var10 + var14 * var14);
-            float var18 = (float)(class_nu.b(var14, var10) * 180.0D / 3.1415927410125732D) - 90.0F;
-            float var19 = (float)(-(class_nu.b(var12, var16) * 180.0D / 3.1415927410125732D));
+            double var16 = (double)MathHelper.sqrt(var10 * var10 + var14 * var14);
+            float var18 = (float)(MathHelper.b(var14, var10) * 180.0D / 3.1415927410125732D) - 90.0F;
+            float var19 = (float)(-(MathHelper.b(var12, var16) * 180.0D / 3.1415927410125732D));
             this.bt[var20] = this.b(this.bt[var20], var19, 40.0F);
             this.bu[var20] = this.b(this.bu[var20], var18, 10.0F);
          } else {
@@ -205,7 +205,7 @@ public class class_uw extends class_wi implements class_wk {
          var1 = this.cA() - 1;
          if(var1 <= 0) {
             this.o.a(this, this.s, this.t + (double)this.aU(), this.u, 7.0F, false, this.o.R().b("mobGriefing"));
-            this.o.a(1013, new class_cj(this), 0);
+            this.o.a(1013, new BlockPosition(this), 0);
          }
 
          this.m(var1);
@@ -227,9 +227,9 @@ public class class_uw extends class_wi implements class_wk {
                   if(var10003 > 15) {
                      float var2 = 10.0F;
                      float var3 = 5.0F;
-                     double var4 = class_nu.a(this.V, this.s - (double)var2, this.s + (double)var2);
-                     double var6 = class_nu.a(this.V, this.t - (double)var3, this.t + (double)var3);
-                     double var8 = class_nu.a(this.V, this.u - (double)var2, this.u + (double)var2);
+                     double var4 = MathHelper.getRandomDoubleInRange(this.V, this.s - (double)var2, this.s + (double)var2);
+                     double var6 = MathHelper.getRandomDoubleInRange(this.V, this.t - (double)var3, this.t + (double)var3);
+                     double var8 = MathHelper.getRandomDoubleInRange(this.V, this.u - (double)var2, this.u + (double)var2);
                      this.a(var1 + 1, var4, var6, var8, true);
                      this.by[var1 - 1] = 0;
                   }
@@ -280,9 +280,9 @@ public class class_uw extends class_wi implements class_wk {
          if(this.bz > 0) {
             --this.bz;
             if(this.bz == 0 && this.o.R().b("mobGriefing")) {
-               var1 = class_nu.c(this.t);
-               var13 = class_nu.c(this.s);
-               int var16 = class_nu.c(this.u);
+               var1 = MathHelper.floor(this.t);
+               var13 = MathHelper.floor(this.s);
+               int var16 = MathHelper.floor(this.u);
                boolean var18 = false;
 
                for(int var19 = -1; var19 <= 1; ++var19) {
@@ -291,9 +291,9 @@ public class class_uw extends class_wi implements class_wk {
                         int var21 = var13 + var19;
                         int var9 = var1 + var7;
                         int var10 = var16 + var20;
-                        class_cj var11 = new class_cj(var21, var9, var10);
+                        BlockPosition var11 = new BlockPosition(var21, var9, var10);
                         Block var12 = this.o.p(var11).getBlock();
-                        if(var12.getMaterial() != Material.a && a(var12)) {
+                        if(var12.getMaterial() != Material.AIR && a(var12)) {
                            var18 = this.o.b(var11, true) || var18;
                         }
                      }
@@ -301,7 +301,7 @@ public class class_uw extends class_wi implements class_wk {
                }
 
                if(var18) {
-                  this.o.a((class_xa)null, 1012, new class_cj(this), 0);
+                  this.o.a((class_xa)null, 1012, new BlockPosition(this), 0);
                }
             }
          }
@@ -345,7 +345,7 @@ public class class_uw extends class_wi implements class_wk {
          return this.s;
       } else {
          float var2 = (this.aL + (float)(180 * (var1 - 1))) / 180.0F * 3.1415927F;
-         float var3 = class_nu.b(var2);
+         float var3 = MathHelper.cos(var2);
          return this.s + (double)var3 * 1.3D;
       }
    }
@@ -359,13 +359,13 @@ public class class_uw extends class_wi implements class_wk {
          return this.u;
       } else {
          float var2 = (this.aL + (float)(180 * (var1 - 1))) / 180.0F * 3.1415927F;
-         float var3 = class_nu.a(var2);
+         float var3 = MathHelper.sin(var2);
          return this.u + (double)var3 * 1.3D;
       }
    }
 
    private float b(float var1, float var2, float var3) {
-      float var4 = class_nu.g(var2 - var1);
+      float var4 = MathHelper.clampAngle(var2 - var1);
       if(var4 > var3) {
          var4 = var3;
       }
@@ -382,7 +382,7 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    private void a(int var1, double var2, double var4, double var6, boolean var8) {
-      this.o.a((class_xa)null, 1014, new class_cj(this), 0);
+      this.o.a((class_xa)null, 1014, new BlockPosition(this), 0);
       double var9 = this.o(var1);
       double var11 = this.p(var1);
       double var13 = this.q(var1);

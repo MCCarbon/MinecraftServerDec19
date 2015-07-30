@@ -7,7 +7,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public abstract class class_aqy extends class_apw {
    protected final int a;
@@ -32,9 +32,9 @@ public abstract class class_aqy extends class_apw {
       return var2;
    }
 
-   private boolean c(World var1, class_cj var2, int var3) {
+   private boolean c(World var1, BlockPosition var2, int var3) {
       boolean var4 = true;
-      if(var2.o() >= 1 && var2.o() + var3 + 1 <= 256) {
+      if(var2.getY() >= 1 && var2.getY() + var3 + 1 <= 256) {
          for(int var5 = 0; var5 <= 1 + var3; ++var5) {
             byte var6 = 2;
             if(var5 == 0) {
@@ -45,7 +45,7 @@ public abstract class class_aqy extends class_apw {
 
             for(int var7 = -var6; var7 <= var6 && var4; ++var7) {
                for(int var8 = -var6; var8 <= var6 && var4; ++var8) {
-                  if(var2.o() + var5 < 0 || var2.o() + var5 >= 256 || !this.a(var1.p(var2.a(var7, var5, var8)).getBlock())) {
+                  if(var2.getY() + var5 < 0 || var2.getY() + var5 >= 256 || !this.a(var1.p(var2.add(var7, var5, var8)).getBlock())) {
                      var4 = false;
                   }
                }
@@ -58,25 +58,25 @@ public abstract class class_aqy extends class_apw {
       }
    }
 
-   private boolean a(class_cj var1, World var2) {
-      class_cj var3 = var1.b();
+   private boolean a(BlockPosition var1, World var2) {
+      BlockPosition var3 = var1.shiftDown();
       Block var4 = var2.p(var3).getBlock();
-      if((var4 == Blocks.GRASS || var4 == Blocks.DIRT) && var1.o() >= 2) {
+      if((var4 == Blocks.GRASS || var4 == Blocks.DIRT) && var1.getY() >= 2) {
          this.a(var2, var3);
-         this.a(var2, var3.f());
-         this.a(var2, var3.d());
-         this.a(var2, var3.d().f());
+         this.a(var2, var3.shiftEast());
+         this.a(var2, var3.shiftSouth());
+         this.a(var2, var3.shiftSouth().shiftEast());
          return true;
       } else {
          return false;
       }
    }
 
-   protected boolean a(World var1, Random var2, class_cj var3, int var4) {
+   protected boolean a(World var1, Random var2, BlockPosition var3, int var4) {
       return this.c(var1, var3, var4) && this.a(var3, var1);
    }
 
-   protected void a(World var1, class_cj var2, int var3) {
+   protected void a(World var1, BlockPosition var2, int var3) {
       int var4 = var3 * var3;
 
       for(int var5 = -var3; var5 <= var3 + 1; ++var5) {
@@ -84,9 +84,9 @@ public abstract class class_aqy extends class_apw {
             int var7 = var5 - 1;
             int var8 = var6 - 1;
             if(var5 * var5 + var6 * var6 <= var4 || var7 * var7 + var8 * var8 <= var4 || var5 * var5 + var8 * var8 <= var4 || var7 * var7 + var6 * var6 <= var4) {
-               class_cj var9 = var2.a(var5, 0, var6);
+               BlockPosition var9 = var2.add(var5, 0, var6);
                Material var10 = var1.p(var9).getBlock().getMaterial();
-               if(var10 == Material.a || var10 == Material.j) {
+               if(var10 == Material.AIR || var10 == Material.LEAVES) {
                   this.a(var1, var9, this.c);
                }
             }
@@ -95,15 +95,15 @@ public abstract class class_aqy extends class_apw {
 
    }
 
-   protected void b(World var1, class_cj var2, int var3) {
+   protected void b(World var1, BlockPosition var2, int var3) {
       int var4 = var3 * var3;
 
       for(int var5 = -var3; var5 <= var3; ++var5) {
          for(int var6 = -var3; var6 <= var3; ++var6) {
             if(var5 * var5 + var6 * var6 <= var4) {
-               class_cj var7 = var2.a(var5, 0, var6);
+               BlockPosition var7 = var2.add(var5, 0, var6);
                Material var8 = var1.p(var7).getBlock().getMaterial();
-               if(var8 == Material.a || var8 == Material.j) {
+               if(var8 == Material.AIR || var8 == Material.LEAVES) {
                   this.a(var1, var7, this.c);
                }
             }

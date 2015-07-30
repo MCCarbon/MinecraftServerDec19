@@ -10,7 +10,7 @@ import net.minecraft.server.class_ajd;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -28,18 +28,18 @@ public class class_aca extends class_abx {
          return new class_or(class_oq.b, var1);
       } else {
          if(var5.a == class_awg.class_a_in_class_awg.b) {
-            class_cj var6 = var5.a();
+            BlockPosition var6 = var5.a();
             if(!var2.a(var3, var6)) {
                return new class_or(class_oq.b, var1);
             }
 
-            if(!var3.a(var6.a(var5.b), var5.b, var1)) {
+            if(!var3.a(var6.shift(var5.b), var5.b, var1)) {
                return new class_or(class_oq.b, var1);
             }
 
-            class_cj var7 = var6.a();
+            BlockPosition var7 = var6.shiftUp();
             IBlockData var8 = var2.p(var6);
-            if(var8.getBlock().getMaterial() == Material.h && ((Integer)var8.get(class_ajd.b)).intValue() == 0 && var2.d(var7)) {
+            if(var8.getBlock().getMaterial() == Material.WATER && ((Integer)var8.get(class_ajd.b)).intValue() == 0 && var2.d(var7)) {
                var2.a(var7, Blocks.WATERLILY.getBlockData());
                if(!var3.bH.d) {
                   --var1.b;

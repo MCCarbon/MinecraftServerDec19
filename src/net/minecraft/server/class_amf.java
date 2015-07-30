@@ -13,7 +13,7 @@ import net.minecraft.server.class_alc;
 import net.minecraft.server.class_amu;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ft;
@@ -61,9 +61,9 @@ public class class_amf extends class_amu implements class_kn, class_oj {
             var3 = 1;
          }
 
-         int var4 = this.c.n();
-         int var5 = this.c.o();
-         int var6 = this.c.p();
+         int var4 = this.c.getX();
+         int var5 = this.c.getY();
+         int var6 = this.c.getZ();
          class_awf var7 = (new class_awf((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1))).b(var1, var1, var1).a(0.0D, (double)this.b.V(), 0.0D);
          List var8 = this.b.a(class_xa.class, var7);
          Iterator var9 = var8.iterator();
@@ -88,20 +88,20 @@ public class class_amf extends class_amu implements class_kn, class_oj {
 
    private void B() {
       int var1 = this.j;
-      int var2 = this.c.n();
-      int var3 = this.c.o();
-      int var4 = this.c.p();
+      int var2 = this.c.getX();
+      int var3 = this.c.getY();
+      int var4 = this.c.getZ();
       this.j = 0;
       this.f.clear();
       this.i = true;
       class_amf.class_a_in_class_amf var5 = new class_amf.class_a_in_class_amf(class_uf.a(class_zy.a));
       this.f.add(var5);
       boolean var6 = true;
-      class_cj.class_a_in_class_cj var7 = new class_cj.class_a_in_class_cj();
+      BlockPosition.MutableBlockPosition var7 = new BlockPosition.MutableBlockPosition();
 
       int var8;
       for(var8 = var3 + 1; var8 < 256; ++var8) {
-         IBlockData var9 = this.b.p(var7.c(var2, var8, var4));
+         IBlockData var9 = this.b.p(var7.setPosition(var2, var8, var4));
          float[] var10;
          if(var9.getBlock() == Blocks.STAINED_GLASS) {
             var10 = class_uf.a((class_zy)var9.get(class_alb.a));
@@ -145,7 +145,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
 
             for(int var11 = var2 - var8; var11 <= var2 + var8 && var17; ++var11) {
                for(int var12 = var4 - var8; var12 <= var4 + var8; ++var12) {
-                  Block var13 = this.b.p(new class_cj(var11, var15, var12)).getBlock();
+                  Block var13 = this.b.p(new BlockPosition(var11, var15, var12)).getBlock();
                   if(var13 != Blocks.EMERALD_BLOCK && var13 != Blocks.GOLD_BLOCK && var13 != Blocks.DIAMOND_BLOCK && var13 != Blocks.IRON_BLOCK) {
                      var17 = false;
                      break;
@@ -256,7 +256,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
    }
 
    public boolean a(class_xa var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.s(this.c) != this?false:var1.e((double)this.c.getX() + 0.5D, (double)this.c.getY() + 0.5D, (double)this.c.getZ() + 0.5D) <= 64.0D;
    }
 
    public void b(class_xa var1) {

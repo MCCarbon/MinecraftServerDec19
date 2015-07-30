@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 
 public class class_awf {
    public final double a;
@@ -22,22 +22,22 @@ public class class_awf {
       this.f = Math.max(var5, var11);
    }
 
-   public class_awf(class_cj var1) {
-      this.a = (double)var1.n();
-      this.b = (double)var1.o();
-      this.c = (double)var1.p();
-      this.d = (double)(var1.n() + 1);
-      this.e = (double)(var1.o() + 1);
-      this.f = (double)(var1.p() + 1);
+   public class_awf(BlockPosition var1) {
+      this.a = (double)var1.getX();
+      this.b = (double)var1.getY();
+      this.c = (double)var1.getZ();
+      this.d = (double)(var1.getX() + 1);
+      this.e = (double)(var1.getY() + 1);
+      this.f = (double)(var1.getZ() + 1);
    }
 
-   public class_awf(class_cj var1, class_cj var2) {
-      this.a = (double)var1.n();
-      this.b = (double)var1.o();
-      this.c = (double)var1.p();
-      this.d = (double)var2.n();
-      this.e = (double)var2.o();
-      this.f = (double)var2.p();
+   public class_awf(BlockPosition var1, BlockPosition var2) {
+      this.a = (double)var1.getX();
+      this.b = (double)var1.getY();
+      this.c = (double)var1.getZ();
+      this.d = (double)var2.getX();
+      this.e = (double)var2.getY();
+      this.f = (double)var2.getZ();
    }
 
    public class_awf a(double var1, double var3, double var5) {
@@ -169,8 +169,8 @@ public class class_awf {
       return var1.d > this.a && var1.a < this.d?(var1.e > this.b && var1.b < this.e?var1.f > this.c && var1.c < this.f:false):false;
    }
 
-   public boolean a(class_awh var1) {
-      return var1.a > this.a && var1.a < this.d?(var1.b > this.b && var1.b < this.e?var1.c > this.c && var1.c < this.f:false):false;
+   public boolean a(Vec3D var1) {
+      return var1.x > this.a && var1.x < this.d?(var1.y > this.b && var1.y < this.e?var1.z > this.c && var1.z < this.f:false):false;
    }
 
    public double a() {
@@ -190,13 +190,13 @@ public class class_awf {
       return new class_awf(var7, var9, var11, var13, var15, var17);
    }
 
-   public class_awg a(class_awh var1, class_awh var2) {
-      class_awh var3 = var1.a(var2, this.a);
-      class_awh var4 = var1.a(var2, this.d);
-      class_awh var5 = var1.b(var2, this.b);
-      class_awh var6 = var1.b(var2, this.e);
-      class_awh var7 = var1.c(var2, this.c);
-      class_awh var8 = var1.c(var2, this.f);
+   public class_awg a(Vec3D var1, Vec3D var2) {
+      Vec3D var3 = var1.getIntermediateWithXValue(var2, this.a);
+      Vec3D var4 = var1.getIntermediateWithXValue(var2, this.d);
+      Vec3D var5 = var1.getIntermediateWithYValue(var2, this.b);
+      Vec3D var6 = var1.getIntermediateWithYValue(var2, this.e);
+      Vec3D var7 = var1.getIntermediateWithZValue(var2, this.c);
+      Vec3D var8 = var1.getIntermediateWithZValue(var2, this.f);
       if(!this.b(var3)) {
          var3 = null;
       }
@@ -221,63 +221,63 @@ public class class_awf {
          var8 = null;
       }
 
-      class_awh var9 = null;
+      Vec3D var9 = null;
       if(var3 != null) {
          var9 = var3;
       }
 
-      if(var4 != null && (var9 == null || var1.g(var4) < var1.g(var9))) {
+      if(var4 != null && (var9 == null || var1.distanceSquared(var4) < var1.distanceSquared(var9))) {
          var9 = var4;
       }
 
-      if(var5 != null && (var9 == null || var1.g(var5) < var1.g(var9))) {
+      if(var5 != null && (var9 == null || var1.distanceSquared(var5) < var1.distanceSquared(var9))) {
          var9 = var5;
       }
 
-      if(var6 != null && (var9 == null || var1.g(var6) < var1.g(var9))) {
+      if(var6 != null && (var9 == null || var1.distanceSquared(var6) < var1.distanceSquared(var9))) {
          var9 = var6;
       }
 
-      if(var7 != null && (var9 == null || var1.g(var7) < var1.g(var9))) {
+      if(var7 != null && (var9 == null || var1.distanceSquared(var7) < var1.distanceSquared(var9))) {
          var9 = var7;
       }
 
-      if(var8 != null && (var9 == null || var1.g(var8) < var1.g(var9))) {
+      if(var8 != null && (var9 == null || var1.distanceSquared(var8) < var1.distanceSquared(var9))) {
          var9 = var8;
       }
 
       if(var9 == null) {
          return null;
       } else {
-         class_cq var10 = null;
+         EnumDirection var10 = null;
          if(var9 == var3) {
-            var10 = class_cq.e;
+            var10 = EnumDirection.WEST;
          } else if(var9 == var4) {
-            var10 = class_cq.f;
+            var10 = EnumDirection.EAST;
          } else if(var9 == var5) {
-            var10 = class_cq.a;
+            var10 = EnumDirection.DOWN;
          } else if(var9 == var6) {
-            var10 = class_cq.b;
+            var10 = EnumDirection.UP;
          } else if(var9 == var7) {
-            var10 = class_cq.c;
+            var10 = EnumDirection.NORTH;
          } else {
-            var10 = class_cq.d;
+            var10 = EnumDirection.SOUTH;
          }
 
          return new class_awg(var9, var10);
       }
    }
 
-   private boolean b(class_awh var1) {
-      return var1 == null?false:var1.b >= this.b && var1.b <= this.e && var1.c >= this.c && var1.c <= this.f;
+   private boolean b(Vec3D var1) {
+      return var1 == null?false:var1.y >= this.b && var1.y <= this.e && var1.z >= this.c && var1.z <= this.f;
    }
 
-   private boolean c(class_awh var1) {
-      return var1 == null?false:var1.a >= this.a && var1.a <= this.d && var1.c >= this.c && var1.c <= this.f;
+   private boolean c(Vec3D var1) {
+      return var1 == null?false:var1.x >= this.a && var1.x <= this.d && var1.z >= this.c && var1.z <= this.f;
    }
 
-   private boolean d(class_awh var1) {
-      return var1 == null?false:var1.a >= this.a && var1.a <= this.d && var1.b >= this.b && var1.b <= this.e;
+   private boolean d(Vec3D var1) {
+      return var1 == null?false:var1.x >= this.a && var1.x <= this.d && var1.y >= this.b && var1.y <= this.e;
    }
 
    public String toString() {

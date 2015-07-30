@@ -13,8 +13,8 @@ import net.minecraft.server.class_anw;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pv;
@@ -49,7 +49,7 @@ public class class_ahg extends class_agf {
       return true;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
       if(!var1.D) {
          if(!((Boolean)var3.get(N)).booleanValue()) {
             this.e(var1, var2, var3);
@@ -57,24 +57,24 @@ public class class_ahg extends class_agf {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Random var4) {
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(!var1.D && ((Boolean)var3.get(N)).booleanValue()) {
          this.e(var1, var2, var3);
       }
    }
 
-   public int a(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
+   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return ((Boolean)var3.get(N)).booleanValue()?15:0;
    }
 
-   public int b(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
-      return !((Boolean)var3.get(N)).booleanValue()?0:(var4 == class_cq.b?15:0);
+   public int b(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+      return !((Boolean)var3.get(N)).booleanValue()?0:(var4 == EnumDirection.UP?15:0);
    }
 
-   private void e(World var1, class_cj var2, IBlockData var3) {
+   private void e(World var1, BlockPosition var2, IBlockData var3) {
       boolean var4 = ((Boolean)var3.get(N)).booleanValue();
       boolean var5 = false;
       List var6 = this.a(var1, var2, class_vn.class, new Predicate[0]);
@@ -83,27 +83,27 @@ public class class_ahg extends class_agf {
       }
 
       if(var5 && !var4) {
-         var1.a((class_cj)var2, (IBlockData)var3.set(N, Boolean.valueOf(true)), 3);
-         var1.c((class_cj)var2, (Block)this);
-         var1.c((class_cj)var2.b(), (Block)this);
+         var1.a((BlockPosition)var2, (IBlockData)var3.set(N, Boolean.valueOf(true)), 3);
+         var1.c((BlockPosition)var2, (Block)this);
+         var1.c((BlockPosition)var2.shiftDown(), (Block)this);
          var1.b(var2, var2);
       }
 
       if(!var5 && var4) {
-         var1.a((class_cj)var2, (IBlockData)var3.set(N, Boolean.valueOf(false)), 3);
-         var1.c((class_cj)var2, (Block)this);
-         var1.c((class_cj)var2.b(), (Block)this);
+         var1.a((BlockPosition)var2, (IBlockData)var3.set(N, Boolean.valueOf(false)), 3);
+         var1.c((BlockPosition)var2, (Block)this);
+         var1.c((BlockPosition)var2.shiftDown(), (Block)this);
          var1.b(var2, var2);
       }
 
       if(var5) {
-         var1.a((class_cj)var2, (Block)this, this.a(var1));
+         var1.a((BlockPosition)var2, (Block)this, this.a(var1));
       }
 
       var1.e(var2, this);
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       super.c(var1, var2, var3);
       this.e(var1, var2, var3);
    }
@@ -116,7 +116,7 @@ public class class_ahg extends class_agf {
       return true;
    }
 
-   public int l(World var1, class_cj var2) {
+   public int l(World var1, BlockPosition var2) {
       if(((Boolean)var1.p(var2).get(N)).booleanValue()) {
          List var3 = this.a(var1, var2, class_vp.class, new Predicate[0]);
          if(!var3.isEmpty()) {
@@ -132,14 +132,14 @@ public class class_ahg extends class_agf {
       return 0;
    }
 
-   protected List a(World var1, class_cj var2, Class var3, Predicate... var4) {
+   protected List a(World var1, BlockPosition var2, Class var3, Predicate... var4) {
       class_awf var5 = this.a(var2);
       return var4.length != 1?var1.a(var3, var5):var1.a(var3, var5, var4[0]);
    }
 
-   private class_awf a(class_cj var1) {
+   private class_awf a(BlockPosition var1) {
       float var2 = 0.2F;
-      return new class_awf((double)((float)var1.n() + 0.2F), (double)var1.o(), (double)((float)var1.p() + 0.2F), (double)((float)(var1.n() + 1) - 0.2F), (double)((float)(var1.o() + 1) - 0.2F), (double)((float)(var1.p() + 1) - 0.2F));
+      return new class_awf((double)((float)var1.getX() + 0.2F), (double)var1.getY(), (double)((float)var1.getZ() + 0.2F), (double)((float)(var1.getX() + 1) - 0.2F), (double)((float)(var1.getY() + 1) - 0.2F), (double)((float)(var1.getZ() + 1) - 0.2F));
    }
 
    public IBlockData fromLegacyData(int var1) {

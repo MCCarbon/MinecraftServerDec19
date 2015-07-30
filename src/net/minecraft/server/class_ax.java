@@ -13,7 +13,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
@@ -103,11 +103,11 @@ public class class_ax extends class_i {
 
          if(var3) {
             var1.a(class_n.class_a_in_class_n.d, 0);
-            class_cj var18 = a(var1, var2, 1, false);
+            BlockPosition var18 = a(var1, var2, 1, false);
             World var11 = var1.e();
             class_amg var12 = var11.s(var18);
             if(var12 == null || !(var12 instanceof class_oj)) {
-               throw new class_bz("commands.replaceitem.noContainer", new Object[]{Integer.valueOf(var18.n()), Integer.valueOf(var18.o()), Integer.valueOf(var18.p())});
+               throw new class_bz("commands.replaceitem.noContainer", new Object[]{Integer.valueOf(var18.getX()), Integer.valueOf(var18.getY()), Integer.valueOf(var18.getZ())});
             }
 
             class_oj var13 = (class_oj)var12;
@@ -143,7 +143,7 @@ public class class_ax extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):(var2.length >= 2 && var2.length <= 4 && var2[0].equals("block")?a(var2, 1, var3):(var2.length == 3 && var2[0].equals("entity") || var2.length == 5 && var2[0].equals("block")?a(var2, a.keySet()):((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?null:a(var2, Item.ITEM_REGISTRY.getKeys())))));
    }
 

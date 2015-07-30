@@ -12,9 +12,9 @@ import net.minecraft.server.class_aez;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aok;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_lg;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qb;
@@ -42,7 +42,7 @@ public final class class_aeu {
             do {
                if(!var6.hasNext()) {
                   int var36 = 0;
-                  class_cj var37 = var1.N();
+                  BlockPosition var37 = var1.N();
                   class_qc[] var38 = class_qc.values();
                   var9 = var38.length;
 
@@ -67,10 +67,10 @@ public final class class_aeu {
                                  }
 
                                  class_aeh var15 = (class_aeh)var42.next();
-                                 class_cj var16 = a(var1, var15.a, var15.b);
-                                 var17 = var16.n();
-                                 var18 = var16.o();
-                                 var19 = var16.p();
+                                 BlockPosition var16 = a(var1, var15.a, var15.b);
+                                 var17 = var16.getX();
+                                 var18 = var16.getY();
+                                 var19 = var16.getZ();
                                  var20 = var1.p(var16).getBlock();
                               } while(var20.isOccluding());
 
@@ -88,10 +88,10 @@ public final class class_aeu {
                                     var23 += var1.s.nextInt(var26) - var1.s.nextInt(var26);
                                     var24 += var1.s.nextInt(1) - var1.s.nextInt(1);
                                     var25 += var1.s.nextInt(var26) - var1.s.nextInt(var26);
-                                    class_cj var30 = new class_cj(var23, var24, var25);
+                                    BlockPosition var30 = new BlockPosition(var23, var24, var25);
                                     float var31 = (float)var23 + 0.5F;
                                     float var32 = (float)var25 + 0.5F;
-                                    if(!var1.b((double)var31, (double)var24, (double)var32, 24.0D) && var37.c((double)var31, (double)var24, (double)var32) >= 576.0D) {
+                                    if(!var1.b((double)var31, (double)var24, (double)var32, 24.0D) && var37.distanceSquared((double)var31, (double)var24, (double)var32) >= 576.0D) {
                                        if(var27 == null) {
                                           var27 = var1.a(var40, var30);
                                           if(var27 == null) {
@@ -110,7 +110,7 @@ public final class class_aeu {
 
                                           var33.b((double)var31, (double)var24, (double)var32, var1.s.nextFloat() * 360.0F, 0.0F);
                                           if(var33.cf() && var33.cg()) {
-                                             var28 = var33.a(var1.E(new class_cj(var33)), var28);
+                                             var28 = var33.a(var1.E(new BlockPosition(var33)), var28);
                                              if(var33.cg()) {
                                                 ++var21;
                                                 var1.a((class_pr)var33);
@@ -137,8 +137,8 @@ public final class class_aeu {
                var7 = (class_xa)var6.next();
             } while(var7.v());
 
-            int var8 = class_nu.c(var7.s / 16.0D);
-            var9 = class_nu.c(var7.u / 16.0D);
+            int var8 = MathHelper.floor(var7.s / 16.0D);
+            var9 = MathHelper.floor(var7.u / 16.0D);
             byte var10 = 8;
 
             for(int var11 = -var10; var11 <= var10; ++var11) {
@@ -157,30 +157,30 @@ public final class class_aeu {
       }
    }
 
-   protected static class_cj a(World var0, int var1, int var2) {
+   protected static BlockPosition a(World var0, int var1, int var2) {
       class_aok var3 = var0.a(var1, var2);
       int var4 = var1 * 16 + var0.s.nextInt(16);
       int var5 = var2 * 16 + var0.s.nextInt(16);
-      int var6 = class_nu.c(var3.f(new class_cj(var4, 0, var5)) + 1, 16);
+      int var6 = MathHelper.ceilByBase(var3.f(new BlockPosition(var4, 0, var5)) + 1, 16);
       int var7 = var0.s.nextInt(var6 > 0?var6:var3.g() + 16 - 1);
-      return new class_cj(var4, var7, var5);
+      return new BlockPosition(var4, var7, var5);
    }
 
-   public static boolean a(class_qb.class_a_in_class_qb var0, World var1, class_cj var2) {
+   public static boolean a(class_qb.class_a_in_class_qb var0, World var1, BlockPosition var2) {
       if(!var1.ag().a(var2)) {
          return false;
       } else {
          Block var3 = var1.p(var2).getBlock();
          if(var0 == class_qb.class_a_in_class_qb.c) {
-            return var3.getMaterial().d() && var1.p(var2.b()).getBlock().getMaterial().d() && !var1.p(var2.a()).getBlock().isOccluding();
+            return var3.getMaterial().isLiquid() && var1.p(var2.shiftDown()).getBlock().getMaterial().isLiquid() && !var1.p(var2.shiftUp()).getBlock().isOccluding();
          } else {
-            class_cj var4 = var2.b();
-            if(!World.a((class_aer)var1, (class_cj)var4)) {
+            BlockPosition var4 = var2.shiftDown();
+            if(!World.a((class_aer)var1, (BlockPosition)var4)) {
                return false;
             } else {
                Block var5 = var1.p(var4).getBlock();
                boolean var6 = var5 != Blocks.BEDROCK && var5 != Blocks.BARRIER;
-               return var6 && !var3.isOccluding() && !var3.getMaterial().d() && !var1.p(var2.a()).getBlock().isOccluding();
+               return var6 && !var3.isOccluding() && !var3.getMaterial().isLiquid() && !var1.p(var2.shiftUp()).getBlock().isOccluding();
             }
          }
       }
@@ -202,7 +202,7 @@ public final class class_aeu {
                boolean var16 = false;
 
                for(int var17 = 0; !var16 && var17 < 4; ++var17) {
-                  class_cj var18 = var0.r(new class_cj(var11, 0, var12));
+                  BlockPosition var18 = var0.r(new BlockPosition(var11, 0, var12));
                   if(a(class_qb.class_a_in_class_qb.a, var0, var18)) {
                      class_qb var19;
                      try {
@@ -212,9 +212,9 @@ public final class class_aeu {
                         continue;
                      }
 
-                     var19.b((double)((float)var11 + 0.5F), (double)var18.o(), (double)((float)var12 + 0.5F), var6.nextFloat() * 360.0F, 0.0F);
+                     var19.b((double)((float)var11 + 0.5F), (double)var18.getY(), (double)((float)var12 + 0.5F), var6.nextFloat() * 360.0F, 0.0F);
                      var0.a((class_pr)var19);
-                     var10 = var19.a(var0.E(new class_cj(var19)), var10);
+                     var10 = var19.a(var0.E(new BlockPosition(var19)), var10);
                      var16 = true;
                   }
 

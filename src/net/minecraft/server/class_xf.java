@@ -3,14 +3,14 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -42,7 +42,7 @@ public abstract class class_xf extends class_pr {
       this.a(1.0F, 1.0F);
       this.b(var2, var4, var6, this.y, this.z);
       this.b(var2, var4, var6);
-      double var14 = (double)class_nu.a(var8 * var8 + var10 * var10 + var12 * var12);
+      double var14 = (double)MathHelper.sqrt(var8 * var8 + var10 * var10 + var12 * var12);
       this.b = var8 / var14 * 0.1D;
       this.c = var10 / var14 * 0.1D;
       this.d = var12 / var14 * 0.1D;
@@ -58,18 +58,18 @@ public abstract class class_xf extends class_pr {
       var3 += this.V.nextGaussian() * 0.4D;
       var5 += this.V.nextGaussian() * 0.4D;
       var7 += this.V.nextGaussian() * 0.4D;
-      double var9 = (double)class_nu.a(var3 * var3 + var5 * var5 + var7 * var7);
+      double var9 = (double)MathHelper.sqrt(var3 * var3 + var5 * var5 + var7 * var7);
       this.b = var3 / var9 * 0.1D;
       this.c = var5 / var9 * 0.1D;
       this.d = var7 / var9 * 0.1D;
    }
 
    public void t_() {
-      if(this.o.D || (this.a == null || !this.a.I) && this.o.e(new class_cj(this))) {
+      if(this.o.D || (this.a == null || !this.a.I) && this.o.e(new BlockPosition(this))) {
          super.t_();
          this.f(1);
          if(this.i) {
-            if(this.o.p(new class_cj(this.e, this.f, this.g)).getBlock() == this.h) {
+            if(this.o.p(new BlockPosition(this.e, this.f, this.g)).getBlock() == this.h) {
                ++this.as;
                if(this.as == 600) {
                   this.J();
@@ -172,11 +172,11 @@ public abstract class class_xf extends class_pr {
       } else {
          this.ac();
          if(var1.j() != null) {
-            class_awh var3 = var1.j().ap();
+            Vec3D var3 = var1.j().ap();
             if(var3 != null) {
-               this.v = var3.a;
-               this.w = var3.b;
-               this.x = var3.c;
+               this.v = var3.x;
+               this.w = var3.y;
+               this.x = var3.z;
                this.b = this.v * 0.1D;
                this.c = this.w * 0.1D;
                this.d = this.x * 0.1D;

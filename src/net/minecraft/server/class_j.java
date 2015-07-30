@@ -12,7 +12,7 @@ import java.util.Map.Entry;
 import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_k;
@@ -128,7 +128,7 @@ public class class_j implements class_l {
       return var1;
    }
 
-   public List a(class_m var1, String var2, class_cj var3) {
+   public List a(class_m var1, String var2, BlockPosition var3) {
       String[] var4 = var2.split(" ", -1);
       String var5 = var4[0];
       if(var4.length == 1) {

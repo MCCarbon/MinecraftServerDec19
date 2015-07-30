@@ -3,7 +3,7 @@ package net.minecraft.server;
 import io.netty.util.internal.ThreadLocalRandom;
 import java.util.Random;
 import java.util.UUID;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import org.apache.commons.lang3.Validate;
 
 public class class_qm {
@@ -14,7 +14,7 @@ public class class_qm {
    private boolean e;
 
    public class_qm(String var1, double var2, int var4) {
-      this(class_nu.a((Random)ThreadLocalRandom.current()), var1, var2, var4);
+      this(MathHelper.getRandomUUID((Random)ThreadLocalRandom.current()), var1, var2, var4);
    }
 
    public class_qm(UUID var1, String var2, double var3, int var5) {

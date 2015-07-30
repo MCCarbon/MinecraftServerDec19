@@ -5,7 +5,7 @@ import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_px;
 
 public class class_fl implements class_ff {
@@ -20,9 +20,9 @@ public class class_fl implements class_ff {
 
    public class_fl(class_px var1) {
       this.a = var1.F();
-      this.b = class_nu.c(var1.s * 32.0D);
-      this.c = class_nu.c(var1.t * 32.0D);
-      this.d = class_nu.c(var1.u * 32.0D);
+      this.b = MathHelper.floor(var1.s * 32.0D);
+      this.c = MathHelper.floor(var1.t * 32.0D);
+      this.d = MathHelper.floor(var1.u * 32.0D);
       this.e = var1.j();
    }
 

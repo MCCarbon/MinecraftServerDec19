@@ -13,7 +13,7 @@ import net.minecraft.server.class_aea;
 import net.minecraft.server.class_aeb;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -21,7 +21,7 @@ import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_ob;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_oo;
@@ -140,14 +140,14 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    protected void cc() {
       if(--this.bu <= 0) {
-         class_cj var1 = new class_cj(this);
+         BlockPosition var1 = new BlockPosition(this);
          this.o.af().a(var1);
          this.bu = 70 + this.V.nextInt(50);
          this.bs = this.o.af().a(var1, 32);
          if(this.bs == null) {
             this.cy();
          } else {
-            class_cj var2 = this.bs.a();
+            BlockPosition var2 = this.bs.a();
             this.a(var2, (int)((float)this.bs.b() * 1.0F));
             if(this.bG) {
                this.bG = false;
@@ -532,7 +532,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    public class_wv b(class_po var1) {
       class_wv var2 = new class_wv(this.o);
-      var2.a(this.o.E(new class_cj(var2)), (class_qd)null);
+      var2.a(this.o.E(new BlockPosition(var2)), (class_qd)null);
       return var2;
    }
 
@@ -544,7 +544,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
       if(!this.o.D && !this.I) {
          class_wq var2 = new class_wq(this.o);
          var2.b(this.s, this.t, this.u, this.y, this.z);
-         var2.a(this.o.E(new class_cj(var2)), (class_qd)null);
+         var2.a(this.o.E(new BlockPosition(var2)), (class_qd)null);
          var2.k(this.cs());
          if(this.l_()) {
             var2.a(this.aO());
@@ -675,7 +675,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
    static class class_b_in_class_wv implements class_wv.class_f_in_class_wv {
       public void a(class_aeb var1, Random var2) {
          class_adi var3 = (class_adi)class_adi.b.get(var2);
-         int var4 = class_nu.a(var2, var3.d(), var3.b());
+         int var4 = MathHelper.getRandomIntInRange(var2, var3.d(), var3.b());
          class_aas var5 = Items.cg.a(new class_adl(var3, var4));
          int var6 = 2 + var2.nextInt(5 + var4 * 10) + 3 * var4;
          if(var6 > 64) {

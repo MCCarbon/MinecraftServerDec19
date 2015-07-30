@@ -8,12 +8,12 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
 
 public class class_ago extends Block {
    protected class_ago() {
-      this(Material.k);
+      this(Material.PLANT);
    }
 
    protected class_ago(Material var1) {
@@ -28,36 +28,36 @@ public class class_ago extends Block {
       this.a(CreativeTab.c);
    }
 
-   public boolean d(World var1, class_cj var2) {
-      return super.d(var1, var2) && this.c(var1.p(var2.b()).getBlock());
+   public boolean d(World var1, BlockPosition var2) {
+      return super.d(var1, var2) && this.c(var1.p(var2.shiftDown()).getBlock());
    }
 
    protected boolean c(Block var1) {
       return var1 == Blocks.GRASS || var1 == Blocks.DIRT || var1 == Blocks.FARMLAND;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       super.a(var1, var2, var3, var4);
       this.e(var1, var2, var3);
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       this.e(var1, var2, var3);
    }
 
-   protected void e(World var1, class_cj var2, IBlockData var3) {
+   protected void e(World var1, BlockPosition var2, IBlockData var3) {
       if(!this.f(var1, var2, var3)) {
          this.b(var1, var2, var3, 0);
-         var1.a((class_cj)var2, (IBlockData)Blocks.AIR.getBlockData(), 3);
+         var1.a((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 3);
       }
 
    }
 
-   public boolean f(World var1, class_cj var2, IBlockData var3) {
-      return this.c(var1.p(var2.b()).getBlock());
+   public boolean f(World var1, BlockPosition var2, IBlockData var3) {
+      return this.c(var1.p(var2.shiftDown()).getBlock());
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 

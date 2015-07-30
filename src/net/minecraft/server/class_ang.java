@@ -8,15 +8,15 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.class_pr;
 
 public class class_ang extends class_amg implements class_kn {
    private IBlockData a;
-   private class_cq f;
+   private EnumDirection f;
    private boolean g;
    private boolean h;
    private float i;
@@ -26,7 +26,7 @@ public class class_ang extends class_amg implements class_kn {
    public class_ang() {
    }
 
-   public class_ang(IBlockData var1, class_cq var2, boolean var3, boolean var4) {
+   public class_ang(IBlockData var1, EnumDirection var2, boolean var3, boolean var4) {
       this.a = var1;
       this.f = var2;
       this.g = var3;
@@ -45,7 +45,7 @@ public class class_ang extends class_amg implements class_kn {
       return this.g;
    }
 
-   public class_cq e() {
+   public EnumDirection e() {
       return this.f;
    }
 
@@ -75,18 +75,18 @@ public class class_ang extends class_amg implements class_kn {
                while(var5.hasNext()) {
                   class_pr var6 = (class_pr)var5.next();
                   if(this.a.getBlock() == Blocks.SLINE && this.g) {
-                     switch(class_ang.SyntheticClass_1.a[this.f.k().ordinal()]) {
+                     switch(class_ang.SyntheticClass_1.a[this.f.getAxis().ordinal()]) {
                      case 1:
-                        var6.v = (double)this.f.g();
+                        var6.v = (double)this.f.getAdjacentX();
                         break;
                      case 2:
-                        var6.w = (double)this.f.h();
+                        var6.w = (double)this.f.getAdjacentY();
                         break;
                      case 3:
-                        var6.x = (double)this.f.i();
+                        var6.x = (double)this.f.getAdjacentZ();
                      }
                   } else {
-                     var6.d((double)(var2 * (float)this.f.g()), (double)(var2 * (float)this.f.h()), (double)(var2 * (float)this.f.i()));
+                     var6.d((double)(var2 * (float)this.f.getAdjacentX()), (double)(var2 * (float)this.f.getAdjacentY()), (double)(var2 * (float)this.f.getAdjacentZ()));
                   }
                }
 
@@ -104,7 +104,7 @@ public class class_ang extends class_amg implements class_kn {
          this.b.t(this.c);
          this.y();
          if(this.b.p(this.c).getBlock() == Blocks.PISTON_EXTENSION) {
-            this.b.a((class_cj)this.c, (IBlockData)this.a, 3);
+            this.b.a((BlockPosition)this.c, (IBlockData)this.a, 3);
             this.b.d(this.c, this.a.getBlock());
          }
       }
@@ -118,7 +118,7 @@ public class class_ang extends class_amg implements class_kn {
          this.b.t(this.c);
          this.y();
          if(this.b.p(this.c).getBlock() == Blocks.PISTON_EXTENSION) {
-            this.b.a((class_cj)this.c, (IBlockData)this.a, 3);
+            this.b.a((BlockPosition)this.c, (IBlockData)this.a, 3);
             this.b.d(this.c, this.a.getBlock());
          }
 
@@ -138,7 +138,7 @@ public class class_ang extends class_amg implements class_kn {
    public void a(class_dn var1) {
       super.a(var1);
       this.a = Block.getById(var1.g("blockId")).fromLegacyData(var1.g("blockData"));
-      this.f = class_cq.a(var1.g("facing"));
+      this.f = EnumDirection.getById(var1.g("facing"));
       this.j = this.i = var1.i("progress");
       this.g = var1.o("extending");
    }
@@ -147,7 +147,7 @@ public class class_ang extends class_amg implements class_kn {
       super.b(var1);
       var1.a("blockId", Block.getId(this.a.getBlock()));
       var1.a("blockData", this.a.getBlock().toLegacyData(this.a));
-      var1.a("facing", this.f.a());
+      var1.a("facing", this.f.getId());
       var1.a("progress", this.j);
       var1.a("extending", this.g);
    }
@@ -155,23 +155,23 @@ public class class_ang extends class_amg implements class_kn {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.class_a_in_class_cq.values().length];
+      static final int[] a = new int[EnumDirection.EnumAxis.values().length];
 
       static {
          try {
-            a[class_cq.class_a_in_class_cq.a.ordinal()] = 1;
+            a[EnumDirection.EnumAxis.X.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.class_a_in_class_cq.b.ordinal()] = 2;
+            a[EnumDirection.EnumAxis.Y.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.class_a_in_class_cq.c.ordinal()] = 3;
+            a[EnumDirection.EnumAxis.Z.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

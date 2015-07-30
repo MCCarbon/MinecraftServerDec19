@@ -16,8 +16,8 @@ import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 
@@ -32,17 +32,17 @@ public class class_als extends Block {
    public static final class_anw S = class_anw.a("west");
 
    public class_als() {
-      super(Material.q);
+      super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, Boolean.valueOf(false)).set(R, Boolean.valueOf(false)).set(S, Boolean.valueOf(false)));
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.15625F, 1.0F);
       this.setTicking(true);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      return var1.set(P, Boolean.valueOf(c(var2, var3, var1, class_cq.c))).set(Q, Boolean.valueOf(c(var2, var3, var1, class_cq.f))).set(R, Boolean.valueOf(c(var2, var3, var1, class_cq.d))).set(S, Boolean.valueOf(c(var2, var3, var1, class_cq.e)));
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+      return var1.set(P, Boolean.valueOf(c(var2, var3, var1, EnumDirection.NORTH))).set(Q, Boolean.valueOf(c(var2, var3, var1, EnumDirection.EAST))).set(R, Boolean.valueOf(c(var2, var3, var1, EnumDirection.SOUTH))).set(S, Boolean.valueOf(c(var2, var3, var1, EnumDirection.WEST)));
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -58,9 +58,9 @@ public class class_als extends Block {
       return Items.H;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       boolean var5 = ((Boolean)var3.get(b)).booleanValue();
-      boolean var6 = !World.a((class_aer)var1, (class_cj)var2.b());
+      boolean var6 = !World.a((class_aer)var1, (BlockPosition)var2.shiftDown());
       if(var5 != var6) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -68,7 +68,7 @@ public class class_als extends Block {
 
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       boolean var4 = ((Boolean)var3.get(N)).booleanValue();
       boolean var5 = ((Boolean)var3.get(b)).booleanValue();
@@ -82,37 +82,37 @@ public class class_als extends Block {
 
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
-      var3 = var3.set(b, Boolean.valueOf(!World.a((class_aer)var1, (class_cj)var2.b())));
-      var1.a((class_cj)var2, (IBlockData)var3, 3);
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
+      var3 = var3.set(b, Boolean.valueOf(!World.a((class_aer)var1, (BlockPosition)var2.shiftDown())));
+      var1.a((BlockPosition)var2, (IBlockData)var3, 3);
       this.e(var1, var2, var3);
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       this.e(var1, var2, var3.set(a, Boolean.valueOf(true)));
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_xa var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
       if(!var1.D) {
          if(var4.bA() != null && var4.bA().b() == Items.bg) {
-            var1.a((class_cj)var2, (IBlockData)var3.set(O, Boolean.valueOf(true)), 4);
+            var1.a((BlockPosition)var2, (IBlockData)var3.set(O, Boolean.valueOf(true)), 4);
          }
 
       }
    }
 
-   private void e(World var1, class_cj var2, IBlockData var3) {
-      class_cq[] var4 = new class_cq[]{class_cq.d, class_cq.e};
+   private void e(World var1, BlockPosition var2, IBlockData var3) {
+      EnumDirection[] var4 = new EnumDirection[]{EnumDirection.SOUTH, EnumDirection.WEST};
       int var5 = var4.length;
 
       for(int var6 = 0; var6 < var5; ++var6) {
-         class_cq var7 = var4[var6];
+         EnumDirection var7 = var4[var6];
 
          for(int var8 = 1; var8 < 42; ++var8) {
-            class_cj var9 = var2.a(var7, var8);
+            BlockPosition var9 = var2.shift(var7, var8);
             IBlockData var10 = var1.p(var9);
             if(var10.getBlock() == Blocks.TRIPWIRE_HOOK) {
-               if(var10.get(class_alt.a) == var7.d()) {
+               if(var10.get(class_alt.a) == var7.getOpposite()) {
                   Blocks.TRIPWIRE_HOOK.a(var1, var9, var10, false, true, var8, var3);
                }
                break;
@@ -126,7 +126,7 @@ public class class_als extends Block {
 
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
       if(!var1.D) {
          if(!((Boolean)var3.get(a)).booleanValue()) {
             this.e(var1, var2);
@@ -134,10 +134,10 @@ public class class_als extends Block {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Random var4) {
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(!var1.D) {
          if(((Boolean)var1.p(var2).get(a)).booleanValue()) {
             this.e(var1, var2);
@@ -145,11 +145,11 @@ public class class_als extends Block {
       }
    }
 
-   private void e(World var1, class_cj var2) {
+   private void e(World var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       boolean var4 = ((Boolean)var3.get(a)).booleanValue();
       boolean var5 = false;
-      List var6 = var1.b((class_pr)null, (class_awf)(new class_awf((double)var2.n() + this.minX, (double)var2.o() + this.minY, (double)var2.p() + this.minZ, (double)var2.n() + this.maxX, (double)var2.o() + this.maxY, (double)var2.p() + this.maxZ)));
+      List var6 = var1.b((class_pr)null, (class_awf)(new class_awf((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ)));
       if(!var6.isEmpty()) {
          Iterator var7 = var6.iterator();
 
@@ -164,22 +164,22 @@ public class class_als extends Block {
 
       if(var5 != var4) {
          var3 = var3.set(a, Boolean.valueOf(var5));
-         var1.a((class_cj)var2, (IBlockData)var3, 3);
+         var1.a((BlockPosition)var2, (IBlockData)var3, 3);
          this.e(var1, var2, var3);
       }
 
       if(var5) {
-         var1.a((class_cj)var2, (Block)this, this.a(var1));
+         var1.a((BlockPosition)var2, (Block)this, this.a(var1));
       }
 
    }
 
-   public static boolean c(class_aer var0, class_cj var1, IBlockData var2, class_cq var3) {
-      class_cj var4 = var1.a(var3);
+   public static boolean c(class_aer var0, BlockPosition var1, IBlockData var2, EnumDirection var3) {
+      BlockPosition var4 = var1.shift(var3);
       IBlockData var5 = var0.p(var4);
       Block var6 = var5.getBlock();
       if(var6 == Blocks.TRIPWIRE_HOOK) {
-         class_cq var9 = var3.d();
+         EnumDirection var9 = var3.getOpposite();
          return var5.get(class_alt.a) == var9;
       } else if(var6 == Blocks.TRIPWIRE) {
          boolean var7 = ((Boolean)var2.get(b)).booleanValue();

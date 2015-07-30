@@ -13,7 +13,7 @@ import net.minecraft.server.class_amx;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
@@ -92,20 +92,20 @@ public class class_bk extends class_i {
          } else {
             World var7 = var1.e();
             class_n var8;
-            class_cj var9;
+            BlockPosition var9;
             class_amg var10;
             if(var3) {
                var9 = a(var1, var2, 1, false);
                var10 = var7.s(var9);
                if(var10 == null) {
-                  throw new class_bz("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.n()), Integer.valueOf(var9.o()), Integer.valueOf(var9.p())});
+                  throw new class_bz("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.getX()), Integer.valueOf(var9.getY()), Integer.valueOf(var9.getZ())});
                }
 
                if(var10 instanceof class_amj) {
                   var8 = ((class_amj)var10).c();
                } else {
                   if(!(var10 instanceof class_amx)) {
-                     throw new class_bz("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.n()), Integer.valueOf(var9.o()), Integer.valueOf(var9.p())});
+                     throw new class_bz("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.getX()), Integer.valueOf(var9.getY()), Integer.valueOf(var9.getZ())});
                   }
 
                   var8 = ((class_amx)var10).d();
@@ -139,7 +139,7 @@ public class class_bk extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):(var2.length >= 2 && var2.length <= 4 && var2[0].equals("block")?a(var2, 1, var3):(var2.length == 3 && var2[0].equals("entity") || var2.length == 5 && var2[0].equals("block")?a(var2, new String[]{"set", "clear"}):((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?((var2.length != 6 || !var2[0].equals("entity")) && (var2.length != 8 || !var2[0].equals("block"))?null:a(var2, this.e())):a(var2, class_n.class_a_in_class_n.c())))));
    }
 

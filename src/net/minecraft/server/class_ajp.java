@@ -23,7 +23,7 @@ public abstract class class_ajp extends class_aio {
    public static final BlockStateEnum N = BlockStateEnum.of("variant", class_ajp.class_a_in_class_ajp.class);
 
    public class_ajp() {
-      super(Material.e);
+      super(Material.STONE);
       IBlockData var1 = this.blockStateList.getFirst();
       if(this.l()) {
          var1 = var1.set(b, Boolean.valueOf(false));

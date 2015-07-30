@@ -6,7 +6,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cc;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_ev;
 import net.minecraft.server.class_ff;
@@ -88,7 +88,7 @@ public class class_bs extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length == 2?a(var2, class_hv.class_a_in_class_hv.a()):null);
    }
 

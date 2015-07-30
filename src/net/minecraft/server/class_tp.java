@@ -13,14 +13,14 @@ import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_df;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_lv;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_to;
@@ -31,8 +31,8 @@ import net.minecraft.server.class_xa;
 public class class_tp {
    private World a;
    private final List b = Lists.newArrayList();
-   private class_cj c;
-   private class_cj d;
+   private BlockPosition c;
+   private BlockPosition d;
    private int e;
    private int f;
    private int g;
@@ -43,15 +43,15 @@ public class class_tp {
    private int l;
 
    public class_tp() {
-      this.c = class_cj.a;
-      this.d = class_cj.a;
+      this.c = BlockPosition.ZERO;
+      this.d = BlockPosition.ZERO;
       this.j = new TreeMap();
       this.k = Lists.newArrayList();
    }
 
    public class_tp(World var1) {
-      this.c = class_cj.a;
-      this.d = class_cj.a;
+      this.c = BlockPosition.ZERO;
+      this.d = BlockPosition.ZERO;
       this.j = new TreeMap();
       this.k = Lists.newArrayList();
       this.a = var1;
@@ -75,10 +75,10 @@ public class class_tp {
 
       int var2 = this.h / 10;
       if(this.l < var2 && this.b.size() > 20 && this.a.s.nextInt(7000) == 0) {
-         class_awh var3 = this.a(this.d, 2, 4, 2);
+         Vec3D var3 = this.a(this.d, 2, 4, 2);
          if(var3 != null) {
             class_uj var4 = new class_uj(this.a);
-            var4.b(var3.a, var3.b, var3.c);
+            var4.b(var3.x, var3.y, var3.z);
             this.a.a((class_pr)var4);
             ++this.l;
          }
@@ -86,28 +86,28 @@ public class class_tp {
 
    }
 
-   private class_awh a(class_cj var1, int var2, int var3, int var4) {
+   private Vec3D a(BlockPosition var1, int var2, int var3, int var4) {
       for(int var5 = 0; var5 < 10; ++var5) {
-         class_cj var6 = var1.a(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
-         if(this.a(var6) && this.a(new class_cj(var2, var3, var4), var6)) {
-            return new class_awh((double)var6.n(), (double)var6.o(), (double)var6.p());
+         BlockPosition var6 = var1.add(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
+         if(this.a(var6) && this.a(new BlockPosition(var2, var3, var4), var6)) {
+            return new Vec3D((double)var6.getX(), (double)var6.getY(), (double)var6.getZ());
          }
       }
 
       return null;
    }
 
-   private boolean a(class_cj var1, class_cj var2) {
-      if(!World.a((class_aer)this.a, (class_cj)var2.b())) {
+   private boolean a(BlockPosition var1, BlockPosition var2) {
+      if(!World.a((class_aer)this.a, (BlockPosition)var2.shiftDown())) {
          return false;
       } else {
-         int var3 = var2.n() - var1.n() / 2;
-         int var4 = var2.p() - var1.p() / 2;
+         int var3 = var2.getX() - var1.getX() / 2;
+         int var4 = var2.getZ() - var1.getZ() / 2;
 
-         for(int var5 = var3; var5 < var3 + var1.n(); ++var5) {
-            for(int var6 = var2.o(); var6 < var2.o() + var1.o(); ++var6) {
-               for(int var7 = var4; var7 < var4 + var1.p(); ++var7) {
-                  if(this.a.p(new class_cj(var5, var6, var7)).getBlock().isOccluding()) {
+         for(int var5 = var3; var5 < var3 + var1.getX(); ++var5) {
+            for(int var6 = var2.getY(); var6 < var2.getY() + var1.getY(); ++var6) {
+               for(int var7 = var4; var7 < var4 + var1.getZ(); ++var7) {
+                  if(this.a.p(new BlockPosition(var5, var6, var7)).getBlock().isOccluding()) {
                      return false;
                   }
                }
@@ -119,12 +119,12 @@ public class class_tp {
    }
 
    private void j() {
-      List var1 = this.a.a(class_uj.class, new class_awf((double)(this.d.n() - this.e), (double)(this.d.o() - 4), (double)(this.d.p() - this.e), (double)(this.d.n() + this.e), (double)(this.d.o() + 4), (double)(this.d.p() + this.e)));
+      List var1 = this.a.a(class_uj.class, new class_awf((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
       this.l = var1.size();
    }
 
    private void k() {
-      List var1 = this.a.a(class_wv.class, new class_awf((double)(this.d.n() - this.e), (double)(this.d.o() - 4), (double)(this.d.p() - this.e), (double)(this.d.n() + this.e), (double)(this.d.o() + 4), (double)(this.d.p() + this.e)));
+      List var1 = this.a.a(class_wv.class, new class_awf((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
       this.h = var1.size();
       if(this.h == 0) {
          this.j.clear();
@@ -132,7 +132,7 @@ public class class_tp {
 
    }
 
-   public class_cj a() {
+   public BlockPosition a() {
       return this.d;
    }
 
@@ -152,15 +152,15 @@ public class class_tp {
       return this.h;
    }
 
-   public boolean a(class_cj var1) {
-      return this.d.i(var1) < (double)(this.e * this.e);
+   public boolean a(BlockPosition var1) {
+      return this.d.distanceSquared(var1) < (double)(this.e * this.e);
    }
 
    public List f() {
       return this.b;
    }
 
-   public class_to b(class_cj var1) {
+   public class_to b(BlockPosition var1) {
       class_to var2 = null;
       int var3 = Integer.MAX_VALUE;
       Iterator var4 = this.b.iterator();
@@ -177,7 +177,7 @@ public class class_tp {
       return var2;
    }
 
-   public class_to c(class_cj var1) {
+   public class_to c(BlockPosition var1) {
       class_to var2 = null;
       int var3 = Integer.MAX_VALUE;
       Iterator var4 = this.b.iterator();
@@ -200,8 +200,8 @@ public class class_tp {
       return var2;
    }
 
-   public class_to e(class_cj var1) {
-      if(this.d.i(var1) > (double)(this.e * this.e)) {
+   public class_to e(BlockPosition var1) {
+      if(this.d.distanceSquared(var1) > (double)(this.e * this.e)) {
          return null;
       } else {
          Iterator var2 = this.b.iterator();
@@ -213,7 +213,7 @@ public class class_tp {
             }
 
             var3 = (class_to)var2.next();
-         } while(var3.d().n() != var1.n() || var3.d().p() != var1.p() || Math.abs(var3.d().o() - var1.o()) > 1);
+         } while(var3.d().getX() != var1.getX() || var3.d().getZ() != var1.getZ() || Math.abs(var3.d().getY() - var1.getY()) > 1);
 
          return var3;
       }
@@ -221,7 +221,7 @@ public class class_tp {
 
    public void a(class_to var1) {
       this.b.add(var1);
-      this.c = this.c.a((class_df)var1.d());
+      this.c = this.c.add((BaseBlockPosition)var1.d());
       this.n();
       this.f = var1.h();
    }
@@ -323,25 +323,25 @@ public class class_tp {
             }
          } while(this.f(var4.d()) && Math.abs(this.g - var4.h()) <= 1200);
 
-         this.c = this.c.b(var4.d());
+         this.c = this.c.substract(var4.d());
          var1 = true;
          var4.a(true);
          var3.remove();
       }
    }
 
-   private boolean f(class_cj var1) {
+   private boolean f(BlockPosition var1) {
       Block var2 = this.a.p(var1).getBlock();
-      return var2 instanceof class_ahl?var2.getMaterial() == Material.d:false;
+      return var2 instanceof class_ahl?var2.getMaterial() == Material.WOOD:false;
    }
 
    private void n() {
       int var1 = this.b.size();
       if(var1 == 0) {
-         this.d = new class_cj(0, 0, 0);
+         this.d = new BlockPosition(0, 0, 0);
          this.e = 0;
       } else {
-         this.d = new class_cj(this.c.n() / var1, this.c.o() / var1, this.c.p() / var1);
+         this.d = new BlockPosition(this.c.getX() / var1, this.c.getY() / var1, this.c.getZ() / var1);
          int var2 = 0;
 
          class_to var4;
@@ -360,7 +360,7 @@ public class class_tp {
 
    public int a(String var1, int var2) {
       int var3 = this.a(var1);
-      int var4 = class_nu.a(var3 + var2, -30, 10);
+      int var4 = MathHelper.clamp(var3 + var2, -30, 10);
       this.j.put(var1, Integer.valueOf(var4));
       return var4;
    }
@@ -376,13 +376,13 @@ public class class_tp {
       this.f = var1.g("Stable");
       this.g = var1.g("Tick");
       this.i = var1.g("MTick");
-      this.d = new class_cj(var1.g("CX"), var1.g("CY"), var1.g("CZ"));
-      this.c = new class_cj(var1.g("ACX"), var1.g("ACY"), var1.g("ACZ"));
+      this.d = new BlockPosition(var1.g("CX"), var1.g("CY"), var1.g("CZ"));
+      this.c = new BlockPosition(var1.g("ACX"), var1.g("ACY"), var1.g("ACZ"));
       class_du var2 = var1.c("Doors", 10);
 
       for(int var3 = 0; var3 < var2.c(); ++var3) {
          class_dn var4 = var2.b(var3);
-         class_to var5 = new class_to(new class_cj(var4.g("X"), var4.g("Y"), var4.g("Z")), var4.g("IDX"), var4.g("IDZ"), var4.g("TS"));
+         class_to var5 = new class_to(new BlockPosition(var4.g("X"), var4.g("Y"), var4.g("Z")), var4.g("IDX"), var4.g("IDZ"), var4.g("TS"));
          this.b.add(var5);
       }
 
@@ -410,21 +410,21 @@ public class class_tp {
       var1.a("Stable", this.f);
       var1.a("Tick", this.g);
       var1.a("MTick", this.i);
-      var1.a("CX", this.d.n());
-      var1.a("CY", this.d.o());
-      var1.a("CZ", this.d.p());
-      var1.a("ACX", this.c.n());
-      var1.a("ACY", this.c.o());
-      var1.a("ACZ", this.c.p());
+      var1.a("CX", this.d.getX());
+      var1.a("CY", this.d.getY());
+      var1.a("CZ", this.d.getZ());
+      var1.a("ACX", this.c.getX());
+      var1.a("ACY", this.c.getY());
+      var1.a("ACZ", this.c.getZ());
       class_du var2 = new class_du();
       Iterator var3 = this.b.iterator();
 
       while(var3.hasNext()) {
          class_to var4 = (class_to)var3.next();
          class_dn var5 = new class_dn();
-         var5.a("X", var4.d().n());
-         var5.a("Y", var4.d().o());
-         var5.a("Z", var4.d().p());
+         var5.a("X", var4.d().getX());
+         var5.a("Y", var4.d().getY());
+         var5.a("Z", var4.d().getZ());
          var5.a("IDX", var4.f());
          var5.a("IDZ", var4.g());
          var5.a("TS", var4.h());

@@ -6,8 +6,8 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 
 public class class_apg extends class_apn {
    private float[] d = new float[1024];
@@ -40,15 +40,15 @@ public class class_apg extends class_apn {
       }
 
       for(; var15 < var16; ++var15) {
-         double var54 = 1.5D + (double)(class_nu.a((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
+         double var54 = 1.5D + (double)(MathHelper.sin((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
          double var30 = var54 * var17;
          var54 *= (double)var19.nextFloat() * 0.25D + 0.75D;
          var30 *= (double)var19.nextFloat() * 0.25D + 0.75D;
-         float var32 = class_nu.b(var14);
-         float var33 = class_nu.a(var14);
-         var6 += (double)(class_nu.b(var13) * var32);
+         float var32 = MathHelper.cos(var14);
+         float var33 = MathHelper.sin(var14);
+         var6 += (double)(MathHelper.cos(var13) * var32);
          var8 += (double)var33;
-         var10 += (double)(class_nu.a(var13) * var32);
+         var10 += (double)(MathHelper.sin(var13) * var32);
          var14 *= 0.7F;
          var14 += var25 * 0.05F;
          var13 += var24 * 0.05F;
@@ -66,12 +66,12 @@ public class class_apg extends class_apn {
             }
 
             if(var6 >= var20 - 16.0D - var54 * 2.0D && var10 >= var22 - 16.0D - var54 * 2.0D && var6 <= var20 + 16.0D + var54 * 2.0D && var10 <= var22 + 16.0D + var54 * 2.0D) {
-               int var55 = class_nu.c(var6 - var54) - var3 * 16 - 1;
-               int var35 = class_nu.c(var6 + var54) - var3 * 16 + 1;
-               int var56 = class_nu.c(var8 - var30) - 1;
-               int var37 = class_nu.c(var8 + var30) + 1;
-               int var57 = class_nu.c(var10 - var54) - var4 * 16 - 1;
-               int var39 = class_nu.c(var10 + var54) - var4 * 16 + 1;
+               int var55 = MathHelper.floor(var6 - var54) - var3 * 16 - 1;
+               int var35 = MathHelper.floor(var6 + var54) - var3 * 16 + 1;
+               int var56 = MathHelper.floor(var8 - var30) - 1;
+               int var37 = MathHelper.floor(var8 + var30) + 1;
+               int var57 = MathHelper.floor(var10 - var54) - var4 * 16 - 1;
+               int var39 = MathHelper.floor(var10 + var54) - var4 * 16 + 1;
                if(var55 < 0) {
                   var55 = 0;
                }
@@ -117,7 +117,7 @@ public class class_apg extends class_apn {
                }
 
                if(!var58) {
-                  class_cj.class_a_in_class_cj var59 = new class_cj.class_a_in_class_cj();
+                  BlockPosition.MutableBlockPosition var59 = new BlockPosition.MutableBlockPosition();
 
                   for(var42 = var55; var42 < var35; ++var42) {
                      double var60 = ((double)(var42 + var3 * 16) + 0.5D - var6) / var54;
@@ -140,8 +140,8 @@ public class class_apg extends class_apn {
                                     } else {
                                        var5.a(var42, var49, var45, Blocks.AIR.getBlockData());
                                        if(var48 && var5.a(var42, var49 - 1, var45).getBlock() == Blocks.DIRT) {
-                                          var59.c(var42 + var3 * 16, 0, var45 + var4 * 16);
-                                          var5.a(var42, var49 - 1, var45, this.c.b((class_cj)var59).ak);
+                                          var59.setPosition(var42 + var3 * 16, 0, var45 + var4 * 16);
+                                          var5.a(var42, var49 - 1, var45, this.c.b((BlockPosition)var59).ak);
                                        }
                                     }
                                  }

@@ -12,13 +12,13 @@ import net.minecraft.server.class_aje;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 
 public class class_apx extends class_apw {
    private Random k;
    private World l;
-   private class_cj m;
+   private BlockPosition m;
    int a;
    int b;
    double c;
@@ -32,7 +32,7 @@ public class class_apx extends class_apw {
 
    public class_apx(boolean var1) {
       super(var1);
-      this.m = class_cj.a;
+      this.m = BlockPosition.ZERO;
       this.c = 0.618D;
       this.d = 0.381D;
       this.e = 1.0D;
@@ -53,10 +53,10 @@ public class class_apx extends class_apw {
          var1 = 1;
       }
 
-      int var2 = this.m.o() + this.b;
+      int var2 = this.m.getY() + this.b;
       int var3 = this.a - this.i;
       this.j = Lists.newArrayList();
-      this.j.add(new class_apx.class_a_in_class_apx(this.m.b(var3), var2));
+      this.j.add(new class_apx.class_a_in_class_apx(this.m.shiftUp(var3), var2));
 
       for(; var3 >= 0; --var3) {
          float var4 = this.a(var3);
@@ -66,16 +66,16 @@ public class class_apx extends class_apw {
                double var8 = (double)(this.k.nextFloat() * 2.0F) * 3.141592653589793D;
                double var10 = var6 * Math.sin(var8) + 0.5D;
                double var12 = var6 * Math.cos(var8) + 0.5D;
-               class_cj var14 = this.m.a(var10, (double)(var3 - 1), var12);
-               class_cj var15 = var14.b(this.i);
+               BlockPosition var14 = this.m.add(var10, (double)(var3 - 1), var12);
+               BlockPosition var15 = var14.shiftUp(this.i);
                if(this.a(var14, var15) == -1) {
-                  int var16 = this.m.n() - var14.n();
-                  int var17 = this.m.p() - var14.p();
-                  double var18 = (double)var14.o() - Math.sqrt((double)(var16 * var16 + var17 * var17)) * this.d;
+                  int var16 = this.m.getX() - var14.getX();
+                  int var17 = this.m.getZ() - var14.getZ();
+                  double var18 = (double)var14.getY() - Math.sqrt((double)(var16 * var16 + var17 * var17)) * this.d;
                   int var20 = var18 > (double)var2?var2:(int)var18;
-                  class_cj var21 = new class_cj(this.m.n(), var20, this.m.p());
+                  BlockPosition var21 = new BlockPosition(this.m.getX(), var20, this.m.getZ());
                   if(this.a(var21, var14) == -1) {
-                     this.j.add(new class_apx.class_a_in_class_apx(var14, var21.o()));
+                     this.j.add(new class_apx.class_a_in_class_apx(var14, var21.getY()));
                   }
                }
             }
@@ -84,15 +84,15 @@ public class class_apx extends class_apw {
 
    }
 
-   void a(class_cj var1, float var2, IBlockData var3) {
+   void a(BlockPosition var1, float var2, IBlockData var3) {
       int var4 = (int)((double)var2 + 0.618D);
 
       for(int var5 = -var4; var5 <= var4; ++var5) {
          for(int var6 = -var4; var6 <= var4; ++var6) {
             if(Math.pow((double)Math.abs(var5) + 0.5D, 2.0D) + Math.pow((double)Math.abs(var6) + 0.5D, 2.0D) <= (double)(var2 * var2)) {
-               class_cj var7 = var1.a(var5, 0, var6);
+               BlockPosition var7 = var1.add(var5, 0, var6);
                Material var8 = this.l.p(var7).getBlock().getMaterial();
-               if(var8 == Material.a || var8 == Material.j) {
+               if(var8 == Material.AIR || var8 == Material.LEAVES) {
                   this.a(this.l, var7, var3);
                }
             }
@@ -107,7 +107,7 @@ public class class_apx extends class_apw {
       } else {
          float var2 = (float)this.a / 2.0F;
          float var3 = var2 - (float)var1;
-         float var4 = class_nu.c(var2 * var2 - var3 * var3);
+         float var4 = MathHelper.sqrt(var2 * var2 - var3 * var3);
          if(var3 == 0.0F) {
             var4 = var2;
          } else if(Math.abs(var3) >= var2) {
@@ -122,39 +122,39 @@ public class class_apx extends class_apw {
       return var1 >= 0 && var1 < this.i?(var1 != 0 && var1 != this.i - 1?3.0F:2.0F):-1.0F;
    }
 
-   void a(class_cj var1) {
+   void a(BlockPosition var1) {
       for(int var2 = 0; var2 < this.i; ++var2) {
-         this.a(var1.b(var2), this.b(var2), Blocks.LEAVES.getBlockData().set(class_aja.b, Boolean.valueOf(false)));
+         this.a(var1.shiftUp(var2), this.b(var2), Blocks.LEAVES.getBlockData().set(class_aja.b, Boolean.valueOf(false)));
       }
 
    }
 
-   void a(class_cj var1, class_cj var2, Block var3) {
-      class_cj var4 = var2.a(-var1.n(), -var1.o(), -var1.p());
+   void a(BlockPosition var1, BlockPosition var2, Block var3) {
+      BlockPosition var4 = var2.add(-var1.getX(), -var1.getY(), -var1.getZ());
       int var5 = this.b(var4);
-      float var6 = (float)var4.n() / (float)var5;
-      float var7 = (float)var4.o() / (float)var5;
-      float var8 = (float)var4.p() / (float)var5;
+      float var6 = (float)var4.getX() / (float)var5;
+      float var7 = (float)var4.getY() / (float)var5;
+      float var8 = (float)var4.getZ() / (float)var5;
 
       for(int var9 = 0; var9 <= var5; ++var9) {
-         class_cj var10 = var1.a((double)(0.5F + (float)var9 * var6), (double)(0.5F + (float)var9 * var7), (double)(0.5F + (float)var9 * var8));
+         BlockPosition var10 = var1.add((double)(0.5F + (float)var9 * var6), (double)(0.5F + (float)var9 * var7), (double)(0.5F + (float)var9 * var8));
          class_aje.class_a_in_class_aje var11 = this.b(var1, var10);
          this.a(this.l, var10, var3.getBlockData().set(class_aje.a, var11));
       }
 
    }
 
-   private int b(class_cj var1) {
-      int var2 = class_nu.a(var1.n());
-      int var3 = class_nu.a(var1.o());
-      int var4 = class_nu.a(var1.p());
+   private int b(BlockPosition var1) {
+      int var2 = MathHelper.abs(var1.getX());
+      int var3 = MathHelper.abs(var1.getY());
+      int var4 = MathHelper.abs(var1.getZ());
       return var4 > var2 && var4 > var3?var4:(var3 > var2?var3:var2);
    }
 
-   private class_aje.class_a_in_class_aje b(class_cj var1, class_cj var2) {
+   private class_aje.class_a_in_class_aje b(BlockPosition var1, BlockPosition var2) {
       class_aje.class_a_in_class_aje var3 = class_aje.class_a_in_class_aje.b;
-      int var4 = Math.abs(var2.n() - var1.n());
-      int var5 = Math.abs(var2.p() - var1.p());
+      int var4 = Math.abs(var2.getX() - var1.getX());
+      int var5 = Math.abs(var2.getZ() - var1.getZ());
       int var6 = Math.max(var4, var5);
       if(var6 > 0) {
          if(var4 == var6) {
@@ -182,14 +182,14 @@ public class class_apx extends class_apw {
    }
 
    void c() {
-      class_cj var1 = this.m;
-      class_cj var2 = this.m.b(this.b);
+      BlockPosition var1 = this.m;
+      BlockPosition var2 = this.m.shiftUp(this.b);
       Block var3 = Blocks.LOG;
       this.a(var1, var2, var3);
       if(this.g == 2) {
-         this.a(var1.f(), var2.f(), var3);
-         this.a(var1.f().d(), var2.f().d(), var3);
-         this.a(var1.d(), var2.d(), var3);
+         this.a(var1.shiftEast(), var2.shiftEast(), var3);
+         this.a(var1.shiftEast().shiftSouth(), var2.shiftEast().shiftSouth(), var3);
+         this.a(var1.shiftSouth(), var2.shiftSouth(), var3);
       }
 
    }
@@ -200,25 +200,25 @@ public class class_apx extends class_apw {
       while(var1.hasNext()) {
          class_apx.class_a_in_class_apx var2 = (class_apx.class_a_in_class_apx)var1.next();
          int var3 = var2.q();
-         class_cj var4 = new class_cj(this.m.n(), var3, this.m.p());
-         if(!var4.equals(var2) && this.c(var3 - this.m.o())) {
+         BlockPosition var4 = new BlockPosition(this.m.getX(), var3, this.m.getZ());
+         if(!var4.equals(var2) && this.c(var3 - this.m.getY())) {
             this.a(var4, var2, Blocks.LOG);
          }
       }
 
    }
 
-   int a(class_cj var1, class_cj var2) {
-      class_cj var3 = var2.a(-var1.n(), -var1.o(), -var1.p());
+   int a(BlockPosition var1, BlockPosition var2) {
+      BlockPosition var3 = var2.add(-var1.getX(), -var1.getY(), -var1.getZ());
       int var4 = this.b(var3);
-      float var5 = (float)var3.n() / (float)var4;
-      float var6 = (float)var3.o() / (float)var4;
-      float var7 = (float)var3.p() / (float)var4;
+      float var5 = (float)var3.getX() / (float)var4;
+      float var6 = (float)var3.getY() / (float)var4;
+      float var7 = (float)var3.getZ() / (float)var4;
       if(var4 == 0) {
          return -1;
       } else {
          for(int var8 = 0; var8 <= var4; ++var8) {
-            class_cj var9 = var1.a((double)(0.5F + (float)var8 * var5), (double)(0.5F + (float)var8 * var6), (double)(0.5F + (float)var8 * var7));
+            BlockPosition var9 = var1.add((double)(0.5F + (float)var8 * var5), (double)(0.5F + (float)var8 * var6), (double)(0.5F + (float)var8 * var7));
             if(!this.a(this.l.p(var9).getBlock())) {
                return var8;
             }
@@ -232,7 +232,7 @@ public class class_apx extends class_apw {
       this.i = 5;
    }
 
-   public boolean b(World var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, BlockPosition var3) {
       this.l = var1;
       this.m = var3;
       this.k = new Random(var2.nextLong());
@@ -252,11 +252,11 @@ public class class_apx extends class_apw {
    }
 
    private boolean f() {
-      Block var1 = this.l.p(this.m.b()).getBlock();
+      Block var1 = this.l.p(this.m.shiftDown()).getBlock();
       if(var1 != Blocks.DIRT && var1 != Blocks.GRASS && var1 != Blocks.FARMLAND) {
          return false;
       } else {
-         int var2 = this.a(this.m, this.m.b(this.a - 1));
+         int var2 = this.a(this.m, this.m.shiftUp(this.a - 1));
          if(var2 == -1) {
             return true;
          } else if(var2 < 6) {
@@ -268,11 +268,11 @@ public class class_apx extends class_apw {
       }
    }
 
-   static class class_a_in_class_apx extends class_cj {
+   static class class_a_in_class_apx extends BlockPosition {
       private final int c;
 
-      public class_a_in_class_apx(class_cj var1, int var2) {
-         super(var1.n(), var1.o(), var1.p());
+      public class_a_in_class_apx(BlockPosition var1, int var2) {
+         super(var1.getX(), var1.getY(), var1.getZ());
          this.c = var2;
       }
 

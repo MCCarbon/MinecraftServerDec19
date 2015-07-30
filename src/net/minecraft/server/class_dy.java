@@ -4,7 +4,7 @@ import com.mojang.authlib.GameProfile;
 import com.mojang.authlib.properties.Property;
 import java.util.Iterator;
 import java.util.UUID;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -159,15 +159,15 @@ public final class class_dy {
       return new UUID(var0.h("M"), var0.h("L"));
    }
 
-   public static class_cj c(class_dn var0) {
-      return new class_cj(var0.g("X"), var0.g("Y"), var0.g("Z"));
+   public static BlockPosition c(class_dn var0) {
+      return new BlockPosition(var0.g("X"), var0.g("Y"), var0.g("Z"));
    }
 
-   public static class_dn a(class_cj var0) {
+   public static class_dn a(BlockPosition var0) {
       class_dn var1 = new class_dn();
-      var1.a("X", var0.n());
-      var1.a("Y", var0.o());
-      var1.a("Z", var0.p());
+      var1.a("X", var0.getX());
+      var1.a("Y", var0.getY());
+      var1.a("Z", var0.getZ());
       return var1;
    }
 }

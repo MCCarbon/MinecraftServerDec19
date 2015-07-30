@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
@@ -31,7 +31,7 @@ public class class_s extends class_i {
          throw new class_cf("commands.blockdata.usage", new Object[0]);
       } else {
          var1.a(class_n.class_a_in_class_n.b, 0);
-         class_cj var3 = a(var1, var2, 0, false);
+         BlockPosition var3 = a(var1, var2, 0, false);
          World var4 = var1.e();
          if(!var4.e(var3)) {
             throw new class_bz("commands.blockdata.outOfWorld", new Object[0]);
@@ -52,9 +52,9 @@ public class class_s extends class_i {
                }
 
                var6.a(var8);
-               var6.a("x", var3.n());
-               var6.a("y", var3.o());
-               var6.a("z", var3.p());
+               var6.a("x", var3.getX());
+               var6.a("y", var3.getY());
+               var6.a("z", var3.getZ());
                if(var6.equals(var7)) {
                   throw new class_bz("commands.blockdata.failed", new Object[]{var6.toString()});
                } else {
@@ -69,7 +69,7 @@ public class class_s extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

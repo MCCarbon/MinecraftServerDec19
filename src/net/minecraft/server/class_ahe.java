@@ -16,9 +16,9 @@ import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
@@ -28,7 +28,7 @@ public class class_ahe extends class_agd {
    private final boolean b;
 
    public class_ahe(boolean var1) {
-      super(Material.d);
+      super(Material.WOOD);
       this.b = var1;
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.375F, 1.0F);
@@ -38,44 +38,44 @@ public class class_ahe extends class_agd {
       this.setName("daylightDetector");
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.375F, 1.0F);
    }
 
-   public int a(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
+   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return ((Integer)var3.get(a)).intValue();
    }
 
-   public void f(World var1, class_cj var2) {
+   public void f(World var1, BlockPosition var2) {
       if(!var1.t.m()) {
          IBlockData var3 = var1.p(var2);
          int var4 = var1.b(class_aet.a, var2) - var1.ac();
          float var5 = var1.d(1.0F);
          float var6 = var5 < 3.1415927F?0.0F:6.2831855F;
          var5 += (var6 - var5) * 0.2F;
-         var4 = Math.round((float)var4 * class_nu.b(var5));
-         var4 = class_nu.a(var4, 0, 15);
+         var4 = Math.round((float)var4 * MathHelper.cos(var5));
+         var4 = MathHelper.clamp(var4, 0, 15);
          if(this.b) {
             var4 = 15 - var4;
          }
 
          if(((Integer)var3.get(a)).intValue() != var4) {
-            var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(var4)), 3);
+            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var4)), 3);
          }
 
       }
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var4.cp()) {
          if(var1.D) {
             return true;
          } else {
             if(this.b) {
-               var1.a((class_cj)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR.getBlockData().set(a, var3.get(a)), 4);
+               var1.a((BlockPosition)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR.getBlockData().set(a, var3.get(a)), 4);
                Blocks.DAYLIGHT_DETECTOR.f(var1, var2);
             } else {
-               var1.a((class_cj)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR_INVERTED.getBlockData().set(a, var3.get(a)), 4);
+               var1.a((BlockPosition)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR_INVERTED.getBlockData().set(a, var3.get(a)), 4);
                Blocks.DAYLIGHT_DETECTOR_INVERTED.f(var1, var2);
             }
 

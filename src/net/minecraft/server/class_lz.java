@@ -27,7 +27,7 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awp;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ek;
 import net.minecraft.server.class_em;
@@ -70,7 +70,7 @@ import net.minecraft.server.class_mh;
 import net.minecraft.server.class_mx;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pt;
@@ -130,7 +130,7 @@ public abstract class class_lz {
       f.info(var2.e_() + "[" + var8 + "] logged in with entity id " + var2.F() + " at (" + var2.s + ", " + var2.t + ", " + var2.u + ")");
       class_lg var9 = this.h.a(var2.am);
       class_avn var10 = var9.Q();
-      class_cj var11 = var9.N();
+      BlockPosition var11 = var9.N();
       this.a(var2, (class_lh)null, var9);
       class_lo var12 = new class_lo(this.h, var1, var2);
       var12.a((class_ff)(new class_gt(var2.F(), var2.c.b(), var10.t(), var9.t.p().a(), var9.ab(), this.p(), var10.u(), var9.R().b("reducedDebugInfo"))));
@@ -382,7 +382,7 @@ public abstract class class_lz {
       var1.u().u().c(var1);
       this.i.remove(var1);
       this.h.a(var1.am).f(var1);
-      class_cj var4 = var1.cj();
+      BlockPosition var4 = var1.cj();
       boolean var5 = var1.ck();
       var1.am = var2;
       Object var6;
@@ -399,12 +399,12 @@ public abstract class class_lz {
       var7.o(var1);
       class_lg var8 = this.h.a(var1.am);
       this.a(var7, var1, var8);
-      class_cj var9;
+      BlockPosition var9;
       if(var4 != null) {
          var9 = class_xa.a(this.h.a(var1.am), var4, var5);
          if(var9 != null) {
-            var7.b((double)((float)var9.n() + 0.5F), (double)((float)var9.o() + 0.1F), (double)((float)var9.p() + 0.5F), 0.0F, 0.0F);
-            var7.a((class_cj)var4, var5);
+            var7.b((double)((float)var9.getX() + 0.5F), (double)((float)var9.getY() + 0.1F), (double)((float)var9.getZ() + 0.5F), 0.0F, 0.0F);
+            var7.a((BlockPosition)var4, var5);
          } else {
             var7.a.a((class_ff)(new class_gm(0, 0.0F)));
          }
@@ -461,30 +461,30 @@ public abstract class class_lz {
       float var11 = var1.y;
       var3.B.a("moving");
       if(var1.am == -1) {
-         var5 = class_nu.a(var5 / var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
-         var7 = class_nu.a(var7 / var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
+         var5 = MathHelper.clamp(var5 / var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
+         var7 = MathHelper.clamp(var7 / var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
          var1.b(var5, var1.t, var7, var1.y, var1.z);
          if(var1.ai()) {
             var3.a(var1, false);
          }
       } else if(var1.am == 0) {
-         var5 = class_nu.a(var5 * var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
-         var7 = class_nu.a(var7 * var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
+         var5 = MathHelper.clamp(var5 * var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
+         var7 = MathHelper.clamp(var7 * var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
          var1.b(var5, var1.t, var7, var1.y, var1.z);
          if(var1.ai()) {
             var3.a(var1, false);
          }
       } else {
-         class_cj var12;
+         BlockPosition var12;
          if(var2 == 1) {
             var12 = var4.N();
          } else {
             var12 = var4.n();
          }
 
-         var5 = (double)var12.n();
-         var1.t = (double)var12.o();
-         var7 = (double)var12.p();
+         var5 = (double)var12.getX();
+         var1.t = (double)var12.getY();
+         var7 = (double)var12.getZ();
          var1.b(var5, var1.t, var7, 90.0F, 0.0F);
          if(var1.ai()) {
             var3.a(var1, false);
@@ -494,8 +494,8 @@ public abstract class class_lz {
       var3.B.b();
       if(var2 != 1) {
          var3.B.a("placing");
-         var5 = (double)class_nu.a((int)var5, -29999872, 29999872);
-         var7 = (double)class_nu.a((int)var7, -29999872, 29999872);
+         var5 = (double)MathHelper.clamp((int)var5, -29999872, 29999872);
+         var7 = (double)MathHelper.clamp((int)var7, -29999872, 29999872);
          if(var1.ai()) {
             var1.b(var5, var1.t, var7, var1.y, var1.z);
             var4.v().a(var1, var11);

@@ -14,7 +14,7 @@ public class class_aki extends Block {
    public static final BlockStateEnum a = BlockStateEnum.of("type", class_aki.class_a_in_class_aki.class);
 
    public class_aki() {
-      super(Material.e, class_akq.class_a_in_class_akq.b.c());
+      super(Material.STONE, class_akq.class_a_in_class_akq.b.c());
       this.setBlockData(this.blockStateList.getFirst().set(a, class_aki.class_a_in_class_aki.a));
       this.a(CreativeTab.b);
    }

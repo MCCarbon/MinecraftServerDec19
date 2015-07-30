@@ -4,7 +4,7 @@ import net.minecraft.server.class_aee;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ft;
@@ -20,7 +20,7 @@ public class class_amv extends class_amg implements class_kn {
          return class_amv.this.b;
       }
 
-      public class_cj b() {
+      public BlockPosition b() {
          return class_amv.this.c;
       }
 

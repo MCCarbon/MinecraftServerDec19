@@ -11,8 +11,8 @@ import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 
 public class class_arf extends class_apw {
    private static final IBlockData a;
@@ -22,13 +22,13 @@ public class class_arf extends class_apw {
       super(var1);
    }
 
-   public boolean b(World var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, BlockPosition var3) {
       int var4 = var2.nextInt(3) + var2.nextInt(2) + 6;
-      int var5 = var3.n();
-      int var6 = var3.o();
-      int var7 = var3.p();
+      int var5 = var3.getX();
+      int var6 = var3.getY();
+      int var7 = var3.getZ();
       if(var6 >= 1 && var6 + var4 + 1 < 256) {
-         class_cj var8 = var3.b();
+         BlockPosition var8 = var3.shiftDown();
          Block var9 = var1.p(var8).getBlock();
          if(var9 != Blocks.GRASS && var9 != Blocks.DIRT) {
             return false;
@@ -36,10 +36,10 @@ public class class_arf extends class_apw {
             return false;
          } else {
             this.a(var1, var8);
-            this.a(var1, var8.f());
-            this.a(var1, var8.d());
-            this.a(var1, var8.d().f());
-            class_cq var10 = class_cq.class_c_in_class_cq.a.a(var2);
+            this.a(var1, var8.shiftEast());
+            this.a(var1, var8.shiftSouth());
+            this.a(var1, var8.shiftSouth().shiftEast());
+            EnumDirection var10 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
             int var11 = var4 - var2.nextInt(4);
             int var12 = 2 - var2.nextInt(3);
             int var13 = var5;
@@ -50,19 +50,19 @@ public class class_arf extends class_apw {
             int var17;
             for(var16 = 0; var16 < var4; ++var16) {
                if(var16 >= var11 && var12 > 0) {
-                  var13 += var10.g();
-                  var14 += var10.i();
+                  var13 += var10.getAdjacentX();
+                  var14 += var10.getAdjacentZ();
                   --var12;
                }
 
                var17 = var6 + var16;
-               class_cj var18 = new class_cj(var13, var17, var14);
+               BlockPosition var18 = new BlockPosition(var13, var17, var14);
                Material var19 = var1.p(var18).getBlock().getMaterial();
-               if(var19 == Material.a || var19 == Material.j) {
+               if(var19 == Material.AIR || var19 == Material.LEAVES) {
                   this.b(var1, var18);
-                  this.b(var1, var18.f());
-                  this.b(var1, var18.d());
-                  this.b(var1, var18.f().d());
+                  this.b(var1, var18.shiftEast());
+                  this.b(var1, var18.shiftSouth());
+                  this.b(var1, var18.shiftEast().shiftSouth());
                }
             }
 
@@ -105,7 +105,7 @@ public class class_arf extends class_apw {
 
                      int var24;
                      for(var24 = 0; var24 < var23; ++var24) {
-                        this.b(var1, new class_cj(var5 + var16, var15 - var24 - 1, var7 + var17));
+                        this.b(var1, new BlockPosition(var5 + var16, var15 - var24 - 1, var7 + var17));
                      }
 
                      int var20;
@@ -133,11 +133,11 @@ public class class_arf extends class_apw {
       }
    }
 
-   private boolean a(World var1, class_cj var2, int var3) {
-      int var4 = var2.n();
-      int var5 = var2.o();
-      int var6 = var2.p();
-      class_cj.class_a_in_class_cj var7 = new class_cj.class_a_in_class_cj();
+   private boolean a(World var1, BlockPosition var2, int var3) {
+      int var4 = var2.getX();
+      int var5 = var2.getY();
+      int var6 = var2.getZ();
+      BlockPosition.MutableBlockPosition var7 = new BlockPosition.MutableBlockPosition();
 
       for(int var8 = 0; var8 <= var3 + 1; ++var8) {
          byte var9 = 1;
@@ -151,7 +151,7 @@ public class class_arf extends class_apw {
 
          for(int var10 = -var9; var10 <= var9; ++var10) {
             for(int var11 = -var9; var11 <= var9; ++var11) {
-               if(!this.a(var1.p(var7.c(var4 + var10, var5 + var8, var6 + var11)).getBlock())) {
+               if(!this.a(var1.p(var7.setPosition(var4 + var10, var5 + var8, var6 + var11)).getBlock())) {
                   return false;
                }
             }
@@ -161,7 +161,7 @@ public class class_arf extends class_apw {
       return true;
    }
 
-   private void b(World var1, class_cj var2) {
+   private void b(World var1, BlockPosition var2) {
       if(this.a(var1.p(var2).getBlock())) {
          this.a(var1, var2, a);
       }
@@ -169,9 +169,9 @@ public class class_arf extends class_apw {
    }
 
    private void a(World var1, int var2, int var3, int var4) {
-      class_cj var5 = new class_cj(var2, var3, var4);
+      BlockPosition var5 = new BlockPosition(var2, var3, var4);
       Block var6 = var1.p(var5).getBlock();
-      if(var6.getMaterial() == Material.a) {
+      if(var6.getMaterial() == Material.AIR) {
          this.a(var1, var5, b);
       }
 

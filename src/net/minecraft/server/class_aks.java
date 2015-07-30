@@ -23,7 +23,7 @@ import net.minecraft.server.class_arf;
 import net.minecraft.server.class_arh;
 import net.minecraft.server.class_ark;
 import net.minecraft.server.class_arn;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.CreativeTab;
 
@@ -42,26 +42,26 @@ public class class_aks extends class_ago implements class_agl {
       return LocaleI18n.get(this.getInternalName() + "." + class_ajw.class_a_in_class_ajw.a.d() + ".name");
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(!var1.D) {
          super.b(var1, var2, var3, var4);
-         if(var1.l(var2.a()) >= 9 && var4.nextInt(7) == 0) {
+         if(var1.l(var2.shiftUp()) >= 9 && var4.nextInt(7) == 0) {
             this.d(var1, var2, var3, var4);
          }
 
       }
    }
 
-   public void d(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void d(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(((Integer)var3.get(b)).intValue() == 0) {
-         var1.a((class_cj)var2, (IBlockData)var3.a(b), 4);
+         var1.a((BlockPosition)var2, (IBlockData)var3.a(b), 4);
       } else {
          this.e(var1, var2, var3, var4);
       }
 
    }
 
-   public void e(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void e(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       Object var5 = var4.nextInt(10) == 0?new class_apx(true):new class_arn(true);
       int var6 = 0;
       int var7 = 0;
@@ -133,32 +133,32 @@ public class class_aks extends class_ago implements class_agl {
 
       var9 = Blocks.AIR.getBlockData();
       if(var8) {
-         var1.a((class_cj)var2.a(var6, 0, var7), (IBlockData)var9, 4);
-         var1.a((class_cj)var2.a(var6 + 1, 0, var7), (IBlockData)var9, 4);
-         var1.a((class_cj)var2.a(var6, 0, var7 + 1), (IBlockData)var9, 4);
-         var1.a((class_cj)var2.a(var6 + 1, 0, var7 + 1), (IBlockData)var9, 4);
+         var1.a((BlockPosition)var2.add(var6, 0, var7), (IBlockData)var9, 4);
+         var1.a((BlockPosition)var2.add(var6 + 1, 0, var7), (IBlockData)var9, 4);
+         var1.a((BlockPosition)var2.add(var6, 0, var7 + 1), (IBlockData)var9, 4);
+         var1.a((BlockPosition)var2.add(var6 + 1, 0, var7 + 1), (IBlockData)var9, 4);
       } else {
-         var1.a((class_cj)var2, (IBlockData)var9, 4);
+         var1.a((BlockPosition)var2, (IBlockData)var9, 4);
       }
 
-      if(!((class_aql)var5).b(var1, var4, var2.a(var6, 0, var7))) {
+      if(!((class_aql)var5).b(var1, var4, var2.add(var6, 0, var7))) {
          if(var8) {
-            var1.a((class_cj)var2.a(var6, 0, var7), (IBlockData)var3, 4);
-            var1.a((class_cj)var2.a(var6 + 1, 0, var7), (IBlockData)var3, 4);
-            var1.a((class_cj)var2.a(var6, 0, var7 + 1), (IBlockData)var3, 4);
-            var1.a((class_cj)var2.a(var6 + 1, 0, var7 + 1), (IBlockData)var3, 4);
+            var1.a((BlockPosition)var2.add(var6, 0, var7), (IBlockData)var3, 4);
+            var1.a((BlockPosition)var2.add(var6 + 1, 0, var7), (IBlockData)var3, 4);
+            var1.a((BlockPosition)var2.add(var6, 0, var7 + 1), (IBlockData)var3, 4);
+            var1.a((BlockPosition)var2.add(var6 + 1, 0, var7 + 1), (IBlockData)var3, 4);
          } else {
-            var1.a((class_cj)var2, (IBlockData)var3, 4);
+            var1.a((BlockPosition)var2, (IBlockData)var3, 4);
          }
       }
 
    }
 
-   private boolean a(World var1, class_cj var2, int var3, int var4, class_ajw.class_a_in_class_ajw var5) {
-      return this.a(var1, var2.a(var3, 0, var4), var5) && this.a(var1, var2.a(var3 + 1, 0, var4), var5) && this.a(var1, var2.a(var3, 0, var4 + 1), var5) && this.a(var1, var2.a(var3 + 1, 0, var4 + 1), var5);
+   private boolean a(World var1, BlockPosition var2, int var3, int var4, class_ajw.class_a_in_class_ajw var5) {
+      return this.a(var1, var2.add(var3, 0, var4), var5) && this.a(var1, var2.add(var3 + 1, 0, var4), var5) && this.a(var1, var2.add(var3, 0, var4 + 1), var5) && this.a(var1, var2.add(var3 + 1, 0, var4 + 1), var5);
    }
 
-   public boolean a(World var1, class_cj var2, class_ajw.class_a_in_class_ajw var3) {
+   public boolean a(World var1, BlockPosition var2, class_ajw.class_a_in_class_ajw var3) {
       IBlockData var4 = var1.p(var2);
       return var4.getBlock() == this && var4.get(a) == var3;
    }
@@ -167,15 +167,15 @@ public class class_aks extends class_ago implements class_agl {
       return ((class_ajw.class_a_in_class_ajw)var1.get(a)).a();
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, boolean var4) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, boolean var4) {
       return true;
    }
 
-   public boolean a(World var1, Random var2, class_cj var3, IBlockData var4) {
+   public boolean a(World var1, Random var2, BlockPosition var3, IBlockData var4) {
       return (double)var1.s.nextFloat() < 0.45D;
    }
 
-   public void b(World var1, Random var2, class_cj var3, IBlockData var4) {
+   public void b(World var1, Random var2, BlockPosition var3, IBlockData var4) {
       this.d(var1, var3, var4, var2);
    }
 

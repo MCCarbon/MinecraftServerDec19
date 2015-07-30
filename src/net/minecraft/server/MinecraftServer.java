@@ -47,10 +47,10 @@ import net.minecraft.server.class_avj;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
 import net.minecraft.server.class_avq;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_bd;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fa;
@@ -73,7 +73,7 @@ import net.minecraft.server.class_lv;
 import net.minecraft.server.class_lz;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_nv;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_of;
@@ -260,7 +260,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		byte var6 = 0;
 		k.info("Preparing start region for level " + var6);
 		class_lg var7 = this.d[var6];
-		class_cj var8 = var7.N();
+		BlockPosition var8 = var7.N();
 		long var9 = az();
 
 		for (int var11 = -192; var11 <= 192 && this.v(); var11 += 16) {
@@ -272,7 +272,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				}
 
 				++var5;
-				var7.b.c(var8.n() + var11 >> 4, var8.p() + var12 >> 4);
+				var7.b.c(var8.getX() + var11 >> 4, var8.getZ() + var12 >> 4);
 			}
 		}
 
@@ -499,7 +499,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 			this.X = var1;
 			this.r.a(new class_jt.class_a_in_class_jt(this.J(), this.I()));
 			GameProfile[] var3 = new GameProfile[Math.min(this.I(), 12)];
-			int var4 = class_nu.a((Random) this.s, 0, this.I() - var3.length);
+			int var4 = MathHelper.getRandomIntInRange((Random) this.s, 0, this.I() - var3.length);
 
 			for (int var5 = 0; var5 < var3.length; ++var5) {
 				var3[var5] = ((class_lh) this.v.v().get(var4 + var5)).cf();
@@ -788,7 +788,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return var1;
 	}
 
-	public List<String> a(class_m var1, String var2, class_cj var3) {
+	public List<String> a(class_m var1, String var2, BlockPosition var3) {
 		ArrayList<String> var4 = Lists.newArrayList();
 		if (var2.startsWith("/")) {
 			var2 = var2.substring(1);
@@ -964,7 +964,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		var1.a("uses_auth", Boolean.valueOf(this.z));
 		var1.a("gui_state", this.as() ? "enabled" : "disabled");
 		var1.a("run_time", Long.valueOf((az() - var1.g()) / 60L * 1000L));
-		var1.a("avg_tick_ms", Integer.valueOf((int) (class_nu.a(this.h) * 1.0E-6D)));
+		var1.a("avg_tick_ms", Integer.valueOf((int) (MathHelper.getAverage(this.h) * 1.0E-6D)));
 		int var2 = 0;
 		if (this.d != null) {
 			for (int var3 = 0; var3 < this.d.length; ++var3) {
@@ -1097,12 +1097,12 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.T = true;
 	}
 
-	public class_cj c() {
-		return class_cj.a;
+	public BlockPosition c() {
+		return BlockPosition.ZERO;
 	}
 
-	public class_awh d() {
-		return new class_awh(0.0D, 0.0D, 0.0D);
+	public Vec3D d() {
+		return new Vec3D(0.0D, 0.0D, 0.0D);
 	}
 
 	public World e() {
@@ -1117,7 +1117,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return 16;
 	}
 
-	public boolean a(World var1, class_cj var2, class_xa var3) {
+	public boolean a(World var1, BlockPosition var2, class_xa var3) {
 		return false;
 	}
 

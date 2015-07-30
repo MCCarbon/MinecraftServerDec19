@@ -7,7 +7,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_ale extends class_aku {
    public static final class_anz a = class_anz.a("rotation", 0, 15);
@@ -16,8 +16,8 @@ public class class_ale extends class_aku {
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
-      if(!var1.p(var2.b()).getBlock().getMaterial().a()) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(!var1.p(var2.shiftDown()).getBlock().getMaterial().isBuildable()) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
       }

@@ -15,7 +15,7 @@ import net.minecraft.server.class_aqx;
 import net.minecraft.server.class_arc;
 import net.minecraft.server.class_ark;
 import net.minecraft.server.class_arm;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ul;
 
 public class class_afv extends class_aez {
@@ -50,7 +50,7 @@ public class class_afv extends class_aez {
       return var1.nextInt(5) > 0?new class_arm(class_alm.class_a_in_class_alm.c):new class_arm(class_alm.class_a_in_class_alm.b);
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       int var4;
       int var5;
       int var6;
@@ -61,7 +61,7 @@ public class class_afv extends class_aez {
          for(var5 = 0; var5 < var4; ++var5) {
             var6 = var2.nextInt(16) + 8;
             var7 = var2.nextInt(16) + 8;
-            class_cj var8 = var1.m(var3.a(var6, 0, var7));
+            BlockPosition var8 = var1.m(var3.add(var6, 0, var7));
             aH.b(var1, var2, var8);
          }
       }
@@ -71,8 +71,8 @@ public class class_afv extends class_aez {
       for(var4 = 0; var4 < 7; ++var4) {
          var5 = var2.nextInt(16) + 8;
          var6 = var2.nextInt(16) + 8;
-         var7 = var2.nextInt(var1.m(var3.a(var5, 0, var6)).o() + 32);
-         ag.b(var1, var2, var3.a(var5, var7, var6));
+         var7 = var2.nextInt(var1.m(var3.add(var5, 0, var6)).getY() + 32);
+         ag.b(var1, var2, var3.add(var5, var7, var6));
       }
 
       super.a(var1, var2, var3);

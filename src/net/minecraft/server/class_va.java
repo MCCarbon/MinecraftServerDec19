@@ -6,8 +6,8 @@ import net.minecraft.server.class_aax;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_avf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_oo;
@@ -26,9 +26,9 @@ public class class_va extends class_uz {
       super(var1);
    }
 
-   public class_va(World var1, class_cj var2, class_cq var3) {
+   public class_va(World var1, BlockPosition var2, EnumDirection var3) {
       super(var1, var2);
-      this.a((class_cq)var3);
+      this.a((EnumDirection)var3);
    }
 
    protected void h() {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.UUID;
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qj;
@@ -14,24 +14,24 @@ import net.minecraft.server.class_tf;
 public abstract class class_qh extends class_qb {
    public static final UUID bq = UUID.fromString("E199AD21-BA8A-4C53-8D13-6182D5C69D3A");
    public static final class_qm br;
-   private class_cj a;
+   private BlockPosition a;
    private float b;
    private class_rm c;
    private boolean bs;
 
    public class_qh(World var1) {
       super(var1);
-      this.a = class_cj.a;
+      this.a = BlockPosition.ZERO;
       this.b = -1.0F;
       this.c = new class_ry(this, 1.0D);
    }
 
-   public float a(class_cj var1) {
+   public float a(BlockPosition var1) {
       return 0.0F;
    }
 
    public boolean cf() {
-      return super.cf() && this.a(new class_cj(this.s, this.aT().b, this.u)) >= 0.0F;
+      return super.cf() && this.a(new BlockPosition(this.s, this.aT().b, this.u)) >= 0.0F;
    }
 
    public boolean cu() {
@@ -39,19 +39,19 @@ public abstract class class_qh extends class_qb {
    }
 
    public boolean cv() {
-      return this.e(new class_cj(this));
+      return this.e(new BlockPosition(this));
    }
 
-   public boolean e(class_cj var1) {
-      return this.b == -1.0F?true:this.a.i(var1) < (double)(this.b * this.b);
+   public boolean e(BlockPosition var1) {
+      return this.b == -1.0F?true:this.a.distanceSquared(var1) < (double)(this.b * this.b);
    }
 
-   public void a(class_cj var1, int var2) {
+   public void a(BlockPosition var1, int var2) {
       this.a = var1;
       this.b = (float)var2;
    }
 
-   public class_cj cw() {
+   public BlockPosition cw() {
       return this.a;
    }
 
@@ -71,7 +71,7 @@ public abstract class class_qh extends class_qb {
       super.co();
       if(this.cq() && this.cr() != null && this.cr().o == this.o) {
          class_pr var1 = this.cr();
-         this.a(new class_cj((int)var1.s, (int)var1.t, (int)var1.u), 5);
+         this.a(new BlockPosition((int)var1.s, (int)var1.t, (int)var1.u), 5);
          float var2 = this.g(var1);
          if(this instanceof class_qj && ((class_qj)this).cC()) {
             if(var2 > 10.0F) {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_px;
 import net.minecraft.server.class_qa;
@@ -27,7 +27,7 @@ public class class_xr extends class_xo {
 
    protected void a(class_awg var1) {
       if(!this.o.D) {
-         this.o.b(2002, new class_cj(this), 0);
+         this.o.b(2002, new BlockPosition(this), 0);
          int var2 = 3 + this.o.s.nextInt(5) + this.o.s.nextInt(5);
 
          while(var2 > 0) {

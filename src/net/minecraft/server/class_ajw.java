@@ -14,7 +14,7 @@ public class class_ajw extends Block {
 	public static final BlockStateEnum a = BlockStateEnum.of("variant", class_ajw.class_a_in_class_ajw.class);
 
 	public class_ajw() {
-		super(Material.d);
+		super(Material.WOOD);
 		this.setBlockData(this.blockStateList.getFirst().set(a, class_ajw.class_a_in_class_ajw.a));
 		this.a(CreativeTab.b);
 	}
@@ -40,7 +40,7 @@ public class class_ajw extends Block {
 	}
 
 	public static enum class_a_in_class_ajw implements INamable {
-		a(0, "oak", MaterialMapColor.o), b(1, "spruce", MaterialMapColor.J), c(2, "birch", MaterialMapColor.d), d(3, "jungle", MaterialMapColor.l), e(4, "acacia", MaterialMapColor.q), f(5, "dark_oak", "big_oak", MaterialMapColor.B);
+		a(0, "oak", MaterialMapColor.COLOR14), b(1, "spruce", MaterialMapColor.COLOR35), c(2, "birch", MaterialMapColor.COLOR3), d(3, "jungle", MaterialMapColor.COLOR11), e(4, "acacia", MaterialMapColor.COLOR16), f(5, "dark_oak", "big_oak", MaterialMapColor.COLOR27);
 
 		private static final class_ajw.class_a_in_class_ajw[] g;
 		private final int h;

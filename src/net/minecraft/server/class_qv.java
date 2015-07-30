@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_qa;
 
 public class class_qv {
@@ -38,7 +38,7 @@ public class class_qv {
    }
 
    private float a(float var1, float var2, float var3) {
-      float var4 = class_nu.g(var1 - var2);
+      float var4 = MathHelper.clampAngle(var1 - var2);
       if(var4 < -var3) {
          var4 = -var3;
       }

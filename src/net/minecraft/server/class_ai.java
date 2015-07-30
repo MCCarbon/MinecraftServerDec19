@@ -5,7 +5,7 @@ import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_ael;
 import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_gj;
@@ -69,7 +69,7 @@ public class class_ai extends class_i {
 
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a((String[])var2, (String[])this.d().b());
       } else {

@@ -10,12 +10,12 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_qa;
 
 public class class_akp extends Block {
-   public static final BlockStateEnum N = BlockStateEnum.of("axis", class_cq.class_a_in_class_cq.class);
+   public static final BlockStateEnum N = BlockStateEnum.of("axis", EnumDirection.EnumAxis.class);
 
    protected class_akp(Material var1) {
       super(var1, var1.getMapColor());
@@ -32,11 +32,11 @@ public class class_akp extends Block {
          switch(class_akp.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
          case 2:
-            switch(class_akp.SyntheticClass_1.a[((class_cq.class_a_in_class_cq)var1.get(N)).ordinal()]) {
+            switch(class_akp.SyntheticClass_1.a[((EnumDirection.EnumAxis)var1.get(N)).ordinal()]) {
             case 1:
-               return var1.set(N, class_cq.class_a_in_class_cq.c);
+               return var1.set(N, EnumDirection.EnumAxis.Z);
             case 2:
-               return var1.set(N, class_cq.class_a_in_class_cq.a);
+               return var1.set(N, EnumDirection.EnumAxis.X);
             default:
                return var1;
             }
@@ -47,12 +47,12 @@ public class class_akp extends Block {
    }
 
    public IBlockData fromLegacyData(int var1) {
-      class_cq.class_a_in_class_cq var2 = class_cq.class_a_in_class_cq.b;
+      EnumDirection.EnumAxis var2 = EnumDirection.EnumAxis.Y;
       int var3 = var1 & 12;
       if(var3 == 4) {
-         var2 = class_cq.class_a_in_class_cq.a;
+         var2 = EnumDirection.EnumAxis.X;
       } else if(var3 == 8) {
-         var2 = class_cq.class_a_in_class_cq.c;
+         var2 = EnumDirection.EnumAxis.Z;
       }
 
       return this.getBlockData().set(N, var2);
@@ -60,10 +60,10 @@ public class class_akp extends Block {
 
    public int toLegacyData(IBlockData var1) {
       int var2 = 0;
-      class_cq.class_a_in_class_cq var3 = (class_cq.class_a_in_class_cq)var1.get(N);
-      if(var3 == class_cq.class_a_in_class_cq.a) {
+      EnumDirection.EnumAxis var3 = (EnumDirection.EnumAxis)var1.get(N);
+      if(var3 == EnumDirection.EnumAxis.X) {
          var2 |= 4;
-      } else if(var3 == class_cq.class_a_in_class_cq.c) {
+      } else if(var3 == EnumDirection.EnumAxis.Z) {
          var2 |= 8;
       }
 
@@ -78,8 +78,8 @@ public class class_akp extends Block {
       return new class_aas(Item.getByBlock((Block)this));
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return super.a(var1, var2, var3, var4, var5, var6, var7, var8).set(N, var3.k());
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return super.a(var1, var2, var3, var4, var5, var6, var7, var8).set(N, var3.getAxis());
    }
 
    // $FF: synthetic class
@@ -102,16 +102,16 @@ public class class_akp extends Block {
             ;
          }
 
-         a = new int[class_cq.class_a_in_class_cq.values().length];
+         a = new int[EnumDirection.EnumAxis.values().length];
 
          try {
-            a[class_cq.class_a_in_class_cq.a.ordinal()] = 1;
+            a[EnumDirection.EnumAxis.X.ordinal()] = 1;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.class_a_in_class_cq.c.ordinal()] = 2;
+            a[EnumDirection.EnumAxis.Z.ordinal()] = 2;
          } catch (NoSuchFieldError var1) {
             ;
          }

@@ -6,7 +6,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_agf;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pc;
@@ -120,12 +120,12 @@ public class class_vv extends class_vn {
       return this.a > -1;
    }
 
-   public float a(class_aej var1, World var2, class_cj var3, IBlockData var4) {
-      return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.a())?super.a(var1, var2, var3, var4):0.0F;
+   public float a(class_aej var1, World var2, BlockPosition var3, IBlockData var4) {
+      return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.shiftUp())?super.a(var1, var2, var3, var4):0.0F;
    }
 
-   public boolean a(class_aej var1, World var2, class_cj var3, IBlockData var4, float var5) {
-      return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.a())?super.a(var1, var2, var3, var4, var5):false;
+   public boolean a(class_aej var1, World var2, BlockPosition var3, IBlockData var4, float var5) {
+      return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.shiftUp())?super.a(var1, var2, var3, var4, var5):false;
    }
 
    protected void a(class_dn var1) {

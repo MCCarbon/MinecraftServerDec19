@@ -8,7 +8,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
@@ -32,11 +32,11 @@ public class class_v extends class_i {
          throw new class_cf("commands.compare.usage", new Object[0]);
       } else {
          var1.a(class_n.class_a_in_class_n.b, 0);
-         class_cj var3 = a(var1, var2, 0, false);
-         class_cj var4 = a(var1, var2, 3, false);
-         class_cj var5 = a(var1, var2, 6, false);
+         BlockPosition var3 = a(var1, var2, 0, false);
+         BlockPosition var4 = a(var1, var2, 3, false);
+         BlockPosition var5 = a(var1, var2, 6, false);
          class_arw var6 = new class_arw(var3, var4);
-         class_arw var7 = new class_arw(var5, var5.a(var6.b()));
+         class_arw var7 = new class_arw(var5, var5.add(var6.b()));
          int var8 = var6.c() * var6.d() * var6.e();
          if(var8 > 524288) {
             throw new class_bz("commands.compare.tooManyBlocks", new Object[]{Integer.valueOf(var8), Integer.valueOf(524288)});
@@ -49,15 +49,15 @@ public class class_v extends class_i {
                }
 
                var8 = 0;
-               class_cj var11 = new class_cj(var7.a - var6.a, var7.b - var6.b, var7.c - var6.c);
-               class_cj.class_a_in_class_cj var12 = new class_cj.class_a_in_class_cj();
-               class_cj.class_a_in_class_cj var13 = new class_cj.class_a_in_class_cj();
+               BlockPosition var11 = new BlockPosition(var7.a - var6.a, var7.b - var6.b, var7.c - var6.c);
+               BlockPosition.MutableBlockPosition var12 = new BlockPosition.MutableBlockPosition();
+               BlockPosition.MutableBlockPosition var13 = new BlockPosition.MutableBlockPosition();
 
                for(int var14 = var6.c; var14 <= var6.f; ++var14) {
                   for(int var15 = var6.b; var15 <= var6.e; ++var15) {
                      for(int var16 = var6.a; var16 <= var6.d; ++var16) {
-                        var12.c(var16, var15, var14);
-                        var13.c(var16 + var11.n(), var15 + var11.o(), var14 + var11.p());
+                        var12.setPosition(var16, var15, var14);
+                        var13.setPosition(var16 + var11.getX(), var15 + var11.getY(), var14 + var11.getZ());
                         boolean var17 = false;
                         IBlockData var18 = var9.p(var12);
                         if(!var10 || var18.getBlock() != Blocks.AIR) {
@@ -105,7 +105,7 @@ public class class_v extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"masked", "all"}):null)));
    }
 }

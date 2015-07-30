@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aas;
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_ff;
@@ -64,7 +64,7 @@ public class class_kz extends class_li {
 
    }
 
-   public void a(class_cj var1, class_cq var2) {
+   public void a(BlockPosition var1, EnumDirection var2) {
       if(this.d) {
          this.f();
       } else {
@@ -72,13 +72,13 @@ public class class_kz extends class_li {
       }
    }
 
-   public void a(class_cj var1) {
+   public void a(BlockPosition var1) {
       if(!this.d) {
          super.a(var1);
       }
    }
 
-   public boolean b(class_cj var1) {
+   public boolean b(BlockPosition var1) {
       return this.d?false:super.b(var1);
    }
 
@@ -91,7 +91,7 @@ public class class_kz extends class_li {
       }
    }
 
-   public class_oq a(class_xa var1, World var2, class_aas var3, class_oo var4, class_cj var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_xa var1, World var2, class_aas var3, class_oo var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
       if(this.d) {
          this.f();
          return class_oq.b;

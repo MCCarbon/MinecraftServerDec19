@@ -21,7 +21,7 @@ import net.minecraft.server.class_awt;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cc;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_ec;
@@ -809,7 +809,7 @@ public class class_bc extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"objectives", "players", "teams"});
       } else {

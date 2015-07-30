@@ -15,9 +15,9 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_od;
@@ -25,7 +25,7 @@ import net.minecraft.server.class_oj;
 
 public abstract class class_asn {
    protected class_arw l;
-   private class_cq a;
+   private EnumDirection a;
    private Block.class_a_in_class_agj b;
    private Block.class_c_in_class_agj c;
    protected int m;
@@ -41,8 +41,8 @@ public abstract class class_asn {
       class_dn var1 = new class_dn();
       var1.a("id", class_asl.a(this));
       var1.a((String)"BB", (class_eb)this.l.g());
-      class_cq var2 = this.e();
-      var1.a("O", var2 == null?-1:var2.b());
+      EnumDirection var2 = this.e();
+      var1.a("O", var2 == null?-1:var2.getHorizontalId());
       var1.a("GD", this.m);
       this.a(var1);
       return var1;
@@ -56,7 +56,7 @@ public abstract class class_asn {
       }
 
       int var3 = var2.g("O");
-      this.a(var3 == -1?null:class_cq.b(var3));
+      this.a(var3 == -1?null:EnumDirection.getByHorizontalId(var3));
       this.m = var2.g("GD");
       this.b(var2);
    }
@@ -91,8 +91,8 @@ public abstract class class_asn {
       return var3;
    }
 
-   public class_cj a() {
-      return new class_cj(this.l.f());
+   public BlockPosition a() {
+      return new BlockPosition(this.l.f());
    }
 
    protected boolean a(World var1, class_arw var2) {
@@ -102,17 +102,17 @@ public abstract class class_asn {
       int var6 = Math.min(this.l.d + 1, var2.d);
       int var7 = Math.min(this.l.e + 1, var2.e);
       int var8 = Math.min(this.l.f + 1, var2.f);
-      class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj();
+      BlockPosition.MutableBlockPosition var9 = new BlockPosition.MutableBlockPosition();
 
       int var10;
       int var11;
       for(var10 = var3; var10 <= var6; ++var10) {
          for(var11 = var5; var11 <= var8; ++var11) {
-            if(var1.p(var9.c(var10, var4, var11)).getBlock().getMaterial().d()) {
+            if(var1.p(var9.setPosition(var10, var4, var11)).getBlock().getMaterial().isLiquid()) {
                return true;
             }
 
-            if(var1.p(var9.c(var10, var7, var11)).getBlock().getMaterial().d()) {
+            if(var1.p(var9.setPosition(var10, var7, var11)).getBlock().getMaterial().isLiquid()) {
                return true;
             }
          }
@@ -120,11 +120,11 @@ public abstract class class_asn {
 
       for(var10 = var3; var10 <= var6; ++var10) {
          for(var11 = var4; var11 <= var7; ++var11) {
-            if(var1.p(var9.c(var10, var11, var5)).getBlock().getMaterial().d()) {
+            if(var1.p(var9.setPosition(var10, var11, var5)).getBlock().getMaterial().isLiquid()) {
                return true;
             }
 
-            if(var1.p(var9.c(var10, var11, var8)).getBlock().getMaterial().d()) {
+            if(var1.p(var9.setPosition(var10, var11, var8)).getBlock().getMaterial().isLiquid()) {
                return true;
             }
          }
@@ -132,11 +132,11 @@ public abstract class class_asn {
 
       for(var10 = var5; var10 <= var8; ++var10) {
          for(var11 = var4; var11 <= var7; ++var11) {
-            if(var1.p(var9.c(var3, var11, var10)).getBlock().getMaterial().d()) {
+            if(var1.p(var9.setPosition(var3, var11, var10)).getBlock().getMaterial().isLiquid()) {
                return true;
             }
 
-            if(var1.p(var9.c(var6, var11, var10)).getBlock().getMaterial().d()) {
+            if(var1.p(var9.setPosition(var6, var11, var10)).getBlock().getMaterial().isLiquid()) {
                return true;
             }
          }
@@ -146,7 +146,7 @@ public abstract class class_asn {
    }
 
    protected int a(int var1, int var2) {
-      class_cq var3 = this.e();
+      EnumDirection var3 = this.e();
       if(var3 == null) {
          return var1;
       } else {
@@ -169,7 +169,7 @@ public abstract class class_asn {
    }
 
    protected int b(int var1, int var2) {
-      class_cq var3 = this.e();
+      EnumDirection var3 = this.e();
       if(var3 == null) {
          return var2;
       } else {
@@ -188,8 +188,8 @@ public abstract class class_asn {
    }
 
    protected void a(World var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
-      class_cj var7 = new class_cj(this.a(var3, var5), this.d(var4), this.b(var3, var5));
-      if(var6.b((class_df)var7)) {
+      BlockPosition var7 = new BlockPosition(this.a(var3, var5), this.d(var4), this.b(var3, var5));
+      if(var6.b((BaseBlockPosition)var7)) {
          if(this.b != Block.class_a_in_class_agj.a) {
             var2 = var2.getBlock().a(var2, this.b);
          }
@@ -198,7 +198,7 @@ public abstract class class_asn {
             var2 = var2.getBlock().a(var2, this.c);
          }
 
-         var1.a((class_cj)var7, (IBlockData)var2, 2);
+         var1.a((BlockPosition)var7, (IBlockData)var2, 2);
       }
    }
 
@@ -206,8 +206,8 @@ public abstract class class_asn {
       int var6 = this.a(var2, var4);
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
-      class_cj var9 = new class_cj(var6, var7, var8);
-      return !var5.b((class_df)var9)?Blocks.AIR.getBlockData():var1.p(var9);
+      BlockPosition var9 = new BlockPosition(var6, var7, var8);
+      return !var5.b((BaseBlockPosition)var9)?Blocks.AIR.getBlockData():var1.p(var9);
    }
 
    protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8) {
@@ -225,7 +225,7 @@ public abstract class class_asn {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var11 || this.a(var1, var13, var12, var14, var2).getBlock().getMaterial() != Material.a) {
+               if(!var11 || this.a(var1, var13, var12, var14, var2).getBlock().getMaterial() != Material.AIR) {
                   if(var12 != var4 && var12 != var7 && var13 != var3 && var13 != var6 && var14 != var5 && var14 != var8) {
                      this.a(var1, var10, var13, var12, var14, var2);
                   } else {
@@ -242,7 +242,7 @@ public abstract class class_asn {
       for(int var12 = var4; var12 <= var7; ++var12) {
          for(int var13 = var3; var13 <= var6; ++var13) {
             for(int var14 = var5; var14 <= var8; ++var14) {
-               if(!var9 || this.a(var1, var13, var12, var14, var2).getBlock().getMaterial() != Material.a) {
+               if(!var9 || this.a(var1, var13, var12, var14, var2).getBlock().getMaterial() != Material.AIR) {
                   var11.a(var10, var13, var12, var14, var12 == var4 || var12 == var7 || var13 == var3 || var13 == var6 || var14 == var5 || var14 == var8);
                   this.a(var1, var11.a(), var13, var12, var14, var2);
                }
@@ -256,7 +256,7 @@ public abstract class class_asn {
       for(int var14 = var6; var14 <= var9; ++var14) {
          for(int var15 = var5; var15 <= var8; ++var15) {
             for(int var16 = var7; var16 <= var10; ++var16) {
-               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).getBlock().getMaterial() != Material.a)) {
+               if(var3.nextFloat() <= var4 && (!var13 || this.a(var1, var15, var14, var16, var2).getBlock().getMaterial() != Material.AIR)) {
                   if(var14 != var6 && var14 != var9 && var15 != var5 && var15 != var8 && var16 != var7 && var16 != var10) {
                      this.a(var1, var12, var15, var14, var16, var2);
                   } else {
@@ -291,7 +291,7 @@ public abstract class class_asn {
 
             for(int var20 = var5; var20 <= var8; ++var20) {
                float var21 = ((float)var20 - var15) / (var13 * 0.5F);
-               if(!var10 || this.a(var1, var18, var16, var20, var2).getBlock().getMaterial() != Material.a) {
+               if(!var10 || this.a(var1, var18, var16, var20, var2).getBlock().getMaterial() != Material.AIR) {
                   float var22 = var19 * var19 + var17 * var17 + var21 * var21;
                   if(var22 <= 1.05F) {
                      this.a(var1, var9, var18, var16, var20, var2);
@@ -304,11 +304,11 @@ public abstract class class_asn {
    }
 
    protected void b(World var1, int var2, int var3, int var4, class_arw var5) {
-      class_cj var6 = new class_cj(this.a(var2, var4), this.d(var3), this.b(var2, var4));
-      if(var5.b((class_df)var6)) {
-         while(!var1.d(var6) && var6.o() < 255) {
-            var1.a((class_cj)var6, (IBlockData)Blocks.AIR.getBlockData(), 2);
-            var6 = var6.a();
+      BlockPosition var6 = new BlockPosition(this.a(var2, var4), this.d(var3), this.b(var2, var4));
+      if(var5.b((BaseBlockPosition)var6)) {
+         while(!var1.d(var6) && var6.getY() < 255) {
+            var1.a((BlockPosition)var6, (IBlockData)Blocks.AIR.getBlockData(), 2);
+            var6 = var6.shiftUp();
          }
 
       }
@@ -318,9 +318,9 @@ public abstract class class_asn {
       int var7 = this.a(var3, var5);
       int var8 = this.d(var4);
       int var9 = this.b(var3, var5);
-      if(var6.b((class_df)(new class_cj(var7, var8, var9)))) {
-         while((var1.d(new class_cj(var7, var8, var9)) || var1.p(new class_cj(var7, var8, var9)).getBlock().getMaterial().d()) && var8 > 1) {
-            var1.a((class_cj)(new class_cj(var7, var8, var9)), (IBlockData)var2, 2);
+      if(var6.b((BaseBlockPosition)(new BlockPosition(var7, var8, var9)))) {
+         while((var1.d(new BlockPosition(var7, var8, var9)) || var1.p(new BlockPosition(var7, var8, var9)).getBlock().getMaterial().isLiquid()) && var8 > 1) {
+            var1.a((BlockPosition)(new BlockPosition(var7, var8, var9)), (IBlockData)var2, 2);
             --var8;
          }
 
@@ -328,10 +328,10 @@ public abstract class class_asn {
    }
 
    protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
-      class_cj var9 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((class_df)var9) && var1.p(var9).getBlock() != Blocks.CHEST) {
+      BlockPosition var9 = new BlockPosition(this.a(var4, var6), this.d(var5), this.b(var4, var6));
+      if(var2.b((BaseBlockPosition)var9) && var1.p(var9).getBlock() != Blocks.CHEST) {
          IBlockData var10 = Blocks.CHEST.getBlockData();
-         var1.a((class_cj)var9, (IBlockData)Blocks.CHEST.f(var1, var9, var10), 2);
+         var1.a((BlockPosition)var9, (IBlockData)Blocks.CHEST.f(var1, var9, var10), 2);
          class_amg var11 = var1.s(var9);
          if(var11 instanceof class_ami) {
             class_od.a(var3, var7, (class_oj)((class_ami)var11), var8);
@@ -343,9 +343,9 @@ public abstract class class_asn {
       }
    }
 
-   protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, class_cq var7, List var8, int var9) {
-      class_cj var10 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((class_df)var10) && var1.p(var10).getBlock() != Blocks.DISPENSER) {
+   protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, EnumDirection var7, List var8, int var9) {
+      BlockPosition var10 = new BlockPosition(this.a(var4, var6), this.d(var5), this.b(var4, var6));
+      if(var2.b((BaseBlockPosition)var10) && var1.p(var10).getBlock() != Blocks.DISPENSER) {
          this.a(var1, Blocks.DISPENSER.getBlockData().set(class_ahk.a, var7), var4, var5, var6, var2);
          class_amg var11 = var1.s(var10);
          if(var11 instanceof class_amm) {
@@ -358,7 +358,7 @@ public abstract class class_asn {
       }
    }
 
-   protected void a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, class_cq var7) {
+   protected void a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, EnumDirection var7) {
       this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7), var4, var5, var6, var2);
       this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
    }
@@ -367,11 +367,11 @@ public abstract class class_asn {
       this.l.a(var1, var2, var3);
    }
 
-   public class_cq e() {
+   public EnumDirection e() {
       return this.a;
    }
 
-   public void a(class_cq var1) {
+   public void a(EnumDirection var1) {
       this.a = var1;
       if(var1 == null) {
          this.c = Block.class_c_in_class_agj.a;
@@ -401,29 +401,29 @@ public abstract class class_asn {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.c.ordinal()] = 1;
+            a[EnumDirection.NORTH.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_cq.d.ordinal()] = 2;
+            a[EnumDirection.SOUTH.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 3;
+            a[EnumDirection.WEST.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.f.ordinal()] = 4;
+            a[EnumDirection.EAST.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }

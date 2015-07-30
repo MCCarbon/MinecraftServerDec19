@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aep;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fs;
 import net.minecraft.server.class_gq;
@@ -53,33 +53,33 @@ public class class_lc implements class_aep {
    public void a(int var1, int var2, int var3, int var4, int var5, int var6) {
    }
 
-   public void a(class_cj var1) {
+   public void a(BlockPosition var1) {
       this.b.u().a(var1);
    }
 
-   public void b(class_cj var1) {
+   public void b(BlockPosition var1) {
    }
 
-   public void a(String var1, class_cj var2) {
+   public void a(String var1, BlockPosition var2) {
    }
 
-   public void a(class_xa var1, int var2, class_cj var3, int var4) {
-      this.a.ap().a(var1, (double)var3.n(), (double)var3.o(), (double)var3.p(), 64.0D, this.b.t.p().a(), new class_gq(var2, var3, var4, false));
+   public void a(class_xa var1, int var2, BlockPosition var3, int var4) {
+      this.a.ap().a(var1, (double)var3.getX(), (double)var3.getY(), (double)var3.getZ(), 64.0D, this.b.t.p().a(), new class_gq(var2, var3, var4, false));
    }
 
-   public void a(int var1, class_cj var2, int var3) {
+   public void a(int var1, BlockPosition var2, int var3) {
       this.a.ap().a((class_ff)(new class_gq(var1, var2, var3, true)));
    }
 
-   public void b(int var1, class_cj var2, int var3) {
+   public void b(int var1, BlockPosition var2, int var3) {
       Iterator var4 = this.a.ap().v().iterator();
 
       while(var4.hasNext()) {
          class_lh var5 = (class_lh)var4.next();
          if(var5 != null && var5.o == this.b && var5.F() != var1) {
-            double var6 = (double)var2.n() - var5.s;
-            double var8 = (double)var2.o() - var5.t;
-            double var10 = (double)var2.p() - var5.u;
+            double var6 = (double)var2.getX() - var5.s;
+            double var8 = (double)var2.getY() - var5.t;
+            double var10 = (double)var2.getZ() - var5.u;
             if(var6 * var6 + var8 * var8 + var10 * var10 < 1024.0D) {
                var5.a.a((class_ff)(new class_fs(var1, var2, var3)));
             }

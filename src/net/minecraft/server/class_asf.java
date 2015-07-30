@@ -14,9 +14,9 @@ import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qd;
@@ -40,23 +40,23 @@ public class class_asf {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.c.ordinal()] = 1;
+            a[EnumDirection.NORTH.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.d.ordinal()] = 2;
+            a[EnumDirection.SOUTH.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 3;
+            a[EnumDirection.WEST.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }
@@ -69,19 +69,19 @@ public class class_asf {
       }
 
       public boolean a(class_asf.class_v_in_class_asf var1) {
-         if(var1.c[class_cq.c.a()] && !var1.b[class_cq.c.a()].d && var1.c[class_cq.b.a()] && !var1.b[class_cq.b.a()].d) {
-            class_asf.class_v_in_class_asf var2 = var1.b[class_cq.c.a()];
-            return var2.c[class_cq.b.a()] && !var2.b[class_cq.b.a()].d;
+         if(var1.c[EnumDirection.NORTH.getId()] && !var1.b[EnumDirection.NORTH.getId()].d && var1.c[EnumDirection.UP.getId()] && !var1.b[EnumDirection.UP.getId()].d) {
+            class_asf.class_v_in_class_asf var2 = var1.b[EnumDirection.NORTH.getId()];
+            return var2.c[EnumDirection.UP.getId()] && !var2.b[EnumDirection.UP.getId()].d;
          } else {
             return false;
          }
       }
 
-      public class_asf.class_r_in_class_asf a(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
-         var2.b[class_cq.c.a()].d = true;
-         var2.b[class_cq.b.a()].d = true;
-         var2.b[class_cq.c.a()].b[class_cq.b.a()].d = true;
+         var2.b[EnumDirection.NORTH.getId()].d = true;
+         var2.b[EnumDirection.UP.getId()].d = true;
+         var2.b[EnumDirection.NORTH.getId()].b[EnumDirection.UP.getId()].d = true;
          return new class_asf.class_n_in_class_asf(var1, var2, var3);
       }
 
@@ -96,19 +96,19 @@ public class class_asf {
       }
 
       public boolean a(class_asf.class_v_in_class_asf var1) {
-         if(var1.c[class_cq.f.a()] && !var1.b[class_cq.f.a()].d && var1.c[class_cq.b.a()] && !var1.b[class_cq.b.a()].d) {
-            class_asf.class_v_in_class_asf var2 = var1.b[class_cq.f.a()];
-            return var2.c[class_cq.b.a()] && !var2.b[class_cq.b.a()].d;
+         if(var1.c[EnumDirection.EAST.getId()] && !var1.b[EnumDirection.EAST.getId()].d && var1.c[EnumDirection.UP.getId()] && !var1.b[EnumDirection.UP.getId()].d) {
+            class_asf.class_v_in_class_asf var2 = var1.b[EnumDirection.EAST.getId()];
+            return var2.c[EnumDirection.UP.getId()] && !var2.b[EnumDirection.UP.getId()].d;
          } else {
             return false;
          }
       }
 
-      public class_asf.class_r_in_class_asf a(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
-         var2.b[class_cq.f.a()].d = true;
-         var2.b[class_cq.b.a()].d = true;
-         var2.b[class_cq.f.a()].b[class_cq.b.a()].d = true;
+         var2.b[EnumDirection.EAST.getId()].d = true;
+         var2.b[EnumDirection.UP.getId()].d = true;
+         var2.b[EnumDirection.EAST.getId()].b[EnumDirection.UP.getId()].d = true;
          return new class_asf.class_l_in_class_asf(var1, var2, var3);
       }
 
@@ -123,17 +123,17 @@ public class class_asf {
       }
 
       public boolean a(class_asf.class_v_in_class_asf var1) {
-         return var1.c[class_cq.c.a()] && !var1.b[class_cq.c.a()].d;
+         return var1.c[EnumDirection.NORTH.getId()] && !var1.b[EnumDirection.NORTH.getId()].d;
       }
 
-      public class_asf.class_r_in_class_asf a(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          class_asf.class_v_in_class_asf var4 = var2;
-         if(!var2.c[class_cq.c.a()] || var2.b[class_cq.c.a()].d) {
-            var4 = var2.b[class_cq.d.a()];
+         if(!var2.c[EnumDirection.NORTH.getId()] || var2.b[EnumDirection.NORTH.getId()].d) {
+            var4 = var2.b[EnumDirection.SOUTH.getId()];
          }
 
          var4.d = true;
-         var4.b[class_cq.c.a()].d = true;
+         var4.b[EnumDirection.NORTH.getId()].d = true;
          return new class_asf.class_o_in_class_asf(var1, var4, var3);
       }
 
@@ -148,12 +148,12 @@ public class class_asf {
       }
 
       public boolean a(class_asf.class_v_in_class_asf var1) {
-         return var1.c[class_cq.f.a()] && !var1.b[class_cq.f.a()].d;
+         return var1.c[EnumDirection.EAST.getId()] && !var1.b[EnumDirection.EAST.getId()].d;
       }
 
-      public class_asf.class_r_in_class_asf a(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
-         var2.b[class_cq.f.a()].d = true;
+         var2.b[EnumDirection.EAST.getId()].d = true;
          return new class_asf.class_k_in_class_asf(var1, var2, var3);
       }
 
@@ -168,12 +168,12 @@ public class class_asf {
       }
 
       public boolean a(class_asf.class_v_in_class_asf var1) {
-         return var1.c[class_cq.b.a()] && !var1.b[class_cq.b.a()].d;
+         return var1.c[EnumDirection.UP.getId()] && !var1.b[EnumDirection.UP.getId()].d;
       }
 
-      public class_asf.class_r_in_class_asf a(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
-         var2.b[class_cq.b.a()].d = true;
+         var2.b[EnumDirection.UP.getId()].d = true;
          return new class_asf.class_m_in_class_asf(var1, var2, var3);
       }
 
@@ -188,10 +188,10 @@ public class class_asf {
       }
 
       public boolean a(class_asf.class_v_in_class_asf var1) {
-         return !var1.c[class_cq.e.a()] && !var1.c[class_cq.f.a()] && !var1.c[class_cq.c.a()] && !var1.c[class_cq.d.a()] && !var1.c[class_cq.b.a()];
+         return !var1.c[EnumDirection.WEST.getId()] && !var1.c[EnumDirection.EAST.getId()] && !var1.c[EnumDirection.NORTH.getId()] && !var1.c[EnumDirection.SOUTH.getId()] && !var1.c[EnumDirection.UP.getId()];
       }
 
-      public class_asf.class_r_in_class_asf a(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
          return new class_asf.class_t_in_class_asf(var1, var2, var3);
       }
@@ -210,7 +210,7 @@ public class class_asf {
          return true;
       }
 
-      public class_asf.class_r_in_class_asf a(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
          return new class_asf.class_s_in_class_asf(var1, var2, var3);
       }
@@ -224,7 +224,7 @@ public class class_asf {
    interface class_i_in_class_asf {
       boolean a(class_asf.class_v_in_class_asf var1);
 
-      class_asf.class_r_in_class_asf a(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3);
+      class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3);
    }
 
    static class class_v_in_class_asf {
@@ -239,9 +239,9 @@ public class class_asf {
          this.a = var1;
       }
 
-      public void a(class_cq var1, class_asf.class_v_in_class_asf var2) {
-         this.b[var1.a()] = var2;
-         var2.b[var1.d().a()] = this;
+      public void a(EnumDirection var1, class_asf.class_v_in_class_asf var2) {
+         this.b[var1.getId()] = var2;
+         var2.b[var1.getOpposite().getId()] = this;
       }
 
       public void a() {
@@ -288,7 +288,7 @@ public class class_asf {
       public class_q_in_class_asf() {
       }
 
-      public class_q_in_class_asf(class_cq var1, class_arw var2) {
+      public class_q_in_class_asf(EnumDirection var1, class_arw var2) {
          super(var1, var2);
       }
 
@@ -344,7 +344,7 @@ public class class_asf {
       public class_u_in_class_asf() {
       }
 
-      public class_u_in_class_asf(class_cq var1, class_arw var2, int var3) {
+      public class_u_in_class_asf(EnumDirection var1, class_arw var2, int var3) {
          super(var1, var2);
          this.n = var3 & 1;
       }
@@ -448,7 +448,7 @@ public class class_asf {
       public class_j_in_class_asf() {
       }
 
-      public class_j_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_j_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 2, 2, 2);
       }
 
@@ -526,25 +526,25 @@ public class class_asf {
       public class_n_in_class_asf() {
       }
 
-      public class_n_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_n_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 2, 2);
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         class_asf.class_v_in_class_asf var4 = this.k.b[class_cq.c.a()];
+         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.NORTH.getId()];
          class_asf.class_v_in_class_asf var5 = this.k;
-         class_asf.class_v_in_class_asf var6 = var4.b[class_cq.b.a()];
-         class_asf.class_v_in_class_asf var7 = var5.b[class_cq.b.a()];
+         class_asf.class_v_in_class_asf var6 = var4.b[EnumDirection.UP.getId()];
+         class_asf.class_v_in_class_asf var7 = var5.b[EnumDirection.UP.getId()];
          if(this.k.a / 25 > 0) {
-            this.a(var1, var3, 0, 8, var4.c[class_cq.a.a()]);
-            this.a(var1, var3, 0, 0, var5.c[class_cq.a.a()]);
+            this.a(var1, var3, 0, 8, var4.c[EnumDirection.DOWN.getId()]);
+            this.a(var1, var3, 0, 0, var5.c[EnumDirection.DOWN.getId()]);
          }
 
-         if(var7.b[class_cq.b.a()] == null) {
+         if(var7.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 8, 1, 6, 8, 7, a);
          }
 
-         if(var6.b[class_cq.b.a()] == null) {
+         if(var6.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 8, 8, 6, 8, 14, a);
          }
 
@@ -571,60 +571,60 @@ public class class_asf {
             this.a(var1, var3, 3, var8, 7, 4, var8, 8, var9, var9, false);
          }
 
-         if(var5.c[class_cq.d.a()]) {
+         if(var5.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 3, 1, 0, 4, 2, 0, false);
          }
 
-         if(var5.c[class_cq.f.a()]) {
+         if(var5.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 7, 1, 3, 7, 2, 4, false);
          }
 
-         if(var5.c[class_cq.e.a()]) {
+         if(var5.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 1, 3, 0, 2, 4, false);
          }
 
-         if(var4.c[class_cq.c.a()]) {
+         if(var4.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 3, 1, 15, 4, 2, 15, false);
          }
 
-         if(var4.c[class_cq.e.a()]) {
+         if(var4.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 1, 11, 0, 2, 12, false);
          }
 
-         if(var4.c[class_cq.f.a()]) {
+         if(var4.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 7, 1, 11, 7, 2, 12, false);
          }
 
-         if(var7.c[class_cq.d.a()]) {
+         if(var7.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 3, 5, 0, 4, 6, 0, false);
          }
 
-         if(var7.c[class_cq.f.a()]) {
+         if(var7.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 7, 5, 3, 7, 6, 4, false);
             this.a(var1, var3, 5, 4, 2, 6, 4, 5, b, b, false);
             this.a(var1, var3, 6, 1, 2, 6, 3, 2, b, b, false);
             this.a(var1, var3, 6, 1, 5, 6, 3, 5, b, b, false);
          }
 
-         if(var7.c[class_cq.e.a()]) {
+         if(var7.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 5, 3, 0, 6, 4, false);
             this.a(var1, var3, 1, 4, 2, 2, 4, 5, b, b, false);
             this.a(var1, var3, 1, 1, 2, 1, 3, 2, b, b, false);
             this.a(var1, var3, 1, 1, 5, 1, 3, 5, b, b, false);
          }
 
-         if(var6.c[class_cq.c.a()]) {
+         if(var6.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 3, 5, 15, 4, 6, 15, false);
          }
 
-         if(var6.c[class_cq.e.a()]) {
+         if(var6.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 5, 11, 0, 6, 12, false);
             this.a(var1, var3, 1, 4, 10, 2, 4, 13, b, b, false);
             this.a(var1, var3, 1, 1, 10, 1, 3, 10, b, b, false);
             this.a(var1, var3, 1, 1, 13, 1, 3, 13, b, b, false);
          }
 
-         if(var6.c[class_cq.f.a()]) {
+         if(var6.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 7, 5, 11, 7, 6, 12, false);
             this.a(var1, var3, 5, 4, 10, 6, 4, 13, b, b, false);
             this.a(var1, var3, 6, 1, 10, 6, 3, 10, b, b, false);
@@ -639,25 +639,25 @@ public class class_asf {
       public class_l_in_class_asf() {
       }
 
-      public class_l_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_l_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 2, 2, 1);
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         class_asf.class_v_in_class_asf var4 = this.k.b[class_cq.f.a()];
+         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.EAST.getId()];
          class_asf.class_v_in_class_asf var5 = this.k;
-         class_asf.class_v_in_class_asf var6 = var5.b[class_cq.b.a()];
-         class_asf.class_v_in_class_asf var7 = var4.b[class_cq.b.a()];
+         class_asf.class_v_in_class_asf var6 = var5.b[EnumDirection.UP.getId()];
+         class_asf.class_v_in_class_asf var7 = var4.b[EnumDirection.UP.getId()];
          if(this.k.a / 25 > 0) {
-            this.a(var1, var3, 8, 0, var4.c[class_cq.a.a()]);
-            this.a(var1, var3, 0, 0, var5.c[class_cq.a.a()]);
+            this.a(var1, var3, 8, 0, var4.c[EnumDirection.DOWN.getId()]);
+            this.a(var1, var3, 0, 0, var5.c[EnumDirection.DOWN.getId()]);
          }
 
-         if(var6.b[class_cq.b.a()] == null) {
+         if(var6.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 8, 1, 7, 8, 6, a);
          }
 
-         if(var7.b[class_cq.b.a()] == null) {
+         if(var7.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 8, 8, 1, 14, 8, 6, a);
          }
 
@@ -696,51 +696,51 @@ public class class_asf {
          this.a(var1, e, 5, 4, 5, var3);
          this.a(var1, e, 10, 4, 2, var3);
          this.a(var1, e, 10, 4, 5, var3);
-         if(var5.c[class_cq.d.a()]) {
+         if(var5.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 3, 1, 0, 4, 2, 0, false);
          }
 
-         if(var5.c[class_cq.c.a()]) {
+         if(var5.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 3, 1, 7, 4, 2, 7, false);
          }
 
-         if(var5.c[class_cq.e.a()]) {
+         if(var5.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 1, 3, 0, 2, 4, false);
          }
 
-         if(var4.c[class_cq.d.a()]) {
+         if(var4.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 11, 1, 0, 12, 2, 0, false);
          }
 
-         if(var4.c[class_cq.c.a()]) {
+         if(var4.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 11, 1, 7, 12, 2, 7, false);
          }
 
-         if(var4.c[class_cq.f.a()]) {
+         if(var4.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 15, 1, 3, 15, 2, 4, false);
          }
 
-         if(var6.c[class_cq.d.a()]) {
+         if(var6.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 3, 5, 0, 4, 6, 0, false);
          }
 
-         if(var6.c[class_cq.c.a()]) {
+         if(var6.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 3, 5, 7, 4, 6, 7, false);
          }
 
-         if(var6.c[class_cq.e.a()]) {
+         if(var6.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 5, 3, 0, 6, 4, false);
          }
 
-         if(var7.c[class_cq.d.a()]) {
+         if(var7.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 11, 5, 0, 12, 6, 0, false);
          }
 
-         if(var7.c[class_cq.c.a()]) {
+         if(var7.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 11, 5, 7, 12, 6, 7, false);
          }
 
-         if(var7.c[class_cq.f.a()]) {
+         if(var7.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 15, 5, 3, 15, 6, 4, false);
          }
 
@@ -752,23 +752,23 @@ public class class_asf {
       public class_o_in_class_asf() {
       }
 
-      public class_o_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_o_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 1, 2);
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         class_asf.class_v_in_class_asf var4 = this.k.b[class_cq.c.a()];
+         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.NORTH.getId()];
          class_asf.class_v_in_class_asf var5 = this.k;
          if(this.k.a / 25 > 0) {
-            this.a(var1, var3, 0, 8, var4.c[class_cq.a.a()]);
-            this.a(var1, var3, 0, 0, var5.c[class_cq.a.a()]);
+            this.a(var1, var3, 0, 8, var4.c[EnumDirection.DOWN.getId()]);
+            this.a(var1, var3, 0, 0, var5.c[EnumDirection.DOWN.getId()]);
          }
 
-         if(var5.b[class_cq.b.a()] == null) {
+         if(var5.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 4, 1, 6, 4, 7, a);
          }
 
-         if(var4.b[class_cq.b.a()] == null) {
+         if(var4.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 4, 8, 6, 4, 14, a);
          }
 
@@ -808,27 +808,27 @@ public class class_asf {
          this.a(var1, b, 5, 3, 5, var3);
          this.a(var1, b, 2, 3, 10, var3);
          this.a(var1, b, 5, 3, 10, var3);
-         if(var5.c[class_cq.d.a()]) {
+         if(var5.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 3, 1, 0, 4, 2, 0, false);
          }
 
-         if(var5.c[class_cq.f.a()]) {
+         if(var5.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 7, 1, 3, 7, 2, 4, false);
          }
 
-         if(var5.c[class_cq.e.a()]) {
+         if(var5.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 1, 3, 0, 2, 4, false);
          }
 
-         if(var4.c[class_cq.c.a()]) {
+         if(var4.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 3, 1, 15, 4, 2, 15, false);
          }
 
-         if(var4.c[class_cq.e.a()]) {
+         if(var4.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 1, 11, 0, 2, 12, false);
          }
 
-         if(var4.c[class_cq.f.a()]) {
+         if(var4.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 7, 1, 11, 7, 2, 12, false);
          }
 
@@ -840,23 +840,23 @@ public class class_asf {
       public class_k_in_class_asf() {
       }
 
-      public class_k_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_k_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 2, 1, 1);
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         class_asf.class_v_in_class_asf var4 = this.k.b[class_cq.f.a()];
+         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.EAST.getId()];
          class_asf.class_v_in_class_asf var5 = this.k;
          if(this.k.a / 25 > 0) {
-            this.a(var1, var3, 8, 0, var4.c[class_cq.a.a()]);
-            this.a(var1, var3, 0, 0, var5.c[class_cq.a.a()]);
+            this.a(var1, var3, 8, 0, var4.c[EnumDirection.DOWN.getId()]);
+            this.a(var1, var3, 0, 0, var5.c[EnumDirection.DOWN.getId()]);
          }
 
-         if(var5.b[class_cq.b.a()] == null) {
+         if(var5.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 4, 1, 7, 4, 6, a);
          }
 
-         if(var4.b[class_cq.b.a()] == null) {
+         if(var4.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 8, 4, 1, 14, 4, 6, a);
          }
 
@@ -877,27 +877,27 @@ public class class_asf {
          this.a(var1, var3, 5, 3, 0, 10, 3, 4, b, b, false);
          this.a(var1, e, 6, 2, 3, var3);
          this.a(var1, e, 9, 2, 3, var3);
-         if(var5.c[class_cq.d.a()]) {
+         if(var5.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 3, 1, 0, 4, 2, 0, false);
          }
 
-         if(var5.c[class_cq.c.a()]) {
+         if(var5.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 3, 1, 7, 4, 2, 7, false);
          }
 
-         if(var5.c[class_cq.e.a()]) {
+         if(var5.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 1, 3, 0, 2, 4, false);
          }
 
-         if(var4.c[class_cq.d.a()]) {
+         if(var4.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 11, 1, 0, 12, 2, 0, false);
          }
 
-         if(var4.c[class_cq.c.a()]) {
+         if(var4.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 11, 1, 7, 12, 2, 7, false);
          }
 
-         if(var4.c[class_cq.f.a()]) {
+         if(var4.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 15, 1, 3, 15, 2, 4, false);
          }
 
@@ -909,17 +909,17 @@ public class class_asf {
       public class_m_in_class_asf() {
       }
 
-      public class_m_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_m_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 2, 1);
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
          if(this.k.a / 25 > 0) {
-            this.a(var1, var3, 0, 0, this.k.c[class_cq.a.a()]);
+            this.a(var1, var3, 0, 0, this.k.c[EnumDirection.DOWN.getId()]);
          }
 
-         class_asf.class_v_in_class_asf var4 = this.k.b[class_cq.b.a()];
-         if(var4.b[class_cq.b.a()] == null) {
+         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.UP.getId()];
+         if(var4.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 8, 1, 6, 8, 6, a);
          }
 
@@ -939,7 +939,7 @@ public class class_asf {
 
          for(int var6 = 1; var6 <= 5; var6 += 4) {
             byte var7 = 0;
-            if(var5.c[class_cq.d.a()]) {
+            if(var5.c[EnumDirection.SOUTH.getId()]) {
                this.a(var1, var3, 2, var6, var7, 2, var6 + 2, var7, b, b, false);
                this.a(var1, var3, 5, var6, var7, 5, var6 + 2, var7, b, b, false);
                this.a(var1, var3, 3, var6 + 2, var7, 4, var6 + 2, var7, b, b, false);
@@ -949,7 +949,7 @@ public class class_asf {
             }
 
             var7 = 7;
-            if(var5.c[class_cq.c.a()]) {
+            if(var5.c[EnumDirection.NORTH.getId()]) {
                this.a(var1, var3, 2, var6, var7, 2, var6 + 2, var7, b, b, false);
                this.a(var1, var3, 5, var6, var7, 5, var6 + 2, var7, b, b, false);
                this.a(var1, var3, 3, var6 + 2, var7, 4, var6 + 2, var7, b, b, false);
@@ -959,7 +959,7 @@ public class class_asf {
             }
 
             byte var8 = 0;
-            if(var5.c[class_cq.e.a()]) {
+            if(var5.c[EnumDirection.WEST.getId()]) {
                this.a(var1, var3, var8, var6, 2, var8, var6 + 2, 2, b, b, false);
                this.a(var1, var3, var8, var6, 5, var8, var6 + 2, 5, b, b, false);
                this.a(var1, var3, var8, var6 + 2, 3, var8, var6 + 2, 4, b, b, false);
@@ -969,7 +969,7 @@ public class class_asf {
             }
 
             var8 = 7;
-            if(var5.c[class_cq.f.a()]) {
+            if(var5.c[EnumDirection.EAST.getId()]) {
                this.a(var1, var3, var8, var6, 2, var8, var6 + 2, 2, b, b, false);
                this.a(var1, var3, var8, var6, 5, var8, var6 + 2, 5, b, b, false);
                this.a(var1, var3, var8, var6 + 2, 3, var8, var6 + 2, 4, b, b, false);
@@ -989,16 +989,16 @@ public class class_asf {
       public class_t_in_class_asf() {
       }
 
-      public class_t_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_t_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 1, 1);
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
          if(this.k.a / 25 > 0) {
-            this.a(var1, var3, 0, 0, this.k.c[class_cq.a.a()]);
+            this.a(var1, var3, 0, 0, this.k.c[EnumDirection.DOWN.getId()]);
          }
 
-         if(this.k.b[class_cq.b.a()] == null) {
+         if(this.k.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 4, 1, 6, 4, 6, a);
          }
 
@@ -1027,7 +1027,7 @@ public class class_asf {
          this.a(var1, var3, 7, 1, 3, 7, 2, 4, c, c, false);
          this.a(var1, var3, 3, 1, 0, 4, 2, 0, c, c, false);
          this.a(var1, var3, 3, 1, 7, 4, 2, 7, c, c, false);
-         if(this.k.c[class_cq.d.a()]) {
+         if(this.k.c[EnumDirection.SOUTH.getId()]) {
             this.a(var1, var3, 3, 1, 0, 4, 2, 0, false);
          }
 
@@ -1041,21 +1041,21 @@ public class class_asf {
       public class_s_in_class_asf() {
       }
 
-      public class_s_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public class_s_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 1, 1);
          this.n = var3.nextInt(3);
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
          if(this.k.a / 25 > 0) {
-            this.a(var1, var3, 0, 0, this.k.c[class_cq.a.a()]);
+            this.a(var1, var3, 0, 0, this.k.c[EnumDirection.DOWN.getId()]);
          }
 
-         if(this.k.b[class_cq.b.a()] == null) {
+         if(this.k.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 4, 1, 6, 4, 6, a);
          }
 
-         boolean var4 = this.n != 0 && var2.nextBoolean() && !this.k.c[class_cq.a.a()] && !this.k.c[class_cq.b.a()] && this.k.c() > 1;
+         boolean var4 = this.n != 0 && var2.nextBoolean() && !this.k.c[EnumDirection.DOWN.getId()] && !this.k.c[EnumDirection.UP.getId()] && this.k.c() > 1;
          if(this.n == 0) {
             this.a(var1, var3, 0, 1, 0, 2, 1, 2, b, b, false);
             this.a(var1, var3, 0, 3, 0, 2, 3, 2, b, b, false);
@@ -1077,7 +1077,7 @@ public class class_asf {
             this.a(var1, var3, 7, 2, 5, 7, 2, 7, a, a, false);
             this.a(var1, var3, 5, 2, 7, 6, 2, 7, a, a, false);
             this.a(var1, e, 6, 2, 6, var3);
-            if(this.k.c[class_cq.d.a()]) {
+            if(this.k.c[EnumDirection.SOUTH.getId()]) {
                this.a(var1, var3, 3, 3, 0, 4, 3, 0, b, b, false);
             } else {
                this.a(var1, var3, 3, 3, 0, 4, 3, 1, b, b, false);
@@ -1085,7 +1085,7 @@ public class class_asf {
                this.a(var1, var3, 3, 1, 0, 4, 1, 1, b, b, false);
             }
 
-            if(this.k.c[class_cq.c.a()]) {
+            if(this.k.c[EnumDirection.NORTH.getId()]) {
                this.a(var1, var3, 3, 3, 7, 4, 3, 7, b, b, false);
             } else {
                this.a(var1, var3, 3, 3, 6, 4, 3, 7, b, b, false);
@@ -1093,7 +1093,7 @@ public class class_asf {
                this.a(var1, var3, 3, 1, 6, 4, 1, 7, b, b, false);
             }
 
-            if(this.k.c[class_cq.e.a()]) {
+            if(this.k.c[EnumDirection.WEST.getId()]) {
                this.a(var1, var3, 0, 3, 3, 0, 3, 4, b, b, false);
             } else {
                this.a(var1, var3, 0, 3, 3, 1, 3, 4, b, b, false);
@@ -1101,7 +1101,7 @@ public class class_asf {
                this.a(var1, var3, 0, 1, 3, 1, 1, 4, b, b, false);
             }
 
-            if(this.k.c[class_cq.f.a()]) {
+            if(this.k.c[EnumDirection.EAST.getId()]) {
                this.a(var1, var3, 7, 3, 3, 7, 3, 4, b, b, false);
             } else {
                this.a(var1, var3, 6, 3, 3, 7, 3, 4, b, b, false);
@@ -1133,25 +1133,25 @@ public class class_asf {
             this.a(var1, a, 7, 2, 6, var3);
             this.a(var1, a, 6, 2, 0, var3);
             this.a(var1, a, 7, 2, 1, var3);
-            if(!this.k.c[class_cq.d.a()]) {
+            if(!this.k.c[EnumDirection.SOUTH.getId()]) {
                this.a(var1, var3, 1, 3, 0, 6, 3, 0, b, b, false);
                this.a(var1, var3, 1, 2, 0, 6, 2, 0, a, a, false);
                this.a(var1, var3, 1, 1, 0, 6, 1, 0, b, b, false);
             }
 
-            if(!this.k.c[class_cq.c.a()]) {
+            if(!this.k.c[EnumDirection.NORTH.getId()]) {
                this.a(var1, var3, 1, 3, 7, 6, 3, 7, b, b, false);
                this.a(var1, var3, 1, 2, 7, 6, 2, 7, a, a, false);
                this.a(var1, var3, 1, 1, 7, 6, 1, 7, b, b, false);
             }
 
-            if(!this.k.c[class_cq.e.a()]) {
+            if(!this.k.c[EnumDirection.WEST.getId()]) {
                this.a(var1, var3, 0, 3, 1, 0, 3, 6, b, b, false);
                this.a(var1, var3, 0, 2, 1, 0, 2, 6, a, a, false);
                this.a(var1, var3, 0, 1, 1, 0, 1, 6, b, b, false);
             }
 
-            if(!this.k.c[class_cq.f.a()]) {
+            if(!this.k.c[EnumDirection.EAST.getId()]) {
                this.a(var1, var3, 7, 3, 1, 7, 3, 6, b, b, false);
                this.a(var1, var3, 7, 2, 1, 7, 2, 6, a, a, false);
                this.a(var1, var3, 7, 1, 1, 7, 1, 6, b, b, false);
@@ -1173,19 +1173,19 @@ public class class_asf {
             this.a(var1, var3, 7, 1, 3, 7, 2, 4, c, c, false);
             this.a(var1, var3, 3, 1, 0, 4, 2, 0, c, c, false);
             this.a(var1, var3, 3, 1, 7, 4, 2, 7, c, c, false);
-            if(this.k.c[class_cq.d.a()]) {
+            if(this.k.c[EnumDirection.SOUTH.getId()]) {
                this.a(var1, var3, 3, 1, 0, 4, 2, 0, false);
             }
 
-            if(this.k.c[class_cq.c.a()]) {
+            if(this.k.c[EnumDirection.NORTH.getId()]) {
                this.a(var1, var3, 3, 1, 7, 4, 2, 7, false);
             }
 
-            if(this.k.c[class_cq.e.a()]) {
+            if(this.k.c[EnumDirection.WEST.getId()]) {
                this.a(var1, var3, 0, 1, 3, 0, 2, 4, false);
             }
 
-            if(this.k.c[class_cq.f.a()]) {
+            if(this.k.c[EnumDirection.EAST.getId()]) {
                this.a(var1, var3, 7, 1, 3, 7, 2, 4, false);
             }
          }
@@ -1204,7 +1204,7 @@ public class class_asf {
       public class_p_in_class_asf() {
       }
 
-      public class_p_in_class_asf(class_cq var1, class_asf.class_v_in_class_asf var2) {
+      public class_p_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2) {
          super(1, var1, var2, 1, 1, 1);
       }
 
@@ -1218,15 +1218,15 @@ public class class_asf {
          this.a(var1, var3, 0, 1, 7, 7, 3, 7, b, b, false);
          this.a(var1, var3, 1, 1, 0, 2, 3, 0, b, b, false);
          this.a(var1, var3, 5, 1, 0, 6, 3, 0, b, b, false);
-         if(this.k.c[class_cq.c.a()]) {
+         if(this.k.c[EnumDirection.NORTH.getId()]) {
             this.a(var1, var3, 3, 1, 7, 4, 2, 7, false);
          }
 
-         if(this.k.c[class_cq.e.a()]) {
+         if(this.k.c[EnumDirection.WEST.getId()]) {
             this.a(var1, var3, 0, 1, 3, 1, 2, 4, false);
          }
 
-         if(this.k.c[class_cq.f.a()]) {
+         if(this.k.c[EnumDirection.EAST.getId()]) {
             this.a(var1, var3, 6, 1, 3, 7, 2, 4, false);
          }
 
@@ -1242,11 +1242,11 @@ public class class_asf {
       public class_h_in_class_asf() {
       }
 
-      public class_h_in_class_asf(Random var1, int var2, int var3, class_cq var4) {
+      public class_h_in_class_asf(Random var1, int var2, int var3, EnumDirection var4) {
          super(0);
          this.a(var4);
-         class_cq var5 = this.e();
-         if(var5.k() == class_cq.class_a_in_class_cq.c) {
+         EnumDirection var5 = this.e();
+         if(var5.getAxis() == EnumDirection.EnumAxis.Z) {
             this.l = new class_arw(var2, 39, var3, var2 + 58 - 1, 61, var3 + 58 - 1);
          } else {
             this.l = new class_arw(var2, 39, var3, var2 + 58 - 1, 61, var3 + 58 - 1);
@@ -1352,19 +1352,19 @@ public class class_asf {
                for(int var16 = 0; var16 < 3; ++var16) {
                   var6 = b(var3, var16, var4);
                   if(var2[var6] != null) {
-                     class_cq[] var7 = class_cq.values();
+                     EnumDirection[] var7 = EnumDirection.values();
                      var8 = var7.length;
 
                      for(var9 = 0; var9 < var8; ++var9) {
-                        class_cq var10 = var7[var9];
-                        var11 = var3 + var10.g();
-                        var12 = var16 + var10.h();
-                        var13 = var4 + var10.i();
+                        EnumDirection var10 = var7[var9];
+                        var11 = var3 + var10.getAdjacentX();
+                        var12 = var16 + var10.getAdjacentY();
+                        var13 = var4 + var10.getAdjacentZ();
                         if(var11 >= 0 && var11 < 5 && var13 >= 0 && var13 < 5 && var12 >= 0 && var12 < 3) {
                            int var14 = b(var11, var12, var13);
                            if(var2[var14] != null) {
                               if(var13 != var4) {
-                                 var2[var6].a(var10.d(), var2[var14]);
+                                 var2[var6].a(var10.getOpposite(), var2[var14]);
                               } else {
                                  var2[var6].a(var10, var2[var14]);
                               }
@@ -1377,24 +1377,24 @@ public class class_asf {
          }
 
          class_asf.class_v_in_class_asf var15;
-         var2[h].a(class_cq.b, var15 = new class_asf.class_v_in_class_asf(1003));
+         var2[h].a(EnumDirection.UP, var15 = new class_asf.class_v_in_class_asf(1003));
          class_asf.class_v_in_class_asf var17;
-         var2[i].a(class_cq.d, var17 = new class_asf.class_v_in_class_asf(1001));
+         var2[i].a(EnumDirection.SOUTH, var17 = new class_asf.class_v_in_class_asf(1001));
          class_asf.class_v_in_class_asf var18;
-         var2[j].a(class_cq.d, var18 = new class_asf.class_v_in_class_asf(1002));
+         var2[j].a(EnumDirection.SOUTH, var18 = new class_asf.class_v_in_class_asf(1002));
          var15.d = true;
          var17.d = true;
          var18.d = true;
          this.n.e = true;
          this.o = var2[b(var1.nextInt(4), 0, 2)];
          this.o.d = true;
-         this.o.b[class_cq.f.a()].d = true;
-         this.o.b[class_cq.c.a()].d = true;
-         this.o.b[class_cq.f.a()].b[class_cq.c.a()].d = true;
-         this.o.b[class_cq.b.a()].d = true;
-         this.o.b[class_cq.f.a()].b[class_cq.b.a()].d = true;
-         this.o.b[class_cq.c.a()].b[class_cq.b.a()].d = true;
-         this.o.b[class_cq.f.a()].b[class_cq.c.a()].b[class_cq.b.a()].d = true;
+         this.o.b[EnumDirection.EAST.getId()].d = true;
+         this.o.b[EnumDirection.NORTH.getId()].d = true;
+         this.o.b[EnumDirection.EAST.getId()].b[EnumDirection.NORTH.getId()].d = true;
+         this.o.b[EnumDirection.UP.getId()].d = true;
+         this.o.b[EnumDirection.EAST.getId()].b[EnumDirection.UP.getId()].d = true;
+         this.o.b[EnumDirection.NORTH.getId()].b[EnumDirection.UP.getId()].d = true;
+         this.o.b[EnumDirection.EAST.getId()].b[EnumDirection.NORTH.getId()].b[EnumDirection.UP.getId()].d = true;
          ArrayList var19 = Lists.newArrayList();
          class_asf.class_v_in_class_asf[] var20 = var2;
          var8 = var2.length;
@@ -1429,7 +1429,7 @@ public class class_asf {
                      var12 = var1.nextInt(6);
                   } while(!var24.c[var12]);
 
-                  var13 = class_cq.a(var12).d().a();
+                  var13 = EnumDirection.getById(var12).getOpposite().getId();
                   var24.c[var12] = false;
                   var24.b[var12].c[var13] = false;
                   if(var24.a(var21++) && var24.b[var12].a(var21++)) {
@@ -1868,13 +1868,13 @@ public class class_asf {
          super(var1);
       }
 
-      public class_r_in_class_asf(class_cq var1, class_arw var2) {
+      public class_r_in_class_asf(EnumDirection var1, class_arw var2) {
          super(1);
          this.a(var1);
          this.l = var2;
       }
 
-      protected class_r_in_class_asf(int var1, class_cq var2, class_asf.class_v_in_class_asf var3, int var4, int var5, int var6) {
+      protected class_r_in_class_asf(int var1, EnumDirection var2, class_asf.class_v_in_class_asf var3, int var4, int var5, int var6) {
          super(var1);
          this.a(var2);
          this.k = var3;
@@ -1882,7 +1882,7 @@ public class class_asf {
          int var8 = var7 % 5;
          int var9 = var7 / 5 % 5;
          int var10 = var7 / 25;
-         if(var2 != class_cq.c && var2 != class_cq.d) {
+         if(var2 != EnumDirection.NORTH && var2 != EnumDirection.SOUTH) {
             this.l = new class_arw(0, 0, 0, var6 * 8 - 1, var5 * 4 - 1, var4 * 8 - 1);
          } else {
             this.l = new class_arw(0, 0, 0, var4 * 8 - 1, var5 * 4 - 1, var6 * 8 - 1);
@@ -1914,7 +1914,7 @@ public class class_asf {
          for(int var10 = var4; var10 <= var7; ++var10) {
             for(int var11 = var3; var11 <= var6; ++var11) {
                for(int var12 = var5; var12 <= var8; ++var12) {
-                  if(!var9 || this.a(var1, var11, var10, var12, var2).getBlock().getMaterial() != Material.a) {
+                  if(!var9 || this.a(var1, var11, var10, var12, var2).getBlock().getMaterial() != Material.AIR) {
                      if(this.d(var10) >= var1.G()) {
                         this.a(var1, Blocks.AIR.getBlockData(), var11, var10, var12, var2);
                      } else {
@@ -1968,12 +1968,12 @@ public class class_asf {
          int var6 = this.a(var3, var5);
          int var7 = this.d(var4);
          int var8 = this.b(var3, var5);
-         if(var2.b((class_df)(new class_cj(var6, var7, var8)))) {
+         if(var2.b((BaseBlockPosition)(new BlockPosition(var6, var7, var8)))) {
             class_wg var9 = new class_wg(var1);
             var9.a(true);
             var9.h(var9.bv());
             var9.b((double)var6 + 0.5D, (double)var7, (double)var8 + 0.5D, 0.0F, 0.0F);
-            var9.a(var1.E(new class_cj(var9)), (class_qd)null);
+            var9.a(var1.E(new BlockPosition(var9)), (class_qd)null);
             var1.a((class_pr)var9);
             return true;
          } else {

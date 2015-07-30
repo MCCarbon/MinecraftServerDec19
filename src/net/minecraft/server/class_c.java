@@ -7,7 +7,7 @@ import java.util.concurrent.Callable;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_b;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_c {
    private final class_b a;
@@ -21,13 +21,13 @@ public class class_c {
    }
 
    public static String a(double var0, double var2, double var4) {
-      return String.format("%.2f,%.2f,%.2f - %s", new Object[]{Double.valueOf(var0), Double.valueOf(var2), Double.valueOf(var4), a(new class_cj(var0, var2, var4))});
+      return String.format("%.2f,%.2f,%.2f - %s", new Object[]{Double.valueOf(var0), Double.valueOf(var2), Double.valueOf(var4), a(new BlockPosition(var0, var2, var4))});
    }
 
-   public static String a(class_cj var0) {
-      int var1 = var0.n();
-      int var2 = var0.o();
-      int var3 = var0.p();
+   public static String a(BlockPosition var0) {
+      int var1 = var0.getX();
+      int var2 = var0.getY();
+      int var3 = var0.getZ();
       StringBuilder var4 = new StringBuilder();
 
       try {
@@ -168,7 +168,7 @@ public class class_c {
       return this.d;
    }
 
-   public static void a(class_c var0, final class_cj var1, final Block var2, final int var3) {
+   public static void a(class_c var0, final BlockPosition var1, final Block var2, final int var3) {
       final int var4 = Block.getId(var2);
       var0.a("Block type", new Callable() {
          public String a() throws Exception {
@@ -211,7 +211,7 @@ public class class_c {
       });
    }
 
-   public static void a(class_c var0, final class_cj var1, final IBlockData var2) {
+   public static void a(class_c var0, final BlockPosition var1, final IBlockData var2) {
       var0.a("Block", new Callable() {
          public String a() throws Exception {
             return var2.toString();

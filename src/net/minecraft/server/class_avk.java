@@ -5,7 +5,7 @@ import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_avn;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_om;
 
@@ -86,7 +86,7 @@ public class class_avk extends class_avn {
    public void c(long var1) {
    }
 
-   public void a(class_cj var1) {
+   public void a(BlockPosition var1) {
    }
 
    public void a(String var1) {

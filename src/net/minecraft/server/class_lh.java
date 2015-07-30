@@ -34,7 +34,7 @@ import net.minecraft.server.class_awp;
 import net.minecraft.server.class_awt;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_em;
@@ -77,7 +77,7 @@ import net.minecraft.server.class_mx;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_ne;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_op;
 import net.minecraft.server.class_ot;
@@ -133,10 +133,10 @@ public class class_lh extends class_xa implements class_ye {
 		super(var2, var3);
 		var4.b = this;
 		this.c = var4;
-		class_cj var5 = var2.N();
+		BlockPosition var5 = var2.N();
 		if (!var2.t.m() && var2.Q().r() != class_aeq.class_a_in_class_aeq.d) {
 			int var6 = Math.max(5, var1.aw() - 6);
-			int var7 = class_nu.c(var2.ag().b((double) var5.n(), (double) var5.p()));
+			int var7 = MathHelper.floor(var2.ag().b((double) var5.getX(), (double) var5.getZ()));
 			if (var7 < var6) {
 				var6 = var7;
 			}
@@ -145,7 +145,7 @@ public class class_lh extends class_xa implements class_ye {
 				var6 = 1;
 			}
 
-			var5 = var2.r(var5.a(this.V.nextInt(var6 * 2) - var6, 0, this.V.nextInt(var6 * 2) - var6));
+			var5 = var2.r(var5.add(this.V.nextInt(var6 * 2) - var6, 0, this.V.nextInt(var6 * 2) - var6));
 		}
 
 		this.b = var1;
@@ -236,7 +236,7 @@ public class class_lh extends class_xa implements class_ye {
 			while (var8.hasNext() && var6.size() < 10) {
 				class_aeh var10 = (class_aeh) var8.next();
 				if (var10 != null) {
-					if (this.o.e(new class_cj(var10.a << 4, 0, var10.b << 4))) {
+					if (this.o.e(new BlockPosition(var10.a << 4, 0, var10.b << 4))) {
 						var5 = this.o.a(var10.a, var10.b);
 						if (var5.i()) {
 							var6.add(var5);
@@ -337,7 +337,7 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	protected void i_() {
-		class_aez var1 = this.o.b(new class_cj(class_nu.c(this.s), 0, class_nu.c(this.u)));
+		class_aez var1 = this.o.b(new BlockPosition(MathHelper.floor(this.s), 0, MathHelper.floor(this.u)));
 		String var2 = var1.ah;
 		class_ne var3 = (class_ne) this.A().b((class_my) class_mt.L);
 		if (var3 == null) {
@@ -459,9 +459,9 @@ public class class_lh extends class_xa implements class_ye {
 		} else {
 			if (this.am == 0 && var1 == 1) {
 				this.b((class_my) class_mt.C);
-				class_cj var2 = this.b.a(var1).n();
+				BlockPosition var2 = this.b.a(var1).n();
 				if (var2 != null) {
-					this.a.a((double) var2.n(), (double) var2.o(), (double) var2.p(), 0.0F, 0.0F);
+					this.a.a((double) var2.getX(), (double) var2.getY(), (double) var2.getZ(), 0.0F, 0.0F);
 				}
 
 				var1 = 1;
@@ -496,7 +496,7 @@ public class class_lh extends class_xa implements class_ye {
 		this.br.b();
 	}
 
-	public class_xa.class_a_in_class_xa a(class_cj var1) {
+	public class_xa.class_a_in_class_xa a(BlockPosition var1) {
 		class_xa.class_a_in_class_xa var2 = super.a(var1);
 		if (var2 == class_xa.class_a_in_class_xa.a) {
 			class_ha var3 = new class_ha(this, var1);
@@ -530,19 +530,19 @@ public class class_lh extends class_xa implements class_ye {
 
 	}
 
-	protected void a(double var1, boolean var3, Block var4, class_cj var5) {
+	protected void a(double var1, boolean var3, Block var4, BlockPosition var5) {
 	}
 
 	public void a(double var1, boolean var3) {
-		int var4 = class_nu.c(this.s);
-		int var5 = class_nu.c(this.t - 0.20000000298023224D);
-		int var6 = class_nu.c(this.u);
-		class_cj var7 = new class_cj(var4, var5, var6);
+		int var4 = MathHelper.floor(this.s);
+		int var5 = MathHelper.floor(this.t - 0.20000000298023224D);
+		int var6 = MathHelper.floor(this.u);
+		BlockPosition var7 = new BlockPosition(var4, var5, var6);
 		Block var8 = this.o.p(var7).getBlock();
-		if (var8.getMaterial() == Material.a) {
-			Block var9 = this.o.p(var7.b()).getBlock();
+		if (var8.getMaterial() == Material.AIR) {
+			Block var9 = this.o.p(var7.shiftDown()).getBlock();
 			if (var9 instanceof class_ahz || var9 instanceof class_alv || var9 instanceof class_aia) {
-				var7 = var7.b();
+				var7 = var7.shiftDown();
 				var8 = this.o.p(var7).getBlock();
 			}
 		}
@@ -858,8 +858,8 @@ public class class_lh extends class_xa implements class_ye {
 		this.a.a((class_ff) (new class_hd(var1, var2)));
 	}
 
-	public class_cj c() {
-		return new class_cj(this.s, this.t + 0.5D, this.u);
+	public BlockPosition c() {
+		return new BlockPosition(this.s, this.t + 0.5D, this.u);
 	}
 
 	public void z() {

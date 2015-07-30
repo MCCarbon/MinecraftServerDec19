@@ -8,8 +8,8 @@ import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
 public class class_alz extends class_age {
@@ -26,11 +26,11 @@ public class class_alz extends class_age {
       this.b = var2;
    }
 
-   protected int f(World var1, class_cj var2) {
+   protected int f(World var1, BlockPosition var2) {
       int var3 = Math.min(var1.a(class_pr.class, this.a(var2)).size(), this.b);
       if(var3 > 0) {
          float var4 = (float)Math.min(this.b, var3) / (float)this.b;
-         return class_nu.f(var4 * 15.0F);
+         return MathHelper.ceil(var4 * 15.0F);
       } else {
          return 0;
       }

@@ -24,11 +24,11 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
@@ -44,7 +44,7 @@ import net.minecraft.server.class_lg;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pc;
@@ -127,9 +127,9 @@ public abstract class class_pr implements class_m {
    protected boolean ak;
    protected int al;
    public int am;
-   protected class_cj an;
-   protected class_awh ao;
-   protected class_cq ap;
+   protected BlockPosition an;
+   protected Vec3D ao;
+   protected EnumDirection ap;
    private boolean az;
    protected UUID aq;
    private final class_n aA;
@@ -158,7 +158,7 @@ public abstract class class_pr implements class_m {
       this.V = new Random();
       this.X = 1;
       this.aa = true;
-      this.aq = class_nu.a(this.V);
+      this.aq = MathHelper.getRandomUUID(this.V);
       this.aA = new class_n();
       this.aB = Lists.newArrayList();
       this.o = var1;
@@ -538,16 +538,16 @@ public abstract class class_pr implements class_m {
          this.E = var15 != var3;
          this.C = this.E && var15 < 0.0D;
          this.F = this.D || this.E;
-         int var57 = class_nu.c(this.s);
-         int var58 = class_nu.c(this.t - 0.20000000298023224D);
-         int var59 = class_nu.c(this.u);
-         class_cj var26 = new class_cj(var57, var58, var59);
+         int var57 = MathHelper.floor(this.s);
+         int var58 = MathHelper.floor(this.t - 0.20000000298023224D);
+         int var59 = MathHelper.floor(this.u);
+         BlockPosition var26 = new BlockPosition(var57, var58, var59);
          Block var60 = this.o.p(var26).getBlock();
-         if(var60.getMaterial() == Material.a) {
-            Block var28 = this.o.p(var26.b()).getBlock();
+         if(var60.getMaterial() == Material.AIR) {
+            Block var28 = this.o.p(var26.shiftDown()).getBlock();
             if(var28 instanceof class_ahz || var28 instanceof class_alv || var28 instanceof class_aia) {
                var60 = var28;
-               var26 = var26.b();
+               var26 = var26.shiftDown();
             }
          }
 
@@ -576,12 +576,12 @@ public abstract class class_pr implements class_m {
                var60.a(this.o, var26, this);
             }
 
-            this.M = (float)((double)this.M + (double)class_nu.a(var61 * var61 + var66 * var66) * 0.6D);
-            this.N = (float)((double)this.N + (double)class_nu.a(var61 * var61 + var64 * var64 + var66 * var66) * 0.6D);
-            if(this.N > (float)this.h && var60.getMaterial() != Material.a) {
+            this.M = (float)((double)this.M + (double)MathHelper.sqrt(var61 * var61 + var66 * var66) * 0.6D);
+            this.N = (float)((double)this.N + (double)MathHelper.sqrt(var61 * var61 + var64 * var64 + var66 * var66) * 0.6D);
+            if(this.N > (float)this.h && var60.getMaterial() != Material.AIR) {
                this.h = (int)this.N + 1;
                if(this.V()) {
-                  float var34 = class_nu.a(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.35F;
+                  float var34 = MathHelper.sqrt(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.35F;
                   if(var34 > 1.0F) {
                      var34 = 1.0F;
                   }
@@ -635,13 +635,13 @@ public abstract class class_pr implements class_m {
    }
 
    protected void Q() {
-      class_cj var1 = new class_cj(this.aT().a + 0.001D, this.aT().b + 0.001D, this.aT().c + 0.001D);
-      class_cj var2 = new class_cj(this.aT().d - 0.001D, this.aT().e - 0.001D, this.aT().f - 0.001D);
+      BlockPosition var1 = new BlockPosition(this.aT().a + 0.001D, this.aT().b + 0.001D, this.aT().c + 0.001D);
+      BlockPosition var2 = new BlockPosition(this.aT().d - 0.001D, this.aT().e - 0.001D, this.aT().f - 0.001D);
       if(this.o.a(var1, var2)) {
-         for(int var3 = var1.n(); var3 <= var2.n(); ++var3) {
-            for(int var4 = var1.o(); var4 <= var2.o(); ++var4) {
-               for(int var5 = var1.p(); var5 <= var2.p(); ++var5) {
-                  class_cj var6 = new class_cj(var3, var4, var5);
+         for(int var3 = var1.getX(); var3 <= var2.getX(); ++var3) {
+            for(int var4 = var1.getY(); var4 <= var2.getY(); ++var4) {
+               for(int var5 = var1.getZ(); var5 <= var2.getZ(); ++var5) {
+                  BlockPosition var6 = new BlockPosition(var3, var4, var5);
                   IBlockData var7 = this.o.p(var6);
 
                   try {
@@ -659,12 +659,12 @@ public abstract class class_pr implements class_m {
 
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       Block.StepSound var3 = var2.stepSound;
-      if(this.o.p(var1.a()).getBlock() == Blocks.SNOW_LAYER) {
+      if(this.o.p(var1.shiftUp()).getBlock() == Blocks.SNOW_LAYER) {
          var3 = Blocks.SNOW_LAYER.stepSound;
          this.a(var3.c(), var3.d() * 0.15F, var3.e());
-      } else if(!var2.getMaterial().d()) {
+      } else if(!var2.getMaterial().isLiquid()) {
          this.a(var3.c(), var3.d() * 0.15F, var3.e());
       }
 
@@ -689,7 +689,7 @@ public abstract class class_pr implements class_m {
       return true;
    }
 
-   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, BlockPosition var5) {
       if(var3) {
          if(this.O > 0.0F) {
             if(var4 != null) {
@@ -729,7 +729,7 @@ public abstract class class_pr implements class_m {
    }
 
    public boolean U() {
-      return this.Y || this.o.C(new class_cj(this.s, this.t, this.u)) || this.o.C(new class_cj(this.s, this.t + (double)this.K, this.u));
+      return this.Y || this.o.C(new BlockPosition(this.s, this.t, this.u)) || this.o.C(new BlockPosition(this.s, this.t + (double)this.K, this.u));
    }
 
    public boolean V() {
@@ -737,7 +737,7 @@ public abstract class class_pr implements class_m {
    }
 
    public boolean W() {
-      if(this.o.a(this.aT().b(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.h, this)) {
+      if(this.o.a(this.aT().b(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.WATER, this)) {
          if(!this.Y && !this.aa) {
             this.X();
          }
@@ -753,13 +753,13 @@ public abstract class class_pr implements class_m {
    }
 
    protected void X() {
-      float var1 = class_nu.a(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.2F;
+      float var1 = MathHelper.sqrt(this.v * this.v * 0.20000000298023224D + this.w * this.w + this.x * this.x * 0.20000000298023224D) * 0.2F;
       if(var1 > 1.0F) {
          var1 = 1.0F;
       }
 
       this.a(this.aa(), var1, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
-      float var2 = (float)class_nu.c(this.aT().b);
+      float var2 = (float)MathHelper.floor(this.aT().b);
 
       int var3;
       float var4;
@@ -786,10 +786,10 @@ public abstract class class_pr implements class_m {
    }
 
    protected void Z() {
-      int var1 = class_nu.c(this.s);
-      int var2 = class_nu.c(this.t - 0.20000000298023224D);
-      int var3 = class_nu.c(this.u);
-      class_cj var4 = new class_cj(var1, var2, var3);
+      int var1 = MathHelper.floor(this.s);
+      int var2 = MathHelper.floor(this.t - 0.20000000298023224D);
+      int var3 = MathHelper.floor(this.u);
+      BlockPosition var4 = new BlockPosition(var1, var2, var3);
       IBlockData var5 = this.o.p(var4);
       Block var6 = var5.getBlock();
       if(var6.getRenderType() != -1) {
@@ -804,12 +804,12 @@ public abstract class class_pr implements class_m {
 
    public boolean a(Material var1) {
       double var2 = this.t + (double)this.aU();
-      class_cj var4 = new class_cj(this.s, var2, this.u);
+      BlockPosition var4 = new BlockPosition(this.s, var2, this.u);
       IBlockData var5 = this.o.p(var4);
       Block var6 = var5.getBlock();
       if(var6.getMaterial() == var1) {
          float var7 = class_ajd.b(var5.getBlock().toLegacyData(var5)) - 0.11111111F;
-         float var8 = (float)(var4.o() + 1) - var7;
+         float var8 = (float)(var4.getY() + 1) - var7;
          boolean var9 = var2 < (double)var8;
          return !var9 && this instanceof class_xa?false:var9;
       } else {
@@ -818,13 +818,13 @@ public abstract class class_pr implements class_m {
    }
 
    public boolean ab() {
-      return this.o.a(this.aT().b(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.i);
+      return this.o.a(this.aT().b(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.LAVA);
    }
 
    public void a(float var1, float var2, float var3) {
       float var4 = var1 * var1 + var2 * var2;
       if(var4 >= 1.0E-4F) {
-         var4 = class_nu.c(var4);
+         var4 = MathHelper.sqrt(var4);
          if(var4 < 1.0F) {
             var4 = 1.0F;
          }
@@ -832,15 +832,15 @@ public abstract class class_pr implements class_m {
          var4 = var3 / var4;
          var1 *= var4;
          var2 *= var4;
-         float var5 = class_nu.a(this.y * 3.1415927F / 180.0F);
-         float var6 = class_nu.b(this.y * 3.1415927F / 180.0F);
+         float var5 = MathHelper.sin(this.y * 3.1415927F / 180.0F);
+         float var6 = MathHelper.cos(this.y * 3.1415927F / 180.0F);
          this.v += (double)(var1 * var6 - var2 * var5);
          this.x += (double)(var2 * var6 + var1 * var5);
       }
    }
 
    public float c(float var1) {
-      class_cj var2 = new class_cj(this.s, this.t + (double)this.aU(), this.u);
+      BlockPosition var2 = new BlockPosition(this.s, this.t + (double)this.aU(), this.u);
       return this.o.e(var2)?this.o.o(var2):0.0F;
    }
 
@@ -867,8 +867,8 @@ public abstract class class_pr implements class_m {
       this.b(var7, var8);
    }
 
-   public void a(class_cj var1, float var2, float var3) {
-      this.b((double)var1.n() + 0.5D, (double)var1.o(), (double)var1.p() + 0.5D, var2, var3);
+   public void a(BlockPosition var1, float var2, float var3) {
+      this.b((double)var1.getX() + 0.5D, (double)var1.getY(), (double)var1.getZ() + 0.5D, var2, var3);
    }
 
    public void b(double var1, double var3, double var5, float var7, float var8) {
@@ -884,7 +884,7 @@ public abstract class class_pr implements class_m {
       float var2 = (float)(this.s - var1.s);
       float var3 = (float)(this.t - var1.t);
       float var4 = (float)(this.u - var1.u);
-      return class_nu.c(var2 * var2 + var3 * var3 + var4 * var4);
+      return MathHelper.sqrt(var2 * var2 + var3 * var3 + var4 * var4);
    }
 
    public double e(double var1, double var3, double var5) {
@@ -894,19 +894,19 @@ public abstract class class_pr implements class_m {
       return var7 * var7 + var9 * var9 + var11 * var11;
    }
 
-   public double b(class_cj var1) {
-      return var1.c(this.s, this.t, this.u);
+   public double b(BlockPosition var1) {
+      return var1.distanceSquared(this.s, this.t, this.u);
    }
 
-   public double c(class_cj var1) {
-      return var1.d(this.s, this.t, this.u);
+   public double c(BlockPosition var1) {
+      return var1.distanceSquaredFromCenter(this.s, this.t, this.u);
    }
 
    public double f(double var1, double var3, double var5) {
       double var7 = this.s - var1;
       double var9 = this.t - var3;
       double var11 = this.u - var5;
-      return (double)class_nu.a(var7 * var7 + var9 * var9 + var11 * var11);
+      return (double)MathHelper.sqrt(var7 * var7 + var9 * var9 + var11 * var11);
    }
 
    public double h(class_pr var1) {
@@ -924,9 +924,9 @@ public abstract class class_pr implements class_m {
          if(!var1.T && !this.T) {
             double var2 = var1.s - this.s;
             double var4 = var1.u - this.u;
-            double var6 = class_nu.a(var2, var4);
+            double var6 = MathHelper.maxAbs(var2, var4);
             if(var6 >= 0.009999999776482582D) {
-               var6 = (double)class_nu.a(var6);
+               var6 = (double)MathHelper.sqrt(var6);
                var2 /= var6;
                var4 /= var6;
                double var8 = 1.0D / var6;
@@ -973,7 +973,7 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public class_awh d(float var1) {
+   public Vec3D d(float var1) {
       if(var1 == 1.0F) {
          return this.f(this.z, this.y);
       } else {
@@ -983,12 +983,12 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   protected final class_awh f(float var1, float var2) {
-      float var3 = class_nu.b(-var2 * 0.017453292F - 3.1415927F);
-      float var4 = class_nu.a(-var2 * 0.017453292F - 3.1415927F);
-      float var5 = -class_nu.b(-var1 * 0.017453292F);
-      float var6 = class_nu.a(-var1 * 0.017453292F);
-      return new class_awh((double)(var4 * var5), (double)var6, (double)(var3 * var5));
+   protected final Vec3D f(float var1, float var2) {
+      float var3 = MathHelper.cos(-var2 * 0.017453292F - 3.1415927F);
+      float var4 = MathHelper.sin(-var2 * 0.017453292F - 3.1415927F);
+      float var5 = -MathHelper.cos(-var1 * 0.017453292F);
+      float var6 = MathHelper.sin(-var1 * 0.017453292F);
+      return new Vec3D((double)(var4 * var5), (double)var6, (double)(var3 * var5));
    }
 
    public boolean ad() {
@@ -1199,14 +1199,14 @@ public abstract class class_pr implements class_m {
       if(this.T) {
          return false;
       } else {
-         class_cj.class_a_in_class_cj var1 = new class_cj.class_a_in_class_cj(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
+         BlockPosition.MutableBlockPosition var1 = new BlockPosition.MutableBlockPosition(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
 
          for(int var2 = 0; var2 < 8; ++var2) {
-            int var3 = class_nu.c(this.t + (double)(((float)((var2 >> 0) % 2) - 0.5F) * 0.1F) + (double)this.aU());
-            int var4 = class_nu.c(this.s + (double)(((float)((var2 >> 1) % 2) - 0.5F) * this.J * 0.8F));
-            int var5 = class_nu.c(this.u + (double)(((float)((var2 >> 2) % 2) - 0.5F) * this.J * 0.8F));
-            if(var1.n() != var4 || var1.o() != var3 || var1.p() != var5) {
-               var1.c(var4, var3, var5);
+            int var3 = MathHelper.floor(this.t + (double)(((float)((var2 >> 0) % 2) - 0.5F) * 0.1F) + (double)this.aU());
+            int var4 = MathHelper.floor(this.s + (double)(((float)((var2 >> 1) % 2) - 0.5F) * this.J * 0.8F));
+            int var5 = MathHelper.floor(this.u + (double)(((float)((var2 >> 2) % 2) - 0.5F) * this.J * 0.8F));
+            if(var1.getX() != var4 || var1.getY() != var3 || var1.getZ() != var5) {
+               var1.setPosition(var4, var3, var5);
                if(this.o.p(var1).getBlock().isVisuallyOpaque()) {
                   return true;
                }
@@ -1324,22 +1324,22 @@ public abstract class class_pr implements class_m {
       return 0.1F;
    }
 
-   public class_awh ap() {
+   public Vec3D ap() {
       return null;
    }
 
-   public void d(class_cj var1) {
+   public void d(BlockPosition var1) {
       if(this.aj > 0) {
          this.aj = this.aq();
       } else {
          if(!this.o.D && !var1.equals(this.an)) {
             this.an = var1;
             class_anp.class_b_in_class_anp var2 = Blocks.PORTAL.f(this.o, var1);
-            double var3 = var2.b().k() == class_cq.class_a_in_class_cq.a?(double)var2.a().p():(double)var2.a().n();
-            double var5 = var2.b().k() == class_cq.class_a_in_class_cq.a?this.u:this.s;
-            var5 = Math.abs(class_nu.c(var5 - (double)(var2.b().e().c() == class_cq.class_b_in_class_cq.b?1:0), var3, var3 - (double)var2.d()));
-            double var7 = class_nu.c(this.t - 1.0D, (double)var2.a().o(), (double)(var2.a().o() - var2.e()));
-            this.ao = new class_awh(var5, var7, 0.0D);
+            double var3 = var2.b().getAxis() == EnumDirection.EnumAxis.X?(double)var2.a().getZ():(double)var2.a().getX();
+            double var5 = var2.b().getAxis() == EnumDirection.EnumAxis.X?this.u:this.s;
+            var5 = Math.abs(MathHelper.c(var5 - (double)(var2.b().rotateY().getAxisDirection() == EnumDirection.EnumAxisDirection.NEGATIVE?1:0), var3, var3 - (double)var2.d()));
+            double var7 = MathHelper.c(this.t - 1.0D, (double)var2.a().getY(), (double)(var2.a().getY() - var2.e()));
+            this.ao = new Vec3D(var5, var7, 0.0D);
             this.ap = var2.b();
          }
 
@@ -1438,37 +1438,37 @@ public abstract class class_pr implements class_m {
    }
 
    protected boolean j(double var1, double var3, double var5) {
-      class_cj var7 = new class_cj(var1, var3, var5);
-      double var8 = var1 - (double)var7.n();
-      double var10 = var3 - (double)var7.o();
-      double var12 = var5 - (double)var7.p();
+      BlockPosition var7 = new BlockPosition(var1, var3, var5);
+      double var8 = var1 - (double)var7.getX();
+      double var10 = var3 - (double)var7.getY();
+      double var12 = var5 - (double)var7.getZ();
       List var14 = this.o.a(this.aT());
       if(var14.isEmpty() && !this.o.u(var7)) {
          return false;
       } else {
          byte var15 = 3;
          double var16 = 9999.0D;
-         if(!this.o.u(var7.e()) && var8 < var16) {
+         if(!this.o.u(var7.shiftWest()) && var8 < var16) {
             var16 = var8;
             var15 = 0;
          }
 
-         if(!this.o.u(var7.f()) && 1.0D - var8 < var16) {
+         if(!this.o.u(var7.shiftEast()) && 1.0D - var8 < var16) {
             var16 = 1.0D - var8;
             var15 = 1;
          }
 
-         if(!this.o.u(var7.a()) && 1.0D - var10 < var16) {
+         if(!this.o.u(var7.shiftUp()) && 1.0D - var10 < var16) {
             var16 = 1.0D - var10;
             var15 = 3;
          }
 
-         if(!this.o.u(var7.c()) && var12 < var16) {
+         if(!this.o.u(var7.shiftNorth()) && var12 < var16) {
             var16 = var12;
             var15 = 4;
          }
 
-         if(!this.o.u(var7.d()) && 1.0D - var12 < var16) {
+         if(!this.o.u(var7.shiftSouth()) && 1.0D - var12 < var16) {
             var16 = 1.0D - var12;
             var15 = 5;
          }
@@ -1586,7 +1586,7 @@ public abstract class class_pr implements class_m {
          if(var6 != null) {
             var6.n(this);
             if(var3 == 1 && var1 == 1) {
-               class_cj var7 = this.o.r(var5.N());
+               BlockPosition var7 = this.o.r(var5.N());
                var6.a(var7, var6.y, var6.z);
             }
 
@@ -1601,11 +1601,11 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public float a(class_aej var1, World var2, class_cj var3, IBlockData var4) {
+   public float a(class_aej var1, World var2, BlockPosition var3, IBlockData var4) {
       return var4.getBlock().a(this);
    }
 
-   public boolean a(class_aej var1, World var2, class_cj var3, IBlockData var4, float var5) {
+   public boolean a(class_aej var1, World var2, BlockPosition var3, IBlockData var4, float var5) {
       return true;
    }
 
@@ -1613,11 +1613,11 @@ public abstract class class_pr implements class_m {
       return 3;
    }
 
-   public class_awh aI() {
+   public Vec3D aI() {
       return this.ao;
    }
 
-   public class_cq aJ() {
+   public EnumDirection aJ() {
       return this.ap;
    }
 
@@ -1648,7 +1648,7 @@ public abstract class class_pr implements class_m {
          }
       });
       var1.a((String)"Entity\'s Exact location", (Object)String.format("%.2f, %.2f, %.2f", new Object[]{Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u)}));
-      var1.a((String)"Entity\'s Block location", (Object)class_c.a((double)class_nu.c(this.s), (double)class_nu.c(this.t), (double)class_nu.c(this.u)));
+      var1.a((String)"Entity\'s Block location", (Object)class_c.a((double)MathHelper.floor(this.s), (double)MathHelper.floor(this.t), (double)MathHelper.floor(this.u)));
       var1.a((String)"Entity\'s Momentum", (Object)String.format("%.2f, %.2f, %.2f", new Object[]{Double.valueOf(this.v), Double.valueOf(this.w), Double.valueOf(this.x)}));
       var1.a("Entity\'s Rider", new Callable() {
          public String a() throws Exception {
@@ -1714,8 +1714,8 @@ public abstract class class_pr implements class_m {
    public void d(int var1) {
    }
 
-   public class_cq aR() {
-      return class_cq.b(class_nu.c((double)(this.y * 4.0F / 360.0F) + 0.5D) & 3);
+   public EnumDirection aR() {
+      return EnumDirection.getByHorizontalId(MathHelper.floor((double)(this.y * 4.0F / 360.0F) + 0.5D) & 3);
    }
 
    protected class_ew aS() {
@@ -1765,12 +1765,12 @@ public abstract class class_pr implements class_m {
       return true;
    }
 
-   public class_cj c() {
-      return new class_cj(this.s, this.t + 0.5D, this.u);
+   public BlockPosition c() {
+      return new BlockPosition(this.s, this.t + 0.5D, this.u);
    }
 
-   public class_awh d() {
-      return new class_awh(this.s, this.t, this.u);
+   public Vec3D d() {
+      return new Vec3D(this.s, this.t, this.u);
    }
 
    public World e() {
@@ -1797,7 +1797,7 @@ public abstract class class_pr implements class_m {
       this.aA.a(var1.aW());
    }
 
-   public class_oq a(class_xa var1, class_awh var2, class_aas var3, class_oo var4) {
+   public class_oq a(class_xa var1, Vec3D var2, class_aas var3, class_oo var4) {
       return class_oq.b;
    }
 
@@ -1820,7 +1820,7 @@ public abstract class class_pr implements class_m {
    }
 
    public float a(Block.class_c_in_class_agj var1) {
-      float var2 = class_nu.g(this.y);
+      float var2 = MathHelper.clampAngle(this.y);
       switch(class_pr.SyntheticClass_1.a[var1.ordinal()]) {
       case 1:
          return var2 + 180.0F;
@@ -1834,7 +1834,7 @@ public abstract class class_pr implements class_m {
    }
 
    public float a(Block.class_a_in_class_agj var1) {
-      float var2 = class_nu.g(this.y);
+      float var2 = MathHelper.clampAngle(this.y);
       switch(class_pr.SyntheticClass_1.b[var1.ordinal()]) {
       case 1:
          return -var2;

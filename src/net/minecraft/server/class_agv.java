@@ -14,8 +14,8 @@ import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.CreativeTab;
 
@@ -23,7 +23,7 @@ public class class_agv extends Block {
    public static final class_anz a = class_anz.a("age", 0, 5);
 
    protected class_agv() {
-      super(Material.k);
+      super(Material.PLANT);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       this.a(CreativeTab.c);
       this.setTicking(true);
@@ -33,15 +33,15 @@ public class class_agv extends Block {
       return null;
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(!this.e(var1, var2)) {
          var1.b(var2, true);
-      } else if(var1.d(var2.a())) {
+      } else if(var1.d(var2.shiftUp())) {
          int var5 = ((Integer)var3.get(a)).intValue();
          if(var5 < 5 && var4.nextInt(1) == 0) {
             boolean var6 = false;
             boolean var7 = false;
-            Block var8 = var1.p(var2.b()).getBlock();
+            Block var8 = var1.p(var2.shiftDown()).getBlock();
             int var9;
             if(var8 == Blocks.END_STONE) {
                var6 = true;
@@ -54,7 +54,7 @@ public class class_agv extends Block {
 
                int var10;
                for(var10 = 0; var10 < 4; ++var10) {
-                  Block var11 = var1.p(var2.c(var9 + 1)).getBlock();
+                  Block var11 = var1.p(var2.shiftDown(var9 + 1)).getBlock();
                   if(var11 != Blocks.CHORUS_PLANT) {
                      if(var11 == Blocks.END_STONE) {
                         var7 = true;
@@ -75,9 +75,9 @@ public class class_agv extends Block {
                }
             }
 
-            if(var6 && a(var1, var2.a(), (class_cq)null) && var1.d(var2.b(2))) {
-               var1.a((class_cj)var2, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
-               var1.a((class_cj)var2.a(), (IBlockData)this.getBlockData().set(a, Integer.valueOf(var5)), 2);
+            if(var6 && a(var1, var2.shiftUp(), (EnumDirection)null) && var1.d(var2.shiftUp(2))) {
+               var1.a((BlockPosition)var2, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
+               var1.a((BlockPosition)var2.shiftUp(), (IBlockData)this.getBlockData().set(a, Integer.valueOf(var5)), 2);
             } else if(var5 < 4) {
                var9 = var4.nextInt(4);
                boolean var15 = false;
@@ -86,43 +86,43 @@ public class class_agv extends Block {
                }
 
                for(int var14 = 0; var14 < var9; ++var14) {
-                  class_cq var12 = class_cq.class_c_in_class_cq.a.a(var4);
-                  class_cj var13 = var2.a(var12);
-                  if(var1.d(var13) && var1.d(var13.b()) && a(var1, var13, var12.d())) {
-                     var1.a((class_cj)var13, (IBlockData)this.getBlockData().set(a, Integer.valueOf(var5 + 1)), 2);
+                  EnumDirection var12 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var4);
+                  BlockPosition var13 = var2.shift(var12);
+                  if(var1.d(var13) && var1.d(var13.shiftDown()) && a(var1, var13, var12.getOpposite())) {
+                     var1.a((BlockPosition)var13, (IBlockData)this.getBlockData().set(a, Integer.valueOf(var5 + 1)), 2);
                      var15 = true;
                   }
                }
 
                if(var15) {
-                  var1.a((class_cj)var2, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
+                  var1.a((BlockPosition)var2, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
                } else {
-                  var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(5)), 2);
+                  var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(5)), 2);
                }
             } else if(var5 == 4) {
-               var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(5)), 2);
+               var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(5)), 2);
             }
          }
       }
 
    }
 
-   private static boolean a(World var0, class_cj var1, class_cq var2) {
-      Iterator var3 = class_cq.class_c_in_class_cq.a.iterator();
+   private static boolean a(World var0, BlockPosition var1, EnumDirection var2) {
+      Iterator var3 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
-      class_cq var4;
+      EnumDirection var4;
       do {
          if(!var3.hasNext()) {
             return true;
          }
 
-         var4 = (class_cq)var3.next();
-      } while(var4 == var2 || var0.d(var1.a(var4)));
+         var4 = (EnumDirection)var3.next();
+      } while(var4 == var2 || var0.d(var1.shift(var4)));
 
       return false;
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return super.a(var1, var2, var3);
    }
 
@@ -134,27 +134,27 @@ public class class_agv extends Block {
       return false;
    }
 
-   public boolean d(World var1, class_cj var2) {
+   public boolean d(World var1, BlockPosition var2) {
       return super.d(var1, var2)?this.e(var1, var2):false;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2)) {
-         var1.a((class_cj)var2, (Block)this, 1);
+         var1.a((BlockPosition)var2, (Block)this, 1);
       }
 
    }
 
-   public boolean e(World var1, class_cj var2) {
-      Block var3 = var1.p(var2.b()).getBlock();
+   public boolean e(World var1, BlockPosition var2) {
+      Block var3 = var1.p(var2.shiftDown()).getBlock();
       if(var3 != Blocks.CHORUS_PLANT && var3 != Blocks.END_STONE) {
          if(var3 == Blocks.AIR) {
             int var4 = 0;
-            Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
+            Iterator var5 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
             while(var5.hasNext()) {
-               class_cq var6 = (class_cq)var5.next();
-               Block var7 = var1.p(var2.a(var6)).getBlock();
+               EnumDirection var6 = (EnumDirection)var5.next();
+               Block var7 = var1.p(var2.shift(var6)).getBlock();
                if(var7 == Blocks.CHORUS_PLANT) {
                   ++var4;
                } else if(var7 != Blocks.AIR) {
@@ -171,7 +171,7 @@ public class class_agv extends Block {
       }
    }
 
-   public void a(World var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
       super.a(var1, var2, var3, var4, var5, var6);
       a(var1, var3, (class_aas)(new class_aas(Item.getByBlock((Block)this))));
    }
@@ -192,28 +192,28 @@ public class class_agv extends Block {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       super.c(var1, var2, var3);
    }
 
-   public static void a(World var0, class_cj var1, Random var2, int var3) {
-      var0.a((class_cj)var1, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
+   public static void a(World var0, BlockPosition var1, Random var2, int var3) {
+      var0.a((BlockPosition)var1, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
       a(var0, var1, var2, var1, var3, 0);
    }
 
-   private static void a(World var0, class_cj var1, Random var2, class_cj var3, int var4, int var5) {
+   private static void a(World var0, BlockPosition var1, Random var2, BlockPosition var3, int var4, int var5) {
       int var6 = var2.nextInt(4) + 1;
       if(var5 == 0) {
          ++var6;
       }
 
       for(int var7 = 0; var7 < var6; ++var7) {
-         class_cj var8 = var1.b(var7 + 1);
-         if(!a(var0, var8, (class_cq)null)) {
+         BlockPosition var8 = var1.shiftUp(var7 + 1);
+         if(!a(var0, var8, (EnumDirection)null)) {
             return;
          }
 
-         var0.a((class_cj)var8, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
+         var0.a((BlockPosition)var8, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
       }
 
       boolean var12 = false;
@@ -224,18 +224,18 @@ public class class_agv extends Block {
          }
 
          for(int var9 = 0; var9 < var13; ++var9) {
-            class_cq var10 = class_cq.class_c_in_class_cq.a.a(var2);
-            class_cj var11 = var1.b(var6).a(var10);
-            if(Math.abs(var11.n() - var3.n()) < var4 && Math.abs(var11.p() - var3.p()) < var4 && var0.d(var11) && var0.d(var11.b()) && a(var0, var11, var10.d())) {
+            EnumDirection var10 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
+            BlockPosition var11 = var1.shiftUp(var6).shift(var10);
+            if(Math.abs(var11.getX() - var3.getX()) < var4 && Math.abs(var11.getZ() - var3.getZ()) < var4 && var0.d(var11) && var0.d(var11.shiftDown()) && a(var0, var11, var10.getOpposite())) {
                var12 = true;
-               var0.a((class_cj)var11, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
+               var0.a((BlockPosition)var11, (IBlockData)Blocks.CHORUS_PLANT.getBlockData(), 2);
                a(var0, var11, var2, var3, var4, var5 + 1);
             }
          }
       }
 
       if(!var12) {
-         var0.a((class_cj)var1.b(var6), (IBlockData)Blocks.CHORUS_FLOWER.getBlockData().set(a, Integer.valueOf(5)), 2);
+         var0.a((BlockPosition)var1.shiftUp(var6), (IBlockData)Blocks.CHORUS_FLOWER.getBlockData().set(a, Integer.valueOf(5)), 2);
       }
 
    }

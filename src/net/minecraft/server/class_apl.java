@@ -24,8 +24,8 @@ import net.minecraft.server.class_arb;
 import net.minecraft.server.class_asc;
 import net.minecraft.server.class_ata;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
 
@@ -165,7 +165,7 @@ public class class_apl implements class_aoh {
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
                   IBlockData var16 = var3.a(var8, var15, var7);
-                  if(var16.getBlock() != null && var16.getBlock().getMaterial() != Material.a) {
+                  if(var16.getBlock() != null && var16.getBlock().getMaterial() != Material.AIR) {
                      if(var16.getBlock() == Blocks.NETHERRACK) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
@@ -185,7 +185,7 @@ public class class_apl implements class_aoh {
                               }
                            }
 
-                           if(var15 < var4 && (var13 == null || var13.getBlock().getMaterial() == Material.a)) {
+                           if(var15 < var4 && (var13 == null || var13.getBlock().getMaterial() == Material.AIR)) {
                               var13 = Blocks.LAVA.getBlockData();
                            }
 
@@ -290,7 +290,7 @@ public class class_apl implements class_aoh {
 
                if((double)var18 < var16) {
                   var29 = (var16 - (double)var18) / 4.0D;
-                  var29 = class_nu.a(var29, 0.0D, 1.0D);
+                  var29 = MathHelper.clamp(var29, 0.0D, 1.0D);
                   var19 = var19 * (1.0D - var29) + -10.0D * var29;
                }
 
@@ -309,41 +309,41 @@ public class class_apl implements class_aoh {
 
    public void a(class_aoh var1, int var2, int var3) {
       class_ahx.N = true;
-      class_cj var4 = new class_cj(var2 * 16, 0, var3 * 16);
+      BlockPosition var4 = new BlockPosition(var2 * 16, 0, var3 * 16);
       class_aeh var5 = new class_aeh(var2, var3);
       this.B.a(this.h, this.j, var5);
 
       int var6;
       for(var6 = 0; var6 < 8; ++var6) {
-         this.y.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.y.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < this.j.nextInt(this.j.nextInt(10) + 1) + 1; ++var6) {
-         this.t.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.t.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < this.j.nextInt(this.j.nextInt(10) + 1); ++var6) {
-         this.u.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.u.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < 10; ++var6) {
-         this.v.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.v.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       if(this.j.nextBoolean()) {
-         this.z.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.z.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       if(this.j.nextBoolean()) {
-         this.A.b(this.h, this.j, var4.a(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.A.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < 16; ++var6) {
-         this.w.b(this.h, this.j, var4.a(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
+         this.w.b(this.h, this.j, var4.add(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
       }
 
       for(var6 = 0; var6 < 16; ++var6) {
-         this.x.b(this.h, this.j, var4.a(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
+         this.x.b(this.h, this.j, var4.add(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
       }
 
       class_ahx.N = false;
@@ -372,13 +372,13 @@ public class class_apl implements class_aoh {
       return "HellRandomLevelSource";
    }
 
-   public List a(class_qc var1, class_cj var2) {
+   public List a(class_qc var1, BlockPosition var2) {
       if(var1 == class_qc.a) {
          if(this.B.b(var2)) {
             return this.B.b();
          }
 
-         if(this.B.a(this.h, var2) && this.h.p(var2.b()).getBlock() == Blocks.NETHER_BRICK) {
+         if(this.B.a(this.h, var2) && this.h.p(var2.shiftDown()).getBlock() == Blocks.NETHER_BRICK) {
             return this.B.b();
          }
       }
@@ -387,7 +387,7 @@ public class class_apl implements class_aoh {
       return var3.a(var1);
    }
 
-   public class_cj a(World var1, String var2, class_cj var3) {
+   public BlockPosition a(World var1, String var2, BlockPosition var3) {
       return null;
    }
 
@@ -399,7 +399,7 @@ public class class_apl implements class_aoh {
       this.B.a(this, this.h, var2, var3, (class_aph)null);
    }
 
-   public class_aok a(class_cj var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public class_aok a(BlockPosition var1) {
+      return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

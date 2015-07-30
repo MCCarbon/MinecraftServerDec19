@@ -10,8 +10,8 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.INamable;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.CreativeTab;
@@ -20,14 +20,14 @@ public class class_akf extends Block {
    public static final BlockStateEnum a = BlockStateEnum.of("variant", class_akf.class_a_in_class_akf.class);
 
    public class_akf() {
-      super(Material.e);
+      super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_akf.class_a_in_class_akf.a));
       this.a(CreativeTab.b);
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
       if(var7 == class_akf.class_a_in_class_akf.c.a()) {
-         switch(class_akf.SyntheticClass_1.a[var3.k().ordinal()]) {
+         switch(class_akf.SyntheticClass_1.a[var3.getAxis().ordinal()]) {
          case 1:
             return this.getBlockData().set(a, class_akf.class_a_in_class_akf.e);
          case 2:
@@ -52,7 +52,7 @@ public class class_akf extends Block {
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return MaterialMapColor.p;
+      return MaterialMapColor.COLOR15;
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -124,22 +124,22 @@ public class class_akf extends Block {
             ;
          }
 
-         a = new int[class_cq.class_a_in_class_cq.values().length];
+         a = new int[EnumDirection.EnumAxis.values().length];
 
          try {
-            a[class_cq.class_a_in_class_cq.c.ordinal()] = 1;
+            a[EnumDirection.EnumAxis.Z.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.class_a_in_class_cq.a.ordinal()] = 2;
+            a[EnumDirection.EnumAxis.X.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.class_a_in_class_cq.b.ordinal()] = 3;
+            a[EnumDirection.EnumAxis.Y.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

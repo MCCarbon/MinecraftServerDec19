@@ -7,7 +7,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_aqq extends class_aql {
    private final Block a;
@@ -18,56 +18,56 @@ public class class_aqq extends class_aql {
       this.b = var2;
    }
 
-   public boolean b(World var1, Random var2, class_cj var3) {
-      if(var1.p(var3.a()).getBlock() != Blocks.NETHERRACK) {
+   public boolean b(World var1, Random var2, BlockPosition var3) {
+      if(var1.p(var3.shiftUp()).getBlock() != Blocks.NETHERRACK) {
          return false;
-      } else if(var1.p(var3).getBlock().getMaterial() != Material.a && var1.p(var3).getBlock() != Blocks.NETHERRACK) {
+      } else if(var1.p(var3).getBlock().getMaterial() != Material.AIR && var1.p(var3).getBlock() != Blocks.NETHERRACK) {
          return false;
       } else {
          int var4 = 0;
-         if(var1.p(var3.e()).getBlock() == Blocks.NETHERRACK) {
+         if(var1.p(var3.shiftWest()).getBlock() == Blocks.NETHERRACK) {
             ++var4;
          }
 
-         if(var1.p(var3.f()).getBlock() == Blocks.NETHERRACK) {
+         if(var1.p(var3.shiftEast()).getBlock() == Blocks.NETHERRACK) {
             ++var4;
          }
 
-         if(var1.p(var3.c()).getBlock() == Blocks.NETHERRACK) {
+         if(var1.p(var3.shiftNorth()).getBlock() == Blocks.NETHERRACK) {
             ++var4;
          }
 
-         if(var1.p(var3.d()).getBlock() == Blocks.NETHERRACK) {
+         if(var1.p(var3.shiftSouth()).getBlock() == Blocks.NETHERRACK) {
             ++var4;
          }
 
-         if(var1.p(var3.b()).getBlock() == Blocks.NETHERRACK) {
+         if(var1.p(var3.shiftDown()).getBlock() == Blocks.NETHERRACK) {
             ++var4;
          }
 
          int var5 = 0;
-         if(var1.d(var3.e())) {
+         if(var1.d(var3.shiftWest())) {
             ++var5;
          }
 
-         if(var1.d(var3.f())) {
+         if(var1.d(var3.shiftEast())) {
             ++var5;
          }
 
-         if(var1.d(var3.c())) {
+         if(var1.d(var3.shiftNorth())) {
             ++var5;
          }
 
-         if(var1.d(var3.d())) {
+         if(var1.d(var3.shiftSouth())) {
             ++var5;
          }
 
-         if(var1.d(var3.b())) {
+         if(var1.d(var3.shiftDown())) {
             ++var5;
          }
 
          if(!this.b && var4 == 4 && var5 == 1 || var4 == 5) {
-            var1.a((class_cj)var3, (IBlockData)this.a.getBlockData(), 2);
+            var1.a((BlockPosition)var3, (IBlockData)this.a.getBlockData(), 2);
             var1.a(this.a, var3, var2);
          }
 

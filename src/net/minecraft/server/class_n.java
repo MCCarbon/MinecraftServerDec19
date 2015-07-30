@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_ca;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_eu;
@@ -45,11 +45,11 @@ public class class_n {
                return true;
             }
 
-            public class_cj c() {
+            public BlockPosition c() {
                return var1.c();
             }
 
-            public class_awh d() {
+            public Vec3D d() {
                return var1.d();
             }
 

@@ -9,10 +9,10 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aic;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -71,11 +71,11 @@ public class class_uj extends class_ua {
    protected void cc() {
       if(--this.c <= 0) {
          this.c = 70 + this.V.nextInt(50);
-         this.b = this.o.af().a(new class_cj(this), 32);
+         this.b = this.o.af().a(new BlockPosition(this), 32);
          if(this.b == null) {
             this.cy();
          } else {
-            class_cj var1 = this.b.a();
+            BlockPosition var1 = this.b.a();
             this.a(var1, (int)((float)this.b.b() * 0.6F));
          }
       }
@@ -112,12 +112,12 @@ public class class_uj extends class_ua {
       }
 
       if(this.v * this.v + this.x * this.x > 2.500000277905201E-7D && this.V.nextInt(5) == 0) {
-         int var1 = class_nu.c(this.s);
-         int var2 = class_nu.c(this.t - 0.20000000298023224D);
-         int var3 = class_nu.c(this.u);
-         IBlockData var4 = this.o.p(new class_cj(var1, var2, var3));
+         int var1 = MathHelper.floor(this.s);
+         int var2 = MathHelper.floor(this.t - 0.20000000298023224D);
+         int var3 = MathHelper.floor(this.u);
+         IBlockData var4 = this.o.p(new BlockPosition(var1, var2, var3));
          Block var5 = var4.getBlock();
-         if(var5.getMaterial() != Material.a) {
+         if(var5.getMaterial() != Material.AIR) {
             this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.getCombinedId(var4)});
          }
       }
@@ -168,7 +168,7 @@ public class class_uj extends class_ua {
       return "mob.irongolem.death";
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.irongolem.walk", 1.0F, 1.0F);
    }
 

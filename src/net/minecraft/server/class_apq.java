@@ -17,8 +17,8 @@ import net.minecraft.server.class_arx;
 import net.minecraft.server.class_ata;
 import net.minecraft.server.class_ate;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
 
@@ -120,7 +120,7 @@ public class class_apq implements class_aoh {
 
             for(int var8 = 127; var8 >= 0; --var8) {
                IBlockData var9 = var1.a(var2, var8, var3);
-               if(var9.getBlock().getMaterial() == Material.a) {
+               if(var9.getBlock().getMaterial() == Material.AIR) {
                   var5 = -1;
                } else if(var9.getBlock() == Blocks.STONE) {
                   if(var5 == -1) {
@@ -167,7 +167,7 @@ public class class_apq implements class_aoh {
    private float a(int var1, int var2, int var3, int var4) {
       float var5 = (float)(var1 * 2 + var3);
       float var6 = (float)(var2 * 2 + var4);
-      float var7 = 100.0F - class_nu.c(var5 * var5 + var6 * var6) * 8.0F;
+      float var7 = 100.0F - MathHelper.sqrt(var5 * var5 + var6 * var6) * 8.0F;
       if(var7 > 80.0F) {
          var7 = 80.0F;
       }
@@ -181,10 +181,10 @@ public class class_apq implements class_aoh {
             int var10 = var1 + var8;
             int var11 = var2 + var9;
             if(var10 * var10 + var11 * var11 > 4096 && this.l.a((double)var10, (double)var11) < -0.8999999761581421D) {
-               float var12 = (float)((class_nu.a(var10) * 3439 + class_nu.a(var11) * 147) % 13 + 9);
+               float var12 = (float)((MathHelper.abs(var10) * 3439 + MathHelper.abs(var11) * 147) % 13 + 9);
                var5 = (float)(var3 - var8 * 2);
                var6 = (float)(var4 - var9 * 2);
-               float var13 = 100.0F - class_nu.c(var5 * var5 + var6 * var6) * var12;
+               float var13 = 100.0F - MathHelper.sqrt(var5 * var5 + var6 * var6) * var12;
                if(var13 > 80.0F) {
                   var13 = 80.0F;
                }
@@ -245,7 +245,7 @@ public class class_apq implements class_aoh {
                double var28;
                if(var18 > var6 / 2 - var27) {
                   var28 = (double)((float)(var18 - (var6 / 2 - var27)) / 64.0F);
-                  var28 = class_nu.a(var28, 0.0D, 1.0D);
+                  var28 = MathHelper.clamp(var28, 0.0D, 1.0D);
                   var19 = var19 * (1.0D - var28) + -3000.0D * var28;
                }
 
@@ -270,15 +270,15 @@ public class class_apq implements class_aoh {
 
    public void a(class_aoh var1, int var2, int var3) {
       class_ahx.N = true;
-      class_cj var4 = new class_cj(var2 * 16, 0, var3 * 16);
+      BlockPosition var4 = new BlockPosition(var2 * 16, 0, var3 * 16);
       this.k.a(this.j, this.f, new class_aeh(var2, var3));
-      this.j.b(var4.a(16, 0, 16)).a(this.j, this.j.s, var4);
+      this.j.b(var4.add(16, 0, 16)).a(this.j, this.j.s, var4);
       if(var2 * var2 + var3 * var3 > 4096) {
          float var5 = this.a(var2, var3, 1, 1);
          if(var5 < -20.0F && this.f.nextInt(14) == 0) {
-            this.o.b(this.j, this.f, var4.a(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
+            this.o.b(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
             if(this.f.nextInt(4) == 0) {
-               this.o.b(this.j, this.f, var4.a(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
+               this.o.b(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
             }
          }
 
@@ -287,11 +287,11 @@ public class class_apq implements class_aoh {
          for(int var7 = 0; var7 < var6; ++var7) {
             int var8 = this.f.nextInt(16) + 8;
             int var9 = this.f.nextInt(16) + 8;
-            int var10 = this.j.m(var4.a(var8, 0, var9)).o();
+            int var10 = this.j.m(var4.add(var8, 0, var9)).getY();
             if(var10 > 0) {
                int var11 = var10 - 1;
-               if(this.j.d(var4.a(var8, var11 + 1, var9)) && this.j.p(var4.a(var8, var11, var9)).getBlock() == Blocks.END_STONE) {
-                  class_agv.a(this.j, var4.a(var8, var11 + 1, var9), this.f, 8);
+               if(this.j.d(var4.add(var8, var11 + 1, var9)) && this.j.p(var4.add(var8, var11, var9)).getBlock() == Blocks.END_STONE) {
+                  class_agv.a(this.j, var4.add(var8, var11 + 1, var9), this.f, 8);
                }
             }
          }
@@ -323,11 +323,11 @@ public class class_apq implements class_aoh {
       return "RandomLevelSource";
    }
 
-   public List a(class_qc var1, class_cj var2) {
+   public List a(class_qc var1, BlockPosition var2) {
       return this.j.b(var2).a(var1);
    }
 
-   public class_cj a(World var1, String var2, class_cj var3) {
+   public BlockPosition a(World var1, String var2, BlockPosition var3) {
       return null;
    }
 
@@ -338,7 +338,7 @@ public class class_apq implements class_aoh {
    public void a(class_aok var1, int var2, int var3) {
    }
 
-   public class_aok a(class_cj var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public class_aok a(BlockPosition var1) {
+      return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

@@ -10,7 +10,7 @@ import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 
@@ -32,7 +32,7 @@ public class class_akb extends class_age {
       return var1.set(a, Boolean.valueOf(var2 > 0));
    }
 
-   protected int f(World var1, class_cj var2) {
+   protected int f(World var1, BlockPosition var2) {
       class_awf var3 = this.a(var2);
       List var4;
       switch(class_akb.SyntheticClass_1.a[this.b.ordinal()]) {

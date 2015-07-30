@@ -11,12 +11,12 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aih;
 import net.minecraft.server.class_amu;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_kn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oz;
 import net.minecraft.server.class_wz;
 import net.minecraft.server.class_xa;
@@ -166,7 +166,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       if(!this.b.D) {
          if(!this.m() && (this.h[1] == null || this.h[0] == null)) {
             if(!this.m() && this.k > 0) {
-               this.k = class_nu.a(this.k - 2, 0, this.l);
+               this.k = MathHelper.clamp(this.k - 2, 0, this.l);
             }
          } else {
             if(!this.m() && this.o()) {
@@ -253,7 +253,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
                return 150;
             }
 
-            if(var2.getMaterial() == Material.d) {
+            if(var2.getMaterial() == Material.WOOD) {
                return 300;
             }
 
@@ -271,7 +271,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
    }
 
    public boolean a(class_xa var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.s(this.c) != this?false:var1.e((double)this.c.getX() + 0.5D, (double)this.c.getY() + 0.5D, (double)this.c.getZ() + 0.5D) <= 64.0D;
    }
 
    public void b(class_xa var1) {
@@ -284,16 +284,16 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       return var1 == 2?false:(var1 != 1?true:c(var2) || class_yk.c_(var2));
    }
 
-   public int[] a(class_cq var1) {
-      return var1 == class_cq.a?f:(var1 == class_cq.b?a:g);
+   public int[] a(EnumDirection var1) {
+      return var1 == EnumDirection.DOWN?f:(var1 == EnumDirection.UP?a:g);
    }
 
-   public boolean a(int var1, class_aas var2, class_cq var3) {
+   public boolean a(int var1, class_aas var2, EnumDirection var3) {
       return this.b(var1, var2);
    }
 
-   public boolean b(int var1, class_aas var2, class_cq var3) {
-      if(var3 == class_cq.a && var1 == 1) {
+   public boolean b(int var1, class_aas var2, EnumDirection var3) {
+      if(var3 == EnumDirection.DOWN && var1 == 1) {
          Item var4 = var2.b();
          if(var4 != Items.az && var4 != Items.ay) {
             return false;

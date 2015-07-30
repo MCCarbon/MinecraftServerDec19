@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dc;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_em;
@@ -133,8 +133,8 @@ public class class_qi {
       return var2;
    }
 
-   public class_cj g(int var1) {
-      return (class_cj)this.j(var1).b();
+   public BlockPosition g(int var1) {
+      return (BlockPosition)this.j(var1).b();
    }
 
    public class_dc h(int var1) {
@@ -252,10 +252,10 @@ public class class_qi {
          var0.a(var3);
          break;
       case 6:
-         class_cj var4 = (class_cj)var1.b();
-         var0.writeInt(var4.n());
-         var0.writeInt(var4.o());
-         var0.writeInt(var4.p());
+         BlockPosition var4 = (BlockPosition)var1.b();
+         var0.writeInt(var4.getX());
+         var0.writeInt(var4.getY());
+         var0.writeInt(var4.getZ());
          break;
       case 7:
          class_dc var5 = (class_dc)var1.b();
@@ -300,7 +300,7 @@ public class class_qi {
             int var6 = var0.readInt();
             int var7 = var0.readInt();
             int var8 = var0.readInt();
-            var5 = new class_qi.class_a_in_class_qi(var3, var4, new class_cj(var6, var7, var8));
+            var5 = new class_qi.class_a_in_class_qi(var3, var4, new BlockPosition(var6, var7, var8));
             break;
          case 7:
             float var9 = var0.readFloat();
@@ -330,7 +330,7 @@ public class class_qi {
       c.put(Float.class, Integer.valueOf(3));
       c.put(String.class, Integer.valueOf(4));
       c.put(class_aas.class, Integer.valueOf(5));
-      c.put(class_cj.class, Integer.valueOf(6));
+      c.put(BlockPosition.class, Integer.valueOf(6));
       c.put(class_dc.class, Integer.valueOf(7));
       g = Maps.newHashMap();
    }

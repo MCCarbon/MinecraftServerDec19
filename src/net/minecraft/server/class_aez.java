@@ -43,7 +43,7 @@ import net.minecraft.server.class_arm;
 import net.minecraft.server.class_arn;
 import net.minecraft.server.class_atb;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_qc;
 import net.minecraft.server.class_tu;
@@ -217,7 +217,7 @@ public abstract class class_aez {
       return new class_arm(class_alm.class_a_in_class_alm.b);
    }
 
-   public class_aic.class_a_in_class_aic a(Random var1, class_cj var2) {
+   public class_aic.class_a_in_class_aic a(Random var1, BlockPosition var2) {
       return var1.nextInt(3) > 0?class_aic.class_a_in_class_aic.a:class_aic.class_a_in_class_aic.b;
    }
 
@@ -292,16 +292,16 @@ public abstract class class_aez {
       return (int)(this.aq * 65536.0F);
    }
 
-   public final float a(class_cj var1) {
-      if(var1.o() > 64) {
-         float var2 = (float)(ae.a((double)var1.n() * 1.0D / 8.0D, (double)var1.p() * 1.0D / 8.0D) * 4.0D);
-         return this.ap - (var2 + (float)var1.o() - 64.0F) * 0.05F / 30.0F;
+   public final float a(BlockPosition var1) {
+      if(var1.getY() > 64) {
+         float var2 = (float)(ae.a((double)var1.getX() * 1.0D / 8.0D, (double)var1.getZ() * 1.0D / 8.0D) * 4.0D);
+         return this.ap - (var2 + (float)var1.getY() - 64.0F) * 0.05F / 30.0F;
       } else {
          return this.ap;
       }
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       this.as.a(var1, var2, this, var3);
    }
 
@@ -321,14 +321,14 @@ public abstract class class_aez {
       int var12 = (int)(var6 / 3.0D + 3.0D + var2.nextDouble() * 0.25D);
       int var13 = var4 & 15;
       int var14 = var5 & 15;
-      class_cj.class_a_in_class_cj var15 = new class_cj.class_a_in_class_cj();
+      BlockPosition.MutableBlockPosition var15 = new BlockPosition.MutableBlockPosition();
 
       for(int var16 = 255; var16 >= 0; --var16) {
          if(var16 <= var2.nextInt(5)) {
             var3.a(var14, var16, var13, Blocks.BEDROCK.getBlockData());
          } else {
             IBlockData var17 = var3.a(var14, var16, var13);
-            if(var17.getBlock().getMaterial() == Material.a) {
+            if(var17.getBlock().getMaterial() == Material.AIR) {
                var11 = -1;
             } else if(var17.getBlock() == Blocks.STONE) {
                if(var11 == -1) {
@@ -340,8 +340,8 @@ public abstract class class_aez {
                      var10 = this.al;
                   }
 
-                  if(var16 < var8 && (var9 == null || var9.getBlock().getMaterial() == Material.a)) {
-                     if(this.a((class_cj)var15.c(var4, var16, var5)) < 0.15F) {
+                  if(var16 < var8 && (var9 == null || var9.getBlock().getMaterial() == Material.AIR)) {
+                     if(this.a((BlockPosition)var15.setPosition(var4, var16, var5)) < 0.15F) {
                         var9 = Blocks.ICE.getBlockData();
                      } else {
                         var9 = Blocks.WATER.getBlockData();

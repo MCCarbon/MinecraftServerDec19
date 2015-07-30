@@ -16,12 +16,12 @@ import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asf;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_aso;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_wg;
 
 public class class_ase extends class_ask {
@@ -42,9 +42,9 @@ public class class_ase extends class_ask {
       while(var2.hasNext()) {
          Entry var3 = (Entry)var2.next();
          if(((String)var3.getKey()).equals("spacing")) {
-            this.f = class_nu.a((String)((String)var3.getValue()), this.f, 1);
+            this.f = MathHelper.max((String)((String)var3.getValue()), this.f, 1);
          } else if(((String)var3.getKey()).equals("separation")) {
-            this.g = class_nu.a((String)((String)var3.getValue()), this.g, 1);
+            this.g = MathHelper.max((String)((String)var3.getValue()), this.g, 1);
          }
       }
 
@@ -73,7 +73,7 @@ public class class_ase extends class_ask {
       var5 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       var6 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       if(var3 == var5 && var4 == var6) {
-         if(this.c.w().a(new class_cj(var3 * 16 + 8, 64, var4 * 16 + 8), (class_aez)null) != class_aez.N) {
+         if(this.c.w().a(new BlockPosition(var3 * 16 + 8, 64, var4 * 16 + 8), (class_aez)null) != class_aez.N) {
             return false;
          }
 
@@ -121,7 +121,7 @@ public class class_ase extends class_ask {
          var2.setSeed(var9 ^ var11 ^ var1.K());
          int var13 = var3 * 16 + 8 - 29;
          int var14 = var4 * 16 + 8 - 29;
-         class_cq var15 = class_cq.class_c_in_class_cq.a.a(var2);
+         EnumDirection var15 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
          this.a.add(new class_asf.class_h_in_class_asf(var2, var13, var14, var15));
          this.d();
          this.d = true;

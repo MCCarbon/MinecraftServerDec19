@@ -3,9 +3,9 @@ package net.minecraft.server;
 import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -199,8 +199,8 @@ public class class_vy extends class_wi {
                }
 
                if(this.b > 1) {
-                  float var10 = class_nu.c(class_nu.a(var2)) * 0.5F;
-                  this.a.o.a((class_xa)null, 1009, new class_cj((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
+                  float var10 = MathHelper.sqrt(MathHelper.sqrt(var2)) * 0.5F;
+                  this.a.o.a((class_xa)null, 1009, new BlockPosition((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
 
                   for(int var11 = 0; var11 < 1; ++var11) {
                      class_xl var12 = new class_xl(this.a.o, this.a, var4 + this.a.bd().nextGaussian() * (double)var10, var6, var8 + this.a.bd().nextGaussian() * (double)var10);

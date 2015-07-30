@@ -1,43 +1,43 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_pr;
 
 public class class_awg {
-   private class_cj e;
+   private BlockPosition e;
    public class_awg.class_a_in_class_awg a;
-   public class_cq b;
-   public class_awh c;
+   public EnumDirection b;
+   public Vec3D c;
    public class_pr d;
 
-   public class_awg(class_awh var1, class_cq var2, class_cj var3) {
+   public class_awg(Vec3D var1, EnumDirection var2, BlockPosition var3) {
       this(class_awg.class_a_in_class_awg.b, var1, var2, var3);
    }
 
-   public class_awg(class_awh var1, class_cq var2) {
-      this(class_awg.class_a_in_class_awg.b, var1, var2, class_cj.a);
+   public class_awg(Vec3D var1, EnumDirection var2) {
+      this(class_awg.class_a_in_class_awg.b, var1, var2, BlockPosition.ZERO);
    }
 
    public class_awg(class_pr var1) {
-      this(var1, new class_awh(var1.s, var1.t, var1.u));
+      this(var1, new Vec3D(var1.s, var1.t, var1.u));
    }
 
-   public class_awg(class_awg.class_a_in_class_awg var1, class_awh var2, class_cq var3, class_cj var4) {
+   public class_awg(class_awg.class_a_in_class_awg var1, Vec3D var2, EnumDirection var3, BlockPosition var4) {
       this.a = var1;
       this.e = var4;
       this.b = var3;
-      this.c = new class_awh(var2.a, var2.b, var2.c);
+      this.c = new Vec3D(var2.x, var2.y, var2.z);
    }
 
-   public class_awg(class_pr var1, class_awh var2) {
+   public class_awg(class_pr var1, Vec3D var2) {
       this.a = class_awg.class_a_in_class_awg.c;
       this.d = var1;
       this.c = var2;
    }
 
-   public class_cj a() {
+   public BlockPosition a() {
       return this.e;
    }
 

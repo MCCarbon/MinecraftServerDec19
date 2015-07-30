@@ -11,7 +11,7 @@ import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_om;
@@ -393,10 +393,10 @@ public class class_avn {
       this.i = var1;
    }
 
-   public void a(class_cj var1) {
-      this.e = var1.n();
-      this.f = var1.o();
-      this.g = var1.p();
+   public void a(BlockPosition var1) {
+      this.e = var1.getX();
+      this.f = var1.getY();
+      this.g = var1.getZ();
    }
 
    public String k() {

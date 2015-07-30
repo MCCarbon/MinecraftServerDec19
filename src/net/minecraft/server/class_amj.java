@@ -3,8 +3,8 @@ package net.minecraft.server;
 import net.minecraft.server.class_aed;
 import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ft;
@@ -13,12 +13,12 @@ import net.minecraft.server.class_pr;
 
 public class class_amj extends class_amg {
    private final class_aed a = new class_aed() {
-      public class_cj c() {
+      public BlockPosition c() {
          return class_amj.this.c;
       }
 
-      public class_awh d() {
-         return new class_awh((double)class_amj.this.c.n() + 0.5D, (double)class_amj.this.c.o() + 0.5D, (double)class_amj.this.c.p() + 0.5D);
+      public Vec3D d() {
+         return new Vec3D((double)class_amj.this.c.getX() + 0.5D, (double)class_amj.this.c.getY() + 0.5D, (double)class_amj.this.c.getZ() + 0.5D);
       }
 
       public World e() {

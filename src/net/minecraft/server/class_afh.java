@@ -10,8 +10,8 @@ import net.minecraft.server.class_apw;
 import net.minecraft.server.class_apy;
 import net.minecraft.server.class_aqr;
 import net.minecraft.server.class_arf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_ul;
 
 public class class_afh extends class_aez {
@@ -67,9 +67,9 @@ public class class_afh extends class_aez {
       return (class_apw)(this.aG == 3 && var1.nextInt(3) > 0?aF:(this.aG != 2 && var1.nextInt(5) != 0?this.aA:aE));
    }
 
-   public class_aic.class_a_in_class_aic a(Random var1, class_cj var2) {
+   public class_aic.class_a_in_class_aic a(Random var1, BlockPosition var2) {
       if(this.aG == 1) {
-         double var3 = class_nu.a((1.0D + af.a((double)var2.n() / 48.0D, (double)var2.p() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
+         double var3 = MathHelper.clamp((1.0D + af.a((double)var2.getX() / 48.0D, (double)var2.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
          class_aic.class_a_in_class_aic var5 = class_aic.class_a_in_class_aic.values()[(int)(var3 * (double)class_aic.class_a_in_class_aic.values().length)];
          return var5 == class_aic.class_a_in_class_aic.c?class_aic.class_a_in_class_aic.b:var5;
       } else {
@@ -77,7 +77,7 @@ public class class_afh extends class_aez {
       }
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       int var4;
       int var5;
       int var6;
@@ -87,7 +87,7 @@ public class class_afh extends class_aez {
             for(var5 = 0; var5 < 4; ++var5) {
                var6 = var4 * 4 + 1 + 8 + var2.nextInt(3);
                var7 = var5 * 4 + 1 + 8 + var2.nextInt(3);
-               class_cj var8 = var1.m(var3.a(var6, 0, var7));
+               BlockPosition var8 = var1.m(var3.add(var6, 0, var7));
                if(var2.nextInt(20) == 0) {
                   class_aqr var9 = new class_aqr();
                   var9.b(var1, var2, var8);
@@ -120,8 +120,8 @@ public class class_afh extends class_aez {
          for(var7 = 0; var7 < 5; ++var7) {
             int var11 = var2.nextInt(16) + 8;
             int var13 = var2.nextInt(16) + 8;
-            int var10 = var2.nextInt(var1.m(var3.a(var11, 0, var13)).o() + 32);
-            if(ag.b(var1, var2, new class_cj(var3.n() + var11, var10, var3.p() + var13))) {
+            int var10 = var2.nextInt(var1.m(var3.add(var11, 0, var13)).getY() + 32);
+            if(ag.b(var1, var2, new BlockPosition(var3.getX() + var11, var10, var3.getZ() + var13))) {
                break;
             }
          }
@@ -140,7 +140,7 @@ public class class_afh extends class_aez {
          return var2;
       } else {
          return this.az != class_aez.Q.az && this.az != class_aez.R.az?new class_afn(var1, this) {
-            public void a(World var1, Random var2, class_cj var3) {
+            public void a(World var1, Random var2, BlockPosition var3) {
                this.aE.a(var1, var2, var3);
             }
          }:new class_afn(var1, this) {

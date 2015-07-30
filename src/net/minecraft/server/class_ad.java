@@ -5,10 +5,10 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_l;
@@ -37,7 +37,7 @@ public class class_ad extends class_i {
          final double var4 = b(var3.s, var2[1], false);
          final double var6 = b(var3.t, var2[2], false);
          final double var8 = b(var3.u, var2[3], false);
-         final class_cj var10 = new class_cj(var4, var6, var8);
+         final BlockPosition var10 = new BlockPosition(var4, var6, var8);
          byte var11 = 4;
          if("detect".equals(var2[4]) && var2.length > 10) {
             World var12 = var3.e();
@@ -46,7 +46,7 @@ public class class_ad extends class_i {
             double var17 = b(var8, var2[7], false);
             Block var19 = g(var1, var2[8]);
             int var20 = a(var2[9], -1, 15);
-            class_cj var21 = new class_cj(var13, var15, var17);
+            BlockPosition var21 = new BlockPosition(var13, var15, var17);
             IBlockData var22 = var12.p(var21);
             if(var22.getBlock() != var19 || var20 >= 0 && var22.getBlock().toLegacyData(var22) != var20) {
                throw new class_bz("commands.execute.failed", new Object[]{"detect", var3.e_()});
@@ -73,12 +73,12 @@ public class class_ad extends class_i {
                return var1.a(var1x, var2);
             }
 
-            public class_cj c() {
+            public BlockPosition c() {
                return var10;
             }
 
-            public class_awh d() {
-               return new class_awh(var4, var6, var8);
+            public Vec3D d() {
+               return new Vec3D(var4, var6, var8);
             }
 
             public World e() {
@@ -111,7 +111,7 @@ public class class_ad extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)));
    }
 

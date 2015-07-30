@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ahd;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_ajy extends class_ahd {
    protected Item o() {
@@ -17,8 +17,8 @@ public class class_ajy extends class_ahd {
       return Items.bV;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
-      super.a(var1, var2, var3, var4, var5);
+   public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
+      super.dropNaturally(var1, var2, var3, var4, var5);
       if(!var1.D) {
          if(this.e(var3) && var1.s.nextInt(50) == 0) {
             a(var1, var2, new class_aas(Items.bX));

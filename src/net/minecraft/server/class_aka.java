@@ -9,7 +9,7 @@ import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_aka extends class_agf {
    public static final BlockStateEnum b = BlockStateEnum.a("shape", class_agf.class_b_in_class_agf.class, new Predicate() {
@@ -29,13 +29,13 @@ public class class_aka extends class_agf {
       this.setBlockData(this.blockStateList.getFirst().set(b, class_agf.class_b_in_class_agf.a).set(N, Boolean.valueOf(false)));
    }
 
-   protected boolean a(World var1, class_cj var2, IBlockData var3, boolean var4, int var5) {
+   protected boolean a(World var1, BlockPosition var2, IBlockData var3, boolean var4, int var5) {
       if(var5 >= 8) {
          return false;
       } else {
-         int var6 = var2.n();
-         int var7 = var2.o();
-         int var8 = var2.p();
+         int var6 = var2.getX();
+         int var7 = var2.getY();
+         int var8 = var2.getZ();
          boolean var9 = true;
          class_agf.class_b_in_class_agf var10 = (class_agf.class_b_in_class_agf)var3.get(b);
          switch(class_aka.SyntheticClass_1.a[var10.ordinal()]) {
@@ -98,11 +98,11 @@ public class class_aka extends class_agf {
             var10 = class_agf.class_b_in_class_agf.a;
          }
 
-         return this.a(var1, new class_cj(var6, var7, var8), var4, var5, var10)?true:var9 && this.a(var1, new class_cj(var6, var7 - 1, var8), var4, var5, var10);
+         return this.a(var1, new BlockPosition(var6, var7, var8), var4, var5, var10)?true:var9 && this.a(var1, new BlockPosition(var6, var7 - 1, var8), var4, var5, var10);
       }
    }
 
-   protected boolean a(World var1, class_cj var2, boolean var3, int var4, class_agf.class_b_in_class_agf var5) {
+   protected boolean a(World var1, BlockPosition var2, boolean var3, int var4, class_agf.class_b_in_class_agf var5) {
       IBlockData var6 = var1.p(var2);
       if(var6.getBlock() != this) {
          return false;
@@ -112,14 +112,14 @@ public class class_aka extends class_agf {
       }
    }
 
-   protected void b(World var1, class_cj var2, IBlockData var3, Block var4) {
+   protected void b(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       boolean var5 = ((Boolean)var3.get(N)).booleanValue();
       boolean var6 = var1.z(var2) || this.a(var1, var2, var3, true, 0) || this.a(var1, var2, var3, false, 0);
       if(var6 != var5) {
-         var1.a((class_cj)var2, (IBlockData)var3.set(N, Boolean.valueOf(var6)), 3);
-         var1.c((class_cj)var2.b(), (Block)this);
+         var1.a((BlockPosition)var2, (IBlockData)var3.set(N, Boolean.valueOf(var6)), 3);
+         var1.c((BlockPosition)var2.shiftDown(), (Block)this);
          if(((class_agf.class_b_in_class_agf)var3.get(b)).c()) {
-            var1.c((class_cj)var2.a(), (Block)this);
+            var1.c((BlockPosition)var2.shiftUp(), (Block)this);
          }
       }
 

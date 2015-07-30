@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_uz;
@@ -19,7 +19,7 @@ public class class_vc extends class_uz {
       super(var1);
    }
 
-   public class_vc(World var1, class_cj var2, class_cq var3) {
+   public class_vc(World var1, BlockPosition var2, EnumDirection var3) {
       super(var1, var2);
       ArrayList var4 = Lists.newArrayList();
       class_vc.class_a_in_class_vc[] var5 = class_vc.class_a_in_class_vc.values();
@@ -87,8 +87,8 @@ public class class_vc extends class_uz {
    }
 
    public void b(double var1, double var3, double var5, float var7, float var8) {
-      class_cj var9 = this.a.a(var1 - this.s, var3 - this.t, var5 - this.u);
-      this.b((double)var9.n(), (double)var9.o(), (double)var9.p());
+      BlockPosition var9 = this.a.add(var1 - this.s, var3 - this.t, var5 - this.u);
+      this.b((double)var9.getX(), (double)var9.getY(), (double)var9.getZ());
    }
 
    public static enum class_a_in_class_vc {

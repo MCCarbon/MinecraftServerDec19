@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aic;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_aqm extends class_aql {
    private class_aic a;
@@ -20,11 +20,11 @@ public class class_aqm extends class_aql {
       this.b = var1.getBlockData().set(var1.n(), var2);
    }
 
-   public boolean b(World var1, Random var2, class_cj var3) {
+   public boolean b(World var1, Random var2, BlockPosition var3) {
       for(int var4 = 0; var4 < 64; ++var4) {
-         class_cj var5 = var3.a(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-         if(var1.d(var5) && (!var1.t.m() || var5.o() < 255) && this.a.f(var1, var5, this.b)) {
-            var1.a((class_cj)var5, (IBlockData)this.b, 2);
+         BlockPosition var5 = var3.add(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
+         if(var1.d(var5) && (!var1.t.m() || var5.getY() < 255) && this.a.f(var1, var5, this.b)) {
+            var1.a((BlockPosition)var5, (IBlockData)this.b, 2);
          }
       }
 

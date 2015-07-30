@@ -79,16 +79,16 @@ import net.minecraft.server.BlockStone;
 import net.minecraft.server.class_ali;
 import net.minecraft.server.class_alv;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.RegistryMaterials;
 import net.minecraft.server.IRegistry;
 import net.minecraft.server.RegistrySimple;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
@@ -187,7 +187,7 @@ public class Item {
 		return this;
 	}
 
-	public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+	public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
 		return class_oq.b;
 	}
 
@@ -242,7 +242,7 @@ public class Item {
 		return false;
 	}
 
-	public boolean a(class_aas var1, World var2, Block var3, class_cj var4, class_qa var5) {
+	public boolean a(class_aas var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
 		return false;
 	}
 
@@ -333,15 +333,15 @@ public class Item {
 		double var6 = var2.s;
 		double var8 = var2.t + (double) var2.aU();
 		double var10 = var2.u;
-		class_awh var12 = new class_awh(var6, var8, var10);
-		float var13 = class_nu.b(-var5 * 0.017453292F - 3.1415927F);
-		float var14 = class_nu.a(-var5 * 0.017453292F - 3.1415927F);
-		float var15 = -class_nu.b(-var4 * 0.017453292F);
-		float var16 = class_nu.a(-var4 * 0.017453292F);
+		Vec3D var12 = new Vec3D(var6, var8, var10);
+		float var13 = MathHelper.cos(-var5 * 0.017453292F - 3.1415927F);
+		float var14 = MathHelper.sin(-var5 * 0.017453292F - 3.1415927F);
+		float var15 = -MathHelper.cos(-var4 * 0.017453292F);
+		float var16 = MathHelper.sin(-var4 * 0.017453292F);
 		float var17 = var14 * var15;
 		float var19 = var13 * var15;
 		double var20 = 5.0D;
-		class_awh var22 = var12.b((double) var17 * var20, (double) var16 * var20, (double) var19 * var20);
+		Vec3D var22 = var12.add((double) var17 * var20, (double) var16 * var20, (double) var19 * var20);
 		return var1.a(var12, var22, var3, !var3, false);
 	}
 

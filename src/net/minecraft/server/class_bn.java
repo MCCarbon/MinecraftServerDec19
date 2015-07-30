@@ -5,12 +5,12 @@ import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_fi;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
 public class class_bn extends class_i {
@@ -74,28 +74,28 @@ public class class_bn extends class_i {
 
                   var12 = (float)var9.b();
                   if(!var9.c()) {
-                     var12 = class_nu.g(var12);
+                     var12 = MathHelper.clampAngle(var12);
                   }
 
                   float var13 = (float)var10.b();
                   if(!var10.c()) {
-                     var13 = class_nu.g(var13);
+                     var13 = MathHelper.clampAngle(var13);
                   }
 
                   if(var13 > 90.0F || var13 < -90.0F) {
-                     var13 = class_nu.g(180.0F - var13);
-                     var12 = class_nu.g(var12 + 180.0F);
+                     var13 = MathHelper.clampAngle(180.0F - var13);
+                     var12 = MathHelper.clampAngle(var12 + 180.0F);
                   }
 
                   ((class_pr)var4).a((class_pr)null);
                   ((class_lh)var4).a.a(var6.b(), var7.b(), var8.b(), var12, var13, var11);
                   ((class_pr)var4).f(var12);
                } else {
-                  float var15 = (float)class_nu.g(var9.a());
-                  var12 = (float)class_nu.g(var10.a());
+                  float var15 = (float)MathHelper.clampAngle(var9.a());
+                  var12 = (float)MathHelper.clampAngle(var10.a());
                   if(var12 > 90.0F || var12 < -90.0F) {
-                     var12 = class_nu.g(180.0F - var12);
-                     var15 = class_nu.g(var15 + 180.0F);
+                     var12 = MathHelper.clampAngle(180.0F - var12);
+                     var15 = MathHelper.clampAngle(var15 + 180.0F);
                   }
 
                   ((class_pr)var4).b(var6.a(), var7.a(), var8.a(), var15, var12);
@@ -122,7 +122,7 @@ public class class_bn extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length != 1 && var2.length != 2?null:a(var2, MinecraftServer.N().K());
    }
 

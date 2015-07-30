@@ -17,7 +17,7 @@ public class class_zd extends class_zv {
    }
 
    public float a(class_aas var1, Block var2) {
-      return var2.getMaterial() != Material.d && var2.getMaterial() != Material.k && var2.getMaterial() != Material.l?super.a(var1, var2):this.a;
+      return var2.getMaterial() != Material.WOOD && var2.getMaterial() != Material.PLANT && var2.getMaterial() != Material.REPLACEABLE_PLANT?super.a(var1, var2):this.a;
    }
 
    static {

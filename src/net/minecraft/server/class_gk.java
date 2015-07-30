@@ -4,8 +4,8 @@ import com.google.common.collect.Lists;
 import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
@@ -24,16 +24,16 @@ public class class_gk implements class_ff {
    public class_gk() {
    }
 
-   public class_gk(double var1, double var3, double var5, float var7, List var8, class_awh var9) {
+   public class_gk(double var1, double var3, double var5, float var7, List var8, Vec3D var9) {
       this.a = var1;
       this.b = var3;
       this.c = var5;
       this.d = var7;
       this.e = Lists.newArrayList((Iterable)var8);
       if(var9 != null) {
-         this.f = (float)var9.a;
-         this.g = (float)var9.b;
-         this.h = (float)var9.c;
+         this.f = (float)var9.x;
+         this.g = (float)var9.y;
+         this.h = (float)var9.z;
       }
 
    }
@@ -53,7 +53,7 @@ public class class_gk implements class_ff {
          int var7 = var1.readByte() + var3;
          int var8 = var1.readByte() + var4;
          int var9 = var1.readByte() + var5;
-         this.e.add(new class_cj(var7, var8, var9));
+         this.e.add(new BlockPosition(var7, var8, var9));
       }
 
       this.f = var1.readFloat();
@@ -73,10 +73,10 @@ public class class_gk implements class_ff {
       Iterator var5 = this.e.iterator();
 
       while(var5.hasNext()) {
-         class_cj var6 = (class_cj)var5.next();
-         int var7 = var6.n() - var2;
-         int var8 = var6.o() - var3;
-         int var9 = var6.p() - var4;
+         BlockPosition var6 = (BlockPosition)var5.next();
+         int var7 = var6.getX() - var2;
+         int var8 = var6.getY() - var3;
+         int var9 = var6.getZ() - var4;
          var1.writeByte(var7);
          var1.writeByte(var8);
          var1.writeByte(var9);

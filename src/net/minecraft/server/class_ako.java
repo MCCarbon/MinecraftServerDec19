@@ -14,8 +14,8 @@ import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_xa;
@@ -26,30 +26,30 @@ public class class_ako extends class_ahh {
 
    protected class_ako(boolean var1) {
       super(var1);
-      this.setBlockData(this.blockStateList.getFirst().set(O, class_cq.c).set(b, Integer.valueOf(1)).set(a, Boolean.valueOf(false)));
+      this.setBlockData(this.blockStateList.getFirst().set(O, EnumDirection.NORTH).set(b, Integer.valueOf(1)).set(a, Boolean.valueOf(false)));
    }
 
    public String getName() {
       return LocaleI18n.get("item.diode.name");
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
       return var1.set(a, Boolean.valueOf(this.b(var2, var3, var1)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(O, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:var1.set(O, var2.a((EnumDirection)var1.get(O)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(O)));
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(!var4.bH.e) {
          return false;
       } else {
-         var1.a((class_cj)var2, (IBlockData)var3.a(b), 3);
+         var1.a((BlockPosition)var2, (IBlockData)var3.a(b), 3);
          return true;
       }
    }
@@ -61,14 +61,14 @@ public class class_ako extends class_ahh {
    protected IBlockData e(IBlockData var1) {
       Integer var2 = (Integer)var1.get(b);
       Boolean var3 = (Boolean)var1.get(a);
-      class_cq var4 = (class_cq)var1.get(O);
+      EnumDirection var4 = (EnumDirection)var1.get(O);
       return Blocks.POWERED_REPEATER.getBlockData().set(O, var4).set(b, var2).set(a, var3);
    }
 
    protected IBlockData k(IBlockData var1) {
       Integer var2 = (Integer)var1.get(b);
       Boolean var3 = (Boolean)var1.get(a);
-      class_cq var4 = (class_cq)var1.get(O);
+      EnumDirection var4 = (EnumDirection)var1.get(O);
       return Blocks.UNPOWERED_REPEATER.getBlockData().set(O, var4).set(b, var2).set(a, var3);
    }
 
@@ -76,7 +76,7 @@ public class class_ako extends class_ahh {
       return Items.bd;
    }
 
-   public boolean b(class_aer var1, class_cj var2, IBlockData var3) {
+   public boolean b(class_aer var1, BlockPosition var2, IBlockData var3) {
       return this.c(var1, var2, var3) > 0;
    }
 
@@ -84,18 +84,18 @@ public class class_ako extends class_ahh {
       return d(var1);
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       super.b(var1, var2, var3);
       this.h(var1, var2, var3);
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(O, class_cq.b(var1)).set(a, Boolean.valueOf(false)).set(b, Integer.valueOf(1 + (var1 >> 2)));
+      return this.getBlockData().set(O, EnumDirection.getByHorizontalId(var1)).set(a, Boolean.valueOf(false)).set(b, Integer.valueOf(1 + (var1 >> 2)));
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_cq)var1.get(O)).b();
+      int var3 = var2 | ((EnumDirection)var1.get(O)).getHorizontalId();
       var3 |= ((Integer)var1.get(b)).intValue() - 1 << 2;
       return var3;
    }

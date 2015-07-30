@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tf;
@@ -22,7 +22,7 @@ public class class_sl extends class_rm {
       if(this.a.o.x()) {
          return false;
       } else {
-         class_cj var1 = new class_cj(this.a);
+         BlockPosition var1 = new BlockPosition(this.a);
          class_tp var2 = this.a.o.af().a(var1, 16);
          if(var2 == null) {
             return false;
@@ -34,7 +34,7 @@ public class class_sl extends class_rm {
    }
 
    public boolean b() {
-      return this.a.o.x()?false:!this.b.i() && this.b.c(new class_cj(this.a));
+      return this.a.o.x()?false:!this.b.i() && this.b.c(new BlockPosition(this.a));
    }
 
    public void c() {

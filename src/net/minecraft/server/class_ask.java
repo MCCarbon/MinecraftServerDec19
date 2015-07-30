@@ -18,8 +18,8 @@ import net.minecraft.server.class_aso;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_eb;
@@ -103,12 +103,12 @@ public abstract class class_ask extends class_apn {
       return var6;
    }
 
-   public boolean b(class_cj var1) {
+   public boolean b(BlockPosition var1) {
       this.a(this.c);
       return this.c(var1) != null;
    }
 
-   protected class_aso c(class_cj var1) {
+   protected class_aso c(BlockPosition var1) {
       Iterator var2 = this.e.values().iterator();
 
       while(true) {
@@ -121,20 +121,20 @@ public abstract class class_ask extends class_apn {
 
                var3 = (class_aso)var2.next();
             } while(!var3.a());
-         } while(!var3.b().b((class_df)var1));
+         } while(!var3.b().b((BaseBlockPosition)var1));
 
          Iterator var4 = var3.c().iterator();
 
          while(var4.hasNext()) {
             class_asn var5 = (class_asn)var4.next();
-            if(var5.c().b((class_df)var1)) {
+            if(var5.c().b((BaseBlockPosition)var1)) {
                return var3;
             }
          }
       }
    }
 
-   public boolean a(World var1, class_cj var2) {
+   public boolean a(World var1, BlockPosition var2) {
       this.a(var1);
       Iterator var3 = this.e.values().iterator();
 
@@ -145,33 +145,33 @@ public abstract class class_ask extends class_apn {
          }
 
          var4 = (class_aso)var3.next();
-      } while(!var4.a() || !var4.b().b((class_df)var2));
+      } while(!var4.a() || !var4.b().b((BaseBlockPosition)var2));
 
       return true;
    }
 
-   public class_cj b(World var1, class_cj var2) {
+   public BlockPosition b(World var1, BlockPosition var2) {
       this.c = var1;
       this.a(var1);
       this.b.setSeed(var1.K());
       long var3 = this.b.nextLong();
       long var5 = this.b.nextLong();
-      long var7 = (long)(var2.n() >> 4) * var3;
-      long var9 = (long)(var2.p() >> 4) * var5;
+      long var7 = (long)(var2.getX() >> 4) * var3;
+      long var9 = (long)(var2.getZ() >> 4) * var5;
       this.b.setSeed(var7 ^ var9 ^ var1.K());
-      this.a(var1, var2.n() >> 4, var2.p() >> 4, 0, 0, (class_aph)null);
+      this.a(var1, var2.getX() >> 4, var2.getZ() >> 4, 0, 0, (class_aph)null);
       double var11 = Double.MAX_VALUE;
-      class_cj var13 = null;
+      BlockPosition var13 = null;
       Iterator var14 = this.e.values().iterator();
 
-      class_cj var17;
+      BlockPosition var17;
       double var18;
       while(var14.hasNext()) {
          class_aso var15 = (class_aso)var14.next();
          if(var15.a()) {
             class_asn var16 = (class_asn)var15.c().get(0);
             var17 = var16.a();
-            var18 = var17.i(var2);
+            var18 = var17.distanceSquared(var2);
             if(var18 < var11) {
                var11 = var18;
                var13 = var17;
@@ -184,12 +184,12 @@ public abstract class class_ask extends class_apn {
       } else {
          List var20 = this.A_();
          if(var20 != null) {
-            class_cj var21 = null;
+            BlockPosition var21 = null;
             Iterator var22 = var20.iterator();
 
             while(var22.hasNext()) {
-               var17 = (class_cj)var22.next();
-               var18 = var17.i(var2);
+               var17 = (BlockPosition)var22.next();
+               var18 = var17.distanceSquared(var2);
                if(var18 < var11) {
                   var11 = var18;
                   var21 = var17;

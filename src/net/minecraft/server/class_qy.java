@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
@@ -48,16 +48,16 @@ public class class_qy {
          double var1 = this.e - this.a.s;
          double var3 = this.f - (this.a.t + (double)this.a.aU());
          double var5 = this.g - this.a.u;
-         double var7 = (double)class_nu.a(var1 * var1 + var5 * var5);
-         float var9 = (float)(class_nu.b(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;
-         float var10 = (float)(-(class_nu.b(var3, var7) * 180.0D / 3.1415927410125732D));
+         double var7 = (double)MathHelper.sqrt(var1 * var1 + var5 * var5);
+         float var9 = (float)(MathHelper.b(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;
+         float var10 = (float)(-(MathHelper.b(var3, var7) * 180.0D / 3.1415927410125732D));
          this.a.z = this.a(this.a.z, var10, this.c);
          this.a.aN = this.a(this.a.aN, var9, this.b);
       } else {
          this.a.aN = this.a(this.a.aN, this.a.aL, 10.0F);
       }
 
-      float var11 = class_nu.g(this.a.aN - this.a.aL);
+      float var11 = MathHelper.clampAngle(this.a.aN - this.a.aL);
       if(!this.a.u().m()) {
          if(var11 < -75.0F) {
             this.a.aN = this.a.aL - 75.0F;
@@ -71,7 +71,7 @@ public class class_qy {
    }
 
    private float a(float var1, float var2, float var3) {
-      float var4 = class_nu.g(var2 - var1);
+      float var4 = MathHelper.clampAngle(var2 - var1);
       if(var4 > var3) {
          var4 = var3;
       }

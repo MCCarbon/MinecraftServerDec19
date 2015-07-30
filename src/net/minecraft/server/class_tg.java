@@ -8,9 +8,9 @@ import net.minecraft.server.class_aew;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.class_auw;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qk;
@@ -25,7 +25,7 @@ public abstract class class_tg {
    private final class_ql a;
    private int f;
    private int g;
-   private class_awh h = new class_awh(0.0D, 0.0D, 0.0D);
+   private Vec3D h = new Vec3D(0.0D, 0.0D, 0.0D);
    private float i = 1.0F;
    private final class_auw j;
 
@@ -47,26 +47,26 @@ public abstract class class_tg {
    }
 
    public final class_auv a(double var1, double var3, double var5) {
-      return this.a(new class_cj(class_nu.c(var1), (int)var3, class_nu.c(var5)));
+      return this.a(new BlockPosition(MathHelper.floor(var1), (int)var3, MathHelper.floor(var5)));
    }
 
-   public class_auv a(class_cj var1) {
+   public class_auv a(BlockPosition var1) {
       if(!this.b()) {
          return null;
       } else {
          float var2 = this.i();
          this.c.B.a("pathfind");
-         class_cj var3 = new class_cj(this.b);
+         BlockPosition var3 = new BlockPosition(this.b);
          int var4 = (int)(var2 + 8.0F);
-         class_aew var5 = new class_aew(this.c, var3.a(-var4, -var4, -var4), var3.a(var4, var4, var4), 0);
-         class_auv var6 = this.j.a((class_aer)var5, (class_pr)this.b, (class_cj)var1, var2);
+         class_aew var5 = new class_aew(this.c, var3.add(-var4, -var4, -var4), var3.add(var4, var4, var4), 0);
+         class_auv var6 = this.j.a((class_aer)var5, (class_pr)this.b, (BlockPosition)var1, var2);
          this.c.B.b();
          return var6;
       }
    }
 
    public boolean a(double var1, double var3, double var5, double var7) {
-      class_auv var9 = this.a((double)class_nu.c(var1), (double)((int)var3), (double)class_nu.c(var5));
+      class_auv var9 = this.a((double)MathHelper.floor(var1), (double)((int)var3), (double)MathHelper.floor(var5));
       return this.a(var9, var7);
    }
 
@@ -80,9 +80,9 @@ public abstract class class_tg {
       } else {
          float var2 = this.i();
          this.c.B.a("pathfind");
-         class_cj var3 = (new class_cj(this.b)).a();
+         BlockPosition var3 = (new BlockPosition(this.b)).shiftUp();
          int var4 = (int)(var2 + 16.0F);
-         class_aew var5 = new class_aew(this.c, var3.a(-var4, -var4, -var4), var3.a(var4, var4, var4), 0);
+         class_aew var5 = new class_aew(this.c, var3.add(-var4, -var4, -var4), var3.add(var4, var4, var4), 0);
          class_auv var6 = this.j.a((class_aer)var5, (class_pr)this.b, (class_pr)var1, var2);
          this.c.B.b();
          return var6;
@@ -108,7 +108,7 @@ public abstract class class_tg {
             return false;
          } else {
             this.e = var2;
-            class_awh var4 = this.c();
+            Vec3D var4 = this.c();
             this.g = this.f;
             this.h = var4;
             return true;
@@ -123,13 +123,13 @@ public abstract class class_tg {
    public void k() {
       ++this.f;
       if(!this.m()) {
-         class_awh var1;
+         Vec3D var1;
          if(this.b()) {
             this.l();
          } else if(this.d != null && this.d.e() < this.d.d()) {
             var1 = this.c();
-            class_awh var2 = this.d.a(this.b, this.d.e());
-            if(var1.b > var2.b && !this.b.C && class_nu.c(var1.a) == class_nu.c(var2.a) && class_nu.c(var1.c) == class_nu.c(var2.c)) {
+            Vec3D var2 = this.d.a(this.b, this.d.e());
+            if(var1.y > var2.y && !this.b.C && MathHelper.floor(var1.x) == MathHelper.floor(var2.x) && MathHelper.floor(var1.z) == MathHelper.floor(var2.z)) {
                this.d.c(this.d.e() + 1);
             }
          }
@@ -137,7 +137,7 @@ public abstract class class_tg {
          if(!this.m()) {
             var1 = this.d.a((class_pr)this.b);
             if(var1 != null) {
-               class_awf var8 = (new class_awf(var1.a, var1.b, var1.c, var1.a, var1.b, var1.c)).b(0.5D, 0.5D, 0.5D);
+               class_awf var8 = (new class_awf(var1.x, var1.y, var1.z, var1.x, var1.y, var1.z)).b(0.5D, 0.5D, 0.5D);
                List var3 = this.c.a((class_pr)this.b, (class_awf)var8.a(0.0D, -1.0D, 0.0D));
                double var4 = -1.0D;
                var8 = var8.c(0.0D, 1.0D, 0.0D);
@@ -147,18 +147,18 @@ public abstract class class_tg {
                   var7 = (class_awf)var6.next();
                }
 
-               this.b.r().a(var1.a, var1.b + var4, var1.c, this.e);
+               this.b.r().a(var1.x, var1.y + var4, var1.z, this.e);
             }
          }
       }
    }
 
    protected void l() {
-      class_awh var1 = this.c();
+      Vec3D var1 = this.c();
       int var2 = this.d.d();
 
       for(int var3 = this.d.e(); var3 < this.d.d(); ++var3) {
-         if(this.d.a(var3).b != (int)var1.b) {
+         if(this.d.a(var3).b != (int)var1.y) {
             var2 = var3;
             break;
          }
@@ -168,13 +168,13 @@ public abstract class class_tg {
 
       int var4;
       for(var4 = this.d.e(); var4 < var2; ++var4) {
-         class_awh var5 = this.d.a(this.b, var4);
-         if(var1.g(var5) < (double)var8) {
+         Vec3D var5 = this.d.a(this.b, var4);
+         if(var1.distanceSquared(var5) < (double)var8) {
             this.d.c(var4 + 1);
          }
       }
 
-      var4 = class_nu.f(this.b.J);
+      var4 = MathHelper.ceil(this.b.J);
       int var9 = (int)this.b.K + 1;
       int var6 = var4;
 
@@ -188,9 +188,9 @@ public abstract class class_tg {
       this.a(var1);
    }
 
-   protected void a(class_awh var1) {
+   protected void a(Vec3D var1) {
       if(this.f - this.g > 100) {
-         if(var1.g(this.h) < 2.25D) {
+         if(var1.distanceSquared(this.h) < 2.25D) {
             this.n();
          }
 
@@ -208,7 +208,7 @@ public abstract class class_tg {
       this.d = null;
    }
 
-   protected abstract class_awh c();
+   protected abstract Vec3D c();
 
    protected abstract boolean b();
 
@@ -219,5 +219,5 @@ public abstract class class_tg {
    protected void d() {
    }
 
-   protected abstract boolean a(class_awh var1, class_awh var2, int var3, int var4, int var5);
+   protected abstract boolean a(Vec3D var1, Vec3D var2, int var3, int var4, int var5);
 }

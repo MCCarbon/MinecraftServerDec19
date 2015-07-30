@@ -4,7 +4,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apd;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -39,7 +39,7 @@ public class class_uq extends class_pr {
       ++this.a;
       this.ac.b(c, Integer.valueOf(this.b));
       if(!this.o.D) {
-         class_cj var1 = new class_cj(this);
+         BlockPosition var1 = new BlockPosition(this);
          if(this.o.t instanceof class_apd && this.o.p(var1).getBlock() != Blocks.FIRE) {
             this.o.a(var1, Blocks.FIRE.getBlockData());
          }

@@ -26,13 +26,13 @@ import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_awp;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_pv;
@@ -79,7 +79,7 @@ public class class_o {
 				return Collections.emptyList();
 			} else {
 				String var5 = var3.group(1);
-				class_cj var6 = b(var4, var0.c());
+				BlockPosition var6 = b(var4, var0.c());
 				List var7 = a(var0, var4);
 				ArrayList var8 = Lists.newArrayList();
 				Iterator var9 = var7.iterator();
@@ -329,7 +329,7 @@ public class class_o {
 		return var1;
 	}
 
-	private static List a(Map var0, final class_cj var1) {
+	private static List a(Map var0, final BlockPosition var1) {
 		ArrayList var2 = Lists.newArrayList();
 		final int var3 = a(var0, "rm", -1);
 		final int var4 = a(var0, "r", -1);
@@ -395,7 +395,7 @@ public class class_o {
 		return var1;
 	}
 
-	private static List a(Map var0, Class var1, List var2, String var3, World var4, class_cj var5) {
+	private static List a(Map var0, Class var1, List var2, String var3, World var4, BlockPosition var5) {
 		ArrayList var6 = Lists.newArrayList();
 		String var7 = b(var0, "type");
 		var7 = var7 != null && var7.startsWith("!") ? var7.substring(1) : var7;
@@ -414,7 +414,7 @@ public class class_o {
 			final class_awf var19;
 			if (!var0.containsKey("dx") && !var0.containsKey("dy") && !var0.containsKey("dz")) {
 				if (var13 >= 0) {
-					var19 = new class_awf((double) (var5.n() - var13), (double) (var5.o() - var13), (double) (var5.p() - var13), (double) (var5.n() + var13 + 1), (double) (var5.o() + var13 + 1), (double) (var5.p() + var13 + 1));
+					var19 = new class_awf((double) (var5.getX() - var13), (double) (var5.getY() - var13), (double) (var5.getZ() - var13), (double) (var5.getX() + var13 + 1), (double) (var5.getY() + var13 + 1), (double) (var5.getZ() + var13 + 1));
 					if (var8 && var18 && !var9) {
 						var6.addAll(var4.b(var1, var15));
 					} else {
@@ -456,7 +456,7 @@ public class class_o {
 		return var6;
 	}
 
-	private static List a(List var0, Map var1, class_m var2, Class var3, String var4, final class_cj var5) {
+	private static List a(List var0, Map var1, class_m var2, Class var3, String var4, final BlockPosition var5) {
 		int var6 = a(var1, "c", !var4.equals("a") && !var4.equals("e") ? 1 : 0);
 		if (!var4.equals("p") && !var4.equals("a") && !var4.equals("e")) {
 			if (var4.equals("r")) {
@@ -491,16 +491,16 @@ public class class_o {
 		return (List) var0;
 	}
 
-	private static class_awf a(class_cj var0, int var1, int var2, int var3) {
+	private static class_awf a(BlockPosition var0, int var1, int var2, int var3) {
 		boolean var4 = var1 < 0;
 		boolean var5 = var2 < 0;
 		boolean var6 = var3 < 0;
-		int var7 = var0.n() + (var4 ? var1 : 0);
-		int var8 = var0.o() + (var5 ? var2 : 0);
-		int var9 = var0.p() + (var6 ? var3 : 0);
-		int var10 = var0.n() + (var4 ? 0 : var1) + 1;
-		int var11 = var0.o() + (var5 ? 0 : var2) + 1;
-		int var12 = var0.p() + (var6 ? 0 : var3) + 1;
+		int var7 = var0.getX() + (var4 ? var1 : 0);
+		int var8 = var0.getY() + (var5 ? var2 : 0);
+		int var9 = var0.getZ() + (var6 ? var3 : 0);
+		int var10 = var0.getX() + (var4 ? 0 : var1) + 1;
+		int var11 = var0.getY() + (var5 ? 0 : var2) + 1;
+		int var12 = var0.getZ() + (var6 ? 0 : var3) + 1;
 		return new class_awf((double) var7, (double) var8, (double) var9, (double) var10, (double) var11, (double) var12);
 	}
 
@@ -517,8 +517,8 @@ public class class_o {
 		return var0;
 	}
 
-	private static class_cj b(Map var0, class_cj var1) {
-		return new class_cj(a(var0, "x", var1.n()), a(var0, "y", var1.o()), a(var0, "z", var1.p()));
+	private static BlockPosition b(Map var0, BlockPosition var1) {
+		return new BlockPosition(a(var0, "x", var1.getX()), a(var0, "y", var1.getY()), a(var0, "z", var1.getZ()));
 	}
 
 	private static boolean h(Map var0) {
@@ -537,7 +537,7 @@ public class class_o {
 	}
 
 	private static int a(Map var0, String var1, int var2) {
-		return var0.containsKey(var1) ? class_nu.a((String) var0.get(var1), var2) : var2;
+		return var0.containsKey(var1) ? MathHelper.parseIntWithDef((String) var0.get(var1), var2) : var2;
 	}
 
 	private static String b(Map var0, String var1) {
@@ -551,7 +551,7 @@ public class class_o {
 		while (var2.hasNext()) {
 			String var3 = (String) var2.next();
 			if (var3.startsWith("score_") && var3.length() > "score_".length()) {
-				var1.put(var3.substring("score_".length()), Integer.valueOf(class_nu.a((String) var0.get(var3), 1)));
+				var1.put(var3.substring("score_".length()), Integer.valueOf(MathHelper.parseIntWithDef((String) var0.get(var3), 1)));
 			}
 		}
 

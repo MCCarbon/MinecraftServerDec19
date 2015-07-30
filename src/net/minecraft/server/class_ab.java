@@ -7,7 +7,7 @@ import net.minecraft.server.class_adi;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
@@ -78,7 +78,7 @@ public class class_ab extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, class_adi.b.getKeys()):null);
    }
 

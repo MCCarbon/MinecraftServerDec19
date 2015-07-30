@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
@@ -10,8 +10,8 @@ import net.minecraft.server.class_ic;
 import net.minecraft.server.class_oo;
 
 public class class_ja implements class_ff {
-   private class_cj a;
-   private class_cq b;
+   private BlockPosition a;
+   private EnumDirection b;
    private class_oo c;
    private float d;
    private float e;
@@ -19,7 +19,7 @@ public class class_ja implements class_ff {
 
    public void a(class_em var1) throws IOException {
       this.a = var1.c();
-      this.b = (class_cq)var1.a(class_cq.class);
+      this.b = (EnumDirection)var1.a(EnumDirection.class);
       this.c = (class_oo)var1.a(class_oo.class);
       this.d = (float)var1.readUnsignedByte() / 16.0F;
       this.e = (float)var1.readUnsignedByte() / 16.0F;
@@ -39,11 +39,11 @@ public class class_ja implements class_ff {
       var1.a(this);
    }
 
-   public class_cj a() {
+   public BlockPosition a() {
       return this.a;
    }
 
-   public class_cq b() {
+   public EnumDirection b() {
       return this.b;
    }
 

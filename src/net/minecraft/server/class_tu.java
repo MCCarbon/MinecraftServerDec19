@@ -3,9 +3,9 @@ package net.minecraft.server;
 import java.util.Calendar;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qi;
@@ -16,7 +16,7 @@ import net.minecraft.server.class_xa;
 
 public class class_tu extends class_tt {
    private static final int a = class_qi.a(class_tu.class);
-   private class_cj b;
+   private BlockPosition b;
 
    public class_tu(World var1) {
       super(var1);
@@ -82,7 +82,7 @@ public class class_tu extends class_tt {
       super.t_();
       if(this.n()) {
          this.v = this.w = this.x = 0.0D;
-         this.t = (double)class_nu.c(this.t) + 1.0D - (double)this.K;
+         this.t = (double)MathHelper.floor(this.t) + 1.0D - (double)this.K;
       } else {
          this.w *= 0.6000000238418579D;
       }
@@ -91,8 +91,8 @@ public class class_tu extends class_tt {
 
    protected void cc() {
       super.cc();
-      class_cj var1 = new class_cj(this);
-      class_cj var2 = var1.a();
+      BlockPosition var1 = new BlockPosition(this);
+      BlockPosition var2 = var1.shiftUp();
       if(this.n()) {
          if(!this.o.p(var2).getBlock().isOccluding()) {
             this.a(false);
@@ -108,22 +108,22 @@ public class class_tu extends class_tt {
             }
          }
       } else {
-         if(this.b != null && (!this.o.d(this.b) || this.b.o() < 1)) {
+         if(this.b != null && (!this.o.d(this.b) || this.b.getY() < 1)) {
             this.b = null;
          }
 
-         if(this.b == null || this.V.nextInt(30) == 0 || this.b.c((double)((int)this.s), (double)((int)this.t), (double)((int)this.u)) < 4.0D) {
-            this.b = new class_cj((int)this.s + this.V.nextInt(7) - this.V.nextInt(7), (int)this.t + this.V.nextInt(6) - 2, (int)this.u + this.V.nextInt(7) - this.V.nextInt(7));
+         if(this.b == null || this.V.nextInt(30) == 0 || this.b.distanceSquared((double)((int)this.s), (double)((int)this.t), (double)((int)this.u)) < 4.0D) {
+            this.b = new BlockPosition((int)this.s + this.V.nextInt(7) - this.V.nextInt(7), (int)this.t + this.V.nextInt(6) - 2, (int)this.u + this.V.nextInt(7) - this.V.nextInt(7));
          }
 
-         double var3 = (double)this.b.n() + 0.5D - this.s;
-         double var5 = (double)this.b.o() + 0.1D - this.t;
-         double var7 = (double)this.b.p() + 0.5D - this.u;
+         double var3 = (double)this.b.getX() + 0.5D - this.s;
+         double var5 = (double)this.b.getY() + 0.1D - this.t;
+         double var7 = (double)this.b.getZ() + 0.5D - this.u;
          this.v += (Math.signum(var3) * 0.5D - this.v) * 0.10000000149011612D;
          this.w += (Math.signum(var5) * 0.699999988079071D - this.w) * 0.10000000149011612D;
          this.x += (Math.signum(var7) * 0.5D - this.x) * 0.10000000149011612D;
-         float var9 = (float)(class_nu.b(this.x, this.v) * 180.0D / 3.1415927410125732D) - 90.0F;
-         float var10 = class_nu.g(var9 - this.y);
+         float var9 = (float)(MathHelper.b(this.x, this.v) * 180.0D / 3.1415927410125732D) - 90.0F;
+         float var10 = MathHelper.clampAngle(var9 - this.y);
          this.bd = 0.5F;
          this.y += var10;
          if(this.V.nextInt(100) == 0 && this.o.p(var2).getBlock().isOccluding()) {
@@ -140,7 +140,7 @@ public class class_tu extends class_tt {
    public void e(float var1, float var2) {
    }
 
-   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, BlockPosition var5) {
    }
 
    public boolean aK() {
@@ -170,8 +170,8 @@ public class class_tu extends class_tt {
    }
 
    public boolean cf() {
-      class_cj var1 = new class_cj(this.s, this.aT().b, this.u);
-      if(var1.o() >= this.o.G()) {
+      BlockPosition var1 = new BlockPosition(this.s, this.aT().b, this.u);
+      if(var1.getY() >= this.o.G()) {
          return false;
       } else {
          int var2 = this.o.l(var1);

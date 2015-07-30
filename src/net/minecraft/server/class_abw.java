@@ -8,7 +8,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
@@ -40,7 +40,7 @@ public class class_abw extends Item {
          return 15.0F;
       } else {
          Material var3 = var2.getMaterial();
-         return var3 != Material.k && var3 != Material.l && var3 != Material.v && var3 != Material.j && var3 != Material.C?1.0F:1.5F;
+         return var3 != Material.PLANT && var3 != Material.REPLACEABLE_PLANT && var3 != Material.CORAL && var3 != Material.LEAVES && var3 != Material.PUMPKIN?1.0F:1.5F;
       }
    }
 
@@ -49,7 +49,7 @@ public class class_abw extends Item {
       return true;
    }
 
-   public boolean a(class_aas var1, World var2, Block var3, class_cj var4, class_qa var5) {
+   public boolean a(class_aas var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
       if((double)var3.getStrength(var2, var4) != 0.0D) {
          var1.a(2, (class_qa)var5);
       }

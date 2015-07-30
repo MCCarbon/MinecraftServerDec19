@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aut;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_pr;
 
 public class class_auv {
@@ -46,20 +46,20 @@ public class class_auv {
       this.b = var1;
    }
 
-   public class_awh a(class_pr var1, int var2) {
+   public Vec3D a(class_pr var1, int var2) {
       double var3 = (double)this.a[var2].a + (double)((int)(var1.J + 1.0F)) * 0.5D;
       double var5 = (double)this.a[var2].b;
       double var7 = (double)this.a[var2].c + (double)((int)(var1.J + 1.0F)) * 0.5D;
-      return new class_awh(var3, var5, var7);
+      return new Vec3D(var3, var5, var7);
    }
 
-   public class_awh a(class_pr var1) {
+   public Vec3D a(class_pr var1) {
       return this.a(var1, this.b);
    }
 
-   public class_awh f() {
+   public Vec3D f() {
       class_aut var1 = this.a[this.b];
-      return new class_awh((double)var1.a, (double)var1.b, (double)var1.c);
+      return new Vec3D((double)var1.a, (double)var1.b, (double)var1.c);
    }
 
    public boolean a(class_auv var1) {
@@ -78,8 +78,8 @@ public class class_auv {
       }
    }
 
-   public boolean b(class_awh var1) {
+   public boolean b(Vec3D var1) {
       class_aut var2 = this.c();
-      return var2 == null?false:var2.a == (int)var1.a && var2.c == (int)var1.c;
+      return var2 == null?false:var2.a == (int)var1.x && var2.c == (int)var1.z;
    }
 }

@@ -5,7 +5,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_re;
@@ -54,7 +54,7 @@ public class class_ty extends class_tw {
       return "mob.cow.hurt";
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.cow.step", 0.15F, 1.0F);
    }
 

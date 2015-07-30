@@ -4,9 +4,9 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aeu;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qb;
@@ -76,7 +76,7 @@ public class class_tq {
       List var1 = this.a.j;
       Iterator var2 = var1.iterator();
 
-      class_awh var11;
+      Vec3D var11;
       do {
          do {
             do {
@@ -91,27 +91,27 @@ public class class_tq {
                         var3 = (class_xa)var2.next();
                      } while(var3.v());
 
-                     this.f = this.a.af().a(new class_cj(var3), 1);
+                     this.f = this.a.af().a(new BlockPosition(var3), 1);
                   } while(this.f == null);
                } while(this.f.c() < 10);
             } while(this.f.d() < 20);
          } while(this.f.e() < 20);
 
-         class_cj var4 = this.f.a();
+         BlockPosition var4 = this.f.a();
          float var5 = (float)this.f.b();
          boolean var6 = false;
 
          for(int var7 = 0; var7 < 10; ++var7) {
             float var8 = this.a.s.nextFloat() * 3.1415927F * 2.0F;
-            this.g = var4.n() + (int)((double)(class_nu.b(var8) * var5) * 0.9D);
-            this.h = var4.o();
-            this.i = var4.p() + (int)((double)(class_nu.a(var8) * var5) * 0.9D);
+            this.g = var4.getX() + (int)((double)(MathHelper.cos(var8) * var5) * 0.9D);
+            this.h = var4.getY();
+            this.i = var4.getZ() + (int)((double)(MathHelper.sin(var8) * var5) * 0.9D);
             var6 = false;
             Iterator var9 = this.a.af().b().iterator();
 
             while(var9.hasNext()) {
                class_tp var10 = (class_tp)var9.next();
-               if(var10 != this.f && var10.a(new class_cj(this.g, this.h, this.i))) {
+               if(var10 != this.f && var10.a(new BlockPosition(this.g, this.h, this.i))) {
                   var6 = true;
                   break;
                }
@@ -126,7 +126,7 @@ public class class_tq {
             return false;
          }
 
-         var11 = this.a(new class_cj(this.g, this.h, this.i));
+         var11 = this.a(new BlockPosition(this.g, this.h, this.i));
       } while(var11 == null);
 
       this.e = 0;
@@ -135,33 +135,33 @@ public class class_tq {
    }
 
    private boolean c() {
-      class_awh var1 = this.a(new class_cj(this.g, this.h, this.i));
+      Vec3D var1 = this.a(new BlockPosition(this.g, this.h, this.i));
       if(var1 == null) {
          return false;
       } else {
          class_wr var2;
          try {
             var2 = new class_wr(this.a);
-            var2.a((class_on)this.a.E(new class_cj(var2)), (class_qd)null);
+            var2.a((class_on)this.a.E(new BlockPosition(var2)), (class_qd)null);
             var2.n(false);
          } catch (Exception var4) {
             var4.printStackTrace();
             return false;
          }
 
-         var2.b(var1.a, var1.b, var1.c, this.a.s.nextFloat() * 360.0F, 0.0F);
+         var2.b(var1.x, var1.y, var1.z, this.a.s.nextFloat() * 360.0F, 0.0F);
          this.a.a((class_pr)var2);
-         class_cj var3 = this.f.a();
+         BlockPosition var3 = this.f.a();
          var2.a(var3, this.f.b());
          return true;
       }
    }
 
-   private class_awh a(class_cj var1) {
+   private Vec3D a(BlockPosition var1) {
       for(int var2 = 0; var2 < 10; ++var2) {
-         class_cj var3 = var1.a(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
+         BlockPosition var3 = var1.add(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
          if(this.f.a(var3) && class_aeu.a(class_qb.class_a_in_class_qb.a, this.a, var3)) {
-            return new class_awh((double)var3.n(), (double)var3.o(), (double)var3.p());
+            return new Vec3D((double)var3.getX(), (double)var3.getY(), (double)var3.getZ());
          }
       }
 

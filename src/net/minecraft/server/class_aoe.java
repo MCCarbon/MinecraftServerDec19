@@ -7,7 +7,7 @@ import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_aoc;
 import net.minecraft.server.class_aod;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 
 public class class_aoe {
@@ -33,8 +33,8 @@ public class class_aoe {
       this.l = 5;
    }
 
-   public boolean a(class_cj var1) {
-      return (double)(var1.n() + 1) > this.b() && (double)var1.n() < this.d() && (double)(var1.p() + 1) > this.c() && (double)var1.p() < this.e();
+   public boolean a(BlockPosition var1) {
+      return (double)(var1.getX() + 1) > this.b() && (double)var1.getX() < this.d() && (double)(var1.getZ() + 1) > this.c() && (double)var1.getZ() < this.e();
    }
 
    public boolean a(class_aeh var1) {

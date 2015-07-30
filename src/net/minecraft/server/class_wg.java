@@ -10,14 +10,14 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_gm;
 import net.minecraft.server.class_lh;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
@@ -212,8 +212,8 @@ public class class_wg extends class_wi {
       return this.K * 0.5F;
    }
 
-   public float a(class_cj var1) {
-      return this.o.p(var1).getBlock().getMaterial() == Material.h?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
+   public float a(BlockPosition var1) {
+      return this.o.p(var1).getBlock().getMaterial() == Material.WATER?10.0F + this.o.o(var1) - 0.5F:super.a(var1);
    }
 
    public void m() {
@@ -225,7 +225,7 @@ public class class_wg extends class_wi {
                this.o.a(this.s, this.t, this.u, "mob.guardian.flop", 1.0F, 1.0F, false);
             }
 
-            this.by = this.w < 0.0D && this.o.d((new class_cj(this)).b(), false);
+            this.by = this.w < 0.0D && this.o.d((new BlockPosition(this)).shiftDown(), false);
          } else if(this.n()) {
             if(this.bt < 0.5F) {
                this.bt = 4.0F;
@@ -247,10 +247,10 @@ public class class_wg extends class_wi {
          }
 
          if(this.n() && this.V()) {
-            class_awh var1 = this.d(0.0F);
+            Vec3D var1 = this.d(0.0F);
 
             for(int var2 = 0; var2 < 2; ++var2) {
-               this.o.a(class_cy.e, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.a * 1.5D, this.t + this.V.nextDouble() * (double)this.K - var1.b * 1.5D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.c * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
+               this.o.a(class_cy.e, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.x * 1.5D, this.t + this.V.nextDouble() * (double)this.K - var1.y * 1.5D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
             }
          }
 
@@ -341,7 +341,7 @@ public class class_wg extends class_wi {
          }
 
          if(!this.cz()) {
-            this.a(new class_cj(this), 16);
+            this.a(new BlockPosition(this), 16);
          }
       }
 
@@ -379,7 +379,7 @@ public class class_wg extends class_wi {
    }
 
    public boolean cf() {
-      return (this.V.nextInt(20) == 0 || !this.o.j(new class_cj(this))) && super.cf();
+      return (this.V.nextInt(20) == 0 || !this.o.j(new BlockPosition(this))) && super.cf();
    }
 
    public boolean a(class_pc var1, float var2) {
@@ -433,9 +433,9 @@ public class class_wg extends class_wi {
             double var3 = this.c - this.g.t;
             double var5 = this.d - this.g.u;
             double var7 = var1 * var1 + var3 * var3 + var5 * var5;
-            var7 = (double)class_nu.a(var7);
+            var7 = (double)MathHelper.sqrt(var7);
             var3 /= var7;
-            float var9 = (float)(class_nu.b(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;
+            float var9 = (float)(MathHelper.b(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;
             this.g.y = this.a(this.g.y, var9, 30.0F);
             this.g.aL = this.g.y;
             float var10 = (float)(this.e * this.g.a((class_qk)class_wl.d).e());

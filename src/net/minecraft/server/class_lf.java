@@ -17,7 +17,7 @@ import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aop;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_ns;
@@ -238,11 +238,11 @@ public class class_lf implements class_aoh {
       return "ServerChunkCache: " + this.g.a() + " Drop: " + this.c.size();
    }
 
-   public List a(class_qc var1, class_cj var2) {
+   public List a(class_qc var1, BlockPosition var2) {
       return this.e.a(var1, var2);
    }
 
-   public class_cj a(World var1, String var2, class_cj var3) {
+   public BlockPosition a(World var1, String var2, BlockPosition var3) {
       return this.e.a(var1, var2, var3);
    }
 
@@ -253,7 +253,7 @@ public class class_lf implements class_aoh {
    public void a(class_aok var1, int var2, int var3) {
    }
 
-   public class_aok a(class_cj var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public class_aok a(BlockPosition var1) {
+      return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

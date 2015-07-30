@@ -9,7 +9,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_ahr extends class_agd {
    protected class_ahr(Material var1) {
@@ -21,7 +21,7 @@ public class class_ahr extends class_agd {
       return new class_ana();
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -38,6 +38,6 @@ public class class_ahr extends class_agd {
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return MaterialMapColor.E;
+      return MaterialMapColor.COLOR30;
    }
 }

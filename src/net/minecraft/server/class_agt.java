@@ -17,11 +17,11 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
@@ -32,11 +32,11 @@ public class class_agt extends Block {
    public static final class_anz a = class_anz.a("level", 0, 3);
 
    public class_agt() {
-      super(Material.f, MaterialMapColor.m);
+      super(Material.ORE, MaterialMapColor.COLOR12);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.3125F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       float var7 = 0.125F;
@@ -63,9 +63,9 @@ public class class_agt extends Block {
       return false;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
       int var5 = ((Integer)var3.get(a)).intValue();
-      float var6 = (float)var2.o() + (6.0F + (float)(3 * var5)) / 16.0F;
+      float var6 = (float)var2.getY() + (6.0F + (float)(3 * var5)) / 16.0F;
       if(!var1.D && var4.av() && var5 > 0 && var4.aT().b <= (double)var6) {
          var4.N();
          this.a(var1, var2, var3, var5 - 1);
@@ -73,7 +73,7 @@ public class class_agt extends Block {
 
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else if(var6 == null) {
@@ -153,16 +153,16 @@ public class class_agt extends Block {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, int var4) {
-      var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(class_nu.a(var4, 0, 3))), 2);
+   public void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
+      var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(MathHelper.clamp(var4, 0, 3))), 2);
       var1.e(var2, this);
    }
 
-   public void k(World var1, class_cj var2) {
+   public void k(World var1, BlockPosition var2) {
       if(var1.s.nextInt(20) == 1) {
          IBlockData var3 = var1.p(var2);
          if(((Integer)var3.get(a)).intValue() < 3) {
-            var1.a((class_cj)var2, (IBlockData)var3.a(a), 2);
+            var1.a((BlockPosition)var2, (IBlockData)var3.a(a), 2);
          }
 
       }
@@ -176,7 +176,7 @@ public class class_agt extends Block {
       return true;
    }
 
-   public int l(World var1, class_cj var2) {
+   public int l(World var1, BlockPosition var2) {
       return ((Integer)var1.p(var2).get(a)).intValue();
    }
 

@@ -4,7 +4,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ana;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_pc;
@@ -37,7 +37,7 @@ public class class_xq extends class_xo {
       }
 
       if(var1.a == class_awg.class_a_in_class_awg.b) {
-         class_cj var3 = var1.a();
+         BlockPosition var3 = var1.a();
          class_amg var4 = this.o.s(var3);
          if(var4 instanceof class_ana) {
             class_ana var5 = (class_ana)var4;

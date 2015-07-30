@@ -6,8 +6,8 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahh;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -16,15 +16,15 @@ import org.apache.commons.lang3.Validate;
 
 public abstract class class_uz extends class_pr {
    private int c;
-   protected class_cj a;
-   public class_cq b;
+   protected BlockPosition a;
+   public EnumDirection b;
 
    public class_uz(World var1) {
       super(var1);
       this.a(0.5F, 0.5F);
    }
 
-   public class_uz(World var1, class_cj var2) {
+   public class_uz(World var1, BlockPosition var2) {
       this(var1);
       this.a = var2;
    }
@@ -32,35 +32,35 @@ public abstract class class_uz extends class_pr {
    protected void h() {
    }
 
-   protected void a(class_cq var1) {
+   protected void a(EnumDirection var1) {
       Validate.notNull(var1);
-      Validate.isTrue(var1.k().c());
+      Validate.isTrue(var1.getAxis().isHorizontal());
       this.b = var1;
-      this.A = this.y = (float)(this.b.b() * 90);
+      this.A = this.y = (float)(this.b.getHorizontalId() * 90);
       this.o();
    }
 
    private void o() {
       if(this.b != null) {
-         double var1 = (double)this.a.n() + 0.5D;
-         double var3 = (double)this.a.o() + 0.5D;
-         double var5 = (double)this.a.p() + 0.5D;
+         double var1 = (double)this.a.getX() + 0.5D;
+         double var3 = (double)this.a.getY() + 0.5D;
+         double var5 = (double)this.a.getZ() + 0.5D;
          double var7 = 0.46875D;
          double var9 = this.a(this.l());
          double var11 = this.a(this.m());
-         var1 -= (double)this.b.g() * 0.46875D;
-         var5 -= (double)this.b.i() * 0.46875D;
+         var1 -= (double)this.b.getAdjacentX() * 0.46875D;
+         var5 -= (double)this.b.getAdjacentZ() * 0.46875D;
          var3 += var11;
-         class_cq var13 = this.b.f();
-         var1 += var9 * (double)var13.g();
-         var5 += var9 * (double)var13.i();
+         EnumDirection var13 = this.b.rotateYCCW();
+         var1 += var9 * (double)var13.getAdjacentX();
+         var5 += var9 * (double)var13.getAdjacentZ();
          this.s = var1;
          this.t = var3;
          this.u = var5;
          double var14 = (double)this.l();
          double var16 = (double)this.m();
          double var18 = (double)this.l();
-         if(this.b.k() == class_cq.class_a_in_class_cq.c) {
+         if(this.b.getAxis() == EnumDirection.EnumAxis.Z) {
             var18 = 1.0D;
          } else {
             var14 = 1.0D;
@@ -97,14 +97,14 @@ public abstract class class_uz extends class_pr {
       } else {
          int var1 = Math.max(1, this.l() / 16);
          int var2 = Math.max(1, this.m() / 16);
-         class_cj var3 = this.a.a(this.b.d());
-         class_cq var4 = this.b.f();
+         BlockPosition var3 = this.a.shift(this.b.getOpposite());
+         EnumDirection var4 = this.b.rotateYCCW();
 
          for(int var5 = 0; var5 < var1; ++var5) {
             for(int var6 = 0; var6 < var2; ++var6) {
-               class_cj var7 = var3.a(var4, var5).b(var6);
+               BlockPosition var7 = var3.shift(var4, var5).shiftUp(var6);
                Block var8 = this.o.p(var7).getBlock();
-               if(!var8.getMaterial().a() && !class_ahh.d(var8)) {
+               if(!var8.getMaterial().isBuildable() && !class_ahh.d(var8)) {
                   return false;
                }
             }
@@ -134,7 +134,7 @@ public abstract class class_uz extends class_pr {
       return var1 instanceof class_xa?this.a(class_pc.a((class_xa)var1), 0.0F):false;
    }
 
-   public class_cq aR() {
+   public EnumDirection aR() {
       return this.b;
    }
 
@@ -169,22 +169,22 @@ public abstract class class_uz extends class_pr {
    }
 
    public void b(class_dn var1) {
-      var1.a("Facing", (byte)this.b.b());
-      var1.a("TileX", this.n().n());
-      var1.a("TileY", this.n().o());
-      var1.a("TileZ", this.n().p());
+      var1.a("Facing", (byte)this.b.getHorizontalId());
+      var1.a("TileX", this.n().getX());
+      var1.a("TileY", this.n().getY());
+      var1.a("TileZ", this.n().getZ());
    }
 
    public void a(class_dn var1) {
-      this.a = new class_cj(var1.g("TileX"), var1.g("TileY"), var1.g("TileZ"));
-      class_cq var2;
+      this.a = new BlockPosition(var1.g("TileX"), var1.g("TileY"), var1.g("TileZ"));
+      EnumDirection var2;
       if(var1.b("Direction", 99)) {
-         var2 = class_cq.b(var1.e("Direction"));
-         this.a = this.a.a(var2);
+         var2 = EnumDirection.getByHorizontalId(var1.e("Direction"));
+         this.a = this.a.shift(var2);
       } else if(var1.b("Facing", 99)) {
-         var2 = class_cq.b(var1.e("Facing"));
+         var2 = EnumDirection.getByHorizontalId(var1.e("Facing"));
       } else {
-         var2 = class_cq.b(var1.e("Dir"));
+         var2 = EnumDirection.getByHorizontalId(var1.e("Dir"));
       }
 
       this.a(var2);
@@ -204,8 +204,8 @@ public abstract class class_uz extends class_pr {
       this.s = var1;
       this.t = var3;
       this.u = var5;
-      class_cj var7 = this.a;
-      this.a = new class_cj(var1, var3, var5);
+      BlockPosition var7 = this.a;
+      this.a = new BlockPosition(var1, var3, var5);
       if(!this.a.equals(var7)) {
          this.o();
          this.ai = true;
@@ -213,21 +213,21 @@ public abstract class class_uz extends class_pr {
 
    }
 
-   public class_cj n() {
+   public BlockPosition n() {
       return this.a;
    }
 
    public float a(Block.class_c_in_class_agj var1) {
-      if(this.b.k() != class_cq.class_a_in_class_cq.b) {
+      if(this.b.getAxis() != EnumDirection.EnumAxis.Y) {
          switch(class_uz.SyntheticClass_1.a[var1.ordinal()]) {
          case 1:
-            this.b = this.b.d();
+            this.b = this.b.getOpposite();
             break;
          case 2:
-            this.b = this.b.f();
+            this.b = this.b.rotateYCCW();
             break;
          case 3:
-            this.b = this.b.e();
+            this.b = this.b.rotateY();
          }
       }
 

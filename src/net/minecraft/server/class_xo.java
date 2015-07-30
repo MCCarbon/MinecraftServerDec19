@@ -7,13 +7,13 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lg;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
@@ -55,14 +55,14 @@ public abstract class class_xo extends class_pr implements class_xi {
    }
 
    public void a(float var1, float var2, float var3, float var4, float var5) {
-      float var6 = -class_nu.a(var2 * 0.017453292F) * class_nu.b(var1 * 0.017453292F);
-      float var7 = -class_nu.a((var1 + var3) * 0.017453292F);
-      float var8 = class_nu.b(var2 * 0.017453292F) * class_nu.b(var1 * 0.017453292F);
+      float var6 = -MathHelper.sin(var2 * 0.017453292F) * MathHelper.cos(var1 * 0.017453292F);
+      float var7 = -MathHelper.sin((var1 + var3) * 0.017453292F);
+      float var8 = MathHelper.cos(var2 * 0.017453292F) * MathHelper.cos(var1 * 0.017453292F);
       this.c((double)var6, (double)var7, (double)var8, var4, var5);
    }
 
    public void c(double var1, double var3, double var5, float var7, float var8) {
-      float var9 = class_nu.a(var1 * var1 + var3 * var3 + var5 * var5);
+      float var9 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
@@ -75,9 +75,9 @@ public abstract class class_xo extends class_pr implements class_xi {
       this.v = var1;
       this.w = var3;
       this.x = var5;
-      float var10 = class_nu.a(var1 * var1 + var5 * var5);
-      this.A = this.y = (float)(class_nu.b(var1, var5) * 180.0D / 3.1415927410125732D);
-      this.B = this.z = (float)(class_nu.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
+      float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
+      this.A = this.y = (float)(MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
+      this.B = this.z = (float)(MathHelper.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
       this.as = 0;
    }
 
@@ -91,7 +91,7 @@ public abstract class class_xo extends class_pr implements class_xi {
       }
 
       if(this.a) {
-         if(this.o.p(new class_cj(this.d, this.e, this.f)).getBlock() == this.g) {
+         if(this.o.p(new BlockPosition(this.d, this.e, this.f)).getBlock() == this.g) {
             ++this.as;
             if(this.as == 1200) {
                this.J();
@@ -110,13 +110,13 @@ public abstract class class_xo extends class_pr implements class_xi {
          ++this.at;
       }
 
-      class_awh var1 = new class_awh(this.s, this.t, this.u);
-      class_awh var2 = new class_awh(this.s + this.v, this.t + this.w, this.u + this.x);
+      Vec3D var1 = new Vec3D(this.s, this.t, this.u);
+      Vec3D var2 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
       class_awg var3 = this.o.a(var1, var2);
-      var1 = new class_awh(this.s, this.t, this.u);
-      var2 = new class_awh(this.s + this.v, this.t + this.w, this.u + this.x);
+      var1 = new Vec3D(this.s, this.t, this.u);
+      var2 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
       if(var3 != null) {
-         var2 = new class_awh(var3.c.a, var3.c.b, var3.c.c);
+         var2 = new Vec3D(var3.c.x, var3.c.y, var3.c.z);
       }
 
       if(!this.o.D) {
@@ -139,7 +139,7 @@ public abstract class class_xo extends class_pr implements class_xi {
                   class_awf var12 = var10.aT().b((double)var11, (double)var11, (double)var11);
                   class_awg var13 = var12.a(var1, var2);
                   if(var13 != null) {
-                     double var14 = var1.g(var13.c);
+                     double var14 = var1.distanceSquared(var13.c);
                      if(var14 < var6 || var6 == 0.0D) {
                         var4 = var10;
                         var6 = var14;
@@ -173,10 +173,10 @@ public abstract class class_xo extends class_pr implements class_xi {
       this.s += this.v;
       this.t += this.w;
       this.u += this.x;
-      float var16 = class_nu.a(this.v * this.v + this.x * this.x);
-      this.y = (float)(class_nu.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+      float var16 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
+      this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
-      for(this.z = (float)(class_nu.b(this.w, (double)var16) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+      for(this.z = (float)(MathHelper.b(this.w, (double)var16) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
          ;
       }
 

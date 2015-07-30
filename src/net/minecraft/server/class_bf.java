@@ -4,7 +4,7 @@ import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ht;
 import net.minecraft.server.class_i;
@@ -24,7 +24,7 @@ public class class_bf extends class_i {
    }
 
    public void a(class_m var1, String[] var2) throws class_bz {
-      class_cj var3;
+      BlockPosition var3;
       if(var2.length == 0) {
          var3 = b(var1).c();
       } else {
@@ -37,10 +37,10 @@ public class class_bf extends class_i {
 
       var1.e().B(var3);
       MinecraftServer.N().ap().a((class_ff)(new class_ht(var3)));
-      a(var1, this, "commands.setworldspawn.success", new Object[]{Integer.valueOf(var3.n()), Integer.valueOf(var3.o()), Integer.valueOf(var3.p())});
+      a(var1, this, "commands.setworldspawn.success", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

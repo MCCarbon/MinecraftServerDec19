@@ -21,7 +21,7 @@ public class BlockStone extends Block {
 
 	@SuppressWarnings("unchecked")
 	public BlockStone() {
-		super(Material.e);
+		super(Material.STONE);
 		this.setBlockData(this.blockStateList.getFirst().set(VARIANT, BlockStone.EnumStoneVariant.STONE));
 		this.a(CreativeTab.b);
 	}
@@ -60,13 +60,13 @@ public class BlockStone extends Block {
 	}
 
 	public static enum EnumStoneVariant implements INamable {
-		STONE(0, MaterialMapColor.m, "stone"),
-		GRANITE(1, MaterialMapColor.l, "granite"),
-		GRANITE_SMOOTH(2, MaterialMapColor.l, "smooth_granite", "graniteSmooth"),
-		DIORITE(3, MaterialMapColor.p, "diorite"),
-		DIORITE_SMOOTH(4, MaterialMapColor.p, "smooth_diorite", "dioriteSmooth"),
-		ANDESITE(5, MaterialMapColor.m, "andesite"),
-		ANDESITE_SMOOTH(6, MaterialMapColor.m, "smooth_andesite", "andesiteSmooth");
+		STONE(0, MaterialMapColor.COLOR12, "stone"),
+		GRANITE(1, MaterialMapColor.COLOR11, "granite"),
+		GRANITE_SMOOTH(2, MaterialMapColor.COLOR11, "smooth_granite", "graniteSmooth"),
+		DIORITE(3, MaterialMapColor.COLOR15, "diorite"),
+		DIORITE_SMOOTH(4, MaterialMapColor.COLOR15, "smooth_diorite", "dioriteSmooth"),
+		ANDESITE(5, MaterialMapColor.COLOR12, "andesite"),
+		ANDESITE_SMOOTH(6, MaterialMapColor.COLOR12, "smooth_andesite", "andesiteSmooth");
 
 		private static final BlockStone.EnumStoneVariant[] BY_DATA;
 

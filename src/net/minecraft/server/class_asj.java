@@ -22,9 +22,9 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_od;
 
@@ -88,7 +88,7 @@ public class class_asj {
       return var0;
    }
 
-   private static class_asj.class_p_in_class_asj a(Class var0, List var1, Random var2, int var3, int var4, int var5, class_cq var6, int var7) {
+   private static class_asj.class_p_in_class_asj a(Class var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       Object var8 = null;
       if(var0 == class_asj.class_n_in_class_asj.class) {
          var8 = class_asj.class_n_in_class_asj.a(var1, var2, var3, var4, var5, var6, var7);
@@ -117,7 +117,7 @@ public class class_asj {
       return (class_asj.class_p_in_class_asj)var8;
    }
 
-   private static class_asj.class_p_in_class_asj b(class_asj.class_m_in_class_asj var0, List var1, Random var2, int var3, int var4, int var5, class_cq var6, int var7) {
+   private static class_asj.class_p_in_class_asj b(class_asj.class_m_in_class_asj var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(!d()) {
          return null;
       } else {
@@ -167,7 +167,7 @@ public class class_asj {
       }
    }
 
-   private static class_asn c(class_asj.class_m_in_class_asj var0, List var1, Random var2, int var3, int var4, int var5, class_cq var6, int var7) {
+   private static class_asn c(class_asj.class_m_in_class_asj var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 50) {
          return null;
       } else if(Math.abs(var3 - var0.c().a) <= 112 && Math.abs(var5 - var0.c().c) <= 112) {
@@ -188,29 +188,29 @@ public class class_asj {
       // $FF: synthetic field
       static final int[] a;
       // $FF: synthetic field
-      static final int[] b = new int[class_cq.values().length];
+      static final int[] b = new int[EnumDirection.values().length];
 
       static {
          try {
-            b[class_cq.c.ordinal()] = 1;
+            b[EnumDirection.NORTH.ordinal()] = 1;
          } catch (NoSuchFieldError var8) {
             ;
          }
 
          try {
-            b[class_cq.d.ordinal()] = 2;
+            b[EnumDirection.SOUTH.ordinal()] = 2;
          } catch (NoSuchFieldError var7) {
             ;
          }
 
          try {
-            b[class_cq.e.ordinal()] = 3;
+            b[EnumDirection.WEST.ordinal()] = 3;
          } catch (NoSuchFieldError var6) {
             ;
          }
 
          try {
-            b[class_cq.f.ordinal()] = 4;
+            b[EnumDirection.EAST.ordinal()] = 4;
          } catch (NoSuchFieldError var5) {
             ;
          }
@@ -278,7 +278,7 @@ public class class_asj {
       public class_g_in_class_asj() {
       }
 
-      public class_g_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_g_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
@@ -301,7 +301,7 @@ public class class_asj {
 
       }
 
-      public static class_asj.class_g_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_g_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -4, -1, 0, 11, 8, 16, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_g_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -331,7 +331,7 @@ public class class_asj {
             this.a(var1, var3, var5, 3, 15, var5, 4, 15, Blocks.IRON_BARS.getBlockData(), Blocks.IRON_BARS.getBlockData(), false);
          }
 
-         IBlockData var13 = Blocks.STONE_BRICK_STAIRS.getBlockData().set(class_ald.a, class_cq.c);
+         IBlockData var13 = Blocks.STONE_BRICK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
          this.a(var1, var3, 4, 1, 5, 6, 1, 7, false, var2, class_asj.e);
          this.a(var1, var3, 4, 2, 6, 6, 2, 7, false, var2, class_asj.e);
          this.a(var1, var3, 4, 3, 7, 6, 3, 7, false, var2, class_asj.e);
@@ -342,10 +342,10 @@ public class class_asj {
             this.a(var1, var13, var6, 3, 6, var3);
          }
 
-         IBlockData var14 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, class_cq.c);
-         IBlockData var7 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, class_cq.d);
-         IBlockData var8 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, class_cq.f);
-         IBlockData var9 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, class_cq.e);
+         IBlockData var14 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, EnumDirection.NORTH);
+         IBlockData var7 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, EnumDirection.SOUTH);
+         IBlockData var8 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, EnumDirection.EAST);
+         IBlockData var9 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, EnumDirection.WEST);
          this.a(var1, var14.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 8, var3);
          this.a(var1, var14.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 8, var3);
          this.a(var1, var14.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 8, var3);
@@ -360,10 +360,10 @@ public class class_asj {
          this.a(var1, var9.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 11, var3);
          if(!this.a) {
             int var12 = this.d(3);
-            class_cj var10 = new class_cj(this.a(5, 6), var12, this.b(5, 6));
-            if(var3.b((class_df)var10)) {
+            BlockPosition var10 = new BlockPosition(this.a(5, 6), var12, this.b(5, 6));
+            if(var3.b((BaseBlockPosition)var10)) {
                this.a = true;
-               var1.a((class_cj)var10, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
+               var1.a((BlockPosition)var10, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
                class_amg var11 = var1.s(var10);
                if(var11 instanceof class_amv) {
                   ((class_amv)var11).b().a("Silverfish");
@@ -384,7 +384,7 @@ public class class_asj {
       public class_c_in_class_asj() {
       }
 
-      public class_c_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_c_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.d = this.a(var2);
@@ -414,8 +414,8 @@ public class class_asj {
       public void a(class_asn var1, List var2, Random var3) {
          int var4 = 3;
          int var5 = 5;
-         class_cq var6 = this.e();
-         if(var6 == class_cq.e || var6 == class_cq.c) {
+         EnumDirection var6 = this.e();
+         if(var6 == EnumDirection.WEST || var6 == EnumDirection.NORTH) {
             var4 = 8 - var4;
             var5 = 8 - var5;
          }
@@ -439,7 +439,7 @@ public class class_asj {
 
       }
 
-      public static class_asj.class_c_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_c_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -4, -3, 0, 10, 9, 11, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_c_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -480,7 +480,7 @@ public class class_asj {
             this.a(var1, var3, 4, 5, 7, 4, 5, 9, Blocks.STONE_SLAB.getBlockData(), Blocks.STONE_SLAB.getBlockData(), false);
             this.a(var1, var3, 8, 5, 7, 8, 5, 9, Blocks.STONE_SLAB.getBlockData(), Blocks.STONE_SLAB.getBlockData(), false);
             this.a(var1, var3, 5, 5, 7, 7, 5, 9, Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), false);
-            this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.d), 6, 5, 6, var3);
+            this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 6, 5, 6, var3);
             return true;
          }
       }
@@ -493,7 +493,7 @@ public class class_asj {
       public class_e_in_class_asj() {
       }
 
-      public class_e_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_e_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.d = this.a(var2);
@@ -511,7 +511,7 @@ public class class_asj {
          this.b = var1.o("Tall");
       }
 
-      public static class_asj.class_e_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_e_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -4, -1, 0, 14, 11, 15, var5);
          if(!a(var7) || class_asn.a(var0, var7) != null) {
             var7 = class_arw.a(var2, var3, var4, -4, -1, 0, 14, 6, 15, var5);
@@ -543,8 +543,8 @@ public class class_asj {
                if((var7 - 1) % 4 == 0) {
                   this.a(var1, var3, 1, 1, var7, 1, 4, var7, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
                   this.a(var1, var3, 12, 1, var7, 12, 4, var7, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
-                  this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.f), 2, 3, var7, var3);
-                  this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.e), 11, 3, var7, var3);
+                  this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 2, 3, var7, var3);
+                  this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 11, 3, var7, var3);
                   if(this.b) {
                      this.a(var1, var3, 1, 6, var7, 1, 9, var7, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
                      this.a(var1, var3, 12, 6, var7, 12, 9, var7, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
@@ -580,7 +580,7 @@ public class class_asj {
                this.a(var1, Blocks.FENCE.getBlockData(), 9, 6, 11, var3);
                this.a(var1, Blocks.FENCE.getBlockData(), 8, 6, 11, var3);
                this.a(var1, Blocks.FENCE.getBlockData(), 9, 6, 10, var3);
-               IBlockData var11 = Blocks.LADDER.getBlockData().set(class_aiz.a, class_cq.d);
+               IBlockData var11 = Blocks.LADDER.getBlockData().set(class_aiz.a, EnumDirection.SOUTH);
                this.a(var1, var11, 10, 1, 13, var3);
                this.a(var1, var11, 10, 2, 13, var3);
                this.a(var1, var11, 10, 3, 13, var3);
@@ -602,7 +602,7 @@ public class class_asj {
                this.a(var1, Blocks.FENCE.getBlockData(), var8 - 1, 7, var9 + 1, var3);
                this.a(var1, Blocks.FENCE.getBlockData(), var8, 7, var9 - 1, var3);
                this.a(var1, Blocks.FENCE.getBlockData(), var8, 7, var9 + 1, var3);
-               IBlockData var10 = Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.b);
+               IBlockData var10 = Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.UP);
                this.a(var1, var10, var8 - 2, 8, var9, var3);
                this.a(var1, var10, var8 + 1, 8, var9, var3);
                this.a(var1, var10, var8 - 1, 8, var9 - 1, var3);
@@ -630,7 +630,7 @@ public class class_asj {
       public class_h_in_class_asj() {
       }
 
-      public class_h_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_h_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.d = this.a(var2);
@@ -641,7 +641,7 @@ public class class_asj {
          this.a((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 1);
       }
 
-      public static class_asj.class_h_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_h_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -1, -1, 0, 9, 5, 11, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_h_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -661,8 +661,8 @@ public class class_asj {
             this.a(var1, var3, 5, 1, 5, 7, 3, 5, Blocks.IRON_BARS.getBlockData(), Blocks.IRON_BARS.getBlockData(), false);
             this.a(var1, Blocks.IRON_BARS.getBlockData(), 4, 3, 2, var3);
             this.a(var1, Blocks.IRON_BARS.getBlockData(), 4, 3, 8, var3);
-            IBlockData var4 = Blocks.IRON_DOOR.getBlockData().set(class_ahl.a, class_cq.e);
-            IBlockData var5 = Blocks.IRON_DOOR.getBlockData().set(class_ahl.a, class_cq.e).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a);
+            IBlockData var4 = Blocks.IRON_DOOR.getBlockData().set(class_ahl.a, EnumDirection.WEST);
+            IBlockData var5 = Blocks.IRON_DOOR.getBlockData().set(class_ahl.a, EnumDirection.WEST).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a);
             this.a(var1, var4, 4, 1, 2, var3);
             this.a(var1, var5, 4, 2, 2, var3);
             this.a(var1, var4, 4, 1, 8, var3);
@@ -679,7 +679,7 @@ public class class_asj {
       public class_j_in_class_asj() {
       }
 
-      public class_j_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_j_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.d = this.a(var2);
@@ -703,7 +703,7 @@ public class class_asj {
          this.c((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 4);
       }
 
-      public static class_asj.class_j_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_j_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -4, -1, 0, 11, 7, 11, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_j_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -723,10 +723,10 @@ public class class_asj {
                this.a(var1, Blocks.STONEBRICK.getBlockData(), 5, 1, 5, var3);
                this.a(var1, Blocks.STONEBRICK.getBlockData(), 5, 2, 5, var3);
                this.a(var1, Blocks.STONEBRICK.getBlockData(), 5, 3, 5, var3);
-               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.e), 4, 3, 5, var3);
-               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.f), 6, 3, 5, var3);
-               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.d), 5, 3, 4, var3);
-               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.c), 5, 3, 6, var3);
+               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 4, 3, 5, var3);
+               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 6, 3, 5, var3);
+               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 5, 3, 4, var3);
+               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 5, 3, 6, var3);
                this.a(var1, Blocks.STONE_SLAB.getBlockData(), 4, 1, 4, var3);
                this.a(var1, Blocks.STONE_SLAB.getBlockData(), 4, 1, 5, var3);
                this.a(var1, Blocks.STONE_SLAB.getBlockData(), 4, 1, 6, var3);
@@ -791,7 +791,7 @@ public class class_asj {
                   this.a(var1, Blocks.PLANKS.getBlockData(), 8, 3, var4, var3);
                }
 
-               IBlockData var5 = Blocks.LADDER.getBlockData().set(class_aiz.a, class_cq.e);
+               IBlockData var5 = Blocks.LADDER.getBlockData().set(class_aiz.a, EnumDirection.WEST);
                this.a(var1, var5, 9, 1, 3, var3);
                this.a(var1, var5, 9, 2, 3, var3);
                this.a(var1, var5, 9, 3, 3, var3);
@@ -809,8 +809,8 @@ public class class_asj {
 
    public static class class_i_in_class_asj extends class_asj.class_d_in_class_asj {
       public void a(class_asn var1, List var2, Random var3) {
-         class_cq var4 = this.e();
-         if(var4 != class_cq.c && var4 != class_cq.f) {
+         EnumDirection var4 = this.e();
+         if(var4 != EnumDirection.NORTH && var4 != EnumDirection.EAST) {
             this.b((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 1);
          } else {
             this.c((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 1);
@@ -824,8 +824,8 @@ public class class_asj {
          } else {
             this.a(var1, var3, 0, 0, 0, 4, 4, 4, true, var2, class_asj.e);
             this.a(var1, var2, var3, this.d, 1, 1, 0);
-            class_cq var4 = this.e();
-            if(var4 != class_cq.c && var4 != class_cq.f) {
+            EnumDirection var4 = this.e();
+            if(var4 != EnumDirection.NORTH && var4 != EnumDirection.EAST) {
                this.a(var1, var3, 0, 1, 1, 0, 3, 3, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
             } else {
                this.a(var1, var3, 4, 1, 1, 4, 3, 3, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -840,7 +840,7 @@ public class class_asj {
       public class_d_in_class_asj() {
       }
 
-      public class_d_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_d_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.d = this.a(var2);
@@ -848,8 +848,8 @@ public class class_asj {
       }
 
       public void a(class_asn var1, List var2, Random var3) {
-         class_cq var4 = this.e();
-         if(var4 != class_cq.c && var4 != class_cq.f) {
+         EnumDirection var4 = this.e();
+         if(var4 != EnumDirection.NORTH && var4 != EnumDirection.EAST) {
             this.c((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 1);
          } else {
             this.b((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 1);
@@ -857,7 +857,7 @@ public class class_asj {
 
       }
 
-      public static class_asj.class_d_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_d_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -1, -1, 0, 5, 5, 5, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_d_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -868,8 +868,8 @@ public class class_asj {
          } else {
             this.a(var1, var3, 0, 0, 0, 4, 4, 4, true, var2, class_asj.e);
             this.a(var1, var2, var3, this.d, 1, 1, 0);
-            class_cq var4 = this.e();
-            if(var4 != class_cq.c && var4 != class_cq.f) {
+            EnumDirection var4 = this.e();
+            if(var4 != EnumDirection.NORTH && var4 != EnumDirection.EAST) {
                this.a(var1, var3, 4, 1, 1, 4, 3, 3, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
             } else {
                this.a(var1, var3, 0, 1, 1, 0, 3, 3, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -884,7 +884,7 @@ public class class_asj {
       public class_o_in_class_asj() {
       }
 
-      public class_o_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_o_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.d = this.a(var2);
@@ -895,7 +895,7 @@ public class class_asj {
          this.a((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 1);
       }
 
-      public static class_asj.class_o_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_o_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -1, -7, 0, 5, 11, 8, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_o_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -907,7 +907,7 @@ public class class_asj {
             this.a(var1, var3, 0, 0, 0, 4, 10, 7, true, var2, class_asj.e);
             this.a(var1, var2, var3, this.d, 1, 7, 0);
             this.a(var1, var2, var3, class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.a, 1, 1, 7);
-            IBlockData var4 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, class_cq.d);
+            IBlockData var4 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
 
             for(int var5 = 0; var5 < 6; ++var5) {
                this.a(var1, var4, 1, 6 - var5, 1 + var5, var3);
@@ -932,7 +932,7 @@ public class class_asj {
       public class_a_in_class_asj() {
       }
 
-      public class_a_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_a_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.d = this.a(var2);
@@ -953,7 +953,7 @@ public class class_asj {
          this.a((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 1);
       }
 
-      public static class_asj.class_a_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_a_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -1, -1, 0, 5, 5, 7, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_a_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -975,7 +975,7 @@ public class class_asj {
                this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.f.a()), 2, 1, var4, var3);
             }
 
-            if(!this.b && var3.b((class_df)(new class_cj(this.a(3, 3), this.d(2), this.b(3, 3))))) {
+            if(!this.b && var3.b((BaseBlockPosition)(new BlockPosition(this.a(3, 3), this.d(2), this.b(3, 3))))) {
                this.b = true;
                this.a(var1, var3, var2, 3, 2, 3, class_od.a(a, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(2));
             }
@@ -996,7 +996,7 @@ public class class_asj {
       public class_n_in_class_asj() {
       }
 
-      public class_n_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_n_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.d = this.a(var2);
@@ -1029,7 +1029,7 @@ public class class_asj {
 
       }
 
-      public static class_asj.class_n_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_n_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -1, -1, 0, 5, 5, 7, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_n_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -1041,8 +1041,8 @@ public class class_asj {
             this.a(var1, var3, 0, 0, 0, 4, 4, 6, true, var2, class_asj.e);
             this.a(var1, var2, var3, this.d, 1, 1, 0);
             this.a(var1, var2, var3, class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.a, 1, 1, 6);
-            IBlockData var4 = Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.f);
-            IBlockData var5 = Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.e);
+            IBlockData var4 = Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST);
+            IBlockData var5 = Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST);
             this.a(var1, var3, var2, 0.1F, 1, 2, 1, var4);
             this.a(var1, var3, var2, 0.1F, 3, 2, 1, var5);
             this.a(var1, var3, var2, 0.1F, 1, 2, 5, var4);
@@ -1072,7 +1072,7 @@ public class class_asj {
          super(0, var2, var3, var4);
       }
 
-      public class_cj a() {
+      public BlockPosition a() {
          return this.b != null?this.b.a():super.a();
       }
    }
@@ -1086,9 +1086,9 @@ public class class_asj {
       public class_l_in_class_asj(int var1, Random var2, int var3, int var4) {
          super(var1);
          this.a = true;
-         this.a(class_cq.class_c_in_class_cq.a.a(var2));
+         this.a(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2));
          this.d = class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.a;
-         if(this.e().k() == class_cq.class_a_in_class_cq.c) {
+         if(this.e().getAxis() == EnumDirection.EnumAxis.Z) {
             this.l = new class_arw(var3, 64, var4, var3 + 5 - 1, 74, var4 + 5 - 1);
          } else {
             this.l = new class_arw(var3, 64, var4, var3 + 5 - 1, 74, var4 + 5 - 1);
@@ -1096,7 +1096,7 @@ public class class_asj {
 
       }
 
-      public class_l_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_l_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a = false;
          this.a(var4);
@@ -1122,7 +1122,7 @@ public class class_asj {
          this.a((class_asj.class_m_in_class_asj)var1, var2, var3, 1, 1);
       }
 
-      public static class_asj.class_l_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+      public static class_asj.class_l_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          class_arw var7 = class_arw.a(var2, var3, var4, -1, -7, 0, 5, 11, 5, var5);
          return a(var7) && class_asn.a(var0, var7) == null?new class_asj.class_l_in_class_asj(var6, var1, var7, var5):null;
       }
@@ -1162,11 +1162,11 @@ public class class_asj {
       public class_b_in_class_asj() {
       }
 
-      public class_b_in_class_asj(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_b_in_class_asj(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
-         this.a = var4 != class_cq.c && var4 != class_cq.d?var3.c():var3.e();
+         this.a = var4 != EnumDirection.NORTH && var4 != EnumDirection.SOUTH?var3.c():var3.e();
       }
 
       protected void a(class_dn var1) {
@@ -1179,7 +1179,7 @@ public class class_asj {
          this.a = var1.g("Steps");
       }
 
-      public static class_arw a(List var0, Random var1, int var2, int var3, int var4, class_cq var5) {
+      public static class_arw a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5) {
          boolean var6 = true;
          class_arw var7 = class_arw.a(var2, var3, var4, -1, -1, 0, 5, 5, 4, var5);
          class_asn var8 = class_asn.a(var0, var7);
@@ -1288,8 +1288,8 @@ public class class_asj {
             this.a(var1, Blocks.STONEBRICK.getBlockData(), var5 + 2, var6, var7, var3);
             this.a(var1, Blocks.IRON_DOOR.getBlockData(), var5 + 1, var6, var7, var3);
             this.a(var1, Blocks.IRON_DOOR.getBlockData().set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var5 + 1, var6 + 1, var7, var3);
-            this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.b, class_cq.c), var5 + 2, var6 + 1, var7 + 1, var3);
-            this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.b, class_cq.d), var5 + 2, var6 + 1, var7 - 1, var3);
+            this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.b, EnumDirection.NORTH), var5 + 2, var6 + 1, var7 + 1, var3);
+            this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.b, EnumDirection.SOUTH), var5 + 2, var6 + 1, var7 - 1, var3);
          }
 
       }
@@ -1311,7 +1311,7 @@ public class class_asj {
       }
 
       protected class_asn a(class_asj.class_m_in_class_asj var1, List var2, Random var3, int var4, int var5) {
-         class_cq var6 = this.e();
+         EnumDirection var6 = this.e();
          if(var6 != null) {
             switch(class_asj.SyntheticClass_1.b[var6.ordinal()]) {
             case 1:
@@ -1329,17 +1329,17 @@ public class class_asj {
       }
 
       protected class_asn b(class_asj.class_m_in_class_asj var1, List var2, Random var3, int var4, int var5) {
-         class_cq var6 = this.e();
+         EnumDirection var6 = this.e();
          if(var6 != null) {
             switch(class_asj.SyntheticClass_1.b[var6.ordinal()]) {
             case 1:
-               return class_asj.c(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, class_cq.e, this.d());
+               return class_asj.c(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
             case 2:
-               return class_asj.c(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, class_cq.e, this.d());
+               return class_asj.c(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
             case 3:
-               return class_asj.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, class_cq.c, this.d());
+               return class_asj.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
             case 4:
-               return class_asj.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, class_cq.c, this.d());
+               return class_asj.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
             }
          }
 
@@ -1347,17 +1347,17 @@ public class class_asj {
       }
 
       protected class_asn c(class_asj.class_m_in_class_asj var1, List var2, Random var3, int var4, int var5) {
-         class_cq var6 = this.e();
+         EnumDirection var6 = this.e();
          if(var6 != null) {
             switch(class_asj.SyntheticClass_1.b[var6.ordinal()]) {
             case 1:
-               return class_asj.c(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, class_cq.f, this.d());
+               return class_asj.c(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
             case 2:
-               return class_asj.c(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, class_cq.f, this.d());
+               return class_asj.c(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
             case 3:
-               return class_asj.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, class_cq.d, this.d());
+               return class_asj.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
             case 4:
-               return class_asj.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, class_cq.d, this.d());
+               return class_asj.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
             }
          }
 

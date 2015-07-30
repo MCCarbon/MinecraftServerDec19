@@ -6,11 +6,11 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aih;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_qi;
@@ -69,11 +69,11 @@ public class class_vr extends class_vn {
 
    }
 
-   protected void a(class_cj var1, IBlockData var2) {
+   protected void a(BlockPosition var1, IBlockData var2) {
       super.a(var1, var2);
       double var3 = this.a * this.a + this.b * this.b;
       if(var3 > 1.0E-4D && this.v * this.v + this.x * this.x > 0.001D) {
-         var3 = (double)class_nu.a(var3);
+         var3 = (double)MathHelper.sqrt(var3);
          this.a /= var3;
          this.b /= var3;
          if(this.a * this.v + this.b * this.x < 0.0D) {
@@ -91,7 +91,7 @@ public class class_vr extends class_vn {
    protected void o() {
       double var1 = this.a * this.a + this.b * this.b;
       if(var1 > 1.0E-4D) {
-         var1 = (double)class_nu.a(var1);
+         var1 = (double)MathHelper.sqrt(var1);
          this.a /= var1;
          this.b /= var1;
          double var3 = 1.0D;
@@ -151,6 +151,6 @@ public class class_vr extends class_vn {
    }
 
    public IBlockData u() {
-      return (this.j()?Blocks.LIT_FURNACE:Blocks.FURNACE).getBlockData().set(class_aih.a, class_cq.c);
+      return (this.j()?Blocks.LIT_FURNACE:Blocks.FURNACE).getBlockData().set(class_aih.a, EnumDirection.NORTH);
    }
 }

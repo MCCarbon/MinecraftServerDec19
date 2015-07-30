@@ -7,7 +7,7 @@ import net.minecraft.server.CreativeTab;
 
 public class class_ajv extends Block {
    public class_ajv() {
-      super(Material.x);
+      super(Material.SNOW_LAYER);
       this.frictionFactor = 0.98F;
       this.a(CreativeTab.b);
    }

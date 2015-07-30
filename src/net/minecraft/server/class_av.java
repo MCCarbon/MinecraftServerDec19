@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_gs;
 import net.minecraft.server.class_i;
@@ -33,18 +33,18 @@ public class class_av extends class_i {
          int var31 = var3 + 1;
          String var4 = var2[var3];
          class_lh var5 = a(var1, var2[var31++]);
-         class_awh var6 = var1.d();
-         double var7 = var6.a;
+         Vec3D var6 = var1.d();
+         double var7 = var6.x;
          if(var2.length > var31) {
             var7 = b(var7, var2[var31++], true);
          }
 
-         double var9 = var6.b;
+         double var9 = var6.y;
          if(var2.length > var31) {
             var9 = b(var9, var2[var31++], 0, 0, false);
          }
 
-         double var11 = var6.c;
+         double var11 = var6.z;
          if(var2.length > var31) {
             var11 = b(var11, var2[var31++], true);
          }
@@ -89,7 +89,7 @@ public class class_av extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 2?a(var2, MinecraftServer.N().K()):(var2.length > 2 && var2.length <= 5?a(var2, 2, var3):null);
    }
 

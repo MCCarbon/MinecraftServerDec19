@@ -15,10 +15,10 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -72,9 +72,9 @@ public class class_aej {
                   double var19 = this.g;
 
                   for(float var21 = 0.3F; var14 > 0.0F; var14 -= 0.22500001F) {
-                     class_cj var22 = new class_cj(var15, var17, var19);
+                     BlockPosition var22 = new BlockPosition(var15, var17, var19);
                      IBlockData var23 = this.d.p(var22);
-                     if(var23.getBlock().getMaterial() != Material.a) {
+                     if(var23.getBlock().getMaterial() != Material.AIR) {
                         float var24 = this.h != null?this.h.a(this, this.d, var22, var23):var23.getBlock().a((class_pr)null);
                         var14 -= (var24 + 0.3F) * 0.3F;
                      }
@@ -94,14 +94,14 @@ public class class_aej {
 
       this.j.addAll(var1);
       float var30 = this.i * 2.0F;
-      var4 = class_nu.c(this.e - (double)var30 - 1.0D);
-      var5 = class_nu.c(this.e + (double)var30 + 1.0D);
-      int var31 = class_nu.c(this.f - (double)var30 - 1.0D);
-      int var7 = class_nu.c(this.f + (double)var30 + 1.0D);
-      int var32 = class_nu.c(this.g - (double)var30 - 1.0D);
-      int var9 = class_nu.c(this.g + (double)var30 + 1.0D);
+      var4 = MathHelper.floor(this.e - (double)var30 - 1.0D);
+      var5 = MathHelper.floor(this.e + (double)var30 + 1.0D);
+      int var31 = MathHelper.floor(this.f - (double)var30 - 1.0D);
+      int var7 = MathHelper.floor(this.f + (double)var30 + 1.0D);
+      int var32 = MathHelper.floor(this.g - (double)var30 - 1.0D);
+      int var9 = MathHelper.floor(this.g + (double)var30 + 1.0D);
       List var33 = this.d.b(this.h, new class_awf((double)var4, (double)var31, (double)var32, (double)var5, (double)var7, (double)var9));
-      class_awh var11 = new class_awh(this.e, this.f, this.g);
+      Vec3D var11 = new Vec3D(this.e, this.f, this.g);
 
       for(int var34 = 0; var34 < var33.size(); ++var34) {
          class_pr var13 = (class_pr)var33.get(var34);
@@ -111,7 +111,7 @@ public class class_aej {
                double var16 = var13.s - this.e;
                double var18 = var13.t + (double)var13.aU() - this.f;
                double var20 = var13.u - this.g;
-               double var36 = (double)class_nu.a(var16 * var16 + var18 * var18 + var20 * var20);
+               double var36 = (double)MathHelper.sqrt(var16 * var16 + var18 * var18 + var20 * var20);
                if(var36 != 0.0D) {
                   var16 /= var36;
                   var18 /= var36;
@@ -128,7 +128,7 @@ public class class_aej {
                   var13.w += var18 * var28;
                   var13.x += var20 * var28;
                   if(var13 instanceof class_xa && !((class_xa)var13).bH.a) {
-                     this.k.put((class_xa)var13, new class_awh(var16 * var26, var18 * var26, var20 * var26));
+                     this.k.put((class_xa)var13, new Vec3D(var16 * var26, var18 * var26, var20 * var26));
                   }
                }
             }
@@ -146,21 +146,21 @@ public class class_aej {
       }
 
       Iterator var2;
-      class_cj var3;
+      BlockPosition var3;
       if(this.b) {
          var2 = this.j.iterator();
 
          while(var2.hasNext()) {
-            var3 = (class_cj)var2.next();
+            var3 = (BlockPosition)var2.next();
             Block var4 = this.d.p(var3).getBlock();
             if(var1) {
-               double var5 = (double)((float)var3.n() + this.d.s.nextFloat());
-               double var7 = (double)((float)var3.o() + this.d.s.nextFloat());
-               double var9 = (double)((float)var3.p() + this.d.s.nextFloat());
+               double var5 = (double)((float)var3.getX() + this.d.s.nextFloat());
+               double var7 = (double)((float)var3.getY() + this.d.s.nextFloat());
+               double var9 = (double)((float)var3.getZ() + this.d.s.nextFloat());
                double var11 = var5 - this.e;
                double var13 = var7 - this.f;
                double var15 = var9 - this.g;
-               double var17 = (double)class_nu.a(var11 * var11 + var13 * var13 + var15 * var15);
+               double var17 = (double)MathHelper.sqrt(var11 * var11 + var13 * var13 + var15 * var15);
                var11 /= var17;
                var13 /= var17;
                var15 /= var17;
@@ -173,12 +173,12 @@ public class class_aej {
                this.d.a(class_cy.l, var5, var7, var9, var11, var13, var15, new int[0]);
             }
 
-            if(var4.getMaterial() != Material.a) {
+            if(var4.getMaterial() != Material.AIR) {
                if(var4.a(this)) {
-                  var4.a(this.d, var3, this.d.p(var3), 1.0F / this.i, 0);
+                  var4.dropNaturally(this.d, var3, this.d.p(var3), 1.0F / this.i, 0);
                }
 
-               this.d.a((class_cj)var3, (IBlockData)Blocks.AIR.getBlockData(), 3);
+               this.d.a((BlockPosition)var3, (IBlockData)Blocks.AIR.getBlockData(), 3);
                var4.a(this.d, var3, this);
             }
          }
@@ -188,8 +188,8 @@ public class class_aej {
          var2 = this.j.iterator();
 
          while(var2.hasNext()) {
-            var3 = (class_cj)var2.next();
-            if(this.d.p(var3).getBlock().getMaterial() == Material.a && this.d.p(var3.b()).getBlock().isFullBlock() && this.c.nextInt(3) == 0) {
+            var3 = (BlockPosition)var2.next();
+            if(this.d.p(var3).getBlock().getMaterial() == Material.AIR && this.d.p(var3.shiftDown()).getBlock().isFullBlock() && this.c.nextInt(3) == 0) {
                this.d.a(var3, Blocks.FIRE.getBlockData());
             }
          }

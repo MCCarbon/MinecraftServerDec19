@@ -20,8 +20,8 @@ import net.minecraft.server.class_asp;
 import net.minecraft.server.class_ast;
 import net.minecraft.server.class_asu;
 import net.minecraft.server.class_asv;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_ob;
@@ -47,14 +47,14 @@ public class class_ary {
       class_asl.a(class_ary.class_a_in_class_ary.class, "ECP");
    }
 
-   private static class_ary.class_a_in_class_ary b(class_ary.class_a_in_class_ary var0, class_cj var1, String var2, Block.class_c_in_class_agj var3, boolean var4) {
+   private static class_ary.class_a_in_class_ary b(class_ary.class_a_in_class_ary var0, BlockPosition var1, String var2, Block.class_c_in_class_agj var3, boolean var4) {
       class_ary.class_a_in_class_ary var5 = new class_ary.class_a_in_class_ary(var2, var0.c, var3, var4);
-      class_cj var6 = var0.a.a(var0.b, var1, var5.a, var5.b, class_cj.a);
-      var5.a(var6.n(), var6.o(), var6.p());
+      BlockPosition var6 = var0.a.a(var0.b, var1, var5.a, var5.b, BlockPosition.ZERO);
+      var5.a(var6.getX(), var6.getY(), var6.getZ());
       return var5;
    }
 
-   public static void a(class_cj var0, Block.class_c_in_class_agj var1, List var2, Random var3) {
+   public static void a(BlockPosition var0, Block.class_c_in_class_agj var1, List var2, Random var3) {
       k.a();
       f.a();
       i.a();
@@ -63,13 +63,13 @@ public class class_ary {
       var2.add(var4);
       byte var5 = 0;
       class_ary.class_a_in_class_ary var6;
-      var2.add(var6 = b(var4, new class_cj(-1, 0, -1), "second_floor", var1, false));
-      var2.add(var6 = b(var6, new class_cj(-1, 4, -1), "third_floor", var1, false));
-      var2.add(var6 = b(var6, new class_cj(-1, 8, -1), "third_roof", var1, true));
-      b(h, var5 + 1, var6, (class_cj)null, var2, var3);
+      var2.add(var6 = b(var4, new BlockPosition(-1, 0, -1), "second_floor", var1, false));
+      var2.add(var6 = b(var6, new BlockPosition(-1, 4, -1), "third_floor", var1, false));
+      var2.add(var6 = b(var6, new BlockPosition(-1, 8, -1), "third_roof", var1, true));
+      b(h, var5 + 1, var6, (BlockPosition)null, var2, var3);
    }
 
-   private static boolean b(class_ary.class_b_in_class_ary var0, int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5) {
+   private static boolean b(class_ary.class_b_in_class_ary var0, int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5) {
       if(var1 > 8) {
          return false;
       } else {
@@ -107,7 +107,7 @@ public class class_ary {
          public void a() {
          }
 
-         public boolean a(int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5) {
+         public boolean a(int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5) {
             if(var1 > 8) {
                return false;
             } else {
@@ -116,16 +116,16 @@ public class class_ary {
                var4.add(var7 = class_ary.b(var2, var3, "base_floor", var6, true));
                int var8 = var5.nextInt(3);
                if(var8 == 0) {
-                  var4.add(class_ary.b(var7, new class_cj(-1, 4, -1), "base_roof", var6, true));
+                  var4.add(class_ary.b(var7, new BlockPosition(-1, 4, -1), "base_roof", var6, true));
                } else if(var8 == 1) {
-                  var4.add(var7 = class_ary.b(var7, new class_cj(-1, 0, -1), "second_floor_2", var6, false));
-                  var4.add(var7 = class_ary.b(var7, new class_cj(-1, 8, -1), "second_roof", var6, false));
-                  class_ary.b(class_ary.h, var1 + 1, var7, (class_cj)null, var4, var5);
+                  var4.add(var7 = class_ary.b(var7, new BlockPosition(-1, 0, -1), "second_floor_2", var6, false));
+                  var4.add(var7 = class_ary.b(var7, new BlockPosition(-1, 8, -1), "second_roof", var6, false));
+                  class_ary.b(class_ary.h, var1 + 1, var7, (BlockPosition)null, var4, var5);
                } else if(var8 == 2) {
-                  var4.add(var7 = class_ary.b(var7, new class_cj(-1, 0, -1), "second_floor_2", var6, false));
-                  var4.add(var7 = class_ary.b(var7, new class_cj(-1, 4, -1), "third_floor_c", var6, false));
-                  var4.add(var7 = class_ary.b(var7, new class_cj(-1, 8, -1), "third_roof", var6, true));
-                  class_ary.b(class_ary.h, var1 + 1, var7, (class_cj)null, var4, var5);
+                  var4.add(var7 = class_ary.b(var7, new BlockPosition(-1, 0, -1), "second_floor_2", var6, false));
+                  var4.add(var7 = class_ary.b(var7, new BlockPosition(-1, 4, -1), "third_floor_c", var6, false));
+                  var4.add(var7 = class_ary.b(var7, new BlockPosition(-1, 8, -1), "third_roof", var6, true));
+                  class_ary.b(class_ary.h, var1 + 1, var7, (BlockPosition)null, var4, var5);
                }
 
                return true;
@@ -133,24 +133,24 @@ public class class_ary {
          }
       };
       g = new ArrayList();
-      g.add(new class_ob(Block.class_c_in_class_agj.a, new class_cj(1, -1, 0)));
-      g.add(new class_ob(Block.class_c_in_class_agj.b, new class_cj(6, -1, 1)));
-      g.add(new class_ob(Block.class_c_in_class_agj.d, new class_cj(0, -1, 5)));
-      g.add(new class_ob(Block.class_c_in_class_agj.c, new class_cj(5, -1, 6)));
+      g.add(new class_ob(Block.class_c_in_class_agj.a, new BlockPosition(1, -1, 0)));
+      g.add(new class_ob(Block.class_c_in_class_agj.b, new BlockPosition(6, -1, 1)));
+      g.add(new class_ob(Block.class_c_in_class_agj.d, new BlockPosition(0, -1, 5)));
+      g.add(new class_ob(Block.class_c_in_class_agj.c, new BlockPosition(5, -1, 6)));
       h = new class_ary.class_b_in_class_ary() {
          public void a() {
          }
 
-         public boolean a(int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5) {
+         public boolean a(int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5) {
             Block.class_c_in_class_agj var6 = var2.b.c();
             class_ary.class_a_in_class_ary var7;
-            var4.add(var7 = class_ary.b(var2, new class_cj(3 + var5.nextInt(2), -3, 3 + var5.nextInt(2)), "tower_base", var6, true));
-            var4.add(var7 = class_ary.b(var7, new class_cj(0, 7, 0), "tower_piece", var6, true));
+            var4.add(var7 = class_ary.b(var2, new BlockPosition(3 + var5.nextInt(2), -3, 3 + var5.nextInt(2)), "tower_base", var6, true));
+            var4.add(var7 = class_ary.b(var7, new BlockPosition(0, 7, 0), "tower_piece", var6, true));
             class_ary.class_a_in_class_ary var8 = var5.nextInt(3) == 0?var7:null;
             int var9 = 1 + var5.nextInt(3);
 
             for(int var10 = 0; var10 < var9; ++var10) {
-               var4.add(var7 = class_ary.b(var7, new class_cj(0, 4, 0), "tower_piece", var6, true));
+               var4.add(var7 = class_ary.b(var7, new BlockPosition(0, 4, 0), "tower_piece", var6, true));
                if(var10 < var9 - 1 && var5.nextBoolean()) {
                   var8 = var7;
                }
@@ -163,18 +163,18 @@ public class class_ary {
                   class_ob var11 = (class_ob)var13.next();
                   if(var5.nextBoolean()) {
                      class_ary.class_a_in_class_ary var12;
-                     var4.add(var12 = class_ary.b(var8, (class_cj)var11.b(), "bridge_end", var6.a((Block.class_c_in_class_agj)var11.a()), true));
-                     class_ary.b(class_ary.i, var1 + 1, var12, (class_cj)null, var4, var5);
+                     var4.add(var12 = class_ary.b(var8, (BlockPosition)var11.b(), "bridge_end", var6.a((Block.class_c_in_class_agj)var11.a()), true));
+                     class_ary.b(class_ary.i, var1 + 1, var12, (BlockPosition)null, var4, var5);
                   }
                }
 
-               var4.add(class_ary.b(var7, new class_cj(-1, 4, -1), "tower_top", var6, true));
+               var4.add(class_ary.b(var7, new BlockPosition(-1, 4, -1), "tower_top", var6, true));
             } else {
                if(var1 != 7) {
-                  return class_ary.b(class_ary.k, var1 + 1, var7, (class_cj)null, var4, var5);
+                  return class_ary.b(class_ary.k, var1 + 1, var7, (BlockPosition)null, var4, var5);
                }
 
-               var4.add(class_ary.b(var7, new class_cj(-1, 4, -1), "tower_top", var6, true));
+               var4.add(class_ary.b(var7, new BlockPosition(-1, 4, -1), "tower_top", var6, true));
             }
 
             return true;
@@ -187,23 +187,23 @@ public class class_ary {
             this.a = false;
          }
 
-         public boolean a(int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5) {
+         public boolean a(int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5) {
             Block.class_c_in_class_agj var7 = var2.b.c();
             int var8 = var5.nextInt(4) + 1;
             byte var9 = 0;
             class_ary.class_a_in_class_ary var6;
-            var4.add(var6 = class_ary.b(var2, new class_cj(0, 0, -4), "bridge_piece", var7, true));
+            var4.add(var6 = class_ary.b(var2, new BlockPosition(0, 0, -4), "bridge_piece", var7, true));
             var6.m = -1;
 
             for(int var10 = 0; var10 < var8; ++var10) {
                if(var5.nextBoolean()) {
-                  var4.add(var6 = class_ary.b(var6, new class_cj(0, var9, -4), "bridge_piece", var7, true));
+                  var4.add(var6 = class_ary.b(var6, new BlockPosition(0, var9, -4), "bridge_piece", var7, true));
                   var9 = 0;
                } else {
                   if(var5.nextBoolean()) {
-                     var4.add(var6 = class_ary.b(var6, new class_cj(0, var9, -4), "bridge_steep_stairs", var7, true));
+                     var4.add(var6 = class_ary.b(var6, new BlockPosition(0, var9, -4), "bridge_steep_stairs", var7, true));
                   } else {
-                     var4.add(var6 = class_ary.b(var6, new class_cj(0, var9, -8), "bridge_gentle_stairs", var7, true));
+                     var4.add(var6 = class_ary.b(var6, new BlockPosition(0, var9, -8), "bridge_gentle_stairs", var7, true));
                   }
 
                   var9 = 4;
@@ -211,47 +211,47 @@ public class class_ary {
             }
 
             if(!this.a && var5.nextInt(10 - var1) == 0) {
-               var4.add(class_ary.b(var6, new class_cj(-8 + var5.nextInt(8), var9, -70 + var5.nextInt(10)), "ship", var7, true));
+               var4.add(class_ary.b(var6, new BlockPosition(-8 + var5.nextInt(8), var9, -70 + var5.nextInt(10)), "ship", var7, true));
                this.a = true;
-            } else if(!class_ary.b(class_ary.f, var1 + 1, var6, new class_cj(-3, var9 + 1, -11), var4, var5)) {
+            } else if(!class_ary.b(class_ary.f, var1 + 1, var6, new BlockPosition(-3, var9 + 1, -11), var4, var5)) {
                return false;
             }
 
-            var4.add(var6 = class_ary.b(var6, new class_cj(4, var9, 0), "bridge_end", var7.a(Block.class_c_in_class_agj.c), true));
+            var4.add(var6 = class_ary.b(var6, new BlockPosition(4, var9, 0), "bridge_end", var7.a(Block.class_c_in_class_agj.c), true));
             var6.m = -1;
             return true;
          }
       };
       j = new ArrayList();
-      j.add(new class_ob(Block.class_c_in_class_agj.a, new class_cj(4, -1, 0)));
-      j.add(new class_ob(Block.class_c_in_class_agj.b, new class_cj(12, -1, 4)));
-      j.add(new class_ob(Block.class_c_in_class_agj.d, new class_cj(0, -1, 8)));
-      j.add(new class_ob(Block.class_c_in_class_agj.c, new class_cj(8, -1, 12)));
+      j.add(new class_ob(Block.class_c_in_class_agj.a, new BlockPosition(4, -1, 0)));
+      j.add(new class_ob(Block.class_c_in_class_agj.b, new BlockPosition(12, -1, 4)));
+      j.add(new class_ob(Block.class_c_in_class_agj.d, new BlockPosition(0, -1, 8)));
+      j.add(new class_ob(Block.class_c_in_class_agj.c, new BlockPosition(8, -1, 12)));
       k = new class_ary.class_b_in_class_ary() {
          public void a() {
          }
 
-         public boolean a(int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5) {
+         public boolean a(int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5) {
             Block.class_c_in_class_agj var7 = var2.b.c();
             class_ary.class_a_in_class_ary var6;
-            var4.add(var6 = class_ary.b(var2, new class_cj(-3, 4, -3), "fat_tower_base", var7, true));
-            var4.add(var6 = class_ary.b(var6, new class_cj(0, 4, 0), "fat_tower_middle", var7, true));
+            var4.add(var6 = class_ary.b(var2, new BlockPosition(-3, 4, -3), "fat_tower_base", var7, true));
+            var4.add(var6 = class_ary.b(var6, new BlockPosition(0, 4, 0), "fat_tower_middle", var7, true));
 
             for(int var8 = 0; var8 < 2 && var5.nextInt(3) != 0; ++var8) {
-               var4.add(var6 = class_ary.b(var6, new class_cj(0, 8, 0), "fat_tower_middle", var7, true));
+               var4.add(var6 = class_ary.b(var6, new BlockPosition(0, 8, 0), "fat_tower_middle", var7, true));
                Iterator var9 = class_ary.j.iterator();
 
                while(var9.hasNext()) {
                   class_ob var10 = (class_ob)var9.next();
                   if(var5.nextBoolean()) {
                      class_ary.class_a_in_class_ary var11;
-                     var4.add(var11 = class_ary.b(var6, (class_cj)var10.b(), "bridge_end", var7.a((Block.class_c_in_class_agj)var10.a()), true));
-                     class_ary.b(class_ary.i, var1 + 1, var11, (class_cj)null, var4, var5);
+                     var4.add(var11 = class_ary.b(var6, (BlockPosition)var10.b(), "bridge_end", var7.a((Block.class_c_in_class_agj)var10.a()), true));
+                     class_ary.b(class_ary.i, var1 + 1, var11, (BlockPosition)null, var4, var5);
                   }
                }
             }
 
-            var4.add(class_ary.b(var6, new class_cj(-2, 8, -2), "fat_tower_top", var7, true));
+            var4.add(class_ary.b(var6, new BlockPosition(-2, 8, -2), "fat_tower_top", var7, true));
             return true;
          }
       };
@@ -260,7 +260,7 @@ public class class_ary {
    interface class_b_in_class_ary {
       void a();
 
-      boolean a(int var1, class_ary.class_a_in_class_ary var2, class_cj var3, List var4, Random var5);
+      boolean a(int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5);
    }
 
    public static class class_a_in_class_ary extends class_asp {
@@ -271,7 +271,7 @@ public class class_ary {
       public class_a_in_class_ary() {
       }
 
-      public class_a_in_class_ary(String var1, class_cj var2, Block.class_c_in_class_agj var3, boolean var4) {
+      public class_a_in_class_ary(String var1, BlockPosition var2, Block.class_c_in_class_agj var3, boolean var4) {
          super(0);
          this.d = var1;
          this.e = var3;
@@ -279,7 +279,7 @@ public class class_ary {
          this.a(var2);
       }
 
-      private void a(class_cj var1) {
+      private void a(BlockPosition var1) {
          class_asv var2 = class_ary.a.a(new MinecraftKey("endcity/" + this.d));
          class_asu var3 = null;
          if(this.f) {
@@ -306,10 +306,10 @@ public class class_ary {
          this.a(this.c);
       }
 
-      protected void a(String var1, class_cj var2, World var3, Random var4, class_arw var5) {
+      protected void a(String var1, BlockPosition var2, World var3, Random var4, class_arw var5) {
          if(var1.startsWith("Chest")) {
-            class_cj var6 = var2.b();
-            if(var5.b((class_df)var6)) {
+            BlockPosition var6 = var2.shiftDown();
+            if(var5.b((BaseBlockPosition)var6)) {
                class_amg var7 = var3.s(var6);
                if(var7 instanceof class_ami) {
                   ArrayList var8 = Lists.newArrayList((Iterable)class_ary.d);
@@ -325,7 +325,7 @@ public class class_ary {
             }
          } else if(var1.startsWith("Sentry")) {
             class_ug var11 = new class_ug(var3);
-            var11.b((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D);
+            var11.b((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D);
             var11.f(var2);
             var3.a((class_pr)var11);
          }

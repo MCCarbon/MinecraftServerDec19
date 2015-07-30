@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_afg extends class_afd {
    private class_aez b;
@@ -16,7 +16,7 @@ public class class_afg extends class_afd {
       this.c = var2;
    }
 
-   public class_aez a(class_cj var1) {
+   public class_aez a(BlockPosition var1) {
       return this.b;
    }
 
@@ -51,8 +51,8 @@ public class class_afg extends class_afd {
       return this.b(var1, var2, var3, var4, var5);
    }
 
-   public class_cj a(int var1, int var2, int var3, List var4, Random var5) {
-      return var4.contains(this.b)?new class_cj(var1 - var3 + var5.nextInt(var3 * 2 + 1), 0, var2 - var3 + var5.nextInt(var3 * 2 + 1)):null;
+   public BlockPosition a(int var1, int var2, int var3, List var4, Random var5) {
+      return var4.contains(this.b)?new BlockPosition(var1 - var3 + var5.nextInt(var3 * 2 + 1), 0, var2 - var3 + var5.nextInt(var3 * 2 + 1)):null;
    }
 
    public boolean a(int var1, int var2, int var3, List var4) {

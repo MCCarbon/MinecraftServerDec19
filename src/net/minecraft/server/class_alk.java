@@ -21,7 +21,7 @@ public abstract class class_alk extends class_aio {
    public static final BlockStateEnum N = BlockStateEnum.of("variant", class_alk.class_a_in_class_alk.class);
 
    public class_alk() {
-      super(Material.e);
+      super(Material.STONE);
       IBlockData var1 = this.blockStateList.getFirst();
       if(this.l()) {
          var1 = var1.set(b, Boolean.valueOf(false));
@@ -87,14 +87,14 @@ public abstract class class_alk extends class_aio {
    }
 
    public static enum class_a_in_class_alk implements INamable {
-       a(0, MaterialMapColor.m, "stone"),
-       b(1, MaterialMapColor.d, "sandstone", "sand"),
-       c(2, MaterialMapColor.o, "wood_old", "wood"),
-       d(3, MaterialMapColor.m, "cobblestone", "cobble"),
-       e(4, MaterialMapColor.D, "brick"),
-       f(5, MaterialMapColor.m, "stone_brick", "smoothStoneBrick"),
-       g(6, MaterialMapColor.K, "nether_brick", "netherBrick"),
-       h(7, MaterialMapColor.p, "quartz");
+       a(0, MaterialMapColor.COLOR12, "stone"),
+       b(1, MaterialMapColor.COLOR3, "sandstone", "sand"),
+       c(2, MaterialMapColor.COLOR14, "wood_old", "wood"),
+       d(3, MaterialMapColor.COLOR12, "cobblestone", "cobble"),
+       e(4, MaterialMapColor.COLOR29, "brick"),
+       f(5, MaterialMapColor.COLOR12, "stone_brick", "smoothStoneBrick"),
+       g(6, MaterialMapColor.COLOR36, "nether_brick", "netherBrick"),
+       h(7, MaterialMapColor.COLOR15, "quartz");
 
       private static final class_alk.class_a_in_class_alk[] i;
       private final int j;

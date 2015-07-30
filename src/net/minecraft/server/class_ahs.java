@@ -11,7 +11,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 
 public class class_ahs extends class_agd {
@@ -24,12 +24,12 @@ public class class_ahs extends class_agd {
       return new class_anb();
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       float var3 = 0.0625F;
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, var3, 1.0F);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
    }
 
    public boolean isOpaqueCube() {
@@ -44,7 +44,7 @@ public class class_ahs extends class_agd {
       return 0;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
       if(var4.m == null && var4.l == null && !var1.D) {
          var4.c(1);
       }
@@ -52,6 +52,6 @@ public class class_ahs extends class_agd {
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return MaterialMapColor.E;
+      return MaterialMapColor.COLOR30;
    }
 }

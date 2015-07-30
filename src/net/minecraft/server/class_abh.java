@@ -5,8 +5,8 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pr;
@@ -18,9 +18,9 @@ public class class_abh extends Item {
       this.a(CreativeTab.d);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
       boolean var10 = var3.p(var4).getBlock().isReplaceable(var3, var4);
-      class_cj var11 = var10?var4:var4.a(var6);
+      BlockPosition var11 = var10?var4:var4.shift(var6);
       if(!var2.a(var11, var6, var1)) {
          return class_oq.b;
       } else {

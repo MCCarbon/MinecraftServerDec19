@@ -10,13 +10,13 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_ly;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ok;
 import net.minecraft.server.class_on;
@@ -291,7 +291,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public int p(int var1) {
-      int var2 = class_nu.a(this.cR() + var1, 0, this.cX());
+      int var2 = MathHelper.clamp(this.cR() + var1, 0, this.cX());
       this.o(var2);
       return var2;
    }
@@ -310,9 +310,9 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public boolean cS() {
-      int var1 = class_nu.c(this.s);
-      int var2 = class_nu.c(this.u);
-      this.o.b(new class_cj(var1, 0, var2));
+      int var1 = MathHelper.floor(this.s);
+      int var2 = MathHelper.floor(this.u);
+      this.o.b(new BlockPosition(var1, 0, var2));
       return true;
    }
 
@@ -336,15 +336,15 @@ public class class_tz extends class_tw implements class_ok {
          this.a("mob.horse.land", 0.4F, 1.0F);
       }
 
-      int var3 = class_nu.f((var1 * 0.5F - 3.0F) * var2);
+      int var3 = MathHelper.ceil((var1 * 0.5F - 3.0F) * var2);
       if(var3 > 0) {
          this.a(class_pc.i, (float)var3);
          if(this.l != null) {
             this.l.a(class_pc.i, (float)var3);
          }
 
-         Block var4 = this.o.p(new class_cj(this.s, this.t - 0.2D - (double)this.A, this.u)).getBlock();
-         if(var4.getMaterial() != Material.a && !this.R()) {
+         Block var4 = this.o.p(new BlockPosition(this.s, this.t - 0.2D - (double)this.A, this.u)).getBlock();
+         if(var4.getMaterial() != Material.AIR && !this.R()) {
             Block.StepSound var5 = var4.stepSound;
             this.o.a((class_pr)this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
          }
@@ -475,13 +475,13 @@ public class class_tz extends class_tw implements class_ok {
       return var1 != 3 && var1 != 4?(var1 != 1 && var1 != 2?"mob.horse.angry":"mob.horse.donkey.angry"):null;
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       Block.StepSound var3 = var2.stepSound;
-      if(this.o.p(var1.a()).getBlock() == Blocks.SNOW_LAYER) {
+      if(this.o.p(var1.shiftUp()).getBlock() == Blocks.SNOW_LAYER) {
          var3 = Blocks.SNOW_LAYER.stepSound;
       }
 
-      if(!var2.getMaterial().d()) {
+      if(!var2.getMaterial().isLiquid()) {
          int var4 = this.cA();
          if(this.l != null && var4 != 1 && var4 != 2) {
             ++this.bY;
@@ -731,7 +731,7 @@ public class class_tz extends class_tw implements class_ok {
             this.h(1.0F);
          }
 
-         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.t) - 1, class_nu.c(this.u))).getBlock() == Blocks.GRASS) {
+         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.t) - 1, MathHelper.floor(this.u))).getBlock() == Blocks.GRASS) {
             this.s(true);
          }
 
@@ -912,8 +912,8 @@ public class class_tz extends class_tw implements class_ok {
             this.n(true);
             this.ai = true;
             if(var2 > 0.0F) {
-               float var3 = class_nu.a(this.y * 3.1415927F / 180.0F);
-               float var4 = class_nu.b(this.y * 3.1415927F / 180.0F);
+               float var3 = MathHelper.sin(this.y * 3.1415927F / 180.0F);
+               float var4 = MathHelper.cos(this.y * 3.1415927F / 180.0F);
                this.v += (double)(-0.4F * var3 * this.bx);
                this.x += (double)(0.4F * var4 * this.bx);
                this.a("mob.horse.jump", 0.4F, 1.0F);
@@ -937,7 +937,7 @@ public class class_tz extends class_tw implements class_ok {
          this.aD = this.aE;
          double var8 = this.s - this.p;
          double var5 = this.u - this.r;
-         float var7 = class_nu.a(var8 * var8 + var5 * var5) * 4.0F;
+         float var7 = MathHelper.sqrt(var8 * var8 + var5 * var5) * 4.0F;
          if(var7 > 1.0F) {
             var7 = 1.0F;
          }
@@ -1180,8 +1180,8 @@ public class class_tz extends class_tw implements class_ok {
    public void al() {
       super.al();
       if(this.bV > 0.0F) {
-         float var1 = class_nu.a(this.aL * 3.1415927F / 180.0F);
-         float var2 = class_nu.b(this.aL * 3.1415927F / 180.0F);
+         float var1 = MathHelper.sin(this.aL * 3.1415927F / 180.0F);
+         float var2 = MathHelper.cos(this.aL * 3.1415927F / 180.0F);
          float var3 = 0.7F * this.bV;
          float var4 = 0.15F * this.bV;
          this.l.b(this.s + (double)(var3 * var1), this.t + this.an() + this.l.am() + (double)var4, this.u - (double)(var3 * var2));

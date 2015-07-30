@@ -11,7 +11,7 @@ import net.minecraft.server.class_apw;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.class_arb;
 import net.minecraft.server.class_ark;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_aff extends class_aez {
    private class_aql aD;
@@ -40,7 +40,7 @@ public class class_aff extends class_aez {
       return (class_apw)(var1.nextInt(3) > 0?this.aE:super.a(var1));
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       super.a(var1, var2, var3);
       int var4 = 3 + var2.nextInt(6);
 
@@ -51,9 +51,9 @@ public class class_aff extends class_aez {
          var6 = var2.nextInt(16);
          var7 = var2.nextInt(28) + 4;
          int var8 = var2.nextInt(16);
-         class_cj var9 = var3.a(var6, var7, var8);
+         BlockPosition var9 = var3.add(var6, var7, var8);
          if(var1.p(var9).getBlock() == Blocks.STONE) {
-            var1.a((class_cj)var9, (IBlockData)Blocks.EMERALD_ORE.getBlockData(), 2);
+            var1.a((BlockPosition)var9, (IBlockData)Blocks.EMERALD_ORE.getBlockData(), 2);
          }
       }
 
@@ -61,7 +61,7 @@ public class class_aff extends class_aez {
          var5 = var2.nextInt(16);
          var6 = var2.nextInt(64);
          var7 = var2.nextInt(16);
-         this.aD.b(var1, var2, var3.a(var5, var6, var7));
+         this.aD.b(var1, var2, var3.add(var5, var6, var7));
       }
 
    }

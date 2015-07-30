@@ -17,8 +17,8 @@ import net.minecraft.server.class_ast;
 import net.minecraft.server.class_asu;
 import net.minecraft.server.class_asv;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ft;
@@ -31,8 +31,8 @@ public class class_amz extends class_amg {
    private String a = "";
    private String f = "";
    private String g = "";
-   private class_cj h = new class_cj(1, 1, 1);
-   private class_cj i = new class_cj(0, 0, 0);
+   private BlockPosition h = new BlockPosition(1, 1, 1);
+   private BlockPosition i = new BlockPosition(0, 0, 0);
    private Block.class_a_in_class_agj j;
    private Block.class_c_in_class_agj k;
    private class_amz.class_a_in_class_amz l;
@@ -49,12 +49,12 @@ public class class_amz extends class_amg {
       var1.a("name", this.a);
       var1.a("author", this.f);
       var1.a("metadata", this.g);
-      var1.a("posX", this.h.n());
-      var1.a("posY", this.h.o());
-      var1.a("posZ", this.h.p());
-      var1.a("sizeX", this.i.n());
-      var1.a("sizeY", this.i.o());
-      var1.a("sizeZ", this.i.p());
+      var1.a("posX", this.h.getX());
+      var1.a("posY", this.h.getY());
+      var1.a("posZ", this.h.getZ());
+      var1.a("sizeX", this.i.getX());
+      var1.a("sizeY", this.i.getY());
+      var1.a("sizeZ", this.i.getZ());
       var1.a("rotation", this.k.toString());
       var1.a("mirror", this.j.toString());
       var1.a("mode", this.l.toString());
@@ -66,8 +66,8 @@ public class class_amz extends class_amg {
       this.a = var1.k("name");
       this.f = var1.k("author");
       this.g = var1.k("metadata");
-      this.h = new class_cj(var1.g("posX"), var1.g("posY"), var1.g("posZ"));
-      this.i = new class_cj(var1.g("sizeX"), var1.g("sizeY"), var1.g("sizeZ"));
+      this.h = new BlockPosition(var1.g("posX"), var1.g("posY"), var1.g("posZ"));
+      this.i = new BlockPosition(var1.g("sizeX"), var1.g("sizeY"), var1.g("sizeZ"));
 
       try {
          this.k = Block.class_c_in_class_agj.valueOf(var1.k("rotation"));
@@ -100,11 +100,11 @@ public class class_amz extends class_amg {
       this.a = var1;
    }
 
-   public void b(class_cj var1) {
+   public void b(BlockPosition var1) {
       this.h = var1;
    }
 
-   public void c(class_cj var1) {
+   public void c(BlockPosition var1) {
       this.i = var1;
    }
 
@@ -124,7 +124,7 @@ public class class_amz extends class_amg {
       this.l = var1;
       IBlockData var2 = this.b.p(this.v());
       if(var2.getBlock() == Blocks.STRUCTURE_BLOCK) {
-         this.b.a((class_cj)this.v(), (IBlockData)var2.set(class_all.a, var1), 2);
+         this.b.a((BlockPosition)this.v(), (IBlockData)var2.set(class_all.a, var1), 2);
       }
 
    }
@@ -137,10 +137,10 @@ public class class_amz extends class_amg {
       if(this.l != class_amz.class_a_in_class_amz.a) {
          return false;
       } else {
-         class_cj var1 = this.v();
+         BlockPosition var1 = this.v();
          boolean var2 = true;
-         class_cj var3 = new class_cj(var1.n() - 128, 0, var1.p() - 128);
-         class_cj var4 = new class_cj(var1.n() + 128, 255, var1.p() + 128);
+         BlockPosition var3 = new BlockPosition(var1.getX() - 128, 0, var1.getZ() - 128);
+         BlockPosition var4 = new BlockPosition(var1.getX() + 128, 255, var1.getZ() + 128);
          List var5 = this.a(var3, var4);
          List var6 = this.a(var5);
          if(var6.size() < 1) {
@@ -148,8 +148,8 @@ public class class_amz extends class_amg {
          } else {
             class_arw var7 = this.a(var1, var6);
             if(var7.d - var7.a > 1 && var7.e - var7.b > 1 && var7.f - var7.c > 1) {
-               this.h = new class_cj(var7.a - var1.n() + 1, var7.b - var1.o() + 1, var7.c - var1.p() + 1);
-               this.i = new class_cj(var7.d - var7.a - 1, var7.e - var7.b - 1, var7.f - var7.c - 1);
+               this.h = new BlockPosition(var7.a - var1.getX() + 1, var7.b - var1.getY() + 1, var7.c - var1.getZ() + 1);
+               this.i = new BlockPosition(var7.d - var7.a - 1, var7.e - var7.b - 1, var7.f - var7.c - 1);
                this.p_();
                this.b.h(var1);
                return true;
@@ -174,12 +174,12 @@ public class class_amz extends class_amg {
       return Lists.newArrayList(var2);
    }
 
-   private List a(class_cj var1, class_cj var2) {
+   private List a(BlockPosition var1, BlockPosition var2) {
       ArrayList var3 = Lists.newArrayList();
-      Iterator var4 = class_cj.b(var1, var2).iterator();
+      Iterator var4 = BlockPosition.allInCubeM(var1, var2).iterator();
 
       while(var4.hasNext()) {
-         class_cj.class_a_in_class_cj var5 = (class_cj.class_a_in_class_cj)var4.next();
+         BlockPosition.MutableBlockPosition var5 = (BlockPosition.MutableBlockPosition)var4.next();
          IBlockData var6 = this.b.p(var5);
          if(var6.getBlock() == Blocks.STRUCTURE_BLOCK) {
             class_amg var7 = this.b.s(var5);
@@ -192,10 +192,10 @@ public class class_amz extends class_amg {
       return var3;
    }
 
-   private class_arw a(class_cj var1, List var2) {
+   private class_arw a(BlockPosition var1, List var2) {
       class_arw var3;
       if(var2.size() > 1) {
-         class_cj var4 = ((class_amz)var2.get(0)).v();
+         BlockPosition var4 = ((class_amz)var2.get(0)).v();
          var3 = new class_arw(var4, var4);
       } else {
          var3 = new class_arw(var1, var1);
@@ -205,23 +205,23 @@ public class class_amz extends class_amg {
 
       while(var7.hasNext()) {
          class_amz var5 = (class_amz)var7.next();
-         class_cj var6 = var5.v();
-         if(var6.n() < var3.a) {
-            var3.a = var6.n();
-         } else if(var6.n() > var3.d) {
-            var3.d = var6.n();
+         BlockPosition var6 = var5.v();
+         if(var6.getX() < var3.a) {
+            var3.a = var6.getX();
+         } else if(var6.getX() > var3.d) {
+            var3.d = var6.getX();
          }
 
-         if(var6.o() < var3.b) {
-            var3.b = var6.o();
-         } else if(var6.o() > var3.e) {
-            var3.e = var6.o();
+         if(var6.getY() < var3.b) {
+            var3.b = var6.getY();
+         } else if(var6.getY() > var3.e) {
+            var3.e = var6.getY();
          }
 
-         if(var6.p() < var3.c) {
-            var3.c = var6.p();
-         } else if(var6.p() > var3.f) {
-            var3.f = var6.p();
+         if(var6.getZ() < var3.c) {
+            var3.c = var6.getZ();
+         } else if(var6.getZ() > var3.f) {
+            var3.f = var6.getZ();
          }
       }
 
@@ -232,7 +232,7 @@ public class class_amz extends class_amg {
       if(this.l != class_amz.class_a_in_class_amz.a) {
          return false;
       } else {
-         class_cj var1 = this.v().a((class_df)this.h);
+         BlockPosition var1 = this.v().add((BaseBlockPosition)this.h);
          class_ast var2 = ((class_all)this.w()).l();
          class_asv var3 = var2.a(new MinecraftKey(this.a));
          var3.a(this.b, var1, this.i, !this.m);
@@ -246,7 +246,7 @@ public class class_amz extends class_amg {
       if(this.l != class_amz.class_a_in_class_amz.b) {
          return false;
       } else {
-         class_cj var1 = this.v().a((class_df)this.h);
+         BlockPosition var1 = this.v().add((BaseBlockPosition)this.h);
          class_ast var2 = ((class_all)this.w()).l();
          class_asv var3 = var2.a(new MinecraftKey(this.a));
          if(!class_nz.b(var3.b())) {
@@ -257,8 +257,8 @@ public class class_amz extends class_amg {
             this.i = var3.a();
             return false;
          } else {
-            class_cj var4 = var3.a(this.k);
-            Iterator var5 = this.b.b((class_pr)null, (class_awf)(new class_awf(var1, var4.a((class_df)var1).a(-1, -1, -1)))).iterator();
+            BlockPosition var4 = var3.a(this.k);
+            Iterator var5 = this.b.b((class_pr)null, (class_awf)(new class_awf(var1, var4.add((BaseBlockPosition)var1).add(-1, -1, -1)))).iterator();
 
             while(var5.hasNext()) {
                class_pr var6 = (class_pr)var5.next();

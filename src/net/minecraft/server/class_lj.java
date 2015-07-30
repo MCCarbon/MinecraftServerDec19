@@ -13,7 +13,7 @@ import net.minecraft.server.class_acd;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_avf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fk;
 import net.minecraft.server.class_fl;
@@ -31,7 +31,7 @@ import net.minecraft.server.class_hz;
 import net.minecraft.server.class_ia;
 import net.minecraft.server.class_ib;
 import net.minecraft.server.class_lh;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pp;
 import net.minecraft.server.class_pr;
@@ -102,12 +102,12 @@ public class class_lj {
       this.b = var2;
       this.c = var3;
       this.u = var4;
-      this.d = class_nu.c(var1.s * 32.0D);
-      this.e = class_nu.c(var1.t * 32.0D);
-      this.f = class_nu.c(var1.u * 32.0D);
-      this.g = class_nu.d(var1.y * 256.0F / 360.0F);
-      this.h = class_nu.d(var1.z * 256.0F / 360.0F);
-      this.i = class_nu.d(var1.aE() * 256.0F / 360.0F);
+      this.d = MathHelper.floor(var1.s * 32.0D);
+      this.e = MathHelper.floor(var1.t * 32.0D);
+      this.f = MathHelper.floor(var1.u * 32.0D);
+      this.g = MathHelper.floor(var1.y * 256.0F / 360.0F);
+      this.h = MathHelper.floor(var1.z * 256.0F / 360.0F);
+      this.i = MathHelper.floor(var1.aE() * 256.0F / 360.0F);
       this.y = var1.C;
    }
 
@@ -161,11 +161,11 @@ public class class_lj {
          int var24;
          if(this.a.m == null) {
             ++this.v;
-            var23 = class_nu.c(this.a.s * 32.0D);
-            var24 = class_nu.c(this.a.t * 32.0D);
-            int var26 = class_nu.c(this.a.u * 32.0D);
-            int var27 = class_nu.d(this.a.y * 256.0F / 360.0F);
-            int var28 = class_nu.d(this.a.z * 256.0F / 360.0F);
+            var23 = MathHelper.floor(this.a.s * 32.0D);
+            var24 = MathHelper.floor(this.a.t * 32.0D);
+            int var26 = MathHelper.floor(this.a.u * 32.0D);
+            int var27 = MathHelper.floor(this.a.y * 256.0F / 360.0F);
+            int var28 = MathHelper.floor(this.a.z * 256.0F / 360.0F);
             int var29 = var23 - this.d;
             int var30 = var24 - this.e;
             int var9 = var26 - this.f;
@@ -222,8 +222,8 @@ public class class_lj {
 
             this.x = false;
          } else {
-            var23 = class_nu.d(this.a.y * 256.0F / 360.0F);
-            var24 = class_nu.d(this.a.z * 256.0F / 360.0F);
+            var23 = MathHelper.floor(this.a.y * 256.0F / 360.0F);
+            var24 = MathHelper.floor(this.a.z * 256.0F / 360.0F);
             boolean var25 = Math.abs(var23 - this.g) >= 4 || Math.abs(var24 - this.h) >= 4;
             if(var25) {
                this.a((class_ff)(new class_gv.class_c_in_class_gv(this.a.F(), (byte)var23, (byte)var24, this.a.C)));
@@ -231,14 +231,14 @@ public class class_lj {
                this.h = var24;
             }
 
-            this.d = class_nu.c(this.a.s * 32.0D);
-            this.e = class_nu.c(this.a.t * 32.0D);
-            this.f = class_nu.c(this.a.u * 32.0D);
+            this.d = MathHelper.floor(this.a.s * 32.0D);
+            this.e = MathHelper.floor(this.a.t * 32.0D);
+            this.f = MathHelper.floor(this.a.u * 32.0D);
             this.b();
             this.x = true;
          }
 
-         var23 = class_nu.d(this.a.aE() * 256.0F / 360.0F);
+         var23 = MathHelper.floor(this.a.aE() * 256.0F / 360.0F);
          if(Math.abs(var23 - this.i) >= 4) {
             this.a((class_ff)(new class_hf(this.a, (byte)var23)));
             this.i = var23;
@@ -361,7 +361,7 @@ public class class_lj {
                if(this.a instanceof class_xa) {
                   class_xa var9 = (class_xa)this.a;
                   if(var9.bK()) {
-                     var1.a.a((class_ff)(new class_ha(var9, new class_cj(this.a))));
+                     var1.a.a((class_ff)(new class_ha(var9, new BlockPosition(this.a))));
                   }
                }
 
@@ -418,7 +418,7 @@ public class class_lj {
       } else if(this.a instanceof class_vk) {
          return new class_fk(this.a, 1);
       } else if(this.a instanceof class_pp) {
-         this.i = class_nu.d(this.a.aE() * 256.0F / 360.0F);
+         this.i = MathHelper.floor(this.a.aE() * 256.0F / 360.0F);
          return new class_fn((class_qa)this.a);
       } else if(this.a instanceof class_ve) {
          class_xa var9 = ((class_ve)this.a).b;
@@ -488,22 +488,22 @@ public class class_lj {
             } else if(this.a instanceof class_vc) {
                return new class_fo((class_vc)this.a);
             } else {
-               class_cj var3;
+               BlockPosition var3;
                if(this.a instanceof class_va) {
                   class_va var4 = (class_va)this.a;
-                  var2 = new class_fk(this.a, 71, var4.b.b());
+                  var2 = new class_fk(this.a, 71, var4.b.getHorizontalId());
                   var3 = var4.n();
-                  var2.a(class_nu.d((float)(var3.n() * 32)));
-                  var2.b(class_nu.d((float)(var3.o() * 32)));
-                  var2.c(class_nu.d((float)(var3.p() * 32)));
+                  var2.a(MathHelper.floor((float)(var3.getX() * 32)));
+                  var2.b(MathHelper.floor((float)(var3.getY() * 32)));
+                  var2.c(MathHelper.floor((float)(var3.getZ() * 32)));
                   return var2;
                } else if(this.a instanceof class_vb) {
                   class_vb var1 = (class_vb)this.a;
                   var2 = new class_fk(this.a, 77);
                   var3 = var1.n();
-                  var2.a(class_nu.d((float)(var3.n() * 32)));
-                  var2.b(class_nu.d((float)(var3.o() * 32)));
-                  var2.c(class_nu.d((float)(var3.p() * 32)));
+                  var2.a(MathHelper.floor((float)(var3.getX() * 32)));
+                  var2.b(MathHelper.floor((float)(var3.getY() * 32)));
+                  var2.c(MathHelper.floor((float)(var3.getZ() * 32)));
                   return var2;
                } else if(this.a instanceof class_px) {
                   return new class_fl((class_px)this.a);

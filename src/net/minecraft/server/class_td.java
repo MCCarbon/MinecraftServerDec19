@@ -3,8 +3,8 @@ package net.minecraft.server;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.class_awp;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
@@ -110,7 +110,7 @@ public abstract class class_td extends class_rm {
    protected boolean a(class_qa var1, boolean var2) {
       if(!a(this.e, var1, var2, this.f)) {
          return false;
-      } else if(!this.e.e(new class_cj(var1))) {
+      } else if(!this.e.e(new BlockPosition(var1))) {
          return false;
       } else {
          if(this.a) {
@@ -141,8 +141,8 @@ public abstract class class_td extends class_rm {
          if(var3 == null) {
             return false;
          } else {
-            int var4 = var3.a - class_nu.c(var1.s);
-            int var5 = var3.c - class_nu.c(var1.u);
+            int var4 = var3.a - MathHelper.floor(var1.s);
+            int var5 = var3.c - MathHelper.floor(var1.u);
             return (double)(var4 * var4 + var5 * var5) <= 2.25D;
          }
       }

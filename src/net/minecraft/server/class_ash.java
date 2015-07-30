@@ -23,9 +23,9 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_od;
 import net.minecraft.server.class_pr;
@@ -89,10 +89,10 @@ public class class_ash {
             this.a(var1, Blocks.CAULDRON.getBlockData(), 4, 2, 6, var3);
             this.a(var1, Blocks.FENCE.getBlockData(), 1, 2, 1, var3);
             this.a(var1, Blocks.FENCE.getBlockData(), 5, 2, 1, var3);
-            IBlockData var4 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, class_cq.c);
-            IBlockData var5 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, class_cq.f);
-            IBlockData var6 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, class_cq.e);
-            IBlockData var7 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, class_cq.d);
+            IBlockData var4 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
+            IBlockData var5 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST);
+            IBlockData var6 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
+            IBlockData var7 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
             this.a(var1, var3, 0, 4, 1, 6, 4, 1, var4, var4, false);
             this.a(var1, var3, 0, 4, 2, 0, 4, 7, var5, var5, false);
             this.a(var1, var3, 6, 4, 2, 6, 4, 7, var6, var6, false);
@@ -110,11 +110,11 @@ public class class_ash {
                var8 = this.a(2, 5);
                var9 = this.d(2);
                int var10 = this.b(2, 5);
-               if(var3.b((class_df)(new class_cj(var8, var9, var10)))) {
+               if(var3.b((BaseBlockPosition)(new BlockPosition(var8, var9, var10)))) {
                   this.e = true;
                   class_wq var11 = new class_wq(var1);
                   var11.b((double)var8 + 0.5D, (double)var9, (double)var10 + 0.5D, 0.0F, 0.0F);
-                  var11.a(var1.E(new class_cj(var8, var9, var10)), (class_qd)null);
+                  var11.a(var1.E(new BlockPosition(var8, var9, var10)), (class_qd)null);
                   var1.a((class_pr)var11);
                }
             }
@@ -215,10 +215,10 @@ public class class_ash {
             this.a(var1, var3, 4, 9, 10, 4, 9, 10, false, var2, k);
             this.a(var1, var3, 7, 9, 10, 7, 9, 10, false, var2, k);
             this.a(var1, var3, 5, 9, 7, 6, 9, 7, false, var2, k);
-            IBlockData var9 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, class_cq.f);
-            IBlockData var10 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, class_cq.e);
-            IBlockData var6 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, class_cq.d);
-            IBlockData var7 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, class_cq.c);
+            IBlockData var9 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST);
+            IBlockData var10 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
+            IBlockData var6 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
+            IBlockData var7 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
             this.a(var1, var7, 5, 9, 6, var3);
             this.a(var1, var7, 6, 9, 6, var3);
             this.a(var1, var6, 5, 9, 8, var3);
@@ -263,8 +263,8 @@ public class class_ash {
             this.a(var1, var3, 7, -2, 1, 9, -2, 1, false, var2, k);
             this.a(var1, var3, 6, -3, 1, 6, -3, 1, false, var2, k);
             this.a(var1, var3, 6, -1, 1, 6, -1, 1, false, var2, k);
-            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, class_cq.f).set(class_alt.N, Boolean.valueOf(true)), 1, -3, 8, var3);
-            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, class_cq.e).set(class_alt.N, Boolean.valueOf(true)), 4, -3, 8, var3);
+            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, EnumDirection.EAST).set(class_alt.N, Boolean.valueOf(true)), 1, -3, 8, var3);
+            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, EnumDirection.WEST).set(class_alt.N, Boolean.valueOf(true)), 4, -3, 8, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 2, -3, 8, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 3, -3, 8, var3);
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 5, -3, 7, var3);
@@ -277,12 +277,12 @@ public class class_ash {
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 4, -3, 1, var3);
             this.a(var1, Blocks.MOSSY_COBBLESTONE.getBlockData(), 3, -3, 1, var3);
             if(!this.g) {
-               this.g = this.a(var1, var3, var2, 3, -2, 1, class_cq.c, j, 2);
+               this.g = this.a(var1, var3, var2, 3, -2, 1, EnumDirection.NORTH, j, 2);
             }
 
             this.a(var1, Blocks.VINE.getBlockData().set(class_alu.O, Boolean.valueOf(true)), 3, -2, 2, var3);
-            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, class_cq.c).set(class_alt.N, Boolean.valueOf(true)), 7, -3, 1, var3);
-            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, class_cq.d).set(class_alt.N, Boolean.valueOf(true)), 7, -3, 5, var3);
+            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, EnumDirection.NORTH).set(class_alt.N, Boolean.valueOf(true)), 7, -3, 1, var3);
+            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, EnumDirection.SOUTH).set(class_alt.N, Boolean.valueOf(true)), 7, -3, 5, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 7, -3, 2, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 7, -3, 3, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 7, -3, 4, var3);
@@ -292,7 +292,7 @@ public class class_ash {
             this.a(var1, Blocks.MOSSY_COBBLESTONE.getBlockData(), 9, -3, 4, var3);
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 9, -2, 4, var3);
             if(!this.h) {
-               this.h = this.a(var1, var3, var2, 9, -2, 3, class_cq.e, j, 2);
+               this.h = this.a(var1, var3, var2, 9, -2, 3, EnumDirection.WEST, j, 2);
             }
 
             this.a(var1, Blocks.VINE.getBlockData().set(class_alu.N, Boolean.valueOf(true)), 8, -1, 3, var3);
@@ -325,10 +325,10 @@ public class class_ash {
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 8, -2, 9, var3);
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 8, -2, 10, var3);
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 10, -1, 9, var3);
-            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, class_cq.b), 9, -2, 8, var3);
-            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, class_cq.e), 10, -2, 8, var3);
-            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, class_cq.e), 10, -1, 8, var3);
-            this.a(var1, Blocks.UNPOWERED_REPEATER.getBlockData().set(class_ako.O, class_cq.c), 10, -2, 10, var3);
+            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, EnumDirection.UP), 9, -2, 8, var3);
+            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, EnumDirection.WEST), 10, -2, 8, var3);
+            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, EnumDirection.WEST), 10, -1, 8, var3);
+            this.a(var1, Blocks.UNPOWERED_REPEATER.getBlockData().set(class_ako.O, EnumDirection.NORTH), 10, -2, 10, var3);
             if(!this.f) {
                this.f = this.a(var1, var3, var2, 9, -3, 10, class_od.a(i, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(5));
             }
@@ -406,10 +406,10 @@ public class class_ash {
             }
          }
 
-         IBlockData var14 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, class_cq.c);
-         IBlockData var15 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, class_cq.d);
-         IBlockData var16 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, class_cq.f);
-         IBlockData var7 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, class_cq.e);
+         IBlockData var14 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
+         IBlockData var15 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
+         IBlockData var16 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST);
+         IBlockData var7 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
          int var8 = ~class_zy.b.b() & 15;
          int var9 = ~class_zy.l.b() & 15;
          this.a(var1, var3, 0, 0, 0, 4, 9, 4, Blocks.SANDSTONE.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -573,14 +573,14 @@ public class class_ash {
          this.a(var1, Blocks.AIR.getBlockData(), 10, -10, 12, var3);
          this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), 10, -10, 13, var3);
          this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 10, -11, 13, var3);
-         Iterator var17 = class_cq.class_c_in_class_cq.a.iterator();
+         Iterator var17 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
          while(var17.hasNext()) {
-            class_cq var11 = (class_cq)var17.next();
-            if(!this.e[var11.b()]) {
-               int var12 = var11.g() * 2;
-               int var13 = var11.i() * 2;
-               this.e[var11.b()] = this.a(var1, var3, var2, 10 + var12, -11, 10 + var13, class_od.a(f, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(5));
+            EnumDirection var11 = (EnumDirection)var17.next();
+            if(!this.e[var11.getHorizontalId()]) {
+               int var12 = var11.getAdjacentX() * 2;
+               int var13 = var11.getAdjacentZ() * 2;
+               this.e[var11.getHorizontalId()] = this.a(var1, var3, var2, 10 + var12, -11, 10 + var13, class_od.a(f, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(5));
             }
          }
 
@@ -606,8 +606,8 @@ public class class_ash {
          this.a = var5;
          this.b = var6;
          this.c = var7;
-         this.a(class_cq.class_c_in_class_cq.a.a(var1));
-         if(this.e().k() == class_cq.class_a_in_class_cq.c) {
+         this.a(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var1));
+         if(this.e().getAxis() == EnumDirection.EnumAxis.Z) {
             this.l = new class_arw(var2, var3, var4, var2 + var5 - 1, var3 + var6 - 1, var4 + var7 - 1);
          } else {
             this.l = new class_arw(var2, var3, var4, var2 + var7 - 1, var3 + var6 - 1, var4 + var5 - 1);
@@ -635,13 +635,13 @@ public class class_ash {
          } else {
             int var4 = 0;
             int var5 = 0;
-            class_cj.class_a_in_class_cj var6 = new class_cj.class_a_in_class_cj();
+            BlockPosition.MutableBlockPosition var6 = new BlockPosition.MutableBlockPosition();
 
             for(int var7 = this.l.c; var7 <= this.l.f; ++var7) {
                for(int var8 = this.l.a; var8 <= this.l.d; ++var8) {
-                  var6.c(var8, 64, var7);
-                  if(var2.b((class_df)var6)) {
-                     var4 += Math.max(var1.r(var6).o(), var1.t.i());
+                  var6.setPosition(var8, 64, var7);
+                  if(var2.b((BaseBlockPosition)var6)) {
+                     var4 += Math.max(var1.r(var6).getY(), var1.t.i());
                      ++var5;
                   }
                }

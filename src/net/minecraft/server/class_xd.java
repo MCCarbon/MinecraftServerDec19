@@ -13,15 +13,15 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_gm;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lh;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pv;
@@ -78,14 +78,14 @@ public class class_xd extends class_pr implements class_xi {
    }
 
    public void a(float var1, float var2, float var3, float var4, float var5) {
-      float var6 = -class_nu.a(var2 * 0.017453292F) * class_nu.b(var1 * 0.017453292F);
-      float var7 = -class_nu.a(var1 * 0.017453292F);
-      float var8 = class_nu.b(var2 * 0.017453292F) * class_nu.b(var1 * 0.017453292F);
+      float var6 = -MathHelper.sin(var2 * 0.017453292F) * MathHelper.cos(var1 * 0.017453292F);
+      float var7 = -MathHelper.sin(var1 * 0.017453292F);
+      float var8 = MathHelper.cos(var2 * 0.017453292F) * MathHelper.cos(var1 * 0.017453292F);
       this.c((double)var6, (double)var7, (double)var8, var4, var5);
    }
 
    public void c(double var1, double var3, double var5, float var7, float var8) {
-      float var9 = class_nu.a(var1 * var1 + var3 * var3 + var5 * var5);
+      float var9 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
@@ -98,27 +98,27 @@ public class class_xd extends class_pr implements class_xi {
       this.v = var1;
       this.w = var3;
       this.x = var5;
-      float var10 = class_nu.a(var1 * var1 + var5 * var5);
-      this.A = this.y = (float)(class_nu.b(var1, var5) * 180.0D / 3.1415927410125732D);
-      this.B = this.z = (float)(class_nu.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
+      float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
+      this.A = this.y = (float)(MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
+      this.B = this.z = (float)(MathHelper.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
       this.av = 0;
    }
 
    public void t_() {
       super.t_();
       if(this.B == 0.0F && this.A == 0.0F) {
-         float var1 = class_nu.a(this.v * this.v + this.x * this.x);
-         this.A = this.y = (float)(class_nu.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
-         this.B = this.z = (float)(class_nu.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D);
+         float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
+         this.A = this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+         this.B = this.z = (float)(MathHelper.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D);
       }
 
-      class_cj var13 = new class_cj(this.h, this.i, this.as);
+      BlockPosition var13 = new BlockPosition(this.h, this.i, this.as);
       IBlockData var2 = this.o.p(var13);
       Block var3 = var2.getBlock();
-      if(var3.getMaterial() != Material.a) {
-         var3.a((class_aer)this.o, (class_cj)var13);
+      if(var3.getMaterial() != Material.AIR) {
+         var3.a((class_aer)this.o, (BlockPosition)var13);
          class_awf var4 = var3.a(this.o, var13, var2);
-         if(var4 != null && var4.a(new class_awh(this.s, this.t, this.u))) {
+         if(var4 != null && var4.a(new Vec3D(this.s, this.t, this.u))) {
             this.a = true;
          }
       }
@@ -147,13 +147,13 @@ public class class_xd extends class_pr implements class_xi {
       } else {
          this.b = 0;
          ++this.aw;
-         class_awh var14 = new class_awh(this.s, this.t, this.u);
-         class_awh var5 = new class_awh(this.s + this.v, this.t + this.w, this.u + this.x);
+         Vec3D var14 = new Vec3D(this.s, this.t, this.u);
+         Vec3D var5 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          class_awg var6 = this.o.a(var14, var5, false, true, false);
-         var14 = new class_awh(this.s, this.t, this.u);
-         var5 = new class_awh(this.s + this.v, this.t + this.w, this.u + this.x);
+         var14 = new Vec3D(this.s, this.t, this.u);
+         var5 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          if(var6 != null) {
-            var5 = new class_awh(var6.c.a, var6.c.b, var6.c.c);
+            var5 = new Vec3D(var6.c.x, var6.c.y, var6.c.z);
          }
 
          class_pr var7 = this.a(var14, var5);
@@ -181,10 +181,10 @@ public class class_xd extends class_pr implements class_xi {
          this.s += this.v;
          this.t += this.w;
          this.u += this.x;
-         float var17 = class_nu.a(this.v * this.v + this.x * this.x);
-         this.y = (float)(class_nu.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+         float var17 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
+         this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
-         for(this.z = (float)(class_nu.b(this.w, (double)var17) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+         for(this.z = (float)(MathHelper.b(this.w, (double)var17) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
             ;
          }
 
@@ -229,8 +229,8 @@ public class class_xd extends class_pr implements class_xi {
    protected void a(class_awg var1) {
       class_pr var2 = var1.d;
       if(var2 != null) {
-         float var3 = class_nu.a(this.v * this.v + this.w * this.w + this.x * this.x);
-         int var4 = class_nu.f((double)var3 * this.ax);
+         float var3 = MathHelper.sqrt(this.v * this.v + this.w * this.w + this.x * this.x);
+         int var4 = MathHelper.ceil((double)var3 * this.ax);
          if(this.m()) {
             var4 += this.V.nextInt(var4 / 2 + 2);
          }
@@ -254,7 +254,7 @@ public class class_xd extends class_pr implements class_xi {
                }
 
                if(this.ay > 0) {
-                  float var7 = class_nu.a(this.v * this.v + this.x * this.x);
+                  float var7 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
                   if(var7 > 0.0F) {
                      var6.g(this.v * (double)this.ay * 0.6000000238418579D / (double)var7, 0.1D, this.x * (double)this.ay * 0.6000000238418579D / (double)var7);
                   }
@@ -284,17 +284,17 @@ public class class_xd extends class_pr implements class_xi {
             this.aw = 0;
          }
       } else {
-         class_cj var8 = var1.a();
-         this.h = var8.n();
-         this.i = var8.o();
-         this.as = var8.p();
+         BlockPosition var8 = var1.a();
+         this.h = var8.getX();
+         this.i = var8.getY();
+         this.as = var8.getZ();
          IBlockData var9 = this.o.p(var8);
          this.at = var9.getBlock();
          this.au = this.at.toLegacyData(var9);
-         this.v = (double)((float)(var1.c.a - this.s));
-         this.w = (double)((float)(var1.c.b - this.t));
-         this.x = (double)((float)(var1.c.c - this.u));
-         float var10 = class_nu.a(this.v * this.v + this.w * this.w + this.x * this.x);
+         this.v = (double)((float)(var1.c.x - this.s));
+         this.w = (double)((float)(var1.c.y - this.t));
+         this.x = (double)((float)(var1.c.z - this.u));
+         float var10 = MathHelper.sqrt(this.v * this.v + this.w * this.w + this.x * this.x);
          this.s -= this.v / (double)var10 * 0.05000000074505806D;
          this.t -= this.w / (double)var10 * 0.05000000074505806D;
          this.u -= this.x / (double)var10 * 0.05000000074505806D;
@@ -302,7 +302,7 @@ public class class_xd extends class_pr implements class_xi {
          this.a = true;
          this.d = 7;
          this.a(false);
-         if(this.at.getMaterial() != Material.a) {
+         if(this.at.getMaterial() != Material.AIR) {
             this.at.a((World)this.o, var8, (IBlockData)var9, (class_pr)this);
          }
       }
@@ -312,7 +312,7 @@ public class class_xd extends class_pr implements class_xi {
    protected void b(class_qa var1) {
    }
 
-   protected class_pr a(class_awh var1, class_awh var2) {
+   protected class_pr a(Vec3D var1, Vec3D var2) {
       class_pr var3 = null;
       List var4 = this.o.a((class_pr)this, (class_awf)this.aT().a(this.v, this.w, this.x).b(1.0D, 1.0D, 1.0D), (Predicate)f);
       double var5 = 0.0D;
@@ -324,7 +324,7 @@ public class class_xd extends class_pr implements class_xi {
             class_awf var10 = var8.aT().b((double)var9, (double)var9, (double)var9);
             class_awg var11 = var10.a(var1, var2);
             if(var11 != null) {
-               double var12 = var1.g(var11.c);
+               double var12 = var1.distanceSquared(var11.c);
                if(var12 < var5 || var5 == 0.0D) {
                   var3 = var8;
                   var5 = var12;

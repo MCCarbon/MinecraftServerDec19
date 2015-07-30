@@ -22,12 +22,12 @@ import net.minecraft.server.class_arg;
 import net.minecraft.server.class_arj;
 import net.minecraft.server.class_arp;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_afc {
    protected World a;
    protected Random b;
-   protected class_cj c;
+   protected BlockPosition c;
    protected class_api d;
    protected class_aql e = new class_aqe(4);
    protected class_aql f;
@@ -82,7 +82,7 @@ public class class_afc {
       this.L = true;
    }
 
-   public void a(World var1, Random var2, class_aez var3, class_cj var4) {
+   public void a(World var1, Random var2, class_aez var3, BlockPosition var4) {
       if(this.a != null) {
          throw new RuntimeException("Already decorating");
       } else {
@@ -122,19 +122,19 @@ public class class_afc {
       for(var2 = 0; var2 < this.I; ++var2) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         this.f.b(this.a, this.b, this.a.r(this.c.a(var3, 0, var4)));
+         this.f.b(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
       }
 
       for(var2 = 0; var2 < this.J; ++var2) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         this.e.b(this.a, this.b, this.a.r(this.c.a(var3, 0, var4)));
+         this.e.b(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
       }
 
       for(var2 = 0; var2 < this.H; ++var2) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         this.g.b(this.a, this.b, this.a.r(this.c.a(var3, 0, var4)));
+         this.g.b(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
       }
 
       var2 = this.A;
@@ -143,13 +143,13 @@ public class class_afc {
       }
 
       int var5;
-      class_cj var7;
+      BlockPosition var7;
       for(var3 = 0; var3 < var2; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
          class_apw var6 = var1.a(this.b);
          var6.e();
-         var7 = this.a.m(this.c.a(var4, 0, var5));
+         var7 = this.a.m(this.c.add(var4, 0, var5));
          if(var6.b(this.a, this.b, var7)) {
             var6.a(this.a, this.b, var7);
          }
@@ -158,22 +158,22 @@ public class class_afc {
       for(var3 = 0; var3 < this.K; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         this.v.b(this.a, this.b, this.a.m(this.c.a(var4, 0, var5)));
+         this.v.b(this.a, this.b, this.a.m(this.c.add(var4, 0, var5)));
       }
 
-      class_cj var8;
+      BlockPosition var8;
       int var11;
       int var12;
       for(var3 = 0; var3 < this.B; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.a(var4, 0, var5)).o() + 32;
+         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() + 32;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            var8 = this.c.a(var4, var12, var5);
+            var8 = this.c.add(var4, var12, var5);
             class_aic.class_a_in_class_aic var9 = var1.a(this.b, var8);
             class_aic var10 = var9.a().a();
-            if(var10.getMaterial() != Material.a) {
+            if(var10.getMaterial() != Material.AIR) {
                this.s.a(var10, var9);
                this.s.b(this.a, this.b, var8);
             }
@@ -183,33 +183,33 @@ public class class_afc {
       for(var3 = 0; var3 < this.C; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.a(var4, 0, var5)).o() * 2;
+         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            var1.b(this.b).b(this.a, this.b, this.c.a(var4, var12, var5));
+            var1.b(this.b).b(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
       for(var3 = 0; var3 < this.D; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.a(var4, 0, var5)).o() * 2;
+         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            (new class_aqf()).b(this.a, this.b, this.c.a(var4, var12, var5));
+            (new class_aqf()).b(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
       for(var3 = 0; var3 < this.z; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.a(var4, 0, var5)).o() * 2;
+         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
 
-            class_cj var14;
-            for(var8 = this.c.a(var4, var12, var5); var8.o() > 0; var8 = var14) {
-               var14 = var8.b();
+            BlockPosition var14;
+            for(var8 = this.c.add(var4, var12, var5); var8.getY() > 0; var8 = var14) {
+               var14 = var8.shiftDown();
                if(!this.a.d(var14)) {
                   break;
                }
@@ -223,17 +223,17 @@ public class class_afc {
          if(this.b.nextInt(4) == 0) {
             var4 = this.b.nextInt(16) + 8;
             var5 = this.b.nextInt(16) + 8;
-            class_cj var13 = this.a.m(this.c.a(var4, 0, var5));
+            BlockPosition var13 = this.a.m(this.c.add(var4, 0, var5));
             this.t.b(this.a, this.b, var13);
          }
 
          if(this.b.nextInt(8) == 0) {
             var4 = this.b.nextInt(16) + 8;
             var5 = this.b.nextInt(16) + 8;
-            var11 = this.a.m(this.c.a(var4, 0, var5)).o() * 2;
+            var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
             if(var11 > 0) {
                var12 = this.b.nextInt(var11);
-               var8 = this.c.a(var4, var12, var5);
+               var8 = this.c.add(var4, var12, var5);
                this.u.b(this.a, this.b, var8);
             }
          }
@@ -242,60 +242,60 @@ public class class_afc {
       if(this.b.nextInt(4) == 0) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         var5 = this.a.m(this.c.a(var3, 0, var4)).o() * 2;
+         var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
-            this.t.b(this.a, this.b, this.c.a(var3, var11, var4));
+            this.t.b(this.a, this.b, this.c.add(var3, var11, var4));
          }
       }
 
       if(this.b.nextInt(8) == 0) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         var5 = this.a.m(this.c.a(var3, 0, var4)).o() * 2;
+         var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
-            this.u.b(this.a, this.b, this.c.a(var3, var11, var4));
+            this.u.b(this.a, this.b, this.c.add(var3, var11, var4));
          }
       }
 
       for(var3 = 0; var3 < this.F; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.a(var4, 0, var5)).o() * 2;
+         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            this.w.b(this.a, this.b, this.c.a(var4, var12, var5));
+            this.w.b(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
       for(var3 = 0; var3 < 10; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.a(var4, 0, var5)).o() * 2;
+         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            this.w.b(this.a, this.b, this.c.a(var4, var12, var5));
+            this.w.b(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
       if(this.b.nextInt(32) == 0) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         var5 = this.a.m(this.c.a(var3, 0, var4)).o() * 2;
+         var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
-            (new class_ard()).b(this.a, this.b, this.c.a(var3, var11, var4));
+            (new class_ard()).b(this.a, this.b, this.c.add(var3, var11, var4));
          }
       }
 
       for(var3 = 0; var3 < this.G; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.a(var4, 0, var5)).o() * 2;
+         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            this.x.b(this.a, this.b, this.c.a(var4, var12, var5));
+            this.x.b(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
@@ -306,7 +306,7 @@ public class class_afc {
             var11 = this.b.nextInt(248) + 8;
             if(var11 > 0) {
                var12 = this.b.nextInt(var11);
-               var8 = this.c.a(var4, var12, var5);
+               var8 = this.c.add(var4, var12, var5);
                (new class_arj(Blocks.FLOWING_WATER)).b(this.a, this.b, var8);
             }
          }
@@ -315,7 +315,7 @@ public class class_afc {
             var4 = this.b.nextInt(16) + 8;
             var5 = this.b.nextInt(16) + 8;
             var11 = this.b.nextInt(this.b.nextInt(this.b.nextInt(240) + 8) + 8);
-            var7 = this.c.a(var4, var11, var5);
+            var7 = this.c.add(var4, var11, var5);
             (new class_arj(Blocks.FLOWING_LAVA)).b(this.a, this.b, var7);
          }
       }
@@ -337,7 +337,7 @@ public class class_afc {
       }
 
       for(var5 = 0; var5 < var1; ++var5) {
-         class_cj var6 = this.c.a(this.b.nextInt(16), this.b.nextInt(var4 - var3) + var3, this.b.nextInt(16));
+         BlockPosition var6 = this.c.add(this.b.nextInt(16), this.b.nextInt(var4 - var3) + var3, this.b.nextInt(16));
          var2.b(this.a, this.b, var6);
       }
 
@@ -345,7 +345,7 @@ public class class_afc {
 
    protected void b(int var1, class_aql var2, int var3, int var4) {
       for(int var5 = 0; var5 < var1; ++var5) {
-         class_cj var6 = this.c.a(this.b.nextInt(16), this.b.nextInt(var4) + this.b.nextInt(var4) + var3 - var4, this.b.nextInt(16));
+         BlockPosition var6 = this.c.add(this.b.nextInt(16), this.b.nextInt(var4) + this.b.nextInt(var4) + var3 - var4, this.b.nextInt(16));
          var2.b(this.a, this.b, var6);
       }
 

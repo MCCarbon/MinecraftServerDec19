@@ -6,7 +6,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qm;
@@ -38,7 +38,7 @@ public class class_zv extends Item {
       return true;
    }
 
-   public boolean a(class_aas var1, World var2, Block var3, class_cj var4, class_qa var5) {
+   public boolean a(class_aas var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
       if((double)var3.getStrength(var2, var4) != 0.0D) {
          var1.a(1, (class_qa)var5);
       }

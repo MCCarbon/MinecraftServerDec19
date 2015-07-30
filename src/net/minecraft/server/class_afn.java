@@ -6,7 +6,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_afn extends class_aez {
    protected class_aez aE;
@@ -36,7 +36,7 @@ public class class_afn extends class_aez {
       this.ao = var2.ao + 0.2F;
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       this.aE.as.a(var1, var2, this, var3);
    }
 

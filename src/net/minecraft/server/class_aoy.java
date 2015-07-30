@@ -13,7 +13,7 @@ import net.minecraft.server.class_apj;
 import net.minecraft.server.class_apk;
 import net.minecraft.server.class_app;
 import net.minecraft.server.class_arr;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_lh;
 
 public abstract class class_aoy {
@@ -63,7 +63,7 @@ public abstract class class_aoy {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new class_cj(var1, 0, var2)) == Blocks.GRASS;
+      return this.b.c(new BlockPosition(var1, 0, var2)) == Blocks.GRASS;
    }
 
    public float a(long var1, float var3) {
@@ -95,7 +95,7 @@ public abstract class class_aoy {
       return true;
    }
 
-   public class_cj h() {
+   public BlockPosition h() {
       return null;
    }
 

@@ -24,7 +24,7 @@ import net.minecraft.server.class_asg;
 import net.minecraft.server.class_asi;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_asq;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
 
@@ -149,8 +149,8 @@ public class class_apk implements class_aoh {
    public void a(class_aoh var1, int var2, int var3) {
       int var4 = var2 * 16;
       int var5 = var3 * 16;
-      class_cj var6 = new class_cj(var4, 0, var5);
-      class_aez var7 = this.a.b(new class_cj(var4 + 16, 0, var5 + 16));
+      BlockPosition var6 = new BlockPosition(var4, 0, var5);
+      class_aez var7 = this.a.b(new BlockPosition(var4 + 16, 0, var5 + 16));
       boolean var8 = false;
       this.b.setSeed(this.a.K());
       long var9 = this.b.nextLong() / 2L * 2L + 1L;
@@ -168,19 +168,19 @@ public class class_apk implements class_aoh {
       }
 
       if(this.h != null && !var8 && this.b.nextInt(4) == 0) {
-         this.h.b(this.a, this.b, var6.a(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
+         this.h.b(this.a, this.b, var6.add(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
       }
 
       if(this.i != null && !var8 && this.b.nextInt(8) == 0) {
-         class_cj var17 = var6.a(this.b.nextInt(16) + 8, this.b.nextInt(this.b.nextInt(248) + 8), this.b.nextInt(16) + 8);
-         if(var17.o() < this.a.G() || this.b.nextInt(10) == 0) {
+         BlockPosition var17 = var6.add(this.b.nextInt(16) + 8, this.b.nextInt(this.b.nextInt(248) + 8), this.b.nextInt(16) + 8);
+         if(var17.getY() < this.a.G() || this.b.nextInt(10) == 0) {
             this.i.b(this.a, this.b, var17);
          }
       }
 
       if(this.g) {
          for(int var18 = 0; var18 < 8; ++var18) {
-            (new class_ara()).b(this.a, this.b, var6.a(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
+            (new class_ara()).b(this.a, this.b, var6.add(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
          }
       }
 
@@ -213,12 +213,12 @@ public class class_apk implements class_aoh {
       return "FlatLevelSource";
    }
 
-   public List a(class_qc var1, class_cj var2) {
+   public List a(class_qc var1, BlockPosition var2) {
       class_aez var3 = this.a.b(var2);
       return var3.a(var1);
    }
 
-   public class_cj a(World var1, String var2, class_cj var3) {
+   public BlockPosition a(World var1, String var2, BlockPosition var3) {
       if("Stronghold".equals(var2)) {
          Iterator var4 = this.e.iterator();
 
@@ -247,7 +247,7 @@ public class class_apk implements class_aoh {
 
    }
 
-   public class_aok a(class_cj var1) {
-      return this.d(var1.n() >> 4, var1.p() >> 4);
+   public class_aok a(BlockPosition var1) {
+      return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

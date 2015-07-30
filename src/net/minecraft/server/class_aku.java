@@ -12,20 +12,20 @@ import net.minecraft.server.class_amx;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_xa;
 
 public class class_aku extends class_agd {
    protected class_aku() {
-      super(Material.d);
+      super(Material.WOOD);
       float var1 = 0.25F;
       float var2 = 1.0F;
       this.setSizes(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var2, 0.5F + var1);
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -33,7 +33,7 @@ public class class_aku extends class_agd {
       return false;
    }
 
-   public boolean isPassable(class_aer var1, class_cj var2) {
+   public boolean isPassable(class_aer var1, BlockPosition var2) {
       return true;
    }
 
@@ -53,7 +53,7 @@ public class class_aku extends class_agd {
       return Items.ar;
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {
@@ -62,7 +62,7 @@ public class class_aku extends class_agd {
       }
    }
 
-   public boolean d(World var1, class_cj var2) {
+   public boolean d(World var1, BlockPosition var2) {
       return !this.e(var1, var2) && super.d(var1, var2);
    }
 }

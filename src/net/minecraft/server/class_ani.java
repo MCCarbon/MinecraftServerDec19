@@ -8,26 +8,26 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ane;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 
 public class class_ani {
    private final World a;
-   private final class_cj b;
-   private final class_cj c;
-   private final class_cq d;
+   private final BlockPosition b;
+   private final BlockPosition c;
+   private final EnumDirection d;
    private final List e = Lists.newArrayList();
    private final List f = Lists.newArrayList();
 
-   public class_ani(World var1, class_cj var2, class_cq var3, boolean var4) {
+   public class_ani(World var1, BlockPosition var2, EnumDirection var3, boolean var4) {
       this.a = var1;
       this.b = var2;
       if(var4) {
          this.d = var3;
-         this.c = var2.a(var3);
+         this.c = var2.shift(var3);
       } else {
-         this.d = var3.d();
-         this.c = var2.a(var3, 2);
+         this.d = var3.getOpposite();
+         this.c = var2.shift(var3, 2);
       }
 
    }
@@ -37,7 +37,7 @@ public class class_ani {
       this.f.clear();
       Block var1 = this.a.p(this.c).getBlock();
       if(!class_ane.a(var1, this.a, this.c, this.d, false)) {
-         if(var1.k() != 1) {
+         if(var1.getPushReaction() != 1) {
             return false;
          } else {
             this.f.add(this.c);
@@ -47,7 +47,7 @@ public class class_ani {
          return false;
       } else {
          for(int var2 = 0; var2 < this.e.size(); ++var2) {
-            class_cj var3 = (class_cj)this.e.get(var2);
+            BlockPosition var3 = (BlockPosition)this.e.get(var2);
             if(this.a.p(var3).getBlock() == Blocks.SLINE && !this.b(var3)) {
                return false;
             }
@@ -57,9 +57,9 @@ public class class_ani {
       }
    }
 
-   private boolean a(class_cj var1) {
+   private boolean a(BlockPosition var1) {
       Block var2 = this.a.p(var1).getBlock();
-      if(var2.getMaterial() == Material.a) {
+      if(var2.getMaterial() == Material.AIR) {
          return true;
       } else if(!class_ane.a(var2, this.a, var1, this.d, false)) {
          return true;
@@ -73,9 +73,9 @@ public class class_ani {
             return false;
          } else {
             while(var2 == Blocks.SLINE) {
-               class_cj var4 = var1.a(this.d.d(), var3);
+               BlockPosition var4 = var1.shift(this.d.getOpposite(), var3);
                var2 = this.a.p(var4).getBlock();
-               if(var2.getMaterial() == Material.a || !class_ane.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
+               if(var2.getMaterial() == Material.AIR || !class_ane.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
                   break;
                }
 
@@ -89,20 +89,20 @@ public class class_ani {
 
             int var5;
             for(var5 = var3 - 1; var5 >= 0; --var5) {
-               this.e.add(var1.a(this.d.d(), var5));
+               this.e.add(var1.shift(this.d.getOpposite(), var5));
                ++var10;
             }
 
             var5 = 1;
 
             while(true) {
-               class_cj var6 = var1.a(this.d, var5);
+               BlockPosition var6 = var1.shift(this.d, var5);
                int var7 = this.e.indexOf(var6);
                if(var7 > -1) {
                   this.a(var10, var7);
 
                   for(int var8 = 0; var8 <= var7 + var10; ++var8) {
-                     class_cj var9 = (class_cj)this.e.get(var8);
+                     BlockPosition var9 = (BlockPosition)this.e.get(var8);
                      if(this.a.p(var9).getBlock() == Blocks.SLINE && !this.b(var9)) {
                         return false;
                      }
@@ -112,7 +112,7 @@ public class class_ani {
                }
 
                var2 = this.a.p(var6).getBlock();
-               if(var2.getMaterial() == Material.a) {
+               if(var2.getMaterial() == Material.AIR) {
                   return true;
                }
 
@@ -120,7 +120,7 @@ public class class_ani {
                   return false;
                }
 
-               if(var2.k() == 1) {
+               if(var2.getPushReaction() == 1) {
                   this.f.add(var6);
                   return true;
                }
@@ -150,13 +150,13 @@ public class class_ani {
       this.e.addAll(var5);
    }
 
-   private boolean b(class_cj var1) {
-      class_cq[] var2 = class_cq.values();
+   private boolean b(BlockPosition var1) {
+      EnumDirection[] var2 = EnumDirection.values();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         class_cq var5 = var2[var4];
-         if(var5.k() != this.d.k() && !this.a(var1.a(var5))) {
+         EnumDirection var5 = var2[var4];
+         if(var5.getAxis() != this.d.getAxis() && !this.a(var1.shift(var5))) {
             return false;
          }
       }

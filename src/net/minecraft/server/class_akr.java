@@ -14,7 +14,7 @@ public class class_akr extends Block {
    public static final BlockStateEnum a = BlockStateEnum.of("type", class_akr.class_a_in_class_akr.class);
 
    public class_akr() {
-      super(Material.e);
+      super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_akr.class_a_in_class_akr.a));
       this.a(CreativeTab.b);
    }
@@ -24,7 +24,7 @@ public class class_akr extends Block {
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return MaterialMapColor.d;
+      return MaterialMapColor.COLOR3;
    }
 
    public IBlockData fromLegacyData(int var1) {

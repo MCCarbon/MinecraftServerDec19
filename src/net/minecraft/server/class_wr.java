@@ -12,9 +12,9 @@ import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_oo;
@@ -175,7 +175,7 @@ public class class_wr extends class_wi {
    public void m() {
       if(this.o.x() && !this.o.D && !this.j_()) {
          float var1 = this.c(1.0F);
-         class_cj var2 = new class_cj(this.s, (double)Math.round(this.t), this.u);
+         BlockPosition var2 = new BlockPosition(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
             class_aas var4 = this.a((class_pw)class_pw.f);
@@ -212,21 +212,21 @@ public class class_wr extends class_wi {
          }
 
          if(var3 != null && this.o.ab() == class_om.d && (double)this.V.nextFloat() < this.a((class_qk)a).e()) {
-            int var4 = class_nu.c(this.s);
-            int var5 = class_nu.c(this.t);
-            int var6 = class_nu.c(this.u);
+            int var4 = MathHelper.floor(this.s);
+            int var5 = MathHelper.floor(this.t);
+            int var6 = MathHelper.floor(this.u);
             class_wr var7 = new class_wr(this.o);
 
             for(int var8 = 0; var8 < 50; ++var8) {
-               int var9 = var4 + class_nu.a((Random)this.V, 7, 40) * class_nu.a((Random)this.V, -1, 1);
-               int var10 = var5 + class_nu.a((Random)this.V, 7, 40) * class_nu.a((Random)this.V, -1, 1);
-               int var11 = var6 + class_nu.a((Random)this.V, 7, 40) * class_nu.a((Random)this.V, -1, 1);
-               if(World.a((class_aer)this.o, (class_cj)(new class_cj(var9, var10 - 1, var11))) && this.o.l(new class_cj(var9, var10, var11)) < 10) {
+               int var9 = var4 + MathHelper.getRandomIntInRange((Random)this.V, 7, 40) * MathHelper.getRandomIntInRange((Random)this.V, -1, 1);
+               int var10 = var5 + MathHelper.getRandomIntInRange((Random)this.V, 7, 40) * MathHelper.getRandomIntInRange((Random)this.V, -1, 1);
+               int var11 = var6 + MathHelper.getRandomIntInRange((Random)this.V, 7, 40) * MathHelper.getRandomIntInRange((Random)this.V, -1, 1);
+               if(World.a((class_aer)this.o, (BlockPosition)(new BlockPosition(var9, var10 - 1, var11))) && this.o.l(new BlockPosition(var9, var10, var11)) < 10) {
                   var7.b((double)var9, (double)var10, (double)var11);
                   if(!this.o.b((double)var9, (double)var10, (double)var11, 7.0D) && this.o.a((class_awf)var7.aT(), (class_pr)var7) && this.o.a((class_pr)var7, (class_awf)var7.aT()).isEmpty() && !this.o.d(var7.aT())) {
                      this.o.a((class_pr)var7);
                      var7.d(var3);
-                     var7.a((class_on)this.o.E(new class_cj(var7)), (class_qd)null);
+                     var7.a((class_on)this.o.E(new BlockPosition(var7)), (class_qd)null);
                      this.a((class_qk)a).b(new class_qm("Zombie reinforcement caller charge", -0.05000000074505806D, 0));
                      var7.a((class_qk)a).b(new class_qm("Zombie reinforcement callee charge", -0.05000000074505806D, 0));
                      break;
@@ -277,7 +277,7 @@ public class class_wr extends class_wi {
       return "mob.zombie.death";
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.zombie.step", 0.15F, 1.0F);
    }
 
@@ -358,7 +358,7 @@ public class class_wr extends class_wi {
          class_wr var3 = new class_wr(this.o);
          var3.m(var1);
          this.o.e((class_pr)var1);
-         var3.a((class_on)this.o.E(new class_cj(var3)), (class_qd)null);
+         var3.a((class_on)this.o.E(new BlockPosition(var3)), (class_qd)null);
          var3.n(true);
          if(var1.j_()) {
             var3.m(true);
@@ -371,7 +371,7 @@ public class class_wr extends class_wi {
          }
 
          this.o.a((class_pr)var3);
-         this.o.a((class_xa)null, 1016, new class_cj((int)this.s, (int)this.t, (int)this.u), 0);
+         this.o.a((class_xa)null, 1016, new BlockPosition((int)this.s, (int)this.t, (int)this.u), 0);
       }
 
    }
@@ -484,7 +484,7 @@ public class class_wr extends class_wi {
    protected void cF() {
       class_wv var1 = new class_wv(this.o);
       var1.m(this);
-      var1.a(this.o.E(new class_cj(var1)), (class_qd)null);
+      var1.a(this.o.E(new BlockPosition(var1)), (class_qd)null);
       var1.cE();
       if(this.j_()) {
          var1.b(-24000);
@@ -499,19 +499,19 @@ public class class_wr extends class_wi {
 
       this.o.a((class_pr)var1);
       var1.c(new class_pl(class_pm.i, 200, 0));
-      this.o.a((class_xa)null, 1017, new class_cj((int)this.s, (int)this.t, (int)this.u), 0);
+      this.o.a((class_xa)null, 1017, new BlockPosition((int)this.s, (int)this.t, (int)this.u), 0);
    }
 
    protected int cG() {
       int var1 = 1;
       if(this.V.nextFloat() < 0.01F) {
          int var2 = 0;
-         class_cj.class_a_in_class_cj var3 = new class_cj.class_a_in_class_cj();
+         BlockPosition.MutableBlockPosition var3 = new BlockPosition.MutableBlockPosition();
 
          for(int var4 = (int)this.s - 4; var4 < (int)this.s + 4 && var2 < 14; ++var4) {
             for(int var5 = (int)this.t - 4; var5 < (int)this.t + 4 && var2 < 14; ++var5) {
                for(int var6 = (int)this.u - 4; var6 < (int)this.u + 4 && var2 < 14; ++var6) {
-                  Block var7 = this.o.p(var3.c(var4, var5, var6)).getBlock();
+                  Block var7 = this.o.p(var3.setPosition(var4, var5, var6)).getBlock();
                   if(var7 == Blocks.IRON_BARS || var7 == Blocks.BED) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;

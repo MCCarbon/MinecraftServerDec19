@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qi;
 
@@ -53,10 +53,10 @@ public class class_xg extends class_pr {
       this.x *= 1.15D;
       this.w += 0.04D;
       this.d(this.v, this.w, this.x);
-      float var1 = class_nu.a(this.v * this.v + this.x * this.x);
-      this.y = (float)(class_nu.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+      float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
+      this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
-      for(this.z = (float)(class_nu.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+      for(this.z = (float)(MathHelper.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
          ;
       }
 

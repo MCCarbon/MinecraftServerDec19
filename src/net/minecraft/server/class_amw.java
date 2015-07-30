@@ -4,9 +4,9 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 
 public class class_amw extends class_amg {
    public byte a;
@@ -20,7 +20,7 @@ public class class_amw extends class_amg {
    public void a(class_dn var1) {
       super.a(var1);
       this.a = var1.e("note");
-      this.a = (byte)class_nu.a(this.a, 0, 24);
+      this.a = (byte)MathHelper.clamp(this.a, 0, 24);
    }
 
    public void b() {
@@ -28,23 +28,23 @@ public class class_amw extends class_amg {
       this.p_();
    }
 
-   public void a(World var1, class_cj var2) {
-      if(var1.p(var2.a()).getBlock().getMaterial() == Material.a) {
-         Material var3 = var1.p(var2.b()).getBlock().getMaterial();
+   public void a(World var1, BlockPosition var2) {
+      if(var1.p(var2.shiftUp()).getBlock().getMaterial() == Material.AIR) {
+         Material var3 = var1.p(var2.shiftDown()).getBlock().getMaterial();
          byte var4 = 0;
-         if(var3 == Material.e) {
+         if(var3 == Material.STONE) {
             var4 = 1;
          }
 
-         if(var3 == Material.p) {
+         if(var3 == Material.SAND) {
             var4 = 2;
          }
 
-         if(var3 == Material.s) {
+         if(var3 == Material.SHATTERABLE) {
             var4 = 3;
          }
 
-         if(var3 == Material.d) {
+         if(var3 == Material.WOOD) {
             var4 = 4;
          }
 

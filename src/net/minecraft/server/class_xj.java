@@ -4,8 +4,8 @@ import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
 public final class class_xj {
@@ -17,12 +17,12 @@ public final class class_xj {
       double var12 = var0.w;
       double var14 = var0.x;
       World var16 = var0.o;
-      class_awh var17 = new class_awh(var4, var6, var8);
-      class_awh var18 = new class_awh(var4 + var10, var6 + var12, var8 + var14);
+      Vec3D var17 = new Vec3D(var4, var6, var8);
+      Vec3D var18 = new Vec3D(var4 + var10, var6 + var12, var8 + var14);
       class_awg var19 = var16.a(var17, var18, false, true, false);
       if(var1) {
          if(var19 != null) {
-            var18 = new class_awh(var19.c.a, var19.c.b, var19.c.c);
+            var18 = new Vec3D(var19.c.x, var19.c.y, var19.c.z);
          }
 
          class_pr var20 = null;
@@ -36,7 +36,7 @@ public final class class_xj {
                class_awf var27 = var25.aT().b((double)var26, (double)var26, (double)var26);
                class_awg var28 = var27.a(var17, var18);
                if(var28 != null) {
-                  double var29 = var17.g(var28.c);
+                  double var29 = var17.distanceSquared(var28.c);
                   if(var29 < var22 || var22 == 0.0D) {
                      var20 = var25;
                      var22 = var29;
@@ -57,10 +57,10 @@ public final class class_xj {
       double var2 = var0.v;
       double var4 = var0.w;
       double var6 = var0.x;
-      float var8 = class_nu.a(var2 * var2 + var6 * var6);
-      var0.y = (float)(class_nu.b(var6, var2) * 180.0D / 3.1415927410125732D) + 90.0F;
+      float var8 = MathHelper.sqrt(var2 * var2 + var6 * var6);
+      var0.y = (float)(MathHelper.b(var6, var2) * 180.0D / 3.1415927410125732D) + 90.0F;
 
-      for(var0.z = (float)(class_nu.b((double)var8, var4) * 180.0D / 3.1415927410125732D) - 90.0F; var0.z - var0.B < -180.0F; var0.B -= 360.0F) {
+      for(var0.z = (float)(MathHelper.b((double)var8, var4) * 180.0D / 3.1415927410125732D) - 90.0F; var0.z - var0.B < -180.0F; var0.B -= 360.0F) {
          ;
       }
 

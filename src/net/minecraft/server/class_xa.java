@@ -30,8 +30,8 @@ import net.minecraft.server.class_awl;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.class_awt;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -44,7 +44,7 @@ import net.minecraft.server.class_lh;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_oo;
@@ -105,13 +105,13 @@ public abstract class class_xa extends class_qa {
    public double bB;
    public double bC;
    protected boolean bD;
-   public class_cj bE;
+   public BlockPosition bE;
    private int d;
    public float bF;
    public float bG;
-   private class_cj e;
+   private BlockPosition e;
    private boolean f;
-   private class_cj g;
+   private BlockPosition g;
    public class_wy bH = new class_wy();
    public int bI;
    public int bJ;
@@ -130,8 +130,8 @@ public abstract class class_xa extends class_qa {
       this.bO = var2;
       this.bq = new class_yp(this.bp, !var1.D, this);
       this.br = this.bq;
-      class_cj var3 = var1.N();
-      this.b((double)var3.n() + 0.5D, (double)(var3.o() + 1), (double)var3.p() + 0.5D, 0.0F, 0.0F);
+      BlockPosition var3 = var1.N();
+      this.b((double)var3.getX() + 0.5D, (double)(var3.getY() + 1), (double)var3.getZ() + 0.5D, 0.0F, 0.0F);
       this.aY = 180.0F;
       this.X = 20;
    }
@@ -237,8 +237,8 @@ public abstract class class_xa extends class_qa {
       }
 
       int var9 = 29999999;
-      double var10 = class_nu.a(this.s, -2.9999999E7D, 2.9999999E7D);
-      double var12 = class_nu.a(this.u, -2.9999999E7D, 2.9999999E7D);
+      double var10 = MathHelper.clamp(this.s, -2.9999999E7D, 2.9999999E7D);
+      double var12 = MathHelper.clamp(this.u, -2.9999999E7D, 2.9999999E7D);
       if(var10 != this.s || var12 != this.u) {
          this.b(var10, this.t, var12);
       }
@@ -331,7 +331,7 @@ public abstract class class_xa extends class_qa {
       }
 
       this.k((float)var1.e());
-      float var2 = class_nu.a(this.v * this.v + this.x * this.x);
+      float var2 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
       float var3 = (float)(Math.atan(-this.w * 0.20000000298023224D) * 15.0D);
       if(var2 > 0.1F) {
          var2 = 0.1F;
@@ -398,8 +398,8 @@ public abstract class class_xa extends class_qa {
       }
 
       if(var1 != null) {
-         this.v = (double)(-class_nu.b((this.az + this.y) * 3.1415927F / 180.0F) * 0.1F);
-         this.x = (double)(-class_nu.a((this.az + this.y) * 3.1415927F / 180.0F) * 0.1F);
+         this.v = (double)(-MathHelper.cos((this.az + this.y) * 3.1415927F / 180.0F) * 0.1F);
+         this.x = (double)(-MathHelper.sin((this.az + this.y) * 3.1415927F / 180.0F) * 0.1F);
       } else {
          this.v = this.x = 0.0D;
       }
@@ -489,14 +489,14 @@ public abstract class class_xa extends class_qa {
          if(var2) {
             var7 = this.V.nextFloat() * 0.5F;
             var8 = this.V.nextFloat() * 3.1415927F * 2.0F;
-            var6.v = (double)(-class_nu.a(var8) * var7);
-            var6.x = (double)(class_nu.b(var8) * var7);
+            var6.v = (double)(-MathHelper.sin(var8) * var7);
+            var6.x = (double)(MathHelper.cos(var8) * var7);
             var6.w = 0.20000000298023224D;
          } else {
             var7 = 0.3F;
-            var6.v = (double)(-class_nu.a(this.y / 180.0F * 3.1415927F) * class_nu.b(this.z / 180.0F * 3.1415927F) * var7);
-            var6.x = (double)(class_nu.b(this.y / 180.0F * 3.1415927F) * class_nu.b(this.z / 180.0F * 3.1415927F) * var7);
-            var6.w = (double)(-class_nu.a(this.z / 180.0F * 3.1415927F) * var7 + 0.1F);
+            var6.v = (double)(-MathHelper.sin(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var7);
+            var6.x = (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var7);
+            var6.w = (double)(-MathHelper.sin(this.z / 180.0F * 3.1415927F) * var7 + 0.1F);
             var8 = this.V.nextFloat() * 3.1415927F * 2.0F;
             var7 = 0.02F * this.V.nextFloat();
             var6.v += Math.cos((double)var8) * (double)var7;
@@ -551,7 +551,7 @@ public abstract class class_xa extends class_qa {
          var2 *= var5;
       }
 
-      if(this.a((Material)Material.h) && !class_adk.i(this)) {
+      if(this.a((Material)Material.WATER) && !class_adk.i(this)) {
          var2 /= 5.0F;
       }
 
@@ -584,12 +584,12 @@ public abstract class class_xa extends class_qa {
 
       this.m(var1.g("Score"));
       if(this.bD) {
-         this.bE = new class_cj(this);
+         this.bE = new BlockPosition(this);
          this.a(true, true, false);
       }
 
       if(var1.b("SpawnX", 99) && var1.b("SpawnY", 99) && var1.b("SpawnZ", 99)) {
-         this.e = new class_cj(var1.g("SpawnX"), var1.g("SpawnY"), var1.g("SpawnZ"));
+         this.e = new BlockPosition(var1.g("SpawnX"), var1.g("SpawnY"), var1.g("SpawnZ"));
          this.f = var1.o("SpawnForced");
       }
 
@@ -614,9 +614,9 @@ public abstract class class_xa extends class_qa {
       var1.a("XpSeed", this.h);
       var1.a("Score", this.cb());
       if(this.e != null) {
-         var1.a("SpawnX", this.e.n());
-         var1.a("SpawnY", this.e.o());
-         var1.a("SpawnZ", this.e.p());
+         var1.a("SpawnX", this.e.getX());
+         var1.a("SpawnY", this.e.getY());
+         var1.a("SpawnZ", this.e.getZ());
          var1.a("SpawnForced", this.f);
       }
 
@@ -826,7 +826,7 @@ public abstract class class_xa extends class_qa {
                boolean var14 = var1.a(class_pc.a(this), var2);
                if(var14) {
                   if(var18 > 0) {
-                     var1.g((double)(-class_nu.a(this.y * 3.1415927F / 180.0F) * (float)var18 * 0.5F), 0.1D, (double)(class_nu.b(this.y * 3.1415927F / 180.0F) * (float)var18 * 0.5F));
+                     var1.g((double)(-MathHelper.sin(this.y * 3.1415927F / 180.0F) * (float)var18 * 0.5F), 0.1D, (double)(MathHelper.cos(this.y * 3.1415927F / 180.0F) * (float)var18 * 0.5F));
                      this.v *= 0.6D;
                      this.x *= 0.6D;
                      this.d(false);
@@ -914,7 +914,7 @@ public abstract class class_xa extends class_qa {
       return this.bO;
    }
 
-   public class_xa.class_a_in_class_xa a(class_cj var1) {
+   public class_xa.class_a_in_class_xa a(BlockPosition var1) {
       if(!this.o.D) {
          if(this.bK() || !this.ai()) {
             return class_xa.class_a_in_class_xa.e;
@@ -928,13 +928,13 @@ public abstract class class_xa extends class_qa {
             return class_xa.class_a_in_class_xa.c;
          }
 
-         if(Math.abs(this.s - (double)var1.n()) > 3.0D || Math.abs(this.t - (double)var1.o()) > 2.0D || Math.abs(this.u - (double)var1.p()) > 3.0D) {
+         if(Math.abs(this.s - (double)var1.getX()) > 3.0D || Math.abs(this.t - (double)var1.getY()) > 2.0D || Math.abs(this.u - (double)var1.getZ()) > 3.0D) {
             return class_xa.class_a_in_class_xa.d;
          }
 
          double var2 = 8.0D;
          double var4 = 5.0D;
-         List var6 = this.o.a(class_wi.class, new class_awf((double)var1.n() - var2, (double)var1.o() - var4, (double)var1.p() - var2, (double)var1.n() + var2, (double)var1.o() + var4, (double)var1.p() + var2));
+         List var6 = this.o.a(class_wi.class, new class_awf((double)var1.getX() - var2, (double)var1.getY() - var4, (double)var1.getZ() - var2, (double)var1.getX() + var2, (double)var1.getY() + var4, (double)var1.getZ() + var2));
          if(!var6.isEmpty()) {
             return class_xa.class_a_in_class_xa.f;
          }
@@ -946,7 +946,7 @@ public abstract class class_xa extends class_qa {
 
       this.a(0.2F, 0.2F);
       if(this.o.e(var1)) {
-         class_cq var7 = (class_cq)this.o.p(var1).get(class_aiv.O);
+         EnumDirection var7 = (EnumDirection)this.o.p(var1).get(class_aiv.O);
          float var3 = 0.5F;
          float var8 = 0.5F;
          switch(class_xa.SyntheticClass_1.a[var7.ordinal()]) {
@@ -964,9 +964,9 @@ public abstract class class_xa extends class_qa {
          }
 
          this.a(var7);
-         this.b((double)((float)var1.n() + var3), (double)((float)var1.o() + 0.6875F), (double)((float)var1.p() + var8));
+         this.b((double)((float)var1.getX() + var3), (double)((float)var1.getY() + 0.6875F), (double)((float)var1.getZ() + var8));
       } else {
-         this.b((double)((float)var1.n() + 0.5F), (double)((float)var1.o() + 0.6875F), (double)((float)var1.p() + 0.5F));
+         this.b((double)((float)var1.getX() + 0.5F), (double)((float)var1.getY() + 0.6875F), (double)((float)var1.getZ() + 0.5F));
       }
 
       this.bD = true;
@@ -980,7 +980,7 @@ public abstract class class_xa extends class_qa {
       return class_xa.class_a_in_class_xa.a;
    }
 
-   private void a(class_cq var1) {
+   private void a(EnumDirection var1) {
       this.bF = 0.0F;
       this.bG = 0.0F;
       switch(class_xa.SyntheticClass_1.a[var1.ordinal()]) {
@@ -1003,13 +1003,13 @@ public abstract class class_xa extends class_qa {
       this.a(0.6F, 1.8F);
       IBlockData var4 = this.o.p(this.bE);
       if(this.bE != null && var4.getBlock() == Blocks.BED) {
-         this.o.a((class_cj)this.bE, (IBlockData)var4.set(class_agh.b, Boolean.valueOf(false)), 4);
-         class_cj var5 = class_agh.a((World)this.o, (class_cj)this.bE, 0);
+         this.o.a((BlockPosition)this.bE, (IBlockData)var4.set(class_agh.b, Boolean.valueOf(false)), 4);
+         BlockPosition var5 = class_agh.a((World)this.o, (BlockPosition)this.bE, 0);
          if(var5 == null) {
-            var5 = this.bE.a();
+            var5 = this.bE.shiftUp();
          }
 
-         this.b((double)((float)var5.n() + 0.5F), (double)((float)var5.o() + 0.1F), (double)((float)var5.p() + 0.5F));
+         this.b((double)((float)var5.getX() + 0.5F), (double)((float)var5.getY() + 0.1F), (double)((float)var5.getZ() + 0.5F));
       }
 
       this.bD = false;
@@ -1028,18 +1028,18 @@ public abstract class class_xa extends class_qa {
       return this.o.p(this.bE).getBlock() == Blocks.BED;
    }
 
-   public static class_cj a(World var0, class_cj var1, boolean var2) {
+   public static BlockPosition a(World var0, BlockPosition var1, boolean var2) {
       Block var3 = var0.p(var1).getBlock();
       if(var3 != Blocks.BED) {
          if(!var2) {
             return null;
          } else {
             boolean var4 = var3.g();
-            boolean var5 = var0.p(var1.a()).getBlock().g();
+            boolean var5 = var0.p(var1.shiftUp()).getBlock().g();
             return var4 && var5?var1:null;
          }
       } else {
-         return class_agh.a((World)var0, (class_cj)var1, 0);
+         return class_agh.a((World)var0, (BlockPosition)var1, 0);
       }
    }
 
@@ -1054,7 +1054,7 @@ public abstract class class_xa extends class_qa {
    public void b(class_eu var1) {
    }
 
-   public class_cj cj() {
+   public BlockPosition cj() {
       return this.e;
    }
 
@@ -1062,7 +1062,7 @@ public abstract class class_xa extends class_qa {
       return this.f;
    }
 
-   public void a(class_cj var1, boolean var2) {
+   public void a(BlockPosition var1, boolean var2) {
       if(var1 != null) {
          this.e = var1;
          this.f = var2;
@@ -1119,14 +1119,14 @@ public abstract class class_xa extends class_qa {
    public void k(double var1, double var3, double var5) {
       if(this.m == null) {
          int var7;
-         if(this.a((Material)Material.h)) {
-            var7 = Math.round(class_nu.a(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
+         if(this.a((Material)Material.WATER)) {
+            var7 = Math.round(MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(class_nc.p, var7);
                this.a(0.015F * (float)var7 * 0.01F);
             }
          } else if(this.V()) {
-            var7 = Math.round(class_nu.a(var1 * var1 + var5 * var5) * 100.0F);
+            var7 = Math.round(MathHelper.sqrt(var1 * var1 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(class_nc.l, var7);
                this.a(0.015F * (float)var7 * 0.01F);
@@ -1136,7 +1136,7 @@ public abstract class class_xa extends class_qa {
                this.a(class_nc.n, (int)Math.round(var3 * 100.0D));
             }
          } else if(this.C) {
-            var7 = Math.round(class_nu.a(var1 * var1 + var5 * var5) * 100.0F);
+            var7 = Math.round(MathHelper.sqrt(var1 * var1 + var5 * var5) * 100.0F);
             if(var7 > 0) {
                this.a(class_nc.i, var7);
                if(this.ay()) {
@@ -1151,7 +1151,7 @@ public abstract class class_xa extends class_qa {
                }
             }
          } else {
-            var7 = Math.round(class_nu.a(var1 * var1 + var5 * var5) * 100.0F);
+            var7 = Math.round(MathHelper.sqrt(var1 * var1 + var5 * var5) * 100.0F);
             if(var7 > 25) {
                this.a(class_nc.o, var7);
             }
@@ -1162,13 +1162,13 @@ public abstract class class_xa extends class_qa {
 
    private void l(double var1, double var3, double var5) {
       if(this.m != null) {
-         int var7 = Math.round(class_nu.a(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
+         int var7 = Math.round(MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5) * 100.0F);
          if(var7 > 0) {
             if(this.m instanceof class_vn) {
                this.a(class_nc.q, var7);
                if(this.g == null) {
-                  this.g = new class_cj(this);
-               } else if(this.g.c((double)class_nu.c(this.s), (double)class_nu.c(this.t), (double)class_nu.c(this.u)) >= 1000000.0D) {
+                  this.g = new BlockPosition(this);
+               } else if(this.g.distanceSquared((double)MathHelper.floor(this.s), (double)MathHelper.floor(this.t), (double)MathHelper.floor(this.u)) >= 1000000.0D) {
                   this.b((class_my)class_mt.q);
                }
             } else if(this.m instanceof class_vk) {
@@ -1299,13 +1299,13 @@ public abstract class class_xa extends class_qa {
       return this.bH.e;
    }
 
-   public boolean a(class_cj var1, class_cq var2, class_aas var3) {
+   public boolean a(BlockPosition var1, EnumDirection var2, class_aas var3) {
       if(this.bH.e) {
          return true;
       } else if(var3 == null) {
          return false;
       } else {
-         class_cj var4 = var1.a(var2.d());
+         BlockPosition var4 = var1.shift(var2.getOpposite());
          Block var5 = this.o.p(var4).getBlock();
          return var3.d(var5) || var3.x();
       }
@@ -1515,29 +1515,29 @@ public abstract class class_xa extends class_qa {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.d.ordinal()] = 1;
+            a[EnumDirection.SOUTH.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_cq.c.ordinal()] = 2;
+            a[EnumDirection.NORTH.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 3;
+            a[EnumDirection.WEST.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.f.ordinal()] = 4;
+            a[EnumDirection.EAST.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }

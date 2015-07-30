@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aok;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
 
@@ -12,7 +12,7 @@ public interface class_aoh {
 
    class_aok d(int var1, int var2);
 
-   class_aok a(class_cj var1);
+   class_aok a(BlockPosition var1);
 
    void a(class_aoh var1, int var2, int var3);
 
@@ -26,9 +26,9 @@ public interface class_aoh {
 
    String f();
 
-   List a(class_qc var1, class_cj var2);
+   List a(class_qc var1, BlockPosition var2);
 
-   class_cj a(World var1, String var2, class_cj var3);
+   BlockPosition a(World var1, String var2, BlockPosition var3);
 
    int g();
 

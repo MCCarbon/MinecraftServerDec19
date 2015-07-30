@@ -38,7 +38,7 @@ public class class_ajo extends class_aje {
          switch(class_ajo.SyntheticClass_1.a[var2.ordinal()]) {
          case 1:
          default:
-            return MaterialMapColor.m;
+            return MaterialMapColor.COLOR12;
          case 2:
             return class_ajw.class_a_in_class_ajw.f.c();
          }

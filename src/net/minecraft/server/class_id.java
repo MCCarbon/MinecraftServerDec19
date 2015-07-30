@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
@@ -10,16 +10,16 @@ import org.apache.commons.lang3.StringUtils;
 
 public class class_id implements class_ff {
    private String a;
-   private class_cj b;
+   private BlockPosition b;
 
    public class_id() {
    }
 
    public class_id(String var1) {
-      this(var1, (class_cj)null);
+      this(var1, (BlockPosition)null);
    }
 
-   public class_id(String var1, class_cj var2) {
+   public class_id(String var1, BlockPosition var2) {
       this.a = var1;
       this.b = var2;
    }
@@ -51,7 +51,7 @@ public class class_id implements class_ff {
       return this.a;
    }
 
-   public class_cj b() {
+   public BlockPosition b() {
       return this.b;
    }
 

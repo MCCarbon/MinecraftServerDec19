@@ -15,9 +15,9 @@ import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_pr;
 
@@ -31,8 +31,8 @@ public abstract class class_ajd extends Block {
       this.setTicking(true);
    }
 
-   public boolean isPassable(class_aer var1, class_cj var2) {
-      return this.material != Material.i;
+   public boolean isPassable(class_aer var1, BlockPosition var2) {
+      return this.material != Material.LAVA;
    }
 
    public static float b(int var0) {
@@ -43,11 +43,11 @@ public abstract class class_ajd extends Block {
       return (float)(var0 + 1) / 9.0F;
    }
 
-   protected int e(class_aer var1, class_cj var2) {
+   protected int e(class_aer var1, BlockPosition var2) {
       return var1.p(var2).getBlock().getMaterial() == this.material?((Integer)var1.p(var2).get(b)).intValue():-1;
    }
 
-   protected int f(class_aer var1, class_cj var2) {
+   protected int f(class_aer var1, BlockPosition var2) {
       int var3 = this.e(var1, var2);
       return var3 >= 8?0:var3;
    }
@@ -64,12 +64,12 @@ public abstract class class_ajd extends Block {
       return var2 && ((Integer)var1.get(b)).intValue() == 0;
    }
 
-   public boolean b(class_aer var1, class_cj var2, class_cq var3) {
+   public boolean b(class_aer var1, BlockPosition var2, EnumDirection var3) {
       Material var4 = var1.p(var2).getBlock().getMaterial();
-      return var4 == this.material?false:(var3 == class_cq.b?true:(var4 == Material.w?false:super.b(var1, var2, var3)));
+      return var4 == this.material?false:(var3 == EnumDirection.UP?true:(var4 == Material.ICE?false:super.b(var1, var2, var3)));
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -85,75 +85,75 @@ public abstract class class_ajd extends Block {
       return 0;
    }
 
-   protected class_awh h(class_aer var1, class_cj var2) {
-      class_awh var3 = new class_awh(0.0D, 0.0D, 0.0D);
+   protected Vec3D h(class_aer var1, BlockPosition var2) {
+      Vec3D var3 = new Vec3D(0.0D, 0.0D, 0.0D);
       int var4 = this.f(var1, var2);
-      Iterator var5 = class_cq.class_c_in_class_cq.a.iterator();
+      Iterator var5 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
-      class_cq var6;
-      class_cj var7;
+      EnumDirection var6;
+      BlockPosition var7;
       while(var5.hasNext()) {
-         var6 = (class_cq)var5.next();
-         var7 = var2.a(var6);
+         var6 = (EnumDirection)var5.next();
+         var7 = var2.shift(var6);
          int var8 = this.f(var1, var7);
          int var9;
          if(var8 < 0) {
             if(!var1.p(var7).getBlock().getMaterial().isSolid()) {
-               var8 = this.f(var1, var7.b());
+               var8 = this.f(var1, var7.shiftDown());
                if(var8 >= 0) {
                   var9 = var8 - (var4 - 8);
-                  var3 = var3.b((double)((var7.n() - var2.n()) * var9), (double)((var7.o() - var2.o()) * var9), (double)((var7.p() - var2.p()) * var9));
+                  var3 = var3.add((double)((var7.getX() - var2.getX()) * var9), (double)((var7.getY() - var2.getY()) * var9), (double)((var7.getZ() - var2.getZ()) * var9));
                }
             }
          } else if(var8 >= 0) {
             var9 = var8 - var4;
-            var3 = var3.b((double)((var7.n() - var2.n()) * var9), (double)((var7.o() - var2.o()) * var9), (double)((var7.p() - var2.p()) * var9));
+            var3 = var3.add((double)((var7.getX() - var2.getX()) * var9), (double)((var7.getY() - var2.getY()) * var9), (double)((var7.getZ() - var2.getZ()) * var9));
          }
       }
 
       if(((Integer)var1.p(var2).get(b)).intValue() >= 8) {
-         var5 = class_cq.class_c_in_class_cq.a.iterator();
+         var5 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
          do {
             if(!var5.hasNext()) {
-               return var3.a();
+               return var3.normalize();
             }
 
-            var6 = (class_cq)var5.next();
-            var7 = var2.a(var6);
-         } while(!this.b(var1, var7, var6) && !this.b(var1, var7.a(), var6));
+            var6 = (EnumDirection)var5.next();
+            var7 = var2.shift(var6);
+         } while(!this.b(var1, var7, var6) && !this.b(var1, var7.shiftUp(), var6));
 
-         var3 = var3.a().b(0.0D, -6.0D, 0.0D);
+         var3 = var3.normalize().add(0.0D, -6.0D, 0.0D);
       }
 
-      return var3.a();
+      return var3.normalize();
    }
 
-   public class_awh a(World var1, class_cj var2, class_pr var3, class_awh var4) {
-      return var4.e(this.h(var1, var2));
+   public Vec3D a(World var1, BlockPosition var2, class_pr var3, Vec3D var4) {
+      return var4.add(this.h(var1, var2));
    }
 
    public int a(World var1) {
-      return this.material == Material.h?5:(this.material == Material.i?(var1.t.m()?10:30):0);
+      return this.material == Material.WATER?5:(this.material == Material.LAVA?(var1.t.m()?10:30):0);
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   public boolean e(World var1, class_cj var2, IBlockData var3) {
-      if(this.material == Material.i) {
+   public boolean e(World var1, BlockPosition var2, IBlockData var3) {
+      if(this.material == Material.LAVA) {
          boolean var4 = false;
-         class_cq[] var5 = class_cq.values();
+         EnumDirection[] var5 = EnumDirection.values();
          int var6 = var5.length;
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            class_cq var8 = var5[var7];
-            if(var8 != class_cq.a && var1.p(var2.a(var8)).getBlock().getMaterial() == Material.h) {
+            EnumDirection var8 = var5[var7];
+            if(var8 != EnumDirection.DOWN && var1.p(var2.shift(var8)).getBlock().getMaterial() == Material.WATER) {
                var4 = true;
                break;
             }
@@ -178,10 +178,10 @@ public abstract class class_ajd extends Block {
       return false;
    }
 
-   protected void e(World var1, class_cj var2) {
-      double var3 = (double)var2.n();
-      double var5 = (double)var2.o();
-      double var7 = (double)var2.p();
+   protected void e(World var1, BlockPosition var2) {
+      double var3 = (double)var2.getX();
+      double var5 = (double)var2.getY();
+      double var7 = (double)var2.getZ();
       var1.a(var3 + 0.5D, var5 + 0.5D, var7 + 0.5D, "random.fizz", 0.5F, 2.6F + (var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F);
 
       for(int var9 = 0; var9 < 8; ++var9) {
@@ -203,9 +203,9 @@ public abstract class class_ajd extends Block {
    }
 
    public static class_ahp a(Material var0) {
-      if(var0 == Material.h) {
+      if(var0 == Material.WATER) {
          return Blocks.FLOWING_WATER;
-      } else if(var0 == Material.i) {
+      } else if(var0 == Material.LAVA) {
          return Blocks.FLOWING_LAVA;
       } else {
          throw new IllegalArgumentException("Invalid material");
@@ -213,9 +213,9 @@ public abstract class class_ajd extends Block {
    }
 
    public static class_alf b(Material var0) {
-      if(var0 == Material.h) {
+      if(var0 == Material.WATER) {
          return Blocks.WATER;
-      } else if(var0 == Material.i) {
+      } else if(var0 == Material.LAVA) {
          return Blocks.LAVA;
       } else {
          throw new IllegalArgumentException("Invalid material");

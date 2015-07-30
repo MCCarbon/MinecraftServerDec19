@@ -4,9 +4,9 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_auv;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tf;
@@ -37,7 +37,7 @@ public class class_rw extends class_rm {
       if(this.e && this.a.o.x()) {
          return false;
       } else {
-         class_tp var1 = this.a.o.af().a(new class_cj(this.a), 0);
+         class_tp var1 = this.a.o.af().a(new BlockPosition(this.a), 0);
          if(var1 == null) {
             return false;
          } else {
@@ -53,12 +53,12 @@ public class class_rw extends class_rm {
                if(this.c != null) {
                   return true;
                } else {
-                  class_awh var4 = class_tm.a(this.a, 10, 7, new class_awh((double)this.d.d().n(), (double)this.d.d().o(), (double)this.d.d().p()));
+                  Vec3D var4 = class_tm.a(this.a, 10, 7, new Vec3D((double)this.d.d().getX(), (double)this.d.d().getY(), (double)this.d.d().getZ()));
                   if(var4 == null) {
                      return false;
                   } else {
                      var2.b(false);
-                     this.c = this.a.u().a(var4.a, var4.b, var4.c);
+                     this.c = this.a.u().a(var4.x, var4.y, var4.z);
                      var2.b(var3);
                      return this.c != null;
                   }
@@ -96,7 +96,7 @@ public class class_rw extends class_rm {
 
       while(var5.hasNext()) {
          class_to var6 = (class_to)var5.next();
-         int var7 = var6.b(class_nu.c(this.a.s), class_nu.c(this.a.t), class_nu.c(this.a.u));
+         int var7 = var6.b(MathHelper.floor(this.a.s), MathHelper.floor(this.a.t), MathHelper.floor(this.a.u));
          if(var7 < var3 && !this.a(var6)) {
             var2 = var6;
             var3 = var7;

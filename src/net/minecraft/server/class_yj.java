@@ -10,7 +10,7 @@ import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adl;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ow;
@@ -33,14 +33,14 @@ public class class_yj extends class_xz {
       }
    };
    private World j;
-   private class_cj k;
+   private BlockPosition k;
    private Random l = new Random();
    public int f;
    public int[] g = new int[3];
    public int[] h = new int[]{-1, -1, -1};
    public int[] i = new int[]{-1, -1, -1};
 
-   public class_yj(class_wz var1, World var2, class_cj var3) {
+   public class_yj(class_wz var1, World var2, BlockPosition var3) {
       this.j = var2;
       this.k = var3;
       this.f = var1.e.cl();
@@ -111,29 +111,29 @@ public class class_yj extends class_xz {
                int var4;
                for(var4 = -1; var4 <= 1; ++var4) {
                   for(int var5 = -1; var5 <= 1; ++var5) {
-                     if((var4 != 0 || var5 != 0) && this.j.d(this.k.a(var5, 0, var4)) && this.j.d(this.k.a(var5, 1, var4))) {
-                        if(this.j.p(this.k.a(var5 * 2, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
+                     if((var4 != 0 || var5 != 0) && this.j.d(this.k.add(var5, 0, var4)) && this.j.d(this.k.add(var5, 1, var4))) {
+                        if(this.j.p(this.k.add(var5 * 2, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
 
-                        if(this.j.p(this.k.a(var5 * 2, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
+                        if(this.j.p(this.k.add(var5 * 2, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
 
                         if(var5 != 0 && var4 != 0) {
-                           if(this.j.p(this.k.a(var5 * 2, 0, var4)).getBlock() == Blocks.BOOKSHELF) {
+                           if(this.j.p(this.k.add(var5 * 2, 0, var4)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5 * 2, 1, var4)).getBlock() == Blocks.BOOKSHELF) {
+                           if(this.j.p(this.k.add(var5 * 2, 1, var4)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
+                           if(this.j.p(this.k.add(var5, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.a(var5, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
+                           if(this.j.p(this.k.add(var5, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
                         }
@@ -245,7 +245,7 @@ public class class_yj extends class_xz {
    }
 
    public boolean a(class_xa var1) {
-      return this.j.p(this.k).getBlock() != Blocks.ENCHANTING_TABLE?false:var1.e((double)this.k.n() + 0.5D, (double)this.k.o() + 0.5D, (double)this.k.p() + 0.5D) <= 64.0D;
+      return this.j.p(this.k).getBlock() != Blocks.ENCHANTING_TABLE?false:var1.e((double)this.k.getX() + 0.5D, (double)this.k.getY() + 0.5D, (double)this.k.getZ() + 0.5D) <= 64.0D;
    }
 
    public class_aas b(class_xa var1, int var2) {

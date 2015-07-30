@@ -5,7 +5,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pk;
@@ -89,7 +89,7 @@ public class class_wp extends class_wi {
       return "mob.spider.death";
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.spider.step", 0.15F, 1.0F);
    }
 

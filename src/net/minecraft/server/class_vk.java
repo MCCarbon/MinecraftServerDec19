@@ -9,10 +9,10 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pe;
@@ -134,7 +134,7 @@ public class class_vk extends class_pr {
          double var5 = this.aT().b + (this.aT().e - this.aT().b) * (double)(var4 + 0) / (double)var1 - 0.125D;
          double var7 = this.aT().b + (this.aT().e - this.aT().b) * (double)(var4 + 1) / (double)var1 - 0.125D;
          class_awf var9 = new class_awf(this.aT().a, var5, this.aT().c, this.aT().d, var7, this.aT().f);
-         if(this.o.b(var9, Material.h)) {
+         if(this.o.b(var9, Material.WATER)) {
             var2 += 1.0D / (double)var1;
          }
       }
@@ -171,7 +171,7 @@ public class class_vk extends class_pr {
             var6 = this.s + (this.g - this.s) / (double)this.f;
             var8 = this.t + (this.h - this.t) / (double)this.f;
             var24 = this.u + (this.i - this.u) / (double)this.f;
-            var26 = class_nu.g(this.as - (double)this.y);
+            var26 = MathHelper.clampAngle(this.as - (double)this.y);
             this.y = (float)((double)this.y + var26 / (double)this.f);
             this.z = (float)((double)this.z + (this.at - (double)this.z) / (double)this.f);
             --this.f;
@@ -234,12 +234,12 @@ public class class_vk extends class_pr {
 
          int var22;
          for(var22 = 0; var22 < 4; ++var22) {
-            int var23 = class_nu.c(this.s + ((double)(var22 % 2) - 0.5D) * 0.8D);
-            var10 = class_nu.c(this.u + ((double)(var22 / 2) - 0.5D) * 0.8D);
+            int var23 = MathHelper.floor(this.s + ((double)(var22 % 2) - 0.5D) * 0.8D);
+            var10 = MathHelper.floor(this.u + ((double)(var22 / 2) - 0.5D) * 0.8D);
 
             for(int var25 = 0; var25 < 2; ++var25) {
-               int var12 = class_nu.c(this.t) + var25;
-               class_cj var27 = new class_cj(var23, var12, var10);
+               int var12 = MathHelper.floor(this.t) + var25;
+               BlockPosition var27 = new BlockPosition(var23, var12, var10);
                Block var14 = this.o.p(var27).getBlock();
                if(var14 == Blocks.SNOW_LAYER) {
                   this.o.g(var27);
@@ -282,10 +282,10 @@ public class class_vk extends class_pr {
          var24 = this.p - this.s;
          var26 = this.r - this.u;
          if(var24 * var24 + var26 * var26 > 0.001D) {
-            var8 = (double)((float)(class_nu.b(var26, var24) * 180.0D / 3.141592653589793D));
+            var8 = (double)((float)(MathHelper.b(var26, var24) * 180.0D / 3.141592653589793D));
          }
 
-         double var28 = class_nu.g(var8 - (double)this.y);
+         double var28 = MathHelper.clampAngle(var8 - (double)this.y);
          if(var28 > 20.0D) {
             var28 = 20.0D;
          }
@@ -341,7 +341,7 @@ public class class_vk extends class_pr {
       }
    }
 
-   protected void a(double var1, boolean var3, Block var4, class_cj var5) {
+   protected void a(double var1, boolean var3, Block var4, BlockPosition var5) {
       if(var3) {
          if(this.O > 3.0F) {
             this.e(this.O, 1.0F);
@@ -361,7 +361,7 @@ public class class_vk extends class_pr {
 
             this.O = 0.0F;
          }
-      } else if(this.o.p((new class_cj(this)).b()).getBlock().getMaterial() != Material.h && var1 < 0.0D) {
+      } else if(this.o.p((new BlockPosition(this)).shiftDown()).getBlock().getMaterial() != Material.WATER && var1 < 0.0D) {
          this.O = (float)((double)this.O - var1);
       }
 

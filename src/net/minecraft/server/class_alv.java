@@ -12,7 +12,7 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
@@ -42,7 +42,7 @@ public class class_alv extends Block {
       return false;
    }
 
-   public boolean isPassable(class_aer var1, class_cj var2) {
+   public boolean isPassable(class_aer var1, BlockPosition var2) {
       return false;
    }
 
@@ -50,11 +50,11 @@ public class class_alv extends Block {
       return false;
    }
 
-   public void a(class_aer var1, class_cj var2) {
-      boolean var3 = this.e(var1, var2.c());
-      boolean var4 = this.e(var1, var2.d());
-      boolean var5 = this.e(var1, var2.e());
-      boolean var6 = this.e(var1, var2.f());
+   public void a(class_aer var1, BlockPosition var2) {
+      boolean var3 = this.e(var1, var2.shiftNorth());
+      boolean var4 = this.e(var1, var2.shiftSouth());
+      boolean var5 = this.e(var1, var2.shiftWest());
+      boolean var6 = this.e(var1, var2.shiftEast());
       float var7 = 0.25F;
       float var8 = 0.75F;
       float var9 = 0.25F;
@@ -89,15 +89,15 @@ public class class_alv extends Block {
       this.setSizes(var7, 0.0F, var9, var8, var11, var10);
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       this.isReplaceable(var1, var2);
       this.maxY = 1.5D;
       return super.a(var1, var2, var3);
    }
 
-   public boolean e(class_aer var1, class_cj var2) {
+   public boolean e(class_aer var1, BlockPosition var2) {
       Block var3 = var1.p(var2).getBlock();
-      return var3 == Blocks.BARRIER?false:(var3 != this && !(var3 instanceof class_aia)?(var3.material.k() && var3.isFullCube()?var3.material != Material.C:false):true);
+      return var3 == Blocks.BARRIER?false:(var3 != this && !(var3 instanceof class_aia)?(var3.material.isOpaque() && var3.isFullCube()?var3.material != Material.PUMPKIN:false):true);
    }
 
    public int getDropData(IBlockData var1) {
@@ -112,13 +112,13 @@ public class class_alv extends Block {
       return ((class_alv.class_a_in_class_alv)var1.get(Q)).a();
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      boolean var4 = this.e(var2, var3.c());
-      boolean var5 = this.e(var2, var3.f());
-      boolean var6 = this.e(var2, var3.d());
-      boolean var7 = this.e(var2, var3.e());
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+      boolean var4 = this.e(var2, var3.shiftNorth());
+      boolean var5 = this.e(var2, var3.shiftEast());
+      boolean var6 = this.e(var2, var3.shiftSouth());
+      boolean var7 = this.e(var2, var3.shiftWest());
       boolean var8 = var4 && !var5 && var6 && !var7 || !var4 && var5 && !var6 && var7;
-      return var1.set(a, Boolean.valueOf(!var8 || !var2.d(var3.a()))).set(b, Boolean.valueOf(var4)).set(N, Boolean.valueOf(var5)).set(O, Boolean.valueOf(var6)).set(P, Boolean.valueOf(var7));
+      return var1.set(a, Boolean.valueOf(!var8 || !var2.d(var3.shiftUp()))).set(b, Boolean.valueOf(var4)).set(N, Boolean.valueOf(var5)).set(O, Boolean.valueOf(var6)).set(P, Boolean.valueOf(var7));
    }
 
    protected BlockStateList createBlockStateList() {

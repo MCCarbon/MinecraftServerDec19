@@ -10,8 +10,8 @@ import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -24,12 +24,12 @@ public class class_alo extends Block {
    public static final class_anw a = class_anw.a("explode");
 
    public class_alo() {
-      super(Material.u);
+      super(Material.TNT);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
       this.a(CreativeTab.d);
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       super.c(var1, var2, var3);
       if(var1.z(var2)) {
          this.d(var1, var2, var3.set(a, Boolean.valueOf(true)));
@@ -38,7 +38,7 @@ public class class_alo extends Block {
 
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(var1.z(var2)) {
          this.d(var1, var2, var3.set(a, Boolean.valueOf(true)));
          var1.g(var2);
@@ -46,22 +46,22 @@ public class class_alo extends Block {
 
    }
 
-   public void a(World var1, class_cj var2, class_aej var3) {
+   public void a(World var1, BlockPosition var2, class_aej var3) {
       if(!var1.D) {
-         class_vw var4 = new class_vw(var1, (double)((float)var2.n() + 0.5F), (double)var2.o(), (double)((float)var2.p() + 0.5F), var3.c());
+         class_vw var4 = new class_vw(var1, (double)((float)var2.getX() + 0.5F), (double)var2.getY(), (double)((float)var2.getZ() + 0.5F), var3.c());
          var4.a = var1.s.nextInt(var4.a / 4) + var4.a / 8;
          var1.a((class_pr)var4);
       }
    }
 
-   public void d(World var1, class_cj var2, IBlockData var3) {
+   public void d(World var1, BlockPosition var2, IBlockData var3) {
       this.a(var1, var2, var3, (class_qa)null);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4) {
       if(!var1.D) {
          if(((Boolean)var3.get(a)).booleanValue()) {
-            class_vw var5 = new class_vw(var1, (double)((float)var2.n() + 0.5F), (double)var2.o(), (double)((float)var2.p() + 0.5F), var4);
+            class_vw var5 = new class_vw(var1, (double)((float)var2.getX() + 0.5F), (double)var2.getY(), (double)((float)var2.getZ() + 0.5F), var4);
             var1.a((class_pr)var5);
             var1.a((class_pr)var5, "game.tnt.primed", 1.0F, 1.0F);
          }
@@ -69,7 +69,7 @@ public class class_alo extends Block {
       }
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var6 != null && (var6.b() == Items.d || var6.b() == Items.bO)) {
          this.a(var1, var2, var3.set(a, Boolean.valueOf(true)), (class_qa)var4);
          var1.g(var2);
@@ -85,7 +85,7 @@ public class class_alo extends Block {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
       if(!var1.D && var4 instanceof class_xd) {
          class_xd var5 = (class_xd)var4;
          if(var5.av()) {

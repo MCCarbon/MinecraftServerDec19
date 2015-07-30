@@ -7,7 +7,7 @@ import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.CreativeTab;
 
 public class class_aij extends Block {
@@ -17,7 +17,7 @@ public class class_aij extends Block {
    }
 
    public int a(int var1, Random var2) {
-      return class_nu.a(this.a(var2) + var2.nextInt(var1 + 1), 1, 4);
+      return MathHelper.clamp(this.a(var2) + var2.nextInt(var1 + 1), 1, 4);
    }
 
    public int a(Random var1) {
@@ -29,6 +29,6 @@ public class class_aij extends Block {
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return MaterialMapColor.d;
+      return MaterialMapColor.COLOR3;
    }
 }

@@ -3,10 +3,10 @@ package net.minecraft.server;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vm;
 
@@ -32,13 +32,13 @@ public class class_xe extends class_pr {
       this.b(var2, var4, var6);
    }
 
-   public void a(class_cj var1) {
-      double var2 = (double)var1.n();
-      int var4 = var1.o();
-      double var5 = (double)var1.p();
+   public void a(BlockPosition var1) {
+      double var2 = (double)var1.getX();
+      int var4 = var1.getY();
+      double var5 = (double)var1.getZ();
       double var7 = var2 - this.s;
       double var9 = var5 - this.u;
-      float var11 = class_nu.a(var7 * var7 + var9 * var9);
+      float var11 = MathHelper.sqrt(var7 * var7 + var9 * var9);
       if(var11 > 12.0F) {
          this.a = this.s + var7 / (double)var11 * 12.0D;
          this.c = this.u + var9 / (double)var11 * 12.0D;
@@ -61,10 +61,10 @@ public class class_xe extends class_pr {
       this.s += this.v;
       this.t += this.w;
       this.u += this.x;
-      float var1 = class_nu.a(this.v * this.v + this.x * this.x);
-      this.y = (float)(class_nu.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+      float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
+      this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
-      for(this.z = (float)(class_nu.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+      for(this.z = (float)(MathHelper.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
          ;
       }
 
@@ -86,7 +86,7 @@ public class class_xe extends class_pr {
          double var2 = this.a - this.s;
          double var4 = this.c - this.u;
          float var6 = (float)Math.sqrt(var2 * var2 + var4 * var4);
-         float var7 = (float)class_nu.b(var4, var2);
+         float var7 = (float)MathHelper.b(var4, var2);
          double var8 = (double)var1 + (double)(var6 - var1) * 0.0025D;
          if(var6 < 1.0F) {
             var8 *= 0.8D;
@@ -119,7 +119,7 @@ public class class_xe extends class_pr {
             if(this.e) {
                this.o.a((class_pr)(new class_vm(this.o, this.s, this.t, this.u, new class_aas(Items.bK))));
             } else {
-               this.o.b(2003, new class_cj(this), 0);
+               this.o.b(2003, new BlockPosition(this), 0);
             }
          }
       }

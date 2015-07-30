@@ -36,7 +36,7 @@ public class class_akq extends class_ahx {
 	}
 
 	public static enum class_a_in_class_akq implements INamable {
-		a(0, "sand", "default", MaterialMapColor.d), b(1, "red_sand", "red", MaterialMapColor.q);
+		a(0, "sand", "default", MaterialMapColor.COLOR3), b(1, "red_sand", "red", MaterialMapColor.COLOR16);
 
 		private static final class_akq.class_a_in_class_akq[] c;
 		private final int d;

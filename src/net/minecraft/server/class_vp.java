@@ -5,8 +5,8 @@ import net.minecraft.server.class_aed;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_oo;
@@ -24,12 +24,12 @@ public class class_vp extends class_vn {
          class_vp.this.H().b(class_vp.b, class_eu.class_a_in_class_eu.a(this.k()));
       }
 
-      public class_cj c() {
-         return new class_cj(class_vp.this.s, class_vp.this.t + 0.5D, class_vp.this.u);
+      public BlockPosition c() {
+         return new BlockPosition(class_vp.this.s, class_vp.this.t + 0.5D, class_vp.this.u);
       }
 
-      public class_awh d() {
-         return new class_awh(class_vp.this.s, class_vp.this.t, class_vp.this.u);
+      public Vec3D d() {
+         return new Vec3D(class_vp.this.s, class_vp.this.t, class_vp.this.u);
       }
 
       public World e() {

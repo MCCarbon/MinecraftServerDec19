@@ -31,7 +31,7 @@ import net.minecraft.server.class_anb;
 import net.minecraft.server.class_ang;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ff;
 import org.apache.logging.log4j.LogManager;
@@ -42,13 +42,13 @@ public abstract class class_amg {
    private static Map f = Maps.newHashMap();
    private static Map g = Maps.newHashMap();
    protected World b;
-   protected class_cj c;
+   protected BlockPosition c;
    protected boolean d;
    private int h;
    protected Block e;
 
    public class_amg() {
-      this.c = class_cj.a;
+      this.c = BlockPosition.ZERO;
       this.h = -1;
    }
 
@@ -74,7 +74,7 @@ public abstract class class_amg {
    }
 
    public void a(class_dn var1) {
-      this.c = new class_cj(var1.g("x"), var1.g("y"), var1.g("z"));
+      this.c = new BlockPosition(var1.g("x"), var1.g("y"), var1.g("z"));
    }
 
    public void b(class_dn var1) {
@@ -83,9 +83,9 @@ public abstract class class_amg {
          throw new RuntimeException(this.getClass() + " is missing a mapping! This is a bug!");
       } else {
          var1.a("id", var2);
-         var1.a("x", this.c.n());
-         var1.a("y", this.c.o());
-         var1.a("z", this.c.p());
+         var1.a("x", this.c.getX());
+         var1.a("y", this.c.getY());
+         var1.a("z", this.c.getZ());
       }
    }
 
@@ -131,7 +131,7 @@ public abstract class class_amg {
 
    }
 
-   public class_cj v() {
+   public BlockPosition v() {
       return this.c;
    }
 
@@ -217,10 +217,10 @@ public abstract class class_amg {
       }
    }
 
-   public void a(class_cj var1) {
-      if(var1 instanceof class_cj.class_a_in_class_cj) {
+   public void a(BlockPosition var1) {
+      if(var1 instanceof BlockPosition.MutableBlockPosition) {
          a.warn((String)"Tried to assign a mutable BlockPos to a block entity...", (Throwable)(new Error()));
-         var1 = new class_cj(var1);
+         var1 = new BlockPosition(var1);
       }
 
       this.c = var1;

@@ -18,7 +18,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aeq;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_b;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ke;
 import net.minecraft.server.class_kg;
 import net.minecraft.server.class_kk;
@@ -33,7 +33,7 @@ import net.minecraft.server.class_ml;
 import net.minecraft.server.class_mo;
 import net.minecraft.server.class_mq;
 import net.minecraft.server.class_ni;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_ox;
 import net.minecraft.server.class_xa;
@@ -196,7 +196,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             this.aK();
             this.c(this.o.a("max-build-height", 256));
             this.c((this.an() + 8) / 16 * 16);
-            this.c(class_nu.a(this.an(), 64, 256));
+            this.c(MathHelper.clamp(this.an(), 64, 256));
             this.o.a("max-build-height", (Object)Integer.valueOf(this.an()));
             k.info("Preparing level \"" + this.U() + "\"");
             this.a(this.U(), this.U(), var9, var18, var8);
@@ -374,7 +374,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       return this.o.a("spawn-protection", super.aw());
    }
 
-   public boolean a(World var1, class_cj var2, class_xa var3) {
+   public boolean a(World var1, BlockPosition var2, class_xa var3) {
       if(var1.t.p().a() != 0) {
          return false;
       } else if(this.aP().m().d()) {
@@ -384,9 +384,9 @@ public class class_kp extends MinecraftServer implements class_kk {
       } else if(this.aw() <= 0) {
          return false;
       } else {
-         class_cj var4 = var1.N();
-         int var5 = class_nu.a(var2.n() - var4.n());
-         int var6 = class_nu.a(var2.p() - var4.p());
+         BlockPosition var4 = var1.N();
+         int var5 = MathHelper.abs(var2.getX() - var4.getX());
+         int var6 = MathHelper.abs(var2.getZ() - var4.getZ());
          int var7 = Math.max(var5, var6);
          return var7 <= this.aw();
       }

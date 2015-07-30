@@ -46,17 +46,17 @@ import net.minecraft.server.class_avo;
 import net.minecraft.server.class_avz;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.class_no;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_nv;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
@@ -125,7 +125,7 @@ public abstract class World implements class_aer {
       return this;
    }
 
-   public class_aez b(final class_cj var1) {
+   public class_aez b(final BlockPosition var1) {
       if(this.e(var1)) {
          class_aok var2 = this.f(var1);
 
@@ -161,45 +161,45 @@ public abstract class World implements class_aer {
       this.x.d(true);
    }
 
-   public Block c(class_cj var1) {
-      class_cj var2;
-      for(var2 = new class_cj(var1.n(), this.G(), var1.p()); !this.d(var2.a()); var2 = var2.a()) {
+   public Block c(BlockPosition var1) {
+      BlockPosition var2;
+      for(var2 = new BlockPosition(var1.getX(), this.G(), var1.getZ()); !this.d(var2.shiftUp()); var2 = var2.shiftUp()) {
          ;
       }
 
       return this.p(var2).getBlock();
    }
 
-   private boolean a(class_cj var1) {
-      return var1.n() >= -30000000 && var1.p() >= -30000000 && var1.n() < 30000000 && var1.p() < 30000000 && var1.o() >= 0 && var1.o() < 256;
+   private boolean a(BlockPosition var1) {
+      return var1.getX() >= -30000000 && var1.getZ() >= -30000000 && var1.getX() < 30000000 && var1.getZ() < 30000000 && var1.getY() >= 0 && var1.getY() < 256;
    }
 
-   public boolean d(class_cj var1) {
-      return this.p(var1).getBlock().getMaterial() == Material.a;
+   public boolean d(BlockPosition var1) {
+      return this.p(var1).getBlock().getMaterial() == Material.AIR;
    }
 
-   public boolean e(class_cj var1) {
+   public boolean e(BlockPosition var1) {
       return this.a(var1, true);
    }
 
-   public boolean a(class_cj var1, boolean var2) {
-      return !this.a(var1)?false:this.a(var1.n() >> 4, var1.p() >> 4, var2);
+   public boolean a(BlockPosition var1, boolean var2) {
+      return !this.a(var1)?false:this.a(var1.getX() >> 4, var1.getZ() >> 4, var2);
    }
 
-   public boolean a(class_cj var1, int var2) {
+   public boolean a(BlockPosition var1, int var2) {
       return this.a(var1, var2, true);
    }
 
-   public boolean a(class_cj var1, int var2, boolean var3) {
-      return this.a(var1.n() - var2, var1.o() - var2, var1.p() - var2, var1.n() + var2, var1.o() + var2, var1.p() + var2, var3);
+   public boolean a(BlockPosition var1, int var2, boolean var3) {
+      return this.a(var1.getX() - var2, var1.getY() - var2, var1.getZ() - var2, var1.getX() + var2, var1.getY() + var2, var1.getZ() + var2, var3);
    }
 
-   public boolean a(class_cj var1, class_cj var2) {
+   public boolean a(BlockPosition var1, BlockPosition var2) {
       return this.a(var1, var2, true);
    }
 
-   public boolean a(class_cj var1, class_cj var2, boolean var3) {
-      return this.a(var1.n(), var1.o(), var1.p(), var2.n(), var2.o(), var2.p(), var3);
+   public boolean a(BlockPosition var1, BlockPosition var2, boolean var3) {
+      return this.a(var1.getX(), var1.getY(), var1.getZ(), var2.getX(), var2.getY(), var2.getZ(), var3);
    }
 
    public boolean a(class_arw var1) {
@@ -235,15 +235,15 @@ public abstract class World implements class_aer {
       return this.v.a(var1, var2) && (var3 || !this.v.d(var1, var2).f());
    }
 
-   public class_aok f(class_cj var1) {
-      return this.a(var1.n() >> 4, var1.p() >> 4);
+   public class_aok f(BlockPosition var1) {
+      return this.a(var1.getX() >> 4, var1.getZ() >> 4);
    }
 
    public class_aok a(int var1, int var2) {
       return this.v.d(var1, var2);
    }
 
-   public boolean a(class_cj var1, IBlockData var2, int var3) {
+   public boolean a(BlockPosition var1, IBlockData var2, int var3) {
       if(!this.a(var1)) {
          return false;
       } else if(!this.D && this.x.u() == class_aes.g) {
@@ -278,14 +278,14 @@ public abstract class World implements class_aer {
       }
    }
 
-   public boolean g(class_cj var1) {
-      return this.a((class_cj)var1, (IBlockData)Blocks.AIR.getBlockData(), 3);
+   public boolean g(BlockPosition var1) {
+      return this.a((BlockPosition)var1, (IBlockData)Blocks.AIR.getBlockData(), 3);
    }
 
-   public boolean b(class_cj var1, boolean var2) {
+   public boolean b(BlockPosition var1, boolean var2) {
       IBlockData var3 = this.p(var1);
       Block var4 = var3.getBlock();
-      if(var4.getMaterial() == Material.a) {
+      if(var4.getMaterial() == Material.AIR) {
          return false;
       } else {
          this.b(2001, var1, Block.getCombinedId(var3));
@@ -293,22 +293,22 @@ public abstract class World implements class_aer {
             var4.b(this, var1, var3, 0);
          }
 
-         return this.a((class_cj)var1, (IBlockData)Blocks.AIR.getBlockData(), 3);
+         return this.a((BlockPosition)var1, (IBlockData)Blocks.AIR.getBlockData(), 3);
       }
    }
 
-   public boolean a(class_cj var1, IBlockData var2) {
-      return this.a((class_cj)var1, (IBlockData)var2, 3);
+   public boolean a(BlockPosition var1, IBlockData var2) {
+      return this.a((BlockPosition)var1, (IBlockData)var2, 3);
    }
 
-   public void h(class_cj var1) {
+   public void h(BlockPosition var1) {
       for(int var2 = 0; var2 < this.u.size(); ++var2) {
          ((class_aep)this.u.get(var2)).a(var1);
       }
 
    }
 
-   public void b(class_cj var1, Block var2) {
+   public void b(BlockPosition var1, Block var2) {
       if(this.x.u() != class_aes.g) {
          this.c(var1, var2);
       }
@@ -325,15 +325,15 @@ public abstract class World implements class_aer {
 
       if(!this.t.m()) {
          for(var5 = var3; var5 <= var4; ++var5) {
-            this.c(class_aet.a, new class_cj(var1, var5, var2));
+            this.c(class_aet.a, new BlockPosition(var1, var5, var2));
          }
       }
 
       this.b(var1, var3, var2, var1, var4, var2);
    }
 
-   public void b(class_cj var1, class_cj var2) {
-      this.b(var1.n(), var1.o(), var1.p(), var2.n(), var2.o(), var2.p());
+   public void b(BlockPosition var1, BlockPosition var2) {
+      this.b(var1.getX(), var1.getY(), var1.getZ(), var2.getX(), var2.getY(), var2.getZ());
    }
 
    public void b(int var1, int var2, int var3, int var4, int var5, int var6) {
@@ -343,43 +343,43 @@ public abstract class World implements class_aer {
 
    }
 
-   public void c(class_cj var1, Block var2) {
-      this.d(var1.e(), var2);
-      this.d(var1.f(), var2);
-      this.d(var1.b(), var2);
-      this.d(var1.a(), var2);
-      this.d(var1.c(), var2);
-      this.d(var1.d(), var2);
+   public void c(BlockPosition var1, Block var2) {
+      this.d(var1.shiftWest(), var2);
+      this.d(var1.shiftEast(), var2);
+      this.d(var1.shiftDown(), var2);
+      this.d(var1.shiftUp(), var2);
+      this.d(var1.shiftNorth(), var2);
+      this.d(var1.shiftSouth(), var2);
    }
 
-   public void a(class_cj var1, Block var2, class_cq var3) {
-      if(var3 != class_cq.e) {
-         this.d(var1.e(), var2);
+   public void a(BlockPosition var1, Block var2, EnumDirection var3) {
+      if(var3 != EnumDirection.WEST) {
+         this.d(var1.shiftWest(), var2);
       }
 
-      if(var3 != class_cq.f) {
-         this.d(var1.f(), var2);
+      if(var3 != EnumDirection.EAST) {
+         this.d(var1.shiftEast(), var2);
       }
 
-      if(var3 != class_cq.a) {
-         this.d(var1.b(), var2);
+      if(var3 != EnumDirection.DOWN) {
+         this.d(var1.shiftDown(), var2);
       }
 
-      if(var3 != class_cq.b) {
-         this.d(var1.a(), var2);
+      if(var3 != EnumDirection.UP) {
+         this.d(var1.shiftUp(), var2);
       }
 
-      if(var3 != class_cq.c) {
-         this.d(var1.c(), var2);
+      if(var3 != EnumDirection.NORTH) {
+         this.d(var1.shiftNorth(), var2);
       }
 
-      if(var3 != class_cq.d) {
-         this.d(var1.d(), var2);
+      if(var3 != EnumDirection.SOUTH) {
+         this.d(var1.shiftSouth(), var2);
       }
 
    }
 
-   public void d(class_cj var1, final Block var2) {
+   public void d(BlockPosition var1, final Block var2) {
       if(!this.D) {
          IBlockData var3 = this.p(var1);
 
@@ -408,25 +408,25 @@ public abstract class World implements class_aer {
       }
    }
 
-   public boolean a(class_cj var1, Block var2) {
+   public boolean a(BlockPosition var1, Block var2) {
       return false;
    }
 
-   public boolean i(class_cj var1) {
+   public boolean i(BlockPosition var1) {
       return this.f(var1).d(var1);
    }
 
-   public boolean j(class_cj var1) {
-      if(var1.o() >= this.G()) {
+   public boolean j(BlockPosition var1) {
+      if(var1.getY() >= this.G()) {
          return this.i(var1);
       } else {
-         class_cj var2 = new class_cj(var1.n(), this.G(), var1.p());
+         BlockPosition var2 = new BlockPosition(var1.getX(), this.G(), var1.getZ());
          if(!this.i(var2)) {
             return false;
          } else {
-            for(var2 = var2.b(); var2.o() > var1.o(); var2 = var2.b()) {
+            for(var2 = var2.shiftDown(); var2.getY() > var1.getY(); var2 = var2.shiftDown()) {
                Block var3 = this.p(var2).getBlock();
-               if(var3.getLightOpacity() > 0 && !var3.getMaterial().d()) {
+               if(var3.getLightOpacity() > 0 && !var3.getMaterial().isLiquid()) {
                   return false;
                }
             }
@@ -436,30 +436,30 @@ public abstract class World implements class_aer {
       }
    }
 
-   public int k(class_cj var1) {
-      if(var1.o() < 0) {
+   public int k(BlockPosition var1) {
+      if(var1.getY() < 0) {
          return 0;
       } else {
-         if(var1.o() >= 256) {
-            var1 = new class_cj(var1.n(), 255, var1.p());
+         if(var1.getY() >= 256) {
+            var1 = new BlockPosition(var1.getX(), 255, var1.getZ());
          }
 
-         return this.f(var1).a((class_cj)var1, 0);
+         return this.f(var1).a((BlockPosition)var1, 0);
       }
    }
 
-   public int l(class_cj var1) {
+   public int l(BlockPosition var1) {
       return this.c(var1, true);
    }
 
-   public int c(class_cj var1, boolean var2) {
-      if(var1.n() >= -30000000 && var1.p() >= -30000000 && var1.n() < 30000000 && var1.p() < 30000000) {
+   public int c(BlockPosition var1, boolean var2) {
+      if(var1.getX() >= -30000000 && var1.getZ() >= -30000000 && var1.getX() < 30000000 && var1.getZ() < 30000000) {
          if(var2 && this.p(var1).getBlock().useNeighborBrightness()) {
-            int var8 = this.c(var1.a(), false);
-            int var4 = this.c(var1.f(), false);
-            int var5 = this.c(var1.e(), false);
-            int var6 = this.c(var1.d(), false);
-            int var7 = this.c(var1.c(), false);
+            int var8 = this.c(var1.shiftUp(), false);
+            int var4 = this.c(var1.shiftEast(), false);
+            int var5 = this.c(var1.shiftWest(), false);
+            int var6 = this.c(var1.shiftSouth(), false);
+            int var7 = this.c(var1.shiftNorth(), false);
             if(var4 > var8) {
                var8 = var4;
             }
@@ -477,11 +477,11 @@ public abstract class World implements class_aer {
             }
 
             return var8;
-         } else if(var1.o() < 0) {
+         } else if(var1.getY() < 0) {
             return 0;
          } else {
-            if(var1.o() >= 256) {
-               var1 = new class_cj(var1.n(), 255, var1.p());
+            if(var1.getY() >= 256) {
+               var1 = new BlockPosition(var1.getX(), 255, var1.getZ());
             }
 
             class_aok var3 = this.f(var1);
@@ -492,11 +492,11 @@ public abstract class World implements class_aer {
       }
    }
 
-   public class_cj m(class_cj var1) {
+   public BlockPosition m(BlockPosition var1) {
       int var2;
-      if(var1.n() >= -30000000 && var1.p() >= -30000000 && var1.n() < 30000000 && var1.p() < 30000000) {
-         if(this.a(var1.n() >> 4, var1.p() >> 4, true)) {
-            var2 = this.a(var1.n() >> 4, var1.p() >> 4).b(var1.n() & 15, var1.p() & 15);
+      if(var1.getX() >= -30000000 && var1.getZ() >= -30000000 && var1.getX() < 30000000 && var1.getZ() < 30000000) {
+         if(this.a(var1.getX() >> 4, var1.getZ() >> 4, true)) {
+            var2 = this.a(var1.getX() >> 4, var1.getZ() >> 4).b(var1.getX() & 15, var1.getZ() & 15);
          } else {
             var2 = 0;
          }
@@ -504,7 +504,7 @@ public abstract class World implements class_aer {
          var2 = this.G() + 1;
       }
 
-      return new class_cj(var1.n(), var2, var1.p());
+      return new BlockPosition(var1.getX(), var2, var1.getZ());
    }
 
    public int b(int var1, int var2) {
@@ -520,9 +520,9 @@ public abstract class World implements class_aer {
       }
    }
 
-   public int b(class_aet var1, class_cj var2) {
-      if(var2.o() < 0) {
-         var2 = new class_cj(var2.n(), 0, var2.p());
+   public int b(class_aet var1, BlockPosition var2) {
+      if(var2.getY() < 0) {
+         var2 = new BlockPosition(var2.getX(), 0, var2.getZ());
       }
 
       if(!this.a(var2)) {
@@ -535,7 +535,7 @@ public abstract class World implements class_aer {
       }
    }
 
-   public void a(class_aet var1, class_cj var2, int var3) {
+   public void a(class_aet var1, BlockPosition var2, int var3) {
       if(this.a(var2)) {
          if(this.e(var2)) {
             class_aok var4 = this.f(var2);
@@ -545,18 +545,18 @@ public abstract class World implements class_aer {
       }
    }
 
-   public void n(class_cj var1) {
+   public void n(BlockPosition var1) {
       for(int var2 = 0; var2 < this.u.size(); ++var2) {
          ((class_aep)this.u.get(var2)).b(var1);
       }
 
    }
 
-   public float o(class_cj var1) {
+   public float o(BlockPosition var1) {
       return this.t.n()[this.l(var1)];
    }
 
-   public IBlockData p(class_cj var1) {
+   public IBlockData p(BlockPosition var1) {
       if(!this.a(var1)) {
          return Blocks.AIR.getBlockData();
       } else {
@@ -569,24 +569,24 @@ public abstract class World implements class_aer {
       return this.I < 4;
    }
 
-   public class_awg a(class_awh var1, class_awh var2) {
+   public class_awg a(Vec3D var1, Vec3D var2) {
       return this.a(var1, var2, false, false, false);
    }
 
-   public class_awg a(class_awh var1, class_awh var2, boolean var3) {
+   public class_awg a(Vec3D var1, Vec3D var2, boolean var3) {
       return this.a(var1, var2, var3, false, false);
    }
 
-   public class_awg a(class_awh var1, class_awh var2, boolean var3, boolean var4, boolean var5) {
-      if(!Double.isNaN(var1.a) && !Double.isNaN(var1.b) && !Double.isNaN(var1.c)) {
-         if(!Double.isNaN(var2.a) && !Double.isNaN(var2.b) && !Double.isNaN(var2.c)) {
-            int var6 = class_nu.c(var2.a);
-            int var7 = class_nu.c(var2.b);
-            int var8 = class_nu.c(var2.c);
-            int var9 = class_nu.c(var1.a);
-            int var10 = class_nu.c(var1.b);
-            int var11 = class_nu.c(var1.c);
-            class_cj var12 = new class_cj(var9, var10, var11);
+   public class_awg a(Vec3D var1, Vec3D var2, boolean var3, boolean var4, boolean var5) {
+      if(!Double.isNaN(var1.x) && !Double.isNaN(var1.y) && !Double.isNaN(var1.z)) {
+         if(!Double.isNaN(var2.x) && !Double.isNaN(var2.y) && !Double.isNaN(var2.z)) {
+            int var6 = MathHelper.floor(var2.x);
+            int var7 = MathHelper.floor(var2.y);
+            int var8 = MathHelper.floor(var2.z);
+            int var9 = MathHelper.floor(var1.x);
+            int var10 = MathHelper.floor(var1.y);
+            int var11 = MathHelper.floor(var1.z);
+            BlockPosition var12 = new BlockPosition(var9, var10, var11);
             IBlockData var13 = this.p(var12);
             Block var14 = var13.getBlock();
             if((!var4 || var14.a(this, var12, var13) != null) && var14.a(var13, var3)) {
@@ -600,7 +600,7 @@ public abstract class World implements class_aer {
             int var41 = 200;
 
             while(var41-- >= 0) {
-               if(Double.isNaN(var1.a) || Double.isNaN(var1.b) || Double.isNaN(var1.c)) {
+               if(Double.isNaN(var1.x) || Double.isNaN(var1.y) || Double.isNaN(var1.z)) {
                   return null;
                }
 
@@ -641,19 +641,19 @@ public abstract class World implements class_aer {
                double var24 = 999.0D;
                double var26 = 999.0D;
                double var28 = 999.0D;
-               double var30 = var2.a - var1.a;
-               double var32 = var2.b - var1.b;
-               double var34 = var2.c - var1.c;
+               double var30 = var2.x - var1.x;
+               double var32 = var2.y - var1.y;
+               double var34 = var2.z - var1.z;
                if(var42) {
-                  var24 = (var18 - var1.a) / var30;
+                  var24 = (var18 - var1.x) / var30;
                }
 
                if(var16) {
-                  var26 = (var20 - var1.b) / var32;
+                  var26 = (var20 - var1.y) / var32;
                }
 
                if(var17) {
-                  var28 = (var22 - var1.c) / var34;
+                  var28 = (var22 - var1.z) / var34;
                }
 
                if(var24 == -0.0D) {
@@ -668,22 +668,22 @@ public abstract class World implements class_aer {
                   var28 = -1.0E-4D;
                }
 
-               class_cq var36;
+               EnumDirection var36;
                if(var24 < var26 && var24 < var28) {
-                  var36 = var6 > var9?class_cq.e:class_cq.f;
-                  var1 = new class_awh(var18, var1.b + var32 * var24, var1.c + var34 * var24);
+                  var36 = var6 > var9?EnumDirection.WEST:EnumDirection.EAST;
+                  var1 = new Vec3D(var18, var1.y + var32 * var24, var1.z + var34 * var24);
                } else if(var26 < var28) {
-                  var36 = var7 > var10?class_cq.a:class_cq.b;
-                  var1 = new class_awh(var1.a + var30 * var26, var20, var1.c + var34 * var26);
+                  var36 = var7 > var10?EnumDirection.DOWN:EnumDirection.UP;
+                  var1 = new Vec3D(var1.x + var30 * var26, var20, var1.z + var34 * var26);
                } else {
-                  var36 = var8 > var11?class_cq.c:class_cq.d;
-                  var1 = new class_awh(var1.a + var30 * var28, var1.b + var32 * var28, var22);
+                  var36 = var8 > var11?EnumDirection.NORTH:EnumDirection.SOUTH;
+                  var1 = new Vec3D(var1.x + var30 * var28, var1.y + var32 * var28, var22);
                }
 
-               var9 = class_nu.c(var1.a) - (var36 == class_cq.f?1:0);
-               var10 = class_nu.c(var1.b) - (var36 == class_cq.b?1:0);
-               var11 = class_nu.c(var1.c) - (var36 == class_cq.d?1:0);
-               var12 = new class_cj(var9, var10, var11);
+               var9 = MathHelper.floor(var1.x) - (var36 == EnumDirection.EAST?1:0);
+               var10 = MathHelper.floor(var1.y) - (var36 == EnumDirection.UP?1:0);
+               var11 = MathHelper.floor(var1.z) - (var36 == EnumDirection.SOUTH?1:0);
+               var12 = new BlockPosition(var9, var10, var11);
                IBlockData var37 = this.p(var12);
                Block var38 = var37.getBlock();
                if(!var4 || var38.a(this, var12, var37) != null) {
@@ -731,7 +731,7 @@ public abstract class World implements class_aer {
    public void a(double var1, double var3, double var5, String var7, float var8, float var9, boolean var10) {
    }
 
-   public void a(class_cj var1, String var2) {
+   public void a(BlockPosition var1, String var2) {
       for(int var3 = 0; var3 < this.u.size(); ++var3) {
          ((class_aep)this.u.get(var3)).a(var2, var1);
       }
@@ -755,8 +755,8 @@ public abstract class World implements class_aer {
    }
 
    public boolean a(class_pr var1) {
-      int var2 = class_nu.c(var1.s / 16.0D);
-      int var3 = class_nu.c(var1.u / 16.0D);
+      int var2 = MathHelper.floor(var1.s / 16.0D);
+      int var3 = MathHelper.floor(var1.u / 16.0D);
       boolean var4 = var1.n;
       if(var1 instanceof class_xa) {
          var4 = true;
@@ -833,23 +833,23 @@ public abstract class World implements class_aer {
 
    public List a(class_pr var1, class_awf var2) {
       ArrayList var3 = Lists.newArrayList();
-      int var4 = class_nu.c(var2.a);
-      int var5 = class_nu.c(var2.d + 1.0D);
-      int var6 = class_nu.c(var2.b);
-      int var7 = class_nu.c(var2.e + 1.0D);
-      int var8 = class_nu.c(var2.c);
-      int var9 = class_nu.c(var2.f + 1.0D);
+      int var4 = MathHelper.floor(var2.a);
+      int var5 = MathHelper.floor(var2.d + 1.0D);
+      int var6 = MathHelper.floor(var2.b);
+      int var7 = MathHelper.floor(var2.e + 1.0D);
+      int var8 = MathHelper.floor(var2.c);
+      int var9 = MathHelper.floor(var2.f + 1.0D);
       class_aoe var10 = this.ag();
       boolean var11 = var1.aV();
       boolean var12 = this.a(var10, var1);
       IBlockData var13 = Blocks.STONE.getBlockData();
-      class_cj.class_a_in_class_cj var14 = new class_cj.class_a_in_class_cj();
+      BlockPosition.MutableBlockPosition var14 = new BlockPosition.MutableBlockPosition();
 
       for(int var15 = var4; var15 < var5; ++var15) {
          for(int var16 = var8; var16 < var9; ++var16) {
-            if(this.e((class_cj)var14.c(var15, 64, var16))) {
+            if(this.e((BlockPosition)var14.setPosition(var15, 64, var16))) {
                for(int var17 = var6 - 1; var17 < var7; ++var17) {
-                  var14.c(var15, var17, var16);
+                  var14.setPosition(var15, var17, var16);
                   if(var11 && var12) {
                      var1.h(false);
                   } else if(!var11 && !var12) {
@@ -857,11 +857,11 @@ public abstract class World implements class_aer {
                   }
 
                   IBlockData var18 = var13;
-                  if(var10.a((class_cj)var14) || !var12) {
+                  if(var10.a((BlockPosition)var14) || !var12) {
                      var18 = this.p(var14);
                   }
 
-                  var18.getBlock().a(this, (class_cj)var14, (IBlockData)var18, (class_awf)var2, (List)var3, (class_pr)var1);
+                  var18.getBlock().a(this, (BlockPosition)var14, (IBlockData)var18, (class_awf)var2, (List)var3, (class_pr)var1);
                }
             }
          }
@@ -910,19 +910,19 @@ public abstract class World implements class_aer {
 
    public List a(class_awf var1) {
       ArrayList var2 = Lists.newArrayList();
-      int var3 = class_nu.c(var1.a);
-      int var4 = class_nu.c(var1.d + 1.0D);
-      int var5 = class_nu.c(var1.b);
-      int var6 = class_nu.c(var1.e + 1.0D);
-      int var7 = class_nu.c(var1.c);
-      int var8 = class_nu.c(var1.f + 1.0D);
-      class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj();
+      int var3 = MathHelper.floor(var1.a);
+      int var4 = MathHelper.floor(var1.d + 1.0D);
+      int var5 = MathHelper.floor(var1.b);
+      int var6 = MathHelper.floor(var1.e + 1.0D);
+      int var7 = MathHelper.floor(var1.c);
+      int var8 = MathHelper.floor(var1.f + 1.0D);
+      BlockPosition.MutableBlockPosition var9 = new BlockPosition.MutableBlockPosition();
 
       for(int var10 = var3; var10 < var4; ++var10) {
          for(int var11 = var7; var11 < var8; ++var11) {
-            if(this.e((class_cj)var9.c(var10, 64, var11))) {
+            if(this.e((BlockPosition)var9.setPosition(var10, 64, var11))) {
                for(int var12 = var5 - 1; var12 < var6; ++var12) {
-                  var9.c(var10, var12, var11);
+                  var9.setPosition(var10, var12, var11);
                   IBlockData var13;
                   if(var10 >= -30000000 && var10 < 30000000 && var11 >= -30000000 && var11 < 30000000) {
                      var13 = this.p(var9);
@@ -930,7 +930,7 @@ public abstract class World implements class_aer {
                      var13 = Blocks.BEDROCK.getBlockData();
                   }
 
-                  var13.getBlock().a(this, (class_cj)var9, (IBlockData)var13, (class_awf)var1, (List)var2, (class_pr)null);
+                  var13.getBlock().a(this, (BlockPosition)var9, (IBlockData)var13, (class_awf)var1, (List)var2, (class_pr)null);
                }
             }
          }
@@ -941,8 +941,8 @@ public abstract class World implements class_aer {
 
    public int a(float var1) {
       float var2 = this.c(var1);
-      float var3 = 1.0F - (class_nu.b(var2 * 3.1415927F * 2.0F) * 2.0F + 0.5F);
-      var3 = class_nu.a(var3, 0.0F, 1.0F);
+      float var3 = 1.0F - (MathHelper.cos(var2 * 3.1415927F * 2.0F) * 2.0F + 0.5F);
+      var3 = MathHelper.clamp(var3, 0.0F, 1.0F);
       var3 = 1.0F - var3;
       var3 = (float)((double)var3 * (1.0D - (double)(this.j(var1) * 5.0F) / 16.0D));
       var3 = (float)((double)var3 * (1.0D - (double)(this.h(var1) * 5.0F) / 16.0D));
@@ -963,19 +963,19 @@ public abstract class World implements class_aer {
       return var2 * 3.1415927F * 2.0F;
    }
 
-   public class_cj q(class_cj var1) {
+   public BlockPosition q(BlockPosition var1) {
       return this.f(var1).h(var1);
    }
 
-   public class_cj r(class_cj var1) {
+   public BlockPosition r(BlockPosition var1) {
       class_aok var2 = this.f(var1);
 
-      class_cj var3;
-      class_cj var4;
-      for(var3 = new class_cj(var1.n(), var2.g() + 16, var1.p()); var3.o() >= 0; var3 = var4) {
-         var4 = var3.b();
+      BlockPosition var3;
+      BlockPosition var4;
+      for(var3 = new BlockPosition(var1.getX(), var2.g() + 16, var1.getZ()); var3.getY() >= 0; var3 = var4) {
+         var4 = var3.shiftDown();
          Material var5 = var2.a(var4).getMaterial();
-         if(var5.isSolid() && var5 != Material.j) {
+         if(var5.isSolid() && var5 != Material.LEAVES) {
             break;
          }
       }
@@ -983,13 +983,13 @@ public abstract class World implements class_aer {
       return var3;
    }
 
-   public void a(class_cj var1, Block var2, int var3) {
+   public void a(BlockPosition var1, Block var2, int var3) {
    }
 
-   public void a(class_cj var1, Block var2, int var3, int var4) {
+   public void a(BlockPosition var1, Block var2, int var3, int var4) {
    }
 
-   public void b(class_cj var1, Block var2, int var3, int var4) {
+   public void b(BlockPosition var1, Block var2, int var3, int var4) {
    }
 
    public void j() {
@@ -1090,7 +1090,7 @@ public abstract class World implements class_aer {
       while(var15.hasNext()) {
          class_amg var10 = (class_amg)var15.next();
          if(!var10.x() && var10.t()) {
-            class_cj var12 = var10.v();
+            BlockPosition var12 = var10.v();
             if(this.e(var12) && this.N.a(var12)) {
                try {
                   ((class_kn)var10).c();
@@ -1174,8 +1174,8 @@ public abstract class World implements class_aer {
    }
 
    public void a(class_pr var1, boolean var2) {
-      int var3 = class_nu.c(var1.s);
-      int var4 = class_nu.c(var1.u);
+      int var3 = MathHelper.floor(var1.s);
+      int var4 = MathHelper.floor(var1.u);
       byte var5 = 32;
       if(!var2 || this.a(var3 - var5, 0, var4 - var5, var3 + var5, 0, var4 + var5, true)) {
          var1.P = var1.s;
@@ -1213,9 +1213,9 @@ public abstract class World implements class_aer {
             var1.y = var1.A;
          }
 
-         int var6 = class_nu.c(var1.s / 16.0D);
-         int var7 = class_nu.c(var1.t / 16.0D);
-         int var8 = class_nu.c(var1.u / 16.0D);
+         int var6 = MathHelper.floor(var1.s / 16.0D);
+         int var7 = MathHelper.floor(var1.t / 16.0D);
+         int var8 = MathHelper.floor(var1.u / 16.0D);
          if(!var1.ad || var1.ae != var6 || var1.af != var7 || var1.ag != var8) {
             if(var1.ad && this.a(var1.ae, var1.ag, true)) {
                this.a(var1.ae, var1.ag).a(var1, var1.af);
@@ -1260,19 +1260,19 @@ public abstract class World implements class_aer {
    }
 
    public boolean c(class_awf var1) {
-      int var2 = class_nu.c(var1.a);
-      int var3 = class_nu.c(var1.d);
-      int var4 = class_nu.c(var1.b);
-      int var5 = class_nu.c(var1.e);
-      int var6 = class_nu.c(var1.c);
-      int var7 = class_nu.c(var1.f);
-      class_cj.class_a_in_class_cj var8 = new class_cj.class_a_in_class_cj();
+      int var2 = MathHelper.floor(var1.a);
+      int var3 = MathHelper.floor(var1.d);
+      int var4 = MathHelper.floor(var1.b);
+      int var5 = MathHelper.floor(var1.e);
+      int var6 = MathHelper.floor(var1.c);
+      int var7 = MathHelper.floor(var1.f);
+      BlockPosition.MutableBlockPosition var8 = new BlockPosition.MutableBlockPosition();
 
       for(int var9 = var2; var9 <= var3; ++var9) {
          for(int var10 = var4; var10 <= var5; ++var10) {
             for(int var11 = var6; var11 <= var7; ++var11) {
-               Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
-               if(var12.getMaterial() != Material.a) {
+               Block var12 = this.p(var8.setPosition(var9, var10, var11)).getBlock();
+               if(var12.getMaterial() != Material.AIR) {
                   return true;
                }
             }
@@ -1283,19 +1283,19 @@ public abstract class World implements class_aer {
    }
 
    public boolean d(class_awf var1) {
-      int var2 = class_nu.c(var1.a);
-      int var3 = class_nu.c(var1.d);
-      int var4 = class_nu.c(var1.b);
-      int var5 = class_nu.c(var1.e);
-      int var6 = class_nu.c(var1.c);
-      int var7 = class_nu.c(var1.f);
-      class_cj.class_a_in_class_cj var8 = new class_cj.class_a_in_class_cj();
+      int var2 = MathHelper.floor(var1.a);
+      int var3 = MathHelper.floor(var1.d);
+      int var4 = MathHelper.floor(var1.b);
+      int var5 = MathHelper.floor(var1.e);
+      int var6 = MathHelper.floor(var1.c);
+      int var7 = MathHelper.floor(var1.f);
+      BlockPosition.MutableBlockPosition var8 = new BlockPosition.MutableBlockPosition();
 
       for(int var9 = var2; var9 <= var3; ++var9) {
          for(int var10 = var4; var10 <= var5; ++var10) {
             for(int var11 = var6; var11 <= var7; ++var11) {
-               Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
-               if(var12.getMaterial().d()) {
+               Block var12 = this.p(var8.setPosition(var9, var10, var11)).getBlock();
+               if(var12.getMaterial().isLiquid()) {
                   return true;
                }
             }
@@ -1306,19 +1306,19 @@ public abstract class World implements class_aer {
    }
 
    public boolean e(class_awf var1) {
-      int var2 = class_nu.c(var1.a);
-      int var3 = class_nu.c(var1.d + 1.0D);
-      int var4 = class_nu.c(var1.b);
-      int var5 = class_nu.c(var1.e + 1.0D);
-      int var6 = class_nu.c(var1.c);
-      int var7 = class_nu.c(var1.f + 1.0D);
+      int var2 = MathHelper.floor(var1.a);
+      int var3 = MathHelper.floor(var1.d + 1.0D);
+      int var4 = MathHelper.floor(var1.b);
+      int var5 = MathHelper.floor(var1.e + 1.0D);
+      int var6 = MathHelper.floor(var1.c);
+      int var7 = MathHelper.floor(var1.f + 1.0D);
       if(this.a(var2, var4, var6, var3, var5, var7, true)) {
-         class_cj.class_a_in_class_cj var8 = new class_cj.class_a_in_class_cj();
+         BlockPosition.MutableBlockPosition var8 = new BlockPosition.MutableBlockPosition();
 
          for(int var9 = var2; var9 < var3; ++var9) {
             for(int var10 = var4; var10 < var5; ++var10) {
                for(int var11 = var6; var11 < var7; ++var11) {
-                  Block var12 = this.p(var8.c(var9, var10, var11)).getBlock();
+                  Block var12 = this.p(var8.setPosition(var9, var10, var11)).getBlock();
                   if(var12 == Blocks.FIRE || var12 == Blocks.FLOWING_LAVA || var12 == Blocks.LAVA) {
                      return true;
                   }
@@ -1331,42 +1331,42 @@ public abstract class World implements class_aer {
    }
 
    public boolean a(class_awf var1, Material var2, class_pr var3) {
-      int var4 = class_nu.c(var1.a);
-      int var5 = class_nu.c(var1.d + 1.0D);
-      int var6 = class_nu.c(var1.b);
-      int var7 = class_nu.c(var1.e + 1.0D);
-      int var8 = class_nu.c(var1.c);
-      int var9 = class_nu.c(var1.f + 1.0D);
+      int var4 = MathHelper.floor(var1.a);
+      int var5 = MathHelper.floor(var1.d + 1.0D);
+      int var6 = MathHelper.floor(var1.b);
+      int var7 = MathHelper.floor(var1.e + 1.0D);
+      int var8 = MathHelper.floor(var1.c);
+      int var9 = MathHelper.floor(var1.f + 1.0D);
       if(!this.a(var4, var6, var8, var5, var7, var9, true)) {
          return false;
       } else {
          boolean var10 = false;
-         class_awh var11 = new class_awh(0.0D, 0.0D, 0.0D);
-         class_cj.class_a_in_class_cj var12 = new class_cj.class_a_in_class_cj();
+         Vec3D var11 = new Vec3D(0.0D, 0.0D, 0.0D);
+         BlockPosition.MutableBlockPosition var12 = new BlockPosition.MutableBlockPosition();
 
          for(int var13 = var4; var13 < var5; ++var13) {
             for(int var14 = var6; var14 < var7; ++var14) {
                for(int var15 = var8; var15 < var9; ++var15) {
-                  var12.c(var13, var14, var15);
+                  var12.setPosition(var13, var14, var15);
                   IBlockData var16 = this.p(var12);
                   Block var17 = var16.getBlock();
                   if(var17.getMaterial() == var2) {
                      double var18 = (double)((float)(var14 + 1) - class_ajd.b(((Integer)var16.get(class_ajd.b)).intValue()));
                      if((double)var7 >= var18) {
                         var10 = true;
-                        var11 = var17.a((World)this, var12, (class_pr)var3, (class_awh)var11);
+                        var11 = var17.a((World)this, var12, (class_pr)var3, (Vec3D)var11);
                      }
                   }
                }
             }
          }
 
-         if(var11.b() > 0.0D && var3.aN()) {
-            var11 = var11.a();
+         if(var11.length() > 0.0D && var3.aN()) {
+            var11 = var11.normalize();
             double var20 = 0.014D;
-            var3.v += var11.a * var20;
-            var3.w += var11.b * var20;
-            var3.x += var11.c * var20;
+            var3.v += var11.x * var20;
+            var3.w += var11.y * var20;
+            var3.x += var11.z * var20;
          }
 
          return var10;
@@ -1374,18 +1374,18 @@ public abstract class World implements class_aer {
    }
 
    public boolean a(class_awf var1, Material var2) {
-      int var3 = class_nu.c(var1.a);
-      int var4 = class_nu.c(var1.d + 1.0D);
-      int var5 = class_nu.c(var1.b);
-      int var6 = class_nu.c(var1.e + 1.0D);
-      int var7 = class_nu.c(var1.c);
-      int var8 = class_nu.c(var1.f + 1.0D);
-      class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj();
+      int var3 = MathHelper.floor(var1.a);
+      int var4 = MathHelper.floor(var1.d + 1.0D);
+      int var5 = MathHelper.floor(var1.b);
+      int var6 = MathHelper.floor(var1.e + 1.0D);
+      int var7 = MathHelper.floor(var1.c);
+      int var8 = MathHelper.floor(var1.f + 1.0D);
+      BlockPosition.MutableBlockPosition var9 = new BlockPosition.MutableBlockPosition();
 
       for(int var10 = var3; var10 < var4; ++var10) {
          for(int var11 = var5; var11 < var6; ++var11) {
             for(int var12 = var7; var12 < var8; ++var12) {
-               if(this.p(var9.c(var10, var11, var12)).getBlock().getMaterial() == var2) {
+               if(this.p(var9.setPosition(var10, var11, var12)).getBlock().getMaterial() == var2) {
                   return true;
                }
             }
@@ -1396,18 +1396,18 @@ public abstract class World implements class_aer {
    }
 
    public boolean b(class_awf var1, Material var2) {
-      int var3 = class_nu.c(var1.a);
-      int var4 = class_nu.c(var1.d + 1.0D);
-      int var5 = class_nu.c(var1.b);
-      int var6 = class_nu.c(var1.e + 1.0D);
-      int var7 = class_nu.c(var1.c);
-      int var8 = class_nu.c(var1.f + 1.0D);
-      class_cj.class_a_in_class_cj var9 = new class_cj.class_a_in_class_cj();
+      int var3 = MathHelper.floor(var1.a);
+      int var4 = MathHelper.floor(var1.d + 1.0D);
+      int var5 = MathHelper.floor(var1.b);
+      int var6 = MathHelper.floor(var1.e + 1.0D);
+      int var7 = MathHelper.floor(var1.c);
+      int var8 = MathHelper.floor(var1.f + 1.0D);
+      BlockPosition.MutableBlockPosition var9 = new BlockPosition.MutableBlockPosition();
 
       for(int var10 = var3; var10 < var4; ++var10) {
          for(int var11 = var5; var11 < var6; ++var11) {
             for(int var12 = var7; var12 < var8; ++var12) {
-               IBlockData var13 = this.p(var9.c(var10, var11, var12));
+               IBlockData var13 = this.p(var9.setPosition(var10, var11, var12));
                Block var14 = var13.getBlock();
                if(var14.getMaterial() == var2) {
                   int var15 = ((Integer)var13.get(class_ajd.b)).intValue();
@@ -1438,7 +1438,7 @@ public abstract class World implements class_aer {
       return var11;
    }
 
-   public float a(class_awh var1, class_awf var2) {
+   public float a(Vec3D var1, class_awf var2) {
       double var3 = 1.0D / ((var2.d - var2.a) * 2.0D + 1.0D);
       double var5 = 1.0D / ((var2.e - var2.b) * 2.0D + 1.0D);
       double var7 = 1.0D / ((var2.f - var2.c) * 2.0D + 1.0D);
@@ -1454,7 +1454,7 @@ public abstract class World implements class_aer {
                   double var18 = var2.a + (var2.d - var2.a) * (double)var15;
                   double var20 = var2.b + (var2.e - var2.b) * (double)var16;
                   double var22 = var2.c + (var2.f - var2.c) * (double)var17;
-                  if(this.a(new class_awh(var18 + var9, var20, var22 + var11), var1) == null) {
+                  if(this.a(new Vec3D(var18 + var9, var20, var22 + var11), var1) == null) {
                      ++var13;
                   }
 
@@ -1469,8 +1469,8 @@ public abstract class World implements class_aer {
       }
    }
 
-   public boolean a(class_xa var1, class_cj var2, class_cq var3) {
-      var2 = var2.a(var3);
+   public boolean a(class_xa var1, BlockPosition var2, EnumDirection var3) {
+      var2 = var2.shift(var3);
       if(this.p(var2).getBlock() == Blocks.FIRE) {
          this.a(var1, 1004, var2, 0);
          this.g(var2);
@@ -1480,7 +1480,7 @@ public abstract class World implements class_aer {
       }
    }
 
-   public class_amg s(class_cj var1) {
+   public class_amg s(BlockPosition var1) {
       if(!this.a(var1)) {
          return null;
       } else {
@@ -1515,7 +1515,7 @@ public abstract class World implements class_aer {
       }
    }
 
-   public void a(class_cj var1, class_amg var2) {
+   public void a(BlockPosition var1, class_amg var2) {
       if(var2 != null && !var2.x()) {
          if(this.M) {
             var2.a(var1);
@@ -1538,7 +1538,7 @@ public abstract class World implements class_aer {
 
    }
 
-   public void t(class_cj var1) {
+   public void t(BlockPosition var1) {
       class_amg var2 = this.s(var1);
       if(var2 != null && this.M) {
          var2.y();
@@ -1559,19 +1559,19 @@ public abstract class World implements class_aer {
       this.c.add(var1);
    }
 
-   public boolean u(class_cj var1) {
+   public boolean u(BlockPosition var1) {
       IBlockData var2 = this.p(var1);
       class_awf var3 = var2.getBlock().a(this, var1, var2);
       return var3 != null && var3.a() >= 1.0D;
    }
 
-   public static boolean a(class_aer var0, class_cj var1) {
+   public static boolean a(class_aer var0, BlockPosition var1) {
       IBlockData var2 = var0.p(var1);
       Block var3 = var2.getBlock();
-      return var3.getMaterial().k() && var3.isFullCube()?true:(var3 instanceof class_ald?var2.get(class_ald.b) == class_ald.class_a_in_class_ald.a:(var3 instanceof class_aio?var2.get(class_aio.a) == class_aio.class_a_in_class_aio.a:(var3 instanceof class_aiu?true:(var3 instanceof class_aky?((Integer)var2.get(class_aky.a)).intValue() == 7:false))));
+      return var3.getMaterial().isOpaque() && var3.isFullCube()?true:(var3 instanceof class_ald?var2.get(class_ald.b) == class_ald.class_a_in_class_ald.a:(var3 instanceof class_aio?var2.get(class_aio.a) == class_aio.class_a_in_class_aio.a:(var3 instanceof class_aiu?true:(var3 instanceof class_aky?((Integer)var2.get(class_aky.a)).intValue() == 7:false))));
    }
 
-   public boolean d(class_cj var1, boolean var2) {
+   public boolean d(BlockPosition var1, boolean var2) {
       if(!this.a(var1)) {
          return var2;
       } else {
@@ -1580,7 +1580,7 @@ public abstract class World implements class_aer {
             return var2;
          } else {
             Block var4 = this.p(var1).getBlock();
-            return var4.getMaterial().k() && var4.isFullCube();
+            return var4.getMaterial().isOpaque() && var4.isFullCube();
          }
       }
    }
@@ -1645,7 +1645,7 @@ public abstract class World implements class_aer {
                this.r = (float)((double)this.r - 0.01D);
             }
 
-            this.r = class_nu.a(this.r, 0.0F, 1.0F);
+            this.r = MathHelper.clamp(this.r, 0.0F, 1.0F);
             int var3 = this.x.q();
             if(var3 <= 0) {
                if(this.x.p()) {
@@ -1668,7 +1668,7 @@ public abstract class World implements class_aer {
                this.p = (float)((double)this.p - 0.01D);
             }
 
-            this.p = class_nu.a(this.p, 0.0F, 1.0F);
+            this.p = MathHelper.clamp(this.p, 0.0F, 1.0F);
          }
       }
    }
@@ -1684,8 +1684,8 @@ public abstract class World implements class_aer {
       int var5;
       for(var1 = 0; var1 < this.j.size(); ++var1) {
          var2 = (class_xa)this.j.get(var1);
-         var3 = class_nu.c(var2.s / 16.0D);
-         var4 = class_nu.c(var2.u / 16.0D);
+         var3 = MathHelper.floor(var2.s / 16.0D);
+         var4 = MathHelper.floor(var2.u / 16.0D);
          var5 = this.r();
 
          for(int var6 = -var5; var6 <= var5; ++var6) {
@@ -1704,10 +1704,10 @@ public abstract class World implements class_aer {
       if(!this.j.isEmpty()) {
          var1 = this.s.nextInt(this.j.size());
          var2 = (class_xa)this.j.get(var1);
-         var3 = class_nu.c(var2.s) + this.s.nextInt(11) - 5;
-         var4 = class_nu.c(var2.t) + this.s.nextInt(11) - 5;
-         var5 = class_nu.c(var2.u) + this.s.nextInt(11) - 5;
-         this.x(new class_cj(var3, var4, var5));
+         var3 = MathHelper.floor(var2.s) + this.s.nextInt(11) - 5;
+         var4 = MathHelper.floor(var2.t) + this.s.nextInt(11) - 5;
+         var5 = MathHelper.floor(var2.u) + this.s.nextInt(11) - 5;
+         this.x(new BlockPosition(var3, var4, var5));
       }
 
       this.B.b();
@@ -1723,11 +1723,11 @@ public abstract class World implements class_aer {
          int var5 = var4 & 15;
          int var6 = var4 >> 8 & 15;
          int var7 = var4 >> 16 & 255;
-         class_cj var8 = new class_cj(var5, var7, var6);
+         BlockPosition var8 = new BlockPosition(var5, var7, var6);
          Block var9 = var3.a(var8);
          var5 += var1;
          var6 += var2;
-         if(var9.getMaterial() == Material.a && this.k(var8) <= this.s.nextInt(8) && this.b(class_aet.a, var8) <= 0) {
+         if(var9.getMaterial() == Material.AIR && this.k(var8) <= this.s.nextInt(8) && this.b(class_aet.a, var8) <= 0) {
             class_xa var10 = this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, 8.0D);
             if(var10 != null && var10.e((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D) > 4.0D) {
                this.a((double)var5 + 0.5D, (double)var7 + 0.5D, (double)var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + this.s.nextFloat() * 0.2F);
@@ -1744,27 +1744,27 @@ public abstract class World implements class_aer {
       this.E();
    }
 
-   public void a(Block var1, class_cj var2, Random var3) {
+   public void a(Block var1, BlockPosition var2, Random var3) {
       this.e = true;
       var1.b(this, var2, this.p(var2), var3);
       this.e = false;
    }
 
-   public boolean v(class_cj var1) {
+   public boolean v(BlockPosition var1) {
       return this.e(var1, false);
    }
 
-   public boolean w(class_cj var1) {
+   public boolean w(BlockPosition var1) {
       return this.e(var1, true);
    }
 
-   public boolean e(class_cj var1, boolean var2) {
+   public boolean e(BlockPosition var1, boolean var2) {
       class_aez var3 = this.b(var1);
       float var4 = var3.a(var1);
       if(var4 > 0.15F) {
          return false;
       } else {
-         if(var1.o() >= 0 && var1.o() < 256 && this.b(class_aet.b, var1) < 10) {
+         if(var1.getY() >= 0 && var1.getY() < 256 && this.b(class_aet.b, var1) < 10) {
             IBlockData var5 = this.p(var1);
             Block var6 = var5.getBlock();
             if((var6 == Blocks.WATER || var6 == Blocks.FLOWING_WATER) && ((Integer)var5.get(class_ajd.b)).intValue() == 0) {
@@ -1772,7 +1772,7 @@ public abstract class World implements class_aer {
                   return true;
                }
 
-               boolean var7 = this.F(var1.e()) && this.F(var1.f()) && this.F(var1.c()) && this.F(var1.d());
+               boolean var7 = this.F(var1.shiftWest()) && this.F(var1.shiftEast()) && this.F(var1.shiftNorth()) && this.F(var1.shiftSouth());
                if(!var7) {
                   return true;
                }
@@ -1783,11 +1783,11 @@ public abstract class World implements class_aer {
       }
    }
 
-   private boolean F(class_cj var1) {
-      return this.p(var1).getBlock().getMaterial() == Material.h;
+   private boolean F(BlockPosition var1) {
+      return this.p(var1).getBlock().getMaterial() == Material.WATER;
    }
 
-   public boolean f(class_cj var1, boolean var2) {
+   public boolean f(BlockPosition var1, boolean var2) {
       class_aez var3 = this.b(var1);
       float var4 = var3.a(var1);
       if(var4 > 0.15F) {
@@ -1795,9 +1795,9 @@ public abstract class World implements class_aer {
       } else if(!var2) {
          return true;
       } else {
-         if(var1.o() >= 0 && var1.o() < 256 && this.b(class_aet.b, var1) < 10) {
+         if(var1.getY() >= 0 && var1.getY() < 256 && this.b(class_aet.b, var1) < 10) {
             Block var5 = this.p(var1).getBlock();
-            if(var5.getMaterial() == Material.a && Blocks.SNOW_LAYER.d(this, var1)) {
+            if(var5.getMaterial() == Material.AIR && Blocks.SNOW_LAYER.d(this, var1)) {
                return true;
             }
          }
@@ -1806,7 +1806,7 @@ public abstract class World implements class_aer {
       }
    }
 
-   public boolean x(class_cj var1) {
+   public boolean x(BlockPosition var1) {
       boolean var2 = false;
       if(!this.t.m()) {
          var2 |= this.c(class_aet.a, var1);
@@ -1816,7 +1816,7 @@ public abstract class World implements class_aer {
       return var2;
    }
 
-   private int a(class_cj var1, class_aet var2) {
+   private int a(BlockPosition var1, class_aet var2) {
       if(var2 == class_aet.a && this.i(var1)) {
          return 15;
       } else {
@@ -1836,12 +1836,12 @@ public abstract class World implements class_aer {
          } else if(var4 >= 14) {
             return var4;
          } else {
-            class_cq[] var6 = class_cq.values();
+            EnumDirection[] var6 = EnumDirection.values();
             int var7 = var6.length;
 
             for(int var8 = 0; var8 < var7; ++var8) {
-               class_cq var9 = var6[var8];
-               class_cj var10 = var1.a(var9);
+               EnumDirection var9 = var6[var8];
+               BlockPosition var10 = var1.shift(var9);
                int var11 = this.b(var2, var10) - var5;
                if(var11 > var4) {
                   var4 = var11;
@@ -1857,7 +1857,7 @@ public abstract class World implements class_aer {
       }
    }
 
-   public boolean c(class_aet var1, class_cj var2) {
+   public boolean c(class_aet var1, BlockPosition var2) {
       if(!this.a(var2, 17, false)) {
          return false;
       } else {
@@ -1866,9 +1866,9 @@ public abstract class World implements class_aer {
          this.B.a("getBrightness");
          int var5 = this.b(var1, var2);
          int var6 = this.a(var2, var1);
-         int var7 = var2.n();
-         int var8 = var2.o();
-         int var9 = var2.p();
+         int var7 = var2.getX();
+         int var8 = var2.getY();
+         int var9 = var2.getZ();
          int var10;
          int var11;
          int var12;
@@ -1887,7 +1887,7 @@ public abstract class World implements class_aer {
                int var14;
                do {
                   do {
-                     class_cj var15;
+                     BlockPosition var15;
                      do {
                         if(var3 >= var4) {
                            var3 = 0;
@@ -1899,30 +1899,30 @@ public abstract class World implements class_aer {
                         var12 = (var10 >> 6 & 63) - 32 + var8;
                         var13 = (var10 >> 12 & 63) - 32 + var9;
                         var14 = var10 >> 18 & 15;
-                        var15 = new class_cj(var11, var12, var13);
+                        var15 = new BlockPosition(var11, var12, var13);
                         var16 = this.b(var1, var15);
                      } while(var16 != var14);
 
-                     this.a((class_aet)var1, (class_cj)var15, 0);
+                     this.a((class_aet)var1, (BlockPosition)var15, 0);
                   } while(var14 <= 0);
 
-                  var17 = class_nu.a(var11 - var7);
-                  var18 = class_nu.a(var12 - var8);
-                  var19 = class_nu.a(var13 - var9);
+                  var17 = MathHelper.abs(var11 - var7);
+                  var18 = MathHelper.abs(var12 - var8);
+                  var19 = MathHelper.abs(var13 - var9);
                } while(var17 + var18 + var19 >= 17);
 
-               class_cj.class_a_in_class_cj var20 = new class_cj.class_a_in_class_cj();
-               class_cq[] var21 = class_cq.values();
+               BlockPosition.MutableBlockPosition var20 = new BlockPosition.MutableBlockPosition();
+               EnumDirection[] var21 = EnumDirection.values();
                int var22 = var21.length;
 
                for(int var23 = 0; var23 < var22; ++var23) {
-                  class_cq var24 = var21[var23];
-                  int var25 = var11 + var24.g();
-                  int var26 = var12 + var24.h();
-                  int var27 = var13 + var24.i();
-                  var20.c(var25, var26, var27);
+                  EnumDirection var24 = var21[var23];
+                  int var25 = var11 + var24.getAdjacentX();
+                  int var26 = var12 + var24.getAdjacentY();
+                  int var27 = var13 + var24.getAdjacentZ();
+                  var20.setPosition(var25, var26, var27);
                   int var28 = Math.max(1, this.p(var20).getBlock().getLightOpacity());
-                  var16 = this.b((class_aet)var1, (class_cj)var20);
+                  var16 = this.b((class_aet)var1, (BlockPosition)var20);
                   if(var16 == var14 - var28 && var4 < this.H.length) {
                      this.H[var4++] = var25 - var7 + 32 | var26 - var8 + 32 << 6 | var27 - var9 + 32 << 12 | var14 - var28 << 18;
                   }
@@ -1938,7 +1938,7 @@ public abstract class World implements class_aer {
             var11 = (var10 & 63) - 32 + var7;
             var12 = (var10 >> 6 & 63) - 32 + var8;
             var13 = (var10 >> 12 & 63) - 32 + var9;
-            class_cj var29 = new class_cj(var11, var12, var13);
+            BlockPosition var29 = new BlockPosition(var11, var12, var13);
             int var30 = this.b(var1, var29);
             var16 = this.a(var29, var1);
             if(var16 != var30) {
@@ -1949,27 +1949,27 @@ public abstract class World implements class_aer {
                   var19 = Math.abs(var13 - var9);
                   boolean var31 = var4 < this.H.length - 6;
                   if(var17 + var18 + var19 < 17 && var31) {
-                     if(this.b(var1, var29.e()) < var16) {
+                     if(this.b(var1, var29.shiftWest()) < var16) {
                         this.H[var4++] = var11 - 1 - var7 + 32 + (var12 - var8 + 32 << 6) + (var13 - var9 + 32 << 12);
                      }
 
-                     if(this.b(var1, var29.f()) < var16) {
+                     if(this.b(var1, var29.shiftEast()) < var16) {
                         this.H[var4++] = var11 + 1 - var7 + 32 + (var12 - var8 + 32 << 6) + (var13 - var9 + 32 << 12);
                      }
 
-                     if(this.b(var1, var29.b()) < var16) {
+                     if(this.b(var1, var29.shiftDown()) < var16) {
                         this.H[var4++] = var11 - var7 + 32 + (var12 - 1 - var8 + 32 << 6) + (var13 - var9 + 32 << 12);
                      }
 
-                     if(this.b(var1, var29.a()) < var16) {
+                     if(this.b(var1, var29.shiftUp()) < var16) {
                         this.H[var4++] = var11 - var7 + 32 + (var12 + 1 - var8 + 32 << 6) + (var13 - var9 + 32 << 12);
                      }
 
-                     if(this.b(var1, var29.c()) < var16) {
+                     if(this.b(var1, var29.shiftNorth()) < var16) {
                         this.H[var4++] = var11 - var7 + 32 + (var12 - var8 + 32 << 6) + (var13 - 1 - var9 + 32 << 12);
                      }
 
-                     if(this.b(var1, var29.d()) < var16) {
+                     if(this.b(var1, var29.shiftSouth()) < var16) {
                         this.H[var4++] = var11 - var7 + 32 + (var12 - var8 + 32 << 6) + (var13 + 1 - var9 + 32 << 12);
                      }
                   }
@@ -2000,10 +2000,10 @@ public abstract class World implements class_aer {
 
    public List a(class_pr var1, class_awf var2, Predicate var3) {
       ArrayList var4 = Lists.newArrayList();
-      int var5 = class_nu.c((var2.a - 2.0D) / 16.0D);
-      int var6 = class_nu.c((var2.d + 2.0D) / 16.0D);
-      int var7 = class_nu.c((var2.c - 2.0D) / 16.0D);
-      int var8 = class_nu.c((var2.f + 2.0D) / 16.0D);
+      int var5 = MathHelper.floor((var2.a - 2.0D) / 16.0D);
+      int var6 = MathHelper.floor((var2.d + 2.0D) / 16.0D);
+      int var7 = MathHelper.floor((var2.c - 2.0D) / 16.0D);
+      int var8 = MathHelper.floor((var2.f + 2.0D) / 16.0D);
 
       for(int var9 = var5; var9 <= var6; ++var9) {
          for(int var10 = var7; var10 <= var8; ++var10) {
@@ -2049,10 +2049,10 @@ public abstract class World implements class_aer {
    }
 
    public List a(Class var1, class_awf var2, Predicate var3) {
-      int var4 = class_nu.c((var2.a - 2.0D) / 16.0D);
-      int var5 = class_nu.c((var2.d + 2.0D) / 16.0D);
-      int var6 = class_nu.c((var2.c - 2.0D) / 16.0D);
-      int var7 = class_nu.c((var2.f + 2.0D) / 16.0D);
+      int var4 = MathHelper.floor((var2.a - 2.0D) / 16.0D);
+      int var5 = MathHelper.floor((var2.d + 2.0D) / 16.0D);
+      int var6 = MathHelper.floor((var2.c - 2.0D) / 16.0D);
+      int var7 = MathHelper.floor((var2.f + 2.0D) / 16.0D);
       ArrayList var8 = Lists.newArrayList();
 
       for(int var9 = var4; var9 <= var5; ++var9) {
@@ -2089,7 +2089,7 @@ public abstract class World implements class_aer {
       return (class_pr)this.l.a(var1);
    }
 
-   public void b(class_cj var1, class_amg var2) {
+   public void b(BlockPosition var1, class_amg var2) {
       if(this.e(var1)) {
          this.f(var1).e();
       }
@@ -2131,10 +2131,10 @@ public abstract class World implements class_aer {
       this.g.addAll(var1);
    }
 
-   public boolean a(Block var1, class_cj var2, boolean var3, class_cq var4, class_pr var5, class_aas var6) {
+   public boolean a(Block var1, BlockPosition var2, boolean var3, EnumDirection var4, class_pr var5, class_aas var6) {
       Block var7 = this.p(var2).getBlock();
       class_awf var8 = var3?null:var1.a(this, var2, var1.getBlockData());
-      return var8 != null && !this.a(var8, var5)?false:(var7.getMaterial() == Material.q && var1 == Blocks.ANVIL?true:var7.getMaterial().j() && var1.a(this, var2, var4, var6));
+      return var8 != null && !this.a(var8, var5)?false:(var7.getMaterial() == Material.ORIENTABLE && var1 == Blocks.ANVIL?true:var7.getMaterial().isReplaceable() && var1.a(this, var2, var4, var6));
    }
 
    public int G() {
@@ -2145,38 +2145,38 @@ public abstract class World implements class_aer {
       this.a = var1;
    }
 
-   public int a(class_cj var1, class_cq var2) {
+   public int a(BlockPosition var1, EnumDirection var2) {
       IBlockData var3 = this.p(var1);
-      return var3.getBlock().b((class_aer)this, var1, var3, (class_cq)var2);
+      return var3.getBlock().b((class_aer)this, var1, var3, (EnumDirection)var2);
    }
 
    public class_aes H() {
       return this.x.u();
    }
 
-   public int y(class_cj var1) {
+   public int y(BlockPosition var1) {
       byte var2 = 0;
-      int var3 = Math.max(var2, this.a(var1.b(), class_cq.a));
+      int var3 = Math.max(var2, this.a(var1.shiftDown(), EnumDirection.DOWN));
       if(var3 >= 15) {
          return var3;
       } else {
-         var3 = Math.max(var3, this.a(var1.a(), class_cq.b));
+         var3 = Math.max(var3, this.a(var1.shiftUp(), EnumDirection.UP));
          if(var3 >= 15) {
             return var3;
          } else {
-            var3 = Math.max(var3, this.a(var1.c(), class_cq.c));
+            var3 = Math.max(var3, this.a(var1.shiftNorth(), EnumDirection.NORTH));
             if(var3 >= 15) {
                return var3;
             } else {
-               var3 = Math.max(var3, this.a(var1.d(), class_cq.d));
+               var3 = Math.max(var3, this.a(var1.shiftSouth(), EnumDirection.SOUTH));
                if(var3 >= 15) {
                   return var3;
                } else {
-                  var3 = Math.max(var3, this.a(var1.e(), class_cq.e));
+                  var3 = Math.max(var3, this.a(var1.shiftWest(), EnumDirection.WEST));
                   if(var3 >= 15) {
                      return var3;
                   } else {
-                     var3 = Math.max(var3, this.a(var1.f(), class_cq.f));
+                     var3 = Math.max(var3, this.a(var1.shiftEast(), EnumDirection.EAST));
                      return var3 >= 15?var3:var3;
                   }
                }
@@ -2185,28 +2185,28 @@ public abstract class World implements class_aer {
       }
    }
 
-   public boolean b(class_cj var1, class_cq var2) {
+   public boolean b(BlockPosition var1, EnumDirection var2) {
       return this.c(var1, var2) > 0;
    }
 
-   public int c(class_cj var1, class_cq var2) {
+   public int c(BlockPosition var1, EnumDirection var2) {
       IBlockData var3 = this.p(var1);
       Block var4 = var3.getBlock();
-      return var4.isOccluding()?this.y(var1):var4.a((class_aer)this, var1, (IBlockData)var3, (class_cq)var2);
+      return var4.isOccluding()?this.y(var1):var4.a((class_aer)this, var1, (IBlockData)var3, (EnumDirection)var2);
    }
 
-   public boolean z(class_cj var1) {
-      return this.c(var1.b(), class_cq.a) > 0?true:(this.c(var1.a(), class_cq.b) > 0?true:(this.c(var1.c(), class_cq.c) > 0?true:(this.c(var1.d(), class_cq.d) > 0?true:(this.c(var1.e(), class_cq.e) > 0?true:this.c(var1.f(), class_cq.f) > 0))));
+   public boolean z(BlockPosition var1) {
+      return this.c(var1.shiftDown(), EnumDirection.DOWN) > 0?true:(this.c(var1.shiftUp(), EnumDirection.UP) > 0?true:(this.c(var1.shiftNorth(), EnumDirection.NORTH) > 0?true:(this.c(var1.shiftSouth(), EnumDirection.SOUTH) > 0?true:(this.c(var1.shiftWest(), EnumDirection.WEST) > 0?true:this.c(var1.shiftEast(), EnumDirection.EAST) > 0))));
    }
 
-   public int A(class_cj var1) {
+   public int A(BlockPosition var1) {
       int var2 = 0;
-      class_cq[] var3 = class_cq.values();
+      EnumDirection[] var3 = EnumDirection.values();
       int var4 = var3.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         class_cq var6 = var3[var5];
-         int var7 = this.c(var1.a(var6), var6);
+         EnumDirection var6 = var3[var5];
+         int var7 = this.c(var1.shift(var6), var6);
          if(var7 >= 15) {
             return 15;
          }
@@ -2259,8 +2259,8 @@ public abstract class World implements class_aer {
       return this.a(var1.s, var1.t, var1.u, var2, var4);
    }
 
-   public class_xa a(class_cj var1, double var2, double var4) {
-      return this.a((double)((float)var1.n() + 0.5F), (double)((float)var1.o() + 0.5F), (double)((float)var1.p() + 0.5F), var2, var4);
+   public class_xa a(BlockPosition var1, double var2, double var4) {
+      return this.a((double)((float)var1.getX() + 0.5F), (double)((float)var1.getY() + 0.5F), (double)((float)var1.getZ() + 0.5F), var2, var4);
    }
 
    public class_xa a(double var1, double var3, double var5, double var7, double var9) {
@@ -2337,20 +2337,20 @@ public abstract class World implements class_aer {
       this.x.c(var1);
    }
 
-   public class_cj N() {
-      class_cj var1 = new class_cj(this.x.c(), this.x.d(), this.x.e());
+   public BlockPosition N() {
+      BlockPosition var1 = new BlockPosition(this.x.c(), this.x.d(), this.x.e());
       if(!this.ag().a(var1)) {
-         var1 = this.m(new class_cj(this.ag().f(), 0.0D, this.ag().g()));
+         var1 = this.m(new BlockPosition(this.ag().f(), 0.0D, this.ag().g()));
       }
 
       return var1;
    }
 
-   public void B(class_cj var1) {
+   public void B(BlockPosition var1) {
       this.x.a(var1);
    }
 
-   public boolean a(class_xa var1, class_cj var2) {
+   public boolean a(class_xa var1, BlockPosition var2) {
       return true;
    }
 
@@ -2361,7 +2361,7 @@ public abstract class World implements class_aer {
       return this.v;
    }
 
-   public void c(class_cj var1, Block var2, int var3, int var4) {
+   public void c(BlockPosition var1, Block var2, int var3, int var4) {
       var2.a(this, var1, this.p(var1), var3, var4);
    }
 
@@ -2396,12 +2396,12 @@ public abstract class World implements class_aer {
       return (double)this.j(1.0F) > 0.2D;
    }
 
-   public boolean C(class_cj var1) {
+   public boolean C(BlockPosition var1) {
       if(!this.T()) {
          return false;
       } else if(!this.i(var1)) {
          return false;
-      } else if(this.q(var1).o() > var1.o()) {
+      } else if(this.q(var1).getY() > var1.getY()) {
          return false;
       } else {
          class_aez var2 = this.b(var1);
@@ -2409,7 +2409,7 @@ public abstract class World implements class_aer {
       }
    }
 
-   public boolean D(class_cj var1) {
+   public boolean D(BlockPosition var1) {
       class_aez var2 = this.b(var1);
       return var2.f();
    }
@@ -2430,18 +2430,18 @@ public abstract class World implements class_aer {
       return this.z.a(var1);
    }
 
-   public void a(int var1, class_cj var2, int var3) {
+   public void a(int var1, BlockPosition var2, int var3) {
       for(int var4 = 0; var4 < this.u.size(); ++var4) {
          ((class_aep)this.u.get(var4)).a(var1, var2, var3);
       }
 
    }
 
-   public void b(int var1, class_cj var2, int var3) {
+   public void b(int var1, BlockPosition var2, int var3) {
       this.a((class_xa)null, var1, var2, var3);
    }
 
-   public void a(class_xa var1, int var2, class_cj var3, int var4) {
+   public void a(class_xa var1, int var2, BlockPosition var3, int var4) {
       try {
          for(int var5 = 0; var5 < this.u.size(); ++var5) {
             ((class_aep)this.u.get(var5)).a(var1, var2, var3, var4);
@@ -2472,7 +2472,7 @@ public abstract class World implements class_aer {
       return this.s;
    }
 
-   public class_cj a(String var1, class_cj var2) {
+   public BlockPosition a(String var1, BlockPosition var2) {
       return this.O().a(this, var1, var2);
    }
 
@@ -2509,7 +2509,7 @@ public abstract class World implements class_aer {
       return var2;
    }
 
-   public void c(int var1, class_cj var2, int var3) {
+   public void c(int var1, BlockPosition var2, int var3) {
       for(int var4 = 0; var4 < this.u.size(); ++var4) {
          class_aep var5 = (class_aep)this.u.get(var4);
          var5.b(var1, var2, var3);
@@ -2529,18 +2529,18 @@ public abstract class World implements class_aer {
       return this.C;
    }
 
-   public void e(class_cj var1, Block var2) {
-      Iterator var3 = class_cq.class_c_in_class_cq.a.iterator();
+   public void e(BlockPosition var1, Block var2) {
+      Iterator var3 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
       while(var3.hasNext()) {
-         class_cq var4 = (class_cq)var3.next();
-         class_cj var5 = var1.a(var4);
+         EnumDirection var4 = (EnumDirection)var3.next();
+         BlockPosition var5 = var1.shift(var4);
          if(this.e(var5)) {
             IBlockData var6 = this.p(var5);
             if(Blocks.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
                var6.getBlock().a(this, var5, var6, var2);
             } else if(var6.getBlock().isOccluding()) {
-               var5 = var5.a(var4);
+               var5 = var5.shift(var4);
                var6 = this.p(var5);
                if(Blocks.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
                   var6.getBlock().a(this, var5, var6, var2);
@@ -2551,7 +2551,7 @@ public abstract class World implements class_aer {
 
    }
 
-   public class_on E(class_cj var1) {
+   public class_on E(BlockPosition var1) {
       long var2 = 0L;
       float var4 = 0.0F;
       if(this.e(var1)) {
@@ -2591,9 +2591,9 @@ public abstract class World implements class_aer {
    }
 
    public boolean c(int var1, int var2) {
-      class_cj var3 = this.N();
-      int var4 = var1 * 16 + 8 - var3.n();
-      int var5 = var2 * 16 + 8 - var3.p();
+      BlockPosition var3 = this.N();
+      int var4 = var1 * 16 + 8 - var3.getX();
+      int var5 = var2 * 16 + 8 - var3.getZ();
       short var6 = 128;
       return var4 >= -var6 && var4 <= var6 && var5 >= -var6 && var5 <= var6;
    }

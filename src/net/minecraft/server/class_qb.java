@@ -12,7 +12,7 @@ import net.minecraft.server.class_adk;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dr;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_hl;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_oo;
@@ -298,10 +298,10 @@ public abstract class class_qb extends class_qa {
             var13.a("UUIDMost", this.bx.aM().getMostSignificantBits());
             var13.a("UUIDLeast", this.bx.aM().getLeastSignificantBits());
          } else if(this.bx instanceof class_uz) {
-            class_cj var7 = ((class_uz)this.bx).n();
-            var13.a("X", var7.n());
-            var13.a("Y", var7.o());
-            var13.a("Z", var7.p());
+            BlockPosition var7 = ((class_uz)this.bx).n();
+            var13.a("X", var7.getX());
+            var13.a("Y", var7.getY());
+            var13.a("Z", var7.getZ());
          }
 
          var1.a((String)"Leash", (class_eb)var13);
@@ -585,15 +585,15 @@ public abstract class class_qb extends class_qa {
          var6 = (var1.aT().b + var1.aT().e) / 2.0D - (this.t + (double)this.aU());
       }
 
-      double var14 = (double)class_nu.a(var4 * var4 + var8 * var8);
-      float var12 = (float)(class_nu.b(var8, var4) * 180.0D / 3.1415927410125732D) - 90.0F;
-      float var13 = (float)(-(class_nu.b(var6, var14) * 180.0D / 3.1415927410125732D));
+      double var14 = (double)MathHelper.sqrt(var4 * var4 + var8 * var8);
+      float var12 = (float)(MathHelper.b(var8, var4) * 180.0D / 3.1415927410125732D) - 90.0F;
+      float var13 = (float)(-(MathHelper.b(var6, var14) * 180.0D / 3.1415927410125732D));
       this.z = this.b(this.z, var13, var3);
       this.y = this.b(this.y, var12, var2);
    }
 
    private float b(float var1, float var2, float var3) {
-      float var4 = class_nu.g(var2 - var1);
+      float var4 = MathHelper.clampAngle(var2 - var1);
       if(var4 > var3) {
          var4 = var3;
       }
@@ -961,7 +961,7 @@ public abstract class class_qb extends class_qa {
                }
             }
          } else if(this.by.b("X", 99) && this.by.b("Y", 99) && this.by.b("Z", 99)) {
-            class_cj var1 = new class_cj(this.by.g("X"), this.by.g("Y"), this.by.g("Z"));
+            BlockPosition var1 = new BlockPosition(this.by.g("X"), this.by.g("Y"), this.by.g("Z"));
             class_vb var2 = class_vb.b(this.o, var1);
             if(var2 == null) {
                var2 = class_vb.a(this.o, var1);

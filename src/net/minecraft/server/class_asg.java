@@ -13,8 +13,8 @@ import net.minecraft.server.class_ash;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_asn;
 import net.minecraft.server.class_aso;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_wq;
 
 public class class_asg extends class_ask {
@@ -37,7 +37,7 @@ public class class_asg extends class_ask {
       while(var2.hasNext()) {
          Entry var3 = (Entry)var2.next();
          if(((String)var3.getKey()).equals("distance")) {
-            this.g = class_nu.a((String)var3.getValue(), this.g, this.h + 1);
+            this.g = MathHelper.max((String)var3.getValue(), this.g, this.h + 1);
          }
       }
 
@@ -66,7 +66,7 @@ public class class_asg extends class_ask {
       var5 += var7.nextInt(this.g - this.h);
       var6 += var7.nextInt(this.g - this.h);
       if(var3 == var5 && var4 == var6) {
-         class_aez var8 = this.c.w().a(new class_cj(var3 * 16 + 8, 0, var4 * 16 + 8));
+         class_aez var8 = this.c.w().a(new BlockPosition(var3 * 16 + 8, 0, var4 * 16 + 8));
          if(var8 == null) {
             return false;
          }
@@ -88,7 +88,7 @@ public class class_asg extends class_ask {
       return new class_asg.class_a_in_class_asg(this.c, this.b, var1, var2);
    }
 
-   public boolean a(class_cj var1) {
+   public boolean a(BlockPosition var1) {
       class_aso var2 = this.c(var1);
       if(var2 != null && var2 instanceof class_asg.class_a_in_class_asg && !var2.a.isEmpty()) {
          class_asn var3 = (class_asn)var2.a.getFirst();
@@ -111,7 +111,7 @@ public class class_asg extends class_ask {
       }
 
       public class_a_in_class_asg(World var1, Random var2, int var3, int var4) {
-         this(var1, var2, var3, var4, var1.b(new class_cj(var3 * 16 + 8, 0, var4 * 16 + 8)));
+         this(var1, var2, var3, var4, var1.b(new BlockPosition(var3 * 16 + 8, 0, var4 * 16 + 8)));
       }
 
       public class_a_in_class_asg(World var1, Random var2, int var3, int var4, class_aez var5) {

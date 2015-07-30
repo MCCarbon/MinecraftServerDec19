@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_pa;
@@ -32,7 +32,7 @@ public class class_pb {
    public void a() {
       this.j();
       if(this.b.k_()) {
-         Block var1 = this.b.o.p(new class_cj(this.b.s, this.b.aT().b, this.b.u)).getBlock();
+         Block var1 = this.b.o.p(new BlockPosition(this.b.s, this.b.aT().b, this.b.u)).getBlock();
          if(var1 == Blocks.LADDER) {
             this.h = "ladder";
          } else if(var1 == Blocks.VINE) {

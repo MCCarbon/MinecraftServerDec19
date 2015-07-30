@@ -15,8 +15,8 @@ import net.minecraft.server.BlockStateList;
 import net.minecraft.server.class_anx;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ol;
@@ -31,8 +31,8 @@ public class class_aih extends class_agd {
    private static boolean N;
 
    protected class_aih(boolean var1) {
-      super(Material.e);
-      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.c));
+      super(Material.STONE);
+      this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
       this.b = var1;
    }
 
@@ -40,32 +40,32 @@ public class class_aih extends class_agd {
       return Item.getByBlock(Blocks.FURNACE);
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   private void e(World var1, class_cj var2, IBlockData var3) {
+   private void e(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.D) {
-         Block var4 = var1.p(var2.c()).getBlock();
-         Block var5 = var1.p(var2.d()).getBlock();
-         Block var6 = var1.p(var2.e()).getBlock();
-         Block var7 = var1.p(var2.f()).getBlock();
-         class_cq var8 = (class_cq)var3.get(a);
-         if(var8 == class_cq.c && var4.isFullBlock() && !var5.isFullBlock()) {
-            var8 = class_cq.d;
-         } else if(var8 == class_cq.d && var5.isFullBlock() && !var4.isFullBlock()) {
-            var8 = class_cq.c;
-         } else if(var8 == class_cq.e && var6.isFullBlock() && !var7.isFullBlock()) {
-            var8 = class_cq.f;
-         } else if(var8 == class_cq.f && var7.isFullBlock() && !var6.isFullBlock()) {
-            var8 = class_cq.e;
+         Block var4 = var1.p(var2.shiftNorth()).getBlock();
+         Block var5 = var1.p(var2.shiftSouth()).getBlock();
+         Block var6 = var1.p(var2.shiftWest()).getBlock();
+         Block var7 = var1.p(var2.shiftEast()).getBlock();
+         EnumDirection var8 = (EnumDirection)var3.get(a);
+         if(var8 == EnumDirection.NORTH && var4.isFullBlock() && !var5.isFullBlock()) {
+            var8 = EnumDirection.SOUTH;
+         } else if(var8 == EnumDirection.SOUTH && var5.isFullBlock() && !var4.isFullBlock()) {
+            var8 = EnumDirection.NORTH;
+         } else if(var8 == EnumDirection.WEST && var6.isFullBlock() && !var7.isFullBlock()) {
+            var8 = EnumDirection.EAST;
+         } else if(var8 == EnumDirection.EAST && var7.isFullBlock() && !var6.isFullBlock()) {
+            var8 = EnumDirection.WEST;
          }
 
-         var1.a((class_cj)var2, (IBlockData)var3.set(a, var8), 2);
+         var1.a((BlockPosition)var2, (IBlockData)var3.set(a, var8), 2);
       }
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {
@@ -79,16 +79,16 @@ public class class_aih extends class_agd {
       }
    }
 
-   public static void a(boolean var0, World var1, class_cj var2) {
+   public static void a(boolean var0, World var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       class_amg var4 = var1.s(var2);
       N = true;
       if(var0) {
-         var1.a((class_cj)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
-         var1.a((class_cj)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.a((BlockPosition)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.a((BlockPosition)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
       } else {
-         var1.a((class_cj)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
-         var1.a((class_cj)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.a((BlockPosition)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.a((BlockPosition)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
       }
 
       N = false;
@@ -103,12 +103,12 @@ public class class_aih extends class_agd {
       return new class_amr();
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.getBlockData().set(a, var8.aR().d());
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData().set(a, var8.aR().getOpposite());
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
-      var1.a((class_cj)var2, (IBlockData)var3.set(a, var4.aR().d()), 2);
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+      var1.a((BlockPosition)var2, (IBlockData)var3.set(a, var4.aR().getOpposite()), 2);
       if(var5.s()) {
          class_amg var6 = var1.s(var2);
          if(var6 instanceof class_amr) {
@@ -118,11 +118,11 @@ public class class_aih extends class_agd {
 
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       if(!N) {
          class_amg var4 = var1.s(var2);
          if(var4 instanceof class_amr) {
-            class_ol.a(var1, (class_cj)var2, (class_amr)var4);
+            class_ol.a(var1, (BlockPosition)var2, (class_amr)var4);
             var1.e(var2, this);
          }
       }
@@ -134,7 +134,7 @@ public class class_aih extends class_agd {
       return true;
    }
 
-   public int l(World var1, class_cj var2) {
+   public int l(World var1, BlockPosition var2) {
       return class_xz.a(var1.s(var2));
    }
 
@@ -143,24 +143,24 @@ public class class_aih extends class_agd {
    }
 
    public IBlockData fromLegacyData(int var1) {
-      class_cq var2 = class_cq.a(var1);
-      if(var2.k() == class_cq.class_a_in_class_cq.b) {
-         var2 = class_cq.c;
+      EnumDirection var2 = EnumDirection.getById(var1);
+      if(var2.getAxis() == EnumDirection.EnumAxis.Y) {
+         var2 = EnumDirection.NORTH;
       }
 
       return this.getBlockData().set(a, var2);
    }
 
    public int toLegacyData(IBlockData var1) {
-      return ((class_cq)var1.get(a)).a();
+      return ((EnumDirection)var1.get(a)).getId();
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(a, var2.a((class_cq)var1.get(a)));
+      return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
    }
 
    protected BlockStateList createBlockStateList() {

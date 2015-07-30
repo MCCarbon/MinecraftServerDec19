@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_pr;
@@ -12,8 +12,8 @@ import net.minecraft.server.class_vm;
 public class class_ol {
    private static final Random a = new Random();
 
-   public static void a(World var0, class_cj var1, class_oj var2) {
-      a(var0, (double)var1.n(), (double)var1.o(), (double)var1.p(), var2);
+   public static void a(World var0, BlockPosition var1, class_oj var2) {
+      a(var0, (double)var1.getX(), (double)var1.getY(), (double)var1.getZ(), var2);
    }
 
    public static void a(World var0, class_pr var1, class_oj var2) {

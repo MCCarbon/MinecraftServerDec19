@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import com.google.common.base.Objects;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_ds;
 
 public class class_arw {
@@ -33,7 +33,7 @@ public class class_arw {
       return new class_arw(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
    }
 
-   public static class_arw a(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, class_cq var9) {
+   public static class_arw a(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, EnumDirection var9) {
       switch(class_arw.SyntheticClass_1.a[var9.ordinal()]) {
       case 1:
          return new class_arw(var0 + var3, var1 + var4, var2 - var8 + 1 + var5, var0 + var6 - 1 + var3, var1 + var7 - 1 + var4, var2 + var5);
@@ -70,13 +70,13 @@ public class class_arw {
       this.f = var6;
    }
 
-   public class_arw(class_df var1, class_df var2) {
-      this.a = Math.min(var1.n(), var2.n());
-      this.b = Math.min(var1.o(), var2.o());
-      this.c = Math.min(var1.p(), var2.p());
-      this.d = Math.max(var1.n(), var2.n());
-      this.e = Math.max(var1.o(), var2.o());
-      this.f = Math.max(var1.p(), var2.p());
+   public class_arw(BaseBlockPosition var1, BaseBlockPosition var2) {
+      this.a = Math.min(var1.getX(), var2.getX());
+      this.b = Math.min(var1.getY(), var2.getY());
+      this.c = Math.min(var1.getZ(), var2.getZ());
+      this.d = Math.max(var1.getX(), var2.getX());
+      this.e = Math.max(var1.getY(), var2.getY());
+      this.f = Math.max(var1.getZ(), var2.getZ());
    }
 
    public class_arw(int var1, int var2, int var3, int var4) {
@@ -114,12 +114,12 @@ public class class_arw {
       this.f += var3;
    }
 
-   public boolean b(class_df var1) {
-      return var1.n() >= this.a && var1.n() <= this.d && var1.p() >= this.c && var1.p() <= this.f && var1.o() >= this.b && var1.o() <= this.e;
+   public boolean b(BaseBlockPosition var1) {
+      return var1.getX() >= this.a && var1.getX() <= this.d && var1.getZ() >= this.c && var1.getZ() <= this.f && var1.getY() >= this.b && var1.getY() <= this.e;
    }
 
-   public class_df b() {
-      return new class_df(this.d - this.a, this.e - this.b, this.f - this.c);
+   public BaseBlockPosition b() {
+      return new BaseBlockPosition(this.d - this.a, this.e - this.b, this.f - this.c);
    }
 
    public int c() {
@@ -134,8 +134,8 @@ public class class_arw {
       return this.f - this.c + 1;
    }
 
-   public class_df f() {
-      return new class_cj(this.a + (this.d - this.a + 1) / 2, this.b + (this.e - this.b + 1) / 2, this.c + (this.f - this.c + 1) / 2);
+   public BaseBlockPosition f() {
+      return new BlockPosition(this.a + (this.d - this.a + 1) / 2, this.b + (this.e - this.b + 1) / 2, this.c + (this.f - this.c + 1) / 2);
    }
 
    public String toString() {
@@ -149,29 +149,29 @@ public class class_arw {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.c.ordinal()] = 1;
+            a[EnumDirection.NORTH.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_cq.d.ordinal()] = 2;
+            a[EnumDirection.SOUTH.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 3;
+            a[EnumDirection.WEST.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.f.ordinal()] = 4;
+            a[EnumDirection.EAST.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }

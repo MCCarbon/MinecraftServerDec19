@@ -5,7 +5,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_aco;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_px;
@@ -52,8 +52,8 @@ public class class_ym extends class_yx {
          if(var3 == 0.0F) {
             var2 = 0;
          } else if(var3 < 1.0F) {
-            var4 = class_nu.d((float)var2 * var3);
-            if(var4 < class_nu.f((float)var2 * var3) && Math.random() < (double)((float)var2 * var3 - (float)var4)) {
+            var4 = MathHelper.floor((float)var2 * var3);
+            if(var4 < MathHelper.ceil((float)var2 * var3) && Math.random() < (double)((float)var2 * var3 - (float)var4)) {
                ++var4;
             }
 

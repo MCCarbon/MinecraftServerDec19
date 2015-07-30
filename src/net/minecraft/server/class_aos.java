@@ -4,7 +4,7 @@ import net.minecraft.server.class_aez;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.class_aoi;
 import net.minecraft.server.class_aom;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -96,11 +96,11 @@ public class class_aos {
 
       var1.a((String)"Sections", (class_eb)var16);
       byte[] var17 = new byte[256];
-      class_cj.class_a_in_class_cj var18 = new class_cj.class_a_in_class_cj();
+      BlockPosition.MutableBlockPosition var18 = new BlockPosition.MutableBlockPosition();
 
       for(var7 = 0; var7 < 16; ++var7) {
          for(var8 = 0; var8 < 16; ++var8) {
-            var18.c(var0.k << 4 | var7, 0, var0.l << 4 | var8);
+            var18.setPosition(var0.k << 4 | var7, 0, var0.l << 4 | var8);
             var17[var8 << 4 | var7] = (byte)(var2.a(var18, class_aez.ad).az & 255);
          }
       }

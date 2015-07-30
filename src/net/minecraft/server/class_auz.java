@@ -11,8 +11,8 @@ import net.minecraft.server.class_alv;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auu;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
 public class class_auz extends class_auu {
@@ -36,23 +36,23 @@ public class class_auz extends class_auu {
       int var2;
       if(this.i && var1.V()) {
          var2 = (int)var1.aT().b;
-         class_cj.class_a_in_class_cj var3 = new class_cj.class_a_in_class_cj(class_nu.c(var1.s), var2, class_nu.c(var1.u));
+         BlockPosition.MutableBlockPosition var3 = new BlockPosition.MutableBlockPosition(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u));
 
          for(Block var4 = this.a.p(var3).getBlock(); var4 == Blocks.FLOWING_WATER || var4 == Blocks.WATER; var4 = this.a.p(var3).getBlock()) {
             ++var2;
-            var3.c(class_nu.c(var1.s), var2, class_nu.c(var1.u));
+            var3.setPosition(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u));
          }
 
          this.h = false;
       } else {
-         var2 = class_nu.c(var1.aT().b + 0.5D);
+         var2 = MathHelper.floor(var1.aT().b + 0.5D);
       }
 
-      return this.a(class_nu.c(var1.aT().a), var2, class_nu.c(var1.aT().c));
+      return this.a(MathHelper.floor(var1.aT().a), var2, MathHelper.floor(var1.aT().c));
    }
 
    public class_aut a(class_pr var1, double var2, double var4, double var6) {
-      return this.a(class_nu.c(var2 - (double)(var1.J / 2.0F)), class_nu.c(var4), class_nu.c(var6 - (double)(var1.J / 2.0F)));
+      return this.a(MathHelper.floor(var2 - (double)(var1.J / 2.0F)), MathHelper.floor(var4), MathHelper.floor(var6 - (double)(var1.J / 2.0F)));
    }
 
    public int a(class_aut[] var1, class_pr var2, class_aut var3, class_aut var4, float var5) {
@@ -139,18 +139,18 @@ public class class_auz extends class_auu {
 
    public static int a(class_aer var0, class_pr var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, boolean var9, boolean var10) {
       boolean var11 = false;
-      class_cj var12 = new class_cj(var1);
-      class_cj.class_a_in_class_cj var13 = new class_cj.class_a_in_class_cj();
+      BlockPosition var12 = new BlockPosition(var1);
+      BlockPosition.MutableBlockPosition var13 = new BlockPosition.MutableBlockPosition();
 
       for(int var14 = var2; var14 < var2 + var5; ++var14) {
          for(int var15 = var3; var15 < var3 + var6; ++var15) {
             for(int var16 = var4; var16 < var4 + var7; ++var16) {
-               var13.c(var14, var15, var16);
+               var13.setPosition(var14, var15, var16);
                Block var17 = var0.p(var13).getBlock();
-               if(var17.getMaterial() != Material.a) {
+               if(var17.getMaterial() != Material.AIR) {
                   if(var17 != Blocks.TRAPDOOR && var17 != Blocks.IRON_TRAPDOOR) {
                      if(var17 != Blocks.FLOWING_WATER && var17 != Blocks.WATER) {
-                        if(!var10 && var17 instanceof class_ahl && var17.getMaterial() == Material.d) {
+                        if(!var10 && var17 instanceof class_ahl && var17.getMaterial() == Material.WOOD) {
                            return 0;
                         }
                      } else {
@@ -165,10 +165,10 @@ public class class_auz extends class_auu {
                   }
 
                   if(var1.o.p(var13).getBlock() instanceof class_agf) {
-                     if(!(var1.o.p(var12).getBlock() instanceof class_agf) && !(var1.o.p(var12.b()).getBlock() instanceof class_agf)) {
+                     if(!(var1.o.p(var12).getBlock() instanceof class_agf) && !(var1.o.p(var12.shiftDown()).getBlock() instanceof class_agf)) {
                         return -3;
                      }
-                  } else if(!var17.isPassable(var0, var13) && (!var9 || !(var17 instanceof class_ahl) || var17.getMaterial() != Material.d)) {
+                  } else if(!var17.isPassable(var0, var13) && (!var9 || !(var17 instanceof class_ahl) || var17.getMaterial() != Material.WOOD)) {
                      if(var17 instanceof class_ahz || var17 instanceof class_aia || var17 instanceof class_alv) {
                         return -3;
                      }
@@ -178,7 +178,7 @@ public class class_auz extends class_auu {
                      }
 
                      Material var18 = var17.getMaterial();
-                     if(var18 != Material.i) {
+                     if(var18 != Material.LAVA) {
                         return 0;
                      }
 

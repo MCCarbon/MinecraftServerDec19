@@ -13,7 +13,7 @@ import net.minecraft.server.class_asn;
 import net.minecraft.server.class_aso;
 import net.minecraft.server.class_asr;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 
 public class class_asq extends class_ask {
    public static final List d;
@@ -33,9 +33,9 @@ public class class_asq extends class_ask {
       while(var2.hasNext()) {
          Entry var3 = (Entry)var2.next();
          if(((String)var3.getKey()).equals("size")) {
-            this.f = class_nu.a((String)((String)var3.getValue()), this.f, 0);
+            this.f = MathHelper.max((String)((String)var3.getValue()), this.f, 0);
          } else if(((String)var3.getKey()).equals("distance")) {
-            this.g = class_nu.a((String)var3.getValue(), this.g, this.h + 1);
+            this.g = MathHelper.max((String)var3.getValue(), this.g, this.h + 1);
          }
       }
 

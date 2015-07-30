@@ -17,7 +17,7 @@ public class class_ali extends Block {
    public static final int P;
 
    public class_ali() {
-      super(Material.e);
+      super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_ali.class_a_in_class_ali.a));
       this.a(CreativeTab.b);
    }

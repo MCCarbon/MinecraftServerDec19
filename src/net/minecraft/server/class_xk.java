@@ -8,14 +8,14 @@ import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_lg;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
@@ -26,15 +26,15 @@ import net.minecraft.server.class_xj;
 public class class_xk extends class_pr {
    private class_qa a;
    private class_pr b;
-   private class_cq c;
+   private EnumDirection c;
    private int d;
    private double e;
    private double f;
    private double g;
    private UUID h;
-   private class_cj i;
+   private BlockPosition i;
    private UUID as;
-   private class_cj at;
+   private BlockPosition at;
 
    public class_xk(World var1) {
       super(var1);
@@ -42,42 +42,42 @@ public class class_xk extends class_pr {
       this.T = true;
    }
 
-   public class_xk(World var1, class_qa var2, class_pr var3, class_cq.class_a_in_class_cq var4) {
+   public class_xk(World var1, class_qa var2, class_pr var3, EnumDirection.EnumAxis var4) {
       this(var1);
       this.a = var2;
-      class_cj var5 = new class_cj(var2);
-      double var6 = (double)var5.n() + 0.5D;
-      double var8 = (double)var5.o() + 0.5D;
-      double var10 = (double)var5.p() + 0.5D;
+      BlockPosition var5 = new BlockPosition(var2);
+      double var6 = (double)var5.getX() + 0.5D;
+      double var8 = (double)var5.getY() + 0.5D;
+      double var10 = (double)var5.getZ() + 0.5D;
       this.b(var6, var8, var10, this.y, this.z);
       this.b = var3;
-      this.c = class_cq.b;
+      this.c = EnumDirection.UP;
       this.a(var4);
    }
 
    protected void b(class_dn var1) {
-      class_cj var2;
+      BlockPosition var2;
       class_dn var3;
       if(this.a != null) {
-         var2 = new class_cj(this.a);
+         var2 = new BlockPosition(this.a);
          var3 = class_dy.a(this.a.aM());
-         var3.a("X", var2.n());
-         var3.a("Y", var2.o());
-         var3.a("Z", var2.p());
+         var3.a("X", var2.getX());
+         var3.a("Y", var2.getY());
+         var3.a("Z", var2.getZ());
          var1.a((String)"Owner", (class_eb)var3);
       }
 
       if(this.b != null) {
-         var2 = new class_cj(this.b);
+         var2 = new BlockPosition(this.b);
          var3 = class_dy.a(this.b.aM());
-         var3.a("X", var2.n());
-         var3.a("Y", var2.o());
-         var3.a("Z", var2.p());
+         var3.a("X", var2.getX());
+         var3.a("Y", var2.getY());
+         var3.a("Z", var2.getZ());
          var1.a((String)"Target", (class_eb)var3);
       }
 
       if(this.c != null) {
-         var1.a("Dir", this.c.a());
+         var1.a("Dir", this.c.getId());
       }
 
       var1.a("Steps", this.d);
@@ -92,20 +92,20 @@ public class class_xk extends class_pr {
       this.f = var1.j("TYD");
       this.g = var1.j("TZD");
       if(var1.b("Dir", 99)) {
-         this.c = class_cq.a(var1.g("Dir"));
+         this.c = EnumDirection.getById(var1.g("Dir"));
       }
 
       class_dn var2;
       if(var1.b("Owner", 10)) {
          var2 = var1.n("Owner");
          this.h = class_dy.b(var2);
-         this.i = new class_cj(var2.g("X"), var2.g("Y"), var2.g("Z"));
+         this.i = new BlockPosition(var2.g("X"), var2.g("Y"), var2.g("Z"));
       }
 
       if(var1.b("Target", 10)) {
          var2 = var1.n("Target");
          this.as = class_dy.b(var2);
-         this.at = new class_cj(var2.g("X"), var2.g("Y"), var2.g("Z"));
+         this.at = new BlockPosition(var2.g("X"), var2.g("Y"), var2.g("Z"));
       }
 
    }
@@ -113,75 +113,75 @@ public class class_xk extends class_pr {
    protected void h() {
    }
 
-   private class_cq j() {
+   private EnumDirection j() {
       return this.c;
    }
 
-   private void a(class_cq var1) {
+   private void a(EnumDirection var1) {
       this.c = var1;
    }
 
-   private void a(class_cq.class_a_in_class_cq var1) {
+   private void a(EnumDirection.EnumAxis var1) {
       double var3 = 0.5D;
-      class_cj var2;
+      BlockPosition var2;
       if(this.b != null) {
          var3 = (double)this.b.K * 0.5D;
-         var2 = new class_cj(this.b.s, this.b.t + var3, this.b.u);
+         var2 = new BlockPosition(this.b.s, this.b.t + var3, this.b.u);
       } else {
-         var2 = (new class_cj(this)).b();
+         var2 = (new BlockPosition(this)).shiftDown();
       }
 
-      double var5 = (double)var2.n() + 0.5D;
-      double var7 = (double)var2.o() + var3;
-      double var9 = (double)var2.p() + 0.5D;
-      if(var2.d(this.s, this.t, this.u) >= 4.0D) {
-         class_cj var11 = new class_cj(this);
+      double var5 = (double)var2.getX() + 0.5D;
+      double var7 = (double)var2.getY() + var3;
+      double var9 = (double)var2.getZ() + 0.5D;
+      if(var2.distanceSquaredFromCenter(this.s, this.t, this.u) >= 4.0D) {
+         BlockPosition var11 = new BlockPosition(this);
          ArrayList var12 = Lists.newArrayList();
-         if(var1 != class_cq.class_a_in_class_cq.a) {
-            if(var11.n() < var2.n() && this.o.d(var11.f())) {
-               var12.add(class_cq.f);
-            } else if(var11.n() > var2.n() && this.o.d(var11.e())) {
-               var12.add(class_cq.e);
+         if(var1 != EnumDirection.EnumAxis.X) {
+            if(var11.getX() < var2.getX() && this.o.d(var11.shiftEast())) {
+               var12.add(EnumDirection.EAST);
+            } else if(var11.getX() > var2.getX() && this.o.d(var11.shiftWest())) {
+               var12.add(EnumDirection.WEST);
             }
          }
 
-         if(var1 != class_cq.class_a_in_class_cq.b) {
-            if(var11.o() < var2.o() && this.o.d(var11.a())) {
-               var12.add(class_cq.b);
-            } else if(var11.o() > var2.o() && this.o.d(var11.b())) {
-               var12.add(class_cq.a);
+         if(var1 != EnumDirection.EnumAxis.Y) {
+            if(var11.getY() < var2.getY() && this.o.d(var11.shiftUp())) {
+               var12.add(EnumDirection.UP);
+            } else if(var11.getY() > var2.getY() && this.o.d(var11.shiftDown())) {
+               var12.add(EnumDirection.DOWN);
             }
          }
 
-         if(var1 != class_cq.class_a_in_class_cq.c) {
-            if(var11.p() < var2.p() && this.o.d(var11.d())) {
-               var12.add(class_cq.d);
-            } else if(var11.p() > var2.p() && this.o.d(var11.c())) {
-               var12.add(class_cq.c);
+         if(var1 != EnumDirection.EnumAxis.Z) {
+            if(var11.getZ() < var2.getZ() && this.o.d(var11.shiftSouth())) {
+               var12.add(EnumDirection.SOUTH);
+            } else if(var11.getZ() > var2.getZ() && this.o.d(var11.shiftNorth())) {
+               var12.add(EnumDirection.NORTH);
             }
          }
 
-         class_cq var13 = class_cq.a(this.V);
+         EnumDirection var13 = EnumDirection.getRandom(this.V);
          if(!var12.isEmpty()) {
-            var13 = (class_cq)var12.get(this.V.nextInt(var12.size()));
+            var13 = (EnumDirection)var12.get(this.V.nextInt(var12.size()));
          } else {
-            for(int var14 = 5; !this.o.d(var11.a(var13)) && var14 > 0; --var14) {
-               var13 = class_cq.a(this.V);
+            for(int var14 = 5; !this.o.d(var11.shift(var13)) && var14 > 0; --var14) {
+               var13 = EnumDirection.getRandom(this.V);
             }
          }
 
-         var5 = this.s + (double)var13.g();
-         var7 = this.t + (double)var13.h();
-         var9 = this.u + (double)var13.i();
+         var5 = this.s + (double)var13.getAdjacentX();
+         var7 = this.t + (double)var13.getAdjacentY();
+         var9 = this.u + (double)var13.getAdjacentZ();
          this.a(var13);
       } else {
-         this.a((class_cq)null);
+         this.a((EnumDirection)null);
       }
 
       double var19 = var5 - this.s;
       double var20 = var7 - this.t;
       double var15 = var9 - this.u;
-      double var17 = (double)class_nu.a(var19 * var19 + var20 * var20 + var15 * var15);
+      double var17 = (double)MathHelper.sqrt(var19 * var19 + var20 * var20 + var15 * var15);
       this.e = var19 / var17 * 0.15D;
       this.f = var20 / var17 * 0.15D;
       this.g = var15 / var17 * 0.15D;
@@ -196,7 +196,7 @@ public class class_xk extends class_pr {
          Iterator var2;
          class_qa var3;
          if(this.b == null && this.as != null) {
-            var1 = this.o.a(class_qa.class, new class_awf(this.at.a(-2, -2, -2), this.at.a(2, 2, 2)));
+            var1 = this.o.a(class_qa.class, new class_awf(this.at.add(-2, -2, -2), this.at.add(2, 2, 2)));
             var2 = var1.iterator();
 
             while(var2.hasNext()) {
@@ -211,7 +211,7 @@ public class class_xk extends class_pr {
          }
 
          if(this.a == null && this.h != null) {
-            var1 = this.o.a(class_qa.class, new class_awf(this.i.a(-2, -2, -2), this.i.a(2, 2, 2)));
+            var1 = this.o.a(class_qa.class, new class_awf(this.i.add(-2, -2, -2), this.i.add(2, 2, 2)));
             var2 = var1.iterator();
 
             while(var2.hasNext()) {
@@ -226,9 +226,9 @@ public class class_xk extends class_pr {
          }
 
          if(this.b != null && !this.b.I) {
-            this.e = class_nu.a(this.e * 1.025D, -1.0D, 1.0D);
-            this.f = class_nu.a(this.f * 1.025D, -1.0D, 1.0D);
-            this.g = class_nu.a(this.g * 1.025D, -1.0D, 1.0D);
+            this.e = MathHelper.clamp(this.e * 1.025D, -1.0D, 1.0D);
+            this.f = MathHelper.clamp(this.f * 1.025D, -1.0D, 1.0D);
+            this.g = MathHelper.clamp(this.g * 1.025D, -1.0D, 1.0D);
             this.v += (this.e - this.v) * 0.2D;
             this.w += (this.f - this.w) * 0.2D;
             this.x += (this.g - this.x) * 0.2D;
@@ -249,19 +249,19 @@ public class class_xk extends class_pr {
             if(this.d > 0) {
                --this.d;
                if(this.d == 0) {
-                  this.a(this.c != null?this.c.k():null);
+                  this.a(this.c != null?this.c.getAxis():null);
                }
             }
 
-            class_cq var5 = this.j();
+            EnumDirection var5 = this.j();
             if(var5 != null) {
-               class_cj var6 = new class_cj(this);
-               if(this.o.d(var6.a(var5), false)) {
-                  this.a(var5.k());
+               BlockPosition var6 = new BlockPosition(this);
+               if(this.o.d(var6.shift(var5), false)) {
+                  this.a(var5.getAxis());
                } else {
-                  class_cj var7 = new class_cj(this.b);
-                  if(var5.k() == class_cq.class_a_in_class_cq.a && var6.n() == var7.n() || var5.k() == class_cq.class_a_in_class_cq.c && var6.p() == var7.p() || var5.k() == class_cq.class_a_in_class_cq.b && var6.o() == var7.o()) {
-                     this.a(var5.k());
+                  BlockPosition var7 = new BlockPosition(this.b);
+                  if(var5.getAxis() == EnumDirection.EnumAxis.X && var6.getX() == var7.getX() || var5.getAxis() == EnumDirection.EnumAxis.Z && var6.getZ() == var7.getZ() || var5.getAxis() == EnumDirection.EnumAxis.Y && var6.getY() == var7.getY()) {
+                     this.a(var5.getAxis());
                   }
                }
             }

@@ -5,7 +5,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pt;
@@ -94,7 +94,7 @@ public abstract class class_po extends class_qh {
    }
 
    public void b(int var1) {
-      this.ac.b(bs, Byte.valueOf((byte)class_nu.a(var1, -1, 1)));
+      this.ac.b(bs, Byte.valueOf((byte)MathHelper.clamp(var1, -1, 1)));
       this.a = var1;
       this.a(this.j_());
    }

@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_ahm;
 import net.minecraft.server.class_aic;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_tz;
 
 public class class_afp extends class_aez {
@@ -21,8 +21,8 @@ public class class_afp extends class_aez {
       this.as.C = 10;
    }
 
-   public class_aic.class_a_in_class_aic a(Random var1, class_cj var2) {
-      double var3 = af.a((double)var2.n() / 200.0D, (double)var2.p() / 200.0D);
+   public class_aic.class_a_in_class_aic a(Random var1, BlockPosition var2) {
+      double var3 = af.a((double)var2.getX() / 200.0D, (double)var2.getZ() / 200.0D);
       int var5;
       if(var3 < -0.8D) {
          var5 = var1.nextInt(4);
@@ -45,8 +45,8 @@ public class class_afp extends class_aez {
       }
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
-      double var4 = af.a((double)(var3.n() + 8) / 200.0D, (double)(var3.p() + 8) / 200.0D);
+   public void a(World var1, Random var2, BlockPosition var3) {
+      double var4 = af.a((double)(var3.getX() + 8) / 200.0D, (double)(var3.getZ() + 8) / 200.0D);
       int var6;
       int var7;
       int var8;
@@ -62,8 +62,8 @@ public class class_afp extends class_aez {
          for(var6 = 0; var6 < 7; ++var6) {
             var7 = var2.nextInt(16) + 8;
             var8 = var2.nextInt(16) + 8;
-            var9 = var2.nextInt(var1.m(var3.a(var7, 0, var8)).o() + 32);
-            ag.b(var1, var2, var3.a(var7, var9, var8));
+            var9 = var2.nextInt(var1.m(var3.add(var7, 0, var8)).getY() + 32);
+            ag.b(var1, var2, var3.add(var7, var9, var8));
          }
       }
 
@@ -73,8 +73,8 @@ public class class_afp extends class_aez {
          for(var6 = 0; var6 < 10; ++var6) {
             var7 = var2.nextInt(16) + 8;
             var8 = var2.nextInt(16) + 8;
-            var9 = var2.nextInt(var1.m(var3.a(var7, 0, var8)).o() + 32);
-            ag.b(var1, var2, var3.a(var7, var9, var8));
+            var9 = var2.nextInt(var1.m(var3.add(var7, 0, var8)).getY() + 32);
+            ag.b(var1, var2, var3.add(var7, var9, var8));
          }
       }
 

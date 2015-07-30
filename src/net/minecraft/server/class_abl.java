@@ -6,7 +6,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.CreativeTab;
 
@@ -17,8 +17,8 @@ public class class_abl extends Item {
       this.a(CreativeTab.i);
    }
 
-   public boolean a(class_aas var1, World var2, Block var3, class_cj var4, class_qa var5) {
-      if(var3.getMaterial() != Material.j && var3 != Blocks.WEB && var3 != Blocks.TALLGRASS && var3 != Blocks.VINE && var3 != Blocks.TRIPWIRE && var3 != Blocks.WOOL) {
+   public boolean a(class_aas var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
+      if(var3.getMaterial() != Material.LEAVES && var3 != Blocks.WEB && var3 != Blocks.TALLGRASS && var3 != Blocks.VINE && var3 != Blocks.TRIPWIRE && var3 != Blocks.WOOL) {
          return super.a(var1, var2, var3, var4, var5);
       } else {
          var1.a(1, (class_qa)var5);
@@ -31,6 +31,6 @@ public class class_abl extends Item {
    }
 
    public float a(class_aas var1, Block var2) {
-      return var2 != Blocks.WEB && var2.getMaterial() != Material.j?(var2 == Blocks.WOOL?5.0F:super.a(var1, var2)):15.0F;
+      return var2 != Blocks.WEB && var2.getMaterial() != Material.LEAVES?(var2 == Blocks.WOOL?5.0F:super.a(var1, var2)):15.0F;
    }
 }

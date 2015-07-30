@@ -5,8 +5,8 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -45,23 +45,23 @@ public class class_uh extends class_ua implements class_wk {
    public void m() {
       super.m();
       if(!this.o.D) {
-         int var1 = class_nu.c(this.s);
-         int var2 = class_nu.c(this.t);
-         int var3 = class_nu.c(this.u);
+         int var1 = MathHelper.floor(this.s);
+         int var2 = MathHelper.floor(this.t);
+         int var3 = MathHelper.floor(this.u);
          if(this.U()) {
             this.a(class_pc.f, 1.0F);
          }
 
-         if(this.o.b(new class_cj(var1, 0, var3)).a(new class_cj(var1, var2, var3)) > 1.0F) {
+         if(this.o.b(new BlockPosition(var1, 0, var3)).a(new BlockPosition(var1, var2, var3)) > 1.0F) {
             this.a(class_pc.c, 1.0F);
          }
 
          for(int var4 = 0; var4 < 4; ++var4) {
-            var1 = class_nu.c(this.s + (double)((float)(var4 % 2 * 2 - 1) * 0.25F));
-            var2 = class_nu.c(this.t);
-            var3 = class_nu.c(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
-            class_cj var5 = new class_cj(var1, var2, var3);
-            if(this.o.p(var5).getBlock().getMaterial() == Material.a && this.o.b(new class_cj(var1, 0, var3)).a(var5) < 0.8F && Blocks.SNOW_LAYER.d(this.o, var5)) {
+            var1 = MathHelper.floor(this.s + (double)((float)(var4 % 2 * 2 - 1) * 0.25F));
+            var2 = MathHelper.floor(this.t);
+            var3 = MathHelper.floor(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
+            BlockPosition var5 = new BlockPosition(var1, var2, var3);
+            if(this.o.p(var5).getBlock().getMaterial() == Material.AIR && this.o.b(new BlockPosition(var1, 0, var3)).a(var5) < 0.8F && Blocks.SNOW_LAYER.d(this.o, var5)) {
                this.o.a(var5, Blocks.SNOW_LAYER.getBlockData());
             }
          }
@@ -88,7 +88,7 @@ public class class_uh extends class_ua implements class_wk {
       double var6 = var1.s - this.s;
       double var8 = var4 - var3.t;
       double var10 = var1.u - this.u;
-      float var12 = class_nu.a(var6 * var6 + var10 * var10) * 0.2F;
+      float var12 = MathHelper.sqrt(var6 * var6 + var10 * var10) * 0.2F;
       var3.c(var6, var8 + (double)var12, var10, 1.6F, 12.0F);
       this.a("random.bow", 1.0F, 1.0F / (this.bd().nextFloat() * 0.4F + 0.8F));
       this.o.a((class_pr)var3);

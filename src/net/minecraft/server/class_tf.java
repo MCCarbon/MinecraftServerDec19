@@ -8,9 +8,9 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auw;
 import net.minecraft.server.class_auz;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_tg;
 import net.minecraft.server.class_tx;
@@ -34,14 +34,14 @@ public class class_tf extends class_tg {
       return this.b.C || this.h() && this.o() || this.b.aw() && this.b instanceof class_wr && this.b.m instanceof class_tx;
    }
 
-   protected class_awh c() {
-      return new class_awh(this.b.s, (double)this.p(), this.b.u);
+   protected Vec3D c() {
+      return new Vec3D(this.b.s, (double)this.p(), this.b.u);
    }
 
    private int p() {
       if(this.b.V() && this.h()) {
          int var1 = (int)this.b.aT().b;
-         Block var2 = this.c.p(new class_cj(class_nu.c(this.b.s), var1, class_nu.c(this.b.u))).getBlock();
+         Block var2 = this.c.p(new BlockPosition(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).getBlock();
          int var3 = 0;
 
          do {
@@ -50,7 +50,7 @@ public class class_tf extends class_tg {
             }
 
             ++var1;
-            var2 = this.c.p(new class_cj(class_nu.c(this.b.s), var1, class_nu.c(this.b.u))).getBlock();
+            var2 = this.c.p(new BlockPosition(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).getBlock();
             ++var3;
          } while(var3 <= 16);
 
@@ -63,13 +63,13 @@ public class class_tf extends class_tg {
    protected void d() {
       super.d();
       if(this.f) {
-         if(this.c.i(new class_cj(class_nu.c(this.b.s), (int)(this.b.aT().b + 0.5D), class_nu.c(this.b.u)))) {
+         if(this.c.i(new BlockPosition(MathHelper.floor(this.b.s), (int)(this.b.aT().b + 0.5D), MathHelper.floor(this.b.u)))) {
             return;
          }
 
          for(int var1 = 0; var1 < this.d.d(); ++var1) {
             class_aut var2 = this.d.a(var1);
-            if(this.c.i(new class_cj(var2.a, var2.b, var2.c))) {
+            if(this.c.i(new BlockPosition(var2.a, var2.b, var2.c))) {
                this.d.b(var1 - 1);
                return;
             }
@@ -78,11 +78,11 @@ public class class_tf extends class_tg {
 
    }
 
-   protected boolean a(class_awh var1, class_awh var2, int var3, int var4, int var5) {
-      int var6 = class_nu.c(var1.a);
-      int var7 = class_nu.c(var1.c);
-      double var8 = var2.a - var1.a;
-      double var10 = var2.c - var1.c;
+   protected boolean a(Vec3D var1, Vec3D var2, int var3, int var4, int var5) {
+      int var6 = MathHelper.floor(var1.x);
+      int var7 = MathHelper.floor(var1.z);
+      double var8 = var2.x - var1.x;
+      double var10 = var2.z - var1.z;
       double var12 = var8 * var8 + var10 * var10;
       if(var12 < 1.0E-8D) {
          return false;
@@ -92,15 +92,15 @@ public class class_tf extends class_tg {
          var10 *= var14;
          var3 += 2;
          var5 += 2;
-         if(!this.a(var6, (int)var1.b, var7, var3, var4, var5, var1, var8, var10)) {
+         if(!this.a(var6, (int)var1.y, var7, var3, var4, var5, var1, var8, var10)) {
             return false;
          } else {
             var3 -= 2;
             var5 -= 2;
             double var16 = 1.0D / Math.abs(var8);
             double var18 = 1.0D / Math.abs(var10);
-            double var20 = (double)(var6 * 1) - var1.a;
-            double var22 = (double)(var7 * 1) - var1.c;
+            double var20 = (double)(var6 * 1) - var1.x;
+            double var22 = (double)(var7 * 1) - var1.z;
             if(var8 >= 0.0D) {
                ++var20;
             }
@@ -113,8 +113,8 @@ public class class_tf extends class_tg {
             var22 /= var10;
             int var24 = var8 < 0.0D?-1:1;
             int var25 = var10 < 0.0D?-1:1;
-            int var26 = class_nu.c(var2.a);
-            int var27 = class_nu.c(var2.c);
+            int var26 = MathHelper.floor(var2.x);
+            int var27 = MathHelper.floor(var2.z);
             int var28 = var26 - var6;
             int var29 = var27 - var7;
 
@@ -132,14 +132,14 @@ public class class_tf extends class_tg {
                   var7 += var25;
                   var29 = var27 - var7;
                }
-            } while(this.a(var6, (int)var1.b, var7, var3, var4, var5, var1, var8, var10));
+            } while(this.a(var6, (int)var1.y, var7, var3, var4, var5, var1, var8, var10));
 
             return false;
          }
       }
    }
 
-   private boolean a(int var1, int var2, int var3, int var4, int var5, int var6, class_awh var7, double var8, double var10) {
+   private boolean a(int var1, int var2, int var3, int var4, int var5, int var6, Vec3D var7, double var8, double var10) {
       int var12 = var1 - var4 / 2;
       int var13 = var3 - var6 / 2;
       if(!this.b(var12, var2, var13, var4, var5, var6, var7, var8, var10)) {
@@ -147,20 +147,20 @@ public class class_tf extends class_tg {
       } else {
          for(int var14 = var12; var14 < var12 + var4; ++var14) {
             for(int var15 = var13; var15 < var13 + var6; ++var15) {
-               double var16 = (double)var14 + 0.5D - var7.a;
-               double var18 = (double)var15 + 0.5D - var7.c;
+               double var16 = (double)var14 + 0.5D - var7.x;
+               double var18 = (double)var15 + 0.5D - var7.z;
                if(var16 * var8 + var18 * var10 >= 0.0D) {
-                  Block var20 = this.c.p(new class_cj(var14, var2 - 1, var15)).getBlock();
+                  Block var20 = this.c.p(new BlockPosition(var14, var2 - 1, var15)).getBlock();
                   Material var21 = var20.getMaterial();
-                  if(var21 == Material.a) {
+                  if(var21 == Material.AIR) {
                      return false;
                   }
 
-                  if(var21 == Material.h && !this.b.V()) {
+                  if(var21 == Material.WATER && !this.b.V()) {
                      return false;
                   }
 
-                  if(var21 == Material.i) {
+                  if(var21 == Material.LAVA) {
                      return false;
                   }
                }
@@ -171,13 +171,13 @@ public class class_tf extends class_tg {
       }
    }
 
-   private boolean b(int var1, int var2, int var3, int var4, int var5, int var6, class_awh var7, double var8, double var10) {
-      Iterator var12 = class_cj.a(new class_cj(var1, var2, var3), new class_cj(var1 + var4 - 1, var2 + var5 - 1, var3 + var6 - 1)).iterator();
+   private boolean b(int var1, int var2, int var3, int var4, int var5, int var6, Vec3D var7, double var8, double var10) {
+      Iterator var12 = BlockPosition.allInCube(new BlockPosition(var1, var2, var3), new BlockPosition(var1 + var4 - 1, var2 + var5 - 1, var3 + var6 - 1)).iterator();
 
       while(var12.hasNext()) {
-         class_cj var13 = (class_cj)var12.next();
-         double var14 = (double)var13.n() + 0.5D - var7.a;
-         double var16 = (double)var13.p() + 0.5D - var7.c;
+         BlockPosition var13 = (BlockPosition)var12.next();
+         double var14 = (double)var13.getX() + 0.5D - var7.x;
+         double var16 = (double)var13.getZ() + 0.5D - var7.z;
          if(var14 * var8 + var16 * var10 >= 0.0D) {
             Block var18 = this.c.p(var13).getBlock();
             if(!var18.isPassable(this.c, var13)) {

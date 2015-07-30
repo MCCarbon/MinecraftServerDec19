@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_uk;
@@ -80,7 +80,7 @@ public class class_ui extends class_uk {
    }
 
    public boolean V() {
-      return this.o.a((class_awf)this.aT().b(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.h, (class_pr)this);
+      return this.o.a((class_awf)this.aT().b(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.WATER, (class_pr)this);
    }
 
    public void m() {
@@ -107,7 +107,7 @@ public class class_ui extends class_uk {
          float var1;
          if(this.br < 3.1415927F) {
             var1 = this.br / 3.1415927F;
-            this.bt = class_nu.a(var1 * var1 * 3.1415927F) * 3.1415927F * 0.25F;
+            this.bt = MathHelper.sin(var1 * var1 * 3.1415927F) * 3.1415927F * 0.25F;
             if((double)var1 > 0.75D) {
                this.bv = 1.0F;
                this.bx = 1.0F;
@@ -126,13 +126,13 @@ public class class_ui extends class_uk {
             this.x = (double)(this.bA * this.bv);
          }
 
-         var1 = class_nu.a(this.v * this.v + this.x * this.x);
-         this.aL += (-((float)class_nu.b(this.v, this.x)) * 180.0F / 3.1415927F - this.aL) * 0.1F;
+         var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
+         this.aL += (-((float)MathHelper.b(this.v, this.x)) * 180.0F / 3.1415927F - this.aL) * 0.1F;
          this.y = this.aL;
          this.c = (float)((double)this.c + 3.141592653589793D * (double)this.bx * 1.5D);
-         this.a += (-((float)class_nu.b((double)var1, this.w)) * 180.0F / 3.1415927F - this.a) * 0.1F;
+         this.a += (-((float)MathHelper.b((double)var1, this.w)) * 180.0F / 3.1415927F - this.a) * 0.1F;
       } else {
-         this.bt = class_nu.e(class_nu.a(this.br)) * 3.1415927F * 0.25F;
+         this.bt = MathHelper.abs(MathHelper.sin(this.br)) * 3.1415927F * 0.25F;
          if(!this.o.D) {
             this.v = 0.0D;
             this.w -= 0.08D;
@@ -180,9 +180,9 @@ public class class_ui extends class_uk {
             this.a.b(0.0F, 0.0F, 0.0F);
          } else if(this.a.bd().nextInt(50) == 0 || !this.a.Y || !this.a.n()) {
             float var2 = this.a.bd().nextFloat() * 3.1415927F * 2.0F;
-            float var3 = class_nu.b(var2) * 0.2F;
+            float var3 = MathHelper.cos(var2) * 0.2F;
             float var4 = -0.1F + this.a.bd().nextFloat() * 0.2F;
-            float var5 = class_nu.a(var2) * 0.2F;
+            float var5 = MathHelper.sin(var2) * 0.2F;
             this.a.b(var3, var4, var5);
          }
 

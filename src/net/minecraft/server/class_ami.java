@@ -8,8 +8,8 @@ import net.minecraft.server.class_agu;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amu;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -139,7 +139,7 @@ public class class_ami extends class_amu implements class_kn, class_oj {
    }
 
    public boolean a(class_xa var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.s(this.c) != this?false:var1.e((double)this.c.getX() + 0.5D, (double)this.c.getY() + 0.5D, (double)this.c.getZ() + 0.5D) <= 64.0D;
    }
 
    public void E() {
@@ -147,7 +147,7 @@ public class class_ami extends class_amu implements class_kn, class_oj {
       this.a = false;
    }
 
-   private void a(class_ami var1, class_cq var2) {
+   private void a(class_ami var1, EnumDirection var2) {
       if(var1.x()) {
          this.a = false;
       } else if(this.a) {
@@ -179,20 +179,20 @@ public class class_ami extends class_amu implements class_kn, class_oj {
    public void m() {
       if(!this.a) {
          this.a = true;
-         this.h = this.a(class_cq.e);
-         this.g = this.a(class_cq.f);
-         this.f = this.a(class_cq.c);
-         this.i = this.a(class_cq.d);
+         this.h = this.a(EnumDirection.WEST);
+         this.g = this.a(EnumDirection.EAST);
+         this.f = this.a(EnumDirection.NORTH);
+         this.i = this.a(EnumDirection.SOUTH);
       }
    }
 
-   protected class_ami a(class_cq var1) {
-      class_cj var2 = this.c.a(var1);
+   protected class_ami a(EnumDirection var1) {
+      BlockPosition var2 = this.c.shift(var1);
       if(this.b(var2)) {
          class_amg var3 = this.b.s(var2);
          if(var3 instanceof class_ami) {
             class_ami var4 = (class_ami)var3;
-            var4.a(this, var1.d());
+            var4.a(this, var1.getOpposite());
             return var4;
          }
       }
@@ -200,7 +200,7 @@ public class class_ami extends class_amu implements class_kn, class_oj {
       return null;
    }
 
-   private boolean b(class_cj var1) {
+   private boolean b(BlockPosition var1) {
       if(this.b == null) {
          return false;
       } else {
@@ -211,9 +211,9 @@ public class class_ami extends class_amu implements class_kn, class_oj {
 
    public void c() {
       this.m();
-      int var1 = this.c.n();
-      int var2 = this.c.o();
-      int var3 = this.c.p();
+      int var1 = this.c.getX();
+      int var2 = this.c.getY();
+      int var3 = this.c.getZ();
       ++this.n;
       float var4;
       if(!this.b.D && this.l != 0 && (this.n + var1 + var2 + var3) % 200 == 0) {
@@ -311,7 +311,7 @@ public class class_ami extends class_amu implements class_kn, class_oj {
          ++this.l;
          this.b.c(this.c, this.w(), 1, this.l);
          this.b.c(this.c, this.w());
-         this.b.c(this.c.b(), this.w());
+         this.b.c(this.c.shiftDown(), this.w());
       }
 
    }
@@ -321,7 +321,7 @@ public class class_ami extends class_amu implements class_kn, class_oj {
          --this.l;
          this.b.c(this.c, this.w(), 1, this.l);
          this.b.c(this.c, this.w());
-         this.b.c(this.c.b(), this.w());
+         this.b.c(this.c.shiftDown(), this.w());
       }
 
    }
@@ -377,29 +377,29 @@ public class class_ami extends class_amu implements class_kn, class_oj {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.c.ordinal()] = 1;
+            a[EnumDirection.NORTH.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_cq.d.ordinal()] = 2;
+            a[EnumDirection.SOUTH.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.f.ordinal()] = 3;
+            a[EnumDirection.EAST.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 4;
+            a[EnumDirection.WEST.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }

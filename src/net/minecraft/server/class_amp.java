@@ -17,9 +17,9 @@ public class class_amp extends class_amg implements class_kn {
       }
 
       this.f = this.a;
-      int var1 = this.c.n();
-      int var2 = this.c.o();
-      int var3 = this.c.p();
+      int var1 = this.c.getX();
+      int var2 = this.c.getY();
+      int var3 = this.c.getZ();
       float var4 = 0.1F;
       double var7;
       if(this.g > 0 && this.a == 0.0F) {
@@ -79,6 +79,6 @@ public class class_amp extends class_amg implements class_kn {
    }
 
    public boolean a(class_xa var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.s(this.c) != this?false:var1.e((double)this.c.getX() + 0.5D, (double)this.c.getY() + 0.5D, (double)this.c.getZ() + 0.5D) <= 64.0D;
    }
 }

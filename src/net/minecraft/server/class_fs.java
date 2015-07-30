@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
@@ -9,13 +9,13 @@ import net.minecraft.server.class_fj;
 
 public class class_fs implements class_ff {
    private int a;
-   private class_cj b;
+   private BlockPosition b;
    private int c;
 
    public class_fs() {
    }
 
-   public class_fs(int var1, class_cj var2, int var3) {
+   public class_fs(int var1, BlockPosition var2, int var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

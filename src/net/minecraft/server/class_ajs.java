@@ -13,7 +13,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_xa;
 
@@ -33,7 +33,7 @@ public class class_ajs extends class_aja {
       this.setBlockData(this.blockStateList.getFirst().set(Q, class_ajw.class_a_in_class_ajw.a).set(b, Boolean.valueOf(true)).set(a, Boolean.valueOf(true)));
    }
 
-   protected void a(World var1, class_cj var2, IBlockData var3, int var4) {
+   protected void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
       if(var3.get(Q) == class_ajw.class_a_in_class_ajw.a && var1.s.nextInt(var4) == 0) {
          a(var1, var2, new class_aas(Items.e));
       }
@@ -78,7 +78,7 @@ public class class_ajs extends class_aja {
       return ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a();
    }
 
-   public void a(World var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
       if(!var1.D && var6 != null && var6.b() == Items.bg) {
          var2.b(class_nc.ab[Block.getId((Block)this)]);
          a(var1, var3, new class_aas(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var4.get(Q)).a()));

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tm;
@@ -22,13 +22,13 @@ public class class_sn extends class_rm {
 
    public boolean a() {
       if(!this.a.cD() && this.a.l != null) {
-         class_awh var1 = class_tm.a(this.a, 5, 4);
+         Vec3D var1 = class_tm.a(this.a, 5, 4);
          if(var1 == null) {
             return false;
          } else {
-            this.c = var1.a;
-            this.d = var1.b;
-            this.e = var1.c;
+            this.c = var1.x;
+            this.d = var1.y;
+            this.e = var1.z;
             return true;
          }
       } else {

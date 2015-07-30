@@ -1,47 +1,47 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 
 public class class_to {
-   private final class_cj a;
-   private final class_cj b;
-   private final class_cq c;
+   private final BlockPosition a;
+   private final BlockPosition b;
+   private final EnumDirection c;
    private int d;
    private boolean e;
    private int f;
 
-   public class_to(class_cj var1, int var2, int var3, int var4) {
+   public class_to(BlockPosition var1, int var2, int var3, int var4) {
       this(var1, a(var2, var3), var4);
    }
 
-   private static class_cq a(int var0, int var1) {
-      return var0 < 0?class_cq.e:(var0 > 0?class_cq.f:(var1 < 0?class_cq.c:class_cq.d));
+   private static EnumDirection a(int var0, int var1) {
+      return var0 < 0?EnumDirection.WEST:(var0 > 0?EnumDirection.EAST:(var1 < 0?EnumDirection.NORTH:EnumDirection.SOUTH));
    }
 
-   public class_to(class_cj var1, class_cq var2, int var3) {
+   public class_to(BlockPosition var1, EnumDirection var2, int var3) {
       this.a = var1;
       this.c = var2;
-      this.b = var1.a(var2, 2);
+      this.b = var1.shift(var2, 2);
       this.d = var3;
    }
 
    public int b(int var1, int var2, int var3) {
-      return (int)this.a.c((double)var1, (double)var2, (double)var3);
+      return (int)this.a.distanceSquared((double)var1, (double)var2, (double)var3);
    }
 
-   public int a(class_cj var1) {
-      return (int)var1.i(this.d());
+   public int a(BlockPosition var1) {
+      return (int)var1.distanceSquared(this.d());
    }
 
-   public int b(class_cj var1) {
-      return (int)this.b.i(var1);
+   public int b(BlockPosition var1) {
+      return (int)this.b.distanceSquared(var1);
    }
 
-   public boolean c(class_cj var1) {
-      int var2 = var1.n() - this.a.n();
-      int var3 = var1.p() - this.a.o();
-      return var2 * this.c.g() + var3 * this.c.i() >= 0;
+   public boolean c(BlockPosition var1) {
+      int var2 = var1.getX() - this.a.getX();
+      int var3 = var1.getZ() - this.a.getY();
+      return var2 * this.c.getAdjacentX() + var3 * this.c.getAdjacentZ() >= 0;
    }
 
    public void a() {
@@ -56,20 +56,20 @@ public class class_to {
       return this.f;
    }
 
-   public class_cj d() {
+   public BlockPosition d() {
       return this.a;
    }
 
-   public class_cj e() {
+   public BlockPosition e() {
       return this.b;
    }
 
    public int f() {
-      return this.c.g() * 2;
+      return this.c.getAdjacentX() * 2;
    }
 
    public int g() {
-      return this.c.i() * 2;
+      return this.c.getAdjacentZ() * 2;
    }
 
    public int h() {

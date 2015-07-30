@@ -7,7 +7,7 @@ import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_kn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_op;
 import net.minecraft.server.class_wz;
 import net.minecraft.server.class_xa;
@@ -47,11 +47,11 @@ public class class_amo extends class_amg implements class_kn, class_op {
    public void c() {
       this.k = this.j;
       this.m = this.l;
-      class_xa var1 = this.b.a((double)((float)this.c.n() + 0.5F), (double)((float)this.c.o() + 0.5F), (double)((float)this.c.p() + 0.5F), 3.0D);
+      class_xa var1 = this.b.a((double)((float)this.c.getX() + 0.5F), (double)((float)this.c.getY() + 0.5F), (double)((float)this.c.getZ() + 0.5F), 3.0D);
       if(var1 != null) {
-         double var2 = var1.s - (double)((float)this.c.n() + 0.5F);
-         double var4 = var1.u - (double)((float)this.c.p() + 0.5F);
-         this.n = (float)class_nu.b(var4, var2);
+         double var2 = var1.s - (double)((float)this.c.getX() + 0.5F);
+         double var4 = var1.u - (double)((float)this.c.getZ() + 0.5F);
+         this.n = (float)MathHelper.b(var4, var2);
          this.j += 0.1F;
          if(this.j < 0.5F || o.nextInt(40) == 0) {
             float var6 = this.h;
@@ -91,12 +91,12 @@ public class class_amo extends class_amg implements class_kn, class_op {
       }
 
       this.l += var7 * 0.4F;
-      this.j = class_nu.a(this.j, 0.0F, 1.0F);
+      this.j = MathHelper.clamp(this.j, 0.0F, 1.0F);
       ++this.a;
       this.g = this.f;
       float var3 = (this.h - this.f) * 0.4F;
       float var8 = 0.2F;
-      var3 = class_nu.a(var3, -var8, var8);
+      var3 = MathHelper.clamp(var3, -var8, var8);
       this.i += (var3 - this.i) * 0.9F;
       this.f += this.i;
    }

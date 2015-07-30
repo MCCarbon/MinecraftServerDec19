@@ -14,11 +14,11 @@ import net.minecraft.server.class_aus;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pr;
@@ -204,7 +204,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       int var4 = this.br - var1 * 1 - 1 & 63;
       double[] var5 = new double[3];
       double var6 = this.bq[var3][0];
-      double var8 = class_nu.g(this.bq[var4][0] - var6);
+      double var8 = MathHelper.clampAngle(this.bq[var4][0] - var6);
       var5[0] = var6 + var8 * (double)var2;
       var6 = this.bq[var3][1];
       var8 = this.bq[var4][1] - var6;
@@ -220,8 +220,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       if(this.o.D) {
          this.i(this.bo());
          if(!this.R()) {
-            var2 = class_nu.b(this.bC * 3.1415927F * 2.0F);
-            var3 = class_nu.b(this.bB * 3.1415927F * 2.0F);
+            var2 = MathHelper.cos(this.bC * 3.1415927F * 2.0F);
+            var3 = MathHelper.cos(this.bB * 3.1415927F * 2.0F);
             if(var3 <= -0.3F && var2 >= -0.3F) {
                this.o.a(this.s, this.t, this.u, "mob.enderdragon.wings", 5.0F, 0.8F + this.V.nextFloat() * 0.3F, false);
             }
@@ -242,7 +242,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
          this.o.a(class_cy.b, this.s + (double)var2, this.t + 2.0D + (double)var3, this.u + (double)var34, 0.0D, 0.0D, 0.0D, new int[0]);
       } else {
          this.cu();
-         var2 = 0.2F / (class_nu.a(this.v * this.v + this.x * this.x) * 10.0F + 1.0F);
+         var2 = 0.2F / (MathHelper.sqrt(this.v * this.v + this.x * this.x) * 10.0F + 1.0F);
          var2 *= (float)Math.pow(2.0D, this.w);
          if(var1.b()) {
             this.bC += 0.1F;
@@ -252,7 +252,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             this.bC += var2;
          }
 
-         this.y = class_nu.g(this.y);
+         this.y = MathHelper.clampAngle(this.y);
          if(this.cs()) {
             this.bC = 0.5F;
          } else {
@@ -283,7 +283,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             double var33;
             double var45;
             float var49;
-            class_awh var50;
+            Vec3D var50;
             float var51;
             double var53;
             float var54;
@@ -295,7 +295,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                   var33 = this.s + (this.bg - this.s) / (double)this.bf;
                   var5 = this.t + (this.bh - this.t) / (double)this.bf;
                   var7 = this.u + (this.bi - this.u) / (double)this.bf;
-                  var9 = class_nu.g(this.bj - (double)this.y);
+                  var9 = MathHelper.clampAngle(this.bj - (double)this.y);
                   this.y = (float)((double)this.y + var9 / (double)this.bf);
                   this.z = (float)((double)this.z + (this.bk - (double)this.z) / (double)this.bf);
                   --this.bf;
@@ -303,18 +303,18 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                   this.b(this.y, this.z);
                }
 
-               class_awh var4;
+               Vec3D var4;
                if(var1 == class_us.f) {
                   var3 = 0.08F;
-                  var4 = this.o(1.0F).a();
-                  var4.b(-0.7853982F);
+                  var4 = this.o(1.0F).normalize();
+                  var4.rotateYaw(-0.7853982F);
 
                   for(int var35 = 0; var35 < 8; ++var35) {
-                     double var6 = class_nu.a(this.V, this.bR.a, this.bR.d);
-                     double var8 = class_nu.a(this.V, this.bR.b, this.bR.e);
-                     var10 = class_nu.a(this.V, this.bR.c, this.bR.f);
+                     double var6 = MathHelper.getRandomDoubleInRange(this.V, this.bR.a, this.bR.d);
+                     double var8 = MathHelper.getRandomDoubleInRange(this.V, this.bR.b, this.bR.e);
+                     var10 = MathHelper.getRandomDoubleInRange(this.V, this.bR.c, this.bR.f);
                      var12 = 0.3F;
-                     this.o.a(class_cy.Q, var6, var8, var10, -var4.a * (double)var3 + this.v, -var4.b * (double)var12 + this.w, -var4.c * (double)var3 + this.x, new int[0]);
+                     this.o.a(class_cy.Q, var6, var8, var10, -var4.x * (double)var3 + this.v, -var4.y * (double)var12 + this.w, -var4.z * (double)var3 + this.x, new int[0]);
                   }
                }
 
@@ -324,8 +324,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                   }
                } else {
                   var3 = 0.08F;
-                  var4 = this.o(1.0F).a();
-                  var4.b(-0.7853982F);
+                  var4 = this.o(1.0F).normalize();
+                  var4.rotateYaw(-0.7853982F);
                   var5 = this.bt.s;
                   var7 = this.bt.t + (double)(this.bt.K / 2.0F);
                   var9 = this.bt.u;
@@ -336,16 +336,16 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                      var16 = var9 + this.V.nextGaussian() / 2.0D;
                      if(var1 == class_us.d) {
                         var18 = 0.3F;
-                        this.o.a(class_cy.Q, var45, var14, var16, -var4.a * (double)var3 + this.v, -var4.b * (double)var18 + this.w, -var4.c * (double)var3 + this.x, new int[0]);
+                        this.o.a(class_cy.Q, var45, var14, var16, -var4.x * (double)var3 + this.v, -var4.y * (double)var18 + this.w, -var4.z * (double)var3 + this.x, new int[0]);
                      } else {
                         var18 = 0.6F;
 
                         for(int var19 = 0; var19 < 6; ++var19) {
-                           this.o.a(class_cy.Q, var45, var14, var16, -var4.a * (double)var3 * (double)var19, -var4.b * (double)var18, -var4.c * (double)var3 * (double)var19, new int[0]);
+                           this.o.a(class_cy.Q, var45, var14, var16, -var4.x * (double)var3 * (double)var19, -var4.y * (double)var18, -var4.z * (double)var3 * (double)var19, new int[0]);
                         }
                      }
 
-                     var4.b(0.19634955F);
+                     var4.rotateYaw(0.19634955F);
                   }
                }
             } else {
@@ -383,7 +383,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                      this.bO = 60;
                   }
                } else if(!this.bD && var1 == class_us.e) {
-                  class_cj var43 = this.o.r(class_aqk.a);
+                  BlockPosition var43 = this.o.r(class_aqk.a);
                   var45 = this.c(var43);
                   if(var45 > 100.0D) {
                      this.a(class_us.a);
@@ -408,18 +408,18 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                if(var1 != class_us.f) {
                   if(var1 == class_us.g) {
                      if(this.bJ != null) {
-                        class_awh var46 = (new class_awh(this.bJ.s - this.s, 0.0D, this.bJ.u - this.u)).a();
-                        var50 = (new class_awh((double)class_nu.a(this.y * 3.1415927F / 180.0F), 0.0D, (double)(-class_nu.b(this.y * 3.1415927F / 180.0F)))).a();
-                        var51 = (float)var50.b(var46);
+                        Vec3D var46 = (new Vec3D(this.bJ.s - this.s, 0.0D, this.bJ.u - this.u)).normalize();
+                        var50 = (new Vec3D((double)MathHelper.sin(this.y * 3.1415927F / 180.0F), 0.0D, (double)(-MathHelper.cos(this.y * 3.1415927F / 180.0F)))).normalize();
+                        var51 = (float)var50.dotProduct(var46);
                         var54 = (float)(Math.acos((double)var51) * 180.0D / 3.1415927410125732D) + 0.5F;
                         if(var54 < 0.0F || var54 > 10.0F) {
                            var15 = this.bJ.s - this.bt.s;
                            var17 = this.bJ.u - this.bt.u;
-                           var63 = class_nu.a(class_nu.g(180.0D - class_nu.b(var15, var17) * 180.0D / 3.1415927410125732D - (double)this.y), -50.0D, 50.0D);
+                           var63 = MathHelper.clamp(MathHelper.clampAngle(180.0D - MathHelper.b(var15, var17) * 180.0D / 3.1415927410125732D - (double)this.y), -50.0D, 50.0D);
                            var21 = this.a - this.s;
                            var23 = this.c - this.u;
                            this.be *= 0.8F;
-                           float var25 = class_nu.a(var21 * var21 + var23 * var23) * 1.0F + 1.0F;
+                           float var25 = MathHelper.sqrt(var21 * var21 + var23 * var23) * 1.0F + 1.0F;
                            float var26 = var25;
                            if(var25 > 40.0F) {
                               var25 = 40.0F;
@@ -435,21 +435,21 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                         this.c = this.bJ.u;
                         double var47 = this.a - this.s;
                         var53 = this.c - this.u;
-                        var15 = (double)class_nu.a(var47 * var47 + var53 * var53);
+                        var15 = (double)MathHelper.sqrt(var47 * var47 + var53 * var53);
                         var17 = Math.min(0.4000000059604645D + var15 / 80.0D - 1.0D, 10.0D);
                         this.b = this.bJ.t + var17;
                      }
 
                      var49 = var1 == class_us.d?1.5F:0.6F;
-                     var5 = class_nu.a(var5 / (double)class_nu.a(var33 * var33 + var7 * var7), (double)(-var49), (double)var49);
+                     var5 = MathHelper.clamp(var5 / (double)MathHelper.sqrt(var33 * var33 + var7 * var7), (double)(-var49), (double)var49);
                      this.w += var5 * 0.10000000149011612D;
-                     this.y = class_nu.g(this.y);
-                     var45 = class_nu.a(class_nu.g(180.0D - class_nu.b(var33, var7) * 180.0D / 3.1415927410125732D - (double)this.y), -50.0D, 50.0D);
-                     class_awh var56 = (new class_awh(this.a - this.s, this.b - this.t, this.c - this.u)).a();
-                     class_awh var58 = (new class_awh((double)class_nu.a(this.y * 3.1415927F / 180.0F), this.w, (double)(-class_nu.b(this.y * 3.1415927F / 180.0F)))).a();
-                     var59 = Math.max(((float)var58.b(var56) + 0.5F) / 1.5F, 0.0F);
+                     this.y = MathHelper.clampAngle(this.y);
+                     var45 = MathHelper.clamp(MathHelper.clampAngle(180.0D - MathHelper.b(var33, var7) * 180.0D / 3.1415927410125732D - (double)this.y), -50.0D, 50.0D);
+                     Vec3D var56 = (new Vec3D(this.a - this.s, this.b - this.t, this.c - this.u)).normalize();
+                     Vec3D var58 = (new Vec3D((double)MathHelper.sin(this.y * 3.1415927F / 180.0F), this.w, (double)(-MathHelper.cos(this.y * 3.1415927F / 180.0F)))).normalize();
+                     var59 = Math.max(((float)var58.dotProduct(var56) + 0.5F) / 1.5F, 0.0F);
                      this.be *= 0.8F;
-                     var61 = class_nu.a(this.v * this.v + this.x * this.x) * 1.0F + 1.0F;
+                     var61 = MathHelper.sqrt(this.v * this.v + this.x * this.x) * 1.0F + 1.0F;
                      var18 = var61;
                      if(var61 > 40.0F) {
                         var61 = 40.0F;
@@ -471,8 +471,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                         this.d(this.v, this.w, this.x);
                      }
 
-                     class_awh var65 = (new class_awh(this.v, this.w, this.x)).a();
-                     float var22 = ((float)var65.b(var58) + 1.0F) / 2.0F;
+                     Vec3D var65 = (new Vec3D(this.v, this.w, this.x)).normalize();
+                     float var22 = ((float)var65.dotProduct(var58) + 1.0F) / 2.0F;
                      var22 = 0.8F + 0.15F * var22;
                      this.v *= (double)var22;
                      this.x *= (double)var22;
@@ -494,11 +494,11 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             this.bA.K = 3.0F;
             this.bA.J = 4.0F;
             var3 = (float)(this.a(5, 1.0F)[1] - this.a(10, 1.0F)[1]) * 10.0F / 180.0F * 3.1415927F;
-            var34 = class_nu.b(var3);
-            float var37 = class_nu.a(var3);
+            var34 = MathHelper.cos(var3);
+            float var37 = MathHelper.sin(var3);
             float var36 = this.y * 3.1415927F / 180.0F;
-            float var38 = class_nu.a(var36);
-            float var39 = class_nu.b(var36);
+            float var38 = MathHelper.sin(var36);
+            float var39 = MathHelper.cos(var36);
             this.bv.t_();
             this.bv.b(this.s + (double)(var38 * 0.5F), this.t, this.u - (double)(var39 * 0.5F), 0.0F, 0.0F);
             this.bz.t_();
@@ -513,8 +513,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             }
 
             double[] var40 = this.a(5, 1.0F);
-            float var41 = class_nu.a(this.y * 3.1415927F / 180.0F - this.be * 0.01F);
-            var49 = class_nu.b(this.y * 3.1415927F / 180.0F - this.be * 0.01F);
+            float var41 = MathHelper.sin(this.y * 3.1415927F / 180.0F - this.be * 0.01F);
+            var49 = MathHelper.cos(this.y * 3.1415927F / 180.0F - this.be * 0.01F);
             this.bt.t_();
             this.bu.t_();
             var12 = this.a(1.0F);
@@ -542,8 +542,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
                double[] var55 = this.a(12 + var42 * 2, 1.0F);
                var51 = this.y * 3.1415927F / 180.0F + this.b(var55[0] - var40[0]) * 3.1415927F / 180.0F * 1.0F;
-               var54 = class_nu.a(var51);
-               var60 = class_nu.b(var51);
+               var54 = MathHelper.sin(var51);
+               var60 = MathHelper.cos(var51);
                var59 = 1.5F;
                var61 = (float)(var42 + 1) * 2.0F;
                var52.t_();
@@ -555,21 +555,21 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                if(var1 == class_us.b && this.bJ != null && this.bJ.h(this) < var10 * var10) {
                   if(this.t(this.bJ)) {
                      ++this.bM;
-                     var50 = (new class_awh(this.bJ.s - this.s, 0.0D, this.bJ.u - this.u)).a();
-                     class_awh var57 = (new class_awh((double)class_nu.a(this.y * 3.1415927F / 180.0F), 0.0D, (double)(-class_nu.b(this.y * 3.1415927F / 180.0F)))).a();
-                     var54 = (float)var57.b(var50);
+                     var50 = (new Vec3D(this.bJ.s - this.s, 0.0D, this.bJ.u - this.u)).normalize();
+                     Vec3D var57 = (new Vec3D((double)MathHelper.sin(this.y * 3.1415927F / 180.0F), 0.0D, (double)(-MathHelper.cos(this.y * 3.1415927F / 180.0F)))).normalize();
+                     var54 = (float)var57.dotProduct(var50);
                      var60 = (float)(Math.acos((double)var54) * 180.0D / 3.1415927410125732D);
                      var60 += 0.5F;
                      if(this.bM >= 5 && var60 >= 0.0F && var60 < 10.0F) {
                         var16 = 1.0D;
-                        class_awh var62 = this.d(1.0F);
-                        var63 = this.bt.s - var62.a * var16;
+                        Vec3D var62 = this.d(1.0F);
+                        var63 = this.bt.s - var62.x * var16;
                         var21 = this.bt.t + (double)(this.bt.K / 2.0F) + 0.5D;
-                        var23 = this.bt.u - var62.c * var16;
+                        var23 = this.bt.u - var62.z * var16;
                         double var66 = this.bJ.s - var63;
                         double var27 = this.bJ.t + (double)(this.bJ.K / 2.0F) - (var21 + (double)(this.bt.K / 2.0F));
                         double var29 = this.bJ.u - var23;
-                        this.o.a((class_xa)null, 1008, new class_cj(this), 0);
+                        this.o.a((class_xa)null, 1008, new BlockPosition(this), 0);
                         class_xh var31 = new class_xh(this.o, this, var66, var27, var29);
                         var31.s = var63;
                         var31.t = var21;
@@ -695,7 +695,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       case 3:
       case 8:
          if(!this.bD && this.bV != null && this.bV.b()) {
-            class_cj var2 = this.o.r(new class_cj(class_aqk.a));
+            BlockPosition var2 = this.o.r(new BlockPosition(class_aqk.a));
             double var3 = 64.0D;
             var1 = this.o.a(var2, var3, var3);
             if(var1 != null) {
@@ -705,7 +705,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             int var5 = this.bK == null?0:this.bK.c();
             if(this.V.nextInt(var5 + 3) == 0) {
                this.a(class_us.c);
-            } else if(var1 != null && (this.V.nextInt(class_nu.a((int)var3) + 2) == 0 || this.V.nextInt(var5 + 2) == 0)) {
+            } else if(var1 != null && (this.V.nextInt(MathHelper.abs((int)var3) + 2) == 0 || this.V.nextInt(var5 + 2) == 0)) {
                this.a(class_us.b);
             }
          }
@@ -726,18 +726,18 @@ public class class_ur extends class_qb implements class_uo, class_wd {
          if(this.n() == class_us.c) {
             if(this.bV == null || this.bV.b()) {
                var6 = this.cy();
-               class_cj var7 = this.o.r(class_aqk.a);
+               BlockPosition var7 = this.o.r(class_aqk.a);
                var1 = this.o.a(var7, 128.0D, 128.0D);
                boolean var4 = false;
                int var9;
                if(var1 != null) {
-                  class_awh var10 = (new class_awh(var1.s, 0.0D, var1.u)).a();
-                  var9 = this.k(-var10.a * 40.0D, 105.0D, -var10.c * 40.0D);
+                  Vec3D var10 = (new Vec3D(var1.s, 0.0D, var1.u)).normalize();
+                  var9 = this.k(-var10.x * 40.0D, 105.0D, -var10.z * 40.0D);
                } else {
-                  var9 = this.k(40.0D, (double)var7.o(), 0.0D);
+                  var9 = this.k(40.0D, (double)var7.getY(), 0.0D);
                }
 
-               class_aut var12 = new class_aut(var7.n(), var7.o(), var7.p());
+               class_aut var12 = new class_aut(var7.getX(), var7.getY(), var7.getZ());
                this.bV = this.a(var6, var9, var12);
                if(this.bV != null) {
                   this.bV.a();
@@ -754,8 +754,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                var6 = this.cy();
                int var8 = var6;
                if(this.n() == class_us.e) {
-                  class_awh var11 = this.o(1.0F);
-                  var8 = this.k(-var11.a * 40.0D, 105.0D, -var11.c * 40.0D);
+                  Vec3D var11 = this.o(1.0F);
+                  var8 = this.k(-var11.x * 40.0D, 105.0D, -var11.z * 40.0D);
                } else {
                   if(this.V.nextInt(8) == 0) {
                      this.bN = !this.bN;
@@ -796,25 +796,25 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    }
 
    private float b(double var1) {
-      return (float)class_nu.g(var1);
+      return (float)MathHelper.clampAngle(var1);
    }
 
    private boolean b(class_awf var1) {
-      int var2 = class_nu.c(var1.a);
-      int var3 = class_nu.c(var1.b);
-      int var4 = class_nu.c(var1.c);
-      int var5 = class_nu.c(var1.d);
-      int var6 = class_nu.c(var1.e);
-      int var7 = class_nu.c(var1.f);
+      int var2 = MathHelper.floor(var1.a);
+      int var3 = MathHelper.floor(var1.b);
+      int var4 = MathHelper.floor(var1.c);
+      int var5 = MathHelper.floor(var1.d);
+      int var6 = MathHelper.floor(var1.e);
+      int var7 = MathHelper.floor(var1.f);
       boolean var8 = false;
       boolean var9 = false;
 
       for(int var10 = var2; var10 <= var5; ++var10) {
          for(int var11 = var3; var11 <= var6; ++var11) {
             for(int var12 = var4; var12 <= var7; ++var12) {
-               class_cj var13 = new class_cj(var10, var11, var12);
+               BlockPosition var13 = new BlockPosition(var10, var11, var12);
                Block var14 = this.o.p(var13).getBlock();
-               if(var14.getMaterial() != Material.a && var14.getMaterial() != Material.o) {
+               if(var14.getMaterial() != Material.AIR && var14.getMaterial() != Material.FIRE) {
                   if(var14 != Blocks.BARRIER && var14 != Blocks.OBSIDIAN && var14 != Blocks.END_STONE && var14 != Blocks.BEDROCK && var14 != Blocks.COMMAND_BLOCK && var14 != Blocks.IRON_BARS && this.o.R().b("mobGriefing")) {
                      var9 = this.o.g(var13) || var9;
                   } else {
@@ -921,7 +921,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             }
 
             if(this.bF == 1) {
-               this.o.a(1018, new class_cj(this), 0);
+               this.o.a(1018, new BlockPosition(this), 0);
             }
          }
 
@@ -951,13 +951,13 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    private void cw() {
       int var1 = this.cy();
       int var2 = this.k(this.bJ.s, this.bJ.t, this.bJ.u);
-      int var3 = class_nu.c(this.bJ.s);
-      int var4 = class_nu.c(this.bJ.u);
+      int var3 = MathHelper.floor(this.bJ.s);
+      int var4 = MathHelper.floor(this.bJ.u);
       double var5 = (double)var3 - this.s;
       double var7 = (double)var4 - this.u;
-      double var9 = (double)class_nu.a(var5 * var5 + var7 * var7);
+      double var9 = (double)MathHelper.sqrt(var5 * var5 + var7 * var7);
       double var11 = Math.min(0.4000000059604645D + var9 / 80.0D - 1.0D, 10.0D);
-      int var13 = class_nu.c(this.bJ.t + var11);
+      int var13 = MathHelper.floor(this.bJ.t + var11);
       class_aut var14 = new class_aut(var3, var13, var4);
       this.bV = this.a(var1, var2, var14);
       if(this.bV != null) {
@@ -969,18 +969,18 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
    private void cx() {
       if(this.bV != null && !this.bV.b()) {
-         class_awh var1 = this.bV.f();
+         Vec3D var1 = this.bV.f();
          this.bV.a();
-         this.a = var1.a;
+         this.a = var1.x;
          if(this.n() == class_us.c && this.bV.b()) {
-            this.b = var1.b;
+            this.b = var1.y;
          } else {
             do {
-               this.b = var1.b + (double)(this.V.nextFloat() * 20.0F);
-            } while(this.b < var1.b);
+               this.b = var1.y + (double)(this.V.nextFloat() * 20.0F);
+            } while(this.b < var1.y);
          }
 
-         this.c = var1.c;
+         this.c = var1.z;
       }
 
    }
@@ -997,23 +997,23 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             int var7;
             int var9;
             if(var5 < 12) {
-               var7 = (int)(60.0F * class_nu.b(2.0F * (-3.1415927F + 0.2617994F * (float)var5)));
-               var9 = (int)(60.0F * class_nu.a(2.0F * (-3.1415927F + 0.2617994F * (float)var5)));
+               var7 = (int)(60.0F * MathHelper.cos(2.0F * (-3.1415927F + 0.2617994F * (float)var5)));
+               var9 = (int)(60.0F * MathHelper.sin(2.0F * (-3.1415927F + 0.2617994F * (float)var5)));
             } else {
                int var10;
                if(var5 < 20) {
                   var10 = var5 - 12;
-                  var7 = (int)(40.0F * class_nu.b(2.0F * (-3.1415927F + 0.3926991F * (float)var10)));
-                  var9 = (int)(40.0F * class_nu.a(2.0F * (-3.1415927F + 0.3926991F * (float)var10)));
+                  var7 = (int)(40.0F * MathHelper.cos(2.0F * (-3.1415927F + 0.3926991F * (float)var10)));
+                  var9 = (int)(40.0F * MathHelper.sin(2.0F * (-3.1415927F + 0.3926991F * (float)var10)));
                   var6 += 10;
                } else {
                   var10 = var5 - 20;
-                  var7 = (int)(20.0F * class_nu.b(2.0F * (-3.1415927F + 0.7853982F * (float)var10)));
-                  var9 = (int)(20.0F * class_nu.a(2.0F * (-3.1415927F + 0.7853982F * (float)var10)));
+                  var7 = (int)(20.0F * MathHelper.cos(2.0F * (-3.1415927F + 0.7853982F * (float)var10)));
+                  var9 = (int)(20.0F * MathHelper.sin(2.0F * (-3.1415927F + 0.7853982F * (float)var10)));
                }
             }
 
-            int var8 = Math.max(this.o.G() + 10, this.o.r(new class_cj(var7, 0, var9)).o() + var6);
+            int var8 = Math.max(this.o.G() + 10, this.o.r(new BlockPosition(var7, 0, var9)).getY() + var6);
             this.bS[var5] = new class_aut(var7, var8, var9);
          }
 
@@ -1049,7 +1049,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    private int k(double var1, double var3, double var5) {
       float var7 = 10000.0F;
       int var8 = 0;
-      class_aut var9 = new class_aut(class_nu.c(var1), class_nu.c(var3), class_nu.c(var5));
+      class_aut var9 = new class_aut(MathHelper.floor(var1), MathHelper.floor(var3), MathHelper.floor(var5));
       byte var10 = 0;
       if(this.bK == null || this.bK.c() == 0) {
          var10 = 12;
@@ -1210,9 +1210,9 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       return 5.0F;
    }
 
-   private class_awh o(float var1) {
+   private Vec3D o(float var1) {
       class_us var2 = this.n();
-      class_awh var3;
+      Vec3D var3;
       float var5;
       if(var2 != class_us.d && var2 != class_us.e) {
          if(var2.b()) {
@@ -1225,8 +1225,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             var3 = this.d(var1);
          }
       } else {
-         class_cj var4 = this.o.r(class_aqk.a);
-         var5 = Math.max(class_nu.a(this.c(var4)) / 4.0F, 1.0F);
+         BlockPosition var4 = this.o.r(class_aqk.a);
+         var5 = Math.max(MathHelper.sqrt(this.c(var4)) / 4.0F, 1.0F);
          float var6 = 6.0F / var5;
          float var7 = this.z;
          float var8 = 1.5F;
@@ -1238,7 +1238,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       return var3;
    }
 
-   public void a(class_cj var1, class_pc var2) {
+   public void a(BlockPosition var1, class_pc var2) {
       class_xa var3;
       if(var2.j() instanceof class_xa) {
          var3 = (class_xa)var2.j();

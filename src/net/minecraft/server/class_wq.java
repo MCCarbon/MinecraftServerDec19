@@ -11,7 +11,7 @@ import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
 import net.minecraft.server.World;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
@@ -107,7 +107,7 @@ public class class_wq extends class_wi implements class_wk {
             }
          } else {
             class_acd var1 = null;
-            if(this.V.nextFloat() < 0.15F && this.a(Material.h) && !this.a(class_pm.m)) {
+            if(this.V.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(class_pm.m)) {
                var1 = class_acf.s;
             } else if(this.V.nextFloat() < 0.15F && this.av() && !this.a(class_pm.l)) {
                var1 = class_acf.l;
@@ -171,7 +171,7 @@ public class class_wq extends class_wi implements class_wk {
          double var5 = var1.s + var1.v - this.s;
          double var7 = var3 - this.t;
          double var9 = var1.u + var1.x - this.u;
-         float var11 = class_nu.a(var5 * var5 + var9 * var9);
+         float var11 = MathHelper.sqrt(var5 * var5 + var9 * var9);
          class_acd var12 = class_acf.w;
          if(var11 >= 8.0F && !var1.a(class_pm.b)) {
             var12 = class_acf.q;

@@ -5,7 +5,7 @@ import java.io.DataOutput;
 import java.io.IOException;
 import net.minecraft.server.class_dw;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 
 public class class_dr extends class_eb.class_a_in_class_eb {
    private float b;
@@ -56,15 +56,15 @@ public class class_dr extends class_eb.class_a_in_class_eb {
    }
 
    public int d() {
-      return class_nu.d(this.b);
+      return MathHelper.floor(this.b);
    }
 
    public short e() {
-      return (short)(class_nu.d(this.b) & '\uffff');
+      return (short)(MathHelper.floor(this.b) & '\uffff');
    }
 
    public byte f() {
-      return (byte)(class_nu.d(this.b) & 255);
+      return (byte)(MathHelper.floor(this.b) & 255);
    }
 
    public double g() {

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 
 public class class_on {
@@ -22,11 +22,11 @@ public class class_on {
       } else {
          boolean var7 = var1 == class_om.d;
          float var8 = 0.75F;
-         float var9 = class_nu.a(((float)var2 + -72000.0F) / 1440000.0F, 0.0F, 1.0F) * 0.25F;
+         float var9 = MathHelper.clamp(((float)var2 + -72000.0F) / 1440000.0F, 0.0F, 1.0F) * 0.25F;
          var8 += var9;
          float var10 = 0.0F;
-         var10 += class_nu.a((float)var4 / 3600000.0F, 0.0F, 1.0F) * (var7?1.0F:0.75F);
-         var10 += class_nu.a(var6 * 0.25F, 0.0F, var9);
+         var10 += MathHelper.clamp((float)var4 / 3600000.0F, 0.0F, 1.0F) * (var7?1.0F:0.75F);
+         var10 += MathHelper.clamp(var6 * 0.25F, 0.0F, var9);
          if(var1 == class_om.b) {
             var10 *= 0.5F;
          }

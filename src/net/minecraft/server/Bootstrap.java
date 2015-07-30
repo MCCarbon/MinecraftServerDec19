@@ -98,10 +98,10 @@ public class Bootstrap {
 		class_ahk.N.register(Items.bM, new class_cn() {
 			@Override
 			public class_aas b(class_ck var1, class_aas var2) {
-				class_cq var3 = class_ahk.b(var1.f());
-				double var4 = var1.a() + var3.g();
-				double var6 = var1.d().o() + 0.2F;
-				double var8 = var1.c() + var3.i();
+				EnumDirection var3 = class_ahk.b(var1.f());
+				double var4 = var1.a() + var3.getAdjacentX();
+				double var6 = var1.d().getY() + 0.2F;
+				double var8 = var1.c() + var3.getAdjacentZ();
 				class_pr var10 = class_abt.a(var1.i(), var2.i(), var4, var6, var8);
 				if((var10 instanceof class_qa) && var2.s()) {
 					((class_qb)var10).a(var2.q());
@@ -114,10 +114,10 @@ public class Bootstrap {
 		class_ahk.N.register(Items.ce, new class_cn() {
 			@Override
 			public class_aas b(class_ck var1, class_aas var2) {
-				class_cq var3 = class_ahk.b(var1.f());
-				double var4 = var1.a() + var3.g();
-				double var6 = var1.d().o() + 0.2F;
-				double var8 = var1.c() + var3.i();
+				EnumDirection var3 = class_ahk.b(var1.f());
+				double var4 = var1.a() + var3.getAdjacentX();
+				double var6 = var1.d().getY() + 0.2F;
+				double var8 = var1.c() + var3.getAdjacentZ();
 				class_xg var10 = new class_xg(var1.i(), var4, var6, var8, var2);
 				var1.i().a(var10);
 				var2.a(1);
@@ -132,16 +132,16 @@ public class Bootstrap {
 		class_ahk.N.register(Items.bO, new class_cn() {
 			@Override
 			public class_aas b(class_ck var1, class_aas var2) {
-				class_cq var3 = class_ahk.b(var1.f());
+				EnumDirection var3 = class_ahk.b(var1.f());
 				class_cz var4 = class_ahk.a(var1);
-				double var5 = var4.a() + var3.g() * 0.3F;
-				double var7 = var4.b() + var3.h() * 0.3F;
-				double var9 = var4.c() + var3.i() * 0.3F;
+				double var5 = var4.a() + var3.getAdjacentX() * 0.3F;
+				double var7 = var4.b() + var3.getAdjacentY() * 0.3F;
+				double var9 = var4.c() + var3.getAdjacentZ() * 0.3F;
 				World var11 = var1.i();
 				Random var12 = var11.s;
-				double var13 = (var12.nextGaussian() * 0.05D) + var3.g();
-				double var15 = (var12.nextGaussian() * 0.05D) + var3.h();
-				double var17 = (var12.nextGaussian() * 0.05D) + var3.i();
+				double var13 = (var12.nextGaussian() * 0.05D) + var3.getAdjacentX();
+				double var15 = (var12.nextGaussian() * 0.05D) + var3.getAdjacentY();
+				double var17 = (var12.nextGaussian() * 0.05D) + var3.getAdjacentZ();
 				var11.a((new class_xl(var11, var5, var7, var9, var13, var15, var17)));
 				var2.a(1);
 				return var2;
@@ -157,18 +157,18 @@ public class Bootstrap {
 
 			@Override
 			public class_aas b(class_ck var1, class_aas var2) {
-				class_cq var3 = class_ahk.b(var1.f());
+				EnumDirection var3 = class_ahk.b(var1.f());
 				World var4 = var1.i();
-				double var5 = var1.a() + var3.g() * 1.125F;
-				double var7 = var1.b() + var3.h() * 1.125F;
-				double var9 = var1.c() + var3.i() * 1.125F;
-				class_cj var11 = var1.d().a(var3);
+				double var5 = var1.a() + var3.getAdjacentX() * 1.125F;
+				double var7 = var1.b() + var3.getAdjacentY() * 1.125F;
+				double var9 = var1.c() + var3.getAdjacentZ() * 1.125F;
+				BlockPosition var11 = var1.d().shift(var3);
 				Material var12 = var4.p(var11).getBlock().getMaterial();
 				double var13;
-				if(Material.h.equals(var12)) {
+				if(Material.WATER.equals(var12)) {
 					var13 = 1.0D;
 				} else {
-					if(!Material.a.equals(var12) || !Material.h.equals(var4.p(var11.b()).getBlock().getMaterial())) {
+					if(!Material.AIR.equals(var12) || !Material.WATER.equals(var4.p(var11.shiftDown()).getBlock().getMaterial())) {
 						return b.a(var1, var2);
 					}
 
@@ -192,7 +192,7 @@ public class Bootstrap {
 			@Override
 			public class_aas b(class_ck var1, class_aas var2) {
 				class_zn var3 = (class_zn)var2.b();
-				class_cj var4 = var1.d().a(class_ahk.b(var1.f()));
+				BlockPosition var4 = var1.d().shift(class_ahk.b(var1.f()));
 				if(var3.a(var1.i(), var4)) {
 					var2.a(Items.ay);
 					var2.b = 1;
@@ -210,15 +210,15 @@ public class Bootstrap {
 			@Override
 			public class_aas b(class_ck var1, class_aas var2) {
 				World var3 = var1.i();
-				class_cj var4 = var1.d().a(class_ahk.b(var1.f()));
+				BlockPosition var4 = var1.d().shift(class_ahk.b(var1.f()));
 				IBlockData var5 = var3.p(var4);
 				Block var6 = var5.getBlock();
 				Material var7 = var6.getMaterial();
 				Item var8;
-				if(Material.h.equals(var7) && (var6 instanceof class_ajd) && (((Integer)var5.get(class_ajd.b)).intValue() == 0)) {
+				if(Material.WATER.equals(var7) && (var6 instanceof class_ajd) && (((Integer)var5.get(class_ajd.b)).intValue() == 0)) {
 					var8 = Items.az;
 				} else {
-					if(!Material.i.equals(var7) || !(var6 instanceof class_ajd) || (((Integer)var5.get(class_ajd.b)).intValue() != 0)) {
+					if(!Material.LAVA.equals(var7) || !(var6 instanceof class_ajd) || (((Integer)var5.get(class_ajd.b)).intValue() != 0)) {
 						return super.b(var1, var2);
 					}
 
@@ -242,7 +242,7 @@ public class Bootstrap {
 			@Override
 			protected class_aas b(class_ck var1, class_aas var2) {
 				World var3 = var1.i();
-				class_cj var4 = var1.d().a(class_ahk.b(var1.f()));
+				BlockPosition var4 = var1.d().shift(class_ahk.b(var1.f()));
 				if(var3.d(var4)) {
 					var3.a(var4, Blocks.FIRE.getBlockData());
 					if(var2.a(1, var3.s)) {
@@ -275,7 +275,7 @@ public class Bootstrap {
 			protected class_aas b(class_ck var1, class_aas var2) {
 				if(class_zy.a == class_zy.a(var2.i())) {
 					World var3 = var1.i();
-					class_cj var4 = var1.d().a(class_ahk.b(var1.f()));
+					BlockPosition var4 = var1.d().shift(class_ahk.b(var1.f()));
 					if(class_zz.a(var2, var3, var4)) {
 						if(!var3.D) {
 							var3.b(2005, var4, 0);
@@ -304,8 +304,8 @@ public class Bootstrap {
 			@Override
 			protected class_aas b(class_ck var1, class_aas var2) {
 				World var3 = var1.i();
-				class_cj var4 = var1.d().a(class_ahk.b(var1.f()));
-				class_vw var5 = new class_vw(var3, var4.n() + 0.5D, var4.o(), var4.p() + 0.5D, (class_qa)null);
+				BlockPosition var4 = var1.d().shift(class_ahk.b(var1.f()));
+				class_vw var5 = new class_vw(var3, var4.getX() + 0.5D, var4.getY(), var4.getZ() + 0.5D, (class_qa)null);
 				var3.a(var5);
 				var3.a(var5, "game.tnt.primed", 1.0F, 1.0F);
 				--var2.b;
@@ -318,12 +318,12 @@ public class Bootstrap {
 			@Override
 			protected class_aas b(class_ck var1, class_aas var2) {
 				World var3 = var1.i();
-				class_cq var4 = class_ahk.b(var1.f());
-				class_cj var5 = var1.d().a(var4);
+				EnumDirection var4 = class_ahk.b(var1.f());
+				BlockPosition var5 = var1.d().shift(var4);
 				class_akv var6 = Blocks.SKULL;
 				if(var3.d(var5) && var6.b(var3, var5, var2)) {
 					if(!var3.D) {
-						var3.a(var5, var6.getBlockData().set(class_akv.a, class_cq.b), 3);
+						var3.a(var5, var6.getBlockData().set(class_akv.a, EnumDirection.UP), 3);
 						class_amg var7 = var3.s(var5);
 						if(var7 instanceof class_amy) {
 							if(var2.i() == 3) {
@@ -345,7 +345,7 @@ public class Bootstrap {
 								((class_amy)var7).a(var2.i());
 							}
 
-							((class_amy)var7).b(var4.d().b() * 4);
+							((class_amy)var7).b(var4.getOpposite().getHorizontalId() * 4);
 							Blocks.SKULL.a(var3, var5, (class_amy)var7);
 						}
 
@@ -374,7 +374,7 @@ public class Bootstrap {
 			@Override
 			protected class_aas b(class_ck var1, class_aas var2) {
 				World var3 = var1.i();
-				class_cj var4 = var1.d().a(class_ahk.b(var1.f()));
+				BlockPosition var4 = var1.d().shift(class_ahk.b(var1.f()));
 				class_akd var5 = (class_akd)Blocks.PUMPKIN;
 				if(var3.d(var4) && var5.e(var3, var4)) {
 					if(!var3.D) {

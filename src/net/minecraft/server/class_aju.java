@@ -9,18 +9,18 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.CreativeTab;
 import net.minecraft.server.class_zy;
 
 public class class_aju extends Block {
    public class_aju() {
-      this(Material.e.getMapColor());
+      this(Material.STONE.getMapColor());
    }
 
    public class_aju(MaterialMapColor var1) {
-      super(Material.e, var1);
+      super(Material.STONE, var1);
       this.a((CreativeTab)CreativeTab.b);
    }
 
@@ -45,20 +45,20 @@ public class class_aju extends Block {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
-      super.a(var1, var2, var3, var4, var5);
+   public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
+      super.dropNaturally(var1, var2, var3, var4, var5);
       if(this.getDropType(var3, var1.s, var5) != Item.getByBlock((Block)this)) {
          int var6 = 0;
          if(this == Blocks.COAL_ORE) {
-            var6 = class_nu.a((Random)var1.s, 0, 2);
+            var6 = MathHelper.getRandomIntInRange((Random)var1.s, 0, 2);
          } else if(this == Blocks.DIAMOND_ORE) {
-            var6 = class_nu.a((Random)var1.s, 3, 7);
+            var6 = MathHelper.getRandomIntInRange((Random)var1.s, 3, 7);
          } else if(this == Blocks.EMERALD_ORE) {
-            var6 = class_nu.a((Random)var1.s, 3, 7);
+            var6 = MathHelper.getRandomIntInRange((Random)var1.s, 3, 7);
          } else if(this == Blocks.LAPIS_ORE) {
-            var6 = class_nu.a((Random)var1.s, 2, 5);
+            var6 = MathHelper.getRandomIntInRange((Random)var1.s, 2, 5);
          } else if(this == Blocks.QUARTZ_ORE) {
-            var6 = class_nu.a((Random)var1.s, 2, 5);
+            var6 = MathHelper.getRandomIntInRange((Random)var1.s, 2, 5);
          }
 
          this.b(var1, var2, var6);
@@ -66,7 +66,7 @@ public class class_aju extends Block {
 
    }
 
-   public int j(World var1, class_cj var2) {
+   public int j(World var1, BlockPosition var2) {
       return 0;
    }
 

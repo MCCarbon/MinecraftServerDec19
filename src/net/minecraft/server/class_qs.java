@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qn;
 
@@ -32,7 +32,7 @@ public class class_qs extends class_qn {
    }
 
    public double a(double var1) {
-      var1 = class_nu.a(var1, this.a, this.b);
+      var1 = MathHelper.clamp(var1, this.a, this.b);
       return var1;
    }
 }

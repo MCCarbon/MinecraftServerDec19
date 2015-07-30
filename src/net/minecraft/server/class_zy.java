@@ -5,22 +5,22 @@ import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.INamable;
 
 public enum class_zy implements INamable {
-    a(0, 15, "white", "white", MaterialMapColor.j, EnumChatFormat.WHITE),
-    b(1, 14, "orange", "orange", MaterialMapColor.q, EnumChatFormat.GOLD),
-    c(2, 13, "magenta", "magenta", MaterialMapColor.r, EnumChatFormat.AQUA),
-    d(3, 12, "light_blue", "lightBlue", MaterialMapColor.s, EnumChatFormat.BLUE),
-    e(4, 11, "yellow", "yellow", MaterialMapColor.t, EnumChatFormat.YELLOW),
-    f(5, 10, "lime", "lime", MaterialMapColor.u, EnumChatFormat.GREEN),
-    g(6, 9, "pink", "pink", MaterialMapColor.v, EnumChatFormat.LIGHT_PURPLE),
-    h(7, 8, "gray", "gray", MaterialMapColor.w, EnumChatFormat.DARK_GRAY),
-    i(8, 7, "silver", "silver", MaterialMapColor.x, EnumChatFormat.GRAY),
-    j(9, 6, "cyan", "cyan", MaterialMapColor.y, EnumChatFormat.DARK_AQUA),
-    k(10, 5, "purple", "purple", MaterialMapColor.z, EnumChatFormat.DARK_PURPLE),
-    l(11, 4, "blue", "blue", MaterialMapColor.A, EnumChatFormat.DARK_BLUE),
-    m(12, 3, "brown", "brown", MaterialMapColor.B, EnumChatFormat.GOLD),
-    n(13, 2, "green", "green", MaterialMapColor.C, EnumChatFormat.DARK_GREEN),
-    o(14, 1, "red", "red", MaterialMapColor.D, EnumChatFormat.DARK_RED),
-    p(15, 0, "black", "black", MaterialMapColor.E, EnumChatFormat.BLACK);
+    a(0, 15, "white", "white", MaterialMapColor.COLOR9, EnumChatFormat.WHITE),
+    b(1, 14, "orange", "orange", MaterialMapColor.COLOR16, EnumChatFormat.GOLD),
+    c(2, 13, "magenta", "magenta", MaterialMapColor.COLOR17, EnumChatFormat.AQUA),
+    d(3, 12, "light_blue", "lightBlue", MaterialMapColor.COLOR18, EnumChatFormat.BLUE),
+    e(4, 11, "yellow", "yellow", MaterialMapColor.COLOR19, EnumChatFormat.YELLOW),
+    f(5, 10, "lime", "lime", MaterialMapColor.COLOR20, EnumChatFormat.GREEN),
+    g(6, 9, "pink", "pink", MaterialMapColor.COLOR21, EnumChatFormat.LIGHT_PURPLE),
+    h(7, 8, "gray", "gray", MaterialMapColor.COLOR22, EnumChatFormat.DARK_GRAY),
+    i(8, 7, "silver", "silver", MaterialMapColor.COLOR23, EnumChatFormat.GRAY),
+    j(9, 6, "cyan", "cyan", MaterialMapColor.COLOR24, EnumChatFormat.DARK_AQUA),
+    k(10, 5, "purple", "purple", MaterialMapColor.COLOR25, EnumChatFormat.DARK_PURPLE),
+    l(11, 4, "blue", "blue", MaterialMapColor.COLOR26, EnumChatFormat.DARK_BLUE),
+    m(12, 3, "brown", "brown", MaterialMapColor.COLOR27, EnumChatFormat.GOLD),
+    n(13, 2, "green", "green", MaterialMapColor.COLOR28, EnumChatFormat.DARK_GREEN),
+    o(14, 1, "red", "red", MaterialMapColor.COLOR29, EnumChatFormat.DARK_RED),
+    p(15, 0, "black", "black", MaterialMapColor.COLOR30, EnumChatFormat.BLACK);
 
    private static final class_zy[] q;
    private static final class_zy[] r;

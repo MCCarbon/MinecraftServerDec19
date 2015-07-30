@@ -10,7 +10,7 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
 import net.minecraft.server.class_zy;
 
@@ -18,7 +18,7 @@ public class class_alc extends class_aln {
    public static final BlockStateEnum a = BlockStateEnum.of("color", class_zy.class);
 
    public class_alc() {
-      super(Material.s, false);
+      super(Material.SHATTERABLE, false);
       this.setBlockData(this.blockStateList.getFirst().set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(a, class_zy.a));
       this.a(CreativeTab.c);
    }
@@ -75,14 +75,14 @@ public class class_alc extends class_aln {
       return new BlockStateList(this, new IBlockState[]{b, N, P, O, a});
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.D) {
          class_agg.f(var1, var2);
       }
 
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.D) {
          class_agg.f(var1, var2);
       }

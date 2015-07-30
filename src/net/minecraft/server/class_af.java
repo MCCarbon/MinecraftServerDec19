@@ -11,7 +11,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
@@ -38,25 +38,25 @@ public class class_af extends class_i {
          throw new class_cf("commands.fill.usage", new Object[0]);
       } else {
          var1.a(class_n.class_a_in_class_n.b, 0);
-         class_cj var3 = a(var1, var2, 0, false);
-         class_cj var4 = a(var1, var2, 3, false);
+         BlockPosition var3 = a(var1, var2, 0, false);
+         BlockPosition var4 = a(var1, var2, 3, false);
          Block var5 = class_i.g(var1, var2[6]);
          int var6 = 0;
          if(var2.length >= 8) {
             var6 = a(var2[7], 0, 15);
          }
 
-         class_cj var7 = new class_cj(Math.min(var3.n(), var4.n()), Math.min(var3.o(), var4.o()), Math.min(var3.p(), var4.p()));
-         class_cj var8 = new class_cj(Math.max(var3.n(), var4.n()), Math.max(var3.o(), var4.o()), Math.max(var3.p(), var4.p()));
-         int var9 = (var8.n() - var7.n() + 1) * (var8.o() - var7.o() + 1) * (var8.p() - var7.p() + 1);
+         BlockPosition var7 = new BlockPosition(Math.min(var3.getX(), var4.getX()), Math.min(var3.getY(), var4.getY()), Math.min(var3.getZ(), var4.getZ()));
+         BlockPosition var8 = new BlockPosition(Math.max(var3.getX(), var4.getX()), Math.max(var3.getY(), var4.getY()), Math.max(var3.getZ(), var4.getZ()));
+         int var9 = (var8.getX() - var7.getX() + 1) * (var8.getY() - var7.getY() + 1) * (var8.getZ() - var7.getZ() + 1);
          if(var9 > '耀') {
             throw new class_bz("commands.fill.tooManyBlocks", new Object[]{Integer.valueOf(var9), Integer.valueOf('耀')});
-         } else if(var7.o() >= 0 && var8.o() < 256) {
+         } else if(var7.getY() >= 0 && var8.getY() < 256) {
             World var10 = var1.e();
 
-            for(int var11 = var7.p(); var11 < var8.p() + 16; var11 += 16) {
-               for(int var12 = var7.n(); var12 < var8.n() + 16; var12 += 16) {
-                  if(!var10.e(new class_cj(var12, var8.o() - var7.o(), var11))) {
+            for(int var11 = var7.getZ(); var11 < var8.getZ() + 16; var11 += 16) {
+               for(int var12 = var7.getX(); var12 < var8.getX() + 16; var12 += 16) {
+                  if(!var10.e(new BlockPosition(var12, var8.getY() - var7.getY(), var11))) {
                      throw new class_bz("commands.fill.outOfWorld", new Object[0]);
                   }
                }
@@ -78,10 +78,10 @@ public class class_af extends class_i {
             ArrayList var24 = Lists.newArrayList();
             var9 = 0;
 
-            for(int var14 = var7.p(); var14 <= var8.p(); ++var14) {
-               for(int var15 = var7.o(); var15 <= var8.o(); ++var15) {
-                  for(int var16 = var7.n(); var16 <= var8.n(); ++var16) {
-                     class_cj var17 = new class_cj(var16, var15, var14);
+            for(int var14 = var7.getZ(); var14 <= var8.getZ(); ++var14) {
+               for(int var15 = var7.getY(); var15 <= var8.getY(); ++var15) {
+                  for(int var16 = var7.getX(); var16 <= var8.getX(); ++var16) {
+                     BlockPosition var17 = new BlockPosition(var16, var15, var14);
                      IBlockData var19;
                      if(var2.length >= 9) {
                         if(!var2[8].equals("outline") && !var2[8].equals("hollow")) {
@@ -107,9 +107,9 @@ public class class_af extends class_i {
                                  }
                               }
                            }
-                        } else if(var16 != var7.n() && var16 != var8.n() && var15 != var7.o() && var15 != var8.o() && var14 != var7.p() && var14 != var8.p()) {
+                        } else if(var16 != var7.getX() && var16 != var8.getX() && var15 != var7.getY() && var15 != var8.getY() && var14 != var7.getZ() && var14 != var8.getZ()) {
                            if(var2[8].equals("hollow")) {
-                              var10.a((class_cj)var17, (IBlockData)Blocks.AIR.getBlockData(), 2);
+                              var10.a((BlockPosition)var17, (IBlockData)Blocks.AIR.getBlockData(), 2);
                               var24.add(var17);
                            }
                            continue;
@@ -126,15 +126,15 @@ public class class_af extends class_i {
                      }
 
                      var19 = var5.fromLegacyData(var6);
-                     if(var10.a((class_cj)var17, (IBlockData)var19, 2)) {
+                     if(var10.a((BlockPosition)var17, (IBlockData)var19, 2)) {
                         var24.add(var17);
                         ++var9;
                         if(var23) {
                            class_amg var20 = var10.s(var17);
                            if(var20 != null) {
-                              var22.a("x", var17.n());
-                              var22.a("y", var17.o());
-                              var22.a("z", var17.p());
+                              var22.a("x", var17.getX());
+                              var22.a("y", var17.getY());
+                              var22.a("z", var17.getZ());
                               var20.a(var22);
                            }
                         }
@@ -146,7 +146,7 @@ public class class_af extends class_i {
             Iterator var25 = var24.iterator();
 
             while(var25.hasNext()) {
-               class_cj var26 = (class_cj)var25.next();
+               BlockPosition var26 = (BlockPosition)var25.next();
                Block var27 = var10.p(var26).getBlock();
                var10.b(var26, var27);
             }
@@ -163,7 +163,7 @@ public class class_af extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length == 7?a(var2, Block.BLOCK_REGISTRY.getKeys()):(var2.length == 9?a(var2, new String[]{"replace", "destroy", "keep", "hollow", "outline"}):(var2.length == 10 && "replace".equals(var2[8])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null))));
    }
 }

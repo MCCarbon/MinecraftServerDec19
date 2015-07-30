@@ -10,10 +10,10 @@ import net.minecraft.server.class_anf;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -36,10 +36,10 @@ public class class_ug extends class_ua implements class_wd {
    protected static final int a = class_qi.a(class_ug.class);
    protected static final int b = class_qi.a(class_ug.class);
    protected static final int c = class_qi.a(class_ug.class);
-   public static final class_cj bs = new class_cj(-666, -666, -666);
+   public static final BlockPosition bs = new BlockPosition(-666, -666, -666);
    private float bt;
    private float bu;
-   private class_cj bv;
+   private BlockPosition bv;
    private int bw;
 
    public class_ug(World var1) {
@@ -60,7 +60,7 @@ public class class_ug extends class_ua implements class_wd {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Byte.valueOf((byte)class_cq.a.a()));
+      this.ac.a(a, Byte.valueOf((byte)EnumDirection.DOWN.getId()));
       this.ac.a(b, bs);
       this.ac.a(c, Byte.valueOf((byte)0));
    }
@@ -82,7 +82,7 @@ public class class_ug extends class_ua implements class_wd {
          int var2 = var1.g("APX");
          int var3 = var1.g("APY");
          int var4 = var1.g("APZ");
-         this.ac.b(b, new class_cj(var2, var3, var4));
+         this.ac.b(b, new BlockPosition(var2, var3, var4));
       } else {
          this.ac.b(b, bs);
       }
@@ -91,23 +91,23 @@ public class class_ug extends class_ua implements class_wd {
 
    public void t_() {
       super.t_();
-      class_cj var1 = this.ac.g(b);
+      BlockPosition var1 = this.ac.g(b);
       if((var1 == null || bs.equals(var1)) && !this.o.D) {
-         var1 = new class_cj(this);
+         var1 = new BlockPosition(this);
          this.ac.b(b, var1);
       }
 
       if(!this.o.D) {
          IBlockData var2 = this.o.p(var1);
          if(var2.getBlock() != Blocks.AIR) {
-            class_cq var3;
+            EnumDirection var3;
             if(var2.getBlock() == Blocks.PISTON_EXTENSION) {
-               var3 = (class_cq)var2.get(class_ane.b);
-               var1 = var1.a(var3);
+               var3 = (EnumDirection)var2.get(class_ane.b);
+               var1 = var1.shift(var3);
                this.ac.b(b, var1);
             } else if(var2.getBlock() == Blocks.PISTON_HEAD) {
-               var3 = (class_cq)var2.get(class_anf.b);
-               var1 = var1.a(var3);
+               var3 = (EnumDirection)var2.get(class_anf.b);
+               var1 = var1.shift(var3);
                this.ac.b(b, var1);
             } else {
                this.n();
@@ -116,17 +116,17 @@ public class class_ug extends class_ua implements class_wd {
       }
 
       if(!this.o.D) {
-         class_cj var15 = var1.a(this.cA());
+         BlockPosition var15 = var1.shift(this.cA());
          if(!this.o.d(var15, false)) {
             boolean var17 = false;
-            class_cq[] var4 = class_cq.values();
+            EnumDirection[] var4 = EnumDirection.values();
             int var5 = var4.length;
 
             for(int var6 = 0; var6 < var5; ++var6) {
-               class_cq var7 = var4[var6];
-               var15 = var1.a(var7);
+               EnumDirection var7 = var4[var6];
+               var15 = var1.shift(var7);
                if(this.o.d(var15, false)) {
-                  this.ac.b(a, Byte.valueOf((byte)var7.a()));
+                  this.ac.b(a, Byte.valueOf((byte)var7.getId()));
                   var17 = true;
                   break;
                }
@@ -141,9 +141,9 @@ public class class_ug extends class_ua implements class_wd {
       float var16 = (float)this.cC() * 0.01F;
       this.bt = this.bu;
       if(this.bu > var16) {
-         this.bu = class_nu.a(this.bu - 0.05F, var16, 1.0F);
+         this.bu = MathHelper.clamp(this.bu - 0.05F, var16, 1.0F);
       } else if(this.bu < var16) {
-         this.bu = class_nu.a(this.bu + 0.05F, 0.0F, var16);
+         this.bu = MathHelper.clamp(this.bu + 0.05F, 0.0F, var16);
       }
 
       if(var1 != null && !bs.equals(var1)) {
@@ -159,10 +159,10 @@ public class class_ug extends class_ua implements class_wd {
             }
          }
 
-         this.P = this.p = this.s = (double)var1.n() + 0.5D;
-         this.Q = this.q = this.t = (double)var1.o();
-         this.R = this.r = this.u = (double)var1.p() + 0.5D;
-         class_cq var11 = this.cA();
+         this.P = this.p = this.s = (double)var1.getX() + 0.5D;
+         this.Q = this.q = this.t = (double)var1.getY();
+         this.R = this.r = this.u = (double)var1.getZ() + 0.5D;
+         EnumDirection var11 = this.cA();
          switch(class_ug.SyntheticClass_1.a[var11.ordinal()]) {
          case 1:
          default:
@@ -208,19 +208,19 @@ public class class_ug extends class_ua implements class_wd {
    }
 
    protected boolean n() {
-      class_cj var1 = new class_cj(this);
+      BlockPosition var1 = new BlockPosition(this);
 
       for(int var2 = 0; var2 < 5; ++var2) {
-         class_cj var3 = var1.a(8 - this.V.nextInt(17), 8 - this.V.nextInt(17), 8 - this.V.nextInt(17));
-         if(var3.o() > 0 && this.o.d(var3) && this.o.a((class_aoe)this.o.ag(), (class_pr)this)) {
+         BlockPosition var3 = var1.add(8 - this.V.nextInt(17), 8 - this.V.nextInt(17), 8 - this.V.nextInt(17));
+         if(var3.getY() > 0 && this.o.d(var3) && this.o.a((class_aoe)this.o.ag(), (class_pr)this)) {
             boolean var4 = false;
-            class_cq[] var5 = class_cq.values();
+            EnumDirection[] var5 = EnumDirection.values();
             int var6 = var5.length;
 
             for(int var7 = 0; var7 < var6; ++var7) {
-               class_cq var8 = var5[var7];
-               if(this.o.d(var3.a(var8), false)) {
-                  this.ac.b(a, Byte.valueOf((byte)var8.a()));
+               EnumDirection var8 = var5[var7];
+               if(this.o.d(var3.shift(var8), false)) {
+                  this.ac.b(a, Byte.valueOf((byte)var8.getId()));
                   var4 = true;
                   break;
                }
@@ -251,7 +251,7 @@ public class class_ug extends class_ua implements class_wd {
 
    public void d(int var1) {
       if(var1 == b && this.o.D) {
-         class_cj var2 = this.cB();
+         BlockPosition var2 = this.cB();
          if(!bs.equals(var2)) {
             if(bs.equals(this.bv)) {
                this.bv = var2;
@@ -259,9 +259,9 @@ public class class_ug extends class_ua implements class_wd {
                this.bw = 6;
             }
 
-            this.P = this.p = this.s = (double)var2.n() + 0.5D;
-            this.Q = this.q = this.t = (double)var2.o();
-            this.R = this.r = this.u = (double)var2.p() + 0.5D;
+            this.P = this.p = this.s = (double)var2.getX() + 0.5D;
+            this.Q = this.q = this.t = (double)var2.getY();
+            this.R = this.r = this.u = (double)var2.getZ() + 0.5D;
          }
       }
 
@@ -295,15 +295,15 @@ public class class_ug extends class_ua implements class_wd {
       return this.ai()?this.aT():null;
    }
 
-   public class_cq cA() {
-      return class_cq.a(this.ac.a(a));
+   public EnumDirection cA() {
+      return EnumDirection.getById(this.ac.a(a));
    }
 
-   public class_cj cB() {
+   public BlockPosition cB() {
       return this.ac.g(b);
    }
 
-   public void f(class_cj var1) {
+   public void f(BlockPosition var1) {
       this.ac.b(b, var1);
    }
 
@@ -333,41 +333,41 @@ public class class_ug extends class_ua implements class_wd {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.a.ordinal()] = 1;
+            a[EnumDirection.DOWN.ordinal()] = 1;
          } catch (NoSuchFieldError var6) {
             ;
          }
 
          try {
-            a[class_cq.b.ordinal()] = 2;
+            a[EnumDirection.UP.ordinal()] = 2;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            a[class_cq.c.ordinal()] = 3;
+            a[EnumDirection.NORTH.ordinal()] = 3;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_cq.d.ordinal()] = 4;
+            a[EnumDirection.SOUTH.ordinal()] = 4;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 5;
+            a[EnumDirection.WEST.ordinal()] = 5;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.f.ordinal()] = 6;
+            a[EnumDirection.EAST.ordinal()] = 6;
          } catch (NoSuchFieldError var1) {
             ;
          }
@@ -394,8 +394,8 @@ public class class_ug extends class_ua implements class_wd {
       }
 
       protected class_awf a(double var1) {
-         class_cq var3 = ((class_ug)this.e).cA();
-         return var3.k() == class_cq.class_a_in_class_cq.a?this.e.aT().b(4.0D, var1, var1):(var3.k() == class_cq.class_a_in_class_cq.c?this.e.aT().b(var1, var1, 4.0D):this.e.aT().b(var1, 4.0D, var1));
+         EnumDirection var3 = ((class_ug)this.e).cA();
+         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.aT().b(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.aT().b(var1, var1, 4.0D):this.e.aT().b(var1, 4.0D, var1));
       }
    }
 
@@ -405,8 +405,8 @@ public class class_ug extends class_ua implements class_wd {
       }
 
       protected class_awf a(double var1) {
-         class_cq var3 = ((class_ug)this.e).cA();
-         return var3.k() == class_cq.class_a_in_class_cq.a?this.e.aT().b(4.0D, var1, var1):(var3.k() == class_cq.class_a_in_class_cq.c?this.e.aT().b(var1, var1, 4.0D):this.e.aT().b(var1, 4.0D, var1));
+         EnumDirection var3 = ((class_ug)this.e).cA();
+         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.aT().b(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.aT().b(var1, var1, 4.0D):this.e.aT().b(var1, 4.0D, var1));
       }
    }
 
@@ -439,7 +439,7 @@ public class class_ug extends class_ua implements class_wd {
          if(var2 < 400.0D) {
             if(this.b <= 0) {
                this.b = 20 + class_ug.this.V.nextInt(10) * 20 / 2;
-               class_xk var4 = new class_xk(class_ug.this.o, class_ug.this, var1, class_ug.this.cA().k());
+               class_xk var4 = new class_xk(class_ug.this.o, class_ug.this, var1, class_ug.this.cA().getAxis());
                class_ug.this.o.a((class_pr)var4);
                class_ug.this.a("mob.ghast.fireball", 2.0F, (class_ug.this.V.nextFloat() - class_ug.this.V.nextFloat()) * 0.2F + 1.0F);
             }

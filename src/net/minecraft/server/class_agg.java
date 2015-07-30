@@ -11,8 +11,8 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_nl;
@@ -24,7 +24,7 @@ import net.minecraft.server.CreativeTab;
 
 public class class_agg extends class_agd {
    public class_agg() {
-      super(Material.s, MaterialMapColor.G);
+      super(Material.SHATTERABLE, MaterialMapColor.COLOR32);
       this.setStrength(3.0F);
       this.a(CreativeTab.f);
    }
@@ -33,7 +33,7 @@ public class class_agg extends class_agd {
       return new class_amf();
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {
@@ -59,7 +59,7 @@ public class class_agg extends class_agd {
       return 3;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var5.s()) {
          class_amg var6 = var1.s(var2);
@@ -70,7 +70,7 @@ public class class_agg extends class_agd {
 
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       class_amg var5 = var1.s(var2);
       if(var5 instanceof class_amf) {
          ((class_amf)var5).m();
@@ -79,13 +79,13 @@ public class class_agg extends class_agd {
 
    }
 
-   public static void f(final World var0, final class_cj var1) {
+   public static void f(final World var0, final BlockPosition var1) {
       class_nl.a.submit(new Runnable() {
          public void run() {
             class_aok var1x = var0.f(var1);
 
-            for(int var2 = var1.o() - 1; var2 >= 0; --var2) {
-               final class_cj var3 = new class_cj(var1.n(), var2, var1.p());
+            for(int var2 = var1.getY() - 1; var2 >= 0; --var2) {
+               final BlockPosition var3 = new BlockPosition(var1.getX(), var2, var1.getZ());
                if(!var1x.d(var3)) {
                   break;
                }

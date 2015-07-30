@@ -14,14 +14,14 @@ import net.minecraft.server.class_ant;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apd;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
 
 public class class_agx extends Block {
    private class_anp a;
 
    public class_agx() {
-      super(Material.B);
+      super(Material.CLAY);
       this.a(CreativeTab.b);
    }
 
@@ -41,19 +41,19 @@ public class class_agx extends Block {
       return this.a;
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       super.c(var1, var2, var3);
       this.e(var1, var2);
    }
 
-   private void e(World var1, class_cj var2) {
+   private void e(World var1, BlockPosition var2) {
       class_anp.class_b_in_class_anp var3 = this.l().a(var1, var2);
       if(var3 != null) {
          int var4;
          int var5;
          for(var4 = 0; var4 < this.l().c(); ++var4) {
             for(var5 = 0; var5 < this.l().b(); ++var5) {
-               var1.a((class_cj)var3.a(var4, var5, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
+               var1.a((BlockPosition)var3.a(var4, var5, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
             }
          }
 

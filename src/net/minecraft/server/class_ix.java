@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_eu;
@@ -9,7 +9,7 @@ import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ic;
 
 public class class_ix implements class_ff {
-   private class_cj a;
+   private BlockPosition a;
    private class_eu[] b;
 
    public void a(class_em var1) throws IOException {
@@ -39,7 +39,7 @@ public class class_ix implements class_ff {
       var1.a(this);
    }
 
-   public class_cj a() {
+   public BlockPosition a() {
       return this.a;
    }
 

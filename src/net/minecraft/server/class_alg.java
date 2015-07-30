@@ -19,9 +19,9 @@ import net.minecraft.server.class_anx;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.CreativeTab;
 
 public class class_alg extends class_ago implements class_agl {
@@ -30,7 +30,7 @@ public class class_alg extends class_ago implements class_agl {
    private final Block N;
 
    protected class_alg(Block var1) {
-      this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)).set(b, class_cq.b));
+      this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)).set(b, EnumDirection.UP));
       this.N = var1;
       this.setTicking(true);
       float var2 = 0.125F;
@@ -38,13 +38,13 @@ public class class_alg extends class_ago implements class_agl {
       this.a((CreativeTab)null);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      var1 = var1.set(b, class_cq.b);
-      Iterator var4 = class_cq.class_c_in_class_cq.a.iterator();
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+      var1 = var1.set(b, EnumDirection.UP);
+      Iterator var4 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
       while(var4.hasNext()) {
-         class_cq var5 = (class_cq)var4.next();
-         if(var2.p(var3.a(var5)).getBlock() == this.N) {
+         EnumDirection var5 = (EnumDirection)var4.next();
+         if(var2.p(var3.shift(var5)).getBlock() == this.N) {
             var1 = var1.set(b, var5);
             break;
          }
@@ -57,28 +57,28 @@ public class class_alg extends class_ago implements class_agl {
       return var1 == Blocks.FARMLAND;
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       super.b(var1, var2, var3, var4);
-      if(var1.l(var2.a()) >= 9) {
+      if(var1.l(var2.shiftUp()) >= 9) {
          float var5 = class_ahd.a(this, var1, var2);
          if(var4.nextInt((int)(25.0F / var5) + 1) == 0) {
             int var6 = ((Integer)var3.get(a)).intValue();
             if(var6 < 7) {
                var3 = var3.set(a, Integer.valueOf(var6 + 1));
-               var1.a((class_cj)var2, (IBlockData)var3, 2);
+               var1.a((BlockPosition)var2, (IBlockData)var3, 2);
             } else {
-               Iterator var7 = class_cq.class_c_in_class_cq.a.iterator();
+               Iterator var7 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
                while(var7.hasNext()) {
-                  class_cq var8 = (class_cq)var7.next();
-                  if(var1.p(var2.a(var8)).getBlock() == this.N) {
+                  EnumDirection var8 = (EnumDirection)var7.next();
+                  if(var1.p(var2.shift(var8)).getBlock() == this.N) {
                      return;
                   }
                }
 
-               var2 = var2.a(class_cq.class_c_in_class_cq.a.a(var4));
-               Block var9 = var1.p(var2.b()).getBlock();
-               if(var1.p(var2).getBlock().material == Material.a && (var9 == Blocks.FARMLAND || var9 == Blocks.DIRT || var9 == Blocks.GRASS)) {
+               var2 = var2.shift(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var4));
+               Block var9 = var1.p(var2.shiftDown()).getBlock();
+               if(var1.p(var2).getBlock().material == Material.AIR && (var9 == Blocks.FARMLAND || var9 == Blocks.DIRT || var9 == Blocks.GRASS)) {
                   var1.a(var2, this.N.getBlockData());
                }
             }
@@ -87,9 +87,9 @@ public class class_alg extends class_ago implements class_agl {
       }
    }
 
-   public void g(World var1, class_cj var2, IBlockData var3) {
-      int var4 = ((Integer)var3.get(a)).intValue() + class_nu.a((Random)var1.s, 2, 5);
-      var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(Math.min(7, var4))), 2);
+   public void g(World var1, BlockPosition var2, IBlockData var3) {
+      int var4 = ((Integer)var3.get(a)).intValue() + MathHelper.getRandomIntInRange((Random)var1.s, 2, 5);
+      var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(Math.min(7, var4))), 2);
    }
 
    public void j() {
@@ -97,14 +97,14 @@ public class class_alg extends class_ago implements class_agl {
       this.setSizes(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 0.25F, 0.5F + var1);
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       this.maxY = (double)((float)(((Integer)var1.p(var2).get(a)).intValue() * 2 + 2) / 16.0F);
       float var3 = 0.125F;
       this.setSizes(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, (float)this.maxY, 0.5F + var3);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
-      super.a(var1, var2, var3, var4, var5);
+   public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
+      super.dropNaturally(var1, var2, var3, var4, var5);
       if(!var1.D) {
          Item var6 = this.l();
          if(var6 != null) {
@@ -128,15 +128,15 @@ public class class_alg extends class_ago implements class_agl {
       return null;
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, boolean var4) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, boolean var4) {
       return ((Integer)var3.get(a)).intValue() != 7;
    }
 
-   public boolean a(World var1, Random var2, class_cj var3, IBlockData var4) {
+   public boolean a(World var1, Random var2, BlockPosition var3, IBlockData var4) {
       return true;
    }
 
-   public void b(World var1, Random var2, class_cj var3, IBlockData var4) {
+   public void b(World var1, Random var2, BlockPosition var3, IBlockData var4) {
       this.g(var1, var3, var4);
    }
 

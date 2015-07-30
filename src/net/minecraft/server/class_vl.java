@@ -15,12 +15,12 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 
@@ -65,15 +65,15 @@ public class class_vl extends class_pr {
 
    public void t_() {
       Block var1 = this.d.getBlock();
-      if(var1.getMaterial() == Material.a) {
+      if(var1.getMaterial() == Material.AIR) {
          this.J();
       } else {
          this.p = this.s;
          this.q = this.t;
          this.r = this.u;
-         class_cj var2;
+         BlockPosition var2;
          if(this.a++ == 0) {
-            var2 = new class_cj(this);
+            var2 = new BlockPosition(this);
             if(this.o.p(var2).getBlock() == var1) {
                this.o.g(var2);
             } else if(!this.o.D) {
@@ -88,7 +88,7 @@ public class class_vl extends class_pr {
          this.w *= 0.9800000190734863D;
          this.x *= 0.9800000190734863D;
          if(!this.o.D) {
-            var2 = new class_cj(this);
+            var2 = new BlockPosition(this);
             if(this.C) {
                this.v *= 0.699999988079071D;
                this.x *= 0.699999988079071D;
@@ -96,7 +96,7 @@ public class class_vl extends class_pr {
                if(this.o.p(var2).getBlock() != Blocks.PISTON_EXTENSION) {
                   this.J();
                   if(!this.e) {
-                     if(this.o.a(var1, var2, true, class_cq.b, (class_pr)null, (class_aas)null) && !class_ahx.e(this.o, var2.b()) && this.o.a((class_cj)var2, (IBlockData)this.d, 3)) {
+                     if(this.o.a(var1, var2, true, EnumDirection.UP, (class_pr)null, (class_aas)null) && !class_ahx.e(this.o, var2.shiftDown()) && this.o.a((BlockPosition)var2, (IBlockData)this.d, 3)) {
                         if(var1 instanceof class_ahx) {
                            ((class_ahx)var1).a_(this.o, var2);
                         }
@@ -125,7 +125,7 @@ public class class_vl extends class_pr {
                      }
                   }
                }
-            } else if(this.a > 100 && !this.o.D && (var2.o() < 1 || var2.o() > 256) || this.a > 600) {
+            } else if(this.a > 100 && !this.o.D && (var2.getY() < 1 || var2.getY() > 256) || this.a > 600) {
                if(this.b && this.o.R().b("doEntityDrops")) {
                   this.a(new class_aas(var1, 1, var1.getDropData(this.d)), 0.0F);
                }
@@ -140,7 +140,7 @@ public class class_vl extends class_pr {
    public void e(float var1, float var2) {
       Block var3 = this.d.getBlock();
       if(this.f) {
-         int var4 = class_nu.f(var1 - 1.0F);
+         int var4 = MathHelper.ceil(var1 - 1.0F);
          if(var4 > 0) {
             ArrayList var5 = Lists.newArrayList((Iterable)this.o.b((class_pr)this, (class_awf)this.aT()));
             boolean var6 = var3 == Blocks.ANVIL;
@@ -149,7 +149,7 @@ public class class_vl extends class_pr {
 
             while(var8.hasNext()) {
                class_pr var9 = (class_pr)var8.next();
-               var9.a(var7, (float)Math.min(class_nu.d((float)var4 * this.h), this.g));
+               var9.a(var7, (float)Math.min(MathHelper.floor((float)var4 * this.h), this.g));
             }
 
             if(var6 && (double)this.V.nextFloat() < 0.05000000074505806D + (double)var4 * 0.05D) {
@@ -210,7 +210,7 @@ public class class_vl extends class_pr {
          this.c = var1.n("TileEntityData");
       }
 
-      if(var3 == null || var3.getMaterial() == Material.a) {
+      if(var3 == null || var3.getMaterial() == Material.AIR) {
          this.d = Blocks.SAND.getBlockData();
       }
 

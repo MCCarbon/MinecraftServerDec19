@@ -9,8 +9,8 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 
 public class class_apm extends class_apn {
    protected void a(long var1, int var3, int var4, class_aph var5, double var6, double var8, double var10) {
@@ -37,13 +37,13 @@ public class class_apm extends class_apn {
       int var27 = var25.nextInt(var16 / 2) + var16 / 4;
 
       for(boolean var28 = var25.nextInt(6) == 0; var15 < var16; ++var15) {
-         double var29 = 1.5D + (double)(class_nu.a((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
+         double var29 = 1.5D + (double)(MathHelper.sin((float)var15 * 3.1415927F / (float)var16) * var12 * 1.0F);
          double var31 = var29 * var17;
-         float var33 = class_nu.b(var14);
-         float var34 = class_nu.a(var14);
-         var6 += (double)(class_nu.b(var13) * var33);
+         float var33 = MathHelper.cos(var14);
+         float var34 = MathHelper.sin(var14);
+         var6 += (double)(MathHelper.cos(var13) * var33);
          var8 += (double)var34;
-         var10 += (double)(class_nu.a(var13) * var33);
+         var10 += (double)(MathHelper.sin(var13) * var33);
          if(var28) {
             var14 *= 0.92F;
          } else {
@@ -72,12 +72,12 @@ public class class_apm extends class_apn {
             }
 
             if(var6 >= var19 - 16.0D - var29 * 2.0D && var10 >= var21 - 16.0D - var29 * 2.0D && var6 <= var19 + 16.0D + var29 * 2.0D && var10 <= var21 + 16.0D + var29 * 2.0D) {
-               int var56 = class_nu.c(var6 - var29) - var3 * 16 - 1;
-               int var36 = class_nu.c(var6 + var29) - var3 * 16 + 1;
-               int var57 = class_nu.c(var8 - var31) - 1;
-               int var38 = class_nu.c(var8 + var31) + 1;
-               int var58 = class_nu.c(var10 - var29) - var4 * 16 - 1;
-               int var40 = class_nu.c(var10 + var29) - var4 * 16 + 1;
+               int var56 = MathHelper.floor(var6 - var29) - var3 * 16 - 1;
+               int var36 = MathHelper.floor(var6 + var29) - var3 * 16 + 1;
+               int var57 = MathHelper.floor(var8 - var31) - 1;
+               int var38 = MathHelper.floor(var8 + var31) + 1;
+               int var58 = MathHelper.floor(var10 - var29) - var4 * 16 - 1;
+               int var40 = MathHelper.floor(var10 + var29) - var4 * 16 + 1;
                if(var56 < 0) {
                   var56 = 0;
                }
@@ -123,7 +123,7 @@ public class class_apm extends class_apn {
                }
 
                if(!var59) {
-                  class_cj.class_a_in_class_cj var60 = new class_cj.class_a_in_class_cj();
+                  BlockPosition.MutableBlockPosition var60 = new BlockPosition.MutableBlockPosition();
 
                   for(var43 = var56; var43 < var36; ++var43) {
                      double var61 = ((double)(var43 + var3 * 16) + 0.5D - var6) / var29;
@@ -151,8 +151,8 @@ public class class_apm extends class_apn {
                                        }
 
                                        if(var49 && var5.a(var43, var50 - 1, var46).getBlock() == Blocks.DIRT) {
-                                          var60.c(var43 + var3 * 16, 0, var46 + var4 * 16);
-                                          var5.a(var43, var50 - 1, var46, this.c.b((class_cj)var60).ak.getBlock().getBlockData());
+                                          var60.setPosition(var43 + var3 * 16, 0, var46 + var4 * 16);
+                                          var5.a(var43, var50 - 1, var46, this.c.b((BlockPosition)var60).ak.getBlock().getBlockData());
                                        }
                                     }
                                  }
@@ -173,7 +173,7 @@ public class class_apm extends class_apn {
    }
 
    protected boolean a(IBlockData var1, IBlockData var2) {
-      return var1.getBlock() == Blocks.STONE?true:(var1.getBlock() == Blocks.DIRT?true:(var1.getBlock() == Blocks.GRASS?true:(var1.getBlock() == Blocks.HARDENED_CLAY?true:(var1.getBlock() == Blocks.STAINED_HARDENED_CLAY?true:(var1.getBlock() == Blocks.SANDSTONE?true:(var1.getBlock() == Blocks.RED_SANDSTONE?true:(var1.getBlock() == Blocks.MYCELIM?true:(var1.getBlock() == Blocks.SNOW_LAYER?true:(var1.getBlock() == Blocks.SAND || var1.getBlock() == Blocks.GRAVEL) && var2.getBlock().getMaterial() != Material.h))))))));
+      return var1.getBlock() == Blocks.STONE?true:(var1.getBlock() == Blocks.DIRT?true:(var1.getBlock() == Blocks.GRASS?true:(var1.getBlock() == Blocks.HARDENED_CLAY?true:(var1.getBlock() == Blocks.STAINED_HARDENED_CLAY?true:(var1.getBlock() == Blocks.SANDSTONE?true:(var1.getBlock() == Blocks.RED_SANDSTONE?true:(var1.getBlock() == Blocks.MYCELIM?true:(var1.getBlock() == Blocks.SNOW_LAYER?true:(var1.getBlock() == Blocks.SAND || var1.getBlock() == Blocks.GRAVEL) && var2.getBlock().getMaterial() != Material.WATER))))))));
    }
 
    protected void a(World var1, int var2, int var3, int var4, int var5, class_aph var6) {

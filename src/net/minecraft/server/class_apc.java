@@ -28,7 +28,7 @@ import net.minecraft.server.class_aqi;
 import net.minecraft.server.class_aqk;
 import net.minecraft.server.class_ari;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dt;
 import net.minecraft.server.class_du;
@@ -276,11 +276,11 @@ public class class_apc {
          int var1 = ((Integer)this.e.remove(this.e.size() - 1)).intValue();
          int var2 = (int)(96.0D * Math.cos(2.0D * (-3.141592653589793D + 0.15707963267948966D * (double)var1)));
          int var3 = (int)(96.0D * Math.sin(2.0D * (-3.141592653589793D + 0.15707963267948966D * (double)var1)));
-         this.a(new class_cj(var2, 75, var3));
+         this.a(new BlockPosition(var2, 75, var3));
       }
    }
 
-   private void a(class_cj var1) {
+   private void a(BlockPosition var1) {
       this.d.b(3000, var1, 0);
       (new class_aqi()).b(this.d, new Random(), var1);
    }
@@ -288,8 +288,8 @@ public class class_apc {
    private void a(boolean var1) {
       class_aqk var2 = new class_aqk(var1);
 
-      class_cj var3;
-      for(var3 = this.d.r(class_aqk.a).b(); this.d.p(var3).getBlock() == Blocks.BEDROCK && var3.o() > this.d.G(); var3 = var3.b()) {
+      BlockPosition var3;
+      for(var3 = this.d.r(class_aqk.a).shiftDown(); this.d.p(var3).getBlock() == Blocks.BEDROCK && var3.getY() > this.d.G(); var3 = var3.shiftDown()) {
          ;
       }
 
@@ -297,7 +297,7 @@ public class class_apc {
    }
 
    private void l() {
-      this.d.f(new class_cj(0, 128, 0));
+      this.d.f(new BlockPosition(0, 128, 0));
       class_ur var1 = new class_ur(this.d);
       var1.b(0.0D, 128.0D, 0.0D, this.d.s.nextFloat() * 360.0F, 0.0F);
       this.d.a((class_pr)var1);
@@ -320,7 +320,7 @@ public class class_apc {
       this.j();
       class_pr var3 = this.d.a(this.m);
       if(var3 instanceof class_ur) {
-         ((class_ur)var3).a(new class_cj(var1), var2);
+         ((class_ur)var3).a(new BlockPosition(var1), var2);
       }
 
    }
@@ -337,7 +337,7 @@ public class class_apc {
                   for(int var4 = 0; var4 < this.f.a(); ++var4) {
                      class_ano var5 = var1.a(var2, var3, var4);
                      if(var5.a().getBlock() == Blocks.BEDROCK || var5.a().getBlock() == Blocks.END_PORTAL) {
-                        this.d.a((class_cj)var5.d(), (IBlockData)Blocks.END_STONE.getBlockData());
+                        this.d.a((BlockPosition)var5.d(), (IBlockData)Blocks.END_STONE.getBlockData());
                      }
                   }
                }

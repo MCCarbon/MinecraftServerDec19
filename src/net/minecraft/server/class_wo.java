@@ -6,10 +6,10 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.class_aok;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pc;
@@ -105,8 +105,8 @@ public class class_wo extends class_qb implements class_wd {
          for(int var2 = 0; var2 < var1 * 8; ++var2) {
             float var3 = this.V.nextFloat() * 3.1415927F * 2.0F;
             float var4 = this.V.nextFloat() * 0.5F + 0.5F;
-            float var5 = class_nu.a(var3) * (float)var1 * 0.5F * var4;
-            float var6 = class_nu.b(var3) * (float)var1 * 0.5F * var4;
+            float var5 = MathHelper.sin(var3) * (float)var1 * 0.5F * var4;
+            float var6 = MathHelper.cos(var3) * (float)var1 * 0.5F * var4;
             World var10000 = this.o;
             class_cy var10001 = this.n();
             double var10002 = this.s + (double)var5;
@@ -228,14 +228,14 @@ public class class_wo extends class_qb implements class_wd {
    }
 
    public boolean cf() {
-      class_cj var1 = new class_cj(class_nu.c(this.s), 0, class_nu.c(this.u));
+      BlockPosition var1 = new BlockPosition(MathHelper.floor(this.s), 0, MathHelper.floor(this.u));
       class_aok var2 = this.o.f(var1);
       if(this.o.Q().u() == class_aes.c && this.V.nextInt(4) != 1) {
          return false;
       } else {
          if(this.o.ab() != class_om.a) {
             class_aez var3 = this.o.b(var1);
-            if(var3 == class_aez.v && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.z() && this.o.l(new class_cj(this)) <= this.V.nextInt(8)) {
+            if(var3 == class_aez.v && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.z() && this.o.l(new BlockPosition(this)) <= this.V.nextInt(8)) {
                return super.cf();
             }
 

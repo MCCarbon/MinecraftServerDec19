@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tm;
@@ -23,14 +23,14 @@ public class class_ry extends class_rm {
       if(this.a.cv()) {
          return false;
       } else {
-         class_cj var1 = this.a.cw();
-         class_awh var2 = class_tm.a(this.a, 16, 7, new class_awh((double)var1.n(), (double)var1.o(), (double)var1.p()));
+         BlockPosition var1 = this.a.cw();
+         Vec3D var2 = class_tm.a(this.a, 16, 7, new Vec3D((double)var1.getX(), (double)var1.getY(), (double)var1.getZ()));
          if(var2 == null) {
             return false;
          } else {
-            this.b = var2.a;
-            this.c = var2.b;
-            this.d = var2.c;
+            this.b = var2.x;
+            this.c = var2.y;
+            this.d = var2.z;
             return true;
          }
       }

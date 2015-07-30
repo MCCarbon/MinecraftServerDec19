@@ -10,8 +10,8 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.INamable;
 import net.minecraft.server.class_qa;
 
@@ -32,11 +32,11 @@ public class class_aiw extends Block {
    public MaterialMapColor getMapColor(IBlockData var1) {
       switch(class_aiw.SyntheticClass_1.a[((class_aiw.class_a_in_class_aiw)var1.get(a)).ordinal()]) {
       case 1:
-         return MaterialMapColor.e;
+         return MaterialMapColor.COLOR4;
       case 2:
-         return MaterialMapColor.d;
+         return MaterialMapColor.COLOR3;
       case 3:
-         return MaterialMapColor.d;
+         return MaterialMapColor.COLOR3;
       default:
          return super.getMapColor(var1);
       }
@@ -46,7 +46,7 @@ public class class_aiw extends Block {
       return Item.getByBlock(this.b);
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
       return this.getBlockData();
    }
 

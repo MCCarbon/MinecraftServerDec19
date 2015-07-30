@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.World;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
@@ -13,7 +13,7 @@ import net.minecraft.server.class_pr;
 public class class_in implements class_ff {
    private int a;
    private class_in.class_a_in_class_in b;
-   private class_awh c;
+   private Vec3D c;
    private class_oo d;
 
    public class_in() {
@@ -28,7 +28,7 @@ public class class_in implements class_ff {
       this.a = var1.e();
       this.b = (class_in.class_a_in_class_in)var1.a(class_in.class_a_in_class_in.class);
       if(this.b == class_in.class_a_in_class_in.c) {
-         this.c = new class_awh((double)var1.readFloat(), (double)var1.readFloat(), (double)var1.readFloat());
+         this.c = new Vec3D((double)var1.readFloat(), (double)var1.readFloat(), (double)var1.readFloat());
       }
 
       if(this.b == class_in.class_a_in_class_in.a || this.b == class_in.class_a_in_class_in.c) {
@@ -41,9 +41,9 @@ public class class_in implements class_ff {
       var1.b(this.a);
       var1.a((Enum)this.b);
       if(this.b == class_in.class_a_in_class_in.c) {
-         var1.writeFloat((float)this.c.a);
-         var1.writeFloat((float)this.c.b);
-         var1.writeFloat((float)this.c.c);
+         var1.writeFloat((float)this.c.x);
+         var1.writeFloat((float)this.c.y);
+         var1.writeFloat((float)this.c.z);
       }
 
       if(this.b == class_in.class_a_in_class_in.a || this.b == class_in.class_a_in_class_in.c) {
@@ -68,7 +68,7 @@ public class class_in implements class_ff {
       return this.d;
    }
 
-   public class_awh c() {
+   public Vec3D c() {
       return this.c;
    }
 

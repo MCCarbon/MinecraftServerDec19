@@ -14,8 +14,8 @@ import net.minecraft.server.class_asj;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_asn;
 import net.minecraft.server.class_aso;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 
 public class class_asi extends class_ask {
    private List d;
@@ -48,11 +48,11 @@ public class class_asi extends class_ask {
       while(var2.hasNext()) {
          Entry var3 = (Entry)var2.next();
          if(((String)var3.getKey()).equals("distance")) {
-            this.h = class_nu.a((String)var3.getValue(), this.h, 1.0D);
+            this.h = MathHelper.max((String)var3.getValue(), this.h, 1.0D);
          } else if(((String)var3.getKey()).equals("count")) {
-            this.g = new class_aeh[class_nu.a((String)((String)var3.getValue()), this.g.length, 1)];
+            this.g = new class_aeh[MathHelper.max((String)((String)var3.getValue()), this.g.length, 1)];
          } else if(((String)var3.getKey()).equals("spread")) {
-            this.i = class_nu.a((String)((String)var3.getValue()), this.i, 1);
+            this.i = MathHelper.max((String)((String)var3.getValue()), this.i, 1);
          }
       }
 
@@ -73,10 +73,10 @@ public class class_asi extends class_ask {
             double var8 = (1.25D * (double)var6 + var3.nextDouble()) * this.h * (double)var6;
             int var10 = (int)Math.round(Math.cos(var4) * var8);
             int var11 = (int)Math.round(Math.sin(var4) * var8);
-            class_cj var12 = this.c.w().a((var10 << 4) + 8, (var11 << 4) + 8, 112, this.d, var3);
+            BlockPosition var12 = this.c.w().a((var10 << 4) + 8, (var11 << 4) + 8, 112, this.d, var3);
             if(var12 != null) {
-               var10 = var12.n() >> 4;
-               var11 = var12.p() >> 4;
+               var10 = var12.getX() >> 4;
+               var11 = var12.getZ() >> 4;
             }
 
             this.g[var7] = new class_aeh(var10, var11);

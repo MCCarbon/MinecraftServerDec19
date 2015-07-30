@@ -6,7 +6,7 @@ import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
 public class class_fk implements class_ff {
@@ -33,17 +33,17 @@ public class class_fk implements class_ff {
    public class_fk(class_pr var1, int var2, int var3) {
       this.a = var1.F();
       this.b = var1.aM();
-      this.c = class_nu.c(var1.s * 32.0D);
-      this.d = class_nu.c(var1.t * 32.0D);
-      this.e = class_nu.c(var1.u * 32.0D);
-      this.i = class_nu.d(var1.z * 256.0F / 360.0F);
-      this.j = class_nu.d(var1.y * 256.0F / 360.0F);
+      this.c = MathHelper.floor(var1.s * 32.0D);
+      this.d = MathHelper.floor(var1.t * 32.0D);
+      this.e = MathHelper.floor(var1.u * 32.0D);
+      this.i = MathHelper.floor(var1.z * 256.0F / 360.0F);
+      this.j = MathHelper.floor(var1.y * 256.0F / 360.0F);
       this.k = var2;
       this.l = var3;
       double var4 = 3.9D;
-      this.f = (int)(class_nu.a(var1.v, -3.9D, 3.9D) * 8000.0D);
-      this.g = (int)(class_nu.a(var1.w, -3.9D, 3.9D) * 8000.0D);
-      this.h = (int)(class_nu.a(var1.x, -3.9D, 3.9D) * 8000.0D);
+      this.f = (int)(MathHelper.clamp(var1.v, -3.9D, 3.9D) * 8000.0D);
+      this.g = (int)(MathHelper.clamp(var1.w, -3.9D, 3.9D) * 8000.0D);
+      this.h = (int)(MathHelper.clamp(var1.x, -3.9D, 3.9D) * 8000.0D);
    }
 
    public void a(class_em var1) throws IOException {

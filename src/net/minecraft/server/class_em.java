@@ -22,7 +22,7 @@ import java.nio.charset.Charset;
 import java.util.UUID;
 import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dw;
 import net.minecraft.server.class_dx;
@@ -56,12 +56,12 @@ public class class_em extends ByteBuf {
 		return var1;
 	}
 
-	public class_cj c() {
-		return class_cj.a(this.readLong());
+	public BlockPosition c() {
+		return BlockPosition.fromLong(this.readLong());
 	}
 
-	public void a(class_cj var1) {
-		this.writeLong(var1.g());
+	public void a(BlockPosition var1) {
+		this.writeLong(var1.asLong());
 	}
 
 	public class_eu d() throws IOException {

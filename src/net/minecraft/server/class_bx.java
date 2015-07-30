@@ -5,12 +5,12 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 
 public class class_bx extends class_i {
    public String c() {
@@ -76,9 +76,9 @@ public class class_bx extends class_i {
                throw new class_cf("commands.worldborder.center.usage", new Object[0]);
             }
 
-            class_cj var10 = var1.c();
-            double var5 = b((double)var10.n() + 0.5D, var2[1], true);
-            double var7 = b((double)var10.p() + 0.5D, var2[2], true);
+            BlockPosition var10 = var1.c();
+            double var5 = b((double)var10.getX() + 0.5D, var2[1], true);
+            double var7 = b((double)var10.getZ() + 0.5D, var2[2], true);
             var3.c(var5, var7);
             a(var1, this, "commands.worldborder.center.success", new Object[]{Double.valueOf(var5), Double.valueOf(var7)});
          } else if(var2[0].equals("damage")) {
@@ -135,7 +135,7 @@ public class class_bx extends class_i {
             }
 
             var4 = var3.h();
-            var1.a(class_n.class_a_in_class_n.e, class_nu.c(var4 + 0.5D));
+            var1.a(class_n.class_a_in_class_n.e, MathHelper.floor(var4 + 0.5D));
             var1.a(new class_fb("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
          }
 
@@ -146,7 +146,7 @@ public class class_bx extends class_i {
       return MinecraftServer.N().d[0].ag();
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"set", "center", "damage", "warning", "add", "get"}):(var2.length == 2 && var2[0].equals("damage")?a(var2, new String[]{"buffer", "amount"}):(var2.length >= 2 && var2.length <= 3 && var2[0].equals("center")?b(var2, 1, var3):(var2.length == 2 && var2[0].equals("warning")?a(var2, new String[]{"time", "distance"}):null)));
    }
 }

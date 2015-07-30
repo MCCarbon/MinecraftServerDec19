@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_aeh {
    public final int a;
@@ -56,12 +56,12 @@ public class class_aeh {
       return (this.b << 4) + 15;
    }
 
-   public class_cj a(int var1, int var2, int var3) {
-      return new class_cj((this.a << 4) + var1, var2, (this.b << 4) + var3);
+   public BlockPosition a(int var1, int var2, int var3) {
+      return new BlockPosition((this.a << 4) + var1, var2, (this.b << 4) + var3);
    }
 
-   public class_cj a(int var1) {
-      return new class_cj(this.a(), var1, this.b());
+   public BlockPosition a(int var1) {
+      return new BlockPosition(this.a(), var1, this.b());
    }
 
    public String toString() {

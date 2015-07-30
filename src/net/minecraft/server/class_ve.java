@@ -13,14 +13,14 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_nc;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -72,14 +72,14 @@ public class class_ve extends class_pr {
       this.b.bN = this;
       this.a(0.25F, 0.25F);
       this.b(var2.s, var2.t + (double)var2.aU(), var2.u, var2.y, var2.z);
-      this.s -= (double)(class_nu.b(this.y / 180.0F * 3.1415927F) * 0.16F);
+      this.s -= (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * 0.16F);
       this.t -= 0.10000000149011612D;
-      this.u -= (double)(class_nu.a(this.y / 180.0F * 3.1415927F) * 0.16F);
+      this.u -= (double)(MathHelper.sin(this.y / 180.0F * 3.1415927F) * 0.16F);
       this.b(this.s, this.t, this.u);
       float var3 = 0.4F;
-      this.v = (double)(-class_nu.a(this.y / 180.0F * 3.1415927F) * class_nu.b(this.z / 180.0F * 3.1415927F) * var3);
-      this.x = (double)(class_nu.b(this.y / 180.0F * 3.1415927F) * class_nu.b(this.z / 180.0F * 3.1415927F) * var3);
-      this.w = (double)(-class_nu.a(this.z / 180.0F * 3.1415927F) * var3);
+      this.v = (double)(-MathHelper.sin(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var3);
+      this.x = (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var3);
+      this.w = (double)(-MathHelper.sin(this.z / 180.0F * 3.1415927F) * var3);
       this.c(this.v, this.w, this.x, 1.5F, 1.0F);
    }
 
@@ -87,7 +87,7 @@ public class class_ve extends class_pr {
    }
 
    public void c(double var1, double var3, double var5, float var7, float var8) {
-      float var9 = class_nu.a(var1 * var1 + var3 * var3 + var5 * var5);
+      float var9 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
@@ -100,9 +100,9 @@ public class class_ve extends class_pr {
       this.v = var1;
       this.w = var3;
       this.x = var5;
-      float var10 = class_nu.a(var1 * var1 + var5 * var5);
-      this.A = this.y = (float)(class_nu.b(var1, var5) * 180.0D / 3.1415927410125732D);
-      this.B = this.z = (float)(class_nu.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
+      float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
+      this.A = this.y = (float)(MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
+      this.B = this.z = (float)(MathHelper.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
       this.au = 0;
    }
 
@@ -112,7 +112,7 @@ public class class_ve extends class_pr {
          double var29 = this.s + (this.aB - this.s) / (double)this.aA;
          double var30 = this.t + (this.aC - this.t) / (double)this.aA;
          double var31 = this.u + (this.aD - this.u) / (double)this.aA;
-         double var7 = class_nu.g(this.aE - (double)this.y);
+         double var7 = MathHelper.clampAngle(this.aE - (double)this.y);
          this.y = (float)((double)this.y + var7 / (double)this.aA);
          this.z = (float)((double)this.z + (this.aF - (double)this.z) / (double)this.aA);
          --this.aA;
@@ -145,7 +145,7 @@ public class class_ve extends class_pr {
          }
 
          if(this.at) {
-            if(this.o.p(new class_cj(this.g, this.h, this.i)).getBlock() == this.as) {
+            if(this.o.p(new BlockPosition(this.g, this.h, this.i)).getBlock() == this.as) {
                ++this.au;
                if(this.au == 1200) {
                   this.J();
@@ -164,13 +164,13 @@ public class class_ve extends class_pr {
             ++this.av;
          }
 
-         class_awh var28 = new class_awh(this.s, this.t, this.u);
-         class_awh var2 = new class_awh(this.s + this.v, this.t + this.w, this.u + this.x);
+         Vec3D var28 = new Vec3D(this.s, this.t, this.u);
+         Vec3D var2 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          class_awg var3 = this.o.a(var28, var2);
-         var28 = new class_awh(this.s, this.t, this.u);
-         var2 = new class_awh(this.s + this.v, this.t + this.w, this.u + this.x);
+         var28 = new Vec3D(this.s, this.t, this.u);
+         var2 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
          if(var3 != null) {
-            var2 = new class_awh(var3.c.a, var3.c.b, var3.c.c);
+            var2 = new Vec3D(var3.c.x, var3.c.y, var3.c.z);
          }
 
          class_pr var4 = null;
@@ -185,7 +185,7 @@ public class class_ve extends class_pr {
                class_awf var11 = var9.aT().b((double)var10, (double)var10, (double)var10);
                class_awg var12 = var11.a(var28, var2);
                if(var12 != null) {
-                  var13 = var28.g(var12.c);
+                  var13 = var28.distanceSquared(var12.c);
                   if(var13 < var6 || var6 == 0.0D) {
                      var4 = var9;
                      var6 = var13;
@@ -210,10 +210,10 @@ public class class_ve extends class_pr {
 
          if(!this.at) {
             this.d(this.v, this.w, this.x);
-            float var32 = class_nu.a(this.v * this.v + this.x * this.x);
-            this.y = (float)(class_nu.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+            float var32 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
+            this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
-            for(this.z = (float)(class_nu.b(this.w, (double)var32) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+            for(this.z = (float)(MathHelper.b(this.w, (double)var32) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
                ;
             }
 
@@ -246,7 +246,7 @@ public class class_ve extends class_pr {
                double var17 = var14.b + var15 * (double)var36 / (double)var34;
                var19 = var14.b + var15 * (double)(var36 + 1) / (double)var34;
                class_awf var21 = new class_awf(var14.a, var17, var14.c, var14.d, var19, var14.f);
-               if(this.o.b(var21, Material.h)) {
+               if(this.o.b(var21, Material.WATER)) {
                   var35 += 1.0D / (double)var34;
                }
             }
@@ -254,7 +254,7 @@ public class class_ve extends class_pr {
             if(!this.o.D && var35 > 0.0D) {
                class_lg var37 = (class_lg)this.o;
                int var38 = 1;
-               class_cj var39 = (new class_cj(this)).a();
+               BlockPosition var39 = (new BlockPosition(this)).shiftUp();
                if(this.V.nextFloat() < 0.25F && this.o.C(var39)) {
                   var38 = 2;
                }
@@ -281,19 +281,19 @@ public class class_ve extends class_pr {
                      if(this.ay <= 0) {
                         this.w -= 0.20000000298023224D;
                         this.a("random.splash", 0.25F, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
-                        var16 = (float)class_nu.c(this.aT().b);
+                        var16 = (float)MathHelper.floor(this.aT().b);
                         var37.a(class_cy.e, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
                         var37.a(class_cy.g, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
-                        this.aw = class_nu.a((Random)this.V, 10, 30);
+                        this.aw = MathHelper.getRandomIntInRange((Random)this.V, 10, 30);
                      } else {
                         this.az = (float)((double)this.az + this.V.nextGaussian() * 4.0D);
                         var16 = this.az * 0.017453292F;
-                        var40 = class_nu.a(var16);
-                        var18 = class_nu.b(var16);
+                        var40 = MathHelper.sin(var16);
+                        var18 = MathHelper.cos(var16);
                         var19 = this.s + (double)(var40 * (float)this.ay * 0.1F);
-                        var41 = (double)((float)class_nu.c(this.aT().b) + 1.0F);
+                        var41 = (double)((float)MathHelper.floor(this.aT().b) + 1.0F);
                         var23 = this.u + (double)(var18 * (float)this.ay * 0.1F);
-                        var25 = var37.p(new class_cj((int)var19, (int)var41 - 1, (int)var23)).getBlock();
+                        var25 = var37.p(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
                            if(this.V.nextFloat() < 0.15F) {
                               var37.a(class_cy.e, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
@@ -317,23 +317,23 @@ public class class_ve extends class_pr {
                      }
 
                      if(this.V.nextFloat() < var16) {
-                        var40 = class_nu.a(this.V, 0.0F, 360.0F) * 0.017453292F;
-                        var18 = class_nu.a(this.V, 25.0F, 60.0F);
-                        var19 = this.s + (double)(class_nu.a(var40) * var18 * 0.1F);
-                        var41 = (double)((float)class_nu.c(this.aT().b) + 1.0F);
-                        var23 = this.u + (double)(class_nu.b(var40) * var18 * 0.1F);
-                        var25 = var37.p(new class_cj((int)var19, (int)var41 - 1, (int)var23)).getBlock();
+                        var40 = MathHelper.getRandomFloatInRange(this.V, 0.0F, 360.0F) * 0.017453292F;
+                        var18 = MathHelper.getRandomFloatInRange(this.V, 25.0F, 60.0F);
+                        var19 = this.s + (double)(MathHelper.sin(var40) * var18 * 0.1F);
+                        var41 = (double)((float)MathHelper.floor(this.aT().b) + 1.0F);
+                        var23 = this.u + (double)(MathHelper.cos(var40) * var18 * 0.1F);
+                        var25 = var37.p(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
                            var37.a(class_cy.f, var19, var41, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                         }
                      }
 
                      if(this.ax <= 0) {
-                        this.az = class_nu.a(this.V, 0.0F, 360.0F);
-                        this.ay = class_nu.a((Random)this.V, 20, 80);
+                        this.az = MathHelper.getRandomFloatInRange(this.V, 0.0F, 360.0F);
+                        this.ay = MathHelper.getRandomIntInRange((Random)this.V, 20, 80);
                      }
                   } else {
-                     this.ax = class_nu.a((Random)this.V, 100, 900);
+                     this.ax = MathHelper.getRandomIntInRange((Random)this.V, 100, 900);
                      this.ax -= class_adk.g(this.b) * 20 * 5;
                   }
                }
@@ -391,10 +391,10 @@ public class class_ve extends class_pr {
             double var2 = this.b.s - this.s;
             double var4 = this.b.t - this.t;
             double var6 = this.b.u - this.u;
-            double var8 = (double)class_nu.a(var2 * var2 + var4 * var4 + var6 * var6);
+            double var8 = (double)MathHelper.sqrt(var2 * var2 + var4 * var4 + var6 * var6);
             double var10 = 0.1D;
             this.c.v += var2 * var10;
-            this.c.w += var4 * var10 + (double)class_nu.a(var8) * 0.08D;
+            this.c.w += var4 * var10 + (double)MathHelper.sqrt(var8) * 0.08D;
             this.c.x += var6 * var10;
             var1 = 3;
          } else if(this.aw > 0) {
@@ -402,10 +402,10 @@ public class class_ve extends class_pr {
             double var3 = this.b.s - this.s;
             double var5 = this.b.t - this.t;
             double var7 = this.b.u - this.u;
-            double var9 = (double)class_nu.a(var3 * var3 + var5 * var5 + var7 * var7);
+            double var9 = (double)MathHelper.sqrt(var3 * var3 + var5 * var5 + var7 * var7);
             double var11 = 0.1D;
             var13.v = var3 * var11;
-            var13.w = var5 * var11 + (double)class_nu.a(var9) * 0.08D;
+            var13.w = var5 * var11 + (double)MathHelper.sqrt(var9) * 0.08D;
             var13.x = var7 * var11;
             this.o.a((class_pr)var13);
             this.b.o.a((class_pr)(new class_px(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.V.nextInt(6) + 1)));
@@ -428,8 +428,8 @@ public class class_ve extends class_pr {
       int var3 = class_adk.g(this.b);
       float var4 = 0.1F - (float)var2 * 0.025F - (float)var3 * 0.01F;
       float var5 = 0.05F + (float)var2 * 0.01F - (float)var3 * 0.01F;
-      var4 = class_nu.a(var4, 0.0F, 1.0F);
-      var5 = class_nu.a(var5, 0.0F, 1.0F);
+      var4 = MathHelper.clamp(var4, 0.0F, 1.0F);
+      var5 = MathHelper.clamp(var5, 0.0F, 1.0F);
       if(var1 < var4) {
          this.b.b(class_nc.D);
          return ((class_vf)class_oc.a(this.V, d)).a(this.V);

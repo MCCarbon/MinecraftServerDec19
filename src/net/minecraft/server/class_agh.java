@@ -16,8 +16,8 @@ import net.minecraft.server.class_anw;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.INamable;
@@ -30,17 +30,17 @@ public class class_agh extends class_aiv {
    public static final class_anw b = class_anw.a("occupied");
 
    public class_agh() {
-      super(Material.n);
+      super(Material.CLOTH);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_agh.class_a_in_class_agh.b).set(b, Boolean.valueOf(false)));
       this.l();
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {
          if(var3.get(a) != class_agh.class_a_in_class_agh.a) {
-            var2 = var2.a((class_cq)var3.get(O));
+            var2 = var2.shift((EnumDirection)var3.get(O));
             var3 = var1.p(var2);
             if(var3.getBlock() != this) {
                return true;
@@ -56,13 +56,13 @@ public class class_agh extends class_aiv {
                }
 
                var3 = var3.set(b, Boolean.valueOf(false));
-               var1.a((class_cj)var2, (IBlockData)var3, 4);
+               var1.a((BlockPosition)var2, (IBlockData)var3, 4);
             }
 
             class_xa.class_a_in_class_xa var13 = var4.a(var2);
             if(var13 == class_xa.class_a_in_class_xa.a) {
                var3 = var3.set(b, Boolean.valueOf(true));
-               var1.a((class_cj)var2, (IBlockData)var3, 4);
+               var1.a((BlockPosition)var2, (IBlockData)var3, 4);
                return true;
             } else {
                if(var13 == class_xa.class_a_in_class_xa.c) {
@@ -75,18 +75,18 @@ public class class_agh extends class_aiv {
             }
          } else {
             var1.g(var2);
-            class_cj var11 = var2.a(((class_cq)var3.get(O)).d());
+            BlockPosition var11 = var2.shift(((EnumDirection)var3.get(O)).getOpposite());
             if(var1.p(var11).getBlock() == this) {
                var1.g(var11);
             }
 
-            var1.a((class_pr)null, (double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D, 5.0F, true, true);
+            var1.a((class_pr)null, (double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, 5.0F, true, true);
             return true;
          }
       }
    }
 
-   private class_xa f(World var1, class_cj var2) {
+   private class_xa f(World var1, BlockPosition var2) {
       Iterator var3 = var1.j.iterator();
 
       class_xa var4;
@@ -109,17 +109,17 @@ public class class_agh extends class_aiv {
       return false;
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       this.l();
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
-      class_cq var5 = (class_cq)var3.get(O);
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      EnumDirection var5 = (EnumDirection)var3.get(O);
       if(var3.get(a) == class_agh.class_a_in_class_agh.a) {
-         if(var1.p(var2.a(var5.d())).getBlock() != this) {
+         if(var1.p(var2.shift(var5.getOpposite())).getBlock() != this) {
             var1.g(var2);
          }
-      } else if(var1.p(var2.a(var5)).getBlock() != this) {
+      } else if(var1.p(var2.shift(var5)).getBlock() != this) {
          var1.g(var2);
          if(!var1.D) {
             this.b(var1, var2, var3, 0);
@@ -136,21 +136,21 @@ public class class_agh extends class_aiv {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.5625F, 1.0F);
    }
 
-   public static class_cj a(World var0, class_cj var1, int var2) {
-      class_cq var3 = (class_cq)var0.p(var1).get(O);
-      int var4 = var1.n();
-      int var5 = var1.o();
-      int var6 = var1.p();
+   public static BlockPosition a(World var0, BlockPosition var1, int var2) {
+      EnumDirection var3 = (EnumDirection)var0.p(var1).get(O);
+      int var4 = var1.getX();
+      int var5 = var1.getY();
+      int var6 = var1.getZ();
 
       for(int var7 = 0; var7 <= 1; ++var7) {
-         int var8 = var4 - var3.g() * var7 - 1;
-         int var9 = var6 - var3.i() * var7 - 1;
+         int var8 = var4 - var3.getAdjacentX() * var7 - 1;
+         int var9 = var6 - var3.getAdjacentZ() * var7 - 1;
          int var10 = var8 + 2;
          int var11 = var9 + 2;
 
          for(int var12 = var8; var12 <= var10; ++var12) {
             for(int var13 = var9; var13 <= var11; ++var13) {
-               class_cj var14 = new class_cj(var12, var5, var13);
+               BlockPosition var14 = new BlockPosition(var12, var5, var13);
                if(e(var0, var14)) {
                   if(var2 <= 0) {
                      return var14;
@@ -165,24 +165,24 @@ public class class_agh extends class_aiv {
       return null;
    }
 
-   protected static boolean e(World var0, class_cj var1) {
-      return World.a((class_aer)var0, (class_cj)var1.b()) && !var0.p(var1).getBlock().getMaterial().a() && !var0.p(var1.a()).getBlock().getMaterial().a();
+   protected static boolean e(World var0, BlockPosition var1) {
+      return World.a((class_aer)var0, (BlockPosition)var1.shiftDown()) && !var0.p(var1).getBlock().getMaterial().isBuildable() && !var0.p(var1.shiftUp()).getBlock().getMaterial().isBuildable();
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
       if(var3.get(a) == class_agh.class_a_in_class_agh.b) {
-         super.a(var1, var2, var3, var4, 0);
+         super.dropNaturally(var1, var2, var3, var4, 0);
       }
 
    }
 
-   public int k() {
+   public int getPushReaction() {
       return 1;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_xa var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
       if(var4.bH.d && var3.get(a) == class_agh.class_a_in_class_agh.a) {
-         class_cj var5 = var2.a(((class_cq)var3.get(O)).d());
+         BlockPosition var5 = var2.shift(((EnumDirection)var3.get(O)).getOpposite());
          if(var1.p(var5).getBlock() == this) {
             var1.g(var5);
          }
@@ -191,13 +191,13 @@ public class class_agh extends class_aiv {
    }
 
    public IBlockData fromLegacyData(int var1) {
-      class_cq var2 = class_cq.b(var1);
+      EnumDirection var2 = EnumDirection.getByHorizontalId(var1);
       return (var1 & 8) > 0?this.getBlockData().set(a, class_agh.class_a_in_class_agh.a).set(O, var2).set(b, Boolean.valueOf((var1 & 4) > 0)):this.getBlockData().set(a, class_agh.class_a_in_class_agh.b).set(O, var2);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
       if(var1.get(a) == class_agh.class_a_in_class_agh.b) {
-         IBlockData var4 = var2.p(var3.a((class_cq)var1.get(O)));
+         IBlockData var4 = var2.p(var3.shift((EnumDirection)var1.get(O)));
          if(var4.getBlock() == this) {
             var1 = var1.set(b, var4.get(b));
          }
@@ -207,16 +207,16 @@ public class class_agh extends class_aiv {
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(O, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:var1.set(O, var2.a((EnumDirection)var1.get(O)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(O)));
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_cq)var1.get(O)).b();
+      int var3 = var2 | ((EnumDirection)var1.get(O)).getHorizontalId();
       if(var1.get(a) == class_agh.class_a_in_class_agh.a) {
          var3 |= 8;
          if(((Boolean)var1.get(b)).booleanValue()) {

@@ -9,8 +9,8 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dc;
 import net.minecraft.server.class_dn;
@@ -342,7 +342,7 @@ public class class_uy extends class_qa {
 
    }
 
-   public class_oq a(class_xa var1, class_awh var2, class_aas var3, class_oo var4) {
+   public class_oq a(class_xa var1, Vec3D var2, class_aas var3, class_oo var4) {
       if(this.t()) {
          return class_oq.b;
       } else if(!this.o.D && !var1.v()) {
@@ -363,7 +363,7 @@ public class class_uy extends class_qa {
          double var14 = 1.6D;
          class_pw var16 = class_pw.a;
          boolean var17 = this.n();
-         double var18 = var17?var2.b * 2.0D:var2.b;
+         double var18 = var17?var2.y * 2.0D:var2.y;
          if(var18 >= 0.1D && var18 < 0.1D + (var17?0.8D:0.45D) && this.a(class_pw.c) != null) {
             var16 = class_pw.c;
          } else if(var18 >= 0.9D + (var17?0.3D:0.0D) && var18 < 0.9D + (var17?1.0D:0.7D) && this.a(class_pw.e) != null) {
@@ -503,7 +503,7 @@ public class class_uy extends class_qa {
    }
 
    private void D() {
-      Block.a(this.o, new class_cj(this), new class_aas(Items.cm));
+      Block.a(this.o, new BlockPosition(this), new class_aas(Items.cm));
       this.E();
    }
 
@@ -512,7 +512,7 @@ public class class_uy extends class_qa {
       for(var1 = 0; var1 < this.bx.length; ++var1) {
          if(this.bx[var1] != null && this.bx[var1].b > 0) {
             if(this.bx[var1] != null) {
-               Block.a(this.o, (new class_cj(this)).a(), this.bx[var1]);
+               Block.a(this.o, (new BlockPosition(this)).shiftUp(), this.bx[var1]);
             }
 
             this.bx[var1] = null;
@@ -522,7 +522,7 @@ public class class_uy extends class_qa {
       for(var1 = 0; var1 < this.by.length; ++var1) {
          if(this.by[var1] != null && this.by[var1].b > 0) {
             if(this.by[var1] != null) {
-               Block.a(this.o, (new class_cj(this)).a(), this.by[var1]);
+               Block.a(this.o, (new BlockPosition(this)).shiftUp(), this.by[var1]);
             }
 
             this.by[var1] = null;

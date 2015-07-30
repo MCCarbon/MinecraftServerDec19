@@ -9,7 +9,7 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_on;
@@ -218,13 +218,13 @@ public class class_uc extends class_qj {
 
    public boolean cg() {
       if(this.o.a((class_awf)this.aT(), (class_pr)this) && this.o.a((class_pr)this, (class_awf)this.aT()).isEmpty() && !this.o.d(this.aT())) {
-         class_cj var1 = new class_cj(this.s, this.aT().b, this.u);
-         if(var1.o() < this.o.G()) {
+         BlockPosition var1 = new BlockPosition(this.s, this.aT().b, this.u);
+         if(var1.getY() < this.o.G()) {
             return false;
          }
 
-         Block var2 = this.o.p(var1.b()).getBlock();
-         if(var2 == Blocks.GRASS || var2.getMaterial() == Material.j) {
+         Block var2 = this.o.p(var1.shiftDown()).getBlock();
+         if(var2 == Blocks.GRASS || var2.getMaterial() == Material.LEAVES) {
             return true;
          }
       }

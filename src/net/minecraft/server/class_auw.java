@@ -5,7 +5,7 @@ import net.minecraft.server.class_aus;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auu;
 import net.minecraft.server.class_auv;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 
 public class class_auw {
@@ -21,8 +21,8 @@ public class class_auw {
       return this.a(var1, var2, var3.s, var3.aT().b, var3.u, var4);
    }
 
-   public class_auv a(class_aer var1, class_pr var2, class_cj var3, float var4) {
-      return this.a(var1, var2, (double)((float)var3.n() + 0.5F), (double)((float)var3.o() + 0.5F), (double)((float)var3.p() + 0.5F), var4);
+   public class_auv a(class_aer var1, class_pr var2, BlockPosition var3, float var4) {
+      return this.a(var1, var2, (double)((float)var3.getX() + 0.5F), (double)((float)var3.getY() + 0.5F), (double)((float)var3.getZ() + 0.5F), var4);
    }
 
    private class_auv a(class_aer var1, class_pr var2, double var3, double var5, double var7, float var9) {

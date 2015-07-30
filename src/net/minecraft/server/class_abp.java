@@ -11,13 +11,13 @@ import net.minecraft.server.class_akv;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amy;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_eb;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_xa;
@@ -32,19 +32,19 @@ public class class_abp extends Item {
       this.a(true);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      if(var6 == class_cq.a) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+      if(var6 == EnumDirection.DOWN) {
          return class_oq.b;
       } else {
          IBlockData var10 = var3.p(var4);
          Block var11 = var10.getBlock();
          boolean var12 = var11.isReplaceable(var3, var4);
          if(!var12) {
-            if(!var3.p(var4).getBlock().getMaterial().a()) {
+            if(!var3.p(var4).getBlock().getMaterial().isBuildable()) {
                return class_oq.b;
             }
 
-            var4 = var4.a(var6);
+            var4 = var4.shift(var6);
          }
 
          if(!var2.a(var4, var6, var1)) {
@@ -53,10 +53,10 @@ public class class_abp extends Item {
             return class_oq.b;
          } else {
             if(!var3.D) {
-               var3.a((class_cj)var4, (IBlockData)Blocks.SKULL.getBlockData().set(class_akv.a, var6), 3);
+               var3.a((BlockPosition)var4, (IBlockData)Blocks.SKULL.getBlockData().set(class_akv.a, var6), 3);
                int var13 = 0;
-               if(var6 == class_cq.b) {
-                  var13 = class_nu.c((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
+               if(var6 == EnumDirection.UP) {
+                  var13 = MathHelper.floor((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
                }
 
                class_amg var14 = var3.s(var4);

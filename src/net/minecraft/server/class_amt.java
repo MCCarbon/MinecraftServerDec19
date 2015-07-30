@@ -13,13 +13,13 @@ import net.minecraft.server.class_ami;
 import net.minecraft.server.class_ams;
 import net.minecraft.server.class_amu;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_kn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_oz;
 import net.minecraft.server.class_pr;
@@ -139,7 +139,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
    }
 
    public boolean a(class_xa var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.s(this.c) != this?false:var1.e((double)this.c.getX() + 0.5D, (double)this.c.getY() + 0.5D, (double)this.c.getZ() + 0.5D) <= 64.0D;
    }
 
    public void b(class_xa var1) {
@@ -221,7 +221,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       if(var1 == null) {
          return false;
       } else {
-         class_cq var2 = class_aiu.b(this.u()).d();
+         EnumDirection var2 = class_aiu.b(this.u()).getOpposite();
          if(this.a(var1, var2)) {
             return false;
          } else {
@@ -243,7 +243,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       }
    }
 
-   private boolean a(class_oj var1, class_cq var2) {
+   private boolean a(class_oj var1, EnumDirection var2) {
       if(var1 instanceof class_oz) {
          class_oz var7 = (class_oz)var1;
          int[] var8 = var7.a(var2);
@@ -268,7 +268,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       return true;
    }
 
-   private static boolean b(class_oj var0, class_cq var1) {
+   private static boolean b(class_oj var0, EnumDirection var1) {
       if(var0 instanceof class_oz) {
          class_oz var2 = (class_oz)var0;
          int[] var3 = var2.a(var1);
@@ -294,7 +294,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
    public static boolean a(class_ams var0) {
       class_oj var1 = b(var0);
       if(var1 != null) {
-         class_cq var2 = class_cq.a;
+         EnumDirection var2 = EnumDirection.DOWN;
          if(b(var1, var2)) {
             return false;
          }
@@ -331,11 +331,11 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       return false;
    }
 
-   private static boolean a(class_ams var0, class_oj var1, int var2, class_cq var3) {
+   private static boolean a(class_ams var0, class_oj var1, int var2, EnumDirection var3) {
       class_aas var4 = var1.a(var2);
       if(var4 != null && b(var1, var4, var2, var3)) {
          class_aas var5 = var4.k();
-         class_aas var6 = a(var0, var1.a(var2, 1), (class_cq)null);
+         class_aas var6 = a(var0, var1.a(var2, 1), (EnumDirection)null);
          if(var6 == null || var6.b == 0) {
             var1.p_();
             return true;
@@ -353,7 +353,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
          return false;
       } else {
          class_aas var3 = var1.l().k();
-         class_aas var4 = a(var0, var3, (class_cq)null);
+         class_aas var4 = a(var0, var3, (EnumDirection)null);
          if(var4 != null && var4.b != 0) {
             var1.a(var4);
          } else {
@@ -365,7 +365,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       }
    }
 
-   public static class_aas a(class_oj var0, class_aas var1, class_cq var2) {
+   public static class_aas a(class_oj var0, class_aas var1, EnumDirection var2) {
       if(var0 instanceof class_oz && var2 != null) {
          class_oz var6 = (class_oz)var0;
          int[] var7 = var6.a(var2);
@@ -388,15 +388,15 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       return var1;
    }
 
-   private static boolean a(class_oj var0, class_aas var1, int var2, class_cq var3) {
+   private static boolean a(class_oj var0, class_aas var1, int var2, EnumDirection var3) {
       return !var0.b(var2, var1)?false:!(var0 instanceof class_oz) || ((class_oz)var0).a(var2, var1, var3);
    }
 
-   private static boolean b(class_oj var0, class_aas var1, int var2, class_cq var3) {
+   private static boolean b(class_oj var0, class_aas var1, int var2, EnumDirection var3) {
       return !(var0 instanceof class_oz) || ((class_oz)var0).b(var2, var1, var3);
    }
 
-   private static class_aas c(class_oj var0, class_aas var1, int var2, class_cq var3) {
+   private static class_aas c(class_oj var0, class_aas var1, int var2, EnumDirection var3) {
       class_aas var4 = var0.a(var2);
       if(a(var0, var1, var2, var3)) {
          boolean var5 = false;
@@ -430,8 +430,8 @@ public class class_amt extends class_amu implements class_ams, class_kn {
    }
 
    private class_oj H() {
-      class_cq var1 = class_aiu.b(this.u());
-      return b(this.z(), (double)(this.c.n() + var1.g()), (double)(this.c.o() + var1.h()), (double)(this.c.p() + var1.i()));
+      EnumDirection var1 = class_aiu.b(this.u());
+      return b(this.z(), (double)(this.c.getX() + var1.getAdjacentX()), (double)(this.c.getY() + var1.getAdjacentY()), (double)(this.c.getZ() + var1.getAdjacentZ()));
    }
 
    public static class_oj b(class_ams var0) {
@@ -444,10 +444,10 @@ public class class_amt extends class_amu implements class_ams, class_kn {
 
    public static class_oj b(World var0, double var1, double var3, double var5) {
       Object var7 = null;
-      int var8 = class_nu.c(var1);
-      int var9 = class_nu.c(var3);
-      int var10 = class_nu.c(var5);
-      class_cj var11 = new class_cj(var8, var9, var10);
+      int var8 = MathHelper.floor(var1);
+      int var9 = MathHelper.floor(var3);
+      int var10 = MathHelper.floor(var5);
+      BlockPosition var11 = new BlockPosition(var8, var9, var10);
       Block var12 = var0.p(var11).getBlock();
       if(var12.isTileEntity()) {
          class_amg var13 = var0.s(var11);
@@ -474,15 +474,15 @@ public class class_amt extends class_amu implements class_ams, class_kn {
    }
 
    public double A() {
-      return (double)this.c.n() + 0.5D;
+      return (double)this.c.getX() + 0.5D;
    }
 
    public double B() {
-      return (double)this.c.o() + 0.5D;
+      return (double)this.c.getY() + 0.5D;
    }
 
    public double C() {
-      return (double)this.c.p() + 0.5D;
+      return (double)this.c.getZ() + 0.5D;
    }
 
    public void d(int var1) {

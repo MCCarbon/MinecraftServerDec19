@@ -11,7 +11,7 @@ import net.minecraft.server.CreativeTab;
 
 public class class_ajf extends Block {
    protected class_ajf() {
-      super(Material.C, MaterialMapColor.u);
+      super(Material.PUMPKIN, MaterialMapColor.COLOR20);
       this.a(CreativeTab.b);
    }
 

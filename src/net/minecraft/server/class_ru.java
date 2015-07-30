@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.class_auv;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -51,7 +51,7 @@ public class class_ru extends class_rm {
 
    public boolean b() {
       class_qa var1 = this.b.w();
-      return var1 == null?false:(!var1.ai()?false:(!this.e?!this.b.u().m():this.b.e(new class_cj(var1))));
+      return var1 == null?false:(!var1.ai()?false:(!this.e?!this.b.u().m():this.b.e(new BlockPosition(var1))));
    }
 
    public void c() {

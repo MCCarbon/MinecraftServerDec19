@@ -7,7 +7,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_ami;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_rx;
 import net.minecraft.server.class_uc;
 
@@ -48,8 +48,8 @@ public class class_sb extends class_rx {
 
    }
 
-   protected boolean a(World var1, class_cj var2) {
-      if(!var1.d(var2.a())) {
+   protected boolean a(World var1, BlockPosition var2) {
+      if(!var1.d(var2.shiftUp())) {
          return false;
       } else {
          IBlockData var3 = var1.p(var2);

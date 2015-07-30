@@ -5,7 +5,7 @@ import net.minecraft.server.class_aeh;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aok;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
@@ -77,8 +77,8 @@ public class class_ga implements class_ff {
          this.c = var3.g(this.a());
       }
 
-      public class_cj a() {
-         return new class_cj(class_ga.this.a.a(this.b >> 12 & 15, this.b & 255, this.b >> 8 & 15));
+      public BlockPosition a() {
+         return new BlockPosition(class_ga.this.a.a(this.b >> 12 & 15, this.b & 255, this.b >> 8 & 15));
       }
 
       public short b() {

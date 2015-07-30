@@ -11,13 +11,13 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_ce;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_et;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_k;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_xa;
 
 public class class_ak extends class_i {
@@ -53,7 +53,7 @@ public class class_ak extends class_i {
             throw new class_cf(var9.c(var1), new Object[0]);
          }
 
-         if(class_nu.a(var2[0], -1) != -1) {
+         if(MathHelper.parseIntWithDef(var2[0], -1) != -1) {
             throw var12;
          }
 
@@ -90,7 +90,7 @@ public class class_ak extends class_i {
       return MinecraftServer.N().P().a();
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          Set var4 = this.d().keySet();
          return a(var2, (String[])var4.toArray(new String[var4.size()]));

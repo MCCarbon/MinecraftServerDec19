@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aqg;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_afe extends class_aez {
    public class_afe(int var1) {
@@ -20,12 +20,12 @@ public class class_afe extends class_aez {
       this.au.clear();
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       super.a(var1, var2, var3);
       if(var2.nextInt(1000) == 0) {
          int var4 = var2.nextInt(16) + 8;
          int var5 = var2.nextInt(16) + 8;
-         class_cj var6 = var1.m(var3.a(var4, 0, var5)).a();
+         BlockPosition var6 = var1.m(var3.add(var4, 0, var5)).shiftUp();
          (new class_aqg()).b(var1, var2, var6);
       }
 

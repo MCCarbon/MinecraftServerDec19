@@ -1,19 +1,19 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fj;
 
 public class class_ht implements class_ff {
-   private class_cj a;
+   private BlockPosition a;
 
    public class_ht() {
    }
 
-   public class_ht(class_cj var1) {
+   public class_ht(BlockPosition var1) {
       this.a = var1;
    }
 

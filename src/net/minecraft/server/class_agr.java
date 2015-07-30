@@ -12,8 +12,8 @@ import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_xa;
@@ -22,12 +22,12 @@ public class class_agr extends Block {
    public static final class_anz a = class_anz.a("bites", 0, 6);
 
    protected class_agr() {
-      super(Material.F);
+      super(Material.CAKE);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       this.setTicking(true);
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       float var3 = 0.0625F;
       float var4 = (float)(1 + ((Integer)var1.p(var2).get(a)).intValue() * 2) / 16.0F;
       float var5 = 0.5F;
@@ -40,11 +40,11 @@ public class class_agr extends Block {
       this.setSizes(var1, 0.0F, var1, 1.0F - var1, var2, 1.0F - var1);
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       float var4 = 0.0625F;
       float var5 = (float)(1 + ((Integer)var3.get(a)).intValue() * 2) / 16.0F;
       float var6 = 0.5F;
-      return new class_awf((double)((float)var2.n() + var5), (double)var2.o(), (double)((float)var2.p() + var4), (double)((float)(var2.n() + 1) - var4), (double)((float)var2.o() + var6), (double)((float)(var2.p() + 1) - var4));
+      return new class_awf((double)((float)var2.getX() + var5), (double)var2.getY(), (double)((float)var2.getZ() + var4), (double)((float)(var2.getX() + 1) - var4), (double)((float)var2.getY() + var6), (double)((float)(var2.getZ() + 1) - var4));
    }
 
    public boolean isFullCube() {
@@ -55,22 +55,22 @@ public class class_agr extends Block {
       return false;
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       this.b(var1, var2, var3, var4);
       return true;
    }
 
-   public void a(World var1, class_cj var2, class_xa var3) {
+   public void a(World var1, BlockPosition var2, class_xa var3) {
       this.b(var1, var2, var1.p(var2), var3);
    }
 
-   private void b(World var1, class_cj var2, IBlockData var3, class_xa var4) {
+   private void b(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
       if(var4.j(false)) {
          var4.b(class_nc.H);
          var4.cn().a(2, 0.1F);
          int var5 = ((Integer)var3.get(a)).intValue();
          if(var5 < 6) {
-            var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 + 1)), 3);
+            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 + 1)), 3);
          } else {
             var1.g(var2);
          }
@@ -78,19 +78,19 @@ public class class_agr extends Block {
       }
    }
 
-   public boolean d(World var1, class_cj var2) {
+   public boolean d(World var1, BlockPosition var2) {
       return super.d(var1, var2)?this.e(var1, var2):false;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2)) {
          var1.g(var2);
       }
 
    }
 
-   private boolean e(World var1, class_cj var2) {
-      return var1.p(var2.b()).getBlock().getMaterial().a();
+   private boolean e(World var1, BlockPosition var2) {
+      return var1.p(var2.shiftDown()).getBlock().getMaterial().isBuildable();
    }
 
    public int a(Random var1) {
@@ -113,7 +113,7 @@ public class class_agr extends Block {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public int l(World var1, class_cj var2) {
+   public int l(World var1, BlockPosition var2) {
       return (7 - ((Integer)var1.p(var2).get(a)).intValue()) * 2;
    }
 

@@ -3,8 +3,8 @@ package net.minecraft.server;
 import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.World;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pr;
@@ -22,13 +22,13 @@ public class class_aap extends Item {
       this.a(CreativeTab.c);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      if(var6 == class_cq.a) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+      if(var6 == EnumDirection.DOWN) {
          return class_oq.b;
-      } else if(var6 == class_cq.b) {
+      } else if(var6 == EnumDirection.UP) {
          return class_oq.b;
       } else {
-         class_cj var10 = var4.a(var6);
+         BlockPosition var10 = var4.shift(var6);
          if(!var2.a(var10, var6, var1)) {
             return class_oq.b;
          } else {
@@ -46,7 +46,7 @@ public class class_aap extends Item {
       }
    }
 
-   private class_uz a(World var1, class_cj var2, class_cq var3) {
+   private class_uz a(World var1, BlockPosition var2, EnumDirection var3) {
       return (class_uz)(this.a == class_vc.class?new class_vc(var1, var2, var3):(this.a == class_va.class?new class_va(var1, var2, var3):null));
    }
 }

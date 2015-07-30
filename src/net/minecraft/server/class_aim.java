@@ -18,6 +18,6 @@ public class class_aim extends class_ahx {
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return MaterialMapColor.m;
+      return MaterialMapColor.COLOR12;
    }
 }

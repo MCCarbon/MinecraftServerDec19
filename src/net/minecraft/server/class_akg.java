@@ -7,7 +7,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_akg extends class_agf {
    public static final BlockStateEnum b = BlockStateEnum.of("shape", class_agf.class_b_in_class_agf.class);
@@ -17,7 +17,7 @@ public class class_akg extends class_agf {
       this.setBlockData(this.blockStateList.getFirst().set(b, class_agf.class_b_in_class_agf.a));
    }
 
-   protected void b(World var1, class_cj var2, IBlockData var3, Block var4) {
+   protected void b(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(var4.isPowerSource() && (new class_agf.class_a_in_class_agf(var1, var2, var3)).a() == 3) {
          this.a(var1, var2, var3, false);
       }

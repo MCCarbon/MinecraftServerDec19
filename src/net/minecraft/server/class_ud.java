@@ -7,7 +7,7 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
@@ -97,7 +97,7 @@ public class class_ud extends class_tw {
       return "mob.pig.death";
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.pig.step", 0.15F, 1.0F);
    }
 

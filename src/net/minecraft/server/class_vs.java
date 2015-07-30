@@ -9,7 +9,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ams;
 import net.minecraft.server.class_amt;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_oo;
@@ -26,16 +26,16 @@ import net.minecraft.server.class_yn;
 public class class_vs extends class_vq implements class_ams {
    private boolean a = true;
    private int b = -1;
-   private class_cj c;
+   private BlockPosition c;
 
    public class_vs(World var1) {
       super(var1);
-      this.c = class_cj.a;
+      this.c = BlockPosition.ZERO;
    }
 
    public class_vs(World var1, double var2, double var4, double var6) {
       super(var1, var2, var4, var6);
-      this.c = class_cj.a;
+      this.c = BlockPosition.ZERO;
    }
 
    public class_vn.class_a_in_class_vn s() {
@@ -97,7 +97,7 @@ public class class_vs extends class_vq implements class_ams {
    public void t_() {
       super.t_();
       if(!this.o.D && this.ai() && this.y()) {
-         class_cj var1 = new class_cj(this);
+         BlockPosition var1 = new BlockPosition(this);
          if(var1.equals(this.c)) {
             --this.b;
          } else {

@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fj;
 
 public class class_fu implements class_ff {
-   private class_cj a;
+   private BlockPosition a;
    private int b;
    private int c;
    private Block d;
@@ -17,7 +17,7 @@ public class class_fu implements class_ff {
    public class_fu() {
    }
 
-   public class_fu(class_cj var1, Block var2, int var3, int var4) {
+   public class_fu(BlockPosition var1, Block var2, int var3, int var4) {
       this.a = var1;
       this.b = var3;
       this.c = var4;

@@ -22,8 +22,8 @@ import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.INamable;
 
 public class class_akk extends Block {
@@ -36,31 +36,31 @@ public class class_akk extends Block {
    private final Set R = Sets.newHashSet();
 
    public class_akk() {
-      super(Material.q);
+      super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_akk.class_a_in_class_akk.c).set(b, class_akk.class_a_in_class_akk.c).set(N, class_akk.class_a_in_class_akk.c).set(O, class_akk.class_a_in_class_akk.c).set(P, Integer.valueOf(0)));
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      var1 = var1.set(O, this.c(var2, var3, class_cq.e));
-      var1 = var1.set(b, this.c(var2, var3, class_cq.f));
-      var1 = var1.set(a, this.c(var2, var3, class_cq.c));
-      var1 = var1.set(N, this.c(var2, var3, class_cq.d));
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+      var1 = var1.set(O, this.c(var2, var3, EnumDirection.WEST));
+      var1 = var1.set(b, this.c(var2, var3, EnumDirection.EAST));
+      var1 = var1.set(a, this.c(var2, var3, EnumDirection.NORTH));
+      var1 = var1.set(N, this.c(var2, var3, EnumDirection.SOUTH));
       return var1;
    }
 
-   private class_akk.class_a_in_class_akk c(class_aer var1, class_cj var2, class_cq var3) {
-      class_cj var4 = var2.a(var3);
-      Block var5 = var1.p(var2.a(var3)).getBlock();
-      if(a(var1.p(var4), var3) || !var5.isSoildFullCube() && d(var1.p(var4.b()))) {
+   private class_akk.class_a_in_class_akk c(class_aer var1, BlockPosition var2, EnumDirection var3) {
+      BlockPosition var4 = var2.shift(var3);
+      Block var5 = var1.p(var2.shift(var3)).getBlock();
+      if(a(var1.p(var4), var3) || !var5.isSoildFullCube() && d(var1.p(var4.shiftDown()))) {
          return class_akk.class_a_in_class_akk.b;
       } else {
-         Block var6 = var1.p(var2.a()).getBlock();
-         return !var6.isSoildFullCube() && var5.isSoildFullCube() && d(var1.p(var4.a()))?class_akk.class_a_in_class_akk.a:class_akk.class_a_in_class_akk.c;
+         Block var6 = var1.p(var2.shiftUp()).getBlock();
+         return !var6.isSoildFullCube() && var5.isSoildFullCube() && d(var1.p(var4.shiftUp()))?class_akk.class_a_in_class_akk.a:class_akk.class_a_in_class_akk.c;
       }
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -72,29 +72,29 @@ public class class_akk extends Block {
       return false;
    }
 
-   public boolean d(World var1, class_cj var2) {
-      return World.a((class_aer)var1, (class_cj)var2.b()) || var1.p(var2.b()).getBlock() == Blocks.GLOWSTONE;
+   public boolean d(World var1, BlockPosition var2) {
+      return World.a((class_aer)var1, (BlockPosition)var2.shiftDown()) || var1.p(var2.shiftDown()).getBlock() == Blocks.GLOWSTONE;
    }
 
-   private IBlockData e(World var1, class_cj var2, IBlockData var3) {
+   private IBlockData e(World var1, BlockPosition var2, IBlockData var3) {
       var3 = this.a(var1, var2, var2, var3);
       ArrayList var4 = Lists.newArrayList((Iterable)this.R);
       this.R.clear();
       Iterator var5 = var4.iterator();
 
       while(var5.hasNext()) {
-         class_cj var6 = (class_cj)var5.next();
-         var1.c((class_cj)var6, (Block)this);
+         BlockPosition var6 = (BlockPosition)var5.next();
+         var1.c((BlockPosition)var6, (Block)this);
       }
 
       return var3;
    }
 
-   private IBlockData a(World var1, class_cj var2, class_cj var3, IBlockData var4) {
+   private IBlockData a(World var1, BlockPosition var2, BlockPosition var3, IBlockData var4) {
       IBlockData var5 = var4;
       int var6 = ((Integer)var4.get(P)).intValue();
       byte var7 = 0;
-      int var14 = this.a((World)var1, (class_cj)var3, var7);
+      int var14 = this.a((World)var1, (BlockPosition)var3, var7);
       this.Q = false;
       int var8 = var1.A(var2);
       this.Q = true;
@@ -103,23 +103,23 @@ public class class_akk extends Block {
       }
 
       int var9 = 0;
-      Iterator var10 = class_cq.class_c_in_class_cq.a.iterator();
+      Iterator var10 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
       while(true) {
          while(var10.hasNext()) {
-            class_cq var11 = (class_cq)var10.next();
-            class_cj var12 = var2.a(var11);
-            boolean var13 = var12.n() != var3.n() || var12.p() != var3.p();
+            EnumDirection var11 = (EnumDirection)var10.next();
+            BlockPosition var12 = var2.shift(var11);
+            boolean var13 = var12.getX() != var3.getX() || var12.getZ() != var3.getZ();
             if(var13) {
                var9 = this.a(var1, var12, var9);
             }
 
-            if(var1.p(var12).getBlock().isOccluding() && !var1.p(var2.a()).getBlock().isOccluding()) {
-               if(var13 && var2.o() >= var3.o()) {
-                  var9 = this.a(var1, var12.a(), var9);
+            if(var1.p(var12).getBlock().isOccluding() && !var1.p(var2.shiftUp()).getBlock().isOccluding()) {
+               if(var13 && var2.getY() >= var3.getY()) {
+                  var9 = this.a(var1, var12.shiftUp(), var9);
                }
-            } else if(!var1.p(var12).getBlock().isOccluding() && var13 && var2.o() <= var3.o()) {
-               var9 = this.a(var1, var12.b(), var9);
+            } else if(!var1.p(var12).getBlock().isOccluding() && var13 && var2.getY() <= var3.getY()) {
+               var9 = this.a(var1, var12.shiftDown(), var9);
             }
          }
 
@@ -138,16 +138,16 @@ public class class_akk extends Block {
          if(var6 != var14) {
             var4 = var4.set(P, Integer.valueOf(var14));
             if(var1.p(var2) == var5) {
-               var1.a((class_cj)var2, (IBlockData)var4, 2);
+               var1.a((BlockPosition)var2, (IBlockData)var4, 2);
             }
 
             this.R.add(var2);
-            class_cq[] var15 = class_cq.values();
+            EnumDirection[] var15 = EnumDirection.values();
             int var16 = var15.length;
 
             for(int var17 = 0; var17 < var16; ++var17) {
-               class_cq var18 = var15[var17];
-               this.R.add(var2.a(var18));
+               EnumDirection var18 = var15[var17];
+               this.R.add(var2.shift(var18));
             }
          }
 
@@ -155,89 +155,89 @@ public class class_akk extends Block {
       }
    }
 
-   private void e(World var1, class_cj var2) {
+   private void e(World var1, BlockPosition var2) {
       if(var1.p(var2).getBlock() == this) {
-         var1.c((class_cj)var2, (Block)this);
-         class_cq[] var3 = class_cq.values();
+         var1.c((BlockPosition)var2, (Block)this);
+         EnumDirection[] var3 = EnumDirection.values();
          int var4 = var3.length;
 
          for(int var5 = 0; var5 < var4; ++var5) {
-            class_cq var6 = var3[var5];
-            var1.c((class_cj)var2.a(var6), (Block)this);
+            EnumDirection var6 = var3[var5];
+            var1.c((BlockPosition)var2.shift(var6), (Block)this);
          }
 
       }
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.D) {
          this.e(var1, var2, var3);
-         Iterator var4 = class_cq.class_c_in_class_cq.b.iterator();
+         Iterator var4 = EnumDirection.EnumDirectionLimit.VERTICAL.iterator();
 
-         class_cq var5;
+         EnumDirection var5;
          while(var4.hasNext()) {
-            var5 = (class_cq)var4.next();
-            var1.c((class_cj)var2.a(var5), (Block)this);
+            var5 = (EnumDirection)var4.next();
+            var1.c((BlockPosition)var2.shift(var5), (Block)this);
          }
 
-         var4 = class_cq.class_c_in_class_cq.a.iterator();
+         var4 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
          while(var4.hasNext()) {
-            var5 = (class_cq)var4.next();
-            this.e(var1, var2.a(var5));
+            var5 = (EnumDirection)var4.next();
+            this.e(var1, var2.shift(var5));
          }
 
-         var4 = class_cq.class_c_in_class_cq.a.iterator();
+         var4 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
          while(var4.hasNext()) {
-            var5 = (class_cq)var4.next();
-            class_cj var6 = var2.a(var5);
+            var5 = (EnumDirection)var4.next();
+            BlockPosition var6 = var2.shift(var5);
             if(var1.p(var6).getBlock().isOccluding()) {
-               this.e(var1, var6.a());
+               this.e(var1, var6.shiftUp());
             } else {
-               this.e(var1, var6.b());
+               this.e(var1, var6.shiftDown());
             }
          }
 
       }
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       super.b(var1, var2, var3);
       if(!var1.D) {
-         class_cq[] var4 = class_cq.values();
+         EnumDirection[] var4 = EnumDirection.values();
          int var5 = var4.length;
 
          for(int var6 = 0; var6 < var5; ++var6) {
-            class_cq var7 = var4[var6];
-            var1.c((class_cj)var2.a(var7), (Block)this);
+            EnumDirection var7 = var4[var6];
+            var1.c((BlockPosition)var2.shift(var7), (Block)this);
          }
 
          this.e(var1, var2, var3);
-         Iterator var8 = class_cq.class_c_in_class_cq.a.iterator();
+         Iterator var8 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
-         class_cq var9;
+         EnumDirection var9;
          while(var8.hasNext()) {
-            var9 = (class_cq)var8.next();
-            this.e(var1, var2.a(var9));
+            var9 = (EnumDirection)var8.next();
+            this.e(var1, var2.shift(var9));
          }
 
-         var8 = class_cq.class_c_in_class_cq.a.iterator();
+         var8 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
          while(var8.hasNext()) {
-            var9 = (class_cq)var8.next();
-            class_cj var10 = var2.a(var9);
+            var9 = (EnumDirection)var8.next();
+            BlockPosition var10 = var2.shift(var9);
             if(var1.p(var10).getBlock().isOccluding()) {
-               this.e(var1, var10.a());
+               this.e(var1, var10.shiftUp());
             } else {
-               this.e(var1, var10.b());
+               this.e(var1, var10.shiftDown());
             }
          }
 
       }
    }
 
-   private int a(World var1, class_cj var2, int var3) {
+   private int a(World var1, BlockPosition var2, int var3) {
       if(var1.p(var2).getBlock() != this) {
          return var3;
       } else {
@@ -246,7 +246,7 @@ public class class_akk extends Block {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          if(this.d(var1, var2)) {
             this.e(var1, var2, var3);
@@ -262,33 +262,33 @@ public class class_akk extends Block {
       return Items.aE;
    }
 
-   public int b(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
+   public int b(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return !this.Q?0:this.a(var1, var2, var3, var4);
    }
 
-   public int a(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
+   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       if(!this.Q) {
          return 0;
       } else {
          int var5 = ((Integer)var3.get(P)).intValue();
          if(var5 == 0) {
             return 0;
-         } else if(var4 == class_cq.b) {
+         } else if(var4 == EnumDirection.UP) {
             return var5;
          } else {
-            EnumSet var6 = EnumSet.noneOf(class_cq.class);
-            Iterator var7 = class_cq.class_c_in_class_cq.a.iterator();
+            EnumSet var6 = EnumSet.noneOf(EnumDirection.class);
+            Iterator var7 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
             while(var7.hasNext()) {
-               class_cq var8 = (class_cq)var7.next();
+               EnumDirection var8 = (EnumDirection)var7.next();
                if(this.d(var1, var2, var8)) {
                   var6.add(var8);
                }
             }
 
-            if(var4.k().c() && var6.isEmpty()) {
+            if(var4.getAxis().isHorizontal() && var6.isEmpty()) {
                return var5;
-            } else if(var6.contains(var4) && !var6.contains(var4.f()) && !var6.contains(var4.e())) {
+            } else if(var6.contains(var4) && !var6.contains(var4.rotateYCCW()) && !var6.contains(var4.rotateY())) {
                return var5;
             } else {
                return 0;
@@ -297,30 +297,30 @@ public class class_akk extends Block {
       }
    }
 
-   private boolean d(class_aer var1, class_cj var2, class_cq var3) {
-      class_cj var4 = var2.a(var3);
+   private boolean d(class_aer var1, BlockPosition var2, EnumDirection var3) {
+      BlockPosition var4 = var2.shift(var3);
       IBlockData var5 = var1.p(var4);
       Block var6 = var5.getBlock();
       boolean var7 = var6.isOccluding();
-      boolean var8 = var1.p(var2.a()).getBlock().isOccluding();
-      return !var8 && var7 && e(var1, var4.a())?true:(a(var5, var3)?true:(var6 == Blocks.POWERED_REPEATER && var5.get(class_ahh.O) == var3?true:!var7 && e(var1, var4.b())));
+      boolean var8 = var1.p(var2.shiftUp()).getBlock().isOccluding();
+      return !var8 && var7 && e(var1, var4.shiftUp())?true:(a(var5, var3)?true:(var6 == Blocks.POWERED_REPEATER && var5.get(class_ahh.O) == var3?true:!var7 && e(var1, var4.shiftDown())));
    }
 
-   protected static boolean e(class_aer var0, class_cj var1) {
+   protected static boolean e(class_aer var0, BlockPosition var1) {
       return d(var0.p(var1));
    }
 
    protected static boolean d(IBlockData var0) {
-      return a(var0, (class_cq)null);
+      return a(var0, (EnumDirection)null);
    }
 
-   protected static boolean a(IBlockData var0, class_cq var1) {
+   protected static boolean a(IBlockData var0, EnumDirection var1) {
       Block var2 = var0.getBlock();
       if(var2 == Blocks.REDSTONE_WIRE) {
          return true;
       } else if(Blocks.UNPOWERED_REPEATER.e(var2)) {
-         class_cq var3 = (class_cq)var0.get(class_ako.O);
-         return var3 == var1 || var3.d() == var1;
+         EnumDirection var3 = (EnumDirection)var0.get(class_ako.O);
+         return var3 == var1 || var3.getOpposite() == var1;
       } else {
          return var2.isPowerSource() && var1 != null;
       }

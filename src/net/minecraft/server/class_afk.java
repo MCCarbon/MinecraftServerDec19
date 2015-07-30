@@ -18,7 +18,7 @@ import net.minecraft.server.class_aqz;
 import net.minecraft.server.class_arm;
 import net.minecraft.server.class_arn;
 import net.minecraft.server.class_aro;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_tx;
 import net.minecraft.server.class_uc;
 
@@ -54,19 +54,19 @@ public class class_afk extends class_aez {
       return var1.nextInt(4) == 0?new class_arm(class_alm.class_a_in_class_alm.c):new class_arm(class_alm.class_a_in_class_alm.b);
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       super.a(var1, var2, var3);
       int var4 = var2.nextInt(16) + 8;
       int var5 = var2.nextInt(16) + 8;
-      int var6 = var2.nextInt(var1.m(var3.a(var4, 0, var5)).o() * 2);
-      (new class_aqz()).b(var1, var2, var3.a(var4, var6, var5));
+      int var6 = var2.nextInt(var1.m(var3.add(var4, 0, var5)).getY() * 2);
+      (new class_aqz()).b(var1, var2, var3.add(var4, var6, var5));
       class_aro var9 = new class_aro();
 
       for(var5 = 0; var5 < 50; ++var5) {
          var6 = var2.nextInt(16) + 8;
          boolean var7 = true;
          int var8 = var2.nextInt(16) + 8;
-         var9.b(var1, var2, var3.a(var6, 128, var8));
+         var9.b(var1, var2, var3.add(var6, 128, var8));
       }
 
    }

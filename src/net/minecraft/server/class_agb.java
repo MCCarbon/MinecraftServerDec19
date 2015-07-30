@@ -18,8 +18,8 @@ import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
@@ -30,7 +30,7 @@ public class class_agb extends class_agd {
    public static final class_anz b;
 
    protected class_agb() {
-      super(Material.d);
+      super(Material.WOOD);
       float var1 = 0.25F;
       float var2 = 1.0F;
       this.setSizes(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, var2, 0.5F + var1);
@@ -40,7 +40,7 @@ public class class_agb extends class_agd {
       return LocaleI18n.get("item.banner.white.name");
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -48,7 +48,7 @@ public class class_agb extends class_agd {
       return false;
    }
 
-   public boolean isPassable(class_aer var1, class_cj var2) {
+   public boolean isPassable(class_aer var1, BlockPosition var2) {
       return true;
    }
 
@@ -68,7 +68,7 @@ public class class_agb extends class_agd {
       return Items.cH;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
       class_amg var6 = var1.s(var2);
       if(var6 instanceof class_ame) {
          class_aas var7 = new class_aas(Items.cH, 1, ((class_ame)var6).b());
@@ -81,16 +81,16 @@ public class class_agb extends class_agd {
          var7.a((String)"BlockEntityTag", (class_eb)var8);
          a(var1, var2, var7);
       } else {
-         super.a(var1, var2, var3, var4, var5);
+         super.dropNaturally(var1, var2, var3, var4, var5);
       }
 
    }
 
-   public boolean d(World var1, class_cj var2) {
+   public boolean d(World var1, BlockPosition var2) {
       return !this.e(var1, var2) && super.d(var1, var2);
    }
 
-   public void a(World var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
       if(var5 instanceof class_ame) {
          class_ame var7 = (class_ame)var5;
          class_aas var8 = new class_aas(Items.cH, 1, ((class_ame)var5).b());
@@ -112,29 +112,29 @@ public class class_agb extends class_agd {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.c.ordinal()] = 1;
+            a[EnumDirection.NORTH.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_cq.d.ordinal()] = 2;
+            a[EnumDirection.SOUTH.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 3;
+            a[EnumDirection.WEST.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.f.ordinal()] = 4;
+            a[EnumDirection.EAST.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }
@@ -155,8 +155,8 @@ public class class_agb extends class_agd {
          return var1.getBlock() != this?var1:var1.set(b, Integer.valueOf(var2.a(((Integer)var1.get(b)).intValue(), 16)));
       }
 
-      public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
-         if(!var1.p(var2.b()).getBlock().getMaterial().a()) {
+      public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+         if(!var1.p(var2.shiftDown()).getBlock().getMaterial().isBuildable()) {
             this.b(var1, var2, var3, 0);
             var1.g(var2);
          }
@@ -179,19 +179,19 @@ public class class_agb extends class_agd {
 
    public static class class_b_in_class_agb extends class_agb {
       public class_b_in_class_agb() {
-         this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.c));
+         this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
       }
 
       public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-         return var1.getBlock() != this?var1:var1.set(a, var2.a((class_cq)var1.get(a)));
+         return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
       }
 
       public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-         return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
+         return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
       }
 
-      public void a(class_aer var1, class_cj var2) {
-         class_cq var3 = (class_cq)var1.p(var2).get(a);
+      public void a(class_aer var1, BlockPosition var2) {
+         EnumDirection var3 = (EnumDirection)var1.p(var2).get(a);
          float var4 = 0.0F;
          float var5 = 0.78125F;
          float var6 = 0.0F;
@@ -215,9 +215,9 @@ public class class_agb extends class_agd {
 
       }
 
-      public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
-         class_cq var5 = (class_cq)var3.get(a);
-         if(!var1.p(var2.a(var5.d())).getBlock().getMaterial().a()) {
+      public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+         EnumDirection var5 = (EnumDirection)var3.get(a);
+         if(!var1.p(var2.shift(var5.getOpposite())).getBlock().getMaterial().isBuildable()) {
             this.b(var1, var2, var3, 0);
             var1.g(var2);
          }
@@ -226,16 +226,16 @@ public class class_agb extends class_agd {
       }
 
       public IBlockData fromLegacyData(int var1) {
-         class_cq var2 = class_cq.a(var1);
-         if(var2.k() == class_cq.class_a_in_class_cq.b) {
-            var2 = class_cq.c;
+         EnumDirection var2 = EnumDirection.getById(var1);
+         if(var2.getAxis() == EnumDirection.EnumAxis.Y) {
+            var2 = EnumDirection.NORTH;
          }
 
          return this.getBlockData().set(a, var2);
       }
 
       public int toLegacyData(IBlockData var1) {
-         return ((class_cq)var1.get(a)).a();
+         return ((EnumDirection)var1.get(a)).getId();
       }
 
       protected BlockStateList createBlockStateList() {

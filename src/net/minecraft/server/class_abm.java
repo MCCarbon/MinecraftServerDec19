@@ -9,8 +9,8 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_qa;
@@ -28,19 +28,19 @@ public class class_abm extends class_zv {
       return var1 == Blocks.SNOW_LAYER?true:var1 == Blocks.SNOW;
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      if(!var2.a(var4.a(var6), var6, var1)) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+      if(!var2.a(var4.shift(var6), var6, var1)) {
          return class_oq.b;
       } else {
          IBlockData var10 = var3.p(var4);
          Block var11 = var10.getBlock();
-         if(var6 != class_cq.a && var3.p(var4.a()).getBlock().getMaterial() == Material.a) {
+         if(var6 != EnumDirection.DOWN && var3.p(var4.shiftUp()).getBlock().getMaterial() == Material.AIR) {
             if(var11 != Blocks.GRASS) {
                return class_oq.b;
             } else {
                IBlockData var12 = Blocks.GRASS_PATH.getBlockData();
                Block var13 = var12.getBlock();
-               var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), var13.stepSound.c(), (var13.stepSound.d() + 1.0F) / 2.0F, var13.stepSound.e() * 0.8F);
+               var3.a((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), var13.stepSound.c(), (var13.stepSound.d() + 1.0F) / 2.0F, var13.stepSound.e() * 0.8F);
                if(var3.D) {
                   return class_oq.a;
                } else {

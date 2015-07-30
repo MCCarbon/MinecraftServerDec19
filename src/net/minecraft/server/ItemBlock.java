@@ -7,8 +7,8 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -28,11 +28,11 @@ public class ItemBlock extends Item {
 		return this;
 	}
 
-	public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+	public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
 		IBlockData var10 = var3.p(var4);
 		Block var11 = var10.getBlock();
 		if (!var11.isReplaceable(var3, var4)) {
-			var4 = var4.a(var6);
+			var4 = var4.shift(var6);
 		}
 
 		if (var1.b == 0) {
@@ -42,14 +42,14 @@ public class ItemBlock extends Item {
 		} else if (var3.a(this.block, var4, false, var6, (class_pr) null, var1)) {
 			int var12 = this.a(var1.i());
 			IBlockData var13 = this.block.a(var3, var4, var6, var7, var8, var9, var12, var2);
-			if (var3.a((class_cj) var4, (IBlockData) var13, 3)) {
+			if (var3.a((BlockPosition) var4, (IBlockData) var13, 3)) {
 				var13 = var3.p(var4);
 				if (var13.getBlock() == this.block) {
 					a(var3, var2, var4, var1);
 					this.block.a(var3, var4, var13, var2, var1);
 				}
 
-				var3.a((double) ((float) var4.n() + 0.5F), (double) ((float) var4.o() + 0.5F), (double) ((float) var4.p() + 0.5F), this.block.stepSound.b(), (this.block.stepSound.d() + 1.0F) / 2.0F, this.block.stepSound.e() * 0.8F);
+				var3.a((double) ((float) var4.getX() + 0.5F), (double) ((float) var4.getY() + 0.5F), (double) ((float) var4.getZ() + 0.5F), this.block.stepSound.b(), (this.block.stepSound.d() + 1.0F) / 2.0F, this.block.stepSound.e() * 0.8F);
 				--var1.b;
 			}
 
@@ -59,7 +59,7 @@ public class ItemBlock extends Item {
 		}
 	}
 
-	public static boolean a(World var0, class_xa var1, class_cj var2, class_aas var3) {
+	public static boolean a(World var0, class_xa var1, BlockPosition var2, class_aas var3) {
 		MinecraftServer var4 = MinecraftServer.N();
 		if (var4 == null) {
 			return false;
@@ -76,9 +76,9 @@ public class ItemBlock extends Item {
 					var5.b(var6);
 					class_dn var8 = (class_dn) var3.o().b("BlockEntityTag");
 					var6.a(var8);
-					var6.a("x", var2.n());
-					var6.a("y", var2.o());
-					var6.a("z", var2.p());
+					var6.a("x", var2.getX());
+					var6.a("y", var2.getY());
+					var6.a("z", var2.getZ());
 					if (!var6.equals(var7)) {
 						var5.a(var6);
 						var5.p_();

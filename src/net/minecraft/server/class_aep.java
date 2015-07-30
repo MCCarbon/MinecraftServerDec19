@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
 
 public interface class_aep {
-   void a(class_cj var1);
+   void a(BlockPosition var1);
 
-   void b(class_cj var1);
+   void b(BlockPosition var1);
 
    void a(int var1, int var2, int var3, int var4, int var5, int var6);
 
@@ -21,11 +21,11 @@ public interface class_aep {
 
    void b(class_pr var1);
 
-   void a(String var1, class_cj var2);
+   void a(String var1, BlockPosition var2);
 
-   void a(int var1, class_cj var2, int var3);
+   void a(int var1, BlockPosition var2, int var3);
 
-   void a(class_xa var1, int var2, class_cj var3, int var4);
+   void a(class_xa var1, int var2, BlockPosition var3, int var4);
 
-   void b(int var1, class_cj var2, int var3);
+   void b(int var1, BlockPosition var2, int var3);
 }

@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -25,16 +25,16 @@ public class class_zk extends Item {
          return new class_or(class_oq.b, var1);
       } else {
          if(var5.a == class_awg.class_a_in_class_awg.b) {
-            class_cj var6 = var5.a();
+            BlockPosition var6 = var5.a();
             if(!var2.a(var3, var6)) {
                return new class_or(class_oq.b, var1);
             }
 
-            if(!var3.a(var6.a(var5.b), var5.b, var1)) {
+            if(!var3.a(var6.shift(var5.b), var5.b, var1)) {
                return new class_or(class_oq.b, var1);
             }
 
-            if(var2.p(var6).getBlock().getMaterial() == Material.h) {
+            if(var2.p(var6).getBlock().getMaterial() == Material.WATER) {
                --var1.b;
                var3.b(class_nc.ad[Item.getId((Item)this)]);
                if(var1.b <= 0) {

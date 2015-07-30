@@ -9,8 +9,8 @@ import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_avd;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -45,7 +45,7 @@ public class class_tr extends class_avd {
 
    }
 
-   public void a(class_cj var1) {
+   public void a(BlockPosition var1) {
       if(this.c.size() <= 64) {
          if(!this.e(var1)) {
             this.c.add(var1);
@@ -89,14 +89,14 @@ public class class_tr extends class_avd {
       return this.e;
    }
 
-   public class_tp a(class_cj var1, int var2) {
+   public class_tp a(BlockPosition var1, int var2) {
       class_tp var3 = null;
       double var4 = 3.4028234663852886E38D;
       Iterator var6 = this.e.iterator();
 
       while(var6.hasNext()) {
          class_tp var7 = (class_tp)var6.next();
-         double var8 = var7.a().i(var1);
+         double var8 = var7.a().distanceSquared(var1);
          if(var8 < var4) {
             float var10 = (float)(var2 + var7.b());
             if(var8 <= (double)(var10 * var10)) {
@@ -111,7 +111,7 @@ public class class_tr extends class_avd {
 
    private void f() {
       if(!this.c.isEmpty()) {
-         this.b((class_cj)this.c.remove(0));
+         this.b((BlockPosition)this.c.remove(0));
       }
    }
 
@@ -131,7 +131,7 @@ public class class_tr extends class_avd {
       this.d.clear();
    }
 
-   private void b(class_cj var1) {
+   private void b(BlockPosition var1) {
       byte var2 = 16;
       byte var3 = 4;
       byte var4 = 16;
@@ -139,7 +139,7 @@ public class class_tr extends class_avd {
       for(int var5 = -var2; var5 < var2; ++var5) {
          for(int var6 = -var3; var6 < var3; ++var6) {
             for(int var7 = -var4; var7 < var4; ++var7) {
-               class_cj var8 = var1.a(var5, var6, var7);
+               BlockPosition var8 = var1.add(var5, var6, var7);
                if(this.f(var8)) {
                   class_to var9 = this.c(var8);
                   if(var9 == null) {
@@ -154,7 +154,7 @@ public class class_tr extends class_avd {
 
    }
 
-   private class_to c(class_cj var1) {
+   private class_to c(BlockPosition var1) {
       Iterator var2 = this.d.iterator();
 
       class_to var3;
@@ -176,14 +176,14 @@ public class class_tr extends class_avd {
          }
 
          var3 = (class_to)var2.next();
-      } while(var3.d().n() != var1.n() || var3.d().p() != var1.p() || Math.abs(var3.d().o() - var1.o()) > 1);
+      } while(var3.d().getX() != var1.getX() || var3.d().getZ() != var1.getZ() || Math.abs(var3.d().getY() - var1.getY()) > 1);
 
       return var3;
    }
 
-   private void d(class_cj var1) {
-      class_cq var2 = class_ahl.h(this.b, var1);
-      class_cq var3 = var2.d();
+   private void d(BlockPosition var1) {
+      EnumDirection var2 = class_ahl.h(this.b, var1);
+      EnumDirection var3 = var2.getOpposite();
       int var4 = this.a(var1, var2, 5);
       int var5 = this.a(var1, var3, var4 + 1);
       if(var4 != var5) {
@@ -192,11 +192,11 @@ public class class_tr extends class_avd {
 
    }
 
-   private int a(class_cj var1, class_cq var2, int var3) {
+   private int a(BlockPosition var1, EnumDirection var2, int var3) {
       int var4 = 0;
 
       for(int var5 = 1; var5 <= 5; ++var5) {
-         if(this.b.i(var1.a(var2, var5))) {
+         if(this.b.i(var1.shift(var2, var5))) {
             ++var4;
             if(var4 >= var3) {
                return var4;
@@ -207,24 +207,24 @@ public class class_tr extends class_avd {
       return var4;
    }
 
-   private boolean e(class_cj var1) {
+   private boolean e(BlockPosition var1) {
       Iterator var2 = this.c.iterator();
 
-      class_cj var3;
+      BlockPosition var3;
       do {
          if(!var2.hasNext()) {
             return false;
          }
 
-         var3 = (class_cj)var2.next();
+         var3 = (BlockPosition)var2.next();
       } while(!var3.equals(var1));
 
       return true;
    }
 
-   private boolean f(class_cj var1) {
+   private boolean f(BlockPosition var1) {
       Block var2 = this.b.p(var1).getBlock();
-      return var2 instanceof class_ahl?var2.getMaterial() == Material.d:false;
+      return var2 instanceof class_ahl?var2.getMaterial() == Material.WOOD:false;
    }
 
    public void a(class_dn var1) {

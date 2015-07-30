@@ -5,7 +5,7 @@ import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import org.apache.commons.lang3.Validate;
 
 public class class_gs implements class_ff {
@@ -27,7 +27,7 @@ public class class_gs implements class_ff {
       this.d = (int)(var6 * 8.0D);
       this.e = var8;
       this.f = (int)(var9 * 63.0F);
-      var9 = class_nu.a(var9, 0.0F, 255.0F);
+      var9 = MathHelper.clamp(var9, 0.0F, 255.0F);
    }
 
    public void a(class_em var1) throws IOException {

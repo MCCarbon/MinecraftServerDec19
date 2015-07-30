@@ -10,7 +10,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 
 public class class_aoj extends class_aok {
@@ -29,26 +29,26 @@ public class class_aoj extends class_aok {
    public void b() {
    }
 
-   public Block a(class_cj var1) {
+   public Block a(BlockPosition var1) {
       return Blocks.AIR;
    }
 
-   public int b(class_cj var1) {
+   public int b(BlockPosition var1) {
       return 255;
    }
 
-   public int c(class_cj var1) {
+   public int c(BlockPosition var1) {
       return 0;
    }
 
-   public int a(class_aet var1, class_cj var2) {
+   public int a(class_aet var1, BlockPosition var2) {
       return var1.c;
    }
 
-   public void a(class_aet var1, class_cj var2, int var3) {
+   public void a(class_aet var1, BlockPosition var2, int var3) {
    }
 
-   public int a(class_cj var1, int var2) {
+   public int a(BlockPosition var1, int var2) {
       return 0;
    }
 
@@ -61,21 +61,21 @@ public class class_aoj extends class_aok {
    public void a(class_pr var1, int var2) {
    }
 
-   public boolean d(class_cj var1) {
+   public boolean d(BlockPosition var1) {
       return false;
    }
 
-   public class_amg a(class_cj var1, class_aok.class_a_in_class_aok var2) {
+   public class_amg a(BlockPosition var1, class_aok.class_a_in_class_aok var2) {
       return null;
    }
 
    public void a(class_amg var1) {
    }
 
-   public void a(class_cj var1, class_amg var2) {
+   public void a(BlockPosition var1, class_amg var2) {
    }
 
-   public void e(class_cj var1) {
+   public void e(BlockPosition var1) {
    }
 
    public void c() {

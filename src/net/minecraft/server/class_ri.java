@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 
@@ -27,16 +27,16 @@ public class class_ri extends class_rm {
          return false;
       } else if(!this.a.av()) {
          return false;
-      } else if(!this.f.i(new class_cj(this.a.s, this.a.aT().b, this.a.u))) {
+      } else if(!this.f.i(new BlockPosition(this.a.s, this.a.aT().b, this.a.u))) {
          return false;
       } else {
-         class_awh var1 = this.f();
+         Vec3D var1 = this.f();
          if(var1 == null) {
             return false;
          } else {
-            this.b = var1.a;
-            this.c = var1.b;
-            this.d = var1.c;
+            this.b = var1.x;
+            this.c = var1.y;
+            this.d = var1.z;
             return true;
          }
       }
@@ -50,14 +50,14 @@ public class class_ri extends class_rm {
       this.a.u().a(this.b, this.c, this.d, this.e);
    }
 
-   private class_awh f() {
+   private Vec3D f() {
       Random var1 = this.a.bd();
-      class_cj var2 = new class_cj(this.a.s, this.a.aT().b, this.a.u);
+      BlockPosition var2 = new BlockPosition(this.a.s, this.a.aT().b, this.a.u);
 
       for(int var3 = 0; var3 < 10; ++var3) {
-         class_cj var4 = var2.a(var1.nextInt(20) - 10, var1.nextInt(6) - 3, var1.nextInt(20) - 10);
+         BlockPosition var4 = var2.add(var1.nextInt(20) - 10, var1.nextInt(6) - 3, var1.nextInt(20) - 10);
          if(!this.f.i(var4) && this.a.a(var4) < 0.0F) {
-            return new class_awh((double)var4.n(), (double)var4.o(), (double)var4.p());
+            return new Vec3D((double)var4.getX(), (double)var4.getY(), (double)var4.getZ());
          }
       }
 

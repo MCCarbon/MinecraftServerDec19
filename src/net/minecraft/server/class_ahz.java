@@ -15,8 +15,8 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
@@ -38,11 +38,11 @@ public class class_ahz extends Block {
       this.a(CreativeTab.c);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
-      boolean var7 = this.e(var1, var2.c());
-      boolean var8 = this.e(var1, var2.d());
-      boolean var9 = this.e(var1, var2.e());
-      boolean var10 = this.e(var1, var2.f());
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+      boolean var7 = this.e(var1, var2.shiftNorth());
+      boolean var8 = this.e(var1, var2.shiftSouth());
+      boolean var9 = this.e(var1, var2.shiftWest());
+      boolean var10 = this.e(var1, var2.shiftEast());
       float var11 = 0.375F;
       float var12 = 0.625F;
       float var13 = 0.375F;
@@ -86,11 +86,11 @@ public class class_ahz extends Block {
       this.setSizes(var11, 0.0F, var13, var12, 1.0F, var14);
    }
 
-   public void a(class_aer var1, class_cj var2) {
-      boolean var3 = this.e(var1, var2.c());
-      boolean var4 = this.e(var1, var2.d());
-      boolean var5 = this.e(var1, var2.e());
-      boolean var6 = this.e(var1, var2.f());
+   public void a(class_aer var1, BlockPosition var2) {
+      boolean var3 = this.e(var1, var2.shiftNorth());
+      boolean var4 = this.e(var1, var2.shiftSouth());
+      boolean var5 = this.e(var1, var2.shiftWest());
+      boolean var6 = this.e(var1, var2.shiftEast());
       float var7 = 0.375F;
       float var8 = 0.625F;
       float var9 = 0.375F;
@@ -122,16 +122,16 @@ public class class_ahz extends Block {
       return false;
    }
 
-   public boolean isPassable(class_aer var1, class_cj var2) {
+   public boolean isPassable(class_aer var1, BlockPosition var2) {
       return false;
    }
 
-   public boolean e(class_aer var1, class_cj var2) {
+   public boolean e(class_aer var1, BlockPosition var2) {
       Block var3 = var1.p(var2).getBlock();
-      return var3 == Blocks.BARRIER?false:((!(var3 instanceof class_ahz) || var3.material != this.material) && !(var3 instanceof class_aia)?(var3.material.k() && var3.isFullCube()?var3.material != Material.C:false):true);
+      return var3 == Blocks.BARRIER?false:((!(var3 instanceof class_ahz) || var3.material != this.material) && !(var3 instanceof class_aia)?(var3.material.isOpaque() && var3.isFullCube()?var3.material != Material.PUMPKIN:false):true);
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       return var1.D?true:class_aav.a(var4, var1, var2);
    }
 
@@ -139,8 +139,8 @@ public class class_ahz extends Block {
       return 0;
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      return var1.set(a, Boolean.valueOf(this.e(var2, var3.c()))).set(b, Boolean.valueOf(this.e(var2, var3.f()))).set(N, Boolean.valueOf(this.e(var2, var3.d()))).set(O, Boolean.valueOf(this.e(var2, var3.e())));
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+      return var1.set(a, Boolean.valueOf(this.e(var2, var3.shiftNorth()))).set(b, Boolean.valueOf(this.e(var2, var3.shiftEast()))).set(N, Boolean.valueOf(this.e(var2, var3.shiftSouth()))).set(O, Boolean.valueOf(this.e(var2, var3.shiftWest())));
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {

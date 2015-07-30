@@ -13,7 +13,7 @@ import net.minecraft.server.class_ahm;
 import net.minecraft.server.class_ahp;
 import net.minecraft.server.class_aib;
 import net.minecraft.server.class_aic;
-import net.minecraft.server.class_aik;
+import net.minecraft.server.BlockGrass;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.class_aiu;
 import net.minecraft.server.class_aja;
@@ -39,7 +39,7 @@ public class Blocks {
 
 	public static final Block AIR;
 	public static final Block STONE;
-	public static final class_aik GRASS;
+	public static final BlockGrass GRASS;
 	public static final Block DIRT;
 	public static final Block COBBLESTONE;
 	public static final Block PLANKS;
@@ -264,7 +264,7 @@ public class Blocks {
 		} else {
 			AIR = getByName("air");
 			STONE = getByName("stone");
-			GRASS = (class_aik) getByName("grass");
+			GRASS = (BlockGrass) getByName("grass");
 			DIRT = getByName("dirt");
 			COBBLESTONE = getByName("cobblestone");
 			PLANKS = getByName("planks");

@@ -15,8 +15,8 @@ import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oj;
@@ -31,7 +31,7 @@ public class class_agn extends class_agd {
    public static final class_anw[] a = new class_anw[]{class_anw.a("has_bottle_0"), class_anw.a("has_bottle_1"), class_anw.a("has_bottle_2")};
 
    public class_agn() {
-      super(Material.f);
+      super(Material.ORE);
       this.setBlockData(this.blockStateList.getFirst().set(a[0], Boolean.valueOf(false)).set(a[1], Boolean.valueOf(false)).set(a[2], Boolean.valueOf(false)));
    }
 
@@ -55,7 +55,7 @@ public class class_agn extends class_agd {
       return false;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
       this.setSizes(0.4375F, 0.0F, 0.4375F, 0.5625F, 0.875F, 0.5625F);
       super.a(var1, var2, var3, var4, var5, var6);
       this.j();
@@ -66,7 +66,7 @@ public class class_agn extends class_agd {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {
@@ -80,7 +80,7 @@ public class class_agn extends class_agd {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
       if(var5.s()) {
          class_amg var6 = var1.s(var2);
          if(var6 instanceof class_amh) {
@@ -90,10 +90,10 @@ public class class_agn extends class_agd {
 
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       class_amg var4 = var1.s(var2);
       if(var4 instanceof class_amh) {
-         class_ol.a(var1, (class_cj)var2, (class_amh)var4);
+         class_ol.a(var1, (BlockPosition)var2, (class_amh)var4);
       }
 
       super.b(var1, var2, var3);
@@ -107,7 +107,7 @@ public class class_agn extends class_agd {
       return true;
    }
 
-   public int l(World var1, class_cj var2) {
+   public int l(World var1, BlockPosition var2) {
       return class_xz.a(var1.s(var2));
    }
 

@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
@@ -36,7 +36,7 @@ public class class_xu extends class_xf {
       return false;
    }
 
-   public float a(class_aej var1, World var2, class_cj var3, IBlockData var4) {
+   public float a(class_aej var1, World var2, BlockPosition var3, IBlockData var4) {
       float var5 = super.a(var1, var2, var3, var4);
       Block var6 = var4.getBlock();
       if(this.l() && class_uw.a(var6)) {

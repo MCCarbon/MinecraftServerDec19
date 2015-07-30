@@ -11,8 +11,8 @@ import net.minecraft.server.class_anx;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.CreativeTab;
 
@@ -20,21 +20,21 @@ public class class_aiz extends Block {
    public static final class_anx a;
 
    protected class_aiz() {
-      super(Material.q);
-      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.c));
+      super(Material.ORIENTABLE);
+      this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
       this.a(CreativeTab.c);
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
-      this.a((class_aer)var1, (class_cj)var2);
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+      this.a((class_aer)var1, (BlockPosition)var2);
       return super.a(var1, var2, var3);
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       if(var3.getBlock() == this) {
          float var4 = 0.1875F;
-         switch(class_aiz.SyntheticClass_1.a[((class_cq)var3.get(a)).ordinal()]) {
+         switch(class_aiz.SyntheticClass_1.a[((EnumDirection)var3.get(a)).ordinal()]) {
          case 1:
             this.setSizes(0.0F, 0.0F, 1.0F - var4, 1.0F, 1.0F, 1.0F);
             break;
@@ -60,31 +60,31 @@ public class class_aiz extends Block {
       return false;
    }
 
-   public boolean d(World var1, class_cj var2) {
-      return var1.p(var2.e()).getBlock().isOccluding()?true:(var1.p(var2.f()).getBlock().isOccluding()?true:(var1.p(var2.c()).getBlock().isOccluding()?true:var1.p(var2.d()).getBlock().isOccluding()));
+   public boolean d(World var1, BlockPosition var2) {
+      return var1.p(var2.shiftWest()).getBlock().isOccluding()?true:(var1.p(var2.shiftEast()).getBlock().isOccluding()?true:(var1.p(var2.shiftNorth()).getBlock().isOccluding()?true:var1.p(var2.shiftSouth()).getBlock().isOccluding()));
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      if(var3.k().c() && this.a(var1, var2, var3)) {
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      if(var3.getAxis().isHorizontal() && this.a(var1, var2, var3)) {
          return this.getBlockData().set(a, var3);
       } else {
-         Iterator var9 = class_cq.class_c_in_class_cq.a.iterator();
+         Iterator var9 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
-         class_cq var10;
+         EnumDirection var10;
          do {
             if(!var9.hasNext()) {
                return this.getBlockData();
             }
 
-            var10 = (class_cq)var9.next();
+            var10 = (EnumDirection)var9.next();
          } while(!this.a(var1, var2, var10));
 
          return this.getBlockData().set(a, var10);
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
-      class_cq var5 = (class_cq)var3.get(a);
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      EnumDirection var5 = (EnumDirection)var3.get(a);
       if(!this.a(var1, var2, var5)) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
@@ -93,29 +93,29 @@ public class class_aiz extends Block {
       super.a(var1, var2, var3, var4);
    }
 
-   protected boolean a(World var1, class_cj var2, class_cq var3) {
-      return var1.p(var2.a(var3.d())).getBlock().isOccluding();
+   protected boolean a(World var1, BlockPosition var2, EnumDirection var3) {
+      return var1.p(var2.shift(var3.getOpposite())).getBlock().isOccluding();
    }
 
    public IBlockData fromLegacyData(int var1) {
-      class_cq var2 = class_cq.a(var1);
-      if(var2.k() == class_cq.class_a_in_class_cq.b) {
-         var2 = class_cq.c;
+      EnumDirection var2 = EnumDirection.getById(var1);
+      if(var2.getAxis() == EnumDirection.EnumAxis.Y) {
+         var2 = EnumDirection.NORTH;
       }
 
       return this.getBlockData().set(a, var2);
    }
 
    public int toLegacyData(IBlockData var1) {
-      return ((class_cq)var1.get(a)).a();
+      return ((EnumDirection)var1.get(a)).getId();
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(a, var2.a((class_cq)var1.get(a)));
+      return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
    }
 
    protected BlockStateList createBlockStateList() {
@@ -129,29 +129,29 @@ public class class_aiz extends Block {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.c.ordinal()] = 1;
+            a[EnumDirection.NORTH.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_cq.d.ordinal()] = 2;
+            a[EnumDirection.SOUTH.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 3;
+            a[EnumDirection.WEST.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.f.ordinal()] = 4;
+            a[EnumDirection.EAST.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }

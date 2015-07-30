@@ -8,13 +8,13 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qi;
@@ -82,7 +82,7 @@ public class class_vm extends class_pr {
          this.d(this.v, this.w, this.x);
          boolean var1 = (int)this.p != (int)this.s || (int)this.q != (int)this.t || (int)this.r != (int)this.u;
          if(var1 || this.W % 25 == 0) {
-            if(this.o.p(new class_cj(this)).getBlock().getMaterial() == Material.i) {
+            if(this.o.p(new BlockPosition(this)).getBlock().getMaterial() == Material.LAVA) {
                this.w = 0.20000000298023224D;
                this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
                this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
@@ -96,7 +96,7 @@ public class class_vm extends class_pr {
 
          float var2 = 0.98F;
          if(this.C) {
-            var2 = this.o.p(new class_cj(class_nu.c(this.s), class_nu.c(this.aT().b) - 1, class_nu.c(this.u))).getBlock().frictionFactor * 0.98F;
+            var2 = this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().b) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.98F;
          }
 
          this.v *= (double)var2;
@@ -174,7 +174,7 @@ public class class_vm extends class_pr {
    }
 
    public boolean W() {
-      if(this.o.a((class_awf)this.aT(), (Material)Material.h, (class_pr)this)) {
+      if(this.o.a((class_awf)this.aT(), (Material)Material.WATER, (class_pr)this)) {
          if(!this.Y && !this.aa) {
             this.X();
          }

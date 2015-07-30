@@ -20,8 +20,8 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.INamable;
@@ -34,7 +34,7 @@ public class class_aid extends class_agd {
    public static final BlockStateEnum b = BlockStateEnum.of("contents", class_aid.class_a_in_class_aid.class);
 
    public class_aid() {
-      super(Material.q);
+      super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(b, class_aid.class_a_in_class_aid.a).set(a, Integer.valueOf(0)));
       this.j();
    }
@@ -61,7 +61,7 @@ public class class_aid extends class_agd {
       return false;
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var6 != null && var6.b() instanceof ItemBlock) {
          class_amq var11 = this.f(var1, var2);
          if(var11 == null) {
@@ -93,24 +93,24 @@ public class class_aid extends class_agd {
       return var1 != Blocks.YELLOW_FLOWER && var1 != Blocks.RED_FLOWER && var1 != Blocks.CACTUS && var1 != Blocks.BROWN_MUSHROOM && var1 != Blocks.RED_MUSHROOM && var1 != Blocks.SAPLING && var1 != Blocks.DEADBUSH?var1 == Blocks.TALLGRASS && var2 == class_alm.class_a_in_class_alm.c.a():true;
    }
 
-   public int j(World var1, class_cj var2) {
+   public int j(World var1, BlockPosition var2) {
       class_amq var3 = this.f(var1, var2);
       return var3 != null && var3.b() != null?var3.c():0;
    }
 
-   public boolean d(World var1, class_cj var2) {
-      return super.d(var1, var2) && World.a((class_aer)var1, (class_cj)var2.b());
+   public boolean d(World var1, BlockPosition var2) {
+      return super.d(var1, var2) && World.a((class_aer)var1, (BlockPosition)var2.shiftDown());
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
-      if(!World.a((class_aer)var1, (class_cj)var2.b())) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(!World.a((class_aer)var1, (BlockPosition)var2.shiftDown())) {
          this.b(var1, var2, var3, 0);
          var1.g(var2);
       }
 
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       class_amq var4 = this.f(var1, var2);
       if(var4 != null && var4.b() != null) {
          a(var1, var2, new class_aas(var4.b(), 1, var4.c()));
@@ -119,7 +119,7 @@ public class class_aid extends class_agd {
       super.b(var1, var2, var3);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_xa var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
       super.a(var1, var2, var3, var4);
       if(var4.bH.d) {
          class_amq var5 = this.f(var1, var2);
@@ -134,7 +134,7 @@ public class class_aid extends class_agd {
       return Items.bT;
    }
 
-   private class_amq f(World var1, class_cj var2) {
+   private class_amq f(World var1, BlockPosition var2) {
       class_amg var3 = var1.s(var2);
       return var3 instanceof class_amq?(class_amq)var3:null;
    }
@@ -202,7 +202,7 @@ public class class_aid extends class_agd {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
       class_aid.class_a_in_class_aid var4 = class_aid.class_a_in_class_aid.a;
       class_amg var5 = var2.s(var3);
       if(var5 instanceof class_amq) {

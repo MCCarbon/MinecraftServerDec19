@@ -5,12 +5,12 @@ import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -168,21 +168,21 @@ public class class_we extends class_py implements class_wd {
             World var4 = this.b.o;
             ++this.a;
             if(this.a == 10) {
-               var4.a((class_xa)null, 1007, new class_cj(this.b), 0);
+               var4.a((class_xa)null, 1007, new BlockPosition(this.b), 0);
             }
 
             if(this.a == 20) {
                double var5 = 4.0D;
-               class_awh var7 = this.b.d(1.0F);
-               double var8 = var1.s - (this.b.s + var7.a * var5);
+               Vec3D var7 = this.b.d(1.0F);
+               double var8 = var1.s - (this.b.s + var7.x * var5);
                double var10 = var1.aT().b + (double)(var1.K / 2.0F) - (0.5D + this.b.t + (double)(this.b.K / 2.0F));
-               double var12 = var1.u - (this.b.u + var7.c * var5);
-               var4.a((class_xa)null, 1008, new class_cj(this.b), 0);
+               double var12 = var1.u - (this.b.u + var7.z * var5);
+               var4.a((class_xa)null, 1008, new BlockPosition(this.b), 0);
                class_xh var14 = new class_xh(var4, this.b, var8, var10, var12);
                var14.e = this.b.cu();
-               var14.s = this.b.s + var7.a * var5;
+               var14.s = this.b.s + var7.x * var5;
                var14.t = this.b.t + (double)(this.b.K / 2.0F) + 0.5D;
-               var14.u = this.b.u + var7.c * var5;
+               var14.u = this.b.u + var7.z * var5;
                var4.a((class_pr)var14);
                this.a = -40;
             }
@@ -208,14 +208,14 @@ public class class_we extends class_py implements class_wd {
 
       public void e() {
          if(this.a.w() == null) {
-            this.a.aL = this.a.y = -((float)class_nu.b(this.a.v, this.a.x)) * 180.0F / 3.1415927F;
+            this.a.aL = this.a.y = -((float)MathHelper.b(this.a.v, this.a.x)) * 180.0F / 3.1415927F;
          } else {
             class_qa var1 = this.a.w();
             double var2 = 64.0D;
             if(var1.h(this.a) < var2 * var2) {
                double var4 = var1.s - this.a.s;
                double var6 = var1.u - this.a.u;
-               this.a.aL = this.a.y = -((float)class_nu.b(var4, var6)) * 180.0F / 3.1415927F;
+               this.a.aL = this.a.y = -((float)MathHelper.b(var4, var6)) * 180.0F / 3.1415927F;
             }
          }
 
@@ -273,7 +273,7 @@ public class class_we extends class_py implements class_wd {
             double var7 = var1 * var1 + var3 * var3 + var5 * var5;
             if(this.h-- <= 0) {
                this.h += this.g.bd().nextInt(5) + 2;
-               var7 = (double)class_nu.a(var7);
+               var7 = (double)MathHelper.sqrt(var7);
                if(this.b(this.b, this.c, this.d, var7)) {
                   this.g.v += var1 / var7 * 0.1D;
                   this.g.w += var3 / var7 * 0.1D;

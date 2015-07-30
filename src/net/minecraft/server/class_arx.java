@@ -8,7 +8,7 @@ import net.minecraft.server.class_apq;
 import net.minecraft.server.class_ary;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_aso;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 
 public class class_arx extends class_ask {
@@ -83,7 +83,7 @@ public class class_arx extends class_ask {
          if(var14 < 60) {
             this.c = false;
          } else {
-            class_cj var15 = new class_cj(var4 * 16 + 8, var14, var5 * 16 + 8);
+            BlockPosition var15 = new BlockPosition(var4 * 16 + 8, var14, var5 * 16 + 8);
             class_ary.a(var15, var6, this.a, var3);
             this.d();
             this.c = true;

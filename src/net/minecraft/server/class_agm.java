@@ -10,7 +10,7 @@ import net.minecraft.server.CreativeTab;
 
 public class class_agm extends Block {
    public class_agm() {
-      super(Material.d);
+      super(Material.WOOD);
       this.a(CreativeTab.b);
    }
 

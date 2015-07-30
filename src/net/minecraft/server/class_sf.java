@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_rm;
@@ -43,7 +43,7 @@ public class class_sf extends class_rm {
          }
 
          if(this.b == null) {
-            class_awh var8 = class_tm.a(this.a, 16, 3);
+            Vec3D var8 = class_tm.a(this.a, 16, 3);
             if(var8 == null) {
                return false;
             }
@@ -77,12 +77,12 @@ public class class_sf extends class_rm {
             this.a.u().a((class_pr)this.b, this.c);
          }
       } else if(this.a.u().m()) {
-         class_awh var1 = class_tm.a(this.a, 16, 3);
+         Vec3D var1 = class_tm.a(this.a, 16, 3);
          if(var1 == null) {
             return;
          }
 
-         this.a.u().a(var1.a, var1.b, var1.c, this.c);
+         this.a.u().a(var1.x, var1.y, var1.z, this.c);
       }
 
    }

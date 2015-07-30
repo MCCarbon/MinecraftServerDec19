@@ -11,8 +11,8 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.INamable;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -35,7 +35,7 @@ public abstract class class_aio extends Block {
       return false;
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       if(this.l()) {
          this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
       } else {
@@ -60,7 +60,7 @@ public abstract class class_aio extends Block {
 
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
       this.isReplaceable(var1, var2);
       super.a(var1, var2, var3, var4, var5, var6);
    }
@@ -69,9 +69,9 @@ public abstract class class_aio extends Block {
       return this.l();
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
       IBlockData var9 = super.a(var1, var2, var3, var4, var5, var6, var7, var8).set(a, class_aio.class_a_in_class_aio.b);
-      return this.l()?var9:(var3 != class_cq.a && (var3 == class_cq.b || (double)var5 <= 0.5D)?var9:var9.set(a, class_aio.class_a_in_class_aio.a));
+      return this.l()?var9:(var3 != EnumDirection.DOWN && (var3 == EnumDirection.UP || (double)var5 <= 0.5D)?var9:var9.set(a, class_aio.class_a_in_class_aio.a));
    }
 
    public int a(Random var1) {
@@ -84,7 +84,7 @@ public abstract class class_aio extends Block {
 
    public abstract String b(int var1);
 
-   public int j(World var1, class_cj var2) {
+   public int j(World var1, BlockPosition var2) {
       return super.j(var1, var2) & 7;
    }
 

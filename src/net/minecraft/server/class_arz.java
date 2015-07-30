@@ -6,7 +6,7 @@ import java.util.Map.Entry;
 import net.minecraft.server.class_asb;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_aso;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 
 public class class_arz extends class_ask {
    private double d = 0.004D;
@@ -24,7 +24,7 @@ public class class_arz extends class_ask {
       while(var2.hasNext()) {
          Entry var3 = (Entry)var2.next();
          if(((String)var3.getKey()).equals("chance")) {
-            this.d = class_nu.a((String)var3.getValue(), this.d);
+            this.d = MathHelper.parseDoubleWithDef((String)var3.getValue(), this.d);
          }
       }
 

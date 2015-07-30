@@ -60,7 +60,7 @@ import net.minecraft.server.class_aig;
 import net.minecraft.server.class_aih;
 import net.minecraft.server.class_aii;
 import net.minecraft.server.class_aij;
-import net.minecraft.server.class_aik;
+import net.minecraft.server.BlockGrass;
 import net.minecraft.server.class_ail;
 import net.minecraft.server.class_aim;
 import net.minecraft.server.class_ain;
@@ -158,10 +158,10 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.RegistryBlocks;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.RegistryID;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.MinecraftKey;
@@ -340,7 +340,7 @@ public class Block {
 		}
 	}
 
-	public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+	public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
 		return var1;
 	}
 
@@ -377,7 +377,7 @@ public class Block {
 	}
 
 	public boolean isOccluding() {
-		return this.material.k() && this.isFullCube() && !this.isPowerSource();
+		return this.material.isOpaque() && this.isFullCube() && !this.isPowerSource();
 	}
 
 	public boolean isVisuallyOpaque() {
@@ -388,7 +388,7 @@ public class Block {
 		return true;
 	}
 
-	public boolean isPassable(class_aer var1, class_cj var2) {
+	public boolean isPassable(class_aer var1, BlockPosition var2) {
 		return !this.material.isSolid();
 	}
 
@@ -396,7 +396,7 @@ public class Block {
 		return 3;
 	}
 
-	public boolean isReplaceable(World world, class_cj var2) {
+	public boolean isReplaceable(World world, BlockPosition var2) {
 		return false;
 	}
 
@@ -414,7 +414,7 @@ public class Block {
 		return this;
 	}
 
-	public float getStrength(World world, class_cj var2) {
+	public float getStrength(World world, BlockPosition var2) {
 		return this.strength;
 	}
 
@@ -440,11 +440,11 @@ public class Block {
 		this.maxZ = (double) maxZ;
 	}
 
-	public boolean b(class_aer var1, class_cj var2, class_cq var3) {
-		return var1.p(var2).getBlock().getMaterial().a();
+	public boolean b(class_aer var1, BlockPosition var2, EnumDirection var3) {
+		return var1.p(var2).getBlock().getMaterial().isBuildable();
 	}
 
-	public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List<class_awf> var5, class_pr var6) {
+	public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List<class_awf> var5, class_pr var6) {
 		class_awf var7 = this.a(var1, var2, var3);
 		if (var7 != null && var4.b(var7)) {
 			var5.add(var7);
@@ -452,8 +452,8 @@ public class Block {
 
 	}
 
-	public class_awf a(World var1, class_cj var2, IBlockData var3) {
-		return new class_awf((double) var2.n() + this.minX, (double) var2.o() + this.minY, (double) var2.p() + this.minZ, (double) var2.n() + this.maxX, (double) var2.o() + this.maxY, (double) var2.p() + this.maxZ);
+	public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+		return new class_awf((double) var2.getX() + this.minX, (double) var2.getY() + this.minY, (double) var2.getZ() + this.minZ, (double) var2.getX() + this.maxX, (double) var2.getY() + this.maxY, (double) var2.getZ() + this.maxZ);
 	}
 
 	public boolean isOpaqueCube() {
@@ -468,47 +468,47 @@ public class Block {
 		return true;
 	}
 
-	public void a(World var1, class_cj var2, IBlockData var3, Random var4) {
+	public void a(World var1, BlockPosition var2, IBlockData var3, Random var4) {
 		this.b(var1, var2, var3, var4);
 	}
 
-	public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+	public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
 	}
 
-	public void d(World var1, class_cj var2, IBlockData var3) {
+	public void d(World var1, BlockPosition var2, IBlockData var3) {
 	}
 
-	public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+	public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
 	}
 
 	public int a(World var1) {
 		return 10;
 	}
 
-	public void c(World var1, class_cj var2, IBlockData var3) {
+	public void c(World var1, BlockPosition var2, IBlockData var3) {
 	}
 
-	public void b(World var1, class_cj var2, IBlockData var3) {
+	public void b(World var1, BlockPosition var2, IBlockData var3) {
 	}
 
 	public int a(Random var1) {
 		return 1;
 	}
 
-	public Item getDropType(IBlockData var1, Random var2, int var3) {
+	public Item getDropType(IBlockData blockdata, Random random, int var3) {
 		return Item.getByBlock(this);
 	}
 
-	public float a(class_xa var1, World var2, class_cj var3) {
+	public float a(class_xa var1, World var2, BlockPosition var3) {
 		float var4 = this.getStrength(var2, var3);
 		return var4 < 0.0F ? 0.0F : (!var1.b(this) ? var1.a(this) / var4 / 100.0F : var1.a(this) / var4 / 30.0F);
 	}
 
-	public final void b(World var1, class_cj var2, IBlockData var3, int var4) {
-		this.a(var1, var2, var3, 1.0F, var4);
+	public final void b(World var1, BlockPosition var2, IBlockData var3, int var4) {
+		this.dropNaturally(var1, var2, var3, 1.0F, var4);
 	}
 
-	public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
+	public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
 		if (!var1.D) {
 			int var6 = this.a(var5, var1.s);
 
@@ -524,30 +524,30 @@ public class Block {
 		}
 	}
 
-	public static void a(World var0, class_cj var1, class_aas var2) {
+	public static void a(World var0, BlockPosition var1, class_aas var2) {
 		if (!var0.D && var0.R().b("doTileDrops")) {
 			float var3 = 0.5F;
 			double var4 = (double) (var0.s.nextFloat() * var3) + (double) (1.0F - var3) * 0.5D;
 			double var6 = (double) (var0.s.nextFloat() * var3) + (double) (1.0F - var3) * 0.5D;
 			double var8 = (double) (var0.s.nextFloat() * var3) + (double) (1.0F - var3) * 0.5D;
-			class_vm var10 = new class_vm(var0, (double) var1.n() + var4, (double) var1.o() + var6, (double) var1.p() + var8, var2);
+			class_vm var10 = new class_vm(var0, (double) var1.getX() + var4, (double) var1.getY() + var6, (double) var1.getZ() + var8, var2);
 			var10.p();
 			var0.a((class_pr) var10);
 		}
 	}
 
-	protected void b(World var1, class_cj var2, int var3) {
+	protected void b(World var1, BlockPosition var2, int var3) {
 		if (!var1.D) {
 			while (var3 > 0) {
 				int var4 = class_px.a(var3);
 				var3 -= var4;
-				var1.a((class_pr) (new class_px(var1, (double) var2.n() + 0.5D, (double) var2.o() + 0.5D, (double) var2.p() + 0.5D, var4)));
+				var1.a((class_pr) (new class_px(var1, (double) var2.getX() + 0.5D, (double) var2.getY() + 0.5D, (double) var2.getZ() + 0.5D, var4)));
 			}
 		}
 
 	}
 
-	public int getDropData(IBlockData var1) {
+	public int getDropData(IBlockData blockdata) {
 		return 0;
 	}
 
@@ -555,16 +555,16 @@ public class Block {
 		return this.explosionResist / 5.0F;
 	}
 
-	public class_awg a(World var1, class_cj var2, class_awh var3, class_awh var4) {
-		this.a((class_aer) var1, (class_cj) var2);
-		var3 = var3.b((double) (-var2.n()), (double) (-var2.o()), (double) (-var2.p()));
-		var4 = var4.b((double) (-var2.n()), (double) (-var2.o()), (double) (-var2.p()));
-		class_awh var5 = var3.a(var4, this.minX);
-		class_awh var6 = var3.a(var4, this.maxX);
-		class_awh var7 = var3.b(var4, this.minY);
-		class_awh var8 = var3.b(var4, this.maxY);
-		class_awh var9 = var3.c(var4, this.minZ);
-		class_awh var10 = var3.c(var4, this.maxZ);
+	public class_awg a(World var1, BlockPosition var2, Vec3D var3, Vec3D var4) {
+		this.a((class_aer) var1, (BlockPosition) var2);
+		var3 = var3.add((double) (-var2.getX()), (double) (-var2.getY()), (double) (-var2.getZ()));
+		var4 = var4.add((double) (-var2.getX()), (double) (-var2.getY()), (double) (-var2.getZ()));
+		Vec3D var5 = var3.getIntermediateWithXValue(var4, this.minX);
+		Vec3D var6 = var3.getIntermediateWithXValue(var4, this.maxX);
+		Vec3D var7 = var3.getIntermediateWithYValue(var4, this.minY);
+		Vec3D var8 = var3.getIntermediateWithYValue(var4, this.maxY);
+		Vec3D var9 = var3.getIntermediateWithZValue(var4, this.minZ);
+		Vec3D var10 = var3.getIntermediateWithZValue(var4, this.maxZ);
 		if (!this.a(var5)) {
 			var5 = null;
 		}
@@ -589,109 +589,109 @@ public class Block {
 			var10 = null;
 		}
 
-		class_awh var11 = null;
-		if (var5 != null && (var11 == null || var3.g(var5) < var3.g(var11))) {
+		Vec3D var11 = null;
+		if (var5 != null && (var11 == null || var3.distanceSquared(var5) < var3.distanceSquared(var11))) {
 			var11 = var5;
 		}
 
-		if (var6 != null && (var11 == null || var3.g(var6) < var3.g(var11))) {
+		if (var6 != null && (var11 == null || var3.distanceSquared(var6) < var3.distanceSquared(var11))) {
 			var11 = var6;
 		}
 
-		if (var7 != null && (var11 == null || var3.g(var7) < var3.g(var11))) {
+		if (var7 != null && (var11 == null || var3.distanceSquared(var7) < var3.distanceSquared(var11))) {
 			var11 = var7;
 		}
 
-		if (var8 != null && (var11 == null || var3.g(var8) < var3.g(var11))) {
+		if (var8 != null && (var11 == null || var3.distanceSquared(var8) < var3.distanceSquared(var11))) {
 			var11 = var8;
 		}
 
-		if (var9 != null && (var11 == null || var3.g(var9) < var3.g(var11))) {
+		if (var9 != null && (var11 == null || var3.distanceSquared(var9) < var3.distanceSquared(var11))) {
 			var11 = var9;
 		}
 
-		if (var10 != null && (var11 == null || var3.g(var10) < var3.g(var11))) {
+		if (var10 != null && (var11 == null || var3.distanceSquared(var10) < var3.distanceSquared(var11))) {
 			var11 = var10;
 		}
 
 		if (var11 == null) {
 			return null;
 		} else {
-			class_cq var12 = null;
+			EnumDirection var12 = null;
 			if (var11 == var5) {
-				var12 = class_cq.e;
+				var12 = EnumDirection.WEST;
 			}
 
 			if (var11 == var6) {
-				var12 = class_cq.f;
+				var12 = EnumDirection.EAST;
 			}
 
 			if (var11 == var7) {
-				var12 = class_cq.a;
+				var12 = EnumDirection.DOWN;
 			}
 
 			if (var11 == var8) {
-				var12 = class_cq.b;
+				var12 = EnumDirection.UP;
 			}
 
 			if (var11 == var9) {
-				var12 = class_cq.c;
+				var12 = EnumDirection.NORTH;
 			}
 
 			if (var11 == var10) {
-				var12 = class_cq.d;
+				var12 = EnumDirection.SOUTH;
 			}
 
-			return new class_awg(var11.b((double) var2.n(), (double) var2.o(), (double) var2.p()), var12, var2);
+			return new class_awg(var11.add((double) var2.getX(), (double) var2.getY(), (double) var2.getZ()), var12, var2);
 		}
 	}
 
-	private boolean a(class_awh var1) {
-		return var1 == null ? false : var1.b >= this.minY && var1.b <= this.maxY && var1.c >= this.minZ && var1.c <= this.maxZ;
+	private boolean a(Vec3D var1) {
+		return var1 == null ? false : var1.y >= this.minY && var1.y <= this.maxY && var1.z >= this.minZ && var1.z <= this.maxZ;
 	}
 
-	private boolean b(class_awh var1) {
-		return var1 == null ? false : var1.a >= this.minX && var1.a <= this.maxX && var1.c >= this.minZ && var1.c <= this.maxZ;
+	private boolean b(Vec3D var1) {
+		return var1 == null ? false : var1.x >= this.minX && var1.x <= this.maxX && var1.z >= this.minZ && var1.z <= this.maxZ;
 	}
 
-	private boolean c(class_awh var1) {
-		return var1 == null ? false : var1.a >= this.minX && var1.a <= this.maxX && var1.b >= this.minY && var1.b <= this.maxY;
+	private boolean c(Vec3D var1) {
+		return var1 == null ? false : var1.x >= this.minX && var1.x <= this.maxX && var1.y >= this.minY && var1.y <= this.maxY;
 	}
 
-	public void a(World var1, class_cj var2, class_aej var3) {
+	public void a(World var1, BlockPosition var2, class_aej var3) {
 	}
 
-	public boolean a(World var1, class_cj var2, class_cq var3, class_aas var4) {
+	public boolean a(World var1, BlockPosition var2, EnumDirection var3, class_aas var4) {
 		return this.b(var1, var2, var3);
 	}
 
-	public boolean b(World var1, class_cj var2, class_cq var3) {
+	public boolean b(World var1, BlockPosition var2, EnumDirection var3) {
 		return this.d(var1, var2);
 	}
 
-	public boolean d(World var1, class_cj var2) {
-		return var1.p(var2).getBlock().material.j();
+	public boolean d(World var1, BlockPosition var2) {
+		return var1.p(var2).getBlock().material.isReplaceable();
 	}
 
-	public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+	public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
 		return false;
 	}
 
-	public void a(World var1, class_cj var2, class_pr var3) {
+	public void a(World var1, BlockPosition var2, class_pr var3) {
 	}
 
-	public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+	public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
 		return this.fromLegacyData(var7);
 	}
 
-	public void a(World var1, class_cj var2, class_xa var3) {
+	public void a(World var1, BlockPosition var2, class_xa var3) {
 	}
 
-	public class_awh a(World var1, class_cj var2, class_pr var3, class_awh var4) {
+	public Vec3D a(World var1, BlockPosition var2, class_pr var3, Vec3D var4) {
 		return var4;
 	}
 
-	public void a(class_aer var1, class_cj var2) {
+	public void a(class_aer var1, BlockPosition var2) {
 	}
 
 	public final double getMinX() {
@@ -718,7 +718,7 @@ public class Block {
 		return this.maxZ;
 	}
 
-	public int a(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
+	public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
 		return 0;
 	}
 
@@ -726,17 +726,17 @@ public class Block {
 		return false;
 	}
 
-	public void a(World var1, class_cj var2, IBlockData var3, class_pr var4) {
+	public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
 	}
 
-	public int b(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
+	public int b(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
 		return 0;
 	}
 
 	public void j() {
 	}
 
-	public void a(World var1, class_xa var2, class_cj var3, IBlockData var4, class_amg var5, class_aas var6) {
+	public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
 		var2.b(class_nc.ab[getId(this)]);
 		var2.a(0.025F);
 		if (this.K() && class_adk.a(class_adm.q, var6) > 0) {
@@ -769,11 +769,11 @@ public class Block {
 		return this.a(var2);
 	}
 
-	public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
+	public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
 	}
 
 	public boolean g() {
-		return !this.material.a() && !this.material.d();
+		return !this.material.isBuildable() && !this.material.isLiquid();
 	}
 
 	public Block setName(String name) {
@@ -789,7 +789,7 @@ public class Block {
 		return "tile." + this.name;
 	}
 
-	public boolean a(World var1, class_cj var2, IBlockData var3, int var4, int var5) {
+	public boolean a(World var1, BlockPosition var2, IBlockData var3, int var4, int var5) {
 		return false;
 	}
 
@@ -802,11 +802,11 @@ public class Block {
 		return this;
 	}
 
-	public int k() {
-		return this.material.m();
+	public int getPushReaction() {
+		return this.material.getPushReaction();
 	}
 
-	public void a(World var1, class_cj var2, class_pr var3, float var4) {
+	public void a(World var1, BlockPosition var2, class_pr var3, float var4) {
 		var3.e(var4, 1.0F);
 	}
 
@@ -814,7 +814,7 @@ public class Block {
 		var2.w = 0.0D;
 	}
 
-	public int j(World var1, class_cj var2) {
+	public int j(World var1, BlockPosition var2) {
 		return this.getDropData(var1.p(var2));
 	}
 
@@ -822,10 +822,10 @@ public class Block {
 		return this;
 	}
 
-	public void a(World var1, class_cj var2, IBlockData var3, class_xa var4) {
+	public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
 	}
 
-	public void k(World var1, class_cj var2) {
+	public void k(World var1, BlockPosition var2) {
 	}
 
 	public boolean P() {
@@ -848,7 +848,7 @@ public class Block {
 		return false;
 	}
 
-	public int l(World var1, class_cj var2) {
+	public int l(World var1, BlockPosition var2) {
 		return 0;
 	}
 
@@ -875,18 +875,18 @@ public class Block {
 	public static void init() {
 		register(0, AIR_KEY, (new BlockAir()).setName("air"));
 		register(1, "stone", (new BlockStone()).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stone"));
-		register(2, "grass", (new class_aik()).setStrength(0.6F).setStepSound(STEP_SOUND_GRASS).setName("grass"));
+		register(2, "grass", (new BlockGrass()).setStrength(0.6F).setStepSound(STEP_SOUND_GRASS).setName("grass"));
 		register(3, "dirt", (new class_ahj()).setStrength(0.5F).setStepSound(STEP_SOUND_GRAVEL).setName("dirt"));
-		Block var0 = (new Block(Material.e)).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stonebrick").a(CreativeTab.b);
+		Block var0 = (new Block(Material.STONE)).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stonebrick").a(CreativeTab.b);
 		register(4, "cobblestone", var0);
 		Block var1 = (new class_ajw()).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("wood");
 		register(5, "planks", var1);
 		register(6, "sapling", (new class_aks()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("sapling"));
-		register(7, "bedrock", (new Block(Material.e)).setUnbreakable().setExplosionResist(6000000.0F).setStepSound(STEP_SOUND_STONE2).setName("bedrock").disableBreakStat().a(CreativeTab.b));
-		register(8, "flowing_water", (new class_ahp(Material.h)).setStrength(100.0F).setLightOpacity(3).setName("water").disableBreakStat());
-		register(9, "water", (new class_alf(Material.h)).setStrength(100.0F).setLightOpacity(3).setName("water").disableBreakStat());
-		register(10, "flowing_lava", (new class_ahp(Material.i)).setStrength(100.0F).setLightLevel(1.0F).setName("lava").disableBreakStat());
-		register(11, "lava", (new class_alf(Material.i)).setStrength(100.0F).setLightLevel(1.0F).setName("lava").disableBreakStat());
+		register(7, "bedrock", (new Block(Material.STONE)).setUnbreakable().setExplosionResist(6000000.0F).setStepSound(STEP_SOUND_STONE2).setName("bedrock").disableBreakStat().a(CreativeTab.b));
+		register(8, "flowing_water", (new class_ahp(Material.WATER)).setStrength(100.0F).setLightOpacity(3).setName("water").disableBreakStat());
+		register(9, "water", (new class_alf(Material.WATER)).setStrength(100.0F).setLightOpacity(3).setName("water").disableBreakStat());
+		register(10, "flowing_lava", (new class_ahp(Material.LAVA)).setStrength(100.0F).setLightLevel(1.0F).setName("lava").disableBreakStat());
+		register(11, "lava", (new class_alf(Material.LAVA)).setStrength(100.0F).setLightLevel(1.0F).setName("lava").disableBreakStat());
 		register(12, "sand", (new class_akq()).setStrength(0.5F).setStepSound(STEP_SOUND_SAND).setName("sand"));
 		register(13, "gravel", (new class_aim()).setStrength(0.6F).setStepSound(STEP_SOUND_GRAVEL).setName("gravel"));
 		register(14, "gold_ore", (new class_aju()).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("oreGold"));
@@ -895,9 +895,9 @@ public class Block {
 		register(17, "log", (new class_ajt()).setName("log"));
 		register(18, "leaves", (new class_ajs()).setName("leaves"));
 		register(19, "sponge", (new class_ala()).setStrength(0.6F).setStepSound(STEP_SOUND_GRASS).setName("sponge"));
-		register(20, "glass", (new class_aii(Material.s, false)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("glass"));
+		register(20, "glass", (new class_aii(Material.SHATTERABLE, false)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("glass"));
 		register(21, "lapis_ore", (new class_aju()).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("oreLapis"));
-		register(22, "lapis_block", (new Block(Material.f, MaterialMapColor.H)).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("blockLapis").a(CreativeTab.b));
+		register(22, "lapis_block", (new Block(Material.ORE, MaterialMapColor.COLOR33)).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("blockLapis").a(CreativeTab.b));
 		register(23, "dispenser", (new class_ahk()).setStrength(3.5F).setStepSound(STEP_SOUND_STONE2).setName("dispenser"));
 		Block var2 = (new class_akr()).setStepSound(STEP_SOUND_STONE2).setStrength(0.8F).setName("sandStone");
 		register(24, "sandstone", var2);
@@ -911,7 +911,7 @@ public class Block {
 		register(32, "deadbush", (new class_ahf()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("deadbush"));
 		register(33, "piston", (new class_ane(false)).setName("pistonBase"));
 		register(34, "piston_head", (new class_anf()).setName("pistonBase"));
-		register(35, "wool", (new class_agz(Material.n)).setStrength(0.8F).setStepSound(STEP_SOUND_CLOTH).setName("cloth"));
+		register(35, "wool", (new class_agz(Material.CLOTH)).setStrength(0.8F).setStepSound(STEP_SOUND_CLOTH).setName("cloth"));
 		register(36, "piston_extension", new class_anh());
 		register(37, "yellow_flower", (new class_amd()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("flower1"));
 		register(38, "red_flower", (new class_akh()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("flower2"));
@@ -919,15 +919,15 @@ public class Block {
 		register(39, "brown_mushroom", var3);
 		Block var4 = (new class_aji()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("mushroom");
 		register(40, "red_mushroom", var4);
-		register(41, "gold_block", (new Block(Material.f, MaterialMapColor.F)).setStrength(3.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockGold").a(CreativeTab.b));
-		register(42, "iron_block", (new Block(Material.f, MaterialMapColor.h)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockIron").a(CreativeTab.b));
+		register(41, "gold_block", (new Block(Material.ORE, MaterialMapColor.COLOR31)).setStrength(3.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockGold").a(CreativeTab.b));
+		register(42, "iron_block", (new Block(Material.ORE, MaterialMapColor.COLOR7)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockIron").a(CreativeTab.b));
 		register(43, "double_stone_slab", (new class_aif()).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stoneSlab"));
 		register(44, "stone_slab", (new class_aip()).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stoneSlab"));
-		Block var5 = (new Block(Material.e, MaterialMapColor.D)).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("brick").a(CreativeTab.b);
+		Block var5 = (new Block(Material.STONE, MaterialMapColor.COLOR29)).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("brick").a(CreativeTab.b);
 		register(45, "brick_block", var5);
 		register(46, "tnt", (new class_alo()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("tnt"));
 		register(47, "bookshelf", (new class_agm()).setStrength(1.5F).setStepSound(STEP_SOUND_WOOD).setName("bookshelf"));
-		register(48, "mossy_cobblestone", (new Block(Material.e)).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stoneMoss").a(CreativeTab.b));
+		register(48, "mossy_cobblestone", (new Block(Material.STONE)).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stoneMoss").a(CreativeTab.b));
 		register(49, "obsidian", (new class_ajr()).setStrength(50.0F).setExplosionResist(2000.0F).setStepSound(STEP_SOUND_STONE2).setName("obsidian"));
 		register(50, "torch", (new class_alp()).setStrength(0.0F).setLightLevel(0.9375F).setStepSound(STEP_SOUND_WOOD).setName("torch"));
 		register(51, "fire", (new class_aib()).setStrength(0.0F).setLightLevel(1.0F).setStepSound(STEP_SOUND_CLOTH).setName("fire").disableBreakStat());
@@ -936,7 +936,7 @@ public class Block {
 		register(54, "chest", (new class_agu(0)).setStrength(2.5F).setStepSound(STEP_SOUND_WOOD).setName("chest"));
 		register(55, "redstone_wire", (new class_akk()).setStrength(0.0F).setStepSound(STEP_SOUND_STONE1).setName("redstoneDust").disableBreakStat());
 		register(56, "diamond_ore", (new class_aju()).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("oreDiamond"));
-		register(57, "diamond_block", (new Block(Material.f, MaterialMapColor.G)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockDiamond").a(CreativeTab.b));
+		register(57, "diamond_block", (new Block(Material.ORE, MaterialMapColor.COLOR32)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockDiamond").a(CreativeTab.b));
 		register(58, "crafting_table", (new class_ahc()).setStrength(2.5F).setStepSound(STEP_SOUND_WOOD).setName("workbench"));
 		register(59, "wheat", (new class_ahd()).setName("crops"));
 		Block var6 = (new class_ahy()).setStrength(0.6F).setStepSound(STEP_SOUND_GRAVEL).setName("farmland");
@@ -944,15 +944,15 @@ public class Block {
 		register(61, "furnace", (new class_aih(false)).setStrength(3.5F).setStepSound(STEP_SOUND_STONE2).setName("furnace").a(CreativeTab.c));
 		register(62, "lit_furnace", (new class_aih(true)).setStrength(3.5F).setStepSound(STEP_SOUND_STONE2).setLightLevel(0.875F).setName("furnace"));
 		register(63, "standing_sign", (new class_ale()).setStrength(1.0F).setStepSound(STEP_SOUND_WOOD).setName("sign").disableBreakStat());
-		register(64, "wooden_door", (new class_ahl(Material.d)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorOak").disableBreakStat());
+		register(64, "wooden_door", (new class_ahl(Material.WOOD)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorOak").disableBreakStat());
 		register(65, "ladder", (new class_aiz()).setStrength(0.4F).setStepSound(STEP_SOUND_LADDER).setName("ladder"));
 		register(66, "rail", (new class_akg()).setStrength(0.7F).setStepSound(STEP_SOUND_STONE3).setName("rail"));
 		register(67, "stone_stairs", (new class_ald(var0.getBlockData())).setName("stairsStone"));
 		register(68, "wall_sign", (new class_alw()).setStrength(1.0F).setStepSound(STEP_SOUND_WOOD).setName("sign").disableBreakStat());
 		register(69, "lever", (new class_ajc()).setStrength(0.5F).setStepSound(STEP_SOUND_WOOD).setName("lever"));
-		register(70, "stone_pressure_plate", (new class_akb(Material.e, class_akb.class_a_in_class_akb.b)).setStrength(0.5F).setStepSound(STEP_SOUND_STONE2).setName("pressurePlateStone"));
-		register(71, "iron_door", (new class_ahl(Material.f)).setStrength(5.0F).setStepSound(STEP_SOUND_STONE3).setName("doorIron").disableBreakStat());
-		register(72, "wooden_pressure_plate", (new class_akb(Material.d, class_akb.class_a_in_class_akb.a)).setStrength(0.5F).setStepSound(STEP_SOUND_WOOD).setName("pressurePlateWood"));
+		register(70, "stone_pressure_plate", (new class_akb(Material.STONE, class_akb.class_a_in_class_akb.b)).setStrength(0.5F).setStepSound(STEP_SOUND_STONE2).setName("pressurePlateStone"));
+		register(71, "iron_door", (new class_ahl(Material.ORE)).setStrength(5.0F).setStepSound(STEP_SOUND_STONE3).setName("doorIron").disableBreakStat());
+		register(72, "wooden_pressure_plate", (new class_akb(Material.WOOD, class_akb.class_a_in_class_akb.a)).setStrength(0.5F).setStepSound(STEP_SOUND_WOOD).setName("pressurePlateWood"));
 		register(73, "redstone_ore", (new class_akj(false)).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("oreRedstone").a(CreativeTab.b));
 		register(74, "lit_redstone_ore", (new class_akj(true)).setLightLevel(0.625F).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("oreRedstone"));
 		register(75, "unlit_redstone_torch", (new class_akm(false)).setStrength(0.0F).setStepSound(STEP_SOUND_WOOD).setName("notGate"));
@@ -965,26 +965,26 @@ public class Block {
 		register(82, "clay", (new class_agx()).setStrength(0.6F).setStepSound(STEP_SOUND_GRAVEL).setName("clay"));
 		register(83, "reeds", (new class_akn()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("reeds").disableBreakStat());
 		register(84, "jukebox", (new class_aiy()).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("jukebox"));
-		register(85, "fence", (new class_ahz(Material.d, class_ajw.class_a_in_class_ajw.a.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("fence"));
+		register(85, "fence", (new class_ahz(Material.WOOD, class_ajw.class_a_in_class_ajw.a.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("fence"));
 		Block var7 = (new class_akd()).setStrength(1.0F).setStepSound(STEP_SOUND_WOOD).setName("pumpkin");
 		register(86, "pumpkin", var7);
 		register(87, "netherrack", (new class_ajm()).setStrength(0.4F).setStepSound(STEP_SOUND_STONE2).setName("hellrock"));
 		register(88, "soul_sand", (new class_akz()).setStrength(0.5F).setStepSound(STEP_SOUND_SAND).setName("hellsand"));
-		register(89, "glowstone", (new class_aij(Material.s)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setLightLevel(1.0F).setName("lightgem"));
+		register(89, "glowstone", (new class_aij(Material.SHATTERABLE)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setLightLevel(1.0F).setName("lightgem"));
 		register(90, "portal", (new class_ajx()).setStrength(-1.0F).setStepSound(STEP_SOUND_STONE4).setLightLevel(0.75F).setName("portal"));
 		register(91, "lit_pumpkin", (new class_akd()).setStrength(1.0F).setStepSound(STEP_SOUND_WOOD).setLightLevel(1.0F).setName("litpumpkin"));
 		register(92, "cake", (new class_agr()).setStrength(0.5F).setStepSound(STEP_SOUND_CLOTH).setName("cake").disableBreakStat());
 		register(93, "unpowered_repeater", (new class_ako(false)).setStrength(0.0F).setStepSound(STEP_SOUND_WOOD).setName("diode").disableBreakStat());
 		register(94, "powered_repeater", (new class_ako(true)).setStrength(0.0F).setStepSound(STEP_SOUND_WOOD).setName("diode").disableBreakStat());
-		register(95, "stained_glass", (new class_alb(Material.s)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("stainedGlass"));
-		register(96, "trapdoor", (new class_alr(Material.d)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("trapdoor").disableBreakStat());
+		register(95, "stained_glass", (new class_alb(Material.SHATTERABLE)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("stainedGlass"));
+		register(96, "trapdoor", (new class_alr(Material.WOOD)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("trapdoor").disableBreakStat());
 		register(97, "monster_egg", (new class_ajh()).setStrength(0.75F).setName("monsterStoneEgg"));
 		Block var8 = (new class_ali()).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stonebricksmooth");
 		register(98, "stonebrick", var8);
-		register(99, "brown_mushroom_block", (new class_aiw(Material.d, MaterialMapColor.l, var3)).setStrength(0.2F).setStepSound(STEP_SOUND_WOOD).setName("mushroom"));
-		register(100, "red_mushroom_block", (new class_aiw(Material.d, MaterialMapColor.D, var4)).setStrength(0.2F).setStepSound(STEP_SOUND_WOOD).setName("mushroom"));
-		register(101, "iron_bars", (new class_aln(Material.f, true)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("fenceIron"));
-		register(102, "glass_pane", (new class_aln(Material.s, false)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("thinGlass"));
+		register(99, "brown_mushroom_block", (new class_aiw(Material.WOOD, MaterialMapColor.COLOR11, var3)).setStrength(0.2F).setStepSound(STEP_SOUND_WOOD).setName("mushroom"));
+		register(100, "red_mushroom_block", (new class_aiw(Material.WOOD, MaterialMapColor.COLOR29, var4)).setStrength(0.2F).setStepSound(STEP_SOUND_WOOD).setName("mushroom"));
+		register(101, "iron_bars", (new class_aln(Material.ORE, true)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("fenceIron"));
+		register(102, "glass_pane", (new class_aln(Material.SHATTERABLE, false)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("thinGlass"));
 		Block var9 = (new class_ajf()).setStrength(1.0F).setStepSound(STEP_SOUND_WOOD).setName("melon");
 		register(103, "melon_block", var9);
 		register(104, "pumpkin_stem", (new class_alg(var7)).setStrength(0.0F).setStepSound(STEP_SOUND_WOOD).setName("pumpkinStem"));
@@ -997,15 +997,15 @@ public class Block {
 		register(111, "waterlily", (new class_alx()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("waterlily"));
 		Block var10 = (new class_ajk()).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("netherBrick").a(CreativeTab.b);
 		register(112, "nether_brick", var10);
-		register(113, "nether_brick_fence", (new class_ahz(Material.e, MaterialMapColor.K)).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("netherFence"));
+		register(113, "nether_brick_fence", (new class_ahz(Material.STONE, MaterialMapColor.COLOR36)).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("netherFence"));
 		register(114, "nether_brick_stairs", (new class_ald(var10.getBlockData())).setName("stairsNetherBrick"));
 		register(115, "nether_wart", (new class_ajl()).setName("netherStalk"));
 		register(116, "enchanting_table", (new class_ahq()).setStrength(5.0F).setExplosionResist(2000.0F).setName("enchantmentTable"));
 		register(117, "brewing_stand", (new class_agn()).setStrength(0.5F).setLightLevel(0.125F).setName("brewingStand"));
 		register(118, "cauldron", (new class_agt()).setStrength(2.0F).setName("cauldron"));
-		register(119, "end_portal", (new class_ahs(Material.E)).setStrength(-1.0F).setExplosionResist(6000000.0F));
+		register(119, "end_portal", (new class_ahs(Material.PORTAL)).setStrength(-1.0F).setExplosionResist(6000000.0F));
 		register(120, "end_portal_frame", (new class_aht()).setStepSound(STEP_SOUND_STONE4).setLightLevel(0.125F).setStrength(-1.0F).setName("endPortalFrame").setExplosionResist(6000000.0F).a(CreativeTab.c));
-		register(121, "end_stone", (new Block(Material.e, MaterialMapColor.d)).setStrength(3.0F).setExplosionResist(15.0F).setStepSound(STEP_SOUND_STONE2).setName("whiteStone").a(CreativeTab.b));
+		register(121, "end_stone", (new Block(Material.STONE, MaterialMapColor.COLOR3)).setStrength(3.0F).setExplosionResist(15.0F).setStepSound(STEP_SOUND_STONE2).setName("whiteStone").a(CreativeTab.b));
 		register(122, "dragon_egg", (new class_ahn()).setStrength(3.0F).setExplosionResist(15.0F).setStepSound(STEP_SOUND_STONE2).setLightLevel(0.125F).setName("dragonEgg"));
 		register(123, "redstone_lamp", (new class_akl(false)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("redstoneLight").a(CreativeTab.d));
 		register(124, "lit_redstone_lamp", (new class_akl(true)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("redstoneLight"));
@@ -1017,7 +1017,7 @@ public class Block {
 		register(130, "ender_chest", (new class_ahv()).setStrength(22.5F).setExplosionResist(1000.0F).setStepSound(STEP_SOUND_STONE2).setName("enderChest").setLightLevel(0.5F));
 		register(131, "tripwire_hook", (new class_alt()).setName("tripWireSource"));
 		register(132, "tripwire", (new class_als()).setName("tripWire"));
-		register(133, "emerald_block", (new Block(Material.f, MaterialMapColor.I)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockEmerald").a(CreativeTab.b));
+		register(133, "emerald_block", (new Block(Material.ORE, MaterialMapColor.COLOR34)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockEmerald").a(CreativeTab.b));
 		register(134, "spruce_stairs", (new class_ald(var1.getBlockData().set(class_ajw.a, class_ajw.class_a_in_class_ajw.b))).setName("stairsWoodSpruce"));
 		register(135, "birch_stairs", (new class_ald(var1.getBlockData().set(class_ajw.a, class_ajw.class_a_in_class_ajw.c))).setName("stairsWoodBirch"));
 		register(136, "jungle_stairs", (new class_ald(var1.getBlockData().set(class_ajw.a, class_ajw.class_a_in_class_ajw.d))).setName("stairsWoodJungle"));
@@ -1031,20 +1031,20 @@ public class Block {
 		register(144, "skull", (new class_akv()).setStrength(1.0F).setStepSound(STEP_SOUND_STONE2).setName("skull"));
 		register(145, "anvil", (new class_aga()).setStrength(5.0F).setStepSound(STEP_SOUND_ANVIL).setExplosionResist(2000.0F).setName("anvil"));
 		register(146, "trapped_chest", (new class_agu(1)).setStrength(2.5F).setStepSound(STEP_SOUND_WOOD).setName("chestTrap"));
-		register(147, "light_weighted_pressure_plate", (new class_alz(Material.f, 15, MaterialMapColor.F)).setStrength(0.5F).setStepSound(STEP_SOUND_WOOD).setName("weightedPlate_light"));
-		register(148, "heavy_weighted_pressure_plate", (new class_alz(Material.f, 150)).setStrength(0.5F).setStepSound(STEP_SOUND_WOOD).setName("weightedPlate_heavy"));
+		register(147, "light_weighted_pressure_plate", (new class_alz(Material.ORE, 15, MaterialMapColor.COLOR31)).setStrength(0.5F).setStepSound(STEP_SOUND_WOOD).setName("weightedPlate_light"));
+		register(148, "heavy_weighted_pressure_plate", (new class_alz(Material.ORE, 150)).setStrength(0.5F).setStepSound(STEP_SOUND_WOOD).setName("weightedPlate_heavy"));
 		register(149, "unpowered_comparator", (new class_ahb(false)).setStrength(0.0F).setStepSound(STEP_SOUND_WOOD).setName("comparator").disableBreakStat());
 		register(150, "powered_comparator", (new class_ahb(true)).setStrength(0.0F).setLightLevel(0.625F).setStepSound(STEP_SOUND_WOOD).setName("comparator").disableBreakStat());
 		register(151, "daylight_detector", new class_ahe(false));
-		register(152, "redstone_block", (new class_ajz(Material.f, MaterialMapColor.f)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockRedstone").a(CreativeTab.d));
-		register(153, "quartz_ore", (new class_aju(MaterialMapColor.K)).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("netherquartz"));
+		register(152, "redstone_block", (new class_ajz(Material.ORE, MaterialMapColor.COLOR5)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE3).setName("blockRedstone").a(CreativeTab.d));
+		register(153, "quartz_ore", (new class_aju(MaterialMapColor.COLOR36)).setStrength(3.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_STONE2).setName("netherquartz"));
 		register(154, "hopper", (new class_aiu()).setStrength(3.0F).setExplosionResist(8.0F).setStepSound(STEP_SOUND_STONE3).setName("hopper"));
 		Block var11 = (new class_akf()).setStepSound(STEP_SOUND_STONE2).setStrength(0.8F).setName("quartzBlock");
 		register(155, "quartz_block", var11);
 		register(156, "quartz_stairs", (new class_ald(var11.getBlockData().set(class_akf.a, class_akf.class_a_in_class_akf.a))).setName("stairsQuartz"));
 		register(157, "activator_rail", (new class_aka()).setStrength(0.7F).setStepSound(STEP_SOUND_STONE3).setName("activatorRail"));
 		register(158, "dropper", (new class_aho()).setStrength(3.5F).setStepSound(STEP_SOUND_STONE2).setName("dropper"));
-		register(159, "stained_hardened_clay", (new class_agz(Material.e)).setStrength(1.25F).setExplosionResist(7.0F).setStepSound(STEP_SOUND_STONE2).setName("clayHardenedStained"));
+		register(159, "stained_hardened_clay", (new class_agz(Material.STONE)).setStrength(1.25F).setExplosionResist(7.0F).setStepSound(STEP_SOUND_STONE2).setName("clayHardenedStained"));
 		register(160, "stained_glass_pane", (new class_alc()).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("thinStainedGlass"));
 		register(161, "leaves2", (new class_ajn()).setName("leaves"));
 		register(162, "log2", (new class_ajo()).setName("log"));
@@ -1052,13 +1052,13 @@ public class Block {
 		register(164, "dark_oak_stairs", (new class_ald(var1.getBlockData().set(class_ajw.a, class_ajw.class_a_in_class_ajw.f))).setName("stairsWoodDarkOak"));
 		register(165, "slime", (new class_akw()).setName("slime").setStepSound(STEP_SOUND_SLIME));
 		register(166, "barrier", (new class_agc()).setName("barrier"));
-		register(167, "iron_trapdoor", (new class_alr(Material.f)).setStrength(5.0F).setStepSound(STEP_SOUND_STONE3).setName("ironTrapdoor").disableBreakStat());
+		register(167, "iron_trapdoor", (new class_alr(Material.ORE)).setStrength(5.0F).setStepSound(STEP_SOUND_STONE3).setName("ironTrapdoor").disableBreakStat());
 		register(168, "prismarine", (new class_akc()).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("prismarine"));
-		register(169, "sea_lantern", (new class_akt(Material.s)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setLightLevel(1.0F).setName("seaLantern"));
+		register(169, "sea_lantern", (new class_akt(Material.SHATTERABLE)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setLightLevel(1.0F).setName("seaLantern"));
 		register(170, "hay_block", (new class_ait()).setStrength(0.5F).setStepSound(STEP_SOUND_GRASS).setName("hayBlock").a(CreativeTab.b));
 		register(171, "carpet", (new class_amc()).setStrength(0.1F).setStepSound(STEP_SOUND_CLOTH).setName("woolCarpet").setLightOpacity(0));
 		register(172, "hardened_clay", (new class_ais()).setStrength(1.25F).setExplosionResist(7.0F).setStepSound(STEP_SOUND_STONE2).setName("clayHardened"));
-		register(173, "coal_block", (new Block(Material.e, MaterialMapColor.E)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("blockCoal").a(CreativeTab.b));
+		register(173, "coal_block", (new Block(Material.STONE, MaterialMapColor.COLOR30)).setStrength(5.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("blockCoal").a(CreativeTab.b));
 		register(174, "packed_ice", (new class_ajv()).setStrength(0.5F).setStepSound(STEP_SOUND_STONE4).setName("icePacked"));
 		register(175, "double_plant", new class_ahm());
 		register(176, "standing_banner", (new class_agb.class_a_in_class_agb()).setStrength(1.0F).setStepSound(STEP_SOUND_WOOD).setName("banner").disableBreakStat());
@@ -1074,30 +1074,30 @@ public class Block {
 		register(185, "jungle_fence_gate", (new class_aia(class_ajw.class_a_in_class_ajw.d)).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("jungleFenceGate"));
 		register(186, "dark_oak_fence_gate", (new class_aia(class_ajw.class_a_in_class_ajw.f)).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("darkOakFenceGate"));
 		register(187, "acacia_fence_gate", (new class_aia(class_ajw.class_a_in_class_ajw.e)).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("acaciaFenceGate"));
-		register(188, "spruce_fence", (new class_ahz(Material.d, class_ajw.class_a_in_class_ajw.b.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("spruceFence"));
-		register(189, "birch_fence", (new class_ahz(Material.d, class_ajw.class_a_in_class_ajw.c.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("birchFence"));
-		register(190, "jungle_fence", (new class_ahz(Material.d, class_ajw.class_a_in_class_ajw.d.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("jungleFence"));
-		register(191, "dark_oak_fence", (new class_ahz(Material.d, class_ajw.class_a_in_class_ajw.f.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("darkOakFence"));
-		register(192, "acacia_fence", (new class_ahz(Material.d, class_ajw.class_a_in_class_ajw.e.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("acaciaFence"));
-		register(193, "spruce_door", (new class_ahl(Material.d)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorSpruce").disableBreakStat());
-		register(194, "birch_door", (new class_ahl(Material.d)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorBirch").disableBreakStat());
-		register(195, "jungle_door", (new class_ahl(Material.d)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorJungle").disableBreakStat());
-		register(196, "acacia_door", (new class_ahl(Material.d)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorAcacia").disableBreakStat());
-		register(197, "dark_oak_door", (new class_ahl(Material.d)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorDarkOak").disableBreakStat());
+		register(188, "spruce_fence", (new class_ahz(Material.WOOD, class_ajw.class_a_in_class_ajw.b.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("spruceFence"));
+		register(189, "birch_fence", (new class_ahz(Material.WOOD, class_ajw.class_a_in_class_ajw.c.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("birchFence"));
+		register(190, "jungle_fence", (new class_ahz(Material.WOOD, class_ajw.class_a_in_class_ajw.d.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("jungleFence"));
+		register(191, "dark_oak_fence", (new class_ahz(Material.WOOD, class_ajw.class_a_in_class_ajw.f.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("darkOakFence"));
+		register(192, "acacia_fence", (new class_ahz(Material.WOOD, class_ajw.class_a_in_class_ajw.e.c())).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("acaciaFence"));
+		register(193, "spruce_door", (new class_ahl(Material.WOOD)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorSpruce").disableBreakStat());
+		register(194, "birch_door", (new class_ahl(Material.WOOD)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorBirch").disableBreakStat());
+		register(195, "jungle_door", (new class_ahl(Material.WOOD)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorJungle").disableBreakStat());
+		register(196, "acacia_door", (new class_ahl(Material.WOOD)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorAcacia").disableBreakStat());
+		register(197, "dark_oak_door", (new class_ahl(Material.WOOD)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("doorDarkOak").disableBreakStat());
 		register(198, "end_rod", (new class_ahu()).setStrength(0.0F).setLightLevel(0.9375F).setStepSound(STEP_SOUND_WOOD).setName("endRod"));
 		register(199, "chorus_plant", (new class_agw()).setStrength(0.4F).setStepSound(STEP_SOUND_WOOD).setName("chorusPlant"));
 		register(200, "chorus_flower", (new class_agv()).setStrength(0.4F).setStepSound(STEP_SOUND_WOOD).setName("chorusFlower"));
-		Block var13 = (new Block(Material.e)).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).a(CreativeTab.b).setName("purpurBlock");
+		Block var13 = (new Block(Material.STONE)).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).a(CreativeTab.b).setName("purpurBlock");
 		register(201, "purpur_block", var13);
-		register(202, "purpur_pillar", (new class_akp(Material.e)).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).a(CreativeTab.b).setName("purpurPillar"));
+		register(202, "purpur_pillar", (new class_akp(Material.STONE)).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).a(CreativeTab.b).setName("purpurPillar"));
 		register(203, "purpur_stairs", (new class_ald(var13.getBlockData())).setName("stairsPurpur"));
 		register(204, "purpur_double_slab", (new class_ake.class_a_in_class_ake()).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("purpurSlab"));
 		register(205, "purpur_slab", (new class_ake.class_b_in_class_ake()).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("purpurSlab"));
-		register(206, "end_bricks", (new Block(Material.e)).setStepSound(STEP_SOUND_STONE2).setStrength(0.8F).a(CreativeTab.b).setName("endBricks"));
+		register(206, "end_bricks", (new Block(Material.STONE)).setStepSound(STEP_SOUND_STONE2).setStrength(0.8F).a(CreativeTab.b).setName("endBricks"));
 		register(207, "beetroots", (new class_agi()).setName("beetroots"));
 		Block var14 = (new class_ail()).setStrength(0.65F).setStepSound(STEP_SOUND_GRASS).setName("grassPath").disableBreakStat();
 		register(208, "grass_path", var14);
-		register(209, "end_gateway", (new class_ahr(Material.E)).setStrength(-1.0F).setExplosionResist(6000000.0F));
+		register(209, "end_gateway", (new class_ahr(Material.PORTAL)).setStrength(-1.0F).setExplosionResist(6000000.0F));
 		register(255, "structure_block", (new class_all()).setUnbreakable().setExplosionResist(6000000.0F).setName("structureBlock").setLightLevel(1.0F));
 		BLOCK_REGISTRY.checkValid();
 		Iterator<?> var15 = BLOCK_REGISTRY.iterator();
@@ -1106,7 +1106,7 @@ public class Block {
 			Block var16;
 			while (var15.hasNext()) {
 				var16 = (Block) var15.next();
-				if (var16.material == Material.a) {
+				if (var16.material == Material.AIR) {
 					var16.useNeighborBrightness = false;
 				} else {
 					boolean var17 = false;
@@ -1245,29 +1245,29 @@ public class Block {
 			}
 		}
 
-		public Block.class_c_in_class_agj a(class_cq var1) {
-			class_cq.class_a_in_class_cq var2 = var1.k();
-			return (this != b || var2 != class_cq.class_a_in_class_cq.c) && (this != c || var2 != class_cq.class_a_in_class_cq.a) ? Block.class_c_in_class_agj.a : Block.class_c_in_class_agj.c;
+		public Block.class_c_in_class_agj a(EnumDirection var1) {
+			EnumDirection.EnumAxis var2 = var1.getAxis();
+			return (this != b || var2 != EnumDirection.EnumAxis.Z) && (this != c || var2 != EnumDirection.EnumAxis.X) ? Block.class_c_in_class_agj.a : Block.class_c_in_class_agj.c;
 		}
 
-		public class_cq b(class_cq var1) {
+		public EnumDirection b(EnumDirection var1) {
 			switch (Block.SyntheticClass_1.b[this.ordinal()]) {
 				case 1:
-					if (var1 == class_cq.e) {
-						return class_cq.f;
+					if (var1 == EnumDirection.WEST) {
+						return EnumDirection.EAST;
 					} else {
-						if (var1 == class_cq.f) {
-							return class_cq.e;
+						if (var1 == EnumDirection.EAST) {
+							return EnumDirection.WEST;
 						}
 
 						return var1;
 					}
 				case 2:
-					if (var1 == class_cq.c) {
-						return class_cq.d;
+					if (var1 == EnumDirection.NORTH) {
+						return EnumDirection.SOUTH;
 					} else {
-						if (var1 == class_cq.d) {
-							return class_cq.c;
+						if (var1 == EnumDirection.SOUTH) {
+							return EnumDirection.NORTH;
 						}
 
 						return var1;
@@ -1321,17 +1321,17 @@ public class Block {
 			}
 		}
 
-		public class_cq a(class_cq var1) {
-			if (var1.k() == class_cq.class_a_in_class_cq.b) {
+		public EnumDirection a(EnumDirection var1) {
+			if (var1.getAxis() == EnumDirection.EnumAxis.Y) {
 				return var1;
 			} else {
 				switch (Block.SyntheticClass_1.a[this.ordinal()]) {
 					case 2:
-						return var1.e();
+						return var1.rotateY();
 					case 3:
-						return var1.d();
+						return var1.getOpposite();
 					case 4:
-						return var1.f();
+						return var1.rotateYCCW();
 					default:
 						return var1;
 				}

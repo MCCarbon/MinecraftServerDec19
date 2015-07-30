@@ -11,11 +11,11 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_apa;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
@@ -106,7 +106,7 @@ public class class_wn extends class_wi implements class_wk {
       return "mob.skeleton.death";
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.skeleton.step", 0.15F, 1.0F);
    }
 
@@ -129,7 +129,7 @@ public class class_wn extends class_wi implements class_wk {
    public void m() {
       if(this.o.x() && !this.o.D) {
          float var1 = this.c(1.0F);
-         class_cj var2 = new class_cj(this.s, (double)Math.round(this.t), this.u);
+         BlockPosition var2 = new BlockPosition(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
             class_aas var4 = this.a((class_pw)class_pw.f);
@@ -266,7 +266,7 @@ public class class_wn extends class_wi implements class_wk {
       double var4 = var1.s - this.s;
       double var6 = var1.aT().b + (double)(var1.K / 3.0F) - var3.t;
       double var8 = var1.u - this.u;
-      double var10 = (double)class_nu.a(var4 * var4 + var8 * var8);
+      double var10 = (double)MathHelper.sqrt(var4 * var4 + var8 * var8);
       var3.c(var4, var6 + var10 * 0.20000000298023224D, var8, 1.6F, (float)(14 - this.o.ab().a() * 4));
       int var12 = class_adk.a((class_adi)class_adm.t, (class_qa)this);
       int var13 = class_adk.a((class_adi)class_adm.u, (class_qa)this);

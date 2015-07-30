@@ -12,8 +12,8 @@ import net.minecraft.server.class_alk;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ant;
 import net.minecraft.server.class_aql;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 
 public class class_aqg extends class_aql {
    private static final class_ant a;
@@ -27,9 +27,9 @@ public class class_aqg extends class_aql {
       this.d = Blocks.FLOWING_WATER.getBlockData();
    }
 
-   public boolean b(World var1, Random var2, class_cj var3) {
-      while(var1.d(var3) && var3.o() > 2) {
-         var3 = var3.b();
+   public boolean b(World var1, Random var2, BlockPosition var3) {
+      while(var1.d(var3) && var3.getY() > 2) {
+         var3 = var3.shiftDown();
       }
 
       if(!a.a(var1.p(var3))) {
@@ -39,7 +39,7 @@ public class class_aqg extends class_aql {
          int var5;
          for(var4 = -2; var4 <= 2; ++var4) {
             for(var5 = -2; var5 <= 2; ++var5) {
-               if(var1.d(var3.a(var4, -1, var5)) && var1.d(var3.a(var4, -2, var5))) {
+               if(var1.d(var3.add(var4, -1, var5)) && var1.d(var3.add(var4, -2, var5))) {
                   return false;
                }
             }
@@ -48,47 +48,47 @@ public class class_aqg extends class_aql {
          for(var4 = -1; var4 <= 0; ++var4) {
             for(var5 = -2; var5 <= 2; ++var5) {
                for(int var6 = -2; var6 <= 2; ++var6) {
-                  var1.a((class_cj)var3.a(var5, var4, var6), (IBlockData)this.c, 2);
+                  var1.a((BlockPosition)var3.add(var5, var4, var6), (IBlockData)this.c, 2);
                }
             }
          }
 
-         var1.a((class_cj)var3, (IBlockData)this.d, 2);
-         Iterator var7 = class_cq.class_c_in_class_cq.a.iterator();
+         var1.a((BlockPosition)var3, (IBlockData)this.d, 2);
+         Iterator var7 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
          while(var7.hasNext()) {
-            class_cq var8 = (class_cq)var7.next();
-            var1.a((class_cj)var3.a(var8), (IBlockData)this.d, 2);
+            EnumDirection var8 = (EnumDirection)var7.next();
+            var1.a((BlockPosition)var3.shift(var8), (IBlockData)this.d, 2);
          }
 
          for(var4 = -2; var4 <= 2; ++var4) {
             for(var5 = -2; var5 <= 2; ++var5) {
                if(var4 == -2 || var4 == 2 || var5 == -2 || var5 == 2) {
-                  var1.a((class_cj)var3.a(var4, 1, var5), (IBlockData)this.c, 2);
+                  var1.a((BlockPosition)var3.add(var4, 1, var5), (IBlockData)this.c, 2);
                }
             }
          }
 
-         var1.a((class_cj)var3.a(2, 1, 0), (IBlockData)this.b, 2);
-         var1.a((class_cj)var3.a(-2, 1, 0), (IBlockData)this.b, 2);
-         var1.a((class_cj)var3.a(0, 1, 2), (IBlockData)this.b, 2);
-         var1.a((class_cj)var3.a(0, 1, -2), (IBlockData)this.b, 2);
+         var1.a((BlockPosition)var3.add(2, 1, 0), (IBlockData)this.b, 2);
+         var1.a((BlockPosition)var3.add(-2, 1, 0), (IBlockData)this.b, 2);
+         var1.a((BlockPosition)var3.add(0, 1, 2), (IBlockData)this.b, 2);
+         var1.a((BlockPosition)var3.add(0, 1, -2), (IBlockData)this.b, 2);
 
          for(var4 = -1; var4 <= 1; ++var4) {
             for(var5 = -1; var5 <= 1; ++var5) {
                if(var4 == 0 && var5 == 0) {
-                  var1.a((class_cj)var3.a(var4, 4, var5), (IBlockData)this.c, 2);
+                  var1.a((BlockPosition)var3.add(var4, 4, var5), (IBlockData)this.c, 2);
                } else {
-                  var1.a((class_cj)var3.a(var4, 4, var5), (IBlockData)this.b, 2);
+                  var1.a((BlockPosition)var3.add(var4, 4, var5), (IBlockData)this.b, 2);
                }
             }
          }
 
          for(var4 = 1; var4 <= 3; ++var4) {
-            var1.a((class_cj)var3.a(-1, var4, -1), (IBlockData)this.c, 2);
-            var1.a((class_cj)var3.a(-1, var4, 1), (IBlockData)this.c, 2);
-            var1.a((class_cj)var3.a(1, var4, -1), (IBlockData)this.c, 2);
-            var1.a((class_cj)var3.a(1, var4, 1), (IBlockData)this.c, 2);
+            var1.a((BlockPosition)var3.add(-1, var4, -1), (IBlockData)this.c, 2);
+            var1.a((BlockPosition)var3.add(-1, var4, 1), (IBlockData)this.c, 2);
+            var1.a((BlockPosition)var3.add(1, var4, -1), (IBlockData)this.c, 2);
+            var1.a((BlockPosition)var3.add(1, var4, 1), (IBlockData)this.c, 2);
          }
 
          return true;

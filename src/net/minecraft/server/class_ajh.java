@@ -12,7 +12,7 @@ import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.INamable;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_wm;
@@ -22,7 +22,7 @@ public class class_ajh extends Block {
    public static final BlockStateEnum a = BlockStateEnum.of("variant", class_ajh.class_a_in_class_ajh.class);
 
    public class_ajh() {
-      super(Material.B);
+      super(Material.CLAY);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_ajh.class_a_in_class_ajh.a));
       this.setStrength(0.0F);
       this.a(CreativeTab.c);
@@ -54,17 +54,17 @@ public class class_ajh extends Block {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
+   public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
       if(!var1.D && var1.R().b("doTileDrops")) {
          class_wm var6 = new class_wm(var1);
-         var6.b((double)var2.n() + 0.5D, (double)var2.o(), (double)var2.p() + 0.5D, 0.0F, 0.0F);
+         var6.b((double)var2.getX() + 0.5D, (double)var2.getY(), (double)var2.getZ() + 0.5D, 0.0F, 0.0F);
          var1.a((class_pr)var6);
          var6.A();
       }
 
    }
 
-   public int j(World var1, class_cj var2) {
+   public int j(World var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       return var3.getBlock().toLegacyData(var3);
    }

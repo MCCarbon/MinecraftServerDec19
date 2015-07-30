@@ -9,7 +9,7 @@ import java.util.Set;
 import net.minecraft.server.Item;
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_wz;
 import net.minecraft.server.class_xa;
@@ -478,7 +478,7 @@ public abstract class class_xz {
    public static void a(Set var0, int var1, class_aas var2, int var3) {
       switch(var1) {
       case 0:
-         var2.b = class_nu.d((float)var2.b / (float)var0.size());
+         var2.b = MathHelper.floor((float)var2.b / (float)var0.size());
          break;
       case 1:
          var2.b = 1;
@@ -514,7 +514,7 @@ public abstract class class_xz {
          }
 
          var2 /= (float)var0.o_();
-         return class_nu.d(var2 * 14.0F) + (var1 > 0?1:0);
+         return MathHelper.floor(var2 * 14.0F) + (var1 > 0?1:0);
       }
    }
 }

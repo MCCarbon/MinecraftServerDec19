@@ -13,8 +13,8 @@ import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -108,7 +108,7 @@ public final class class_aas {
       return this.d;
    }
 
-   public class_oq a(class_xa var1, World var2, class_cj var3, class_oo var4, class_cq var5, float var6, float var7, float var8) {
+   public class_oq a(class_xa var1, World var2, BlockPosition var3, class_oo var4, EnumDirection var5, float var6, float var7, float var8) {
       class_oq var9 = this.b().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
       if(var9 == class_oq.a) {
          var1.b(class_nc.ad[Item.getId(this.d)]);
@@ -258,7 +258,7 @@ public final class class_aas {
 
    }
 
-   public void a(World var1, Block var2, class_cj var3, class_xa var4) {
+   public void a(World var1, Block var2, BlockPosition var3, class_xa var4) {
       boolean var5 = this.d.a(this, var1, var2, var3, var4);
       if(var5) {
          var4.b(class_nc.ad[Item.getId(this.d)]);

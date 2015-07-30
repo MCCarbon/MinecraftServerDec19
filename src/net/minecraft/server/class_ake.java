@@ -14,7 +14,7 @@ public abstract class class_ake extends class_aio {
    public static final BlockStateEnum b = BlockStateEnum.of("variant", class_ake.class_c_in_class_ake.class);
 
    public class_ake() {
-      super(Material.e);
+      super(Material.STONE);
       IBlockData var1 = this.blockStateList.getFirst();
       if(!this.l()) {
          var1 = var1.set(a, class_aio.class_a_in_class_aio.b);

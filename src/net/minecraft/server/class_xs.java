@@ -13,8 +13,8 @@ import net.minecraft.server.class_ajd;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_pk;
@@ -50,16 +50,16 @@ public class class_xs extends class_xo {
       if(!this.o.D) {
          class_acd var2 = class_abe.i(this.d);
          if(var1.a == class_awg.class_a_in_class_awg.b && var2 == class_acf.a) {
-            class_cj var16 = var1.a().a(var1.b);
+            BlockPosition var16 = var1.a().shift(var1.b);
             this.a(var16);
-            Iterator var17 = class_cq.class_c_in_class_cq.a.iterator();
+            Iterator var17 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
             while(var17.hasNext()) {
-               class_cq var18 = (class_cq)var17.next();
-               this.a(var16.a(var18));
+               EnumDirection var18 = (EnumDirection)var17.next();
+               this.a(var16.shift(var18));
             }
 
-            this.o.b(2002, new class_cj(this), class_acd.a(var2));
+            this.o.b(2002, new BlockPosition(this), class_acd.a(var2));
             this.J();
          } else {
             List var3 = var2.b();
@@ -105,15 +105,15 @@ public class class_xs extends class_xo {
                }
             }
 
-            this.o.b(2002, new class_cj(this), class_acd.a(var2));
+            this.o.b(2002, new BlockPosition(this), class_acd.a(var2));
             this.J();
          }
       }
    }
 
-   private void a(class_cj var1) {
+   private void a(BlockPosition var1) {
       if(this.o.p(var1).getBlock() == Blocks.FIRE) {
-         this.o.a((class_cj)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(class_ajd.b, Integer.valueOf(7)), 2);
+         this.o.a((BlockPosition)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(class_ajd.b, Integer.valueOf(7)), 2);
       }
 
    }

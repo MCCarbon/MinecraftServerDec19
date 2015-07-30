@@ -7,10 +7,10 @@ import net.minecraft.server.class_aas;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
@@ -122,7 +122,7 @@ public class class_ul extends class_qj {
       this.ac.a(by, new Byte((byte)class_zy.o.a()));
    }
 
-   protected void a(class_cj var1, Block var2) {
+   protected void a(BlockPosition var1, Block var2) {
       this.a("mob.wolf.step", 0.15F, 1.0F);
    }
 
@@ -206,7 +206,7 @@ public class class_ul extends class_qj {
 
          if(this.bD > 0.4F) {
             float var1 = (float)this.aT().b;
-            int var2 = (int)(class_nu.a((this.bD - 0.4F) * 3.1415927F) * 7.0F);
+            int var2 = (int)(MathHelper.sin((this.bD - 0.4F) * 3.1415927F) * 7.0F);
 
             for(int var3 = 0; var3 < var2; ++var3) {
                float var4 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;

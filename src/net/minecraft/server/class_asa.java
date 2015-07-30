@@ -18,9 +18,9 @@ import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -40,7 +40,7 @@ public class class_asa {
       class_asl.a(class_asa.class_d_in_class_asa.class, "MSStairs");
    }
 
-   private static class_asn a(List var0, Random var1, int var2, int var3, int var4, class_cq var5, int var6) {
+   private static class_asn a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
       int var7 = var1.nextInt(100);
       class_arw var8;
       if(var7 >= 80) {
@@ -63,7 +63,7 @@ public class class_asa {
       return null;
    }
 
-   private static class_asn b(class_asn var0, List var1, Random var2, int var3, int var4, int var5, class_cq var6, int var7) {
+   private static class_asn b(class_asn var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 8) {
          return null;
       } else if(Math.abs(var3 - var0.c().a) <= 80 && Math.abs(var5 - var0.c().c) <= 80) {
@@ -86,29 +86,29 @@ public class class_asa {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_cq.values().length];
+      static final int[] a = new int[EnumDirection.values().length];
 
       static {
          try {
-            a[class_cq.c.ordinal()] = 1;
+            a[EnumDirection.NORTH.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_cq.d.ordinal()] = 2;
+            a[EnumDirection.SOUTH.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_cq.e.ordinal()] = 3;
+            a[EnumDirection.WEST.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_cq.f.ordinal()] = 4;
+            a[EnumDirection.EAST.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }
@@ -120,7 +120,7 @@ public class class_asa {
       public class_d_in_class_asa() {
       }
 
-      public class_d_in_class_asa(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_d_in_class_asa(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
@@ -132,7 +132,7 @@ public class class_asa {
       protected void b(class_dn var1) {
       }
 
-      public static class_arw a(List var0, Random var1, int var2, int var3, int var4, class_cq var5) {
+      public static class_arw a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5) {
          class_arw var6 = new class_arw(var2, var3 - 5, var4, var2, var3 + 2, var4);
          switch(class_asa.SyntheticClass_1.a[var5.ordinal()]) {
          case 1:
@@ -157,20 +157,20 @@ public class class_asa {
 
       public void a(class_asn var1, List var2, Random var3) {
          int var4 = this.d();
-         class_cq var5 = this.e();
+         EnumDirection var5 = this.e();
          if(var5 != null) {
             switch(class_asa.SyntheticClass_1.a[var5.ordinal()]) {
             case 1:
-               class_asa.b(var1, var2, var3, this.l.a, this.l.b, this.l.c - 1, class_cq.c, var4);
+               class_asa.b(var1, var2, var3, this.l.a, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4);
                break;
             case 2:
-               class_asa.b(var1, var2, var3, this.l.a, this.l.b, this.l.f + 1, class_cq.d, var4);
+               class_asa.b(var1, var2, var3, this.l.a, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4);
                break;
             case 3:
-               class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c, class_cq.e, var4);
+               class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c, EnumDirection.WEST, var4);
                break;
             case 4:
-               class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c, class_cq.f, var4);
+               class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c, EnumDirection.EAST, var4);
             }
          }
 
@@ -193,7 +193,7 @@ public class class_asa {
    }
 
    public static class class_b_in_class_asa extends class_asn {
-      private class_cq a;
+      private EnumDirection a;
       private boolean b;
 
       public class_b_in_class_asa() {
@@ -201,22 +201,22 @@ public class class_asa {
 
       protected void a(class_dn var1) {
          var1.a("tf", this.b);
-         var1.a("D", this.a.b());
+         var1.a("D", this.a.getHorizontalId());
       }
 
       protected void b(class_dn var1) {
          this.b = var1.o("tf");
-         this.a = class_cq.b(var1.g("D"));
+         this.a = EnumDirection.getByHorizontalId(var1.g("D"));
       }
 
-      public class_b_in_class_asa(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_b_in_class_asa(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a = var4;
          this.l = var3;
          this.b = var3.d() > 3;
       }
 
-      public static class_arw a(List var0, Random var1, int var2, int var3, int var4, class_cq var5) {
+      public static class_arw a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5) {
          class_arw var6 = new class_arw(var2, var3, var4, var2, var3 + 2, var4);
          if(var1.nextInt(4) == 0) {
             var6.e += 4;
@@ -251,41 +251,41 @@ public class class_asa {
          int var4 = this.d();
          switch(class_asa.SyntheticClass_1.a[this.a.ordinal()]) {
          case 1:
-            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, class_cq.c, var4);
-            class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, class_cq.e, var4);
-            class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, class_cq.f, var4);
+            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4);
+            class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, EnumDirection.WEST, var4);
+            class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, EnumDirection.EAST, var4);
             break;
          case 2:
-            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, class_cq.d, var4);
-            class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, class_cq.e, var4);
-            class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, class_cq.f, var4);
+            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4);
+            class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, EnumDirection.WEST, var4);
+            class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, EnumDirection.EAST, var4);
             break;
          case 3:
-            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, class_cq.c, var4);
-            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, class_cq.d, var4);
-            class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, class_cq.e, var4);
+            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4);
+            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4);
+            class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, EnumDirection.WEST, var4);
             break;
          case 4:
-            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, class_cq.c, var4);
-            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, class_cq.d, var4);
-            class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, class_cq.f, var4);
+            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4);
+            class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4);
+            class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, EnumDirection.EAST, var4);
          }
 
          if(this.b) {
             if(var3.nextBoolean()) {
-               class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b + 3 + 1, this.l.c - 1, class_cq.c, var4);
+               class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b + 3 + 1, this.l.c - 1, EnumDirection.NORTH, var4);
             }
 
             if(var3.nextBoolean()) {
-               class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b + 3 + 1, this.l.c + 1, class_cq.e, var4);
+               class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b + 3 + 1, this.l.c + 1, EnumDirection.WEST, var4);
             }
 
             if(var3.nextBoolean()) {
-               class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b + 3 + 1, this.l.c + 1, class_cq.f, var4);
+               class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b + 3 + 1, this.l.c + 1, EnumDirection.EAST, var4);
             }
 
             if(var3.nextBoolean()) {
-               class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b + 3 + 1, this.l.f + 1, class_cq.d, var4);
+               class_asa.b(var1, var2, var3, this.l.a + 1, this.l.b + 3 + 1, this.l.f + 1, EnumDirection.SOUTH, var4);
             }
          }
 
@@ -313,7 +313,7 @@ public class class_asa {
 
             for(int var4 = this.l.a; var4 <= this.l.d; ++var4) {
                for(int var5 = this.l.c; var5 <= this.l.f; ++var5) {
-                  if(this.a(var1, var4, this.l.b - 1, var5, var3).getBlock().getMaterial() == Material.a) {
+                  if(this.a(var1, var4, this.l.b - 1, var5, var3).getBlock().getMaterial() == Material.AIR) {
                      this.a(var1, Blocks.PLANKS.getBlockData(), var4, this.l.b - 1, var5, var3);
                   }
                }
@@ -347,13 +347,13 @@ public class class_asa {
          this.d = var1.g("Num");
       }
 
-      public class_a_in_class_asa(int var1, Random var2, class_arw var3, class_cq var4) {
+      public class_a_in_class_asa(int var1, Random var2, class_arw var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
          this.a = var2.nextInt(3) == 0;
          this.b = !this.a && var2.nextInt(23) == 0;
-         if(this.e().k() == class_cq.class_a_in_class_cq.c) {
+         if(this.e().getAxis() == EnumDirection.EnumAxis.Z) {
             this.d = var3.e() / 5;
          } else {
             this.d = var3.c() / 5;
@@ -361,7 +361,7 @@ public class class_asa {
 
       }
 
-      public static class_arw a(List var0, Random var1, int var2, int var3, int var4, class_cq var5) {
+      public static class_arw a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5) {
          class_arw var6 = new class_arw(var2, var3, var4, var2, var3 + 2, var4);
 
          int var7;
@@ -396,43 +396,43 @@ public class class_asa {
       public void a(class_asn var1, List var2, Random var3) {
          int var4 = this.d();
          int var5 = var3.nextInt(4);
-         class_cq var6 = this.e();
+         EnumDirection var6 = this.e();
          if(var6 != null) {
             switch(class_asa.SyntheticClass_1.a[var6.ordinal()]) {
             case 1:
                if(var5 <= 1) {
                   class_asa.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, var6, var4);
                } else if(var5 == 2) {
-                  class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.c, class_cq.e, var4);
+                  class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.c, EnumDirection.WEST, var4);
                } else {
-                  class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.c, class_cq.f, var4);
+                  class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.c, EnumDirection.EAST, var4);
                }
                break;
             case 2:
                if(var5 <= 1) {
                   class_asa.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, var6, var4);
                } else if(var5 == 2) {
-                  class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, class_cq.e, var4);
+                  class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, EnumDirection.WEST, var4);
                } else {
-                  class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, class_cq.f, var4);
+                  class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, EnumDirection.EAST, var4);
                }
                break;
             case 3:
                if(var5 <= 1) {
                   class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.c, var6, var4);
                } else if(var5 == 2) {
-                  class_asa.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, class_cq.c, var4);
+                  class_asa.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, EnumDirection.NORTH, var4);
                } else {
-                  class_asa.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, class_cq.d, var4);
+                  class_asa.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, EnumDirection.SOUTH, var4);
                }
                break;
             case 4:
                if(var5 <= 1) {
                   class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.c, var6, var4);
                } else if(var5 == 2) {
-                  class_asa.b(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, class_cq.c, var4);
+                  class_asa.b(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, EnumDirection.NORTH, var4);
                } else {
-                  class_asa.b(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, class_cq.d, var4);
+                  class_asa.b(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, EnumDirection.SOUTH, var4);
                }
             }
          }
@@ -440,22 +440,22 @@ public class class_asa {
          if(var4 < 8) {
             int var7;
             int var8;
-            if(var6 != class_cq.c && var6 != class_cq.d) {
+            if(var6 != EnumDirection.NORTH && var6 != EnumDirection.SOUTH) {
                for(var7 = this.l.a + 3; var7 + 3 <= this.l.d; var7 += 5) {
                   var8 = var3.nextInt(5);
                   if(var8 == 0) {
-                     class_asa.b(var1, var2, var3, var7, this.l.b, this.l.c - 1, class_cq.c, var4 + 1);
+                     class_asa.b(var1, var2, var3, var7, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4 + 1);
                   } else if(var8 == 1) {
-                     class_asa.b(var1, var2, var3, var7, this.l.b, this.l.f + 1, class_cq.d, var4 + 1);
+                     class_asa.b(var1, var2, var3, var7, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4 + 1);
                   }
                }
             } else {
                for(var7 = this.l.c + 3; var7 + 3 <= this.l.f; var7 += 5) {
                   var8 = var3.nextInt(5);
                   if(var8 == 0) {
-                     class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, var7, class_cq.e, var4 + 1);
+                     class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b, var7, EnumDirection.WEST, var4 + 1);
                   } else if(var8 == 1) {
-                     class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, var7, class_cq.f, var4 + 1);
+                     class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b, var7, EnumDirection.EAST, var4 + 1);
                   }
                }
             }
@@ -464,11 +464,11 @@ public class class_asa {
       }
 
       protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
-         class_cj var9 = new class_cj(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-         if(var2.b((class_df)var9) && var1.p(var9).getBlock().getMaterial() == Material.a) {
+         BlockPosition var9 = new BlockPosition(this.a(var4, var6), this.d(var5), this.b(var4, var6));
+         if(var2.b((BaseBlockPosition)var9) && var1.p(var9).getBlock().getMaterial() == Material.AIR) {
             IBlockData var10 = Blocks.RAIL.getBlockData().set(class_akg.b, var3.nextBoolean()?class_agf.class_b_in_class_agf.a:class_agf.class_b_in_class_agf.b);
             this.a(var1, var10, var4, var5, var6, var2);
-            class_vo var11 = new class_vo(var1, (double)((float)var9.n() + 0.5F), (double)((float)var9.o() + 0.5F), (double)((float)var9.p() + 0.5F));
+            class_vo var11 = new class_vo(var1, (double)((float)var9.getX() + 0.5F), (double)((float)var9.getY() + 0.5F), (double)((float)var9.getZ() + 0.5F));
             class_od.a(var3, var7, (class_oj)var11, var8);
             var1.a((class_pr)var11);
             return true;
@@ -513,8 +513,8 @@ public class class_asa {
                this.a(var1, var3, var2, 0.05F, 2, 2, var10 - 2, Blocks.WEB.getBlockData());
                this.a(var1, var3, var2, 0.05F, 0, 2, var10 + 2, Blocks.WEB.getBlockData());
                this.a(var1, var3, var2, 0.05F, 2, 2, var10 + 2, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.d));
-               this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.TORCH.getBlockData().set(class_alp.a, class_cq.c));
+               this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH));
+               this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH));
                if(var2.nextInt(100) == 0) {
                   this.a(var1, var3, var2, 2, 0, var10 - 1, class_od.a(class_asa.a, new class_od[]{Items.cg.b(var2)}), 3 + var2.nextInt(4));
                }
@@ -528,10 +528,10 @@ public class class_asa {
                   int var12 = var10 - 1 + var2.nextInt(3);
                   int var13 = this.a(1, var12);
                   var12 = this.b(1, var12);
-                  class_cj var14 = new class_cj(var13, var11, var12);
-                  if(var3.b((class_df)var14)) {
+                  BlockPosition var14 = new BlockPosition(var13, var11, var12);
+                  if(var3.b((BaseBlockPosition)var14)) {
                      this.c = true;
-                     var1.a((class_cj)var14, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
+                     var1.a((BlockPosition)var14, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
                      class_amg var15 = var1.s(var14);
                      if(var15 instanceof class_amv) {
                         ((class_amv)var15).b().a("CaveSpider");
@@ -544,7 +544,7 @@ public class class_asa {
                for(var10 = 0; var10 <= var8; ++var10) {
                   byte var17 = -1;
                   IBlockData var19 = this.a(var1, var9, var17, var10, var3);
-                  if(var19.getBlock().getMaterial() == Material.a) {
+                  if(var19.getBlock().getMaterial() == Material.AIR) {
                      byte var20 = -1;
                      this.a(var1, Blocks.PLANKS.getBlockData(), var9, var20, var10, var3);
                   }
@@ -556,7 +556,7 @@ public class class_asa {
 
                for(var10 = 0; var10 <= var8; ++var10) {
                   IBlockData var18 = this.a(var1, 1, -1, var10, var3);
-                  if(var18.getBlock().getMaterial() != Material.a && var18.getBlock().isFullBlock()) {
+                  if(var18.getBlock().getMaterial() != Material.AIR && var18.getBlock().isFullBlock()) {
                      this.a(var1, var3, var2, 0.7F, 1, 0, var10, var16);
                   }
                }
@@ -594,7 +594,7 @@ public class class_asa {
                break;
             }
 
-            var7 = class_asa.b(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.c - 1, class_cq.c, var4);
+            var7 = class_asa.b(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.c - 1, EnumDirection.NORTH, var4);
             if(var7 != null) {
                var8 = var7.c();
                this.a.add(new class_arw(var8.a, var8.b, this.l.c, var8.d, var8.e, this.l.c + 1));
@@ -607,7 +607,7 @@ public class class_asa {
                break;
             }
 
-            var7 = class_asa.b(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.f + 1, class_cq.d, var4);
+            var7 = class_asa.b(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.f + 1, EnumDirection.SOUTH, var4);
             if(var7 != null) {
                var8 = var7.c();
                this.a.add(new class_arw(var8.a, var8.b, this.l.f - 1, var8.d, var8.e, this.l.f));
@@ -620,7 +620,7 @@ public class class_asa {
                break;
             }
 
-            var7 = class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, class_cq.e, var4);
+            var7 = class_asa.b(var1, var2, var3, this.l.a - 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, EnumDirection.WEST, var4);
             if(var7 != null) {
                var8 = var7.c();
                this.a.add(new class_arw(this.l.a, var8.b, var8.c, this.l.a + 1, var8.e, var8.f));
@@ -633,7 +633,7 @@ public class class_asa {
                break;
             }
 
-            var7 = class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, class_cq.f, var4);
+            var7 = class_asa.b(var1, var2, var3, this.l.d + 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, EnumDirection.EAST, var4);
             if(var7 != null) {
                var8 = var7.c();
                this.a.add(new class_arw(this.l.d - 1, var8.b, var8.c, this.l.d, var8.e, var8.f));

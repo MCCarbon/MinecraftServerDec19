@@ -2,26 +2,26 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.class_auv;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_tf;
 
 public class class_th extends class_tf {
-   private class_cj f;
+   private BlockPosition f;
 
    public class_th(class_qb var1, World var2) {
       super(var1, var2);
    }
 
-   public class_auv a(class_cj var1) {
+   public class_auv a(BlockPosition var1) {
       this.f = var1;
       return super.a(var1);
    }
 
    public class_auv a(class_pr var1) {
-      this.f = new class_cj(var1);
+      this.f = new BlockPosition(var1);
       return super.a(var1);
    }
 
@@ -30,7 +30,7 @@ public class class_th extends class_tf {
       if(var4 != null) {
          return this.a(var4, var2);
       } else {
-         this.f = new class_cj(var1);
+         this.f = new BlockPosition(var1);
          this.e = var2;
          return true;
       }
@@ -42,8 +42,8 @@ public class class_th extends class_tf {
       } else {
          if(this.f != null) {
             double var1 = (double)(this.b.J * this.b.J);
-            if(this.b.c(this.f) >= var1 && (this.b.t <= (double)this.f.o() || this.b.c(new class_cj(this.f.n(), class_nu.c(this.b.t), this.f.p())) >= var1)) {
-               this.b.r().a((double)this.f.n(), (double)this.f.o(), (double)this.f.p(), this.e);
+            if(this.b.c(this.f) >= var1 && (this.b.t <= (double)this.f.getY() || this.b.c(new BlockPosition(this.f.getX(), MathHelper.floor(this.b.t), this.f.getZ())) >= var1)) {
+               this.b.r().a((double)this.f.getX(), (double)this.f.getY(), (double)this.f.getZ(), this.e);
             } else {
                this.f = null;
             }

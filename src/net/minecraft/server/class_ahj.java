@@ -11,7 +11,7 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
@@ -20,7 +20,7 @@ public class class_ahj extends Block {
 	public static final class_anw b = class_anw.a("snowy");
 
 	protected class_ahj() {
-		super(Material.c);
+		super(Material.EARTH);
 		this.setBlockData(this.blockStateList.getFirst().set(a, class_ahj.class_a_in_class_ahj.a).set(b, Boolean.valueOf(false)));
 		this.a(CreativeTab.b);
 	}
@@ -29,16 +29,16 @@ public class class_ahj extends Block {
 		return ((class_ahj.class_a_in_class_ahj) var1.get(a)).d();
 	}
 
-	public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
+	public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
 		if (var1.get(a) == class_ahj.class_a_in_class_ahj.c) {
-			Block var4 = var2.p(var3.a()).getBlock();
+			Block var4 = var2.p(var3.shiftUp()).getBlock();
 			var1 = var1.set(b, Boolean.valueOf(var4 == Blocks.SNOW || var4 == Blocks.SNOW_LAYER));
 		}
 
 		return var1;
 	}
 
-	public int j(World var1, class_cj var2) {
+	public int j(World var1, BlockPosition var2) {
 		IBlockData var3 = var1.p(var2);
 		return var3.getBlock() != this ? 0 : ((class_ahj.class_a_in_class_ahj) var3.get(a)).a();
 	}
@@ -65,7 +65,7 @@ public class class_ahj extends Block {
 	}
 
 	public static enum class_a_in_class_ahj implements INamable {
-		a(0, "dirt", "default", MaterialMapColor.l), b(1, "coarse_dirt", "coarse", MaterialMapColor.l), c(2, "podzol", MaterialMapColor.J);
+		a(0, "dirt", "default", MaterialMapColor.COLOR11), b(1, "coarse_dirt", "coarse", MaterialMapColor.COLOR11), c(2, "podzol", MaterialMapColor.COLOR35);
 
 	    private static final class_a_in_class_ahj[] d;
 	    

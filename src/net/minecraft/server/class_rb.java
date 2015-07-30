@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import java.util.List;
 import net.minecraft.server.class_auv;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pv;
 import net.minecraft.server.class_qh;
@@ -55,13 +55,13 @@ public class class_rb extends class_rm {
          return false;
       } else {
          this.b = (class_pr)var1.get(0);
-         class_awh var2 = class_tm.b(this.a, 16, 7, new class_awh(this.b.s, this.b.t, this.b.u));
+         Vec3D var2 = class_tm.b(this.a, 16, 7, new Vec3D(this.b.s, this.b.t, this.b.u));
          if(var2 == null) {
             return false;
-         } else if(this.b.e(var2.a, var2.b, var2.c) < this.b.h(this.a)) {
+         } else if(this.b.e(var2.x, var2.y, var2.z) < this.b.h(this.a)) {
             return false;
          } else {
-            this.g = this.h.a(var2.a, var2.b, var2.c);
+            this.g = this.h.a(var2.x, var2.y, var2.z);
             return this.g == null?false:this.g.b(var2);
          }
       }

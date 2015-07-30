@@ -19,7 +19,7 @@ public abstract class class_amb extends class_aio {
    public static final BlockStateEnum b = BlockStateEnum.of("variant", class_ajw.class_a_in_class_ajw.class);
 
    public class_amb() {
-      super(Material.d);
+      super(Material.WOOD);
       IBlockData var1 = this.blockStateList.getFirst();
       if(!this.l()) {
          var1 = var1.set(a, class_aio.class_a_in_class_aio.b);

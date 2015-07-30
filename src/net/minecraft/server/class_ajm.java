@@ -8,11 +8,11 @@ import net.minecraft.server.CreativeTab;
 
 public class class_ajm extends Block {
    public class_ajm() {
-      super(Material.e);
+      super(Material.STONE);
       this.a(CreativeTab.b);
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return MaterialMapColor.K;
+      return MaterialMapColor.COLOR36;
    }
 }

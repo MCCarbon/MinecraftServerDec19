@@ -7,7 +7,7 @@ import net.minecraft.server.class_aoy;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apq;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_lg;
@@ -39,11 +39,11 @@ public class class_apd extends class_aoy {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new class_cj(var1, 0, var2)).getMaterial().isSolid();
+      return this.b.c(new BlockPosition(var1, 0, var2)).getMaterial().isSolid();
    }
 
-   public class_cj h() {
-      return new class_cj(100, 50, 0);
+   public BlockPosition h() {
+      return new BlockPosition(100, 50, 0);
    }
 
    public int i() {

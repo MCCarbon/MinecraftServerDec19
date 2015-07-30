@@ -1,39 +1,39 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_ic;
 
 public class class_ir implements class_ff {
-   private class_cj a;
-   private class_cq b;
+   private BlockPosition a;
+   private EnumDirection b;
    private class_ir.class_a_in_class_ir c;
 
    public void a(class_em var1) throws IOException {
       this.c = (class_ir.class_a_in_class_ir)var1.a(class_ir.class_a_in_class_ir.class);
       this.a = var1.c();
-      this.b = class_cq.a(var1.readUnsignedByte());
+      this.b = EnumDirection.getById(var1.readUnsignedByte());
    }
 
    public void b(class_em var1) throws IOException {
       var1.a((Enum)this.c);
       var1.a(this.a);
-      var1.writeByte(this.b.a());
+      var1.writeByte(this.b.getId());
    }
 
    public void a(class_ic var1) {
       var1.a(this);
    }
 
-   public class_cj a() {
+   public BlockPosition a() {
       return this.a;
    }
 
-   public class_cq b() {
+   public EnumDirection b() {
       return this.b;
    }
 

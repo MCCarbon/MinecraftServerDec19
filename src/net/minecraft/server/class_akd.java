@@ -15,8 +15,8 @@ import net.minecraft.server.class_ant;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -41,38 +41,38 @@ public class class_akd extends class_aiv {
    };
 
    protected class_akd() {
-      super(Material.C, MaterialMapColor.q);
-      this.setBlockData(this.blockStateList.getFirst().set(O, class_cq.c));
+      super(Material.PUMPKIN, MaterialMapColor.COLOR16);
+      this.setBlockData(this.blockStateList.getFirst().set(O, EnumDirection.NORTH));
       this.setTicking(true);
       this.a(CreativeTab.b);
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       super.c(var1, var2, var3);
       this.f(var1, var2);
    }
 
-   public boolean e(World var1, class_cj var2) {
+   public boolean e(World var1, BlockPosition var2) {
       return this.l().a(var1, var2) != null || this.o().a(var1, var2) != null;
    }
 
-   private void f(World var1, class_cj var2) {
+   private void f(World var1, BlockPosition var2) {
       class_anp.class_b_in_class_anp var3;
       int var4;
       int var6;
       if((var3 = this.n().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.n().b(); ++var4) {
             class_ano var5 = var3.a(0, var4, 0);
-            var1.a((class_cj)var5.d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
+            var1.a((BlockPosition)var5.d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
          }
 
          class_uh var9 = new class_uh(var1);
-         class_cj var10 = var3.a(0, 2, 0).d();
-         var9.b((double)var10.n() + 0.5D, (double)var10.o() + 0.05D, (double)var10.p() + 0.5D, 0.0F, 0.0F);
+         BlockPosition var10 = var3.a(0, 2, 0).d();
+         var9.b((double)var10.getX() + 0.5D, (double)var10.getY() + 0.05D, (double)var10.getZ() + 0.5D, 0.0F, 0.0F);
          var1.a((class_pr)var9);
 
          for(var6 = 0; var6 < 120; ++var6) {
-            var1.a(class_cy.G, (double)var10.n() + var1.s.nextDouble(), (double)var10.o() + var1.s.nextDouble() * 2.5D, (double)var10.p() + var1.s.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.a(class_cy.G, (double)var10.getX() + var1.s.nextDouble(), (double)var10.getY() + var1.s.nextDouble() * 2.5D, (double)var10.getZ() + var1.s.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          for(var6 = 0; var6 < this.n().b(); ++var6) {
@@ -82,18 +82,18 @@ public class class_akd extends class_aiv {
       } else if((var3 = this.p().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.p().c(); ++var4) {
             for(int var12 = 0; var12 < this.p().b(); ++var12) {
-               var1.a((class_cj)var3.a(var4, var12, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
+               var1.a((BlockPosition)var3.a(var4, var12, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
             }
          }
 
-         class_cj var11 = var3.a(1, 2, 0).d();
+         BlockPosition var11 = var3.a(1, 2, 0).d();
          class_uj var13 = new class_uj(var1);
          var13.m(true);
-         var13.b((double)var11.n() + 0.5D, (double)var11.o() + 0.05D, (double)var11.p() + 0.5D, 0.0F, 0.0F);
+         var13.b((double)var11.getX() + 0.5D, (double)var11.getY() + 0.05D, (double)var11.getZ() + 0.5D, 0.0F, 0.0F);
          var1.a((class_pr)var13);
 
          for(var6 = 0; var6 < 120; ++var6) {
-            var1.a(class_cy.F, (double)var11.n() + var1.s.nextDouble(), (double)var11.o() + var1.s.nextDouble() * 3.9D, (double)var11.p() + var1.s.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.a(class_cy.F, (double)var11.getX() + var1.s.nextDouble(), (double)var11.getY() + var1.s.nextDouble() * 3.9D, (double)var11.getZ() + var1.s.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          for(var6 = 0; var6 < this.p().c(); ++var6) {
@@ -106,28 +106,28 @@ public class class_akd extends class_aiv {
 
    }
 
-   public boolean d(World var1, class_cj var2) {
-      return var1.p(var2).getBlock().material.j() && World.a((class_aer)var1, (class_cj)var2.b());
+   public boolean d(World var1, BlockPosition var2) {
+      return var1.p(var2).getBlock().material.isReplaceable() && World.a((class_aer)var1, (BlockPosition)var2.shiftDown());
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(O, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:var1.set(O, var2.a((EnumDirection)var1.get(O)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(O)));
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return this.getBlockData().set(O, var8.aR().d());
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      return this.getBlockData().set(O, var8.aR().getOpposite());
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(O, class_cq.b(var1));
+      return this.getBlockData().set(O, EnumDirection.getByHorizontalId(var1));
    }
 
    public int toLegacyData(IBlockData var1) {
-      return ((class_cq)var1.get(O)).b();
+      return ((EnumDirection)var1.get(O)).getHorizontalId();
    }
 
    protected BlockStateList createBlockStateList() {

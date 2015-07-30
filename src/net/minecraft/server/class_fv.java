@@ -4,20 +4,20 @@ import java.io.IOException;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_em;
 import net.minecraft.server.class_ep;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fj;
 
 public class class_fv implements class_ff {
-   private class_cj a;
+   private BlockPosition a;
    private IBlockData b;
 
    public class_fv() {
    }
 
-   public class_fv(World var1, class_cj var2) {
+   public class_fv(World var1, BlockPosition var2) {
       this.a = var2;
       this.b = var1.p(var2);
    }

@@ -4,17 +4,17 @@ import com.google.common.base.Predicate;
 import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_ano {
    private final World a;
-   private final class_cj b;
+   private final BlockPosition b;
    private final boolean c;
    private IBlockData d;
    private class_amg e;
    private boolean f;
 
-   public class_ano(World var1, class_cj var2, boolean var3) {
+   public class_ano(World var1, BlockPosition var2, boolean var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
@@ -37,7 +37,7 @@ public class class_ano {
       return this.e;
    }
 
-   public class_cj d() {
+   public BlockPosition d() {
       return this.b;
    }
 

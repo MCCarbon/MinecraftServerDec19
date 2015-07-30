@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
@@ -37,7 +37,7 @@ public class class_an extends class_i {
 
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"players", "ips"}):null;
    }
 }

@@ -11,7 +11,7 @@ import net.minecraft.server.class_aua;
 import net.minecraft.server.class_auc;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
 
 public class class_afd {
@@ -50,12 +50,12 @@ public class class_afd {
       return this.e;
    }
 
-   public class_aez a(class_cj var1) {
+   public class_aez a(BlockPosition var1) {
       return this.a(var1, (class_aez)null);
    }
 
-   public class_aez a(class_cj var1, class_aez var2) {
-      return this.d.a(var1.n(), var1.p(), var2);
+   public class_aez a(BlockPosition var1, class_aez var2) {
+      return this.d.a(var1.getX(), var1.getZ(), var2);
    }
 
    public float[] a(float[] var1, int var2, int var3, int var4, int var5) {
@@ -172,7 +172,7 @@ public class class_afd {
       }
    }
 
-   public class_cj a(int var1, int var2, int var3, List var4, Random var5) {
+   public BlockPosition a(int var1, int var2, int var3, List var4, Random var5) {
       class_aua.a();
       int var6 = var1 - var3 >> 2;
       int var7 = var2 - var3 >> 2;
@@ -181,7 +181,7 @@ public class class_afd {
       int var10 = var8 - var6 + 1;
       int var11 = var9 - var7 + 1;
       int[] var12 = this.b.a(var6, var7, var10, var11);
-      class_cj var13 = null;
+      BlockPosition var13 = null;
       int var14 = 0;
 
       for(int var15 = 0; var15 < var10 * var11; ++var15) {
@@ -189,7 +189,7 @@ public class class_afd {
          int var17 = var7 + var15 / var10 << 2;
          class_aez var18 = class_aez.e(var12[var15]);
          if(var4.contains(var18) && (var13 == null || var5.nextInt(var14 + 1) == 0)) {
-            var13 = new class_cj(var16, 0, var17);
+            var13 = new BlockPosition(var16, 0, var17);
             ++var14;
          }
       }

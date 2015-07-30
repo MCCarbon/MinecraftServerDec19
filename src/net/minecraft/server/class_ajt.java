@@ -42,7 +42,7 @@ public class class_ajt extends class_aje {
          case 2:
             return class_ajw.class_a_in_class_ajw.f.c();
          case 3:
-            return MaterialMapColor.p;
+            return MaterialMapColor.COLOR15;
          case 4:
             return class_ajw.class_a_in_class_ajw.b.c();
          }

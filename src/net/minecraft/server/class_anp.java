@@ -8,9 +8,9 @@ import com.google.common.cache.LoadingCache;
 import java.util.Iterator;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ano;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_df;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.BaseBlockPosition;
 
 public class class_anp {
    private final Predicate[][][] a;
@@ -47,7 +47,7 @@ public class class_anp {
       return this.d;
    }
 
-   private class_anp.class_b_in_class_anp a(class_cj var1, class_cq var2, class_cq var3, LoadingCache var4) {
+   private class_anp.class_b_in_class_anp a(BlockPosition var1, EnumDirection var2, EnumDirection var3, LoadingCache var4) {
       for(int var5 = 0; var5 < this.d; ++var5) {
          for(int var6 = 0; var6 < this.c; ++var6) {
             for(int var7 = 0; var7 < this.b; ++var7) {
@@ -61,24 +61,24 @@ public class class_anp {
       return new class_anp.class_b_in_class_anp(var1, var2, var3, var4, this.d, this.c, this.b);
    }
 
-   public class_anp.class_b_in_class_anp a(World var1, class_cj var2) {
+   public class_anp.class_b_in_class_anp a(World var1, BlockPosition var2) {
       LoadingCache var3 = a(var1, false);
       int var4 = Math.max(Math.max(this.d, this.c), this.b);
-      Iterator var5 = class_cj.a(var2, var2.a(var4 - 1, var4 - 1, var4 - 1)).iterator();
+      Iterator var5 = BlockPosition.allInCube(var2, var2.add(var4 - 1, var4 - 1, var4 - 1)).iterator();
 
       while(var5.hasNext()) {
-         class_cj var6 = (class_cj)var5.next();
-         class_cq[] var7 = class_cq.values();
+         BlockPosition var6 = (BlockPosition)var5.next();
+         EnumDirection[] var7 = EnumDirection.values();
          int var8 = var7.length;
 
          for(int var9 = 0; var9 < var8; ++var9) {
-            class_cq var10 = var7[var9];
-            class_cq[] var11 = class_cq.values();
+            EnumDirection var10 = var7[var9];
+            EnumDirection[] var11 = EnumDirection.values();
             int var12 = var11.length;
 
             for(int var13 = 0; var13 < var12; ++var13) {
-               class_cq var14 = var11[var13];
-               if(var14 != var10 && var14 != var10.d()) {
+               EnumDirection var14 = var11[var13];
+               if(var14 != var10 && var14 != var10.getOpposite()) {
                   class_anp.class_b_in_class_anp var15 = this.a(var6, var10, var14, var3);
                   if(var15 != null) {
                      return var15;
@@ -95,27 +95,27 @@ public class class_anp {
       return CacheBuilder.newBuilder().build(new class_anp.class_a_in_class_anp(var0, var1));
    }
 
-   protected static class_cj a(class_cj var0, class_cq var1, class_cq var2, int var3, int var4, int var5) {
-      if(var1 != var2 && var1 != var2.d()) {
-         class_df var6 = new class_df(var1.g(), var1.h(), var1.i());
-         class_df var7 = new class_df(var2.g(), var2.h(), var2.i());
-         class_df var8 = var6.d(var7);
-         return var0.a(var7.n() * -var4 + var8.n() * var3 + var6.n() * var5, var7.o() * -var4 + var8.o() * var3 + var6.o() * var5, var7.p() * -var4 + var8.p() * var3 + var6.p() * var5);
+   protected static BlockPosition a(BlockPosition var0, EnumDirection var1, EnumDirection var2, int var3, int var4, int var5) {
+      if(var1 != var2 && var1 != var2.getOpposite()) {
+         BaseBlockPosition var6 = new BaseBlockPosition(var1.getAdjacentX(), var1.getAdjacentY(), var1.getAdjacentZ());
+         BaseBlockPosition var7 = new BaseBlockPosition(var2.getAdjacentX(), var2.getAdjacentY(), var2.getAdjacentZ());
+         BaseBlockPosition var8 = var6.crossProduct(var7);
+         return var0.add(var7.getX() * -var4 + var8.getX() * var3 + var6.getX() * var5, var7.getY() * -var4 + var8.getY() * var3 + var6.getY() * var5, var7.getZ() * -var4 + var8.getZ() * var3 + var6.getZ() * var5);
       } else {
          throw new IllegalArgumentException("Invalid forwards & up combination");
       }
    }
 
    public static class class_b_in_class_anp {
-      private final class_cj a;
-      private final class_cq b;
-      private final class_cq c;
+      private final BlockPosition a;
+      private final EnumDirection b;
+      private final EnumDirection c;
       private final LoadingCache d;
       private final int e;
       private final int f;
       private final int g;
 
-      public class_b_in_class_anp(class_cj var1, class_cq var2, class_cq var3, LoadingCache var4, int var5, int var6, int var7) {
+      public class_b_in_class_anp(BlockPosition var1, EnumDirection var2, EnumDirection var3, LoadingCache var4, int var5, int var6, int var7) {
          this.a = var1;
          this.b = var2;
          this.c = var3;
@@ -125,15 +125,15 @@ public class class_anp {
          this.g = var7;
       }
 
-      public class_cj a() {
+      public BlockPosition a() {
          return this.a;
       }
 
-      public class_cq b() {
+      public EnumDirection b() {
          return this.b;
       }
 
-      public class_cq c() {
+      public EnumDirection c() {
          return this.c;
       }
 
@@ -163,13 +163,13 @@ public class class_anp {
          this.b = var2;
       }
 
-      public class_ano a(class_cj var1) throws Exception {
+      public class_ano a(BlockPosition var1) throws Exception {
          return new class_ano(this.a, var1, this.b);
       }
 
       // $FF: synthetic method
       public Object load(Object var1) throws Exception {
-         return this.a((class_cj)var1);
+         return this.a((BlockPosition)var1);
       }
    }
 }

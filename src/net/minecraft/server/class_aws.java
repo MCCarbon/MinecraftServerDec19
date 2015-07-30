@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_awr;
 import net.minecraft.server.class_awt;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_xa;
 
 public class class_aws extends class_awr {
@@ -24,7 +24,7 @@ public class class_aws extends class_awr {
          var2 /= (float)var1.size();
       }
 
-      return class_nu.f(var2);
+      return MathHelper.ceil(var2);
    }
 
    public boolean b() {

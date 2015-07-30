@@ -7,7 +7,7 @@ import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cd;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
@@ -51,7 +51,7 @@ public class class_ap extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return a(var2, MinecraftServer.N().K());
    }
 

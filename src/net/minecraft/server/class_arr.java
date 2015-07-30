@@ -12,7 +12,7 @@ import net.minecraft.server.class_aez;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ars;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 
 public class class_arr {
    private final List a = Lists.newArrayList();
@@ -199,7 +199,7 @@ public class class_arr {
          return e();
       } else {
          String[] var1 = var0.split(";", -1);
-         int var2 = var1.length == 1?0:class_nu.a(var1[0], 0);
+         int var2 = var1.length == 1?0:MathHelper.parseIntWithDef(var1[0], 0);
          if(var2 >= 0 && var2 <= 3) {
             class_arr var3 = new class_arr();
             int var4 = var1.length == 1?0:1;
@@ -209,7 +209,7 @@ public class class_arr {
                var3.d();
                int var6 = class_aez.q.az;
                if(var2 > 0 && var1.length > var4) {
-                  var6 = class_nu.a(var1[var4++], var6);
+                  var6 = MathHelper.parseIntWithDef(var1[var4++], var6);
                }
 
                var3.a(var6);

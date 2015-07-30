@@ -10,7 +10,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aga;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ow;
 import net.minecraft.server.class_wz;
@@ -33,13 +33,13 @@ public class class_yb extends class_xz {
       }
    };
    private World i;
-   private class_cj j;
+   private BlockPosition j;
    public int a;
    private int k;
    private String l;
    private final class_xa m;
 
-   public class_yb(class_wz var1, final World var2, final class_cj var3, class_xa var4) {
+   public class_yb(class_wz var1, final World var2, final BlockPosition var3, class_xa var4) {
       this.j = var3;
       this.i = var2;
       this.m = var4;
@@ -81,7 +81,7 @@ public class class_yb extends class_xz {
                   var2.g(var3);
                   var2.b(1020, var3, 0);
                } else {
-                  var2.a((class_cj)var3, (IBlockData)var5.set(class_aga.b, Integer.valueOf(var4)), 2);
+                  var2.a((BlockPosition)var3, (IBlockData)var5.set(class_aga.b, Integer.valueOf(var4)), 2);
                   var2.b(1021, var3, 0);
                }
             } else if(!var2.D) {
@@ -296,7 +296,7 @@ public class class_yb extends class_xz {
    }
 
    public boolean a(class_xa var1) {
-      return this.i.p(this.j).getBlock() != Blocks.ANVIL?false:var1.e((double)this.j.n() + 0.5D, (double)this.j.o() + 0.5D, (double)this.j.p() + 0.5D) <= 64.0D;
+      return this.i.p(this.j).getBlock() != Blocks.ANVIL?false:var1.e((double)this.j.getX() + 0.5D, (double)this.j.getY() + 0.5D, (double)this.j.getZ() + 0.5D) <= 64.0D;
    }
 
    public class_aas b(class_xa var1, int var2) {

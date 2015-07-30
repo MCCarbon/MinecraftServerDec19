@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_no;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
 public abstract class class_auu {
@@ -16,9 +16,9 @@ public abstract class class_auu {
    public void a(class_aer var1, class_pr var2) {
       this.a = var1;
       this.b.c();
-      this.c = class_nu.d(var2.J + 1.0F);
-      this.d = class_nu.d(var2.K + 1.0F);
-      this.e = class_nu.d(var2.J + 1.0F);
+      this.c = MathHelper.floor(var2.J + 1.0F);
+      this.d = MathHelper.floor(var2.K + 1.0F);
+      this.e = MathHelper.floor(var2.J + 1.0F);
    }
 
    public void a() {

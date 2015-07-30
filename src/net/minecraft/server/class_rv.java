@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tm;
@@ -20,7 +20,7 @@ public class class_rv extends class_rm {
    }
 
    public boolean a() {
-      class_cj var1 = new class_cj(this.a);
+      BlockPosition var1 = new BlockPosition(this.a);
       if((!this.a.o.x() || this.a.o.T() && !this.a.o.b(var1).e()) && !this.a.o.t.m()) {
          if(this.a.bd().nextInt(50) != 0) {
             return false;
@@ -46,14 +46,14 @@ public class class_rv extends class_rm {
 
    public void c() {
       this.c = -1;
-      class_cj var1 = this.b.e();
-      int var2 = var1.n();
-      int var3 = var1.o();
-      int var4 = var1.p();
+      BlockPosition var1 = this.b.e();
+      int var2 = var1.getX();
+      int var3 = var1.getY();
+      int var4 = var1.getZ();
       if(this.a.b(var1) > 256.0D) {
-         class_awh var5 = class_tm.a(this.a, 14, 3, new class_awh((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D));
+         Vec3D var5 = class_tm.a(this.a, 14, 3, new Vec3D((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D));
          if(var5 != null) {
-            this.a.u().a(var5.a, var5.b, var5.c, 1.0D);
+            this.a.u().a(var5.x, var5.y, var5.z, 1.0D);
          }
       } else {
          this.a.u().a((double)var2 + 0.5D, (double)var3, (double)var4 + 0.5D, 1.0D);
@@ -62,8 +62,8 @@ public class class_rv extends class_rm {
    }
 
    public void d() {
-      this.c = this.b.e().n();
-      this.d = this.b.e().p();
+      this.c = this.b.e().getX();
+      this.d = this.b.e().getZ();
       this.b = null;
    }
 }

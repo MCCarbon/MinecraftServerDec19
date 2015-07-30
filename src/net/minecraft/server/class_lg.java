@@ -46,11 +46,11 @@ import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
 import net.minecraft.server.class_avz;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_awo;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_e;
 import net.minecraft.server.class_ff;
@@ -201,12 +201,12 @@ public class class_lg extends World implements class_of {
       this.ak();
    }
 
-   public class_aez.class_c_in_class_aez a(class_qc var1, class_cj var2) {
+   public class_aez.class_c_in_class_aez a(class_qc var1, BlockPosition var2) {
       List var3 = this.O().a(var1, var2);
       return var3 != null && !var3.isEmpty()?(class_aez.class_c_in_class_aez)class_oc.a(this.s, var3):null;
    }
 
-   public boolean a(class_qc var1, class_aez.class_c_in_class_aez var2, class_cj var3) {
+   public boolean a(class_qc var1, class_aez.class_c_in_class_aez var2, BlockPosition var3) {
       List var4 = this.O().a(var1, var3);
       return var4 != null && !var4.isEmpty()?var4.contains(var2):false;
    }
@@ -297,13 +297,13 @@ public class class_lg extends World implements class_of {
             var7.b(false);
             this.B.c("thunder");
             int var8;
-            class_cj var9;
+            BlockPosition var9;
             if(this.s.nextInt(100000) == 0 && this.T() && this.S()) {
                this.m = this.m * 3 + 1013904223;
                var8 = this.m >> 2;
-               var9 = this.a(new class_cj(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
+               var9 = this.a(new BlockPosition(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
                if(this.C(var9)) {
-                  this.d(new class_vi(this, (double)var9.n(), (double)var9.o(), (double)var9.p()));
+                  this.d(new class_vi(this, (double)var9.getX(), (double)var9.getY(), (double)var9.getZ()));
                }
             }
 
@@ -311,17 +311,17 @@ public class class_lg extends World implements class_of {
             if(this.s.nextInt(16) == 0) {
                this.m = this.m * 3 + 1013904223;
                var8 = this.m >> 2;
-               var9 = this.q(new class_cj(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
-               class_cj var10 = var9.b();
+               var9 = this.q(new BlockPosition(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
+               BlockPosition var10 = var9.shiftDown();
                if(this.w(var10)) {
-                  this.a((class_cj)var10, (IBlockData)Blocks.ICE.getBlockData());
+                  this.a((BlockPosition)var10, (IBlockData)Blocks.ICE.getBlockData());
                }
 
                if(this.T() && this.f(var9, true)) {
-                  this.a((class_cj)var9, (IBlockData)Blocks.SNOW_LAYER.getBlockData());
+                  this.a((BlockPosition)var9, (IBlockData)Blocks.SNOW_LAYER.getBlockData());
                }
 
-               if(this.T() && this.b((class_cj)var10).e()) {
+               if(this.T() && this.b((BlockPosition)var10).e()) {
                   this.p(var10).getBlock().k(this, var10);
                }
             }
@@ -346,7 +346,7 @@ public class class_lg extends World implements class_of {
                         Block var19 = var18.getBlock();
                         if(var19.isTicking()) {
                            ++var1;
-                           var19.a((World)this, new class_cj(var15 + var5, var17 + var12.d(), var16 + var6), (IBlockData)var18, (Random)this.s);
+                           var19.a((World)this, new BlockPosition(var15 + var5, var17 + var12.d(), var16 + var6), (IBlockData)var18, (Random)this.s);
                         }
                      }
                   }
@@ -357,9 +357,9 @@ public class class_lg extends World implements class_of {
       }
    }
 
-   protected class_cj a(class_cj var1) {
-      class_cj var2 = this.q(var1);
-      class_awf var3 = (new class_awf(var2, new class_cj(var2.n(), this.V(), var2.p()))).b(3.0D, 3.0D, 3.0D);
+   protected BlockPosition a(BlockPosition var1) {
+      BlockPosition var2 = this.q(var1);
+      class_awf var3 = (new class_awf(var2, new BlockPosition(var2.getX(), this.V(), var2.getZ()))).b(3.0D, 3.0D, 3.0D);
       List var4 = this.a(class_qa.class, var3, new Predicate() {
          public boolean a(class_qa var1) {
             return var1 != null && var1.ai() && class_lg.this.i(var1.c());
@@ -373,24 +373,24 @@ public class class_lg extends World implements class_of {
       return !var4.isEmpty()?((class_qa)var4.get(this.s.nextInt(var4.size()))).c():var2;
    }
 
-   public boolean a(class_cj var1, Block var2) {
+   public boolean a(BlockPosition var1, Block var2) {
       class_aex var3 = new class_aex(var1, var2);
       return this.V.contains(var3);
    }
 
-   public void a(class_cj var1, Block var2, int var3) {
+   public void a(BlockPosition var1, Block var2, int var3) {
       this.a(var1, var2, var3, 0);
    }
 
-   public void a(class_cj var1, Block var2, int var3, int var4) {
+   public void a(BlockPosition var1, Block var2, int var3, int var4) {
       class_aex var5 = new class_aex(var1, var2);
       byte var6 = 0;
-      if(this.e && var2.getMaterial() != Material.a) {
+      if(this.e && var2.getMaterial() != Material.AIR) {
          if(var2.P()) {
             var6 = 8;
-            if(this.a((class_cj)var5.a.a(-var6, -var6, -var6), (class_cj)var5.a.a(var6, var6, var6))) {
+            if(this.a((BlockPosition)var5.a.add(-var6, -var6, -var6), (BlockPosition)var5.a.add(var6, var6, var6))) {
                IBlockData var7 = this.p(var5.a);
-               if(var7.getBlock().getMaterial() != Material.a && var7.getBlock() == var5.a()) {
+               if(var7.getBlock().getMaterial() != Material.AIR && var7.getBlock() == var5.a()) {
                   var7.getBlock().b((World)this, var5.a, var7, (Random)this.s);
                }
             }
@@ -401,8 +401,8 @@ public class class_lg extends World implements class_of {
          var3 = 1;
       }
 
-      if(this.a((class_cj)var1.a(-var6, -var6, -var6), (class_cj)var1.a(var6, var6, var6))) {
-         if(var2.getMaterial() != Material.a) {
+      if(this.a((BlockPosition)var1.add(-var6, -var6, -var6), (BlockPosition)var1.add(var6, var6, var6))) {
+         if(var2.getMaterial() != Material.AIR) {
             var5.a((long)var3 + this.x.f());
             var5.a(var4);
          }
@@ -415,10 +415,10 @@ public class class_lg extends World implements class_of {
 
    }
 
-   public void b(class_cj var1, Block var2, int var3, int var4) {
+   public void b(BlockPosition var1, Block var2, int var3, int var4) {
       class_aex var5 = new class_aex(var1, var2);
       var5.a(var4);
-      if(var2.getMaterial() != Material.a) {
+      if(var2.getMaterial() != Material.AIR) {
          var5.a((long)var3 + this.x.f());
       }
 
@@ -480,9 +480,9 @@ public class class_lg extends World implements class_of {
                var4 = (class_aex)var11.next();
                var11.remove();
                byte var5 = 0;
-               if(this.a((class_cj)var4.a.a(-var5, -var5, -var5), (class_cj)var4.a.a(var5, var5, var5))) {
+               if(this.a((BlockPosition)var4.a.add(-var5, -var5, -var5), (BlockPosition)var4.a.add(var5, var5, var5))) {
                   IBlockData var6 = this.p(var4.a);
-                  if(var6.getBlock().getMaterial() != Material.a && Block.a(var6.getBlock(), var4.a())) {
+                  if(var6.getBlock().getMaterial() != Material.AIR && Block.a(var6.getBlock(), var4.a())) {
                      try {
                         var6.getBlock().b((World)this, var4.a, var6, (Random)this.s);
                      } catch (Throwable var10) {
@@ -526,8 +526,8 @@ public class class_lg extends World implements class_of {
 
          while(var5.hasNext()) {
             class_aex var6 = (class_aex)var5.next();
-            class_cj var7 = var6.a;
-            if(var7.n() >= var1.a && var7.n() < var1.d && var7.p() >= var1.c && var7.p() < var1.f) {
+            BlockPosition var7 = var6.a;
+            if(var7.getX() >= var1.a && var7.getX() < var1.d && var7.getZ() >= var1.c && var7.getZ() < var1.f) {
                if(var2) {
                   this.L.remove(var6);
                   var5.remove();
@@ -576,8 +576,8 @@ public class class_lg extends World implements class_of {
 
       for(int var8 = 0; var8 < this.h.size(); ++var8) {
          class_amg var9 = (class_amg)this.h.get(var8);
-         class_cj var10 = var9.v();
-         if(var10.n() >= var1 && var10.o() >= var2 && var10.p() >= var3 && var10.n() < var4 && var10.o() < var5 && var10.p() < var6) {
+         BlockPosition var10 = var9.v();
+         if(var10.getX() >= var1 && var10.getY() >= var2 && var10.getZ() >= var3 && var10.getX() < var4 && var10.getY() < var5 && var10.getZ() < var6) {
             var7.add(var9);
          }
       }
@@ -585,8 +585,8 @@ public class class_lg extends World implements class_of {
       return var7;
    }
 
-   public boolean a(class_xa var1, class_cj var2) {
-      return !this.I.a((World)this, (class_cj)var2, (class_xa)var1) && this.ag().a(var2);
+   public boolean a(class_xa var1, BlockPosition var2) {
+      return !this.I.a((World)this, (BlockPosition)var2, (class_xa)var1) && this.ag().a(var2);
    }
 
    public void a(class_aeq var1) {
@@ -631,21 +631,21 @@ public class class_lg extends World implements class_of {
 
    private void b(class_aeq var1) {
       if(!this.t.e()) {
-         this.x.a(class_cj.a.b(this.t.i()));
+         this.x.a(BlockPosition.ZERO.shiftUp(this.t.i()));
       } else if(this.x.u() == class_aes.g) {
-         this.x.a(class_cj.a.a());
+         this.x.a(BlockPosition.ZERO.shiftUp());
       } else {
          this.y = true;
          class_afd var2 = this.t.k();
          List var3 = var2.a();
          Random var4 = new Random(this.K());
-         class_cj var5 = var2.a(0, 0, 256, var3, var4);
+         BlockPosition var5 = var2.a(0, 0, 256, var3, var4);
          int var6 = 0;
          int var7 = this.t.i();
          int var8 = 0;
          if(var5 != null) {
-            var6 = var5.n();
-            var8 = var5.p();
+            var6 = var5.getX();
+            var8 = var5.getZ();
          } else {
             a.warn("Unable to find spawn biome");
          }
@@ -661,7 +661,7 @@ public class class_lg extends World implements class_of {
             }
          }
 
-         this.x.a(new class_cj(var6, var7, var8));
+         this.x.a(new BlockPosition(var6, var7, var8));
          this.y = false;
          if(var1.c()) {
             this.m();
@@ -676,7 +676,7 @@ public class class_lg extends World implements class_of {
       for(int var2 = 0; var2 < 10; ++var2) {
          int var3 = this.x.c() + this.s.nextInt(6) - this.s.nextInt(6);
          int var4 = this.x.e() + this.s.nextInt(6) - this.s.nextInt(6);
-         class_cj var5 = this.r(new class_cj(var3, 0, var4)).a();
+         BlockPosition var5 = this.r(new BlockPosition(var3, 0, var4)).shiftUp();
          if(var1.b(this, this.s, var5)) {
             break;
          }
@@ -684,7 +684,7 @@ public class class_lg extends World implements class_of {
 
    }
 
-   public class_cj n() {
+   public BlockPosition n() {
       return this.t.h();
    }
 
@@ -822,14 +822,14 @@ public class class_lg extends World implements class_of {
       while(var12.hasNext()) {
          class_xa var13 = (class_xa)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((class_lh)var13).a.a((class_ff)(new class_gk(var2, var4, var6, var8, var11.e(), (class_awh)var11.b().get(var13))));
+            ((class_lh)var13).a.a((class_ff)(new class_gk(var2, var4, var6, var8, var11.e(), (Vec3D)var11.b().get(var13))));
          }
       }
 
       return var11;
    }
 
-   public void c(class_cj var1, Block var2, int var3, int var4) {
+   public void c(BlockPosition var1, Block var2, int var3, int var4) {
       class_aef var5 = new class_aef(var1, var2, var3, var4);
       Iterator var6 = this.S[this.T].iterator();
 
@@ -854,7 +854,7 @@ public class class_lg extends World implements class_of {
          while(var2.hasNext()) {
             class_aef var3 = (class_aef)var2.next();
             if(this.a(var3)) {
-               this.I.ap().a((double)var3.a().n(), (double)var3.a().o(), (double)var3.a().p(), 64.0D, this.t.p().a(), new class_fu(var3.a(), var3.d(), var3.b(), var3.c()));
+               this.I.ap().a((double)var3.a().getX(), (double)var3.a().getY(), (double)var3.a().getZ(), 64.0D, this.t.p().a(), new class_fu(var3.a(), var3.d(), var3.b(), var3.c()));
             }
          }
 
@@ -925,8 +925,8 @@ public class class_lg extends World implements class_of {
 
       for(int var20 = 0; var20 < this.j.size(); ++var20) {
          class_lh var21 = (class_lh)this.j.get(var20);
-         class_cj var22 = var21.c();
-         double var23 = var22.c(var3, var5, var7);
+         BlockPosition var22 = var21.c();
+         double var23 = var22.distanceSquared(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
             var21.a.a((class_ff)var19);
          }

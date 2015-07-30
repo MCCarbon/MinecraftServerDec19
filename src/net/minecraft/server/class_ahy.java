@@ -15,7 +15,7 @@ import net.minecraft.server.class_anz;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
@@ -24,15 +24,15 @@ public class class_ahy extends Block {
    public static final class_anz a = class_anz.a("moisture", 0, 7);
 
    protected class_ahy() {
-      super(Material.c);
+      super(Material.EARTH);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       this.setTicking(true);
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
       this.setLightOpacity(255);
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
-      return new class_awf((double)var2.n(), (double)var2.o(), (double)var2.p(), (double)(var2.n() + 1), (double)(var2.o() + 1), (double)(var2.p() + 1));
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+      return new class_awf((double)var2.getX(), (double)var2.getY(), (double)var2.getZ(), (double)(var2.getX() + 1), (double)(var2.getY() + 1), (double)(var2.getZ() + 1));
    }
 
    public boolean isOpaqueCube() {
@@ -43,21 +43,21 @@ public class class_ahy extends Block {
       return false;
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       int var5 = ((Integer)var3.get(a)).intValue();
-      if(!this.f(var1, var2) && !var1.C(var2.a())) {
+      if(!this.f(var1, var2) && !var1.C(var2.shiftUp())) {
          if(var5 > 0) {
-            var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 - 1)), 2);
+            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 - 1)), 2);
          } else if(!this.e(var1, var2)) {
             var1.a(var2, Blocks.DIRT.getBlockData());
          }
       } else if(var5 < 7) {
-         var1.a((class_cj)var2, (IBlockData)var3.set(a, Integer.valueOf(7)), 2);
+         var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(7)), 2);
       }
 
    }
 
-   public void a(World var1, class_cj var2, class_pr var3, float var4) {
+   public void a(World var1, BlockPosition var2, class_pr var3, float var4) {
       if(var3 instanceof class_qa) {
          if(!var1.D && var1.s.nextFloat() < var4 - 0.5F) {
             if(!(var3 instanceof class_xa) && !var1.R().b("mobGriefing")) {
@@ -71,29 +71,29 @@ public class class_ahy extends Block {
       }
    }
 
-   private boolean e(World var1, class_cj var2) {
-      Block var3 = var1.p(var2.a()).getBlock();
+   private boolean e(World var1, BlockPosition var2) {
+      Block var3 = var1.p(var2.shiftUp()).getBlock();
       return var3 instanceof class_ahd || var3 instanceof class_alg;
    }
 
-   private boolean f(World var1, class_cj var2) {
-      Iterator var3 = class_cj.b(var2.a(-4, 0, -4), var2.a(4, 1, 4)).iterator();
+   private boolean f(World var1, BlockPosition var2) {
+      Iterator var3 = BlockPosition.allInCubeM(var2.add(-4, 0, -4), var2.add(4, 1, 4)).iterator();
 
-      class_cj.class_a_in_class_cj var4;
+      BlockPosition.MutableBlockPosition var4;
       do {
          if(!var3.hasNext()) {
             return false;
          }
 
-         var4 = (class_cj.class_a_in_class_cj)var3.next();
-      } while(var1.p(var4).getBlock().getMaterial() != Material.h);
+         var4 = (BlockPosition.MutableBlockPosition)var3.next();
+      } while(var1.p(var4).getBlock().getMaterial() != Material.WATER);
 
       return true;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       super.a(var1, var2, var3, var4);
-      if(var1.p(var2.a()).getBlock().getMaterial().a()) {
+      if(var1.p(var2.shiftUp()).getBlock().getMaterial().isBuildable()) {
          var1.a(var2, Blocks.DIRT.getBlockData());
       }
 

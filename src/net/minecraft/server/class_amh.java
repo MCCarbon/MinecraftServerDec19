@@ -8,8 +8,8 @@ import net.minecraft.server.class_ace;
 import net.minecraft.server.class_agn;
 import net.minecraft.server.class_amu;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
@@ -79,7 +79,7 @@ public class class_amh extends class_amu implements class_kn, class_oz {
                var4 = var4.set(class_agn.a[var5], Boolean.valueOf(var6[var5]));
             }
 
-            this.b.a((class_cj)this.c, (IBlockData)var4, 2);
+            this.b.a((BlockPosition)this.c, (IBlockData)var4, 2);
          }
       }
 
@@ -212,7 +212,7 @@ public class class_amh extends class_amu implements class_kn, class_oz {
    }
 
    public boolean a(class_xa var1) {
-      return this.b.s(this.c) != this?false:var1.e((double)this.c.n() + 0.5D, (double)this.c.o() + 0.5D, (double)this.c.p() + 0.5D) <= 64.0D;
+      return this.b.s(this.c) != this?false:var1.e((double)this.c.getX() + 0.5D, (double)this.c.getY() + 0.5D, (double)this.c.getZ() + 0.5D) <= 64.0D;
    }
 
    public void b(class_xa var1) {
@@ -230,15 +230,15 @@ public class class_amh extends class_amu implements class_kn, class_oz {
       }
    }
 
-   public int[] a(class_cq var1) {
-      return var1 == class_cq.b?a:f;
+   public int[] a(EnumDirection var1) {
+      return var1 == EnumDirection.UP?a:f;
    }
 
-   public boolean a(int var1, class_aas var2, class_cq var3) {
+   public boolean a(int var1, class_aas var2, EnumDirection var3) {
       return this.b(var1, var2);
    }
 
-   public boolean b(int var1, class_aas var2, class_cq var3) {
+   public boolean b(int var1, class_aas var2, EnumDirection var3) {
       return true;
    }
 

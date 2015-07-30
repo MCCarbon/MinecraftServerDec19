@@ -9,12 +9,12 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ags;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_auv;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_dn;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
@@ -159,12 +159,12 @@ public class class_ue extends class_tw {
          if(!var4.c()) {
             if(this.f.a() && this.bz == 0) {
                class_auv var2 = this.h.j();
-               class_awh var3 = new class_awh(this.f.d(), this.f.e(), this.f.f());
+               Vec3D var3 = new Vec3D(this.f.d(), this.f.e(), this.f.f());
                if(var2 != null && var2.e() < var2.d()) {
                   var3 = var2.a((class_pr)this);
                }
 
-               this.a(var3.a, var3.c);
+               this.a(var3.x, var3.z);
                this.b(this.bA);
             }
          } else if(!var4.d()) {
@@ -179,7 +179,7 @@ public class class_ue extends class_tw {
    }
 
    private void a(double var1, double var3) {
-      this.y = (float)(class_nu.b(var3 - this.u, var1 - this.s) * 180.0D / 3.1415927410125732D) - 90.0F;
+      this.y = (float)(MathHelper.b(var3 - this.u, var1 - this.s) * 180.0D / 3.1415927410125732D) - 90.0F;
    }
 
    private void cI() {
@@ -461,14 +461,14 @@ public class class_ue extends class_tw {
 
       public void e() {
          super.e();
-         this.c.q().a((double)this.b.n() + 0.5D, (double)(this.b.o() + 1), (double)this.b.p() + 0.5D, 10.0F, (float)this.c.cd());
+         this.c.q().a((double)this.b.getX() + 0.5D, (double)(this.b.getY() + 1), (double)this.b.getZ() + 0.5D, 10.0F, (float)this.c.cd());
          if(this.f()) {
             World var1 = this.c.o;
-            class_cj var2 = this.b.a();
+            BlockPosition var2 = this.b.shiftUp();
             IBlockData var3 = var1.p(var2);
             Block var4 = var3.getBlock();
             if(this.e && var4 instanceof class_ags && ((class_ags)var4).e(var3)) {
-               var1.a((class_cj)var2, (IBlockData)Blocks.AIR.getBlockData(), 2);
+               var1.a((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 2);
                var1.b(var2, true);
                this.c.cE();
             }
@@ -479,10 +479,10 @@ public class class_ue extends class_tw {
 
       }
 
-      protected boolean a(World var1, class_cj var2) {
+      protected boolean a(World var1, BlockPosition var2) {
          Block var3 = var1.p(var2).getBlock();
          if(var3 == Blocks.FARMLAND) {
-            var2 = var2.a();
+            var2 = var2.shiftUp();
             IBlockData var4 = var1.p(var2);
             var3 = var4.getBlock();
             if(var3 instanceof class_ags && ((class_ags)var3).e(var4) && this.d && !this.e) {

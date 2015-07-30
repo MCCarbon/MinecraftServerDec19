@@ -18,7 +18,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_ca;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cd;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_h;
@@ -44,7 +44,7 @@ public abstract class class_i implements class_k {
       return var1.a(this.a(), this.c());
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return null;
    }
 
@@ -90,9 +90,9 @@ public abstract class class_i implements class_k {
       }
    }
 
-   public static class_cj a(class_m var0, String[] var1, int var2, boolean var3) throws class_cb {
-      class_cj var4 = var0.c();
-      return new class_cj(b((double)var4.n(), var1[var2], -30000000, 30000000, var3), b((double)var4.o(), var1[var2 + 1], 0, 256, false), b((double)var4.p(), var1[var2 + 2], -30000000, 30000000, var3));
+   public static BlockPosition a(class_m var0, String[] var1, int var2, boolean var3) throws class_cb {
+      BlockPosition var4 = var0.c();
+      return new BlockPosition(b((double)var4.getX(), var1[var2], -30000000, 30000000, var3), b((double)var4.getY(), var1[var2 + 1], 0, 256, false), b((double)var4.getZ(), var1[var2 + 2], -30000000, 30000000, var3));
    }
 
    public static double c(String var0) throws class_cb {
@@ -408,42 +408,42 @@ public abstract class class_i implements class_k {
       return a(var0.toArray(new String[var0.size()]));
    }
 
-   public static List a(String[] var0, int var1, class_cj var2) {
+   public static List a(String[] var0, int var1, BlockPosition var2) {
       if(var2 == null) {
          return null;
       } else {
          int var4 = var0.length - 1;
          String var3;
          if(var4 == var1) {
-            var3 = Integer.toString(var2.n());
+            var3 = Integer.toString(var2.getX());
          } else if(var4 == var1 + 1) {
-            var3 = Integer.toString(var2.o());
+            var3 = Integer.toString(var2.getY());
          } else {
             if(var4 != var1 + 2) {
                return null;
             }
 
-            var3 = Integer.toString(var2.p());
+            var3 = Integer.toString(var2.getZ());
          }
 
          return Lists.newArrayList((Object[])(new String[]{var3}));
       }
    }
 
-   public static List b(String[] var0, int var1, class_cj var2) {
+   public static List b(String[] var0, int var1, BlockPosition var2) {
       if(var2 == null) {
          return null;
       } else {
          int var4 = var0.length - 1;
          String var3;
          if(var4 == var1) {
-            var3 = Integer.toString(var2.n());
+            var3 = Integer.toString(var2.getX());
          } else {
             if(var4 != var1 + 1) {
                return null;
             }
 
-            var3 = Integer.toString(var2.p());
+            var3 = Integer.toString(var2.getZ());
          }
 
          return Lists.newArrayList((Object[])(new String[]{var3}));

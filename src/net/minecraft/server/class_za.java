@@ -8,7 +8,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ck;
 import net.minecraft.server.class_cn;
 import net.minecraft.server.class_cr;
@@ -29,10 +29,10 @@ public class class_za extends Item {
    public static final String[] a = new String[]{"minecraft:items/empty_armor_slot_boots", "minecraft:items/empty_armor_slot_leggings", "minecraft:items/empty_armor_slot_chestplate", "minecraft:items/empty_armor_slot_helmet"};
    private static final class_cr l = new class_cn() {
       protected class_aas b(class_ck var1, class_aas var2) {
-         class_cj var3 = var1.d().a(class_ahk.b(var1.f()));
-         int var4 = var3.n();
-         int var5 = var3.o();
-         int var6 = var3.p();
+         BlockPosition var3 = var1.d().shift(class_ahk.b(var1.f()));
+         int var4 = var3.getX();
+         int var5 = var3.getY();
+         int var6 = var3.getZ();
          class_awf var7 = new class_awf((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1));
          List var8 = var1.i().a(class_qa.class, var7, Predicates.and(class_pv.d, new class_pv.class_a_in_class_pv(var2)));
          if(!var8.isEmpty()) {

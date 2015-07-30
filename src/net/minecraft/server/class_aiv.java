@@ -5,7 +5,7 @@ import net.minecraft.server.Block;
 import net.minecraft.server.class_anx;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.EnumDirection;
 
 public abstract class class_aiv extends Block {
    public static final class_anx O;
@@ -19,6 +19,6 @@ public abstract class class_aiv extends Block {
    }
 
    static {
-      O = class_anx.a("facing", (Predicate)class_cq.class_c_in_class_cq.a);
+      O = class_anx.a("facing", (Predicate)EnumDirection.EnumDirectionLimit.HORIZONTAL);
    }
 }

@@ -19,7 +19,7 @@ import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
 import net.minecraft.server.class_eb;
 import net.minecraft.server.class_g;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -287,7 +287,7 @@ public class class_adk {
          var5 = 1 + var0.nextInt(var5 / 2 + 1) + var0.nextInt(var5 / 2 + 1);
          int var6 = var5 + var2;
          float var7 = 1.0F + (var0.nextFloat() + var0.nextFloat() - 1.0F) * 0.15F;
-         var6 = class_nu.a(Math.round((float)var6 * var7), 1, Integer.MAX_VALUE);
+         var6 = MathHelper.clamp(Math.round((float)var6 * var7), 1, Integer.MAX_VALUE);
          List var8 = a(var6, var1);
          if(!var8.isEmpty()) {
             var3.add(class_oc.a(var0, var8));

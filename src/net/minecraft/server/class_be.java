@@ -8,7 +8,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
@@ -35,7 +35,7 @@ public class class_be extends class_i {
          throw new class_cf("commands.setblock.usage", new Object[0]);
       } else {
          var1.a(class_n.class_a_in_class_n.b, 0);
-         class_cj var3 = a(var1, var2, 0, false);
+         BlockPosition var3 = a(var1, var2, 0, false);
          Block var4 = class_i.g(var1, var2[3]);
          int var5 = 0;
          if(var2.length >= 5) {
@@ -81,15 +81,15 @@ public class class_be extends class_i {
             }
 
             IBlockData var10 = var4.fromLegacyData(var5);
-            if(!var6.a((class_cj)var3, (IBlockData)var10, 2)) {
+            if(!var6.a((BlockPosition)var3, (IBlockData)var10, 2)) {
                throw new class_bz("commands.setblock.noChange", new Object[0]);
             } else {
                if(var8) {
                   class_amg var11 = var6.s(var3);
                   if(var11 != null) {
-                     var7.a("x", var3.n());
-                     var7.a("y", var3.o());
-                     var7.a("z", var3.p());
+                     var7.a("x", var3.getX());
+                     var7.a("y", var3.getY());
+                     var7.a("z", var3.getZ());
                      var11.a(var7);
                   }
                }
@@ -102,7 +102,7 @@ public class class_be extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.BLOCK_REGISTRY.getKeys()):(var2.length == 6?a(var2, new String[]{"replace", "destroy", "keep"}):null));
    }
 }

@@ -8,8 +8,8 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_agl;
 import net.minecraft.server.class_ajw;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_qa;
@@ -32,8 +32,8 @@ public class class_zz extends Item {
       return super.a() + "." + class_zy.a(var2).d();
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      if(!var2.a(var4.a(var6), var6, var1)) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+      if(!var2.a(var4.shift(var6), var6, var1)) {
          return class_oq.b;
       } else {
          class_zy var10 = class_zy.a(var1.i());
@@ -49,18 +49,18 @@ public class class_zz extends Item {
             IBlockData var11 = var3.p(var4);
             Block var12 = var11.getBlock();
             if(var12 == Blocks.LOG && var11.get(class_ajw.a) == class_ajw.class_a_in_class_ajw.d) {
-               if(var6 == class_cq.a) {
+               if(var6 == EnumDirection.DOWN) {
                   return class_oq.b;
                }
 
-               if(var6 == class_cq.b) {
+               if(var6 == EnumDirection.UP) {
                   return class_oq.b;
                }
 
-               var4 = var4.a(var6);
+               var4 = var4.shift(var6);
                if(var3.d(var4)) {
                   IBlockData var13 = Blocks.COCOA.a(var3, var4, var6, var7, var8, var9, 0, var2);
-                  var3.a((class_cj)var4, (IBlockData)var13, 2);
+                  var3.a((BlockPosition)var4, (IBlockData)var13, 2);
                   if(!var2.bH.d) {
                      --var1.b;
                   }
@@ -74,7 +74,7 @@ public class class_zz extends Item {
       }
    }
 
-   public static boolean a(class_aas var0, World var1, class_cj var2) {
+   public static boolean a(class_aas var0, World var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       if(var3.getBlock() instanceof class_agl) {
          class_agl var4 = (class_agl)var3.getBlock();

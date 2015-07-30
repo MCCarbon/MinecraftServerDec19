@@ -8,11 +8,11 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amv;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 
 public class class_ajg extends class_agd {
    protected class_ajg() {
-      super(Material.e);
+      super(Material.STONE);
    }
 
    public class_amg a(World var1, int var2) {
@@ -27,8 +27,8 @@ public class class_ajg extends class_agd {
       return 0;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, float var4, int var5) {
-      super.a(var1, var2, var3, var4, var5);
+   public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
+      super.dropNaturally(var1, var2, var3, var4, var5);
       int var6 = 15 + var1.s.nextInt(15) + var1.s.nextInt(15);
       this.b(var1, var2, var6);
    }

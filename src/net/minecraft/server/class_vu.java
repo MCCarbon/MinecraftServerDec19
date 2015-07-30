@@ -4,7 +4,7 @@ import net.minecraft.server.class_aee;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vn;
@@ -19,8 +19,8 @@ public class class_vu extends class_vn {
          return class_vu.this.o;
       }
 
-      public class_cj b() {
-         return new class_cj(class_vu.this);
+      public BlockPosition b() {
+         return new BlockPosition(class_vu.this);
       }
    };
 

@@ -5,8 +5,8 @@ import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 
 public class class_ajz extends Block {
    public class_ajz(Material var1, MaterialMapColor var2) {
@@ -17,7 +17,7 @@ public class class_ajz extends Block {
       return true;
    }
 
-   public int a(class_aer var1, class_cj var2, IBlockData var3, class_cq var4) {
+   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return 15;
    }
 }

@@ -12,16 +12,16 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_agf extends Block {
    protected final boolean a;
 
-   public static boolean e(World var0, class_cj var1) {
+   public static boolean e(World var0, BlockPosition var1) {
       return d(var0.p(var1));
    }
 
@@ -31,13 +31,13 @@ public abstract class class_agf extends Block {
    }
 
    protected class_agf(boolean var1) {
-      super(Material.q);
+      super(Material.ORIENTABLE);
       this.a = var1;
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
       this.a(CreativeTab.e);
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -45,12 +45,12 @@ public abstract class class_agf extends Block {
       return false;
    }
 
-   public class_awg a(World var1, class_cj var2, class_awh var3, class_awh var4) {
+   public class_awg a(World var1, BlockPosition var2, Vec3D var3, Vec3D var4) {
       this.isReplaceable(var1, var2);
       return super.a(var1, var2, var3, var4);
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       class_agf.class_b_in_class_agf var4 = var3.getBlock() == this?(class_agf.class_b_in_class_agf)var3.get(this.n()):null;
       if(var4 != null && var4.c()) {
@@ -65,11 +65,11 @@ public abstract class class_agf extends Block {
       return false;
    }
 
-   public boolean d(World var1, class_cj var2) {
-      return World.a((class_aer)var1, (class_cj)var2.b());
+   public boolean d(World var1, BlockPosition var2) {
+      return World.a((class_aer)var1, (BlockPosition)var2.shiftDown());
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.D) {
          var3 = this.a(var1, var2, var3, true);
          if(this.a) {
@@ -79,21 +79,21 @@ public abstract class class_agf extends Block {
 
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          class_agf.class_b_in_class_agf var5 = (class_agf.class_b_in_class_agf)var3.get(this.n());
          boolean var6 = false;
-         if(!World.a((class_aer)var1, (class_cj)var2.b())) {
+         if(!World.a((class_aer)var1, (BlockPosition)var2.shiftDown())) {
             var6 = true;
          }
 
-         if(var5 == class_agf.class_b_in_class_agf.c && !World.a((class_aer)var1, (class_cj)var2.f())) {
+         if(var5 == class_agf.class_b_in_class_agf.c && !World.a((class_aer)var1, (BlockPosition)var2.shiftEast())) {
             var6 = true;
-         } else if(var5 == class_agf.class_b_in_class_agf.d && !World.a((class_aer)var1, (class_cj)var2.e())) {
+         } else if(var5 == class_agf.class_b_in_class_agf.d && !World.a((class_aer)var1, (BlockPosition)var2.shiftWest())) {
             var6 = true;
-         } else if(var5 == class_agf.class_b_in_class_agf.e && !World.a((class_aer)var1, (class_cj)var2.c())) {
+         } else if(var5 == class_agf.class_b_in_class_agf.e && !World.a((class_aer)var1, (BlockPosition)var2.shiftNorth())) {
             var6 = true;
-         } else if(var5 == class_agf.class_b_in_class_agf.f && !World.a((class_aer)var1, (class_cj)var2.d())) {
+         } else if(var5 == class_agf.class_b_in_class_agf.f && !World.a((class_aer)var1, (BlockPosition)var2.shiftSouth())) {
             var6 = true;
          }
 
@@ -107,26 +107,26 @@ public abstract class class_agf extends Block {
       }
    }
 
-   protected void b(World var1, class_cj var2, IBlockData var3, Block var4) {
+   protected void b(World var1, BlockPosition var2, IBlockData var3, Block var4) {
    }
 
-   protected IBlockData a(World var1, class_cj var2, IBlockData var3, boolean var4) {
+   protected IBlockData a(World var1, BlockPosition var2, IBlockData var3, boolean var4) {
       return var1.D?var3:(new class_agf.class_a_in_class_agf(var1, var2, var3)).a(var1.z(var2), var4).b();
    }
 
-   public int k() {
+   public int getPushReaction() {
       return 0;
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       super.b(var1, var2, var3);
       if(((class_agf.class_b_in_class_agf)var3.get(this.n())).c()) {
-         var1.c((class_cj)var2.a(), (Block)this);
+         var1.c((BlockPosition)var2.shiftUp(), (Block)this);
       }
 
       if(this.a) {
-         var1.c((class_cj)var2, (Block)this);
-         var1.c((class_cj)var2.b(), (Block)this);
+         var1.c((BlockPosition)var2, (Block)this);
+         var1.c((BlockPosition)var2.shiftDown(), (Block)this);
       }
 
    }
@@ -262,13 +262,13 @@ public abstract class class_agf extends Block {
 
    public class class_a_in_class_agf {
       private final World b;
-      private final class_cj c;
+      private final BlockPosition c;
       private final class_agf d;
       private IBlockData e;
       private final boolean f;
       private final List g = Lists.newArrayList();
 
-      public class_a_in_class_agf(World var2, class_cj var3, IBlockData var4) {
+      public class_a_in_class_agf(World var2, BlockPosition var3, IBlockData var4) {
          this.b = var2;
          this.c = var3;
          this.e = var4;
@@ -282,51 +282,51 @@ public abstract class class_agf extends Block {
          this.g.clear();
          switch(class_agf.SyntheticClass_1.a[var1.ordinal()]) {
          case 1:
-            this.g.add(this.c.c());
-            this.g.add(this.c.d());
+            this.g.add(this.c.shiftNorth());
+            this.g.add(this.c.shiftSouth());
             break;
          case 2:
-            this.g.add(this.c.e());
-            this.g.add(this.c.f());
+            this.g.add(this.c.shiftWest());
+            this.g.add(this.c.shiftEast());
             break;
          case 3:
-            this.g.add(this.c.e());
-            this.g.add(this.c.f().a());
+            this.g.add(this.c.shiftWest());
+            this.g.add(this.c.shiftEast().shiftUp());
             break;
          case 4:
-            this.g.add(this.c.e().a());
-            this.g.add(this.c.f());
+            this.g.add(this.c.shiftWest().shiftUp());
+            this.g.add(this.c.shiftEast());
             break;
          case 5:
-            this.g.add(this.c.c().a());
-            this.g.add(this.c.d());
+            this.g.add(this.c.shiftNorth().shiftUp());
+            this.g.add(this.c.shiftSouth());
             break;
          case 6:
-            this.g.add(this.c.c());
-            this.g.add(this.c.d().a());
+            this.g.add(this.c.shiftNorth());
+            this.g.add(this.c.shiftSouth().shiftUp());
             break;
          case 7:
-            this.g.add(this.c.f());
-            this.g.add(this.c.d());
+            this.g.add(this.c.shiftEast());
+            this.g.add(this.c.shiftSouth());
             break;
          case 8:
-            this.g.add(this.c.e());
-            this.g.add(this.c.d());
+            this.g.add(this.c.shiftWest());
+            this.g.add(this.c.shiftSouth());
             break;
          case 9:
-            this.g.add(this.c.e());
-            this.g.add(this.c.c());
+            this.g.add(this.c.shiftWest());
+            this.g.add(this.c.shiftNorth());
             break;
          case 10:
-            this.g.add(this.c.f());
-            this.g.add(this.c.c());
+            this.g.add(this.c.shiftEast());
+            this.g.add(this.c.shiftNorth());
          }
 
       }
 
       private void c() {
          for(int var1 = 0; var1 < this.g.size(); ++var1) {
-            class_agf.class_a_in_class_agf var2 = this.b((class_cj)this.g.get(var1));
+            class_agf.class_a_in_class_agf var2 = this.b((BlockPosition)this.g.get(var1));
             if(var2 != null && var2.a(this)) {
                this.g.set(var1, var2.c);
             } else {
@@ -336,21 +336,21 @@ public abstract class class_agf extends Block {
 
       }
 
-      private boolean a(class_cj var1) {
-         return class_agf.e(this.b, var1) || class_agf.e(this.b, var1.a()) || class_agf.e(this.b, var1.b());
+      private boolean a(BlockPosition var1) {
+         return class_agf.e(this.b, var1) || class_agf.e(this.b, var1.shiftUp()) || class_agf.e(this.b, var1.shiftDown());
       }
 
-      private class_agf.class_a_in_class_agf b(class_cj var1) {
+      private class_agf.class_a_in_class_agf b(BlockPosition var1) {
          IBlockData var3 = this.b.p(var1);
          if(class_agf.d(var3)) {
             return class_agf.this.new class_a_in_class_agf(this.b, var1, var3);
          } else {
-            class_cj var2 = var1.a();
+            BlockPosition var2 = var1.shiftUp();
             var3 = this.b.p(var2);
             if(class_agf.d(var3)) {
                return class_agf.this.new class_a_in_class_agf(this.b, var2, var3);
             } else {
-               var2 = var1.b();
+               var2 = var1.shiftDown();
                var3 = this.b.p(var2);
                return class_agf.d(var3)?class_agf.this.new class_a_in_class_agf(this.b, var2, var3):null;
             }
@@ -361,10 +361,10 @@ public abstract class class_agf extends Block {
          return this.c(var1.c);
       }
 
-      private boolean c(class_cj var1) {
+      private boolean c(BlockPosition var1) {
          for(int var2 = 0; var2 < this.g.size(); ++var2) {
-            class_cj var3 = (class_cj)this.g.get(var2);
-            if(var3.n() == var1.n() && var3.p() == var1.p()) {
+            BlockPosition var3 = (BlockPosition)this.g.get(var2);
+            if(var3.getX() == var1.getX() && var3.getZ() == var1.getZ()) {
                return true;
             }
          }
@@ -374,11 +374,11 @@ public abstract class class_agf extends Block {
 
       protected int a() {
          int var1 = 0;
-         Iterator var2 = class_cq.class_c_in_class_cq.a.iterator();
+         Iterator var2 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
          while(var2.hasNext()) {
-            class_cq var3 = (class_cq)var2.next();
-            if(this.a(this.c.a(var3))) {
+            EnumDirection var3 = (EnumDirection)var2.next();
+            if(this.a(this.c.shift(var3))) {
                ++var1;
             }
          }
@@ -392,10 +392,10 @@ public abstract class class_agf extends Block {
 
       private void c(class_agf.class_a_in_class_agf var1) {
          this.g.add(var1.c);
-         class_cj var2 = this.c.c();
-         class_cj var3 = this.c.d();
-         class_cj var4 = this.c.e();
-         class_cj var5 = this.c.f();
+         BlockPosition var2 = this.c.shiftNorth();
+         BlockPosition var3 = this.c.shiftSouth();
+         BlockPosition var4 = this.c.shiftWest();
+         BlockPosition var5 = this.c.shiftEast();
          boolean var6 = this.c(var2);
          boolean var7 = this.c(var3);
          boolean var8 = this.c(var4);
@@ -428,21 +428,21 @@ public abstract class class_agf extends Block {
          }
 
          if(var10 == class_agf.class_b_in_class_agf.a) {
-            if(class_agf.e(this.b, var2.a())) {
+            if(class_agf.e(this.b, var2.shiftUp())) {
                var10 = class_agf.class_b_in_class_agf.e;
             }
 
-            if(class_agf.e(this.b, var3.a())) {
+            if(class_agf.e(this.b, var3.shiftUp())) {
                var10 = class_agf.class_b_in_class_agf.f;
             }
          }
 
          if(var10 == class_agf.class_b_in_class_agf.b) {
-            if(class_agf.e(this.b, var5.a())) {
+            if(class_agf.e(this.b, var5.shiftUp())) {
                var10 = class_agf.class_b_in_class_agf.c;
             }
 
-            if(class_agf.e(this.b, var4.a())) {
+            if(class_agf.e(this.b, var4.shiftUp())) {
                var10 = class_agf.class_b_in_class_agf.d;
             }
          }
@@ -452,10 +452,10 @@ public abstract class class_agf extends Block {
          }
 
          this.e = this.e.set(this.d.n(), var10);
-         this.b.a((class_cj)this.c, (IBlockData)this.e, 3);
+         this.b.a((BlockPosition)this.c, (IBlockData)this.e, 3);
       }
 
-      private boolean d(class_cj var1) {
+      private boolean d(BlockPosition var1) {
          class_agf.class_a_in_class_agf var2 = this.b(var1);
          if(var2 == null) {
             return false;
@@ -466,10 +466,10 @@ public abstract class class_agf extends Block {
       }
 
       public class_agf.class_a_in_class_agf a(boolean var1, boolean var2) {
-         class_cj var3 = this.c.c();
-         class_cj var4 = this.c.d();
-         class_cj var5 = this.c.e();
-         class_cj var6 = this.c.f();
+         BlockPosition var3 = this.c.shiftNorth();
+         BlockPosition var4 = this.c.shiftSouth();
+         BlockPosition var5 = this.c.shiftWest();
+         BlockPosition var6 = this.c.shiftEast();
          boolean var7 = this.d(var3);
          boolean var8 = this.d(var4);
          boolean var9 = this.d(var5);
@@ -548,21 +548,21 @@ public abstract class class_agf extends Block {
          }
 
          if(var11 == class_agf.class_b_in_class_agf.a) {
-            if(class_agf.e(this.b, var3.a())) {
+            if(class_agf.e(this.b, var3.shiftUp())) {
                var11 = class_agf.class_b_in_class_agf.e;
             }
 
-            if(class_agf.e(this.b, var4.a())) {
+            if(class_agf.e(this.b, var4.shiftUp())) {
                var11 = class_agf.class_b_in_class_agf.f;
             }
          }
 
          if(var11 == class_agf.class_b_in_class_agf.b) {
-            if(class_agf.e(this.b, var6.a())) {
+            if(class_agf.e(this.b, var6.shiftUp())) {
                var11 = class_agf.class_b_in_class_agf.c;
             }
 
-            if(class_agf.e(this.b, var5.a())) {
+            if(class_agf.e(this.b, var5.shiftUp())) {
                var11 = class_agf.class_b_in_class_agf.d;
             }
          }
@@ -574,10 +574,10 @@ public abstract class class_agf extends Block {
          this.a(var11);
          this.e = this.e.set(this.d.n(), var11);
          if(var2 || this.b.p(this.c) != this.e) {
-            this.b.a((class_cj)this.c, (IBlockData)this.e, 3);
+            this.b.a((BlockPosition)this.c, (IBlockData)this.e, 3);
 
             for(int var12 = 0; var12 < this.g.size(); ++var12) {
-               class_agf.class_a_in_class_agf var13 = this.b((class_cj)this.g.get(var12));
+               class_agf.class_a_in_class_agf var13 = this.b((BlockPosition)this.g.get(var12));
                if(var13 != null) {
                   var13.c();
                   if(var13.b(this)) {

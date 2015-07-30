@@ -16,12 +16,12 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_lh;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pe;
@@ -122,11 +122,11 @@ public class class_wb extends class_wi {
       if(var2 != null && var2.b() == Item.getByBlock(Blocks.PUMPKIN)) {
          return false;
       } else {
-         class_awh var3 = var1.d(1.0F).a();
-         class_awh var4 = new class_awh(this.s - var1.s, this.aT().b + (double)(this.K / 2.0F) - (var1.t + (double)var1.aU()), this.u - var1.u);
-         double var5 = var4.b();
-         var4 = var4.a();
-         double var7 = var3.b(var4);
+         Vec3D var3 = var1.d(1.0F).normalize();
+         Vec3D var4 = new Vec3D(this.s - var1.s, this.aT().b + (double)(this.K / 2.0F) - (var1.t + (double)var1.aU()), this.u - var1.u);
+         double var5 = var4.length();
+         var4 = var4.normalize();
+         double var7 = var3.dotProduct(var4);
          return var7 > 1.0D - 0.025D / var5?var1.t(this):false;
       }
    }
@@ -157,7 +157,7 @@ public class class_wb extends class_wi {
 
       if(this.o.x()) {
          float var1 = this.c(1.0F);
-         if(var1 > 0.5F && this.o.i(new class_cj(this)) && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
+         if(var1 > 0.5F && this.o.i(new BlockPosition(this)) && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
             this.d((class_qa)null);
             this.a(false);
             this.bw = false;
@@ -176,12 +176,12 @@ public class class_wb extends class_wi {
    }
 
    protected boolean b(class_pr var1) {
-      class_awh var2 = new class_awh(this.s - var1.s, this.aT().b + (double)(this.K / 2.0F) - var1.t + (double)var1.aU(), this.u - var1.u);
-      var2 = var2.a();
+      Vec3D var2 = new Vec3D(this.s - var1.s, this.aT().b + (double)(this.K / 2.0F) - var1.t + (double)var1.aU(), this.u - var1.u);
+      var2 = var2.normalize();
       double var3 = 16.0D;
-      double var5 = this.s + (this.V.nextDouble() - 0.5D) * 8.0D - var2.a * var3;
-      double var7 = this.t + (double)(this.V.nextInt(16) - 8) - var2.b * var3;
-      double var9 = this.u + (this.V.nextDouble() - 0.5D) * 8.0D - var2.c * var3;
+      double var5 = this.s + (this.V.nextDouble() - 0.5D) * 8.0D - var2.x * var3;
+      double var7 = this.t + (double)(this.V.nextInt(16) - 8) - var2.y * var3;
+      double var9 = this.u + (this.V.nextDouble() - 0.5D) * 8.0D - var2.z * var3;
       return a(this, var5, var7, var9);
    }
 
@@ -193,14 +193,14 @@ public class class_wb extends class_wi {
       var0.t = var3;
       var0.u = var5;
       boolean var13 = false;
-      class_cj var14 = new class_cj(var0);
+      BlockPosition var14 = new BlockPosition(var0);
       World var15 = var0.o;
       Random var16 = var0.bd();
       if(var15.e(var14)) {
          boolean var17 = false;
 
-         while(!var17 && var14.o() > 0) {
-            class_cj var18 = var14.b();
+         while(!var17 && var14.getY() > 0) {
+            BlockPosition var18 = var14.shiftDown();
             Block var19 = var15.p(var18).getBlock();
             if(var19.getMaterial().isSolid()) {
                var17 = true;
@@ -366,10 +366,10 @@ public class class_wb extends class_wi {
       public void e() {
          Random var1 = this.a.bd();
          World var2 = this.a.o;
-         int var3 = class_nu.c(this.a.s - 2.0D + var1.nextDouble() * 4.0D);
-         int var4 = class_nu.c(this.a.t + var1.nextDouble() * 3.0D);
-         int var5 = class_nu.c(this.a.u - 2.0D + var1.nextDouble() * 4.0D);
-         class_cj var6 = new class_cj(var3, var4, var5);
+         int var3 = MathHelper.floor(this.a.s - 2.0D + var1.nextDouble() * 4.0D);
+         int var4 = MathHelper.floor(this.a.t + var1.nextDouble() * 3.0D);
+         int var5 = MathHelper.floor(this.a.u - 2.0D + var1.nextDouble() * 4.0D);
+         BlockPosition var6 = new BlockPosition(var3, var4, var5);
          IBlockData var7 = var2.p(var6);
          Block var8 = var7.getBlock();
          if(class_wb.c.contains(var8)) {
@@ -394,21 +394,21 @@ public class class_wb extends class_wi {
       public void e() {
          Random var1 = this.a.bd();
          World var2 = this.a.o;
-         int var3 = class_nu.c(this.a.s - 1.0D + var1.nextDouble() * 2.0D);
-         int var4 = class_nu.c(this.a.t + var1.nextDouble() * 2.0D);
-         int var5 = class_nu.c(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
-         class_cj var6 = new class_cj(var3, var4, var5);
+         int var3 = MathHelper.floor(this.a.s - 1.0D + var1.nextDouble() * 2.0D);
+         int var4 = MathHelper.floor(this.a.t + var1.nextDouble() * 2.0D);
+         int var5 = MathHelper.floor(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
+         BlockPosition var6 = new BlockPosition(var3, var4, var5);
          Block var7 = var2.p(var6).getBlock();
-         Block var8 = var2.p(var6.b()).getBlock();
+         Block var8 = var2.p(var6.shiftDown()).getBlock();
          if(this.a(var2, var6, this.a.cB().getBlock(), var7, var8)) {
-            var2.a((class_cj)var6, (IBlockData)this.a.cB(), 3);
+            var2.a((BlockPosition)var6, (IBlockData)this.a.cB(), 3);
             this.a.a(class_wb.bs);
          }
 
       }
 
-      private boolean a(World var1, class_cj var2, Block var3, Block var4, Block var5) {
-         return !var3.d(var1, var2)?false:(var4.getMaterial() != Material.a?false:(var5.getMaterial() == Material.a?false:var5.isFullCube()));
+      private boolean a(World var1, BlockPosition var2, Block var3, Block var4, Block var5) {
+         return !var3.d(var1, var2)?false:(var4.getMaterial() != Material.AIR?false:(var5.getMaterial() == Material.AIR?false:var5.isFullCube()));
       }
    }
 

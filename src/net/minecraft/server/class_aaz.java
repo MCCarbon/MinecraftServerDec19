@@ -7,10 +7,10 @@ import net.minecraft.server.class_agf;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ck;
 import net.minecraft.server.class_cn;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cr;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
@@ -24,12 +24,12 @@ public class class_aaz extends Item {
       private final class_cn b = new class_cn();
 
       public class_aas b(class_ck var1, class_aas var2) {
-         class_cq var3 = class_ahk.b(var1.f());
+         EnumDirection var3 = class_ahk.b(var1.f());
          World var4 = var1.i();
-         double var5 = var1.a() + (double)var3.g() * 1.125D;
-         double var7 = Math.floor(var1.b()) + (double)var3.h();
-         double var9 = var1.c() + (double)var3.i() * 1.125D;
-         class_cj var11 = var1.d().a(var3);
+         double var5 = var1.a() + (double)var3.getAdjacentX() * 1.125D;
+         double var7 = Math.floor(var1.b()) + (double)var3.getAdjacentY();
+         double var9 = var1.c() + (double)var3.getAdjacentZ() * 1.125D;
+         BlockPosition var11 = var1.d().shift(var3);
          IBlockData var12 = var4.p(var11);
          class_agf.class_b_in_class_agf var13 = var12.getBlock() instanceof class_agf?(class_agf.class_b_in_class_agf)var12.get(((class_agf)var12.getBlock()).n()):class_agf.class_b_in_class_agf.a;
          double var14;
@@ -40,13 +40,13 @@ public class class_aaz extends Item {
                var14 = 0.1D;
             }
          } else {
-            if(var12.getBlock().getMaterial() != Material.a || !class_agf.d(var4.p(var11.b()))) {
+            if(var12.getBlock().getMaterial() != Material.AIR || !class_agf.d(var4.p(var11.shiftDown()))) {
                return this.b.a(var1, var2);
             }
 
-            IBlockData var16 = var4.p(var11.b());
+            IBlockData var16 = var4.p(var11.shiftDown());
             class_agf.class_b_in_class_agf var17 = var16.getBlock() instanceof class_agf?(class_agf.class_b_in_class_agf)var16.get(((class_agf)var16.getBlock()).n()):class_agf.class_b_in_class_agf.a;
-            if(var3 != class_cq.a && var17.c()) {
+            if(var3 != EnumDirection.DOWN && var17.c()) {
                var14 = -0.4D;
             } else {
                var14 = -0.9D;
@@ -76,7 +76,7 @@ public class class_aaz extends Item {
       class_ahk.N.register(this, a);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.p(var4);
       if(class_agf.d(var10)) {
          if(!var3.D) {
@@ -86,7 +86,7 @@ public class class_aaz extends Item {
                var12 = 0.5D;
             }
 
-            class_vn var14 = class_vn.a(var3, (double)var4.n() + 0.5D, (double)var4.o() + 0.0625D + var12, (double)var4.p() + 0.5D, this.b);
+            class_vn var14 = class_vn.a(var3, (double)var4.getX() + 0.5D, (double)var4.getY() + 0.0625D + var12, (double)var4.getZ() + 0.5D, this.b);
             if(var1.s()) {
                var14.a(var1.q());
             }

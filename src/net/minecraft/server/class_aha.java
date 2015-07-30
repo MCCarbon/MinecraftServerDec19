@@ -14,8 +14,8 @@ import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
@@ -24,7 +24,7 @@ public class class_aha extends class_agd {
    public static final class_anw a = class_anw.a("triggered");
 
    public class_aha() {
-      super(Material.f, MaterialMapColor.q);
+      super(Material.ORE, MaterialMapColor.COLOR16);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
    }
 
@@ -32,21 +32,21 @@ public class class_aha extends class_agd {
       return new class_amj();
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          boolean var5 = var1.z(var2);
          boolean var6 = ((Boolean)var3.get(a)).booleanValue();
          if(var5 && !var6) {
-            var1.a((class_cj)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 4);
-            var1.a((class_cj)var2, (Block)this, this.a(var1));
+            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 4);
+            var1.a((BlockPosition)var2, (Block)this, this.a(var1));
          } else if(!var5 && var6) {
-            var1.a((class_cj)var2, (IBlockData)var3.set(a, Boolean.valueOf(false)), 4);
+            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(false)), 4);
          }
       }
 
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       class_amg var5 = var1.s(var2);
       if(var5 instanceof class_amj) {
          ((class_amj)var5).b().a(var1);
@@ -59,7 +59,7 @@ public class class_aha extends class_agd {
       return 1;
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       class_amg var11 = var1.s(var2);
       return var11 instanceof class_amj?((class_amj)var11).b().a(var4):false;
    }
@@ -68,12 +68,12 @@ public class class_aha extends class_agd {
       return true;
    }
 
-   public int l(World var1, class_cj var2) {
+   public int l(World var1, BlockPosition var2) {
       class_amg var3 = var1.s(var2);
       return var3 instanceof class_amj?((class_amj)var3).b().j():0;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
       class_amg var6 = var1.s(var2);
       if(var6 instanceof class_amj) {
          class_aed var7 = ((class_amj)var6).b();
@@ -113,7 +113,7 @@ public class class_aha extends class_agd {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
       return this.getBlockData().set(a, Boolean.valueOf(false));
    }
 }

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -44,7 +44,7 @@ public class class_xl extends class_xf {
             }
 
             if(var2) {
-               class_cj var3 = var1.a().a(var1.b);
+               BlockPosition var3 = var1.a().shift(var1.b);
                if(this.o.d(var3)) {
                   this.o.a(var3, Blocks.FIRE.getBlockData());
                }

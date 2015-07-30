@@ -17,8 +17,8 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ol;
@@ -31,29 +31,29 @@ import net.minecraft.server.CreativeTab;
 
 public class class_aiu extends class_agd {
    public static final class_anx a = class_anx.a("facing", new Predicate() {
-      public boolean a(class_cq var1) {
-         return var1 != class_cq.b;
+      public boolean a(EnumDirection var1) {
+         return var1 != EnumDirection.UP;
       }
 
       // $FF: synthetic method
       public boolean apply(Object var1) {
-         return this.a((class_cq)var1);
+         return this.a((EnumDirection)var1);
       }
    });
    public static final class_anw b = class_anw.a("enabled");
 
    public class_aiu() {
-      super(Material.f, MaterialMapColor.m);
-      this.setBlockData(this.blockStateList.getFirst().set(a, class_cq.a).set(b, Boolean.valueOf(true)));
+      super(Material.ORE, MaterialMapColor.COLOR12);
+      this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.DOWN).set(b, Boolean.valueOf(true)));
       this.a(CreativeTab.d);
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(class_aer var1, class_cj var2) {
+   public void a(class_aer var1, BlockPosition var2) {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.625F, 1.0F);
       super.a(var1, var2, var3, var4, var5, var6);
       float var7 = 0.125F;
@@ -68,10 +68,10 @@ public class class_aiu extends class_agd {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      class_cq var9 = var3.d();
-      if(var9 == class_cq.b) {
-         var9 = class_cq.a;
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+      EnumDirection var9 = var3.getOpposite();
+      if(var9 == EnumDirection.UP) {
+         var9 = EnumDirection.DOWN;
       }
 
       return this.getBlockData().set(a, var9).set(b, Boolean.valueOf(true));
@@ -81,7 +81,7 @@ public class class_aiu extends class_agd {
       return new class_amt();
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
       super.a(var1, var2, var3, var4, var5);
       if(var5.s()) {
          class_amg var6 = var1.s(var2);
@@ -92,11 +92,11 @@ public class class_aiu extends class_agd {
 
    }
 
-   public void c(World var1, class_cj var2, IBlockData var3) {
+   public void c(World var1, BlockPosition var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {
@@ -110,22 +110,22 @@ public class class_aiu extends class_agd {
       }
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
-   private void e(World var1, class_cj var2, IBlockData var3) {
+   private void e(World var1, BlockPosition var2, IBlockData var3) {
       boolean var4 = !var1.z(var2);
       if(var4 != ((Boolean)var3.get(b)).booleanValue()) {
-         var1.a((class_cj)var2, (IBlockData)var3.set(b, Boolean.valueOf(var4)), 4);
+         var1.a((BlockPosition)var2, (IBlockData)var3.set(b, Boolean.valueOf(var4)), 4);
       }
 
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3) {
+   public void b(World var1, BlockPosition var2, IBlockData var3) {
       class_amg var4 = var1.s(var2);
       if(var4 instanceof class_amt) {
-         class_ol.a(var1, (class_cj)var2, (class_amt)var4);
+         class_ol.a(var1, (BlockPosition)var2, (class_amt)var4);
          var1.e(var2, this);
       }
 
@@ -144,8 +144,8 @@ public class class_aiu extends class_agd {
       return false;
    }
 
-   public static class_cq b(int var0) {
-      return class_cq.a(var0 & 7);
+   public static EnumDirection b(int var0) {
+      return EnumDirection.getById(var0 & 7);
    }
 
    public static boolean f(int var0) {
@@ -156,7 +156,7 @@ public class class_aiu extends class_agd {
       return true;
    }
 
-   public int l(World var1, class_cj var2) {
+   public int l(World var1, BlockPosition var2) {
       return class_xz.a(var1.s(var2));
    }
 
@@ -166,7 +166,7 @@ public class class_aiu extends class_agd {
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_cq)var1.get(a)).a();
+      int var3 = var2 | ((EnumDirection)var1.get(a)).getId();
       if(!((Boolean)var1.get(b)).booleanValue()) {
          var3 |= 8;
       }
@@ -175,11 +175,11 @@ public class class_aiu extends class_agd {
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(a, var2.a((class_cq)var1.get(a)));
+      return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(a)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
    }
 
    protected BlockStateList createBlockStateList() {

@@ -13,8 +13,8 @@ import net.minecraft.server.class_anw;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xa;
@@ -26,14 +26,14 @@ public class class_aia extends class_aiv {
    public static final class_anw N = class_anw.a("in_wall");
 
    public class_aia(class_ajw.class_a_in_class_ajw var1) {
-      super(Material.d, var1.c());
+      super(Material.WOOD, var1.c());
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)));
       this.a(CreativeTab.d);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, class_cj var3) {
-      class_cq.class_a_in_class_cq var4 = ((class_cq)var1.get(O)).k();
-      if(var4 == class_cq.class_a_in_class_cq.c && (var2.p(var3.e()).getBlock() == Blocks.COBBLESTONE_WALL || var2.p(var3.f()).getBlock() == Blocks.COBBLESTONE_WALL) || var4 == class_cq.class_a_in_class_cq.a && (var2.p(var3.c()).getBlock() == Blocks.COBBLESTONE_WALL || var2.p(var3.d()).getBlock() == Blocks.COBBLESTONE_WALL)) {
+   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+      EnumDirection.EnumAxis var4 = ((EnumDirection)var1.get(O)).getAxis();
+      if(var4 == EnumDirection.EnumAxis.Z && (var2.p(var3.shiftWest()).getBlock() == Blocks.COBBLESTONE_WALL || var2.p(var3.shiftEast()).getBlock() == Blocks.COBBLESTONE_WALL) || var4 == EnumDirection.EnumAxis.X && (var2.p(var3.shiftNorth()).getBlock() == Blocks.COBBLESTONE_WALL || var2.p(var3.shiftSouth()).getBlock() == Blocks.COBBLESTONE_WALL)) {
          var1 = var1.set(N, Boolean.valueOf(true));
       }
 
@@ -41,29 +41,29 @@ public class class_aia extends class_aiv {
    }
 
    public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(O, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:var1.set(O, var2.a((EnumDirection)var1.get(O)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((class_cq)var1.get(O)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(O)));
    }
 
-   public boolean d(World var1, class_cj var2) {
-      return var1.p(var2.b()).getBlock().getMaterial().a()?super.d(var1, var2):false;
+   public boolean d(World var1, BlockPosition var2) {
+      return var1.p(var2.shiftDown()).getBlock().getMaterial().isBuildable()?super.d(var1, var2):false;
    }
 
-   public class_awf a(World var1, class_cj var2, IBlockData var3) {
+   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
       if(((Boolean)var3.get(a)).booleanValue()) {
          return null;
       } else {
-         class_cq.class_a_in_class_cq var4 = ((class_cq)var3.get(O)).k();
-         return var4 == class_cq.class_a_in_class_cq.c?new class_awf((double)var2.n(), (double)var2.o(), (double)((float)var2.p() + 0.375F), (double)(var2.n() + 1), (double)((float)var2.o() + 1.5F), (double)((float)var2.p() + 0.625F)):new class_awf((double)((float)var2.n() + 0.375F), (double)var2.o(), (double)var2.p(), (double)((float)var2.n() + 0.625F), (double)((float)var2.o() + 1.5F), (double)(var2.p() + 1));
+         EnumDirection.EnumAxis var4 = ((EnumDirection)var3.get(O)).getAxis();
+         return var4 == EnumDirection.EnumAxis.Z?new class_awf((double)var2.getX(), (double)var2.getY(), (double)((float)var2.getZ() + 0.375F), (double)(var2.getX() + 1), (double)((float)var2.getY() + 1.5F), (double)((float)var2.getZ() + 0.625F)):new class_awf((double)((float)var2.getX() + 0.375F), (double)var2.getY(), (double)var2.getZ(), (double)((float)var2.getX() + 0.625F), (double)((float)var2.getY() + 1.5F), (double)(var2.getZ() + 1));
       }
    }
 
-   public void a(class_aer var1, class_cj var2) {
-      class_cq.class_a_in_class_cq var3 = ((class_cq)var1.p(var2).get(O)).k();
-      if(var3 == class_cq.class_a_in_class_cq.c) {
+   public void a(class_aer var1, BlockPosition var2) {
+      EnumDirection.EnumAxis var3 = ((EnumDirection)var1.p(var2).get(O)).getAxis();
+      if(var3 == EnumDirection.EnumAxis.Z) {
          this.setSizes(0.0F, 0.0F, 0.375F, 1.0F, 1.0F, 0.625F);
       } else {
          this.setSizes(0.375F, 0.0F, 0.0F, 0.625F, 1.0F, 1.0F);
@@ -79,44 +79,44 @@ public class class_aia extends class_aiv {
       return false;
    }
 
-   public boolean isPassable(class_aer var1, class_cj var2) {
+   public boolean isPassable(class_aer var1, BlockPosition var2) {
       return ((Boolean)var1.p(var2).get(a)).booleanValue();
    }
 
-   public IBlockData a(World var1, class_cj var2, class_cq var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
       return this.getBlockData().set(O, var8.aR()).set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false));
    }
 
-   public boolean a(World var1, class_cj var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, class_cq var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, class_oo var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
       if(((Boolean)var3.get(a)).booleanValue()) {
          var3 = var3.set(a, Boolean.valueOf(false));
-         var1.a((class_cj)var2, (IBlockData)var3, 2);
+         var1.a((BlockPosition)var2, (IBlockData)var3, 2);
       } else {
-         class_cq var11 = class_cq.a((double)var4.y);
-         if(var3.get(O) == var11.d()) {
+         EnumDirection var11 = EnumDirection.fromAngle((double)var4.y);
+         if(var3.get(O) == var11.getOpposite()) {
             var3 = var3.set(O, var11);
          }
 
          var3 = var3.set(a, Boolean.valueOf(true));
-         var1.a((class_cj)var2, (IBlockData)var3, 2);
+         var1.a((BlockPosition)var2, (IBlockData)var3, 2);
       }
 
       var1.a(var4, ((Boolean)var3.get(a)).booleanValue()?1003:1006, var2, 0);
       return true;
    }
 
-   public void a(World var1, class_cj var2, IBlockData var3, Block var4) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!var1.D) {
          boolean var5 = var1.z(var2);
          if(var5 || var4.isPowerSource()) {
             if(var5 && !((Boolean)var3.get(a)).booleanValue() && !((Boolean)var3.get(b)).booleanValue()) {
-               var1.a((class_cj)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)).set(b, Boolean.valueOf(true)), 2);
+               var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)).set(b, Boolean.valueOf(true)), 2);
                var1.a((class_xa)null, 1003, var2, 0);
             } else if(!var5 && ((Boolean)var3.get(a)).booleanValue() && ((Boolean)var3.get(b)).booleanValue()) {
-               var1.a((class_cj)var2, (IBlockData)var3.set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)), 2);
+               var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)), 2);
                var1.a((class_xa)null, 1006, var2, 0);
             } else if(var5 != ((Boolean)var3.get(b)).booleanValue()) {
-               var1.a((class_cj)var2, (IBlockData)var3.set(b, Boolean.valueOf(var5)), 2);
+               var1.a((BlockPosition)var2, (IBlockData)var3.set(b, Boolean.valueOf(var5)), 2);
             }
          }
 
@@ -124,12 +124,12 @@ public class class_aia extends class_aiv {
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(O, class_cq.b(var1)).set(a, Boolean.valueOf((var1 & 4) != 0)).set(b, Boolean.valueOf((var1 & 8) != 0));
+      return this.getBlockData().set(O, EnumDirection.getByHorizontalId(var1)).set(a, Boolean.valueOf((var1 & 4) != 0)).set(b, Boolean.valueOf((var1 & 8) != 0));
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_cq)var1.get(O)).b();
+      int var3 = var2 | ((EnumDirection)var1.get(O)).getHorizontalId();
       if(((Boolean)var1.get(b)).booleanValue()) {
          var3 |= 8;
       }

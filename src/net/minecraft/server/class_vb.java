@@ -7,8 +7,8 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_pr;
@@ -21,16 +21,16 @@ public class class_vb extends class_uz {
       super(var1);
    }
 
-   public class_vb(World var1, class_cj var2) {
+   public class_vb(World var1, BlockPosition var2) {
       super(var1, var2);
-      this.b((double)var2.n() + 0.5D, (double)var2.o() + 0.5D, (double)var2.p() + 0.5D);
+      this.b((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D);
       float var3 = 0.125F;
       float var4 = 0.1875F;
       float var5 = 0.25F;
       this.a((class_awf)(new class_awf(this.s - 0.1875D, this.t - 0.25D + 0.125D, this.u - 0.1875D, this.s + 0.1875D, this.t + 0.25D + 0.125D, this.u + 0.1875D)));
    }
 
-   public void a(class_cq var1) {
+   public void a(EnumDirection var1) {
    }
 
    public int l() {
@@ -105,17 +105,17 @@ public class class_vb extends class_uz {
       return this.o.p(this.a).getBlock() instanceof class_ahz;
    }
 
-   public static class_vb a(World var0, class_cj var1) {
+   public static class_vb a(World var0, BlockPosition var1) {
       class_vb var2 = new class_vb(var0, var1);
       var2.n = true;
       var0.a((class_pr)var2);
       return var2;
    }
 
-   public static class_vb b(World var0, class_cj var1) {
-      int var2 = var1.n();
-      int var3 = var1.o();
-      int var4 = var1.p();
+   public static class_vb b(World var0, BlockPosition var1) {
+      int var2 = var1.getX();
+      int var3 = var1.getY();
+      int var4 = var1.getZ();
       List var5 = var0.a(class_vb.class, new class_awf((double)var2 - 1.0D, (double)var3 - 1.0D, (double)var4 - 1.0D, (double)var2 + 1.0D, (double)var3 + 1.0D, (double)var4 + 1.0D));
       Iterator var6 = var5.iterator();
 

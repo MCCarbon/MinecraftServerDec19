@@ -13,15 +13,15 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aka;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_eu;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lg;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_ov;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -226,7 +226,7 @@ public abstract class class_vn extends class_pr implements class_ov {
             double var15 = this.s + (this.at - this.s) / (double)this.as;
             double var17 = this.t + (this.au - this.t) / (double)this.as;
             double var18 = this.u + (this.av - this.u) / (double)this.as;
-            double var7 = class_nu.g(this.aw - (double)this.y);
+            double var7 = MathHelper.clampAngle(this.aw - (double)this.y);
             this.y = (float)((double)this.y + var7 / (double)this.as);
             this.z = (float)((double)this.z + (this.ax - (double)this.z) / (double)this.as);
             --this.as;
@@ -242,14 +242,14 @@ public abstract class class_vn extends class_pr implements class_ov {
          this.q = this.t;
          this.r = this.u;
          this.w -= 0.03999999910593033D;
-         int var14 = class_nu.c(this.s);
-         var2 = class_nu.c(this.t);
-         int var16 = class_nu.c(this.u);
-         if(class_agf.e(this.o, new class_cj(var14, var2 - 1, var16))) {
+         int var14 = MathHelper.floor(this.s);
+         var2 = MathHelper.floor(this.t);
+         int var16 = MathHelper.floor(this.u);
+         if(class_agf.e(this.o, new BlockPosition(var14, var2 - 1, var16))) {
             --var2;
          }
 
-         class_cj var4 = new class_cj(var14, var2, var16);
+         BlockPosition var4 = new BlockPosition(var14, var2, var16);
          IBlockData var5 = this.o.p(var4);
          if(class_agf.d(var5)) {
             this.a(var4, var5);
@@ -265,13 +265,13 @@ public abstract class class_vn extends class_pr implements class_ov {
          double var6 = this.p - this.s;
          double var8 = this.r - this.u;
          if(var6 * var6 + var8 * var8 > 0.001D) {
-            this.y = (float)(class_nu.b(var8, var6) * 180.0D / 3.141592653589793D);
+            this.y = (float)(MathHelper.b(var8, var6) * 180.0D / 3.141592653589793D);
             if(this.g) {
                this.y += 180.0F;
             }
          }
 
-         double var10 = (double)class_nu.g(this.y - this.A);
+         double var10 = (double)MathHelper.clampAngle(this.y - this.A);
          if(var10 < -170.0D || var10 >= 170.0D) {
             this.y += 180.0F;
             this.g = !this.g;
@@ -308,8 +308,8 @@ public abstract class class_vn extends class_pr implements class_ov {
 
    protected void n() {
       double var1 = this.m();
-      this.v = class_nu.a(this.v, -var1, var1);
-      this.x = class_nu.a(this.x, -var1, var1);
+      this.v = MathHelper.clamp(this.v, -var1, var1);
+      this.x = MathHelper.clamp(this.x, -var1, var1);
       if(this.C) {
          this.v *= 0.5D;
          this.w *= 0.5D;
@@ -325,10 +325,10 @@ public abstract class class_vn extends class_pr implements class_ov {
 
    }
 
-   protected void a(class_cj var1, IBlockData var2) {
+   protected void a(BlockPosition var1, IBlockData var2) {
       this.O = 0.0F;
-      class_awh var3 = this.k(this.s, this.t, this.u);
-      this.t = (double)var1.o();
+      Vec3D var3 = this.k(this.s, this.t, this.u);
+      this.t = (double)var1.getY();
       boolean var4 = false;
       boolean var5 = false;
       class_agf var6 = (class_agf)var2.getBlock();
@@ -406,20 +406,20 @@ public abstract class class_vn extends class_pr implements class_ov {
       }
 
       var21 = 0.0D;
-      var23 = (double)var1.n() + 0.5D + (double)var10[0][0] * 0.5D;
-      var25 = (double)var1.p() + 0.5D + (double)var10[0][2] * 0.5D;
-      var27 = (double)var1.n() + 0.5D + (double)var10[1][0] * 0.5D;
-      double var29 = (double)var1.p() + 0.5D + (double)var10[1][2] * 0.5D;
+      var23 = (double)var1.getX() + 0.5D + (double)var10[0][0] * 0.5D;
+      var25 = (double)var1.getZ() + 0.5D + (double)var10[0][2] * 0.5D;
+      var27 = (double)var1.getX() + 0.5D + (double)var10[1][0] * 0.5D;
+      double var29 = (double)var1.getZ() + 0.5D + (double)var10[1][2] * 0.5D;
       var11 = var27 - var23;
       var13 = var29 - var25;
       double var31;
       double var33;
       if(var11 == 0.0D) {
-         this.s = (double)var1.n() + 0.5D;
-         var21 = this.u - (double)var1.p();
+         this.s = (double)var1.getX() + 0.5D;
+         var21 = this.u - (double)var1.getZ();
       } else if(var13 == 0.0D) {
-         this.u = (double)var1.p() + 0.5D;
-         var21 = this.s - (double)var1.n();
+         this.u = (double)var1.getZ() + 0.5D;
+         var21 = this.s - (double)var1.getX();
       } else {
          var31 = this.s - var23;
          var33 = this.u - var25;
@@ -437,34 +437,34 @@ public abstract class class_vn extends class_pr implements class_ov {
       }
 
       double var35 = this.m();
-      var31 = class_nu.a(var31, -var35, var35);
-      var33 = class_nu.a(var33, -var35, var35);
+      var31 = MathHelper.clamp(var31, -var35, var35);
+      var33 = MathHelper.clamp(var33, -var35, var35);
       this.d(var31, 0.0D, var33);
-      if(var10[0][1] != 0 && class_nu.c(this.s) - var1.n() == var10[0][0] && class_nu.c(this.u) - var1.p() == var10[0][2]) {
+      if(var10[0][1] != 0 && MathHelper.floor(this.s) - var1.getX() == var10[0][0] && MathHelper.floor(this.u) - var1.getZ() == var10[0][2]) {
          this.b(this.s, this.t + (double)var10[0][1], this.u);
-      } else if(var10[1][1] != 0 && class_nu.c(this.s) - var1.n() == var10[1][0] && class_nu.c(this.u) - var1.p() == var10[1][2]) {
+      } else if(var10[1][1] != 0 && MathHelper.floor(this.s) - var1.getX() == var10[1][0] && MathHelper.floor(this.u) - var1.getZ() == var10[1][2]) {
          this.b(this.s, this.t + (double)var10[1][1], this.u);
       }
 
       this.o();
-      class_awh var37 = this.k(this.s, this.t, this.u);
+      Vec3D var37 = this.k(this.s, this.t, this.u);
       if(var37 != null && var3 != null) {
-         double var38 = (var3.b - var37.b) * 0.05D;
+         double var38 = (var3.y - var37.y) * 0.05D;
          var19 = Math.sqrt(this.v * this.v + this.x * this.x);
          if(var19 > 0.0D) {
             this.v = this.v / var19 * (var19 + var38);
             this.x = this.x / var19 * (var19 + var38);
          }
 
-         this.b(this.s, var37.b, this.u);
+         this.b(this.s, var37.y, this.u);
       }
 
-      int var44 = class_nu.c(this.s);
-      int var39 = class_nu.c(this.u);
-      if(var44 != var1.n() || var39 != var1.p()) {
+      int var44 = MathHelper.floor(this.s);
+      int var39 = MathHelper.floor(this.u);
+      if(var44 != var1.getX() || var39 != var1.getZ()) {
          var19 = Math.sqrt(this.v * this.v + this.x * this.x);
-         this.v = var19 * (double)(var44 - var1.n());
-         this.x = var19 * (double)(var39 - var1.p());
+         this.v = var19 * (double)(var44 - var1.getX());
+         this.x = var19 * (double)(var39 - var1.getZ());
       }
 
       if(var4) {
@@ -474,15 +474,15 @@ public abstract class class_vn extends class_pr implements class_ov {
             this.v += this.v / var40 * var42;
             this.x += this.x / var40 * var42;
          } else if(var9 == class_agf.class_b_in_class_agf.b) {
-            if(this.o.p(var1.e()).getBlock().isOccluding()) {
+            if(this.o.p(var1.shiftWest()).getBlock().isOccluding()) {
                this.v = 0.02D;
-            } else if(this.o.p(var1.f()).getBlock().isOccluding()) {
+            } else if(this.o.p(var1.shiftEast()).getBlock().isOccluding()) {
                this.v = -0.02D;
             }
          } else if(var9 == class_agf.class_b_in_class_agf.a) {
-            if(this.o.p(var1.c()).getBlock().isOccluding()) {
+            if(this.o.p(var1.shiftNorth()).getBlock().isOccluding()) {
                this.x = 0.02D;
-            } else if(this.o.p(var1.d()).getBlock().isOccluding()) {
+            } else if(this.o.p(var1.shiftSouth()).getBlock().isOccluding()) {
                this.x = -0.02D;
             }
          }
@@ -512,15 +512,15 @@ public abstract class class_vn extends class_pr implements class_ov {
       this.a((class_awf)(new class_awf(var1 - (double)var7, var3, var5 - (double)var7, var1 + (double)var7, var3 + (double)var8, var5 + (double)var7)));
    }
 
-   public class_awh k(double var1, double var3, double var5) {
-      int var7 = class_nu.c(var1);
-      int var8 = class_nu.c(var3);
-      int var9 = class_nu.c(var5);
-      if(class_agf.e(this.o, new class_cj(var7, var8 - 1, var9))) {
+   public Vec3D k(double var1, double var3, double var5) {
+      int var7 = MathHelper.floor(var1);
+      int var8 = MathHelper.floor(var3);
+      int var9 = MathHelper.floor(var5);
+      if(class_agf.e(this.o, new BlockPosition(var7, var8 - 1, var9))) {
          --var8;
       }
 
-      IBlockData var10 = this.o.p(new class_cj(var7, var8, var9));
+      IBlockData var10 = this.o.p(new BlockPosition(var7, var8, var9));
       if(class_agf.d(var10)) {
          class_agf.class_b_in_class_agf var11 = (class_agf.class_b_in_class_agf)var10.get(((class_agf)var10.getBlock()).n());
          int[][] var12 = i[var11.a()];
@@ -557,7 +557,7 @@ public abstract class class_vn extends class_pr implements class_ov {
             var3 += 0.5D;
          }
 
-         return new class_awh(var1, var3, var5);
+         return new Vec3D(var1, var3, var5);
       } else {
          return null;
       }
@@ -620,7 +620,7 @@ public abstract class class_vn extends class_pr implements class_ov {
                double var4 = var1.u - this.u;
                double var6 = var2 * var2 + var4 * var4;
                if(var6 >= 9.999999747378752E-5D) {
-                  var6 = (double)class_nu.a(var6);
+                  var6 = (double)MathHelper.sqrt(var6);
                   var2 /= var6;
                   var4 /= var6;
                   double var8 = 1.0D / var6;
@@ -639,9 +639,9 @@ public abstract class class_vn extends class_pr implements class_ov {
                   if(var1 instanceof class_vn) {
                      double var10 = var1.s - this.s;
                      double var12 = var1.u - this.u;
-                     class_awh var14 = (new class_awh(var10, 0.0D, var12)).a();
-                     class_awh var15 = (new class_awh((double)class_nu.b(this.y * 3.1415927F / 180.0F), 0.0D, (double)class_nu.a(this.y * 3.1415927F / 180.0F))).a();
-                     double var16 = Math.abs(var14.b(var15));
+                     Vec3D var14 = (new Vec3D(var10, 0.0D, var12)).normalize();
+                     Vec3D var15 = (new Vec3D((double)MathHelper.cos(this.y * 3.1415927F / 180.0F), 0.0D, (double)MathHelper.sin(this.y * 3.1415927F / 180.0F))).normalize();
+                     double var16 = Math.abs(var14.dotProduct(var15));
                      if(var16 < 0.800000011920929D) {
                         return;
                      }

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_du;
@@ -52,18 +52,18 @@ public abstract class class_aee {
    }
 
    private boolean g() {
-      class_cj var1 = this.b();
-      return this.a().b((double)var1.n() + 0.5D, (double)var1.o() + 0.5D, (double)var1.p() + 0.5D, (double)this.l);
+      BlockPosition var1 = this.b();
+      return this.a().b((double)var1.getX() + 0.5D, (double)var1.getY() + 0.5D, (double)var1.getZ() + 0.5D, (double)this.l);
    }
 
    public void c() {
       if(this.g()) {
-         class_cj var1 = this.b();
+         BlockPosition var1 = this.b();
          double var6;
          if(this.a().D) {
-            double var13 = (double)((float)var1.n() + this.a().s.nextFloat());
-            double var14 = (double)((float)var1.o() + this.a().s.nextFloat());
-            var6 = (double)((float)var1.p() + this.a().s.nextFloat());
+            double var13 = (double)((float)var1.getX() + this.a().s.nextFloat());
+            double var14 = (double)((float)var1.getY() + this.a().s.nextFloat());
+            var6 = (double)((float)var1.getZ() + this.a().s.nextFloat());
             this.a().a(class_cy.l, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             this.a().a(class_cy.A, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             if(this.a > 0) {
@@ -98,15 +98,15 @@ public abstract class class_aee {
                   return;
                }
 
-               int var5 = this.a().a(var4.getClass(), (new class_awf((double)var1.n(), (double)var1.o(), (double)var1.p(), (double)(var1.n() + 1), (double)(var1.o() + 1), (double)(var1.p() + 1))).b((double)this.m, (double)this.m, (double)this.m)).size();
+               int var5 = this.a().a(var4.getClass(), (new class_awf((double)var1.getX(), (double)var1.getY(), (double)var1.getZ(), (double)(var1.getX() + 1), (double)(var1.getY() + 1), (double)(var1.getZ() + 1))).b((double)this.m, (double)this.m, (double)this.m)).size();
                if(var5 >= this.k) {
                   this.h();
                   return;
                }
 
-               var6 = (double)var1.n() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
-               double var8 = (double)(var1.o() + this.a().s.nextInt(3) - 1);
-               double var10 = (double)var1.p() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
+               var6 = (double)var1.getX() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
+               double var8 = (double)(var1.getY() + this.a().s.nextInt(3) - 1);
+               double var10 = (double)var1.getZ() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
                class_qb var12 = var4 instanceof class_qb?(class_qb)var4:null;
                var4.b(var6, var8, var10, this.a().s.nextFloat() * 360.0F, 0.0F);
                if(var12 == null || var12.cf() && var12.cg()) {
@@ -171,7 +171,7 @@ public abstract class class_aee {
          }
       } else if(var1 instanceof class_qa && var1.o != null && var2) {
          if(var1 instanceof class_qb) {
-            ((class_qb)var1).a((class_on)var1.o.E(new class_cj(var1)), (class_qd)null);
+            ((class_qb)var1).a((class_on)var1.o.E(new BlockPosition(var1)), (class_qd)null);
          }
 
          var1.o.a(var1);
@@ -289,7 +289,7 @@ public abstract class class_aee {
 
    public abstract World a();
 
-   public abstract class_cj b();
+   public abstract BlockPosition b();
 
    public class class_a_in_class_aee extends class_oc.class_a_in_class_oc {
       private final class_dn c;

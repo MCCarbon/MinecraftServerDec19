@@ -8,12 +8,12 @@ import net.minecraft.server.class_aet;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
 
 public class class_akx extends Block {
    protected class_akx() {
-      super(Material.z);
+      super(Material.SNOW_BLOCK);
       this.setTicking(true);
       this.a(CreativeTab.b);
    }
@@ -26,7 +26,7 @@ public class class_akx extends Block {
       return 4;
    }
 
-   public void b(World var1, class_cj var2, IBlockData var3, Random var4) {
+   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(var1.b(class_aet.b, var2) > 11) {
          this.b(var1, var2, var1.p(var2), 0);
          var1.g(var2);

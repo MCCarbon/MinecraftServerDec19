@@ -10,7 +10,7 @@ import net.minecraft.server.class_ahm;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_arh;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_tz;
 
 public class class_afs extends class_aez {
@@ -36,14 +36,14 @@ public class class_afs extends class_aez {
       return var2;
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       ag.a(class_ahm.class_b_in_class_ahm.c);
 
       for(int var4 = 0; var4 < 7; ++var4) {
          int var5 = var2.nextInt(16) + 8;
          int var6 = var2.nextInt(16) + 8;
-         int var7 = var2.nextInt(var1.m(var3.a(var5, 0, var6)).o() + 32);
-         ag.b(var1, var2, var3.a(var5, var7, var6));
+         int var7 = var2.nextInt(var1.m(var3.add(var5, 0, var6)).getY() + 32);
+         ag.b(var1, var2, var3.add(var5, var7, var6));
       }
 
       super.a(var1, var2, var3);
@@ -70,7 +70,7 @@ public class class_afs extends class_aez {
          this.b(var1, var2, var3, var4, var5, var6);
       }
 
-      public void a(World var1, Random var2, class_cj var3) {
+      public void a(World var1, Random var2, BlockPosition var3) {
          this.as.a(var1, var2, this, var3);
       }
    }

@@ -6,8 +6,8 @@ import net.minecraft.server.Block;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.IBlockState;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_xa;
@@ -33,10 +33,10 @@ public class class_abq extends ItemBlock {
       return this.b.b(var1.i());
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var1.b == 0) {
          return class_oq.b;
-      } else if(!var2.a(var4.a(var6), var6, var1)) {
+      } else if(!var2.a(var4.shift(var6), var6, var1)) {
          return class_oq.b;
       } else {
          Object var10 = this.b.a(var1);
@@ -45,10 +45,10 @@ public class class_abq extends ItemBlock {
             IBlockState var12 = this.b.n();
             Comparable var13 = var11.get(var12);
             class_aio.class_a_in_class_aio var14 = (class_aio.class_a_in_class_aio)var11.get(class_aio.a);
-            if((var6 == class_cq.b && var14 == class_aio.class_a_in_class_aio.b || var6 == class_cq.a && var14 == class_aio.class_a_in_class_aio.a) && var13 == var10) {
+            if((var6 == EnumDirection.UP && var14 == class_aio.class_a_in_class_aio.b || var6 == EnumDirection.DOWN && var14 == class_aio.class_a_in_class_aio.a) && var13 == var10) {
                IBlockData var15 = this.c.getBlockData().set(var12, var13);
-               if(var3.b(this.c.a(var3, var4, var15)) && var3.a((class_cj)var4, (IBlockData)var15, 3)) {
-                  var3.a((double)((float)var4.n() + 0.5F), (double)((float)var4.o() + 0.5F), (double)((float)var4.p() + 0.5F), this.c.stepSound.b(), (this.c.stepSound.d() + 1.0F) / 2.0F, this.c.stepSound.e() * 0.8F);
+               if(var3.b(this.c.a(var3, var4, var15)) && var3.a((BlockPosition)var4, (IBlockData)var15, 3)) {
+                  var3.a((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), this.c.stepSound.b(), (this.c.stepSound.d() + 1.0F) / 2.0F, this.c.stepSound.e() * 0.8F);
                   --var1.b;
                }
 
@@ -56,18 +56,18 @@ public class class_abq extends ItemBlock {
             }
          }
 
-         return this.a(var1, var3, var4.a(var6), var10)?class_oq.a:super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9);
+         return this.a(var1, var3, var4.shift(var6), var10)?class_oq.a:super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9);
       }
    }
 
-   private boolean a(class_aas var1, World var2, class_cj var3, Object var4) {
+   private boolean a(class_aas var1, World var2, BlockPosition var3, Object var4) {
       IBlockData var5 = var2.p(var3);
       if(var5.getBlock() == this.b) {
          Comparable var6 = var5.get(this.b.n());
          if(var6 == var4) {
             IBlockData var7 = this.c.getBlockData().set(this.b.n(), var6);
-            if(var2.b(this.c.a(var2, var3, var7)) && var2.a((class_cj)var3, (IBlockData)var7, 3)) {
-               var2.a((double)((float)var3.n() + 0.5F), (double)((float)var3.o() + 0.5F), (double)((float)var3.p() + 0.5F), this.c.stepSound.b(), (this.c.stepSound.d() + 1.0F) / 2.0F, this.c.stepSound.e() * 0.8F);
+            if(var2.b(this.c.a(var2, var3, var7)) && var2.a((BlockPosition)var3, (IBlockData)var7, 3)) {
+               var2.a((double)((float)var3.getX() + 0.5F), (double)((float)var3.getY() + 0.5F), (double)((float)var3.getZ() + 0.5F), this.c.stepSound.b(), (this.c.stepSound.d() + 1.0F) / 2.0F, this.c.stepSound.e() * 0.8F);
                --var1.b;
             }
 

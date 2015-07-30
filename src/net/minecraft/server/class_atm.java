@@ -8,7 +8,7 @@ public class class_atm extends Material {
       super(var1);
    }
 
-   public boolean a() {
+   public boolean isBuildable() {
       return false;
    }
 

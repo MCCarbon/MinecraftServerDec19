@@ -9,7 +9,7 @@ import net.minecraft.server.class_eu;
 import net.minecraft.server.class_ff;
 import net.minecraft.server.class_fw;
 import net.minecraft.server.class_lh;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oh;
 
 public class class_le extends class_oh {
@@ -18,7 +18,7 @@ public class class_le extends class_oh {
    private boolean i;
 
    public class_le(class_eu var1, class_oh.class_a_in_class_oh var2, class_oh.class_b_in_class_oh var3, boolean var4, boolean var5) {
-      super(class_nu.a(), var1, var2, var3, var4, var5);
+      super(MathHelper.getRandomUUID(), var1, var2, var3, var4, var5);
       this.h = Collections.unmodifiableSet(this.g);
       this.i = true;
    }

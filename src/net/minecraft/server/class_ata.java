@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.class_asz;
 import net.minecraft.server.class_atf;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.MathHelper;
 
 public class class_ata extends class_atf {
    private class_asz[] a;
@@ -34,8 +34,8 @@ public class class_ata extends class_atf {
          double var17 = (double)var2 * var27 * var8;
          double var19 = (double)var3 * var27 * var10;
          double var21 = (double)var4 * var27 * var12;
-         long var23 = class_nu.d(var17);
-         long var25 = class_nu.d(var21);
+         long var23 = MathHelper.floorL(var17);
+         long var25 = MathHelper.floorL(var21);
          var17 -= (double)var23;
          var21 -= (double)var25;
          var23 %= 16777216L;

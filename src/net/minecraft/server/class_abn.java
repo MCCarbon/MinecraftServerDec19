@@ -9,9 +9,9 @@ import net.minecraft.server.class_alw;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.class_amx;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_cj;
-import net.minecraft.server.class_cq;
-import net.minecraft.server.class_nu;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oo;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_xa;
@@ -24,13 +24,13 @@ public class class_abn extends Item {
       this.a(CreativeTab.c);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, class_cj var4, class_oo var5, class_cq var6, float var7, float var8, float var9) {
-      if(var6 == class_cq.a) {
+   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, class_oo var5, EnumDirection var6, float var7, float var8, float var9) {
+      if(var6 == EnumDirection.DOWN) {
          return class_oq.b;
-      } else if(!var3.p(var4).getBlock().getMaterial().a()) {
+      } else if(!var3.p(var4).getBlock().getMaterial().isBuildable()) {
          return class_oq.b;
       } else {
-         var4 = var4.a(var6);
+         var4 = var4.shift(var6);
          if(!var2.a(var4, var6, var1)) {
             return class_oq.b;
          } else if(!Blocks.STANDING_SIGN.d(var3, var4)) {
@@ -38,11 +38,11 @@ public class class_abn extends Item {
          } else if(var3.D) {
             return class_oq.a;
          } else {
-            if(var6 == class_cq.b) {
-               int var10 = class_nu.c((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
-               var3.a((class_cj)var4, (IBlockData)Blocks.STANDING_SIGN.getBlockData().set(class_ale.a, Integer.valueOf(var10)), 3);
+            if(var6 == EnumDirection.UP) {
+               int var10 = MathHelper.floor((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
+               var3.a((BlockPosition)var4, (IBlockData)Blocks.STANDING_SIGN.getBlockData().set(class_ale.a, Integer.valueOf(var10)), 3);
             } else {
-               var3.a((class_cj)var4, (IBlockData)Blocks.WALL_SIGN.getBlockData().set(class_alw.a, var6), 3);
+               var3.a((BlockPosition)var4, (IBlockData)Blocks.WALL_SIGN.getBlockData().set(class_alw.a, var6), 3);
             }
 
             --var1.b;

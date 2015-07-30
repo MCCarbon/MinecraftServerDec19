@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_rg;
@@ -32,7 +32,7 @@ public class class_rd extends class_rg {
    }
 
    public boolean b() {
-      double var1 = this.a.b((class_cj)this.b);
+      double var1 = this.a.b((BlockPosition)this.b);
       boolean var3;
       if(this.g <= 240) {
          class_ahl var10000 = this.c;

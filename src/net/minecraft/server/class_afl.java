@@ -13,7 +13,7 @@ import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_atb;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_zy;
 
 public class class_afl extends class_aez {
@@ -50,7 +50,7 @@ public class class_afl extends class_aez {
       return this.aA;
    }
 
-   public void a(World var1, Random var2, class_cj var3) {
+   public void a(World var1, Random var2, BlockPosition var3) {
       super.a(var1, var2, var3);
    }
 
@@ -97,7 +97,7 @@ public class class_afl extends class_aez {
       boolean var26 = false;
 
       for(int var19 = 255; var19 >= 0; --var19) {
-         if(var3.a(var11, var19, var10).getBlock().getMaterial() == Material.a && var19 < (int)var22) {
+         if(var3.a(var11, var19, var10).getBlock().getMaterial() == Material.AIR && var19 < (int)var22) {
             var3.a(var11, var19, var10, Blocks.STONE.getBlockData());
          }
 
@@ -105,7 +105,7 @@ public class class_afl extends class_aez {
             var3.a(var11, var19, var10, Blocks.BEDROCK.getBlockData());
          } else {
             IBlockData var20 = var3.a(var11, var19, var10);
-            if(var20.getBlock().getMaterial() == Material.a) {
+            if(var20.getBlock().getMaterial() == Material.AIR) {
                var17 = -1;
             } else if(var20.getBlock() == Blocks.STONE) {
                IBlockData var21;
@@ -119,7 +119,7 @@ public class class_afl extends class_aez {
                      var24 = this.al;
                   }
 
-                  if(var19 < var23 && (var13 == null || var13.getBlock().getMaterial() == Material.a)) {
+                  if(var19 < var23 && (var13 == null || var13.getBlock().getMaterial() == Material.AIR)) {
                      var13 = Blocks.WATER.getBlockData();
                   }
 

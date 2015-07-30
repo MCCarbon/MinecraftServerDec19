@@ -400,7 +400,7 @@ public class class_wz implements class_oj {
    }
 
    public boolean b(Block var1) {
-      if(var1.getMaterial().l()) {
+      if(var1.getMaterial().isAlwaysDestroyable()) {
          return true;
       } else {
          class_aas var2 = this.a(this.d);

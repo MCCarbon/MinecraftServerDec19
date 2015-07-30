@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.World;
-import net.minecraft.server.class_awh;
+import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_cj;
+import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dn;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
@@ -37,16 +37,16 @@ public class class_bm extends class_i {
          throw new class_cf("commands.summon.usage", new Object[0]);
       } else {
          String var3 = var2[0];
-         class_cj var4 = var1.c();
-         class_awh var5 = var1.d();
-         double var6 = var5.a;
-         double var8 = var5.b;
-         double var10 = var5.c;
+         BlockPosition var4 = var1.c();
+         Vec3D var5 = var1.d();
+         double var6 = var5.x;
+         double var8 = var5.y;
+         double var10 = var5.z;
          if(var2.length >= 4) {
             var6 = b(var6, var2[1], true);
             var8 = b(var8, var2[2], false);
             var10 = b(var10, var2[3], true);
-            var4 = new class_cj(var6, var8, var10);
+            var4 = new BlockPosition(var6, var8, var10);
          }
 
          World var12 = var1.e();
@@ -83,7 +83,7 @@ public class class_bm extends class_i {
             } else {
                var21.b(var6, var8, var10, var21.y, var21.z);
                if(!var14 && var21 instanceof class_qb) {
-                  ((class_qb)var21).a((class_on)var12.E(new class_cj(var21)), (class_qd)null);
+                  ((class_qb)var21).a((class_on)var12.E(new BlockPosition(var21)), (class_qd)null);
                }
 
                if(!var12.a(var21)) {
@@ -109,7 +109,7 @@ public class class_bm extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, class_cj var3) {
+   public List a(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, class_pt.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 }
