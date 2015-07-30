@@ -89,7 +89,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       };
       var1.setDaemon(true);
       var1.start();
-      k.info("Starting minecraft server version 15w31a");
+      k.info("Starting minecraft server version 15w31b");
       if(Runtime.getRuntime().maxMemory() / 1024L / 1024L < 512L) {
          k.warn("To start the server with more ram, launch it as \"java -Xmx1024M -Xms1024M -jar minecraft_server.jar\"");
       }

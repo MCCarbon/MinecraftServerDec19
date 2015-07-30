@@ -4,6 +4,8 @@ import com.google.common.base.Functions;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.primitives.Doubles;
+import com.google.gson.JsonParseException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -11,6 +13,9 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
+
+import org.apache.commons.lang3.exception.ExceptionUtils;
+
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.Item;
 import net.minecraft.server.Block;
@@ -31,6 +36,14 @@ import net.minecraft.server.class_pr;
 
 public abstract class class_i implements class_k {
    private static class_h a;
+
+   protected static class_cc a(JsonParseException jsonParseException) {
+       Throwable throwable = ExceptionUtils.getRootCause((Throwable)jsonParseException);
+       String string = "";
+       if (throwable == null || !(string = throwable.getMessage()).contains((CharSequence)"setLenient")) return new class_cc("commands.tellraw.jsonException", new Object[]{string});
+       string = string.substring(string.indexOf("to accept ") + 10);
+       return new class_cc("commands.tellraw.jsonException", new Object[]{string});
+   }
 
    public int a() {
       return 4;
@@ -476,7 +489,7 @@ public abstract class class_i implements class_k {
 
             while(var4.hasNext()) {
                Object var6 = var4.next();
-               if(var6 instanceof MinecraftKey && a(var2, ((MinecraftKey)var6).a())) {
+               if(var6 instanceof MinecraftKey && a(var2, ((MinecraftKey)var6).getName())) {
                   var3.add(String.valueOf(var6));
                }
             }

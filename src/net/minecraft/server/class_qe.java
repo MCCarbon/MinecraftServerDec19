@@ -1,7 +1,9 @@
 package net.minecraft.server;
 
 import com.google.common.collect.Maps;
-import java.util.HashMap;
+
+import java.util.Map;
+
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_tu;
 import net.minecraft.server.class_tx;
@@ -37,7 +39,7 @@ import net.minecraft.server.class_wr;
 import net.minecraft.server.class_wv;
 
 public class class_qe {
-   private static final HashMap a = Maps.newHashMap();
+   private static final Map a = Maps.newHashMap();
 
    public static class_qb.class_a_in_class_qb a(Class var0) {
       return (class_qb.class_a_in_class_qb)a.get(var0);

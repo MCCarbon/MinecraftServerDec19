@@ -397,6 +397,7 @@ public abstract class class_lz {
       var7.a((class_xa)var1, var3);
       var7.e(var1.F());
       var7.o(var1);
+      var7.a(var1.bR());
       class_lg var8 = this.h.a(var1.am);
       this.a(var7, var1, var8);
       BlockPosition var9;

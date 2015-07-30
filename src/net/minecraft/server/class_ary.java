@@ -31,7 +31,7 @@ import net.minecraft.server.class_pr;
 import net.minecraft.server.class_ug;
 
 public class class_ary {
-   public static class_ast a = new class_ast();
+   public static final class_ast a = new class_ast();
    private static final class_asu b = (new class_asu()).a(true);
    private static final class_asu c = (new class_asu()).a(true).b(true);
    private static final List d;
@@ -85,7 +85,6 @@ public class class_ary {
                class_asn var11 = class_asn.a(var4, var10.c());
                if(var11 != null && var11.m != var2.m) {
                   var7 = true;
-                  System.out.println("collision");
                   break;
                }
             }

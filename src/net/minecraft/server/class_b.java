@@ -40,7 +40,7 @@ public class class_b {
    private void h() {
       this.d.a("Minecraft Version", new Callable() {
          public String a() {
-            return "15w31a";
+            return "15w31b";
          }
 
          // $FF: synthetic method

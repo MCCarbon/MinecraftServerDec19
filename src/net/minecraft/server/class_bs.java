@@ -70,8 +70,7 @@ public class class_bs extends class_i {
                try {
                   var6 = class_eu.class_a_in_class_eu.a(var10);
                } catch (JsonParseException var9) {
-                  Throwable var8 = ExceptionUtils.getRootCause(var9);
-                  throw new class_cc("commands.tellraw.jsonException", new Object[]{var8 == null?"":var8.getMessage()});
+            	   throw class_bs.a(var9);
                }
 
                class_hv var7 = new class_hv(var4, class_ev.a(var1, var6, var3));

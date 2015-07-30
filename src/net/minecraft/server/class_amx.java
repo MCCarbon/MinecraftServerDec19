@@ -85,7 +85,7 @@ public class class_amx extends class_amg {
          String var4 = var1.k("Text" + (var3 + 1));
 
          try {
-            class_eu var5 = class_eu.class_a_in_class_eu.a(var4);
+            class_eu var5 = class_eu.class_a_in_class_eu.b(var4);
 
             try {
                this.a[var3] = class_ev.a(var2, var5, (class_pr)null);

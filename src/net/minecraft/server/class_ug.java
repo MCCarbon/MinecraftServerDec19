@@ -36,7 +36,7 @@ public class class_ug extends class_ua implements class_wd {
    protected static final int a = class_qi.a(class_ug.class);
    protected static final int b = class_qi.a(class_ug.class);
    protected static final int c = class_qi.a(class_ug.class);
-   public static final BlockPosition bs = new BlockPosition(-666, -666, -666);
+   public static final BlockPosition bs = new BlockPosition(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
    private float bt;
    private float bu;
    private BlockPosition bv;

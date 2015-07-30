@@ -9,7 +9,7 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
 public final class class_xj {
-   public static final class_awg a(class_pr var0, boolean var1, boolean var2, class_pr var3) {
+   public static class_awg a(class_pr var0, boolean var1, boolean var2, class_pr var3) {
       double var4 = var0.s;
       double var6 = var0.t;
       double var8 = var0.u;

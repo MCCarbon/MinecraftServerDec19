@@ -73,8 +73,8 @@ public class class_wz implements class_oj {
             int var8 = var3 <= 0?var7.b:Math.min(var3 - var5, var7.b);
             var5 += var8;
             if(var3 != 0) {
-               this.a[var6].b -= var8;
-               if(this.a[var6].b == 0) {
+            	var7.b -= var8;
+               if(var7.b == 0) {
                   this.a(var6, (class_aas)null);
                }
 

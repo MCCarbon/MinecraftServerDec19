@@ -273,7 +273,7 @@ public abstract class class_agf extends Block {
          this.c = var3;
          this.e = var4;
          this.d = (class_agf)var4.getBlock();
-         class_agf.class_b_in_class_agf var5 = (class_agf.class_b_in_class_agf)var4.get(class_agf.this.n());
+         class_agf.class_b_in_class_agf var5 = (class_agf.class_b_in_class_agf)var4.get(d.n());
          this.f = this.d.a;
          this.a(var5);
       }

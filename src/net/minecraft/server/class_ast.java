@@ -19,7 +19,7 @@ public class class_ast {
    private final Map a = Maps.newHashMap();
 
    public class_asv a(MinecraftKey var1) {
-      String var2 = var1.a();
+      String var2 = var1.getName();
       if(this.a.containsKey(var2)) {
          return (class_asv)this.a.get(var2);
       } else {
@@ -35,7 +35,7 @@ public class class_ast {
    }
 
    public boolean b(MinecraftKey var1) {
-      String var2 = var1.a();
+      String var2 = var1.getName();
       File var3 = MinecraftServer.N().d("structures");
       File var4 = new File(var3, var2 + ".nbt");
       if(!var4.exists()) {
@@ -59,8 +59,8 @@ public class class_ast {
    }
 
    private boolean d(MinecraftKey var1) {
-      String var2 = var1.b();
-      String var3 = var1.a();
+      String var2 = var1.getNamespace();
+      String var3 = var1.getName();
       InputStream var4 = null;
 
       boolean var6;
@@ -85,7 +85,7 @@ public class class_ast {
    }
 
    public boolean c(MinecraftKey var1) {
-      String var2 = var1.a();
+      String var2 = var1.getName();
       if(!this.a.containsKey(var2)) {
          return false;
       } else {

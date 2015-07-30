@@ -48,7 +48,7 @@ public class class_zz extends Item {
          } else if(var10 == class_zy.m) {
             IBlockData var11 = var3.p(var4);
             Block var12 = var11.getBlock();
-            if(var12 == Blocks.LOG && var11.get(class_ajw.a) == class_ajw.class_a_in_class_ajw.d) {
+            if(var12 == Blocks.LOG && var11.get(class_ajt.b) == class_ajw.class_a_in_class_ajw.d) {
                if(var6 == EnumDirection.DOWN) {
                   return class_oq.b;
                }

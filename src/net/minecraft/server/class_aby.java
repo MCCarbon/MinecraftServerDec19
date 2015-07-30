@@ -15,6 +15,6 @@ public class class_aby extends class_zc {
    }
 
    public String a(class_aas var1) {
-      return LocaleI18n.get(class_abe.i(var1).a());
+      return LocaleI18n.get("tipped_arrow.effect." + ((MinecraftKey) class_acd.a.getKey(class_abe.i(var1))).getName());
    }
 }

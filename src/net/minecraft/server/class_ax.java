@@ -184,10 +184,10 @@ public class class_ax extends class_i {
       a.put("slot.weapon", Integer.valueOf(98));
       a.put("slot.weapon.mainhand", Integer.valueOf(98));
       a.put("slot.weapon.offhand", Integer.valueOf(99));
-      a.put("slot.armor.head", Integer.valueOf(98 + class_pw.f.b()));
-      a.put("slot.armor.chest", Integer.valueOf(98 + class_pw.e.b()));
-      a.put("slot.armor.legs", Integer.valueOf(98 + class_pw.d.b()));
-      a.put("slot.armor.feet", Integer.valueOf(98 + class_pw.c.b()));
+      a.put("slot.armor.head", Integer.valueOf(100 + class_pw.f.b()));
+      a.put("slot.armor.chest", Integer.valueOf(100 + class_pw.e.b()));
+      a.put("slot.armor.legs", Integer.valueOf(100 + class_pw.d.b()));
+      a.put("slot.armor.feet", Integer.valueOf(100 + class_pw.c.b()));
       a.put("slot.horse.saddle", Integer.valueOf(400));
       a.put("slot.horse.armor", Integer.valueOf(401));
       a.put("slot.horse.chest", Integer.valueOf(499));

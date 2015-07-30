@@ -1,7 +1,9 @@
 package net.minecraft.server;
 
 import com.google.common.collect.Lists;
-import java.util.ArrayList;
+
+import java.util.List;
+
 import net.minecraft.server.class_aas;
 import net.minecraft.server.class_adb;
 import net.minecraft.server.class_adc;
@@ -56,7 +58,7 @@ public abstract class class_adi {
    }
 
    public Iterable<?> a(class_qa var1) {
-      ArrayList<class_aas> var2 = Lists.newArrayList();
+      List<class_aas> var2 = Lists.newArrayList();
       class_pw[] var3 = this.a;
       int var4 = var3.length;
 

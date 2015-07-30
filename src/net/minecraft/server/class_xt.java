@@ -58,6 +58,7 @@ public class class_xt extends class_xd {
       }
 
       this.h = var1.k();
+      this.h.b = 1;
    }
 
    protected void h() {

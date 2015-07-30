@@ -91,7 +91,7 @@ public class class_asg extends class_ask {
    public boolean a(BlockPosition var1) {
       class_aso var2 = this.c(var1);
       if(var2 != null && var2 instanceof class_asg.class_a_in_class_asg && !var2.a.isEmpty()) {
-         class_asn var3 = (class_asn)var2.a.getFirst();
+         class_asn var3 = (class_asn)var2.a.get(0);
          return var3 instanceof class_ash.class_d_in_class_ash;
       } else {
          return false;

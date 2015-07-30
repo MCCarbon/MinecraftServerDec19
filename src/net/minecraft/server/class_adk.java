@@ -277,34 +277,28 @@ public class class_adk {
       return var1;
    }
 
-   public static List b(Random var0, class_aas var1, int var2) {
-      ArrayList var3 = Lists.newArrayList();
-      Item var4 = var1.b();
-      int var5 = var4.c() / 2;
-      if(var5 <= 0) {
-         return var3;
-      } else {
-         var5 = 1 + var0.nextInt(var5 / 2 + 1) + var0.nextInt(var5 / 2 + 1);
-         int var6 = var5 + var2;
-         float var7 = 1.0F + (var0.nextFloat() + var0.nextFloat() - 1.0F) * 0.15F;
-         var6 = MathHelper.clamp(Math.round((float)var6 * var7), 1, Integer.MAX_VALUE);
-         List var8 = a(var6, var1);
-         if(!var8.isEmpty()) {
-            var3.add(class_oc.a(var0, var8));
 
-            while(var0.nextInt(50) <= var6) {
-               a(var8, (class_adl)class_g.a(var3));
-               if(var8.isEmpty()) {
-                  break;
-               }
-
-               var3.add(class_oc.a(var0, var8));
-               var6 /= 2;
-            }
-         }
-
-         return var3;
-      }
+   public static List<class_adl> b(Random random, class_aas aas, int n) {
+       ArrayList arrayList = Lists.newArrayList();
+       Item aar = aas.b();
+       int n2 = aar.c();
+       if (n2 <= 0) {
+           return arrayList;
+       }
+       n+=1 + random.nextInt(n2 / 4 + 1) + random.nextInt(n2 / 4 + 1);
+       float f = (random.nextFloat() + random.nextFloat() - 1.0f) * 0.15f;
+       List list = class_adk.a((int)(n = MathHelper.clamp((int)Math.round((float)n + (float)n * f), (int)1, (int)Integer.MAX_VALUE)), (class_aas)aas);
+       if (list.isEmpty()) return arrayList;
+       arrayList.add(class_oc.a((Random)random, list));
+       while (random.nextInt(50) <= n) {
+           class_adk.a((List)list, (class_adl)((class_adl)class_g.a((List)arrayList)));
+           if (list.isEmpty()) {
+               return arrayList;
+           }
+           arrayList.add(class_oc.a((Random)random, list));
+           n/=2;
+       }
+       return arrayList;
    }
 
    public static void a(List var0, class_adl var1) {

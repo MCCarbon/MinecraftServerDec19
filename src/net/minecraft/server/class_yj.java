@@ -224,7 +224,7 @@ public class class_yj extends class_xz {
    private List a(class_aas var1, int var2, int var3) {
       this.l.setSeed((long)(this.f + var2));
       List var4 = class_adk.b(this.l, var1, var3);
-      if(var1.b() == Items.aN && var4 != null && var4.size() > 1) {
+      if(var1.b() == Items.aN && var4.size() > 1) {
          var4.remove(this.l.nextInt(var4.size()));
       }
 

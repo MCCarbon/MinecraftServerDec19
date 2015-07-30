@@ -140,65 +140,61 @@ public interface class_eu extends Iterable {
       }
 
       public JsonElement a(class_eu var1, Type var2, JsonSerializationContext var3) {
-         if(var1 instanceof class_fa && var1.b().g() && var1.a().isEmpty()) {
-            return new JsonPrimitive(((class_fa)var1).g());
-         } else {
-            JsonObject var4 = new JsonObject();
-            if(!var1.b().g()) {
-               this.a(var1.b(), var4, var3);
-            }
+        JsonObject var4 = new JsonObject();
+        if(!var1.b().g()) {
+           this.a(var1.b(), var4, var3);
+        }
 
-            if(!var1.a().isEmpty()) {
-               JsonArray var5 = new JsonArray();
-               Iterator var6 = var1.a().iterator();
+        if(!var1.a().isEmpty()) {
+           JsonArray var5 = new JsonArray();
+           Iterator var6 = var1.a().iterator();
 
-               while(var6.hasNext()) {
-                  class_eu var7 = (class_eu)var6.next();
-                  var5.add(this.a((class_eu)var7, (Type)var7.getClass(), (JsonSerializationContext)var3));
-               }
+           while(var6.hasNext()) {
+              class_eu var7 = (class_eu)var6.next();
+              var5.add(this.a((class_eu)var7, (Type)var7.getClass(), (JsonSerializationContext)var3));
+           }
 
-               var4.add("extra", var5);
-            }
+           var4.add("extra", var5);
+        }
 
-            if(var1 instanceof class_fa) {
-               var4.addProperty("text", ((class_fa)var1).g());
-            } else if(var1 instanceof class_fb) {
-               class_fb var11 = (class_fb)var1;
-               var4.addProperty("translate", var11.i());
-               if(var11.j() != null && var11.j().length > 0) {
-                  JsonArray var14 = new JsonArray();
-                  Object[] var16 = var11.j();
-                  int var8 = var16.length;
+        if(var1 instanceof class_fa) {
+           var4.addProperty("text", ((class_fa)var1).g());
+        } else if(var1 instanceof class_fb) {
+           class_fb var11 = (class_fb)var1;
+           var4.addProperty("translate", var11.i());
+           if(var11.j() != null && var11.j().length > 0) {
+              JsonArray var14 = new JsonArray();
+              Object[] var16 = var11.j();
+              int var8 = var16.length;
 
-                  for(int var9 = 0; var9 < var8; ++var9) {
-                     Object var10 = var16[var9];
-                     if(var10 instanceof class_eu) {
-                        var14.add(this.a((class_eu)((class_eu)var10), (Type)var10.getClass(), (JsonSerializationContext)var3));
-                     } else {
-                        var14.add(new JsonPrimitive(String.valueOf(var10)));
-                     }
-                  }
+              for(int var9 = 0; var9 < var8; ++var9) {
+                 Object var10 = var16[var9];
+                 if(var10 instanceof class_eu) {
+                    var14.add(this.a((class_eu)((class_eu)var10), (Type)var10.getClass(), (JsonSerializationContext)var3));
+                 } else {
+                    var14.add(new JsonPrimitive(String.valueOf(var10)));
+                 }
+              }
 
-                  var4.add("with", var14);
-               }
-            } else if(var1 instanceof class_ex) {
-               class_ex var12 = (class_ex)var1;
-               JsonObject var15 = new JsonObject();
-               var15.addProperty("name", var12.g());
-               var15.addProperty("objective", var12.h());
-               var15.addProperty("value", var12.e());
-               var4.add("score", var15);
-            } else {
-               if(!(var1 instanceof class_ey)) {
-                  throw new IllegalArgumentException("Don\'t know how to serialize " + var1 + " as a Component");
-               }
+              var4.add("with", var14);
+           }
+        } else if(var1 instanceof class_ex) {
+           class_ex var12 = (class_ex)var1;
+           JsonObject var15 = new JsonObject();
+           var15.addProperty("name", var12.g());
+           var15.addProperty("objective", var12.h());
+           var15.addProperty("value", var12.e());
+           var4.add("score", var15);
+        } else {
+           if(!(var1 instanceof class_ey)) {
+              throw new IllegalArgumentException("Don\'t know how to serialize " + var1 + " as a Component");
+           }
 
-               class_ey var13 = (class_ey)var1;
-               var4.addProperty("selector", var13.g());
-            }
+           class_ey var13 = (class_ey)var1;
+           var4.addProperty("selector", var13.g());
+        }
 
-            return var4;
-         }
+        return var4;
       }
 
       public static String a(class_eu var0) {
@@ -206,8 +202,12 @@ public interface class_eu extends Iterable {
       }
 
       public static class_eu a(String var0) {
-         return (class_eu)class_nk.a(a, var0, class_eu.class);
+         return (class_eu)class_nk.a(a, var0, class_eu.class, true);
       }
+
+      public static class_eu b(final String var0) {
+    	 return (class_eu)class_nk.a(a, var0, class_eu.class, true);
+	  }
 
       // $FF: synthetic method
       public JsonElement serialize(Object var1, Type var2, JsonSerializationContext var3) {

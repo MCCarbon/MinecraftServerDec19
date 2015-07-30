@@ -112,7 +112,7 @@ public class class_abe extends Item {
             do {
                if(!var6.hasNext()) {
                   if(var5 == 0) {
-                     return 3694022;
+                     return 0;
                   }
 
                   var2 = var2 / (float)var5 * 255.0F;

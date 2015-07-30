@@ -4,56 +4,57 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.Validate;
 
 public class MinecraftKey {
-   protected final String a;
-   protected final String b;
 
-   protected MinecraftKey(int var1, String... var2) {
-      this.a = StringUtils.isEmpty(var2[0])?"minecraft":var2[0].toLowerCase();
-      this.b = var2[1];
-      Validate.notNull(this.b);
-   }
+	protected final String namespace;
+	protected final String name;
 
-   public MinecraftKey(String var1) {
-      this(0, a(var1));
-   }
+	protected MinecraftKey(int id, String... nameArray) {
+		this.namespace = StringUtils.isEmpty(nameArray[0]) ? "minecraft" : nameArray[0].toLowerCase();
+		this.name = nameArray[1];
+		Validate.notNull(this.name);
+	}
 
-   protected static String[] a(String var0) {
-      String[] var1 = new String[]{"minecraft", var0};
-      int var2 = var0.indexOf(58);
-      if(var2 >= 0) {
-         var1[1] = var0.substring(var2 + 1, var0.length());
-         if(var2 > 1) {
-            var1[0] = var0.substring(0, var2);
-         }
-      }
+	public MinecraftKey(String name) {
+		this(0, getNameArray(name));
+	}
 
-      return var1;
-   }
+	protected static String[] getNameArray(String name) {
+		String[] namearr = new String[] { "minecraft", name };
+		int colonPos = name.indexOf(58);
+		if (colonPos >= 0) {
+			namearr[1] = name.substring(colonPos + 1, name.length());
+			if (colonPos > 1) {
+				namearr[0] = name.substring(0, colonPos);
+			}
+		}
 
-   public String a() {
-      return this.b;
-   }
+		return namearr;
+	}
 
-   public String b() {
-      return this.a;
-   }
+	public String getName() {
+		return this.name;
+	}
 
-   public String toString() {
-      return this.a + ':' + this.b;
-   }
+	public String getNamespace() {
+		return this.namespace;
+	}
 
-   public boolean equals(Object var1) {
-      if(this == var1) {
-         return true;
-      } else if(!(var1 instanceof MinecraftKey)) {
-         return false;
-      } else {
-         MinecraftKey var2 = (MinecraftKey)var1;
-         return this.a.equals(var2.a) && this.b.equals(var2.b);
-      }
-   }
+	public String toString() {
+		return this.namespace + ':' + this.name;
+	}
 
-   public int hashCode() {
-      return 31 * this.a.hashCode() + this.b.hashCode();
-   }
+	public boolean equals(Object other) {
+		if (this == other) {
+			return true;
+		} else if (!(other instanceof MinecraftKey)) {
+			return false;
+		} else {
+			MinecraftKey var2 = (MinecraftKey) other;
+			return this.namespace.equals(var2.namespace) && this.name.equals(var2.name);
+		}
+	}
+
+	public int hashCode() {
+		return 31 * this.namespace.hashCode() + this.name.hashCode();
+	}
 }

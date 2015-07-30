@@ -32,7 +32,7 @@ public class class_acd {
    }
 
    public String a() {
-      return this.d == null?"potion.effect." + ((MinecraftKey)a.getKey(this)).a():this.d;
+      return this.d == null?"potion.effect." + ((MinecraftKey)a.getKey(this)).getName():this.d;
    }
 
    public List b() {

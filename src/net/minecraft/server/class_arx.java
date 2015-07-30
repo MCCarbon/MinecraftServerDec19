@@ -79,7 +79,7 @@ public class class_arx extends class_ask {
          int var11 = var7.a(7, 7 + var9);
          int var12 = var7.a(7 + var8, 7);
          int var13 = var7.a(7 + var8, 7 + var9);
-         int var14 = Math.min(Math.min(Math.min(var10, var11), var12), var13);
+         int var14 = Math.min(Math.min(var10, var11), Math.min(var12, var13));
          if(var14 < 60) {
             this.c = false;
          } else {

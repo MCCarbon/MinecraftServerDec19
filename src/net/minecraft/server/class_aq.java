@@ -38,8 +38,7 @@ public class class_aq extends class_i {
             class_eu var5 = class_eu.class_a_in_class_eu.a(var4);
             var3.a((class_eu)class_ev.a(var1, var5, var3));
          } catch (JsonParseException var7) {
-            Throwable var6 = ExceptionUtils.getRootCause(var7);
-            throw new class_cc("commands.tellraw.jsonException", new Object[]{var6 == null?"":var6.getMessage()});
+        	 throw class_aq.a(var7);
          }
       }
    }

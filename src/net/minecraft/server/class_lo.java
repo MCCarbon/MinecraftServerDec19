@@ -346,7 +346,7 @@ public class class_lo implements class_ic, class_kn {
                }
 
                class_awf var43 = this.b.aT().b((double)var37, (double)var37, (double)var37).a(0.0D, -0.55D, 0.0D);
-               if(!this.d.ak() && !this.b.bH.c && !var2.c(var43)) {
+               if (!(this.d.ak() || this.b.bH.c || var2.c(var43) || this.b.a(class_pm.y))) {
                   if(var39 >= -0.03125D) {
                      ++this.g;
                      if(this.g > 80) {

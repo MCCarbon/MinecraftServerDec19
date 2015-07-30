@@ -1512,6 +1512,20 @@ public abstract class class_xa extends class_qa {
       }
    }
 
+   public class_pz bR() {
+	   class_pz pz;
+       if (this.ac.a(bo) == 0) {
+           pz = class_pz.a;
+           return pz;
+       }
+       pz = class_pz.b;
+       return pz;
+   }
+
+   public void a(class_pz pz) {
+       this.ac.b(bo, (Object)Byte.valueOf((byte) (pz == class_pz.a ? 0 : 1)));
+   }
+
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field

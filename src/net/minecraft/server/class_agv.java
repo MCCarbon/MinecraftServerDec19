@@ -122,10 +122,6 @@ public class class_agv extends Block {
       return false;
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
-      return super.a(var1, var2, var3);
-   }
-
    public boolean isFullCube() {
       return false;
    }

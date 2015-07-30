@@ -27,12 +27,12 @@ public class class_lp implements class_je {
       case 1:
          this.b.a(class_el.d);
          class_fa var2;
-         if(var1.b() > 49) {
-            var2 = new class_fa("Outdated server! I\'m still on 15w31a");
+         if(var1.b() > 50) {
+            var2 = new class_fa("Outdated server! I\'m still on 15w31b");
             this.b.a((class_ff)(new class_jk(var2)));
             this.b.a((class_eu)var2);
-         } else if(var1.b() < 49) {
-            var2 = new class_fa("Outdated client! Please use 15w31a");
+         } else if(var1.b() < 50) {
+            var2 = new class_fa("Outdated client! Please use 15w31b");
             this.b.a((class_ff)(new class_jk(var2)));
             this.b.a((class_eu)var2);
          } else {

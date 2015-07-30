@@ -78,7 +78,7 @@ public class class_acc extends Item {
 
                   Object var7;
                   try {
-                     class_eu var11 = class_eu.class_a_in_class_eu.a(var6);
+                     class_eu var11 = class_eu.class_a_in_class_eu.b(var6);
                      var7 = class_ev.a(var2, var11, var2);
                   } catch (Exception var9) {
                      var7 = new class_fa(var6);
