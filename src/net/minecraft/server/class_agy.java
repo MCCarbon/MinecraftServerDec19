@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
@@ -93,7 +93,7 @@ public class class_agy extends class_aiv implements class_agl {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(O)));
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
       EnumDirection var6 = EnumDirection.fromAngle((double)var4.y);
       var1.a((BlockPosition)var2, (IBlockData)var3.set(O, var6), 2);
    }
@@ -126,7 +126,7 @@ public class class_agy extends class_aiv implements class_agl {
       }
 
       for(int var8 = 0; var8 < var7; ++var8) {
-         a(var1, var2, new class_aas(Items.aY, 1, class_zy.m.b()));
+         a(var1, var2, new ItemStack(Items.aY, 1, class_zy.m.b()));
       }
 
    }

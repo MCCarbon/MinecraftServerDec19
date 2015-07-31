@@ -3,12 +3,12 @@ package net.minecraft.server;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.EnumUsedHand;
@@ -61,12 +61,12 @@ public class class_ud extends class_tw {
    }
 
    public boolean ck() {
-      class_aas var1 = ((class_xa)this.l).bA();
-      if(var1 != null && var1.b() == Items.cb) {
+      ItemStack var1 = ((class_xa)this.l).bA();
+      if(var1 != null && var1.getItem() == Items.cb) {
          return true;
       } else {
          var1 = ((class_xa)this.l).bB();
-         return var1 != null && var1.b() == Items.cb;
+         return var1 != null && var1.getItem() == Items.cb;
       }
    }
 
@@ -75,14 +75,14 @@ public class class_ud extends class_tw {
       this.ac.a(bs, Byte.valueOf((byte)0));
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Saddle", this.cA());
+      var1.put("Saddle", this.cA());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.m(var1.o("Saddle"));
+      this.m(var1.getBoolean("Saddle"));
    }
 
    protected String C() {
@@ -101,7 +101,7 @@ public class class_ud extends class_tw {
       this.a("mob.pig.step", 0.15F, 1.0F);
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
       if(super.a(var1, var2, var3)) {
          return true;
       } else if(!this.cA() || this.o.D || this.l != null && this.l != var1) {
@@ -149,7 +149,7 @@ public class class_ud extends class_tw {
    public void a(class_vi var1) {
       if(!this.o.D && !this.I) {
          class_wj var2 = new class_wj(this.o);
-         var2.a((class_pw)class_pw.a, (class_aas)(new class_aas(Items.D)));
+         var2.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
          var2.b(this.s, this.t, this.u, this.y, this.z);
          var2.k(this.cs());
          if(this.l_()) {
@@ -174,8 +174,8 @@ public class class_ud extends class_tw {
       return new class_ud(this.o);
    }
 
-   public boolean d(class_aas var1) {
-      return var1 != null && bt.contains(var1.b());
+   public boolean d(ItemStack var1) {
+      return var1 != null && bt.contains(var1.getItem());
    }
 
    public class_rf cB() {

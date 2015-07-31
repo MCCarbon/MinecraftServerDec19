@@ -7,9 +7,9 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_nz;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_on;
@@ -128,14 +128,14 @@ public abstract class class_aee {
 
    private class_pr a(class_pr var1, boolean var2) {
       if(this.i() != null) {
-         class_dn var3 = new class_dn();
+         NBTTagCompound var3 = new NBTTagCompound();
          var1.d(var3);
-         Iterator var4 = this.i().c.c().iterator();
+         Iterator var4 = this.i().c.getKeys().iterator();
 
          while(var4.hasNext()) {
             String var5 = (String)var4.next();
-            class_eb var6 = this.i().c.b(var5);
-            var3.a(var5, var6.b());
+            NBTTag var6 = this.i().c.getTag(var5);
+            var3.put(var5, var6.clone());
          }
 
          var1.f(var3);
@@ -143,19 +143,19 @@ public abstract class class_aee {
             var1.o.a(var1);
          }
 
-         class_dn var12;
-         for(class_pr var11 = var1; var3.b("Riding", 10); var3 = var12) {
-            var12 = var3.n("Riding");
-            class_pr var13 = class_pt.a(var12.k("id"), var1.o);
+         NBTTagCompound var12;
+         for(class_pr var11 = var1; var3.hasOfType("Riding", 10); var3 = var12) {
+            var12 = var3.getCompound("Riding");
+            class_pr var13 = class_pt.a(var12.getString("id"), var1.o);
             if(var13 != null) {
-               class_dn var7 = new class_dn();
+               NBTTagCompound var7 = new NBTTagCompound();
                var13.d(var7);
-               Iterator var8 = var12.c().iterator();
+               Iterator var8 = var12.getKeys().iterator();
 
                while(var8.hasNext()) {
                   String var9 = (String)var8.next();
-                  class_eb var10 = var12.b(var9);
-                  var7.a(var9, var10.b());
+                  NBTTag var10 = var12.getTag(var9);
+                  var7.put(var9, var10.clone());
                }
 
                var13.f(var7);
@@ -195,37 +195,37 @@ public abstract class class_aee {
       this.a(1);
    }
 
-   public void a(class_dn var1) {
-      this.b = var1.k("EntityId");
-      this.a = var1.f("Delay");
+   public void a(NBTTagCompound var1) {
+      this.b = var1.getString("EntityId");
+      this.a = var1.getShort("Delay");
       this.c.clear();
-      if(var1.b("SpawnPotentials", 9)) {
-         class_du var2 = var1.c("SpawnPotentials", 10);
+      if(var1.hasOfType("SpawnPotentials", 9)) {
+         NBTTagList var2 = var1.getList("SpawnPotentials", 10);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            this.c.add(new class_aee.class_a_in_class_aee(var2.b(var3)));
+         for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+            this.c.add(new class_aee.class_a_in_class_aee(var2.getCompound(var3)));
          }
       }
 
-      if(var1.b("SpawnData", 10)) {
-         this.a(new class_aee.class_a_in_class_aee(var1.n("SpawnData"), this.b));
+      if(var1.hasOfType("SpawnData", 10)) {
+         this.a(new class_aee.class_a_in_class_aee(var1.getCompound("SpawnData"), this.b));
       } else {
          this.a((class_aee.class_a_in_class_aee)null);
       }
 
-      if(var1.b("MinSpawnDelay", 99)) {
-         this.g = var1.f("MinSpawnDelay");
-         this.h = var1.f("MaxSpawnDelay");
-         this.i = var1.f("SpawnCount");
+      if(var1.hasOfType("MinSpawnDelay", 99)) {
+         this.g = var1.getShort("MinSpawnDelay");
+         this.h = var1.getShort("MaxSpawnDelay");
+         this.i = var1.getShort("SpawnCount");
       }
 
-      if(var1.b("MaxNearbyEntities", 99)) {
-         this.k = var1.f("MaxNearbyEntities");
-         this.l = var1.f("RequiredPlayerRange");
+      if(var1.hasOfType("MaxNearbyEntities", 99)) {
+         this.k = var1.getShort("MaxNearbyEntities");
+         this.l = var1.getShort("RequiredPlayerRange");
       }
 
-      if(var1.b("SpawnRange", 99)) {
-         this.m = var1.f("SpawnRange");
+      if(var1.hasOfType("SpawnRange", 99)) {
+         this.m = var1.getShort("SpawnRange");
       }
 
       if(this.a() != null) {
@@ -234,35 +234,35 @@ public abstract class class_aee {
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       String var2 = this.f();
       if(!class_nz.b(var2)) {
-         var1.a("EntityId", var2);
-         var1.a("Delay", (short)this.a);
-         var1.a("MinSpawnDelay", (short)this.g);
-         var1.a("MaxSpawnDelay", (short)this.h);
-         var1.a("SpawnCount", (short)this.i);
-         var1.a("MaxNearbyEntities", (short)this.k);
-         var1.a("RequiredPlayerRange", (short)this.l);
-         var1.a("SpawnRange", (short)this.m);
+         var1.put("EntityId", var2);
+         var1.put("Delay", (short)this.a);
+         var1.put("MinSpawnDelay", (short)this.g);
+         var1.put("MaxSpawnDelay", (short)this.h);
+         var1.put("SpawnCount", (short)this.i);
+         var1.put("MaxNearbyEntities", (short)this.k);
+         var1.put("RequiredPlayerRange", (short)this.l);
+         var1.put("SpawnRange", (short)this.m);
          if(this.i() != null) {
-            var1.a("SpawnData", this.i().c.b());
+            var1.put("SpawnData", this.i().c.clone());
          }
 
          if(this.i() != null || !this.c.isEmpty()) {
-            class_du var3 = new class_du();
+            NBTTagList var3 = new NBTTagList();
             if(!this.c.isEmpty()) {
                Iterator var4 = this.c.iterator();
 
                while(var4.hasNext()) {
                   class_aee.class_a_in_class_aee var5 = (class_aee.class_a_in_class_aee)var4.next();
-                  var3.a((class_eb)var5.a());
+                  var3.add((NBTTag)var5.a());
                }
             } else {
-               var3.a((class_eb)this.i().a());
+               var3.add((NBTTag)this.i().a());
             }
 
-            var1.a((String)"SpawnPotentials", (class_eb)var3);
+            var1.put((String)"SpawnPotentials", (NBTTag)var3);
          }
 
       }
@@ -292,22 +292,22 @@ public abstract class class_aee {
    public abstract BlockPosition b();
 
    public class class_a_in_class_aee extends class_oc.class_a_in_class_oc {
-      private final class_dn c;
+      private final NBTTagCompound c;
       private final String d;
 
-      public class_a_in_class_aee(class_dn var2) {
-         this(var2.n("Properties"), var2.k("Type"), var2.g("Weight"));
+      public class_a_in_class_aee(NBTTagCompound var2) {
+         this(var2.getCompound("Properties"), var2.getString("Type"), var2.getInt("Weight"));
       }
 
-      public class_a_in_class_aee(class_dn var2, String var3) {
+      public class_a_in_class_aee(NBTTagCompound var2, String var3) {
          this(var2, var3, 1);
       }
 
-      private class_a_in_class_aee(class_dn var2, String var3, int var4) {
+      private class_a_in_class_aee(NBTTagCompound var2, String var3, int var4) {
          super(var4);
          if(var3.equals("Minecart")) {
             if(var2 != null) {
-               var3 = class_vn.class_a_in_class_vn.a(var2.g("Type")).b();
+               var3 = class_vn.class_a_in_class_vn.a(var2.getInt("Type")).b();
             } else {
                var3 = "MinecartRideable";
             }
@@ -317,11 +317,11 @@ public abstract class class_aee {
          this.d = var3;
       }
 
-      public class_dn a() {
-         class_dn var1 = new class_dn();
-         var1.a((String)"Properties", (class_eb)this.c);
-         var1.a("Type", this.d);
-         var1.a("Weight", this.a);
+      public NBTTagCompound a() {
+         NBTTagCompound var1 = new NBTTagCompound();
+         var1.put((String)"Properties", (NBTTag)this.c);
+         var1.put("Type", this.d);
+         var1.put("Weight", this.a);
          return var1;
       }
    }

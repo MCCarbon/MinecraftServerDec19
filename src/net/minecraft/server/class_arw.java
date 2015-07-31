@@ -4,7 +4,7 @@ import com.google.common.base.Objects;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_ds;
+import net.minecraft.server.NBTTagIntArray;
 
 public class class_arw {
    public int a;
@@ -142,8 +142,8 @@ public class class_arw {
       return Objects.toStringHelper((Object)this).add("x0", this.a).add("y0", this.b).add("z0", this.c).add("x1", this.d).add("y1", this.e).add("z1", this.f).toString();
    }
 
-   public class_ds g() {
-      return new class_ds(new int[]{this.a, this.b, this.c, this.d, this.e, this.f});
+   public NBTTagIntArray g() {
+      return new NBTTagIntArray(new int[]{this.a, this.b, this.c, this.d, this.e, this.f});
    }
 
    // $FF: synthetic class

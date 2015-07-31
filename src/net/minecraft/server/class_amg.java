@@ -32,7 +32,7 @@ import net.minecraft.server.class_ang;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -73,27 +73,27 @@ public abstract class class_amg {
       return this.b != null;
    }
 
-   public void a(class_dn var1) {
-      this.c = new BlockPosition(var1.g("x"), var1.g("y"), var1.g("z"));
+   public void a(NBTTagCompound var1) {
+      this.c = new BlockPosition(var1.getInt("x"), var1.getInt("y"), var1.getInt("z"));
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       String var2 = (String)g.get(this.getClass());
       if(var2 == null) {
          throw new RuntimeException(this.getClass() + " is missing a mapping! This is a bug!");
       } else {
-         var1.a("id", var2);
-         var1.a("x", this.c.getX());
-         var1.a("y", this.c.getY());
-         var1.a("z", this.c.getZ());
+         var1.put("id", var2);
+         var1.put("x", this.c.getX());
+         var1.put("y", this.c.getY());
+         var1.put("z", this.c.getZ());
       }
    }
 
-   public static class_amg c(class_dn var0) {
+   public static class_amg c(NBTTagCompound var0) {
       class_amg var1 = null;
 
       try {
-         Class var2 = (Class)f.get(var0.k("id"));
+         Class var2 = (Class)f.get(var0.getString("id"));
          if(var2 != null) {
             var1 = (class_amg)var2.newInstance();
          }
@@ -104,7 +104,7 @@ public abstract class class_amg {
       if(var1 != null) {
          var1.a(var0);
       } else {
-         a.warn("Skipping BlockEntity with id " + var0.k("id"));
+         a.warn("Skipping BlockEntity with id " + var0.getString("id"));
       }
 
       return var1;

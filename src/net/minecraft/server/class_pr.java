@@ -9,7 +9,7 @@ import java.util.UUID;
 import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_ads;
 import net.minecraft.server.class_aej;
@@ -31,12 +31,12 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dp;
-import net.minecraft.server.class_dr;
-import net.minecraft.server.class_du;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagDouble;
+import net.minecraft.server.NBTTagFloat;
+import net.minecraft.server.NBTTagList;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ew;
 import net.minecraft.server.class_fa;
@@ -1002,10 +1002,10 @@ public abstract class class_pr implements class_m {
    public void b(class_pr var1, int var2) {
    }
 
-   public boolean c(class_dn var1) {
+   public boolean c(NBTTagCompound var1) {
       String var2 = this.ag();
       if(!this.I && var2 != null) {
-         var1.a("id", var2);
+         var1.put("id", var2);
          this.e(var1);
          return true;
       } else {
@@ -1013,10 +1013,10 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public boolean d(class_dn var1) {
+   public boolean d(NBTTagCompound var1) {
       String var2 = this.ag();
       if(!this.I && var2 != null && this.l == null) {
-         var1.a("id", var2);
+         var1.put("id", var2);
          this.e(var1);
          return true;
       } else {
@@ -1024,38 +1024,38 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public void e(class_dn var1) {
+   public void e(NBTTagCompound var1) {
       try {
-         var1.a((String)"Pos", (class_eb)this.a(new double[]{this.s, this.t, this.u}));
-         var1.a((String)"Motion", (class_eb)this.a(new double[]{this.v, this.w, this.x}));
-         var1.a((String)"Rotation", (class_eb)this.a(new float[]{this.y, this.z}));
-         var1.a("FallDistance", this.O);
-         var1.a("Fire", (short)this.i);
-         var1.a("Air", (short)this.aB());
-         var1.a("OnGround", this.C);
-         var1.a("Dimension", this.am);
-         var1.a("Invulnerable", this.az);
-         var1.a("PortalCooldown", this.aj);
-         var1.a("UUID", this.aM());
+         var1.put((String)"Pos", (NBTTag)this.a(new double[]{this.s, this.t, this.u}));
+         var1.put((String)"Motion", (NBTTag)this.a(new double[]{this.v, this.w, this.x}));
+         var1.put((String)"Rotation", (NBTTag)this.a(new float[]{this.y, this.z}));
+         var1.put("FallDistance", this.O);
+         var1.put("Fire", (short)this.i);
+         var1.put("Air", (short)this.aB());
+         var1.put("OnGround", this.C);
+         var1.put("Dimension", this.am);
+         var1.put("Invulnerable", this.az);
+         var1.put("PortalCooldown", this.aj);
+         var1.put("UUID", this.aM());
          if(this.aO() != null && !this.aO().isEmpty()) {
-            var1.a("CustomName", this.aO());
-            var1.a("CustomNameVisible", this.aP());
+            var1.put("CustomName", this.aO());
+            var1.put("CustomNameVisible", this.aP());
          }
 
          this.aA.b(var1);
          if(this.R()) {
-            var1.a("Silent", this.R());
+            var1.put("Silent", this.R());
          }
 
          if(this.ar) {
-            var1.a("Glowing", this.ar);
+            var1.put("Glowing", this.ar);
          }
 
          this.b(var1);
          if(this.m != null) {
-            class_dn var2 = new class_dn();
+            NBTTagCompound var2 = new NBTTagCompound();
             if(this.m.c(var2)) {
-               var1.a((String)"Riding", (class_eb)var2);
+               var1.put((String)"Riding", (NBTTag)var2);
             }
          }
 
@@ -1067,14 +1067,14 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public void f(class_dn var1) {
+   public void f(NBTTagCompound var1) {
       try {
-         class_du var2 = var1.c("Pos", 6);
-         class_du var7 = var1.c("Motion", 6);
-         class_du var8 = var1.c("Rotation", 5);
-         this.v = var7.e(0);
-         this.w = var7.e(1);
-         this.x = var7.e(2);
+         NBTTagList var2 = var1.getList("Pos", 6);
+         NBTTagList var7 = var1.getList("Motion", 6);
+         NBTTagList var8 = var1.getList("Rotation", 5);
+         this.v = var7.getDouble(0);
+         this.w = var7.getDouble(1);
+         this.x = var7.getDouble(2);
          if(Math.abs(this.v) > 10.0D) {
             this.v = 0.0D;
          }
@@ -1087,37 +1087,37 @@ public abstract class class_pr implements class_m {
             this.x = 0.0D;
          }
 
-         this.p = this.P = this.s = var2.e(0);
-         this.q = this.Q = this.t = var2.e(1);
-         this.r = this.R = this.u = var2.e(2);
-         this.A = this.y = var8.f(0);
-         this.B = this.z = var8.f(1);
+         this.p = this.P = this.s = var2.getDouble(0);
+         this.q = this.Q = this.t = var2.getDouble(1);
+         this.r = this.R = this.u = var2.getDouble(2);
+         this.A = this.y = var8.getFloat(0);
+         this.B = this.z = var8.getFloat(1);
          this.f(this.y);
          this.g(this.y);
-         this.O = var1.i("FallDistance");
-         this.i = var1.f("Fire");
-         this.i(var1.f("Air"));
-         this.C = var1.o("OnGround");
-         this.am = var1.g("Dimension");
-         this.az = var1.o("Invulnerable");
-         this.aj = var1.g("PortalCooldown");
-         UUID var5 = var1.a("UUID");
+         this.O = var1.getFloat("FallDistance");
+         this.i = var1.getShort("Fire");
+         this.i(var1.getShort("Air"));
+         this.C = var1.getBoolean("OnGround");
+         this.am = var1.getInt("Dimension");
+         this.az = var1.getBoolean("Invulnerable");
+         this.aj = var1.getInt("PortalCooldown");
+         UUID var5 = var1.getUUID("UUID");
          if(var5 != null) {
             this.aq = var5;
-         } else if(var1.b("UUID", 8)) {
-            this.aq = UUID.fromString(var1.k("UUID"));
+         } else if(var1.hasOfType("UUID", 8)) {
+            this.aq = UUID.fromString(var1.getString("UUID"));
          }
 
          this.b(this.s, this.t, this.u);
          this.b(this.y, this.z);
-         if(var1.b("CustomName", 8) && !var1.k("CustomName").isEmpty()) {
-            this.a(var1.k("CustomName"));
+         if(var1.hasOfType("CustomName", 8) && !var1.getString("CustomName").isEmpty()) {
+            this.a(var1.getString("CustomName"));
          }
 
-         this.g(var1.o("CustomNameVisible"));
+         this.g(var1.getBoolean("CustomNameVisible"));
          this.aA.a(var1);
-         this.b(var1.o("Silent"));
-         this.ar = var1.o("Glowing");
+         this.b(var1.getBoolean("Silent"));
+         this.ar = var1.getBoolean("Glowing");
          this.a(var1);
          if(this.af()) {
             this.b(this.s, this.t, this.u);
@@ -1139,34 +1139,34 @@ public abstract class class_pr implements class_m {
       return class_pt.b(this);
    }
 
-   protected abstract void a(class_dn var1);
+   protected abstract void a(NBTTagCompound var1);
 
-   protected abstract void b(class_dn var1);
+   protected abstract void b(NBTTagCompound var1);
 
    public void ah() {
    }
 
-   protected class_du a(double... var1) {
-      class_du var2 = new class_du();
+   protected NBTTagList a(double... var1) {
+      NBTTagList var2 = new NBTTagList();
       double[] var3 = var1;
       int var4 = var1.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
          double var6 = var3[var5];
-         var2.a((class_eb)(new class_dp(var6)));
+         var2.add((NBTTag)(new NBTTagDouble(var6)));
       }
 
       return var2;
    }
 
-   protected class_du a(float... var1) {
-      class_du var2 = new class_du();
+   protected NBTTagList a(float... var1) {
+      NBTTagList var2 = new NBTTagList();
       float[] var3 = var1;
       int var4 = var1.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
          float var6 = var3[var5];
-         var2.a((class_eb)(new class_dr(var6)));
+         var2.add((NBTTag)(new NBTTagFloat(var6)));
       }
 
       return var2;
@@ -1177,11 +1177,11 @@ public abstract class class_pr implements class_m {
    }
 
    public class_vm a(Item var1, int var2, float var3) {
-      return this.a(new class_aas(var1, var2, 0), var3);
+      return this.a(new ItemStack(var1, var2, 0), var3);
    }
 
-   public class_vm a(class_aas var1, float var2) {
-      if(var1.b != 0 && var1.b() != null) {
+   public class_vm a(ItemStack var1, float var2) {
+      if(var1.count != 0 && var1.getItem() != null) {
          class_vm var3 = new class_vm(this.o, this.s, this.t + (double)var2, this.u, var1);
          var3.p();
          this.o.a((class_pr)var3);
@@ -1217,7 +1217,7 @@ public abstract class class_pr implements class_m {
       }
    }
 
-   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
+   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       return false;
    }
 
@@ -1363,7 +1363,7 @@ public abstract class class_pr implements class_m {
       return Iterables.concat(this.as(), this.at());
    }
 
-   public void a(class_pw var1, class_aas var2) {
+   public void a(class_pw var1, ItemStack var2) {
    }
 
    public boolean av() {
@@ -1555,7 +1555,7 @@ public abstract class class_pr implements class_m {
    }
 
    public void n(class_pr var1) {
-      class_dn var2 = new class_dn();
+      NBTTagCompound var2 = new NBTTagCompound();
       var1.e(var2);
       this.f(var2);
       this.aj = var1.aj;
@@ -1719,14 +1719,14 @@ public abstract class class_pr implements class_m {
    }
 
    protected class_ew aS() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       String var2 = class_pt.b(this);
-      var1.a("id", this.aM().toString());
+      var1.put("id", this.aM().toString());
       if(var2 != null) {
-         var1.a("type", var2);
+         var1.put("type", var2);
       }
 
-      var1.a("name", this.e_());
+      var1.put("name", this.e_());
       return new class_ew(class_ew.class_a_in_class_ew.d, new class_fa(var1.toString()));
    }
 
@@ -1754,7 +1754,7 @@ public abstract class class_pr implements class_m {
       this.g = var1;
    }
 
-   public boolean c(int var1, class_aas var2) {
+   public boolean c(int var1, ItemStack var2) {
       return false;
    }
 
@@ -1797,7 +1797,7 @@ public abstract class class_pr implements class_m {
       this.aA.a(var1.aW());
    }
 
-   public class_oq a(class_xa var1, Vec3D var2, class_aas var3, EnumUsedHand var4) {
+   public class_oq a(class_xa var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
       return class_oq.b;
    }
 

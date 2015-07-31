@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -13,7 +13,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pc;
@@ -220,16 +220,16 @@ public class class_ue extends class_tw {
       this.a((class_qk)class_wl.d).a(0.30000001192092896D);
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("RabbitType", this.cC());
-      var1.a("MoreCarrotTicks", this.bB);
+      var1.put("RabbitType", this.cC());
+      var1.put("MoreCarrotTicks", this.bB);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.m(var1.g("RabbitType"));
-      this.bB = var1.g("MoreCarrotTicks");
+      this.m(var1.getInt("RabbitType"));
+      this.bB = var1.getInt("MoreCarrotTicks");
    }
 
    protected String cB() {
@@ -266,7 +266,7 @@ public class class_ue extends class_tw {
    }
 
    protected void br() {
-      this.a(new class_aas(Items.bt, 1), 0.0F);
+      this.a(new ItemStack(Items.bt, 1), 0.0F);
    }
 
    protected void b(boolean var1, int var2) {
@@ -302,8 +302,8 @@ public class class_ue extends class_tw {
       return var2;
    }
 
-   public boolean d(class_aas var1) {
-      return var1 != null && this.a(var1.b());
+   public boolean d(ItemStack var1) {
+      return var1 != null && this.a(var1.getItem());
    }
 
    public int cC() {

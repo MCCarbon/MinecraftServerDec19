@@ -21,11 +21,11 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dp;
-import net.minecraft.server.class_dt;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagDouble;
+import net.minecraft.server.NBTTagInt;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pt;
@@ -68,16 +68,16 @@ public class class_asv {
                IBlockData var14 = var1.p(var12);
                class_amg var15 = var1.s(var12);
                if(var15 != null) {
-                  class_dn var16 = new class_dn();
+                  NBTTagCompound var16 = new NBTTagCompound();
                   var15.b(var16);
-                  var16.p("x");
-                  var16.p("y");
-                  var16.p("z");
+                  var16.remove("x");
+                  var16.remove("y");
+                  var16.remove("z");
                   var7.add(new class_asv.class_a_in_class_asv(var13, var14, var16, null));
                } else if(!var14.getBlock().isFullBlock() && !var14.getBlock().isFullCube()) {
-                  var8.add(new class_asv.class_a_in_class_asv(var13, var14, (class_dn)null, null));
+                  var8.add(new class_asv.class_a_in_class_asv(var13, var14, (NBTTagCompound)null, null));
                } else {
-                  var6.add(new class_asv.class_a_in_class_asv(var13, var14, (class_dn)null, null));
+                  var6.add(new class_asv.class_a_in_class_asv(var13, var14, (NBTTagCompound)null, null));
                }
             }
 
@@ -110,12 +110,12 @@ public class class_asv {
       this.b.clear();
 
       Vec3D var7;
-      class_dn var8;
+      NBTTagCompound var8;
       BlockPosition var9;
       for(Iterator var5 = var4.iterator(); var5.hasNext(); this.b.add(new class_asv.class_b_in_class_asv(var7, var9, var8, null))) {
          class_pr var6 = (class_pr)var5.next();
          var7 = new Vec3D(var6.s - (double)var2.getX(), var6.t - (double)var2.getY(), var6.u - (double)var2.getZ());
-         var8 = new class_dn();
+         var8 = new NBTTagCompound();
          var6.d(var8);
          if(var6 instanceof class_vc) {
             var9 = ((class_vc)var6).n().substract(var2);
@@ -145,9 +145,9 @@ public class class_asv {
 
          IBlockData var8 = var6.b;
          if(var8.getBlock() == Blocks.STRUCTURE_BLOCK && var6.c != null) {
-            class_amz.class_a_in_class_amz var9 = class_amz.class_a_in_class_amz.valueOf(var6.c.k("mode"));
+            class_amz.class_a_in_class_amz var9 = class_amz.class_a_in_class_amz.valueOf(var6.c.getString("mode"));
             if(var9 == class_amz.class_a_in_class_amz.d) {
-               var3.put(var7, var6.c.k("metadata"));
+               var3.put(var7, var6.c.getString("metadata"));
             }
          }
       }
@@ -236,9 +236,9 @@ public class class_asv {
             if(var1.a((BlockPosition)var8, (IBlockData)var10, 2) && var6.c != null) {
                var11 = var1.s(var8);
                if(var11 != null) {
-                  var6.c.a("x", var8.getX());
-                  var6.c.a("y", var8.getY());
-                  var6.c.a("z", var8.getZ());
+                  var6.c.put("x", var8.getX());
+                  var6.c.put("y", var8.getY());
+                  var6.c.put("z", var8.getZ());
                   var11.a(var6.c);
                }
             }
@@ -261,17 +261,17 @@ public class class_asv {
             var8 = this.a(var7.b, var3, var4).add((BaseBlockPosition)var2);
          } while(var5 != null && !var5.b((BaseBlockPosition)var8));
 
-         class_dn var9 = var7.c;
+         NBTTagCompound var9 = var7.c;
          Vec3D var10 = this.a(var7.a, var3, var4);
          Vec3D var11 = var10.add((double)var2.getX(), (double)var2.getY(), (double)var2.getZ());
-         class_du var12 = new class_du();
-         var12.a((class_eb)(new class_dp(var11.x)));
-         var12.a((class_eb)(new class_dp(var11.y)));
-         var12.a((class_eb)(new class_dp(var11.z)));
-         var9.a((String)"Pos", (class_eb)var12);
+         NBTTagList var12 = new NBTTagList();
+         var12.add((NBTTag)(new NBTTagDouble(var11.x)));
+         var12.add((NBTTag)(new NBTTagDouble(var11.y)));
+         var12.add((NBTTag)(new NBTTagDouble(var11.z)));
+         var9.put((String)"Pos", (NBTTag)var12);
          UUID var13 = UUID.randomUUID();
-         var9.a("UUIDMost", var13.getMostSignificantBits());
-         var9.a("UUIDLeast", var13.getLeastSignificantBits());
+         var9.put("UUIDMost", var13.getMostSignificantBits());
+         var9.put("UUIDLeast", var13.getLeastSignificantBits());
 
          class_pr var14;
          try {
@@ -363,57 +363,57 @@ public class class_asv {
       }
    }
 
-   public void a(class_dn var1) {
-      class_du var2 = new class_du();
+   public void a(NBTTagCompound var1) {
+      NBTTagList var2 = new NBTTagList();
 
-      class_dn var5;
-      for(Iterator var3 = this.a.iterator(); var3.hasNext(); var2.a((class_eb)var5)) {
+      NBTTagCompound var5;
+      for(Iterator var3 = this.a.iterator(); var3.hasNext(); var2.add((NBTTag)var5)) {
          class_asv.class_a_in_class_asv var4 = (class_asv.class_a_in_class_asv)var3.next();
-         var5 = new class_dn();
-         var5.a((String)"pos", (class_eb)this.a(new int[]{var4.a.getX(), var4.a.getY(), var4.a.getZ()}));
-         var5.a("state", Block.getCombinedId(var4.b));
+         var5 = new NBTTagCompound();
+         var5.put((String)"pos", (NBTTag)this.a(new int[]{var4.a.getX(), var4.a.getY(), var4.a.getZ()}));
+         var5.put("state", Block.getCombinedId(var4.b));
          if(var4.c != null) {
-            var5.a((String)"nbt", (class_eb)var4.c);
+            var5.put((String)"nbt", (NBTTag)var4.c);
          }
       }
 
-      class_du var7 = new class_du();
+      NBTTagList var7 = new NBTTagList();
 
-      class_dn var6;
-      for(Iterator var8 = this.b.iterator(); var8.hasNext(); var7.a((class_eb)var6)) {
+      NBTTagCompound var6;
+      for(Iterator var8 = this.b.iterator(); var8.hasNext(); var7.add((NBTTag)var6)) {
          class_asv.class_b_in_class_asv var9 = (class_asv.class_b_in_class_asv)var8.next();
-         var6 = new class_dn();
-         var6.a((String)"pos", (class_eb)this.a(new double[]{var9.a.x, var9.a.y, var9.a.z}));
-         var6.a((String)"blockPos", (class_eb)this.a(new int[]{var9.b.getX(), var9.b.getY(), var9.b.getZ()}));
+         var6 = new NBTTagCompound();
+         var6.put((String)"pos", (NBTTag)this.a(new double[]{var9.a.x, var9.a.y, var9.a.z}));
+         var6.put((String)"blockPos", (NBTTag)this.a(new int[]{var9.b.getX(), var9.b.getY(), var9.b.getZ()}));
          if(var9.c != null) {
-            var6.a((String)"nbt", (class_eb)var9.c);
+            var6.put((String)"nbt", (NBTTag)var9.c);
          }
       }
 
-      var1.a((String)"blocks", (class_eb)var2);
-      var1.a((String)"entities", (class_eb)var7);
-      var1.a((String)"size", (class_eb)this.a(new int[]{this.c.getX(), this.c.getY(), this.c.getZ()}));
-      var1.a("version", (int)1);
-      var1.a("author", this.d);
+      var1.put((String)"blocks", (NBTTag)var2);
+      var1.put((String)"entities", (NBTTag)var7);
+      var1.put((String)"size", (NBTTag)this.a(new int[]{this.c.getX(), this.c.getY(), this.c.getZ()}));
+      var1.put("version", (int)1);
+      var1.put("author", this.d);
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       this.a.clear();
       this.b.clear();
-      class_du var2 = var1.c("size", 3);
-      this.c = new BlockPosition(var2.c(0), var2.c(1), var2.c(2));
-      this.d = var1.k("author");
-      class_du var3 = var1.c("blocks", 10);
+      NBTTagList var2 = var1.getList("size", 3);
+      this.c = new BlockPosition(var2.getInt(0), var2.getInt(1), var2.getInt(2));
+      this.d = var1.getString("author");
+      NBTTagList var3 = var1.getList("blocks", 10);
 
-      for(int var4 = 0; var4 < var3.c(); ++var4) {
-         class_dn var5 = var3.b(var4);
-         class_du var6 = var5.c("pos", 3);
-         BlockPosition var7 = new BlockPosition(var6.c(0), var6.c(1), var6.c(2));
-         int var8 = var5.g("state");
+      for(int var4 = 0; var4 < var3.getSize(); ++var4) {
+         NBTTagCompound var5 = var3.getCompound(var4);
+         NBTTagList var6 = var5.getList("pos", 3);
+         BlockPosition var7 = new BlockPosition(var6.getInt(0), var6.getInt(1), var6.getInt(2));
+         int var8 = var5.getInt("state");
          IBlockData var9 = Block.getByCombinedId(var8);
-         class_dn var10;
-         if(var5.d("nbt")) {
-            var10 = var5.n("nbt");
+         NBTTagCompound var10;
+         if(var5.has("nbt")) {
+            var10 = var5.getCompound("nbt");
          } else {
             var10 = null;
          }
@@ -421,43 +421,43 @@ public class class_asv {
          this.a.add(new class_asv.class_a_in_class_asv(var7, var9, var10, null));
       }
 
-      class_du var12 = var1.c("entities", 10);
+      NBTTagList var12 = var1.getList("entities", 10);
 
-      for(int var13 = 0; var13 < var12.c(); ++var13) {
-         class_dn var14 = var12.b(var13);
-         class_du var15 = var14.c("pos", 6);
-         Vec3D var16 = new Vec3D(var15.e(0), var15.e(1), var15.e(2));
-         class_du var17 = var14.c("blockPos", 3);
-         BlockPosition var18 = new BlockPosition(var17.c(0), var17.c(1), var17.c(2));
-         if(var14.d("nbt")) {
-            class_dn var11 = var14.n("nbt");
+      for(int var13 = 0; var13 < var12.getSize(); ++var13) {
+         NBTTagCompound var14 = var12.getCompound(var13);
+         NBTTagList var15 = var14.getList("pos", 6);
+         Vec3D var16 = new Vec3D(var15.getDouble(0), var15.getDouble(1), var15.getDouble(2));
+         NBTTagList var17 = var14.getList("blockPos", 3);
+         BlockPosition var18 = new BlockPosition(var17.getInt(0), var17.getInt(1), var17.getInt(2));
+         if(var14.has("nbt")) {
+            NBTTagCompound var11 = var14.getCompound("nbt");
             this.b.add(new class_asv.class_b_in_class_asv(var16, var18, var11, null));
          }
       }
 
    }
 
-   private class_du a(int... var1) {
-      class_du var2 = new class_du();
+   private NBTTagList a(int... var1) {
+      NBTTagList var2 = new NBTTagList();
       int[] var3 = var1;
       int var4 = var1.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
          int var6 = var3[var5];
-         var2.a((class_eb)(new class_dt(var6)));
+         var2.add((NBTTag)(new NBTTagInt(var6)));
       }
 
       return var2;
    }
 
-   private class_du a(double... var1) {
-      class_du var2 = new class_du();
+   private NBTTagList a(double... var1) {
+      NBTTagList var2 = new NBTTagList();
       double[] var3 = var1;
       int var4 = var1.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
          double var6 = var3[var5];
-         var2.a((class_eb)(new class_dp(var6)));
+         var2.add((NBTTag)(new NBTTagDouble(var6)));
       }
 
       return var2;
@@ -509,16 +509,16 @@ public class class_asv {
    static class class_b_in_class_asv {
       public final Vec3D a;
       public final BlockPosition b;
-      public final class_dn c;
+      public final NBTTagCompound c;
 
-      private class_b_in_class_asv(Vec3D var1, BlockPosition var2, class_dn var3) {
+      private class_b_in_class_asv(Vec3D var1, BlockPosition var2, NBTTagCompound var3) {
          this.a = var1;
          this.b = var2;
          this.c = var3;
       }
 
       // $FF: synthetic method
-      class_b_in_class_asv(Vec3D var1, BlockPosition var2, class_dn var3, Object var4) {
+      class_b_in_class_asv(Vec3D var1, BlockPosition var2, NBTTagCompound var3, Object var4) {
          this(var1, var2, var3);
       }
    }
@@ -526,16 +526,16 @@ public class class_asv {
    static class class_a_in_class_asv {
       public final BlockPosition a;
       public final IBlockData b;
-      public final class_dn c;
+      public final NBTTagCompound c;
 
-      private class_a_in_class_asv(BlockPosition var1, IBlockData var2, class_dn var3) {
+      private class_a_in_class_asv(BlockPosition var1, IBlockData var2, NBTTagCompound var3) {
          this.a = var1;
          this.b = var2;
          this.c = var3;
       }
 
       // $FF: synthetic method
-      class_a_in_class_asv(BlockPosition var1, IBlockData var2, class_dn var3, Object var4) {
+      class_a_in_class_asv(BlockPosition var1, IBlockData var2, NBTTagCompound var3, Object var4) {
          this(var1, var2, var3);
       }
    }

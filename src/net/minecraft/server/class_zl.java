@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aat;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abz;
@@ -37,7 +37,7 @@ public class class_zl extends Item {
          return 40;
       } else {
          for(int var2 = 0; var2 < var1.o_(); ++var2) {
-            class_aas var3 = var1.a(var2);
+            ItemStack var3 = var1.a(var2);
             if(this.g_(var3)) {
                return var2;
             }
@@ -47,22 +47,22 @@ public class class_zl extends Item {
       }
    }
 
-   protected boolean g_(class_aas var1) {
-      return var1 != null && var1.b() instanceof class_zc;
+   protected boolean g_(ItemStack var1) {
+      return var1 != null && var1.getItem() instanceof class_zc;
    }
 
-   public void a(class_aas var1, World var2, class_qa var3, int var4) {
+   public void a(ItemStack var1, World var2, class_qa var3, int var4) {
       if(var3 instanceof class_xa) {
          class_xa var5 = (class_xa)var3;
          boolean var6 = var5.bH.d || class_adk.a(class_adm.w, var1) > 0;
          int var7 = this.a(var5.bp);
          if(var6 || var7 > -1) {
-            class_aas var8 = var7 > -1?var5.bp.a(var7):null;
+            ItemStack var8 = var7 > -1?var5.bp.a(var7):null;
             if(var8 == null) {
-               var8 = new class_aas(Items.g);
+               var8 = new ItemStack(Items.g);
             }
 
-            class_zc var9 = (class_zc)((class_zc)(var8.b() instanceof class_zc?var8.b():Items.g));
+            class_zc var9 = (class_zc)((class_zc)(var8.getItem() instanceof class_zc?var8.getItem():Items.g));
             int var10 = this.e(var1) - var4;
             float var11 = b(var10);
             if((double)var11 >= 0.1D) {
@@ -114,15 +114,15 @@ public class class_zl extends Item {
       return var1;
    }
 
-   public int e(class_aas var1) {
+   public int e(ItemStack var1) {
       return 72000;
    }
 
-   public class_abz f(class_aas var1) {
-      return class_abz.e;
+   public class_abz f(ItemStack var1) {
+      return class_abz.BOW;
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       if((var3.bH.d || this.a(var3.bp) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);

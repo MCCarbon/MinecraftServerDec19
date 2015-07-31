@@ -2,18 +2,18 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.World;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_yg;
 import net.minecraft.server.class_zz;
 
 public class class_acm implements class_acs {
-   private class_aas a;
+   private ItemStack a;
 
    public boolean a(class_yg var1, World var2) {
       this.a = null;
@@ -25,28 +25,28 @@ public class class_acm implements class_acs {
       int var8 = 0;
 
       for(int var9 = 0; var9 < var1.o_(); ++var9) {
-         class_aas var10 = var1.a(var9);
+         ItemStack var10 = var1.a(var9);
          if(var10 != null) {
-            if(var10.b() == Items.J) {
+            if(var10.getItem() == Items.J) {
                ++var4;
-            } else if(var10.b() == Items.cf) {
+            } else if(var10.getItem() == Items.cf) {
                ++var6;
-            } else if(var10.b() == Items.aY) {
+            } else if(var10.getItem() == Items.aY) {
                ++var5;
-            } else if(var10.b() == Items.aM) {
+            } else if(var10.getItem() == Items.aM) {
                ++var3;
-            } else if(var10.b() == Items.aV) {
+            } else if(var10.getItem() == Items.aV) {
                ++var7;
-            } else if(var10.b() == Items.k) {
+            } else if(var10.getItem() == Items.k) {
                ++var7;
-            } else if(var10.b() == Items.bO) {
+            } else if(var10.getItem() == Items.bO) {
                ++var8;
-            } else if(var10.b() == Items.I) {
+            } else if(var10.getItem() == Items.I) {
                ++var8;
-            } else if(var10.b() == Items.bz) {
+            } else if(var10.getItem() == Items.bz) {
                ++var8;
             } else {
-               if(var10.b() != Items.ca) {
+               if(var10.getItem() != Items.ca) {
                   return false;
                }
 
@@ -57,52 +57,52 @@ public class class_acm implements class_acs {
 
       var7 += var5 + var8;
       if(var4 <= 3 && var3 <= 1) {
-         class_dn var16;
-         class_dn var19;
+         NBTTagCompound var16;
+         NBTTagCompound var19;
          if(var4 >= 1 && var3 == 1 && var7 == 0) {
-            this.a = new class_aas(Items.ce);
+            this.a = new ItemStack(Items.ce);
             if(var6 > 0) {
-               var16 = new class_dn();
-               var19 = new class_dn();
-               class_du var25 = new class_du();
+               var16 = new NBTTagCompound();
+               var19 = new NBTTagCompound();
+               NBTTagList var25 = new NBTTagList();
 
                for(int var22 = 0; var22 < var1.o_(); ++var22) {
-                  class_aas var26 = var1.a(var22);
-                  if(var26 != null && var26.b() == Items.cf && var26.n() && var26.o().b("Explosion", 10)) {
-                     var25.a((class_eb)var26.o().n("Explosion"));
+                  ItemStack var26 = var1.a(var22);
+                  if(var26 != null && var26.getItem() == Items.cf && var26.hasTag() && var26.getTag().hasOfType("Explosion", 10)) {
+                     var25.add((NBTTag)var26.getTag().getCompound("Explosion"));
                   }
                }
 
-               var19.a((String)"Explosions", (class_eb)var25);
-               var19.a("Flight", (byte)var4);
-               var16.a((String)"Fireworks", (class_eb)var19);
-               this.a.d(var16);
+               var19.put((String)"Explosions", (NBTTag)var25);
+               var19.put("Flight", (byte)var4);
+               var16.put((String)"Fireworks", (NBTTag)var19);
+               this.a.setTag(var16);
             }
 
             return true;
          } else if(var4 == 1 && var3 == 0 && var6 == 0 && var5 > 0 && var8 <= 1) {
-            this.a = new class_aas(Items.cf);
-            var16 = new class_dn();
-            var19 = new class_dn();
+            this.a = new ItemStack(Items.cf);
+            var16 = new NBTTagCompound();
+            var19 = new NBTTagCompound();
             byte var23 = 0;
             ArrayList var12 = Lists.newArrayList();
 
             for(int var13 = 0; var13 < var1.o_(); ++var13) {
-               class_aas var14 = var1.a(var13);
+               ItemStack var14 = var1.a(var13);
                if(var14 != null) {
-                  if(var14.b() == Items.aY) {
+                  if(var14.getItem() == Items.aY) {
                      var12.add(Integer.valueOf(class_zz.a[var14.i() & 15]));
-                  } else if(var14.b() == Items.aV) {
-                     var19.a("Flicker", true);
-                  } else if(var14.b() == Items.k) {
-                     var19.a("Trail", true);
-                  } else if(var14.b() == Items.bO) {
+                  } else if(var14.getItem() == Items.aV) {
+                     var19.put("Flicker", true);
+                  } else if(var14.getItem() == Items.k) {
+                     var19.put("Trail", true);
+                  } else if(var14.getItem() == Items.bO) {
                      var23 = 1;
-                  } else if(var14.b() == Items.I) {
+                  } else if(var14.getItem() == Items.I) {
                      var23 = 4;
-                  } else if(var14.b() == Items.bz) {
+                  } else if(var14.getItem() == Items.bz) {
                      var23 = 2;
-                  } else if(var14.b() == Items.ca) {
+                  } else if(var14.getItem() == Items.ca) {
                      var23 = 3;
                   }
                }
@@ -114,22 +114,22 @@ public class class_acm implements class_acs {
                var24[var27] = ((Integer)var12.get(var27)).intValue();
             }
 
-            var19.a("Colors", var24);
-            var19.a("Type", var23);
-            var16.a((String)"Explosion", (class_eb)var19);
-            this.a.d(var16);
+            var19.put("Colors", var24);
+            var19.put("Type", var23);
+            var16.put((String)"Explosion", (NBTTag)var19);
+            this.a.setTag(var16);
             return true;
          } else if(var4 == 0 && var3 == 0 && var6 == 1 && var5 > 0 && var5 == var7) {
             ArrayList var15 = Lists.newArrayList();
 
             for(int var17 = 0; var17 < var1.o_(); ++var17) {
-               class_aas var11 = var1.a(var17);
+               ItemStack var11 = var1.a(var17);
                if(var11 != null) {
-                  if(var11.b() == Items.aY) {
+                  if(var11.getItem() == Items.aY) {
                      var15.add(Integer.valueOf(class_zz.a[var11.i() & 15]));
-                  } else if(var11.b() == Items.cf) {
-                     this.a = var11.k();
-                     this.a.b = 1;
+                  } else if(var11.getItem() == Items.cf) {
+                     this.a = var11.clone();
+                     this.a.count = 1;
                   }
                }
             }
@@ -140,12 +140,12 @@ public class class_acm implements class_acs {
                var18[var20] = ((Integer)var15.get(var20)).intValue();
             }
 
-            if(this.a != null && this.a.n()) {
-               class_dn var21 = this.a.o().n("Explosion");
+            if(this.a != null && this.a.hasTag()) {
+               NBTTagCompound var21 = this.a.getTag().getCompound("Explosion");
                if(var21 == null) {
                   return false;
                } else {
-                  var21.a("FadeColors", var18);
+                  var21.put("FadeColors", var18);
                   return true;
                }
             } else {
@@ -159,25 +159,25 @@ public class class_acm implements class_acs {
       }
    }
 
-   public class_aas a(class_yg var1) {
-      return this.a.k();
+   public ItemStack a(class_yg var1) {
+      return this.a.clone();
    }
 
    public int a() {
       return 10;
    }
 
-   public class_aas b() {
+   public ItemStack b() {
       return this.a;
    }
 
-   public class_aas[] b(class_yg var1) {
-      class_aas[] var2 = new class_aas[var1.o_()];
+   public ItemStack[] b(class_yg var1) {
+      ItemStack[] var2 = new ItemStack[var1.o_()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         class_aas var4 = var1.a(var3);
-         if(var4 != null && var4.b().r()) {
-            var2[var3] = new class_aas(var4.b().q());
+         ItemStack var4 = var1.a(var3);
+         if(var4 != null && var4.getItem().r()) {
+            var2[var3] = new ItemStack(var4.getItem().q());
          }
       }
 

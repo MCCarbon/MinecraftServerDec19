@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aee;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
@@ -34,7 +34,7 @@ public class class_abt extends Item {
       this.a(CreativeTab.f);
    }
 
-   public String a(class_aas var1) {
+   public String getLocalizedName(ItemStack var1) {
       String var2 = ("" + LocaleI18n.get(this.a() + ".name")).trim();
       String var3 = class_pt.b(var1.i());
       if(var3 != null) {
@@ -44,7 +44,7 @@ public class class_abt extends Item {
       return var2;
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var3.D) {
          return class_oq.a;
       } else if(!var2.a(var4.shift(var6), var6, var1)) {
@@ -59,7 +59,7 @@ public class class_abt extends Item {
                var11.p_();
                var3.h(var4);
                if(!var2.bH.d) {
-                  --var1.b;
+                  --var1.count;
                }
 
                return class_oq.a;
@@ -74,12 +74,12 @@ public class class_abt extends Item {
 
          class_pr var13 = a(var3, var1.i(), (double)var4.getX() + 0.5D, (double)var4.getY() + var14, (double)var4.getZ() + 0.5D);
          if(var13 != null) {
-            if(var13 instanceof class_qa && var1.s()) {
-               var13.a(var1.q());
+            if(var13 instanceof class_qa && var1.hasDisplayName()) {
+               var13.a(var1.getDisplayName());
             }
 
             if(!var2.bH.d) {
-               --var1.b;
+               --var1.count;
             }
          }
 
@@ -87,7 +87,7 @@ public class class_abt extends Item {
       }
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(var2.D) {
          return new class_or(class_oq.b, var1);
       } else {
@@ -108,12 +108,12 @@ public class class_abt extends Item {
                if(var2.p(var6).getBlock() instanceof class_ajd) {
                   class_pr var7 = a(var2, var1.i(), (double)var6.getX() + 0.5D, (double)var6.getY() + 0.5D, (double)var6.getZ() + 0.5D);
                   if(var7 != null) {
-                     if(var7 instanceof class_qa && var1.s()) {
-                        var7.a(var1.q());
+                     if(var7 instanceof class_qa && var1.hasDisplayName()) {
+                        var7.a(var1.getDisplayName());
                      }
 
                      if(!var3.bH.d) {
-                        --var1.b;
+                        --var1.count;
                      }
 
                      var3.b(class_nc.ad[Item.getId((Item)this)]);

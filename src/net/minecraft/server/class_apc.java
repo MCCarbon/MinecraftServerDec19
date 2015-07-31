@@ -29,10 +29,10 @@ import net.minecraft.server.class_aqk;
 import net.minecraft.server.class_ari;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dt;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagInt;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_le;
 import net.minecraft.server.class_lg;
@@ -62,7 +62,7 @@ public class class_apc {
    private UUID m;
    private boolean n;
 
-   public class_apc(class_lg var1, class_dn var2) {
+   public class_apc(class_lg var1, NBTTagCompound var2) {
       this.c = new class_le(new class_fb("entity.EnderDragon.name", new Object[0]), class_oh.class_a_in_class_oh.a, class_oh.class_b_in_class_oh.a, false, true);
       this.e = Lists.newArrayList();
       this.g = 0;
@@ -74,21 +74,21 @@ public class class_apc {
       this.m = null;
       this.n = false;
       this.d = var1;
-      if(var2.b("DragonKilled", 1)) {
-         this.m = var2.a("DragonUUID");
-         this.k = var2.o("DragonKilled");
-         this.l = var2.o("PreviouslyKilled");
+      if(var2.hasOfType("DragonKilled", 1)) {
+         this.m = var2.getUUID("DragonUUID");
+         this.k = var2.getBoolean("DragonKilled");
+         this.l = var2.getBoolean("PreviouslyKilled");
       } else {
          this.n = true;
          this.k = true;
          this.l = true;
       }
 
-      if(var2.b("Gateways", 9)) {
-         class_du var3 = var2.c("Gateways", 3);
+      if(var2.hasOfType("Gateways", 9)) {
+         NBTTagList var3 = var2.getList("Gateways", 3);
 
-         for(int var4 = 0; var4 < var3.c(); ++var4) {
-            this.e.add(Integer.valueOf(var3.c(var4)));
+         for(int var4 = 0; var4 < var3.getSize(); ++var4) {
+            this.e.add(Integer.valueOf(var3.getInt(var4)));
          }
       } else {
          this.e.addAll(ContiguousSet.create(Range.closedOpen(Integer.valueOf(0), Integer.valueOf(20)), DiscreteDomain.integers()));
@@ -98,23 +98,23 @@ public class class_apc {
       this.f = class_anq.a().a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"  ###  ", " #   # ", "#     #", "#  #  #", "#     #", " #   # ", "  ###  "}).a(new String[]{"       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       "}).a('#', class_ano.a(class_ans.a(Blocks.BEDROCK))).b();
    }
 
-   public class_dn a() {
-      class_dn var1 = new class_dn();
+   public NBTTagCompound a() {
+      NBTTagCompound var1 = new NBTTagCompound();
       if(this.m != null) {
-         var1.a("DragonUUID", this.m);
+         var1.put("DragonUUID", this.m);
       }
 
-      var1.a("DragonKilled", this.k);
-      var1.a("PreviouslyKilled", this.l);
-      class_du var2 = new class_du();
+      var1.put("DragonKilled", this.k);
+      var1.put("PreviouslyKilled", this.l);
+      NBTTagList var2 = new NBTTagList();
       Iterator var3 = this.e.iterator();
 
       while(var3.hasNext()) {
          int var4 = ((Integer)var3.next()).intValue();
-         var2.a((class_eb)(new class_dt(var4)));
+         var2.add((NBTTag)(new NBTTagInt(var4)));
       }
 
-      var1.a((String)"Gateways", (class_eb)var2);
+      var1.put((String)"Gateways", (NBTTag)var2);
       return var1;
    }
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_xa;
@@ -43,7 +43,7 @@ public class class_yc extends class_xz {
    public void b(class_xa var1) {
       super.b(var1);
       if(var1 != null && !var1.o.D) {
-         class_aas var2 = this.f.a(this.f.a());
+         ItemStack var2 = this.f.a(this.f.a());
          if(var2 != null) {
             var1.a(var2, false);
          }
@@ -55,19 +55,19 @@ public class class_yc extends class_xz {
       return this.a.a(var1);
    }
 
-   public class_aas b(class_xa var1, int var2) {
-      class_aas var3 = null;
+   public ItemStack b(class_xa var1, int var2) {
+      ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         class_aas var5 = var4.d();
-         var3 = var5.k();
+         ItemStack var5 = var4.d();
+         var3 = var5.clone();
          if(var2 == 0) {
             if(!this.a(var5, 1, 37, true)) {
                return null;
             }
 
             var4.a(var5, var3);
-         } else if(!this.f.e() && this.f.a(var5) && var5.b == 1) {
+         } else if(!this.f.e() && this.f.a(var5) && var5.count == 1) {
             if(!this.a(var5, 0, 1, false)) {
                return null;
             }
@@ -83,13 +83,13 @@ public class class_yc extends class_xz {
             return null;
          }
 
-         if(var5.b == 0) {
-            var4.d((class_aas)null);
+         if(var5.count == 0) {
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 
@@ -104,8 +104,8 @@ public class class_yc extends class_xz {
          super(var2, var3, var4, var5);
       }
 
-      public boolean a(class_aas var1) {
-         return var1 == null?false:var1.b() == Items.bR || var1.b() == Items.k || var1.b() == Items.m || var1.b() == Items.l;
+      public boolean a(ItemStack var1) {
+         return var1 == null?false:var1.getItem() == Items.bR || var1.getItem() == Items.k || var1.getItem() == Items.m || var1.getItem() == Items.l;
       }
 
       public int a() {

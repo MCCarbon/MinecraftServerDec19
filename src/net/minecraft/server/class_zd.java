@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
@@ -16,7 +16,7 @@ public class class_zd extends class_zv {
       super(3.0F, var1, c);
    }
 
-   public float a(class_aas var1, Block var2) {
+   public float a(ItemStack var1, Block var2) {
       return var2.getMaterial() != Material.WOOD && var2.getMaterial() != Material.PLANT && var2.getMaterial() != Material.REPLACEABLE_PLANT?super.a(var1, var2):this.a;
    }
 

@@ -1,19 +1,19 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_ov;
 import net.minecraft.server.class_xa;
 
 public interface class_oj extends class_ov {
    int o_();
 
-   class_aas a(int var1);
+   ItemStack a(int var1);
 
-   class_aas a(int var1, int var2);
+   ItemStack a(int var1, int var2);
 
-   class_aas b(int var1);
+   ItemStack b(int var1);
 
-   void a(int var1, class_aas var2);
+   void a(int var1, ItemStack var2);
 
    int q_();
 
@@ -25,7 +25,7 @@ public interface class_oj extends class_ov {
 
    void c(class_xa var1);
 
-   boolean b(int var1, class_aas var2);
+   boolean b(int var1, ItemStack var2);
 
    int a_(int var1);
 

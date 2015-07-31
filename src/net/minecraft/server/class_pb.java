@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
@@ -74,8 +74,8 @@ public class class_pb {
             if(var1.a() != class_pc.i && var1.a() != class_pc.j) {
                if(var6 == null || var4 != null && var6.equals(var4)) {
                   if(var4 != null) {
-                     class_aas var9 = var5 instanceof class_qa?((class_qa)var5).bA():null;
-                     if(var9 != null && var9.s()) {
+                     ItemStack var9 = var5 instanceof class_qa?((class_qa)var5).bA():null;
+                     if(var9 != null && var9.hasDisplayName()) {
                         var3 = new class_fb("death.fell.finish.item", new Object[]{this.b.f_(), var4, var9.B()});
                      } else {
                         var3 = new class_fb("death.fell.finish", new Object[]{this.b.f_(), var4});
@@ -85,8 +85,8 @@ public class class_pb {
                   }
                } else {
                   class_pr var7 = var1.a().j();
-                  class_aas var8 = var7 instanceof class_qa?((class_qa)var7).bA():null;
-                  if(var8 != null && var8.s()) {
+                  ItemStack var8 = var7 instanceof class_qa?((class_qa)var7).bA():null;
+                  if(var8 != null && var8.hasDisplayName()) {
                      var3 = new class_fb("death.fell.assist.item", new Object[]{this.b.f_(), var6, var8.B()});
                   } else {
                      var3 = new class_fb("death.fell.assist", new Object[]{this.b.f_(), var6});

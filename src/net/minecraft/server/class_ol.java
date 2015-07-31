@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vm;
@@ -22,7 +22,7 @@ public class class_ol {
 
    private static void a(World var0, double var1, double var3, double var5, class_oj var7) {
       for(int var8 = 0; var8 < var7.o_(); ++var8) {
-         class_aas var9 = var7.a(var8);
+         ItemStack var9 = var7.a(var8);
          if(var9 != null) {
             a(var0, var1, var3, var5, var9);
          }
@@ -30,21 +30,21 @@ public class class_ol {
 
    }
 
-   private static void a(World var0, double var1, double var3, double var5, class_aas var7) {
+   private static void a(World var0, double var1, double var3, double var5, ItemStack var7) {
       float var8 = a.nextFloat() * 0.8F + 0.1F;
       float var9 = a.nextFloat() * 0.8F + 0.1F;
       float var10 = a.nextFloat() * 0.8F + 0.1F;
 
-      while(var7.b > 0) {
+      while(var7.count > 0) {
          int var11 = a.nextInt(21) + 10;
-         if(var11 > var7.b) {
-            var11 = var7.b;
+         if(var11 > var7.count) {
+            var11 = var7.count;
          }
 
-         var7.b -= var11;
-         class_vm var12 = new class_vm(var0, var1 + (double)var8, var3 + (double)var9, var5 + (double)var10, new class_aas(var7.b(), var11, var7.i()));
-         if(var7.n()) {
-            var12.l().d((class_dn)var7.o().b());
+         var7.count -= var11;
+         class_vm var12 = new class_vm(var0, var1 + (double)var8, var3 + (double)var9, var5 + (double)var10, new ItemStack(var7.getItem(), var11, var7.i()));
+         if(var7.hasTag()) {
+            var12.l().setTag((NBTTagCompound)var7.getTag().clone());
          }
 
          float var13 = 0.05F;

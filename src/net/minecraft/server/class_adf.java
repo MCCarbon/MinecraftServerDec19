@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
 import net.minecraft.server.class_pl;
@@ -47,8 +47,8 @@ public class class_adf extends class_adi {
       return !(var1 instanceof class_adf);
    }
 
-   public boolean a(class_aas var1) {
-      return var1.b() instanceof class_zd?true:super.a(var1);
+   public boolean a(ItemStack var1) {
+      return var1.getItem() instanceof class_zd?true:super.a(var1);
    }
 
    public void a(class_qa var1, class_pr var2, int var3) {

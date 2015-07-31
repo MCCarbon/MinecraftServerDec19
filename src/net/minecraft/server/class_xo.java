@@ -10,7 +10,7 @@ import net.minecraft.server.class_awg;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.MathHelper;
@@ -218,35 +218,35 @@ public abstract class class_xo extends class_pr implements class_xi {
 
    protected abstract void a(class_awg var1);
 
-   public void b(class_dn var1) {
-      var1.a("xTile", (short)this.d);
-      var1.a("yTile", (short)this.e);
-      var1.a("zTile", (short)this.f);
+   public void b(NBTTagCompound var1) {
+      var1.put("xTile", (short)this.d);
+      var1.put("yTile", (short)this.e);
+      var1.put("zTile", (short)this.f);
       MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.g);
-      var1.a("inTile", var2 == null?"":var2.toString());
-      var1.a("shake", (byte)this.b);
-      var1.a("inGround", (byte)(this.a?1:0));
+      var1.put("inTile", var2 == null?"":var2.toString());
+      var1.put("shake", (byte)this.b);
+      var1.put("inGround", (byte)(this.a?1:0));
       if((this.i == null || this.i.isEmpty()) && this.h instanceof class_xa) {
          this.i = this.h.e_();
       }
 
-      var1.a("ownerName", this.i == null?"":this.i);
+      var1.put("ownerName", this.i == null?"":this.i);
    }
 
-   public void a(class_dn var1) {
-      this.d = var1.f("xTile");
-      this.e = var1.f("yTile");
-      this.f = var1.f("zTile");
-      if(var1.b("inTile", 8)) {
-         this.g = Block.getByName(var1.k("inTile"));
+   public void a(NBTTagCompound var1) {
+      this.d = var1.getShort("xTile");
+      this.e = var1.getShort("yTile");
+      this.f = var1.getShort("zTile");
+      if(var1.hasOfType("inTile", 8)) {
+         this.g = Block.getByName(var1.getString("inTile"));
       } else {
-         this.g = Block.getById(var1.e("inTile") & 255);
+         this.g = Block.getById(var1.getByte("inTile") & 255);
       }
 
-      this.b = var1.e("shake") & 255;
-      this.a = var1.e("inGround") == 1;
+      this.b = var1.getByte("shake") & 255;
+      this.a = var1.getByte("inGround") == 1;
       this.h = null;
-      this.i = var1.k("ownerName");
+      this.i = var1.getString("ownerName");
       if(this.i != null && this.i.isEmpty()) {
          this.i = null;
       }

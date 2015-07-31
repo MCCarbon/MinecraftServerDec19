@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aja;
 import net.minecraft.server.ItemBlock;
 
@@ -18,7 +18,7 @@ public class class_aaw extends ItemBlock {
       return var1 | 4;
    }
 
-   public String e_(class_aas var1) {
+   public String e_(ItemStack var1) {
       return super.a() + "." + this.b.b(var1.i()).d();
    }
 }

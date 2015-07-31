@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_agu;
@@ -15,9 +15,9 @@ import net.minecraft.server.class_amu;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
@@ -31,47 +31,47 @@ import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yn;
 
 public class class_amt extends class_amu implements class_ams, class_kn {
-   private class_aas[] a = new class_aas[5];
+   private ItemStack[] a = new ItemStack[5];
    private String f;
    private int g = -1;
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      class_du var2 = var1.c("Items", 10);
-      this.a = new class_aas[this.o_()];
-      if(var1.b("CustomName", 8)) {
-         this.f = var1.k("CustomName");
+      NBTTagList var2 = var1.getList("Items", 10);
+      this.a = new ItemStack[this.o_()];
+      if(var1.hasOfType("CustomName", 8)) {
+         this.f = var1.getString("CustomName");
       }
 
-      this.g = var1.g("TransferCooldown");
+      this.g = var1.getInt("TransferCooldown");
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         class_dn var4 = var2.b(var3);
-         byte var5 = var4.e("Slot");
+      for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+         NBTTagCompound var4 = var2.getCompound(var3);
+         byte var5 = var4.getByte("Slot");
          if(var5 >= 0 && var5 < this.a.length) {
-            this.a[var5] = class_aas.a(var4);
+            this.a[var5] = ItemStack.a(var4);
          }
       }
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      class_du var2 = new class_du();
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.a.length; ++var3) {
          if(this.a[var3] != null) {
-            class_dn var4 = new class_dn();
-            var4.a("Slot", (byte)var3);
-            this.a[var3].b(var4);
-            var2.a((class_eb)var4);
+            NBTTagCompound var4 = new NBTTagCompound();
+            var4.put("Slot", (byte)var3);
+            this.a[var3].write(var4);
+            var2.add((NBTTag)var4);
          }
       }
 
-      var1.a((String)"Items", (class_eb)var2);
-      var1.a("TransferCooldown", this.g);
+      var1.put((String)"Items", (NBTTag)var2);
+      var1.put("TransferCooldown", this.g);
       if(this.l_()) {
-         var1.a("CustomName", this.f);
+         var1.put("CustomName", this.f);
       }
 
    }
@@ -80,20 +80,20 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       return this.a.length;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return this.a[var1];
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.a[var1] != null) {
-         class_aas var3;
-         if(this.a[var1].b <= var2) {
+         ItemStack var3;
+         if(this.a[var1].count <= var2) {
             var3 = this.a[var1];
             this.a[var1] = null;
             return var3;
          } else {
             var3 = this.a[var1].a(var2);
-            if(this.a[var1].b == 0) {
+            if(this.a[var1].count == 0) {
                this.a[var1] = null;
             }
 
@@ -104,9 +104,9 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       }
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       if(this.a[var1] != null) {
-         class_aas var2 = this.a[var1];
+         ItemStack var2 = this.a[var1];
          this.a[var1] = null;
          return var2;
       } else {
@@ -114,10 +114,10 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       }
    }
 
-   public void a(int var1, class_aas var2) {
+   public void a(int var1, ItemStack var2) {
       this.a[var1] = var2;
-      if(var2 != null && var2.b > this.q_()) {
-         var2.b = this.q_();
+      if(var2 != null && var2.count > this.q_()) {
+         var2.count = this.q_();
       }
 
    }
@@ -148,7 +148,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 
@@ -189,11 +189,11 @@ public class class_amt extends class_amu implements class_ams, class_kn {
    }
 
    private boolean p() {
-      class_aas[] var1 = this.a;
+      ItemStack[] var1 = this.a;
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_aas var4 = var1[var3];
+         ItemStack var4 = var1[var3];
          if(var4 != null) {
             return false;
          }
@@ -203,12 +203,12 @@ public class class_amt extends class_amu implements class_ams, class_kn {
    }
 
    private boolean q() {
-      class_aas[] var1 = this.a;
+      ItemStack[] var1 = this.a;
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_aas var4 = var1[var3];
-         if(var4 == null || var4.b != var4.c()) {
+         ItemStack var4 = var1[var3];
+         if(var4 == null || var4.count != var4.c()) {
             return false;
          }
       }
@@ -227,9 +227,9 @@ public class class_amt extends class_amu implements class_ams, class_kn {
          } else {
             for(int var3 = 0; var3 < this.o_(); ++var3) {
                if(this.a(var3) != null) {
-                  class_aas var4 = this.a(var3).k();
-                  class_aas var5 = a(var1, this.a(var3, 1), var2);
-                  if(var5 == null || var5.b == 0) {
+                  ItemStack var4 = this.a(var3).clone();
+                  ItemStack var5 = a(var1, this.a(var3, 1), var2);
+                  if(var5 == null || var5.count == 0) {
                      var1.p_();
                      return true;
                   }
@@ -249,8 +249,8 @@ public class class_amt extends class_amu implements class_ams, class_kn {
          int[] var8 = var7.a(var2);
 
          for(int var9 = 0; var9 < var8.length; ++var9) {
-            class_aas var6 = var7.a(var8[var9]);
-            if(var6 == null || var6.b != var6.c()) {
+            ItemStack var6 = var7.a(var8[var9]);
+            if(var6 == null || var6.count != var6.c()) {
                return false;
             }
          }
@@ -258,8 +258,8 @@ public class class_amt extends class_amu implements class_ams, class_kn {
          int var3 = var1.o_();
 
          for(int var4 = 0; var4 < var3; ++var4) {
-            class_aas var5 = var1.a(var4);
-            if(var5 == null || var5.b != var5.c()) {
+            ItemStack var5 = var1.a(var4);
+            if(var5 == null || var5.count != var5.c()) {
                return false;
             }
          }
@@ -332,11 +332,11 @@ public class class_amt extends class_amu implements class_ams, class_kn {
    }
 
    private static boolean a(class_ams var0, class_oj var1, int var2, EnumDirection var3) {
-      class_aas var4 = var1.a(var2);
+      ItemStack var4 = var1.a(var2);
       if(var4 != null && b(var1, var4, var2, var3)) {
-         class_aas var5 = var4.k();
-         class_aas var6 = a(var0, var1.a(var2, 1), (EnumDirection)null);
-         if(var6 == null || var6.b == 0) {
+         ItemStack var5 = var4.clone();
+         ItemStack var6 = a(var0, var1.a(var2, 1), (EnumDirection)null);
+         if(var6 == null || var6.count == 0) {
             var1.p_();
             return true;
          }
@@ -352,9 +352,9 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       if(var1 == null) {
          return false;
       } else {
-         class_aas var3 = var1.l().k();
-         class_aas var4 = a(var0, var3, (EnumDirection)null);
-         if(var4 != null && var4.b != 0) {
+         ItemStack var3 = var1.l().clone();
+         ItemStack var4 = a(var0, var3, (EnumDirection)null);
+         if(var4 != null && var4.count != 0) {
             var1.a(var4);
          } else {
             var2 = true;
@@ -365,39 +365,39 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       }
    }
 
-   public static class_aas a(class_oj var0, class_aas var1, EnumDirection var2) {
+   public static ItemStack a(class_oj var0, ItemStack var1, EnumDirection var2) {
       if(var0 instanceof class_oz && var2 != null) {
          class_oz var6 = (class_oz)var0;
          int[] var7 = var6.a(var2);
 
-         for(int var5 = 0; var5 < var7.length && var1 != null && var1.b > 0; ++var5) {
+         for(int var5 = 0; var5 < var7.length && var1 != null && var1.count > 0; ++var5) {
             var1 = c(var0, var1, var7[var5], var2);
          }
       } else {
          int var3 = var0.o_();
 
-         for(int var4 = 0; var4 < var3 && var1 != null && var1.b > 0; ++var4) {
+         for(int var4 = 0; var4 < var3 && var1 != null && var1.count > 0; ++var4) {
             var1 = c(var0, var1, var4, var2);
          }
       }
 
-      if(var1 != null && var1.b == 0) {
+      if(var1 != null && var1.count == 0) {
          var1 = null;
       }
 
       return var1;
    }
 
-   private static boolean a(class_oj var0, class_aas var1, int var2, EnumDirection var3) {
+   private static boolean a(class_oj var0, ItemStack var1, int var2, EnumDirection var3) {
       return !var0.b(var2, var1)?false:!(var0 instanceof class_oz) || ((class_oz)var0).a(var2, var1, var3);
    }
 
-   private static boolean b(class_oj var0, class_aas var1, int var2, EnumDirection var3) {
+   private static boolean b(class_oj var0, ItemStack var1, int var2, EnumDirection var3) {
       return !(var0 instanceof class_oz) || ((class_oz)var0).b(var2, var1, var3);
    }
 
-   private static class_aas c(class_oj var0, class_aas var1, int var2, EnumDirection var3) {
-      class_aas var4 = var0.a(var2);
+   private static ItemStack c(class_oj var0, ItemStack var1, int var2, EnumDirection var3) {
+      ItemStack var4 = var0.a(var2);
       if(a(var0, var1, var2, var3)) {
          boolean var5 = false;
          if(var4 == null) {
@@ -405,10 +405,10 @@ public class class_amt extends class_amu implements class_ams, class_kn {
             var1 = null;
             var5 = true;
          } else if(a(var4, var1)) {
-            int var6 = var1.c() - var4.b;
-            int var7 = Math.min(var1.b, var6);
-            var1.b -= var7;
-            var4.b += var7;
+            int var6 = var1.c() - var4.count;
+            int var7 = Math.min(var1.count, var6);
+            var1.count -= var7;
+            var4.count += var7;
             var5 = var7 > 0;
          }
 
@@ -469,8 +469,8 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       return (class_oj)var7;
    }
 
-   private static boolean a(class_aas var0, class_aas var1) {
-      return var0.b() != var1.b()?false:(var0.i() != var1.i()?false:(var0.b > var0.c()?false:class_aas.a(var0, var1)));
+   private static boolean a(ItemStack var0, ItemStack var1) {
+      return var0.getItem() != var1.getItem()?false:(var0.i() != var1.i()?false:(var0.count > var0.c()?false:ItemStack.a(var0, var1)));
    }
 
    public double A() {

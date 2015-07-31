@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Material;
@@ -74,7 +74,7 @@ public class class_ui extends class_uk {
       int var3 = this.V.nextInt(3 + var2) + 1;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(new class_aas(Items.aY, 1, class_zy.p.b()), 0.0F);
+         this.a(new ItemStack(Items.aY, 1, class_zy.p.b()), 0.0F);
       }
 
    }

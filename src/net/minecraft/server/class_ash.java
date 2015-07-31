@@ -26,7 +26,7 @@ import net.minecraft.server.class_asn;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_od;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qd;
@@ -54,14 +54,14 @@ public class class_ash {
          super(var1, var2, 64, var3, 7, 7, 9);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Witch", this.e);
+         var1.put("Witch", this.e);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.e = var1.o("Witch");
+         this.e = var1.getBoolean("Witch");
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
@@ -140,20 +140,20 @@ public class class_ash {
          super(var1, var2, 64, var3, 12, 10, 15);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("placedMainChest", this.e);
-         var1.a("placedHiddenChest", this.f);
-         var1.a("placedTrap1", this.g);
-         var1.a("placedTrap2", this.h);
+         var1.put("placedMainChest", this.e);
+         var1.put("placedHiddenChest", this.f);
+         var1.put("placedTrap1", this.g);
+         var1.put("placedTrap2", this.h);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.e = var1.o("placedMainChest");
-         this.f = var1.o("placedHiddenChest");
-         this.g = var1.o("placedTrap1");
-         this.h = var1.o("placedTrap2");
+         this.e = var1.getBoolean("placedMainChest");
+         this.f = var1.getBoolean("placedHiddenChest");
+         this.g = var1.getBoolean("placedTrap1");
+         this.h = var1.getBoolean("placedTrap2");
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
@@ -374,20 +374,20 @@ public class class_ash {
          super(var1, var2, 64, var3, 21, 15, 21);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("hasPlacedChest0", this.e[0]);
-         var1.a("hasPlacedChest1", this.e[1]);
-         var1.a("hasPlacedChest2", this.e[2]);
-         var1.a("hasPlacedChest3", this.e[3]);
+         var1.put("hasPlacedChest0", this.e[0]);
+         var1.put("hasPlacedChest1", this.e[1]);
+         var1.put("hasPlacedChest2", this.e[2]);
+         var1.put("hasPlacedChest3", this.e[3]);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.e[0] = var1.o("hasPlacedChest0");
-         this.e[1] = var1.o("hasPlacedChest1");
-         this.e[2] = var1.o("hasPlacedChest2");
-         this.e[3] = var1.o("hasPlacedChest3");
+         this.e[0] = var1.getBoolean("hasPlacedChest0");
+         this.e[1] = var1.getBoolean("hasPlacedChest1");
+         this.e[2] = var1.getBoolean("hasPlacedChest2");
+         this.e[3] = var1.getBoolean("hasPlacedChest3");
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
@@ -615,18 +615,18 @@ public class class_ash {
 
       }
 
-      protected void a(class_dn var1) {
-         var1.a("Width", this.a);
-         var1.a("Height", this.b);
-         var1.a("Depth", this.c);
-         var1.a("HPos", this.d);
+      protected void a(NBTTagCompound var1) {
+         var1.put("Width", this.a);
+         var1.put("Height", this.b);
+         var1.put("Depth", this.c);
+         var1.put("HPos", this.d);
       }
 
-      protected void b(class_dn var1) {
-         this.a = var1.g("Width");
-         this.b = var1.g("Height");
-         this.c = var1.g("Depth");
-         this.d = var1.g("HPos");
+      protected void b(NBTTagCompound var1) {
+         this.a = var1.getInt("Width");
+         this.b = var1.getInt("Height");
+         this.c = var1.getInt("Depth");
+         this.d = var1.getInt("HPos");
       }
 
       protected boolean a(World var1, class_arw var2, int var3) {

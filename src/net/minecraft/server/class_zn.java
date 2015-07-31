@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -28,7 +28,7 @@ public class class_zn extends Item {
       this.a(CreativeTab.f);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       boolean var5 = this.a == Blocks.AIR;
       class_awg var6 = this.a(var2, var3, var5);
       if(var6 == null) {
@@ -42,7 +42,7 @@ public class class_zn extends Item {
 
             if(!var5) {
                if(this.a == Blocks.AIR) {
-                  return new class_or(class_oq.a, new class_aas(Items.ay));
+                  return new class_or(class_oq.a, new ItemStack(Items.ay));
                }
 
                BlockPosition var10 = var7.shift(var6.b);
@@ -52,7 +52,7 @@ public class class_zn extends Item {
 
                if(this.a(var2, var10) && !var3.bH.d) {
                   var3.b(class_nc.ad[Item.getId((Item)this)]);
-                  return new class_or(class_oq.a, new class_aas(Items.ay));
+                  return new class_or(class_oq.a, new ItemStack(Items.ay));
                }
 
                return new class_or(class_oq.a, var1);
@@ -81,14 +81,14 @@ public class class_zn extends Item {
       }
    }
 
-   private class_aas a(class_aas var1, class_xa var2, Item var3) {
+   private ItemStack a(ItemStack var1, class_xa var2, Item var3) {
       if(var2.bH.d) {
          return var1;
-      } else if(--var1.b <= 0) {
-         return new class_aas(var3);
+      } else if(--var1.count <= 0) {
+         return new ItemStack(var3);
       } else {
-         if(!var2.bp.a(new class_aas(var3))) {
-            var2.a(new class_aas(var3), false);
+         if(!var2.bp.a(new ItemStack(var3))) {
+            var2.a(new ItemStack(var3), false);
          }
 
          return var1;

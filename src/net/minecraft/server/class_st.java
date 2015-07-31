@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_ow;
@@ -37,24 +37,24 @@ public class class_st extends class_rp {
             class_ow var1 = this.f.cF();
 
             for(int var2 = 0; var2 < var1.o_(); ++var2) {
-               class_aas var3 = var1.a(var2);
-               class_aas var4 = null;
+               ItemStack var3 = var1.a(var2);
+               ItemStack var4 = null;
                if(var3 != null) {
-                  Item var5 = var3.b();
+                  Item var5 = var3.getItem();
                   int var6;
-                  if((var5 == Items.R || var5 == Items.bV || var5 == Items.bU) && var3.b > 3) {
-                     var6 = var3.b / 2;
-                     var3.b -= var6;
-                     var4 = new class_aas(var5, var6, var3.i());
-                  } else if(var5 == Items.Q && var3.b > 5) {
-                     var6 = var3.b / 2 / 3 * 3;
+                  if((var5 == Items.R || var5 == Items.bV || var5 == Items.bU) && var3.count > 3) {
+                     var6 = var3.count / 2;
+                     var3.count -= var6;
+                     var4 = new ItemStack(var5, var6, var3.i());
+                  } else if(var5 == Items.Q && var3.count > 5) {
+                     var6 = var3.count / 2 / 3 * 3;
                      int var7 = var6 / 3;
-                     var3.b -= var6;
-                     var4 = new class_aas(Items.R, var7, 0);
+                     var3.count -= var6;
+                     var4 = new ItemStack(Items.R, var7, 0);
                   }
 
-                  if(var3.b <= 0) {
-                     var1.a(var2, (class_aas)null);
+                  if(var3.count <= 0) {
+                     var1.a(var2, (ItemStack)null);
                   }
                }
 

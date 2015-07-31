@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_qb;
@@ -13,14 +13,14 @@ public class class_abb extends Item {
       this.a(CreativeTab.i);
    }
 
-   public boolean a(class_aas var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
-      if(!var1.s()) {
+   public boolean a(ItemStack var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
+      if(!var1.hasDisplayName()) {
          return false;
       } else if(var3 instanceof class_qb) {
          class_qb var5 = (class_qb)var3;
-         var5.a((String)var1.q());
+         var5.a((String)var1.getDisplayName());
          var5.cl();
-         --var1.b;
+         --var1.count;
          return true;
       } else {
          return super.a(var1, var2, var3, var4);

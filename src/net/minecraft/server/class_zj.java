@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 
 public class class_zj extends Item {
-   public boolean f_(class_aas var1) {
-      return var1.b == 1;
+   public boolean f_(ItemStack var1) {
+      return var1.count == 1;
    }
 
    public int c() {

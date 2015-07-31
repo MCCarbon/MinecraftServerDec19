@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
@@ -74,8 +74,8 @@ public class class_akp extends Block {
       return new BlockStateList(this, new IBlockState[]{N});
    }
 
-   protected class_aas i(IBlockData var1) {
-      return new class_aas(Item.getByBlock((Block)this));
+   protected ItemStack i(IBlockData var1) {
+      return new ItemStack(Item.getByBlock((Block)this));
    }
 
    public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {

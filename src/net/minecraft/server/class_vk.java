@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -11,7 +11,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
@@ -323,13 +323,13 @@ public class class_vk extends class_pr {
       }
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
    }
 
-   protected void a(class_dn var1) {
+   protected void a(NBTTagCompound var1) {
    }
 
-   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
+   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       if(this.l != null && this.l instanceof class_xa && this.l != var1) {
          return true;
       } else {

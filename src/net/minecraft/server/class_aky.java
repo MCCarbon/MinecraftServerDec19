@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
@@ -84,8 +84,8 @@ public class class_aky extends Block {
       }
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
-      a(var1, var3, new class_aas(Items.aF, ((Integer)var4.get(a)).intValue() + 1, 0));
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
+      a(var1, var3, new ItemStack(Items.aF, ((Integer)var4.get(a)).intValue() + 1, 0));
       var1.g(var3);
       var2.b(class_nc.ab[Block.getId((Block)this)]);
    }

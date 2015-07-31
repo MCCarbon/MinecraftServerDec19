@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_agd;
@@ -89,7 +89,7 @@ public class class_agu extends class_agd {
       return this.getBlockData().set(a, var8.aR());
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
       EnumDirection var6 = EnumDirection.getByHorizontalId(MathHelper.floor((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
       var3 = var3.set(a, var6);
       BlockPosition var7 = var2.shiftNorth();
@@ -120,10 +120,10 @@ public class class_agu extends class_agd {
          var1.a((BlockPosition)var2, (IBlockData)var3, 3);
       }
 
-      if(var5.s()) {
+      if(var5.hasDisplayName()) {
          class_amg var15 = var1.s(var2);
          if(var15 instanceof class_ami) {
-            ((class_ami)var15).a(var5.q());
+            ((class_ami)var15).a(var5.getDisplayName());
          }
       }
 
@@ -324,7 +324,7 @@ public class class_agu extends class_agd {
       super.b(var1, var2, var3);
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {

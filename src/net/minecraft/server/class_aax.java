@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multisets;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -27,11 +27,11 @@ public class class_aax extends class_zt {
       this.a(true);
    }
 
-   public class_avf a(class_aas var1, World var2) {
+   public class_avf a(ItemStack var1, World var2) {
       String var3 = "map_" + var1.i();
       class_avf var4 = (class_avf)var2.a(class_avf.class, var3);
       if(var4 == null && !var2.D) {
-         var1.b(var2.b("map"));
+         var1.setData(var2.b("map"));
          var3 = "map_" + var1.i();
          var4 = new class_avf(var3);
          var4.e = 3;
@@ -162,7 +162,7 @@ public class class_aax extends class_zt {
       }
    }
 
-   public void a(class_aas var1, World var2, class_pr var3, int var4, boolean var5) {
+   public void a(ItemStack var1, World var2, class_pr var3, int var4, boolean var5) {
       if(!var2.D) {
          class_avf var6 = this.a(var1, var2);
          if(var3 instanceof class_xa) {
@@ -177,14 +177,14 @@ public class class_aax extends class_zt {
       }
    }
 
-   public Packet a(class_aas var1, World var2, class_xa var3) {
+   public Packet a(ItemStack var1, World var2, class_xa var3) {
       return this.a(var1, var2).a(var1, var2, var3);
    }
 
-   public void b(class_aas var1, World var2, class_xa var3) {
-      if(var1.n() && var1.o().o("map_is_scaling")) {
+   public void b(ItemStack var1, World var2, class_xa var3) {
+      if(var1.hasTag() && var1.getTag().getBoolean("map_is_scaling")) {
          class_avf var4 = Items.bf.a(var1, var2);
-         var1.b(var2.b("map"));
+         var1.setData(var2.b("map"));
          class_avf var5 = new class_avf("map_" + var1.i());
          var5.e = (byte)(var4.e + 1);
          if(var5.e > 4) {

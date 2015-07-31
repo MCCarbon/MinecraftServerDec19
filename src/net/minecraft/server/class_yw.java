@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aaq;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abc;
 import net.minecraft.server.class_abw;
@@ -26,82 +26,82 @@ public class class_yw extends class_yx {
       this.a = var2;
    }
 
-   public boolean a(class_aas var1) {
+   public boolean a(ItemStack var1) {
       return false;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       if(this.e()) {
-         this.c += Math.min(var1, this.d().b);
+         this.c += Math.min(var1, this.d().count);
       }
 
       return super.a(var1);
    }
 
-   protected void a(class_aas var1, int var2) {
+   protected void a(ItemStack var1, int var2) {
       this.c += var2;
       this.c(var1);
    }
 
-   protected void c(class_aas var1) {
+   protected void c(ItemStack var1) {
       if(this.c > 0) {
          var1.a(this.b.o, this.b, this.c);
       }
 
       this.c = 0;
-      if(var1.b() == Item.getByBlock(Blocks.CRAFTING_TABLE)) {
+      if(var1.getItem() == Item.getByBlock(Blocks.CRAFTING_TABLE)) {
          this.b.b((class_my)class_mt.h);
       }
 
-      if(var1.b() instanceof class_abc) {
+      if(var1.getItem() instanceof class_abc) {
          this.b.b((class_my)class_mt.i);
       }
 
-      if(var1.b() == Item.getByBlock(Blocks.FURNACE)) {
+      if(var1.getItem() == Item.getByBlock(Blocks.FURNACE)) {
          this.b.b((class_my)class_mt.j);
       }
 
-      if(var1.b() instanceof class_aaq) {
+      if(var1.getItem() instanceof class_aaq) {
          this.b.b((class_my)class_mt.l);
       }
 
-      if(var1.b() == Items.R) {
+      if(var1.getItem() == Items.R) {
          this.b.b((class_my)class_mt.m);
       }
 
-      if(var1.b() == Items.bb) {
+      if(var1.getItem() == Items.bb) {
          this.b.b((class_my)class_mt.n);
       }
 
-      if(var1.b() instanceof class_abc && ((class_abc)var1.b()).g() != Item.class_a_in_class_aar.a) {
+      if(var1.getItem() instanceof class_abc && ((class_abc)var1.getItem()).g() != Item.class_a_in_class_aar.a) {
          this.b.b((class_my)class_mt.o);
       }
 
-      if(var1.b() instanceof class_abw) {
+      if(var1.getItem() instanceof class_abw) {
          this.b.b((class_my)class_mt.r);
       }
 
-      if(var1.b() == Item.getByBlock(Blocks.ENCHANTING_TABLE)) {
+      if(var1.getItem() == Item.getByBlock(Blocks.ENCHANTING_TABLE)) {
          this.b.b((class_my)class_mt.E);
       }
 
-      if(var1.b() == Item.getByBlock(Blocks.BOOKSHELF)) {
+      if(var1.getItem() == Item.getByBlock(Blocks.BOOKSHELF)) {
          this.b.b((class_my)class_mt.G);
       }
 
-      if(var1.b() == Items.aq && var1.i() == 1) {
+      if(var1.getItem() == Items.aq && var1.i() == 1) {
          this.b.b((class_my)class_mt.M);
       }
 
    }
 
-   public void a(class_xa var1, class_aas var2) {
+   public void a(class_xa var1, ItemStack var2) {
       this.c(var2);
-      class_aas[] var3 = class_act.a().b(this.a, var1.o);
+      ItemStack[] var3 = class_act.a().b(this.a, var1.o);
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
-         class_aas var5 = this.a.a(var4);
-         class_aas var6 = var3[var4];
+         ItemStack var5 = this.a.a(var4);
+         ItemStack var6 = var3[var4];
          if(var5 != null) {
             this.a.a(var4, 1);
          }

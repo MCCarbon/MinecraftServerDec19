@@ -12,7 +12,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aeb;
@@ -35,7 +35,7 @@ import net.minecraft.server.class_awt;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_e;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.IChatBaseComponent;
@@ -159,21 +159,21 @@ public class class_lh extends class_xa implements class_ye {
 
 	}
 
-	public void a(class_dn var1) {
+	public void a(NBTTagCompound var1) {
 		super.a(var1);
-		if (var1.b("playerGameType", 99)) {
+		if (var1.hasOfType("playerGameType", 99)) {
 			if (MinecraftServer.N().ax()) {
 				this.c.a(MinecraftServer.N().m());
 			} else {
-				this.c.a(class_aeq.class_a_in_class_aeq.a(var1.g("playerGameType")));
+				this.c.a(class_aeq.class_a_in_class_aeq.a(var1.getInt("playerGameType")));
 			}
 		}
 
 	}
 
-	public void b(class_dn var1) {
+	public void b(NBTTagCompound var1) {
 		super.b(var1);
-		var1.a("playerGameType", this.c.b().a());
+		var1.put("playerGameType", this.c.b().a());
 	}
 
 	public void a(int var1) {
@@ -292,9 +292,9 @@ public class class_lh extends class_xa implements class_ye {
 			super.t_();
 
 			for (int var1 = 0; var1 < this.bp.o_(); ++var1) {
-				class_aas var6 = this.bp.a(var1);
-				if (var6 != null && var6.b().f()) {
-					Packet var8 = ((class_zt) var6.b()).a(var6, this.o, this);
+				ItemStack var6 = this.bp.a(var1);
+				if (var6 != null && var6.getItem().f()) {
+					Packet var8 = ((class_zt) var6.getItem()).a(var6, this.o, this);
 					if (var8 != null) {
 						this.a.a(var8);
 					}
@@ -624,15 +624,15 @@ public class class_lh extends class_xa implements class_ye {
 		this.br.a((class_ye) this);
 	}
 
-	public void a(class_aas var1) {
-		Item var2 = var1.b();
+	public void a(ItemStack var1) {
+		Item var2 = var1.getItem();
 		if (var2 == Items.bQ) {
 			this.a.a((Packet) (new class_gh("MC|BOpen", new PacketDataSerializer(Unpooled.buffer()))));
 		}
 
 	}
 
-	public void a(class_xz var1, int var2, class_aas var3) {
+	public void a(class_xz var1, int var2, ItemStack var3) {
 		if (!(var1.a(var2) instanceof class_yw)) {
 			if (!this.g) {
 				this.a.a((Packet) (new class_gg(var1.d, var2, var3)));

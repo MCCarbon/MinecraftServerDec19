@@ -22,7 +22,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cc;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
@@ -678,8 +678,8 @@ public class class_bc extends class_i {
             class_pr var9 = b(var1, var2[var5]);
 
             try {
-               class_dn var10 = class_ed.a(a(var2, var3));
-               class_dn var11 = new class_dn();
+               NBTTagCompound var10 = class_ed.a(a(var2, var3));
+               NBTTagCompound var11 = new NBTTagCompound();
                var9.e(var11);
                if(!class_dy.a(var10, var11, true)) {
                   throw new class_bz("commands.scoreboard.players.set.tagMismatch", new Object[]{var6});

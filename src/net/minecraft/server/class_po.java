@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
@@ -27,8 +27,8 @@ public abstract class class_po extends class_qh {
 
    public abstract class_po a(class_po var1);
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
-      if(var3 != null && var3.b() == Items.bM) {
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+      if(var3 != null && var3.getItem() == Items.bM) {
          if(!this.o.D) {
             Class var4 = class_pt.a(var3.i());
             if(var4 != null && this.getClass() == var4) {
@@ -37,12 +37,12 @@ public abstract class class_po extends class_qh {
                   var5.b(-24000);
                   var5.b(this.s, this.t, this.u, 0.0F, 0.0F);
                   this.o.a((class_pr)var5);
-                  if(var3.s()) {
-                     var5.a((String)var3.q());
+                  if(var3.hasDisplayName()) {
+                     var5.a((String)var3.getDisplayName());
                   }
 
                   if(!var1.bH.d) {
-                     --var3.b;
+                     --var3.count;
                   }
                }
             }
@@ -99,16 +99,16 @@ public abstract class class_po extends class_qh {
       this.a(this.j_());
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Age", this.l());
-      var1.a("ForcedAge", this.b);
+      var1.put("Age", this.l());
+      var1.put("ForcedAge", this.b);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.b(var1.g("Age"));
-      this.b = var1.g("ForcedAge");
+      this.b(var1.getInt("Age"));
+      this.b = var1.getInt("ForcedAge");
    }
 
    public void d(int var1) {

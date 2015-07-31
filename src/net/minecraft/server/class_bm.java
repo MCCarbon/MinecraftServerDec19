@@ -6,7 +6,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.IChatBaseComponent;
@@ -56,7 +56,7 @@ public class class_bm extends class_i {
             var12.d((class_pr)(new class_vi(var12, var6, var8, var10)));
             a(var1, this, "commands.summon.success", new Object[0]);
          } else {
-            class_dn var13 = new class_dn();
+            NBTTagCompound var13 = new NBTTagCompound();
             boolean var14 = false;
             if(var2.length >= 5) {
                IChatBaseComponent var15 = a(var1, var2, 4);
@@ -69,7 +69,7 @@ public class class_bm extends class_i {
                }
             }
 
-            var13.a("id", var3);
+            var13.put("id", var3);
 
             class_pr var21;
             try {
@@ -91,8 +91,8 @@ public class class_bm extends class_i {
                } else {
                   class_pr var16 = var21;
 
-                  for(class_dn var17 = var13; var16 != null && var17.b("Riding", 10); var17 = var17.n("Riding")) {
-                     class_pr var18 = class_pt.a(var17.n("Riding"), var12);
+                  for(NBTTagCompound var17 = var13; var16 != null && var17.hasOfType("Riding", 10); var17 = var17.getCompound("Riding")) {
+                     class_pr var18 = class_pt.a(var17.getCompound("Riding"), var12);
                      if(var18 != null) {
                         var18.b(var6, var8, var10, var18.y, var18.z);
                         var12.a(var18);

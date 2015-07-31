@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.class_amg;
@@ -17,7 +17,7 @@ import net.minecraft.server.class_oj;
 public class class_aho extends class_ahk {
    private final class_cr P = new class_cn();
 
-   protected class_cr a(class_aas var1) {
+   protected class_cr a(ItemStack var1) {
       return this.P;
    }
 
@@ -33,26 +33,26 @@ public class class_aho extends class_ahk {
          if(var5 < 0) {
             var1.b(1001, var2, 0);
          } else {
-            class_aas var6 = var4.a(var5);
+            ItemStack var6 = var4.a(var5);
             if(var6 != null) {
                EnumDirection var7 = (EnumDirection)var1.p(var2).get(a);
                BlockPosition var8 = var2.shift(var7);
                class_oj var9 = class_amt.b(var1, (double)var8.getX(), (double)var8.getY(), (double)var8.getZ());
-               class_aas var10;
+               ItemStack var10;
                if(var9 == null) {
                   var10 = this.P.a(var3, var6);
-                  if(var10 != null && var10.b <= 0) {
+                  if(var10 != null && var10.count <= 0) {
                      var10 = null;
                   }
                } else {
-                  var10 = class_amt.a(var9, var6.k().a(1), var7.getOpposite());
+                  var10 = class_amt.a(var9, var6.clone().a(1), var7.getOpposite());
                   if(var10 == null) {
-                     var10 = var6.k();
-                     if(--var10.b <= 0) {
+                     var10 = var6.clone();
+                     if(--var10.count <= 0) {
                         var10 = null;
                      }
                   } else {
-                     var10 = var6.k();
+                     var10 = var6.clone();
                   }
                }
 

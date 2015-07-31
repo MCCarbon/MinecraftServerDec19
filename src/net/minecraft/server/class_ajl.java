@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -58,7 +58,7 @@ public class class_ajl extends class_ago {
          }
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            a(var1, var2, new class_aas(Items.bA));
+            a(var1, var2, new ItemStack(Items.bA));
          }
 
       }

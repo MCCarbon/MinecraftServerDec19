@@ -9,7 +9,7 @@ import net.minecraft.server.class_ary;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_aso;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 
 public class class_arx extends class_ask {
    private int d = 20;
@@ -94,11 +94,11 @@ public class class_arx extends class_ask {
          return this.c;
       }
 
-      public void a(class_dn var1) {
+      public void a(NBTTagCompound var1) {
          super.a(var1);
       }
 
-      public void b(class_dn var1) {
+      public void b(NBTTagCompound var1) {
          super.b(var1);
       }
    }

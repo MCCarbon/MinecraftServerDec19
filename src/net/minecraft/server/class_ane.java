@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
@@ -43,7 +43,7 @@ public class class_ane extends class_ahi {
       return false;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
       var1.a((BlockPosition)var2, (IBlockData)var3.set(b, a(var1, var2, var4)), 2);
       if(!var1.D) {
          this.e(var1, var2, var3);

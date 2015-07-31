@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.World;
@@ -16,7 +16,7 @@ import net.minecraft.server.class_awg;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_gm;
 import net.minecraft.server.MinecraftKey;
@@ -336,42 +336,42 @@ public class class_xd extends class_pr implements class_xi {
       return var3;
    }
 
-   public void b(class_dn var1) {
-      var1.a("xTile", (short)this.h);
-      var1.a("yTile", (short)this.i);
-      var1.a("zTile", (short)this.as);
-      var1.a("life", (short)this.av);
+   public void b(NBTTagCompound var1) {
+      var1.put("xTile", (short)this.h);
+      var1.put("yTile", (short)this.i);
+      var1.put("zTile", (short)this.as);
+      var1.put("life", (short)this.av);
       MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.at);
-      var1.a("inTile", var2 == null?"":var2.toString());
-      var1.a("inData", (byte)this.au);
-      var1.a("shake", (byte)this.d);
-      var1.a("inGround", (byte)(this.a?1:0));
-      var1.a("pickup", (byte)this.c);
-      var1.a("damage", this.ax);
+      var1.put("inTile", var2 == null?"":var2.toString());
+      var1.put("inData", (byte)this.au);
+      var1.put("shake", (byte)this.d);
+      var1.put("inGround", (byte)(this.a?1:0));
+      var1.put("pickup", (byte)this.c);
+      var1.put("damage", this.ax);
    }
 
-   public void a(class_dn var1) {
-      this.h = var1.f("xTile");
-      this.i = var1.f("yTile");
-      this.as = var1.f("zTile");
-      this.av = var1.f("life");
-      if(var1.b("inTile", 8)) {
-         this.at = Block.getByName(var1.k("inTile"));
+   public void a(NBTTagCompound var1) {
+      this.h = var1.getShort("xTile");
+      this.i = var1.getShort("yTile");
+      this.as = var1.getShort("zTile");
+      this.av = var1.getShort("life");
+      if(var1.hasOfType("inTile", 8)) {
+         this.at = Block.getByName(var1.getString("inTile"));
       } else {
-         this.at = Block.getById(var1.e("inTile") & 255);
+         this.at = Block.getById(var1.getByte("inTile") & 255);
       }
 
-      this.au = var1.e("inData") & 255;
-      this.d = var1.e("shake") & 255;
-      this.a = var1.e("inGround") == 1;
-      if(var1.b("damage", 99)) {
-         this.ax = var1.j("damage");
+      this.au = var1.getByte("inData") & 255;
+      this.d = var1.getByte("shake") & 255;
+      this.a = var1.getByte("inGround") == 1;
+      if(var1.hasOfType("damage", 99)) {
+         this.ax = var1.getDouble("damage");
       }
 
-      if(var1.b("pickup", 99)) {
-         this.c = var1.e("pickup");
-      } else if(var1.b("player", 99)) {
-         this.c = var1.o("player")?1:0;
+      if(var1.hasOfType("pickup", 99)) {
+         this.c = var1.getByte("pickup");
+      } else if(var1.hasOfType("player", 99)) {
+         this.c = var1.getBoolean("player")?1:0;
       }
 
    }
@@ -392,8 +392,8 @@ public class class_xd extends class_pr implements class_xi {
       }
    }
 
-   protected class_aas j() {
-      return new class_aas(Items.g);
+   protected ItemStack j() {
+      return new ItemStack(Items.g);
    }
 
    protected boolean s_() {

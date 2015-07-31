@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
@@ -21,8 +21,8 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_xa;
 
 public class class_agb extends class_agd {
@@ -71,14 +71,14 @@ public class class_agb extends class_agd {
    public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
       class_amg var6 = var1.s(var2);
       if(var6 instanceof class_ame) {
-         class_aas var7 = new class_aas(Items.cH, 1, ((class_ame)var6).b());
-         class_dn var8 = new class_dn();
+         ItemStack var7 = new ItemStack(Items.cH, 1, ((class_ame)var6).b());
+         NBTTagCompound var8 = new NBTTagCompound();
          var6.b(var8);
-         var8.p("x");
-         var8.p("y");
-         var8.p("z");
-         var8.p("id");
-         var7.a((String)"BlockEntityTag", (class_eb)var8);
+         var8.remove("x");
+         var8.remove("y");
+         var8.remove("z");
+         var8.remove("id");
+         var7.addTag((String)"BlockEntityTag", (NBTTag)var8);
          a(var1, var2, var7);
       } else {
          super.dropNaturally(var1, var2, var3, var4, var5);
@@ -90,13 +90,13 @@ public class class_agb extends class_agd {
       return !this.e(var1, var2) && super.d(var1, var2);
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
       if(var5 instanceof class_ame) {
          class_ame var7 = (class_ame)var5;
-         class_aas var8 = new class_aas(Items.cH, 1, ((class_ame)var5).b());
-         class_dn var9 = new class_dn();
+         ItemStack var8 = new ItemStack(Items.cH, 1, ((class_ame)var5).b());
+         NBTTagCompound var9 = new NBTTagCompound();
          class_ame.a(var9, var7.b(), var7.d());
-         var8.a((String)"BlockEntityTag", (class_eb)var9);
+         var8.addTag((String)"BlockEntityTag", (NBTTag)var9);
          a(var1, var3, var8);
       } else {
          super.a(var1, var2, var3, var4, (class_amg)null, var6);

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
@@ -29,7 +29,7 @@ public class class_adu extends class_adi {
       return super.a(var1) && var1 != class_adm.s;
    }
 
-   public boolean a(class_aas var1) {
-      return var1.b() == Items.bg?true:super.a(var1);
+   public boolean a(ItemStack var1) {
+      return var1.getItem() == Items.bg?true:super.a(var1);
    }
 }

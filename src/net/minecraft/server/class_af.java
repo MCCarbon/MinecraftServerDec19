@@ -12,7 +12,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
@@ -62,7 +62,7 @@ public class class_af extends class_i {
                }
             }
 
-            class_dn var22 = new class_dn();
+            NBTTagCompound var22 = new NBTTagCompound();
             boolean var23 = false;
             if(var2.length >= 10 && var5.isTileEntity()) {
                String var13 = a(var1, var2, 9).c();
@@ -132,9 +132,9 @@ public class class_af extends class_i {
                         if(var23) {
                            class_amg var20 = var10.s(var17);
                            if(var20 != null) {
-                              var22.a("x", var17.getX());
-                              var22.a("y", var17.getY());
-                              var22.a("z", var17.getZ());
+                              var22.put("x", var17.getX());
+                              var22.put("y", var17.getY());
+                              var22.put("z", var17.getZ());
                               var20.a(var22);
                            }
                         }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
@@ -25,7 +25,7 @@ public class class_zi extends Item {
       this.a(CreativeTab.e);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       float var5 = 1.0F;
       float var6 = var3.B + (var3.z - var3.B) * var5;
       float var7 = var3.A + (var3.y - var3.A) * var5;
@@ -79,7 +79,7 @@ public class class_zi extends Item {
                }
 
                if(!var3.bH.d) {
-                  --var1.b;
+                  --var1.count;
                }
 
                var3.b(class_nc.ad[Item.getId((Item)this)]);

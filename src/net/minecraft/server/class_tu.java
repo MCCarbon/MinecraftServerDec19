@@ -4,7 +4,7 @@ import java.util.Calendar;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -159,14 +159,14 @@ public class class_tu extends class_tt {
       }
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.ac.b(a, Byte.valueOf(var1.e("BatFlags")));
+      this.ac.b(a, Byte.valueOf(var1.getByte("BatFlags")));
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("BatFlags", this.ac.a(a));
+      var1.put("BatFlags", this.ac.a(a));
    }
 
    public boolean cf() {

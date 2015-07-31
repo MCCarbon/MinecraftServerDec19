@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.World;
 import net.minecraft.server.class_nc;
@@ -35,8 +35,8 @@ public class class_aan extends Item {
       this(var1, 0.6F, var2);
    }
 
-   public class_aas a(class_aas var1, World var2, class_qa var3) {
-      --var1.b;
+   public ItemStack a(ItemStack var1, World var2, class_qa var3) {
+      --var1.count;
       if(var3 instanceof class_xa) {
          class_xa var4 = (class_xa)var3;
          var4.cn().a(this, var1);
@@ -48,22 +48,22 @@ public class class_aan extends Item {
       return var1;
    }
 
-   protected void a(class_aas var1, World var2, class_xa var3) {
+   protected void a(ItemStack var1, World var2, class_xa var3) {
       if(!var2.D && this.l != null && var2.s.nextFloat() < this.m) {
          var3.c(new class_pl(this.l));
       }
 
    }
 
-   public int e(class_aas var1) {
+   public int e(ItemStack var1) {
       return 32;
    }
 
-   public class_abz f(class_aas var1) {
-      return class_abz.b;
+   public class_abz f(ItemStack var1) {
+      return class_abz.EAT;
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(var3.j(this.k)) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);
@@ -72,11 +72,11 @@ public class class_aan extends Item {
       }
    }
 
-   public int h(class_aas var1) {
+   public int h(ItemStack var1) {
       return this.b;
    }
 
-   public float i(class_aas var1) {
+   public float i(ItemStack var1) {
       return this.c;
    }
 

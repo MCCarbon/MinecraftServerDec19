@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import net.minecraft.server.World;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_pr;
@@ -131,15 +131,15 @@ public class class_pt {
       return var2;
    }
 
-   public static class_pr a(class_dn var0, World var1) {
+   public static class_pr a(NBTTagCompound var0, World var1) {
       class_pr var2 = null;
-      if("Minecart".equals(var0.k("id"))) {
-         var0.a("id", class_vn.class_a_in_class_vn.a(var0.g("Type")).b());
-         var0.p("Type");
+      if("Minecart".equals(var0.getString("id"))) {
+         var0.put("id", class_vn.class_a_in_class_vn.a(var0.getInt("Type")).b());
+         var0.remove("Type");
       }
 
       try {
-         Class var3 = (Class)c.get(var0.k("id"));
+         Class var3 = (Class)c.get(var0.getString("id"));
          if(var3 != null) {
             var2 = (class_pr)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
          }
@@ -150,7 +150,7 @@ public class class_pt {
       if(var2 != null) {
          var2.f(var0);
       } else {
-         b.warn("Skipping Entity with id " + var0.k("id"));
+         b.warn("Skipping Entity with id " + var0.getString("id"));
       }
 
       return var2;

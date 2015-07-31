@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aea;
 import net.minecraft.server.class_nc;
@@ -21,42 +21,42 @@ public class class_yt extends class_yx {
       this.a = var3;
    }
 
-   public boolean a(class_aas var1) {
+   public boolean a(ItemStack var1) {
       return false;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       if(this.e()) {
-         this.c += Math.min(var1, this.d().b);
+         this.c += Math.min(var1, this.d().count);
       }
 
       return super.a(var1);
    }
 
-   protected void a(class_aas var1, int var2) {
+   protected void a(ItemStack var1, int var2) {
       this.c += var2;
       this.c(var1);
    }
 
-   protected void c(class_aas var1) {
+   protected void c(ItemStack var1) {
       var1.a(this.b.o, this.b, this.c);
       this.c = 0;
    }
 
-   public void a(class_xa var1, class_aas var2) {
+   public void a(class_xa var1, ItemStack var2) {
       this.c(var2);
       class_aea var3 = this.a.i();
       if(var3 != null) {
-         class_aas var4 = this.a.a(0);
-         class_aas var5 = this.a.a(1);
+         ItemStack var4 = this.a.a(0);
+         ItemStack var5 = this.a.a(1);
          if(this.a(var3, var4, var5) || this.a(var3, var5, var4)) {
             this.h.a(var3);
             var1.b(class_nc.G);
-            if(var4 != null && var4.b <= 0) {
+            if(var4 != null && var4.count <= 0) {
                var4 = null;
             }
 
-            if(var5 != null && var5.b <= 0) {
+            if(var5 != null && var5.count <= 0) {
                var5 = null;
             }
 
@@ -67,18 +67,18 @@ public class class_yt extends class_yx {
 
    }
 
-   private boolean a(class_aea var1, class_aas var2, class_aas var3) {
-      class_aas var4 = var1.a();
-      class_aas var5 = var1.b();
-      if(var2 != null && var2.b() == var4.b()) {
-         if(var5 != null && var3 != null && var5.b() == var3.b()) {
-            var2.b -= var4.b;
-            var3.b -= var5.b;
+   private boolean a(class_aea var1, ItemStack var2, ItemStack var3) {
+      ItemStack var4 = var1.a();
+      ItemStack var5 = var1.b();
+      if(var2 != null && var2.getItem() == var4.getItem()) {
+         if(var5 != null && var3 != null && var5.getItem() == var3.getItem()) {
+            var2.count -= var4.count;
+            var3.count -= var5.count;
             return true;
          }
 
          if(var5 == null && var3 == null) {
-            var2.b -= var4.b;
+            var2.count -= var4.count;
             return true;
          }
       }

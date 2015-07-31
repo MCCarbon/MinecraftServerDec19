@@ -17,7 +17,7 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pd;
@@ -1173,14 +1173,14 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       return new class_auv(var5);
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("DragonPhase", this.n().a());
+      var1.put("DragonPhase", this.n().a());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a(class_us.a(var1.g("DragonPhase")), true);
+      this.a(class_us.a(var1.getInt("DragonPhase")), true);
    }
 
    protected void cb() {

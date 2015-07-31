@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
@@ -50,8 +50,8 @@ public class class_sr extends class_rm {
       }
    }
 
-   protected boolean a(class_aas var1) {
-      return var1 == null?false:this.k.contains(var1.b());
+   protected boolean a(ItemStack var1) {
+      return var1 == null?false:this.k.contains(var1.getItem());
    }
 
    public boolean b() {

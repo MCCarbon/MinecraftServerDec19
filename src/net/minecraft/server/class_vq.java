@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_ol;
 import net.minecraft.server.EnumUsedHand;
@@ -17,7 +17,7 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xz;
 
 public abstract class class_vq extends class_vn implements class_ou {
-   private class_aas[] a = new class_aas[36];
+   private ItemStack[] a = new ItemStack[36];
    private boolean b = true;
 
    public class_vq(World var1) {
@@ -36,20 +36,20 @@ public abstract class class_vq extends class_vn implements class_ou {
 
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return this.a[var1];
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.a[var1] != null) {
-         class_aas var3;
-         if(this.a[var1].b <= var2) {
+         ItemStack var3;
+         if(this.a[var1].count <= var2) {
             var3 = this.a[var1];
             this.a[var1] = null;
             return var3;
          } else {
             var3 = this.a[var1].a(var2);
-            if(this.a[var1].b == 0) {
+            if(this.a[var1].count == 0) {
                this.a[var1] = null;
             }
 
@@ -60,9 +60,9 @@ public abstract class class_vq extends class_vn implements class_ou {
       }
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       if(this.a[var1] != null) {
-         class_aas var2 = this.a[var1];
+         ItemStack var2 = this.a[var1];
          this.a[var1] = null;
          return var2;
       } else {
@@ -70,10 +70,10 @@ public abstract class class_vq extends class_vn implements class_ou {
       }
    }
 
-   public void a(int var1, class_aas var2) {
+   public void a(int var1, ItemStack var2) {
       this.a[var1] = var2;
-      if(var2 != null && var2.b > this.q_()) {
-         var2.b = this.q_();
+      if(var2 != null && var2.count > this.q_()) {
+         var2.count = this.q_();
       }
 
    }
@@ -91,7 +91,7 @@ public abstract class class_vq extends class_vn implements class_ou {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 
@@ -116,38 +116,38 @@ public abstract class class_vq extends class_vn implements class_ou {
       super.J();
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
-      class_du var2 = new class_du();
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.a.length; ++var3) {
          if(this.a[var3] != null) {
-            class_dn var4 = new class_dn();
-            var4.a("Slot", (byte)var3);
-            this.a[var3].b(var4);
-            var2.a((class_eb)var4);
+            NBTTagCompound var4 = new NBTTagCompound();
+            var4.put("Slot", (byte)var3);
+            this.a[var3].write(var4);
+            var2.add((NBTTag)var4);
          }
       }
 
-      var1.a((String)"Items", (class_eb)var2);
+      var1.put((String)"Items", (NBTTag)var2);
    }
 
-   protected void a(class_dn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
-      class_du var2 = var1.c("Items", 10);
-      this.a = new class_aas[this.o_()];
+      NBTTagList var2 = var1.getList("Items", 10);
+      this.a = new ItemStack[this.o_()];
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         class_dn var4 = var2.b(var3);
-         int var5 = var4.e("Slot") & 255;
+      for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+         NBTTagCompound var4 = var2.getCompound(var3);
+         int var5 = var4.getByte("Slot") & 255;
          if(var5 >= 0 && var5 < this.a.length) {
-            this.a[var5] = class_aas.a(var4);
+            this.a[var5] = ItemStack.a(var4);
          }
       }
 
    }
 
-   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
+   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       if(!this.o.D) {
          var1.a((class_oj)this);
       }

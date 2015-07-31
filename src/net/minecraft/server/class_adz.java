@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aea;
 import net.minecraft.server.class_aeb;
 import net.minecraft.server.IChatBaseComponent;
@@ -15,7 +15,7 @@ public interface class_adz {
 
    void a(class_aea var1);
 
-   void a_(class_aas var1);
+   void a_(ItemStack var1);
 
    IChatBaseComponent f_();
 }

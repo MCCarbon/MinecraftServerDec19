@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
@@ -89,9 +89,9 @@ public class class_wq extends class_wi implements class_wk {
          if(this.n()) {
             if(this.bt-- <= 0) {
                this.a(false);
-               class_aas var6 = this.bA();
-               this.a(class_pw.a, (class_aas)null);
-               if(var6 != null && var6.b() == Items.bB) {
+               ItemStack var6 = this.bA();
+               this.a(class_pw.a, (ItemStack)null);
+               if(var6 != null && var6.getItem() == Items.bB) {
                   List var5 = class_abe.h(var6);
                   if(var5 != null) {
                      Iterator var3 = var5.iterator();
@@ -118,7 +118,7 @@ public class class_wq extends class_wi implements class_wk {
             }
 
             if(var1 != null) {
-               this.a(class_pw.a, class_abe.a(new class_aas(Items.bB), var1));
+               this.a(class_pw.a, class_abe.a(new ItemStack(Items.bB), var1));
                this.bt = this.bA().l();
                this.a(true);
                class_ql var2 = this.a(class_wl.d);
@@ -181,7 +181,7 @@ public class class_wq extends class_wi implements class_wk {
             var12 = class_acf.H;
          }
 
-         class_xs var13 = new class_xs(this.o, this, class_abe.a(new class_aas(Items.bC), var12));
+         class_xs var13 = new class_xs(this.o, this, class_abe.a(new ItemStack(Items.bC), var12));
          var13.z -= -20.0F;
          var13.c(var5, var7 + (double)(var11 * 0.2F), var9, 0.75F, 8.0F);
          this.o.a((class_pr)var13);

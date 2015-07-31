@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
@@ -9,7 +9,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
@@ -64,7 +64,7 @@ public class class_vr extends class_vn {
    public void a(class_pc var1) {
       super.a(var1);
       if(!var1.c() && this.o.R().b("doEntityDrops")) {
-         this.a(new class_aas(Blocks.FURNACE, 1), 0.0F);
+         this.a(new ItemStack(Blocks.FURNACE, 1), 0.0F);
       }
 
    }
@@ -109,10 +109,10 @@ public class class_vr extends class_vn {
       super.o();
    }
 
-   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
-      if(var2 != null && var2.b() == Items.j) {
+   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
+      if(var2 != null && var2.getItem() == Items.j) {
          if(!var1.bH.d) {
-            --var2.b;
+            --var2.count;
          }
 
          this.d += 3600;
@@ -123,18 +123,18 @@ public class class_vr extends class_vn {
       return true;
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("PushX", this.a);
-      var1.a("PushZ", this.b);
-      var1.a("Fuel", (short)this.d);
+      var1.put("PushX", this.a);
+      var1.put("PushZ", this.b);
+      var1.put("Fuel", (short)this.d);
    }
 
-   protected void a(class_dn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.j("PushX");
-      this.b = var1.j("PushZ");
-      this.d = var1.f("Fuel");
+      this.a = var1.getDouble("PushX");
+      this.b = var1.getDouble("PushZ");
+      this.d = var1.getShort("Fuel");
    }
 
    protected boolean j() {

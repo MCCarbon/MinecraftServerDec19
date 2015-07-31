@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
@@ -46,9 +46,9 @@ public class class_akf extends Block {
       return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?var2.a():class_akf.class_a_in_class_akf.c.a();
    }
 
-   protected class_aas i(IBlockData var1) {
+   protected ItemStack i(IBlockData var1) {
       class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.get(a);
-      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.i(var1):new class_aas(Item.getByBlock((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
+      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.i(var1):new ItemStack(Item.getByBlock((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {

@@ -3,12 +3,12 @@ package net.minecraft.server;
 import com.google.common.collect.Sets;
 import java.util.Set;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_qa;
@@ -125,15 +125,15 @@ public class class_tx extends class_tw {
       return new class_tx(this.o);
    }
 
-   public boolean d(class_aas var1) {
-      return var1 != null && bA.contains(var1.b());
+   public boolean d(ItemStack var1) {
+      return var1 != null && bA.contains(var1.getItem());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.bz = var1.o("IsChickenJockey");
-      if(var1.d("EggLayTime")) {
-         this.by = var1.g("EggLayTime");
+      this.bz = var1.getBoolean("IsChickenJockey");
+      if(var1.has("EggLayTime")) {
+         this.by = var1.getInt("EggLayTime");
       }
 
    }
@@ -142,10 +142,10 @@ public class class_tx extends class_tw {
       return this.cA()?10:super.b(var1);
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("IsChickenJockey", this.bz);
-      var1.a("EggLayTime", this.by);
+      var1.put("IsChickenJockey", this.bz);
+      var1.put("EggLayTime", this.by);
    }
 
    protected boolean E() {

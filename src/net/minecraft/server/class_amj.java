@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.class_n;
@@ -39,18 +39,18 @@ public class class_amj extends class_amg {
       }
    };
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       this.a.a(var1);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.a.b(var1);
    }
 
    public Packet z_() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
       return new class_ft(this.c, 2, var1);
    }

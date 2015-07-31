@@ -1,36 +1,36 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.World;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_yg;
 
 public class class_acv implements class_acs {
    private final int a;
    private final int b;
-   private final class_aas[] c;
-   private final class_aas d;
+   private final ItemStack[] c;
+   private final ItemStack d;
    private boolean e;
 
-   public class_acv(int var1, int var2, class_aas[] var3, class_aas var4) {
+   public class_acv(int var1, int var2, ItemStack[] var3, ItemStack var4) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
       this.d = var4;
    }
 
-   public class_aas b() {
+   public ItemStack b() {
       return this.d;
    }
 
-   public class_aas[] b(class_yg var1) {
-      class_aas[] var2 = new class_aas[var1.o_()];
+   public ItemStack[] b(class_yg var1) {
+      ItemStack[] var2 = new ItemStack[var1.o_()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         class_aas var4 = var1.a(var3);
-         if(var4 != null && var4.b().r()) {
-            var2[var3] = new class_aas(var4.b().q());
+         ItemStack var4 = var1.a(var3);
+         if(var4 != null && var4.getItem().r()) {
+            var2[var3] = new ItemStack(var4.getItem().q());
          }
       }
 
@@ -58,7 +58,7 @@ public class class_acv implements class_acs {
          for(int var6 = 0; var6 < 3; ++var6) {
             int var7 = var5 - var2;
             int var8 = var6 - var3;
-            class_aas var9 = null;
+            ItemStack var9 = null;
             if(var7 >= 0 && var8 >= 0 && var7 < this.a && var8 < this.b) {
                if(var4) {
                   var9 = this.c[this.a - var7 - 1 + var8 * this.a];
@@ -67,13 +67,13 @@ public class class_acv implements class_acs {
                }
             }
 
-            class_aas var10 = var1.c(var5, var6);
+            ItemStack var10 = var1.c(var5, var6);
             if(var10 != null || var9 != null) {
                if(var10 == null && var9 != null || var10 != null && var9 == null) {
                   return false;
                }
 
-               if(var9.b() != var10.b()) {
+               if(var9.getItem() != var10.getItem()) {
                   return false;
                }
 
@@ -87,13 +87,13 @@ public class class_acv implements class_acs {
       return true;
    }
 
-   public class_aas a(class_yg var1) {
-      class_aas var2 = this.b().k();
+   public ItemStack a(class_yg var1) {
+      ItemStack var2 = this.b().clone();
       if(this.e) {
          for(int var3 = 0; var3 < var1.o_(); ++var3) {
-            class_aas var4 = var1.a(var3);
-            if(var4 != null && var4.n()) {
-               var2.d((class_dn)var4.o().b());
+            ItemStack var4 = var1.a(var3);
+            if(var4 != null && var4.hasTag()) {
+               var2.setTag((NBTTagCompound)var4.getTag().clone());
             }
          }
       }

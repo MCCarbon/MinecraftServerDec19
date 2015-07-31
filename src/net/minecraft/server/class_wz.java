@@ -3,15 +3,15 @@ package net.minecraft.server;
 import java.util.Arrays;
 import java.util.concurrent.Callable;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
@@ -21,21 +21,21 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_za;
 
 public class class_wz implements class_oj {
-   public final class_aas[] a = new class_aas[36];
-   public final class_aas[] b = new class_aas[4];
-   public final class_aas[] c = new class_aas[1];
-   private final class_aas[][] g;
+   public final ItemStack[] a = new ItemStack[36];
+   public final ItemStack[] b = new ItemStack[4];
+   public final ItemStack[] c = new ItemStack[1];
+   private final ItemStack[][] g;
    public int d;
    public class_xa e;
-   private class_aas h;
+   private ItemStack h;
    public boolean f;
 
    public class_wz(class_xa var1) {
-      this.g = new class_aas[][]{this.a, this.b, this.c};
+      this.g = new ItemStack[][]{this.a, this.b, this.c};
       this.e = var1;
    }
 
-   public class_aas h() {
+   public ItemStack h() {
       return this.d < 9 && this.d >= 0?this.a[this.d]:null;
    }
 
@@ -43,9 +43,9 @@ public class class_wz implements class_oj {
       return 9;
    }
 
-   private int d(class_aas var1) {
+   private int d(ItemStack var1) {
       for(int var2 = 0; var2 < this.a.length; ++var2) {
-         if(this.a[var2] != null && this.a[var2].b() == var1.b() && this.a[var2].d() && this.a[var2].b < this.a[var2].c() && this.a[var2].b < this.q_() && (!this.a[var2].f() || this.a[var2].i() == var1.i()) && class_aas.a(this.a[var2], var1)) {
+         if(this.a[var2] != null && this.a[var2].getItem() == var1.getItem() && this.a[var2].d() && this.a[var2].count < this.a[var2].c() && this.a[var2].count < this.q_() && (!this.a[var2].f() || this.a[var2].i() == var1.i()) && ItemStack.a(this.a[var2], var1)) {
             return var2;
          }
       }
@@ -63,19 +63,19 @@ public class class_wz implements class_oj {
       return -1;
    }
 
-   public int a(Item var1, int var2, int var3, class_dn var4) {
+   public int a(Item var1, int var2, int var3, NBTTagCompound var4) {
       int var5 = 0;
 
       int var6;
       for(var6 = 0; var6 < this.o_(); ++var6) {
-         class_aas var7 = this.a(var6);
-         if(var7 != null && (var1 == null || var7.b() == var1) && (var2 <= -1 || var7.i() == var2) && (var4 == null || class_dy.a(var4, var7.o(), true))) {
-            int var8 = var3 <= 0?var7.b:Math.min(var3 - var5, var7.b);
+         ItemStack var7 = this.a(var6);
+         if(var7 != null && (var1 == null || var7.getItem() == var1) && (var2 <= -1 || var7.i() == var2) && (var4 == null || class_dy.a(var4, var7.getTag(), true))) {
+            int var8 = var3 <= 0?var7.count:Math.min(var3 - var5, var7.count);
             var5 += var8;
             if(var3 != 0) {
-            	var7.b -= var8;
-               if(var7.b == 0) {
-                  this.a(var6, (class_aas)null);
+            	var7.count -= var8;
+               if(var7.count == 0) {
+                  this.a(var6, (ItemStack)null);
                }
 
                if(var3 > 0 && var5 >= var3) {
@@ -86,7 +86,7 @@ public class class_wz implements class_oj {
       }
 
       if(this.h != null) {
-         if(var1 != null && this.h.b() != var1) {
+         if(var1 != null && this.h.getItem() != var1) {
             return var5;
          }
 
@@ -94,15 +94,15 @@ public class class_wz implements class_oj {
             return var5;
          }
 
-         if(var4 != null && !class_dy.a(var4, this.h.o(), true)) {
+         if(var4 != null && !class_dy.a(var4, this.h.getTag(), true)) {
             return var5;
          }
 
-         var6 = var3 <= 0?this.h.b:Math.min(var3 - var5, this.h.b);
+         var6 = var3 <= 0?this.h.count:Math.min(var3 - var5, this.h.count);
          var5 += var6;
          if(var3 != 0) {
-            this.h.b -= var6;
-            if(this.h.b == 0) {
+            this.h.count -= var6;
+            if(this.h.count == 0) {
                this.h = null;
             }
 
@@ -115,9 +115,9 @@ public class class_wz implements class_oj {
       return var5;
    }
 
-   private int e(class_aas var1) {
-      Item var2 = var1.b();
-      int var3 = var1.b;
+   private int e(ItemStack var1) {
+      Item var2 = var1.getItem();
+      int var3 = var1.count;
       int var4 = this.d(var1);
       if(var4 < 0) {
          var4 = this.j();
@@ -127,26 +127,26 @@ public class class_wz implements class_oj {
          return var3;
       } else {
          if(this.a[var4] == null) {
-            this.a[var4] = new class_aas(var2, 0, var1.i());
-            if(var1.n()) {
-               this.a[var4].d((class_dn)var1.o().b());
+            this.a[var4] = new ItemStack(var2, 0, var1.i());
+            if(var1.hasTag()) {
+               this.a[var4].setTag((NBTTagCompound)var1.getTag().clone());
             }
          }
 
          int var5 = var3;
-         if(var3 > this.a[var4].c() - this.a[var4].b) {
-            var5 = this.a[var4].c() - this.a[var4].b;
+         if(var3 > this.a[var4].c() - this.a[var4].count) {
+            var5 = this.a[var4].c() - this.a[var4].count;
          }
 
-         if(var5 > this.q_() - this.a[var4].b) {
-            var5 = this.q_() - this.a[var4].b;
+         if(var5 > this.q_() - this.a[var4].count) {
+            var5 = this.q_() - this.a[var4].count;
          }
 
          if(var5 == 0) {
             return var3;
          } else {
             var3 -= var5;
-            this.a[var4].b += var5;
+            this.a[var4].count += var5;
             this.a[var4].c = 5;
             return var3;
          }
@@ -155,7 +155,7 @@ public class class_wz implements class_oj {
 
    public void k() {
       for(int var1 = 0; var1 < this.g.length; ++var1) {
-         class_aas[] var2 = this.g[var1];
+         ItemStack[] var2 = this.g[var1];
 
          for(int var3 = 0; var3 < var2.length; ++var3) {
             if(var2[var3] != null) {
@@ -166,44 +166,44 @@ public class class_wz implements class_oj {
 
    }
 
-   public boolean a(final class_aas var1) {
-      if(var1 != null && var1.b != 0 && var1.b() != null) {
+   public boolean a(final ItemStack var1) {
+      if(var1 != null && var1.count != 0 && var1.getItem() != null) {
          try {
             int var2;
             if(var1.g()) {
                var2 = this.j();
                if(var2 >= 0) {
-                  this.a[var2] = class_aas.b(var1);
+                  this.a[var2] = ItemStack.b(var1);
                   this.a[var2].c = 5;
-                  var1.b = 0;
+                  var1.count = 0;
                   return true;
                } else if(this.e.bH.d) {
-                  var1.b = 0;
+                  var1.count = 0;
                   return true;
                } else {
                   return false;
                }
             } else {
                do {
-                  var2 = var1.b;
-                  var1.b = this.e(var1);
-               } while(var1.b > 0 && var1.b < var2);
+                  var2 = var1.count;
+                  var1.count = this.e(var1);
+               } while(var1.count > 0 && var1.count < var2);
 
-               if(var1.b == var2 && this.e.bH.d) {
-                  var1.b = 0;
+               if(var1.count == var2 && this.e.bH.d) {
+                  var1.count = 0;
                   return true;
                } else {
-                  return var1.b < var2;
+                  return var1.count < var2;
                }
             }
          } catch (Throwable var5) {
             class_b var3 = class_b.a(var5, "Adding item to inventory");
             class_c var4 = var3.a("Item being added");
-            var4.a((String)"Item ID", (Object)Integer.valueOf(Item.getId(var1.b())));
+            var4.a((String)"Item ID", (Object)Integer.valueOf(Item.getId(var1.getItem())));
             var4.a((String)"Item data", (Object)Integer.valueOf(var1.i()));
             var4.a("Item name", new Callable() {
                public String a() throws Exception {
-                  return var1.q();
+                  return var1.getDisplayName();
                }
 
                // $FF: synthetic method
@@ -218,13 +218,13 @@ public class class_wz implements class_oj {
       }
    }
 
-   public class_aas a(int var1, int var2) {
-      class_aas[] var3 = null;
-      class_aas[][] var4 = this.g;
+   public ItemStack a(int var1, int var2) {
+      ItemStack[] var3 = null;
+      ItemStack[][] var4 = this.g;
       int var5 = var4.length;
 
       for(int var6 = 0; var6 < var5; ++var6) {
-         class_aas[] var7 = var4[var6];
+         ItemStack[] var7 = var4[var6];
          if(var1 < var7.length) {
             var3 = var7;
             break;
@@ -234,14 +234,14 @@ public class class_wz implements class_oj {
       }
 
       if(var3 != null && var3[var1] != null) {
-         class_aas var8;
-         if(var3[var1].b <= var2) {
+         ItemStack var8;
+         if(var3[var1].count <= var2) {
             var8 = var3[var1];
             var3[var1] = null;
             return var8;
          } else {
             var8 = var3[var1].a(var2);
-            if(var3[var1].b == 0) {
+            if(var3[var1].count == 0) {
                var3[var1] = null;
             }
 
@@ -252,13 +252,13 @@ public class class_wz implements class_oj {
       }
    }
 
-   public class_aas b(int var1) {
-      class_aas[] var2 = null;
-      class_aas[][] var3 = this.g;
+   public ItemStack b(int var1) {
+      ItemStack[] var2 = null;
+      ItemStack[][] var3 = this.g;
       int var4 = var3.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         class_aas[] var6 = var3[var5];
+         ItemStack[] var6 = var3[var5];
          if(var1 < var6.length) {
             var2 = var6;
             break;
@@ -270,19 +270,19 @@ public class class_wz implements class_oj {
       if(var2 != null && var2[var1] != null) {
          Object var7 = var2[var1];
          var2[var1] = null;
-         return (class_aas)var7;
+         return (ItemStack)var7;
       } else {
          return null;
       }
    }
 
-   public void a(int var1, class_aas var2) {
-      class_aas[] var3 = null;
-      class_aas[][] var4 = this.g;
+   public void a(int var1, ItemStack var2) {
+      ItemStack[] var3 = null;
+      ItemStack[][] var4 = this.g;
       int var5 = var4.length;
 
       for(int var6 = 0; var6 < var5; ++var6) {
-         class_aas[] var7 = var4[var6];
+         ItemStack[] var7 = var4[var6];
          if(var1 < var7.length) {
             var3 = var7;
             break;
@@ -306,48 +306,48 @@ public class class_wz implements class_oj {
       return var2;
    }
 
-   public class_du a(class_du var1) {
+   public NBTTagList a(NBTTagList var1) {
       int var2;
-      class_dn var3;
+      NBTTagCompound var3;
       for(var2 = 0; var2 < this.a.length; ++var2) {
          if(this.a[var2] != null) {
-            var3 = new class_dn();
-            var3.a("Slot", (byte)var2);
-            this.a[var2].b(var3);
-            var1.a((class_eb)var3);
+            var3 = new NBTTagCompound();
+            var3.put("Slot", (byte)var2);
+            this.a[var2].write(var3);
+            var1.add((NBTTag)var3);
          }
       }
 
       for(var2 = 0; var2 < this.b.length; ++var2) {
          if(this.b[var2] != null) {
-            var3 = new class_dn();
-            var3.a("Slot", (byte)(var2 + 100));
-            this.b[var2].b(var3);
-            var1.a((class_eb)var3);
+            var3 = new NBTTagCompound();
+            var3.put("Slot", (byte)(var2 + 100));
+            this.b[var2].write(var3);
+            var1.add((NBTTag)var3);
          }
       }
 
       for(var2 = 0; var2 < this.c.length; ++var2) {
          if(this.c[var2] != null) {
-            var3 = new class_dn();
-            var3.a("Slot", (byte)(var2 + 150));
-            this.c[var2].b(var3);
-            var1.a((class_eb)var3);
+            var3 = new NBTTagCompound();
+            var3.put("Slot", (byte)(var2 + 150));
+            this.c[var2].write(var3);
+            var1.add((NBTTag)var3);
          }
       }
 
       return var1;
    }
 
-   public void b(class_du var1) {
+   public void b(NBTTagList var1) {
       Arrays.fill(this.a, (Object)null);
       Arrays.fill(this.b, (Object)null);
       Arrays.fill(this.c, (Object)null);
 
-      for(int var2 = 0; var2 < var1.c(); ++var2) {
-         class_dn var3 = var1.b(var2);
-         int var4 = var3.e("Slot") & 255;
-         class_aas var5 = class_aas.a(var3);
+      for(int var2 = 0; var2 < var1.getSize(); ++var2) {
+         NBTTagCompound var3 = var1.getCompound(var2);
+         int var4 = var3.getByte("Slot") & 255;
+         ItemStack var5 = ItemStack.a(var3);
          if(var5 != null) {
             if(var4 >= 0 && var4 < this.a.length) {
                this.a[var4] = var5;
@@ -365,13 +365,13 @@ public class class_wz implements class_oj {
       return this.a.length + this.b.length + this.c.length;
    }
 
-   public class_aas a(int var1) {
-      class_aas[] var2 = null;
-      class_aas[][] var3 = this.g;
+   public ItemStack a(int var1) {
+      ItemStack[] var2 = null;
+      ItemStack[][] var3 = this.g;
       int var4 = var3.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         class_aas[] var6 = var3[var5];
+         ItemStack[] var6 = var3[var5];
          if(var1 < var6.length) {
             var2 = var6;
             break;
@@ -403,7 +403,7 @@ public class class_wz implements class_oj {
       if(var1.getMaterial().isAlwaysDestroyable()) {
          return true;
       } else {
-         class_aas var2 = this.a(this.d);
+         ItemStack var2 = this.a(this.d);
          return var2 != null?var2.b(var1):false;
       }
    }
@@ -412,8 +412,8 @@ public class class_wz implements class_oj {
       int var1 = 0;
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         if(this.b[var2] != null && this.b[var2].b() instanceof class_za) {
-            int var3 = ((class_za)this.b[var2].b()).c;
+         if(this.b[var2] != null && this.b[var2].getItem() instanceof class_za) {
+            int var3 = ((class_za)this.b[var2].getItem()).c;
             var1 += var3;
          }
       }
@@ -428,9 +428,9 @@ public class class_wz implements class_oj {
       }
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         if(this.b[var2] != null && this.b[var2].b() instanceof class_za) {
+         if(this.b[var2] != null && this.b[var2].getItem() instanceof class_za) {
             this.b[var2].a((int)var1, (class_qa)this.e);
-            if(this.b[var2].b == 0) {
+            if(this.b[var2].count == 0) {
                this.b[var2] = null;
             }
          }
@@ -439,11 +439,11 @@ public class class_wz implements class_oj {
    }
 
    public void n() {
-      class_aas[][] var1 = this.g;
+      ItemStack[][] var1 = this.g;
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_aas[] var4 = var1[var3];
+         ItemStack[] var4 = var1[var3];
 
          for(int var5 = 0; var5 < var4.length; ++var5) {
             if(var4[var5] != null) {
@@ -459,11 +459,11 @@ public class class_wz implements class_oj {
       this.f = true;
    }
 
-   public void b(class_aas var1) {
+   public void b(ItemStack var1) {
       this.h = var1;
    }
 
-   public class_aas o() {
+   public ItemStack o() {
       return this.h;
    }
 
@@ -471,12 +471,12 @@ public class class_wz implements class_oj {
       return this.e.I?false:var1.h(this.e) <= 64.0D;
    }
 
-   public boolean c(class_aas var1) {
-      class_aas[][] var2 = this.g;
+   public boolean c(ItemStack var1) {
+      ItemStack[][] var2 = this.g;
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         class_aas[] var5 = var2[var4];
+         ItemStack[] var5 = var2[var4];
 
          for(int var6 = 0; var6 < var5.length; ++var6) {
             if(var5[var6] != null && var5[var6].a(var1)) {
@@ -494,7 +494,7 @@ public class class_wz implements class_oj {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 
@@ -518,11 +518,11 @@ public class class_wz implements class_oj {
    }
 
    public void l() {
-      class_aas[][] var1 = this.g;
+      ItemStack[][] var1 = this.g;
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_aas[] var4 = var1[var3];
+         ItemStack[] var4 = var1[var3];
 
          for(int var5 = 0; var5 < var4.length; ++var5) {
             var4[var5] = null;

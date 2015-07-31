@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_aax;
 import net.minecraft.server.World;
@@ -8,8 +8,8 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -46,7 +46,7 @@ public class class_va extends class_uz {
       } else if(!var1.c() && this.o() != null) {
          if(!this.o.D) {
             this.a(var1.j(), false);
-            this.a((class_aas)null);
+            this.a((ItemStack)null);
          }
 
          return true;
@@ -69,7 +69,7 @@ public class class_va extends class_uz {
 
    public void a(class_pr var1, boolean var2) {
       if(this.o.R().b("doEntityDrops")) {
-         class_aas var3 = this.o();
+         ItemStack var3 = this.o();
          if(var1 instanceof class_xa) {
             class_xa var4 = (class_xa)var1;
             if(var4.bH.d) {
@@ -79,11 +79,11 @@ public class class_va extends class_uz {
          }
 
          if(var2) {
-            this.a(new class_aas(Items.bS), 0.0F);
+            this.a(new ItemStack(Items.bS), 0.0F);
          }
 
          if(var3 != null && this.V.nextFloat() < this.e) {
-            var3 = var3.k();
+            var3 = var3.clone();
             this.b(var3);
             this.a(var3, 0.0F);
          }
@@ -91,30 +91,30 @@ public class class_va extends class_uz {
       }
    }
 
-   private void b(class_aas var1) {
+   private void b(ItemStack var1) {
       if(var1 != null) {
-         if(var1.b() == Items.bf) {
-            class_avf var2 = ((class_aax)var1.b()).a(var1, this.o);
+         if(var1.getItem() == Items.bf) {
+            class_avf var2 = ((class_aax)var1.getItem()).a(var1, this.o);
             var2.h.remove("frame-" + this.getId());
          }
 
-         var1.a((class_va)null);
+         var1.setItemFrame((class_va)null);
       }
    }
 
-   public class_aas o() {
+   public ItemStack o() {
       return this.H().f(c);
    }
 
-   public void a(class_aas var1) {
+   public void a(ItemStack var1) {
       this.a(var1, true);
    }
 
-   private void a(class_aas var1, boolean var2) {
+   private void a(ItemStack var1, boolean var2) {
       if(var1 != null) {
-         var1 = var1.k();
-         var1.b = 1;
-         var1.a(this);
+         var1 = var1.clone();
+         var1.count = 1;
+         var1.setItemFrame(this);
       }
 
       this.H().b(c, var1);
@@ -141,26 +141,26 @@ public class class_va extends class_uz {
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       if(this.o() != null) {
-         var1.a((String)"Item", (class_eb)this.o().b(new class_dn()));
-         var1.a("ItemRotation", (byte)this.p());
-         var1.a("ItemDropChance", this.e);
+         var1.put((String)"Item", (NBTTag)this.o().write(new NBTTagCompound()));
+         var1.put("ItemRotation", (byte)this.p());
+         var1.put("ItemDropChance", this.e);
       }
 
       super.b(var1);
    }
 
-   public void a(class_dn var1) {
-      class_dn var2 = var1.n("Item");
-      if(var2 != null && !var2.c_()) {
-         this.a(class_aas.a(var2), false);
-         this.a(var1.e("ItemRotation"), false);
-         if(var1.b("ItemDropChance", 99)) {
-            this.e = var1.i("ItemDropChance");
+   public void a(NBTTagCompound var1) {
+      NBTTagCompound var2 = var1.getCompound("Item");
+      if(var2 != null && !var2.isEmpty()) {
+         this.a(ItemStack.a(var2), false);
+         this.a(var1.getByte("ItemRotation"), false);
+         if(var1.hasOfType("ItemDropChance", 99)) {
+            this.e = var1.getFloat("ItemDropChance");
          }
 
-         if(var1.d("Direction")) {
+         if(var1.has("Direction")) {
             this.a(this.p() * 2, false);
          }
       }
@@ -168,12 +168,12 @@ public class class_va extends class_uz {
       super.a(var1);
    }
 
-   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
+   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       if(this.o() == null) {
          if(var2 != null && !this.o.D) {
             this.a(var2);
             if(!var1.bH.d) {
-               --var2.b;
+               --var2.count;
             }
          }
       } else if(!this.o.D) {

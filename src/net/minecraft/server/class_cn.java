@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ahk;
 import net.minecraft.server.class_ck;
@@ -11,22 +11,22 @@ import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vm;
 
 public class class_cn implements class_cr {
-   public final class_aas a(class_ck var1, class_aas var2) {
-      class_aas var3 = this.b(var1, var2);
+   public final ItemStack a(class_ck var1, ItemStack var2) {
+      ItemStack var3 = this.b(var1, var2);
       this.a(var1);
       this.a(var1, class_ahk.b(var1.f()));
       return var3;
    }
 
-   protected class_aas b(class_ck var1, class_aas var2) {
+   protected ItemStack b(class_ck var1, ItemStack var2) {
       EnumDirection var3 = class_ahk.b(var1.f());
       class_cz var4 = class_ahk.a(var1);
-      class_aas var5 = var2.a(1);
+      ItemStack var5 = var2.a(1);
       a(var1.i(), var5, 6, var3, var4);
       return var2;
    }
 
-   public static void a(World var0, class_aas var1, int var2, EnumDirection var3, class_cz var4) {
+   public static void a(World var0, ItemStack var1, int var2, EnumDirection var3, class_cz var4) {
       double var5 = var4.a();
       double var7 = var4.b();
       double var9 = var4.c();

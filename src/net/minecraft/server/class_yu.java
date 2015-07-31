@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_amp;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_ow;
 import net.minecraft.server.class_xa;
 
@@ -19,32 +19,32 @@ public class class_yu extends class_ow {
       this.a = var1;
    }
 
-   public void a(class_du var1) {
+   public void a(NBTTagList var1) {
       int var2;
       for(var2 = 0; var2 < this.o_(); ++var2) {
-         this.a(var2, (class_aas)null);
+         this.a(var2, (ItemStack)null);
       }
 
-      for(var2 = 0; var2 < var1.c(); ++var2) {
-         class_dn var3 = var1.b(var2);
-         int var4 = var3.e("Slot") & 255;
+      for(var2 = 0; var2 < var1.getSize(); ++var2) {
+         NBTTagCompound var3 = var1.getCompound(var2);
+         int var4 = var3.getByte("Slot") & 255;
          if(var4 >= 0 && var4 < this.o_()) {
-            this.a(var4, class_aas.a(var3));
+            this.a(var4, ItemStack.a(var3));
          }
       }
 
    }
 
-   public class_du h() {
-      class_du var1 = new class_du();
+   public NBTTagList h() {
+      NBTTagList var1 = new NBTTagList();
 
       for(int var2 = 0; var2 < this.o_(); ++var2) {
-         class_aas var3 = this.a(var2);
+         ItemStack var3 = this.a(var2);
          if(var3 != null) {
-            class_dn var4 = new class_dn();
-            var4.a("Slot", (byte)var2);
-            var3.b(var4);
-            var1.a((class_eb)var4);
+            NBTTagCompound var4 = new NBTTagCompound();
+            var4.put("Slot", (byte)var2);
+            var3.write(var4);
+            var1.add((NBTTag)var4);
          }
       }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
@@ -22,7 +22,7 @@ public class class_aap extends Item {
       this.a(CreativeTab.c);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return class_oq.b;
       } else if(var6 == EnumDirection.UP) {
@@ -38,7 +38,7 @@ public class class_aap extends Item {
                   var3.a((class_pr)var11);
                }
 
-               --var1.b;
+               --var1.count;
             }
 
             return class_oq.a;

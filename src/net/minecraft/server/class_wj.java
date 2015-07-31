@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import java.util.UUID;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
@@ -94,21 +94,21 @@ public class class_wj extends class_wr {
       return this.o.a((class_awf)this.aT(), (class_pr)this) && this.o.a((class_pr)this, (class_awf)this.aT()).isEmpty() && !this.o.d(this.aT());
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Anger", (short)this.bs);
+      var1.put("Anger", (short)this.bs);
       if(this.bu != null) {
-         var1.a("HurtBy", this.bu.toString());
+         var1.put("HurtBy", this.bu.toString());
       } else {
-         var1.a("HurtBy", "");
+         var1.put("HurtBy", "");
       }
 
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.bs = var1.f("Anger");
-      String var2 = var1.k("HurtBy");
+      this.bs = var1.getShort("Anger");
+      String var2 = var1.getString("HurtBy");
       if(!var2.isEmpty()) {
          this.bu = UUID.fromString(var2);
          class_xa var3 = this.o.b(this.bu);
@@ -175,7 +175,7 @@ public class class_wj extends class_wr {
 
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
       return false;
    }
 
@@ -184,7 +184,7 @@ public class class_wj extends class_wr {
    }
 
    protected void a(class_on var1) {
-      this.a((class_pw)class_pw.a, (class_aas)(new class_aas(Items.D)));
+      this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
    }
 
    public class_qd a(class_on var1, class_qd var2) {

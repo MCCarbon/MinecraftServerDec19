@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -35,7 +35,7 @@ public class class_ajs extends class_aja {
 
    protected void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
       if(var3.get(Q) == class_ajw.class_a_in_class_ajw.a && var1.s.nextInt(var4) == 0) {
-         a(var1, var2, new class_aas(Items.e));
+         a(var1, var2, new ItemStack(Items.e));
       }
 
    }
@@ -44,8 +44,8 @@ public class class_ajs extends class_aja {
       return var1.get(Q) == class_ajw.class_a_in_class_ajw.d?40:super.d(var1);
    }
 
-   protected class_aas i(IBlockData var1) {
-      return new class_aas(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a());
+   protected ItemStack i(IBlockData var1) {
+      return new ItemStack(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a());
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -78,10 +78,10 @@ public class class_ajs extends class_aja {
       return ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a();
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
-      if(!var1.D && var6 != null && var6.b() == Items.bg) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
+      if(!var1.D && var6 != null && var6.getItem() == Items.bg) {
          var2.b(class_nc.ab[Block.getId((Block)this)]);
-         a(var1, var3, new class_aas(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var4.get(Q)).a()));
+         a(var1, var3, new ItemStack(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var4.get(Q)).a()));
       } else {
          super.a(var1, var2, var3, var4, var5, var6);
       }

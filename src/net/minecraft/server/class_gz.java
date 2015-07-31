@@ -244,7 +244,7 @@ public class class_gz implements Packet {
       }
 
       public String toString() {
-         return Objects.toStringHelper((Object)this).add("latency", this.b).add("gameMode", this.c).add("profile", this.d).add("displayName", this.e == null?null:IChatBaseComponent.class_a_in_class_eu.a(this.e)).toString();
+         return Objects.toStringHelper((Object)this).add("latency", this.b).add("gameMode", this.c).add("profile", this.d).add("displayName", this.e == null?null:IChatBaseComponent.ChatSerializer.toJson(this.e)).toString();
       }
    }
 

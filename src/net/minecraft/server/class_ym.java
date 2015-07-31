@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_aco;
 import net.minecraft.server.class_mt;
@@ -21,29 +21,29 @@ public class class_ym extends class_yx {
       this.a = var1;
    }
 
-   public boolean a(class_aas var1) {
+   public boolean a(ItemStack var1) {
       return false;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       if(this.e()) {
-         this.b += Math.min(var1, this.d().b);
+         this.b += Math.min(var1, this.d().count);
       }
 
       return super.a(var1);
    }
 
-   public void a(class_xa var1, class_aas var2) {
+   public void a(class_xa var1, ItemStack var2) {
       this.c(var2);
       super.a(var1, var2);
    }
 
-   protected void a(class_aas var1, int var2) {
+   protected void a(ItemStack var1, int var2) {
       this.b += var2;
       this.c(var1);
    }
 
-   protected void c(class_aas var1) {
+   protected void c(ItemStack var1) {
       var1.a(this.a.o, this.a, this.b);
       if(!this.a.o.D) {
          int var2 = this.b;
@@ -68,11 +68,11 @@ public class class_ym extends class_yx {
       }
 
       this.b = 0;
-      if(var1.b() == Items.l) {
+      if(var1.getItem() == Items.l) {
          this.a.b((class_my)class_mt.k);
       }
 
-      if(var1.b() == Items.aX) {
+      if(var1.getItem() == Items.aX) {
          this.a.b((class_my)class_mt.p);
       }
 

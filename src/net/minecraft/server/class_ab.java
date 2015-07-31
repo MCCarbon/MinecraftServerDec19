@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_du;
+import net.minecraft.server.NBTTagList;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
@@ -45,7 +45,7 @@ public class class_ab extends class_i {
             throw new class_cb("commands.enchant.notFound", new Object[]{Integer.valueOf(class_adi.b(var4))});
          } else {
             int var5 = 1;
-            class_aas var6 = var3.bA();
+            ItemStack var6 = var3.bA();
             if(var6 == null) {
                throw new class_bz("commands.enchant.noItem", new Object[0]);
             } else if(!var4.a(var6)) {
@@ -55,22 +55,22 @@ public class class_ab extends class_i {
                   var5 = a(var2[2], var4.d(), var4.b());
                }
 
-               if(var6.n()) {
-                  class_du var7 = var6.p();
+               if(var6.hasTag()) {
+                  NBTTagList var7 = var6.getEnchantments();
                   if(var7 != null) {
-                     for(int var8 = 0; var8 < var7.c(); ++var8) {
-                        short var9 = var7.b(var8).f("id");
+                     for(int var8 = 0; var8 < var7.getSize(); ++var8) {
+                        short var9 = var7.getCompound(var8).getShort("id");
                         if(class_adi.c(var9) != null) {
                            class_adi var10 = class_adi.c(var9);
                            if(!var4.a(var10)) {
-                              throw new class_bz("commands.enchant.cantCombine", new Object[]{var4.d(var5), var10.d(var7.b(var8).f("lvl"))});
+                              throw new class_bz("commands.enchant.cantCombine", new Object[]{var4.d(var5), var10.d(var7.getCompound(var8).getShort("lvl"))});
                            }
                         }
                      }
                   }
                }
 
-               var6.a(var4, var5);
+               var6.addEnchantment(var4, var5);
                a(var1, this, "commands.enchant.success", new Object[0]);
                var1.a(class_n.class_a_in_class_n.d, 1);
             }

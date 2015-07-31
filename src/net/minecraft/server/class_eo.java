@@ -25,9 +25,9 @@ public class class_eo extends MessageToByteEncoder {
    }
 
    protected void a(ChannelHandlerContext var1, Packet var2, ByteBuf var3) throws Exception {
-      Integer var4 = ((EnumProtocol)var1.channel().attr(NetworkManager.c).get()).getPacketId(this.c, var2);
+      Integer var4 = ((EnumProtocol)var1.channel().attr(NetworkManager.PROTOCOL).get()).getPacketId(this.c, var2);
       if(a.isDebugEnabled()) {
-         a.debug(b, "OUT: [{}:{}] {}", new Object[]{var1.channel().attr(NetworkManager.c).get(), var4, var2.getClass().getName()});
+         a.debug(b, "OUT: [{}:{}] {}", new Object[]{var1.channel().attr(NetworkManager.PROTOCOL).get(), var4, var2.getClass().getName()});
       }
 
       if(var4 == null) {
@@ -55,6 +55,6 @@ public class class_eo extends MessageToByteEncoder {
    }
 
    static {
-      b = MarkerManager.getMarker("PACKET_SENT", NetworkManager.b);
+      b = MarkerManager.getMarker("PACKET_SENT", NetworkManager.NETWORK_MARKER_PACKETS);
    }
 }

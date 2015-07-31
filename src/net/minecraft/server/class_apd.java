@@ -8,8 +8,8 @@ import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apq;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_lg;
 
 public class class_apd extends class_aoy {
@@ -18,8 +18,8 @@ public class class_apd extends class_aoy {
    public void b() {
       this.c = new class_afg(class_aez.y, 0.0F);
       this.e = true;
-      class_dn var1 = this.b.Q().a(class_aoz.c);
-      this.g = this.b instanceof class_lg?new class_apc((class_lg)this.b, var1.n("DragonFight")):null;
+      NBTTagCompound var1 = this.b.Q().a(class_aoz.c);
+      this.g = this.b instanceof class_lg?new class_apc((class_lg)this.b, var1.getCompound("DragonFight")):null;
    }
 
    public class_aoh c() {
@@ -55,9 +55,9 @@ public class class_apd extends class_aoy {
    }
 
    public void q() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       if(this.g != null) {
-         var1.a((String)"DragonFight", (class_eb)this.g.a());
+         var1.put((String)"DragonFight", (NBTTag)this.g.a());
       }
 
       this.b.Q().a(class_aoz.c, var1);

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ms;
@@ -82,10 +82,10 @@ public class class_mt {
       F = (new class_ms("achievement.overkill", "overkill", -4, 1, Items.w, E)).b().c();
       G = (new class_ms("achievement.bookcase", "bookcase", -3, 6, Blocks.BOOKSHELF, E)).c();
       H = (new class_ms("achievement.breedCow", "breedCow", 7, -5, Items.Q, t)).c();
-      I = (new class_ms("achievement.spawnWither", "spawnWither", 7, 12, new class_aas(Items.ca, 1, 1), D)).c();
+      I = (new class_ms("achievement.spawnWither", "spawnWither", 7, 12, new ItemStack(Items.ca, 1, 1), D)).c();
       J = (new class_ms("achievement.killWither", "killWither", 7, 10, Items.cc, I)).c();
       K = (new class_ms("achievement.fullBeacon", "fullBeacon", 7, 8, Blocks.BEACON, J)).b().c();
       L = (new class_ms("achievement.exploreAllBiomes", "exploreAllBiomes", 4, 8, Items.ah, C)).a(class_ne.class).b().c();
-      M = (new class_ms("achievement.overpowered", "overpowered", 6, 4, new class_aas(Items.aq, 1, 1), o)).b().c();
+      M = (new class_ms("achievement.overpowered", "overpowered", 6, 4, new ItemStack(Items.aq, 1, 1), o)).b().c();
    }
 }

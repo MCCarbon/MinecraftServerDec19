@@ -13,7 +13,7 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_aej;
 import net.minecraft.server.class_ael;
@@ -2131,7 +2131,7 @@ public abstract class World implements class_aer {
       this.g.addAll(var1);
    }
 
-   public boolean a(Block var1, BlockPosition var2, boolean var3, EnumDirection var4, class_pr var5, class_aas var6) {
+   public boolean a(Block var1, BlockPosition var2, boolean var3, EnumDirection var4, class_pr var5, ItemStack var6) {
       Block var7 = this.p(var2).getBlock();
       class_awf var8 = var3?null:var1.a(this, var2, var1.getBlockData());
       return var8 != null && !this.a(var8, var5)?false:(var7.getMaterial() == Material.ORIENTABLE && var1 == Blocks.ANVIL?true:var7.getMaterial().isReplaceable() && var1.a(this, var2, var4, var6));

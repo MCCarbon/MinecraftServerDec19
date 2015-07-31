@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aje;
 import net.minecraft.server.class_ajw;
@@ -91,8 +91,8 @@ public class class_ajt extends class_aje {
       return new BlockStateList(this, new IBlockState[]{b, a});
    }
 
-   protected class_aas i(IBlockData var1) {
-      return new class_aas(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(b)).a());
+   protected ItemStack i(IBlockData var1) {
+      return new ItemStack(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(b)).a());
    }
 
    public int getDropData(IBlockData var1) {

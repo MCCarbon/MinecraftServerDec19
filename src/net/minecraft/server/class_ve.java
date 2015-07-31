@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aak;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.World;
@@ -16,7 +16,7 @@ import net.minecraft.server.class_awg;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.class_nc;
@@ -120,8 +120,8 @@ public class class_ve extends class_pr {
          this.b(this.y, this.z);
       } else {
          if(!this.o.D) {
-            class_aas var1 = this.b.bA();
-            if(this.b.I || !this.b.ai() || var1 == null || var1.b() != Items.aT || this.h(this.b) > 1024.0D) {
+            ItemStack var1 = this.b.bA();
+            if(this.b.I || !this.b.ai() || var1 == null || var1.getItem() != Items.aT || this.h(this.b) > 1024.0D) {
                this.J();
                this.b.bN = null;
                return;
@@ -358,28 +358,28 @@ public class class_ve extends class_pr {
       }
    }
 
-   public void b(class_dn var1) {
-      var1.a("xTile", (short)this.g);
-      var1.a("yTile", (short)this.h);
-      var1.a("zTile", (short)this.i);
+   public void b(NBTTagCompound var1) {
+      var1.put("xTile", (short)this.g);
+      var1.put("yTile", (short)this.h);
+      var1.put("zTile", (short)this.i);
       MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.as);
-      var1.a("inTile", var2 == null?"":var2.toString());
-      var1.a("shake", (byte)this.a);
-      var1.a("inGround", (byte)(this.at?1:0));
+      var1.put("inTile", var2 == null?"":var2.toString());
+      var1.put("shake", (byte)this.a);
+      var1.put("inGround", (byte)(this.at?1:0));
    }
 
-   public void a(class_dn var1) {
-      this.g = var1.f("xTile");
-      this.h = var1.f("yTile");
-      this.i = var1.f("zTile");
-      if(var1.b("inTile", 8)) {
-         this.as = Block.getByName(var1.k("inTile"));
+   public void a(NBTTagCompound var1) {
+      this.g = var1.getShort("xTile");
+      this.h = var1.getShort("yTile");
+      this.i = var1.getShort("zTile");
+      if(var1.hasOfType("inTile", 8)) {
+         this.as = Block.getByName(var1.getString("inTile"));
       } else {
-         this.as = Block.getById(var1.e("inTile") & 255);
+         this.as = Block.getById(var1.getByte("inTile") & 255);
       }
 
-      this.a = var1.e("shake") & 255;
-      this.at = var1.e("inGround") == 1;
+      this.a = var1.getByte("shake") & 255;
+      this.at = var1.getByte("inGround") == 1;
    }
 
    public int l() {
@@ -422,7 +422,7 @@ public class class_ve extends class_pr {
       }
    }
 
-   private class_aas m() {
+   private ItemStack m() {
       float var1 = this.o.s.nextFloat();
       int var2 = class_adk.f(this.b);
       int var3 = class_adk.g(this.b);
@@ -455,8 +455,8 @@ public class class_ve extends class_pr {
    }
 
    static {
-      d = Arrays.asList(new class_vf[]{(new class_vf(new class_aas(Items.V), 10)).a(0.9F), new class_vf(new class_aas(Items.aH), 10), new class_vf(new class_aas(Items.aZ), 10), new class_vf(new class_aas(Items.bB), 10), new class_vf(new class_aas(Items.H), 5), (new class_vf(new class_aas(Items.aT), 2)).a(0.9F), new class_vf(new class_aas(Items.B), 10), new class_vf(new class_aas(Items.A), 5), new class_vf(new class_aas(Items.aY, 10, class_zy.p.b()), 1), new class_vf(new class_aas(Blocks.TRIPWIRE_HOOK), 10), new class_vf(new class_aas(Items.bv), 10)});
-      e = Arrays.asList(new class_vf[]{new class_vf(new class_aas(Blocks.WATERLILY), 1), new class_vf(new class_aas(Items.cr), 1), new class_vf(new class_aas(Items.aC), 1), (new class_vf(new class_aas(Items.f), 1)).a(0.25F).a(), (new class_vf(new class_aas(Items.aT), 1)).a(0.25F).a(), (new class_vf(new class_aas(Items.aN), 1)).a()});
-      f = Arrays.asList(new class_vf[]{new class_vf(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 60), new class_vf(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.b.a()), 25), new class_vf(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.c.a()), 2), new class_vf(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.d.a()), 13)});
+      d = Arrays.asList(new class_vf[]{(new class_vf(new ItemStack(Items.V), 10)).a(0.9F), new class_vf(new ItemStack(Items.aH), 10), new class_vf(new ItemStack(Items.aZ), 10), new class_vf(new ItemStack(Items.bB), 10), new class_vf(new ItemStack(Items.H), 5), (new class_vf(new ItemStack(Items.aT), 2)).a(0.9F), new class_vf(new ItemStack(Items.B), 10), new class_vf(new ItemStack(Items.A), 5), new class_vf(new ItemStack(Items.aY, 10, class_zy.p.b()), 1), new class_vf(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new class_vf(new ItemStack(Items.bv), 10)});
+      e = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Blocks.WATERLILY), 1), new class_vf(new ItemStack(Items.cr), 1), new class_vf(new ItemStack(Items.aC), 1), (new class_vf(new ItemStack(Items.f), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aT), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aN), 1)).a()});
+      f = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 60), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.b.a()), 25), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.c.a()), 2), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.d.a()), 13)});
    }
 }

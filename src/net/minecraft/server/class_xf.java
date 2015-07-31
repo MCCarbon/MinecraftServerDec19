@@ -6,9 +6,9 @@ import net.minecraft.server.class_awg;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
@@ -126,32 +126,32 @@ public abstract class class_xf extends class_pr {
 
    protected abstract void a(class_awg var1);
 
-   public void b(class_dn var1) {
-      var1.a("xTile", (short)this.e);
-      var1.a("yTile", (short)this.f);
-      var1.a("zTile", (short)this.g);
+   public void b(NBTTagCompound var1) {
+      var1.put("xTile", (short)this.e);
+      var1.put("yTile", (short)this.f);
+      var1.put("zTile", (short)this.g);
       MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.h);
-      var1.a("inTile", var2 == null?"":var2.toString());
-      var1.a("inGround", (byte)(this.i?1:0));
-      var1.a((String)"direction", (class_eb)this.a((double[])(new double[]{this.v, this.w, this.x})));
+      var1.put("inTile", var2 == null?"":var2.toString());
+      var1.put("inGround", (byte)(this.i?1:0));
+      var1.put((String)"direction", (NBTTag)this.a((double[])(new double[]{this.v, this.w, this.x})));
    }
 
-   public void a(class_dn var1) {
-      this.e = var1.f("xTile");
-      this.f = var1.f("yTile");
-      this.g = var1.f("zTile");
-      if(var1.b("inTile", 8)) {
-         this.h = Block.getByName(var1.k("inTile"));
+   public void a(NBTTagCompound var1) {
+      this.e = var1.getShort("xTile");
+      this.f = var1.getShort("yTile");
+      this.g = var1.getShort("zTile");
+      if(var1.hasOfType("inTile", 8)) {
+         this.h = Block.getByName(var1.getString("inTile"));
       } else {
-         this.h = Block.getById(var1.e("inTile") & 255);
+         this.h = Block.getById(var1.getByte("inTile") & 255);
       }
 
-      this.i = var1.e("inGround") == 1;
-      if(var1.b("direction", 9)) {
-         class_du var2 = var1.c("direction", 6);
-         this.v = var2.e(0);
-         this.w = var2.e(1);
-         this.x = var2.e(2);
+      this.i = var1.getByte("inGround") == 1;
+      if(var1.hasOfType("direction", 9)) {
+         NBTTagList var2 = var1.getList("direction", 6);
+         this.v = var2.getDouble(0);
+         this.w = var2.getDouble(1);
+         this.x = var2.getDouble(2);
       } else {
          this.J();
       }

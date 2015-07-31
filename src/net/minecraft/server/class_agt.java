@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acf;
@@ -73,18 +73,18 @@ public class class_agt extends Block {
 
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else if(var6 == null) {
          return true;
       } else {
          int var11 = ((Integer)var3.get(a)).intValue();
-         Item var12 = var6.b();
+         Item var12 = var6.getItem();
          if(var12 == Items.az) {
             if(var11 < 3) {
                if(!var4.bH.d) {
-                  var4.a((EnumUsedHand)var5, (class_aas)(new class_aas(Items.ay)));
+                  var4.a((EnumUsedHand)var5, (ItemStack)(new ItemStack(Items.ay)));
                }
 
                var4.b(class_nc.I);
@@ -93,14 +93,14 @@ public class class_agt extends Block {
 
             return true;
          } else {
-            class_aas var14;
+            ItemStack var14;
             if(var12 == Items.bD) {
                if(var11 > 0) {
                   if(!var4.bH.d) {
-                     var14 = class_abe.a(new class_aas(Items.bB), class_acf.a);
+                     var14 = class_abe.a(new ItemStack(Items.bB), class_acf.a);
                      var4.b(class_nc.J);
-                     if(--var6.b == 0) {
-                        var4.a((EnumUsedHand)var5, (class_aas)var14);
+                     if(--var6.count == 0) {
+                        var4.a((EnumUsedHand)var5, (ItemStack)var14);
                      } else if(!var4.bp.a(var14)) {
                         var4.a(var14, false);
                      } else if(var4 instanceof class_lh) {
@@ -124,16 +124,16 @@ public class class_agt extends Block {
                }
 
                if(var11 > 0 && var12 instanceof class_ze && class_ame.c(var6) > 0) {
-                  var14 = var6.k();
-                  var14.b = 1;
+                  var14 = var6.clone();
+                  var14.count = 1;
                   class_ame.e(var14);
                   var4.b(class_nc.L);
                   if(var4.bH.d) {
-                     --var6.b;
+                     --var6.count;
                   }
 
-                  if(var6.b == 0) {
-                     var4.a((EnumUsedHand)var5, (class_aas)var14);
+                  if(var6.count == 0) {
+                     var4.a((EnumUsedHand)var5, (ItemStack)var14);
                   } else if(!var4.bp.a(var14)) {
                      var4.a(var14, false);
                   } else if(var4 instanceof class_lh) {

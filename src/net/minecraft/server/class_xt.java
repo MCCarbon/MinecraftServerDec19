@@ -5,13 +5,13 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -21,7 +21,7 @@ import net.minecraft.server.class_xd;
 public class class_xt extends class_xd {
    private static final int f = class_qi.a(class_xt.class);
    private final Set g;
-   private class_aas h;
+   private ItemStack h;
 
    public class_xt(World var1) {
       super(var1);
@@ -33,18 +33,18 @@ public class class_xt extends class_xd {
       this.g = Sets.newHashSet();
    }
 
-   public class_xt(World var1, double var2, double var4, double var6, class_aas var8) {
+   public class_xt(World var1, double var2, double var4, double var6, ItemStack var8) {
       this(var1, var2, var4, var6);
       this.a(var8);
    }
 
-   public class_xt(World var1, class_qa var2, class_aas var3) {
+   public class_xt(World var1, class_qa var2, ItemStack var3) {
       super(var1, var2);
       this.g = Sets.newHashSet();
       this.a(var3);
    }
 
-   private void a(class_aas var1) {
+   private void a(ItemStack var1) {
       List var2 = class_abe.h(var1);
       if(!var2.isEmpty()) {
          Iterator var3 = var2.iterator();
@@ -57,8 +57,8 @@ public class class_xt extends class_xd {
          this.ac.b(f, Integer.valueOf(class_abe.a((Collection)this.g)));
       }
 
-      this.h = var1.k();
-      this.h.b = 1;
+      this.h = var1.clone();
+      this.h.count = 1;
    }
 
    protected void h() {
@@ -101,18 +101,18 @@ public class class_xt extends class_xd {
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.h != null) {
-         var1.a((String)"Item", (class_eb)this.h.b(new class_dn()));
+         var1.put((String)"Item", (NBTTag)this.h.write(new NBTTagCompound()));
       }
 
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("Item", 10)) {
-         this.h = class_aas.a(var1.n("Item"));
+      if(var1.hasOfType("Item", 10)) {
+         this.h = ItemStack.a(var1.getCompound("Item"));
       }
 
    }
@@ -130,7 +130,7 @@ public class class_xt extends class_xd {
 
    }
 
-   protected class_aas j() {
-      return this.g.isEmpty()?new class_aas(Items.g):this.h;
+   protected ItemStack j() {
+      return this.g.isEmpty()?new ItemStack(Items.g):this.h;
    }
 }

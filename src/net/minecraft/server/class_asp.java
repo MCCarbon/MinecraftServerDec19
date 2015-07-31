@@ -11,7 +11,7 @@ import net.minecraft.server.class_asu;
 import net.minecraft.server.class_asv;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 
 public abstract class class_asp extends class_asn {
    private static final class_asu d = new class_asu();
@@ -36,14 +36,14 @@ public abstract class class_asp extends class_asn {
       this.h();
    }
 
-   protected void a(class_dn var1) {
-      var1.a("TPX", this.c.getX());
-      var1.a("TPY", this.c.getY());
-      var1.a("TPZ", this.c.getZ());
+   protected void a(NBTTagCompound var1) {
+      var1.put("TPX", this.c.getX());
+      var1.put("TPY", this.c.getY());
+      var1.put("TPZ", this.c.getZ());
    }
 
-   protected void b(class_dn var1) {
-      this.c = new BlockPosition(var1.g("TPX"), var1.g("TPY"), var1.g("TPZ"));
+   protected void b(NBTTagCompound var1) {
+      this.c = new BlockPosition(var1.getInt("TPX"), var1.getInt("TPY"), var1.getInt("TPZ"));
    }
 
    public boolean a(World var1, Random var2, class_arw var3) {

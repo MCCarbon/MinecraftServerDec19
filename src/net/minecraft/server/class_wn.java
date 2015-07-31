@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Calendar;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
@@ -12,7 +12,7 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_apa;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.MathHelper;
@@ -132,13 +132,13 @@ public class class_wn extends class_wi implements class_wk {
          BlockPosition var2 = new BlockPosition(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
-            class_aas var4 = this.a((class_pw)class_pw.f);
+            ItemStack var4 = this.a((class_pw)class_pw.f);
             if(var4 != null) {
                if(var4.e()) {
-                  var4.b(var4.h() + this.V.nextInt(2));
+                  var4.setData(var4.h() + this.V.nextInt(2));
                   if(var4.h() >= var4.j()) {
                      this.b(var4);
-                     this.a((class_pw)class_pw.f, (class_aas)null);
+                     this.a((class_pw)class_pw.f, (ItemStack)null);
                   }
                }
 
@@ -178,7 +178,7 @@ public class class_wn extends class_wi implements class_wk {
          }
       } else if(var1.j() instanceof class_wa && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new class_aas(Items.ca, 1, this.cB() == 1?1:0), 0.0F);
+         this.a(new ItemStack(Items.ca, 1, this.cB() == 1?1:0), 0.0F);
       }
 
    }
@@ -214,14 +214,14 @@ public class class_wn extends class_wi implements class_wk {
 
    protected void br() {
       if(this.cB() == 1) {
-         this.a(new class_aas(Items.ca, 1, 1), 0.0F);
+         this.a(new ItemStack(Items.ca, 1, 1), 0.0F);
       }
 
    }
 
    protected void a(class_on var1) {
       super.a(var1);
-      this.a(class_pw.a, new class_aas(Items.f));
+      this.a(class_pw.a, new ItemStack(Items.f));
    }
 
    public class_qd a(class_on var1, class_qd var2) {
@@ -229,7 +229,7 @@ public class class_wn extends class_wi implements class_wk {
       if(this.o.t instanceof class_apa && this.bd().nextInt(5) > 0) {
          this.i.a(4, this.bs);
          this.a(1);
-         this.a(class_pw.a, new class_aas(Items.s));
+         this.a(class_pw.a, new ItemStack(Items.s));
          this.a((class_qk)class_wl.e).a(4.0D);
       } else {
          this.i.a(4, this.c);
@@ -241,7 +241,7 @@ public class class_wn extends class_wi implements class_wk {
       if(this.a((class_pw)class_pw.f) == null) {
          Calendar var3 = this.o.Z();
          if(var3.get(2) + 1 == 10 && var3.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.a(class_pw.f, new class_aas(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN));
+            this.a(class_pw.f, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN));
             this.bp[class_pw.f.b()] = 0.0F;
          }
       }
@@ -252,8 +252,8 @@ public class class_wn extends class_wi implements class_wk {
    public void n() {
       this.i.a((class_rm)this.bs);
       this.i.a((class_rm)this.c);
-      class_aas var1 = this.bA();
-      if(var1 != null && var1.b() == Items.f) {
+      ItemStack var1 = this.bA();
+      if(var1 != null && var1.getItem() == Items.f) {
          this.i.a(4, this.c);
       } else {
          this.i.a(4, this.bs);
@@ -302,22 +302,22 @@ public class class_wn extends class_wi implements class_wk {
 
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("SkeletonType", 99)) {
-         byte var2 = var1.e("SkeletonType");
+      if(var1.hasOfType("SkeletonType", 99)) {
+         byte var2 = var1.getByte("SkeletonType");
          this.a(var2);
       }
 
       this.n();
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("SkeletonType", (byte)this.cB());
+      var1.put("SkeletonType", (byte)this.cB());
    }
 
-   public void a(class_pw var1, class_aas var2) {
+   public void a(class_pw var1, ItemStack var2) {
       super.a(var1, var2);
       if(!this.o.D && var1 == class_pw.a) {
          this.n();

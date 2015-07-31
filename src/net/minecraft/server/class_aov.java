@@ -25,10 +25,10 @@ import net.minecraft.server.class_aou;
 import net.minecraft.server.class_awb;
 import net.minecraft.server.class_awc;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_dx;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTCompressedStreamTools;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pt;
@@ -48,34 +48,34 @@ public class class_aov implements class_aop, class_awc {
 
    public class_aok a(World var1, int var2, int var3) throws IOException {
       class_aeh var4 = new class_aeh(var2, var3);
-      class_dn var5 = (class_dn)this.b.get(var4);
+      NBTTagCompound var5 = (NBTTagCompound)this.b.get(var4);
       if(var5 == null) {
          DataInputStream var6 = class_aou.c(this.d, var2, var3);
          if(var6 == null) {
             return null;
          }
 
-         var5 = class_dx.a(var6);
+         var5 = NBTCompressedStreamTools.fromDataStream(var6);
       }
 
       return this.a(var1, var2, var3, var5);
    }
 
-   protected class_aok a(World var1, int var2, int var3, class_dn var4) {
-      if(!var4.b("Level", 10)) {
+   protected class_aok a(World var1, int var2, int var3, NBTTagCompound var4) {
+      if(!var4.hasOfType("Level", 10)) {
          a.error("Chunk file at " + var2 + "," + var3 + " is missing level data, skipping");
          return null;
       } else {
-         class_dn var5 = var4.n("Level");
-         if(!var5.b("Sections", 9)) {
+         NBTTagCompound var5 = var4.getCompound("Level");
+         if(!var5.hasOfType("Sections", 9)) {
             a.error("Chunk file at " + var2 + "," + var3 + " is missing block data, skipping");
             return null;
          } else {
             class_aok var6 = this.a(var1, var5);
             if(!var6.a(var2, var3)) {
                a.error("Chunk file at " + var2 + "," + var3 + " is in the wrong location; relocating. (Expected " + var2 + ", " + var3 + ", got " + var6.a + ", " + var6.b + ")");
-               var5.a("xPos", var2);
-               var5.a("zPos", var3);
+               var5.put("xPos", var2);
+               var5.put("zPos", var3);
                var6 = this.a(var1, var5);
             }
 
@@ -88,9 +88,9 @@ public class class_aov implements class_aop, class_awc {
       var1.J();
 
       try {
-         class_dn var3 = new class_dn();
-         class_dn var4 = new class_dn();
-         var3.a((String)"Level", (class_eb)var4);
+         NBTTagCompound var3 = new NBTTagCompound();
+         NBTTagCompound var4 = new NBTTagCompound();
+         var3.put((String)"Level", (NBTTag)var4);
          this.a(var2, var1, var4);
          this.a(var2.j(), var3);
       } catch (Exception var5) {
@@ -99,7 +99,7 @@ public class class_aov implements class_aop, class_awc {
 
    }
 
-   protected void a(class_aeh var1, class_dn var2) {
+   protected void a(class_aeh var1, NBTTagCompound var2) {
       if(!this.c.contains(var1)) {
          this.b.put(var1, var2);
       }
@@ -120,7 +120,7 @@ public class class_aov implements class_aop, class_awc {
          boolean var3;
          try {
             this.c.add(var1);
-            class_dn var2 = (class_dn)this.b.remove(var1);
+            NBTTagCompound var2 = (NBTTagCompound)this.b.remove(var1);
             if(var2 != null) {
                try {
                   this.b(var1, var2);
@@ -138,9 +138,9 @@ public class class_aov implements class_aop, class_awc {
       }
    }
 
-   private void b(class_aeh var1, class_dn var2) throws IOException {
+   private void b(class_aeh var1, NBTTagCompound var2) throws IOException {
       DataOutputStream var3 = class_aou.d(this.d, var1.a, var1.b);
-      class_dx.a((class_dn)var2, (DataOutput)var3);
+      NBTCompressedStreamTools.writeToData((NBTTagCompound)var2, (DataOutput)var3);
       var3.close();
    }
 
@@ -165,27 +165,27 @@ public class class_aov implements class_aop, class_awc {
 
    }
 
-   private void a(class_aok var1, World var2, class_dn var3) {
-      var3.a("V", (byte)1);
-      var3.a("xPos", var1.a);
-      var3.a("zPos", var1.b);
-      var3.a("LastUpdate", var2.L());
-      var3.a("HeightMap", var1.q());
-      var3.a("TerrainPopulated", var1.t());
-      var3.a("LightPopulated", var1.u());
-      var3.a("InhabitedTime", var1.w());
+   private void a(class_aok var1, World var2, NBTTagCompound var3) {
+      var3.put("V", (byte)1);
+      var3.put("xPos", var1.a);
+      var3.put("zPos", var1.b);
+      var3.put("LastUpdate", var2.L());
+      var3.put("HeightMap", var1.q());
+      var3.put("TerrainPopulated", var1.t());
+      var3.put("LightPopulated", var1.u());
+      var3.put("InhabitedTime", var1.w());
       class_aol[] var4 = var1.h();
-      class_du var5 = new class_du();
+      NBTTagList var5 = new NBTTagList();
       boolean var6 = !var2.t.m();
       class_aol[] var7 = var4;
       int var8 = var4.length;
 
-      class_dn var11;
+      NBTTagCompound var11;
       for(int var9 = 0; var9 < var8; ++var9) {
          class_aol var10 = var7[var9];
          if(var10 != null) {
-            var11 = new class_dn();
-            var11.a("Y", (byte)(var10.d() >> 4 & 255));
+            var11 = new NBTTagCompound();
+            var11.put("Y", (byte)(var10.d() >> 4 & 255));
             byte[] var12 = new byte[var10.g().length];
             class_aoi var13 = new class_aoi();
             class_aoi var14 = null;
@@ -207,27 +207,27 @@ public class class_aov implements class_aop, class_awc {
                var13.a(var17, var18, var19, var16 & 15);
             }
 
-            var11.a("Blocks", var12);
-            var11.a("Data", var13.a());
+            var11.put("Blocks", var12);
+            var11.put("Data", var13.a());
             if(var14 != null) {
-               var11.a("Add", var14.a());
+               var11.put("Add", var14.a());
             }
 
-            var11.a("BlockLight", var10.h().a());
+            var11.put("BlockLight", var10.h().a());
             if(var6) {
-               var11.a("SkyLight", var10.i().a());
+               var11.put("SkyLight", var10.i().a());
             } else {
-               var11.a("SkyLight", new byte[var10.h().a().length]);
+               var11.put("SkyLight", new byte[var10.h().a().length]);
             }
 
-            var5.a((class_eb)var11);
+            var5.add((NBTTag)var11);
          }
       }
 
-      var3.a((String)"Sections", (class_eb)var5);
-      var3.a("Biomes", var1.k());
+      var3.put((String)"Sections", (NBTTag)var5);
+      var3.put("Biomes", var1.k());
       var1.g(false);
-      class_du var20 = new class_du();
+      NBTTagList var20 = new NBTTagList();
 
       Iterator var22;
       for(var8 = 0; var8 < var1.s().length; ++var8) {
@@ -235,70 +235,70 @@ public class class_aov implements class_aop, class_awc {
 
          while(var22.hasNext()) {
             class_pr var24 = (class_pr)var22.next();
-            var11 = new class_dn();
+            var11 = new NBTTagCompound();
             if(var24.d(var11)) {
                var1.g(true);
-               var20.a((class_eb)var11);
+               var20.add((NBTTag)var11);
             }
          }
       }
 
-      var3.a((String)"Entities", (class_eb)var20);
-      class_du var21 = new class_du();
+      var3.put((String)"Entities", (NBTTag)var20);
+      NBTTagList var21 = new NBTTagList();
       var22 = var1.r().values().iterator();
 
       while(var22.hasNext()) {
          class_amg var25 = (class_amg)var22.next();
-         var11 = new class_dn();
+         var11 = new NBTTagCompound();
          var25.b(var11);
-         var21.a((class_eb)var11);
+         var21.add((NBTTag)var11);
       }
 
-      var3.a((String)"TileEntities", (class_eb)var21);
+      var3.put((String)"TileEntities", (NBTTag)var21);
       List var23 = var2.a(var1, false);
       if(var23 != null) {
          long var26 = var2.L();
-         class_du var27 = new class_du();
+         NBTTagList var27 = new NBTTagList();
          Iterator var28 = var23.iterator();
 
          while(var28.hasNext()) {
             class_aex var29 = (class_aex)var28.next();
-            class_dn var30 = new class_dn();
+            NBTTagCompound var30 = new NBTTagCompound();
             MinecraftKey var31 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var29.a());
-            var30.a("i", var31 == null?"":var31.toString());
-            var30.a("x", var29.a.getX());
-            var30.a("y", var29.a.getY());
-            var30.a("z", var29.a.getZ());
-            var30.a("t", (int)(var29.b - var26));
-            var30.a("p", var29.c);
-            var27.a((class_eb)var30);
+            var30.put("i", var31 == null?"":var31.toString());
+            var30.put("x", var29.a.getX());
+            var30.put("y", var29.a.getY());
+            var30.put("z", var29.a.getZ());
+            var30.put("t", (int)(var29.b - var26));
+            var30.put("p", var29.c);
+            var27.add((NBTTag)var30);
          }
 
-         var3.a((String)"TileTicks", (class_eb)var27);
+         var3.put((String)"TileTicks", (NBTTag)var27);
       }
 
    }
 
-   private class_aok a(World var1, class_dn var2) {
-      int var3 = var2.g("xPos");
-      int var4 = var2.g("zPos");
+   private class_aok a(World var1, NBTTagCompound var2) {
+      int var3 = var2.getInt("xPos");
+      int var4 = var2.getInt("zPos");
       class_aok var5 = new class_aok(var1, var3, var4);
-      var5.a(var2.m("HeightMap"));
-      var5.d(var2.o("TerrainPopulated"));
-      var5.e(var2.o("LightPopulated"));
-      var5.c(var2.h("InhabitedTime"));
-      class_du var6 = var2.c("Sections", 10);
+      var5.a(var2.getIntArray("HeightMap"));
+      var5.d(var2.getBoolean("TerrainPopulated"));
+      var5.e(var2.getBoolean("LightPopulated"));
+      var5.c(var2.getLong("InhabitedTime"));
+      NBTTagList var6 = var2.getList("Sections", 10);
       byte var7 = 16;
       class_aol[] var8 = new class_aol[var7];
       boolean var9 = !var1.t.m();
 
-      for(int var10 = 0; var10 < var6.c(); ++var10) {
-         class_dn var11 = var6.b(var10);
-         byte var12 = var11.e("Y");
+      for(int var10 = 0; var10 < var6.getSize(); ++var10) {
+         NBTTagCompound var11 = var6.getCompound(var10);
+         byte var12 = var11.getByte("Y");
          class_aol var13 = new class_aol(var12 << 4, var9);
-         byte[] var14 = var11.l("Blocks");
-         class_aoi var15 = new class_aoi(var11.l("Data"));
-         class_aoi var16 = var11.b("Add", 7)?new class_aoi(var11.l("Add")):null;
+         byte[] var14 = var11.getByteArray("Blocks");
+         class_aoi var15 = new class_aoi(var11.getByteArray("Data"));
+         class_aoi var16 = var11.hasOfType("Add", 7)?new class_aoi(var11.getByteArray("Add")):null;
          char[] var17 = new char[var14.length];
 
          for(int var18 = 0; var18 < var17.length; ++var18) {
@@ -310,9 +310,9 @@ public class class_aov implements class_aop, class_awc {
          }
 
          var13.a(var17);
-         var13.a(new class_aoi(var11.l("BlockLight")));
+         var13.a(new class_aoi(var11.getByteArray("BlockLight")));
          if(var9) {
-            var13.b(new class_aoi(var11.l("SkyLight")));
+            var13.b(new class_aoi(var11.getByteArray("SkyLight")));
          }
 
          var13.e();
@@ -320,22 +320,22 @@ public class class_aov implements class_aop, class_awc {
       }
 
       var5.a(var8);
-      if(var2.b("Biomes", 7)) {
-         var5.a(var2.l("Biomes"));
+      if(var2.hasOfType("Biomes", 7)) {
+         var5.a(var2.getByteArray("Biomes"));
       }
 
-      class_du var23 = var2.c("Entities", 10);
+      NBTTagList var23 = var2.getList("Entities", 10);
       if(var23 != null) {
-         for(int var24 = 0; var24 < var23.c(); ++var24) {
-            class_dn var26 = var23.b(var24);
+         for(int var24 = 0; var24 < var23.getSize(); ++var24) {
+            NBTTagCompound var26 = var23.getCompound(var24);
             class_pr var28 = class_pt.a(var26, var1);
             var5.g(true);
             if(var28 != null) {
                var5.a(var28);
                class_pr var32 = var28;
 
-               for(class_dn var34 = var26; var34.b("Riding", 10); var34 = var34.n("Riding")) {
-                  class_pr var37 = class_pt.a(var34.n("Riding"), var1);
+               for(NBTTagCompound var34 = var26; var34.hasOfType("Riding", 10); var34 = var34.getCompound("Riding")) {
+                  class_pr var37 = class_pt.a(var34.getCompound("Riding"), var1);
                   if(var37 != null) {
                      var5.a(var37);
                      var32.a(var37);
@@ -347,10 +347,10 @@ public class class_aov implements class_aop, class_awc {
          }
       }
 
-      class_du var25 = var2.c("TileEntities", 10);
+      NBTTagList var25 = var2.getList("TileEntities", 10);
       if(var25 != null) {
-         for(int var27 = 0; var27 < var25.c(); ++var27) {
-            class_dn var30 = var25.b(var27);
+         for(int var27 = 0; var27 < var25.getSize(); ++var27) {
+            NBTTagCompound var30 = var25.getCompound(var27);
             class_amg var33 = class_amg.c(var30);
             if(var33 != null) {
                var5.a(var33);
@@ -358,19 +358,19 @@ public class class_aov implements class_aop, class_awc {
          }
       }
 
-      if(var2.b("TileTicks", 9)) {
-         class_du var29 = var2.c("TileTicks", 10);
+      if(var2.hasOfType("TileTicks", 9)) {
+         NBTTagList var29 = var2.getList("TileTicks", 10);
          if(var29 != null) {
-            for(int var31 = 0; var31 < var29.c(); ++var31) {
-               class_dn var35 = var29.b(var31);
+            for(int var31 = 0; var31 < var29.getSize(); ++var31) {
+               NBTTagCompound var35 = var29.getCompound(var31);
                Block var36;
-               if(var35.b("i", 8)) {
-                  var36 = Block.getByName(var35.k("i"));
+               if(var35.hasOfType("i", 8)) {
+                  var36 = Block.getByName(var35.getString("i"));
                } else {
-                  var36 = Block.getById(var35.g("i"));
+                  var36 = Block.getById(var35.getInt("i"));
                }
 
-               var1.b(new BlockPosition(var35.g("x"), var35.g("y"), var35.g("z")), var36, var35.g("t"), var35.g("p"));
+               var1.b(new BlockPosition(var35.getInt("x"), var35.getInt("y"), var35.getInt("z")), var36, var35.getInt("t"), var35.getInt("p"));
             }
          }
       }

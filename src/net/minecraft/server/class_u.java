@@ -16,7 +16,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
@@ -93,15 +93,15 @@ public class class_u extends class_i {
                               if((!var13 || var24.getBlock() != Blocks.AIR) && (var10 == null || var24.getBlock() == var10 && (var11 < 0 || var24.getBlock().toLegacyData(var24) == var11))) {
                                  class_amg var25 = var12.s(var22);
                                  if(var25 != null) {
-                                    class_dn var26 = new class_dn();
+                                    NBTTagCompound var26 = new NBTTagCompound();
                                     var25.b(var26);
                                     var15.add(new class_u.class_a_in_class_u(var23, var24, var26));
                                     var17.addLast(var22);
                                  } else if(!var24.getBlock().isFullBlock() && !var24.getBlock().isFullCube()) {
-                                    var16.add(new class_u.class_a_in_class_u(var23, var24, (class_dn)null));
+                                    var16.add(new class_u.class_a_in_class_u(var23, var24, (NBTTagCompound)null));
                                     var17.addFirst(var22);
                                  } else {
-                                    var14.add(new class_u.class_a_in_class_u(var23, var24, (class_dn)null));
+                                    var14.add(new class_u.class_a_in_class_u(var23, var24, (NBTTagCompound)null));
                                     var17.addLast(var22);
                                  }
                               }
@@ -159,9 +159,9 @@ public class class_u extends class_i {
                         var33 = (class_u.class_a_in_class_u)var32.next();
                         var34 = var12.s(var33.a);
                         if(var33.c != null && var34 != null) {
-                           var33.c.a("x", var33.a.getX());
-                           var33.c.a("y", var33.a.getY());
-                           var33.c.a("z", var33.a.getZ());
+                           var33.c.put("x", var33.a.getX());
+                           var33.c.put("y", var33.a.getY());
+                           var33.c.put("z", var33.a.getZ());
                            var34.a(var33.c);
                            var34.p_();
                         }
@@ -211,9 +211,9 @@ public class class_u extends class_i {
    static class class_a_in_class_u {
       public final BlockPosition a;
       public final IBlockData b;
-      public final class_dn c;
+      public final NBTTagCompound c;
 
-      public class_a_in_class_u(BlockPosition var1, IBlockData var2, class_dn var3) {
+      public class_a_in_class_u(BlockPosition var1, IBlockData var2, NBTTagCompound var3) {
          this.a = var1;
          this.b = var2;
          this.c = var3;

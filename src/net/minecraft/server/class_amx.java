@@ -7,7 +7,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_et;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
@@ -27,18 +27,18 @@ public class class_amx extends class_amg {
    private class_xa h;
    private final class_n i = new class_n();
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         String var3 = IChatBaseComponent.class_a_in_class_eu.a(this.a[var2]);
-         var1.a("Text" + (var2 + 1), var3);
+         String var3 = IChatBaseComponent.ChatSerializer.toJson(this.a[var2]);
+         var1.put("Text" + (var2 + 1), var3);
       }
 
       this.i.b(var1);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       this.g = false;
       super.a(var1);
       class_m var2 = new class_m() {
@@ -82,10 +82,10 @@ public class class_amx extends class_amg {
       };
 
       for(int var3 = 0; var3 < 4; ++var3) {
-         String var4 = var1.k("Text" + (var3 + 1));
+         String var4 = var1.getString("Text" + (var3 + 1));
 
          try {
-            IChatBaseComponent var5 = IChatBaseComponent.class_a_in_class_eu.b(var4);
+            IChatBaseComponent var5 = IChatBaseComponent.ChatSerializer.b(var4);
 
             try {
                this.a[var3] = class_ev.a(var2, var5, (class_pr)null);

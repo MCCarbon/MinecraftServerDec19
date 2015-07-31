@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abx;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -22,7 +22,7 @@ public class class_aca extends class_abx {
       super(var1, false);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       class_awg var5 = this.a(var2, var3, true);
       if(var5 == null) {
          return new class_or(class_oq.b, var1);
@@ -42,7 +42,7 @@ public class class_aca extends class_abx {
             if(var8.getBlock().getMaterial() == Material.WATER && ((Integer)var8.get(class_ajd.b)).intValue() == 0 && var2.d(var7)) {
                var2.a(var7, Blocks.WATERLILY.getBlockData());
                if(!var3.bH.d) {
-                  --var1.b;
+                  --var1.count;
                }
 
                var3.b(class_nc.ad[Item.getId((Item)this)]);

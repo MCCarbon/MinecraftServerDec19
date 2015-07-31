@@ -7,7 +7,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_e;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
@@ -33,31 +33,31 @@ public abstract class class_aed implements class_m {
       return this.d;
    }
 
-   public void a(class_dn var1) {
-      var1.a("Command", this.e);
-      var1.a("SuccessCount", this.b);
-      var1.a("CustomName", this.f);
-      var1.a("TrackOutput", this.c);
+   public void a(NBTTagCompound var1) {
+      var1.put("Command", this.e);
+      var1.put("SuccessCount", this.b);
+      var1.put("CustomName", this.f);
+      var1.put("TrackOutput", this.c);
       if(this.d != null && this.c) {
-         var1.a("LastOutput", IChatBaseComponent.class_a_in_class_eu.a(this.d));
+         var1.put("LastOutput", IChatBaseComponent.ChatSerializer.toJson(this.d));
       }
 
       this.g.b(var1);
    }
 
-   public void b(class_dn var1) {
-      this.e = var1.k("Command");
-      this.b = var1.g("SuccessCount");
-      if(var1.b("CustomName", 8)) {
-         this.f = var1.k("CustomName");
+   public void b(NBTTagCompound var1) {
+      this.e = var1.getString("Command");
+      this.b = var1.getInt("SuccessCount");
+      if(var1.hasOfType("CustomName", 8)) {
+         this.f = var1.getString("CustomName");
       }
 
-      if(var1.b("TrackOutput", 1)) {
-         this.c = var1.o("TrackOutput");
+      if(var1.hasOfType("TrackOutput", 1)) {
+         this.c = var1.getBoolean("TrackOutput");
       }
 
-      if(var1.b("LastOutput", 8) && this.c) {
-         this.d = IChatBaseComponent.class_a_in_class_eu.a(var1.k("LastOutput"));
+      if(var1.hasOfType("LastOutput", 8) && this.c) {
+         this.d = IChatBaseComponent.ChatSerializer.fromJson(var1.getString("LastOutput"));
       }
 
       this.g.a(var1);

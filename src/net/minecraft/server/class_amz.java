@@ -19,7 +19,7 @@ import net.minecraft.server.class_asv;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.MinecraftKey;
@@ -44,54 +44,54 @@ public class class_amz extends class_amg {
       this.l = class_amz.class_a_in_class_amz.d;
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("name", this.a);
-      var1.a("author", this.f);
-      var1.a("metadata", this.g);
-      var1.a("posX", this.h.getX());
-      var1.a("posY", this.h.getY());
-      var1.a("posZ", this.h.getZ());
-      var1.a("sizeX", this.i.getX());
-      var1.a("sizeY", this.i.getY());
-      var1.a("sizeZ", this.i.getZ());
-      var1.a("rotation", this.k.toString());
-      var1.a("mirror", this.j.toString());
-      var1.a("mode", this.l.toString());
-      var1.a("ignoreEntities", this.m);
+      var1.put("name", this.a);
+      var1.put("author", this.f);
+      var1.put("metadata", this.g);
+      var1.put("posX", this.h.getX());
+      var1.put("posY", this.h.getY());
+      var1.put("posZ", this.h.getZ());
+      var1.put("sizeX", this.i.getX());
+      var1.put("sizeY", this.i.getY());
+      var1.put("sizeZ", this.i.getZ());
+      var1.put("rotation", this.k.toString());
+      var1.put("mirror", this.j.toString());
+      var1.put("mode", this.l.toString());
+      var1.put("ignoreEntities", this.m);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.k("name");
-      this.f = var1.k("author");
-      this.g = var1.k("metadata");
-      this.h = new BlockPosition(var1.g("posX"), var1.g("posY"), var1.g("posZ"));
-      this.i = new BlockPosition(var1.g("sizeX"), var1.g("sizeY"), var1.g("sizeZ"));
+      this.a = var1.getString("name");
+      this.f = var1.getString("author");
+      this.g = var1.getString("metadata");
+      this.h = new BlockPosition(var1.getInt("posX"), var1.getInt("posY"), var1.getInt("posZ"));
+      this.i = new BlockPosition(var1.getInt("sizeX"), var1.getInt("sizeY"), var1.getInt("sizeZ"));
 
       try {
-         this.k = Block.class_c_in_class_agj.valueOf(var1.k("rotation"));
+         this.k = Block.class_c_in_class_agj.valueOf(var1.getString("rotation"));
       } catch (IllegalArgumentException var5) {
          this.k = Block.class_c_in_class_agj.a;
       }
 
       try {
-         this.j = Block.class_a_in_class_agj.valueOf(var1.k("mirror"));
+         this.j = Block.class_a_in_class_agj.valueOf(var1.getString("mirror"));
       } catch (IllegalArgumentException var4) {
          this.j = Block.class_a_in_class_agj.a;
       }
 
       try {
-         this.l = class_amz.class_a_in_class_amz.valueOf(var1.k("mode"));
+         this.l = class_amz.class_a_in_class_amz.valueOf(var1.getString("mode"));
       } catch (IllegalArgumentException var3) {
          this.l = class_amz.class_a_in_class_amz.d;
       }
 
-      this.m = var1.o("ignoreEntities");
+      this.m = var1.getBoolean("ignoreEntities");
    }
 
    public Packet z_() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
       return new class_ft(this.c, 7, var1);
    }

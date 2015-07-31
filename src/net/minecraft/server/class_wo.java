@@ -8,7 +8,7 @@ import net.minecraft.server.class_aez;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
@@ -66,21 +66,21 @@ public class class_wo extends class_qb implements class_wd {
       return this.ac.a(bq);
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Size", this.cB() - 1);
-      var1.a("wasOnGround", this.br);
+      var1.put("Size", this.cB() - 1);
+      var1.put("wasOnGround", this.br);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      int var2 = var1.g("Size");
+      int var2 = var1.getInt("Size");
       if(var2 < 0) {
          var2 = 0;
       }
 
       this.a(var2 + 1);
-      this.br = var1.o("wasOnGround");
+      this.br = var1.getBoolean("wasOnGround");
    }
 
    protected class_cy n() {

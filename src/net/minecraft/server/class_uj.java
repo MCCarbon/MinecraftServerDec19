@@ -11,7 +11,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -128,14 +128,14 @@ public class class_uj extends class_ua {
       return this.cC() && class_xa.class.isAssignableFrom(var1)?false:(var1 == class_wa.class?false:super.a(var1));
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("PlayerCreated", this.cC());
+      var1.put("PlayerCreated", this.cC());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.m(var1.o("PlayerCreated"));
+      this.m(var1.getBoolean("PlayerCreated"));
    }
 
    public boolean r(class_pr var1) {

@@ -5,47 +5,47 @@ import net.minecraft.server.class_afd;
 import net.minecraft.server.class_aoi;
 import net.minecraft.server.class_aom;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 
 public class class_aos {
-   public static class_aos.class_a_in_class_aos a(class_dn var0) {
-      int var1 = var0.g("xPos");
-      int var2 = var0.g("zPos");
+   public static class_aos.class_a_in_class_aos a(NBTTagCompound var0) {
+      int var1 = var0.getInt("xPos");
+      int var2 = var0.getInt("zPos");
       class_aos.class_a_in_class_aos var3 = new class_aos.class_a_in_class_aos(var1, var2);
-      var3.g = var0.l("Blocks");
-      var3.f = new class_aom(var0.l("Data"), 7);
-      var3.e = new class_aom(var0.l("SkyLight"), 7);
-      var3.d = new class_aom(var0.l("BlockLight"), 7);
-      var3.c = var0.l("HeightMap");
-      var3.b = var0.o("TerrainPopulated");
-      var3.h = var0.c("Entities", 10);
-      var3.i = var0.c("TileEntities", 10);
-      var3.j = var0.c("TileTicks", 10);
+      var3.g = var0.getByteArray("Blocks");
+      var3.f = new class_aom(var0.getByteArray("Data"), 7);
+      var3.e = new class_aom(var0.getByteArray("SkyLight"), 7);
+      var3.d = new class_aom(var0.getByteArray("BlockLight"), 7);
+      var3.c = var0.getByteArray("HeightMap");
+      var3.b = var0.getBoolean("TerrainPopulated");
+      var3.h = var0.getList("Entities", 10);
+      var3.i = var0.getList("TileEntities", 10);
+      var3.j = var0.getList("TileTicks", 10);
 
       try {
-         var3.a = var0.h("LastUpdate");
+         var3.a = var0.getLong("LastUpdate");
       } catch (ClassCastException var5) {
-         var3.a = (long)var0.g("LastUpdate");
+         var3.a = (long)var0.getInt("LastUpdate");
       }
 
       return var3;
    }
 
-   public static void a(class_aos.class_a_in_class_aos var0, class_dn var1, class_afd var2) {
-      var1.a("xPos", var0.k);
-      var1.a("zPos", var0.l);
-      var1.a("LastUpdate", var0.a);
+   public static void a(class_aos.class_a_in_class_aos var0, NBTTagCompound var1, class_afd var2) {
+      var1.put("xPos", var0.k);
+      var1.put("zPos", var0.l);
+      var1.put("LastUpdate", var0.a);
       int[] var3 = new int[var0.c.length];
 
       for(int var4 = 0; var4 < var0.c.length; ++var4) {
          var3[var4] = var0.c[var4];
       }
 
-      var1.a("HeightMap", var3);
-      var1.a("TerrainPopulated", var0.b);
-      class_du var16 = new class_du();
+      var1.put("HeightMap", var3);
+      var1.put("TerrainPopulated", var0.b);
+      NBTTagList var16 = new NBTTagList();
 
       int var7;
       int var8;
@@ -84,17 +84,17 @@ public class class_aos {
                }
             }
 
-            class_dn var24 = new class_dn();
-            var24.a("Y", (byte)(var5 & 255));
-            var24.a("Blocks", var19);
-            var24.a("Data", var20.a());
-            var24.a("SkyLight", var21.a());
-            var24.a("BlockLight", var22.a());
-            var16.a((class_eb)var24);
+            NBTTagCompound var24 = new NBTTagCompound();
+            var24.put("Y", (byte)(var5 & 255));
+            var24.put("Blocks", var19);
+            var24.put("Data", var20.a());
+            var24.put("SkyLight", var21.a());
+            var24.put("BlockLight", var22.a());
+            var16.add((NBTTag)var24);
          }
       }
 
-      var1.a((String)"Sections", (class_eb)var16);
+      var1.put((String)"Sections", (NBTTag)var16);
       byte[] var17 = new byte[256];
       BlockPosition.MutableBlockPosition var18 = new BlockPosition.MutableBlockPosition();
 
@@ -105,11 +105,11 @@ public class class_aos {
          }
       }
 
-      var1.a("Biomes", var17);
-      var1.a((String)"Entities", (class_eb)var0.h);
-      var1.a((String)"TileEntities", (class_eb)var0.i);
+      var1.put("Biomes", var17);
+      var1.put((String)"Entities", (NBTTag)var0.h);
+      var1.put((String)"TileEntities", (NBTTag)var0.i);
       if(var0.j != null) {
-         var1.a((String)"TileTicks", (class_eb)var0.j);
+         var1.put((String)"TileTicks", (NBTTag)var0.j);
       }
 
    }
@@ -122,9 +122,9 @@ public class class_aos {
       public class_aom e;
       public class_aom f;
       public byte[] g;
-      public class_du h;
-      public class_du i;
-      public class_du j;
+      public NBTTagList h;
+      public NBTTagList i;
+      public NBTTagList j;
       public final int k;
       public final int l;
 

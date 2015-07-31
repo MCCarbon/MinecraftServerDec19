@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.mojang.authlib.GameProfile;
 import java.util.UUID;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -14,9 +14,9 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
@@ -32,7 +32,7 @@ public class class_abp extends Item {
       this.a(true);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return class_oq.b;
       } else {
@@ -64,12 +64,12 @@ public class class_abp extends Item {
                   class_amy var15 = (class_amy)var14;
                   if(var1.i() == 3) {
                      GameProfile var16 = null;
-                     if(var1.n()) {
-                        class_dn var17 = var1.o();
-                        if(var17.b("SkullOwner", 10)) {
-                           var16 = class_dy.a(var17.n("SkullOwner"));
-                        } else if(var17.b("SkullOwner", 8) && !var17.k("SkullOwner").isEmpty()) {
-                           var16 = new GameProfile((UUID)null, var17.k("SkullOwner"));
+                     if(var1.hasTag()) {
+                        NBTTagCompound var17 = var1.getTag();
+                        if(var17.hasOfType("SkullOwner", 10)) {
+                           var16 = class_dy.a(var17.getCompound("SkullOwner"));
+                        } else if(var17.hasOfType("SkullOwner", 8) && !var17.getString("SkullOwner").isEmpty()) {
+                           var16 = new GameProfile((UUID)null, var17.getString("SkullOwner"));
                         }
                      }
 
@@ -82,7 +82,7 @@ public class class_abp extends Item {
                   Blocks.SKULL.a(var3, var4, var15);
                }
 
-               --var1.b;
+               --var1.count;
             }
 
             return class_oq.a;
@@ -94,7 +94,7 @@ public class class_abp extends Item {
       return var1;
    }
 
-   public String e_(class_aas var1) {
+   public String e_(ItemStack var1) {
       int var2 = var1.i();
       if(var2 < 0 || var2 >= a.length) {
          var2 = 0;
@@ -103,29 +103,29 @@ public class class_abp extends Item {
       return super.a() + "." + a[var2];
    }
 
-   public String a(class_aas var1) {
-      if(var1.i() == 3 && var1.n()) {
-         if(var1.o().b("SkullOwner", 8)) {
-            return LocaleI18n.a("item.skull.player.name", new Object[]{var1.o().k("SkullOwner")});
+   public String getLocalizedName(ItemStack var1) {
+      if(var1.i() == 3 && var1.hasTag()) {
+         if(var1.getTag().hasOfType("SkullOwner", 8)) {
+            return LocaleI18n.a("item.skull.player.name", new Object[]{var1.getTag().getString("SkullOwner")});
          }
 
-         if(var1.o().b("SkullOwner", 10)) {
-            class_dn var2 = var1.o().n("SkullOwner");
-            if(var2.b("Name", 8)) {
-               return LocaleI18n.a("item.skull.player.name", new Object[]{var2.k("Name")});
+         if(var1.getTag().hasOfType("SkullOwner", 10)) {
+            NBTTagCompound var2 = var1.getTag().getCompound("SkullOwner");
+            if(var2.hasOfType("Name", 8)) {
+               return LocaleI18n.a("item.skull.player.name", new Object[]{var2.getString("Name")});
             }
          }
       }
 
-      return super.a(var1);
+      return super.getLocalizedName(var1);
    }
 
-   public boolean a(class_dn var1) {
+   public boolean a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("SkullOwner", 8) && !var1.k("SkullOwner").isEmpty()) {
-         GameProfile var2 = new GameProfile((UUID)null, var1.k("SkullOwner"));
+      if(var1.hasOfType("SkullOwner", 8) && !var1.getString("SkullOwner").isEmpty()) {
+         GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
          var2 = class_amy.b(var2);
-         var1.a((String)"SkullOwner", (class_eb)class_dy.a(new class_dn(), var2));
+         var1.put((String)"SkullOwner", (NBTTag)class_dy.a(new NBTTagCompound(), var2));
          return true;
       } else {
          return false;

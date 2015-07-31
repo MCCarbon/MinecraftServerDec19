@@ -27,15 +27,15 @@ public class class_lr implements class_ju {
 
    public void a(class_jw var1) {
       if(this.d) {
-         this.c.a(a);
+         this.c.close(a);
       } else {
          this.d = true;
-         this.c.a((Packet)(new class_js(this.b.aG())));
+         this.c.sendPacket((Packet)(new class_js(this.b.aG())));
       }
    }
 
    public void a(class_jv var1) {
-      this.c.a((Packet)(new class_jr(var1.a())));
-      this.c.a(a);
+      this.c.sendPacket((Packet)(new class_jr(var1.a())));
+      this.c.close(a);
    }
 }

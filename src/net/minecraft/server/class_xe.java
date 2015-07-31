@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vm;
@@ -117,7 +117,7 @@ public class class_xe extends class_pr {
          if(this.d > 80 && !this.o.D) {
             this.J();
             if(this.e) {
-               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t, this.u, new class_aas(Items.bK))));
+               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t, this.u, new ItemStack(Items.bK))));
             } else {
                this.o.b(2003, new BlockPosition(this), 0);
             }
@@ -126,10 +126,10 @@ public class class_xe extends class_pr {
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
    }
 
    public float c(float var1) {

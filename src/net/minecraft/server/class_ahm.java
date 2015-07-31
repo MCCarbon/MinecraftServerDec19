@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
@@ -114,12 +114,12 @@ public class class_ahm extends class_ago implements class_agl {
       var1.a(var2.shiftUp(), this.getBlockData().set(b, class_ahm.class_a_in_class_ahm.a), var4);
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
       var1.a((BlockPosition)var2.shiftUp(), (IBlockData)this.getBlockData().set(b, class_ahm.class_a_in_class_ahm.a), 2);
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
-      if(var1.D || var6 == null || var6.b() != Items.bg || var4.get(b) != class_ahm.class_a_in_class_ahm.b || !this.b(var1, var3, var4, var2)) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
+      if(var1.D || var6 == null || var6.getItem() != Items.bg || var4.get(b) != class_ahm.class_a_in_class_ahm.b || !this.b(var1, var3, var4, var2)) {
          super.a(var1, var2, var3, var4, var5, var6);
       }
    }
@@ -133,7 +133,7 @@ public class class_ahm extends class_ago implements class_agl {
                if(var6 != class_ahm.class_b_in_class_ahm.d && var6 != class_ahm.class_b_in_class_ahm.c) {
                   var1.b(var2.shiftDown(), true);
                } else if(!var1.D) {
-                  if(var4.bA() != null && var4.bA().b() == Items.bg) {
+                  if(var4.bA() != null && var4.bA().getItem() == Items.bg) {
                      this.b(var1, var2, var5, var4);
                      var1.g(var2.shiftDown());
                   } else {
@@ -160,7 +160,7 @@ public class class_ahm extends class_ago implements class_agl {
       } else {
          var4.b(class_nc.ab[Block.getId((Block)this)]);
          int var6 = (var5 == class_ahm.class_b_in_class_ahm.c?class_alm.class_a_in_class_alm.b:class_alm.class_a_in_class_alm.c).a();
-         a(var1, var2, new class_aas(Blocks.TALLGRASS, 2, var6));
+         a(var1, var2, new ItemStack(Blocks.TALLGRASS, 2, var6));
          return true;
       }
    }
@@ -179,7 +179,7 @@ public class class_ahm extends class_ago implements class_agl {
    }
 
    public void b(World var1, Random var2, BlockPosition var3, IBlockData var4) {
-      a(var1, var3, new class_aas(this, 1, this.e(var1, var3).a()));
+      a(var1, var3, new ItemStack(this, 1, this.e(var1, var3).a()));
    }
 
    public IBlockData fromLegacyData(int var1) {

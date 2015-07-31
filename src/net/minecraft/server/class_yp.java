@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
 import net.minecraft.server.Blocks;
@@ -43,8 +43,8 @@ public class class_yp extends class_xz {
                return 1;
             }
 
-            public boolean a(class_aas var1) {
-               return var1 == null?false:(var1.b() instanceof class_za?((class_za)var1.b()).b == var6:(var1.b() != Item.getByBlock(Blocks.PUMPKIN) && var1.b() != Items.ca?false:var6 == class_pw.f));
+            public boolean a(ItemStack var1) {
+               return var1 == null?false:(var1.getItem() instanceof class_za?((class_za)var1.getItem()).b == var6:(var1.getItem() != Item.getByBlock(Blocks.PUMPKIN) && var1.getItem() != Items.ca?false:var6 == class_pw.f));
             }
          }));
       }
@@ -60,7 +60,7 @@ public class class_yp extends class_xz {
       }
 
       this.a((class_yx)(new class_yx(var1, 40, 77, 62) {
-         public boolean a(class_aas var1) {
+         public boolean a(ItemStack var1) {
             return super.a(var1);
          }
       }));
@@ -75,25 +75,25 @@ public class class_yp extends class_xz {
       super.b(var1);
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         class_aas var3 = this.a.b(var2);
+         ItemStack var3 = this.a.b(var2);
          if(var3 != null) {
             var1.a(var3, false);
          }
       }
 
-      this.f.a(0, (class_aas)null);
+      this.f.a(0, (ItemStack)null);
    }
 
    public boolean a(class_xa var1) {
       return true;
    }
 
-   public class_aas b(class_xa var1, int var2) {
-      class_aas var3 = null;
+   public ItemStack b(class_xa var1, int var2) {
+      ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         class_aas var5 = var4.d();
-         var3 = var5.k();
+         ItemStack var5 = var4.d();
+         var3 = var5.clone();
          if(var2 == 0) {
             if(!this.a(var5, 9, 45, true)) {
                return null;
@@ -108,8 +108,8 @@ public class class_yp extends class_xz {
             if(!this.a(var5, 9, 45, false)) {
                return null;
             }
-         } else if(var3.b() instanceof class_za && !((class_yx)this.c.get(8 - ((class_za)var3.b()).b.b())).e()) {
-            int var6 = 8 - ((class_za)var3.b()).b.b();
+         } else if(var3.getItem() instanceof class_za && !((class_yx)this.c.get(8 - ((class_za)var3.getItem()).b.b())).e()) {
+            int var6 = 8 - ((class_za)var3.getItem()).b.b();
             if(!this.a(var5, var6, var6 + 1, false)) {
                return null;
             }
@@ -125,13 +125,13 @@ public class class_yp extends class_xz {
             return null;
          }
 
-         if(var5.b == 0) {
-            var4.d((class_aas)null);
+         if(var5.count == 0) {
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 
@@ -141,7 +141,7 @@ public class class_yp extends class_xz {
       return var3;
    }
 
-   public boolean a(class_aas var1, class_yx var2) {
+   public boolean a(ItemStack var1, class_yx var2) {
       return var2.d != this.f && super.a(var1, var2);
    }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
@@ -21,7 +21,7 @@ public class class_zw extends Item {
       this.a(CreativeTab.d);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 != EnumDirection.UP) {
          return class_oq.b;
       } else {
@@ -37,7 +37,7 @@ public class class_zw extends Item {
             return class_oq.b;
          } else {
             a(var3, var4, EnumDirection.fromAngle((double)var2.y), this.a);
-            --var1.b;
+            --var1.count;
             return class_oq.a;
          }
       }

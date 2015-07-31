@@ -20,9 +20,9 @@ import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTag;
 
 public abstract class class_ask extends class_apn {
    private class_asm d;
@@ -214,17 +214,17 @@ public abstract class class_ask extends class_apn {
             this.d = new class_asm(this.a());
             var1.a((String)this.a(), (class_avd)this.d);
          } else {
-            class_dn var2 = this.d.a();
-            Iterator var3 = var2.c().iterator();
+            NBTTagCompound var2 = this.d.a();
+            Iterator var3 = var2.getKeys().iterator();
 
             while(var3.hasNext()) {
                String var4 = (String)var3.next();
-               class_eb var5 = var2.b(var4);
-               if(var5.a() == 10) {
-                  class_dn var6 = (class_dn)var5;
-                  if(var6.d("ChunkX") && var6.d("ChunkZ")) {
-                     int var7 = var6.g("ChunkX");
-                     int var8 = var6.g("ChunkZ");
+               NBTTag var5 = var2.getTag(var4);
+               if(var5.getId() == 10) {
+                  NBTTagCompound var6 = (NBTTagCompound)var5;
+                  if(var6.has("ChunkX") && var6.has("ChunkZ")) {
+                     int var7 = var6.getInt("ChunkX");
+                     int var8 = var6.getInt("ChunkZ");
                      class_aso var9 = class_asl.a(var6, var1);
                      if(var9 != null) {
                         this.e.put(Long.valueOf(class_aeh.a(var7, var8)), var9);

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_act;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
@@ -54,7 +54,7 @@ public class class_yh extends class_xz {
       super.b(var1);
       if(!this.g.D) {
          for(int var2 = 0; var2 < 9; ++var2) {
-            class_aas var3 = this.a.b(var2);
+            ItemStack var3 = this.a.b(var2);
             if(var3 != null) {
                var1.a(var3, false);
             }
@@ -67,12 +67,12 @@ public class class_yh extends class_xz {
       return this.g.p(this.h).getBlock() != Blocks.CRAFTING_TABLE?false:var1.e((double)this.h.getX() + 0.5D, (double)this.h.getY() + 0.5D, (double)this.h.getZ() + 0.5D) <= 64.0D;
    }
 
-   public class_aas b(class_xa var1, int var2) {
-      class_aas var3 = null;
+   public ItemStack b(class_xa var1, int var2) {
+      ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         class_aas var5 = var4.d();
-         var3 = var5.k();
+         ItemStack var5 = var4.d();
+         var3 = var5.clone();
          if(var2 == 0) {
             if(!this.a(var5, 10, 46, true)) {
                return null;
@@ -91,13 +91,13 @@ public class class_yh extends class_xz {
             return null;
          }
 
-         if(var5.b == 0) {
-            var4.d((class_aas)null);
+         if(var5.count == 0) {
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 
@@ -107,7 +107,7 @@ public class class_yh extends class_xz {
       return var3;
    }
 
-   public boolean a(class_aas var1, class_yx var2) {
+   public boolean a(ItemStack var1, class_yx var2) {
       return var2.d != this.f && super.a(var1, var2);
    }
 }

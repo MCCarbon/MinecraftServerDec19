@@ -10,7 +10,7 @@ import net.minecraft.server.class_apd;
 import net.minecraft.server.class_avl;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_awb;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 
 public class class_avi extends class_avl {
    public class_avi(File var1, String var2, boolean var3) {
@@ -33,7 +33,7 @@ public class class_avi extends class_avl {
       }
    }
 
-   public void a(class_avn var1, class_dn var2) {
+   public void a(class_avn var1, NBTTagCompound var2) {
       var1.e(19133);
       super.a(var1, var2);
    }

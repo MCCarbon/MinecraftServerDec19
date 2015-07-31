@@ -6,7 +6,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vh;
@@ -79,9 +79,9 @@ public class class_vi extends class_vh {
    protected void h() {
    }
 
-   protected void a(class_dn var1) {
+   protected void a(NBTTagCompound var1) {
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
    }
 }

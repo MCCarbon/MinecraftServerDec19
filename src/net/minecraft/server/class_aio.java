@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
@@ -92,7 +92,7 @@ public abstract class class_aio extends Block {
 
    public abstract IBlockState n();
 
-   public abstract Object a(class_aas var1);
+   public abstract Object a(ItemStack var1);
 
    public static enum class_a_in_class_aio implements INamable {
       a("top"),

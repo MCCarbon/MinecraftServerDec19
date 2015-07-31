@@ -12,7 +12,7 @@ import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -74,14 +74,14 @@ public class class_ug extends class_ua implements class_wd {
       return new class_ug.class_b_in_class_ug(this);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.ac.b(a, Byte.valueOf(var1.e("AttachFace")));
-      this.ac.b(c, Byte.valueOf(var1.e("Peek")));
-      if(var1.d("APX")) {
-         int var2 = var1.g("APX");
-         int var3 = var1.g("APY");
-         int var4 = var1.g("APZ");
+      this.ac.b(a, Byte.valueOf(var1.getByte("AttachFace")));
+      this.ac.b(c, Byte.valueOf(var1.getByte("Peek")));
+      if(var1.has("APX")) {
+         int var2 = var1.getInt("APX");
+         int var3 = var1.getInt("APY");
+         int var4 = var1.getInt("APZ");
          this.ac.b(b, new BlockPosition(var2, var3, var4));
       } else {
          this.ac.b(b, bs);

@@ -28,7 +28,7 @@ import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NetworkManager;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.IChatBaseComponent;
@@ -119,7 +119,7 @@ public abstract class class_lz {
       GameProfile var5 = var4.a(var3.getId());
       String var6 = var5 == null?var3.getName():var5.getName();
       var4.a(var3);
-      class_dn var7 = this.a(var2);
+      NBTTagCompound var7 = this.a(var2);
       var2.a((World)this.h.a(var2.am));
       var2.c.a((class_lg)var2.o);
       String var8 = "local";
@@ -171,8 +171,8 @@ public abstract class class_lz {
       }
 
       var2.g_();
-      if(var7 != null && var7.b("Riding", 10)) {
-         class_pr var17 = class_pt.a((class_dn)var7.n("Riding"), (World)var9);
+      if(var7 != null && var7.hasOfType("Riding", 10)) {
+         class_pr var17 = class_pt.a((NBTTagCompound)var7.getCompound("Riding"), (World)var9);
          if(var17 != null) {
             var17.n = true;
             var9.a(var17);
@@ -254,9 +254,9 @@ public abstract class class_lz {
       return class_ld.b(this.s());
    }
 
-   public class_dn a(class_lh var1) {
-      class_dn var2 = this.h.d[0].Q().i();
-      class_dn var3;
+   public NBTTagCompound a(class_lh var1) {
+      NBTTagCompound var2 = this.h.d[0].Q().i();
+      NBTTagCompound var3;
       if(var1.e_().equals(this.h.S()) && var2 != null) {
          var1.f(var2);
          var3 = var2;
@@ -768,7 +768,7 @@ public abstract class class_lz {
       return this.h;
    }
 
-   public class_dn t() {
+   public NBTTagCompound t() {
       return null;
    }
 

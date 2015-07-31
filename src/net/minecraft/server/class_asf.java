@@ -17,7 +17,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_wg;
@@ -1904,10 +1904,10 @@ public class class_asf {
 
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
       }
 
       protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, boolean var9) {

@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
@@ -29,9 +29,9 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_om;
@@ -122,15 +122,15 @@ public class class_akv extends class_agd {
             class_amg var4 = var1.s(var2);
             if(var4 instanceof class_amy) {
                class_amy var5 = (class_amy)var4;
-               class_aas var6 = new class_aas(Items.ca, 1, this.j(var1, var2));
+               ItemStack var6 = new ItemStack(Items.ca, 1, this.j(var1, var2));
                if(var5.d() == 3 && var5.b() != null) {
-                  var6.d(new class_dn());
-                  class_dn var7 = new class_dn();
+                  var6.setTag(new NBTTagCompound());
+                  NBTTagCompound var7 = new NBTTagCompound();
                   class_dy.a(var7, var5.b());
-                  var6.o().a((String)"SkullOwner", (class_eb)var7);
+                  var6.getTag().put((String)"SkullOwner", (NBTTag)var7);
                }
 
-               a(var1, var2, (class_aas)var6);
+               a(var1, var2, (ItemStack)var6);
             }
          }
 
@@ -142,7 +142,7 @@ public class class_akv extends class_agd {
       return Items.ca;
    }
 
-   public boolean b(World var1, BlockPosition var2, class_aas var3) {
+   public boolean b(World var1, BlockPosition var2, ItemStack var3) {
       return var3.i() == 1 && var2.getY() >= 2 && var1.ab() != class_om.a && !var1.D?this.l().a(var1, var2) != null:false;
    }
 

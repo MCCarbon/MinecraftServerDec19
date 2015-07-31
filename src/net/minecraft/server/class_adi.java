@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adb;
 import net.minecraft.server.class_adc;
 import net.minecraft.server.class_add;
@@ -58,13 +58,13 @@ public abstract class class_adi {
    }
 
    public Iterable<?> a(class_qa var1) {
-      List<class_aas> var2 = Lists.newArrayList();
+      List<ItemStack> var2 = Lists.newArrayList();
       class_pw[] var3 = this.a;
       int var4 = var3.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
          class_pw var6 = var3[var5];
-         class_aas var7 = var1.a(var6);
+         ItemStack var7 = var1.a(var6);
          if(var7 != null) {
             var2.add(var7);
          }
@@ -119,8 +119,8 @@ public abstract class class_adi {
       return var2 + " " + LocaleI18n.get("enchantment.level." + var1);
    }
 
-   public boolean a(class_aas var1) {
-      return this.c.a(var1.b());
+   public boolean a(ItemStack var1) {
+      return this.c.a(var1.getItem());
    }
 
    public void a(class_qa var1, class_pr var2, int var3) {

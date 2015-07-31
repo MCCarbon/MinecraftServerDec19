@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -66,9 +66,9 @@ public final class class_pv {
    }
 
    public static class class_a_in_class_pv implements Predicate {
-      private final class_aas a;
+      private final ItemStack a;
 
-      public class_a_in_class_pv(class_aas var1) {
+      public class_a_in_class_pv(ItemStack var1) {
          this.a = var1;
       }
 

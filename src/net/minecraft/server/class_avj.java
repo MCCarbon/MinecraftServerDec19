@@ -22,9 +22,9 @@ import net.minecraft.server.class_avi;
 import net.minecraft.server.class_avm;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dx;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTCompressedStreamTools;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_nw;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -140,16 +140,16 @@ public class class_avj extends class_avm {
                   if(var12 == null) {
                      b.warn("Failed to fetch input stream");
                   } else {
-                     class_dn var13 = class_dx.a(var12);
+                     NBTTagCompound var13 = NBTCompressedStreamTools.fromDataStream(var12);
                      var12.close();
-                     class_dn var14 = var13.n("Level");
+                     NBTTagCompound var14 = var13.getCompound("Level");
                      class_aos.class_a_in_class_aos var15 = class_aos.a(var14);
-                     class_dn var16 = new class_dn();
-                     class_dn var17 = new class_dn();
-                     var16.a((String)"Level", (class_eb)var17);
+                     NBTTagCompound var16 = new NBTTagCompound();
+                     NBTTagCompound var17 = new NBTTagCompound();
+                     var16.put((String)"Level", (NBTTag)var17);
                      class_aos.a(var15, var17, var3);
                      DataOutputStream var18 = var9.b(var10, var11);
-                     class_dx.a((class_dn)var16, (DataOutput)var18);
+                     NBTCompressedStreamTools.writeToData((NBTTagCompound)var16, (DataOutput)var18);
                      var18.close();
                   }
                }

@@ -5,21 +5,21 @@ import com.mojang.authlib.properties.Property;
 import java.util.Iterator;
 import java.util.UUID;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_nz;
 
 public final class class_dy {
-   public static GameProfile a(class_dn var0) {
+   public static GameProfile a(NBTTagCompound var0) {
       String var1 = null;
       String var2 = null;
-      if(var0.b("Name", 8)) {
-         var1 = var0.k("Name");
+      if(var0.hasOfType("Name", 8)) {
+         var1 = var0.getString("Name");
       }
 
-      if(var0.b("Id", 8)) {
-         var2 = var0.k("Id");
+      if(var0.hasOfType("Id", 8)) {
+         var2 = var0.getString("Id");
       }
 
       if(class_nz.b(var1) && class_nz.b(var2)) {
@@ -33,19 +33,19 @@ public final class class_dy {
          }
 
          GameProfile var4 = new GameProfile(var3, var1);
-         if(var0.b("Properties", 10)) {
-            class_dn var5 = var0.n("Properties");
-            Iterator var6 = var5.c().iterator();
+         if(var0.hasOfType("Properties", 10)) {
+            NBTTagCompound var5 = var0.getCompound("Properties");
+            Iterator var6 = var5.getKeys().iterator();
 
             while(var6.hasNext()) {
                String var7 = (String)var6.next();
-               class_du var8 = var5.c(var7, 10);
+               NBTTagList var8 = var5.getList(var7, 10);
 
-               for(int var9 = 0; var9 < var8.c(); ++var9) {
-                  class_dn var10 = var8.b(var9);
-                  String var11 = var10.k("Value");
-                  if(var10.b("Signature", 8)) {
-                     var4.getProperties().put(var7, new Property(var7, var11, var10.k("Signature")));
+               for(int var9 = 0; var9 < var8.getSize(); ++var9) {
+                  NBTTagCompound var10 = var8.getCompound(var9);
+                  String var11 = var10.getString("Value");
+                  if(var10.hasOfType("Signature", 8)) {
+                     var4.getProperties().put(var7, new Property(var7, var11, var10.getString("Signature")));
                   } else {
                      var4.getProperties().put(var7, new Property(var7, var11));
                   }
@@ -57,43 +57,43 @@ public final class class_dy {
       }
    }
 
-   public static class_dn a(class_dn var0, GameProfile var1) {
+   public static NBTTagCompound a(NBTTagCompound var0, GameProfile var1) {
       if(!class_nz.b(var1.getName())) {
-         var0.a("Name", var1.getName());
+         var0.put("Name", var1.getName());
       }
 
       if(var1.getId() != null) {
-         var0.a("Id", var1.getId().toString());
+         var0.put("Id", var1.getId().toString());
       }
 
       if(!var1.getProperties().isEmpty()) {
-         class_dn var2 = new class_dn();
+         NBTTagCompound var2 = new NBTTagCompound();
          Iterator var3 = var1.getProperties().keySet().iterator();
 
          while(var3.hasNext()) {
             String var4 = (String)var3.next();
-            class_du var5 = new class_du();
+            NBTTagList var5 = new NBTTagList();
 
-            class_dn var8;
-            for(Iterator var6 = var1.getProperties().get(var4).iterator(); var6.hasNext(); var5.a((class_eb)var8)) {
+            NBTTagCompound var8;
+            for(Iterator var6 = var1.getProperties().get(var4).iterator(); var6.hasNext(); var5.add((NBTTag)var8)) {
                Property var7 = (Property)var6.next();
-               var8 = new class_dn();
-               var8.a("Value", var7.getValue());
+               var8 = new NBTTagCompound();
+               var8.put("Value", var7.getValue());
                if(var7.hasSignature()) {
-                  var8.a("Signature", var7.getSignature());
+                  var8.put("Signature", var7.getSignature());
                }
             }
 
-            var2.a((String)var4, (class_eb)var5);
+            var2.put((String)var4, (NBTTag)var5);
          }
 
-         var0.a((String)"Properties", (class_eb)var2);
+         var0.put((String)"Properties", (NBTTag)var2);
       }
 
       return var0;
    }
 
-   public static boolean a(class_eb var0, class_eb var1, boolean var2) {
+   public static boolean a(NBTTag var0, NBTTag var1, boolean var2) {
       if(var0 == var1) {
          return true;
       } else if(var0 == null) {
@@ -102,35 +102,35 @@ public final class class_dy {
          return false;
       } else if(!var0.getClass().equals(var1.getClass())) {
          return false;
-      } else if(var0 instanceof class_dn) {
-         class_dn var9 = (class_dn)var0;
-         class_dn var10 = (class_dn)var1;
-         Iterator var11 = var9.c().iterator();
+      } else if(var0 instanceof NBTTagCompound) {
+         NBTTagCompound var9 = (NBTTagCompound)var0;
+         NBTTagCompound var10 = (NBTTagCompound)var1;
+         Iterator var11 = var9.getKeys().iterator();
 
          String var12;
-         class_eb var13;
+         NBTTag var13;
          do {
             if(!var11.hasNext()) {
                return true;
             }
 
             var12 = (String)var11.next();
-            var13 = var9.b(var12);
-         } while(a(var13, var10.b(var12), var2));
+            var13 = var9.getTag(var12);
+         } while(a(var13, var10.getTag(var12), var2));
 
          return false;
-      } else if(var0 instanceof class_du && var2) {
-         class_du var3 = (class_du)var0;
-         class_du var4 = (class_du)var1;
-         if(var3.c() == 0) {
-            return var4.c() == 0;
+      } else if(var0 instanceof NBTTagList && var2) {
+         NBTTagList var3 = (NBTTagList)var0;
+         NBTTagList var4 = (NBTTagList)var1;
+         if(var3.getSize() == 0) {
+            return var4.getSize() == 0;
          } else {
-            for(int var5 = 0; var5 < var3.c(); ++var5) {
-               class_eb var6 = var3.h(var5);
+            for(int var5 = 0; var5 < var3.getSize(); ++var5) {
+               NBTTag var6 = var3.getTag(var5);
                boolean var7 = false;
 
-               for(int var8 = 0; var8 < var4.c(); ++var8) {
-                  if(a(var6, var4.h(var8), var2)) {
+               for(int var8 = 0; var8 < var4.getSize(); ++var8) {
+                  if(a(var6, var4.getTag(var8), var2)) {
                      var7 = true;
                      break;
                   }
@@ -148,26 +148,26 @@ public final class class_dy {
       }
    }
 
-   public static class_dn a(UUID var0) {
-      class_dn var1 = new class_dn();
-      var1.a("M", var0.getMostSignificantBits());
-      var1.a("L", var0.getLeastSignificantBits());
+   public static NBTTagCompound a(UUID var0) {
+      NBTTagCompound var1 = new NBTTagCompound();
+      var1.put("M", var0.getMostSignificantBits());
+      var1.put("L", var0.getLeastSignificantBits());
       return var1;
    }
 
-   public static UUID b(class_dn var0) {
-      return new UUID(var0.h("M"), var0.h("L"));
+   public static UUID b(NBTTagCompound var0) {
+      return new UUID(var0.getLong("M"), var0.getLong("L"));
    }
 
-   public static BlockPosition c(class_dn var0) {
-      return new BlockPosition(var0.g("X"), var0.g("Y"), var0.g("Z"));
+   public static BlockPosition c(NBTTagCompound var0) {
+      return new BlockPosition(var0.getInt("X"), var0.getInt("Y"), var0.getInt("Z"));
    }
 
-   public static class_dn a(BlockPosition var0) {
-      class_dn var1 = new class_dn();
-      var1.a("X", var0.getX());
-      var1.a("Y", var0.getY());
-      var1.a("Z", var0.getZ());
+   public static NBTTagCompound a(BlockPosition var0) {
+      NBTTagCompound var1 = new NBTTagCompound();
+      var1.put("X", var0.getX());
+      var1.put("Y", var0.getY());
+      var1.put("Z", var0.getZ());
       return var1;
    }
 }

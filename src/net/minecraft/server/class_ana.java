@@ -14,9 +14,9 @@ import net.minecraft.server.class_aqj;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.class_kn;
@@ -31,20 +31,20 @@ public class class_ana extends class_amg implements class_kn {
    private int g = 0;
    private BlockPosition h;
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Life", this.f);
+      var1.put("Life", this.f);
       if(this.h != null) {
-         var1.a((String)"ExitPortal", (class_eb)class_dy.a(this.h));
+         var1.put((String)"ExitPortal", (NBTTag)class_dy.a(this.h));
       }
 
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.f = var1.h("Life");
-      if(var1.b("ExitPortal", 10)) {
-         this.h = class_dy.c(var1.n("ExitPortal"));
+      this.f = var1.getLong("Life");
+      if(var1.hasOfType("ExitPortal", 10)) {
+         this.h = class_dy.c(var1.getCompound("ExitPortal"));
       }
 
    }
@@ -77,7 +77,7 @@ public class class_ana extends class_amg implements class_kn {
    }
 
    public Packet z_() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
       return new class_ft(this.c, 8, var1);
    }

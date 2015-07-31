@@ -10,8 +10,8 @@ import java.io.OutputStream;
 import java.util.Map;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_asv;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dx;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTCompressedStreamTools;
 import net.minecraft.server.MinecraftKey;
 import org.apache.commons.io.IOUtils;
 
@@ -78,7 +78,7 @@ public class class_ast {
    }
 
    private void a(String var1, InputStream var2) throws IOException {
-      class_dn var3 = class_dx.a(var2);
+      NBTTagCompound var3 = NBTCompressedStreamTools.fromRawInputStream(var2);
       class_asv var4 = new class_asv();
       var4.b(var3);
       this.a.put(var1, var4);
@@ -99,7 +99,7 @@ public class class_ast {
          }
 
          File var4 = new File(var3, var2 + ".nbt");
-         class_dn var5 = new class_dn();
+         NBTTagCompound var5 = new NBTTagCompound();
          class_asv var6 = (class_asv)this.a.get(var2);
          FileOutputStream var7 = null;
 
@@ -107,7 +107,7 @@ public class class_ast {
          try {
             var6.a(var5);
             var7 = new FileOutputStream(var4);
-            class_dx.a((class_dn)var5, (OutputStream)var7);
+            NBTCompressedStreamTools.writeToRawOutputStream((NBTTagCompound)var5, (OutputStream)var7);
             return true;
          } catch (Throwable var13) {
             var9 = false;

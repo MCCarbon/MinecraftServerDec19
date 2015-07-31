@@ -6,24 +6,24 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_amm;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_oj;
 
 public class class_od extends class_oc.class_a_in_class_oc {
-   private class_aas b;
+   private ItemStack b;
    private int c;
    private int d;
 
    public class_od(Item var1, int var2, int var3, int var4, int var5) {
       super(var5);
-      this.b = new class_aas(var1, 1, var2);
+      this.b = new ItemStack(var1, 1, var2);
       this.c = var3;
       this.d = var4;
    }
 
-   public class_od(class_aas var1, int var2, int var3, int var4) {
+   public class_od(ItemStack var1, int var2, int var3, int var4) {
       super(var4);
       this.b = var1;
       this.c = var2;
@@ -35,13 +35,13 @@ public class class_od extends class_oc.class_a_in_class_oc {
          class_od var5 = (class_od)class_oc.a(var0, var1);
          int var6 = var5.c + var0.nextInt(var5.d - var5.c + 1);
          if(var5.b.c() >= var6) {
-            class_aas var9 = var5.b.k();
-            var9.b = var6;
+            ItemStack var9 = var5.b.clone();
+            var9.count = var6;
             var2.a(var0.nextInt(var2.o_()), var9);
          } else {
             for(int var7 = 0; var7 < var6; ++var7) {
-               class_aas var8 = var5.b.k();
-               var8.b = 1;
+               ItemStack var8 = var5.b.clone();
+               var8.count = 1;
                var2.a(var0.nextInt(var2.o_()), var8);
             }
          }
@@ -54,13 +54,13 @@ public class class_od extends class_oc.class_a_in_class_oc {
          class_od var5 = (class_od)class_oc.a(var0, var1);
          int var6 = var5.c + var0.nextInt(var5.d - var5.c + 1);
          if(var5.b.c() >= var6) {
-            class_aas var9 = var5.b.k();
-            var9.b = var6;
+            ItemStack var9 = var5.b.clone();
+            var9.count = var6;
             var2.a(var0.nextInt(var2.o_()), var9);
          } else {
             for(int var7 = 0; var7 < var6; ++var7) {
-               class_aas var8 = var5.b.k();
-               var8.b = 1;
+               ItemStack var8 = var5.b.clone();
+               var8.count = 1;
                var2.a(var0.nextInt(var2.o_()), var8);
             }
          }

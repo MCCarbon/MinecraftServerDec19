@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
 import net.minecraft.server.class_qa;
@@ -33,8 +33,8 @@ public class class_xn extends class_xd {
 
    }
 
-   protected class_aas j() {
-      return new class_aas(Items.h);
+   protected ItemStack j() {
+      return new ItemStack(Items.h);
    }
 
    protected void b(class_qa var1) {
@@ -43,16 +43,16 @@ public class class_xn extends class_xd {
       var1.c(var2);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.d("Duration")) {
-         this.f = var1.g("Duration");
+      if(var1.has("Duration")) {
+         this.f = var1.getInt("Duration");
       }
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Duration", this.f);
+      var1.put("Duration", this.f);
    }
 }

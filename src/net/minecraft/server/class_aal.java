@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aat;
 import net.minecraft.server.World;
 import net.minecraft.server.MinecraftKey;
@@ -24,7 +24,7 @@ public class class_aal extends Item {
       });
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(var3.bN != null) {
          int var5 = var3.bN.l();
          var1.a(var5, (class_qa)var3);
@@ -42,7 +42,7 @@ public class class_aal extends Item {
       }
    }
 
-   public boolean f_(class_aas var1) {
+   public boolean f_(ItemStack var1) {
       return super.f_(var1);
    }
 

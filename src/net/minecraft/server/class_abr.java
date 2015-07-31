@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aky;
@@ -20,8 +20,8 @@ public class class_abr extends ItemBlock {
       this.a(true);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
-      if(var1.b == 0) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+      if(var1.count == 0) {
          return class_oq.b;
       } else if(!var2.a(var4, var6, var1)) {
          return class_oq.b;
@@ -42,7 +42,7 @@ public class class_abr extends ItemBlock {
                class_awf var15 = this.block.a(var3, var12, var14);
                if(var15 != null && var3.b(var15) && var3.a((BlockPosition)var12, (IBlockData)var14, 2)) {
                   var3.a((double)((float)var12.getX() + 0.5F), (double)((float)var12.getY() + 0.5F), (double)((float)var12.getZ() + 0.5F), this.block.stepSound.b(), (this.block.stepSound.d() + 1.0F) / 2.0F, this.block.stepSound.e() * 0.8F);
-                  --var1.b;
+                  --var1.count;
                   return class_oq.a;
                }
             }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aaq;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.class_aco;
@@ -12,9 +12,9 @@ import net.minecraft.server.class_aih;
 import net.minecraft.server.class_amu;
 import net.minecraft.server.Material;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oz;
@@ -30,7 +30,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
    private static final int[] a = new int[]{0};
    private static final int[] f = new int[]{2, 1};
    private static final int[] g = new int[]{1};
-   private class_aas[] h = new class_aas[3];
+   private ItemStack[] h = new ItemStack[3];
    private int i;
    private int j;
    private int k;
@@ -41,20 +41,20 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       return this.h.length;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return this.h[var1];
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.h[var1] != null) {
-         class_aas var3;
-         if(this.h[var1].b <= var2) {
+         ItemStack var3;
+         if(this.h[var1].count <= var2) {
             var3 = this.h[var1];
             this.h[var1] = null;
             return var3;
          } else {
             var3 = this.h[var1].a(var2);
-            if(this.h[var1].b == 0) {
+            if(this.h[var1].count == 0) {
                this.h[var1] = null;
             }
 
@@ -65,9 +65,9 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       }
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       if(this.h[var1] != null) {
-         class_aas var2 = this.h[var1];
+         ItemStack var2 = this.h[var1];
          this.h[var1] = null;
          return var2;
       } else {
@@ -75,11 +75,11 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       }
    }
 
-   public void a(int var1, class_aas var2) {
-      boolean var3 = var2 != null && var2.a(this.h[var1]) && class_aas.a(var2, this.h[var1]);
+   public void a(int var1, ItemStack var2) {
+      boolean var3 = var2 != null && var2.a(this.h[var1]) && ItemStack.a(var2, this.h[var1]);
       this.h[var1] = var2;
-      if(var2 != null && var2.b > this.q_()) {
-         var2.b = this.q_();
+      if(var2 != null && var2.count > this.q_()) {
+         var2.count = this.q_();
       }
 
       if(var1 == 0 && !var3) {
@@ -102,48 +102,48 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       this.m = var1;
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      class_du var2 = var1.c("Items", 10);
-      this.h = new class_aas[this.o_()];
+      NBTTagList var2 = var1.getList("Items", 10);
+      this.h = new ItemStack[this.o_()];
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         class_dn var4 = var2.b(var3);
-         byte var5 = var4.e("Slot");
+      for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+         NBTTagCompound var4 = var2.getCompound(var3);
+         byte var5 = var4.getByte("Slot");
          if(var5 >= 0 && var5 < this.h.length) {
-            this.h[var5] = class_aas.a(var4);
+            this.h[var5] = ItemStack.a(var4);
          }
       }
 
-      this.i = var1.f("BurnTime");
-      this.k = var1.f("CookTime");
-      this.l = var1.f("CookTimeTotal");
+      this.i = var1.getShort("BurnTime");
+      this.k = var1.getShort("CookTime");
+      this.l = var1.getShort("CookTimeTotal");
       this.j = b(this.h[1]);
-      if(var1.b("CustomName", 8)) {
-         this.m = var1.k("CustomName");
+      if(var1.hasOfType("CustomName", 8)) {
+         this.m = var1.getString("CustomName");
       }
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("BurnTime", (short)this.i);
-      var1.a("CookTime", (short)this.k);
-      var1.a("CookTimeTotal", (short)this.l);
-      class_du var2 = new class_du();
+      var1.put("BurnTime", (short)this.i);
+      var1.put("CookTime", (short)this.k);
+      var1.put("CookTimeTotal", (short)this.l);
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.h.length; ++var3) {
          if(this.h[var3] != null) {
-            class_dn var4 = new class_dn();
-            var4.a("Slot", (byte)var3);
-            this.h[var3].b(var4);
-            var2.a((class_eb)var4);
+            NBTTagCompound var4 = new NBTTagCompound();
+            var4.put("Slot", (byte)var3);
+            this.h[var3].write(var4);
+            var2.add((NBTTag)var4);
          }
       }
 
-      var1.a((String)"Items", (class_eb)var2);
+      var1.put((String)"Items", (NBTTag)var2);
       if(this.l_()) {
-         var1.a("CustomName", this.m);
+         var1.put("CustomName", this.m);
       }
 
    }
@@ -174,10 +174,10 @@ public class class_amr extends class_amu implements class_kn, class_oz {
                if(this.m()) {
                   var2 = true;
                   if(this.h[1] != null) {
-                     --this.h[1].b;
-                     if(this.h[1].b == 0) {
-                        Item var3 = this.h[1].b().q();
-                        this.h[1] = var3 != null?new class_aas(var3):null;
+                     --this.h[1].count;
+                     if(this.h[1].count == 0) {
+                        Item var3 = this.h[1].getItem().q();
+                        this.h[1] = var3 != null?new ItemStack(var3):null;
                      }
                   }
                }
@@ -208,7 +208,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
 
    }
 
-   public int a(class_aas var1) {
+   public int a(ItemStack var1) {
       return 200;
    }
 
@@ -216,37 +216,37 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       if(this.h[0] == null) {
          return false;
       } else {
-         class_aas var1 = class_aco.a().a(this.h[0]);
-         return var1 == null?false:(this.h[2] == null?true:(!this.h[2].a(var1)?false:(this.h[2].b < this.q_() && this.h[2].b < this.h[2].c()?true:this.h[2].b < var1.c())));
+         ItemStack var1 = class_aco.a().a(this.h[0]);
+         return var1 == null?false:(this.h[2] == null?true:(!this.h[2].a(var1)?false:(this.h[2].count < this.q_() && this.h[2].count < this.h[2].c()?true:this.h[2].count < var1.c())));
       }
    }
 
    public void n() {
       if(this.o()) {
-         class_aas var1 = class_aco.a().a(this.h[0]);
+         ItemStack var1 = class_aco.a().a(this.h[0]);
          if(this.h[2] == null) {
-            this.h[2] = var1.k();
-         } else if(this.h[2].b() == var1.b()) {
-            ++this.h[2].b;
+            this.h[2] = var1.clone();
+         } else if(this.h[2].getItem() == var1.getItem()) {
+            ++this.h[2].count;
          }
 
-         if(this.h[0].b() == Item.getByBlock(Blocks.SPONGE) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].b() == Items.ay) {
-            this.h[1] = new class_aas(Items.az);
+         if(this.h[0].getItem() == Item.getByBlock(Blocks.SPONGE) && this.h[0].i() == 1 && this.h[1] != null && this.h[1].getItem() == Items.ay) {
+            this.h[1] = new ItemStack(Items.az);
          }
 
-         --this.h[0].b;
-         if(this.h[0].b <= 0) {
+         --this.h[0].count;
+         if(this.h[0].count <= 0) {
             this.h[0] = null;
          }
 
       }
    }
 
-   public static int b(class_aas var0) {
+   public static int b(ItemStack var0) {
       if(var0 == null) {
          return 0;
       } else {
-         Item var1 = var0.b();
+         Item var1 = var0.getItem();
          if(var1 instanceof ItemBlock && Block.getByItem(var1) != Blocks.AIR) {
             Block var2 = Block.getByItem(var1);
             if(var2 == Blocks.WOODEN_SLAB) {
@@ -266,7 +266,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       }
    }
 
-   public static boolean c(class_aas var0) {
+   public static boolean c(ItemStack var0) {
       return b(var0) > 0;
    }
 
@@ -280,7 +280,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       return var1 == 2?false:(var1 != 1?true:c(var2) || class_yk.c_(var2));
    }
 
@@ -288,13 +288,13 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       return var1 == EnumDirection.DOWN?f:(var1 == EnumDirection.UP?a:g);
    }
 
-   public boolean a(int var1, class_aas var2, EnumDirection var3) {
+   public boolean a(int var1, ItemStack var2, EnumDirection var3) {
       return this.b(var1, var2);
    }
 
-   public boolean b(int var1, class_aas var2, EnumDirection var3) {
+   public boolean b(int var1, ItemStack var2, EnumDirection var3) {
       if(var3 == EnumDirection.DOWN && var1 == 1) {
-         Item var4 = var2.b();
+         Item var4 = var2.getItem();
          if(var4 != Items.az && var4 != Items.ay) {
             return false;
          }

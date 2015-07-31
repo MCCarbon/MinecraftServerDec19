@@ -6,7 +6,7 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
@@ -40,21 +40,21 @@ public class class_s extends class_i {
             if(var5 == null) {
                throw new class_bz("commands.blockdata.notValid", new Object[0]);
             } else {
-               class_dn var6 = new class_dn();
+               NBTTagCompound var6 = new NBTTagCompound();
                var5.b(var6);
-               class_dn var7 = (class_dn)var6.b();
+               NBTTagCompound var7 = (NBTTagCompound)var6.clone();
 
-               class_dn var8;
+               NBTTagCompound var8;
                try {
                   var8 = class_ed.a(a(var1, var2, 3).c());
                } catch (class_ec var10) {
                   throw new class_bz("commands.blockdata.tagError", new Object[]{var10.getMessage()});
                }
 
-               var6.a(var8);
-               var6.a("x", var3.getX());
-               var6.a("y", var3.getY());
-               var6.a("z", var3.getZ());
+               var6.copyFrom(var8);
+               var6.put("x", var3.getX());
+               var6.put("y", var3.getY());
+               var6.put("z", var3.getZ());
                if(var6.equals(var7)) {
                   throw new class_bz("commands.blockdata.failed", new Object[]{var6.toString()});
                } else {

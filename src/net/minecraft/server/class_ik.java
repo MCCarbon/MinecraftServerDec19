@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
@@ -12,7 +12,7 @@ public class class_ik implements Packet {
    private int b;
    private int c;
    private short d;
-   private class_aas e;
+   private ItemStack e;
    private int f;
 
    public void a(PacketListenerPlayIn var1) {
@@ -25,7 +25,7 @@ public class class_ik implements Packet {
       this.c = var1.readByte();
       this.d = var1.readShort();
       this.f = var1.readByte();
-      this.e = var1.i();
+      this.e = var1.readItemStack();
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {
@@ -34,7 +34,7 @@ public class class_ik implements Packet {
       var1.writeByte(this.c);
       var1.writeShort(this.d);
       var1.writeByte(this.f);
-      var1.a(this.e);
+      var1.writeItemStack(this.e);
    }
 
    public int a() {
@@ -53,7 +53,7 @@ public class class_ik implements Packet {
       return this.d;
    }
 
-   public class_aas e() {
+   public ItemStack e() {
       return this.e;
    }
 

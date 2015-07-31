@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aav;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
@@ -131,7 +131,7 @@ public class class_ahz extends Block {
       return var3 == Blocks.BARRIER?false:((!(var3 instanceof class_ahz) || var3.material != this.material) && !(var3 instanceof class_aia)?(var3.material.isOpaque() && var3.isFullCube()?var3.material != Material.PUMPKIN:false):true);
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       return var1.D?true:class_aav.a(var4, var1, var2);
    }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Material;
@@ -19,7 +19,7 @@ public class class_zk extends Item {
       this.a(CreativeTab.k);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       class_awg var5 = this.a(var2, var3, true);
       if(var5 == null) {
          return new class_or(class_oq.b, var1);
@@ -35,14 +35,14 @@ public class class_zk extends Item {
             }
 
             if(var2.p(var6).getBlock().getMaterial() == Material.WATER) {
-               --var1.b;
+               --var1.count;
                var3.b(class_nc.ad[Item.getId((Item)this)]);
-               if(var1.b <= 0) {
-                  return new class_or(class_oq.a, new class_aas(Items.bB));
+               if(var1.count <= 0) {
+                  return new class_or(class_oq.a, new ItemStack(Items.bB));
                }
 
-               if(!var3.bp.a(new class_aas(Items.bB))) {
-                  var3.a(new class_aas(Items.bB), false);
+               if(!var3.bp.a(new ItemStack(Items.bB))) {
+                  var3.a(new ItemStack(Items.bB), false);
                }
 
                return new class_or(class_oq.a, var1);

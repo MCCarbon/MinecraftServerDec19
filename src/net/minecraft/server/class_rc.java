@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.EnumUsedHand;
@@ -52,9 +52,9 @@ public class class_rc extends class_rm {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          EnumUsedHand var5 = var2[var4];
-         class_aas var6 = var1.b((EnumUsedHand)var5);
+         ItemStack var6 = var1.b((EnumUsedHand)var5);
          if(var6 != null) {
-            if(this.a.cA() && var6.b() == Items.aZ) {
+            if(this.a.cA() && var6.getItem() == Items.aZ) {
                return true;
             }
 

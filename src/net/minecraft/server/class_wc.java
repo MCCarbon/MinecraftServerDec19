@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_qf;
 import net.minecraft.server.class_rj;
 import net.minecraft.server.class_rr;
@@ -70,16 +70,16 @@ public class class_wc extends class_wi {
       return null;
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.g("Lifetime");
-      this.b = var1.o("PlayerSpawned");
+      this.a = var1.getInt("Lifetime");
+      this.b = var1.getBoolean("PlayerSpawned");
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Lifetime", this.a);
-      var1.a("PlayerSpawned", this.b);
+      var1.put("Lifetime", this.a);
+      var1.put("PlayerSpawned", this.b);
    }
 
    public void t_() {

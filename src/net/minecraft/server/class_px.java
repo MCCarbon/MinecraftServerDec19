@@ -4,7 +4,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -130,16 +130,16 @@ public class class_px extends class_pr {
       }
    }
 
-   public void b(class_dn var1) {
-      var1.a("Health", (short)((byte)this.d));
-      var1.a("Age", (short)this.b);
-      var1.a("Value", (short)this.e);
+   public void b(NBTTagCompound var1) {
+      var1.put("Health", (short)((byte)this.d));
+      var1.put("Age", (short)this.b);
+      var1.put("Value", (short)this.e);
    }
 
-   public void a(class_dn var1) {
-      this.d = var1.f("Health") & 255;
-      this.b = var1.f("Age");
-      this.e = var1.f("Value");
+   public void a(NBTTagCompound var1) {
+      this.d = var1.getShort("Health") & 255;
+      this.b = var1.getShort("Age");
+      this.e = var1.getShort("Value");
    }
 
    public void d(class_xa var1) {

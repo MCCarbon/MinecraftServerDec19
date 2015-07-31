@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.World;
 import net.minecraft.server.class_oj;
@@ -63,12 +63,12 @@ public class class_ys extends class_xz {
       return this.a.v_() == var1;
    }
 
-   public class_aas b(class_xa var1, int var2) {
-      class_aas var3 = null;
+   public ItemStack b(class_xa var1, int var2) {
+      ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         class_aas var5 = var4.d();
-         var3 = var5.k();
+         ItemStack var5 = var4.d();
+         var3 = var5.clone();
          if(var2 == 2) {
             if(!this.a(var5, 3, 39, true)) {
                return null;
@@ -87,13 +87,13 @@ public class class_ys extends class_xz {
             return null;
          }
 
-         if(var5.b == 0) {
-            var4.d((class_aas)null);
+         if(var5.count == 0) {
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 
@@ -108,7 +108,7 @@ public class class_ys extends class_xz {
       this.a.a((class_xa)null);
       super.b(var1);
       if(!this.g.D) {
-         class_aas var2 = this.f.b(0);
+         ItemStack var2 = this.f.b(0);
          if(var2 != null) {
             var1.a(var2, false);
          }

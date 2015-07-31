@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aan;
-import net.minecraft.server.class_aas;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_xa;
@@ -19,7 +19,7 @@ public class class_xx {
       this.b = Math.min(this.b + (float)var1 * var2 * 2.0F, (float)this.a);
    }
 
-   public void a(class_aan var1, class_aas var2) {
+   public void a(class_aan var1, ItemStack var2) {
       this.a(var1.h(var2), var1.i(var2));
    }
 
@@ -57,21 +57,21 @@ public class class_xx {
 
    }
 
-   public void a(class_dn var1) {
-      if(var1.b("foodLevel", 99)) {
-         this.a = var1.g("foodLevel");
-         this.d = var1.g("foodTickTimer");
-         this.b = var1.i("foodSaturationLevel");
-         this.c = var1.i("foodExhaustionLevel");
+   public void a(NBTTagCompound var1) {
+      if(var1.hasOfType("foodLevel", 99)) {
+         this.a = var1.getInt("foodLevel");
+         this.d = var1.getInt("foodTickTimer");
+         this.b = var1.getFloat("foodSaturationLevel");
+         this.c = var1.getFloat("foodExhaustionLevel");
       }
 
    }
 
-   public void b(class_dn var1) {
-      var1.a("foodLevel", this.a);
-      var1.a("foodTickTimer", this.d);
-      var1.a("foodSaturationLevel", this.b);
-      var1.a("foodExhaustionLevel", this.c);
+   public void b(NBTTagCompound var1) {
+      var1.put("foodLevel", this.a);
+      var1.put("foodTickTimer", this.d);
+      var1.put("foodSaturationLevel", this.b);
+      var1.put("foodExhaustionLevel", this.c);
    }
 
    public int a() {

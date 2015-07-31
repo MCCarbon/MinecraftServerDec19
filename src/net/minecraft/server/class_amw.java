@@ -5,21 +5,21 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 
 public class class_amw extends class_amg {
    public byte a;
    public boolean f;
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("note", this.a);
+      var1.put("note", this.a);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.e("note");
+      this.a = var1.getByte("note");
       this.a = (byte)MathHelper.clamp(this.a, 0, 24);
    }
 

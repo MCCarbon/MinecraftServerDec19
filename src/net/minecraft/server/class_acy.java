@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
 import net.minecraft.server.Blocks;
@@ -20,10 +20,10 @@ public class class_acy {
 
          for(int var4 = 0; var4 < this.b.length - 1; ++var4) {
             Item var5 = (Item)this.b[var4 + 1][var2];
-            var1.a(new class_aas(var5), new Object[]{this.a[var4], Character.valueOf('#'), Items.A, Character.valueOf('X'), var3});
+            var1.a(new ItemStack(var5), new Object[]{this.a[var4], Character.valueOf('#'), Items.A, Character.valueOf('X'), var3});
          }
       }
 
-      var1.a(new class_aas(Items.bg), new Object[]{" #", "# ", Character.valueOf('#'), Items.l});
+      var1.a(new ItemStack(Items.bg), new Object[]{" #", "# ", Character.valueOf('#'), Items.l});
    }
 }

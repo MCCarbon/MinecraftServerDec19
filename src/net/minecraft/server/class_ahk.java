@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_agd;
 import net.minecraft.server.Block;
@@ -78,7 +78,7 @@ public class class_ahk extends class_agd {
       }
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var1.D) {
          return true;
       } else {
@@ -104,19 +104,19 @@ public class class_ahk extends class_agd {
          if(var5 < 0) {
             var1.b(1001, var2, 0);
          } else {
-            class_aas var6 = var4.a(var5);
+            ItemStack var6 = var4.a(var5);
             class_cr var7 = this.a(var6);
             if(var7 != class_cr.a) {
-               class_aas var8 = var7.a(var3, var6);
-               var4.a(var5, var8.b <= 0?null:var8);
+               ItemStack var8 = var7.a(var3, var6);
+               var4.a(var5, var8.count <= 0?null:var8);
             }
 
          }
       }
    }
 
-   protected class_cr a(class_aas var1) {
-      return (class_cr)N.c(var1 == null?null:var1.b());
+   protected class_cr a(ItemStack var1) {
+      return (class_cr)N.c(var1 == null?null:var1.getItem());
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
@@ -146,12 +146,12 @@ public class class_ahk extends class_agd {
       return this.getBlockData().set(a, class_ane.a(var1, var2, var8)).set(b, Boolean.valueOf(false));
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
       var1.a((BlockPosition)var2, (IBlockData)var3.set(a, class_ane.a(var1, var2, var4)), 2);
-      if(var5.s()) {
+      if(var5.hasDisplayName()) {
          class_amg var6 = var1.s(var2);
          if(var6 instanceof class_amm) {
-            ((class_amm)var6).a(var5.q());
+            ((class_amm)var6).a(var5.getDisplayName());
          }
       }
 

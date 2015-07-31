@@ -8,7 +8,7 @@ import net.minecraft.server.class_ahh;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_xa;
@@ -168,23 +168,23 @@ public abstract class class_uz extends class_pr {
 
    }
 
-   public void b(class_dn var1) {
-      var1.a("Facing", (byte)this.b.getHorizontalId());
-      var1.a("TileX", this.n().getX());
-      var1.a("TileY", this.n().getY());
-      var1.a("TileZ", this.n().getZ());
+   public void b(NBTTagCompound var1) {
+      var1.put("Facing", (byte)this.b.getHorizontalId());
+      var1.put("TileX", this.n().getX());
+      var1.put("TileY", this.n().getY());
+      var1.put("TileZ", this.n().getZ());
    }
 
-   public void a(class_dn var1) {
-      this.a = new BlockPosition(var1.g("TileX"), var1.g("TileY"), var1.g("TileZ"));
+   public void a(NBTTagCompound var1) {
+      this.a = new BlockPosition(var1.getInt("TileX"), var1.getInt("TileY"), var1.getInt("TileZ"));
       EnumDirection var2;
-      if(var1.b("Direction", 99)) {
-         var2 = EnumDirection.getByHorizontalId(var1.e("Direction"));
+      if(var1.hasOfType("Direction", 99)) {
+         var2 = EnumDirection.getByHorizontalId(var1.getByte("Direction"));
          this.a = this.a.shift(var2);
-      } else if(var1.b("Facing", 99)) {
-         var2 = EnumDirection.getByHorizontalId(var1.e("Facing"));
+      } else if(var1.hasOfType("Facing", 99)) {
+         var2 = EnumDirection.getByHorizontalId(var1.getByte("Facing"));
       } else {
-         var2 = EnumDirection.getByHorizontalId(var1.e("Dir"));
+         var2 = EnumDirection.getByHorizontalId(var1.getByte("Dir"));
       }
 
       this.a(var2);

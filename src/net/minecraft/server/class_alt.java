@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.base.Objects;
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
@@ -79,7 +79,7 @@ public class class_alt extends Block {
       return var9;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
       this.a(var1, var2, var3, false, false, -1, (IBlockData)null);
    }
 

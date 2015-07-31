@@ -23,7 +23,7 @@ import net.minecraft.server.class_iw;
 import net.minecraft.server.class_ix;
 import net.minecraft.server.class_iy;
 import net.minecraft.server.class_iz;
-import net.minecraft.server.class_ja;
+import net.minecraft.server.PacketPlayInBlockPlace;
 import net.minecraft.server.PacketPlayInUseItem;
 
 public interface PacketListenerPlayIn extends PacketListener {
@@ -68,7 +68,7 @@ public interface PacketListenerPlayIn extends PacketListener {
 
 	void handle(class_ix packet);
 
-	void handle(class_ja packet);
+	void handle(PacketPlayInBlockPlace packet);
 
 	void handle(PacketPlayInUseItem packet);
 

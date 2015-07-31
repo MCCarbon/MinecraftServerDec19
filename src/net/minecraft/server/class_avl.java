@@ -15,9 +15,9 @@ import net.minecraft.server.class_aoy;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
 import net.minecraft.server.class_avx;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dx;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTCompressedStreamTools;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_xa;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -89,12 +89,12 @@ public class class_avl implements class_avo, class_avx {
 
    public class_avn d() {
       File var1 = new File(this.b, "level.dat");
-      class_dn var2;
-      class_dn var3;
+      NBTTagCompound var2;
+      NBTTagCompound var3;
       if(var1.exists()) {
          try {
-            var2 = class_dx.a((InputStream)(new FileInputStream(var1)));
-            var3 = var2.n("Data");
+            var2 = NBTCompressedStreamTools.fromRawInputStream((InputStream)(new FileInputStream(var1)));
+            var3 = var2.getCompound("Data");
             return new class_avn(var3);
          } catch (Exception var5) {
             var5.printStackTrace();
@@ -104,8 +104,8 @@ public class class_avl implements class_avo, class_avx {
       var1 = new File(this.b, "level.dat_old");
       if(var1.exists()) {
          try {
-            var2 = class_dx.a((InputStream)(new FileInputStream(var1)));
-            var3 = var2.n("Data");
+            var2 = NBTCompressedStreamTools.fromRawInputStream((InputStream)(new FileInputStream(var1)));
+            var3 = var2.getCompound("Data");
             return new class_avn(var3);
          } catch (Exception var4) {
             var4.printStackTrace();
@@ -115,16 +115,16 @@ public class class_avl implements class_avo, class_avx {
       return null;
    }
 
-   public void a(class_avn var1, class_dn var2) {
-      class_dn var3 = var1.a(var2);
-      class_dn var4 = new class_dn();
-      var4.a((String)"Data", (class_eb)var3);
+   public void a(class_avn var1, NBTTagCompound var2) {
+      NBTTagCompound var3 = var1.a(var2);
+      NBTTagCompound var4 = new NBTTagCompound();
+      var4.put((String)"Data", (NBTTag)var3);
 
       try {
          File var5 = new File(this.b, "level.dat_new");
          File var6 = new File(this.b, "level.dat_old");
          File var7 = new File(this.b, "level.dat");
-         class_dx.a((class_dn)var4, (OutputStream)(new FileOutputStream(var5)));
+         NBTCompressedStreamTools.writeToRawOutputStream((NBTTagCompound)var4, (OutputStream)(new FileOutputStream(var5)));
          if(var6.exists()) {
             var6.delete();
          }
@@ -145,15 +145,15 @@ public class class_avl implements class_avo, class_avx {
    }
 
    public void a(class_avn var1) {
-      class_dn var2 = var1.a();
-      class_dn var3 = new class_dn();
-      var3.a((String)"Data", (class_eb)var2);
+      NBTTagCompound var2 = var1.a();
+      NBTTagCompound var3 = new NBTTagCompound();
+      var3.put((String)"Data", (NBTTag)var2);
 
       try {
          File var4 = new File(this.b, "level.dat_new");
          File var5 = new File(this.b, "level.dat_old");
          File var6 = new File(this.b, "level.dat");
-         class_dx.a((class_dn)var3, (OutputStream)(new FileOutputStream(var4)));
+         NBTCompressedStreamTools.writeToRawOutputStream((NBTTagCompound)var3, (OutputStream)(new FileOutputStream(var4)));
          if(var5.exists()) {
             var5.delete();
          }
@@ -175,11 +175,11 @@ public class class_avl implements class_avo, class_avx {
 
    public void a(class_xa var1) {
       try {
-         class_dn var2 = new class_dn();
+         NBTTagCompound var2 = new NBTTagCompound();
          var1.e(var2);
          File var3 = new File(this.c, var1.aM().toString() + ".dat.tmp");
          File var4 = new File(this.c, var1.aM().toString() + ".dat");
-         class_dx.a((class_dn)var2, (OutputStream)(new FileOutputStream(var3)));
+         NBTCompressedStreamTools.writeToRawOutputStream((NBTTagCompound)var2, (OutputStream)(new FileOutputStream(var3)));
          if(var4.exists()) {
             var4.delete();
          }
@@ -191,13 +191,13 @@ public class class_avl implements class_avo, class_avx {
 
    }
 
-   public class_dn b(class_xa var1) {
-      class_dn var2 = null;
+   public NBTTagCompound b(class_xa var1) {
+      NBTTagCompound var2 = null;
 
       try {
          File var3 = new File(this.c, var1.aM().toString() + ".dat");
          if(var3.exists() && var3.isFile()) {
-            var2 = class_dx.a((InputStream)(new FileInputStream(var3)));
+            var2 = NBTCompressedStreamTools.fromRawInputStream((InputStream)(new FileInputStream(var3)));
          }
       } catch (Exception var4) {
          a.warn("Failed to load player data for " + var1.e_());

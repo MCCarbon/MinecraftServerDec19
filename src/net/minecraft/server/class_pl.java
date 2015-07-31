@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import com.google.common.collect.ComparisonChain;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pk;
 import net.minecraft.server.class_qa;
 import org.apache.logging.log4j.LogManager;
@@ -147,27 +147,27 @@ public class class_pl implements Comparable {
       return var1;
    }
 
-   public class_dn a(class_dn var1) {
-      var1.a("Id", (byte)class_pk.a(this.a()));
-      var1.a("Amplifier", (byte)this.c());
-      var1.a("Duration", this.b());
-      var1.a("Ambient", this.d());
-      var1.a("ShowParticles", this.e());
+   public NBTTagCompound a(NBTTagCompound var1) {
+      var1.put("Id", (byte)class_pk.a(this.a()));
+      var1.put("Amplifier", (byte)this.c());
+      var1.put("Duration", this.b());
+      var1.put("Ambient", this.d());
+      var1.put("ShowParticles", this.e());
       return var1;
    }
 
-   public static class_pl b(class_dn var0) {
-      byte var1 = var0.e("Id");
+   public static class_pl b(NBTTagCompound var0) {
+      byte var1 = var0.getByte("Id");
       class_pk var2 = class_pk.a(var1);
       if(var2 == null) {
          return null;
       } else {
-         byte var3 = var0.e("Amplifier");
-         int var4 = var0.g("Duration");
-         boolean var5 = var0.o("Ambient");
+         byte var3 = var0.getByte("Amplifier");
+         int var4 = var0.getInt("Duration");
+         boolean var5 = var0.getBoolean("Ambient");
          boolean var6 = true;
-         if(var0.b("ShowParticles", 1)) {
-            var6 = var0.o("ShowParticles");
+         if(var0.hasOfType("ShowParticles", 1)) {
+            var6 = var0.getBoolean("ShowParticles");
          }
 
          return new class_pl(var2, var4, var3, var5, var6);

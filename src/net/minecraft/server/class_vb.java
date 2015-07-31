@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qb;
@@ -48,17 +48,17 @@ public class class_vb extends class_uz {
    public void b(class_pr var1) {
    }
 
-   public boolean d(class_dn var1) {
+   public boolean d(NBTTagCompound var1) {
       return false;
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
    }
 
-   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
+   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       if(this.o.D) {
          return true;
       } else {
@@ -67,7 +67,7 @@ public class class_vb extends class_uz {
          List var7;
          Iterator var8;
          class_qb var9;
-         if(var2 != null && var2.b() == Items.cq) {
+         if(var2 != null && var2.getItem() == Items.cq) {
             var5 = 7.0D;
             var7 = this.o.a(class_qb.class, new class_awf(this.s - var5, this.t - var5, this.u - var5, this.s + var5, this.t + var5, this.u + var5));
             var8 = var7.iterator();

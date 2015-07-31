@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.Item;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.MinecraftKey;
@@ -19,29 +19,29 @@ public class class_amq extends class_amg {
       this.f = var2;
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       MinecraftKey var2 = (MinecraftKey)Item.ITEM_REGISTRY.getKey(this.a);
-      var1.a("Item", var2 == null?"":var2.toString());
-      var1.a("Data", this.f);
+      var1.put("Item", var2 == null?"":var2.toString());
+      var1.put("Data", this.f);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("Item", 8)) {
-         this.a = Item.getByName(var1.k("Item"));
+      if(var1.hasOfType("Item", 8)) {
+         this.a = Item.getByName(var1.getString("Item"));
       } else {
-         this.a = Item.getById(var1.g("Item"));
+         this.a = Item.getById(var1.getInt("Item"));
       }
 
-      this.f = var1.g("Data");
+      this.f = var1.getInt("Data");
    }
 
    public Packet z_() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      var1.p("Item");
-      var1.a("Item", Item.getId(this.a));
+      var1.remove("Item");
+      var1.put("Item", Item.getId(this.a));
       return new class_ft(this.c, 5, var1);
    }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -17,7 +17,7 @@ public class class_abl extends Item {
       this.a(CreativeTab.i);
    }
 
-   public boolean a(class_aas var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
+   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
       if(var3.getMaterial() != Material.LEAVES && var3 != Blocks.WEB && var3 != Blocks.TALLGRASS && var3 != Blocks.VINE && var3 != Blocks.TRIPWIRE && var3 != Blocks.WOOL) {
          return super.a(var1, var2, var3, var4, var5);
       } else {
@@ -30,7 +30,7 @@ public class class_abl extends Item {
       return var1 == Blocks.WEB || var1 == Blocks.REDSTONE_WIRE || var1 == Blocks.TRIPWIRE;
    }
 
-   public float a(class_aas var1, Block var2) {
+   public float a(ItemStack var1, Block var2) {
       return var2 != Blocks.WEB && var2.getMaterial() != Material.LEAVES?(var2 == Blocks.WOOL?5.0F:super.a(var1, var2)):15.0F;
    }
 }

@@ -387,7 +387,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				this.ab = az();
 				long var1 = 0L;
 				this.r.a((IChatBaseComponent) (new class_fa(this.E)));
-				this.r.a(new class_jt.class_c_in_class_jt("15w31b", 50));
+				this.r.a(new class_jt.class_c_in_class_jt("15w31c", 51));
 				this.a(this.r);
 
 				while (this.w) {
@@ -723,7 +723,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	public String H() {
-		return "15w31b";
+		return "15w31c";
 	}
 
 	public int I() {

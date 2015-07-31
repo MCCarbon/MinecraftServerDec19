@@ -35,7 +35,7 @@ public class class_aq extends class_i {
          String var4 = a(var2, 1);
 
          try {
-            IChatBaseComponent var5 = IChatBaseComponent.class_a_in_class_eu.a(var4);
+            IChatBaseComponent var5 = IChatBaseComponent.ChatSerializer.fromJson(var4);
             var3.a((IChatBaseComponent)class_ev.a(var1, var5, var3));
          } catch (JsonParseException var7) {
         	 throw class_aq.a(var7);

@@ -9,7 +9,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
@@ -46,7 +46,7 @@ public class class_be extends class_i {
          if(!var6.e(var3)) {
             throw new class_bz("commands.setblock.outOfWorld", new Object[0]);
          } else {
-            class_dn var7 = new class_dn();
+            NBTTagCompound var7 = new NBTTagCompound();
             boolean var8 = false;
             if(var2.length >= 7 && var4.isTileEntity()) {
                String var9 = a(var1, var2, 6).c();
@@ -87,9 +87,9 @@ public class class_be extends class_i {
                if(var8) {
                   class_amg var11 = var6.s(var3);
                   if(var11 != null) {
-                     var7.a("x", var3.getX());
-                     var7.a("y", var3.getY());
-                     var7.a("z", var3.getZ());
+                     var7.put("x", var3.getX());
+                     var7.put("y", var3.getY());
+                     var7.put("z", var3.getZ());
                      var11.a(var7);
                   }
                }

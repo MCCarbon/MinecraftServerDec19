@@ -12,8 +12,8 @@ import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_om;
 
 public class class_avn {
@@ -28,7 +28,7 @@ public class class_avn {
    private long i;
    private long j;
    private long k;
-   private class_dn l;
+   private NBTTagCompound l;
    private int m;
    private String n;
    private int o;
@@ -72,7 +72,7 @@ public class class_avn {
       this.L = new class_ael();
    }
 
-   public class_avn(class_dn var1) {
+   public class_avn(NBTTagCompound var1) {
       this.c = class_aes.b;
       this.d = "";
       this.B = 0.0D;
@@ -86,125 +86,125 @@ public class class_avn {
       this.J = 15;
       this.K = Maps.newEnumMap(class_aoz.class);
       this.L = new class_ael();
-      this.b = var1.h("RandomSeed");
-      if(var1.b("generatorName", 8)) {
-         String var2 = var1.k("generatorName");
+      this.b = var1.getLong("RandomSeed");
+      if(var1.hasOfType("generatorName", 8)) {
+         String var2 = var1.getString("generatorName");
          this.c = class_aes.a(var2);
          if(this.c == null) {
             this.c = class_aes.b;
          } else if(this.c.f()) {
             int var3 = 0;
-            if(var1.b("generatorVersion", 99)) {
-               var3 = var1.g("generatorVersion");
+            if(var1.hasOfType("generatorVersion", 99)) {
+               var3 = var1.getInt("generatorVersion");
             }
 
             this.c = this.c.a(var3);
          }
 
-         if(var1.b("generatorOptions", 8)) {
-            this.d = var1.k("generatorOptions");
+         if(var1.hasOfType("generatorOptions", 8)) {
+            this.d = var1.getString("generatorOptions");
          }
       }
 
-      this.u = class_aeq.class_a_in_class_aeq.a(var1.g("GameType"));
-      if(var1.b("MapFeatures", 99)) {
-         this.v = var1.o("MapFeatures");
+      this.u = class_aeq.class_a_in_class_aeq.a(var1.getInt("GameType"));
+      if(var1.hasOfType("MapFeatures", 99)) {
+         this.v = var1.getBoolean("MapFeatures");
       } else {
          this.v = true;
       }
 
-      this.e = var1.g("SpawnX");
-      this.f = var1.g("SpawnY");
-      this.g = var1.g("SpawnZ");
-      this.h = var1.h("Time");
-      if(var1.b("DayTime", 99)) {
-         this.i = var1.h("DayTime");
+      this.e = var1.getInt("SpawnX");
+      this.f = var1.getInt("SpawnY");
+      this.g = var1.getInt("SpawnZ");
+      this.h = var1.getLong("Time");
+      if(var1.hasOfType("DayTime", 99)) {
+         this.i = var1.getLong("DayTime");
       } else {
          this.i = this.h;
       }
 
-      this.j = var1.h("LastPlayed");
-      this.k = var1.h("SizeOnDisk");
-      this.n = var1.k("LevelName");
-      this.o = var1.g("version");
-      this.p = var1.g("clearWeatherTime");
-      this.r = var1.g("rainTime");
-      this.q = var1.o("raining");
-      this.t = var1.g("thunderTime");
-      this.s = var1.o("thundering");
-      this.w = var1.o("hardcore");
-      if(var1.b("initialized", 99)) {
-         this.y = var1.o("initialized");
+      this.j = var1.getLong("LastPlayed");
+      this.k = var1.getLong("SizeOnDisk");
+      this.n = var1.getString("LevelName");
+      this.o = var1.getInt("version");
+      this.p = var1.getInt("clearWeatherTime");
+      this.r = var1.getInt("rainTime");
+      this.q = var1.getBoolean("raining");
+      this.t = var1.getInt("thunderTime");
+      this.s = var1.getBoolean("thundering");
+      this.w = var1.getBoolean("hardcore");
+      if(var1.hasOfType("initialized", 99)) {
+         this.y = var1.getBoolean("initialized");
       } else {
          this.y = true;
       }
 
-      if(var1.b("allowCommands", 99)) {
-         this.x = var1.o("allowCommands");
+      if(var1.hasOfType("allowCommands", 99)) {
+         this.x = var1.getBoolean("allowCommands");
       } else {
          this.x = this.u == class_aeq.class_a_in_class_aeq.c;
       }
 
-      if(var1.b("Player", 10)) {
-         this.l = var1.n("Player");
-         this.m = this.l.g("Dimension");
+      if(var1.hasOfType("Player", 10)) {
+         this.l = var1.getCompound("Player");
+         this.m = this.l.getInt("Dimension");
       }
 
-      if(var1.b("GameRules", 10)) {
-         this.L.a(var1.n("GameRules"));
+      if(var1.hasOfType("GameRules", 10)) {
+         this.L.a(var1.getCompound("GameRules"));
       }
 
-      if(var1.b("Difficulty", 99)) {
-         this.z = class_om.a(var1.e("Difficulty"));
+      if(var1.hasOfType("Difficulty", 99)) {
+         this.z = class_om.a(var1.getByte("Difficulty"));
       }
 
-      if(var1.b("DifficultyLocked", 1)) {
-         this.A = var1.o("DifficultyLocked");
+      if(var1.hasOfType("DifficultyLocked", 1)) {
+         this.A = var1.getBoolean("DifficultyLocked");
       }
 
-      if(var1.b("BorderCenterX", 99)) {
-         this.B = var1.j("BorderCenterX");
+      if(var1.hasOfType("BorderCenterX", 99)) {
+         this.B = var1.getDouble("BorderCenterX");
       }
 
-      if(var1.b("BorderCenterZ", 99)) {
-         this.C = var1.j("BorderCenterZ");
+      if(var1.hasOfType("BorderCenterZ", 99)) {
+         this.C = var1.getDouble("BorderCenterZ");
       }
 
-      if(var1.b("BorderSize", 99)) {
-         this.D = var1.j("BorderSize");
+      if(var1.hasOfType("BorderSize", 99)) {
+         this.D = var1.getDouble("BorderSize");
       }
 
-      if(var1.b("BorderSizeLerpTime", 99)) {
-         this.E = var1.h("BorderSizeLerpTime");
+      if(var1.hasOfType("BorderSizeLerpTime", 99)) {
+         this.E = var1.getLong("BorderSizeLerpTime");
       }
 
-      if(var1.b("BorderSizeLerpTarget", 99)) {
-         this.F = var1.j("BorderSizeLerpTarget");
+      if(var1.hasOfType("BorderSizeLerpTarget", 99)) {
+         this.F = var1.getDouble("BorderSizeLerpTarget");
       }
 
-      if(var1.b("BorderSafeZone", 99)) {
-         this.G = var1.j("BorderSafeZone");
+      if(var1.hasOfType("BorderSafeZone", 99)) {
+         this.G = var1.getDouble("BorderSafeZone");
       }
 
-      if(var1.b("BorderDamagePerBlock", 99)) {
-         this.H = var1.j("BorderDamagePerBlock");
+      if(var1.hasOfType("BorderDamagePerBlock", 99)) {
+         this.H = var1.getDouble("BorderDamagePerBlock");
       }
 
-      if(var1.b("BorderWarningBlocks", 99)) {
-         this.I = var1.g("BorderWarningBlocks");
+      if(var1.hasOfType("BorderWarningBlocks", 99)) {
+         this.I = var1.getInt("BorderWarningBlocks");
       }
 
-      if(var1.b("BorderWarningTime", 99)) {
-         this.J = var1.g("BorderWarningTime");
+      if(var1.hasOfType("BorderWarningTime", 99)) {
+         this.J = var1.getInt("BorderWarningTime");
       }
 
-      if(var1.b("DimensionData", 10)) {
-         class_dn var5 = var1.n("DimensionData");
-         Iterator var6 = var5.c().iterator();
+      if(var1.hasOfType("DimensionData", 10)) {
+         NBTTagCompound var5 = var1.getCompound("DimensionData");
+         Iterator var6 = var5.getKeys().iterator();
 
          while(var6.hasNext()) {
             String var4 = (String)var6.next();
-            this.K.put(class_aoz.a(Integer.parseInt(var4)), var5.n(var4));
+            this.K.put(class_aoz.a(Integer.parseInt(var4)), var5.getCompound(var4));
          }
       }
 
@@ -291,68 +291,68 @@ public class class_avn {
       this.I = var1.I;
    }
 
-   public class_dn a() {
-      class_dn var1 = new class_dn();
+   public NBTTagCompound a() {
+      NBTTagCompound var1 = new NBTTagCompound();
       this.a(var1, this.l);
       return var1;
    }
 
-   public class_dn a(class_dn var1) {
-      class_dn var2 = new class_dn();
+   public NBTTagCompound a(NBTTagCompound var1) {
+      NBTTagCompound var2 = new NBTTagCompound();
       this.a(var2, var1);
       return var2;
    }
 
-   private void a(class_dn var1, class_dn var2) {
-      var1.a("RandomSeed", this.b);
-      var1.a("generatorName", this.c.a());
-      var1.a("generatorVersion", this.c.d());
-      var1.a("generatorOptions", this.d);
-      var1.a("GameType", this.u.a());
-      var1.a("MapFeatures", this.v);
-      var1.a("SpawnX", this.e);
-      var1.a("SpawnY", this.f);
-      var1.a("SpawnZ", this.g);
-      var1.a("Time", this.h);
-      var1.a("DayTime", this.i);
-      var1.a("SizeOnDisk", this.k);
-      var1.a("LastPlayed", MinecraftServer.az());
-      var1.a("LevelName", this.n);
-      var1.a("version", this.o);
-      var1.a("clearWeatherTime", this.p);
-      var1.a("rainTime", this.r);
-      var1.a("raining", this.q);
-      var1.a("thunderTime", this.t);
-      var1.a("thundering", this.s);
-      var1.a("hardcore", this.w);
-      var1.a("allowCommands", this.x);
-      var1.a("initialized", this.y);
-      var1.a("BorderCenterX", this.B);
-      var1.a("BorderCenterZ", this.C);
-      var1.a("BorderSize", this.D);
-      var1.a("BorderSizeLerpTime", this.E);
-      var1.a("BorderSafeZone", this.G);
-      var1.a("BorderDamagePerBlock", this.H);
-      var1.a("BorderSizeLerpTarget", this.F);
-      var1.a("BorderWarningBlocks", (double)this.I);
-      var1.a("BorderWarningTime", (double)this.J);
+   private void a(NBTTagCompound var1, NBTTagCompound var2) {
+      var1.put("RandomSeed", this.b);
+      var1.put("generatorName", this.c.a());
+      var1.put("generatorVersion", this.c.d());
+      var1.put("generatorOptions", this.d);
+      var1.put("GameType", this.u.a());
+      var1.put("MapFeatures", this.v);
+      var1.put("SpawnX", this.e);
+      var1.put("SpawnY", this.f);
+      var1.put("SpawnZ", this.g);
+      var1.put("Time", this.h);
+      var1.put("DayTime", this.i);
+      var1.put("SizeOnDisk", this.k);
+      var1.put("LastPlayed", MinecraftServer.az());
+      var1.put("LevelName", this.n);
+      var1.put("version", this.o);
+      var1.put("clearWeatherTime", this.p);
+      var1.put("rainTime", this.r);
+      var1.put("raining", this.q);
+      var1.put("thunderTime", this.t);
+      var1.put("thundering", this.s);
+      var1.put("hardcore", this.w);
+      var1.put("allowCommands", this.x);
+      var1.put("initialized", this.y);
+      var1.put("BorderCenterX", this.B);
+      var1.put("BorderCenterZ", this.C);
+      var1.put("BorderSize", this.D);
+      var1.put("BorderSizeLerpTime", this.E);
+      var1.put("BorderSafeZone", this.G);
+      var1.put("BorderDamagePerBlock", this.H);
+      var1.put("BorderSizeLerpTarget", this.F);
+      var1.put("BorderWarningBlocks", (double)this.I);
+      var1.put("BorderWarningTime", (double)this.J);
       if(this.z != null) {
-         var1.a("Difficulty", (byte)this.z.a());
+         var1.put("Difficulty", (byte)this.z.a());
       }
 
-      var1.a("DifficultyLocked", this.A);
-      var1.a((String)"GameRules", (class_eb)this.L.a());
-      class_dn var3 = new class_dn();
+      var1.put("DifficultyLocked", this.A);
+      var1.put((String)"GameRules", (NBTTag)this.L.a());
+      NBTTagCompound var3 = new NBTTagCompound();
       Iterator var4 = this.K.entrySet().iterator();
 
       while(var4.hasNext()) {
          Entry var5 = (Entry)var4.next();
-         var3.a(String.valueOf(((class_aoz)var5.getKey()).a()), (class_eb)var5.getValue());
+         var3.put(String.valueOf(((class_aoz)var5.getKey()).a()), (NBTTag)var5.getValue());
       }
 
-      var1.a((String)"DimensionData", (class_eb)var3);
+      var1.put((String)"DimensionData", (NBTTag)var3);
       if(var2 != null) {
-         var1.a((String)"Player", (class_eb)var2);
+         var1.put((String)"Player", (NBTTag)var2);
       }
 
    }
@@ -381,7 +381,7 @@ public class class_avn {
       return this.i;
    }
 
-   public class_dn i() {
+   public NBTTagCompound i() {
       return this.l;
    }
 
@@ -706,12 +706,12 @@ public class class_avn {
       });
    }
 
-   public class_dn a(class_aoz var1) {
-      class_dn var2 = (class_dn)this.K.get(var1);
-      return var2 == null?new class_dn():var2;
+   public NBTTagCompound a(class_aoz var1) {
+      NBTTagCompound var2 = (NBTTagCompound)this.K.get(var1);
+      return var2 == null?new NBTTagCompound():var2;
    }
 
-   public void a(class_aoz var1, class_dn var2) {
+   public void a(class_aoz var1, NBTTagCompound var2) {
       this.K.put(var1, var2);
    }
 

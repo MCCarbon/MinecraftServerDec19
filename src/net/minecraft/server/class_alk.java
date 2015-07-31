@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aio;
@@ -45,7 +45,7 @@ public abstract class class_alk extends class_aio {
       return N;
    }
 
-   public Object a(class_aas var1) {
+   public Object a(ItemStack var1) {
       return class_alk.class_a_in_class_alk.a(var1.i() & 7);
    }
 

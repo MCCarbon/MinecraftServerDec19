@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.class_act;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ame;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_yg;
 import net.minecraft.server.class_zy;
 
@@ -20,7 +20,7 @@ public class class_acj {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          class_zy var5 = var2[var4];
-         var1.a(new class_aas(Items.cH, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new class_aas(Blocks.WOOL, 1, var5.a()), Character.valueOf('|'), Items.A});
+         var1.a(new ItemStack(Items.cH, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new ItemStack(Blocks.WOOL, 1, var5.a()), Character.valueOf('|'), Items.A});
       }
 
       var1.a(new class_acj.class_b_in_class_acj());
@@ -39,8 +39,8 @@ public class class_acj {
          boolean var3 = false;
 
          for(int var4 = 0; var4 < var1.o_(); ++var4) {
-            class_aas var5 = var1.a(var4);
-            if(var5 != null && var5.b() == Items.cH) {
+            ItemStack var5 = var1.a(var4);
+            if(var5 != null && var5.getItem() == Items.cH) {
                if(var3) {
                   return false;
                }
@@ -60,14 +60,14 @@ public class class_acj {
          }
       }
 
-      public class_aas a(class_yg var1) {
-         class_aas var2 = null;
+      public ItemStack a(class_yg var1) {
+         ItemStack var2 = null;
 
          for(int var3 = 0; var3 < var1.o_(); ++var3) {
-            class_aas var4 = var1.a(var3);
-            if(var4 != null && var4.b() == Items.cH) {
-               var2 = var4.k();
-               var2.b = 1;
+            ItemStack var4 = var1.a(var3);
+            if(var4 != null && var4.getItem() == Items.cH) {
+               var2 = var4.clone();
+               var2.count = 1;
                break;
             }
          }
@@ -76,29 +76,29 @@ public class class_acj {
          if(var8 != null) {
             int var9 = 0;
 
-            class_aas var6;
+            ItemStack var6;
             for(int var5 = 0; var5 < var1.o_(); ++var5) {
                var6 = var1.a(var5);
-               if(var6 != null && var6.b() == Items.aY) {
+               if(var6 != null && var6.getItem() == Items.aY) {
                   var9 = var6.i();
                   break;
                }
             }
 
-            class_dn var10 = var2.a("BlockEntityTag", true);
+            NBTTagCompound var10 = var2.getCompound("BlockEntityTag", true);
             var6 = null;
-            class_du var11;
-            if(var10.b("Patterns", 9)) {
-               var11 = var10.c("Patterns", 10);
+            NBTTagList var11;
+            if(var10.hasOfType("Patterns", 9)) {
+               var11 = var10.getList("Patterns", 10);
             } else {
-               var11 = new class_du();
-               var10.a((String)"Patterns", (class_eb)var11);
+               var11 = new NBTTagList();
+               var10.put((String)"Patterns", (NBTTag)var11);
             }
 
-            class_dn var7 = new class_dn();
-            var7.a("Pattern", var8.b());
-            var7.a("Color", var9);
-            var11.a((class_eb)var7);
+            NBTTagCompound var7 = new NBTTagCompound();
+            var7.put("Pattern", var8.b());
+            var7.put("Color", var9);
+            var11.add((NBTTag)var7);
          }
 
          return var2;
@@ -108,17 +108,17 @@ public class class_acj {
          return 10;
       }
 
-      public class_aas b() {
+      public ItemStack b() {
          return null;
       }
 
-      public class_aas[] b(class_yg var1) {
-         class_aas[] var2 = new class_aas[var1.o_()];
+      public ItemStack[] b(class_yg var1) {
+         ItemStack[] var2 = new ItemStack[var1.o_()];
 
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            class_aas var4 = var1.a(var3);
-            if(var4 != null && var4.b().r()) {
-               var2[var3] = new class_aas(var4.b().q());
+            ItemStack var4 = var1.a(var3);
+            if(var4 != null && var4.getItem().r()) {
+               var2[var3] = new ItemStack(var4.getItem().q());
             }
          }
 
@@ -139,9 +139,9 @@ public class class_acj {
                   boolean var8 = false;
 
                   for(var9 = 0; var9 < var1.o_() && var6; ++var9) {
-                     class_aas var10 = var1.a(var9);
-                     if(var10 != null && var10.b() != Items.cH) {
-                        if(var10.b() == Items.aY) {
+                     ItemStack var10 = var1.a(var9);
+                     if(var10 != null && var10.getItem() != Items.cH) {
+                        if(var10.getItem() == Items.aY) {
                            if(var8) {
                               var6 = false;
                               break;
@@ -168,9 +168,9 @@ public class class_acj {
                   for(int var13 = 0; var13 < var1.o_() && var6; ++var13) {
                      var9 = var13 / 3;
                      int var14 = var13 % 3;
-                     class_aas var11 = var1.a(var13);
-                     if(var11 != null && var11.b() != Items.cH) {
-                        if(var11.b() != Items.aY) {
+                     ItemStack var11 = var1.a(var13);
+                     if(var11 != null && var11.getItem() != Items.cH) {
+                        if(var11.getItem() != Items.aY) {
                            var6 = false;
                            break;
                         }
@@ -215,13 +215,13 @@ public class class_acj {
       }
 
       public boolean a(class_yg var1, World var2) {
-         class_aas var3 = null;
-         class_aas var4 = null;
+         ItemStack var3 = null;
+         ItemStack var4 = null;
 
          for(int var5 = 0; var5 < var1.o_(); ++var5) {
-            class_aas var6 = var1.a(var5);
+            ItemStack var6 = var1.a(var5);
             if(var6 != null) {
-               if(var6.b() != Items.cH) {
+               if(var6.getItem() != Items.cH) {
                   return false;
                }
 
@@ -262,12 +262,12 @@ public class class_acj {
          return var3 != null && var4 != null;
       }
 
-      public class_aas a(class_yg var1) {
+      public ItemStack a(class_yg var1) {
          for(int var2 = 0; var2 < var1.o_(); ++var2) {
-            class_aas var3 = var1.a(var2);
+            ItemStack var3 = var1.a(var2);
             if(var3 != null && class_ame.c(var3) > 0) {
-               class_aas var4 = var3.k();
-               var4.b = 1;
+               ItemStack var4 = var3.clone();
+               var4.count = 1;
                return var4;
             }
          }
@@ -279,21 +279,21 @@ public class class_acj {
          return 2;
       }
 
-      public class_aas b() {
+      public ItemStack b() {
          return null;
       }
 
-      public class_aas[] b(class_yg var1) {
-         class_aas[] var2 = new class_aas[var1.o_()];
+      public ItemStack[] b(class_yg var1) {
+         ItemStack[] var2 = new ItemStack[var1.o_()];
 
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            class_aas var4 = var1.a(var3);
+            ItemStack var4 = var1.a(var3);
             if(var4 != null) {
-               if(var4.b().r()) {
-                  var2[var3] = new class_aas(var4.b().q());
-               } else if(var4.n() && class_ame.c(var4) > 0) {
-                  var2[var3] = var4.k();
-                  var2[var3].b = 1;
+               if(var4.getItem().r()) {
+                  var2[var3] = new ItemStack(var4.getItem().q());
+               } else if(var4.hasTag() && class_ame.c(var4) > 0) {
+                  var2[var3] = var4.clone();
+                  var2[var3].count = 1;
                }
             }
          }

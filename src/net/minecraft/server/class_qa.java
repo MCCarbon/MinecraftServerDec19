@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.class_adk;
@@ -27,11 +27,11 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dr;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_dz;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagFloat;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTagShort;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_fq;
 import net.minecraft.server.class_hn;
@@ -75,8 +75,8 @@ public abstract class class_qa extends class_pr {
    private class_qo i;
    private final class_pb bn = new class_pb(this);
    private final Map bo = Maps.newHashMap();
-   private final class_aas[] bp = new class_aas[2];
-   private final class_aas[] bq = new class_aas[4];
+   private final ItemStack[] bp = new ItemStack[2];
+   private final ItemStack[] bq = new ItemStack[4];
    public boolean at;
    public EnumUsedHand au;
    public int av;
@@ -129,7 +129,7 @@ public abstract class class_qa extends class_pr {
    private float bw;
    private int bx;
    private float by;
-   protected class_aas bl;
+   protected ItemStack bl;
    protected int bm;
 
    public void G() {
@@ -367,19 +367,19 @@ public abstract class class_qa extends class_pr {
       return this.aT;
    }
 
-   public void b(class_dn var1) {
-      var1.a("HealF", this.bo());
-      var1.a("Health", (short)((int)Math.ceil((double)this.bo())));
-      var1.a("HurtTime", (short)this.ax);
-      var1.a("HurtByTimestamp", this.bt);
-      var1.a("DeathTime", (short)this.aA);
-      var1.a("AbsorptionAmount", this.bO());
+   public void b(NBTTagCompound var1) {
+      var1.put("HealF", this.bo());
+      var1.put("Health", (short)((int)Math.ceil((double)this.bo())));
+      var1.put("HurtTime", (short)this.ax);
+      var1.put("HurtByTimestamp", this.bt);
+      var1.put("DeathTime", (short)this.aA);
+      var1.put("AbsorptionAmount", this.bO());
       class_pw[] var2 = class_pw.values();
       int var3 = var2.length;
 
       int var4;
       class_pw var5;
-      class_aas var6;
+      ItemStack var6;
       for(var4 = 0; var4 < var3; ++var4) {
          var5 = var2[var4];
          var6 = this.a(var5);
@@ -388,7 +388,7 @@ public abstract class class_qa extends class_pr {
          }
       }
 
-      var1.a((String)"Attributes", (class_eb)class_wl.a(this.by()));
+      var1.put((String)"Attributes", (NBTTag)class_wl.a(this.by()));
       var2 = class_pw.values();
       var3 = var2.length;
 
@@ -401,30 +401,30 @@ public abstract class class_qa extends class_pr {
       }
 
       if(!this.bo.isEmpty()) {
-         class_du var7 = new class_du();
+         NBTTagList var7 = new NBTTagList();
          Iterator var8 = this.bo.values().iterator();
 
          while(var8.hasNext()) {
             class_pl var9 = (class_pl)var8.next();
-            var7.a((class_eb)var9.a(new class_dn()));
+            var7.add((NBTTag)var9.a(new NBTTagCompound()));
          }
 
-         var1.a((String)"ActiveEffects", (class_eb)var7);
+         var1.put((String)"ActiveEffects", (NBTTag)var7);
       }
 
    }
 
-   public void a(class_dn var1) {
-      this.m(var1.i("AbsorptionAmount"));
-      if(var1.b("Attributes", 9) && this.o != null && !this.o.D) {
-         class_wl.a(this.by(), var1.c("Attributes", 10));
+   public void a(NBTTagCompound var1) {
+      this.m(var1.getFloat("AbsorptionAmount"));
+      if(var1.hasOfType("Attributes", 9) && this.o != null && !this.o.D) {
+         class_wl.a(this.by(), var1.getList("Attributes", 10));
       }
 
-      if(var1.b("ActiveEffects", 9)) {
-         class_du var2 = var1.c("ActiveEffects", 10);
+      if(var1.hasOfType("ActiveEffects", 9)) {
+         NBTTagList var2 = var1.getList("ActiveEffects", 10);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            class_dn var4 = var2.b(var3);
+         for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+            NBTTagCompound var4 = var2.getCompound(var3);
             class_pl var5 = class_pl.b(var4);
             if(var5 != null) {
                this.bo.put(var5.a(), var5);
@@ -432,24 +432,24 @@ public abstract class class_qa extends class_pr {
          }
       }
 
-      if(var1.b("HealF", 99)) {
-         this.i(var1.i("HealF"));
+      if(var1.hasOfType("HealF", 99)) {
+         this.i(var1.getFloat("HealF"));
       } else {
-         class_eb var6 = var1.b("Health");
+         NBTTag var6 = var1.getTag("Health");
          if(var6 == null) {
             this.i(this.bv());
-         } else if(var6.a() == 5) {
-            this.i(((class_dr)var6).h());
-         } else if(var6.a() == 2) {
-            this.i((float)((class_dz)var6).e());
+         } else if(var6.getId() == 5) {
+            this.i(((NBTTagFloat)var6).asFloat());
+         } else if(var6.getId() == 2) {
+            this.i((float)((NBTTagShort)var6).asShort());
          }
       }
 
-      this.ax = var1.f("HurtTime");
-      this.aA = var1.f("DeathTime");
-      this.bt = var1.g("HurtByTimestamp");
-      if(var1.b("Team", 8)) {
-         String var7 = var1.k("Team");
+      this.ax = var1.getShort("HurtTime");
+      this.aA = var1.getShort("DeathTime");
+      this.bt = var1.getInt("HurtByTimestamp");
+      if(var1.hasOfType("Team", 8)) {
+         String var7 = var1.getString("Team");
          this.o.aa().a(this.aM().toString(), var7);
       }
 
@@ -737,7 +737,7 @@ public abstract class class_qa extends class_pr {
       }
    }
 
-   public void b(class_aas var1) {
+   public void b(ItemStack var1) {
       this.a("random.break", 0.8F, 0.8F + this.o.s.nextFloat() * 0.4F);
 
       for(int var2 = 0; var2 < 5; ++var2) {
@@ -749,7 +749,7 @@ public abstract class class_qa extends class_pr {
          var6 = var6.rotatePitch(-this.z * 3.1415927F / 180.0F);
          var6 = var6.rotateYaw(-this.y * 3.1415927F / 180.0F);
          var6 = var6.add(this.s, this.t + (double)this.aU(), this.u);
-         this.o.a(class_cy.K, var6.x, var6.y, var6.z, var3.x, var3.y + 0.05D, var3.z, new int[]{Item.getId(var1.b())});
+         this.o.a(class_cy.K, var6.x, var6.y, var6.z, var3.x, var3.y + 0.05D, var3.z, new int[]{Item.getId(var1.getItem())});
       }
 
    }
@@ -878,9 +878,9 @@ public abstract class class_qa extends class_pr {
       Iterator var2 = this.at().iterator();
 
       while(var2.hasNext()) {
-         class_aas var3 = (class_aas)var2.next();
-         if(var3 != null && var3.b() instanceof class_za) {
-            int var4 = ((class_za)var3.b()).c;
+         ItemStack var3 = (ItemStack)var2.next();
+         if(var3 != null && var3.getItem() instanceof class_za) {
+            int var4 = ((class_za)var3.getItem()).c;
             var1 += var4;
          }
       }
@@ -1022,15 +1022,15 @@ public abstract class class_qa extends class_pr {
       return class_qf.a;
    }
 
-   public class_aas bA() {
+   public ItemStack bA() {
       return this.a(class_pw.a);
    }
 
-   public class_aas bB() {
+   public ItemStack bB() {
       return this.a(class_pw.b);
    }
 
-   public class_aas b(EnumUsedHand var1) {
+   public ItemStack b(EnumUsedHand var1) {
       if(var1 == EnumUsedHand.MAIN_HAND) {
          return this.a(class_pw.a);
       } else if(var1 == EnumUsedHand.OFF_HAND) {
@@ -1040,7 +1040,7 @@ public abstract class class_qa extends class_pr {
       }
    }
 
-   public void a(EnumUsedHand var1, class_aas var2) {
+   public void a(EnumUsedHand var1, ItemStack var2) {
       if(var1 == EnumUsedHand.MAIN_HAND) {
          this.a(class_pw.a, var2);
       } else {
@@ -1055,9 +1055,9 @@ public abstract class class_qa extends class_pr {
 
    public abstract Iterable at();
 
-   public abstract class_aas a(class_pw var1);
+   public abstract ItemStack a(class_pw var1);
 
-   public abstract void a(class_pw var1, class_aas var2);
+   public abstract void a(class_pw var1, ItemStack var2);
 
    public void d(boolean var1) {
       super.d(var1);
@@ -1291,7 +1291,7 @@ public abstract class class_qa extends class_pr {
 
          for(int var4 = 0; var4 < var3; ++var4) {
             class_pw var5 = var2[var4];
-            class_aas var6;
+            ItemStack var6;
             switch(class_qa.SyntheticClass_1.a[var5.a().ordinal()]) {
             case 1:
                var6 = this.bp[var5.b()];
@@ -1303,8 +1303,8 @@ public abstract class class_qa extends class_pr {
                continue;
             }
 
-            class_aas var7 = this.a(var5);
-            if(!class_aas.b(var7, var6)) {
+            ItemStack var7 = this.a(var5);
+            if(!ItemStack.b(var7, var6)) {
                ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_hn(this.getId(), var5, var7)));
                if(var6 != null) {
                   this.by().a(var6.a(var5));
@@ -1316,10 +1316,10 @@ public abstract class class_qa extends class_pr {
 
                switch(class_qa.SyntheticClass_1.a[var5.a().ordinal()]) {
                case 1:
-                  this.bp[var5.b()] = var7 == null?null:var7.k();
+                  this.bp[var5.b()] = var7 == null?null:var7.clone();
                   break;
                case 2:
-                  this.bq[var5.b()] = var7 == null?null:var7.k();
+                  this.bq[var5.b()] = var7 == null?null:var7.clone();
                }
             }
          }
@@ -1662,10 +1662,10 @@ public abstract class class_qa extends class_pr {
 
    protected void bU() {
       if(this.bS()) {
-         class_aas var1 = this.b(this.bT());
+         ItemStack var1 = this.b(this.bT());
          if(var1 == this.bl) {
             if(this.bW() <= 25 && this.bW() % 4 == 0) {
-               this.a((class_aas)this.bl, 5);
+               this.a((ItemStack)this.bl, 5);
             }
 
             if(--this.bm == 0 && !this.o.D) {
@@ -1679,7 +1679,7 @@ public abstract class class_qa extends class_pr {
    }
 
    public void c(EnumUsedHand var1) {
-      class_aas var2 = this.b(var1);
+      ItemStack var2 = this.b(var1);
       if(var2 != null && !this.bS()) {
          this.bl = var2;
          this.bm = var2.l();
@@ -1711,13 +1711,13 @@ public abstract class class_qa extends class_pr {
 
    }
 
-   protected void a(class_aas var1, int var2) {
+   protected void a(ItemStack var1, int var2) {
       if(var1 != null && this.bS()) {
-         if(var1.m() == class_abz.c) {
+         if(var1.m() == class_abz.DRINK) {
             this.a("random.drink", 0.5F, this.o.s.nextFloat() * 0.1F + 0.9F);
          }
 
-         if(var1.m() == class_abz.b) {
+         if(var1.m() == class_abz.EAT) {
             for(int var3 = 0; var3 < var2; ++var3) {
                Vec3D var4 = new Vec3D(((double)this.V.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
                var4 = var4.rotatePitch(-this.z * 3.1415927F / 180.0F);
@@ -1728,9 +1728,9 @@ public abstract class class_qa extends class_pr {
                var7 = var7.rotateYaw(-this.y * 3.1415927F / 180.0F);
                var7 = var7.add(this.s, this.t + (double)this.aU(), this.u);
                if(var1.f()) {
-                  this.o.a(class_cy.K, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[]{Item.getId(var1.b()), var1.i()});
+                  this.o.a(class_cy.K, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[]{Item.getId(var1.getItem()), var1.i()});
                } else {
-                  this.o.a(class_cy.K, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[]{Item.getId(var1.b())});
+                  this.o.a(class_cy.K, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[]{Item.getId(var1.getItem())});
                }
             }
 
@@ -1742,9 +1742,9 @@ public abstract class class_qa extends class_pr {
 
    protected void s() {
       if(this.bl != null && this.bS()) {
-         this.a((class_aas)this.bl, 16);
-         class_aas var1 = this.bl.a(this.o, this);
-         if(var1 != null && var1.b == 0) {
+         this.a((ItemStack)this.bl, 16);
+         ItemStack var1 = this.bl.a(this.o, this);
+         if(var1 != null && var1.count == 0) {
             var1 = null;
          }
 
@@ -1780,7 +1780,7 @@ public abstract class class_qa extends class_pr {
    }
 
    public boolean ca() {
-      return this.bS() && this.bl != null && this.bl.b().f(this.bl) == class_abz.d;
+      return this.bS() && this.bl != null && this.bl.getItem().f(this.bl) == class_abz.BLOCK;
    }
 
    static {

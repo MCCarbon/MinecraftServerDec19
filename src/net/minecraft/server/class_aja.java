@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -172,7 +172,7 @@ public abstract class class_aja extends class_alq {
 
          if(var1.s.nextInt(var6) == 0) {
             Item var7 = this.getDropType(var3, var1.s, var5);
-            a(var1, var2, new class_aas(var7, 1, this.getDropData(var3)));
+            a(var1, var2, new ItemStack(var7, 1, this.getDropData(var3)));
          }
 
          var6 = 200;

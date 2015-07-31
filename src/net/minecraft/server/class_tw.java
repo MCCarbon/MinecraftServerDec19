@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
@@ -65,14 +65,14 @@ public abstract class class_tw extends class_po implements class_pp {
       return this.o.p(var1.shiftDown()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("InLove", this.bs);
+      var1.put("InLove", this.bs);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.bs = var1.g("InLove");
+      this.bs = var1.getInt("InLove");
    }
 
    public boolean cf() {
@@ -95,11 +95,11 @@ public abstract class class_tw extends class_po implements class_pp {
       return 1 + this.o.s.nextInt(3);
    }
 
-   public boolean d(class_aas var1) {
-      return var1 == null?false:var1.b() == Items.Q;
+   public boolean d(ItemStack var1) {
+      return var1 == null?false:var1.getItem() == Items.Q;
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null) {
          if(this.d(var3) && this.l() == 0 && this.bs <= 0) {
             this.a(var1, var3);
@@ -117,9 +117,9 @@ public abstract class class_tw extends class_po implements class_pp {
       return super.a(var1, var2, var3);
    }
 
-   protected void a(class_xa var1, class_aas var2) {
+   protected void a(class_xa var1, ItemStack var2) {
       if(!var1.bH.d) {
-         --var2.b;
+         --var2.count;
       }
 
    }

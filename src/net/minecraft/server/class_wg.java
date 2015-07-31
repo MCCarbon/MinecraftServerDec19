@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aak;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
@@ -13,7 +13,7 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_gm;
 import net.minecraft.server.class_lh;
@@ -84,14 +84,14 @@ public class class_wg extends class_wi {
       this.a((class_qk)class_wl.a).a(30.0D);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a(var1.o("Elder"));
+      this.a(var1.getBoolean("Elder"));
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Elder", this.cC());
+      var1.put("Elder", this.cC());
    }
 
    protected class_tg b(World var1) {
@@ -350,23 +350,23 @@ public class class_wg extends class_wi {
    protected void b(boolean var1, int var2) {
       int var3 = this.V.nextInt(3) + this.V.nextInt(var2 + 1);
       if(var3 > 0) {
-         this.a(new class_aas(Items.cF, var3, 0), 1.0F);
+         this.a(new ItemStack(Items.cF, var3, 0), 1.0F);
       }
 
       if(this.V.nextInt(3 + var2) > 1) {
-         this.a(new class_aas(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 1.0F);
+         this.a(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 1.0F);
       } else if(this.V.nextInt(3 + var2) > 1) {
-         this.a(new class_aas(Items.cG), 1.0F);
+         this.a(new ItemStack(Items.cG), 1.0F);
       }
 
       if(var1 && this.cC()) {
-         this.a(new class_aas(Blocks.SPONGE, 1, 1), 1.0F);
+         this.a(new ItemStack(Blocks.SPONGE, 1, 1), 1.0F);
       }
 
    }
 
    protected void br() {
-      class_aas var1 = ((class_vf)class_oc.a(this.V, class_ve.j())).a(this.V);
+      ItemStack var1 = ((class_vf)class_oc.a(this.V, class_ve.j())).a(this.V);
       this.a(var1, 1.0F);
    }
 

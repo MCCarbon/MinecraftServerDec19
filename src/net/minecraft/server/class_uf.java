@@ -4,14 +4,14 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
@@ -65,8 +65,8 @@ public class class_uf extends class_tw {
       this.i.a(6, new class_si(this, 1.0D));
       this.i.a(7, new class_rr(this, class_xa.class, 6.0F));
       this.i.a(8, new class_sh(this));
-      this.bt.a(0, new class_aas(Items.aY));
-      this.bt.a(1, new class_aas(Items.aY));
+      this.bt.a(0, new ItemStack(Items.aY));
+      this.bt.a(1, new ItemStack(Items.aY));
    }
 
    protected void cc() {
@@ -95,7 +95,7 @@ public class class_uf extends class_tw {
 
    protected void b(boolean var1, int var2) {
       if(!this.cB()) {
-         this.a(new class_aas(Item.getByBlock(Blocks.WOOL), 1, this.cA().a()), 0.0F);
+         this.a(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, this.cA().a()), 0.0F);
       }
 
       int var3 = this.V.nextInt(2) + 1 + this.V.nextInt(1 + var2);
@@ -114,14 +114,14 @@ public class class_uf extends class_tw {
       return Item.getByBlock(Blocks.WOOL);
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
-      if(var3 != null && var3.b() == Items.bg && !this.cB() && !this.j_()) {
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+      if(var3 != null && var3.getItem() == Items.bg && !this.cB() && !this.j_()) {
          if(!this.o.D) {
             this.m(true);
             int var4 = 1 + this.V.nextInt(3);
 
             for(int var5 = 0; var5 < var4; ++var5) {
-               class_vm var6 = this.a(new class_aas(Item.getByBlock(Blocks.WOOL), 1, this.cA().a()), 1.0F);
+               class_vm var6 = this.a(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, this.cA().a()), 1.0F);
                var6.w += (double)(this.V.nextFloat() * 0.05F);
                var6.v += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
                var6.x += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
@@ -135,16 +135,16 @@ public class class_uf extends class_tw {
       return super.a(var1, var2, var3);
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Sheared", this.cB());
-      var1.a("Color", (byte)this.cA().a());
+      var1.put("Sheared", this.cB());
+      var1.put("Color", (byte)this.cA().a());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.m(var1.o("Sheared"));
-      this.b(class_zy.b(var1.e("Color")));
+      this.m(var1.getBoolean("Sheared"));
+      this.b(class_zy.b(var1.getByte("Color")));
    }
 
    protected String C() {
@@ -215,11 +215,11 @@ public class class_uf extends class_tw {
    private class_zy a(class_tw var1, class_tw var2) {
       int var3 = ((class_uf)var1).cA().b();
       int var4 = ((class_uf)var2).cA().b();
-      this.bt.a(0).b(var3);
-      this.bt.a(1).b(var4);
-      class_aas var5 = class_act.a().a(this.bt, ((class_uf)var1).o);
+      this.bt.a(0).setData(var3);
+      this.bt.a(1).setData(var4);
+      ItemStack var5 = class_act.a().a(this.bt, ((class_uf)var1).o);
       int var6;
-      if(var5 != null && var5.b() == Items.aY) {
+      if(var5 != null && var5.getItem() == Items.aY) {
          var6 = var5.i();
       } else {
          var6 = this.o.s.nextBoolean()?var3:var4;

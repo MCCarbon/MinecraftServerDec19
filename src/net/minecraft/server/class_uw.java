@@ -11,7 +11,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_le;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_mt;
@@ -93,14 +93,14 @@ public class class_uw extends class_wi implements class_wk {
       this.ac.a(bs, new Integer(0));
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Invul", this.cA());
+      var1.put("Invul", this.cA());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.m(var1.g("Invul"));
+      this.m(var1.getInt("Invul"));
    }
 
    protected String C() {

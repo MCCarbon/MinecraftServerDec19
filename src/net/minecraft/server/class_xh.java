@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.class_awg;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -33,15 +33,15 @@ public class class_xh extends class_xf {
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("ExplosionPower", this.e);
+      var1.put("ExplosionPower", this.e);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("ExplosionPower", 99)) {
-         this.e = var1.g("ExplosionPower");
+      if(var1.hasOfType("ExplosionPower", 99)) {
+         this.e = var1.getInt("ExplosionPower");
       }
 
    }

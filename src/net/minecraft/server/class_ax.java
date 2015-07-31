@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -86,18 +86,18 @@ public class class_ax extends class_i {
          ++var16;
          int var7 = var2.length > var16?a(var2[var16++], 1, 64):1;
          int var8 = var2.length > var16?a(var2[var16++]):0;
-         class_aas var9 = new class_aas(var6, var7, var8);
+         ItemStack var9 = new ItemStack(var6, var7, var8);
          if(var2.length > var16) {
             String var10 = a(var1, var2, var16).c();
 
             try {
-               var9.d(class_ed.a(var10));
+               var9.setTag(class_ed.a(var10));
             } catch (class_ec var14) {
                throw new class_bz("commands.replaceitem.tagError", new Object[]{var14.getMessage()});
             }
          }
 
-         if(var9.b() == null) {
+         if(var9.getItem() == null) {
             var9 = null;
          }
 

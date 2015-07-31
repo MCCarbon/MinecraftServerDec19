@@ -6,7 +6,7 @@ import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_om;
 
 public class class_avk extends class_avn {
@@ -16,11 +16,11 @@ public class class_avk extends class_avn {
       this.b = var1;
    }
 
-   public class_dn a() {
+   public NBTTagCompound a() {
       return this.b.a();
    }
 
-   public class_dn a(class_dn var1) {
+   public NBTTagCompound a(NBTTagCompound var1) {
       return this.b.a(var1);
    }
 
@@ -48,7 +48,7 @@ public class class_avk extends class_avn {
       return this.b.g();
    }
 
-   public class_dn i() {
+   public NBTTagCompound i() {
       return this.b.i();
    }
 
@@ -154,11 +154,11 @@ public class class_avk extends class_avn {
    public void e(boolean var1) {
    }
 
-   public void a(class_aoz var1, class_dn var2) {
+   public void a(class_aoz var1, NBTTagCompound var2) {
       this.b.a(var1, var2);
    }
 
-   public class_dn a(class_aoz var1) {
+   public NBTTagCompound a(class_aoz var1) {
       return this.b.a(var1);
    }
 }

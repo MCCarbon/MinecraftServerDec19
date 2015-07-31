@@ -18,9 +18,9 @@ import net.minecraft.server.class_ask;
 import net.minecraft.server.class_aso;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_wg;
 
@@ -145,30 +145,30 @@ public class class_ase extends class_ask {
          this.c.add(var1);
       }
 
-      public void a(class_dn var1) {
+      public void a(NBTTagCompound var1) {
          super.a(var1);
-         class_du var2 = new class_du();
+         NBTTagList var2 = new NBTTagList();
          Iterator var3 = this.c.iterator();
 
          while(var3.hasNext()) {
             class_aeh var4 = (class_aeh)var3.next();
-            class_dn var5 = new class_dn();
-            var5.a("X", var4.a);
-            var5.a("Z", var4.b);
-            var2.a((class_eb)var5);
+            NBTTagCompound var5 = new NBTTagCompound();
+            var5.put("X", var4.a);
+            var5.put("Z", var4.b);
+            var2.add((NBTTag)var5);
          }
 
-         var1.a((String)"Processed", (class_eb)var2);
+         var1.put((String)"Processed", (NBTTag)var2);
       }
 
-      public void b(class_dn var1) {
+      public void b(NBTTagCompound var1) {
          super.b(var1);
-         if(var1.b("Processed", 9)) {
-            class_du var2 = var1.c("Processed", 10);
+         if(var1.hasOfType("Processed", 9)) {
+            NBTTagList var2 = var1.getList("Processed", 10);
 
-            for(int var3 = 0; var3 < var2.c(); ++var3) {
-               class_dn var4 = var2.b(var3);
-               this.c.add(new class_aeh(var4.g("X"), var4.g("Z")));
+            for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+               NBTTagCompound var4 = var2.getCompound(var3);
+               this.c.add(new class_aeh(var4.getInt("X"), var4.getInt("Z")));
             }
          }
 

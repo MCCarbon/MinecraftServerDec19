@@ -18,7 +18,7 @@ import java.util.Set;
 import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.EnumChatFormat;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_acb;
 import net.minecraft.server.class_acc;
@@ -36,10 +36,10 @@ import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_ea;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagString;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.NetworkManager;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
@@ -81,7 +81,7 @@ import net.minecraft.server.class_iw;
 import net.minecraft.server.class_ix;
 import net.minecraft.server.class_iy;
 import net.minecraft.server.class_iz;
-import net.minecraft.server.class_ja;
+import net.minecraft.server.PacketPlayInBlockPlace;
 import net.minecraft.server.PacketPlayInUseItem;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.class_lg;
@@ -173,7 +173,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       final class_fa var2 = new class_fa(var1);
       this.a.sendPacket(new class_gi(var2), new GenericFutureListener() {
          public void operationComplete(Future var1) throws Exception {
-            class_lo.this.a.a((IChatBaseComponent)var2);
+            class_lo.this.a.close((IChatBaseComponent)var2);
          }
       }, new GenericFutureListener[0]);
       this.a.disableAutoRead();
@@ -413,9 +413,9 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       switch(class_lo.SyntheticClass_1.a[var1.getDigType().ordinal()]) {
       case 1:
          if(!this.b.v()) {
-            class_aas var12 = this.b.b((EnumUsedHand)EnumUsedHand.OFF_HAND);
-            this.b.a((EnumUsedHand)EnumUsedHand.OFF_HAND, (class_aas)this.b.b((EnumUsedHand)EnumUsedHand.MAIN_HAND));
-            this.b.a((EnumUsedHand)EnumUsedHand.MAIN_HAND, (class_aas)var12);
+            ItemStack var12 = this.b.b((EnumUsedHand)EnumUsedHand.OFF_HAND);
+            this.b.a((EnumUsedHand)EnumUsedHand.OFF_HAND, (ItemStack)this.b.b((EnumUsedHand)EnumUsedHand.MAIN_HAND));
+            this.b.a((EnumUsedHand)EnumUsedHand.MAIN_HAND, (ItemStack)var12);
          }
 
          return;
@@ -471,27 +471,27 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       }
    }
 
-   public void handle(class_ja var1) {
+   public void handle(PacketPlayInBlockPlace var1) {
       class_fh.a(var1, this, this.b.u());
       class_lg var2 = this.d.a(this.b.am);
-      EnumUsedHand var3 = var1.c();
-      class_aas var4 = this.b.b((EnumUsedHand)var3);
-      BlockPosition var5 = var1.a();
-      EnumDirection var6 = var1.b();
+      EnumUsedHand var3 = var1.getHand();
+      ItemStack var4 = this.b.b((EnumUsedHand)var3);
+      BlockPosition var5 = var1.getPosition();
+      EnumDirection var6 = var1.getDirection();
       this.b.z();
       if(var5.getY() >= this.d.an() - 1 && (var6 == EnumDirection.UP || var5.getY() >= this.d.an())) {
          class_fb var7 = new class_fb("build.tooHigh", new Object[]{Integer.valueOf(this.d.an())});
          var7.b().a(EnumChatFormat.RED);
          this.b.a.a((Packet)(new PacketPlayOutChat(var7)));
       } else if(this.r && this.b.e((double)var5.getX() + 0.5D, (double)var5.getY() + 0.5D, (double)var5.getZ() + 0.5D) < 64.0D && !this.d.a((World)var2, (BlockPosition)var5, (class_xa)this.b) && var2.ag().a(var5)) {
-         this.b.c.a(this.b, var2, var4, var3, var5, var6, var1.d(), var1.e(), var1.f());
+         this.b.c.a(this.b, var2, var4, var3, var5, var6, var1.getCursorX(), var1.getCursorY(), var1.getCursorZ());
       }
 
       this.b.a.a((Packet)(new class_fv(var2, var5)));
       this.b.a.a((Packet)(new class_fv(var2, var5.shift(var6))));
       var4 = this.b.b((EnumUsedHand)var3);
-      if(var4 != null && var4.b == 0) {
-         this.b.a((EnumUsedHand)var3, (class_aas)null);
+      if(var4 != null && var4.count == 0) {
+         this.b.a((EnumUsedHand)var3, (ItemStack)null);
          var4 = null;
       }
 
@@ -501,13 +501,13 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       class_fh.a(var1, this, this.b.u());
       class_lg var2 = this.d.a(this.b.am);
       EnumUsedHand var3 = var1.getActiveHand();
-      class_aas var4 = this.b.b((EnumUsedHand)var3);
+      ItemStack var4 = this.b.b((EnumUsedHand)var3);
       this.b.z();
       if(var4 != null) {
          this.b.c.a(this.b, var2, var4, var3);
          var4 = this.b.b((EnumUsedHand)var3);
-         if(var4 != null && var4.b == 0) {
-            this.b.a((EnumUsedHand)var3, (class_aas)null);
+         if(var4 != null && var4.count == 0) {
+            this.b.a((EnumUsedHand)var3, (ItemStack)null);
             var4 = null;
          }
 
@@ -594,7 +594,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       }
 
       try {
-         this.a.a(var1);
+         this.a.sendPacket(var1);
       } catch (Throwable var5) {
          class_b var6 = class_b.a(var5, "Sending packet");
          class_c var4 = var6.a("Packet being sent");
@@ -715,7 +715,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
          if(this.b.h(var3) < var5) {
             EnumUsedHand var7;
-            class_aas var8;
+            ItemStack var8;
             if(var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.INTERACT) {
                var7 = var1.getUsedHand();
                var8 = this.b.b((EnumUsedHand)var7);
@@ -723,7 +723,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
             } else if(var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.INTERACT_AT) {
                var7 = var1.getUsedHand();
                var8 = this.b.b((EnumUsedHand)var7);
-               var3.a((class_xa)this.b, (Vec3D)var1.getInteractAt(), (class_aas)var8, (EnumUsedHand)var7);
+               var3.a((class_xa)this.b, (Vec3D)var1.getInteractAt(), (ItemStack)var8, (EnumUsedHand)var7);
             } else if(var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.ATTACK) {
                if(var3 instanceof class_vm || var3 instanceof class_px || var3 instanceof class_xd || var3 == this.b) {
                   this.c("Attempting to attack an invalid entity");
@@ -790,8 +790,8 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
             this.b.a((class_xz)this.b.br, (List)var2);
          } else {
-            class_aas var5 = this.b.br.a(var1.b(), var1.c(), var1.f(), this.b);
-            if(class_aas.b(var1.e(), var5)) {
+            ItemStack var5 = this.b.br.a(var1.b(), var1.c(), var1.f(), this.b);
+            if(ItemStack.b(var1.e(), var5)) {
                this.b.a.a((Packet)(new class_gb(var1.a(), var1.d(), true)));
                this.b.g = true;
                this.b.br.b();
@@ -828,29 +828,29 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       class_fh.a(var1, this, this.b.u());
       if(this.b.c.d()) {
          boolean var2 = var1.a() < 0;
-         class_aas var3 = var1.b();
-         if(var3 != null && var3.n() && var3.o().b("BlockEntityTag", 10)) {
-            class_dn var4 = var3.o().n("BlockEntityTag");
-            if(var4.d("x") && var4.d("y") && var4.d("z")) {
-               BlockPosition var5 = new BlockPosition(var4.g("x"), var4.g("y"), var4.g("z"));
+         ItemStack var3 = var1.b();
+         if(var3 != null && var3.hasTag() && var3.getTag().hasOfType("BlockEntityTag", 10)) {
+            NBTTagCompound var4 = var3.getTag().getCompound("BlockEntityTag");
+            if(var4.has("x") && var4.has("y") && var4.has("z")) {
+               BlockPosition var5 = new BlockPosition(var4.getInt("x"), var4.getInt("y"), var4.getInt("z"));
                class_amg var6 = this.b.o.s(var5);
                if(var6 != null) {
-                  class_dn var7 = new class_dn();
+                  NBTTagCompound var7 = new NBTTagCompound();
                   var6.b(var7);
-                  var7.p("x");
-                  var7.p("y");
-                  var7.p("z");
-                  var3.a((String)"BlockEntityTag", (class_eb)var7);
+                  var7.remove("x");
+                  var7.remove("y");
+                  var7.remove("z");
+                  var3.addTag((String)"BlockEntityTag", (NBTTag)var7);
                }
             }
          }
 
          boolean var8 = var1.a() >= 1 && var1.a() <= 45;
-         boolean var9 = var3 == null || var3.b() != null;
-         boolean var10 = var3 == null || var3.i() >= 0 && var3.b <= 64 && var3.b > 0;
+         boolean var9 = var3 == null || var3.getItem() != null;
+         boolean var10 = var3 == null || var3.i() >= 0 && var3.count <= 64 && var3.count > 0;
          if(var8 && var9 && var10) {
             if(var3 == null) {
-               this.b.bq.a(var1.a(), (class_aas)null);
+               this.b.bq.a(var1.a(), (ItemStack)null);
             } else {
                this.b.bq.a(var1.a(), var3);
             }
@@ -858,7 +858,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
             this.b.bq.a(this.b, true);
          } else if(var2 && var9 && var10 && this.m < 200) {
             this.m += 20;
-            class_vm var11 = this.b.a((class_aas)var3, true);
+            class_vm var11 = this.b.a((ItemStack)var3, true);
             if(var11 != null) {
                var11.j();
             }
@@ -942,16 +942,16 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    public void handle(class_im var1) {
       class_fh.a(var1, this, this.b.u());
-      class_aas var67;
-      class_aas var72;
+      ItemStack var67;
+      ItemStack var72;
       PacketDataSerializer var61;
       if("MC|BEdit".equals(var1.a())) {
          var61 = new PacketDataSerializer(Unpooled.wrappedBuffer((ByteBuf)var1.b()));
 
          try {
-            var67 = var61.i();
+            var67 = var61.readItemStack();
             if(var67 != null) {
-               if(!class_acb.b(var67.o())) {
+               if(!class_acb.b(var67.getTag())) {
                   throw new IOException("Invalid book tag!");
                }
 
@@ -960,8 +960,8 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                   return;
                }
 
-               if(var67.b() == Items.bP && var67.b() == var72.b()) {
-                  var72.a((String)"pages", (class_eb)var67.o().c("pages", 8));
+               if(var67.getItem() == Items.bP && var67.getItem() == var72.getItem()) {
+                  var72.addTag((String)"pages", (NBTTag)var67.getTag().getList("pages", 8));
                }
 
                return;
@@ -978,21 +978,21 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
          var61 = new PacketDataSerializer(Unpooled.wrappedBuffer((ByteBuf)var1.b()));
 
          try {
-            var67 = var61.i();
+            var67 = var61.readItemStack();
             if(var67 == null) {
                return;
             }
 
-            if(!class_acc.b(var67.o())) {
+            if(!class_acc.b(var67.getTag())) {
                throw new IOException("Invalid book tag!");
             }
 
             var72 = this.b.bA();
             if(var72 != null) {
-               if(var67.b() == Items.bQ && var72.b() == Items.bP) {
-                  var72.a((String)"author", (class_eb)(new class_ea(this.b.e_())));
-                  var72.a((String)"title", (class_eb)(new class_ea(var67.o().k("title"))));
-                  var72.a((String)"pages", (class_eb)var67.o().c("pages", 8));
+               if(var67.getItem() == Items.bQ && var72.getItem() == Items.bP) {
+                  var72.addTag((String)"author", (NBTTag)(new NBTTagString(this.b.e_())));
+                  var72.addTag((String)"title", (NBTTag)(new NBTTagString(var67.getTag().getString("title"))));
+                  var72.addTag((String)"pages", (NBTTag)var67.getTag().getList("pages", 8));
                   var72.a(Items.bQ);
                }
 

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_xa;
 
@@ -18,10 +18,10 @@ public class class_yx {
       this.g = var4;
    }
 
-   public void a(class_aas var1, class_aas var2) {
+   public void a(ItemStack var1, ItemStack var2) {
       if(var1 != null && var2 != null) {
-         if(var1.b() == var2.b()) {
-            int var3 = var2.b - var1.b;
+         if(var1.getItem() == var2.getItem()) {
+            int var3 = var2.count - var1.count;
             if(var3 > 0) {
                this.a(var1, var3);
             }
@@ -30,21 +30,21 @@ public class class_yx {
       }
    }
 
-   protected void a(class_aas var1, int var2) {
+   protected void a(ItemStack var1, int var2) {
    }
 
-   protected void c(class_aas var1) {
+   protected void c(ItemStack var1) {
    }
 
-   public void a(class_xa var1, class_aas var2) {
+   public void a(class_xa var1, ItemStack var2) {
       this.f();
    }
 
-   public boolean a(class_aas var1) {
+   public boolean a(ItemStack var1) {
       return true;
    }
 
-   public class_aas d() {
+   public ItemStack d() {
       return this.d.a(this.a);
    }
 
@@ -52,7 +52,7 @@ public class class_yx {
       return this.d() != null;
    }
 
-   public void d(class_aas var1) {
+   public void d(ItemStack var1) {
       this.d.a(this.a, var1);
       this.f();
    }
@@ -65,11 +65,11 @@ public class class_yx {
       return this.d.q_();
    }
 
-   public int b(class_aas var1) {
+   public int b(ItemStack var1) {
       return this.a();
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return this.d.a(this.a, var1);
    }
 

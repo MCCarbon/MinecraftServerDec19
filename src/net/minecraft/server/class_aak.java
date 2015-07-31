@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import net.minecraft.server.class_aan;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
@@ -17,17 +17,17 @@ public class class_aak extends class_aan {
       this.b = var1;
    }
 
-   public int h(class_aas var1) {
+   public int h(ItemStack var1) {
       class_aak.class_a_in_class_aak var2 = class_aak.class_a_in_class_aak.a(var1);
       return this.b && var2.g()?var2.e():var2.c();
    }
 
-   public float i(class_aas var1) {
+   public float i(ItemStack var1) {
       class_aak.class_a_in_class_aak var2 = class_aak.class_a_in_class_aak.a(var1);
       return this.b && var2.g()?var2.f():var2.d();
    }
 
-   protected void a(class_aas var1, World var2, class_xa var3) {
+   protected void a(ItemStack var1, World var2, class_xa var3) {
       class_aak.class_a_in_class_aak var4 = class_aak.class_a_in_class_aak.a(var1);
       if(var4 == class_aak.class_a_in_class_aak.d) {
          var3.c(new class_pl(class_pm.s, 1200, 3));
@@ -38,7 +38,7 @@ public class class_aak extends class_aan {
       super.a(var1, var2, var3);
    }
 
-   public String e_(class_aas var1) {
+   public String e_(ItemStack var1) {
       class_aak.class_a_in_class_aak var2 = class_aak.class_a_in_class_aak.a(var1);
       return this.a() + "." + var2.b() + "." + (this.b && var2.g()?"cooked":"raw");
    }
@@ -111,8 +111,8 @@ public class class_aak extends class_aan {
          return var1 == null?a:var1;
       }
 
-      public static class_aak.class_a_in_class_aak a(class_aas var0) {
-         return var0.b() instanceof class_aak?a(var0.i()):a;
+      public static class_aak.class_a_in_class_aak a(ItemStack var0) {
+         return var0.getItem() instanceof class_aak?a(var0.i()):a;
       }
 
       static {

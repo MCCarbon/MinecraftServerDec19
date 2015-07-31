@@ -15,10 +15,10 @@ import java.util.List;
 import java.util.Map;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avo;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dx;
-import net.minecraft.server.class_dz;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTCompressedStreamTools;
+import net.minecraft.server.NBTTagShort;
+import net.minecraft.server.NBTTag;
 
 public class class_avz {
    private class_avo b;
@@ -47,9 +47,9 @@ public class class_avz {
                   }
 
                   FileInputStream var5 = new FileInputStream(var4);
-                  class_dn var6 = class_dx.a((InputStream)var5);
+                  NBTTagCompound var6 = NBTCompressedStreamTools.fromRawInputStream((InputStream)var5);
                   var5.close();
-                  var3.a(var6.n("data"));
+                  var3.a(var6.getCompound("data"));
                }
             } catch (Exception var8) {
                var8.printStackTrace();
@@ -90,12 +90,12 @@ public class class_avz {
          try {
             File var2 = this.b.a(var1.a);
             if(var2 != null) {
-               class_dn var3 = new class_dn();
+               NBTTagCompound var3 = new NBTTagCompound();
                var1.b(var3);
-               class_dn var4 = new class_dn();
-               var4.a((String)"data", (class_eb)var3);
+               NBTTagCompound var4 = new NBTTagCompound();
+               var4.put((String)"data", (NBTTag)var3);
                FileOutputStream var5 = new FileOutputStream(var2);
-               class_dx.a((class_dn)var4, (OutputStream)var5);
+               NBTCompressedStreamTools.writeToRawOutputStream((NBTTagCompound)var4, (OutputStream)var5);
                var5.close();
             }
          } catch (Exception var6) {
@@ -115,16 +115,16 @@ public class class_avz {
          File var1 = this.b.a("idcounts");
          if(var1 != null && var1.exists()) {
             DataInputStream var2 = new DataInputStream(new FileInputStream(var1));
-            class_dn var3 = class_dx.a(var2);
+            NBTTagCompound var3 = NBTCompressedStreamTools.fromDataStream(var2);
             var2.close();
-            Iterator var4 = var3.c().iterator();
+            Iterator var4 = var3.getKeys().iterator();
 
             while(var4.hasNext()) {
                String var5 = (String)var4.next();
-               class_eb var6 = var3.b(var5);
-               if(var6 instanceof class_dz) {
-                  class_dz var7 = (class_dz)var6;
-                  short var9 = var7.e();
+               NBTTag var6 = var3.getTag(var5);
+               if(var6 instanceof NBTTagShort) {
+                  NBTTagShort var7 = (NBTTagShort)var6;
+                  short var9 = var7.asShort();
                   this.d.put(var5, Short.valueOf(var9));
                }
             }
@@ -150,17 +150,17 @@ public class class_avz {
          try {
             File var3 = this.b.a("idcounts");
             if(var3 != null) {
-               class_dn var4 = new class_dn();
+               NBTTagCompound var4 = new NBTTagCompound();
                Iterator var5 = this.d.keySet().iterator();
 
                while(var5.hasNext()) {
                   String var6 = (String)var5.next();
                   short var7 = ((Short)this.d.get(var6)).shortValue();
-                  var4.a(var6, var7);
+                  var4.put(var6, var7);
                }
 
                DataOutputStream var9 = new DataOutputStream(new FileOutputStream(var3));
-               class_dx.a((class_dn)var4, (DataOutput)var9);
+               NBTCompressedStreamTools.writeToData((NBTTagCompound)var4, (DataOutput)var9);
                var9.close();
             }
          } catch (Exception var8) {

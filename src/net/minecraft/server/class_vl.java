@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Iterator;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aga;
 import net.minecraft.server.Block;
@@ -17,8 +17,8 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
@@ -32,7 +32,7 @@ public class class_vl extends class_pr {
    private boolean f;
    private int g = 40;
    private float h = 2.0F;
-   public class_dn c;
+   public NBTTagCompound c;
 
    public class_vl(World var1) {
       super(var1);
@@ -96,7 +96,7 @@ public class class_vl extends class_pr {
                if(this.o.p(var2).getBlock() != Blocks.PISTON_EXTENSION) {
                   this.J();
                   if(!this.e) {
-                     if(this.o.a(var1, var2, true, EnumDirection.UP, (class_pr)null, (class_aas)null) && !class_ahx.e(this.o, var2.shiftDown()) && this.o.a((BlockPosition)var2, (IBlockData)this.d, 3)) {
+                     if(this.o.a(var1, var2, true, EnumDirection.UP, (class_pr)null, (ItemStack)null) && !class_ahx.e(this.o, var2.shiftDown()) && this.o.a((BlockPosition)var2, (IBlockData)this.d, 3)) {
                         if(var1 instanceof class_ahx) {
                            ((class_ahx)var1).a_(this.o, var2);
                         }
@@ -104,15 +104,15 @@ public class class_vl extends class_pr {
                         if(this.c != null && var1 instanceof class_ahw) {
                            class_amg var3 = this.o.s(var2);
                            if(var3 != null) {
-                              class_dn var4 = new class_dn();
+                              NBTTagCompound var4 = new NBTTagCompound();
                               var3.b(var4);
-                              Iterator var5 = this.c.c().iterator();
+                              Iterator var5 = this.c.getKeys().iterator();
 
                               while(var5.hasNext()) {
                                  String var6 = (String)var5.next();
-                                 class_eb var7 = this.c.b(var6);
+                                 NBTTag var7 = this.c.getTag(var6);
                                  if(!var6.equals("x") && !var6.equals("y") && !var6.equals("z")) {
-                                    var4.a(var6, var7.b());
+                                    var4.put(var6, var7.clone());
                                  }
                               }
 
@@ -121,13 +121,13 @@ public class class_vl extends class_pr {
                            }
                         }
                      } else if(this.b && this.o.R().b("doEntityDrops")) {
-                        this.a(new class_aas(var1, 1, var1.getDropData(this.d)), 0.0F);
+                        this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                      }
                   }
                }
             } else if(this.a > 100 && !this.o.D && (var2.getY() < 1 || var2.getY() > 256) || this.a > 600) {
                if(this.b && this.o.R().b("doEntityDrops")) {
-                  this.a(new class_aas(var1, 1, var1.getDropData(this.d)), 0.0F);
+                  this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                }
 
                this.J();
@@ -166,48 +166,48 @@ public class class_vl extends class_pr {
 
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
       Block var2 = this.d != null?this.d.getBlock():Blocks.AIR;
       MinecraftKey var3 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var2);
-      var1.a("Block", var3 == null?"":var3.toString());
-      var1.a("Data", (byte)var2.toLegacyData(this.d));
-      var1.a("Time", (byte)this.a);
-      var1.a("DropItem", this.b);
-      var1.a("HurtEntities", this.f);
-      var1.a("FallHurtAmount", this.h);
-      var1.a("FallHurtMax", this.g);
+      var1.put("Block", var3 == null?"":var3.toString());
+      var1.put("Data", (byte)var2.toLegacyData(this.d));
+      var1.put("Time", (byte)this.a);
+      var1.put("DropItem", this.b);
+      var1.put("HurtEntities", this.f);
+      var1.put("FallHurtAmount", this.h);
+      var1.put("FallHurtMax", this.g);
       if(this.c != null) {
-         var1.a((String)"TileEntityData", (class_eb)this.c);
+         var1.put((String)"TileEntityData", (NBTTag)this.c);
       }
 
    }
 
-   protected void a(class_dn var1) {
-      int var2 = var1.e("Data") & 255;
-      if(var1.b("Block", 8)) {
-         this.d = Block.getByName(var1.k("Block")).fromLegacyData(var2);
-      } else if(var1.b("TileID", 99)) {
-         this.d = Block.getById(var1.g("TileID")).fromLegacyData(var2);
+   protected void a(NBTTagCompound var1) {
+      int var2 = var1.getByte("Data") & 255;
+      if(var1.hasOfType("Block", 8)) {
+         this.d = Block.getByName(var1.getString("Block")).fromLegacyData(var2);
+      } else if(var1.hasOfType("TileID", 99)) {
+         this.d = Block.getById(var1.getInt("TileID")).fromLegacyData(var2);
       } else {
-         this.d = Block.getById(var1.e("Tile") & 255).fromLegacyData(var2);
+         this.d = Block.getById(var1.getByte("Tile") & 255).fromLegacyData(var2);
       }
 
-      this.a = var1.e("Time") & 255;
+      this.a = var1.getByte("Time") & 255;
       Block var3 = this.d.getBlock();
-      if(var1.b("HurtEntities", 99)) {
-         this.f = var1.o("HurtEntities");
-         this.h = var1.i("FallHurtAmount");
-         this.g = var1.g("FallHurtMax");
+      if(var1.hasOfType("HurtEntities", 99)) {
+         this.f = var1.getBoolean("HurtEntities");
+         this.h = var1.getFloat("FallHurtAmount");
+         this.g = var1.getInt("FallHurtMax");
       } else if(var3 == Blocks.ANVIL) {
          this.f = true;
       }
 
-      if(var1.b("DropItem", 99)) {
-         this.b = var1.o("DropItem");
+      if(var1.hasOfType("DropItem", 99)) {
+         this.b = var1.getBoolean("DropItem");
       }
 
-      if(var1.b("TileEntityData", 10)) {
-         this.c = var1.n("TileEntityData");
+      if(var1.hasOfType("TileEntityData", 10)) {
+         this.c = var1.getCompound("TileEntityData");
       }
 
       if(var3 == null || var3.getMaterial() == Material.AIR) {

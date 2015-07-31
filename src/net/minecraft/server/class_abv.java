@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.World;
 import net.minecraft.server.LocaleI18n;
@@ -14,13 +14,13 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xs;
 
 public class class_abv extends class_abe {
-   public String a(class_aas var1) {
+   public String getLocalizedName(ItemStack var1) {
       return LocaleI18n.get("splash_" + i(var1).a());
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(!var3.bH.d) {
-         --var1.b;
+         --var1.count;
       }
 
       var2.a((class_pr)var3, "random.bow", 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));

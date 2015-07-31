@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -10,7 +10,7 @@ import net.minecraft.server.class_ams;
 import net.minecraft.server.class_amt;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
@@ -54,7 +54,7 @@ public class class_vs extends class_vq implements class_ams {
       return 5;
    }
 
-   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
+   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       if(!this.o.D) {
          var1.a((class_oj)this);
       }
@@ -136,14 +136,14 @@ public class class_vs extends class_vq implements class_ams {
 
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("TransferCooldown", this.b);
+      var1.put("TransferCooldown", this.b);
    }
 
-   protected void a(class_dn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
-      this.b = var1.g("TransferCooldown");
+      this.b = var1.getInt("TransferCooldown");
    }
 
    public void m(int var1) {

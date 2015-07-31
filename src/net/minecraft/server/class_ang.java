@@ -10,7 +10,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.class_pr;
 
@@ -135,21 +135,21 @@ public class class_ang extends class_amg implements class_kn {
       }
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = Block.getById(var1.g("blockId")).fromLegacyData(var1.g("blockData"));
-      this.f = EnumDirection.getById(var1.g("facing"));
-      this.j = this.i = var1.i("progress");
-      this.g = var1.o("extending");
+      this.a = Block.getById(var1.getInt("blockId")).fromLegacyData(var1.getInt("blockData"));
+      this.f = EnumDirection.getById(var1.getInt("facing"));
+      this.j = this.i = var1.getFloat("progress");
+      this.g = var1.getBoolean("extending");
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("blockId", Block.getId(this.a.getBlock()));
-      var1.a("blockData", this.a.getBlock().toLegacyData(this.a));
-      var1.a("facing", this.f.getId());
-      var1.a("progress", this.j);
-      var1.a("extending", this.g);
+      var1.put("blockId", Block.getId(this.a.getBlock()));
+      var1.put("blockData", this.a.getBlock().toLegacyData(this.a));
+      var1.put("facing", this.f.getId());
+      var1.put("progress", this.j);
+      var1.put("extending", this.g);
    }
 
    // $FF: synthetic class

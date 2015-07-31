@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
 
@@ -73,12 +73,12 @@ public class class_vw extends class_pr {
       this.o.a(this, this.s, this.t + (double)(this.K / 16.0F), this.u, var1, true);
    }
 
-   protected void b(class_dn var1) {
-      var1.a("Fuse", (byte)this.a);
+   protected void b(NBTTagCompound var1) {
+      var1.put("Fuse", (byte)this.a);
    }
 
-   protected void a(class_dn var1) {
-      this.a = var1.e("Fuse");
+   protected void a(NBTTagCompound var1) {
+      this.a = var1.getByte("Fuse");
    }
 
    public class_qa j() {

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
@@ -9,14 +9,14 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xz;
 
 public class class_yg implements class_oj {
-   private final class_aas[] a;
+   private final ItemStack[] a;
    private final int b;
    private final int c;
    private final class_xz d;
 
    public class_yg(class_xz var1, int var2, int var3) {
       int var4 = var2 * var3;
-      this.a = new class_aas[var4];
+      this.a = new ItemStack[var4];
       this.d = var1;
       this.b = var2;
       this.c = var3;
@@ -26,11 +26,11 @@ public class class_yg implements class_oj {
       return this.a.length;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return var1 >= this.o_()?null:this.a[var1];
    }
 
-   public class_aas c(int var1, int var2) {
+   public ItemStack c(int var1, int var2) {
       return var1 >= 0 && var1 < this.b && var2 >= 0 && var2 <= this.c?this.a(var1 + var2 * this.b):null;
    }
 
@@ -46,9 +46,9 @@ public class class_yg implements class_oj {
       return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       if(this.a[var1] != null) {
-         class_aas var2 = this.a[var1];
+         ItemStack var2 = this.a[var1];
          this.a[var1] = null;
          return var2;
       } else {
@@ -56,17 +56,17 @@ public class class_yg implements class_oj {
       }
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.a[var1] != null) {
-         class_aas var3;
-         if(this.a[var1].b <= var2) {
+         ItemStack var3;
+         if(this.a[var1].count <= var2) {
             var3 = this.a[var1];
             this.a[var1] = null;
             this.d.a((class_oj)this);
             return var3;
          } else {
             var3 = this.a[var1].a(var2);
-            if(this.a[var1].b == 0) {
+            if(this.a[var1].count == 0) {
                this.a[var1] = null;
             }
 
@@ -78,7 +78,7 @@ public class class_yg implements class_oj {
       }
    }
 
-   public void a(int var1, class_aas var2) {
+   public void a(int var1, ItemStack var2) {
       this.a[var1] = var2;
       this.d.a((class_oj)this);
    }
@@ -100,7 +100,7 @@ public class class_yg implements class_oj {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 

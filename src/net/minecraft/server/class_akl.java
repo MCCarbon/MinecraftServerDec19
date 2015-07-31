@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -57,7 +57,7 @@ public class class_akl extends Block {
       return Item.getByBlock(Blocks.REDSTONE_LAMP);
    }
 
-   protected class_aas i(IBlockData var1) {
-      return new class_aas(Blocks.REDSTONE_LAMP);
+   protected ItemStack i(IBlockData var1) {
+      return new ItemStack(Blocks.REDSTONE_LAMP);
    }
 }

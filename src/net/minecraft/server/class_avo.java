@@ -6,7 +6,7 @@ import net.minecraft.server.class_aop;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avx;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 
 public interface class_avo {
    class_avn d();
@@ -15,7 +15,7 @@ public interface class_avo {
 
    class_aop a(class_aoy var1);
 
-   void a(class_avn var1, class_dn var2);
+   void a(class_avn var1, NBTTagCompound var2);
 
    void a(class_avn var1);
 

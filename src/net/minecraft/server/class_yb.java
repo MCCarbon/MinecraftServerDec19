@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Map;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
@@ -46,7 +46,7 @@ public class class_yb extends class_xz {
       this.a((class_yx)(new class_yx(this.h, 0, 27, 47)));
       this.a((class_yx)(new class_yx(this.h, 1, 76, 47)));
       this.a((class_yx)(new class_yx(this.g, 2, 134, 47) {
-         public boolean a(class_aas var1) {
+         public boolean a(ItemStack var1) {
             return false;
          }
 
@@ -54,22 +54,22 @@ public class class_yb extends class_xz {
             return (var1.bH.d || var1.bI >= class_yb.this.a) && class_yb.this.a > 0 && this.e();
          }
 
-         public void a(class_xa var1, class_aas var2x) {
+         public void a(class_xa var1, ItemStack var2x) {
             if(!var1.bH.d) {
                var1.a(-class_yb.this.a);
             }
 
-            class_yb.this.h.a(0, (class_aas)null);
+            class_yb.this.h.a(0, (ItemStack)null);
             if(class_yb.this.k > 0) {
-               class_aas var3x = class_yb.this.h.a(1);
-               if(var3x != null && var3x.b > class_yb.this.k) {
-                  var3x.b -= class_yb.this.k;
+               ItemStack var3x = class_yb.this.h.a(1);
+               if(var3x != null && var3x.count > class_yb.this.k) {
+                  var3x.count -= class_yb.this.k;
                   class_yb.this.h.a(1, var3x);
                } else {
-                  class_yb.this.h.a(1, (class_aas)null);
+                  class_yb.this.h.a(1, (ItemStack)null);
                }
             } else {
-               class_yb.this.h.a(1, (class_aas)null);
+               class_yb.this.h.a(1, (ItemStack)null);
             }
 
             class_yb.this.a = 0;
@@ -113,44 +113,44 @@ public class class_yb extends class_xz {
    }
 
    public void e() {
-      class_aas var1 = this.h.a(0);
+      ItemStack var1 = this.h.a(0);
       this.a = 1;
       int var2 = 0;
       byte var3 = 0;
       byte var4 = 0;
       if(var1 == null) {
-         this.g.a(0, (class_aas)null);
+         this.g.a(0, (ItemStack)null);
          this.a = 0;
       } else {
-         class_aas var5 = var1.k();
-         class_aas var6 = this.h.a(1);
+         ItemStack var5 = var1.clone();
+         ItemStack var6 = this.h.a(1);
          Map var7 = class_adk.a(var5);
-         int var17 = var3 + var1.A() + (var6 == null?0:var6.A());
+         int var17 = var3 + var1.getRepairCost() + (var6 == null?0:var6.getRepairCost());
          this.k = 0;
          if(var6 != null) {
-            boolean var8 = var6.b() == Items.cg && !Items.cg.h(var6).c_();
+            boolean var8 = var6.getItem() == Items.cg && !Items.cg.h(var6).isEmpty();
             int var9;
             int var10;
             int var11;
-            if(var5.e() && var5.b().a(var1, var6)) {
+            if(var5.e() && var5.getItem().a(var1, var6)) {
                var9 = Math.min(var5.h(), var5.j() / 4);
                if(var9 <= 0) {
-                  this.g.a(0, (class_aas)null);
+                  this.g.a(0, (ItemStack)null);
                   this.a = 0;
                   return;
                }
 
-               for(var10 = 0; var9 > 0 && var10 < var6.b; ++var10) {
+               for(var10 = 0; var9 > 0 && var10 < var6.count; ++var10) {
                   var11 = var5.h() - var9;
-                  var5.b(var11);
+                  var5.setData(var11);
                   ++var2;
                   var9 = Math.min(var5.h(), var5.j() / 4);
                }
 
                this.k = var10;
             } else {
-               if(!var8 && (var5.b() != var6.b() || !var5.e())) {
-                  this.g.a(0, (class_aas)null);
+               if(!var8 && (var5.getItem() != var6.getItem() || !var5.e())) {
+                  this.g.a(0, (ItemStack)null);
                   this.a = 0;
                   return;
                }
@@ -168,7 +168,7 @@ public class class_yb extends class_xz {
                   }
 
                   if(var13 < var5.i()) {
-                     var5.b(var13);
+                     var5.setData(var13);
                      var2 += 2;
                   }
                }
@@ -191,7 +191,7 @@ public class class_yb extends class_xz {
                   var13 = ((Integer)var19.get(var21)).intValue();
                   var13 = var12 == var13?var13 + 1:Math.max(var13, var12);
                   boolean var14 = var21.a(var1);
-                  if(this.m.bH.d || var1.b() == Items.cg) {
+                  if(this.m.bH.d || var1.getItem() == Items.cg) {
                      var14 = true;
                   }
 
@@ -237,15 +237,15 @@ public class class_yb extends class_xz {
          }
 
          if(StringUtils.isBlank(this.l)) {
-            if(var1.s()) {
+            if(var1.hasDisplayName()) {
                var4 = 1;
                var2 += var4;
-               var5.r();
+               var5.removeDisplayName();
             }
-         } else if(!this.l.equals(var1.q())) {
+         } else if(!this.l.equals(var1.getDisplayName())) {
             var4 = 1;
             var2 += var4;
-            var5.c(this.l);
+            var5.setDisplayName(this.l);
          }
 
          this.a = var17 + var2;
@@ -262,13 +262,13 @@ public class class_yb extends class_xz {
          }
 
          if(var5 != null) {
-            int var18 = var5.A();
-            if(var6 != null && var18 < var6.A()) {
-               var18 = var6.A();
+            int var18 = var5.getRepairCost();
+            if(var6 != null && var18 < var6.getRepairCost()) {
+               var18 = var6.getRepairCost();
             }
 
             var18 = var18 * 2 + 1;
-            var5.c(var18);
+            var5.setRepairCost(var18);
             class_adk.a(var7, var5);
          }
 
@@ -286,7 +286,7 @@ public class class_yb extends class_xz {
       super.b(var1);
       if(!this.i.D) {
          for(int var2 = 0; var2 < this.h.o_(); ++var2) {
-            class_aas var3 = this.h.b(var2);
+            ItemStack var3 = this.h.b(var2);
             if(var3 != null) {
                var1.a(var3, false);
             }
@@ -299,12 +299,12 @@ public class class_yb extends class_xz {
       return this.i.p(this.j).getBlock() != Blocks.ANVIL?false:var1.e((double)this.j.getX() + 0.5D, (double)this.j.getY() + 0.5D, (double)this.j.getZ() + 0.5D) <= 64.0D;
    }
 
-   public class_aas b(class_xa var1, int var2) {
-      class_aas var3 = null;
+   public ItemStack b(class_xa var1, int var2) {
+      ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         class_aas var5 = var4.d();
-         var3 = var5.k();
+         ItemStack var5 = var4.d();
+         var3 = var5.clone();
          if(var2 == 2) {
             if(!this.a(var5, 3, 39, true)) {
                return null;
@@ -319,13 +319,13 @@ public class class_yb extends class_xz {
             return null;
          }
 
-         if(var5.b == 0) {
-            var4.d((class_aas)null);
+         if(var5.count == 0) {
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 
@@ -338,11 +338,11 @@ public class class_yb extends class_xz {
    public void a(String var1) {
       this.l = var1;
       if(this.a(2).e()) {
-         class_aas var2 = this.a(2).d();
+         ItemStack var2 = this.a(2).d();
          if(StringUtils.isBlank(var1)) {
-            var2.r();
+            var2.removeDisplayName();
          } else {
-            var2.c(this.l);
+            var2.setDisplayName(this.l);
          }
       }
 

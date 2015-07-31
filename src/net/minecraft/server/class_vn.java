@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import java.util.Iterator;
 import java.util.Map;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_agf;
@@ -15,7 +15,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
@@ -151,9 +151,9 @@ public abstract class class_vn extends class_pr implements class_ov {
    public void a(class_pc var1) {
       this.J();
       if(this.o.R().b("doEntityDrops")) {
-         class_aas var2 = new class_aas(Items.aB, 1);
+         ItemStack var2 = new ItemStack(Items.aB, 1);
          if(this.h != null) {
-            var2.c(this.h);
+            var2.setDisplayName(this.h);
          }
 
          this.a(var2, 0.0F);
@@ -563,19 +563,19 @@ public abstract class class_vn extends class_pr implements class_ov {
       }
    }
 
-   protected void a(class_dn var1) {
-      if(var1.o("CustomDisplayTile")) {
-         int var2 = var1.g("DisplayData");
+   protected void a(NBTTagCompound var1) {
+      if(var1.getBoolean("CustomDisplayTile")) {
+         int var2 = var1.getInt("DisplayData");
          Block var3;
-         if(var1.b("DisplayTile", 8)) {
-            var3 = Block.getByName(var1.k("DisplayTile"));
+         if(var1.hasOfType("DisplayTile", 8)) {
+            var3 = Block.getByName(var1.getString("DisplayTile"));
             if(var3 == null) {
                this.a(Blocks.AIR.getBlockData());
             } else {
                this.a(var3.fromLegacyData(var2));
             }
          } else {
-            var3 = Block.getById(var1.g("DisplayTile"));
+            var3 = Block.getById(var1.getInt("DisplayTile"));
             if(var3 == null) {
                this.a(Blocks.AIR.getBlockData());
             } else {
@@ -583,27 +583,27 @@ public abstract class class_vn extends class_pr implements class_ov {
             }
          }
 
-         this.l(var1.g("DisplayOffset"));
+         this.l(var1.getInt("DisplayOffset"));
       }
 
-      if(var1.b("CustomName", 8) && !var1.k("CustomName").isEmpty()) {
-         this.h = var1.k("CustomName");
+      if(var1.hasOfType("CustomName", 8) && !var1.getString("CustomName").isEmpty()) {
+         this.h = var1.getString("CustomName");
       }
 
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
       if(this.x()) {
-         var1.a("CustomDisplayTile", true);
+         var1.put("CustomDisplayTile", true);
          IBlockData var2 = this.t();
          MinecraftKey var3 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var2.getBlock());
-         var1.a("DisplayTile", var3 == null?"":var3.toString());
-         var1.a("DisplayData", var2.getBlock().toLegacyData(var2));
-         var1.a("DisplayOffset", this.v());
+         var1.put("DisplayTile", var3 == null?"":var3.toString());
+         var1.put("DisplayData", var2.getBlock().toLegacyData(var2));
+         var1.put("DisplayOffset", this.v());
       }
 
       if(this.h != null && !this.h.isEmpty()) {
-         var1.a("CustomName", this.h);
+         var1.put("CustomName", this.h);
       }
 
    }

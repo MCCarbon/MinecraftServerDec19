@@ -18,7 +18,7 @@ public class class_ix implements Packet {
 
       for(int var2 = 0; var2 < 4; ++var2) {
          String var3 = var1.readString(384);
-         IChatBaseComponent var4 = IChatBaseComponent.class_a_in_class_eu.a(var3);
+         IChatBaseComponent var4 = IChatBaseComponent.ChatSerializer.fromJson(var3);
          this.b[var2] = var4;
       }
 
@@ -29,7 +29,7 @@ public class class_ix implements Packet {
 
       for(int var2 = 0; var2 < 4; ++var2) {
          IChatBaseComponent var3 = this.b[var2];
-         String var4 = IChatBaseComponent.class_a_in_class_eu.a(var3);
+         String var4 = IChatBaseComponent.ChatSerializer.toJson(var3);
          var1.writeString(var4);
       }
 

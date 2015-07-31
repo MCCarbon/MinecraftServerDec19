@@ -26,7 +26,7 @@ import net.minecraft.server.class_aan;
 import net.minecraft.server.class_aao;
 import net.minecraft.server.class_aap;
 import net.minecraft.server.class_aaq;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aat;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_aav;
@@ -86,7 +86,7 @@ import net.minecraft.server.RegistryMaterials;
 import net.minecraft.server.IRegistry;
 import net.minecraft.server.RegistrySimple;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
@@ -174,7 +174,7 @@ public class Item {
 		this.k.register(var1, var2);
 	}
 
-	public boolean a(class_dn var1) {
+	public boolean a(NBTTagCompound var1) {
 		return false;
 	}
 
@@ -187,19 +187,19 @@ public class Item {
 		return this;
 	}
 
-	public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+	public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
 		return class_oq.b;
 	}
 
-	public float a(class_aas var1, Block var2) {
+	public float a(ItemStack var1, Block var2) {
 		return 1.0F;
 	}
 
-	public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+	public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
 		return new class_or(class_oq.b, var1);
 	}
 
-	public class_aas a(class_aas var1, World var2, class_qa var3) {
+	public ItemStack a(ItemStack var1, World var2, class_qa var3) {
 		return var1;
 	}
 
@@ -238,11 +238,11 @@ public class Item {
 		return this.m > 0 && !this.j;
 	}
 
-	public boolean a(class_aas var1, class_qa var2, class_qa var3) {
+	public boolean a(ItemStack var1, class_qa var2, class_qa var3) {
 		return false;
 	}
 
-	public boolean a(class_aas var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
+	public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
 		return false;
 	}
 
@@ -250,7 +250,7 @@ public class Item {
 		return false;
 	}
 
-	public boolean a(class_aas var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
+	public boolean a(ItemStack var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
 		return false;
 	}
 
@@ -264,7 +264,7 @@ public class Item {
 		return this;
 	}
 
-	public String j(class_aas var1) {
+	public String j(ItemStack var1) {
 		String var2 = this.e_(var1);
 		return var2 == null ? "" : LocaleI18n.get(var2);
 	}
@@ -273,7 +273,7 @@ public class Item {
 		return "item." + this.o;
 	}
 
-	public String e_(class_aas var1) {
+	public String e_(ItemStack var1) {
 		return "item." + this.o;
 	}
 
@@ -294,36 +294,36 @@ public class Item {
 		return this.n != null;
 	}
 
-	public void a(class_aas var1, World var2, class_pr var3, int var4, boolean var5) {
+	public void a(ItemStack var1, World var2, class_pr var3, int var4, boolean var5) {
 	}
 
-	public void b(class_aas var1, World var2, class_xa var3) {
+	public void b(ItemStack var1, World var2, class_xa var3) {
 	}
 
 	public boolean f() {
 		return false;
 	}
 
-	public class_abz f(class_aas var1) {
-		return class_abz.a;
+	public class_abz f(ItemStack var1) {
+		return class_abz.NONE;
 	}
 
-	public int e(class_aas var1) {
+	public int e(ItemStack var1) {
 		return 0;
 	}
 
-	public void a(class_aas var1, World var2, class_qa var3, int var4) {
+	public void a(ItemStack var1, World var2, class_qa var3, int var4) {
 	}
 
-	public String a(class_aas var1) {
-		return ("" + LocaleI18n.get(this.j(var1) + ".name")).trim();
+	public String getLocalizedName(ItemStack itemstack) {
+		return ("" + LocaleI18n.get(this.j(itemstack) + ".name")).trim();
 	}
 
-	public class_abf g(class_aas var1) {
-		return var1.w() ? class_abf.c : class_abf.a;
+	public class_abf g(ItemStack var1) {
+		return var1.hasEnchantments() ? class_abf.c : class_abf.a;
 	}
 
-	public boolean f_(class_aas var1) {
+	public boolean f_(ItemStack var1) {
 		return this.j() == 1 && this.m();
 	}
 
@@ -357,7 +357,7 @@ public class Item {
 		return false;
 	}
 
-	public boolean a(class_aas var1, class_aas var2) {
+	public boolean a(ItemStack var1, ItemStack var2) {
 		return false;
 	}
 
@@ -367,56 +367,56 @@ public class Item {
 
 	public static void init() {
 		register((Block) Blocks.STONE, (Item) (new class_aba(Blocks.STONE, Blocks.STONE, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return BlockStone.EnumStoneVariant.getByData(var1.i()).getILocaleName();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("stone"));
 		register((Block) Blocks.GRASS, (Item) (new class_abx(Blocks.GRASS, false)));
 		register((Block) Blocks.DIRT, (Item) (new class_aba(Blocks.DIRT, Blocks.DIRT, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_ahj.class_a_in_class_ahj.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("dirt"));
 		register(Blocks.COBBLESTONE);
 		register((Block) Blocks.PLANKS, (Item) (new class_aba(Blocks.PLANKS, Blocks.PLANKS, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_ajw.class_a_in_class_ajw.a(var1.i()).d();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("wood"));
 		register((Block) Blocks.SAPLING, (Item) (new class_aba(Blocks.SAPLING, Blocks.SAPLING, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_ajw.class_a_in_class_ajw.a(var1.i()).d();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("sapling"));
 		register(Blocks.BEDROCK);
 		register((Block) Blocks.SAND, (Item) (new class_aba(Blocks.SAND, Blocks.SAND, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_akq.class_a_in_class_akq.a(var1.i()).d();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("sand"));
 		register(Blocks.GRAVEL);
@@ -424,35 +424,35 @@ public class Item {
 		register(Blocks.IRON_ORE);
 		register(Blocks.COAL_ORE);
 		register((Block) Blocks.LOG, (Item) (new class_aba(Blocks.LOG, Blocks.LOG, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_ajw.class_a_in_class_ajw.a(var1.i()).d();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("log"));
 		register((Block) Blocks.LOG2, (Item) (new class_aba(Blocks.LOG2, Blocks.LOG2, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_ajw.class_a_in_class_ajw.a(var1.i() + 4).d();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("log"));
 		register((Block) Blocks.LEAVES, (Item) (new class_aaw(Blocks.LEAVES)).b("leaves"));
 		register((Block) Blocks.LEAVES2, (Item) (new class_aaw(Blocks.LEAVES2)).b("leaves"));
 		register((Block) Blocks.SPONGE, (Item) (new class_aba(Blocks.SPONGE, Blocks.SPONGE, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return (var1.i() & 1) == 1 ? "wet" : "dry";
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("sponge"));
 		register(Blocks.GLASS);
@@ -460,13 +460,13 @@ public class Item {
 		register(Blocks.LAPIS_BLOCK);
 		register(Blocks.DISPENSER);
 		register((Block) Blocks.SANDSTONE, (Item) (new class_aba(Blocks.SANDSTONE, Blocks.SANDSTONE, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_akr.class_a_in_class_akr.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("sandStone"));
 		register(Blocks.NOTEBLOCK);
@@ -479,23 +479,23 @@ public class Item {
 		register((Block) Blocks.PISTON, (Item) (new class_abd(Blocks.PISTON)));
 		register((Block) Blocks.WOOL, (Item) (new class_aaa(Blocks.WOOL)).b("cloth"));
 		register((Block) Blocks.YELLOW_FLOWER, (Item) (new class_aba(Blocks.YELLOW_FLOWER, Blocks.YELLOW_FLOWER, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_aic.class_a_in_class_aic.a(class_aic.class_b_in_class_aic.a, var1.i()).d();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("flower"));
 		register((Block) Blocks.RED_FLOWER, (Item) (new class_aba(Blocks.RED_FLOWER, Blocks.RED_FLOWER, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_aic.class_a_in_class_aic.a(class_aic.class_b_in_class_aic.b, var1.i()).d();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("rose"));
 		register((Block) Blocks.BROWN_MUSHROOM);
@@ -553,23 +553,23 @@ public class Item {
 		register(Blocks.LIT_PUMPKIN);
 		register(Blocks.TRAPDOOR);
 		register((Block) Blocks.MONSTER_EGG, (Item) (new class_aba(Blocks.MONSTER_EGG, Blocks.MONSTER_EGG, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_ajh.class_a_in_class_ajh.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("monsterStoneEgg"));
 		register((Block) Blocks.STONEBRICK, (Item) (new class_aba(Blocks.STONEBRICK, Blocks.STONEBRICK, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_ali.class_a_in_class_ali.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("stonebricksmooth"));
 		register(Blocks.BROWN_MUSHROOM_BLOCK);
@@ -609,13 +609,13 @@ public class Item {
 		register(Blocks.COMMAND_BLOCK);
 		register((Block) Blocks.BEACON);
 		register((Block) Blocks.COBBLESTONE_WALL, (Item) (new class_aba(Blocks.COBBLESTONE_WALL, Blocks.COBBLESTONE_WALL, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_alv.class_a_in_class_alv.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("cobbleWall"));
 		register(Blocks.WOODEN_BUTTON);
@@ -644,36 +644,36 @@ public class Item {
 		register(Blocks.SLINE);
 		register(Blocks.GRASS_PATH);
 		register((Block) Blocks.DOUBLE_PLANT, (Item) (new class_zx(Blocks.DOUBLE_PLANT, Blocks.DOUBLE_PLANT, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_ahm.class_b_in_class_ahm.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("doublePlant"));
 		register((Block) Blocks.STAINED_GLASS, (Item) (new class_aaa(Blocks.STAINED_GLASS)).b("stainedGlass"));
 		register((Block) Blocks.STAINED_GLASS_PANE, (Item) (new class_aaa(Blocks.STAINED_GLASS_PANE)).b("stainedGlassPane"));
 		register((Block) Blocks.PRISMARINE, (Item) (new class_aba(Blocks.PRISMARINE, Blocks.PRISMARINE, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_akc.class_a_in_class_akc.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("prismarine"));
 		register(Blocks.SEA_LANTERN);
 		register((Block) Blocks.RED_SANDSTONE, (Item) (new class_aba(Blocks.RED_SANDSTONE, Blocks.RED_SANDSTONE, new Function<Object, Object>() {
-			public String a(class_aas var1) {
+			public String a(ItemStack var1) {
 				return class_aki.class_a_in_class_aki.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
 			public Object apply(Object var1) {
-				return this.a((class_aas) var1);
+				return this.a((ItemStack) var1);
 			}
 		})).b("redSandStone"));
 		register(Blocks.RED_SANDSTONE_STAIRS);

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aio;
@@ -127,13 +127,13 @@ public class class_rf extends class_rm {
       if(!var1.bH.d && this.c >= this.b * 0.5F && this.a.bd().nextFloat() < 0.006F && !this.d) {
          EnumUsedHand var25 = this.a(var1);
          if(var25 != null) {
-            class_aas var26 = var1.b((EnumUsedHand)var25);
-            if(var26 != null && var26.b() == Items.cb) {
+            ItemStack var26 = var1.b((EnumUsedHand)var25);
+            if(var26 != null && var26.getItem() == Items.cb) {
                var26.a(1, (class_qa)var1);
-               if(var26.b == 0) {
-                  class_aas var24 = new class_aas(Items.aT);
-                  var24.d(var26.o());
-                  var1.a((EnumUsedHand)var25, (class_aas)var24);
+               if(var26.count == 0) {
+                  ItemStack var24 = new ItemStack(Items.aT);
+                  var24.setTag(var26.getTag());
+                  var1.a((EnumUsedHand)var25, (ItemStack)var24);
                }
             }
          }
@@ -148,8 +148,8 @@ public class class_rf extends class_rm {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          EnumUsedHand var5 = var2[var4];
-         class_aas var6 = var1.b((EnumUsedHand)var5);
-         if(var6 != null && var6.b() == Items.cb) {
+         ItemStack var6 = var1.b((EnumUsedHand)var5);
+         if(var6 != null && var6.getItem() == Items.cb) {
             return var5;
          }
       }

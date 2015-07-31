@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
@@ -8,13 +8,13 @@ import net.minecraft.server.class_oj;
 import net.minecraft.server.class_xa;
 
 public class class_yv implements class_oj {
-   private class_aas[] a = new class_aas[1];
+   private ItemStack[] a = new ItemStack[1];
 
    public int o_() {
       return 1;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return this.a[0];
    }
 
@@ -30,9 +30,9 @@ public class class_yv implements class_oj {
       return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.a[0] != null) {
-         class_aas var3 = this.a[0];
+         ItemStack var3 = this.a[0];
          this.a[0] = null;
          return var3;
       } else {
@@ -40,9 +40,9 @@ public class class_yv implements class_oj {
       }
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       if(this.a[0] != null) {
-         class_aas var2 = this.a[0];
+         ItemStack var2 = this.a[0];
          this.a[0] = null;
          return var2;
       } else {
@@ -50,7 +50,7 @@ public class class_yv implements class_oj {
       }
    }
 
-   public void a(int var1, class_aas var2) {
+   public void a(int var1, ItemStack var2) {
       this.a[0] = var2;
    }
 
@@ -71,7 +71,7 @@ public class class_yv implements class_oj {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 

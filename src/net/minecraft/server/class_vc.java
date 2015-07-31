@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_uz;
 import net.minecraft.server.class_xa;
@@ -41,13 +41,13 @@ public class class_vc extends class_uz {
       this.a(var3);
    }
 
-   public void b(class_dn var1) {
-      var1.a("Motive", this.c.B);
+   public void b(NBTTagCompound var1) {
+      var1.put("Motive", this.c.B);
       super.b(var1);
    }
 
-   public void a(class_dn var1) {
-      String var2 = var1.k("Motive");
+   public void a(NBTTagCompound var1) {
+      String var2 = var1.getString("Motive");
       class_vc.class_a_in_class_vc[] var3 = class_vc.class_a_in_class_vc.values();
       int var4 = var3.length;
 
@@ -82,7 +82,7 @@ public class class_vc extends class_uz {
             }
          }
 
-         this.a(new class_aas(Items.ap), 0.0F);
+         this.a(new ItemStack(Items.ap), 0.0F);
       }
    }
 

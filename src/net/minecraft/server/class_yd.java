@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_ace;
@@ -61,12 +61,12 @@ public class class_yd extends class_xz {
       return this.a.a(var1);
    }
 
-   public class_aas b(class_xa var1, int var2) {
-      class_aas var3 = null;
+   public ItemStack b(class_xa var1, int var2) {
+      ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         class_aas var5 = var4.d();
-         var3 = var5.k();
+         ItemStack var5 = var4.d();
+         var3 = var5.clone();
          if((var2 < 0 || var2 > 2) && var2 != 3) {
             if(!this.f.e() && this.f.a(var5)) {
                if(!this.a(var5, 3, 4, false)) {
@@ -95,13 +95,13 @@ public class class_yd extends class_xz {
             var4.a(var5, var3);
          }
 
-         if(var5.b == 0) {
-            var4.d((class_aas)null);
+         if(var5.count == 0) {
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }
 
-         if(var5.b == var3.b) {
+         if(var5.count == var3.count) {
             return null;
          }
 
@@ -116,7 +116,7 @@ public class class_yd extends class_xz {
          super(var1, var2, var3, var4);
       }
 
-      public boolean a(class_aas var1) {
+      public boolean a(ItemStack var1) {
          return var1 != null && class_ace.a(var1);
       }
 
@@ -133,7 +133,7 @@ public class class_yd extends class_xz {
          this.a = var1;
       }
 
-      public boolean a(class_aas var1) {
+      public boolean a(ItemStack var1) {
          return b_(var1);
       }
 
@@ -141,7 +141,7 @@ public class class_yd extends class_xz {
          return 1;
       }
 
-      public void a(class_xa var1, class_aas var2) {
+      public void a(class_xa var1, ItemStack var2) {
          if(class_abe.i(var2) != class_acf.a) {
             this.a.b((class_my)class_mt.B);
          }
@@ -149,8 +149,8 @@ public class class_yd extends class_xz {
          super.a(var1, var2);
       }
 
-      public static boolean b_(class_aas var0) {
-         return var0 != null && (var0.b() == Items.bB || var0.b() == Items.bD);
+      public static boolean b_(ItemStack var0) {
+         return var0 != null && (var0.getItem() == Items.bB || var0.getItem() == Items.bD);
       }
    }
 }

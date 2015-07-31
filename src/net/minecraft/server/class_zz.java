@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -27,12 +27,12 @@ public class class_zz extends Item {
       this.a(CreativeTab.l);
    }
 
-   public String e_(class_aas var1) {
+   public String e_(ItemStack var1) {
       int var2 = var1.i();
       return super.a() + "." + class_zy.a(var2).d();
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(!var2.a(var4.shift(var6), var6, var1)) {
          return class_oq.b;
       } else {
@@ -62,7 +62,7 @@ public class class_zz extends Item {
                   IBlockData var13 = Blocks.COCOA.a(var3, var4, var6, var7, var8, var9, 0, var2);
                   var3.a((BlockPosition)var4, (IBlockData)var13, 2);
                   if(!var2.bH.d) {
-                     --var1.b;
+                     --var1.count;
                   }
                }
 
@@ -74,7 +74,7 @@ public class class_zz extends Item {
       }
    }
 
-   public static boolean a(class_aas var0, World var1, BlockPosition var2) {
+   public static boolean a(ItemStack var0, World var1, BlockPosition var2) {
       IBlockData var3 = var1.p(var2);
       if(var3.getBlock() instanceof class_agl) {
          class_agl var4 = (class_agl)var3.getBlock();
@@ -84,7 +84,7 @@ public class class_zz extends Item {
                   var4.b(var1, var1.s, var2, var3);
                }
 
-               --var0.b;
+               --var0.count;
             }
 
             return true;
@@ -94,13 +94,13 @@ public class class_zz extends Item {
       return false;
    }
 
-   public boolean a(class_aas var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
+   public boolean a(ItemStack var1, class_xa var2, class_qa var3, EnumUsedHand var4) {
       if(var3 instanceof class_uf) {
          class_uf var5 = (class_uf)var3;
          class_zy var6 = class_zy.a(var1.i());
          if(!var5.cB() && var5.cA() != var6) {
             var5.b(var6);
-            --var1.b;
+            --var1.count;
          }
 
          return true;

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
@@ -14,18 +14,18 @@ public class class_ms extends class_my {
 	public final int b;
 	public final class_ms c;
 	private final String k;
-	public final class_aas d;
+	public final ItemStack d;
 	private boolean m;
 
 	public class_ms(String var1, String var2, int var3, int var4, Item var5, class_ms var6) {
-		this(var1, var2, var3, var4, new class_aas(var5), var6);
+		this(var1, var2, var3, var4, new ItemStack(var5), var6);
 	}
 
 	public class_ms(String var1, String var2, int var3, int var4, Block var5, class_ms var6) {
-		this(var1, var2, var3, var4, new class_aas(var5), var6);
+		this(var1, var2, var3, var4, new ItemStack(var5), var6);
 	}
 
-	public class_ms(String var1, String var2, int var3, int var4, class_aas var5, class_ms var6) {
+	public class_ms(String var1, String var2, int var3, int var4, ItemStack var5, class_ms var6) {
 		super(var1, new class_fb("achievement." + var2, new Object[0]));
 		this.d = var5;
 		this.k = "achievement." + var2 + ".desc";

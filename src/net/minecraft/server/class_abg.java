@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abf;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
@@ -28,7 +28,7 @@ public class class_abg extends Item {
       b.put("records." + var1, this);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.p(var4);
       if(var10.getBlock() == Blocks.JUKEBOX && !((Boolean)var10.get(class_aiy.a)).booleanValue()) {
          if(var3.D) {
@@ -36,7 +36,7 @@ public class class_abg extends Item {
          } else {
             ((class_aiy)Blocks.JUKEBOX).a(var3, var4, var10, var1);
             var3.a((class_xa)null, 1005, var4, Item.getId((Item)this));
-            --var1.b;
+            --var1.count;
             var2.b(class_nc.X);
             return class_oq.a;
          }
@@ -45,7 +45,7 @@ public class class_abg extends Item {
       }
    }
 
-   public class_abf g(class_aas var1) {
+   public class_abf g(ItemStack var1) {
       return class_abf.c;
    }
 }

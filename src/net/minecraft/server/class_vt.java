@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pr;
@@ -16,7 +16,7 @@ public class class_vt extends class_vn {
       super(var1, var2, var4, var6);
    }
 
-   public boolean a(class_xa var1, class_aas var2, EnumUsedHand var3) {
+   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       if(this.l != null && this.l instanceof class_xa && this.l != var1) {
          return true;
       } else if(this.l != null && this.l != var1) {

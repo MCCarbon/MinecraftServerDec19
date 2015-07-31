@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_uo;
@@ -19,10 +19,10 @@ public class class_up extends class_pr {
    protected void h() {
    }
 
-   protected void a(class_dn var1) {
+   protected void a(NBTTagCompound var1) {
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
    }
 
    public boolean ad() {

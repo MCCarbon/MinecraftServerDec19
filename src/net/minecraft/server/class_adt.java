@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
 import net.minecraft.server.class_adk;
@@ -30,13 +30,13 @@ public class class_adt extends class_adi {
       return 3;
    }
 
-   public boolean a(class_aas var1) {
-      return var1.b() instanceof class_za?true:super.a(var1);
+   public boolean a(ItemStack var1) {
+      return var1.getItem() instanceof class_za?true:super.a(var1);
    }
 
    public void b(class_qa var1, class_pr var2, int var3) {
       Random var4 = var1.bd();
-      class_aas var5 = class_adk.b(class_adm.h, var1);
+      ItemStack var5 = class_adk.b(class_adm.h, var1);
       if(a(var3, var4)) {
          if(var2 != null) {
             var2.a(class_pc.a((class_pr)var1), (float)b(var3, var4));

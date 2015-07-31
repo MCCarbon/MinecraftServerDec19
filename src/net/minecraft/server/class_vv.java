@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aej;
 import net.minecraft.server.World;
 import net.minecraft.server.class_agf;
@@ -8,7 +8,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_vn;
@@ -67,7 +67,7 @@ public class class_vv extends class_vn {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
       if(!var1.c() && this.o.R().b("doEntityDrops")) {
-         this.a(new class_aas(Blocks.TNT, 1), 0.0F);
+         this.a(new ItemStack(Blocks.TNT, 1), 0.0F);
       }
 
       if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {
@@ -128,16 +128,16 @@ public class class_vv extends class_vn {
       return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.shiftUp())?super.a(var1, var2, var3, var4, var5):false;
    }
 
-   protected void a(class_dn var1) {
+   protected void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("TNTFuse", 99)) {
-         this.a = var1.g("TNTFuse");
+      if(var1.hasOfType("TNTFuse", 99)) {
+         this.a = var1.getInt("TNTFuse");
       }
 
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("TNTFuse", this.a);
+      var1.put("TNTFuse", this.a);
    }
 }

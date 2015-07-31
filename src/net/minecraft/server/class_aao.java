@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_aan;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abf;
 import net.minecraft.server.World;
 import net.minecraft.server.class_pl;
@@ -14,11 +14,11 @@ public class class_aao extends class_aan {
       this.a(true);
    }
 
-   public class_abf g(class_aas var1) {
+   public class_abf g(ItemStack var1) {
       return var1.i() == 0?class_abf.c:class_abf.d;
    }
 
-   protected void a(class_aas var1, World var2, class_xa var3) {
+   protected void a(ItemStack var1, World var2, class_xa var3) {
       if(!var2.D) {
          var3.c(new class_pl(class_pm.v, 2400, 0));
       }

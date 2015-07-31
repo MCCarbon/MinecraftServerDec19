@@ -101,7 +101,7 @@ import net.minecraft.server.class_iw;
 import net.minecraft.server.class_ix;
 import net.minecraft.server.class_iy;
 import net.minecraft.server.class_iz;
-import net.minecraft.server.class_ja;
+import net.minecraft.server.PacketPlayInBlockPlace;
 import net.minecraft.server.PacketPlayInUseItem;
 import net.minecraft.server.PacketHandshakingInSetProtocol;
 import net.minecraft.server.class_jh;
@@ -206,7 +206,7 @@ public enum EnumProtocol {
 		this.register(EnumProtocolDirection.SERVERBOUND, PacketPlayInFlying.PacketPlayInPositionLook.class);
 		this.register(EnumProtocolDirection.SERVERBOUND, PacketPlayInBlockDig.class);
 		this.register(EnumProtocolDirection.SERVERBOUND, PacketPlayInUseItem.class);
-		this.register(EnumProtocolDirection.SERVERBOUND, class_ja.class);
+		this.register(EnumProtocolDirection.SERVERBOUND, PacketPlayInBlockPlace.class);
 		this.register(EnumProtocolDirection.SERVERBOUND, class_iv.class);
 		this.register(EnumProtocolDirection.SERVERBOUND, class_iy.class);
 		this.register(EnumProtocolDirection.SERVERBOUND, class_is.class);

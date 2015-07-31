@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
@@ -57,19 +57,19 @@ public class class_oi implements class_ou {
       return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return var1 >= this.b.o_()?this.c.a(var1 - this.b.o_()):this.b.a(var1);
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       return var1 >= this.b.o_()?this.c.a(var1 - this.b.o_(), var2):this.b.a(var1, var2);
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       return var1 >= this.b.o_()?this.c.b(var1 - this.b.o_()):this.b.b(var1);
    }
 
-   public void a(int var1, class_aas var2) {
+   public void a(int var1, ItemStack var2) {
       if(var1 >= this.b.o_()) {
          this.c.a(var1 - this.b.o_(), var2);
       } else {
@@ -101,7 +101,7 @@ public class class_oi implements class_ou {
       this.c.c(var1);
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 

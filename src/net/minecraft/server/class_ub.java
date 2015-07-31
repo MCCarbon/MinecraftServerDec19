@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
@@ -20,16 +20,16 @@ public class class_ub extends class_ty {
       this.bv = Blocks.MYCELIM;
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
-      if(var3 != null && var3.b() == Items.B && this.l() >= 0 && !var1.bH.d) {
-         if(--var3.b == 0) {
-            var1.a((EnumUsedHand)var2, (class_aas)(new class_aas(Items.C)));
-         } else if(!var1.bp.a(new class_aas(Items.C))) {
-            var1.a(new class_aas(Items.C), false);
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+      if(var3 != null && var3.getItem() == Items.B && this.l() >= 0 && !var1.bH.d) {
+         if(--var3.count == 0) {
+            var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.C)));
+         } else if(!var1.bp.a(new ItemStack(Items.C))) {
+            var1.a(new ItemStack(Items.C), false);
          }
 
          return true;
-      } else if(var3 != null && var3.b() == Items.bg && this.l() >= 0) {
+      } else if(var3 != null && var3.getItem() == Items.bg && this.l() >= 0) {
          this.J();
          this.o.a(class_cy.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.o.D) {
@@ -44,7 +44,7 @@ public class class_ub extends class_ty {
             this.o.a((class_pr)var4);
 
             for(int var5 = 0; var5 < 5; ++var5) {
-               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t + (double)this.K, this.u, new class_aas(Blocks.RED_MUSHROOM))));
+               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(Blocks.RED_MUSHROOM))));
             }
 
             var3.a(1, (class_qa)var1);

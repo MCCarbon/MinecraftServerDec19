@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
@@ -112,8 +112,8 @@ public class class_qi {
       return (String)this.j(var1).b();
    }
 
-   public class_aas f(int var1) {
-      return (class_aas)this.j(var1).b();
+   public ItemStack f(int var1) {
+      return (ItemStack)this.j(var1).b();
    }
 
    private class_qi.class_a_in_class_qi j(int var1) {
@@ -248,8 +248,8 @@ public class class_qi {
          var0.writeString((String)var1.b());
          break;
       case 5:
-         class_aas var3 = (class_aas)var1.b();
-         var0.a(var3);
+         ItemStack var3 = (ItemStack)var1.b();
+         var0.writeItemStack(var3);
          break;
       case 6:
          BlockPosition var4 = (BlockPosition)var1.b();
@@ -294,7 +294,7 @@ public class class_qi {
             var5 = new class_qi.class_a_in_class_qi(var3, var4, var0.readString(32767));
             break;
          case 5:
-            var5 = new class_qi.class_a_in_class_qi(var3, var4, var0.i());
+            var5 = new class_qi.class_a_in_class_qi(var3, var4, var0.readItemStack());
             break;
          case 6:
             int var6 = var0.readInt();
@@ -329,7 +329,7 @@ public class class_qi {
       c.put(Integer.class, Integer.valueOf(2));
       c.put(Float.class, Integer.valueOf(3));
       c.put(String.class, Integer.valueOf(4));
-      c.put(class_aas.class, Integer.valueOf(5));
+      c.put(ItemStack.class, Integer.valueOf(5));
       c.put(BlockPosition.class, Integer.valueOf(6));
       c.put(class_dc.class, Integer.valueOf(7));
       g = Maps.newHashMap();

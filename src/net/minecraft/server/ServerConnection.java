@@ -89,7 +89,7 @@ public class ServerConnection {
 					NetworkManager networkManager = new NetworkManager(EnumProtocolDirection.SERVERBOUND);
 					networkManagers.add(networkManager);
 					channel.pipeline().addLast("packet_handler", networkManager);
-					networkManager.setPacketListener((new class_lp(minecraftserver, networkManager)));
+					networkManager.setPacketListener((new HandshakeListener(minecraftserver, networkManager)));
 				}
 			}).group(loopgroup.get()).localAddress(address, port)).bind().syncUninterruptibly());
 		}
@@ -106,6 +106,7 @@ public class ServerConnection {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public void handleNetwork() {
 		synchronized (networkManagers) {
 			Iterator<NetworkManager> itreator = networkManagers.iterator();
@@ -138,11 +139,11 @@ public class ServerConnection {
 							throw new class_e(var10);
 						}
 						logger.warn("Failed to handle packet for " + networkManager.getAddress(), e);
-						final class_fa var5 = new class_fa("Internal server error");
-						networkManager.sendPacket(new class_gi(var5), new GenericFutureListener<Future<?>>() {
+						final class_fa message = new class_fa("Internal server error");
+						networkManager.sendPacket(new class_gi(message), new GenericFutureListener<Future<Void>>() {
 							@Override
-							public void operationComplete(Future<?> var1) throws Exception {
-								fNetworkManager.a(var5);
+							public void operationComplete(Future<Void> var1) throws Exception {
+								fNetworkManager.close(message);
 							}
 						}, new GenericFutureListener[0]);
 						networkManager.disableAutoRead();

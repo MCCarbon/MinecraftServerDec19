@@ -7,7 +7,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.MathHelper;
@@ -124,15 +124,15 @@ public class class_we extends class_py implements class_wd {
       return 1;
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("ExplosionPower", this.b);
+      var1.put("ExplosionPower", this.b);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("ExplosionPower", 99)) {
-         this.b = var1.g("ExplosionPower");
+      if(var1.hasOfType("ExplosionPower", 99)) {
+         this.b = var1.getInt("ExplosionPower");
       }
 
    }

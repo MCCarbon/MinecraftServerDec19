@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -47,10 +47,10 @@ public class class_alm extends class_ago implements class_agl {
       return 1 + var2.nextInt(var1 * 2 + 1);
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
-      if(!var1.D && var6 != null && var6.b() == Items.bg) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
+      if(!var1.D && var6 != null && var6.getItem() == Items.bg) {
          var2.b(class_nc.ab[Block.getId((Block)this)]);
-         a(var1, var3, new class_aas(Blocks.TALLGRASS, 1, ((class_alm.class_a_in_class_alm)var4.get(a)).a()));
+         a(var1, var3, new ItemStack(Blocks.TALLGRASS, 1, ((class_alm.class_a_in_class_alm)var4.get(a)).a()));
       } else {
          super.a(var1, var2, var3, var4, var5, var6);
       }

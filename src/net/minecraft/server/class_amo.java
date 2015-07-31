@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
@@ -28,18 +28,18 @@ public class class_amo extends class_amg implements class_kn, class_op {
    private static Random o = new Random();
    private String p;
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.l_()) {
-         var1.a("CustomName", this.p);
+         var1.put("CustomName", this.p);
       }
 
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.b("CustomName", 8)) {
-         this.p = var1.k("CustomName");
+      if(var1.hasOfType("CustomName", 8)) {
+         this.p = var1.getString("CustomName");
       }
 
    }

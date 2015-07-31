@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
@@ -51,7 +51,7 @@ public class class_aga extends class_ahx {
       return super.a(var1, var2, var3, var4, var5, var6, var7, var8).set(a, var9).set(b, Integer.valueOf(var7 >> 2));
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       if(!var1.D) {
          var4.a((class_op)(new class_aga.class_a_in_class_aga(var1, var2)));
       }

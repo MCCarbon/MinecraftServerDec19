@@ -9,7 +9,7 @@ import net.minecraft.server.class_arw;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
@@ -65,16 +65,16 @@ public class class_v extends class_i {
                               class_amg var19 = var9.s(var12);
                               class_amg var20 = var9.s(var13);
                               if(var19 != null && var20 != null) {
-                                 class_dn var21 = new class_dn();
+                                 NBTTagCompound var21 = new NBTTagCompound();
                                  var19.b(var21);
-                                 var21.p("x");
-                                 var21.p("y");
-                                 var21.p("z");
-                                 class_dn var22 = new class_dn();
+                                 var21.remove("x");
+                                 var21.remove("y");
+                                 var21.remove("z");
+                                 NBTTagCompound var22 = new NBTTagCompound();
                                  var20.b(var22);
-                                 var22.p("x");
-                                 var22.p("y");
-                                 var22.p("z");
+                                 var22.remove("x");
+                                 var22.remove("y");
+                                 var22.remove("z");
                                  if(!var21.equals(var22)) {
                                     var17 = true;
                                  }

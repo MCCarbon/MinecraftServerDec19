@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Arrays;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_ace;
 import net.minecraft.server.class_agn;
@@ -10,9 +10,9 @@ import net.minecraft.server.class_amu;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_kn;
 import net.minecraft.server.class_oz;
 import net.minecraft.server.class_wz;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_yd;
 public class class_amh extends class_amu implements class_kn, class_oz {
    private static final int[] a = new int[]{3};
    private static final int[] f = new int[]{0, 1, 2};
-   private class_aas[] g = new class_aas[4];
+   private ItemStack[] g = new ItemStack[4];
    private int h;
    private boolean[] i;
    private Item j;
@@ -57,13 +57,13 @@ public class class_amh extends class_amu implements class_kn, class_oz {
          } else if(!var1) {
             this.h = 0;
             this.p_();
-         } else if(this.j != this.g[3].b()) {
+         } else if(this.j != this.g[3].getItem()) {
             this.h = 0;
             this.p_();
          }
       } else if(var1) {
          this.h = 400;
-         this.j = this.g[3].b();
+         this.j = this.g[3].getItem();
       }
 
       if(!this.b.D) {
@@ -98,13 +98,13 @@ public class class_amh extends class_amu implements class_kn, class_oz {
    }
 
    private boolean n() {
-      if(this.g[3] != null && this.g[3].b > 0) {
-         class_aas var1 = this.g[3];
+      if(this.g[3] != null && this.g[3].count > 0) {
+         ItemStack var1 = this.g[3];
          if(!class_ace.a(var1)) {
             return false;
          } else {
             for(int var2 = 0; var2 < 3; ++var2) {
-               class_aas var3 = this.g[var2];
+               ItemStack var3 = this.g[var2];
                if(var3 != null && class_ace.a(var3, var1)) {
                   return true;
                }
@@ -118,71 +118,71 @@ public class class_amh extends class_amu implements class_kn, class_oz {
    }
 
    private void o() {
-      class_aas var1 = this.g[3];
+      ItemStack var1 = this.g[3];
 
       for(int var2 = 0; var2 < 3; ++var2) {
          this.g[var2] = class_ace.d(var1, this.g[var2]);
       }
 
-      if(var1.b().r()) {
-         this.g[3] = new class_aas(var1.b().q());
+      if(var1.getItem().r()) {
+         this.g[3] = new ItemStack(var1.getItem().q());
       } else {
-         --this.g[3].b;
-         if(this.g[3].b <= 0) {
+         --this.g[3].count;
+         if(this.g[3].count <= 0) {
             this.g[3] = null;
          }
       }
 
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      class_du var2 = var1.c("Items", 10);
-      this.g = new class_aas[this.o_()];
+      NBTTagList var2 = var1.getList("Items", 10);
+      this.g = new ItemStack[this.o_()];
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         class_dn var4 = var2.b(var3);
-         byte var5 = var4.e("Slot");
+      for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+         NBTTagCompound var4 = var2.getCompound(var3);
+         byte var5 = var4.getByte("Slot");
          if(var5 >= 0 && var5 < this.g.length) {
-            this.g[var5] = class_aas.a(var4);
+            this.g[var5] = ItemStack.a(var4);
          }
       }
 
-      this.h = var1.f("BrewTime");
-      if(var1.b("CustomName", 8)) {
-         this.k = var1.k("CustomName");
+      this.h = var1.getShort("BrewTime");
+      if(var1.hasOfType("CustomName", 8)) {
+         this.k = var1.getString("CustomName");
       }
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("BrewTime", (short)this.h);
-      class_du var2 = new class_du();
+      var1.put("BrewTime", (short)this.h);
+      NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.g.length; ++var3) {
          if(this.g[var3] != null) {
-            class_dn var4 = new class_dn();
-            var4.a("Slot", (byte)var3);
-            this.g[var3].b(var4);
-            var2.a((class_eb)var4);
+            NBTTagCompound var4 = new NBTTagCompound();
+            var4.put("Slot", (byte)var3);
+            this.g[var3].write(var4);
+            var2.add((NBTTag)var4);
          }
       }
 
-      var1.a((String)"Items", (class_eb)var2);
+      var1.put((String)"Items", (NBTTag)var2);
       if(this.l_()) {
-         var1.a("CustomName", this.k);
+         var1.put("CustomName", this.k);
       }
 
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return var1 >= 0 && var1 < this.g.length?this.g[var1]:null;
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(var1 >= 0 && var1 < this.g.length) {
-         class_aas var3 = this.g[var1];
+         ItemStack var3 = this.g[var1];
          this.g[var1] = null;
          return var3;
       } else {
@@ -190,9 +190,9 @@ public class class_amh extends class_amu implements class_kn, class_oz {
       }
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       if(var1 >= 0 && var1 < this.g.length) {
-         class_aas var2 = this.g[var1];
+         ItemStack var2 = this.g[var1];
          this.g[var1] = null;
          return var2;
       } else {
@@ -200,7 +200,7 @@ public class class_amh extends class_amu implements class_kn, class_oz {
       }
    }
 
-   public void a(int var1, class_aas var2) {
+   public void a(int var1, ItemStack var2) {
       if(var1 >= 0 && var1 < this.g.length) {
          this.g[var1] = var2;
       }
@@ -221,11 +221,11 @@ public class class_amh extends class_amu implements class_kn, class_oz {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       if(var1 == 3) {
          return class_ace.a(var2);
       } else {
-         Item var3 = var2.b();
+         Item var3 = var2.getItem();
          return var3 == Items.bB || var3 == Items.bD;
       }
    }
@@ -234,11 +234,11 @@ public class class_amh extends class_amu implements class_kn, class_oz {
       return var1 == EnumDirection.UP?a:f;
    }
 
-   public boolean a(int var1, class_aas var2, EnumDirection var3) {
+   public boolean a(int var1, ItemStack var2, EnumDirection var3) {
       return this.b(var1, var2);
    }
 
-   public boolean b(int var1, class_aas var2, EnumDirection var3) {
+   public boolean b(int var1, ItemStack var2, EnumDirection var3) {
       return true;
    }
 

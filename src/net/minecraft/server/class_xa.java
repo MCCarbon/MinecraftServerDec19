@@ -9,7 +9,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adz;
@@ -32,9 +32,9 @@ import net.minecraft.server.class_awp;
 import net.minecraft.server.class_awt;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_et;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
@@ -390,7 +390,7 @@ public abstract class class_xa extends class_qa {
       this.b(this.s, this.t, this.u);
       this.w = 0.10000000149011612D;
       if(this.e_().equals("Notch")) {
-         this.a(new class_aas(Items.e, 1), true, false);
+         this.a(new ItemStack(Items.e, 1), true, false);
       }
 
       if(!this.o.R().b("keepInventory")) {
@@ -464,17 +464,17 @@ public abstract class class_xa extends class_qa {
    }
 
    public class_vm a(boolean var1) {
-      return this.a(this.bp.a(this.bp.d, var1 && this.bp.h() != null?this.bp.h().b:1), false, true);
+      return this.a(this.bp.a(this.bp.d, var1 && this.bp.h() != null?this.bp.h().count:1), false, true);
    }
 
-   public class_vm a(class_aas var1, boolean var2) {
+   public class_vm a(ItemStack var1, boolean var2) {
       return this.a(var1, false, false);
    }
 
-   public class_vm a(class_aas var1, boolean var2, boolean var3) {
+   public class_vm a(ItemStack var1, boolean var2, boolean var3) {
       if(var1 == null) {
          return null;
-      } else if(var1.b == 0) {
+      } else if(var1.count == 0) {
          return null;
       } else {
          double var4 = this.t - 0.30000001192092896D + (double)this.aU();
@@ -521,7 +521,7 @@ public abstract class class_xa extends class_qa {
       float var2 = this.bp.a(var1);
       if(var2 > 1.0F) {
          int var3 = class_adk.e(this);
-         class_aas var4 = this.bA();
+         ItemStack var4 = this.bA();
          if(var3 > 0 && var4 != null) {
             var2 += (float)(var3 * var3 + 1);
          }
@@ -566,66 +566,66 @@ public abstract class class_xa extends class_qa {
       return this.bp.b(var1);
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.aq = a(this.bO);
-      class_du var2 = var1.c("Inventory", 10);
+      NBTTagList var2 = var1.getList("Inventory", 10);
       this.bp.b(var2);
-      this.bp.d = var1.g("SelectedItemSlot");
-      this.bD = var1.o("Sleeping");
-      this.d = var1.f("SleepTimer");
-      this.bK = var1.i("XpP");
-      this.bI = var1.g("XpLevel");
-      this.bJ = var1.g("XpTotal");
-      this.h = var1.g("XpSeed");
+      this.bp.d = var1.getInt("SelectedItemSlot");
+      this.bD = var1.getBoolean("Sleeping");
+      this.d = var1.getShort("SleepTimer");
+      this.bK = var1.getFloat("XpP");
+      this.bI = var1.getInt("XpLevel");
+      this.bJ = var1.getInt("XpTotal");
+      this.h = var1.getInt("XpSeed");
       if(this.h == 0) {
          this.h = this.V.nextInt();
       }
 
-      this.m(var1.g("Score"));
+      this.m(var1.getInt("Score"));
       if(this.bD) {
          this.bE = new BlockPosition(this);
          this.a(true, true, false);
       }
 
-      if(var1.b("SpawnX", 99) && var1.b("SpawnY", 99) && var1.b("SpawnZ", 99)) {
-         this.e = new BlockPosition(var1.g("SpawnX"), var1.g("SpawnY"), var1.g("SpawnZ"));
-         this.f = var1.o("SpawnForced");
+      if(var1.hasOfType("SpawnX", 99) && var1.hasOfType("SpawnY", 99) && var1.hasOfType("SpawnZ", 99)) {
+         this.e = new BlockPosition(var1.getInt("SpawnX"), var1.getInt("SpawnY"), var1.getInt("SpawnZ"));
+         this.f = var1.getBoolean("SpawnForced");
       }
 
       this.bs.a(var1);
       this.bH.b(var1);
-      if(var1.b("EnderItems", 9)) {
-         class_du var3 = var1.c("EnderItems", 10);
+      if(var1.hasOfType("EnderItems", 9)) {
+         NBTTagList var3 = var1.getList("EnderItems", 10);
          this.c.a(var3);
       }
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a((String)"Inventory", (class_eb)this.bp.a(new class_du()));
-      var1.a("SelectedItemSlot", this.bp.d);
-      var1.a("Sleeping", this.bD);
-      var1.a("SleepTimer", (short)this.d);
-      var1.a("XpP", this.bK);
-      var1.a("XpLevel", this.bI);
-      var1.a("XpTotal", this.bJ);
-      var1.a("XpSeed", this.h);
-      var1.a("Score", this.cb());
+      var1.put((String)"Inventory", (NBTTag)this.bp.a(new NBTTagList()));
+      var1.put("SelectedItemSlot", this.bp.d);
+      var1.put("Sleeping", this.bD);
+      var1.put("SleepTimer", (short)this.d);
+      var1.put("XpP", this.bK);
+      var1.put("XpLevel", this.bI);
+      var1.put("XpTotal", this.bJ);
+      var1.put("XpSeed", this.h);
+      var1.put("Score", this.cb());
       if(this.e != null) {
-         var1.a("SpawnX", this.e.getX());
-         var1.a("SpawnY", this.e.getY());
-         var1.a("SpawnZ", this.e.getZ());
-         var1.a("SpawnForced", this.f);
+         var1.put("SpawnX", this.e.getX());
+         var1.put("SpawnY", this.e.getY());
+         var1.put("SpawnZ", this.e.getZ());
+         var1.put("SpawnForced", this.f);
       }
 
       this.bs.b(var1);
       this.bH.a(var1);
-      var1.a((String)"EnderItems", (class_eb)this.c.h());
-      class_aas var2 = this.bp.h();
-      if(var2 != null && var2.b() != null) {
-         var1.a((String)"SelectedItem", (class_eb)var2.b(new class_dn()));
+      var1.put((String)"EnderItems", (NBTTag)this.c.h());
+      ItemStack var2 = this.bp.h();
+      if(var2 != null && var2.getItem() != null) {
+         var1.put((String)"SelectedItem", (NBTTag)var2.write(new NBTTagCompound()));
       }
 
    }
@@ -688,11 +688,11 @@ public abstract class class_xa extends class_qa {
 
    public float cc() {
       int var1 = 0;
-      class_aas[] var2 = this.bp.b;
+      ItemStack[] var2 = this.bp.b;
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         class_aas var5 = var2[var4];
+         ItemStack var5 = var2[var4];
          if(var5 != null) {
             ++var1;
          }
@@ -743,10 +743,10 @@ public abstract class class_xa extends class_qa {
    public void a(class_op var1) {
    }
 
-   public void a(class_aas var1) {
+   public void a(ItemStack var1) {
    }
 
-   public class_oq a(class_pr var1, class_aas var2, EnumUsedHand var3) {
+   public class_oq a(class_pr var1, ItemStack var2, EnumUsedHand var3) {
       if(this.v()) {
          if(var1 instanceof class_oj) {
             this.a((class_oj)var1);
@@ -754,7 +754,7 @@ public abstract class class_xa extends class_qa {
 
          return class_oq.b;
       } else {
-         class_aas var4 = var2 != null?var2.k():null;
+         ItemStack var4 = var2 != null?var2.clone():null;
          if(!var1.a(this, var2, var3)) {
             if(var2 != null && var1 instanceof class_qa) {
                if(this.bH.d) {
@@ -762,8 +762,8 @@ public abstract class class_xa extends class_qa {
                }
 
                if(var2.a(this, (class_qa)var1, var3)) {
-                  if(var2.b <= 0 && !this.bH.d) {
-                     this.a((EnumUsedHand)var3, (class_aas)null);
+                  if(var2.count <= 0 && !this.bH.d) {
+                     this.a((EnumUsedHand)var3, (ItemStack)null);
                   }
 
                   return class_oq.a;
@@ -773,10 +773,10 @@ public abstract class class_xa extends class_qa {
             return class_oq.b;
          } else {
             if(var2 != null && var2 == this.bA()) {
-               if(var2.b <= 0 && !this.bH.d) {
-                  this.a((EnumUsedHand)var3, (class_aas)null);
-               } else if(var2.b < var4.b && this.bH.d) {
-                  var2.b = var4.b;
+               if(var2.count <= 0 && !this.bH.d) {
+                  this.a((EnumUsedHand)var3, (ItemStack)null);
+               } else if(var2.count < var4.count && this.bH.d) {
+                  var2.count = var4.count;
                }
             }
 
@@ -858,7 +858,7 @@ public abstract class class_xa extends class_qa {
                   }
 
                   class_adk.b((class_qa)this, (class_pr)var1);
-                  class_aas var15 = this.bA();
+                  ItemStack var15 = this.bA();
                   Object var16 = var1;
                   if(var1 instanceof class_up) {
                      class_uo var17 = ((class_up)var1).a;
@@ -869,8 +869,8 @@ public abstract class class_xa extends class_qa {
 
                   if(var15 != null && var16 instanceof class_qa) {
                      var15.a((class_qa)var16, this);
-                     if(var15.b <= 0) {
-                        this.a((EnumUsedHand)EnumUsedHand.MAIN_HAND, (class_aas)null);
+                     if(var15.count <= 0) {
+                        this.a((EnumUsedHand)EnumUsedHand.MAIN_HAND, (ItemStack)null);
                      }
                   }
 
@@ -1299,7 +1299,7 @@ public abstract class class_xa extends class_qa {
       return this.bH.e;
    }
 
-   public boolean a(BlockPosition var1, EnumDirection var2, class_aas var3) {
+   public boolean a(BlockPosition var1, EnumDirection var2, ItemStack var3) {
       if(this.bH.e) {
          return true;
       } else if(var3 == null) {
@@ -1367,11 +1367,11 @@ public abstract class class_xa extends class_qa {
       return this.c;
    }
 
-   public class_aas a(class_pw var1) {
+   public ItemStack a(class_pw var1) {
       return var1 == class_pw.a?this.bp.h():(var1 == class_pw.b?this.bp.c[0]:(var1.a() == class_pw.class_a_in_class_pw.b?this.bp.b[var1.b()]:null));
    }
 
-   public void a(class_pw var1, class_aas var2) {
+   public void a(class_pw var1, ItemStack var2) {
       if(var1 == class_pw.a) {
          this.bp.a[this.bp.d] = var2;
       } else if(var1 == class_pw.b) {
@@ -1383,7 +1383,7 @@ public abstract class class_xa extends class_qa {
    }
 
    public Iterable as() {
-      return Lists.newArrayList((Object[])(new class_aas[]{this.bA(), this.bB()}));
+      return Lists.newArrayList((Object[])(new ItemStack[]{this.bA(), this.bB()}));
    }
 
    public Iterable at() {
@@ -1454,8 +1454,8 @@ public abstract class class_xa extends class_qa {
       if(var1.a()) {
          return true;
       } else {
-         class_aas var2 = this.bA();
-         return var2 != null && var2.s()?var2.q().equals(var1.b()):false;
+         ItemStack var2 = this.bA();
+         return var2 != null && var2.hasDisplayName()?var2.getDisplayName().equals(var1.b()):false;
       }
    }
 
@@ -1463,7 +1463,7 @@ public abstract class class_xa extends class_qa {
       return MinecraftServer.N().d[0].R().b("sendCommandFeedback");
    }
 
-   public boolean c(int var1, class_aas var2) {
+   public boolean c(int var1, ItemStack var2) {
       if(var1 >= 0 && var1 < this.bp.a.length) {
          this.bp.a(var1, var2);
          return true;
@@ -1496,12 +1496,12 @@ public abstract class class_xa extends class_qa {
                return false;
             }
          } else {
-            if(var2 != null && var2.b() != null) {
-               if(var2.b() instanceof class_za) {
+            if(var2 != null && var2.getItem() != null) {
+               if(var2.getItem() instanceof class_za) {
                   if(class_qb.c(var2) != var3) {
                      return false;
                   }
-               } else if(var3 != class_pw.f || var2.b() != Items.ca && !(var2.b() instanceof ItemBlock)) {
+               } else if(var3 != class_pw.f || var2.getItem() != Items.ca && !(var2.getItem() instanceof ItemBlock)) {
                   return false;
                }
             }

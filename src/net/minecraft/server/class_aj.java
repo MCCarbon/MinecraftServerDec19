@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
@@ -37,12 +37,12 @@ public class class_aj extends class_i {
          Item var4 = f(var1, var2[1]);
          int var5 = var2.length >= 3?a(var2[2], 1, 64):1;
          int var6 = var2.length >= 4?a(var2[3]):0;
-         class_aas var7 = new class_aas(var4, var5, var6);
+         ItemStack var7 = new ItemStack(var4, var5, var6);
          if(var2.length >= 5) {
             String var8 = a(var1, var2, 4).c();
 
             try {
-               var7.d(class_ed.a(var8));
+               var7.setTag(class_ed.a(var8));
             } catch (class_ec var10) {
                throw new class_bz("commands.give.tagError", new Object[]{var10.getMessage()});
             }
@@ -55,15 +55,15 @@ public class class_aj extends class_i {
          }
 
          class_vm var9;
-         if(var11 && var7.b <= 0) {
-            var7.b = 1;
+         if(var11 && var7.count <= 0) {
+            var7.count = 1;
             var1.a(class_n.class_a_in_class_n.d, var5);
             var9 = var3.a(var7, false);
             if(var9 != null) {
                var9.v();
             }
          } else {
-            var1.a(class_n.class_a_in_class_n.d, var5 - var7.b);
+            var1.a(class_n.class_a_in_class_n.d, var5 - var7.count);
             var9 = var3.a(var7, false);
             if(var9 != null) {
                var9.q();

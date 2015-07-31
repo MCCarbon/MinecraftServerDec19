@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 
 public class class_ot {
    public static final class_ot a = new class_ot("");
@@ -18,13 +18,13 @@ public class class_ot {
       return this.b;
    }
 
-   public void a(class_dn var1) {
-      var1.a("Lock", this.b);
+   public void a(NBTTagCompound var1) {
+      var1.put("Lock", this.b);
    }
 
-   public static class_ot b(class_dn var0) {
-      if(var0.b("Lock", 8)) {
-         String var1 = var0.k("Lock");
+   public static class_ot b(NBTTagCompound var0) {
+      if(var0.hasOfType("Lock", 8)) {
+         String var1 = var0.getString("Lock");
          return new class_ot(var1);
       } else {
          return a;

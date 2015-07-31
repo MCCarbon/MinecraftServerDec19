@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qi;
@@ -23,18 +23,18 @@ public class class_xg extends class_pr {
       this.ac.a(a, 5);
    }
 
-   public class_xg(World var1, double var2, double var4, double var6, class_aas var8) {
+   public class_xg(World var1, double var2, double var4, double var6, ItemStack var8) {
       super(var1);
       this.b = 0;
       this.a(0.25F, 0.25F);
       this.b(var2, var4, var6);
       int var9 = 1;
-      if(var8 != null && var8.n()) {
+      if(var8 != null && var8.hasTag()) {
          this.ac.b(a, var8);
-         class_dn var10 = var8.o();
-         class_dn var11 = var10.n("Fireworks");
+         NBTTagCompound var10 = var8.getTag();
+         NBTTagCompound var11 = var10.getCompound("Fireworks");
          if(var11 != null) {
-            var9 += var11.e("Flight");
+            var9 += var11.getByte("Flight");
          }
       }
 
@@ -90,24 +90,24 @@ public class class_xg extends class_pr {
 
    }
 
-   public void b(class_dn var1) {
-      var1.a("Life", this.b);
-      var1.a("LifeTime", this.c);
-      class_aas var2 = this.ac.f(a);
+   public void b(NBTTagCompound var1) {
+      var1.put("Life", this.b);
+      var1.put("LifeTime", this.c);
+      ItemStack var2 = this.ac.f(a);
       if(var2 != null) {
-         class_dn var3 = new class_dn();
-         var2.b(var3);
-         var1.a((String)"FireworksItem", (class_eb)var3);
+         NBTTagCompound var3 = new NBTTagCompound();
+         var2.write(var3);
+         var1.put((String)"FireworksItem", (NBTTag)var3);
       }
 
    }
 
-   public void a(class_dn var1) {
-      this.b = var1.g("Life");
-      this.c = var1.g("LifeTime");
-      class_dn var2 = var1.n("FireworksItem");
+   public void a(NBTTagCompound var1) {
+      this.b = var1.getInt("Life");
+      this.c = var1.getInt("LifeTime");
+      NBTTagCompound var2 = var1.getCompound("FireworksItem");
       if(var2 != null) {
-         class_aas var3 = class_aas.a(var2);
+         ItemStack var3 = ItemStack.a(var2);
          if(var3 != null) {
             this.ac.b(a, var3);
          }

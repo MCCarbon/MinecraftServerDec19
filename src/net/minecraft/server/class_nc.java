@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aco;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.class_act;
@@ -98,15 +98,15 @@ public class class_nc {
       while(var1.hasNext()) {
          class_acs var2 = (class_acs)var1.next();
          if(var2.b() != null) {
-            var0.add(var2.b().b());
+            var0.add(var2.b().getItem());
          }
       }
 
       var1 = class_aco.a().b().values().iterator();
 
       while(var1.hasNext()) {
-         class_aas var5 = (class_aas)var1.next();
-         var0.add(var5.b());
+         ItemStack var5 = (ItemStack)var1.next();
+         var0.add(var5.getItem());
       }
 
       var1 = var0.iterator();
@@ -117,7 +117,7 @@ public class class_nc {
             int var3 = Item.getId(var6);
             String var4 = a(var6);
             if(var4 != null) {
-               ac[var3] = (new class_mw("stat.craftItem.", var4, new class_fb("stat.craftItem", new Object[]{(new class_aas(var6)).B()}), var6)).h();
+               ac[var3] = (new class_mw("stat.craftItem.", var4, new class_fb("stat.craftItem", new Object[]{(new ItemStack(var6)).B()}), var6)).h();
             }
          }
       }
@@ -135,7 +135,7 @@ public class class_nc {
             int var3 = Block.getId(var1);
             String var4 = a(var2);
             if(var4 != null && var1.useBreakStat()) {
-               ab[var3] = (new class_mw("stat.mineBlock.", var4, new class_fb("stat.mineBlock", new Object[]{(new class_aas(var1)).B()}), var2)).h();
+               ab[var3] = (new class_mw("stat.mineBlock.", var4, new class_fb("stat.mineBlock", new Object[]{(new ItemStack(var1)).B()}), var2)).h();
                e.add((class_mw)ab[var3]);
             }
          }
@@ -153,7 +153,7 @@ public class class_nc {
             int var2 = Item.getId(var1);
             String var3 = a(var1);
             if(var3 != null) {
-               ad[var2] = (new class_mw("stat.useItem.", var3, new class_fb("stat.useItem", new Object[]{(new class_aas(var1)).B()}), var1)).h();
+               ad[var2] = (new class_mw("stat.useItem.", var3, new class_fb("stat.useItem", new Object[]{(new ItemStack(var1)).B()}), var1)).h();
                if(!(var1 instanceof ItemBlock)) {
                   d.add((class_mw)ad[var2]);
                }
@@ -173,7 +173,7 @@ public class class_nc {
             int var2 = Item.getId(var1);
             String var3 = a(var1);
             if(var3 != null && var1.m()) {
-               ae[var2] = (new class_mw("stat.breakItem.", var3, new class_fb("stat.breakItem", new Object[]{(new class_aas(var1)).B()}), var1)).h();
+               ae[var2] = (new class_mw("stat.breakItem.", var3, new class_fb("stat.breakItem", new Object[]{(new ItemStack(var1)).B()}), var1)).h();
             }
          }
       }

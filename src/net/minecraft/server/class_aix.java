@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
 import net.minecraft.server.World;
@@ -25,11 +25,11 @@ public class class_aix extends class_aiq {
       this.a(CreativeTab.b);
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
       var2.b(class_nc.ab[Block.getId((Block)this)]);
       var2.a(0.025F);
       if(this.K() && class_adk.a(class_adm.q, var6) > 0) {
-         class_aas var9 = this.i(var4);
+         ItemStack var9 = this.i(var4);
          if(var9 != null) {
             a(var1, var3, var9);
          }

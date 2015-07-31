@@ -4,7 +4,7 @@ import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_ly;
 import net.minecraft.server.class_pc;
@@ -31,24 +31,24 @@ public abstract class class_qj extends class_tw implements class_qg {
       this.ac.a(bt, "");
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.b() == null) {
-         var1.a("OwnerUUID", "");
+         var1.put("OwnerUUID", "");
       } else {
-         var1.a("OwnerUUID", this.b());
+         var1.put("OwnerUUID", this.b());
       }
 
-      var1.a("Sitting", this.cC());
+      var1.put("Sitting", this.cC());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       String var2 = "";
-      if(var1.b("OwnerUUID", 8)) {
-         var2 = var1.k("OwnerUUID");
+      if(var1.hasOfType("OwnerUUID", 8)) {
+         var2 = var1.getString("OwnerUUID");
       } else {
-         String var3 = var1.k("Owner");
+         String var3 = var1.getString("Owner");
          var2 = class_ly.a(var3);
       }
 
@@ -57,8 +57,8 @@ public abstract class class_qj extends class_tw implements class_qg {
          this.n(true);
       }
 
-      this.bu.a(var1.o("Sitting"));
-      this.o(var1.o("Sitting"));
+      this.bu.a(var1.getBoolean("Sitting"));
+      this.o(var1.getBoolean("Sitting"));
    }
 
    protected void m(boolean var1) {

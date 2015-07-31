@@ -5,13 +5,13 @@ import com.google.common.collect.Maps;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_ave;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_gu;
 import net.minecraft.server.MathHelper;
@@ -40,18 +40,18 @@ public class class_avf extends class_avd {
       this.c = var8 * var6 + var6 / 2 - 64;
    }
 
-   public void a(class_dn var1) {
-      this.d = var1.e("dimension");
-      this.b = var1.g("xCenter");
-      this.c = var1.g("zCenter");
-      this.e = var1.e("scale");
+   public void a(NBTTagCompound var1) {
+      this.d = var1.getByte("dimension");
+      this.b = var1.getInt("xCenter");
+      this.c = var1.getInt("zCenter");
+      this.e = var1.getByte("scale");
       this.e = (byte)MathHelper.clamp(this.e, 0, 4);
-      short var2 = var1.f("width");
-      short var3 = var1.f("height");
+      short var2 = var1.getShort("width");
+      short var3 = var1.getShort("height");
       if(var2 == 128 && var3 == 128) {
-         this.f = var1.l("colors");
+         this.f = var1.getByteArray("colors");
       } else {
-         byte[] var4 = var1.l("colors");
+         byte[] var4 = var1.getByteArray("colors");
          this.f = new byte[16384];
          int var5 = (128 - var2) / 2;
          int var6 = (128 - var3) / 2;
@@ -71,17 +71,17 @@ public class class_avf extends class_avd {
 
    }
 
-   public void b(class_dn var1) {
-      var1.a("dimension", this.d);
-      var1.a("xCenter", this.b);
-      var1.a("zCenter", this.c);
-      var1.a("scale", this.e);
-      var1.a("width", (short)128);
-      var1.a("height", (short)128);
-      var1.a("colors", this.f);
+   public void b(NBTTagCompound var1) {
+      var1.put("dimension", this.d);
+      var1.put("xCenter", this.b);
+      var1.put("zCenter", this.c);
+      var1.put("scale", this.e);
+      var1.put("width", (short)128);
+      var1.put("height", (short)128);
+      var1.put("colors", this.f);
    }
 
-   public void a(class_xa var1, class_aas var2) {
+   public void a(class_xa var1, ItemStack var2) {
       if(!this.i.containsKey(var1)) {
          class_avf.class_a_in_class_avf var3 = new class_avf.class_a_in_class_avf(var1);
          this.i.put(var1, var3);
@@ -94,27 +94,27 @@ public class class_avf extends class_avd {
 
       for(int var6 = 0; var6 < this.g.size(); ++var6) {
          class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.g.get(var6);
-         if(var4.a.I || !var4.a.bp.c(var2) && !var2.y()) {
+         if(var4.a.I || !var4.a.bp.c(var2) && !var2.isInItemFrame()) {
             this.i.remove(var4.a);
             this.g.remove(var4);
-         } else if(!var2.y() && var4.a.am == this.d) {
+         } else if(!var2.isInItemFrame() && var4.a.am == this.d) {
             this.a(0, var4.a.o, var4.a.e_(), var4.a.s, var4.a.u, (double)var4.a.y);
          }
       }
 
-      if(var2.y()) {
-         class_va var7 = var2.z();
+      if(var2.isInItemFrame()) {
+         class_va var7 = var2.getItemFrame();
          BlockPosition var8 = var7.n();
          this.a(1, var1.o, "frame-" + var7.getId(), (double)var8.getX(), (double)var8.getZ(), (double)(var7.b.getHorizontalId() * 90));
       }
 
-      if(var2.n() && var2.o().b("Decorations", 9)) {
-         class_du var9 = var2.o().c("Decorations", 10);
+      if(var2.hasTag() && var2.getTag().hasOfType("Decorations", 9)) {
+         NBTTagList var9 = var2.getTag().getList("Decorations", 10);
 
-         for(int var10 = 0; var10 < var9.c(); ++var10) {
-            class_dn var5 = var9.b(var10);
-            if(!this.h.containsKey(var5.k("id"))) {
-               this.a(var5.e("type"), var1.o, var5.k("id"), var5.j("x"), var5.j("z"), var5.j("rot"));
+         for(int var10 = 0; var10 < var9.getSize(); ++var10) {
+            NBTTagCompound var5 = var9.getCompound(var10);
+            if(!this.h.containsKey(var5.getString("id"))) {
+               this.a(var5.getByte("type"), var1.o, var5.getString("id"), var5.getDouble("x"), var5.getDouble("z"), var5.getDouble("rot"));
             }
          }
       }
@@ -164,7 +164,7 @@ public class class_avf extends class_avd {
       this.h.put(var3, new class_ave((byte)var1, var13, var14, var15));
    }
 
-   public Packet a(class_aas var1, World var2, class_xa var3) {
+   public Packet a(ItemStack var1, World var2, class_xa var3) {
       class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.i.get(var3);
       return var4 == null?null:var4.a(var1);
    }
@@ -205,7 +205,7 @@ public class class_avf extends class_avd {
          this.a = var2;
       }
 
-      public Packet a(class_aas var1) {
+      public Packet a(ItemStack var1) {
          if(this.d) {
             this.d = false;
             return new class_gu(var1.i(), class_avf.this.e, class_avf.this.h.values(), class_avf.this.f, this.e, this.f, this.g + 1 - this.e, this.h + 1 - this.f);

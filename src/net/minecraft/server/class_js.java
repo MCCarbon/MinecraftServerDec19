@@ -14,7 +14,7 @@ import net.minecraft.server.class_nk;
 import net.minecraft.server.class_nt;
 
 public class class_js implements Packet {
-   private static final Gson a = (new GsonBuilder()).registerTypeAdapter(class_jt.class_c_in_class_jt.class, new class_jt.class_c_in_class_jt.class_c_in_class_jt$class_a_in_class_c_in_class_jt()).registerTypeAdapter(class_jt.class_a_in_class_jt.class, new class_jt.class_a_in_class_jt.class_a_in_class_jt$class_a_in_class_a_in_class_jt()).registerTypeAdapter(class_jt.class, new class_jt.class_b_in_class_jt()).registerTypeHierarchyAdapter(IChatBaseComponent.class, new IChatBaseComponent.class_a_in_class_eu()).registerTypeHierarchyAdapter(class_ez.class, new class_ez.class_a_in_class_ez()).registerTypeAdapterFactory(new class_nt()).create();
+   private static final Gson a = (new GsonBuilder()).registerTypeAdapter(class_jt.class_c_in_class_jt.class, new class_jt.class_c_in_class_jt.class_c_in_class_jt$class_a_in_class_c_in_class_jt()).registerTypeAdapter(class_jt.class_a_in_class_jt.class, new class_jt.class_a_in_class_jt.class_a_in_class_jt$class_a_in_class_a_in_class_jt()).registerTypeAdapter(class_jt.class, new class_jt.class_b_in_class_jt()).registerTypeHierarchyAdapter(IChatBaseComponent.class, new IChatBaseComponent.ChatSerializer()).registerTypeHierarchyAdapter(class_ez.class, new class_ez.class_a_in_class_ez()).registerTypeAdapterFactory(new class_nt()).create();
    private class_jt b;
 
    public class_js() {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aed;
 import net.minecraft.server.World;
 import net.minecraft.server.class_agd;
@@ -59,7 +59,7 @@ public class class_aha extends class_agd {
       return 1;
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       class_amg var11 = var1.s(var2);
       return var11 instanceof class_amj?((class_amj)var11).b().a(var4):false;
    }
@@ -73,12 +73,12 @@ public class class_aha extends class_agd {
       return var3 instanceof class_amj?((class_amj)var3).b().j():0;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
       class_amg var6 = var1.s(var2);
       if(var6 instanceof class_amj) {
          class_aed var7 = ((class_amj)var6).b();
-         if(var5.s()) {
-            var7.b(var5.q());
+         if(var5.hasDisplayName()) {
+            var7.b(var5.getDisplayName());
          }
 
          if(!var1.D) {

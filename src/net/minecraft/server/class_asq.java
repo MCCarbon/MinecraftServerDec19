@@ -12,7 +12,7 @@ import net.minecraft.server.class_ask;
 import net.minecraft.server.class_asn;
 import net.minecraft.server.class_aso;
 import net.minecraft.server.class_asr;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 
 public class class_asq extends class_ask {
@@ -128,14 +128,14 @@ public class class_asq extends class_ask {
          return this.c;
       }
 
-      public void a(class_dn var1) {
+      public void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Valid", this.c);
+         var1.put("Valid", this.c);
       }
 
-      public void b(class_dn var1) {
+      public void b(NBTTagCompound var1) {
          super.b(var1);
-         this.c = var1.o("Valid");
+         this.c = var1.getBoolean("Valid");
       }
    }
 }

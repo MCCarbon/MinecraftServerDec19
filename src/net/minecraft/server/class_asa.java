@@ -21,9 +21,9 @@ import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_od;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_pr;
@@ -126,10 +126,10 @@ public class class_asa {
          this.l = var3;
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
       }
 
       public static class_arw a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5) {
@@ -199,14 +199,14 @@ public class class_asa {
       public class_b_in_class_asa() {
       }
 
-      protected void a(class_dn var1) {
-         var1.a("tf", this.b);
-         var1.a("D", this.a.getHorizontalId());
+      protected void a(NBTTagCompound var1) {
+         var1.put("tf", this.b);
+         var1.put("D", this.a.getHorizontalId());
       }
 
-      protected void b(class_dn var1) {
-         this.b = var1.o("tf");
-         this.a = EnumDirection.getByHorizontalId(var1.g("D"));
+      protected void b(NBTTagCompound var1) {
+         this.b = var1.getBoolean("tf");
+         this.a = EnumDirection.getByHorizontalId(var1.getInt("D"));
       }
 
       public class_b_in_class_asa(int var1, Random var2, class_arw var3, EnumDirection var4) {
@@ -333,18 +333,18 @@ public class class_asa {
       public class_a_in_class_asa() {
       }
 
-      protected void a(class_dn var1) {
-         var1.a("hr", this.a);
-         var1.a("sc", this.b);
-         var1.a("hps", this.c);
-         var1.a("Num", this.d);
+      protected void a(NBTTagCompound var1) {
+         var1.put("hr", this.a);
+         var1.put("sc", this.b);
+         var1.put("hps", this.c);
+         var1.put("Num", this.d);
       }
 
-      protected void b(class_dn var1) {
-         this.a = var1.o("hr");
-         this.b = var1.o("sc");
-         this.c = var1.o("hps");
-         this.d = var1.g("Num");
+      protected void b(NBTTagCompound var1) {
+         this.a = var1.getBoolean("hr");
+         this.b = var1.getBoolean("sc");
+         this.c = var1.getBoolean("hps");
+         this.d = var1.getInt("Num");
       }
 
       public class_a_in_class_asa(int var1, Random var2, class_arw var3, EnumDirection var4) {
@@ -671,23 +671,23 @@ public class class_asa {
 
       }
 
-      protected void a(class_dn var1) {
-         class_du var2 = new class_du();
+      protected void a(NBTTagCompound var1) {
+         NBTTagList var2 = new NBTTagList();
          Iterator var3 = this.a.iterator();
 
          while(var3.hasNext()) {
             class_arw var4 = (class_arw)var3.next();
-            var2.a((class_eb)var4.g());
+            var2.add((NBTTag)var4.g());
          }
 
-         var1.a((String)"Entrances", (class_eb)var2);
+         var1.put((String)"Entrances", (NBTTag)var2);
       }
 
-      protected void b(class_dn var1) {
-         class_du var2 = var1.c("Entrances", 11);
+      protected void b(NBTTagCompound var1) {
+         NBTTagList var2 = var1.getList("Entrances", 11);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            this.a.add(new class_arw(var2.d(var3)));
+         for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+            this.a.add(new class_arw(var2.getIntArray(var3)));
          }
 
       }

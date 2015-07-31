@@ -19,7 +19,7 @@ import net.minecraft.server.class_asn;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_od;
 
 public class class_asd {
@@ -232,14 +232,14 @@ public class class_asd {
          this.b = var2.nextInt(3) == 0;
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.b = var1.o("Chest");
+         this.b = var1.getBoolean("Chest");
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Chest", this.b);
+         var1.put("Chest", this.b);
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -291,14 +291,14 @@ public class class_asd {
          this.b = var2.nextInt(3) == 0;
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.b = var1.o("Chest");
+         this.b = var1.getBoolean("Chest");
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Chest", this.b);
+         var1.put("Chest", this.b);
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -657,14 +657,14 @@ public class class_asd {
          this.l = var3;
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.b = var1.o("Mob");
+         this.b = var1.getBoolean("Mob");
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Mob", this.b);
+         var1.put("Mob", this.b);
       }
 
       public static class_asd.class_l_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, int var5, EnumDirection var6) {
@@ -907,14 +907,14 @@ public class class_asd {
          return a(var7) && class_asn.a(var0, var7) == null?new class_asd.class_b_in_class_asd(var6, var1, var7, var5):null;
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.b = var1.g("Seed");
+         this.b = var1.getInt("Seed");
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Seed", this.b);
+         var1.put("Seed", this.b);
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
@@ -1034,11 +1034,11 @@ public class class_asd {
 
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
       }
    }
@@ -1053,10 +1053,10 @@ public class class_asd {
          super(var1);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
       }
 
       private int a(List var1) {

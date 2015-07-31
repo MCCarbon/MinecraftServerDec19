@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -63,25 +63,25 @@ public class class_ro extends class_rx {
             class_ow var5 = this.c.cF();
 
             for(int var6 = 0; var6 < var5.o_(); ++var6) {
-               class_aas var7 = var5.a(var6);
+               ItemStack var7 = var5.a(var6);
                boolean var8 = false;
                if(var7 != null) {
-                  if(var7.b() == Items.P) {
+                  if(var7.getItem() == Items.P) {
                      var1.a((BlockPosition)var2, (IBlockData)Blocks.WHEAT.getBlockData(), 3);
                      var8 = true;
-                  } else if(var7.b() == Items.bV) {
+                  } else if(var7.getItem() == Items.bV) {
                      var1.a((BlockPosition)var2, (IBlockData)Blocks.POTATOES.getBlockData(), 3);
                      var8 = true;
-                  } else if(var7.b() == Items.bU) {
+                  } else if(var7.getItem() == Items.bU) {
                      var1.a((BlockPosition)var2, (IBlockData)Blocks.CARROTS.getBlockData(), 3);
                      var8 = true;
                   }
                }
 
                if(var8) {
-                  --var7.b;
-                  if(var7.b <= 0) {
-                     var5.a(var6, (class_aas)null);
+                  --var7.count;
+                  if(var7.count <= 0) {
+                     var5.a(var6, (ItemStack)null);
                   }
                   break;
                }

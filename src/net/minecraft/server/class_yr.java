@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aea;
 import net.minecraft.server.class_aeb;
@@ -12,7 +12,7 @@ import net.minecraft.server.class_xa;
 
 public class class_yr implements class_oj {
    private final class_adz a;
-   private class_aas[] b = new class_aas[3];
+   private ItemStack[] b = new ItemStack[3];
    private final class_xa c;
    private class_aea d;
    private int e;
@@ -26,18 +26,18 @@ public class class_yr implements class_oj {
       return this.b.length;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return this.b[var1];
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(this.b[var1] != null) {
-         class_aas var3;
+         ItemStack var3;
          if(var1 == 2) {
             var3 = this.b[var1];
             this.b[var1] = null;
             return var3;
-         } else if(this.b[var1].b <= var2) {
+         } else if(this.b[var1].count <= var2) {
             var3 = this.b[var1];
             this.b[var1] = null;
             if(this.e(var1)) {
@@ -47,7 +47,7 @@ public class class_yr implements class_oj {
             return var3;
          } else {
             var3 = this.b[var1].a(var2);
-            if(this.b[var1].b == 0) {
+            if(this.b[var1].count == 0) {
                this.b[var1] = null;
             }
 
@@ -66,9 +66,9 @@ public class class_yr implements class_oj {
       return var1 == 0 || var1 == 1;
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       if(this.b[var1] != null) {
-         class_aas var2 = this.b[var1];
+         ItemStack var2 = this.b[var1];
          this.b[var1] = null;
          return var2;
       } else {
@@ -76,10 +76,10 @@ public class class_yr implements class_oj {
       }
    }
 
-   public void a(int var1, class_aas var2) {
+   public void a(int var1, ItemStack var2) {
       this.b[var1] = var2;
-      if(var2 != null && var2.b > this.q_()) {
-         var2.b = this.q_();
+      if(var2 != null && var2.count > this.q_()) {
+         var2.count = this.q_();
       }
 
       if(this.e(var1)) {
@@ -114,7 +114,7 @@ public class class_yr implements class_oj {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
+   public boolean b(int var1, ItemStack var2) {
       return true;
    }
 
@@ -124,32 +124,32 @@ public class class_yr implements class_oj {
 
    public void h() {
       this.d = null;
-      class_aas var1 = this.b[0];
-      class_aas var2 = this.b[1];
+      ItemStack var1 = this.b[0];
+      ItemStack var2 = this.b[1];
       if(var1 == null) {
          var1 = var2;
          var2 = null;
       }
 
       if(var1 == null) {
-         this.a(2, (class_aas)null);
+         this.a(2, (ItemStack)null);
       } else {
          class_aeb var3 = this.a.a_(this.c);
          if(var3 != null) {
             class_aea var4 = var3.a(var1, var2, this.e);
             if(var4 != null && !var4.h()) {
                this.d = var4;
-               this.a(2, var4.d().k());
+               this.a(2, var4.d().clone());
             } else if(var2 != null) {
                var4 = var3.a(var2, var1, this.e);
                if(var4 != null && !var4.h()) {
                   this.d = var4;
-                  this.a(2, var4.d().k());
+                  this.a(2, var4.d().clone());
                } else {
-                  this.a(2, (class_aas)null);
+                  this.a(2, (ItemStack)null);
                }
             } else {
-               this.a(2, (class_aas)null);
+               this.a(2, (ItemStack)null);
             }
          }
       }

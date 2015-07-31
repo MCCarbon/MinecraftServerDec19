@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aio;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -54,7 +54,7 @@ public abstract class class_ake extends class_aio {
       return b;
    }
 
-   public Object a(class_aas var1) {
+   public Object a(ItemStack var1) {
       return class_ake.class_c_in_class_ake.a;
    }
 

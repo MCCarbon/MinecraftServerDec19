@@ -25,7 +25,7 @@ import net.minecraft.server.class_asn;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_od;
 
 public class class_asj {
@@ -284,14 +284,14 @@ public class class_asj {
          this.l = var3;
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Mob", this.a);
+         var1.put("Mob", this.a);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = var1.o("Mob");
+         this.a = var1.getBoolean("Mob");
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -395,20 +395,20 @@ public class class_asj {
          this.e = var2.nextInt(3) > 0;
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("leftLow", this.a);
-         var1.a("leftHigh", this.b);
-         var1.a("rightLow", this.c);
-         var1.a("rightHigh", this.e);
+         var1.put("leftLow", this.a);
+         var1.put("leftHigh", this.b);
+         var1.put("rightLow", this.c);
+         var1.put("rightHigh", this.e);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = var1.o("leftLow");
-         this.b = var1.o("leftHigh");
-         this.c = var1.o("rightLow");
-         this.e = var1.o("rightHigh");
+         this.a = var1.getBoolean("leftLow");
+         this.b = var1.getBoolean("leftHigh");
+         this.c = var1.getBoolean("rightLow");
+         this.e = var1.getBoolean("rightHigh");
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -501,14 +501,14 @@ public class class_asj {
          this.b = var3.d() > 6;
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Tall", this.b);
+         var1.put("Tall", this.b);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.b = var1.o("Tall");
+         this.b = var1.getBoolean("Tall");
       }
 
       public static class_asj.class_e_in_class_asj a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
@@ -687,14 +687,14 @@ public class class_asj {
          this.a = var2.nextInt(5);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Type", this.a);
+         var1.put("Type", this.a);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = var1.g("Type");
+         this.a = var1.getInt("Type");
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -939,14 +939,14 @@ public class class_asj {
          this.l = var3;
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Chest", this.b);
+         var1.put("Chest", this.b);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.b = var1.o("Chest");
+         this.b = var1.getBoolean("Chest");
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -1005,16 +1005,16 @@ public class class_asj {
          this.b = var2.nextInt(2) == 0;
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Left", this.a);
-         var1.a("Right", this.b);
+         var1.put("Left", this.a);
+         var1.put("Right", this.b);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = var1.o("Left");
-         this.b = var1.o("Right");
+         this.a = var1.getBoolean("Left");
+         this.b = var1.getBoolean("Right");
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -1104,14 +1104,14 @@ public class class_asj {
          this.l = var3;
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Source", this.a);
+         var1.put("Source", this.a);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = var1.o("Source");
+         this.a = var1.getBoolean("Source");
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -1169,14 +1169,14 @@ public class class_asj {
          this.a = var4 != EnumDirection.NORTH && var4 != EnumDirection.SOUTH?var3.c():var3.e();
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Steps", this.a);
+         var1.put("Steps", this.a);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = var1.g("Steps");
+         this.a = var1.getInt("Steps");
       }
 
       public static class_arw a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5) {
@@ -1242,12 +1242,12 @@ public class class_asj {
          this.d = class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.a;
       }
 
-      protected void a(class_dn var1) {
-         var1.a("EntryDoor", this.d.name());
+      protected void a(NBTTagCompound var1) {
+         var1.put("EntryDoor", this.d.name());
       }
 
-      protected void b(class_dn var1) {
-         this.d = class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.valueOf(var1.k("EntryDoor"));
+      protected void b(NBTTagCompound var1) {
+         this.d = class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.valueOf(var1.getString("EntryDoor"));
       }
 
       protected void a(World var1, Random var2, class_arw var3, class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj var4, int var5, int var6, int var7) {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.World;
@@ -13,21 +13,21 @@ import net.minecraft.server.class_zy;
 
 public class class_ach implements class_acs {
    public boolean a(class_yg var1, World var2) {
-      class_aas var3 = null;
+      ItemStack var3 = null;
       ArrayList var4 = Lists.newArrayList();
 
       for(int var5 = 0; var5 < var1.o_(); ++var5) {
-         class_aas var6 = var1.a(var5);
+         ItemStack var6 = var1.a(var5);
          if(var6 != null) {
-            if(var6.b() instanceof class_za) {
-               class_za var7 = (class_za)var6.b();
+            if(var6.getItem() instanceof class_za) {
+               class_za var7 = (class_za)var6.getItem();
                if(var7.d() != class_za.class_a_in_class_za.a || var3 != null) {
                   return false;
                }
 
                var3 = var6;
             } else {
-               if(var6.b() != Items.aY) {
+               if(var6.getItem() != Items.aY) {
                   return false;
                }
 
@@ -39,8 +39,8 @@ public class class_ach implements class_acs {
       return var3 != null && !var4.isEmpty();
    }
 
-   public class_aas a(class_yg var1) {
-      class_aas var2 = null;
+   public ItemStack a(class_yg var1) {
+      ItemStack var2 = null;
       int[] var3 = new int[3];
       int var4 = 0;
       int var5 = 0;
@@ -52,16 +52,16 @@ public class class_ach implements class_acs {
       float var11;
       int var17;
       for(var7 = 0; var7 < var1.o_(); ++var7) {
-         class_aas var8 = var1.a(var7);
+         ItemStack var8 = var1.a(var7);
          if(var8 != null) {
-            if(var8.b() instanceof class_za) {
-               var6 = (class_za)var8.b();
+            if(var8.getItem() instanceof class_za) {
+               var6 = (class_za)var8.getItem();
                if(var6.d() != class_za.class_a_in_class_za.a || var2 != null) {
                   return null;
                }
 
-               var2 = var8.k();
-               var2.b = 1;
+               var2 = var8.clone();
+               var2.count = 1;
                if(var6.d_(var8)) {
                   var9 = var6.b(var2);
                   var10 = (float)(var9 >> 16 & 255) / 255.0F;
@@ -74,7 +74,7 @@ public class class_ach implements class_acs {
                   ++var5;
                }
             } else {
-               if(var8.b() != Items.aY) {
+               if(var8.getItem() != Items.aY) {
                   return null;
                }
 
@@ -113,17 +113,17 @@ public class class_ach implements class_acs {
       return 10;
    }
 
-   public class_aas b() {
+   public ItemStack b() {
       return null;
    }
 
-   public class_aas[] b(class_yg var1) {
-      class_aas[] var2 = new class_aas[var1.o_()];
+   public ItemStack[] b(class_yg var1) {
+      ItemStack[] var2 = new ItemStack[var1.o_()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         class_aas var4 = var1.a(var3);
-         if(var4 != null && var4.b().r()) {
-            var2[var3] = new class_aas(var4.b().q());
+         ItemStack var4 = var1.a(var3);
+         if(var4 != null && var4.getItem().r()) {
+            var2[var3] = new ItemStack(var4.getItem().q());
          }
       }
 

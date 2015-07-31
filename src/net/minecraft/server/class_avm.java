@@ -7,8 +7,8 @@ import net.minecraft.server.class_avl;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
 import net.minecraft.server.class_avq;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dx;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTCompressedStreamTools;
 import net.minecraft.server.class_nw;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -34,12 +34,12 @@ public class class_avm implements class_avq {
          return null;
       } else {
          File var3 = new File(var2, "level.dat");
-         class_dn var4;
-         class_dn var5;
+         NBTTagCompound var4;
+         NBTTagCompound var5;
          if(var3.exists()) {
             try {
-               var4 = class_dx.a((InputStream)(new FileInputStream(var3)));
-               var5 = var4.n("Data");
+               var4 = NBTCompressedStreamTools.fromRawInputStream((InputStream)(new FileInputStream(var3)));
+               var5 = var4.getCompound("Data");
                return new class_avn(var5);
             } catch (Exception var7) {
                b.error((String)("Exception reading " + var3), (Throwable)var7);
@@ -49,8 +49,8 @@ public class class_avm implements class_avq {
          var3 = new File(var2, "level.dat_old");
          if(var3.exists()) {
             try {
-               var4 = class_dx.a((InputStream)(new FileInputStream(var3)));
-               var5 = var4.n("Data");
+               var4 = NBTCompressedStreamTools.fromRawInputStream((InputStream)(new FileInputStream(var3)));
+               var5 = var4.getCompound("Data");
                return new class_avn(var5);
             } catch (Exception var6) {
                b.error((String)("Exception reading " + var3), (Throwable)var6);

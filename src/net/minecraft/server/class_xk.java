@@ -13,9 +13,9 @@ import net.minecraft.server.class_awg;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_lg;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
@@ -58,57 +58,57 @@ public class class_xk extends class_pr {
 		this.a(var4);
 	}
 
-	protected void b(class_dn var1) {
+	protected void b(NBTTagCompound var1) {
 		BlockPosition var2;
-		class_dn var3;
+		NBTTagCompound var3;
 		if (this.a != null) {
 			var2 = new BlockPosition(this.a);
 			var3 = class_dy.a(this.a.aM());
-			var3.a("X", var2.getX());
-			var3.a("Y", var2.getY());
-			var3.a("Z", var2.getZ());
-			var1.a((String) "Owner", (class_eb) var3);
+			var3.put("X", var2.getX());
+			var3.put("Y", var2.getY());
+			var3.put("Z", var2.getZ());
+			var1.put((String) "Owner", (NBTTag) var3);
 		}
 
 		if (this.b != null) {
 			var2 = new BlockPosition(this.b);
 			var3 = class_dy.a(this.b.aM());
-			var3.a("X", var2.getX());
-			var3.a("Y", var2.getY());
-			var3.a("Z", var2.getZ());
-			var1.a((String) "Target", (class_eb) var3);
+			var3.put("X", var2.getX());
+			var3.put("Y", var2.getY());
+			var3.put("Z", var2.getZ());
+			var1.put((String) "Target", (NBTTag) var3);
 		}
 
 		if (this.c != null) {
-			var1.a("Dir", this.c.getId());
+			var1.put("Dir", this.c.getId());
 		}
 
-		var1.a("Steps", this.d);
-		var1.a("TXD", this.e);
-		var1.a("TYD", this.f);
-		var1.a("TZD", this.g);
+		var1.put("Steps", this.d);
+		var1.put("TXD", this.e);
+		var1.put("TYD", this.f);
+		var1.put("TZD", this.g);
 	}
 
-	protected void a(class_dn var1) {
-		this.d = var1.g("Steps");
-		this.e = var1.j("TXD");
-		this.f = var1.j("TYD");
-		this.g = var1.j("TZD");
-		if (var1.b("Dir", 99)) {
-			this.c = EnumDirection.getById(var1.g("Dir"));
+	protected void a(NBTTagCompound var1) {
+		this.d = var1.getInt("Steps");
+		this.e = var1.getDouble("TXD");
+		this.f = var1.getDouble("TYD");
+		this.g = var1.getDouble("TZD");
+		if (var1.hasOfType("Dir", 99)) {
+			this.c = EnumDirection.getById(var1.getInt("Dir"));
 		}
 
-		class_dn var2;
-		if (var1.b("Owner", 10)) {
-			var2 = var1.n("Owner");
+		NBTTagCompound var2;
+		if (var1.hasOfType("Owner", 10)) {
+			var2 = var1.getCompound("Owner");
 			this.h = class_dy.b(var2);
-			this.i = new BlockPosition(var2.g("X"), var2.g("Y"), var2.g("Z"));
+			this.i = new BlockPosition(var2.getInt("X"), var2.getInt("Y"), var2.getInt("Z"));
 		}
 
-		if (var1.b("Target", 10)) {
-			var2 = var1.n("Target");
+		if (var1.hasOfType("Target", 10)) {
+			var2 = var1.getCompound("Target");
 			this.as = class_dy.b(var2);
-			this.at = new BlockPosition(var2.g("X"), var2.g("Y"), var2.g("Z"));
+			this.at = new BlockPosition(var2.getInt("X"), var2.getInt("Y"), var2.getInt("Z"));
 		}
 
 	}

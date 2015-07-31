@@ -5,7 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_aax;
 import net.minecraft.server.class_abe;
@@ -137,8 +137,8 @@ public class class_lj {
 
       if(this.a instanceof class_va && this.m % 10 == 0) {
          class_va var2 = (class_va)this.a;
-         class_aas var3 = var2.o();
-         if(var3 != null && var3.b() instanceof class_aax) {
+         ItemStack var3 = var2.o();
+         if(var3 != null && var3.getItem() instanceof class_aax) {
             class_avf var4 = Items.bf.a(var3, this.a.o);
             Iterator var5 = var1.iterator();
 
@@ -146,7 +146,7 @@ public class class_lj {
                class_xa var6 = (class_xa)var5.next();
                class_lh var7 = (class_lh)var6;
                var4.a(var7, var3);
-               Packet var8 = Items.bf.a((class_aas)var3, (World)this.a.o, (class_xa)var7);
+               Packet var8 = Items.bf.a((ItemStack)var3, (World)this.a.o, (class_xa)var7);
                if(var8 != null) {
                   var7.a.a(var8);
                }
@@ -351,7 +351,7 @@ public class class_lj {
 
                   for(int var5 = 0; var5 < var11; ++var5) {
                      class_pw var6 = var8[var5];
-                     class_aas var7 = ((class_qa)this.a).a(var6);
+                     ItemStack var7 = ((class_qa)this.a).a(var6);
                      if(var7 != null) {
                         var1.a.a((Packet)(new class_hn(this.a.getId(), var6, var7)));
                      }

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -86,12 +86,12 @@ public class class_ty extends class_tw {
 
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
-      if(var3 != null && var3.b() == Items.ay && !var1.bH.d && !this.j_()) {
-         if(--var3.b == 0) {
-            var1.a((EnumUsedHand)var2, (class_aas)(new class_aas(Items.aI)));
-         } else if(!var1.bp.a(new class_aas(Items.aI))) {
-            var1.a(new class_aas(Items.aI), false);
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+      if(var3 != null && var3.getItem() == Items.ay && !var1.bH.d && !this.j_()) {
+         if(--var3.count == 0) {
+            var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.aI)));
+         } else if(!var1.bp.a(new ItemStack(Items.aI))) {
+            var1.a(new ItemStack(Items.aI), false);
          }
 
          return true;

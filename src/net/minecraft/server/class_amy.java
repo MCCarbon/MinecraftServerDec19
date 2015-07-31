@@ -6,9 +6,9 @@ import com.mojang.authlib.properties.Property;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.class_kn;
@@ -21,27 +21,27 @@ public class class_amy extends class_amg implements class_kn {
    private int h;
    private boolean i;
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("SkullType", (byte)(this.a & 255));
-      var1.a("Rot", (byte)(this.f & 255));
+      var1.put("SkullType", (byte)(this.a & 255));
+      var1.put("Rot", (byte)(this.f & 255));
       if(this.g != null) {
-         class_dn var2 = new class_dn();
+         NBTTagCompound var2 = new NBTTagCompound();
          class_dy.a(var2, this.g);
-         var1.a((String)"Owner", (class_eb)var2);
+         var1.put((String)"Owner", (NBTTag)var2);
       }
 
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.a = var1.e("SkullType");
-      this.f = var1.e("Rot");
+      this.a = var1.getByte("SkullType");
+      this.f = var1.getByte("Rot");
       if(this.a == 3) {
-         if(var1.b("Owner", 10)) {
-            this.g = class_dy.a(var1.n("Owner"));
-         } else if(var1.b("ExtraType", 8)) {
-            String var2 = var1.k("ExtraType");
+         if(var1.hasOfType("Owner", 10)) {
+            this.g = class_dy.a(var1.getCompound("Owner"));
+         } else if(var1.hasOfType("ExtraType", 8)) {
+            String var2 = var1.getString("ExtraType");
             if(!class_nz.b(var2)) {
                this.g = new GameProfile((UUID)null, var2);
                this.g();
@@ -68,7 +68,7 @@ public class class_amy extends class_amg implements class_kn {
    }
 
    public Packet z_() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
       return new class_ft(this.c, 4, var1);
    }

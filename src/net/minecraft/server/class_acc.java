@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_acb;
 import net.minecraft.server.World;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_ea;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTagString;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
 import net.minecraft.server.class_fa;
@@ -28,34 +28,34 @@ public class class_acc extends Item {
       this.d(1);
    }
 
-   public static boolean b(class_dn var0) {
+   public static boolean b(NBTTagCompound var0) {
       if(!class_acb.b(var0)) {
          return false;
-      } else if(!var0.b("title", 8)) {
+      } else if(!var0.hasOfType("title", 8)) {
          return false;
       } else {
-         String var1 = var0.k("title");
-         return var1 != null && var1.length() <= 32?var0.b("author", 8):false;
+         String var1 = var0.getString("title");
+         return var1 != null && var1.length() <= 32?var0.hasOfType("author", 8):false;
       }
    }
 
-   public static int h(class_aas var0) {
-      return var0.o().g("generation");
+   public static int h(ItemStack var0) {
+      return var0.getTag().getInt("generation");
    }
 
-   public String a(class_aas var1) {
-      if(var1.n()) {
-         class_dn var2 = var1.o();
-         String var3 = var2.k("title");
+   public String getLocalizedName(ItemStack var1) {
+      if(var1.hasTag()) {
+         NBTTagCompound var2 = var1.getTag();
+         String var3 = var2.getString("title");
          if(!class_nz.b(var3)) {
             return var3;
          }
       }
 
-      return super.a(var1);
+      return super.getLocalizedName(var1);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       if(!var2.D) {
          this.a(var1, var3);
       }
@@ -65,29 +65,29 @@ public class class_acc extends Item {
       return new class_or(class_oq.a, var1);
    }
 
-   private void a(class_aas var1, class_xa var2) {
-      if(var1 != null && var1.o() != null) {
-         class_dn var3 = var1.o();
-         if(!var3.o("resolved")) {
-            var3.a("resolved", true);
+   private void a(ItemStack var1, class_xa var2) {
+      if(var1 != null && var1.getTag() != null) {
+         NBTTagCompound var3 = var1.getTag();
+         if(!var3.getBoolean("resolved")) {
+            var3.put("resolved", true);
             if(b(var3)) {
-               class_du var4 = var3.c("pages", 8);
+               NBTTagList var4 = var3.getList("pages", 8);
 
-               for(int var5 = 0; var5 < var4.c(); ++var5) {
-                  String var6 = var4.g(var5);
+               for(int var5 = 0; var5 < var4.getSize(); ++var5) {
+                  String var6 = var4.getString(var5);
 
                   Object var7;
                   try {
-                     IChatBaseComponent var11 = IChatBaseComponent.class_a_in_class_eu.b(var6);
+                     IChatBaseComponent var11 = IChatBaseComponent.ChatSerializer.b(var6);
                      var7 = class_ev.a(var2, var11, var2);
                   } catch (Exception var9) {
                      var7 = new class_fa(var6);
                   }
 
-                  var4.a(var5, new class_ea(IChatBaseComponent.class_a_in_class_eu.a((IChatBaseComponent)var7)));
+                  var4.set(var5, new NBTTagString(IChatBaseComponent.ChatSerializer.toJson((IChatBaseComponent)var7)));
                }
 
-               var3.a((String)"pages", (class_eb)var4);
+               var3.put((String)"pages", (NBTTag)var4);
                if(var2 instanceof class_lh && var2.bA() == var1) {
                   class_yx var10 = var2.br.a((class_oj)var2.bp, var2.bp.d);
                   ((class_lh)var2).a.a((Packet)(new class_gg(0, var10.e, var1)));

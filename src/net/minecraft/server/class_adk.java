@@ -10,14 +10,14 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adl;
 import net.minecraft.server.class_adm;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_g;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
@@ -34,17 +34,17 @@ public class class_adk {
    private static final class_adk.class_b_in_class_adk d = new class_adk.class_b_in_class_adk();
    private static final class_adk.class_a_in_class_adk e = new class_adk.class_a_in_class_adk();
 
-   public static int a(class_adi var0, class_aas var1) {
+   public static int a(class_adi var0, ItemStack var1) {
       if(var1 == null) {
          return 0;
       } else {
-         class_du var2 = var1.p();
+         NBTTagList var2 = var1.getEnchantments();
          if(var2 == null) {
             return 0;
          } else {
-            for(int var3 = 0; var3 < var2.c(); ++var3) {
-               class_adi var4 = class_adi.c(var2.b(var3).f("id"));
-               short var5 = var2.b(var3).f("lvl");
+            for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+               class_adi var4 = class_adi.c(var2.getCompound(var3).getShort("id"));
+               short var5 = var2.getCompound(var3).getShort("lvl");
                if(var4 == var0) {
                   return var5;
                }
@@ -55,13 +55,13 @@ public class class_adk {
       }
    }
 
-   public static Map a(class_aas var0) {
+   public static Map a(ItemStack var0) {
       LinkedHashMap var1 = Maps.newLinkedHashMap();
-      class_du var2 = var0.b() == Items.cg?Items.cg.h(var0):var0.p();
+      NBTTagList var2 = var0.getItem() == Items.cg?Items.cg.h(var0):var0.getEnchantments();
       if(var2 != null) {
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            class_adi var4 = class_adi.c(var2.b(var3).f("id"));
-            short var5 = var2.b(var3).f("lvl");
+         for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+            class_adi var4 = class_adi.c(var2.getCompound(var3).getShort("id"));
+            short var5 = var2.getCompound(var3).getShort("lvl");
             var1.put(var4, Integer.valueOf(var5));
          }
       }
@@ -69,8 +69,8 @@ public class class_adk {
       return var1;
    }
 
-   public static void a(Map var0, class_aas var1) {
-      class_du var2 = new class_du();
+   public static void a(Map var0, ItemStack var1) {
+      NBTTagList var2 = new NBTTagList();
       Iterator var3 = var0.entrySet().iterator();
 
       while(var3.hasNext()) {
@@ -78,33 +78,33 @@ public class class_adk {
          class_adi var5 = (class_adi)var4.getKey();
          if(var5 != null) {
             int var6 = ((Integer)var4.getValue()).intValue();
-            class_dn var7 = new class_dn();
-            var7.a("id", (short)class_adi.b(var5));
-            var7.a("lvl", (short)var6);
-            var2.a((class_eb)var7);
-            if(var1.b() == Items.cg) {
+            NBTTagCompound var7 = new NBTTagCompound();
+            var7.put("id", (short)class_adi.b(var5));
+            var7.put("lvl", (short)var6);
+            var2.add((NBTTag)var7);
+            if(var1.getItem() == Items.cg) {
                Items.cg.a(var1, new class_adl(var5, var6));
             }
          }
       }
 
-      if(var2.c_()) {
-         if(var1.n()) {
-            var1.o().p("ench");
+      if(var2.isEmpty()) {
+         if(var1.hasTag()) {
+            var1.getTag().remove("ench");
          }
-      } else if(var1.b() != Items.cg) {
-         var1.a((String)"ench", (class_eb)var2);
+      } else if(var1.getItem() != Items.cg) {
+         var1.addTag((String)"ench", (NBTTag)var2);
       }
 
    }
 
-   private static void a(class_adk.class_c_in_class_adk var0, class_aas var1) {
+   private static void a(class_adk.class_c_in_class_adk var0, ItemStack var1) {
       if(var1 != null) {
-         class_du var2 = var1.p();
+         NBTTagList var2 = var1.getEnchantments();
          if(var2 != null) {
-            for(int var3 = 0; var3 < var2.c(); ++var3) {
-               short var4 = var2.b(var3).f("id");
-               short var5 = var2.b(var3).f("lvl");
+            for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+               short var4 = var2.getCompound(var3).getShort("id");
+               short var5 = var2.getCompound(var3).getShort("lvl");
                if(class_adi.c(var4) != null) {
                   var0.a(class_adi.c(var4), var5);
                }
@@ -118,7 +118,7 @@ public class class_adk {
       Iterator var2 = var1.iterator();
 
       while(var2.hasNext()) {
-         class_aas var3 = (class_aas)var2.next();
+         ItemStack var3 = (ItemStack)var2.next();
          a(var0, var3);
       }
 
@@ -137,10 +137,10 @@ public class class_adk {
       return (b.a + 1 >> 1) + a.nextInt((b.a >> 1) + 1);
    }
 
-   public static float a(class_aas var0, class_qf var1) {
+   public static float a(ItemStack var0, class_qf var1) {
       c.a = 0.0F;
       c.b = var1;
-      a((class_adk.class_c_in_class_adk)c, (class_aas)var0);
+      a((class_adk.class_c_in_class_adk)c, (ItemStack)var0);
       return c.a;
    }
 
@@ -152,7 +152,7 @@ public class class_adk {
       }
 
       if(var1 instanceof class_xa) {
-         a((class_adk.class_c_in_class_adk)d, (class_aas)var0.bA());
+         a((class_adk.class_c_in_class_adk)d, (ItemStack)var0.bA());
       }
 
    }
@@ -165,7 +165,7 @@ public class class_adk {
       }
 
       if(var0 instanceof class_xa) {
-         a((class_adk.class_c_in_class_adk)e, (class_aas)var0.bA());
+         a((class_adk.class_c_in_class_adk)e, (ItemStack)var0.bA());
       }
 
    }
@@ -179,7 +179,7 @@ public class class_adk {
          Iterator var4 = var2.iterator();
 
          while(var4.hasNext()) {
-            class_aas var5 = (class_aas)var4.next();
+            ItemStack var5 = (ItemStack)var4.next();
             int var6 = a(var0, var5);
             if(var6 > var3) {
                var3 = var6;
@@ -226,23 +226,23 @@ public class class_adk {
       return a(class_adm.g, var0) > 0;
    }
 
-   public static class_aas b(class_adi var0, class_qa var1) {
+   public static ItemStack b(class_adi var0, class_qa var1) {
       Iterator var2 = var1.au().iterator();
 
-      class_aas var3;
+      ItemStack var3;
       do {
          if(!var2.hasNext()) {
             return null;
          }
 
-         var3 = (class_aas)var2.next();
+         var3 = (ItemStack)var2.next();
       } while(var3 == null || a(var0, var3) <= 0);
 
       return var3;
    }
 
-   public static int a(Random var0, int var1, int var2, class_aas var3) {
-      Item var4 = var3.b();
+   public static int a(Random var0, int var1, int var2, ItemStack var3) {
+      Item var4 = var3.getItem();
       int var5 = var4.c();
       if(var5 <= 0) {
          return 0;
@@ -256,8 +256,8 @@ public class class_adk {
       }
    }
 
-   public static class_aas a(Random var0, class_aas var1, int var2) {
-      boolean var3 = var1.b() == Items.aN;
+   public static ItemStack a(Random var0, ItemStack var1, int var2) {
+      boolean var3 = var1.getItem() == Items.aN;
       if(var3) {
          var1.a((Item)Items.cg);
       }
@@ -270,7 +270,7 @@ public class class_adk {
          if(var3) {
             Items.cg.a(var1, var6);
          } else {
-            var1.a(var6.b, var6.c);
+            var1.addEnchantment(var6.b, var6.c);
          }
       }
 
@@ -278,16 +278,16 @@ public class class_adk {
    }
 
 
-   public static List<class_adl> b(Random random, class_aas aas, int n) {
+   public static List<class_adl> b(Random random, ItemStack aas, int n) {
        ArrayList arrayList = Lists.newArrayList();
-       Item aar = aas.b();
+       Item aar = aas.getItem();
        int n2 = aar.c();
        if (n2 <= 0) {
            return arrayList;
        }
        n+=1 + random.nextInt(n2 / 4 + 1) + random.nextInt(n2 / 4 + 1);
        float f = (random.nextFloat() + random.nextFloat() - 1.0f) * 0.15f;
-       List list = class_adk.a((int)(n = MathHelper.clamp((int)Math.round((float)n + (float)n * f), (int)1, (int)Integer.MAX_VALUE)), (class_aas)aas);
+       List list = class_adk.a((int)(n = MathHelper.clamp((int)Math.round((float)n + (float)n * f), (int)1, (int)Integer.MAX_VALUE)), (ItemStack)aas);
        if (list.isEmpty()) return arrayList;
        arrayList.add(class_oc.a((Random)random, list));
        while (random.nextInt(50) <= n) {
@@ -312,10 +312,10 @@ public class class_adk {
 
    }
 
-   public static List a(int var0, class_aas var1) {
+   public static List a(int var0, ItemStack var1) {
       ArrayList var2 = Lists.newArrayList();
-      Item var3 = var1.b();
-      boolean var4 = var1.b() == Items.aN;
+      Item var3 = var1.getItem();
+      boolean var4 = var1.getItem() == Items.aN;
       Iterator var5 = class_adi.b.iterator();
 
       while(true) {

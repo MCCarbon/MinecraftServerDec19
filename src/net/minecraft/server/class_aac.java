@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_avd;
@@ -19,8 +19,8 @@ public class class_aac extends class_zt {
       this.a(CreativeTab.f);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
-      class_aas var5 = new class_aas(Items.bf, 1, var2.b("map"));
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
+      ItemStack var5 = new ItemStack(Items.bf, 1, var2.b("map"));
       String var6 = "map_" + var5.i();
       class_avf var7 = new class_avf(var6);
       var2.a((String)var6, (class_avd)var7);
@@ -28,11 +28,11 @@ public class class_aac extends class_zt {
       var7.a(var3.s, var3.u, var7.e);
       var7.d = (byte)var2.t.p().a();
       var7.c();
-      --var1.b;
-      if(var1.b <= 0) {
+      --var1.count;
+      if(var1.count <= 0) {
          return new class_or(class_oq.a, var5);
       } else {
-         if(!var3.bp.a(var5.k())) {
+         if(!var3.bp.a(var5.clone())) {
             var3.a(var5, false);
          }
 

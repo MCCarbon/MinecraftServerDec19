@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aht;
@@ -24,7 +24,7 @@ public class class_aae extends Item {
       this.a(CreativeTab.f);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.p(var4);
       if(var2.a(var4.shift(var6), var6, var1) && var10.getBlock() == Blocks.END_PORTAL_FRAME && !((Boolean)var10.get(class_aht.b)).booleanValue()) {
          if(var3.D) {
@@ -32,7 +32,7 @@ public class class_aae extends Item {
          } else {
             var3.a((BlockPosition)var4, (IBlockData)var10.set(class_aht.b, Boolean.valueOf(true)), 2);
             var3.e(var4, Blocks.END_PORTAL_FRAME);
-            --var1.b;
+            --var1.count;
 
             for(int var11 = 0; var11 < 16; ++var11) {
                double var12 = (double)((float)var4.getX() + (5.0F + random.nextFloat() * 6.0F) / 16.0F);
@@ -115,7 +115,7 @@ public class class_aae extends Item {
       }
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       class_awg var5 = this.a(var2, var3, false);
       if(var5 != null && var5.a == class_awg.class_a_in_class_awg.b && var2.p(var5.a()).getBlock() == Blocks.END_PORTAL_FRAME) {
          return new class_or(class_oq.a, var1);
@@ -129,7 +129,7 @@ public class class_aae extends Item {
                var2.a((class_pr)var3, "random.bow", 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
                var2.a((class_xa)null, 1002, new BlockPosition(var3), 0);
                if(!var3.bH.d) {
-                  --var1.b;
+                  --var1.count;
                }
 
                var3.b(class_nc.ad[Item.getId((Item)this)]);

@@ -11,9 +11,9 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_to;
 import net.minecraft.server.class_tp;
 
@@ -227,12 +227,12 @@ public class class_tr extends class_avd {
       return var2 instanceof class_ahl?var2.getMaterial() == Material.WOOD:false;
    }
 
-   public void a(class_dn var1) {
-      this.f = var1.g("Tick");
-      class_du var2 = var1.c("Villages", 10);
+   public void a(NBTTagCompound var1) {
+      this.f = var1.getInt("Tick");
+      NBTTagList var2 = var1.getList("Villages", 10);
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         class_dn var4 = var2.b(var3);
+      for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+         NBTTagCompound var4 = var2.getCompound(var3);
          class_tp var5 = new class_tp();
          var5.a(var4);
          this.e.add(var5);
@@ -240,19 +240,19 @@ public class class_tr extends class_avd {
 
    }
 
-   public void b(class_dn var1) {
-      var1.a("Tick", this.f);
-      class_du var2 = new class_du();
+   public void b(NBTTagCompound var1) {
+      var1.put("Tick", this.f);
+      NBTTagList var2 = new NBTTagList();
       Iterator var3 = this.e.iterator();
 
       while(var3.hasNext()) {
          class_tp var4 = (class_tp)var3.next();
-         class_dn var5 = new class_dn();
+         NBTTagCompound var5 = new NBTTagCompound();
          var4.b(var5);
-         var2.a((class_eb)var5);
+         var2.add((NBTTag)var5);
       }
 
-      var1.a((String)"Villages", (class_eb)var2);
+      var1.put((String)"Villages", (NBTTag)var2);
    }
 
    public static String a(class_aoy var0) {

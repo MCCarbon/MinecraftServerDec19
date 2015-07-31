@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
@@ -10,8 +10,8 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.MathHelper;
@@ -44,7 +44,7 @@ public class class_vm extends class_pr {
       this.x = (double)((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D));
    }
 
-   public class_vm(World var1, double var2, double var4, double var6, class_aas var8) {
+   public class_vm(World var1, double var2, double var4, double var6, ItemStack var8) {
       this(var1, var2, var4, var6);
       this.a(var8);
    }
@@ -58,7 +58,7 @@ public class class_vm extends class_pr {
       this.f = 5;
       this.a = (float)(Math.random() * 3.141592653589793D * 2.0D);
       this.a(0.25F, 0.25F);
-      this.a(new class_aas(Blocks.AIR, 0));
+      this.a(new ItemStack(Blocks.AIR, 0));
    }
 
    protected void h() {
@@ -132,26 +132,26 @@ public class class_vm extends class_pr {
       if(var1 == this) {
          return false;
       } else if(var1.ai() && this.ai()) {
-         class_aas var2 = this.l();
-         class_aas var3 = var1.l();
+         ItemStack var2 = this.l();
+         ItemStack var3 = var1.l();
          if(this.e != 32767 && var1.e != 32767) {
             if(this.d != -32768 && var1.d != -32768) {
-               if(var3.b() != var2.b()) {
+               if(var3.getItem() != var2.getItem()) {
                   return false;
-               } else if(var3.n() ^ var2.n()) {
+               } else if(var3.hasTag() ^ var2.hasTag()) {
                   return false;
-               } else if(var3.n() && !var3.o().equals(var2.o())) {
+               } else if(var3.hasTag() && !var3.getTag().equals(var2.getTag())) {
                   return false;
-               } else if(var3.b() == null) {
+               } else if(var3.getItem() == null) {
                   return false;
-               } else if(var3.b().k() && var3.i() != var2.i()) {
+               } else if(var3.getItem().k() && var3.i() != var2.i()) {
                   return false;
-               } else if(var3.b < var2.b) {
+               } else if(var3.count < var2.count) {
                   return var1.a(this);
-               } else if(var3.b + var2.b > var3.c()) {
+               } else if(var3.count + var2.count > var3.c()) {
                   return false;
                } else {
-                  var3.b += var2.b;
+                  var3.count += var2.count;
                   var1.e = Math.max(var1.e, this.e);
                   var1.d = Math.min(var1.d, this.d);
                   var1.a(var3);
@@ -194,7 +194,7 @@ public class class_vm extends class_pr {
    public boolean a(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
-      } else if(this.l() != null && this.l().b() == Items.cc && var1.c()) {
+      } else if(this.l() != null && this.l().getItem() == Items.cc && var1.c()) {
          return false;
       } else {
          this.ac();
@@ -207,41 +207,41 @@ public class class_vm extends class_pr {
       }
    }
 
-   public void b(class_dn var1) {
-      var1.a("Health", (short)((byte)this.f));
-      var1.a("Age", (short)this.d);
-      var1.a("PickupDelay", (short)this.e);
+   public void b(NBTTagCompound var1) {
+      var1.put("Health", (short)((byte)this.f));
+      var1.put("Age", (short)this.d);
+      var1.put("PickupDelay", (short)this.e);
       if(this.n() != null) {
-         var1.a("Thrower", this.g);
+         var1.put("Thrower", this.g);
       }
 
       if(this.m() != null) {
-         var1.a("Owner", this.h);
+         var1.put("Owner", this.h);
       }
 
       if(this.l() != null) {
-         var1.a((String)"Item", (class_eb)this.l().b(new class_dn()));
+         var1.put((String)"Item", (NBTTag)this.l().write(new NBTTagCompound()));
       }
 
    }
 
-   public void a(class_dn var1) {
-      this.f = var1.f("Health") & 255;
-      this.d = var1.f("Age");
-      if(var1.d("PickupDelay")) {
-         this.e = var1.f("PickupDelay");
+   public void a(NBTTagCompound var1) {
+      this.f = var1.getShort("Health") & 255;
+      this.d = var1.getShort("Age");
+      if(var1.has("PickupDelay")) {
+         this.e = var1.getShort("PickupDelay");
       }
 
-      if(var1.d("Owner")) {
-         this.h = var1.k("Owner");
+      if(var1.has("Owner")) {
+         this.h = var1.getString("Owner");
       }
 
-      if(var1.d("Thrower")) {
-         this.g = var1.k("Thrower");
+      if(var1.has("Thrower")) {
+         this.g = var1.getString("Thrower");
       }
 
-      class_dn var2 = var1.n("Item");
-      this.a(class_aas.a(var2));
+      NBTTagCompound var2 = var1.getCompound("Item");
+      this.a(ItemStack.a(var2));
       if(this.l() == null) {
          this.J();
       }
@@ -250,30 +250,30 @@ public class class_vm extends class_pr {
 
    public void d(class_xa var1) {
       if(!this.o.D) {
-         class_aas var2 = this.l();
-         int var3 = var2.b;
+         ItemStack var2 = this.l();
+         int var3 = var2.count;
          if(this.e == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.e_())) && var1.bp.a(var2)) {
-            if(var2.b() == Item.getByBlock(Blocks.LOG)) {
+            if(var2.getItem() == Item.getByBlock(Blocks.LOG)) {
                var1.b((class_my)class_mt.g);
             }
 
-            if(var2.b() == Item.getByBlock(Blocks.LOG2)) {
+            if(var2.getItem() == Item.getByBlock(Blocks.LOG2)) {
                var1.b((class_my)class_mt.g);
             }
 
-            if(var2.b() == Items.aH) {
+            if(var2.getItem() == Items.aH) {
                var1.b((class_my)class_mt.t);
             }
 
-            if(var2.b() == Items.k) {
+            if(var2.getItem() == Items.k) {
                var1.b((class_my)class_mt.w);
             }
 
-            if(var2.b() == Items.bx) {
+            if(var2.getItem() == Items.bx) {
                var1.b((class_my)class_mt.A);
             }
 
-            if(var2.b() == Items.k && this.n() != null) {
+            if(var2.getItem() == Items.k && this.n() != null) {
                class_xa var4 = this.o.a(this.n());
                if(var4 != null && var4 != var1) {
                   var4.b((class_my)class_mt.x);
@@ -285,7 +285,7 @@ public class class_vm extends class_pr {
             }
 
             var1.a(this, var3);
-            if(var2.b <= 0) {
+            if(var2.count <= 0) {
                this.J();
             }
          }
@@ -309,20 +309,20 @@ public class class_vm extends class_pr {
 
    }
 
-   public class_aas l() {
-      class_aas var1 = this.H().f(c);
+   public ItemStack l() {
+      ItemStack var1 = this.H().f(c);
       if(var1 == null) {
          if(this.o != null) {
             b.error("Item entity " + this.getId() + " has no item?!");
          }
 
-         return new class_aas(Blocks.STONE);
+         return new ItemStack(Blocks.STONE);
       } else {
          return var1;
       }
    }
 
-   public void a(class_aas var1) {
+   public void a(ItemStack var1) {
       this.H().b(c, var1);
       this.H().i(c);
    }

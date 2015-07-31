@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -11,7 +11,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
@@ -100,14 +100,14 @@ public class class_uc extends class_qj {
    public void e(float var1, float var2) {
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("CatType", this.cI());
+      var1.put("CatType", this.cI());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.m(var1.g("CatType"));
+      this.m(var1.getInt("CatType"));
    }
 
    protected String C() {
@@ -146,14 +146,14 @@ public class class_uc extends class_qj {
    protected void b(boolean var1, int var2) {
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
       if(this.cA()) {
          if(this.e(var1) && !this.o.D && !this.d(var3)) {
             this.bu.a(!this.cC());
          }
-      } else if(this.by.f() && var3 != null && var3.b() == Items.aW && var1.h(this) < 9.0D) {
+      } else if(this.by.f() && var3 != null && var3.getItem() == Items.aW && var1.h(this) < 9.0D) {
          if(!var1.bH.d) {
-            --var3.b;
+            --var3.count;
          }
 
          if(!this.o.D) {
@@ -187,8 +187,8 @@ public class class_uc extends class_qj {
       return var2;
    }
 
-   public boolean d(class_aas var1) {
-      return var1 != null && var1.b() == Items.aW;
+   public boolean d(ItemStack var1) {
+      return var1 != null && var1.getItem() == Items.aW;
    }
 
    public boolean a(class_tw var1) {

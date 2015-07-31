@@ -68,7 +68,7 @@ public class class_bs extends class_i {
 
                IChatBaseComponent var6;
                try {
-                  var6 = IChatBaseComponent.class_a_in_class_eu.a(var10);
+                  var6 = IChatBaseComponent.ChatSerializer.fromJson(var10);
                } catch (JsonParseException var9) {
             	   throw class_bs.a(var9);
                }

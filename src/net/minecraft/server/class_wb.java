@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -19,7 +19,7 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
@@ -98,28 +98,28 @@ public class class_wb extends class_wi {
       this.ac.a(bv, new Byte((byte)0));
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       IBlockData var2 = this.cB();
-      var1.a("carried", (short)Block.getId(var2.getBlock()));
-      var1.a("carriedData", (short)var2.getBlock().toLegacyData(var2));
+      var1.put("carried", (short)Block.getId(var2.getBlock()));
+      var1.put("carriedData", (short)var2.getBlock().toLegacyData(var2));
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       IBlockData var2;
-      if(var1.b("carried", 8)) {
-         var2 = Block.getByName(var1.k("carried")).fromLegacyData(var1.f("carriedData") & '\uffff');
+      if(var1.hasOfType("carried", 8)) {
+         var2 = Block.getByName(var1.getString("carried")).fromLegacyData(var1.getShort("carriedData") & '\uffff');
       } else {
-         var2 = Block.getById(var1.f("carried")).fromLegacyData(var1.f("carriedData") & '\uffff');
+         var2 = Block.getById(var1.getShort("carried")).fromLegacyData(var1.getShort("carriedData") & '\uffff');
       }
 
       this.a(var2);
    }
 
    private boolean a(class_xa var1) {
-      class_aas var2 = var1.bp.b[3];
-      if(var2 != null && var2.b() == Item.getByBlock(Blocks.PUMPKIN)) {
+      ItemStack var2 = var1.bp.b[3];
+      if(var2 != null && var2.getItem() == Item.getByBlock(Blocks.PUMPKIN)) {
          return false;
       } else {
          Vec3D var3 = var1.d(1.0F).normalize();
@@ -269,7 +269,7 @@ public class class_wb extends class_wi {
 
       IBlockData var6 = this.cB();
       if(var6 != bs) {
-         this.a(new class_aas(var6.getBlock(), 1, var6.getBlock().toLegacyData(var6)), 0.0F);
+         this.a(new ItemStack(var6.getBlock(), 1, var6.getBlock().toLegacyData(var6)), 0.0F);
       }
 
    }

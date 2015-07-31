@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import com.google.common.base.Function;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.ItemBlock;
 
@@ -19,7 +19,7 @@ public class class_aba extends ItemBlock {
 
    public class_aba(Block var1, Block var2, final String[] var3) {
       this(var1, var2, new Function() {
-         public String a(class_aas var1) {
+         public String a(ItemStack var1) {
             int var2 = var1.i();
             if(var2 < 0 || var2 >= var3.length) {
                var2 = 0;
@@ -30,7 +30,7 @@ public class class_aba extends ItemBlock {
 
          // $FF: synthetic method
          public Object apply(Object var1) {
-            return this.a((class_aas)var1);
+            return this.a((ItemStack)var1);
          }
       });
    }
@@ -39,7 +39,7 @@ public class class_aba extends ItemBlock {
       return var1;
    }
 
-   public String e_(class_aas var1) {
+   public String e_(ItemStack var1) {
       return super.a() + "." + (String)this.c.apply(var1);
    }
 }

@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
@@ -75,29 +75,29 @@ public class class_wa extends class_wi {
       this.ac.a(c, Byte.valueOf((byte)0));
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.ac.a(b) == 1) {
-         var1.a("powered", true);
+         var1.put("powered", true);
       }
 
-      var1.a("Fuse", (short)this.bu);
-      var1.a("ExplosionRadius", (byte)this.bv);
-      var1.a("ignited", this.cC());
+      var1.put("Fuse", (short)this.bu);
+      var1.put("ExplosionRadius", (byte)this.bv);
+      var1.put("ignited", this.cC());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.ac.b(b, Byte.valueOf((byte)(var1.o("powered")?1:0)));
-      if(var1.b("Fuse", 99)) {
-         this.bu = var1.f("Fuse");
+      this.ac.b(b, Byte.valueOf((byte)(var1.getBoolean("powered")?1:0)));
+      if(var1.hasOfType("Fuse", 99)) {
+         this.bu = var1.getShort("Fuse");
       }
 
-      if(var1.b("ExplosionRadius", 99)) {
-         this.bv = var1.e("ExplosionRadius");
+      if(var1.hasOfType("ExplosionRadius", 99)) {
+         this.bv = var1.getByte("ExplosionRadius");
       }
 
-      if(var1.o("ignited")) {
+      if(var1.getBoolean("ignited")) {
          this.cD();
       }
 
@@ -146,7 +146,7 @@ public class class_wa extends class_wi {
          this.a(Item.getById(var4), 1);
       } else if(var1.j() instanceof class_wa && var1.j() != this && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new class_aas(Items.ca, 1, 4), 0.0F);
+         this.a(new ItemStack(Items.ca, 1, 4), 0.0F);
       }
 
    }
@@ -176,8 +176,8 @@ public class class_wa extends class_wi {
       this.ac.b(b, Byte.valueOf((byte)1));
    }
 
-   protected boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
-      if(var3 != null && var3.b() == Items.d) {
+   protected boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+      if(var3 != null && var3.getItem() == Items.d) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.a((EnumUsedHand)var2);
          if(!this.o.D) {

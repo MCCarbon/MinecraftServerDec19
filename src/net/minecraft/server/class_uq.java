@@ -5,7 +5,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apd;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qi;
@@ -47,10 +47,10 @@ public class class_uq extends class_pr {
 
    }
 
-   protected void b(class_dn var1) {
+   protected void b(NBTTagCompound var1) {
    }
 
-   protected void a(class_dn var1) {
+   protected void a(NBTTagCompound var1) {
    }
 
    public boolean ad() {

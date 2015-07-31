@@ -10,9 +10,9 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 
 public abstract class class_aso {
 	protected List<class_asn> a = new LinkedList<class_asn>();
@@ -59,45 +59,45 @@ public abstract class class_aso {
 
 	}
 
-	public class_dn a(int var1, int var2) {
-		class_dn var3 = new class_dn();
-		var3.a("id", class_asl.a(this));
-		var3.a("ChunkX", var1);
-		var3.a("ChunkZ", var2);
-		var3.a((String) "BB", (class_eb) this.b.g());
-		class_du var4 = new class_du();
+	public NBTTagCompound a(int var1, int var2) {
+		NBTTagCompound var3 = new NBTTagCompound();
+		var3.put("id", class_asl.a(this));
+		var3.put("ChunkX", var1);
+		var3.put("ChunkZ", var2);
+		var3.put((String) "BB", (NBTTag) this.b.g());
+		NBTTagList var4 = new NBTTagList();
 		Iterator<class_asn> var5 = this.a.iterator();
 
 		while (var5.hasNext()) {
 			class_asn var6 = (class_asn) var5.next();
-			var4.a((class_eb) var6.b());
+			var4.add((NBTTag) var6.b());
 		}
 
-		var3.a((String) "Children", (class_eb) var4);
+		var3.put((String) "Children", (NBTTag) var4);
 		this.a(var3);
 		return var3;
 	}
 
-	public void a(class_dn var1) {
+	public void a(NBTTagCompound var1) {
 	}
 
-	public void a(World var1, class_dn var2) {
-		this.c = var2.g("ChunkX");
-		this.d = var2.g("ChunkZ");
-		if (var2.d("BB")) {
-			this.b = new class_arw(var2.m("BB"));
+	public void a(World var1, NBTTagCompound var2) {
+		this.c = var2.getInt("ChunkX");
+		this.d = var2.getInt("ChunkZ");
+		if (var2.has("BB")) {
+			this.b = new class_arw(var2.getIntArray("BB"));
 		}
 
-		class_du var3 = var2.c("Children", 10);
+		NBTTagList var3 = var2.getList("Children", 10);
 
-		for (int var4 = 0; var4 < var3.c(); ++var4) {
-			this.a.add(class_asl.b(var3.b(var4), var1));
+		for (int var4 = 0; var4 < var3.getSize(); ++var4) {
+			this.a.add(class_asl.b(var3.getCompound(var4), var1));
 		}
 
 		this.b(var2);
 	}
 
-	public void b(class_dn var1) {
+	public void b(NBTTagCompound var1) {
 	}
 
 	protected void a(World var1, Random var2, int var3) {

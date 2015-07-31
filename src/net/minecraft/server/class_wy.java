@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 
 public class class_wy {
    public boolean a;
@@ -12,32 +12,32 @@ public class class_wy {
    private float f = 0.05F;
    private float g = 0.1F;
 
-   public void a(class_dn var1) {
-      class_dn var2 = new class_dn();
-      var2.a("invulnerable", this.a);
-      var2.a("flying", this.b);
-      var2.a("mayfly", this.c);
-      var2.a("instabuild", this.d);
-      var2.a("mayBuild", this.e);
-      var2.a("flySpeed", this.f);
-      var2.a("walkSpeed", this.g);
-      var1.a((String)"abilities", (class_eb)var2);
+   public void a(NBTTagCompound var1) {
+      NBTTagCompound var2 = new NBTTagCompound();
+      var2.put("invulnerable", this.a);
+      var2.put("flying", this.b);
+      var2.put("mayfly", this.c);
+      var2.put("instabuild", this.d);
+      var2.put("mayBuild", this.e);
+      var2.put("flySpeed", this.f);
+      var2.put("walkSpeed", this.g);
+      var1.put((String)"abilities", (NBTTag)var2);
    }
 
-   public void b(class_dn var1) {
-      if(var1.b("abilities", 10)) {
-         class_dn var2 = var1.n("abilities");
-         this.a = var2.o("invulnerable");
-         this.b = var2.o("flying");
-         this.c = var2.o("mayfly");
-         this.d = var2.o("instabuild");
-         if(var2.b("flySpeed", 99)) {
-            this.f = var2.i("flySpeed");
-            this.g = var2.i("walkSpeed");
+   public void b(NBTTagCompound var1) {
+      if(var1.hasOfType("abilities", 10)) {
+         NBTTagCompound var2 = var1.getCompound("abilities");
+         this.a = var2.getBoolean("invulnerable");
+         this.b = var2.getBoolean("flying");
+         this.c = var2.getBoolean("mayfly");
+         this.d = var2.getBoolean("instabuild");
+         if(var2.hasOfType("flySpeed", 99)) {
+            this.f = var2.getFloat("flySpeed");
+            this.g = var2.getFloat("walkSpeed");
          }
 
-         if(var2.b("mayBuild", 1)) {
-            this.e = var2.o("mayBuild");
+         if(var2.hasOfType("mayBuild", 1)) {
+            this.e = var2.getBoolean("mayBuild");
          }
       }
 

@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adm;
 import net.minecraft.server.class_aej;
@@ -516,7 +516,7 @@ public class Block {
 				if (var1.s.nextFloat() <= var4) {
 					Item var8 = this.getDropType(var3, var1.s, var5);
 					if (var8 != null) {
-						a(var1, var2, new class_aas(var8, 1, this.getDropData(var3)));
+						a(var1, var2, new ItemStack(var8, 1, this.getDropData(var3)));
 					}
 				}
 			}
@@ -524,7 +524,7 @@ public class Block {
 		}
 	}
 
-	public static void a(World var0, BlockPosition var1, class_aas var2) {
+	public static void a(World var0, BlockPosition var1, ItemStack var2) {
 		if (!var0.D && var0.R().b("doTileDrops")) {
 			float var3 = 0.5F;
 			double var4 = (double) (var0.s.nextFloat() * var3) + (double) (1.0F - var3) * 0.5D;
@@ -661,7 +661,7 @@ public class Block {
 	public void a(World var1, BlockPosition var2, class_aej var3) {
 	}
 
-	public boolean a(World var1, BlockPosition var2, EnumDirection var3, class_aas var4) {
+	public boolean a(World var1, BlockPosition var2, EnumDirection var3, ItemStack var4) {
 		return this.b(var1, var2, var3);
 	}
 
@@ -673,7 +673,7 @@ public class Block {
 		return var1.p(var2).getBlock().material.isReplaceable();
 	}
 
-	public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+	public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
 		return false;
 	}
 
@@ -736,11 +736,11 @@ public class Block {
 	public void j() {
 	}
 
-	public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
+	public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
 		var2.b(class_nc.ab[getId(this)]);
 		var2.a(0.025F);
 		if (this.K() && class_adk.a(class_adm.q, var6) > 0) {
-			class_aas var8 = this.i(var4);
+			ItemStack var8 = this.i(var4);
 			if (var8 != null) {
 				a(var1, var3, var8);
 			}
@@ -755,21 +755,21 @@ public class Block {
 		return this.isFullCube() && !this.isTileEntity;
 	}
 
-	protected class_aas i(IBlockData var1) {
+	protected ItemStack i(IBlockData var1) {
 		int var2 = 0;
 		Item var3 = Item.getByBlock(this);
 		if (var3 != null && var3.k()) {
 			var2 = this.toLegacyData(var1);
 		}
 
-		return new class_aas(var3, 1, var2);
+		return new ItemStack(var3, 1, var2);
 	}
 
 	public int a(int var1, Random var2) {
 		return this.a(var2);
 	}
 
-	public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+	public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
 	}
 
 	public boolean g() {

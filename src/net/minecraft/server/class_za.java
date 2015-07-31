@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.base.Predicates;
 import java.util.List;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ahk;
@@ -12,8 +12,8 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ck;
 import net.minecraft.server.class_cn;
 import net.minecraft.server.class_cr;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
@@ -28,7 +28,7 @@ public class class_za extends Item {
    private static final int[] k = new int[]{13, 15, 16, 11};
    public static final String[] a = new String[]{"minecraft:items/empty_armor_slot_boots", "minecraft:items/empty_armor_slot_leggings", "minecraft:items/empty_armor_slot_chestplate", "minecraft:items/empty_armor_slot_helmet"};
    private static final class_cr l = new class_cn() {
-      protected class_aas b(class_ck var1, class_aas var2) {
+      protected ItemStack b(class_ck var1, ItemStack var2) {
          BlockPosition var3 = var1.d().shift(class_ahk.b(var1.f()));
          int var4 = var3.getX();
          int var5 = var3.getY();
@@ -38,14 +38,14 @@ public class class_za extends Item {
          if(!var8.isEmpty()) {
             class_qa var9 = (class_qa)var8.get(0);
             class_pw var10 = class_qb.c(var2);
-            class_aas var11 = var2.k();
-            var11.b = 1;
+            ItemStack var11 = var2.clone();
+            var11.count = 1;
             var9.a(var10, var11);
             if(var9 instanceof class_qb) {
                ((class_qb)var9).a(var10, 2.0F);
             }
 
-            --var2.b;
+            --var2.count;
             return var2;
          } else {
             return super.b(var1, var2);
@@ -76,19 +76,19 @@ public class class_za extends Item {
       return this.m;
    }
 
-   public boolean d_(class_aas var1) {
-      return this.m != class_za.class_a_in_class_za.a?false:(!var1.n()?false:(!var1.o().b("display", 10)?false:var1.o().n("display").b("color", 3)));
+   public boolean d_(ItemStack var1) {
+      return this.m != class_za.class_a_in_class_za.a?false:(!var1.hasTag()?false:(!var1.getTag().hasOfType("display", 10)?false:var1.getTag().getCompound("display").hasOfType("color", 3)));
    }
 
-   public int b(class_aas var1) {
+   public int b(ItemStack var1) {
       if(this.m != class_za.class_a_in_class_za.a) {
          return -1;
       } else {
-         class_dn var2 = var1.o();
+         NBTTagCompound var2 = var1.getTag();
          if(var2 != null) {
-            class_dn var3 = var2.n("display");
-            if(var3 != null && var3.b("color", 3)) {
-               return var3.g("color");
+            NBTTagCompound var3 = var2.getCompound("display");
+            if(var3 != null && var3.hasOfType("color", 3)) {
+               return var3.getInt("color");
             }
          }
 
@@ -96,48 +96,48 @@ public class class_za extends Item {
       }
    }
 
-   public void c(class_aas var1) {
+   public void c(ItemStack var1) {
       if(this.m == class_za.class_a_in_class_za.a) {
-         class_dn var2 = var1.o();
+         NBTTagCompound var2 = var1.getTag();
          if(var2 != null) {
-            class_dn var3 = var2.n("display");
-            if(var3.d("color")) {
-               var3.p("color");
+            NBTTagCompound var3 = var2.getCompound("display");
+            if(var3.has("color")) {
+               var3.remove("color");
             }
 
          }
       }
    }
 
-   public void b(class_aas var1, int var2) {
+   public void b(ItemStack var1, int var2) {
       if(this.m != class_za.class_a_in_class_za.a) {
          throw new UnsupportedOperationException("Can\'t dye non-leather!");
       } else {
-         class_dn var3 = var1.o();
+         NBTTagCompound var3 = var1.getTag();
          if(var3 == null) {
-            var3 = new class_dn();
-            var1.d(var3);
+            var3 = new NBTTagCompound();
+            var1.setTag(var3);
          }
 
-         class_dn var4 = var3.n("display");
-         if(!var3.b("display", 10)) {
-            var3.a((String)"display", (class_eb)var4);
+         NBTTagCompound var4 = var3.getCompound("display");
+         if(!var3.hasOfType("display", 10)) {
+            var3.put((String)"display", (NBTTag)var4);
          }
 
-         var4.a("color", var2);
+         var4.put("color", var2);
       }
    }
 
-   public boolean a(class_aas var1, class_aas var2) {
-      return this.m.b() == var2.b()?true:super.a(var1, var2);
+   public boolean a(ItemStack var1, ItemStack var2) {
+      return this.m.b() == var2.getItem()?true:super.a(var1, var2);
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       class_pw var5 = class_qb.c(var1);
-      class_aas var6 = var3.a(var5);
+      ItemStack var6 = var3.a(var5);
       if(var6 == null) {
-         var3.a(var5, var1.k());
-         var1.b = 0;
+         var3.a(var5, var1.clone());
+         var1.count = 0;
          return new class_or(class_oq.a, var1);
       } else {
          return new class_or(class_oq.b, var1);

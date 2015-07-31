@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 
 public class class_ael {
    private TreeMap a = new TreeMap();
@@ -55,26 +55,26 @@ public class class_ael {
       return var2 != null?var2.c():0;
    }
 
-   public class_dn a() {
-      class_dn var1 = new class_dn();
+   public NBTTagCompound a() {
+      NBTTagCompound var1 = new NBTTagCompound();
       Iterator var2 = this.a.keySet().iterator();
 
       while(var2.hasNext()) {
          String var3 = (String)var2.next();
          class_ael.class_a_in_class_ael var4 = (class_ael.class_a_in_class_ael)this.a.get(var3);
-         var1.a(var3, var4.a());
+         var1.put(var3, var4.a());
       }
 
       return var1;
    }
 
-   public void a(class_dn var1) {
-      Set var2 = var1.c();
+   public void a(NBTTagCompound var1) {
+      Set var2 = var1.getKeys();
       Iterator var3 = var2.iterator();
 
       while(var3.hasNext()) {
          String var4 = (String)var3.next();
-         String var6 = var1.k(var4);
+         String var6 = var1.getString(var4);
          this.a(var4, var6);
       }
 

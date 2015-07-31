@@ -3,13 +3,13 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_dc;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
@@ -23,7 +23,7 @@ public class class_zb extends Item {
       this.a(CreativeTab.c);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return class_oq.b;
       } else {
@@ -52,18 +52,18 @@ public class class_zb extends Item {
                      float var22 = (float)MathHelper.floor((MathHelper.clampAngle(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
                      var21.b(var14 + 0.5D, var16, var18 + 0.5D, var22, 0.0F);
                      this.a(var21, var3.s);
-                     class_dn var23 = var1.o();
-                     if(var23 != null && var23.b("EntityTag", 10)) {
-                        class_dn var24 = new class_dn();
+                     NBTTagCompound var23 = var1.getTag();
+                     if(var23 != null && var23.hasOfType("EntityTag", 10)) {
+                        NBTTagCompound var24 = new NBTTagCompound();
                         var21.d(var24);
-                        var24.a(var23.n("EntityTag"));
+                        var24.copyFrom(var23.getCompound("EntityTag"));
                         var21.f(var24);
                      }
 
                      var3.a((class_pr)var21);
                   }
 
-                  --var1.b;
+                  --var1.count;
                   return class_oq.a;
                }
             }

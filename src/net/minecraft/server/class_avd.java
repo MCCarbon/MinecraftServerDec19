@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 
 public abstract class class_avd {
    public final String a;
@@ -10,9 +10,9 @@ public abstract class class_avd {
       this.a = var1;
    }
 
-   public abstract void a(class_dn var1);
+   public abstract void a(NBTTagCompound var1);
 
-   public abstract void b(class_dn var1);
+   public abstract void b(NBTTagCompound var1);
 
    public void c() {
       this.a(true);

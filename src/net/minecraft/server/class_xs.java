@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
@@ -15,30 +15,30 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awg;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_pk;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_xo;
 
 public class class_xs extends class_xo {
-   private class_aas d;
+   private ItemStack d;
 
    public class_xs(World var1) {
       super(var1);
-      this.d = class_abe.a(new class_aas(Items.bB), class_acf.a);
+      this.d = class_abe.a(new ItemStack(Items.bB), class_acf.a);
    }
 
-   public class_xs(World var1, class_qa var2, class_aas var3) {
+   public class_xs(World var1, class_qa var2, ItemStack var3) {
       super(var1, var2);
-      this.d = class_abe.a(new class_aas(Items.bB), class_acf.a);
+      this.d = class_abe.a(new ItemStack(Items.bB), class_acf.a);
       this.d = var3;
    }
 
-   public class_xs(World var1, double var2, double var4, double var6, class_aas var8) {
+   public class_xs(World var1, double var2, double var4, double var6, ItemStack var8) {
       super(var1, var2, var4, var6);
-      this.d = class_abe.a(new class_aas(Items.bB), class_acf.a);
+      this.d = class_abe.a(new ItemStack(Items.bB), class_acf.a);
       this.d = var8;
    }
 
@@ -118,24 +118,24 @@ public class class_xs extends class_xo {
 
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.d = class_aas.a(var1.n("Potion"));
+      this.d = ItemStack.a(var1.getCompound("Potion"));
       if(this.d == null) {
          this.J();
       }
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.d != null) {
-         var1.a((String)"Potion", (class_eb)this.d.b(new class_dn()));
+         var1.put((String)"Potion", (NBTTag)this.d.write(new NBTTagCompound()));
       }
 
    }
 
-   public class_aas m() {
+   public ItemStack m() {
       return this.d;
    }
 }

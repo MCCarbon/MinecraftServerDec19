@@ -9,7 +9,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
@@ -49,7 +49,7 @@ public class class_bp extends class_i {
             if(!var6.e(var3)) {
                throw new class_bz("commands.testforblock.outOfWorld", new Object[0]);
             } else {
-               class_dn var7 = new class_dn();
+               NBTTagCompound var7 = new NBTTagCompound();
                boolean var8 = false;
                if(var2.length >= 6 && var4.isTileEntity()) {
                   String var9 = a(var1, var2, 5).c();
@@ -80,7 +80,7 @@ public class class_bp extends class_i {
                         throw new class_bz("commands.testforblock.failed.tileEntity", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
                      }
 
-                     class_dn var12 = new class_dn();
+                     NBTTagCompound var12 = new NBTTagCompound();
                      var15.b(var12);
                      if(!class_dy.a(var7, var12, true)) {
                         throw new class_bz("commands.testforblock.failed.nbt", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});

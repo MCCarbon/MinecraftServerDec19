@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
@@ -82,7 +82,7 @@ public class class_kz extends class_li {
       return this.d?false:super.b(var1);
    }
 
-   public class_oq a(class_xa var1, World var2, class_aas var3, EnumUsedHand var4) {
+   public class_oq a(class_xa var1, World var2, ItemStack var3, EnumUsedHand var4) {
       if(this.d) {
          this.f();
          return class_oq.b;
@@ -91,7 +91,7 @@ public class class_kz extends class_li {
       }
    }
 
-   public class_oq a(class_xa var1, World var2, class_aas var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(class_xa var1, World var2, ItemStack var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
       if(this.d) {
          this.f();
          return class_oq.b;

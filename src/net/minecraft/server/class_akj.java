@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -42,7 +42,7 @@ public class class_akj extends Block {
       super.a(var1, var2, var3);
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       this.e(var1, var2);
       return super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9, var10);
    }
@@ -122,7 +122,7 @@ public class class_akj extends Block {
 
    }
 
-   protected class_aas i(IBlockData var1) {
-      return new class_aas(Blocks.REDSTONE_ORE);
+   protected ItemStack i(IBlockData var1) {
+      return new ItemStack(Blocks.REDSTONE_ORE);
    }
 }

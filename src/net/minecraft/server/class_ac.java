@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
@@ -31,20 +31,20 @@ public class class_ac extends class_i {
          if(var3 instanceof class_xa) {
             throw new class_bz("commands.entitydata.noPlayers", new Object[]{var3.f_()});
          } else {
-            class_dn var4 = new class_dn();
+            NBTTagCompound var4 = new NBTTagCompound();
             var3.e(var4);
-            class_dn var5 = (class_dn)var4.b();
+            NBTTagCompound var5 = (NBTTagCompound)var4.clone();
 
-            class_dn var6;
+            NBTTagCompound var6;
             try {
                var6 = class_ed.a(a(var1, var2, 1).c());
             } catch (class_ec var8) {
                throw new class_bz("commands.entitydata.tagError", new Object[]{var8.getMessage()});
             }
 
-            var6.p("UUIDMost");
-            var6.p("UUIDLeast");
-            var4.a(var6);
+            var6.remove("UUIDMost");
+            var6.remove("UUIDLeast");
+            var4.copyFrom(var6);
             if(var4.equals(var5)) {
                throw new class_bz("commands.entitydata.failed", new Object[]{var4.toString()});
             } else {

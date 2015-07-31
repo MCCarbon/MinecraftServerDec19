@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
@@ -61,24 +61,24 @@ public class class_aid extends class_agd {
       return false;
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, class_aas var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(var6 != null && var6.b() instanceof ItemBlock) {
+   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+      if(var6 != null && var6.getItem() instanceof ItemBlock) {
          class_amq var11 = this.f(var1, var2);
          if(var11 == null) {
             return false;
          } else if(var11.b() != null) {
             return false;
          } else {
-            Block var12 = Block.getByItem(var6.b());
+            Block var12 = Block.getByItem(var6.getItem());
             if(!this.a(var12, var6.i())) {
                return false;
             } else {
-               var11.a(var6.b(), var6.i());
+               var11.a(var6.getItem(), var6.i());
                var11.p_();
                var1.h(var2);
                var4.b(class_nc.T);
                if(!var4.bH.d) {
-                  --var6.b;
+                  --var6.count;
                }
 
                return true;
@@ -113,7 +113,7 @@ public class class_aid extends class_agd {
    public void b(World var1, BlockPosition var2, IBlockData var3) {
       class_amq var4 = this.f(var1, var2);
       if(var4 != null && var4.b() != null) {
-         a(var1, var2, new class_aas(var4.b(), 1, var4.c()));
+         a(var1, var2, new ItemStack(var4.b(), 1, var4.c()));
       }
 
       super.b(var1, var2, var3);

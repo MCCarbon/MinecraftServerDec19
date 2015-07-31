@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.World;
@@ -22,7 +22,7 @@ import net.minecraft.server.class_asu;
 import net.minecraft.server.class_asv;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_ob;
 import net.minecraft.server.class_od;
@@ -290,18 +290,18 @@ public class class_ary {
          this.a(var2, var1, var3);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Template", this.d);
-         var1.a("Rot", this.e.name());
-         var1.a("OW", this.f);
+         var1.put("Template", this.d);
+         var1.put("Rot", this.e.name());
+         var1.put("OW", this.f);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.d = var1.k("Template");
-         this.e = Block.class_c_in_class_agj.valueOf(var1.k("Rot"));
-         this.f = var1.o("OW");
+         this.d = var1.getString("Template");
+         this.e = Block.class_c_in_class_agj.valueOf(var1.getString("Rot"));
+         this.f = var1.getBoolean("OW");
          this.a(this.c);
       }
 
@@ -316,7 +316,7 @@ public class class_ary {
 
                   while(var9.hasNext()) {
                      Item var10 = (Item)var9.next();
-                     var8.add(new class_od(class_adk.a(var4, new class_aas(var10), 20 + var4.nextInt(20)), 1, 1, 3));
+                     var8.add(new class_od(class_adk.a(var4, new ItemStack(var10), 20 + var4.nextInt(20)), 1, 1, 3));
                   }
 
                   class_od.a(var4, var8, (class_oj)((class_ami)var7), 2 + var4.nextInt(5));

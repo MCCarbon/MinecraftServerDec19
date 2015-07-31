@@ -40,7 +40,7 @@ public interface IChatBaseComponent extends Iterable {
 
    IChatBaseComponent f();
 
-   public static class class_a_in_class_eu implements JsonDeserializer, JsonSerializer {
+   public static class ChatSerializer implements JsonDeserializer, JsonSerializer {
       private static final Gson a;
 
       public IChatBaseComponent a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
@@ -197,11 +197,11 @@ public interface IChatBaseComponent extends Iterable {
         return var4;
       }
 
-      public static String a(IChatBaseComponent var0) {
+      public static String toJson(IChatBaseComponent var0) {
          return a.toJson((Object)var0);
       }
 
-      public static IChatBaseComponent a(String var0) {
+      public static IChatBaseComponent fromJson(String var0) {
          return (IChatBaseComponent)class_nk.a(a, var0, IChatBaseComponent.class, true);
       }
 
@@ -221,7 +221,7 @@ public interface IChatBaseComponent extends Iterable {
 
       static {
          GsonBuilder var0 = new GsonBuilder();
-         var0.registerTypeHierarchyAdapter(IChatBaseComponent.class, new IChatBaseComponent.class_a_in_class_eu());
+         var0.registerTypeHierarchyAdapter(IChatBaseComponent.class, new IChatBaseComponent.ChatSerializer());
          var0.registerTypeHierarchyAdapter(class_ez.class, new class_ez.class_a_in_class_ez());
          var0.registerTypeAdapterFactory(new class_nt());
          a = var0.create();

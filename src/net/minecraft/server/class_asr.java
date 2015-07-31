@@ -26,7 +26,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_od;
 import net.minecraft.server.class_pr;
@@ -296,20 +296,20 @@ public class class_asr {
          this.d = this.a(var3);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("CA", Block.BLOCK_REGISTRY.getId(this.a));
-         var1.a("CB", Block.BLOCK_REGISTRY.getId(this.b));
-         var1.a("CC", Block.BLOCK_REGISTRY.getId(this.c));
-         var1.a("CD", Block.BLOCK_REGISTRY.getId(this.d));
+         var1.put("CA", Block.BLOCK_REGISTRY.getId(this.a));
+         var1.put("CB", Block.BLOCK_REGISTRY.getId(this.b));
+         var1.put("CC", Block.BLOCK_REGISTRY.getId(this.c));
+         var1.put("CD", Block.BLOCK_REGISTRY.getId(this.d));
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = Block.getById(var1.g("CA"));
-         this.b = Block.getById(var1.g("CB"));
-         this.c = Block.getById(var1.g("CC"));
-         this.d = Block.getById(var1.g("CD"));
+         this.a = Block.getById(var1.getInt("CA"));
+         this.b = Block.getById(var1.getInt("CB"));
+         this.c = Block.getById(var1.getInt("CC"));
+         this.d = Block.getById(var1.getInt("CD"));
       }
 
       private Block a(Random var1) {
@@ -402,16 +402,16 @@ public class class_asr {
          this.b = this.a(var3);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("CA", Block.BLOCK_REGISTRY.getId(this.a));
-         var1.a("CB", Block.BLOCK_REGISTRY.getId(this.b));
+         var1.put("CA", Block.BLOCK_REGISTRY.getId(this.a));
+         var1.put("CB", Block.BLOCK_REGISTRY.getId(this.b));
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = Block.getById(var1.g("CA"));
-         this.b = Block.getById(var1.g("CB"));
+         this.a = Block.getById(var1.getInt("CA"));
+         this.b = Block.getById(var1.getInt("CB"));
       }
 
       private Block a(Random var1) {
@@ -495,14 +495,14 @@ public class class_asr {
          return a(var8) && class_asn.a(var1, var8) == null?new class_asr.class_j_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Chest", this.b);
+         var1.put("Chest", this.b);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.b = var1.o("Chest");
+         this.b = var1.getBoolean("Chest");
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
@@ -842,16 +842,16 @@ public class class_asr {
          this.b = var3.nextInt(3);
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("T", this.b);
-         var1.a("C", this.a);
+         var1.put("T", this.b);
+         var1.put("C", this.a);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.b = var1.g("T");
-         this.a = var1.o("C");
+         this.b = var1.getInt("T");
+         this.a = var1.getBoolean("C");
       }
 
       public static class_asr.class_h_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
@@ -1146,14 +1146,14 @@ public class class_asr {
          this.a = var3.nextBoolean();
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Terrace", this.a);
+         var1.put("Terrace", this.a);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = var1.o("Terrace");
+         this.a = var1.getBoolean("Terrace");
       }
 
       public static class_asr.class_g_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
@@ -1258,14 +1258,14 @@ public class class_asr {
          this.a = Math.max(var4.c(), var4.e());
       }
 
-      protected void a(class_dn var1) {
+      protected void a(NBTTagCompound var1) {
          super.a(var1);
-         var1.a("Length", this.a);
+         var1.put("Length", this.a);
       }
 
-      protected void b(class_dn var1) {
+      protected void b(NBTTagCompound var1) {
          super.b(var1);
-         this.a = var1.g("Length");
+         this.a = var1.getInt("Length");
       }
 
       public void a(class_asn var1, List var2, Random var3) {
@@ -1466,16 +1466,16 @@ public class class_asr {
 
       }
 
-      protected void a(class_dn var1) {
-         var1.a("HPos", this.h);
-         var1.a("VCount", this.a);
-         var1.a("Desert", this.b);
+      protected void a(NBTTagCompound var1) {
+         var1.put("HPos", this.h);
+         var1.put("VCount", this.a);
+         var1.put("Desert", this.b);
       }
 
-      protected void b(class_dn var1) {
-         this.h = var1.g("HPos");
-         this.a = var1.g("VCount");
-         this.b = var1.o("Desert");
+      protected void b(NBTTagCompound var1) {
+         this.h = var1.getInt("HPos");
+         this.a = var1.getInt("VCount");
+         this.b = var1.getBoolean("Desert");
       }
 
       protected class_asn a(class_asr.class_k_in_class_asr var1, List var2, Random var3, int var4, int var5) {

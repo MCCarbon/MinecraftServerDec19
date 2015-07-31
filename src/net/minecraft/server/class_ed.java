@@ -7,17 +7,17 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 import java.util.regex.Pattern;
-import net.minecraft.server.class_dm;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_dp;
-import net.minecraft.server.class_dr;
-import net.minecraft.server.class_ds;
-import net.minecraft.server.class_dt;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_dv;
-import net.minecraft.server.class_dz;
-import net.minecraft.server.class_ea;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagByte;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagDouble;
+import net.minecraft.server.NBTTagFloat;
+import net.minecraft.server.NBTTagIntArray;
+import net.minecraft.server.NBTTagInt;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTagLong;
+import net.minecraft.server.NBTTagShort;
+import net.minecraft.server.NBTTagString;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_ec;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -26,14 +26,14 @@ public class class_ed {
    private static final Logger a = LogManager.getLogger();
    private static final Pattern b = Pattern.compile("\\[[-+\\d|,\\s]+\\]");
 
-   public static class_dn a(String var0) throws class_ec {
+   public static NBTTagCompound a(String var0) throws class_ec {
       var0 = var0.trim();
       if(!var0.startsWith("{")) {
          throw new class_ec("Invalid tag encountered, expected \'{\' as first char.");
       } else if(b(var0) != 1) {
          throw new class_ec("Encountered multiple top tags, only one expected");
       } else {
-         return (class_dn)a("tag", var0).a();
+         return (NBTTagCompound)a("tag", var0).a();
       }
    }
 
@@ -303,42 +303,42 @@ public class class_ed {
          this.b = var2;
       }
 
-      public class_eb a() throws class_ec {
+      public NBTTag a() throws class_ec {
          try {
             if(c.matcher(this.b).matches()) {
-               return new class_dp(Double.parseDouble(this.b.substring(0, this.b.length() - 1)));
+               return new NBTTagDouble(Double.parseDouble(this.b.substring(0, this.b.length() - 1)));
             }
 
             if(d.matcher(this.b).matches()) {
-               return new class_dr(Float.parseFloat(this.b.substring(0, this.b.length() - 1)));
+               return new NBTTagFloat(Float.parseFloat(this.b.substring(0, this.b.length() - 1)));
             }
 
             if(e.matcher(this.b).matches()) {
-               return new class_dm(Byte.parseByte(this.b.substring(0, this.b.length() - 1)));
+               return new NBTTagByte(Byte.parseByte(this.b.substring(0, this.b.length() - 1)));
             }
 
             if(f.matcher(this.b).matches()) {
-               return new class_dv(Long.parseLong(this.b.substring(0, this.b.length() - 1)));
+               return new NBTTagLong(Long.parseLong(this.b.substring(0, this.b.length() - 1)));
             }
 
             if(g.matcher(this.b).matches()) {
-               return new class_dz(Short.parseShort(this.b.substring(0, this.b.length() - 1)));
+               return new NBTTagShort(Short.parseShort(this.b.substring(0, this.b.length() - 1)));
             }
 
             if(h.matcher(this.b).matches()) {
-               return new class_dt(Integer.parseInt(this.b));
+               return new NBTTagInt(Integer.parseInt(this.b));
             }
 
             if(i.matcher(this.b).matches()) {
-               return new class_dp(Double.parseDouble(this.b));
+               return new NBTTagDouble(Double.parseDouble(this.b));
             }
 
             if(this.b.equalsIgnoreCase("true") || this.b.equalsIgnoreCase("false")) {
-               return new class_dm((byte)(Boolean.parseBoolean(this.b)?1:0));
+               return new NBTTagByte((byte)(Boolean.parseBoolean(this.b)?1:0));
             }
          } catch (NumberFormatException var6) {
             this.b = this.b.replaceAll("\\\\\"", "\"");
-            return new class_ea(this.b);
+            return new NBTTagString(this.b);
          }
 
          if(this.b.startsWith("[") && this.b.endsWith("]")) {
@@ -352,9 +352,9 @@ public class class_ed {
                   var3[var4] = Integer.parseInt(var8[var4].trim());
                }
 
-               return new class_ds(var3);
+               return new NBTTagIntArray(var3);
             } catch (NumberFormatException var5) {
-               return new class_ea(this.b);
+               return new NBTTagString(this.b);
             }
          } else {
             if(this.b.startsWith("\"") && this.b.endsWith("\"")) {
@@ -373,7 +373,7 @@ public class class_ed {
                }
             }
 
-            return new class_ea(var1.toString());
+            return new NBTTagString(var1.toString());
          }
       }
    }
@@ -385,13 +385,13 @@ public class class_ed {
          this.a = var1;
       }
 
-      public class_eb a() throws class_ec {
-         class_du var1 = new class_du();
+      public NBTTag a() throws class_ec {
+         NBTTagList var1 = new NBTTagList();
          Iterator var2 = this.b.iterator();
 
          while(var2.hasNext()) {
             class_ed.class_a_in_class_ed var3 = (class_ed.class_a_in_class_ed)var2.next();
-            var1.a(var3.a());
+            var1.add(var3.a());
          }
 
          return var1;
@@ -405,13 +405,13 @@ public class class_ed {
          this.a = var1;
       }
 
-      public class_eb a() throws class_ec {
-         class_dn var1 = new class_dn();
+      public NBTTag a() throws class_ec {
+         NBTTagCompound var1 = new NBTTagCompound();
          Iterator var2 = this.b.iterator();
 
          while(var2.hasNext()) {
             class_ed.class_a_in_class_ed var3 = (class_ed.class_a_in_class_ed)var2.next();
-            var1.a(var3.a, var3.a());
+            var1.put(var3.a, var3.a());
          }
 
          return var1;
@@ -421,6 +421,6 @@ public class class_ed {
    abstract static class class_a_in_class_ed {
       protected String a;
 
-      public abstract class_eb a() throws class_ec;
+      public abstract NBTTag a() throws class_ec;
    }
 }

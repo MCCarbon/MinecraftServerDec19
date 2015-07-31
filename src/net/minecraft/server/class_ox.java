@@ -71,7 +71,7 @@ public class class_ox {
       this.b("os_version", System.getProperty("os.version"));
       this.b("os_architecture", System.getProperty("os.arch"));
       this.b("java_version", System.getProperty("java.version"));
-      this.a("version", "15w31b");
+      this.a("version", "15w31c");
       this.e.b(this);
    }
 

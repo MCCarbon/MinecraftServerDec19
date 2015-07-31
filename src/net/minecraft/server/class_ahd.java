@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
@@ -146,7 +146,7 @@ public class class_ahd extends class_ago implements class_agl {
 
             for(int var8 = 0; var8 < var7; ++var8) {
                if(var1.s.nextInt(15) <= var6) {
-                  a(var1, var2, new class_aas(this.o()));
+                  a(var1, var2, new ItemStack(this.o()));
                }
             }
          }

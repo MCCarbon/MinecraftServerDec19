@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.Block;
@@ -140,7 +140,7 @@ public abstract class class_ahh extends class_aiv {
       return this.getBlockData().set(O, var8.aR().getOpposite());
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, class_aas var5) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
       if(this.e(var1, var2, var3)) {
          var1.a((BlockPosition)var2, (Block)this, 1);
       }

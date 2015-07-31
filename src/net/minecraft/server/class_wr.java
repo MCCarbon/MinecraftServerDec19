@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aer;
@@ -13,7 +13,7 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
@@ -178,13 +178,13 @@ public class class_wr extends class_wi {
          BlockPosition var2 = new BlockPosition(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
-            class_aas var4 = this.a((class_pw)class_pw.f);
+            ItemStack var4 = this.a((class_pw)class_pw.f);
             if(var4 != null) {
                if(var4.e()) {
-                  var4.b(var4.h() + this.V.nextInt(2));
+                  var4.setData(var4.h() + this.V.nextInt(2));
                   if(var4.h() >= var4.j()) {
-                     this.b((class_aas)var4);
-                     this.a((class_pw)class_pw.f, (class_aas)null);
+                     this.b((ItemStack)var4);
+                     this.a((class_pw)class_pw.f, (ItemStack)null);
                   }
                }
 
@@ -308,43 +308,43 @@ public class class_wr extends class_wi {
       if(this.V.nextFloat() < (this.o.ab() == class_om.d?0.05F:0.01F)) {
          int var2 = this.V.nextInt(3);
          if(var2 == 0) {
-            this.a((class_pw)class_pw.a, (class_aas)(new class_aas(Items.n)));
+            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.n)));
          } else {
-            this.a((class_pw)class_pw.a, (class_aas)(new class_aas(Items.a)));
+            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.a)));
          }
       }
 
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       if(this.j_()) {
-         var1.a("IsBaby", true);
+         var1.put("IsBaby", true);
       }
 
       if(this.cD()) {
-         var1.a("IsVillager", true);
+         var1.put("IsVillager", true);
       }
 
-      var1.a("ConversionTime", this.cE()?this.bw:-1);
-      var1.a("CanBreakDoors", this.cC());
+      var1.put("ConversionTime", this.cE()?this.bw:-1);
+      var1.put("CanBreakDoors", this.cC());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      if(var1.o("IsBaby")) {
+      if(var1.getBoolean("IsBaby")) {
          this.m(true);
       }
 
-      if(var1.o("IsVillager")) {
+      if(var1.getBoolean("IsVillager")) {
          this.n(true);
       }
 
-      if(var1.b("ConversionTime", 99) && var1.g("ConversionTime") > -1) {
-         this.a(var1.g("ConversionTime"));
+      if(var1.hasOfType("ConversionTime", 99) && var1.getInt("ConversionTime") > -1) {
+         this.a(var1.getInt("ConversionTime"));
       }
 
-      this.a(var1.o("CanBreakDoors"));
+      this.a(var1.getBoolean("CanBreakDoors"));
    }
 
    public void a(class_qa var1) {
@@ -385,8 +385,8 @@ public class class_wr extends class_wi {
       return var1;
    }
 
-   protected boolean a(class_aas var1) {
-      return var1.b() == Items.aR && this.j_() && this.aw()?false:super.a(var1);
+   protected boolean a(ItemStack var1) {
+      return var1.getItem() == Items.aR && this.j_() && this.aw()?false:super.a(var1);
    }
 
    public class_qd a(class_on var1, class_qd var2) {
@@ -429,7 +429,7 @@ public class class_wr extends class_wi {
       if(this.a((class_pw)class_pw.f) == null) {
          Calendar var8 = this.o.Z();
          if(var8.get(2) + 1 == 10 && var8.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.a((class_pw)class_pw.f, (class_aas)(new class_aas(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN)));
+            this.a((class_pw)class_pw.f, (ItemStack)(new ItemStack(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN)));
             this.bp[class_pw.f.b()] = 0.0F;
          }
       }
@@ -449,10 +449,10 @@ public class class_wr extends class_wi {
       return (class_qd)var7;
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
-      if(var3 != null && var3.b() == Items.aq && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+      if(var3 != null && var3.getItem() == Items.aq && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
          if(!var1.bH.d) {
-            --var3.b;
+            --var3.count;
          }
 
          if(!this.o.D) {
@@ -553,7 +553,7 @@ public class class_wr extends class_wi {
       super.a(var1);
       if(var1.j() instanceof class_wa && !(this instanceof class_wj) && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new class_aas(Items.ca, 1, 2), 0.0F);
+         this.a(new ItemStack(Items.ca, 1, 2), 0.0F);
       }
 
    }

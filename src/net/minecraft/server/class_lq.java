@@ -82,8 +82,8 @@ public class class_lq implements class_jl, class_kn {
 		try {
 			c.info("Disconnecting " + this.d() + ": " + var1);
 			class_fa var2 = new class_fa(var1);
-			this.a.a((Packet) (new class_jk(var2)));
-			this.a.a((IChatBaseComponent) var2);
+			this.a.sendPacket((Packet) (new class_jk(var2)));
+			this.a.close((IChatBaseComponent) var2);
 		} catch (Exception var3) {
 			c.error((String) "Error whilst disconnecting player", (Throwable) var3);
 		}
@@ -103,12 +103,12 @@ public class class_lq implements class_jl, class_kn {
 			if (this.f.aK() >= 0 && !this.a.isLocal()) {
 				this.a.sendPacket(new class_jj(this.f.aK()), new ChannelFutureListener() {
 					public void operationComplete(ChannelFuture var1) throws Exception {
-						class_lq.this.a.a(class_lq.this.f.aK());
+						class_lq.this.a.setCompression(class_lq.this.f.aK());
 					}
 				}, new GenericFutureListener[0]);
 			}
 
-			this.a.a((Packet) (new class_jh(this.i)));
+			this.a.sendPacket((Packet) (new class_jh(this.i)));
 			class_lh var2 = this.f.ap().a(this.i.getId());
 			if (var2 != null) {
 				this.g = class_lq.class_a_in_class_lq.e;
@@ -133,7 +133,7 @@ public class class_lq implements class_jl, class_kn {
 		this.i = var1.a();
 		if (this.f.af() && !this.a.isLocal()) {
 			this.g = class_lq.class_a_in_class_lq.b;
-			this.a.a((Packet) (new class_ji(this.j, this.f.Q().getPublic(), this.e)));
+			this.a.sendPacket((Packet) (new class_ji(this.j, this.f.Q().getPublic(), this.e)));
 		} else {
 			this.g = class_lq.class_a_in_class_lq.d;
 		}

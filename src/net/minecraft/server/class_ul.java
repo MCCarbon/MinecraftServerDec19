@@ -3,13 +3,13 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import net.minecraft.server.class_aan;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
@@ -126,17 +126,17 @@ public class class_ul extends class_qj {
       this.a("mob.wolf.step", 0.15F, 1.0F);
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Angry", this.cK());
-      var1.a("CollarColor", (byte)this.cL().b());
+      var1.put("Angry", this.cK());
+      var1.put("CollarColor", (byte)this.cL().b());
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.p(var1.o("Angry"));
-      if(var1.b("CollarColor", 99)) {
-         this.a(class_zy.a(var1.e("CollarColor")));
+      this.p(var1.getBoolean("Angry"));
+      if(var1.hasOfType("CollarColor", 99)) {
+         this.a(class_zy.a(var1.getByte("CollarColor")));
       }
 
    }
@@ -260,25 +260,25 @@ public class class_ul extends class_qj {
       this.a((class_qk)class_wl.e).a(4.0D);
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, class_aas var3) {
+   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
       if(this.cA()) {
          if(var3 != null) {
-            if(var3.b() instanceof class_aan) {
-               class_aan var4 = (class_aan)var3.b();
+            if(var3.getItem() instanceof class_aan) {
+               class_aan var4 = (class_aan)var3.getItem();
                if(var4.g() && this.ac.d(bw) < 20.0F) {
                   if(!var1.bH.d) {
-                     --var3.b;
+                     --var3.count;
                   }
 
                   this.h((float)var4.h(var3));
                   return true;
                }
-            } else if(var3.b() == Items.aY) {
+            } else if(var3.getItem() == Items.aY) {
                class_zy var5 = class_zy.a(var3.i());
                if(var5 != this.cL()) {
                   this.a(var5);
                   if(!var1.bH.d) {
-                     --var3.b;
+                     --var3.count;
                   }
 
                   return true;
@@ -292,9 +292,9 @@ public class class_ul extends class_qj {
             this.h.n();
             this.d((class_qa)null);
          }
-      } else if(var3 != null && var3.b() == Items.aZ && !this.cK()) {
+      } else if(var3 != null && var3.getItem() == Items.aZ && !this.cK()) {
          if(!var1.bH.d) {
-            --var3.b;
+            --var3.count;
          }
 
          if(!this.o.D) {
@@ -319,8 +319,8 @@ public class class_ul extends class_qj {
       return super.a(var1, var2, var3);
    }
 
-   public boolean d(class_aas var1) {
-      return var1 == null?false:(!(var1.b() instanceof class_aan)?false:((class_aan)var1.b()).g());
+   public boolean d(ItemStack var1) {
+      return var1 == null?false:(!(var1.getItem() instanceof class_aan)?false:((class_aan)var1.getItem()).g());
    }
 
    public int cj() {

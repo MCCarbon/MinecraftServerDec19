@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_amu;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.class_kn;
@@ -38,7 +38,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
    private int j = -1;
    private class_pk k;
    private class_pk l;
-   private class_aas m;
+   private ItemStack m;
    private String n;
 
    public void c() {
@@ -175,7 +175,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
    }
 
    public Packet z_() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
       return new class_ft(this.c, 3, var1);
    }
@@ -185,46 +185,46 @@ public class class_amf extends class_amu implements class_kn, class_oj {
       return var1 != class_pm.a && var1 != class_pm.c && var1 != class_pm.k && var1 != class_pm.h && var1 != class_pm.e && var1 != class_pm.j?null:var1;
    }
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
-      this.k = f(var1.g("Primary"));
-      this.l = f(var1.g("Secondary"));
-      this.j = var1.g("Levels");
+      this.k = f(var1.getInt("Primary"));
+      this.l = f(var1.getInt("Secondary"));
+      this.j = var1.getInt("Levels");
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.a("Primary", class_pk.a(this.k));
-      var1.a("Secondary", class_pk.a(this.l));
-      var1.a("Levels", this.j);
+      var1.put("Primary", class_pk.a(this.k));
+      var1.put("Secondary", class_pk.a(this.l));
+      var1.put("Levels", this.j);
    }
 
    public int o_() {
       return 1;
    }
 
-   public class_aas a(int var1) {
+   public ItemStack a(int var1) {
       return var1 == 0?this.m:null;
    }
 
-   public class_aas a(int var1, int var2) {
+   public ItemStack a(int var1, int var2) {
       if(var1 == 0 && this.m != null) {
-         if(var2 >= this.m.b) {
-            class_aas var3 = this.m;
+         if(var2 >= this.m.count) {
+            ItemStack var3 = this.m;
             this.m = null;
             return var3;
          } else {
-            this.m.b -= var2;
-            return new class_aas(this.m.b(), var2, this.m.i());
+            this.m.count -= var2;
+            return new ItemStack(this.m.getItem(), var2, this.m.i());
          }
       } else {
          return null;
       }
    }
 
-   public class_aas b(int var1) {
+   public ItemStack b(int var1) {
       if(var1 == 0 && this.m != null) {
-         class_aas var2 = this.m;
+         ItemStack var2 = this.m;
          this.m = null;
          return var2;
       } else {
@@ -232,7 +232,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
       }
    }
 
-   public void a(int var1, class_aas var2) {
+   public void a(int var1, ItemStack var2) {
       if(var1 == 0) {
          this.m = var2;
       }
@@ -265,8 +265,8 @@ public class class_amf extends class_amu implements class_kn, class_oj {
    public void c(class_xa var1) {
    }
 
-   public boolean b(int var1, class_aas var2) {
-      return var2.b() == Items.bR || var2.b() == Items.k || var2.b() == Items.m || var2.b() == Items.l;
+   public boolean b(int var1, ItemStack var2) {
+      return var2.getItem() == Items.bR || var2.getItem() == Items.k || var2.getItem() == Items.m || var2.getItem() == Items.l;
    }
 
    public String k() {

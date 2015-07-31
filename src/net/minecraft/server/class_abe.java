@@ -6,15 +6,15 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
 import net.minecraft.server.World;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.EnumUsedHand;
@@ -32,14 +32,14 @@ public class class_abe extends Item {
       this.a((CreativeTab)CreativeTab.k);
    }
 
-   public static List h(class_aas var0) {
+   public static List h(ItemStack var0) {
       ArrayList var1 = Lists.newArrayList();
       var1.addAll(i(var0).b());
-      if(var0.n() && var0.o().b("CustomPotionEffects", 9)) {
-         class_du var2 = var0.o().c("CustomPotionEffects", 10);
+      if(var0.hasTag() && var0.getTag().hasOfType("CustomPotionEffects", 9)) {
+         NBTTagList var2 = var0.getTag().getList("CustomPotionEffects", 10);
 
-         for(int var3 = 0; var3 < var2.c(); ++var3) {
-            class_dn var4 = var2.b(var3);
+         for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+            NBTTagCompound var4 = var2.getCompound(var3);
             class_pl var5 = class_pl.b(var4);
             if(var5 != null) {
                var1.add(var5);
@@ -50,10 +50,10 @@ public class class_abe extends Item {
       return var1;
    }
 
-   public class_aas a(class_aas var1, World var2, class_qa var3) {
+   public ItemStack a(ItemStack var1, World var2, class_qa var3) {
       class_xa var4 = var3 instanceof class_xa?(class_xa)var3:null;
       if(var4 == null || !var4.bH.d) {
-         --var1.b;
+         --var1.count;
       }
 
       if(!var2.D) {
@@ -71,27 +71,27 @@ public class class_abe extends Item {
       }
 
       if(var4 == null || !var4.bH.d) {
-         if(var1.b <= 0) {
-            return new class_aas(Items.bD);
+         if(var1.count <= 0) {
+            return new ItemStack(Items.bD);
          }
 
          if(var4 != null) {
-            var4.bp.a(new class_aas(Items.bD));
+            var4.bp.a(new ItemStack(Items.bD));
          }
       }
 
       return var1;
    }
 
-   public int e(class_aas var1) {
+   public int e(ItemStack var1) {
       return 32;
    }
 
-   public class_abz f(class_aas var1) {
-      return class_abz.c;
+   public class_abz f(ItemStack var1) {
+      return class_abz.DRINK;
    }
 
-   public class_or a(class_aas var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
       var3.c(var4);
       return new class_or(class_oq.a, var1);
    }
@@ -136,20 +136,20 @@ public class class_abe extends Item {
       }
    }
 
-   public String a(class_aas var1) {
+   public String getLocalizedName(ItemStack var1) {
       return LocaleI18n.get(i(var1).a());
    }
 
-   public static class_acd i(class_aas var0) {
-      return !var0.n()?class_acf.a:class_acd.a(var0.o().k("Potion"));
+   public static class_acd i(ItemStack var0) {
+      return !var0.hasTag()?class_acf.a:class_acd.a(var0.getTag().getString("Potion"));
    }
 
-   public static class_aas a(class_aas var0, class_acd var1) {
+   public static ItemStack a(ItemStack var0, class_acd var1) {
       MinecraftKey var2 = (MinecraftKey)class_acd.a.getKey(var1);
       if(var2 != null) {
-         class_dn var3 = var0.n()?var0.o():new class_dn();
-         var3.a("Potion", var2.toString());
-         var0.d(var3);
+         NBTTagCompound var3 = var0.hasTag()?var0.getTag():new NBTTagCompound();
+         var3.put("Potion", var2.toString());
+         var0.setTag(var3);
       }
 
       return var0;

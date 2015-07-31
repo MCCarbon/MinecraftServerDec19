@@ -5,7 +5,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.Item;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_fb;
@@ -32,7 +32,7 @@ public class class_t extends class_i {
       Item var4 = var2.length >= 2?f(var1, var2[1]):null;
       int var5 = var2.length >= 3?a(var2[2], -1):-1;
       int var6 = var2.length >= 4?a(var2[3], -1):-1;
-      class_dn var7 = null;
+      NBTTagCompound var7 = null;
       if(var2.length >= 5) {
          try {
             var7 = class_ed.a(a(var2, 4));

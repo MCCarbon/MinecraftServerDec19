@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aak;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
@@ -17,7 +17,7 @@ public class class_ace {
    private static final List b = Lists.newArrayList();
    private static final List c = Lists.newArrayList();
    private static final Predicate d = new Predicate() {
-      public boolean a(class_aas var1) {
+      public boolean a(ItemStack var1) {
          Iterator var2 = class_ace.c.iterator();
 
          class_ace.class_a_in_class_ace var3;
@@ -34,15 +34,15 @@ public class class_ace {
 
       // $FF: synthetic method
       public boolean apply(Object var1) {
-         return this.a((class_aas)var1);
+         return this.a((ItemStack)var1);
       }
    };
 
-   public static boolean a(class_aas var0) {
+   public static boolean a(ItemStack var0) {
       return b(var0) || c(var0);
    }
 
-   protected static boolean b(class_aas var0) {
+   protected static boolean b(ItemStack var0) {
       int var1 = 0;
 
       for(int var2 = b.size(); var1 < var2; ++var1) {
@@ -54,7 +54,7 @@ public class class_ace {
       return false;
    }
 
-   protected static boolean c(class_aas var0) {
+   protected static boolean c(ItemStack var0) {
       int var1 = 0;
 
       for(int var2 = a.size(); var1 < var2; ++var1) {
@@ -66,12 +66,12 @@ public class class_ace {
       return false;
    }
 
-   public static boolean a(class_aas var0, class_aas var1) {
+   public static boolean a(ItemStack var0, ItemStack var1) {
       return !d.apply(var0)?false:b(var0, var1) || c(var0, var1);
    }
 
-   protected static boolean b(class_aas var0, class_aas var1) {
-      Item var2 = var0.b();
+   protected static boolean b(ItemStack var0, ItemStack var1) {
+      Item var2 = var0.getItem();
       int var3 = 0;
 
       for(int var4 = b.size(); var3 < var4; ++var3) {
@@ -84,7 +84,7 @@ public class class_ace {
       return false;
    }
 
-   protected static boolean c(class_aas var0, class_aas var1) {
+   protected static boolean c(ItemStack var0, ItemStack var1) {
       class_acd var2 = class_abe.i(var0);
       int var3 = 0;
 
@@ -98,10 +98,10 @@ public class class_ace {
       return false;
    }
 
-   public static class_aas d(class_aas var0, class_aas var1) {
+   public static ItemStack d(ItemStack var0, ItemStack var1) {
       if(var1 != null) {
          class_acd var2 = class_abe.i(var1);
-         Item var3 = var1.b();
+         Item var3 = var1.getItem();
          int var4 = 0;
 
          int var5;
@@ -109,7 +109,7 @@ public class class_ace {
          for(var5 = b.size(); var4 < var5; ++var4) {
             var6 = (class_ace.class_b_in_class_ace)b.get(var4);
             if(var6.a == var3 && var6.b.apply(var0)) {
-               return class_abe.a(new class_aas((Item)var6.c), var2);
+               return class_abe.a(new ItemStack((Item)var6.c), var2);
             }
          }
 
@@ -118,7 +118,7 @@ public class class_ace {
          for(var5 = a.size(); var4 < var5; ++var4) {
             var6 = (class_ace.class_b_in_class_ace)a.get(var4);
             if(var6.a == var2 && var6.b.apply(var0)) {
-               return class_abe.a(new class_aas(var3), (class_acd)var6.c);
+               return class_abe.a(new ItemStack(var3), (class_acd)var6.c);
             }
          }
       }
@@ -219,13 +219,13 @@ public class class_ace {
          this.b = var2;
       }
 
-      public boolean a(class_aas var1) {
-         return var1 != null && var1.b() == this.a && (this.b == -1 || this.b == var1.i());
+      public boolean a(ItemStack var1) {
+         return var1 != null && var1.getItem() == this.a && (this.b == -1 || this.b == var1.i());
       }
 
       // $FF: synthetic method
       public boolean apply(Object var1) {
-         return this.a((class_aas)var1);
+         return this.a((ItemStack)var1);
       }
    }
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_ahd;
@@ -21,7 +21,7 @@ public class class_ajy extends class_ahd {
       super.dropNaturally(var1, var2, var3, var4, var5);
       if(!var1.D) {
          if(this.e(var3) && var1.s.nextInt(50) == 0) {
-            a(var1, var2, new class_aas(Items.bX));
+            a(var1, var2, new ItemStack(Items.bX));
          }
 
       }

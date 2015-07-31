@@ -16,9 +16,9 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_lv;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
@@ -369,85 +369,85 @@ public class class_tp {
       return this.a(var1) <= -15;
    }
 
-   public void a(class_dn var1) {
-      this.h = var1.g("PopSize");
-      this.e = var1.g("Radius");
-      this.l = var1.g("Golems");
-      this.f = var1.g("Stable");
-      this.g = var1.g("Tick");
-      this.i = var1.g("MTick");
-      this.d = new BlockPosition(var1.g("CX"), var1.g("CY"), var1.g("CZ"));
-      this.c = new BlockPosition(var1.g("ACX"), var1.g("ACY"), var1.g("ACZ"));
-      class_du var2 = var1.c("Doors", 10);
+   public void a(NBTTagCompound var1) {
+      this.h = var1.getInt("PopSize");
+      this.e = var1.getInt("Radius");
+      this.l = var1.getInt("Golems");
+      this.f = var1.getInt("Stable");
+      this.g = var1.getInt("Tick");
+      this.i = var1.getInt("MTick");
+      this.d = new BlockPosition(var1.getInt("CX"), var1.getInt("CY"), var1.getInt("CZ"));
+      this.c = new BlockPosition(var1.getInt("ACX"), var1.getInt("ACY"), var1.getInt("ACZ"));
+      NBTTagList var2 = var1.getList("Doors", 10);
 
-      for(int var3 = 0; var3 < var2.c(); ++var3) {
-         class_dn var4 = var2.b(var3);
-         class_to var5 = new class_to(new BlockPosition(var4.g("X"), var4.g("Y"), var4.g("Z")), var4.g("IDX"), var4.g("IDZ"), var4.g("TS"));
+      for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+         NBTTagCompound var4 = var2.getCompound(var3);
+         class_to var5 = new class_to(new BlockPosition(var4.getInt("X"), var4.getInt("Y"), var4.getInt("Z")), var4.getInt("IDX"), var4.getInt("IDZ"), var4.getInt("TS"));
          this.b.add(var5);
       }
 
-      class_du var8 = var1.c("Players", 10);
+      NBTTagList var8 = var1.getList("Players", 10);
 
-      for(int var9 = 0; var9 < var8.c(); ++var9) {
-         class_dn var10 = var8.b(var9);
-         if(var10.d("UUID")) {
+      for(int var9 = 0; var9 < var8.getSize(); ++var9) {
+         NBTTagCompound var10 = var8.getCompound(var9);
+         if(var10.has("UUID")) {
             class_lv var6 = MinecraftServer.N().aF();
-            GameProfile var7 = var6.a(UUID.fromString(var10.k("UUID")));
+            GameProfile var7 = var6.a(UUID.fromString(var10.getString("UUID")));
             if(var7 != null) {
-               this.j.put(var7.getName(), Integer.valueOf(var10.g("S")));
+               this.j.put(var7.getName(), Integer.valueOf(var10.getInt("S")));
             }
          } else {
-            this.j.put(var10.k("Name"), Integer.valueOf(var10.g("S")));
+            this.j.put(var10.getString("Name"), Integer.valueOf(var10.getInt("S")));
          }
       }
 
    }
 
-   public void b(class_dn var1) {
-      var1.a("PopSize", this.h);
-      var1.a("Radius", this.e);
-      var1.a("Golems", this.l);
-      var1.a("Stable", this.f);
-      var1.a("Tick", this.g);
-      var1.a("MTick", this.i);
-      var1.a("CX", this.d.getX());
-      var1.a("CY", this.d.getY());
-      var1.a("CZ", this.d.getZ());
-      var1.a("ACX", this.c.getX());
-      var1.a("ACY", this.c.getY());
-      var1.a("ACZ", this.c.getZ());
-      class_du var2 = new class_du();
+   public void b(NBTTagCompound var1) {
+      var1.put("PopSize", this.h);
+      var1.put("Radius", this.e);
+      var1.put("Golems", this.l);
+      var1.put("Stable", this.f);
+      var1.put("Tick", this.g);
+      var1.put("MTick", this.i);
+      var1.put("CX", this.d.getX());
+      var1.put("CY", this.d.getY());
+      var1.put("CZ", this.d.getZ());
+      var1.put("ACX", this.c.getX());
+      var1.put("ACY", this.c.getY());
+      var1.put("ACZ", this.c.getZ());
+      NBTTagList var2 = new NBTTagList();
       Iterator var3 = this.b.iterator();
 
       while(var3.hasNext()) {
          class_to var4 = (class_to)var3.next();
-         class_dn var5 = new class_dn();
-         var5.a("X", var4.d().getX());
-         var5.a("Y", var4.d().getY());
-         var5.a("Z", var4.d().getZ());
-         var5.a("IDX", var4.f());
-         var5.a("IDZ", var4.g());
-         var5.a("TS", var4.h());
-         var2.a((class_eb)var5);
+         NBTTagCompound var5 = new NBTTagCompound();
+         var5.put("X", var4.d().getX());
+         var5.put("Y", var4.d().getY());
+         var5.put("Z", var4.d().getZ());
+         var5.put("IDX", var4.f());
+         var5.put("IDZ", var4.g());
+         var5.put("TS", var4.h());
+         var2.add((NBTTag)var5);
       }
 
-      var1.a((String)"Doors", (class_eb)var2);
-      class_du var9 = new class_du();
+      var1.put((String)"Doors", (NBTTag)var2);
+      NBTTagList var9 = new NBTTagList();
       Iterator var10 = this.j.keySet().iterator();
 
       while(var10.hasNext()) {
          String var11 = (String)var10.next();
-         class_dn var6 = new class_dn();
+         NBTTagCompound var6 = new NBTTagCompound();
          class_lv var7 = MinecraftServer.N().aF();
          GameProfile var8 = var7.a(var11);
          if(var8 != null) {
-            var6.a("UUID", var8.getId().toString());
-            var6.a("S", ((Integer)this.j.get(var11)).intValue());
-            var9.a((class_eb)var6);
+            var6.put("UUID", var8.getId().toString());
+            var6.put("S", ((Integer)this.j.get(var11)).intValue());
+            var9.add((NBTTag)var6);
          }
       }
 
-      var1.a((String)"Players", (class_eb)var9);
+      var1.put((String)"Players", (NBTTag)var9);
    }
 
    public void h() {

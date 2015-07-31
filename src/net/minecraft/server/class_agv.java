@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -167,12 +167,12 @@ public class class_agv extends Block {
       }
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, class_aas var6) {
+   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
       super.a(var1, var2, var3, var4, var5, var6);
-      a(var1, var3, (class_aas)(new class_aas(Item.getByBlock((Block)this))));
+      a(var1, var3, (ItemStack)(new ItemStack(Item.getByBlock((Block)this))));
    }
 
-   protected class_aas i(IBlockData var1) {
+   protected ItemStack i(IBlockData var1) {
       return null;
    }
 

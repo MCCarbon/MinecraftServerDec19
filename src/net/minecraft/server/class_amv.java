@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_ft;
 import net.minecraft.server.class_kn;
@@ -33,12 +33,12 @@ public class class_amv extends class_amg implements class_kn {
       }
    };
 
-   public void a(class_dn var1) {
+   public void a(NBTTagCompound var1) {
       super.a(var1);
       this.a.a(var1);
    }
 
-   public void b(class_dn var1) {
+   public void b(NBTTagCompound var1) {
       super.b(var1);
       this.a.b(var1);
    }
@@ -48,9 +48,9 @@ public class class_amv extends class_amg implements class_kn {
    }
 
    public Packet z_() {
-      class_dn var1 = new class_dn();
+      NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      var1.p("SpawnPotentials");
+      var1.remove("SpawnPotentials");
       return new class_ft(this.c, 1, var1);
    }
 

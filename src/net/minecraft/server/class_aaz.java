@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_agf;
 import net.minecraft.server.class_ahk;
@@ -23,7 +23,7 @@ public class class_aaz extends Item {
    private static final class_cr a = new class_cn() {
       private final class_cn b = new class_cn();
 
-      public class_aas b(class_ck var1, class_aas var2) {
+      public ItemStack b(class_ck var1, ItemStack var2) {
          EnumDirection var3 = class_ahk.b(var1.f());
          World var4 = var1.i();
          double var5 = var1.a() + (double)var3.getAdjacentX() * 1.125D;
@@ -53,9 +53,9 @@ public class class_aaz extends Item {
             }
          }
 
-         class_vn var18 = class_vn.a(var4, var5, var7 + var14, var9, ((class_aaz)var2.b()).b);
-         if(var2.s()) {
-            var18.a(var2.q());
+         class_vn var18 = class_vn.a(var4, var5, var7 + var14, var9, ((class_aaz)var2.getItem()).b);
+         if(var2.hasDisplayName()) {
+            var18.a(var2.getDisplayName());
          }
 
          var4.a((class_pr)var18);
@@ -76,7 +76,7 @@ public class class_aaz extends Item {
       class_ahk.N.register(this, a);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.p(var4);
       if(class_agf.d(var10)) {
          if(!var3.D) {
@@ -87,14 +87,14 @@ public class class_aaz extends Item {
             }
 
             class_vn var14 = class_vn.a(var3, (double)var4.getX() + 0.5D, (double)var4.getY() + 0.0625D + var12, (double)var4.getZ() + 0.5D, this.b);
-            if(var1.s()) {
-               var14.a(var1.q());
+            if(var1.hasDisplayName()) {
+               var14.a(var1.getDisplayName());
             }
 
             var3.a((class_pr)var14);
          }
 
-         --var1.b;
+         --var1.count;
          return class_oq.a;
       } else {
          return class_oq.b;

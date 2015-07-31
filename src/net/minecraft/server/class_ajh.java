@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -37,20 +37,20 @@ public class class_ajh extends Block {
       return var0 == Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE) || var1 == Blocks.COBBLESTONE || var1 == Blocks.STONEBRICK;
    }
 
-   protected class_aas i(IBlockData var1) {
+   protected ItemStack i(IBlockData var1) {
       switch(class_ajh.SyntheticClass_1.a[((class_ajh.class_a_in_class_ajh)var1.get(a)).ordinal()]) {
       case 1:
-         return new class_aas(Blocks.COBBLESTONE);
+         return new ItemStack(Blocks.COBBLESTONE);
       case 2:
-         return new class_aas(Blocks.STONEBRICK);
+         return new ItemStack(Blocks.STONEBRICK);
       case 3:
-         return new class_aas(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.b.a());
+         return new ItemStack(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.b.a());
       case 4:
-         return new class_aas(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.c.a());
+         return new ItemStack(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.c.a());
       case 5:
-         return new class_aas(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.d.a());
+         return new ItemStack(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.d.a());
       default:
-         return new class_aas(Blocks.STONE);
+         return new ItemStack(Blocks.STONE);
       }
    }
 

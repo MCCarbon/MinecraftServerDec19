@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_tz;
@@ -19,13 +19,13 @@ public class class_yo extends class_xz {
       var2.b(var4);
       int var6 = (var5 - 4) * 18;
       this.a(new class_yx(var2, 0, 8, 18) {
-         public boolean a(class_aas var1) {
-            return super.a(var1) && var1.b() == Items.aC && !this.e();
+         public boolean a(ItemStack var1) {
+            return super.a(var1) && var1.getItem() == Items.aC && !this.e();
          }
       });
       this.a(new class_yx(var2, 1, 8, 36) {
-         public boolean a(class_aas var1) {
-            return super.a(var1) && var3.dd() && class_tz.a(var1.b());
+         public boolean a(ItemStack var1) {
+            return super.a(var1) && var3.dd() && class_tz.a(var1.getItem());
          }
       });
       int var7;
@@ -54,12 +54,12 @@ public class class_yo extends class_xz {
       return this.a.a(var1) && this.f.ai() && this.f.g(var1) < 8.0F;
    }
 
-   public class_aas b(class_xa var1, int var2) {
-      class_aas var3 = null;
+   public ItemStack b(class_xa var1, int var2) {
+      ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
-         class_aas var5 = var4.d();
-         var3 = var5.k();
+         ItemStack var5 = var4.d();
+         var3 = var5.clone();
          if(var2 < this.a.o_()) {
             if(!this.a(var5, this.a.o_(), this.c.size(), true)) {
                return null;
@@ -76,8 +76,8 @@ public class class_yo extends class_xz {
             return null;
          }
 
-         if(var5.b == 0) {
-            var4.d((class_aas)null);
+         if(var5.count == 0) {
+            var4.d((ItemStack)null);
          } else {
             var4.f();
          }

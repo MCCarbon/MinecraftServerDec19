@@ -18,8 +18,8 @@ import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_od;
 import net.minecraft.server.class_oj;
 
@@ -37,31 +37,31 @@ public abstract class class_asn {
       this.m = var1;
    }
 
-   public final class_dn b() {
-      class_dn var1 = new class_dn();
-      var1.a("id", class_asl.a(this));
-      var1.a((String)"BB", (class_eb)this.l.g());
+   public final NBTTagCompound b() {
+      NBTTagCompound var1 = new NBTTagCompound();
+      var1.put("id", class_asl.a(this));
+      var1.put((String)"BB", (NBTTag)this.l.g());
       EnumDirection var2 = this.e();
-      var1.a("O", var2 == null?-1:var2.getHorizontalId());
-      var1.a("GD", this.m);
+      var1.put("O", var2 == null?-1:var2.getHorizontalId());
+      var1.put("GD", this.m);
       this.a(var1);
       return var1;
    }
 
-   protected abstract void a(class_dn var1);
+   protected abstract void a(NBTTagCompound var1);
 
-   public void a(World var1, class_dn var2) {
-      if(var2.d("BB")) {
-         this.l = new class_arw(var2.m("BB"));
+   public void a(World var1, NBTTagCompound var2) {
+      if(var2.has("BB")) {
+         this.l = new class_arw(var2.getIntArray("BB"));
       }
 
-      int var3 = var2.g("O");
+      int var3 = var2.getInt("O");
       this.a(var3 == -1?null:EnumDirection.getByHorizontalId(var3));
-      this.m = var2.g("GD");
+      this.m = var2.getInt("GD");
       this.b(var2);
    }
 
-   protected abstract void b(class_dn var1);
+   protected abstract void b(NBTTagCompound var1);
 
    public void a(class_asn var1, List var2, Random var3) {
    }

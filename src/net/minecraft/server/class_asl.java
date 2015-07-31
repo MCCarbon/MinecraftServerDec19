@@ -19,7 +19,7 @@ import net.minecraft.server.class_asn;
 import net.minecraft.server.class_aso;
 import net.minecraft.server.class_asq;
 import net.minecraft.server.class_asr;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -48,45 +48,45 @@ public class class_asl {
       return (String)e.get(var0.getClass());
    }
 
-   public static class_aso a(class_dn var0, World var1) {
+   public static class_aso a(NBTTagCompound var0, World var1) {
       class_aso var2 = null;
 
       try {
-         Class var3 = (Class)b.get(var0.k("id"));
+         Class var3 = (Class)b.get(var0.getString("id"));
          if(var3 != null) {
             var2 = (class_aso)var3.newInstance();
          }
       } catch (Exception var4) {
-         a.warn("Failed Start with id " + var0.k("id"));
+         a.warn("Failed Start with id " + var0.getString("id"));
          var4.printStackTrace();
       }
 
       if(var2 != null) {
          var2.a(var1, var0);
       } else {
-         a.warn("Skipping Structure with id " + var0.k("id"));
+         a.warn("Skipping Structure with id " + var0.getString("id"));
       }
 
       return var2;
    }
 
-   public static class_asn b(class_dn var0, World var1) {
+   public static class_asn b(NBTTagCompound var0, World var1) {
       class_asn var2 = null;
 
       try {
-         Class var3 = (Class)d.get(var0.k("id"));
+         Class var3 = (Class)d.get(var0.getString("id"));
          if(var3 != null) {
             var2 = (class_asn)var3.newInstance();
          }
       } catch (Exception var4) {
-         a.warn("Failed Piece with id " + var0.k("id"));
+         a.warn("Failed Piece with id " + var0.getString("id"));
          var4.printStackTrace();
       }
 
       if(var2 != null) {
          var2.a(var1, var0);
       } else {
-         a.warn("Skipping Piece with id " + var0.k("id"));
+         a.warn("Skipping Piece with id " + var0.getString("id"));
       }
 
       return var2;

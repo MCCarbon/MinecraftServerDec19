@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_dr;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagFloat;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 
 public class class_dc {
    protected final float a;
@@ -15,17 +15,17 @@ public class class_dc {
       this.c = var3;
    }
 
-   public class_dc(class_du var1) {
-      this.a = var1.f(0);
-      this.b = var1.f(1);
-      this.c = var1.f(2);
+   public class_dc(NBTTagList var1) {
+      this.a = var1.getFloat(0);
+      this.b = var1.getFloat(1);
+      this.c = var1.getFloat(2);
    }
 
-   public class_du a() {
-      class_du var1 = new class_du();
-      var1.a((class_eb)(new class_dr(this.a)));
-      var1.a((class_eb)(new class_dr(this.b)));
-      var1.a((class_eb)(new class_dr(this.c)));
+   public NBTTagList a() {
+      NBTTagList var1 = new NBTTagList();
+      var1.add((NBTTag)(new NBTTagFloat(this.a)));
+      var1.add((NBTTag)(new NBTTagFloat(this.b)));
+      var1.add((NBTTag)(new NBTTagFloat(this.c)));
       return var1;
    }
 

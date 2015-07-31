@@ -5,7 +5,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
@@ -31,7 +31,7 @@ public class class_bq extends class_i {
          throw new class_cf("commands.testfor.usage", new Object[0]);
       } else {
          class_pr var3 = b(var1, var2[0]);
-         class_dn var4 = null;
+         NBTTagCompound var4 = null;
          if(var2.length >= 2) {
             try {
                var4 = class_ed.a(a(var2, 1));
@@ -41,7 +41,7 @@ public class class_bq extends class_i {
          }
 
          if(var4 != null) {
-            class_dn var5 = new class_dn();
+            NBTTagCompound var5 = new NBTTagCompound();
             var3.e(var5);
             if(!class_dy.a(var4, var5, true)) {
                throw new class_bz("commands.testfor.failure", new Object[]{var3.e_()});

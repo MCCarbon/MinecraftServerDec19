@@ -2,40 +2,40 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.Item;
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abf;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adk;
 import net.minecraft.server.class_adl;
-import net.minecraft.server.class_dn;
-import net.minecraft.server.class_du;
-import net.minecraft.server.class_eb;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_od;
 
 public class class_aad extends Item {
-   public boolean f_(class_aas var1) {
+   public boolean f_(ItemStack var1) {
       return false;
    }
 
-   public class_abf g(class_aas var1) {
-      return !this.h(var1).c_()?class_abf.b:super.g(var1);
+   public class_abf g(ItemStack var1) {
+      return !this.h(var1).isEmpty()?class_abf.b:super.g(var1);
    }
 
-   public class_du h(class_aas var1) {
-      class_dn var2 = var1.o();
-      return var2 != null && var2.b("StoredEnchantments", 9)?(class_du)var2.b("StoredEnchantments"):new class_du();
+   public NBTTagList h(ItemStack var1) {
+      NBTTagCompound var2 = var1.getTag();
+      return var2 != null && var2.hasOfType("StoredEnchantments", 9)?(NBTTagList)var2.getTag("StoredEnchantments"):new NBTTagList();
    }
 
-   public void a(class_aas var1, class_adl var2) {
-      class_du var3 = this.h(var1);
+   public void a(ItemStack var1, class_adl var2) {
+      NBTTagList var3 = this.h(var1);
       boolean var4 = true;
 
-      for(int var5 = 0; var5 < var3.c(); ++var5) {
-         class_dn var6 = var3.b(var5);
-         if(class_adi.c(var6.f("id")) == var2.b) {
-            if(var6.f("lvl") < var2.c) {
-               var6.a("lvl", (short)var2.c);
+      for(int var5 = 0; var5 < var3.getSize(); ++var5) {
+         NBTTagCompound var6 = var3.getCompound(var5);
+         if(class_adi.c(var6.getShort("id")) == var2.b) {
+            if(var6.getShort("lvl") < var2.c) {
+               var6.put("lvl", (short)var2.c);
             }
 
             var4 = false;
@@ -44,21 +44,21 @@ public class class_aad extends Item {
       }
 
       if(var4) {
-         class_dn var7 = new class_dn();
-         var7.a("id", (short)class_adi.b(var2.b));
-         var7.a("lvl", (short)var2.c);
-         var3.a((class_eb)var7);
+         NBTTagCompound var7 = new NBTTagCompound();
+         var7.put("id", (short)class_adi.b(var2.b));
+         var7.put("lvl", (short)var2.c);
+         var3.add((NBTTag)var7);
       }
 
-      if(!var1.n()) {
-         var1.d(new class_dn());
+      if(!var1.hasTag()) {
+         var1.setTag(new NBTTagCompound());
       }
 
-      var1.o().a((String)"StoredEnchantments", (class_eb)var3);
+      var1.getTag().put((String)"StoredEnchantments", (NBTTag)var3);
    }
 
-   public class_aas a(class_adl var1) {
-      class_aas var2 = new class_aas(this);
+   public ItemStack a(class_adl var1) {
+      ItemStack var2 = new ItemStack(this);
       this.a(var2, var1);
       return var2;
    }
@@ -68,7 +68,7 @@ public class class_aad extends Item {
    }
 
    public class_od a(Random var1, int var2, int var3, int var4) {
-      class_aas var5 = new class_aas(Items.aN);
+      ItemStack var5 = new ItemStack(Items.aN);
       class_adk.a(var1, var5, 30);
       return new class_od(var5, var2, var3, var4);
    }

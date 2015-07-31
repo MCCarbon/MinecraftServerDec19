@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aas;
+import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ale;
@@ -11,7 +11,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_dn;
+import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
@@ -29,7 +29,7 @@ public class class_ze extends ItemBlock {
       this.e(0);
    }
 
-   public class_oq a(class_aas var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return class_oq.b;
       } else if(!var3.p(var4).getBlock().getMaterial().isBuildable()) {
@@ -50,7 +50,7 @@ public class class_ze extends ItemBlock {
                var3.a((BlockPosition)var4, (IBlockData)Blocks.WALL_BANNER.getBlockData().set(class_alw.a, var6), 3);
             }
 
-            --var1.b;
+            --var1.count;
             class_amg var11 = var3.s(var4);
             if(var11 instanceof class_ame) {
                ((class_ame)var11).a(var1);
@@ -61,18 +61,18 @@ public class class_ze extends ItemBlock {
       }
    }
 
-   public String a(class_aas var1) {
+   public String getLocalizedName(ItemStack var1) {
       String var2 = "item.banner.";
       class_zy var3 = this.h(var1);
       var2 = var2 + var3.d() + ".name";
       return LocaleI18n.get(var2);
    }
 
-   private class_zy h(class_aas var1) {
-      class_dn var2 = var1.a("BlockEntityTag", false);
+   private class_zy h(ItemStack var1) {
+      NBTTagCompound var2 = var1.getCompound("BlockEntityTag", false);
       class_zy var3 = null;
-      if(var2 != null && var2.d("Base")) {
-         var3 = class_zy.a(var2.g("Base"));
+      if(var2 != null && var2.has("Base")) {
+         var3 = class_zy.a(var2.getInt("Base"));
       } else {
          var3 = class_zy.a(var1.i());
       }
