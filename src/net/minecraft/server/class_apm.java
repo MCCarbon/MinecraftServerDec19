@@ -4,7 +4,7 @@ import com.google.common.base.Objects;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_akq;
+import net.minecraft.server.BlockSand;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
@@ -147,7 +147,7 @@ public class class_apm extends class_apn {
                                     } else {
                                        var5.a(var43, var50, var46, Blocks.AIR.getBlockData());
                                        if(var54.getBlock() == Blocks.SAND) {
-                                          var5.a(var43, var50 + 1, var46, var54.get(class_akq.a) == class_akq.class_a_in_class_akq.b?Blocks.RED_SANDSTONE.getBlockData():Blocks.SANDSTONE.getBlockData());
+                                          var5.a(var43, var50 + 1, var46, var54.get(BlockSand.VARIANT) == BlockSand.EnumSandVariant.RED_SAND?Blocks.RED_SANDSTONE.getBlockData():Blocks.SANDSTONE.getBlockData());
                                        }
 
                                        if(var49 && var5.a(var43, var50 - 1, var46).getBlock() == Blocks.DIRT) {

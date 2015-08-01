@@ -6,7 +6,7 @@ import net.minecraft.server.class_ms;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_na;
 import net.minecraft.server.class_nb;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_nd {
    protected final Map a = Maps.newConcurrentMap();
@@ -19,13 +19,13 @@ public class class_nd {
       return var1.c == null || this.a(var1.c);
    }
 
-   public void b(class_xa var1, class_my var2, int var3) {
+   public void b(EntityHuman var1, class_my var2, int var3) {
       if(!var2.d() || this.b((class_ms)var2)) {
          this.a(var1, var2, this.a(var2) + var3);
       }
    }
 
-   public void a(class_xa var1, class_my var2, int var3) {
+   public void a(EntityHuman var1, class_my var2, int var3) {
       class_na var4 = (class_na)this.a.get(var2);
       if(var4 == null) {
          var4 = new class_na();

@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahx;
+import net.minecraft.server.BlockFalling;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
 import net.minecraft.server.class_aoh;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apn;
 import net.minecraft.server.class_apo;
@@ -212,7 +212,7 @@ public class class_apl implements class_aoh {
 
    }
 
-   public class_aok d(int var1, int var2) {
+   public Chunk d(int var1, int var2) {
       this.j.setSeed((long)var1 * 341873128712L + (long)var2 * 132897987541L);
       class_aph var3 = new class_aph();
       this.a(var1, var2, var3);
@@ -222,8 +222,8 @@ public class class_apl implements class_aoh {
          this.B.a(this, this.h, var1, var2, var3);
       }
 
-      class_aok var4 = new class_aok(this.h, var3, var1, var2);
-      class_aez[] var5 = this.h.w().b((class_aez[])null, var1 * 16, var2 * 16, 16, 16);
+      Chunk var4 = new Chunk(this.h, var3, var1, var2);
+      BiomeBase[] var5 = this.h.w().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var6 = var4.k();
 
       for(int var7 = 0; var7 < var6.length; ++var7) {
@@ -308,7 +308,7 @@ public class class_apl implements class_aoh {
    }
 
    public void a(class_aoh var1, int var2, int var3) {
-      class_ahx.N = true;
+      BlockFalling.instaFall = true;
       BlockPosition var4 = new BlockPosition(var2 * 16, 0, var3 * 16);
       class_aeh var5 = new class_aeh(var2, var3);
       this.B.a(this.h, this.j, var5);
@@ -346,10 +346,10 @@ public class class_apl implements class_aoh {
          this.x.b(this.h, this.j, var4.add(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
       }
 
-      class_ahx.N = false;
+      BlockFalling.instaFall = false;
    }
 
-   public boolean a(class_aoh var1, class_aok var2, int var3, int var4) {
+   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
@@ -378,12 +378,12 @@ public class class_apl implements class_aoh {
             return this.B.b();
          }
 
-         if(this.B.a(this.h, var2) && this.h.p(var2.shiftDown()).getBlock() == Blocks.NETHER_BRICK) {
+         if(this.B.a(this.h, var2) && this.h.getType(var2.down()).getBlock() == Blocks.NETHER_BRICK) {
             return this.B.b();
          }
       }
 
-      class_aez var3 = this.h.b(var2);
+      BiomeBase var3 = this.h.b(var2);
       return var3.a(var1);
    }
 
@@ -395,11 +395,11 @@ public class class_apl implements class_aoh {
       return 0;
    }
 
-   public void a(class_aok var1, int var2, int var3) {
+   public void a(Chunk var1, int var2, int var3) {
       this.B.a(this, this.h, var2, var3, (class_aph)null);
    }
 
-   public class_aok a(BlockPosition var1) {
+   public Chunk a(BlockPosition var1) {
       return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

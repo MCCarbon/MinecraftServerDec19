@@ -5,32 +5,32 @@ import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aea;
 import net.minecraft.server.class_aeb;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.EntityHuman;
 
-public class class_yr implements class_oj {
+public class class_yr implements IInventory {
    private final class_adz a;
    private ItemStack[] b = new ItemStack[3];
-   private final class_xa c;
+   private final EntityHuman c;
    private class_aea d;
    private int e;
 
-   public class_yr(class_xa var1, class_adz var2) {
+   public class_yr(EntityHuman var1, class_adz var2) {
       this.c = var1;
       this.a = var2;
    }
 
-   public int o_() {
+   public int getSize() {
       return this.b.length;
    }
 
-   public ItemStack a(int var1) {
+   public ItemStack getItem(int var1) {
       return this.b[var1];
    }
 
-   public ItemStack a(int var1, int var2) {
+   public ItemStack splitStack(int var1, int var2) {
       if(this.b[var1] != null) {
          ItemStack var3;
          if(var1 == 2) {
@@ -66,7 +66,7 @@ public class class_yr implements class_oj {
       return var1 == 0 || var1 == 1;
    }
 
-   public ItemStack b(int var1) {
+   public ItemStack splitWithoutUpdate(int var1) {
       if(this.b[var1] != null) {
          ItemStack var2 = this.b[var1];
          this.b[var1] = null;
@@ -76,10 +76,10 @@ public class class_yr implements class_oj {
       }
    }
 
-   public void a(int var1, ItemStack var2) {
+   public void setItem(int var1, ItemStack var2) {
       this.b[var1] = var2;
-      if(var2 != null && var2.count > this.q_()) {
-         var2.count = this.q_();
+      if(var2 != null && var2.count > this.getMaxStackSize()) {
+         var2.count = this.getMaxStackSize();
       }
 
       if(this.e(var1)) {
@@ -88,37 +88,37 @@ public class class_yr implements class_oj {
 
    }
 
-   public String e_() {
+   public String getName() {
       return "mob.villager";
    }
 
-   public boolean l_() {
+   public boolean hasCustomName() {
       return false;
    }
 
-   public IChatBaseComponent f_() {
-      return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.hasCustomName()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
-   public int q_() {
+   public int getMaxStackSize() {
       return 64;
    }
 
-   public boolean a(class_xa var1) {
+   public boolean isReachable(EntityHuman var1) {
       return this.a.v_() == var1;
    }
 
-   public void b(class_xa var1) {
+   public void startOpen(EntityHuman var1) {
    }
 
-   public void c(class_xa var1) {
+   public void closeContainer(EntityHuman var1) {
    }
 
-   public boolean b(int var1, ItemStack var2) {
+   public boolean canPlaceItem(int var1, ItemStack var2) {
       return true;
    }
 
-   public void p_() {
+   public void update() {
       this.h();
    }
 
@@ -132,29 +132,29 @@ public class class_yr implements class_oj {
       }
 
       if(var1 == null) {
-         this.a(2, (ItemStack)null);
+         this.setItem(2, (ItemStack)null);
       } else {
          class_aeb var3 = this.a.a_(this.c);
          if(var3 != null) {
             class_aea var4 = var3.a(var1, var2, this.e);
             if(var4 != null && !var4.h()) {
                this.d = var4;
-               this.a(2, var4.d().clone());
+               this.setItem(2, var4.d().clone());
             } else if(var2 != null) {
                var4 = var3.a(var2, var1, this.e);
                if(var4 != null && !var4.h()) {
                   this.d = var4;
-                  this.a(2, var4.d().clone());
+                  this.setItem(2, var4.d().clone());
                } else {
-                  this.a(2, (ItemStack)null);
+                  this.setItem(2, (ItemStack)null);
                }
             } else {
-               this.a(2, (ItemStack)null);
+               this.setItem(2, (ItemStack)null);
             }
          }
       }
 
-      this.a.a_(this.a(2));
+      this.a.a_(this.getItem(2));
    }
 
    public class_aea i() {
@@ -166,18 +166,18 @@ public class class_yr implements class_oj {
       this.h();
    }
 
-   public int a_(int var1) {
+   public int getProperty(int var1) {
       return 0;
    }
 
-   public void b(int var1, int var2) {
+   public void setProperty(int var1, int var2) {
    }
 
-   public int g() {
+   public int getPropertyCount() {
       return 0;
    }
 
-   public void l() {
+   public void remove() {
       for(int var1 = 0; var1 < this.b.length; ++var1) {
          this.b[var1] = null;
       }

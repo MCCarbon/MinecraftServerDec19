@@ -23,7 +23,7 @@ import net.minecraft.server.class_aoc;
 import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.IPlayerFileData;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awp;
@@ -32,7 +32,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NetworkManager;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutServerDifficulty;
 import net.minecraft.server.PacketPlayOutChat;
@@ -54,7 +54,7 @@ import net.minecraft.server.class_kl;
 import net.minecraft.server.class_kz;
 import net.minecraft.server.class_ld;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_li;
 import net.minecraft.server.class_lo;
 import net.minecraft.server.class_lv;
@@ -69,12 +69,12 @@ import net.minecraft.server.WhiteList;
 import net.minecraft.server.class_mh;
 import net.minecraft.server.ServerStatisticManager;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -88,8 +88,8 @@ public abstract class PlayerList {
 	private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd \'at\' HH:mm:ss z");
 
 	private final MinecraftServer mcserver;
-	private final List<class_lh> playerList = Lists.newArrayList();
-	private final Map<UUID, class_lh> playerMap = Maps.newHashMap();
+	private final List<EntityPlayer> playerList = Lists.newArrayList();
+	private final Map<UUID, EntityPlayer> playerMap = Maps.newHashMap();
 	private final GameProfileBanList gameProfileBanList;
 	private final IpBanList ipBanList;
 	private final OpList opList;
@@ -115,7 +115,7 @@ public abstract class PlayerList {
 		this.maxPlayers = 8;
 	}
 
-	public void processLogin(NetworkManager networkManager, class_lh player) {
+	public void processLogin(NetworkManager networkManager, EntityPlayer player) {
 		GameProfile var3 = player.cf();
 		class_lv var4 = this.mcserver.aF();
 		GameProfile var5 = var4.a(var3.getId());
@@ -129,13 +129,13 @@ public abstract class PlayerList {
 			var8 = networkManager.getAddress().toString();
 		}
 
-		looger.info(player.e_() + "[" + var8 + "] logged in with entity id " + player.getId() + " at (" + player.s + ", " + player.t + ", " + player.u + ")");
+		looger.info(player.getName() + "[" + var8 + "] logged in with entity id " + player.getId() + " at (" + player.s + ", " + player.t + ", " + player.u + ")");
 		WorldServer var9 = this.mcserver.a(player.am);
 		class_avn var10 = var9.Q();
 		BlockPosition var11 = var9.N();
-		this.a(player, (class_lh) null, var9);
+		this.a(player, (EntityPlayer) null, var9);
 		class_lo var12 = new class_lo(this.mcserver, networkManager, player);
-		var12.a((Packet<?>) (new PacketPlayOutLogin(player.getId(), player.c.b(), var10.t(), var9.t.p().a(), var9.ab(), this.getMaxPlayers(), var10.u(), var9.R().b("reducedDebugInfo"))));
+		var12.a((Packet<?>) (new PacketPlayOutLogin(player.getId(), player.c.b(), var10.t(), var9.worldProvider.p().a(), var9.ab(), this.getMaxPlayers(), var10.u(), var9.R().b("reducedDebugInfo"))));
 		var12.a((Packet<?>) (new PacketPlayOutCustomPayload("MC|Brand", (new PacketDataSerializer(Unpooled.buffer())).writeString(this.getMinecraftServer().getServerModName()))));
 		var12.a((Packet<?>) (new PacketPlayOutServerDifficulty(var10.y(), var10.z())));
 		var12.a((Packet<?>) (new PacketPlayOutSpawnPosition(var11)));
@@ -149,11 +149,11 @@ public abstract class PlayerList {
 		player.A().b(player);
 		this.a((class_kl) var9.aa(), player);
 		this.mcserver.aH();
-		class_fb var14;
-		if (!player.e_().equalsIgnoreCase(var6)) {
-			var14 = new class_fb("multiplayer.player.joined.renamed", new Object[] { player.f_(), var6 });
+		ChatMessage var14;
+		if (!player.getName().equalsIgnoreCase(var6)) {
+			var14 = new ChatMessage("multiplayer.player.joined.renamed", new Object[] { player.getScoreboardDisplayName(), var6 });
 		} else {
-			var14 = new class_fb("multiplayer.player.joined", new Object[] { player.f_() });
+			var14 = new ChatMessage("multiplayer.player.joined", new Object[] { player.getScoreboardDisplayName() });
 		}
 
 		var14.b().a(EnumChatFormat.YELLOW);
@@ -174,10 +174,10 @@ public abstract class PlayerList {
 
 		player.g_();
 		if (var7 != null && var7.hasOfType("Riding", 10)) {
-			class_pr var17 = class_pt.a((NBTTagCompound) var7.getCompound("Riding"), (World) var9);
+			Entity var17 = class_pt.a((NBTTagCompound) var7.getCompound("Riding"), (World) var9);
 			if (var17 != null) {
 				var17.n = true;
-				var9.a(var17);
+				var9.addEntity(var17);
 				player.a(var17);
 				var17.n = false;
 			}
@@ -185,7 +185,7 @@ public abstract class PlayerList {
 
 	}
 
-	protected void a(class_kl var1, class_lh var2) {
+	protected void a(class_kl var1, EntityPlayer var2) {
 		HashSet<class_awj> var3 = Sets.newHashSet();
 		Iterator<?> var4 = var1.g().iterator();
 
@@ -242,7 +242,7 @@ public abstract class PlayerList {
 		});
 	}
 
-	public void a(class_lh var1, WorldServer var2) {
+	public void a(EntityPlayer var1, WorldServer var2) {
 		WorldServer var3 = var1.u();
 		if (var2 != null) {
 			var2.u().c(var1);
@@ -256,10 +256,10 @@ public abstract class PlayerList {
 		return class_ld.b(this.getViewDistance());
 	}
 
-	public NBTTagCompound a(class_lh var1) {
+	public NBTTagCompound a(EntityPlayer var1) {
 		NBTTagCompound var2 = this.mcserver.d[0].Q().i();
 		NBTTagCompound var3;
-		if (var1.e_().equals(this.mcserver.S()) && var2 != null) {
+		if (var1.getName().equals(this.mcserver.S()) && var2 != null) {
 			var1.f(var2);
 			var3 = var2;
 			looger.debug("loading single player");
@@ -270,7 +270,7 @@ public abstract class PlayerList {
 		return var3;
 	}
 
-	protected void b(class_lh var1) {
+	protected void b(EntityPlayer var1) {
 		this.playerDataProvider.a(var1);
 		ServerStatisticManager var2 = (ServerStatisticManager) this.stats.get(var1.aM());
 		if (var2 != null) {
@@ -279,27 +279,27 @@ public abstract class PlayerList {
 
 	}
 
-	public void c(class_lh var1) {
+	public void c(EntityPlayer var1) {
 		this.playerList.add(var1);
 		this.playerMap.put(var1.aM(), var1);
-		this.a((Packet<?>) (new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.a, new class_lh[] { var1 })));
+		this.a((Packet<?>) (new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.a, new EntityPlayer[] { var1 })));
 		WorldServer var2 = this.mcserver.a(var1.am);
-		var2.a((class_pr) var1);
-		this.a((class_lh) var1, (WorldServer) null);
+		var2.addEntity((Entity) var1);
+		this.a((EntityPlayer) var1, (WorldServer) null);
 
 		for (int var3 = 0; var3 < this.playerList.size(); ++var3) {
-			class_lh var4 = (class_lh) this.playerList.get(var3);
-			var1.a.a((Packet<?>) (new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.a, new class_lh[] { var4 })));
+			EntityPlayer var4 = (EntityPlayer) this.playerList.get(var3);
+			var1.a.a((Packet<?>) (new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.a, new EntityPlayer[] { var4 })));
 		}
 
 	}
 
-	public void d(class_lh var1) {
+	public void d(EntityPlayer var1) {
 		var1.u().u().d(var1);
 	}
 
-	public void e(class_lh var1) {
-		var1.b((class_my) class_nc.f);
+	public void e(EntityPlayer var1) {
+		var1.b((class_my) StatisticList.f);
 		this.b(var1);
 		WorldServer var2 = var1.u();
 		if (var1.m != null) {
@@ -311,13 +311,13 @@ public abstract class PlayerList {
 		var2.u().c(var1);
 		this.playerList.remove(var1);
 		UUID var3 = var1.aM();
-		class_lh var4 = (class_lh) this.playerMap.get(var3);
+		EntityPlayer var4 = (EntityPlayer) this.playerMap.get(var3);
 		if (var4 == var1) {
 			this.playerMap.remove(var3);
 			this.stats.remove(var3);
 		}
 
-		this.a((Packet<?>) (new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.e, new class_lh[] { var1 })));
+		this.a((Packet<?>) (new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.e, new EntityPlayer[] { var1 })));
 	}
 
 	public String getKickReason(SocketAddress address, GameProfile profile) {
@@ -345,26 +345,26 @@ public abstract class PlayerList {
 		}
 	}
 
-	public class_lh addPlayer(GameProfile var1) {
-		UUID var2 = class_xa.a(var1);
-		ArrayList<class_lh> var3 = Lists.newArrayList();
+	public EntityPlayer addPlayer(GameProfile var1) {
+		UUID var2 = EntityHuman.a(var1);
+		ArrayList<EntityPlayer> var3 = Lists.newArrayList();
 
 		for (int var4 = 0; var4 < this.playerList.size(); ++var4) {
-			class_lh var5 = (class_lh) this.playerList.get(var4);
+			EntityPlayer var5 = (EntityPlayer) this.playerList.get(var4);
 			if (var5.aM().equals(var2)) {
 				var3.add(var5);
 			}
 		}
 
-		class_lh var7 = (class_lh) this.playerMap.get(var1.getId());
+		EntityPlayer var7 = (EntityPlayer) this.playerMap.get(var1.getId());
 		if (var7 != null && !var3.contains(var7)) {
 			var3.add(var7);
 		}
 
-		Iterator<class_lh> var8 = var3.iterator();
+		Iterator<EntityPlayer> var8 = var3.iterator();
 
 		while (var8.hasNext()) {
-			class_lh var6 = (class_lh) var8.next();
+			EntityPlayer var6 = (EntityPlayer) var8.next();
 			var6.a.c("You logged in from another location");
 		}
 
@@ -375,12 +375,12 @@ public abstract class PlayerList {
 			var9 = new class_li(this.mcserver.a(0));
 		}
 
-		return new class_lh(this.mcserver, this.mcserver.a(0), var1, (class_li) var9);
+		return new EntityPlayer(this.mcserver, this.mcserver.a(0), var1, (class_li) var9);
 	}
 
-	public class_lh a(class_lh var1, int var2, boolean var3) {
+	public EntityPlayer a(EntityPlayer var1, int var2, boolean var3) {
 		var1.u().t().b(var1);
-		var1.u().t().b((class_pr) var1);
+		var1.u().t().b((Entity) var1);
 		var1.u().u().c(var1);
 		this.playerList.remove(var1);
 		this.mcserver.a(var1.am).f(var1);
@@ -394,9 +394,9 @@ public abstract class PlayerList {
 			var6 = new class_li(this.mcserver.a(var1.am));
 		}
 
-		class_lh var7 = new class_lh(this.mcserver, this.mcserver.a(var1.am), var1.cf(), (class_li) var6);
+		EntityPlayer var7 = new EntityPlayer(this.mcserver, this.mcserver.a(var1.am), var1.cf(), (class_li) var6);
 		var7.a = var1.a;
-		var7.a((class_xa) var1, var3);
+		var7.a((EntityHuman) var1, var3);
 		var7.e(var1.getId());
 		var7.o(var1);
 		var7.a(var1.bR());
@@ -404,7 +404,7 @@ public abstract class PlayerList {
 		this.a(var7, var1, var8);
 		BlockPosition var9;
 		if (var4 != null) {
-			var9 = class_xa.a(this.mcserver.a(var1.am), var4, var5);
+			var9 = EntityHuman.a(this.mcserver.a(var1.am), var4, var5);
 			if (var9 != null) {
 				var7.b((double) ((float) var9.getX() + 0.5F), (double) ((float) var9.getY() + 0.1F), (double) ((float) var9.getZ() + 0.5F), 0.0F, 0.0F);
 				var7.a((BlockPosition) var4, var5);
@@ -415,7 +415,7 @@ public abstract class PlayerList {
 
 		var8.b.c((int) var7.s >> 4, (int) var7.u >> 4);
 
-		while (!var8.a((class_pr) var7, (class_awf) var7.aT()).isEmpty() && var7.t < 256.0D) {
+		while (!var8.a((Entity) var7, (AxisAlignedBB) var7.aT()).isEmpty() && var7.t < 256.0D) {
 			var7.b(var7.s, var7.t + 1.0D, var7.u);
 		}
 
@@ -426,7 +426,7 @@ public abstract class PlayerList {
 		var7.a.a((Packet<?>) (new PacketPlayOutExperience(var7.bK, var7.bJ, var7.bI)));
 		this.b(var7, var8);
 		var8.u().a(var7);
-		var8.a((class_pr) var7);
+		var8.addEntity((Entity) var7);
 		this.playerList.add(var7);
 		this.playerMap.put(var7.aM(), var7);
 		var7.g_();
@@ -434,7 +434,7 @@ public abstract class PlayerList {
 		return var7;
 	}
 
-	public void a(class_lh var1, int var2) {
+	public void a(EntityPlayer var1, int var2) {
 		int var3 = var1.am;
 		WorldServer var4 = this.mcserver.a(var1.am);
 		var1.am = var2;
@@ -457,7 +457,7 @@ public abstract class PlayerList {
 
 	}
 
-	public void a(class_pr var1, int var2, WorldServer var3, WorldServer var4) {
+	public void a(Entity var1, int var2, WorldServer var3, WorldServer var4) {
 		double var5 = var1.s;
 		double var7 = var1.u;
 		double var9 = 8.0D;
@@ -502,7 +502,7 @@ public abstract class PlayerList {
 			if (var1.ai()) {
 				var1.b(var5, var1.t, var7, var1.y, var1.z);
 				var4.v().a(var1, var11);
-				var4.a(var1);
+				var4.addEntity(var1);
 				var4.a(var1, false);
 			}
 
@@ -521,14 +521,14 @@ public abstract class PlayerList {
 
 	public void a(Packet<?> var1) {
 		for (int var2 = 0; var2 < this.playerList.size(); ++var2) {
-			((class_lh) this.playerList.get(var2)).a.a(var1);
+			((EntityPlayer) this.playerList.get(var2)).a.a(var1);
 		}
 
 	}
 
 	public void a(Packet<?> var1, int var2) {
 		for (int var3 = 0; var3 < this.playerList.size(); ++var3) {
-			class_lh var4 = (class_lh) this.playerList.get(var3);
+			EntityPlayer var4 = (EntityPlayer) this.playerList.get(var3);
 			if (var4.am == var2) {
 				var4.a.a(var1);
 			}
@@ -536,7 +536,7 @@ public abstract class PlayerList {
 
 	}
 
-	public void a(class_xa var1, IChatBaseComponent var2) {
+	public void a(EntityHuman var1, IChatBaseComponent var2) {
 		class_awp var3 = var1.bP();
 		if (var3 != null) {
 			Collection<?> var4 = var3.d();
@@ -544,7 +544,7 @@ public abstract class PlayerList {
 
 			while (var5.hasNext()) {
 				String var6 = (String) var5.next();
-				class_lh var7 = this.a(var6);
+				EntityPlayer var7 = this.a(var6);
 				if (var7 != null && var7 != var1) {
 					var7.a(var2);
 				}
@@ -553,13 +553,13 @@ public abstract class PlayerList {
 		}
 	}
 
-	public void b(class_xa var1, IChatBaseComponent var2) {
+	public void b(EntityHuman var1, IChatBaseComponent var2) {
 		class_awp var3 = var1.bP();
 		if (var3 == null) {
 			this.a(var2);
 		} else {
 			for (int var4 = 0; var4 < this.playerList.size(); ++var4) {
-				class_lh var5 = (class_lh) this.playerList.get(var4);
+				EntityPlayer var5 = (EntityPlayer) this.playerList.get(var4);
 				if (var5.bP() != var3) {
 					var5.a(var2);
 				}
@@ -570,16 +570,16 @@ public abstract class PlayerList {
 
 	public String b(boolean var1) {
 		String var2 = "";
-		ArrayList<class_lh> var3 = Lists.newArrayList((Iterable<class_lh>) this.playerList);
+		ArrayList<EntityPlayer> var3 = Lists.newArrayList((Iterable<EntityPlayer>) this.playerList);
 
 		for (int var4 = 0; var4 < var3.size(); ++var4) {
 			if (var4 > 0) {
 				var2 = var2 + ", ";
 			}
 
-			var2 = var2 + ((class_lh) var3.get(var4)).e_();
+			var2 = var2 + ((EntityPlayer) var3.get(var4)).getName();
 			if (var1) {
-				var2 = var2 + " (" + ((class_lh) var3.get(var4)).aM().toString() + ")";
+				var2 = var2 + " (" + ((EntityPlayer) var3.get(var4)).aM().toString() + ")";
 			}
 		}
 
@@ -590,7 +590,7 @@ public abstract class PlayerList {
 		String[] var1 = new String[this.playerList.size()];
 
 		for (int var2 = 0; var2 < this.playerList.size(); ++var2) {
-			var1[var2] = ((class_lh) this.playerList.get(var2)).e_();
+			var1[var2] = ((EntityPlayer) this.playerList.get(var2)).getName();
 		}
 
 		return var1;
@@ -600,7 +600,7 @@ public abstract class PlayerList {
 		GameProfile[] var1 = new GameProfile[this.playerList.size()];
 
 		for (int var2 = 0; var2 < this.playerList.size(); ++var2) {
-			var1[var2] = ((class_lh) this.playerList.get(var2)).cf();
+			var1[var2] = ((EntityPlayer) this.playerList.get(var2)).cf();
 		}
 
 		return var1;
@@ -625,7 +625,7 @@ public abstract class PlayerList {
 		this.b(this.getPlayer(var1.getId()), 0);
 	}
 
-	private void b(class_lh var1, int var2) {
+	private void b(EntityPlayer var1, int var2) {
 		if (var1 != null && var1.a != null) {
 			byte var3 = var2 <= 0 ? 24 : (var2 >= 4 ? 28 : (byte) (24 + var2));
 			var1.a.a((Packet<?>) (new PacketPlayOutEntityStatus(var1, var3)));
@@ -641,28 +641,28 @@ public abstract class PlayerList {
 		return this.opList.d(var1) || this.mcserver.isLocal() && this.mcserver.d[0].Q().v() && this.mcserver.S().equalsIgnoreCase(var1.getName()) || this.isEveryoneOP;
 	}
 
-	public class_lh a(String var1) {
-		Iterator<class_lh> var2 = this.playerList.iterator();
+	public EntityPlayer a(String var1) {
+		Iterator<EntityPlayer> var2 = this.playerList.iterator();
 
-		class_lh var3;
+		EntityPlayer var3;
 		do {
 			if (!var2.hasNext()) {
 				return null;
 			}
 
-			var3 = (class_lh) var2.next();
-		} while (!var3.e_().equalsIgnoreCase(var1));
+			var3 = (EntityPlayer) var2.next();
+		} while (!var3.getName().equalsIgnoreCase(var1));
 
 		return var3;
 	}
 
 	public void a(double var1, double var3, double var5, double var7, int var9, Packet<?> var10) {
-		this.a((class_xa) null, var1, var3, var5, var7, var9, var10);
+		this.a((EntityHuman) null, var1, var3, var5, var7, var9, var10);
 	}
 
-	public void a(class_xa var1, double var2, double var4, double var6, double var8, int var10, Packet<?> var11) {
+	public void a(EntityHuman var1, double var2, double var4, double var6, double var8, int var10, Packet<?> var11) {
 		for (int var12 = 0; var12 < this.playerList.size(); ++var12) {
-			class_lh var13 = (class_lh) this.playerList.get(var12);
+			EntityPlayer var13 = (EntityPlayer) this.playerList.get(var12);
 			if (var13 != var1 && var13.am == var10) {
 				double var14 = var2 - var13.s;
 				double var16 = var4 - var13.t;
@@ -677,7 +677,7 @@ public abstract class PlayerList {
 
 	public void j() {
 		for (int var1 = 0; var1 < this.playerList.size(); ++var1) {
-			this.b((class_lh) this.playerList.get(var1));
+			this.b((EntityPlayer) this.playerList.get(var1));
 		}
 
 	}
@@ -709,7 +709,7 @@ public abstract class PlayerList {
 	public void a() {
 	}
 
-	public void b(class_lh var1, WorldServer var2) {
+	public void b(EntityPlayer var1, WorldServer var2) {
 		class_aoe var3 = this.mcserver.d[0].ag();
 		var1.a.a((Packet<?>) (new PacketPlayOutWorldBorder(var3, PacketPlayOutWorldBorder.class_a_in_class_hg.d)));
 		var1.a.a((Packet<?>) (new PacketPlayOutUpdateTime(var2.L(), var2.M(), var2.R().b("doDaylightCycle"))));
@@ -721,7 +721,7 @@ public abstract class PlayerList {
 
 	}
 
-	public void f(class_lh var1) {
+	public void f(EntityPlayer var1) {
 		var1.a(var1.bq);
 		var1.r();
 		var1.a.a((Packet<?>) (new PacketPlayOutHeldItemSlot(var1.bp.d)));
@@ -747,12 +747,12 @@ public abstract class PlayerList {
 		this.hasWhitelist = has;
 	}
 
-	public List<class_lh> b(String var1) {
-		ArrayList<class_lh> var2 = Lists.newArrayList();
-		Iterator<class_lh> var3 = this.playerList.iterator();
+	public List<EntityPlayer> b(String var1) {
+		ArrayList<EntityPlayer> var2 = Lists.newArrayList();
+		Iterator<EntityPlayer> var3 = this.playerList.iterator();
 
 		while (var3.hasNext()) {
-			class_lh var4 = (class_lh) var3.next();
+			EntityPlayer var4 = (EntityPlayer) var3.next();
 			if (var4.w().equals(var1)) {
 				var2.add(var4);
 			}
@@ -773,7 +773,7 @@ public abstract class PlayerList {
 		return null;
 	}
 
-	private void a(class_lh var1, class_lh var2, World var3) {
+	private void a(EntityPlayer var1, EntityPlayer var2, World var3) {
 		if (var2 != null) {
 			var1.c.a(var2.c.b());
 		} else if (this.defaultGameMode != null) {
@@ -785,7 +785,7 @@ public abstract class PlayerList {
 
 	public void u() {
 		for (int var1 = 0; var1 < this.playerList.size(); ++var1) {
-			((class_lh) this.playerList.get(var1)).a.c("Server closed");
+			((EntityPlayer) this.playerList.get(var1)).a.c("Server closed");
 		}
 
 	}
@@ -800,14 +800,14 @@ public abstract class PlayerList {
 		this.a(var1, true);
 	}
 
-	public ServerStatisticManager a(class_xa var1) {
+	public ServerStatisticManager a(EntityHuman var1) {
 		UUID var2 = var1.aM();
 		ServerStatisticManager var3 = var2 == null ? null : (ServerStatisticManager) this.stats.get(var2);
 		if (var3 == null) {
 			File var4 = new File(this.mcserver.a(0).P().b(), "stats");
 			File var5 = new File(var4, var2.toString() + ".json");
 			if (!var5.exists()) {
-				File var6 = new File(var4, var1.e_() + ".json");
+				File var6 = new File(var4, var1.getName() + ".json");
 				if (var6.exists() && var6.isFile()) {
 					var6.renameTo(var5);
 				}
@@ -837,12 +837,12 @@ public abstract class PlayerList {
 		}
 	}
 
-	public List<class_lh> v() {
+	public List<EntityPlayer> v() {
 		return this.playerList;
 	}
 
-	public class_lh getPlayer(UUID var1) {
-		return (class_lh) this.playerMap.get(var1);
+	public EntityPlayer getPlayer(UUID var1) {
+		return (EntityPlayer) this.playerMap.get(var1);
 	}
 
 	public boolean f(GameProfile var1) {

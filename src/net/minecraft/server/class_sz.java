@@ -5,20 +5,20 @@ import com.google.common.base.Predicates;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pv;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_td;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_sz extends class_td {
    protected final Class a;
    private final int g;
    protected final class_sz.class_a_in_class_sz b;
    protected Predicate c;
-   protected class_qa d;
+   protected EntityLiving d;
 
    public class_sz(class_qh var1, Class var2, boolean var3) {
       this(var1, var2, var3, false);
@@ -35,18 +35,18 @@ public class class_sz extends class_td {
       this.b = new class_sz.class_a_in_class_sz(var1);
       this.a(1);
       this.c = new Predicate() {
-         public boolean a(class_qa var1) {
+         public boolean a(EntityLiving var1) {
             if(var6 != null && !var6.apply(var1)) {
                return false;
             } else {
-               if(var1 instanceof class_xa) {
+               if(var1 instanceof EntityHuman) {
                   double var2 = class_sz.this.f();
                   if(var1.ax()) {
                      var2 *= 0.800000011920929D;
                   }
 
                   if(var1.aA()) {
-                     float var4 = ((class_xa)var1).cc();
+                     float var4 = ((EntityHuman)var1).cc();
                      if(var4 < 0.1F) {
                         var4 = 0.1F;
                      }
@@ -65,7 +65,7 @@ public class class_sz extends class_td {
 
          // $FF: synthetic method
          public boolean apply(Object var1) {
-            return this.a((class_qa)var1);
+            return this.a((EntityLiving)var1);
          }
       };
    }
@@ -80,14 +80,14 @@ public class class_sz extends class_td {
          if(var3.isEmpty()) {
             return false;
          } else {
-            this.d = (class_qa)var3.get(0);
+            this.d = (EntityLiving)var3.get(0);
             return true;
          }
       }
    }
 
-   protected class_awf a(double var1) {
-      return this.e.aT().b(var1, 4.0D, var1);
+   protected AxisAlignedBB a(double var1) {
+      return this.e.aT().grow(var1, 4.0D, var1);
    }
 
    public void c() {
@@ -96,13 +96,13 @@ public class class_sz extends class_td {
    }
 
    public static class class_a_in_class_sz implements Comparator {
-      private final class_pr a;
+      private final Entity a;
 
-      public class_a_in_class_sz(class_pr var1) {
+      public class_a_in_class_sz(Entity var1) {
          this.a = var1;
       }
 
-      public int a(class_pr var1, class_pr var2) {
+      public int a(Entity var1, Entity var2) {
          double var3 = this.a.h(var1);
          double var5 = this.a.h(var2);
          return var3 < var5?-1:(var3 > var5?1:0);
@@ -110,7 +110,7 @@ public class class_sz extends class_td {
 
       // $FF: synthetic method
       public int compare(Object var1, Object var2) {
-         return this.a((class_pr)var1, (class_pr)var2);
+         return this.a((Entity)var1, (Entity)var2);
       }
    }
 }

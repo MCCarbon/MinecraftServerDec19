@@ -5,8 +5,8 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aio;
-import net.minecraft.server.class_ajw;
+import net.minecraft.server.BlockStepAbstract;
+import net.minecraft.server.BlockWood;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateEnum;
@@ -15,22 +15,22 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.CreativeTab;
 
-public abstract class class_amb extends class_aio {
-   public static final BlockStateEnum b = BlockStateEnum.of("variant", class_ajw.class_a_in_class_ajw.class);
+public abstract class class_amb extends BlockStepAbstract {
+   public static final BlockStateEnum b = BlockStateEnum.of("variant", BlockWood.EnumLogVariant.class);
 
    public class_amb() {
       super(Material.WOOD);
       IBlockData var1 = this.blockStateList.getFirst();
-      if(!this.l()) {
-         var1 = var1.set(a, class_aio.class_a_in_class_aio.b);
+      if(!this.isDouble()) {
+         var1 = var1.set(HALF, BlockStepAbstract.EnumSlabHalf.BOTTOM);
       }
 
-      this.setBlockData(var1.set(b, class_ajw.class_a_in_class_ajw.a));
-      this.a((CreativeTab)CreativeTab.b);
+      this.setBlockData(var1.set(b, BlockWood.EnumLogVariant.OAK));
+      this.setCreativeTab((CreativeTab)CreativeTab.BUILDING_BLOCKS);
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return ((class_ajw.class_a_in_class_ajw)var1.get(b)).c();
+      return ((BlockWood.EnumLogVariant)var1.get(b)).getMapColor();
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
@@ -38,21 +38,21 @@ public abstract class class_amb extends class_aio {
    }
 
    public String b(int var1) {
-      return super.getInternalName() + "." + class_ajw.class_a_in_class_ajw.a(var1).d();
+      return super.getInternalName() + "." + BlockWood.EnumLogVariant.getById(var1).d();
    }
 
-   public IBlockState n() {
+   public IBlockState getVariant() {
       return b;
    }
 
    public Object a(ItemStack var1) {
-      return class_ajw.class_a_in_class_ajw.a(var1.i() & 7);
+      return BlockWood.EnumLogVariant.getById(var1.i() & 7);
    }
 
    public IBlockData fromLegacyData(int var1) {
-      IBlockData var2 = this.getBlockData().set(b, class_ajw.class_a_in_class_ajw.a(var1 & 7));
-      if(!this.l()) {
-         var2 = var2.set(a, (var1 & 8) == 0?class_aio.class_a_in_class_aio.b:class_aio.class_a_in_class_aio.a);
+      IBlockData var2 = this.getBlockData().set(b, BlockWood.EnumLogVariant.getById(var1 & 7));
+      if(!this.isDouble()) {
+         var2 = var2.set(HALF, (var1 & 8) == 0?BlockStepAbstract.EnumSlabHalf.BOTTOM:BlockStepAbstract.EnumSlabHalf.TOP);
       }
 
       return var2;
@@ -60,19 +60,19 @@ public abstract class class_amb extends class_aio {
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_ajw.class_a_in_class_ajw)var1.get(b)).a();
-      if(!this.l() && var1.get(a) == class_aio.class_a_in_class_aio.a) {
+      int var3 = var2 | ((BlockWood.EnumLogVariant)var1.get(b)).getId();
+      if(!this.isDouble() && var1.get(HALF) == BlockStepAbstract.EnumSlabHalf.TOP) {
          var3 |= 8;
       }
 
       return var3;
    }
 
-   protected BlockStateList createBlockStateList() {
-      return this.l()?new BlockStateList(this, new IBlockState[]{b}):new BlockStateList(this, new IBlockState[]{a, b});
+   protected BlockStateList getStateList() {
+      return this.isDouble()?new BlockStateList(this, new IBlockState[]{b}):new BlockStateList(this, new IBlockState[]{HALF, b});
    }
 
    public int getDropData(IBlockData var1) {
-      return ((class_ajw.class_a_in_class_ajw)var1.get(b)).a();
+      return ((BlockWood.EnumLogVariant)var1.get(b)).getId();
    }
 }

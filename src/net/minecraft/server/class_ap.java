@@ -9,11 +9,11 @@ import net.minecraft.server.class_cd;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_ap extends class_i {
    public List b() {
@@ -36,13 +36,13 @@ public class class_ap extends class_i {
       if(var2.length < 2) {
          throw new class_cf("commands.message.usage", new Object[0]);
       } else {
-         class_lh var3 = a(var1, var2[0]);
+         EntityPlayer var3 = a(var1, var2[0]);
          if(var3 == var1) {
             throw new class_cd("commands.message.sameTarget", new Object[0]);
          } else {
-            IChatBaseComponent var4 = b(var1, var2, 1, !(var1 instanceof class_xa));
-            class_fb var5 = new class_fb("commands.message.display.incoming", new Object[]{var1.f_(), var4.f()});
-            class_fb var6 = new class_fb("commands.message.display.outgoing", new Object[]{var3.f_(), var4.f()});
+            IChatBaseComponent var4 = b(var1, var2, 1, !(var1 instanceof EntityHuman));
+            ChatMessage var5 = new ChatMessage("commands.message.display.incoming", new Object[]{var1.getScoreboardDisplayName(), var4.f()});
+            ChatMessage var6 = new ChatMessage("commands.message.display.outgoing", new Object[]{var3.getScoreboardDisplayName(), var4.f()});
             var5.b().a(EnumChatFormat.GRAY).b(Boolean.valueOf(true));
             var6.b().a(EnumChatFormat.GRAY).b(Boolean.valueOf(true));
             var3.a((IChatBaseComponent)var5);

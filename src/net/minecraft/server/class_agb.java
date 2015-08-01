@@ -5,29 +5,29 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agd;
+import net.minecraft.server.IBlockAccess;
+import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_aiv;
-import net.minecraft.server.class_ame;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.BlockDirectional;
+import net.minecraft.server.TileEntityBanner;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anx;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateDirection;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
-public class class_agb extends class_agd {
-   public static final class_anx a;
-   public static final class_anz b;
+public class class_agb extends BlockContainer {
+   public static final BlockStateDirection a;
+   public static final BlockStateInteger b;
 
    protected class_agb() {
       super(Material.WOOD);
@@ -40,7 +40,7 @@ public class class_agb extends class_agd {
       return LocaleI18n.get("item.banner.white.name");
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -48,7 +48,7 @@ public class class_agb extends class_agd {
       return false;
    }
 
-   public boolean isPassable(class_aer var1, BlockPosition var2) {
+   public boolean isPassable(IBlockAccess var1, BlockPosition var2) {
       return true;
    }
 
@@ -60,8 +60,8 @@ public class class_agb extends class_agd {
       return true;
    }
 
-   public class_amg a(World var1, int var2) {
-      return new class_ame();
+   public TileEntity createTileEntity(World var1, int var2) {
+      return new TileEntityBanner();
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
@@ -69,44 +69,44 @@ public class class_agb extends class_agd {
    }
 
    public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
-      class_amg var6 = var1.s(var2);
-      if(var6 instanceof class_ame) {
-         ItemStack var7 = new ItemStack(Items.cH, 1, ((class_ame)var6).b());
+      TileEntity var6 = var1.getTileEntity(var2);
+      if(var6 instanceof TileEntityBanner) {
+         ItemStack var7 = new ItemStack(Items.cH, 1, ((TileEntityBanner)var6).b());
          NBTTagCompound var8 = new NBTTagCompound();
-         var6.b(var8);
+         var6.write(var8);
          var8.remove("x");
          var8.remove("y");
          var8.remove("z");
          var8.remove("id");
          var7.addTag((String)"BlockEntityTag", (NBTTag)var8);
-         a(var1, var2, var7);
+         dropItem(var1, var2, var7);
       } else {
          super.dropNaturally(var1, var2, var3, var4, var5);
       }
 
    }
 
-   public boolean d(World var1, BlockPosition var2) {
-      return !this.e(var1, var2) && super.d(var1, var2);
+   public boolean canPlace(World var1, BlockPosition var2) {
+      return !this.e(var1, var2) && super.canPlace(var1, var2);
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
-      if(var5 instanceof class_ame) {
-         class_ame var7 = (class_ame)var5;
-         ItemStack var8 = new ItemStack(Items.cH, 1, ((class_ame)var5).b());
+   public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
+      if(var5 instanceof TileEntityBanner) {
+         TileEntityBanner var7 = (TileEntityBanner)var5;
+         ItemStack var8 = new ItemStack(Items.cH, 1, ((TileEntityBanner)var5).b());
          NBTTagCompound var9 = new NBTTagCompound();
-         class_ame.a(var9, var7.b(), var7.d());
+         TileEntityBanner.a(var9, var7.b(), var7.d());
          var8.addTag((String)"BlockEntityTag", (NBTTag)var9);
-         a(var1, var3, var8);
+         dropItem(var1, var3, var8);
       } else {
-         super.a(var1, var2, var3, var4, (class_amg)null, var6);
+         super.breakBlockNaturally(var1, var2, var3, var4, (TileEntity)null, var6);
       }
 
    }
 
    static {
-      a = class_aiv.O;
-      b = class_anz.a("rotation", 0, 15);
+      a = BlockDirectional.FACING;
+      b = BlockStateInteger.of("rotation", 0, 15);
    }
 
    // $FF: synthetic class
@@ -147,7 +147,7 @@ public class class_agb extends class_agd {
          this.setBlockData(this.blockStateList.getFirst().set(b, Integer.valueOf(0)));
       }
 
-      public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
          return var1.getBlock() != this?var1:var1.set(b, Integer.valueOf(var2.a(((Integer)var1.get(b)).intValue(), 16)));
       }
 
@@ -155,13 +155,13 @@ public class class_agb extends class_agd {
          return var1.getBlock() != this?var1:var1.set(b, Integer.valueOf(var2.a(((Integer)var1.get(b)).intValue(), 16)));
       }
 
-      public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-         if(!var1.p(var2.shiftDown()).getBlock().getMaterial().isBuildable()) {
-            this.b(var1, var2, var3, 0);
-            var1.g(var2);
+      public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+         if(!var1.getType(var2.down()).getBlock().getMaterial().isBuildable()) {
+            this.dropNaturallyForSure(var1, var2, var3, 0);
+            var1.setAir(var2);
          }
 
-         super.a(var1, var2, var3, var4);
+         super.doPhysics(var1, var2, var3, var4);
       }
 
       public IBlockData fromLegacyData(int var1) {
@@ -172,7 +172,7 @@ public class class_agb extends class_agd {
          return ((Integer)var1.get(b)).intValue();
       }
 
-      protected BlockStateList createBlockStateList() {
+      protected BlockStateList getStateList() {
          return new BlockStateList(this, new IBlockState[]{b});
       }
    }
@@ -182,7 +182,7 @@ public class class_agb extends class_agd {
          this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
       }
 
-      public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+      public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
          return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
       }
 
@@ -190,8 +190,8 @@ public class class_agb extends class_agd {
          return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
       }
 
-      public void a(class_aer var1, BlockPosition var2) {
-         EnumDirection var3 = (EnumDirection)var1.p(var2).get(a);
+      public void updateShape(IBlockAccess var1, BlockPosition var2) {
+         EnumDirection var3 = (EnumDirection)var1.getType(var2).get(a);
          float var4 = 0.0F;
          float var5 = 0.78125F;
          float var6 = 0.0F;
@@ -215,14 +215,14 @@ public class class_agb extends class_agd {
 
       }
 
-      public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
          EnumDirection var5 = (EnumDirection)var3.get(a);
-         if(!var1.p(var2.shift(var5.getOpposite())).getBlock().getMaterial().isBuildable()) {
-            this.b(var1, var2, var3, 0);
-            var1.g(var2);
+         if(!var1.getType(var2.shift(var5.getOpposite())).getBlock().getMaterial().isBuildable()) {
+            this.dropNaturallyForSure(var1, var2, var3, 0);
+            var1.setAir(var2);
          }
 
-         super.a(var1, var2, var3, var4);
+         super.doPhysics(var1, var2, var3, var4);
       }
 
       public IBlockData fromLegacyData(int var1) {
@@ -238,7 +238,7 @@ public class class_agb extends class_agd {
          return ((EnumDirection)var1.get(a)).getId();
       }
 
-      protected BlockStateList createBlockStateList() {
+      protected BlockStateList getStateList() {
          return new BlockStateList(this, new IBlockState[]{a});
       }
    }

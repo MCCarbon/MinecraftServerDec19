@@ -22,32 +22,32 @@ public class class_akl extends Block {
 
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
-      if(!var1.D) {
-         if(this.a && !var1.z(var2)) {
-            var1.a((BlockPosition)var2, (IBlockData)Blocks.REDSTONE_LAMP.getBlockData(), 2);
-         } else if(!this.a && var1.z(var2)) {
-            var1.a((BlockPosition)var2, (IBlockData)Blocks.LIT_REDSTONE_LAMP.getBlockData(), 2);
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
+      if(!var1.isClientSide) {
+         if(this.a && !var1.isBlockIndirectlyPowered(var2)) {
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.REDSTONE_LAMP.getBlockData(), 2);
+         } else if(!this.a && var1.isBlockIndirectlyPowered(var2)) {
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.LIT_REDSTONE_LAMP.getBlockData(), 2);
          }
 
       }
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(!var1.D) {
-         if(this.a && !var1.z(var2)) {
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(!var1.isClientSide) {
+         if(this.a && !var1.isBlockIndirectlyPowered(var2)) {
             var1.a((BlockPosition)var2, (Block)this, 4);
-         } else if(!this.a && var1.z(var2)) {
-            var1.a((BlockPosition)var2, (IBlockData)Blocks.LIT_REDSTONE_LAMP.getBlockData(), 2);
+         } else if(!this.a && var1.isBlockIndirectlyPowered(var2)) {
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.LIT_REDSTONE_LAMP.getBlockData(), 2);
          }
 
       }
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      if(!var1.D) {
-         if(this.a && !var1.z(var2)) {
-            var1.a((BlockPosition)var2, (IBlockData)Blocks.REDSTONE_LAMP.getBlockData(), 2);
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+      if(!var1.isClientSide) {
+         if(this.a && !var1.isBlockIndirectlyPowered(var2)) {
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.REDSTONE_LAMP.getBlockData(), 2);
          }
 
       }
@@ -57,7 +57,7 @@ public class class_akl extends Block {
       return Item.getByBlock(Blocks.REDSTONE_LAMP);
    }
 
-   protected ItemStack i(IBlockData var1) {
+   protected ItemStack createItemStack(IBlockData var1) {
       return new ItemStack(Blocks.REDSTONE_LAMP);
    }
 }

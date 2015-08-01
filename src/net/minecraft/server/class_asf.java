@@ -18,7 +18,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_wg;
 
@@ -1974,7 +1974,7 @@ public class class_asf {
             var9.h(var9.bv());
             var9.b((double)var6 + 0.5D, (double)var7, (double)var8 + 0.5D, 0.0F, 0.0F);
             var9.a(var1.E(new BlockPosition(var9)), (class_qd)null);
-            var1.a((class_pr)var9);
+            var1.addEntity((Entity)var9);
             return true;
          } else {
             return false;

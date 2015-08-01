@@ -23,11 +23,11 @@ public class class_apz extends class_aql {
       while(true) {
          label50: {
             if(var3.getY() > 3) {
-               if(var1.d(var3.shiftDown())) {
+               if(var1.isEmpty(var3.down())) {
                   break label50;
                }
 
-               Block var4 = var1.p(var3.shiftDown()).getBlock();
+               Block var4 = var1.getType(var3.down()).getBlock();
                if(var4 != Blocks.GRASS && var4 != Blocks.DIRT && var4 != Blocks.STONE) {
                   break label50;
                }
@@ -49,7 +49,7 @@ public class class_apz extends class_aql {
                while(var10.hasNext()) {
                   BlockPosition var11 = (BlockPosition)var10.next();
                   if(var11.distanceSquared(var3) <= (double)(var9 * var9)) {
-                     var1.a((BlockPosition)var11, (IBlockData)this.a.getBlockData(), 4);
+                     var1.setTypeAndData((BlockPosition)var11, (IBlockData)this.a.getBlockData(), 4);
                   }
                }
 
@@ -59,7 +59,7 @@ public class class_apz extends class_aql {
             return true;
          }
 
-         var3 = var3.shiftDown();
+         var3 = var3.down();
       }
    }
 }

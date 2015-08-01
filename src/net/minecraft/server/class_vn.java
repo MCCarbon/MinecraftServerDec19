@@ -7,25 +7,25 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agf;
+import net.minecraft.server.BlockMinecartTrackAbstract;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aka;
+import net.minecraft.server.BlockPoweredRail;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_ov;
+import net.minecraft.server.INamableTileEntity;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_uj;
 import net.minecraft.server.class_vo;
@@ -35,9 +35,9 @@ import net.minecraft.server.class_vs;
 import net.minecraft.server.class_vt;
 import net.minecraft.server.class_vu;
 import net.minecraft.server.class_vv;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
-public abstract class class_vn extends class_pr implements class_ov {
+public abstract class class_vn extends Entity implements INamableTileEntity {
    private static final int a = class_qi.a(class_vn.class);
    private static final int b = class_qi.a(class_vn.class);
    private static final int c = class_qi.a(class_vn.class);
@@ -92,11 +92,11 @@ public abstract class class_vn extends class_pr implements class_ov {
       this.ac.a(f, Byte.valueOf((byte)0));
    }
 
-   public class_awf j(class_pr var1) {
+   public AxisAlignedBB j(Entity var1) {
       return var1.ae()?var1.aT():null;
    }
 
-   public class_awf S() {
+   public AxisAlignedBB S() {
       return null;
    }
 
@@ -108,7 +108,7 @@ public abstract class class_vn extends class_pr implements class_ov {
       this(var1);
       this.b(var2, var4, var6);
       this.v = 0.0D;
-      this.w = 0.0D;
+      this.motY = 0.0D;
       this.x = 0.0D;
       this.p = var2;
       this.q = var4;
@@ -120,7 +120,7 @@ public abstract class class_vn extends class_pr implements class_ov {
    }
 
    public boolean a(class_pc var1, float var2) {
-      if(!this.o.D && !this.I) {
+      if(!this.o.isClientSide && !this.I) {
          if(this.b(var1)) {
             return false;
          } else {
@@ -128,13 +128,13 @@ public abstract class class_vn extends class_pr implements class_ov {
             this.j(10);
             this.ac();
             this.a(this.p() + var2 * 10.0F);
-            boolean var3 = var1.j() instanceof class_xa && ((class_xa)var1.j()).bH.instabuild;
+            boolean var3 = var1.j() instanceof EntityHuman && ((EntityHuman)var1.j()).bH.instabuild;
             if(var3 || this.p() > 40.0F) {
                if(this.l != null) {
-                  this.l.a((class_pr)null);
+                  this.l.a((Entity)null);
                }
 
-               if(var3 && !this.l_()) {
+               if(var3 && !this.hasCustomName()) {
                   this.J();
                } else {
                   this.a(var1);
@@ -183,7 +183,7 @@ public abstract class class_vn extends class_pr implements class_ov {
       }
 
       int var2;
-      if(!this.o.D && this.o instanceof WorldServer) {
+      if(!this.o.isClientSide && this.o instanceof WorldServer) {
          this.o.B.a("portal");
          MinecraftServer var1 = ((WorldServer)this.o).s();
          var2 = this.L();
@@ -193,7 +193,7 @@ public abstract class class_vn extends class_pr implements class_ov {
                   this.al = var2;
                   this.aj = this.aq();
                   byte var3;
-                  if(this.o.t.p().a() == -1) {
+                  if(this.o.worldProvider.p().a() == -1) {
                      var3 = 0;
                   } else {
                      var3 = -1;
@@ -221,7 +221,7 @@ public abstract class class_vn extends class_pr implements class_ov {
          this.o.B.b();
       }
 
-      if(this.o.D) {
+      if(this.o.isClientSide) {
          if(this.as > 0) {
             double var15 = this.s + (this.at - this.s) / (double)this.as;
             double var17 = this.t + (this.au - this.t) / (double)this.as;
@@ -241,20 +241,20 @@ public abstract class class_vn extends class_pr implements class_ov {
          this.p = this.s;
          this.q = this.t;
          this.r = this.u;
-         this.w -= 0.03999999910593033D;
+         this.motY -= 0.03999999910593033D;
          int var14 = MathHelper.floor(this.s);
          var2 = MathHelper.floor(this.t);
          int var16 = MathHelper.floor(this.u);
-         if(class_agf.e(this.o, new BlockPosition(var14, var2 - 1, var16))) {
+         if(BlockMinecartTrackAbstract.e(this.o, new BlockPosition(var14, var2 - 1, var16))) {
             --var2;
          }
 
          BlockPosition var4 = new BlockPosition(var14, var2, var16);
-         IBlockData var5 = this.o.p(var4);
-         if(class_agf.d(var5)) {
+         IBlockData var5 = this.o.getType(var4);
+         if(BlockMinecartTrackAbstract.d(var5)) {
             this.a(var4, var5);
             if(var5.getBlock() == Blocks.ACTIVATOR_RAIL) {
-               this.a(var14, var2, var16, ((Boolean)var5.get(class_aka.N)).booleanValue());
+               this.a(var14, var2, var16, ((Boolean)var5.get(BlockPoweredRail.POWERED)).booleanValue());
             }
          } else {
             this.n();
@@ -278,10 +278,10 @@ public abstract class class_vn extends class_pr implements class_ov {
          }
 
          this.b(this.y, this.z);
-         Iterator var12 = this.o.b((class_pr)this, (class_awf)this.aT().b(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
+         Iterator var12 = this.o.b((Entity)this, (AxisAlignedBB)this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
 
          while(var12.hasNext()) {
-            class_pr var13 = (class_pr)var12.next();
+            Entity var13 = (Entity)var12.next();
             if(var13 != this.l && var13.ae() && var13 instanceof class_vn) {
                var13.i(this);
             }
@@ -312,14 +312,14 @@ public abstract class class_vn extends class_pr implements class_ov {
       this.x = MathHelper.clamp(this.x, -var1, var1);
       if(this.C) {
          this.v *= 0.5D;
-         this.w *= 0.5D;
+         this.motY *= 0.5D;
          this.x *= 0.5D;
       }
 
-      this.d(this.v, this.w, this.x);
+      this.d(this.v, this.motY, this.x);
       if(!this.C) {
          this.v *= 0.949999988079071D;
-         this.w *= 0.949999988079071D;
+         this.motY *= 0.949999988079071D;
          this.x *= 0.949999988079071D;
       }
 
@@ -331,14 +331,14 @@ public abstract class class_vn extends class_pr implements class_ov {
       this.t = (double)var1.getY();
       boolean var4 = false;
       boolean var5 = false;
-      class_agf var6 = (class_agf)var2.getBlock();
+      BlockMinecartTrackAbstract var6 = (BlockMinecartTrackAbstract)var2.getBlock();
       if(var6 == Blocks.GOLDEN_RAIL) {
-         var4 = ((Boolean)var2.get(class_aka.N)).booleanValue();
+         var4 = ((Boolean)var2.get(BlockPoweredRail.POWERED)).booleanValue();
          var5 = !var4;
       }
 
       double var7 = 0.0078125D;
-      class_agf.class_b_in_class_agf var9 = (class_agf.class_b_in_class_agf)var2.get(var6.n());
+      BlockMinecartTrackAbstract.EnumTrackPosition var9 = (BlockMinecartTrackAbstract.EnumTrackPosition)var2.get(var6.n());
       switch(class_vn.SyntheticClass_1.b[var9.ordinal()]) {
       case 1:
          this.v -= 0.0078125D;
@@ -357,7 +357,7 @@ public abstract class class_vn extends class_pr implements class_ov {
          ++this.t;
       }
 
-      int[][] var10 = i[var9.a()];
+      int[][] var10 = i[var9.getId()];
       double var11 = (double)(var10[1][0] - var10[0][0]);
       double var13 = (double)(var10[1][2] - var10[0][2]);
       double var15 = Math.sqrt(var11 * var11 + var13 * var13);
@@ -378,8 +378,8 @@ public abstract class class_vn extends class_pr implements class_ov {
       double var23;
       double var25;
       double var27;
-      if(this.l instanceof class_qa) {
-         var21 = (double)((class_qa)this.l).bd;
+      if(this.l instanceof EntityLiving) {
+         var21 = (double)((EntityLiving)this.l).bd;
          if(var21 > 0.0D) {
             var23 = -Math.sin((double)(this.l.y * 3.1415927F / 180.0F));
             var25 = Math.cos((double)(this.l.y * 3.1415927F / 180.0F));
@@ -396,11 +396,11 @@ public abstract class class_vn extends class_pr implements class_ov {
          var21 = Math.sqrt(this.v * this.v + this.x * this.x);
          if(var21 < 0.03D) {
             this.v *= 0.0D;
-            this.w *= 0.0D;
+            this.motY *= 0.0D;
             this.x *= 0.0D;
          } else {
             this.v *= 0.5D;
-            this.w *= 0.0D;
+            this.motY *= 0.0D;
             this.x *= 0.5D;
          }
       }
@@ -473,16 +473,16 @@ public abstract class class_vn extends class_pr implements class_ov {
             double var42 = 0.06D;
             this.v += this.v / var40 * var42;
             this.x += this.x / var40 * var42;
-         } else if(var9 == class_agf.class_b_in_class_agf.b) {
-            if(this.o.p(var1.shiftWest()).getBlock().isOccluding()) {
+         } else if(var9 == BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST) {
+            if(this.o.getType(var1.west()).getBlock().isOccluding()) {
                this.v = 0.02D;
-            } else if(this.o.p(var1.shiftEast()).getBlock().isOccluding()) {
+            } else if(this.o.getType(var1.east()).getBlock().isOccluding()) {
                this.v = -0.02D;
             }
-         } else if(var9 == class_agf.class_b_in_class_agf.a) {
-            if(this.o.p(var1.shiftNorth()).getBlock().isOccluding()) {
+         } else if(var9 == BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH) {
+            if(this.o.getType(var1.north()).getBlock().isOccluding()) {
                this.x = 0.02D;
-            } else if(this.o.p(var1.shiftSouth()).getBlock().isOccluding()) {
+            } else if(this.o.getType(var1.south()).getBlock().isOccluding()) {
                this.x = -0.02D;
             }
          }
@@ -493,11 +493,11 @@ public abstract class class_vn extends class_pr implements class_ov {
    protected void o() {
       if(this.l != null) {
          this.v *= 0.996999979019165D;
-         this.w *= 0.0D;
+         this.motY *= 0.0D;
          this.x *= 0.996999979019165D;
       } else {
          this.v *= 0.9599999785423279D;
-         this.w *= 0.0D;
+         this.motY *= 0.0D;
          this.x *= 0.9599999785423279D;
       }
 
@@ -509,21 +509,21 @@ public abstract class class_vn extends class_pr implements class_ov {
       this.u = var5;
       float var7 = this.J / 2.0F;
       float var8 = this.K;
-      this.a((class_awf)(new class_awf(var1 - (double)var7, var3, var5 - (double)var7, var1 + (double)var7, var3 + (double)var8, var5 + (double)var7)));
+      this.a((AxisAlignedBB)(new AxisAlignedBB(var1 - (double)var7, var3, var5 - (double)var7, var1 + (double)var7, var3 + (double)var8, var5 + (double)var7)));
    }
 
    public Vec3D k(double var1, double var3, double var5) {
       int var7 = MathHelper.floor(var1);
       int var8 = MathHelper.floor(var3);
       int var9 = MathHelper.floor(var5);
-      if(class_agf.e(this.o, new BlockPosition(var7, var8 - 1, var9))) {
+      if(BlockMinecartTrackAbstract.e(this.o, new BlockPosition(var7, var8 - 1, var9))) {
          --var8;
       }
 
-      IBlockData var10 = this.o.p(new BlockPosition(var7, var8, var9));
-      if(class_agf.d(var10)) {
-         class_agf.class_b_in_class_agf var11 = (class_agf.class_b_in_class_agf)var10.get(((class_agf)var10.getBlock()).n());
-         int[][] var12 = i[var11.a()];
+      IBlockData var10 = this.o.getType(new BlockPosition(var7, var8, var9));
+      if(BlockMinecartTrackAbstract.d(var10)) {
+         BlockMinecartTrackAbstract.EnumTrackPosition var11 = (BlockMinecartTrackAbstract.EnumTrackPosition)var10.get(((BlockMinecartTrackAbstract)var10.getBlock()).n());
+         int[][] var12 = i[var11.getId()];
          double var13 = 0.0D;
          double var15 = (double)var7 + 0.5D + (double)var12[0][0] * 0.5D;
          double var17 = (double)var8 + 0.0625D + (double)var12[0][1] * 0.5D;
@@ -608,12 +608,12 @@ public abstract class class_vn extends class_pr implements class_ov {
 
    }
 
-   public void i(class_pr var1) {
-      if(!this.o.D) {
+   public void i(Entity var1) {
+      if(!this.o.isClientSide) {
          if(!var1.T && !this.T) {
             if(var1 != this.l) {
-               if(var1 instanceof class_qa && !(var1 instanceof class_xa) && !(var1 instanceof class_uj) && this.s() == class_vn.class_a_in_class_vn.a && this.v * this.v + this.x * this.x > 0.01D && this.l == null && var1.m == null) {
-                  var1.a((class_pr)this);
+               if(var1 instanceof EntityLiving && !(var1 instanceof EntityHuman) && !(var1 instanceof class_uj) && this.s() == class_vn.class_a_in_class_vn.a && this.v * this.v + this.x * this.x > 0.01D && this.l == null && var1.m == null) {
+                  var1.a((Entity)this);
                }
 
                double var2 = var1.s - this.s;
@@ -745,11 +745,11 @@ public abstract class class_vn extends class_pr implements class_ov {
       this.h = var1;
    }
 
-   public String e_() {
-      return this.h != null?this.h:super.e_();
+   public String getName() {
+      return this.h != null?this.h:super.getName();
    }
 
-   public boolean l_() {
+   public boolean hasCustomName() {
       return this.h != null;
    }
 
@@ -757,14 +757,14 @@ public abstract class class_vn extends class_pr implements class_ov {
       return this.h;
    }
 
-   public IChatBaseComponent f_() {
-      if(this.l_()) {
-         class_fa var2 = new class_fa(this.h);
+   public IChatBaseComponent getScoreboardDisplayName() {
+      if(this.hasCustomName()) {
+         ChatComponentText var2 = new ChatComponentText(this.h);
          var2.b().a(this.aS());
          var2.b().a(this.aM().toString());
          return var2;
       } else {
-         class_fb var1 = new class_fb(this.e_(), new Object[0]);
+         ChatMessage var1 = new ChatMessage(this.getName(), new Object[0]);
          var1.b().a(this.aS());
          var1.b().a(this.aM().toString());
          return var1;
@@ -776,29 +776,29 @@ public abstract class class_vn extends class_pr implements class_ov {
       // $FF: synthetic field
       static final int[] a;
       // $FF: synthetic field
-      static final int[] b = new int[class_agf.class_b_in_class_agf.values().length];
+      static final int[] b = new int[BlockMinecartTrackAbstract.EnumTrackPosition.values().length];
 
       static {
          try {
-            b[class_agf.class_b_in_class_agf.c.ordinal()] = 1;
+            b[BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_EAST.ordinal()] = 1;
          } catch (NoSuchFieldError var10) {
             ;
          }
 
          try {
-            b[class_agf.class_b_in_class_agf.d.ordinal()] = 2;
+            b[BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_WEST.ordinal()] = 2;
          } catch (NoSuchFieldError var9) {
             ;
          }
 
          try {
-            b[class_agf.class_b_in_class_agf.e.ordinal()] = 3;
+            b[BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_NORTH.ordinal()] = 3;
          } catch (NoSuchFieldError var8) {
             ;
          }
 
          try {
-            b[class_agf.class_b_in_class_agf.f.ordinal()] = 4;
+            b[BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_SOUTH.ordinal()] = 4;
          } catch (NoSuchFieldError var7) {
             ;
          }

@@ -8,14 +8,14 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahd;
+import net.minecraft.server.BlockCrops;
 import net.minecraft.server.class_aiz;
-import net.minecraft.server.class_akr;
-import net.minecraft.server.class_ald;
+import net.minecraft.server.BlockSandStone;
+import net.minecraft.server.BlockStairs;
 import net.minecraft.server.class_alp;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
@@ -29,10 +29,10 @@ import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_od;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_wv;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_asr {
    public static void a() {
@@ -268,7 +268,7 @@ public class class_asr {
          this.a(var1, Blocks.FENCE.getBlockData(), 1, 0, 0, var3);
          this.a(var1, Blocks.FENCE.getBlockData(), 1, 1, 0, var3);
          this.a(var1, Blocks.FENCE.getBlockData(), 1, 2, 0, var3);
-         this.a(var1, Blocks.WOOL.fromLegacyData(class_zy.a.b()), 1, 3, 0, var3);
+         this.a(var1, Blocks.WOOL.fromLegacyData(EnumColor.a.b()), 1, 3, 0, var3);
          this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 2, 3, 0, var3);
          this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 1, 3, 1, var3);
          this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 0, 3, 0, var3);
@@ -358,19 +358,19 @@ public class class_asr {
          int var4;
          int var5;
          for(var4 = 1; var4 <= 7; ++var4) {
-            var5 = ((class_ahd)this.a).n();
+            var5 = ((BlockCrops)this.a).n();
             int var6 = var5 / 3;
             this.a(var1, this.a.fromLegacyData(MathHelper.getRandomIntInRange(var2, var6, var5)), 1, 1, var4, var3);
             this.a(var1, this.a.fromLegacyData(MathHelper.getRandomIntInRange(var2, var6, var5)), 2, 1, var4, var3);
-            int var7 = ((class_ahd)this.b).n();
+            int var7 = ((BlockCrops)this.b).n();
             int var8 = var7 / 3;
             this.a(var1, this.b.fromLegacyData(MathHelper.getRandomIntInRange(var2, var8, var7)), 4, 1, var4, var3);
             this.a(var1, this.b.fromLegacyData(MathHelper.getRandomIntInRange(var2, var8, var7)), 5, 1, var4, var3);
-            int var9 = ((class_ahd)this.c).n();
+            int var9 = ((BlockCrops)this.c).n();
             int var10 = var9 / 3;
             this.a(var1, this.c.fromLegacyData(MathHelper.getRandomIntInRange(var2, var10, var9)), 7, 1, var4, var3);
             this.a(var1, this.c.fromLegacyData(MathHelper.getRandomIntInRange(var2, var10, var9)), 8, 1, var4, var3);
-            int var11 = ((class_ahd)this.d).n();
+            int var11 = ((BlockCrops)this.d).n();
             int var12 = var11 / 3;
             this.a(var1, this.d.fromLegacyData(MathHelper.getRandomIntInRange(var2, var12, var11)), 10, 1, var4, var3);
             this.a(var1, this.d.fromLegacyData(MathHelper.getRandomIntInRange(var2, var12, var11)), 11, 1, var4, var3);
@@ -456,11 +456,11 @@ public class class_asr {
          int var4;
          int var5;
          for(var4 = 1; var4 <= 7; ++var4) {
-            var5 = ((class_ahd)this.a).n();
+            var5 = ((BlockCrops)this.a).n();
             int var6 = var5 / 3;
             this.a(var1, this.a.fromLegacyData(MathHelper.getRandomIntInRange(var2, var6, var5)), 1, 1, var4, var3);
             this.a(var1, this.a.fromLegacyData(MathHelper.getRandomIntInRange(var2, var6, var5)), 2, 1, var4, var3);
-            int var7 = ((class_ahd)this.b).n();
+            int var7 = ((BlockCrops)this.b).n();
             int var8 = var7 / 3;
             this.a(var1, this.b.fromLegacyData(MathHelper.getRandomIntInRange(var2, var8, var7)), 4, 1, var4, var3);
             this.a(var1, this.b.fromLegacyData(MathHelper.getRandomIntInRange(var2, var8, var7)), 5, 1, var4, var3);
@@ -548,8 +548,8 @@ public class class_asr {
          this.a(var1, Blocks.FENCE.getBlockData(), 2, 1, 4, var3);
          this.a(var1, Blocks.WOODEN_PRESSURE_PLATE.getBlockData(), 2, 2, 4, var3);
          this.a(var1, Blocks.PLANKS.getBlockData(), 1, 1, 5, var3);
-         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH), 2, 1, 5, var3);
-         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST), 1, 1, 4, var3);
+         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 2, 1, 5, var3);
+         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST), 1, 1, 4, var3);
          if(!this.b && var3.b((BaseBlockPosition)(new BlockPosition(this.a(5, 5), this.d(1), this.b(5, 5))))) {
             this.b = true;
             this.a(var1, var3, var2, 5, 1, 5, a, 3 + var2.nextInt(6));
@@ -558,7 +558,7 @@ public class class_asr {
          int var4;
          for(var4 = 6; var4 <= 8; ++var4) {
             if(this.a(var1, var4, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, var4, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
-               this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH), var4, 0, -1, var3);
+               this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), var4, 0, -1, var3);
             }
          }
 
@@ -627,10 +627,10 @@ public class class_asr {
          this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 2, var3);
          this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 3, var3);
          this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 4, var3);
-         IBlockData var4 = Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
-         IBlockData var5 = Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
-         IBlockData var6 = Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
-         IBlockData var7 = Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST);
+         IBlockData var4 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         IBlockData var5 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
+         IBlockData var6 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
+         IBlockData var7 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
 
          int var8;
          int var9;
@@ -765,9 +765,9 @@ public class class_asr {
          this.a(var1, Blocks.PLANKS.getBlockData(), 0, 4, 3, var3);
          this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 2, var3);
          this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 3, var3);
-         IBlockData var4 = Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
-         IBlockData var5 = Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
-         IBlockData var6 = Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
+         IBlockData var4 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         IBlockData var5 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
+         IBlockData var6 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
 
          int var7;
          int var8;
@@ -907,7 +907,7 @@ public class class_asr {
          this.a(var1, Blocks.AIR.getBlockData(), 1, 2, 0, var3);
          this.a(var1, var3, var2, 1, 1, 0, EnumDirection.NORTH);
          if(this.a(var1, 1, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 1, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
-            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH), 1, 0, -1, var3);
+            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 1, 0, -1, var3);
          }
 
          for(int var4 = 0; var4 < 5; ++var4) {
@@ -956,8 +956,8 @@ public class class_asr {
          int var5;
          for(int var4 = -1; var4 <= 2; ++var4) {
             for(var5 = 0; var5 <= 8; ++var5) {
-               this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH), var5, 6 + var4, var4, var3);
-               this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH), var5, 6 + var4, 5 - var4, var3);
+               this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), var5, 6 + var4, var4, var3);
+               this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH), var5, 6 + var4, 5 - var4, var3);
             }
          }
 
@@ -995,8 +995,8 @@ public class class_asr {
          this.a(var1, var3, 1, 4, 4, 7, 4, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
          this.a(var1, var3, 1, 3, 4, 7, 3, 4, Blocks.BOOKSHELF.getBlockData(), Blocks.BOOKSHELF.getBlockData(), false);
          this.a(var1, Blocks.PLANKS.getBlockData(), 7, 1, 4, var3);
-         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST), 7, 1, 3, var3);
-         IBlockData var7 = Blocks.OAK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
+         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST), 7, 1, 3, var3);
+         IBlockData var7 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
          this.a(var1, var7, 6, 1, 4, var3);
          this.a(var1, var7, 5, 1, 4, var3);
          this.a(var1, var7, 4, 1, 4, var3);
@@ -1010,7 +1010,7 @@ public class class_asr {
          this.a(var1, Blocks.AIR.getBlockData(), 1, 2, 0, var3);
          this.a(var1, var3, var2, 1, 1, 0, EnumDirection.NORTH);
          if(this.a(var1, 1, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 1, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
-            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH), 1, 0, -1, var3);
+            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 1, 0, -1, var3);
          }
 
          for(var5 = 0; var5 < 6; ++var5) {
@@ -1076,9 +1076,9 @@ public class class_asr {
          this.a(var1, Blocks.COBBLESTONE.getBlockData(), 2, 1, 7, var3);
          this.a(var1, Blocks.COBBLESTONE.getBlockData(), 3, 1, 6, var3);
          this.a(var1, Blocks.COBBLESTONE.getBlockData(), 3, 1, 7, var3);
-         IBlockData var4 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
-         IBlockData var5 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
-         IBlockData var6 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST);
+         IBlockData var4 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         IBlockData var5 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
+         IBlockData var6 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
          this.a(var1, var4, 1, 1, 5, var3);
          this.a(var1, var4, 2, 1, 6, var3);
          this.a(var1, var4, 3, 1, 5, var3);
@@ -1200,7 +1200,7 @@ public class class_asr {
          this.a(var1, Blocks.PLANKS.getBlockData(), 3, 2, 0, var3);
          this.a(var1, Blocks.PLANKS.getBlockData(), 3, 1, 0, var3);
          if(this.a(var1, 2, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 2, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
-            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH), 2, 0, -1, var3);
+            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 2, 0, -1, var3);
          }
 
          this.a(var1, var3, 1, 1, 1, 3, 3, 3, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -1343,9 +1343,9 @@ public class class_asr {
             for(int var7 = this.l.c; var7 <= this.l.f; ++var7) {
                BlockPosition var8 = new BlockPosition(var6, 64, var7);
                if(var3.b((BaseBlockPosition)var8)) {
-                  var8 = var1.r(var8).shiftDown();
-                  var1.a((BlockPosition)var8, (IBlockData)var4, 2);
-                  var1.a((BlockPosition)var8.shiftDown(), (IBlockData)var5, 2);
+                  var8 = var1.r(var8).down();
+                  var1.setTypeAndData((BlockPosition)var8, (IBlockData)var4, 2);
+                  var1.setTypeAndData((BlockPosition)var8.down(), (IBlockData)var5, 2);
                }
             }
          }
@@ -1380,8 +1380,8 @@ public class class_asr {
          this.a = var1;
          this.e = var6;
          this.c = var7;
-         class_aez var8 = var1.a(new BlockPosition(var4, 0, var5), class_aez.ad);
-         this.b = var8 == class_aez.r || var8 == class_aez.G;
+         BiomeBase var8 = var1.a(new BlockPosition(var4, 0, var5), BiomeBase.ad);
+         this.b = var8 == BiomeBase.r || var8 == BiomeBase.G;
          this.a(this.b);
       }
 
@@ -1523,7 +1523,7 @@ public class class_asr {
             for(int var7 = this.l.a; var7 <= this.l.d; ++var7) {
                var5.setPosition(var7, 64, var6);
                if(var2.b((BaseBlockPosition)var5)) {
-                  var3 += Math.max(var1.r(var5).getY(), var1.t.i());
+                  var3 += Math.max(var1.r(var5).getY(), var1.worldProvider.i());
                   ++var4;
                }
             }
@@ -1555,7 +1555,7 @@ public class class_asr {
                var11.b((double)var8 + 0.5D, (double)var9, (double)var10 + 0.5D, 0.0F, 0.0F);
                var11.a(var1.E(new BlockPosition(var11)), (class_qd)null);
                var11.m(this.c(var7, var11.cA()));
-               var1.a((class_pr)var11);
+               var1.addEntity((Entity)var11);
             }
 
          }
@@ -1572,19 +1572,19 @@ public class class_asr {
             }
 
             if(var1.getBlock() == Blocks.COBBLESTONE) {
-               return Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.a.a());
+               return Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.DEFAULT.getId());
             }
 
             if(var1.getBlock() == Blocks.PLANKS) {
-               return Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a());
+               return Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId());
             }
 
             if(var1.getBlock() == Blocks.OAK_STAIRS) {
-               return Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, var1.get(class_ald.a));
+               return Blocks.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, var1.get(BlockStairs.a));
             }
 
             if(var1.getBlock() == Blocks.STONE_STAIRS) {
-               return Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, var1.get(class_ald.a));
+               return Blocks.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, var1.get(BlockStairs.a));
             }
 
             if(var1.getBlock() == Blocks.GRAVEL) {

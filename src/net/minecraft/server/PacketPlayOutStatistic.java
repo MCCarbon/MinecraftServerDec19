@@ -10,7 +10,7 @@ import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 
 public class PacketPlayOutStatistic implements Packet {
    private Map a;
@@ -31,7 +31,7 @@ public class PacketPlayOutStatistic implements Packet {
       this.a = Maps.newHashMap();
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_my var4 = class_nc.a(var1.readString(32767));
+         class_my var4 = StatisticList.a(var1.readString(32767));
          int var5 = var1.readVarInt();
          if(var4 != null) {
             this.a.put(var4, Integer.valueOf(var5));

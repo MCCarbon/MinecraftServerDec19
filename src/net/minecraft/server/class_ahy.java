@@ -6,22 +6,22 @@ import net.minecraft.server.Item;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahd;
-import net.minecraft.server.class_ahj;
+import net.minecraft.server.BlockCrops;
+import net.minecraft.server.BlockDirt;
 import net.minecraft.server.class_alg;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 
 public class class_ahy extends Block {
-   public static final class_anz a = class_anz.a("moisture", 0, 7);
+   public static final BlockStateInteger a = BlockStateInteger.of("moisture", 0, 7);
 
    protected class_ahy() {
       super(Material.EARTH);
@@ -31,8 +31,8 @@ public class class_ahy extends Block {
       this.setLightOpacity(255);
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
-      return new class_awf((double)var2.getX(), (double)var2.getY(), (double)var2.getZ(), (double)(var2.getX() + 1), (double)(var2.getY() + 1), (double)(var2.getZ() + 1));
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
+      return new AxisAlignedBB((double)var2.getX(), (double)var2.getY(), (double)var2.getZ(), (double)(var2.getX() + 1), (double)(var2.getY() + 1), (double)(var2.getZ() + 1));
    }
 
    public boolean isOpaqueCube() {
@@ -43,37 +43,37 @@ public class class_ahy extends Block {
       return false;
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       int var5 = ((Integer)var3.get(a)).intValue();
-      if(!this.f(var1, var2) && !var1.C(var2.shiftUp())) {
+      if(!this.f(var1, var2) && !var1.C(var2.up())) {
          if(var5 > 0) {
-            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 - 1)), 2);
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 - 1)), 2);
          } else if(!this.e(var1, var2)) {
-            var1.a(var2, Blocks.DIRT.getBlockData());
+            var1.setTypeUpdate(var2, Blocks.DIRT.getBlockData());
          }
       } else if(var5 < 7) {
-         var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(7)), 2);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(7)), 2);
       }
 
    }
 
-   public void a(World var1, BlockPosition var2, class_pr var3, float var4) {
-      if(var3 instanceof class_qa) {
-         if(!var1.D && var1.s.nextFloat() < var4 - 0.5F) {
-            if(!(var3 instanceof class_xa) && !var1.R().b("mobGriefing")) {
+   public void fallOn(World var1, BlockPosition var2, Entity var3, float var4) {
+      if(var3 instanceof EntityLiving) {
+         if(!var1.isClientSide && var1.random.nextFloat() < var4 - 0.5F) {
+            if(!(var3 instanceof EntityHuman) && !var1.R().b("mobGriefing")) {
                return;
             }
 
-            var1.a(var2, Blocks.DIRT.getBlockData());
+            var1.setTypeUpdate(var2, Blocks.DIRT.getBlockData());
          }
 
-         super.a(var1, var2, var3, var4);
+         super.fallOn(var1, var2, var3, var4);
       }
    }
 
    private boolean e(World var1, BlockPosition var2) {
-      Block var3 = var1.p(var2.shiftUp()).getBlock();
-      return var3 instanceof class_ahd || var3 instanceof class_alg;
+      Block var3 = var1.getType(var2.up()).getBlock();
+      return var3 instanceof BlockCrops || var3 instanceof class_alg;
    }
 
    private boolean f(World var1, BlockPosition var2) {
@@ -86,21 +86,21 @@ public class class_ahy extends Block {
          }
 
          var4 = (BlockPosition.MutableBlockPosition)var3.next();
-      } while(var1.p(var4).getBlock().getMaterial() != Material.WATER);
+      } while(var1.getType(var4).getBlock().getMaterial() != Material.WATER);
 
       return true;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      super.a(var1, var2, var3, var4);
-      if(var1.p(var2.shiftUp()).getBlock().getMaterial().isBuildable()) {
-         var1.a(var2, Blocks.DIRT.getBlockData());
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      super.doPhysics(var1, var2, var3, var4);
+      if(var1.getType(var2.up()).getBlock().getMaterial().isBuildable()) {
+         var1.setTypeUpdate(var2, Blocks.DIRT.getBlockData());
       }
 
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Blocks.DIRT.getDropType(Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.a), var2, var3);
+      return Blocks.DIRT.getDropType(Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT), var2, var3);
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -111,7 +111,7 @@ public class class_ahy extends Block {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 }

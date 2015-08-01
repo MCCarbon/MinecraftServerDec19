@@ -4,8 +4,8 @@ import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
-import net.minecraft.server.class_aez;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.BiomeBase;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
@@ -13,8 +13,8 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qi;
@@ -27,7 +27,7 @@ import net.minecraft.server.class_tf;
 import net.minecraft.server.class_uj;
 import net.minecraft.server.class_wd;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_wo extends class_qb implements class_wd {
    private static final int bq = class_qi.a(class_wo.class);
@@ -92,7 +92,7 @@ public class class_wo extends class_qb implements class_wd {
    }
 
    public void t_() {
-      if(!this.o.D && this.o.ab() == class_om.a && this.cB() > 0) {
+      if(!this.o.isClientSide && this.o.ab() == class_om.a && this.cB() > 0) {
          this.I = true;
       }
 
@@ -111,7 +111,7 @@ public class class_wo extends class_qb implements class_wd {
             class_cy var10001 = this.n();
             double var10002 = this.s + (double)var5;
             double var10004 = this.u + (double)var6;
-            var10000.a(var10001, var10002, this.aT().b, var10004, 0.0D, 0.0D, 0.0D, new int[0]);
+            var10000.a(var10001, var10002, this.aT().yMin, var10004, 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          if(this.cA()) {
@@ -155,14 +155,14 @@ public class class_wo extends class_qb implements class_wd {
 
    public void J() {
       int var1 = this.cB();
-      if(!this.o.D && var1 > 1 && this.bo() <= 0.0F) {
+      if(!this.o.isClientSide && var1 > 1 && this.bo() <= 0.0F) {
          int var2 = 2 + this.V.nextInt(3);
 
          for(int var3 = 0; var3 < var2; ++var3) {
             float var4 = ((float)(var3 % 2) - 0.5F) * (float)var1 / 4.0F;
             float var5 = ((float)(var3 / 2) - 0.5F) * (float)var1 / 4.0F;
             class_wo var6 = this.cu();
-            if(this.l_()) {
+            if(this.hasCustomName()) {
                var6.a(this.aO());
             }
 
@@ -172,31 +172,31 @@ public class class_wo extends class_qb implements class_wd {
 
             var6.a(var1 / 2);
             var6.b(this.s + (double)var4, this.t + 0.5D, this.u + (double)var5, this.V.nextFloat() * 360.0F, 0.0F);
-            this.o.a((class_pr)var6);
+            this.o.addEntity((Entity)var6);
          }
       }
 
       super.J();
    }
 
-   public void i(class_pr var1) {
+   public void i(Entity var1) {
       super.i(var1);
       if(var1 instanceof class_uj && this.cx()) {
-         this.e((class_qa)var1);
+         this.e((EntityLiving)var1);
       }
 
    }
 
-   public void d(class_xa var1) {
+   public void d(EntityHuman var1) {
       if(this.cx()) {
          this.e(var1);
       }
 
    }
 
-   protected void e(class_qa var1) {
+   protected void e(EntityLiving var1) {
       int var2 = this.cB();
-      if(this.t(var1) && this.h(var1) < 0.6D * (double)var2 * 0.6D * (double)var2 && var1.a(class_pc.a((class_qa)this), (float)this.cy())) {
+      if(this.t(var1) && this.h(var1) < 0.6D * (double)var2 * 0.6D * (double)var2 && var1.a(class_pc.a((EntityLiving)this), (float)this.cy())) {
          this.a("mob.attack", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
          this.a(this, var1);
       }
@@ -229,13 +229,13 @@ public class class_wo extends class_qb implements class_wd {
 
    public boolean cf() {
       BlockPosition var1 = new BlockPosition(MathHelper.floor(this.s), 0, MathHelper.floor(this.u));
-      class_aok var2 = this.o.f(var1);
+      Chunk var2 = this.o.f(var1);
       if(this.o.Q().u() == class_aes.c && this.V.nextInt(4) != 1) {
          return false;
       } else {
          if(this.o.ab() != class_om.a) {
-            class_aez var3 = this.o.b(var1);
-            if(var3 == class_aez.v && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.z() && this.o.l(new BlockPosition(this)) <= this.V.nextInt(8)) {
+            BiomeBase var3 = this.o.b(var1);
+            if(var3 == BiomeBase.v && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.z() && this.o.l(new BlockPosition(this)) <= this.V.nextInt(8)) {
                return super.cf();
             }
 
@@ -265,7 +265,7 @@ public class class_wo extends class_qb implements class_wd {
    }
 
    protected void bG() {
-      this.w = 0.41999998688697815D;
+      this.motY = 0.41999998688697815D;
       this.ai = true;
    }
 
@@ -353,8 +353,8 @@ public class class_wo extends class_qb implements class_wd {
       }
 
       public boolean a() {
-         class_qa var1 = this.a.w();
-         return var1 == null?false:(!var1.ai()?false:!(var1 instanceof class_xa) || !((class_xa)var1).bH.invulnerable);
+         EntityLiving var1 = this.a.w();
+         return var1 == null?false:(!var1.ai()?false:!(var1 instanceof EntityHuman) || !((EntityHuman)var1).bH.invulnerable);
       }
 
       public void c() {
@@ -363,8 +363,8 @@ public class class_wo extends class_qb implements class_wd {
       }
 
       public boolean b() {
-         class_qa var1 = this.a.w();
-         return var1 == null?false:(!var1.ai()?false:(var1 instanceof class_xa && ((class_xa)var1).bH.invulnerable?false:--this.b > 0));
+         EntityLiving var1 = this.a.w();
+         return var1 == null?false:(!var1.ai()?false:(var1 instanceof EntityHuman && ((EntityHuman)var1).bH.invulnerable?false:--this.b > 0));
       }
 
       public void e() {

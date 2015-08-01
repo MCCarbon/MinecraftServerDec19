@@ -4,7 +4,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_tf;
 
@@ -20,12 +20,12 @@ public class class_th extends class_tf {
       return super.a(var1);
    }
 
-   public class_auv a(class_pr var1) {
+   public class_auv a(Entity var1) {
       this.f = new BlockPosition(var1);
       return super.a(var1);
    }
 
-   public boolean a(class_pr var1, double var2) {
+   public boolean a(Entity var1, double var2) {
       class_auv var4 = this.a(var1);
       if(var4 != null) {
          return this.a(var4, var2);

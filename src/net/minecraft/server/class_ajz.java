@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
@@ -17,7 +17,7 @@ public class class_ajz extends Block {
       return true;
    }
 
-   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int a(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return 15;
    }
 }

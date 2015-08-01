@@ -4,8 +4,8 @@ import com.google.common.collect.Lists;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
-import net.minecraft.server.class_aok;
-import net.minecraft.server.class_aol;
+import net.minecraft.server.Chunk;
+import net.minecraft.server.ChunkSection;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
@@ -20,11 +20,11 @@ public class PacketPlayOutMapChunk implements Packet {
    public PacketPlayOutMapChunk() {
    }
 
-   public PacketPlayOutMapChunk(class_aok var1, boolean var2, int var3) {
+   public PacketPlayOutMapChunk(Chunk var1, boolean var2, int var3) {
       this.a = var1.a;
       this.b = var1.b;
       this.d = var2;
-      this.c = a(var1, var2, !var1.p().t.m(), var3);
+      this.c = a(var1, var2, !var1.p().worldProvider.m(), var3);
    }
 
    public void decode(PacketDataSerializer var1) throws IOException {
@@ -56,14 +56,14 @@ public class PacketPlayOutMapChunk implements Packet {
       return var3 + var4 + var5 + var6;
    }
 
-   public static PacketPlayOutMapChunk.class_a_in_class_go a(class_aok var0, boolean var1, boolean var2, int var3) {
-      class_aol[] var4 = var0.h();
+   public static PacketPlayOutMapChunk.class_a_in_class_go a(Chunk var0, boolean var1, boolean var2, int var3) {
+      ChunkSection[] var4 = var0.h();
       PacketPlayOutMapChunk.class_a_in_class_go var5 = new PacketPlayOutMapChunk.class_a_in_class_go();
       ArrayList var6 = Lists.newArrayList();
 
       int var7;
       for(var7 = 0; var7 < var4.length; ++var7) {
-         class_aol var8 = var4[var7];
+         ChunkSection var8 = var4[var7];
          if(var8 != null && (!var1 || !var8.a()) && (var3 & 1 << var7) != 0) {
             var5.b |= 1 << var7;
             var6.add(var8);
@@ -74,9 +74,9 @@ public class PacketPlayOutMapChunk implements Packet {
       var7 = 0;
       Iterator var15 = var6.iterator();
 
-      class_aol var9;
+      ChunkSection var9;
       while(var15.hasNext()) {
-         var9 = (class_aol)var15.next();
+         var9 = (ChunkSection)var15.next();
          char[] var10 = var9.g();
          char[] var11 = var10;
          int var12 = var10.length;
@@ -89,12 +89,12 @@ public class PacketPlayOutMapChunk implements Packet {
       }
 
       for(var15 = var6.iterator(); var15.hasNext(); var7 = a(var9.h().a(), var5.a, var7)) {
-         var9 = (class_aol)var15.next();
+         var9 = (ChunkSection)var15.next();
       }
 
       if(var2) {
          for(var15 = var6.iterator(); var15.hasNext(); var7 = a(var9.i().a(), var5.a, var7)) {
-            var9 = (class_aol)var15.next();
+            var9 = (ChunkSection)var15.next();
          }
       }
 

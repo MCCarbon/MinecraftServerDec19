@@ -38,7 +38,7 @@ import net.minecraft.server.class_mf;
 import net.minecraft.server.WhiteList;
 import net.minecraft.server.class_mh;
 import net.minecraft.server.class_nz;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -84,7 +84,7 @@ public class class_ly {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             String var7 = var4[var6];
-            UUID var8 = class_xa.a(new GameProfile((UUID)null, var7));
+            UUID var8 = EntityHuman.a(new GameProfile((UUID)null, var7));
             GameProfile var9 = new GameProfile(var8, var7);
             var2.onProfileLookupSucceeded(var9);
          }
@@ -288,7 +288,7 @@ public class class_ly {
             a(var1, Lists.newArrayList((Object[])(new String[]{var0})), var4);
             return !var3.isEmpty() && ((GameProfile)var3.get(0)).getId() != null?((GameProfile)var3.get(0)).getId().toString():"";
          } else {
-            return class_xa.a(new GameProfile((UUID)null, var0)).toString();
+            return EntityHuman.a(new GameProfile((UUID)null, var0)).toString();
          }
       } else {
          return var0;

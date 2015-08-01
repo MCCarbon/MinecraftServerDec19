@@ -23,9 +23,9 @@ public abstract class class_aql {
 
    protected void a(World var1, BlockPosition var2, IBlockData var3) {
       if(this.a) {
-         var1.a((BlockPosition)var2, (IBlockData)var3, 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 3);
       } else {
-         var1.a((BlockPosition)var2, (IBlockData)var3, 2);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 2);
       }
 
    }

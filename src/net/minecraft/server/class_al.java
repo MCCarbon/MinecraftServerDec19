@@ -7,7 +7,7 @@ import net.minecraft.server.class_cd;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 
 public class class_al extends class_i {
@@ -25,7 +25,7 @@ public class class_al extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length > 0 && var2[0].length() > 1) {
-         class_lh var3 = MinecraftServer.N().getPlayerList().a(var2[0]);
+         EntityPlayer var3 = MinecraftServer.N().getPlayerList().a(var2[0]);
          String var4 = "Kicked by an operator.";
          boolean var5 = false;
          if(var3 == null) {
@@ -38,9 +38,9 @@ public class class_al extends class_i {
 
             var3.a.c(var4);
             if(var5) {
-               a(var1, this, "commands.kick.success.reason", new Object[]{var3.e_(), var4});
+               a(var1, this, "commands.kick.success.reason", new Object[]{var3.getName(), var4});
             } else {
-               a(var1, this, "commands.kick.success", new Object[]{var3.e_()});
+               a(var1, this, "commands.kick.success", new Object[]{var3.getName()});
             }
 
          }

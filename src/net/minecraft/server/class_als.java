@@ -6,30 +6,30 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alt;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anw;
+import net.minecraft.server.BlockStateBoolean;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 
 public class class_als extends Block {
-   public static final class_anw a = class_anw.a("powered");
-   public static final class_anw b = class_anw.a("suspended");
-   public static final class_anw N = class_anw.a("attached");
-   public static final class_anw O = class_anw.a("disarmed");
-   public static final class_anw P = class_anw.a("north");
-   public static final class_anw Q = class_anw.a("east");
-   public static final class_anw R = class_anw.a("south");
-   public static final class_anw S = class_anw.a("west");
+   public static final BlockStateBoolean a = BlockStateBoolean.of("powered");
+   public static final BlockStateBoolean b = BlockStateBoolean.of("suspended");
+   public static final BlockStateBoolean N = BlockStateBoolean.of("attached");
+   public static final BlockStateBoolean O = BlockStateBoolean.of("disarmed");
+   public static final BlockStateBoolean P = BlockStateBoolean.of("north");
+   public static final BlockStateBoolean Q = BlockStateBoolean.of("east");
+   public static final BlockStateBoolean R = BlockStateBoolean.of("south");
+   public static final BlockStateBoolean S = BlockStateBoolean.of("west");
 
    public class_als() {
       super(Material.ORIENTABLE);
@@ -38,11 +38,11 @@ public class class_als extends Block {
       this.setTicking(true);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+   public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
       return var1.set(P, Boolean.valueOf(c(var2, var3, var1, EnumDirection.NORTH))).set(Q, Boolean.valueOf(c(var2, var3, var1, EnumDirection.EAST))).set(R, Boolean.valueOf(c(var2, var3, var1, EnumDirection.SOUTH))).set(S, Boolean.valueOf(c(var2, var3, var1, EnumDirection.WEST)));
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -58,18 +58,18 @@ public class class_als extends Block {
       return Items.H;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       boolean var5 = ((Boolean)var3.get(b)).booleanValue();
-      boolean var6 = !World.a((class_aer)var1, (BlockPosition)var2.shiftDown());
+      boolean var6 = !World.a((IBlockAccess)var1, (BlockPosition)var2.down());
       if(var5 != var6) {
-         this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         this.dropNaturallyForSure(var1, var2, var3, 0);
+         var1.setAir(var2);
       }
 
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
-      IBlockData var3 = var1.p(var2);
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
+      IBlockData var3 = var1.getType(var2);
       boolean var4 = ((Boolean)var3.get(N)).booleanValue();
       boolean var5 = ((Boolean)var3.get(b)).booleanValue();
       if(!var5) {
@@ -82,20 +82,20 @@ public class class_als extends Block {
 
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
-      var3 = var3.set(b, Boolean.valueOf(!World.a((class_aer)var1, (BlockPosition)var2.shiftDown())));
-      var1.a((BlockPosition)var2, (IBlockData)var3, 3);
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
+      var3 = var3.set(b, Boolean.valueOf(!World.a((IBlockAccess)var1, (BlockPosition)var2.down())));
+      var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 3);
       this.e(var1, var2, var3);
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3) {
+   public void remove(World var1, BlockPosition var2, IBlockData var3) {
       this.e(var1, var2, var3.set(a, Boolean.valueOf(true)));
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
-      if(!var1.D) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
+      if(!var1.isClientSide) {
          if(var4.bA() != null && var4.bA().getItem() == Items.bg) {
-            var1.a((BlockPosition)var2, (IBlockData)var3.set(O, Boolean.valueOf(true)), 4);
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(O, Boolean.valueOf(true)), 4);
          }
 
       }
@@ -110,7 +110,7 @@ public class class_als extends Block {
 
          for(int var8 = 1; var8 < 42; ++var8) {
             BlockPosition var9 = var2.shift(var7, var8);
-            IBlockData var10 = var1.p(var9);
+            IBlockData var10 = var1.getType(var9);
             if(var10.getBlock() == Blocks.TRIPWIRE_HOOK) {
                if(var10.get(class_alt.a) == var7.getOpposite()) {
                   Blocks.TRIPWIRE_HOOK.a(var1, var9, var10, false, true, var8, var3);
@@ -126,35 +126,35 @@ public class class_als extends Block {
 
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
-      if(!var1.D) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
+      if(!var1.isClientSide) {
          if(!((Boolean)var3.get(a)).booleanValue()) {
             this.e(var1, var2);
          }
       }
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+   public void randomTick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      if(!var1.D) {
-         if(((Boolean)var1.p(var2).get(a)).booleanValue()) {
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+      if(!var1.isClientSide) {
+         if(((Boolean)var1.getType(var2).get(a)).booleanValue()) {
             this.e(var1, var2);
          }
       }
    }
 
    private void e(World var1, BlockPosition var2) {
-      IBlockData var3 = var1.p(var2);
+      IBlockData var3 = var1.getType(var2);
       boolean var4 = ((Boolean)var3.get(a)).booleanValue();
       boolean var5 = false;
-      List var6 = var1.b((class_pr)null, (class_awf)(new class_awf((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ)));
+      List var6 = var1.b((Entity)null, (AxisAlignedBB)(new AxisAlignedBB((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ)));
       if(!var6.isEmpty()) {
          Iterator var7 = var6.iterator();
 
          while(var7.hasNext()) {
-            class_pr var8 = (class_pr)var7.next();
+            Entity var8 = (Entity)var7.next();
             if(!var8.aK()) {
                var5 = true;
                break;
@@ -164,19 +164,19 @@ public class class_als extends Block {
 
       if(var5 != var4) {
          var3 = var3.set(a, Boolean.valueOf(var5));
-         var1.a((BlockPosition)var2, (IBlockData)var3, 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 3);
          this.e(var1, var2, var3);
       }
 
       if(var5) {
-         var1.a((BlockPosition)var2, (Block)this, this.a(var1));
+         var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1));
       }
 
    }
 
-   public static boolean c(class_aer var0, BlockPosition var1, IBlockData var2, EnumDirection var3) {
+   public static boolean c(IBlockAccess var0, BlockPosition var1, IBlockData var2, EnumDirection var3) {
       BlockPosition var4 = var1.shift(var3);
-      IBlockData var5 = var0.p(var4);
+      IBlockData var5 = var0.getType(var4);
       Block var6 = var5.getBlock();
       if(var6 == Blocks.TRIPWIRE_HOOK) {
          EnumDirection var9 = var3.getOpposite();
@@ -215,7 +215,7 @@ public class class_als extends Block {
       return var2;
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       if(var1.getBlock() != this) {
          return var1;
       } else {
@@ -247,7 +247,7 @@ public class class_als extends Block {
       }
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a, b, N, O, P, Q, S, R});
    }
 
@@ -260,33 +260,33 @@ public class class_als extends Block {
 
       static {
          try {
-            b[Block.class_a_in_class_agj.b.ordinal()] = 1;
+            b[Block.class_a_in_class_agj.LEFT_RIGHT.ordinal()] = 1;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            b[Block.class_a_in_class_agj.c.ordinal()] = 2;
+            b[Block.class_a_in_class_agj.FRONT_BACK.ordinal()] = 2;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
-         a = new int[Block.class_c_in_class_agj.values().length];
+         a = new int[Block.EnumRotation.values().length];
 
          try {
-            a[Block.class_c_in_class_agj.c.ordinal()] = 1;
+            a[Block.EnumRotation.CLOCKWISE_180.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.d.ordinal()] = 2;
+            a[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.b.ordinal()] = 3;
+            a[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

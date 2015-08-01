@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abf;
 import net.minecraft.server.class_adi;
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.class_adl;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
@@ -69,7 +69,7 @@ public class class_aad extends Item {
 
    public class_od a(Random var1, int var2, int var3, int var4) {
       ItemStack var5 = new ItemStack(Items.aN);
-      class_adk.a(var1, var5, 30);
+      EnchantmentManager.a(var1, var5, 30);
       return new class_od(var5, var2, var3, var4);
    }
 }

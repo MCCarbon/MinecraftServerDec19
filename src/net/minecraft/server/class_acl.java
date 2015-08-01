@@ -6,8 +6,8 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahm;
-import net.minecraft.server.class_aic;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.BlockFlowers;
+import net.minecraft.server.EnumColor;
 
 public class class_acl {
    public void a(class_act var1) {
@@ -19,34 +19,34 @@ public class class_acl {
          var1.a(new ItemStack(Blocks.STAINED_GLASS_PANE, 16, var2), new Object[]{"###", "###", Character.valueOf('#'), new ItemStack(Blocks.STAINED_GLASS, 1, var2)});
       }
 
-      var1.b(new ItemStack(Items.aY, 1, class_zy.e.b()), new Object[]{new ItemStack(Blocks.YELLOW_FLOWER, 1, class_aic.class_a_in_class_aic.a.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.o.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.b.b())});
-      var1.b(new ItemStack(Items.aY, 3, class_zy.a.b()), new Object[]{Items.aZ});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.g.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.o.b()), new ItemStack(Items.aY, 1, class_zy.a.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.b.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.o.b()), new ItemStack(Items.aY, 1, class_zy.e.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.f.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.n.b()), new ItemStack(Items.aY, 1, class_zy.a.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.h.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.p.b()), new ItemStack(Items.aY, 1, class_zy.a.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.i.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.h.b()), new ItemStack(Items.aY, 1, class_zy.a.b())});
-      var1.b(new ItemStack(Items.aY, 3, class_zy.i.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.p.b()), new ItemStack(Items.aY, 1, class_zy.a.b()), new ItemStack(Items.aY, 1, class_zy.a.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.d.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.l.b()), new ItemStack(Items.aY, 1, class_zy.a.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.j.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.l.b()), new ItemStack(Items.aY, 1, class_zy.n.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.k.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.l.b()), new ItemStack(Items.aY, 1, class_zy.o.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.c.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.k.b()), new ItemStack(Items.aY, 1, class_zy.g.b())});
-      var1.b(new ItemStack(Items.aY, 3, class_zy.c.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.l.b()), new ItemStack(Items.aY, 1, class_zy.o.b()), new ItemStack(Items.aY, 1, class_zy.g.b())});
-      var1.b(new ItemStack(Items.aY, 4, class_zy.c.b()), new Object[]{new ItemStack(Items.aY, 1, class_zy.l.b()), new ItemStack(Items.aY, 1, class_zy.o.b()), new ItemStack(Items.aY, 1, class_zy.o.b()), new ItemStack(Items.aY, 1, class_zy.a.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.d.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.c.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.c.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.d.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.i.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.e.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.o.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.f.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.b.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.g.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.i.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.h.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.g.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.i.b())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.i.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, class_aic.class_a_in_class_aic.j.b())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.e.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.a.a())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.c.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.b.a())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.o.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.e.a())});
-      var1.b(new ItemStack(Items.aY, 2, class_zy.g.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.f.a())});
-      var1.b(new ItemStack(Items.aY, 1, class_zy.o.b()), new Object[]{new ItemStack(Items.cL, 1)});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.e.b()), new Object[]{new ItemStack(Blocks.YELLOW_FLOWER, 1, BlockFlowers.EnumFlowerVarient.DANDELION.getId())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.o.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.POPPY.getId())});
+      var1.b(new ItemStack(Items.aY, 3, EnumColor.a.b()), new Object[]{Items.aZ});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.g.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.o.b()), new ItemStack(Items.aY, 1, EnumColor.a.b())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.b.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.o.b()), new ItemStack(Items.aY, 1, EnumColor.e.b())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.f.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.n.b()), new ItemStack(Items.aY, 1, EnumColor.a.b())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.h.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.p.b()), new ItemStack(Items.aY, 1, EnumColor.a.b())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.i.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.h.b()), new ItemStack(Items.aY, 1, EnumColor.a.b())});
+      var1.b(new ItemStack(Items.aY, 3, EnumColor.i.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.p.b()), new ItemStack(Items.aY, 1, EnumColor.a.b()), new ItemStack(Items.aY, 1, EnumColor.a.b())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.d.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.l.b()), new ItemStack(Items.aY, 1, EnumColor.a.b())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.j.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.l.b()), new ItemStack(Items.aY, 1, EnumColor.n.b())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.k.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.l.b()), new ItemStack(Items.aY, 1, EnumColor.o.b())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.c.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.k.b()), new ItemStack(Items.aY, 1, EnumColor.g.b())});
+      var1.b(new ItemStack(Items.aY, 3, EnumColor.c.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.l.b()), new ItemStack(Items.aY, 1, EnumColor.o.b()), new ItemStack(Items.aY, 1, EnumColor.g.b())});
+      var1.b(new ItemStack(Items.aY, 4, EnumColor.c.b()), new Object[]{new ItemStack(Items.aY, 1, EnumColor.l.b()), new ItemStack(Items.aY, 1, EnumColor.o.b()), new ItemStack(Items.aY, 1, EnumColor.o.b()), new ItemStack(Items.aY, 1, EnumColor.a.b())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.d.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.BLUE_ORCHID.getId())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.c.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.ALLIUM.getId())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.i.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.HOUSTONIA.getId())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.o.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.RED_TULIP.getId())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.b.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.ORANGE_TULIP.getId())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.i.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.WHITE_TULIP.getId())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.g.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.PINK_TULIP.getId())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.i.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.OXEYE_DAISY.getId())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.e.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.a.a())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.c.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.b.a())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.o.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.e.a())});
+      var1.b(new ItemStack(Items.aY, 2, EnumColor.g.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.f.a())});
+      var1.b(new ItemStack(Items.aY, 1, EnumColor.o.b()), new Object[]{new ItemStack(Items.cL, 1)});
 
       for(var2 = 0; var2 < 16; ++var2) {
          var1.a(new ItemStack(Blocks.CARPET, 3, var2), new Object[]{"##", Character.valueOf('#'), new ItemStack(Blocks.WOOL, 1, var2)});

@@ -61,17 +61,17 @@ public class class_arx extends class_ask {
       }
 
       private void a(World var1, class_apq var2, Random var3, int var4, int var5) {
-         Block.class_c_in_class_agj var6 = Block.class_c_in_class_agj.values()[var3.nextInt(Block.class_c_in_class_agj.values().length)];
+         Block.EnumRotation var6 = Block.EnumRotation.values()[var3.nextInt(Block.EnumRotation.values().length)];
          class_aph var7 = new class_aph();
          var2.a(var4, var5, var7);
          byte var8 = 5;
          byte var9 = 5;
-         if(var6 == Block.class_c_in_class_agj.b) {
+         if(var6 == Block.EnumRotation.CLOCKWISE_90) {
             var8 = -5;
-         } else if(var6 == Block.class_c_in_class_agj.c) {
+         } else if(var6 == Block.EnumRotation.CLOCKWISE_180) {
             var8 = -5;
             var9 = -5;
-         } else if(var6 == Block.class_c_in_class_agj.d) {
+         } else if(var6 == Block.EnumRotation.COUNTERCLOCKWISE_90) {
             var9 = -5;
          }
 

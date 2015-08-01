@@ -19,7 +19,7 @@ public class class_ali extends Block {
    public class_ali() {
       super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_ali.class_a_in_class_ali.a));
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
    public int getDropData(IBlockData var1) {
@@ -34,7 +34,7 @@ public class class_ali extends Block {
       return ((class_ali.class_a_in_class_ali)var1.get(a)).a();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 

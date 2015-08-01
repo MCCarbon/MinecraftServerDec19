@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_td;
 
@@ -29,7 +29,7 @@ public class class_sw extends class_td {
       this.b = this.e.bf();
       if(this.a) {
          double var1 = this.f();
-         List var3 = this.e.o.a(this.e.getClass(), (new class_awf(this.e.s, this.e.t, this.e.u, this.e.s + 1.0D, this.e.t + 1.0D, this.e.u + 1.0D)).b(var1, 10.0D, var1));
+         List var3 = this.e.o.getEntities(this.e.getClass(), (new AxisAlignedBB(this.e.s, this.e.t, this.e.u, this.e.s + 1.0D, this.e.t + 1.0D, this.e.u + 1.0D)).grow(var1, 10.0D, var1));
          Iterator var4 = var3.iterator();
 
          label46:
@@ -68,7 +68,7 @@ public class class_sw extends class_td {
       super.c();
    }
 
-   protected void a(class_qh var1, class_qa var2) {
+   protected void a(class_qh var1, EntityLiving var2) {
       var1.d(var2);
    }
 }

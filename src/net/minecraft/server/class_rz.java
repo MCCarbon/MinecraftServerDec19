@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tm;
 
 public class class_rz extends class_rm {
    private class_qh a;
-   private class_qa b;
+   private EntityLiving b;
    private double c;
    private double d;
    private double e;

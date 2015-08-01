@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_wd;
 import net.minecraft.server.class_wl;
@@ -31,7 +31,7 @@ public abstract class class_wi extends class_qh implements class_wd {
 
    public void t_() {
       super.t_();
-      if(!this.o.D && this.o.ab() == class_om.a) {
+      if(!this.o.isClientSide && this.o.ab() == class_om.a) {
          this.J();
       }
 
@@ -49,7 +49,7 @@ public abstract class class_wi extends class_qh implements class_wd {
       if(this.b(var1)) {
          return false;
       } else if(super.a(var1, var2)) {
-         class_pr var3 = var1.j();
+         Entity var3 = var1.j();
          return this.l != var3 && this.m != var3?true:true;
       } else {
          return false;
@@ -68,15 +68,15 @@ public abstract class class_wi extends class_qh implements class_wd {
       return var1 > 4?"game.hostile.hurt.fall.big":"game.hostile.hurt.fall.small";
    }
 
-   public boolean r(class_pr var1) {
+   public boolean r(Entity var1) {
       float var2 = (float)this.a(class_wl.e).e();
       int var3 = 0;
-      if(var1 instanceof class_qa) {
-         var2 += class_adk.a(this.bA(), ((class_qa)var1).bz());
-         var3 += class_adk.a((class_qa)this);
+      if(var1 instanceof EntityLiving) {
+         var2 += EnchantmentManager.a(this.bA(), ((EntityLiving)var1).bz());
+         var3 += EnchantmentManager.a((EntityLiving)this);
       }
 
-      boolean var4 = var1.a(class_pc.a((class_qa)this), var2);
+      boolean var4 = var1.a(class_pc.a((EntityLiving)this), var2);
       if(var4) {
          if(var3 > 0) {
             var1.g((double)(-MathHelper.sin(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F), 0.1D, (double)(MathHelper.cos(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F));
@@ -84,7 +84,7 @@ public abstract class class_wi extends class_qh implements class_wd {
             this.x *= 0.6D;
          }
 
-         int var5 = class_adk.b(this);
+         int var5 = EnchantmentManager.b(this);
          if(var5 > 0) {
             var1.f(var5 * 4);
          }
@@ -100,7 +100,7 @@ public abstract class class_wi extends class_qh implements class_wd {
    }
 
    protected boolean n_() {
-      BlockPosition var1 = new BlockPosition(this.s, this.aT().b, this.u);
+      BlockPosition var1 = new BlockPosition(this.s, this.aT().yMin, this.u);
       if(this.o.b(class_aet.a, var1) > this.V.nextInt(32)) {
          return false;
       } else {

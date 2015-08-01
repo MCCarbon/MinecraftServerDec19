@@ -13,14 +13,14 @@ import net.minecraft.server.class_ph;
 import net.minecraft.server.class_pi;
 import net.minecraft.server.class_pj;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_qm;
 import net.minecraft.server.class_qo;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_pk {
 
@@ -61,7 +61,7 @@ public class class_pk {
 		return this;
 	}
 
-	public void a(class_qa var1, int var2) {
+	public void a(EntityLiving var1, int var2) {
 		if (this == class_pm.j) {
 			if (var1.bo() < var1.bv()) {
 				var1.h(1.0F);
@@ -72,11 +72,11 @@ public class class_pk {
 			}
 		} else if (this == class_pm.t) {
 			var1.a(class_pc.m, 1.0F);
-		} else if (this == class_pm.q && var1 instanceof class_xa) {
-			((class_xa) var1).a(0.025F * (float) (var2 + 1));
-		} else if (this == class_pm.w && var1 instanceof class_xa) {
-			if (!var1.o.D) {
-				((class_xa) var1).cn().a(var2 + 1, 1.0F);
+		} else if (this == class_pm.q && var1 instanceof EntityHuman) {
+			((EntityHuman) var1).a(0.025F * (float) (var2 + 1));
+		} else if (this == class_pm.w && var1 instanceof EntityHuman) {
+			if (!var1.o.isClientSide) {
+				((EntityHuman) var1).cn().a(var2 + 1, 1.0F);
 			}
 		} else if ((this != class_pm.f || var1.bn()) && (this != class_pm.g || !var1.bn())) {
 			if (this == class_pm.g && !var1.bn() || this == class_pm.f && var1.bn()) {
@@ -88,7 +88,7 @@ public class class_pk {
 
 	}
 
-	public void a(class_pr var1, class_pr var2, class_qa var3, int var4, double var5) {
+	public void a(Entity var1, Entity var2, EntityLiving var3, int var4, double var5) {
 		int var7;
 		if ((this != class_pm.f || var3.bn()) && (this != class_pm.g || !var3.bn())) {
 			if (this == class_pm.g && !var3.bn() || this == class_pm.f && var3.bn()) {
@@ -150,7 +150,7 @@ public class class_pk {
 		return this;
 	}
 
-	public void a(class_qa var1, class_qo var2, int var3) {
+	public void a(EntityLiving var1, class_qo var2, int var3) {
 		Iterator<?> var4 = this.a.entrySet().iterator();
 
 		while (var4.hasNext()) {
@@ -163,7 +163,7 @@ public class class_pk {
 
 	}
 
-	public void b(class_qa var1, class_qo var2, int var3) {
+	public void b(EntityLiving var1, class_qo var2, int var3) {
 		Iterator<?> var4 = this.a.entrySet().iterator();
 
 		while (var4.hasNext()) {

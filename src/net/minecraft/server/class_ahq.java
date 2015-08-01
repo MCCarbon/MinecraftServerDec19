@@ -2,26 +2,26 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agd;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amo;
+import net.minecraft.server.BlockContainer;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityEnchantTable;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_op;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.ITileEntityContainer;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
-public class class_ahq extends class_agd {
+public class class_ahq extends BlockContainer {
    protected class_ahq() {
       super(Material.STONE, MaterialMapColor.COLOR29);
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.75F, 1.0F);
       this.setLightOpacity(0);
-      this.a(CreativeTab.c);
+      this.setCreativeTab(CreativeTab.DECORATIONS);
    }
 
    public boolean isFullCube() {
@@ -36,29 +36,29 @@ public class class_ahq extends class_agd {
       return 3;
    }
 
-   public class_amg a(World var1, int var2) {
-      return new class_amo();
+   public TileEntity createTileEntity(World var1, int var2) {
+      return new TileEntityEnchantTable();
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(var1.D) {
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+      if(var1.isClientSide) {
          return true;
       } else {
-         class_amg var11 = var1.s(var2);
-         if(var11 instanceof class_amo) {
-            var4.a((class_op)((class_amo)var11));
+         TileEntity var11 = var1.getTileEntity(var2);
+         if(var11 instanceof TileEntityEnchantTable) {
+            var4.a((ITileEntityContainer)((TileEntityEnchantTable)var11));
          }
 
          return true;
       }
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
-      super.a(var1, var2, var3, var4, var5);
+   public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
+      super.postPlace(var1, var2, var3, var4, var5);
       if(var5.hasDisplayName()) {
-         class_amg var6 = var1.s(var2);
-         if(var6 instanceof class_amo) {
-            ((class_amo)var6).a(var5.getDisplayName());
+         TileEntity var6 = var1.getTileEntity(var2);
+         if(var6 instanceof TileEntityEnchantTable) {
+            ((TileEntityEnchantTable)var6).a(var5.getDisplayName());
          }
       }
 

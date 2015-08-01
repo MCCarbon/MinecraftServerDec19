@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ars;
@@ -207,7 +207,7 @@ public class class_arr {
             if(var5 != null && !var5.isEmpty()) {
                var3.c().addAll(var5);
                var3.d();
-               int var6 = class_aez.q.az;
+               int var6 = BiomeBase.q.az;
                if(var2 > 0 && var1.length > var4) {
                   var6 = MathHelper.parseIntWithDef(var1[var4++], var6);
                }
@@ -252,7 +252,7 @@ public class class_arr {
 
    public static class_arr e() {
       class_arr var0 = new class_arr();
-      var0.a(class_aez.q.az);
+      var0.a(BiomeBase.q.az);
       var0.c().add(new class_ars(1, Blocks.BEDROCK));
       var0.c().add(new class_ars(2, Blocks.DIRT));
       var0.c().add(new class_ars(1, Blocks.GRASS));

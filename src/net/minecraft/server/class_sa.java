@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_rm;
 
 public class class_sa extends class_rm {
    World a;
    class_qb b;
-   class_qa c;
+   EntityLiving c;
    int d;
 
    public class_sa(class_qb var1) {
@@ -19,7 +19,7 @@ public class class_sa extends class_rm {
    }
 
    public boolean a() {
-      class_qa var1 = this.b.w();
+      EntityLiving var1 = this.b.w();
       if(var1 == null) {
          return false;
       } else {
@@ -40,7 +40,7 @@ public class class_sa extends class_rm {
    public void e() {
       this.b.q().a(this.c, 30.0F, 30.0F);
       double var1 = (double)(this.b.J * 2.0F * this.b.J * 2.0F);
-      double var3 = this.b.e(this.c.s, this.c.aT().b, this.c.u);
+      double var3 = this.b.e(this.c.s, this.c.aT().yMin, this.c.u);
       double var5 = 0.8D;
       if(var3 > var1 && var3 < 16.0D) {
          var5 = 1.33D;
@@ -48,7 +48,7 @@ public class class_sa extends class_rm {
          var5 = 0.6D;
       }
 
-      this.b.u().a((class_pr)this.c, var5);
+      this.b.u().a((Entity)this.c, var5);
       this.d = Math.max(this.d - 1, 0);
       if(var3 <= var1) {
          if(this.d <= 0) {

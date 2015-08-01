@@ -13,15 +13,15 @@ public class class_da implements class_cz {
       this.c = var5;
    }
 
-   public double a() {
+   public double getX() {
       return this.a;
    }
 
-   public double b() {
+   public double getY() {
       return this.b;
    }
 
-   public double c() {
+   public double getZ() {
       return this.c;
    }
 }

@@ -4,7 +4,7 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
@@ -13,16 +13,16 @@ import net.minecraft.server.class_my;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_py;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qz;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_sy;
 import net.minecraft.server.class_wd;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xh;
 
 public class class_we extends class_py implements class_wd {
@@ -51,7 +51,7 @@ public class class_we extends class_py implements class_wd {
 
    public void t_() {
       super.t_();
-      if(!this.o.D && this.o.ab() == class_om.a) {
+      if(!this.o.isClientSide && this.o.ab() == class_om.a) {
          this.J();
       }
 
@@ -60,9 +60,9 @@ public class class_we extends class_py implements class_wd {
    public boolean a(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if("fireball".equals(var1.p()) && var1.j() instanceof class_xa) {
+      } else if("fireball".equals(var1.p()) && var1.j() instanceof EntityHuman) {
          super.a(var1, 1000.0F);
-         ((class_xa)var1.j()).b((class_my)class_mt.z);
+         ((EntityHuman)var1.j()).b((class_my)class_mt.z);
          return true;
       } else {
          return super.a(var1, var2);
@@ -162,28 +162,28 @@ public class class_we extends class_py implements class_wd {
       }
 
       public void e() {
-         class_qa var1 = this.b.w();
+         EntityLiving var1 = this.b.w();
          double var2 = 64.0D;
          if(var1.h(this.b) < var2 * var2 && this.b.t(var1)) {
             World var4 = this.b.o;
             ++this.a;
             if(this.a == 10) {
-               var4.a((class_xa)null, 1007, new BlockPosition(this.b), 0);
+               var4.a((EntityHuman)null, 1007, new BlockPosition(this.b), 0);
             }
 
             if(this.a == 20) {
                double var5 = 4.0D;
                Vec3D var7 = this.b.d(1.0F);
                double var8 = var1.s - (this.b.s + var7.x * var5);
-               double var10 = var1.aT().b + (double)(var1.K / 2.0F) - (0.5D + this.b.t + (double)(this.b.K / 2.0F));
+               double var10 = var1.aT().yMin + (double)(var1.K / 2.0F) - (0.5D + this.b.t + (double)(this.b.K / 2.0F));
                double var12 = var1.u - (this.b.u + var7.z * var5);
-               var4.a((class_xa)null, 1008, new BlockPosition(this.b), 0);
+               var4.a((EntityHuman)null, 1008, new BlockPosition(this.b), 0);
                class_xh var14 = new class_xh(var4, this.b, var8, var10, var12);
                var14.e = this.b.cu();
                var14.s = this.b.s + var7.x * var5;
                var14.t = this.b.t + (double)(this.b.K / 2.0F) + 0.5D;
                var14.u = this.b.u + var7.z * var5;
-               var4.a((class_pr)var14);
+               var4.addEntity((Entity)var14);
                this.a = -40;
             }
          } else if(this.a > 0) {
@@ -210,7 +210,7 @@ public class class_we extends class_py implements class_wd {
          if(this.a.w() == null) {
             this.a.aL = this.a.y = -((float)MathHelper.b(this.a.v, this.a.x)) * 180.0F / 3.1415927F;
          } else {
-            class_qa var1 = this.a.w();
+            EntityLiving var1 = this.a.w();
             double var2 = 64.0D;
             if(var1.h(this.a) < var2 * var2) {
                double var4 = var1.s - this.a.s;
@@ -276,7 +276,7 @@ public class class_we extends class_py implements class_wd {
                var7 = (double)MathHelper.sqrt(var7);
                if(this.b(this.b, this.c, this.d, var7)) {
                   this.g.v += var1 / var7 * 0.1D;
-                  this.g.w += var3 / var7 * 0.1D;
+                  this.g.motY += var3 / var7 * 0.1D;
                   this.g.x += var5 / var7 * 0.1D;
                } else {
                   this.f = false;
@@ -290,11 +290,11 @@ public class class_we extends class_py implements class_wd {
          double var9 = (var1 - this.g.s) / var7;
          double var11 = (var3 - this.g.t) / var7;
          double var13 = (var5 - this.g.u) / var7;
-         class_awf var15 = this.g.aT();
+         AxisAlignedBB var15 = this.g.aT();
 
          for(int var16 = 1; (double)var16 < var7; ++var16) {
             var15 = var15.c(var9, var11, var13);
-            if(!this.g.o.a((class_pr)this.g, (class_awf)var15).isEmpty()) {
+            if(!this.g.o.a((Entity)this.g, (AxisAlignedBB)var15).isEmpty()) {
                return false;
             }
          }

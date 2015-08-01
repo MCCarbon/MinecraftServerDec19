@@ -7,8 +7,8 @@ import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 
 public class class_ac extends class_i {
    public String c() {
@@ -27,9 +27,9 @@ public class class_ac extends class_i {
       if(var2.length < 2) {
          throw new class_cf("commands.entitydata.usage", new Object[0]);
       } else {
-         class_pr var3 = b(var1, var2[0]);
-         if(var3 instanceof class_xa) {
-            throw new class_bz("commands.entitydata.noPlayers", new Object[]{var3.f_()});
+         Entity var3 = b(var1, var2[0]);
+         if(var3 instanceof EntityHuman) {
+            throw new class_bz("commands.entitydata.noPlayers", new Object[]{var3.getScoreboardDisplayName()});
          } else {
             NBTTagCompound var4 = new NBTTagCompound();
             var3.e(var4);

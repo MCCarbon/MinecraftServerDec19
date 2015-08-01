@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_rm;
 
 public class class_rq extends class_rm {
    class_qb a;
-   class_qa b;
+   EntityLiving b;
    float c;
 
    public class_rq(class_qb var1, float var2) {
@@ -36,6 +36,6 @@ public class class_rq extends class_rm {
       float var5 = MathHelper.sqrt(var1 * var1 + var3 * var3);
       this.a.v += var1 / (double)var5 * 0.5D * 0.800000011920929D + this.a.v * 0.20000000298023224D;
       this.a.x += var3 / (double)var5 * 0.5D * 0.800000011920929D + this.a.x * 0.20000000298023224D;
-      this.a.w = (double)this.c;
+      this.a.motY = (double)this.c;
    }
 }

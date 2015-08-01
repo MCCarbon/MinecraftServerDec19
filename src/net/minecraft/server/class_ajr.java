@@ -12,7 +12,7 @@ import net.minecraft.server.CreativeTab;
 public class class_ajr extends Block {
    public class_ajr() {
       super(Material.STONE);
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {

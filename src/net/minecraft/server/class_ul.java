@@ -14,8 +14,8 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qj;
 import net.minecraft.server.class_qk;
@@ -42,9 +42,9 @@ import net.minecraft.server.class_wa;
 import net.minecraft.server.class_we;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wn;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_ul extends class_qj {
    private static final int bw = class_qi.a(class_ul.class);
@@ -69,19 +69,19 @@ public class class_ul extends class_qj {
       this.i.a(6, new class_re(this, 1.0D));
       this.i.a(7, new class_si(this, 1.0D));
       this.i.a(8, new class_rc(this, 8.0F));
-      this.i.a(9, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(9, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(9, new class_sh(this));
       this.bn.a(1, new class_tb(this));
       this.bn.a(2, new class_tc(this));
       this.bn.a(3, new class_sw(this, true, new Class[0]));
       this.bn.a(4, new class_ta(this, class_tw.class, false, new Predicate() {
-         public boolean a(class_pr var1) {
+         public boolean a(Entity var1) {
             return var1 instanceof class_uf || var1 instanceof class_ue;
          }
 
          // $FF: synthetic method
          public boolean apply(Object var1) {
-            return this.a((class_pr)var1);
+            return this.a((Entity)var1);
          }
       }));
       this.bn.a(5, new class_sz(this, class_wn.class, false));
@@ -101,7 +101,7 @@ public class class_ul extends class_qj {
       this.a((class_qk)class_wl.e).a(2.0D);
    }
 
-   public void d(class_qa var1) {
+   public void d(EntityLiving var1) {
       super.d(var1);
       if(var1 == null) {
          this.p(false);
@@ -119,7 +119,7 @@ public class class_ul extends class_qj {
       super.h();
       this.ac.a(bw, new Float(this.bo()));
       this.ac.a(bx, new Byte((byte)0));
-      this.ac.a(by, new Byte((byte)class_zy.o.a()));
+      this.ac.a(by, new Byte((byte)EnumColor.o.a()));
    }
 
    protected void a(BlockPosition var1, Block var2) {
@@ -136,7 +136,7 @@ public class class_ul extends class_qj {
       super.a(var1);
       this.p(var1.getBoolean("Angry"));
       if(var1.hasOfType("CollarColor", 99)) {
-         this.a(class_zy.a(var1.getByte("CollarColor")));
+         this.a(EnumColor.a(var1.getByte("CollarColor")));
       }
 
    }
@@ -163,14 +163,14 @@ public class class_ul extends class_qj {
 
    public void m() {
       super.m();
-      if(!this.o.D && this.bB && !this.bC && !this.cu() && this.C) {
+      if(!this.o.isClientSide && this.bB && !this.bC && !this.cu() && this.C) {
          this.bC = true;
          this.bD = 0.0F;
          this.bE = 0.0F;
-         this.o.a((class_pr)this, (byte)8);
+         this.o.a((Entity)this, (byte)8);
       }
 
-      if(!this.o.D && this.w() == null && this.cK()) {
+      if(!this.o.isClientSide && this.w() == null && this.cK()) {
          this.p(false);
       }
 
@@ -205,13 +205,13 @@ public class class_ul extends class_qj {
          }
 
          if(this.bD > 0.4F) {
-            float var1 = (float)this.aT().b;
+            float var1 = (float)this.aT().yMin;
             int var2 = (int)(MathHelper.sin((this.bD - 0.4F) * 3.1415927F) * 7.0F);
 
             for(int var3 = 0; var3 < var2; ++var3) {
                float var4 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
                float var5 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
-               this.o.a(class_cy.f, this.s + (double)var4, (double)(var1 + 0.8F), this.u + (double)var5, this.v, this.w, this.x, new int[0]);
+               this.o.a(class_cy.f, this.s + (double)var4, (double)(var1 + 0.8F), this.u + (double)var5, this.v, this.motY, this.x, new int[0]);
             }
          }
       }
@@ -230,9 +230,9 @@ public class class_ul extends class_qj {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
-         class_pr var3 = var1.j();
+         Entity var3 = var1.j();
          this.bu.a(false);
-         if(var3 != null && !(var3 instanceof class_xa) && !(var3 instanceof class_xd)) {
+         if(var3 != null && !(var3 instanceof EntityHuman) && !(var3 instanceof class_xd)) {
             var2 = (var2 + 1.0F) / 2.0F;
          }
 
@@ -240,10 +240,10 @@ public class class_ul extends class_qj {
       }
    }
 
-   public boolean r(class_pr var1) {
-      boolean var2 = var1.a(class_pc.a((class_qa)this), (float)((int)this.a((class_qk)class_wl.e).e()));
+   public boolean r(Entity var1) {
+      boolean var2 = var1.a(class_pc.a((EntityLiving)this), (float)((int)this.a((class_qk)class_wl.e).e()));
       if(var2) {
-         this.a((class_qa)this, (class_pr)var1);
+         this.a((EntityLiving)this, (Entity)var1);
       }
 
       return var2;
@@ -260,7 +260,7 @@ public class class_ul extends class_qj {
       this.a((class_qk)class_wl.e).a(4.0D);
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(this.cA()) {
          if(var3 != null) {
             if(var3.getItem() instanceof class_aan) {
@@ -274,7 +274,7 @@ public class class_ul extends class_qj {
                   return true;
                }
             } else if(var3.getItem() == Items.aY) {
-               class_zy var5 = class_zy.a(var3.i());
+               EnumColor var5 = EnumColor.a(var3.i());
                if(var5 != this.cL()) {
                   this.a(var5);
                   if(!var1.bH.instabuild) {
@@ -286,30 +286,30 @@ public class class_ul extends class_qj {
             }
          }
 
-         if(this.e(var1) && !this.o.D && !this.d(var3)) {
+         if(this.e(var1) && !this.o.isClientSide && !this.d(var3)) {
             this.bu.a(!this.cC());
             this.bb = false;
             this.h.n();
-            this.d((class_qa)null);
+            this.d((EntityLiving)null);
          }
       } else if(var3 != null && var3.getItem() == Items.aZ && !this.cK()) {
          if(!var1.bH.instabuild) {
             --var3.count;
          }
 
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             if(this.V.nextInt(3) == 0) {
                this.n(true);
                this.h.n();
-               this.d((class_qa)null);
+               this.d((EntityLiving)null);
                this.bu.a(true);
                this.i(20.0F);
                this.b((String)var1.aM().toString());
                this.m(true);
-               this.o.a((class_pr)this, (byte)7);
+               this.o.a((Entity)this, (byte)7);
             } else {
                this.m(false);
-               this.o.a((class_pr)this, (byte)6);
+               this.o.a((Entity)this, (byte)6);
             }
          }
 
@@ -341,11 +341,11 @@ public class class_ul extends class_qj {
 
    }
 
-   public class_zy cL() {
-      return class_zy.a(this.ac.a(by) & 15);
+   public EnumColor cL() {
+      return EnumColor.a(this.ac.a(by) & 15);
    }
 
-   public void a(class_zy var1) {
+   public void a(EnumColor var1) {
       this.ac.b(by, Byte.valueOf((byte)(var1.b() & 15)));
    }
 
@@ -390,7 +390,7 @@ public class class_ul extends class_qj {
       return !this.cA() && this.W > 2400;
    }
 
-   public boolean a(class_qa var1, class_qa var2) {
+   public boolean a(EntityLiving var1, EntityLiving var2) {
       if(!(var1 instanceof class_wa) && !(var1 instanceof class_we)) {
          if(var1 instanceof class_ul) {
             class_ul var3 = (class_ul)var1;
@@ -399,7 +399,7 @@ public class class_ul extends class_qj {
             }
          }
 
-         return var1 instanceof class_xa && var2 instanceof class_xa && !((class_xa)var2).a((class_xa)var1)?false:!(var1 instanceof class_tz) || !((class_tz)var1).cD();
+         return var1 instanceof EntityHuman && var2 instanceof EntityHuman && !((EntityHuman)var2).a((EntityHuman)var1)?false:!(var1 instanceof class_tz) || !((class_tz)var1).cD();
       } else {
          return false;
       }

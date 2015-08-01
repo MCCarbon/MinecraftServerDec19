@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afn;
 import net.minecraft.server.class_ahm;
-import net.minecraft.server.class_aic;
+import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_apy;
 import net.minecraft.server.class_aqr;
@@ -14,7 +14,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_ul;
 
-public class class_afh extends class_aez {
+public class class_afh extends BiomeBase {
    private int aG;
    protected static final class_apy aD = new class_apy(false, true);
    protected static final class_apy aE = new class_apy(false, false);
@@ -40,7 +40,7 @@ public class class_afh extends class_aez {
       }
 
       if(this.aG == 0) {
-         this.au.add(new class_aez.class_c_in_class_aez(class_ul.class, 5, 4, 4));
+         this.au.add(new BiomeBase.class_c_in_class_aez(class_ul.class, 5, 4, 4));
       }
 
       if(this.aG == 3) {
@@ -49,7 +49,7 @@ public class class_afh extends class_aez {
 
    }
 
-   protected class_aez a(int var1, boolean var2) {
+   protected BiomeBase a(int var1, boolean var2) {
       if(this.aG == 2) {
          this.aj = 353825;
          this.ai = var1;
@@ -67,11 +67,11 @@ public class class_afh extends class_aez {
       return (class_apw)(this.aG == 3 && var1.nextInt(3) > 0?aF:(this.aG != 2 && var1.nextInt(5) != 0?this.aA:aE));
    }
 
-   public class_aic.class_a_in_class_aic a(Random var1, BlockPosition var2) {
+   public BlockFlowers.EnumFlowerVarient a(Random var1, BlockPosition var2) {
       if(this.aG == 1) {
          double var3 = MathHelper.clamp((1.0D + af.a((double)var2.getX() / 48.0D, (double)var2.getZ() / 48.0D)) / 2.0D, 0.0D, 0.9999D);
-         class_aic.class_a_in_class_aic var5 = class_aic.class_a_in_class_aic.values()[(int)(var3 * (double)class_aic.class_a_in_class_aic.values().length)];
-         return var5 == class_aic.class_a_in_class_aic.c?class_aic.class_a_in_class_aic.b:var5;
+         BlockFlowers.EnumFlowerVarient var5 = BlockFlowers.EnumFlowerVarient.values()[(int)(var3 * (double)BlockFlowers.EnumFlowerVarient.values().length)];
+         return var5 == BlockFlowers.EnumFlowerVarient.BLUE_ORCHID?BlockFlowers.EnumFlowerVarient.POPPY:var5;
       } else {
          return super.a(var1, var2);
       }
@@ -130,16 +130,16 @@ public class class_afh extends class_aez {
       super.a(var1, var2, var3);
    }
 
-   protected class_aez d(final int var1) {
-      if(this.az == class_aez.t.az) {
+   protected BiomeBase d(final int var1) {
+      if(this.az == BiomeBase.t.az) {
          class_afh var2 = new class_afh(var1, 1);
-         var2.a(new class_aez.class_a_in_class_aez(this.an, this.ao + 0.2F));
+         var2.a(new BiomeBase.class_a_in_class_aez(this.an, this.ao + 0.2F));
          var2.a("Flower Forest");
          var2.a(6976549, true);
          var2.a(8233509);
          return var2;
       } else {
-         return this.az != class_aez.Q.az && this.az != class_aez.R.az?new class_afn(var1, this) {
+         return this.az != BiomeBase.Q.az && this.az != BiomeBase.R.az?new class_afn(var1, this) {
             public void a(World var1, Random var2, BlockPosition var3) {
                this.aE.a(var1, var2, var3);
             }

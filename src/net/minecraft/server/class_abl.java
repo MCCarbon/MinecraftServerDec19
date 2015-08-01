@@ -7,21 +7,21 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.CreativeTab;
 
 public class class_abl extends Item {
    public class_abl() {
       this.d(1);
       this.e(238);
-      this.a(CreativeTab.i);
+      this.a(CreativeTab.TOOLS);
    }
 
-   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
+   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
       if(var3.getMaterial() != Material.LEAVES && var3 != Blocks.WEB && var3 != Blocks.TALLGRASS && var3 != Blocks.VINE && var3 != Blocks.TRIPWIRE && var3 != Blocks.WOOL) {
          return super.a(var1, var2, var3, var4, var5);
       } else {
-         var1.a(1, (class_qa)var5);
+         var1.a(1, (EntityLiving)var5);
          return true;
       }
    }

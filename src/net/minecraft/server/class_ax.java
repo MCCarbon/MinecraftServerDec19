@@ -9,7 +9,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
@@ -19,10 +19,10 @@ import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_ax extends class_i {
    private static final Map a = Maps.newHashMap();
@@ -105,28 +105,28 @@ public class class_ax extends class_i {
             var1.a(class_n.class_a_in_class_n.d, 0);
             BlockPosition var18 = a(var1, var2, 1, false);
             World var11 = var1.e();
-            class_amg var12 = var11.s(var18);
-            if(var12 == null || !(var12 instanceof class_oj)) {
+            TileEntity var12 = var11.getTileEntity(var18);
+            if(var12 == null || !(var12 instanceof IInventory)) {
                throw new class_bz("commands.replaceitem.noContainer", new Object[]{Integer.valueOf(var18.getX()), Integer.valueOf(var18.getY()), Integer.valueOf(var18.getZ())});
             }
 
-            class_oj var13 = (class_oj)var12;
-            if(var5 >= 0 && var5 < var13.o_()) {
-               var13.a(var5, var9);
+            IInventory var13 = (IInventory)var12;
+            if(var5 >= 0 && var5 < var13.getSize()) {
+               var13.setItem(var5, var9);
             }
          } else {
-            class_pr var17 = b(var1, var2[1]);
+            Entity var17 = b(var1, var2[1]);
             var1.a(class_n.class_a_in_class_n.d, 0);
-            if(var17 instanceof class_xa) {
-               ((class_xa)var17).bq.b();
+            if(var17 instanceof EntityHuman) {
+               ((EntityHuman)var17).bq.b();
             }
 
             if(!var17.c(var5, var9)) {
                throw new class_bz("commands.replaceitem.failed", new Object[]{Integer.valueOf(var5), Integer.valueOf(var7), var9 == null?"Air":var9.B()});
             }
 
-            if(var17 instanceof class_xa) {
-               ((class_xa)var17).bq.b();
+            if(var17 instanceof EntityHuman) {
+               ((EntityHuman)var17).bq.b();
             }
          }
 

@@ -5,27 +5,27 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awg;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_vk;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
 public class class_zi extends Item {
    public class_zi() {
       this.h = 1;
-      this.a(CreativeTab.e);
+      this.a(CreativeTab.TRANSPORTATION);
    }
 
-   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       float var5 = 1.0F;
       float var6 = var3.B + (var3.z - var3.B) * var5;
       float var7 = var3.A + (var3.y - var3.A) * var5;
@@ -41,20 +41,20 @@ public class class_zi extends Item {
       float var21 = var15 * var17;
       double var22 = 5.0D;
       Vec3D var24 = var14.add((double)var19 * var22, (double)var18 * var22, (double)var21 * var22);
-      class_awg var25 = var2.a(var14, var24, true);
+      MovingObjectPosition var25 = var2.a(var14, var24, true);
       if(var25 == null) {
          return new class_or(class_oq.b, var1);
       } else {
          Vec3D var26 = var3.d(var5);
          boolean var27 = false;
          float var28 = 1.0F;
-         List var29 = var2.b((class_pr)var3, (class_awf)var3.aT().a(var26.x * var22, var26.y * var22, var26.z * var22).b((double)var28, (double)var28, (double)var28));
+         List var29 = var2.b((Entity)var3, (AxisAlignedBB)var3.aT().add(var26.x * var22, var26.y * var22, var26.z * var22).grow((double)var28, (double)var28, (double)var28));
 
          for(int var30 = 0; var30 < var29.size(); ++var30) {
-            class_pr var31 = (class_pr)var29.get(var30);
+            Entity var31 = (Entity)var29.get(var30);
             if(var31.ad()) {
                float var32 = var31.ao();
-               class_awf var33 = var31.aT().b((double)var32, (double)var32, (double)var32);
+               AxisAlignedBB var33 = var31.aT().grow((double)var32, (double)var32, (double)var32);
                if(var33.a(var14)) {
                   var27 = true;
                }
@@ -63,26 +63,26 @@ public class class_zi extends Item {
 
          if(var27) {
             return new class_or(class_oq.b, var1);
-         } else if(var25.a == class_awg.class_a_in_class_awg.b) {
+         } else if(var25.a == MovingObjectPosition.class_a_in_class_awg.b) {
             BlockPosition var34 = var25.a();
-            if(var2.p(var34).getBlock() == Blocks.SNOW_LAYER) {
-               var34 = var34.shiftDown();
+            if(var2.getType(var34).getBlock() == Blocks.SNOW_LAYER) {
+               var34 = var34.down();
             }
 
             class_vk var35 = new class_vk(var2, (double)((float)var34.getX() + 0.5F), (double)((float)var34.getY() + 1.0F), (double)((float)var34.getZ() + 0.5F));
             var35.y = (float)(((MathHelper.floor((double)(var3.y * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
-            if(!var2.a((class_pr)var35, (class_awf)var35.aT().b(-0.1D, -0.1D, -0.1D)).isEmpty()) {
+            if(!var2.a((Entity)var35, (AxisAlignedBB)var35.aT().grow(-0.1D, -0.1D, -0.1D)).isEmpty()) {
                return new class_or(class_oq.b, var1);
             } else {
-               if(!var2.D) {
-                  var2.a((class_pr)var35);
+               if(!var2.isClientSide) {
+                  var2.addEntity((Entity)var35);
                }
 
                if(!var3.bH.instabuild) {
                   --var1.count;
                }
 
-               var3.b(class_nc.ad[Item.getId((Item)this)]);
+               var3.b(StatisticList.ad[Item.getId((Item)this)]);
                return new class_or(class_oq.a, var1);
             }
          } else {

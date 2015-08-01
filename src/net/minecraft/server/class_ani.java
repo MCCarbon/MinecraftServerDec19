@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ane;
+import net.minecraft.server.BlockPiston;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
@@ -35,8 +35,8 @@ public class class_ani {
    public boolean a() {
       this.e.clear();
       this.f.clear();
-      Block var1 = this.a.p(this.c).getBlock();
-      if(!class_ane.a(var1, this.a, this.c, this.d, false)) {
+      Block var1 = this.a.getType(this.c).getBlock();
+      if(!BlockPiston.a(var1, this.a, this.c, this.d, false)) {
          if(var1.getPushReaction() != 1) {
             return false;
          } else {
@@ -48,7 +48,7 @@ public class class_ani {
       } else {
          for(int var2 = 0; var2 < this.e.size(); ++var2) {
             BlockPosition var3 = (BlockPosition)this.e.get(var2);
-            if(this.a.p(var3).getBlock() == Blocks.SLINE && !this.b(var3)) {
+            if(this.a.getType(var3).getBlock() == Blocks.SLINE && !this.b(var3)) {
                return false;
             }
          }
@@ -58,10 +58,10 @@ public class class_ani {
    }
 
    private boolean a(BlockPosition var1) {
-      Block var2 = this.a.p(var1).getBlock();
+      Block var2 = this.a.getType(var1).getBlock();
       if(var2.getMaterial() == Material.AIR) {
          return true;
-      } else if(!class_ane.a(var2, this.a, var1, this.d, false)) {
+      } else if(!BlockPiston.a(var2, this.a, var1, this.d, false)) {
          return true;
       } else if(var1.equals(this.b)) {
          return true;
@@ -74,8 +74,8 @@ public class class_ani {
          } else {
             while(var2 == Blocks.SLINE) {
                BlockPosition var4 = var1.shift(this.d.getOpposite(), var3);
-               var2 = this.a.p(var4).getBlock();
-               if(var2.getMaterial() == Material.AIR || !class_ane.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
+               var2 = this.a.getType(var4).getBlock();
+               if(var2.getMaterial() == Material.AIR || !BlockPiston.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
                   break;
                }
 
@@ -103,7 +103,7 @@ public class class_ani {
 
                   for(int var8 = 0; var8 <= var7 + var10; ++var8) {
                      BlockPosition var9 = (BlockPosition)this.e.get(var8);
-                     if(this.a.p(var9).getBlock() == Blocks.SLINE && !this.b(var9)) {
+                     if(this.a.getType(var9).getBlock() == Blocks.SLINE && !this.b(var9)) {
                         return false;
                      }
                   }
@@ -111,12 +111,12 @@ public class class_ani {
                   return true;
                }
 
-               var2 = this.a.p(var6).getBlock();
+               var2 = this.a.getType(var6).getBlock();
                if(var2.getMaterial() == Material.AIR) {
                   return true;
                }
 
-               if(!class_ane.a(var2, this.a, var6, this.d, true) || var6.equals(this.b)) {
+               if(!BlockPiston.a(var2, this.a, var6, this.d, true) || var6.equals(this.b)) {
                   return false;
                }
 

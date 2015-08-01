@@ -6,17 +6,17 @@ import net.minecraft.server.class_aco;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_px;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityExperienceOrb;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_yx;
 
 public class class_ym extends class_yx {
-   private class_xa a;
+   private EntityHuman a;
    private int b;
 
-   public class_ym(class_xa var1, class_oj var2, int var3, int var4, int var5) {
+   public class_ym(EntityHuman var1, IInventory var2, int var3, int var4, int var5) {
       super(var2, var3, var4, var5);
       this.a = var1;
    }
@@ -33,7 +33,7 @@ public class class_ym extends class_yx {
       return super.a(var1);
    }
 
-   public void a(class_xa var1, ItemStack var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
       super.a(var1, var2);
    }
@@ -45,7 +45,7 @@ public class class_ym extends class_yx {
 
    protected void c(ItemStack var1) {
       var1.a(this.a.o, this.a, this.b);
-      if(!this.a.o.D) {
+      if(!this.a.o.isClientSide) {
          int var2 = this.b;
          float var3 = class_aco.a().b(var1);
          int var4;
@@ -61,9 +61,9 @@ public class class_ym extends class_yx {
          }
 
          while(var2 > 0) {
-            var4 = class_px.a(var2);
+            var4 = EntityExperienceOrb.getOrbValue(var2);
             var2 -= var4;
-            this.a.o.a((class_pr)(new class_px(this.a.o, this.a.s, this.a.t + 0.5D, this.a.u + 0.5D, var4)));
+            this.a.o.addEntity((Entity)(new EntityExperienceOrb(this.a.o, this.a.s, this.a.t + 0.5D, this.a.u + 0.5D, var4)));
          }
       }
 

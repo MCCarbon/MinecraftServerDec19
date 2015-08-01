@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 
-public interface class_ams extends class_oj {
-   World z();
+public interface class_ams extends IInventory {
+   World getWorld();
 
    double A();
 

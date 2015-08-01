@@ -6,8 +6,8 @@ import net.minecraft.server.World;
 import net.minecraft.server.WorldSettings;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_agu;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_ami;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -16,17 +16,17 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutBlockChange;
 import net.minecraft.server.PacketPlayOutPlayerInfo;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_lh;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.EntityPlayer;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
-import net.minecraft.server.class_ou;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.ITileInventory;
+import net.minecraft.server.EntityHuman;
 
 public class class_li {
    public World a;
-   public class_lh b;
+   public EntityPlayer b;
    private WorldSettings.EnumGameMode c;
    private boolean d;
    private int e;
@@ -49,7 +49,7 @@ public class class_li {
       this.c = var1;
       var1.setAbilities(this.b.bH);
       this.b.t();
-      this.b.b.getPlayerList().a((Packet)(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.b, new class_lh[]{this.b})));
+      this.b.b.getPlayerList().a((Packet)(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.b, new EntityPlayer[]{this.b})));
    }
 
    public WorldSettings.EnumGameMode b() {
@@ -78,11 +78,11 @@ public class class_li {
       int var4;
       if(this.h) {
          int var1 = this.g - this.j;
-         Block var2 = this.a.p(this.i).getBlock();
+         Block var2 = this.a.getType(this.i).getBlock();
          if(var2.getMaterial() == Material.AIR) {
             this.h = false;
          } else {
-            var3 = var2.a((class_xa)this.b, (World)this.b.o, (BlockPosition)this.i) * (float)(var1 + 1);
+            var3 = var2.getDamage((EntityHuman)this.b, (World)this.b.o, (BlockPosition)this.i) * (float)(var1 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
                this.a.c(this.b.getId(), this.i, var4);
@@ -95,14 +95,14 @@ public class class_li {
             }
          }
       } else if(this.d) {
-         Block var5 = this.a.p(this.f).getBlock();
+         Block var5 = this.a.getType(this.f).getBlock();
          if(var5.getMaterial() == Material.AIR) {
             this.a.c(this.b.getId(), this.f, -1);
             this.k = -1;
             this.d = false;
          } else {
             int var6 = this.g - this.e;
-            var3 = var5.a((class_xa)this.b, (World)this.b.o, (BlockPosition)this.i) * (float)(var6 + 1);
+            var3 = var5.getDamage((EntityHuman)this.b, (World)this.b.o, (BlockPosition)this.i) * (float)(var6 + 1);
             var4 = (int)(var3 * 10.0F);
             if(var4 != this.k) {
                this.a.c(this.b.getId(), this.f, var4);
@@ -115,12 +115,12 @@ public class class_li {
 
    public void a(BlockPosition var1, EnumDirection var2) {
       if(this.d()) {
-         if(!this.a.a((class_xa)null, (BlockPosition)var1, (EnumDirection)var2)) {
+         if(!this.a.a((EntityHuman)null, (BlockPosition)var1, (EnumDirection)var2)) {
             this.b(var1);
          }
 
       } else {
-         Block var3 = this.a.p(var1).getBlock();
+         Block var3 = this.a.getType(var1).getBlock();
          if(this.c.isAdventureOrSpectator()) {
             if(this.c == WorldSettings.EnumGameMode.SPECTATOR) {
                return;
@@ -138,12 +138,12 @@ public class class_li {
             }
          }
 
-         this.a.a((class_xa)null, (BlockPosition)var1, (EnumDirection)var2);
+         this.a.a((EntityHuman)null, (BlockPosition)var1, (EnumDirection)var2);
          this.e = this.g;
          float var6 = 1.0F;
          if(var3.getMaterial() != Material.AIR) {
-            var3.a((World)this.a, (BlockPosition)var1, (class_xa)this.b);
-            var6 = var3.a((class_xa)this.b, (World)this.b.o, (BlockPosition)var1);
+            var3.attack((World)this.a, (BlockPosition)var1, (EntityHuman)this.b);
+            var6 = var3.getDamage((EntityHuman)this.b, (World)this.b.o, (BlockPosition)var1);
          }
 
          if(var3.getMaterial() != Material.AIR && var6 >= 1.0F) {
@@ -162,9 +162,9 @@ public class class_li {
    public void a(BlockPosition var1) {
       if(var1.equals(this.f)) {
          int var2 = this.g - this.e;
-         Block var3 = this.a.p(var1).getBlock();
+         Block var3 = this.a.getType(var1).getBlock();
          if(var3.getMaterial() != Material.AIR) {
-            float var4 = var3.a((class_xa)this.b, (World)this.b.o, (BlockPosition)var1) * (float)(var2 + 1);
+            float var4 = var3.getDamage((EntityHuman)this.b, (World)this.b.o, (BlockPosition)var1) * (float)(var2 + 1);
             if(var4 >= 0.7F) {
                this.d = false;
                this.a.c(this.b.getId(), var1, -1);
@@ -186,11 +186,11 @@ public class class_li {
    }
 
    private boolean c(BlockPosition var1) {
-      IBlockData var2 = this.a.p(var1);
-      var2.getBlock().a((World)this.a, var1, (IBlockData)var2, (class_xa)this.b);
-      boolean var3 = this.a.g(var1);
+      IBlockData var2 = this.a.getType(var1);
+      var2.getBlock().a((World)this.a, var1, (IBlockData)var2, (EntityHuman)this.b);
+      boolean var3 = this.a.setAir(var1);
       if(var3) {
-         var2.getBlock().d(this.a, var1, var2);
+         var2.getBlock().postBreak(this.a, var1, var2);
       }
 
       return var3;
@@ -200,8 +200,8 @@ public class class_li {
       if(this.c.isCreative() && this.b.bA() != null && this.b.bA().getItem() instanceof class_abw) {
          return false;
       } else {
-         IBlockData var2 = this.a.p(var1);
-         class_amg var3 = this.a.s(var1);
+         IBlockData var2 = this.a.getType(var1);
+         TileEntity var3 = this.a.getTileEntity(var1);
          if(this.c.isAdventureOrSpectator()) {
             if(this.c == WorldSettings.EnumGameMode.SPECTATOR) {
                return false;
@@ -235,7 +235,7 @@ public class class_li {
             }
 
             if(var8 && var7) {
-               var2.getBlock().a(this.a, (class_xa)this.b, (BlockPosition)var1, (IBlockData)var2, (class_amg)var3, (ItemStack)var6);
+               var2.getBlock().breakBlockNaturally(this.a, (EntityHuman)this.b, (BlockPosition)var1, (IBlockData)var2, (TileEntity)var3, (ItemStack)var6);
             }
          }
 
@@ -243,7 +243,7 @@ public class class_li {
       }
    }
 
-   public class_oq a(class_xa var1, World var2, ItemStack var3, EnumUsedHand var4) {
+   public class_oq a(EntityHuman var1, World var2, ItemStack var3, EnumUsedHand var4) {
       if(this.c == WorldSettings.EnumGameMode.SPECTATOR) {
          return class_oq.b;
       } else {
@@ -265,7 +265,7 @@ public class class_li {
             }
 
             if(!var1.bS()) {
-               ((class_lh)var1).a(var1.bq);
+               ((EntityPlayer)var1).a(var1.bq);
             }
          }
 
@@ -273,30 +273,30 @@ public class class_li {
       }
    }
 
-   public class_oq a(class_xa var1, World var2, ItemStack var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(EntityHuman var1, World var2, ItemStack var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
       if(this.c == WorldSettings.EnumGameMode.SPECTATOR) {
-         class_amg var14 = var2.s(var5);
-         if(var14 instanceof class_ou) {
-            Block var15 = var2.p(var5).getBlock();
-            class_ou var16 = (class_ou)var14;
-            if(var16 instanceof class_ami && var15 instanceof class_agu) {
+         TileEntity var14 = var2.getTileEntity(var5);
+         if(var14 instanceof ITileInventory) {
+            Block var15 = var2.getType(var5).getBlock();
+            ITileInventory var16 = (ITileInventory)var14;
+            if(var16 instanceof TileEntityChest && var15 instanceof class_agu) {
                var16 = ((class_agu)var15).f(var2, var5);
             }
 
             if(var16 != null) {
-               var1.a((class_oj)var16);
+               var1.openContainer((IInventory)var16);
                return class_oq.a;
             }
-         } else if(var14 instanceof class_oj) {
-            var1.a((class_oj)var14);
+         } else if(var14 instanceof IInventory) {
+            var1.openContainer((IInventory)var14);
             return class_oq.a;
          }
 
          return class_oq.b;
       } else {
          if(!var1.ax() || var1.bA() == null) {
-            IBlockData var10 = var2.p(var5);
-            if(var10.getBlock().a(var2, var5, var10, var1, var4, var3, var6, var7, var8, var9)) {
+            IBlockData var10 = var2.getType(var5);
+            if(var10.getBlock().interact(var2, var5, var10, var1, var4, var3, var6, var7, var8, var9)) {
                return class_oq.a;
             }
          }

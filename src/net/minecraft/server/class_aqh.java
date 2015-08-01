@@ -19,7 +19,7 @@ public class class_aqh extends class_aql {
 
       for(int var5 = 0; var5 < 64; ++var5) {
          BlockPosition var6 = var3.add(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-         if(var1.d(var6) && (!var1.t.m() || var6.getY() < 254) && Blocks.DOUBLE_PLANT.d(var1, var6)) {
+         if(var1.isEmpty(var6) && (!var1.worldProvider.m() || var6.getY() < 254) && Blocks.DOUBLE_PLANT.canPlace(var1, var6)) {
             Blocks.DOUBLE_PLANT.a(var1, var6, this.a, 2);
             var4 = true;
          }

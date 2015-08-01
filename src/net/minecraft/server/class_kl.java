@@ -18,7 +18,7 @@ import net.minecraft.server.PacketPlayOutScoreboardDisplayObjective;
 import net.minecraft.server.PacketPlayOutScoreboardObjective;
 import net.minecraft.server.PacketPlayOutScoreboardTeam;
 import net.minecraft.server.PacketPlayOutScoreboardScore;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 
 public class class_kl extends class_awn {
    private final MinecraftServer a;
@@ -166,7 +166,7 @@ public class class_kl extends class_awn {
       Iterator var3 = this.a.getPlayerList().v().iterator();
 
       while(var3.hasNext()) {
-         class_lh var4 = (class_lh)var3.next();
+         EntityPlayer var4 = (EntityPlayer)var3.next();
          Iterator var5 = var2.iterator();
 
          while(var5.hasNext()) {
@@ -196,7 +196,7 @@ public class class_kl extends class_awn {
       Iterator var3 = this.a.getPlayerList().v().iterator();
 
       while(var3.hasNext()) {
-         class_lh var4 = (class_lh)var3.next();
+         EntityPlayer var4 = (EntityPlayer)var3.next();
          Iterator var5 = var2.iterator();
 
          while(var5.hasNext()) {

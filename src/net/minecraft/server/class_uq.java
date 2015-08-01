@@ -7,11 +7,11 @@ import net.minecraft.server.class_apd;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_ur;
 
-public class class_uq extends class_pr {
+public class class_uq extends Entity {
    public int a;
    public int b;
    private static final int c = class_qi.a(class_uq.class);
@@ -38,10 +38,10 @@ public class class_uq extends class_pr {
       this.r = this.u;
       ++this.a;
       this.ac.b(c, Integer.valueOf(this.b));
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          BlockPosition var1 = new BlockPosition(this);
-         if(this.o.t instanceof class_apd && this.o.p(var1).getBlock() != Blocks.FIRE) {
-            this.o.a(var1, Blocks.FIRE.getBlockData());
+         if(this.o.worldProvider instanceof class_apd && this.o.getType(var1).getBlock() != Blocks.FIRE) {
+            this.o.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
          }
       }
 
@@ -63,13 +63,13 @@ public class class_uq extends class_pr {
       } else if(var1.j() instanceof class_ur) {
          return false;
       } else {
-         if(!this.I && !this.o.D) {
+         if(!this.I && !this.o.isClientSide) {
             this.b = 0;
             this.J();
-            if(!this.o.D) {
-               this.o.a((class_pr)null, this.s, this.t, this.u, 6.0F, true);
-               if(this.o.t instanceof class_apd) {
-                  class_apd var3 = (class_apd)this.o.t;
+            if(!this.o.isClientSide) {
+               this.o.a((Entity)null, this.s, this.t, this.u, 6.0F, true);
+               if(this.o.worldProvider instanceof class_apd) {
+                  class_apd var3 = (class_apd)this.o.worldProvider;
                   class_apc var4 = var3.s();
                   if(var4 != null) {
                      var4.a(this, var1);

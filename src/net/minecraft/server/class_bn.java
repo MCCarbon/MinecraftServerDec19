@@ -8,10 +8,10 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.PacketPlayOutPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_bn extends class_i {
    public String c() {
@@ -42,15 +42,15 @@ public class class_bn extends class_i {
          if(var2.length != 1 && var2.length != 2) {
             if(var2.length < var3 + 3) {
                throw new class_cf("commands.tp.usage", new Object[0]);
-            } else if(((class_pr)var4).o != null) {
+            } else if(((Entity)var4).o != null) {
                int var14 = var3 + 1;
-               class_i.class_a_in_class_i var6 = a(((class_pr)var4).s, var2[var3], true);
-               class_i.class_a_in_class_i var7 = a(((class_pr)var4).t, var2[var14++], 0, 0, false);
-               class_i.class_a_in_class_i var8 = a(((class_pr)var4).u, var2[var14++], true);
-               class_i.class_a_in_class_i var9 = a((double)((class_pr)var4).y, var2.length > var14?var2[var14++]:"~", false);
-               class_i.class_a_in_class_i var10 = a((double)((class_pr)var4).z, var2.length > var14?var2[var14]:"~", false);
+               class_i.class_a_in_class_i var6 = a(((Entity)var4).s, var2[var3], true);
+               class_i.class_a_in_class_i var7 = a(((Entity)var4).t, var2[var14++], 0, 0, false);
+               class_i.class_a_in_class_i var8 = a(((Entity)var4).u, var2[var14++], true);
+               class_i.class_a_in_class_i var9 = a((double)((Entity)var4).y, var2.length > var14?var2[var14++]:"~", false);
+               class_i.class_a_in_class_i var10 = a((double)((Entity)var4).z, var2.length > var14?var2[var14]:"~", false);
                float var12;
-               if(var4 instanceof class_lh) {
+               if(var4 instanceof EntityPlayer) {
                   EnumSet var11 = EnumSet.noneOf(PacketPlayOutPosition.class_a_in_class_fi.class);
                   if(var6.c()) {
                      var11.add(PacketPlayOutPosition.class_a_in_class_fi.a);
@@ -87,9 +87,9 @@ public class class_bn extends class_i {
                      var12 = MathHelper.clampAngle(var12 + 180.0F);
                   }
 
-                  ((class_pr)var4).a((class_pr)null);
-                  ((class_lh)var4).a.a(var6.b(), var7.b(), var8.b(), var12, var13, var11);
-                  ((class_pr)var4).f(var12);
+                  ((Entity)var4).a((Entity)null);
+                  ((EntityPlayer)var4).a.a(var6.b(), var7.b(), var8.b(), var12, var13, var11);
+                  ((Entity)var4).f(var12);
                } else {
                   float var15 = (float)MathHelper.clampAngle(var9.a());
                   var12 = (float)MathHelper.clampAngle(var10.a());
@@ -98,25 +98,25 @@ public class class_bn extends class_i {
                      var15 = MathHelper.clampAngle(var15 + 180.0F);
                   }
 
-                  ((class_pr)var4).b(var6.a(), var7.a(), var8.a(), var15, var12);
-                  ((class_pr)var4).f(var15);
+                  ((Entity)var4).b(var6.a(), var7.a(), var8.a(), var15, var12);
+                  ((Entity)var4).f(var15);
                }
 
-               a(var1, this, "commands.tp.success.coordinates", new Object[]{((class_pr)var4).e_(), Double.valueOf(var6.a()), Double.valueOf(var7.a()), Double.valueOf(var8.a())});
+               a(var1, this, "commands.tp.success.coordinates", new Object[]{((Entity)var4).getName(), Double.valueOf(var6.a()), Double.valueOf(var7.a()), Double.valueOf(var8.a())});
             }
          } else {
-            class_pr var5 = b(var1, var2[var2.length - 1]);
-            if(var5.o != ((class_pr)var4).o) {
+            Entity var5 = b(var1, var2[var2.length - 1]);
+            if(var5.o != ((Entity)var4).o) {
                throw new class_bz("commands.tp.notSameDimension", new Object[0]);
             } else {
-               ((class_pr)var4).a((class_pr)null);
-               if(var4 instanceof class_lh) {
-                  ((class_lh)var4).a.a(var5.s, var5.t, var5.u, var5.y, var5.z);
+               ((Entity)var4).a((Entity)null);
+               if(var4 instanceof EntityPlayer) {
+                  ((EntityPlayer)var4).a.a(var5.s, var5.t, var5.u, var5.y, var5.z);
                } else {
-                  ((class_pr)var4).b(var5.s, var5.t, var5.u, var5.y, var5.z);
+                  ((Entity)var4).b(var5.s, var5.t, var5.u, var5.y, var5.z);
                }
 
-               a(var1, this, "commands.tp.success", new Object[]{((class_pr)var4).e_(), var5.e_()});
+               a(var1, this, "commands.tp.success", new Object[]{((Entity)var4).getName(), var5.getName()});
             }
          }
       }

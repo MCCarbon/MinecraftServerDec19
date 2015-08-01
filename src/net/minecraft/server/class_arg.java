@@ -19,7 +19,7 @@ public class class_arg extends class_aql {
    }
 
    public boolean b(World var1, Random var2, BlockPosition var3) {
-      if(var1.p(var3).getBlock().getMaterial() != Material.WATER) {
+      if(var1.getType(var3).getBlock().getMaterial() != Material.WATER) {
          return false;
       } else {
          int var4 = var2.nextInt(this.b - 2) + 2;
@@ -32,9 +32,9 @@ public class class_arg extends class_aql {
                if(var8 * var8 + var9 * var9 <= var4 * var4) {
                   for(int var10 = var3.getY() - var5; var10 <= var3.getY() + var5; ++var10) {
                      BlockPosition var11 = new BlockPosition(var6, var10, var7);
-                     Block var12 = var1.p(var11).getBlock();
+                     Block var12 = var1.getType(var11).getBlock();
                      if(var12 == Blocks.DIRT || var12 == Blocks.GRASS) {
-                        var1.a((BlockPosition)var11, (IBlockData)this.a.getBlockData(), 2);
+                        var1.setTypeAndData((BlockPosition)var11, (IBlockData)this.a.getBlockData(), 2);
                      }
                   }
                }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import java.util.List;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
@@ -23,10 +23,10 @@ public class PacketPlayOutMapChunkBulk implements Packet {
       this.a = new int[var2];
       this.b = new int[var2];
       this.c = new PacketPlayOutMapChunk.class_a_in_class_go[var2];
-      this.d = !((class_aok)var1.get(0)).p().t.m();
+      this.d = !((Chunk)var1.get(0)).p().worldProvider.m();
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_aok var4 = (class_aok)var1.get(var3);
+         Chunk var4 = (Chunk)var1.get(var3);
          PacketPlayOutMapChunk.class_a_in_class_go var5 = PacketPlayOutMapChunk.a(var4, true, this.d, '\uffff');
          this.a[var3] = var4.a;
          this.b[var3] = var4.b;

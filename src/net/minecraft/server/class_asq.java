@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_asn;
 import net.minecraft.server.class_aso;
@@ -78,7 +78,7 @@ public class class_asq extends class_ask {
    }
 
    static {
-      d = Arrays.asList(new class_aez[]{class_aez.q, class_aez.r, class_aez.Y});
+      d = Arrays.asList(new BiomeBase[]{BiomeBase.q, BiomeBase.r, BiomeBase.Y});
    }
 
    public static class class_a_in_class_asq extends class_aso {

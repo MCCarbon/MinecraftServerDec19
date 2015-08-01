@@ -47,7 +47,7 @@ public abstract class class_rx extends class_rm {
    }
 
    public void e() {
-      if(this.c.c(this.b.shiftUp()) > 1.0D) {
+      if(this.c.c(this.b.up()) > 1.0D) {
          this.g = false;
          ++this.e;
          if(this.e % 40 == 0) {

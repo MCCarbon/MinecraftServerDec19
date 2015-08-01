@@ -5,11 +5,11 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_ly;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qg;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_so;
@@ -116,7 +116,7 @@ public abstract class class_qj extends class_tw implements class_qg {
       this.ac.b(bt, var1);
    }
 
-   public class_qa cD() {
+   public EntityLiving cD() {
       try {
          UUID var1 = UUID.fromString(this.b());
          return var1 == null?null:this.o.b(var1);
@@ -125,7 +125,7 @@ public abstract class class_qj extends class_tw implements class_qg {
       }
    }
 
-   public boolean e(class_qa var1) {
+   public boolean e(EntityLiving var1) {
       return var1 == this.cD();
    }
 
@@ -133,13 +133,13 @@ public abstract class class_qj extends class_tw implements class_qg {
       return this.bu;
    }
 
-   public boolean a(class_qa var1, class_qa var2) {
+   public boolean a(EntityLiving var1, EntityLiving var2) {
       return true;
    }
 
    public class_awp bP() {
       if(this.cA()) {
-         class_qa var1 = this.cD();
+         EntityLiving var1 = this.cD();
          if(var1 != null) {
             return var1.bP();
          }
@@ -148,9 +148,9 @@ public abstract class class_qj extends class_tw implements class_qg {
       return super.bP();
    }
 
-   public boolean c(class_qa var1) {
+   public boolean c(EntityLiving var1) {
       if(this.cA()) {
-         class_qa var2 = this.cD();
+         EntityLiving var2 = this.cD();
          if(var1 == var2) {
             return true;
          }
@@ -164,15 +164,15 @@ public abstract class class_qj extends class_tw implements class_qg {
    }
 
    public void a(class_pc var1) {
-      if(!this.o.D && this.o.R().b("showDeathMessages") && this.l_() && this.cD() instanceof class_lh) {
-         ((class_lh)this.cD()).a(this.bt().b());
+      if(!this.o.isClientSide && this.o.R().b("showDeathMessages") && this.hasCustomName() && this.cD() instanceof EntityPlayer) {
+         ((EntityPlayer)this.cD()).a(this.bt().b());
       }
 
       super.a((class_pc)var1);
    }
 
    // $FF: synthetic method
-   public class_pr m_() {
+   public Entity m_() {
       return this.cD();
    }
 }

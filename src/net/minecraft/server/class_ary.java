@@ -8,11 +8,11 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_ami;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
 import net.minecraft.server.class_asn;
@@ -24,10 +24,10 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_ob;
+import net.minecraft.server.Tuple;
 import net.minecraft.server.class_od;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_ug;
 
 public class class_ary {
@@ -47,14 +47,14 @@ public class class_ary {
       class_asl.a(class_ary.class_a_in_class_ary.class, "ECP");
    }
 
-   private static class_ary.class_a_in_class_ary b(class_ary.class_a_in_class_ary var0, BlockPosition var1, String var2, Block.class_c_in_class_agj var3, boolean var4) {
+   private static class_ary.class_a_in_class_ary b(class_ary.class_a_in_class_ary var0, BlockPosition var1, String var2, Block.EnumRotation var3, boolean var4) {
       class_ary.class_a_in_class_ary var5 = new class_ary.class_a_in_class_ary(var2, var0.c, var3, var4);
       BlockPosition var6 = var0.a.a(var0.b, var1, var5.a, var5.b, BlockPosition.ZERO);
       var5.a(var6.getX(), var6.getY(), var6.getZ());
       return var5;
    }
 
-   public static void a(BlockPosition var0, Block.class_c_in_class_agj var1, List var2, Random var3) {
+   public static void a(BlockPosition var0, Block.EnumRotation var1, List var2, Random var3) {
       k.a();
       f.a();
       i.a();
@@ -110,7 +110,7 @@ public class class_ary {
             if(var1 > 8) {
                return false;
             } else {
-               Block.class_c_in_class_agj var6 = var2.b.c();
+               Block.EnumRotation var6 = var2.b.c();
                class_ary.class_a_in_class_ary var7;
                var4.add(var7 = class_ary.b(var2, var3, "base_floor", var6, true));
                int var8 = var5.nextInt(3);
@@ -132,16 +132,16 @@ public class class_ary {
          }
       };
       g = new ArrayList();
-      g.add(new class_ob(Block.class_c_in_class_agj.a, new BlockPosition(1, -1, 0)));
-      g.add(new class_ob(Block.class_c_in_class_agj.b, new BlockPosition(6, -1, 1)));
-      g.add(new class_ob(Block.class_c_in_class_agj.d, new BlockPosition(0, -1, 5)));
-      g.add(new class_ob(Block.class_c_in_class_agj.c, new BlockPosition(5, -1, 6)));
+      g.add(new Tuple(Block.EnumRotation.NONE, new BlockPosition(1, -1, 0)));
+      g.add(new Tuple(Block.EnumRotation.CLOCKWISE_90, new BlockPosition(6, -1, 1)));
+      g.add(new Tuple(Block.EnumRotation.COUNTERCLOCKWISE_90, new BlockPosition(0, -1, 5)));
+      g.add(new Tuple(Block.EnumRotation.CLOCKWISE_180, new BlockPosition(5, -1, 6)));
       h = new class_ary.class_b_in_class_ary() {
          public void a() {
          }
 
          public boolean a(int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5) {
-            Block.class_c_in_class_agj var6 = var2.b.c();
+            Block.EnumRotation var6 = var2.b.c();
             class_ary.class_a_in_class_ary var7;
             var4.add(var7 = class_ary.b(var2, new BlockPosition(3 + var5.nextInt(2), -3, 3 + var5.nextInt(2)), "tower_base", var6, true));
             var4.add(var7 = class_ary.b(var7, new BlockPosition(0, 7, 0), "tower_piece", var6, true));
@@ -159,10 +159,10 @@ public class class_ary {
                Iterator var13 = class_ary.g.iterator();
 
                while(var13.hasNext()) {
-                  class_ob var11 = (class_ob)var13.next();
+                  Tuple var11 = (Tuple)var13.next();
                   if(var5.nextBoolean()) {
                      class_ary.class_a_in_class_ary var12;
-                     var4.add(var12 = class_ary.b(var8, (BlockPosition)var11.b(), "bridge_end", var6.a((Block.class_c_in_class_agj)var11.a()), true));
+                     var4.add(var12 = class_ary.b(var8, (BlockPosition)var11.getObject2(), "bridge_end", var6.a((Block.EnumRotation)var11.getObject1()), true));
                      class_ary.b(class_ary.i, var1 + 1, var12, (BlockPosition)null, var4, var5);
                   }
                }
@@ -187,7 +187,7 @@ public class class_ary {
          }
 
          public boolean a(int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5) {
-            Block.class_c_in_class_agj var7 = var2.b.c();
+            Block.EnumRotation var7 = var2.b.c();
             int var8 = var5.nextInt(4) + 1;
             byte var9 = 0;
             class_ary.class_a_in_class_ary var6;
@@ -216,22 +216,22 @@ public class class_ary {
                return false;
             }
 
-            var4.add(var6 = class_ary.b(var6, new BlockPosition(4, var9, 0), "bridge_end", var7.a(Block.class_c_in_class_agj.c), true));
+            var4.add(var6 = class_ary.b(var6, new BlockPosition(4, var9, 0), "bridge_end", var7.a(Block.EnumRotation.CLOCKWISE_180), true));
             var6.m = -1;
             return true;
          }
       };
       j = new ArrayList();
-      j.add(new class_ob(Block.class_c_in_class_agj.a, new BlockPosition(4, -1, 0)));
-      j.add(new class_ob(Block.class_c_in_class_agj.b, new BlockPosition(12, -1, 4)));
-      j.add(new class_ob(Block.class_c_in_class_agj.d, new BlockPosition(0, -1, 8)));
-      j.add(new class_ob(Block.class_c_in_class_agj.c, new BlockPosition(8, -1, 12)));
+      j.add(new Tuple(Block.EnumRotation.NONE, new BlockPosition(4, -1, 0)));
+      j.add(new Tuple(Block.EnumRotation.CLOCKWISE_90, new BlockPosition(12, -1, 4)));
+      j.add(new Tuple(Block.EnumRotation.COUNTERCLOCKWISE_90, new BlockPosition(0, -1, 8)));
+      j.add(new Tuple(Block.EnumRotation.CLOCKWISE_180, new BlockPosition(8, -1, 12)));
       k = new class_ary.class_b_in_class_ary() {
          public void a() {
          }
 
          public boolean a(int var1, class_ary.class_a_in_class_ary var2, BlockPosition var3, List var4, Random var5) {
-            Block.class_c_in_class_agj var7 = var2.b.c();
+            Block.EnumRotation var7 = var2.b.c();
             class_ary.class_a_in_class_ary var6;
             var4.add(var6 = class_ary.b(var2, new BlockPosition(-3, 4, -3), "fat_tower_base", var7, true));
             var4.add(var6 = class_ary.b(var6, new BlockPosition(0, 4, 0), "fat_tower_middle", var7, true));
@@ -241,10 +241,10 @@ public class class_ary {
                Iterator var9 = class_ary.j.iterator();
 
                while(var9.hasNext()) {
-                  class_ob var10 = (class_ob)var9.next();
+                  Tuple var10 = (Tuple)var9.next();
                   if(var5.nextBoolean()) {
                      class_ary.class_a_in_class_ary var11;
-                     var4.add(var11 = class_ary.b(var6, (BlockPosition)var10.b(), "bridge_end", var7.a((Block.class_c_in_class_agj)var10.a()), true));
+                     var4.add(var11 = class_ary.b(var6, (BlockPosition)var10.getObject2(), "bridge_end", var7.a((Block.EnumRotation)var10.getObject1()), true));
                      class_ary.b(class_ary.i, var1 + 1, var11, (BlockPosition)null, var4, var5);
                   }
                }
@@ -264,13 +264,13 @@ public class class_ary {
 
    public static class class_a_in_class_ary extends class_asp {
       private String d;
-      private Block.class_c_in_class_agj e;
+      private Block.EnumRotation e;
       private boolean f;
 
       public class_a_in_class_ary() {
       }
 
-      public class_a_in_class_ary(String var1, BlockPosition var2, Block.class_c_in_class_agj var3, boolean var4) {
+      public class_a_in_class_ary(String var1, BlockPosition var2, Block.EnumRotation var3, boolean var4) {
          super(0);
          this.d = var1;
          this.e = var3;
@@ -300,33 +300,33 @@ public class class_ary {
       protected void b(NBTTagCompound var1) {
          super.b(var1);
          this.d = var1.getString("Template");
-         this.e = Block.class_c_in_class_agj.valueOf(var1.getString("Rot"));
+         this.e = Block.EnumRotation.valueOf(var1.getString("Rot"));
          this.f = var1.getBoolean("OW");
          this.a(this.c);
       }
 
       protected void a(String var1, BlockPosition var2, World var3, Random var4, class_arw var5) {
          if(var1.startsWith("Chest")) {
-            BlockPosition var6 = var2.shiftDown();
+            BlockPosition var6 = var2.down();
             if(var5.b((BaseBlockPosition)var6)) {
-               class_amg var7 = var3.s(var6);
-               if(var7 instanceof class_ami) {
+               TileEntity var7 = var3.getTileEntity(var6);
+               if(var7 instanceof TileEntityChest) {
                   ArrayList var8 = Lists.newArrayList((Iterable)class_ary.d);
                   Iterator var9 = class_ary.e.iterator();
 
                   while(var9.hasNext()) {
                      Item var10 = (Item)var9.next();
-                     var8.add(new class_od(class_adk.a(var4, new ItemStack(var10), 20 + var4.nextInt(20)), 1, 1, 3));
+                     var8.add(new class_od(EnchantmentManager.a(var4, new ItemStack(var10), 20 + var4.nextInt(20)), 1, 1, 3));
                   }
 
-                  class_od.a(var4, var8, (class_oj)((class_ami)var7), 2 + var4.nextInt(5));
+                  class_od.a(var4, var8, (IInventory)((TileEntityChest)var7), 2 + var4.nextInt(5));
                }
             }
          } else if(var1.startsWith("Sentry")) {
             class_ug var11 = new class_ug(var3);
             var11.b((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D);
             var11.f(var2);
-            var3.a((class_pr)var11);
+            var3.addEntity((Entity)var11);
          }
 
       }

@@ -2,40 +2,40 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahx;
-import net.minecraft.server.class_aiv;
+import net.minecraft.server.BlockFalling;
+import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anx;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateDirection;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_op;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_vl;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.ITileEntityContainer;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityFallingBlock;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_yb;
 import net.minecraft.server.CreativeTab;
 
-public class class_aga extends class_ahx {
-   public static final class_anx a;
-   public static final class_anz b;
+public class class_aga extends BlockFalling {
+   public static final BlockStateDirection a;
+   public static final BlockStateInteger b;
 
    protected class_aga() {
       super(Material.HEAVY);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Integer.valueOf(0)));
       this.setLightOpacity(0);
-      this.a((CreativeTab)CreativeTab.c);
+      this.setCreativeTab((CreativeTab)CreativeTab.DECORATIONS);
    }
 
    public boolean isFullCube() {
@@ -46,14 +46,14 @@ public class class_aga extends class_ahx {
       return false;
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       EnumDirection var9 = var8.aR().rotateY();
-      return super.a(var1, var2, var3, var4, var5, var6, var7, var8).set(a, var9).set(b, Integer.valueOf(var7 >> 2));
+      return super.getPlacedState(var1, var2, var3, var4, var5, var6, var7, var8).set(a, var9).set(b, Integer.valueOf(var7 >> 2));
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(!var1.D) {
-         var4.a((class_op)(new class_aga.class_a_in_class_aga(var1, var2)));
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+      if(!var1.isClientSide) {
+         var4.a((ITileEntityContainer)(new class_aga.class_a_in_class_aga(var1, var2)));
       }
 
       return true;
@@ -63,8 +63,8 @@ public class class_aga extends class_ahx {
       return ((Integer)var1.get(b)).intValue();
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
-      EnumDirection var3 = (EnumDirection)var1.p(var2).get(a);
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
+      EnumDirection var3 = (EnumDirection)var1.getType(var2).get(a);
       if(var3.getAxis() == EnumDirection.EnumAxis.X) {
          this.setSizes(0.0F, 0.0F, 0.125F, 1.0F, 1.0F, 0.875F);
       } else {
@@ -73,7 +73,7 @@ public class class_aga extends class_ahx {
 
    }
 
-   protected void a(class_vl var1) {
+   protected void init(EntityFallingBlock var1) {
       var1.a(true);
    }
 
@@ -92,20 +92,20 @@ public class class_aga extends class_ahx {
       return var3;
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a, b});
    }
 
    static {
-      a = class_aiv.O;
-      b = class_anz.a("damage", 0, 2);
+      a = BlockDirectional.FACING;
+      b = BlockStateInteger.of("damage", 0, 2);
    }
 
-   public static class class_a_in_class_aga implements class_op {
+   public static class class_a_in_class_aga implements ITileEntityContainer {
       private final World a;
       private final BlockPosition b;
 
@@ -114,23 +114,23 @@ public class class_aga extends class_ahx {
          this.b = var2;
       }
 
-      public String e_() {
+      public String getName() {
          return "anvil";
       }
 
-      public boolean l_() {
+      public boolean hasCustomName() {
          return false;
       }
 
-      public IChatBaseComponent f_() {
-         return new class_fb(Blocks.ANVIL.getInternalName() + ".name", new Object[0]);
+      public IChatBaseComponent getScoreboardDisplayName() {
+         return new ChatMessage(Blocks.ANVIL.getInternalName() + ".name", new Object[0]);
       }
 
-      public class_xz a(class_wz var1, class_xa var2) {
+      public Container createContainer(PlayerInventory var1, EntityHuman var2) {
          return new class_yb(var1, this.a, this.b, var2);
       }
 
-      public String k() {
+      public String getContainerName() {
          return "minecraft:anvil";
       }
    }

@@ -4,18 +4,18 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aea;
 import net.minecraft.server.class_aeb;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public interface class_adz {
-   void a(class_xa var1);
+   void a(EntityHuman var1);
 
-   class_xa v_();
+   EntityHuman v_();
 
-   class_aeb a_(class_xa var1);
+   class_aeb a_(EntityHuman var1);
 
    void a(class_aea var1);
 
    void a_(ItemStack var1);
 
-   IChatBaseComponent f_();
+   IChatBaseComponent getScoreboardDisplayName();
 }

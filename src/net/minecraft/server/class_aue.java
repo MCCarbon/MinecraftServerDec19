@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_aua;
 import net.minecraft.server.class_auc;
 import org.apache.logging.log4j.LogManager;
@@ -32,7 +32,7 @@ public class class_aue extends class_auc {
             }
 
             if(var10 != 0 && var11 >= 2 && (var11 - 2) % 29 == 1 && var10 < 128) {
-               if(class_aez.e(var10 + 128) != null) {
+               if(BiomeBase.e(var10 + 128) != null) {
                   var7[var9 + var8 * var3] = var10 + 128;
                } else {
                   var7[var9 + var8 * var3] = var10;
@@ -42,49 +42,49 @@ public class class_aue extends class_auc {
             } else {
                int var13 = var10;
                int var14;
-               if(var10 == class_aez.r.az) {
-                  var13 = class_aez.G.az;
-               } else if(var10 == class_aez.t.az) {
-                  var13 = class_aez.H.az;
-               } else if(var10 == class_aez.Q.az) {
-                  var13 = class_aez.R.az;
-               } else if(var10 == class_aez.S.az) {
-                  var13 = class_aez.q.az;
-               } else if(var10 == class_aez.u.az) {
-                  var13 = class_aez.I.az;
-               } else if(var10 == class_aez.V.az) {
-                  var13 = class_aez.W.az;
-               } else if(var10 == class_aez.T.az) {
-                  var13 = class_aez.U.az;
-               } else if(var10 == class_aez.q.az) {
+               if(var10 == BiomeBase.r.az) {
+                  var13 = BiomeBase.G.az;
+               } else if(var10 == BiomeBase.t.az) {
+                  var13 = BiomeBase.H.az;
+               } else if(var10 == BiomeBase.Q.az) {
+                  var13 = BiomeBase.R.az;
+               } else if(var10 == BiomeBase.S.az) {
+                  var13 = BiomeBase.q.az;
+               } else if(var10 == BiomeBase.u.az) {
+                  var13 = BiomeBase.I.az;
+               } else if(var10 == BiomeBase.V.az) {
+                  var13 = BiomeBase.W.az;
+               } else if(var10 == BiomeBase.T.az) {
+                  var13 = BiomeBase.U.az;
+               } else if(var10 == BiomeBase.q.az) {
                   if(this.a(3) == 0) {
-                     var13 = class_aez.H.az;
+                     var13 = BiomeBase.H.az;
                   } else {
-                     var13 = class_aez.t.az;
+                     var13 = BiomeBase.t.az;
                   }
-               } else if(var10 == class_aez.B.az) {
-                  var13 = class_aez.C.az;
-               } else if(var10 == class_aez.K.az) {
-                  var13 = class_aez.L.az;
-               } else if(var10 == class_aez.p.az) {
-                  var13 = class_aez.N.az;
-               } else if(var10 == class_aez.s.az) {
-                  var13 = class_aez.X.az;
-               } else if(var10 == class_aez.Y.az) {
-                  var13 = class_aez.Z.az;
-               } else if(a(var10, class_aez.ab.az)) {
-                  var13 = class_aez.aa.az;
-               } else if(var10 == class_aez.N.az && this.a(3) == 0) {
+               } else if(var10 == BiomeBase.B.az) {
+                  var13 = BiomeBase.C.az;
+               } else if(var10 == BiomeBase.K.az) {
+                  var13 = BiomeBase.L.az;
+               } else if(var10 == BiomeBase.p.az) {
+                  var13 = BiomeBase.N.az;
+               } else if(var10 == BiomeBase.s.az) {
+                  var13 = BiomeBase.X.az;
+               } else if(var10 == BiomeBase.Y.az) {
+                  var13 = BiomeBase.Z.az;
+               } else if(a(var10, BiomeBase.ab.az)) {
+                  var13 = BiomeBase.aa.az;
+               } else if(var10 == BiomeBase.N.az && this.a(3) == 0) {
                   var14 = this.a(2);
                   if(var14 == 0) {
-                     var13 = class_aez.q.az;
+                     var13 = BiomeBase.q.az;
                   } else {
-                     var13 = class_aez.t.az;
+                     var13 = BiomeBase.t.az;
                   }
                }
 
                if(var12 && var13 != var10) {
-                  if(class_aez.e(var13 + 128) != null) {
+                  if(BiomeBase.e(var13 + 128) != null) {
                      var13 += 128;
                   } else {
                      var13 = var10;

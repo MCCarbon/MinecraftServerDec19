@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.class_aus;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auu;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_auw {
    private class_aus a = new class_aus();
@@ -17,15 +17,15 @@ public class class_auw {
       this.c = var1;
    }
 
-   public class_auv a(class_aer var1, class_pr var2, class_pr var3, float var4) {
-      return this.a(var1, var2, var3.s, var3.aT().b, var3.u, var4);
+   public class_auv a(IBlockAccess var1, Entity var2, Entity var3, float var4) {
+      return this.a(var1, var2, var3.s, var3.aT().yMin, var3.u, var4);
    }
 
-   public class_auv a(class_aer var1, class_pr var2, BlockPosition var3, float var4) {
+   public class_auv a(IBlockAccess var1, Entity var2, BlockPosition var3, float var4) {
       return this.a(var1, var2, (double)((float)var3.getX() + 0.5F), (double)((float)var3.getY() + 0.5F), (double)((float)var3.getZ() + 0.5F), var4);
    }
 
-   private class_auv a(class_aer var1, class_pr var2, double var3, double var5, double var7, float var9) {
+   private class_auv a(IBlockAccess var1, Entity var2, double var3, double var5, double var7, float var9) {
       this.a.a();
       this.c.a(var1, var2);
       class_aut var10 = this.c.a(var2);
@@ -35,7 +35,7 @@ public class class_auw {
       return var12;
    }
 
-   private class_auv a(class_pr var1, class_aut var2, class_aut var3, float var4) {
+   private class_auv a(Entity var1, class_aut var2, class_aut var3, float var4) {
       var2.e = 0.0F;
       var2.f = var2.b(var3);
       var2.g = var2.f;

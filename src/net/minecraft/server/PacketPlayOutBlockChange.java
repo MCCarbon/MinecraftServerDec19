@@ -19,7 +19,7 @@ public class PacketPlayOutBlockChange implements Packet {
 
    public PacketPlayOutBlockChange(World var1, BlockPosition var2) {
       this.a = var2;
-      this.b = var1.p(var2);
+      this.b = var1.getType(var2);
    }
 
    public void decode(PacketDataSerializer var1) throws IOException {

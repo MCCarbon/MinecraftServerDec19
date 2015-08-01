@@ -3,15 +3,15 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.class_aew;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.class_auw;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
@@ -59,7 +59,7 @@ public abstract class class_tg {
          BlockPosition var3 = new BlockPosition(this.b);
          int var4 = (int)(var2 + 8.0F);
          class_aew var5 = new class_aew(this.c, var3.add(-var4, -var4, -var4), var3.add(var4, var4, var4), 0);
-         class_auv var6 = this.j.a((class_aer)var5, (class_pr)this.b, (BlockPosition)var1, var2);
+         class_auv var6 = this.j.a((IBlockAccess)var5, (Entity)this.b, (BlockPosition)var1, var2);
          this.c.B.b();
          return var6;
       }
@@ -74,22 +74,22 @@ public abstract class class_tg {
       this.i = var1;
    }
 
-   public class_auv a(class_pr var1) {
+   public class_auv a(Entity var1) {
       if(!this.b()) {
          return null;
       } else {
          float var2 = this.i();
          this.c.B.a("pathfind");
-         BlockPosition var3 = (new BlockPosition(this.b)).shiftUp();
+         BlockPosition var3 = (new BlockPosition(this.b)).up();
          int var4 = (int)(var2 + 16.0F);
          class_aew var5 = new class_aew(this.c, var3.add(-var4, -var4, -var4), var3.add(var4, var4, var4), 0);
-         class_auv var6 = this.j.a((class_aer)var5, (class_pr)this.b, (class_pr)var1, var2);
+         class_auv var6 = this.j.a((IBlockAccess)var5, (Entity)this.b, (Entity)var1, var2);
          this.c.B.b();
          return var6;
       }
    }
 
-   public boolean a(class_pr var1, double var2) {
+   public boolean a(Entity var1, double var2) {
       class_auv var4 = this.a(var1);
       return var4 != null?this.a(var4, var2):false;
    }
@@ -135,16 +135,16 @@ public abstract class class_tg {
          }
 
          if(!this.m()) {
-            var1 = this.d.a((class_pr)this.b);
+            var1 = this.d.a((Entity)this.b);
             if(var1 != null) {
-               class_awf var8 = (new class_awf(var1.x, var1.y, var1.z, var1.x, var1.y, var1.z)).b(0.5D, 0.5D, 0.5D);
-               List var3 = this.c.a((class_pr)this.b, (class_awf)var8.a(0.0D, -1.0D, 0.0D));
+               AxisAlignedBB var8 = (new AxisAlignedBB(var1.x, var1.y, var1.z, var1.x, var1.y, var1.z)).grow(0.5D, 0.5D, 0.5D);
+               List var3 = this.c.a((Entity)this.b, (AxisAlignedBB)var8.add(0.0D, -1.0D, 0.0D));
                double var4 = -1.0D;
                var8 = var8.c(0.0D, 1.0D, 0.0D);
 
-               class_awf var7;
+               AxisAlignedBB var7;
                for(Iterator var6 = var3.iterator(); var6.hasNext(); var4 = var7.b(var8, var4)) {
-                  var7 = (class_awf)var6.next();
+                  var7 = (AxisAlignedBB)var6.next();
                }
 
                this.b.r().a(var1.x, var1.y + var4, var1.z, this.e);

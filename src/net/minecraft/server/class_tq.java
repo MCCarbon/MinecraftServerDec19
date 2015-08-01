@@ -8,12 +8,12 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_tp;
 import net.minecraft.server.class_wr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_tq {
    private World a;
@@ -40,7 +40,7 @@ public class class_tq {
                return;
             }
 
-            this.c = this.a.s.nextInt(10) == 0?1:2;
+            this.c = this.a.random.nextInt(10) == 0?1:2;
             this.b = false;
             if(this.c == 2) {
                return;
@@ -73,7 +73,7 @@ public class class_tq {
    }
 
    private boolean b() {
-      List var1 = this.a.j;
+      List var1 = this.a.players;
       Iterator var2 = var1.iterator();
 
       Vec3D var11;
@@ -82,13 +82,13 @@ public class class_tq {
             do {
                do {
                   do {
-                     class_xa var3;
+                     EntityHuman var3;
                      do {
                         if(!var2.hasNext()) {
                            return false;
                         }
 
-                        var3 = (class_xa)var2.next();
+                        var3 = (EntityHuman)var2.next();
                      } while(var3.v());
 
                      this.f = this.a.af().a(new BlockPosition(var3), 1);
@@ -102,7 +102,7 @@ public class class_tq {
          boolean var6 = false;
 
          for(int var7 = 0; var7 < 10; ++var7) {
-            float var8 = this.a.s.nextFloat() * 3.1415927F * 2.0F;
+            float var8 = this.a.random.nextFloat() * 3.1415927F * 2.0F;
             this.g = var4.getX() + (int)((double)(MathHelper.cos(var8) * var5) * 0.9D);
             this.h = var4.getY();
             this.i = var4.getZ() + (int)((double)(MathHelper.sin(var8) * var5) * 0.9D);
@@ -149,8 +149,8 @@ public class class_tq {
             return false;
          }
 
-         var2.b(var1.x, var1.y, var1.z, this.a.s.nextFloat() * 360.0F, 0.0F);
-         this.a.a((class_pr)var2);
+         var2.b(var1.x, var1.y, var1.z, this.a.random.nextFloat() * 360.0F, 0.0F);
+         this.a.addEntity((Entity)var2);
          BlockPosition var3 = this.f.a();
          var2.a(var3, this.f.b());
          return true;
@@ -159,7 +159,7 @@ public class class_tq {
 
    private Vec3D a(BlockPosition var1) {
       for(int var2 = 0; var2 < 10; ++var2) {
-         BlockPosition var3 = var1.add(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
+         BlockPosition var3 = var1.add(this.a.random.nextInt(16) - 8, this.a.random.nextInt(6) - 3, this.a.random.nextInt(16) - 8);
          if(this.f.a(var3) && class_aeu.a(class_qb.class_a_in_class_qb.a, this.a, var3)) {
             return new Vec3D((double)var3.getX(), (double)var3.getY(), (double)var3.getZ());
          }

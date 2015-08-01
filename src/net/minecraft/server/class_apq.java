@@ -4,13 +4,13 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_agv;
-import net.minecraft.server.class_ahx;
+import net.minecraft.server.BlockChorusFlower;
+import net.minecraft.server.BlockFalling;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_aqj;
 import net.minecraft.server.class_arx;
@@ -33,7 +33,7 @@ public class class_apq implements class_aoh {
    private class_arx k = new class_arx(this);
    private class_ate l;
    private double[] m;
-   private class_aez[] n;
+   private BiomeBase[] n;
    double[] c;
    double[] d;
    double[] e;
@@ -146,14 +146,14 @@ public class class_apq implements class_aoh {
 
    }
 
-   public class_aok d(int var1, int var2) {
+   public Chunk d(int var1, int var2) {
       this.f.setSeed((long)var1 * 341873128712L + (long)var2 * 132897987541L);
       class_aph var3 = new class_aph();
       this.n = this.j.w().b(this.n, var1 * 16, var2 * 16, 16, 16);
       this.a(var1, var2, var3);
       this.a(var3);
       this.k.a(this, this.j, var1, var2, var3);
-      class_aok var4 = new class_aok(this.j, var3, var1, var2);
+      Chunk var4 = new Chunk(this.j, var3, var1, var2);
       byte[] var5 = var4.k();
 
       for(int var6 = 0; var6 < var5.length; ++var6) {
@@ -269,10 +269,10 @@ public class class_apq implements class_aoh {
    }
 
    public void a(class_aoh var1, int var2, int var3) {
-      class_ahx.N = true;
+      BlockFalling.instaFall = true;
       BlockPosition var4 = new BlockPosition(var2 * 16, 0, var3 * 16);
       this.k.a(this.j, this.f, new class_aeh(var2, var3));
-      this.j.b(var4.add(16, 0, 16)).a(this.j, this.j.s, var4);
+      this.j.b(var4.add(16, 0, 16)).a(this.j, this.j.random, var4);
       if(var2 * var2 + var3 * var3 > 4096) {
          float var5 = this.a(var2, var3, 1, 1);
          if(var5 < -20.0F && this.f.nextInt(14) == 0) {
@@ -290,17 +290,17 @@ public class class_apq implements class_aoh {
             int var10 = this.j.m(var4.add(var8, 0, var9)).getY();
             if(var10 > 0) {
                int var11 = var10 - 1;
-               if(this.j.d(var4.add(var8, var11 + 1, var9)) && this.j.p(var4.add(var8, var11, var9)).getBlock() == Blocks.END_STONE) {
-                  class_agv.a(this.j, var4.add(var8, var11 + 1, var9), this.f, 8);
+               if(this.j.isEmpty(var4.add(var8, var11 + 1, var9)) && this.j.getType(var4.add(var8, var11, var9)).getBlock() == Blocks.END_STONE) {
+                  BlockChorusFlower.a(this.j, var4.add(var8, var11 + 1, var9), this.f, 8);
                }
             }
          }
       }
 
-      class_ahx.N = false;
+      BlockFalling.instaFall = false;
    }
 
-   public boolean a(class_aoh var1, class_aok var2, int var3, int var4) {
+   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
@@ -335,10 +335,10 @@ public class class_apq implements class_aoh {
       return 0;
    }
 
-   public void a(class_aok var1, int var2, int var3) {
+   public void a(Chunk var1, int var2, int var3) {
    }
 
-   public class_aok a(BlockPosition var1) {
+   public Chunk a(BlockPosition var1) {
       return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

@@ -11,12 +11,12 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_ms;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 
 public class class_p extends class_i {
    public String c() {
@@ -35,11 +35,11 @@ public class class_p extends class_i {
       if(var2.length < 2) {
          throw new class_cf("commands.achievement.usage", new Object[0]);
       } else {
-         final class_my var3 = class_nc.a(var2[1]);
+         final class_my var3 = StatisticList.a(var2[1]);
          if(var3 == null && !var2[1].equals("*")) {
             throw new class_bz("commands.achievement.unknownAchievement", new Object[]{var2[1]});
          } else {
-            final class_lh var4 = var2.length >= 3?a(var1, var2[2]):b(var1);
+            final EntityPlayer var4 = var2.length >= 3?a(var1, var2[2]):b(var1);
             boolean var5 = var2[0].equalsIgnoreCase("give");
             boolean var6 = var2[0].equalsIgnoreCase("take");
             if(var5 || var6) {
@@ -54,7 +54,7 @@ public class class_p extends class_i {
                         var4.b((class_my)var15);
                      }
 
-                     a(var1, this, "commands.achievement.give.success.all", new Object[]{var4.e_()});
+                     a(var1, this, "commands.achievement.give.success.all", new Object[]{var4.getName()});
                   } else if(var6) {
                      var14 = Lists.reverse(class_mt.e).iterator();
 
@@ -63,7 +63,7 @@ public class class_p extends class_i {
                         var4.a((class_my)var15);
                      }
 
-                     a(var1, this, "commands.achievement.take.success.all", new Object[]{var4.e_()});
+                     a(var1, this, "commands.achievement.take.success.all", new Object[]{var4.getName()});
                   }
 
                } else {
@@ -72,7 +72,7 @@ public class class_p extends class_i {
                      ArrayList var8;
                      if(var5) {
                         if(var4.A().a((class_ms)var7)) {
-                           throw new class_bz("commands.achievement.alreadyHave", new Object[]{var4.e_(), var3.j()});
+                           throw new class_bz("commands.achievement.alreadyHave", new Object[]{var4.getName(), var3.j()});
                         }
 
                         for(var8 = Lists.newArrayList(); var7.c != null && !var4.A().a((class_ms)var7.c); var7 = var7.c) {
@@ -87,7 +87,7 @@ public class class_p extends class_i {
                         }
                      } else if(var6) {
                         if(!var4.A().a((class_ms)var7)) {
-                           throw new class_bz("commands.achievement.dontHave", new Object[]{var4.e_(), var3.j()});
+                           throw new class_bz("commands.achievement.dontHave", new Object[]{var4.getName(), var3.j()});
                         }
 
                         var8 = Lists.newArrayList((Iterator)Iterators.filter(class_mt.e.iterator(), new Predicate() {
@@ -138,10 +138,10 @@ public class class_p extends class_i {
 
                   if(var5) {
                      var4.b((class_my)var3);
-                     a(var1, this, "commands.achievement.give.success.one", new Object[]{var4.e_(), var3.j()});
+                     a(var1, this, "commands.achievement.give.success.one", new Object[]{var4.getName(), var3.j()});
                   } else if(var6) {
                      var4.a(var3);
-                     a(var1, this, "commands.achievement.take.success.one", new Object[]{var3.j(), var4.e_()});
+                     a(var1, this, "commands.achievement.take.success.one", new Object[]{var3.j(), var4.getName()});
                   }
 
                }
@@ -157,7 +157,7 @@ public class class_p extends class_i {
          return var2.length == 3?a(var2, MinecraftServer.N().K()):null;
       } else {
          ArrayList var4 = Lists.newArrayList();
-         Iterator var5 = class_nc.b.iterator();
+         Iterator var5 = StatisticList.b.iterator();
 
          while(var5.hasNext()) {
             class_my var6 = (class_my)var5.next();

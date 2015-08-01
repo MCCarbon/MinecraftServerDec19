@@ -2,35 +2,35 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.EntityHuman;
 
-public class class_yv implements class_oj {
+public class class_yv implements IInventory {
    private ItemStack[] a = new ItemStack[1];
 
-   public int o_() {
+   public int getSize() {
       return 1;
    }
 
-   public ItemStack a(int var1) {
+   public ItemStack getItem(int var1) {
       return this.a[0];
    }
 
-   public String e_() {
+   public String getName() {
       return "Result";
    }
 
-   public boolean l_() {
+   public boolean hasCustomName() {
       return false;
    }
 
-   public IChatBaseComponent f_() {
-      return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.hasCustomName()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
-   public ItemStack a(int var1, int var2) {
+   public ItemStack splitStack(int var1, int var2) {
       if(this.a[0] != null) {
          ItemStack var3 = this.a[0];
          this.a[0] = null;
@@ -40,7 +40,7 @@ public class class_yv implements class_oj {
       }
    }
 
-   public ItemStack b(int var1) {
+   public ItemStack splitWithoutUpdate(int var1) {
       if(this.a[0] != null) {
          ItemStack var2 = this.a[0];
          this.a[0] = null;
@@ -50,43 +50,43 @@ public class class_yv implements class_oj {
       }
    }
 
-   public void a(int var1, ItemStack var2) {
+   public void setItem(int var1, ItemStack var2) {
       this.a[0] = var2;
    }
 
-   public int q_() {
+   public int getMaxStackSize() {
       return 64;
    }
 
-   public void p_() {
+   public void update() {
    }
 
-   public boolean a(class_xa var1) {
+   public boolean isReachable(EntityHuman var1) {
       return true;
    }
 
-   public void b(class_xa var1) {
+   public void startOpen(EntityHuman var1) {
    }
 
-   public void c(class_xa var1) {
+   public void closeContainer(EntityHuman var1) {
    }
 
-   public boolean b(int var1, ItemStack var2) {
+   public boolean canPlaceItem(int var1, ItemStack var2) {
       return true;
    }
 
-   public int a_(int var1) {
+   public int getProperty(int var1) {
       return 0;
    }
 
-   public void b(int var1, int var2) {
+   public void setProperty(int var1, int var2) {
    }
 
-   public int g() {
+   public int getPropertyCount() {
       return 0;
    }
 
-   public void l() {
+   public void remove() {
       for(int var1 = 0; var1 < this.a.length; ++var1) {
          this.a[var1] = null;
       }

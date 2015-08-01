@@ -14,7 +14,7 @@ import net.minecraft.server.class_i;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_ad extends class_i {
    public String c() {
@@ -33,7 +33,7 @@ public class class_ad extends class_i {
       if(var2.length < 5) {
          throw new class_cf("commands.execute.usage", new Object[0]);
       } else {
-         final class_pr var3 = a(var1, var2[0], class_pr.class);
+         final Entity var3 = a(var1, var2[0], Entity.class);
          final double var4 = b(var3.s, var2[1], false);
          final double var6 = b(var3.t, var2[2], false);
          final double var8 = b(var3.u, var2[3], false);
@@ -47,9 +47,9 @@ public class class_ad extends class_i {
             Block var19 = g(var1, var2[8]);
             int var20 = a(var2[9], -1, 15);
             BlockPosition var21 = new BlockPosition(var13, var15, var17);
-            IBlockData var22 = var12.p(var21);
+            IBlockData var22 = var12.getType(var21);
             if(var22.getBlock() != var19 || var20 >= 0 && var22.getBlock().toLegacyData(var22) != var20) {
-               throw new class_bz("commands.execute.failed", new Object[]{"detect", var3.e_()});
+               throw new class_bz("commands.execute.failed", new Object[]{"detect", var3.getName()});
             }
 
             var11 = 10;
@@ -57,12 +57,12 @@ public class class_ad extends class_i {
 
          String var24 = a(var2, var11);
          class_m var14 = new class_m() {
-            public String e_() {
-               return var3.e_();
+            public String getName() {
+               return var3.getName();
             }
 
-            public IChatBaseComponent f_() {
-               return var3.f_();
+            public IChatBaseComponent getScoreboardDisplayName() {
+               return var3.getScoreboardDisplayName();
             }
 
             public void a(IChatBaseComponent var1x) {
@@ -85,7 +85,7 @@ public class class_ad extends class_i {
                return var3.o;
             }
 
-            public class_pr f() {
+            public Entity f() {
                return var3;
             }
 
@@ -106,7 +106,7 @@ public class class_ad extends class_i {
                throw new class_bz("commands.execute.allInvocationsFailed", new Object[]{var24});
             }
          } catch (Throwable var23) {
-            throw new class_bz("commands.execute.failed", new Object[]{var24, var3.e_()});
+            throw new class_bz("commands.execute.failed", new Object[]{var24, var3.getName()});
          }
       }
    }

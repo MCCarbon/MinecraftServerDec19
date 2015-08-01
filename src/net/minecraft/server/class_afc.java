@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aic;
+import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.BlockStone;
 import net.minecraft.server.class_api;
 import net.minecraft.server.class_apw;
@@ -67,7 +67,7 @@ public class class_afc {
    public class_afc() {
       this.f = new class_arg(Blocks.SAND, 7);
       this.g = new class_arg(Blocks.GRAVEL, 6);
-      this.s = new class_aqm(Blocks.YELLOW_FLOWER, class_aic.class_a_in_class_aic.a);
+      this.s = new class_aqm(Blocks.YELLOW_FLOWER, BlockFlowers.EnumFlowerVarient.DANDELION);
       this.t = new class_aqb(Blocks.BROWN_MUSHROOM);
       this.u = new class_aqb(Blocks.RED_MUSHROOM);
       this.v = new class_aqr();
@@ -82,7 +82,7 @@ public class class_afc {
       this.L = true;
    }
 
-   public void a(World var1, Random var2, class_aez var3, BlockPosition var4) {
+   public void a(World var1, Random var2, BiomeBase var3, BlockPosition var4) {
       if(this.a != null) {
          throw new RuntimeException("Already decorating");
       } else {
@@ -113,7 +113,7 @@ public class class_afc {
       }
    }
 
-   protected void a(class_aez var1) {
+   protected void a(BiomeBase var1) {
       this.a();
 
       int var2;
@@ -171,8 +171,8 @@ public class class_afc {
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
             var8 = this.c.add(var4, var12, var5);
-            class_aic.class_a_in_class_aic var9 = var1.a(this.b, var8);
-            class_aic var10 = var9.a().a();
+            BlockFlowers.EnumFlowerVarient var9 = var1.a(this.b, var8);
+            BlockFlowers var10 = var9.getType().isYellow();
             if(var10.getMaterial() != Material.AIR) {
                this.s.a(var10, var9);
                this.s.b(this.a, this.b, var8);
@@ -209,8 +209,8 @@ public class class_afc {
 
             BlockPosition var14;
             for(var8 = this.c.add(var4, var12, var5); var8.getY() > 0; var8 = var14) {
-               var14 = var8.shiftDown();
-               if(!this.a.d(var14)) {
+               var14 = var8.down();
+               if(!this.a.isEmpty(var14)) {
                   break;
                }
             }

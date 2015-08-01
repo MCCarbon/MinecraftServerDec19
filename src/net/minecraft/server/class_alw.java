@@ -1,26 +1,26 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_aiv;
+import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.class_aku;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anx;
+import net.minecraft.server.BlockStateDirection;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 
 public class class_alw extends class_aku {
-   public static final class_anx a;
+   public static final BlockStateDirection a;
 
    public class_alw() {
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
-      EnumDirection var3 = (EnumDirection)var1.p(var2).get(a);
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
+      EnumDirection var3 = (EnumDirection)var1.getType(var2).get(a);
       float var4 = 0.28125F;
       float var5 = 0.78125F;
       float var6 = 0.0F;
@@ -43,14 +43,14 @@ public class class_alw extends class_aku {
 
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       EnumDirection var5 = (EnumDirection)var3.get(a);
-      if(!var1.p(var2.shift(var5.getOpposite())).getBlock().getMaterial().isBuildable()) {
-         this.b(var1, var2, var3, 0);
-         var1.g(var2);
+      if(!var1.getType(var2.shift(var5.getOpposite())).getBlock().getMaterial().isBuildable()) {
+         this.dropNaturallyForSure(var1, var2, var3, 0);
+         var1.setAir(var2);
       }
 
-      super.a(var1, var2, var3, var4);
+      super.doPhysics(var1, var2, var3, var4);
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -66,7 +66,7 @@ public class class_alw extends class_aku {
       return ((EnumDirection)var1.get(a)).getId();
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
@@ -74,12 +74,12 @@ public class class_alw extends class_aku {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
    static {
-      a = class_aiv.O;
+      a = BlockDirectional.FACING;
    }
 
    // $FF: synthetic class

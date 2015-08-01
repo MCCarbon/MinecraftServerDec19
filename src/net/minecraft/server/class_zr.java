@@ -8,7 +8,7 @@ public class class_zr extends Item {
    public class_zr() {
       this.a(true);
       this.e(0);
-      this.a(CreativeTab.l);
+      this.a(CreativeTab.MATERIALS);
    }
 
    public String e_(ItemStack var1) {

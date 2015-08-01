@@ -45,7 +45,7 @@ public abstract class class_aqy extends class_apw {
 
             for(int var7 = -var6; var7 <= var6 && var4; ++var7) {
                for(int var8 = -var6; var8 <= var6 && var4; ++var8) {
-                  if(var2.getY() + var5 < 0 || var2.getY() + var5 >= 256 || !this.a(var1.p(var2.add(var7, var5, var8)).getBlock())) {
+                  if(var2.getY() + var5 < 0 || var2.getY() + var5 >= 256 || !this.a(var1.getType(var2.add(var7, var5, var8)).getBlock())) {
                      var4 = false;
                   }
                }
@@ -59,13 +59,13 @@ public abstract class class_aqy extends class_apw {
    }
 
    private boolean a(BlockPosition var1, World var2) {
-      BlockPosition var3 = var1.shiftDown();
-      Block var4 = var2.p(var3).getBlock();
+      BlockPosition var3 = var1.down();
+      Block var4 = var2.getType(var3).getBlock();
       if((var4 == Blocks.GRASS || var4 == Blocks.DIRT) && var1.getY() >= 2) {
          this.a(var2, var3);
-         this.a(var2, var3.shiftEast());
-         this.a(var2, var3.shiftSouth());
-         this.a(var2, var3.shiftSouth().shiftEast());
+         this.a(var2, var3.east());
+         this.a(var2, var3.south());
+         this.a(var2, var3.south().east());
          return true;
       } else {
          return false;
@@ -85,7 +85,7 @@ public abstract class class_aqy extends class_apw {
             int var8 = var6 - 1;
             if(var5 * var5 + var6 * var6 <= var4 || var7 * var7 + var8 * var8 <= var4 || var5 * var5 + var8 * var8 <= var4 || var7 * var7 + var6 * var6 <= var4) {
                BlockPosition var9 = var2.add(var5, 0, var6);
-               Material var10 = var1.p(var9).getBlock().getMaterial();
+               Material var10 = var1.getType(var9).getBlock().getMaterial();
                if(var10 == Material.AIR || var10 == Material.LEAVES) {
                   this.a(var1, var9, this.c);
                }
@@ -102,7 +102,7 @@ public abstract class class_aqy extends class_apw {
          for(int var6 = -var3; var6 <= var3; ++var6) {
             if(var5 * var5 + var6 * var6 <= var4) {
                BlockPosition var7 = var2.add(var5, 0, var6);
-               Material var8 = var1.p(var7).getBlock().getMaterial();
+               Material var8 = var1.getType(var7).getBlock().getMaterial();
                if(var8 == Material.AIR || var8 == Material.LEAVES) {
                   this.a(var1, var7, this.c);
                }

@@ -5,7 +5,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class PacketPlayOutCamera implements Packet {
    public int a;
@@ -13,7 +13,7 @@ public class PacketPlayOutCamera implements Packet {
    public PacketPlayOutCamera() {
    }
 
-   public PacketPlayOutCamera(class_pr var1) {
+   public PacketPlayOutCamera(Entity var1) {
       this.a = var1.getId();
    }
 

@@ -13,7 +13,7 @@ import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.INamable;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.CreativeTab;
 
 public class class_akf extends Block {
@@ -22,10 +22,10 @@ public class class_akf extends Block {
    public class_akf() {
       super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_akf.class_a_in_class_akf.a));
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(var7 == class_akf.class_a_in_class_akf.c.a()) {
          switch(class_akf.SyntheticClass_1.a[var3.getAxis().ordinal()]) {
          case 1:
@@ -46,9 +46,9 @@ public class class_akf extends Block {
       return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?var2.a():class_akf.class_a_in_class_akf.c.a();
    }
 
-   protected ItemStack i(IBlockData var1) {
+   protected ItemStack createItemStack(IBlockData var1) {
       class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.get(a);
-      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.i(var1):new ItemStack(Item.getByBlock((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
+      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.createItemStack(var1):new ItemStack(Item.getByBlock((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
@@ -63,7 +63,7 @@ public class class_akf extends Block {
       return ((class_akf.class_a_in_class_akf)var1.get(a)).a();
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       if(var1.getBlock() != this) {
          return var1;
       } else {
@@ -84,7 +84,7 @@ public class class_akf extends Block {
       }
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
@@ -95,17 +95,17 @@ public class class_akf extends Block {
       // $FF: synthetic field
       static final int[] b;
       // $FF: synthetic field
-      static final int[] c = new int[Block.class_c_in_class_agj.values().length];
+      static final int[] c = new int[Block.EnumRotation.values().length];
 
       static {
          try {
-            c[Block.class_c_in_class_agj.d.ordinal()] = 1;
+            c[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 1;
          } catch (NoSuchFieldError var7) {
             ;
          }
 
          try {
-            c[Block.class_c_in_class_agj.b.ordinal()] = 2;
+            c[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var6) {
             ;
          }

@@ -4,12 +4,12 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_acn {
    public void a(class_act var1) {
       var1.b(new ItemStack(Items.C), new Object[]{Blocks.BROWN_MUSHROOM, Blocks.RED_MUSHROOM, Items.B});
-      var1.a(new ItemStack(Items.be, 8), new Object[]{"#X#", Character.valueOf('X'), new ItemStack(Items.aY, 1, class_zy.m.b()), Character.valueOf('#'), Items.Q});
+      var1.a(new ItemStack(Items.be, 8), new Object[]{"#X#", Character.valueOf('X'), new ItemStack(Items.aY, 1, EnumColor.m.b()), Character.valueOf('#'), Items.Q});
       var1.a(new ItemStack(Items.bs), new Object[]{" R ", "CPM", " B ", Character.valueOf('R'), new ItemStack(Items.br), Character.valueOf('C'), Items.bU, Character.valueOf('P'), Items.bW, Character.valueOf('M'), Blocks.BROWN_MUSHROOM, Character.valueOf('B'), Items.B});
       var1.a(new ItemStack(Items.bs), new Object[]{" R ", "CPD", " B ", Character.valueOf('R'), new ItemStack(Items.br), Character.valueOf('C'), Items.bU, Character.valueOf('P'), Items.bW, Character.valueOf('D'), Blocks.RED_MUSHROOM, Character.valueOf('B'), Items.B});
       var1.a(new ItemStack(Blocks.MELON_BLOCK), new Object[]{"MMM", "MMM", "MMM", Character.valueOf('M'), Items.bh});

@@ -6,12 +6,12 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_pk;
 import net.minecraft.server.class_pl;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 
 public class class_z extends class_i {
    public String c() {
@@ -30,13 +30,13 @@ public class class_z extends class_i {
       if(var2.length < 2) {
          throw new class_cf("commands.effect.usage", new Object[0]);
       } else {
-         class_qa var3 = (class_qa)a(var1, var2[0], class_qa.class);
+         EntityLiving var3 = (EntityLiving)a(var1, var2[0], EntityLiving.class);
          if(var2[1].equals("clear")) {
             if(var3.bm().isEmpty()) {
-               throw new class_bz("commands.effect.failure.notActive.all", new Object[]{var3.e_()});
+               throw new class_bz("commands.effect.failure.notActive.all", new Object[]{var3.getName()});
             } else {
                var3.bl();
-               a(var1, this, "commands.effect.success.removed.all", new Object[]{var3.e_()});
+               a(var1, this, "commands.effect.success.removed.all", new Object[]{var3.getName()});
             }
          } else {
             class_pk var4;
@@ -75,12 +75,12 @@ public class class_z extends class_i {
                if(var6 > 0) {
                   class_pl var9 = new class_pl(var4, var5, var7, false, var8);
                   var3.c(var9);
-                  a(var1, this, "commands.effect.success", new Object[]{new class_fb(var9.f(), new Object[0]), Integer.valueOf(class_pk.a(var4)), Integer.valueOf(var7), var3.e_(), Integer.valueOf(var6)});
+                  a(var1, this, "commands.effect.success", new Object[]{new ChatMessage(var9.f(), new Object[0]), Integer.valueOf(class_pk.a(var4)), Integer.valueOf(var7), var3.getName(), Integer.valueOf(var6)});
                } else if(var3.a(var4)) {
                   var3.d(var4);
-                  a(var1, this, "commands.effect.success.removed", new Object[]{new class_fb(var4.a(), new Object[0]), var3.e_()});
+                  a(var1, this, "commands.effect.success.removed", new Object[]{new ChatMessage(var4.a(), new Object[0]), var3.getName()});
                } else {
-                  throw new class_bz("commands.effect.failure.notActive", new Object[]{new class_fb(var4.a(), new Object[0]), var3.e_()});
+                  throw new class_bz("commands.effect.failure.notActive", new Object[]{new ChatMessage(var4.a(), new Object[0]), var3.getName()});
                }
             }
          }

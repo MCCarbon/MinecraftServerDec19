@@ -13,7 +13,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aoj;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aop;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
@@ -29,7 +29,7 @@ import org.apache.logging.log4j.Logger;
 public class class_lf implements class_aoh {
    private static final Logger b = LogManager.getLogger();
    private Set c = Collections.newSetFromMap(new ConcurrentHashMap());
-   private class_aok d;
+   private Chunk d;
    private class_aoh e;
    private class_aop f;
    public boolean a = true;
@@ -53,7 +53,7 @@ public class class_lf implements class_aoh {
    }
 
    public void b(int var1, int var2) {
-      if(this.i.t.c(var1, var2)) {
+      if(this.i.worldProvider.c(var1, var2)) {
          this.c.add(Long.valueOf(class_aeh.a(var1, var2)));
       }
 
@@ -63,16 +63,16 @@ public class class_lf implements class_aoh {
       Iterator var1 = this.h.iterator();
 
       while(var1.hasNext()) {
-         class_aok var2 = (class_aok)var1.next();
+         Chunk var2 = (Chunk)var1.next();
          this.b(var2.a, var2.b);
       }
 
    }
 
-   public class_aok c(int var1, int var2) {
+   public Chunk c(int var1, int var2) {
       long var3 = class_aeh.a(var1, var2);
       this.c.remove(Long.valueOf(var3));
-      class_aok var5 = (class_aok)this.g.a(var3);
+      Chunk var5 = (Chunk)this.g.a(var3);
       if(var5 == null) {
          var5 = this.e(var1, var2);
          if(var5 == null) {
@@ -101,17 +101,17 @@ public class class_lf implements class_aoh {
       return var5;
    }
 
-   public class_aok d(int var1, int var2) {
-      class_aok var3 = (class_aok)this.g.a(class_aeh.a(var1, var2));
+   public Chunk d(int var1, int var2) {
+      Chunk var3 = (Chunk)this.g.a(class_aeh.a(var1, var2));
       return var3 == null?(!this.i.ae() && !this.a?this.d:this.c(var1, var2)):var3;
    }
 
-   private class_aok e(int var1, int var2) {
+   private Chunk e(int var1, int var2) {
       if(this.f == null) {
          return null;
       } else {
          try {
-            class_aok var3 = this.f.a(this.i, var1, var2);
+            Chunk var3 = this.f.a(this.i, var1, var2);
             if(var3 != null) {
                var3.b(this.i.L());
                if(this.e != null) {
@@ -127,7 +127,7 @@ public class class_lf implements class_aoh {
       }
    }
 
-   private void a(class_aok var1) {
+   private void a(Chunk var1) {
       if(this.f != null) {
          try {
             this.f.b(this.i, var1);
@@ -138,7 +138,7 @@ public class class_lf implements class_aoh {
       }
    }
 
-   private void b(class_aok var1) {
+   private void b(Chunk var1) {
       if(this.f != null) {
          try {
             var1.b(this.i.L());
@@ -153,7 +153,7 @@ public class class_lf implements class_aoh {
    }
 
    public void a(class_aoh var1, int var2, int var3) {
-      class_aok var4 = this.d(var2, var3);
+      Chunk var4 = this.d(var2, var3);
       if(!var4.t()) {
          var4.n();
          if(this.e != null) {
@@ -164,9 +164,9 @@ public class class_lf implements class_aoh {
 
    }
 
-   public boolean a(class_aoh var1, class_aok var2, int var3, int var4) {
+   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
       if(this.e != null && this.e.a(var1, var2, var3, var4)) {
-         class_aok var5 = this.d(var3, var4);
+         Chunk var5 = this.d(var3, var4);
          var5.e();
          return true;
       } else {
@@ -179,7 +179,7 @@ public class class_lf implements class_aoh {
       ArrayList var4 = Lists.newArrayList((Iterable)this.h);
 
       for(int var5 = 0; var5 < var4.size(); ++var5) {
-         class_aok var6 = (class_aok)var4.get(var5);
+         Chunk var6 = (Chunk)var4.get(var5);
          if(var1) {
             this.a(var6);
          }
@@ -209,7 +209,7 @@ public class class_lf implements class_aoh {
          for(int var1 = 0; var1 < 100; ++var1) {
             if(!this.c.isEmpty()) {
                Long var2 = (Long)this.c.iterator().next();
-               class_aok var3 = (class_aok)this.g.a(var2.longValue());
+               Chunk var3 = (Chunk)this.g.a(var2.longValue());
                if(var3 != null) {
                   var3.d();
                   this.b(var3);
@@ -250,10 +250,10 @@ public class class_lf implements class_aoh {
       return this.g.a();
    }
 
-   public void a(class_aok var1, int var2, int var3) {
+   public void a(Chunk var1, int var2, int var3) {
    }
 
-   public class_aok a(BlockPosition var1) {
+   public Chunk a(BlockPosition var1) {
       return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

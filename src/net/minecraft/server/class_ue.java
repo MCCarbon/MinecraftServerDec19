@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ags;
+import net.minecraft.server.BlockCarrots;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.Vec3D;
@@ -18,8 +18,8 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qk;
@@ -41,7 +41,7 @@ import net.minecraft.server.class_tf;
 import net.minecraft.server.class_tw;
 import net.minecraft.server.class_ul;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_ue extends class_tw {
    private static final int bs = class_qi.a(class_ue.class);
@@ -53,7 +53,7 @@ public class class_ue extends class_tw {
    private int bz = 0;
    private class_ue.class_b_in_class_ue bA;
    private int bB;
-   private class_xa bC;
+   private EntityHuman bC;
 
    public class_ue(World var1) {
       super(var1);
@@ -73,7 +73,7 @@ public class class_ue extends class_tw {
       this.i.a(3, new class_re(this, 0.8D));
       this.i.a(5, new class_ue.class_h_in_class_ue(this));
       this.i.a(5, new class_si(this, 0.6D));
-      this.i.a(11, new class_rr(this, class_xa.class, 10.0F));
+      this.i.a(11, new class_rr(this, EntityHuman.class, 10.0F));
       this.bt = new class_ue.class_c_in_class_ue(this, class_ul.class, 16.0F, 1.33D, 1.33D);
       this.i.a(4, this.bt);
       this.b(0.0D);
@@ -146,7 +146,7 @@ public class class_ue extends class_tw {
          }
 
          if(this.cC() == 99 && this.bz == 0) {
-            class_qa var1 = this.w();
+            EntityLiving var1 = this.w();
             if(var1 != null && this.h(var1) < 16.0D) {
                this.a(var1.s, var1.u);
                this.f.a(var1.s, var1.t, var1.u, this.f.b());
@@ -161,7 +161,7 @@ public class class_ue extends class_tw {
                class_auv var2 = this.h.j();
                Vec3D var3 = new Vec3D(this.f.d(), this.f.e(), this.f.f());
                if(var2 != null && var2.e() < var2.d()) {
-                  var3 = var2.a((class_pr)this);
+                  var3 = var2.a((Entity)this);
                }
 
                this.a(var3.x, var3.z);
@@ -202,8 +202,8 @@ public class class_ue extends class_tw {
    public void m() {
       super.m();
       if(this.bu != this.bw) {
-         if(this.bu == 0 && !this.o.D) {
-            this.o.a((class_pr)this, (byte)1);
+         if(this.bu == 0 && !this.o.isClientSide) {
+            this.o.a((Entity)this, (byte)1);
          }
 
          ++this.bu;
@@ -248,12 +248,12 @@ public class class_ue extends class_tw {
       return "mob.rabbit.death";
    }
 
-   public boolean r(class_pr var1) {
+   public boolean r(Entity var1) {
       if(this.cC() == 99) {
          this.a("mob.attack", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
-         return var1.a(class_pc.a((class_qa)this), 8.0F);
+         return var1.a(class_pc.a((EntityLiving)this), 8.0F);
       } else {
-         return var1.a(class_pc.a((class_qa)this), 3.0F);
+         return var1.a(class_pc.a((EntityLiving)this), 3.0F);
       }
    }
 
@@ -315,9 +315,9 @@ public class class_ue extends class_tw {
          this.i.a((class_rm)this.bt);
          this.i.a(4, new class_ue.class_a_in_class_ue(this));
          this.bn.a(1, new class_sw(this, false, new Class[0]));
-         this.bn.a(2, new class_sz(this, class_xa.class, true));
+         this.bn.a(2, new class_sz(this, EntityHuman.class, true));
          this.bn.a(2, new class_sz(this, class_ul.class, true));
-         if(!this.l_()) {
+         if(!this.hasCustomName()) {
             this.a((String)LocaleI18n.get("entity.KillerBunny.name"));
          }
       }
@@ -353,7 +353,7 @@ public class class_ue extends class_tw {
    }
 
    protected void cE() {
-      class_ags var1 = (class_ags)Blocks.CARROTS;
+      BlockCarrots var1 = (BlockCarrots)Blocks.CARROTS;
       IBlockData var2 = var1.b(var1.n());
       this.o.a(class_cy.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.getCombinedId(var2)});
       this.bB = 100;
@@ -402,10 +402,10 @@ public class class_ue extends class_tw {
 
    static class class_a_in_class_ue extends class_ru {
       public class_a_in_class_ue(class_ue var1) {
-         super(var1, class_qa.class, 1.4D, true);
+         super(var1, EntityLiving.class, 1.4D, true);
       }
 
-      protected double a(class_qa var1) {
+      protected double a(EntityLiving var1) {
          return (double)(4.0F + var1.J);
       }
    }
@@ -464,11 +464,11 @@ public class class_ue extends class_tw {
          this.c.q().a((double)this.b.getX() + 0.5D, (double)(this.b.getY() + 1), (double)this.b.getZ() + 0.5D, 10.0F, (float)this.c.cd());
          if(this.f()) {
             World var1 = this.c.o;
-            BlockPosition var2 = this.b.shiftUp();
-            IBlockData var3 = var1.p(var2);
+            BlockPosition var2 = this.b.up();
+            IBlockData var3 = var1.getType(var2);
             Block var4 = var3.getBlock();
-            if(this.e && var4 instanceof class_ags && ((class_ags)var4).e(var3)) {
-               var1.a((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 2);
+            if(this.e && var4 instanceof BlockCarrots && ((BlockCarrots)var4).e(var3)) {
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 2);
                var1.b(var2, true);
                this.c.cE();
             }
@@ -480,12 +480,12 @@ public class class_ue extends class_tw {
       }
 
       protected boolean a(World var1, BlockPosition var2) {
-         Block var3 = var1.p(var2).getBlock();
+         Block var3 = var1.getType(var2).getBlock();
          if(var3 == Blocks.FARMLAND) {
-            var2 = var2.shiftUp();
-            IBlockData var4 = var1.p(var2);
+            var2 = var2.up();
+            IBlockData var4 = var1.getType(var2);
             var3 = var4.getBlock();
-            if(var3 instanceof class_ags && ((class_ags)var3).e(var4) && this.d && !this.e) {
+            if(var3 instanceof BlockCarrots && ((BlockCarrots)var3).e(var4) && this.d && !this.e) {
                this.e = true;
                return true;
             }

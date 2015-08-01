@@ -5,10 +5,10 @@ import net.minecraft.server.World;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
+import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_ml implements class_m {
    private static final class_ml a = new class_ml();
@@ -26,12 +26,12 @@ public class class_ml implements class_m {
       return this.b.toString();
    }
 
-   public String e_() {
+   public String getName() {
       return "Rcon";
    }
 
-   public IChatBaseComponent f_() {
-      return new class_fa(this.e_());
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return new ChatComponentText(this.getName());
    }
 
    public void a(IChatBaseComponent var1) {
@@ -54,7 +54,7 @@ public class class_ml implements class_m {
       return MinecraftServer.N().e();
    }
 
-   public class_pr f() {
+   public Entity f() {
       return null;
    }
 

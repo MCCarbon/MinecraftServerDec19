@@ -44,7 +44,7 @@ public abstract class class_rg extends class_rm {
                }
             }
 
-            this.b = (new BlockPosition(this.a)).shiftUp();
+            this.b = (new BlockPosition(this.a)).up();
             this.c = this.a(this.b);
             return this.c != null;
          } else {
@@ -74,7 +74,7 @@ public abstract class class_rg extends class_rm {
    }
 
    private class_ahl a(BlockPosition var1) {
-      Block var2 = this.a.o.p(var1).getBlock();
+      Block var2 = this.a.o.getType(var1).getBlock();
       return var2 instanceof class_ahl && var2.getMaterial() == Material.WOOD?(class_ahl)var2:null;
    }
 }

@@ -5,9 +5,9 @@ import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qf;
 import net.minecraft.server.class_zd;
 
@@ -51,9 +51,9 @@ public class class_adf extends class_adi {
       return var1.getItem() instanceof class_zd?true:super.a(var1);
    }
 
-   public void a(class_qa var1, class_pr var2, int var3) {
-      if(var2 instanceof class_qa) {
-         class_qa var4 = (class_qa)var2;
+   public void a(EntityLiving var1, Entity var2, int var3) {
+      if(var2 instanceof EntityLiving) {
+         EntityLiving var4 = (EntityLiving)var2;
          if(this.a == 2 && var4.bz() == class_qf.c) {
             int var5 = 20 + var1.bd().nextInt(10 * var3);
             var4.c(new class_pl(class_pm.b, var5, 3));

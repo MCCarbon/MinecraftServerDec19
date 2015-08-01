@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_bz;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
@@ -20,7 +20,7 @@ public class class_ay extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       MinecraftServer var3 = MinecraftServer.N();
-      var1.a(new class_fb("commands.save.start", new Object[0]));
+      var1.a(new ChatMessage("commands.save.start", new Object[0]));
       if(var3.getPlayerList() != null) {
          var3.getPlayerList().j();
       }
@@ -40,7 +40,7 @@ public class class_ay extends class_i {
          }
 
          if(var2.length > 0 && "flush".equals(var2[0])) {
-            var1.a(new class_fb("commands.save.flushStart", new Object[0]));
+            var1.a(new ChatMessage("commands.save.flushStart", new Object[0]));
 
             for(var4 = 0; var4 < var3.d.length; ++var4) {
                if(var3.d[var4] != null) {
@@ -52,7 +52,7 @@ public class class_ay extends class_i {
                }
             }
 
-            var1.a(new class_fb("commands.save.flushEnd", new Object[0]));
+            var1.a(new ChatMessage("commands.save.flushEnd", new Object[0]));
          }
       } catch (class_aeo var7) {
          a(var1, this, "commands.save.failed", new Object[]{var7.getMessage()});

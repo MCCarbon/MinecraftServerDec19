@@ -20,7 +20,7 @@ import net.minecraft.server.class_sw;
 import net.minecraft.server.class_sz;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_wm extends class_wi {
    private class_wm.class_b_in_class_wm a;
@@ -30,10 +30,10 @@ public class class_wm extends class_wi {
       this.a(0.4F, 0.3F);
       this.i.a(1, new class_rj(this));
       this.i.a(3, this.a = new class_wm.class_b_in_class_wm(this));
-      this.i.a(4, new class_ru(this, class_xa.class, 1.0D, false));
+      this.i.a(4, new class_ru(this, EntityHuman.class, 1.0D, false));
       this.i.a(5, new class_wm.class_a_in_class_wm(this));
       this.bn.a(1, new class_sw(this, true, new Class[0]));
-      this.bn.a(2, new class_sz(this, class_xa.class, true));
+      this.bn.a(2, new class_sz(this, EntityHuman.class, true));
    }
 
    public double am() {
@@ -93,7 +93,7 @@ public class class_wm extends class_wi {
    }
 
    public float a(BlockPosition var1) {
-      return this.o.p(var1.shiftDown()).getBlock() == Blocks.STONE?10.0F:super.a(var1);
+      return this.o.getType(var1.down()).getBlock() == Blocks.STONE?10.0F:super.a(var1);
    }
 
    protected boolean n_() {
@@ -102,7 +102,7 @@ public class class_wm extends class_wi {
 
    public boolean cf() {
       if(super.cf()) {
-         class_xa var1 = this.o.a(this, 5.0D);
+         EntityHuman var1 = this.o.a(this, 5.0D);
          return var1 == null;
       } else {
          return false;
@@ -134,7 +134,7 @@ public class class_wm extends class_wi {
             if(var1.nextInt(10) == 0) {
                this.b = EnumDirection.getRandom(var1);
                BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
-               IBlockData var3 = this.a.o.p(var2);
+               IBlockData var3 = this.a.o.getType(var2);
                if(class_ajh.d(var3)) {
                   this.c = true;
                   return true;
@@ -156,9 +156,9 @@ public class class_wm extends class_wi {
          } else {
             World var1 = this.a.o;
             BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
-            IBlockData var3 = var1.p(var2);
+            IBlockData var3 = var1.getType(var2);
             if(class_ajh.d(var3)) {
-               var1.a((BlockPosition)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
                this.a.A();
                this.a.J();
             }
@@ -197,12 +197,12 @@ public class class_wm extends class_wi {
                for(int var5 = 0; var5 <= 10 && var5 >= -10; var5 = var5 <= 0?1 - var5:0 - var5) {
                   for(int var6 = 0; var6 <= 10 && var6 >= -10; var6 = var6 <= 0?1 - var6:0 - var6) {
                      BlockPosition var7 = var3.add(var5, var4, var6);
-                     IBlockData var8 = var1.p(var7);
+                     IBlockData var8 = var1.getType(var7);
                      if(var8.getBlock() == Blocks.MONSTER_EGG) {
                         if(var1.R().b("mobGriefing")) {
                            var1.b(var7, true);
                         } else {
-                           var1.a((BlockPosition)var7, (IBlockData)((class_ajh.class_a_in_class_ajh)var8.get(class_ajh.a)).d(), 3);
+                           var1.setTypeAndData((BlockPosition)var7, (IBlockData)((class_ajh.class_a_in_class_ajh)var8.get(class_ajh.a)).d(), 3);
                         }
 
                         if(var2.nextBoolean()) {

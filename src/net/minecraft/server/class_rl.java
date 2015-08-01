@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tw;
 
@@ -21,7 +21,7 @@ public class class_rl extends class_rm {
       if(this.a.l() >= 0) {
          return false;
       } else {
-         List var1 = this.a.o.a(this.a.getClass(), this.a.aT().b(8.0D, 4.0D, 8.0D));
+         List var1 = this.a.o.getEntities(this.a.getClass(), this.a.aT().grow(8.0D, 4.0D, 8.0D));
          class_tw var2 = null;
          double var3 = Double.MAX_VALUE;
          Iterator var5 = var1.iterator();
@@ -70,7 +70,7 @@ public class class_rl extends class_rm {
    public void e() {
       if(--this.d <= 0) {
          this.d = 10;
-         this.a.u().a((class_pr)this.b, this.c);
+         this.a.u().a((Entity)this.b, this.c);
       }
    }
 }

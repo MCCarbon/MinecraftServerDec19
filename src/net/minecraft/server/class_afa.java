@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.class_ns;
 
@@ -32,8 +32,8 @@ public class class_afa {
       return var5;
    }
 
-   public class_aez a(int var1, int var2, class_aez var3) {
-      class_aez var4 = this.a(var1, var2).a(var1, var2);
+   public BiomeBase a(int var1, int var2, BiomeBase var3) {
+      BiomeBase var4 = this.a(var1, var2).a(var1, var2);
       return var4 == null?var3:var4;
    }
 
@@ -56,13 +56,13 @@ public class class_afa {
 
    }
 
-   public class_aez[] c(int var1, int var2) {
+   public BiomeBase[] c(int var1, int var2) {
       return this.a(var1, var2).b;
    }
 
    public class class_a_in_class_afa {
       public float[] a = new float[256];
-      public class_aez[] b = new class_aez[256];
+      public BiomeBase[] b = new BiomeBase[256];
       public int c;
       public int d;
       public long e;
@@ -74,7 +74,7 @@ public class class_afa {
          class_afa.this.a.a(this.b, var2 << 4, var3 << 4, 16, 16, false);
       }
 
-      public class_aez a(int var1, int var2) {
+      public BiomeBase a(int var1, int var2) {
          return this.b[var1 & 15 | (var2 & 15) << 4];
       }
    }

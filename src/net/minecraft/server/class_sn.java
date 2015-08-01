@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tm;
 import net.minecraft.server.class_tz;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_sn extends class_rm {
    private class_tz a;
@@ -46,22 +46,22 @@ public class class_sn extends class_rm {
 
    public void e() {
       if(this.a.bd().nextInt(50) == 0) {
-         if(this.a.l instanceof class_xa) {
+         if(this.a.l instanceof EntityHuman) {
             int var1 = this.a.cR();
             int var2 = this.a.cX();
             if(var2 > 0 && this.a.bd().nextInt(var2) < var1) {
-               this.a.f((class_xa)this.a.l);
-               this.a.o.a((class_pr)this.a, (byte)7);
+               this.a.f((EntityHuman)this.a.l);
+               this.a.o.a((Entity)this.a, (byte)7);
                return;
             }
 
             this.a.p(5);
          }
 
-         this.a.l.a((class_pr)null);
+         this.a.l.a((Entity)null);
          this.a.l = null;
          this.a.dl();
-         this.a.o.a((class_pr)this.a, (byte)6);
+         this.a.o.a((Entity)this.a, (byte)6);
       }
 
    }

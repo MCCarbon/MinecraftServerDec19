@@ -7,8 +7,8 @@ import net.minecraft.server.World;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_rb;
@@ -25,7 +25,7 @@ import net.minecraft.server.class_vi;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wn;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_wa extends class_wi {
    private static final int a = class_qi.a(class_wa.class);
@@ -44,9 +44,9 @@ public class class_wa extends class_wi {
       this.i.a(3, new class_rb(this, class_uc.class, 6.0F, 1.0D, 1.2D));
       this.i.a(4, new class_ru(this, 1.0D, false));
       this.i.a(5, new class_si(this, 0.8D));
-      this.i.a(6, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(6, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(6, new class_sh(this));
-      this.bn.a(1, new class_sz(this, class_xa.class, true));
+      this.bn.a(1, new class_sz(this, EntityHuman.class, true));
       this.bn.a(2, new class_sw(this, false, new Class[0]));
    }
 
@@ -151,7 +151,7 @@ public class class_wa extends class_wi {
 
    }
 
-   public boolean r(class_pr var1) {
+   public boolean r(Entity var1) {
       return true;
    }
 
@@ -176,13 +176,13 @@ public class class_wa extends class_wi {
       this.ac.b(b, Byte.valueOf((byte)1));
    }
 
-   protected boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   protected boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.d) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.a((EnumUsedHand)var2);
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             this.cD();
-            var3.a(1, (class_qa)var1);
+            var3.a(1, (EntityLiving)var1);
             return true;
          }
       }
@@ -191,7 +191,7 @@ public class class_wa extends class_wi {
    }
 
    private void cG() {
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          boolean var1 = this.o.R().b("mobGriefing");
          float var2 = this.n()?2.0F:1.0F;
          this.o.a(this, this.s, this.t, this.u, (float)this.bv * var2, var1);

@@ -5,9 +5,9 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_am extends class_i {
    public String c() {
@@ -24,13 +24,13 @@ public class class_am extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length == 0) {
-         class_lh var4 = b(var1);
+         EntityPlayer var4 = b(var1);
          var4.G();
-         a(var1, this, "commands.kill.successful", new Object[]{var4.f_()});
+         a(var1, this, "commands.kill.successful", new Object[]{var4.getScoreboardDisplayName()});
       } else {
-         class_pr var3 = b(var1, var2[0]);
+         Entity var3 = b(var1, var2[0]);
          var3.G();
-         a(var1, this, "commands.kill.successful", new Object[]{var3.f_()});
+         a(var1, this, "commands.kill.successful", new Object[]{var3.getScoreboardDisplayName()});
       }
    }
 

@@ -32,12 +32,12 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajp;
-import net.minecraft.server.class_ajw;
+import net.minecraft.server.BlockWood;
 import net.minecraft.server.BlockStone;
-import net.minecraft.server.class_alk;
+import net.minecraft.server.BlockDoubleStepAbstract;
 import net.minecraft.server.class_alv;
 import net.minecraft.server.class_yg;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_act {
    private static final class_act a = new class_act();
@@ -64,22 +64,22 @@ public class class_act {
       (new class_acj()).a(this);
       this.a(new ItemStack(Items.aM, 3), new Object[]{"###", Character.valueOf('#'), Items.aL});
       this.b(new ItemStack(Items.aN, 1), new Object[]{Items.aM, Items.aM, Items.aM, Items.aH});
-      this.b(new ItemStack(Items.bP, 1), new Object[]{Items.aN, new ItemStack(Items.aY, 1, class_zy.p.b()), Items.I});
-      this.a(new ItemStack(Blocks.FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.a.a())});
-      this.a(new ItemStack(Blocks.BIRCH_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.c.a())});
-      this.a(new ItemStack(Blocks.SPRUCE_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.b.a())});
-      this.a(new ItemStack(Blocks.JUNGLE_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.d.a())});
-      this.a(new ItemStack(Blocks.ACACIA_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + class_ajw.class_a_in_class_ajw.e.a() - 4)});
-      this.a(new ItemStack(Blocks.DARK_OAK_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + class_ajw.class_a_in_class_ajw.f.a() - 4)});
+      this.b(new ItemStack(Items.bP, 1), new Object[]{Items.aN, new ItemStack(Items.aY, 1, EnumColor.p.b()), Items.I});
+      this.a(new ItemStack(Blocks.FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.OAK.getId())});
+      this.a(new ItemStack(Blocks.BIRCH_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.BIRCH.getId())});
+      this.a(new ItemStack(Blocks.SPRUCE_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.SPRUCE.getId())});
+      this.a(new ItemStack(Blocks.JUNGLE_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.JUNGLE.getId())});
+      this.a(new ItemStack(Blocks.ACACIA_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.ACACIA.getId() - 4)});
+      this.a(new ItemStack(Blocks.DARK_OAK_FENCE, 3), new Object[]{"W#W", "W#W", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.DARK_OAK.getId() - 4)});
       this.a(new ItemStack(Blocks.COBBLESTONE_WALL, 6, class_alv.class_a_in_class_alv.a.a()), new Object[]{"###", "###", Character.valueOf('#'), Blocks.COBBLESTONE});
       this.a(new ItemStack(Blocks.COBBLESTONE_WALL, 6, class_alv.class_a_in_class_alv.b.a()), new Object[]{"###", "###", Character.valueOf('#'), Blocks.MOSSY_COBBLESTONE});
       this.a(new ItemStack(Blocks.NETHER_BRICK_FENCE, 6), new Object[]{"###", "###", Character.valueOf('#'), Blocks.NETHER_BRICK});
-      this.a(new ItemStack(Blocks.FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.a.a())});
-      this.a(new ItemStack(Blocks.BIRCH_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.c.a())});
-      this.a(new ItemStack(Blocks.SPRUCE_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.b.a())});
-      this.a(new ItemStack(Blocks.JUGLE_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.d.a())});
-      this.a(new ItemStack(Blocks.ACACIA_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + class_ajw.class_a_in_class_ajw.e.a() - 4)});
-      this.a(new ItemStack(Blocks.DARK_OAK_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + class_ajw.class_a_in_class_ajw.f.a() - 4)});
+      this.a(new ItemStack(Blocks.FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.OAK.getId())});
+      this.a(new ItemStack(Blocks.BIRCH_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.BIRCH.getId())});
+      this.a(new ItemStack(Blocks.SPRUCE_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.SPRUCE.getId())});
+      this.a(new ItemStack(Blocks.JUGLE_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.JUNGLE.getId())});
+      this.a(new ItemStack(Blocks.ACACIA_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.ACACIA.getId() - 4)});
+      this.a(new ItemStack(Blocks.DARK_OAK_FENCE_GATE, 1), new Object[]{"#W#", "#W#", Character.valueOf('#'), Items.A, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.DARK_OAK.getId() - 4)});
       this.a(new ItemStack(Blocks.JUKEBOX, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Blocks.PLANKS, Character.valueOf('X'), Items.k});
       this.a(new ItemStack(Items.cq, 2), new Object[]{"~~ ", "~O ", "  ~", Character.valueOf('~'), Items.H, Character.valueOf('O'), Items.aO});
       this.a(new ItemStack(Blocks.NOTEBLOCK, 1), new Object[]{"###", "#X#", "###", Character.valueOf('#'), Blocks.PLANKS, Character.valueOf('X'), Items.aE});
@@ -92,40 +92,40 @@ public class class_act {
       this.a(new ItemStack(Blocks.QUARTZ_BLOCK, 1), new Object[]{"##", "##", Character.valueOf('#'), Items.cj});
       this.a(new ItemStack(Blocks.WOOL, 1), new Object[]{"##", "##", Character.valueOf('#'), Items.H});
       this.a(new ItemStack(Blocks.TNT, 1), new Object[]{"X#X", "#X#", "X#X", Character.valueOf('X'), Items.J, Character.valueOf('#'), Blocks.SAND});
-      this.a(new ItemStack(Blocks.STONE_SLAB, 6, class_alk.class_a_in_class_alk.d.a()), new Object[]{"###", Character.valueOf('#'), Blocks.COBBLESTONE});
-      this.a(new ItemStack(Blocks.STONE_SLAB, 6, class_alk.class_a_in_class_alk.a.a()), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.STONE, 1, BlockStone.EnumStoneVariant.STONE.getData())});
-      this.a(new ItemStack(Blocks.STONE_SLAB, 6, class_alk.class_a_in_class_alk.b.a()), new Object[]{"###", Character.valueOf('#'), Blocks.SANDSTONE});
-      this.a(new ItemStack(Blocks.STONE_SLAB, 6, class_alk.class_a_in_class_alk.e.a()), new Object[]{"###", Character.valueOf('#'), Blocks.BRICK_BLOCK});
-      this.a(new ItemStack(Blocks.STONE_SLAB, 6, class_alk.class_a_in_class_alk.f.a()), new Object[]{"###", Character.valueOf('#'), Blocks.STONEBRICK});
-      this.a(new ItemStack(Blocks.STONE_SLAB, 6, class_alk.class_a_in_class_alk.g.a()), new Object[]{"###", Character.valueOf('#'), Blocks.NETHER_BRICK});
-      this.a(new ItemStack(Blocks.STONE_SLAB, 6, class_alk.class_a_in_class_alk.h.a()), new Object[]{"###", Character.valueOf('#'), Blocks.QUARTZ_BLOCK});
+      this.a(new ItemStack(Blocks.STONE_SLAB, 6, BlockDoubleStepAbstract.EnumStoneSlabVariant.COBBLESTONE.getId()), new Object[]{"###", Character.valueOf('#'), Blocks.COBBLESTONE});
+      this.a(new ItemStack(Blocks.STONE_SLAB, 6, BlockDoubleStepAbstract.EnumStoneSlabVariant.STONE.getId()), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.STONE, 1, BlockStone.EnumStoneVariant.STONE.getData())});
+      this.a(new ItemStack(Blocks.STONE_SLAB, 6, BlockDoubleStepAbstract.EnumStoneSlabVariant.SAND.getId()), new Object[]{"###", Character.valueOf('#'), Blocks.SANDSTONE});
+      this.a(new ItemStack(Blocks.STONE_SLAB, 6, BlockDoubleStepAbstract.EnumStoneSlabVariant.BRICK.getId()), new Object[]{"###", Character.valueOf('#'), Blocks.BRICK_BLOCK});
+      this.a(new ItemStack(Blocks.STONE_SLAB, 6, BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId()), new Object[]{"###", Character.valueOf('#'), Blocks.STONEBRICK});
+      this.a(new ItemStack(Blocks.STONE_SLAB, 6, BlockDoubleStepAbstract.EnumStoneSlabVariant.NETHERBRICK.getId()), new Object[]{"###", Character.valueOf('#'), Blocks.NETHER_BRICK});
+      this.a(new ItemStack(Blocks.STONE_SLAB, 6, BlockDoubleStepAbstract.EnumStoneSlabVariant.QUARTZ.getId()), new Object[]{"###", Character.valueOf('#'), Blocks.QUARTZ_BLOCK});
       this.a(new ItemStack(Blocks.STONE_SLAB2, 6, class_ajp.class_a_in_class_ajp.a.a()), new Object[]{"###", Character.valueOf('#'), Blocks.RED_SANDSTONE});
       this.a(new ItemStack(Blocks.PURPUR_SLAB, 6, 0), new Object[]{"###", Character.valueOf('#'), Blocks.PURPUR_BLOCK});
-      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, 0), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.a.a())});
-      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, class_ajw.class_a_in_class_ajw.c.a()), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.c.a())});
-      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, class_ajw.class_a_in_class_ajw.b.a()), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.b.a())});
-      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, class_ajw.class_a_in_class_ajw.d.a()), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.d.a())});
-      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, 4 + class_ajw.class_a_in_class_ajw.e.a() - 4), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, 4 + class_ajw.class_a_in_class_ajw.e.a() - 4)});
-      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, 4 + class_ajw.class_a_in_class_ajw.f.a() - 4), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, 4 + class_ajw.class_a_in_class_ajw.f.a() - 4)});
+      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, 0), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.OAK.getId())});
+      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, BlockWood.EnumLogVariant.BIRCH.getId()), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.BIRCH.getId())});
+      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, BlockWood.EnumLogVariant.SPRUCE.getId()), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.SPRUCE.getId())});
+      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, BlockWood.EnumLogVariant.JUNGLE.getId()), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.JUNGLE.getId())});
+      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, 4 + BlockWood.EnumLogVariant.ACACIA.getId() - 4), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.ACACIA.getId() - 4)});
+      this.a(new ItemStack(Blocks.WOODEN_SLAB, 6, 4 + BlockWood.EnumLogVariant.DARK_OAK.getId() - 4), new Object[]{"###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.DARK_OAK.getId() - 4)});
       this.a(new ItemStack(Blocks.LADDER, 3), new Object[]{"# #", "###", "# #", Character.valueOf('#'), Items.A});
-      this.a(new ItemStack(Items.as, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.a.a())});
-      this.a(new ItemStack(Items.at, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.b.a())});
-      this.a(new ItemStack(Items.au, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.c.a())});
-      this.a(new ItemStack(Items.av, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.d.a())});
-      this.a(new ItemStack(Items.aw, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.e.a())});
-      this.a(new ItemStack(Items.ax, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.f.a())});
+      this.a(new ItemStack(Items.as, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.OAK.getId())});
+      this.a(new ItemStack(Items.at, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.SPRUCE.getId())});
+      this.a(new ItemStack(Items.au, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.BIRCH.getId())});
+      this.a(new ItemStack(Items.av, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.JUNGLE.getId())});
+      this.a(new ItemStack(Items.aw, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.ACACIA.getId())});
+      this.a(new ItemStack(Items.ax, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.DARK_OAK.getId())});
       this.a(new ItemStack(Blocks.TRAPDOOR, 2), new Object[]{"###", "###", Character.valueOf('#'), Blocks.PLANKS});
       this.a(new ItemStack(Items.aD, 3), new Object[]{"##", "##", "##", Character.valueOf('#'), Items.l});
       this.a(new ItemStack(Blocks.IRON_TRAPDOOR, 1), new Object[]{"##", "##", Character.valueOf('#'), Items.l});
       this.a(new ItemStack(Items.ar, 3), new Object[]{"###", "###", " X ", Character.valueOf('#'), Blocks.PLANKS, Character.valueOf('X'), Items.A});
       this.a(new ItemStack(Items.bb, 1), new Object[]{"AAA", "BEB", "CCC", Character.valueOf('A'), Items.aI, Character.valueOf('B'), Items.ba, Character.valueOf('C'), Items.Q, Character.valueOf('E'), Items.aR});
       this.a(new ItemStack(Items.ba, 1), new Object[]{"#", Character.valueOf('#'), Items.aL});
-      this.a(new ItemStack(Blocks.PLANKS, 4, class_ajw.class_a_in_class_ajw.a.a()), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG, 1, class_ajw.class_a_in_class_ajw.a.a())});
-      this.a(new ItemStack(Blocks.PLANKS, 4, class_ajw.class_a_in_class_ajw.b.a()), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG, 1, class_ajw.class_a_in_class_ajw.b.a())});
-      this.a(new ItemStack(Blocks.PLANKS, 4, class_ajw.class_a_in_class_ajw.c.a()), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG, 1, class_ajw.class_a_in_class_ajw.c.a())});
-      this.a(new ItemStack(Blocks.PLANKS, 4, class_ajw.class_a_in_class_ajw.d.a()), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG, 1, class_ajw.class_a_in_class_ajw.d.a())});
-      this.a(new ItemStack(Blocks.PLANKS, 4, 4 + class_ajw.class_a_in_class_ajw.e.a() - 4), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG2, 1, class_ajw.class_a_in_class_ajw.e.a() - 4)});
-      this.a(new ItemStack(Blocks.PLANKS, 4, 4 + class_ajw.class_a_in_class_ajw.f.a() - 4), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG2, 1, class_ajw.class_a_in_class_ajw.f.a() - 4)});
+      this.a(new ItemStack(Blocks.PLANKS, 4, BlockWood.EnumLogVariant.OAK.getId()), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG, 1, BlockWood.EnumLogVariant.OAK.getId())});
+      this.a(new ItemStack(Blocks.PLANKS, 4, BlockWood.EnumLogVariant.SPRUCE.getId()), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG, 1, BlockWood.EnumLogVariant.SPRUCE.getId())});
+      this.a(new ItemStack(Blocks.PLANKS, 4, BlockWood.EnumLogVariant.BIRCH.getId()), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG, 1, BlockWood.EnumLogVariant.BIRCH.getId())});
+      this.a(new ItemStack(Blocks.PLANKS, 4, BlockWood.EnumLogVariant.JUNGLE.getId()), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG, 1, BlockWood.EnumLogVariant.JUNGLE.getId())});
+      this.a(new ItemStack(Blocks.PLANKS, 4, 4 + BlockWood.EnumLogVariant.ACACIA.getId() - 4), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG2, 1, BlockWood.EnumLogVariant.ACACIA.getId() - 4)});
+      this.a(new ItemStack(Blocks.PLANKS, 4, 4 + BlockWood.EnumLogVariant.DARK_OAK.getId() - 4), new Object[]{"#", Character.valueOf('#'), new ItemStack(Blocks.LOG2, 1, BlockWood.EnumLogVariant.DARK_OAK.getId() - 4)});
       this.a(new ItemStack(Items.A, 4), new Object[]{"#", "#", Character.valueOf('#'), Blocks.PLANKS});
       this.a(new ItemStack(Blocks.TORCH, 4), new Object[]{"X", "#", Character.valueOf('X'), Items.j, Character.valueOf('#'), Items.A});
       this.a(new ItemStack(Blocks.TORCH, 4), new Object[]{"X", "#", Character.valueOf('X'), new ItemStack(Items.j, 1, 1), Character.valueOf('#'), Items.A});
@@ -148,12 +148,12 @@ public class class_act {
       this.a(new ItemStack(Items.bT, 1), new Object[]{"# #", " # ", Character.valueOf('#'), Items.aJ});
       this.b(new ItemStack(Items.d, 1), new Object[]{new ItemStack(Items.l, 1), new ItemStack(Items.am, 1)});
       this.a(new ItemStack(Items.R, 1), new Object[]{"###", Character.valueOf('#'), Items.Q});
-      this.a(new ItemStack(Blocks.OAK_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.a.a())});
-      this.a(new ItemStack(Blocks.BIRCH_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.c.a())});
-      this.a(new ItemStack(Blocks.SPRUCE_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.b.a())});
-      this.a(new ItemStack(Blocks.JUNGKE_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, class_ajw.class_a_in_class_ajw.d.a())});
-      this.a(new ItemStack(Blocks.ACACIA_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, 4 + class_ajw.class_a_in_class_ajw.e.a() - 4)});
-      this.a(new ItemStack(Blocks.DARK_OAK_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, 4 + class_ajw.class_a_in_class_ajw.f.a() - 4)});
+      this.a(new ItemStack(Blocks.OAK_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.OAK.getId())});
+      this.a(new ItemStack(Blocks.BIRCH_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.BIRCH.getId())});
+      this.a(new ItemStack(Blocks.SPRUCE_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.SPRUCE.getId())});
+      this.a(new ItemStack(Blocks.JUNGKE_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.JUNGLE.getId())});
+      this.a(new ItemStack(Blocks.ACACIA_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.ACACIA.getId() - 4)});
+      this.a(new ItemStack(Blocks.DARK_OAK_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.DARK_OAK.getId() - 4)});
       this.a(new ItemStack(Items.aT, 1), new Object[]{"  #", " #X", "# X", Character.valueOf('#'), Items.A, Character.valueOf('X'), Items.H});
       this.a(new ItemStack(Items.cb, 1), new Object[]{"# ", " X", Character.valueOf('#'), Items.aT, Character.valueOf('X'), Items.bU});
       this.a(new ItemStack(Blocks.STONE_STAIRS, 4), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), Blocks.COBBLESTONE});
@@ -196,7 +196,7 @@ public class class_act {
       this.b(new ItemStack(Items.bO, 3), new Object[]{Items.J, Items.bG, new ItemStack(Items.j, 1, 1)});
       this.a(new ItemStack(Blocks.DAYLIGHT_DETECTOR), new Object[]{"GGG", "QQQ", "WWW", Character.valueOf('G'), Blocks.GLASS, Character.valueOf('Q'), Items.cj, Character.valueOf('W'), Blocks.WOODEN_SLAB});
       this.a(new ItemStack(Blocks.HOPPER), new Object[]{"I I", "ICI", " I ", Character.valueOf('I'), Items.l, Character.valueOf('C'), Blocks.CHEST});
-      this.a(new ItemStack(Items.cm, 1), new Object[]{"///", " / ", "/_/", Character.valueOf('/'), Items.A, Character.valueOf('_'), new ItemStack(Blocks.STONE_SLAB, 1, class_alk.class_a_in_class_alk.a.a())});
+      this.a(new ItemStack(Items.cm, 1), new Object[]{"///", " / ", "/_/", Character.valueOf('/'), Items.A, Character.valueOf('_'), new ItemStack(Blocks.STONE_SLAB, 1, BlockDoubleStepAbstract.EnumStoneSlabVariant.STONE.getId())});
       Collections.sort(this.b, new Comparator() {
          public int a(class_acs var1, class_acs var2) {
             return var1 instanceof class_acw && var2 instanceof class_acv?1:(var2 instanceof class_acw && var1 instanceof class_acv?-1:(var2.a() < var1.a()?-1:(var2.a() > var1.a()?1:0)));
@@ -315,10 +315,10 @@ public class class_act {
          }
       }
 
-      ItemStack[] var5 = new ItemStack[var1.o_()];
+      ItemStack[] var5 = new ItemStack[var1.getSize()];
 
       for(int var6 = 0; var6 < var5.length; ++var6) {
-         var5[var6] = var1.a(var6);
+         var5[var6] = var1.getItem(var6);
       }
 
       return var5;

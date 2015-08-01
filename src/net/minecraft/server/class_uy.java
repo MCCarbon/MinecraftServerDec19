@@ -8,7 +8,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
@@ -20,18 +20,18 @@ import net.minecraft.server.WorldServer;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_vn;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_za;
 import net.minecraft.server.ItemBlock;
 
-public class class_uy extends class_qa {
+public class class_uy extends EntityLiving {
    private static final class_dc br = new class_dc(0.0F, 0.0F, 0.0F);
    private static final class_dc bs = new class_dc(0.0F, 0.0F, 0.0F);
    private static final class_dc bt = new class_dc(-10.0F, 0.0F, -10.0F);
@@ -326,14 +326,14 @@ public class class_uy extends class_qa {
       return false;
    }
 
-   protected void s(class_pr var1) {
+   protected void s(Entity var1) {
    }
 
    protected void bM() {
-      List var1 = this.o.b((class_pr)this, (class_awf)this.aT());
+      List var1 = this.o.b((Entity)this, (AxisAlignedBB)this.aT());
       if(var1 != null && !var1.isEmpty()) {
          for(int var2 = 0; var2 < var1.size(); ++var2) {
-            class_pr var3 = (class_pr)var1.get(var2);
+            Entity var3 = (Entity)var1.get(var2);
             if(var3 instanceof class_vn && ((class_vn)var3).s() == class_vn.class_a_in_class_vn.a && this.h(var3) <= 0.2D) {
                var3.i(this);
             }
@@ -342,10 +342,10 @@ public class class_uy extends class_qa {
 
    }
 
-   public class_oq a(class_xa var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
+   public class_oq a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
       if(this.t()) {
          return class_oq.b;
-      } else if(!this.o.D && !var1.v()) {
+      } else if(!this.o.isClientSide && !var1.v()) {
          class_pw var5 = class_pw.a;
          boolean var6 = var3 != null;
          Item var7 = var6?var3.getItem():null;
@@ -402,7 +402,7 @@ public class class_uy extends class_qa {
       }
    }
 
-   private void a(class_xa var1, class_pw var2, ItemStack var3, EnumUsedHand var4) {
+   private void a(EntityHuman var1, class_pw var2, ItemStack var3, EnumUsedHand var4) {
       ItemStack var5 = this.a(var2);
       if(var5 == null || (this.bB & 1 << var2.c() + 8) == 0) {
          if(var5 != null || (this.bB & 1 << var2.c() + 16) == 0) {
@@ -427,7 +427,7 @@ public class class_uy extends class_qa {
    }
 
    public boolean a(class_pc var1, float var2) {
-      if(this.o.D) {
+      if(this.o.isClientSide) {
          return false;
       } else if(class_pc.j.equals(var1)) {
          this.J();
@@ -458,7 +458,7 @@ public class class_uy extends class_qa {
                   var1.i().J();
                }
 
-               if(var1.j() instanceof class_xa && !((class_xa)var1.j()).bH.mayBuild) {
+               if(var1.j() instanceof EntityHuman && !((EntityHuman)var1.j()).bH.mayBuild) {
                   return false;
                } else if(var1.u()) {
                   this.C();
@@ -503,7 +503,7 @@ public class class_uy extends class_qa {
    }
 
    private void D() {
-      Block.a(this.o, new BlockPosition(this), new ItemStack(Items.cm));
+      Block.dropItem(this.o, new BlockPosition(this), new ItemStack(Items.cm));
       this.E();
    }
 
@@ -512,7 +512,7 @@ public class class_uy extends class_qa {
       for(var1 = 0; var1 < this.bx.length; ++var1) {
          if(this.bx[var1] != null && this.bx[var1].count > 0) {
             if(this.bx[var1] != null) {
-               Block.a(this.o, (new BlockPosition(this)).shiftUp(), this.bx[var1]);
+               Block.dropItem(this.o, (new BlockPosition(this)).up(), this.bx[var1]);
             }
 
             this.bx[var1] = null;
@@ -522,7 +522,7 @@ public class class_uy extends class_qa {
       for(var1 = 0; var1 < this.by.length; ++var1) {
          if(this.by[var1] != null && this.by[var1].count > 0) {
             if(this.by[var1] != null) {
-               Block.a(this.o, (new BlockPosition(this)).shiftUp(), this.by[var1]);
+               Block.dropItem(this.o, (new BlockPosition(this)).up(), this.by[var1]);
             }
 
             this.by[var1] = null;

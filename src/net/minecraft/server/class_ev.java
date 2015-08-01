@@ -8,43 +8,43 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ex;
 import net.minecraft.server.class_ey;
 import net.minecraft.server.ChatModifier;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_o;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_ev {
-   public static IChatBaseComponent a(class_m var0, IChatBaseComponent var1, class_pr var2) throws class_bz {
+   public static IChatBaseComponent a(class_m var0, IChatBaseComponent var1, Entity var2) throws class_bz {
       Object var3 = null;
       if(var1 instanceof class_ex) {
          class_ex var4 = (class_ex)var1;
          String var5 = var4.g();
          if(class_o.b(var5)) {
-            List var6 = class_o.b(var0, var5, class_pr.class);
+            List var6 = class_o.b(var0, var5, Entity.class);
             if(var6.size() != 1) {
                throw new class_ca();
             }
 
-            var5 = ((class_pr)var6.get(0)).e_();
+            var5 = ((Entity)var6.get(0)).getName();
          }
 
-         var3 = var2 != null && var5.equals("*")?new class_ex(var2.e_(), var4.h()):new class_ex(var5, var4.h());
+         var3 = var2 != null && var5.equals("*")?new class_ex(var2.getName(), var4.h()):new class_ex(var5, var4.h());
          ((class_ex)var3).b(var4.e());
       } else if(var1 instanceof class_ey) {
          String var7 = ((class_ey)var1).g();
          var3 = class_o.b(var0, var7);
          if(var3 == null) {
-            var3 = new class_fa("");
+            var3 = new ChatComponentText("");
          }
-      } else if(var1 instanceof class_fa) {
-         var3 = new class_fa(((class_fa)var1).g());
+      } else if(var1 instanceof ChatComponentText) {
+         var3 = new ChatComponentText(((ChatComponentText)var1).g());
       } else {
-         if(!(var1 instanceof class_fb)) {
+         if(!(var1 instanceof ChatMessage)) {
             return var1;
          }
 
-         Object[] var8 = ((class_fb)var1).j();
+         Object[] var8 = ((ChatMessage)var1).j();
 
          for(int var10 = 0; var10 < var8.length; ++var10) {
             Object var11 = var8[var10];
@@ -53,7 +53,7 @@ public class class_ev {
             }
          }
 
-         var3 = new class_fb(((class_fb)var1).i(), var8);
+         var3 = new ChatMessage(((ChatMessage)var1).i(), var8);
       }
 
       ChatModifier var9 = var1.b();

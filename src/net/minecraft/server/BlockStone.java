@@ -2,60 +2,48 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.INamable;
-import net.minecraft.server.CreativeTab;
-
 public class BlockStone extends Block {
 
-	public static final BlockStateEnum VARIANT = BlockStateEnum.of("variant", BlockStone.EnumStoneVariant.class);
+	public static final BlockStateEnum<EnumStoneVariant> VARIANT = BlockStateEnum.of("variant", EnumStoneVariant.class);
 
-	@SuppressWarnings("unchecked")
 	public BlockStone() {
 		super(Material.STONE);
-		this.setBlockData(this.blockStateList.getFirst().set(VARIANT, BlockStone.EnumStoneVariant.STONE));
-		this.a(CreativeTab.b);
+		setBlockData(blockStateList.getFirst().set(VARIANT, BlockStone.EnumStoneVariant.STONE));
+		setCreativeTab(CreativeTab.BUILDING_BLOCKS);
 	}
 
+	@Override
 	public String getName() {
-		return LocaleI18n.get(this.getInternalName() + "." + BlockStone.EnumStoneVariant.STONE.getILocaleName() + ".name");
+		return LocaleI18n.get(getInternalName() + "." + BlockStone.EnumStoneVariant.STONE.getILocaleName() + ".name");
 	}
 
-	@SuppressWarnings("unchecked")
+	@Override
 	public MaterialMapColor getMapColor(IBlockData blockdata) {
-		return ((BlockStone.EnumStoneVariant) blockdata.get(VARIANT)).getMapColor();
+		return blockdata.get(VARIANT).getMapColor();
 	}
 
-	@SuppressWarnings("unchecked")
+	@Override
 	public Item getDropType(IBlockData blockdata, Random random, int id) {
 		return blockdata.get(VARIANT) == BlockStone.EnumStoneVariant.STONE ? Item.getByBlock(Blocks.COBBLESTONE) : Item.getByBlock(Blocks.STONE);
 	}
 
-	@SuppressWarnings("unchecked")
+	@Override
 	public int getDropData(IBlockData blockdata) {
-		return ((BlockStone.EnumStoneVariant) blockdata.get(VARIANT)).getData();
+		return blockdata.get(VARIANT).getData();
 	}
 
-	@SuppressWarnings("unchecked")
+	@Override
 	public IBlockData fromLegacyData(int var1) {
-		return this.getBlockData().set(VARIANT, BlockStone.EnumStoneVariant.getByData(var1));
+		return getBlockData().set(VARIANT, BlockStone.EnumStoneVariant.getByData(var1));
 	}
 
-	@SuppressWarnings("unchecked")
+	@Override
 	public int toLegacyData(IBlockData blockdata) {
-		return ((BlockStone.EnumStoneVariant) blockdata.get(VARIANT)).getData();
+		return blockdata.get(VARIANT).getData();
 	}
 
-	protected BlockStateList createBlockStateList() {
+	@Override
+	protected BlockStateList getStateList() {
 		return new BlockStateList(this, new IBlockState[] { VARIANT });
 	}
 
@@ -78,7 +66,7 @@ public class BlockStone extends Block {
 		}
 
 		public static BlockStone.EnumStoneVariant getByData(int data) {
-			if (data < 0 || data >= BY_DATA.length) {
+			if ((data < 0) || (data >= BY_DATA.length)) {
 				data = 0;
 			}
 
@@ -102,23 +90,25 @@ public class BlockStone extends Block {
 		}
 
 		public int getData() {
-			return this.data;
+			return data;
 		}
 
 		public MaterialMapColor getMapColor() {
-			return this.mapcolor;
+			return mapcolor;
 		}
 
+		@Override
 		public String toString() {
-			return this.id;
+			return id;
 		}
 
+		@Override
 		public String getName() {
-			return this.id;
+			return id;
 		}
 
 		public String getILocaleName() {
-			return this.name;
+			return name;
 		}
 
 	}

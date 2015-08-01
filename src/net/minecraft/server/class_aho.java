@@ -2,42 +2,42 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_ahk;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amm;
-import net.minecraft.server.class_amn;
-import net.minecraft.server.class_amt;
+import net.minecraft.server.BlockDispenser;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityDispenser;
+import net.minecraft.server.TileEntityDropper;
+import net.minecraft.server.TileEntityHopper;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cl;
-import net.minecraft.server.class_cn;
+import net.minecraft.server.SourceBlock;
+import net.minecraft.server.DispenseBehaviorItem;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_cr;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IDispenseBehavior;
+import net.minecraft.server.IInventory;
 
-public class class_aho extends class_ahk {
-   private final class_cr P = new class_cn();
+public class class_aho extends BlockDispenser {
+   private final IDispenseBehavior P = new DispenseBehaviorItem();
 
-   protected class_cr a(ItemStack var1) {
+   protected IDispenseBehavior a(ItemStack var1) {
       return this.P;
    }
 
-   public class_amg a(World var1, int var2) {
-      return new class_amn();
+   public TileEntity createTileEntity(World var1, int var2) {
+      return new TileEntityDropper();
    }
 
-   protected void f(World var1, BlockPosition var2) {
-      class_cl var3 = new class_cl(var1, var2);
-      class_amm var4 = (class_amm)var3.h();
+   protected void dispense(World var1, BlockPosition var2) {
+      SourceBlock var3 = new SourceBlock(var1, var2);
+      TileEntityDispenser var4 = (TileEntityDispenser)var3.getTileEntity();
       if(var4 != null) {
          int var5 = var4.m();
          if(var5 < 0) {
             var1.b(1001, var2, 0);
          } else {
-            ItemStack var6 = var4.a(var5);
+            ItemStack var6 = var4.getItem(var5);
             if(var6 != null) {
-               EnumDirection var7 = (EnumDirection)var1.p(var2).get(a);
+               EnumDirection var7 = (EnumDirection)var1.getType(var2).get(FACING);
                BlockPosition var8 = var2.shift(var7);
-               class_oj var9 = class_amt.b(var1, (double)var8.getX(), (double)var8.getY(), (double)var8.getZ());
+               IInventory var9 = TileEntityHopper.b(var1, (double)var8.getX(), (double)var8.getY(), (double)var8.getZ());
                ItemStack var10;
                if(var9 == null) {
                   var10 = this.P.a(var3, var6);
@@ -45,7 +45,7 @@ public class class_aho extends class_ahk {
                      var10 = null;
                   }
                } else {
-                  var10 = class_amt.a(var9, var6.clone().a(1), var7.getOpposite());
+                  var10 = TileEntityHopper.a(var9, var6.clone().a(1), var7.getOpposite());
                   if(var10 == null) {
                      var10 = var6.clone();
                      if(--var10.count <= 0) {
@@ -56,7 +56,7 @@ public class class_aho extends class_ahk {
                   }
                }
 
-               var4.a(var5, var10);
+               var4.setItem(var5, var10);
             }
          }
       }

@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qj;
 import net.minecraft.server.class_td;
 
 public class class_tb extends class_td {
    class_qj a;
-   class_qa b;
+   EntityLiving b;
    private int c;
 
    public class_tb(class_qj var1) {
@@ -19,7 +19,7 @@ public class class_tb extends class_td {
       if(!this.a.cA()) {
          return false;
       } else {
-         class_qa var1 = this.a.cD();
+         EntityLiving var1 = this.a.cD();
          if(var1 == null) {
             return false;
          } else {
@@ -32,7 +32,7 @@ public class class_tb extends class_td {
 
    public void c() {
       this.e.d(this.b);
-      class_qa var1 = this.a.cD();
+      EntityLiving var1 = this.a.cD();
       if(var1 != null) {
          this.c = var1.bf();
       }

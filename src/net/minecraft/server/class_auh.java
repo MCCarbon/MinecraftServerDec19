@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_aua;
 import net.minecraft.server.class_auc;
 
@@ -28,7 +28,7 @@ public class class_auh extends class_auc {
             if(var17 == var13 && var17 == var15 && var17 == var14 && var17 == var16) {
                var10[var12 + var11 * var3] = -1;
             } else {
-               var10[var12 + var11 * var3] = class_aez.w.az;
+               var10[var12 + var11 * var3] = BiomeBase.w.az;
             }
          }
       }

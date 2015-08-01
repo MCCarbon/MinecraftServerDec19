@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
@@ -62,7 +62,7 @@ public class class_bp extends class_i {
                   }
                }
 
-               IBlockData var14 = var6.p(var3);
+               IBlockData var14 = var6.getType(var3);
                Block var10 = var14.getBlock();
                if(var10 != var4) {
                   throw new class_bz("commands.testforblock.failed.tile", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ()), var10.getName(), var4.getName()});
@@ -75,13 +75,13 @@ public class class_bp extends class_i {
                   }
 
                   if(var8) {
-                     class_amg var15 = var6.s(var3);
+                     TileEntity var15 = var6.getTileEntity(var3);
                      if(var15 == null) {
                         throw new class_bz("commands.testforblock.failed.tileEntity", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
                      }
 
                      NBTTagCompound var12 = new NBTTagCompound();
-                     var15.b(var12);
+                     var15.write(var12);
                      if(!class_dy.a(var7, var12, true)) {
                         throw new class_bz("commands.testforblock.failed.nbt", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
                      }

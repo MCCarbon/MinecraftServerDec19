@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aic;
+import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -14,8 +14,8 @@ import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_qi;
@@ -37,7 +37,7 @@ import net.minecraft.server.class_ua;
 import net.minecraft.server.class_wa;
 import net.minecraft.server.class_wd;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_uj extends class_ua {
    protected static final int a = class_qi.a(class_uj.class);
@@ -56,7 +56,7 @@ public class class_uj extends class_ua {
       this.i.a(4, new class_ry(this, 1.0D));
       this.i.a(5, new class_sc(this));
       this.i.a(6, new class_si(this, 0.6D));
-      this.i.a(7, new class_rr(this, class_xa.class, 6.0F));
+      this.i.a(7, new class_rr(this, EntityHuman.class, 6.0F));
       this.i.a(8, new class_sh(this));
       this.bn.a(1, new class_sv(this));
       this.bn.a(2, new class_sw(this, false, new Class[0]));
@@ -93,9 +93,9 @@ public class class_uj extends class_ua {
       return var1;
    }
 
-   protected void s(class_pr var1) {
+   protected void s(Entity var1) {
       if(var1 instanceof class_wd && !(var1 instanceof class_wa) && this.bd().nextInt(20) == 0) {
-         this.d((class_qa)var1);
+         this.d((EntityLiving)var1);
       }
 
       super.s(var1);
@@ -115,17 +115,17 @@ public class class_uj extends class_ua {
          int var1 = MathHelper.floor(this.s);
          int var2 = MathHelper.floor(this.t - 0.20000000298023224D);
          int var3 = MathHelper.floor(this.u);
-         IBlockData var4 = this.o.p(new BlockPosition(var1, var2, var3));
+         IBlockData var4 = this.o.getType(new BlockPosition(var1, var2, var3));
          Block var5 = var4.getBlock();
          if(var5.getMaterial() != Material.AIR) {
-            this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().b + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.getCombinedId(var4)});
+            this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().yMin + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.getCombinedId(var4)});
          }
       }
 
    }
 
    public boolean a(Class var1) {
-      return this.cC() && class_xa.class.isAssignableFrom(var1)?false:(var1 == class_wa.class?false:super.a(var1));
+      return this.cC() && EntityHuman.class.isAssignableFrom(var1)?false:(var1 == class_wa.class?false:super.a(var1));
    }
 
    public void b(NBTTagCompound var1) {
@@ -138,12 +138,12 @@ public class class_uj extends class_ua {
       this.m(var1.getBoolean("PlayerCreated"));
    }
 
-   public boolean r(class_pr var1) {
+   public boolean r(Entity var1) {
       this.bs = 10;
-      this.o.a((class_pr)this, (byte)4);
-      boolean var2 = var1.a(class_pc.a((class_qa)this), (float)(7 + this.V.nextInt(15)));
+      this.o.a((Entity)this, (byte)4);
+      boolean var2 = var1.a(class_pc.a((EntityLiving)this), (float)(7 + this.V.nextInt(15)));
       if(var2) {
-         var1.w += 0.4000000059604645D;
+         var1.motY += 0.4000000059604645D;
          this.a(this, var1);
       }
 
@@ -157,7 +157,7 @@ public class class_uj extends class_ua {
 
    public void a(boolean var1) {
       this.bt = var1?400:0;
-      this.o.a((class_pr)this, (byte)11);
+      this.o.a((Entity)this, (byte)11);
    }
 
    protected String bp() {
@@ -177,7 +177,7 @@ public class class_uj extends class_ua {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Item.getByBlock((Block)Blocks.RED_FLOWER), 1, (float)class_aic.class_a_in_class_aic.b.b());
+         this.a(Item.getByBlock((Block)Blocks.RED_FLOWER), 1, (float)BlockFlowers.EnumFlowerVarient.POPPY.getId());
       }
 
       var4 = 3 + this.V.nextInt(3);
@@ -208,7 +208,7 @@ public class class_uj extends class_ua {
 
    public void a(class_pc var1) {
       if(!this.cC() && this.aQ != null && this.b != null) {
-         this.b.a(this.aQ.e_(), -5);
+         this.b.a(this.aQ.getName(), -5);
       }
 
       super.a(var1);
@@ -218,20 +218,20 @@ public class class_uj extends class_ua {
       public class_a_in_class_uj(final class_qh var1, Class var2, int var3, boolean var4, boolean var5, final Predicate var6) {
          super(var1, var2, var3, var4, var5, var6);
          this.c = new Predicate() {
-            public boolean a(class_qa var1x) {
+            public boolean a(EntityLiving var1x) {
                if(var6 != null && !var6.apply(var1x)) {
                   return false;
                } else if(var1x instanceof class_wa) {
                   return false;
                } else {
-                  if(var1x instanceof class_xa) {
+                  if(var1x instanceof EntityHuman) {
                      double var2 = class_a_in_class_uj.this.f();
                      if(var1x.ax()) {
                         var2 *= 0.800000011920929D;
                      }
 
                      if(var1x.aA()) {
-                        float var4 = ((class_xa)var1x).cc();
+                        float var4 = ((EntityHuman)var1x).cc();
                         if(var4 < 0.1F) {
                            var4 = 0.1F;
                         }
@@ -250,7 +250,7 @@ public class class_uj extends class_ua {
 
             // $FF: synthetic method
             public boolean apply(Object var1x) {
-               return this.a((class_qa)var1x);
+               return this.a((EntityLiving)var1x);
             }
          };
       }

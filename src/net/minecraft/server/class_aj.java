@@ -10,11 +10,11 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityItem;
 
 public class class_aj extends class_i {
    public String c() {
@@ -33,7 +33,7 @@ public class class_aj extends class_i {
       if(var2.length < 2) {
          throw new class_cf("commands.give.usage", new Object[0]);
       } else {
-         class_lh var3 = a(var1, var2[0]);
+         EntityPlayer var3 = a(var1, var2[0]);
          Item var4 = f(var1, var2[1]);
          int var5 = var2.length >= 3?a(var2[2], 1, 64):1;
          int var6 = var2.length >= 4?a(var2[3]):0;
@@ -50,11 +50,11 @@ public class class_aj extends class_i {
 
          boolean var11 = var3.bp.a(var7);
          if(var11) {
-            var3.o.a((class_pr)var3, "random.pop", 0.2F, ((var3.bd().nextFloat() - var3.bd().nextFloat()) * 0.7F + 1.0F) * 2.0F);
+            var3.o.a((Entity)var3, "random.pop", 0.2F, ((var3.bd().nextFloat() - var3.bd().nextFloat()) * 0.7F + 1.0F) * 2.0F);
             var3.bq.b();
          }
 
-         class_vm var9;
+         EntityItem var9;
          if(var11 && var7.count <= 0) {
             var7.count = 1;
             var1.a(class_n.class_a_in_class_n.d, var5);
@@ -66,12 +66,12 @@ public class class_aj extends class_i {
             var1.a(class_n.class_a_in_class_n.d, var5 - var7.count);
             var9 = var3.a(var7, false);
             if(var9 != null) {
-               var9.q();
-               var9.b(var3.e_());
+               var9.removePickupDelay();
+               var9.b(var3.getName());
             }
          }
 
-         a(var1, this, "commands.give.success", new Object[]{var7.B(), Integer.valueOf(var5), var3.e_()});
+         a(var1, this, "commands.give.success", new Object[]{var7.B(), Integer.valueOf(var5), var3.getName()});
       }
    }
 

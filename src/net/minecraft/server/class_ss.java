@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_wv;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 
 public class class_ss extends class_rm {
    private class_wv a;
@@ -23,8 +23,8 @@ public class class_ss extends class_rm {
       } else if(this.a.G) {
          return false;
       } else {
-         class_xa var1 = this.a.v_();
-         return var1 == null?false:(this.a.h(var1) > 16.0D?false:var1.br instanceof class_xz);
+         EntityHuman var1 = this.a.v_();
+         return var1 == null?false:(this.a.h(var1) > 16.0D?false:var1.br instanceof Container);
       }
    }
 
@@ -33,6 +33,6 @@ public class class_ss extends class_rm {
    }
 
    public void d() {
-      this.a.a((class_xa)null);
+      this.a.a((EntityHuman)null);
    }
 }

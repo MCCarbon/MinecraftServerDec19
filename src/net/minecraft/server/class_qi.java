@@ -16,11 +16,11 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_dc;
 import net.minecraft.server.class_e;
 import net.minecraft.server.PacketDataSerializer;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import org.apache.commons.lang3.ObjectUtils;
 
 public class class_qi {
-   private final class_pr a;
+   private final Entity a;
    private boolean b = true;
    private static final Map c = Maps.newHashMap();
    private final Map d = Maps.newHashMap();
@@ -28,7 +28,7 @@ public class class_qi {
    private final ReadWriteLock f = new ReentrantReadWriteLock();
    private static final Map g;
 
-   public class_qi(class_pr var1) {
+   public class_qi(Entity var1) {
       this.a = var1;
    }
 
@@ -40,7 +40,7 @@ public class class_qi {
          int var2 = 0;
          Class var3 = var0;
 
-         while(var3 != class_pr.class) {
+         while(var3 != Entity.class) {
             var3 = var3.getSuperclass();
             if(g.containsKey(var3)) {
                var2 = ((Integer)g.get(var3)).intValue() + 1;

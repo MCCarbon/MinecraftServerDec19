@@ -5,18 +5,18 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aat;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abz;
-import net.minecraft.server.class_adk;
-import net.minecraft.server.class_adm;
+import net.minecraft.server.EnchantmentManager;
+import net.minecraft.server.Enchantment;
 import net.minecraft.server.World;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_zc;
 import net.minecraft.server.CreativeTab;
@@ -25,19 +25,19 @@ public class class_zl extends Item {
    public class_zl() {
       this.h = 1;
       this.e(384);
-      this.a(CreativeTab.j);
+      this.a(CreativeTab.COMBAT);
       this.a(new MinecraftKey("pull"), new class_aat() {
       });
       this.a(new MinecraftKey("pulling"), new class_aat() {
       });
    }
 
-   private int a(class_wz var1) {
-      if(this.g_(var1.a(40))) {
+   private int a(PlayerInventory var1) {
+      if(this.g_(var1.getItem(40))) {
          return 40;
       } else {
-         for(int var2 = 0; var2 < var1.o_(); ++var2) {
-            ItemStack var3 = var1.a(var2);
+         for(int var2 = 0; var2 < var1.getSize(); ++var2) {
+            ItemStack var3 = var1.getItem(var2);
             if(this.g_(var3)) {
                return var2;
             }
@@ -51,13 +51,13 @@ public class class_zl extends Item {
       return var1 != null && var1.getItem() instanceof class_zc;
    }
 
-   public void a(ItemStack var1, World var2, class_qa var3, int var4) {
-      if(var3 instanceof class_xa) {
-         class_xa var5 = (class_xa)var3;
-         boolean var6 = var5.bH.instabuild || class_adk.a(class_adm.w, var1) > 0;
+   public void a(ItemStack var1, World var2, EntityLiving var3, int var4) {
+      if(var3 instanceof EntityHuman) {
+         EntityHuman var5 = (EntityHuman)var3;
+         boolean var6 = var5.bH.instabuild || EnchantmentManager.getLevel(Enchantment.w, var1) > 0;
          int var7 = this.a(var5.bp);
          if(var6 || var7 > -1) {
-            ItemStack var8 = var7 > -1?var5.bp.a(var7):null;
+            ItemStack var8 = var7 > -1?var5.bp.getItem(var7):null;
             if(var8 == null) {
                var8 = new ItemStack(Items.g);
             }
@@ -72,31 +72,31 @@ public class class_zl extends Item {
                   var12.a(true);
                }
 
-               int var13 = class_adk.a(class_adm.t, var1);
+               int var13 = EnchantmentManager.getLevel(Enchantment.t, var1);
                if(var13 > 0) {
                   var12.b(var12.l() + (double)var13 * 0.5D + 0.5D);
                }
 
-               int var14 = class_adk.a(class_adm.u, var1);
+               int var14 = EnchantmentManager.getLevel(Enchantment.u, var1);
                if(var14 > 0) {
                   var12.a(var14);
                }
 
-               if(class_adk.a(class_adm.v, var1) > 0) {
+               if(EnchantmentManager.getLevel(Enchantment.v, var1) > 0) {
                   var12.f(100);
                }
 
-               var1.a(1, (class_qa)var5);
-               var2.a((class_pr)var5, "random.bow", 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + var11 * 0.5F);
+               var1.a(1, (EntityLiving)var5);
+               var2.a((Entity)var5, "random.bow", 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + var11 * 0.5F);
                if(var6) {
                   var12.c = 2;
                } else {
-                  var5.bp.a(var7, 1);
+                  var5.bp.splitStack(var7, 1);
                }
 
-               var5.b(class_nc.ad[Item.getId((Item)this)]);
-               if(!var2.D) {
-                  var2.a((class_pr)var12);
+               var5.b(StatisticList.ad[Item.getId((Item)this)]);
+               if(!var2.isClientSide) {
+                  var2.addEntity((Entity)var12);
                }
 
             }
@@ -122,7 +122,7 @@ public class class_zl extends Item {
       return class_abz.BOW;
    }
 
-   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if((var3.bH.instabuild || this.a(var3.bp) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);

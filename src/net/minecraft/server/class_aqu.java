@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
@@ -19,14 +19,14 @@ public class class_aqu extends class_aql {
    }
 
    public boolean b(World var1, Random var2, BlockPosition var3) {
-      for(var3 = var3.add(-8, 0, -8); var3.getY() > 5 && var1.d(var3); var3 = var3.shiftDown()) {
+      for(var3 = var3.add(-8, 0, -8); var3.getY() > 5 && var1.isEmpty(var3); var3 = var3.down()) {
          ;
       }
 
       if(var3.getY() <= 4) {
          return false;
       } else {
-         var3 = var3.shiftDown(4);
+         var3 = var3.down(4);
          boolean[] var4 = new boolean[2048];
          int var5 = var2.nextInt(4) + 4;
 
@@ -62,12 +62,12 @@ public class class_aqu extends class_aql {
                for(var8 = 0; var8 < 8; ++var8) {
                   var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
                   if(var31) {
-                     Material var10 = var1.p(var3.add(var6, var8, var30)).getBlock().getMaterial();
+                     Material var10 = var1.getType(var3.add(var6, var8, var30)).getBlock().getMaterial();
                      if(var8 >= 4 && var10.isLiquid()) {
                         return false;
                      }
 
-                     if(var8 < 4 && !var10.isBuildable() && var1.p(var3.add(var6, var8, var30)).getBlock() != this.a) {
+                     if(var8 < 4 && !var10.isBuildable() && var1.getType(var3.add(var6, var8, var30)).getBlock() != this.a) {
                         return false;
                      }
                   }
@@ -79,7 +79,7 @@ public class class_aqu extends class_aql {
             for(var30 = 0; var30 < 16; ++var30) {
                for(var8 = 0; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
-                     var1.a((BlockPosition)var3.add(var6, var8, var30), (IBlockData)(var8 >= 4?Blocks.AIR.getBlockData():this.a.getBlockData()), 2);
+                     var1.setTypeAndData((BlockPosition)var3.add(var6, var8, var30), (IBlockData)(var8 >= 4?Blocks.AIR.getBlockData():this.a.getBlockData()), 2);
                   }
                }
             }
@@ -90,12 +90,12 @@ public class class_aqu extends class_aql {
                for(var8 = 4; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
                      BlockPosition var32 = var3.add(var6, var8 - 1, var30);
-                     if(var1.p(var32).getBlock() == Blocks.DIRT && var1.b(class_aet.a, var3.add(var6, var8, var30)) > 0) {
-                        class_aez var33 = var1.b(var32);
+                     if(var1.getType(var32).getBlock() == Blocks.DIRT && var1.b(class_aet.a, var3.add(var6, var8, var30)) > 0) {
+                        BiomeBase var33 = var1.b(var32);
                         if(var33.ak.getBlock() == Blocks.MYCELIM) {
-                           var1.a((BlockPosition)var32, (IBlockData)Blocks.MYCELIM.getBlockData(), 2);
+                           var1.setTypeAndData((BlockPosition)var32, (IBlockData)Blocks.MYCELIM.getBlockData(), 2);
                         } else {
-                           var1.a((BlockPosition)var32, (IBlockData)Blocks.GRASS.getBlockData(), 2);
+                           var1.setTypeAndData((BlockPosition)var32, (IBlockData)Blocks.GRASS.getBlockData(), 2);
                         }
                      }
                   }
@@ -108,8 +108,8 @@ public class class_aqu extends class_aql {
                for(var30 = 0; var30 < 16; ++var30) {
                   for(var8 = 0; var8 < 8; ++var8) {
                      var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
-                     if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.p(var3.add(var6, var8, var30)).getBlock().getMaterial().isBuildable()) {
-                        var1.a((BlockPosition)var3.add(var6, var8, var30), (IBlockData)Blocks.STONE.getBlockData(), 2);
+                     if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.getType(var3.add(var6, var8, var30)).getBlock().getMaterial().isBuildable()) {
+                        var1.setTypeAndData((BlockPosition)var3.add(var6, var8, var30), (IBlockData)Blocks.STONE.getBlockData(), 2);
                      }
                   }
                }
@@ -121,7 +121,7 @@ public class class_aqu extends class_aql {
                for(var30 = 0; var30 < 16; ++var30) {
                   byte var34 = 4;
                   if(var1.v(var3.add(var6, var34, var30))) {
-                     var1.a((BlockPosition)var3.add(var6, var34, var30), (IBlockData)Blocks.ICE.getBlockData(), 2);
+                     var1.setTypeAndData((BlockPosition)var3.add(var6, var34, var30), (IBlockData)Blocks.ICE.getBlockData(), 2);
                   }
                }
             }

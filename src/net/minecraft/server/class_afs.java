@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afn;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahj;
+import net.minecraft.server.BlockDirt;
 import net.minecraft.server.class_ahm;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
@@ -13,12 +13,12 @@ import net.minecraft.server.class_arh;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_tz;
 
-public class class_afs extends class_aez {
+public class class_afs extends BiomeBase {
    private static final class_arh aD = new class_arh(false);
 
    protected class_afs(int var1) {
       super(var1);
-      this.au.add(new class_aez.class_c_in_class_aez(class_tz.class, 1, 2, 6));
+      this.au.add(new BiomeBase.class_c_in_class_aez(class_tz.class, 1, 2, 6));
       this.as.A = 1;
       this.as.B = 4;
       this.as.C = 20;
@@ -28,7 +28,7 @@ public class class_afs extends class_aez {
       return (class_apw)(var1.nextInt(5) > 0?aD:this.aA);
    }
 
-   protected class_aez d(int var1) {
+   protected BiomeBase d(int var1) {
       class_afs.class_a_in_class_afs var2 = new class_afs.class_a_in_class_afs(var1, this);
       var2.ap = (this.ap + 1.0F) * 0.5F;
       var2.an = this.an * 0.5F + 0.3F;
@@ -50,7 +50,7 @@ public class class_afs extends class_aez {
    }
 
    public static class class_a_in_class_afs extends class_afn {
-      public class_a_in_class_afs(int var1, class_aez var2) {
+      public class_a_in_class_afs(int var1, BiomeBase var2) {
          super(var1, var2);
          this.as.A = 2;
          this.as.B = 2;
@@ -64,7 +64,7 @@ public class class_afs extends class_aez {
             this.ak = Blocks.STONE.getBlockData();
             this.al = Blocks.STONE.getBlockData();
          } else if(var6 > -0.5D) {
-            this.ak = Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b);
+            this.ak = Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.COARSE_DIRT);
          }
 
          this.b(var1, var2, var3, var4, var5, var6);

@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 public interface class_cz {
-   double a();
+   double getX();
 
-   double b();
+   double getY();
 
-   double c();
+   double getZ();
 }

@@ -8,7 +8,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_abj extends class_aan {
    private Block b;
@@ -20,13 +20,13 @@ public class class_abj extends class_aan {
       this.c = var4;
    }
 
-   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 != EnumDirection.UP) {
          return class_oq.b;
       } else if(!var2.a(var4.shift(var6), var6, var1)) {
          return class_oq.b;
-      } else if(var3.p(var4).getBlock() == this.c && var3.d(var4.shiftUp())) {
-         var3.a(var4.shiftUp(), this.b.getBlockData());
+      } else if(var3.getType(var4).getBlock() == this.c && var3.isEmpty(var4.up())) {
+         var3.setTypeUpdate(var4.up(), this.b.getBlockData());
          --var1.count;
          return class_oq.a;
       } else {

@@ -12,7 +12,7 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_n {
    private static final int a = class_n.class_a_in_class_n.values().length;
@@ -29,12 +29,12 @@ public class class_n {
       String var4 = this.c[var2.a()];
       if(var4 != null) {
          class_m var5 = new class_m() {
-            public String e_() {
-               return var1.e_();
+            public String getName() {
+               return var1.getName();
             }
 
-            public IChatBaseComponent f_() {
-               return var1.f_();
+            public IChatBaseComponent getScoreboardDisplayName() {
+               return var1.getScoreboardDisplayName();
             }
 
             public void a(IChatBaseComponent var1x) {
@@ -57,7 +57,7 @@ public class class_n {
                return var1.e();
             }
 
-            public class_pr f() {
+            public Entity f() {
                return var1.f();
             }
 

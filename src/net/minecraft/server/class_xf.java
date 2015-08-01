@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_awg;
+import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
@@ -12,17 +12,17 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_xj;
 
-public abstract class class_xf extends class_pr {
+public abstract class class_xf extends Entity {
    private int e = -1;
    private int f = -1;
    private int g = -1;
    private Block h;
    private boolean i;
-   public class_qa a;
+   public EntityLiving a;
    private int as;
    private int at;
    public double b;
@@ -48,13 +48,13 @@ public abstract class class_xf extends class_pr {
       this.d = var12 / var14 * 0.1D;
    }
 
-   public class_xf(World var1, class_qa var2, double var3, double var5, double var7) {
+   public class_xf(World var1, EntityLiving var2, double var3, double var5, double var7) {
       super(var1);
       this.a = var2;
       this.a(1.0F, 1.0F);
       this.b(var2.s, var2.t, var2.u, var2.y, var2.z);
       this.b(this.s, this.t, this.u);
-      this.v = this.w = this.x = 0.0D;
+      this.v = this.motY = this.x = 0.0D;
       var3 += this.V.nextGaussian() * 0.4D;
       var5 += this.V.nextGaussian() * 0.4D;
       var7 += this.V.nextGaussian() * 0.4D;
@@ -65,11 +65,11 @@ public abstract class class_xf extends class_pr {
    }
 
    public void t_() {
-      if(this.o.D || (this.a == null || !this.a.I) && this.o.e(new BlockPosition(this))) {
+      if(this.o.isClientSide || (this.a == null || !this.a.I) && this.o.e(new BlockPosition(this))) {
          super.t_();
          this.f(1);
          if(this.i) {
-            if(this.o.p(new BlockPosition(this.e, this.f, this.g)).getBlock() == this.h) {
+            if(this.o.getType(new BlockPosition(this.e, this.f, this.g)).getBlock() == this.h) {
                ++this.as;
                if(this.as == 600) {
                   this.J();
@@ -80,7 +80,7 @@ public abstract class class_xf extends class_pr {
 
             this.i = false;
             this.v *= (double)(this.V.nextFloat() * 0.2F);
-            this.w *= (double)(this.V.nextFloat() * 0.2F);
+            this.motY *= (double)(this.V.nextFloat() * 0.2F);
             this.x *= (double)(this.V.nextFloat() * 0.2F);
             this.as = 0;
             this.at = 0;
@@ -88,30 +88,30 @@ public abstract class class_xf extends class_pr {
             ++this.at;
          }
 
-         class_awg var1 = class_xj.a(this, true, this.at >= 25, this.a);
+         MovingObjectPosition var1 = class_xj.a(this, true, this.at >= 25, this.a);
          if(var1 != null) {
             this.a(var1);
          }
 
          this.s += this.v;
-         this.t += this.w;
+         this.t += this.motY;
          this.u += this.x;
          class_xj.a(this, 0.2F);
          float var2 = this.j();
          if(this.V()) {
             for(int var3 = 0; var3 < 4; ++var3) {
                float var4 = 0.25F;
-               this.o.a(class_cy.e, this.s - this.v * (double)var4, this.t - this.w * (double)var4, this.u - this.x * (double)var4, this.v, this.w, this.x, new int[0]);
+               this.o.a(class_cy.e, this.s - this.v * (double)var4, this.t - this.motY * (double)var4, this.u - this.x * (double)var4, this.v, this.motY, this.x, new int[0]);
             }
 
             var2 = 0.8F;
          }
 
          this.v += this.b;
-         this.w += this.c;
+         this.motY += this.c;
          this.x += this.d;
          this.v *= (double)var2;
-         this.w *= (double)var2;
+         this.motY *= (double)var2;
          this.x *= (double)var2;
          this.o.a(class_cy.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          this.b(this.s, this.t, this.u);
@@ -124,7 +124,7 @@ public abstract class class_xf extends class_pr {
       return 0.95F;
    }
 
-   protected abstract void a(class_awg var1);
+   protected abstract void a(MovingObjectPosition var1);
 
    public void b(NBTTagCompound var1) {
       var1.put("xTile", (short)this.e);
@@ -133,7 +133,7 @@ public abstract class class_xf extends class_pr {
       MinecraftKey var2 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(this.h);
       var1.put("inTile", var2 == null?"":var2.toString());
       var1.put("inGround", (byte)(this.i?1:0));
-      var1.put((String)"direction", (NBTTag)this.a((double[])(new double[]{this.v, this.w, this.x})));
+      var1.put((String)"direction", (NBTTag)this.a((double[])(new double[]{this.v, this.motY, this.x})));
    }
 
    public void a(NBTTagCompound var1) {
@@ -150,7 +150,7 @@ public abstract class class_xf extends class_pr {
       if(var1.hasOfType("direction", 9)) {
          NBTTagList var2 = var1.getList("direction", 6);
          this.v = var2.getDouble(0);
-         this.w = var2.getDouble(1);
+         this.motY = var2.getDouble(1);
          this.x = var2.getDouble(2);
       } else {
          this.J();
@@ -175,15 +175,15 @@ public abstract class class_xf extends class_pr {
             Vec3D var3 = var1.j().ap();
             if(var3 != null) {
                this.v = var3.x;
-               this.w = var3.y;
+               this.motY = var3.y;
                this.x = var3.z;
                this.b = this.v * 0.1D;
-               this.c = this.w * 0.1D;
+               this.c = this.motY * 0.1D;
                this.d = this.x * 0.1D;
             }
 
-            if(var1.j() instanceof class_qa) {
-               this.a = (class_qa)var1.j();
+            if(var1.j() instanceof EntityLiving) {
+               this.a = (EntityLiving)var1.j();
             }
 
             return true;

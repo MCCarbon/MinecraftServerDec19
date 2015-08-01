@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_wk;
@@ -10,7 +10,7 @@ import net.minecraft.server.class_wk;
 public class class_sj extends class_rm {
    private final class_qb a;
    private final class_wk b;
-   private class_qa c;
+   private EntityLiving c;
    private int d;
    private double e;
    private int f;
@@ -25,7 +25,7 @@ public class class_sj extends class_rm {
 
    public class_sj(class_wk var1, double var2, int var4, int var5, float var6) {
       this.d = -1;
-      if(!(var1 instanceof class_qa)) {
+      if(!(var1 instanceof EntityLiving)) {
          throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");
       } else {
          this.b = var1;
@@ -40,7 +40,7 @@ public class class_sj extends class_rm {
    }
 
    public boolean a() {
-      class_qa var1 = this.a.w();
+      EntityLiving var1 = this.a.w();
       if(var1 == null) {
          return false;
       } else {
@@ -60,7 +60,7 @@ public class class_sj extends class_rm {
    }
 
    public void e() {
-      double var1 = this.a.e(this.c.s, this.c.aT().b, this.c.u);
+      double var1 = this.a.e(this.c.s, this.c.aT().yMin, this.c.u);
       boolean var3 = this.a.v().a(this.c);
       if(var3) {
          ++this.f;
@@ -71,7 +71,7 @@ public class class_sj extends class_rm {
       if(var1 <= (double)this.j && this.f >= 20) {
          this.a.u().n();
       } else {
-         this.a.u().a((class_pr)this.c, this.e);
+         this.a.u().a((Entity)this.c, this.e);
       }
 
       this.a.q().a(this.c, 30.0F, 30.0F);

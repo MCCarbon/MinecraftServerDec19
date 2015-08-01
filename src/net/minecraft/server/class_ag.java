@@ -6,7 +6,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_om;
@@ -30,7 +30,7 @@ public class class_ag extends class_i {
       } else {
          class_om var3 = this.e(var2[0]);
          MinecraftServer.N().a(var3);
-         a(var1, this, "commands.difficulty.success", new Object[]{new class_fb(var3.b(), new Object[0])});
+         a(var1, this, "commands.difficulty.success", new Object[]{new ChatMessage(var3.b(), new Object[0])});
       }
    }
 

@@ -9,10 +9,10 @@ public class class_ajv extends Block {
    public class_ajv() {
       super(Material.SNOW_LAYER);
       this.frictionFactor = 0.98F;
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return 0;
    }
 }

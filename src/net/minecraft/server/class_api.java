@@ -10,7 +10,7 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
 import java.lang.reflect.Type;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.JsonHelper;
 
 public class class_api {
@@ -222,7 +222,7 @@ public class class_api {
             var5.F = JsonHelper.getBoolean(var4, "useLavaOceans", var5.F);
             var5.G = JsonHelper.getInt(var4, "fixedBiome", var5.G);
             if(var5.G < 38 && var5.G >= -1) {
-               if(var5.G >= class_aez.x.az) {
+               if(var5.G >= BiomeBase.x.az) {
                   var5.G += 2;
                }
             } else {

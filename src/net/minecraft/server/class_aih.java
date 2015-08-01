@@ -4,29 +4,29 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agd;
+import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aiv;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amr;
+import net.minecraft.server.BlockDirectional;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityFurnace;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anx;
+import net.minecraft.server.BlockStateDirection;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.class_ol;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 
-public class class_aih extends class_agd {
-   public static final class_anx a;
+public class class_aih extends BlockContainer {
+   public static final BlockStateDirection a;
    private final boolean b;
    private static boolean N;
 
@@ -40,16 +40,16 @@ public class class_aih extends class_agd {
       return Item.getByBlock(Blocks.FURNACE);
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
       this.e(var1, var2, var3);
    }
 
    private void e(World var1, BlockPosition var2, IBlockData var3) {
-      if(!var1.D) {
-         Block var4 = var1.p(var2.shiftNorth()).getBlock();
-         Block var5 = var1.p(var2.shiftSouth()).getBlock();
-         Block var6 = var1.p(var2.shiftWest()).getBlock();
-         Block var7 = var1.p(var2.shiftEast()).getBlock();
+      if(!var1.isClientSide) {
+         Block var4 = var1.getType(var2.north()).getBlock();
+         Block var5 = var1.getType(var2.south()).getBlock();
+         Block var6 = var1.getType(var2.west()).getBlock();
+         Block var7 = var1.getType(var2.east()).getBlock();
          EnumDirection var8 = (EnumDirection)var3.get(a);
          if(var8 == EnumDirection.NORTH && var4.isFullBlock() && !var5.isFullBlock()) {
             var8 = EnumDirection.SOUTH;
@@ -61,18 +61,18 @@ public class class_aih extends class_agd {
             var8 = EnumDirection.WEST;
          }
 
-         var1.a((BlockPosition)var2, (IBlockData)var3.set(a, var8), 2);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, var8), 2);
       }
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(var1.D) {
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+      if(var1.isClientSide) {
          return true;
       } else {
-         class_amg var11 = var1.s(var2);
-         if(var11 instanceof class_amr) {
-            var4.a((class_oj)((class_amr)var11));
-            var4.b(class_nc.Y);
+         TileEntity var11 = var1.getTileEntity(var2);
+         if(var11 instanceof TileEntityFurnace) {
+            var4.openContainer((IInventory)((TileEntityFurnace)var11));
+            var4.b(StatisticList.Y);
          }
 
          return true;
@@ -80,62 +80,62 @@ public class class_aih extends class_agd {
    }
 
    public static void a(boolean var0, World var1, BlockPosition var2) {
-      IBlockData var3 = var1.p(var2);
-      class_amg var4 = var1.s(var2);
+      IBlockData var3 = var1.getType(var2);
+      TileEntity var4 = var1.getTileEntity(var2);
       N = true;
       if(var0) {
-         var1.a((BlockPosition)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
-         var1.a((BlockPosition)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
       } else {
-         var1.a((BlockPosition)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
-         var1.a((BlockPosition)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
       }
 
       N = false;
       if(var4 != null) {
-         var4.D();
+         var4.setValid();
          var1.a(var2, var4);
       }
 
    }
 
-   public class_amg a(World var1, int var2) {
-      return new class_amr();
+   public TileEntity createTileEntity(World var1, int var2) {
+      return new TileEntityFurnace();
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.getBlockData().set(a, var8.aR().getOpposite());
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
-      var1.a((BlockPosition)var2, (IBlockData)var3.set(a, var4.aR().getOpposite()), 2);
+   public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
+      var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, var4.aR().getOpposite()), 2);
       if(var5.hasDisplayName()) {
-         class_amg var6 = var1.s(var2);
-         if(var6 instanceof class_amr) {
-            ((class_amr)var6).a(var5.getDisplayName());
+         TileEntity var6 = var1.getTileEntity(var2);
+         if(var6 instanceof TileEntityFurnace) {
+            ((TileEntityFurnace)var6).a(var5.getDisplayName());
          }
       }
 
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3) {
+   public void remove(World var1, BlockPosition var2, IBlockData var3) {
       if(!N) {
-         class_amg var4 = var1.s(var2);
-         if(var4 instanceof class_amr) {
-            class_ol.a(var1, (BlockPosition)var2, (class_amr)var4);
+         TileEntity var4 = var1.getTileEntity(var2);
+         if(var4 instanceof TileEntityFurnace) {
+            class_ol.a(var1, (BlockPosition)var2, (TileEntityFurnace)var4);
             var1.e(var2, this);
          }
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
-   public boolean Q() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, BlockPosition var2) {
-      return class_xz.a(var1.s(var2));
+   public int getRedstonePower(World var1, BlockPosition var2) {
+      return Container.a(var1.getTileEntity(var2));
    }
 
    public int getRenderType() {
@@ -155,7 +155,7 @@ public class class_aih extends class_agd {
       return ((EnumDirection)var1.get(a)).getId();
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
@@ -163,11 +163,11 @@ public class class_aih extends class_agd {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
    static {
-      a = class_aiv.O;
+      a = BlockDirectional.FACING;
    }
 }

@@ -6,20 +6,20 @@ import net.minecraft.server.class_acs;
 import net.minecraft.server.class_act;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ame;
+import net.minecraft.server.TileEntityBanner;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_yg;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_acj {
    void a(class_act var1) {
-      class_zy[] var2 = class_zy.values();
+      EnumColor[] var2 = EnumColor.values();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         class_zy var5 = var2[var4];
+         EnumColor var5 = var2[var4];
          var1.a(new ItemStack(Items.cH, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new ItemStack(Blocks.WOOL, 1, var5.a()), Character.valueOf('|'), Items.A});
       }
 
@@ -38,14 +38,14 @@ public class class_acj {
       public boolean a(class_yg var1, World var2) {
          boolean var3 = false;
 
-         for(int var4 = 0; var4 < var1.o_(); ++var4) {
-            ItemStack var5 = var1.a(var4);
+         for(int var4 = 0; var4 < var1.getSize(); ++var4) {
+            ItemStack var5 = var1.getItem(var4);
             if(var5 != null && var5.getItem() == Items.cH) {
                if(var3) {
                   return false;
                }
 
-               if(class_ame.c(var5) >= 6) {
+               if(TileEntityBanner.c(var5) >= 6) {
                   return false;
                }
 
@@ -63,8 +63,8 @@ public class class_acj {
       public ItemStack a(class_yg var1) {
          ItemStack var2 = null;
 
-         for(int var3 = 0; var3 < var1.o_(); ++var3) {
-            ItemStack var4 = var1.a(var3);
+         for(int var3 = 0; var3 < var1.getSize(); ++var3) {
+            ItemStack var4 = var1.getItem(var3);
             if(var4 != null && var4.getItem() == Items.cH) {
                var2 = var4.clone();
                var2.count = 1;
@@ -72,13 +72,13 @@ public class class_acj {
             }
          }
 
-         class_ame.class_a_in_class_ame var8 = this.c(var1);
+         TileEntityBanner.EnumBannerPattern var8 = this.c(var1);
          if(var8 != null) {
             int var9 = 0;
 
             ItemStack var6;
-            for(int var5 = 0; var5 < var1.o_(); ++var5) {
-               var6 = var1.a(var5);
+            for(int var5 = 0; var5 < var1.getSize(); ++var5) {
+               var6 = var1.getItem(var5);
                if(var6 != null && var6.getItem() == Items.aY) {
                   var9 = var6.i();
                   break;
@@ -113,10 +113,10 @@ public class class_acj {
       }
 
       public ItemStack[] b(class_yg var1) {
-         ItemStack[] var2 = new ItemStack[var1.o_()];
+         ItemStack[] var2 = new ItemStack[var1.getSize()];
 
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            ItemStack var4 = var1.a(var3);
+            ItemStack var4 = var1.getItem(var3);
             if(var4 != null && var4.getItem().r()) {
                var2[var3] = new ItemStack(var4.getItem().q());
             }
@@ -125,12 +125,12 @@ public class class_acj {
          return var2;
       }
 
-      private class_ame.class_a_in_class_ame c(class_yg var1) {
-         class_ame.class_a_in_class_ame[] var2 = class_ame.class_a_in_class_ame.values();
+      private TileEntityBanner.EnumBannerPattern c(class_yg var1) {
+         TileEntityBanner.EnumBannerPattern[] var2 = TileEntityBanner.EnumBannerPattern.values();
          int var3 = var2.length;
 
          for(int var4 = 0; var4 < var3; ++var4) {
-            class_ame.class_a_in_class_ame var5 = var2[var4];
+            TileEntityBanner.EnumBannerPattern var5 = var2[var4];
             if(var5.d()) {
                boolean var6 = true;
                int var9;
@@ -138,8 +138,8 @@ public class class_acj {
                   boolean var7 = false;
                   boolean var8 = false;
 
-                  for(var9 = 0; var9 < var1.o_() && var6; ++var9) {
-                     ItemStack var10 = var1.a(var9);
+                  for(var9 = 0; var9 < var1.getSize() && var6; ++var9) {
+                     ItemStack var10 = var1.getItem(var9);
                      if(var10 != null && var10.getItem() != Items.cH) {
                         if(var10.getItem() == Items.aY) {
                            if(var8) {
@@ -162,13 +162,13 @@ public class class_acj {
                   if(!var7) {
                      var6 = false;
                   }
-               } else if(var1.o_() == var5.c().length * var5.c()[0].length()) {
+               } else if(var1.getSize() == var5.c().length * var5.c()[0].length()) {
                   int var12 = -1;
 
-                  for(int var13 = 0; var13 < var1.o_() && var6; ++var13) {
+                  for(int var13 = 0; var13 < var1.getSize() && var6; ++var13) {
                      var9 = var13 / 3;
                      int var14 = var13 % 3;
-                     ItemStack var11 = var1.a(var13);
+                     ItemStack var11 = var1.getItem(var13);
                      if(var11 != null && var11.getItem() != Items.cH) {
                         if(var11.getItem() != Items.aY) {
                            var6 = false;
@@ -218,8 +218,8 @@ public class class_acj {
          ItemStack var3 = null;
          ItemStack var4 = null;
 
-         for(int var5 = 0; var5 < var1.o_(); ++var5) {
-            ItemStack var6 = var1.a(var5);
+         for(int var5 = 0; var5 < var1.getSize(); ++var5) {
+            ItemStack var6 = var1.getItem(var5);
             if(var6 != null) {
                if(var6.getItem() != Items.cH) {
                   return false;
@@ -229,14 +229,14 @@ public class class_acj {
                   return false;
                }
 
-               int var7 = class_ame.b(var6);
-               boolean var8 = class_ame.c(var6) > 0;
+               int var7 = TileEntityBanner.b(var6);
+               boolean var8 = TileEntityBanner.c(var6) > 0;
                if(var3 != null) {
                   if(var8) {
                      return false;
                   }
 
-                  if(var7 != class_ame.b(var3)) {
+                  if(var7 != TileEntityBanner.b(var3)) {
                      return false;
                   }
 
@@ -246,7 +246,7 @@ public class class_acj {
                      return false;
                   }
 
-                  if(var7 != class_ame.b(var4)) {
+                  if(var7 != TileEntityBanner.b(var4)) {
                      return false;
                   }
 
@@ -263,9 +263,9 @@ public class class_acj {
       }
 
       public ItemStack a(class_yg var1) {
-         for(int var2 = 0; var2 < var1.o_(); ++var2) {
-            ItemStack var3 = var1.a(var2);
-            if(var3 != null && class_ame.c(var3) > 0) {
+         for(int var2 = 0; var2 < var1.getSize(); ++var2) {
+            ItemStack var3 = var1.getItem(var2);
+            if(var3 != null && TileEntityBanner.c(var3) > 0) {
                ItemStack var4 = var3.clone();
                var4.count = 1;
                return var4;
@@ -284,14 +284,14 @@ public class class_acj {
       }
 
       public ItemStack[] b(class_yg var1) {
-         ItemStack[] var2 = new ItemStack[var1.o_()];
+         ItemStack[] var2 = new ItemStack[var1.getSize()];
 
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            ItemStack var4 = var1.a(var3);
+            ItemStack var4 = var1.getItem(var3);
             if(var4 != null) {
                if(var4.getItem().r()) {
                   var2[var3] = new ItemStack(var4.getItem().q());
-               } else if(var4.hasTag() && class_ame.c(var4) > 0) {
+               } else if(var4.hasTag() && TileEntityBanner.c(var4) > 0) {
                   var2[var3] = var4.clone();
                   var2[var3].count = 1;
                }

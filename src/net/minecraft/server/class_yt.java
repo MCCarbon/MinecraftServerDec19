@@ -3,18 +3,18 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aea;
-import net.minecraft.server.class_nc;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_yr;
 import net.minecraft.server.class_yx;
 
 public class class_yt extends class_yx {
    private final class_yr a;
-   private class_xa b;
+   private EntityHuman b;
    private int c;
    private final class_adz h;
 
-   public class_yt(class_xa var1, class_adz var2, class_yr var3, int var4, int var5, int var6) {
+   public class_yt(EntityHuman var1, class_adz var2, class_yr var3, int var4, int var5, int var6) {
       super(var3, var4, var5, var6);
       this.b = var1;
       this.h = var2;
@@ -43,15 +43,15 @@ public class class_yt extends class_yx {
       this.c = 0;
    }
 
-   public void a(class_xa var1, ItemStack var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
       class_aea var3 = this.a.i();
       if(var3 != null) {
-         ItemStack var4 = this.a.a(0);
-         ItemStack var5 = this.a.a(1);
+         ItemStack var4 = this.a.getItem(0);
+         ItemStack var5 = this.a.getItem(1);
          if(this.a(var3, var4, var5) || this.a(var3, var5, var4)) {
             this.h.a(var3);
-            var1.b(class_nc.G);
+            var1.b(StatisticList.G);
             if(var4 != null && var4.count <= 0) {
                var4 = null;
             }
@@ -60,8 +60,8 @@ public class class_yt extends class_yx {
                var5 = null;
             }
 
-            this.a.a(0, var4);
-            this.a.a(1, var5);
+            this.a.setItem(0, var4);
+            this.a.setItem(1, var5);
          }
       }
 

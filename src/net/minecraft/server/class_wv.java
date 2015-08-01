@@ -6,7 +6,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.class_adl;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aea;
@@ -18,11 +18,11 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_ob;
+import net.minecraft.server.Tuple;
 import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_ow;
@@ -30,9 +30,9 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_px;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityExperienceOrb;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qi;
@@ -56,14 +56,14 @@ import net.minecraft.server.class_st;
 import net.minecraft.server.class_tf;
 import net.minecraft.server.class_tp;
 import net.minecraft.server.class_vi;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_wd;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wq;
 import net.minecraft.server.class_wr;
 import net.minecraft.server.class_wu;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.EnumColor;
 
 public class class_wv extends class_po implements class_adz, class_wu {
    private static final int bt = class_qi.a(class_wv.class);
@@ -71,7 +71,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
    private boolean bv;
    private boolean bw;
    class_tp bs;
-   private class_xa bx;
+   private EntityHuman bx;
    private class_aeb by;
    private int bz;
    private boolean bA;
@@ -106,7 +106,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
       this.i.a(5, new class_ry(this, 0.6D));
       this.i.a(6, new class_rt(this));
       this.i.a(7, new class_sq(this));
-      this.i.a(9, new class_rp(this, class_xa.class, 3.0F, 1.0F));
+      this.i.a(9, new class_rp(this, EntityHuman.class, 3.0F, 1.0F));
       this.i.a(9, new class_st(this));
       this.i.a(9, new class_si(this, 0.6D));
       this.i.a(10, new class_rr(this, class_qb.class, 8.0F));
@@ -172,7 +172,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
                this.cL();
                this.bA = false;
                if(this.bs != null && this.bD != null) {
-                  this.o.a((class_pr)this, (byte)14);
+                  this.o.a((Entity)this, (byte)14);
                   this.bs.a(this.bD, 1);
                }
             }
@@ -184,15 +184,15 @@ public class class_wv extends class_po implements class_adz, class_wu {
       super.cc();
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       boolean var4 = var3 != null && var3.getItem() == Items.bM;
       if(!var4 && this.ai() && !this.cD() && !this.j_()) {
-         if(!this.o.D && (this.by == null || !this.by.isEmpty())) {
+         if(!this.o.isClientSide && (this.by == null || !this.by.isEmpty())) {
             this.a(var1);
             var1.a((class_adz)this);
          }
 
-         var1.b(class_nc.F);
+         var1.b(StatisticList.F);
          return true;
       } else {
          return super.a(var1, var2, var3);
@@ -217,8 +217,8 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
       NBTTagList var2 = new NBTTagList();
 
-      for(int var3 = 0; var3 < this.bI.o_(); ++var3) {
-         ItemStack var4 = this.bI.a(var3);
+      for(int var3 = 0; var3 < this.bI.getSize(); ++var3) {
+         ItemStack var4 = this.bI.getItem(var3);
          if(var4 != null) {
             var2.add((NBTTag)var4.write(new NBTTagCompound()));
          }
@@ -292,19 +292,19 @@ public class class_wv extends class_po implements class_adz, class_wu {
       return this.bw;
    }
 
-   public void b(class_qa var1) {
+   public void b(EntityLiving var1) {
       super.b(var1);
       if(this.bs != null && var1 != null) {
          this.bs.a(var1);
-         if(var1 instanceof class_xa) {
+         if(var1 instanceof EntityHuman) {
             byte var2 = -1;
             if(this.j_()) {
                var2 = -3;
             }
 
-            this.bs.a(var1.e_(), var2);
+            this.bs.a(var1.getName(), var2);
             if(this.ai()) {
-               this.o.a((class_pr)this, (byte)13);
+               this.o.a((Entity)this, (byte)13);
             }
          }
       }
@@ -313,15 +313,15 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    public void a(class_pc var1) {
       if(this.bs != null) {
-         class_pr var2 = var1.j();
+         Entity var2 = var1.j();
          if(var2 != null) {
-            if(var2 instanceof class_xa) {
-               this.bs.a(var2.e_(), -2);
+            if(var2 instanceof EntityHuman) {
+               this.bs.a(var2.getName(), -2);
             } else if(var2 instanceof class_wd) {
                this.bs.h();
             }
          } else {
-            class_xa var3 = this.o.a(this, 16.0D);
+            EntityHuman var3 = this.o.a(this, 16.0D);
             if(var3 != null) {
                this.bs.h();
             }
@@ -331,11 +331,11 @@ public class class_wv extends class_po implements class_adz, class_wu {
       super.a((class_pc)var1);
    }
 
-   public void a(class_xa var1) {
+   public void a(EntityHuman var1) {
       this.bx = var1;
    }
 
-   public class_xa v_() {
+   public EntityHuman v_() {
       return this.bx;
    }
 
@@ -347,20 +347,20 @@ public class class_wv extends class_po implements class_adz, class_wu {
       if(!this.bB && var1 && this.cG()) {
          boolean var2 = false;
 
-         for(int var3 = 0; var3 < this.bI.o_(); ++var3) {
-            ItemStack var4 = this.bI.a(var3);
+         for(int var3 = 0; var3 < this.bI.getSize(); ++var3) {
+            ItemStack var4 = this.bI.getItem(var3);
             if(var4 != null) {
                if(var4.getItem() == Items.R && var4.count >= 3) {
                   var2 = true;
-                  this.bI.a(var3, 3);
+                  this.bI.splitStack(var3, 3);
                } else if((var4.getItem() == Items.bV || var4.getItem() == Items.bU) && var4.count >= 12) {
                   var2 = true;
-                  this.bI.a(var3, 12);
+                  this.bI.splitStack(var3, 12);
                }
             }
 
             if(var2) {
-               this.o.a((class_pr)this, (byte)18);
+               this.o.a((Entity)this, (byte)18);
                this.bB = true;
                break;
             }
@@ -384,7 +384,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
          this.bA = true;
          this.bB = true;
          if(this.bx != null) {
-            this.bD = this.bx.e_();
+            this.bD = this.bx.getName();
          } else {
             this.bD = null;
          }
@@ -397,13 +397,13 @@ public class class_wv extends class_po implements class_adz, class_wu {
       }
 
       if(var1.j()) {
-         this.o.a((class_pr)(new class_px(this.o, this.s, this.t + 0.5D, this.u, var2)));
+         this.o.addEntity((Entity)(new EntityExperienceOrb(this.o, this.s, this.t + 0.5D, this.u, var2)));
       }
 
    }
 
    public void a_(ItemStack var1) {
-      if(!this.o.D && this.a_ > -this.y() + 20) {
+      if(!this.o.isClientSide && this.a_ > -this.y() + 20) {
          this.a_ = -this.y();
          if(var1 != null) {
             this.a("mob.villager.yes", this.bC(), this.bD());
@@ -414,7 +414,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    }
 
-   public class_aeb a_(class_xa var1) {
+   public class_aeb a_(EntityHuman var1) {
       if(this.by == null) {
          this.cL();
       }
@@ -451,10 +451,10 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    }
 
-   public IChatBaseComponent f_() {
+   public IChatBaseComponent getScoreboardDisplayName() {
       String var1 = this.aO();
       if(var1 != null && !var1.isEmpty()) {
-         class_fa var4 = new class_fa(var1);
+         ChatComponentText var4 = new ChatComponentText(var1);
          var4.b().a(this.aS());
          var4.b().a(this.aM().toString());
          return var4;
@@ -500,12 +500,12 @@ public class class_wv extends class_po implements class_adz, class_wu {
          }
 
          if(var2 != null) {
-            class_fb var3 = new class_fb("entity.Villager." + var2, new Object[0]);
+            ChatMessage var3 = new ChatMessage("entity.Villager." + var2, new Object[0]);
             var3.b().a(this.aS());
             var3.b().a(this.aM().toString());
             return var3;
          } else {
-            return super.f_();
+            return super.getScoreboardDisplayName();
          }
       }
    }
@@ -521,7 +521,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    public class_qd a(class_on var1, class_qd var2) {
       var2 = super.a(var1, var2);
-      this.m(this.o.s.nextInt(5));
+      this.m(this.o.random.nextInt(5));
       this.cK();
       return var2;
    }
@@ -541,17 +541,17 @@ public class class_wv extends class_po implements class_adz, class_wu {
    }
 
    public void a(class_vi var1) {
-      if(!this.o.D && !this.I) {
+      if(!this.o.isClientSide && !this.I) {
          class_wq var2 = new class_wq(this.o);
          var2.b(this.s, this.t, this.u, this.y, this.z);
          var2.a(this.o.E(new BlockPosition(var2)), (class_qd)null);
          var2.k(this.cs());
-         if(this.l_()) {
+         if(this.hasCustomName()) {
             var2.a(this.aO());
             var2.g(this.aP());
          }
 
-         this.o.a((class_pr)var2);
+         this.o.addEntity((Entity)var2);
          this.J();
       }
    }
@@ -560,7 +560,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
       return this.bI;
    }
 
-   protected void a(class_vm var1) {
+   protected void a(EntityItem var1) {
       ItemStack var2 = var1.l();
       Item var3 = var2.getItem();
       if(this.a(var3)) {
@@ -594,8 +594,8 @@ public class class_wv extends class_po implements class_adz, class_wu {
    private boolean n(int var1) {
       boolean var2 = this.cA() == 0;
 
-      for(int var3 = 0; var3 < this.bI.o_(); ++var3) {
-         ItemStack var4 = this.bI.a(var3);
+      for(int var3 = 0; var3 < this.bI.getSize(); ++var3) {
+         ItemStack var4 = this.bI.getItem(var3);
          if(var4 != null) {
             if(var4.getItem() == Items.R && var4.count >= 3 * var1 || var4.getItem() == Items.bV && var4.count >= 12 * var1 || var4.getItem() == Items.bU && var4.count >= 12 * var1) {
                return true;
@@ -611,8 +611,8 @@ public class class_wv extends class_po implements class_adz, class_wu {
    }
 
    public boolean cJ() {
-      for(int var1 = 0; var1 < this.bI.o_(); ++var1) {
-         ItemStack var2 = this.bI.a(var1);
+      for(int var1 = 0; var1 < this.bI.getSize(); ++var1) {
+         ItemStack var2 = this.bI.getItem(var1);
          if(var2 != null && (var2.getItem() == Items.P || var2.getItem() == Items.bV || var2.getItem() == Items.bU)) {
             return true;
          }
@@ -626,8 +626,8 @@ public class class_wv extends class_po implements class_adz, class_wu {
          return true;
       } else {
          int var3 = var1 - 300;
-         if(var3 >= 0 && var3 < this.bI.o_()) {
-            this.bI.a(var3, var2);
+         if(var3 >= 0 && var3 < this.bI.getSize()) {
+            this.bI.setItem(var3, var2);
             return true;
          } else {
             return false;
@@ -641,7 +641,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
    }
 
    static {
-      bJ = new class_wv.class_f_in_class_wv[][][][]{{{{new class_wv.class_a_in_class_wv(Items.Q, new class_wv.class_g_in_class_wv(18, 22)), new class_wv.class_a_in_class_wv(Items.bV, new class_wv.class_g_in_class_wv(15, 19)), new class_wv.class_a_in_class_wv(Items.bU, new class_wv.class_g_in_class_wv(15, 19)), new class_wv.class_e_in_class_wv(Items.R, new class_wv.class_g_in_class_wv(-4, -2))}, {new class_wv.class_a_in_class_wv(Item.getByBlock(Blocks.PUMPKIN), new class_wv.class_g_in_class_wv(8, 13)), new class_wv.class_e_in_class_wv(Items.cd, new class_wv.class_g_in_class_wv(-3, -2))}, {new class_wv.class_a_in_class_wv(Item.getByBlock(Blocks.MELON_BLOCK), new class_wv.class_g_in_class_wv(7, 12)), new class_wv.class_e_in_class_wv(Items.e, new class_wv.class_g_in_class_wv(-5, -7))}, {new class_wv.class_e_in_class_wv(Items.be, new class_wv.class_g_in_class_wv(-6, -10)), new class_wv.class_e_in_class_wv(Items.bb, new class_wv.class_g_in_class_wv(1, 1))}}, {{new class_wv.class_a_in_class_wv(Items.H, new class_wv.class_g_in_class_wv(15, 20)), new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_d_in_class_wv(Items.aW, new class_wv.class_g_in_class_wv(6, 6), Items.aX, new class_wv.class_g_in_class_wv(6, 6))}, {new class_wv.class_c_in_class_wv(Items.aT, new class_wv.class_g_in_class_wv(7, 8))}}, {{new class_wv.class_a_in_class_wv(Item.getByBlock(Blocks.WOOL), new class_wv.class_g_in_class_wv(16, 22)), new class_wv.class_e_in_class_wv(Items.bg, new class_wv.class_g_in_class_wv(3, 4))}, {new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL)), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 1), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 2), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 3), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 4), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 5), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 6), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 7), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 8), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 9), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 10), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 11), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 12), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 13), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 14), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 15), new class_wv.class_g_in_class_wv(1, 2))}}, {{new class_wv.class_a_in_class_wv(Items.H, new class_wv.class_g_in_class_wv(15, 20)), new class_wv.class_e_in_class_wv(Items.g, new class_wv.class_g_in_class_wv(-12, -8))}, {new class_wv.class_e_in_class_wv(Items.f, new class_wv.class_g_in_class_wv(2, 3)), new class_wv.class_d_in_class_wv(Item.getByBlock(Blocks.GRAVEL), new class_wv.class_g_in_class_wv(10, 10), Items.am, new class_wv.class_g_in_class_wv(6, 10))}}}, {{{new class_wv.class_a_in_class_wv(Items.aM, new class_wv.class_g_in_class_wv(24, 36)), new class_wv.class_b_in_class_wv()}, {new class_wv.class_a_in_class_wv(Items.aN, new class_wv.class_g_in_class_wv(8, 10)), new class_wv.class_e_in_class_wv(Items.aS, new class_wv.class_g_in_class_wv(10, 12)), new class_wv.class_e_in_class_wv(Item.getByBlock(Blocks.BOOKSHELF), new class_wv.class_g_in_class_wv(3, 4))}, {new class_wv.class_a_in_class_wv(Items.bQ, new class_wv.class_g_in_class_wv(2, 2)), new class_wv.class_e_in_class_wv(Items.aU, new class_wv.class_g_in_class_wv(10, 12)), new class_wv.class_e_in_class_wv(Item.getByBlock(Blocks.GLASS), new class_wv.class_g_in_class_wv(-5, -3))}, {new class_wv.class_b_in_class_wv()}, {new class_wv.class_b_in_class_wv()}, {new class_wv.class_e_in_class_wv(Items.cr, new class_wv.class_g_in_class_wv(20, 22))}}}, {{{new class_wv.class_a_in_class_wv(Items.bv, new class_wv.class_g_in_class_wv(36, 40)), new class_wv.class_a_in_class_wv(Items.m, new class_wv.class_g_in_class_wv(8, 10))}, {new class_wv.class_e_in_class_wv(Items.aE, new class_wv.class_g_in_class_wv(-4, -1)), new class_wv.class_e_in_class_wv(new ItemStack(Items.aY, 1, class_zy.l.b()), new class_wv.class_g_in_class_wv(-2, -1))}, {new class_wv.class_e_in_class_wv(Items.bK, new class_wv.class_g_in_class_wv(7, 11)), new class_wv.class_e_in_class_wv(Item.getByBlock(Blocks.GLOWSTONE), new class_wv.class_g_in_class_wv(-3, -1))}, {new class_wv.class_e_in_class_wv(Items.bN, new class_wv.class_g_in_class_wv(3, 11))}}}, {{{new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_e_in_class_wv(Items.aa, new class_wv.class_g_in_class_wv(4, 6))}, {new class_wv.class_a_in_class_wv(Items.l, new class_wv.class_g_in_class_wv(7, 9)), new class_wv.class_e_in_class_wv(Items.ab, new class_wv.class_g_in_class_wv(10, 14))}, {new class_wv.class_a_in_class_wv(Items.k, new class_wv.class_g_in_class_wv(3, 4)), new class_wv.class_c_in_class_wv(Items.af, new class_wv.class_g_in_class_wv(16, 19))}, {new class_wv.class_e_in_class_wv(Items.Z, new class_wv.class_g_in_class_wv(5, 7)), new class_wv.class_e_in_class_wv(Items.Y, new class_wv.class_g_in_class_wv(9, 11)), new class_wv.class_e_in_class_wv(Items.W, new class_wv.class_g_in_class_wv(5, 7)), new class_wv.class_e_in_class_wv(Items.X, new class_wv.class_g_in_class_wv(11, 15))}}, {{new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_e_in_class_wv(Items.c, new class_wv.class_g_in_class_wv(6, 8))}, {new class_wv.class_a_in_class_wv(Items.l, new class_wv.class_g_in_class_wv(7, 9)), new class_wv.class_c_in_class_wv(Items.n, new class_wv.class_g_in_class_wv(9, 10))}, {new class_wv.class_a_in_class_wv(Items.k, new class_wv.class_g_in_class_wv(3, 4)), new class_wv.class_c_in_class_wv(Items.w, new class_wv.class_g_in_class_wv(12, 15)), new class_wv.class_c_in_class_wv(Items.z, new class_wv.class_g_in_class_wv(9, 12))}}, {{new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_c_in_class_wv(Items.a, new class_wv.class_g_in_class_wv(5, 7))}, {new class_wv.class_a_in_class_wv(Items.l, new class_wv.class_g_in_class_wv(7, 9)), new class_wv.class_c_in_class_wv(Items.b, new class_wv.class_g_in_class_wv(9, 11))}, {new class_wv.class_a_in_class_wv(Items.k, new class_wv.class_g_in_class_wv(3, 4)), new class_wv.class_c_in_class_wv(Items.y, new class_wv.class_g_in_class_wv(12, 15))}}}, {{{new class_wv.class_a_in_class_wv(Items.an, new class_wv.class_g_in_class_wv(14, 18)), new class_wv.class_a_in_class_wv(Items.bm, new class_wv.class_g_in_class_wv(14, 18))}, {new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_e_in_class_wv(Items.ao, new class_wv.class_g_in_class_wv(-7, -5)), new class_wv.class_e_in_class_wv(Items.bn, new class_wv.class_g_in_class_wv(-8, -6))}}, {{new class_wv.class_a_in_class_wv(Items.aH, new class_wv.class_g_in_class_wv(9, 12)), new class_wv.class_e_in_class_wv(Items.U, new class_wv.class_g_in_class_wv(2, 4))}, {new class_wv.class_c_in_class_wv(Items.T, new class_wv.class_g_in_class_wv(7, 12))}, {new class_wv.class_e_in_class_wv(Items.aC, new class_wv.class_g_in_class_wv(8, 10))}}}};
+      bJ = new class_wv.class_f_in_class_wv[][][][]{{{{new class_wv.class_a_in_class_wv(Items.Q, new class_wv.class_g_in_class_wv(18, 22)), new class_wv.class_a_in_class_wv(Items.bV, new class_wv.class_g_in_class_wv(15, 19)), new class_wv.class_a_in_class_wv(Items.bU, new class_wv.class_g_in_class_wv(15, 19)), new class_wv.class_e_in_class_wv(Items.R, new class_wv.class_g_in_class_wv(-4, -2))}, {new class_wv.class_a_in_class_wv(Item.getByBlock(Blocks.PUMPKIN), new class_wv.class_g_in_class_wv(8, 13)), new class_wv.class_e_in_class_wv(Items.cd, new class_wv.class_g_in_class_wv(-3, -2))}, {new class_wv.class_a_in_class_wv(Item.getByBlock(Blocks.MELON_BLOCK), new class_wv.class_g_in_class_wv(7, 12)), new class_wv.class_e_in_class_wv(Items.e, new class_wv.class_g_in_class_wv(-5, -7))}, {new class_wv.class_e_in_class_wv(Items.be, new class_wv.class_g_in_class_wv(-6, -10)), new class_wv.class_e_in_class_wv(Items.bb, new class_wv.class_g_in_class_wv(1, 1))}}, {{new class_wv.class_a_in_class_wv(Items.H, new class_wv.class_g_in_class_wv(15, 20)), new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_d_in_class_wv(Items.aW, new class_wv.class_g_in_class_wv(6, 6), Items.aX, new class_wv.class_g_in_class_wv(6, 6))}, {new class_wv.class_c_in_class_wv(Items.aT, new class_wv.class_g_in_class_wv(7, 8))}}, {{new class_wv.class_a_in_class_wv(Item.getByBlock(Blocks.WOOL), new class_wv.class_g_in_class_wv(16, 22)), new class_wv.class_e_in_class_wv(Items.bg, new class_wv.class_g_in_class_wv(3, 4))}, {new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL)), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 1), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 2), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 3), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 4), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 5), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 6), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 7), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 8), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 9), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 10), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 11), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 12), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 13), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 14), new class_wv.class_g_in_class_wv(1, 2)), new class_wv.class_e_in_class_wv(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, 15), new class_wv.class_g_in_class_wv(1, 2))}}, {{new class_wv.class_a_in_class_wv(Items.H, new class_wv.class_g_in_class_wv(15, 20)), new class_wv.class_e_in_class_wv(Items.g, new class_wv.class_g_in_class_wv(-12, -8))}, {new class_wv.class_e_in_class_wv(Items.f, new class_wv.class_g_in_class_wv(2, 3)), new class_wv.class_d_in_class_wv(Item.getByBlock(Blocks.GRAVEL), new class_wv.class_g_in_class_wv(10, 10), Items.am, new class_wv.class_g_in_class_wv(6, 10))}}}, {{{new class_wv.class_a_in_class_wv(Items.aM, new class_wv.class_g_in_class_wv(24, 36)), new class_wv.class_b_in_class_wv()}, {new class_wv.class_a_in_class_wv(Items.aN, new class_wv.class_g_in_class_wv(8, 10)), new class_wv.class_e_in_class_wv(Items.aS, new class_wv.class_g_in_class_wv(10, 12)), new class_wv.class_e_in_class_wv(Item.getByBlock(Blocks.BOOKSHELF), new class_wv.class_g_in_class_wv(3, 4))}, {new class_wv.class_a_in_class_wv(Items.bQ, new class_wv.class_g_in_class_wv(2, 2)), new class_wv.class_e_in_class_wv(Items.aU, new class_wv.class_g_in_class_wv(10, 12)), new class_wv.class_e_in_class_wv(Item.getByBlock(Blocks.GLASS), new class_wv.class_g_in_class_wv(-5, -3))}, {new class_wv.class_b_in_class_wv()}, {new class_wv.class_b_in_class_wv()}, {new class_wv.class_e_in_class_wv(Items.cr, new class_wv.class_g_in_class_wv(20, 22))}}}, {{{new class_wv.class_a_in_class_wv(Items.bv, new class_wv.class_g_in_class_wv(36, 40)), new class_wv.class_a_in_class_wv(Items.m, new class_wv.class_g_in_class_wv(8, 10))}, {new class_wv.class_e_in_class_wv(Items.aE, new class_wv.class_g_in_class_wv(-4, -1)), new class_wv.class_e_in_class_wv(new ItemStack(Items.aY, 1, EnumColor.l.b()), new class_wv.class_g_in_class_wv(-2, -1))}, {new class_wv.class_e_in_class_wv(Items.bK, new class_wv.class_g_in_class_wv(7, 11)), new class_wv.class_e_in_class_wv(Item.getByBlock(Blocks.GLOWSTONE), new class_wv.class_g_in_class_wv(-3, -1))}, {new class_wv.class_e_in_class_wv(Items.bN, new class_wv.class_g_in_class_wv(3, 11))}}}, {{{new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_e_in_class_wv(Items.aa, new class_wv.class_g_in_class_wv(4, 6))}, {new class_wv.class_a_in_class_wv(Items.l, new class_wv.class_g_in_class_wv(7, 9)), new class_wv.class_e_in_class_wv(Items.ab, new class_wv.class_g_in_class_wv(10, 14))}, {new class_wv.class_a_in_class_wv(Items.k, new class_wv.class_g_in_class_wv(3, 4)), new class_wv.class_c_in_class_wv(Items.af, new class_wv.class_g_in_class_wv(16, 19))}, {new class_wv.class_e_in_class_wv(Items.Z, new class_wv.class_g_in_class_wv(5, 7)), new class_wv.class_e_in_class_wv(Items.Y, new class_wv.class_g_in_class_wv(9, 11)), new class_wv.class_e_in_class_wv(Items.W, new class_wv.class_g_in_class_wv(5, 7)), new class_wv.class_e_in_class_wv(Items.X, new class_wv.class_g_in_class_wv(11, 15))}}, {{new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_e_in_class_wv(Items.c, new class_wv.class_g_in_class_wv(6, 8))}, {new class_wv.class_a_in_class_wv(Items.l, new class_wv.class_g_in_class_wv(7, 9)), new class_wv.class_c_in_class_wv(Items.n, new class_wv.class_g_in_class_wv(9, 10))}, {new class_wv.class_a_in_class_wv(Items.k, new class_wv.class_g_in_class_wv(3, 4)), new class_wv.class_c_in_class_wv(Items.w, new class_wv.class_g_in_class_wv(12, 15)), new class_wv.class_c_in_class_wv(Items.z, new class_wv.class_g_in_class_wv(9, 12))}}, {{new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_c_in_class_wv(Items.a, new class_wv.class_g_in_class_wv(5, 7))}, {new class_wv.class_a_in_class_wv(Items.l, new class_wv.class_g_in_class_wv(7, 9)), new class_wv.class_c_in_class_wv(Items.b, new class_wv.class_g_in_class_wv(9, 11))}, {new class_wv.class_a_in_class_wv(Items.k, new class_wv.class_g_in_class_wv(3, 4)), new class_wv.class_c_in_class_wv(Items.y, new class_wv.class_g_in_class_wv(12, 15))}}}, {{{new class_wv.class_a_in_class_wv(Items.an, new class_wv.class_g_in_class_wv(14, 18)), new class_wv.class_a_in_class_wv(Items.bm, new class_wv.class_g_in_class_wv(14, 18))}, {new class_wv.class_a_in_class_wv(Items.j, new class_wv.class_g_in_class_wv(16, 24)), new class_wv.class_e_in_class_wv(Items.ao, new class_wv.class_g_in_class_wv(-7, -5)), new class_wv.class_e_in_class_wv(Items.bn, new class_wv.class_g_in_class_wv(-8, -6))}}, {{new class_wv.class_a_in_class_wv(Items.aH, new class_wv.class_g_in_class_wv(9, 12)), new class_wv.class_e_in_class_wv(Items.U, new class_wv.class_g_in_class_wv(2, 4))}, {new class_wv.class_c_in_class_wv(Items.T, new class_wv.class_g_in_class_wv(7, 12))}, {new class_wv.class_e_in_class_wv(Items.aC, new class_wv.class_g_in_class_wv(8, 10))}}}};
    }
 
    static class class_d_in_class_wv implements class_wv.class_f_in_class_wv {
@@ -703,7 +703,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
          ItemStack var4 = new ItemStack(Items.bR, var3, 0);
          ItemStack var5 = new ItemStack(this.a.getItem(), 1, this.a.i());
-         var5 = class_adk.a(var2, var5, 5 + var2.nextInt(15));
+         var5 = EnchantmentManager.a(var2, var5, 5 + var2.nextInt(15));
          var1.add(new class_aea(var4, var5));
       }
    }
@@ -765,13 +765,13 @@ public class class_wv extends class_po implements class_adz, class_wu {
       void a(class_aeb var1, Random var2);
    }
 
-   static class class_g_in_class_wv extends class_ob {
+   static class class_g_in_class_wv extends Tuple {
       public class_g_in_class_wv(int var1, int var2) {
          super(Integer.valueOf(var1), Integer.valueOf(var2));
       }
 
       public int a(Random var1) {
-         return ((Integer)this.a()).intValue() >= ((Integer)this.b()).intValue()?((Integer)this.a()).intValue():((Integer)this.a()).intValue() + var1.nextInt(((Integer)this.b()).intValue() - ((Integer)this.a()).intValue() + 1);
+         return ((Integer)this.getObject1()).intValue() >= ((Integer)this.getObject2()).intValue()?((Integer)this.getObject1()).intValue():((Integer)this.getObject1()).intValue() + var1.nextInt(((Integer)this.getObject2()).intValue() - ((Integer)this.getObject1()).intValue() + 1);
       }
    }
 }

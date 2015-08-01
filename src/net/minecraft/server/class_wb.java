@@ -15,18 +15,18 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pe;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
@@ -42,7 +42,7 @@ import net.minecraft.server.class_sz;
 import net.minecraft.server.class_wc;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_wb extends class_wi {
    private static final UUID a = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
@@ -61,7 +61,7 @@ public class class_wb extends class_wi {
       this.i.a(0, new class_rj(this));
       this.i.a(2, new class_ru(this, 1.0D, false));
       this.i.a(7, new class_si(this, 1.0D));
-      this.i.a(8, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(8, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(8, new class_sh(this));
       this.i.a(10, new class_wb.class_a_in_class_wb(this));
       this.i.a(11, new class_wb.class_c_in_class_wb(this));
@@ -117,13 +117,13 @@ public class class_wb extends class_wi {
       this.a(var2);
    }
 
-   private boolean a(class_xa var1) {
+   private boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bp.b[3];
       if(var2 != null && var2.getItem() == Item.getByBlock(Blocks.PUMPKIN)) {
          return false;
       } else {
          Vec3D var3 = var1.d(1.0F).normalize();
-         Vec3D var4 = new Vec3D(this.s - var1.s, this.aT().b + (double)(this.K / 2.0F) - (var1.t + (double)var1.aU()), this.u - var1.u);
+         Vec3D var4 = new Vec3D(this.s - var1.s, this.aT().yMin + (double)(this.K / 2.0F) - (var1.t + (double)var1.aU()), this.u - var1.u);
          double var5 = var4.length();
          var4 = var4.normalize();
          double var7 = var3.dotProduct(var4);
@@ -136,7 +136,7 @@ public class class_wb extends class_wi {
    }
 
    public void m() {
-      if(this.o.D) {
+      if(this.o.isClientSide) {
          for(int var1 = 0; var1 < 2; ++var1) {
             this.o.a(class_cy.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K - 0.25D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
@@ -158,7 +158,7 @@ public class class_wb extends class_wi {
       if(this.o.x()) {
          float var1 = this.c(1.0F);
          if(var1 > 0.5F && this.o.i(new BlockPosition(this)) && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
-            this.d((class_qa)null);
+            this.d((EntityLiving)null);
             this.a(false);
             this.bw = false;
             this.n();
@@ -175,8 +175,8 @@ public class class_wb extends class_wi {
       return a(this, var1, var3, var5);
    }
 
-   protected boolean b(class_pr var1) {
-      Vec3D var2 = new Vec3D(this.s - var1.s, this.aT().b + (double)(this.K / 2.0F) - var1.t + (double)var1.aU(), this.u - var1.u);
+   protected boolean b(Entity var1) {
+      Vec3D var2 = new Vec3D(this.s - var1.s, this.aT().yMin + (double)(this.K / 2.0F) - var1.t + (double)var1.aU(), this.u - var1.u);
       var2 = var2.normalize();
       double var3 = 16.0D;
       double var5 = this.s + (this.V.nextDouble() - 0.5D) * 8.0D - var2.x * var3;
@@ -185,7 +185,7 @@ public class class_wb extends class_wi {
       return a(this, var5, var7, var9);
    }
 
-   public static boolean a(class_qa var0, double var1, double var3, double var5) {
+   public static boolean a(EntityLiving var0, double var1, double var3, double var5) {
       double var7 = var0.s;
       double var9 = var0.t;
       double var11 = var0.u;
@@ -200,8 +200,8 @@ public class class_wb extends class_wi {
          boolean var17 = false;
 
          while(!var17 && var14.getY() > 0) {
-            BlockPosition var18 = var14.shiftDown();
-            Block var19 = var15.p(var18).getBlock();
+            BlockPosition var18 = var14.down();
+            Block var19 = var15.getType(var18).getBlock();
             if(var19.getMaterial().isSolid()) {
                var17 = true;
             } else {
@@ -212,7 +212,7 @@ public class class_wb extends class_wi {
 
          if(var17) {
             var0.a(var0.s, var0.t, var0.u);
-            if(var15.a((class_pr)var0, (class_awf)var0.aT()).isEmpty() && !var15.d(var0.aT())) {
+            if(var15.a((Entity)var0, (AxisAlignedBB)var0.aT()).isEmpty() && !var15.d(var0.aT())) {
                var13 = true;
             }
          }
@@ -287,12 +287,12 @@ public class class_wb extends class_wi {
          return false;
       } else {
          if(var1.j() == null || !(var1.j() instanceof class_wc)) {
-            if(!this.o.D) {
+            if(!this.o.isClientSide) {
                this.a(true);
             }
 
-            if(var1 instanceof class_pd && var1.j() instanceof class_xa) {
-               if(var1.j() instanceof class_lh && ((class_lh)var1.j()).c.d()) {
+            if(var1 instanceof class_pd && var1.j() instanceof EntityHuman) {
+               if(var1.j() instanceof EntityPlayer && ((EntityPlayer)var1.j()).c.d()) {
                   this.a(false);
                } else {
                   this.bw = true;
@@ -370,11 +370,11 @@ public class class_wb extends class_wi {
          int var4 = MathHelper.floor(this.a.t + var1.nextDouble() * 3.0D);
          int var5 = MathHelper.floor(this.a.u - 2.0D + var1.nextDouble() * 4.0D);
          BlockPosition var6 = new BlockPosition(var3, var4, var5);
-         IBlockData var7 = var2.p(var6);
+         IBlockData var7 = var2.getType(var6);
          Block var8 = var7.getBlock();
          if(class_wb.c.contains(var8)) {
             this.a.a(var7);
-            var2.a(var6, class_wb.bs);
+            var2.setTypeUpdate(var6, class_wb.bs);
          }
 
       }
@@ -398,39 +398,39 @@ public class class_wb extends class_wi {
          int var4 = MathHelper.floor(this.a.t + var1.nextDouble() * 2.0D);
          int var5 = MathHelper.floor(this.a.u - 1.0D + var1.nextDouble() * 2.0D);
          BlockPosition var6 = new BlockPosition(var3, var4, var5);
-         Block var7 = var2.p(var6).getBlock();
-         Block var8 = var2.p(var6.shiftDown()).getBlock();
+         Block var7 = var2.getType(var6).getBlock();
+         Block var8 = var2.getType(var6.down()).getBlock();
          if(this.a(var2, var6, this.a.cB().getBlock(), var7, var8)) {
-            var2.a((BlockPosition)var6, (IBlockData)this.a.cB(), 3);
+            var2.setTypeAndData((BlockPosition)var6, (IBlockData)this.a.cB(), 3);
             this.a.a(class_wb.bs);
          }
 
       }
 
       private boolean a(World var1, BlockPosition var2, Block var3, Block var4, Block var5) {
-         return !var3.d(var1, var2)?false:(var4.getMaterial() != Material.AIR?false:(var5.getMaterial() == Material.AIR?false:var5.isFullCube()));
+         return !var3.canPlace(var1, var2)?false:(var4.getMaterial() != Material.AIR?false:(var5.getMaterial() == Material.AIR?false:var5.isFullCube()));
       }
    }
 
    static class class_b_in_class_wb extends class_sz {
-      private class_xa g;
+      private EntityHuman g;
       private int h;
       private int i;
       private class_wb j;
 
       public class_b_in_class_wb(class_wb var1) {
-         super(var1, class_xa.class, true);
+         super(var1, EntityHuman.class, true);
          this.j = var1;
       }
 
       public boolean a() {
          double var1 = this.f();
-         List var3 = this.e.o.a(class_xa.class, this.e.aT().b(var1, 4.0D, var1), this.c);
+         List var3 = this.e.o.a(EntityHuman.class, this.e.aT().grow(var1, 4.0D, var1), this.c);
          Collections.sort(var3, this.b);
          if(var3.isEmpty()) {
             return false;
          } else {
-            this.g = (class_xa)var3.get(0);
+            this.g = (EntityHuman)var3.get(0);
             return true;
          }
       }
@@ -475,13 +475,13 @@ public class class_wb extends class_wi {
             }
          } else {
             if(this.d != null) {
-               if(this.d instanceof class_xa && this.j.a((class_xa)this.d)) {
+               if(this.d instanceof EntityHuman && this.j.a((EntityHuman)this.d)) {
                   if(this.d.h(this.j) < 16.0D) {
                      this.j.n();
                   }
 
                   this.i = 0;
-               } else if(this.d.h(this.j) > 256.0D && this.i++ >= 30 && this.j.b((class_pr)this.d)) {
+               } else if(this.d.h(this.j) > 256.0D && this.i++ >= 30 && this.j.b((Entity)this.d)) {
                   this.i = 0;
                }
             }

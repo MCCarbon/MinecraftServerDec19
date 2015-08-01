@@ -44,7 +44,7 @@ public class class_ant implements Predicate {
    }
 
    public class_ant a(IBlockState var1, Predicate var2) {
-      if(!this.a.d().contains(var1)) {
+      if(!this.a.getStates().contains(var1)) {
          throw new IllegalArgumentException(this.a + " cannot support property " + var1);
       } else {
          this.b.put(var1, var2);

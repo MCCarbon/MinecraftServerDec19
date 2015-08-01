@@ -9,7 +9,7 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pt;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 
 public class PacketPlayOutSpawnEntityLiving implements Packet {
@@ -31,7 +31,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
    public PacketPlayOutSpawnEntityLiving() {
    }
 
-   public PacketPlayOutSpawnEntityLiving(class_qa var1) {
+   public PacketPlayOutSpawnEntityLiving(EntityLiving var1) {
       this.a = var1.getId();
       this.b = var1.aM();
       this.c = (byte)class_pt.a(var1);
@@ -43,7 +43,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
       this.l = (byte)((int)(var1.aN * 256.0F / 360.0F));
       double var2 = 3.9D;
       double var4 = var1.v;
-      double var6 = var1.w;
+      double var6 = var1.motY;
       double var8 = var1.x;
       if(var4 < -var2) {
          var4 = -var2;

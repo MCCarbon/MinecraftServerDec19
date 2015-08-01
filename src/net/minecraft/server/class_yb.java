@@ -5,17 +5,17 @@ import java.util.Map;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aga;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.class_ow;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_ye;
 import net.minecraft.server.class_yv;
 import net.minecraft.server.class_yx;
@@ -23,13 +23,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_yb extends class_xz {
+public class class_yb extends Container {
    private static final Logger f = LogManager.getLogger();
-   private class_oj g = new class_yv();
-   private class_oj h = new class_ow("Repair", true, 2) {
-      public void p_() {
-         super.p_();
-         class_yb.this.a((class_oj)this);
+   private IInventory g = new class_yv();
+   private IInventory h = new class_ow("Repair", true, 2) {
+      public void update() {
+         super.update();
+         class_yb.this.a((IInventory)this);
       }
    };
    private World i;
@@ -37,9 +37,9 @@ public class class_yb extends class_xz {
    public int a;
    private int k;
    private String l;
-   private final class_xa m;
+   private final EntityHuman m;
 
-   public class_yb(class_wz var1, final World var2, final BlockPosition var3, class_xa var4) {
+   public class_yb(PlayerInventory var1, final World var2, final BlockPosition var3, EntityHuman var4) {
       this.j = var3;
       this.i = var2;
       this.m = var4;
@@ -50,41 +50,41 @@ public class class_yb extends class_xz {
             return false;
          }
 
-         public boolean a(class_xa var1) {
+         public boolean a(EntityHuman var1) {
             return (var1.bH.instabuild || var1.bI >= class_yb.this.a) && class_yb.this.a > 0 && this.e();
          }
 
-         public void a(class_xa var1, ItemStack var2x) {
+         public void a(EntityHuman var1, ItemStack var2x) {
             if(!var1.bH.instabuild) {
                var1.a(-class_yb.this.a);
             }
 
-            class_yb.this.h.a(0, (ItemStack)null);
+            class_yb.this.h.setItem(0, (ItemStack)null);
             if(class_yb.this.k > 0) {
-               ItemStack var3x = class_yb.this.h.a(1);
+               ItemStack var3x = class_yb.this.h.getItem(1);
                if(var3x != null && var3x.count > class_yb.this.k) {
                   var3x.count -= class_yb.this.k;
-                  class_yb.this.h.a(1, var3x);
+                  class_yb.this.h.setItem(1, var3x);
                } else {
-                  class_yb.this.h.a(1, (ItemStack)null);
+                  class_yb.this.h.setItem(1, (ItemStack)null);
                }
             } else {
-               class_yb.this.h.a(1, (ItemStack)null);
+               class_yb.this.h.setItem(1, (ItemStack)null);
             }
 
             class_yb.this.a = 0;
-            IBlockData var5 = var2.p(var3);
-            if(!var1.bH.instabuild && !var2.D && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
+            IBlockData var5 = var2.getType(var3);
+            if(!var1.bH.instabuild && !var2.isClientSide && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
                int var4 = ((Integer)var5.get(class_aga.b)).intValue();
                ++var4;
                if(var4 > 2) {
-                  var2.g(var3);
+                  var2.setAir(var3);
                   var2.b(1020, var3, 0);
                } else {
-                  var2.a((BlockPosition)var3, (IBlockData)var5.set(class_aga.b, Integer.valueOf(var4)), 2);
+                  var2.setTypeAndData((BlockPosition)var3, (IBlockData)var5.set(class_aga.b, Integer.valueOf(var4)), 2);
                   var2.b(1021, var3, 0);
                }
-            } else if(!var2.D) {
+            } else if(!var2.isClientSide) {
                var2.b(1021, var3, 0);
             }
 
@@ -104,7 +104,7 @@ public class class_yb extends class_xz {
 
    }
 
-   public void a(class_oj var1) {
+   public void a(IInventory var1) {
       super.a(var1);
       if(var1 == this.h) {
          this.e();
@@ -113,18 +113,18 @@ public class class_yb extends class_xz {
    }
 
    public void e() {
-      ItemStack var1 = this.h.a(0);
+      ItemStack var1 = this.h.getItem(0);
       this.a = 1;
       int var2 = 0;
       byte var3 = 0;
       byte var4 = 0;
       if(var1 == null) {
-         this.g.a(0, (ItemStack)null);
+         this.g.setItem(0, (ItemStack)null);
          this.a = 0;
       } else {
          ItemStack var5 = var1.clone();
-         ItemStack var6 = this.h.a(1);
-         Map var7 = class_adk.a(var5);
+         ItemStack var6 = this.h.getItem(1);
+         Map var7 = EnchantmentManager.a(var5);
          int var17 = var3 + var1.getRepairCost() + (var6 == null?0:var6.getRepairCost());
          this.k = 0;
          if(var6 != null) {
@@ -135,7 +135,7 @@ public class class_yb extends class_xz {
             if(var5.e() && var5.getItem().a(var1, var6)) {
                var9 = Math.min(var5.h(), var5.j() / 4);
                if(var9 <= 0) {
-                  this.g.a(0, (ItemStack)null);
+                  this.g.setItem(0, (ItemStack)null);
                   this.a = 0;
                   return;
                }
@@ -150,7 +150,7 @@ public class class_yb extends class_xz {
                this.k = var10;
             } else {
                if(!var8 && (var5.getItem() != var6.getItem() || !var5.e())) {
-                  this.g.a(0, (ItemStack)null);
+                  this.g.setItem(0, (ItemStack)null);
                   this.a = 0;
                   return;
                }
@@ -173,7 +173,7 @@ public class class_yb extends class_xz {
                   }
                }
 
-               Map var19 = class_adk.a(var6);
+               Map var19 = EnchantmentManager.a(var6);
                Iterator var20 = var19.keySet().iterator();
 
                label144:
@@ -269,10 +269,10 @@ public class class_yb extends class_xz {
 
             var18 = var18 * 2 + 1;
             var5.setRepairCost(var18);
-            class_adk.a(var7, var5);
+            EnchantmentManager.a(var7, var5);
          }
 
-         this.g.a(0, var5);
+         this.g.setItem(0, var5);
          this.b();
       }
    }
@@ -282,11 +282,11 @@ public class class_yb extends class_xz {
       var1.a(this, 0, this.a);
    }
 
-   public void b(class_xa var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
-      if(!this.i.D) {
-         for(int var2 = 0; var2 < this.h.o_(); ++var2) {
-            ItemStack var3 = this.h.b(var2);
+      if(!this.i.isClientSide) {
+         for(int var2 = 0; var2 < this.h.getSize(); ++var2) {
+            ItemStack var3 = this.h.splitWithoutUpdate(var2);
             if(var3 != null) {
                var1.a(var3, false);
             }
@@ -295,11 +295,11 @@ public class class_yb extends class_xz {
       }
    }
 
-   public boolean a(class_xa var1) {
-      return this.i.p(this.j).getBlock() != Blocks.ANVIL?false:var1.e((double)this.j.getX() + 0.5D, (double)this.j.getY() + 0.5D, (double)this.j.getZ() + 0.5D) <= 64.0D;
+   public boolean a(EntityHuman var1) {
+      return this.i.getType(this.j).getBlock() != Blocks.ANVIL?false:var1.e((double)this.j.getX() + 0.5D, (double)this.j.getY() + 0.5D, (double)this.j.getZ() + 0.5D) <= 64.0D;
    }
 
-   public ItemStack b(class_xa var1, int var2) {
+   public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_uj;
 import net.minecraft.server.class_wv;
@@ -22,7 +22,7 @@ public class class_sc extends class_rm {
       } else if(this.a.bd().nextInt(8000) != 0) {
          return false;
       } else {
-         this.b = (class_wv)this.a.o.a((Class)class_wv.class, (class_awf)this.a.aT().b(6.0D, 2.0D, 6.0D), (class_pr)this.a);
+         this.b = (class_wv)this.a.o.a((Class)class_wv.class, (AxisAlignedBB)this.a.aT().grow(6.0D, 2.0D, 6.0D), (Entity)this.a);
          return this.b != null;
       }
    }

@@ -8,7 +8,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.NBTTagCompound;
@@ -16,8 +16,8 @@ import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qj;
@@ -38,7 +38,7 @@ import net.minecraft.server.class_tf;
 import net.minecraft.server.class_tw;
 import net.minecraft.server.class_tx;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_uc extends class_qj {
    private static final int bw = class_qi.a(class_uc.class);
@@ -58,7 +58,7 @@ public class class_uc extends class_qj {
       this.i.a(8, new class_sa(this));
       this.i.a(9, new class_re(this, 0.8D));
       this.i.a(10, new class_si(this, 0.8D));
-      this.i.a(11, new class_rr(this, class_xa.class, 10.0F));
+      this.i.a(11, new class_rr(this, EntityHuman.class, 10.0F));
       this.bn.a(1, new class_ta(this, class_tx.class, false, (Predicate)null));
    }
 
@@ -130,8 +130,8 @@ public class class_uc extends class_qj {
       return Items.aH;
    }
 
-   public boolean r(class_pr var1) {
-      return var1.a(class_pc.a((class_qa)this), 3.0F);
+   public boolean r(Entity var1) {
+      return var1.a(class_pc.a((EntityLiving)this), 3.0F);
    }
 
    public boolean a(class_pc var1, float var2) {
@@ -146,9 +146,9 @@ public class class_uc extends class_qj {
    protected void b(boolean var1, int var2) {
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(this.cA()) {
-         if(this.e(var1) && !this.o.D && !this.d(var3)) {
+         if(this.e(var1) && !this.o.isClientSide && !this.d(var3)) {
             this.bu.a(!this.cC());
          }
       } else if(this.by.f() && var3 != null && var3.getItem() == Items.aW && var1.h(this) < 9.0D) {
@@ -156,17 +156,17 @@ public class class_uc extends class_qj {
             --var3.count;
          }
 
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             if(this.V.nextInt(3) == 0) {
                this.n(true);
-               this.m(1 + this.o.s.nextInt(3));
+               this.m(1 + this.o.random.nextInt(3));
                this.b((String)var1.aM().toString());
                this.m(true);
                this.bu.a(true);
-               this.o.a((class_pr)this, (byte)7);
+               this.o.a((Entity)this, (byte)7);
             } else {
                this.m(false);
-               this.o.a((class_pr)this, (byte)6);
+               this.o.a((Entity)this, (byte)6);
             }
          }
 
@@ -213,17 +213,17 @@ public class class_uc extends class_qj {
    }
 
    public boolean cf() {
-      return this.o.s.nextInt(3) != 0;
+      return this.o.random.nextInt(3) != 0;
    }
 
    public boolean cg() {
-      if(this.o.a((class_awf)this.aT(), (class_pr)this) && this.o.a((class_pr)this, (class_awf)this.aT()).isEmpty() && !this.o.d(this.aT())) {
-         BlockPosition var1 = new BlockPosition(this.s, this.aT().b, this.u);
+      if(this.o.a((AxisAlignedBB)this.aT(), (Entity)this) && this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.o.d(this.aT())) {
+         BlockPosition var1 = new BlockPosition(this.s, this.aT().yMin, this.u);
          if(var1.getY() < this.o.G()) {
             return false;
          }
 
-         Block var2 = this.o.p(var1.shiftDown()).getBlock();
+         Block var2 = this.o.getType(var1.down()).getBlock();
          if(var2 == Blocks.GRASS || var2.getMaterial() == Material.LEAVES) {
             return true;
          }
@@ -232,8 +232,8 @@ public class class_uc extends class_qj {
       return false;
    }
 
-   public String e_() {
-      return this.l_()?this.aO():(this.cA()?LocaleI18n.get("entity.Cat.name"):super.e_());
+   public String getName() {
+      return this.hasCustomName()?this.aO():(this.cA()?LocaleI18n.get("entity.Cat.name"):super.getName());
    }
 
    public void n(boolean var1) {
@@ -242,7 +242,7 @@ public class class_uc extends class_qj {
 
    protected void cB() {
       if(this.bx == null) {
-         this.bx = new class_rb(this, class_xa.class, 16.0F, 0.8D, 1.33D);
+         this.bx = new class_rb(this, EntityHuman.class, 16.0F, 0.8D, 1.33D);
       }
 
       this.i.a((class_rm)this.bx);
@@ -254,12 +254,12 @@ public class class_uc extends class_qj {
 
    public class_qd a(class_on var1, class_qd var2) {
       var2 = super.a(var1, var2);
-      if(this.o.s.nextInt(7) == 0) {
+      if(this.o.random.nextInt(7) == 0) {
          for(int var3 = 0; var3 < 2; ++var3) {
             class_uc var4 = new class_uc(this.o);
             var4.b(this.s, this.t, this.u, this.y, 0.0F);
             var4.b(-24000);
-            this.o.a((class_pr)var4);
+            this.o.addEntity((Entity)var4);
          }
       }
 

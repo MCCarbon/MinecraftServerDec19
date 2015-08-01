@@ -16,30 +16,30 @@ import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.class_afx;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_anb;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityEnderPortal;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ano;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.class_anq;
 import net.minecraft.server.class_ans;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aqi;
 import net.minecraft.server.class_aqk;
 import net.minecraft.server.class_ari;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagInt;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_le;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_oh;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pv;
 import net.minecraft.server.class_uq;
 import net.minecraft.server.class_ur;
@@ -63,7 +63,7 @@ public class class_apc {
    private boolean n;
 
    public class_apc(WorldServer var1, NBTTagCompound var2) {
-      this.c = new class_le(new class_fb("entity.EnderDragon.name", new Object[0]), class_oh.class_a_in_class_oh.a, class_oh.class_b_in_class_oh.a, false, true);
+      this.c = new class_le(new ChatMessage("entity.EnderDragon.name", new Object[0]), class_oh.class_a_in_class_oh.a, class_oh.class_b_in_class_oh.a, false, true);
       this.e = Lists.newArrayList();
       this.g = 0;
       this.h = 0;
@@ -179,12 +179,12 @@ public class class_apc {
    private boolean f() {
       for(int var1 = 0; var1 < 8; ++var1) {
          for(int var2 = 0; var2 < 8; ++var2) {
-            class_aok var3 = this.d.a(var1, var2);
+            Chunk var3 = this.d.a(var1, var2);
             Iterator var4 = var3.r().values().iterator();
 
             while(var4.hasNext()) {
-               class_amg var5 = (class_amg)var4.next();
-               if(var5 instanceof class_anb) {
+               TileEntity var5 = (TileEntity)var4.next();
+               if(var5 instanceof TileEntityEnderPortal) {
                   return true;
                }
             }
@@ -197,13 +197,13 @@ public class class_apc {
    private class_anp.class_b_in_class_anp g() {
       for(int var1 = 0; var1 < 8; ++var1) {
          for(int var2 = 0; var2 < 8; ++var2) {
-            class_aok var3 = this.d.a(var1, var2);
+            Chunk var3 = this.d.a(var1, var2);
             Iterator var4 = var3.r().values().iterator();
 
             while(var4.hasNext()) {
-               class_amg var5 = (class_amg)var4.next();
-               if(var5 instanceof class_anb) {
-                  class_anp.class_b_in_class_anp var6 = this.f.a(this.d, var5.v());
+               TileEntity var5 = (TileEntity)var4.next();
+               if(var5 instanceof TileEntityEnderPortal) {
+                  class_anp.class_b_in_class_anp var6 = this.f.a(this.d, var5.getPosition());
                   if(var6 != null) {
                      return var6;
                   }
@@ -226,10 +226,10 @@ public class class_apc {
 
    private void i() {
       HashSet var1 = Sets.newHashSet();
-      Iterator var2 = this.d.b(class_lh.class, b).iterator();
+      Iterator var2 = this.d.b(EntityPlayer.class, b).iterator();
 
       while(var2.hasNext()) {
-         class_lh var3 = (class_lh)var2.next();
+         EntityPlayer var3 = (EntityPlayer)var2.next();
          this.c.a(var3);
          var1.add(var3);
       }
@@ -239,7 +239,7 @@ public class class_apc {
       Iterator var6 = var5.iterator();
 
       while(var6.hasNext()) {
-         class_lh var4 = (class_lh)var6.next();
+         EntityPlayer var4 = (EntityPlayer)var6.next();
          this.c.b(var4);
       }
 
@@ -253,7 +253,7 @@ public class class_apc {
 
       for(int var3 = 0; var3 < var2; ++var3) {
          class_ari.class_a_in_class_ari var4 = var1[var3];
-         this.h += this.d.a((Class)class_uq.class, (class_awf)var4.f()).size();
+         this.h += this.d.getEntities((Class)class_uq.class, (AxisAlignedBB)var4.f()).size();
       }
 
       a.debug("Found {} end crystals still alive", new Object[]{Integer.valueOf(this.h)});
@@ -289,7 +289,7 @@ public class class_apc {
       class_aqk var2 = new class_aqk(var1);
 
       BlockPosition var3;
-      for(var3 = this.d.r(class_aqk.a).shiftDown(); this.d.p(var3).getBlock() == Blocks.BEDROCK && var3.getY() > this.d.G(); var3 = var3.shiftDown()) {
+      for(var3 = this.d.r(class_aqk.a).down(); this.d.getType(var3).getBlock() == Blocks.BEDROCK && var3.getY() > this.d.G(); var3 = var3.down()) {
          ;
       }
 
@@ -299,8 +299,8 @@ public class class_apc {
    private void l() {
       this.d.f(new BlockPosition(0, 128, 0));
       class_ur var1 = new class_ur(this.d);
-      var1.b(0.0D, 128.0D, 0.0D, this.d.s.nextFloat() * 360.0F, 0.0F);
-      this.d.a((class_pr)var1);
+      var1.b(0.0D, 128.0D, 0.0D, this.d.random.nextFloat() * 360.0F, 0.0F);
+      this.d.addEntity((Entity)var1);
       this.m = var1.aM();
    }
 
@@ -318,7 +318,7 @@ public class class_apc {
 
    public void a(class_uq var1, class_pc var2) {
       this.j();
-      class_pr var3 = this.d.getEntityByUUID(this.m);
+      Entity var3 = this.d.getEntityByUUID(this.m);
       if(var3 instanceof class_ur) {
          ((class_ur)var3).a(new BlockPosition(var1), var2);
       }
@@ -337,7 +337,7 @@ public class class_apc {
                   for(int var4 = 0; var4 < this.f.a(); ++var4) {
                      class_ano var5 = var1.a(var2, var3, var4);
                      if(var5.a().getBlock() == Blocks.BEDROCK || var5.a().getBlock() == Blocks.END_PORTAL) {
-                        this.d.a((BlockPosition)var5.d(), (IBlockData)Blocks.END_STONE.getBlockData());
+                        this.d.setTypeUpdate((BlockPosition)var5.d(), (IBlockData)Blocks.END_STONE.getBlockData());
                      }
                   }
                }

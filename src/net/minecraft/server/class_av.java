@@ -9,7 +9,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutNamedSoundEffect;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 
 public class class_av extends class_i {
@@ -32,7 +32,7 @@ public class class_av extends class_i {
          byte var3 = 0;
          int var31 = var3 + 1;
          String var4 = var2[var3];
-         class_lh var5 = a(var1, var2[var31++]);
+         EntityPlayer var5 = a(var1, var2[var31++]);
          Vec3D var6 = var1.d();
          double var7 = var6.x;
          if(var2.length > var31) {
@@ -68,7 +68,7 @@ public class class_av extends class_i {
          double var21 = var5.f(var7, var9, var11);
          if(var21 > var19) {
             if(var17 <= 0.0D) {
-               throw new class_bz("commands.playsound.playerTooFar", new Object[]{var5.e_()});
+               throw new class_bz("commands.playsound.playerTooFar", new Object[]{var5.getName()});
             }
 
             double var23 = var7 - var5.s;
@@ -85,7 +85,7 @@ public class class_av extends class_i {
          }
 
          var5.a.a((Packet)(new PacketPlayOutNamedSoundEffect(var4, var7, var9, var11, (float)var13, (float)var15)));
-         a(var1, this, "commands.playsound.success", new Object[]{var4, var5.e_()});
+         a(var1, this, "commands.playsound.success", new Object[]{var4, var5.getName()});
       }
    }
 

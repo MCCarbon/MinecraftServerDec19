@@ -53,7 +53,7 @@ import net.minecraft.server.class_bd;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
+import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_g;
 import net.minecraft.server.PacketPlayOutUpdateTime;
@@ -67,7 +67,7 @@ import net.minecraft.server.class_l;
 import net.minecraft.server.class_la;
 import net.minecraft.server.class_lc;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.ServerConnection;
 import net.minecraft.server.class_lv;
 import net.minecraft.server.PlayerList;
@@ -80,8 +80,8 @@ import net.minecraft.server.class_of;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_ox;
 import net.minecraft.server.class_oy;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 
 import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
@@ -321,7 +321,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				WorldServer var5 = var2[var4];
 				if (var5 != null) {
 					if (!var1) {
-						k.info("Saving chunks for level \'" + var5.Q().k() + "\'/" + var5.t.p().b());
+						k.info("Saving chunks for level \'" + var5.Q().k() + "\'/" + var5.worldProvider.p().b());
 					}
 
 					try {
@@ -386,7 +386,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 			if (this.i()) {
 				this.ab = az();
 				long var1 = 0L;
-				this.r.a((IChatBaseComponent) (new class_fa(this.E)));
+				this.r.a((IChatBaseComponent) (new ChatComponentText(this.E)));
 				this.r.a(new ServerPing.ServerData("15w31c", 51));
 				this.a(this.r);
 
@@ -502,7 +502,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 			int var4 = MathHelper.getRandomIntInRange((Random) this.s, 0, this.I() - var3.length);
 
 			for (int var5 = 0; var5 < var3.length; ++var5) {
-				var3[var5] = ((class_lh) this.v.v().get(var4 + var5)).cf();
+				var3[var5] = ((EntityPlayer) this.v.v().get(var4 + var5)).cf();
 			}
 
 			Collections.shuffle(Arrays.asList(var3));
@@ -550,7 +550,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				this.c.a(var4.Q().k());
 				if (this.y % 20 == 0) {
 					this.c.a("timeSync");
-					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.L(), var4.M(), var4.R().b("doDaylightCycle"))), var4.t.p().a());
+					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.L(), var4.M(), var4.R().b("doDaylightCycle"))), var4.worldProvider.p().a());
 					this.c.b();
 				}
 
@@ -833,7 +833,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.o != null;
 	}
 
-	public String e_() {
+	public String getName() {
 		return "Server";
 	}
 
@@ -971,7 +971,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				if (this.d[var3] != null) {
 					WorldServer var4 = this.d[var3];
 					class_avn var5 = var4.Q();
-					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.t.p().a()));
+					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.worldProvider.p().a()));
 					var1.a("world[" + var2 + "][mode]", var5.r());
 					var1.a("world[" + var2 + "][difficulty]", var4.ab());
 					var1.a("world[" + var2 + "][hardcore]", Boolean.valueOf(var5.t()));
@@ -1109,7 +1109,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.d[0];
 	}
 
-	public class_pr f() {
+	public Entity f() {
 		return null;
 	}
 
@@ -1117,7 +1117,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return 16;
 	}
 
-	public boolean a(World var1, BlockPosition var2, class_xa var3) {
+	public boolean a(World var1, BlockPosition var2, EntityHuman var3) {
 		return false;
 	}
 
@@ -1145,8 +1145,8 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.G = var1;
 	}
 
-	public IChatBaseComponent f_() {
-		return new class_fa(this.e_());
+	public IChatBaseComponent getScoreboardDisplayName() {
+		return new ChatComponentText(this.getName());
 	}
 
 	public boolean aB() {
@@ -1173,14 +1173,14 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.X = 0L;
 	}
 
-	public class_pr a(UUID var1) {
+	public Entity a(UUID var1) {
 		WorldServer[] var2 = this.d;
 		int var3 = var2.length;
 
 		for (int var4 = 0; var4 < var3; ++var4) {
 			WorldServer var5 = var2[var4];
 			if (var5 != null) {
-				class_pr var6 = var5.getEntityByUUID(var1);
+				Entity var6 = var5.getEntityByUUID(var1);
 				if (var6 != null) {
 					return var6;
 				}

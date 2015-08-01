@@ -10,7 +10,7 @@ import java.util.Set;
 import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahh;
@@ -18,10 +18,10 @@ import net.minecraft.server.class_ako;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.INamable;
@@ -31,7 +31,7 @@ public class class_akk extends Block {
    public static final BlockStateEnum b = BlockStateEnum.of("east", class_akk.class_a_in_class_akk.class);
    public static final BlockStateEnum N = BlockStateEnum.of("south", class_akk.class_a_in_class_akk.class);
    public static final BlockStateEnum O = BlockStateEnum.of("west", class_akk.class_a_in_class_akk.class);
-   public static final class_anz P = class_anz.a("power", 0, 15);
+   public static final BlockStateInteger P = BlockStateInteger.of("power", 0, 15);
    private boolean Q = true;
    private final Set R = Sets.newHashSet();
 
@@ -41,7 +41,7 @@ public class class_akk extends Block {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+   public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
       var1 = var1.set(O, this.c(var2, var3, EnumDirection.WEST));
       var1 = var1.set(b, this.c(var2, var3, EnumDirection.EAST));
       var1 = var1.set(a, this.c(var2, var3, EnumDirection.NORTH));
@@ -49,18 +49,18 @@ public class class_akk extends Block {
       return var1;
    }
 
-   private class_akk.class_a_in_class_akk c(class_aer var1, BlockPosition var2, EnumDirection var3) {
+   private class_akk.class_a_in_class_akk c(IBlockAccess var1, BlockPosition var2, EnumDirection var3) {
       BlockPosition var4 = var2.shift(var3);
-      Block var5 = var1.p(var2.shift(var3)).getBlock();
-      if(a(var1.p(var4), var3) || !var5.isSoildFullCube() && d(var1.p(var4.shiftDown()))) {
+      Block var5 = var1.getType(var2.shift(var3)).getBlock();
+      if(a(var1.getType(var4), var3) || !var5.isSoildFullCube() && d(var1.getType(var4.down()))) {
          return class_akk.class_a_in_class_akk.b;
       } else {
-         Block var6 = var1.p(var2.shiftUp()).getBlock();
-         return !var6.isSoildFullCube() && var5.isSoildFullCube() && d(var1.p(var4.shiftUp()))?class_akk.class_a_in_class_akk.a:class_akk.class_a_in_class_akk.c;
+         Block var6 = var1.getType(var2.up()).getBlock();
+         return !var6.isSoildFullCube() && var5.isSoildFullCube() && d(var1.getType(var4.up()))?class_akk.class_a_in_class_akk.a:class_akk.class_a_in_class_akk.c;
       }
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -72,8 +72,8 @@ public class class_akk extends Block {
       return false;
    }
 
-   public boolean d(World var1, BlockPosition var2) {
-      return World.a((class_aer)var1, (BlockPosition)var2.shiftDown()) || var1.p(var2.shiftDown()).getBlock() == Blocks.GLOWSTONE;
+   public boolean canPlace(World var1, BlockPosition var2) {
+      return World.a((IBlockAccess)var1, (BlockPosition)var2.down()) || var1.getType(var2.down()).getBlock() == Blocks.GLOWSTONE;
    }
 
    private IBlockData e(World var1, BlockPosition var2, IBlockData var3) {
@@ -114,12 +114,12 @@ public class class_akk extends Block {
                var9 = this.a(var1, var12, var9);
             }
 
-            if(var1.p(var12).getBlock().isOccluding() && !var1.p(var2.shiftUp()).getBlock().isOccluding()) {
+            if(var1.getType(var12).getBlock().isOccluding() && !var1.getType(var2.up()).getBlock().isOccluding()) {
                if(var13 && var2.getY() >= var3.getY()) {
-                  var9 = this.a(var1, var12.shiftUp(), var9);
+                  var9 = this.a(var1, var12.up(), var9);
                }
-            } else if(!var1.p(var12).getBlock().isOccluding() && var13 && var2.getY() <= var3.getY()) {
-               var9 = this.a(var1, var12.shiftDown(), var9);
+            } else if(!var1.getType(var12).getBlock().isOccluding() && var13 && var2.getY() <= var3.getY()) {
+               var9 = this.a(var1, var12.down(), var9);
             }
          }
 
@@ -137,8 +137,8 @@ public class class_akk extends Block {
 
          if(var6 != var14) {
             var4 = var4.set(P, Integer.valueOf(var14));
-            if(var1.p(var2) == var5) {
-               var1.a((BlockPosition)var2, (IBlockData)var4, 2);
+            if(var1.getType(var2) == var5) {
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)var4, 2);
             }
 
             this.R.add(var2);
@@ -156,7 +156,7 @@ public class class_akk extends Block {
    }
 
    private void e(World var1, BlockPosition var2) {
-      if(var1.p(var2).getBlock() == this) {
+      if(var1.getType(var2).getBlock() == this) {
          var1.c((BlockPosition)var2, (Block)this);
          EnumDirection[] var3 = EnumDirection.values();
          int var4 = var3.length;
@@ -169,8 +169,8 @@ public class class_akk extends Block {
       }
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
-      if(!var1.D) {
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
+      if(!var1.isClientSide) {
          this.e(var1, var2, var3);
          Iterator var4 = EnumDirection.EnumDirectionLimit.VERTICAL.iterator();
 
@@ -192,19 +192,19 @@ public class class_akk extends Block {
          while(var4.hasNext()) {
             var5 = (EnumDirection)var4.next();
             BlockPosition var6 = var2.shift(var5);
-            if(var1.p(var6).getBlock().isOccluding()) {
-               this.e(var1, var6.shiftUp());
+            if(var1.getType(var6).getBlock().isOccluding()) {
+               this.e(var1, var6.up());
             } else {
-               this.e(var1, var6.shiftDown());
+               this.e(var1, var6.down());
             }
          }
 
       }
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3) {
-      super.b(var1, var2, var3);
-      if(!var1.D) {
+   public void remove(World var1, BlockPosition var2, IBlockData var3) {
+      super.remove(var1, var2, var3);
+      if(!var1.isClientSide) {
          EnumDirection[] var4 = EnumDirection.values();
          int var5 = var4.length;
 
@@ -227,10 +227,10 @@ public class class_akk extends Block {
          while(var8.hasNext()) {
             var9 = (EnumDirection)var8.next();
             BlockPosition var10 = var2.shift(var9);
-            if(var1.p(var10).getBlock().isOccluding()) {
-               this.e(var1, var10.shiftUp());
+            if(var1.getType(var10).getBlock().isOccluding()) {
+               this.e(var1, var10.up());
             } else {
-               this.e(var1, var10.shiftDown());
+               this.e(var1, var10.down());
             }
          }
 
@@ -238,21 +238,21 @@ public class class_akk extends Block {
    }
 
    private int a(World var1, BlockPosition var2, int var3) {
-      if(var1.p(var2).getBlock() != this) {
+      if(var1.getType(var2).getBlock() != this) {
          return var3;
       } else {
-         int var4 = ((Integer)var1.p(var2).get(P)).intValue();
+         int var4 = ((Integer)var1.getType(var2).get(P)).intValue();
          return var4 > var3?var4:var3;
       }
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(!var1.D) {
-         if(this.d(var1, var2)) {
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(!var1.isClientSide) {
+         if(this.canPlace(var1, var2)) {
             this.e(var1, var2, var3);
          } else {
-            this.b(var1, var2, var3, 0);
-            var1.g(var2);
+            this.dropNaturallyForSure(var1, var2, var3, 0);
+            var1.setAir(var2);
          }
 
       }
@@ -262,11 +262,11 @@ public class class_akk extends Block {
       return Items.aE;
    }
 
-   public int b(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int b(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return !this.Q?0:this.a(var1, var2, var3, var4);
    }
 
-   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int a(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       if(!this.Q) {
          return 0;
       } else {
@@ -297,17 +297,17 @@ public class class_akk extends Block {
       }
    }
 
-   private boolean d(class_aer var1, BlockPosition var2, EnumDirection var3) {
+   private boolean d(IBlockAccess var1, BlockPosition var2, EnumDirection var3) {
       BlockPosition var4 = var2.shift(var3);
-      IBlockData var5 = var1.p(var4);
+      IBlockData var5 = var1.getType(var4);
       Block var6 = var5.getBlock();
       boolean var7 = var6.isOccluding();
-      boolean var8 = var1.p(var2.shiftUp()).getBlock().isOccluding();
-      return !var8 && var7 && e(var1, var4.shiftUp())?true:(a(var5, var3)?true:(var6 == Blocks.POWERED_REPEATER && var5.get(class_ahh.O) == var3?true:!var7 && e(var1, var4.shiftDown())));
+      boolean var8 = var1.getType(var2.up()).getBlock().isOccluding();
+      return !var8 && var7 && e(var1, var4.up())?true:(a(var5, var3)?true:(var6 == Blocks.POWERED_REPEATER && var5.get(class_ahh.FACING) == var3?true:!var7 && e(var1, var4.down())));
    }
 
-   protected static boolean e(class_aer var0, BlockPosition var1) {
-      return d(var0.p(var1));
+   protected static boolean e(IBlockAccess var0, BlockPosition var1) {
+      return d(var0.getType(var1));
    }
 
    protected static boolean d(IBlockData var0) {
@@ -319,7 +319,7 @@ public class class_akk extends Block {
       if(var2 == Blocks.REDSTONE_WIRE) {
          return true;
       } else if(Blocks.UNPOWERED_REPEATER.e(var2)) {
-         EnumDirection var3 = (EnumDirection)var0.get(class_ako.O);
+         EnumDirection var3 = (EnumDirection)var0.get(class_ako.FACING);
          return var3 == var1 || var3.getOpposite() == var1;
       } else {
          return var2.isPowerSource() && var1 != null;
@@ -338,7 +338,7 @@ public class class_akk extends Block {
       return ((Integer)var1.get(P)).intValue();
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       if(var1.getBlock() != this) {
          return var1;
       } else {
@@ -370,7 +370,7 @@ public class class_akk extends Block {
       }
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a, b, N, O, P});
    }
 
@@ -383,33 +383,33 @@ public class class_akk extends Block {
 
       static {
          try {
-            b[Block.class_a_in_class_agj.b.ordinal()] = 1;
+            b[Block.class_a_in_class_agj.LEFT_RIGHT.ordinal()] = 1;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            b[Block.class_a_in_class_agj.c.ordinal()] = 2;
+            b[Block.class_a_in_class_agj.FRONT_BACK.ordinal()] = 2;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
-         a = new int[Block.class_c_in_class_agj.values().length];
+         a = new int[Block.EnumRotation.values().length];
 
          try {
-            a[Block.class_c_in_class_agj.c.ordinal()] = 1;
+            a[Block.EnumRotation.CLOCKWISE_180.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.d.ordinal()] = 2;
+            a[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.b.ordinal()] = 3;
+            a[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

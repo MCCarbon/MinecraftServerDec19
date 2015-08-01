@@ -139,7 +139,7 @@ public class ServerConnection {
 							throw new class_e(var10);
 						}
 						logger.warn("Failed to handle packet for " + networkManager.getAddress(), e);
-						final class_fa message = new class_fa("Internal server error");
+						final ChatComponentText message = new ChatComponentText("Internal server error");
 						networkManager.sendPacket(new PacketPlayOutKickDisconnect(message), new GenericFutureListener<Future<Void>>() {
 							@Override
 							public void operationComplete(Future<Void> var1) throws Exception {

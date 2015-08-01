@@ -4,34 +4,34 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agd;
+import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aiv;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amp;
+import net.minecraft.server.BlockDirectional;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityEnderChest;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anx;
+import net.minecraft.server.BlockStateDirection;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_yu;
 import net.minecraft.server.CreativeTab;
 
-public class class_ahv extends class_agd {
-   public static final class_anx a;
+public class class_ahv extends BlockContainer {
+   public static final BlockStateDirection a;
 
    protected class_ahv() {
       super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
-      this.a(CreativeTab.c);
+      this.setCreativeTab(CreativeTab.DECORATIONS);
       this.setSizes(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
    }
 
@@ -51,34 +51,34 @@ public class class_ahv extends class_agd {
       return Item.getByBlock(Blocks.OBSIDIAN);
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return 8;
    }
 
-   protected boolean K() {
+   protected boolean canApplySilkTouch() {
       return true;
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.getBlockData().set(a, var8.aR().getOpposite());
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
-      var1.a((BlockPosition)var2, (IBlockData)var3.set(a, var4.aR().getOpposite()), 2);
+   public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
+      var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, var4.aR().getOpposite()), 2);
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       class_yu var11 = var4.cq();
-      class_amg var12 = var1.s(var2);
-      if(var11 != null && var12 instanceof class_amp) {
-         if(var1.p(var2.shiftUp()).getBlock().isOccluding()) {
+      TileEntity var12 = var1.getTileEntity(var2);
+      if(var11 != null && var12 instanceof TileEntityEnderChest) {
+         if(var1.getType(var2.up()).getBlock().isOccluding()) {
             return true;
-         } else if(var1.D) {
+         } else if(var1.isClientSide) {
             return true;
          } else {
-            var11.a((class_amp)var12);
-            var4.a((class_oj)var11);
-            var4.b(class_nc.V);
+            var11.a((TileEntityEnderChest)var12);
+            var4.openContainer((IInventory)var11);
+            var4.b(StatisticList.V);
             return true;
          }
       } else {
@@ -86,8 +86,8 @@ public class class_ahv extends class_agd {
       }
    }
 
-   public class_amg a(World var1, int var2) {
-      return new class_amp();
+   public TileEntity createTileEntity(World var1, int var2) {
+      return new TileEntityEnderChest();
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -103,7 +103,7 @@ public class class_ahv extends class_agd {
       return ((EnumDirection)var1.get(a)).getId();
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
@@ -111,11 +111,11 @@ public class class_ahv extends class_agd {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
    static {
-      a = class_aiv.O;
+      a = BlockDirectional.FACING;
    }
 }

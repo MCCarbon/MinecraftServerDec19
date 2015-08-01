@@ -2,16 +2,16 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aic;
+import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_wo;
 
-public class class_afu extends class_aez {
+public class class_afu extends BiomeBase {
    protected class_afu(int var1) {
       super(var1);
       this.as.A = 2;
@@ -25,15 +25,15 @@ public class class_afu extends class_aez {
       this.as.H = 0;
       this.as.C = 5;
       this.ar = 14745518;
-      this.at.add(new class_aez.class_c_in_class_aez(class_wo.class, 1, 1, 1));
+      this.at.add(new BiomeBase.class_c_in_class_aez(class_wo.class, 1, 1, 1));
    }
 
    public class_apw a(Random var1) {
       return this.aC;
    }
 
-   public class_aic.class_a_in_class_aic a(Random var1, BlockPosition var2) {
-      return class_aic.class_a_in_class_aic.c;
+   public BlockFlowers.EnumFlowerVarient a(Random var1, BlockPosition var2) {
+      return BlockFlowers.EnumFlowerVarient.BLUE_ORCHID;
    }
 
    public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {

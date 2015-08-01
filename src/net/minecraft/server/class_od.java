@@ -7,9 +7,9 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_amm;
+import net.minecraft.server.TileEntityDispenser;
 import net.minecraft.server.class_oc;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 
 public class class_od extends class_oc.class_a_in_class_oc {
    private ItemStack b;
@@ -30,38 +30,38 @@ public class class_od extends class_oc.class_a_in_class_oc {
       this.d = var3;
    }
 
-   public static void a(Random var0, List var1, class_oj var2, int var3) {
+   public static void a(Random var0, List var1, IInventory var2, int var3) {
       for(int var4 = 0; var4 < var3; ++var4) {
          class_od var5 = (class_od)class_oc.a(var0, var1);
          int var6 = var5.c + var0.nextInt(var5.d - var5.c + 1);
          if(var5.b.c() >= var6) {
             ItemStack var9 = var5.b.clone();
             var9.count = var6;
-            var2.a(var0.nextInt(var2.o_()), var9);
+            var2.setItem(var0.nextInt(var2.getSize()), var9);
          } else {
             for(int var7 = 0; var7 < var6; ++var7) {
                ItemStack var8 = var5.b.clone();
                var8.count = 1;
-               var2.a(var0.nextInt(var2.o_()), var8);
+               var2.setItem(var0.nextInt(var2.getSize()), var8);
             }
          }
       }
 
    }
 
-   public static void a(Random var0, List var1, class_amm var2, int var3) {
+   public static void a(Random var0, List var1, TileEntityDispenser var2, int var3) {
       for(int var4 = 0; var4 < var3; ++var4) {
          class_od var5 = (class_od)class_oc.a(var0, var1);
          int var6 = var5.c + var0.nextInt(var5.d - var5.c + 1);
          if(var5.b.c() >= var6) {
             ItemStack var9 = var5.b.clone();
             var9.count = var6;
-            var2.a(var0.nextInt(var2.o_()), var9);
+            var2.setItem(var0.nextInt(var2.getSize()), var9);
          } else {
             for(int var7 = 0; var7 < var6; ++var7) {
                ItemStack var8 = var5.b.clone();
                var8.count = 1;
-               var2.a(var0.nextInt(var2.o_()), var8);
+               var2.setItem(var0.nextInt(var2.getSize()), var8);
             }
          }
       }

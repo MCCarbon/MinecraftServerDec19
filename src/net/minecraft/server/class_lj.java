@@ -30,14 +30,14 @@ import net.minecraft.server.PacketPlayOutEntityEquipment;
 import net.minecraft.server.PacketPlayOutEntityTeleport;
 import net.minecraft.server.PacketPlayOutUpdateAttributes;
 import net.minecraft.server.PacketPlayOutEntityEffect;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pp;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_px;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityExperienceOrb;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qr;
@@ -48,11 +48,11 @@ import net.minecraft.server.class_vb;
 import net.minecraft.server.class_vc;
 import net.minecraft.server.class_ve;
 import net.minecraft.server.class_vk;
-import net.minecraft.server.class_vl;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.EntityFallingBlock;
+import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_vn;
-import net.minecraft.server.class_vw;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityTNTPrimed;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_xe;
 import net.minecraft.server.class_xf;
@@ -72,7 +72,7 @@ import org.apache.logging.log4j.Logger;
 
 public class class_lj {
    private static final Logger p = LogManager.getLogger();
-   public class_pr a;
+   public Entity a;
    public int b;
    public int c;
    public int d;
@@ -91,13 +91,13 @@ public class class_lj {
    private boolean t;
    private boolean u;
    private int v;
-   private class_pr w;
+   private Entity w;
    private boolean x;
    private boolean y;
    public boolean n;
    public Set o = Sets.newHashSet();
 
-   public class_lj(class_pr var1, int var2, int var3, boolean var4) {
+   public class_lj(Entity var1, int var2, int var3, boolean var4) {
       this.a = var1;
       this.b = var2;
       this.c = var3;
@@ -143,10 +143,10 @@ public class class_lj {
             Iterator var5 = var1.iterator();
 
             while(var5.hasNext()) {
-               class_xa var6 = (class_xa)var5.next();
-               class_lh var7 = (class_lh)var6;
+               EntityHuman var6 = (EntityHuman)var5.next();
+               EntityPlayer var7 = (EntityPlayer)var6;
                var4.a(var7, var3);
-               Packet var8 = Items.bf.a((ItemStack)var3, (World)this.a.o, (class_xa)var7);
+               Packet var8 = Items.bf.a((ItemStack)var3, (World)this.a.o, (EntityHuman)var7);
                if(var8 != null) {
                   var7.a.a(var8);
                }
@@ -192,13 +192,13 @@ public class class_lj {
 
             if(this.u) {
                double var13 = this.a.v - this.j;
-               double var15 = this.a.w - this.k;
+               double var15 = this.a.motY - this.k;
                double var17 = this.a.x - this.l;
                double var19 = 0.02D;
                double var21 = var13 * var13 + var15 * var15 + var17 * var17;
-               if(var21 > var19 * var19 || var21 > 0.0D && this.a.v == 0.0D && this.a.w == 0.0D && this.a.x == 0.0D) {
+               if(var21 > var19 * var19 || var21 > 0.0D && this.a.v == 0.0D && this.a.motY == 0.0D && this.a.x == 0.0D) {
                   this.j = this.a.v;
-                  this.k = this.a.w;
+                  this.k = this.a.motY;
                   this.l = this.a.x;
                   this.a((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.j, this.k, this.l)));
                }
@@ -261,8 +261,8 @@ public class class_lj {
          this.b((Packet)(new PacketPlayOutEntityMetadata(this.a.getId(), var1, false)));
       }
 
-      if(this.a instanceof class_qa) {
-         class_qr var2 = (class_qr)((class_qa)this.a).by();
+      if(this.a instanceof EntityLiving) {
+         class_qr var2 = (class_qr)((EntityLiving)this.a).by();
          Set var3 = var2.b();
          if(!var3.isEmpty()) {
             this.b((Packet)(new PacketPlayOutUpdateAttributes(this.a.getId(), var3)));
@@ -277,7 +277,7 @@ public class class_lj {
       Iterator var2 = this.o.iterator();
 
       while(var2.hasNext()) {
-         class_lh var3 = (class_lh)var2.next();
+         EntityPlayer var3 = (EntityPlayer)var2.next();
          var3.a.a(var1);
       }
 
@@ -285,8 +285,8 @@ public class class_lj {
 
    public void b(Packet var1) {
       this.a(var1);
-      if(this.a instanceof class_lh) {
-         ((class_lh)this.a).a.a(var1);
+      if(this.a instanceof EntityPlayer) {
+         ((EntityPlayer)this.a).a.a(var1);
       }
 
    }
@@ -295,14 +295,14 @@ public class class_lj {
       Iterator var1 = this.o.iterator();
 
       while(var1.hasNext()) {
-         class_lh var2 = (class_lh)var1.next();
+         EntityPlayer var2 = (EntityPlayer)var1.next();
          this.a.c(var2);
          var2.d(this.a);
       }
 
    }
 
-   public void a(class_lh var1) {
+   public void a(EntityPlayer var1) {
       if(this.o.contains(var1)) {
          this.a.c(var1);
          var1.d(this.a);
@@ -311,7 +311,7 @@ public class class_lj {
 
    }
 
-   public void b(class_lh var1) {
+   public void b(EntityPlayer var1) {
       if(var1 != this.a) {
          if(this.c(var1)) {
             if(!this.o.contains(var1) && (this.e(var1) || this.a.n)) {
@@ -322,8 +322,8 @@ public class class_lj {
                   var1.a.a((Packet)(new PacketPlayOutEntityMetadata(this.a.getId(), this.a.H(), true)));
                }
 
-               if(this.a instanceof class_qa) {
-                  class_qr var3 = (class_qr)((class_qa)this.a).by();
+               if(this.a instanceof EntityLiving) {
+                  class_qr var3 = (class_qr)((EntityLiving)this.a).by();
                   Collection var4 = var3.c();
                   if(!var4.isEmpty()) {
                      var1.a.a((Packet)(new PacketPlayOutUpdateAttributes(this.a.getId(), var4)));
@@ -331,10 +331,10 @@ public class class_lj {
                }
 
                this.j = this.a.v;
-               this.k = this.a.w;
+               this.k = this.a.motY;
                this.l = this.a.x;
                if(this.u && !(var2 instanceof PacketPlayOutSpawnEntityLiving)) {
-                  var1.a.a((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.a.v, this.a.w, this.a.x)));
+                  var1.a.a((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.a.v, this.a.motY, this.a.x)));
                }
 
                if(this.a.m != null) {
@@ -345,28 +345,28 @@ public class class_lj {
                   var1.a.a((Packet)(new PacketPlayOutAttachEntity(1, this.a, ((class_qb)this.a).cr())));
                }
 
-               if(this.a instanceof class_qa) {
+               if(this.a instanceof EntityLiving) {
                   class_pw[] var8 = class_pw.values();
                   int var11 = var8.length;
 
                   for(int var5 = 0; var5 < var11; ++var5) {
                      class_pw var6 = var8[var5];
-                     ItemStack var7 = ((class_qa)this.a).a(var6);
+                     ItemStack var7 = ((EntityLiving)this.a).a(var6);
                      if(var7 != null) {
                         var1.a.a((Packet)(new PacketPlayOutEntityEquipment(this.a.getId(), var6, var7)));
                      }
                   }
                }
 
-               if(this.a instanceof class_xa) {
-                  class_xa var9 = (class_xa)this.a;
-                  if(var9.bK()) {
+               if(this.a instanceof EntityHuman) {
+                  EntityHuman var9 = (EntityHuman)this.a;
+                  if(var9.isSleeping()) {
                      var1.a.a((Packet)(new PacketPlayOutBed(var9, new BlockPosition(this.a))));
                   }
                }
 
-               if(this.a instanceof class_qa) {
-                  class_qa var10 = (class_qa)this.a;
+               if(this.a instanceof EntityLiving) {
+                  EntityLiving var10 = (EntityLiving)this.a;
                   Iterator var12 = var10.bm().iterator();
 
                   while(var12.hasNext()) {
@@ -386,19 +386,19 @@ public class class_lj {
       }
    }
 
-   public boolean c(class_lh var1) {
+   public boolean c(EntityPlayer var1) {
       double var2 = var1.s - (double)(this.d / 32);
       double var4 = var1.u - (double)(this.f / 32);
       return var2 >= (double)(-this.b) && var2 <= (double)this.b && var4 >= (double)(-this.b) && var4 <= (double)this.b && this.a.a(var1);
    }
 
-   private boolean e(class_lh var1) {
+   private boolean e(EntityPlayer var1) {
       return var1.u().u().a(var1, this.a.ae, this.a.ag);
    }
 
    public void b(List var1) {
       for(int var2 = 0; var2 < var1.size(); ++var2) {
-         this.b((class_lh)var1.get(var2));
+         this.b((EntityPlayer)var1.get(var2));
       }
 
    }
@@ -408,10 +408,10 @@ public class class_lj {
          p.warn("Fetching addPacket for removed entity");
       }
 
-      if(this.a instanceof class_vm) {
+      if(this.a instanceof EntityItem) {
          return new PacketPlayOutSpawnEntity(this.a, 2, 1);
-      } else if(this.a instanceof class_lh) {
-         return new PacketPlayOutNamedEntitySpawn((class_xa)this.a);
+      } else if(this.a instanceof EntityPlayer) {
+         return new PacketPlayOutNamedEntitySpawn((EntityHuman)this.a);
       } else if(this.a instanceof class_vn) {
          class_vn var11 = (class_vn)this.a;
          return new PacketPlayOutSpawnEntity(this.a, 10, var11.s().a());
@@ -419,12 +419,12 @@ public class class_lj {
          return new PacketPlayOutSpawnEntity(this.a, 1);
       } else if(this.a instanceof class_pp) {
          this.i = MathHelper.floor(this.a.aE() * 256.0F / 360.0F);
-         return new PacketPlayOutSpawnEntityLiving((class_qa)this.a);
+         return new PacketPlayOutSpawnEntityLiving((EntityLiving)this.a);
       } else if(this.a instanceof class_ve) {
-         class_xa var9 = ((class_ve)this.a).b;
+         EntityHuman var9 = ((class_ve)this.a).b;
          return new PacketPlayOutSpawnEntity(this.a, 90, var9 != null?var9.getId():this.a.getId());
       } else {
-         class_pr var8;
+         Entity var8;
          if(this.a instanceof class_xn) {
             var8 = ((class_xn)this.a).e;
             return new PacketPlayOutSpawnEntity(this.a, 91, var8 != null?var8.getId():this.a.getId());
@@ -471,17 +471,17 @@ public class class_lj {
             } else if(this.a instanceof class_xk) {
                PacketPlayOutSpawnEntity var6 = new PacketPlayOutSpawnEntity(this.a, 67, 0);
                var6.d((int)(this.a.v * 8000.0D));
-               var6.e((int)(this.a.w * 8000.0D));
+               var6.e((int)(this.a.motY * 8000.0D));
                var6.f((int)(this.a.x * 8000.0D));
                return var6;
             } else if(this.a instanceof class_xp) {
                return new PacketPlayOutSpawnEntity(this.a, 62);
-            } else if(this.a instanceof class_vw) {
+            } else if(this.a instanceof EntityTNTPrimed) {
                return new PacketPlayOutSpawnEntity(this.a, 50);
             } else if(this.a instanceof class_uq) {
                return new PacketPlayOutSpawnEntity(this.a, 51);
-            } else if(this.a instanceof class_vl) {
-               class_vl var5 = (class_vl)this.a;
+            } else if(this.a instanceof EntityFallingBlock) {
+               EntityFallingBlock var5 = (EntityFallingBlock)this.a;
                return new PacketPlayOutSpawnEntity(this.a, 70, Block.getCombinedId(var5.l()));
             } else if(this.a instanceof class_uy) {
                return new PacketPlayOutSpawnEntity(this.a, 78);
@@ -505,8 +505,8 @@ public class class_lj {
                   var2.b(MathHelper.floor((float)(var3.getY() * 32)));
                   var2.c(MathHelper.floor((float)(var3.getZ() * 32)));
                   return var2;
-               } else if(this.a instanceof class_px) {
-                  return new PacketPlayOutSpawnEntityExperienceOrb((class_px)this.a);
+               } else if(this.a instanceof EntityExperienceOrb) {
+                  return new PacketPlayOutSpawnEntityExperienceOrb((EntityExperienceOrb)this.a);
                } else {
                   throw new IllegalArgumentException("Don\'t know how to add " + this.a.getClass() + "!");
                }
@@ -515,7 +515,7 @@ public class class_lj {
       }
    }
 
-   public void d(class_lh var1) {
+   public void d(EntityPlayer var1) {
       if(this.o.contains(var1)) {
          this.o.remove(var1);
          this.a.c(var1);

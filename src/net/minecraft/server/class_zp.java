@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.class_aan;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_wb;
 
 public class class_zp extends class_aan {
@@ -11,7 +11,7 @@ public class class_zp extends class_aan {
       super(var1, var2, false);
    }
 
-   public ItemStack a(ItemStack var1, World var2, class_qa var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
       ItemStack var4 = super.a(var1, var2, var3);
 
       for(int var5 = 0; var5 < 16; ++var5) {

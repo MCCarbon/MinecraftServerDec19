@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatModifier;
-import net.minecraft.server.class_fa;
+import net.minecraft.server.ChatComponentText;
 
 public abstract class class_es implements IChatBaseComponent {
    protected List a = Lists.newArrayList();
@@ -24,7 +24,7 @@ public abstract class class_es implements IChatBaseComponent {
    }
 
    public IChatBaseComponent a(String var1) {
-      return this.a((IChatBaseComponent)(new class_fa(var1)));
+      return this.a((IChatBaseComponent)(new ChatComponentText(var1)));
    }
 
    public IChatBaseComponent a(ChatModifier var1) {

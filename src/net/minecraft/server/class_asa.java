@@ -7,12 +7,12 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agf;
+import net.minecraft.server.BlockMinecartTrackAbstract;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_akg;
 import net.minecraft.server.class_alp;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amv;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityMobSpawner;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
@@ -25,10 +25,10 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_od;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_vo;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_asa {
    private static final List a;
@@ -80,7 +80,7 @@ public class class_asa {
    }
 
    static {
-      a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.aY, class_zy.l.b(), 4, 9, 5), new class_od(Items.k, 0, 1, 2, 3), new class_od(Items.j, 0, 3, 8, 10), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 1), new class_od(Item.getByBlock(Blocks.RAIL), 0, 4, 8, 1), new class_od(Items.bj, 0, 2, 4, 10), new class_od(Items.bi, 0, 2, 4, 10), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1)}));
+      a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.aY, EnumColor.l.b(), 4, 9, 5), new class_od(Items.k, 0, 1, 2, 3), new class_od(Items.j, 0, 3, 8, 10), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 1), new class_od(Item.getByBlock(Blocks.RAIL), 0, 4, 8, 1), new class_od(Items.bj, 0, 2, 4, 10), new class_od(Items.bi, 0, 2, 4, 10), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1)}));
    }
 
    // $FF: synthetic class
@@ -465,12 +465,12 @@ public class class_asa {
 
       protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
          BlockPosition var9 = new BlockPosition(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-         if(var2.b((BaseBlockPosition)var9) && var1.p(var9).getBlock().getMaterial() == Material.AIR) {
-            IBlockData var10 = Blocks.RAIL.getBlockData().set(class_akg.b, var3.nextBoolean()?class_agf.class_b_in_class_agf.a:class_agf.class_b_in_class_agf.b);
+         if(var2.b((BaseBlockPosition)var9) && var1.getType(var9).getBlock().getMaterial() == Material.AIR) {
+            IBlockData var10 = Blocks.RAIL.getBlockData().set(class_akg.b, var3.nextBoolean()?BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH:BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST);
             this.a(var1, var10, var4, var5, var6, var2);
             class_vo var11 = new class_vo(var1, (double)((float)var9.getX() + 0.5F), (double)((float)var9.getY() + 0.5F), (double)((float)var9.getZ() + 0.5F));
-            class_od.a(var3, var7, (class_oj)var11, var8);
-            var1.a((class_pr)var11);
+            class_od.a(var3, var7, (IInventory)var11, var8);
+            var1.addEntity((Entity)var11);
             return true;
          } else {
             return false;
@@ -531,10 +531,10 @@ public class class_asa {
                   BlockPosition var14 = new BlockPosition(var13, var11, var12);
                   if(var3.b((BaseBlockPosition)var14)) {
                      this.c = true;
-                     var1.a((BlockPosition)var14, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
-                     class_amg var15 = var1.s(var14);
-                     if(var15 instanceof class_amv) {
-                        ((class_amv)var15).b().a("CaveSpider");
+                     var1.setTypeAndData((BlockPosition)var14, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
+                     TileEntity var15 = var1.getTileEntity(var14);
+                     if(var15 instanceof TileEntityMobSpawner) {
+                        ((TileEntityMobSpawner)var15).b().a("CaveSpider");
                      }
                   }
                }
@@ -552,7 +552,7 @@ public class class_asa {
             }
 
             if(this.a) {
-               IBlockData var16 = Blocks.RAIL.getBlockData().set(class_akg.b, class_agf.class_b_in_class_agf.a);
+               IBlockData var16 = Blocks.RAIL.getBlockData().set(class_akg.b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH);
 
                for(var10 = 0; var10 <= var8; ++var10) {
                   IBlockData var18 = this.a(var1, 1, -1, var10, var3);

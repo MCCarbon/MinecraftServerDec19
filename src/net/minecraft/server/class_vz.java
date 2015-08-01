@@ -5,8 +5,8 @@ import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wp;
@@ -22,9 +22,9 @@ public class class_vz extends class_wp {
       this.a(class_wl.a).a(12.0D);
    }
 
-   public boolean r(class_pr var1) {
+   public boolean r(Entity var1) {
       if(super.r(var1)) {
-         if(var1 instanceof class_qa) {
+         if(var1 instanceof EntityLiving) {
             byte var2 = 0;
             if(this.o.ab() == class_om.c) {
                var2 = 7;
@@ -33,7 +33,7 @@ public class class_vz extends class_wp {
             }
 
             if(var2 > 0) {
-               ((class_qa)var1).c(new class_pl(class_pm.s, var2 * 20, 0));
+               ((EntityLiving)var1).c(new class_pl(class_pm.s, var2 * 20, 0));
             }
          }
 

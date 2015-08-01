@@ -13,8 +13,8 @@ import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_xd;
 
@@ -38,7 +38,7 @@ public class class_xt extends class_xd {
       this.a(var8);
    }
 
-   public class_xt(World var1, class_qa var2, ItemStack var3) {
+   public class_xt(World var1, EntityLiving var2, ItemStack var3) {
       super(var1, var2);
       this.g = Sets.newHashSet();
       this.a(var3);
@@ -73,7 +73,7 @@ public class class_xt extends class_xd {
       double var4;
       double var6;
       if(this.a) {
-         if(this.o.D) {
+         if(this.o.isClientSide) {
             var1 = this.ac.c(f);
             if(var1 > 0 && this.b % 5 == 0) {
                var2 = (double)(var1 >> 16 & 255) / 255.0D;
@@ -82,11 +82,11 @@ public class class_xt extends class_xd {
                this.o.a(class_cy.p, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, var2, var4, var6, new int[0]);
             }
          } else if(!this.g.isEmpty() && this.b >= 200) {
-            this.o.a((class_pr)this, (byte)0);
+            this.o.a((Entity)this, (byte)0);
             this.g.clear();
             this.ac.b(f, Integer.valueOf(0));
          }
-      } else if(this.o.D) {
+      } else if(this.o.isClientSide) {
          var1 = this.ac.c(f);
          if(var1 > 0) {
             var2 = (double)(var1 >> 16 & 255) / 255.0D;
@@ -117,7 +117,7 @@ public class class_xt extends class_xd {
 
    }
 
-   protected void b(class_qa var1) {
+   protected void b(EntityLiving var1) {
       super.b(var1);
       if(!this.g.isEmpty()) {
          Iterator var2 = this.g.iterator();

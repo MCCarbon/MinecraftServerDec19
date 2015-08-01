@@ -6,17 +6,17 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_agl;
-import net.minecraft.server.class_ago;
-import net.minecraft.server.class_ahd;
+import net.minecraft.server.IBlockFragilePlantElement;
+import net.minecraft.server.BlockPlant;
+import net.minecraft.server.BlockCrops;
 import net.minecraft.server.class_alp;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anx;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateDirection;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -24,9 +24,9 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.CreativeTab;
 
-public class class_alg extends class_ago implements class_agl {
-   public static final class_anz a = class_anz.a("age", 0, 7);
-   public static final class_anx b;
+public class class_alg extends BlockPlant implements IBlockFragilePlantElement {
+   public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 7);
+   public static final BlockStateDirection b;
    private final Block N;
 
    protected class_alg(Block var1) {
@@ -35,16 +35,16 @@ public class class_alg extends class_ago implements class_agl {
       this.setTicking(true);
       float var2 = 0.125F;
       this.setSizes(0.5F - var2, 0.0F, 0.5F - var2, 0.5F + var2, 0.25F, 0.5F + var2);
-      this.a((CreativeTab)null);
+      this.setCreativeTab((CreativeTab)null);
    }
 
-   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
+   public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
       var1 = var1.set(b, EnumDirection.UP);
       Iterator var4 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
       while(var4.hasNext()) {
          EnumDirection var5 = (EnumDirection)var4.next();
-         if(var2.p(var3.shift(var5)).getBlock() == this.N) {
+         if(var2.getType(var3.shift(var5)).getBlock() == this.N) {
             var1 = var1.set(b, var5);
             break;
          }
@@ -57,29 +57,29 @@ public class class_alg extends class_ago implements class_agl {
       return var1 == Blocks.FARMLAND;
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      super.b(var1, var2, var3, var4);
-      if(var1.l(var2.shiftUp()) >= 9) {
-         float var5 = class_ahd.a(this, var1, var2);
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+      super.tick(var1, var2, var3, var4);
+      if(var1.l(var2.up()) >= 9) {
+         float var5 = BlockCrops.a(this, var1, var2);
          if(var4.nextInt((int)(25.0F / var5) + 1) == 0) {
             int var6 = ((Integer)var3.get(a)).intValue();
             if(var6 < 7) {
                var3 = var3.set(a, Integer.valueOf(var6 + 1));
-               var1.a((BlockPosition)var2, (IBlockData)var3, 2);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 2);
             } else {
                Iterator var7 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
                while(var7.hasNext()) {
                   EnumDirection var8 = (EnumDirection)var7.next();
-                  if(var1.p(var2.shift(var8)).getBlock() == this.N) {
+                  if(var1.getType(var2.shift(var8)).getBlock() == this.N) {
                      return;
                   }
                }
 
                var2 = var2.shift(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var4));
-               Block var9 = var1.p(var2.shiftDown()).getBlock();
-               if(var1.p(var2).getBlock().material == Material.AIR && (var9 == Blocks.FARMLAND || var9 == Blocks.DIRT || var9 == Blocks.GRASS)) {
-                  var1.a(var2, this.N.getBlockData());
+               Block var9 = var1.getType(var2.down()).getBlock();
+               if(var1.getType(var2).getBlock().material == Material.AIR && (var9 == Blocks.FARMLAND || var9 == Blocks.DIRT || var9 == Blocks.GRASS)) {
+                  var1.setTypeUpdate(var2, this.N.getBlockData());
                }
             }
          }
@@ -88,8 +88,8 @@ public class class_alg extends class_ago implements class_agl {
    }
 
    public void g(World var1, BlockPosition var2, IBlockData var3) {
-      int var4 = ((Integer)var3.get(a)).intValue() + MathHelper.getRandomIntInRange((Random)var1.s, 2, 5);
-      var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(Math.min(7, var4))), 2);
+      int var4 = ((Integer)var3.get(a)).intValue() + MathHelper.getRandomIntInRange((Random)var1.random, 2, 5);
+      var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(Math.min(7, var4))), 2);
    }
 
    public void j() {
@@ -97,22 +97,22 @@ public class class_alg extends class_ago implements class_agl {
       this.setSizes(0.5F - var1, 0.0F, 0.5F - var1, 0.5F + var1, 0.25F, 0.5F + var1);
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
-      this.maxY = (double)((float)(((Integer)var1.p(var2).get(a)).intValue() * 2 + 2) / 16.0F);
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
+      this.maxY = (double)((float)(((Integer)var1.getType(var2).get(a)).intValue() * 2 + 2) / 16.0F);
       float var3 = 0.125F;
       this.setSizes(0.5F - var3, 0.0F, 0.5F - var3, 0.5F + var3, (float)this.maxY, 0.5F + var3);
    }
 
    public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
       super.dropNaturally(var1, var2, var3, var4, var5);
-      if(!var1.D) {
+      if(!var1.isClientSide) {
          Item var6 = this.l();
          if(var6 != null) {
             int var7 = ((Integer)var3.get(a)).intValue();
 
             for(int var8 = 0; var8 < 3; ++var8) {
-               if(var1.s.nextInt(15) <= var7) {
-                  a(var1, var2, new ItemStack(var6));
+               if(var1.random.nextInt(15) <= var7) {
+                  dropItem(var1, var2, new ItemStack(var6));
                }
             }
 
@@ -148,7 +148,7 @@ public class class_alg extends class_ago implements class_agl {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a, b});
    }
 

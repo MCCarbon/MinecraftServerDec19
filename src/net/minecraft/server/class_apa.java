@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afg;
 import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_aoh;
@@ -10,7 +10,7 @@ import net.minecraft.server.class_apl;
 
 public class class_apa extends class_aoy {
    public void b() {
-      this.c = new class_afg(class_aez.x, 0.0F);
+      this.c = new class_afg(BiomeBase.x, 0.0F);
       this.d = true;
       this.e = true;
    }

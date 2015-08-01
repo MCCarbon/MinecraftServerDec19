@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qj;
 import net.minecraft.server.class_rm;
 
@@ -21,7 +21,7 @@ public class class_so extends class_rm {
       } else if(!this.a.C) {
          return false;
       } else {
-         class_qa var1 = this.a.cD();
+         EntityLiving var1 = this.a.cD();
          return var1 == null?true:(this.a.h(var1) < 144.0D && var1.be() != null?false:this.b);
       }
    }

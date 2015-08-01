@@ -4,43 +4,38 @@ import java.io.IOException;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.PacketDataSerializer;
-import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 
-public class PacketPlayOutTileEntityData implements Packet {
-   private BlockPosition a;
-   private int b;
-   private NBTTagCompound c;
+public class PacketPlayOutTileEntityData implements Packet<PacketListenerPlayOut> {
 
-   public PacketPlayOutTileEntityData() {
-   }
+	private BlockPosition position;
+	private int type;
+	private NBTTagCompound data;
 
-   public PacketPlayOutTileEntityData(BlockPosition var1, int var2, NBTTagCompound var3) {
-      this.a = var1;
-      this.b = var2;
-      this.c = var3;
-   }
+	public PacketPlayOutTileEntityData() {
+	}
 
-   public void decode(PacketDataSerializer var1) throws IOException {
-      this.a = var1.readBlockPosition();
-      this.b = var1.readUnsignedByte();
-      this.c = var1.readNBTTagCompund();
-   }
+	public PacketPlayOutTileEntityData(BlockPosition position, int type, NBTTagCompound data) {
+		this.position = position;
+		this.type = type;
+		this.data = data;
+	}
 
-   public void encode(PacketDataSerializer var1) throws IOException {
-      var1.writeBlockPosition(this.a);
-      var1.writeByte((byte)this.b);
-      var1.writeNBTTagCompound(this.c);
-   }
+	public void decode(PacketDataSerializer serializer) throws IOException {
+		this.position = serializer.readBlockPosition();
+		this.type = serializer.readUnsignedByte();
+		this.data = serializer.readNBTTagCompund();
+	}
 
-   public void a(PacketListenerPlayOut var1) {
-      var1.a(this);
-   }
+	public void encode(PacketDataSerializer serializer) throws IOException {
+		serializer.writeBlockPosition(this.position);
+		serializer.writeByte((byte) this.type);
+		serializer.writeNBTTagCompound(this.data);
+	}
 
-   // $FF: synthetic method
-   // $FF: bridge method
-   public void handle(PacketListener var1) {
-      this.a((PacketListenerPlayOut)var1);
-   }
+	public void handle(PacketListenerPlayOut listener) {
+		listener.a(this);
+	}
+
 }

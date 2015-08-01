@@ -53,7 +53,7 @@ import net.minecraft.server.class_bv;
 import net.minecraft.server.class_bw;
 import net.minecraft.server.class_bx;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_h;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_j;
@@ -69,7 +69,7 @@ import net.minecraft.server.class_u;
 import net.minecraft.server.class_v;
 import net.minecraft.server.class_w;
 import net.minecraft.server.class_x;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_y;
 import net.minecraft.server.class_z;
 
@@ -148,7 +148,7 @@ public class class_bd extends class_j implements class_h {
          var6 = false;
       }
 
-      class_fb var8 = new class_fb("chat.type.admin", new Object[]{var1.e_(), new class_fb(var4, var5)});
+      ChatMessage var8 = new ChatMessage("chat.type.admin", new Object[]{var1.getName(), new ChatMessage(var4, var5)});
       var8.b().a(EnumChatFormat.GRAY);
       var8.b().b(Boolean.valueOf(true));
       if(var6) {
@@ -156,7 +156,7 @@ public class class_bd extends class_j implements class_h {
 
          label85:
          while(true) {
-            class_xa var10;
+            EntityHuman var10;
             boolean var11;
             boolean var12;
             do {
@@ -167,7 +167,7 @@ public class class_bd extends class_j implements class_h {
                            break label85;
                         }
 
-                        var10 = (class_xa)var9.next();
+                        var10 = (EntityHuman)var9.next();
                      } while(var10 == var1);
                   } while(!var7.getPlayerList().h(var10.cf()));
                } while(!var2.a(var1));
@@ -190,7 +190,7 @@ public class class_bd extends class_j implements class_h {
       }
 
       if((var3 & 1) != 1 && var13 || var1 instanceof MinecraftServer) {
-         var1.a(new class_fb(var4, var5));
+         var1.a(new ChatMessage(var4, var5));
       }
 
    }

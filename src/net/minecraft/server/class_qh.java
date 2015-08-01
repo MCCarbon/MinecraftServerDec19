@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qj;
 import net.minecraft.server.class_qm;
@@ -31,7 +31,7 @@ public abstract class class_qh extends class_qb {
    }
 
    public boolean cf() {
-      return super.cf() && this.a(new BlockPosition(this.s, this.aT().b, this.u)) >= 0.0F;
+      return super.cf() && this.a(new BlockPosition(this.s, this.aT().yMin, this.u)) >= 0.0F;
    }
 
    public boolean cu() {
@@ -70,7 +70,7 @@ public abstract class class_qh extends class_qb {
    protected void co() {
       super.co();
       if(this.cq() && this.cr() != null && this.cr().o == this.o) {
-         class_pr var1 = this.cr();
+         Entity var1 = this.cr();
          this.a(new BlockPosition((int)var1.s, (int)var1.t, (int)var1.u), 5);
          float var2 = this.g(var1);
          if(this instanceof class_qj && ((class_qj)this).cC()) {
@@ -100,7 +100,7 @@ public abstract class class_qh extends class_qb {
             double var5 = (var1.t - this.t) / (double)var2;
             double var7 = (var1.u - this.u) / (double)var2;
             this.v += var3 * Math.abs(var3) * 0.4D;
-            this.w += var5 * Math.abs(var5) * 0.4D;
+            this.motY += var5 * Math.abs(var5) * 0.4D;
             this.x += var7 * Math.abs(var7) * 0.4D;
          }
 

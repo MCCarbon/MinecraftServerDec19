@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.World;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
@@ -13,9 +13,9 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_nz;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_vn;
@@ -30,7 +30,7 @@ public abstract class class_aee {
    private int g = 200;
    private int h = 800;
    private int i = 4;
-   private class_pr j;
+   private Entity j;
    private int k = 6;
    private int l = 16;
    private int m = 4;
@@ -60,10 +60,10 @@ public abstract class class_aee {
       if(this.g()) {
          BlockPosition var1 = this.b();
          double var6;
-         if(this.a().D) {
-            double var13 = (double)((float)var1.getX() + this.a().s.nextFloat());
-            double var14 = (double)((float)var1.getY() + this.a().s.nextFloat());
-            var6 = (double)((float)var1.getZ() + this.a().s.nextFloat());
+         if(this.a().isClientSide) {
+            double var13 = (double)((float)var1.getX() + this.a().random.nextFloat());
+            double var14 = (double)((float)var1.getY() + this.a().random.nextFloat());
+            var6 = (double)((float)var1.getZ() + this.a().random.nextFloat());
             this.a().a(class_cy.l, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             this.a().a(class_cy.A, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             if(this.a > 0) {
@@ -93,22 +93,22 @@ public abstract class class_aee {
                   break;
                }
 
-               class_pr var4 = class_pt.a(this.f(), this.a());
+               Entity var4 = class_pt.a(this.f(), this.a());
                if(var4 == null) {
                   return;
                }
 
-               int var5 = this.a().a(var4.getClass(), (new class_awf((double)var1.getX(), (double)var1.getY(), (double)var1.getZ(), (double)(var1.getX() + 1), (double)(var1.getY() + 1), (double)(var1.getZ() + 1))).b((double)this.m, (double)this.m, (double)this.m)).size();
+               int var5 = this.a().getEntities(var4.getClass(), (new AxisAlignedBB((double)var1.getX(), (double)var1.getY(), (double)var1.getZ(), (double)(var1.getX() + 1), (double)(var1.getY() + 1), (double)(var1.getZ() + 1))).grow((double)this.m, (double)this.m, (double)this.m)).size();
                if(var5 >= this.k) {
                   this.h();
                   return;
                }
 
-               var6 = (double)var1.getX() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
-               double var8 = (double)(var1.getY() + this.a().s.nextInt(3) - 1);
-               double var10 = (double)var1.getZ() + (this.a().s.nextDouble() - this.a().s.nextDouble()) * (double)this.m + 0.5D;
+               var6 = (double)var1.getX() + (this.a().random.nextDouble() - this.a().random.nextDouble()) * (double)this.m + 0.5D;
+               double var8 = (double)(var1.getY() + this.a().random.nextInt(3) - 1);
+               double var10 = (double)var1.getZ() + (this.a().random.nextDouble() - this.a().random.nextDouble()) * (double)this.m + 0.5D;
                class_qb var12 = var4 instanceof class_qb?(class_qb)var4:null;
-               var4.b(var6, var8, var10, this.a().s.nextFloat() * 360.0F, 0.0F);
+               var4.b(var6, var8, var10, this.a().random.nextFloat() * 360.0F, 0.0F);
                if(var12 == null || var12.cf() && var12.cg()) {
                   this.a(var4, true);
                   this.a().b(2004, var1, 0);
@@ -126,7 +126,7 @@ public abstract class class_aee {
       }
    }
 
-   private class_pr a(class_pr var1, boolean var2) {
+   private Entity a(Entity var1, boolean var2) {
       if(this.i() != null) {
          NBTTagCompound var3 = new NBTTagCompound();
          var1.d(var3);
@@ -140,13 +140,13 @@ public abstract class class_aee {
 
          var1.f(var3);
          if(var1.o != null && var2) {
-            var1.o.a(var1);
+            var1.o.addEntity(var1);
          }
 
          NBTTagCompound var12;
-         for(class_pr var11 = var1; var3.hasOfType("Riding", 10); var3 = var12) {
+         for(Entity var11 = var1; var3.hasOfType("Riding", 10); var3 = var12) {
             var12 = var3.getCompound("Riding");
-            class_pr var13 = class_pt.a(var12.getString("id"), var1.o);
+            Entity var13 = class_pt.a(var12.getString("id"), var1.o);
             if(var13 != null) {
                NBTTagCompound var7 = new NBTTagCompound();
                var13.d(var7);
@@ -161,7 +161,7 @@ public abstract class class_aee {
                var13.f(var7);
                var13.b(var11.s, var11.t, var11.u, var11.y, var11.z);
                if(var1.o != null && var2) {
-                  var1.o.a(var13);
+                  var1.o.addEntity(var13);
                }
 
                var11.a(var13);
@@ -169,12 +169,12 @@ public abstract class class_aee {
 
             var11 = var13;
          }
-      } else if(var1 instanceof class_qa && var1.o != null && var2) {
+      } else if(var1 instanceof EntityLiving && var1.o != null && var2) {
          if(var1 instanceof class_qb) {
             ((class_qb)var1).a((class_on)var1.o.E(new BlockPosition(var1)), (class_qd)null);
          }
 
-         var1.o.a(var1);
+         var1.o.addEntity(var1);
       }
 
       return var1;
@@ -185,11 +185,11 @@ public abstract class class_aee {
          this.a = this.g;
       } else {
          int var10003 = this.h - this.g;
-         this.a = this.g + this.a().s.nextInt(var10003);
+         this.a = this.g + this.a().random.nextInt(var10003);
       }
 
       if(!this.c.isEmpty()) {
-         this.a((class_aee.class_a_in_class_aee)class_oc.a(this.a().s, this.c));
+         this.a((class_aee.class_a_in_class_aee)class_oc.a(this.a().random, this.c));
       }
 
       this.a(1);
@@ -269,7 +269,7 @@ public abstract class class_aee {
    }
 
    public boolean b(int var1) {
-      if(var1 == 1 && this.a().D) {
+      if(var1 == 1 && this.a().isClientSide) {
          this.a = this.g;
          return true;
       } else {

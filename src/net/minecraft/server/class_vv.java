@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_aej;
+import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agf;
+import net.minecraft.server.BlockMinecartTrackAbstract;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.class_xd;
 
@@ -52,11 +52,11 @@ public class class_vv extends class_vn {
    }
 
    public boolean a(class_pc var1, float var2) {
-      class_pr var3 = var1.i();
+      Entity var3 = var1.i();
       if(var3 instanceof class_xd) {
          class_xd var4 = (class_xd)var3;
          if(var4.av()) {
-            this.b(var4.v * var4.v + var4.w * var4.w + var4.x * var4.x);
+            this.b(var4.v * var4.v + var4.motY * var4.motY + var4.x * var4.x);
          }
       }
 
@@ -77,7 +77,7 @@ public class class_vv extends class_vn {
    }
 
    protected void b(double var1) {
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          double var3 = Math.sqrt(var1);
          if(var3 > 5.0D) {
             var3 = 5.0D;
@@ -107,10 +107,10 @@ public class class_vv extends class_vn {
 
    public void j() {
       this.a = 80;
-      if(!this.o.D) {
-         this.o.a((class_pr)this, (byte)10);
+      if(!this.o.isClientSide) {
+         this.o.a((Entity)this, (byte)10);
          if(!this.R()) {
-            this.o.a((class_pr)this, "game.tnt.primed", 1.0F, 1.0F);
+            this.o.a((Entity)this, "game.tnt.primed", 1.0F, 1.0F);
          }
       }
 
@@ -120,12 +120,12 @@ public class class_vv extends class_vn {
       return this.a > -1;
    }
 
-   public float a(class_aej var1, World var2, BlockPosition var3, IBlockData var4) {
-      return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.shiftUp())?super.a(var1, var2, var3, var4):0.0F;
+   public float a(Explosion var1, World var2, BlockPosition var3, IBlockData var4) {
+      return !this.y() || !BlockMinecartTrackAbstract.d(var4) && !BlockMinecartTrackAbstract.e(var2, var3.up())?super.a(var1, var2, var3, var4):0.0F;
    }
 
-   public boolean a(class_aej var1, World var2, BlockPosition var3, IBlockData var4, float var5) {
-      return !this.y() || !class_agf.d(var4) && !class_agf.e(var2, var3.shiftUp())?super.a(var1, var2, var3, var4, var5):false;
+   public boolean a(Explosion var1, World var2, BlockPosition var3, IBlockData var4, float var5) {
+      return !this.y() || !BlockMinecartTrackAbstract.d(var4) && !BlockMinecartTrackAbstract.e(var2, var3.up())?super.a(var1, var2, var3, var4, var5):false;
    }
 
    protected void a(NBTTagCompound var1) {

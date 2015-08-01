@@ -7,7 +7,7 @@ import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class PacketPlayOutSpawnEntity implements Packet {
    private int a;
@@ -26,11 +26,11 @@ public class PacketPlayOutSpawnEntity implements Packet {
    public PacketPlayOutSpawnEntity() {
    }
 
-   public PacketPlayOutSpawnEntity(class_pr var1, int var2) {
+   public PacketPlayOutSpawnEntity(Entity var1, int var2) {
       this(var1, var2, 0);
    }
 
-   public PacketPlayOutSpawnEntity(class_pr var1, int var2, int var3) {
+   public PacketPlayOutSpawnEntity(Entity var1, int var2, int var3) {
       this.a = var1.getId();
       this.b = var1.aM();
       this.c = MathHelper.floor(var1.s * 32.0D);
@@ -42,7 +42,7 @@ public class PacketPlayOutSpawnEntity implements Packet {
       this.l = var3;
       double var4 = 3.9D;
       this.f = (int)(MathHelper.clamp(var1.v, -3.9D, 3.9D) * 8000.0D);
-      this.g = (int)(MathHelper.clamp(var1.w, -3.9D, 3.9D) * 8000.0D);
+      this.g = (int)(MathHelper.clamp(var1.motY, -3.9D, 3.9D) * 8000.0D);
       this.h = (int)(MathHelper.clamp(var1.x, -3.9D, 3.9D) * 8000.0D);
    }
 

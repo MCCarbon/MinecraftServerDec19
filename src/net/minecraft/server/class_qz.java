@@ -40,7 +40,7 @@ public class class_qz {
       this.a.n(0.0F);
       if(this.f) {
          this.f = false;
-         int var1 = MathHelper.floor(this.a.aT().b + 0.5D);
+         int var1 = MathHelper.floor(this.a.aT().yMin + 0.5D);
          double var2 = this.b - this.a.s;
          double var4 = this.d - this.a.u;
          double var6 = this.c - (double)var1;

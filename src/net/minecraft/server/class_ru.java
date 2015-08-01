@@ -4,8 +4,8 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 
@@ -36,7 +36,7 @@ public class class_ru extends class_rm {
    }
 
    public boolean a() {
-      class_qa var1 = this.b.w();
+      EntityLiving var1 = this.b.w();
       if(var1 == null) {
          return false;
       } else if(!var1.ai()) {
@@ -44,13 +44,13 @@ public class class_ru extends class_rm {
       } else if(this.g != null && !this.g.isAssignableFrom(var1.getClass())) {
          return false;
       } else {
-         this.f = this.b.u().a((class_pr)var1);
+         this.f = this.b.u().a((Entity)var1);
          return this.f != null;
       }
    }
 
    public boolean b() {
-      class_qa var1 = this.b.w();
+      EntityLiving var1 = this.b.w();
       return var1 == null?false:(!var1.ai()?false:(!this.e?!this.b.u().m():this.b.e(new BlockPosition(var1))));
    }
 
@@ -64,14 +64,14 @@ public class class_ru extends class_rm {
    }
 
    public void e() {
-      class_qa var1 = this.b.w();
+      EntityLiving var1 = this.b.w();
       this.b.q().a(var1, 30.0F, 30.0F);
-      double var2 = this.b.e(var1.s, var1.aT().b, var1.u);
+      double var2 = this.b.e(var1.s, var1.aT().yMin, var1.u);
       double var4 = this.a(var1);
       --this.h;
       if((this.e || this.b.v().a(var1)) && this.h <= 0 && (this.i == 0.0D && this.j == 0.0D && this.k == 0.0D || var1.e(this.i, this.j, this.k) >= 1.0D || this.b.bd().nextFloat() < 0.05F)) {
          this.i = var1.s;
-         this.j = var1.aT().b;
+         this.j = var1.aT().yMin;
          this.k = var1.u;
          this.h = 4 + this.b.bd().nextInt(7);
          if(var2 > 1024.0D) {
@@ -80,7 +80,7 @@ public class class_ru extends class_rm {
             this.h += 5;
          }
 
-         if(!this.b.u().a((class_pr)var1, this.d)) {
+         if(!this.b.u().a((Entity)var1, this.d)) {
             this.h += 15;
          }
       }
@@ -97,7 +97,7 @@ public class class_ru extends class_rm {
 
    }
 
-   protected double a(class_qa var1) {
+   protected double a(EntityLiving var1) {
       return (double)(this.b.J * 2.0F * this.b.J * 2.0F + var1.J);
    }
 }

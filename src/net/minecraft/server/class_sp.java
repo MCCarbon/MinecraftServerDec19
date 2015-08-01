@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_wa;
 
 public class class_sp extends class_rm {
    class_wa a;
-   class_qa b;
+   EntityLiving b;
 
    public class_sp(class_wa var1) {
       this.a = var1;
@@ -14,7 +14,7 @@ public class class_sp extends class_rm {
    }
 
    public boolean a() {
-      class_qa var1 = this.a.w();
+      EntityLiving var1 = this.a.w();
       return this.a.cB() > 0 || var1 != null && this.a.h(var1) < 9.0D;
    }
 

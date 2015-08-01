@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.Callable;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.class_e;
 import net.minecraft.server.Packet;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_lj;
 import net.minecraft.server.class_no;
 import net.minecraft.server.class_pp;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_px;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityExperienceOrb;
 import net.minecraft.server.class_tu;
 import net.minecraft.server.class_ui;
 import net.minecraft.server.class_uq;
@@ -27,10 +27,10 @@ import net.minecraft.server.class_uy;
 import net.minecraft.server.class_uz;
 import net.minecraft.server.class_ve;
 import net.minecraft.server.class_vk;
-import net.minecraft.server.class_vl;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.EntityFallingBlock;
+import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_vn;
-import net.minecraft.server.class_vw;
+import net.minecraft.server.EntityTNTPrimed;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_xe;
 import net.minecraft.server.class_xf;
@@ -57,10 +57,10 @@ public class class_lb {
       this.e = var1.s().getPlayerList().d();
    }
 
-   public void a(class_pr var1) {
-      if(var1 instanceof class_lh) {
+   public void a(Entity var1) {
+      if(var1 instanceof EntityPlayer) {
          this.a(var1, 512, 2);
-         class_lh var2 = (class_lh)var1;
+         EntityPlayer var2 = (EntityPlayer)var1;
          Iterator var3 = this.c.iterator();
 
          while(var3.hasNext()) {
@@ -91,7 +91,7 @@ public class class_lb {
          this.a(var1, 64, 10, true);
       } else if(var1 instanceof class_xg) {
          this.a(var1, 64, 10, true);
-      } else if(var1 instanceof class_vm) {
+      } else if(var1 instanceof EntityItem) {
          this.a(var1, 64, 20, true);
       } else if(var1 instanceof class_vn) {
          this.a(var1, 80, 3, true);
@@ -109,15 +109,15 @@ public class class_lb {
          this.a(var1, 160, 3, true);
       } else if(var1 instanceof class_pp) {
          this.a(var1, 80, 3, true);
-      } else if(var1 instanceof class_vw) {
+      } else if(var1 instanceof EntityTNTPrimed) {
          this.a(var1, 160, 10, true);
-      } else if(var1 instanceof class_vl) {
+      } else if(var1 instanceof EntityFallingBlock) {
          this.a(var1, 160, 20, true);
       } else if(var1 instanceof class_uz) {
          this.a(var1, 160, Integer.MAX_VALUE, false);
       } else if(var1 instanceof class_uy) {
          this.a(var1, 160, 3, true);
-      } else if(var1 instanceof class_px) {
+      } else if(var1 instanceof EntityExperienceOrb) {
          this.a(var1, 160, 20, true);
       } else if(var1 instanceof class_uq) {
          this.a(var1, 256, Integer.MAX_VALUE, false);
@@ -125,11 +125,11 @@ public class class_lb {
 
    }
 
-   public void a(class_pr var1, int var2, int var3) {
+   public void a(Entity var1, int var2, int var3) {
       this.a(var1, var2, var3, false);
    }
 
-   public void a(class_pr var1, int var2, final int var3, boolean var4) {
+   public void a(Entity var1, int var2, final int var3, boolean var4) {
       if(var2 > this.e) {
          var2 = this.e;
       }
@@ -142,7 +142,7 @@ public class class_lb {
          class_lj var5 = new class_lj(var1, var2, var3, var4);
          this.c.add(var5);
          this.d.a(var1.getId(), var5);
-         var5.b(this.b.j);
+         var5.b(this.b.players);
       } catch (Throwable var11) {
          class_b var6 = class_b.a(var11, "Adding entity to track");
          class_c var7 = var6.a("Entity To Track");
@@ -175,9 +175,9 @@ public class class_lb {
 
    }
 
-   public void b(class_pr var1) {
-      if(var1 instanceof class_lh) {
-         class_lh var2 = (class_lh)var1;
+   public void b(Entity var1) {
+      if(var1 instanceof EntityPlayer) {
+         EntityPlayer var2 = (EntityPlayer)var1;
          Iterator var3 = this.c.iterator();
 
          while(var3.hasNext()) {
@@ -200,14 +200,14 @@ public class class_lb {
 
       while(var2.hasNext()) {
          class_lj var3 = (class_lj)var2.next();
-         var3.a(this.b.j);
-         if(var3.n && var3.a instanceof class_lh) {
-            var1.add((class_lh)var3.a);
+         var3.a(this.b.players);
+         if(var3.n && var3.a instanceof EntityPlayer) {
+            var1.add((EntityPlayer)var3.a);
          }
       }
 
       for(int var6 = 0; var6 < var1.size(); ++var6) {
-         class_lh var7 = (class_lh)var1.get(var6);
+         EntityPlayer var7 = (EntityPlayer)var1.get(var6);
          Iterator var4 = this.c.iterator();
 
          while(var4.hasNext()) {
@@ -220,13 +220,13 @@ public class class_lb {
 
    }
 
-   public void a(class_lh var1) {
+   public void a(EntityPlayer var1) {
       Iterator var2 = this.c.iterator();
 
       while(var2.hasNext()) {
          class_lj var3 = (class_lj)var2.next();
          if(var3.a == var1) {
-            var3.b(this.b.j);
+            var3.b(this.b.players);
          } else {
             var3.b(var1);
          }
@@ -234,7 +234,7 @@ public class class_lb {
 
    }
 
-   public void a(class_pr var1, Packet var2) {
+   public void a(Entity var1, Packet var2) {
       class_lj var3 = (class_lj)this.d.a(var1.getId());
       if(var3 != null) {
          var3.a(var2);
@@ -242,7 +242,7 @@ public class class_lb {
 
    }
 
-   public void b(class_pr var1, Packet var2) {
+   public void b(Entity var1, Packet var2) {
       class_lj var3 = (class_lj)this.d.a(var1.getId());
       if(var3 != null) {
          var3.b(var2);
@@ -250,7 +250,7 @@ public class class_lb {
 
    }
 
-   public void b(class_lh var1) {
+   public void b(EntityPlayer var1) {
       Iterator var2 = this.c.iterator();
 
       while(var2.hasNext()) {
@@ -260,7 +260,7 @@ public class class_lb {
 
    }
 
-   public void a(class_lh var1, class_aok var2) {
+   public void a(EntityPlayer var1, Chunk var2) {
       Iterator var3 = this.c.iterator();
 
       while(var3.hasNext()) {

@@ -11,7 +11,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ali;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_aco {
    private static final class_aco a = new class_aco();
@@ -36,7 +36,7 @@ public class class_aco {
       this.a(new ItemStack(Blocks.STONEBRICK, 1, class_ali.b), new ItemStack(Blocks.STONEBRICK, 1, class_ali.O), 0.1F);
       this.a(Items.aK, new ItemStack(Items.aJ), 0.3F);
       this.a(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.35F);
-      this.a((Block)Blocks.CACTUS, new ItemStack(Items.aY, 1, class_zy.n.b()), 0.2F);
+      this.a((Block)Blocks.CACTUS, new ItemStack(Items.aY, 1, EnumColor.n.b()), 0.2F);
       this.a(Blocks.LOG, new ItemStack(Items.j, 1, 1), 0.15F);
       this.a(Blocks.LOG2, new ItemStack(Items.j, 1, 1), 0.15F);
       this.a(Blocks.EMERALD_ORE, new ItemStack(Items.bR), 1.0F);
@@ -56,7 +56,7 @@ public class class_aco {
 
       this.a(Blocks.COAL_ORE, new ItemStack(Items.j), 0.1F);
       this.a(Blocks.REDSTONE_ORE, new ItemStack(Items.aE), 0.7F);
-      this.a(Blocks.LAPIS_ORE, new ItemStack(Items.aY, 1, class_zy.l.b()), 0.2F);
+      this.a(Blocks.LAPIS_ORE, new ItemStack(Items.aY, 1, EnumColor.l.b()), 0.2F);
       this.a(Blocks.QUARTZ_ORE, new ItemStack(Items.cj), 0.2F);
    }
 

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.Packet;
@@ -14,7 +14,7 @@ import net.minecraft.server.PacketPlayOutBlockChange;
 import net.minecraft.server.PacketPlayOutMultiBlockChange;
 import net.minecraft.server.PacketPlayOutMapChunk;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_ns;
 import net.minecraft.server.MathHelper;
 import org.apache.logging.log4j.LogManager;
@@ -61,7 +61,7 @@ public class class_ld {
 
       this.e.clear();
       if(this.c.isEmpty()) {
-         class_aoy var5 = this.b.t;
+         class_aoy var5 = this.b.worldProvider;
          if(!var5.e()) {
             this.b.b.b();
          }
@@ -96,7 +96,7 @@ public class class_ld {
 
    }
 
-   public void a(class_lh var1) {
+   public void a(EntityPlayer var1) {
       int var2 = (int)var1.s >> 4;
       int var3 = (int)var1.u >> 4;
       var1.d = var1.s;
@@ -112,7 +112,7 @@ public class class_ld {
       this.b(var1);
    }
 
-   public void b(class_lh var1) {
+   public void b(EntityPlayer var1) {
       ArrayList var2 = Lists.newArrayList((Iterable)var1.f);
       int var3 = 0;
       int var4 = this.g;
@@ -155,7 +155,7 @@ public class class_ld {
 
    }
 
-   public void c(class_lh var1) {
+   public void c(EntityPlayer var1) {
       int var2 = (int)var1.d >> 4;
       int var3 = (int)var1.e >> 4;
 
@@ -177,7 +177,7 @@ public class class_ld {
       return var6 >= -var5 && var6 <= var5?var7 >= -var5 && var7 <= var5:false;
    }
 
-   public void d(class_lh var1) {
+   public void d(EntityPlayer var1) {
       int var2 = (int)var1.s >> 4;
       int var3 = (int)var1.u >> 4;
       double var4 = var1.d - var1.s;
@@ -212,7 +212,7 @@ public class class_ld {
       }
    }
 
-   public boolean a(class_lh var1, int var2, int var3) {
+   public boolean a(EntityPlayer var1, int var2, int var3) {
       class_ld.class_a_in_class_ld var4 = this.a(var2, var3, false);
       return var4 != null && var4.b.contains(var1) && !var1.f.contains(var4.c);
    }
@@ -226,7 +226,7 @@ public class class_ld {
 
          while(true) {
             while(var4.hasNext()) {
-               class_lh var5 = (class_lh)var4.next();
+               EntityPlayer var5 = (EntityPlayer)var4.next();
                int var6 = (int)var5.s >> 4;
                int var7 = (int)var5.u >> 4;
                int var8;
@@ -274,7 +274,7 @@ public class class_ld {
          class_ld.this.a().b.c(var2, var3);
       }
 
-      public void a(class_lh var1) {
+      public void a(EntityPlayer var1) {
          if(this.b.contains(var1)) {
             class_ld.a.debug("Failed to add player. {} already is in chunk {}, {}", new Object[]{var1, Integer.valueOf(this.c.a), Integer.valueOf(this.c.b)});
          } else {
@@ -287,9 +287,9 @@ public class class_ld {
          }
       }
 
-      public void b(class_lh var1) {
+      public void b(EntityPlayer var1) {
          if(this.b.contains(var1)) {
-            class_aok var2 = class_ld.this.b.a(this.c.a, this.c.b);
+            Chunk var2 = class_ld.this.b.a(this.c.a, this.c.b);
             if(var2.i()) {
                var1.a.a((Packet)(new PacketPlayOutMapChunk(var2, true, 0)));
             }
@@ -315,7 +315,7 @@ public class class_ld {
          this.a(class_ld.this.b.a(this.c.a, this.c.b));
       }
 
-      private void a(class_aok var1) {
+      private void a(Chunk var1) {
          var1.c(var1.w() + class_ld.this.b.L() - this.g);
          this.g = class_ld.this.b.L();
       }
@@ -342,7 +342,7 @@ public class class_ld {
 
       public void a(Packet var1) {
          for(int var2 = 0; var2 < this.b.size(); ++var2) {
-            class_lh var3 = (class_lh)this.b.get(var2);
+            EntityPlayer var3 = (EntityPlayer)this.b.get(var2);
             if(!var3.f.contains(this.c)) {
                var3.a.a(var1);
             }
@@ -361,8 +361,8 @@ public class class_ld {
                var3 = (this.d[0] >> 8 & 15) + this.c.b * 16;
                BlockPosition var4 = new BlockPosition(var1, var2, var3);
                this.a((Packet)(new PacketPlayOutBlockChange(class_ld.this.b, var4)));
-               if(class_ld.this.b.p(var4).getBlock().isTileEntity()) {
-                  this.a(class_ld.this.b.s(var4));
+               if(class_ld.this.b.getType(var4).getBlock().isTileEntity()) {
+                  this.a(class_ld.this.b.getTileEntity(var4));
                }
             } else {
                int var7;
@@ -377,7 +377,7 @@ public class class_ld {
                         List var5 = class_ld.this.b.a(var1, var7, var2, var1 + 16, var7 + 16, var2 + 16);
 
                         for(int var6 = 0; var6 < var5.size(); ++var6) {
-                           this.a((class_amg)var5.get(var6));
+                           this.a((TileEntity)var5.get(var6));
                         }
                      }
                   }
@@ -389,8 +389,8 @@ public class class_ld {
                      var3 = this.d[var1] & 255;
                      var7 = (this.d[var1] >> 8 & 15) + this.c.b * 16;
                      BlockPosition var8 = new BlockPosition(var2, var3, var7);
-                     if(class_ld.this.b.p(var8).getBlock().isTileEntity()) {
-                        this.a(class_ld.this.b.s(var8));
+                     if(class_ld.this.b.getType(var8).getBlock().isTileEntity()) {
+                        this.a(class_ld.this.b.getTileEntity(var8));
                      }
                   }
                }
@@ -401,9 +401,9 @@ public class class_ld {
          }
       }
 
-      private void a(class_amg var1) {
+      private void a(TileEntity var1) {
          if(var1 != null) {
-            Packet var2 = var1.z_();
+            Packet var2 = var1.getUpdatePacket();
             if(var2 != null) {
                this.a(var2);
             }

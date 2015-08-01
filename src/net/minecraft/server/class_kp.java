@@ -36,7 +36,7 @@ import net.minecraft.server.MinecraftEncryption;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_ox;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -374,8 +374,8 @@ public class class_kp extends MinecraftServer implements class_kk {
       return this.o.a("spawn-protection", super.aw());
    }
 
-   public boolean a(World var1, BlockPosition var2, class_xa var3) {
-      if(var1.t.p().a() != 0) {
+   public boolean a(World var1, BlockPosition var2, EntityHuman var3) {
+      if(var1.worldProvider.p().a() != 0) {
          return false;
       } else if(this.aP().m().d()) {
          return false;

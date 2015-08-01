@@ -4,12 +4,12 @@ import java.util.Random;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
-import net.minecraft.server.class_adk;
-import net.minecraft.server.class_adm;
+import net.minecraft.server.EnchantmentManager;
+import net.minecraft.server.Enchantment;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_za;
 
 public class class_adt extends class_adi {
@@ -34,20 +34,20 @@ public class class_adt extends class_adi {
       return var1.getItem() instanceof class_za?true:super.a(var1);
    }
 
-   public void b(class_qa var1, class_pr var2, int var3) {
+   public void b(EntityLiving var1, Entity var2, int var3) {
       Random var4 = var1.bd();
-      ItemStack var5 = class_adk.b(class_adm.h, var1);
+      ItemStack var5 = EnchantmentManager.b(Enchantment.h, var1);
       if(a(var3, var4)) {
          if(var2 != null) {
-            var2.a(class_pc.a((class_pr)var1), (float)b(var3, var4));
+            var2.a(class_pc.a((Entity)var1), (float)b(var3, var4));
             var2.a("damage.thorns", 0.5F, 1.0F);
          }
 
          if(var5 != null) {
-            var5.a(3, (class_qa)var1);
+            var5.a(3, (EntityLiving)var1);
          }
       } else if(var5 != null) {
-         var5.a(1, (class_qa)var1);
+         var5.a(1, (EntityLiving)var1);
       }
 
    }

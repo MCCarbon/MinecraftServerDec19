@@ -2,16 +2,16 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_age extends Block {
@@ -21,12 +21,12 @@ public abstract class class_age extends Block {
 
    protected class_age(Material var1, MaterialMapColor var2) {
       super(var1, var2);
-      this.a((CreativeTab)CreativeTab.d);
+      this.setCreativeTab((CreativeTab)CreativeTab.REDSTONE);
       this.setTicking(true);
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
-      this.d(var1.p(var2));
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
+      this.d(var1.getType(var2));
    }
 
    protected void d(IBlockData var1) {
@@ -40,11 +40,11 @@ public abstract class class_age extends Block {
 
    }
 
-   public int a(World var1) {
+   public int tickInterval(World var1) {
       return 20;
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -56,7 +56,7 @@ public abstract class class_age extends Block {
       return false;
    }
 
-   public boolean isPassable(class_aer var1, BlockPosition var2) {
+   public boolean isPassable(IBlockAccess var1, BlockPosition var2) {
       return true;
    }
 
@@ -64,27 +64,27 @@ public abstract class class_age extends Block {
       return true;
    }
 
-   public boolean d(World var1, BlockPosition var2) {
-      return this.m(var1, var2.shiftDown());
+   public boolean canPlace(World var1, BlockPosition var2) {
+      return this.m(var1, var2.down());
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(!this.m(var1, var2.shiftDown())) {
-         this.b(var1, var2, var3, 0);
-         var1.g(var2);
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(!this.m(var1, var2.down())) {
+         this.dropNaturallyForSure(var1, var2, var3, 0);
+         var1.setAir(var2);
       }
 
    }
 
    private boolean m(World var1, BlockPosition var2) {
-      return World.a((class_aer)var1, (BlockPosition)var2) || var1.p(var2).getBlock() instanceof class_ahz;
+      return World.a((IBlockAccess)var1, (BlockPosition)var2) || var1.getType(var2).getBlock() instanceof class_ahz;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+   public void randomTick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      if(!var1.D) {
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+      if(!var1.isClientSide) {
          int var5 = this.e(var3);
          if(var5 > 0) {
             this.a(var1, var2, var3, var5);
@@ -93,8 +93,8 @@ public abstract class class_age extends Block {
       }
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
-      if(!var1.D) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
+      if(!var1.isClientSide) {
          int var5 = this.e(var3);
          if(var5 == 0) {
             this.a(var1, var2, var3, var5);
@@ -109,7 +109,7 @@ public abstract class class_age extends Block {
       boolean var7 = var5 > 0;
       if(var4 != var5) {
          var3 = this.a(var3, var5);
-         var1.a((BlockPosition)var2, (IBlockData)var3, 2);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 2);
          this.e(var1, var2);
          var1.b(var2, var2);
       }
@@ -121,34 +121,34 @@ public abstract class class_age extends Block {
       }
 
       if(var7) {
-         var1.a((BlockPosition)var2, (Block)this, this.a(var1));
+         var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1));
       }
 
    }
 
-   protected class_awf a(BlockPosition var1) {
+   protected AxisAlignedBB a(BlockPosition var1) {
       float var2 = 0.125F;
-      return new class_awf((double)((float)var1.getX() + 0.125F), (double)var1.getY(), (double)((float)var1.getZ() + 0.125F), (double)((float)(var1.getX() + 1) - 0.125F), (double)var1.getY() + 0.25D, (double)((float)(var1.getZ() + 1) - 0.125F));
+      return new AxisAlignedBB((double)((float)var1.getX() + 0.125F), (double)var1.getY(), (double)((float)var1.getZ() + 0.125F), (double)((float)(var1.getX() + 1) - 0.125F), (double)var1.getY() + 0.25D, (double)((float)(var1.getZ() + 1) - 0.125F));
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3) {
+   public void remove(World var1, BlockPosition var2, IBlockData var3) {
       if(this.e(var3) > 0) {
          this.e(var1, var2);
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
    protected void e(World var1, BlockPosition var2) {
       var1.c((BlockPosition)var2, (Block)this);
-      var1.c((BlockPosition)var2.shiftDown(), (Block)this);
+      var1.c((BlockPosition)var2.down(), (Block)this);
    }
 
-   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int a(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return this.e(var3);
    }
 
-   public int b(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int b(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return var4 == EnumDirection.UP?this.e(var3):0;
    }
 

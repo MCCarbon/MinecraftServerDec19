@@ -9,16 +9,16 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aid;
 import net.minecraft.server.class_ajc;
-import net.minecraft.server.class_ajw;
+import net.minecraft.server.BlockWood;
 import net.minecraft.server.class_ako;
-import net.minecraft.server.class_akr;
-import net.minecraft.server.class_ald;
+import net.minecraft.server.BlockSandStone;
+import net.minecraft.server.BlockStairs;
 import net.minecraft.server.class_ali;
-import net.minecraft.server.class_alk;
+import net.minecraft.server.BlockDoubleStepAbstract;
 import net.minecraft.server.class_als;
 import net.minecraft.server.class_alt;
 import net.minecraft.server.class_alu;
-import net.minecraft.server.class_ane;
+import net.minecraft.server.BlockPiston;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
@@ -28,10 +28,10 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_od;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_wq;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_ash {
    public static void a() {
@@ -68,13 +68,13 @@ public class class_ash {
          if(!this.a(var1, var3, 0)) {
             return false;
          } else {
-            this.a(var1, var3, 1, 1, 1, 5, 1, 7, Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), false);
-            this.a(var1, var3, 1, 4, 2, 5, 4, 7, Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), false);
-            this.a(var1, var3, 2, 1, 0, 4, 1, 0, Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), false);
-            this.a(var1, var3, 2, 2, 2, 3, 3, 2, Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), false);
-            this.a(var1, var3, 1, 2, 3, 1, 3, 6, Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), false);
-            this.a(var1, var3, 5, 2, 3, 5, 3, 6, Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), false);
-            this.a(var1, var3, 2, 2, 7, 4, 3, 7, Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), Blocks.PLANKS.fromLegacyData(class_ajw.class_a_in_class_ajw.b.a()), false);
+            this.a(var1, var3, 1, 1, 1, 5, 1, 7, Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), false);
+            this.a(var1, var3, 1, 4, 2, 5, 4, 7, Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), false);
+            this.a(var1, var3, 2, 1, 0, 4, 1, 0, Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), false);
+            this.a(var1, var3, 2, 2, 2, 3, 3, 2, Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), false);
+            this.a(var1, var3, 1, 2, 3, 1, 3, 6, Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), false);
+            this.a(var1, var3, 5, 2, 3, 5, 3, 6, Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), false);
+            this.a(var1, var3, 2, 2, 7, 4, 3, 7, Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), Blocks.PLANKS.fromLegacyData(BlockWood.EnumLogVariant.SPRUCE.getId()), false);
             this.a(var1, var3, 1, 0, 2, 1, 3, 2, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
             this.a(var1, var3, 5, 0, 2, 5, 3, 2, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
             this.a(var1, var3, 1, 0, 7, 1, 3, 7, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
@@ -89,10 +89,10 @@ public class class_ash {
             this.a(var1, Blocks.CAULDRON.getBlockData(), 4, 2, 6, var3);
             this.a(var1, Blocks.FENCE.getBlockData(), 1, 2, 1, var3);
             this.a(var1, Blocks.FENCE.getBlockData(), 5, 2, 1, var3);
-            IBlockData var4 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
-            IBlockData var5 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST);
-            IBlockData var6 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
-            IBlockData var7 = Blocks.SPRUCE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
+            IBlockData var4 = Blocks.SPRUCE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+            IBlockData var5 = Blocks.SPRUCE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
+            IBlockData var6 = Blocks.SPRUCE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
+            IBlockData var7 = Blocks.SPRUCE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
             this.a(var1, var3, 0, 4, 1, 6, 4, 1, var4, var4, false);
             this.a(var1, var3, 0, 4, 2, 0, 4, 7, var5, var5, false);
             this.a(var1, var3, 6, 4, 2, 6, 4, 7, var6, var6, false);
@@ -115,7 +115,7 @@ public class class_ash {
                   class_wq var11 = new class_wq(var1);
                   var11.b((double)var8 + 0.5D, (double)var9, (double)var10 + 0.5D, 0.0F, 0.0F);
                   var11.a(var1.E(new BlockPosition(var8, var9, var10)), (class_qd)null);
-                  var1.a((class_pr)var11);
+                  var1.addEntity((Entity)var11);
                }
             }
 
@@ -215,10 +215,10 @@ public class class_ash {
             this.a(var1, var3, 4, 9, 10, 4, 9, 10, false, var2, k);
             this.a(var1, var3, 7, 9, 10, 7, 9, 10, false, var2, k);
             this.a(var1, var3, 5, 9, 7, 6, 9, 7, false, var2, k);
-            IBlockData var9 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST);
-            IBlockData var10 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
-            IBlockData var6 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
-            IBlockData var7 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
+            IBlockData var9 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
+            IBlockData var10 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
+            IBlockData var6 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
+            IBlockData var7 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
             this.a(var1, var7, 5, 9, 6, var3);
             this.a(var1, var7, 6, 9, 6, var3);
             this.a(var1, var6, 5, 9, 8, var3);
@@ -325,10 +325,10 @@ public class class_ash {
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 8, -2, 9, var3);
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 8, -2, 10, var3);
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 10, -1, 9, var3);
-            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, EnumDirection.UP), 9, -2, 8, var3);
-            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, EnumDirection.WEST), 10, -2, 8, var3);
-            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(class_ane.b, EnumDirection.WEST), 10, -1, 8, var3);
-            this.a(var1, Blocks.UNPOWERED_REPEATER.getBlockData().set(class_ako.O, EnumDirection.NORTH), 10, -2, 10, var3);
+            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(BlockPiston.FACING, EnumDirection.UP), 9, -2, 8, var3);
+            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(BlockPiston.FACING, EnumDirection.WEST), 10, -2, 8, var3);
+            this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(BlockPiston.FACING, EnumDirection.WEST), 10, -1, 8, var3);
+            this.a(var1, Blocks.UNPOWERED_REPEATER.getBlockData().set(class_ako.FACING, EnumDirection.NORTH), 10, -2, 10, var3);
             if(!this.f) {
                this.f = this.a(var1, var3, var2, 9, -3, 10, class_od.a(i, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(5));
             }
@@ -406,12 +406,12 @@ public class class_ash {
             }
          }
 
-         IBlockData var14 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
-         IBlockData var15 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
-         IBlockData var16 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.EAST);
-         IBlockData var7 = Blocks.SANDSTONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.WEST);
-         int var8 = ~class_zy.b.b() & 15;
-         int var9 = ~class_zy.l.b() & 15;
+         IBlockData var14 = Blocks.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         IBlockData var15 = Blocks.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
+         IBlockData var16 = Blocks.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
+         IBlockData var7 = Blocks.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
+         int var8 = ~EnumColor.b.b() & 15;
+         int var9 = ~EnumColor.l.b() & 15;
          this.a(var1, var3, 0, 0, 0, 4, 9, 4, Blocks.SANDSTONE.getBlockData(), Blocks.AIR.getBlockData(), false);
          this.a(var1, var3, 1, 10, 1, 3, 10, 3, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
          this.a(var1, var14, 2, 10, 0, var3);
@@ -426,29 +426,29 @@ public class class_ash {
          this.a(var1, var7, this.a - 1, 10, 2, var3);
          this.a(var1, var3, 8, 0, 0, 12, 4, 4, Blocks.SANDSTONE.getBlockData(), Blocks.AIR.getBlockData(), false);
          this.a(var1, var3, 9, 1, 0, 11, 3, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 9, 1, 1, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 9, 2, 1, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 9, 3, 1, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 10, 3, 1, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 11, 3, 1, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 11, 2, 1, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 11, 1, 1, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 9, 1, 1, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 9, 2, 1, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 9, 3, 1, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 10, 3, 1, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 11, 3, 1, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 11, 2, 1, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 11, 1, 1, var3);
          this.a(var1, var3, 4, 1, 1, 8, 3, 3, Blocks.SANDSTONE.getBlockData(), Blocks.AIR.getBlockData(), false);
          this.a(var1, var3, 4, 1, 2, 8, 2, 2, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
          this.a(var1, var3, 12, 1, 1, 16, 3, 3, Blocks.SANDSTONE.getBlockData(), Blocks.AIR.getBlockData(), false);
          this.a(var1, var3, 12, 1, 2, 16, 2, 2, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
          this.a(var1, var3, 5, 4, 5, this.a - 6, 4, this.c - 6, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
          this.a(var1, var3, 9, 4, 9, 11, 4, 11, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 8, 1, 8, 8, 3, 8, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
-         this.a(var1, var3, 12, 1, 8, 12, 3, 8, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
-         this.a(var1, var3, 8, 1, 12, 8, 3, 12, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
-         this.a(var1, var3, 12, 1, 12, 12, 3, 12, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
+         this.a(var1, var3, 8, 1, 8, 8, 3, 8, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
+         this.a(var1, var3, 12, 1, 8, 12, 3, 8, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
+         this.a(var1, var3, 8, 1, 12, 8, 3, 12, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
+         this.a(var1, var3, 12, 1, 12, 12, 3, 12, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
          this.a(var1, var3, 1, 1, 5, 4, 4, 11, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
          this.a(var1, var3, this.a - 5, 1, 5, this.a - 2, 4, 11, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
          this.a(var1, var3, 6, 7, 9, 6, 7, 11, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
          this.a(var1, var3, this.a - 7, 7, 9, this.a - 7, 7, 11, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
-         this.a(var1, var3, 5, 5, 9, 5, 7, 11, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
-         this.a(var1, var3, this.a - 6, 5, 9, this.a - 6, 7, 11, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
+         this.a(var1, var3, 5, 5, 9, 5, 7, 11, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
+         this.a(var1, var3, this.a - 6, 5, 9, this.a - 6, 7, 11, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
          this.a(var1, Blocks.AIR.getBlockData(), 5, 5, 10, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 5, 6, 10, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 6, 6, 10, var3);
@@ -465,8 +465,8 @@ public class class_ash {
          this.a(var1, var3, this.a - 3, 1, 3, this.a - 2, 2, 3, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
          this.a(var1, Blocks.SANDSTONE.getBlockData(), 1, 1, 2, var3);
          this.a(var1, Blocks.SANDSTONE.getBlockData(), this.a - 2, 1, 2, var3);
-         this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.b.a()), 1, 2, 2, var3);
-         this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.b.a()), this.a - 2, 2, 2, var3);
+         this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.SAND.getId()), 1, 2, 2, var3);
+         this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.SAND.getId()), this.a - 2, 2, 2, var3);
          this.a(var1, var7, 2, 1, 2, var3);
          this.a(var1, var16, this.a - 3, 1, 2, var3);
          this.a(var1, var3, 4, 3, 5, 4, 3, 18, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
@@ -476,10 +476,10 @@ public class class_ash {
 
          int var10;
          for(var10 = 5; var10 <= 17; var10 += 2) {
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 4, 1, var10, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), 4, 2, var10, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), this.a - 5, 1, var10, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), this.a - 5, 2, var10, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 4, 1, var10, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), 4, 2, var10, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), this.a - 5, 1, var10, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), this.a - 5, 2, var10, var3);
          }
 
          this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), 10, 0, 7, var3);
@@ -497,82 +497,82 @@ public class class_ash {
          this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var9), 10, 0, 10, var3);
 
          for(var10 = 0; var10 <= this.a - 1; var10 += this.a - 1) {
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 2, 1, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 2, 1, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 2, 2, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 2, 3, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 3, 1, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 2, 3, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 3, 1, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 3, 2, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 3, 3, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 3, 3, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 4, 1, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), var10, 4, 2, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), var10, 4, 2, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 4, 3, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 5, 1, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 5, 1, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 5, 2, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 5, 3, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 5, 3, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 6, 1, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), var10, 6, 2, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), var10, 6, 2, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 6, 3, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 7, 1, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 7, 2, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 7, 3, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 8, 1, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 8, 2, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 8, 3, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 8, 1, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 8, 2, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 8, 3, var3);
          }
 
          for(var10 = 2; var10 <= this.a - 3; var10 += this.a - 3 - 2) {
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10 - 1, 2, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10 - 1, 2, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 2, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10 + 1, 2, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10 - 1, 3, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10 + 1, 2, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10 - 1, 3, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 3, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10 + 1, 3, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10 + 1, 3, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10 - 1, 4, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), var10, 4, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), var10, 4, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10 + 1, 4, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10 - 1, 5, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10 - 1, 5, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 5, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10 + 1, 5, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10 + 1, 5, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10 - 1, 6, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), var10, 6, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), var10, 6, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10 + 1, 6, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10 - 1, 7, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10, 7, 0, var3);
             this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), var10 + 1, 7, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10 - 1, 8, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10, 8, 0, var3);
-            this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), var10 + 1, 8, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10 - 1, 8, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10, 8, 0, var3);
+            this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), var10 + 1, 8, 0, var3);
          }
 
-         this.a(var1, var3, 8, 4, 0, 12, 6, 0, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
+         this.a(var1, var3, 8, 4, 0, 12, 6, 0, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
          this.a(var1, Blocks.AIR.getBlockData(), 8, 6, 0, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 12, 6, 0, var3);
          this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), 9, 5, 0, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), 10, 5, 0, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), 10, 5, 0, var3);
          this.a(var1, Blocks.STAINED_HARDENED_CLAY.fromLegacyData(var8), 11, 5, 0, var3);
-         this.a(var1, var3, 8, -14, 8, 12, -11, 12, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
-         this.a(var1, var3, 8, -10, 8, 12, -10, 12, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), false);
-         this.a(var1, var3, 8, -9, 8, 12, -9, 12, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), false);
+         this.a(var1, var3, 8, -14, 8, 12, -11, 12, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
+         this.a(var1, var3, 8, -10, 8, 12, -10, 12, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), false);
+         this.a(var1, var3, 8, -9, 8, 12, -9, 12, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), false);
          this.a(var1, var3, 8, -8, 8, 12, -1, 12, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
          this.a(var1, var3, 9, -11, 9, 11, -1, 11, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
          this.a(var1, Blocks.STONE_PRESSURE_PLATE.getBlockData(), 10, -11, 10, var3);
          this.a(var1, var3, 9, -13, 9, 11, -13, 11, Blocks.TNT.getBlockData(), Blocks.AIR.getBlockData(), false);
          this.a(var1, Blocks.AIR.getBlockData(), 8, -11, 10, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 8, -10, 10, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), 7, -10, 10, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 7, -11, 10, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), 7, -10, 10, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 7, -11, 10, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 12, -11, 10, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 12, -10, 10, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), 13, -10, 10, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 13, -11, 10, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), 13, -10, 10, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 13, -11, 10, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 10, -11, 8, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 10, -10, 8, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), 10, -10, 7, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 10, -11, 7, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), 10, -10, 7, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 10, -11, 7, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 10, -11, 12, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 10, -10, 12, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.b.a()), 10, -10, 13, var3);
-         this.a(var1, Blocks.SANDSTONE.fromLegacyData(class_akr.class_a_in_class_akr.c.a()), 10, -11, 13, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), 10, -10, 13, var3);
+         this.a(var1, Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), 10, -11, 13, var3);
          Iterator var17 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
          while(var17.hasNext()) {
@@ -641,7 +641,7 @@ public class class_ash {
                for(int var8 = this.l.a; var8 <= this.l.d; ++var8) {
                   var6.setPosition(var8, 64, var7);
                   if(var2.b((BaseBlockPosition)var6)) {
-                     var4 += Math.max(var1.r(var6).getY(), var1.t.i());
+                     var4 += Math.max(var1.r(var6).getY(), var1.worldProvider.i());
                      ++var5;
                   }
                }

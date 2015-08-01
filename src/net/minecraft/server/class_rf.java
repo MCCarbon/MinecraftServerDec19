@@ -3,18 +3,18 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_aio;
-import net.minecraft.server.class_ald;
+import net.minecraft.server.BlockStepAbstract;
+import net.minecraft.server.BlockStairs;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_auz;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_rf extends class_rm {
    private final class_qb a;
@@ -40,11 +40,11 @@ public class class_rf extends class_rm {
    }
 
    public boolean a() {
-      return this.a.ai() && this.a.l != null && this.a.l instanceof class_xa && (this.d || this.a.ck());
+      return this.a.ai() && this.a.l != null && this.a.l instanceof EntityHuman && (this.d || this.a.ck());
    }
 
    public void e() {
-      class_xa var1 = (class_xa)this.a.l;
+      EntityHuman var1 = (EntityHuman)this.a.l;
       class_qh var2 = (class_qh)this.a;
       float var3 = MathHelper.clampAngle(var1.y - this.a.y) * 0.5F;
       if(var3 > 5.0F) {
@@ -78,7 +78,7 @@ public class class_rf extends class_rm {
 
       float var8 = 0.91F;
       if(this.a.C) {
-         var8 = this.a.o.p(new BlockPosition(MathHelper.floor((float)var4), MathHelper.floor((float)var5) - 1, MathHelper.floor((float)var6))).getBlock().frictionFactor * 0.91F;
+         var8 = this.a.o.getType(new BlockPosition(MathHelper.floor((float)var4), MathHelper.floor((float)var5) - 1, MathHelper.floor((float)var6))).getBlock().frictionFactor * 0.91F;
       }
 
       float var9 = 0.16277136F / (var8 * var8 * var8);
@@ -117,8 +117,8 @@ public class class_rf extends class_rm {
       int var20 = MathHelper.floor(this.a.K + var1.K + 1.0F);
       int var21 = MathHelper.floor(this.a.J + 1.0F);
       if(var4 != var17 || var6 != var18) {
-         Block var22 = this.a.o.p(new BlockPosition(var4, var5, var6)).getBlock();
-         boolean var23 = !this.a(var22) && (var22.getMaterial() != Material.AIR || !this.a(this.a.o.p(new BlockPosition(var4, var5 - 1, var6)).getBlock()));
+         Block var22 = this.a.o.getType(new BlockPosition(var4, var5, var6)).getBlock();
+         boolean var23 = !this.a(var22) && (var22.getMaterial() != Material.AIR || !this.a(this.a.o.getType(new BlockPosition(var4, var5 - 1, var6)).getBlock()));
          if(var23 && 0 == class_auz.a(this.a.o, this.a, var17, var5, var18, var19, var20, var21, false, false, true) && 1 == class_auz.a(this.a.o, this.a, var4, var5 + 1, var6, var19, var20, var21, false, false, true) && 1 == class_auz.a(this.a.o, this.a, var17, var5 + 1, var18, var19, var20, var21, false, false, true)) {
             var2.t().a();
          }
@@ -129,7 +129,7 @@ public class class_rf extends class_rm {
          if(var25 != null) {
             ItemStack var26 = var1.b((EnumUsedHand)var25);
             if(var26 != null && var26.getItem() == Items.cb) {
-               var26.a(1, (class_qa)var1);
+               var26.a(1, (EntityLiving)var1);
                if(var26.count == 0) {
                   ItemStack var24 = new ItemStack(Items.aT);
                   var24.setTag(var26.getTag());
@@ -142,7 +142,7 @@ public class class_rf extends class_rm {
       this.a.g(0.0F, var7);
    }
 
-   protected EnumUsedHand a(class_xa var1) {
+   protected EnumUsedHand a(EntityHuman var1) {
       EnumUsedHand[] var2 = EnumUsedHand.values();
       int var3 = var2.length;
 
@@ -158,7 +158,7 @@ public class class_rf extends class_rm {
    }
 
    private boolean a(Block var1) {
-      return var1 instanceof class_ald || var1 instanceof class_aio;
+      return var1 instanceof BlockStairs || var1 instanceof BlockStepAbstract;
    }
 
    public boolean f() {

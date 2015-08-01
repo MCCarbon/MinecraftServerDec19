@@ -20,32 +20,32 @@ public abstract class class_py extends class_qb {
    public void g(float var1, float var2) {
       if(this.V()) {
          this.a(var1, var2, 0.02F);
-         this.d(this.v, this.w, this.x);
+         this.d(this.v, this.motY, this.x);
          this.v *= 0.800000011920929D;
-         this.w *= 0.800000011920929D;
+         this.motY *= 0.800000011920929D;
          this.x *= 0.800000011920929D;
       } else if(this.ab()) {
          this.a(var1, var2, 0.02F);
-         this.d(this.v, this.w, this.x);
+         this.d(this.v, this.motY, this.x);
          this.v *= 0.5D;
-         this.w *= 0.5D;
+         this.motY *= 0.5D;
          this.x *= 0.5D;
       } else {
          float var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().b) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.91F;
+            var3 = this.o.getType(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.91F;
          }
 
          float var4 = 0.16277136F / (var3 * var3 * var3);
          this.a(var1, var2, this.C?0.1F * var4:0.02F);
          var3 = 0.91F;
          if(this.C) {
-            var3 = this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().b) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.91F;
+            var3 = this.o.getType(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.91F;
          }
 
-         this.d(this.v, this.w, this.x);
+         this.d(this.v, this.motY, this.x);
          this.v *= (double)var3;
-         this.w *= (double)var3;
+         this.motY *= (double)var3;
          this.x *= (double)var3;
       }
 

@@ -6,11 +6,11 @@ import net.minecraft.server.World;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_ul;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_rc extends class_rm {
    private class_ul a;
-   private class_xa b;
+   private EntityHuman b;
    private World c;
    private float d;
    private int e;
@@ -46,7 +46,7 @@ public class class_rc extends class_rm {
       --this.e;
    }
 
-   private boolean a(class_xa var1) {
+   private boolean a(EntityHuman var1) {
       EnumUsedHand[] var2 = EnumUsedHand.values();
       int var3 = var2.length;
 

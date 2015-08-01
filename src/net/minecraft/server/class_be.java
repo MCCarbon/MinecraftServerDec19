@@ -4,7 +4,7 @@ import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -15,7 +15,7 @@ import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 
 public class class_be extends class_i {
    public String c() {
@@ -66,31 +66,31 @@ public class class_be extends class_i {
                      a(var1, this, "commands.setblock.success", new Object[0]);
                      return;
                   }
-               } else if(var2[5].equals("keep") && !var6.d(var3)) {
+               } else if(var2[5].equals("keep") && !var6.isEmpty(var3)) {
                   throw new class_bz("commands.setblock.noChange", new Object[0]);
                }
             }
 
-            class_amg var13 = var6.s(var3);
+            TileEntity var13 = var6.getTileEntity(var3);
             if(var13 != null) {
-               if(var13 instanceof class_oj) {
-                  ((class_oj)var13).l();
+               if(var13 instanceof IInventory) {
+                  ((IInventory)var13).remove();
                }
 
-               var6.a(var3, Blocks.AIR.getBlockData(), var4 == Blocks.AIR?2:4);
+               var6.setTypeAndData(var3, Blocks.AIR.getBlockData(), var4 == Blocks.AIR?2:4);
             }
 
             IBlockData var10 = var4.fromLegacyData(var5);
-            if(!var6.a((BlockPosition)var3, (IBlockData)var10, 2)) {
+            if(!var6.setTypeAndData((BlockPosition)var3, (IBlockData)var10, 2)) {
                throw new class_bz("commands.setblock.noChange", new Object[0]);
             } else {
                if(var8) {
-                  class_amg var11 = var6.s(var3);
+                  TileEntity var11 = var6.getTileEntity(var3);
                   if(var11 != null) {
                      var7.put("x", var3.getX());
                      var7.put("y", var3.getY());
                      var7.put("z", var3.getZ());
-                     var11.a(var7);
+                     var11.read(var7);
                   }
                }
 

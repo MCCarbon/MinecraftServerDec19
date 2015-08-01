@@ -4,7 +4,7 @@ import java.io.IOException;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
@@ -18,7 +18,7 @@ public class PacketPlayOutMultiBlockChange implements Packet {
    public PacketPlayOutMultiBlockChange() {
    }
 
-   public PacketPlayOutMultiBlockChange(int var1, short[] var2, class_aok var3) {
+   public PacketPlayOutMultiBlockChange(int var1, short[] var2, Chunk var3) {
       this.a = new class_aeh(var3.a, var3.b);
       this.b = new PacketPlayOutMultiBlockChange.class_a_in_class_ga[var1];
 
@@ -72,7 +72,7 @@ public class PacketPlayOutMultiBlockChange implements Packet {
          this.c = var3;
       }
 
-      public class_a_in_class_ga(short var2, class_aok var3) {
+      public class_a_in_class_ga(short var2, Chunk var3) {
          this.b = var2;
          this.c = var3.g(this.a());
       }

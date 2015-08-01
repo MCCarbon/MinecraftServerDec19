@@ -19,8 +19,8 @@ public class class_acq extends class_acv {
       } else {
          ItemStack var3 = null;
 
-         for(int var4 = 0; var4 < var1.o_() && var3 == null; ++var4) {
-            ItemStack var5 = var1.a(var4);
+         for(int var4 = 0; var4 < var1.getSize() && var3 == null; ++var4) {
+            ItemStack var5 = var1.getItem(var4);
             if(var5 != null && var5.getItem() == Items.bf) {
                var3 = var5;
             }
@@ -38,8 +38,8 @@ public class class_acq extends class_acv {
    public ItemStack a(class_yg var1) {
       ItemStack var2 = null;
 
-      for(int var3 = 0; var3 < var1.o_() && var2 == null; ++var3) {
-         ItemStack var4 = var1.a(var3);
+      for(int var3 = 0; var3 < var1.getSize() && var2 == null; ++var3) {
+         ItemStack var4 = var1.getItem(var3);
          if(var4 != null && var4.getItem() == Items.bf) {
             var2 = var4;
          }

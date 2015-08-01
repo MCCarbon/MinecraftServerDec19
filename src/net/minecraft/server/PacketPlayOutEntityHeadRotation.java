@@ -5,7 +5,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class PacketPlayOutEntityHeadRotation implements Packet {
    private int a;
@@ -14,7 +14,7 @@ public class PacketPlayOutEntityHeadRotation implements Packet {
    public PacketPlayOutEntityHeadRotation() {
    }
 
-   public PacketPlayOutEntityHeadRotation(class_pr var1, byte var2) {
+   public PacketPlayOutEntityHeadRotation(Entity var1, byte var2) {
       this.a = var1.getId();
       this.b = var2;
    }

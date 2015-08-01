@@ -6,7 +6,7 @@ import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
@@ -136,7 +136,7 @@ public class class_bx extends class_i {
 
             var4 = var3.h();
             var1.a(class_n.class_a_in_class_n.e, MathHelper.floor(var4 + 0.5D));
-            var1.a(new class_fb("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
+            var1.a(new ChatMessage("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
          }
 
       }

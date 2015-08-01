@@ -12,12 +12,12 @@ import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_aht;
 import net.minecraft.server.class_aiz;
 import net.minecraft.server.class_ajh;
-import net.minecraft.server.class_ald;
+import net.minecraft.server.BlockStairs;
 import net.minecraft.server.class_ali;
-import net.minecraft.server.class_alk;
+import net.minecraft.server.BlockDoubleStepAbstract;
 import net.minecraft.server.class_alp;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amv;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityMobSpawner;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
@@ -331,7 +331,7 @@ public class class_asj {
             this.a(var1, var3, var5, 3, 15, var5, 4, 15, Blocks.IRON_BARS.getBlockData(), Blocks.IRON_BARS.getBlockData(), false);
          }
 
-         IBlockData var13 = Blocks.STONE_BRICK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
+         IBlockData var13 = Blocks.STONE_BRICK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
          this.a(var1, var3, 4, 1, 5, 6, 1, 7, false, var2, class_asj.e);
          this.a(var1, var3, 4, 2, 6, 6, 2, 7, false, var2, class_asj.e);
          this.a(var1, var3, 4, 3, 7, 6, 3, 7, false, var2, class_asj.e);
@@ -363,10 +363,10 @@ public class class_asj {
             BlockPosition var10 = new BlockPosition(this.a(5, 6), var12, this.b(5, 6));
             if(var3.b((BaseBlockPosition)var10)) {
                this.a = true;
-               var1.a((BlockPosition)var10, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
-               class_amg var11 = var1.s(var10);
-               if(var11 instanceof class_amv) {
-                  ((class_amv)var11).b().a("Silverfish");
+               var1.setTypeAndData((BlockPosition)var10, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
+               TileEntity var11 = var1.getTileEntity(var10);
+               if(var11 instanceof TileEntityMobSpawner) {
+                  ((TileEntityMobSpawner)var11).b().a("Silverfish");
                }
             }
          }
@@ -907,7 +907,7 @@ public class class_asj {
             this.a(var1, var3, 0, 0, 0, 4, 10, 7, true, var2, class_asj.e);
             this.a(var1, var2, var3, this.d, 1, 7, 0);
             this.a(var1, var2, var3, class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.a, 1, 1, 7);
-            IBlockData var4 = Blocks.STONE_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
+            IBlockData var4 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
 
             for(int var5 = 0; var5 < 6; ++var5) {
                this.a(var1, var4, 1, 6 - var5, 1 + var5, var3);
@@ -966,13 +966,13 @@ public class class_asj {
             this.a(var1, var2, var3, this.d, 1, 1, 0);
             this.a(var1, var2, var3, class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.a, 1, 1, 6);
             this.a(var1, var3, 3, 1, 2, 3, 1, 4, Blocks.STONEBRICK.getBlockData(), Blocks.STONEBRICK.getBlockData(), false);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.f.a()), 3, 1, 1, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.f.a()), 3, 1, 5, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.f.a()), 3, 2, 2, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.f.a()), 3, 2, 4, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId()), 3, 1, 1, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId()), 3, 1, 5, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId()), 3, 2, 2, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId()), 3, 2, 4, var3);
 
             for(int var4 = 2; var4 <= 4; ++var4) {
-               this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.f.a()), 2, 1, var4, var3);
+               this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId()), 2, 1, var4, var3);
             }
 
             if(!this.b && var3.b((BaseBlockPosition)(new BlockPosition(this.a(3, 3), this.d(2), this.b(3, 3))))) {
@@ -1136,21 +1136,21 @@ public class class_asj {
             this.a(var1, var2, var3, class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.a, 1, 1, 4);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 2, 6, 1, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 1, 5, 1, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.a.a()), 1, 6, 1, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.STONE.getId()), 1, 6, 1, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 1, 5, 2, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 1, 4, 3, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.a.a()), 1, 5, 3, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.STONE.getId()), 1, 5, 3, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 2, 4, 3, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 3, 3, 3, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.a.a()), 3, 4, 3, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.STONE.getId()), 3, 4, 3, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 3, 3, 2, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 3, 2, 1, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.a.a()), 3, 3, 1, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.STONE.getId()), 3, 3, 1, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 2, 2, 1, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 1, 1, 1, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.a.a()), 1, 2, 1, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.STONE.getId()), 1, 2, 1, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), 1, 1, 2, var3);
-            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(class_alk.class_a_in_class_alk.a.a()), 1, 1, 3, var3);
+            this.a(var1, Blocks.STONE_SLAB.fromLegacyData(BlockDoubleStepAbstract.EnumStoneSlabVariant.STONE.getId()), 1, 1, 3, var3);
             return true;
          }
       }
@@ -1288,8 +1288,8 @@ public class class_asj {
             this.a(var1, Blocks.STONEBRICK.getBlockData(), var5 + 2, var6, var7, var3);
             this.a(var1, Blocks.IRON_DOOR.getBlockData(), var5 + 1, var6, var7, var3);
             this.a(var1, Blocks.IRON_DOOR.getBlockData().set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var5 + 1, var6 + 1, var7, var3);
-            this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.b, EnumDirection.NORTH), var5 + 2, var6 + 1, var7 + 1, var3);
-            this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.b, EnumDirection.SOUTH), var5 + 2, var6 + 1, var7 - 1, var3);
+            this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.FACING, EnumDirection.NORTH), var5 + 2, var6 + 1, var7 + 1, var3);
+            this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.FACING, EnumDirection.SOUTH), var5 + 2, var6 + 1, var7 - 1, var3);
          }
 
       }

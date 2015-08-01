@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aer;
-import net.minecraft.server.class_agf;
+import net.minecraft.server.IBlockAccess;
+import net.minecraft.server.BlockMinecartTrackAbstract;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahl;
@@ -13,7 +13,7 @@ import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auu;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_auz extends class_auu {
    private boolean f;
@@ -22,7 +22,7 @@ public class class_auz extends class_auu {
    private boolean i;
    private boolean j;
 
-   public void a(class_aer var1, class_pr var2) {
+   public void a(IBlockAccess var1, Entity var2) {
       super.a(var1, var2);
       this.j = this.h;
    }
@@ -32,30 +32,30 @@ public class class_auz extends class_auu {
       this.h = this.j;
    }
 
-   public class_aut a(class_pr var1) {
+   public class_aut a(Entity var1) {
       int var2;
       if(this.i && var1.V()) {
-         var2 = (int)var1.aT().b;
+         var2 = (int)var1.aT().yMin;
          BlockPosition.MutableBlockPosition var3 = new BlockPosition.MutableBlockPosition(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u));
 
-         for(Block var4 = this.a.p(var3).getBlock(); var4 == Blocks.FLOWING_WATER || var4 == Blocks.WATER; var4 = this.a.p(var3).getBlock()) {
+         for(Block var4 = this.a.getType(var3).getBlock(); var4 == Blocks.FLOWING_WATER || var4 == Blocks.WATER; var4 = this.a.getType(var3).getBlock()) {
             ++var2;
             var3.setPosition(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u));
          }
 
          this.h = false;
       } else {
-         var2 = MathHelper.floor(var1.aT().b + 0.5D);
+         var2 = MathHelper.floor(var1.aT().yMin + 0.5D);
       }
 
-      return this.a(MathHelper.floor(var1.aT().a), var2, MathHelper.floor(var1.aT().c));
+      return this.a(MathHelper.floor(var1.aT().xMin), var2, MathHelper.floor(var1.aT().zMin));
    }
 
-   public class_aut a(class_pr var1, double var2, double var4, double var6) {
+   public class_aut a(Entity var1, double var2, double var4, double var6) {
       return this.a(MathHelper.floor(var2 - (double)(var1.J / 2.0F)), MathHelper.floor(var4), MathHelper.floor(var6 - (double)(var1.J / 2.0F)));
    }
 
-   public int a(class_aut[] var1, class_pr var2, class_aut var3, class_aut var4, float var5) {
+   public int a(class_aut[] var1, Entity var2, class_aut var3, class_aut var4, float var5) {
       int var6 = 0;
       byte var7 = 0;
       if(this.a(var2, var3.a, var3.b + 1, var3.c) == 1) {
@@ -85,7 +85,7 @@ public class class_auz extends class_auu {
       return var6;
    }
 
-   private class_aut a(class_pr var1, int var2, int var3, int var4, int var5) {
+   private class_aut a(Entity var1, int var2, int var3, int var4, int var5) {
       class_aut var6 = null;
       int var7 = this.a(var1, var2, var3, var4);
       if(var7 == 2) {
@@ -133,11 +133,11 @@ public class class_auz extends class_auu {
       }
    }
 
-   private int a(class_pr var1, int var2, int var3, int var4) {
+   private int a(Entity var1, int var2, int var3, int var4) {
       return a(this.a, var1, var2, var3, var4, this.c, this.d, this.e, this.h, this.g, this.f);
    }
 
-   public static int a(class_aer var0, class_pr var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, boolean var9, boolean var10) {
+   public static int a(IBlockAccess var0, Entity var1, int var2, int var3, int var4, int var5, int var6, int var7, boolean var8, boolean var9, boolean var10) {
       boolean var11 = false;
       BlockPosition var12 = new BlockPosition(var1);
       BlockPosition.MutableBlockPosition var13 = new BlockPosition.MutableBlockPosition();
@@ -146,7 +146,7 @@ public class class_auz extends class_auu {
          for(int var15 = var3; var15 < var3 + var6; ++var15) {
             for(int var16 = var4; var16 < var4 + var7; ++var16) {
                var13.setPosition(var14, var15, var16);
-               Block var17 = var0.p(var13).getBlock();
+               Block var17 = var0.getType(var13).getBlock();
                if(var17.getMaterial() != Material.AIR) {
                   if(var17 != Blocks.TRAPDOOR && var17 != Blocks.IRON_TRAPDOOR) {
                      if(var17 != Blocks.FLOWING_WATER && var17 != Blocks.WATER) {
@@ -164,8 +164,8 @@ public class class_auz extends class_auu {
                      var11 = true;
                   }
 
-                  if(var1.o.p(var13).getBlock() instanceof class_agf) {
-                     if(!(var1.o.p(var12).getBlock() instanceof class_agf) && !(var1.o.p(var12.shiftDown()).getBlock() instanceof class_agf)) {
+                  if(var1.o.getType(var13).getBlock() instanceof BlockMinecartTrackAbstract) {
+                     if(!(var1.o.getType(var12).getBlock() instanceof BlockMinecartTrackAbstract) && !(var1.o.getType(var12.down()).getBlock() instanceof BlockMinecartTrackAbstract)) {
                         return -3;
                      }
                   } else if(!var17.isPassable(var0, var13) && (!var9 || !(var17 instanceof class_ahl) || var17.getMaterial() != Material.WOOD)) {

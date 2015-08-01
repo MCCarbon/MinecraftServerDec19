@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.ComparisonChain;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pk;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -81,7 +81,7 @@ public class class_pl implements Comparable {
       return this.h;
    }
 
-   public boolean a(class_qa var1) {
+   public boolean a(EntityLiving var1) {
       if(this.c > 0) {
          if(this.b.a(this.c, this.d)) {
             this.b(var1);
@@ -97,7 +97,7 @@ public class class_pl implements Comparable {
       return --this.c;
    }
 
-   public void b(class_qa var1) {
+   public void b(EntityLiving var1) {
       if(this.c > 0) {
          this.b.a(var1, this.d);
       }

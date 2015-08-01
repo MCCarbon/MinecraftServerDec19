@@ -5,11 +5,11 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aio;
-import net.minecraft.server.class_akq;
+import net.minecraft.server.BlockStepAbstract;
+import net.minecraft.server.BlockSand;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anw;
+import net.minecraft.server.BlockStateBoolean;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
@@ -18,21 +18,21 @@ import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.INamable;
 import net.minecraft.server.CreativeTab;
 
-public abstract class class_ajp extends class_aio {
-   public static final class_anw b = class_anw.a("seamless");
+public abstract class class_ajp extends BlockStepAbstract {
+   public static final BlockStateBoolean b = BlockStateBoolean.of("seamless");
    public static final BlockStateEnum N = BlockStateEnum.of("variant", class_ajp.class_a_in_class_ajp.class);
 
    public class_ajp() {
       super(Material.STONE);
       IBlockData var1 = this.blockStateList.getFirst();
-      if(this.l()) {
+      if(this.isDouble()) {
          var1 = var1.set(b, Boolean.valueOf(false));
       } else {
-         var1 = var1.set(a, class_aio.class_a_in_class_aio.b);
+         var1 = var1.set(HALF, BlockStepAbstract.EnumSlabHalf.BOTTOM);
       }
 
       this.setBlockData(var1.set(N, class_ajp.class_a_in_class_ajp.a));
-      this.a((CreativeTab)CreativeTab.b);
+      this.setCreativeTab((CreativeTab)CreativeTab.BUILDING_BLOCKS);
    }
 
    public String getName() {
@@ -47,7 +47,7 @@ public abstract class class_ajp extends class_aio {
       return super.getInternalName() + "." + class_ajp.class_a_in_class_ajp.a(var1).d();
    }
 
-   public IBlockState n() {
+   public IBlockState getVariant() {
       return N;
    }
 
@@ -57,10 +57,10 @@ public abstract class class_ajp extends class_aio {
 
    public IBlockData fromLegacyData(int var1) {
       IBlockData var2 = this.getBlockData().set(N, class_ajp.class_a_in_class_ajp.a(var1 & 7));
-      if(this.l()) {
+      if(this.isDouble()) {
          var2 = var2.set(b, Boolean.valueOf((var1 & 8) != 0));
       } else {
-         var2 = var2.set(a, (var1 & 8) == 0?class_aio.class_a_in_class_aio.b:class_aio.class_a_in_class_aio.a);
+         var2 = var2.set(HALF, (var1 & 8) == 0?BlockStepAbstract.EnumSlabHalf.BOTTOM:BlockStepAbstract.EnumSlabHalf.TOP);
       }
 
       return var2;
@@ -69,19 +69,19 @@ public abstract class class_ajp extends class_aio {
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3 = var2 | ((class_ajp.class_a_in_class_ajp)var1.get(N)).a();
-      if(this.l()) {
+      if(this.isDouble()) {
          if(((Boolean)var1.get(b)).booleanValue()) {
             var3 |= 8;
          }
-      } else if(var1.get(a) == class_aio.class_a_in_class_aio.a) {
+      } else if(var1.get(HALF) == BlockStepAbstract.EnumSlabHalf.TOP) {
          var3 |= 8;
       }
 
       return var3;
    }
 
-   protected BlockStateList createBlockStateList() {
-      return this.l()?new BlockStateList(this, new IBlockState[]{b, N}):new BlockStateList(this, new IBlockState[]{a, N});
+   protected BlockStateList getStateList() {
+      return this.isDouble()?new BlockStateList(this, new IBlockState[]{b, N}):new BlockStateList(this, new IBlockState[]{HALF, N});
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
@@ -93,7 +93,7 @@ public abstract class class_ajp extends class_aio {
    }
 
    public static enum class_a_in_class_ajp implements INamable {
-      a(0, "red_sandstone", class_akq.class_a_in_class_akq.b.c());
+      a(0, "red_sandstone", BlockSand.EnumSandVariant.RED_SAND.getMapColor());
 
       private static final class_ajp.class_a_in_class_ajp[] b;
       private final int c;

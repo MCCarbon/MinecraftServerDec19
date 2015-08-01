@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.class_auw;
 import net.minecraft.server.class_auy;
-import net.minecraft.server.class_awg;
+import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_tg;
@@ -49,7 +49,7 @@ public class class_ti extends class_tg {
    }
 
    protected boolean a(Vec3D var1, Vec3D var2, int var3, int var4, int var5) {
-      class_awg var6 = this.c.a(var1, new Vec3D(var2.x, var2.y + (double)this.b.K * 0.5D, var2.z), false, true, false);
-      return var6 == null || var6.a == class_awg.class_a_in_class_awg.a;
+      MovingObjectPosition var6 = this.c.a(var1, new Vec3D(var2.x, var2.y + (double)this.b.K * 0.5D, var2.z), false, true, false);
+      return var6 == null || var6.a == MovingObjectPosition.class_a_in_class_awg.a;
    }
 }

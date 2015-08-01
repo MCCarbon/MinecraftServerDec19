@@ -8,7 +8,7 @@ import java.util.Set;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutBossBar;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oh;
 
@@ -37,21 +37,21 @@ public class class_le extends class_oh {
          Iterator var3 = this.g.iterator();
 
          while(var3.hasNext()) {
-            class_lh var4 = (class_lh)var3.next();
+            EntityPlayer var4 = (EntityPlayer)var3.next();
             var4.a.a((Packet)var2);
          }
       }
 
    }
 
-   public void a(class_lh var1) {
+   public void a(EntityPlayer var1) {
       if(this.g.add(var1) && this.i) {
          var1.a.a((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.a, this)));
       }
 
    }
 
-   public void b(class_lh var1) {
+   public void b(EntityPlayer var1) {
       if(this.g.remove(var1) && this.i) {
          var1.a.a((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
       }
@@ -64,7 +64,7 @@ public class class_le extends class_oh {
          Iterator var2 = this.g.iterator();
 
          while(var2.hasNext()) {
-            class_lh var3 = (class_lh)var2.next();
+            EntityPlayer var3 = (EntityPlayer)var2.next();
             var3.a.a((Packet)(new PacketPlayOutBossBar(var1?PacketPlayOutBossBar.class_a_in_class_fw.a:PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
          }
       }

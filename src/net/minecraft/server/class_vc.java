@@ -8,9 +8,9 @@ import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_uz;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_vc extends class_uz {
    public class_vc.class_a_in_class_vc c;
@@ -73,10 +73,10 @@ public class class_vc extends class_uz {
       return this.c.D;
    }
 
-   public void b(class_pr var1) {
+   public void b(Entity var1) {
       if(this.o.R().b("doEntityDrops")) {
-         if(var1 instanceof class_xa) {
-            class_xa var2 = (class_xa)var1;
+         if(var1 instanceof EntityHuman) {
+            EntityHuman var2 = (EntityHuman)var1;
             if(var2.bH.instabuild) {
                return;
             }

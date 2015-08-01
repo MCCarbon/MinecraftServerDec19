@@ -5,31 +5,31 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.World;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
 public class class_aay extends Item {
    public class_aay() {
       this.d(1);
-      this.a(CreativeTab.f);
+      this.a(CreativeTab.MISC);
    }
 
-   public ItemStack a(ItemStack var1, World var2, class_qa var3) {
-      if(var3 instanceof class_xa && !((class_xa)var3).bH.instabuild) {
+   public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
+      if(var3 instanceof EntityHuman && !((EntityHuman)var3).bH.instabuild) {
          --var1.count;
       }
 
-      if(!var2.D) {
+      if(!var2.isClientSide) {
          var3.bl();
       }
 
-      if(var3 instanceof class_xa) {
-         ((class_xa)var3).b(class_nc.ad[Item.getId((Item)this)]);
+      if(var3 instanceof EntityHuman) {
+         ((EntityHuman)var3).b(StatisticList.ad[Item.getId((Item)this)]);
       }
 
       return var1.count <= 0?new ItemStack(Items.ay):var1;
@@ -43,7 +43,7 @@ public class class_aay extends Item {
       return class_abz.DRINK;
    }
 
-   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
       return new class_or(class_oq.a, var1);
    }

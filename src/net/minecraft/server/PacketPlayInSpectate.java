@@ -6,7 +6,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayIn;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class PacketPlayInSpectate implements Packet<PacketListenerPlayIn> {
 
@@ -31,7 +31,7 @@ public class PacketPlayInSpectate implements Packet<PacketListenerPlayIn> {
 		listener.handle(this);
 	}
 
-	public class_pr getEntity(WorldServer world) {
+	public Entity getEntity(WorldServer world) {
 		return world.getEntityByUUID(this.uuid);
 	}
 

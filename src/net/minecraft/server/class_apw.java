@@ -22,7 +22,7 @@ public abstract class class_apw extends class_aql {
    }
 
    protected void a(World var1, BlockPosition var2) {
-      if(var1.p(var2).getBlock() != Blocks.DIRT) {
+      if(var1.getType(var2).getBlock() != Blocks.DIRT) {
          this.a(var1, var2, Blocks.DIRT.getBlockData());
       }
 

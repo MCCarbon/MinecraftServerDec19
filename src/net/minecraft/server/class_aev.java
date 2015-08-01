@@ -14,7 +14,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_ns;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_aev {
    private final WorldServer a;
@@ -27,8 +27,8 @@ public class class_aev {
       this.b = new Random(var1.K());
    }
 
-   public void a(class_pr var1, float var2) {
-      if(this.a.t.p().a() != 1) {
+   public void a(Entity var1, float var2) {
+      if(this.a.worldProvider.p().a() != 1) {
          if(!this.b(var1, var2)) {
             this.a(var1);
             this.b(var1, var2);
@@ -47,17 +47,17 @@ public class class_aev {
                   int var12 = var4 + var10;
                   int var13 = var5 + var9 * var7 - var8 * var6;
                   boolean var14 = var10 < 0;
-                  this.a.a((BlockPosition)(new BlockPosition(var11, var12, var13)), (IBlockData)(var14?Blocks.OBSIDIAN.getBlockData():Blocks.AIR.getBlockData()));
+                  this.a.setTypeUpdate((BlockPosition)(new BlockPosition(var11, var12, var13)), (IBlockData)(var14?Blocks.OBSIDIAN.getBlockData():Blocks.AIR.getBlockData()));
                }
             }
          }
 
          var1.b((double)var3, (double)var4, (double)var5, var1.y, 0.0F);
-         var1.v = var1.w = var1.x = 0.0D;
+         var1.v = var1.motY = var1.x = 0.0D;
       }
    }
 
-   public boolean b(class_pr var1, float var2) {
+   public boolean b(Entity var1, float var2) {
       boolean var3 = true;
       double var4 = -1.0D;
       int var6 = MathHelper.floor(var1.s);
@@ -78,9 +78,9 @@ public class class_aev {
             BlockPosition var16;
             for(int var14 = -128; var14 <= 128; ++var14) {
                for(BlockPosition var15 = var30.add(var13, this.a.W() - 1 - var30.getY(), var14); var15.getY() >= 0; var15 = var16) {
-                  var16 = var15.shiftDown();
-                  if(this.a.p(var15).getBlock() == Blocks.PORTAL) {
-                     while(this.a.p(var16 = var15.shiftDown()).getBlock() == Blocks.PORTAL) {
+                  var16 = var15.down();
+                  if(this.a.getType(var15).getBlock() == Blocks.PORTAL) {
+                     while(this.a.getType(var16 = var15.down()).getBlock() == Blocks.PORTAL) {
                         var15 = var16;
                      }
 
@@ -148,7 +148,7 @@ public class class_aev {
       }
    }
 
-   public boolean a(class_pr var1) {
+   public boolean a(Entity var1) {
       byte var2 = 16;
       double var3 = -1.0D;
       int var5 = MathHelper.floor(var1.s);
@@ -184,8 +184,8 @@ public class class_aev {
 
             label293:
             for(var20 = this.a.W() - 1; var20 >= 0; --var20) {
-               if(this.a.d(var13.setPosition(var14, var20, var17))) {
-                  while(var20 > 0 && this.a.d(var13.setPosition(var14, var20 - 1, var17))) {
+               if(this.a.isEmpty(var13.setPosition(var14, var20, var17))) {
+                  while(var20 > 0 && this.a.isEmpty(var13.setPosition(var14, var20 - 1, var17))) {
                      --var20;
                   }
 
@@ -204,7 +204,7 @@ public class class_aev {
                               var28 = var20 + var26;
                               int var29 = var17 + (var25 - 1) * var23 - var24 * var22;
                               var13.setPosition(var27, var28, var29);
-                              if(var26 < 0 && !this.a.p(var13).getBlock().getMaterial().isBuildable() || var26 >= 0 && !this.a.d(var13)) {
+                              if(var26 < 0 && !this.a.getType(var13).getBlock().getMaterial().isBuildable() || var26 >= 0 && !this.a.isEmpty(var13)) {
                                  continue label293;
                               }
                            }
@@ -235,8 +235,8 @@ public class class_aev {
 
                label231:
                for(var20 = this.a.W() - 1; var20 >= 0; --var20) {
-                  if(this.a.d(var13.setPosition(var14, var20, var17))) {
-                     while(var20 > 0 && this.a.d(var13.setPosition(var14, var20 - 1, var17))) {
+                  if(this.a.isEmpty(var13.setPosition(var14, var20, var17))) {
+                     while(var20 > 0 && this.a.isEmpty(var13.setPosition(var14, var20 - 1, var17))) {
                         --var20;
                      }
 
@@ -250,7 +250,7 @@ public class class_aev {
                               var27 = var20 + var25;
                               var28 = var17 + (var24 - 1) * var23;
                               var13.setPosition(var26, var27, var28);
-                              if(var25 < 0 && !this.a.p(var13).getBlock().getMaterial().isBuildable() || var25 >= 0 && !this.a.d(var13)) {
+                              if(var25 < 0 && !this.a.getType(var13).getBlock().getMaterial().isBuildable() || var25 >= 0 && !this.a.isEmpty(var13)) {
                                  continue label231;
                               }
                            }
@@ -293,7 +293,7 @@ public class class_aev {
                   var24 = var16 + var22;
                   var25 = var17 + (var21 - 1) * var19 - var20 * var31;
                   boolean var35 = var22 < 0;
-                  this.a.a((BlockPosition)(new BlockPosition(var23, var24, var25)), (IBlockData)(var35?Blocks.OBSIDIAN.getBlockData():Blocks.AIR.getBlockData()));
+                  this.a.setTypeUpdate((BlockPosition)(new BlockPosition(var23, var24, var25)), (IBlockData)(var35?Blocks.OBSIDIAN.getBlockData():Blocks.AIR.getBlockData()));
                }
             }
          }
@@ -308,7 +308,7 @@ public class class_aev {
                var25 = var16 + var23;
                var26 = var17 + (var22 - 1) * var19;
                boolean var36 = var22 == 0 || var22 == 3 || var23 == -1 || var23 == 3;
-               this.a.a(new BlockPosition(var24, var25, var26), var36?Blocks.OBSIDIAN.getBlockData():var32, 2);
+               this.a.setTypeAndData(new BlockPosition(var24, var25, var26), var36?Blocks.OBSIDIAN.getBlockData():var32, 2);
             }
          }
 
@@ -318,7 +318,7 @@ public class class_aev {
                var25 = var16 + var23;
                var26 = var17 + (var22 - 1) * var19;
                BlockPosition var37 = new BlockPosition(var24, var25, var26);
-               this.a.c(var37, this.a.p(var37).getBlock());
+               this.a.c(var37, this.a.getType(var37).getBlock());
             }
          }
       }

@@ -13,7 +13,7 @@ import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qk;
@@ -31,7 +31,7 @@ import net.minecraft.server.class_tw;
 import net.minecraft.server.class_vi;
 import net.minecraft.server.class_wj;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_ud extends class_tw {
    private static final int bs = class_qi.a(class_ud.class);
@@ -50,7 +50,7 @@ public class class_ud extends class_tw {
       this.i.a(4, new class_sr(this, 1.2D, false, bt));
       this.i.a(5, new class_rl(this, 1.1D));
       this.i.a(6, new class_si(this, 1.0D));
-      this.i.a(7, new class_rr(this, class_xa.class, 6.0F));
+      this.i.a(7, new class_rr(this, EntityHuman.class, 6.0F));
       this.i.a(8, new class_sh(this));
    }
 
@@ -61,11 +61,11 @@ public class class_ud extends class_tw {
    }
 
    public boolean ck() {
-      ItemStack var1 = ((class_xa)this.l).bA();
+      ItemStack var1 = ((EntityHuman)this.l).bA();
       if(var1 != null && var1.getItem() == Items.cb) {
          return true;
       } else {
-         var1 = ((class_xa)this.l).bB();
+         var1 = ((EntityHuman)this.l).bB();
          return var1 != null && var1.getItem() == Items.cb;
       }
    }
@@ -101,13 +101,13 @@ public class class_ud extends class_tw {
       this.a("mob.pig.step", 0.15F, 1.0F);
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(super.a(var1, var2, var3)) {
          return true;
-      } else if(!this.cA() || this.o.D || this.l != null && this.l != var1) {
+      } else if(!this.cA() || this.o.isClientSide || this.l != null && this.l != var1) {
          return false;
       } else {
-         var1.a((class_pr)this);
+         var1.a((Entity)this);
          return true;
       }
    }
@@ -147,25 +147,25 @@ public class class_ud extends class_tw {
    }
 
    public void a(class_vi var1) {
-      if(!this.o.D && !this.I) {
+      if(!this.o.isClientSide && !this.I) {
          class_wj var2 = new class_wj(this.o);
          var2.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
          var2.b(this.s, this.t, this.u, this.y, this.z);
          var2.k(this.cs());
-         if(this.l_()) {
+         if(this.hasCustomName()) {
             var2.a((String)this.aO());
             var2.g(this.aP());
          }
 
-         this.o.a((class_pr)var2);
+         this.o.addEntity((Entity)var2);
          this.J();
       }
    }
 
    public void e(float var1, float var2) {
       super.e(var1, var2);
-      if(var1 > 5.0F && this.l instanceof class_xa) {
-         ((class_xa)this.l).b((class_my)class_mt.u);
+      if(var1 > 5.0F && this.l instanceof EntityHuman) {
+         ((EntityHuman)this.l).b((class_my)class_mt.u);
       }
 
    }

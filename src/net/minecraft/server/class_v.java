@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_bz;
@@ -59,19 +59,19 @@ public class class_v extends class_i {
                         var12.setPosition(var16, var15, var14);
                         var13.setPosition(var16 + var11.getX(), var15 + var11.getY(), var14 + var11.getZ());
                         boolean var17 = false;
-                        IBlockData var18 = var9.p(var12);
+                        IBlockData var18 = var9.getType(var12);
                         if(!var10 || var18.getBlock() != Blocks.AIR) {
-                           if(var18 == var9.p(var13)) {
-                              class_amg var19 = var9.s(var12);
-                              class_amg var20 = var9.s(var13);
+                           if(var18 == var9.getType(var13)) {
+                              TileEntity var19 = var9.getTileEntity(var12);
+                              TileEntity var20 = var9.getTileEntity(var13);
                               if(var19 != null && var20 != null) {
                                  NBTTagCompound var21 = new NBTTagCompound();
-                                 var19.b(var21);
+                                 var19.write(var21);
                                  var21.remove("x");
                                  var21.remove("y");
                                  var21.remove("z");
                                  NBTTagCompound var22 = new NBTTagCompound();
-                                 var20.b(var22);
+                                 var20.write(var22);
                                  var22.remove("x");
                                  var22.remove("y");
                                  var22.remove("z");

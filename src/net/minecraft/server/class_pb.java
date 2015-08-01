@@ -8,16 +8,16 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_pa;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 
 public class class_pb {
    private final List a = Lists.newArrayList();
-   private final class_qa b;
+   private final EntityLiving b;
    private int c;
    private int d;
    private int e;
@@ -25,14 +25,14 @@ public class class_pb {
    private boolean g;
    private String h;
 
-   public class_pb(class_qa var1) {
+   public class_pb(EntityLiving var1) {
       this.b = var1;
    }
 
    public void a() {
       this.j();
       if(this.b.k_()) {
-         Block var1 = this.b.o.p(new BlockPosition(this.b.s, this.b.aT().b, this.b.u)).getBlock();
+         Block var1 = this.b.o.getType(new BlockPosition(this.b.s, this.b.aT().yMin, this.b.u)).getBlock();
          if(var1 == Blocks.LADDER) {
             this.h = "ladder";
          } else if(var1 == Blocks.VINE) {
@@ -62,38 +62,38 @@ public class class_pb {
 
    public IChatBaseComponent b() {
       if(this.a.isEmpty()) {
-         return new class_fb("death.attack.generic", new Object[]{this.b.f_()});
+         return new ChatMessage("death.attack.generic", new Object[]{this.b.getScoreboardDisplayName()});
       } else {
          class_pa var1 = this.i();
          class_pa var2 = (class_pa)this.a.get(this.a.size() - 1);
          IChatBaseComponent var4 = var2.h();
-         class_pr var5 = var2.a().j();
+         Entity var5 = var2.a().j();
          Object var3;
          if(var1 != null && var2.a() == class_pc.i) {
             IChatBaseComponent var6 = var1.h();
             if(var1.a() != class_pc.i && var1.a() != class_pc.j) {
                if(var6 == null || var4 != null && var6.equals(var4)) {
                   if(var4 != null) {
-                     ItemStack var9 = var5 instanceof class_qa?((class_qa)var5).bA():null;
+                     ItemStack var9 = var5 instanceof EntityLiving?((EntityLiving)var5).bA():null;
                      if(var9 != null && var9.hasDisplayName()) {
-                        var3 = new class_fb("death.fell.finish.item", new Object[]{this.b.f_(), var4, var9.B()});
+                        var3 = new ChatMessage("death.fell.finish.item", new Object[]{this.b.getScoreboardDisplayName(), var4, var9.B()});
                      } else {
-                        var3 = new class_fb("death.fell.finish", new Object[]{this.b.f_(), var4});
+                        var3 = new ChatMessage("death.fell.finish", new Object[]{this.b.getScoreboardDisplayName(), var4});
                      }
                   } else {
-                     var3 = new class_fb("death.fell.killer", new Object[]{this.b.f_()});
+                     var3 = new ChatMessage("death.fell.killer", new Object[]{this.b.getScoreboardDisplayName()});
                   }
                } else {
-                  class_pr var7 = var1.a().j();
-                  ItemStack var8 = var7 instanceof class_qa?((class_qa)var7).bA():null;
+                  Entity var7 = var1.a().j();
+                  ItemStack var8 = var7 instanceof EntityLiving?((EntityLiving)var7).bA():null;
                   if(var8 != null && var8.hasDisplayName()) {
-                     var3 = new class_fb("death.fell.assist.item", new Object[]{this.b.f_(), var6, var8.B()});
+                     var3 = new ChatMessage("death.fell.assist.item", new Object[]{this.b.getScoreboardDisplayName(), var6, var8.B()});
                   } else {
-                     var3 = new class_fb("death.fell.assist", new Object[]{this.b.f_(), var6});
+                     var3 = new ChatMessage("death.fell.assist", new Object[]{this.b.getScoreboardDisplayName(), var6});
                   }
                }
             } else {
-               var3 = new class_fb("death.fell.accident." + this.a(var1), new Object[]{this.b.f_()});
+               var3 = new ChatMessage("death.fell.accident." + this.a(var1), new Object[]{this.b.getScoreboardDisplayName()});
             }
          } else {
             var3 = var2.a().b(this.b);
@@ -103,9 +103,9 @@ public class class_pb {
       }
    }
 
-   public class_qa c() {
-      class_qa var1 = null;
-      class_xa var2 = null;
+   public EntityLiving c() {
+      EntityLiving var1 = null;
+      EntityHuman var2 = null;
       float var3 = 0.0F;
       float var4 = 0.0F;
       Iterator var5 = this.a.iterator();
@@ -123,15 +123,15 @@ public class class_pb {
                }
 
                var6 = (class_pa)var5.next();
-               if(var6.a().j() instanceof class_xa && (var2 == null || var6.c() > var4)) {
+               if(var6.a().j() instanceof EntityHuman && (var2 == null || var6.c() > var4)) {
                   var4 = var6.c();
-                  var2 = (class_xa)var6.a().j();
+                  var2 = (EntityHuman)var6.a().j();
                }
-            } while(!(var6.a().j() instanceof class_qa));
+            } while(!(var6.a().j() instanceof EntityLiving));
          } while(var1 != null && var6.c() <= var3);
 
          var3 = var6.c();
-         var1 = (class_qa)var6.a().j();
+         var1 = (EntityLiving)var6.a().j();
       }
    }
 
@@ -197,7 +197,7 @@ public class class_pb {
 
    }
 
-   public class_qa h() {
+   public EntityLiving h() {
       return this.b;
    }
 }

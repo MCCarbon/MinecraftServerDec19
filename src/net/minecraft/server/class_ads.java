@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
-import net.minecraft.server.class_adk;
-import net.minecraft.server.class_adm;
+import net.minecraft.server.EnchantmentManager;
+import net.minecraft.server.Enchantment;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 
 public class class_ads extends class_adi {
    public final class_ads.class_a_in_class_ads a;
@@ -55,8 +55,8 @@ public class class_ads extends class_adi {
       }
    }
 
-   public static int a(class_qa var0, int var1) {
-      int var2 = class_adk.a(class_adm.b, var0);
+   public static int a(EntityLiving var0, int var1) {
+      int var2 = EnchantmentManager.a(Enchantment.b, var0);
       if(var2 > 0) {
          var1 -= MathHelper.floor((float)var1 * (float)var2 * 0.15F);
       }
@@ -64,8 +64,8 @@ public class class_ads extends class_adi {
       return var1;
    }
 
-   public static double a(class_qa var0, double var1) {
-      int var3 = class_adk.a(class_adm.d, var0);
+   public static double a(EntityLiving var0, double var1) {
+      int var3 = EnchantmentManager.a(Enchantment.d, var0);
       if(var3 > 0) {
          var1 -= (double)MathHelper.floor(var1 * (double)((float)var3 * 0.15F));
       }

@@ -4,13 +4,13 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abe;
 import net.minecraft.server.World;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_xt;
 import net.minecraft.server.class_zc;
 
 public class class_aby extends class_zc {
-   public class_xd a(World var1, ItemStack var2, class_qa var3) {
+   public class_xd a(World var1, ItemStack var2, EntityLiving var3) {
       return new class_xt(var1, var3, var2);
    }
 

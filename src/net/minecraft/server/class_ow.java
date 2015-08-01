@@ -4,13 +4,13 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.class_ok;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
-public class class_ow implements class_oj {
+public class class_ow implements IInventory {
    private String a;
    private int b;
    private ItemStack[] c;
@@ -36,17 +36,17 @@ public class class_ow implements class_oj {
       this.d.remove(var1);
    }
 
-   public ItemStack a(int var1) {
+   public ItemStack getItem(int var1) {
       return var1 >= 0 && var1 < this.c.length?this.c[var1]:null;
    }
 
-   public ItemStack a(int var1, int var2) {
+   public ItemStack splitStack(int var1, int var2) {
       if(this.c[var1] != null) {
          ItemStack var3;
          if(this.c[var1].count <= var2) {
             var3 = this.c[var1];
             this.c[var1] = null;
-            this.p_();
+            this.update();
             return var3;
          } else {
             var3 = this.c[var1].a(var2);
@@ -54,7 +54,7 @@ public class class_ow implements class_oj {
                this.c[var1] = null;
             }
 
-            this.p_();
+            this.update();
             return var3;
          }
       } else {
@@ -66,21 +66,21 @@ public class class_ow implements class_oj {
       ItemStack var2 = var1.clone();
 
       for(int var3 = 0; var3 < this.b; ++var3) {
-         ItemStack var4 = this.a(var3);
+         ItemStack var4 = this.getItem(var3);
          if(var4 == null) {
-            this.a(var3, var2);
-            this.p_();
+            this.setItem(var3, var2);
+            this.update();
             return null;
          }
 
          if(ItemStack.c(var4, var2)) {
-            int var5 = Math.min(this.q_(), var4.c());
+            int var5 = Math.min(this.getMaxStackSize(), var4.c());
             int var6 = Math.min(var2.count, var5 - var4.count);
             if(var6 > 0) {
                var4.count += var6;
                var2.count -= var6;
                if(var2.count <= 0) {
-                  this.p_();
+                  this.update();
                   return null;
                }
             }
@@ -88,13 +88,13 @@ public class class_ow implements class_oj {
       }
 
       if(var2.count != var1.count) {
-         this.p_();
+         this.update();
       }
 
       return var2;
    }
 
-   public ItemStack b(int var1) {
+   public ItemStack splitWithoutUpdate(int var1) {
       if(this.c[var1] != null) {
          ItemStack var2 = this.c[var1];
          this.c[var1] = null;
@@ -104,24 +104,24 @@ public class class_ow implements class_oj {
       }
    }
 
-   public void a(int var1, ItemStack var2) {
+   public void setItem(int var1, ItemStack var2) {
       this.c[var1] = var2;
-      if(var2 != null && var2.count > this.q_()) {
-         var2.count = this.q_();
+      if(var2 != null && var2.count > this.getMaxStackSize()) {
+         var2.count = this.getMaxStackSize();
       }
 
-      this.p_();
+      this.update();
    }
 
-   public int o_() {
+   public int getSize() {
       return this.b;
    }
 
-   public String e_() {
+   public String getName() {
       return this.a;
    }
 
-   public boolean l_() {
+   public boolean hasCustomName() {
       return this.e;
    }
 
@@ -130,15 +130,15 @@ public class class_ow implements class_oj {
       this.a = var1;
    }
 
-   public IChatBaseComponent f_() {
-      return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.hasCustomName()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
-   public int q_() {
+   public int getMaxStackSize() {
       return 64;
    }
 
-   public void p_() {
+   public void update() {
       if(this.d != null) {
          for(int var1 = 0; var1 < this.d.size(); ++var1) {
             ((class_ok)this.d.get(var1)).a(this);
@@ -147,32 +147,32 @@ public class class_ow implements class_oj {
 
    }
 
-   public boolean a(class_xa var1) {
+   public boolean isReachable(EntityHuman var1) {
       return true;
    }
 
-   public void b(class_xa var1) {
+   public void startOpen(EntityHuman var1) {
    }
 
-   public void c(class_xa var1) {
+   public void closeContainer(EntityHuman var1) {
    }
 
-   public boolean b(int var1, ItemStack var2) {
+   public boolean canPlaceItem(int var1, ItemStack var2) {
       return true;
    }
 
-   public int a_(int var1) {
+   public int getProperty(int var1) {
       return 0;
    }
 
-   public void b(int var1, int var2) {
+   public void setProperty(int var1, int var2) {
    }
 
-   public int g() {
+   public int getPropertyCount() {
       return 0;
    }
 
-   public void l() {
+   public void remove() {
       for(int var1 = 0; var1 < this.c.length; ++var1) {
          this.c[var1] = null;
       }

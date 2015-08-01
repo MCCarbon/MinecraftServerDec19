@@ -7,7 +7,7 @@ import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_xd;
 
 public class class_xn extends class_xd {
@@ -17,7 +17,7 @@ public class class_xn extends class_xd {
       super(var1);
    }
 
-   public class_xn(World var1, class_qa var2) {
+   public class_xn(World var1, EntityLiving var2) {
       super(var1, var2);
    }
 
@@ -27,7 +27,7 @@ public class class_xn extends class_xd {
 
    public void t_() {
       super.t_();
-      if(this.o.D && !this.a) {
+      if(this.o.isClientSide && !this.a) {
          this.o.a(class_cy.o, this.s, this.t, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
@@ -37,7 +37,7 @@ public class class_xn extends class_xd {
       return new ItemStack(Items.h);
    }
 
-   protected void b(class_qa var1) {
+   protected void b(EntityLiving var1) {
       super.b(var1);
       class_pl var2 = new class_pl(class_pm.x, this.f, 0);
       var1.c(var2);

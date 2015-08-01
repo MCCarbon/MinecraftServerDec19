@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public interface IPlayerFileData {
-   void a(class_xa var1);
+   void a(EntityHuman var1);
 
-   NBTTagCompound b(class_xa var1);
+   NBTTagCompound b(EntityHuman var1);
 
    String[] f();
 }

@@ -6,10 +6,10 @@ import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qi;
 
-public class class_xg extends class_pr {
+public class class_xg extends Entity {
    private static final int a = class_qi.a(class_xg.class);
    private int b;
    private int c;
@@ -40,7 +40,7 @@ public class class_xg extends class_pr {
 
       this.v = this.V.nextGaussian() * 0.001D;
       this.x = this.V.nextGaussian() * 0.001D;
-      this.w = 0.05D;
+      this.motY = 0.05D;
       this.c = 10 * var9 + this.V.nextInt(6) + this.V.nextInt(7);
    }
 
@@ -51,12 +51,12 @@ public class class_xg extends class_pr {
       super.t_();
       this.v *= 1.15D;
       this.x *= 1.15D;
-      this.w += 0.04D;
-      this.d(this.v, this.w, this.x);
+      this.motY += 0.04D;
+      this.d(this.v, this.motY, this.x);
       float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
       this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
-      for(this.z = (float)(MathHelper.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+      for(this.z = (float)(MathHelper.b(this.motY, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
          ;
       }
 
@@ -75,16 +75,16 @@ public class class_xg extends class_pr {
       this.z = this.B + (this.z - this.B) * 0.2F;
       this.y = this.A + (this.y - this.A) * 0.2F;
       if(this.b == 0 && !this.R()) {
-         this.o.a((class_pr)this, "fireworks.launch", 3.0F, 1.0F);
+         this.o.a((Entity)this, "fireworks.launch", 3.0F, 1.0F);
       }
 
       ++this.b;
-      if(this.o.D && this.b % 2 < 2) {
-         this.o.a(class_cy.d, this.s, this.t - 0.3D, this.u, this.V.nextGaussian() * 0.05D, -this.w * 0.5D, this.V.nextGaussian() * 0.05D, new int[0]);
+      if(this.o.isClientSide && this.b % 2 < 2) {
+         this.o.a(class_cy.d, this.s, this.t - 0.3D, this.u, this.V.nextGaussian() * 0.05D, -this.motY * 0.5D, this.V.nextGaussian() * 0.05D, new int[0]);
       }
 
-      if(!this.o.D && this.b > this.c) {
-         this.o.a((class_pr)this, (byte)17);
+      if(!this.o.isClientSide && this.b > this.c) {
+         this.o.a((Entity)this, (byte)17);
          this.J();
       }
 

@@ -8,10 +8,10 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_abw;
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
@@ -27,9 +27,9 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qj;
@@ -45,16 +45,16 @@ import net.minecraft.server.class_tg;
 import net.minecraft.server.class_tk;
 import net.minecraft.server.class_uz;
 import net.minecraft.server.class_vb;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_wd;
 import net.minecraft.server.class_we;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_za;
 import net.minecraft.server.ItemBlock;
 import net.minecraft.server.class_zl;
 
-public abstract class class_qb extends class_qa {
+public abstract class class_qb extends EntityLiving {
    private static final int a = class_qi.a(class_qb.class);
    public int a_;
    protected int b_;
@@ -65,7 +65,7 @@ public abstract class class_qb extends class_qa {
    protected class_tg h;
    protected final class_rn i;
    protected final class_rn bn;
-   private class_qa bq;
+   private EntityLiving bq;
    private class_tk br;
    private ItemStack[] bs = new ItemStack[2];
    protected float[] bo = new float[2];
@@ -74,7 +74,7 @@ public abstract class class_qb extends class_qa {
    private boolean bu;
    private boolean bv;
    private boolean bw;
-   private class_pr bx;
+   private Entity bx;
    private NBTTagCompound by;
 
    public class_qb(World var1) {
@@ -132,11 +132,11 @@ public abstract class class_qb extends class_qa {
       return this.br;
    }
 
-   public class_qa w() {
+   public EntityLiving w() {
       return this.bq;
    }
 
-   public void d(class_qa var1) {
+   public void d(EntityLiving var1) {
       this.bq = var1;
    }
 
@@ -175,7 +175,7 @@ public abstract class class_qb extends class_qa {
       this.o.B.b();
    }
 
-   protected int b(class_xa var1) {
+   protected int b(EntityHuman var1) {
       if(this.b_ > 0) {
          int var2 = this.b_;
 
@@ -199,7 +199,7 @@ public abstract class class_qb extends class_qa {
    }
 
    public void A() {
-      if(this.o.D) {
+      if(this.o.isClientSide) {
          for(int var1 = 0; var1 < 20; ++var1) {
             double var2 = this.V.nextGaussian() * 0.02D;
             double var4 = this.V.nextGaussian() * 0.02D;
@@ -208,14 +208,14 @@ public abstract class class_qb extends class_qa {
             this.o.a(class_cy.a, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J - var2 * var8, this.t + (double)(this.V.nextFloat() * this.K) - var4 * var8, this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J - var6 * var8, var2, var4, var6, new int[0]);
          }
       } else {
-         this.o.a((class_pr)this, (byte)20);
+         this.o.a((Entity)this, (byte)20);
       }
 
    }
 
    public void t_() {
       super.t_();
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          this.co();
       }
 
@@ -294,7 +294,7 @@ public abstract class class_qb extends class_qa {
       var1.put("Leashed", this.bw);
       if(this.bx != null) {
          NBTTagCompound var13 = new NBTTagCompound();
-         if(this.bx instanceof class_qa) {
+         if(this.bx instanceof EntityLiving) {
             var13.put("UUIDMost", this.bx.aM().getMostSignificantBits());
             var13.put("UUIDLeast", this.bx.aM().getLeastSignificantBits());
          } else if(this.bx instanceof class_uz) {
@@ -408,13 +408,13 @@ public abstract class class_qb extends class_qa {
    public void m() {
       super.m();
       this.o.B.a("looting");
-      if(!this.o.D && this.cm() && !this.aS && this.o.R().b("mobGriefing")) {
-         List var1 = this.o.a(class_vm.class, this.aT().b(1.0D, 0.0D, 1.0D));
+      if(!this.o.isClientSide && this.cm() && !this.aS && this.o.R().b("mobGriefing")) {
+         List var1 = this.o.getEntities(EntityItem.class, this.aT().grow(1.0D, 0.0D, 1.0D));
          Iterator var2 = var1.iterator();
 
          while(var2.hasNext()) {
-            class_vm var3 = (class_vm)var2.next();
-            if(!var3.I && var3.l() != null && !var3.s()) {
+            EntityItem var3 = (EntityItem)var2.next();
+            if(!var3.I && var3.l() != null && !var3.isNotPickable()) {
                this.a(var3);
             }
          }
@@ -423,7 +423,7 @@ public abstract class class_qb extends class_qa {
       this.o.B.b();
    }
 
-   protected void a(class_vm var1) {
+   protected void a(EntityItem var1) {
       ItemStack var2 = var1.l();
       class_pw var3 = c(var2);
       boolean var4 = true;
@@ -478,7 +478,7 @@ public abstract class class_qb extends class_qa {
          }
 
          if(var2.getItem() == Items.k && var1.n() != null) {
-            class_xa var8 = this.o.a(var1.n());
+            EntityHuman var8 = this.o.a(var1.n());
             if(var8 != null) {
                var8.b((class_my)class_mt.x);
             }
@@ -512,7 +512,7 @@ public abstract class class_qb extends class_qa {
       if(this.bv) {
          this.aT = 0;
       } else {
-         class_xa var1 = this.o.a(this, -1.0D);
+         EntityHuman var1 = this.o.a(this, -1.0D);
          if(var1 != null) {
             double var2 = var1.s - this.s;
             double var4 = var1.t - this.t;
@@ -574,15 +574,15 @@ public abstract class class_qb extends class_qa {
       return 10;
    }
 
-   public void a(class_pr var1, float var2, float var3) {
+   public void a(Entity var1, float var2, float var3) {
       double var4 = var1.s - this.s;
       double var8 = var1.u - this.u;
       double var6;
-      if(var1 instanceof class_qa) {
-         class_qa var10 = (class_qa)var1;
+      if(var1 instanceof EntityLiving) {
+         EntityLiving var10 = (EntityLiving)var1;
          var6 = var10.t + (double)var10.aU() - (this.t + (double)this.aU());
       } else {
-         var6 = (var1.aT().b + var1.aT().e) / 2.0D - (this.t + (double)this.aU());
+         var6 = (var1.aT().yMin + var1.aT().yMax) / 2.0D - (this.t + (double)this.aU());
       }
 
       double var14 = (double)MathHelper.sqrt(var4 * var4 + var8 * var8);
@@ -610,7 +610,7 @@ public abstract class class_qb extends class_qa {
    }
 
    public boolean cg() {
-      return this.o.a((class_awf)this.aT(), (class_pr)this) && this.o.a((class_pr)this, (class_awf)this.aT()).isEmpty() && !this.o.d(this.aT());
+      return this.o.a((AxisAlignedBB)this.aT(), (Entity)this) && this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.o.d(this.aT());
    }
 
    public int cj() {
@@ -807,7 +807,7 @@ public abstract class class_qb extends class_qa {
    protected void b(class_on var1) {
       float var2 = var1.c();
       if(this.bA() != null && this.V.nextFloat() < 0.25F * var2) {
-         class_adk.a(this.V, this.bA(), (int)(5.0F + var2 * (float)this.V.nextInt(18)));
+         EnchantmentManager.a(this.V, this.bA(), (int)(5.0F + var2 * (float)this.V.nextInt(18)));
       }
 
       class_pw[] var3 = class_pw.values();
@@ -818,7 +818,7 @@ public abstract class class_qb extends class_qa {
          if(var6.a() == class_pw.class_a_in_class_pw.b) {
             ItemStack var7 = this.a(var6);
             if(var7 != null && this.V.nextFloat() < 0.5F * var2) {
-               class_adk.a(this.V, var7, (int)(5.0F + var2 * (float)this.V.nextInt(18)));
+               EnchantmentManager.a(this.V, var7, (int)(5.0F + var2 * (float)this.V.nextInt(18)));
             }
          }
       }
@@ -867,7 +867,7 @@ public abstract class class_qb extends class_qa {
       return this.bv;
    }
 
-   public final boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
+   public final boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
       if(this.cq() && this.cr() == var1) {
          this.a(true, !var1.bH.instabuild);
          return true;
@@ -890,7 +890,7 @@ public abstract class class_qb extends class_qa {
       }
    }
 
-   protected boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   protected boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       return false;
    }
 
@@ -914,12 +914,12 @@ public abstract class class_qb extends class_qa {
       if(this.bw) {
          this.bw = false;
          this.bx = null;
-         if(!this.o.D && var2) {
+         if(!this.o.isClientSide && var2) {
             this.a(Items.cq, 1);
          }
 
-         if(!this.o.D && var1 && this.o instanceof WorldServer) {
-            ((WorldServer)this.o).t().a((class_pr)this, (Packet)(new PacketPlayOutAttachEntity(1, this, (class_pr)null)));
+         if(!this.o.isClientSide && var1 && this.o instanceof WorldServer) {
+            ((WorldServer)this.o).t().a((Entity)this, (Packet)(new PacketPlayOutAttachEntity(1, this, (Entity)null)));
          }
       }
 
@@ -933,15 +933,15 @@ public abstract class class_qb extends class_qa {
       return this.bw;
    }
 
-   public class_pr cr() {
+   public Entity cr() {
       return this.bx;
    }
 
-   public void a(class_pr var1, boolean var2) {
+   public void a(Entity var1, boolean var2) {
       this.bw = true;
       this.bx = var1;
-      if(!this.o.D && var2 && this.o instanceof WorldServer) {
-         ((WorldServer)this.o).t().a((class_pr)this, (Packet)(new PacketPlayOutAttachEntity(1, this, this.bx)));
+      if(!this.o.isClientSide && var2 && this.o instanceof WorldServer) {
+         ((WorldServer)this.o).t().a((Entity)this, (Packet)(new PacketPlayOutAttachEntity(1, this, this.bx)));
       }
 
    }
@@ -950,11 +950,11 @@ public abstract class class_qb extends class_qa {
       if(this.bw && this.by != null) {
          if(this.by.hasOfType("UUIDMost", 4) && this.by.hasOfType("UUIDLeast", 4)) {
             UUID var5 = new UUID(this.by.getLong("UUIDMost"), this.by.getLong("UUIDLeast"));
-            List var6 = this.o.a(class_qa.class, this.aT().b(10.0D, 10.0D, 10.0D));
+            List var6 = this.o.getEntities(EntityLiving.class, this.aT().grow(10.0D, 10.0D, 10.0D));
             Iterator var3 = var6.iterator();
 
             while(var3.hasNext()) {
-               class_qa var4 = (class_qa)var3.next();
+               EntityLiving var4 = (EntityLiving)var3.next();
                if(var4.aM().equals(var5)) {
                   this.bx = var4;
                   break;

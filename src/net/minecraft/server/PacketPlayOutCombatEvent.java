@@ -7,7 +7,7 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.class_pb;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 
 public class PacketPlayOutCombatEvent implements Packet {
    public PacketPlayOutCombatEvent.class_a_in_class_gy a;
@@ -21,7 +21,7 @@ public class PacketPlayOutCombatEvent implements Packet {
 
    public PacketPlayOutCombatEvent(class_pb var1, PacketPlayOutCombatEvent.class_a_in_class_gy var2) {
       this.a = var2;
-      class_qa var3 = var1.c();
+      EntityLiving var3 = var1.c();
       switch(PacketPlayOutCombatEvent.SyntheticClass_1.a[var2.ordinal()]) {
       case 1:
          this.d = var1.f();

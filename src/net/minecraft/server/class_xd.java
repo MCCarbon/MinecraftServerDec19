@@ -5,14 +5,14 @@ import com.google.common.base.Predicates;
 import java.util.List;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awg;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
@@ -20,18 +20,18 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutGameStateChange;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pv;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_wb;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xi;
 
-public class class_xd extends class_pr implements class_xi {
+public class class_xd extends Entity implements class_xi {
    private static final Predicate f;
    private static final int g;
    private int h;
@@ -43,7 +43,7 @@ public class class_xd extends class_pr implements class_xi {
    protected int b;
    public int c;
    public int d;
-   public class_pr e;
+   public Entity e;
    private int av;
    private int aw;
    private double ax;
@@ -64,10 +64,10 @@ public class class_xd extends class_pr implements class_xi {
       this.b(var2, var4, var6);
    }
 
-   public class_xd(World var1, class_qa var2) {
+   public class_xd(World var1, EntityLiving var2) {
       this(var1, var2.s, var2.t + (double)var2.aU() - 0.10000000149011612D, var2.u);
       this.e = var2;
-      if(var2 instanceof class_xa) {
+      if(var2 instanceof EntityHuman) {
          this.c = 1;
       }
 
@@ -96,7 +96,7 @@ public class class_xd extends class_pr implements class_xi {
       var3 *= (double)var7;
       var5 *= (double)var7;
       this.v = var1;
-      this.w = var3;
+      this.motY = var3;
       this.x = var5;
       float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
       this.A = this.y = (float)(MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
@@ -109,15 +109,15 @@ public class class_xd extends class_pr implements class_xi {
       if(this.B == 0.0F && this.A == 0.0F) {
          float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
          this.A = this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
-         this.B = this.z = (float)(MathHelper.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D);
+         this.B = this.z = (float)(MathHelper.b(this.motY, (double)var1) * 180.0D / 3.1415927410125732D);
       }
 
       BlockPosition var13 = new BlockPosition(this.h, this.i, this.as);
-      IBlockData var2 = this.o.p(var13);
+      IBlockData var2 = this.o.getType(var13);
       Block var3 = var2.getBlock();
       if(var3.getMaterial() != Material.AIR) {
-         var3.a((class_aer)this.o, (BlockPosition)var13);
-         class_awf var4 = var3.a(this.o, var13, var2);
+         var3.updateShape((IBlockAccess)this.o, (BlockPosition)var13);
+         AxisAlignedBB var4 = var3.getBoundingBox(this.o, var13, var2);
          if(var4 != null && var4.a(new Vec3D(this.s, this.t, this.u))) {
             this.a = true;
          }
@@ -137,7 +137,7 @@ public class class_xd extends class_pr implements class_xi {
          } else {
             this.a = false;
             this.v *= (double)(this.V.nextFloat() * 0.2F);
-            this.w *= (double)(this.V.nextFloat() * 0.2F);
+            this.motY *= (double)(this.V.nextFloat() * 0.2F);
             this.x *= (double)(this.V.nextFloat() * 0.2F);
             this.av = 0;
             this.aw = 0;
@@ -148,22 +148,22 @@ public class class_xd extends class_pr implements class_xi {
          this.b = 0;
          ++this.aw;
          Vec3D var14 = new Vec3D(this.s, this.t, this.u);
-         Vec3D var5 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
-         class_awg var6 = this.o.a(var14, var5, false, true, false);
+         Vec3D var5 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
+         MovingObjectPosition var6 = this.o.a(var14, var5, false, true, false);
          var14 = new Vec3D(this.s, this.t, this.u);
-         var5 = new Vec3D(this.s + this.v, this.t + this.w, this.u + this.x);
+         var5 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
          if(var6 != null) {
             var5 = new Vec3D(var6.c.x, var6.c.y, var6.c.z);
          }
 
-         class_pr var7 = this.a(var14, var5);
+         Entity var7 = this.a(var14, var5);
          if(var7 != null) {
-            var6 = new class_awg(var7);
+            var6 = new MovingObjectPosition(var7);
          }
 
-         if(var6 != null && var6.d != null && var6.d instanceof class_xa) {
-            class_xa var8 = (class_xa)var6.d;
-            if(var8.bH.invulnerable || this.e instanceof class_xa && !((class_xa)this.e).a(var8)) {
+         if(var6 != null && var6.d != null && var6.d instanceof EntityHuman) {
+            EntityHuman var8 = (EntityHuman)var6.d;
+            if(var8.bH.invulnerable || this.e instanceof EntityHuman && !((EntityHuman)this.e).a(var8)) {
                var6 = null;
             }
          }
@@ -174,17 +174,17 @@ public class class_xd extends class_pr implements class_xi {
 
          if(this.m()) {
             for(int var16 = 0; var16 < 4; ++var16) {
-               this.o.a(class_cy.j, this.s + this.v * (double)var16 / 4.0D, this.t + this.w * (double)var16 / 4.0D, this.u + this.x * (double)var16 / 4.0D, -this.v, -this.w + 0.2D, -this.x, new int[0]);
+               this.o.a(class_cy.j, this.s + this.v * (double)var16 / 4.0D, this.t + this.motY * (double)var16 / 4.0D, this.u + this.x * (double)var16 / 4.0D, -this.v, -this.motY + 0.2D, -this.x, new int[0]);
             }
          }
 
          this.s += this.v;
-         this.t += this.w;
+         this.t += this.motY;
          this.u += this.x;
          float var17 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
          this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
-         for(this.z = (float)(MathHelper.b(this.w, (double)var17) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+         for(this.z = (float)(MathHelper.b(this.motY, (double)var17) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
             ;
          }
 
@@ -207,7 +207,7 @@ public class class_xd extends class_pr implements class_xi {
          if(this.V()) {
             for(int var11 = 0; var11 < 4; ++var11) {
                float var12 = 0.25F;
-               this.o.a(class_cy.e, this.s - this.v * (double)var12, this.t - this.w * (double)var12, this.u - this.x * (double)var12, this.v, this.w, this.x, new int[0]);
+               this.o.a(class_cy.e, this.s - this.v * (double)var12, this.t - this.motY * (double)var12, this.u - this.x * (double)var12, this.v, this.motY, this.x, new int[0]);
             }
 
             var9 = 0.6F;
@@ -218,18 +218,18 @@ public class class_xd extends class_pr implements class_xi {
          }
 
          this.v *= (double)var9;
-         this.w *= (double)var9;
+         this.motY *= (double)var9;
          this.x *= (double)var9;
-         this.w -= (double)var10;
+         this.motY -= (double)var10;
          this.b(this.s, this.t, this.u);
          this.Q();
       }
    }
 
-   protected void a(class_awg var1) {
-      class_pr var2 = var1.d;
+   protected void a(MovingObjectPosition var1) {
+      Entity var2 = var1.d;
       if(var2 != null) {
-         float var3 = MathHelper.sqrt(this.v * this.v + this.w * this.w + this.x * this.x);
+         float var3 = MathHelper.sqrt(this.v * this.v + this.motY * this.motY + this.x * this.x);
          int var4 = MathHelper.ceil((double)var3 * this.ax);
          if(this.m()) {
             var4 += this.V.nextInt(var4 / 2 + 2);
@@ -237,7 +237,7 @@ public class class_xd extends class_pr implements class_xi {
 
          class_pc var5;
          if(this.e == null) {
-            var5 = class_pc.a((class_xd)this, (class_pr)this);
+            var5 = class_pc.a((class_xd)this, (Entity)this);
          } else {
             var5 = class_pc.a(this, this.e);
          }
@@ -247,9 +247,9 @@ public class class_xd extends class_pr implements class_xi {
          }
 
          if(var2.a(var5, (float)var4)) {
-            if(var2 instanceof class_qa) {
-               class_qa var6 = (class_qa)var2;
-               if(!this.o.D) {
+            if(var2 instanceof EntityLiving) {
+               EntityLiving var6 = (EntityLiving)var2;
+               if(!this.o.isClientSide) {
                   var6.l(var6.bw() + 1);
                }
 
@@ -260,14 +260,14 @@ public class class_xd extends class_pr implements class_xi {
                   }
                }
 
-               if(this.e instanceof class_qa) {
-                  class_adk.a(var6, this.e);
-                  class_adk.b((class_qa)((class_qa)this.e), (class_pr)var6);
+               if(this.e instanceof EntityLiving) {
+                  EnchantmentManager.a(var6, this.e);
+                  EnchantmentManager.b((EntityLiving)((EntityLiving)this.e), (Entity)var6);
                }
 
                this.b(var6);
-               if(this.e != null && var6 != this.e && var6 instanceof class_xa && this.e instanceof class_lh) {
-                  ((class_lh)this.e).a.a((Packet)(new PacketPlayOutGameStateChange(6, 0.0F)));
+               if(this.e != null && var6 != this.e && var6 instanceof EntityHuman && this.e instanceof EntityPlayer) {
+                  ((EntityPlayer)this.e).a.a((Packet)(new PacketPlayOutGameStateChange(6, 0.0F)));
                }
             }
 
@@ -277,7 +277,7 @@ public class class_xd extends class_pr implements class_xi {
             }
          } else {
             this.v *= -0.10000000149011612D;
-            this.w *= -0.10000000149011612D;
+            this.motY *= -0.10000000149011612D;
             this.x *= -0.10000000149011612D;
             this.y += 180.0F;
             this.A += 180.0F;
@@ -288,41 +288,41 @@ public class class_xd extends class_pr implements class_xi {
          this.h = var8.getX();
          this.i = var8.getY();
          this.as = var8.getZ();
-         IBlockData var9 = this.o.p(var8);
+         IBlockData var9 = this.o.getType(var8);
          this.at = var9.getBlock();
          this.au = this.at.toLegacyData(var9);
          this.v = (double)((float)(var1.c.x - this.s));
-         this.w = (double)((float)(var1.c.y - this.t));
+         this.motY = (double)((float)(var1.c.y - this.t));
          this.x = (double)((float)(var1.c.z - this.u));
-         float var10 = MathHelper.sqrt(this.v * this.v + this.w * this.w + this.x * this.x);
+         float var10 = MathHelper.sqrt(this.v * this.v + this.motY * this.motY + this.x * this.x);
          this.s -= this.v / (double)var10 * 0.05000000074505806D;
-         this.t -= this.w / (double)var10 * 0.05000000074505806D;
+         this.t -= this.motY / (double)var10 * 0.05000000074505806D;
          this.u -= this.x / (double)var10 * 0.05000000074505806D;
          this.a("random.bowhit", 1.0F, 1.2F / (this.V.nextFloat() * 0.2F + 0.9F));
          this.a = true;
          this.d = 7;
          this.a(false);
          if(this.at.getMaterial() != Material.AIR) {
-            this.at.a((World)this.o, var8, (IBlockData)var9, (class_pr)this);
+            this.at.a((World)this.o, var8, (IBlockData)var9, (Entity)this);
          }
       }
 
    }
 
-   protected void b(class_qa var1) {
+   protected void b(EntityLiving var1) {
    }
 
-   protected class_pr a(Vec3D var1, Vec3D var2) {
-      class_pr var3 = null;
-      List var4 = this.o.a((class_pr)this, (class_awf)this.aT().a(this.v, this.w, this.x).b(1.0D, 1.0D, 1.0D), (Predicate)f);
+   protected Entity a(Vec3D var1, Vec3D var2) {
+      Entity var3 = null;
+      List var4 = this.o.a((Entity)this, (AxisAlignedBB)this.aT().add(this.v, this.motY, this.x).grow(1.0D, 1.0D, 1.0D), (Predicate)f);
       double var5 = 0.0D;
 
       for(int var7 = 0; var7 < var4.size(); ++var7) {
-         class_pr var8 = (class_pr)var4.get(var7);
+         Entity var8 = (Entity)var4.get(var7);
          if(var8 != this.e || this.aw >= 5) {
             float var9 = 0.3F;
-            class_awf var10 = var8.aT().b((double)var9, (double)var9, (double)var9);
-            class_awg var11 = var10.a(var1, var2);
+            AxisAlignedBB var10 = var8.aT().grow((double)var9, (double)var9, (double)var9);
+            MovingObjectPosition var11 = var10.a(var1, var2);
             if(var11 != null) {
                double var12 = var1.distanceSquared(var11.c);
                if(var12 < var5 || var5 == 0.0D) {
@@ -376,8 +376,8 @@ public class class_xd extends class_pr implements class_xi {
 
    }
 
-   public void d(class_xa var1) {
-      if(!this.o.D && this.a && this.d <= 0) {
+   public void d(EntityHuman var1) {
+      if(!this.o.isClientSide && this.a && this.d <= 0) {
          boolean var2 = this.c == 1 || this.c == 2 && var1.bH.instabuild;
          if(this.c == 1 && !var1.bp.a(this.j())) {
             var2 = false;
@@ -437,13 +437,13 @@ public class class_xd extends class_pr implements class_xi {
 
    static {
       f = Predicates.and(new Predicate[]{class_pv.d, class_pv.a, new Predicate() {
-         public boolean a(class_pr var1) {
+         public boolean a(Entity var1) {
             return var1.ad();
          }
 
          // $FF: synthetic method
          public boolean apply(Object var1) {
-            return this.a((class_pr)var1);
+            return this.a((Entity)var1);
          }
       }});
       g = class_qi.a(class_xd.class);

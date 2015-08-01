@@ -19,7 +19,7 @@ import net.minecraft.server.class_sr;
 import net.minecraft.server.class_tf;
 import net.minecraft.server.class_tw;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_ty extends class_tw {
    public class_ty(World var1) {
@@ -32,7 +32,7 @@ public class class_ty extends class_tw {
       this.i.a(3, new class_sr(this, 1.25D, Items.Q, false));
       this.i.a(4, new class_rl(this, 1.25D));
       this.i.a(5, new class_si(this, 1.0D));
-      this.i.a(6, new class_rr(this, class_xa.class, 6.0F));
+      this.i.a(6, new class_rr(this, EntityHuman.class, 6.0F));
       this.i.a(7, new class_sh(this));
    }
 
@@ -86,7 +86,7 @@ public class class_ty extends class_tw {
 
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.ay && !var1.bH.instabuild && !this.j_()) {
          if(--var3.count == 0) {
             var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.aI)));

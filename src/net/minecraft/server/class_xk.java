@@ -8,8 +8,8 @@ import java.util.List;
 import java.util.UUID;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awg;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
@@ -21,14 +21,14 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_xj;
 import net.minecraft.server.EnumDirection.EnumAxis;
 
-public class class_xk extends class_pr {
-	private class_qa a;
-	private class_pr b;
+public class class_xk extends Entity {
+	private EntityLiving a;
+	private Entity b;
 	private EnumDirection c;
 	private int d;
 	private double e;
@@ -45,7 +45,7 @@ public class class_xk extends class_pr {
 		this.T = true;
 	}
 
-	public class_xk(World var1, class_qa var2, class_pr var3, EnumDirection.EnumAxis var4) {
+	public class_xk(World var1, EntityLiving var2, Entity var3, EnumDirection.EnumAxis var4) {
 		this(var1);
 		this.a = var2;
 		BlockPosition var5 = new BlockPosition(var2);
@@ -127,7 +127,7 @@ public class class_xk extends class_pr {
 			var3 = (double) this.b.K * 0.5D;
 			var2 = new BlockPosition(this.b.s, this.b.t + var3, this.b.u);
 		} else {
-			var2 = (new BlockPosition(this)).shiftDown();
+			var2 = (new BlockPosition(this)).down();
 		}
 
 		double var5 = (double) var2.getX() + 0.5D;
@@ -137,25 +137,25 @@ public class class_xk extends class_pr {
 			BlockPosition var11 = new BlockPosition(this);
 			ArrayList var12 = Lists.newArrayList();
 			if (var1 != EnumDirection.EnumAxis.X) {
-				if (var11.getX() < var2.getX() && this.o.d(var11.shiftEast())) {
+				if (var11.getX() < var2.getX() && this.o.isEmpty(var11.east())) {
 					var12.add(EnumDirection.EAST);
-				} else if (var11.getX() > var2.getX() && this.o.d(var11.shiftWest())) {
+				} else if (var11.getX() > var2.getX() && this.o.isEmpty(var11.west())) {
 					var12.add(EnumDirection.WEST);
 				}
 			}
 
 			if (var1 != EnumDirection.EnumAxis.Y) {
-				if (var11.getY() < var2.getY() && this.o.d(var11.shiftUp())) {
+				if (var11.getY() < var2.getY() && this.o.isEmpty(var11.up())) {
 					var12.add(EnumDirection.UP);
-				} else if (var11.getY() > var2.getY() && this.o.d(var11.shiftDown())) {
+				} else if (var11.getY() > var2.getY() && this.o.isEmpty(var11.down())) {
 					var12.add(EnumDirection.DOWN);
 				}
 			}
 
 			if (var1 != EnumDirection.EnumAxis.Z) {
-				if (var11.getZ() < var2.getZ() && this.o.d(var11.shiftSouth())) {
+				if (var11.getZ() < var2.getZ() && this.o.isEmpty(var11.south())) {
 					var12.add(EnumDirection.SOUTH);
-				} else if (var11.getZ() > var2.getZ() && this.o.d(var11.shiftNorth())) {
+				} else if (var11.getZ() > var2.getZ() && this.o.isEmpty(var11.north())) {
 					var12.add(EnumDirection.NORTH);
 				}
 			}
@@ -164,7 +164,7 @@ public class class_xk extends class_pr {
 			if (!var12.isEmpty()) {
 				var13 = (EnumDirection) var12.get(this.V.nextInt(var12.size()));
 			} else {
-				for (int var14 = 5; !this.o.d(var11.shift(var13)) && var14 > 0; --var14) {
+				for (int var14 = 5; !this.o.isEmpty(var11.shift(var13)) && var14 > 0; --var14) {
 					var13 = EnumDirection.getRandom(this.V);
 				}
 			}
@@ -196,16 +196,16 @@ public class class_xk extends class_pr {
 
 	public void t_() {
 		super.t_();
-		if (!this.o.D) {
+		if (!this.o.isClientSide) {
 			List var1;
 			Iterator var2;
-			class_qa var3;
+			EntityLiving var3;
 			if (this.b == null && this.as != null) {
-				var1 = this.o.a(class_qa.class, new class_awf(this.at.add(-2, -2, -2), this.at.add(2, 2, 2)));
+				var1 = this.o.getEntities(EntityLiving.class, new AxisAlignedBB(this.at.add(-2, -2, -2), this.at.add(2, 2, 2)));
 				var2 = var1.iterator();
 
 				while (var2.hasNext()) {
-					var3 = (class_qa) var2.next();
+					var3 = (EntityLiving) var2.next();
 					if (var3.aM().equals(this.as)) {
 						this.b = var3;
 						break;
@@ -216,11 +216,11 @@ public class class_xk extends class_pr {
 			}
 
 			if (this.a == null && this.h != null) {
-				var1 = this.o.a(class_qa.class, new class_awf(this.i.add(-2, -2, -2), this.i.add(2, 2, 2)));
+				var1 = this.o.getEntities(EntityLiving.class, new AxisAlignedBB(this.i.add(-2, -2, -2), this.i.add(2, 2, 2)));
 				var2 = var1.iterator();
 
 				while (var2.hasNext()) {
-					var3 = (class_qa) var2.next();
+					var3 = (EntityLiving) var2.next();
 					if (var3.aM().equals(this.h)) {
 						this.a = var3;
 						break;
@@ -235,21 +235,21 @@ public class class_xk extends class_pr {
 				this.f = MathHelper.clamp(this.f * 1.025D, -1.0D, 1.0D);
 				this.g = MathHelper.clamp(this.g * 1.025D, -1.0D, 1.0D);
 				this.v += (this.e - this.v) * 0.2D;
-				this.w += (this.f - this.w) * 0.2D;
+				this.motY += (this.f - this.motY) * 0.2D;
 				this.x += (this.g - this.x) * 0.2D;
 			} else {
-				this.w -= 0.04D;
+				this.motY -= 0.04D;
 			}
 
-			class_awg var4 = class_xj.a(this, true, false, this.a);
+			MovingObjectPosition var4 = class_xj.a(this, true, false, this.a);
 			if (var4 != null) {
 				this.a(var4);
 			}
 		}
 
-		this.b(this.s + this.v, this.t + this.w, this.u + this.x);
+		this.b(this.s + this.v, this.t + this.motY, this.u + this.x);
 		class_xj.a(this, 0.5F);
-		if (!this.o.D) {
+		if (!this.o.isClientSide) {
 			if (this.b != null && !this.b.I) {
 				if (this.d > 0) {
 					--this.d;
@@ -272,7 +272,7 @@ public class class_xk extends class_pr {
 				}
 			}
 		} else {
-			this.o.a(class_cy.R, this.s - this.v, this.t - this.w + 0.15D, this.u - this.x, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.o.a(class_cy.R, this.s - this.v, this.t - this.motY + 0.15D, this.u - this.x, 0.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 	}
@@ -285,13 +285,13 @@ public class class_xk extends class_pr {
 		return 1.0F;
 	}
 
-	protected void a(class_awg var1) {
+	protected void a(MovingObjectPosition var1) {
 		if (var1.d != null) {
-			boolean var2 = var1.d.a(class_pc.a((class_pr) this, (class_qa) this.a), 4.0F);
+			boolean var2 = var1.d.a(class_pc.a((Entity) this, (EntityLiving) this.a), 4.0F);
 			if (var2) {
 				this.a(this.a, var1.d);
-				if (var1.d instanceof class_qa) {
-					((class_qa) var1.d).c(new class_pl(class_pm.y, 200));
+				if (var1.d instanceof EntityLiving) {
+					((EntityLiving) var1.d).c(new class_pl(class_pm.y, 200));
 				}
 			}
 		} else {
@@ -307,7 +307,7 @@ public class class_xk extends class_pr {
 	}
 
 	public boolean a(class_pc var1, float var2) {
-		if (!this.o.D) {
+		if (!this.o.isClientSide) {
 			this.a("mob.irongolem.hit", 1.0F, 1.0F);
 			((WorldServer) this.o).a(class_cy.j, this.s, this.t, this.u, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
 			this.J();

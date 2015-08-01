@@ -7,14 +7,14 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_px;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityExperienceOrb;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tw;
 import net.minecraft.server.class_ty;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_re extends class_rm {
    private class_tw d;
@@ -50,7 +50,7 @@ public class class_re extends class_rm {
 
    public void e() {
       this.d.q().a(this.e, 10.0F, (float)this.d.cd());
-      this.d.u().a((class_pr)this.e, this.c);
+      this.d.u().a((Entity)this.e, this.c);
       ++this.b;
       if(this.b >= 60 && this.d.h(this.e) < 9.0D) {
          this.g();
@@ -60,7 +60,7 @@ public class class_re extends class_rm {
 
    private class_tw f() {
       float var1 = 8.0F;
-      List var2 = this.a.a(this.d.getClass(), this.d.aT().b((double)var1, (double)var1, (double)var1));
+      List var2 = this.a.getEntities(this.d.getClass(), this.d.aT().grow((double)var1, (double)var1, (double)var1));
       double var3 = Double.MAX_VALUE;
       class_tw var5 = null;
       Iterator var6 = var2.iterator();
@@ -79,13 +79,13 @@ public class class_re extends class_rm {
    private void g() {
       class_po var1 = this.d.a((class_po)this.e);
       if(var1 != null) {
-         class_xa var2 = this.d.cF();
+         EntityHuman var2 = this.d.cF();
          if(var2 == null && this.e.cF() != null) {
             var2 = this.e.cF();
          }
 
          if(var2 != null) {
-            var2.b(class_nc.A);
+            var2.b(StatisticList.A);
             if(this.d instanceof class_ty) {
                var2.b((class_my)class_mt.H);
             }
@@ -97,7 +97,7 @@ public class class_re extends class_rm {
          this.e.cH();
          var1.b(-24000);
          var1.b(this.d.s, this.d.t, this.d.u, 0.0F, 0.0F);
-         this.a.a((class_pr)var1);
+         this.a.addEntity((Entity)var1);
          Random var3 = this.d.bd();
 
          for(int var4 = 0; var4 < 7; ++var4) {
@@ -111,7 +111,7 @@ public class class_re extends class_rm {
          }
 
          if(this.a.R().b("doMobLoot")) {
-            this.a.a((class_pr)(new class_px(this.a, this.d.s, this.d.t, this.d.u, var3.nextInt(7) + 1)));
+            this.a.addEntity((Entity)(new EntityExperienceOrb(this.a, this.d.s, this.d.t, this.d.u, var3.nextInt(7) + 1)));
          }
 
       }

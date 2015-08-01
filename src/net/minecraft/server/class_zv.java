@@ -8,7 +8,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qm;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.CreativeTab;
@@ -26,21 +26,21 @@ public class class_zv extends Item {
       this.e(var2.a());
       this.a = var2.b();
       this.d = var1 + var2.c();
-      this.a(CreativeTab.i);
+      this.a(CreativeTab.TOOLS);
    }
 
    public float a(ItemStack var1, Block var2) {
       return this.c.contains(var2)?this.a:1.0F;
    }
 
-   public boolean a(ItemStack var1, class_qa var2, class_qa var3) {
-      var1.a(2, (class_qa)var3);
+   public boolean a(ItemStack var1, EntityLiving var2, EntityLiving var3) {
+      var1.a(2, (EntityLiving)var3);
       return true;
    }
 
-   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
+   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
       if((double)var3.getStrength(var2, var4) != 0.0D) {
-         var1.a(1, (class_qa)var5);
+         var1.a(1, (EntityLiving)var5);
       }
 
       return true;

@@ -5,7 +5,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class PacketPlayOutAnimation implements Packet {
    private int a;
@@ -14,7 +14,7 @@ public class PacketPlayOutAnimation implements Packet {
    public PacketPlayOutAnimation() {
    }
 
-   public PacketPlayOutAnimation(class_pr var1, int var2) {
+   public PacketPlayOutAnimation(Entity var1, int var2) {
       this.a = var1.getId();
       this.b = var2;
    }

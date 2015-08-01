@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_agf;
+import net.minecraft.server.BlockMinecartTrackAbstract;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -9,16 +9,16 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.BlockPosition;
 
-public class class_akg extends class_agf {
-   public static final BlockStateEnum b = BlockStateEnum.of("shape", class_agf.class_b_in_class_agf.class);
+public class class_akg extends BlockMinecartTrackAbstract {
+   public static final BlockStateEnum b = BlockStateEnum.of("shape", BlockMinecartTrackAbstract.EnumTrackPosition.class);
 
    protected class_akg() {
       super(false);
-      this.setBlockData(this.blockStateList.getFirst().set(b, class_agf.class_b_in_class_agf.a));
+      this.setBlockData(this.blockStateList.getFirst().set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH));
    }
 
    protected void b(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(var4.isPowerSource() && (new class_agf.class_a_in_class_agf(var1, var2, var3)).a() == 3) {
+      if(var4.isPowerSource() && (new BlockMinecartTrackAbstract.MinecartTrackLogic(var1, var2, var3)).a() == 3) {
          this.a(var1, var2, var3, false);
       }
 
@@ -29,82 +29,82 @@ public class class_akg extends class_agf {
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(b, class_agf.class_b_in_class_agf.a(var1));
+      return this.getBlockData().set(b, BlockMinecartTrackAbstract.EnumTrackPosition.getById(var1));
    }
 
    public int toLegacyData(IBlockData var1) {
-      return ((class_agf.class_b_in_class_agf)var1.get(b)).a();
+      return ((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).getId();
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       if(var1.getBlock() != this) {
          return var1;
       } else {
          switch(class_akg.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
-            switch(class_akg.SyntheticClass_1.a[((class_agf.class_b_in_class_agf)var1.get(b)).ordinal()]) {
+            switch(class_akg.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
             case 1:
-               return var1.set(b, class_agf.class_b_in_class_agf.d);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_WEST);
             case 2:
-               return var1.set(b, class_agf.class_b_in_class_agf.c);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_EAST);
             case 3:
-               return var1.set(b, class_agf.class_b_in_class_agf.f);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_SOUTH);
             case 4:
-               return var1.set(b, class_agf.class_b_in_class_agf.e);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_NORTH);
             case 5:
-               return var1.set(b, class_agf.class_b_in_class_agf.i);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_WEST);
             case 6:
-               return var1.set(b, class_agf.class_b_in_class_agf.j);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_EAST);
             case 7:
-               return var1.set(b, class_agf.class_b_in_class_agf.g);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_EAST);
             case 8:
-               return var1.set(b, class_agf.class_b_in_class_agf.h);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_WEST);
             }
          case 2:
-            switch(class_akg.SyntheticClass_1.a[((class_agf.class_b_in_class_agf)var1.get(b)).ordinal()]) {
+            switch(class_akg.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
             case 1:
-               return var1.set(b, class_agf.class_b_in_class_agf.e);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_NORTH);
             case 2:
-               return var1.set(b, class_agf.class_b_in_class_agf.f);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_SOUTH);
             case 3:
-               return var1.set(b, class_agf.class_b_in_class_agf.d);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_WEST);
             case 4:
-               return var1.set(b, class_agf.class_b_in_class_agf.c);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_EAST);
             case 5:
-               return var1.set(b, class_agf.class_b_in_class_agf.j);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_EAST);
             case 6:
-               return var1.set(b, class_agf.class_b_in_class_agf.g);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_EAST);
             case 7:
-               return var1.set(b, class_agf.class_b_in_class_agf.h);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_WEST);
             case 8:
-               return var1.set(b, class_agf.class_b_in_class_agf.i);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_WEST);
             case 9:
-               return var1.set(b, class_agf.class_b_in_class_agf.b);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST);
             case 10:
-               return var1.set(b, class_agf.class_b_in_class_agf.a);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH);
             }
          case 3:
-            switch(class_akg.SyntheticClass_1.a[((class_agf.class_b_in_class_agf)var1.get(b)).ordinal()]) {
+            switch(class_akg.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
             case 1:
-               return var1.set(b, class_agf.class_b_in_class_agf.f);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_SOUTH);
             case 2:
-               return var1.set(b, class_agf.class_b_in_class_agf.e);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_NORTH);
             case 3:
-               return var1.set(b, class_agf.class_b_in_class_agf.c);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_EAST);
             case 4:
-               return var1.set(b, class_agf.class_b_in_class_agf.d);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_WEST);
             case 5:
-               return var1.set(b, class_agf.class_b_in_class_agf.h);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_WEST);
             case 6:
-               return var1.set(b, class_agf.class_b_in_class_agf.i);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_WEST);
             case 7:
-               return var1.set(b, class_agf.class_b_in_class_agf.j);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_EAST);
             case 8:
-               return var1.set(b, class_agf.class_b_in_class_agf.g);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_EAST);
             case 9:
-               return var1.set(b, class_agf.class_b_in_class_agf.b);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST);
             case 10:
-               return var1.set(b, class_agf.class_b_in_class_agf.a);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH);
             }
          default:
             return var1;
@@ -116,43 +116,43 @@ public class class_akg extends class_agf {
       if(var1.getBlock() != this) {
          return var1;
       } else {
-         class_agf.class_b_in_class_agf var3 = (class_agf.class_b_in_class_agf)var1.get(b);
+         BlockMinecartTrackAbstract.EnumTrackPosition var3 = (BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b);
          switch(class_akg.SyntheticClass_1.c[var2.ordinal()]) {
          case 1:
             switch(class_akg.SyntheticClass_1.a[var3.ordinal()]) {
             case 3:
-               return var1.set(b, class_agf.class_b_in_class_agf.f);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_SOUTH);
             case 4:
-               return var1.set(b, class_agf.class_b_in_class_agf.e);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_NORTH);
             case 5:
-               return var1.set(b, class_agf.class_b_in_class_agf.j);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_EAST);
             case 6:
-               return var1.set(b, class_agf.class_b_in_class_agf.i);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_WEST);
             case 7:
-               return var1.set(b, class_agf.class_b_in_class_agf.h);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_WEST);
             case 8:
-               return var1.set(b, class_agf.class_b_in_class_agf.g);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_EAST);
             default:
                return super.a(var1, var2);
             }
          case 2:
             switch(class_akg.SyntheticClass_1.a[var3.ordinal()]) {
             case 1:
-               return var1.set(b, class_agf.class_b_in_class_agf.d);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_WEST);
             case 2:
-               return var1.set(b, class_agf.class_b_in_class_agf.c);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_EAST);
             case 3:
             case 4:
             default:
                break;
             case 5:
-               return var1.set(b, class_agf.class_b_in_class_agf.h);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_WEST);
             case 6:
-               return var1.set(b, class_agf.class_b_in_class_agf.g);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_EAST);
             case 7:
-               return var1.set(b, class_agf.class_b_in_class_agf.j);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_EAST);
             case 8:
-               return var1.set(b, class_agf.class_b_in_class_agf.i);
+               return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_WEST);
             }
          }
 
@@ -160,7 +160,7 @@ public class class_akg extends class_agf {
       }
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{b});
    }
 
@@ -175,95 +175,95 @@ public class class_akg extends class_agf {
 
       static {
          try {
-            c[Block.class_a_in_class_agj.b.ordinal()] = 1;
+            c[Block.class_a_in_class_agj.LEFT_RIGHT.ordinal()] = 1;
          } catch (NoSuchFieldError var15) {
             ;
          }
 
          try {
-            c[Block.class_a_in_class_agj.c.ordinal()] = 2;
+            c[Block.class_a_in_class_agj.FRONT_BACK.ordinal()] = 2;
          } catch (NoSuchFieldError var14) {
             ;
          }
 
-         b = new int[Block.class_c_in_class_agj.values().length];
+         b = new int[Block.EnumRotation.values().length];
 
          try {
-            b[Block.class_c_in_class_agj.c.ordinal()] = 1;
+            b[Block.EnumRotation.CLOCKWISE_180.ordinal()] = 1;
          } catch (NoSuchFieldError var13) {
             ;
          }
 
          try {
-            b[Block.class_c_in_class_agj.d.ordinal()] = 2;
+            b[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var12) {
             ;
          }
 
          try {
-            b[Block.class_c_in_class_agj.b.ordinal()] = 3;
+            b[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 3;
          } catch (NoSuchFieldError var11) {
             ;
          }
 
-         a = new int[class_agf.class_b_in_class_agf.values().length];
+         a = new int[BlockMinecartTrackAbstract.EnumTrackPosition.values().length];
 
          try {
-            a[class_agf.class_b_in_class_agf.c.ordinal()] = 1;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_EAST.ordinal()] = 1;
          } catch (NoSuchFieldError var10) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.d.ordinal()] = 2;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_WEST.ordinal()] = 2;
          } catch (NoSuchFieldError var9) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.e.ordinal()] = 3;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_NORTH.ordinal()] = 3;
          } catch (NoSuchFieldError var8) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.f.ordinal()] = 4;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_SOUTH.ordinal()] = 4;
          } catch (NoSuchFieldError var7) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.g.ordinal()] = 5;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_EAST.ordinal()] = 5;
          } catch (NoSuchFieldError var6) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.h.ordinal()] = 6;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_WEST.ordinal()] = 6;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.i.ordinal()] = 7;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_WEST.ordinal()] = 7;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.j.ordinal()] = 8;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_EAST.ordinal()] = 8;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.a.ordinal()] = 9;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH.ordinal()] = 9;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_agf.class_b_in_class_agf.b.ordinal()] = 10;
+            a[BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST.ordinal()] = 10;
          } catch (NoSuchFieldError var1) {
             ;
          }

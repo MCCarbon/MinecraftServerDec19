@@ -11,7 +11,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_re;
 import net.minecraft.server.class_rj;
@@ -23,7 +23,7 @@ import net.minecraft.server.class_si;
 import net.minecraft.server.class_sr;
 import net.minecraft.server.class_tw;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_tx extends class_tw {
    private static final Set bA;
@@ -45,7 +45,7 @@ public class class_tx extends class_tw {
       this.i.a(3, new class_sr(this, 1.0D, false, bA));
       this.i.a(4, new class_rl(this, 1.1D));
       this.i.a(5, new class_si(this, 1.0D));
-      this.i.a(6, new class_rr(this, class_xa.class, 6.0F));
+      this.i.a(6, new class_rr(this, EntityHuman.class, 6.0F));
       this.i.a(7, new class_sh(this));
    }
 
@@ -70,12 +70,12 @@ public class class_tx extends class_tw {
       }
 
       this.bx = (float)((double)this.bx * 0.9D);
-      if(!this.C && this.w < 0.0D) {
-         this.w *= 0.6D;
+      if(!this.C && this.motY < 0.0D) {
+         this.motY *= 0.6D;
       }
 
       this.bs += this.bx * 2.0F;
-      if(!this.o.D && !this.j_() && !this.cA() && --this.by <= 0) {
+      if(!this.o.isClientSide && !this.j_() && !this.cA() && --this.by <= 0) {
          this.a("mob.chicken.plop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
          this.a(Items.aR, 1);
          this.by = this.V.nextInt(6000) + 6000;
@@ -138,7 +138,7 @@ public class class_tx extends class_tw {
 
    }
 
-   protected int b(class_xa var1) {
+   protected int b(EntityHuman var1) {
       return this.cA()?10:super.b(var1);
    }
 
@@ -159,8 +159,8 @@ public class class_tx extends class_tw {
       float var3 = 0.1F;
       float var4 = 0.0F;
       this.l.b(this.s + (double)(var3 * var1), this.t + (double)(this.K * 0.5F) + this.l.am() + (double)var4, this.u - (double)(var3 * var2));
-      if(this.l instanceof class_qa) {
-         ((class_qa)this.l).aL = this.aL;
+      if(this.l instanceof EntityLiving) {
+         ((EntityLiving)this.l).aL = this.aL;
       }
 
    }

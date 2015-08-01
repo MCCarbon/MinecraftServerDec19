@@ -4,10 +4,10 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aja;
+import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.class_ajn;
 import net.minecraft.server.class_ajo;
-import net.minecraft.server.class_ajw;
+import net.minecraft.server.BlockWood;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.Material;
@@ -43,7 +43,7 @@ public class class_arh extends class_apw {
             for(var9 = var3.getX() - var7; var9 <= var3.getX() + var7 && var5; ++var9) {
                for(var10 = var3.getZ() - var7; var10 <= var3.getZ() + var7 && var5; ++var10) {
                   if(var6 >= 0 && var6 < 256) {
-                     if(!this.a(var1.p(var8.setPosition(var9, var6, var10)).getBlock())) {
+                     if(!this.a(var1.getType(var8.setPosition(var9, var6, var10)).getBlock())) {
                         var5 = false;
                      }
                   } else {
@@ -56,9 +56,9 @@ public class class_arh extends class_apw {
          if(!var5) {
             return false;
          } else {
-            Block var20 = var1.p(var3.shiftDown()).getBlock();
+            Block var20 = var1.getType(var3.down()).getBlock();
             if((var20 == Blocks.GRASS || var20 == Blocks.DIRT) && var3.getY() < 256 - var4 - 1) {
-               this.a(var1, var3.shiftDown());
+               this.a(var1, var3.down());
                EnumDirection var21 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
                int var22 = var4 - var2.nextInt(4) - 1;
                var9 = 3 - var2.nextInt(3);
@@ -76,7 +76,7 @@ public class class_arh extends class_apw {
                   }
 
                   BlockPosition var15 = new BlockPosition(var10, var14, var11);
-                  Material var16 = var1.p(var15).getBlock().getMaterial();
+                  Material var16 = var1.getType(var15).getBlock().getMaterial();
                   if(var16 == Material.AIR || var16 == Material.LEAVES) {
                      this.b(var1, var15);
                      var12 = var14;
@@ -94,7 +94,7 @@ public class class_arh extends class_apw {
                   }
                }
 
-               var23 = var23.shiftUp();
+               var23 = var23.up();
 
                for(var14 = -1; var14 <= 1; ++var14) {
                   for(var25 = -1; var25 <= 1; ++var25) {
@@ -102,10 +102,10 @@ public class class_arh extends class_apw {
                   }
                }
 
-               this.c(var1, var23.shiftEast(2));
-               this.c(var1, var23.shiftWest(2));
-               this.c(var1, var23.shiftSouth(2));
-               this.c(var1, var23.shiftNorth(2));
+               this.c(var1, var23.east(2));
+               this.c(var1, var23.west(2));
+               this.c(var1, var23.south(2));
+               this.c(var1, var23.north(2));
                var10 = var3.getX();
                var11 = var3.getZ();
                EnumDirection var24 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
@@ -121,7 +121,7 @@ public class class_arh extends class_apw {
                         var10 += var24.getAdjacentX();
                         var11 += var24.getAdjacentZ();
                         BlockPosition var18 = new BlockPosition(var10, var17, var11);
-                        Material var19 = var1.p(var18).getBlock().getMaterial();
+                        Material var19 = var1.getType(var18).getBlock().getMaterial();
                         if(var19 == Material.AIR || var19 == Material.LEAVES) {
                            this.b(var1, var18);
                            var12 = var17;
@@ -143,7 +143,7 @@ public class class_arh extends class_apw {
                         }
                      }
 
-                     var27 = var27.shiftUp();
+                     var27 = var27.up();
 
                      for(var17 = -1; var17 <= 1; ++var17) {
                         for(var28 = -1; var28 <= 1; ++var28) {
@@ -168,7 +168,7 @@ public class class_arh extends class_apw {
    }
 
    private void c(World var1, BlockPosition var2) {
-      Material var3 = var1.p(var2).getBlock().getMaterial();
+      Material var3 = var1.getType(var2).getBlock().getMaterial();
       if(var3 == Material.AIR || var3 == Material.LEAVES) {
          this.a(var1, var2, b);
       }
@@ -176,7 +176,7 @@ public class class_arh extends class_apw {
    }
 
    static {
-      a = Blocks.LOG2.getBlockData().set(class_ajo.b, class_ajw.class_a_in_class_ajw.e);
-      b = Blocks.LEAVES2.getBlockData().set(class_ajn.Q, class_ajw.class_a_in_class_ajw.e).set(class_aja.b, Boolean.valueOf(false));
+      a = Blocks.LOG2.getBlockData().set(class_ajo.b, BlockWood.EnumLogVariant.ACACIA);
+      b = Blocks.LEAVES2.getBlockData().set(class_ajn.Q, BlockWood.EnumLogVariant.ACACIA).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

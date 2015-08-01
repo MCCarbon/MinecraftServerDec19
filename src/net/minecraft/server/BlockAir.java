@@ -1,11 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
-import net.minecraft.server.BlockPosition;
 
 public class BlockAir extends Block {
 
@@ -13,26 +7,32 @@ public class BlockAir extends Block {
 		super(Material.AIR);
 	}
 
+	@Override
 	public int getRenderType() {
 		return -1;
 	}
 
-	public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+	@Override
+	public AxisAlignedBB getBoundingBox(World world, BlockPosition position, IBlockData blockdata) {
 		return null;
 	}
 
+	@Override
 	public boolean isOpaqueCube() {
 		return false;
 	}
 
-	public boolean a(IBlockData blockdata, boolean var2) {
+	@Override
+	public boolean canCollide(IBlockData blockdata, boolean var2) {
 		return false;
 	}
 
-	public void dropNaturally(World world, BlockPosition var2, IBlockData var3, float var4, int var5) {
+	@Override
+	public void dropNaturally(World world, BlockPosition position, IBlockData blockdata, float chance, int f) {
 	}
 
-	public boolean isReplaceable(World world, BlockPosition var2) {
+	@Override
+	public boolean isReplaceable(World world, BlockPosition position) {
 		return true;
 	}
 

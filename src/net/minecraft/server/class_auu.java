@@ -1,19 +1,19 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_no;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public abstract class class_auu {
-   protected class_aer a;
+   protected IBlockAccess a;
    protected class_no b = new class_no();
    protected int c;
    protected int d;
    protected int e;
 
-   public void a(class_aer var1, class_pr var2) {
+   public void a(IBlockAccess var1, Entity var2) {
       this.a = var1;
       this.b.c();
       this.c = MathHelper.floor(var2.J + 1.0F);
@@ -35,9 +35,9 @@ public abstract class class_auu {
       return var5;
    }
 
-   public abstract class_aut a(class_pr var1);
+   public abstract class_aut a(Entity var1);
 
-   public abstract class_aut a(class_pr var1, double var2, double var4, double var6);
+   public abstract class_aut a(Entity var1, double var2, double var4, double var6);
 
-   public abstract int a(class_aut[] var1, class_pr var2, class_aut var3, class_aut var4, float var5);
+   public abstract int a(class_aut[] var1, Entity var2, class_aut var3, class_aut var4, float var5);
 }

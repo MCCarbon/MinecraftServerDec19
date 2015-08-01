@@ -8,10 +8,10 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
@@ -22,10 +22,10 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pk;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pv;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qf;
@@ -53,7 +53,7 @@ import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wj;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wv;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_wr extends class_wi {
    protected static final class_qk a = (new class_qs((class_qk)null, "zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).a("Spawn Reinforcements Chance");
@@ -72,10 +72,10 @@ public class class_wr extends class_wi {
       super(var1);
       ((class_tf)this.u()).b(true);
       this.i.a(0, new class_rj(this));
-      this.i.a(2, new class_ru(this, class_xa.class, 1.0D, false));
+      this.i.a(2, new class_ru(this, EntityHuman.class, 1.0D, false));
       this.i.a(5, new class_ry(this, 1.0D));
       this.i.a(7, new class_si(this, 1.0D));
-      this.i.a(8, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(8, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(8, new class_sh(this));
       this.n();
       this.a(0.6F, 1.95F);
@@ -86,7 +86,7 @@ public class class_wr extends class_wi {
       this.i.a(4, new class_ru(this, class_uj.class, 1.0D, true));
       this.i.a(6, new class_rw(this, 1.0D, false));
       this.bn.a(1, new class_sw(this, true, new Class[]{class_wj.class}));
-      this.bn.a(2, new class_sz(this, class_xa.class, true));
+      this.bn.a(2, new class_sz(this, EntityHuman.class, true));
       this.bn.a(2, new class_sz(this, class_wv.class, false));
       this.bn.a(2, new class_sz(this, class_uj.class, true));
    }
@@ -135,7 +135,7 @@ public class class_wr extends class_wi {
       return this.H().a(bs) == 1;
    }
 
-   protected int b(class_xa var1) {
+   protected int b(EntityHuman var1) {
       if(this.j_()) {
          this.b_ = (int)((float)this.b_ * 2.5F);
       }
@@ -145,7 +145,7 @@ public class class_wr extends class_wi {
 
    public void m(boolean var1) {
       this.H().b(bs, Byte.valueOf((byte)(var1?1:0)));
-      if(this.o != null && !this.o.D) {
+      if(this.o != null && !this.o.isClientSide) {
          class_ql var2 = this.a((class_qk)class_wl.d);
          var2.c(c);
          if(var1) {
@@ -173,7 +173,7 @@ public class class_wr extends class_wi {
    }
 
    public void m() {
-      if(this.o.x() && !this.o.D && !this.j_()) {
+      if(this.o.x() && !this.o.isClientSide && !this.j_()) {
          float var1 = this.c(1.0F);
          BlockPosition var2 = new BlockPosition(this.s, (double)Math.round(this.t), this.u);
          if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
@@ -206,9 +206,9 @@ public class class_wr extends class_wi {
 
    public boolean a(class_pc var1, float var2) {
       if(super.a(var1, var2)) {
-         class_qa var3 = this.w();
-         if(var3 == null && var1.j() instanceof class_qa) {
-            var3 = (class_qa)var1.j();
+         EntityLiving var3 = this.w();
+         if(var3 == null && var1.j() instanceof EntityLiving) {
+            var3 = (EntityLiving)var1.j();
          }
 
          if(var3 != null && this.o.ab() == class_om.d && (double)this.V.nextFloat() < this.a((class_qk)a).e()) {
@@ -221,10 +221,10 @@ public class class_wr extends class_wi {
                int var9 = var4 + MathHelper.getRandomIntInRange((Random)this.V, 7, 40) * MathHelper.getRandomIntInRange((Random)this.V, -1, 1);
                int var10 = var5 + MathHelper.getRandomIntInRange((Random)this.V, 7, 40) * MathHelper.getRandomIntInRange((Random)this.V, -1, 1);
                int var11 = var6 + MathHelper.getRandomIntInRange((Random)this.V, 7, 40) * MathHelper.getRandomIntInRange((Random)this.V, -1, 1);
-               if(World.a((class_aer)this.o, (BlockPosition)(new BlockPosition(var9, var10 - 1, var11))) && this.o.l(new BlockPosition(var9, var10, var11)) < 10) {
+               if(World.a((IBlockAccess)this.o, (BlockPosition)(new BlockPosition(var9, var10 - 1, var11))) && this.o.l(new BlockPosition(var9, var10, var11)) < 10) {
                   var7.b((double)var9, (double)var10, (double)var11);
-                  if(!this.o.b((double)var9, (double)var10, (double)var11, 7.0D) && this.o.a((class_awf)var7.aT(), (class_pr)var7) && this.o.a((class_pr)var7, (class_awf)var7.aT()).isEmpty() && !this.o.d(var7.aT())) {
-                     this.o.a((class_pr)var7);
+                  if(!this.o.b((double)var9, (double)var10, (double)var11, 7.0D) && this.o.a((AxisAlignedBB)var7.aT(), (Entity)var7) && this.o.a((Entity)var7, (AxisAlignedBB)var7.aT()).isEmpty() && !this.o.d(var7.aT())) {
+                     this.o.addEntity((Entity)var7);
                      var7.d(var3);
                      var7.a((class_on)this.o.E(new BlockPosition(var7)), (class_qd)null);
                      this.a((class_qk)a).b(new class_qm("Zombie reinforcement caller charge", -0.05000000074505806D, 0));
@@ -242,7 +242,7 @@ public class class_wr extends class_wi {
    }
 
    public void t_() {
-      if(!this.o.D && this.cE()) {
+      if(!this.o.isClientSide && this.cE()) {
          int var1 = this.cG();
          this.bw -= var1;
          if(this.bw <= 0) {
@@ -253,7 +253,7 @@ public class class_wr extends class_wi {
       super.t_();
    }
 
-   public boolean r(class_pr var1) {
+   public boolean r(Entity var1) {
       boolean var2 = super.r(var1);
       if(var2) {
          int var3 = this.o.ab().a();
@@ -347,7 +347,7 @@ public class class_wr extends class_wi {
       this.a(var1.getBoolean("CanBreakDoors"));
    }
 
-   public void a(class_qa var1) {
+   public void a(EntityLiving var1) {
       super.a(var1);
       if((this.o.ab() == class_om.c || this.o.ab() == class_om.d) && var1 instanceof class_wv) {
          if(this.o.ab() != class_om.d && this.V.nextBoolean()) {
@@ -357,7 +357,7 @@ public class class_wr extends class_wi {
          class_qb var2 = (class_qb)var1;
          class_wr var3 = new class_wr(this.o);
          var3.m(var1);
-         this.o.e((class_pr)var1);
+         this.o.e((Entity)var1);
          var3.a((class_on)this.o.E(new BlockPosition(var3)), (class_qd)null);
          var3.n(true);
          if(var1.j_()) {
@@ -365,13 +365,13 @@ public class class_wr extends class_wi {
          }
 
          var3.k(var2.cs());
-         if(var2.l_()) {
+         if(var2.hasCustomName()) {
             var3.a((String)var2.aO());
             var3.g(var2.aP());
          }
 
-         this.o.a((class_pr)var3);
-         this.o.a((class_xa)null, 1016, new BlockPosition((int)this.s, (int)this.t, (int)this.u), 0);
+         this.o.addEntity((Entity)var3);
+         this.o.a((EntityHuman)null, 1016, new BlockPosition((int)this.s, (int)this.t, (int)this.u), 0);
       }
 
    }
@@ -394,7 +394,7 @@ public class class_wr extends class_wi {
       float var3 = var1.c();
       this.j(this.V.nextFloat() < 0.55F * var3);
       if(var7 == null) {
-         var7 = new class_wr.class_a_in_class_wr(this.o.s.nextFloat() < 0.05F, this.o.s.nextFloat() < 0.05F);
+         var7 = new class_wr.class_a_in_class_wr(this.o.random.nextFloat() < 0.05F, this.o.random.nextFloat() < 0.05F);
       }
 
       if(var7 instanceof class_wr.class_a_in_class_wr) {
@@ -405,20 +405,20 @@ public class class_wr extends class_wi {
 
          if(var4.a) {
             this.m(true);
-            if((double)this.o.s.nextFloat() < 0.05D) {
-               List var5 = this.o.a(class_tx.class, this.aT().b(5.0D, 3.0D, 5.0D), class_pv.b);
+            if((double)this.o.random.nextFloat() < 0.05D) {
+               List var5 = this.o.a(class_tx.class, this.aT().grow(5.0D, 3.0D, 5.0D), class_pv.b);
                if(!var5.isEmpty()) {
                   class_tx var6 = (class_tx)var5.get(0);
                   var6.m(true);
-                  this.a((class_pr)var6);
+                  this.a((Entity)var6);
                }
-            } else if((double)this.o.s.nextFloat() < 0.05D) {
+            } else if((double)this.o.random.nextFloat() < 0.05D) {
                class_tx var10 = new class_tx(this.o);
                var10.b(this.s, this.t, this.u, this.y, 0.0F);
                var10.a(var1, (class_qd)null);
                var10.m(true);
-               this.o.a((class_pr)var10);
-               this.a((class_pr)var10);
+               this.o.addEntity((Entity)var10);
+               this.a((Entity)var10);
             }
          }
       }
@@ -449,13 +449,13 @@ public class class_wr extends class_wi {
       return (class_qd)var7;
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.aq && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
          if(!var1.bH.instabuild) {
             --var3.count;
          }
 
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             this.a(this.V.nextInt(2401) + 3600);
          }
 
@@ -470,7 +470,7 @@ public class class_wr extends class_wi {
       this.H().b(bu, Byte.valueOf((byte)1));
       this.d(class_pm.r);
       this.c(new class_pl(class_pm.e, var1, Math.min(this.o.ab().a() - 1, 0)));
-      this.o.a((class_pr)this, (byte)16);
+      this.o.a((Entity)this, (byte)16);
    }
 
    protected boolean E() {
@@ -490,16 +490,16 @@ public class class_wr extends class_wi {
          var1.b(-24000);
       }
 
-      this.o.e((class_pr)this);
+      this.o.e((Entity)this);
       var1.k(this.cs());
-      if(this.l_()) {
+      if(this.hasCustomName()) {
          var1.a((String)this.aO());
          var1.g(this.aP());
       }
 
-      this.o.a((class_pr)var1);
+      this.o.addEntity((Entity)var1);
       var1.c(new class_pl(class_pm.i, 200, 0));
-      this.o.a((class_xa)null, 1017, new BlockPosition((int)this.s, (int)this.t, (int)this.u), 0);
+      this.o.a((EntityHuman)null, 1017, new BlockPosition((int)this.s, (int)this.t, (int)this.u), 0);
    }
 
    protected int cG() {
@@ -511,7 +511,7 @@ public class class_wr extends class_wi {
          for(int var4 = (int)this.s - 4; var4 < (int)this.s + 4 && var2 < 14; ++var4) {
             for(int var5 = (int)this.t - 4; var5 < (int)this.t + 4 && var2 < 14; ++var5) {
                for(int var6 = (int)this.u - 4; var6 < (int)this.u + 4 && var2 < 14; ++var6) {
-                  Block var7 = this.o.p(var3.setPosition(var4, var5, var6)).getBlock();
+                  Block var7 = this.o.getType(var3.setPosition(var4, var5, var6)).getBlock();
                   if(var7 == Blocks.IRON_BARS || var7 == Blocks.BED) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;

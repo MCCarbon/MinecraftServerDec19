@@ -5,12 +5,12 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public interface class_m {
-   String e_();
+   String getName();
 
-   IChatBaseComponent f_();
+   IChatBaseComponent getScoreboardDisplayName();
 
    void a(IChatBaseComponent var1);
 
@@ -22,7 +22,7 @@ public interface class_m {
 
    World e();
 
-   class_pr f();
+   Entity f();
 
    boolean u_();
 

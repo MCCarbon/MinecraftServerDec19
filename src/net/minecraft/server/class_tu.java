@@ -7,12 +7,12 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_tt;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_tu extends class_tt {
    private static final int a = class_qi.a(class_tu.class);
@@ -53,7 +53,7 @@ public class class_tu extends class_tt {
       return false;
    }
 
-   protected void s(class_pr var1) {
+   protected void s(Entity var1) {
    }
 
    protected void bM() {
@@ -81,10 +81,10 @@ public class class_tu extends class_tt {
    public void t_() {
       super.t_();
       if(this.n()) {
-         this.v = this.w = this.x = 0.0D;
+         this.v = this.motY = this.x = 0.0D;
          this.t = (double)MathHelper.floor(this.t) + 1.0D - (double)this.K;
       } else {
-         this.w *= 0.6000000238418579D;
+         this.motY *= 0.6000000238418579D;
       }
 
    }
@@ -92,11 +92,11 @@ public class class_tu extends class_tt {
    protected void cc() {
       super.cc();
       BlockPosition var1 = new BlockPosition(this);
-      BlockPosition var2 = var1.shiftUp();
+      BlockPosition var2 = var1.up();
       if(this.n()) {
-         if(!this.o.p(var2).getBlock().isOccluding()) {
+         if(!this.o.getType(var2).getBlock().isOccluding()) {
             this.a(false);
-            this.o.a((class_xa)null, 1015, var1, 0);
+            this.o.a((EntityHuman)null, 1015, var1, 0);
          } else {
             if(this.V.nextInt(200) == 0) {
                this.aN = (float)this.V.nextInt(360);
@@ -104,11 +104,11 @@ public class class_tu extends class_tt {
 
             if(this.o.a(this, 4.0D) != null) {
                this.a(false);
-               this.o.a((class_xa)null, 1015, var1, 0);
+               this.o.a((EntityHuman)null, 1015, var1, 0);
             }
          }
       } else {
-         if(this.b != null && (!this.o.d(this.b) || this.b.getY() < 1)) {
+         if(this.b != null && (!this.o.isEmpty(this.b) || this.b.getY() < 1)) {
             this.b = null;
          }
 
@@ -120,13 +120,13 @@ public class class_tu extends class_tt {
          double var5 = (double)this.b.getY() + 0.1D - this.t;
          double var7 = (double)this.b.getZ() + 0.5D - this.u;
          this.v += (Math.signum(var3) * 0.5D - this.v) * 0.10000000149011612D;
-         this.w += (Math.signum(var5) * 0.699999988079071D - this.w) * 0.10000000149011612D;
+         this.motY += (Math.signum(var5) * 0.699999988079071D - this.motY) * 0.10000000149011612D;
          this.x += (Math.signum(var7) * 0.5D - this.x) * 0.10000000149011612D;
          float var9 = (float)(MathHelper.b(this.x, this.v) * 180.0D / 3.1415927410125732D) - 90.0F;
          float var10 = MathHelper.clampAngle(var9 - this.y);
          this.bd = 0.5F;
          this.y += var10;
-         if(this.V.nextInt(100) == 0 && this.o.p(var2).getBlock().isOccluding()) {
+         if(this.V.nextInt(100) == 0 && this.o.getType(var2).getBlock().isOccluding()) {
             this.a(true);
          }
       }
@@ -151,7 +151,7 @@ public class class_tu extends class_tt {
       if(this.b(var1)) {
          return false;
       } else {
-         if(!this.o.D && this.n()) {
+         if(!this.o.isClientSide && this.n()) {
             this.a(false);
          }
 
@@ -170,7 +170,7 @@ public class class_tu extends class_tt {
    }
 
    public boolean cf() {
-      BlockPosition var1 = new BlockPosition(this.s, this.aT().b, this.u);
+      BlockPosition var1 = new BlockPosition(this.s, this.aT().yMin, this.u);
       if(var1.getY() >= this.o.G()) {
          return false;
       } else {

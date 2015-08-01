@@ -7,8 +7,8 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_rr;
@@ -19,7 +19,7 @@ import net.minecraft.server.class_sw;
 import net.minecraft.server.class_sz;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xl;
 
 public class class_vy extends class_wi {
@@ -34,10 +34,10 @@ public class class_vy extends class_wi {
       this.i.a(4, new class_vy.class_a_in_class_vy(this));
       this.i.a(5, new class_ry(this, 1.0D));
       this.i.a(7, new class_si(this, 1.0D));
-      this.i.a(8, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(8, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(8, new class_sh(this));
       this.bn.a(1, new class_sw(this, true, new Class[0]));
-      this.bn.a(2, new class_sz(this, class_xa.class, true));
+      this.bn.a(2, new class_sz(this, EntityHuman.class, true));
    }
 
    protected void aY() {
@@ -69,11 +69,11 @@ public class class_vy extends class_wi {
    }
 
    public void m() {
-      if(!this.C && this.w < 0.0D) {
-         this.w *= 0.6D;
+      if(!this.C && this.motY < 0.0D) {
+         this.motY *= 0.6D;
       }
 
-      if(this.o.D) {
+      if(this.o.isClientSide) {
          if(this.V.nextInt(24) == 0 && !this.R()) {
             this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.fire", 1.0F + this.V.nextFloat(), this.V.nextFloat() * 0.7F + 0.3F, false);
          }
@@ -97,9 +97,9 @@ public class class_vy extends class_wi {
          this.a = 0.5F + (float)this.V.nextGaussian() * 3.0F;
       }
 
-      class_qa var1 = this.w();
+      EntityLiving var1 = this.w();
       if(var1 != null && var1.t + (double)var1.aU() > this.t + (double)this.aU() + (double)this.a) {
-         this.w += (0.30000001192092896D - this.w) * 0.30000001192092896D;
+         this.motY += (0.30000001192092896D - this.motY) * 0.30000001192092896D;
          this.ai = true;
       }
 
@@ -158,7 +158,7 @@ public class class_vy extends class_wi {
       }
 
       public boolean a() {
-         class_qa var1 = this.a.w();
+         EntityLiving var1 = this.a.w();
          return var1 != null && var1.ai();
       }
 
@@ -172,7 +172,7 @@ public class class_vy extends class_wi {
 
       public void e() {
          --this.c;
-         class_qa var1 = this.a.w();
+         EntityLiving var1 = this.a.w();
          double var2 = this.a.h(var1);
          if(var2 < 4.0D) {
             if(this.c <= 0) {
@@ -183,7 +183,7 @@ public class class_vy extends class_wi {
             this.a.r().a(var1.s, var1.t, var1.u, 1.0D);
          } else if(var2 < 256.0D) {
             double var4 = var1.s - this.a.s;
-            double var6 = var1.aT().b + (double)(var1.K / 2.0F) - (this.a.t + (double)(this.a.K / 2.0F));
+            double var6 = var1.aT().yMin + (double)(var1.K / 2.0F) - (this.a.t + (double)(this.a.K / 2.0F));
             double var8 = var1.u - this.a.u;
             if(this.c <= 0) {
                ++this.b;
@@ -200,12 +200,12 @@ public class class_vy extends class_wi {
 
                if(this.b > 1) {
                   float var10 = MathHelper.sqrt(MathHelper.sqrt(var2)) * 0.5F;
-                  this.a.o.a((class_xa)null, 1009, new BlockPosition((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
+                  this.a.o.a((EntityHuman)null, 1009, new BlockPosition((int)this.a.s, (int)this.a.t, (int)this.a.u), 0);
 
                   for(int var11 = 0; var11 < 1; ++var11) {
                      class_xl var12 = new class_xl(this.a.o, this.a, var4 + this.a.bd().nextGaussian() * (double)var10, var6, var8 + this.a.bd().nextGaussian() * (double)var10);
                      var12.t = this.a.t + (double)(this.a.K / 2.0F) + 0.5D;
-                     this.a.o.a((class_pr)var12);
+                     this.a.o.addEntity((Entity)var12);
                   }
                }
             }

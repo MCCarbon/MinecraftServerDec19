@@ -16,7 +16,7 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutMap;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_va;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_avf extends class_avd {
    public int b;
@@ -81,7 +81,7 @@ public class class_avf extends class_avd {
       var1.put("colors", this.f);
    }
 
-   public void a(class_xa var1, ItemStack var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       if(!this.i.containsKey(var1)) {
          class_avf.class_a_in_class_avf var3 = new class_avf.class_a_in_class_avf(var1);
          this.i.put(var1, var3);
@@ -89,7 +89,7 @@ public class class_avf extends class_avd {
       }
 
       if(!var1.bp.c(var2)) {
-         this.h.remove(var1.e_());
+         this.h.remove(var1.getName());
       }
 
       for(int var6 = 0; var6 < this.g.size(); ++var6) {
@@ -98,7 +98,7 @@ public class class_avf extends class_avd {
             this.i.remove(var4.a);
             this.g.remove(var4);
          } else if(!var2.isInItemFrame() && var4.a.am == this.d) {
-            this.a(0, var4.a.o, var4.a.e_(), var4.a.s, var4.a.u, (double)var4.a.y);
+            this.a(0, var4.a.o, var4.a.getName(), var4.a.s, var4.a.u, (double)var4.a.y);
          }
       }
 
@@ -164,7 +164,7 @@ public class class_avf extends class_avd {
       this.h.put(var3, new class_ave((byte)var1, var13, var14, var15));
    }
 
-   public Packet a(ItemStack var1, World var2, class_xa var3) {
+   public Packet a(ItemStack var1, World var2, EntityHuman var3) {
       class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.i.get(var3);
       return var4 == null?null:var4.a(var1);
    }
@@ -180,7 +180,7 @@ public class class_avf extends class_avd {
 
    }
 
-   public class_avf.class_a_in_class_avf a(class_xa var1) {
+   public class_avf.class_a_in_class_avf a(EntityHuman var1) {
       class_avf.class_a_in_class_avf var2 = (class_avf.class_a_in_class_avf)this.i.get(var1);
       if(var2 == null) {
          var2 = new class_avf.class_a_in_class_avf(var1);
@@ -192,7 +192,7 @@ public class class_avf extends class_avd {
    }
 
    public class class_a_in_class_avf {
-      public final class_xa a;
+      public final EntityHuman a;
       private boolean d = true;
       private int e = 0;
       private int f = 0;
@@ -201,7 +201,7 @@ public class class_avf extends class_avd {
       private int i;
       public int b;
 
-      public class_a_in_class_avf(class_xa var2) {
+      public class_a_in_class_avf(EntityHuman var2) {
          this.a = var2;
       }
 

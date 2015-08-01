@@ -3,17 +3,17 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 
 public class class_pd extends class_pc {
-   protected class_pr q;
+   protected Entity q;
    private boolean r = false;
 
-   public class_pd(String var1, class_pr var2) {
+   public class_pd(String var1, Entity var2) {
       super(var1);
       this.q = var2;
    }
@@ -27,18 +27,18 @@ public class class_pd extends class_pc {
       return this.r;
    }
 
-   public class_pr j() {
+   public Entity j() {
       return this.q;
    }
 
-   public IChatBaseComponent b(class_qa var1) {
-      ItemStack var2 = this.q instanceof class_qa?((class_qa)this.q).bA():null;
+   public IChatBaseComponent b(EntityLiving var1) {
+      ItemStack var2 = this.q instanceof EntityLiving?((EntityLiving)this.q).bA():null;
       String var3 = "death.attack." + this.p;
       String var4 = var3 + ".item";
-      return var2 != null && var2.hasDisplayName() && LocaleI18n.c(var4)?new class_fb(var4, new Object[]{var1.f_(), this.q.f_(), var2.B()}):new class_fb(var3, new Object[]{var1.f_(), this.q.f_()});
+      return var2 != null && var2.hasDisplayName() && LocaleI18n.c(var4)?new ChatMessage(var4, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName(), var2.B()}):new ChatMessage(var3, new Object[]{var1.getScoreboardDisplayName(), this.q.getScoreboardDisplayName()});
    }
 
    public boolean r() {
-      return this.q != null && this.q instanceof class_qa && !(this.q instanceof class_xa);
+      return this.q != null && this.q instanceof EntityLiving && !(this.q instanceof EntityHuman);
    }
 }

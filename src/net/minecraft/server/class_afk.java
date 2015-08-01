@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aja;
-import net.minecraft.server.class_ajs;
-import net.minecraft.server.class_ajt;
-import net.minecraft.server.class_ajw;
-import net.minecraft.server.class_alm;
+import net.minecraft.server.BlockLeaves;
+import net.minecraft.server.BlockLeaves1;
+import net.minecraft.server.BlockLog1;
+import net.minecraft.server.BlockWood;
+import net.minecraft.server.BlockLongGrass;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_aql;
@@ -22,7 +22,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_tx;
 import net.minecraft.server.class_uc;
 
-public class class_afk extends class_aez {
+public class class_afk extends BiomeBase {
    private boolean aD;
    private static final IBlockData aE;
    private static final IBlockData aF;
@@ -40,10 +40,10 @@ public class class_afk extends class_aez {
       this.as.C = 25;
       this.as.B = 4;
       if(!var2) {
-         this.at.add(new class_aez.class_c_in_class_aez(class_uc.class, 2, 1, 1));
+         this.at.add(new BiomeBase.class_c_in_class_aez(class_uc.class, 2, 1, 1));
       }
 
-      this.au.add(new class_aez.class_c_in_class_aez(class_tx.class, 10, 4, 4));
+      this.au.add(new BiomeBase.class_c_in_class_aez(class_tx.class, 10, 4, 4));
    }
 
    public class_apw a(Random var1) {
@@ -51,7 +51,7 @@ public class class_afk extends class_aez {
    }
 
    public class_aql b(Random var1) {
-      return var1.nextInt(4) == 0?new class_arm(class_alm.class_a_in_class_alm.c):new class_arm(class_alm.class_a_in_class_alm.b);
+      return var1.nextInt(4) == 0?new class_arm(BlockLongGrass.EnumTallGrassType.FERN):new class_arm(BlockLongGrass.EnumTallGrassType.GRASS);
    }
 
    public void a(World var1, Random var2, BlockPosition var3) {
@@ -72,8 +72,8 @@ public class class_afk extends class_aez {
    }
 
    static {
-      aE = Blocks.LOG.getBlockData().set(class_ajt.b, class_ajw.class_a_in_class_ajw.d);
-      aF = Blocks.LEAVES.getBlockData().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.d).set(class_aja.b, Boolean.valueOf(false));
-      aG = Blocks.LEAVES.getBlockData().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.a).set(class_aja.b, Boolean.valueOf(false));
+      aE = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.JUNGLE);
+      aF = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.JUNGLE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      aG = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.OAK).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

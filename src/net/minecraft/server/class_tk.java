@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.List;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qb;
 
 public class class_tk {
@@ -19,7 +19,7 @@ public class class_tk {
       this.c.clear();
    }
 
-   public boolean a(class_pr var1) {
+   public boolean a(Entity var1) {
       if(this.b.contains(var1)) {
          return true;
       } else if(this.c.contains(var1)) {

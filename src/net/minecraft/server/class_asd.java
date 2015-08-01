@@ -9,9 +9,9 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ald;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amv;
+import net.minecraft.server.BlockStairs;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityMobSpawner;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asl;
@@ -188,7 +188,7 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         IBlockData var4 = Blocks.NETHER_BTICK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.SOUTH);
+         IBlockData var4 = Blocks.NETHER_BTICK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
 
          for(int var5 = 0; var5 <= 9; ++var5) {
             int var6 = Math.max(1, 7 - var5);
@@ -476,7 +476,7 @@ public class class_asd {
             this.a(var1, var3, 11, 7, var4, 11, 8, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
          }
 
-         IBlockData var9 = Blocks.NETHER_BTICK_STAIRS.getBlockData().set(class_ald.a, EnumDirection.NORTH);
+         IBlockData var9 = Blocks.NETHER_BTICK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
 
          int var5;
          int var7;
@@ -511,8 +511,8 @@ public class class_asd {
          this.a(var1, var3, 9, 5, 2, 10, 5, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
          this.a(var1, var3, 9, 5, 9, 10, 5, 10, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
          this.a(var1, var3, 10, 5, 4, 10, 5, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         IBlockData var10 = var9.set(class_ald.a, EnumDirection.EAST);
-         IBlockData var11 = var9.set(class_ald.a, EnumDirection.WEST);
+         IBlockData var10 = var9.set(BlockStairs.a, EnumDirection.EAST);
+         IBlockData var11 = var9.set(BlockStairs.a, EnumDirection.WEST);
          this.a(var1, var11, 4, 5, 2, var3);
          this.a(var1, var11, 4, 5, 3, var3);
          this.a(var1, var11, 4, 5, 9, var3);
@@ -695,10 +695,10 @@ public class class_asd {
             BlockPosition var4 = new BlockPosition(this.a(3, 5), this.d(5), this.b(3, 5));
             if(var3.b((BaseBlockPosition)var4)) {
                this.b = true;
-               var1.a((BlockPosition)var4, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
-               class_amg var5 = var1.s(var4);
-               if(var5 instanceof class_amv) {
-                  ((class_amv)var5).b().a("Blaze");
+               var1.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
+               TileEntity var5 = var1.getTileEntity(var4);
+               if(var5 instanceof TileEntityMobSpawner) {
+                  ((TileEntityMobSpawner)var5).b().a("Blaze");
                }
             }
          }

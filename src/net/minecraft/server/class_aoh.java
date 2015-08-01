@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
@@ -10,13 +10,13 @@ import net.minecraft.server.class_qc;
 public interface class_aoh {
    boolean a(int var1, int var2);
 
-   class_aok d(int var1, int var2);
+   Chunk d(int var1, int var2);
 
-   class_aok a(BlockPosition var1);
+   Chunk a(BlockPosition var1);
 
    void a(class_aoh var1, int var2, int var3);
 
-   boolean a(class_aoh var1, class_aok var2, int var3, int var4);
+   boolean a(class_aoh var1, Chunk var2, int var3, int var4);
 
    boolean a(boolean var1, class_nw var2);
 
@@ -32,7 +32,7 @@ public interface class_aoh {
 
    int g();
 
-   void a(class_aok var1, int var2, int var3);
+   void a(Chunk var1, int var2, int var3);
 
    void c();
 }

@@ -4,34 +4,34 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alo;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anw;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateBoolean;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.class_apd;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 
 public class class_aib extends Block {
-   public static final class_anz a = class_anz.a("age", 0, 15);
-   public static final class_anw b = class_anw.a("north");
-   public static final class_anw N = class_anw.a("east");
-   public static final class_anw O = class_anw.a("south");
-   public static final class_anw P = class_anw.a("west");
-   public static final class_anw Q = class_anw.a("up");
+   public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 15);
+   public static final BlockStateBoolean b = BlockStateBoolean.of("north");
+   public static final BlockStateBoolean N = BlockStateBoolean.of("east");
+   public static final BlockStateBoolean O = BlockStateBoolean.of("south");
+   public static final BlockStateBoolean P = BlockStateBoolean.of("west");
+   public static final BlockStateBoolean Q = BlockStateBoolean.of("up");
    private final Map R = Maps.newIdentityHashMap();
    private final Map S = Maps.newIdentityHashMap();
 
-   public IBlockData a(IBlockData var1, class_aer var2, BlockPosition var3) {
-      return !World.a(var2, var3.shiftDown()) && !Blocks.FIRE.e(var2, var3.shiftDown())?var1.set(b, Boolean.valueOf(this.e(var2, var3.shiftNorth()))).set(N, Boolean.valueOf(this.e(var2, var3.shiftEast()))).set(O, Boolean.valueOf(this.e(var2, var3.shiftSouth()))).set(P, Boolean.valueOf(this.e(var2, var3.shiftWest()))).set(Q, Boolean.valueOf(this.e(var2, var3.shiftUp()))):this.getBlockData();
+   public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
+      return !World.a(var2, var3.down()) && !Blocks.FIRE.e(var2, var3.down())?var1.set(b, Boolean.valueOf(this.e(var2, var3.north()))).set(N, Boolean.valueOf(this.e(var2, var3.east()))).set(O, Boolean.valueOf(this.e(var2, var3.south()))).set(P, Boolean.valueOf(this.e(var2, var3.west()))).set(Q, Boolean.valueOf(this.e(var2, var3.up()))):this.getBlockData();
    }
 
    protected class_aib() {
@@ -83,7 +83,7 @@ public class class_aib extends Block {
       this.S.put(var1, Integer.valueOf(var3));
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -95,47 +95,47 @@ public class class_aib extends Block {
       return false;
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return 0;
    }
 
-   public int a(World var1) {
+   public int tickInterval(World var1) {
       return 30;
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(var1.R().b("doFireTick")) {
-         if(!this.d(var1, var2)) {
-            var1.g(var2);
+         if(!this.canPlace(var1, var2)) {
+            var1.setAir(var2);
          }
 
-         Block var5 = var1.p(var2.shiftDown()).getBlock();
+         Block var5 = var1.getType(var2.down()).getBlock();
          boolean var6 = var5 == Blocks.NETHERRACK;
-         if(var1.t instanceof class_apd && var5 == Blocks.BEDROCK) {
+         if(var1.worldProvider instanceof class_apd && var5 == Blocks.BEDROCK) {
             var6 = true;
          }
 
          if(!var6 && var1.T() && this.e(var1, var2)) {
-            var1.g(var2);
+            var1.setAir(var2);
          } else {
             int var7 = ((Integer)var3.get(a)).intValue();
             if(var7 < 15) {
                var3 = var3.set(a, Integer.valueOf(var7 + var4.nextInt(3) / 2));
-               var1.a((BlockPosition)var2, (IBlockData)var3, 4);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 4);
             }
 
-            var1.a((BlockPosition)var2, (Block)this, this.a(var1) + var4.nextInt(10));
+            var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1) + var4.nextInt(10));
             if(!var6) {
                if(!this.f(var1, var2)) {
-                  if(!World.a((class_aer)var1, (BlockPosition)var2.shiftDown()) || var7 > 3) {
-                     var1.g(var2);
+                  if(!World.a((IBlockAccess)var1, (BlockPosition)var2.down()) || var7 > 3) {
+                     var1.setAir(var2);
                   }
 
                   return;
                }
 
-               if(!this.e((class_aer)var1, var2.shiftDown()) && var7 == 15 && var4.nextInt(4) == 0) {
-                  var1.g(var2);
+               if(!this.e((IBlockAccess)var1, var2.down()) && var7 == 15 && var4.nextInt(4) == 0) {
+                  var1.setAir(var2);
                   return;
                }
             }
@@ -146,12 +146,12 @@ public class class_aib extends Block {
                var9 = -50;
             }
 
-            this.a(var1, var2.shiftEast(), 300 + var9, var4, var7);
-            this.a(var1, var2.shiftWest(), 300 + var9, var4, var7);
-            this.a(var1, var2.shiftDown(), 250 + var9, var4, var7);
-            this.a(var1, var2.shiftUp(), 250 + var9, var4, var7);
-            this.a(var1, var2.shiftNorth(), 300 + var9, var4, var7);
-            this.a(var1, var2.shiftSouth(), 300 + var9, var4, var7);
+            this.a(var1, var2.east(), 300 + var9, var4, var7);
+            this.a(var1, var2.west(), 300 + var9, var4, var7);
+            this.a(var1, var2.down(), 250 + var9, var4, var7);
+            this.a(var1, var2.up(), 250 + var9, var4, var7);
+            this.a(var1, var2.north(), 300 + var9, var4, var7);
+            this.a(var1, var2.south(), 300 + var9, var4, var7);
 
             for(int var10 = -1; var10 <= 1; ++var10) {
                for(int var11 = -1; var11 <= 1; ++var11) {
@@ -176,7 +176,7 @@ public class class_aib extends Block {
                                  var17 = 15;
                               }
 
-                              var1.a((BlockPosition)var14, (IBlockData)var3.set(a, Integer.valueOf(var17)), 3);
+                              var1.setTypeAndData((BlockPosition)var14, (IBlockData)var3.set(a, Integer.valueOf(var17)), 3);
                            }
                         }
                      }
@@ -189,7 +189,7 @@ public class class_aib extends Block {
    }
 
    protected boolean e(World var1, BlockPosition var2) {
-      return var1.C(var2) || var1.C(var2.shiftWest()) || var1.C(var2.shiftEast()) || var1.C(var2.shiftNorth()) || var1.C(var2.shiftSouth());
+      return var1.C(var2) || var1.C(var2.west()) || var1.C(var2.east()) || var1.C(var2.north()) || var1.C(var2.south());
    }
 
    public boolean P() {
@@ -207,22 +207,22 @@ public class class_aib extends Block {
    }
 
    private void a(World var1, BlockPosition var2, int var3, Random var4, int var5) {
-      int var6 = this.c(var1.p(var2).getBlock());
+      int var6 = this.c(var1.getType(var2).getBlock());
       if(var4.nextInt(var3) < var6) {
-         IBlockData var7 = var1.p(var2);
+         IBlockData var7 = var1.getType(var2);
          if(var4.nextInt(var5 + 10) < 5 && !var1.C(var2)) {
             int var8 = var5 + var4.nextInt(5) / 4;
             if(var8 > 15) {
                var8 = 15;
             }
 
-            var1.a((BlockPosition)var2, (IBlockData)this.getBlockData().set(a, Integer.valueOf(var8)), 3);
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)this.getBlockData().set(a, Integer.valueOf(var8)), 3);
          } else {
-            var1.g(var2);
+            var1.setAir(var2);
          }
 
          if(var7.getBlock() == Blocks.TNT) {
-            Blocks.TNT.d(var1, var2, var7.set(class_alo.a, Boolean.valueOf(true)));
+            Blocks.TNT.postBreak(var1, var2, var7.set(class_alo.a, Boolean.valueOf(true)));
          }
       }
 
@@ -234,7 +234,7 @@ public class class_aib extends Block {
 
       for(int var5 = 0; var5 < var4; ++var5) {
          EnumDirection var6 = var3[var5];
-         if(this.e((class_aer)var1, var2.shift(var6))) {
+         if(this.e((IBlockAccess)var1, var2.shift(var6))) {
             return true;
          }
       }
@@ -243,7 +243,7 @@ public class class_aib extends Block {
    }
 
    private int m(World var1, BlockPosition var2) {
-      if(!var1.d(var2)) {
+      if(!var1.isEmpty(var2)) {
          return 0;
       } else {
          int var3 = 0;
@@ -252,38 +252,38 @@ public class class_aib extends Block {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             EnumDirection var7 = var4[var6];
-            var3 = Math.max(this.d(var1.p(var2.shift(var7)).getBlock()), var3);
+            var3 = Math.max(this.d(var1.getType(var2.shift(var7)).getBlock()), var3);
          }
 
          return var3;
       }
    }
 
-   public boolean C() {
+   public boolean isCollidable() {
       return false;
    }
 
-   public boolean e(class_aer var1, BlockPosition var2) {
-      return this.d(var1.p(var2).getBlock()) > 0;
+   public boolean e(IBlockAccess var1, BlockPosition var2) {
+      return this.d(var1.getType(var2).getBlock()) > 0;
    }
 
-   public boolean d(World var1, BlockPosition var2) {
-      return World.a((class_aer)var1, (BlockPosition)var2.shiftDown()) || this.f(var1, var2);
+   public boolean canPlace(World var1, BlockPosition var2) {
+      return World.a((IBlockAccess)var1, (BlockPosition)var2.down()) || this.f(var1, var2);
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(!World.a((class_aer)var1, (BlockPosition)var2.shiftDown()) && !this.f(var1, var2)) {
-         var1.g(var2);
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(!World.a((IBlockAccess)var1, (BlockPosition)var2.down()) && !this.f(var1, var2)) {
+         var1.setAir(var2);
       }
 
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
-      if(var1.t.p().a() > 0 || !Blocks.PORTAL.e(var1, var2)) {
-         if(!World.a((class_aer)var1, (BlockPosition)var2.shiftDown()) && !this.f(var1, var2)) {
-            var1.g(var2);
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
+      if(var1.worldProvider.p().a() > 0 || !Blocks.PORTAL.e(var1, var2)) {
+         if(!World.a((IBlockAccess)var1, (BlockPosition)var2.down()) && !this.f(var1, var2)) {
+            var1.setAir(var2);
          } else {
-            var1.a((BlockPosition)var2, (Block)this, this.a(var1) + var1.s.nextInt(10));
+            var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1) + var1.random.nextInt(10));
          }
       }
    }
@@ -300,7 +300,7 @@ public class class_aib extends Block {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a, b, N, O, P, Q});
    }
 }

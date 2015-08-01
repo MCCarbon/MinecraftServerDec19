@@ -4,11 +4,11 @@ import com.google.common.collect.Sets;
 import java.util.Set;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tf;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_sr extends class_rm {
    private class_qh a;
@@ -18,7 +18,7 @@ public class class_sr extends class_rm {
    private double e;
    private double f;
    private double g;
-   private class_xa h;
+   private EntityHuman h;
    private int i;
    private boolean j;
    private Set k;
@@ -99,7 +99,7 @@ public class class_sr extends class_rm {
       if(this.a.h(this.h) < 6.25D) {
          this.a.u().n();
       } else {
-         this.a.u().a((class_pr)this.h, this.b);
+         this.a.u().a((Entity)this.h, this.b);
       }
 
    }

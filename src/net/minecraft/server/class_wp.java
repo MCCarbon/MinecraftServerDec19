@@ -11,8 +11,8 @@ import net.minecraft.server.class_on;
 import net.minecraft.server.class_pk;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qf;
 import net.minecraft.server.class_qi;
@@ -30,7 +30,7 @@ import net.minecraft.server.class_uj;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wn;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_wp extends class_wi {
    private static final int a = class_qi.a(class_wp.class);
@@ -40,13 +40,13 @@ public class class_wp extends class_wi {
       this.a(1.4F, 0.9F);
       this.i.a(1, new class_rj(this));
       this.i.a(3, new class_rq(this, 0.4F));
-      this.i.a(4, new class_wp.class_a_in_class_wp(this, class_xa.class));
+      this.i.a(4, new class_wp.class_a_in_class_wp(this, EntityHuman.class));
       this.i.a(4, new class_wp.class_a_in_class_wp(this, class_uj.class));
       this.i.a(5, new class_si(this, 0.8D));
-      this.i.a(6, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(6, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(6, new class_sh(this));
       this.bn.a(1, new class_sw(this, false, new Class[0]));
-      this.bn.a(2, new class_wp.class_c_in_class_wp(this, class_xa.class));
+      this.bn.a(2, new class_wp.class_c_in_class_wp(this, EntityHuman.class));
       this.bn.a(3, new class_wp.class_c_in_class_wp(this, class_uj.class));
    }
 
@@ -65,7 +65,7 @@ public class class_wp extends class_wi {
 
    public void t_() {
       super.t_();
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          this.a(this.D);
       }
 
@@ -137,18 +137,18 @@ public class class_wp extends class_wi {
 
    public class_qd a(class_on var1, class_qd var2) {
       Object var4 = super.a(var1, var2);
-      if(this.o.s.nextInt(100) == 0) {
+      if(this.o.random.nextInt(100) == 0) {
          class_wn var3 = new class_wn(this.o);
          var3.b(this.s, this.t, this.u, this.y, 0.0F);
          var3.a((class_on)var1, (class_qd)null);
-         this.o.a((class_pr)var3);
-         var3.a((class_pr)this);
+         this.o.addEntity((Entity)var3);
+         var3.a((Entity)this);
       }
 
       if(var4 == null) {
          var4 = new class_wp.class_b_in_class_wp();
-         if(this.o.ab() == class_om.d && this.o.s.nextFloat() < 0.1F * var1.c()) {
-            ((class_wp.class_b_in_class_wp)var4).a(this.o.s);
+         if(this.o.ab() == class_om.d && this.o.random.nextFloat() < 0.1F * var1.c()) {
+            ((class_wp.class_b_in_class_wp)var4).a(this.o.random);
          }
       }
 
@@ -185,14 +185,14 @@ public class class_wp extends class_wi {
       public boolean b() {
          float var1 = this.b.c(1.0F);
          if(var1 >= 0.5F && this.b.bd().nextInt(100) == 0) {
-            this.b.d((class_qa)null);
+            this.b.d((EntityLiving)null);
             return false;
          } else {
             return super.b();
          }
       }
 
-      protected double a(class_qa var1) {
+      protected double a(EntityLiving var1) {
          return (double)(4.0F + var1.J);
       }
    }

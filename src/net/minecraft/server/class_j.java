@@ -13,14 +13,14 @@ import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_k;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 import net.minecraft.server.class_o;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -41,20 +41,20 @@ public class class_j implements class_l {
       class_k var5 = (class_k)this.b.get(var4);
       int var6 = this.a(var5, var3);
       int var7 = 0;
-      class_fb var8;
+      ChatMessage var8;
       if(var5 == null) {
-         var8 = new class_fb("commands.generic.notFound", new Object[0]);
+         var8 = new ChatMessage("commands.generic.notFound", new Object[0]);
          var8.b().a(EnumChatFormat.RED);
          var1.a(var8);
       } else if(var5.a(var1)) {
          if(var6 > -1) {
-            List var12 = class_o.b(var1, var3[var6], class_pr.class);
+            List var12 = class_o.b(var1, var3[var6], Entity.class);
             String var9 = var3[var6];
             var1.a(class_n.class_a_in_class_n.c, var12.size());
             Iterator var10 = var12.iterator();
 
             while(var10.hasNext()) {
-               class_pr var11 = (class_pr)var10.next();
+               Entity var11 = (Entity)var10.next();
                var3[var6] = var11.aM().toString();
                if(this.a(var1, var3, var5, var2)) {
                   ++var7;
@@ -69,7 +69,7 @@ public class class_j implements class_l {
             }
          }
       } else {
-         var8 = new class_fb("commands.generic.permission", new Object[0]);
+         var8 = new ChatMessage("commands.generic.permission", new Object[0]);
          var8.b().a(EnumChatFormat.RED);
          var1.a(var8);
       }
@@ -79,20 +79,20 @@ public class class_j implements class_l {
    }
 
    protected boolean a(class_m var1, String[] var2, class_k var3, String var4) {
-      class_fb var6;
+      ChatMessage var6;
       try {
          var3.a(var1, var2);
          return true;
       } catch (class_cf var7) {
-         var6 = new class_fb("commands.generic.usage", new Object[]{new class_fb(var7.getMessage(), var7.a())});
+         var6 = new ChatMessage("commands.generic.usage", new Object[]{new ChatMessage(var7.getMessage(), var7.a())});
          var6.b().a(EnumChatFormat.RED);
          var1.a(var6);
       } catch (class_bz var8) {
-         var6 = new class_fb(var8.getMessage(), var8.a());
+         var6 = new ChatMessage(var8.getMessage(), var8.a());
          var6.b().a(EnumChatFormat.RED);
          var1.a(var6);
       } catch (Throwable var9) {
-         var6 = new class_fb("commands.generic.exception", new Object[0]);
+         var6 = new ChatMessage("commands.generic.exception", new Object[0]);
          var6.b().a(EnumChatFormat.RED);
          var1.a(var6);
          a.warn("Couldn\'t process command: \'" + var4 + "\'");

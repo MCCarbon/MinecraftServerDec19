@@ -17,7 +17,7 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_ly;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.class_ok;
 import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
@@ -26,8 +26,8 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pk;
 import net.minecraft.server.class_pm;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qk;
@@ -44,18 +44,18 @@ import net.minecraft.server.class_sn;
 import net.minecraft.server.class_tf;
 import net.minecraft.server.class_tw;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_ya;
 
 public class class_tz extends class_tw implements class_ok {
    private static final Predicate by = new Predicate() {
-      public boolean a(class_pr var1) {
+      public boolean a(Entity var1) {
          return var1 instanceof class_tz && ((class_tz)var1).cP();
       }
 
       // $FF: synthetic method
       public boolean apply(Object var1) {
-         return this.a((class_pr)var1);
+         return this.a((Entity)var1);
       }
    };
    private static final class_qk bz = (new class_qs((class_qk)null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true);
@@ -105,7 +105,7 @@ public class class_tz extends class_tw implements class_ok {
       this.i.a(2, new class_re(this, 1.0D));
       this.i.a(4, new class_rl(this, 1.0D));
       this.i.a(6, new class_si(this, 0.7D));
-      this.i.a(7, new class_rr(this, class_xa.class, 6.0F));
+      this.i.a(7, new class_rr(this, EntityHuman.class, 6.0F));
       this.i.a(8, new class_sh(this));
       this.dp();
    }
@@ -137,8 +137,8 @@ public class class_tz extends class_tw implements class_ok {
       return this.ac.c(bC);
    }
 
-   public String e_() {
-      if(this.l_()) {
+   public String getName() {
+      if(this.hasCustomName()) {
          return this.aO();
       } else {
          int var1 = this.cA();
@@ -297,7 +297,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public boolean a(class_pc var1, float var2) {
-      class_pr var3 = var1.j();
+      Entity var3 = var1.j();
       return this.l != null && this.l.equals(var3)?false:super.a(var1, var2);
    }
 
@@ -317,7 +317,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public void cT() {
-      if(!this.o.D && this.cL()) {
+      if(!this.o.isClientSide && this.cL()) {
          this.a(Item.getByBlock((Block)Blocks.CHEST), 1);
          this.p(false);
       }
@@ -326,7 +326,7 @@ public class class_tz extends class_tw implements class_ok {
    private void dn() {
       this.du();
       if(!this.R()) {
-         this.o.a((class_pr)this, "eating", 1.0F, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
+         this.o.a((Entity)this, "eating", 1.0F, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
       }
 
    }
@@ -343,10 +343,10 @@ public class class_tz extends class_tw implements class_ok {
             this.l.a(class_pc.i, (float)var3);
          }
 
-         Block var4 = this.o.p(new BlockPosition(this.s, this.t - 0.2D - (double)this.A, this.u)).getBlock();
+         Block var4 = this.o.getType(new BlockPosition(this.s, this.t - 0.2D - (double)this.A, this.u)).getBlock();
          if(var4.getMaterial() != Material.AIR && !this.R()) {
-            Block.StepSound var5 = var4.stepSound;
-            this.o.a((class_pr)this, var5.c(), var5.d() * 0.5F, var5.e() * 0.75F);
+            Block.Sound var5 = var4.stepSound;
+            this.o.a((Entity)this, var5.getStepSound(), var5.getVolume() * 0.5F, var5.getPitch() * 0.75F);
          }
 
       }
@@ -360,15 +360,15 @@ public class class_tz extends class_tw implements class_ok {
    private void dp() {
       class_ya var1 = this.bP;
       this.bP = new class_ya("HorseChest", this.doRENAMED());
-      this.bP.a(this.e_());
+      this.bP.a(this.getName());
       if(var1 != null) {
          var1.b(this);
-         int var2 = Math.min(var1.o_(), this.bP.o_());
+         int var2 = Math.min(var1.getSize(), this.bP.getSize());
 
          for(int var3 = 0; var3 < var2; ++var3) {
-            ItemStack var4 = var1.a(var3);
+            ItemStack var4 = var1.getItem(var3);
             if(var4 != null) {
-               this.bP.a(var3, var4.clone());
+               this.bP.setItem(var3, var4.clone());
             }
          }
       }
@@ -378,10 +378,10 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    private void dq() {
-      if(!this.o.D) {
-         this.r(this.bP.a(0) != null);
+      if(!this.o.isClientSide) {
+         this.r(this.bP.getItem(0) != null);
          if(this.dd()) {
-            this.e(this.bP.a(1));
+            this.e(this.bP.getItem(1));
          }
       }
 
@@ -410,14 +410,14 @@ public class class_tz extends class_tw implements class_ok {
       return super.cf();
    }
 
-   protected class_tz a(class_pr var1, double var2) {
+   protected class_tz a(Entity var1, double var2) {
       double var4 = Double.MAX_VALUE;
-      class_pr var6 = null;
-      List var7 = this.o.a(var1, var1.aT().a(var2, var2, var2), by);
+      Entity var6 = null;
+      List var7 = this.o.a(var1, var1.aT().add(var2, var2, var2), by);
       Iterator var8 = var7.iterator();
 
       while(var8.hasNext()) {
-         class_pr var9 = (class_pr)var8.next();
+         Entity var9 = (Entity)var8.next();
          double var10 = var9.e(var1.s, var1.t, var1.u);
          if(var10 < var4) {
             var6 = var9;
@@ -476,8 +476,8 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    protected void a(BlockPosition var1, Block var2) {
-      Block.StepSound var3 = var2.stepSound;
-      if(this.o.p(var1.shiftUp()).getBlock() == Blocks.SNOW_LAYER) {
+      Block.Sound var3 = var2.stepSound;
+      if(this.o.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
          var3 = Blocks.SNOW_LAYER.stepSound;
       }
 
@@ -486,17 +486,17 @@ public class class_tz extends class_tw implements class_ok {
          if(this.l != null && var4 != 1 && var4 != 2) {
             ++this.bY;
             if(this.bY > 5 && this.bY % 3 == 0) {
-               this.a("mob.horse.gallop", var3.d() * 0.15F, var3.e());
+               this.a("mob.horse.gallop", var3.getVolume() * 0.15F, var3.getPitch());
                if(var4 == 0 && this.V.nextInt(10) == 0) {
-                  this.a("mob.horse.breathe", var3.d() * 0.6F, var3.e());
+                  this.a("mob.horse.breathe", var3.getVolume() * 0.6F, var3.getPitch());
                }
             } else if(this.bY <= 5) {
-               this.a("mob.horse.wood", var3.d() * 0.15F, var3.e());
+               this.a("mob.horse.wood", var3.getVolume() * 0.15F, var3.getPitch());
             }
          } else if(var3 == Block.STEP_SOUND_WOOD) {
-            this.a("mob.horse.wood", var3.d() * 0.15F, var3.e());
+            this.a("mob.horse.wood", var3.getVolume() * 0.15F, var3.getPitch());
          } else {
-            this.a("mob.horse.soft", var3.d() * 0.15F, var3.e());
+            this.a("mob.horse.soft", var3.getVolume() * 0.15F, var3.getPitch());
          }
       }
 
@@ -529,15 +529,15 @@ public class class_tz extends class_tw implements class_ok {
       this.bZ = null;
    }
 
-   public void c(class_xa var1) {
-      if(!this.o.D && (this.l == null || this.l == var1) && this.cD()) {
-         this.bP.a(this.e_());
-         var1.a((class_tz)this, (class_oj)this.bP);
+   public void c(EntityHuman var1) {
+      if(!this.o.isClientSide && (this.l == null || this.l == var1) && this.cD()) {
+         this.bP.a(this.getName());
+         var1.a((class_tz)this, (IInventory)this.bP);
       }
 
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.bM) {
          return super.a(var1, var2, var3);
       } else if(!this.cD() && this.dg()) {
@@ -596,7 +596,7 @@ public class class_tz extends class_tw implements class_ok {
                   var7 = 5;
                   if(this.cD() && this.l() == 0) {
                      var8 = true;
-                     this.a((class_xa)var1);
+                     this.a((EntityHuman)var1);
                   }
                } else if(var3.getItem() == Items.aq) {
                   var5 = 10.0F;
@@ -604,7 +604,7 @@ public class class_tz extends class_tw implements class_ok {
                   var7 = 10;
                   if(this.cD() && this.l() == 0) {
                      var8 = true;
-                     this.a((class_xa)var1);
+                     this.a((EntityHuman)var1);
                   }
                }
 
@@ -629,7 +629,7 @@ public class class_tz extends class_tw implements class_ok {
             }
 
             if(!this.cD() && !var8) {
-               if(var3.a((class_xa)var1, (class_qa)this, var2)) {
+               if(var3.a((EntityHuman)var1, (EntityLiving)this, var2)) {
                   return true;
                }
 
@@ -659,7 +659,7 @@ public class class_tz extends class_tw implements class_ok {
          }
 
          if(this.cE() && this.l == null) {
-            if(var3 != null && var3.a((class_xa)var1, (class_qa)this, var2)) {
+            if(var3 != null && var3.a((EntityHuman)var1, (EntityLiving)this, var2)) {
                return true;
             } else {
                this.g(var1);
@@ -671,13 +671,13 @@ public class class_tz extends class_tw implements class_ok {
       }
    }
 
-   private void g(class_xa var1) {
+   private void g(EntityHuman var1) {
       var1.y = this.y;
       var1.z = this.z;
       this.s(false);
       this.t(false);
-      if(!this.o.D) {
-         var1.a((class_pr)this);
+      if(!this.o.isClientSide) {
+         var1.a((Entity)this);
       }
 
    }
@@ -714,7 +714,7 @@ public class class_tz extends class_tw implements class_ok {
 
    public void a(class_pc var1) {
       super.a((class_pc)var1);
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          this.dm();
       }
 
@@ -726,12 +726,12 @@ public class class_tz extends class_tw implements class_ok {
       }
 
       super.m();
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          if(this.V.nextInt(900) == 0 && this.aA == 0) {
             this.h(1.0F);
          }
 
-         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.t) - 1, MathHelper.floor(this.u))).getBlock() == Blocks.GRASS) {
+         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.getType(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.t) - 1, MathHelper.floor(this.u))).getBlock() == Blocks.GRASS) {
             this.s(true);
          }
 
@@ -743,7 +743,7 @@ public class class_tz extends class_tw implements class_ok {
          if(this.cP() && !this.cC() && !this.cN()) {
             class_tz var1 = this.a(this, 16.0D);
             if(var1 != null && this.h(var1) > 4.0D) {
-               this.h.a((class_pr)var1);
+               this.h.a((Entity)var1);
             }
          }
       }
@@ -752,7 +752,7 @@ public class class_tz extends class_tw implements class_ok {
 
    public void t_() {
       super.t_();
-      if(this.o.D && this.ac.a()) {
+      if(this.o.isClientSide && this.ac.a()) {
          this.ac.e();
          this.dr();
       }
@@ -762,7 +762,7 @@ public class class_tz extends class_tw implements class_ok {
          this.c(128, false);
       }
 
-      if(!this.o.D && this.bO > 0 && ++this.bO > 20) {
+      if(!this.o.isClientSide && this.bO > 0 && ++this.bO > 20) {
          this.bO = 0;
          this.t(false);
       }
@@ -822,7 +822,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    private void du() {
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          this.bN = 1;
          this.c(128, true);
       }
@@ -846,7 +846,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    private void dw() {
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          this.bO = 1;
          this.t(true);
       }
@@ -863,14 +863,14 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public void dm() {
-      this.a((class_pr)this, (class_ya)this.bP);
+      this.a((Entity)this, (class_ya)this.bP);
       this.cT();
    }
 
-   private void a(class_pr var1, class_ya var2) {
-      if(var2 != null && !this.o.D) {
-         for(int var3 = 0; var3 < var2.o_(); ++var3) {
-            ItemStack var4 = var2.a(var3);
+   private void a(Entity var1, class_ya var2) {
+      if(var2 != null && !this.o.isClientSide) {
+         for(int var3 = 0; var3 < var2.getSize(); ++var3) {
+            ItemStack var4 = var2.getItem(var3);
             if(var4 != null) {
                this.a(var4, 0.0F);
             }
@@ -879,20 +879,20 @@ public class class_tz extends class_tw implements class_ok {
       }
    }
 
-   public boolean f(class_xa var1) {
+   public boolean f(EntityHuman var1) {
       this.b(var1.aM().toString());
       this.m(true);
       return true;
    }
 
    public void g(float var1, float var2) {
-      if(this.l != null && this.l instanceof class_qa && this.cV()) {
+      if(this.l != null && this.l instanceof EntityLiving && this.cV()) {
          this.A = this.y = this.l.y;
          this.z = this.l.z * 0.5F;
          this.b(this.y, this.z);
          this.aN = this.aL = this.y;
-         var1 = ((class_qa)this.l).bc * 0.5F;
-         var2 = ((class_qa)this.l).bd;
+         var1 = ((EntityLiving)this.l).bc * 0.5F;
+         var2 = ((EntityLiving)this.l).bd;
          if(var2 <= 0.0F) {
             var2 *= 0.25F;
             this.bY = 0;
@@ -904,9 +904,9 @@ public class class_tz extends class_tw implements class_ok {
          }
 
          if(this.bx > 0.0F && !this.cK() && this.C) {
-            this.w = this.cU() * (double)this.bx;
+            this.motY = this.cU() * (double)this.bx;
             if(this.a((class_pk)class_pm.h)) {
-               this.w += (double)((float)(this.b((class_pk)class_pm.h).c() + 1) * 0.1F);
+               this.motY += (double)((float)(this.b((class_pk)class_pm.h).c() + 1) * 0.1F);
             }
 
             this.n(true);
@@ -924,7 +924,7 @@ public class class_tz extends class_tw implements class_ok {
 
          this.S = 1.0F;
          this.aP = this.bJ() * 0.1F;
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             this.k((float)this.a((class_qk)class_wl.d).e());
             super.g(var1, var2);
          }
@@ -965,8 +965,8 @@ public class class_tz extends class_tw implements class_ok {
       if(this.cL()) {
          NBTTagList var2 = new NBTTagList();
 
-         for(int var3 = 2; var3 < this.bP.o_(); ++var3) {
-            ItemStack var4 = this.bP.a(var3);
+         for(int var3 = 2; var3 < this.bP.getSize(); ++var3) {
+            ItemStack var4 = this.bP.getItem(var3);
             if(var4 != null) {
                NBTTagCompound var5 = new NBTTagCompound();
                var5.put("Slot", (byte)var3);
@@ -978,12 +978,12 @@ public class class_tz extends class_tw implements class_ok {
          var1.put((String)"Items", (NBTTag)var2);
       }
 
-      if(this.bP.a(1) != null) {
-         var1.put((String)"ArmorItem", (NBTTag)this.bP.a(1).write(new NBTTagCompound()));
+      if(this.bP.getItem(1) != null) {
+         var1.put((String)"ArmorItem", (NBTTag)this.bP.getItem(1).write(new NBTTagCompound()));
       }
 
-      if(this.bP.a(0) != null) {
-         var1.put((String)"SaddleItem", (NBTTag)this.bP.a(0).write(new NBTTagCompound()));
+      if(this.bP.getItem(0) != null) {
+         var1.put((String)"SaddleItem", (NBTTag)this.bP.getItem(0).write(new NBTTagCompound()));
       }
 
    }
@@ -1022,8 +1022,8 @@ public class class_tz extends class_tw implements class_ok {
          for(int var5 = 0; var5 < var4.getSize(); ++var5) {
             NBTTagCompound var6 = var4.getCompound(var5);
             int var7 = var6.getByte("Slot") & 255;
-            if(var7 >= 2 && var7 < this.bP.o_()) {
-               this.bP.a(var7, ItemStack.a(var6));
+            if(var7 >= 2 && var7 < this.bP.getSize()) {
+               this.bP.setItem(var7, ItemStack.a(var6));
             }
          }
       }
@@ -1032,17 +1032,17 @@ public class class_tz extends class_tw implements class_ok {
       if(var1.hasOfType("ArmorItem", 10)) {
          var9 = ItemStack.a(var1.getCompound("ArmorItem"));
          if(var9 != null && a(var9.getItem())) {
-            this.bP.a(1, var9);
+            this.bP.setItem(1, var9);
          }
       }
 
       if(var1.hasOfType("SaddleItem", 10)) {
          var9 = ItemStack.a(var1.getCompound("SaddleItem"));
          if(var9 != null && var9.getItem() == Items.aC) {
-            this.bP.a(0, var9);
+            this.bP.setItem(0, var9);
          }
       } else if(var1.getBoolean("Saddle")) {
-         this.bP.a(0, new ItemStack(Items.aC));
+         this.bP.setItem(0, new ItemStack(Items.aC));
       }
 
       this.dq();
@@ -1185,8 +1185,8 @@ public class class_tz extends class_tw implements class_ok {
          float var3 = 0.7F * this.bV;
          float var4 = 0.15F * this.bV;
          this.l.b(this.s + (double)(var3 * var1), this.t + this.an() + this.l.am() + (double)var4, this.u - (double)(var3 * var2));
-         if(this.l instanceof class_qa) {
-            ((class_qa)this.l).aL = this.aL;
+         if(this.l instanceof EntityLiving) {
+            ((EntityLiving)this.l).aL = this.aL;
          }
       }
 
@@ -1232,11 +1232,11 @@ public class class_tz extends class_tw implements class_ok {
       }
 
       int var3 = var1 - 400;
-      if(var3 >= 0 && var3 < 2 && var3 < this.bP.o_()) {
+      if(var3 >= 0 && var3 < 2 && var3 < this.bP.getSize()) {
          if(var3 == 0 && var2 != null && var2.getItem() != Items.aC) {
             return false;
          } else if(var3 != 1 || (var2 == null || a(var2.getItem())) && this.dd()) {
-            this.bP.a(var3, var2);
+            this.bP.setItem(var3, var2);
             this.dq();
             return true;
          } else {
@@ -1244,8 +1244,8 @@ public class class_tz extends class_tw implements class_ok {
          }
       } else {
          int var4 = var1 - 500 + 2;
-         if(var4 >= 2 && var4 < this.bP.o_()) {
-            this.bP.a(var4, var2);
+         if(var4 >= 2 && var4 < this.bP.getSize()) {
+            this.bP.setItem(var4, var2);
             return true;
          } else {
             return false;

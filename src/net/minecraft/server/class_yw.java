@@ -10,17 +10,17 @@ import net.minecraft.server.class_act;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_yg;
 import net.minecraft.server.class_yx;
 
 public class class_yw extends class_yx {
    private final class_yg a;
-   private final class_xa b;
+   private final EntityHuman b;
    private int c;
 
-   public class_yw(class_xa var1, class_yg var2, class_oj var3, int var4, int var5, int var6) {
+   public class_yw(EntityHuman var1, class_yg var2, IInventory var3, int var4, int var5, int var6) {
       super(var3, var4, var5, var6);
       this.b = var1;
       this.a = var2;
@@ -95,20 +95,20 @@ public class class_yw extends class_yx {
 
    }
 
-   public void a(class_xa var1, ItemStack var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
       ItemStack[] var3 = class_act.a().b(this.a, var1.o);
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
-         ItemStack var5 = this.a.a(var4);
+         ItemStack var5 = this.a.getItem(var4);
          ItemStack var6 = var3[var4];
          if(var5 != null) {
-            this.a.a(var4, 1);
+            this.a.splitStack(var4, 1);
          }
 
          if(var6 != null) {
-            if(this.a.a(var4) == null) {
-               this.a.a(var4, var6);
+            if(this.a.getItem(var4) == null) {
+               this.a.setItem(var4, var6);
             } else if(!this.b.bp.a(var6)) {
                this.b.a(var6, false);
             }

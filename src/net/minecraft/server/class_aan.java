@@ -4,14 +4,14 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.World;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
 public class class_aan extends Item {
@@ -28,28 +28,28 @@ public class class_aan extends Item {
       this.b = var1;
       this.d = var3;
       this.c = var2;
-      this.a(CreativeTab.h);
+      this.a(CreativeTab.FOOD);
    }
 
    public class_aan(int var1, boolean var2) {
       this(var1, 0.6F, var2);
    }
 
-   public ItemStack a(ItemStack var1, World var2, class_qa var3) {
+   public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
       --var1.count;
-      if(var3 instanceof class_xa) {
-         class_xa var4 = (class_xa)var3;
+      if(var3 instanceof EntityHuman) {
+         EntityHuman var4 = (EntityHuman)var3;
          var4.cn().a(this, var1);
-         var2.a((class_pr)var4, "random.burp", 0.5F, var2.s.nextFloat() * 0.1F + 0.9F);
+         var2.a((Entity)var4, "random.burp", 0.5F, var2.random.nextFloat() * 0.1F + 0.9F);
          this.a(var1, var2, var4);
-         var4.b(class_nc.ad[Item.getId((Item)this)]);
+         var4.b(StatisticList.ad[Item.getId((Item)this)]);
       }
 
       return var1;
    }
 
-   protected void a(ItemStack var1, World var2, class_xa var3) {
-      if(!var2.D && this.l != null && var2.s.nextFloat() < this.m) {
+   protected void a(ItemStack var1, World var2, EntityHuman var3) {
+      if(!var2.isClientSide && this.l != null && var2.random.nextFloat() < this.m) {
          var3.c(new class_pl(this.l));
       }
 
@@ -63,7 +63,7 @@ public class class_aan extends Item {
       return class_abz.EAT;
    }
 
-   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(var3.j(this.k)) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);

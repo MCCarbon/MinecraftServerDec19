@@ -4,12 +4,12 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
@@ -26,7 +26,7 @@ public class class_apj implements class_aoh {
       this.d = var1;
    }
 
-   public class_aok d(int var1, int var2) {
+   public Chunk d(int var1, int var2) {
       class_aph var3 = new class_aph();
 
       int var7;
@@ -42,9 +42,9 @@ public class class_apj implements class_aoh {
          }
       }
 
-      class_aok var9 = new class_aok(this.d, var3, var1, var2);
+      Chunk var9 = new Chunk(this.d, var3, var1, var2);
       var9.b();
-      class_aez[] var10 = this.d.w().b((class_aez[])null, var1 * 16, var2 * 16, 16, 16);
+      BiomeBase[] var10 = this.d.w().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var11 = var9.k();
 
       for(var7 = 0; var7 < var11.length; ++var7) {
@@ -78,7 +78,7 @@ public class class_apj implements class_aoh {
    public void a(class_aoh var1, int var2, int var3) {
    }
 
-   public boolean a(class_aoh var1, class_aok var2, int var3, int var4) {
+   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
@@ -102,7 +102,7 @@ public class class_apj implements class_aoh {
    }
 
    public List a(class_qc var1, BlockPosition var2) {
-      class_aez var3 = this.d.b(var2);
+      BiomeBase var3 = this.d.b(var2);
       return var3.a(var1);
    }
 
@@ -114,10 +114,10 @@ public class class_apj implements class_aoh {
       return 0;
    }
 
-   public void a(class_aok var1, int var2, int var3) {
+   public void a(Chunk var1, int var2, int var3) {
    }
 
-   public class_aok a(BlockPosition var1) {
+   public Chunk a(BlockPosition var1) {
       return this.d(var1.getX() >> 4, var1.getZ() >> 4);
    }
 

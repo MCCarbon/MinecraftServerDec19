@@ -17,49 +17,49 @@ public class class_arj extends class_aql {
    }
 
    public boolean b(World var1, Random var2, BlockPosition var3) {
-      if(var1.p(var3.shiftUp()).getBlock() != Blocks.STONE) {
+      if(var1.getType(var3.up()).getBlock() != Blocks.STONE) {
          return false;
-      } else if(var1.p(var3.shiftDown()).getBlock() != Blocks.STONE) {
+      } else if(var1.getType(var3.down()).getBlock() != Blocks.STONE) {
          return false;
-      } else if(var1.p(var3).getBlock().getMaterial() != Material.AIR && var1.p(var3).getBlock() != Blocks.STONE) {
+      } else if(var1.getType(var3).getBlock().getMaterial() != Material.AIR && var1.getType(var3).getBlock() != Blocks.STONE) {
          return false;
       } else {
          int var4 = 0;
-         if(var1.p(var3.shiftWest()).getBlock() == Blocks.STONE) {
+         if(var1.getType(var3.west()).getBlock() == Blocks.STONE) {
             ++var4;
          }
 
-         if(var1.p(var3.shiftEast()).getBlock() == Blocks.STONE) {
+         if(var1.getType(var3.east()).getBlock() == Blocks.STONE) {
             ++var4;
          }
 
-         if(var1.p(var3.shiftNorth()).getBlock() == Blocks.STONE) {
+         if(var1.getType(var3.north()).getBlock() == Blocks.STONE) {
             ++var4;
          }
 
-         if(var1.p(var3.shiftSouth()).getBlock() == Blocks.STONE) {
+         if(var1.getType(var3.south()).getBlock() == Blocks.STONE) {
             ++var4;
          }
 
          int var5 = 0;
-         if(var1.d(var3.shiftWest())) {
+         if(var1.isEmpty(var3.west())) {
             ++var5;
          }
 
-         if(var1.d(var3.shiftEast())) {
+         if(var1.isEmpty(var3.east())) {
             ++var5;
          }
 
-         if(var1.d(var3.shiftNorth())) {
+         if(var1.isEmpty(var3.north())) {
             ++var5;
          }
 
-         if(var1.d(var3.shiftSouth())) {
+         if(var1.isEmpty(var3.south())) {
             ++var5;
          }
 
          if(var4 == 3 && var5 == 1) {
-            var1.a((BlockPosition)var3, (IBlockData)this.a.getBlockData(), 2);
+            var1.setTypeAndData((BlockPosition)var3, (IBlockData)this.a.getBlockData(), 2);
             var1.a(this.a, var3, var2);
          }
 

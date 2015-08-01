@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 
 public class class_qv {
-   private class_qa a;
+   private EntityLiving a;
    private int b;
    private float c;
 
-   public class_qv(class_qa var1) {
+   public class_qv(EntityLiving var1) {
       this.a = var1;
    }
 

@@ -13,8 +13,8 @@ import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awl;
 import net.minecraft.server.class_awt;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 
 public class class_awn {
    private final Map a = Maps.newHashMap();
@@ -348,8 +348,8 @@ public class class_awn {
       return g;
    }
 
-   public void a(class_pr var1) {
-      if(var1 != null && !(var1 instanceof class_xa) && !var1.ai()) {
+   public void a(Entity var1) {
+      if(var1 != null && !(var1 instanceof EntityHuman) && !var1.ai()) {
          String var2 = var1.aM().toString();
          this.d(var2, (class_awj)null);
          this.f(var2);

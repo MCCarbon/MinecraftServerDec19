@@ -13,9 +13,9 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_bu extends class_i {
    public String c() {
@@ -34,26 +34,26 @@ public class class_bu extends class_i {
       if(var2.length < 3) {
          throw new class_cf("commands.trigger.usage", new Object[0]);
       } else {
-         class_lh var3;
-         if(var1 instanceof class_lh) {
-            var3 = (class_lh)var1;
+         EntityPlayer var3;
+         if(var1 instanceof EntityPlayer) {
+            var3 = (EntityPlayer)var1;
          } else {
-            class_pr var4 = var1.f();
-            if(!(var4 instanceof class_lh)) {
+            Entity var4 = var1.f();
+            if(!(var4 instanceof EntityPlayer)) {
                throw new class_bz("commands.trigger.invalidPlayer", new Object[0]);
             }
 
-            var3 = (class_lh)var4;
+            var3 = (EntityPlayer)var4;
          }
 
          class_awn var8 = MinecraftServer.N().a(0).aa();
          class_awj var5 = var8.b(var2[0]);
          if(var5 != null && var5.c() == class_awt.c) {
             int var6 = a(var2[2]);
-            if(!var8.b(var3.e_(), var5)) {
+            if(!var8.b(var3.getName(), var5)) {
                throw new class_bz("commands.trigger.invalidObjective", new Object[]{var2[0]});
             } else {
-               class_awl var7 = var8.c(var3.e_(), var5);
+               class_awl var7 = var8.c(var3.getName(), var5);
                if(var7.g()) {
                   throw new class_bz("commands.trigger.disabled", new Object[]{var2[0]});
                } else {

@@ -3,25 +3,25 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Iterator;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anx;
+import net.minecraft.server.BlockStateDirection;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awg;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.CreativeTab;
 
 public class class_alp extends Block {
-   public static final class_anx a = class_anx.a("facing", new Predicate() {
+   public static final BlockStateDirection a = BlockStateDirection.of("facing", new Predicate() {
       public boolean a(EnumDirection var1) {
          return var1 != EnumDirection.DOWN;
       }
@@ -36,10 +36,10 @@ public class class_alp extends Block {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.UP));
       this.setTicking(true);
-      this.a(CreativeTab.c);
+      this.setCreativeTab(CreativeTab.DECORATIONS);
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
@@ -52,16 +52,16 @@ public class class_alp extends Block {
    }
 
    private boolean e(World var1, BlockPosition var2) {
-      if(World.a((class_aer)var1, (BlockPosition)var2)) {
+      if(World.a((IBlockAccess)var1, (BlockPosition)var2)) {
          return true;
       } else {
-         Block var3 = var1.p(var2).getBlock();
+         Block var3 = var1.getType(var2).getBlock();
          return var3 instanceof class_ahz || var3 == Blocks.GLASS || var3 == Blocks.COBBLESTONE_WALL || var3 == Blocks.STAINED_GLASS;
       }
    }
 
-   public boolean d(World var1, BlockPosition var2) {
-      Iterator var3 = a.c().iterator();
+   public boolean canPlace(World var1, BlockPosition var2) {
+      Iterator var3 = a.getValues().iterator();
 
       EnumDirection var4;
       do {
@@ -81,7 +81,7 @@ public class class_alp extends Block {
       return var5 && var1.d(var4, true) || var3.equals(EnumDirection.UP) && this.e(var1, var4);
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(this.a(var1, var2, var3)) {
          return this.getBlockData().set(a, var3);
       } else {
@@ -100,11 +100,11 @@ public class class_alp extends Block {
       }
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
       this.f(var1, var2, var3);
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
@@ -123,8 +123,8 @@ public class class_alp extends Block {
          }
 
          if(var7) {
-            this.b(var1, var2, var3, 0);
-            var1.g(var2);
+            this.dropNaturallyForSure(var1, var2, var3, 0);
+            var1.setAir(var2);
             return true;
          } else {
             return false;
@@ -136,17 +136,17 @@ public class class_alp extends Block {
       if(var3.getBlock() == this && this.a(var1, var2, (EnumDirection)var3.get(a))) {
          return true;
       } else {
-         if(var1.p(var2).getBlock() == this) {
-            this.b(var1, var2, var3, 0);
-            var1.g(var2);
+         if(var1.getType(var2).getBlock() == this) {
+            this.dropNaturallyForSure(var1, var2, var3, 0);
+            var1.setAir(var2);
          }
 
          return false;
       }
    }
 
-   public class_awg a(World var1, BlockPosition var2, Vec3D var3, Vec3D var4) {
-      EnumDirection var5 = (EnumDirection)var1.p(var2).get(a);
+   public MovingObjectPosition rayTraceCollision(World var1, BlockPosition var2, Vec3D var3, Vec3D var4) {
+      EnumDirection var5 = (EnumDirection)var1.getType(var2).get(a);
       float var6 = 0.15F;
       if(var5 == EnumDirection.EAST) {
          this.setSizes(0.0F, 0.2F, 0.5F - var6, var6 * 2.0F, 0.8F, 0.5F + var6);
@@ -161,7 +161,7 @@ public class class_alp extends Block {
          this.setSizes(0.5F - var6, 0.0F, 0.5F - var6, 0.5F + var6, 0.6F, 0.5F + var6);
       }
 
-      return super.a(var1, var2, var3, var4);
+      return super.rayTraceCollision(var1, var2, var3, var4);
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -212,7 +212,7 @@ public class class_alp extends Block {
       return var3;
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       return var1.getBlock() != this?var1:var1.set(a, var2.a((EnumDirection)var1.get(a)));
    }
 
@@ -220,7 +220,7 @@ public class class_alp extends Block {
       return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(a)));
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 

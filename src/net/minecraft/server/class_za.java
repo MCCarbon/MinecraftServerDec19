@@ -6,12 +6,12 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_ahk;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.BlockDispenser;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_ck;
-import net.minecraft.server.class_cn;
-import net.minecraft.server.class_cr;
+import net.minecraft.server.ISourceBlock;
+import net.minecraft.server.DispenseBehaviorItem;
+import net.minecraft.server.IDispenseBehavior;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.EnumUsedHand;
@@ -19,24 +19,24 @@ import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pv;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
 public class class_za extends Item {
    private static final int[] k = new int[]{13, 15, 16, 11};
    public static final String[] a = new String[]{"minecraft:items/empty_armor_slot_boots", "minecraft:items/empty_armor_slot_leggings", "minecraft:items/empty_armor_slot_chestplate", "minecraft:items/empty_armor_slot_helmet"};
-   private static final class_cr l = new class_cn() {
-      protected ItemStack b(class_ck var1, ItemStack var2) {
-         BlockPosition var3 = var1.d().shift(class_ahk.b(var1.f()));
+   private static final IDispenseBehavior l = new DispenseBehaviorItem() {
+      protected ItemStack b(ISourceBlock var1, ItemStack var2) {
+         BlockPosition var3 = var1.getPosition().shift(BlockDispenser.b(var1.getData()));
          int var4 = var3.getX();
          int var5 = var3.getY();
          int var6 = var3.getZ();
-         class_awf var7 = new class_awf((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1));
-         List var8 = var1.i().a(class_qa.class, var7, Predicates.and(class_pv.d, new class_pv.class_a_in_class_pv(var2)));
+         AxisAlignedBB var7 = new AxisAlignedBB((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1));
+         List var8 = var1.getWorld().a(EntityLiving.class, var7, Predicates.and(class_pv.d, new class_pv.class_a_in_class_pv(var2)));
          if(!var8.isEmpty()) {
-            class_qa var9 = (class_qa)var8.get(0);
+            EntityLiving var9 = (EntityLiving)var8.get(0);
             class_pw var10 = class_qb.c(var2);
             ItemStack var11 = var2.clone();
             var11.count = 1;
@@ -64,8 +64,8 @@ public class class_za extends Item {
       this.c = var1.b(var3);
       this.e(var1.a(var3));
       this.h = 1;
-      this.a(CreativeTab.j);
-      class_ahk.N.register(this, l);
+      this.a(CreativeTab.COMBAT);
+      BlockDispenser.REGISTRY.register(this, l);
    }
 
    public int c() {
@@ -132,7 +132,7 @@ public class class_za extends Item {
       return this.m.b() == var2.getItem()?true:super.a(var1, var2);
    }
 
-   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       class_pw var5 = class_qb.c(var1);
       ItemStack var6 = var3.a(var5);
       if(var6 == null) {

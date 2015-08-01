@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 
 public enum EnumMainHandOption {
 
-	LEFT(new class_fb("options.mainHand.left")),
-	RIGHT(new class_fb("options.mainHand.right"));
+	LEFT(new ChatMessage("options.mainHand.left")),
+	RIGHT(new ChatMessage("options.mainHand.right"));
 
 	private final IChatBaseComponent message;
 

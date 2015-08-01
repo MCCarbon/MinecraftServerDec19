@@ -12,10 +12,10 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_uz;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_va extends class_uz {
    private static final int c = class_qi.a(class_va.class);
@@ -44,7 +44,7 @@ public class class_va extends class_uz {
       if(this.b((class_pc)var1)) {
          return false;
       } else if(!var1.c() && this.o() != null) {
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             this.a(var1.j(), false);
             this.a((ItemStack)null);
          }
@@ -63,15 +63,15 @@ public class class_va extends class_uz {
       return 12;
    }
 
-   public void b(class_pr var1) {
+   public void b(Entity var1) {
       this.a(var1, true);
    }
 
-   public void a(class_pr var1, boolean var2) {
+   public void a(Entity var1, boolean var2) {
       if(this.o.R().b("doEntityDrops")) {
          ItemStack var3 = this.o();
-         if(var1 instanceof class_xa) {
-            class_xa var4 = (class_xa)var1;
+         if(var1 instanceof EntityHuman) {
+            EntityHuman var4 = (EntityHuman)var1;
             if(var4.bH.instabuild) {
                this.b(var3);
                return;
@@ -168,15 +168,15 @@ public class class_va extends class_uz {
       super.a(var1);
    }
 
-   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
+   public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
       if(this.o() == null) {
-         if(var2 != null && !this.o.D) {
+         if(var2 != null && !this.o.isClientSide) {
             this.a(var2);
             if(!var1.bH.instabuild) {
                --var2.count;
             }
          }
-      } else if(!this.o.D) {
+      } else if(!this.o.isClientSide) {
          this.a(this.p() + 1);
       }
 

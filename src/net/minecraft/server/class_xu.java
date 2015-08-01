@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aej;
+import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_awg;
+import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_uw;
 import net.minecraft.server.class_xf;
@@ -23,7 +23,7 @@ public class class_xu extends class_xf {
       this.a(0.3125F, 0.3125F);
    }
 
-   public class_xu(World var1, class_qa var2, double var3, double var5, double var7) {
+   public class_xu(World var1, EntityLiving var2, double var3, double var5, double var7) {
       super(var1, var2, var3, var5, var7);
       this.a(0.3125F, 0.3125F);
    }
@@ -36,7 +36,7 @@ public class class_xu extends class_xf {
       return false;
    }
 
-   public float a(class_aej var1, World var2, BlockPosition var3, IBlockData var4) {
+   public float a(Explosion var1, World var2, BlockPosition var3, IBlockData var4) {
       float var5 = super.a(var1, var2, var3, var4);
       Block var6 = var4.getBlock();
       if(this.l() && class_uw.a(var6)) {
@@ -46,8 +46,8 @@ public class class_xu extends class_xf {
       return var5;
    }
 
-   protected void a(class_awg var1) {
-      if(!this.o.D) {
+   protected void a(MovingObjectPosition var1) {
+      if(!this.o.isClientSide) {
          if(var1.d != null) {
             if(this.a != null) {
                if(var1.d.a(class_pc.a(this.a), 8.0F)) {
@@ -61,7 +61,7 @@ public class class_xu extends class_xf {
                var1.d.a(class_pc.l, 5.0F);
             }
 
-            if(var1.d instanceof class_qa) {
+            if(var1.d instanceof EntityLiving) {
                byte var2 = 0;
                if(this.o.ab() == class_om.c) {
                   var2 = 10;
@@ -70,12 +70,12 @@ public class class_xu extends class_xf {
                }
 
                if(var2 > 0) {
-                  ((class_qa)var1.d).c(new class_pl(class_pm.t, 20 * var2, 1));
+                  ((EntityLiving)var1.d).c(new class_pl(class_pm.t, 20 * var2, 1));
                }
             }
          }
 
-         this.o.a(this, this.s, this.t, this.u, 1.0F, false, this.o.R().b("mobGriefing"));
+         this.o.createExplosion(this, this.s, this.t, this.u, 1.0F, false, this.o.R().b("mobGriefing"));
          this.J();
       }
 

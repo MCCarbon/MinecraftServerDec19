@@ -6,16 +6,16 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_age;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anw;
+import net.minecraft.server.BlockStateBoolean;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 
 public class class_akb extends class_age {
-   public static final class_anw a = class_anw.a("powered");
+   public static final BlockStateBoolean a = BlockStateBoolean.of("powered");
    private final class_akb.class_a_in_class_akb b;
 
    protected class_akb(Material var1, class_akb.class_a_in_class_akb var2) {
@@ -33,14 +33,14 @@ public class class_akb extends class_age {
    }
 
    protected int f(World var1, BlockPosition var2) {
-      class_awf var3 = this.a(var2);
+      AxisAlignedBB var3 = this.a(var2);
       List var4;
       switch(class_akb.SyntheticClass_1.a[this.b.ordinal()]) {
       case 1:
-         var4 = var1.b((class_pr)null, (class_awf)var3);
+         var4 = var1.b((Entity)null, (AxisAlignedBB)var3);
          break;
       case 2:
-         var4 = var1.a(class_qa.class, var3);
+         var4 = var1.getEntities(EntityLiving.class, var3);
          break;
       default:
          return 0;
@@ -50,7 +50,7 @@ public class class_akb extends class_age {
          Iterator var5 = var4.iterator();
 
          while(var5.hasNext()) {
-            class_pr var6 = (class_pr)var5.next();
+            Entity var6 = (Entity)var5.next();
             if(!var6.aK()) {
                return 15;
             }
@@ -68,7 +68,7 @@ public class class_akb extends class_age {
       return ((Boolean)var1.get(a)).booleanValue()?1:0;
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 

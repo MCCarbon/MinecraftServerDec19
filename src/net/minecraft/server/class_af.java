@@ -7,7 +7,7 @@ import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -18,7 +18,7 @@ import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 
 public class class_af extends class_i {
    public String c() {
@@ -88,20 +88,20 @@ public class class_af extends class_i {
                            if(var2[8].equals("destroy")) {
                               var10.b(var17, true);
                            } else if(var2[8].equals("keep")) {
-                              if(!var10.d(var17)) {
+                              if(!var10.isEmpty(var17)) {
                                  continue;
                               }
                            } else if(var2[8].equals("replace") && !var5.isTileEntity()) {
                               if(var2.length > 9) {
                                  Block var18 = class_i.g(var1, var2[9]);
-                                 if(var10.p(var17).getBlock() != var18) {
+                                 if(var10.getType(var17).getBlock() != var18) {
                                     continue;
                                  }
                               }
 
                               if(var2.length > 10) {
                                  int var28 = class_i.a(var2[10]);
-                                 var19 = var10.p(var17);
+                                 var19 = var10.getType(var17);
                                  if(var19.getBlock().toLegacyData(var19) != var28) {
                                     continue;
                                  }
@@ -109,33 +109,33 @@ public class class_af extends class_i {
                            }
                         } else if(var16 != var7.getX() && var16 != var8.getX() && var15 != var7.getY() && var15 != var8.getY() && var14 != var7.getZ() && var14 != var8.getZ()) {
                            if(var2[8].equals("hollow")) {
-                              var10.a((BlockPosition)var17, (IBlockData)Blocks.AIR.getBlockData(), 2);
+                              var10.setTypeAndData((BlockPosition)var17, (IBlockData)Blocks.AIR.getBlockData(), 2);
                               var24.add(var17);
                            }
                            continue;
                         }
                      }
 
-                     class_amg var29 = var10.s(var17);
+                     TileEntity var29 = var10.getTileEntity(var17);
                      if(var29 != null) {
-                        if(var29 instanceof class_oj) {
-                           ((class_oj)var29).l();
+                        if(var29 instanceof IInventory) {
+                           ((IInventory)var29).remove();
                         }
 
-                        var10.a(var17, Blocks.BARRIER.getBlockData(), var5 == Blocks.BARRIER?2:4);
+                        var10.setTypeAndData(var17, Blocks.BARRIER.getBlockData(), var5 == Blocks.BARRIER?2:4);
                      }
 
                      var19 = var5.fromLegacyData(var6);
-                     if(var10.a((BlockPosition)var17, (IBlockData)var19, 2)) {
+                     if(var10.setTypeAndData((BlockPosition)var17, (IBlockData)var19, 2)) {
                         var24.add(var17);
                         ++var9;
                         if(var23) {
-                           class_amg var20 = var10.s(var17);
+                           TileEntity var20 = var10.getTileEntity(var17);
                            if(var20 != null) {
                               var22.put("x", var17.getX());
                               var22.put("y", var17.getY());
                               var22.put("z", var17.getZ());
-                              var20.a(var22);
+                              var20.read(var22);
                            }
                         }
                      }
@@ -147,7 +147,7 @@ public class class_af extends class_i {
 
             while(var25.hasNext()) {
                BlockPosition var26 = (BlockPosition)var25.next();
-               Block var27 = var10.p(var26).getBlock();
+               Block var27 = var10.getType(var26).getBlock();
                var10.b(var26, var27);
             }
 

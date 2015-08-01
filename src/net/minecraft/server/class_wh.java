@@ -3,10 +3,10 @@ package net.minecraft.server;
 import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_om;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wo;
 
@@ -26,7 +26,7 @@ public class class_wh extends class_wo {
    }
 
    public boolean cg() {
-      return this.o.a((class_awf)this.aT(), (class_pr)this) && this.o.a((class_pr)this, (class_awf)this.aT()).isEmpty() && !this.o.d(this.aT());
+      return this.o.a((AxisAlignedBB)this.aT(), (Entity)this) && this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.o.d(this.aT());
    }
 
    public int bs() {
@@ -77,12 +77,12 @@ public class class_wh extends class_wo {
    }
 
    protected void bG() {
-      this.w = (double)(0.42F + (float)this.cB() * 0.1F);
+      this.motY = (double)(0.42F + (float)this.cB() * 0.1F);
       this.ai = true;
    }
 
    protected void bI() {
-      this.w = (double)(0.22F + (float)this.cB() * 0.05F);
+      this.motY = (double)(0.22F + (float)this.cB() * 0.05F);
       this.ai = true;
    }
 

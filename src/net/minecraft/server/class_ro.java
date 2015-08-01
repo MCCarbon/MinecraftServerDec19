@@ -5,7 +5,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahd;
+import net.minecraft.server.BlockCrops;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ow;
@@ -54,26 +54,26 @@ public class class_ro extends class_rx {
       this.c.q().a((double)this.b.getX() + 0.5D, (double)(this.b.getY() + 1), (double)this.b.getZ() + 0.5D, 10.0F, (float)this.c.cd());
       if(this.f()) {
          World var1 = this.c.o;
-         BlockPosition var2 = this.b.shiftUp();
-         IBlockData var3 = var1.p(var2);
+         BlockPosition var2 = this.b.up();
+         IBlockData var3 = var1.getType(var2);
          Block var4 = var3.getBlock();
-         if(this.f == 0 && var4 instanceof class_ahd && ((class_ahd)var4).e(var3)) {
+         if(this.f == 0 && var4 instanceof BlockCrops && ((BlockCrops)var4).e(var3)) {
             var1.b(var2, true);
          } else if(this.f == 1 && var4 == Blocks.AIR) {
             class_ow var5 = this.c.cF();
 
-            for(int var6 = 0; var6 < var5.o_(); ++var6) {
-               ItemStack var7 = var5.a(var6);
+            for(int var6 = 0; var6 < var5.getSize(); ++var6) {
+               ItemStack var7 = var5.getItem(var6);
                boolean var8 = false;
                if(var7 != null) {
                   if(var7.getItem() == Items.P) {
-                     var1.a((BlockPosition)var2, (IBlockData)Blocks.WHEAT.getBlockData(), 3);
+                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.WHEAT.getBlockData(), 3);
                      var8 = true;
                   } else if(var7.getItem() == Items.bV) {
-                     var1.a((BlockPosition)var2, (IBlockData)Blocks.POTATOES.getBlockData(), 3);
+                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.POTATOES.getBlockData(), 3);
                      var8 = true;
                   } else if(var7.getItem() == Items.bU) {
-                     var1.a((BlockPosition)var2, (IBlockData)Blocks.CARROTS.getBlockData(), 3);
+                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.CARROTS.getBlockData(), 3);
                      var8 = true;
                   }
                }
@@ -81,7 +81,7 @@ public class class_ro extends class_rx {
                if(var8) {
                   --var7.count;
                   if(var7.count <= 0) {
-                     var5.a(var6, (ItemStack)null);
+                     var5.setItem(var6, (ItemStack)null);
                   }
                   break;
                }
@@ -95,12 +95,12 @@ public class class_ro extends class_rx {
    }
 
    protected boolean a(World var1, BlockPosition var2) {
-      Block var3 = var1.p(var2).getBlock();
+      Block var3 = var1.getType(var2).getBlock();
       if(var3 == Blocks.FARMLAND) {
-         var2 = var2.shiftUp();
-         IBlockData var4 = var1.p(var2);
+         var2 = var2.up();
+         IBlockData var4 = var1.getType(var2);
          var3 = var4.getBlock();
-         if(var3 instanceof class_ahd && ((class_ahd)var3).e(var4) && this.e && (this.f == 0 || this.f < 0)) {
+         if(var3 instanceof BlockCrops && ((BlockCrops)var3).e(var4) && this.e && (this.f == 0 || this.f < 0)) {
             this.f = 0;
             return true;
          }

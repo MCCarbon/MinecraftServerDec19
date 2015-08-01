@@ -12,7 +12,7 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afc;
 import net.minecraft.server.class_aqk;
 import net.minecraft.server.class_ari;
@@ -23,7 +23,7 @@ public class class_afx extends class_afc {
    private final class_ari N = new class_ari();
    private final class_aqk O = new class_aqk(false);
 
-   protected void a(class_aez var1) {
+   protected void a(BiomeBase var1) {
       this.a();
       class_ari.class_a_in_class_ari[] var2 = a(this.a);
       class_ari.class_a_in_class_ari[] var3 = var2;

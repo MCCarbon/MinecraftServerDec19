@@ -6,11 +6,11 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_ael;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fa;
+import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutEntityStatus;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
@@ -33,7 +33,7 @@ public class class_ai extends class_i {
       String var5 = var2.length > 1?a(var2, 1):"";
       switch(var2.length) {
       case 0:
-         var1.a(new class_fa(a(var3.b())));
+         var1.a(new ChatComponentText(a(var3.b())));
          break;
       case 1:
          if(!var3.e(var4)) {
@@ -41,7 +41,7 @@ public class class_ai extends class_i {
          }
 
          String var6 = var3.a(var4);
-         var1.a((new class_fa(var4)).a(" = ").a(var6));
+         var1.a((new ChatComponentText(var4)).a(" = ").a(var6));
          var1.a(class_n.class_a_in_class_n.e, var3.c(var4));
          break;
       default:
@@ -62,7 +62,7 @@ public class class_ai extends class_i {
          Iterator var3 = MinecraftServer.N().getPlayerList().v().iterator();
 
          while(var3.hasNext()) {
-            class_lh var4 = (class_lh)var3.next();
+            EntityPlayer var4 = (EntityPlayer)var3.next();
             var4.a.a((Packet)(new PacketPlayOutEntityStatus(var4, (byte)var2)));
          }
       }

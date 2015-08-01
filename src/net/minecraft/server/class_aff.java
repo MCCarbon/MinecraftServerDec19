@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajh;
 import net.minecraft.server.IBlockData;
@@ -13,7 +13,7 @@ import net.minecraft.server.class_arb;
 import net.minecraft.server.class_ark;
 import net.minecraft.server.BlockPosition;
 
-public class class_aff extends class_aez {
+public class class_aff extends BiomeBase {
    private class_aql aD;
    private class_ark aE;
    private int aF;
@@ -52,8 +52,8 @@ public class class_aff extends class_aez {
          var7 = var2.nextInt(28) + 4;
          int var8 = var2.nextInt(16);
          BlockPosition var9 = var3.add(var6, var7, var8);
-         if(var1.p(var9).getBlock() == Blocks.STONE) {
-            var1.a((BlockPosition)var9, (IBlockData)Blocks.EMERALD_ORE.getBlockData(), 2);
+         if(var1.getType(var9).getBlock() == Blocks.STONE) {
+            var1.setTypeAndData((BlockPosition)var9, (IBlockData)Blocks.EMERALD_ORE.getBlockData(), 2);
          }
       }
 
@@ -80,16 +80,16 @@ public class class_aff extends class_aez {
       this.b(var1, var2, var3, var4, var5, var6);
    }
 
-   private class_aff b(class_aez var1) {
+   private class_aff b(BiomeBase var1) {
       this.aI = this.aH;
       this.a(var1.ai, true);
       this.a(var1.ah + " M");
-      this.a(new class_aez.class_a_in_class_aez(var1.an, var1.ao));
+      this.a(new BiomeBase.class_a_in_class_aez(var1.an, var1.ao));
       this.a(var1.ap, var1.aq);
       return this;
    }
 
-   protected class_aez d(int var1) {
+   protected BiomeBase d(int var1) {
       return (new class_aff(var1, false)).b(this);
    }
 }

@@ -7,11 +7,11 @@ import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_qi;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public abstract class class_po extends class_qh {
    private static final int bs = class_qi.a(class_po.class);
@@ -27,16 +27,16 @@ public abstract class class_po extends class_qh {
 
    public abstract class_po a(class_po var1);
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.bM) {
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             Class var4 = class_pt.a(var3.i());
             if(var4 != null && this.getClass() == var4) {
                class_po var5 = this.a(this);
                if(var5 != null) {
                   var5.b(-24000);
                   var5.b(this.s, this.t, this.u, 0.0F, 0.0F);
-                  this.o.a((class_pr)var5);
+                  this.o.addEntity((Entity)var5);
                   if(var3.hasDisplayName()) {
                      var5.a((String)var3.getDisplayName());
                   }
@@ -60,7 +60,7 @@ public abstract class class_po extends class_qh {
    }
 
    public int l() {
-      return this.o.D?this.ac.a(bs):this.a;
+      return this.o.isClientSide?this.ac.a(bs):this.a;
    }
 
    public void a(int var1, boolean var2) {
@@ -121,7 +121,7 @@ public abstract class class_po extends class_qh {
 
    public void m() {
       super.m();
-      if(this.o.D) {
+      if(this.o.isClientSide) {
          if(this.c > 0) {
             if(this.c % 4 == 0) {
                this.o.a(class_cy.v, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[0]);

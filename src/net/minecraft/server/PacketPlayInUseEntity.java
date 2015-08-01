@@ -7,7 +7,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayIn;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class PacketPlayInUseEntity implements Packet<PacketListenerPlayIn> {
 
@@ -19,7 +19,7 @@ public class PacketPlayInUseEntity implements Packet<PacketListenerPlayIn> {
 	public PacketPlayInUseEntity() {
 	}
 
-	public PacketPlayInUseEntity(class_pr entity) {
+	public PacketPlayInUseEntity(Entity entity) {
 		this.entityId = entity.getId();
 		this.action = PacketPlayInUseEntity.EnumEntityUseAction.ATTACK;
 	}
@@ -53,7 +53,7 @@ public class PacketPlayInUseEntity implements Packet<PacketListenerPlayIn> {
 		listener.handle(this);
 	}
 
-	public class_pr getEntity(World world) {
+	public Entity getEntity(World world) {
 		return world.getEntityById(this.entityId);
 	}
 

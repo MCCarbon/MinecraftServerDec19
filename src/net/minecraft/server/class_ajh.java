@@ -14,7 +14,7 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.INamable;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_wm;
 import net.minecraft.server.CreativeTab;
 
@@ -25,10 +25,10 @@ public class class_ajh extends Block {
       super(Material.CLAY);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_ajh.class_a_in_class_ajh.a));
       this.setStrength(0.0F);
-      this.a(CreativeTab.c);
+      this.setCreativeTab(CreativeTab.DECORATIONS);
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return 0;
    }
 
@@ -37,7 +37,7 @@ public class class_ajh extends Block {
       return var0 == Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE) || var1 == Blocks.COBBLESTONE || var1 == Blocks.STONEBRICK;
    }
 
-   protected ItemStack i(IBlockData var1) {
+   protected ItemStack createItemStack(IBlockData var1) {
       switch(class_ajh.SyntheticClass_1.a[((class_ajh.class_a_in_class_ajh)var1.get(a)).ordinal()]) {
       case 1:
          return new ItemStack(Blocks.COBBLESTONE);
@@ -55,17 +55,17 @@ public class class_ajh extends Block {
    }
 
    public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
-      if(!var1.D && var1.R().b("doTileDrops")) {
+      if(!var1.isClientSide && var1.R().b("doTileDrops")) {
          class_wm var6 = new class_wm(var1);
          var6.b((double)var2.getX() + 0.5D, (double)var2.getY(), (double)var2.getZ() + 0.5D, 0.0F, 0.0F);
-         var1.a((class_pr)var6);
+         var1.addEntity((Entity)var6);
          var6.A();
       }
 
    }
 
-   public int j(World var1, BlockPosition var2) {
-      IBlockData var3 = var1.p(var2);
+   public int getDropData(World var1, BlockPosition var2) {
+      IBlockData var3 = var1.getType(var2);
       return var3.getBlock().toLegacyData(var3);
    }
 
@@ -77,7 +77,7 @@ public class class_ajh extends Block {
       return ((class_ajh.class_a_in_class_ajh)var1.get(a)).a();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 

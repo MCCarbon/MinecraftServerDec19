@@ -12,7 +12,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_lx;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_mc;
@@ -43,7 +43,7 @@ public class class_q extends class_i {
          if(var4.matches()) {
             this.a(var1, var2[0], var3 == null?null:var3.c());
          } else {
-            class_lh var5 = MinecraftServer.N().getPlayerList().a(var2[0]);
+            EntityPlayer var5 = MinecraftServer.N().getPlayerList().a(var2[0]);
             if(var5 == null) {
                throw new class_cd("commands.banip.invalid", new Object[0]);
             }
@@ -61,15 +61,15 @@ public class class_q extends class_i {
    }
 
    protected void a(class_m var1, String var2, String var3) {
-      class_lx var4 = new class_lx(var2, (Date)null, var1.e_(), (Date)null, var3);
+      class_lx var4 = new class_lx(var2, (Date)null, var1.getName(), (Date)null, var3);
       MinecraftServer.N().getPlayerList().i().a((class_mc)var4);
       List var5 = MinecraftServer.N().getPlayerList().b(var2);
       String[] var6 = new String[var5.size()];
       int var7 = 0;
 
-      class_lh var9;
-      for(Iterator var8 = var5.iterator(); var8.hasNext(); var6[var7++] = var9.e_()) {
-         var9 = (class_lh)var8.next();
+      EntityPlayer var9;
+      for(Iterator var8 = var5.iterator(); var8.hasNext(); var6[var7++] = var9.getName()) {
+         var9 = (EntityPlayer)var8.next();
          var9.a.c("You have been IP banned.");
       }
 

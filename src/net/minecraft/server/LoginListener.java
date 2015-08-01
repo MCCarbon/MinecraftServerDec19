@@ -31,11 +31,11 @@ public class LoginListener implements PacketLoginInListener, ITickAble {
 	private final MinecraftServer mcserver;
 	public final NetworkManager networkManager;
 	private LoginListener.State state;
-	private int h;
+	private int ticks;
 	private GameProfile gameProfile;
 	private String serverId;
 	private SecretKey secretKey;
-	private class_lh player;
+	private EntityPlayer player;
 
 	public LoginListener(MinecraftServer var1, NetworkManager var2) {
 		state = LoginListener.State.HELLO;
@@ -50,7 +50,7 @@ public class LoginListener implements PacketLoginInListener, ITickAble {
 		if (state == LoginListener.State.READY_TO_ACCEPT) {
 			login();
 		} else if (state == LoginListener.State.DELAY_ACCEPT) {
-			class_lh var1 = mcserver.getPlayerList().getPlayer(gameProfile.getId());
+			EntityPlayer var1 = mcserver.getPlayerList().getPlayer(gameProfile.getId());
 			if (var1 == null) {
 				state = LoginListener.State.READY_TO_ACCEPT;
 				mcserver.getPlayerList().processLogin(networkManager, player);
@@ -58,16 +58,15 @@ public class LoginListener implements PacketLoginInListener, ITickAble {
 			}
 		}
 
-		if (h++ == 600) {
+		if (ticks++ == 600) {
 			kick("Took too long to log in");
 		}
-
 	}
 
 	public void kick(String reason) {
 		try {
 			loogger.info("Disconnecting " + getName() + ": " + reason);
-			class_fa message = new class_fa(reason);
+			ChatComponentText message = new ChatComponentText(reason);
 			networkManager.sendPacket(new PacketLoginOutDisconnect(message));
 			networkManager.close(message);
 		} catch (Exception e) {
@@ -97,7 +96,7 @@ public class LoginListener implements PacketLoginInListener, ITickAble {
 			}
 
 			networkManager.sendPacket((new PacketLoginOutSuccess(gameProfile)));
-			class_lh otherplayer = mcserver.getPlayerList().getPlayer(gameProfile.getId());
+			EntityPlayer otherplayer = mcserver.getPlayerList().getPlayer(gameProfile.getId());
 			if (otherplayer != null) {
 				state = LoginListener.State.DELAY_ACCEPT;
 				player = mcserver.getPlayerList().addPlayer(gameProfile);

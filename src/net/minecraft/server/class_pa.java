@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 
 public class class_pa {
    private final class_pc a;
@@ -30,7 +30,7 @@ public class class_pa {
    }
 
    public boolean f() {
-      return this.a.j() instanceof class_qa;
+      return this.a.j() instanceof EntityLiving;
    }
 
    public String g() {
@@ -38,7 +38,7 @@ public class class_pa {
    }
 
    public IChatBaseComponent h() {
-      return this.a().j() == null?null:this.a().j().f_();
+      return this.a().j() == null?null:this.a().j().getScoreboardDisplayName();
    }
 
    public float i() {

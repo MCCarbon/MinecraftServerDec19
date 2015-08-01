@@ -7,21 +7,21 @@ import java.util.Random;
 import java.util.Set;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.IBlockAccess;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qc;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qe;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public final class class_aeu {
    private static final int a = (int)Math.pow(17.0D, 2.0D);
@@ -33,10 +33,10 @@ public final class class_aeu {
       } else {
          this.b.clear();
          int var5 = 0;
-         Iterator var6 = var1.j.iterator();
+         Iterator var6 = var1.players.iterator();
 
          while(true) {
-            class_xa var7;
+            EntityHuman var7;
             int var9;
             int var12;
             do {
@@ -71,7 +71,7 @@ public final class class_aeu {
                                  var17 = var16.getX();
                                  var18 = var16.getY();
                                  var19 = var16.getZ();
-                                 var20 = var1.p(var16).getBlock();
+                                 var20 = var1.getType(var16).getBlock();
                               } while(var20.isOccluding());
 
                               int var21 = 0;
@@ -81,13 +81,13 @@ public final class class_aeu {
                                  int var24 = var18;
                                  int var25 = var19;
                                  byte var26 = 6;
-                                 class_aez.class_c_in_class_aez var27 = null;
+                                 BiomeBase.class_c_in_class_aez var27 = null;
                                  class_qd var28 = null;
 
                                  for(int var29 = 0; var29 < 4; ++var29) {
-                                    var23 += var1.s.nextInt(var26) - var1.s.nextInt(var26);
-                                    var24 += var1.s.nextInt(1) - var1.s.nextInt(1);
-                                    var25 += var1.s.nextInt(var26) - var1.s.nextInt(var26);
+                                    var23 += var1.random.nextInt(var26) - var1.random.nextInt(var26);
+                                    var24 += var1.random.nextInt(1) - var1.random.nextInt(1);
+                                    var25 += var1.random.nextInt(var26) - var1.random.nextInt(var26);
                                     BlockPosition var30 = new BlockPosition(var23, var24, var25);
                                     float var31 = (float)var23 + 0.5F;
                                     float var32 = (float)var25 + 0.5F;
@@ -108,12 +108,12 @@ public final class class_aeu {
                                              return var36;
                                           }
 
-                                          var33.b((double)var31, (double)var24, (double)var32, var1.s.nextFloat() * 360.0F, 0.0F);
+                                          var33.b((double)var31, (double)var24, (double)var32, var1.random.nextFloat() * 360.0F, 0.0F);
                                           if(var33.cf() && var33.cg()) {
                                              var28 = var33.a(var1.E(new BlockPosition(var33)), var28);
                                              if(var33.cg()) {
                                                 ++var21;
-                                                var1.a((class_pr)var33);
+                                                var1.addEntity((Entity)var33);
                                              }
 
                                              if(var21 >= var33.cj()) {
@@ -134,7 +134,7 @@ public final class class_aeu {
                   return var36;
                }
 
-               var7 = (class_xa)var6.next();
+               var7 = (EntityHuman)var6.next();
             } while(var7.v());
 
             int var8 = MathHelper.floor(var7.s / 16.0D);
@@ -158,11 +158,11 @@ public final class class_aeu {
    }
 
    protected static BlockPosition a(World var0, int var1, int var2) {
-      class_aok var3 = var0.a(var1, var2);
-      int var4 = var1 * 16 + var0.s.nextInt(16);
-      int var5 = var2 * 16 + var0.s.nextInt(16);
+      Chunk var3 = var0.a(var1, var2);
+      int var4 = var1 * 16 + var0.random.nextInt(16);
+      int var5 = var2 * 16 + var0.random.nextInt(16);
       int var6 = MathHelper.ceilByBase(var3.f(new BlockPosition(var4, 0, var5)) + 1, 16);
-      int var7 = var0.s.nextInt(var6 > 0?var6:var3.g() + 16 - 1);
+      int var7 = var0.random.nextInt(var6 > 0?var6:var3.g() + 16 - 1);
       return new BlockPosition(var4, var7, var5);
    }
 
@@ -170,27 +170,27 @@ public final class class_aeu {
       if(!var1.ag().a(var2)) {
          return false;
       } else {
-         Block var3 = var1.p(var2).getBlock();
+         Block var3 = var1.getType(var2).getBlock();
          if(var0 == class_qb.class_a_in_class_qb.c) {
-            return var3.getMaterial().isLiquid() && var1.p(var2.shiftDown()).getBlock().getMaterial().isLiquid() && !var1.p(var2.shiftUp()).getBlock().isOccluding();
+            return var3.getMaterial().isLiquid() && var1.getType(var2.down()).getBlock().getMaterial().isLiquid() && !var1.getType(var2.up()).getBlock().isOccluding();
          } else {
-            BlockPosition var4 = var2.shiftDown();
-            if(!World.a((class_aer)var1, (BlockPosition)var4)) {
+            BlockPosition var4 = var2.down();
+            if(!World.a((IBlockAccess)var1, (BlockPosition)var4)) {
                return false;
             } else {
-               Block var5 = var1.p(var4).getBlock();
+               Block var5 = var1.getType(var4).getBlock();
                boolean var6 = var5 != Blocks.BEDROCK && var5 != Blocks.BARRIER;
-               return var6 && !var3.isOccluding() && !var3.getMaterial().isLiquid() && !var1.p(var2.shiftUp()).getBlock().isOccluding();
+               return var6 && !var3.isOccluding() && !var3.getMaterial().isLiquid() && !var1.getType(var2.up()).getBlock().isOccluding();
             }
          }
       }
    }
 
-   public static void a(World var0, class_aez var1, int var2, int var3, int var4, int var5, Random var6) {
+   public static void a(World var0, BiomeBase var1, int var2, int var3, int var4, int var5, Random var6) {
       List var7 = var1.a(class_qc.b);
       if(!var7.isEmpty()) {
          while(var6.nextFloat() < var1.g()) {
-            class_aez.class_c_in_class_aez var8 = (class_aez.class_c_in_class_aez)class_oc.a(var0.s, var7);
+            BiomeBase.class_c_in_class_aez var8 = (BiomeBase.class_c_in_class_aez)class_oc.a(var0.random, var7);
             int var9 = var8.c + var6.nextInt(1 + var8.d - var8.c);
             class_qd var10 = null;
             int var11 = var2 + var6.nextInt(var4);
@@ -213,7 +213,7 @@ public final class class_aeu {
                      }
 
                      var19.b((double)((float)var11 + 0.5F), (double)var18.getY(), (double)((float)var12 + 0.5F), var6.nextFloat() * 360.0F, 0.0F);
-                     var0.a((class_pr)var19);
+                     var0.addEntity((Entity)var19);
                      var10 = var19.a(var0.E(new BlockPosition(var19)), var10);
                      var16 = true;
                   }

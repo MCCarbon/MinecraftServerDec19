@@ -4,16 +4,16 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_age;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_alz extends class_age {
-   public static final class_anz a = class_anz.a("power", 0, 15);
+   public static final BlockStateInteger a = BlockStateInteger.of("power", 0, 15);
    private final int b;
 
    protected class_alz(Material var1, int var2) {
@@ -27,7 +27,7 @@ public class class_alz extends class_age {
    }
 
    protected int f(World var1, BlockPosition var2) {
-      int var3 = Math.min(var1.a(class_pr.class, this.a(var2)).size(), this.b);
+      int var3 = Math.min(var1.getEntities(Entity.class, this.a(var2)).size(), this.b);
       if(var3 > 0) {
          float var4 = (float)Math.min(this.b, var3) / (float)this.b;
          return MathHelper.ceil(var4 * 15.0F);
@@ -44,7 +44,7 @@ public class class_alz extends class_age {
       return var1.set(a, Integer.valueOf(var2));
    }
 
-   public int a(World var1) {
+   public int tickInterval(World var1) {
       return 10;
    }
 
@@ -56,7 +56,7 @@ public class class_alz extends class_age {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 }

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.class_oc;
 
 public class class_vf extends class_oc.class_a_in_class_oc {
@@ -32,7 +32,7 @@ public class class_vf extends class_oc.class_a_in_class_oc {
       }
 
       if(this.d) {
-         class_adk.a(var1, var2, 30);
+         EnchantmentManager.a(var1, var2, 30);
       }
 
       return var2;

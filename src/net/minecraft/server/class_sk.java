@@ -2,15 +2,15 @@ package net.minecraft.server;
 
 import net.minecraft.server.Items;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_wn;
 import net.minecraft.server.class_zl;
 
 public class class_sk extends class_rm {
    private final class_wn a;
-   private class_qa b;
+   private EntityLiving b;
    private int c = -1;
    private double d;
    private int e;
@@ -30,7 +30,7 @@ public class class_sk extends class_rm {
    }
 
    public boolean a() {
-      class_qa var1 = this.a.w();
+      EntityLiving var1 = this.a.w();
       if(var1 == null) {
          return false;
       } else {
@@ -62,7 +62,7 @@ public class class_sk extends class_rm {
    }
 
    public void e() {
-      double var1 = this.a.e(this.b.s, this.b.aT().b, this.b.u);
+      double var1 = this.a.e(this.b.s, this.b.aT().yMin, this.b.u);
       boolean var3 = this.a.v().a(this.b);
       boolean var4 = this.e > 0;
       if(var3 != var4) {
@@ -78,7 +78,7 @@ public class class_sk extends class_rm {
       if(var1 <= (double)this.i && this.e >= 20) {
          this.a.u().n();
       } else {
-         this.a.u().a((class_pr)this.b, this.d);
+         this.a.u().a((Entity)this.b, this.d);
       }
 
       this.a.q().a(this.b, 30.0F, 30.0F);

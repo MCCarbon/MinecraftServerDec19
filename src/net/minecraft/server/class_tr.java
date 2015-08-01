@@ -29,7 +29,7 @@ public class class_tr extends class_avd {
    }
 
    public class_tr(World var1) {
-      super(a(var1.t));
+      super(a(var1.worldProvider));
       this.b = var1;
       this.c();
    }
@@ -223,7 +223,7 @@ public class class_tr extends class_avd {
    }
 
    private boolean f(BlockPosition var1) {
-      Block var2 = this.b.p(var1).getBlock();
+      Block var2 = this.b.getType(var1).getBlock();
       return var2 instanceof class_ahl?var2.getMaterial() == Material.WOOD:false;
    }
 

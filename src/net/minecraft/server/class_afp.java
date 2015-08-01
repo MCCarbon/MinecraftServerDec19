@@ -2,46 +2,46 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_ahm;
-import net.minecraft.server.class_aic;
+import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_tz;
 
-public class class_afp extends class_aez {
+public class class_afp extends BiomeBase {
    protected boolean aD;
 
    protected class_afp(int var1) {
       super(var1);
       this.a(0.8F, 0.4F);
       this.a(e);
-      this.au.add(new class_aez.class_c_in_class_aez(class_tz.class, 5, 2, 6));
+      this.au.add(new BiomeBase.class_c_in_class_aez(class_tz.class, 5, 2, 6));
       this.as.A = -999;
       this.as.B = 4;
       this.as.C = 10;
    }
 
-   public class_aic.class_a_in_class_aic a(Random var1, BlockPosition var2) {
+   public BlockFlowers.EnumFlowerVarient a(Random var1, BlockPosition var2) {
       double var3 = af.a((double)var2.getX() / 200.0D, (double)var2.getZ() / 200.0D);
       int var5;
       if(var3 < -0.8D) {
          var5 = var1.nextInt(4);
          switch(var5) {
          case 0:
-            return class_aic.class_a_in_class_aic.g;
+            return BlockFlowers.EnumFlowerVarient.ORANGE_TULIP;
          case 1:
-            return class_aic.class_a_in_class_aic.f;
+            return BlockFlowers.EnumFlowerVarient.RED_TULIP;
          case 2:
-            return class_aic.class_a_in_class_aic.i;
+            return BlockFlowers.EnumFlowerVarient.PINK_TULIP;
          case 3:
          default:
-            return class_aic.class_a_in_class_aic.h;
+            return BlockFlowers.EnumFlowerVarient.WHITE_TULIP;
          }
       } else if(var1.nextInt(3) > 0) {
          var5 = var1.nextInt(3);
-         return var5 == 0?class_aic.class_a_in_class_aic.b:(var5 == 1?class_aic.class_a_in_class_aic.e:class_aic.class_a_in_class_aic.j);
+         return var5 == 0?BlockFlowers.EnumFlowerVarient.POPPY:(var5 == 1?BlockFlowers.EnumFlowerVarient.HOUSTONIA:BlockFlowers.EnumFlowerVarient.OXEYE_DAISY);
       } else {
-         return class_aic.class_a_in_class_aic.a;
+         return BlockFlowers.EnumFlowerVarient.DANDELION;
       }
    }
 
@@ -81,7 +81,7 @@ public class class_afp extends class_aez {
       super.a(var1, var2, var3);
    }
 
-   protected class_aez d(int var1) {
+   protected BiomeBase d(int var1) {
       class_afp var2 = new class_afp(var1);
       var2.a("Sunflower Plains");
       var2.aD = true;

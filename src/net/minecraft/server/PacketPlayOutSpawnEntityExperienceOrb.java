@@ -6,7 +6,7 @@ import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_px;
+import net.minecraft.server.EntityExperienceOrb;
 
 public class PacketPlayOutSpawnEntityExperienceOrb implements Packet {
    private int a;
@@ -18,7 +18,7 @@ public class PacketPlayOutSpawnEntityExperienceOrb implements Packet {
    public PacketPlayOutSpawnEntityExperienceOrb() {
    }
 
-   public PacketPlayOutSpawnEntityExperienceOrb(class_px var1) {
+   public PacketPlayOutSpawnEntityExperienceOrb(EntityExperienceOrb var1) {
       this.a = var1.getId();
       this.b = MathHelper.floor(var1.s * 32.0D);
       this.c = MathHelper.floor(var1.t * 32.0D);

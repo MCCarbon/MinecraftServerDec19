@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahj;
+import net.minecraft.server.BlockDirt;
 import net.minecraft.server.class_ahm;
-import net.minecraft.server.class_alm;
+import net.minecraft.server.BlockLongGrass;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_apz;
@@ -18,7 +18,7 @@ import net.minecraft.server.class_arm;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ul;
 
-public class class_afv extends class_aez {
+public class class_afv extends BiomeBase {
    private static final class_arc aD = new class_arc();
    private static final class_ark aE = new class_ark(false);
    private static final class_aqx aF = new class_aqx(false, false);
@@ -29,7 +29,7 @@ public class class_afv extends class_aez {
    public class_afv(int var1, int var2) {
       super(var1);
       this.aI = var2;
-      this.au.add(new class_aez.class_c_in_class_aez(class_ul.class, 8, 4, 4));
+      this.au.add(new BiomeBase.class_c_in_class_aez(class_ul.class, 8, 4, 4));
       this.as.A = 10;
       if(var2 != 1 && var2 != 2) {
          this.as.C = 1;
@@ -47,7 +47,7 @@ public class class_afv extends class_aez {
    }
 
    public class_aql b(Random var1) {
-      return var1.nextInt(5) > 0?new class_arm(class_alm.class_a_in_class_alm.c):new class_arm(class_alm.class_a_in_class_alm.b);
+      return var1.nextInt(5) > 0?new class_arm(BlockLongGrass.EnumTallGrassType.FERN):new class_arm(BlockLongGrass.EnumTallGrassType.GRASS);
    }
 
    public void a(World var1, Random var2, BlockPosition var3) {
@@ -83,17 +83,17 @@ public class class_afv extends class_aez {
          this.ak = Blocks.GRASS.getBlockData();
          this.al = Blocks.DIRT.getBlockData();
          if(var6 > 1.75D) {
-            this.ak = Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b);
+            this.ak = Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.COARSE_DIRT);
          } else if(var6 > -0.95D) {
-            this.ak = Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.c);
+            this.ak = Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.PODZOL);
          }
       }
 
       this.b(var1, var2, var3, var4, var5, var6);
    }
 
-   protected class_aez d(int var1) {
-      return this.az == class_aez.V.az?(new class_afv(var1, 2)).a(5858897, true).a("Mega Spruce Taiga").a(5159473).a(0.25F, 0.8F).a(new class_aez.class_a_in_class_aez(this.an, this.ao)):super.d(var1);
+   protected BiomeBase d(int var1) {
+      return this.az == BiomeBase.V.az?(new class_afv(var1, 2)).a(5858897, true).a("Mega Spruce Taiga").a(5159473).a(0.25F, 0.8F).a(new BiomeBase.class_a_in_class_aez(this.an, this.ao)):super.d(var1);
    }
 
    static {

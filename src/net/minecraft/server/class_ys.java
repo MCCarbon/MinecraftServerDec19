@@ -3,21 +3,21 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.World;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_ye;
 import net.minecraft.server.class_yr;
 import net.minecraft.server.class_yt;
 import net.minecraft.server.class_yx;
 
-public class class_ys extends class_xz {
+public class class_ys extends Container {
    private class_adz a;
    private class_yr f;
    private final World g;
 
-   public class_ys(class_wz var1, class_adz var2, World var3) {
+   public class_ys(PlayerInventory var1, class_adz var2, World var3) {
       this.a = var2;
       this.g = var3;
       this.f = new class_yr(var1.e, var2);
@@ -50,7 +50,7 @@ public class class_ys extends class_xz {
       super.b();
    }
 
-   public void a(class_oj var1) {
+   public void a(IInventory var1) {
       this.f.h();
       super.a(var1);
    }
@@ -59,11 +59,11 @@ public class class_ys extends class_xz {
       this.f.d(var1);
    }
 
-   public boolean a(class_xa var1) {
+   public boolean a(EntityHuman var1) {
       return this.a.v_() == var1;
    }
 
-   public ItemStack b(class_xa var1, int var2) {
+   public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
@@ -103,17 +103,17 @@ public class class_ys extends class_xz {
       return var3;
    }
 
-   public void b(class_xa var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
-      this.a.a((class_xa)null);
+      this.a.a((EntityHuman)null);
       super.b(var1);
-      if(!this.g.D) {
-         ItemStack var2 = this.f.b(0);
+      if(!this.g.isClientSide) {
+         ItemStack var2 = this.f.splitWithoutUpdate(0);
          if(var2 != null) {
             var1.a(var2, false);
          }
 
-         var2 = this.f.b(1);
+         var2 = this.f.splitWithoutUpdate(1);
          if(var2 != null) {
             var1.a(var2, false);
          }

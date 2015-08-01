@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aej;
+import net.minecraft.server.Explosion;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pe;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_xf;
 
@@ -39,40 +39,40 @@ public class class_pc {
    private boolean y;
    public String p;
 
-   public static class_pc a(class_qa var0) {
+   public static class_pc a(EntityLiving var0) {
       return new class_pd("mob", var0);
    }
 
-   public static class_pc a(class_pr var0, class_qa var1) {
+   public static class_pc a(Entity var0, EntityLiving var1) {
       return new class_pe("mob", var0, var1);
    }
 
-   public static class_pc a(class_xa var0) {
+   public static class_pc a(EntityHuman var0) {
       return new class_pd("player", var0);
    }
 
-   public static class_pc a(class_xd var0, class_pr var1) {
+   public static class_pc a(class_xd var0, Entity var1) {
       return (new class_pe("arrow", var0, var1)).b();
    }
 
-   public static class_pc a(class_xf var0, class_pr var1) {
+   public static class_pc a(class_xf var0, Entity var1) {
       return var1 == null?(new class_pe("onFire", var0, var0)).n().b():(new class_pe("fireball", var0, var1)).n().b();
    }
 
-   public static class_pc a(class_pr var0, class_pr var1) {
+   public static class_pc a(Entity var0, Entity var1) {
       return (new class_pe("thrown", var0, var1)).b();
    }
 
-   public static class_pc b(class_pr var0, class_pr var1) {
+   public static class_pc b(Entity var0, Entity var1) {
       return (new class_pe("indirectMagic", var0, var1)).k().t();
    }
 
-   public static class_pc a(class_pr var0) {
+   public static class_pc a(Entity var0) {
       return (new class_pd("thorns", var0)).v().t();
    }
 
-   public static class_pc a(class_aej var0) {
-      return var0 != null && var0.c() != null?(new class_pd("explosion.player", var0.c())).q().d():(new class_pc("explosion")).q().d();
+   public static class_pc a(Explosion var0) {
+      return var0 != null && var0.getSource() != null?(new class_pd("explosion.player", var0.getSource())).q().d():(new class_pc("explosion")).q().d();
    }
 
    public boolean a() {
@@ -113,11 +113,11 @@ public class class_pc {
       this.p = var1;
    }
 
-   public class_pr i() {
+   public Entity i() {
       return this.j();
    }
 
-   public class_pr j() {
+   public Entity j() {
       return null;
    }
 
@@ -143,11 +143,11 @@ public class class_pc {
       return this;
    }
 
-   public IChatBaseComponent b(class_qa var1) {
-      class_qa var2 = var1.bu();
+   public IChatBaseComponent b(EntityLiving var1) {
+      EntityLiving var2 = var1.bu();
       String var3 = "death.attack." + this.p;
       String var4 = var3 + ".player";
-      return var2 != null && LocaleI18n.c(var4)?new class_fb(var4, new Object[]{var1.f_(), var2.f_()}):new class_fb(var3, new Object[]{var1.f_()});
+      return var2 != null && LocaleI18n.c(var4)?new ChatMessage(var4, new Object[]{var1.getScoreboardDisplayName(), var2.getScoreboardDisplayName()}):new ChatMessage(var3, new Object[]{var1.getScoreboardDisplayName()});
    }
 
    public boolean o() {
@@ -177,7 +177,7 @@ public class class_pc {
    }
 
    public boolean u() {
-      class_pr var1 = this.j();
-      return var1 instanceof class_xa && ((class_xa)var1).bH.instabuild;
+      Entity var1 = this.j();
+      return var1 instanceof EntityHuman && ((EntityHuman)var1).bH.instabuild;
    }
 }

@@ -1,17 +1,17 @@
 package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.EntityHuman;
 
 public class class_yx {
    private final int a;
-   public final class_oj d;
+   public final IInventory d;
    public int e;
    public int f;
    public int g;
 
-   public class_yx(class_oj var1, int var2, int var3, int var4) {
+   public class_yx(IInventory var1, int var2, int var3, int var4) {
       this.d = var1;
       this.a = var2;
       this.f = var3;
@@ -36,7 +36,7 @@ public class class_yx {
    protected void c(ItemStack var1) {
    }
 
-   public void a(class_xa var1, ItemStack var2) {
+   public void a(EntityHuman var1, ItemStack var2) {
       this.f();
    }
 
@@ -45,7 +45,7 @@ public class class_yx {
    }
 
    public ItemStack d() {
-      return this.d.a(this.a);
+      return this.d.getItem(this.a);
    }
 
    public boolean e() {
@@ -53,16 +53,16 @@ public class class_yx {
    }
 
    public void d(ItemStack var1) {
-      this.d.a(this.a, var1);
+      this.d.setItem(this.a, var1);
       this.f();
    }
 
    public void f() {
-      this.d.p_();
+      this.d.update();
    }
 
    public int a() {
-      return this.d.q_();
+      return this.d.getMaxStackSize();
    }
 
    public int b(ItemStack var1) {
@@ -70,14 +70,14 @@ public class class_yx {
    }
 
    public ItemStack a(int var1) {
-      return this.d.a(this.a, var1);
+      return this.d.splitStack(this.a, var1);
    }
 
-   public boolean a(class_oj var1, int var2) {
+   public boolean a(IInventory var1, int var2) {
       return var1 == this.d && var2 == this.a;
    }
 
-   public boolean a(class_xa var1) {
+   public boolean a(EntityHuman var1) {
       return true;
    }
 }

@@ -27,9 +27,9 @@ import net.minecraft.server.RegistryMaterials;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qf;
 
 public abstract class class_adi {
@@ -57,7 +57,7 @@ public abstract class class_adi {
       this.a = var3;
    }
 
-   public Iterable<?> a(class_qa var1) {
+   public Iterable<?> a(EntityLiving var1) {
       List<ItemStack> var2 = Lists.newArrayList();
       class_pw[] var3 = this.a;
       int var4 = var3.length;
@@ -123,10 +123,10 @@ public abstract class class_adi {
       return this.c.a(var1.getItem());
    }
 
-   public void a(class_qa var1, class_pr var2, int var3) {
+   public void a(EntityLiving var1, Entity var2, int var3) {
    }
 
-   public void b(class_qa var1, class_pr var2, int var3) {
+   public void b(EntityLiving var1, Entity var2, int var3) {
    }
 
    public static void e() {

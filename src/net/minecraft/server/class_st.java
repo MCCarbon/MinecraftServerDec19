@@ -5,9 +5,9 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_ow;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_rp;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_wv;
 
 public class class_st extends class_rp {
@@ -36,8 +36,8 @@ public class class_st extends class_rp {
          if(this.e == 0) {
             class_ow var1 = this.f.cF();
 
-            for(int var2 = 0; var2 < var1.o_(); ++var2) {
-               ItemStack var3 = var1.a(var2);
+            for(int var2 = 0; var2 < var1.getSize(); ++var2) {
+               ItemStack var3 = var1.getItem(var2);
                ItemStack var4 = null;
                if(var3 != null) {
                   Item var5 = var3.getItem();
@@ -54,21 +54,21 @@ public class class_st extends class_rp {
                   }
 
                   if(var3.count <= 0) {
-                     var1.a(var2, (ItemStack)null);
+                     var1.setItem(var2, (ItemStack)null);
                   }
                }
 
                if(var4 != null) {
                   double var11 = this.f.t - 0.30000001192092896D + (double)this.f.aU();
-                  class_vm var12 = new class_vm(this.f.o, this.f.s, var11, this.f.u, var4);
+                  EntityItem var12 = new EntityItem(this.f.o, this.f.s, var11, this.f.u, var4);
                   float var8 = 0.3F;
                   float var9 = this.f.aN;
                   float var10 = this.f.z;
                   var12.v = (double)(-MathHelper.sin(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
                   var12.x = (double)(MathHelper.cos(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
-                  var12.w = (double)(-MathHelper.sin(var10 / 180.0F * 3.1415927F) * var8 + 0.1F);
-                  var12.p();
-                  this.f.o.a((class_pr)var12);
+                  var12.motY = (double)(-MathHelper.sin(var10 / 180.0F * 3.1415927F) * var8 + 0.1F);
+                  var12.setPickupDelay();
+                  this.f.o.addEntity((Entity)var12);
                   break;
                }
             }

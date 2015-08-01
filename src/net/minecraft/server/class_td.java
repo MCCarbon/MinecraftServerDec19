@@ -5,15 +5,15 @@ import net.minecraft.server.class_auv;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qg;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import org.apache.commons.lang3.StringUtils;
 
 public abstract class class_td extends class_rm {
@@ -35,7 +35,7 @@ public abstract class class_td extends class_rm {
    }
 
    public boolean b() {
-      class_qa var1 = this.e.w();
+      EntityLiving var1 = this.e.w();
       if(var1 == null) {
          return false;
       } else if(!var1.ai()) {
@@ -58,7 +58,7 @@ public abstract class class_td extends class_rm {
                   }
                }
 
-               return !(var1 instanceof class_xa) || !((class_xa)var1).bH.invulnerable;
+               return !(var1 instanceof EntityHuman) || !((EntityHuman)var1).bH.invulnerable;
             }
          }
       }
@@ -76,10 +76,10 @@ public abstract class class_td extends class_rm {
    }
 
    public void d() {
-      this.e.d((class_qa)null);
+      this.e.d((EntityLiving)null);
    }
 
-   public static boolean a(class_qb var0, class_qa var1, boolean var2, boolean var3) {
+   public static boolean a(class_qb var0, EntityLiving var1, boolean var2, boolean var3) {
       if(var1 == null) {
          return false;
       } else if(var1 == var0) {
@@ -99,7 +99,7 @@ public abstract class class_td extends class_rm {
             if(var1 == ((class_qg)var0).m_()) {
                return false;
             }
-         } else if(var1 instanceof class_xa && !var2 && ((class_xa)var1).bH.invulnerable) {
+         } else if(var1 instanceof EntityHuman && !var2 && ((EntityHuman)var1).bH.invulnerable) {
             return false;
          }
 
@@ -107,7 +107,7 @@ public abstract class class_td extends class_rm {
       }
    }
 
-   protected boolean a(class_qa var1, boolean var2) {
+   protected boolean a(EntityLiving var1, boolean var2) {
       if(!a(this.e, var1, var2, this.f)) {
          return false;
       } else if(!this.e.e(new BlockPosition(var1))) {
@@ -131,9 +131,9 @@ public abstract class class_td extends class_rm {
       }
    }
 
-   private boolean a(class_qa var1) {
+   private boolean a(EntityLiving var1) {
       this.c = 10 + this.e.bd().nextInt(5);
-      class_auv var2 = this.e.u().a((class_pr)var1);
+      class_auv var2 = this.e.u().a((Entity)var1);
       if(var2 == null) {
          return false;
       } else {

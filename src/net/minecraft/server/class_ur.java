@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aej;
+import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
@@ -13,7 +13,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.class_aus;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auv;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
@@ -21,10 +21,10 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pd;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pv;
-import net.minecraft.server.class_px;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityExperienceOrb;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qk;
@@ -34,7 +34,7 @@ import net.minecraft.server.class_uq;
 import net.minecraft.server.class_us;
 import net.minecraft.server.class_wd;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xh;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -60,7 +60,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    public float bC;
    public boolean bD;
    public boolean bE;
-   private class_pr bJ;
+   private Entity bJ;
    public int bF;
    public class_uq bG;
    private final class_apc bK;
@@ -70,7 +70,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    private int bO;
    private int bP;
    private int bQ;
-   private class_awf bR = new class_awf(-4.0D, -10.0D, -3.0D, 6.0D, 3.0D, 3.0D);
+   private AxisAlignedBB bR = new AxisAlignedBB(-4.0D, -10.0D, -3.0D, 6.0D, 3.0D, 3.0D);
    private final class_aut[] bS = new class_aut[24];
    private final int[] bT = new int[24];
    private final class_aus bU = new class_aus();
@@ -86,8 +86,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       this.b = 100.0D;
       this.bL = 100;
       this.ah = true;
-      if(!var1.D && var1.t instanceof class_apd) {
-         this.bK = ((class_apd)var1.t).s();
+      if(!var1.isClientSide && var1.worldProvider instanceof class_apd) {
+         this.bK = ((class_apd)var1.worldProvider).s();
       } else {
          this.bK = null;
       }
@@ -217,7 +217,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       class_us var1 = this.n();
       float var2;
       float var3;
-      if(this.o.D) {
+      if(this.o.isClientSide) {
          this.i(this.bo());
          if(!this.R()) {
             var2 = MathHelper.cos(this.bC * 3.1415927F * 2.0F);
@@ -243,7 +243,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       } else {
          this.cu();
          var2 = 0.2F / (MathHelper.sqrt(this.v * this.v + this.x * this.x) * 10.0F + 1.0F);
-         var2 *= (float)Math.pow(2.0D, this.w);
+         var2 *= (float)Math.pow(2.0D, this.motY);
          if(var1.b()) {
             this.bC += 0.1F;
          } else if(this.bE) {
@@ -290,7 +290,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             float var59;
             float var61;
             double var63;
-            if(this.o.D) {
+            if(this.o.isClientSide) {
                if(this.bf > 0) {
                   var33 = this.s + (this.bg - this.s) / (double)this.bf;
                   var5 = this.t + (this.bh - this.t) / (double)this.bf;
@@ -310,11 +310,11 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                   var4.rotateYaw(-0.7853982F);
 
                   for(int var35 = 0; var35 < 8; ++var35) {
-                     double var6 = MathHelper.getRandomDoubleInRange(this.V, this.bR.a, this.bR.d);
-                     double var8 = MathHelper.getRandomDoubleInRange(this.V, this.bR.b, this.bR.e);
-                     var10 = MathHelper.getRandomDoubleInRange(this.V, this.bR.c, this.bR.f);
+                     double var6 = MathHelper.getRandomDoubleInRange(this.V, this.bR.xMin, this.bR.xMax);
+                     double var8 = MathHelper.getRandomDoubleInRange(this.V, this.bR.yMin, this.bR.yMax);
+                     var10 = MathHelper.getRandomDoubleInRange(this.V, this.bR.zMin, this.bR.zMax);
                      var12 = 0.3F;
-                     this.o.a(class_cy.Q, var6, var8, var10, -var4.x * (double)var3 + this.v, -var4.y * (double)var12 + this.w, -var4.z * (double)var3 + this.x, new int[0]);
+                     this.o.a(class_cy.Q, var6, var8, var10, -var4.x * (double)var3 + this.v, -var4.y * (double)var12 + this.motY, -var4.z * (double)var3 + this.x, new int[0]);
                   }
                }
 
@@ -336,7 +336,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                      var16 = var9 + this.V.nextGaussian() / 2.0D;
                      if(var1 == class_us.d) {
                         var18 = 0.3F;
-                        this.o.a(class_cy.Q, var45, var14, var16, -var4.x * (double)var3 + this.v, -var4.y * (double)var18 + this.w, -var4.z * (double)var3 + this.x, new int[0]);
+                        this.o.a(class_cy.Q, var45, var14, var16, -var4.x * (double)var3 + this.v, -var4.y * (double)var18 + this.motY, -var4.z * (double)var3 + this.x, new int[0]);
                      } else {
                         var18 = 0.6F;
 
@@ -360,11 +360,11 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                         this.bD = true;
                      } else {
                         this.a(class_us.g);
-                        this.bJ = this.o.a((class_pr)this, 20.0D, 10.0D);
+                        this.bJ = this.o.a((Entity)this, 20.0D, 10.0D);
                      }
                   }
                } else if(var1 == class_us.g) {
-                  this.bJ = this.o.a((class_pr)this, 20.0D, 10.0D);
+                  this.bJ = this.o.a((Entity)this, 20.0D, 10.0D);
                   ++this.bO;
                   if(this.bJ != null) {
                      if(this.bO > 25) {
@@ -379,7 +379,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                   if(--this.bO <= 0) {
                      ++this.bQ;
                      this.a(class_us.f);
-                     this.bJ = this.o.a((class_pr)this, 20.0D, 10.0D);
+                     this.bJ = this.o.a((Entity)this, 20.0D, 10.0D);
                      this.bO = 60;
                   }
                } else if(!this.bD && var1 == class_us.e) {
@@ -394,12 +394,12 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
                var1 = this.n();
                if((var1 == class_us.f || var1 == class_us.d) && this.bO < 50) {
-                  List var44 = this.o.a(class_qa.class, this.bR, class_pv.d);
+                  List var44 = this.o.a(EntityLiving.class, this.bR, class_pv.d);
                   if(!var44.isEmpty()) {
                      Iterator var48 = var44.iterator();
 
                      while(var48.hasNext()) {
-                        class_qa var13 = (class_qa)var48.next();
+                        EntityLiving var13 = (EntityLiving)var48.next();
                         var13.a(class_pc.b(this, this), 2.0F);
                      }
                   }
@@ -442,11 +442,11 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
                      var49 = var1 == class_us.d?1.5F:0.6F;
                      var5 = MathHelper.clamp(var5 / (double)MathHelper.sqrt(var33 * var33 + var7 * var7), (double)(-var49), (double)var49);
-                     this.w += var5 * 0.10000000149011612D;
+                     this.motY += var5 * 0.10000000149011612D;
                      this.y = MathHelper.clampAngle(this.y);
                      var45 = MathHelper.clamp(MathHelper.clampAngle(180.0D - MathHelper.b(var33, var7) * 180.0D / 3.1415927410125732D - (double)this.y), -50.0D, 50.0D);
                      Vec3D var56 = (new Vec3D(this.a - this.s, this.b - this.t, this.c - this.u)).normalize();
-                     Vec3D var58 = (new Vec3D((double)MathHelper.sin(this.y * 3.1415927F / 180.0F), this.w, (double)(-MathHelper.cos(this.y * 3.1415927F / 180.0F)))).normalize();
+                     Vec3D var58 = (new Vec3D((double)MathHelper.sin(this.y * 3.1415927F / 180.0F), this.motY, (double)(-MathHelper.cos(this.y * 3.1415927F / 180.0F)))).normalize();
                      var59 = Math.max(((float)var58.dotProduct(var56) + 0.5F) / 1.5F, 0.0F);
                      this.be *= 0.8F;
                      var61 = MathHelper.sqrt(this.v * this.v + this.x * this.x) * 1.0F + 1.0F;
@@ -466,17 +466,17 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                      float var20 = 0.06F;
                      this.a(0.0F, -1.0F, var20 * (var59 * var64 + (1.0F - var64)));
                      if(this.bE) {
-                        this.d(this.v * 0.800000011920929D, this.w * 0.800000011920929D, this.x * 0.800000011920929D);
+                        this.d(this.v * 0.800000011920929D, this.motY * 0.800000011920929D, this.x * 0.800000011920929D);
                      } else {
-                        this.d(this.v, this.w, this.x);
+                        this.d(this.v, this.motY, this.x);
                      }
 
-                     Vec3D var65 = (new Vec3D(this.v, this.w, this.x)).normalize();
+                     Vec3D var65 = (new Vec3D(this.v, this.motY, this.x)).normalize();
                      float var22 = ((float)var65.dotProduct(var58) + 1.0F) / 2.0F;
                      var22 = 0.8F + 0.15F * var22;
                      this.v *= (double)var22;
                      this.x *= (double)var22;
-                     this.w *= 0.9100000262260437D;
+                     this.motY *= 0.9100000262260437D;
                   }
                }
             }
@@ -505,11 +505,11 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             this.bz.b(this.s + (double)(var39 * 4.5F), this.t + 2.0D, this.u + (double)(var38 * 4.5F), 0.0F, 0.0F);
             this.bA.t_();
             this.bA.b(this.s - (double)(var39 * 4.5F), this.t + 2.0D, this.u - (double)(var38 * 4.5F), 0.0F, 0.0F);
-            if(!this.o.D && this.ax == 0) {
-               this.a(this.o.b((class_pr)this, (class_awf)this.bz.aT().b(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
-               this.a(this.o.b((class_pr)this, (class_awf)this.bA.aT().b(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
-               this.b(this.o.b((class_pr)this, (class_awf)this.bt.aT().b(1.0D, 1.0D, 1.0D)));
-               this.b(this.o.b((class_pr)this, (class_awf)this.bu.aT().b(1.0D, 1.0D, 1.0D)));
+            if(!this.o.isClientSide && this.ax == 0) {
+               this.a(this.o.b((Entity)this, (AxisAlignedBB)this.bz.aT().grow(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
+               this.a(this.o.b((Entity)this, (AxisAlignedBB)this.bA.aT().grow(4.0D, 2.0D, 4.0D).c(0.0D, -2.0D, 0.0D)));
+               this.b(this.o.b((Entity)this, (AxisAlignedBB)this.bt.aT().grow(1.0D, 1.0D, 1.0D)));
+               this.b(this.o.b((Entity)this, (AxisAlignedBB)this.bu.aT().grow(1.0D, 1.0D, 1.0D)));
             }
 
             double[] var40 = this.a(5, 1.0F);
@@ -523,7 +523,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
             var53 = this.s + (double)(var41 * 9.5F * var34);
             var15 = this.t + (double)var12 + (double)(var37 * 10.5F);
             var17 = this.u - (double)(var49 * 9.5F * var34);
-            this.bR = new class_awf(var53 - 5.0D, var15 - 17.0D, var17 - 5.0D, var53 + 5.0D, var15 + 4.0D, var17 + 5.0D);
+            this.bR = new AxisAlignedBB(var53 - 5.0D, var15 - 17.0D, var17 - 5.0D, var53 + 5.0D, var15 + 4.0D, var17 + 5.0D);
 
             float var60;
             for(int var42 = 0; var42 < 3; ++var42) {
@@ -550,7 +550,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                var52.b(this.s - (double)((var38 * var59 + var54 * var61) * var34), this.t + (var55[1] - var40[1]) * 1.0D - (double)((var61 + var59) * var37) + 1.5D, this.u + (double)((var39 * var59 + var60 * var61) * var34), 0.0F, 0.0F);
             }
 
-            if(!this.o.D) {
+            if(!this.o.isClientSide) {
                var10 = 64.0D;
                if(var1 == class_us.b && this.bJ != null && this.bJ.h(this) < var10 * var10) {
                   if(this.t(this.bJ)) {
@@ -569,12 +569,12 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                         double var66 = this.bJ.s - var63;
                         double var27 = this.bJ.t + (double)(this.bJ.K / 2.0F) - (var21 + (double)(this.bt.K / 2.0F));
                         double var29 = this.bJ.u - var23;
-                        this.o.a((class_xa)null, 1008, new BlockPosition(this), 0);
+                        this.o.a((EntityHuman)null, 1008, new BlockPosition(this), 0);
                         class_xh var31 = new class_xh(this.o, this, var66, var27, var29);
                         var31.s = var63;
                         var31.t = var21;
                         var31.u = var23;
-                        this.o.a((class_pr)var31);
+                        this.o.addEntity((Entity)var31);
                         this.bM = 0;
                         if(this.bV != null) {
                            while(!this.bV.b()) {
@@ -593,7 +593,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                }
             }
 
-            if(!this.o.D) {
+            if(!this.o.isClientSide) {
                this.bE = this.b(this.bt.aT()) | this.b(this.bu.aT()) | this.b(this.bv.aT());
                if(this.bK != null) {
                   this.bK.b(this);
@@ -620,8 +620,8 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    private void cu() {
       if(this.bG != null) {
          if(this.bG.I) {
-            if(!this.o.D) {
-               this.a(this.bt, class_pc.a((class_aej)null), 10.0F);
+            if(!this.o.isClientSide) {
+               this.a(this.bt, class_pc.a((Explosion)null), 10.0F);
             }
 
             this.bG = null;
@@ -632,7 +632,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
       if(this.V.nextInt(10) == 0) {
          float var1 = 32.0F;
-         List var2 = this.o.a(class_uq.class, this.aT().b((double)var1, (double)var1, (double)var1));
+         List var2 = this.o.getEntities(class_uq.class, this.aT().grow((double)var1, (double)var1, (double)var1));
          class_uq var3 = null;
          double var4 = Double.MAX_VALUE;
          Iterator var6 = var2.iterator();
@@ -652,13 +652,13 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    }
 
    private void a(List var1) {
-      double var2 = (this.bv.aT().a + this.bv.aT().d) / 2.0D;
-      double var4 = (this.bv.aT().c + this.bv.aT().f) / 2.0D;
+      double var2 = (this.bv.aT().xMin + this.bv.aT().xMax) / 2.0D;
+      double var4 = (this.bv.aT().zMin + this.bv.aT().zMax) / 2.0D;
       Iterator var6 = var1.iterator();
 
       while(var6.hasNext()) {
-         class_pr var7 = (class_pr)var6.next();
-         if(var7 instanceof class_qa) {
+         Entity var7 = (Entity)var6.next();
+         if(var7 instanceof EntityLiving) {
             double var8 = var7.s - var2;
             double var10 = var7.u - var4;
             double var12 = var8 * var8 + var10 * var10;
@@ -670,17 +670,17 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
    private void b(List var1) {
       for(int var2 = 0; var2 < var1.size(); ++var2) {
-         class_pr var3 = (class_pr)var1.get(var2);
-         if(var3 instanceof class_qa) {
-            var3.a(class_pc.a((class_qa)this), 10.0F);
-            this.a((class_qa)this, (class_pr)var3);
+         Entity var3 = (Entity)var1.get(var2);
+         if(var3 instanceof EntityLiving) {
+            var3.a(class_pc.a((EntityLiving)this), 10.0F);
+            this.a((EntityLiving)this, (Entity)var3);
          }
       }
 
    }
 
    private void cv() {
-      class_xa var1 = null;
+      EntityHuman var1 = null;
       switch(class_ur.SyntheticClass_1.a[this.n().ordinal()]) {
       case 1:
          if(this.bV == null || this.bV.b() && this.bD) {
@@ -713,7 +713,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       case 4:
          this.bQ = 0;
          this.a(class_us.g);
-         this.bJ = this.o.a((class_pr)this, 20.0D, 10.0D);
+         this.bJ = this.o.a((Entity)this, 20.0D, 10.0D);
          this.bO = 0;
       }
 
@@ -799,13 +799,13 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       return (float)MathHelper.clampAngle(var1);
    }
 
-   private boolean b(class_awf var1) {
-      int var2 = MathHelper.floor(var1.a);
-      int var3 = MathHelper.floor(var1.b);
-      int var4 = MathHelper.floor(var1.c);
-      int var5 = MathHelper.floor(var1.d);
-      int var6 = MathHelper.floor(var1.e);
-      int var7 = MathHelper.floor(var1.f);
+   private boolean b(AxisAlignedBB var1) {
+      int var2 = MathHelper.floor(var1.xMin);
+      int var3 = MathHelper.floor(var1.yMin);
+      int var4 = MathHelper.floor(var1.zMin);
+      int var5 = MathHelper.floor(var1.xMax);
+      int var6 = MathHelper.floor(var1.yMax);
+      int var7 = MathHelper.floor(var1.zMax);
       boolean var8 = false;
       boolean var9 = false;
 
@@ -813,10 +813,10 @@ public class class_ur extends class_qb implements class_uo, class_wd {
          for(int var11 = var3; var11 <= var6; ++var11) {
             for(int var12 = var4; var12 <= var7; ++var12) {
                BlockPosition var13 = new BlockPosition(var10, var11, var12);
-               Block var14 = this.o.p(var13).getBlock();
+               Block var14 = this.o.getType(var13).getBlock();
                if(var14.getMaterial() != Material.AIR && var14.getMaterial() != Material.FIRE) {
                   if(var14 != Blocks.BARRIER && var14 != Blocks.OBSIDIAN && var14 != Blocks.END_STONE && var14 != Blocks.BEDROCK && var14 != Blocks.COMMAND_BLOCK && var14 != Blocks.IRON_BARS && this.o.R().b("mobGriefing")) {
-                     var9 = this.o.g(var13) || var9;
+                     var9 = this.o.setAir(var13) || var9;
                   } else {
                      var8 = true;
                   }
@@ -826,9 +826,9 @@ public class class_ur extends class_qb implements class_uo, class_wd {
       }
 
       if(var9) {
-         double var16 = var1.a + (var1.d - var1.a) * (double)this.V.nextFloat();
-         double var17 = var1.b + (var1.e - var1.b) * (double)this.V.nextFloat();
-         double var18 = var1.c + (var1.f - var1.c) * (double)this.V.nextFloat();
+         double var16 = var1.xMin + (var1.xMax - var1.xMin) * (double)this.V.nextFloat();
+         double var17 = var1.yMin + (var1.yMax - var1.yMin) * (double)this.V.nextFloat();
+         double var18 = var1.zMin + (var1.zMax - var1.zMin) * (double)this.V.nextFloat();
          this.o.a(class_cy.b, var16, var17, var18, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
@@ -840,7 +840,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
          var3 = var3 / 4.0F + 1.0F;
       }
 
-      if(var2.j() instanceof class_xa || var2.c()) {
+      if(var2.j() instanceof EntityHuman || var2.c()) {
          float var4 = this.bo();
          this.e(var2, var3);
          if(this.bo() <= 0.0F && !this.n().b()) {
@@ -891,7 +891,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
          this.bK.b(this);
       }
 
-      if(!this.n().b() && !this.o.D) {
+      if(!this.n().b() && !this.o.isClientSide) {
          this.i(1.0F);
       } else {
          ++this.bF;
@@ -909,14 +909,14 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
          int var5;
          int var6;
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             if(this.bF > 150 && this.bF % 5 == 0 && var4) {
                var5 = 1000;
 
                while(var5 > 0) {
-                  var6 = class_px.a(var5);
+                  var6 = EntityExperienceOrb.getOrbValue(var5);
                   var5 -= var6;
-                  this.o.a((class_pr)(new class_px(this.o, this.s, this.t, this.u, var6)));
+                  this.o.addEntity((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var6)));
                }
             }
 
@@ -927,14 +927,14 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
          this.d(0.0D, 0.10000000149011612D, 0.0D);
          this.aL = this.y += 20.0F;
-         if(this.bF == 200 && !this.o.D) {
+         if(this.bF == 200 && !this.o.isClientSide) {
             if(var4) {
                var5 = 2000;
 
                while(var5 > 0) {
-                  var6 = class_px.a(var5);
+                  var6 = EntityExperienceOrb.getOrbValue(var5);
                   var5 -= var6;
-                  this.o.a((class_pr)(new class_px(this.o, this.s, this.t, this.u, var6)));
+                  this.o.addEntity((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var6)));
                }
             }
 
@@ -1186,7 +1186,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    protected void cb() {
    }
 
-   public class_pr[] aD() {
+   public Entity[] aD() {
       return this.bs;
    }
 
@@ -1239,9 +1239,9 @@ public class class_ur extends class_qb implements class_uo, class_wd {
    }
 
    public void a(BlockPosition var1, class_pc var2) {
-      class_xa var3;
-      if(var2.j() instanceof class_xa) {
-         var3 = (class_xa)var2.j();
+      EntityHuman var3;
+      if(var2.j() instanceof EntityHuman) {
+         var3 = (EntityHuman)var2.j();
       } else {
          var3 = this.o.a(var1, 64.0D, 64.0D);
       }

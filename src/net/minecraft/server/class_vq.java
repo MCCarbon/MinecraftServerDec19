@@ -5,18 +5,18 @@ import net.minecraft.server.World;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.class_ol;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_ot;
-import net.minecraft.server.class_ou;
+import net.minecraft.server.ChestLock;
+import net.minecraft.server.ITileInventory;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_vn;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 
-public abstract class class_vq extends class_vn implements class_ou {
+public abstract class class_vq extends class_vn implements ITileInventory {
    private ItemStack[] a = new ItemStack[36];
    private boolean b = true;
 
@@ -31,16 +31,16 @@ public abstract class class_vq extends class_vn implements class_ou {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         class_ol.a(this.o, (class_pr)this, this);
+         class_ol.a(this.o, (Entity)this, this);
       }
 
    }
 
-   public ItemStack a(int var1) {
+   public ItemStack getItem(int var1) {
       return this.a[var1];
    }
 
-   public ItemStack a(int var1, int var2) {
+   public ItemStack splitStack(int var1, int var2) {
       if(this.a[var1] != null) {
          ItemStack var3;
          if(this.a[var1].count <= var2) {
@@ -60,7 +60,7 @@ public abstract class class_vq extends class_vn implements class_ou {
       }
    }
 
-   public ItemStack b(int var1) {
+   public ItemStack splitWithoutUpdate(int var1) {
       if(this.a[var1] != null) {
          ItemStack var2 = this.a[var1];
          this.a[var1] = null;
@@ -70,36 +70,36 @@ public abstract class class_vq extends class_vn implements class_ou {
       }
    }
 
-   public void a(int var1, ItemStack var2) {
+   public void setItem(int var1, ItemStack var2) {
       this.a[var1] = var2;
-      if(var2 != null && var2.count > this.q_()) {
-         var2.count = this.q_();
+      if(var2 != null && var2.count > this.getMaxStackSize()) {
+         var2.count = this.getMaxStackSize();
       }
 
    }
 
-   public void p_() {
+   public void update() {
    }
 
-   public boolean a(class_xa var1) {
+   public boolean isReachable(EntityHuman var1) {
       return this.I?false:var1.h(this) <= 64.0D;
    }
 
-   public void b(class_xa var1) {
+   public void startOpen(EntityHuman var1) {
    }
 
-   public void c(class_xa var1) {
+   public void closeContainer(EntityHuman var1) {
    }
 
-   public boolean b(int var1, ItemStack var2) {
+   public boolean canPlaceItem(int var1, ItemStack var2) {
       return true;
    }
 
-   public String e_() {
-      return this.l_()?this.aO():"container.minecart";
+   public String getName() {
+      return this.hasCustomName()?this.aO():"container.minecart";
    }
 
-   public int q_() {
+   public int getMaxStackSize() {
       return 64;
    }
 
@@ -110,7 +110,7 @@ public abstract class class_vq extends class_vn implements class_ou {
 
    public void J() {
       if(this.b) {
-         class_ol.a(this.o, (class_pr)this, this);
+         class_ol.a(this.o, (Entity)this, this);
       }
 
       super.J();
@@ -135,7 +135,7 @@ public abstract class class_vq extends class_vn implements class_ou {
    protected void a(NBTTagCompound var1) {
       super.a(var1);
       NBTTagList var2 = var1.getList("Items", 10);
-      this.a = new ItemStack[this.o_()];
+      this.a = new ItemStack[this.getSize()];
 
       for(int var3 = 0; var3 < var2.getSize(); ++var3) {
          NBTTagCompound var4 = var2.getCompound(var3);
@@ -147,45 +147,45 @@ public abstract class class_vq extends class_vn implements class_ou {
 
    }
 
-   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
-      if(!this.o.D) {
-         var1.a((class_oj)this);
+   public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
+      if(!this.o.isClientSide) {
+         var1.openContainer((IInventory)this);
       }
 
       return true;
    }
 
    protected void o() {
-      int var1 = 15 - class_xz.b((class_oj)this);
+      int var1 = 15 - Container.b((IInventory)this);
       float var2 = 0.98F + (float)var1 * 0.001F;
       this.v *= (double)var2;
-      this.w *= 0.0D;
+      this.motY *= 0.0D;
       this.x *= (double)var2;
    }
 
-   public int a_(int var1) {
+   public int getProperty(int var1) {
       return 0;
    }
 
-   public void b(int var1, int var2) {
+   public void setProperty(int var1, int var2) {
    }
 
-   public int g() {
+   public int getPropertyCount() {
       return 0;
    }
 
-   public boolean r_() {
+   public boolean isLocked() {
       return false;
    }
 
-   public void a(class_ot var1) {
+   public void setChestLock(ChestLock var1) {
    }
 
-   public class_ot i() {
-      return class_ot.a;
+   public ChestLock getChestLock() {
+      return ChestLock.NO_LOCK;
    }
 
-   public void l() {
+   public void remove() {
       for(int var1 = 0; var1 < this.a.length; ++var1) {
          this.a[var1] = null;
       }

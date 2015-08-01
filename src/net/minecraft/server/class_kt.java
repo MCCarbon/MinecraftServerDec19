@@ -4,7 +4,7 @@ import java.util.Vector;
 import javax.swing.JList;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.ITickAble;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 
 public class class_kt extends JList implements ITickAble {
    private MinecraftServer a;
@@ -20,7 +20,7 @@ public class class_kt extends JList implements ITickAble {
          Vector var1 = new Vector();
 
          for(int var2 = 0; var2 < this.a.getPlayerList().v().size(); ++var2) {
-            var1.add(((class_lh)this.a.getPlayerList().v().get(var2)).e_());
+            var1.add(((EntityPlayer)this.a.getPlayerList().v().get(var2)).getName());
          }
 
          this.setListData(var1);

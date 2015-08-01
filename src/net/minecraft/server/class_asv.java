@@ -12,12 +12,12 @@ import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amz;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityStructure;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asu;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
@@ -26,11 +26,11 @@ import net.minecraft.server.NBTTagDouble;
 import net.minecraft.server.NBTTagInt;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_vc;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_asv {
    private final List a = Lists.newArrayList();
@@ -65,11 +65,11 @@ public class class_asv {
             while(var11.hasNext()) {
                BlockPosition.MutableBlockPosition var12 = (BlockPosition.MutableBlockPosition)var11.next();
                BlockPosition var13 = var12.substract(var9);
-               IBlockData var14 = var1.p(var12);
-               class_amg var15 = var1.s(var12);
+               IBlockData var14 = var1.getType(var12);
+               TileEntity var15 = var1.getTileEntity(var12);
                if(var15 != null) {
                   NBTTagCompound var16 = new NBTTagCompound();
-                  var15.b(var16);
+                  var15.write(var16);
                   var16.remove("x");
                   var16.remove("y");
                   var16.remove("z");
@@ -97,14 +97,14 @@ public class class_asv {
    }
 
    private void a(World var1, BlockPosition var2, BlockPosition var3) {
-      List var4 = var1.a(class_pr.class, new class_awf(var2, var3), new Predicate() {
-         public boolean a(class_pr var1) {
-            return !(var1 instanceof class_xa);
+      List var4 = var1.a(Entity.class, new AxisAlignedBB(var2, var3), new Predicate() {
+         public boolean a(Entity var1) {
+            return !(var1 instanceof EntityHuman);
          }
 
          // $FF: synthetic method
          public boolean apply(Object var1) {
-            return this.a((class_pr)var1);
+            return this.a((Entity)var1);
          }
       });
       this.b.clear();
@@ -113,7 +113,7 @@ public class class_asv {
       NBTTagCompound var8;
       BlockPosition var9;
       for(Iterator var5 = var4.iterator(); var5.hasNext(); this.b.add(new class_asv.class_b_in_class_asv(var7, var9, var8, null))) {
-         class_pr var6 = (class_pr)var5.next();
+         Entity var6 = (Entity)var5.next();
          var7 = new Vec3D(var6.s - (double)var2.getX(), var6.t - (double)var2.getY(), var6.u - (double)var2.getZ());
          var8 = new NBTTagCompound();
          var6.d(var8);
@@ -145,8 +145,8 @@ public class class_asv {
 
          IBlockData var8 = var6.b;
          if(var8.getBlock() == Blocks.STRUCTURE_BLOCK && var6.c != null) {
-            class_amz.class_a_in_class_amz var9 = class_amz.class_a_in_class_amz.valueOf(var6.c.getString("mode"));
-            if(var9 == class_amz.class_a_in_class_amz.d) {
+            TileEntityStructure.EnumMode var9 = TileEntityStructure.EnumMode.valueOf(var6.c.getString("mode"));
+            if(var9 == TileEntityStructure.EnumMode.DATA) {
                var3.put(var7, var6.c.getString("metadata"));
             }
          }
@@ -203,9 +203,9 @@ public class class_asv {
 
                            var1.b(var12, var6.b.getBlock());
                            if(var6.c != null) {
-                              class_amg var13 = var1.s(var12);
+                              TileEntity var13 = var1.getTileEntity(var12);
                               if(var13 != null) {
-                                 var13.p_();
+                                 var13.update();
                               }
                            }
                         }
@@ -221,32 +221,32 @@ public class class_asv {
 
             IBlockData var9 = var7.a(var6.b, var3.b());
             IBlockData var10 = var7.a(var9, var3.c());
-            class_amg var11;
+            TileEntity var11;
             if(var6.c != null) {
-               var11 = var1.s(var8);
+               var11 = var1.getTileEntity(var8);
                if(var11 != null) {
-                  if(var11 instanceof class_oj) {
-                     ((class_oj)var11).l();
+                  if(var11 instanceof IInventory) {
+                     ((IInventory)var11).remove();
                   }
 
-                  var1.a((BlockPosition)var8, (IBlockData)Blocks.BARRIER.getBlockData(), 4);
+                  var1.setTypeAndData((BlockPosition)var8, (IBlockData)Blocks.BARRIER.getBlockData(), 4);
                }
             }
 
-            if(var1.a((BlockPosition)var8, (IBlockData)var10, 2) && var6.c != null) {
-               var11 = var1.s(var8);
+            if(var1.setTypeAndData((BlockPosition)var8, (IBlockData)var10, 2) && var6.c != null) {
+               var11 = var1.getTileEntity(var8);
                if(var11 != null) {
                   var6.c.put("x", var8.getX());
                   var6.c.put("y", var8.getY());
                   var6.c.put("z", var8.getZ());
-                  var11.a(var6.c);
+                  var11.read(var6.c);
                }
             }
          }
       }
    }
 
-   private void a(World var1, BlockPosition var2, Block.class_a_in_class_agj var3, Block.class_c_in_class_agj var4, class_arw var5) {
+   private void a(World var1, BlockPosition var2, Block.class_a_in_class_agj var3, Block.EnumRotation var4, class_arw var5) {
       Iterator var6 = this.b.iterator();
 
       while(true) {
@@ -273,7 +273,7 @@ public class class_asv {
          var9.put("UUIDMost", var13.getMostSignificantBits());
          var9.put("UUIDLeast", var13.getLeastSignificantBits());
 
-         class_pr var14;
+         Entity var14;
          try {
             var14 = class_pt.a(var9, var1);
          } catch (Exception var16) {
@@ -292,12 +292,12 @@ public class class_asv {
                var14.b(var11.x, var11.y, var11.z, var15, var14.z);
             }
 
-            var1.a(var14);
+            var1.addEntity(var14);
          }
       }
    }
 
-   public BlockPosition a(Block.class_c_in_class_agj var1) {
+   public BlockPosition a(Block.EnumRotation var1) {
       switch(class_asv.SyntheticClass_1.a[var1.ordinal()]) {
       case 1:
       case 2:
@@ -307,7 +307,7 @@ public class class_asv {
       }
    }
 
-   private BlockPosition a(BlockPosition var1, Block.class_a_in_class_agj var2, Block.class_c_in_class_agj var3) {
+   private BlockPosition a(BlockPosition var1, Block.class_a_in_class_agj var2, Block.EnumRotation var3) {
       int var4 = var1.getX();
       int var5 = var1.getY();
       int var6 = var1.getZ();
@@ -335,7 +335,7 @@ public class class_asv {
       }
    }
 
-   private Vec3D a(Vec3D var1, Block.class_a_in_class_agj var2, Block.class_c_in_class_agj var3) {
+   private Vec3D a(Vec3D var1, Block.class_a_in_class_agj var2, Block.EnumRotation var3) {
       double var4 = var1.x;
       double var6 = var1.y;
       double var8 = var1.z;
@@ -472,33 +472,33 @@ public class class_asv {
 
       static {
          try {
-            b[Block.class_a_in_class_agj.b.ordinal()] = 1;
+            b[Block.class_a_in_class_agj.LEFT_RIGHT.ordinal()] = 1;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            b[Block.class_a_in_class_agj.c.ordinal()] = 2;
+            b[Block.class_a_in_class_agj.FRONT_BACK.ordinal()] = 2;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
-         a = new int[Block.class_c_in_class_agj.values().length];
+         a = new int[Block.EnumRotation.values().length];
 
          try {
-            a[Block.class_c_in_class_agj.d.ordinal()] = 1;
+            a[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.b.ordinal()] = 2;
+            a[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.c.ordinal()] = 3;
+            a[Block.EnumRotation.CLOCKWISE_180.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

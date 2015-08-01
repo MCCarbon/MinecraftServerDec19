@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ub;
 
-public class class_afm extends class_aez {
+public class class_afm extends BiomeBase {
    public class_afm(int var1) {
       super(var1);
       this.as.A = -100;
@@ -16,6 +16,6 @@ public class class_afm extends class_aez {
       this.at.clear();
       this.au.clear();
       this.av.clear();
-      this.au.add(new class_aez.class_c_in_class_aez(class_ub.class, 8, 4, 8));
+      this.au.add(new BiomeBase.class_c_in_class_aez(class_ub.class, 8, 4, 8));
    }
 }

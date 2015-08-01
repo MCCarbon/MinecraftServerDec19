@@ -10,9 +10,9 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.class_vq;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_yf;
 
 public class class_vo extends class_vq {
@@ -32,7 +32,7 @@ public class class_vo extends class_vq {
 
    }
 
-   public int o_() {
+   public int getSize() {
       return 27;
    }
 
@@ -48,11 +48,11 @@ public class class_vo extends class_vq {
       return 8;
    }
 
-   public String k() {
+   public String getContainerName() {
       return "minecraft:chest";
    }
 
-   public class_xz a(class_wz var1, class_xa var2) {
+   public Container createContainer(PlayerInventory var1, EntityHuman var2) {
       return new class_yf(var1, this, var2);
    }
 }

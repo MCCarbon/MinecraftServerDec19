@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_xx {
    private int a = 20;
@@ -23,7 +23,7 @@ public class class_xx {
       this.a(var1.h(var2), var1.i(var2));
    }
 
-   public void a(class_xa var1) {
+   public void a(EntityHuman var1) {
       class_om var2 = var1.o.ab();
       this.e = this.a;
       if(this.c > 4.0F) {

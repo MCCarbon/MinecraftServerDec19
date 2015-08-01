@@ -7,19 +7,19 @@ import net.minecraft.server.class_ace;
 import net.minecraft.server.class_acf;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_ye;
 import net.minecraft.server.class_yx;
 
-public class class_yd extends class_xz {
-   private class_oj a;
+public class class_yd extends Container {
+   private IInventory a;
    private final class_yx f;
    private int g;
 
-   public class_yd(class_wz var1, class_oj var2) {
+   public class_yd(PlayerInventory var1, IInventory var2) {
       this.a = var2;
       this.a((class_yx)(new class_yd.class_b_in_class_yd(var1.e, var2, 0, 56, 46)));
       this.a((class_yx)(new class_yd.class_b_in_class_yd(var1.e, var2, 1, 79, 53)));
@@ -41,7 +41,7 @@ public class class_yd extends class_xz {
 
    public void a(class_ye var1) {
       super.a(var1);
-      var1.a(this, (class_oj)this.a);
+      var1.a(this, (IInventory)this.a);
    }
 
    public void b() {
@@ -49,19 +49,19 @@ public class class_yd extends class_xz {
 
       for(int var1 = 0; var1 < this.e.size(); ++var1) {
          class_ye var2 = (class_ye)this.e.get(var1);
-         if(this.g != this.a.a_(0)) {
-            var2.a(this, 0, this.a.a_(0));
+         if(this.g != this.a.getProperty(0)) {
+            var2.a(this, 0, this.a.getProperty(0));
          }
       }
 
-      this.g = this.a.a_(0);
+      this.g = this.a.getProperty(0);
    }
 
-   public boolean a(class_xa var1) {
-      return this.a.a(var1);
+   public boolean a(EntityHuman var1) {
+      return this.a.isReachable(var1);
    }
 
-   public ItemStack b(class_xa var1, int var2) {
+   public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
@@ -112,7 +112,7 @@ public class class_yd extends class_xz {
    }
 
    static class class_a_in_class_yd extends class_yx {
-      public class_a_in_class_yd(class_oj var1, int var2, int var3, int var4) {
+      public class_a_in_class_yd(IInventory var1, int var2, int var3, int var4) {
          super(var1, var2, var3, var4);
       }
 
@@ -126,9 +126,9 @@ public class class_yd extends class_xz {
    }
 
    static class class_b_in_class_yd extends class_yx {
-      private class_xa a;
+      private EntityHuman a;
 
-      public class_b_in_class_yd(class_xa var1, class_oj var2, int var3, int var4, int var5) {
+      public class_b_in_class_yd(EntityHuman var1, IInventory var2, int var3, int var4, int var5) {
          super(var2, var3, var4, var5);
          this.a = var1;
       }
@@ -141,7 +141,7 @@ public class class_yd extends class_xz {
          return 1;
       }
 
-      public void a(class_xa var1, ItemStack var2) {
+      public void a(EntityHuman var1, ItemStack var2) {
          if(class_abe.i(var2) != class_acf.a) {
             this.a.b((class_my)class_mt.B);
          }

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afk;
 import net.minecraft.server.class_afl;
 import net.minecraft.server.class_aua;
@@ -20,20 +20,20 @@ public class class_auj extends class_auc {
          for(int var8 = 0; var8 < var3; ++var8) {
             this.a((long)(var8 + var1), (long)(var7 + var2));
             int var9 = var5[var8 + 1 + (var7 + 1) * (var3 + 2)];
-            class_aez var10 = class_aez.e(var9);
+            BiomeBase var10 = BiomeBase.e(var9);
             int var11;
             int var12;
             int var13;
             int var14;
-            if(var9 == class_aez.D.az) {
+            if(var9 == BiomeBase.D.az) {
                var11 = var5[var8 + 1 + (var7 + 1 - 1) * (var3 + 2)];
                var12 = var5[var8 + 1 + 1 + (var7 + 1) * (var3 + 2)];
                var13 = var5[var8 + 1 - 1 + (var7 + 1) * (var3 + 2)];
                var14 = var5[var8 + 1 + (var7 + 1 + 1) * (var3 + 2)];
-               if(var11 != class_aez.p.az && var12 != class_aez.p.az && var13 != class_aez.p.az && var14 != class_aez.p.az) {
+               if(var11 != BiomeBase.p.az && var12 != BiomeBase.p.az && var13 != BiomeBase.p.az && var14 != BiomeBase.p.az) {
                   var6[var8 + var7 * var3] = var9;
                } else {
-                  var6[var8 + var7 * var3] = class_aez.E.az;
+                  var6[var8 + var7 * var3] = BiomeBase.E.az;
                }
             } else if(var10 != null && var10.l() == class_afk.class) {
                var11 = var5[var8 + 1 + (var7 + 1 - 1) * (var3 + 2)];
@@ -44,16 +44,16 @@ public class class_auj extends class_auc {
                   if(!b(var11) && !b(var12) && !b(var13) && !b(var14)) {
                      var6[var8 + var7 * var3] = var9;
                   } else {
-                     var6[var8 + var7 * var3] = class_aez.F.az;
+                     var6[var8 + var7 * var3] = BiomeBase.F.az;
                   }
                } else {
-                  var6[var8 + var7 * var3] = class_aez.M.az;
+                  var6[var8 + var7 * var3] = BiomeBase.M.az;
                }
-            } else if(var9 != class_aez.s.az && var9 != class_aez.X.az && var9 != class_aez.J.az) {
+            } else if(var9 != BiomeBase.s.az && var9 != BiomeBase.X.az && var9 != BiomeBase.J.az) {
                if(var10 != null && var10.j()) {
-                  this.a(var5, var6, var8, var7, var3, var9, class_aez.P.az);
-               } else if(var9 != class_aez.aa.az && var9 != class_aez.ab.az) {
-                  if(var9 != class_aez.p.az && var9 != class_aez.N.az && var9 != class_aez.w.az && var9 != class_aez.v.az) {
+                  this.a(var5, var6, var8, var7, var3, var9, BiomeBase.P.az);
+               } else if(var9 != BiomeBase.aa.az && var9 != BiomeBase.ab.az) {
+                  if(var9 != BiomeBase.p.az && var9 != BiomeBase.N.az && var9 != BiomeBase.w.az && var9 != BiomeBase.v.az) {
                      var11 = var5[var8 + 1 + (var7 + 1 - 1) * (var3 + 2)];
                      var12 = var5[var8 + 1 + 1 + (var7 + 1) * (var3 + 2)];
                      var13 = var5[var8 + 1 - 1 + (var7 + 1) * (var3 + 2)];
@@ -61,7 +61,7 @@ public class class_auj extends class_auc {
                      if(!b(var11) && !b(var12) && !b(var13) && !b(var14)) {
                         var6[var8 + var7 * var3] = var9;
                      } else {
-                        var6[var8 + var7 * var3] = class_aez.F.az;
+                        var6[var8 + var7 * var3] = BiomeBase.F.az;
                      }
                   } else {
                      var6[var8 + var7 * var3] = var9;
@@ -75,14 +75,14 @@ public class class_auj extends class_auc {
                      if(this.d(var11) && this.d(var12) && this.d(var13) && this.d(var14)) {
                         var6[var8 + var7 * var3] = var9;
                      } else {
-                        var6[var8 + var7 * var3] = class_aez.r.az;
+                        var6[var8 + var7 * var3] = BiomeBase.r.az;
                      }
                   } else {
                      var6[var8 + var7 * var3] = var9;
                   }
                }
             } else {
-               this.a(var5, var6, var8, var7, var3, var9, class_aez.O.az);
+               this.a(var5, var6, var8, var7, var3, var9, BiomeBase.O.az);
             }
          }
       }
@@ -108,10 +108,10 @@ public class class_auj extends class_auc {
    }
 
    private boolean c(int var1) {
-      return class_aez.e(var1) != null && class_aez.e(var1).l() == class_afk.class?true:var1 == class_aez.M.az || var1 == class_aez.K.az || var1 == class_aez.L.az || var1 == class_aez.t.az || var1 == class_aez.u.az || b(var1);
+      return BiomeBase.e(var1) != null && BiomeBase.e(var1).l() == class_afk.class?true:var1 == BiomeBase.M.az || var1 == BiomeBase.K.az || var1 == BiomeBase.L.az || var1 == BiomeBase.t.az || var1 == BiomeBase.u.az || b(var1);
    }
 
    private boolean d(int var1) {
-      return class_aez.e(var1) instanceof class_afl;
+      return BiomeBase.e(var1) instanceof class_afl;
    }
 }

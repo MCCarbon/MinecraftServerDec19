@@ -4,91 +4,91 @@ import java.util.Random;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aed;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agd;
+import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amj;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityCommand;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anw;
+import net.minecraft.server.BlockStateBoolean;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 
-public class class_aha extends class_agd {
-   public static final class_anw a = class_anw.a("triggered");
+public class class_aha extends BlockContainer {
+   public static final BlockStateBoolean a = BlockStateBoolean.of("triggered");
 
    public class_aha() {
       super(Material.ORE, MaterialMapColor.COLOR16);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
    }
 
-   public class_amg a(World var1, int var2) {
-      return new class_amj();
+   public TileEntity createTileEntity(World var1, int var2) {
+      return new TileEntityCommand();
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(!var1.D) {
-         boolean var5 = var1.z(var2);
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(!var1.isClientSide) {
+         boolean var5 = var1.isBlockIndirectlyPowered(var2);
          boolean var6 = ((Boolean)var3.get(a)).booleanValue();
          if(var5 && !var6) {
-            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 4);
-            var1.a((BlockPosition)var2, (Block)this, this.a(var1));
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 4);
+            var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1));
          } else if(!var5 && var6) {
-            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(false)), 4);
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(false)), 4);
          }
       }
 
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      class_amg var5 = var1.s(var2);
-      if(var5 instanceof class_amj) {
-         ((class_amj)var5).b().a(var1);
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+      TileEntity var5 = var1.getTileEntity(var2);
+      if(var5 instanceof TileEntityCommand) {
+         ((TileEntityCommand)var5).b().a(var1);
          var1.e(var2, this);
       }
 
    }
 
-   public int a(World var1) {
+   public int tickInterval(World var1) {
       return 1;
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      class_amg var11 = var1.s(var2);
-      return var11 instanceof class_amj?((class_amj)var11).b().a(var4):false;
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+      TileEntity var11 = var1.getTileEntity(var2);
+      return var11 instanceof TileEntityCommand?((TileEntityCommand)var11).b().a(var4):false;
    }
 
-   public boolean Q() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, BlockPosition var2) {
-      class_amg var3 = var1.s(var2);
-      return var3 instanceof class_amj?((class_amj)var3).b().j():0;
+   public int getRedstonePower(World var1, BlockPosition var2) {
+      TileEntity var3 = var1.getTileEntity(var2);
+      return var3 instanceof TileEntityCommand?((TileEntityCommand)var3).b().j():0;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
-      class_amg var6 = var1.s(var2);
-      if(var6 instanceof class_amj) {
-         class_aed var7 = ((class_amj)var6).b();
+   public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
+      TileEntity var6 = var1.getTileEntity(var2);
+      if(var6 instanceof TileEntityCommand) {
+         class_aed var7 = ((TileEntityCommand)var6).b();
          if(var5.hasDisplayName()) {
             var7.b(var5.getDisplayName());
          }
 
-         if(!var1.D) {
+         if(!var1.isClientSide) {
             var7.a(var1.R().b("sendCommandFeedback"));
          }
 
       }
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return 0;
    }
 
@@ -109,11 +109,11 @@ public class class_aha extends class_agd {
       return var2;
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.getBlockData().set(a, Boolean.valueOf(false));
    }
 }

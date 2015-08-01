@@ -12,14 +12,14 @@ import net.minecraft.server.BlockPosition;
 public class class_aqf extends class_aql {
    public boolean b(World var1, Random var2, BlockPosition var3) {
       Block var4;
-      while(((var4 = var1.p(var3).getBlock()).getMaterial() == Material.AIR || var4.getMaterial() == Material.LEAVES) && var3.getY() > 0) {
-         var3 = var3.shiftDown();
+      while(((var4 = var1.getType(var3).getBlock()).getMaterial() == Material.AIR || var4.getMaterial() == Material.LEAVES) && var3.getY() > 0) {
+         var3 = var3.down();
       }
 
       for(int var5 = 0; var5 < 4; ++var5) {
          BlockPosition var6 = var3.add(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-         if(var1.d(var6) && Blocks.DEADBUSH.f(var1, var6, Blocks.DEADBUSH.getBlockData())) {
-            var1.a((BlockPosition)var6, (IBlockData)Blocks.DEADBUSH.getBlockData(), 2);
+         if(var1.isEmpty(var6) && Blocks.DEADBUSH.f(var1, var6, Blocks.DEADBUSH.getBlockData())) {
+            var1.setTypeAndData((BlockPosition)var6, (IBlockData)Blocks.DEADBUSH.getBlockData(), 2);
          }
       }
 

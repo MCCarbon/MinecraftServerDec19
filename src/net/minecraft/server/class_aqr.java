@@ -42,7 +42,7 @@ public class class_aqr extends class_aql {
             for(var9 = var3.getX() - var7; var9 <= var3.getX() + var7 && var5; ++var9) {
                for(var10 = var3.getZ() - var7; var10 <= var3.getZ() + var7 && var5; ++var10) {
                   if(var6 >= 0 && var6 < 256) {
-                     Block var11 = var1.p(var8.setPosition(var9, var6, var10)).getBlock();
+                     Block var11 = var1.getType(var8.setPosition(var9, var6, var10)).getBlock();
                      if(var11.getMaterial() != Material.AIR && var11.getMaterial() != Material.LEAVES) {
                         var5 = false;
                      }
@@ -56,7 +56,7 @@ public class class_aqr extends class_aql {
          if(!var5) {
             return false;
          } else {
-            Block var19 = var1.p(var3.shiftDown()).getBlock();
+            Block var19 = var1.getType(var3.down()).getBlock();
             if(var19 != Blocks.DIRT && var19 != Blocks.GRASS && var19 != Blocks.MYCELIM) {
                return false;
             } else {
@@ -141,7 +141,7 @@ public class class_aqr extends class_aql {
 
                         if(var3.getY() >= var3.getY() + var4 - 1 || var17 != class_aiw.class_a_in_class_aiw.k) {
                            BlockPosition var18 = new BlockPosition(var14, var21, var15);
-                           if(!var1.p(var18).getBlock().isFullBlock()) {
+                           if(!var1.getType(var18).getBlock().isFullBlock()) {
                               this.a(var1, var18, this.a.getBlockData().set(class_aiw.a, var17));
                            }
                         }
@@ -150,9 +150,9 @@ public class class_aqr extends class_aql {
                }
 
                for(var21 = 0; var21 < var4; ++var21) {
-                  Block var22 = var1.p(var3.shiftUp(var21)).getBlock();
+                  Block var22 = var1.getType(var3.up(var21)).getBlock();
                   if(!var22.isFullBlock()) {
-                     this.a(var1, var3.shiftUp(var21), this.a.getBlockData().set(class_aiw.a, class_aiw.class_a_in_class_aiw.j));
+                     this.a(var1, var3.up(var21), this.a.getBlockData().set(class_aiw.a, class_aiw.class_a_in_class_aiw.j));
                   }
                }
 

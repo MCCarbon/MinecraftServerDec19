@@ -5,7 +5,7 @@ import com.google.common.base.Predicates;
 import java.util.List;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pv;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
@@ -17,7 +17,7 @@ public class class_rb extends class_rm {
    protected class_qh a;
    private double d;
    private double e;
-   protected class_pr b;
+   protected Entity b;
    private float f;
    private class_auv g;
    private class_tg h;
@@ -30,13 +30,13 @@ public class class_rb extends class_rm {
 
    public class_rb(class_qh var1, Class var2, Predicate var3, float var4, double var5, double var7) {
       this.c = new Predicate() {
-         public boolean a(class_pr var1) {
+         public boolean a(Entity var1) {
             return var1.ai() && class_rb.this.a.v().a(var1);
          }
 
          // $FF: synthetic method
          public boolean apply(Object var1) {
-            return this.a((class_pr)var1);
+            return this.a((Entity)var1);
          }
       };
       this.a = var1;
@@ -50,11 +50,11 @@ public class class_rb extends class_rm {
    }
 
    public boolean a() {
-      List var1 = this.a.o.a(this.i, this.a.aT().b((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{class_pv.d, this.c, this.j}));
+      List var1 = this.a.o.a(this.i, this.a.aT().grow((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{class_pv.d, this.c, this.j}));
       if(var1.isEmpty()) {
          return false;
       } else {
-         this.b = (class_pr)var1.get(0);
+         this.b = (Entity)var1.get(0);
          Vec3D var2 = class_tm.b(this.a, 16, 7, new Vec3D(this.b.s, this.b.t, this.b.u));
          if(var2 == null) {
             return false;

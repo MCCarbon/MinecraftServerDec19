@@ -6,13 +6,13 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_vn;
 
 public class class_vu extends class_vn {
    private final class_aee a = new class_aee() {
       public void a(int var1) {
-         class_vu.this.o.a((class_pr)class_vu.this, (byte)((byte)var1));
+         class_vu.this.o.a((Entity)class_vu.this, (byte)((byte)var1));
       }
 
       public World a() {

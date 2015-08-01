@@ -44,10 +44,10 @@ public class class_aqk extends class_aql {
       }
 
       for(int var8 = 0; var8 < 4; ++var8) {
-         this.a(var1, var3.shiftUp(var8), Blocks.BEDROCK.getBlockData());
+         this.a(var1, var3.up(var8), Blocks.BEDROCK.getBlockData());
       }
 
-      BlockPosition var9 = var3.shiftUp(2);
+      BlockPosition var9 = var3.up(2);
       Iterator var10 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
       while(var10.hasNext()) {
@@ -56,7 +56,7 @@ public class class_aqk extends class_aql {
       }
 
       if(this.c) {
-         this.a(var1, var3.shiftUp(4), Blocks.DRAGON_EGG.getBlockData());
+         this.a(var1, var3.up(4), Blocks.DRAGON_EGG.getBlockData());
       }
 
       return true;

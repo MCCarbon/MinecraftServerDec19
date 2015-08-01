@@ -5,10 +5,10 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aql;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_uq;
 
 public class class_ari extends class_aql {
@@ -47,8 +47,8 @@ public class class_ari extends class_aql {
 
          class_uq var7 = new class_uq(var1);
          var7.b((double)((float)var3.getX() + 0.5F), (double)(var3.getY() + this.a.d() + 1), (double)((float)var3.getZ() + 0.5F), var2.nextFloat() * 360.0F, 0.0F);
-         var1.a((class_pr)var7);
-         this.a(var1, var3.shiftUp(this.a.d()), Blocks.BEDROCK.getBlockData());
+         var1.addEntity((Entity)var7);
+         this.a(var1, var3.up(this.a.d()), Blocks.BEDROCK.getBlockData());
          return true;
       }
    }
@@ -59,7 +59,7 @@ public class class_ari extends class_aql {
       private final int c;
       private final int d;
       private final boolean e;
-      private final class_awf f;
+      private final AxisAlignedBB f;
 
       public class_a_in_class_ari(int var1, int var2, int var3, int var4, boolean var5) {
          this.a = var1;
@@ -67,7 +67,7 @@ public class class_ari extends class_aql {
          this.c = var3;
          this.d = var4;
          this.e = var5;
-         this.f = new class_awf((double)(var1 - var3), 0.0D, (double)(var2 - var3), (double)(var1 + var3), 256.0D, (double)(var2 + var3));
+         this.f = new AxisAlignedBB((double)(var1 - var3), 0.0D, (double)(var2 - var3), (double)(var1 + var3), 256.0D, (double)(var2 + var3));
       }
 
       public boolean a(BlockPosition var1) {
@@ -96,7 +96,7 @@ public class class_ari extends class_aql {
          return this.e;
       }
 
-      public class_awf f() {
+      public AxisAlignedBB f() {
          return this.f;
       }
    }

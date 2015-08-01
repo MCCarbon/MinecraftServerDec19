@@ -24,8 +24,8 @@ public class class_acm implements class_acs {
       int var7 = 0;
       int var8 = 0;
 
-      for(int var9 = 0; var9 < var1.o_(); ++var9) {
-         ItemStack var10 = var1.a(var9);
+      for(int var9 = 0; var9 < var1.getSize(); ++var9) {
+         ItemStack var10 = var1.getItem(var9);
          if(var10 != null) {
             if(var10.getItem() == Items.J) {
                ++var4;
@@ -66,8 +66,8 @@ public class class_acm implements class_acs {
                var19 = new NBTTagCompound();
                NBTTagList var25 = new NBTTagList();
 
-               for(int var22 = 0; var22 < var1.o_(); ++var22) {
-                  ItemStack var26 = var1.a(var22);
+               for(int var22 = 0; var22 < var1.getSize(); ++var22) {
+                  ItemStack var26 = var1.getItem(var22);
                   if(var26 != null && var26.getItem() == Items.cf && var26.hasTag() && var26.getTag().hasOfType("Explosion", 10)) {
                      var25.add((NBTTag)var26.getTag().getCompound("Explosion"));
                   }
@@ -87,8 +87,8 @@ public class class_acm implements class_acs {
             byte var23 = 0;
             ArrayList var12 = Lists.newArrayList();
 
-            for(int var13 = 0; var13 < var1.o_(); ++var13) {
-               ItemStack var14 = var1.a(var13);
+            for(int var13 = 0; var13 < var1.getSize(); ++var13) {
+               ItemStack var14 = var1.getItem(var13);
                if(var14 != null) {
                   if(var14.getItem() == Items.aY) {
                      var12.add(Integer.valueOf(class_zz.a[var14.i() & 15]));
@@ -122,8 +122,8 @@ public class class_acm implements class_acs {
          } else if(var4 == 0 && var3 == 0 && var6 == 1 && var5 > 0 && var5 == var7) {
             ArrayList var15 = Lists.newArrayList();
 
-            for(int var17 = 0; var17 < var1.o_(); ++var17) {
-               ItemStack var11 = var1.a(var17);
+            for(int var17 = 0; var17 < var1.getSize(); ++var17) {
+               ItemStack var11 = var1.getItem(var17);
                if(var11 != null) {
                   if(var11.getItem() == Items.aY) {
                      var15.add(Integer.valueOf(class_zz.a[var11.i() & 15]));
@@ -172,10 +172,10 @@ public class class_acm implements class_acs {
    }
 
    public ItemStack[] b(class_yg var1) {
-      ItemStack[] var2 = new ItemStack[var1.o_()];
+      ItemStack[] var2 = new ItemStack[var1.getSize()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         ItemStack var4 = var1.a(var3);
+         ItemStack var4 = var1.getItem(var3);
          if(var4 != null && var4.getItem().r()) {
             var2[var3] = new ItemStack(var4.getItem().q());
          }

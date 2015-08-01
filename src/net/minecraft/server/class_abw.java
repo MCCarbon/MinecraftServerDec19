@@ -13,10 +13,10 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qm;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
 public class class_abw extends Item {
@@ -27,7 +27,7 @@ public class class_abw extends Item {
       this.b = var1;
       this.h = 1;
       this.e(var1.a());
-      this.a(CreativeTab.j);
+      this.a(CreativeTab.COMBAT);
       this.a = 4.0F + var1.c();
    }
 
@@ -44,14 +44,14 @@ public class class_abw extends Item {
       }
    }
 
-   public boolean a(ItemStack var1, class_qa var2, class_qa var3) {
-      var1.a(1, (class_qa)var3);
+   public boolean a(ItemStack var1, EntityLiving var2, EntityLiving var3) {
+      var1.a(1, (EntityLiving)var3);
       return true;
    }
 
-   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, class_qa var5) {
+   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
       if((double)var3.getStrength(var2, var4) != 0.0D) {
-         var1.a(2, (class_qa)var5);
+         var1.a(2, (EntityLiving)var5);
       }
 
       return true;
@@ -65,7 +65,7 @@ public class class_abw extends Item {
       return 72000;
    }
 
-   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
       return new class_or(class_oq.a, var1);
    }

@@ -6,7 +6,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class PacketPlayOutBed implements Packet {
    private int a;
@@ -15,7 +15,7 @@ public class PacketPlayOutBed implements Packet {
    public PacketPlayOutBed() {
    }
 
-   public PacketPlayOutBed(class_xa var1, BlockPosition var2) {
+   public PacketPlayOutBed(EntityHuman var1, BlockPosition var2) {
       this.a = var1.getId();
       this.b = var2;
    }

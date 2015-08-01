@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 
 public class class_qy {
@@ -18,12 +18,12 @@ public class class_qy {
       this.a = var1;
    }
 
-   public void a(class_pr var1, float var2, float var3) {
+   public void a(Entity var1, float var2, float var3) {
       this.e = var1.s;
-      if(var1 instanceof class_qa) {
+      if(var1 instanceof EntityLiving) {
          this.f = var1.t + (double)var1.aU();
       } else {
-         this.f = (var1.aT().b + var1.aT().e) / 2.0D;
+         this.f = (var1.aT().yMin + var1.aT().yMax) / 2.0D;
       }
 
       this.g = var1.u;

@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afa;
 import net.minecraft.server.class_aua;
 import net.minecraft.server.class_auc;
@@ -25,13 +25,13 @@ public class class_afd {
       this.d = new class_afa(this);
       this.f = "";
       this.e = Lists.newArrayList();
-      this.e.add(class_aez.t);
-      this.e.add(class_aez.q);
-      this.e.add(class_aez.u);
-      this.e.add(class_aez.I);
-      this.e.add(class_aez.H);
-      this.e.add(class_aez.K);
-      this.e.add(class_aez.L);
+      this.e.add(BiomeBase.t);
+      this.e.add(BiomeBase.q);
+      this.e.add(BiomeBase.u);
+      this.e.add(BiomeBase.I);
+      this.e.add(BiomeBase.H);
+      this.e.add(BiomeBase.K);
+      this.e.add(BiomeBase.L);
    }
 
    public class_afd(long var1, class_aes var3, String var4) {
@@ -50,11 +50,11 @@ public class class_afd {
       return this.e;
    }
 
-   public class_aez a(BlockPosition var1) {
-      return this.a(var1, (class_aez)null);
+   public BiomeBase a(BlockPosition var1) {
+      return this.a(var1, (BiomeBase)null);
    }
 
-   public class_aez a(BlockPosition var1, class_aez var2) {
+   public BiomeBase a(BlockPosition var1, BiomeBase var2) {
       return this.d.a(var1.getX(), var1.getZ(), var2);
    }
 
@@ -68,7 +68,7 @@ public class class_afd {
 
       for(int var7 = 0; var7 < var4 * var5; ++var7) {
          try {
-            float var8 = (float)class_aez.a(var6[var7], class_aez.ad).h() / 65536.0F;
+            float var8 = (float)BiomeBase.a(var6[var7], BiomeBase.ad).h() / 65536.0F;
             if(var8 > 1.0F) {
                var8 = 1.0F;
             }
@@ -90,17 +90,17 @@ public class class_afd {
       return var1;
    }
 
-   public class_aez[] a(class_aez[] var1, int var2, int var3, int var4, int var5) {
+   public BiomeBase[] a(BiomeBase[] var1, int var2, int var3, int var4, int var5) {
       class_aua.a();
       if(var1 == null || var1.length < var4 * var5) {
-         var1 = new class_aez[var4 * var5];
+         var1 = new BiomeBase[var4 * var5];
       }
 
       int[] var6 = this.b.a(var2, var3, var4, var5);
 
       try {
          for(int var7 = 0; var7 < var4 * var5; ++var7) {
-            var1[var7] = class_aez.a(var6[var7], class_aez.ad);
+            var1[var7] = BiomeBase.a(var6[var7], BiomeBase.ad);
          }
 
          return var1;
@@ -116,25 +116,25 @@ public class class_afd {
       }
    }
 
-   public class_aez[] b(class_aez[] var1, int var2, int var3, int var4, int var5) {
+   public BiomeBase[] b(BiomeBase[] var1, int var2, int var3, int var4, int var5) {
       return this.a(var1, var2, var3, var4, var5, true);
    }
 
-   public class_aez[] a(class_aez[] var1, int var2, int var3, int var4, int var5, boolean var6) {
+   public BiomeBase[] a(BiomeBase[] var1, int var2, int var3, int var4, int var5, boolean var6) {
       class_aua.a();
       if(var1 == null || var1.length < var4 * var5) {
-         var1 = new class_aez[var4 * var5];
+         var1 = new BiomeBase[var4 * var5];
       }
 
       if(var6 && var4 == 16 && var5 == 16 && (var2 & 15) == 0 && (var3 & 15) == 0) {
-         class_aez[] var9 = this.d.c(var2, var3);
+         BiomeBase[] var9 = this.d.c(var2, var3);
          System.arraycopy(var9, 0, var1, 0, var4 * var5);
          return var1;
       } else {
          int[] var7 = this.c.a(var2, var3, var4, var5);
 
          for(int var8 = 0; var8 < var4 * var5; ++var8) {
-            var1[var8] = class_aez.a(var7[var8], class_aez.ad);
+            var1[var8] = BiomeBase.a(var7[var8], BiomeBase.ad);
          }
 
          return var1;
@@ -153,7 +153,7 @@ public class class_afd {
 
       try {
          for(int var12 = 0; var12 < var9 * var10; ++var12) {
-            class_aez var16 = class_aez.e(var11[var12]);
+            BiomeBase var16 = BiomeBase.e(var11[var12]);
             if(!var4.contains(var16)) {
                return false;
             }
@@ -187,7 +187,7 @@ public class class_afd {
       for(int var15 = 0; var15 < var10 * var11; ++var15) {
          int var16 = var6 + var15 % var10 << 2;
          int var17 = var7 + var15 / var10 << 2;
-         class_aez var18 = class_aez.e(var12[var15]);
+         BiomeBase var18 = BiomeBase.e(var12[var15]);
          if(var4.contains(var18) && (var13 == null || var5.nextInt(var14 + 1) == 0)) {
             var13 = new BlockPosition(var16, 0, var17);
             ++var14;

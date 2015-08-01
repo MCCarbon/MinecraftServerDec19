@@ -6,7 +6,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
@@ -39,15 +39,15 @@ public class class_ae extends class_i {
             var5 *= -1;
          }
 
-         class_lh var7 = var2.length > 1?a(var1, var2[1]):b(var1);
+         EntityPlayer var7 = var2.length > 1?a(var1, var2[1]):b(var1);
          if(var4) {
             var1.a(class_n.class_a_in_class_n.e, var7.bI);
             if(var6) {
                var7.a(-var5);
-               a(var1, this, "commands.xp.success.negative.levels", new Object[]{Integer.valueOf(var5), var7.e_()});
+               a(var1, this, "commands.xp.success.negative.levels", new Object[]{Integer.valueOf(var5), var7.getName()});
             } else {
                var7.a(var5);
-               a(var1, this, "commands.xp.success.levels", new Object[]{Integer.valueOf(var5), var7.e_()});
+               a(var1, this, "commands.xp.success.levels", new Object[]{Integer.valueOf(var5), var7.getName()});
             }
          } else {
             var1.a(class_n.class_a_in_class_n.e, var7.bJ);
@@ -56,7 +56,7 @@ public class class_ae extends class_i {
             }
 
             var7.o(var5);
-            a(var1, this, "commands.xp.success", new Object[]{Integer.valueOf(var5), var7.e_()});
+            a(var1, this, "commands.xp.success", new Object[]{Integer.valueOf(var5), var7.getName()});
          }
 
       }

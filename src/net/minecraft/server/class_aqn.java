@@ -21,13 +21,13 @@ public class class_aqn extends class_arn {
 
    public boolean b(World var1, Random var2, BlockPosition var3) {
       Block var4;
-      while(((var4 = var1.p(var3).getBlock()).getMaterial() == Material.AIR || var4.getMaterial() == Material.LEAVES) && var3.getY() > 0) {
-         var3 = var3.shiftDown();
+      while(((var4 = var1.getType(var3).getBlock()).getMaterial() == Material.AIR || var4.getMaterial() == Material.LEAVES) && var3.getY() > 0) {
+         var3 = var3.down();
       }
 
-      Block var5 = var1.p(var3).getBlock();
+      Block var5 = var1.getType(var3).getBlock();
       if(var5 == Blocks.DIRT || var5 == Blocks.GRASS) {
-         var3 = var3.shiftUp();
+         var3 = var3.up();
          this.a(var1, var3, this.b);
 
          for(int var6 = var3.getY(); var6 <= var3.getY() + 2; ++var6) {
@@ -41,7 +41,7 @@ public class class_aqn extends class_arn {
                   int var12 = var11 - var3.getZ();
                   if(Math.abs(var10) != var8 || Math.abs(var12) != var8 || var2.nextInt(2) != 0) {
                      BlockPosition var13 = new BlockPosition(var9, var6, var11);
-                     if(!var1.p(var13).getBlock().isFullBlock()) {
+                     if(!var1.getType(var13).getBlock().isFullBlock()) {
                         this.a(var1, var13, this.a);
                      }
                   }

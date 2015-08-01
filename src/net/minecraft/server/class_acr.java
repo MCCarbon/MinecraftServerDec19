@@ -5,13 +5,13 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_acr {
    private Object[][] a;
 
    public class_acr() {
-      this.a = new Object[][]{{Blocks.GOLD_BLOCK, new ItemStack(Items.m, 9)}, {Blocks.IRON_BLOCK, new ItemStack(Items.l, 9)}, {Blocks.DIAMOND_BLOCK, new ItemStack(Items.k, 9)}, {Blocks.EMERALD_BLOCK, new ItemStack(Items.bR, 9)}, {Blocks.LAPIS_BLOCK, new ItemStack(Items.aY, 9, class_zy.l.b())}, {Blocks.REDSTONE_BLOCK, new ItemStack(Items.aE, 9)}, {Blocks.COAL_BLOCK, new ItemStack(Items.j, 9, 0)}, {Blocks.HAY_BLOCK, new ItemStack(Items.Q, 9)}, {Blocks.SLINE, new ItemStack(Items.aO, 9)}};
+      this.a = new Object[][]{{Blocks.GOLD_BLOCK, new ItemStack(Items.m, 9)}, {Blocks.IRON_BLOCK, new ItemStack(Items.l, 9)}, {Blocks.DIAMOND_BLOCK, new ItemStack(Items.k, 9)}, {Blocks.EMERALD_BLOCK, new ItemStack(Items.bR, 9)}, {Blocks.LAPIS_BLOCK, new ItemStack(Items.aY, 9, EnumColor.l.b())}, {Blocks.REDSTONE_BLOCK, new ItemStack(Items.aE, 9)}, {Blocks.COAL_BLOCK, new ItemStack(Items.j, 9, 0)}, {Blocks.HAY_BLOCK, new ItemStack(Items.Q, 9)}, {Blocks.SLINE, new ItemStack(Items.aO, 9)}};
    }
 
    public void a(class_act var1) {

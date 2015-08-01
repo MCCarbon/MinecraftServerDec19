@@ -10,7 +10,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
@@ -31,7 +31,7 @@ public class class_ab extends class_i {
       if(var2.length < 2) {
          throw new class_cf("commands.enchant.usage", new Object[0]);
       } else {
-         class_lh var3 = a(var1, var2[0]);
+         EntityPlayer var3 = a(var1, var2[0]);
          var1.a(class_n.class_a_in_class_n.d, 0);
 
          class_adi var4;

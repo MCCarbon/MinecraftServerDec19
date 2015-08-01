@@ -8,9 +8,9 @@ import net.minecraft.server.class_awt;
 import net.minecraft.server.class_awu;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ew;
-import net.minecraft.server.class_fa;
+import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_mz;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 
 public class class_my {
    public final String e;
@@ -44,11 +44,11 @@ public class class_my {
    }
 
    public class_my h() {
-      if(class_nc.a.containsKey(this.e)) {
-         throw new RuntimeException("Duplicate stat id: \"" + ((class_my)class_nc.a.get(this.e)).a + "\" and \"" + this.a + "\" at id " + this.e);
+      if(StatisticList.a.containsKey(this.e)) {
+         throw new RuntimeException("Duplicate stat id: \"" + ((class_my)StatisticList.a.get(this.e)).a + "\" and \"" + this.a + "\" at id " + this.e);
       } else {
-         class_nc.b.add(this);
-         class_nc.a.put(this.e, this);
+         StatisticList.b.add(this);
+         StatisticList.a.put(this.e, this);
          return this;
       }
    }
@@ -60,13 +60,13 @@ public class class_my {
    public IChatBaseComponent e() {
       IChatBaseComponent var1 = this.a.f();
       var1.b().a(EnumChatFormat.GRAY);
-      var1.b().a(new class_ew(class_ew.class_a_in_class_ew.b, new class_fa(this.e)));
+      var1.b().a(new class_ew(class_ew.class_a_in_class_ew.b, new ChatComponentText(this.e)));
       return var1;
    }
 
    public IChatBaseComponent j() {
       IChatBaseComponent var1 = this.e();
-      IChatBaseComponent var2 = (new class_fa("[")).a(var1).a("]");
+      IChatBaseComponent var2 = (new ChatComponentText("[")).a(var1).a("]");
       var2.a(var1.b());
       return var2;
    }

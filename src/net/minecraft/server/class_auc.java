@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.concurrent.Callable;
 import net.minecraft.server.class_aes;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_api;
 import net.minecraft.server.class_ato;
 import net.minecraft.server.class_atp;
@@ -150,9 +150,9 @@ public abstract class class_auc {
    protected static boolean a(int var0, int var1) {
       if(var0 == var1) {
          return true;
-      } else if(var0 != class_aez.ab.az && var0 != class_aez.ac.az) {
-         final class_aez var2 = class_aez.e(var0);
-         final class_aez var3 = class_aez.e(var1);
+      } else if(var0 != BiomeBase.ab.az && var0 != BiomeBase.ac.az) {
+         final BiomeBase var2 = BiomeBase.e(var0);
+         final BiomeBase var3 = BiomeBase.e(var1);
 
          try {
             return var2 != null && var3 != null?var2.a(var3):false;
@@ -184,12 +184,12 @@ public abstract class class_auc {
             throw new class_e(var5);
          }
       } else {
-         return var1 == class_aez.ab.az || var1 == class_aez.ac.az;
+         return var1 == BiomeBase.ab.az || var1 == BiomeBase.ac.az;
       }
    }
 
    protected static boolean b(int var0) {
-      return var0 == class_aez.p.az || var0 == class_aez.N.az || var0 == class_aez.z.az;
+      return var0 == BiomeBase.p.az || var0 == BiomeBase.N.az || var0 == BiomeBase.z.az;
    }
 
    protected int a(int... var1) {

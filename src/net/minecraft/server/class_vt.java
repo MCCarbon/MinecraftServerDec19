@@ -3,9 +3,9 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_vn;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_vt extends class_vn {
    public class_vt(World var1) {
@@ -16,14 +16,14 @@ public class class_vt extends class_vn {
       super(var1, var2, var4, var6);
    }
 
-   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
-      if(this.l != null && this.l instanceof class_xa && this.l != var1) {
+   public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
+      if(this.l != null && this.l instanceof EntityHuman && this.l != var1) {
          return true;
       } else if(this.l != null && this.l != var1) {
          return false;
       } else {
-         if(!this.o.D) {
-            var1.a((class_pr)this);
+         if(!this.o.isClientSide) {
+            var1.a((Entity)this);
          }
 
          return true;
@@ -33,7 +33,7 @@ public class class_vt extends class_vn {
    public void a(int var1, int var2, int var3, boolean var4) {
       if(var4) {
          if(this.l != null) {
-            this.l.a((class_pr)null);
+            this.l.a((Entity)null);
          }
 
          if(this.q() == 0) {

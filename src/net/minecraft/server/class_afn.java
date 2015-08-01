@@ -3,15 +3,15 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.BlockPosition;
 
-public class class_afn extends class_aez {
-   protected class_aez aE;
+public class class_afn extends BiomeBase {
+   protected BiomeBase aE;
 
-   public class_afn(int var1, class_aez var2) {
+   public class_afn(int var1, BiomeBase var2) {
       super(var1);
       this.aE = var2;
       this.a(var2.ai, true);
@@ -56,11 +56,11 @@ public class class_afn extends class_aez {
       return this.aE.l();
    }
 
-   public boolean a(class_aez var1) {
+   public boolean a(BiomeBase var1) {
       return this.aE.a(var1);
    }
 
-   public class_aez.class_b_in_class_aez m() {
+   public BiomeBase.class_b_in_class_aez m() {
       return this.aE.m();
    }
 }

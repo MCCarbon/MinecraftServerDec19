@@ -4,10 +4,10 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aja;
-import net.minecraft.server.class_ajs;
-import net.minecraft.server.class_ajt;
-import net.minecraft.server.class_ajw;
+import net.minecraft.server.BlockLeaves;
+import net.minecraft.server.BlockLeaves1;
+import net.minecraft.server.BlockLog1;
+import net.minecraft.server.BlockWood;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.Material;
@@ -43,7 +43,7 @@ public class class_ark extends class_apw {
             for(int var12 = var3.getX() - var21; var12 <= var3.getX() + var21 && var8; ++var12) {
                for(var13 = var3.getZ() - var21; var13 <= var3.getZ() + var21 && var8; ++var13) {
                   if(var9 >= 0 && var9 < 256) {
-                     Block var14 = var1.p(var11.setPosition(var12, var9, var13)).getBlock();
+                     Block var14 = var1.getType(var11.setPosition(var12, var9, var13)).getBlock();
                      if(var14.getMaterial() != Material.AIR && var14.getMaterial() != Material.LEAVES) {
                         var8 = false;
                      }
@@ -57,9 +57,9 @@ public class class_ark extends class_apw {
          if(!var8) {
             return false;
          } else {
-            Block var20 = var1.p(var3.shiftDown()).getBlock();
+            Block var20 = var1.getType(var3.down()).getBlock();
             if((var20 == Blocks.GRASS || var20 == Blocks.DIRT || var20 == Blocks.FARMLAND) && var3.getY() < 256 - var4 - 1) {
-               this.a(var1, var3.shiftDown());
+               this.a(var1, var3.down());
                var21 = var2.nextInt(2);
                int var22 = 1;
                byte var23 = 0;
@@ -75,7 +75,7 @@ public class class_ark extends class_apw {
                         int var18 = var17 - var3.getZ();
                         if(Math.abs(var16) != var21 || Math.abs(var18) != var21 || var21 <= 0) {
                            BlockPosition var19 = new BlockPosition(var15, var24, var17);
-                           if(!var1.p(var19).getBlock().isFullBlock()) {
+                           if(!var1.getType(var19).getBlock().isFullBlock()) {
                               this.a(var1, var19, b);
                            }
                         }
@@ -97,9 +97,9 @@ public class class_ark extends class_apw {
                var13 = var2.nextInt(3);
 
                for(var24 = 0; var24 < var4 - var13; ++var24) {
-                  Block var25 = var1.p(var3.shiftUp(var24)).getBlock();
+                  Block var25 = var1.getType(var3.up(var24)).getBlock();
                   if(var25.getMaterial() == Material.AIR || var25.getMaterial() == Material.LEAVES) {
-                     this.a(var1, var3.shiftUp(var24), a);
+                     this.a(var1, var3.up(var24), a);
                   }
                }
 
@@ -114,7 +114,7 @@ public class class_ark extends class_apw {
    }
 
    static {
-      a = Blocks.LOG.getBlockData().set(class_ajt.b, class_ajw.class_a_in_class_ajw.b);
-      b = Blocks.LEAVES.getBlockData().set(class_ajs.Q, class_ajw.class_a_in_class_ajw.b).set(class_aja.b, Boolean.valueOf(false));
+      a = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.SPRUCE);
+      b = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.SPRUCE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

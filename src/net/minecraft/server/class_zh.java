@@ -11,8 +11,8 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.ItemBlock;
 
 public class class_zh extends Item {
@@ -22,8 +22,8 @@ public class class_zh extends Item {
       this.a = var1;
    }
 
-   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
-      IBlockData var10 = var3.p(var4);
+   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+      IBlockData var10 = var3.getType(var4);
       Block var11 = var10.getBlock();
       if(var11 == Blocks.SNOW_LAYER && ((Integer)var10.get(class_aky.a)).intValue() < 1) {
          var6 = EnumDirection.UP;
@@ -36,16 +36,16 @@ public class class_zh extends Item {
       } else if(var1.count == 0) {
          return class_oq.b;
       } else {
-         if(var3.a(this.a, var4, false, var6, (class_pr)null, var1)) {
-            IBlockData var12 = this.a.a(var3, var4, var6, var7, var8, var9, 0, var2);
-            if(var3.a((BlockPosition)var4, (IBlockData)var12, 3)) {
-               var12 = var3.p(var4);
+         if(var3.a(this.a, var4, false, var6, (Entity)null, var1)) {
+            IBlockData var12 = this.a.getPlacedState(var3, var4, var6, var7, var8, var9, 0, var2);
+            if(var3.setTypeAndData((BlockPosition)var4, (IBlockData)var12, 3)) {
+               var12 = var3.getType(var4);
                if(var12.getBlock() == this.a) {
                   ItemBlock.a(var3, var2, var4, var1);
-                  var12.getBlock().a(var3, var4, var12, var2, var1);
+                  var12.getBlock().postPlace(var3, var4, var12, var2, var1);
                }
 
-               var3.a((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), this.a.stepSound.b(), (this.a.stepSound.d() + 1.0F) / 2.0F, this.a.stepSound.e() * 0.8F);
+               var3.a((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), this.a.stepSound.getPlaceSound(), (this.a.stepSound.getVolume() + 1.0F) / 2.0F, this.a.stepSound.getPitch() * 0.8F);
                --var1.count;
                return class_oq.a;
             }

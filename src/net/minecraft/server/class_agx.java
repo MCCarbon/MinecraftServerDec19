@@ -22,14 +22,14 @@ public class class_agx extends Block {
 
    public class_agx() {
       super(Material.CLAY);
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
       return Items.aK;
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return 4;
    }
 
@@ -41,8 +41,8 @@ public class class_agx extends Block {
       return this.a;
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
-      super.c(var1, var2, var3);
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
+      super.onPlace(var1, var2, var3);
       this.e(var1, var2);
    }
 
@@ -53,12 +53,12 @@ public class class_agx extends Block {
          int var5;
          for(var4 = 0; var4 < this.l().c(); ++var4) {
             for(var5 = 0; var5 < this.l().b(); ++var5) {
-               var1.a((BlockPosition)var3.a(var4, var5, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
+               var1.setTypeAndData((BlockPosition)var3.a(var4, var5, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
             }
          }
 
-         if(!var1.D && var1.t instanceof class_apd) {
-            class_apc var7 = ((class_apd)var1.t).s();
+         if(!var1.isClientSide && var1.worldProvider instanceof class_apd) {
+            class_apc var7 = ((class_apd)var1.worldProvider).s();
             if(var7 != null) {
                var7.e();
             }

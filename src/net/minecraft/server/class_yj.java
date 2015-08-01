@@ -6,30 +6,30 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_adi;
-import net.minecraft.server.class_adk;
+import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.class_adl;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.class_ow;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_ye;
 import net.minecraft.server.class_yx;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
-public class class_yj extends class_xz {
-   public class_oj a = new class_ow("Enchant", true, 2) {
-      public int q_() {
+public class class_yj extends Container {
+   public IInventory a = new class_ow("Enchant", true, 2) {
+      public int getMaxStackSize() {
          return 64;
       }
 
-      public void p_() {
-         super.p_();
-         class_yj.this.a((class_oj)this);
+      public void update() {
+         super.update();
+         class_yj.this.a((IInventory)this);
       }
    };
    private World j;
@@ -40,7 +40,7 @@ public class class_yj extends class_xz {
    public int[] h = new int[]{-1, -1, -1};
    public int[] i = new int[]{-1, -1, -1};
 
-   public class_yj(class_wz var1, World var2, BlockPosition var3) {
+   public class_yj(PlayerInventory var1, World var2, BlockPosition var3) {
       this.j = var2;
       this.k = var3;
       this.f = var1.e.cl();
@@ -55,7 +55,7 @@ public class class_yj extends class_xz {
       }));
       this.a((class_yx)(new class_yx(this.a, 1, 35, 47) {
          public boolean a(ItemStack var1) {
-            return var1.getItem() == Items.aY && class_zy.a(var1.i()) == class_zy.l;
+            return var1.getItem() == Items.aY && EnumColor.a(var1.i()) == EnumColor.l;
          }
       }));
 
@@ -100,40 +100,40 @@ public class class_yj extends class_xz {
 
    }
 
-   public void a(class_oj var1) {
+   public void a(IInventory var1) {
       if(var1 == this.a) {
-         ItemStack var2 = var1.a(0);
+         ItemStack var2 = var1.getItem(0);
          int var3;
          if(var2 != null && var2.v()) {
-            if(!this.j.D) {
+            if(!this.j.isClientSide) {
                var3 = 0;
 
                int var4;
                for(var4 = -1; var4 <= 1; ++var4) {
                   for(int var5 = -1; var5 <= 1; ++var5) {
-                     if((var4 != 0 || var5 != 0) && this.j.d(this.k.add(var5, 0, var4)) && this.j.d(this.k.add(var5, 1, var4))) {
-                        if(this.j.p(this.k.add(var5 * 2, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
+                     if((var4 != 0 || var5 != 0) && this.j.isEmpty(this.k.add(var5, 0, var4)) && this.j.isEmpty(this.k.add(var5, 1, var4))) {
+                        if(this.j.getType(this.k.add(var5 * 2, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
 
-                        if(this.j.p(this.k.add(var5 * 2, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
+                        if(this.j.getType(this.k.add(var5 * 2, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
 
                         if(var5 != 0 && var4 != 0) {
-                           if(this.j.p(this.k.add(var5 * 2, 0, var4)).getBlock() == Blocks.BOOKSHELF) {
+                           if(this.j.getType(this.k.add(var5 * 2, 0, var4)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.add(var5 * 2, 1, var4)).getBlock() == Blocks.BOOKSHELF) {
+                           if(this.j.getType(this.k.add(var5 * 2, 1, var4)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.add(var5, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
+                           if(this.j.getType(this.k.add(var5, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.p(this.k.add(var5, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
+                           if(this.j.getType(this.k.add(var5, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
                         }
@@ -144,7 +144,7 @@ public class class_yj extends class_xz {
                this.l.setSeed((long)this.f);
 
                for(var4 = 0; var4 < 3; ++var4) {
-                  this.g[var4] = class_adk.a(this.l, var4, var3, var2);
+                  this.g[var4] = EnchantmentManager.a(this.l, var4, var3, var2);
                   this.h[var4] = -1;
                   this.i[var4] = -1;
                   if(this.g[var4] < var4 + 1) {
@@ -176,16 +176,16 @@ public class class_yj extends class_xz {
 
    }
 
-   public boolean a(class_xa var1, int var2) {
-      ItemStack var3 = this.a.a(0);
-      ItemStack var4 = this.a.a(1);
+   public boolean a(EntityHuman var1, int var2) {
+      ItemStack var3 = this.a.getItem(0);
+      ItemStack var4 = this.a.getItem(1);
       int var5 = var2 + 1;
       if((var4 == null || var4.count < var5) && !var1.bH.instabuild) {
          return false;
       } else if(this.g[var2] <= 0 || var3 == null || (var1.bI < var5 || var1.bI < this.g[var2]) && !var1.bH.instabuild) {
          return false;
       } else {
-         if(!this.j.D) {
+         if(!this.j.isClientSide) {
             List var6 = this.a(var3, var2, this.g[var2]);
             boolean var7 = var3.getItem() == Items.aN;
             if(var6 != null) {
@@ -206,12 +206,12 @@ public class class_yj extends class_xz {
                if(!var1.bH.instabuild) {
                   var4.count -= var5;
                   if(var4.count <= 0) {
-                     this.a.a(1, (ItemStack)null);
+                     this.a.setItem(1, (ItemStack)null);
                   }
                }
 
-               var1.b(class_nc.W);
-               this.a.p_();
+               var1.b(StatisticList.W);
+               this.a.update();
                this.f = var1.cl();
                this.a(this.a);
             }
@@ -223,7 +223,7 @@ public class class_yj extends class_xz {
 
    private List a(ItemStack var1, int var2, int var3) {
       this.l.setSeed((long)(this.f + var2));
-      List var4 = class_adk.b(this.l, var1, var3);
+      List var4 = EnchantmentManager.b(this.l, var1, var3);
       if(var1.getItem() == Items.aN && var4.size() > 1) {
          var4.remove(this.l.nextInt(var4.size()));
       }
@@ -231,11 +231,11 @@ public class class_yj extends class_xz {
       return var4;
    }
 
-   public void b(class_xa var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
-      if(!this.j.D) {
-         for(int var2 = 0; var2 < this.a.o_(); ++var2) {
-            ItemStack var3 = this.a.b(var2);
+      if(!this.j.isClientSide) {
+         for(int var2 = 0; var2 < this.a.getSize(); ++var2) {
+            ItemStack var3 = this.a.splitWithoutUpdate(var2);
             if(var3 != null) {
                var1.a(var3, false);
             }
@@ -244,11 +244,11 @@ public class class_yj extends class_xz {
       }
    }
 
-   public boolean a(class_xa var1) {
-      return this.j.p(this.k).getBlock() != Blocks.ENCHANTING_TABLE?false:var1.e((double)this.k.getX() + 0.5D, (double)this.k.getY() + 0.5D, (double)this.k.getZ() + 0.5D) <= 64.0D;
+   public boolean a(EntityHuman var1) {
+      return this.j.getType(this.k).getBlock() != Blocks.ENCHANTING_TABLE?false:var1.e((double)this.k.getX() + 0.5D, (double)this.k.getY() + 0.5D, (double)this.k.getZ() + 0.5D) <= 64.0D;
    }
 
-   public ItemStack b(class_xa var1, int var2) {
+   public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
@@ -262,7 +262,7 @@ public class class_yj extends class_xz {
             if(!this.a(var5, 2, 38, true)) {
                return null;
             }
-         } else if(var5.getItem() == Items.aY && class_zy.a(var5.i()) == class_zy.l) {
+         } else if(var5.getItem() == Items.aY && EnumColor.a(var5.i()) == EnumColor.l) {
             if(!this.a(var5, 1, 2, true)) {
                return null;
             }

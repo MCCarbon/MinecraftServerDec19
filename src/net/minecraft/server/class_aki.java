@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Block;
-import net.minecraft.server.class_akq;
+import net.minecraft.server.BlockSand;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateEnum;
@@ -14,9 +14,9 @@ public class class_aki extends Block {
    public static final BlockStateEnum a = BlockStateEnum.of("type", class_aki.class_a_in_class_aki.class);
 
    public class_aki() {
-      super(Material.STONE, class_akq.class_a_in_class_akq.b.c());
+      super(Material.STONE, BlockSand.EnumSandVariant.RED_SAND.getMapColor());
       this.setBlockData(this.blockStateList.getFirst().set(a, class_aki.class_a_in_class_aki.a));
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
    public int getDropData(IBlockData var1) {
@@ -31,7 +31,7 @@ public class class_aki extends Block {
       return ((class_aki.class_a_in_class_aki)var1.get(a)).a();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 

@@ -2,22 +2,22 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_ot;
-import net.minecraft.server.class_ou;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.ChestLock;
+import net.minecraft.server.ITileInventory;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_yf;
 
-public class class_oi implements class_ou {
+public class class_oi implements ITileInventory {
    private String a;
-   private class_ou b;
-   private class_ou c;
+   private ITileInventory b;
+   private ITileInventory c;
 
-   public class_oi(String var1, class_ou var2, class_ou var3) {
+   public class_oi(String var1, ITileInventory var2, ITileInventory var3) {
       this.a = var1;
       if(var2 == null) {
          var2 = var3;
@@ -29,116 +29,116 @@ public class class_oi implements class_ou {
 
       this.b = var2;
       this.c = var3;
-      if(var2.r_()) {
-         var3.a(var2.i());
-      } else if(var3.r_()) {
-         var2.a(var3.i());
+      if(var2.isLocked()) {
+         var3.setChestLock(var2.getChestLock());
+      } else if(var3.isLocked()) {
+         var2.setChestLock(var3.getChestLock());
       }
 
    }
 
-   public int o_() {
-      return this.b.o_() + this.c.o_();
+   public int getSize() {
+      return this.b.getSize() + this.c.getSize();
    }
 
-   public boolean a(class_oj var1) {
+   public boolean a(IInventory var1) {
       return this.b == var1 || this.c == var1;
    }
 
-   public String e_() {
-      return this.b.l_()?this.b.e_():(this.c.l_()?this.c.e_():this.a);
+   public String getName() {
+      return this.b.hasCustomName()?this.b.getName():(this.c.hasCustomName()?this.c.getName():this.a);
    }
 
-   public boolean l_() {
-      return this.b.l_() || this.c.l_();
+   public boolean hasCustomName() {
+      return this.b.hasCustomName() || this.c.hasCustomName();
    }
 
-   public IChatBaseComponent f_() {
-      return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.hasCustomName()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
-   public ItemStack a(int var1) {
-      return var1 >= this.b.o_()?this.c.a(var1 - this.b.o_()):this.b.a(var1);
+   public ItemStack getItem(int var1) {
+      return var1 >= this.b.getSize()?this.c.getItem(var1 - this.b.getSize()):this.b.getItem(var1);
    }
 
-   public ItemStack a(int var1, int var2) {
-      return var1 >= this.b.o_()?this.c.a(var1 - this.b.o_(), var2):this.b.a(var1, var2);
+   public ItemStack splitStack(int var1, int var2) {
+      return var1 >= this.b.getSize()?this.c.splitStack(var1 - this.b.getSize(), var2):this.b.splitStack(var1, var2);
    }
 
-   public ItemStack b(int var1) {
-      return var1 >= this.b.o_()?this.c.b(var1 - this.b.o_()):this.b.b(var1);
+   public ItemStack splitWithoutUpdate(int var1) {
+      return var1 >= this.b.getSize()?this.c.splitWithoutUpdate(var1 - this.b.getSize()):this.b.splitWithoutUpdate(var1);
    }
 
-   public void a(int var1, ItemStack var2) {
-      if(var1 >= this.b.o_()) {
-         this.c.a(var1 - this.b.o_(), var2);
+   public void setItem(int var1, ItemStack var2) {
+      if(var1 >= this.b.getSize()) {
+         this.c.setItem(var1 - this.b.getSize(), var2);
       } else {
-         this.b.a(var1, var2);
+         this.b.setItem(var1, var2);
       }
 
    }
 
-   public int q_() {
-      return this.b.q_();
+   public int getMaxStackSize() {
+      return this.b.getMaxStackSize();
    }
 
-   public void p_() {
-      this.b.p_();
-      this.c.p_();
+   public void update() {
+      this.b.update();
+      this.c.update();
    }
 
-   public boolean a(class_xa var1) {
-      return this.b.a(var1) && this.c.a(var1);
+   public boolean isReachable(EntityHuman var1) {
+      return this.b.isReachable(var1) && this.c.isReachable(var1);
    }
 
-   public void b(class_xa var1) {
-      this.b.b(var1);
-      this.c.b(var1);
+   public void startOpen(EntityHuman var1) {
+      this.b.startOpen(var1);
+      this.c.startOpen(var1);
    }
 
-   public void c(class_xa var1) {
-      this.b.c(var1);
-      this.c.c(var1);
+   public void closeContainer(EntityHuman var1) {
+      this.b.closeContainer(var1);
+      this.c.closeContainer(var1);
    }
 
-   public boolean b(int var1, ItemStack var2) {
+   public boolean canPlaceItem(int var1, ItemStack var2) {
       return true;
    }
 
-   public int a_(int var1) {
+   public int getProperty(int var1) {
       return 0;
    }
 
-   public void b(int var1, int var2) {
+   public void setProperty(int var1, int var2) {
    }
 
-   public int g() {
+   public int getPropertyCount() {
       return 0;
    }
 
-   public boolean r_() {
-      return this.b.r_() || this.c.r_();
+   public boolean isLocked() {
+      return this.b.isLocked() || this.c.isLocked();
    }
 
-   public void a(class_ot var1) {
-      this.b.a(var1);
-      this.c.a(var1);
+   public void setChestLock(ChestLock var1) {
+      this.b.setChestLock(var1);
+      this.c.setChestLock(var1);
    }
 
-   public class_ot i() {
-      return this.b.i();
+   public ChestLock getChestLock() {
+      return this.b.getChestLock();
    }
 
-   public String k() {
-      return this.b.k();
+   public String getContainerName() {
+      return this.b.getContainerName();
    }
 
-   public class_xz a(class_wz var1, class_xa var2) {
+   public Container createContainer(PlayerInventory var1, EntityHuman var2) {
       return new class_yf(var1, this, var2);
    }
 
-   public void l() {
-      this.b.l();
-      this.c.l();
+   public void remove() {
+      this.b.remove();
+      this.c.remove();
    }
 }

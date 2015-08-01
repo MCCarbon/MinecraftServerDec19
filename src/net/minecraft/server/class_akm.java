@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alp;
@@ -49,14 +49,14 @@ public class class_akm extends class_alp {
    protected class_akm(boolean var1) {
       this.N = var1;
       this.setTicking(true);
-      this.a((CreativeTab)null);
+      this.setCreativeTab((CreativeTab)null);
    }
 
-   public int a(World var1) {
+   public int tickInterval(World var1) {
       return 2;
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
       if(this.N) {
          EnumDirection[] var4 = EnumDirection.values();
          int var5 = var4.length;
@@ -69,7 +69,7 @@ public class class_akm extends class_alp {
 
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3) {
+   public void remove(World var1, BlockPosition var2, IBlockData var3) {
       if(this.N) {
          EnumDirection[] var4 = EnumDirection.values();
          int var5 = var4.length;
@@ -82,7 +82,7 @@ public class class_akm extends class_alp {
 
    }
 
-   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int a(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return this.N && var3.get(a) != var4?15:0;
    }
 
@@ -91,10 +91,10 @@ public class class_akm extends class_alp {
       return var1.b(var2.shift(var4), var4);
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+   public void randomTick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       boolean var5 = this.g(var1, var2, var3);
       List var6 = (List)b.get(var1);
 
@@ -104,9 +104,9 @@ public class class_akm extends class_alp {
 
       if(this.N) {
          if(var5) {
-            var1.a((BlockPosition)var2, (IBlockData)Blocks.UNLIT_REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.UNLIT_REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
             if(this.a(var1, var2, true)) {
-               var1.a((double)((float)var2.getX() + 0.5F), (double)((float)var2.getY() + 0.5F), (double)((float)var2.getZ() + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.s.nextFloat() - var1.s.nextFloat()) * 0.8F);
+               var1.a((double)((float)var2.getX() + 0.5F), (double)((float)var2.getY() + 0.5F), (double)((float)var2.getZ() + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
                for(int var7 = 0; var7 < 5; ++var7) {
                   double var8 = (double)var2.getX() + var4.nextDouble() * 0.6D + 0.2D;
@@ -115,25 +115,25 @@ public class class_akm extends class_alp {
                   var1.a(class_cy.l, var8, var10, var12, 0.0D, 0.0D, 0.0D, new int[0]);
                }
 
-               var1.a((BlockPosition)var2, (Block)var1.p(var2).getBlock(), 160);
+               var1.a((BlockPosition)var2, (Block)var1.getType(var2).getBlock(), 160);
             }
          }
       } else if(!var5 && !this.a(var1, var2, false)) {
-         var1.a((BlockPosition)var2, (IBlockData)Blocks.REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
       }
 
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2, var3)) {
          if(this.N == this.g(var1, var2, var3)) {
-            var1.a((BlockPosition)var2, (Block)this, this.a(var1));
+            var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1));
          }
 
       }
    }
 
-   public int b(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int b(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return var4 == EnumDirection.DOWN?this.a(var1, var2, var3, var4):0;
    }
 

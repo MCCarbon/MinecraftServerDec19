@@ -65,7 +65,7 @@ public class class_rd extends class_rg {
       }
 
       if(this.g == 240 && this.a.o.ab() == class_om.d) {
-         this.a.o.g(this.b);
+         this.a.o.setAir(this.b);
          this.a.o.b(1012, this.b, 0);
          this.a.o.b(2001, this.b, Block.getId((Block)this.c));
       }

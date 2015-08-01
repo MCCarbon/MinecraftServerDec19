@@ -3,20 +3,20 @@ package net.minecraft.server;
 import java.util.Arrays;
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_agz;
-import net.minecraft.server.class_ahj;
-import net.minecraft.server.class_akq;
+import net.minecraft.server.BlockCloth;
+import net.minecraft.server.BlockDirt;
+import net.minecraft.server.BlockSand;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_atb;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
-public class class_afl extends class_aez {
+public class class_afl extends BiomeBase {
    private IBlockData[] aD;
    private long aE;
    private class_atb aF;
@@ -32,7 +32,7 @@ public class class_afl extends class_aez {
       this.b();
       this.a(2.0F, 0.0F);
       this.au.clear();
-      this.ak = Blocks.SAND.getBlockData().set(class_akq.a, class_akq.class_a_in_class_akq.b);
+      this.ak = Blocks.SAND.getBlockData().set(BlockSand.VARIANT, BlockSand.EnumSandVariant.RED_SAND);
       this.al = Blocks.STAINED_HARDENED_CLAY.getBlockData();
       this.as.A = -999;
       this.as.D = 20;
@@ -127,11 +127,11 @@ public class class_afl extends class_aez {
                   if(var19 < var23 - 1) {
                      var3.a(var11, var19, var10, var24);
                      if(var24.getBlock() == Blocks.STAINED_HARDENED_CLAY) {
-                        var3.a(var11, var19, var10, var24.getBlock().getBlockData().set(class_agz.a, class_zy.b));
+                        var3.a(var11, var19, var10, var24.getBlock().getBlockData().set(BlockCloth.COLOR, EnumColor.b));
                      }
                   } else if(this.aJ && var19 > 86 + var15 * 2) {
                      if(var25) {
-                        var3.a(var11, var19, var10, Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.b));
+                        var3.a(var11, var19, var10, Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.COARSE_DIRT));
                      } else {
                         var3.a(var11, var19, var10, Blocks.GRASS.getBlockData());
                      }
@@ -146,7 +146,7 @@ public class class_afl extends class_aez {
                            var21 = this.a(var4, var19, var5);
                         }
                      } else {
-                        var21 = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.b);
+                        var21 = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.b);
                      }
 
                      var3.a(var11, var19, var10, var21);
@@ -154,7 +154,7 @@ public class class_afl extends class_aez {
                } else if(var17 > 0) {
                   --var17;
                   if(var26) {
-                     var3.a(var11, var19, var10, Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.b));
+                     var3.a(var11, var19, var10, Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.b));
                   } else {
                      var21 = this.a(var4, var19, var5);
                      var3.a(var11, var19, var10, var21);
@@ -176,7 +176,7 @@ public class class_afl extends class_aez {
       for(var4 = 0; var4 < 64; ++var4) {
          var4 += var3.nextInt(5) + 1;
          if(var4 < 64) {
-            this.aD[var4] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.b);
+            this.aD[var4] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.b);
          }
       }
 
@@ -191,7 +191,7 @@ public class class_afl extends class_aez {
          var7 = var3.nextInt(64);
 
          for(var8 = 0; var7 + var8 < 64 && var8 < var6; ++var8) {
-            this.aD[var7 + var8] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.e);
+            this.aD[var7 + var8] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.e);
          }
       }
 
@@ -203,7 +203,7 @@ public class class_afl extends class_aez {
          var8 = var3.nextInt(64);
 
          for(var9 = 0; var8 + var9 < 64 && var9 < var7; ++var9) {
-            this.aD[var8 + var9] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.m);
+            this.aD[var8 + var9] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.m);
          }
       }
 
@@ -214,7 +214,7 @@ public class class_afl extends class_aez {
          var9 = var3.nextInt(64);
 
          for(int var10 = 0; var9 + var10 < 64 && var10 < var8; ++var10) {
-            this.aD[var9 + var10] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.o);
+            this.aD[var9 + var10] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.o);
          }
       }
 
@@ -226,13 +226,13 @@ public class class_afl extends class_aez {
          var8 += var3.nextInt(16) + 4;
 
          for(int var11 = 0; var8 + var11 < 64 && var11 < var12; ++var11) {
-            this.aD[var8 + var11] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.a);
+            this.aD[var8 + var11] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.a);
             if(var8 + var11 > 1 && var3.nextBoolean()) {
-               this.aD[var8 + var11 - 1] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.i);
+               this.aD[var8 + var11 - 1] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.i);
             }
 
             if(var8 + var11 < 63 && var3.nextBoolean()) {
-               this.aD[var8 + var11 + 1] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(class_agz.a, class_zy.i);
+               this.aD[var8 + var11 + 1] = Blocks.STAINED_HARDENED_CLAY.getBlockData().set(BlockCloth.COLOR, EnumColor.i);
             }
          }
       }
@@ -244,8 +244,8 @@ public class class_afl extends class_aez {
       return this.aD[(var2 + var4 + 64) % 64];
    }
 
-   protected class_aez d(int var1) {
-      boolean var2 = this.az == class_aez.aa.az;
+   protected BiomeBase d(int var1) {
+      boolean var2 = this.az == BiomeBase.aa.az;
       class_afl var3 = new class_afl(var1, var2, this.aJ);
       if(!var2) {
          var3.a(g);

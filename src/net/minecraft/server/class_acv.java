@@ -25,10 +25,10 @@ public class class_acv implements class_acs {
    }
 
    public ItemStack[] b(class_yg var1) {
-      ItemStack[] var2 = new ItemStack[var1.o_()];
+      ItemStack[] var2 = new ItemStack[var1.getSize()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         ItemStack var4 = var1.a(var3);
+         ItemStack var4 = var1.getItem(var3);
          if(var4 != null && var4.getItem().r()) {
             var2[var3] = new ItemStack(var4.getItem().q());
          }
@@ -90,8 +90,8 @@ public class class_acv implements class_acs {
    public ItemStack a(class_yg var1) {
       ItemStack var2 = this.b().clone();
       if(this.e) {
-         for(int var3 = 0; var3 < var1.o_(); ++var3) {
-            ItemStack var4 = var1.a(var3);
+         for(int var3 = 0; var3 < var1.getSize(); ++var3) {
+            ItemStack var4 = var1.getItem(var3);
             if(var4 != null && var4.hasTag()) {
                var2.setTag((NBTTagCompound)var4.getTag().clone());
             }

@@ -10,11 +10,11 @@ import net.minecraft.server.class_c;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_e;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
+import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public abstract class class_aed implements class_m {
    private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
@@ -77,7 +77,7 @@ public abstract class class_aed implements class_m {
    }
 
    public void a(World var1) {
-      if(var1.D) {
+      if(var1.isClientSide) {
          this.b = 0;
       }
 
@@ -103,7 +103,7 @@ public abstract class class_aed implements class_m {
             });
             var6.a("Name", new Callable() {
                public String a() throws Exception {
-                  return class_aed.this.e_();
+                  return class_aed.this.getName();
                }
 
                // $FF: synthetic method
@@ -119,12 +119,12 @@ public abstract class class_aed implements class_m {
 
    }
 
-   public String e_() {
+   public String getName() {
       return this.f;
    }
 
-   public IChatBaseComponent f_() {
-      return new class_fa(this.e_());
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return new ChatComponentText(this.getName());
    }
 
    public void b(String var1) {
@@ -132,8 +132,8 @@ public abstract class class_aed implements class_m {
    }
 
    public void a(IChatBaseComponent var1) {
-      if(this.c && this.e() != null && !this.e().D) {
-         this.d = (new class_fa("[" + a.format(new Date()) + "] ")).a(var1);
+      if(this.c && this.e() != null && !this.e().isClientSide) {
+         this.d = (new ChatComponentText("[" + a.format(new Date()) + "] ")).a(var1);
          this.h();
       }
 
@@ -162,11 +162,11 @@ public abstract class class_aed implements class_m {
       return this.c;
    }
 
-   public boolean a(class_xa var1) {
+   public boolean a(EntityHuman var1) {
       if(!var1.bH.instabuild) {
          return false;
       } else {
-         if(var1.e().D) {
+         if(var1.e().isClientSide) {
             var1.a(this);
          }
 

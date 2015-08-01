@@ -7,9 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amj;
-import net.minecraft.server.class_amx;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityCommand;
+import net.minecraft.server.TileEntitySign;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -17,7 +17,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_bk extends class_i {
    public String c() {
@@ -93,25 +93,25 @@ public class class_bk extends class_i {
             World var7 = var1.e();
             class_n var8;
             BlockPosition var9;
-            class_amg var10;
+            TileEntity var10;
             if(var3) {
                var9 = a(var1, var2, 1, false);
-               var10 = var7.s(var9);
+               var10 = var7.getTileEntity(var9);
                if(var10 == null) {
                   throw new class_bz("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.getX()), Integer.valueOf(var9.getY()), Integer.valueOf(var9.getZ())});
                }
 
-               if(var10 instanceof class_amj) {
-                  var8 = ((class_amj)var10).c();
+               if(var10 instanceof TileEntityCommand) {
+                  var8 = ((TileEntityCommand)var10).c();
                } else {
-                  if(!(var10 instanceof class_amx)) {
+                  if(!(var10 instanceof TileEntitySign)) {
                      throw new class_bz("commands.stats.noCompatibleBlock", new Object[]{Integer.valueOf(var9.getX()), Integer.valueOf(var9.getY()), Integer.valueOf(var9.getZ())});
                   }
 
-                  var8 = ((class_amx)var10).d();
+                  var8 = ((TileEntitySign)var10).d();
                }
             } else {
-               class_pr var12 = b(var1, var2[1]);
+               Entity var12 = b(var1, var2[1]);
                var8 = var12.aW();
             }
 
@@ -131,8 +131,8 @@ public class class_bk extends class_i {
 
             if(var3) {
                var9 = a(var1, var2, 1, false);
-               var10 = var7.s(var9);
-               var10.p_();
+               var10 = var7.getTileEntity(var9);
+               var10.update();
             }
 
          }

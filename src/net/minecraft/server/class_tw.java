@@ -13,13 +13,13 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
 import net.minecraft.server.class_pp;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 
 public abstract class class_tw extends class_po implements class_pp {
    protected Block bv;
    private int bs;
-   private class_xa bt;
+   private EntityHuman bt;
 
    public class_tw(World var1) {
       super(var1);
@@ -62,7 +62,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    public float a(BlockPosition var1) {
-      return this.o.p(var1.shiftDown()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
+      return this.o.getType(var1.down()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
    }
 
    public void b(NBTTagCompound var1) {
@@ -77,10 +77,10 @@ public abstract class class_tw extends class_po implements class_pp {
 
    public boolean cf() {
       int var1 = MathHelper.floor(this.s);
-      int var2 = MathHelper.floor(this.aT().b);
+      int var2 = MathHelper.floor(this.aT().yMin);
       int var3 = MathHelper.floor(this.u);
       BlockPosition var4 = new BlockPosition(var1, var2, var3);
-      return this.o.p(var4.shiftDown()).getBlock() == this.bv && this.o.k(var4) > 8 && super.cf();
+      return this.o.getType(var4.down()).getBlock() == this.bv && this.o.k(var4) > 8 && super.cf();
    }
 
    public int y() {
@@ -91,15 +91,15 @@ public abstract class class_tw extends class_po implements class_pp {
       return false;
    }
 
-   protected int b(class_xa var1) {
-      return 1 + this.o.s.nextInt(3);
+   protected int b(EntityHuman var1) {
+      return 1 + this.o.random.nextInt(3);
    }
 
    public boolean d(ItemStack var1) {
       return var1 == null?false:var1.getItem() == Items.Q;
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null) {
          if(this.d(var3) && this.l() == 0 && this.bs <= 0) {
             this.a(var1, var3);
@@ -117,20 +117,20 @@ public abstract class class_tw extends class_po implements class_pp {
       return super.a(var1, var2, var3);
    }
 
-   protected void a(class_xa var1, ItemStack var2) {
+   protected void a(EntityHuman var1, ItemStack var2) {
       if(!var1.bH.instabuild) {
          --var2.count;
       }
 
    }
 
-   public void a(class_xa var1) {
+   public void a(EntityHuman var1) {
       this.bs = 600;
       this.bt = var1;
-      this.o.a((class_pr)this, (byte)18);
+      this.o.a((Entity)this, (byte)18);
    }
 
-   public class_xa cF() {
+   public EntityHuman cF() {
       return this.bt;
    }
 

@@ -5,13 +5,13 @@ import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutGameStateChange;
 import net.minecraft.server.class_li;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_kz extends class_li {
    private boolean c;
@@ -40,7 +40,7 @@ public class class_kz extends class_li {
 
       if(var1 % 24000L == 500L) {
          if(var3 <= 6L) {
-            this.b.a((IChatBaseComponent)(new class_fb("demo.day." + var3, new Object[0])));
+            this.b.a((IChatBaseComponent)(new ChatMessage("demo.day." + var3, new Object[0])));
          }
       } else if(var3 == 1L) {
          if(var1 == 100L) {
@@ -51,14 +51,14 @@ public class class_kz extends class_li {
             this.b.a.a((Packet)(new PacketPlayOutGameStateChange(5, 103.0F)));
          }
       } else if(var3 == 5L && var1 % 24000L == 22000L) {
-         this.b.a((IChatBaseComponent)(new class_fb("demo.day.warning", new Object[0])));
+         this.b.a((IChatBaseComponent)(new ChatMessage("demo.day.warning", new Object[0])));
       }
 
    }
 
    private void f() {
       if(this.e > 100) {
-         this.b.a((IChatBaseComponent)(new class_fb("demo.reminder", new Object[0])));
+         this.b.a((IChatBaseComponent)(new ChatMessage("demo.reminder", new Object[0])));
          this.e = 0;
       }
 
@@ -82,7 +82,7 @@ public class class_kz extends class_li {
       return this.d?false:super.b(var1);
    }
 
-   public class_oq a(class_xa var1, World var2, ItemStack var3, EnumUsedHand var4) {
+   public class_oq a(EntityHuman var1, World var2, ItemStack var3, EnumUsedHand var4) {
       if(this.d) {
          this.f();
          return class_oq.b;
@@ -91,7 +91,7 @@ public class class_kz extends class_li {
       }
    }
 
-   public class_oq a(class_xa var1, World var2, ItemStack var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(EntityHuman var1, World var2, ItemStack var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
       if(this.d) {
          this.f();
          return class_oq.b;

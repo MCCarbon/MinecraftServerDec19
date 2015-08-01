@@ -6,9 +6,9 @@ import java.util.List;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.class_aoc;
 import net.minecraft.server.class_aod;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_aoe {
    private final List a = Lists.newArrayList();
@@ -41,11 +41,11 @@ public class class_aoe {
       return (double)var1.e() > this.b() && (double)var1.c() < this.d() && (double)var1.f() > this.c() && (double)var1.d() < this.e();
    }
 
-   public boolean a(class_awf var1) {
-      return var1.d > this.b() && var1.a < this.d() && var1.f > this.c() && var1.c < this.e();
+   public boolean a(AxisAlignedBB var1) {
+      return var1.xMax > this.b() && var1.xMin < this.d() && var1.zMax > this.c() && var1.zMin < this.e();
    }
 
-   public double a(class_pr var1) {
+   public double a(Entity var1) {
       return this.b(var1.s, var1.u);
    }
 

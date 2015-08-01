@@ -6,78 +6,73 @@ import com.google.common.collect.Collections2;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Map;
-import net.minecraft.server.class_anv;
+
+import net.minecraft.server.BlockState;
 import net.minecraft.server.INamable;
 
-public class BlockStateEnum extends class_anv {
-   private final ImmutableSet a;
-   private final Map b = Maps.newHashMap();
+public class BlockStateEnum<T extends Enum<T>> extends BlockState<T> {
 
-   protected BlockStateEnum(String var1, Class var2, Collection var3) {
-      super(var1, var2);
-      this.a = ImmutableSet.copyOf(var3);
-      Iterator var4 = var3.iterator();
+	private final ImmutableSet<T> values;
+	private final Map<String, T> valuesByName = Maps.newHashMap();
 
-      while(var4.hasNext()) {
-         Enum var5 = (Enum)var4.next();
-         String var6 = ((INamable)var5).getName();
-         if(this.b.containsKey(var6)) {
-            throw new IllegalArgumentException("Multiple values have the same name \'" + var6 + "\'");
-         }
+	protected BlockStateEnum(String name, Class<T> clazz, Collection<T> states) {
+		super(name, clazz);
+		this.values = ImmutableSet.copyOf(states);
 
-         this.b.put(var6, var5);
-      }
+		for (T value : values) {
+			String vname = getValueName(value);
+			if (valuesByName.containsKey(vname)) {
+				throw new IllegalArgumentException("Multiple values have the same name \'" + vname + "\'");
+			}
 
-   }
+			this.valuesByName.put(vname, value);
+		}
+	}
 
-   public Collection c() {
-      return this.a;
-   }
+	public Collection<T> getValues() {
+		return this.values;
+	}
 
-   public String a(Enum var1) {
-      return ((INamable)var1).getName();
-   }
+	public String getValueName(T value) {
+		return ((INamable) value).getName();
+	}
 
-   public boolean equals(Object var1) {
-      if(this == var1) {
-         return true;
-      } else if(var1 instanceof BlockStateEnum && super.equals(var1)) {
-         BlockStateEnum var2 = (BlockStateEnum)var1;
-         return this.a.equals(var2.a) && this.b.equals(var2.b);
-      } else {
-         return false;
-      }
-   }
+	public boolean equals(Object obj) {
+		if (this == obj) {
+			return true;
+		} else if (obj instanceof BlockStateEnum && super.equals(obj)) {
+			BlockStateEnum<?> other = (BlockStateEnum<?>) obj;
+			return this.values.equals(other.values) && this.valuesByName.equals(other.valuesByName);
+		} else {
+			return false;
+		}
+	}
 
-   public int hashCode() {
-      int var1 = super.hashCode();
-      var1 = 31 * var1 + this.a.hashCode();
-      var1 = 31 * var1 + this.b.hashCode();
-      return var1;
-   }
+	public int hashCode() {
+		int hash = super.hashCode();
+		hash = 31 * hash + this.values.hashCode();
+		hash = 31 * hash + this.valuesByName.hashCode();
+		return hash;
+	}
 
-   public static BlockStateEnum of(String var0, Class var1) {
-      return a(var0, var1, Predicates.alwaysTrue());
-   }
+	public static <T extends Enum<T>> BlockStateEnum<T> of(String name, Class<T> clazz) {
+		return of(name, clazz, Predicates.<T>alwaysTrue());
+	}
 
-   public static BlockStateEnum a(String var0, Class var1, Predicate var2) {
-      return a(var0, var1, Collections2.filter(Lists.newArrayList(var1.getEnumConstants()), var2));
-   }
+	public static <T extends Enum<T>> BlockStateEnum<T> of(String name, Class<T> clazz, Predicate<T> filter) {
+		return of(name, clazz, Collections2.filter(Lists.newArrayList(clazz.getEnumConstants()), filter));
+	}
 
-   public static BlockStateEnum a(String var0, Class var1, Enum... var2) {
-      return a(var0, var1, (Collection)Lists.newArrayList((Object[])var2));
-   }
+	@SafeVarargs
+	public static <T extends Enum<T>> BlockStateEnum<T> of(String name, Class<T> clazz, T... array) {
+		return of(name, clazz, Lists.newArrayList(array));
+	}
 
-   public static BlockStateEnum a(String var0, Class var1, Collection var2) {
-      return new BlockStateEnum(var0, var1, var2);
-   }
+	public static <T extends Enum<T>> BlockStateEnum<T> of(String name, Class<T> clazz, Collection<T> collection) {
+		return new BlockStateEnum<T>(name, clazz, collection);
+	}
 
-   // $FF: synthetic method
-   // $FF: bridge method
-   public String a(Comparable var1) {
-      return this.a((Enum)var1);
-   }
 }

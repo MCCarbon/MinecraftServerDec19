@@ -9,7 +9,7 @@ import net.minecraft.server.CreativeTab;
 public class class_ais extends Block {
    public class_ais() {
       super(Material.STONE);
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {

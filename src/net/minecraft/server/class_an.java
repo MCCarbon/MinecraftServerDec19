@@ -4,8 +4,8 @@ import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
@@ -28,11 +28,11 @@ public class class_an extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].equalsIgnoreCase("ips")) {
-         var1.a(new class_fb("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().i().a().length)}));
-         var1.a(new class_fa(a(MinecraftServer.N().getPlayerList().i().a())));
+         var1.a(new ChatMessage("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().i().a().length)}));
+         var1.a(new ChatComponentText(a(MinecraftServer.N().getPlayerList().i().a())));
       } else {
-         var1.a(new class_fb("commands.banlist.players", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().h().a().length)}));
-         var1.a(new class_fa(a(MinecraftServer.N().getPlayerList().h().a())));
+         var1.a(new ChatMessage("commands.banlist.players", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().h().a().length)}));
+         var1.a(new ChatComponentText(a(MinecraftServer.N().getPlayerList().h().a())));
       }
 
    }

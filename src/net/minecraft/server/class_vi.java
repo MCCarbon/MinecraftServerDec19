@@ -4,11 +4,11 @@ import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_om;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_vh;
 
 public class class_vi extends class_vh {
@@ -23,15 +23,15 @@ public class class_vi extends class_vh {
       this.a = this.V.nextLong();
       this.c = this.V.nextInt(3) + 1;
       BlockPosition var8 = new BlockPosition(this);
-      if(!var1.D && var1.R().b("doFireTick") && (var1.ab() == class_om.c || var1.ab() == class_om.d) && var1.a((BlockPosition)var8, (int)10)) {
-         if(var1.p(var8).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.d(var1, var8)) {
-            var1.a(var8, Blocks.FIRE.getBlockData());
+      if(!var1.isClientSide && var1.R().b("doFireTick") && (var1.ab() == class_om.c || var1.ab() == class_om.d) && var1.a((BlockPosition)var8, (int)10)) {
+         if(var1.getType(var8).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var8)) {
+            var1.setTypeUpdate(var8, Blocks.FIRE.getBlockData());
          }
 
          for(int var9 = 0; var9 < 4; ++var9) {
             BlockPosition var10 = var8.add(this.V.nextInt(3) - 1, this.V.nextInt(3) - 1, this.V.nextInt(3) - 1);
-            if(var1.p(var10).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.d(var1, var10)) {
-               var1.a(var10, Blocks.FIRE.getBlockData());
+            if(var1.getType(var10).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var10)) {
+               var1.setTypeUpdate(var10, Blocks.FIRE.getBlockData());
             }
          }
       }
@@ -54,21 +54,21 @@ public class class_vi extends class_vh {
             this.b = 1;
             this.a = this.V.nextLong();
             BlockPosition var1 = new BlockPosition(this);
-            if(!this.o.D && this.o.R().b("doFireTick") && this.o.a((BlockPosition)var1, (int)10) && this.o.p(var1).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.d(this.o, var1)) {
-               this.o.a(var1, Blocks.FIRE.getBlockData());
+            if(!this.o.isClientSide && this.o.R().b("doFireTick") && this.o.a((BlockPosition)var1, (int)10) && this.o.getType(var1).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(this.o, var1)) {
+               this.o.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
             }
          }
       }
 
       if(this.b >= 0) {
-         if(this.o.D) {
+         if(this.o.isClientSide) {
             this.o.d(2);
          } else {
             double var6 = 3.0D;
-            List var3 = this.o.b((class_pr)this, (class_awf)(new class_awf(this.s - var6, this.t - var6, this.u - var6, this.s + var6, this.t + 6.0D + var6, this.u + var6)));
+            List var3 = this.o.b((Entity)this, (AxisAlignedBB)(new AxisAlignedBB(this.s - var6, this.t - var6, this.u - var6, this.s + var6, this.t + 6.0D + var6, this.u + var6)));
 
             for(int var4 = 0; var4 < var3.size(); ++var4) {
-               class_pr var5 = (class_pr)var3.get(var4);
+               Entity var5 = (Entity)var3.get(var4);
                var5.a(this);
             }
          }

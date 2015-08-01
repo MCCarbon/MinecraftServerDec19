@@ -7,20 +7,20 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ams;
-import net.minecraft.server.class_amt;
+import net.minecraft.server.TileEntityHopper;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pv;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.class_vq;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_yn;
 
 public class class_vs extends class_vq implements class_ams {
@@ -50,13 +50,13 @@ public class class_vs extends class_vq implements class_ams {
       return 1;
    }
 
-   public int o_() {
+   public int getSize() {
       return 5;
    }
 
-   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
-      if(!this.o.D) {
-         var1.a((class_oj)this);
+   public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
+      if(!this.o.isClientSide) {
+         var1.openContainer((IInventory)this);
       }
 
       return true;
@@ -78,7 +78,7 @@ public class class_vs extends class_vq implements class_ams {
       this.a = var1;
    }
 
-   public World z() {
+   public World getWorld() {
       return this.o;
    }
 
@@ -96,7 +96,7 @@ public class class_vs extends class_vq implements class_ams {
 
    public void t_() {
       super.t_();
-      if(!this.o.D && this.ai() && this.y()) {
+      if(!this.o.isClientSide && this.ai() && this.y()) {
          BlockPosition var1 = new BlockPosition(this);
          if(var1.equals(this.c)) {
             --this.b;
@@ -108,7 +108,7 @@ public class class_vs extends class_vq implements class_ams {
             this.m(0);
             if(this.D()) {
                this.m(4);
-               this.p_();
+               this.update();
             }
          }
       }
@@ -116,12 +116,12 @@ public class class_vs extends class_vq implements class_ams {
    }
 
    public boolean D() {
-      if(class_amt.a((class_ams)this)) {
+      if(TileEntityHopper.a((class_ams)this)) {
          return true;
       } else {
-         List var1 = this.o.a(class_vm.class, this.aT().b(0.25D, 0.0D, 0.25D), class_pv.a);
+         List var1 = this.o.a(EntityItem.class, this.aT().grow(0.25D, 0.0D, 0.25D), class_pv.a);
          if(!var1.isEmpty()) {
-            class_amt.a((class_oj)this, (class_vm)((class_vm)var1.get(0)));
+            TileEntityHopper.a((IInventory)this, (EntityItem)((EntityItem)var1.get(0)));
          }
 
          return false;
@@ -154,11 +154,11 @@ public class class_vs extends class_vq implements class_ams {
       return this.b > 0;
    }
 
-   public String k() {
+   public String getContainerName() {
       return "minecraft:hopper";
    }
 
-   public class_xz a(class_wz var1, class_xa var2) {
+   public Container createContainer(PlayerInventory var1, EntityHuman var2) {
       return new class_yn(var1, this, var2);
    }
 }

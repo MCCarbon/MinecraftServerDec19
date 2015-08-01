@@ -10,7 +10,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
@@ -31,7 +31,7 @@ public class class_aq extends class_i {
       if(var2.length < 2) {
          throw new class_cf("commands.tellraw.usage", new Object[0]);
       } else {
-         class_lh var3 = a(var1, var2[0]);
+         EntityPlayer var3 = a(var1, var2[0]);
          String var4 = a(var2, 1);
 
          try {

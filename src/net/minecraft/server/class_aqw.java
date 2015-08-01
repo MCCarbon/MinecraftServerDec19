@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alu;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anw;
+import net.minecraft.server.BlockStateBoolean;
 import net.minecraft.server.class_aqy;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
@@ -20,7 +20,7 @@ public class class_aqw extends class_aqy {
       if(!this.a(var1, var2, var3, var4)) {
          return false;
       } else {
-         this.c(var1, var3.shiftUp(var4), 2);
+         this.c(var1, var3.up(var4), 2);
 
          for(int var5 = var3.getY() + var4 - 2 - var2.nextInt(4); var5 > var3.getY() + var4 / 2; var5 -= 2 + var2.nextInt(4)) {
             float var6 = var2.nextFloat() * 3.1415927F * 2.0F;
@@ -44,40 +44,40 @@ public class class_aqw extends class_aqy {
          }
 
          for(int var13 = 0; var13 < var4; ++var13) {
-            BlockPosition var14 = var3.shiftUp(var13);
-            if(this.a(var1.p(var14).getBlock())) {
+            BlockPosition var14 = var3.up(var13);
+            if(this.a(var1.getType(var14).getBlock())) {
                this.a(var1, var14, this.b);
                if(var13 > 0) {
-                  this.a(var1, var2, var14.shiftWest(), class_alu.N);
-                  this.a(var1, var2, var14.shiftNorth(), class_alu.O);
+                  this.a(var1, var2, var14.west(), class_alu.N);
+                  this.a(var1, var2, var14.north(), class_alu.O);
                }
             }
 
             if(var13 < var4 - 1) {
-               BlockPosition var15 = var14.shiftEast();
-               if(this.a(var1.p(var15).getBlock())) {
+               BlockPosition var15 = var14.east();
+               if(this.a(var1.getType(var15).getBlock())) {
                   this.a(var1, var15, this.b);
                   if(var13 > 0) {
-                     this.a(var1, var2, var15.shiftEast(), class_alu.P);
-                     this.a(var1, var2, var15.shiftNorth(), class_alu.O);
+                     this.a(var1, var2, var15.east(), class_alu.P);
+                     this.a(var1, var2, var15.north(), class_alu.O);
                   }
                }
 
-               BlockPosition var16 = var14.shiftSouth().shiftEast();
-               if(this.a(var1.p(var16).getBlock())) {
+               BlockPosition var16 = var14.south().east();
+               if(this.a(var1.getType(var16).getBlock())) {
                   this.a(var1, var16, this.b);
                   if(var13 > 0) {
-                     this.a(var1, var2, var16.shiftEast(), class_alu.P);
-                     this.a(var1, var2, var16.shiftSouth(), class_alu.b);
+                     this.a(var1, var2, var16.east(), class_alu.P);
+                     this.a(var1, var2, var16.south(), class_alu.b);
                   }
                }
 
-               BlockPosition var17 = var14.shiftSouth();
-               if(this.a(var1.p(var17).getBlock())) {
+               BlockPosition var17 = var14.south();
+               if(this.a(var1.getType(var17).getBlock())) {
                   this.a(var1, var17, this.b);
                   if(var13 > 0) {
-                     this.a(var1, var2, var17.shiftWest(), class_alu.N);
-                     this.a(var1, var2, var17.shiftSouth(), class_alu.b);
+                     this.a(var1, var2, var17.west(), class_alu.N);
+                     this.a(var1, var2, var17.south(), class_alu.b);
                   }
                }
             }
@@ -87,8 +87,8 @@ public class class_aqw extends class_aqy {
       }
    }
 
-   private void a(World var1, Random var2, BlockPosition var3, class_anw var4) {
-      if(var2.nextInt(3) > 0 && var1.d(var3)) {
+   private void a(World var1, Random var2, BlockPosition var3, BlockStateBoolean var4) {
+      if(var2.nextInt(3) > 0 && var1.isEmpty(var3)) {
          this.a(var1, var3, Blocks.VINE.getBlockData().set(var4, Boolean.valueOf(true)));
       }
 
@@ -98,7 +98,7 @@ public class class_aqw extends class_aqy {
       byte var4 = 2;
 
       for(int var5 = -var4; var5 <= 0; ++var5) {
-         this.a(var1, var2.shiftUp(var5), var3 + 1 - var5);
+         this.a(var1, var2.up(var5), var3 + 1 - var5);
       }
 
    }

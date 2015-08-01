@@ -11,10 +11,10 @@ import net.minecraft.server.CreativeTab;
 public class class_agm extends Block {
    public class_agm() {
       super(Material.WOOD);
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return 3;
    }
 

@@ -5,16 +5,16 @@ import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahh;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 import org.apache.commons.lang3.Validate;
 
-public abstract class class_uz extends class_pr {
+public abstract class class_uz extends Entity {
    private int c;
    protected BlockPosition a;
    public EnumDirection b;
@@ -69,7 +69,7 @@ public abstract class class_uz extends class_pr {
          var14 /= 32.0D;
          var16 /= 32.0D;
          var18 /= 32.0D;
-         this.a((class_awf)(new class_awf(var1 - var14, var3 - var16, var5 - var18, var1 + var14, var3 + var16, var5 + var18)));
+         this.a((AxisAlignedBB)(new AxisAlignedBB(var1 - var14, var3 - var16, var5 - var18, var1 + var14, var3 + var16, var5 + var18)));
       }
    }
 
@@ -81,18 +81,18 @@ public abstract class class_uz extends class_pr {
       this.p = this.s;
       this.q = this.t;
       this.r = this.u;
-      if(this.c++ == 100 && !this.o.D) {
+      if(this.c++ == 100 && !this.o.isClientSide) {
          this.c = 0;
          if(!this.I && !this.j()) {
             this.J();
-            this.b((class_pr)null);
+            this.b((Entity)null);
          }
       }
 
    }
 
    public boolean j() {
-      if(!this.o.a((class_pr)this, (class_awf)this.aT()).isEmpty()) {
+      if(!this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty()) {
          return false;
       } else {
          int var1 = Math.max(1, this.l() / 16);
@@ -102,24 +102,24 @@ public abstract class class_uz extends class_pr {
 
          for(int var5 = 0; var5 < var1; ++var5) {
             for(int var6 = 0; var6 < var2; ++var6) {
-               BlockPosition var7 = var3.shift(var4, var5).shiftUp(var6);
-               Block var8 = this.o.p(var7).getBlock();
+               BlockPosition var7 = var3.shift(var4, var5).up(var6);
+               Block var8 = this.o.getType(var7).getBlock();
                if(!var8.getMaterial().isBuildable() && !class_ahh.d(var8)) {
                   return false;
                }
             }
          }
 
-         List var9 = this.o.b((class_pr)this, (class_awf)this.aT());
+         List var9 = this.o.b((Entity)this, (AxisAlignedBB)this.aT());
          Iterator var10 = var9.iterator();
 
-         class_pr var11;
+         Entity var11;
          do {
             if(!var10.hasNext()) {
                return true;
             }
 
-            var11 = (class_pr)var10.next();
+            var11 = (Entity)var10.next();
          } while(!(var11 instanceof class_uz));
 
          return false;
@@ -130,8 +130,8 @@ public abstract class class_uz extends class_pr {
       return true;
    }
 
-   public boolean l(class_pr var1) {
-      return var1 instanceof class_xa?this.a(class_pc.a((class_xa)var1), 0.0F):false;
+   public boolean l(Entity var1) {
+      return var1 instanceof EntityHuman?this.a(class_pc.a((EntityHuman)var1), 0.0F):false;
    }
 
    public EnumDirection aR() {
@@ -142,7 +142,7 @@ public abstract class class_uz extends class_pr {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
-         if(!this.I && !this.o.D) {
+         if(!this.I && !this.o.isClientSide) {
             this.J();
             this.ac();
             this.b(var1.j());
@@ -153,17 +153,17 @@ public abstract class class_uz extends class_pr {
    }
 
    public void d(double var1, double var3, double var5) {
-      if(!this.o.D && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
+      if(!this.o.isClientSide && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
          this.J();
-         this.b((class_pr)null);
+         this.b((Entity)null);
       }
 
    }
 
    public void g(double var1, double var3, double var5) {
-      if(!this.o.D && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
+      if(!this.o.isClientSide && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
          this.J();
-         this.b((class_pr)null);
+         this.b((Entity)null);
       }
 
    }
@@ -194,7 +194,7 @@ public abstract class class_uz extends class_pr {
 
    public abstract int m();
 
-   public abstract void b(class_pr var1);
+   public abstract void b(Entity var1);
 
    protected boolean af() {
       return false;
@@ -217,7 +217,7 @@ public abstract class class_uz extends class_pr {
       return this.a;
    }
 
-   public float a(Block.class_c_in_class_agj var1) {
+   public float a(Block.EnumRotation var1) {
       if(this.b.getAxis() != EnumDirection.EnumAxis.Y) {
          switch(class_uz.SyntheticClass_1.a[var1.ordinal()]) {
          case 1:
@@ -241,23 +241,23 @@ public abstract class class_uz extends class_pr {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[Block.class_c_in_class_agj.values().length];
+      static final int[] a = new int[Block.EnumRotation.values().length];
 
       static {
          try {
-            a[Block.class_c_in_class_agj.c.ordinal()] = 1;
+            a[Block.EnumRotation.CLOCKWISE_180.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.d.ordinal()] = 2;
+            a[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.b.ordinal()] = 3;
+            a[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

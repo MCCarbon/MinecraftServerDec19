@@ -5,7 +5,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class PacketPlayOutEntityStatus implements Packet {
    private int a;
@@ -14,7 +14,7 @@ public class PacketPlayOutEntityStatus implements Packet {
    public PacketPlayOutEntityStatus() {
    }
 
-   public PacketPlayOutEntityStatus(class_pr var1, byte var2) {
+   public PacketPlayOutEntityStatus(Entity var1, byte var2) {
       this.a = var1.getId();
       this.b = var2;
    }

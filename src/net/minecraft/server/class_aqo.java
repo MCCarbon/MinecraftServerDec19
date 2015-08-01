@@ -11,8 +11,8 @@ public class class_aqo extends class_aql {
    public boolean b(World var1, Random var2, BlockPosition var3) {
       for(int var4 = 0; var4 < 64; ++var4) {
          BlockPosition var5 = var3.add(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-         if(var1.d(var5) && var1.p(var5.shiftDown()).getBlock() == Blocks.NETHERRACK) {
-            var1.a((BlockPosition)var5, (IBlockData)Blocks.FIRE.getBlockData(), 2);
+         if(var1.isEmpty(var5) && var1.getType(var5.down()).getBlock() == Blocks.NETHERRACK) {
+            var1.setTypeAndData((BlockPosition)var5, (IBlockData)Blocks.FIRE.getBlockData(), 2);
          }
       }
 

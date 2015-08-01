@@ -6,7 +6,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 
 public class class_bh extends class_i {
@@ -26,11 +26,11 @@ public class class_bh extends class_i {
       if(var2.length > 1 && var2.length < 4) {
          throw new class_cf("commands.spawnpoint.usage", new Object[0]);
       } else {
-         class_lh var3 = var2.length > 0?a(var1, var2[0]):b(var1);
+         EntityPlayer var3 = var2.length > 0?a(var1, var2[0]):b(var1);
          BlockPosition var4 = var2.length > 3?a(var1, var2, 1, true):var3.c();
          if(var3.o != null) {
             var3.a((BlockPosition)var4, true);
-            a(var1, this, "commands.spawnpoint.success", new Object[]{var3.e_(), Integer.valueOf(var4.getX()), Integer.valueOf(var4.getY()), Integer.valueOf(var4.getZ())});
+            a(var1, this, "commands.spawnpoint.success", new Object[]{var3.getName(), Integer.valueOf(var4.getX()), Integer.valueOf(var4.getY()), Integer.valueOf(var4.getZ())});
          }
 
       }

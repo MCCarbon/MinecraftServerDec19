@@ -15,7 +15,7 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_vn;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_vr extends class_vn {
    private static final int c = class_qi.a(class_vr.class);
@@ -96,20 +96,20 @@ public class class_vr extends class_vn {
          this.b /= var1;
          double var3 = 1.0D;
          this.v *= 0.800000011920929D;
-         this.w *= 0.0D;
+         this.motY *= 0.0D;
          this.x *= 0.800000011920929D;
          this.v += this.a * var3;
          this.x += this.b * var3;
       } else {
          this.v *= 0.9800000190734863D;
-         this.w *= 0.0D;
+         this.motY *= 0.0D;
          this.x *= 0.9800000190734863D;
       }
 
       super.o();
    }
 
-   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
+   public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
       if(var2 != null && var2.getItem() == Items.j) {
          if(!var1.bH.instabuild) {
             --var2.count;

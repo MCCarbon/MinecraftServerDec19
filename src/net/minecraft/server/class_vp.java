@@ -10,10 +10,10 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_vn;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_vp extends class_vn {
    private static final int a = class_qi.a(class_vp.class);
@@ -36,7 +36,7 @@ public class class_vp extends class_vn {
          return class_vp.this.o;
       }
 
-      public class_pr f() {
+      public Entity f() {
          return class_vp.this;
       }
    };
@@ -88,7 +88,7 @@ public class class_vp extends class_vn {
 
    }
 
-   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
+   public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
       this.c.a(var1);
       return false;
    }

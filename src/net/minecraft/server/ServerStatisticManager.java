@@ -17,18 +17,18 @@ import java.util.Set;
 import java.util.Map.Entry;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutStatistic;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_ms;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_na;
 import net.minecraft.server.class_nb;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.class_nd;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -69,21 +69,21 @@ public class ServerStatisticManager extends class_nd {
 
    }
 
-   public void a(class_xa var1, class_my var2, int var3) {
+   public void a(EntityHuman var1, class_my var2, int var3) {
       int var4 = var2.d()?this.a((class_my)var2):0;
       super.a(var1, var2, var3);
       this.e.add(var2);
       if(var2.d() && var4 == 0 && var3 > 0) {
          this.g = true;
          if(this.c.aB()) {
-            this.c.getPlayerList().a((IChatBaseComponent)(new class_fb("chat.type.achievement", new Object[]{var1.f_(), var2.j()})));
+            this.c.getPlayerList().a((IChatBaseComponent)(new ChatMessage("chat.type.achievement", new Object[]{var1.getScoreboardDisplayName(), var2.j()})));
          }
       }
 
       if(var2.d() && var4 > 0 && var3 == 0) {
          this.g = true;
          if(this.c.aB()) {
-            this.c.getPlayerList().a((IChatBaseComponent)(new class_fb("chat.type.achievement.taken", new Object[]{var1.f_(), var2.j()})));
+            this.c.getPlayerList().a((IChatBaseComponent)(new ChatMessage("chat.type.achievement.taken", new Object[]{var1.getScoreboardDisplayName(), var2.j()})));
          }
       }
 
@@ -108,7 +108,7 @@ public class ServerStatisticManager extends class_nd {
          while(true) {
             while(var5.hasNext()) {
                Entry var6 = (Entry)var5.next();
-               class_my var7 = class_nc.a((String)var6.getKey());
+               class_my var7 = StatisticList.a((String)var6.getKey());
                if(var7 != null) {
                   class_na var8 = new class_na();
                   if(((JsonElement)var6.getValue()).isJsonPrimitive() && ((JsonElement)var6.getValue()).getAsJsonPrimitive().isNumber()) {
@@ -177,7 +177,7 @@ public class ServerStatisticManager extends class_nd {
 
    }
 
-   public void a(class_lh var1) {
+   public void a(EntityPlayer var1) {
       int var2 = this.c.at();
       HashMap var3 = Maps.newHashMap();
       if(this.g || var2 - this.f > 300) {
@@ -193,7 +193,7 @@ public class ServerStatisticManager extends class_nd {
       var1.a.a((Packet)(new PacketPlayOutStatistic(var3)));
    }
 
-   public void b(class_lh var1) {
+   public void b(EntityPlayer var1) {
       HashMap var2 = Maps.newHashMap();
       Iterator var3 = class_mt.e.iterator();
 

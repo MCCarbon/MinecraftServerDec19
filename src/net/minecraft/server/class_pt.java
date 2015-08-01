@@ -10,9 +10,9 @@ import java.util.Set;
 import net.minecraft.server.World;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_nc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_px;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityExperienceOrb;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_tu;
 import net.minecraft.server.class_tx;
@@ -37,8 +37,8 @@ import net.minecraft.server.class_vb;
 import net.minecraft.server.class_vc;
 import net.minecraft.server.class_vi;
 import net.minecraft.server.class_vk;
-import net.minecraft.server.class_vl;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.EntityFallingBlock;
+import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.class_vo;
 import net.minecraft.server.class_vp;
@@ -47,7 +47,7 @@ import net.minecraft.server.class_vs;
 import net.minecraft.server.class_vt;
 import net.minecraft.server.class_vu;
 import net.minecraft.server.class_vv;
-import net.minecraft.server.class_vw;
+import net.minecraft.server.EntityTNTPrimed;
 import net.minecraft.server.class_vy;
 import net.minecraft.server.class_vz;
 import net.minecraft.server.class_wa;
@@ -66,7 +66,7 @@ import net.minecraft.server.class_wp;
 import net.minecraft.server.class_wq;
 import net.minecraft.server.class_wr;
 import net.minecraft.server.class_wv;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_xe;
 import net.minecraft.server.class_xg;
@@ -116,13 +116,13 @@ public class class_pt {
       a.put(Integer.valueOf(var2), new class_pt.class_a_in_class_pt(var2, var3, var4));
    }
 
-   public static class_pr a(String var0, World var1) {
-      class_pr var2 = null;
+   public static Entity a(String var0, World var1) {
+      Entity var2 = null;
 
       try {
          Class var3 = (Class)c.get(var0);
          if(var3 != null) {
-            var2 = (class_pr)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
+            var2 = (Entity)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
          }
       } catch (Exception var4) {
          var4.printStackTrace();
@@ -131,8 +131,8 @@ public class class_pt {
       return var2;
    }
 
-   public static class_pr a(NBTTagCompound var0, World var1) {
-      class_pr var2 = null;
+   public static Entity a(NBTTagCompound var0, World var1) {
+      Entity var2 = null;
       if("Minecart".equals(var0.getString("id"))) {
          var0.put("id", class_vn.class_a_in_class_vn.a(var0.getInt("Type")).b());
          var0.remove("Type");
@@ -141,7 +141,7 @@ public class class_pt {
       try {
          Class var3 = (Class)c.get(var0.getString("id"));
          if(var3 != null) {
-            var2 = (class_pr)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
+            var2 = (Entity)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
          }
       } catch (Exception var4) {
          var4.printStackTrace();
@@ -156,13 +156,13 @@ public class class_pt {
       return var2;
    }
 
-   public static class_pr a(int var0, World var1) {
-      class_pr var2 = null;
+   public static Entity a(int var0, World var1) {
+      Entity var2 = null;
 
       try {
          Class var3 = a(var0);
          if(var3 != null) {
-            var2 = (class_pr)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
+            var2 = (Entity)var3.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
          }
       } catch (Exception var4) {
          var4.printStackTrace();
@@ -175,7 +175,7 @@ public class class_pt {
       return var2;
    }
 
-   public static int a(class_pr var0) {
+   public static int a(Entity var0) {
       Integer var1 = (Integer)f.get(var0.getClass());
       return var1 == null?0:var1.intValue();
    }
@@ -184,7 +184,7 @@ public class class_pt {
       return (Class)e.get(Integer.valueOf(var0));
    }
 
-   public static String b(class_pr var0) {
+   public static String b(Entity var0) {
       return (String)d.get(var0.getClass());
    }
 
@@ -212,9 +212,9 @@ public class class_pt {
       return var1;
    }
 
-   public static boolean a(class_pr var0, String var1) {
+   public static boolean a(Entity var0, String var1) {
       String var2 = b(var0);
-      if(var2 == null && var0 instanceof class_xa) {
+      if(var2 == null && var0 instanceof EntityHuman) {
          var2 = "Player";
       } else if(var2 == null && var0 instanceof class_vi) {
          var2 = "LightningBolt";
@@ -228,8 +228,8 @@ public class class_pt {
    }
 
    static {
-      a(class_vm.class, "Item", 1);
-      a(class_px.class, "XPOrb", 2);
+      a(EntityItem.class, "Item", 1);
+      a(EntityExperienceOrb.class, "XPOrb", 2);
       a(class_xp.class, "ThrownEgg", 7);
       a(class_vb.class, "LeashKnot", 8);
       a(class_vc.class, "Painting", 9);
@@ -243,8 +243,8 @@ public class class_pt {
       a(class_xr.class, "ThrownExpBottle", 17);
       a(class_va.class, "ItemFrame", 18);
       a(class_xu.class, "WitherSkull", 19);
-      a(class_vw.class, "PrimedTnt", 20);
-      a(class_vl.class, "FallingSand", 21);
+      a(EntityTNTPrimed.class, "PrimedTnt", 20);
+      a(EntityFallingBlock.class, "FallingSand", 21);
       a(class_xg.class, "FireworksRocketEntity", 22);
       a(class_xt.class, "TippedArrow", 23);
       a(class_xn.class, "SpectralArrow", 24);
@@ -307,8 +307,8 @@ public class class_pt {
          this.a = var1;
          this.b = var2;
          this.c = var3;
-         this.d = class_nc.a(this);
-         this.e = class_nc.b(this);
+         this.d = StatisticList.a(this);
+         this.e = StatisticList.b(this);
       }
    }
 }

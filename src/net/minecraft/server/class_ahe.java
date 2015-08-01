@@ -4,27 +4,27 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.class_aet;
-import net.minecraft.server.class_agd;
+import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_aml;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityLightDetector;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
-public class class_ahe extends class_agd {
-   public static final class_anz a = class_anz.a("power", 0, 15);
+public class class_ahe extends BlockContainer {
+   public static final BlockStateInteger a = BlockStateInteger.of("power", 0, 15);
    private final boolean b;
 
    public class_ahe(boolean var1) {
@@ -32,23 +32,23 @@ public class class_ahe extends class_agd {
       this.b = var1;
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.375F, 1.0F);
-      this.a(CreativeTab.d);
+      this.setCreativeTab(CreativeTab.REDSTONE);
       this.setStrength(0.2F);
       this.setStepSound(STEP_SOUND_WOOD);
       this.setName("daylightDetector");
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.375F, 1.0F);
    }
 
-   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int a(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return ((Integer)var3.get(a)).intValue();
    }
 
    public void f(World var1, BlockPosition var2) {
-      if(!var1.t.m()) {
-         IBlockData var3 = var1.p(var2);
+      if(!var1.worldProvider.m()) {
+         IBlockData var3 = var1.getType(var2);
          int var4 = var1.b(class_aet.a, var2) - var1.ac();
          float var5 = var1.d(1.0F);
          float var6 = var5 < 3.1415927F?0.0F:6.2831855F;
@@ -60,29 +60,29 @@ public class class_ahe extends class_agd {
          }
 
          if(((Integer)var3.get(a)).intValue() != var4) {
-            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var4)), 3);
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var4)), 3);
          }
 
       }
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var4.cp()) {
-         if(var1.D) {
+         if(var1.isClientSide) {
             return true;
          } else {
             if(this.b) {
-               var1.a((BlockPosition)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR.getBlockData().set(a, var3.get(a)), 4);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR.getBlockData().set(a, var3.get(a)), 4);
                Blocks.DAYLIGHT_DETECTOR.f(var1, var2);
             } else {
-               var1.a((BlockPosition)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR_INVERTED.getBlockData().set(a, var3.get(a)), 4);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR_INVERTED.getBlockData().set(a, var3.get(a)), 4);
                Blocks.DAYLIGHT_DETECTOR_INVERTED.f(var1, var2);
             }
 
             return true;
          }
       } else {
-         return super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9, var10);
+         return super.interact(var1, var2, var3, var4, var5, var6, var7, var8, var9, var10);
       }
    }
 
@@ -106,8 +106,8 @@ public class class_ahe extends class_agd {
       return true;
    }
 
-   public class_amg a(World var1, int var2) {
-      return new class_aml();
+   public TileEntity createTileEntity(World var1, int var2) {
+      return new TileEntityLightDetector();
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -118,7 +118,7 @@ public class class_ahe extends class_agd {
       return ((Integer)var1.get(a)).intValue();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 }

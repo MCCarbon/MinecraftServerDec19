@@ -13,14 +13,14 @@ import net.minecraft.server.CreativeTab;
 public class class_aij extends Block {
    public class_aij(Material var1) {
       super(var1);
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
-   public int a(int var1, Random var2) {
-      return MathHelper.clamp(this.a(var2) + var2.nextInt(var1 + 1), 1, 4);
+   public int getDropCount(int var1, Random var2) {
+      return MathHelper.clamp(this.getDropCount(var2) + var2.nextInt(var1 + 1), 1, 4);
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return 2 + var1.nextInt(3);
    }
 

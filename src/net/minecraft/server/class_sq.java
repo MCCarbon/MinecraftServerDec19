@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_uj;
 import net.minecraft.server.class_wv;
@@ -24,7 +24,7 @@ public class class_sq extends class_rm {
       } else if(!this.a.o.x()) {
          return false;
       } else {
-         List var1 = this.a.o.a(class_uj.class, this.a.aT().b(6.0D, 2.0D, 6.0D));
+         List var1 = this.a.o.getEntities(class_uj.class, this.a.aT().grow(6.0D, 2.0D, 6.0D));
          if(var1.isEmpty()) {
             return false;
          } else {
@@ -61,7 +61,7 @@ public class class_sq extends class_rm {
    public void e() {
       this.a.q().a(this.b, 30.0F, 30.0F);
       if(this.b.cB() == this.c) {
-         this.a.u().a((class_pr)this.b, 0.5D);
+         this.a.u().a((Entity)this.b, 0.5D);
          this.d = true;
       }
 

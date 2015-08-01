@@ -3,8 +3,8 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Collections;
 import java.util.List;
-import net.minecraft.server.class_lh;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityPlayer;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_qk;
@@ -21,7 +21,7 @@ public class class_sx extends class_rm {
    private class_qb b;
    private final Predicate c;
    private final class_sz.class_a_in_class_sz d;
-   private class_qa e;
+   private EntityLiving e;
    private Class f;
 
    public class_sx(class_qb var1, Class var2) {
@@ -32,7 +32,7 @@ public class class_sx extends class_rm {
       }
 
       this.c = new Predicate() {
-         public boolean a(class_qa var1) {
+         public boolean a(EntityLiving var1) {
             double var2 = class_sx.this.f();
             if(var1.ax()) {
                var2 *= 0.800000011920929D;
@@ -43,7 +43,7 @@ public class class_sx extends class_rm {
 
          // $FF: synthetic method
          public boolean apply(Object var1) {
-            return this.a((class_qa)var1);
+            return this.a((EntityLiving)var1);
          }
       };
       this.d = new class_sz.class_a_in_class_sz(var1);
@@ -51,25 +51,25 @@ public class class_sx extends class_rm {
 
    public boolean a() {
       double var1 = this.f();
-      List var3 = this.b.o.a(this.f, this.b.aT().b(var1, 4.0D, var1), this.c);
+      List var3 = this.b.o.a(this.f, this.b.aT().grow(var1, 4.0D, var1), this.c);
       Collections.sort(var3, this.d);
       if(var3.isEmpty()) {
          return false;
       } else {
-         this.e = (class_qa)var3.get(0);
+         this.e = (EntityLiving)var3.get(0);
          return true;
       }
    }
 
    public boolean b() {
-      class_qa var1 = this.b.w();
+      EntityLiving var1 = this.b.w();
       if(var1 == null) {
          return false;
       } else if(!var1.ai()) {
          return false;
       } else {
          double var2 = this.f();
-         return this.b.h(var1) > var2 * var2?false:!(var1 instanceof class_lh) || !((class_lh)var1).c.d();
+         return this.b.h(var1) > var2 * var2?false:!(var1 instanceof EntityPlayer) || !((EntityPlayer)var1).c.d();
       }
    }
 
@@ -79,7 +79,7 @@ public class class_sx extends class_rm {
    }
 
    public void d() {
-      this.b.d((class_qa)null);
+      this.b.d((EntityLiving)null);
       super.c();
    }
 

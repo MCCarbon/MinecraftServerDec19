@@ -2,101 +2,101 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
-import net.minecraft.server.class_aej;
+import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anw;
+import net.minecraft.server.BlockStateBoolean;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_vw;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityTNTPrimed;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.CreativeTab;
 
 public class class_alo extends Block {
-   public static final class_anw a = class_anw.a("explode");
+   public static final BlockStateBoolean a = BlockStateBoolean.of("explode");
 
    public class_alo() {
       super(Material.TNT);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
-      this.a(CreativeTab.d);
+      this.setCreativeTab(CreativeTab.REDSTONE);
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
-      super.c(var1, var2, var3);
-      if(var1.z(var2)) {
-         this.d(var1, var2, var3.set(a, Boolean.valueOf(true)));
-         var1.g(var2);
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
+      super.onPlace(var1, var2, var3);
+      if(var1.isBlockIndirectlyPowered(var2)) {
+         this.postBreak(var1, var2, var3.set(a, Boolean.valueOf(true)));
+         var1.setAir(var2);
       }
 
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(var1.z(var2)) {
-         this.d(var1, var2, var3.set(a, Boolean.valueOf(true)));
-         var1.g(var2);
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(var1.isBlockIndirectlyPowered(var2)) {
+         this.postBreak(var1, var2, var3.set(a, Boolean.valueOf(true)));
+         var1.setAir(var2);
       }
 
    }
 
-   public void a(World var1, BlockPosition var2, class_aej var3) {
-      if(!var1.D) {
-         class_vw var4 = new class_vw(var1, (double)((float)var2.getX() + 0.5F), (double)var2.getY(), (double)((float)var2.getZ() + 0.5F), var3.c());
-         var4.a = var1.s.nextInt(var4.a / 4) + var4.a / 8;
-         var1.a((class_pr)var4);
+   public void wasExploded(World var1, BlockPosition var2, Explosion var3) {
+      if(!var1.isClientSide) {
+         EntityTNTPrimed var4 = new EntityTNTPrimed(var1, (double)((float)var2.getX() + 0.5F), (double)var2.getY(), (double)((float)var2.getZ() + 0.5F), var3.getSource());
+         var4.a = var1.random.nextInt(var4.a / 4) + var4.a / 8;
+         var1.addEntity((Entity)var4);
       }
    }
 
-   public void d(World var1, BlockPosition var2, IBlockData var3) {
-      this.a(var1, var2, var3, (class_qa)null);
+   public void postBreak(World var1, BlockPosition var2, IBlockData var3) {
+      this.a(var1, var2, var3, (EntityLiving)null);
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4) {
-      if(!var1.D) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4) {
+      if(!var1.isClientSide) {
          if(((Boolean)var3.get(a)).booleanValue()) {
-            class_vw var5 = new class_vw(var1, (double)((float)var2.getX() + 0.5F), (double)var2.getY(), (double)((float)var2.getZ() + 0.5F), var4);
-            var1.a((class_pr)var5);
-            var1.a((class_pr)var5, "game.tnt.primed", 1.0F, 1.0F);
+            EntityTNTPrimed var5 = new EntityTNTPrimed(var1, (double)((float)var2.getX() + 0.5F), (double)var2.getY(), (double)((float)var2.getZ() + 0.5F), var4);
+            var1.addEntity((Entity)var5);
+            var1.a((Entity)var5, "game.tnt.primed", 1.0F, 1.0F);
          }
 
       }
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       if(var6 != null && (var6.getItem() == Items.d || var6.getItem() == Items.bO)) {
-         this.a(var1, var2, var3.set(a, Boolean.valueOf(true)), (class_qa)var4);
-         var1.g(var2);
+         this.a(var1, var2, var3.set(a, Boolean.valueOf(true)), (EntityLiving)var4);
+         var1.setAir(var2);
          if(var6.getItem() == Items.d) {
-            var6.a(1, (class_qa)var4);
+            var6.a(1, (EntityLiving)var4);
          } else if(!var4.bH.instabuild) {
             --var6.count;
          }
 
          return true;
       } else {
-         return super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9, var10);
+         return super.interact(var1, var2, var3, var4, var5, var6, var7, var8, var9, var10);
       }
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
-      if(!var1.D && var4 instanceof class_xd) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
+      if(!var1.isClientSide && var4 instanceof class_xd) {
          class_xd var5 = (class_xd)var4;
          if(var5.av()) {
-            this.a(var1, var2, var1.p(var2).set(a, Boolean.valueOf(true)), var5.e instanceof class_qa?(class_qa)var5.e:null);
-            var1.g(var2);
+            this.a(var1, var2, var1.getType(var2).set(a, Boolean.valueOf(true)), var5.e instanceof EntityLiving?(EntityLiving)var5.e:null);
+            var1.setAir(var2);
          }
       }
 
    }
 
-   public boolean a(class_aej var1) {
+   public boolean dropsFromExplosion(Explosion var1) {
       return false;
    }
 
@@ -108,7 +108,7 @@ public class class_alo extends Block {
       return ((Boolean)var1.get(a)).booleanValue()?1:0;
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 }

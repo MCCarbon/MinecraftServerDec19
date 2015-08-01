@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_aua;
 import net.minecraft.server.class_auc;
 
@@ -26,14 +26,14 @@ public class class_aui extends class_auc {
       int[] var7 = class_aua.a(var3 * var4);
 
       for(int var8 = 0; var8 < var3 * var4; ++var8) {
-         if(var5[var8] != class_aez.p.az && var5[var8] != class_aez.N.az) {
-            if(var6[var8] == class_aez.w.az) {
-               if(var5[var8] == class_aez.B.az) {
-                  var7[var8] = class_aez.A.az;
-               } else if(var5[var8] != class_aez.D.az && var5[var8] != class_aez.E.az) {
+         if(var5[var8] != BiomeBase.p.az && var5[var8] != BiomeBase.N.az) {
+            if(var6[var8] == BiomeBase.w.az) {
+               if(var5[var8] == BiomeBase.B.az) {
+                  var7[var8] = BiomeBase.A.az;
+               } else if(var5[var8] != BiomeBase.D.az && var5[var8] != BiomeBase.E.az) {
                   var7[var8] = var6[var8] & 255;
                } else {
-                  var7[var8] = class_aez.E.az;
+                  var7[var8] = BiomeBase.E.az;
                }
             } else {
                var7[var8] = var5[var8];

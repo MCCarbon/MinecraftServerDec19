@@ -81,10 +81,10 @@ public final class ItemStack {
 		return item;
 	}
 
-	public class_oq a(class_xa var1, World var2, BlockPosition var3, EnumUsedHand var4, EnumDirection var5, float var6, float var7, float var8) {
+	public class_oq a(EntityHuman var1, World var2, BlockPosition var3, EnumUsedHand var4, EnumDirection var5, float var6, float var7, float var8) {
 		class_oq var9 = getItem().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
 		if (var9 == class_oq.a) {
-			var1.b(class_nc.ad[Item.getId(item)]);
+			var1.b(StatisticList.ad[Item.getId(item)]);
 		}
 
 		return var9;
@@ -94,11 +94,11 @@ public final class ItemStack {
 		return getItem().a(this, var1);
 	}
 
-	public class_or a(World var1, class_xa var2, EnumUsedHand var3) {
+	public class_or a(World var1, EntityHuman var2, EnumUsedHand var3) {
 		return getItem().a(this, var1, var2, var3);
 	}
 
-	public ItemStack a(World var1, class_qa var2) {
+	public ItemStack a(World var1, EntityLiving var2) {
 		return getItem().a(this, var1, var2);
 	}
 
@@ -179,7 +179,7 @@ public final class ItemStack {
 			return false;
 		} else {
 			if (var1 > 0) {
-				int var3 = class_adk.a(class_adm.r, this);
+				int var3 = EnchantmentManager.getLevel(Enchantment.r, this);
 				int var4 = 0;
 
 				for (int var5 = 0; (var3 > 0) && (var5 < var1); ++var5) {
@@ -199,15 +199,15 @@ public final class ItemStack {
 		}
 	}
 
-	public void a(int var1, class_qa var2) {
-		if (!(var2 instanceof class_xa) || !((class_xa) var2).bH.instabuild) {
+	public void a(int var1, EntityLiving var2) {
+		if (!(var2 instanceof EntityHuman) || !((EntityHuman) var2).bH.instabuild) {
 			if (e()) {
 				if (this.a(var1, var2.bd())) {
 					var2.b(this);
 					--count;
-					if (var2 instanceof class_xa) {
-						class_xa var3 = (class_xa) var2;
-						var3.b(class_nc.ae[Item.getId(item)]);
+					if (var2 instanceof EntityHuman) {
+						EntityHuman var3 = (EntityHuman) var2;
+						var3.b(StatisticList.ae[Item.getId(item)]);
 					}
 
 					if (count < 0) {
@@ -221,18 +221,18 @@ public final class ItemStack {
 		}
 	}
 
-	public void a(class_qa var1, class_xa var2) {
+	public void a(EntityLiving var1, EntityHuman var2) {
 		boolean var3 = item.a(this, var1, var2);
 		if (var3) {
-			var2.b(class_nc.ad[Item.getId(item)]);
+			var2.b(StatisticList.ad[Item.getId(item)]);
 		}
 
 	}
 
-	public void a(World var1, Block var2, BlockPosition var3, class_xa var4) {
+	public void a(World var1, Block var2, BlockPosition var3, EntityHuman var4) {
 		boolean var5 = item.a(this, var1, var2, var3, var4);
 		if (var5) {
-			var4.b(class_nc.ad[Item.getId(item)]);
+			var4.b(StatisticList.ad[Item.getId(item)]);
 		}
 
 	}
@@ -241,7 +241,7 @@ public final class ItemStack {
 		return item.b(var1);
 	}
 
-	public boolean a(class_xa var1, class_qa var2, EnumUsedHand var3) {
+	public boolean a(EntityHuman var1, EntityLiving var2, EnumUsedHand var3) {
 		return item.a(this, var1, var2, var3);
 	}
 
@@ -286,7 +286,7 @@ public final class ItemStack {
 		return count + "x" + item.a() + "@" + data;
 	}
 
-	public void a(World var1, class_pr var2, int var3, boolean var4) {
+	public void a(World var1, Entity var2, int var3, boolean var4) {
 		if (c > 0) {
 			--c;
 		}
@@ -294,8 +294,8 @@ public final class ItemStack {
 		item.a(this, var1, var2, var3, var4);
 	}
 
-	public void a(World var1, class_xa var2, int var3) {
-		var2.a(class_nc.ac[Item.getId(item)], var3);
+	public void a(World var1, EntityHuman var2, int var3) {
+		var2.a(StatisticList.ac[Item.getId(item)], var3);
 		item.b(this, var1, var2);
 	}
 
@@ -307,7 +307,7 @@ public final class ItemStack {
 		return getItem().f(this);
 	}
 
-	public void a(World var1, class_qa var2, int var3) {
+	public void a(World var1, EntityLiving var2, int var3) {
 		getItem().a(this, var1, var2, var3);
 	}
 
@@ -470,16 +470,16 @@ public final class ItemStack {
 	}
 
 	public IChatBaseComponent B() {
-		class_fa var1 = new class_fa(getDisplayName());
+		ChatComponentText var1 = new ChatComponentText(getDisplayName());
 		if (hasDisplayName()) {
 			var1.b().b(Boolean.valueOf(true));
 		}
 
-		IChatBaseComponent var2 = (new class_fa("[")).a(var1).a("]");
+		IChatBaseComponent var2 = (new ChatComponentText("[")).a(var1).a("]");
 		if (item != null) {
 			NBTTagCompound var3 = new NBTTagCompound();
 			this.write(var3);
-			var2.b().a(new class_ew(class_ew.class_a_in_class_ew.c, new class_fa(var3.toString())));
+			var2.b().a(new class_ew(class_ew.class_a_in_class_ew.c, new ChatComponentText(var3.toString())));
 			var2.b().a(u().e);
 		}
 

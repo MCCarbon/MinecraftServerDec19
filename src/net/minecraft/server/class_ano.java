@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import net.minecraft.server.World;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 
@@ -11,7 +11,7 @@ public class class_ano {
    private final BlockPosition b;
    private final boolean c;
    private IBlockData d;
-   private class_amg e;
+   private TileEntity e;
    private boolean f;
 
    public class_ano(World var1, BlockPosition var2, boolean var3) {
@@ -22,15 +22,15 @@ public class class_ano {
 
    public IBlockData a() {
       if(this.d == null && (this.c || this.a.e(this.b))) {
-         this.d = this.a.p(this.b);
+         this.d = this.a.getType(this.b);
       }
 
       return this.d;
    }
 
-   public class_amg b() {
+   public TileEntity b() {
       if(this.e == null && !this.f) {
-         this.e = this.a.s(this.b);
+         this.e = this.a.getTileEntity(this.b);
          this.f = true;
       }
 

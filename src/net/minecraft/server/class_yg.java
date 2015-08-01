@@ -2,19 +2,19 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 
-public class class_yg implements class_oj {
+public class class_yg implements IInventory {
    private final ItemStack[] a;
    private final int b;
    private final int c;
-   private final class_xz d;
+   private final Container d;
 
-   public class_yg(class_xz var1, int var2, int var3) {
+   public class_yg(Container var1, int var2, int var3) {
       int var4 = var2 * var3;
       this.a = new ItemStack[var4];
       this.d = var1;
@@ -22,31 +22,31 @@ public class class_yg implements class_oj {
       this.c = var3;
    }
 
-   public int o_() {
+   public int getSize() {
       return this.a.length;
    }
 
-   public ItemStack a(int var1) {
-      return var1 >= this.o_()?null:this.a[var1];
+   public ItemStack getItem(int var1) {
+      return var1 >= this.getSize()?null:this.a[var1];
    }
 
    public ItemStack c(int var1, int var2) {
-      return var1 >= 0 && var1 < this.b && var2 >= 0 && var2 <= this.c?this.a(var1 + var2 * this.b):null;
+      return var1 >= 0 && var1 < this.b && var2 >= 0 && var2 <= this.c?this.getItem(var1 + var2 * this.b):null;
    }
 
-   public String e_() {
+   public String getName() {
       return "container.crafting";
    }
 
-   public boolean l_() {
+   public boolean hasCustomName() {
       return false;
    }
 
-   public IChatBaseComponent f_() {
-      return (IChatBaseComponent)(this.l_()?new class_fa(this.e_()):new class_fb(this.e_(), new Object[0]));
+   public IChatBaseComponent getScoreboardDisplayName() {
+      return (IChatBaseComponent)(this.hasCustomName()?new ChatComponentText(this.getName()):new ChatMessage(this.getName(), new Object[0]));
    }
 
-   public ItemStack b(int var1) {
+   public ItemStack splitWithoutUpdate(int var1) {
       if(this.a[var1] != null) {
          ItemStack var2 = this.a[var1];
          this.a[var1] = null;
@@ -56,13 +56,13 @@ public class class_yg implements class_oj {
       }
    }
 
-   public ItemStack a(int var1, int var2) {
+   public ItemStack splitStack(int var1, int var2) {
       if(this.a[var1] != null) {
          ItemStack var3;
          if(this.a[var1].count <= var2) {
             var3 = this.a[var1];
             this.a[var1] = null;
-            this.d.a((class_oj)this);
+            this.d.a((IInventory)this);
             return var3;
          } else {
             var3 = this.a[var1].a(var2);
@@ -70,7 +70,7 @@ public class class_yg implements class_oj {
                this.a[var1] = null;
             }
 
-            this.d.a((class_oj)this);
+            this.d.a((IInventory)this);
             return var3;
          }
       } else {
@@ -78,44 +78,44 @@ public class class_yg implements class_oj {
       }
    }
 
-   public void a(int var1, ItemStack var2) {
+   public void setItem(int var1, ItemStack var2) {
       this.a[var1] = var2;
-      this.d.a((class_oj)this);
+      this.d.a((IInventory)this);
    }
 
-   public int q_() {
+   public int getMaxStackSize() {
       return 64;
    }
 
-   public void p_() {
+   public void update() {
    }
 
-   public boolean a(class_xa var1) {
+   public boolean isReachable(EntityHuman var1) {
       return true;
    }
 
-   public void b(class_xa var1) {
+   public void startOpen(EntityHuman var1) {
    }
 
-   public void c(class_xa var1) {
+   public void closeContainer(EntityHuman var1) {
    }
 
-   public boolean b(int var1, ItemStack var2) {
+   public boolean canPlaceItem(int var1, ItemStack var2) {
       return true;
    }
 
-   public int a_(int var1) {
+   public int getProperty(int var1) {
       return 0;
    }
 
-   public void b(int var1, int var2) {
+   public void setProperty(int var1, int var2) {
    }
 
-   public int g() {
+   public int getPropertyCount() {
       return 0;
    }
 
-   public void l() {
+   public void remove() {
       for(int var1 = 0; var1 < this.a.length; ++var1) {
          this.a[var1] = null;
       }

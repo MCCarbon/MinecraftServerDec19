@@ -8,7 +8,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
@@ -16,12 +16,12 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pe;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
-public class class_vk extends class_pr {
+public class class_vk extends Entity {
    private static final int a = class_qi.a(class_vk.class);
    private static final int b = class_qi.a(class_vk.class);
    private static final int c = class_qi.a(class_vk.class);
@@ -52,11 +52,11 @@ public class class_vk extends class_pr {
       this.ac.a(c, new Float(0.0F));
    }
 
-   public class_awf j(class_pr var1) {
+   public AxisAlignedBB j(Entity var1) {
       return var1.aT();
    }
 
-   public class_awf S() {
+   public AxisAlignedBB S() {
       return this.aT();
    }
 
@@ -68,7 +68,7 @@ public class class_vk extends class_pr {
       this(var1);
       this.b(var2, var4, var6);
       this.v = 0.0D;
-      this.w = 0.0D;
+      this.motY = 0.0D;
       this.x = 0.0D;
       this.p = var2;
       this.q = var4;
@@ -82,7 +82,7 @@ public class class_vk extends class_pr {
    public boolean a(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(!this.o.D && !this.I) {
+      } else if(!this.o.isClientSide && !this.I) {
          if(this.l != null && this.l == var1.j() && var1 instanceof class_pe) {
             return false;
          } else {
@@ -90,10 +90,10 @@ public class class_vk extends class_pr {
             this.a(10);
             this.a(this.j() + var2 * 10.0F);
             this.ac();
-            boolean var3 = var1.j() instanceof class_xa && ((class_xa)var1.j()).bH.instabuild;
+            boolean var3 = var1.j() instanceof EntityHuman && ((EntityHuman)var1.j()).bH.instabuild;
             if(var3 || this.j() > 40.0F) {
                if(this.l != null) {
-                  this.l.a((class_pr)this);
+                  this.l.a((Entity)this);
                }
 
                if(!var3 && this.o.R().b("doEntityDrops")) {
@@ -131,9 +131,9 @@ public class class_vk extends class_pr {
       double var2 = 0.0D;
 
       for(int var4 = 0; var4 < var1; ++var4) {
-         double var5 = this.aT().b + (this.aT().e - this.aT().b) * (double)(var4 + 0) / (double)var1 - 0.125D;
-         double var7 = this.aT().b + (this.aT().e - this.aT().b) * (double)(var4 + 1) / (double)var1 - 0.125D;
-         class_awf var9 = new class_awf(this.aT().a, var5, this.aT().c, this.aT().d, var7, this.aT().f);
+         double var5 = this.aT().yMin + (this.aT().yMax - this.aT().yMin) * (double)(var4 + 0) / (double)var1 - 0.125D;
+         double var7 = this.aT().yMin + (this.aT().yMax - this.aT().yMin) * (double)(var4 + 1) / (double)var1 - 0.125D;
+         AxisAlignedBB var9 = new AxisAlignedBB(this.aT().xMin, var5, this.aT().zMin, this.aT().xMax, var7, this.aT().zMax);
          if(this.o.b(var9, Material.WATER)) {
             var2 += 1.0D / (double)var1;
          }
@@ -155,18 +155,18 @@ public class class_vk extends class_pr {
             if(this.V.nextBoolean()) {
                var15 = this.s - var6 * var11 * 0.8D + var8 * var13;
                var17 = this.u - var8 * var11 * 0.8D - var6 * var13;
-               this.o.a(class_cy.f, var15, this.t - 0.125D, var17, this.v, this.w, this.x, new int[0]);
+               this.o.a(class_cy.f, var15, this.t - 0.125D, var17, this.v, this.motY, this.x, new int[0]);
             } else {
                var15 = this.s + var6 + var8 * var11 * 0.7D;
                var17 = this.u + var8 - var6 * var11 * 0.7D;
-               this.o.a(class_cy.f, var15, this.t - 0.125D, var17, this.v, this.w, this.x, new int[0]);
+               this.o.a(class_cy.f, var15, this.t - 0.125D, var17, this.v, this.motY, this.x, new int[0]);
             }
          }
       }
 
       double var24;
       double var26;
-      if(this.o.D && this.d) {
+      if(this.o.isClientSide && this.d) {
          if(this.f > 0) {
             var6 = this.s + (this.g - this.s) / (double)this.f;
             var8 = this.t + (this.h - this.t) / (double)this.f;
@@ -179,34 +179,34 @@ public class class_vk extends class_pr {
             this.b(this.y, this.z);
          } else {
             var6 = this.s + this.v;
-            var8 = this.t + this.w;
+            var8 = this.t + this.motY;
             var24 = this.u + this.x;
             this.b(var6, var8, var24);
             if(this.C) {
                this.v *= 0.5D;
-               this.w *= 0.5D;
+               this.motY *= 0.5D;
                this.x *= 0.5D;
             }
 
             this.v *= 0.9900000095367432D;
-            this.w *= 0.949999988079071D;
+            this.motY *= 0.949999988079071D;
             this.x *= 0.9900000095367432D;
          }
 
       } else {
          if(var2 < 1.0D) {
             var6 = var2 * 2.0D - 1.0D;
-            this.w += 0.03999999910593033D * var6;
+            this.motY += 0.03999999910593033D * var6;
          } else {
-            if(this.w < 0.0D) {
-               this.w /= 2.0D;
+            if(this.motY < 0.0D) {
+               this.motY /= 2.0D;
             }
 
-            this.w += 0.007000000216066837D;
+            this.motY += 0.007000000216066837D;
          }
 
-         if(this.l instanceof class_qa) {
-            class_qa var20 = (class_qa)this.l;
+         if(this.l instanceof EntityLiving) {
+            EntityLiving var20 = (EntityLiving)this.l;
             float var21 = this.l.y + -var20.bc * 90.0F;
             this.v += -Math.sin((double)(var21 * 3.1415927F / 180.0F)) * this.e * (double)var20.bd * 0.05000000074505806D;
             this.x += Math.cos((double)(var21 * 3.1415927F / 180.0F)) * this.e * (double)var20.bd * 0.05000000074505806D;
@@ -240,9 +240,9 @@ public class class_vk extends class_pr {
             for(int var25 = 0; var25 < 2; ++var25) {
                int var12 = MathHelper.floor(this.t) + var25;
                BlockPosition var27 = new BlockPosition(var23, var12, var10);
-               Block var14 = this.o.p(var27).getBlock();
+               Block var14 = this.o.getType(var27).getBlock();
                if(var14 == Blocks.SNOW_LAYER) {
-                  this.o.g(var27);
+                  this.o.setAir(var27);
                   this.D = false;
                } else if(var14 == Blocks.WATERLILY) {
                   this.o.b(var27, true);
@@ -253,13 +253,13 @@ public class class_vk extends class_pr {
 
          if(this.C) {
             this.v *= 0.5D;
-            this.w *= 0.5D;
+            this.motY *= 0.5D;
             this.x *= 0.5D;
          }
 
-         this.d(this.v, this.w, this.x);
+         this.d(this.v, this.motY, this.x);
          if(this.D && var19 > 0.2975D) {
-            if(!this.o.D && !this.I) {
+            if(!this.o.isClientSide && !this.I) {
                this.J();
                if(this.o.R().b("doEntityDrops")) {
                   for(var22 = 0; var22 < 3; ++var22) {
@@ -273,7 +273,7 @@ public class class_vk extends class_pr {
             }
          } else {
             this.v *= 0.9900000095367432D;
-            this.w *= 0.949999988079071D;
+            this.motY *= 0.949999988079071D;
             this.x *= 0.9900000095367432D;
          }
 
@@ -296,11 +296,11 @@ public class class_vk extends class_pr {
 
          this.y = (float)((double)this.y + var28);
          this.b(this.y, this.z);
-         if(!this.o.D) {
-            List var16 = this.o.b((class_pr)this, (class_awf)this.aT().b(0.20000000298023224D, 0.0D, 0.20000000298023224D));
+         if(!this.o.isClientSide) {
+            List var16 = this.o.b((Entity)this, (AxisAlignedBB)this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D));
             if(var16 != null && !var16.isEmpty()) {
                for(int var29 = 0; var29 < var16.size(); ++var29) {
-                  class_pr var18 = (class_pr)var16.get(var29);
+                  Entity var18 = (Entity)var16.get(var29);
                   if(var18 != this.l && var18.ae() && var18 instanceof class_vk) {
                      var18.i(this);
                   }
@@ -329,12 +329,12 @@ public class class_vk extends class_pr {
    protected void a(NBTTagCompound var1) {
    }
 
-   public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
-      if(this.l != null && this.l instanceof class_xa && this.l != var1) {
+   public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
+      if(this.l != null && this.l instanceof EntityHuman && this.l != var1) {
          return true;
       } else {
-         if(!this.o.D) {
-            var1.a((class_pr)this);
+         if(!this.o.isClientSide) {
+            var1.a((Entity)this);
          }
 
          return true;
@@ -345,7 +345,7 @@ public class class_vk extends class_pr {
       if(var3) {
          if(this.O > 3.0F) {
             this.e(this.O, 1.0F);
-            if(!this.o.D && !this.I) {
+            if(!this.o.isClientSide && !this.I) {
                this.J();
                if(this.o.R().b("doEntityDrops")) {
                   int var6;
@@ -361,7 +361,7 @@ public class class_vk extends class_pr {
 
             this.O = 0.0F;
          }
-      } else if(this.o.p((new BlockPosition(this)).shiftDown()).getBlock().getMaterial() != Material.WATER && var1 < 0.0D) {
+      } else if(this.o.getType((new BlockPosition(this)).down()).getBlock().getMaterial() != Material.WATER && var1 < 0.0D) {
          this.O = (float)((double)this.O - var1);
       }
 

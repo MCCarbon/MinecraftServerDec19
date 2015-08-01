@@ -26,13 +26,13 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 
 public class class_bc extends class_i {
    public String c() {
@@ -175,7 +175,7 @@ public class class_bc extends class_i {
                   this.i(var1, var2, 2);
                } else if(!var2[1].equalsIgnoreCase("join")) {
                   if(var2[1].equalsIgnoreCase("leave")) {
-                     if(var2.length < 3 && !(var1 instanceof class_xa)) {
+                     if(var2.length < 3 && !(var1 instanceof EntityHuman)) {
                         throw new class_cf("commands.scoreboard.teams.leave.usage", new Object[0]);
                      }
 
@@ -192,7 +192,7 @@ public class class_bc extends class_i {
                      this.d(var1, var2, 2);
                   }
                } else {
-                  if(var2.length < 4 && (var2.length != 3 || !(var1 instanceof class_xa))) {
+                  if(var2.length < 4 && (var2.length != 3 || !(var1 instanceof EntityHuman))) {
                      throw new class_cf("commands.scoreboard.teams.join.usage", new Object[0]);
                   }
 
@@ -233,7 +233,7 @@ public class class_bc extends class_i {
                this.a(var1, var2);
                var6.add(var8);
             } catch (class_bz var11) {
-               class_fb var10 = new class_fb(var11.getMessage(), var11.a());
+               ChatMessage var10 = new ChatMessage(var11.getMessage(), var11.a());
                var10.b().a(EnumChatFormat.RED);
                var1.a(var10);
             }
@@ -425,10 +425,10 @@ public class class_bc extends class_i {
             throw new class_bz("commands.scoreboard.teams.list.player.empty", new Object[]{var5.b()});
          }
 
-         class_fb var7 = new class_fb("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.b()});
+         ChatMessage var7 = new ChatMessage("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.b()});
          var7.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var7);
-         var1.a(new class_fa(a(var6.toArray())));
+         var1.a(new ChatComponentText(a(var6.toArray())));
       } else {
          Collection var9 = var4.g();
          var1.a(class_n.class_a_in_class_n.e, var9.size());
@@ -436,14 +436,14 @@ public class class_bc extends class_i {
             throw new class_bz("commands.scoreboard.teams.list.empty", new Object[0]);
          }
 
-         class_fb var10 = new class_fb("commands.scoreboard.teams.list.count", new Object[]{Integer.valueOf(var9.size())});
+         ChatMessage var10 = new ChatMessage("commands.scoreboard.teams.list.count", new Object[]{Integer.valueOf(var9.size())});
          var10.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var10);
          Iterator var11 = var9.iterator();
 
          while(var11.hasNext()) {
             class_awk var8 = (class_awk)var11.next();
-            var1.a(new class_fb("commands.scoreboard.teams.list.entry", new Object[]{var8.b(), var8.c(), Integer.valueOf(var8.d().size())}));
+            var1.a(new ChatMessage("commands.scoreboard.teams.list.entry", new Object[]{var8.b(), var8.c(), Integer.valueOf(var8.d().size())}));
          }
       }
 
@@ -455,8 +455,8 @@ public class class_bc extends class_i {
       HashSet var6 = Sets.newHashSet();
       HashSet var7 = Sets.newHashSet();
       String var8;
-      if(var1 instanceof class_xa && var3 == var2.length) {
-         var8 = b(var1).e_();
+      if(var1 instanceof EntityHuman && var3 == var2.length) {
+         var8 = b(var1).getName();
          if(var4.a(var8, var5)) {
             var6.add(var8);
          } else {
@@ -476,7 +476,7 @@ public class class_bc extends class_i {
                   Iterator var10 = var13.iterator();
 
                   while(var10.hasNext()) {
-                     class_pr var11 = (class_pr)var10.next();
+                     Entity var11 = (Entity)var10.next();
                      String var12 = e(var1, var11.aM().toString());
                      if(var4.a(var12, var5)) {
                         var6.add(var12);
@@ -511,8 +511,8 @@ public class class_bc extends class_i {
       HashSet var5 = Sets.newHashSet();
       HashSet var6 = Sets.newHashSet();
       String var7;
-      if(var1 instanceof class_xa && var3 == var2.length) {
-         var7 = b(var1).e_();
+      if(var1 instanceof EntityHuman && var3 == var2.length) {
+         var7 = b(var1).getName();
          if(var4.f(var7)) {
             var5.add(var7);
          } else {
@@ -532,7 +532,7 @@ public class class_bc extends class_i {
                   Iterator var9 = var12.iterator();
 
                   while(var9.hasNext()) {
-                     class_pr var10 = (class_pr)var9.next();
+                     Entity var10 = (Entity)var9.next();
                      String var11 = e(var1, var10.aM().toString());
                      if(var4.f(var11)) {
                         var5.add(var11);
@@ -596,14 +596,14 @@ public class class_bc extends class_i {
       if(var3.isEmpty()) {
          throw new class_bz("commands.scoreboard.objectives.list.empty", new Object[0]);
       } else {
-         class_fb var4 = new class_fb("commands.scoreboard.objectives.list.count", new Object[]{Integer.valueOf(var3.size())});
+         ChatMessage var4 = new ChatMessage("commands.scoreboard.objectives.list.count", new Object[]{Integer.valueOf(var3.size())});
          var4.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var4);
          Iterator var5 = var3.iterator();
 
          while(var5.hasNext()) {
             class_awj var6 = (class_awj)var5.next();
-            var1.a(new class_fb("commands.scoreboard.objectives.list.entry", new Object[]{var6.b(), var6.d(), var6.c().a()}));
+            var1.a(new ChatMessage("commands.scoreboard.objectives.list.entry", new Object[]{var6.b(), var6.d(), var6.c().a()}));
          }
 
       }
@@ -641,14 +641,14 @@ public class class_bc extends class_i {
             throw new class_bz("commands.scoreboard.players.list.player.empty", new Object[]{var5});
          }
 
-         class_fb var7 = new class_fb("commands.scoreboard.players.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5});
+         ChatMessage var7 = new ChatMessage("commands.scoreboard.players.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5});
          var7.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var7);
          Iterator var8 = var6.values().iterator();
 
          while(var8.hasNext()) {
             class_awl var9 = (class_awl)var8.next();
-            var1.a(new class_fb("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.c()), var9.d().d(), var9.d().b()}));
+            var1.a(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.c()), var9.d().d(), var9.d().b()}));
          }
       } else {
          Collection var10 = var4.d();
@@ -657,10 +657,10 @@ public class class_bc extends class_i {
             throw new class_bz("commands.scoreboard.players.list.empty", new Object[0]);
          }
 
-         class_fb var11 = new class_fb("commands.scoreboard.players.list.count", new Object[]{Integer.valueOf(var10.size())});
+         ChatMessage var11 = new ChatMessage("commands.scoreboard.players.list.count", new Object[]{Integer.valueOf(var10.size())});
          var11.b().a(EnumChatFormat.DARK_GREEN);
          var1.a(var11);
-         var1.a(new class_fa(a(var10.toArray())));
+         var1.a(new ChatComponentText(a(var10.toArray())));
       }
 
    }
@@ -675,7 +675,7 @@ public class class_bc extends class_i {
          class_awj var7 = this.a(var2[var3++], true);
          int var8 = var4.equalsIgnoreCase("set")?a(var2[var3++]):a(var2[var3++], 0);
          if(var2.length > var3) {
-            class_pr var9 = b(var1, var2[var5]);
+            Entity var9 = b(var1, var2[var5]);
 
             try {
                NBTTagCompound var10 = class_ed.a(a(var2, var3));

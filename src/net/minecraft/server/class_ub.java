@@ -7,11 +7,11 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_ty;
-import net.minecraft.server.class_vm;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityItem;
+import net.minecraft.server.EntityHuman;
 
 public class class_ub extends class_ty {
    public class_ub(World var1) {
@@ -20,7 +20,7 @@ public class class_ub extends class_ty {
       this.bv = Blocks.MYCELIM;
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.B && this.l() >= 0 && !var1.bH.instabuild) {
          if(--var3.count == 0) {
             var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.C)));
@@ -32,22 +32,22 @@ public class class_ub extends class_ty {
       } else if(var3 != null && var3.getItem() == Items.bg && this.l() >= 0) {
          this.J();
          this.o.a(class_cy.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             class_ty var4 = new class_ty(this.o);
             var4.b(this.s, this.t, this.u, this.y, this.z);
             var4.i(this.bo());
             var4.aL = this.aL;
-            if(this.l_()) {
+            if(this.hasCustomName()) {
                var4.a(this.aO());
             }
 
-            this.o.a((class_pr)var4);
+            this.o.addEntity((Entity)var4);
 
             for(int var5 = 0; var5 < 5; ++var5) {
-               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(Blocks.RED_MUSHROOM))));
+               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(Blocks.RED_MUSHROOM))));
             }
 
-            var3.a(1, (class_qa)var1);
+            var3.a(1, (EntityLiving)var1);
             this.a("mob.sheep.shear", 1.0F, 1.0F);
          }
 

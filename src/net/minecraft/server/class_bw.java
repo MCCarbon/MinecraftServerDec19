@@ -6,8 +6,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
@@ -36,9 +36,9 @@ public class class_bw extends class_i {
             var3.getPlayerList().setHasWhitelist(false);
             a(var1, this, "commands.whitelist.disabled", new Object[0]);
          } else if(var2[0].equals("list")) {
-            var1.a(new class_fb("commands.whitelist.list", new Object[]{Integer.valueOf(var3.getPlayerList().l().length), Integer.valueOf(var3.getPlayerList().q().length)}));
+            var1.a(new ChatMessage("commands.whitelist.list", new Object[]{Integer.valueOf(var3.getPlayerList().l().length), Integer.valueOf(var3.getPlayerList().q().length)}));
             String[] var4 = var3.getPlayerList().l();
-            var1.a(new class_fa(a(var4)));
+            var1.a(new ChatComponentText(a(var4)));
          } else {
             GameProfile var5;
             if(var2[0].equals("add")) {

@@ -9,7 +9,7 @@ import java.util.Random;
 import java.util.Map.Entry;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_asj;
 import net.minecraft.server.class_ask;
 import net.minecraft.server.class_asn;
@@ -29,11 +29,11 @@ public class class_asi extends class_ask {
       this.h = 32.0D;
       this.i = 3;
       this.d = Lists.newArrayList();
-      class_aez[] var1 = class_aez.n();
+      BiomeBase[] var1 = BiomeBase.n();
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_aez var4 = var1[var3];
+         BiomeBase var4 = var1[var3];
          if(var4 != null && var4.an > 0.0F) {
             this.d.add(var4);
          }

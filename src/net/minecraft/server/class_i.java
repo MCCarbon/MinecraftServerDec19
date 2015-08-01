@@ -25,14 +25,14 @@ import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cd;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fa;
+import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_h;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_k;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_o;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public abstract class class_i implements class_k {
    private static class_h a;
@@ -148,16 +148,16 @@ public abstract class class_i implements class_k {
       }
    }
 
-   public static class_lh b(class_m var0) throws class_cd {
-      if(var0 instanceof class_lh) {
-         return (class_lh)var0;
+   public static EntityPlayer b(class_m var0) throws class_cd {
+      if(var0 instanceof EntityPlayer) {
+         return (EntityPlayer)var0;
       } else {
          throw new class_cd("You must specify which player you wish to perform this action on.", new Object[0]);
       }
    }
 
-   public static class_lh a(class_m var0, String var1) throws class_cd {
-      class_lh var2 = class_o.a(var0, var1);
+   public static EntityPlayer a(class_m var0, String var1) throws class_cd {
+      EntityPlayer var2 = class_o.a(var0, var1);
       if(var2 == null) {
          try {
             var2 = MinecraftServer.N().getPlayerList().getPlayer(UUID.fromString(var1));
@@ -177,11 +177,11 @@ public abstract class class_i implements class_k {
       }
    }
 
-   public static class_pr b(class_m var0, String var1) throws class_ca {
-      return a(var0, var1, class_pr.class);
+   public static Entity b(class_m var0, String var1) throws class_ca {
+      return a(var0, var1, Entity.class);
    }
 
-   public static class_pr a(class_m var0, String var1, Class var2) throws class_ca {
+   public static Entity a(class_m var0, String var1, Class var2) throws class_ca {
       Object var3 = class_o.a(var0, var1, var2);
       MinecraftServer var4 = MinecraftServer.N();
       if(var3 == null) {
@@ -201,19 +201,19 @@ public abstract class class_i implements class_k {
       }
 
       if(var3 != null && var2.isAssignableFrom(var3.getClass())) {
-         return (class_pr)var3;
+         return (Entity)var3;
       } else {
          throw new class_ca();
       }
    }
 
    public static List c(class_m var0, String var1) throws class_ca {
-      return (List)(class_o.b(var1)?class_o.b(var0, var1, class_pr.class):Lists.newArrayList((Object[])(new class_pr[]{b(var0, var1)})));
+      return (List)(class_o.b(var1)?class_o.b(var0, var1, Entity.class):Lists.newArrayList((Object[])(new Entity[]{b(var0, var1)})));
    }
 
    public static String d(class_m var0, String var1) throws class_cd {
       try {
-         return a(var0, var1).e_();
+         return a(var0, var1).getName();
       } catch (class_cd var3) {
          if(class_o.b(var1)) {
             throw var3;
@@ -225,7 +225,7 @@ public abstract class class_i implements class_k {
 
    public static String e(class_m var0, String var1) throws class_ca {
       try {
-         return a(var0, var1).e_();
+         return a(var0, var1).getName();
       } catch (class_cd var5) {
          try {
             return b(var0, var1).aM().toString();
@@ -244,14 +244,14 @@ public abstract class class_i implements class_k {
    }
 
    public static IChatBaseComponent b(class_m var0, String[] var1, int var2, boolean var3) throws class_cd {
-      class_fa var4 = new class_fa("");
+      ChatComponentText var4 = new ChatComponentText("");
 
       for(int var5 = var2; var5 < var1.length; ++var5) {
          if(var5 > var2) {
             var4.a(" ");
          }
 
-         Object var6 = new class_fa(var1[var5]);
+         Object var6 = new ChatComponentText(var1[var5]);
          if(var3) {
             IChatBaseComponent var7 = class_o.b(var0, var1[var5]);
             if(var7 == null) {
@@ -400,7 +400,7 @@ public abstract class class_i implements class_k {
    }
 
    public static IChatBaseComponent a(List var0) {
-      class_fa var1 = new class_fa("");
+      ChatComponentText var1 = new ChatComponentText("");
 
       for(int var2 = 0; var2 < var0.size(); ++var2) {
          if(var2 > 0) {

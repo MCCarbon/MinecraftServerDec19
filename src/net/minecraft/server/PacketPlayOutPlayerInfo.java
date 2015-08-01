@@ -13,7 +13,7 @@ import net.minecraft.server.PacketListener;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 
 public class PacketPlayOutPlayerInfo implements Packet {
    private PacketPlayOutPlayerInfo.class_a_in_class_gz a;
@@ -22,13 +22,13 @@ public class PacketPlayOutPlayerInfo implements Packet {
    public PacketPlayOutPlayerInfo() {
    }
 
-   public PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz var1, class_lh... var2) {
+   public PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz var1, EntityPlayer... var2) {
       this.a = var1;
-      class_lh[] var3 = var2;
+      EntityPlayer[] var3 = var2;
       int var4 = var2.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         class_lh var6 = var3[var5];
+         EntityPlayer var6 = var3[var5];
          this.b.add(new PacketPlayOutPlayerInfo.class_b_in_class_gz(var6.cf(), var6.h, var6.c.b(), var6.E()));
       }
 
@@ -39,7 +39,7 @@ public class PacketPlayOutPlayerInfo implements Packet {
       Iterator var3 = var2.iterator();
 
       while(var3.hasNext()) {
-         class_lh var4 = (class_lh)var3.next();
+         EntityPlayer var4 = (EntityPlayer)var3.next();
          this.b.add(new PacketPlayOutPlayerInfo.class_b_in_class_gz(var4.cf(), var4.h, var4.c.b(), var4.E()));
       }
 

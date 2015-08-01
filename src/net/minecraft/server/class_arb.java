@@ -59,8 +59,8 @@ public class class_arb extends class_aql {
                         double var44 = ((double)var43 + 0.5D - var23) / (var27 / 2.0D);
                         if(var38 * var38 + var41 * var41 + var44 * var44 < 1.0D) {
                            BlockPosition var46 = new BlockPosition(var37, var40, var43);
-                           if(this.c.apply(var1.p(var46))) {
-                              var1.a((BlockPosition)var46, (IBlockData)this.a, 2);
+                           if(this.c.apply(var1.getType(var46))) {
+                              var1.setTypeAndData((BlockPosition)var46, (IBlockData)this.a, 2);
                            }
                         }
                      }

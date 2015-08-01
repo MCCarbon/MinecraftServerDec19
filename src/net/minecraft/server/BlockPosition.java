@@ -6,7 +6,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class BlockPosition extends BaseBlockPosition {
 
@@ -36,7 +36,7 @@ public class BlockPosition extends BaseBlockPosition {
 		super(x, y, z);
 	}
 
-	public BlockPosition(class_pr var1) {
+	public BlockPosition(Entity var1) {
 		this(var1.s, var1.t, var1.u);
 	}
 
@@ -64,51 +64,51 @@ public class BlockPosition extends BaseBlockPosition {
 		return var1.getX() == 0 && var1.getY() == 0 && var1.getZ() == 0 ? this : new BlockPosition(this.getX() - var1.getX(), this.getY() - var1.getY(), this.getZ() - var1.getZ());
 	}
 
-	public BlockPosition shiftUp() {
-		return this.shiftUp(1);
+	public BlockPosition up() {
+		return this.up(1);
 	}
 
-	public BlockPosition shiftUp(int dist) {
+	public BlockPosition up(int dist) {
 		return this.shift(EnumDirection.UP, dist);
 	}
 
-	public BlockPosition shiftDown() {
-		return this.shiftDown(1);
+	public BlockPosition down() {
+		return this.down(1);
 	}
 
-	public BlockPosition shiftDown(int dist) {
+	public BlockPosition down(int dist) {
 		return this.shift(EnumDirection.DOWN, dist);
 	}
 
-	public BlockPosition shiftNorth() {
-		return this.shiftNorth(1);
+	public BlockPosition north() {
+		return this.north(1);
 	}
 
-	public BlockPosition shiftNorth(int dist) {
+	public BlockPosition north(int dist) {
 		return this.shift(EnumDirection.NORTH, dist);
 	}
 
-	public BlockPosition shiftSouth() {
-		return this.shiftSouth(1);
+	public BlockPosition south() {
+		return this.south(1);
 	}
 
-	public BlockPosition shiftSouth(int dist) {
+	public BlockPosition south(int dist) {
 		return this.shift(EnumDirection.SOUTH, dist);
 	}
 
-	public BlockPosition shiftWest() {
-		return this.shiftWest(1);
+	public BlockPosition west() {
+		return this.west(1);
 	}
 
-	public BlockPosition shiftWest(int dist) {
+	public BlockPosition west(int dist) {
 		return this.shift(EnumDirection.WEST, dist);
 	}
 
-	public BlockPosition shiftEast() {
-		return this.shiftEast(1);
+	public BlockPosition east() {
+		return this.east(1);
 	}
 
-	public BlockPosition shiftEast(int dist) {
+	public BlockPosition east(int dist) {
 		return this.shift(EnumDirection.EAST, dist);
 	}
 

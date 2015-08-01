@@ -18,7 +18,7 @@ import net.minecraft.server.IPlayerFileData;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTCompressedStreamTools;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -173,7 +173,7 @@ public class class_avl implements class_avo, IPlayerFileData {
 
    }
 
-   public void a(class_xa var1) {
+   public void a(EntityHuman var1) {
       try {
          NBTTagCompound var2 = new NBTTagCompound();
          var1.e(var2);
@@ -186,12 +186,12 @@ public class class_avl implements class_avo, IPlayerFileData {
 
          var3.renameTo(var4);
       } catch (Exception var5) {
-         a.warn("Failed to save player data for " + var1.e_());
+         a.warn("Failed to save player data for " + var1.getName());
       }
 
    }
 
-   public NBTTagCompound b(class_xa var1) {
+   public NBTTagCompound b(EntityHuman var1) {
       NBTTagCompound var2 = null;
 
       try {
@@ -200,7 +200,7 @@ public class class_avl implements class_avo, IPlayerFileData {
             var2 = NBTCompressedStreamTools.fromRawInputStream((InputStream)(new FileInputStream(var3)));
          }
       } catch (Exception var4) {
-         a.warn("Failed to load player data for " + var1.e_());
+         a.warn("Failed to load player data for " + var1.getName());
       }
 
       if(var2 != null) {

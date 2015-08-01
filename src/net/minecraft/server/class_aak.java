@@ -7,7 +7,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_aak extends class_aan {
    private final boolean b;
@@ -27,7 +27,7 @@ public class class_aak extends class_aan {
       return this.b && var2.g()?var2.f():var2.d();
    }
 
-   protected void a(ItemStack var1, World var2, class_xa var3) {
+   protected void a(ItemStack var1, World var2, EntityHuman var3) {
       class_aak.class_a_in_class_aak var4 = class_aak.class_a_in_class_aak.a(var1);
       if(var4 == class_aak.class_a_in_class_aak.d) {
          var3.c(new class_pl(class_pm.s, 1200, 3));

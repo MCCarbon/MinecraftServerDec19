@@ -16,10 +16,10 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aex;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.class_aoi;
-import net.minecraft.server.class_aok;
-import net.minecraft.server.class_aol;
+import net.minecraft.server.Chunk;
+import net.minecraft.server.ChunkSection;
 import net.minecraft.server.class_aop;
 import net.minecraft.server.class_aou;
 import net.minecraft.server.class_awb;
@@ -30,7 +30,7 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTCompressedStreamTools;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -46,7 +46,7 @@ public class class_aov implements class_aop, class_awc {
       this.d = var1;
    }
 
-   public class_aok a(World var1, int var2, int var3) throws IOException {
+   public Chunk a(World var1, int var2, int var3) throws IOException {
       class_aeh var4 = new class_aeh(var2, var3);
       NBTTagCompound var5 = (NBTTagCompound)this.b.get(var4);
       if(var5 == null) {
@@ -61,7 +61,7 @@ public class class_aov implements class_aop, class_awc {
       return this.a(var1, var2, var3, var5);
    }
 
-   protected class_aok a(World var1, int var2, int var3, NBTTagCompound var4) {
+   protected Chunk a(World var1, int var2, int var3, NBTTagCompound var4) {
       if(!var4.hasOfType("Level", 10)) {
          a.error("Chunk file at " + var2 + "," + var3 + " is missing level data, skipping");
          return null;
@@ -71,7 +71,7 @@ public class class_aov implements class_aop, class_awc {
             a.error("Chunk file at " + var2 + "," + var3 + " is missing block data, skipping");
             return null;
          } else {
-            class_aok var6 = this.a(var1, var5);
+            Chunk var6 = this.a(var1, var5);
             if(!var6.a(var2, var3)) {
                a.error("Chunk file at " + var2 + "," + var3 + " is in the wrong location; relocating. (Expected " + var2 + ", " + var3 + ", got " + var6.a + ", " + var6.b + ")");
                var5.put("xPos", var2);
@@ -84,7 +84,7 @@ public class class_aov implements class_aop, class_awc {
       }
    }
 
-   public void a(World var1, class_aok var2) throws IOException, class_aeo {
+   public void a(World var1, Chunk var2) throws IOException, class_aeo {
       var1.J();
 
       try {
@@ -144,7 +144,7 @@ public class class_aov implements class_aop, class_awc {
       var3.close();
    }
 
-   public void b(World var1, class_aok var2) throws IOException {
+   public void b(World var1, Chunk var2) throws IOException {
    }
 
    public void a() {
@@ -165,7 +165,7 @@ public class class_aov implements class_aop, class_awc {
 
    }
 
-   private void a(class_aok var1, World var2, NBTTagCompound var3) {
+   private void a(Chunk var1, World var2, NBTTagCompound var3) {
       var3.put("V", (byte)1);
       var3.put("xPos", var1.a);
       var3.put("zPos", var1.b);
@@ -174,15 +174,15 @@ public class class_aov implements class_aop, class_awc {
       var3.put("TerrainPopulated", var1.t());
       var3.put("LightPopulated", var1.u());
       var3.put("InhabitedTime", var1.w());
-      class_aol[] var4 = var1.h();
+      ChunkSection[] var4 = var1.h();
       NBTTagList var5 = new NBTTagList();
-      boolean var6 = !var2.t.m();
-      class_aol[] var7 = var4;
+      boolean var6 = !var2.worldProvider.m();
+      ChunkSection[] var7 = var4;
       int var8 = var4.length;
 
       NBTTagCompound var11;
       for(int var9 = 0; var9 < var8; ++var9) {
-         class_aol var10 = var7[var9];
+         ChunkSection var10 = var7[var9];
          if(var10 != null) {
             var11 = new NBTTagCompound();
             var11.put("Y", (byte)(var10.d() >> 4 & 255));
@@ -234,7 +234,7 @@ public class class_aov implements class_aop, class_awc {
          var22 = var1.s()[var8].iterator();
 
          while(var22.hasNext()) {
-            class_pr var24 = (class_pr)var22.next();
+            Entity var24 = (Entity)var22.next();
             var11 = new NBTTagCompound();
             if(var24.d(var11)) {
                var1.g(true);
@@ -248,9 +248,9 @@ public class class_aov implements class_aop, class_awc {
       var22 = var1.r().values().iterator();
 
       while(var22.hasNext()) {
-         class_amg var25 = (class_amg)var22.next();
+         TileEntity var25 = (TileEntity)var22.next();
          var11 = new NBTTagCompound();
-         var25.b(var11);
+         var25.write(var11);
          var21.add((NBTTag)var11);
       }
 
@@ -279,23 +279,23 @@ public class class_aov implements class_aop, class_awc {
 
    }
 
-   private class_aok a(World var1, NBTTagCompound var2) {
+   private Chunk a(World var1, NBTTagCompound var2) {
       int var3 = var2.getInt("xPos");
       int var4 = var2.getInt("zPos");
-      class_aok var5 = new class_aok(var1, var3, var4);
+      Chunk var5 = new Chunk(var1, var3, var4);
       var5.a(var2.getIntArray("HeightMap"));
       var5.d(var2.getBoolean("TerrainPopulated"));
       var5.e(var2.getBoolean("LightPopulated"));
       var5.c(var2.getLong("InhabitedTime"));
       NBTTagList var6 = var2.getList("Sections", 10);
       byte var7 = 16;
-      class_aol[] var8 = new class_aol[var7];
-      boolean var9 = !var1.t.m();
+      ChunkSection[] var8 = new ChunkSection[var7];
+      boolean var9 = !var1.worldProvider.m();
 
       for(int var10 = 0; var10 < var6.getSize(); ++var10) {
          NBTTagCompound var11 = var6.getCompound(var10);
          byte var12 = var11.getByte("Y");
-         class_aol var13 = new class_aol(var12 << 4, var9);
+         ChunkSection var13 = new ChunkSection(var12 << 4, var9);
          byte[] var14 = var11.getByteArray("Blocks");
          class_aoi var15 = new class_aoi(var11.getByteArray("Data"));
          class_aoi var16 = var11.hasOfType("Add", 7)?new class_aoi(var11.getByteArray("Add")):null;
@@ -328,14 +328,14 @@ public class class_aov implements class_aop, class_awc {
       if(var23 != null) {
          for(int var24 = 0; var24 < var23.getSize(); ++var24) {
             NBTTagCompound var26 = var23.getCompound(var24);
-            class_pr var28 = class_pt.a(var26, var1);
+            Entity var28 = class_pt.a(var26, var1);
             var5.g(true);
             if(var28 != null) {
                var5.a(var28);
-               class_pr var32 = var28;
+               Entity var32 = var28;
 
                for(NBTTagCompound var34 = var26; var34.hasOfType("Riding", 10); var34 = var34.getCompound("Riding")) {
-                  class_pr var37 = class_pt.a(var34.getCompound("Riding"), var1);
+                  Entity var37 = class_pt.a(var34.getCompound("Riding"), var1);
                   if(var37 != null) {
                      var5.a(var37);
                      var32.a(var37);
@@ -351,7 +351,7 @@ public class class_aov implements class_aop, class_awc {
       if(var25 != null) {
          for(int var27 = 0; var27 < var25.getSize(); ++var27) {
             NBTTagCompound var30 = var25.getCompound(var27);
-            class_amg var33 = class_amg.c(var30);
+            TileEntity var33 = TileEntity.fromNBT(var30);
             if(var33 != null) {
                var5.a(var33);
             }

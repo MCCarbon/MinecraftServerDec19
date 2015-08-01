@@ -12,7 +12,7 @@ import net.minecraft.server.class_ev;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutTitle;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.apache.logging.log4j.LogManager;
@@ -47,7 +47,7 @@ public class class_bs extends class_i {
             }
          }
 
-         class_lh var3 = a(var1, var2[0]);
+         EntityPlayer var3 = a(var1, var2[0]);
          PacketPlayOutTitle.class_a_in_class_hv var4 = PacketPlayOutTitle.class_a_in_class_hv.a(var2[1]);
          if(var4 != PacketPlayOutTitle.class_a_in_class_hv.d && var4 != PacketPlayOutTitle.class_a_in_class_hv.e) {
             if(var4 == PacketPlayOutTitle.class_a_in_class_hv.c) {

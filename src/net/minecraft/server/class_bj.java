@@ -18,15 +18,15 @@ import net.minecraft.server.class_ca;
 import net.minecraft.server.class_cd;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_o;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 
 public class class_bj extends class_i {
    public String c() {
@@ -59,14 +59,14 @@ public class class_bj extends class_i {
          while(var17 < var2.length) {
             String var15 = var2[var17++];
             if(class_o.b(var15)) {
-               List var16 = class_o.b(var1, var15, class_pr.class);
+               List var16 = class_o.b(var1, var15, Entity.class);
                if(var16.isEmpty()) {
                   throw new class_ca();
                }
 
                var14.addAll(var16);
             } else {
-               class_lh var18 = MinecraftServer.N().getPlayerList().a(var15);
+               EntityPlayer var18 = MinecraftServer.N().getPlayerList().a(var15);
                if(var18 == null) {
                   throw new class_cd();
                }
@@ -79,8 +79,8 @@ public class class_bj extends class_i {
          if(var14.isEmpty()) {
             throw new class_ca();
          } else {
-            var1.a(new class_fb("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
-            this.a(var1, var14, new class_bj.class_a_in_class_bj(var5, var7), var9, var11, ((class_pr)var14.get(0)).o, var13);
+            var1.a(new ChatMessage("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
+            this.a(var1, var14, new class_bj.class_a_in_class_bj(var5, var7), var9, var11, ((Entity)var14.get(0)).o, var13);
          }
       }
    }
@@ -96,7 +96,7 @@ public class class_bj extends class_i {
       double var21 = this.a(var2, var8, var19, var9);
       a(var1, this, "commands.spreadplayers.success." + (var9?"teams":"players"), new Object[]{Integer.valueOf(var19.length), Double.valueOf(var3.a), Double.valueOf(var3.b)});
       if(var19.length > 1) {
-         var1.a(new class_fb("commands.spreadplayers.info." + (var9?"teams":"players"), new Object[]{String.format("%.2f", new Object[]{Double.valueOf(var21)}), Integer.valueOf(var20)}));
+         var1.a(new ChatMessage("commands.spreadplayers.info." + (var9?"teams":"players"), new Object[]{String.format("%.2f", new Object[]{Double.valueOf(var21)}), Integer.valueOf(var20)}));
       }
 
    }
@@ -106,9 +106,9 @@ public class class_bj extends class_i {
       Iterator var3 = var1.iterator();
 
       while(var3.hasNext()) {
-         class_pr var4 = (class_pr)var3.next();
-         if(var4 instanceof class_xa) {
-            var2.add(((class_xa)var4).bP());
+         Entity var4 = (Entity)var3.next();
+         if(var4 instanceof EntityHuman) {
+            var2.add(((EntityHuman)var4).bP());
          } else {
             var2.add((Object)null);
          }
@@ -192,10 +192,10 @@ public class class_bj extends class_i {
       HashMap var8 = Maps.newHashMap();
 
       for(int var9 = 0; var9 < var1.size(); ++var9) {
-         class_pr var10 = (class_pr)var1.get(var9);
+         Entity var10 = (Entity)var1.get(var9);
          class_bj.class_a_in_class_bj var11;
          if(var4) {
-            class_awp var12 = var10 instanceof class_xa?((class_xa)var10).bP():null;
+            class_awp var12 = var10 instanceof EntityHuman?((EntityHuman)var10).bP():null;
             if(!var8.containsKey(var12)) {
                var8.put(var12, var3[var7++]);
             }
@@ -300,8 +300,8 @@ public class class_bj extends class_i {
                return 257;
             }
 
-            var2 = var2.shiftDown();
-         } while(var1.p(var2).getBlock().getMaterial() == Material.AIR);
+            var2 = var2.down();
+         } while(var1.getType(var2).getBlock().getMaterial() == Material.AIR);
 
          return var2.getY() + 1;
       }
@@ -315,8 +315,8 @@ public class class_bj extends class_i {
                return false;
             }
 
-            var2 = var2.shiftDown();
-            var3 = var1.p(var2).getBlock().getMaterial();
+            var2 = var2.down();
+            var3 = var1.getType(var2).getBlock().getMaterial();
          } while(var3 == Material.AIR);
 
          return !var3.isLiquid() && var3 != Material.FIRE;

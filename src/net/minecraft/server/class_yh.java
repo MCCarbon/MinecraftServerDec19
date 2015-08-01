@@ -5,22 +5,22 @@ import net.minecraft.server.class_act;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_yg;
 import net.minecraft.server.class_yv;
 import net.minecraft.server.class_yw;
 import net.minecraft.server.class_yx;
 
-public class class_yh extends class_xz {
+public class class_yh extends Container {
    public class_yg a = new class_yg(this, 3, 3);
-   public class_oj f = new class_yv();
+   public IInventory f = new class_yv();
    private World g;
    private BlockPosition h;
 
-   public class_yh(class_wz var1, World var2, BlockPosition var3) {
+   public class_yh(PlayerInventory var1, World var2, BlockPosition var3) {
       this.g = var2;
       this.h = var3;
       this.a((class_yx)(new class_yw(var1.e, this.a, this.f, 0, 124, 35)));
@@ -43,18 +43,18 @@ public class class_yh extends class_xz {
          this.a((class_yx)(new class_yx(var1, var4, 8 + var4 * 18, 142)));
       }
 
-      this.a((class_oj)this.a);
+      this.a((IInventory)this.a);
    }
 
-   public void a(class_oj var1) {
-      this.f.a(0, class_act.a().a(this.a, this.g));
+   public void a(IInventory var1) {
+      this.f.setItem(0, class_act.a().a(this.a, this.g));
    }
 
-   public void b(class_xa var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
-      if(!this.g.D) {
+      if(!this.g.isClientSide) {
          for(int var2 = 0; var2 < 9; ++var2) {
-            ItemStack var3 = this.a.b(var2);
+            ItemStack var3 = this.a.splitWithoutUpdate(var2);
             if(var3 != null) {
                var1.a(var3, false);
             }
@@ -63,11 +63,11 @@ public class class_yh extends class_xz {
       }
    }
 
-   public boolean a(class_xa var1) {
-      return this.g.p(this.h).getBlock() != Blocks.CRAFTING_TABLE?false:var1.e((double)this.h.getX() + 0.5D, (double)this.h.getY() + 0.5D, (double)this.h.getZ() + 0.5D) <= 64.0D;
+   public boolean a(EntityHuman var1) {
+      return this.g.getType(this.h).getBlock() != Blocks.CRAFTING_TABLE?false:var1.e((double)this.h.getX() + 0.5D, (double)this.h.getY() + 0.5D, (double)this.h.getZ() + 0.5D) <= 64.0D;
    }
 
-   public ItemStack b(class_xa var1, int var2) {
+   public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {

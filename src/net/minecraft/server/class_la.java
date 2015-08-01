@@ -54,7 +54,7 @@ public class class_la extends WorldServer {
    public World b() {
       this.z = this.a.U();
       this.C = this.a.aa();
-      String var1 = class_tr.a(this.t);
+      String var1 = class_tr.a(this.worldProvider);
       class_tr var2 = (class_tr)this.z.a(class_tr.class, var1);
       if(var2 == null) {
          this.A = new class_tr(this);
@@ -68,6 +68,6 @@ public class class_la extends WorldServer {
    }
 
    public void c() {
-      this.t.q();
+      this.worldProvider.q();
    }
 }

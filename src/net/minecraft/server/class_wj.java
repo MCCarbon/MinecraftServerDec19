@@ -4,15 +4,15 @@ import java.util.UUID;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_qk;
@@ -22,7 +22,7 @@ import net.minecraft.server.class_sw;
 import net.minecraft.server.class_sz;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.class_wr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_wj extends class_wr {
    private static final UUID b = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
@@ -36,8 +36,8 @@ public class class_wj extends class_wr {
       this.ab = true;
    }
 
-   public void b(class_qa var1) {
-      super.b((class_qa)var1);
+   public void b(EntityLiving var1) {
+      super.b((EntityLiving)var1);
       if(var1 != null) {
          this.bu = var1.aM();
       }
@@ -77,8 +77,8 @@ public class class_wj extends class_wr {
       }
 
       if(this.bs > 0 && this.bu != null && this.be() == null) {
-         class_xa var2 = this.o.b(this.bu);
-         this.b((class_qa)var2);
+         EntityHuman var2 = this.o.b(this.bu);
+         this.b((EntityLiving)var2);
          this.aQ = var2;
          this.aR = this.bf();
       }
@@ -91,7 +91,7 @@ public class class_wj extends class_wr {
    }
 
    public boolean cg() {
-      return this.o.a((class_awf)this.aT(), (class_pr)this) && this.o.a((class_pr)this, (class_awf)this.aT()).isEmpty() && !this.o.d(this.aT());
+      return this.o.a((AxisAlignedBB)this.aT(), (Entity)this) && this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.o.d(this.aT());
    }
 
    public void b(NBTTagCompound var1) {
@@ -111,8 +111,8 @@ public class class_wj extends class_wr {
       String var2 = var1.getString("HurtBy");
       if(!var2.isEmpty()) {
          this.bu = UUID.fromString(var2);
-         class_xa var3 = this.o.b(this.bu);
-         this.b((class_qa)var3);
+         EntityHuman var3 = this.o.b(this.bu);
+         this.b((EntityLiving)var3);
          if(var3 != null) {
             this.aQ = var3;
             this.aR = this.bf();
@@ -125,8 +125,8 @@ public class class_wj extends class_wr {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
-         class_pr var3 = var1.j();
-         if(var3 instanceof class_xa) {
+         Entity var3 = var1.j();
+         if(var3 instanceof EntityHuman) {
             this.b(var3);
          }
 
@@ -134,11 +134,11 @@ public class class_wj extends class_wr {
       }
    }
 
-   private void b(class_pr var1) {
+   private void b(Entity var1) {
       this.bs = 400 + this.V.nextInt(400);
       this.bt = this.V.nextInt(40);
-      if(var1 instanceof class_qa) {
-         this.b((class_qa)var1);
+      if(var1 instanceof EntityLiving) {
+         this.b((EntityLiving)var1);
       }
 
    }
@@ -175,7 +175,7 @@ public class class_wj extends class_wr {
 
    }
 
-   public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
+   public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       return false;
    }
 
@@ -199,7 +199,7 @@ public class class_wj extends class_wr {
 
    static class class_a_in_class_wj extends class_sz {
       public class_a_in_class_wj(class_wj var1) {
-         super(var1, class_xa.class, true);
+         super(var1, EntityHuman.class, true);
       }
 
       public boolean a() {
@@ -212,10 +212,10 @@ public class class_wj extends class_wr {
          super(var1, true, new Class[0]);
       }
 
-      protected void a(class_qh var1, class_qa var2) {
+      protected void a(class_qh var1, EntityLiving var2) {
          super.a(var1, var2);
          if(var1 instanceof class_wj) {
-            ((class_wj)var1).b((class_pr)var2);
+            ((class_wj)var1).b((Entity)var2);
          }
 
       }

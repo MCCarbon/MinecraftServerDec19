@@ -6,7 +6,7 @@ import net.minecraft.server.class_arw;
 
 public class class_asu {
    private Block.class_a_in_class_agj a;
-   private Block.class_c_in_class_agj b;
+   private Block.EnumRotation b;
    private boolean c;
    private boolean d;
    private class_aeh e;
@@ -14,10 +14,10 @@ public class class_asu {
    private boolean g;
 
    public class_asu() {
-      this(Block.class_a_in_class_agj.a, Block.class_c_in_class_agj.a, false, false, (class_arw)null);
+      this(Block.class_a_in_class_agj.NONE, Block.EnumRotation.NONE, false, false, (class_arw)null);
    }
 
-   public class_asu(Block.class_a_in_class_agj var1, Block.class_c_in_class_agj var2, boolean var3, boolean var4, class_arw var5) {
+   public class_asu(Block.class_a_in_class_agj var1, Block.EnumRotation var2, boolean var3, boolean var4, class_arw var5) {
       this.b = var2;
       this.a = var1;
       this.c = var3;
@@ -36,7 +36,7 @@ public class class_asu {
       return this;
    }
 
-   public class_asu a(Block.class_c_in_class_agj var1) {
+   public class_asu a(Block.EnumRotation var1) {
       this.b = var1;
       return this;
    }
@@ -70,7 +70,7 @@ public class class_asu {
       return this;
    }
 
-   public Block.class_c_in_class_agj c() {
+   public Block.EnumRotation c() {
       return this.b;
    }
 

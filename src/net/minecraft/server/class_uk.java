@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pp;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qb;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public abstract class class_uk extends class_qb implements class_pp {
    public class_uk(World var1) {
@@ -22,7 +22,7 @@ public abstract class class_uk extends class_qb implements class_pp {
    }
 
    public boolean cg() {
-      return this.o.a((class_awf)this.aT(), (class_pr)this);
+      return this.o.a((AxisAlignedBB)this.aT(), (Entity)this);
    }
 
    public int y() {
@@ -33,8 +33,8 @@ public abstract class class_uk extends class_qb implements class_pp {
       return true;
    }
 
-   protected int b(class_xa var1) {
-      return 1 + this.o.s.nextInt(3);
+   protected int b(EntityHuman var1) {
+      return 1 + this.o.random.nextInt(3);
    }
 
    public void K() {

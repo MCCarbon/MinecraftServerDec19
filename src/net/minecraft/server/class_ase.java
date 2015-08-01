@@ -11,7 +11,7 @@ import java.util.Set;
 import java.util.Map.Entry;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_asf;
 import net.minecraft.server.class_ask;
@@ -73,7 +73,7 @@ public class class_ase extends class_ask {
       var5 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       var6 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       if(var3 == var5 && var4 == var6) {
-         if(this.c.w().a(new BlockPosition(var3 * 16 + 8, 64, var4 * 16 + 8), (class_aez)null) != class_aez.N) {
+         if(this.c.w().a(new BlockPosition(var3 * 16 + 8, 64, var4 * 16 + 8), (BiomeBase)null) != BiomeBase.N) {
             return false;
          }
 
@@ -95,9 +95,9 @@ public class class_ase extends class_ask {
    }
 
    static {
-      d = Arrays.asList(new class_aez[]{class_aez.p, class_aez.N, class_aez.w, class_aez.z, class_aez.A});
+      d = Arrays.asList(new BiomeBase[]{BiomeBase.p, BiomeBase.N, BiomeBase.w, BiomeBase.z, BiomeBase.A});
       h = Lists.newArrayList();
-      h.add(new class_aez.class_c_in_class_aez(class_wg.class, 1, 2, 4));
+      h.add(new BiomeBase.class_c_in_class_aez(class_wg.class, 1, 2, 4));
    }
 
    public static class class_a_in_class_ase extends class_aso {

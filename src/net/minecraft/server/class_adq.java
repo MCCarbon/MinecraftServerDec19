@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
-import net.minecraft.server.class_adm;
+import net.minecraft.server.Enchantment;
 import net.minecraft.server.class_pw;
 
 public class class_adq extends class_adi {
@@ -31,6 +31,6 @@ public class class_adq extends class_adi {
    }
 
    public boolean a(class_adi var1) {
-      return super.a(var1) && var1 != class_adm.q;
+      return super.a(var1) && var1 != Enchantment.q;
    }
 }

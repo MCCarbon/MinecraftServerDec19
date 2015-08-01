@@ -9,17 +9,17 @@ import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ajd;
+import net.minecraft.server.BlockFluids;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_awg;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_pk;
 import net.minecraft.server.class_pl;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_xo;
 
 public class class_xs extends class_xo {
@@ -30,7 +30,7 @@ public class class_xs extends class_xo {
       this.d = class_abe.a(new ItemStack(Items.bB), class_acf.a);
    }
 
-   public class_xs(World var1, class_qa var2, ItemStack var3) {
+   public class_xs(World var1, EntityLiving var2, ItemStack var3) {
       super(var1, var2);
       this.d = class_abe.a(new ItemStack(Items.bB), class_acf.a);
       this.d = var3;
@@ -46,10 +46,10 @@ public class class_xs extends class_xo {
       return 0.05F;
    }
 
-   protected void a(class_awg var1) {
-      if(!this.o.D) {
+   protected void a(MovingObjectPosition var1) {
+      if(!this.o.isClientSide) {
          class_acd var2 = class_abe.i(this.d);
-         if(var1.a == class_awg.class_a_in_class_awg.b && var2 == class_acf.a) {
+         if(var1.a == MovingObjectPosition.class_a_in_class_awg.b && var2 == class_acf.a) {
             BlockPosition var16 = var1.a().shift(var1.b);
             this.a(var16);
             Iterator var17 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
@@ -64,21 +64,21 @@ public class class_xs extends class_xo {
          } else {
             List var3 = var2.b();
             if(!var3.isEmpty()) {
-               class_awf var4 = this.aT().b(4.0D, 2.0D, 4.0D);
-               List var5 = this.o.a(class_qa.class, var4);
+               AxisAlignedBB var4 = this.aT().grow(4.0D, 2.0D, 4.0D);
+               List var5 = this.o.getEntities(EntityLiving.class, var4);
                if(!var5.isEmpty()) {
                   Iterator var6 = var5.iterator();
 
                   label54:
                   while(true) {
-                     class_qa var7;
+                     EntityLiving var7;
                      double var8;
                      do {
                         if(!var6.hasNext()) {
                            break label54;
                         }
 
-                        var7 = (class_qa)var6.next();
+                        var7 = (EntityLiving)var6.next();
                         var8 = this.h(var7);
                      } while(var8 >= 16.0D);
 
@@ -112,8 +112,8 @@ public class class_xs extends class_xo {
    }
 
    private void a(BlockPosition var1) {
-      if(this.o.p(var1).getBlock() == Blocks.FIRE) {
-         this.o.a((BlockPosition)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(class_ajd.b, Integer.valueOf(7)), 2);
+      if(this.o.getType(var1).getBlock() == Blocks.FIRE) {
+         this.o.setTypeAndData((BlockPosition)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(BlockFluids.LEVEL, Integer.valueOf(7)), 2);
       }
 
    }

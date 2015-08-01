@@ -12,34 +12,34 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_alc extends class_aln {
-   public static final BlockStateEnum a = BlockStateEnum.of("color", class_zy.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("color", EnumColor.class);
 
    public class_alc() {
       super(Material.SHATTERABLE, false);
-      this.setBlockData(this.blockStateList.getFirst().set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(a, class_zy.a));
-      this.a(CreativeTab.c);
+      this.setBlockData(this.blockStateList.getFirst().set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(a, EnumColor.a));
+      this.setCreativeTab(CreativeTab.DECORATIONS);
    }
 
    public int getDropData(IBlockData var1) {
-      return ((class_zy)var1.get(a)).a();
+      return ((EnumColor)var1.get(a)).a();
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return ((class_zy)var1.get(a)).e();
+      return ((EnumColor)var1.get(a)).e();
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(a, class_zy.b(var1));
+      return this.getBlockData().set(a, EnumColor.b(var1));
    }
 
    public int toLegacyData(IBlockData var1) {
-      return ((class_zy)var1.get(a)).a();
+      return ((EnumColor)var1.get(a)).a();
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       if(var1.getBlock() != this) {
          return var1;
       } else {
@@ -71,19 +71,19 @@ public class class_alc extends class_aln {
       }
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{b, N, P, O, a});
    }
 
-   public void c(World var1, BlockPosition var2, IBlockData var3) {
-      if(!var1.D) {
+   public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
+      if(!var1.isClientSide) {
          class_agg.f(var1, var2);
       }
 
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3) {
-      if(!var1.D) {
+   public void remove(World var1, BlockPosition var2, IBlockData var3) {
+      if(!var1.isClientSide) {
          class_agg.f(var1, var2);
       }
 
@@ -98,33 +98,33 @@ public class class_alc extends class_aln {
 
       static {
          try {
-            b[Block.class_a_in_class_agj.b.ordinal()] = 1;
+            b[Block.class_a_in_class_agj.LEFT_RIGHT.ordinal()] = 1;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            b[Block.class_a_in_class_agj.c.ordinal()] = 2;
+            b[Block.class_a_in_class_agj.FRONT_BACK.ordinal()] = 2;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
-         a = new int[Block.class_c_in_class_agj.values().length];
+         a = new int[Block.EnumRotation.values().length];
 
          try {
-            a[Block.class_c_in_class_agj.c.ordinal()] = 1;
+            a[Block.EnumRotation.CLOCKWISE_180.ordinal()] = 1;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.d.ordinal()] = 2;
+            a[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.b.ordinal()] = 3;
+            a[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 3;
          } catch (NoSuchFieldError var1) {
             ;
          }

@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_agh;
+import net.minecraft.server.BlockBed;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_ami;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_rx;
@@ -49,14 +49,14 @@ public class class_sb extends class_rx {
    }
 
    protected boolean a(World var1, BlockPosition var2) {
-      if(!var1.d(var2.shiftUp())) {
+      if(!var1.isEmpty(var2.up())) {
          return false;
       } else {
-         IBlockData var3 = var1.p(var2);
+         IBlockData var3 = var1.getType(var2);
          Block var4 = var3.getBlock();
          if(var4 == Blocks.CHEST) {
-            class_amg var5 = var1.s(var2);
-            if(var5 instanceof class_ami && ((class_ami)var5).l < 1) {
+            TileEntity var5 = var1.getTileEntity(var2);
+            if(var5 instanceof TileEntityChest && ((TileEntityChest)var5).l < 1) {
                return true;
             }
          } else {
@@ -64,7 +64,7 @@ public class class_sb extends class_rx {
                return true;
             }
 
-            if(var4 == Blocks.BED && var3.get(class_agh.a) != class_agh.class_a_in_class_agh.a) {
+            if(var4 == Blocks.BED && var3.get(BlockBed.PART) != BlockBed.EnumBedPart.HEAD) {
                return true;
             }
          }

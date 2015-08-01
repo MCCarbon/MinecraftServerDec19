@@ -13,7 +13,7 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_on;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
@@ -53,7 +53,7 @@ public class class_bm extends class_i {
          if(!var12.e(var4)) {
             throw new class_bz("commands.summon.outOfWorld", new Object[0]);
          } else if("LightningBolt".equals(var3)) {
-            var12.d((class_pr)(new class_vi(var12, var6, var8, var10)));
+            var12.d((Entity)(new class_vi(var12, var6, var8, var10)));
             a(var1, this, "commands.summon.success", new Object[0]);
          } else {
             NBTTagCompound var13 = new NBTTagCompound();
@@ -71,7 +71,7 @@ public class class_bm extends class_i {
 
             var13.put("id", var3);
 
-            class_pr var21;
+            Entity var21;
             try {
                var21 = class_pt.a(var13, var12);
             } catch (RuntimeException var19) {
@@ -86,16 +86,16 @@ public class class_bm extends class_i {
                   ((class_qb)var21).a((class_on)var12.E(new BlockPosition(var21)), (class_qd)null);
                }
 
-               if(!var12.a(var21)) {
+               if(!var12.addEntity(var21)) {
                   throw new class_bz("commands.summon.failed", new Object[0]);
                } else {
-                  class_pr var16 = var21;
+                  Entity var16 = var21;
 
                   for(NBTTagCompound var17 = var13; var16 != null && var17.hasOfType("Riding", 10); var17 = var17.getCompound("Riding")) {
-                     class_pr var18 = class_pt.a(var17.getCompound("Riding"), var12);
+                     Entity var18 = class_pt.a(var17.getCompound("Riding"), var12);
                      if(var18 != null) {
                         var18.b(var6, var8, var10, var18.y, var18.z);
-                        var12.a(var18);
+                        var12.addEntity(var18);
                         var16.a(var18);
                      }
 

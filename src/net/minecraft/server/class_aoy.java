@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.class_aes;
-import net.minecraft.server.class_aez;
+import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.class_afg;
 import net.minecraft.server.Blocks;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_apk;
 import net.minecraft.server.class_app;
 import net.minecraft.server.class_arr;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 
 public abstract class class_aoy {
    public static final float[] a = new float[]{1.0F, 0.75F, 0.5F, 0.25F, 0.0F, 0.25F, 0.5F, 0.75F};
@@ -49,9 +49,9 @@ public abstract class class_aoy {
       class_aes var1 = this.b.Q().u();
       if(var1 == class_aes.c) {
          class_arr var2 = class_arr.a(this.b.Q().B());
-         this.c = new class_afg(class_aez.a(var2.a(), class_aez.ad), 0.5F);
+         this.c = new class_afg(BiomeBase.a(var2.a(), BiomeBase.ad), 0.5F);
       } else if(var1 == class_aes.g) {
-         this.c = new class_afg(class_aez.q, 0.0F);
+         this.c = new class_afg(BiomeBase.q, 0.0F);
       } else {
          this.c = new class_afd(this.b);
       }
@@ -123,10 +123,10 @@ public abstract class class_aoy {
       return new class_aoe();
    }
 
-   public void a(class_lh var1) {
+   public void a(EntityPlayer var1) {
    }
 
-   public void b(class_lh var1) {
+   public void b(EntityPlayer var1) {
    }
 
    public abstract class_aoz p();

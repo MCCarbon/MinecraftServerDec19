@@ -8,9 +8,9 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
@@ -28,7 +28,7 @@ public class class_t extends class_i {
    }
 
    public void a(class_m var1, String[] var2) throws class_bz {
-      class_lh var3 = var2.length == 0?b(var1):a(var1, var2[0]);
+      EntityPlayer var3 = var2.length == 0?b(var1):a(var1, var2[0]);
       Item var4 = var2.length >= 2?f(var1, var2[1]):null;
       int var5 = var2.length >= 3?a(var2[2], -1):-1;
       int var6 = var2.length >= 4?a(var2[3], -1):-1;
@@ -42,7 +42,7 @@ public class class_t extends class_i {
       }
 
       if(var2.length >= 2 && var4 == null) {
-         throw new class_bz("commands.clear.failure", new Object[]{var3.e_()});
+         throw new class_bz("commands.clear.failure", new Object[]{var3.getName()});
       } else {
          int var8 = var3.bp.a(var4, var5, var6, var7);
          var3.bq.b();
@@ -52,12 +52,12 @@ public class class_t extends class_i {
 
          var1.a(class_n.class_a_in_class_n.d, var8);
          if(var8 == 0) {
-            throw new class_bz("commands.clear.failure", new Object[]{var3.e_()});
+            throw new class_bz("commands.clear.failure", new Object[]{var3.getName()});
          } else {
             if(var6 == 0) {
-               var1.a(new class_fb("commands.clear.testing", new Object[]{var3.e_(), Integer.valueOf(var8)}));
+               var1.a(new ChatMessage("commands.clear.testing", new Object[]{var3.getName(), Integer.valueOf(var8)}));
             } else {
-               a(var1, this, "commands.clear.success", new Object[]{var3.e_(), Integer.valueOf(var8)});
+               a(var1, this, "commands.clear.success", new Object[]{var3.getName(), Integer.valueOf(var8)});
             }
 
          }

@@ -4,49 +4,49 @@ import java.util.Random;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_agl;
-import net.minecraft.server.class_aiv;
-import net.minecraft.server.class_ajt;
-import net.minecraft.server.class_ajw;
+import net.minecraft.server.IBlockFragilePlantElement;
+import net.minecraft.server.BlockDirectional;
+import net.minecraft.server.BlockLog1;
+import net.minecraft.server.BlockWood;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anz;
+import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EnumColor;
 
-public class class_agy extends class_aiv implements class_agl {
-   public static final class_anz a = class_anz.a("age", 0, 2);
+public class class_agy extends BlockDirectional implements IBlockFragilePlantElement {
+   public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 2);
 
    public class_agy() {
       super(Material.PLANT);
-      this.setBlockData(this.blockStateList.getFirst().set(O, EnumDirection.NORTH).set(a, Integer.valueOf(0)));
+      this.setBlockData(this.blockStateList.getFirst().set(FACING, EnumDirection.NORTH).set(a, Integer.valueOf(0)));
       this.setTicking(true);
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       if(!this.e(var1, var2, var3)) {
          this.f(var1, var2, var3);
-      } else if(var1.s.nextInt(5) == 0) {
+      } else if(var1.random.nextInt(5) == 0) {
          int var5 = ((Integer)var3.get(a)).intValue();
          if(var5 < 2) {
-            var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 + 1)), 2);
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 + 1)), 2);
          }
       }
 
    }
 
    public boolean e(World var1, BlockPosition var2, IBlockData var3) {
-      var2 = var2.shift((EnumDirection)var3.get(O));
-      IBlockData var4 = var1.p(var2);
-      return var4.getBlock() == Blocks.LOG && var4.get(class_ajt.b) == class_ajw.class_a_in_class_ajw.d;
+      var2 = var2.shift((EnumDirection)var3.get(FACING));
+      IBlockData var4 = var1.getType(var2);
+      return var4.getBlock() == Blocks.LOG && var4.get(BlockLog1.b) == BlockWood.EnumLogVariant.JUNGLE;
    }
 
    public boolean isFullCube() {
@@ -57,14 +57,14 @@ public class class_agy extends class_aiv implements class_agl {
       return false;
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
-      this.a((class_aer)var1, (BlockPosition)var2);
-      return super.a(var1, var2, var3);
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
+      this.updateShape((IBlockAccess)var1, (BlockPosition)var2);
+      return super.getBoundingBox(var1, var2, var3);
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
-      IBlockData var3 = var1.p(var2);
-      EnumDirection var4 = (EnumDirection)var3.get(O);
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
+      IBlockData var3 = var1.getType(var2);
+      EnumDirection var4 = (EnumDirection)var3.get(FACING);
       int var5 = ((Integer)var3.get(a)).intValue();
       int var6 = 4 + var5 * 2;
       int var7 = 5 + var5 * 2;
@@ -85,28 +85,28 @@ public class class_agy extends class_aiv implements class_agl {
 
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(O, var2.a((EnumDirection)var1.get(O)));
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
+      return var1.getBlock() != this?var1:var1.set(FACING, var2.a((EnumDirection)var1.get(FACING)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(O)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(FACING)));
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
+   public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       EnumDirection var6 = EnumDirection.fromAngle((double)var4.y);
-      var1.a((BlockPosition)var2, (IBlockData)var3.set(O, var6), 2);
+      var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(FACING, var6), 2);
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       if(!var3.getAxis().isHorizontal()) {
          var3 = EnumDirection.NORTH;
       }
 
-      return this.getBlockData().set(O, var3.getOpposite()).set(a, Integer.valueOf(0));
+      return this.getBlockData().set(FACING, var3.getOpposite()).set(a, Integer.valueOf(0));
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2, var3)) {
          this.f(var1, var2, var3);
       }
@@ -114,8 +114,8 @@ public class class_agy extends class_aiv implements class_agl {
    }
 
    private void f(World var1, BlockPosition var2, IBlockData var3) {
-      var1.a((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 3);
-      this.b(var1, var2, var3, 0);
+      var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 3);
+      this.dropNaturallyForSure(var1, var2, var3, 0);
    }
 
    public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
@@ -126,13 +126,13 @@ public class class_agy extends class_aiv implements class_agl {
       }
 
       for(int var8 = 0; var8 < var7; ++var8) {
-         a(var1, var2, new ItemStack(Items.aY, 1, class_zy.m.b()));
+         dropItem(var1, var2, new ItemStack(Items.aY, 1, EnumColor.m.b()));
       }
 
    }
 
-   public int j(World var1, BlockPosition var2) {
-      return class_zy.m.b();
+   public int getDropData(World var1, BlockPosition var2) {
+      return EnumColor.m.b();
    }
 
    public boolean a(World var1, BlockPosition var2, IBlockData var3, boolean var4) {
@@ -144,22 +144,22 @@ public class class_agy extends class_aiv implements class_agl {
    }
 
    public void b(World var1, Random var2, BlockPosition var3, IBlockData var4) {
-      var1.a((BlockPosition)var3, (IBlockData)var4.set(a, Integer.valueOf(((Integer)var4.get(a)).intValue() + 1)), 2);
+      var1.setTypeAndData((BlockPosition)var3, (IBlockData)var4.set(a, Integer.valueOf(((Integer)var4.get(a)).intValue() + 1)), 2);
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(O, EnumDirection.getByHorizontalId(var1)).set(a, Integer.valueOf((var1 & 15) >> 2));
+      return this.getBlockData().set(FACING, EnumDirection.getByHorizontalId(var1)).set(a, Integer.valueOf((var1 & 15) >> 2));
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((EnumDirection)var1.get(O)).getHorizontalId();
+      int var3 = var2 | ((EnumDirection)var1.get(FACING)).getHorizontalId();
       var3 |= ((Integer)var1.get(a)).intValue() << 2;
       return var3;
    }
 
-   protected BlockStateList createBlockStateList() {
-      return new BlockStateList(this, new IBlockState[]{O, a});
+   protected BlockStateList getStateList() {
+      return new BlockStateList(this, new IBlockState[]{FACING, a});
    }
 
    // $FF: synthetic class

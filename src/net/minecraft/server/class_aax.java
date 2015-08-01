@@ -8,18 +8,18 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahj;
+import net.minecraft.server.BlockDirt;
 import net.minecraft.server.BlockStone;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aok;
+import net.minecraft.server.Chunk;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.Packet;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_zt;
 
 public class class_aax extends class_zt {
@@ -30,13 +30,13 @@ public class class_aax extends class_zt {
    public class_avf a(ItemStack var1, World var2) {
       String var3 = "map_" + var1.i();
       class_avf var4 = (class_avf)var2.a(class_avf.class, var3);
-      if(var4 == null && !var2.D) {
+      if(var4 == null && !var2.isClientSide) {
          var1.setData(var2.b("map"));
          var3 = "map_" + var1.i();
          var4 = new class_avf(var3);
          var4.e = 3;
          var4.a((double)var2.Q().c(), (double)var2.Q().e(), var4.e);
-         var4.d = (byte)var2.t.p().a();
+         var4.d = (byte)var2.worldProvider.p().a();
          var4.c();
          var2.a((String)var3, (class_avd)var4);
       }
@@ -44,19 +44,19 @@ public class class_aax extends class_zt {
       return var4;
    }
 
-   public void a(World var1, class_pr var2, class_avf var3) {
-      if(var1.t.p().a() == var3.d && var2 instanceof class_xa) {
+   public void a(World var1, Entity var2, class_avf var3) {
+      if(var1.worldProvider.p().a() == var3.d && var2 instanceof EntityHuman) {
          int var4 = 1 << var3.e;
          int var5 = var3.b;
          int var6 = var3.c;
          int var7 = MathHelper.floor(var2.s - (double)var5) / var4 + 64;
          int var8 = MathHelper.floor(var2.u - (double)var6) / var4 + 64;
          int var9 = 128 / var4;
-         if(var1.t.m()) {
+         if(var1.worldProvider.m()) {
             var9 /= 2;
          }
 
-         class_avf.class_a_in_class_avf var10 = var3.a((class_xa)var2);
+         class_avf.class_a_in_class_avf var10 = var3.a((EntityHuman)var2);
          ++var10.b;
          boolean var11 = false;
 
@@ -73,17 +73,17 @@ public class class_aax extends class_zt {
                      int var19 = (var5 / var4 + var12 - 64) * var4;
                      int var20 = (var6 / var4 + var15 - 64) * var4;
                      HashMultiset var21 = HashMultiset.create();
-                     class_aok var22 = var1.f(new BlockPosition(var19, 0, var20));
+                     Chunk var22 = var1.f(new BlockPosition(var19, 0, var20));
                      if(!var22.f()) {
                         int var23 = var19 & 15;
                         int var24 = var20 & 15;
                         int var25 = 0;
                         double var26 = 0.0D;
-                        if(var1.t.m()) {
+                        if(var1.worldProvider.m()) {
                            int var28 = var19 + var20 * 231871;
                            var28 = var28 * var28 * 31287121 + var28 * 11;
                            if((var28 >> 20 & 1) == 0) {
-                              var21.add(Blocks.DIRT.getMapColor(Blocks.DIRT.getBlockData().set(class_ahj.a, class_ahj.class_a_in_class_ahj.a)), 10);
+                              var21.add(Blocks.DIRT.getMapColor(Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT)), 10);
                            } else {
                               var21.add(Blocks.STONE.getMapColor(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE)), 100);
                            }
@@ -162,11 +162,11 @@ public class class_aax extends class_zt {
       }
    }
 
-   public void a(ItemStack var1, World var2, class_pr var3, int var4, boolean var5) {
-      if(!var2.D) {
+   public void a(ItemStack var1, World var2, Entity var3, int var4, boolean var5) {
+      if(!var2.isClientSide) {
          class_avf var6 = this.a(var1, var2);
-         if(var3 instanceof class_xa) {
-            class_xa var7 = (class_xa)var3;
+         if(var3 instanceof EntityHuman) {
+            EntityHuman var7 = (EntityHuman)var3;
             var6.a(var7, var1);
          }
 
@@ -177,11 +177,11 @@ public class class_aax extends class_zt {
       }
    }
 
-   public Packet a(ItemStack var1, World var2, class_xa var3) {
+   public Packet a(ItemStack var1, World var2, EntityHuman var3) {
       return this.a(var1, var2).a(var1, var2, var3);
    }
 
-   public void b(ItemStack var1, World var2, class_xa var3) {
+   public void b(ItemStack var1, World var2, EntityHuman var3) {
       if(var1.hasTag() && var1.getTag().getBoolean("map_is_scaling")) {
          class_avf var4 = Items.bf.a(var1, var2);
          var1.setData(var2.b("map"));

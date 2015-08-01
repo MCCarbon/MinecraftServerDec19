@@ -40,8 +40,8 @@ public class class_tf extends class_tg {
 
    private int p() {
       if(this.b.V() && this.h()) {
-         int var1 = (int)this.b.aT().b;
-         Block var2 = this.c.p(new BlockPosition(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).getBlock();
+         int var1 = (int)this.b.aT().yMin;
+         Block var2 = this.c.getType(new BlockPosition(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).getBlock();
          int var3 = 0;
 
          do {
@@ -50,20 +50,20 @@ public class class_tf extends class_tg {
             }
 
             ++var1;
-            var2 = this.c.p(new BlockPosition(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).getBlock();
+            var2 = this.c.getType(new BlockPosition(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).getBlock();
             ++var3;
          } while(var3 <= 16);
 
-         return (int)this.b.aT().b;
+         return (int)this.b.aT().yMin;
       } else {
-         return (int)(this.b.aT().b + 0.5D);
+         return (int)(this.b.aT().yMin + 0.5D);
       }
    }
 
    protected void d() {
       super.d();
       if(this.f) {
-         if(this.c.i(new BlockPosition(MathHelper.floor(this.b.s), (int)(this.b.aT().b + 0.5D), MathHelper.floor(this.b.u)))) {
+         if(this.c.i(new BlockPosition(MathHelper.floor(this.b.s), (int)(this.b.aT().yMin + 0.5D), MathHelper.floor(this.b.u)))) {
             return;
          }
 
@@ -150,7 +150,7 @@ public class class_tf extends class_tg {
                double var16 = (double)var14 + 0.5D - var7.x;
                double var18 = (double)var15 + 0.5D - var7.z;
                if(var16 * var8 + var18 * var10 >= 0.0D) {
-                  Block var20 = this.c.p(new BlockPosition(var14, var2 - 1, var15)).getBlock();
+                  Block var20 = this.c.getType(new BlockPosition(var14, var2 - 1, var15)).getBlock();
                   Material var21 = var20.getMaterial();
                   if(var21 == Material.AIR) {
                      return false;
@@ -179,7 +179,7 @@ public class class_tf extends class_tg {
          double var14 = (double)var13.getX() + 0.5D - var7.x;
          double var16 = (double)var13.getZ() + 0.5D - var7.z;
          if(var14 * var8 + var16 * var10 >= 0.0D) {
-            Block var18 = this.c.p(var13).getBlock();
+            Block var18 = this.c.getType(var13).getBlock();
             if(!var18.isPassable(this.c, var13)) {
                return false;
             }

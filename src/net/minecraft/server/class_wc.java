@@ -16,7 +16,7 @@ import net.minecraft.server.class_sw;
 import net.minecraft.server.class_sz;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_wc extends class_wi {
    private int a = 0;
@@ -27,12 +27,12 @@ public class class_wc extends class_wi {
       this.b_ = 3;
       this.a(0.4F, 0.3F);
       this.i.a(1, new class_rj(this));
-      this.i.a(2, new class_ru(this, class_xa.class, 1.0D, false));
+      this.i.a(2, new class_ru(this, EntityHuman.class, 1.0D, false));
       this.i.a(3, new class_si(this, 1.0D));
-      this.i.a(7, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(7, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(8, new class_sh(this));
       this.bn.a(1, new class_sw(this, true, new Class[0]));
-      this.bn.a(2, new class_sz(this, class_xa.class, true));
+      this.bn.a(2, new class_sz(this, EntityHuman.class, true));
    }
 
    public float aU() {
@@ -97,7 +97,7 @@ public class class_wc extends class_wi {
 
    public void m() {
       super.m();
-      if(this.o.D) {
+      if(this.o.isClientSide) {
          for(int var1 = 0; var1 < 2; ++var1) {
             this.o.a(class_cy.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
@@ -119,7 +119,7 @@ public class class_wc extends class_wi {
 
    public boolean cf() {
       if(super.cf()) {
-         class_xa var1 = this.o.a(this, 5.0D);
+         EntityHuman var1 = this.o.a(this, 5.0D);
          return var1 == null;
       } else {
          return false;

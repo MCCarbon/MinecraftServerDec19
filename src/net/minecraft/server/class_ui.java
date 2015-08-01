@@ -5,13 +5,13 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_uk;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_ui extends class_uk {
    public float a;
@@ -74,13 +74,13 @@ public class class_ui extends class_uk {
       int var3 = this.V.nextInt(3 + var2) + 1;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(new ItemStack(Items.aY, 1, class_zy.p.b()), 0.0F);
+         this.a(new ItemStack(Items.aY, 1, EnumColor.p.b()), 0.0F);
       }
 
    }
 
    public boolean V() {
-      return this.o.a((class_awf)this.aT().b(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.WATER, (class_pr)this);
+      return this.o.a((AxisAlignedBB)this.aT().grow(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.WATER, (Entity)this);
    }
 
    public void m() {
@@ -91,7 +91,7 @@ public class class_ui extends class_uk {
       this.bu = this.bt;
       this.br += this.bw;
       if((double)this.br > 6.283185307179586D) {
-         if(this.o.D) {
+         if(this.o.isClientSide) {
             this.br = 6.2831855F;
          } else {
             this.br = (float)((double)this.br - 6.283185307179586D);
@@ -99,7 +99,7 @@ public class class_ui extends class_uk {
                this.bw = 1.0F / (this.V.nextFloat() + 1.0F) * 0.2F;
             }
 
-            this.o.a((class_pr)this, (byte)19);
+            this.o.a((Entity)this, (byte)19);
          }
       }
 
@@ -120,9 +120,9 @@ public class class_ui extends class_uk {
             this.bx *= 0.99F;
          }
 
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             this.v = (double)(this.by * this.bv);
-            this.w = (double)(this.bz * this.bv);
+            this.motY = (double)(this.bz * this.bv);
             this.x = (double)(this.bA * this.bv);
          }
 
@@ -130,13 +130,13 @@ public class class_ui extends class_uk {
          this.aL += (-((float)MathHelper.b(this.v, this.x)) * 180.0F / 3.1415927F - this.aL) * 0.1F;
          this.y = this.aL;
          this.c = (float)((double)this.c + 3.141592653589793D * (double)this.bx * 1.5D);
-         this.a += (-((float)MathHelper.b((double)var1, this.w)) * 180.0F / 3.1415927F - this.a) * 0.1F;
+         this.a += (-((float)MathHelper.b((double)var1, this.motY)) * 180.0F / 3.1415927F - this.a) * 0.1F;
       } else {
          this.bt = MathHelper.abs(MathHelper.sin(this.br)) * 3.1415927F * 0.25F;
-         if(!this.o.D) {
+         if(!this.o.isClientSide) {
             this.v = 0.0D;
-            this.w -= 0.08D;
-            this.w *= 0.9800000190734863D;
+            this.motY -= 0.08D;
+            this.motY *= 0.9800000190734863D;
             this.x = 0.0D;
          }
 
@@ -146,7 +146,7 @@ public class class_ui extends class_uk {
    }
 
    public void g(float var1, float var2) {
-      this.d(this.v, this.w, this.x);
+      this.d(this.v, this.motY, this.x);
    }
 
    public boolean cf() {

@@ -20,7 +20,7 @@ public class class_akc extends Block {
    public class_akc() {
       super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, class_akc.class_a_in_class_akc.a));
-      this.a(CreativeTab.b);
+      this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
    public String getName() {
@@ -39,7 +39,7 @@ public class class_akc extends Block {
       return ((class_akc.class_a_in_class_akc)var1.get(a)).a();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 

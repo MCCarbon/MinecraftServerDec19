@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aut;
 import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_auv {
    private final class_aut[] a;
@@ -46,14 +46,14 @@ public class class_auv {
       this.b = var1;
    }
 
-   public Vec3D a(class_pr var1, int var2) {
+   public Vec3D a(Entity var1, int var2) {
       double var3 = (double)this.a[var2].a + (double)((int)(var1.J + 1.0F)) * 0.5D;
       double var5 = (double)this.a[var2].b;
       double var7 = (double)this.a[var2].c + (double)((int)(var1.J + 1.0F)) * 0.5D;
       return new Vec3D(var3, var5, var7);
    }
 
-   public Vec3D a(class_pr var1) {
+   public Vec3D a(Entity var1) {
       return this.a(var1, this.b);
    }
 

@@ -64,7 +64,7 @@ public abstract class class_asp extends class_asn {
    protected abstract void a(String var1, BlockPosition var2, World var3, Random var4, class_arw var5);
 
    private void h() {
-      Block.class_c_in_class_agj var1 = this.b.c();
+      Block.EnumRotation var1 = this.b.c();
       BlockPosition var2 = this.a.a(var1);
       this.l = new class_arw(0, 0, 0, var2.getX(), var2.getY() - 1, var2.getZ());
       switch(class_asp.SyntheticClass_1.a[var1.ordinal()]) {
@@ -92,29 +92,29 @@ public abstract class class_asp extends class_asn {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[Block.class_c_in_class_agj.values().length];
+      static final int[] a = new int[Block.EnumRotation.values().length];
 
       static {
          try {
-            a[Block.class_c_in_class_agj.a.ordinal()] = 1;
+            a[Block.EnumRotation.NONE.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.b.ordinal()] = 2;
+            a[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.d.ordinal()] = 3;
+            a[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[Block.class_c_in_class_agj.c.ordinal()] = 4;
+            a[Block.EnumRotation.CLOCKWISE_180.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }

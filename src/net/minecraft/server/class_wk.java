@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 
 public interface class_wk {
-   void a(class_qa var1, float var2);
+   void a(EntityLiving var1, float var2);
 }

@@ -5,7 +5,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 
@@ -26,7 +26,7 @@ public class class_ms extends class_my {
 	}
 
 	public class_ms(String var1, String var2, int var3, int var4, ItemStack var5, class_ms var6) {
-		super(var1, new class_fb("achievement." + var2, new Object[0]));
+		super(var1, new ChatMessage("achievement." + var2, new Object[0]));
 		this.d = var5;
 		this.k = "achievement." + var2 + ".desc";
 		this.a = var3;

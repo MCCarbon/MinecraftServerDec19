@@ -7,13 +7,13 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_aok;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.Chunk;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
-public class class_aoj extends class_aok {
+public class class_aoj extends Chunk {
    public class_aoj(World var1, int var2, int var3) {
       super(var1, var2, var3);
    }
@@ -52,27 +52,27 @@ public class class_aoj extends class_aok {
       return 0;
    }
 
-   public void a(class_pr var1) {
+   public void a(Entity var1) {
    }
 
-   public void b(class_pr var1) {
+   public void b(Entity var1) {
    }
 
-   public void a(class_pr var1, int var2) {
+   public void a(Entity var1, int var2) {
    }
 
    public boolean d(BlockPosition var1) {
       return false;
    }
 
-   public class_amg a(BlockPosition var1, class_aok.class_a_in_class_aok var2) {
+   public TileEntity a(BlockPosition var1, Chunk.class_a_in_class_aok var2) {
       return null;
    }
 
-   public void a(class_amg var1) {
+   public void a(TileEntity var1) {
    }
 
-   public void a(BlockPosition var1, class_amg var2) {
+   public void a(BlockPosition var1, TileEntity var2) {
    }
 
    public void e(BlockPosition var1) {
@@ -87,10 +87,10 @@ public class class_aoj extends class_aok {
    public void e() {
    }
 
-   public void a(class_pr var1, class_awf var2, List var3, Predicate var4) {
+   public void a(Entity var1, AxisAlignedBB var2, List var3, Predicate var4) {
    }
 
-   public void a(Class var1, class_awf var2, List var3, Predicate var4) {
+   public void a(Class var1, AxisAlignedBB var2, List var3, Predicate var4) {
    }
 
    public boolean a(boolean var1) {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -11,22 +11,22 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_amc extends Block {
-   public static final BlockStateEnum a = BlockStateEnum.of("color", class_zy.class);
+   public static final BlockStateEnum a = BlockStateEnum.of("color", EnumColor.class);
 
    protected class_amc() {
       super(Material.WOOL);
-      this.setBlockData(this.blockStateList.getFirst().set(a, class_zy.a));
+      this.setBlockData(this.blockStateList.getFirst().set(a, EnumColor.a));
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
       this.setTicking(true);
-      this.a(CreativeTab.c);
+      this.setCreativeTab(CreativeTab.DECORATIONS);
       this.b(0);
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {
-      return ((class_zy)var1.get(a)).e();
+      return ((EnumColor)var1.get(a)).e();
    }
 
    public boolean isOpaqueCube() {
@@ -41,7 +41,7 @@ public class class_amc extends Block {
       this.b(0);
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
       this.b(0);
    }
 
@@ -51,18 +51,18 @@ public class class_amc extends Block {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, var3, 1.0F);
    }
 
-   public boolean d(World var1, BlockPosition var2) {
-      return super.d(var1, var2) && this.e(var1, var2);
+   public boolean canPlace(World var1, BlockPosition var2) {
+      return super.canPlace(var1, var2) && this.e(var1, var2);
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       this.e(var1, var2, var3);
    }
 
    private boolean e(World var1, BlockPosition var2, IBlockData var3) {
       if(!this.e(var1, var2)) {
-         this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         this.dropNaturallyForSure(var1, var2, var3, 0);
+         var1.setAir(var2);
          return false;
       } else {
          return true;
@@ -70,22 +70,22 @@ public class class_amc extends Block {
    }
 
    private boolean e(World var1, BlockPosition var2) {
-      return !var1.d(var2.shiftDown());
+      return !var1.isEmpty(var2.down());
    }
 
    public int getDropData(IBlockData var1) {
-      return ((class_zy)var1.get(a)).a();
+      return ((EnumColor)var1.get(a)).a();
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(a, class_zy.b(var1));
+      return this.getBlockData().set(a, EnumColor.b(var1));
    }
 
    public int toLegacyData(IBlockData var1) {
-      return ((class_zy)var1.get(a)).a();
+      return ((EnumColor)var1.get(a)).a();
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 }

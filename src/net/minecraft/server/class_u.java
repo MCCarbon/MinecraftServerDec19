@@ -9,7 +9,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aex;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
 import net.minecraft.server.class_bz;
@@ -20,7 +20,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 
 public class class_u extends class_i {
    public String c() {
@@ -89,12 +89,12 @@ public class class_u extends class_i {
                            for(int var21 = var6.a; var21 <= var6.d; ++var21) {
                               BlockPosition var22 = new BlockPosition(var21, var20, var19);
                               BlockPosition var23 = var22.add((BaseBlockPosition)var18);
-                              IBlockData var24 = var12.p(var22);
+                              IBlockData var24 = var12.getType(var22);
                               if((!var13 || var24.getBlock() != Blocks.AIR) && (var10 == null || var24.getBlock() == var10 && (var11 < 0 || var24.getBlock().toLegacyData(var24) == var11))) {
-                                 class_amg var25 = var12.s(var22);
+                                 TileEntity var25 = var12.getTileEntity(var22);
                                  if(var25 != null) {
                                     NBTTagCompound var26 = new NBTTagCompound();
-                                    var25.b(var26);
+                                    var25.write(var26);
                                     var15.add(new class_u.class_a_in_class_u(var23, var24, var26));
                                     var17.addLast(var22);
                                  } else if(!var24.getBlock().isFullBlock() && !var24.getBlock().isFullCube()) {
@@ -112,11 +112,11 @@ public class class_u extends class_i {
                      if(var9) {
                         Iterator var27;
                         BlockPosition var29;
-                        for(var27 = var17.iterator(); var27.hasNext(); var12.a((BlockPosition)var29, (IBlockData)Blocks.BARRIER.getBlockData(), 2)) {
+                        for(var27 = var17.iterator(); var27.hasNext(); var12.setTypeAndData((BlockPosition)var29, (IBlockData)Blocks.BARRIER.getBlockData(), 2)) {
                            var29 = (BlockPosition)var27.next();
-                           class_amg var31 = var12.s(var29);
-                           if(var31 instanceof class_oj) {
-                              ((class_oj)var31).l();
+                           TileEntity var31 = var12.getTileEntity(var29);
+                           if(var31 instanceof IInventory) {
+                              ((IInventory)var31).remove();
                            }
                         }
 
@@ -124,7 +124,7 @@ public class class_u extends class_i {
 
                         while(var27.hasNext()) {
                            var29 = (BlockPosition)var27.next();
-                           var12.a((BlockPosition)var29, (IBlockData)Blocks.AIR.getBlockData(), 3);
+                           var12.setTypeAndData((BlockPosition)var29, (IBlockData)Blocks.AIR.getBlockData(), 3);
                         }
                      }
 
@@ -136,12 +136,12 @@ public class class_u extends class_i {
 
                      Iterator var32;
                      class_u.class_a_in_class_u var33;
-                     class_amg var34;
-                     for(var32 = var30.iterator(); var32.hasNext(); var12.a((BlockPosition)var33.a, (IBlockData)Blocks.BARRIER.getBlockData(), 2)) {
+                     TileEntity var34;
+                     for(var32 = var30.iterator(); var32.hasNext(); var12.setTypeAndData((BlockPosition)var33.a, (IBlockData)Blocks.BARRIER.getBlockData(), 2)) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
-                        var34 = var12.s(var33.a);
-                        if(var34 instanceof class_oj) {
-                           ((class_oj)var34).l();
+                        var34 = var12.getTileEntity(var33.a);
+                        if(var34 instanceof IInventory) {
+                           ((IInventory)var34).remove();
                         }
                      }
 
@@ -150,20 +150,20 @@ public class class_u extends class_i {
 
                      while(var32.hasNext()) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
-                        if(var12.a((BlockPosition)var33.a, (IBlockData)var33.b, 2)) {
+                        if(var12.setTypeAndData((BlockPosition)var33.a, (IBlockData)var33.b, 2)) {
                            ++var8;
                         }
                      }
 
-                     for(var32 = var15.iterator(); var32.hasNext(); var12.a((BlockPosition)var33.a, (IBlockData)var33.b, 2)) {
+                     for(var32 = var15.iterator(); var32.hasNext(); var12.setTypeAndData((BlockPosition)var33.a, (IBlockData)var33.b, 2)) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
-                        var34 = var12.s(var33.a);
+                        var34 = var12.getTileEntity(var33.a);
                         if(var33.c != null && var34 != null) {
                            var33.c.put("x", var33.a.getX());
                            var33.c.put("y", var33.a.getY());
                            var33.c.put("z", var33.a.getZ());
-                           var34.a(var33.c);
-                           var34.p_();
+                           var34.read(var33.c);
+                           var34.update();
                         }
                      }
 

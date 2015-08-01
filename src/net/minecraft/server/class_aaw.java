@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_aja;
+import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.ItemBlock;
 
 public class class_aaw extends ItemBlock {
-   private final class_aja b;
+   private final BlockLeaves b;
 
-   public class_aaw(class_aja var1) {
+   public class_aaw(BlockLeaves var1) {
       super(var1);
       this.b = var1;
       this.e(0);

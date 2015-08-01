@@ -6,29 +6,29 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agd;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amh;
+import net.minecraft.server.BlockContainer;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityBrewingStand;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anw;
+import net.minecraft.server.BlockStateBoolean;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_nc;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.class_ol;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 
-public class class_agn extends class_agd {
-   public static final class_anw[] a = new class_anw[]{class_anw.a("has_bottle_0"), class_anw.a("has_bottle_1"), class_anw.a("has_bottle_2")};
+public class class_agn extends BlockContainer {
+   public static final BlockStateBoolean[] a = new BlockStateBoolean[]{BlockStateBoolean.of("has_bottle_0"), BlockStateBoolean.of("has_bottle_1"), BlockStateBoolean.of("has_bottle_2")};
 
    public class_agn() {
       super(Material.ORE);
@@ -47,68 +47,68 @@ public class class_agn extends class_agd {
       return 3;
    }
 
-   public class_amg a(World var1, int var2) {
-      return new class_amh();
+   public TileEntity createTileEntity(World var1, int var2) {
+      return new TileEntityBrewingStand();
    }
 
    public boolean isFullCube() {
       return false;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_awf var4, List var5, class_pr var6) {
+   public void addBBIfInsideInputBB(World var1, BlockPosition var2, IBlockData var3, AxisAlignedBB var4, List var5, Entity var6) {
       this.setSizes(0.4375F, 0.0F, 0.4375F, 0.5625F, 0.875F, 0.5625F);
-      super.a(var1, var2, var3, var4, var5, var6);
+      super.addBBIfInsideInputBB(var1, var2, var3, var4, var5, var6);
       this.j();
-      super.a(var1, var2, var3, var4, var5, var6);
+      super.addBBIfInsideInputBB(var1, var2, var3, var4, var5, var6);
    }
 
    public void j() {
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(var1.D) {
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+      if(var1.isClientSide) {
          return true;
       } else {
-         class_amg var11 = var1.s(var2);
-         if(var11 instanceof class_amh) {
-            var4.a((class_oj)((class_amh)var11));
-            var4.b(class_nc.M);
+         TileEntity var11 = var1.getTileEntity(var2);
+         if(var11 instanceof TileEntityBrewingStand) {
+            var4.openContainer((IInventory)((TileEntityBrewingStand)var11));
+            var4.b(StatisticList.M);
          }
 
          return true;
       }
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_qa var4, ItemStack var5) {
+   public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
       if(var5.hasDisplayName()) {
-         class_amg var6 = var1.s(var2);
-         if(var6 instanceof class_amh) {
-            ((class_amh)var6).a(var5.getDisplayName());
+         TileEntity var6 = var1.getTileEntity(var2);
+         if(var6 instanceof TileEntityBrewingStand) {
+            ((TileEntityBrewingStand)var6).a(var5.getDisplayName());
          }
       }
 
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3) {
-      class_amg var4 = var1.s(var2);
-      if(var4 instanceof class_amh) {
-         class_ol.a(var1, (BlockPosition)var2, (class_amh)var4);
+   public void remove(World var1, BlockPosition var2, IBlockData var3) {
+      TileEntity var4 = var1.getTileEntity(var2);
+      if(var4 instanceof TileEntityBrewingStand) {
+         class_ol.a(var1, (BlockPosition)var2, (TileEntityBrewingStand)var4);
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
       return Items.bI;
    }
 
-   public boolean Q() {
+   public boolean isComplexRedstone() {
       return true;
    }
 
-   public int l(World var1, BlockPosition var2) {
-      return class_xz.a(var1.s(var2));
+   public int getRedstonePower(World var1, BlockPosition var2) {
+      return Container.a(var1.getTileEntity(var2));
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -133,7 +133,7 @@ public class class_agn extends class_agd {
       return var2;
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a[0], a[1], a[2]});
    }
 }

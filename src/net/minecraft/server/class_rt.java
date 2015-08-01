@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_po;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tp;
 import net.minecraft.server.class_wv;
@@ -32,7 +32,7 @@ public class class_rt extends class_rm {
          if(this.a == null) {
             return false;
          } else if(this.f() && this.b.o(true)) {
-            class_pr var1 = this.d.a((Class)class_wv.class, (class_awf)this.b.aT().b(8.0D, 3.0D, 8.0D), (class_pr)this.b);
+            Entity var1 = this.d.a((Class)class_wv.class, (AxisAlignedBB)this.b.aT().grow(8.0D, 3.0D, 8.0D), (Entity)this.b);
             if(var1 == null) {
                return false;
             } else {
@@ -64,13 +64,13 @@ public class class_rt extends class_rm {
       --this.e;
       this.b.q().a(this.c, 10.0F, 30.0F);
       if(this.b.h(this.c) > 2.25D) {
-         this.b.u().a((class_pr)this.c, 0.25D);
+         this.b.u().a((Entity)this.c, 0.25D);
       } else if(this.e == 0 && this.c.cB()) {
          this.g();
       }
 
       if(this.b.bd().nextInt(35) == 0) {
-         this.d.a((class_pr)this.b, (byte)12);
+         this.d.a((Entity)this.b, (byte)12);
       }
 
    }
@@ -92,7 +92,7 @@ public class class_rt extends class_rm {
       this.b.p(false);
       var1.b(-24000);
       var1.b(this.b.s, this.b.t, this.b.u, 0.0F, 0.0F);
-      this.d.a((class_pr)var1);
-      this.d.a((class_pr)var1, (byte)12);
+      this.d.addEntity((Entity)var1);
+      this.d.a((Entity)var1, (byte)12);
    }
 }

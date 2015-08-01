@@ -5,25 +5,25 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_wz;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_yg;
 import net.minecraft.server.class_yv;
 import net.minecraft.server.class_yw;
 import net.minecraft.server.class_yx;
 import net.minecraft.server.class_za;
 
-public class class_yp extends class_xz {
+public class class_yp extends Container {
    private static final class_pw[] h;
    public class_yg a = new class_yg(this, 2, 2);
-   public class_oj f = new class_yv();
+   public IInventory f = new class_yv();
    public boolean g;
-   private final class_xa i;
+   private final EntityHuman i;
 
-   public class_yp(final class_wz var1, boolean var2, class_xa var3) {
+   public class_yp(final PlayerInventory var1, boolean var2, EntityHuman var3) {
       this.g = var2;
       this.i = var3;
       this.a((class_yx)(new class_yw(var1.e, this.a, this.f, 0, 154, 28)));
@@ -64,31 +64,31 @@ public class class_yp extends class_xz {
             return super.a(var1);
          }
       }));
-      this.a((class_oj)this.a);
+      this.a((IInventory)this.a);
    }
 
-   public void a(class_oj var1) {
-      this.f.a(0, class_act.a().a(this.a, this.i.o));
+   public void a(IInventory var1) {
+      this.f.setItem(0, class_act.a().a(this.a, this.i.o));
    }
 
-   public void b(class_xa var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
 
       for(int var2 = 0; var2 < 4; ++var2) {
-         ItemStack var3 = this.a.b(var2);
+         ItemStack var3 = this.a.splitWithoutUpdate(var2);
          if(var3 != null) {
             var1.a(var3, false);
          }
       }
 
-      this.f.a(0, (ItemStack)null);
+      this.f.setItem(0, (ItemStack)null);
    }
 
-   public boolean a(class_xa var1) {
+   public boolean a(EntityHuman var1) {
       return true;
    }
 
-   public ItemStack b(class_xa var1, int var2) {
+   public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {

@@ -2,17 +2,17 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
-import net.minecraft.server.class_oj;
-import net.minecraft.server.class_xa;
-import net.minecraft.server.class_xz;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 import net.minecraft.server.class_ye;
 import net.minecraft.server.class_yx;
 
-public class class_yc extends class_xz {
-   private class_oj a;
+public class class_yc extends Container {
+   private IInventory a;
    private final class_yc.class_a_in_class_yc f;
 
-   public class_yc(class_oj var1, class_oj var2) {
+   public class_yc(IInventory var1, IInventory var2) {
       this.a = var2;
       this.a((class_yx)(this.f = new class_yc.class_a_in_class_yc(var2, 0, 136, 110)));
       byte var3 = 36;
@@ -33,16 +33,16 @@ public class class_yc extends class_xz {
 
    public void a(class_ye var1) {
       super.a(var1);
-      var1.a(this, (class_oj)this.a);
+      var1.a(this, (IInventory)this.a);
    }
 
-   public class_oj e() {
+   public IInventory e() {
       return this.a;
    }
 
-   public void b(class_xa var1) {
+   public void b(EntityHuman var1) {
       super.b(var1);
-      if(var1 != null && !var1.o.D) {
+      if(var1 != null && !var1.o.isClientSide) {
          ItemStack var2 = this.f.a(this.f.a());
          if(var2 != null) {
             var1.a(var2, false);
@@ -51,11 +51,11 @@ public class class_yc extends class_xz {
       }
    }
 
-   public boolean a(class_xa var1) {
-      return this.a.a(var1);
+   public boolean a(EntityHuman var1) {
+      return this.a.isReachable(var1);
    }
 
-   public ItemStack b(class_xa var1, int var2) {
+   public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
       class_yx var4 = (class_yx)this.c.get(var2);
       if(var4 != null && var4.e()) {
@@ -100,7 +100,7 @@ public class class_yc extends class_xz {
    }
 
    class class_a_in_class_yc extends class_yx {
-      public class_a_in_class_yc(class_oj var2, int var3, int var4, int var5) {
+      public class_a_in_class_yc(IInventory var2, int var3, int var4, int var5) {
          super(var2, var3, var4, var5);
       }
 

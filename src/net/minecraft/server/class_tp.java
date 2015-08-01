@@ -8,11 +8,11 @@ import java.util.TreeMap;
 import java.util.UUID;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
@@ -21,12 +21,12 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_lv;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_to;
 import net.minecraft.server.class_uj;
 import net.minecraft.server.class_wv;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_tp {
    private World a;
@@ -74,12 +74,12 @@ public class class_tp {
       }
 
       int var2 = this.h / 10;
-      if(this.l < var2 && this.b.size() > 20 && this.a.s.nextInt(7000) == 0) {
+      if(this.l < var2 && this.b.size() > 20 && this.a.random.nextInt(7000) == 0) {
          Vec3D var3 = this.a(this.d, 2, 4, 2);
          if(var3 != null) {
             class_uj var4 = new class_uj(this.a);
             var4.b(var3.x, var3.y, var3.z);
-            this.a.a((class_pr)var4);
+            this.a.addEntity((Entity)var4);
             ++this.l;
          }
       }
@@ -88,7 +88,7 @@ public class class_tp {
 
    private Vec3D a(BlockPosition var1, int var2, int var3, int var4) {
       for(int var5 = 0; var5 < 10; ++var5) {
-         BlockPosition var6 = var1.add(this.a.s.nextInt(16) - 8, this.a.s.nextInt(6) - 3, this.a.s.nextInt(16) - 8);
+         BlockPosition var6 = var1.add(this.a.random.nextInt(16) - 8, this.a.random.nextInt(6) - 3, this.a.random.nextInt(16) - 8);
          if(this.a(var6) && this.a(new BlockPosition(var2, var3, var4), var6)) {
             return new Vec3D((double)var6.getX(), (double)var6.getY(), (double)var6.getZ());
          }
@@ -98,7 +98,7 @@ public class class_tp {
    }
 
    private boolean a(BlockPosition var1, BlockPosition var2) {
-      if(!World.a((class_aer)this.a, (BlockPosition)var2.shiftDown())) {
+      if(!World.a((IBlockAccess)this.a, (BlockPosition)var2.down())) {
          return false;
       } else {
          int var3 = var2.getX() - var1.getX() / 2;
@@ -107,7 +107,7 @@ public class class_tp {
          for(int var5 = var3; var5 < var3 + var1.getX(); ++var5) {
             for(int var6 = var2.getY(); var6 < var2.getY() + var1.getY(); ++var6) {
                for(int var7 = var4; var7 < var4 + var1.getZ(); ++var7) {
-                  if(this.a.p(new BlockPosition(var5, var6, var7)).getBlock().isOccluding()) {
+                  if(this.a.getType(new BlockPosition(var5, var6, var7)).getBlock().isOccluding()) {
                      return false;
                   }
                }
@@ -119,12 +119,12 @@ public class class_tp {
    }
 
    private void j() {
-      List var1 = this.a.a(class_uj.class, new class_awf((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
+      List var1 = this.a.getEntities(class_uj.class, new AxisAlignedBB((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
       this.l = var1.size();
    }
 
    private void k() {
-      List var1 = this.a.a(class_wv.class, new class_awf((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
+      List var1 = this.a.getEntities(class_wv.class, new AxisAlignedBB((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
       this.h = var1.size();
       if(this.h == 0) {
          this.j.clear();
@@ -230,7 +230,7 @@ public class class_tp {
       return this.b.isEmpty();
    }
 
-   public void a(class_qa var1) {
+   public void a(EntityLiving var1) {
       Iterator var2 = this.k.iterator();
 
       class_tp.class_a_in_class_tp var3;
@@ -246,7 +246,7 @@ public class class_tp {
       var3.b = this.g;
    }
 
-   public class_qa b(class_qa var1) {
+   public EntityLiving b(EntityLiving var1) {
       double var2 = Double.MAX_VALUE;
       class_tp.class_a_in_class_tp var4 = null;
 
@@ -262,15 +262,15 @@ public class class_tp {
       return var4 != null?var4.a:null;
    }
 
-   public class_xa c(class_qa var1) {
+   public EntityHuman c(EntityLiving var1) {
       double var2 = Double.MAX_VALUE;
-      class_xa var4 = null;
+      EntityHuman var4 = null;
       Iterator var5 = this.j.keySet().iterator();
 
       while(var5.hasNext()) {
          String var6 = (String)var5.next();
          if(this.d(var6)) {
-            class_xa var7 = this.a.a(var6);
+            EntityHuman var7 = this.a.a(var6);
             if(var7 != null) {
                double var8 = var7.h(var1);
                if(var8 <= var2) {
@@ -303,7 +303,7 @@ public class class_tp {
 
    private void m() {
       boolean var1 = false;
-      boolean var2 = this.a.s.nextInt(50) == 0;
+      boolean var2 = this.a.random.nextInt(50) == 0;
       Iterator var3 = this.b.iterator();
 
       while(true) {
@@ -331,7 +331,7 @@ public class class_tp {
    }
 
    private boolean f(BlockPosition var1) {
-      Block var2 = this.a.p(var1).getBlock();
+      Block var2 = this.a.getType(var1).getBlock();
       return var2 instanceof class_ahl?var2.getMaterial() == Material.WOOD:false;
    }
 
@@ -469,10 +469,10 @@ public class class_tp {
    }
 
    class class_a_in_class_tp {
-      public class_qa a;
+      public EntityLiving a;
       public int b;
 
-      class_a_in_class_tp(class_qa var2, int var3) {
+      class_a_in_class_tp(EntityLiving var2, int var3) {
          this.a = var2;
          this.b = var3;
       }

@@ -7,10 +7,10 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_vm;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityItem;
 
-public class class_xe extends class_pr {
+public class class_xe extends Entity {
    private double a;
    private double b;
    private double c;
@@ -59,12 +59,12 @@ public class class_xe extends class_pr {
       this.R = this.u;
       super.t_();
       this.s += this.v;
-      this.t += this.w;
+      this.t += this.motY;
       this.u += this.x;
       float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
       this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
 
-      for(this.z = (float)(MathHelper.b(this.w, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+      for(this.z = (float)(MathHelper.b(this.motY, (double)var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
          ;
       }
 
@@ -82,7 +82,7 @@ public class class_xe extends class_pr {
 
       this.z = this.B + (this.z - this.B) * 0.2F;
       this.y = this.A + (this.y - this.A) * 0.2F;
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          double var2 = this.a - this.s;
          double var4 = this.c - this.u;
          float var6 = (float)Math.sqrt(var2 * var2 + var4 * var4);
@@ -90,34 +90,34 @@ public class class_xe extends class_pr {
          double var8 = (double)var1 + (double)(var6 - var1) * 0.0025D;
          if(var6 < 1.0F) {
             var8 *= 0.8D;
-            this.w *= 0.8D;
+            this.motY *= 0.8D;
          }
 
          this.v = Math.cos((double)var7) * var8;
          this.x = Math.sin((double)var7) * var8;
          if(this.t < this.b) {
-            this.w += (1.0D - this.w) * 0.014999999664723873D;
+            this.motY += (1.0D - this.motY) * 0.014999999664723873D;
          } else {
-            this.w += (-1.0D - this.w) * 0.014999999664723873D;
+            this.motY += (-1.0D - this.motY) * 0.014999999664723873D;
          }
       }
 
       float var10 = 0.25F;
       if(this.V()) {
          for(int var3 = 0; var3 < 4; ++var3) {
-            this.o.a(class_cy.e, this.s - this.v * (double)var10, this.t - this.w * (double)var10, this.u - this.x * (double)var10, this.v, this.w, this.x, new int[0]);
+            this.o.a(class_cy.e, this.s - this.v * (double)var10, this.t - this.motY * (double)var10, this.u - this.x * (double)var10, this.v, this.motY, this.x, new int[0]);
          }
       } else {
-         this.o.a(class_cy.y, this.s - this.v * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.t - this.w * (double)var10 - 0.5D, this.u - this.x * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.v, this.w, this.x, new int[0]);
+         this.o.a(class_cy.y, this.s - this.v * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.t - this.motY * (double)var10 - 0.5D, this.u - this.x * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.v, this.motY, this.x, new int[0]);
       }
 
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          this.b(this.s, this.t, this.u);
          ++this.d;
-         if(this.d > 80 && !this.o.D) {
+         if(this.d > 80 && !this.o.isClientSide) {
             this.J();
             if(this.e) {
-               this.o.a((class_pr)(new class_vm(this.o, this.s, this.t, this.u, new ItemStack(Items.bK))));
+               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new ItemStack(Items.bK))));
             } else {
                this.o.b(2003, new BlockPosition(this), 0);
             }

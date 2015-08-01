@@ -15,9 +15,9 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_qm;
@@ -31,7 +31,7 @@ import net.minecraft.server.class_sz;
 import net.minecraft.server.class_wi;
 import net.minecraft.server.class_wk;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xs;
 
 public class class_wq extends class_wi implements class_wk {
@@ -47,10 +47,10 @@ public class class_wq extends class_wi implements class_wk {
       this.i.a(1, new class_rj(this));
       this.i.a(2, new class_sj(this, 1.0D, 60, 10.0F));
       this.i.a(2, new class_si(this, 1.0D));
-      this.i.a(3, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(3, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(3, new class_sh(this));
       this.bn.a(1, new class_sw(this, false, new Class[0]));
-      this.bn.a(2, new class_sz(this, class_xa.class, true));
+      this.bn.a(2, new class_sz(this, EntityHuman.class, true));
    }
 
    protected void h() {
@@ -85,7 +85,7 @@ public class class_wq extends class_wi implements class_wk {
    }
 
    public void m() {
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          if(this.n()) {
             if(this.bt-- <= 0) {
                this.a(false);
@@ -128,7 +128,7 @@ public class class_wq extends class_wi implements class_wk {
          }
 
          if(this.V.nextFloat() < 7.5E-4F) {
-            this.o.a((class_pr)this, (byte)15);
+            this.o.a((Entity)this, (byte)15);
          }
       }
 
@@ -165,7 +165,7 @@ public class class_wq extends class_wi implements class_wk {
 
    }
 
-   public void a(class_qa var1, float var2) {
+   public void a(EntityLiving var1, float var2) {
       if(!this.n()) {
          double var3 = var1.t + (double)var1.aU() - 1.100000023841858D;
          double var5 = var1.s + var1.v - this.s;
@@ -184,7 +184,7 @@ public class class_wq extends class_wi implements class_wk {
          class_xs var13 = new class_xs(this.o, this, class_abe.a(new ItemStack(Items.bC), var12));
          var13.z -= -20.0F;
          var13.c(var5, var7 + (double)(var11 * 0.2F), var9, 0.75F, 8.0F);
-         this.o.a((class_pr)var13);
+         this.o.addEntity((Entity)var13);
       }
    }
 

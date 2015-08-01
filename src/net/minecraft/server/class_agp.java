@@ -4,41 +4,41 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aer;
+import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahi;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_anw;
+import net.minecraft.server.BlockStateBoolean;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.Material;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.CreativeTab;
 
 public abstract class class_agp extends class_ahi {
-   public static final class_anw a = class_anw.a("powered");
+   public static final BlockStateBoolean a = BlockStateBoolean.of("powered");
    private final boolean N;
 
    protected class_agp(boolean var1) {
       super(Material.ORIENTABLE);
-      this.setBlockData(this.blockStateList.getFirst().set(b, EnumDirection.NORTH).set(a, Boolean.valueOf(false)));
+      this.setBlockData(this.blockStateList.getFirst().set(FACING, EnumDirection.NORTH).set(a, Boolean.valueOf(false)));
       this.setTicking(true);
-      this.a(CreativeTab.d);
+      this.setCreativeTab(CreativeTab.REDSTONE);
       this.N = var1;
    }
 
-   public class_awf a(World var1, BlockPosition var2, IBlockData var3) {
+   public AxisAlignedBB getBoundingBox(World var1, BlockPosition var2, IBlockData var3) {
       return null;
    }
 
-   public int a(World var1) {
+   public int tickInterval(World var1) {
       return this.N?30:20;
    }
 
@@ -50,11 +50,11 @@ public abstract class class_agp extends class_ahi {
       return false;
    }
 
-   public boolean b(World var1, BlockPosition var2, EnumDirection var3) {
+   public boolean canPlace(World var1, BlockPosition var2, EnumDirection var3) {
       return a(var1, var2, var3.getOpposite());
    }
 
-   public boolean d(World var1, BlockPosition var2) {
+   public boolean canPlace(World var1, BlockPosition var2) {
       EnumDirection[] var3 = EnumDirection.values();
       int var4 = var3.length;
 
@@ -70,37 +70,37 @@ public abstract class class_agp extends class_ahi {
 
    protected static boolean a(World var0, BlockPosition var1, EnumDirection var2) {
       BlockPosition var3 = var1.shift(var2);
-      return var2 == EnumDirection.DOWN?World.a((class_aer)var0, (BlockPosition)var3):var0.p(var3).getBlock().isOccluding();
+      return var2 == EnumDirection.DOWN?World.a((IBlockAccess)var0, (BlockPosition)var3):var0.getType(var3).getBlock().isOccluding();
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
-      return a(var1, var2, var3.getOpposite())?this.getBlockData().set(b, var3).set(a, Boolean.valueOf(false)):this.getBlockData().set(b, EnumDirection.DOWN).set(a, Boolean.valueOf(false));
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
+      return a(var1, var2, var3.getOpposite())?this.getBlockData().set(FACING, var3).set(a, Boolean.valueOf(false)):this.getBlockData().set(FACING, EnumDirection.DOWN).set(a, Boolean.valueOf(false));
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(this.e(var1, var2, var3) && !a(var1, var2, ((EnumDirection)var3.get(b)).getOpposite())) {
-         this.b(var1, var2, var3, 0);
-         var1.g(var2);
+   public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
+      if(this.e(var1, var2, var3) && !a(var1, var2, ((EnumDirection)var3.get(FACING)).getOpposite())) {
+         this.dropNaturallyForSure(var1, var2, var3, 0);
+         var1.setAir(var2);
       }
 
    }
 
    private boolean e(World var1, BlockPosition var2, IBlockData var3) {
-      if(this.d(var1, var2)) {
+      if(this.canPlace(var1, var2)) {
          return true;
       } else {
-         this.b(var1, var2, var3, 0);
-         var1.g(var2);
+         this.dropNaturallyForSure(var1, var2, var3, 0);
+         var1.setAir(var2);
          return false;
       }
    }
 
-   public void a(class_aer var1, BlockPosition var2) {
-      this.d(var1.p(var2));
+   public void updateShape(IBlockAccess var1, BlockPosition var2) {
+      this.d(var1.getType(var2));
    }
 
    private void d(IBlockData var1) {
-      EnumDirection var2 = (EnumDirection)var1.get(b);
+      EnumDirection var2 = (EnumDirection)var1.get(FACING);
       boolean var3 = ((Boolean)var1.get(a)).booleanValue();
       float var4 = 0.25F;
       float var5 = 0.375F;
@@ -129,50 +129,50 @@ public abstract class class_agp extends class_ahi {
 
    }
 
-   public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
+   public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
       if(((Boolean)var3.get(a)).booleanValue()) {
          return true;
       } else {
-         var1.a((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 3);
          var1.b(var2, var2);
          var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
-         this.c(var1, var2, (EnumDirection)var3.get(b));
-         var1.a((BlockPosition)var2, (Block)this, this.a(var1));
+         this.c(var1, var2, (EnumDirection)var3.get(FACING));
+         var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1));
          return true;
       }
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3) {
+   public void remove(World var1, BlockPosition var2, IBlockData var3) {
       if(((Boolean)var3.get(a)).booleanValue()) {
-         this.c(var1, var2, (EnumDirection)var3.get(b));
+         this.c(var1, var2, (EnumDirection)var3.get(FACING));
       }
 
-      super.b(var1, var2, var3);
+      super.remove(var1, var2, var3);
    }
 
-   public int a(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+   public int a(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
       return ((Boolean)var3.get(a)).booleanValue()?15:0;
    }
 
-   public int b(class_aer var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
-      return !((Boolean)var3.get(a)).booleanValue()?0:(var3.get(b) == var4?15:0);
+   public int b(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
+      return !((Boolean)var3.get(a)).booleanValue()?0:(var3.get(FACING) == var4?15:0);
    }
 
    public boolean isPowerSource() {
       return true;
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+   public void randomTick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
    }
 
-   public void b(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      if(!var1.D) {
+   public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
+      if(!var1.isClientSide) {
          if(((Boolean)var3.get(a)).booleanValue()) {
             if(this.N) {
                this.f(var1, var2, var3);
             } else {
-               var1.a(var2, var3.set(a, Boolean.valueOf(false)));
-               this.c(var1, var2, (EnumDirection)var3.get(b));
+               var1.setTypeUpdate(var2, var3.set(a, Boolean.valueOf(false)));
+               this.c(var1, var2, (EnumDirection)var3.get(FACING));
                var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
                var1.b(var2, var2);
             }
@@ -188,8 +188,8 @@ public abstract class class_agp extends class_ahi {
       this.setSizes(0.5F - var1, 0.5F - var2, 0.5F - var3, 0.5F + var1, 0.5F + var2, 0.5F + var3);
    }
 
-   public void a(World var1, BlockPosition var2, IBlockData var3, class_pr var4) {
-      if(!var1.D) {
+   public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
+      if(!var1.isClientSide) {
          if(this.N) {
             if(!((Boolean)var3.get(a)).booleanValue()) {
                this.f(var1, var2, var3);
@@ -200,25 +200,25 @@ public abstract class class_agp extends class_ahi {
 
    private void f(World var1, BlockPosition var2, IBlockData var3) {
       this.d(var3);
-      List var4 = var1.a(class_xd.class, new class_awf((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ));
+      List var4 = var1.getEntities(class_xd.class, new AxisAlignedBB((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ));
       boolean var5 = !var4.isEmpty();
       boolean var6 = ((Boolean)var3.get(a)).booleanValue();
       if(var5 && !var6) {
-         var1.a(var2, var3.set(a, Boolean.valueOf(true)));
-         this.c(var1, var2, (EnumDirection)var3.get(b));
+         var1.setTypeUpdate(var2, var3.set(a, Boolean.valueOf(true)));
+         this.c(var1, var2, (EnumDirection)var3.get(FACING));
          var1.b(var2, var2);
          var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
       }
 
       if(!var5 && var6) {
-         var1.a(var2, var3.set(a, Boolean.valueOf(false)));
-         this.c(var1, var2, (EnumDirection)var3.get(b));
+         var1.setTypeUpdate(var2, var3.set(a, Boolean.valueOf(false)));
+         this.c(var1, var2, (EnumDirection)var3.get(FACING));
          var1.b(var2, var2);
          var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
       }
 
       if(var5) {
-         var1.a((BlockPosition)var2, (Block)this, this.a(var1));
+         var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1));
       }
 
    }
@@ -251,12 +251,12 @@ public abstract class class_agp extends class_ahi {
          var2 = EnumDirection.UP;
       }
 
-      return this.getBlockData().set(b, var2).set(a, Boolean.valueOf((var1 & 8) > 0));
+      return this.getBlockData().set(FACING, var2).set(a, Boolean.valueOf((var1 & 8) > 0));
    }
 
    public int toLegacyData(IBlockData var1) {
       int var2;
-      switch(class_agp.SyntheticClass_1.a[((EnumDirection)var1.get(b)).ordinal()]) {
+      switch(class_agp.SyntheticClass_1.a[((EnumDirection)var1.get(FACING)).ordinal()]) {
       case 1:
          var2 = 1;
          break;
@@ -284,16 +284,16 @@ public abstract class class_agp extends class_ahi {
       return var2;
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
-      return var1.getBlock() != this?var1:var1.set(b, var2.a((EnumDirection)var1.get(b)));
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
+      return var1.getBlock() != this?var1:var1.set(FACING, var2.a((EnumDirection)var1.get(FACING)));
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(b)));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a((EnumDirection)var1.get(FACING)));
    }
 
-   protected BlockStateList createBlockStateList() {
-      return new BlockStateList(this, new IBlockState[]{b, a});
+   protected BlockStateList getStateList() {
+      return new BlockStateList(this, new IBlockState[]{FACING, a});
    }
 
    // $FF: synthetic class

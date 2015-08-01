@@ -21,23 +21,23 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.World;
 import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_pv;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 
 public class class_o {
 	private static final Pattern a = Pattern.compile("^@([pare])(?:\\[([\\w=,!-]*)\\])?$");
@@ -45,17 +45,17 @@ public class class_o {
 	private static final Pattern c = Pattern.compile("\\G(\\w+)=([-!]?[\\w-]*)(?:$|,)");
 	private static final Set d = Sets.newHashSet((Object[]) (new String[] { "x", "y", "z", "dx", "dy", "dz", "rm", "r" }));
 
-	public static class_lh a(class_m var0, String var1) {
-		return (class_lh) a(var0, var1, class_lh.class);
+	public static EntityPlayer a(class_m var0, String var1) {
+		return (EntityPlayer) a(var0, var1, EntityPlayer.class);
 	}
 
-	public static class_pr a(class_m var0, String var1, Class var2) {
+	public static Entity a(class_m var0, String var1, Class var2) {
 		List var3 = b(var0, var1, var2);
-		return var3.size() == 1 ? (class_pr) var3.get(0) : null;
+		return var3.size() == 1 ? (Entity) var3.get(0) : null;
 	}
 
 	public static IChatBaseComponent b(class_m var0, String var1) {
-		List var2 = b(var0, var1, class_pr.class);
+		List var2 = b(var0, var1, Entity.class);
 		if (var2.isEmpty()) {
 			return null;
 		} else {
@@ -63,8 +63,8 @@ public class class_o {
 			Iterator var4 = var2.iterator();
 
 			while (var4.hasNext()) {
-				class_pr var5 = (class_pr) var4.next();
-				var3.add(var5.f_());
+				Entity var5 = (Entity) var4.next();
+				var3.add(var5.getScoreboardDisplayName());
 			}
 
 			return class_i.a((List) var3);
@@ -122,7 +122,7 @@ public class class_o {
 		String var2 = b(var1, "type");
 		var2 = var2 != null && var2.startsWith("!") ? var2.substring(1) : var2;
 		if (var2 != null && !class_pt.b(var2)) {
-			class_fb var3 = new class_fb("commands.generic.entity.invalidType", new Object[] { var2 });
+			ChatMessage var3 = new ChatMessage("commands.generic.entity.invalidType", new Object[] { var2 });
 			var3.b().a(EnumChatFormat.RED);
 			var0.a(var3);
 			return false;
@@ -144,25 +144,25 @@ public class class_o {
 		if ((var3 == null || !var1.equals("e")) && !var7) {
 			if (var6) {
 				var2.add(new Predicate() {
-					public boolean a(class_pr var1) {
-						return var1 instanceof class_xa;
+					public boolean a(Entity var1) {
+						return var1 instanceof EntityHuman;
 					}
 
 					// $FF: synthetic method
 					public boolean apply(Object var1) {
-						return this.a((class_pr) var1);
+						return this.a((Entity) var1);
 					}
 				});
 			}
 		} else {
 			var2.add(new Predicate() {
-				public boolean a(class_pr var1) {
+				public boolean a(Entity var1) {
 					return class_pt.a(var1, cvar3) != var4;
 				}
 
 				// $FF: synthetic method
 				public boolean apply(Object var1) {
-					return this.a((class_pr) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -176,18 +176,18 @@ public class class_o {
 		final int var3 = a(var0, "l", -1);
 		if (var2 > -1 || var3 > -1) {
 			var1.add(new Predicate() {
-				public boolean a(class_pr var1) {
-					if (!(var1 instanceof class_lh)) {
+				public boolean a(Entity var1) {
+					if (!(var1 instanceof EntityPlayer)) {
 						return false;
 					} else {
-						class_lh var2x = (class_lh) var1;
+						EntityPlayer var2x = (EntityPlayer) var1;
 						return (var2 <= -1 || var2x.bI >= var2) && (var3 <= -1 || var2x.bI <= var3);
 					}
 				}
 
 				// $FF: synthetic method
 				public boolean apply(Object var1) {
-					return this.a((class_pr) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -200,18 +200,18 @@ public class class_o {
 		final int var2 = a(var0, "m", WorldSettings.EnumGameMode.NOT_SET.getId());
 		if (var2 != WorldSettings.EnumGameMode.NOT_SET.getId()) {
 			var1.add(new Predicate() {
-				public boolean a(class_pr var1) {
-					if (!(var1 instanceof class_lh)) {
+				public boolean a(Entity var1) {
+					if (!(var1 instanceof EntityPlayer)) {
 						return false;
 					} else {
-						class_lh var2x = (class_lh) var1;
+						EntityPlayer var2x = (EntityPlayer) var1;
 						return var2x.c.b().getId() == var2;
 					}
 				}
 
 				// $FF: synthetic method
 				public boolean apply(Object var1) {
-					return this.a((class_pr) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -229,11 +229,11 @@ public class class_o {
 		final String cvar2 = var2;
 		if (var2 != null) {
 			var1.add(new Predicate() {
-				public boolean a(class_pr var1) {
-					if (!(var1 instanceof class_qa)) {
+				public boolean a(Entity var1) {
+					if (!(var1 instanceof EntityLiving)) {
 						return false;
 					} else {
-						class_qa var2x = (class_qa) var1;
+						EntityLiving var2x = (EntityLiving) var1;
 						class_awp var3x = var2x.bP();
 						String var4 = var3x == null ? "" : var3x.b();
 						return var4.equals(cvar2) != var3;
@@ -242,7 +242,7 @@ public class class_o {
 
 				// $FF: synthetic method
 				public boolean apply(Object var1) {
-					return this.a((class_pr) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -255,7 +255,7 @@ public class class_o {
 		final Map var2 = a(var0);
 		if (var2 != null && !var2.isEmpty()) {
 			var1.add(new Predicate() {
-				public boolean a(class_pr var1) {
+				public boolean a(Entity var1) {
 					class_awn var2x = MinecraftServer.N().a(0).aa();
 					Iterator var3 = var2.entrySet().iterator();
 
@@ -280,7 +280,7 @@ public class class_o {
 							return false;
 						}
 
-						String var8 = var1 instanceof class_lh ? var1.e_() : var1.aM().toString();
+						String var8 = var1 instanceof EntityPlayer ? var1.getName() : var1.aM().toString();
 						if (!var2x.b(var8, var7)) {
 							return false;
 						}
@@ -297,7 +297,7 @@ public class class_o {
 
 				// $FF: synthetic method
 				public boolean apply(Object var1) {
-					return this.a((class_pr) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -315,13 +315,13 @@ public class class_o {
 		final String cvar2 = var2;
 		if (var2 != null) {
 			var1.add(new Predicate() {
-				public boolean a(class_pr var1) {
-					return var1.e_().equals(cvar2) != var3;
+				public boolean a(Entity var1) {
+					return var1.getName().equals(cvar2) != var3;
 				}
 
 				// $FF: synthetic method
 				public boolean apply(Object var1) {
-					return this.a((class_pr) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -337,14 +337,14 @@ public class class_o {
 			final int var5 = var3 * var3;
 			final int var6 = var4 * var4;
 			var2.add(new Predicate() {
-				public boolean a(class_pr var1x) {
+				public boolean a(Entity var1x) {
 					int var2 = (int) var1x.c(var1);
 					return (var3 < 0 || var2 >= var5) && (var4 < 0 || var2 <= var6);
 				}
 
 				// $FF: synthetic method
 				public boolean apply(Object var1x) {
-					return this.a((class_pr) var1x);
+					return this.a((Entity) var1x);
 				}
 			});
 		}
@@ -362,14 +362,14 @@ public class class_o {
 			final int cvar2 = var2;
 			final int cvar3 = var3;
 			var1.add(new Predicate() {
-				public boolean a(class_pr var1) {
+				public boolean a(Entity var1) {
 					int var2x = class_o.a((int) Math.floor((double) var1.y));
 					return cvar2 > cvar3 ? var2x >= cvar2 || var2x <= cvar3 : var2x >= cvar2 && var2x <= cvar3;
 				}
 
 				// $FF: synthetic method
 				public boolean apply(Object var1) {
-					return this.a((class_pr) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -380,14 +380,14 @@ public class class_o {
 			final int cvar2 = var2;
 			final int cvar3 = var3;
 			var1.add(new Predicate() {
-				public boolean a(class_pr var1) {
+				public boolean a(Entity var1) {
 					int var2x = class_o.a((int) Math.floor((double) var1.z));
 					return cvar2 > cvar3 ? var2x >= cvar2 || var2x <= cvar3 : var2x >= cvar2 && var2x <= cvar3;
 				}
 
 				// $FF: synthetic method
 				public boolean apply(Object var1) {
-					return this.a((class_pr) var1);
+					return this.a((Entity) var1);
 				}
 			});
 		}
@@ -408,13 +408,13 @@ public class class_o {
 		Predicate var14 = Predicates.and((Iterable) var2);
 		Predicate var15 = Predicates.and(class_pv.a, var14);
 		if (var5 != null) {
-			int var16 = var4.j.size();
+			int var16 = var4.players.size();
 			int var17 = var4.f.size();
 			boolean var18 = var16 < var17 / 16;
-			final class_awf var19;
+			final AxisAlignedBB var19;
 			if (!var0.containsKey("dx") && !var0.containsKey("dy") && !var0.containsKey("dz")) {
 				if (var13 >= 0) {
-					var19 = new class_awf((double) (var5.getX() - var13), (double) (var5.getY() - var13), (double) (var5.getZ() - var13), (double) (var5.getX() + var13 + 1), (double) (var5.getY() + var13 + 1), (double) (var5.getZ() + var13 + 1));
+					var19 = new AxisAlignedBB((double) (var5.getX() - var13), (double) (var5.getY() - var13), (double) (var5.getZ() - var13), (double) (var5.getX() + var13 + 1), (double) (var5.getY() + var13 + 1), (double) (var5.getZ() + var13 + 1));
 					if (var8 && var18 && !var9) {
 						var6.addAll(var4.b(var1, var15));
 					} else {
@@ -431,13 +431,13 @@ public class class_o {
 				var19 = a(var5, var10, var11, var12);
 				if (var8 && var18 && !var9) {
 					Predicate var20 = new Predicate() {
-						public boolean a(class_pr var1) {
-							return var1.s >= var19.a && var1.t >= var19.b && var1.u >= var19.c ? var1.s < var19.d && var1.t < var19.e && var1.u < var19.f : false;
+						public boolean a(Entity var1) {
+							return var1.s >= var19.xMin && var1.t >= var19.yMin && var1.u >= var19.zMin ? var1.s < var19.xMax && var1.t < var19.yMax && var1.u < var19.zMax : false;
 						}
 
 						// $FF: synthetic method
 						public boolean apply(Object var1) {
-							return this.a((class_pr) var1);
+							return this.a((Entity) var1);
 						}
 					};
 					var6.addAll(var4.b(var1, Predicates.and(var15, var20)));
@@ -464,20 +464,20 @@ public class class_o {
 			}
 		} else if (var5 != null) {
 			Collections.sort((List) var0, new Comparator() {
-				public int a(class_pr var1, class_pr var2) {
+				public int a(Entity var1, Entity var2) {
 					return ComparisonChain.start().compare(var1.b(var5), var2.b(var5)).result();
 				}
 
 				// $FF: synthetic method
 				public int compare(Object var1, Object var2) {
-					return this.a((class_pr) var1, (class_pr) var2);
+					return this.a((Entity) var1, (Entity) var2);
 				}
 			});
 		}
 
-		class_pr var7 = var2.f();
+		Entity var7 = var2.f();
 		if (var7 != null && var3.isAssignableFrom(var7.getClass()) && var6 == 1 && ((List) var0).contains(var7) && !"r".equals(var4)) {
-			var0 = Lists.newArrayList((Object[]) (new class_pr[] { var7 }));
+			var0 = Lists.newArrayList((Object[]) (new Entity[] { var7 }));
 		}
 
 		if (var6 != 0) {
@@ -491,7 +491,7 @@ public class class_o {
 		return (List) var0;
 	}
 
-	private static class_awf a(BlockPosition var0, int var1, int var2, int var3) {
+	private static AxisAlignedBB a(BlockPosition var0, int var1, int var2, int var3) {
 		boolean var4 = var1 < 0;
 		boolean var5 = var2 < 0;
 		boolean var6 = var3 < 0;
@@ -501,7 +501,7 @@ public class class_o {
 		int var10 = var0.getX() + (var4 ? 0 : var1) + 1;
 		int var11 = var0.getY() + (var5 ? 0 : var2) + 1;
 		int var12 = var0.getZ() + (var6 ? 0 : var3) + 1;
-		return new class_awf((double) var7, (double) var8, (double) var9, (double) var10, (double) var11, (double) var12);
+		return new AxisAlignedBB((double) var7, (double) var8, (double) var9, (double) var10, (double) var11, (double) var12);
 	}
 
 	public static int a(int var0) {

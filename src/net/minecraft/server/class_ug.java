@@ -5,18 +5,18 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ane;
-import net.minecraft.server.class_anf;
+import net.minecraft.server.BlockPiston;
+import net.minecraft.server.BlockPistonExtension;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoe;
-import net.minecraft.server.class_awf;
+import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pr;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qi;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qv;
@@ -28,7 +28,7 @@ import net.minecraft.server.class_sz;
 import net.minecraft.server.class_ua;
 import net.minecraft.server.class_wd;
 import net.minecraft.server.class_wl;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 import net.minecraft.server.class_xk;
 
@@ -49,7 +49,7 @@ public class class_ug extends class_ua implements class_wd {
       this.aL = 180.0F;
       this.ab = true;
       this.bv = bs;
-      this.i.a(1, new class_rr(this, class_xa.class, 8.0F));
+      this.i.a(1, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(4, new class_ug.class_a_in_class_ug());
       this.i.a(7, new class_ug.class_e_in_class_ug((class_ug.SyntheticClass_1)null));
       this.i.a(8, new class_sh(this));
@@ -92,21 +92,21 @@ public class class_ug extends class_ua implements class_wd {
    public void t_() {
       super.t_();
       BlockPosition var1 = this.ac.g(b);
-      if((var1 == null || bs.equals(var1)) && !this.o.D) {
+      if((var1 == null || bs.equals(var1)) && !this.o.isClientSide) {
          var1 = new BlockPosition(this);
          this.ac.b(b, var1);
       }
 
-      if(!this.o.D) {
-         IBlockData var2 = this.o.p(var1);
+      if(!this.o.isClientSide) {
+         IBlockData var2 = this.o.getType(var1);
          if(var2.getBlock() != Blocks.AIR) {
             EnumDirection var3;
             if(var2.getBlock() == Blocks.PISTON_EXTENSION) {
-               var3 = (EnumDirection)var2.get(class_ane.b);
+               var3 = (EnumDirection)var2.get(BlockPiston.FACING);
                var1 = var1.shift(var3);
                this.ac.b(b, var1);
             } else if(var2.getBlock() == Blocks.PISTON_HEAD) {
-               var3 = (EnumDirection)var2.get(class_anf.b);
+               var3 = (EnumDirection)var2.get(BlockPistonExtension.FACING);
                var1 = var1.shift(var3);
                this.ac.b(b, var1);
             } else {
@@ -115,7 +115,7 @@ public class class_ug extends class_ua implements class_wd {
          }
       }
 
-      if(!this.o.D) {
+      if(!this.o.isClientSide) {
          BlockPosition var15 = var1.shift(this.cA());
          if(!this.o.d(var15, false)) {
             boolean var17 = false;
@@ -151,7 +151,7 @@ public class class_ug extends class_ua implements class_wd {
          double var19 = 0.0D;
          double var20 = 0.0D;
          double var9 = 0.0D;
-         if(this.o.D) {
+         if(this.o.isClientSide) {
             if(this.bw > 0 && !bs.equals(this.bv)) {
                --this.bw;
             } else {
@@ -166,37 +166,37 @@ public class class_ug extends class_ua implements class_wd {
          switch(class_ug.SyntheticClass_1.a[var11.ordinal()]) {
          case 1:
          default:
-            this.a((class_awf)(new class_awf(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D + (double)this.bu, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D + (double)this.bu, this.u + 0.5D)));
             var20 = var18;
             break;
          case 2:
-            this.a((class_awf)(new class_awf(this.s - 0.5D, this.t - (double)this.bu, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t - (double)this.bu, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
             var20 = -var18;
             break;
          case 3:
-            this.a((class_awf)(new class_awf(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D + (double)this.bu)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D + (double)this.bu)));
             var9 = var18;
             break;
          case 4:
-            this.a((class_awf)(new class_awf(this.s - 0.5D, this.t, this.u - 0.5D - (double)this.bu, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t, this.u - 0.5D - (double)this.bu, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
             var9 = -var18;
             break;
          case 5:
-            this.a((class_awf)(new class_awf(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D + (double)this.bu, this.t + 1.0D, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D + (double)this.bu, this.t + 1.0D, this.u + 0.5D)));
             var19 = var18;
             break;
          case 6:
-            this.a((class_awf)(new class_awf(this.s - 0.5D - (double)this.bu, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D - (double)this.bu, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
             var19 = -var18;
          }
 
          if(var18 > 0.0D) {
-            List var12 = this.o.b((class_pr)this, (class_awf)this.aT());
+            List var12 = this.o.b((Entity)this, (AxisAlignedBB)this.aT());
             if(!var12.isEmpty()) {
                Iterator var13 = var12.iterator();
 
                while(var13.hasNext()) {
-                  class_pr var14 = (class_pr)var13.next();
+                  Entity var14 = (Entity)var13.next();
                   if(!(var14 instanceof class_ug) && !var14.T) {
                      var14.d(var19, var20, var9);
                   }
@@ -212,7 +212,7 @@ public class class_ug extends class_ua implements class_wd {
 
       for(int var2 = 0; var2 < 5; ++var2) {
          BlockPosition var3 = var1.add(8 - this.V.nextInt(17), 8 - this.V.nextInt(17), 8 - this.V.nextInt(17));
-         if(var3.getY() > 0 && this.o.d(var3) && this.o.a((class_aoe)this.o.ag(), (class_pr)this)) {
+         if(var3.getY() > 0 && this.o.isEmpty(var3) && this.o.a((class_aoe)this.o.ag(), (Entity)this)) {
             boolean var4 = false;
             EnumDirection[] var5 = EnumDirection.values();
             int var6 = var5.length;
@@ -230,7 +230,7 @@ public class class_ug extends class_ua implements class_wd {
                this.a("mob.endermen.portal", 1.0F, 1.0F);
                this.ac.b(b, var3);
                this.ac.b(c, Byte.valueOf((byte)0));
-               this.d((class_qa)null);
+               this.d((EntityLiving)null);
                return true;
             }
          }
@@ -242,7 +242,7 @@ public class class_ug extends class_ua implements class_wd {
    public void m() {
       super.m();
       this.v = 0.0D;
-      this.w = 0.0D;
+      this.motY = 0.0D;
       this.x = 0.0D;
       this.aM = 180.0F;
       this.aL = 180.0F;
@@ -250,7 +250,7 @@ public class class_ug extends class_ua implements class_wd {
    }
 
    public void d(int var1) {
-      if(var1 == b && this.o.D) {
+      if(var1 == b && this.o.isClientSide) {
          BlockPosition var2 = this.cB();
          if(!bs.equals(var2)) {
             if(bs.equals(this.bv)) {
@@ -274,7 +274,7 @@ public class class_ug extends class_ua implements class_wd {
 
    public boolean a(class_pc var1, float var2) {
       if(this.cC() == 0) {
-         class_pr var3 = var1.i();
+         Entity var3 = var1.i();
          if(var3 instanceof class_xd) {
             return false;
          }
@@ -291,7 +291,7 @@ public class class_ug extends class_ua implements class_wd {
       }
    }
 
-   public class_awf S() {
+   public AxisAlignedBB S() {
       return this.ai()?this.aT():null;
    }
 
@@ -327,7 +327,7 @@ public class class_ug extends class_ua implements class_wd {
       return 180;
    }
 
-   public void i(class_pr var1) {
+   public void i(Entity var1) {
    }
 
    // $FF: synthetic class
@@ -377,14 +377,14 @@ public class class_ug extends class_ua implements class_wd {
 
    static class class_c_in_class_ug extends class_sz {
       public class_c_in_class_ug(class_ug var1) {
-         super(var1, class_qa.class, 10, true, false, new Predicate() {
-            public boolean a(class_qa var1) {
+         super(var1, EntityLiving.class, 10, true, false, new Predicate() {
+            public boolean a(EntityLiving var1) {
                return var1 instanceof class_wd;
             }
 
             // $FF: synthetic method
             public boolean apply(Object var1) {
-               return this.a((class_qa)var1);
+               return this.a((EntityLiving)var1);
             }
          });
       }
@@ -393,20 +393,20 @@ public class class_ug extends class_ua implements class_wd {
          return this.e.bP() == null?false:super.a();
       }
 
-      protected class_awf a(double var1) {
+      protected AxisAlignedBB a(double var1) {
          EnumDirection var3 = ((class_ug)this.e).cA();
-         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.aT().b(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.aT().b(var1, var1, 4.0D):this.e.aT().b(var1, 4.0D, var1));
+         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.aT().grow(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.aT().grow(var1, var1, 4.0D):this.e.aT().grow(var1, 4.0D, var1));
       }
    }
 
    static class class_d_in_class_ug extends class_sz {
       public class_d_in_class_ug(class_ug var1) {
-         super(var1, class_xa.class, true);
+         super(var1, EntityHuman.class, true);
       }
 
-      protected class_awf a(double var1) {
+      protected AxisAlignedBB a(double var1) {
          EnumDirection var3 = ((class_ug)this.e).cA();
-         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.aT().b(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.aT().b(var1, var1, 4.0D):this.e.aT().b(var1, 4.0D, var1));
+         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.aT().grow(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.aT().grow(var1, var1, 4.0D):this.e.aT().grow(var1, 4.0D, var1));
       }
    }
 
@@ -418,7 +418,7 @@ public class class_ug extends class_ua implements class_wd {
       }
 
       public boolean a() {
-         class_qa var1 = class_ug.this.w();
+         EntityLiving var1 = class_ug.this.w();
          return var1 != null && var1.ai();
       }
 
@@ -433,18 +433,18 @@ public class class_ug extends class_ua implements class_wd {
 
       public void e() {
          --this.b;
-         class_qa var1 = class_ug.this.w();
+         EntityLiving var1 = class_ug.this.w();
          class_ug.this.q().a(var1, 180.0F, 180.0F);
          double var2 = class_ug.this.h(var1);
          if(var2 < 400.0D) {
             if(this.b <= 0) {
                this.b = 20 + class_ug.this.V.nextInt(10) * 20 / 2;
                class_xk var4 = new class_xk(class_ug.this.o, class_ug.this, var1, class_ug.this.cA().getAxis());
-               class_ug.this.o.a((class_pr)var4);
+               class_ug.this.o.addEntity((Entity)var4);
                class_ug.this.a("mob.ghast.fireball", 2.0F, (class_ug.this.V.nextFloat() - class_ug.this.V.nextFloat()) * 0.2F + 1.0F);
             }
          } else {
-            class_ug.this.d((class_qa)null);
+            class_ug.this.d((EntityLiving)null);
          }
 
          super.e();
@@ -488,7 +488,7 @@ public class class_ug extends class_ua implements class_wd {
    }
 
    class class_b_in_class_ug extends class_qv {
-      public class_b_in_class_ug(class_qa var2) {
+      public class_b_in_class_ug(EntityLiving var2) {
          super(var2);
       }
 

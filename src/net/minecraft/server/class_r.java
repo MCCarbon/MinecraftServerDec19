@@ -8,7 +8,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lh;
+import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_mc;
 import net.minecraft.server.class_mf;
@@ -42,9 +42,9 @@ public class class_r extends class_i {
                var5 = a(var1, var2, 1).c();
             }
 
-            class_mf var6 = new class_mf(var4, (Date)null, var1.e_(), (Date)null, var5);
+            class_mf var6 = new class_mf(var4, (Date)null, var1.getName(), (Date)null, var5);
             var3.getPlayerList().h().a((class_mc)var6);
-            class_lh var7 = var3.getPlayerList().a(var2[0]);
+            EntityPlayer var7 = var3.getPlayerList().a(var2[0]);
             if(var7 != null) {
                var7.a.c("You are banned from this server.");
             }

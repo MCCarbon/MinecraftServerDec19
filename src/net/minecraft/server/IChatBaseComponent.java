@@ -18,8 +18,8 @@ import java.util.Map.Entry;
 import net.minecraft.server.class_ex;
 import net.minecraft.server.class_ey;
 import net.minecraft.server.ChatModifier;
-import net.minecraft.server.class_fa;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatComponentText;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.JsonHelper;
 import net.minecraft.server.ChatTypeAdapterFactory;
 
@@ -45,7 +45,7 @@ public interface IChatBaseComponent extends Iterable {
 
       public IChatBaseComponent a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
          if(var1.isJsonPrimitive()) {
-            return new class_fa(var1.getAsString());
+            return new ChatComponentText(var1.getAsString());
          } else if(!var1.isJsonObject()) {
             if(var1.isJsonArray()) {
                JsonArray var11 = var1.getAsJsonArray();
@@ -70,7 +70,7 @@ public interface IChatBaseComponent extends Iterable {
             JsonObject var4 = var1.getAsJsonObject();
             Object var5;
             if(var4.has("text")) {
-               var5 = new class_fa(var4.get("text").getAsString());
+               var5 = new ChatComponentText(var4.get("text").getAsString());
             } else if(var4.has("translate")) {
                String var6 = var4.get("translate").getAsString();
                if(var4.has("with")) {
@@ -79,17 +79,17 @@ public interface IChatBaseComponent extends Iterable {
 
                   for(int var9 = 0; var9 < var8.length; ++var9) {
                      var8[var9] = this.a(var7.get(var9), var2, var3);
-                     if(var8[var9] instanceof class_fa) {
-                        class_fa var10 = (class_fa)var8[var9];
+                     if(var8[var9] instanceof ChatComponentText) {
+                        ChatComponentText var10 = (ChatComponentText)var8[var9];
                         if(var10.b().g() && var10.a().isEmpty()) {
                            var8[var9] = var10.g();
                         }
                      }
                   }
 
-                  var5 = new class_fb(var6, var8);
+                  var5 = new ChatMessage(var6, var8);
                } else {
-                  var5 = new class_fb(var6, new Object[0]);
+                  var5 = new ChatMessage(var6, new Object[0]);
                }
             } else if(var4.has("score")) {
                JsonObject var12 = var4.getAsJsonObject("score");
@@ -157,10 +157,10 @@ public interface IChatBaseComponent extends Iterable {
            var4.add("extra", var5);
         }
 
-        if(var1 instanceof class_fa) {
-           var4.addProperty("text", ((class_fa)var1).g());
-        } else if(var1 instanceof class_fb) {
-           class_fb var11 = (class_fb)var1;
+        if(var1 instanceof ChatComponentText) {
+           var4.addProperty("text", ((ChatComponentText)var1).g());
+        } else if(var1 instanceof ChatMessage) {
+           ChatMessage var11 = (ChatMessage)var1;
            var4.addProperty("translate", var11.i());
            if(var11.j() != null && var11.j().length > 0) {
               JsonArray var14 = new JsonArray();

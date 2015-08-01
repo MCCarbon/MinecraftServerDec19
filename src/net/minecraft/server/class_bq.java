@@ -11,7 +11,7 @@ import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class class_bq extends class_i {
    public String c() {
@@ -30,7 +30,7 @@ public class class_bq extends class_i {
       if(var2.length < 1) {
          throw new class_cf("commands.testfor.usage", new Object[0]);
       } else {
-         class_pr var3 = b(var1, var2[0]);
+         Entity var3 = b(var1, var2[0]);
          NBTTagCompound var4 = null;
          if(var2.length >= 2) {
             try {
@@ -44,11 +44,11 @@ public class class_bq extends class_i {
             NBTTagCompound var5 = new NBTTagCompound();
             var3.e(var5);
             if(!class_dy.a(var4, var5, true)) {
-               throw new class_bz("commands.testfor.failure", new Object[]{var3.e_()});
+               throw new class_bz("commands.testfor.failure", new Object[]{var3.getName()});
             }
          }
 
-         a(var1, this, "commands.testfor.success", new Object[]{var3.e_()});
+         a(var1, this, "commands.testfor.success", new Object[]{var3.getName()});
       }
    }
 

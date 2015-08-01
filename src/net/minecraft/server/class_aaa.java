@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
 import net.minecraft.server.ItemBlock;
-import net.minecraft.server.class_zy;
+import net.minecraft.server.EnumColor;
 
 public class class_aaa extends ItemBlock {
    public class_aaa(Block var1) {
@@ -17,6 +17,6 @@ public class class_aaa extends ItemBlock {
    }
 
    public String e_(ItemStack var1) {
-      return super.a() + "." + class_zy.b(var1.i()).d();
+      return super.a() + "." + EnumColor.b(var1.i()).d();
    }
 }

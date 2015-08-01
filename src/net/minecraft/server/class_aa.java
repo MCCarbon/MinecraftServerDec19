@@ -6,10 +6,10 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_fb;
+import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_aa extends class_i {
    public String c() {
@@ -28,8 +28,8 @@ public class class_aa extends class_i {
       if(var2.length <= 0) {
          throw new class_cf("commands.me.usage", new Object[0]);
       } else {
-         IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof class_xa));
-         MinecraftServer.N().getPlayerList().a((IChatBaseComponent)(new class_fb("chat.type.emote", new Object[]{var1.f_(), var3})));
+         IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof EntityHuman));
+         MinecraftServer.N().getPlayerList().a((IChatBaseComponent)(new ChatMessage("chat.type.emote", new Object[]{var1.getScoreboardDisplayName(), var3})));
       }
    }
 

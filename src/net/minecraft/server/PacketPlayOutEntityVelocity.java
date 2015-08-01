@@ -5,7 +5,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.Entity;
 
 public class PacketPlayOutEntityVelocity implements Packet {
    private int a;
@@ -16,8 +16,8 @@ public class PacketPlayOutEntityVelocity implements Packet {
    public PacketPlayOutEntityVelocity() {
    }
 
-   public PacketPlayOutEntityVelocity(class_pr var1) {
-      this(var1.getId(), var1.v, var1.w, var1.x);
+   public PacketPlayOutEntityVelocity(Entity var1) {
+      this(var1.getId(), var1.v, var1.motY, var1.x);
    }
 
    public PacketPlayOutEntityVelocity(int var1, double var2, double var4, double var6) {

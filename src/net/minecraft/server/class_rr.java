@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_awf;
-import net.minecraft.server.class_pr;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.Entity;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_rm;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class class_rr extends class_rm {
    protected class_qb a;
-   protected class_pr b;
+   protected Entity b;
    protected float c;
    private int e;
    private float f;
@@ -38,10 +38,10 @@ public class class_rr extends class_rm {
             this.b = this.a.w();
          }
 
-         if(this.d == class_xa.class) {
+         if(this.d == EntityHuman.class) {
             this.b = this.a.o.a(this.a, (double)this.c);
          } else {
-            this.b = this.a.o.a((Class)this.d, (class_awf)this.a.aT().b((double)this.c, 3.0D, (double)this.c), (class_pr)this.a);
+            this.b = this.a.o.a((Class)this.d, (AxisAlignedBB)this.a.aT().grow((double)this.c, 3.0D, (double)this.c), (Entity)this.a);
          }
 
          return this.b != null;

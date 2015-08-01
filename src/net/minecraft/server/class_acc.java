@@ -10,17 +10,17 @@ import net.minecraft.server.NBTTagString;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
-import net.minecraft.server.class_fa;
+import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutSetSlot;
-import net.minecraft.server.class_lh;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.EntityPlayer;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.class_nz;
-import net.minecraft.server.class_oj;
+import net.minecraft.server.IInventory;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_yx;
 
 public class class_acc extends Item {
@@ -55,17 +55,17 @@ public class class_acc extends Item {
       return super.getLocalizedName(var1);
    }
 
-   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
-      if(!var2.D) {
+   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+      if(!var2.isClientSide) {
          this.a(var1, var3);
       }
 
       var3.a(var1);
-      var3.b(class_nc.ad[Item.getId((Item)this)]);
+      var3.b(StatisticList.ad[Item.getId((Item)this)]);
       return new class_or(class_oq.a, var1);
    }
 
-   private void a(ItemStack var1, class_xa var2) {
+   private void a(ItemStack var1, EntityHuman var2) {
       if(var1 != null && var1.getTag() != null) {
          NBTTagCompound var3 = var1.getTag();
          if(!var3.getBoolean("resolved")) {
@@ -81,16 +81,16 @@ public class class_acc extends Item {
                      IChatBaseComponent var11 = IChatBaseComponent.ChatSerializer.b(var6);
                      var7 = class_ev.a(var2, var11, var2);
                   } catch (Exception var9) {
-                     var7 = new class_fa(var6);
+                     var7 = new ChatComponentText(var6);
                   }
 
                   var4.set(var5, new NBTTagString(IChatBaseComponent.ChatSerializer.toJson((IChatBaseComponent)var7)));
                }
 
                var3.put((String)"pages", (NBTTag)var4);
-               if(var2 instanceof class_lh && var2.bA() == var1) {
-                  class_yx var10 = var2.br.a((class_oj)var2.bp, var2.bp.d);
-                  ((class_lh)var2).a.a((Packet)(new PacketPlayOutSetSlot(0, var10.e, var1)));
+               if(var2 instanceof EntityPlayer && var2.bA() == var1) {
+                  class_yx var10 = var2.br.a((IInventory)var2.bp, var2.bp.d);
+                  ((EntityPlayer)var2).a.a((Packet)(new PacketPlayOutSetSlot(0, var10.e, var1)));
                }
 
             }

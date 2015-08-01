@@ -4,12 +4,12 @@ import java.util.Collection;
 
 public interface IBlockState<T extends Comparable<T>> {
 
-	String a();
+	String getName();
 
-	Collection<T> c();
+	Collection<T> getValues();
 
-	Class<T> b();
+	Class<T> getStateClass();
 
-	String a(T var1);
+	String getValueName(T var1);
 
 }

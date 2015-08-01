@@ -66,16 +66,16 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet<PacketLis
 
 	@Override
 	public void channelInactive(ChannelHandlerContext var1) throws Exception {
-		close((new class_fb("disconnect.endOfStream")));
+		close((new ChatMessage("disconnect.endOfStream")));
 	}
 
 	@Override
 	public void exceptionCaught(ChannelHandlerContext var1, Throwable var2) throws Exception {
-		class_fb message;
+		ChatMessage message;
 		if (var2 instanceof TimeoutException) {
-			message = new class_fb("disconnect.timeout");
+			message = new ChatMessage("disconnect.timeout");
 		} else {
-			message = new class_fb("disconnect.genericReason", new Object[] { "Internal Exception: " + var2 });
+			message = new ChatMessage("disconnect.genericReason", new Object[] { "Internal Exception: " + var2 });
 		}
 
 		close(message);
@@ -260,7 +260,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet<PacketLis
 				if (getDisconnectMessage() != null) {
 					getPacketListener().disconnect(getDisconnectMessage());
 				} else if (getPacketListener() != null) {
-					getPacketListener().disconnect(new class_fa("Disconnected"));
+					getPacketListener().disconnect(new ChatComponentText("Disconnected"));
 				}
 			} else {
 				LOGGER.warn("handleDisconnection() called twice");

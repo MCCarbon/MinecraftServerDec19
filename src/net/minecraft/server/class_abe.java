@@ -16,20 +16,20 @@ import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_nc;
+import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pl;
-import net.minecraft.server.class_qa;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
 public class class_abe extends Item {
    public class_abe() {
       this.d(1);
       this.a(true);
-      this.a((CreativeTab)CreativeTab.k);
+      this.a((CreativeTab)CreativeTab.BREWING);
    }
 
    public static List h(ItemStack var0) {
@@ -50,13 +50,13 @@ public class class_abe extends Item {
       return var1;
    }
 
-   public ItemStack a(ItemStack var1, World var2, class_qa var3) {
-      class_xa var4 = var3 instanceof class_xa?(class_xa)var3:null;
+   public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
+      EntityHuman var4 = var3 instanceof EntityHuman?(EntityHuman)var3:null;
       if(var4 == null || !var4.bH.instabuild) {
          --var1.count;
       }
 
-      if(!var2.D) {
+      if(!var2.isClientSide) {
          List var5 = h(var1);
          Iterator var6 = var5.iterator();
 
@@ -67,7 +67,7 @@ public class class_abe extends Item {
       }
 
       if(var4 != null) {
-         var4.b(class_nc.ad[Item.getId((Item)this)]);
+         var4.b(StatisticList.ad[Item.getId((Item)this)]);
       }
 
       if(var4 == null || !var4.bH.instabuild) {
@@ -91,7 +91,7 @@ public class class_abe extends Item {
       return class_abz.DRINK;
    }
 
-   public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
+   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
       return new class_or(class_oq.a, var1);
    }

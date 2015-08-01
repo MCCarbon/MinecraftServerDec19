@@ -8,8 +8,8 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_akv;
-import net.minecraft.server.class_amg;
-import net.minecraft.server.class_amy;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntitySkull;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
@@ -20,27 +20,27 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
 public class class_abp extends Item {
    private static final String[] a = new String[]{"skeleton", "wither", "zombie", "char", "creeper", "dragon"};
 
    public class_abp() {
-      this.a((CreativeTab)CreativeTab.c);
+      this.a((CreativeTab)CreativeTab.DECORATIONS);
       this.e(0);
       this.a(true);
    }
 
-   public class_oq a(ItemStack var1, class_xa var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return class_oq.b;
       } else {
-         IBlockData var10 = var3.p(var4);
+         IBlockData var10 = var3.getType(var4);
          Block var11 = var10.getBlock();
          boolean var12 = var11.isReplaceable(var3, var4);
          if(!var12) {
-            if(!var3.p(var4).getBlock().getMaterial().isBuildable()) {
+            if(!var3.getType(var4).getBlock().getMaterial().isBuildable()) {
                return class_oq.b;
             }
 
@@ -49,19 +49,19 @@ public class class_abp extends Item {
 
          if(!var2.a(var4, var6, var1)) {
             return class_oq.b;
-         } else if(!Blocks.SKULL.d(var3, var4)) {
+         } else if(!Blocks.SKULL.canPlace(var3, var4)) {
             return class_oq.b;
          } else {
-            if(!var3.D) {
-               var3.a((BlockPosition)var4, (IBlockData)Blocks.SKULL.getBlockData().set(class_akv.a, var6), 3);
+            if(!var3.isClientSide) {
+               var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.SKULL.getBlockData().set(class_akv.a, var6), 3);
                int var13 = 0;
                if(var6 == EnumDirection.UP) {
                   var13 = MathHelper.floor((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
                }
 
-               class_amg var14 = var3.s(var4);
-               if(var14 instanceof class_amy) {
-                  class_amy var15 = (class_amy)var14;
+               TileEntity var14 = var3.getTileEntity(var4);
+               if(var14 instanceof TileEntitySkull) {
+                  TileEntitySkull var15 = (TileEntitySkull)var14;
                   if(var1.i() == 3) {
                      GameProfile var16 = null;
                      if(var1.hasTag()) {
@@ -124,7 +124,7 @@ public class class_abp extends Item {
       super.a(var1);
       if(var1.hasOfType("SkullOwner", 8) && !var1.getString("SkullOwner").isEmpty()) {
          GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
-         var2 = class_amy.b(var2);
+         var2 = TileEntitySkull.b(var2);
          var1.put((String)"SkullOwner", (NBTTag)class_dy.a(new NBTTagCompound(), var2));
          return true;
       } else {

@@ -9,7 +9,7 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_qi;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.EntityHuman;
 
 public class PacketPlayOutNamedEntitySpawn implements Packet {
    private int a;
@@ -25,7 +25,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
    public PacketPlayOutNamedEntitySpawn() {
    }
 
-   public PacketPlayOutNamedEntitySpawn(class_xa var1) {
+   public PacketPlayOutNamedEntitySpawn(EntityHuman var1) {
       this.a = var1.getId();
       this.b = var1.cf().getId();
       this.c = MathHelper.floor(var1.s * 32.0D);

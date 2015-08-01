@@ -12,8 +12,8 @@ public class class_acu implements class_acs {
    public boolean a(class_yg var1, World var2) {
       ArrayList var3 = Lists.newArrayList();
 
-      for(int var4 = 0; var4 < var1.o_(); ++var4) {
-         ItemStack var5 = var1.a(var4);
+      for(int var4 = 0; var4 < var1.getSize(); ++var4) {
+         ItemStack var5 = var1.getItem(var4);
          if(var5 != null) {
             var3.add(var5);
             if(var3.size() > 1) {
@@ -32,8 +32,8 @@ public class class_acu implements class_acs {
       ArrayList var2 = Lists.newArrayList();
 
       ItemStack var4;
-      for(int var3 = 0; var3 < var1.o_(); ++var3) {
-         var4 = var1.a(var3);
+      for(int var3 = 0; var3 < var1.getSize(); ++var3) {
+         var4 = var1.getItem(var3);
          if(var4 != null) {
             var2.add(var4);
             if(var2.size() > 1) {
@@ -74,10 +74,10 @@ public class class_acu implements class_acs {
    }
 
    public ItemStack[] b(class_yg var1) {
-      ItemStack[] var2 = new ItemStack[var1.o_()];
+      ItemStack[] var2 = new ItemStack[var1.getSize()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
-         ItemStack var4 = var1.a(var3);
+         ItemStack var4 = var1.getItem(var3);
          if(var4 != null && var4.getItem().r()) {
             var2[var3] = new ItemStack(var4.getItem().q());
          }

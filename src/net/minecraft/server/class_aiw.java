@@ -13,7 +13,7 @@ import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.INamable;
-import net.minecraft.server.class_qa;
+import net.minecraft.server.EntityLiving;
 
 public class class_aiw extends Block {
    public static final BlockStateEnum a = BlockStateEnum.of("variant", class_aiw.class_a_in_class_aiw.class);
@@ -25,7 +25,7 @@ public class class_aiw extends Block {
       this.b = var3;
    }
 
-   public int a(Random var1) {
+   public int getDropCount(Random var1) {
       return Math.max(0, var1.nextInt(10) - 7);
    }
 
@@ -46,7 +46,7 @@ public class class_aiw extends Block {
       return Item.getByBlock(this.b);
    }
 
-   public IBlockData a(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, class_qa var8) {
+   public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       return this.getBlockData();
    }
 
@@ -58,7 +58,7 @@ public class class_aiw extends Block {
       return ((class_aiw.class_a_in_class_aiw)var1.get(a)).a();
    }
 
-   public IBlockData a(IBlockData var1, Block.class_c_in_class_agj var2) {
+   public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
       if(var1.getBlock() != this) {
          return var1;
       } else {
@@ -188,7 +188,7 @@ public class class_aiw extends Block {
       }
    }
 
-   protected BlockStateList createBlockStateList() {
+   protected BlockStateList getStateList() {
       return new BlockStateList(this, new IBlockState[]{a});
    }
 
@@ -203,33 +203,33 @@ public class class_aiw extends Block {
 
       static {
          try {
-            c[Block.class_a_in_class_agj.b.ordinal()] = 1;
+            c[Block.class_a_in_class_agj.LEFT_RIGHT.ordinal()] = 1;
          } catch (NoSuchFieldError var16) {
             ;
          }
 
          try {
-            c[Block.class_a_in_class_agj.c.ordinal()] = 2;
+            c[Block.class_a_in_class_agj.FRONT_BACK.ordinal()] = 2;
          } catch (NoSuchFieldError var15) {
             ;
          }
 
-         b = new int[Block.class_c_in_class_agj.values().length];
+         b = new int[Block.EnumRotation.values().length];
 
          try {
-            b[Block.class_c_in_class_agj.c.ordinal()] = 1;
+            b[Block.EnumRotation.CLOCKWISE_180.ordinal()] = 1;
          } catch (NoSuchFieldError var14) {
             ;
          }
 
          try {
-            b[Block.class_c_in_class_agj.d.ordinal()] = 2;
+            b[Block.EnumRotation.COUNTERCLOCKWISE_90.ordinal()] = 2;
          } catch (NoSuchFieldError var13) {
             ;
          }
 
          try {
-            b[Block.class_c_in_class_agj.b.ordinal()] = 3;
+            b[Block.EnumRotation.CLOCKWISE_90.ordinal()] = 3;
          } catch (NoSuchFieldError var12) {
             ;
          }

@@ -6,85 +6,85 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_aja;
-import net.minecraft.server.class_ajw;
-import net.minecraft.server.class_amg;
+import net.minecraft.server.BlockLeaves;
+import net.minecraft.server.BlockWood;
+import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_nc;
-import net.minecraft.server.class_xa;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.EntityHuman;
 
-public class class_ajn extends class_aja {
-   public static final BlockStateEnum Q = BlockStateEnum.a("variant", class_ajw.class_a_in_class_ajw.class, new Predicate() {
-      public boolean a(class_ajw.class_a_in_class_ajw var1) {
-         return var1.a() >= 4;
+public class class_ajn extends BlockLeaves {
+   public static final BlockStateEnum Q = BlockStateEnum.of("variant", BlockWood.EnumLogVariant.class, new Predicate() {
+      public boolean a(BlockWood.EnumLogVariant var1) {
+         return var1.getId() >= 4;
       }
 
       // $FF: synthetic method
       public boolean apply(Object var1) {
-         return this.a((class_ajw.class_a_in_class_ajw)var1);
+         return this.a((BlockWood.EnumLogVariant)var1);
       }
    });
 
    public class_ajn() {
-      this.setBlockData(this.blockStateList.getFirst().set(Q, class_ajw.class_a_in_class_ajw.e).set(b, Boolean.valueOf(true)).set(a, Boolean.valueOf(true)));
+      this.setBlockData(this.blockStateList.getFirst().set(Q, BlockWood.EnumLogVariant.ACACIA).set(CHECK_DECAY, Boolean.valueOf(true)).set(DECAYABLE, Boolean.valueOf(true)));
    }
 
    protected void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
-      if(var3.get(Q) == class_ajw.class_a_in_class_ajw.f && var1.s.nextInt(var4) == 0) {
-         a(var1, var2, new ItemStack(Items.e));
+      if(var3.get(Q) == BlockWood.EnumLogVariant.DARK_OAK && var1.random.nextInt(var4) == 0) {
+         dropItem(var1, var2, new ItemStack(Items.e));
       }
 
    }
 
    public int getDropData(IBlockData var1) {
-      return ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a();
+      return ((BlockWood.EnumLogVariant)var1.get(Q)).getId();
    }
 
-   public int j(World var1, BlockPosition var2) {
-      IBlockData var3 = var1.p(var2);
+   public int getDropData(World var1, BlockPosition var2) {
+      IBlockData var3 = var1.getType(var2);
       return var3.getBlock().toLegacyData(var3) & 3;
    }
 
-   protected ItemStack i(IBlockData var1) {
-      return new ItemStack(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a() - 4);
+   protected ItemStack createItemStack(IBlockData var1) {
+      return new ItemStack(Item.getByBlock((Block)this), 1, ((BlockWood.EnumLogVariant)var1.get(Q)).getId() - 4);
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(Q, this.b(var1)).set(a, Boolean.valueOf((var1 & 4) == 0)).set(b, Boolean.valueOf((var1 & 8) > 0));
+      return this.getBlockData().set(Q, this.b(var1)).set(DECAYABLE, Boolean.valueOf((var1 & 4) == 0)).set(CHECK_DECAY, Boolean.valueOf((var1 & 8) > 0));
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_ajw.class_a_in_class_ajw)var1.get(Q)).a() - 4;
-      if(!((Boolean)var1.get(a)).booleanValue()) {
+      int var3 = var2 | ((BlockWood.EnumLogVariant)var1.get(Q)).getId() - 4;
+      if(!((Boolean)var1.get(DECAYABLE)).booleanValue()) {
          var3 |= 4;
       }
 
-      if(((Boolean)var1.get(b)).booleanValue()) {
+      if(((Boolean)var1.get(CHECK_DECAY)).booleanValue()) {
          var3 |= 8;
       }
 
       return var3;
    }
 
-   public class_ajw.class_a_in_class_ajw b(int var1) {
-      return class_ajw.class_a_in_class_ajw.a((var1 & 3) + 4);
+   public BlockWood.EnumLogVariant b(int var1) {
+      return BlockWood.EnumLogVariant.getById((var1 & 3) + 4);
    }
 
-   protected BlockStateList createBlockStateList() {
-      return new BlockStateList(this, new IBlockState[]{Q, b, a});
+   protected BlockStateList getStateList() {
+      return new BlockStateList(this, new IBlockState[]{Q, CHECK_DECAY, DECAYABLE});
    }
 
-   public void a(World var1, class_xa var2, BlockPosition var3, IBlockData var4, class_amg var5, ItemStack var6) {
-      if(!var1.D && var6 != null && var6.getItem() == Items.bg) {
-         var2.b(class_nc.ab[Block.getId((Block)this)]);
-         a(var1, var3, new ItemStack(Item.getByBlock((Block)this), 1, ((class_ajw.class_a_in_class_ajw)var4.get(Q)).a() - 4));
+   public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
+      if(!var1.isClientSide && var6 != null && var6.getItem() == Items.bg) {
+         var2.b(StatisticList.ab[Block.getId((Block)this)]);
+         dropItem(var1, var3, new ItemStack(Item.getByBlock((Block)this), 1, ((BlockWood.EnumLogVariant)var4.get(Q)).getId() - 4));
       } else {
-         super.a(var1, var2, var3, var4, var5, var6);
+         super.breakBlockNaturally(var1, var2, var3, var4, var5, var6);
       }
    }
 }
