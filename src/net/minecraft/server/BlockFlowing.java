@@ -157,7 +157,7 @@ public class BlockFlowing extends BlockFluids {
 			}
 
 			if (var3 < 4) {
-				int var10 = this.a(var1, var8, var3 + 1, var7.getOpposite());
+				int var10 = this.a(var1, var8, var3 + 1, var7.opposite());
 				if (var10 < var5) {
 					var5 = var10;
 				}
@@ -188,7 +188,7 @@ public class BlockFlowing extends BlockFluids {
 
 			int var9;
 			if (this.g(var1, var7.down(), var1.getType(var7.down()))) {
-				var9 = this.a(var1, var7, 1, var6.getOpposite());
+				var9 = this.a(var1, var7, 1, var6.opposite());
 			} else {
 				var9 = 0;
 			}

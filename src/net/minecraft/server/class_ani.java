@@ -26,7 +26,7 @@ public class class_ani {
          this.d = var3;
          this.c = var2.shift(var3);
       } else {
-         this.d = var3.getOpposite();
+         this.d = var3.opposite();
          this.c = var2.shift(var3, 2);
       }
 
@@ -73,7 +73,7 @@ public class class_ani {
             return false;
          } else {
             while(var2 == Blocks.SLINE) {
-               BlockPosition var4 = var1.shift(this.d.getOpposite(), var3);
+               BlockPosition var4 = var1.shift(this.d.opposite(), var3);
                var2 = this.a.getType(var4).getBlock();
                if(var2.getMaterial() == Material.AIR || !BlockPiston.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
                   break;
@@ -89,7 +89,7 @@ public class class_ani {
 
             int var5;
             for(var5 = var3 - 1; var5 >= 0; --var5) {
-               this.e.add(var1.shift(this.d.getOpposite(), var5));
+               this.e.add(var1.shift(this.d.opposite(), var5));
                ++var10;
             }
 

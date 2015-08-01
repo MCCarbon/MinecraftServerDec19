@@ -51,7 +51,7 @@ public abstract class class_agp extends class_ahi {
    }
 
    public boolean canPlace(World var1, BlockPosition var2, EnumDirection var3) {
-      return a(var1, var2, var3.getOpposite());
+      return a(var1, var2, var3.opposite());
    }
 
    public boolean canPlace(World var1, BlockPosition var2) {
@@ -74,11 +74,11 @@ public abstract class class_agp extends class_ahi {
    }
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      return a(var1, var2, var3.getOpposite())?this.getBlockData().set(FACING, var3).set(a, Boolean.valueOf(false)):this.getBlockData().set(FACING, EnumDirection.DOWN).set(a, Boolean.valueOf(false));
+      return a(var1, var2, var3.opposite())?this.getBlockData().set(FACING, var3).set(a, Boolean.valueOf(false)):this.getBlockData().set(FACING, EnumDirection.DOWN).set(a, Boolean.valueOf(false));
    }
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(this.e(var1, var2, var3) && !a(var1, var2, ((EnumDirection)var3.get(FACING)).getOpposite())) {
+      if(this.e(var1, var2, var3) && !a(var1, var2, ((EnumDirection)var3.get(FACING)).opposite())) {
          this.dropNaturallyForSure(var1, var2, var3, 0);
          var1.setAir(var2);
       }
@@ -225,7 +225,7 @@ public abstract class class_agp extends class_ahi {
 
    private void c(World var1, BlockPosition var2, EnumDirection var3) {
       var1.c((BlockPosition)var2, (Block)this);
-      var1.c((BlockPosition)var2.shift(var3.getOpposite()), (Block)this);
+      var1.c((BlockPosition)var2.shift(var3.opposite()), (Block)this);
    }
 
    public IBlockData fromLegacyData(int var1) {

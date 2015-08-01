@@ -44,7 +44,7 @@ public class class_ajc extends Block {
    }
 
    public boolean canPlace(World var1, BlockPosition var2, EnumDirection var3) {
-      return a(var1, var2, var3.getOpposite());
+      return a(var1, var2, var3.opposite());
    }
 
    public boolean canPlace(World var1, BlockPosition var2) {
@@ -67,7 +67,7 @@ public class class_ajc extends Block {
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlockData var9 = this.getBlockData().set(b, Boolean.valueOf(false));
-      if(a(var1, var2, var3.getOpposite())) {
+      if(a(var1, var2, var3.opposite())) {
          return var9.set(a, class_ajc.class_a_in_class_ajc.a(var3, var8.aR()));
       } else {
          Iterator var10 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
@@ -83,14 +83,14 @@ public class class_ajc extends Block {
             }
 
             var11 = (EnumDirection)var10.next();
-         } while(var11 == var3 || !a(var1, var2, var11.getOpposite()));
+         } while(var11 == var3 || !a(var1, var2, var11.opposite()));
 
          return var9.set(a, class_ajc.class_a_in_class_ajc.a(var11, var8.aR()));
       }
    }
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(this.e(var1, var2, var3) && !a(var1, var2, ((class_ajc.class_a_in_class_ajc)var3.get(a)).c().getOpposite())) {
+      if(this.e(var1, var2, var3) && !a(var1, var2, ((class_ajc.class_a_in_class_ajc)var3.get(a)).c().opposite())) {
          this.dropNaturallyForSure(var1, var2, var3, 0);
          var1.setAir(var2);
       }
@@ -144,7 +144,7 @@ public class class_ajc extends Block {
          var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, ((Boolean)var3.get(b)).booleanValue()?0.6F:0.5F);
          var1.c((BlockPosition)var2, (Block)this);
          EnumDirection var11 = ((class_ajc.class_a_in_class_ajc)var3.get(a)).c();
-         var1.c((BlockPosition)var2.shift(var11.getOpposite()), (Block)this);
+         var1.c((BlockPosition)var2.shift(var11.opposite()), (Block)this);
          return true;
       }
    }
@@ -153,7 +153,7 @@ public class class_ajc extends Block {
       if(((Boolean)var3.get(b)).booleanValue()) {
          var1.c((BlockPosition)var2, (Block)this);
          EnumDirection var4 = ((class_ajc.class_a_in_class_ajc)var3.get(a)).c();
-         var1.c((BlockPosition)var2.shift(var4.getOpposite()), (Block)this);
+         var1.c((BlockPosition)var2.shift(var4.opposite()), (Block)this);
       }
 
       super.remove(var1, var2, var3);

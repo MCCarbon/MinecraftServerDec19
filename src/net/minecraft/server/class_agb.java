@@ -217,7 +217,7 @@ public class class_agb extends BlockContainer {
 
       public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
          EnumDirection var5 = (EnumDirection)var3.get(a);
-         if(!var1.getType(var2.shift(var5.getOpposite())).getBlock().getMaterial().isBuildable()) {
+         if(!var1.getType(var2.shift(var5.opposite())).getBlock().getMaterial().isBuildable()) {
             this.dropNaturallyForSure(var1, var2, var3, 0);
             var1.setAir(var2);
          }

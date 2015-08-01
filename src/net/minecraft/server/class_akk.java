@@ -320,7 +320,7 @@ public class class_akk extends Block {
          return true;
       } else if(Blocks.UNPOWERED_REPEATER.e(var2)) {
          EnumDirection var3 = (EnumDirection)var0.get(class_ako.FACING);
-         return var3 == var1 || var3.getOpposite() == var1;
+         return var3 == var1 || var3.opposite() == var1;
       } else {
          return var2.isPowerSource() && var1 != null;
       }

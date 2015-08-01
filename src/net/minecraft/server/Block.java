@@ -1162,7 +1162,7 @@ public class Block {
 					case 2:
 						return var1.rotateY();
 					case 3:
-						return var1.getOpposite();
+						return var1.opposite();
 					case 4:
 						return var1.rotateYCCW();
 					default:

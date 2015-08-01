@@ -47,7 +47,7 @@ public class BlockPistonMoving extends BlockContainer {
 
 	@Override
 	public void postBreak(World var1, BlockPosition var2, IBlockData var3) {
-		BlockPosition var4 = var2.shift(var3.get(FACING).getOpposite());
+		BlockPosition var4 = var2.shift(var3.get(FACING).opposite());
 		IBlockData var5 = var1.getType(var4);
 		if ((var5.getBlock() instanceof BlockPiston) && var5.get(BlockPiston.EXTENDED).booleanValue()) {
 			var1.setAir(var4);

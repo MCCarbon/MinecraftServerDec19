@@ -60,11 +60,11 @@ public class BlockEndRod extends class_ahi {
 
 	@Override
 	public IBlockData getPlacedState(World world, BlockPosition position, EnumDirection face, float var4, float var5, float var6, int var7, EntityLiving var8) {
-		IBlockData blockdata = world.getType(position.shift(face.getOpposite()));
+		IBlockData blockdata = world.getType(position.shift(face.opposite()));
 		if (blockdata.getBlock() == Blocks.END_ROD) {
 			EnumDirection facing = blockdata.get(FACING);
 			if (facing == face) {
-				return getBlockData().set(FACING, face.getOpposite());
+				return getBlockData().set(FACING, face.opposite());
 			}
 		}
 		return getBlockData().set(FACING, face);

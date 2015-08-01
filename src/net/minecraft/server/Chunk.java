@@ -1022,7 +1022,7 @@ public class Chunk {
 				while (var5.hasNext()) {
 					EnumDirection var6 = (EnumDirection) var5.next();
 					int var4 = var6.getAxisDirection() == EnumDirection.EnumAxisDirection.POSITIVE ? 16 : 1;
-					i.f(var1.shift(var6, var4)).a(var6.getOpposite());
+					i.f(var1.shift(var6, var4)).a(var6.opposite());
 				}
 
 				y();

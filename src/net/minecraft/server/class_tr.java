@@ -183,7 +183,7 @@ public class class_tr extends class_avd {
 
    private void d(BlockPosition var1) {
       EnumDirection var2 = class_ahl.h(this.b, var1);
-      EnumDirection var3 = var2.getOpposite();
+      EnumDirection var3 = var2.opposite();
       int var4 = this.a(var1, var2, 5);
       int var5 = this.a(var1, var3, var4 + 1);
       if(var4 != var5) {

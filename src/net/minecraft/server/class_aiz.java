@@ -94,7 +94,7 @@ public class class_aiz extends Block {
    }
 
    protected boolean a(World var1, BlockPosition var2, EnumDirection var3) {
-      return var1.getType(var2.shift(var3.getOpposite())).getBlock().isOccluding();
+      return var1.getType(var2.shift(var3.opposite())).getBlock().isOccluding();
    }
 
    public IBlockData fromLegacyData(int var1) {

@@ -187,7 +187,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 			TileEntity var3 = world.getTileEntity(var2);
 			if (var3 instanceof TileEntityChest) {
 				TileEntityChest var4 = (TileEntityChest) var3;
-				var4.a(this, var1.getOpposite());
+				var4.a(this, var1.opposite());
 				return var4;
 			}
 		}

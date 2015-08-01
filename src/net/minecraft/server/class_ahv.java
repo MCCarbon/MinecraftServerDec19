@@ -60,11 +60,11 @@ public class class_ahv extends BlockContainer {
    }
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      return this.getBlockData().set(a, var8.aR().getOpposite());
+      return this.getBlockData().set(a, var8.aR().opposite());
    }
 
    public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, var4.aR().getOpposite()), 2);
+      var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, var4.aR().opposite()), 2);
    }
 
    public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {

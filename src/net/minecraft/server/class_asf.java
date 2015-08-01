@@ -241,7 +241,7 @@ public class class_asf {
 
       public void a(EnumDirection var1, class_asf.class_v_in_class_asf var2) {
          this.b[var1.getId()] = var2;
-         var2.b[var1.getOpposite().getId()] = this;
+         var2.b[var1.opposite().getId()] = this;
       }
 
       public void a() {
@@ -1364,7 +1364,7 @@ public class class_asf {
                            int var14 = b(var11, var12, var13);
                            if(var2[var14] != null) {
                               if(var13 != var4) {
-                                 var2[var6].a(var10.getOpposite(), var2[var14]);
+                                 var2[var6].a(var10.opposite(), var2[var14]);
                               } else {
                                  var2[var6].a(var10, var2[var14]);
                               }
@@ -1429,7 +1429,7 @@ public class class_asf {
                      var12 = var1.nextInt(6);
                   } while(!var24.c[var12]);
 
-                  var13 = EnumDirection.getById(var12).getOpposite().getId();
+                  var13 = EnumDirection.getById(var12).opposite().getId();
                   var24.c[var12] = false;
                   var24.b[var12].c[var13] = false;
                   if(var24.a(var21++) && var24.b[var12].a(var21++)) {

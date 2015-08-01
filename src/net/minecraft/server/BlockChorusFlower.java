@@ -24,8 +24,8 @@ public class BlockChorusFlower extends Block {
 		if (!isValid(world, position)) {
 			world.setAir(position, true);
 		} else if (world.isEmpty(position.up())) {
-			int var5 = blockdata.get(AGE).intValue();
-			if ((var5 < 5) && (random.nextInt(1) == 0)) {
+			int agev = blockdata.get(AGE);
+			if ((agev < 5) && (random.nextInt(1) == 0)) {
 				boolean var6 = false;
 				boolean var7 = false;
 				Block var8 = world.getType(position.down()).getBlock();
@@ -64,8 +64,8 @@ public class BlockChorusFlower extends Block {
 
 				if (var6 && a(world, position.up(), (EnumDirection) null) && world.isEmpty(position.up(2))) {
 					world.setTypeAndData(position, Blocks.CHORUS_PLANT.getBlockData(), 2);
-					world.setTypeAndData(position.up(), getBlockData().set(AGE, Integer.valueOf(var5)), 2);
-				} else if (var5 < 4) {
+					world.setTypeAndData(position.up(), getBlockData().set(AGE, Integer.valueOf(agev)), 2);
+				} else if (agev < 4) {
 					var9 = random.nextInt(4);
 					boolean var15 = false;
 					if (var7) {
@@ -75,8 +75,8 @@ public class BlockChorusFlower extends Block {
 					for (int var14 = 0; var14 < var9; ++var14) {
 						EnumDirection var12 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(random);
 						BlockPosition var13 = position.shift(var12);
-						if (world.isEmpty(var13) && world.isEmpty(var13.down()) && a(world, var13, var12.getOpposite())) {
-							world.setTypeAndData(var13, getBlockData().set(AGE, Integer.valueOf(var5 + 1)), 2);
+						if (world.isEmpty(var13) && world.isEmpty(var13.down()) && a(world, var13, var12.opposite())) {
+							world.setTypeAndData(var13, getBlockData().set(AGE, Integer.valueOf(agev + 1)), 2);
 							var15 = true;
 						}
 					}
@@ -86,7 +86,7 @@ public class BlockChorusFlower extends Block {
 					} else {
 						world.setTypeAndData(position, blockdata.set(AGE, Integer.valueOf(5)), 2);
 					}
-				} else if (var5 == 4) {
+				} else if (agev == 4) {
 					world.setTypeAndData(position, blockdata.set(AGE, Integer.valueOf(5)), 2);
 				}
 			}
@@ -219,7 +219,7 @@ public class BlockChorusFlower extends Block {
 			for (int var9 = 0; var9 < var13; ++var9) {
 				EnumDirection var10 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
 				BlockPosition var11 = var1.up(var6).shift(var10);
-				if ((Math.abs(var11.getX() - var3.getX()) < var4) && (Math.abs(var11.getZ() - var3.getZ()) < var4) && var0.isEmpty(var11) && var0.isEmpty(var11.down()) && a(var0, var11, var10.getOpposite())) {
+				if ((Math.abs(var11.getX() - var3.getX()) < var4) && (Math.abs(var11.getZ() - var3.getZ()) < var4) && var0.isEmpty(var11) && var0.isEmpty(var11.down()) && a(var0, var11, var10.opposite())) {
 					var12 = true;
 					var0.setTypeAndData(var11, Blocks.CHORUS_PLANT.getBlockData(), 2);
 					a(var0, var11, var2, var3, var4, var5 + 1);

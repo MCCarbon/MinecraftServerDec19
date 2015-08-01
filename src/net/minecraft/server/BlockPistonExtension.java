@@ -20,7 +20,7 @@ public class BlockPistonExtension extends class_ahi {
 		if (var4.bH.instabuild) {
 			EnumDirection var5 = var3.get(FACING);
 			if (var5 != null) {
-				BlockPosition var6 = var2.shift(var5.getOpposite());
+				BlockPosition var6 = var2.shift(var5.opposite());
 				Block var7 = var1.getType(var6).getBlock();
 				if ((var7 == Blocks.PISTON) || (var7 == Blocks.STICKY_PISTON)) {
 					var1.setAir(var6);
@@ -34,7 +34,7 @@ public class BlockPistonExtension extends class_ahi {
 	@Override
 	public void remove(World var1, BlockPosition var2, IBlockData var3) {
 		super.remove(var1, var2, var3);
-		EnumDirection var4 = var3.get(FACING).getOpposite();
+		EnumDirection var4 = var3.get(FACING).opposite();
 		var2 = var2.shift(var4);
 		IBlockData var5 = var1.getType(var2);
 		if (((var5.getBlock() == Blocks.PISTON) || (var5.getBlock() == Blocks.STICKY_PISTON)) && var5.get(BlockPiston.EXTENDED).booleanValue()) {
@@ -136,7 +136,7 @@ public class BlockPistonExtension extends class_ahi {
 	@Override
 	public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
 		EnumDirection var5 = var3.get(FACING);
-		BlockPosition var6 = var2.shift(var5.getOpposite());
+		BlockPosition var6 = var2.shift(var5.opposite());
 		IBlockData var7 = var1.getType(var6);
 		if ((var7.getBlock() != Blocks.PISTON) && (var7.getBlock() != Blocks.STICKY_PISTON)) {
 			var1.setAir(var2);

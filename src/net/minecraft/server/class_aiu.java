@@ -69,7 +69,7 @@ public class class_aiu extends BlockContainer {
    }
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      EnumDirection var9 = var3.getOpposite();
+      EnumDirection var9 = var3.opposite();
       if(var9 == EnumDirection.UP) {
          var9 = EnumDirection.DOWN;
       }

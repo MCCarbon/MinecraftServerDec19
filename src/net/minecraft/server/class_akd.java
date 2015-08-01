@@ -119,7 +119,7 @@ public class class_akd extends BlockDirectional {
    }
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      return this.getBlockData().set(FACING, var8.aR().getOpposite());
+      return this.getBlockData().set(FACING, var8.aR().opposite());
    }
 
    public IBlockData fromLegacyData(int var1) {

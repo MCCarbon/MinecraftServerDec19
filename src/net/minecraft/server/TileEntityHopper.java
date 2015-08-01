@@ -210,7 +210,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 		if (var1 == null) {
 			return false;
 		} else {
-			EnumDirection var2 = class_aiu.b(getMetadata()).getOpposite();
+			EnumDirection var2 = class_aiu.b(getMetadata()).opposite();
 			if (this.a(var1, var2)) {
 				return false;
 			} else {

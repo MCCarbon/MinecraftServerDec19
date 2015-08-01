@@ -345,7 +345,7 @@ public class Bootstrap {
 								((TileEntitySkull)var7).a(var2.i());
 							}
 
-							((TileEntitySkull)var7).b(var4.getOpposite().getHorizontalId() * 4);
+							((TileEntitySkull)var7).b(var4.opposite().getHorizontalId() * 4);
 							Blocks.SKULL.a(var3, var5, (TileEntitySkull)var7);
 						}
 

@@ -97,7 +97,7 @@ public abstract class class_uz extends Entity {
       } else {
          int var1 = Math.max(1, this.l() / 16);
          int var2 = Math.max(1, this.m() / 16);
-         BlockPosition var3 = this.a.shift(this.b.getOpposite());
+         BlockPosition var3 = this.a.shift(this.b.opposite());
          EnumDirection var4 = this.b.rotateYCCW();
 
          for(int var5 = 0; var5 < var1; ++var5) {
@@ -221,7 +221,7 @@ public abstract class class_uz extends Entity {
       if(this.b.getAxis() != EnumDirection.EnumAxis.Y) {
          switch(class_uz.SyntheticClass_1.a[var1.ordinal()]) {
          case 1:
-            this.b = this.b.getOpposite();
+            this.b = this.b.opposite();
             break;
          case 2:
             this.b = this.b.rotateYCCW();

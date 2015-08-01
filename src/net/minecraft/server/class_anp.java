@@ -78,7 +78,7 @@ public class class_anp {
 
             for(int var13 = 0; var13 < var12; ++var13) {
                EnumDirection var14 = var11[var13];
-               if(var14 != var10 && var14 != var10.getOpposite()) {
+               if(var14 != var10 && var14 != var10.opposite()) {
                   class_anp.class_b_in_class_anp var15 = this.a(var6, var10, var14, var3);
                   if(var15 != null) {
                      return var15;
@@ -96,7 +96,7 @@ public class class_anp {
    }
 
    protected static BlockPosition a(BlockPosition var0, EnumDirection var1, EnumDirection var2, int var3, int var4, int var5) {
-      if(var1 != var2 && var1 != var2.getOpposite()) {
+      if(var1 != var2 && var1 != var2.opposite()) {
          BaseBlockPosition var6 = new BaseBlockPosition(var1.getAdjacentX(), var1.getAdjacentY(), var1.getAdjacentZ());
          BaseBlockPosition var7 = new BaseBlockPosition(var2.getAdjacentX(), var2.getAdjacentY(), var2.getAdjacentZ());
          BaseBlockPosition var8 = var6.crossProduct(var7);

@@ -103,7 +103,7 @@ public class class_agy extends BlockDirectional implements IBlockFragilePlantEle
          var3 = EnumDirection.NORTH;
       }
 
-      return this.getBlockData().set(FACING, var3.getOpposite()).set(a, Integer.valueOf(0));
+      return this.getBlockData().set(FACING, var3.opposite()).set(a, Integer.valueOf(0));
    }
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {

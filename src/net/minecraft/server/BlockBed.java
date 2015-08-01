@@ -54,7 +54,7 @@ public class BlockBed extends BlockDirectional {
 				}
 			} else {
 				world.setAir(position);
-				BlockPosition thispart = position.shift(blockdata.get(FACING).getOpposite());
+				BlockPosition thispart = position.shift(blockdata.get(FACING).opposite());
 				if (world.getType(thispart).getBlock() == this) {
 					world.setAir(thispart);
 				}
@@ -93,7 +93,7 @@ public class BlockBed extends BlockDirectional {
 	public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
 		EnumDirection var5 = var3.get(FACING);
 		if (var3.get(PART) == BlockBed.EnumBedPart.HEAD) {
-			if (var1.getType(var2.shift(var5.getOpposite())).getBlock() != this) {
+			if (var1.getType(var2.shift(var5.opposite())).getBlock() != this) {
 				var1.setAir(var2);
 			}
 		} else if (var1.getType(var2.shift(var5)).getBlock() != this) {
@@ -163,7 +163,7 @@ public class BlockBed extends BlockDirectional {
 	@Override
 	public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
 		if (var4.bH.instabuild && (var3.get(PART) == BlockBed.EnumBedPart.HEAD)) {
-			BlockPosition var5 = var2.shift(var3.get(FACING).getOpposite());
+			BlockPosition var5 = var2.shift(var3.get(FACING).opposite());
 			if (var1.getType(var5).getBlock() == this) {
 				var1.setAir(var5);
 			}

@@ -90,7 +90,7 @@ public class class_agu extends BlockContainer {
    }
 
    public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      EnumDirection var6 = EnumDirection.getByHorizontalId(MathHelper.floor((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).getOpposite();
+      EnumDirection var6 = EnumDirection.getByHorizontalId(MathHelper.floor((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).opposite();
       var3 = var3.set(a, var6);
       BlockPosition var7 = var2.north();
       BlockPosition var8 = var2.south();
@@ -226,11 +226,11 @@ public class class_agu extends BlockContainer {
       }
 
       if(var4 != null) {
-         return var3.set(a, var4.getOpposite());
+         return var3.set(a, var4.opposite());
       } else {
          EnumDirection var8 = (EnumDirection)var3.get(a);
          if(var1.getType(var2.shift(var8)).getBlock().isFullBlock()) {
-            var8 = var8.getOpposite();
+            var8 = var8.opposite();
          }
 
          if(var1.getType(var2.shift(var8)).getBlock().isFullBlock()) {
@@ -238,7 +238,7 @@ public class class_agu extends BlockContainer {
          }
 
          if(var1.getType(var2.shift(var8)).getBlock().isFullBlock()) {
-            var8 = var8.getOpposite();
+            var8 = var8.opposite();
          }
 
          return var3.set(a, var8);

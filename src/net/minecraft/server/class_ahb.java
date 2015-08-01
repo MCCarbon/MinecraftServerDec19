@@ -241,7 +241,7 @@ public class class_ahb extends class_ahh implements IContainer {
    }
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      return this.getBlockData().set(FACING, var8.aR().getOpposite()).set(a, Boolean.valueOf(false)).set(b, class_ahb.class_a_in_class_ahb.a);
+      return this.getBlockData().set(FACING, var8.aR().opposite()).set(a, Boolean.valueOf(false)).set(b, class_ahb.class_a_in_class_ahb.a);
    }
 
    public static enum class_a_in_class_ahb implements INamable {

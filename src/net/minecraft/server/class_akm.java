@@ -87,7 +87,7 @@ public class class_akm extends class_alp {
    }
 
    private boolean g(World var1, BlockPosition var2, IBlockData var3) {
-      EnumDirection var4 = ((EnumDirection)var3.get(a)).getOpposite();
+      EnumDirection var4 = ((EnumDirection)var3.get(a)).opposite();
       return var1.b(var2.shift(var4), var4);
    }
 

@@ -76,7 +76,7 @@ public class class_alp extends Block {
    }
 
    private boolean a(World var1, BlockPosition var2, EnumDirection var3) {
-      BlockPosition var4 = var2.shift(var3.getOpposite());
+      BlockPosition var4 = var2.shift(var3.opposite());
       boolean var5 = var3.getAxis().isHorizontal();
       return var5 && var1.d(var4, true) || var3.equals(EnumDirection.UP) && this.e(var1, var4);
    }
@@ -94,7 +94,7 @@ public class class_alp extends Block {
             }
 
             var10 = (EnumDirection)var9.next();
-         } while(!var1.d(var2.shift(var10.getOpposite()), true));
+         } while(!var1.d(var2.shift(var10.opposite()), true));
 
          return this.getBlockData().set(a, var10);
       }
@@ -114,7 +114,7 @@ public class class_alp extends Block {
       } else {
          EnumDirection var4 = (EnumDirection)var3.get(a);
          EnumDirection.EnumAxis var5 = var4.getAxis();
-         EnumDirection var6 = var4.getOpposite();
+         EnumDirection var6 = var4.opposite();
          boolean var7 = false;
          if(var5.isHorizontal() && !var1.d(var2.shift(var6), true)) {
             var7 = true;

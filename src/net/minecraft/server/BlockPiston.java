@@ -140,7 +140,7 @@ public class BlockPiston extends class_ahi {
 					}
 				}
 
-				if (!var10 && (var9.getMaterial() != Material.AIR) && a(var9, var1, var8, var6.getOpposite(), false) && ((var9.getPushReaction() == 0) || (var9 == Blocks.PISTON) || (var9 == Blocks.STICKY_PISTON))) {
+				if (!var10 && (var9.getMaterial() != Material.AIR) && a(var9, var1, var8, var6.opposite(), false) && ((var9.getPushReaction() == 0) || (var9 == Blocks.PISTON) || (var9 == Blocks.STICKY_PISTON))) {
 					this.a(var1, var2, var6, false);
 				}
 			} else {
@@ -225,7 +225,7 @@ public class BlockPiston extends class_ahi {
 			}
 		}
 
-		return var2.aR().getOpposite();
+		return var2.aR().opposite();
 	}
 
 	public static boolean a(Block var0, World var1, BlockPosition var2, EnumDirection var3, boolean var4) {
@@ -275,7 +275,7 @@ public class BlockPiston extends class_ahi {
 		} else {
 			int var8 = var6.size() + var7.size();
 			Block[] var9 = new Block[var8];
-			EnumDirection var10 = var4 ? var3 : var3.getOpposite();
+			EnumDirection var10 = var4 ? var3 : var3.opposite();
 
 			int var11;
 			BlockPosition var12;

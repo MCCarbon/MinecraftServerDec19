@@ -131,7 +131,7 @@ public class class_alu extends Block {
       case 3:
       case 4:
       case 5:
-         return this.c(var1.getType(var2.shift(var3.getOpposite())).getBlock());
+         return this.c(var1.getType(var2.shift(var3.opposite())).getBlock());
       default:
          return false;
       }
@@ -248,9 +248,9 @@ public class class_alu extends Block {
                         } else if(var27 && this.c(var1.getType(var17).getBlock())) {
                            var1.setTypeAndData((BlockPosition)var20, (IBlockData)this.getBlockData().set(a(var25), Boolean.valueOf(true)), 2);
                         } else if(var26 && var1.isEmpty(var28) && this.c(var1.getType(var2.shift(var24)).getBlock())) {
-                           var1.setTypeAndData((BlockPosition)var28, (IBlockData)this.getBlockData().set(a(var18.getOpposite()), Boolean.valueOf(true)), 2);
+                           var1.setTypeAndData((BlockPosition)var28, (IBlockData)this.getBlockData().set(a(var18.opposite()), Boolean.valueOf(true)), 2);
                         } else if(var27 && var1.isEmpty(var17) && this.c(var1.getType(var2.shift(var25)).getBlock())) {
-                           var1.setTypeAndData((BlockPosition)var17, (IBlockData)this.getBlockData().set(a(var18.getOpposite()), Boolean.valueOf(true)), 2);
+                           var1.setTypeAndData((BlockPosition)var17, (IBlockData)this.getBlockData().set(a(var18.opposite()), Boolean.valueOf(true)), 2);
                         } else if(this.c(var1.getType(var20.up()).getBlock())) {
                            var1.setTypeAndData((BlockPosition)var20, (IBlockData)this.getBlockData(), 2);
                         }
@@ -307,7 +307,7 @@ public class class_alu extends Block {
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlockData var9 = this.getBlockData().set(a, Boolean.valueOf(false)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false));
-      return var3.getAxis().isHorizontal()?var9.set(a(var3.getOpposite()), Boolean.valueOf(true)):var9;
+      return var3.getAxis().isHorizontal()?var9.set(a(var3.opposite()), Boolean.valueOf(true)):var9;
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {

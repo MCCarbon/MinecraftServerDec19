@@ -122,13 +122,13 @@ public class class_aev {
          float var23 = 0.0F;
          float var24 = 0.0F;
          float var25 = 0.0F;
-         if(var18.b().getOpposite() == var1.aJ()) {
+         if(var18.b().opposite() == var1.aJ()) {
             var22 = 1.0F;
             var23 = 1.0F;
-         } else if(var18.b().getOpposite() == var1.aJ().getOpposite()) {
+         } else if(var18.b().opposite() == var1.aJ().opposite()) {
             var22 = -1.0F;
             var23 = -1.0F;
-         } else if(var18.b().getOpposite() == var1.aJ().rotateY()) {
+         } else if(var18.b().opposite() == var1.aJ().rotateY()) {
             var24 = 1.0F;
             var25 = -1.0F;
          } else {
@@ -140,7 +140,7 @@ public class class_aev {
          double var28 = var1.x;
          var1.v = var26 * (double)var22 + var28 * (double)var25;
          var1.x = var26 * (double)var24 + var28 * (double)var23;
-         var1.y = var2 - (float)(var1.aJ().getOpposite().getHorizontalId() * 90) + (float)(var18.b().getHorizontalId() * 90);
+         var1.y = var2 - (float)(var1.aJ().opposite().getHorizontalId() * 90) + (float)(var18.b().getHorizontalId() * 90);
          var1.b(var31, var32, var33, var1.y, var1.z);
          return true;
       } else {

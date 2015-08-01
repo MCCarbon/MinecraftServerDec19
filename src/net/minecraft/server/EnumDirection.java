@@ -84,7 +84,7 @@ public enum EnumDirection implements INamable {
 		return this.axisDirection;
 	}
 
-	public EnumDirection getOpposite() {
+	public EnumDirection opposite() {
 		return getById(this.oppositeId);
 	}
 

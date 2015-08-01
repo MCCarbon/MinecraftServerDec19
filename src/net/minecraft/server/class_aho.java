@@ -45,7 +45,7 @@ public class class_aho extends BlockDispenser {
                      var10 = null;
                   }
                } else {
-                  var10 = TileEntityHopper.a(var9, var6.clone().a(1), var7.getOpposite());
+                  var10 = TileEntityHopper.a(var9, var6.clone().a(1), var7.opposite());
                   if(var10 == null) {
                      var10 = var6.clone();
                      if(--var10.count <= 0) {

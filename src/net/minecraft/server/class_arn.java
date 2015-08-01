@@ -168,7 +168,7 @@ public class class_arn extends class_apw {
                         while(var22.hasNext()) {
                            EnumDirection var23 = (EnumDirection)var22.next();
                            if(var2.nextInt(4 - var9) == 0) {
-                              EnumDirection var25 = var23.getOpposite();
+                              EnumDirection var25 = var23.opposite();
                               this.a(var1, var2.nextInt(3), var3.add(var25.getAdjacentX(), var4 - 5 + var9, var25.getAdjacentZ()), var23);
                            }
                         }

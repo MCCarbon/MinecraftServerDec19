@@ -52,7 +52,7 @@ public class class_alt extends Block {
    }
 
    public boolean canPlace(World var1, BlockPosition var2, EnumDirection var3) {
-      return var3.getAxis().isHorizontal() && var1.getType(var2.shift(var3.getOpposite())).getBlock().isOccluding();
+      return var3.getAxis().isHorizontal() && var1.getType(var2.shift(var3.opposite())).getBlock().isOccluding();
    }
 
    public boolean canPlace(World var1, BlockPosition var2) {
@@ -87,7 +87,7 @@ public class class_alt extends Block {
       if(var4 != this) {
          if(this.e(var1, var2, var3)) {
             EnumDirection var5 = (EnumDirection)var3.get(a);
-            if(!var1.getType(var2.shift(var5.getOpposite())).getBlock().isOccluding()) {
+            if(!var1.getType(var2.shift(var5.opposite())).getBlock().isOccluding()) {
                this.dropNaturallyForSure(var1, var2, var3, 0);
                var1.setAir(var2);
             }
@@ -111,7 +111,7 @@ public class class_alt extends Block {
          var17 = var2.shift(var8, var16);
          IBlockData var18 = var1.getType(var17);
          if(var18.getBlock() == Blocks.TRIPWIRE_HOOK) {
-            if(var18.get(a) == var8.getOpposite()) {
+            if(var18.get(a) == var8.opposite()) {
                var14 = var16;
             }
             break;
@@ -143,7 +143,7 @@ public class class_alt extends Block {
       IBlockData var22 = this.getBlockData().set(N, Boolean.valueOf(var12)).set(b, Boolean.valueOf(var13));
       if(var14 > 0) {
          var17 = var2.shift(var8, var14);
-         EnumDirection var24 = var8.getOpposite();
+         EnumDirection var24 = var8.opposite();
          var1.setTypeAndData((BlockPosition)var17, (IBlockData)var22.set(a, var24), 3);
          this.a(var1, var17, var24);
          this.a(var1, var17, var12, var13, var9, var10);
@@ -191,7 +191,7 @@ public class class_alt extends Block {
 
    private void a(World var1, BlockPosition var2, EnumDirection var3) {
       var1.c((BlockPosition)var2, (Block)this);
-      var1.c((BlockPosition)var2.shift(var3.getOpposite()), (Block)this);
+      var1.c((BlockPosition)var2.shift(var3.opposite()), (Block)this);
    }
 
    private boolean e(World var1, BlockPosition var2, IBlockData var3) {
@@ -231,7 +231,7 @@ public class class_alt extends Block {
 
       if(var5) {
          var1.c((BlockPosition)var2, (Block)this);
-         var1.c((BlockPosition)var2.shift(((EnumDirection)var3.get(a)).getOpposite()), (Block)this);
+         var1.c((BlockPosition)var2.shift(((EnumDirection)var3.get(a)).opposite()), (Block)this);
       }
 
       super.remove(var1, var2, var3);

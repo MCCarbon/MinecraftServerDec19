@@ -137,7 +137,7 @@ public abstract class class_ahh extends BlockDirectional {
    }
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      return this.getBlockData().set(FACING, var8.aR().getOpposite());
+      return this.getBlockData().set(FACING, var8.aR().opposite());
    }
 
    public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
@@ -153,7 +153,7 @@ public abstract class class_ahh extends BlockDirectional {
 
    protected void h(World var1, BlockPosition var2, IBlockData var3) {
       EnumDirection var4 = (EnumDirection)var3.get(FACING);
-      BlockPosition var5 = var2.shift(var4.getOpposite());
+      BlockPosition var5 = var2.shift(var4.opposite());
       var1.d(var5, this);
       var1.a((BlockPosition)var5, (Block)this, (EnumDirection)var4);
    }
@@ -193,7 +193,7 @@ public abstract class class_ahh extends BlockDirectional {
    }
 
    public boolean i(World var1, BlockPosition var2, IBlockData var3) {
-      EnumDirection var4 = ((EnumDirection)var3.get(FACING)).getOpposite();
+      EnumDirection var4 = ((EnumDirection)var3.get(FACING)).opposite();
       BlockPosition var5 = var2.shift(var4);
       return d(var1.getType(var5).getBlock())?var1.getType(var5).get(FACING) != var4:false;
    }
