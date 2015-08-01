@@ -191,7 +191,7 @@ public class class_aid extends BlockContainer {
          var4 = BlockWood.EnumLogVariant.DARK_OAK.getId();
       }
 
-      return new TileEntityFlowerPot(Item.getByBlock((Block)var3), var4);
+      return new TileEntityFlowerPot(Item.getItemOf((Block)var3), var4);
    }
 
    protected BlockStateList getStateList() {

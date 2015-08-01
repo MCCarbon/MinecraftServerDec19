@@ -80,7 +80,7 @@ public class class_asa {
    }
 
    static {
-      a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.aY, EnumColor.l.b(), 4, 9, 5), new class_od(Items.k, 0, 1, 2, 3), new class_od(Items.j, 0, 3, 8, 10), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 1), new class_od(Item.getByBlock(Blocks.RAIL), 0, 4, 8, 1), new class_od(Items.bj, 0, 2, 4, 10), new class_od(Items.bi, 0, 2, 4, 10), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1)}));
+      a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.aY, EnumColor.l.b(), 4, 9, 5), new class_od(Items.k, 0, 1, 2, 3), new class_od(Items.j, 0, 3, 8, 10), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 1), new class_od(Item.getItemOf(Blocks.RAIL), 0, 4, 8, 1), new class_od(Items.bj, 0, 2, 4, 10), new class_od(Items.bi, 0, 2, 4, 10), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1)}));
    }
 
    // $FF: synthetic class

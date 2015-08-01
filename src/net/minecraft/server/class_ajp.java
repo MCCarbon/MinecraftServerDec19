@@ -40,7 +40,7 @@ public abstract class class_ajp extends BlockStepAbstract {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getByBlock((Block)Blocks.STONE_SLAB2);
+      return Item.getItemOf((Block)Blocks.STONE_SLAB2);
    }
 
    public String b(int var1) {

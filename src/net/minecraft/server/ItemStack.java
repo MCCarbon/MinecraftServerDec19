@@ -30,7 +30,7 @@ public final class ItemStack {
 	}
 
 	public ItemStack(Block block, int count, int data) {
-		this(Item.getByBlock(block), count, data);
+		this(Item.getItemOf(block), count, data);
 	}
 
 	public ItemStack(Item item) {

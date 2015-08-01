@@ -155,7 +155,7 @@ public class Item {
 		return ITEM_REGISTRY.get(id);
 	}
 
-	public static Item getByBlock(Block block) {
+	public static Item getItemOf(Block block) {
 		return BLOCK_TO_ITEM.get(block);
 	}
 
@@ -931,7 +931,7 @@ public class Item {
 		}
 
 		public Item f() {
-			return this == a ? Item.getByBlock(Blocks.PLANKS) : (this == b ? Item.getByBlock(Blocks.COBBLESTONE) : (this == e ? Items.m : (this == c ? Items.l : (this == d ? Items.k : null))));
+			return this == a ? Item.getItemOf(Blocks.PLANKS) : (this == b ? Item.getItemOf(Blocks.COBBLESTONE) : (this == e ? Items.m : (this == c ? Items.l : (this == d ? Items.k : null))));
 		}
 	}
 }

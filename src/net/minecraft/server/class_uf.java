@@ -95,7 +95,7 @@ public class class_uf extends class_tw {
 
    protected void b(boolean var1, int var2) {
       if(!this.cB()) {
-         this.a(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, this.cA().a()), 0.0F);
+         this.a(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, this.cA().a()), 0.0F);
       }
 
       int var3 = this.V.nextInt(2) + 1 + this.V.nextInt(1 + var2);
@@ -111,7 +111,7 @@ public class class_uf extends class_tw {
    }
 
    protected Item D() {
-      return Item.getByBlock(Blocks.WOOL);
+      return Item.getItemOf(Blocks.WOOL);
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
@@ -121,7 +121,7 @@ public class class_uf extends class_tw {
             int var4 = 1 + this.V.nextInt(3);
 
             for(int var5 = 0; var5 < var4; ++var5) {
-               EntityItem var6 = this.a(new ItemStack(Item.getByBlock(Blocks.WOOL), 1, this.cA().a()), 1.0F);
+               EntityItem var6 = this.a(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, this.cA().a()), 1.0F);
                var6.motY += (double)(this.V.nextFloat() * 0.05F);
                var6.v += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
                var6.x += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);

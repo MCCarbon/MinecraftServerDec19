@@ -22,7 +22,7 @@ public abstract class BlockDoubleStepAbstract extends BlockStepAbstract {
 
 	@Override
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return Item.getByBlock(Blocks.STONE_SLAB);
+		return Item.getItemOf(Blocks.STONE_SLAB);
 	}
 
 	@Override

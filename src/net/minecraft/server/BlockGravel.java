@@ -9,7 +9,7 @@ public class BlockGravel extends BlockFalling {
 		if (fortune > 3) {
 			fortune = 3;
 		}
-		return rnd.nextInt(10 - (fortune * 3)) == 0 ? Items.am : Item.getByBlock(this);
+		return rnd.nextInt(10 - (fortune * 3)) == 0 ? Items.am : Item.getItemOf(this);
 	}
 
 	@Override

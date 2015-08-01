@@ -300,7 +300,7 @@ public class Bootstrap {
 
 			}
 		});
-		BlockDispenser.REGISTRY.register(Item.getByBlock(Blocks.TNT), new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Item.getItemOf(Blocks.TNT), new DispenseBehaviorItem() {
 			@Override
 			protected ItemStack b(ISourceBlock var1, ItemStack var2) {
 				World var3 = var1.getWorld();
@@ -368,7 +368,7 @@ public class Bootstrap {
 
 			}
 		});
-		BlockDispenser.REGISTRY.register(Item.getByBlock(Blocks.PUMPKIN), new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Item.getItemOf(Blocks.PUMPKIN), new DispenseBehaviorItem() {
 			private boolean b = true;
 
 			@Override

@@ -48,7 +48,7 @@ public class class_ahv extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getByBlock(Blocks.OBSIDIAN);
+      return Item.getItemOf(Blocks.OBSIDIAN);
    }
 
    public int getDropCount(Random var1) {

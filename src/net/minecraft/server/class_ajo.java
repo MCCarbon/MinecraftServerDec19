@@ -88,7 +88,7 @@ public class class_ajo extends BlockLogAbstract {
    }
 
    protected ItemStack createItemStack(IBlockData var1) {
-      return new ItemStack(Item.getByBlock((Block)this), 1, ((BlockWood.EnumLogVariant)var1.get(b)).getId() - 4);
+      return new ItemStack(Item.getItemOf((Block)this), 1, ((BlockWood.EnumLogVariant)var1.get(b)).getId() - 4);
    }
 
    public int getDropData(IBlockData var1) {

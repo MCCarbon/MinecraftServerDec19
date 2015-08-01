@@ -746,7 +746,7 @@ public abstract class class_qb extends EntityLiving {
    }
 
    public static class_pw c(ItemStack var0) {
-      return var0.getItem() != Item.getByBlock(Blocks.PUMPKIN) && var0.getItem() != Items.ca?(var0.getItem() instanceof class_za?((class_za)var0.getItem()).b:class_pw.a):class_pw.f;
+      return var0.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var0.getItem() != Items.ca?(var0.getItem() instanceof class_za?((class_za)var0.getItem()).b:class_pw.a):class_pw.f;
    }
 
    public static Item a(class_pw var0, int var1) {

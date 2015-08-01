@@ -318,7 +318,7 @@ public class class_tz extends class_tw implements class_ok {
 
    public void cT() {
       if(!this.o.isClientSide && this.cL()) {
-         this.a(Item.getByBlock((Block)Blocks.CHEST), 1);
+         this.a(Item.getItemOf((Block)Blocks.CHEST), 1);
          this.p(false);
       }
    }
@@ -637,7 +637,7 @@ public class class_tz extends class_tw implements class_ok {
                return true;
             }
 
-            if(!var8 && this.de() && !this.cL() && var3.getItem() == Item.getByBlock((Block)Blocks.CHEST)) {
+            if(!var8 && this.de() && !this.cL() && var3.getItem() == Item.getItemOf((Block)Blocks.CHEST)) {
                this.p(true);
                this.a("mob.chickenplop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
                var8 = true;
@@ -1224,7 +1224,7 @@ public class class_tz extends class_tw implements class_ok {
             return true;
          }
 
-         if(var2 != null && var2.getItem() == Item.getByBlock((Block)Blocks.CHEST) && !this.cL()) {
+         if(var2 != null && var2.getItem() == Item.getItemOf((Block)Blocks.CHEST) && !this.cL()) {
             this.p(true);
             this.dp();
             return true;

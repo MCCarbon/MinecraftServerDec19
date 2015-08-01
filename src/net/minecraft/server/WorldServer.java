@@ -947,7 +947,7 @@ public class WorldServer extends World implements class_of {
    }
 
    static {
-      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.A, 0, 1, 3, 10), new class_od(Item.getByBlock(Blocks.PLANKS), 0, 1, 3, 10), new class_od(Item.getByBlock(Blocks.LOG), 0, 1, 3, 10), new class_od(Items.v, 0, 1, 1, 3), new class_od(Items.r, 0, 1, 1, 5), new class_od(Items.u, 0, 1, 1, 3), new class_od(Items.q, 0, 1, 1, 5), new class_od(Items.e, 0, 2, 3, 5), new class_od(Items.R, 0, 2, 3, 3), new class_od(Item.getByBlock(Blocks.LOG2), 0, 1, 3, 10)}));
+      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.A, 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.PLANKS), 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.LOG), 0, 1, 3, 10), new class_od(Items.v, 0, 1, 1, 3), new class_od(Items.r, 0, 1, 1, 5), new class_od(Items.u, 0, 1, 1, 3), new class_od(Items.q, 0, 1, 1, 5), new class_od(Items.e, 0, 2, 3, 5), new class_od(Items.R, 0, 2, 3, 3), new class_od(Item.getItemOf(Blocks.LOG2), 0, 1, 3, 10)}));
    }
 
    static class class_a_in_class_lg extends ArrayList {

@@ -69,7 +69,7 @@ public class BlockRotatable extends Block {
 
 	@Override
 	protected ItemStack createItemStack(IBlockData var1) {
-		return new ItemStack(Item.getByBlock(this));
+		return new ItemStack(Item.getItemOf(this));
 	}
 
 	@Override

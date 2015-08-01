@@ -34,7 +34,7 @@ public abstract class class_amb extends BlockStepAbstract {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getByBlock((Block)Blocks.WOODEN_SLAB);
+      return Item.getItemOf((Block)Blocks.WOODEN_SLAB);
    }
 
    public String b(int var1) {

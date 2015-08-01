@@ -87,7 +87,7 @@ public class class_ahe extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getByBlock((Block)Blocks.DAYLIGHT_DETECTOR);
+      return Item.getItemOf((Block)Blocks.DAYLIGHT_DETECTOR);
    }
 
    public boolean isFullCube() {

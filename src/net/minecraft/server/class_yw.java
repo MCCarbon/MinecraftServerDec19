@@ -49,7 +49,7 @@ public class class_yw extends class_yx {
       }
 
       this.c = 0;
-      if(var1.getItem() == Item.getByBlock(Blocks.CRAFTING_TABLE)) {
+      if(var1.getItem() == Item.getItemOf(Blocks.CRAFTING_TABLE)) {
          this.b.b((class_my)class_mt.h);
       }
 
@@ -57,7 +57,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.i);
       }
 
-      if(var1.getItem() == Item.getByBlock(Blocks.FURNACE)) {
+      if(var1.getItem() == Item.getItemOf(Blocks.FURNACE)) {
          this.b.b((class_my)class_mt.j);
       }
 
@@ -81,11 +81,11 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.r);
       }
 
-      if(var1.getItem() == Item.getByBlock(Blocks.ENCHANTING_TABLE)) {
+      if(var1.getItem() == Item.getItemOf(Blocks.ENCHANTING_TABLE)) {
          this.b.b((class_my)class_mt.E);
       }
 
-      if(var1.getItem() == Item.getByBlock(Blocks.BOOKSHELF)) {
+      if(var1.getItem() == Item.getItemOf(Blocks.BOOKSHELF)) {
          this.b.b((class_my)class_mt.G);
       }
 

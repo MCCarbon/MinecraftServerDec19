@@ -86,7 +86,7 @@ public class BlockLog1 extends BlockLogAbstract {
 
 	@Override
 	protected ItemStack createItemStack(IBlockData var1) {
-		return new ItemStack(Item.getByBlock(this), 1, var1.get(b).getId());
+		return new ItemStack(Item.getItemOf(this), 1, var1.get(b).getId());
 	}
 
 	@Override

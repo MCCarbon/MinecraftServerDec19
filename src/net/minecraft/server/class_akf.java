@@ -48,7 +48,7 @@ public class class_akf extends Block {
 
    protected ItemStack createItemStack(IBlockData var1) {
       class_akf.class_a_in_class_akf var2 = (class_akf.class_a_in_class_akf)var1.get(a);
-      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.createItemStack(var1):new ItemStack(Item.getByBlock((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
+      return var2 != class_akf.class_a_in_class_akf.d && var2 != class_akf.class_a_in_class_akf.e?super.createItemStack(var1):new ItemStack(Item.getItemOf((Block)this), 1, class_akf.class_a_in_class_akf.c.a());
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {

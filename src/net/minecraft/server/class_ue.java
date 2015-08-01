@@ -69,7 +69,7 @@ public class class_ue extends class_tw {
       this.i.a(1, new class_ue.class_g_in_class_ue(this, 1.33D));
       this.i.a(2, new class_sr(this, 1.0D, Items.bU, false));
       this.i.a(2, new class_sr(this, 1.0D, Items.bZ, false));
-      this.i.a(2, new class_sr(this, 1.0D, Item.getByBlock((Block)Blocks.YELLOW_FLOWER), false));
+      this.i.a(2, new class_sr(this, 1.0D, Item.getItemOf((Block)Blocks.YELLOW_FLOWER), false));
       this.i.a(3, new class_re(this, 0.8D));
       this.i.a(5, new class_ue.class_h_in_class_ue(this));
       this.i.a(5, new class_si(this, 0.6D));
@@ -290,7 +290,7 @@ public class class_ue extends class_tw {
    }
 
    private boolean a(Item var1) {
-      return var1 == Items.bU || var1 == Items.bZ || var1 == Item.getByBlock((Block)Blocks.YELLOW_FLOWER);
+      return var1 == Items.bU || var1 == Items.bZ || var1 == Item.getItemOf((Block)Blocks.YELLOW_FLOWER);
    }
 
    public class_ue b(class_po var1) {

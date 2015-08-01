@@ -253,11 +253,11 @@ public class EntityItem extends Entity {
 			ItemStack var2 = this.l();
 			int var3 = var2.count;
 			if (this.pickupDelay == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.getName())) && var1.bp.a(var2)) {
-				if (var2.getItem() == Item.getByBlock(Blocks.LOG)) {
+				if (var2.getItem() == Item.getItemOf(Blocks.LOG)) {
 					var1.b((class_my) class_mt.g);
 				}
 
-				if (var2.getItem() == Item.getByBlock(Blocks.LOG2)) {
+				if (var2.getItem() == Item.getItemOf(Blocks.LOG2)) {
 					var1.b((class_my) class_mt.g);
 				}
 

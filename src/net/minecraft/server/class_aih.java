@@ -37,7 +37,7 @@ public class class_aih extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getByBlock(Blocks.FURNACE);
+      return Item.getItemOf(Blocks.FURNACE);
    }
 
    public void onPlace(World var1, BlockPosition var2, IBlockData var3) {

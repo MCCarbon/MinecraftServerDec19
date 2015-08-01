@@ -119,7 +119,7 @@ public class class_wb extends class_wi {
 
    private boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bp.b[3];
-      if(var2 != null && var2.getItem() == Item.getByBlock(Blocks.PUMPKIN)) {
+      if(var2 != null && var2.getItem() == Item.getItemOf(Blocks.PUMPKIN)) {
          return false;
       } else {
          Vec3D var3 = var1.d(1.0F).normalize();

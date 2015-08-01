@@ -331,7 +331,7 @@ public class Block {
 	}
 
 	public Item getDropType(IBlockData blockdata, Random random, int var3) {
-		return Item.getByBlock(this);
+		return Item.getItemOf(this);
 	}
 
 	public float getDamage(EntityHuman player, World world, BlockPosition position) {
@@ -588,7 +588,7 @@ public class Block {
 
 	protected ItemStack createItemStack(IBlockData blockdata) {
 		int data = 0;
-		Item item = Item.getByBlock(this);
+		Item item = Item.getItemOf(this);
 		if ((item != null) && item.k()) {
 			data = toLegacyData(blockdata);
 		}

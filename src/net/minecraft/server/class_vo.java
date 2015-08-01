@@ -27,7 +27,7 @@ public class class_vo extends class_vq {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(Item.getByBlock((Block)Blocks.CHEST), 1, 0.0F);
+         this.a(Item.getItemOf((Block)Blocks.CHEST), 1, 0.0F);
       }
 
    }

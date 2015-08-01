@@ -1187,7 +1187,7 @@ public class class_asd {
       }
 
       static {
-         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 1, 3, 5), new class_od(Items.l, 0, 1, 5, 5), new class_od(Items.m, 0, 1, 3, 15), new class_od(Items.D, 0, 1, 1, 5), new class_od(Items.aj, 0, 1, 1, 5), new class_od(Items.d, 0, 1, 1, 5), new class_od(Items.bA, 0, 3, 7, 5), new class_od(Items.aC, 0, 1, 1, 10), new class_od(Items.co, 0, 1, 1, 8), new class_od(Items.cn, 0, 1, 1, 5), new class_od(Items.cp, 0, 1, 1, 3), new class_od(Item.getByBlock(Blocks.OBSIDIAN), 0, 2, 4, 2)}));
+         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 1, 3, 5), new class_od(Items.l, 0, 1, 5, 5), new class_od(Items.m, 0, 1, 3, 15), new class_od(Items.D, 0, 1, 1, 5), new class_od(Items.aj, 0, 1, 1, 5), new class_od(Items.d, 0, 1, 1, 5), new class_od(Items.bA, 0, 3, 7, 5), new class_od(Items.aC, 0, 1, 1, 10), new class_od(Items.co, 0, 1, 1, 8), new class_od(Items.cn, 0, 1, 1, 5), new class_od(Items.cp, 0, 1, 1, 3), new class_od(Item.getItemOf(Blocks.OBSIDIAN), 0, 2, 4, 2)}));
       }
    }
 

@@ -353,7 +353,7 @@ public class class_uy extends EntityLiving {
             var5 = ((class_za)var7).b;
          }
 
-         if(var6 && (var7 == Items.ca || var7 == Item.getByBlock(Blocks.PUMPKIN))) {
+         if(var6 && (var7 == Items.ca || var7 == Item.getItemOf(Blocks.PUMPKIN))) {
             var5 = class_pw.f;
          }
 
@@ -407,7 +407,7 @@ public class class_uy extends EntityLiving {
       if(var5 == null || (this.bB & 1 << var2.c() + 8) == 0) {
          if(var5 != null || (this.bB & 1 << var2.c() + 16) == 0) {
             ItemStack var6;
-            if(var1.bH.instabuild && (var5 == null || var5.getItem() == Item.getByBlock(Blocks.AIR)) && var3 != null) {
+            if(var1.bH.instabuild && (var5 == null || var5.getItem() == Item.getItemOf(Blocks.AIR)) && var3 != null) {
                var6 = var3.clone();
                var6.count = 1;
                this.a(var2, var6);

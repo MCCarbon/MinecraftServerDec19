@@ -31,7 +31,7 @@ public class BlockLeaves1 extends BlockLeaves {
 
 	@Override
 	protected ItemStack createItemStack(IBlockData var1) {
-		return new ItemStack(Item.getByBlock(this), 1, ((BlockWood.EnumLogVariant) var1.get(VARIANT)).getId());
+		return new ItemStack(Item.getItemOf(this), 1, ((BlockWood.EnumLogVariant) var1.get(VARIANT)).getId());
 	}
 
 	@Override
@@ -73,7 +73,7 @@ public class BlockLeaves1 extends BlockLeaves {
 	public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
 		if (!var1.isClientSide && (var6 != null) && (var6.getItem() == Items.bg)) {
 			var2.b(StatisticList.ab[Block.getId(this)]);
-			dropItem(var1, var3, new ItemStack(Item.getByBlock(this), 1, ((BlockWood.EnumLogVariant) var4.get(VARIANT)).getId()));
+			dropItem(var1, var3, new ItemStack(Item.getItemOf(this), 1, ((BlockWood.EnumLogVariant) var4.get(VARIANT)).getId()));
 		} else {
 			super.breakBlockNaturally(var1, var2, var3, var4, var5, var6);
 		}

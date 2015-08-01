@@ -263,7 +263,7 @@ public class class_vk extends Entity {
                this.J();
                if(this.o.R().b("doEntityDrops")) {
                   for(var22 = 0; var22 < 3; ++var22) {
-                     this.a(Item.getByBlock(Blocks.PLANKS), 1, 0.0F);
+                     this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);
                   }
 
                   for(var22 = 0; var22 < 2; ++var22) {
@@ -350,7 +350,7 @@ public class class_vk extends Entity {
                if(this.o.R().b("doEntityDrops")) {
                   int var6;
                   for(var6 = 0; var6 < 3; ++var6) {
-                     this.a(Item.getByBlock(Blocks.PLANKS), 1, 0.0F);
+                     this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);
                   }
 
                   for(var6 = 0; var6 < 2; ++var6) {

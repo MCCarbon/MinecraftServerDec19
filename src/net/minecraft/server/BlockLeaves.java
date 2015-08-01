@@ -150,7 +150,7 @@ public abstract class BlockLeaves extends BlockTransparent {
 
 	@Override
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return Item.getByBlock(Blocks.SAPLING);
+		return Item.getItemOf(Blocks.SAPLING);
 	}
 
 	@Override

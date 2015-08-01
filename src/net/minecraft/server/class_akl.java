@@ -54,7 +54,7 @@ public class class_akl extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getByBlock(Blocks.REDSTONE_LAMP);
+      return Item.getItemOf(Blocks.REDSTONE_LAMP);
    }
 
    protected ItemStack createItemStack(IBlockData var1) {

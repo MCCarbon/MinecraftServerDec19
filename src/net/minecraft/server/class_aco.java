@@ -61,7 +61,7 @@ public class class_aco {
    }
 
    public void a(Block var1, ItemStack var2, float var3) {
-      this.a(Item.getByBlock(var1), var2, var3);
+      this.a(Item.getItemOf(var1), var2, var3);
    }
 
    public void a(Item var1, ItemStack var2, float var3) {

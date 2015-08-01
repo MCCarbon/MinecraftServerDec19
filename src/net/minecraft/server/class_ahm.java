@@ -101,7 +101,7 @@ public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
          return null;
       } else {
          class_ahm.class_b_in_class_ahm var4 = (class_ahm.class_b_in_class_ahm)var1.get(a);
-         return var4 == class_ahm.class_b_in_class_ahm.d?null:(var4 == class_ahm.class_b_in_class_ahm.c?(var2.nextInt(8) == 0?Items.P:null):Item.getByBlock((Block)this));
+         return var4 == class_ahm.class_b_in_class_ahm.d?null:(var4 == class_ahm.class_b_in_class_ahm.c?(var2.nextInt(8) == 0?Items.P:null):Item.getItemOf((Block)this));
       }
    }
 

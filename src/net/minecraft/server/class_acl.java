@@ -13,7 +13,7 @@ public class class_acl {
    public void a(class_act var1) {
       int var2;
       for(var2 = 0; var2 < 16; ++var2) {
-         var1.b(new ItemStack(Blocks.WOOL, 1, var2), new Object[]{new ItemStack(Items.aY, 1, 15 - var2), new ItemStack(Item.getByBlock(Blocks.WOOL))});
+         var1.b(new ItemStack(Blocks.WOOL, 1, var2), new Object[]{new ItemStack(Items.aY, 1, 15 - var2), new ItemStack(Item.getItemOf(Blocks.WOOL))});
          var1.a(new ItemStack(Blocks.STAINED_HARDENED_CLAY, 8, 15 - var2), new Object[]{"###", "#X#", "###", Character.valueOf('#'), new ItemStack(Blocks.HARDENED_CLAY), Character.valueOf('X'), new ItemStack(Items.aY, 1, var2)});
          var1.a(new ItemStack(Blocks.STAINED_GLASS, 8, 15 - var2), new Object[]{"###", "#X#", "###", Character.valueOf('#'), new ItemStack(Blocks.GLASS), Character.valueOf('X'), new ItemStack(Items.aY, 1, var2)});
          var1.a(new ItemStack(Blocks.STAINED_GLASS_PANE, 16, var2), new Object[]{"###", "###", Character.valueOf('#'), new ItemStack(Blocks.STAINED_GLASS, 1, var2)});

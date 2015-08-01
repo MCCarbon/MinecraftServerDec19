@@ -44,7 +44,7 @@ public class class_yp extends Container {
             }
 
             public boolean a(ItemStack var1) {
-               return var1 == null?false:(var1.getItem() instanceof class_za?((class_za)var1.getItem()).b == var6:(var1.getItem() != Item.getByBlock(Blocks.PUMPKIN) && var1.getItem() != Items.ca?false:var6 == class_pw.f));
+               return var1 == null?false:(var1.getItem() instanceof class_za?((class_za)var1.getItem()).b == var6:(var1.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var1.getItem() != Items.ca?false:var6 == class_pw.f));
             }
          }));
       }

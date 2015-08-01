@@ -50,7 +50,7 @@ public class class_ajn extends BlockLeaves {
    }
 
    protected ItemStack createItemStack(IBlockData var1) {
-      return new ItemStack(Item.getByBlock((Block)this), 1, ((BlockWood.EnumLogVariant)var1.get(Q)).getId() - 4);
+      return new ItemStack(Item.getItemOf((Block)this), 1, ((BlockWood.EnumLogVariant)var1.get(Q)).getId() - 4);
    }
 
    public IBlockData fromLegacyData(int var1) {
@@ -82,7 +82,7 @@ public class class_ajn extends BlockLeaves {
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
       if(!var1.isClientSide && var6 != null && var6.getItem() == Items.bg) {
          var2.b(StatisticList.ab[Block.getId((Block)this)]);
-         dropItem(var1, var3, new ItemStack(Item.getByBlock((Block)this), 1, ((BlockWood.EnumLogVariant)var4.get(Q)).getId() - 4));
+         dropItem(var1, var3, new ItemStack(Item.getItemOf((Block)this), 1, ((BlockWood.EnumLogVariant)var4.get(Q)).getId() - 4));
       } else {
          super.breakBlockNaturally(var1, var2, var3, var4, var5, var6);
       }

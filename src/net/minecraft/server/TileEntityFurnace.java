@@ -216,7 +216,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 				++h[2].count;
 			}
 
-			if ((h[0].getItem() == Item.getByBlock(Blocks.SPONGE)) && (h[0].i() == 1) && (h[1] != null) && (h[1].getItem() == Items.ay)) {
+			if ((h[0].getItem() == Item.getItemOf(Blocks.SPONGE)) && (h[0].i() == 1) && (h[1] != null) && (h[1].getItem() == Items.ay)) {
 				h[1] = new ItemStack(Items.az);
 			}
 
@@ -248,7 +248,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 				}
 			}
 
-			return (var1 instanceof class_zv) && ((class_zv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_abw) && ((class_abw) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_aaq) && ((class_aaq) var1).g().equals("WOOD") ? 200 : (var1 == Items.A ? 100 : (var1 == Items.j ? 1600 : (var1 == Items.aA ? 20000 : (var1 == Item.getByBlock(Blocks.SAPLING) ? 100 : (var1 == Items.bx ? 2400 : 0)))))));
+			return (var1 instanceof class_zv) && ((class_zv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_abw) && ((class_abw) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_aaq) && ((class_aaq) var1).g().equals("WOOD") ? 200 : (var1 == Items.A ? 100 : (var1 == Items.j ? 1600 : (var1 == Items.aA ? 20000 : (var1 == Item.getItemOf(Blocks.SAPLING) ? 100 : (var1 == Items.bx ? 2400 : 0)))))));
 		}
 	}
 

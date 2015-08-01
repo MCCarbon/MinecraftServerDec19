@@ -138,7 +138,7 @@ public class class_akm extends class_alp {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getByBlock(Blocks.REDSTONE_TORCH);
+      return Item.getItemOf(Blocks.REDSTONE_TORCH);
    }
 
    public boolean isPowerSource() {

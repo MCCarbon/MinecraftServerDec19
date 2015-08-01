@@ -177,7 +177,7 @@ public class class_uj extends class_ua {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Item.getByBlock((Block)Blocks.RED_FLOWER), 1, (float)BlockFlowers.EnumFlowerVarient.POPPY.getId());
+         this.a(Item.getItemOf((Block)Blocks.RED_FLOWER), 1, (float)BlockFlowers.EnumFlowerVarient.POPPY.getId());
       }
 
       var4 = 3 + this.V.nextInt(3);

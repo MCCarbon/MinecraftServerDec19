@@ -15,7 +15,7 @@ public class BlockOre extends Block {
 
 	@Override
 	public Item getDropType(IBlockData blockdata, Random rnd, int fortune) {
-		return this == Blocks.COAL_ORE ? Items.j : (this == Blocks.DIAMOND_ORE ? Items.k : (this == Blocks.LAPIS_ORE ? Items.aY : (this == Blocks.EMERALD_ORE ? Items.bR : (this == Blocks.QUARTZ_ORE ? Items.cj : Item.getByBlock(this)))));
+		return this == Blocks.COAL_ORE ? Items.j : (this == Blocks.DIAMOND_ORE ? Items.k : (this == Blocks.LAPIS_ORE ? Items.aY : (this == Blocks.EMERALD_ORE ? Items.bR : (this == Blocks.QUARTZ_ORE ? Items.cj : Item.getItemOf(this)))));
 	}
 
 	@Override
@@ -25,7 +25,7 @@ public class BlockOre extends Block {
 
 	@Override
 	public int getDropCount(int fortune, Random rnd) {
-		if ((fortune > 0) && (Item.getByBlock(this) != getDropType((IBlockData) getBlockStateList().a().iterator().next(), rnd, fortune))) {
+		if ((fortune > 0) && (Item.getItemOf(this) != getDropType((IBlockData) getBlockStateList().a().iterator().next(), rnd, fortune))) {
 			int rndI = rnd.nextInt(fortune + 2) - 1;
 			if (rndI < 0) {
 				rndI = 0;
@@ -40,7 +40,7 @@ public class BlockOre extends Block {
 	@Override
 	public void dropNaturally(World world, BlockPosition position, IBlockData blockdata, float chance, int fortune) {
 		super.dropNaturally(world, position, blockdata, chance, fortune);
-		if (getDropType(blockdata, world.random, fortune) != Item.getByBlock(this)) {
+		if (getDropType(blockdata, world.random, fortune) != Item.getItemOf(this)) {
 			int exp = 0;
 			if (this == Blocks.COAL_ORE) {
 				exp = MathHelper.getRandomIntInRange(world.random, 0, 2);

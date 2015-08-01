@@ -16,7 +16,7 @@ public class class_ajr extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getByBlock(Blocks.OBSIDIAN);
+      return Item.getItemOf(Blocks.OBSIDIAN);
    }
 
    public MaterialMapColor getMapColor(IBlockData var1) {

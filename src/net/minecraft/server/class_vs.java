@@ -131,7 +131,7 @@ public class class_vs extends class_vq implements class_ams {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(Item.getByBlock((Block)Blocks.HOPPER), 1, 0.0F);
+         this.a(Item.getItemOf((Block)Blocks.HOPPER), 1, 0.0F);
       }
 
    }

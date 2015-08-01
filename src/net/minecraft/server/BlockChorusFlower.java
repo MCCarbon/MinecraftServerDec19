@@ -161,7 +161,7 @@ public class BlockChorusFlower extends Block {
 	@Override
 	public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
 		super.breakBlockNaturally(var1, var2, var3, var4, var5, var6);
-		dropItem(var1, var3, (new ItemStack(Item.getByBlock(this))));
+		dropItem(var1, var3, (new ItemStack(Item.getItemOf(this))));
 	}
 
 	@Override

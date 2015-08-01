@@ -130,7 +130,7 @@ public class StatisticList {
 
       while(var0.hasNext()) {
          Block var1 = (Block)var0.next();
-         Item var2 = Item.getByBlock(var1);
+         Item var2 = Item.getItemOf(var1);
          if(var2 != null) {
             int var3 = Block.getId(var1);
             String var4 = a(var2);
