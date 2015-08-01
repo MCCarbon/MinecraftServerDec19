@@ -57,7 +57,7 @@ public class class_abt extends Item {
                class_aee var12 = ((TileEntityMobSpawner)var11).b();
                var12.a(class_pt.b(var1.i()));
                var11.update();
-               var3.h(var4);
+               var3.notify(var4);
                if(!var2.bH.instabuild) {
                   --var1.count;
                }

@@ -187,7 +187,7 @@ public class class_akv extends BlockContainer {
             for(var16 = 0; var16 < var4.c(); ++var16) {
                for(int var17 = 0; var17 < var4.b(); ++var17) {
                   class_ano var11 = var5.a(var16, var17, 0);
-                  var1.b(var11.d(), Blocks.AIR);
+                  var1.update(var11.d(), Blocks.AIR);
                }
             }
 

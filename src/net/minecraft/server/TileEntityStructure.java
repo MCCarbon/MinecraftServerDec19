@@ -135,7 +135,7 @@ public class TileEntityStructure extends TileEntity {
 					pos = new BlockPosition((var7.a - var1.getX()) + 1, (var7.b - var1.getY()) + 1, (var7.c - var1.getZ()) + 1);
 					size = new BlockPosition(var7.d - var7.a - 1, var7.e - var7.b - 1, var7.f - var7.c - 1);
 					update();
-					world.h(var1);
+					world.notify(var1);
 					return true;
 				} else {
 					return false;

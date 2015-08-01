@@ -294,7 +294,7 @@ public class class_uw extends class_wi implements class_wk {
                         BlockPosition var11 = new BlockPosition(var21, var9, var10);
                         Block var12 = this.o.getType(var11).getBlock();
                         if(var12.getMaterial() != Material.AIR && a(var12)) {
-                           var18 = this.o.b(var11, true) || var18;
+                           var18 = this.o.setAir(var11, true) || var18;
                         }
                      }
                   }

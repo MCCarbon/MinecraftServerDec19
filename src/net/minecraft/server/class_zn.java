@@ -115,7 +115,7 @@ public class class_zn extends Item {
                }
             } else {
                if(!var1.isClientSide && var4 && !var3.isLiquid()) {
-                  var1.b(var2, true);
+                  var1.setAir(var2, true);
                }
 
                var1.setTypeAndData((BlockPosition)var2, (IBlockData)this.a.getBlockData(), 3);

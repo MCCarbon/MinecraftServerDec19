@@ -245,7 +245,7 @@ public class class_vk extends Entity {
                   this.o.setAir(var27);
                   this.D = false;
                } else if(var14 == Blocks.WATERLILY) {
-                  this.o.b(var27, true);
+                  this.o.setAir(var27, true);
                   this.D = false;
                }
             }

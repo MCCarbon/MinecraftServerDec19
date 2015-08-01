@@ -58,7 +58,7 @@ public class class_rh extends class_rm {
          BlockPosition var1 = new BlockPosition(this.c.s, this.c.t, this.c.u);
          if(b.apply(this.d.getType(var1))) {
             if(this.d.R().b("mobGriefing")) {
-               this.d.b(var1, false);
+               this.d.setAir(var1, false);
             }
 
             this.c.x();

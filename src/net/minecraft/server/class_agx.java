@@ -67,7 +67,7 @@ public class class_agx extends Block {
          for(var4 = 0; var4 < this.l().c(); ++var4) {
             for(var5 = 0; var5 < this.l().b(); ++var5) {
                class_ano var6 = var3.a(var4, var5, 0);
-               var1.b(var6.d(), Blocks.AIR);
+               var1.update(var6.d(), Blocks.AIR);
             }
          }
       }

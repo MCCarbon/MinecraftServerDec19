@@ -61,7 +61,7 @@ public class class_be extends class_i {
 
             if(var2.length >= 6) {
                if(var2[5].equals("destroy")) {
-                  var6.b(var3, true);
+                  var6.setAir(var3, true);
                   if(var4 == Blocks.AIR) {
                      a(var1, this, "commands.setblock.success", new Object[0]);
                      return;
@@ -94,7 +94,7 @@ public class class_be extends class_i {
                   }
                }
 
-               var6.b(var3, var10.getBlock());
+               var6.update(var3, var10.getBlock());
                var1.a(class_n.class_a_in_class_n.b, 1);
                a(var1, this, "commands.setblock.success", new Object[0]);
             }

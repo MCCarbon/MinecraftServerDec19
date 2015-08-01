@@ -60,7 +60,7 @@ public class class_s extends class_i {
                } else {
                   var5.read(var6);
                   var5.update();
-                  var4.h(var3);
+                  var4.notify(var3);
                   var1.a(class_n.class_a_in_class_n.b, 1);
                   a(var1, this, "commands.blockdata.success", new Object[]{var6.toString()});
                }

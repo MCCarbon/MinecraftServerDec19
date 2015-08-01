@@ -131,13 +131,13 @@ public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
                IBlockData var5 = var1.getType(var2.down());
                class_ahm.class_b_in_class_ahm var6 = (class_ahm.class_b_in_class_ahm)var5.get(a);
                if(var6 != class_ahm.class_b_in_class_ahm.d && var6 != class_ahm.class_b_in_class_ahm.c) {
-                  var1.b(var2.down(), true);
+                  var1.setAir(var2.down(), true);
                } else if(!var1.isClientSide) {
                   if(var4.bA() != null && var4.bA().getItem() == Items.bg) {
                      this.b(var1, var2, var5, var4);
                      var1.setAir(var2.down());
                   } else {
-                     var1.b(var2.down(), true);
+                     var1.setAir(var2.down(), true);
                   }
                } else {
                   var1.setAir(var2.down());

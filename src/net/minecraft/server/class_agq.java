@@ -69,7 +69,7 @@ public class class_agq extends Block {
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       if(!this.e(var1, var2)) {
-         var1.b(var2, true);
+         var1.setAir(var2, true);
       }
 
    }

@@ -77,7 +77,7 @@ public class class_akd extends BlockDirectional {
 
          for(var6 = 0; var6 < this.n().b(); ++var6) {
             class_ano var7 = var3.a(0, var6, 0);
-            var1.b(var7.d(), Blocks.AIR);
+            var1.update(var7.d(), Blocks.AIR);
          }
       } else if((var3 = this.p().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.p().c(); ++var4) {
@@ -99,7 +99,7 @@ public class class_akd extends BlockDirectional {
          for(var6 = 0; var6 < this.p().c(); ++var6) {
             for(int var14 = 0; var14 < this.p().b(); ++var14) {
                class_ano var8 = var3.a(var6, var14, 0);
-               var1.b(var8.d(), Blocks.AIR);
+               var1.update(var8.d(), Blocks.AIR);
             }
          }
       }

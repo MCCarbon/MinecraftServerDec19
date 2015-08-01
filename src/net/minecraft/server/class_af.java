@@ -86,7 +86,7 @@ public class class_af extends class_i {
                      if(var2.length >= 9) {
                         if(!var2[8].equals("outline") && !var2[8].equals("hollow")) {
                            if(var2[8].equals("destroy")) {
-                              var10.b(var17, true);
+                              var10.setAir(var17, true);
                            } else if(var2[8].equals("keep")) {
                               if(!var10.isEmpty(var17)) {
                                  continue;
@@ -148,7 +148,7 @@ public class class_af extends class_i {
             while(var25.hasNext()) {
                BlockPosition var26 = (BlockPosition)var25.next();
                Block var27 = var10.getType(var26).getBlock();
-               var10.b(var26, var27);
+               var10.update(var26, var27);
             }
 
             if(var9 <= 0) {

@@ -22,7 +22,7 @@ public class BlockChorusFlower extends Block {
 	@Override
 	public void tick(World world, BlockPosition position, IBlockData blockdata, Random random) {
 		if (!isValid(world, position)) {
-			world.b(position, true);
+			world.setAir(position, true);
 		} else if (world.isEmpty(position.up())) {
 			int var5 = blockdata.get(AGE).intValue();
 			if ((var5 < 5) && (random.nextInt(1) == 0)) {

@@ -469,7 +469,7 @@ public class class_ue extends class_tw {
             Block var4 = var3.getBlock();
             if(this.e && var4 instanceof BlockCarrots && ((BlockCarrots)var4).e(var3)) {
                var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 2);
-               var1.b(var2, true);
+               var1.setAir(var2, true);
                this.c.cE();
             }
 

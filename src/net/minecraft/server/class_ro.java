@@ -58,7 +58,7 @@ public class class_ro extends class_rx {
          IBlockData var3 = var1.getType(var2);
          Block var4 = var3.getBlock();
          if(this.f == 0 && var4 instanceof BlockCrops && ((BlockCrops)var4).e(var3)) {
-            var1.b(var2, true);
+            var1.setAir(var2, true);
          } else if(this.f == 1 && var4 == Blocks.AIR) {
             class_ow var5 = this.c.cF();
 

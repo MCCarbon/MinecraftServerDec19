@@ -900,7 +900,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
          }
 
          var5.update();
-         var2.h(var3);
+         var2.notify(var3);
       }
 
    }
@@ -1126,7 +1126,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
                   }
 
                   var75.update();
-                  this.b.o.h(var66);
+                  this.b.o.notify(var66);
                }
             }
          } catch (Exception var51) {

@@ -201,7 +201,7 @@ public class class_asv {
                               var12 = this.a(var3, var6.a).add((BaseBlockPosition)var2);
                            } while(var4 != null && !var4.b((BaseBlockPosition)var12));
 
-                           var1.b(var12, var6.b.getBlock());
+                           var1.update(var12, var6.b.getBlock());
                            if(var6.c != null) {
                               TileEntity var13 = var1.getTileEntity(var12);
                               if(var13 != null) {

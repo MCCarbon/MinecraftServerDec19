@@ -27,7 +27,7 @@ public class TileEntityCommand extends TileEntity {
 
 		@Override
 		public void h() {
-			TileEntityCommand.this.getWorld().h(TileEntityCommand.this.position);
+			TileEntityCommand.this.getWorld().notify(TileEntityCommand.this.position);
 		}
 
 		@Override

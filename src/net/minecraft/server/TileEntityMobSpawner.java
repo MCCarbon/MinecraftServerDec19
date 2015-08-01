@@ -23,7 +23,7 @@ public class TileEntityMobSpawner extends TileEntity implements ITickAble {
 		public void a(class_aee.class_a_in_class_aee var1) {
 			super.a(var1);
 			if (this.a() != null) {
-				this.a().h(TileEntityMobSpawner.this.position);
+				this.a().notify(TileEntityMobSpawner.this.position);
 			}
 
 		}

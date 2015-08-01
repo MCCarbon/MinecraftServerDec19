@@ -75,7 +75,7 @@ public class class_aid extends BlockContainer {
             } else {
                var11.a(var6.getItem(), var6.i());
                var11.update();
-               var1.h(var2);
+               var1.notify(var2);
                var4.b(StatisticList.T);
                if(!var4.bH.instabuild) {
                   --var6.count;

@@ -171,7 +171,7 @@ public class class_u extends class_i {
 
                      while(var32.hasNext()) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
-                        var12.b(var33.a, var33.b.getBlock());
+                        var12.update(var33.a, var33.b.getBlock());
                      }
 
                      List var35 = var12.a(var6, false);

@@ -200,7 +200,7 @@ public class class_wm extends class_wi {
                      IBlockData var8 = var1.getType(var7);
                      if(var8.getBlock() == Blocks.MONSTER_EGG) {
                         if(var1.R().b("mobGriefing")) {
-                           var1.b(var7, true);
+                           var1.setAir(var7, true);
                         } else {
                            var1.setTypeAndData((BlockPosition)var7, (IBlockData)((class_ajh.class_a_in_class_ajh)var8.get(class_ajh.a)).d(), 3);
                         }

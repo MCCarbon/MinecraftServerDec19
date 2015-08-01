@@ -37,7 +37,7 @@ public class BlockChorusPlant extends Block {
 	@Override
 	public void tick(World world, BlockPosition position, IBlockData blockdata, Random rnd) {
 		if (!isValid(world, position)) {
-			world.b(position, true);
+			world.setAir(position, true);
 		}
 	}
 
