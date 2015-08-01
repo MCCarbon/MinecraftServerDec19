@@ -40,7 +40,7 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ew;
 import net.minecraft.server.class_fa;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
@@ -241,9 +241,9 @@ public abstract class class_pr implements class_m {
       this.r = this.u;
       this.B = this.z;
       this.A = this.y;
-      if(!this.o.D && this.o instanceof class_lg) {
+      if(!this.o.D && this.o instanceof WorldServer) {
          this.o.B.a("portal");
-         MinecraftServer var1 = ((class_lg)this.o).s();
+         MinecraftServer var1 = ((WorldServer)this.o).s();
          int var2 = this.L();
          if(this.ak) {
             if(var1.C()) {
@@ -1569,8 +1569,8 @@ public abstract class class_pr implements class_m {
          this.o.B.a("changeDimension");
          MinecraftServer var2 = MinecraftServer.N();
          int var3 = this.am;
-         class_lg var4 = var2.a(var3);
-         class_lg var5 = var2.a(var1);
+         WorldServer var4 = var2.a(var3);
+         WorldServer var5 = var2.a(var1);
          this.am = var1;
          if(var3 == 1 && var1 == 1) {
             var5 = var2.a(0);
@@ -1580,7 +1580,7 @@ public abstract class class_pr implements class_m {
          this.o.e(this);
          this.I = false;
          this.o.B.a("reposition");
-         var2.ap().a(this, var3, var4, var5);
+         var2.getPlayerList().a(this, var3, var4, var5);
          this.o.B.c("reloading");
          class_pr var6 = class_pt.a((String)class_pt.b(this), (World)var5);
          if(var6 != null) {

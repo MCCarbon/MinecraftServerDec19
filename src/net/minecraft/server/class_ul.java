@@ -266,7 +266,7 @@ public class class_ul extends class_qj {
             if(var3.getItem() instanceof class_aan) {
                class_aan var4 = (class_aan)var3.getItem();
                if(var4.g() && this.ac.d(bw) < 20.0F) {
-                  if(!var1.bH.d) {
+                  if(!var1.bH.instabuild) {
                      --var3.count;
                   }
 
@@ -277,7 +277,7 @@ public class class_ul extends class_qj {
                class_zy var5 = class_zy.a(var3.i());
                if(var5 != this.cL()) {
                   this.a(var5);
-                  if(!var1.bH.d) {
+                  if(!var1.bH.instabuild) {
                      --var3.count;
                   }
 
@@ -293,7 +293,7 @@ public class class_ul extends class_qj {
             this.d((class_qa)null);
          }
       } else if(var3 != null && var3.getItem() == Items.aZ && !this.cK()) {
-         if(!var1.bH.d) {
+         if(!var1.bH.instabuild) {
             --var3.count;
          }
 

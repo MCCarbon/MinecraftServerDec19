@@ -2,16 +2,16 @@ package net.minecraft.server;
 
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_amg;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.class_xa;
 
-public class class_amp extends class_amg implements class_kn {
+public class class_amp extends class_amg implements ITickAble {
    public float a;
    public float f;
    public int g;
    private int h;
 
-   public void c() {
+   public void tick() {
       if(++this.h % 20 * 4 == 0) {
          this.b.c(this.c, Blocks.ENDER_CHEST, 1, this.g);
       }

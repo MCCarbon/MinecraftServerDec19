@@ -41,7 +41,7 @@ import javax.imageio.ImageIO;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aep;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_avj;
 import net.minecraft.server.class_avn;
@@ -56,21 +56,21 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_g;
-import net.minecraft.server.class_hu;
+import net.minecraft.server.PacketPlayOutUpdateTime;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_jt;
+import net.minecraft.server.ServerPing;
 import net.minecraft.server.Bootstrap;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.class_kp;
 import net.minecraft.server.class_ky;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_la;
 import net.minecraft.server.class_lc;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.ServerConnection;
 import net.minecraft.server.class_lv;
-import net.minecraft.server.class_lz;
+import net.minecraft.server.PlayerList;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 import net.minecraft.server.MathHelper;
@@ -95,23 +95,23 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	private final class_avq m;
 	private final class_ox n = new class_ox("server", this, az());
 	private final File o;
-	private final List<class_kn> p = Lists.newArrayList();
+	private final List<ITickAble> p = Lists.newArrayList();
 	protected final class_l b;
 	public final class_nv c = new class_nv();
 	private final ServerConnection q;
-	private final class_jt r = new class_jt();
+	private final ServerPing r = new ServerPing();
 	private final Random s = new Random();
 	private String t;
 	private int u = -1;
-	public class_lg[] d;
-	private class_lz v;
+	public WorldServer[] d;
+	private PlayerList v;
 	private boolean w = true;
 	private boolean x;
 	private int y;
 	protected final Proxy e;
 	public String f;
 	public int g;
-	private boolean z;
+	private boolean onlinemode;
 	private boolean A;
 	private boolean B;
 	private boolean C;
@@ -140,7 +140,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	private final GameProfileRepository Y;
 	private final class_lv Z;
 	protected final Queue<ListenableFutureTask<?>> processQueue = Queues.newArrayDeque();
-	private Thread aa;
+	private Thread mainthread;
 	private long ab = az();
 
 	public MinecraftServer(File var1, Proxy var2, File var3) {
@@ -194,17 +194,17 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	protected void a(String var1, String var2, long var3, class_aes var5, String var6) {
 		this.a(var1);
 		this.b("menu.loadingLevel");
-		this.d = new class_lg[3];
+		this.d = new WorldServer[3];
 		this.i = new long[this.d.length][100];
 		class_avo var7 = this.m.a(var1, true);
 		this.a(this.U(), var7);
 		class_avn var9 = var7.d();
-		class_aeq var8;
+		WorldSettings var8;
 		if (var9 == null) {
 			if (this.X()) {
 				var8 = class_ky.a;
 			} else {
-				var8 = new class_aeq(var3, this.m(), this.l(), this.o(), var5);
+				var8 = new WorldSettings(var3, this.m(), this.l(), this.o(), var5);
 				var8.a(var6);
 				if (this.M) {
 					var8.a();
@@ -214,7 +214,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 			var9 = new class_avn(var8, var2);
 		} else {
 			var9.a(var2);
-			var8 = new class_aeq(var9);
+			var8 = new WorldSettings(var9);
 		}
 
 		for (int var10 = 0; var10 < this.d.length; ++var10) {
@@ -229,18 +229,18 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 			if (var10 == 0) {
 				if (this.X()) {
-					this.d[var10] = (class_lg) (new class_ky(this, var7, var9, var11, this.c)).b();
+					this.d[var10] = (WorldServer) (new class_ky(this, var7, var9, var11, this.c)).b();
 				} else {
-					this.d[var10] = (class_lg) (new class_lg(this, var7, var9, var11, this.c)).b();
+					this.d[var10] = (WorldServer) (new WorldServer(this, var7, var9, var11, this.c)).b();
 				}
 
 				this.d[var10].a(var8);
 			} else {
-				this.d[var10] = (class_lg) (new class_la(this, var7, var11, this.d[0], this.c)).b();
+				this.d[var10] = (WorldServer) (new class_la(this, var7, var11, this.d[0], this.c)).b();
 			}
 
 			this.d[var10].a((class_aep) (new class_lc(this, this.d[var10])));
-			if (!this.T()) {
+			if (!this.isLocal()) {
 				this.d[var10].Q().a(this.m());
 			}
 		}
@@ -259,7 +259,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.b("menu.generatingTerrain");
 		byte var6 = 0;
 		k.info("Preparing start region for level " + var6);
-		class_lg var7 = this.d[var6];
+		WorldServer var7 = this.d[var6];
 		BlockPosition var8 = var7.N();
 		long var9 = az();
 
@@ -289,7 +289,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 	public abstract boolean l();
 
-	public abstract class_aeq.class_a_in_class_aeq m();
+	public abstract WorldSettings.EnumGameMode m();
 
 	public abstract class_om n();
 
@@ -314,11 +314,11 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 	protected void a(boolean var1) {
 		if (!this.N) {
-			class_lg[] var2 = this.d;
+			WorldServer[] var2 = this.d;
 			int var3 = var2.length;
 
 			for (int var4 = 0; var4 < var3; ++var4) {
-				class_lg var5 = var2[var4];
+				WorldServer var5 = var2[var4];
 				if (var5 != null) {
 					if (!var1) {
 						k.info("Saving chunks for level \'" + var5.Q().k() + "\'/" + var5.t.p().b());
@@ -353,7 +353,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				this.a(false);
 
 				for (int var1 = 0; var1 < this.d.length; ++var1) {
-					class_lg var2 = this.d[var1];
+					WorldServer var2 = this.d[var1];
 					var2.p();
 				}
 			}
@@ -387,7 +387,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				this.ab = az();
 				long var1 = 0L;
 				this.r.a((IChatBaseComponent) (new class_fa(this.E)));
-				this.r.a(new class_jt.class_c_in_class_jt("15w31c", 51));
+				this.r.a(new ServerPing.ServerData("15w31c", 51));
 				this.a(this.r);
 
 				while (this.w) {
@@ -453,7 +453,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 	}
 
-	private void a(class_jt var1) {
+	private void a(ServerPing var1) {
 		File var2 = this.d("server-icon.png");
 		if (var2.isFile()) {
 			ByteBuf var3 = Unpooled.buffer();
@@ -497,7 +497,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.B();
 		if (var1 - this.X >= 5000000000L) {
 			this.X = var1;
-			this.r.a(new class_jt.class_a_in_class_jt(this.J(), this.I()));
+			this.r.a(new ServerPing.ServerPingPlayerSample(this.J(), this.I()));
 			GameProfile[] var3 = new GameProfile[Math.min(this.I(), 12)];
 			int var4 = MathHelper.getRandomIntInRange((Random) this.s, 0, this.I() - var3.length);
 
@@ -546,11 +546,11 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		for (var10 = 0; var10 < this.d.length; ++var10) {
 			long var2 = System.nanoTime();
 			if (var10 == 0 || this.C()) {
-				class_lg var4 = this.d[var10];
+				WorldServer var4 = this.d[var10];
 				this.c.a(var4.Q().k());
 				if (this.y % 20 == 0) {
 					this.c.a("timeSync");
-					this.v.a((Packet) (new class_hu(var4.L(), var4.M(), var4.R().b("doDaylightCycle"))), var4.t.p().a());
+					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.L(), var4.M(), var4.R().b("doDaylightCycle"))), var4.t.p().a());
 					this.c.b();
 				}
 
@@ -586,11 +586,11 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.c.c("connection");
 		this.aq().handleNetwork();
 		this.c.c("players");
-		this.v.e();
+		this.v.tick();
 		this.c.c("tickables");
 
 		for (var10 = 0; var10 < this.p.size(); ++var10) {
-			((class_kn) this.p.get(var10)).c();
+			((ITickAble) this.p.get(var10)).tick();
 		}
 
 		this.c.b();
@@ -600,7 +600,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return true;
 	}
 
-	public void a(class_kn var1) {
+	public void a(ITickAble var1) {
 		this.p.add(var1);
 	}
 
@@ -690,8 +690,8 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	public void D() {
-		this.aa = new Thread(this, "Server thread");
-		this.aa.start();
+		this.mainthread = new Thread(this, "Server thread");
+		this.mainthread.start();
 	}
 
 	public File d(String var1) {
@@ -706,7 +706,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		k.warn(var1);
 	}
 
-	public class_lg a(int var1) {
+	public WorldServer a(int var1) {
 		return var1 == -1 ? this.d[1] : (var1 == 1 ? this.d[2] : this.d[0]);
 	}
 
@@ -727,11 +727,11 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	public int I() {
-		return this.v.o();
+		return this.v.getOnlinePlayers();
 	}
 
 	public int J() {
-		return this.v.p();
+		return this.v.getMaxPlayers();
 	}
 
 	public String[] K() {
@@ -775,7 +775,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		if (this.v != null) {
 			var1.g().a("Player Count", new Callable<Object>() {
 				public String a() {
-					return MinecraftServer.this.v.o() + " / " + MinecraftServer.this.v.p() + "; " + MinecraftServer.this.v.v();
+					return MinecraftServer.this.v.getOnlinePlayers() + " / " + MinecraftServer.this.v.getMaxPlayers() + "; " + MinecraftServer.this.v.v();
 				}
 
 				// $FF: synthetic method
@@ -849,7 +849,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.b;
 	}
 
-	public KeyPair Q() {
+	public KeyPair getKeyPair() {
 		return this.H;
 	}
 
@@ -869,7 +869,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.I = var1;
 	}
 
-	public boolean T() {
+	public boolean isLocal() {
 		return this.I != null;
 	}
 
@@ -887,12 +887,12 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 	public void a(class_om var1) {
 		for (int var2 = 0; var2 < this.d.length; ++var2) {
-			class_lg var3 = this.d[var2];
+			WorldServer var3 = this.d[var2];
 			if (var3 != null) {
 				if (var3.Q().t()) {
 					var3.Q().a(class_om.d);
 					var3.a(true, true);
-				} else if (this.T()) {
+				} else if (this.isLocal()) {
 					var3.Q().a(var1);
 					var3.a(var3.ab() != class_om.a, true);
 				} else {
@@ -929,7 +929,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.Y().d();
 
 		for (int var1 = 0; var1 < this.d.length; ++var1) {
-			class_lg var2 = this.d[var1];
+			WorldServer var2 = this.d[var1];
 			if (var2 != null) {
 				var2.p();
 			}
@@ -961,7 +961,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 			var1.a("players_seen", Integer.valueOf(this.v.q().length));
 		}
 
-		var1.a("uses_auth", Boolean.valueOf(this.z));
+		var1.a("uses_auth", Boolean.valueOf(this.onlinemode));
 		var1.a("gui_state", this.as() ? "enabled" : "disabled");
 		var1.a("run_time", Long.valueOf((az() - var1.g()) / 60L * 1000L));
 		var1.a("avg_tick_ms", Integer.valueOf((int) (MathHelper.getAverage(this.h) * 1.0E-6D)));
@@ -969,7 +969,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		if (this.d != null) {
 			for (int var3 = 0; var3 < this.d.length; ++var3) {
 				if (this.d[var3] != null) {
-					class_lg var4 = this.d[var3];
+					WorldServer var4 = this.d[var3];
 					class_avn var5 = var4.Q();
 					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.t.p().a()));
 					var1.a("world[" + var2 + "][mode]", var5.r());
@@ -988,7 +988,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	public void b(class_ox var1) {
-		var1.b("singleplayer", Boolean.valueOf(this.T()));
+		var1.b("singleplayer", Boolean.valueOf(this.isLocal()));
 		var1.b("server_brand", this.getServerModName());
 		var1.b("gui_supported", GraphicsEnvironment.isHeadless() ? "headless" : "supported");
 		var1.b("dedicated", Boolean.valueOf(this.ae()));
@@ -1000,12 +1000,12 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 	public abstract boolean ae();
 
-	public boolean af() {
-		return this.z;
+	public boolean isOnlineMode() {
+		return this.onlinemode;
 	}
 
-	public void d(boolean var1) {
-		this.z = var1;
+	public void setOnlineMode(boolean onlinemode) {
+		this.onlinemode = onlinemode;
 	}
 
 	public boolean ag() {
@@ -1064,15 +1064,15 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.x;
 	}
 
-	public class_lz ap() {
+	public PlayerList getPlayerList() {
 		return this.v;
 	}
 
-	public void a(class_lz var1) {
+	public void a(PlayerList var1) {
 		this.v = var1;
 	}
 
-	public void a(class_aeq.class_a_in_class_aeq var1) {
+	public void a(WorldSettings.EnumGameMode var1) {
 		for (int var2 = 0; var2 < this.d.length; ++var2) {
 			N().d[var2].Q().a(var1);
 		}
@@ -1087,7 +1087,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return false;
 	}
 
-	public abstract String a(class_aeq.class_a_in_class_aeq var1, boolean var2);
+	public abstract String a(WorldSettings.EnumGameMode var1, boolean var2);
 
 	public int at() {
 		return this.y;
@@ -1165,7 +1165,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.Z;
 	}
 
-	public class_jt aG() {
+	public ServerPing aG() {
 		return this.r;
 	}
 
@@ -1174,13 +1174,13 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	public class_pr a(UUID var1) {
-		class_lg[] var2 = this.d;
+		WorldServer[] var2 = this.d;
 		int var3 = var2.length;
 
 		for (int var4 = 0; var4 < var3; ++var4) {
-			class_lg var5 = var2[var4];
+			WorldServer var5 = var2[var4];
 			if (var5 != null) {
-				class_pr var6 = var5.a(var1);
+				class_pr var6 = var5.getEntityByUUID(var1);
 				if (var6 != null) {
 					return var6;
 				}
@@ -1203,7 +1203,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 	public ListenableFuture<?> a(Callable<?> var1) {
 		Validate.notNull(var1);
-		if (!this.aJ() && !this.ao()) {
+		if (!this.isMainThread() && !this.ao()) {
 			ListenableFutureTask<?> var2 = ListenableFutureTask.create(var1);
 			synchronized (this.processQueue) {
 				this.processQueue.add(var2);
@@ -1223,11 +1223,11 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.a(Executors.callable(var1));
 	}
 
-	public boolean aJ() {
-		return Thread.currentThread() == this.aa;
+	public boolean isMainThread() {
+		return Thread.currentThread() == this.mainthread;
 	}
 
-	public int aK() {
+	public int getCompressionThreshold() {
 		return 256;
 	}
 
@@ -1236,7 +1236,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	public Thread aM() {
-		return this.aa;
+		return this.mainthread;
 	}
 
 }

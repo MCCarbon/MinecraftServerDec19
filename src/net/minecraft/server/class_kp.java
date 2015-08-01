@@ -15,7 +15,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_b;
 import net.minecraft.server.BlockPosition;
@@ -27,12 +27,12 @@ import net.minecraft.server.class_ko;
 import net.minecraft.server.class_kq;
 import net.minecraft.server.class_ks;
 import net.minecraft.server.class_ly;
-import net.minecraft.server.class_lz;
+import net.minecraft.server.PlayerList;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_ml;
 import net.minecraft.server.class_mo;
 import net.minecraft.server.class_mq;
-import net.minecraft.server.class_ni;
+import net.minecraft.server.MinecraftEncryption;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_ox;
@@ -48,7 +48,7 @@ public class class_kp extends MinecraftServer implements class_kk {
    private class_km o;
    private class_kg p;
    private boolean q;
-   private class_aeq.class_a_in_class_aeq r;
+   private WorldSettings.EnumGameMode r;
    private boolean s;
 
    public class_kp(File var1) {
@@ -102,10 +102,10 @@ public class class_kp extends MinecraftServer implements class_kk {
          this.p.b();
          return false;
       } else {
-         if(this.T()) {
+         if(this.isLocal()) {
             this.c("127.0.0.1");
          } else {
-            this.d(this.o.a("online-mode", true));
+            this.setOnlineMode(this.o.a("online-mode", true));
             this.c(this.o.a("server-ip", ""));
          }
 
@@ -124,8 +124,8 @@ public class class_kp extends MinecraftServer implements class_kk {
          }
 
          this.q = this.o.a("generate-structures", true);
-         int var2 = this.o.a("gamemode", class_aeq.class_a_in_class_aeq.b.a());
-         this.r = class_aeq.a(var2);
+         int var2 = this.o.a("gamemode", WorldSettings.EnumGameMode.SURVIVAL.getId());
+         this.r = WorldSettings.a(var2);
          k.info("Default game type: " + this.r);
          InetAddress var3 = null;
          if(!this.u().isEmpty()) {
@@ -137,7 +137,7 @@ public class class_kp extends MinecraftServer implements class_kk {
          }
 
          k.info("Generating keypair");
-         this.a((KeyPair)class_ni.b());
+         this.a((KeyPair)MinecraftEncryption.generateKeyPair());
          k.info("Starting Minecraft server on " + (this.u().isEmpty()?"*":this.u()) + ":" + this.R());
 
          try {
@@ -149,7 +149,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             return false;
          }
 
-         if(!this.af()) {
+         if(!this.isOnlineMode()) {
             k.warn("**** SERVER IS RUNNING IN OFFLINE/INSECURE MODE!");
             k.warn("The server will make no attempt to authenticate usernames. Beware.");
             k.warn("While this makes the game possible to play without internet access, it also opens up the ability for hackers to connect with any username they choose.");
@@ -163,7 +163,7 @@ public class class_kp extends MinecraftServer implements class_kk {
          if(!class_ly.a(this.o)) {
             return false;
          } else {
-            this.a((class_lz)(new class_ko(this)));
+            this.a((PlayerList)(new class_ko(this)));
             long var4 = System.nanoTime();
             if(this.U() == null) {
                this.j(this.o.a("level-name", "world"));
@@ -193,7 +193,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             this.al();
             this.p();
             this.ad();
-            this.aK();
+            this.getCompressionThreshold();
             this.c(this.o.a("max-build-height", 256));
             this.c((this.an() + 8) / 16 * 16);
             this.c(MathHelper.clamp(this.an(), 64, 256));
@@ -227,7 +227,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       }
    }
 
-   public void a(class_aeq.class_a_in_class_aeq var1) {
+   public void a(WorldSettings.EnumGameMode var1) {
       super.a(var1);
       this.r = var1;
    }
@@ -236,7 +236,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       return this.q;
    }
 
-   public class_aeq.class_a_in_class_aeq m() {
+   public WorldSettings.EnumGameMode m() {
       return this.r;
    }
 
@@ -295,7 +295,7 @@ public class class_kp extends MinecraftServer implements class_kk {
    }
 
    public void a(class_ox var1) {
-      var1.a("whitelist_enabled", Boolean.valueOf(this.aP().r()));
+      var1.a("whitelist_enabled", Boolean.valueOf(this.aP().hasWhitelist()));
       var1.a("whitelist_count", Integer.valueOf(this.aP().l().length));
       super.a(var1);
    }
@@ -325,7 +325,7 @@ public class class_kp extends MinecraftServer implements class_kk {
    }
 
    public class_ko aP() {
-      return (class_ko)super.ap();
+      return (class_ko)super.getPlayerList();
    }
 
    public int a(String var1, int var2) {
@@ -362,7 +362,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       return this.s;
    }
 
-   public String a(class_aeq.class_a_in_class_aeq var1, boolean var2) {
+   public String a(WorldSettings.EnumGameMode var1, boolean var2) {
       return "";
    }
 
@@ -425,8 +425,8 @@ public class class_kp extends MinecraftServer implements class_kk {
       return var1;
    }
 
-   public int aK() {
-      return this.o.a("network-compression-threshold", super.aK());
+   public int getCompressionThreshold() {
+      return this.o.a("network-compression-threshold", super.getCompressionThreshold());
    }
 
    protected boolean aR() {
@@ -512,7 +512,7 @@ public class class_kp extends MinecraftServer implements class_kk {
    }
 
    // $FF: synthetic method
-   public class_lz ap() {
+   public PlayerList getPlayerList() {
       return this.aP();
    }
 }

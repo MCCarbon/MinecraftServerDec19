@@ -15,7 +15,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oz;
 import net.minecraft.server.class_wz;
@@ -26,7 +26,7 @@ import net.minecraft.server.class_yl;
 import net.minecraft.server.ItemBlock;
 import net.minecraft.server.class_zv;
 
-public class class_amr extends class_amu implements class_kn, class_oz {
+public class class_amr extends class_amu implements ITickAble, class_oz {
    private static final int[] a = new int[]{0};
    private static final int[] f = new int[]{2, 1};
    private static final int[] g = new int[]{1};
@@ -156,7 +156,7 @@ public class class_amr extends class_amu implements class_kn, class_oz {
       return this.i > 0;
    }
 
-   public void c() {
+   public void tick() {
       boolean var1 = this.m();
       boolean var2 = false;
       if(this.m()) {

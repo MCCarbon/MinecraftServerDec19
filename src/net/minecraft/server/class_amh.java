@@ -13,14 +13,14 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.class_oz;
 import net.minecraft.server.class_wz;
 import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yd;
 
-public class class_amh extends class_amu implements class_kn, class_oz {
+public class class_amh extends class_amu implements ITickAble, class_oz {
    private static final int[] a = new int[]{3};
    private static final int[] f = new int[]{0, 1, 2};
    private ItemStack[] g = new ItemStack[4];
@@ -45,7 +45,7 @@ public class class_amh extends class_amu implements class_kn, class_oz {
       return this.g.length;
    }
 
-   public void c() {
+   public void tick() {
       boolean var1 = this.n();
       boolean var2 = this.h > 0;
       if(var2) {

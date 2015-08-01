@@ -128,7 +128,7 @@ public class class_aae extends Item {
                var2.a((class_pr)var7);
                var2.a((class_pr)var3, "random.bow", 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
                var2.a((class_xa)null, 1002, new BlockPosition(var3), 0);
-               if(!var3.bH.d) {
+               if(!var3.bH.instabuild) {
                   --var1.count;
                }
 

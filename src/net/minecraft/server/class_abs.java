@@ -19,7 +19,7 @@ public class class_abs extends Item {
    }
 
    public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
-      if(!var3.bH.d) {
+      if(!var3.bH.instabuild) {
          --var1.count;
       }
 

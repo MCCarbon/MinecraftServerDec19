@@ -15,21 +15,21 @@ import net.minecraft.server.Block;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_fk;
-import net.minecraft.server.class_fl;
-import net.minecraft.server.class_fn;
-import net.minecraft.server.class_fo;
-import net.minecraft.server.class_fp;
-import net.minecraft.server.class_gv;
-import net.minecraft.server.class_ha;
-import net.minecraft.server.class_hf;
-import net.minecraft.server.class_hk;
-import net.minecraft.server.class_hl;
-import net.minecraft.server.class_hm;
-import net.minecraft.server.class_hn;
-import net.minecraft.server.class_hz;
-import net.minecraft.server.class_ia;
-import net.minecraft.server.class_ib;
+import net.minecraft.server.PacketPlayOutSpawnEntity;
+import net.minecraft.server.PacketPlayOutSpawnEntityExperienceOrb;
+import net.minecraft.server.PacketPlayOutSpawnEntityLiving;
+import net.minecraft.server.PacketPlayOutSpawnEntityPainting;
+import net.minecraft.server.PacketPlayOutNamedEntitySpawn;
+import net.minecraft.server.PacketPlayOutEntity;
+import net.minecraft.server.PacketPlayOutBed;
+import net.minecraft.server.PacketPlayOutEntityHeadRotation;
+import net.minecraft.server.PacketPlayOutEntityMetadata;
+import net.minecraft.server.PacketPlayOutAttachEntity;
+import net.minecraft.server.PacketPlayOutEntityVelocity;
+import net.minecraft.server.PacketPlayOutEntityEquipment;
+import net.minecraft.server.PacketPlayOutEntityTeleport;
+import net.minecraft.server.PacketPlayOutUpdateAttributes;
+import net.minecraft.server.PacketPlayOutEntityEffect;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pl;
@@ -132,7 +132,7 @@ public class class_lj {
 
       if(this.w != this.a.m || this.a.m != null && this.m % 60 == 0) {
          this.w = this.a.m;
-         this.a((Packet)(new class_hl(0, this.a, this.a.m)));
+         this.a((Packet)(new PacketPlayOutAttachEntity(0, this.a, this.a.m)));
       }
 
       if(this.a instanceof class_va && this.m % 10 == 0) {
@@ -176,17 +176,17 @@ public class class_lj {
                if(var29 >= -128 && var29 < 128 && var30 >= -128 && var30 < 128 && var9 >= -128 && var9 < 128 && this.v <= 400 && !this.x && this.y == this.a.C) {
                   if((!var11 || !var12) && !(this.a instanceof class_xd)) {
                      if(var11) {
-                        var10 = new class_gv.class_a_in_class_gv(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, this.a.C);
+                        var10 = new PacketPlayOutEntity.PacketPlayOutRelEntityMove(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, this.a.C);
                      } else if(var12) {
-                        var10 = new class_gv.class_c_in_class_gv(this.a.getId(), (byte)var27, (byte)var28, this.a.C);
+                        var10 = new PacketPlayOutEntity.PacketPlayOutEntityLook(this.a.getId(), (byte)var27, (byte)var28, this.a.C);
                      }
                   } else {
-                     var10 = new class_gv.class_b_in_class_gv(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, (byte)var27, (byte)var28, this.a.C);
+                     var10 = new PacketPlayOutEntity.PacketPlayOutRelEntityMoveLook(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, (byte)var27, (byte)var28, this.a.C);
                   }
                } else {
                   this.y = this.a.C;
                   this.v = 0;
-                  var10 = new class_hz(this.a.getId(), var23, var24, var26, (byte)var27, (byte)var28, this.a.C);
+                  var10 = new PacketPlayOutEntityTeleport(this.a.getId(), var23, var24, var26, (byte)var27, (byte)var28, this.a.C);
                }
             }
 
@@ -200,7 +200,7 @@ public class class_lj {
                   this.j = this.a.v;
                   this.k = this.a.w;
                   this.l = this.a.x;
-                  this.a((Packet)(new class_hm(this.a.getId(), this.j, this.k, this.l)));
+                  this.a((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.j, this.k, this.l)));
                }
             }
 
@@ -226,7 +226,7 @@ public class class_lj {
             var24 = MathHelper.floor(this.a.z * 256.0F / 360.0F);
             boolean var25 = Math.abs(var23 - this.g) >= 4 || Math.abs(var24 - this.h) >= 4;
             if(var25) {
-               this.a((Packet)(new class_gv.class_c_in_class_gv(this.a.getId(), (byte)var23, (byte)var24, this.a.C)));
+               this.a((Packet)(new PacketPlayOutEntity.PacketPlayOutEntityLook(this.a.getId(), (byte)var23, (byte)var24, this.a.C)));
                this.g = var23;
                this.h = var24;
             }
@@ -240,7 +240,7 @@ public class class_lj {
 
          var23 = MathHelper.floor(this.a.aE() * 256.0F / 360.0F);
          if(Math.abs(var23 - this.i) >= 4) {
-            this.a((Packet)(new class_hf(this.a, (byte)var23)));
+            this.a((Packet)(new PacketPlayOutEntityHeadRotation(this.a, (byte)var23)));
             this.i = var23;
          }
 
@@ -249,7 +249,7 @@ public class class_lj {
 
       ++this.m;
       if(this.a.G) {
-         this.b((Packet)(new class_hm(this.a)));
+         this.b((Packet)(new PacketPlayOutEntityVelocity(this.a)));
          this.a.G = false;
       }
 
@@ -258,14 +258,14 @@ public class class_lj {
    private void b() {
       class_qi var1 = this.a.H();
       if(var1.a()) {
-         this.b((Packet)(new class_hk(this.a.getId(), var1, false)));
+         this.b((Packet)(new PacketPlayOutEntityMetadata(this.a.getId(), var1, false)));
       }
 
       if(this.a instanceof class_qa) {
          class_qr var2 = (class_qr)((class_qa)this.a).by();
          Set var3 = var2.b();
          if(!var3.isEmpty()) {
-            this.b((Packet)(new class_ia(this.a.getId(), var3)));
+            this.b((Packet)(new PacketPlayOutUpdateAttributes(this.a.getId(), var3)));
          }
 
          var3.clear();
@@ -319,30 +319,30 @@ public class class_lj {
                Packet var2 = this.c();
                var1.a.a(var2);
                if(!this.a.H().d()) {
-                  var1.a.a((Packet)(new class_hk(this.a.getId(), this.a.H(), true)));
+                  var1.a.a((Packet)(new PacketPlayOutEntityMetadata(this.a.getId(), this.a.H(), true)));
                }
 
                if(this.a instanceof class_qa) {
                   class_qr var3 = (class_qr)((class_qa)this.a).by();
                   Collection var4 = var3.c();
                   if(!var4.isEmpty()) {
-                     var1.a.a((Packet)(new class_ia(this.a.getId(), var4)));
+                     var1.a.a((Packet)(new PacketPlayOutUpdateAttributes(this.a.getId(), var4)));
                   }
                }
 
                this.j = this.a.v;
                this.k = this.a.w;
                this.l = this.a.x;
-               if(this.u && !(var2 instanceof class_fn)) {
-                  var1.a.a((Packet)(new class_hm(this.a.getId(), this.a.v, this.a.w, this.a.x)));
+               if(this.u && !(var2 instanceof PacketPlayOutSpawnEntityLiving)) {
+                  var1.a.a((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.a.v, this.a.w, this.a.x)));
                }
 
                if(this.a.m != null) {
-                  var1.a.a((Packet)(new class_hl(0, this.a, this.a.m)));
+                  var1.a.a((Packet)(new PacketPlayOutAttachEntity(0, this.a, this.a.m)));
                }
 
                if(this.a instanceof class_qb && ((class_qb)this.a).cr() != null) {
-                  var1.a.a((Packet)(new class_hl(1, this.a, ((class_qb)this.a).cr())));
+                  var1.a.a((Packet)(new PacketPlayOutAttachEntity(1, this.a, ((class_qb)this.a).cr())));
                }
 
                if(this.a instanceof class_qa) {
@@ -353,7 +353,7 @@ public class class_lj {
                      class_pw var6 = var8[var5];
                      ItemStack var7 = ((class_qa)this.a).a(var6);
                      if(var7 != null) {
-                        var1.a.a((Packet)(new class_hn(this.a.getId(), var6, var7)));
+                        var1.a.a((Packet)(new PacketPlayOutEntityEquipment(this.a.getId(), var6, var7)));
                      }
                   }
                }
@@ -361,7 +361,7 @@ public class class_lj {
                if(this.a instanceof class_xa) {
                   class_xa var9 = (class_xa)this.a;
                   if(var9.bK()) {
-                     var1.a.a((Packet)(new class_ha(var9, new BlockPosition(this.a))));
+                     var1.a.a((Packet)(new PacketPlayOutBed(var9, new BlockPosition(this.a))));
                   }
                }
 
@@ -371,7 +371,7 @@ public class class_lj {
 
                   while(var12.hasNext()) {
                      class_pl var13 = (class_pl)var12.next();
-                     var1.a.a((Packet)(new class_ib(this.a.getId(), var13)));
+                     var1.a.a((Packet)(new PacketPlayOutEntityEffect(this.a.getId(), var13)));
                   }
                }
 
@@ -409,45 +409,45 @@ public class class_lj {
       }
 
       if(this.a instanceof class_vm) {
-         return new class_fk(this.a, 2, 1);
+         return new PacketPlayOutSpawnEntity(this.a, 2, 1);
       } else if(this.a instanceof class_lh) {
-         return new class_fp((class_xa)this.a);
+         return new PacketPlayOutNamedEntitySpawn((class_xa)this.a);
       } else if(this.a instanceof class_vn) {
          class_vn var11 = (class_vn)this.a;
-         return new class_fk(this.a, 10, var11.s().a());
+         return new PacketPlayOutSpawnEntity(this.a, 10, var11.s().a());
       } else if(this.a instanceof class_vk) {
-         return new class_fk(this.a, 1);
+         return new PacketPlayOutSpawnEntity(this.a, 1);
       } else if(this.a instanceof class_pp) {
          this.i = MathHelper.floor(this.a.aE() * 256.0F / 360.0F);
-         return new class_fn((class_qa)this.a);
+         return new PacketPlayOutSpawnEntityLiving((class_qa)this.a);
       } else if(this.a instanceof class_ve) {
          class_xa var9 = ((class_ve)this.a).b;
-         return new class_fk(this.a, 90, var9 != null?var9.getId():this.a.getId());
+         return new PacketPlayOutSpawnEntity(this.a, 90, var9 != null?var9.getId():this.a.getId());
       } else {
          class_pr var8;
          if(this.a instanceof class_xn) {
             var8 = ((class_xn)this.a).e;
-            return new class_fk(this.a, 91, var8 != null?var8.getId():this.a.getId());
+            return new PacketPlayOutSpawnEntity(this.a, 91, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof class_xt) {
             var8 = ((class_xt)this.a).e;
-            return new class_fk(this.a, 92, var8 != null?var8.getId():this.a.getId());
+            return new PacketPlayOutSpawnEntity(this.a, 92, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof class_xd) {
             var8 = ((class_xd)this.a).e;
-            return new class_fk(this.a, 60, var8 != null?var8.getId():this.a.getId());
+            return new PacketPlayOutSpawnEntity(this.a, 60, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof class_xm) {
-            return new class_fk(this.a, 61);
+            return new PacketPlayOutSpawnEntity(this.a, 61);
          } else if(this.a instanceof class_xs) {
-            return new class_fk(this.a, 73, class_acd.a(class_abe.i(((class_xs)this.a).m())));
+            return new PacketPlayOutSpawnEntity(this.a, 73, class_acd.a(class_abe.i(((class_xs)this.a).m())));
          } else if(this.a instanceof class_xr) {
-            return new class_fk(this.a, 75);
+            return new PacketPlayOutSpawnEntity(this.a, 75);
          } else if(this.a instanceof class_xq) {
-            return new class_fk(this.a, 65);
+            return new PacketPlayOutSpawnEntity(this.a, 65);
          } else if(this.a instanceof class_xe) {
-            return new class_fk(this.a, 72);
+            return new PacketPlayOutSpawnEntity(this.a, 72);
          } else if(this.a instanceof class_xg) {
-            return new class_fk(this.a, 76);
+            return new PacketPlayOutSpawnEntity(this.a, 76);
          } else {
-            class_fk var2;
+            PacketPlayOutSpawnEntity var2;
             if(this.a instanceof class_xf) {
                class_xf var7 = (class_xf)this.a;
                var2 = null;
@@ -459,9 +459,9 @@ public class class_lj {
                }
 
                if(var7.a != null) {
-                  var2 = new class_fk(this.a, var10, ((class_xf)this.a).a.getId());
+                  var2 = new PacketPlayOutSpawnEntity(this.a, var10, ((class_xf)this.a).a.getId());
                } else {
-                  var2 = new class_fk(this.a, var10, 0);
+                  var2 = new PacketPlayOutSpawnEntity(this.a, var10, 0);
                }
 
                var2.d((int)(var7.b * 8000.0D));
@@ -469,29 +469,29 @@ public class class_lj {
                var2.f((int)(var7.d * 8000.0D));
                return var2;
             } else if(this.a instanceof class_xk) {
-               class_fk var6 = new class_fk(this.a, 67, 0);
+               PacketPlayOutSpawnEntity var6 = new PacketPlayOutSpawnEntity(this.a, 67, 0);
                var6.d((int)(this.a.v * 8000.0D));
                var6.e((int)(this.a.w * 8000.0D));
                var6.f((int)(this.a.x * 8000.0D));
                return var6;
             } else if(this.a instanceof class_xp) {
-               return new class_fk(this.a, 62);
+               return new PacketPlayOutSpawnEntity(this.a, 62);
             } else if(this.a instanceof class_vw) {
-               return new class_fk(this.a, 50);
+               return new PacketPlayOutSpawnEntity(this.a, 50);
             } else if(this.a instanceof class_uq) {
-               return new class_fk(this.a, 51);
+               return new PacketPlayOutSpawnEntity(this.a, 51);
             } else if(this.a instanceof class_vl) {
                class_vl var5 = (class_vl)this.a;
-               return new class_fk(this.a, 70, Block.getCombinedId(var5.l()));
+               return new PacketPlayOutSpawnEntity(this.a, 70, Block.getCombinedId(var5.l()));
             } else if(this.a instanceof class_uy) {
-               return new class_fk(this.a, 78);
+               return new PacketPlayOutSpawnEntity(this.a, 78);
             } else if(this.a instanceof class_vc) {
-               return new class_fo((class_vc)this.a);
+               return new PacketPlayOutSpawnEntityPainting((class_vc)this.a);
             } else {
                BlockPosition var3;
                if(this.a instanceof class_va) {
                   class_va var4 = (class_va)this.a;
-                  var2 = new class_fk(this.a, 71, var4.b.getHorizontalId());
+                  var2 = new PacketPlayOutSpawnEntity(this.a, 71, var4.b.getHorizontalId());
                   var3 = var4.n();
                   var2.a(MathHelper.floor((float)(var3.getX() * 32)));
                   var2.b(MathHelper.floor((float)(var3.getY() * 32)));
@@ -499,14 +499,14 @@ public class class_lj {
                   return var2;
                } else if(this.a instanceof class_vb) {
                   class_vb var1 = (class_vb)this.a;
-                  var2 = new class_fk(this.a, 77);
+                  var2 = new PacketPlayOutSpawnEntity(this.a, 77);
                   var3 = var1.n();
                   var2.a(MathHelper.floor((float)(var3.getX() * 32)));
                   var2.b(MathHelper.floor((float)(var3.getY() * 32)));
                   var2.c(MathHelper.floor((float)(var3.getZ() * 32)));
                   return var2;
                } else if(this.a instanceof class_px) {
-                  return new class_fl((class_px)this.a);
+                  return new PacketPlayOutSpawnEntityExperienceOrb((class_px)this.a);
                } else {
                   throw new IllegalArgumentException("Don\'t know how to add " + this.a.getClass() + "!");
                }

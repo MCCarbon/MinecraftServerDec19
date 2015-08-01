@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.class_ael;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_avn;
@@ -76,7 +76,7 @@ public class class_avk extends class_avn {
       return this.b.q();
    }
 
-   public class_aeq.class_a_in_class_aeq r() {
+   public WorldSettings.EnumGameMode r() {
       return this.b.r();
    }
 

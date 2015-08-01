@@ -83,7 +83,7 @@ public class class_vb extends class_uz {
 
          if(!var4) {
             this.J();
-            if(var1.bH.d) {
+            if(var1.bH.instabuild) {
                var5 = 7.0D;
                var7 = this.o.a(class_qb.class, new class_awf(this.s - var5, this.t - var5, this.u - var5, this.s + var5, this.t + var5, this.u + var5));
                var8 = var7.iterator();

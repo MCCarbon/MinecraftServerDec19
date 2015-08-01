@@ -17,7 +17,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_adz;
 import net.minecraft.server.class_aeb;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aez;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_ahz;
@@ -41,39 +41,39 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_fq;
+import net.minecraft.server.PacketPlayOutAnimation;
 import net.minecraft.server.PacketPlayOutChat;
-import net.minecraft.server.class_gc;
-import net.minecraft.server.class_gd;
-import net.minecraft.server.class_ge;
-import net.minecraft.server.class_gf;
-import net.minecraft.server.class_gg;
-import net.minecraft.server.class_gh;
-import net.minecraft.server.class_gj;
-import net.minecraft.server.class_gm;
-import net.minecraft.server.class_go;
-import net.minecraft.server.class_gp;
-import net.minecraft.server.class_gs;
-import net.minecraft.server.class_gw;
-import net.minecraft.server.class_gx;
-import net.minecraft.server.class_gy;
-import net.minecraft.server.class_ha;
-import net.minecraft.server.class_hb;
-import net.minecraft.server.class_hc;
-import net.minecraft.server.class_hd;
-import net.minecraft.server.class_hh;
-import net.minecraft.server.class_hl;
-import net.minecraft.server.class_ho;
-import net.minecraft.server.class_hp;
-import net.minecraft.server.class_ib;
-import net.minecraft.server.class_ih;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.PacketPlayOutCloseWindow;
+import net.minecraft.server.PacketPlayOutOpenWindow;
+import net.minecraft.server.PacketPlayOutWindowItems;
+import net.minecraft.server.PacketPlayOutWindowData;
+import net.minecraft.server.PacketPlayOutSetSlot;
+import net.minecraft.server.PacketPlayOutCustomPayload;
+import net.minecraft.server.PacketPlayOutEntityStatus;
+import net.minecraft.server.PacketPlayOutGameStateChange;
+import net.minecraft.server.PacketPlayOutMapChunk;
+import net.minecraft.server.PacketPlayOutMapChunkBulk;
+import net.minecraft.server.PacketPlayOutNamedSoundEffect;
+import net.minecraft.server.PacketPlayOutOpenSignEditor;
+import net.minecraft.server.PacketPlayOutAbilities;
+import net.minecraft.server.PacketPlayOutCombatEvent;
+import net.minecraft.server.PacketPlayOutBed;
+import net.minecraft.server.PacketPlayOutEntityDestroy;
+import net.minecraft.server.PacketPlayOutRemoveEntityEffect;
+import net.minecraft.server.PacketPlayOutResourcePackSend;
+import net.minecraft.server.PacketPlayOutCamera;
+import net.minecraft.server.PacketPlayOutAttachEntity;
+import net.minecraft.server.PacketPlayOutExperience;
+import net.minecraft.server.PacketPlayOutUpdateHealth;
+import net.minecraft.server.PacketPlayOutEntityEffect;
+import net.minecraft.server.PacketPlayInSettings;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_li;
 import net.minecraft.server.class_lo;
 import net.minecraft.server.class_mb;
 import net.minecraft.server.class_ms;
 import net.minecraft.server.class_mt;
-import net.minecraft.server.class_mx;
+import net.minecraft.server.ServerStatisticManager;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_ne;
@@ -87,7 +87,7 @@ import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_pt;
-import net.minecraft.server.class_pz;
+import net.minecraft.server.EnumMainHandOption;
 import net.minecraft.server.class_qa;
 import net.minecraft.server.class_tz;
 import net.minecraft.server.class_xa;
@@ -113,14 +113,14 @@ public class class_lh extends class_xa implements class_ye {
 	public double e;
 	public final List f = Lists.newLinkedList();
 	private final List bQ = Lists.newLinkedList();
-	private final class_mx bR;
+	private final ServerStatisticManager bR;
 	private float bS = Float.MIN_VALUE;
 	private float bT = -1.0E8F;
 	private int bU = -99999999;
 	private boolean bV = true;
 	private int bW = -99999999;
 	private int bX = 60;
-	private class_xa.class_b_in_class_xa bY;
+	private class_xa.ChatMode bY;
 	private boolean bZ = true;
 	private long ca = System.currentTimeMillis();
 	private class_pr cb = null;
@@ -129,12 +129,12 @@ public class class_lh extends class_xa implements class_ye {
 	public int h;
 	public boolean i;
 
-	public class_lh(MinecraftServer var1, class_lg var2, GameProfile var3, class_li var4) {
+	public class_lh(MinecraftServer var1, WorldServer var2, GameProfile var3, class_li var4) {
 		super(var2, var3);
 		var4.b = this;
 		this.c = var4;
 		BlockPosition var5 = var2.N();
-		if (!var2.t.m() && var2.Q().r() != class_aeq.class_a_in_class_aeq.d) {
+		if (!var2.t.m() && var2.Q().r() != WorldSettings.EnumGameMode.ADVENTURE) {
 			int var6 = Math.max(5, var1.aw() - 6);
 			int var7 = MathHelper.floor(var2.ag().b((double) var5.getX(), (double) var5.getZ()));
 			if (var7 < var6) {
@@ -149,7 +149,7 @@ public class class_lh extends class_xa implements class_ye {
 		}
 
 		this.b = var1;
-		this.bR = var1.ap().a((class_xa) this);
+		this.bR = var1.getPlayerList().a((class_xa) this);
 		this.S = 0.0F;
 		this.a(var5, 0.0F, 0.0F);
 
@@ -165,7 +165,7 @@ public class class_lh extends class_xa implements class_ye {
 			if (MinecraftServer.N().ax()) {
 				this.c.a(MinecraftServer.N().m());
 			} else {
-				this.c.a(class_aeq.class_a_in_class_aeq.a(var1.getInt("playerGameType")));
+				this.c.a(WorldSettings.EnumGameMode.getById(var1.getInt("playerGameType")));
 			}
 		}
 
@@ -173,7 +173,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void b(NBTTagCompound var1) {
 		super.b(var1);
-		var1.put("playerGameType", this.c.b().a());
+		var1.put("playerGameType", this.c.b().getId());
 	}
 
 	public void a(int var1) {
@@ -192,12 +192,12 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void h_() {
 		super.h_();
-		this.a.a((Packet) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.a)));
+		this.a.a((Packet) (new PacketPlayOutCombatEvent(this.bt(), PacketPlayOutCombatEvent.class_a_in_class_gy.a)));
 	}
 
 	public void j() {
 		super.j();
-		this.a.a((Packet) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.b)));
+		this.a.a((Packet) (new PacketPlayOutCombatEvent(this.bt(), PacketPlayOutCombatEvent.class_a_in_class_gy.b)));
 	}
 
 	public void t_() {
@@ -224,7 +224,7 @@ public class class_lh extends class_xa implements class_ye {
 				var3.remove();
 			}
 
-			this.a.a((Packet) (new class_hb(var2)));
+			this.a.a((Packet) (new PacketPlayOutEntityDestroy(var2)));
 		}
 
 		if (!this.f.isEmpty()) {
@@ -240,7 +240,7 @@ public class class_lh extends class_xa implements class_ye {
 						var5 = this.o.a(var10.a, var10.b);
 						if (var5.i()) {
 							var6.add(var5);
-							var9.addAll(((class_lg) this.o).a(var10.a * 16, 0, var10.b * 16, var10.a * 16 + 16, 256, var10.b * 16 + 16));
+							var9.addAll(((WorldServer) this.o).a(var10.a * 16, 0, var10.b * 16, var10.a * 16 + 16, 256, var10.b * 16 + 16));
 							var8.remove();
 						}
 					}
@@ -251,9 +251,9 @@ public class class_lh extends class_xa implements class_ye {
 
 			if (!var6.isEmpty()) {
 				if (var6.size() == 1) {
-					this.a.a((Packet) (new class_go((class_aok) var6.get(0), true, '\uffff')));
+					this.a.a((Packet) (new PacketPlayOutMapChunk((class_aok) var6.get(0), true, '\uffff')));
 				} else {
-					this.a.a((Packet) (new class_gp(var6)));
+					this.a.a((Packet) (new PacketPlayOutMapChunkBulk(var6)));
 				}
 
 				Iterator var11 = var9.iterator();
@@ -278,7 +278,7 @@ public class class_lh extends class_xa implements class_ye {
 				this.e(this);
 			} else {
 				this.a(var7.s, var7.t, var7.u, var7.y, var7.z);
-				this.b.ap().d(this);
+				this.b.getPlayerList().d(this);
 				if (this.ax()) {
 					this.e(this);
 				}
@@ -302,7 +302,7 @@ public class class_lh extends class_xa implements class_ye {
 			}
 
 			if (this.bo() != this.bT || this.bU != this.bs.a() || this.bs.e() == 0.0F != this.bV) {
-				this.a.a((Packet) (new class_hp(this.bo(), this.bs.a(), this.bs.e())));
+				this.a.a((Packet) (new PacketPlayOutUpdateHealth(this.bo(), this.bs.a(), this.bs.e())));
 				this.bT = this.bo();
 				this.bU = this.bs.a();
 				this.bV = this.bs.e() == 0.0F;
@@ -321,7 +321,7 @@ public class class_lh extends class_xa implements class_ye {
 
 			if (this.bJ != this.bW) {
 				this.bW = this.bJ;
-				this.a.a((Packet) (new class_ho(this.bK, this.bJ, this.bI)));
+				this.a.a((Packet) (new PacketPlayOutExperience(this.bK, this.bJ, this.bI)));
 			}
 
 			if (this.W % 20 * 5 == 0 && !this.A().a((class_ms) class_mt.L)) {
@@ -373,17 +373,17 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public void a(class_pc var1) {
-		this.a.a((Packet) (new class_gy(this.bt(), class_gy.class_a_in_class_gy.c)));
+		this.a.a((Packet) (new PacketPlayOutCombatEvent(this.bt(), PacketPlayOutCombatEvent.class_a_in_class_gy.c)));
 		if (this.o.R().b("showDeathMessages")) {
 			class_awp var2 = this.bP();
 			if (var2 != null && var2.j() != class_awp.class_a_in_class_awp.a) {
 				if (var2.j() == class_awp.class_a_in_class_awp.c) {
-					this.b.ap().a((class_xa) this, (IChatBaseComponent) this.bt().b());
+					this.b.getPlayerList().a((class_xa) this, (IChatBaseComponent) this.bt().b());
 				} else if (var2.j() == class_awp.class_a_in_class_awp.d) {
-					this.b.ap().b((class_xa) this, (IChatBaseComponent) this.bt().b());
+					this.b.getPlayerList().b((class_xa) this, (IChatBaseComponent) this.bt().b());
 				}
 			} else {
-				this.b.ap().a(this.bt().b());
+				this.b.getPlayerList().a(this.bt().b());
 			}
 		}
 
@@ -455,7 +455,7 @@ public class class_lh extends class_xa implements class_ye {
 			this.b((class_my) class_mt.D);
 			this.o.e((class_pr) this);
 			this.i = true;
-			this.a.a((Packet) (new class_gm(4, 0.0F)));
+			this.a.a((Packet) (new PacketPlayOutGameStateChange(4, 0.0F)));
 		} else {
 			if (this.am == 0 && var1 == 1) {
 				this.b((class_my) class_mt.C);
@@ -469,7 +469,7 @@ public class class_lh extends class_xa implements class_ye {
 				this.b((class_my) class_mt.y);
 			}
 
-			this.b.ap().a(this, var1);
+			this.b.getPlayerList().a(this, var1);
 			this.bW = -1;
 			this.bT = -1.0F;
 			this.bU = -1;
@@ -498,8 +498,8 @@ public class class_lh extends class_xa implements class_ye {
 
 	public class_xa.class_a_in_class_xa a(BlockPosition var1) {
 		class_xa.class_a_in_class_xa var2 = super.a(var1);
-		if (var2 == class_xa.class_a_in_class_xa.a) {
-			class_ha var3 = new class_ha(this, var1);
+		if (var2 == class_xa.class_a_in_class_xa.OK) {
+			PacketPlayOutBed var3 = new PacketPlayOutBed(this, var1);
 			this.u().t().a((class_pr) this, (Packet) var3);
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
 			this.a.a((Packet) var3);
@@ -510,7 +510,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void a(boolean var1, boolean var2, boolean var3) {
 		if (this.bK()) {
-			this.u().t().b(this, new class_fq(this, 2));
+			this.u().t().b(this, new PacketPlayOutAnimation(this, 2));
 		}
 
 		super.a(var1, var2, var3);
@@ -524,7 +524,7 @@ public class class_lh extends class_xa implements class_ye {
 		class_pr var2 = this.m;
 		super.a((class_pr) var1);
 		if (var1 != var2) {
-			this.a.a((Packet) (new class_hl(0, this, this.m)));
+			this.a.a((Packet) (new PacketPlayOutAttachEntity(0, this, this.m)));
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
 		}
 
@@ -552,7 +552,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void a(class_amx var1) {
 		var1.a((class_xa) this);
-		this.a.a((Packet) (new class_gw(var1.v())));
+		this.a.a((Packet) (new PacketPlayOutOpenSignEditor(var1.v())));
 	}
 
 	private void cu() {
@@ -561,7 +561,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	public void a(class_op var1) {
 		this.cu();
-		this.a.a((Packet) (new class_gd(this.cc, var1.k(), var1.f_())));
+		this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, var1.k(), var1.f_())));
 		this.br = var1.a(this.bp, this);
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
@@ -576,17 +576,17 @@ public class class_lh extends class_xa implements class_ye {
 			class_ou var2 = (class_ou) var1;
 			if (var2.r_() && !this.a((class_ot) var2.i()) && !this.v()) {
 				this.a.a((Packet) (new PacketPlayOutChat(new class_fb("container.isLocked", new Object[] { var1.f_() }), (byte) 2)));
-				this.a.a((Packet) (new class_gs("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
+				this.a.a((Packet) (new PacketPlayOutNamedSoundEffect("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
 				return;
 			}
 		}
 
 		this.cu();
 		if (var1 instanceof class_op) {
-			this.a.a((Packet) (new class_gd(this.cc, ((class_op) var1).k(), var1.f_(), var1.o_())));
+			this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, ((class_op) var1).k(), var1.f_(), var1.o_())));
 			this.br = ((class_op) var1).a(this.bp, this);
 		} else {
-			this.a.a((Packet) (new class_gd(this.cc, "minecraft:container", var1.f_(), var1.o_())));
+			this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, "minecraft:container", var1.f_(), var1.o_())));
 			this.br = new class_yf(this.bp, var1, this);
 		}
 
@@ -601,13 +601,13 @@ public class class_lh extends class_xa implements class_ye {
 		this.br.a((class_ye) this);
 		class_yr var2 = ((class_ys) this.br).e();
 		IChatBaseComponent var3 = var1.f_();
-		this.a.a((Packet) (new class_gd(this.cc, "minecraft:villager", var3, var2.o_())));
+		this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, "minecraft:villager", var3, var2.o_())));
 		class_aeb var4 = var1.a_((class_xa) this);
 		if (var4 != null) {
 			PacketDataSerializer var5 = new PacketDataSerializer(Unpooled.buffer());
 			var5.writeInt(this.cc);
 			var4.a(var5);
-			this.a.a((Packet) (new class_gh("MC|TrList", var5)));
+			this.a.a((Packet) (new PacketPlayOutCustomPayload("MC|TrList", var5)));
 		}
 
 	}
@@ -618,7 +618,7 @@ public class class_lh extends class_xa implements class_ye {
 		}
 
 		this.cu();
-		this.a.a((Packet) (new class_gd(this.cc, "EntityHorse", var2.f_(), var2.o_(), var1.getId())));
+		this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, "EntityHorse", var2.f_(), var2.o_(), var1.getId())));
 		this.br = new class_yo(this.bp, var2, var1, this);
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
@@ -627,7 +627,7 @@ public class class_lh extends class_xa implements class_ye {
 	public void a(ItemStack var1) {
 		Item var2 = var1.getItem();
 		if (var2 == Items.bQ) {
-			this.a.a((Packet) (new class_gh("MC|BOpen", new PacketDataSerializer(Unpooled.buffer()))));
+			this.a.a((Packet) (new PacketPlayOutCustomPayload("MC|BOpen", new PacketDataSerializer(Unpooled.buffer()))));
 		}
 
 	}
@@ -635,7 +635,7 @@ public class class_lh extends class_xa implements class_ye {
 	public void a(class_xz var1, int var2, ItemStack var3) {
 		if (!(var1.a(var2) instanceof class_yw)) {
 			if (!this.g) {
-				this.a.a((Packet) (new class_gg(var1.d, var2, var3)));
+				this.a.a((Packet) (new PacketPlayOutSetSlot(var1.d, var2, var3)));
 			}
 		}
 	}
@@ -645,29 +645,29 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public void a(class_xz var1, List var2) {
-		this.a.a((Packet) (new class_ge(var1.d, var2)));
-		this.a.a((Packet) (new class_gg(-1, -1, this.bp.o())));
+		this.a.a((Packet) (new PacketPlayOutWindowItems(var1.d, var2)));
+		this.a.a((Packet) (new PacketPlayOutSetSlot(-1, -1, this.bp.o())));
 	}
 
 	public void a(class_xz var1, int var2, int var3) {
-		this.a.a((Packet) (new class_gf(var1.d, var2, var3)));
+		this.a.a((Packet) (new PacketPlayOutWindowData(var1.d, var2, var3)));
 	}
 
 	public void a(class_xz var1, class_oj var2) {
 		for (int var3 = 0; var3 < var2.g(); ++var3) {
-			this.a.a((Packet) (new class_gf(var1.d, var3, var2.a_(var3))));
+			this.a.a((Packet) (new PacketPlayOutWindowData(var1.d, var3, var2.a_(var3))));
 		}
 
 	}
 
 	public void n() {
-		this.a.a((Packet) (new class_gc(this.br.d)));
+		this.a.a((Packet) (new PacketPlayOutCloseWindow(this.br.d)));
 		this.p();
 	}
 
 	public void o() {
 		if (!this.g) {
-			this.a.a((Packet) (new class_gg(-1, -1, this.bp.o())));
+			this.a.a((Packet) (new PacketPlayOutSetSlot(-1, -1, this.bp.o())));
 		}
 	}
 
@@ -747,7 +747,7 @@ public class class_lh extends class_xa implements class_ye {
 
 	protected void s() {
 		if (this.bl != null && this.bS()) {
-			this.a.a((Packet) (new class_gj(this, (byte) 9)));
+			this.a.a((Packet) (new PacketPlayOutEntityStatus(this, (byte) 9)));
 			super.s();
 		}
 
@@ -763,17 +763,17 @@ public class class_lh extends class_xa implements class_ye {
 
 	protected void a(class_pl var1) {
 		super.a((class_pl) var1);
-		this.a.a((Packet) (new class_ib(this.getId(), var1)));
+		this.a.a((Packet) (new PacketPlayOutEntityEffect(this.getId(), var1)));
 	}
 
 	protected void a(class_pl var1, boolean var2) {
 		super.a((class_pl) var1, var2);
-		this.a.a((Packet) (new class_ib(this.getId(), var1)));
+		this.a.a((Packet) (new PacketPlayOutEntityEffect(this.getId(), var1)));
 	}
 
 	protected void b(class_pl var1) {
 		super.b((class_pl) var1);
-		this.a.a((Packet) (new class_hc(this.getId(), var1.a())));
+		this.a.a((Packet) (new PacketPlayOutRemoveEntityEffect(this.getId(), var1.a())));
 	}
 
 	public void a(double var1, double var3, double var5) {
@@ -781,28 +781,28 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public void b(class_pr var1) {
-		this.u().t().b(this, new class_fq(var1, 4));
+		this.u().t().b(this, new PacketPlayOutAnimation(var1, 4));
 	}
 
 	public void c(class_pr var1) {
-		this.u().t().b(this, new class_fq(var1, 5));
+		this.u().t().b(this, new PacketPlayOutAnimation(var1, 5));
 	}
 
 	public void t() {
 		if (this.a != null) {
-			this.a.a((Packet) (new class_gx(this.bH)));
+			this.a.a((Packet) (new PacketPlayOutAbilities(this.bH)));
 			this.B();
 		}
 	}
 
-	public class_lg u() {
-		return (class_lg) this.o;
+	public WorldServer u() {
+		return (WorldServer) this.o;
 	}
 
-	public void a(class_aeq.class_a_in_class_aeq var1) {
+	public void a(WorldSettings.EnumGameMode var1) {
 		this.c.a(var1);
-		this.a.a((Packet) (new class_gm(3, (float) var1.a())));
-		if (var1 == class_aeq.class_a_in_class_aeq.e) {
+		this.a.a((Packet) (new PacketPlayOutGameStateChange(3, (float) var1.getId())));
+		if (var1 == WorldSettings.EnumGameMode.SPECTATOR) {
 			this.a((class_pr) null);
 		} else {
 			this.e(this);
@@ -813,7 +813,7 @@ public class class_lh extends class_xa implements class_ye {
 	}
 
 	public boolean v() {
-		return this.c.b() == class_aeq.class_a_in_class_aeq.e;
+		return this.c.b() == WorldSettings.EnumGameMode.SPECTATOR;
 	}
 
 	public void a(IChatBaseComponent var1) {
@@ -824,8 +824,8 @@ public class class_lh extends class_xa implements class_ye {
 		if ("seed".equals(var2) && !this.b.ae()) {
 			return true;
 		} else if (!"tell".equals(var2) && !"help".equals(var2) && !"me".equals(var2) && !"trigger".equals(var2)) {
-			if (this.b.ap().h(this.cf())) {
-				class_mb var3 = (class_mb) this.b.ap().m().b((Object) this.cf());
+			if (this.b.getPlayerList().h(this.cf())) {
+				class_mb var3 = (class_mb) this.b.getPlayerList().m().b((Object) this.cf());
 				return var3 != null ? var3.a() >= var1 : this.b.p() >= var1;
 			} else {
 				return false;
@@ -842,20 +842,20 @@ public class class_lh extends class_xa implements class_ye {
 		return var1;
 	}
 
-	public void a(class_ih var1) {
-		this.bP = var1.a();
-		this.bY = var1.c();
-		this.bZ = var1.d();
-		this.H().b(bn, Byte.valueOf((byte) var1.e()));
-		this.H().b(bo, Byte.valueOf((byte) (var1.f() == class_pz.a ? 0 : 1)));
+	public void a(PacketPlayInSettings var1) {
+		this.bP = var1.getLocale();
+		this.bY = var1.getChatMode();
+		this.bZ = var1.getChatColors();
+		this.H().b(bn, Byte.valueOf((byte) var1.getSkinParts()));
+		this.H().b(bo, Byte.valueOf((byte) (var1.getMainHand() == EnumMainHandOption.LEFT ? 0 : 1)));
 	}
 
-	public class_xa.class_b_in_class_xa y() {
+	public class_xa.ChatMode y() {
 		return this.bY;
 	}
 
 	public void a(String var1, String var2) {
-		this.a.a((Packet) (new class_hd(var1, var2)));
+		this.a.a((Packet) (new PacketPlayOutResourcePackSend(var1, var2)));
 	}
 
 	public BlockPosition c() {
@@ -866,13 +866,13 @@ public class class_lh extends class_xa implements class_ye {
 		this.ca = MinecraftServer.az();
 	}
 
-	public class_mx A() {
+	public ServerStatisticManager A() {
 		return this.bR;
 	}
 
 	public void d(class_pr var1) {
 		if (var1 instanceof class_xa) {
-			this.a.a((Packet) (new class_hb(new int[] { var1.getId() })));
+			this.a.a((Packet) (new PacketPlayOutEntityDestroy(new int[] { var1.getId() })));
 		} else {
 			this.bQ.add(Integer.valueOf(var1.getId()));
 		}
@@ -898,14 +898,14 @@ public class class_lh extends class_xa implements class_ye {
 		class_pr var2 = this.C();
 		this.cb = (class_pr) (var1 == null ? this : var1);
 		if (var2 != this.cb) {
-			this.a.a((Packet) (new class_hh(this.cb)));
+			this.a.a((Packet) (new PacketPlayOutCamera(this.cb)));
 			this.a(this.cb.s, this.cb.t, this.cb.u);
 		}
 
 	}
 
 	public void f(class_pr var1) {
-		if (this.c.b() == class_aeq.class_a_in_class_aeq.e) {
+		if (this.c.b() == WorldSettings.EnumGameMode.SPECTATOR) {
 			this.e(var1);
 		} else {
 			super.f(var1);

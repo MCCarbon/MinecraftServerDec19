@@ -77,7 +77,7 @@ public class class_vc extends class_uz {
       if(this.o.R().b("doEntityDrops")) {
          if(var1 instanceof class_xa) {
             class_xa var2 = (class_xa)var1;
-            if(var2.bH.d) {
+            if(var2.bH.instabuild) {
                return;
             }
          }

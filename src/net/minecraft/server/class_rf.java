@@ -124,7 +124,7 @@ public class class_rf extends class_rm {
          }
       }
 
-      if(!var1.bH.d && this.c >= this.b * 0.5F && this.a.bd().nextFloat() < 0.006F && !this.d) {
+      if(!var1.bH.instabuild && this.c >= this.b * 0.5F && this.a.bd().nextFloat() < 0.006F && !this.d) {
          EnumUsedHand var25 = this.a(var1);
          if(var25 != null) {
             ItemStack var26 = var1.b((EnumUsedHand)var25);

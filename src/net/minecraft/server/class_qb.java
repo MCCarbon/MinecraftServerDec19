@@ -19,8 +19,8 @@ import net.minecraft.server.NBTTagFloat;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_hl;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.PacketPlayOutAttachEntity;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.MathHelper;
@@ -869,7 +869,7 @@ public abstract class class_qb extends class_qa {
 
    public final boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       if(this.cq() && this.cr() == var1) {
-         this.a(true, !var1.bH.d);
+         this.a(true, !var1.bH.instabuild);
          return true;
       } else {
          if(var2 != null && var2.getItem() == Items.cq && this.cp()) {
@@ -918,8 +918,8 @@ public abstract class class_qb extends class_qa {
             this.a(Items.cq, 1);
          }
 
-         if(!this.o.D && var1 && this.o instanceof class_lg) {
-            ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_hl(1, this, (class_pr)null)));
+         if(!this.o.D && var1 && this.o instanceof WorldServer) {
+            ((WorldServer)this.o).t().a((class_pr)this, (Packet)(new PacketPlayOutAttachEntity(1, this, (class_pr)null)));
          }
       }
 
@@ -940,8 +940,8 @@ public abstract class class_qb extends class_qa {
    public void a(class_pr var1, boolean var2) {
       this.bw = true;
       this.bx = var1;
-      if(!this.o.D && var2 && this.o instanceof class_lg) {
-         ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_hl(1, this, this.bx)));
+      if(!this.o.D && var2 && this.o instanceof WorldServer) {
+         ((WorldServer)this.o).t().a((class_pr)this, (Packet)(new PacketPlayOutAttachEntity(1, this, this.bx)));
       }
 
    }

@@ -650,7 +650,7 @@ public class class_tz extends class_tw implements class_ok {
             }
 
             if(var8) {
-               if(!var1.bH.d) {
+               if(!var1.bH.instabuild) {
                   --var3.count;
                }
 

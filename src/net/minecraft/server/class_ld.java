@@ -10,10 +10,10 @@ import net.minecraft.server.class_aok;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_fv;
-import net.minecraft.server.class_ga;
-import net.minecraft.server.class_go;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.PacketPlayOutBlockChange;
+import net.minecraft.server.PacketPlayOutMultiBlockChange;
+import net.minecraft.server.PacketPlayOutMapChunk;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_ns;
 import net.minecraft.server.MathHelper;
@@ -22,7 +22,7 @@ import org.apache.logging.log4j.Logger;
 
 public class class_ld {
    private static final Logger a = LogManager.getLogger();
-   private final class_lg b;
+   private final WorldServer b;
    private final List c = Lists.newArrayList();
    private final class_ns d = new class_ns();
    private final List e = Lists.newArrayList();
@@ -31,12 +31,12 @@ public class class_ld {
    private long h;
    private final int[][] i = new int[][]{{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
 
-   public class_ld(class_lg var1) {
+   public class_ld(WorldServer var1) {
       this.b = var1;
-      this.a(var1.s().ap().s());
+      this.a(var1.s().getPlayerList().getViewDistance());
    }
 
-   public class_lg a() {
+   public WorldServer a() {
       return this.b;
    }
 
@@ -291,7 +291,7 @@ public class class_ld {
          if(this.b.contains(var1)) {
             class_aok var2 = class_ld.this.b.a(this.c.a, this.c.b);
             if(var2.i()) {
-               var1.a.a((Packet)(new class_go(var2, true, 0)));
+               var1.a.a((Packet)(new PacketPlayOutMapChunk(var2, true, 0)));
             }
 
             this.b.remove(var1);
@@ -360,7 +360,7 @@ public class class_ld {
                var2 = this.d[0] & 255;
                var3 = (this.d[0] >> 8 & 15) + this.c.b * 16;
                BlockPosition var4 = new BlockPosition(var1, var2, var3);
-               this.a((Packet)(new class_fv(class_ld.this.b, var4)));
+               this.a((Packet)(new PacketPlayOutBlockChange(class_ld.this.b, var4)));
                if(class_ld.this.b.p(var4).getBlock().isTileEntity()) {
                   this.a(class_ld.this.b.s(var4));
                }
@@ -369,7 +369,7 @@ public class class_ld {
                if(this.e == 64) {
                   var1 = this.c.a * 16;
                   var2 = this.c.b * 16;
-                  this.a((Packet)(new class_go(class_ld.this.b.a(this.c.a, this.c.b), false, this.f)));
+                  this.a((Packet)(new PacketPlayOutMapChunk(class_ld.this.b.a(this.c.a, this.c.b), false, this.f)));
 
                   for(var3 = 0; var3 < 16; ++var3) {
                      if((this.f & 1 << var3) != 0) {
@@ -382,7 +382,7 @@ public class class_ld {
                      }
                   }
                } else {
-                  this.a((Packet)(new class_ga(this.e, this.d, class_ld.this.b.a(this.c.a, this.c.b))));
+                  this.a((Packet)(new PacketPlayOutMultiBlockChange(this.e, this.d, class_ld.this.b.a(this.c.a, this.c.b))));
 
                   for(var1 = 0; var1 < this.e; ++var1) {
                      var2 = (this.d[var1] >> 12 & 15) + this.c.a * 16;

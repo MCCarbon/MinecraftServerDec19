@@ -58,7 +58,7 @@ public abstract class class_td extends class_rm {
                   }
                }
 
-               return !(var1 instanceof class_xa) || !((class_xa)var1).bH.a;
+               return !(var1 instanceof class_xa) || !((class_xa)var1).bH.invulnerable;
             }
          }
       }
@@ -99,7 +99,7 @@ public abstract class class_td extends class_rm {
             if(var1 == ((class_qg)var0).m_()) {
                return false;
             }
-         } else if(var1 instanceof class_xa && !var2 && ((class_xa)var1).bH.a) {
+         } else if(var1 instanceof class_xa && !var2 && ((class_xa)var1).bH.invulnerable) {
             return false;
          }
 

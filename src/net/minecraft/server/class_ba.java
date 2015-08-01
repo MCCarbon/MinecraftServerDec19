@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
 
 public class class_ba extends class_i {
@@ -21,7 +21,7 @@ public class class_ba extends class_i {
 
       for(int var5 = 0; var5 < var3.d.length; ++var5) {
          if(var3.d[var5] != null) {
-            class_lg var6 = var3.d[var5];
+            WorldServer var6 = var3.d[var5];
             if(var6.c) {
                var6.c = false;
                var4 = true;

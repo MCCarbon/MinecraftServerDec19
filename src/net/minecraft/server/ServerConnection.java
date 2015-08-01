@@ -140,7 +140,7 @@ public class ServerConnection {
 						}
 						logger.warn("Failed to handle packet for " + networkManager.getAddress(), e);
 						final class_fa message = new class_fa("Internal server error");
-						networkManager.sendPacket(new class_gi(message), new GenericFutureListener<Future<Void>>() {
+						networkManager.sendPacket(new PacketPlayOutKickDisconnect(message), new GenericFutureListener<Future<Void>>() {
 							@Override
 							public void operationComplete(Future<Void> var1) throws Exception {
 								fNetworkManager.close(message);

@@ -19,7 +19,7 @@ import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_ns;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
@@ -35,9 +35,9 @@ public class class_lf implements class_aoh {
    public boolean a = true;
    private class_ns g = new class_ns();
    private List h = Lists.newArrayList();
-   private class_lg i;
+   private WorldServer i;
 
-   public class_lf(class_lg var1, class_aop var2, class_aoh var3) {
+   public class_lf(WorldServer var1, class_aop var2, class_aoh var3) {
       this.d = new class_aoj(var1, 0, 0);
       this.i = var1;
       this.f = var2;

@@ -5,7 +5,7 @@ import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_nw;
 
@@ -21,13 +21,13 @@ public class class_ay extends class_i {
    public void a(class_m var1, String[] var2) throws class_bz {
       MinecraftServer var3 = MinecraftServer.N();
       var1.a(new class_fb("commands.save.start", new Object[0]));
-      if(var3.ap() != null) {
-         var3.ap().j();
+      if(var3.getPlayerList() != null) {
+         var3.getPlayerList().j();
       }
 
       try {
          int var4;
-         class_lg var5;
+         WorldServer var5;
          boolean var6;
          for(var4 = 0; var4 < var3.d.length; ++var4) {
             if(var3.d[var4] != null) {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
@@ -30,7 +30,7 @@ public class class_ah extends class_i {
       if(var2.length <= 0) {
          throw new class_cf("commands.gamemode.usage", new Object[0]);
       } else {
-         class_aeq.class_a_in_class_aeq var3 = this.h(var1, var2[0]);
+         WorldSettings.EnumGameMode var3 = this.h(var1, var2[0]);
          class_lh var4 = var2.length >= 2?a(var1, var2[1]):b(var1);
          var4.a(var3);
          var4.O = 0.0F;
@@ -38,7 +38,7 @@ public class class_ah extends class_i {
             var4.a((IChatBaseComponent)(new class_fb("gameMode.changed", new Object[0])));
          }
 
-         class_fb var5 = new class_fb("gameMode." + var3.b(), new Object[0]);
+         class_fb var5 = new class_fb("gameMode." + var3.getName(), new Object[0]);
          if(var4 != var1) {
             a(var1, this, 1, "commands.gamemode.success.other", new Object[]{var4.e_(), var5});
          } else {
@@ -48,8 +48,8 @@ public class class_ah extends class_i {
       }
    }
 
-   protected class_aeq.class_a_in_class_aeq h(class_m var1, String var2) throws class_cb {
-      return !var2.equalsIgnoreCase(class_aeq.class_a_in_class_aeq.b.b()) && !var2.equalsIgnoreCase("s")?(!var2.equalsIgnoreCase(class_aeq.class_a_in_class_aeq.c.b()) && !var2.equalsIgnoreCase("c")?(!var2.equalsIgnoreCase(class_aeq.class_a_in_class_aeq.d.b()) && !var2.equalsIgnoreCase("a")?(!var2.equalsIgnoreCase(class_aeq.class_a_in_class_aeq.e.b()) && !var2.equalsIgnoreCase("sp")?class_aeq.a(a(var2, 0, class_aeq.class_a_in_class_aeq.values().length - 2)):class_aeq.class_a_in_class_aeq.e):class_aeq.class_a_in_class_aeq.d):class_aeq.class_a_in_class_aeq.c):class_aeq.class_a_in_class_aeq.b;
+   protected WorldSettings.EnumGameMode h(class_m var1, String var2) throws class_cb {
+      return !var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SURVIVAL.getName()) && !var2.equalsIgnoreCase("s")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.CREATIVE.getName()) && !var2.equalsIgnoreCase("c")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.ADVENTURE.getName()) && !var2.equalsIgnoreCase("a")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SPECTATOR.getName()) && !var2.equalsIgnoreCase("sp")?WorldSettings.a(a(var2, 0, WorldSettings.EnumGameMode.values().length - 2)):WorldSettings.EnumGameMode.SPECTATOR):WorldSettings.EnumGameMode.ADVENTURE):WorldSettings.EnumGameMode.CREATIVE):WorldSettings.EnumGameMode.SURVIVAL;
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {

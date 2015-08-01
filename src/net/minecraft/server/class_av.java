@@ -7,7 +7,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_gs;
+import net.minecraft.server.PacketPlayOutNamedSoundEffect;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
@@ -84,7 +84,7 @@ public class class_av extends class_i {
             var13 = var17;
          }
 
-         var5.a.a((Packet)(new class_gs(var4, var7, var9, var11, (float)var13, (float)var15)));
+         var5.a.a((Packet)(new PacketPlayOutNamedSoundEffect(var4, var7, var9, var11, (float)var13, (float)var15)));
          a(var1, this, "commands.playsound.success", new Object[]{var4, var5.e_()});
       }
    }

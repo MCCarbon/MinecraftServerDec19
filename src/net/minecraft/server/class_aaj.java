@@ -16,7 +16,7 @@ public class class_aaj extends Item {
       if(!var3.D) {
          class_xg var10 = new class_xg(var3, (double)((float)var4.getX() + var7), (double)((float)var4.getY() + var8), (double)((float)var4.getZ() + var9), var1);
          var3.a((class_pr)var10);
-         if(!var2.bH.d) {
+         if(!var2.bH.instabuild) {
             --var1.count;
          }
 

@@ -7,7 +7,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_gm;
+import net.minecraft.server.PacketPlayOutGameStateChange;
 import net.minecraft.server.class_li;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
@@ -30,7 +30,7 @@ public class class_kz extends class_li {
       long var3 = var1 / 24000L + 1L;
       if(!this.c && this.f > 20) {
          this.c = true;
-         this.b.a.a((Packet)(new class_gm(5, 0.0F)));
+         this.b.a.a((Packet)(new PacketPlayOutGameStateChange(5, 0.0F)));
       }
 
       this.d = var1 > 120500L;
@@ -44,11 +44,11 @@ public class class_kz extends class_li {
          }
       } else if(var3 == 1L) {
          if(var1 == 100L) {
-            this.b.a.a((Packet)(new class_gm(5, 101.0F)));
+            this.b.a.a((Packet)(new PacketPlayOutGameStateChange(5, 101.0F)));
          } else if(var1 == 175L) {
-            this.b.a.a((Packet)(new class_gm(5, 102.0F)));
+            this.b.a.a((Packet)(new PacketPlayOutGameStateChange(5, 102.0F)));
          } else if(var1 == 250L) {
-            this.b.a.a((Packet)(new class_gm(5, 103.0F)));
+            this.b.a.a((Packet)(new PacketPlayOutGameStateChange(5, 103.0F)));
          }
       } else if(var3 == 5L && var1 % 24000L == 22000L) {
          this.b.a((IChatBaseComponent)(new class_fb("demo.day.warning", new Object[0])));

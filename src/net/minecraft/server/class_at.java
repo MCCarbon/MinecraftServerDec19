@@ -23,17 +23,17 @@ public class class_at extends class_i {
    }
 
    public boolean a(class_m var1) {
-      return MinecraftServer.N().ap().h().b() && super.a(var1);
+      return MinecraftServer.N().getPlayerList().h().b() && super.a(var1);
    }
 
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length == 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.N();
-         GameProfile var4 = var3.ap().h().a(var2[0]);
+         GameProfile var4 = var3.getPlayerList().h().a(var2[0]);
          if(var4 == null) {
             throw new class_bz("commands.unban.failed", new Object[]{var2[0]});
          } else {
-            var3.ap().h().c(var4);
+            var3.getPlayerList().h().c(var4);
             a(var1, this, "commands.unban.success", new Object[]{var2[0]});
          }
       } else {
@@ -42,6 +42,6 @@ public class class_at extends class_i {
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().ap().h().a()):null;
+      return var2.length == 1?a(var2, MinecraftServer.N().getPlayerList().h().a()):null;
    }
 }

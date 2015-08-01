@@ -13,7 +13,7 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aok;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.class_pr;
@@ -27,7 +27,7 @@ public final class class_aeu {
    private static final int a = (int)Math.pow(17.0D, 2.0D);
    private final Set b = Sets.newHashSet();
 
-   public int a(class_lg var1, boolean var2, boolean var3, boolean var4) {
+   public int a(WorldServer var1, boolean var2, boolean var3, boolean var4) {
       if(!var2 && !var3) {
          return 0;
       } else {

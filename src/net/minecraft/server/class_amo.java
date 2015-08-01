@@ -6,7 +6,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_op;
 import net.minecraft.server.class_wz;
@@ -14,7 +14,7 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yj;
 
-public class class_amo extends class_amg implements class_kn, class_op {
+public class class_amo extends class_amg implements ITickAble, class_op {
    public int a;
    public float f;
    public float g;
@@ -44,7 +44,7 @@ public class class_amo extends class_amg implements class_kn, class_op {
 
    }
 
-   public void c() {
+   public void tick() {
       this.k = this.j;
       this.m = this.l;
       class_xa var1 = this.b.a((double)((float)this.c.getX() + 0.5F), (double)((float)this.c.getY() + 0.5F), (double)((float)this.c.getZ() + 0.5F), 3.0D);

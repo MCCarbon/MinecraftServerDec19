@@ -10,7 +10,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_hv;
+import net.minecraft.server.PacketPlayOutTitle;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
@@ -48,16 +48,16 @@ public class class_bs extends class_i {
          }
 
          class_lh var3 = a(var1, var2[0]);
-         class_hv.class_a_in_class_hv var4 = class_hv.class_a_in_class_hv.a(var2[1]);
-         if(var4 != class_hv.class_a_in_class_hv.d && var4 != class_hv.class_a_in_class_hv.e) {
-            if(var4 == class_hv.class_a_in_class_hv.c) {
+         PacketPlayOutTitle.class_a_in_class_hv var4 = PacketPlayOutTitle.class_a_in_class_hv.a(var2[1]);
+         if(var4 != PacketPlayOutTitle.class_a_in_class_hv.d && var4 != PacketPlayOutTitle.class_a_in_class_hv.e) {
+            if(var4 == PacketPlayOutTitle.class_a_in_class_hv.c) {
                if(var2.length != 5) {
                   throw new class_cf("commands.title.usage", new Object[0]);
                } else {
                   int var11 = a(var2[2]);
                   int var12 = a(var2[3]);
                   int var13 = a(var2[4]);
-                  class_hv var14 = new class_hv(var11, var12, var13);
+                  PacketPlayOutTitle var14 = new PacketPlayOutTitle(var11, var12, var13);
                   var3.a.a((Packet)var14);
                   a(var1, this, "commands.title.success", new Object[0]);
                }
@@ -73,14 +73,14 @@ public class class_bs extends class_i {
             	   throw class_bs.a(var9);
                }
 
-               class_hv var7 = new class_hv(var4, class_ev.a(var1, var6, var3));
+               PacketPlayOutTitle var7 = new PacketPlayOutTitle(var4, class_ev.a(var1, var6, var3));
                var3.a.a((Packet)var7);
                a(var1, this, "commands.title.success", new Object[0]);
             }
          } else if(var2.length != 2) {
             throw new class_cf("commands.title.usage", new Object[0]);
          } else {
-            class_hv var5 = new class_hv(var4, (IChatBaseComponent)null);
+            PacketPlayOutTitle var5 = new PacketPlayOutTitle(var4, (IChatBaseComponent)null);
             var3.a.a((Packet)var5);
             a(var1, this, "commands.title.success", new Object[0]);
          }
@@ -88,7 +88,7 @@ public class class_bs extends class_i {
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length == 2?a(var2, class_hv.class_a_in_class_hv.a()):null);
+      return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length == 2?a(var2, PacketPlayOutTitle.class_a_in_class_hv.a()):null);
    }
 
    public boolean b(String[] var1, int var2) {

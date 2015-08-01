@@ -8,7 +8,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_gj;
+import net.minecraft.server.PacketPlayOutEntityStatus;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
@@ -59,11 +59,11 @@ public class class_ai extends class_i {
    public static void a(class_ael var0, String var1) {
       if("reducedDebugInfo".equals(var1)) {
          int var2 = var0.b(var1)?22:23;
-         Iterator var3 = MinecraftServer.N().ap().v().iterator();
+         Iterator var3 = MinecraftServer.N().getPlayerList().v().iterator();
 
          while(var3.hasNext()) {
             class_lh var4 = (class_lh)var3.next();
-            var4.a.a((Packet)(new class_gj(var4, (byte)var2)));
+            var4.a.a((Packet)(new PacketPlayOutEntityStatus(var4, (byte)var2)));
          }
       }
 

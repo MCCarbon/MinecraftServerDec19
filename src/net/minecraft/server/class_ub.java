@@ -21,7 +21,7 @@ public class class_ub extends class_ty {
    }
 
    public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.B && this.l() >= 0 && !var1.bH.d) {
+      if(var3 != null && var3.getItem() == Items.B && this.l() >= 0 && !var1.bH.instabuild) {
          if(--var3.count == 0) {
             var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.C)));
          } else if(!var1.bp.a(new ItemStack(Items.C))) {

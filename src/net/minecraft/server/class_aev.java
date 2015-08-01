@@ -11,18 +11,18 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_ns;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 
 public class class_aev {
-   private final class_lg a;
+   private final WorldServer a;
    private final Random b;
    private final class_ns c = new class_ns();
    private final List d = Lists.newArrayList();
 
-   public class_aev(class_lg var1) {
+   public class_aev(WorldServer var1) {
       this.a = var1;
       this.b = new Random(var1.K());
    }

@@ -31,7 +31,7 @@ public class class_ar extends class_i {
          if(var4 == null) {
             throw new class_bz("commands.op.failed", new Object[]{var2[0]});
          } else {
-            var3.ap().a(var4);
+            var3.getPlayerList().a(var4);
             a(var1, this, "commands.op.success", new Object[]{var2[0]});
          }
       } else {
@@ -48,7 +48,7 @@ public class class_ar extends class_i {
 
          for(int var8 = 0; var8 < var7; ++var8) {
             GameProfile var9 = var6[var8];
-            if(!MinecraftServer.N().ap().h(var9) && a(var4, var9.getName())) {
+            if(!MinecraftServer.N().getPlayerList().h(var9) && a(var4, var9.getName())) {
                var5.add(var9.getName());
             }
          }

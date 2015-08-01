@@ -60,14 +60,14 @@ public class class_agh extends class_aiv {
             }
 
             class_xa.class_a_in_class_xa var13 = var4.a(var2);
-            if(var13 == class_xa.class_a_in_class_xa.a) {
+            if(var13 == class_xa.class_a_in_class_xa.OK) {
                var3 = var3.set(b, Boolean.valueOf(true));
                var1.a((BlockPosition)var2, (IBlockData)var3, 4);
                return true;
             } else {
-               if(var13 == class_xa.class_a_in_class_xa.c) {
+               if(var13 == class_xa.class_a_in_class_xa.NOT_POSSIBLE_NOW) {
                   var4.b((IChatBaseComponent)(new class_fb("tile.bed.noSleep", new Object[0])));
-               } else if(var13 == class_xa.class_a_in_class_xa.f) {
+               } else if(var13 == class_xa.class_a_in_class_xa.NOT_SAFE) {
                   var4.b((IChatBaseComponent)(new class_fb("tile.bed.notSafe", new Object[0])));
                }
 
@@ -181,7 +181,7 @@ public class class_agh extends class_aiv {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
-      if(var4.bH.d && var3.get(a) == class_agh.class_a_in_class_agh.a) {
+      if(var4.bH.instabuild && var3.get(a) == class_agh.class_a_in_class_agh.a) {
          BlockPosition var5 = var2.shift(((EnumDirection)var3.get(O)).getOpposite());
          if(var1.p(var5).getBlock() == this) {
             var1.g(var5);

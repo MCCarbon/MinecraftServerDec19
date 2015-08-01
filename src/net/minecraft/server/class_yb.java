@@ -51,11 +51,11 @@ public class class_yb extends class_xz {
          }
 
          public boolean a(class_xa var1) {
-            return (var1.bH.d || var1.bI >= class_yb.this.a) && class_yb.this.a > 0 && this.e();
+            return (var1.bH.instabuild || var1.bI >= class_yb.this.a) && class_yb.this.a > 0 && this.e();
          }
 
          public void a(class_xa var1, ItemStack var2x) {
-            if(!var1.bH.d) {
+            if(!var1.bH.instabuild) {
                var1.a(-class_yb.this.a);
             }
 
@@ -74,7 +74,7 @@ public class class_yb extends class_xz {
 
             class_yb.this.a = 0;
             IBlockData var5 = var2.p(var3);
-            if(!var1.bH.d && !var2.D && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
+            if(!var1.bH.instabuild && !var2.D && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
                int var4 = ((Integer)var5.get(class_aga.b)).intValue();
                ++var4;
                if(var4 > 2) {
@@ -191,7 +191,7 @@ public class class_yb extends class_xz {
                   var13 = ((Integer)var19.get(var21)).intValue();
                   var13 = var12 == var13?var13 + 1:Math.max(var13, var12);
                   boolean var14 = var21.a(var1);
-                  if(this.m.bH.d || var1.getItem() == Items.cg) {
+                  if(this.m.bH.instabuild || var1.getItem() == Items.cg) {
                      var14 = true;
                   }
 
@@ -257,7 +257,7 @@ public class class_yb extends class_xz {
             this.a = 39;
          }
 
-         if(this.a >= 40 && !this.m.bH.d) {
+         if(this.a >= 40 && !this.m.bH.instabuild) {
             var5 = null;
          }
 

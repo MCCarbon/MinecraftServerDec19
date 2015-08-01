@@ -7,7 +7,7 @@ import net.minecraft.server.class_ca;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ex;
 import net.minecraft.server.class_ey;
-import net.minecraft.server.class_ez;
+import net.minecraft.server.ChatModifier;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_m;
@@ -56,7 +56,7 @@ public class class_ev {
          var3 = new class_fb(((class_fb)var1).i(), var8);
       }
 
-      class_ez var9 = var1.b();
+      ChatModifier var9 = var1.b();
       if(var9 != null) {
          ((IChatBaseComponent)var3).a(var9.m());
       }

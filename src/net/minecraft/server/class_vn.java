@@ -20,7 +20,7 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_ov;
 import net.minecraft.server.class_pc;
@@ -128,7 +128,7 @@ public abstract class class_vn extends class_pr implements class_ov {
             this.j(10);
             this.ac();
             this.a(this.p() + var2 * 10.0F);
-            boolean var3 = var1.j() instanceof class_xa && ((class_xa)var1.j()).bH.d;
+            boolean var3 = var1.j() instanceof class_xa && ((class_xa)var1.j()).bH.instabuild;
             if(var3 || this.p() > 40.0F) {
                if(this.l != null) {
                   this.l.a((class_pr)null);
@@ -183,9 +183,9 @@ public abstract class class_vn extends class_pr implements class_ov {
       }
 
       int var2;
-      if(!this.o.D && this.o instanceof class_lg) {
+      if(!this.o.D && this.o instanceof WorldServer) {
          this.o.B.a("portal");
-         MinecraftServer var1 = ((class_lg)this.o).s();
+         MinecraftServer var1 = ((WorldServer)this.o).s();
          var2 = this.L();
          if(this.ak) {
             if(var1.C()) {

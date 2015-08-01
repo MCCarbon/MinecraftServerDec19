@@ -5,7 +5,7 @@ import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aop;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.class_avn;
-import net.minecraft.server.class_avx;
+import net.minecraft.server.IPlayerFileData;
 import net.minecraft.server.NBTTagCompound;
 
 public interface class_avo {
@@ -19,7 +19,7 @@ public interface class_avo {
 
    void a(class_avn var1);
 
-   class_avx e();
+   IPlayerFileData e();
 
    void a();
 

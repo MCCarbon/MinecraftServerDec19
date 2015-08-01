@@ -6,12 +6,12 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_ez;
+import net.minecraft.server.ChatModifier;
 import net.minecraft.server.class_fa;
 
 public abstract class class_es implements IChatBaseComponent {
    protected List a = Lists.newArrayList();
-   private class_ez b;
+   private ChatModifier b;
 
    public IChatBaseComponent a(IChatBaseComponent var1) {
       var1.b().a(this.b());
@@ -27,7 +27,7 @@ public abstract class class_es implements IChatBaseComponent {
       return this.a((IChatBaseComponent)(new class_fa(var1)));
    }
 
-   public IChatBaseComponent a(class_ez var1) {
+   public IChatBaseComponent a(ChatModifier var1) {
       this.b = var1;
       Iterator var2 = this.a.iterator();
 
@@ -39,9 +39,9 @@ public abstract class class_es implements IChatBaseComponent {
       return this;
    }
 
-   public class_ez b() {
+   public ChatModifier b() {
       if(this.b == null) {
-         this.b = new class_ez();
+         this.b = new ChatModifier();
          Iterator var1 = this.a.iterator();
 
          while(var1.hasNext()) {

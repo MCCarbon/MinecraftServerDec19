@@ -14,10 +14,10 @@ import net.minecraft.server.class_awl;
 import net.minecraft.server.class_awn;
 import net.minecraft.server.class_awo;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_hj;
-import net.minecraft.server.class_hq;
-import net.minecraft.server.class_hr;
-import net.minecraft.server.class_hs;
+import net.minecraft.server.PacketPlayOutScoreboardDisplayObjective;
+import net.minecraft.server.PacketPlayOutScoreboardObjective;
+import net.minecraft.server.PacketPlayOutScoreboardTeam;
+import net.minecraft.server.PacketPlayOutScoreboardScore;
 import net.minecraft.server.class_lh;
 
 public class class_kl extends class_awn {
@@ -32,7 +32,7 @@ public class class_kl extends class_awn {
    public void a(class_awl var1) {
       super.a(var1);
       if(this.b.contains(var1.d())) {
-         this.a.ap().a((Packet)(new class_hs(var1)));
+         this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardScore(var1)));
       }
 
       this.b();
@@ -40,13 +40,13 @@ public class class_kl extends class_awn {
 
    public void a(String var1) {
       super.a(var1);
-      this.a.ap().a((Packet)(new class_hs(var1)));
+      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardScore(var1)));
       this.b();
    }
 
    public void a(String var1, class_awj var2) {
       super.a(var1, var2);
-      this.a.ap().a((Packet)(new class_hs(var1, var2)));
+      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardScore(var1, var2)));
       this.b();
    }
 
@@ -55,7 +55,7 @@ public class class_kl extends class_awn {
       super.a(var1, var2);
       if(var3 != var2 && var3 != null) {
          if(this.h(var3) > 0) {
-            this.a.ap().a((Packet)(new class_hj(var1, var2)));
+            this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardDisplayObjective(var1, var2)));
          } else {
             this.g(var3);
          }
@@ -63,7 +63,7 @@ public class class_kl extends class_awn {
 
       if(var2 != null) {
          if(this.b.contains(var2)) {
-            this.a.ap().a((Packet)(new class_hj(var1, var2)));
+            this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardDisplayObjective(var1, var2)));
          } else {
             this.e(var2);
          }
@@ -75,7 +75,7 @@ public class class_kl extends class_awn {
    public boolean a(String var1, String var2) {
       if(super.a(var1, var2)) {
          class_awk var3 = this.d(var2);
-         this.a.ap().a((Packet)(new class_hr(var3, Arrays.asList(new String[]{var1}), 3)));
+         this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var3, Arrays.asList(new String[]{var1}), 3)));
          this.b();
          return true;
       } else {
@@ -85,7 +85,7 @@ public class class_kl extends class_awn {
 
    public void a(String var1, class_awk var2) {
       super.a(var1, var2);
-      this.a.ap().a((Packet)(new class_hr(var2, Arrays.asList(new String[]{var1}), 4)));
+      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var2, Arrays.asList(new String[]{var1}), 4)));
       this.b();
    }
 
@@ -97,7 +97,7 @@ public class class_kl extends class_awn {
    public void b(class_awj var1) {
       super.b(var1);
       if(this.b.contains(var1)) {
-         this.a.ap().a((Packet)(new class_hq(var1, 2)));
+         this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardObjective(var1, 2)));
       }
 
       this.b();
@@ -114,19 +114,19 @@ public class class_kl extends class_awn {
 
    public void a(class_awk var1) {
       super.a(var1);
-      this.a.ap().a((Packet)(new class_hr(var1, 0)));
+      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 0)));
       this.b();
    }
 
    public void b(class_awk var1) {
       super.b(var1);
-      this.a.ap().a((Packet)(new class_hr(var1, 2)));
+      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 2)));
       this.b();
    }
 
    public void c(class_awk var1) {
       super.c(var1);
-      this.a.ap().a((Packet)(new class_hr(var1, 1)));
+      this.a.getPlayerList().a((Packet)(new PacketPlayOutScoreboardTeam(var1, 1)));
       this.b();
    }
 
@@ -143,11 +143,11 @@ public class class_kl extends class_awn {
 
    public List d(class_awj var1) {
       ArrayList var2 = Lists.newArrayList();
-      var2.add(new class_hq(var1, 0));
+      var2.add(new PacketPlayOutScoreboardObjective(var1, 0));
 
       for(int var3 = 0; var3 < 19; ++var3) {
          if(this.a(var3) == var1) {
-            var2.add(new class_hj(var3, var1));
+            var2.add(new PacketPlayOutScoreboardDisplayObjective(var3, var1));
          }
       }
 
@@ -155,7 +155,7 @@ public class class_kl extends class_awn {
 
       while(var5.hasNext()) {
          class_awl var4 = (class_awl)var5.next();
-         var2.add(new class_hs(var4));
+         var2.add(new PacketPlayOutScoreboardScore(var4));
       }
 
       return var2;
@@ -163,7 +163,7 @@ public class class_kl extends class_awn {
 
    public void e(class_awj var1) {
       List var2 = this.d(var1);
-      Iterator var3 = this.a.ap().v().iterator();
+      Iterator var3 = this.a.getPlayerList().v().iterator();
 
       while(var3.hasNext()) {
          class_lh var4 = (class_lh)var3.next();
@@ -180,11 +180,11 @@ public class class_kl extends class_awn {
 
    public List f(class_awj var1) {
       ArrayList var2 = Lists.newArrayList();
-      var2.add(new class_hq(var1, 1));
+      var2.add(new PacketPlayOutScoreboardObjective(var1, 1));
 
       for(int var3 = 0; var3 < 19; ++var3) {
          if(this.a(var3) == var1) {
-            var2.add(new class_hj(var3, var1));
+            var2.add(new PacketPlayOutScoreboardDisplayObjective(var3, var1));
          }
       }
 
@@ -193,7 +193,7 @@ public class class_kl extends class_awn {
 
    public void g(class_awj var1) {
       List var2 = this.f(var1);
-      Iterator var3 = this.a.ap().v().iterator();
+      Iterator var3 = this.a.getPlayerList().v().iterator();
 
       while(var3.hasNext()) {
          class_lh var4 = (class_lh)var3.next();

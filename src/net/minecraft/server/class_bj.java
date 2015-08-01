@@ -66,7 +66,7 @@ public class class_bj extends class_i {
 
                var14.addAll(var16);
             } else {
-               class_lh var18 = MinecraftServer.N().ap().a(var15);
+               class_lh var18 = MinecraftServer.N().getPlayerList().a(var15);
                if(var18 == null) {
                   throw new class_cd();
                }

@@ -13,7 +13,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.class_nl;
 import net.minecraft.server.class_oj;
@@ -92,7 +92,7 @@ public class class_agg extends class_agd {
 
                IBlockData var4 = var0.p(var3);
                if(var4.getBlock() == Blocks.BEACON) {
-                  ((class_lg)var0).a(new Runnable() {
+                  ((WorldServer)var0).a(new Runnable() {
                      public void run() {
                         class_amg var1x = var0.s(var3);
                         if(var1x instanceof class_amf) {

@@ -16,7 +16,7 @@ import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
@@ -295,7 +295,7 @@ public class class_xk extends class_pr {
 				}
 			}
 		} else {
-			((class_lg) this.o).a(class_cy.b, this.s, this.t, this.u, 2, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
+			((WorldServer) this.o).a(class_cy.b, this.s, this.t, this.u, 2, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
 			this.a("mob.irongolem.hit", 1.0F, 1.0F);
 		}
 
@@ -309,7 +309,7 @@ public class class_xk extends class_pr {
 	public boolean a(class_pc var1, float var2) {
 		if (!this.o.D) {
 			this.a("mob.irongolem.hit", 1.0F, 1.0F);
-			((class_lg) this.o).a(class_cy.j, this.s, this.t, this.u, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
+			((WorldServer) this.o).a(class_cy.j, this.s, this.t, this.u, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
 			this.J();
 		}
 

@@ -84,7 +84,7 @@ public class class_lv {
          }
       };
       var0.aE().findProfilesByNames(new String[]{var1}, Agent.MINECRAFT, var3);
-      if(!var0.af() && var2[0] == null) {
+      if(!var0.isOnlineMode() && var2[0] == null) {
          UUID var4 = class_xa.a(new GameProfile((UUID)null, var1));
          GameProfile var5 = new GameProfile(var4, var1);
          var3.onProfileLookupSucceeded(var5);

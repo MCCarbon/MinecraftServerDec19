@@ -10,7 +10,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_ft;
+import net.minecraft.server.PacketPlayOutTileEntityData;
 
 public class class_ame extends class_amg {
 	private int a;
@@ -69,7 +69,7 @@ public class class_ame extends class_amg {
 	public Packet z_() {
 		NBTTagCompound var1 = new NBTTagCompound();
 		this.b(var1);
-		return new class_ft(this.c, 6, var1);
+		return new PacketPlayOutTileEntityData(this.c, 6, var1);
 	}
 
 	public int b() {

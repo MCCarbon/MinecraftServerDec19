@@ -33,11 +33,11 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTagShort;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_fq;
-import net.minecraft.server.class_hn;
-import net.minecraft.server.class_hy;
+import net.minecraft.server.PacketPlayOutAnimation;
+import net.minecraft.server.PacketPlayOutEntityEquipment;
+import net.minecraft.server.PacketPlayOutCollect;
 import net.minecraft.server.class_lb;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
@@ -179,7 +179,7 @@ public abstract class class_qa extends class_pr {
             }
 
             int var11 = (int)(150.0D * var9);
-            ((class_lg)this.o).a(class_cy.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{Block.getCombinedId(var6)});
+            ((WorldServer)this.o).a(class_cy.M, this.s, this.t, this.u, var11, 0.0D, 0.0D, 0.0D, 0.15000000596046448D, new int[]{Block.getCombinedId(var6)});
          }
       }
 
@@ -210,7 +210,7 @@ public abstract class class_qa extends class_pr {
          this.N();
       }
 
-      boolean var7 = var1 && ((class_xa)this).bH.a;
+      boolean var7 = var1 && ((class_xa)this).bH.invulnerable;
       if(this.ai()) {
          if(this.a((Material)Material.WATER)) {
             if(!this.aZ() && !this.a(class_pm.m) && !var7) {
@@ -980,8 +980,8 @@ public abstract class class_qa extends class_pr {
          this.av = -1;
          this.at = true;
          this.au = var1;
-         if(this.o instanceof class_lg) {
-            ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_fq(this, var1 == EnumUsedHand.MAIN_HAND?0:3)));
+         if(this.o instanceof WorldServer) {
+            ((WorldServer)this.o).t().a((class_pr)this, (Packet)(new PacketPlayOutAnimation(this, var1 == EnumUsedHand.MAIN_HAND?0:3)));
          }
       }
 
@@ -1148,7 +1148,7 @@ public abstract class class_qa extends class_pr {
       if(this.bN()) {
          float var5;
          float var6;
-         if(this.V() && (!(this instanceof class_xa) || !((class_xa)this).bH.b)) {
+         if(this.V() && (!(this instanceof class_xa) || !((class_xa)this).bH.flying)) {
             var3 = this.t;
             var5 = 0.8F;
             var6 = 0.02F;
@@ -1175,7 +1175,7 @@ public abstract class class_qa extends class_pr {
             if(this.D && this.c(this.v, this.w + 0.6000000238418579D - this.t + var3, this.x)) {
                this.w = 0.30000001192092896D;
             }
-         } else if(!this.ab() || this instanceof class_xa && ((class_xa)this).bH.b) {
+         } else if(!this.ab() || this instanceof class_xa && ((class_xa)this).bH.flying) {
             float var8 = 0.91F;
             if(this.C) {
                var8 = this.o.p(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().b) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.91F;
@@ -1305,7 +1305,7 @@ public abstract class class_qa extends class_pr {
 
             ItemStack var7 = this.a(var5);
             if(!ItemStack.b(var7, var6)) {
-               ((class_lg)this.o).t().a((class_pr)this, (Packet)(new class_hn(this.getId(), var5, var7)));
+               ((WorldServer)this.o).t().a((class_pr)this, (Packet)(new PacketPlayOutEntityEquipment(this.getId(), var5, var7)));
                if(var6 != null) {
                   this.by().a(var6.a(var5));
                }
@@ -1556,17 +1556,17 @@ public abstract class class_qa extends class_pr {
 
    public void a(class_pr var1, int var2) {
       if(!var1.I && !this.o.D) {
-         class_lb var3 = ((class_lg)this.o).t();
+         class_lb var3 = ((WorldServer)this.o).t();
          if(var1 instanceof class_vm) {
-            var3.a((class_pr)var1, (Packet)(new class_hy(var1.getId(), this.getId())));
+            var3.a((class_pr)var1, (Packet)(new PacketPlayOutCollect(var1.getId(), this.getId())));
          }
 
          if(var1 instanceof class_xd) {
-            var3.a((class_pr)var1, (Packet)(new class_hy(var1.getId(), this.getId())));
+            var3.a((class_pr)var1, (Packet)(new PacketPlayOutCollect(var1.getId(), this.getId())));
          }
 
          if(var1 instanceof class_px) {
-            var3.a((class_pr)var1, (Packet)(new class_hy(var1.getId(), this.getId())));
+            var3.a((class_pr)var1, (Packet)(new PacketPlayOutCollect(var1.getId(), this.getId())));
          }
       }
 

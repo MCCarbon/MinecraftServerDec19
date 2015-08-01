@@ -152,7 +152,7 @@ public class class_uc extends class_qj {
             this.bu.a(!this.cC());
          }
       } else if(this.by.f() && var3 != null && var3.getItem() == Items.aW && var1.h(this) < 9.0D) {
-         if(!var1.bH.d) {
+         if(!var1.bH.instabuild) {
             --var3.count;
          }
 

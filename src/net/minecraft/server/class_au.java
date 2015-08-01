@@ -8,7 +8,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
 
 public class class_au extends class_i {
@@ -71,8 +71,8 @@ public class class_au extends class_i {
             }
 
             World var23 = var1.e();
-            if(var23 instanceof class_lg) {
-               class_lg var24 = (class_lg)var23;
+            if(var23 instanceof WorldServer) {
+               WorldServer var24 = (WorldServer)var23;
                int[] var25 = new int[var4.d()];
                if(var4.f()) {
                   String[] var26 = var2[0].split("_", 3);

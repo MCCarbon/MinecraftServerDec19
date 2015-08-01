@@ -181,8 +181,8 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet<PacketLis
 
 	public void tick() {
 		flushSendQueue();
-		if (packetListener instanceof class_kn) {
-			((class_kn) packetListener).c();
+		if (packetListener instanceof ITickAble) {
+			((ITickAble) packetListener).tick();
 		}
 
 		channel.flush();
@@ -204,8 +204,8 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet<PacketLis
 	}
 
 	public void enableEncryption(SecretKey key) {
-		channel.pipeline().addBefore("splitter", "decrypt", new class_eg(class_ni.a(2, key)));
-		channel.pipeline().addBefore("prepender", "encrypt", new class_eh(class_ni.a(1, key)));
+		channel.pipeline().addBefore("splitter", "decrypt", new class_eg(MinecraftEncryption.getCipher(2, key)));
+		channel.pipeline().addBefore("prepender", "encrypt", new class_eh(MinecraftEncryption.getCipher(1, key)));
 	}
 
 	public boolean isActive() {

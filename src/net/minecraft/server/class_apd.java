@@ -10,7 +10,7 @@ import net.minecraft.server.class_apq;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 
 public class class_apd extends class_aoy {
    private class_apc g = null;
@@ -19,7 +19,7 @@ public class class_apd extends class_aoy {
       this.c = new class_afg(class_aez.y, 0.0F);
       this.e = true;
       NBTTagCompound var1 = this.b.Q().a(class_aoz.c);
-      this.g = this.b instanceof class_lg?new class_apc((class_lg)this.b, var1.getCompound("DragonFight")):null;
+      this.g = this.b instanceof WorldServer?new class_apc((WorldServer)this.b, var1.getCompound("DragonFight")):null;
    }
 
    public class_aoh c() {

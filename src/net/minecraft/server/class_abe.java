@@ -52,7 +52,7 @@ public class class_abe extends Item {
 
    public ItemStack a(ItemStack var1, World var2, class_qa var3) {
       class_xa var4 = var3 instanceof class_xa?(class_xa)var3:null;
-      if(var4 == null || !var4.bH.d) {
+      if(var4 == null || !var4.bH.instabuild) {
          --var1.count;
       }
 
@@ -70,7 +70,7 @@ public class class_abe extends Item {
          var4.b(class_nc.ad[Item.getId((Item)this)]);
       }
 
-      if(var4 == null || !var4.bH.d) {
+      if(var4 == null || !var4.bH.instabuild) {
          if(var1.count <= 0) {
             return new ItemStack(Items.bD);
          }

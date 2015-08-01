@@ -451,7 +451,7 @@ public class class_wr extends class_wi {
 
    public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.aq && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
-         if(!var1.bH.d) {
+         if(!var1.bH.instabuild) {
             --var3.count;
          }
 

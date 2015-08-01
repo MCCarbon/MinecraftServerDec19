@@ -130,7 +130,7 @@ public class class_ahb extends class_ahh implements class_ahw {
    }
 
    public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(!var4.bH.e) {
+      if(!var4.bH.mayBuild) {
          return false;
       } else {
          var3 = var3.a(b);

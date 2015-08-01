@@ -35,7 +35,7 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.class_le;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_oh;
 import net.minecraft.server.class_pc;
@@ -50,7 +50,7 @@ public class class_apc {
    private static final Logger a = LogManager.getLogger();
    private static final Predicate b;
    private final class_le c;
-   private final class_lg d;
+   private final WorldServer d;
    private final List e;
    private final class_anp f;
    private int g;
@@ -62,7 +62,7 @@ public class class_apc {
    private UUID m;
    private boolean n;
 
-   public class_apc(class_lg var1, NBTTagCompound var2) {
+   public class_apc(WorldServer var1, NBTTagCompound var2) {
       this.c = new class_le(new class_fb("entity.EnderDragon.name", new Object[0]), class_oh.class_a_in_class_oh.a, class_oh.class_b_in_class_oh.a, false, true);
       this.e = Lists.newArrayList();
       this.g = 0;
@@ -318,7 +318,7 @@ public class class_apc {
 
    public void a(class_uq var1, class_pc var2) {
       this.j();
-      class_pr var3 = this.d.a(this.m);
+      class_pr var3 = this.d.getEntityByUUID(this.m);
       if(var3 instanceof class_ur) {
          ((class_ur)var3).a(new BlockPosition(var1), var2);
       }

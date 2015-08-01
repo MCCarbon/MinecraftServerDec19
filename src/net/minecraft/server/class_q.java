@@ -29,7 +29,7 @@ public class class_q extends class_i {
    }
 
    public boolean a(class_m var1) {
-      return MinecraftServer.N().ap().i().b() && super.a(var1);
+      return MinecraftServer.N().getPlayerList().i().b() && super.a(var1);
    }
 
    public String c(class_m var1) {
@@ -43,7 +43,7 @@ public class class_q extends class_i {
          if(var4.matches()) {
             this.a(var1, var2[0], var3 == null?null:var3.c());
          } else {
-            class_lh var5 = MinecraftServer.N().ap().a(var2[0]);
+            class_lh var5 = MinecraftServer.N().getPlayerList().a(var2[0]);
             if(var5 == null) {
                throw new class_cd("commands.banip.invalid", new Object[0]);
             }
@@ -62,8 +62,8 @@ public class class_q extends class_i {
 
    protected void a(class_m var1, String var2, String var3) {
       class_lx var4 = new class_lx(var2, (Date)null, var1.e_(), (Date)null, var3);
-      MinecraftServer.N().ap().i().a((class_mc)var4);
-      List var5 = MinecraftServer.N().ap().b(var2);
+      MinecraftServer.N().getPlayerList().i().a((class_mc)var4);
+      List var5 = MinecraftServer.N().getPlayerList().b(var2);
       String[] var6 = new String[var5.size()];
       int var7 = 0;
 

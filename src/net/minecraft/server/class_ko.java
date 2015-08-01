@@ -4,19 +4,19 @@ import com.mojang.authlib.GameProfile;
 import java.io.IOException;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_kp;
-import net.minecraft.server.class_lz;
+import net.minecraft.server.PlayerList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_ko extends class_lz {
+public class class_ko extends PlayerList {
    private static final Logger f = LogManager.getLogger();
 
    public class_ko(class_kp var1) {
       super(var1);
       this.a(var1.a("view-distance", 10));
-      this.e = var1.a("max-players", 20);
-      this.a(var1.a("white-list", false));
-      if(!var1.T()) {
+      this.maxPlayers = var1.a("max-players", 20);
+      this.setHasWhitelist(var1.a("white-list", false));
+      if(!var1.isLocal()) {
          this.h().a(true);
          this.i().a(true);
       }
@@ -34,8 +34,8 @@ public class class_ko extends class_lz {
 
    }
 
-   public void a(boolean var1) {
-      super.a(var1);
+   public void setHasWhitelist(boolean var1) {
+      super.setHasWhitelist(var1);
       this.b().a("white-list", (Object)Boolean.valueOf(var1));
       this.b().a();
    }
@@ -137,11 +137,11 @@ public class class_ko extends class_lz {
    }
 
    public boolean e(GameProfile var1) {
-      return !this.r() || this.h(var1) || this.k().a(var1);
+      return !this.hasWhitelist() || this.h(var1) || this.k().a(var1);
    }
 
    public class_kp b() {
-      return (class_kp)super.c();
+      return (class_kp)super.getMinecraftServer();
    }
 
    public boolean f(GameProfile var1) {
@@ -149,7 +149,7 @@ public class class_ko extends class_lz {
    }
 
    // $FF: synthetic method
-   public MinecraftServer c() {
+   public MinecraftServer getMinecraftServer() {
       return this.b();
    }
 }

@@ -111,7 +111,7 @@ public class class_vr extends class_vn {
 
    public boolean a(class_xa var1, ItemStack var2, EnumUsedHand var3) {
       if(var2 != null && var2.getItem() == Items.j) {
-         if(!var1.bH.d) {
+         if(!var1.bH.instabuild) {
             --var2.count;
          }
 

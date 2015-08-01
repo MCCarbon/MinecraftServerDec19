@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.Set;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_fw;
+import net.minecraft.server.PacketPlayOutBossBar;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oh;
@@ -26,14 +26,14 @@ public class class_le extends class_oh {
    public void a(float var1) {
       if(var1 != this.b) {
          super.a(var1);
-         this.a(class_fw.class_a_in_class_fw.c);
+         this.a(PacketPlayOutBossBar.class_a_in_class_fw.c);
       }
 
    }
 
-   private void a(class_fw.class_a_in_class_fw var1) {
+   private void a(PacketPlayOutBossBar.class_a_in_class_fw var1) {
       if(this.i) {
-         class_fw var2 = new class_fw(var1, this);
+         PacketPlayOutBossBar var2 = new PacketPlayOutBossBar(var1, this);
          Iterator var3 = this.g.iterator();
 
          while(var3.hasNext()) {
@@ -46,14 +46,14 @@ public class class_le extends class_oh {
 
    public void a(class_lh var1) {
       if(this.g.add(var1) && this.i) {
-         var1.a.a((Packet)(new class_fw(class_fw.class_a_in_class_fw.a, this)));
+         var1.a.a((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.a, this)));
       }
 
    }
 
    public void b(class_lh var1) {
       if(this.g.remove(var1) && this.i) {
-         var1.a.a((Packet)(new class_fw(class_fw.class_a_in_class_fw.b, this)));
+         var1.a.a((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
       }
 
    }
@@ -65,7 +65,7 @@ public class class_le extends class_oh {
 
          while(var2.hasNext()) {
             class_lh var3 = (class_lh)var2.next();
-            var3.a.a((Packet)(new class_fw(var1?class_fw.class_a_in_class_fw.a:class_fw.class_a_in_class_fw.b, this)));
+            var3.a.a((Packet)(new PacketPlayOutBossBar(var1?PacketPlayOutBossBar.class_a_in_class_fw.a:PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
          }
       }
 

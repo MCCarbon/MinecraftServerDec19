@@ -17,16 +17,16 @@ import java.util.List;
 import java.util.Map.Entry;
 import net.minecraft.server.class_ex;
 import net.minecraft.server.class_ey;
-import net.minecraft.server.class_ez;
+import net.minecraft.server.ChatModifier;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
-import net.minecraft.server.class_nk;
-import net.minecraft.server.class_nt;
+import net.minecraft.server.JsonHelper;
+import net.minecraft.server.ChatTypeAdapterFactory;
 
 public interface IChatBaseComponent extends Iterable {
-   IChatBaseComponent a(class_ez var1);
+   IChatBaseComponent a(ChatModifier var1);
 
-   class_ez b();
+   ChatModifier b();
 
    IChatBaseComponent a(String var1);
 
@@ -97,16 +97,16 @@ public interface IChatBaseComponent extends Iterable {
                   throw new JsonParseException("A score component needs a least a name and an objective");
                }
 
-               var5 = new class_ex(class_nk.h(var12, "name"), class_nk.h(var12, "objective"));
+               var5 = new class_ex(JsonHelper.getString(var12, "name"), JsonHelper.getString(var12, "objective"));
                if(var12.has("value")) {
-                  ((class_ex)var5).b(class_nk.h(var12, "value"));
+                  ((class_ex)var5).b(JsonHelper.getString(var12, "value"));
                }
             } else {
                if(!var4.has("selector")) {
                   throw new JsonParseException("Don\'t know how to turn " + var1.toString() + " into a Component");
                }
 
-               var5 = new class_ey(class_nk.h(var4, "selector"));
+               var5 = new class_ey(JsonHelper.getString(var4, "selector"));
             }
 
             if(var4.has("extra")) {
@@ -120,12 +120,12 @@ public interface IChatBaseComponent extends Iterable {
                }
             }
 
-            ((IChatBaseComponent)var5).a((class_ez)var3.deserialize(var1, class_ez.class));
+            ((IChatBaseComponent)var5).a((ChatModifier)var3.deserialize(var1, ChatModifier.class));
             return (IChatBaseComponent)var5;
          }
       }
 
-      private void a(class_ez var1, JsonObject var2, JsonSerializationContext var3) {
+      private void a(ChatModifier var1, JsonObject var2, JsonSerializationContext var3) {
          JsonElement var4 = var3.serialize(var1);
          if(var4.isJsonObject()) {
             JsonObject var5 = (JsonObject)var4;
@@ -202,11 +202,11 @@ public interface IChatBaseComponent extends Iterable {
       }
 
       public static IChatBaseComponent fromJson(String var0) {
-         return (IChatBaseComponent)class_nk.a(a, var0, IChatBaseComponent.class, true);
+         return (IChatBaseComponent)JsonHelper.fromJson(a, var0, IChatBaseComponent.class, true);
       }
 
       public static IChatBaseComponent b(final String var0) {
-    	 return (IChatBaseComponent)class_nk.a(a, var0, IChatBaseComponent.class, true);
+    	 return (IChatBaseComponent)JsonHelper.fromJson(a, var0, IChatBaseComponent.class, true);
 	  }
 
       // $FF: synthetic method
@@ -222,8 +222,8 @@ public interface IChatBaseComponent extends Iterable {
       static {
          GsonBuilder var0 = new GsonBuilder();
          var0.registerTypeHierarchyAdapter(IChatBaseComponent.class, new IChatBaseComponent.ChatSerializer());
-         var0.registerTypeHierarchyAdapter(class_ez.class, new class_ez.class_a_in_class_ez());
-         var0.registerTypeAdapterFactory(new class_nt());
+         var0.registerTypeHierarchyAdapter(ChatModifier.class, new ChatModifier.ChatModifierSerializer());
+         var0.registerTypeAdapterFactory(new ChatTypeAdapterFactory());
          a = var0.create();
       }
    }

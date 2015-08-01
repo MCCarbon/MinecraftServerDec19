@@ -13,7 +13,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_gu;
+import net.minecraft.server.PacketPlayOutMap;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_va;
 import net.minecraft.server.class_xa;
@@ -208,9 +208,9 @@ public class class_avf extends class_avd {
       public Packet a(ItemStack var1) {
          if(this.d) {
             this.d = false;
-            return new class_gu(var1.i(), class_avf.this.e, class_avf.this.h.values(), class_avf.this.f, this.e, this.f, this.g + 1 - this.e, this.h + 1 - this.f);
+            return new PacketPlayOutMap(var1.i(), class_avf.this.e, class_avf.this.h.values(), class_avf.this.f, this.e, this.f, this.g + 1 - this.e, this.h + 1 - this.f);
          } else {
-            return this.i++ % 5 == 0?new class_gu(var1.i(), class_avf.this.e, class_avf.this.h.values(), class_avf.this.f, 0, 0, 0, 0):null;
+            return this.i++ % 5 == 0?new PacketPlayOutMap(var1.i(), class_avf.this.e, class_avf.this.h.values(), class_avf.this.f, 0, 0, 0, 0):null;
          }
       }
 

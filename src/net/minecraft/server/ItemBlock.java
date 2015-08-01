@@ -67,7 +67,7 @@ public class ItemBlock extends Item {
 			if (var3.hasTag() && var3.getTag().hasOfType("BlockEntityTag", 10)) {
 				class_amg var5 = var0.s(var2);
 				if (var5 != null) {
-					if (!var0.D && var5.F() && !var4.ap().h(var1.cf())) {
+					if (!var0.D && var5.F() && !var4.getPlayerList().h(var1.cf())) {
 						return false;
 					}
 

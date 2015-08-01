@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_agu;
 import net.minecraft.server.class_amg;
@@ -13,9 +13,9 @@ import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_fv;
-import net.minecraft.server.class_gz;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.PacketPlayOutBlockChange;
+import net.minecraft.server.PacketPlayOutPlayerInfo;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.EnumUsedHand;
@@ -27,7 +27,7 @@ import net.minecraft.server.class_xa;
 public class class_li {
    public World a;
    public class_lh b;
-   private class_aeq.class_a_in_class_aeq c;
+   private WorldSettings.EnumGameMode c;
    private boolean d;
    private int e;
    private BlockPosition f;
@@ -38,34 +38,34 @@ public class class_li {
    private int k;
 
    public class_li(World var1) {
-      this.c = class_aeq.class_a_in_class_aeq.a;
+      this.c = WorldSettings.EnumGameMode.NOT_SET;
       this.f = BlockPosition.ZERO;
       this.i = BlockPosition.ZERO;
       this.k = -1;
       this.a = var1;
    }
 
-   public void a(class_aeq.class_a_in_class_aeq var1) {
+   public void a(WorldSettings.EnumGameMode var1) {
       this.c = var1;
-      var1.a(this.b.bH);
+      var1.setAbilities(this.b.bH);
       this.b.t();
-      this.b.b.ap().a((Packet)(new class_gz(class_gz.class_a_in_class_gz.b, new class_lh[]{this.b})));
+      this.b.b.getPlayerList().a((Packet)(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.b, new class_lh[]{this.b})));
    }
 
-   public class_aeq.class_a_in_class_aeq b() {
+   public WorldSettings.EnumGameMode b() {
       return this.c;
    }
 
    public boolean c() {
-      return this.c.e();
+      return this.c.isSurvivalOrAdventure();
    }
 
    public boolean d() {
-      return this.c.d();
+      return this.c.isCreative();
    }
 
-   public void b(class_aeq.class_a_in_class_aeq var1) {
-      if(this.c == class_aeq.class_a_in_class_aeq.a) {
+   public void b(WorldSettings.EnumGameMode var1) {
+      if(this.c == WorldSettings.EnumGameMode.NOT_SET) {
          this.c = var1;
       }
 
@@ -121,8 +121,8 @@ public class class_li {
 
       } else {
          Block var3 = this.a.p(var1).getBlock();
-         if(this.c.c()) {
-            if(this.c == class_aeq.class_a_in_class_aeq.e) {
+         if(this.c.isAdventureOrSpectator()) {
+            if(this.c == WorldSettings.EnumGameMode.SPECTATOR) {
                return;
             }
 
@@ -197,13 +197,13 @@ public class class_li {
    }
 
    public boolean b(BlockPosition var1) {
-      if(this.c.d() && this.b.bA() != null && this.b.bA().getItem() instanceof class_abw) {
+      if(this.c.isCreative() && this.b.bA() != null && this.b.bA().getItem() instanceof class_abw) {
          return false;
       } else {
          IBlockData var2 = this.a.p(var1);
          class_amg var3 = this.a.s(var1);
-         if(this.c.c()) {
-            if(this.c == class_aeq.class_a_in_class_aeq.e) {
+         if(this.c.isAdventureOrSpectator()) {
+            if(this.c == WorldSettings.EnumGameMode.SPECTATOR) {
                return false;
             }
 
@@ -222,7 +222,7 @@ public class class_li {
          this.a.a(this.b, 2001, var1, Block.getCombinedId(var2));
          boolean var8 = this.c(var1);
          if(this.d()) {
-            this.b.a.a((Packet)(new class_fv(this.a, var1)));
+            this.b.a.a((Packet)(new PacketPlayOutBlockChange(this.a, var1)));
          } else {
             ItemStack var5 = this.b.bA();
             ItemStack var6 = var5 == null?null:var5.clone();
@@ -244,7 +244,7 @@ public class class_li {
    }
 
    public class_oq a(class_xa var1, World var2, ItemStack var3, EnumUsedHand var4) {
-      if(this.c == class_aeq.class_a_in_class_aeq.e) {
+      if(this.c == WorldSettings.EnumGameMode.SPECTATOR) {
          return class_oq.b;
       } else {
          int var5 = var3.count;
@@ -274,7 +274,7 @@ public class class_li {
    }
 
    public class_oq a(class_xa var1, World var2, ItemStack var3, EnumUsedHand var4, BlockPosition var5, EnumDirection var6, float var7, float var8, float var9) {
-      if(this.c == class_aeq.class_a_in_class_aeq.e) {
+      if(this.c == WorldSettings.EnumGameMode.SPECTATOR) {
          class_amg var14 = var2.s(var5);
          if(var14 instanceof class_ou) {
             Block var15 = var2.p(var5).getBlock();
@@ -316,7 +316,7 @@ public class class_li {
       }
    }
 
-   public void a(class_lg var1) {
+   public void a(WorldServer var1) {
       this.a = var1;
    }
 }

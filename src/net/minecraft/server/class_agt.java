@@ -83,7 +83,7 @@ public class class_agt extends Block {
          Item var12 = var6.getItem();
          if(var12 == Items.az) {
             if(var11 < 3) {
-               if(!var4.bH.d) {
+               if(!var4.bH.instabuild) {
                   var4.a((EnumUsedHand)var5, (ItemStack)(new ItemStack(Items.ay)));
                }
 
@@ -96,7 +96,7 @@ public class class_agt extends Block {
             ItemStack var14;
             if(var12 == Items.bD) {
                if(var11 > 0) {
-                  if(!var4.bH.d) {
+                  if(!var4.bH.instabuild) {
                      var14 = class_abe.a(new ItemStack(Items.bB), class_acf.a);
                      var4.b(class_nc.J);
                      if(--var6.count == 0) {
@@ -128,7 +128,7 @@ public class class_agt extends Block {
                   var14.count = 1;
                   class_ame.e(var14);
                   var4.b(class_nc.L);
-                  if(var4.bH.d) {
+                  if(var4.bH.instabuild) {
                      --var6.count;
                   }
 
@@ -140,7 +140,7 @@ public class class_agt extends Block {
                      ((class_lh)var4).a(var4.bq);
                   }
 
-                  if(!var4.bH.d) {
+                  if(!var4.bH.instabuild) {
                      this.a(var1, var2, var3, var11 - 1);
                   }
 

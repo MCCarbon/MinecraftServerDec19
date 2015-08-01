@@ -27,15 +27,15 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_km;
 import net.minecraft.server.class_kp;
 import net.minecraft.server.class_lu;
-import net.minecraft.server.class_lw;
+import net.minecraft.server.IpBanList;
 import net.minecraft.server.class_lx;
-import net.minecraft.server.class_lz;
-import net.minecraft.server.class_ma;
+import net.minecraft.server.PlayerList;
+import net.minecraft.server.OpList;
 import net.minecraft.server.class_mb;
 import net.minecraft.server.class_mc;
-import net.minecraft.server.class_me;
+import net.minecraft.server.GameProfileBanList;
 import net.minecraft.server.class_mf;
-import net.minecraft.server.class_mg;
+import net.minecraft.server.WhiteList;
 import net.minecraft.server.class_mh;
 import net.minecraft.server.class_nz;
 import net.minecraft.server.class_xa;
@@ -76,7 +76,7 @@ public class class_ly {
             return this.a((String)var1);
          }
       }), String.class);
-      if(var0.af()) {
+      if(var0.isOnlineMode()) {
          var0.aE().findProfilesByNames(var3, Agent.MINECRAFT, var2);
       } else {
          String[] var4 = var3;
@@ -93,7 +93,7 @@ public class class_ly {
    }
 
    public static boolean a(final MinecraftServer var0) {
-      final class_me var1 = new class_me(class_lz.a);
+      final GameProfileBanList var1 = new GameProfileBanList(PlayerList.BANNED_PLAYERS_FILE);
       if(b.exists() && b.isFile()) {
          if(var1.c().exists()) {
             try {
@@ -146,7 +146,7 @@ public class class_ly {
    }
 
    public static boolean b(MinecraftServer var0) {
-      class_lw var1 = new class_lw(class_lz.b);
+      IpBanList var1 = new IpBanList(PlayerList.BANNED_IPS_FILE);
       if(a.exists() && a.isFile()) {
          if(var1.c().exists()) {
             try {
@@ -184,7 +184,7 @@ public class class_ly {
    }
 
    public static boolean c(final MinecraftServer var0) {
-      final class_ma var1 = new class_ma(class_lz.c);
+      final OpList var1 = new OpList(PlayerList.OPS_FILE);
       if(c.exists() && c.isFile()) {
          if(var1.c().exists()) {
             try {
@@ -226,7 +226,7 @@ public class class_ly {
    }
 
    public static boolean d(final MinecraftServer var0) {
-      final class_mg var1 = new class_mg(class_lz.d);
+      final WhiteList var1 = new WhiteList(PlayerList.WHITELIST_FILE);
       if(d.exists() && d.isFile()) {
          if(var1.c().exists()) {
             try {
@@ -273,7 +273,7 @@ public class class_ly {
          GameProfile var2 = var1.aF().a(var0);
          if(var2 != null && var2.getId() != null) {
             return var2.getId().toString();
-         } else if(!var1.T() && var1.af()) {
+         } else if(!var1.isLocal() && var1.isOnlineMode()) {
             final ArrayList var3 = Lists.newArrayList();
             ProfileLookupCallback var4 = new ProfileLookupCallback() {
                public void onProfileLookupSucceeded(GameProfile var1x) {

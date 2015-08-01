@@ -11,10 +11,10 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_et;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_ev;
-import net.minecraft.server.class_ez;
+import net.minecraft.server.ChatModifier;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_hw;
+import net.minecraft.server.PacketPlayOutUpdateSign;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 import net.minecraft.server.class_pr;
@@ -103,7 +103,7 @@ public class class_amx extends class_amg {
    public Packet z_() {
       IChatBaseComponent[] var1 = new IChatBaseComponent[4];
       System.arraycopy(this.a, 0, var1, 0, 4);
-      return new class_hw(this.b, this.c, var1);
+      return new PacketPlayOutUpdateSign(this.b, this.c, var1);
    }
 
    public boolean F() {
@@ -165,7 +165,7 @@ public class class_amx extends class_amg {
       };
 
       for(int var3 = 0; var3 < this.a.length; ++var3) {
-         class_ez var4 = this.a[var3] == null?null:this.a[var3].b();
+         ChatModifier var4 = this.a[var3] == null?null:this.a[var3].b();
          if(var4 != null && var4.h() != null) {
             class_et var5 = var4.h();
             if(var5.a() == class_et.class_a_in_class_et.c) {

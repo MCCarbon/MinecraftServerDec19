@@ -14,7 +14,7 @@ import net.minecraft.server.class_aop;
 import net.minecraft.server.class_aoy;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
-import net.minecraft.server.class_avx;
+import net.minecraft.server.IPlayerFileData;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTCompressedStreamTools;
 import net.minecraft.server.NBTTag;
@@ -22,7 +22,7 @@ import net.minecraft.server.class_xa;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_avl implements class_avo, class_avx {
+public class class_avl implements class_avo, IPlayerFileData {
    private static final Logger a = LogManager.getLogger();
    private final File b;
    private final File c;
@@ -210,7 +210,7 @@ public class class_avl implements class_avo, class_avx {
       return var2;
    }
 
-   public class_avx e() {
+   public IPlayerFileData e() {
       return this;
    }
 

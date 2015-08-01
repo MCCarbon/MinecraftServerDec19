@@ -127,7 +127,7 @@ public class class_aej {
                   var13.v += var16 * var28;
                   var13.w += var18 * var28;
                   var13.x += var20 * var28;
-                  if(var13 instanceof class_xa && !((class_xa)var13).bH.a) {
+                  if(var13 instanceof class_xa && !((class_xa)var13).bH.invulnerable) {
                      this.k.put((class_xa)var13, new Vec3D(var16 * var26, var18 * var26, var20 * var26));
                   }
                }

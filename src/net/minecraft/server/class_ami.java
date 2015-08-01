@@ -13,7 +13,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.class_oi;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_wz;
@@ -21,7 +21,7 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yf;
 
-public class class_ami extends class_amu implements class_kn, class_oj {
+public class class_ami extends class_amu implements ITickAble, class_oj {
    private ItemStack[] m = new ItemStack[27];
    public boolean a;
    public class_ami f;
@@ -209,7 +209,7 @@ public class class_ami extends class_amu implements class_kn, class_oj {
       }
    }
 
-   public void c() {
+   public void tick() {
       this.m();
       int var1 = this.c.getX();
       int var2 = this.c.getY();

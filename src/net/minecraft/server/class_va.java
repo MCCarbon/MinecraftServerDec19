@@ -72,7 +72,7 @@ public class class_va extends class_uz {
          ItemStack var3 = this.o();
          if(var1 instanceof class_xa) {
             class_xa var4 = (class_xa)var1;
-            if(var4.bH.d) {
+            if(var4.bH.instabuild) {
                this.b(var3);
                return;
             }
@@ -172,7 +172,7 @@ public class class_va extends class_uz {
       if(this.o() == null) {
          if(var2 != null && !this.o.D) {
             this.a(var2);
-            if(!var1.bH.d) {
+            if(!var1.bH.instabuild) {
                --var2.count;
             }
          }

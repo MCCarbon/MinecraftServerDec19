@@ -87,7 +87,7 @@ public class class_ty extends class_tw {
    }
 
    public boolean a(class_xa var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.ay && !var1.bH.d && !this.j_()) {
+      if(var3 != null && var3.getItem() == Items.ay && !var1.bH.instabuild && !this.j_()) {
          if(--var3.count == 0) {
             var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.aI)));
          } else if(!var1.bp.a(new ItemStack(Items.aI))) {

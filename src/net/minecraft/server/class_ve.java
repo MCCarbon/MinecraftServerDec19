@@ -18,7 +18,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_nc;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
@@ -252,7 +252,7 @@ public class class_ve extends class_pr {
             }
 
             if(!this.o.D && var35 > 0.0D) {
-               class_lg var37 = (class_lg)this.o;
+               WorldServer var37 = (WorldServer)this.o;
                int var38 = 1;
                BlockPosition var39 = (new BlockPosition(this)).shiftUp();
                if(this.V.nextFloat() < 0.25F && this.o.C(var39)) {

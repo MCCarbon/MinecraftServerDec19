@@ -239,7 +239,7 @@ public class class_uw extends class_wi implements class_wk {
                if(var13 > 0) {
                   class_pr var15 = this.o.getEntityById(var13);
                   if(var15 != null && var15.ai() && this.h(var15) <= 900.0D && this.t(var15)) {
-                     if(var15 instanceof class_xa && ((class_xa)var15).bH.a) {
+                     if(var15 instanceof class_xa && ((class_xa)var15).bH.invulnerable) {
                         this.a(var1, 0);
                      } else {
                         this.a(var1 + 1, (class_qa)var15);
@@ -256,7 +256,7 @@ public class class_uw extends class_wi implements class_wk {
                      class_qa var5 = (class_qa)var14.get(this.V.nextInt(var14.size()));
                      if(var5 != this && var5.ai() && this.t(var5)) {
                         if(var5 instanceof class_xa) {
-                           if(!((class_xa)var5).bH.a) {
+                           if(!((class_xa)var5).bH.invulnerable) {
                               this.a(var1, var5.getId());
                            }
                         } else {

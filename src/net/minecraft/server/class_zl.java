@@ -54,7 +54,7 @@ public class class_zl extends Item {
    public void a(ItemStack var1, World var2, class_qa var3, int var4) {
       if(var3 instanceof class_xa) {
          class_xa var5 = (class_xa)var3;
-         boolean var6 = var5.bH.d || class_adk.a(class_adm.w, var1) > 0;
+         boolean var6 = var5.bH.instabuild || class_adk.a(class_adm.w, var1) > 0;
          int var7 = this.a(var5.bp);
          if(var6 || var7 > -1) {
             ItemStack var8 = var7 > -1?var5.bp.a(var7):null;
@@ -123,7 +123,7 @@ public class class_zl extends Item {
    }
 
    public class_or a(ItemStack var1, World var2, class_xa var3, EnumUsedHand var4) {
-      if((var3.bH.d || this.a(var3.bp) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
+      if((var3.bH.instabuild || this.a(var3.bp) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);
       } else {

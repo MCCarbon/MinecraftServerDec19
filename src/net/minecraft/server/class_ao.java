@@ -24,7 +24,7 @@ public class class_ao extends class_i {
    public void a(class_m var1, String[] var2) throws class_bz {
       int var3 = MinecraftServer.N().I();
       var1.a(new class_fb("commands.players.list", new Object[]{Integer.valueOf(var3), Integer.valueOf(MinecraftServer.N().J())}));
-      var1.a(new class_fa(MinecraftServer.N().ap().b(var2.length > 0 && "uuids".equalsIgnoreCase(var2[0]))));
+      var1.a(new class_fa(MinecraftServer.N().getPlayerList().b(var2.length > 0 && "uuids".equalsIgnoreCase(var2[0]))));
       var1.a(class_n.class_a_in_class_n.e, var3);
    }
 }

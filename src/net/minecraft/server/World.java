@@ -19,7 +19,7 @@ import net.minecraft.server.class_aej;
 import net.minecraft.server.class_ael;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aep;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aer;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aet;
@@ -54,7 +54,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.class_e;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.class_no;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_nv;
@@ -157,7 +157,7 @@ public abstract class World implements class_aer {
 
    protected abstract class_aoh l();
 
-   public void a(class_aeq var1) {
+   public void a(WorldSettings var1) {
       this.x.d(true);
    }
 
@@ -1093,7 +1093,7 @@ public abstract class World implements class_aer {
             BlockPosition var12 = var10.v();
             if(this.e(var12) && this.N.a(var12)) {
                try {
-                  ((class_kn)var10).c();
+                  ((ITickAble)var10).tick();
                } catch (Throwable var7) {
                   class_b var16 = class_b.a(var7, "Ticking block entity");
                   class_c var6 = var16.a("Block entity being ticked");
@@ -1145,7 +1145,7 @@ public abstract class World implements class_aer {
 
    public boolean a(class_amg var1) {
       boolean var2 = this.h.add(var1);
-      if(var2 && var1 instanceof class_kn) {
+      if(var2 && var1 instanceof ITickAble) {
          this.i.add(var1);
       }
 
@@ -1161,7 +1161,7 @@ public abstract class World implements class_aer {
          while(var2.hasNext()) {
             class_amg var3 = (class_amg)var2.next();
             this.h.add(var3);
-            if(var3 instanceof class_kn) {
+            if(var3 instanceof ITickAble) {
                this.i.add(var3);
             }
          }
@@ -2269,7 +2269,7 @@ public abstract class World implements class_aer {
 
       for(int var14 = 0; var14 < this.j.size(); ++var14) {
          class_xa var15 = (class_xa)this.j.get(var14);
-         if(!var15.bH.a && var15.ai() && !var15.v()) {
+         if(!var15.bH.invulnerable && var15.ai() && !var15.v()) {
             double var16 = var15.e(var1, var15.t, var5);
             double var18 = var7;
             if(var15.ax()) {

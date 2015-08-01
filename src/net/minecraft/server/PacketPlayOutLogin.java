@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.Packet;
@@ -12,7 +12,7 @@ public class PacketPlayOutLogin implements Packet<PacketListenerPlayOut> {
 
 	private int entityId;
 	private boolean hardcore;
-	private class_aeq.class_a_in_class_aeq gameMode;
+	private WorldSettings.EnumGameMode gameMode;
 	private int dimension;
 	private class_om difficulty;
 	private int maxplayers;
@@ -22,7 +22,7 @@ public class PacketPlayOutLogin implements Packet<PacketListenerPlayOut> {
 	public PacketPlayOutLogin() {
 	}
 
-	public PacketPlayOutLogin(int entityId, class_aeq.class_a_in_class_aeq gameMode, boolean hardcore, int dimension, class_om difficulty, int maxplayers, class_aes levelType, boolean reducedDebug) {
+	public PacketPlayOutLogin(int entityId, WorldSettings.EnumGameMode gameMode, boolean hardcore, int dimension, class_om difficulty, int maxplayers, class_aes levelType, boolean reducedDebug) {
 		this.entityId = entityId;
 		this.dimension = dimension;
 		this.difficulty = difficulty;
@@ -38,7 +38,7 @@ public class PacketPlayOutLogin implements Packet<PacketListenerPlayOut> {
 		short gmh = serializer.readUnsignedByte();
 		this.hardcore = (gmh & 8) == 8;
 		int gm = gmh & -9;
-		this.gameMode = class_aeq.class_a_in_class_aeq.a(gm);
+		this.gameMode = WorldSettings.EnumGameMode.getById(gm);
 		this.dimension = serializer.readByte();
 		this.difficulty = class_om.a(serializer.readUnsignedByte());
 		this.maxplayers = serializer.readUnsignedByte();
@@ -52,7 +52,7 @@ public class PacketPlayOutLogin implements Packet<PacketListenerPlayOut> {
 
 	public void encode(PacketDataSerializer serializer) throws IOException {
 		serializer.writeInt(this.entityId);
-		int gmh = this.gameMode.a();
+		int gmh = this.gameMode.getId();
 		if (this.hardcore) {
 			gmh |= 8;
 		}

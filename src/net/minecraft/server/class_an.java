@@ -19,7 +19,7 @@ public class class_an extends class_i {
    }
 
    public boolean a(class_m var1) {
-      return (MinecraftServer.N().ap().i().b() || MinecraftServer.N().ap().h().b()) && super.a(var1);
+      return (MinecraftServer.N().getPlayerList().i().b() || MinecraftServer.N().getPlayerList().h().b()) && super.a(var1);
    }
 
    public String c(class_m var1) {
@@ -28,11 +28,11 @@ public class class_an extends class_i {
 
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].equalsIgnoreCase("ips")) {
-         var1.a(new class_fb("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.N().ap().i().a().length)}));
-         var1.a(new class_fa(a(MinecraftServer.N().ap().i().a())));
+         var1.a(new class_fb("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().i().a().length)}));
+         var1.a(new class_fa(a(MinecraftServer.N().getPlayerList().i().a())));
       } else {
-         var1.a(new class_fb("commands.banlist.players", new Object[]{Integer.valueOf(MinecraftServer.N().ap().h().a().length)}));
-         var1.a(new class_fa(a(MinecraftServer.N().ap().h().a())));
+         var1.a(new class_fb("commands.banlist.players", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().h().a().length)}));
+         var1.a(new class_fa(a(MinecraftServer.N().getPlayerList().h().a())));
       }
 
    }

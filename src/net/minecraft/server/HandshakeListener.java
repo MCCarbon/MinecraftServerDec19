@@ -18,20 +18,20 @@ public class HandshakeListener implements PacketHandshakingInListener {
 				class_fa message;
 				if (packet.getProtocolVersion() > 51) {
 					message = new class_fa("Outdated server! I\'m still on 15w31c");
-					networkManager.sendPacket(new class_jk(message));
+					networkManager.sendPacket(new PacketLoginOutDisconnect(message));
 					networkManager.close(message);
 				} else if (packet.getProtocolVersion() < 51) {
 					message = new class_fa("Outdated client! Please use 15w31c");
-					networkManager.sendPacket(new class_jk(message));
+					networkManager.sendPacket(new PacketLoginOutDisconnect(message));
 					networkManager.close(message);
 				} else {
-					networkManager.setPacketListener((new class_lq(mcserver, networkManager)));
+					networkManager.setPacketListener((new LoginListener(mcserver, networkManager)));
 				}
 				break;
 			}
 			case STATUS: {
 				networkManager.setProtocol(EnumProtocol.STATUS);
-				networkManager.setPacketListener((new class_lr(mcserver, networkManager)));
+				networkManager.setPacketListener((new PacketStatusListener(mcserver, networkManager)));
 				break;
 			}
 			default:

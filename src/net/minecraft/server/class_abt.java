@@ -58,7 +58,7 @@ public class class_abt extends Item {
                var12.a(class_pt.b(var1.i()));
                var11.p_();
                var3.h(var4);
-               if(!var2.bH.d) {
+               if(!var2.bH.instabuild) {
                   --var1.count;
                }
 
@@ -78,7 +78,7 @@ public class class_abt extends Item {
                var13.a(var1.getDisplayName());
             }
 
-            if(!var2.bH.d) {
+            if(!var2.bH.instabuild) {
                --var1.count;
             }
          }
@@ -112,7 +112,7 @@ public class class_abt extends Item {
                         var7.a(var1.getDisplayName());
                      }
 
-                     if(!var3.bH.d) {
+                     if(!var3.bH.instabuild) {
                         --var1.count;
                      }
 

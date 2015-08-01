@@ -127,7 +127,7 @@ public class class_ahm extends class_ago implements class_agl {
    public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
       if(var3.get(b) == class_ahm.class_a_in_class_ahm.a) {
          if(var1.p(var2.shiftDown()).getBlock() == this) {
-            if(!var4.bH.d) {
+            if(!var4.bH.instabuild) {
                IBlockData var5 = var1.p(var2.shiftDown());
                class_ahm.class_b_in_class_ahm var6 = (class_ahm.class_b_in_class_ahm)var5.get(a);
                if(var6 != class_ahm.class_b_in_class_ahm.d && var6 != class_ahm.class_b_in_class_ahm.c) {
@@ -146,7 +146,7 @@ public class class_ahm extends class_ago implements class_agl {
                var1.g(var2.shiftDown());
             }
          }
-      } else if(var4.bH.d && var1.p(var2.shiftUp()).getBlock() == this) {
+      } else if(var4.bH.instabuild && var1.p(var2.shiftUp()).getBlock() == this) {
          var1.a((BlockPosition)var2.shiftUp(), (IBlockData)Blocks.AIR.getBlockData(), 2);
       }
 

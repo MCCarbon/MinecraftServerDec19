@@ -25,11 +25,11 @@ public class class_w extends class_i {
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length == 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.N();
-         GameProfile var4 = var3.ap().m().a(var2[0]);
+         GameProfile var4 = var3.getPlayerList().m().a(var2[0]);
          if(var4 == null) {
             throw new class_bz("commands.deop.failed", new Object[]{var2[0]});
          } else {
-            var3.ap().b(var4);
+            var3.getPlayerList().b(var4);
             a(var1, this, "commands.deop.success", new Object[]{var2[0]});
          }
       } else {
@@ -38,6 +38,6 @@ public class class_w extends class_i {
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().ap().n()):null;
+      return var2.length == 1?a(var2, MinecraftServer.N().getPlayerList().n()):null;
    }
 }

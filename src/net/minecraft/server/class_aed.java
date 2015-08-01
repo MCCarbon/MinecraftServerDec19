@@ -163,7 +163,7 @@ public abstract class class_aed implements class_m {
    }
 
    public boolean a(class_xa var1) {
-      if(!var1.bH.d) {
+      if(!var1.bH.instabuild) {
          return false;
       } else {
          if(var1.e().D) {

@@ -118,7 +118,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    protected void a(class_xa var1, ItemStack var2) {
-      if(!var1.bH.d) {
+      if(!var1.bH.instabuild) {
          --var2.count;
       }
 

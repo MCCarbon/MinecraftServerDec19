@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.class_es;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_ez;
+import net.minecraft.server.ChatModifier;
 import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fc;
 
@@ -128,7 +128,7 @@ public class class_fb extends class_es {
       }
    }
 
-   public IChatBaseComponent a(class_ez var1) {
+   public IChatBaseComponent a(ChatModifier var1) {
       super.a(var1);
       Object[] var2 = this.e;
       int var3 = var2.length;

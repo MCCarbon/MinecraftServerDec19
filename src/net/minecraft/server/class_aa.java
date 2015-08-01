@@ -29,7 +29,7 @@ public class class_aa extends class_i {
          throw new class_cf("commands.me.usage", new Object[0]);
       } else {
          IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof class_xa));
-         MinecraftServer.N().ap().a((IChatBaseComponent)(new class_fb("chat.type.emote", new Object[]{var1.f_(), var3})));
+         MinecraftServer.N().getPlayerList().a((IChatBaseComponent)(new class_fb("chat.type.emote", new Object[]{var1.f_(), var3})));
       }
    }
 

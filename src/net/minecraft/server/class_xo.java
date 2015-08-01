@@ -12,7 +12,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import net.minecraft.server.class_qa;
@@ -257,9 +257,9 @@ public abstract class class_xo extends class_pr implements class_xi {
    public class_qa l() {
       if(this.h == null && this.i != null && !this.i.isEmpty()) {
          this.h = this.o.a(this.i);
-         if(this.h == null && this.o instanceof class_lg) {
+         if(this.h == null && this.o instanceof WorldServer) {
             try {
-               class_pr var1 = ((class_lg)this.o).a(UUID.fromString(this.i));
+               class_pr var1 = ((WorldServer)this.o).getEntityByUUID(UUID.fromString(this.i));
                if(var1 instanceof class_qa) {
                   this.h = (class_qa)var1;
                }

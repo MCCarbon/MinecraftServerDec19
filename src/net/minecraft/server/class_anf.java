@@ -33,7 +33,7 @@ public class class_anf extends class_ahi {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
-      if(var4.bH.d) {
+      if(var4.bH.instabuild) {
          EnumDirection var5 = (EnumDirection)var3.get(b);
          if(var5 != null) {
             BlockPosition var6 = var2.shift(var5.getOpposite());

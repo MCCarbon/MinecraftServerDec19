@@ -21,7 +21,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_ft;
+import net.minecraft.server.PacketPlayOutTileEntityData;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.INamable;
 import net.minecraft.server.class_nz;
@@ -93,7 +93,7 @@ public class class_amz extends class_amg {
    public Packet z_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      return new class_ft(this.c, 7, var1);
+      return new PacketPlayOutTileEntityData(this.c, 7, var1);
    }
 
    public void a(String var1) {

@@ -16,8 +16,8 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_ft;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.PacketPlayOutTileEntityData;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.class_oj;
@@ -31,7 +31,7 @@ import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yc;
 import net.minecraft.server.class_zy;
 
-public class class_amf extends class_amu implements class_kn, class_oj {
+public class class_amf extends class_amu implements ITickAble, class_oj {
    public static final class_pk[][] a;
    private final List f = Lists.newArrayList();
    private boolean i;
@@ -41,7 +41,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
    private ItemStack m;
    private String n;
 
-   public void c() {
+   public void tick() {
       if(this.b.L() % 80L == 0L) {
          this.m();
       }
@@ -177,7 +177,7 @@ public class class_amf extends class_amu implements class_kn, class_oj {
    public Packet z_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      return new class_ft(this.c, 3, var1);
+      return new PacketPlayOutTileEntityData(this.c, 3, var1);
    }
 
    private static class_pk f(int var0) {

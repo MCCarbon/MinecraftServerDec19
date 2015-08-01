@@ -75,7 +75,7 @@ public class class_alo extends Block {
          var1.g(var2);
          if(var6.getItem() == Items.d) {
             var6.a(1, (class_qa)var4);
-         } else if(!var4.bH.d) {
+         } else if(!var4.bH.instabuild) {
             --var6.count;
          }
 

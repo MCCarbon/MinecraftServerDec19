@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.class_amg;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_ft;
+import net.minecraft.server.PacketPlayOutTileEntityData;
 import net.minecraft.server.MinecraftKey;
 
 public class class_amq extends class_amg {
@@ -42,7 +42,7 @@ public class class_amq extends class_amg {
       this.b(var1);
       var1.remove("Item");
       var1.put("Item", Item.getId(this.a));
-      return new class_ft(this.c, 5, var1);
+      return new PacketPlayOutTileEntityData(this.c, 5, var1);
    }
 
    public void a(Item var1, int var2) {

@@ -6,7 +6,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
@@ -80,7 +80,7 @@ public class class_br extends class_i {
 
    protected void b(class_m var1, int var2) {
       for(int var3 = 0; var3 < MinecraftServer.N().d.length; ++var3) {
-         class_lg var4 = MinecraftServer.N().d[var3];
+         WorldServer var4 = MinecraftServer.N().d[var3];
          var4.b(var4.M() + (long)var2);
       }
 

@@ -8,7 +8,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
 
 public class class_bv extends class_i {
@@ -31,7 +31,7 @@ public class class_bv extends class_i {
             var3 = a(var2[1], 1, 1000000) * 20;
          }
 
-         class_lg var4 = MinecraftServer.N().d[0];
+         WorldServer var4 = MinecraftServer.N().d[0];
          class_avn var5 = var4.Q();
          if("clear".equalsIgnoreCase(var2[0])) {
             var5.i(var3);

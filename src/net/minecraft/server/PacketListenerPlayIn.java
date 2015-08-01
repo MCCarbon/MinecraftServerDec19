@@ -1,52 +1,52 @@
 package net.minecraft.server;
 
 import net.minecraft.server.PacketListener;
-import net.minecraft.server.class_id;
+import net.minecraft.server.PacketPlayInTabComplete;
 import net.minecraft.server.PacketPlayInChat;
-import net.minecraft.server.class_ig;
-import net.minecraft.server.class_ih;
-import net.minecraft.server.class_ii;
-import net.minecraft.server.class_ij;
-import net.minecraft.server.class_ik;
-import net.minecraft.server.class_il;
-import net.minecraft.server.class_im;
+import net.minecraft.server.PacketPlayInClientCommand;
+import net.minecraft.server.PacketPlayInSettings;
+import net.minecraft.server.PacketPlayInTransaction;
+import net.minecraft.server.PacketPlayInEnchantItem;
+import net.minecraft.server.PacketPlayInWindowClick;
+import net.minecraft.server.PacketPlayInCloseWindow;
+import net.minecraft.server.PacketPlayInCustomPayload;
 import net.minecraft.server.PacketPlayInUseEntity;
 import net.minecraft.server.PacketPlayInKeepAlive;
 import net.minecraft.server.PacketPlayInFlying;
-import net.minecraft.server.class_iq;
+import net.minecraft.server.PacketPlayInAbilities;
 import net.minecraft.server.PacketPlayInBlockDig;
-import net.minecraft.server.class_is;
-import net.minecraft.server.class_it;
-import net.minecraft.server.class_iu;
-import net.minecraft.server.class_iv;
-import net.minecraft.server.class_iw;
-import net.minecraft.server.class_ix;
-import net.minecraft.server.class_iy;
-import net.minecraft.server.class_iz;
+import net.minecraft.server.PacketPlayInEntityAction;
+import net.minecraft.server.PacketPlayInSteerVehicle;
+import net.minecraft.server.PacketPlayInResourcePackStatus;
+import net.minecraft.server.PacketPlayInHeldItemSlot;
+import net.minecraft.server.PacketPlayInSetCreativeSlot;
+import net.minecraft.server.PacketPlayInUpdateSign;
+import net.minecraft.server.PacketPlayInArmAnimation;
+import net.minecraft.server.PacketPlayInSpectate;
 import net.minecraft.server.PacketPlayInBlockPlace;
 import net.minecraft.server.PacketPlayInUseItem;
 
 public interface PacketListenerPlayIn extends PacketListener {
 
-	void handle(class_iy packet);
+	void handle(PacketPlayInArmAnimation packet);
 
 	void handle(PacketPlayInChat packet);
 
-	void handle(class_id packet);
+	void handle(PacketPlayInTabComplete packet);
 
-	void handle(class_ig packet);
+	void handle(PacketPlayInClientCommand packet);
 
-	void handle(class_ih packet);
+	void handle(PacketPlayInSettings packet);
 
-	void handle(class_ii packet);
+	void handle(PacketPlayInTransaction packet);
 
-	void handle(class_ij packet);
+	void handle(PacketPlayInEnchantItem packet);
 
-	void handle(class_ik packet);
+	void handle(PacketPlayInWindowClick packet);
 
-	void handle(class_il packet);
+	void handle(PacketPlayInCloseWindow packet);
 
-	void handle(class_im packet);
+	void handle(PacketPlayInCustomPayload packet);
 
 	void handle(PacketPlayInUseEntity packet);
 
@@ -54,26 +54,26 @@ public interface PacketListenerPlayIn extends PacketListener {
 
 	void handle(PacketPlayInFlying packet);
 
-	void handle(class_iq packet);
+	void handle(PacketPlayInAbilities packet);
 
 	void handle(PacketPlayInBlockDig packet);
 
-	void handle(class_is packet);
+	void handle(PacketPlayInEntityAction packet);
 
-	void handle(class_it packet);
+	void handle(PacketPlayInSteerVehicle packet);
 
-	void handle(class_iv packet);
+	void handle(PacketPlayInHeldItemSlot packet);
 
-	void handle(class_iw packet);
+	void handle(PacketPlayInSetCreativeSlot packet);
 
-	void handle(class_ix packet);
+	void handle(PacketPlayInUpdateSign packet);
 
 	void handle(PacketPlayInBlockPlace packet);
 
 	void handle(PacketPlayInUseItem packet);
 
-	void handle(class_iz packet);
+	void handle(PacketPlayInSpectate packet);
 
-	void handle(class_iu packet);
+	void handle(PacketPlayInResourcePackStatus packet);
 
 }

@@ -7,10 +7,10 @@ import net.minecraft.server.class_amg;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_ft;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.PacketPlayOutTileEntityData;
+import net.minecraft.server.ITickAble;
 
-public class class_amv extends class_amg implements class_kn {
+public class class_amv extends class_amg implements ITickAble {
    private final class_aee a = new class_aee() {
       public void a(int var1) {
          class_amv.this.b.c(class_amv.this.c, Blocks.MOB_SPAWNER, var1, 0);
@@ -43,7 +43,7 @@ public class class_amv extends class_amg implements class_kn {
       this.a.b(var1);
    }
 
-   public void c() {
+   public void tick() {
       this.a.c();
    }
 
@@ -51,7 +51,7 @@ public class class_amv extends class_amg implements class_kn {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
       var1.remove("SpawnPotentials");
-      return new class_ft(this.c, 1, var1);
+      return new PacketPlayOutTileEntityData(this.c, 1, var1);
    }
 
    public boolean c(int var1, int var2) {

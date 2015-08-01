@@ -11,7 +11,7 @@ import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.class_e;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_lj;
 import net.minecraft.server.class_no;
@@ -47,14 +47,14 @@ import org.apache.logging.log4j.Logger;
 
 public class class_lb {
    private static final Logger a = LogManager.getLogger();
-   private final class_lg b;
+   private final WorldServer b;
    private Set c = Sets.newHashSet();
    private class_no d = new class_no();
    private int e;
 
-   public class_lb(class_lg var1) {
+   public class_lb(WorldServer var1) {
       this.b = var1;
-      this.e = var1.s().ap().d();
+      this.e = var1.s().getPlayerList().d();
    }
 
    public void a(class_pr var1) {

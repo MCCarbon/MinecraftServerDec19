@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_awf;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
@@ -197,15 +197,15 @@ public class class_o {
 
 	private static List c(Map var0) {
 		ArrayList var1 = Lists.newArrayList();
-		final int var2 = a(var0, "m", class_aeq.class_a_in_class_aeq.a.a());
-		if (var2 != class_aeq.class_a_in_class_aeq.a.a()) {
+		final int var2 = a(var0, "m", WorldSettings.EnumGameMode.NOT_SET.getId());
+		if (var2 != WorldSettings.EnumGameMode.NOT_SET.getId()) {
 			var1.add(new Predicate() {
 				public boolean a(class_pr var1) {
 					if (!(var1 instanceof class_lh)) {
 						return false;
 					} else {
 						class_lh var2x = (class_lh) var1;
-						return var2x.c.b().a() == var2;
+						return var2x.c.b().getId() == var2;
 					}
 				}
 

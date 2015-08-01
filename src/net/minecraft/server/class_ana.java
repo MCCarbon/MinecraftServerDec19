@@ -18,14 +18,14 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_ft;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.PacketPlayOutTileEntityData;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pr;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_ana extends class_amg implements class_kn {
+public class class_ana extends class_amg implements ITickAble {
    private static final Logger a = LogManager.getLogger();
    private long f = 0L;
    private int g = 0;
@@ -49,7 +49,7 @@ public class class_ana extends class_amg implements class_kn {
 
    }
 
-   public void c() {
+   public void tick() {
       boolean var1 = this.b();
       boolean var2 = this.d();
       ++this.f;
@@ -79,7 +79,7 @@ public class class_ana extends class_amg implements class_kn {
    public Packet z_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      return new class_ft(this.c, 8, var1);
+      return new PacketPlayOutTileEntityData(this.c, 8, var1);
    }
 
    public void h() {

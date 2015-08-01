@@ -152,7 +152,7 @@ public class class_bd extends class_j implements class_h {
       var8.b().a(EnumChatFormat.GRAY);
       var8.b().b(Boolean.valueOf(true));
       if(var6) {
-         Iterator var9 = var7.ap().v().iterator();
+         Iterator var9 = var7.getPlayerList().v().iterator();
 
          label85:
          while(true) {
@@ -169,7 +169,7 @@ public class class_bd extends class_j implements class_h {
 
                         var10 = (class_xa)var9.next();
                      } while(var10 == var1);
-                  } while(!var7.ap().h(var10.cf()));
+                  } while(!var7.getPlayerList().h(var10.cf()));
                } while(!var2.a(var1));
 
                var11 = var1 instanceof MinecraftServer && MinecraftServer.N().r();

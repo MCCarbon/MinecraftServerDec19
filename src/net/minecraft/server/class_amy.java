@@ -10,11 +10,11 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_dy;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_ft;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.PacketPlayOutTileEntityData;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.class_nz;
 
-public class class_amy extends class_amg implements class_kn {
+public class class_amy extends class_amg implements ITickAble {
    private int a;
    private int f;
    private GameProfile g = null;
@@ -51,7 +51,7 @@ public class class_amy extends class_amg implements class_kn {
 
    }
 
-   public void c() {
+   public void tick() {
       if(this.a == 5) {
          if(this.b.z(this.c)) {
             this.i = true;
@@ -70,7 +70,7 @@ public class class_amy extends class_amg implements class_kn {
    public Packet z_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      return new class_ft(this.c, 4, var1);
+      return new PacketPlayOutTileEntityData(this.c, 4, var1);
    }
 
    public void a(int var1) {

@@ -6,7 +6,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_fi;
+import net.minecraft.server.PacketPlayOutPosition;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
@@ -51,25 +51,25 @@ public class class_bn extends class_i {
                class_i.class_a_in_class_i var10 = a((double)((class_pr)var4).z, var2.length > var14?var2[var14]:"~", false);
                float var12;
                if(var4 instanceof class_lh) {
-                  EnumSet var11 = EnumSet.noneOf(class_fi.class_a_in_class_fi.class);
+                  EnumSet var11 = EnumSet.noneOf(PacketPlayOutPosition.class_a_in_class_fi.class);
                   if(var6.c()) {
-                     var11.add(class_fi.class_a_in_class_fi.a);
+                     var11.add(PacketPlayOutPosition.class_a_in_class_fi.a);
                   }
 
                   if(var7.c()) {
-                     var11.add(class_fi.class_a_in_class_fi.b);
+                     var11.add(PacketPlayOutPosition.class_a_in_class_fi.b);
                   }
 
                   if(var8.c()) {
-                     var11.add(class_fi.class_a_in_class_fi.c);
+                     var11.add(PacketPlayOutPosition.class_a_in_class_fi.c);
                   }
 
                   if(var10.c()) {
-                     var11.add(class_fi.class_a_in_class_fi.e);
+                     var11.add(PacketPlayOutPosition.class_a_in_class_fi.e);
                   }
 
                   if(var9.c()) {
-                     var11.add(class_fi.class_a_in_class_fi.d);
+                     var11.add(PacketPlayOutPosition.class_a_in_class_fi.d);
                   }
 
                   var12 = (float)var9.b();

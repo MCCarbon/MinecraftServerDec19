@@ -77,7 +77,7 @@ public class class_aid extends class_agd {
                var11.p_();
                var1.h(var2);
                var4.b(class_nc.T);
-               if(!var4.bH.d) {
+               if(!var4.bH.instabuild) {
                   --var6.count;
                }
 
@@ -121,7 +121,7 @@ public class class_aid extends class_agd {
 
    public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
       super.a(var1, var2, var3, var4);
-      if(var4.bH.d) {
+      if(var4.bH.instabuild) {
          class_amq var5 = this.f(var1, var2);
          if(var5 != null) {
             var5.a((Item)null, 0);

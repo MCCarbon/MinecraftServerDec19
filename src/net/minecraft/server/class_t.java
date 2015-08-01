@@ -46,7 +46,7 @@ public class class_t extends class_i {
       } else {
          int var8 = var3.bp.a(var4, var5, var6, var7);
          var3.bq.b();
-         if(!var3.bH.d) {
+         if(!var3.bH.instabuild) {
             var3.o();
          }
 

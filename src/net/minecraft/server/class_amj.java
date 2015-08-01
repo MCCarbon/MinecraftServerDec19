@@ -7,7 +7,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_ft;
+import net.minecraft.server.PacketPlayOutTileEntityData;
 import net.minecraft.server.class_n;
 import net.minecraft.server.class_pr;
 
@@ -52,7 +52,7 @@ public class class_amj extends class_amg {
    public Packet z_() {
       NBTTagCompound var1 = new NBTTagCompound();
       this.b(var1);
-      return new class_ft(this.c, 2, var1);
+      return new PacketPlayOutTileEntityData(this.c, 2, var1);
    }
 
    public boolean F() {

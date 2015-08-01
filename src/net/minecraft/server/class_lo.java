@@ -49,42 +49,42 @@ import net.minecraft.server.class_fa;
 import net.minecraft.server.class_fb;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_fh;
-import net.minecraft.server.class_fi;
-import net.minecraft.server.class_fv;
-import net.minecraft.server.class_fy;
+import net.minecraft.server.PacketPlayOutPosition;
+import net.minecraft.server.PacketPlayOutBlockChange;
+import net.minecraft.server.PacketPlayOutTabComplete;
 import net.minecraft.server.PacketPlayOutChat;
-import net.minecraft.server.class_gb;
-import net.minecraft.server.class_gi;
+import net.minecraft.server.PacketPlayOutTransaction;
+import net.minecraft.server.PacketPlayOutKickDisconnect;
 import net.minecraft.server.PacketPlayOutKeepAlive;
-import net.minecraft.server.class_he;
-import net.minecraft.server.class_hz;
+import net.minecraft.server.PacketPlayOutRespawn;
+import net.minecraft.server.PacketPlayOutEntityTeleport;
 import net.minecraft.server.PacketListenerPlayIn;
-import net.minecraft.server.class_id;
+import net.minecraft.server.PacketPlayInTabComplete;
 import net.minecraft.server.PacketPlayInChat;
-import net.minecraft.server.class_ig;
-import net.minecraft.server.class_ih;
-import net.minecraft.server.class_ii;
-import net.minecraft.server.class_ij;
-import net.minecraft.server.class_ik;
-import net.minecraft.server.class_il;
-import net.minecraft.server.class_im;
+import net.minecraft.server.PacketPlayInClientCommand;
+import net.minecraft.server.PacketPlayInSettings;
+import net.minecraft.server.PacketPlayInTransaction;
+import net.minecraft.server.PacketPlayInEnchantItem;
+import net.minecraft.server.PacketPlayInWindowClick;
+import net.minecraft.server.PacketPlayInCloseWindow;
+import net.minecraft.server.PacketPlayInCustomPayload;
 import net.minecraft.server.PacketPlayInUseEntity;
 import net.minecraft.server.PacketPlayInKeepAlive;
 import net.minecraft.server.PacketPlayInFlying;
-import net.minecraft.server.class_iq;
+import net.minecraft.server.PacketPlayInAbilities;
 import net.minecraft.server.PacketPlayInBlockDig;
-import net.minecraft.server.class_is;
-import net.minecraft.server.class_it;
-import net.minecraft.server.class_iu;
-import net.minecraft.server.class_iv;
-import net.minecraft.server.class_iw;
-import net.minecraft.server.class_ix;
-import net.minecraft.server.class_iy;
-import net.minecraft.server.class_iz;
+import net.minecraft.server.PacketPlayInEntityAction;
+import net.minecraft.server.PacketPlayInSteerVehicle;
+import net.minecraft.server.PacketPlayInResourcePackStatus;
+import net.minecraft.server.PacketPlayInHeldItemSlot;
+import net.minecraft.server.PacketPlayInSetCreativeSlot;
+import net.minecraft.server.PacketPlayInUpdateSign;
+import net.minecraft.server.PacketPlayInArmAnimation;
+import net.minecraft.server.PacketPlayInSpectate;
 import net.minecraft.server.PacketPlayInBlockPlace;
 import net.minecraft.server.PacketPlayInUseItem;
-import net.minecraft.server.class_kn;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.ITickAble;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_mc;
@@ -111,7 +111,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_lo implements PacketListenerPlayIn, class_kn {
+public class class_lo implements PacketListenerPlayIn, ITickAble {
    private static final Logger c = LogManager.getLogger();
    public final NetworkManager a;
    private final MinecraftServer d;
@@ -139,7 +139,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       var3.a = this;
    }
 
-   public void c() {
+   public void tick() {
       this.h = false;
       ++this.e;
       this.d.c.a("keepAlive");
@@ -171,7 +171,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    public void c(String var1) {
       final class_fa var2 = new class_fa(var1);
-      this.a.sendPacket(new class_gi(var2), new GenericFutureListener() {
+      this.a.sendPacket(new PacketPlayOutKickDisconnect(var2), new GenericFutureListener() {
          public void operationComplete(Future var1) throws Exception {
             class_lo.this.a.close((IChatBaseComponent)var2);
          }
@@ -184,9 +184,9 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       }));
    }
 
-   public void handle(class_it var1) {
+   public void handle(PacketPlayInSteerVehicle var1) {
       class_fh.a(var1, this, this.b.u());
-      this.b.a(var1.a(), var1.b(), var1.c(), var1.d());
+      this.b.a(var1.getSideSpeed(), var1.getForwardSpeed(), var1.isJump(), var1.isUnmount());
    }
 
    private boolean b(PacketPlayInFlying var1) {
@@ -198,7 +198,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       if(this.b(var1)) {
          this.c("Invalid move packet received");
       } else {
-         class_lg var2 = this.d.a(this.b.am);
+         WorldServer var2 = this.d.a(this.b.am);
          this.h = true;
          if(!this.b.i) {
             double var3 = this.b.s;
@@ -239,11 +239,11 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                      this.b.m.al();
                   }
 
-                  this.d.ap().d(this.b);
+                  this.d.getPlayerList().d(this.b);
                   if(this.b.m != null) {
                      if(var9 > 4.0D) {
                         class_pr var45 = this.b.m;
-                        this.b.a.a((Packet)(new class_hz(var45)));
+                        this.b.a.a((Packet)(new PacketPlayOutEntityTeleport(var45)));
                         this.a(this.b.s, this.b.t, this.b.u, this.b.y, this.b.z);
                      }
 
@@ -306,7 +306,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                double var31 = var23 - this.b.u;
                double var33 = this.b.v * this.b.v + this.b.w * this.b.w + this.b.x * this.b.x;
                double var35 = var27 * var27 + var29 * var29 + var31 * var31;
-               if(var35 - var33 > 100.0D && (!this.d.T() || !this.d.S().equals(this.b.e_()))) {
+               if(var35 - var33 > 100.0D && (!this.d.isLocal() || !this.d.S().equals(this.b.e_()))) {
                   c.warn(this.b.e_() + " moved too quickly! " + var27 + "," + var29 + "," + var31 + " (" + var27 + ", " + var29 + ", " + var31 + ")");
                   this.a(this.o, this.p, this.q, this.b.y, this.b.z);
                   return;
@@ -346,7 +346,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                }
 
                class_awf var43 = this.b.aT().b((double)var37, (double)var37, (double)var37).a(0.0D, -0.55D, 0.0D);
-               if (!(this.d.ak() || this.b.bH.c || var2.c(var43) || this.b.a(class_pm.y))) {
+               if (!(this.d.ak() || this.b.bH.mayfly || var2.c(var43) || this.b.a(class_pm.y))) {
                   if(var39 >= -0.03125D) {
                      ++this.g;
                      if(this.g > 80) {
@@ -360,7 +360,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                }
 
                this.b.C = var1.isOnGround();
-               this.d.ap().d(this.b);
+               this.d.getPlayerList().d(this.b);
                this.b.a(this.b.t - var17, var1.isOnGround());
             } else if(this.e - this.f > 20) {
                this.a(this.o, this.p, this.q, this.b.y, this.b.z);
@@ -379,35 +379,35 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       this.o = var1;
       this.p = var3;
       this.q = var5;
-      if(var9.contains(class_fi.class_a_in_class_fi.a)) {
+      if(var9.contains(PacketPlayOutPosition.class_a_in_class_fi.a)) {
          this.o += this.b.s;
       }
 
-      if(var9.contains(class_fi.class_a_in_class_fi.b)) {
+      if(var9.contains(PacketPlayOutPosition.class_a_in_class_fi.b)) {
          this.p += this.b.t;
       }
 
-      if(var9.contains(class_fi.class_a_in_class_fi.c)) {
+      if(var9.contains(PacketPlayOutPosition.class_a_in_class_fi.c)) {
          this.q += this.b.u;
       }
 
       float var10 = var7;
       float var11 = var8;
-      if(var9.contains(class_fi.class_a_in_class_fi.d)) {
+      if(var9.contains(PacketPlayOutPosition.class_a_in_class_fi.d)) {
          var10 = var7 + this.b.y;
       }
 
-      if(var9.contains(class_fi.class_a_in_class_fi.e)) {
+      if(var9.contains(PacketPlayOutPosition.class_a_in_class_fi.e)) {
          var11 = var8 + this.b.z;
       }
 
       this.b.a(this.o, this.p, this.q, var10, var11);
-      this.b.a.a((Packet)(new class_fi(var1, var3, var5, var7, var8, var9)));
+      this.b.a.a((Packet)(new PacketPlayOutPosition(var1, var3, var5, var7, var8, var9)));
    }
 
    public void handle(PacketPlayInBlockDig var1) {
       class_fh.a(var1, this, this.b.u());
-      class_lg var2 = this.d.a(this.b.am);
+      WorldServer var2 = this.d.a(this.b.am);
       BlockPosition var3 = var1.getPosition();
       this.b.z();
       switch(class_lo.SyntheticClass_1.a[var1.getDigType().ordinal()]) {
@@ -450,7 +450,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                if(!this.d.a((World)var2, (BlockPosition)var3, (class_xa)this.b) && var2.ag().a(var3)) {
                   this.b.c.a(var3, var1.getFace());
                } else {
-                  this.b.a.a((Packet)(new class_fv(var2, var3)));
+                  this.b.a.a((Packet)(new PacketPlayOutBlockChange(var2, var3)));
                }
             } else {
                if(var1.getDigType() == PacketPlayInBlockDig.EnumPlayerDigType.STOP_DESTROY_BLOCK) {
@@ -460,7 +460,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                }
 
                if(var2.p(var3).getBlock().getMaterial() != Material.AIR) {
-                  this.b.a.a((Packet)(new class_fv(var2, var3)));
+                  this.b.a.a((Packet)(new PacketPlayOutBlockChange(var2, var3)));
                }
             }
 
@@ -473,7 +473,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    public void handle(PacketPlayInBlockPlace var1) {
       class_fh.a(var1, this, this.b.u());
-      class_lg var2 = this.d.a(this.b.am);
+      WorldServer var2 = this.d.a(this.b.am);
       EnumUsedHand var3 = var1.getHand();
       ItemStack var4 = this.b.b((EnumUsedHand)var3);
       BlockPosition var5 = var1.getPosition();
@@ -487,8 +487,8 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
          this.b.c.a(this.b, var2, var4, var3, var5, var6, var1.getCursorX(), var1.getCursorY(), var1.getCursorZ());
       }
 
-      this.b.a.a((Packet)(new class_fv(var2, var5)));
-      this.b.a.a((Packet)(new class_fv(var2, var5.shift(var6))));
+      this.b.a.a((Packet)(new PacketPlayOutBlockChange(var2, var5)));
+      this.b.a.a((Packet)(new PacketPlayOutBlockChange(var2, var5.shift(var6))));
       var4 = this.b.b((EnumUsedHand)var3);
       if(var4 != null && var4.count == 0) {
          this.b.a((EnumUsedHand)var3, (ItemStack)null);
@@ -499,7 +499,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    public void handle(PacketPlayInUseItem var1) {
       class_fh.a(var1, this, this.b.u());
-      class_lg var2 = this.d.a(this.b.am);
+      WorldServer var2 = this.d.a(this.b.am);
       EnumUsedHand var3 = var1.getActiveHand();
       ItemStack var4 = this.b.b((EnumUsedHand)var3);
       this.b.z();
@@ -514,17 +514,17 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       }
    }
 
-   public void handle(class_iz var1) {
+   public void handle(PacketPlayInSpectate var1) {
       class_fh.a(var1, this, this.b.u());
       if(this.b.v()) {
          class_pr var2 = null;
-         class_lg[] var3 = this.d.d;
+         WorldServer[] var3 = this.d.d;
          int var4 = var3.length;
 
          for(int var5 = 0; var5 < var4; ++var5) {
-            class_lg var6 = var3[var5];
+            WorldServer var6 = var3[var5];
             if(var6 != null) {
-               var2 = var1.a(var6);
+               var2 = var1.getEntity(var6);
                if(var2 != null) {
                   break;
                }
@@ -535,10 +535,10 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
             this.b.e(this.b);
             this.b.a((class_pr)null);
             if(var2.o != this.b.o) {
-               class_lg var7 = this.b.u();
-               class_lg var8 = (class_lg)var2.o;
+               WorldServer var7 = this.b.u();
+               WorldServer var8 = (WorldServer)var2.o;
                this.b.am = var2.am;
-               this.a((Packet)(new class_he(this.b.am, var7.ab(), var7.Q().u(), this.b.c.b())));
+               this.a((Packet)(new PacketPlayOutRespawn(this.b.am, var7.ab(), var7.Q().u(), this.b.c.b())));
                var7.f(this.b);
                this.b.I = false;
                this.b.b(var2.s, var2.t, var2.u, var2.y, var2.z);
@@ -549,11 +549,11 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                }
 
                this.b.a((World)var8);
-               this.d.ap().a(this.b, var7);
+               this.d.getPlayerList().a(this.b, var7);
                this.b.a(var2.s, var2.t, var2.u);
                this.b.c.a(var8);
-               this.d.ap().b(this.b, var8);
-               this.d.ap().f(this.b);
+               this.d.getPlayerList().b(this.b, var8);
+               this.d.getPlayerList().f(this.b);
             } else {
                this.b.a(var2.s, var2.t, var2.u);
             }
@@ -562,7 +562,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    }
 
-   public void handle(class_iu var1) {
+   public void handle(PacketPlayInResourcePackStatus var1) {
    }
 
    public void disconnect(IChatBaseComponent var1) {
@@ -570,10 +570,10 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       this.d.aH();
       class_fb var2 = new class_fb("multiplayer.player.left", new Object[]{this.b.f_()});
       var2.b().a(EnumChatFormat.YELLOW);
-      this.d.ap().a((IChatBaseComponent)var2);
+      this.d.getPlayerList().a((IChatBaseComponent)var2);
       this.b.q();
-      this.d.ap().e(this.b);
-      if(this.d.T() && this.b.e_().equals(this.d.S())) {
+      this.d.getPlayerList().e(this.b);
+      if(this.d.isLocal() && this.b.e_().equals(this.d.S())) {
          c.info("Stopping singleplayer server as player logged out");
          this.d.w();
       }
@@ -583,12 +583,12 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
    public void a(final Packet var1) {
       if(var1 instanceof PacketPlayOutChat) {
          PacketPlayOutChat var2 = (PacketPlayOutChat)var1;
-         class_xa.class_b_in_class_xa var3 = this.b.y();
-         if(var3 == class_xa.class_b_in_class_xa.c) {
+         class_xa.ChatMode var3 = this.b.y();
+         if(var3 == class_xa.ChatMode.HIDDEN) {
             return;
          }
 
-         if(var3 == class_xa.class_b_in_class_xa.b && !var2.b()) {
+         if(var3 == class_xa.ChatMode.SYSTEM && !var2.b()) {
             return;
          }
       }
@@ -612,10 +612,10 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       }
    }
 
-   public void handle(class_iv var1) {
+   public void handle(PacketPlayInHeldItemSlot var1) {
       class_fh.a(var1, this, this.b.u());
-      if(var1.a() >= 0 && var1.a() < class_wz.i()) {
-         this.b.bp.d = var1.a();
+      if(var1.getSlot() >= 0 && var1.getSlot() < class_wz.i()) {
+         this.b.bp.d = var1.getSlot();
          this.b.z();
       } else {
          c.warn(this.b.e_() + " tried to set an invalid carried item");
@@ -624,7 +624,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    public void handle(PacketPlayInChat var1) {
       class_fh.a(var1, this, this.b.u());
-      if(this.b.y() == class_xa.class_b_in_class_xa.c) {
+      if(this.b.y() == class_xa.ChatMode.HIDDEN) {
          class_fb var4 = new class_fb("chat.cannotSend", new Object[0]);
          var4.b().a(EnumChatFormat.RED);
          this.a((Packet)(new PacketPlayOutChat(var4)));
@@ -644,11 +644,11 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
             this.d(var2);
          } else {
             class_fb var5 = new class_fb("chat.type.text", new Object[]{this.b.f_(), var2});
-            this.d.ap().a(var5, false);
+            this.d.getPlayerList().a(var5, false);
          }
 
          this.l += 20;
-         if(this.l > 200 && !this.d.ap().h(this.b.cf())) {
+         if(this.l > 200 && !this.d.getPlayerList().h(this.b.cf())) {
             this.c("disconnect.spam");
          }
 
@@ -659,16 +659,16 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       this.d.P().a(this.b, var1);
    }
 
-   public void handle(class_iy var1) {
+   public void handle(PacketPlayInArmAnimation var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
-      this.b.a((EnumUsedHand)var1.a());
+      this.b.a((EnumUsedHand)var1.getHand());
    }
 
-   public void handle(class_is var1) {
+   public void handle(PacketPlayInEntityAction var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
-      switch(class_lo.SyntheticClass_1.b[var1.b().ordinal()]) {
+      switch(class_lo.SyntheticClass_1.b[var1.getAction().ordinal()]) {
       case 1:
          this.b.c(true);
          break;
@@ -687,7 +687,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
          break;
       case 6:
          if(this.b.m instanceof class_tz) {
-            ((class_tz)this.b.m).q(var1.c());
+            ((class_tz)this.b.m).q(var1.getJumpBoost());
          }
          break;
       case 7:
@@ -703,7 +703,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    public void handle(PacketPlayInUseEntity var1) {
       class_fh.a(var1, this, this.b.u());
-      class_lg var2 = this.d.a(this.b.am);
+      WorldServer var2 = this.d.a(this.b.am);
       class_pr var3 = var1.getEntity((World)var2);
       this.b.z();
       if(var3 != null) {
@@ -738,21 +738,21 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    }
 
-   public void handle(class_ig var1) {
+   public void handle(PacketPlayInClientCommand var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
-      class_ig.class_a_in_class_ig var2 = var1.a();
+      PacketPlayInClientCommand.EnumClientCommand var2 = var1.a();
       switch(class_lo.SyntheticClass_1.c[var2.ordinal()]) {
       case 1:
          if(this.b.i) {
-            this.b = this.d.ap().a(this.b, 0, true);
+            this.b = this.d.getPlayerList().a(this.b, 0, true);
          } else if(this.b.u().Q().t()) {
-            if(this.d.T() && this.b.e_().equals(this.d.S())) {
+            if(this.d.isLocal() && this.b.e_().equals(this.d.S())) {
                this.b.a.c("You have died. Game over, man, it\'s game over!");
                this.d.aa();
             } else {
                class_mf var3 = new class_mf(this.b.cf(), (Date)null, "(You just lost the game)", (Date)null, "Death in Hardcore");
-               this.d.ap().h().a((class_mc)var3);
+               this.d.getPlayerList().h().a((class_mc)var3);
                this.b.a.c("You have died. Game over, man, it\'s game over!");
             }
          } else {
@@ -760,7 +760,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                return;
             }
 
-            this.b = this.d.ap().a(this.b, 0, false);
+            this.b = this.d.getPlayerList().a(this.b, 0, false);
          }
          break;
       case 2:
@@ -772,15 +772,15 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    }
 
-   public void handle(class_il var1) {
+   public void handle(PacketPlayInCloseWindow var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.p();
    }
 
-   public void handle(class_ik var1) {
+   public void handle(PacketPlayInWindowClick var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
-      if(this.b.br.d == var1.a() && this.b.br.c(this.b)) {
+      if(this.b.br.d == var1.getWindowId() && this.b.br.c(this.b)) {
          if(this.b.v()) {
             ArrayList var2 = Lists.newArrayList();
 
@@ -790,16 +790,16 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
             this.b.a((class_xz)this.b.br, (List)var2);
          } else {
-            ItemStack var5 = this.b.br.a(var1.b(), var1.c(), var1.f(), this.b);
-            if(ItemStack.b(var1.e(), var5)) {
-               this.b.a.a((Packet)(new class_gb(var1.a(), var1.d(), true)));
+            ItemStack var5 = this.b.br.a(var1.getSlot(), var1.getButton(), var1.getMode(), this.b);
+            if(ItemStack.b(var1.getItemStack(), var5)) {
+               this.b.a.a((Packet)(new PacketPlayOutTransaction(var1.getWindowId(), var1.getActionCounter(), true)));
                this.b.g = true;
                this.b.br.b();
                this.b.o();
                this.b.g = false;
             } else {
-               this.n.a(this.b.br.d, Short.valueOf(var1.d()));
-               this.b.a.a((Packet)(new class_gb(var1.a(), var1.d(), false)));
+               this.n.a(this.b.br.d, Short.valueOf(var1.getActionCounter()));
+               this.b.a.a((Packet)(new PacketPlayOutTransaction(var1.getWindowId(), var1.getActionCounter(), false)));
                this.b.br.a(this.b, false);
                ArrayList var6 = Lists.newArrayList();
 
@@ -814,21 +814,21 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    }
 
-   public void handle(class_ij var1) {
+   public void handle(PacketPlayInEnchantItem var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
-      if(this.b.br.d == var1.a() && this.b.br.c(this.b) && !this.b.v()) {
-         this.b.br.a((class_xa)this.b, var1.b());
+      if(this.b.br.d == var1.getWindowId() && this.b.br.c(this.b) && !this.b.v()) {
+         this.b.br.a((class_xa)this.b, var1.getEnchantment());
          this.b.br.b();
       }
 
    }
 
-   public void handle(class_iw var1) {
+   public void handle(PacketPlayInSetCreativeSlot var1) {
       class_fh.a(var1, this, this.b.u());
       if(this.b.c.d()) {
-         boolean var2 = var1.a() < 0;
-         ItemStack var3 = var1.b();
+         boolean var2 = var1.getSlot() < 0;
+         ItemStack var3 = var1.getItemStack();
          if(var3 != null && var3.hasTag() && var3.getTag().hasOfType("BlockEntityTag", 10)) {
             NBTTagCompound var4 = var3.getTag().getCompound("BlockEntityTag");
             if(var4.has("x") && var4.has("y") && var4.has("z")) {
@@ -845,14 +845,14 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
             }
          }
 
-         boolean var8 = var1.a() >= 1 && var1.a() <= 45;
+         boolean var8 = var1.getSlot() >= 1 && var1.getSlot() <= 45;
          boolean var9 = var3 == null || var3.getItem() != null;
          boolean var10 = var3 == null || var3.i() >= 0 && var3.count <= 64 && var3.count > 0;
          if(var8 && var9 && var10) {
             if(var3 == null) {
-               this.b.bq.a(var1.a(), (ItemStack)null);
+               this.b.bq.a(var1.getSlot(), (ItemStack)null);
             } else {
-               this.b.bq.a(var1.a(), var3);
+               this.b.bq.a(var1.getSlot(), var3);
             }
 
             this.b.bq.a(this.b, true);
@@ -867,20 +867,20 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
 
    }
 
-   public void handle(class_ii var1) {
+   public void handle(PacketPlayInTransaction var1) {
       class_fh.a(var1, this, this.b.u());
       Short var2 = (Short)this.n.a(this.b.br.d);
-      if(var2 != null && var1.b() == var2.shortValue() && this.b.br.d == var1.a() && !this.b.br.c(this.b) && !this.b.v()) {
+      if(var2 != null && var1.getActionNumber() == var2.shortValue() && this.b.br.d == var1.getWindowId() && !this.b.br.c(this.b) && !this.b.v()) {
          this.b.br.a(this.b, true);
       }
 
    }
 
-   public void handle(class_ix var1) {
+   public void handle(PacketPlayInUpdateSign var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
-      class_lg var2 = this.d.a(this.b.am);
-      BlockPosition var3 = var1.a();
+      WorldServer var2 = this.d.a(this.b.am);
+      BlockPosition var3 = var1.getPosition();
       if(var2.e(var3)) {
          class_amg var4 = var2.s(var3);
          if(!(var4 instanceof class_amx)) {
@@ -893,7 +893,7 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
             return;
          }
 
-         IChatBaseComponent[] var6 = var1.b();
+         IChatBaseComponent[] var6 = var1.getLines();
 
          for(int var7 = 0; var7 < var6.length; ++var7) {
             var5.a[var7] = new class_fa(EnumChatFormat.stripFormatting(var6[var7].c()));
@@ -917,36 +917,36 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       return System.nanoTime() / 1000000L;
    }
 
-   public void handle(class_iq var1) {
+   public void handle(PacketPlayInAbilities var1) {
       class_fh.a(var1, this, this.b.u());
-      this.b.bH.b = var1.b() && this.b.bH.c;
+      this.b.bH.flying = var1.isFlying() && this.b.bH.mayfly;
    }
 
-   public void handle(class_id var1) {
+   public void handle(PacketPlayInTabComplete var1) {
       class_fh.a(var1, this, this.b.u());
       ArrayList var2 = Lists.newArrayList();
-      Iterator var3 = this.d.a((class_m)this.b, (String)var1.a(), (BlockPosition)var1.b()).iterator();
+      Iterator var3 = this.d.a((class_m)this.b, (String)var1.getText(), (BlockPosition)var1.getPosition()).iterator();
 
       while(var3.hasNext()) {
          String var4 = (String)var3.next();
          var2.add(var4);
       }
 
-      this.b.a.a((Packet)(new class_fy((String[])var2.toArray(new String[var2.size()]))));
+      this.b.a.a((Packet)(new PacketPlayOutTabComplete((String[])var2.toArray(new String[var2.size()]))));
    }
 
-   public void handle(class_ih var1) {
+   public void handle(PacketPlayInSettings var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.a(var1);
    }
 
-   public void handle(class_im var1) {
+   public void handle(PacketPlayInCustomPayload var1) {
       class_fh.a(var1, this, this.b.u());
       ItemStack var67;
       ItemStack var72;
       PacketDataSerializer var61;
-      if("MC|BEdit".equals(var1.a())) {
-         var61 = new PacketDataSerializer(Unpooled.wrappedBuffer((ByteBuf)var1.b()));
+      if("MC|BEdit".equals(var1.getTag())) {
+         var61 = new PacketDataSerializer(Unpooled.wrappedBuffer((ByteBuf)var1.getData()));
 
          try {
             var67 = var61.readItemStack();
@@ -974,8 +974,8 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
          }
 
          return;
-      } else if("MC|BSign".equals(var1.a())) {
-         var61 = new PacketDataSerializer(Unpooled.wrappedBuffer((ByteBuf)var1.b()));
+      } else if("MC|BSign".equals(var1.getTag())) {
+         var61 = new PacketDataSerializer(Unpooled.wrappedBuffer((ByteBuf)var1.getData()));
 
          try {
             var67 = var61.readItemStack();
@@ -1006,9 +1006,9 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
          }
 
          return;
-      } else if("MC|TrSel".equals(var1.a())) {
+      } else if("MC|TrSel".equals(var1.getTag())) {
          try {
-            int var2 = var1.b().readInt();
+            int var2 = var1.getData().readInt();
             class_xz var3 = this.b.br;
             if(var3 instanceof class_ys) {
                ((class_ys)var3).d(var2);
@@ -1016,11 +1016,11 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
          } catch (Exception var56) {
             c.error((String)"Couldn\'t select trade", (Throwable)var56);
          }
-      } else if("MC|AdvCdm".equals(var1.a())) {
+      } else if("MC|AdvCdm".equals(var1.getTag())) {
          if(!this.d.al()) {
             this.b.a((IChatBaseComponent)(new class_fb("advMode.notEnabled", new Object[0])));
-         } else if(this.b.a(2, "") && this.b.bH.d) {
-            var61 = var1.b();
+         } else if(this.b.a(2, "") && this.b.bH.instabuild) {
+            var61 = var1.getData();
 
             try {
                byte var63 = var61.readByte();
@@ -1057,10 +1057,10 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
          } else {
             this.b.a((IChatBaseComponent)(new class_fb("advMode.notAllowed", new Object[0])));
          }
-      } else if("MC|Beacon".equals(var1.a())) {
+      } else if("MC|Beacon".equals(var1.getTag())) {
          if(this.b.br instanceof class_yc) {
             try {
-               var61 = var1.b();
+               var61 = var1.getData();
                int var64 = var61.readInt();
                int var68 = var61.readInt();
                class_yc var73 = (class_yc)this.b.br;
@@ -1076,11 +1076,11 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                c.error((String)"Couldn\'t set beacon", (Throwable)var53);
             }
          }
-      } else if("MC|ItemName".equals(var1.a())) {
+      } else if("MC|ItemName".equals(var1.getTag())) {
          if(this.b.br instanceof class_yb) {
             class_yb var62 = (class_yb)this.b.br;
-            if(var1.b() != null && var1.b().readableBytes() >= 1) {
-               String var65 = class_f.a(var1.b().readString(32767));
+            if(var1.getData() != null && var1.getData().readableBytes() >= 1) {
+               String var65 = class_f.a(var1.getData().readString(32767));
                if(var65.length() <= 30) {
                   var62.a(var65);
                }
@@ -1088,11 +1088,11 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
                var62.a("");
             }
          }
-      } else if("MC|Struct".equals(var1.a())) {
-         var61 = var1.b();
+      } else if("MC|Struct".equals(var1.getTag())) {
+         var61 = var1.getData();
 
          try {
-            if(this.b.a(4, "") && this.b.bH.d) {
+            if(this.b.a(4, "") && this.b.bH.instabuild) {
                BlockPosition var66 = new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt());
                class_amg var70 = this.b.o.s(var66);
                if(var70 instanceof class_amz) {
@@ -1145,67 +1145,67 @@ public class class_lo implements PacketListenerPlayIn, class_kn {
       // $FF: synthetic field
       static final int[] b;
       // $FF: synthetic field
-      static final int[] c = new int[class_ig.class_a_in_class_ig.values().length];
+      static final int[] c = new int[PacketPlayInClientCommand.EnumClientCommand.values().length];
 
       static {
          try {
-            c[class_ig.class_a_in_class_ig.a.ordinal()] = 1;
+            c[PacketPlayInClientCommand.EnumClientCommand.PERFORM_RESPAWN.ordinal()] = 1;
          } catch (NoSuchFieldError var17) {
             ;
          }
 
          try {
-            c[class_ig.class_a_in_class_ig.b.ordinal()] = 2;
+            c[PacketPlayInClientCommand.EnumClientCommand.REQUEST_STATS.ordinal()] = 2;
          } catch (NoSuchFieldError var16) {
             ;
          }
 
          try {
-            c[class_ig.class_a_in_class_ig.c.ordinal()] = 3;
+            c[PacketPlayInClientCommand.EnumClientCommand.OPEN_INVENTORY_ACHIEVEMENT.ordinal()] = 3;
          } catch (NoSuchFieldError var15) {
             ;
          }
 
-         b = new int[class_is.class_a_in_class_is.values().length];
+         b = new int[PacketPlayInEntityAction.EnumPlayerAction.values().length];
 
          try {
-            b[class_is.class_a_in_class_is.a.ordinal()] = 1;
+            b[PacketPlayInEntityAction.EnumPlayerAction.START_SNEAKING.ordinal()] = 1;
          } catch (NoSuchFieldError var14) {
             ;
          }
 
          try {
-            b[class_is.class_a_in_class_is.b.ordinal()] = 2;
+            b[PacketPlayInEntityAction.EnumPlayerAction.STOP_SNEAKING.ordinal()] = 2;
          } catch (NoSuchFieldError var13) {
             ;
          }
 
          try {
-            b[class_is.class_a_in_class_is.d.ordinal()] = 3;
+            b[PacketPlayInEntityAction.EnumPlayerAction.START_SPRINTING.ordinal()] = 3;
          } catch (NoSuchFieldError var12) {
             ;
          }
 
          try {
-            b[class_is.class_a_in_class_is.e.ordinal()] = 4;
+            b[PacketPlayInEntityAction.EnumPlayerAction.STOP_SPRINTING.ordinal()] = 4;
          } catch (NoSuchFieldError var11) {
             ;
          }
 
          try {
-            b[class_is.class_a_in_class_is.c.ordinal()] = 5;
+            b[PacketPlayInEntityAction.EnumPlayerAction.STOP_SLEEPING.ordinal()] = 5;
          } catch (NoSuchFieldError var10) {
             ;
          }
 
          try {
-            b[class_is.class_a_in_class_is.f.ordinal()] = 6;
+            b[PacketPlayInEntityAction.EnumPlayerAction.RIDING_JUMP.ordinal()] = 6;
          } catch (NoSuchFieldError var9) {
             ;
          }
 
          try {
-            b[class_is.class_a_in_class_is.g.ordinal()] = 7;
+            b[PacketPlayInEntityAction.EnumPlayerAction.OPEN_INVENTORY.ordinal()] = 7;
          } catch (NoSuchFieldError var8) {
             ;
          }

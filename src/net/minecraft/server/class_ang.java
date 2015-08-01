@@ -11,10 +11,10 @@ import net.minecraft.server.class_awf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.class_pr;
 
-public class class_ang extends class_amg implements class_kn {
+public class class_ang extends class_amg implements ITickAble {
    private IBlockData a;
    private EnumDirection f;
    private boolean g;
@@ -111,7 +111,7 @@ public class class_ang extends class_amg implements class_kn {
 
    }
 
-   public void c() {
+   public void tick() {
       this.j = this.i;
       if(this.j >= 1.0F) {
          this.a(1.0F, 0.25F);

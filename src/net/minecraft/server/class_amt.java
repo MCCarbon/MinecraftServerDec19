@@ -18,7 +18,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_kn;
+import net.minecraft.server.ITickAble;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oj;
 import net.minecraft.server.class_oz;
@@ -30,7 +30,7 @@ import net.minecraft.server.class_xa;
 import net.minecraft.server.class_xz;
 import net.minecraft.server.class_yn;
 
-public class class_amt extends class_amu implements class_ams, class_kn {
+public class class_amt extends class_amu implements class_ams, ITickAble {
    private ItemStack[] a = new ItemStack[5];
    private String f;
    private int g = -1;
@@ -152,7 +152,7 @@ public class class_amt extends class_amu implements class_ams, class_kn {
       return true;
    }
 
-   public void c() {
+   public void tick() {
       if(this.b != null && !this.b.D) {
          --this.g;
          if(!this.n()) {

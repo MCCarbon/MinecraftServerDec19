@@ -18,7 +18,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_gm;
+import net.minecraft.server.PacketPlayOutGameStateChange;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.MathHelper;
@@ -163,7 +163,7 @@ public class class_xd extends class_pr implements class_xi {
 
          if(var6 != null && var6.d != null && var6.d instanceof class_xa) {
             class_xa var8 = (class_xa)var6.d;
-            if(var8.bH.a || this.e instanceof class_xa && !((class_xa)this.e).a(var8)) {
+            if(var8.bH.invulnerable || this.e instanceof class_xa && !((class_xa)this.e).a(var8)) {
                var6 = null;
             }
          }
@@ -267,7 +267,7 @@ public class class_xd extends class_pr implements class_xi {
 
                this.b(var6);
                if(this.e != null && var6 != this.e && var6 instanceof class_xa && this.e instanceof class_lh) {
-                  ((class_lh)this.e).a.a((Packet)(new class_gm(6, 0.0F)));
+                  ((class_lh)this.e).a.a((Packet)(new PacketPlayOutGameStateChange(6, 0.0F)));
                }
             }
 
@@ -378,7 +378,7 @@ public class class_xd extends class_pr implements class_xi {
 
    public void d(class_xa var1) {
       if(!this.o.D && this.a && this.d <= 0) {
-         boolean var2 = this.c == 1 || this.c == 2 && var1.bH.d;
+         boolean var2 = this.c == 1 || this.c == 2 && var1.bH.instabuild;
          if(this.c == 1 && !var1.bp.a(this.j())) {
             var2 = false;
          }

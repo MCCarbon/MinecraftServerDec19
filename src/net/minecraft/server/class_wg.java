@@ -15,7 +15,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Packet;
-import net.minecraft.server.class_gm;
+import net.minecraft.server.PacketPlayOutGameStateChange;
 import net.minecraft.server.class_lh;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_oc;
@@ -335,7 +335,7 @@ public class class_wg extends class_wi {
                   var8 = (class_lh)var7.next();
                } while(var8.a((class_pk)var5) && var8.b((class_pk)var5).c() >= 2 && var8.b((class_pk)var5).b() >= 1200);
 
-               var8.a.a((Packet)(new class_gm(10, 0.0F)));
+               var8.a.a((Packet)(new PacketPlayOutGameStateChange(10, 0.0F)));
                var8.c(new class_pl(var5, 6000, 2));
             }
          }

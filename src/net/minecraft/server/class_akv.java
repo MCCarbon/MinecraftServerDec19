@@ -108,7 +108,7 @@ public class class_akv extends class_agd {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
-      if(var4.bH.d) {
+      if(var4.bH.instabuild) {
          var3 = var3.set(b, Boolean.valueOf(true));
          var1.a((BlockPosition)var2, (IBlockData)var3, 4);
       }

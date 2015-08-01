@@ -16,7 +16,7 @@ import net.minecraft.server.class_dc;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_pc;
@@ -407,7 +407,7 @@ public class class_uy extends class_qa {
       if(var5 == null || (this.bB & 1 << var2.c() + 8) == 0) {
          if(var5 != null || (this.bB & 1 << var2.c() + 16) == 0) {
             ItemStack var6;
-            if(var1.bH.d && (var5 == null || var5.getItem() == Item.getByBlock(Blocks.AIR)) && var3 != null) {
+            if(var1.bH.instabuild && (var5 == null || var5.getItem() == Item.getByBlock(Blocks.AIR)) && var3 != null) {
                var6 = var3.clone();
                var6.count = 1;
                this.a(var2, var6);
@@ -458,7 +458,7 @@ public class class_uy extends class_qa {
                   var1.i().J();
                }
 
-               if(var1.j() instanceof class_xa && !((class_xa)var1.j()).bH.e) {
+               if(var1.j() instanceof class_xa && !((class_xa)var1.j()).bH.mayBuild) {
                   return false;
                } else if(var1.u()) {
                   this.C();
@@ -484,8 +484,8 @@ public class class_uy extends class_qa {
    }
 
    private void C() {
-      if(this.o instanceof class_lg) {
-         ((class_lg)this.o).a(class_cy.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.getCombinedId(Blocks.PLANKS.getBlockData())});
+      if(this.o instanceof WorldServer) {
+         ((WorldServer)this.o).a(class_cy.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.getCombinedId(Blocks.PLANKS.getBlockData())});
       }
 
    }

@@ -354,7 +354,7 @@ public class class_wo extends class_qb implements class_wd {
 
       public boolean a() {
          class_qa var1 = this.a.w();
-         return var1 == null?false:(!var1.ai()?false:!(var1 instanceof class_xa) || !((class_xa)var1).bH.a);
+         return var1 == null?false:(!var1.ai()?false:!(var1 instanceof class_xa) || !((class_xa)var1).bH.invulnerable);
       }
 
       public void c() {
@@ -364,7 +364,7 @@ public class class_wo extends class_qb implements class_wd {
 
       public boolean b() {
          class_qa var1 = this.a.w();
-         return var1 == null?false:(!var1.ai()?false:(var1 instanceof class_xa && ((class_xa)var1).bH.a?false:--this.b > 0));
+         return var1 == null?false:(!var1.ai()?false:(var1 instanceof class_xa && ((class_xa)var1).bH.invulnerable?false:--this.b > 0));
       }
 
       public void e() {

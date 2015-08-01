@@ -180,9 +180,9 @@ public class class_yj extends class_xz {
       ItemStack var3 = this.a.a(0);
       ItemStack var4 = this.a.a(1);
       int var5 = var2 + 1;
-      if((var4 == null || var4.count < var5) && !var1.bH.d) {
+      if((var4 == null || var4.count < var5) && !var1.bH.instabuild) {
          return false;
-      } else if(this.g[var2] <= 0 || var3 == null || (var1.bI < var5 || var1.bI < this.g[var2]) && !var1.bH.d) {
+      } else if(this.g[var2] <= 0 || var3 == null || (var1.bI < var5 || var1.bI < this.g[var2]) && !var1.bH.instabuild) {
          return false;
       } else {
          if(!this.j.D) {
@@ -203,7 +203,7 @@ public class class_yj extends class_xz {
                   }
                }
 
-               if(!var1.bH.d) {
+               if(!var1.bH.instabuild) {
                   var4.count -= var5;
                   if(var4.count <= 0) {
                      this.a.a(1, (ItemStack)null);

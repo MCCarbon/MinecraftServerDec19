@@ -10,7 +10,7 @@ import net.minecraft.server.class_xa;
 
 public class class_bi extends class_i {
    public boolean a(class_m var1) {
-      return MinecraftServer.N().T() || super.a(var1);
+      return MinecraftServer.N().isLocal() || super.a(var1);
    }
 
    public String c() {

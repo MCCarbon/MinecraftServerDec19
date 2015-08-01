@@ -90,7 +90,7 @@ public class class_vk extends class_pr {
             this.a(10);
             this.a(this.j() + var2 * 10.0F);
             this.ac();
-            boolean var3 = var1.j() instanceof class_xa && ((class_xa)var1.j()).bH.d;
+            boolean var3 = var1.j() instanceof class_xa && ((class_xa)var1.j()).bH.instabuild;
             if(var3 || this.j() > 40.0F) {
                if(this.l != null) {
                   this.l.a((class_pr)this);

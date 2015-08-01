@@ -27,7 +27,7 @@ public class class_r extends class_i {
    }
 
    public boolean a(class_m var1) {
-      return MinecraftServer.N().ap().h().b() && super.a(var1);
+      return MinecraftServer.N().getPlayerList().h().b() && super.a(var1);
    }
 
    public void a(class_m var1, String[] var2) throws class_bz {
@@ -43,8 +43,8 @@ public class class_r extends class_i {
             }
 
             class_mf var6 = new class_mf(var4, (Date)null, var1.e_(), (Date)null, var5);
-            var3.ap().h().a((class_mc)var6);
-            class_lh var7 = var3.ap().a(var2[0]);
+            var3.getPlayerList().h().a((class_mc)var6);
+            class_lh var7 = var3.getPlayerList().a(var2[0]);
             if(var7 != null) {
                var7.a.c("You are banned from this server.");
             }

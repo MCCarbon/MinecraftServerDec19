@@ -36,7 +36,7 @@ public class class_sy extends class_rm {
          public boolean a(class_pr var1) {
             if(!(var1 instanceof class_xa)) {
                return false;
-            } else if(((class_xa)var1).bH.a) {
+            } else if(((class_xa)var1).bH.invulnerable) {
                return false;
             } else {
                double var2 = class_sy.this.f();
@@ -83,7 +83,7 @@ public class class_sy extends class_rm {
          return false;
       } else if(!var1.ai()) {
          return false;
-      } else if(var1 instanceof class_xa && ((class_xa)var1).bH.a) {
+      } else if(var1 instanceof class_xa && ((class_xa)var1).bH.invulnerable) {
          return false;
       } else {
          class_awp var2 = this.b.bP();

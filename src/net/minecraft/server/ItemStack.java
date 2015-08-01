@@ -200,7 +200,7 @@ public final class ItemStack {
 	}
 
 	public void a(int var1, class_qa var2) {
-		if (!(var2 instanceof class_xa) || !((class_xa) var2).bH.d) {
+		if (!(var2 instanceof class_xa) || !((class_xa) var2).bH.instabuild) {
 			if (e()) {
 				if (this.a(var1, var2.bd())) {
 					var2.b(this);

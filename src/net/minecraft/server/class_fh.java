@@ -7,7 +7,7 @@ import net.minecraft.server.class_of;
 
 public class class_fh {
    public static void a(final Packet var0, final PacketListener var1, class_of var2) throws class_kj {
-      if(!var2.aJ()) {
+      if(!var2.isMainThread()) {
          var2.a(new Runnable() {
             public void run() {
                var0.handle(var1);

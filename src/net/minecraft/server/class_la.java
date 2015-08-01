@@ -7,14 +7,14 @@ import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avk;
 import net.minecraft.server.class_avo;
-import net.minecraft.server.class_lg;
+import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_nv;
 import net.minecraft.server.class_tr;
 
-public class class_la extends class_lg {
-   private class_lg a;
+public class class_la extends WorldServer {
+   private WorldServer a;
 
-   public class_la(MinecraftServer var1, class_avo var2, int var3, class_lg var4, class_nv var5) {
+   public class_la(MinecraftServer var1, class_avo var2, int var3, WorldServer var4, class_nv var5) {
       super(var1, var2, new class_avk(var4.Q()), var3, var5);
       this.a = var4;
       var4.ag().a(new class_aoc() {

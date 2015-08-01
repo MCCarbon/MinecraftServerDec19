@@ -1,218 +1,218 @@
 package net.minecraft.server;
 
 import net.minecraft.server.PacketListener;
-import net.minecraft.server.class_fi;
-import net.minecraft.server.class_fk;
-import net.minecraft.server.class_fl;
-import net.minecraft.server.class_fm;
-import net.minecraft.server.class_fn;
-import net.minecraft.server.class_fo;
-import net.minecraft.server.class_fp;
-import net.minecraft.server.class_fq;
-import net.minecraft.server.class_fr;
-import net.minecraft.server.class_fs;
-import net.minecraft.server.class_ft;
-import net.minecraft.server.class_fu;
-import net.minecraft.server.class_fv;
-import net.minecraft.server.class_fw;
-import net.minecraft.server.class_fx;
-import net.minecraft.server.class_fy;
+import net.minecraft.server.PacketPlayOutPosition;
+import net.minecraft.server.PacketPlayOutSpawnEntity;
+import net.minecraft.server.PacketPlayOutSpawnEntityExperienceOrb;
+import net.minecraft.server.PacketPlayOutSpawnEntityWeather;
+import net.minecraft.server.PacketPlayOutSpawnEntityLiving;
+import net.minecraft.server.PacketPlayOutSpawnEntityPainting;
+import net.minecraft.server.PacketPlayOutNamedEntitySpawn;
+import net.minecraft.server.PacketPlayOutAnimation;
+import net.minecraft.server.PacketPlayOutStatistic;
+import net.minecraft.server.PacketPlayOutBlockBreakAnimation;
+import net.minecraft.server.PacketPlayOutTileEntityData;
+import net.minecraft.server.PacketPlayOutBlockAction;
+import net.minecraft.server.PacketPlayOutBlockChange;
+import net.minecraft.server.PacketPlayOutBossBar;
+import net.minecraft.server.PacketPlayOutServerDifficulty;
+import net.minecraft.server.PacketPlayOutTabComplete;
 import net.minecraft.server.PacketPlayOutChat;
-import net.minecraft.server.class_ga;
-import net.minecraft.server.class_gb;
-import net.minecraft.server.class_gc;
-import net.minecraft.server.class_gd;
-import net.minecraft.server.class_ge;
-import net.minecraft.server.class_gf;
-import net.minecraft.server.class_gg;
-import net.minecraft.server.class_gh;
-import net.minecraft.server.class_gi;
-import net.minecraft.server.class_gj;
-import net.minecraft.server.class_gk;
-import net.minecraft.server.class_gl;
-import net.minecraft.server.class_gm;
+import net.minecraft.server.PacketPlayOutMultiBlockChange;
+import net.minecraft.server.PacketPlayOutTransaction;
+import net.minecraft.server.PacketPlayOutCloseWindow;
+import net.minecraft.server.PacketPlayOutOpenWindow;
+import net.minecraft.server.PacketPlayOutWindowItems;
+import net.minecraft.server.PacketPlayOutWindowData;
+import net.minecraft.server.PacketPlayOutSetSlot;
+import net.minecraft.server.PacketPlayOutCustomPayload;
+import net.minecraft.server.PacketPlayOutKickDisconnect;
+import net.minecraft.server.PacketPlayOutEntityStatus;
+import net.minecraft.server.PacketPlayOutExplosion;
+import net.minecraft.server.PacketPlayOutSetCompression;
+import net.minecraft.server.PacketPlayOutGameStateChange;
 import net.minecraft.server.PacketPlayOutKeepAlive;
-import net.minecraft.server.class_go;
-import net.minecraft.server.class_gp;
-import net.minecraft.server.class_gq;
-import net.minecraft.server.class_gr;
-import net.minecraft.server.class_gs;
+import net.minecraft.server.PacketPlayOutMapChunk;
+import net.minecraft.server.PacketPlayOutMapChunkBulk;
+import net.minecraft.server.PacketPlayOutWorldEvent;
+import net.minecraft.server.PacketPlayOutWorldParticles;
+import net.minecraft.server.PacketPlayOutNamedSoundEffect;
 import net.minecraft.server.PacketPlayOutLogin;
-import net.minecraft.server.class_gu;
-import net.minecraft.server.class_gv;
-import net.minecraft.server.class_gw;
-import net.minecraft.server.class_gx;
-import net.minecraft.server.class_gy;
-import net.minecraft.server.class_gz;
-import net.minecraft.server.class_ha;
-import net.minecraft.server.class_hb;
-import net.minecraft.server.class_hc;
-import net.minecraft.server.class_hd;
-import net.minecraft.server.class_he;
-import net.minecraft.server.class_hf;
-import net.minecraft.server.class_hg;
-import net.minecraft.server.class_hh;
-import net.minecraft.server.class_hi;
-import net.minecraft.server.class_hj;
-import net.minecraft.server.class_hk;
-import net.minecraft.server.class_hl;
-import net.minecraft.server.class_hm;
-import net.minecraft.server.class_hn;
-import net.minecraft.server.class_ho;
-import net.minecraft.server.class_hp;
-import net.minecraft.server.class_hq;
-import net.minecraft.server.class_hr;
-import net.minecraft.server.class_hs;
-import net.minecraft.server.class_ht;
-import net.minecraft.server.class_hu;
-import net.minecraft.server.class_hv;
-import net.minecraft.server.class_hw;
-import net.minecraft.server.class_hx;
-import net.minecraft.server.class_hy;
-import net.minecraft.server.class_hz;
-import net.minecraft.server.class_ia;
-import net.minecraft.server.class_ib;
+import net.minecraft.server.PacketPlayOutMap;
+import net.minecraft.server.PacketPlayOutEntity;
+import net.minecraft.server.PacketPlayOutOpenSignEditor;
+import net.minecraft.server.PacketPlayOutAbilities;
+import net.minecraft.server.PacketPlayOutCombatEvent;
+import net.minecraft.server.PacketPlayOutPlayerInfo;
+import net.minecraft.server.PacketPlayOutBed;
+import net.minecraft.server.PacketPlayOutEntityDestroy;
+import net.minecraft.server.PacketPlayOutRemoveEntityEffect;
+import net.minecraft.server.PacketPlayOutResourcePackSend;
+import net.minecraft.server.PacketPlayOutRespawn;
+import net.minecraft.server.PacketPlayOutEntityHeadRotation;
+import net.minecraft.server.PacketPlayOutWorldBorder;
+import net.minecraft.server.PacketPlayOutCamera;
+import net.minecraft.server.PacketPlayOutHeldItemSlot;
+import net.minecraft.server.PacketPlayOutScoreboardDisplayObjective;
+import net.minecraft.server.PacketPlayOutEntityMetadata;
+import net.minecraft.server.PacketPlayOutAttachEntity;
+import net.minecraft.server.PacketPlayOutEntityVelocity;
+import net.minecraft.server.PacketPlayOutEntityEquipment;
+import net.minecraft.server.PacketPlayOutExperience;
+import net.minecraft.server.PacketPlayOutUpdateHealth;
+import net.minecraft.server.PacketPlayOutScoreboardObjective;
+import net.minecraft.server.PacketPlayOutScoreboardTeam;
+import net.minecraft.server.PacketPlayOutScoreboardScore;
+import net.minecraft.server.PacketPlayOutSpawnPosition;
+import net.minecraft.server.PacketPlayOutUpdateTime;
+import net.minecraft.server.PacketPlayOutTitle;
+import net.minecraft.server.PacketPlayOutUpdateSign;
+import net.minecraft.server.PacketPlayOutPlayerListHeaderFooter;
+import net.minecraft.server.PacketPlayOutCollect;
+import net.minecraft.server.PacketPlayOutEntityTeleport;
+import net.minecraft.server.PacketPlayOutUpdateAttributes;
+import net.minecraft.server.PacketPlayOutEntityEffect;
 
 public interface PacketListenerPlayOut extends PacketListener {
-   void a(class_fk var1);
+   void a(PacketPlayOutSpawnEntity var1);
 
-   void a(class_fl var1);
+   void a(PacketPlayOutSpawnEntityExperienceOrb var1);
 
-   void a(class_fm var1);
+   void a(PacketPlayOutSpawnEntityWeather var1);
 
-   void a(class_fn var1);
+   void a(PacketPlayOutSpawnEntityLiving var1);
 
-   void a(class_hq var1);
+   void a(PacketPlayOutScoreboardObjective var1);
 
-   void a(class_fo var1);
+   void a(PacketPlayOutSpawnEntityPainting var1);
 
-   void a(class_fp var1);
+   void a(PacketPlayOutNamedEntitySpawn var1);
 
-   void a(class_fq var1);
+   void a(PacketPlayOutAnimation var1);
 
-   void a(class_fr var1);
+   void a(PacketPlayOutStatistic var1);
 
-   void a(class_fs var1);
+   void a(PacketPlayOutBlockBreakAnimation var1);
 
-   void a(class_gw var1);
+   void a(PacketPlayOutOpenSignEditor var1);
 
-   void a(class_ft var1);
+   void a(PacketPlayOutTileEntityData var1);
 
-   void a(class_fu var1);
+   void a(PacketPlayOutBlockAction var1);
 
-   void a(class_fv var1);
+   void a(PacketPlayOutBlockChange var1);
 
    void a(PacketPlayOutChat var1);
 
-   void a(class_fy var1);
+   void a(PacketPlayOutTabComplete var1);
 
-   void a(class_ga var1);
+   void a(PacketPlayOutMultiBlockChange var1);
 
-   void a(class_gu var1);
+   void a(PacketPlayOutMap var1);
 
-   void a(class_gb var1);
+   void a(PacketPlayOutTransaction var1);
 
-   void a(class_gc var1);
+   void a(PacketPlayOutCloseWindow var1);
 
-   void a(class_ge var1);
+   void a(PacketPlayOutWindowItems var1);
 
-   void a(class_gd var1);
+   void a(PacketPlayOutOpenWindow var1);
 
-   void a(class_gf var1);
+   void a(PacketPlayOutWindowData var1);
 
-   void a(class_gg var1);
+   void a(PacketPlayOutSetSlot var1);
 
-   void a(class_gh var1);
+   void a(PacketPlayOutCustomPayload var1);
 
-   void a(class_gi var1);
+   void a(PacketPlayOutKickDisconnect var1);
 
-   void a(class_ha var1);
+   void a(PacketPlayOutBed var1);
 
-   void a(class_gj var1);
+   void a(PacketPlayOutEntityStatus var1);
 
-   void a(class_hl var1);
+   void a(PacketPlayOutAttachEntity var1);
 
-   void a(class_gk var1);
+   void a(PacketPlayOutExplosion var1);
 
-   void a(class_gm var1);
+   void a(PacketPlayOutGameStateChange var1);
 
    void a(PacketPlayOutKeepAlive var1);
 
-   void a(class_go var1);
+   void a(PacketPlayOutMapChunk var1);
 
-   void a(class_gp var1);
+   void a(PacketPlayOutMapChunkBulk var1);
 
-   void a(class_gq var1);
+   void a(PacketPlayOutWorldEvent var1);
 
    void a(PacketPlayOutLogin var1);
 
-   void a(class_gv var1);
+   void a(PacketPlayOutEntity var1);
 
-   void a(class_fi var1);
+   void a(PacketPlayOutPosition var1);
 
-   void a(class_gr var1);
+   void a(PacketPlayOutWorldParticles var1);
 
-   void a(class_gx var1);
+   void a(PacketPlayOutAbilities var1);
 
-   void a(class_gz var1);
+   void a(PacketPlayOutPlayerInfo var1);
 
-   void a(class_hb var1);
+   void a(PacketPlayOutEntityDestroy var1);
 
-   void a(class_hc var1);
+   void a(PacketPlayOutRemoveEntityEffect var1);
 
-   void a(class_he var1);
+   void a(PacketPlayOutRespawn var1);
 
-   void a(class_hf var1);
+   void a(PacketPlayOutEntityHeadRotation var1);
 
-   void a(class_hi var1);
+   void a(PacketPlayOutHeldItemSlot var1);
 
-   void a(class_hj var1);
+   void a(PacketPlayOutScoreboardDisplayObjective var1);
 
-   void a(class_hk var1);
+   void a(PacketPlayOutEntityMetadata var1);
 
-   void a(class_hm var1);
+   void a(PacketPlayOutEntityVelocity var1);
 
-   void a(class_hn var1);
+   void a(PacketPlayOutEntityEquipment var1);
 
-   void a(class_ho var1);
+   void a(PacketPlayOutExperience var1);
 
-   void a(class_hp var1);
+   void a(PacketPlayOutUpdateHealth var1);
 
-   void a(class_hr var1);
+   void a(PacketPlayOutScoreboardTeam var1);
 
-   void a(class_hs var1);
+   void a(PacketPlayOutScoreboardScore var1);
 
-   void a(class_ht var1);
+   void a(PacketPlayOutSpawnPosition var1);
 
-   void a(class_hu var1);
+   void a(PacketPlayOutUpdateTime var1);
 
-   void a(class_hw var1);
+   void a(PacketPlayOutUpdateSign var1);
 
-   void a(class_gs var1);
+   void a(PacketPlayOutNamedSoundEffect var1);
 
-   void a(class_hy var1);
+   void a(PacketPlayOutCollect var1);
 
-   void a(class_hz var1);
+   void a(PacketPlayOutEntityTeleport var1);
 
-   void a(class_ia var1);
+   void a(PacketPlayOutUpdateAttributes var1);
 
-   void a(class_ib var1);
+   void a(PacketPlayOutEntityEffect var1);
 
-   void a(class_gy var1);
+   void a(PacketPlayOutCombatEvent var1);
 
-   void a(class_fx var1);
+   void a(PacketPlayOutServerDifficulty var1);
 
-   void a(class_hh var1);
+   void a(PacketPlayOutCamera var1);
 
-   void a(class_hg var1);
+   void a(PacketPlayOutWorldBorder var1);
 
-   void a(class_hv var1);
+   void a(PacketPlayOutTitle var1);
 
-   void a(class_gl var1);
+   void a(PacketPlayOutSetCompression var1);
 
-   void a(class_hx var1);
+   void a(PacketPlayOutPlayerListHeaderFooter var1);
 
-   void a(class_hd var1);
+   void a(PacketPlayOutResourcePackSend var1);
 
-   void a(class_fw var1);
+   void a(PacketPlayOutBossBar var1);
 }

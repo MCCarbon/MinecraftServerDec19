@@ -78,7 +78,7 @@ public class class_zi extends Item {
                   var2.a((class_pr)var35);
                }
 
-               if(!var3.bH.d) {
+               if(!var3.bH.instabuild) {
                   --var1.count;
                }
 

@@ -178,6 +178,6 @@ public class class_pc {
 
    public boolean u() {
       class_pr var1 = this.j();
-      return var1 instanceof class_xa && ((class_xa)var1).bH.d;
+      return var1 instanceof class_xa && ((class_xa)var1).bH.instabuild;
    }
 }

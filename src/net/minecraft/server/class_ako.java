@@ -46,7 +46,7 @@ public class class_ako extends class_ahh {
    }
 
    public boolean a(World var1, BlockPosition var2, IBlockData var3, class_xa var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(!var4.bH.e) {
+      if(!var4.bH.mayBuild) {
          return false;
       } else {
          var1.a((BlockPosition)var2, (IBlockData)var3.a(b), 3);

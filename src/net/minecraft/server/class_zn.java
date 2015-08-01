@@ -50,7 +50,7 @@ public class class_zn extends Item {
                   return new class_or(class_oq.b, var1);
                }
 
-               if(this.a(var2, var10) && !var3.bH.d) {
+               if(this.a(var2, var10) && !var3.bH.instabuild) {
                   var3.b(class_nc.ad[Item.getId((Item)this)]);
                   return new class_or(class_oq.a, new ItemStack(Items.ay));
                }
@@ -82,7 +82,7 @@ public class class_zn extends Item {
    }
 
    private ItemStack a(ItemStack var1, class_xa var2, Item var3) {
-      if(var2.bH.d) {
+      if(var2.bH.instabuild) {
          return var1;
       } else if(--var1.count <= 0) {
          return new ItemStack(var3);

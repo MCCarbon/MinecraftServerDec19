@@ -222,7 +222,7 @@ public class class_ahl extends Block {
 
    public void a(World var1, BlockPosition var2, IBlockData var3, class_xa var4) {
       BlockPosition var5 = var2.shiftDown();
-      if(var4.bH.d && var3.get(P) == class_ahl.class_a_in_class_ahl.a && var1.p(var5).getBlock() == this) {
+      if(var4.bH.instabuild && var3.get(P) == class_ahl.class_a_in_class_ahl.a && var1.p(var5).getBlock() == this) {
          var1.g(var5);
       }
 

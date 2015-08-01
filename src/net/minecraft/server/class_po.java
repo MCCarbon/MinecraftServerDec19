@@ -41,7 +41,7 @@ public abstract class class_po extends class_qh {
                      var5.a((String)var3.getDisplayName());
                   }
 
-                  if(!var1.bH.d) {
+                  if(!var1.bH.instabuild) {
                      --var3.count;
                   }
                }

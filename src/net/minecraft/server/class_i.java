@@ -160,14 +160,14 @@ public abstract class class_i implements class_k {
       class_lh var2 = class_o.a(var0, var1);
       if(var2 == null) {
          try {
-            var2 = MinecraftServer.N().ap().a(UUID.fromString(var1));
+            var2 = MinecraftServer.N().getPlayerList().getPlayer(UUID.fromString(var1));
          } catch (IllegalArgumentException var4) {
             ;
          }
       }
 
       if(var2 == null) {
-         var2 = MinecraftServer.N().ap().a(var1);
+         var2 = MinecraftServer.N().getPlayerList().a(var1);
       }
 
       if(var2 == null) {
@@ -185,7 +185,7 @@ public abstract class class_i implements class_k {
       Object var3 = class_o.a(var0, var1, var2);
       MinecraftServer var4 = MinecraftServer.N();
       if(var3 == null) {
-         var3 = var4.ap().a(var1);
+         var3 = var4.getPlayerList().a(var1);
       }
 
       if(var3 == null) {
@@ -193,7 +193,7 @@ public abstract class class_i implements class_k {
             UUID var5 = UUID.fromString(var1);
             var3 = var4.a(var5);
             if(var3 == null) {
-               var3 = var4.ap().a(var5);
+               var3 = var4.getPlayerList().getPlayer(var5);
             }
          } catch (IllegalArgumentException var6) {
             throw new class_ca("commands.generic.entity.invalidUuid", new Object[0]);

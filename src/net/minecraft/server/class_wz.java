@@ -177,7 +177,7 @@ public class class_wz implements class_oj {
                   this.a[var2].c = 5;
                   var1.count = 0;
                   return true;
-               } else if(this.e.bH.d) {
+               } else if(this.e.bH.instabuild) {
                   var1.count = 0;
                   return true;
                } else {
@@ -189,7 +189,7 @@ public class class_wz implements class_oj {
                   var1.count = this.e(var1);
                } while(var1.count > 0 && var1.count < var2);
 
-               if(var1.count == var2 && this.e.bH.d) {
+               if(var1.count == var2 && this.e.bH.instabuild) {
                   var1.count = 0;
                   return true;
                } else {

@@ -7,7 +7,7 @@ import java.util.Map.Entry;
 import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_ael;
-import net.minecraft.server.class_aeq;
+import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_c;
@@ -37,7 +37,7 @@ public class class_avn {
    private int r;
    private boolean s;
    private int t;
-   private class_aeq.class_a_in_class_aeq u;
+   private WorldSettings.EnumGameMode u;
    private boolean v;
    private boolean w;
    private boolean x;
@@ -106,7 +106,7 @@ public class class_avn {
          }
       }
 
-      this.u = class_aeq.class_a_in_class_aeq.a(var1.getInt("GameType"));
+      this.u = WorldSettings.EnumGameMode.getById(var1.getInt("GameType"));
       if(var1.hasOfType("MapFeatures", 99)) {
          this.v = var1.getBoolean("MapFeatures");
       } else {
@@ -142,7 +142,7 @@ public class class_avn {
       if(var1.hasOfType("allowCommands", 99)) {
          this.x = var1.getBoolean("allowCommands");
       } else {
-         this.x = this.u == class_aeq.class_a_in_class_aeq.c;
+         this.x = this.u == WorldSettings.EnumGameMode.CREATIVE;
       }
 
       if(var1.hasOfType("Player", 10)) {
@@ -210,7 +210,7 @@ public class class_avn {
 
    }
 
-   public class_avn(class_aeq var1, String var2) {
+   public class_avn(WorldSettings var1, String var2) {
       this.c = class_aes.b;
       this.d = "";
       this.B = 0.0D;
@@ -230,7 +230,7 @@ public class class_avn {
       this.y = false;
    }
 
-   public void a(class_aeq var1) {
+   public void a(WorldSettings var1) {
       this.b = var1.d();
       this.u = var1.e();
       this.v = var1.g();
@@ -308,7 +308,7 @@ public class class_avn {
       var1.put("generatorName", this.c.a());
       var1.put("generatorVersion", this.c.d());
       var1.put("generatorOptions", this.d);
-      var1.put("GameType", this.u.a());
+      var1.put("GameType", this.u.getId());
       var1.put("MapFeatures", this.v);
       var1.put("SpawnX", this.e);
       var1.put("SpawnY", this.f);
@@ -455,7 +455,7 @@ public class class_avn {
       this.r = var1;
    }
 
-   public class_aeq.class_a_in_class_aeq r() {
+   public WorldSettings.EnumGameMode r() {
       return this.u;
    }
 
@@ -467,7 +467,7 @@ public class class_avn {
       this.v = var1;
    }
 
-   public void a(class_aeq.class_a_in_class_aeq var1) {
+   public void a(WorldSettings.EnumGameMode var1) {
       this.u = var1;
    }
 
@@ -696,7 +696,7 @@ public class class_avn {
       });
       var1.a("Level game mode", new Callable() {
          public String a() throws Exception {
-            return String.format("Game mode: %s (ID %d). Hardcore: %b. Cheats: %b", new Object[]{class_avn.this.u.b(), Integer.valueOf(class_avn.this.u.a()), Boolean.valueOf(class_avn.this.w), Boolean.valueOf(class_avn.this.x)});
+            return String.format("Game mode: %s (ID %d). Hardcore: %b. Cheats: %b", new Object[]{class_avn.this.u.getName(), Integer.valueOf(class_avn.this.u.getId()), Boolean.valueOf(class_avn.this.w), Boolean.valueOf(class_avn.this.x)});
          }
 
          // $FF: synthetic method

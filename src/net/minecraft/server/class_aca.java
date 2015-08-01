@@ -41,7 +41,7 @@ public class class_aca extends class_abx {
             IBlockData var8 = var2.p(var6);
             if(var8.getBlock().getMaterial() == Material.WATER && ((Integer)var8.get(class_ajd.b)).intValue() == 0 && var2.d(var7)) {
                var2.a(var7, Blocks.WATERLILY.getBlockData());
-               if(!var3.bH.d) {
+               if(!var3.bH.instabuild) {
                   --var1.count;
                }
 

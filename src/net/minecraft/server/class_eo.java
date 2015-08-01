@@ -9,7 +9,7 @@ import net.minecraft.server.EnumProtocol;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.Packet;
 import net.minecraft.server.EnumProtocolDirection;
-import net.minecraft.server.class_fp;
+import net.minecraft.server.PacketPlayOutNamedEntitySpawn;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.Marker;
@@ -37,7 +37,7 @@ public class class_eo extends MessageToByteEncoder {
          var5.writeVarInt(var4.intValue());
 
          try {
-            if(var2 instanceof class_fp) {
+            if(var2 instanceof PacketPlayOutNamedEntitySpawn) {
                var2 = var2;
             }
 
