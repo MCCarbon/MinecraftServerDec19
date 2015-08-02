@@ -67,7 +67,7 @@ public class class_wm extends class_wi {
       return "mob.silverfish.kill";
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {
@@ -75,7 +75,7 @@ public class class_wm extends class_wi {
             this.a.f();
          }
 
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 

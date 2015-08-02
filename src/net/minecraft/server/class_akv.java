@@ -108,7 +108,7 @@ public class class_akv extends BlockContainer {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
-      if(var4.bH.instabuild) {
+      if(var4.abilities.instabuild) {
          var3 = var3.set(b, Boolean.valueOf(true));
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 4);
       }

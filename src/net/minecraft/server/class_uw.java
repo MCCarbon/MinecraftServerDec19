@@ -22,7 +22,7 @@ import net.minecraft.server.class_om;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_pv;
+import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qf;
@@ -87,19 +87,19 @@ public class class_uw extends class_wi implements class_wk {
 
    protected void h() {
       super.h();
-      this.ac.add(a, new Integer(0));
-      this.ac.add(b, new Integer(0));
-      this.ac.add(c, new Integer(0));
-      this.ac.add(bs, new Integer(0));
+      this.datawatcher.add(a, new Integer(0));
+      this.datawatcher.add(b, new Integer(0));
+      this.datawatcher.add(c, new Integer(0));
+      this.datawatcher.add(bs, new Integer(0));
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Invul", this.cA());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.m(var1.getInt("Invul"));
    }
 
@@ -185,15 +185,15 @@ public class class_uw extends class_wi implements class_wk {
          double var23 = this.o(var21);
          double var5 = this.p(var21);
          double var7 = this.q(var21);
-         this.o.a(class_cy.l, var23 + this.V.nextGaussian() * 0.30000001192092896D, var5 + this.V.nextGaussian() * 0.30000001192092896D, var7 + this.V.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.o.a(class_cy.l, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
          if(var22 && this.o.random.nextInt(4) == 0) {
-            this.o.a(class_cy.p, var23 + this.V.nextGaussian() * 0.30000001192092896D, var5 + this.V.nextGaussian() * 0.30000001192092896D, var7 + this.V.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
+            this.o.a(class_cy.p, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
          }
       }
 
       if(this.cA() > 0) {
          for(var21 = 0; var21 < 3; ++var21) {
-            this.o.a(class_cy.p, this.s + this.V.nextGaussian() * 1.0D, this.t + (double)(this.V.nextFloat() * 3.3F), this.u + this.V.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D, new int[0]);
+            this.o.a(class_cy.p, this.s + this.random.nextGaussian() * 1.0D, this.t + (double)(this.random.nextFloat() * 3.3F), this.u + this.random.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D, new int[0]);
          }
       }
 
@@ -219,7 +219,7 @@ public class class_uw extends class_wi implements class_wk {
          int var13;
          for(var1 = 1; var1 < 3; ++var1) {
             if(this.W >= this.bx[var1 - 1]) {
-               this.bx[var1 - 1] = this.W + 10 + this.V.nextInt(10);
+               this.bx[var1 - 1] = this.W + 10 + this.random.nextInt(10);
                if(this.o.ab() == class_om.c || this.o.ab() == class_om.d) {
                   int var10001 = var1 - 1;
                   int var10003 = this.by[var1 - 1];
@@ -227,9 +227,9 @@ public class class_uw extends class_wi implements class_wk {
                   if(var10003 > 15) {
                      float var2 = 10.0F;
                      float var3 = 5.0F;
-                     double var4 = MathHelper.getRandomDoubleInRange(this.V, this.s - (double)var2, this.s + (double)var2);
-                     double var6 = MathHelper.getRandomDoubleInRange(this.V, this.t - (double)var3, this.t + (double)var3);
-                     double var8 = MathHelper.getRandomDoubleInRange(this.V, this.u - (double)var2, this.u + (double)var2);
+                     double var4 = MathHelper.getRandomDoubleInRange(this.random, this.s - (double)var2, this.s + (double)var2);
+                     double var6 = MathHelper.getRandomDoubleInRange(this.random, this.t - (double)var3, this.t + (double)var3);
+                     double var8 = MathHelper.getRandomDoubleInRange(this.random, this.u - (double)var2, this.u + (double)var2);
                      this.a(var1 + 1, var4, var6, var8, true);
                      this.by[var1 - 1] = 0;
                   }
@@ -238,25 +238,25 @@ public class class_uw extends class_wi implements class_wk {
                var13 = this.n(var1);
                if(var13 > 0) {
                   Entity var15 = this.o.getEntityById(var13);
-                  if(var15 != null && var15.ai() && this.h(var15) <= 900.0D && this.t(var15)) {
-                     if(var15 instanceof EntityHuman && ((EntityHuman)var15).bH.invulnerable) {
+                  if(var15 != null && var15.isAlive() && this.h(var15) <= 900.0D && this.t(var15)) {
+                     if(var15 instanceof EntityHuman && ((EntityHuman)var15).abilities.invulnerable) {
                         this.a(var1, 0);
                      } else {
                         this.a(var1 + 1, (EntityLiving)var15);
-                        this.bx[var1 - 1] = this.W + 40 + this.V.nextInt(20);
+                        this.bx[var1 - 1] = this.W + 40 + this.random.nextInt(20);
                         this.by[var1 - 1] = 0;
                      }
                   } else {
                      this.a(var1, 0);
                   }
                } else {
-                  List var14 = this.o.a(EntityLiving.class, this.aT().grow(20.0D, 8.0D, 20.0D), Predicates.and(bB, class_pv.d));
+                  List var14 = this.o.a(EntityLiving.class, this.aT().grow(20.0D, 8.0D, 20.0D), Predicates.and(bB, IEntitySelector.NOT_PLAYER_SPECTATOR));
 
                   for(int var17 = 0; var17 < 10 && !var14.isEmpty(); ++var17) {
-                     EntityLiving var5 = (EntityLiving)var14.get(this.V.nextInt(var14.size()));
-                     if(var5 != this && var5.ai() && this.t(var5)) {
+                     EntityLiving var5 = (EntityLiving)var14.get(this.random.nextInt(var14.size()));
+                     if(var5 != this && var5.isAlive() && this.t(var5)) {
                         if(var5 instanceof EntityHuman) {
-                           if(!((EntityHuman)var5).bH.invulnerable) {
+                           if(!((EntityHuman)var5).abilities.invulnerable) {
                               this.a(var1, var5.getId());
                            }
                         } else {
@@ -310,7 +310,7 @@ public class class_uw extends class_wi implements class_wk {
             this.h(1.0F);
          }
 
-         this.bA.a(this.bo() / this.bv());
+         this.bA.a(this.getHealth() / this.bv());
       }
    }
 
@@ -378,7 +378,7 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    private void a(int var1, EntityLiving var2) {
-      this.a(var1, var2.s, var2.t + (double)var2.aU() * 0.5D, var2.u, var1 == 0 && this.V.nextFloat() < 0.001F);
+      this.a(var1, var2.s, var2.t + (double)var2.aU() * 0.5D, var2.u, var1 == 0 && this.random.nextFloat() < 0.001F);
    }
 
    private void a(int var1, double var2, double var4, double var6, boolean var8) {
@@ -404,7 +404,7 @@ public class class_uw extends class_wi implements class_wk {
       this.a(0, var1);
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
       } else if(var1 != class_pc.f && !(var1.j() instanceof class_uw)) {
@@ -431,7 +431,7 @@ public class class_uw extends class_wi implements class_wk {
                   this.by[var4] += 3;
                }
 
-               return super.a(var1, var2);
+               return super.damageEntity(var1, var2);
             }
          }
       } else {
@@ -474,23 +474,23 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    public int cA() {
-      return this.ac.getInt(bs);
+      return this.datawatcher.getInt(bs);
    }
 
    public void m(int var1) {
-      this.ac.b(bs, Integer.valueOf(var1));
+      this.datawatcher.update(bs, Integer.valueOf(var1));
    }
 
    public int n(int var1) {
-      return this.ac.getInt(a + var1);
+      return this.datawatcher.getInt(a + var1);
    }
 
    public void a(int var1, int var2) {
-      this.ac.b(a + var1, Integer.valueOf(var2));
+      this.datawatcher.update(a + var1, Integer.valueOf(var2));
    }
 
    public boolean cB() {
-      return this.bo() <= this.bv() / 2.0F;
+      return this.getHealth() <= this.bv() / 2.0F;
    }
 
    public class_qf bz() {
@@ -498,6 +498,6 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    public void a(Entity var1) {
-      this.m = null;
+      this.vehicle = null;
    }
 }

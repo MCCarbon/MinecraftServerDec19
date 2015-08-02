@@ -180,9 +180,9 @@ public class class_yj extends Container {
       ItemStack var3 = this.a.getItem(0);
       ItemStack var4 = this.a.getItem(1);
       int var5 = var2 + 1;
-      if((var4 == null || var4.count < var5) && !var1.bH.instabuild) {
+      if((var4 == null || var4.count < var5) && !var1.abilities.instabuild) {
          return false;
-      } else if(this.g[var2] <= 0 || var3 == null || (var1.bI < var5 || var1.bI < this.g[var2]) && !var1.bH.instabuild) {
+      } else if(this.g[var2] <= 0 || var3 == null || (var1.expLevel < var5 || var1.expLevel < this.g[var2]) && !var1.abilities.instabuild) {
          return false;
       } else {
          if(!this.j.isClientSide) {
@@ -203,7 +203,7 @@ public class class_yj extends Container {
                   }
                }
 
-               if(!var1.bH.instabuild) {
+               if(!var1.abilities.instabuild) {
                   var4.count -= var5;
                   if(var4.count <= 0) {
                      this.a.setItem(1, (ItemStack)null);

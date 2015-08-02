@@ -130,7 +130,7 @@ public class class_ahb extends class_ahh implements IContainer {
    }
 
    public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(!var4.bH.mayBuild) {
+      if(!var4.abilities.mayBuild) {
          return false;
       } else {
          var3 = var3.a(b);

@@ -289,7 +289,7 @@ public class class_ld {
 
       public void b(EntityPlayer var1) {
          if(this.b.contains(var1)) {
-            Chunk var2 = class_ld.this.b.a(this.c.a, this.c.b);
+            Chunk var2 = class_ld.this.b.getChunkAt(this.c.a, this.c.b);
             if(var2.i()) {
                var1.a.a((Packet)(new PacketPlayOutMapChunk(var2, true, 0)));
             }
@@ -312,7 +312,7 @@ public class class_ld {
       }
 
       public void a() {
-         this.a(class_ld.this.b.a(this.c.a, this.c.b));
+         this.a(class_ld.this.b.getChunkAt(this.c.a, this.c.b));
       }
 
       private void a(Chunk var1) {
@@ -369,7 +369,7 @@ public class class_ld {
                if(this.e == 64) {
                   var1 = this.c.a * 16;
                   var2 = this.c.b * 16;
-                  this.a((Packet)(new PacketPlayOutMapChunk(class_ld.this.b.a(this.c.a, this.c.b), false, this.f)));
+                  this.a((Packet)(new PacketPlayOutMapChunk(class_ld.this.b.getChunkAt(this.c.a, this.c.b), false, this.f)));
 
                   for(var3 = 0; var3 < 16; ++var3) {
                      if((this.f & 1 << var3) != 0) {
@@ -382,7 +382,7 @@ public class class_ld {
                      }
                   }
                } else {
-                  this.a((Packet)(new PacketPlayOutMultiBlockChange(this.e, this.d, class_ld.this.b.a(this.c.a, this.c.b))));
+                  this.a((Packet)(new PacketPlayOutMultiBlockChange(this.e, this.d, class_ld.this.b.getChunkAt(this.c.a, this.c.b))));
 
                   for(var1 = 0; var1 < this.e; ++var1) {
                      var2 = (this.d[var1] >> 12 & 15) + this.c.a * 16;

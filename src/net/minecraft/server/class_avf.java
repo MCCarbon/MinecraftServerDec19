@@ -88,13 +88,13 @@ public class class_avf extends class_avd {
          this.g.add(var3);
       }
 
-      if(!var1.bp.c(var2)) {
+      if(!var1.inventory.c(var2)) {
          this.h.remove(var1.getName());
       }
 
       for(int var6 = 0; var6 < this.g.size(); ++var6) {
          class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.g.get(var6);
-         if(var4.a.I || !var4.a.bp.c(var2) && !var2.isInItemFrame()) {
+         if(var4.a.I || !var4.a.inventory.c(var2) && !var2.isInItemFrame()) {
             this.i.remove(var4.a);
             this.g.remove(var4);
          } else if(!var2.isInItemFrame() && var4.a.am == this.d) {

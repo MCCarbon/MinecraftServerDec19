@@ -162,7 +162,7 @@ public class BlockBed extends BlockDirectional {
 
 	@Override
 	public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
-		if (var4.bH.instabuild && (var3.get(PART) == BlockBed.EnumBedPart.HEAD)) {
+		if (var4.abilities.instabuild && (var3.get(PART) == BlockBed.EnumBedPart.HEAD)) {
 			BlockPosition var5 = var2.shift(var3.get(FACING).opposite());
 			if (var1.getType(var5).getBlock() == this) {
 				var1.setAir(var5);

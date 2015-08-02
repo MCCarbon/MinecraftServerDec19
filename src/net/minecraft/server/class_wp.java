@@ -60,7 +60,7 @@ public class class_wp extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.add(a, new Byte((byte)0));
+      this.datawatcher.add(a, new Byte((byte)0));
    }
 
    public void t_() {
@@ -99,7 +99,7 @@ public class class_wp extends class_wi {
 
    protected void b(boolean var1, int var2) {
       super.b(var1, var2);
-      if(var1 && (this.V.nextInt(3) == 0 || this.V.nextInt(1 + var2) > 0)) {
+      if(var1 && (this.random.nextInt(3) == 0 || this.random.nextInt(1 + var2) > 0)) {
          this.a(Items.bE, 1);
       }
 
@@ -121,18 +121,18 @@ public class class_wp extends class_wi {
    }
 
    public boolean n() {
-      return (this.ac.getByte(a) & 1) != 0;
+      return (this.datawatcher.getByte(a) & 1) != 0;
    }
 
    public void a(boolean var1) {
-      byte var2 = this.ac.getByte(a);
+      byte var2 = this.datawatcher.getByte(a);
       if(var1) {
          var2 = (byte)(var2 | 1);
       } else {
          var2 &= -2;
       }
 
-      this.ac.b(a, Byte.valueOf(var2));
+      this.datawatcher.update(a, Byte.valueOf(var2));
    }
 
    public class_qd a(class_on var1, class_qd var2) {

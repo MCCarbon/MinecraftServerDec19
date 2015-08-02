@@ -41,7 +41,7 @@ public class class_zb extends Item {
                double var14 = (double)var11.getX();
                double var16 = (double)var11.getY();
                double var18 = (double)var11.getZ();
-               List var20 = var3.b((Entity)null, (AxisAlignedBB)AxisAlignedBB.a(var14, var16, var18, var14 + 1.0D, var16 + 2.0D, var18 + 1.0D));
+               List var20 = var3.getEntities((Entity)null, (AxisAlignedBB)AxisAlignedBB.a(var14, var16, var18, var14 + 1.0D, var16 + 2.0D, var18 + 1.0D));
                if(!var20.isEmpty()) {
                   return class_oq.b;
                } else {

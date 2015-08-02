@@ -149,7 +149,7 @@ public class class_als extends Block {
       IBlockData var3 = var1.getType(var2);
       boolean var4 = ((Boolean)var3.get(a)).booleanValue();
       boolean var5 = false;
-      List var6 = var1.b((Entity)null, (AxisAlignedBB)(new AxisAlignedBB((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ)));
+      List var6 = var1.getEntities((Entity)null, (AxisAlignedBB)(new AxisAlignedBB((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ)));
       if(!var6.isEmpty()) {
          Iterator var7 = var6.iterator();
 

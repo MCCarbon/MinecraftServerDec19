@@ -38,7 +38,7 @@ public class class_tx extends class_tw {
    public class_tx(World var1) {
       super(var1);
       this.a(0.4F, 0.7F);
-      this.by = this.V.nextInt(6000) + 6000;
+      this.by = this.random.nextInt(6000) + 6000;
       this.i.a(0, new class_rj(this));
       this.i.a(1, new class_se(this, 1.4D));
       this.i.a(2, new class_re(this, 1.0D));
@@ -76,9 +76,9 @@ public class class_tx extends class_tw {
 
       this.bs += this.bx * 2.0F;
       if(!this.o.isClientSide && !this.j_() && !this.cA() && --this.by <= 0) {
-         this.a("mob.chicken.plop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
+         this.a("mob.chicken.plop", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
          this.a(Items.aR, 1);
-         this.by = this.V.nextInt(6000) + 6000;
+         this.by = this.random.nextInt(6000) + 6000;
       }
 
    }
@@ -107,7 +107,7 @@ public class class_tx extends class_tw {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
+      int var3 = this.random.nextInt(3) + this.random.nextInt(1 + var2);
 
       for(int var4 = 0; var4 < var3; ++var4) {
          this.a(Items.I, 1);
@@ -129,8 +129,8 @@ public class class_tx extends class_tw {
       return var1 != null && bA.contains(var1.getItem());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.bz = var1.getBoolean("IsChickenJockey");
       if(var1.has("EggLayTime")) {
          this.by = var1.getInt("EggLayTime");
@@ -142,14 +142,14 @@ public class class_tx extends class_tw {
       return this.cA()?10:super.b(var1);
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("IsChickenJockey", this.bz);
       var1.put("EggLayTime", this.by);
    }
 
    protected boolean E() {
-      return this.cA() && this.l == null;
+      return this.cA() && this.passenger == null;
    }
 
    public void al() {
@@ -158,9 +158,9 @@ public class class_tx extends class_tw {
       float var2 = MathHelper.cos(this.aL * 3.1415927F / 180.0F);
       float var3 = 0.1F;
       float var4 = 0.0F;
-      this.l.b(this.s + (double)(var3 * var1), this.t + (double)(this.K * 0.5F) + this.l.am() + (double)var4, this.u - (double)(var3 * var2));
-      if(this.l instanceof EntityLiving) {
-         ((EntityLiving)this.l).aL = this.aL;
+      this.passenger.b(this.s + (double)(var3 * var1), this.t + (double)(this.K * 0.5F) + this.passenger.am() + (double)var4, this.u - (double)(var3 * var2));
+      if(this.passenger instanceof EntityLiving) {
+         ((EntityLiving)this.passenger).aL = this.aL;
       }
 
    }

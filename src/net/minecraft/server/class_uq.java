@@ -21,7 +21,7 @@ public class class_uq extends Entity {
       this.k = true;
       this.a(2.0F, 2.0F);
       this.b = 5;
-      this.a = this.V.nextInt(100000);
+      this.a = this.random.nextInt(100000);
    }
 
    protected boolean s_() {
@@ -29,7 +29,7 @@ public class class_uq extends Entity {
    }
 
    protected void h() {
-      this.ac.add(c, Integer.valueOf(this.b));
+      this.datawatcher.add(c, Integer.valueOf(this.b));
    }
 
    public void t_() {
@@ -37,7 +37,7 @@ public class class_uq extends Entity {
       this.q = this.t;
       this.r = this.u;
       ++this.a;
-      this.ac.b(c, Integer.valueOf(this.b));
+      this.datawatcher.update(c, Integer.valueOf(this.b));
       if(!this.o.isClientSide) {
          BlockPosition var1 = new BlockPosition(this);
          if(this.o.worldProvider instanceof class_apd && this.o.getType(var1).getBlock() != Blocks.FIRE) {
@@ -47,17 +47,17 @@ public class class_uq extends Entity {
 
    }
 
-   protected void b(NBTTagCompound var1) {
+   protected void write(NBTTagCompound var1) {
    }
 
-   protected void a(NBTTagCompound var1) {
+   protected void read(NBTTagCompound var1) {
    }
 
    public boolean ad() {
       return true;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else if(var1.j() instanceof class_ur) {

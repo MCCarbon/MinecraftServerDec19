@@ -59,7 +59,7 @@ public class TileEntityPiston extends TileEntity implements ITickAble {
 
 		AxisAlignedBB var3 = Blocks.PISTON_EXTENSION.a(world, position, a, var1, f);
 		if (var3 != null) {
-			List var4 = world.b((Entity) null, var3);
+			List var4 = world.getEntities((Entity) null, var3);
 			if (!var4.isEmpty()) {
 				k.addAll(var4);
 				Iterator var5 = k.iterator();

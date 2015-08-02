@@ -19,7 +19,7 @@ public class class_abv extends class_abe {
    }
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-      if(!var3.bH.instabuild) {
+      if(!var3.abilities.instabuild) {
          --var1.count;
       }
 

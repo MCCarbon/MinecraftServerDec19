@@ -707,7 +707,7 @@ public class Chunk {
 		q = true;
 	}
 
-	public void a(Entity var1, AxisAlignedBB var2, List<Entity> var3, Predicate<Entity> var4) {
+	public void a(Entity var1, AxisAlignedBB var2, List<Entity> var3, Predicate<? super Entity> var4) {
 		int var5 = MathHelper.floor((var2.yMin - 2.0D) / 16.0D);
 		int var6 = MathHelper.floor((var2.yMax + 2.0D) / 16.0D);
 		var5 = MathHelper.clamp(var5, 0, entities.length - 1);

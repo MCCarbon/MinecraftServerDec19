@@ -220,7 +220,7 @@ public class WorldServer extends World implements class_of {
 
          while(var3.hasNext()) {
             EntityHuman var4 = (EntityHuman)var3.next();
-            if(var4.v()) {
+            if(var4.isSpectator()) {
                ++var1;
             } else if(var4.isSleeping()) {
                ++var2;
@@ -264,7 +264,7 @@ public class WorldServer extends World implements class_of {
             }
 
             var2 = (EntityHuman)var1.next();
-         } while(!var2.v() && var2.ch());
+         } while(!var2.isSpectator() && var2.ch());
 
          return false;
       } else {
@@ -279,7 +279,7 @@ public class WorldServer extends World implements class_of {
 
          while(var20.hasNext()) {
             class_aeh var21 = (class_aeh)var20.next();
-            this.a(var21.a, var21.b).b(false);
+            this.getChunkAt(var21.a, var21.b).b(false);
          }
 
       } else {
@@ -291,7 +291,7 @@ public class WorldServer extends World implements class_of {
             int var5 = var4.a * 16;
             int var6 = var4.b * 16;
             this.B.a("getChunk");
-            Chunk var7 = this.a(var4.a, var4.b);
+            Chunk var7 = this.getChunkAt(var4.a, var4.b);
             this.a(var5, var6, var7);
             this.B.c("tickChunk");
             var7.b(false);
@@ -362,7 +362,7 @@ public class WorldServer extends World implements class_of {
       AxisAlignedBB var3 = (new AxisAlignedBB(var2, new BlockPosition(var2.getX(), this.V(), var2.getZ()))).grow(3.0D, 3.0D, 3.0D);
       List var4 = this.a(EntityLiving.class, var3, new Predicate() {
          public boolean a(EntityLiving var1) {
-            return var1 != null && var1.ai() && WorldServer.this.i(var1.c());
+            return var1 != null && var1.isAlive() && WorldServer.this.i(var1.c());
          }
 
          // $FF: synthetic method
@@ -763,7 +763,7 @@ public class WorldServer extends World implements class_of {
          if(this.N.containsKey(var4)) {
             a.warn("Tried to add entity with duplicate UUID " + var4.toString());
          } else {
-            this.f.add(var3);
+            this.entityList.add(var3);
             this.b(var3);
          }
       }
@@ -772,12 +772,12 @@ public class WorldServer extends World implements class_of {
 
    protected void b(Entity var1) {
       super.b(var1);
-      this.l.a(var1.getId(), var1);
+      this.entitiesById.a(var1.getId(), var1);
       this.N.put(var1.aM(), var1);
       Entity[] var2 = var1.aD();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            this.l.a(var2[var3].getId(), var2[var3]);
+            this.entitiesById.a(var2[var3].getId(), var2[var3]);
          }
       }
 
@@ -785,12 +785,12 @@ public class WorldServer extends World implements class_of {
 
    protected void c(Entity var1) {
       super.c(var1);
-      this.l.d(var1.getId());
+      this.entitiesById.d(var1.getId());
       this.N.remove(var1.aM());
       Entity[] var2 = var1.aD();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            this.l.d(var2[var3].getId());
+            this.entitiesById.d(var2[var3].getId());
          }
       }
 

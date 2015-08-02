@@ -61,7 +61,7 @@ public class class_zz extends Item {
                if(var3.isEmpty(var4)) {
                   IBlockData var13 = Blocks.COCOA.getPlacedState(var3, var4, var6, var7, var8, var9, 0, var2);
                   var3.setTypeAndData((BlockPosition)var4, (IBlockData)var13, 2);
-                  if(!var2.bH.instabuild) {
+                  if(!var2.abilities.instabuild) {
                      --var1.count;
                   }
                }

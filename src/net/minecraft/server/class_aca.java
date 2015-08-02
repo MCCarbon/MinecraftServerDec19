@@ -41,7 +41,7 @@ public class class_aca extends class_abx {
             IBlockData var8 = var2.getType(var6);
             if(var8.getBlock().getMaterial() == Material.WATER && ((Integer)var8.get(BlockFluids.LEVEL)).intValue() == 0 && var2.isEmpty(var7)) {
                var2.setTypeUpdate(var7, Blocks.WATERLILY.getBlockData());
-               if(!var3.bH.instabuild) {
+               if(!var3.abilities.instabuild) {
                   --var1.count;
                }
 

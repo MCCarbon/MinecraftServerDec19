@@ -28,7 +28,7 @@ public class class_rc extends class_rm {
    }
 
    public boolean b() {
-      return !this.b.ai()?false:(this.a.h(this.b) > (double)(this.d * this.d)?false:this.e > 0 && this.a(this.b));
+      return !this.b.isAlive()?false:(this.a.h(this.b) > (double)(this.d * this.d)?false:this.e > 0 && this.a(this.b));
    }
 
    public void c() {

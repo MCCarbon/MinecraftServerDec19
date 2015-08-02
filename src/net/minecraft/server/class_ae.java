@@ -41,7 +41,7 @@ public class class_ae extends class_i {
 
          EntityPlayer var7 = var2.length > 1?a(var1, var2[1]):b(var1);
          if(var4) {
-            var1.a(class_n.class_a_in_class_n.e, var7.bI);
+            var1.a(class_n.class_a_in_class_n.e, var7.expLevel);
             if(var6) {
                var7.a(-var5);
                a(var1, this, "commands.xp.success.negative.levels", new Object[]{Integer.valueOf(var5), var7.getName()});
@@ -50,7 +50,7 @@ public class class_ae extends class_i {
                a(var1, this, "commands.xp.success.levels", new Object[]{Integer.valueOf(var5), var7.getName()});
             }
          } else {
-            var1.a(class_n.class_a_in_class_n.e, var7.bJ);
+            var1.a(class_n.class_a_in_class_n.e, var7.expTotal);
             if(var6) {
                throw new class_bz("commands.xp.failure.widthdrawXp", new Object[0]);
             }

@@ -238,7 +238,7 @@ public class TileEntityStructure extends TileEntity {
 				return false;
 			} else {
 				BlockPosition var4 = var3.a(rotation);
-				Iterator<?> var5 = world.b((Entity) null, (new AxisAlignedBB(var1, var4.add(var1).add(-1, -1, -1)))).iterator();
+				Iterator<?> var5 = world.getEntities((Entity) null, (new AxisAlignedBB(var1, var4.add(var1).add(-1, -1, -1)))).iterator();
 
 				while (var5.hasNext()) {
 					Entity var6 = (Entity) var5.next();

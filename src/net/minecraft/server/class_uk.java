@@ -40,12 +40,12 @@ public abstract class class_uk extends class_qb implements class_pp {
    public void K() {
       int var1 = this.aB();
       super.K();
-      if(this.ai() && !this.V()) {
+      if(this.isAlive() && !this.V()) {
          --var1;
          this.i(var1);
          if(this.aB() == -20) {
             this.i(0);
-            this.a(class_pc.f, 2.0F);
+            this.damageEntity(class_pc.f, 2.0F);
          }
       } else {
          this.i(300);

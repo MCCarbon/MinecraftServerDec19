@@ -145,7 +145,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 				var6 = 1;
 			}
 
-			var5 = var2.r(var5.add(this.V.nextInt(var6 * 2) - var6, 0, this.V.nextInt(var6 * 2) - var6));
+			var5 = var2.r(var5.add(this.random.nextInt(var6 * 2) - var6, 0, this.random.nextInt(var6 * 2) - var6));
 		}
 
 		this.b = var1;
@@ -159,8 +159,8 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	}
 
-	public void a(NBTTagCompound var1) {
-		super.a(var1);
+	public void read(NBTTagCompound var1) {
+		super.read(var1);
 		if (var1.hasOfType("playerGameType", 99)) {
 			if (MinecraftServer.N().ax()) {
 				this.c.a(MinecraftServer.N().m());
@@ -171,8 +171,8 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	}
 
-	public void b(NBTTagCompound var1) {
-		super.b(var1);
+	public void write(NBTTagCompound var1) {
+		super.write(var1);
 		var1.put("playerGameType", this.c.b().getId());
 	}
 
@@ -237,7 +237,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 				class_aeh var10 = (class_aeh) var8.next();
 				if (var10 != null) {
 					if (this.o.e(new BlockPosition(var10.a << 4, 0, var10.b << 4))) {
-						var5 = this.o.a(var10.a, var10.b);
+						var5 = this.o.getChunkAt(var10.a, var10.b);
 						if (var5.i()) {
 							var6.add(var5);
 							var9.addAll(((WorldServer) this.o).a(var10.a * 16, 0, var10.b * 16, var10.a * 16 + 16, 256, var10.b * 16 + 16));
@@ -274,7 +274,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 		Entity var7 = this.C();
 		if (var7 != this) {
-			if (!var7.ai()) {
+			if (!var7.isAlive()) {
 				this.e(this);
 			} else {
 				this.a(var7.s, var7.t, var7.u, var7.y, var7.z);
@@ -291,8 +291,8 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		try {
 			super.t_();
 
-			for (int var1 = 0; var1 < this.bp.getSize(); ++var1) {
-				ItemStack var6 = this.bp.getItem(var1);
+			for (int var1 = 0; var1 < this.inventory.getSize(); ++var1) {
+				ItemStack var6 = this.inventory.getItem(var1);
 				if (var6 != null && var6.getItem().f()) {
 					Packet var8 = ((class_zt) var6.getItem()).a(var6, this.o, this);
 					if (var8 != null) {
@@ -301,15 +301,15 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 				}
 			}
 
-			if (this.bo() != this.bT || this.bU != this.bs.a() || this.bs.e() == 0.0F != this.bV) {
-				this.a.a((Packet) (new PacketPlayOutUpdateHealth(this.bo(), this.bs.a(), this.bs.e())));
-				this.bT = this.bo();
-				this.bU = this.bs.a();
-				this.bV = this.bs.e() == 0.0F;
+			if (this.getHealth() != this.bT || this.bU != this.foodData.a() || this.foodData.e() == 0.0F != this.bV) {
+				this.a.a((Packet) (new PacketPlayOutUpdateHealth(this.getHealth(), this.foodData.a(), this.foodData.e())));
+				this.bT = this.getHealth();
+				this.bU = this.foodData.a();
+				this.bV = this.foodData.e() == 0.0F;
 			}
 
-			if (this.bo() + this.bO() != this.bS) {
-				this.bS = this.bo() + this.bO();
+			if (this.getHealth() + this.getAbsorptionHearts() != this.bS) {
+				this.bS = this.getHealth() + this.getAbsorptionHearts();
 				Collection var5 = this.cr().a(class_awt.g);
 				Iterator var7 = var5.iterator();
 
@@ -319,9 +319,9 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 				}
 			}
 
-			if (this.bJ != this.bW) {
-				this.bW = this.bJ;
-				this.a.a((Packet) (new PacketPlayOutExperience(this.bK, this.bJ, this.bI)));
+			if (this.expTotal != this.bW) {
+				this.bW = this.expTotal;
+				this.a.a((Packet) (new PacketPlayOutExperience(this.exp, this.expTotal, this.expLevel)));
 			}
 
 			if (this.W % 20 * 5 == 0 && !this.A().a((class_ms) class_mt.L)) {
@@ -388,7 +388,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		}
 
 		if (!this.o.R().b("keepInventory")) {
-			this.bp.n();
+			this.inventory.n();
 		}
 
 		Collection var6 = this.o.aa().a(class_awt.d);
@@ -415,7 +415,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.bt().g();
 	}
 
-	public boolean a(class_pc var1, float var2) {
+	public boolean damageEntity(class_pc var1, float var2) {
 		if (this.b((class_pc) var1)) {
 			return false;
 		} else {
@@ -437,7 +437,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 					}
 				}
 
-				return super.a(var1, var2);
+				return super.damageEntity(var1, var2);
 			}
 		}
 	}
@@ -478,7 +478,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public boolean a(EntityPlayer var1) {
-		return var1.v() ? this.C() == this : (this.v() ? false : super.a((EntityPlayer) var1));
+		return var1.isSpectator() ? this.C() == this : (this.isSpectator() ? false : super.a((EntityPlayer) var1));
 	}
 
 	private void a(TileEntity var1) {
@@ -521,10 +521,10 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public void a(Entity var1) {
-		Entity var2 = this.m;
+		Entity var2 = this.vehicle;
 		super.a((Entity) var1);
 		if (var1 != var2) {
-			this.a.a((Packet) (new PacketPlayOutAttachEntity(0, this, this.m)));
+			this.a.a((Packet) (new PacketPlayOutAttachEntity(0, this, this.vehicle)));
 			this.a.a(this.s, this.t, this.u, this.y, this.z);
 		}
 
@@ -562,7 +562,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	public void a(ITileEntityContainer var1) {
 		this.cu();
 		this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, var1.getContainerName(), var1.getScoreboardDisplayName())));
-		this.br = var1.createContainer(this.bp, this);
+		this.br = var1.createContainer(this.inventory, this);
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
 	}
@@ -574,7 +574,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 		if (var1 instanceof ITileInventory) {
 			ITileInventory var2 = (ITileInventory) var1;
-			if (var2.isLocked() && !this.a((ChestLock) var2.getChestLock()) && !this.v()) {
+			if (var2.isLocked() && !this.a((ChestLock) var2.getChestLock()) && !this.isSpectator()) {
 				this.a.a((Packet) (new PacketPlayOutChat(new ChatMessage("container.isLocked", new Object[] { var1.getScoreboardDisplayName() }), (byte) 2)));
 				this.a.a((Packet) (new PacketPlayOutNamedSoundEffect("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
 				return;
@@ -584,10 +584,10 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.cu();
 		if (var1 instanceof ITileEntityContainer) {
 			this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, ((ITileEntityContainer) var1).getContainerName(), var1.getScoreboardDisplayName(), var1.getSize())));
-			this.br = ((ITileEntityContainer) var1).createContainer(this.bp, this);
+			this.br = ((ITileEntityContainer) var1).createContainer(this.inventory, this);
 		} else {
 			this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, "minecraft:container", var1.getScoreboardDisplayName(), var1.getSize())));
-			this.br = new class_yf(this.bp, var1, this);
+			this.br = new class_yf(this.inventory, var1, this);
 		}
 
 		this.br.d = this.cc;
@@ -596,7 +596,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	public void a(class_adz var1) {
 		this.cu();
-		this.br = new class_ys(this.bp, var1, this.o);
+		this.br = new class_ys(this.inventory, var1, this.o);
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
 		class_yr var2 = ((class_ys) this.br).e();
@@ -619,7 +619,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 		this.cu();
 		this.a.a((Packet) (new PacketPlayOutOpenWindow(this.cc, "EntityHorse", var2.getScoreboardDisplayName(), var2.getSize(), var1.getId())));
-		this.br = new class_yo(this.bp, var2, var1, this);
+		this.br = new class_yo(this.inventory, var2, var1, this);
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
 	}
@@ -646,7 +646,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	public void a(Container var1, List var2) {
 		this.a.a((Packet) (new PacketPlayOutWindowItems(var1.d, var2)));
-		this.a.a((Packet) (new PacketPlayOutSetSlot(-1, -1, this.bp.o())));
+		this.a.a((Packet) (new PacketPlayOutSetSlot(-1, -1, this.inventory.o())));
 	}
 
 	public void a(Container var1, int var2, int var3) {
@@ -667,7 +667,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	public void o() {
 		if (!this.g) {
-			this.a.a((Packet) (new PacketPlayOutSetSlot(-1, -1, this.bp.o())));
+			this.a.a((Packet) (new PacketPlayOutSetSlot(-1, -1, this.inventory.o())));
 		}
 	}
 
@@ -677,7 +677,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public void a(float var1, float var2, boolean var3, boolean var4) {
-		if (this.m != null) {
+		if (this.vehicle != null) {
 			if (var1 >= -1.0F && var1 <= 1.0F) {
 				this.bc = var1;
 			}
@@ -727,11 +727,11 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public void q() {
-		if (this.l != null) {
-			this.l.a((Entity) this);
+		if (this.passenger != null) {
+			this.passenger.a((Entity) this);
 		}
 
-		if (this.bD) {
+		if (this.sleeping) {
 			this.a(true, false, false);
 		}
 
@@ -790,7 +790,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	public void t() {
 		if (this.a != null) {
-			this.a.a((Packet) (new PacketPlayOutAbilities(this.bH)));
+			this.a.a((Packet) (new PacketPlayOutAbilities(this.abilities)));
 			this.B();
 		}
 	}
@@ -812,7 +812,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.bQ();
 	}
 
-	public boolean v() {
+	public boolean isSpectator() {
 		return this.c.b() == WorldSettings.EnumGameMode.SPECTATOR;
 	}
 
@@ -846,8 +846,8 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.bP = var1.getLocale();
 		this.bY = var1.getChatMode();
 		this.bZ = var1.getChatColors();
-		this.H().b(bn, Byte.valueOf((byte) var1.getSkinParts()));
-		this.H().b(bo, Byte.valueOf((byte) (var1.getMainHand() == EnumMainHandOption.LEFT ? 0 : 1)));
+		this.H().update(SKIN_PARTS_DW_ID, Byte.valueOf((byte) var1.getSkinParts()));
+		this.H().update(MAIN_HAND_DW_ID, Byte.valueOf((byte) (var1.getMainHand() == EnumMainHandOption.LEFT ? 0 : 1)));
 	}
 
 	public EntityHuman.ChatMode y() {
@@ -880,7 +880,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	protected void B() {
-		if (this.v()) {
+		if (this.isSpectator()) {
 			this.bk();
 			this.f(true);
 		} else {

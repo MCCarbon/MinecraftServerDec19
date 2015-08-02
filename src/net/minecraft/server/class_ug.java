@@ -60,9 +60,9 @@ public class class_ug extends class_ua implements class_wd {
 
    protected void h() {
       super.h();
-      this.ac.add(a, Byte.valueOf((byte)EnumDirection.DOWN.getId()));
-      this.ac.add(b, bs);
-      this.ac.add(c, Byte.valueOf((byte)0));
+      this.datawatcher.add(a, Byte.valueOf((byte)EnumDirection.DOWN.getId()));
+      this.datawatcher.add(b, bs);
+      this.datawatcher.add(c, Byte.valueOf((byte)0));
    }
 
    protected void aY() {
@@ -74,27 +74,27 @@ public class class_ug extends class_ua implements class_wd {
       return new class_ug.class_b_in_class_ug(this);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
-      this.ac.b(a, Byte.valueOf(var1.getByte("AttachFace")));
-      this.ac.b(c, Byte.valueOf(var1.getByte("Peek")));
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
+      this.datawatcher.update(a, Byte.valueOf(var1.getByte("AttachFace")));
+      this.datawatcher.update(c, Byte.valueOf(var1.getByte("Peek")));
       if(var1.has("APX")) {
          int var2 = var1.getInt("APX");
          int var3 = var1.getInt("APY");
          int var4 = var1.getInt("APZ");
-         this.ac.b(b, new BlockPosition(var2, var3, var4));
+         this.datawatcher.update(b, new BlockPosition(var2, var3, var4));
       } else {
-         this.ac.b(b, bs);
+         this.datawatcher.update(b, bs);
       }
 
    }
 
    public void t_() {
       super.t_();
-      BlockPosition var1 = this.ac.getBlockPosition(b);
+      BlockPosition var1 = this.datawatcher.getBlockPosition(b);
       if((var1 == null || bs.equals(var1)) && !this.o.isClientSide) {
          var1 = new BlockPosition(this);
-         this.ac.b(b, var1);
+         this.datawatcher.update(b, var1);
       }
 
       if(!this.o.isClientSide) {
@@ -104,11 +104,11 @@ public class class_ug extends class_ua implements class_wd {
             if(var2.getBlock() == Blocks.PISTON_EXTENSION) {
                var3 = (EnumDirection)var2.get(BlockPiston.FACING);
                var1 = var1.shift(var3);
-               this.ac.b(b, var1);
+               this.datawatcher.update(b, var1);
             } else if(var2.getBlock() == Blocks.PISTON_HEAD) {
                var3 = (EnumDirection)var2.get(BlockPistonExtension.FACING);
                var1 = var1.shift(var3);
-               this.ac.b(b, var1);
+               this.datawatcher.update(b, var1);
             } else {
                this.n();
             }
@@ -126,7 +126,7 @@ public class class_ug extends class_ua implements class_wd {
                EnumDirection var7 = var4[var6];
                var15 = var1.shift(var7);
                if(this.o.d(var15, false)) {
-                  this.ac.b(a, Byte.valueOf((byte)var7.getId()));
+                  this.datawatcher.update(a, Byte.valueOf((byte)var7.getId()));
                   var17 = true;
                   break;
                }
@@ -191,7 +191,7 @@ public class class_ug extends class_ua implements class_wd {
          }
 
          if(var18 > 0.0D) {
-            List var12 = this.o.b((Entity)this, (AxisAlignedBB)this.aT());
+            List var12 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT());
             if(!var12.isEmpty()) {
                Iterator var13 = var12.iterator();
 
@@ -211,7 +211,7 @@ public class class_ug extends class_ua implements class_wd {
       BlockPosition var1 = new BlockPosition(this);
 
       for(int var2 = 0; var2 < 5; ++var2) {
-         BlockPosition var3 = var1.add(8 - this.V.nextInt(17), 8 - this.V.nextInt(17), 8 - this.V.nextInt(17));
+         BlockPosition var3 = var1.add(8 - this.random.nextInt(17), 8 - this.random.nextInt(17), 8 - this.random.nextInt(17));
          if(var3.getY() > 0 && this.o.isEmpty(var3) && this.o.a((class_aoe)this.o.ag(), (Entity)this)) {
             boolean var4 = false;
             EnumDirection[] var5 = EnumDirection.values();
@@ -220,7 +220,7 @@ public class class_ug extends class_ua implements class_wd {
             for(int var7 = 0; var7 < var6; ++var7) {
                EnumDirection var8 = var5[var7];
                if(this.o.d(var3.shift(var8), false)) {
-                  this.ac.b(a, Byte.valueOf((byte)var8.getId()));
+                  this.datawatcher.update(a, Byte.valueOf((byte)var8.getId()));
                   var4 = true;
                   break;
                }
@@ -228,8 +228,8 @@ public class class_ug extends class_ua implements class_wd {
 
             if(var4) {
                this.a("mob.endermen.portal", 1.0F, 1.0F);
-               this.ac.b(b, var3);
-               this.ac.b(c, Byte.valueOf((byte)0));
+               this.datawatcher.update(b, var3);
+               this.datawatcher.update(c, Byte.valueOf((byte)0));
                this.d((EntityLiving)null);
                return true;
             }
@@ -272,7 +272,7 @@ public class class_ug extends class_ua implements class_wd {
       return this.cC() == 0?20:super.bs();
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.cC() == 0) {
          Entity var3 = var1.i();
          if(var3 instanceof class_xd) {
@@ -280,8 +280,8 @@ public class class_ug extends class_ua implements class_wd {
          }
       }
 
-      if(super.a(var1, var2)) {
-         if((double)this.bo() < (double)this.bv() * 0.5D && this.V.nextInt(4) == 0) {
+      if(super.damageEntity(var1, var2)) {
+         if((double)this.getHealth() < (double)this.bv() * 0.5D && this.random.nextInt(4) == 0) {
             this.n();
          }
 
@@ -292,27 +292,27 @@ public class class_ug extends class_ua implements class_wd {
    }
 
    public AxisAlignedBB S() {
-      return this.ai()?this.aT():null;
+      return this.isAlive()?this.aT():null;
    }
 
    public EnumDirection cA() {
-      return EnumDirection.getById(this.ac.getByte(a));
+      return EnumDirection.getById(this.datawatcher.getByte(a));
    }
 
    public BlockPosition cB() {
-      return this.ac.getBlockPosition(b);
+      return this.datawatcher.getBlockPosition(b);
    }
 
    public void f(BlockPosition var1) {
-      this.ac.b(b, var1);
+      this.datawatcher.update(b, var1);
    }
 
    public int cC() {
-      return this.ac.getByte(c);
+      return this.datawatcher.getByte(c);
    }
 
    public void a(int var1) {
-      this.ac.b(c, Byte.valueOf((byte)var1));
+      this.datawatcher.update(c, Byte.valueOf((byte)var1));
    }
 
    public float aU() {
@@ -419,7 +419,7 @@ public class class_ug extends class_ua implements class_wd {
 
       public boolean a() {
          EntityLiving var1 = class_ug.this.w();
-         return var1 != null && var1.ai();
+         return var1 != null && var1.isAlive();
       }
 
       public void c() {
@@ -438,10 +438,10 @@ public class class_ug extends class_ua implements class_wd {
          double var2 = class_ug.this.h(var1);
          if(var2 < 400.0D) {
             if(this.b <= 0) {
-               this.b = 20 + class_ug.this.V.nextInt(10) * 20 / 2;
+               this.b = 20 + class_ug.this.random.nextInt(10) * 20 / 2;
                class_xk var4 = new class_xk(class_ug.this.o, class_ug.this, var1, class_ug.this.cA().getAxis());
                class_ug.this.o.addEntity((Entity)var4);
-               class_ug.this.a("mob.ghast.fireball", 2.0F, (class_ug.this.V.nextFloat() - class_ug.this.V.nextFloat()) * 0.2F + 1.0F);
+               class_ug.this.a("mob.ghast.fireball", 2.0F, (class_ug.this.random.nextFloat() - class_ug.this.random.nextFloat()) * 0.2F + 1.0F);
             }
          } else {
             class_ug.this.d((EntityLiving)null);
@@ -458,7 +458,7 @@ public class class_ug extends class_ua implements class_wd {
       }
 
       public boolean a() {
-         return class_ug.this.w() == null && class_ug.this.V.nextInt(40) == 0;
+         return class_ug.this.w() == null && class_ug.this.random.nextInt(40) == 0;
       }
 
       public boolean b() {
@@ -466,7 +466,7 @@ public class class_ug extends class_ua implements class_wd {
       }
 
       public void c() {
-         this.b = 20 * (1 + class_ug.this.V.nextInt(3));
+         this.b = 20 * (1 + class_ug.this.random.nextInt(3));
          class_ug.this.a(30);
       }
 

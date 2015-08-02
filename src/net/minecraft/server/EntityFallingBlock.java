@@ -142,17 +142,17 @@ public class EntityFallingBlock extends Entity {
       if(this.f) {
          int var4 = MathHelper.ceil(var1 - 1.0F);
          if(var4 > 0) {
-            ArrayList var5 = Lists.newArrayList((Iterable)this.o.b((Entity)this, (AxisAlignedBB)this.aT()));
+            ArrayList var5 = Lists.newArrayList((Iterable)this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT()));
             boolean var6 = var3 == Blocks.ANVIL;
             class_pc var7 = var6?class_pc.n:class_pc.o;
             Iterator var8 = var5.iterator();
 
             while(var8.hasNext()) {
                Entity var9 = (Entity)var8.next();
-               var9.a(var7, (float)Math.min(MathHelper.floor((float)var4 * this.h), this.g));
+               var9.damageEntity(var7, (float)Math.min(MathHelper.floor((float)var4 * this.h), this.g));
             }
 
-            if(var6 && (double)this.V.nextFloat() < 0.05000000074505806D + (double)var4 * 0.05D) {
+            if(var6 && (double)this.random.nextFloat() < 0.05000000074505806D + (double)var4 * 0.05D) {
                int var10 = ((Integer)this.d.get(class_aga.b)).intValue();
                ++var10;
                if(var10 > 2) {
@@ -166,7 +166,7 @@ public class EntityFallingBlock extends Entity {
 
    }
 
-   protected void b(NBTTagCompound var1) {
+   protected void write(NBTTagCompound var1) {
       Block var2 = this.d != null?this.d.getBlock():Blocks.AIR;
       MinecraftKey var3 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var2);
       var1.put("Block", var3 == null?"":var3.toString());
@@ -182,7 +182,7 @@ public class EntityFallingBlock extends Entity {
 
    }
 
-   protected void a(NBTTagCompound var1) {
+   protected void read(NBTTagCompound var1) {
       int var2 = var1.getByte("Data") & 255;
       if(var1.hasOfType("Block", 8)) {
          this.d = Block.getByName(var1.getString("Block")).fromLegacyData(var2);

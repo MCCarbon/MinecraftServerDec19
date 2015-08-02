@@ -135,7 +135,7 @@ public final class class_aeu {
                }
 
                var7 = (EntityHuman)var6.next();
-            } while(var7.v());
+            } while(var7.isSpectator());
 
             int var8 = MathHelper.floor(var7.s / 16.0D);
             var9 = MathHelper.floor(var7.u / 16.0D);
@@ -158,7 +158,7 @@ public final class class_aeu {
    }
 
    protected static BlockPosition a(World var0, int var1, int var2) {
-      Chunk var3 = var0.a(var1, var2);
+      Chunk var3 = var0.getChunkAt(var1, var2);
       int var4 = var1 * 16 + var0.random.nextInt(16);
       int var5 = var2 * 16 + var0.random.nextInt(16);
       int var6 = MathHelper.ceilByBase(var3.f(new BlockPosition(var4, 0, var5)) + 1, 16);

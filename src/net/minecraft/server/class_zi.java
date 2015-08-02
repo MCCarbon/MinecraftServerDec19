@@ -48,7 +48,7 @@ public class class_zi extends Item {
          Vec3D var26 = var3.d(var5);
          boolean var27 = false;
          float var28 = 1.0F;
-         List var29 = var2.b((Entity)var3, (AxisAlignedBB)var3.aT().add(var26.x * var22, var26.y * var22, var26.z * var22).grow((double)var28, (double)var28, (double)var28));
+         List var29 = var2.getEntities((Entity)var3, (AxisAlignedBB)var3.aT().add(var26.x * var22, var26.y * var22, var26.z * var22).grow((double)var28, (double)var28, (double)var28));
 
          for(int var30 = 0; var30 < var29.size(); ++var30) {
             Entity var31 = (Entity)var29.get(var30);
@@ -78,7 +78,7 @@ public class class_zi extends Item {
                   var2.addEntity((Entity)var35);
                }
 
-               if(!var3.bH.instabuild) {
+               if(!var3.abilities.instabuild) {
                   --var1.count;
                }
 

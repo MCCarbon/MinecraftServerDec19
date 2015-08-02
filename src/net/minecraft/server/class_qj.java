@@ -27,12 +27,12 @@ public abstract class class_qj extends class_tw implements class_qg {
 
    protected void h() {
       super.h();
-      this.ac.add(bs, Byte.valueOf((byte)0));
-      this.ac.add(bt, "");
+      this.datawatcher.add(bs, Byte.valueOf((byte)0));
+      this.datawatcher.add(bt, "");
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       if(this.b() == null) {
          var1.put("OwnerUUID", "");
       } else {
@@ -42,8 +42,8 @@ public abstract class class_qj extends class_tw implements class_qg {
       var1.put("Sitting", this.cC());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       String var2 = "";
       if(var1.hasOfType("OwnerUUID", 8)) {
          var2 = var1.getString("OwnerUUID");
@@ -68,24 +68,24 @@ public abstract class class_qj extends class_tw implements class_qg {
       }
 
       for(int var3 = 0; var3 < 7; ++var3) {
-         double var4 = this.V.nextGaussian() * 0.02D;
-         double var6 = this.V.nextGaussian() * 0.02D;
-         double var8 = this.V.nextGaussian() * 0.02D;
-         this.o.a(var2, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, var4, var6, var8, new int[0]);
+         double var4 = this.random.nextGaussian() * 0.02D;
+         double var6 = this.random.nextGaussian() * 0.02D;
+         double var8 = this.random.nextGaussian() * 0.02D;
+         this.o.a(var2, this.s + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.random.nextFloat() * this.K), this.u + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, var4, var6, var8, new int[0]);
       }
 
    }
 
    public boolean cA() {
-      return (this.ac.getByte(bs) & 4) != 0;
+      return (this.datawatcher.getByte(bs) & 4) != 0;
    }
 
    public void n(boolean var1) {
-      byte var2 = this.ac.getByte(bs);
+      byte var2 = this.datawatcher.getByte(bs);
       if(var1) {
-         this.ac.b(bs, Byte.valueOf((byte)(var2 | 4)));
+         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 | 4)));
       } else {
-         this.ac.b(bs, Byte.valueOf((byte)(var2 & -5)));
+         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 & -5)));
       }
 
       this.cB();
@@ -95,25 +95,25 @@ public abstract class class_qj extends class_tw implements class_qg {
    }
 
    public boolean cC() {
-      return (this.ac.getByte(bs) & 1) != 0;
+      return (this.datawatcher.getByte(bs) & 1) != 0;
    }
 
    public void o(boolean var1) {
-      byte var2 = this.ac.getByte(bs);
+      byte var2 = this.datawatcher.getByte(bs);
       if(var1) {
-         this.ac.b(bs, Byte.valueOf((byte)(var2 | 1)));
+         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 | 1)));
       } else {
-         this.ac.b(bs, Byte.valueOf((byte)(var2 & -2)));
+         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 & -2)));
       }
 
    }
 
    public String b() {
-      return this.ac.getString(bt);
+      return this.datawatcher.getString(bt);
    }
 
    public void b(String var1) {
-      this.ac.b(bt, var1);
+      this.datawatcher.update(bt, var1);
    }
 
    public EntityLiving cD() {

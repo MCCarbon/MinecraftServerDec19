@@ -89,7 +89,7 @@ public class class_agq extends Block {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
-      var4.a(class_pc.h, 1.0F);
+      var4.damageEntity(class_pc.h, 1.0F);
    }
 
    public IBlockData fromLegacyData(int var1) {

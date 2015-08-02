@@ -43,16 +43,16 @@ public class class_xn extends class_xd {
       var1.c(var2);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       if(var1.has("Duration")) {
          this.f = var1.getInt("Duration");
       }
 
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Duration", this.f);
    }
 }

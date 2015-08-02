@@ -148,15 +148,14 @@ public class Datawathcer {
 		return (class_dc) get(var1).getValue();
 	}
 
-	public void b(int var1, Object var2) {
-		Datawathcer.WatchableObject var3 = get(var1);
-		if (ObjectUtils.notEqual(var2, var3.getValue())) {
-			var3.a(var2);
-			entity.d(var1);
-			var3.a(true);
+	public void update(int id, Object obj) {
+		Datawathcer.WatchableObject watchable = get(id);
+		if (ObjectUtils.notEqual(obj, watchable.getValue())) {
+			watchable.setValue(obj);
+			entity.d(id);
+			watchable.a(true);
 			e = true;
 		}
-
 	}
 
 	public void i(int var1) {
@@ -347,8 +346,8 @@ public class Datawathcer {
 			return id;
 		}
 
-		public void a(Object var1) {
-			value = var1;
+		public void setValue(Object value) {
+			this.value = value;
 		}
 
 		public Object getValue() {

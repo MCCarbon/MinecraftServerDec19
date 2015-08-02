@@ -114,7 +114,7 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
 				return ((class_vp) var3.get(0)).j().j();
 			}
 
-			List<?> var4 = this.a(var1, var2, class_vn.class, new Predicate[] { class_pv.c });
+			List<?> var4 = this.a(var1, var2, class_vn.class, new Predicate[] { IEntitySelector.IS_ALIVE_AND_HAS_INVENTORY });
 			if (!var4.isEmpty()) {
 				return Container.b((IInventory) var4.get(0));
 			}

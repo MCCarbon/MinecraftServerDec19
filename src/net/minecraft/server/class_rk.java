@@ -43,7 +43,7 @@ public class class_rk extends class_rm {
       EntityLiving var1 = this.d.cD();
       if(var1 == null) {
          return false;
-      } else if(var1 instanceof EntityHuman && ((EntityHuman)var1).v()) {
+      } else if(var1 instanceof EntityHuman && ((EntityHuman)var1).isSpectator()) {
          return false;
       } else if(this.d.cC()) {
          return false;

@@ -142,7 +142,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
       if(--this.bu <= 0) {
          BlockPosition var1 = new BlockPosition(this);
          this.o.af().a(var1);
-         this.bu = 70 + this.V.nextInt(50);
+         this.bu = 70 + this.random.nextInt(50);
          this.bs = this.o.af().a(var1, 32);
          if(this.bs == null) {
             this.cy();
@@ -165,7 +165,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
                while(var3.hasNext()) {
                   class_aea var4 = (class_aea)var3.next();
                   if(var4.h()) {
-                     var4.a(this.V.nextInt(6) + this.V.nextInt(6) + 2);
+                     var4.a(this.random.nextInt(6) + this.random.nextInt(6) + 2);
                   }
                }
 
@@ -186,7 +186,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       boolean var4 = var3 != null && var3.getItem() == Items.bM;
-      if(!var4 && this.ai() && !this.cD() && !this.j_()) {
+      if(!var4 && this.isAlive() && !this.cD() && !this.j_()) {
          if(!this.o.isClientSide && (this.by == null || !this.by.isEmpty())) {
             this.a(var1);
             var1.a((class_adz)this);
@@ -201,11 +201,11 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    protected void h() {
       super.h();
-      this.ac.add(bt, Integer.valueOf(0));
+      this.datawatcher.add(bt, Integer.valueOf(0));
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Profession", this.cA());
       var1.put("Riches", this.bC);
       var1.put("Career", this.bE);
@@ -227,8 +227,8 @@ public class class_wv extends class_po implements class_adz, class_wu {
       var1.put((String)"Inventory", (NBTTag)var2);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.m(var1.getInt("Profession"));
       this.bC = var1.getInt("Riches");
       this.bE = var1.getInt("Career");
@@ -269,11 +269,11 @@ public class class_wv extends class_po implements class_adz, class_wu {
    }
 
    public void m(int var1) {
-      this.ac.b(bt, Integer.valueOf(var1));
+      this.datawatcher.update(bt, Integer.valueOf(var1));
    }
 
    public int cA() {
-      return Math.max(this.ac.getInt(bt) % 5, 0);
+      return Math.max(this.datawatcher.getInt(bt) % 5, 0);
    }
 
    public boolean cB() {
@@ -303,7 +303,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
             }
 
             this.bs.a(var1.getName(), var2);
-            if(this.ai()) {
+            if(this.isAlive()) {
                this.o.a((Entity)this, (byte)13);
             }
          }
@@ -378,8 +378,8 @@ public class class_wv extends class_po implements class_adz, class_wu {
       var1.g();
       this.a_ = -this.y();
       this.a("mob.villager.yes", this.bC(), this.bD());
-      int var2 = 3 + this.V.nextInt(4);
-      if(var1.e() == 1 || this.V.nextInt(5) == 0) {
+      int var2 = 3 + this.random.nextInt(4);
+      if(var1.e() == 1 || this.random.nextInt(5) == 0) {
          this.bz = 40;
          this.bA = true;
          this.bB = true;
@@ -427,7 +427,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
       if(this.bE != 0 && this.bF != 0) {
          ++this.bF;
       } else {
-         this.bE = this.V.nextInt(var1.length) + 1;
+         this.bE = this.random.nextInt(var1.length) + 1;
          this.bF = 1;
       }
 
@@ -445,7 +445,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
          for(int var8 = 0; var8 < var7; ++var8) {
             class_wv.class_f_in_class_wv var9 = var6[var8];
-            var9.a(this.by, this.V);
+            var9.a(this.by, this.random);
          }
       }
 

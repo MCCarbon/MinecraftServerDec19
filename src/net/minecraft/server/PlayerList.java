@@ -139,8 +139,8 @@ public abstract class PlayerList {
 		var12.a((Packet<?>) (new PacketPlayOutCustomPayload("MC|Brand", (new PacketDataSerializer(Unpooled.buffer())).writeString(this.getMinecraftServer().getServerModName()))));
 		var12.a((Packet<?>) (new PacketPlayOutServerDifficulty(var10.y(), var10.z())));
 		var12.a((Packet<?>) (new PacketPlayOutSpawnPosition(var11)));
-		var12.a((Packet<?>) (new PacketPlayOutAbilities(player.bH)));
-		var12.a((Packet<?>) (new PacketPlayOutHeldItemSlot(player.bp.d)));
+		var12.a((Packet<?>) (new PacketPlayOutAbilities(player.abilities)));
+		var12.a((Packet<?>) (new PacketPlayOutHeldItemSlot(player.inventory.itemInHandIndex)));
 		int var13 = this.h(var3) ? this.opList.a(var3) : 0;
 		var13 = this.mcserver.isLocal() && this.mcserver.d[0].Q().v() ? 4 : var13;
 		var13 = this.isEveryoneOP ? 4 : var13;
@@ -302,8 +302,8 @@ public abstract class PlayerList {
 		var1.b((class_my) StatisticList.f);
 		this.b(var1);
 		WorldServer var2 = var1.u();
-		if (var1.m != null) {
-			var2.f(var1.m);
+		if (var1.vehicle != null) {
+			var2.f(var1.vehicle);
 			looger.debug("removing player mount");
 		}
 
@@ -423,14 +423,14 @@ public abstract class PlayerList {
 		var9 = var8.N();
 		var7.a.a(var7.s, var7.t, var7.u, var7.y, var7.z);
 		var7.a.a((Packet<?>) (new PacketPlayOutSpawnPosition(var9)));
-		var7.a.a((Packet<?>) (new PacketPlayOutExperience(var7.bK, var7.bJ, var7.bI)));
+		var7.a.a((Packet<?>) (new PacketPlayOutExperience(var7.exp, var7.expTotal, var7.expLevel)));
 		this.b(var7, var8);
 		var8.u().a(var7);
 		var8.addEntity((Entity) var7);
 		this.playerList.add(var7);
 		this.playerMap.put(var7.aM(), var7);
 		var7.g_();
-		var7.i(var7.bo());
+		var7.i(var7.getHealth());
 		return var7;
 	}
 
@@ -467,14 +467,14 @@ public abstract class PlayerList {
 			var5 = MathHelper.clamp(var5 / var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
 			var7 = MathHelper.clamp(var7 / var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
 			var1.b(var5, var1.t, var7, var1.y, var1.z);
-			if (var1.ai()) {
+			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
 		} else if (var1.am == 0) {
 			var5 = MathHelper.clamp(var5 * var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
 			var7 = MathHelper.clamp(var7 * var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
 			var1.b(var5, var1.t, var7, var1.y, var1.z);
-			if (var1.ai()) {
+			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
 		} else {
@@ -489,7 +489,7 @@ public abstract class PlayerList {
 			var1.t = (double) var12.getY();
 			var7 = (double) var12.getZ();
 			var1.b(var5, var1.t, var7, 90.0F, 0.0F);
-			if (var1.ai()) {
+			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
 		}
@@ -499,7 +499,7 @@ public abstract class PlayerList {
 			var3.B.a("placing");
 			var5 = (double) MathHelper.clamp((int) var5, -29999872, 29999872);
 			var7 = (double) MathHelper.clamp((int) var7, -29999872, 29999872);
-			if (var1.ai()) {
+			if (var1.isAlive()) {
 				var1.b(var5, var1.t, var7, var1.y, var1.z);
 				var4.v().a(var1, var11);
 				var4.addEntity(var1);
@@ -724,7 +724,7 @@ public abstract class PlayerList {
 	public void f(EntityPlayer var1) {
 		var1.a(var1.bq);
 		var1.r();
-		var1.a.a((Packet<?>) (new PacketPlayOutHeldItemSlot(var1.bp.d)));
+		var1.a.a((Packet<?>) (new PacketPlayOutHeldItemSlot(var1.inventory.itemInHandIndex)));
 	}
 
 	public int getOnlinePlayers() {

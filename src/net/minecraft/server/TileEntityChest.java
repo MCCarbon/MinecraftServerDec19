@@ -300,7 +300,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 
 	@Override
 	public void startOpen(EntityHuman var1) {
-		if (!var1.v()) {
+		if (!var1.isSpectator()) {
 			if (l < 0) {
 				l = 0;
 			}
@@ -315,7 +315,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 
 	@Override
 	public void closeContainer(EntityHuman var1) {
-		if (!var1.v() && (getBlock() instanceof class_agu)) {
+		if (!var1.isSpectator() && (getBlock() instanceof class_agu)) {
 			--l;
 			world.c(position, getBlock(), 1, l);
 			world.c(position, getBlock());

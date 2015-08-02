@@ -16,7 +16,7 @@ public class class_aaj extends Item {
       if(!var3.isClientSide) {
          class_xg var10 = new class_xg(var3, (double)((float)var4.getX() + var7), (double)((float)var4.getY() + var8), (double)((float)var4.getZ() + var9), var1);
          var3.addEntity((Entity)var10);
-         if(!var2.bH.instabuild) {
+         if(!var2.abilities.instabuild) {
             --var1.count;
          }
 

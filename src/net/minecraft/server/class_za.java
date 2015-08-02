@@ -17,7 +17,7 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_oq;
 import net.minecraft.server.class_or;
-import net.minecraft.server.class_pv;
+import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
@@ -34,7 +34,7 @@ public class class_za extends Item {
          int var5 = var3.getY();
          int var6 = var3.getZ();
          AxisAlignedBB var7 = new AxisAlignedBB((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1));
-         List var8 = var1.getWorld().a(EntityLiving.class, var7, Predicates.and(class_pv.d, new class_pv.class_a_in_class_pv(var2)));
+         List var8 = var1.getWorld().a(EntityLiving.class, var7, Predicates.and(IEntitySelector.NOT_PLAYER_SPECTATOR, new IEntitySelector.class_a_in_class_pv(var2)));
          if(!var8.isEmpty()) {
             EntityLiving var9 = (EntityLiving)var8.get(0);
             class_pw var10 = class_qb.c(var2);

@@ -84,12 +84,12 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    protected void h() {
-      this.ac.add(a, new Integer(0));
-      this.ac.add(b, new Integer(1));
-      this.ac.add(c, new Float(0.0F));
-      this.ac.add(d, new Integer(0));
-      this.ac.add(e, new Integer(6));
-      this.ac.add(f, Byte.valueOf((byte)0));
+      this.datawatcher.add(a, new Integer(0));
+      this.datawatcher.add(b, new Integer(1));
+      this.datawatcher.add(c, new Float(0.0F));
+      this.datawatcher.add(d, new Integer(0));
+      this.datawatcher.add(e, new Integer(6));
+      this.datawatcher.add(f, Byte.valueOf((byte)0));
    }
 
    public AxisAlignedBB j(Entity var1) {
@@ -119,7 +119,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
       return 0.0D;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(!this.o.isClientSide && !this.I) {
          if(this.b(var1)) {
             return false;
@@ -128,10 +128,10 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
             this.j(10);
             this.ac();
             this.a(this.p() + var2 * 10.0F);
-            boolean var3 = var1.j() instanceof EntityHuman && ((EntityHuman)var1.j()).bH.instabuild;
+            boolean var3 = var1.j() instanceof EntityHuman && ((EntityHuman)var1.j()).abilities.instabuild;
             if(var3 || this.p() > 40.0F) {
-               if(this.l != null) {
-                  this.l.a((Entity)null);
+               if(this.passenger != null) {
+                  this.passenger.a((Entity)null);
                }
 
                if(var3 && !this.hasCustomName()) {
@@ -189,7 +189,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
          var2 = this.L();
          if(this.ak) {
             if(var1.C()) {
-               if(this.m == null && this.al++ >= var2) {
+               if(this.vehicle == null && this.al++ >= var2) {
                   this.al = var2;
                   this.aj = this.aq();
                   byte var3;
@@ -278,21 +278,21 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
          }
 
          this.b(this.y, this.z);
-         Iterator var12 = this.o.b((Entity)this, (AxisAlignedBB)this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
+         Iterator var12 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
 
          while(var12.hasNext()) {
             Entity var13 = (Entity)var12.next();
-            if(var13 != this.l && var13.ae() && var13 instanceof class_vn) {
+            if(var13 != this.passenger && var13.ae() && var13 instanceof class_vn) {
                var13.i(this);
             }
          }
 
-         if(this.l != null && this.l.I) {
-            if(this.l.m == this) {
-               this.l.m = null;
+         if(this.passenger != null && this.passenger.I) {
+            if(this.passenger.vehicle == this) {
+               this.passenger.vehicle = null;
             }
 
-            this.l = null;
+            this.passenger = null;
          }
 
          this.W();
@@ -378,11 +378,11 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
       double var23;
       double var25;
       double var27;
-      if(this.l instanceof EntityLiving) {
-         var21 = (double)((EntityLiving)this.l).bd;
+      if(this.passenger instanceof EntityLiving) {
+         var21 = (double)((EntityLiving)this.passenger).bd;
          if(var21 > 0.0D) {
-            var23 = -Math.sin((double)(this.l.y * 3.1415927F / 180.0F));
-            var25 = Math.cos((double)(this.l.y * 3.1415927F / 180.0F));
+            var23 = -Math.sin((double)(this.passenger.y * 3.1415927F / 180.0F));
+            var25 = Math.cos((double)(this.passenger.y * 3.1415927F / 180.0F));
             var27 = this.v * this.v + this.x * this.x;
             if(var27 < 0.01D) {
                this.v += var23 * 0.1D;
@@ -431,7 +431,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
       this.b(this.s, this.t, this.u);
       var31 = this.v;
       var33 = this.x;
-      if(this.l != null) {
+      if(this.passenger != null) {
          var31 *= 0.75D;
          var33 *= 0.75D;
       }
@@ -491,7 +491,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    protected void o() {
-      if(this.l != null) {
+      if(this.passenger != null) {
          this.v *= 0.996999979019165D;
          this.motY *= 0.0D;
          this.x *= 0.996999979019165D;
@@ -563,7 +563,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
       }
    }
 
-   protected void a(NBTTagCompound var1) {
+   protected void read(NBTTagCompound var1) {
       if(var1.getBoolean("CustomDisplayTile")) {
          int var2 = var1.getInt("DisplayData");
          Block var3;
@@ -592,7 +592,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
 
    }
 
-   protected void b(NBTTagCompound var1) {
+   protected void write(NBTTagCompound var1) {
       if(this.x()) {
          var1.put("CustomDisplayTile", true);
          IBlockData var2 = this.t();
@@ -611,8 +611,8 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    public void i(Entity var1) {
       if(!this.o.isClientSide) {
          if(!var1.T && !this.T) {
-            if(var1 != this.l) {
-               if(var1 instanceof EntityLiving && !(var1 instanceof EntityHuman) && !(var1 instanceof class_uj) && this.s() == class_vn.class_a_in_class_vn.a && this.v * this.v + this.x * this.x > 0.01D && this.l == null && var1.m == null) {
+            if(var1 != this.passenger) {
+               if(var1 instanceof EntityLiving && !(var1 instanceof EntityHuman) && !(var1 instanceof class_uj) && this.s() == class_vn.class_a_in_class_vn.a && this.v * this.v + this.x * this.x > 0.01D && this.passenger == null && var1.vehicle == null) {
                   var1.a((Entity)this);
                }
 
@@ -682,27 +682,27 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public void a(float var1) {
-      this.ac.b(c, Float.valueOf(var1));
+      this.datawatcher.update(c, Float.valueOf(var1));
    }
 
    public float p() {
-      return this.ac.getFloat(c);
+      return this.datawatcher.getFloat(c);
    }
 
    public void j(int var1) {
-      this.ac.b(a, Integer.valueOf(var1));
+      this.datawatcher.update(a, Integer.valueOf(var1));
    }
 
    public int q() {
-      return this.ac.getInt(a);
+      return this.datawatcher.getInt(a);
    }
 
    public void k(int var1) {
-      this.ac.b(b, Integer.valueOf(var1));
+      this.datawatcher.update(b, Integer.valueOf(var1));
    }
 
    public int r() {
-      return this.ac.getInt(b);
+      return this.datawatcher.getInt(b);
    }
 
    public abstract class_vn.class_a_in_class_vn s();
@@ -724,12 +724,12 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public void a(IBlockData var1) {
-      this.H().b(d, Integer.valueOf(Block.getCombinedId(var1)));
+      this.H().update(d, Integer.valueOf(Block.getCombinedId(var1)));
       this.a(true);
    }
 
    public void l(int var1) {
-      this.H().b(e, Integer.valueOf(var1));
+      this.H().update(e, Integer.valueOf(var1));
       this.a(true);
    }
 
@@ -738,7 +738,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public void a(boolean var1) {
-      this.H().b(f, Byte.valueOf((byte)(var1?1:0)));
+      this.H().update(f, Byte.valueOf((byte)(var1?1:0)));
    }
 
    public void a(String var1) {

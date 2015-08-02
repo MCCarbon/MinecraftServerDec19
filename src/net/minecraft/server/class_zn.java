@@ -50,7 +50,7 @@ public class class_zn extends Item {
                   return new class_or(class_oq.b, var1);
                }
 
-               if(this.a(var2, var10) && !var3.bH.instabuild) {
+               if(this.a(var2, var10) && !var3.abilities.instabuild) {
                   var3.b(StatisticList.ad[Item.getId((Item)this)]);
                   return new class_or(class_oq.a, new ItemStack(Items.ay));
                }
@@ -82,12 +82,12 @@ public class class_zn extends Item {
    }
 
    private ItemStack a(ItemStack var1, EntityHuman var2, Item var3) {
-      if(var2.bH.instabuild) {
+      if(var2.abilities.instabuild) {
          return var1;
       } else if(--var1.count <= 0) {
          return new ItemStack(var3);
       } else {
-         if(!var2.bp.a(new ItemStack(var3))) {
+         if(!var2.inventory.a(new ItemStack(var3))) {
             var2.a(new ItemStack(var3), false);
          }
 

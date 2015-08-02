@@ -17,15 +17,15 @@ import com.google.common.collect.Sets;
 public abstract class World implements IBlockAccess {
 	private int a = 63;
 	protected boolean e;
-	public final List f = Lists.newArrayList();
-	protected final List g = Lists.newArrayList();
-	public final List h = Lists.newArrayList();
-	public final List i = Lists.newArrayList();
-	private final List b = Lists.newArrayList();
-	private final List c = Lists.newArrayList();
+	public final List<Entity> entityList = Lists.newArrayList();
+	protected final List<Entity> g = Lists.newArrayList();
+	public final List<TileEntity> h = Lists.newArrayList();
+	public final List<TileEntity> i = Lists.newArrayList();
+	private final List<TileEntity> b = Lists.newArrayList();
+	private final List<TileEntity> c = Lists.newArrayList();
 	public final List<EntityHuman> players = Lists.newArrayList();
-	public final List k = Lists.newArrayList();
-	protected final class_no l = new class_no();
+	public final List<Entity> k = Lists.newArrayList();
+	protected final IntHashMap entitiesById = new IntHashMap();
 	private long d = 16777215L;
 	private int I;
 	protected int m = (new Random()).nextInt();
@@ -186,10 +186,10 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public Chunk f(BlockPosition var1) {
-		return this.a(var1.getX() >> 4, var1.getZ() >> 4);
+		return this.getChunkAt(var1.getX() >> 4, var1.getZ() >> 4);
 	}
 
-	public Chunk a(int var1, int var2) {
+	public Chunk getChunkAt(int var1, int var2) {
 		return v.d(var1, var2);
 	}
 
@@ -447,7 +447,7 @@ public abstract class World implements IBlockAccess {
 		int var2;
 		if ((var1.getX() >= -30000000) && (var1.getZ() >= -30000000) && (var1.getX() < 30000000) && (var1.getZ() < 30000000)) {
 			if (this.a(var1.getX() >> 4, var1.getZ() >> 4, true)) {
-				var2 = this.a(var1.getX() >> 4, var1.getZ() >> 4).b(var1.getX() & 15, var1.getZ() & 15);
+				var2 = this.getChunkAt(var1.getX() >> 4, var1.getZ() >> 4).b(var1.getX() & 15, var1.getZ() & 15);
 			} else {
 				var2 = 0;
 			}
@@ -463,7 +463,7 @@ public abstract class World implements IBlockAccess {
 			if (!this.a(var1 >> 4, var2 >> 4, true)) {
 				return 0;
 			} else {
-				Chunk var3 = this.a(var1 >> 4, var2 >> 4);
+				Chunk var3 = this.getChunkAt(var1 >> 4, var2 >> 4);
 				return var3.v();
 			}
 		} else {
@@ -723,8 +723,8 @@ public abstract class World implements IBlockAccess {
 				this.e();
 			}
 
-			this.a(var2, var3).a(var1);
-			f.add(var1);
+			this.getChunkAt(var2, var3).a(var1);
+			entityList.add(var1);
 			this.b(var1);
 			return true;
 		}
@@ -745,11 +745,11 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public void e(Entity var1) {
-		if (var1.l != null) {
-			var1.l.a((Entity) null);
+		if (var1.passenger != null) {
+			var1.passenger.a((Entity) null);
 		}
 
-		if (var1.m != null) {
+		if (var1.vehicle != null) {
 			var1.a((Entity) null);
 		}
 
@@ -772,10 +772,10 @@ public abstract class World implements IBlockAccess {
 		int var2 = var1.ae;
 		int var3 = var1.ag;
 		if (var1.ad && this.a(var2, var3, true)) {
-			this.a(var2, var3).b(var1);
+			this.getChunkAt(var2, var3).b(var1);
 		}
 
-		f.remove(var1);
+		entityList.remove(var1);
 		this.c(var1);
 	}
 
@@ -820,11 +820,11 @@ public abstract class World implements IBlockAccess {
 		}
 
 		double var21 = 0.25D;
-		List var22 = this.b(var1, var2.grow(var21, var21, var21));
+		List var22 = this.getEntities(var1, var2.grow(var21, var21, var21));
 
 		for (int var23 = 0; var23 < var22.size(); ++var23) {
 			Entity var19 = (Entity) var22.get(var23);
-			if ((var1.l != var19) && (var1.m != var19)) {
+			if ((var1.passenger != var19) && (var1.vehicle != var19)) {
 				AxisAlignedBB var20 = var19.S();
 				if ((var20 != null) && var20.isInside(var2)) {
 					var3.add(var20);
@@ -976,7 +976,7 @@ public abstract class World implements IBlockAccess {
 		}
 
 		B.c("remove");
-		f.removeAll(g);
+		entityList.removeAll(g);
 
 		int var3;
 		int var14;
@@ -985,7 +985,7 @@ public abstract class World implements IBlockAccess {
 			var3 = var2.ae;
 			var14 = var2.ag;
 			if (var2.ad && this.a(var3, var14, true)) {
-				this.a(var3, var14).b(var2);
+				this.getChunkAt(var3, var14).b(var2);
 			}
 		}
 
@@ -996,15 +996,15 @@ public abstract class World implements IBlockAccess {
 		g.clear();
 		B.c("regular");
 
-		for (var1 = 0; var1 < f.size(); ++var1) {
-			var2 = (Entity) f.get(var1);
-			if (var2.m != null) {
-				if (!var2.m.I && (var2.m.l == var2)) {
+		for (var1 = 0; var1 < entityList.size(); ++var1) {
+			var2 = (Entity) entityList.get(var1);
+			if (var2.vehicle != null) {
+				if (!var2.vehicle.I && (var2.vehicle.passenger == var2)) {
 					continue;
 				}
 
-				var2.m.l = null;
-				var2.m = null;
+				var2.vehicle.passenger = null;
+				var2.vehicle = null;
 			}
 
 			B.a("tick");
@@ -1025,10 +1025,10 @@ public abstract class World implements IBlockAccess {
 				var3 = var2.ae;
 				var14 = var2.ag;
 				if (var2.ad && this.a(var3, var14, true)) {
-					this.a(var3, var14).b(var2);
+					this.getChunkAt(var3, var14).b(var2);
 				}
 
-				f.remove(var1--);
+				entityList.remove(var1--);
 				this.c(var2);
 			}
 
@@ -1137,7 +1137,7 @@ public abstract class World implements IBlockAccess {
 			var1.B = var1.z;
 			if (var2 && var1.ad) {
 				++var1.W;
-				if (var1.m != null) {
+				if (var1.vehicle != null) {
 					var1.ak();
 				} else {
 					var1.t_();
@@ -1170,24 +1170,24 @@ public abstract class World implements IBlockAccess {
 			int var8 = MathHelper.floor(var1.u / 16.0D);
 			if (!var1.ad || (var1.ae != var6) || (var1.af != var7) || (var1.ag != var8)) {
 				if (var1.ad && this.a(var1.ae, var1.ag, true)) {
-					this.a(var1.ae, var1.ag).a(var1, var1.af);
+					this.getChunkAt(var1.ae, var1.ag).a(var1, var1.af);
 				}
 
 				if (this.a(var6, var8, true)) {
 					var1.ad = true;
-					this.a(var6, var8).a(var1);
+					this.getChunkAt(var6, var8).a(var1);
 				} else {
 					var1.ad = false;
 				}
 			}
 
 			B.b();
-			if (var2 && var1.ad && (var1.l != null)) {
-				if (!var1.l.I && (var1.l.m == var1)) {
-					g(var1.l);
+			if (var2 && var1.ad && (var1.passenger != null)) {
+				if (!var1.passenger.I && (var1.passenger.vehicle == var1)) {
+					g(var1.passenger);
 				} else {
-					var1.l.m = null;
-					var1.l = null;
+					var1.passenger.vehicle = null;
+					var1.passenger = null;
 				}
 			}
 
@@ -1199,11 +1199,11 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean a(AxisAlignedBB var1, Entity var2) {
-		List var3 = this.b((Entity) null, var1);
+		List var3 = this.getEntities((Entity) null, var1);
 
 		for (int var4 = 0; var4 < var3.size(); ++var4) {
 			Entity var5 = (Entity) var3.get(var4);
-			if (!var5.I && var5.k && (var5 != var2) && ((var2 == null) || ((var2.m != var5) && (var2.l != var5)))) {
+			if (!var5.I && var5.k && (var5 != var2) && ((var2 == null) || ((var2.vehicle != var5) && (var2.passenger != var5)))) {
 				return false;
 			}
 		}
@@ -1946,12 +1946,12 @@ public abstract class World implements IBlockAccess {
 		return null;
 	}
 
-	public List b(Entity var1, AxisAlignedBB var2) {
-		return this.a(var1, var2, class_pv.d);
+	public List<Entity> getEntities(Entity entity, AxisAlignedBB var2) {
+		return this.a(entity, var2, IEntitySelector.NOT_PLAYER_SPECTATOR);
 	}
 
-	public List a(Entity var1, AxisAlignedBB var2, Predicate var3) {
-		ArrayList var4 = Lists.newArrayList();
+	public List<Entity> a(Entity var1, AxisAlignedBB var2, Predicate<? super Entity> var3) {
+		ArrayList<Entity> var4 = Lists.newArrayList();
 		int var5 = MathHelper.floor((var2.xMin - 2.0D) / 16.0D);
 		int var6 = MathHelper.floor((var2.xMax + 2.0D) / 16.0D);
 		int var7 = MathHelper.floor((var2.zMin - 2.0D) / 16.0D);
@@ -1960,7 +1960,7 @@ public abstract class World implements IBlockAccess {
 		for (int var9 = var5; var9 <= var6; ++var9) {
 			for (int var10 = var7; var10 <= var8; ++var10) {
 				if (this.a(var9, var10, true)) {
-					this.a(var9, var10).a(var1, var2, var4, var3);
+					this.getChunkAt(var9, var10).a(var1, var2, var4, var3);
 				}
 			}
 		}
@@ -1968,36 +1968,29 @@ public abstract class World implements IBlockAccess {
 		return var4;
 	}
 
-	public List a(Class var1, Predicate var2) {
-		ArrayList var3 = Lists.newArrayList();
-		Iterator var4 = f.iterator();
-
-		while (var4.hasNext()) {
-			Entity var5 = (Entity) var4.next();
-			if (var1.isAssignableFrom(var5.getClass()) && var2.apply(var5)) {
-				var3.add(var5);
-			}
-		}
-
-		return var3;
-	}
-
-	public List b(Class var1, Predicate var2) {
-		ArrayList var3 = Lists.newArrayList();
-		Iterator var4 = players.iterator();
-
-		while (var4.hasNext()) {
-			Entity var5 = (Entity) var4.next();
-			if (var1.isAssignableFrom(var5.getClass()) && var2.apply(var5)) {
-				var3.add(var5);
-			}
-		}
-
-		return var3;
-	}
+    @SuppressWarnings("unchecked")
+	public <T extends Entity> List<T> getEntities(final Class<? extends T> oclass, final Predicate<? super T> predicate) {
+        final ArrayList<T> arraylist = Lists.newArrayList();
+        for (final Entity entity : this.entityList) {
+            if (oclass.isAssignableFrom(entity.getClass()) && predicate.apply((T) entity)) {
+                arraylist.add((T) entity);
+            }
+        }
+        return arraylist;
+    }
+    
+    public <T extends Entity> List<T> getPlayers(final Class<? extends T> oclass, final Predicate<? super T> predicate) {
+        final ArrayList<T> arraylist = Lists.newArrayList();
+        for (final Entity entity : this.players) {
+            if (oclass.isAssignableFrom(entity.getClass()) && predicate.apply((T) entity)) {
+                arraylist.add((T) entity);
+            }
+        }
+        return arraylist;
+    }
 
 	public <T> List<T> getEntities(Class<T> entityClass, AxisAlignedBB bb) {
-		return this.a(entityClass, bb, class_pv.d);
+		return this.a(entityClass, bb, IEntitySelector.NOT_PLAYER_SPECTATOR);
 	}
 
 	public List a(Class var1, AxisAlignedBB var2, Predicate var3) {
@@ -2010,7 +2003,7 @@ public abstract class World implements IBlockAccess {
 		for (int var9 = var4; var9 <= var5; ++var9) {
 			for (int var10 = var6; var10 <= var7; ++var10) {
 				if (this.a(var9, var10, true)) {
-					this.a(var9, var10).a(var1, var2, var8, var3);
+					this.getChunkAt(var9, var10).a(var1, var2, var8, var3);
 				}
 			}
 		}
@@ -2025,7 +2018,7 @@ public abstract class World implements IBlockAccess {
 
 		for (int var8 = 0; var8 < var4.size(); ++var8) {
 			Entity var9 = (Entity) var4.get(var8);
-			if ((var9 != var3) && class_pv.d.apply(var9)) {
+			if ((var9 != var3) && IEntitySelector.NOT_PLAYER_SPECTATOR.apply(var9)) {
 				double var10 = var3.h(var9);
 				if (var10 <= var6) {
 					var5 = var9;
@@ -2038,7 +2031,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public Entity getEntityById(int var1) {
-		return (Entity) l.a(var1);
+		return (Entity) entitiesById.a(var1);
 	}
 
 	public void b(BlockPosition var1, TileEntity var2) {
@@ -2050,7 +2043,7 @@ public abstract class World implements IBlockAccess {
 
 	public int a(Class var1) {
 		int var2 = 0;
-		Iterator var3 = f.iterator();
+		Iterator var3 = entityList.iterator();
 
 		while (true) {
 			Entity var4;
@@ -2069,7 +2062,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public void a(Collection var1) {
-		f.addAll(var1);
+		entityList.addAll(var1);
 		Iterator var2 = var1.iterator();
 
 		while (var2.hasNext()) {
@@ -2182,7 +2175,7 @@ public abstract class World implements IBlockAccess {
 
 		for (int var12 = 0; var12 < players.size(); ++var12) {
 			EntityHuman var13 = players.get(var12);
-			if (class_pv.d.apply(var13)) {
+			if (IEntitySelector.NOT_PLAYER_SPECTATOR.apply(var13)) {
 				double var14 = var13.e(var1, var3, var5);
 				if (((var7 < 0.0D) || (var14 < (var7 * var7))) && ((var9 == -1.0D) || (var14 < var9))) {
 					var9 = var14;
@@ -2197,7 +2190,7 @@ public abstract class World implements IBlockAccess {
 	public boolean b(double var1, double var3, double var5, double var7) {
 		for (int var9 = 0; var9 < players.size(); ++var9) {
 			EntityHuman var10 = players.get(var9);
-			if (class_pv.d.apply(var10)) {
+			if (IEntitySelector.NOT_PLAYER_SPECTATOR.apply(var10)) {
 				double var11 = var10.e(var1, var3, var5);
 				if ((var7 < 0.0D) || (var11 < (var7 * var7))) {
 					return true;
@@ -2222,7 +2215,7 @@ public abstract class World implements IBlockAccess {
 
 		for (int var14 = 0; var14 < players.size(); ++var14) {
 			EntityHuman var15 = players.get(var14);
-			if (!var15.bH.invulnerable && var15.ai() && !var15.v()) {
+			if (!var15.abilities.invulnerable && var15.isAlive() && !var15.isSpectator()) {
 				double var16 = var15.e(var1, var15.t, var5);
 				double var18 = var7;
 				if (var15.ax()) {

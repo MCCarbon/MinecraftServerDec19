@@ -26,7 +26,7 @@ public class class_tu extends class_tt {
 
    protected void h() {
       super.h();
-      this.ac.add(a, new Byte((byte)0));
+      this.datawatcher.add(a, new Byte((byte)0));
    }
 
    protected float bC() {
@@ -38,7 +38,7 @@ public class class_tu extends class_tt {
    }
 
    protected String C() {
-      return this.n() && this.V.nextInt(4) != 0?null:"mob.bat.idle";
+      return this.n() && this.random.nextInt(4) != 0?null:"mob.bat.idle";
    }
 
    protected String bp() {
@@ -65,15 +65,15 @@ public class class_tu extends class_tt {
    }
 
    public boolean n() {
-      return (this.ac.getByte(a) & 1) != 0;
+      return (this.datawatcher.getByte(a) & 1) != 0;
    }
 
    public void a(boolean var1) {
-      byte var2 = this.ac.getByte(a);
+      byte var2 = this.datawatcher.getByte(a);
       if(var1) {
-         this.ac.b(a, Byte.valueOf((byte)(var2 | 1)));
+         this.datawatcher.update(a, Byte.valueOf((byte)(var2 | 1)));
       } else {
-         this.ac.b(a, Byte.valueOf((byte)(var2 & -2)));
+         this.datawatcher.update(a, Byte.valueOf((byte)(var2 & -2)));
       }
 
    }
@@ -98,8 +98,8 @@ public class class_tu extends class_tt {
             this.a(false);
             this.o.a((EntityHuman)null, 1015, var1, 0);
          } else {
-            if(this.V.nextInt(200) == 0) {
-               this.aN = (float)this.V.nextInt(360);
+            if(this.random.nextInt(200) == 0) {
+               this.aN = (float)this.random.nextInt(360);
             }
 
             if(this.o.a(this, 4.0D) != null) {
@@ -112,8 +112,8 @@ public class class_tu extends class_tt {
             this.b = null;
          }
 
-         if(this.b == null || this.V.nextInt(30) == 0 || this.b.distanceSquared((double)((int)this.s), (double)((int)this.t), (double)((int)this.u)) < 4.0D) {
-            this.b = new BlockPosition((int)this.s + this.V.nextInt(7) - this.V.nextInt(7), (int)this.t + this.V.nextInt(6) - 2, (int)this.u + this.V.nextInt(7) - this.V.nextInt(7));
+         if(this.b == null || this.random.nextInt(30) == 0 || this.b.distanceSquared((double)((int)this.s), (double)((int)this.t), (double)((int)this.u)) < 4.0D) {
+            this.b = new BlockPosition((int)this.s + this.random.nextInt(7) - this.random.nextInt(7), (int)this.t + this.random.nextInt(6) - 2, (int)this.u + this.random.nextInt(7) - this.random.nextInt(7));
          }
 
          double var3 = (double)this.b.getX() + 0.5D - this.s;
@@ -126,7 +126,7 @@ public class class_tu extends class_tt {
          float var10 = MathHelper.clampAngle(var9 - this.y);
          this.bd = 0.5F;
          this.y += var10;
-         if(this.V.nextInt(100) == 0 && this.o.getType(var2).getBlock().isOccluding()) {
+         if(this.random.nextInt(100) == 0 && this.o.getType(var2).getBlock().isOccluding()) {
             this.a(true);
          }
       }
@@ -147,7 +147,7 @@ public class class_tu extends class_tt {
       return true;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {
@@ -155,18 +155,18 @@ public class class_tu extends class_tt {
             this.a(false);
          }
 
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
-      this.ac.b(a, Byte.valueOf(var1.getByte("BatFlags")));
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
+      this.datawatcher.update(a, Byte.valueOf(var1.getByte("BatFlags")));
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
-      var1.put("BatFlags", this.ac.getByte(a));
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
+      var1.put("BatFlags", this.datawatcher.getByte(a));
    }
 
    public boolean cf() {
@@ -178,11 +178,11 @@ public class class_tu extends class_tt {
          byte var3 = 4;
          if(this.a(this.o.Z())) {
             var3 = 7;
-         } else if(this.V.nextBoolean()) {
+         } else if(this.random.nextBoolean()) {
             return false;
          }
 
-         return var2 > this.V.nextInt(var3)?false:super.cf();
+         return var2 > this.random.nextInt(var3)?false:super.cf();
       }
    }
 

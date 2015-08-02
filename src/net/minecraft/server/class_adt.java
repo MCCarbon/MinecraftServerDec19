@@ -39,7 +39,7 @@ public class class_adt extends class_adi {
       ItemStack var5 = EnchantmentManager.b(Enchantment.h, var1);
       if(a(var3, var4)) {
          if(var2 != null) {
-            var2.a(class_pc.a((Entity)var1), (float)b(var3, var4));
+            var2.damageEntity(class_pc.a((Entity)var1), (float)b(var3, var4));
             var2.a("damage.thorns", 0.5F, 1.0F);
          }
 

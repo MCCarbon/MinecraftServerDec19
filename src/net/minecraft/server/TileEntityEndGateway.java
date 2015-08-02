@@ -161,7 +161,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 	}
 
 	private static Chunk a(World var0, Vec3D var1) {
-		return var0.a(MathHelper.floor(var1.x / 16.0D), MathHelper.floor(var1.z / 16.0D));
+		return var0.getChunkAt(MathHelper.floor(var1.x / 16.0D), MathHelper.floor(var1.z / 16.0D));
 	}
 
 	private static BlockPosition a(Chunk var0) {

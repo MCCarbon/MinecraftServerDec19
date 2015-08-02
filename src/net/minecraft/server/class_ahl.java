@@ -222,7 +222,7 @@ public class class_ahl extends Block {
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
       BlockPosition var5 = var2.down();
-      if(var4.bH.instabuild && var3.get(P) == class_ahl.class_a_in_class_ahl.a && var1.getType(var5).getBlock() == this) {
+      if(var4.abilities.instabuild && var3.get(P) == class_ahl.class_a_in_class_ahl.a && var1.getType(var5).getBlock() == this) {
          var1.setAir(var5);
       }
 

@@ -50,15 +50,15 @@ public class class_xu extends class_xf {
       if(!this.o.isClientSide) {
          if(var1.d != null) {
             if(this.a != null) {
-               if(var1.d.a(class_pc.a(this.a), 8.0F)) {
-                  if(!var1.d.ai()) {
+               if(var1.d.damageEntity(class_pc.a(this.a), 8.0F)) {
+                  if(!var1.d.isAlive()) {
                      this.a.h(5.0F);
                   } else {
                      this.a(this.a, var1.d);
                   }
                }
             } else {
-               var1.d.a(class_pc.l, 5.0F);
+               var1.d.damageEntity(class_pc.l, 5.0F);
             }
 
             if(var1.d instanceof EntityLiving) {
@@ -85,19 +85,19 @@ public class class_xu extends class_xf {
       return false;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       return false;
    }
 
    protected void h() {
-      this.ac.add(e, Byte.valueOf((byte)0));
+      this.datawatcher.add(e, Byte.valueOf((byte)0));
    }
 
    public boolean l() {
-      return this.ac.getByte(e) == 1;
+      return this.datawatcher.getByte(e) == 1;
    }
 
    public void a(boolean var1) {
-      this.ac.b(e, Byte.valueOf((byte)(var1?1:0)));
+      this.datawatcher.update(e, Byte.valueOf((byte)(var1?1:0)));
    }
 }

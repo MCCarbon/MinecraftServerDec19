@@ -16,7 +16,7 @@ public class class_aws extends class_awr {
       float var2 = 0.0F;
 
       EntityHuman var4;
-      for(Iterator var3 = var1.iterator(); var3.hasNext(); var2 += var4.bo() + var4.bO()) {
+      for(Iterator var3 = var1.iterator(); var3.hasNext(); var2 += var4.getHealth() + var4.getAbsorptionHearts()) {
          var4 = (EntityHuman)var3.next();
       }
 

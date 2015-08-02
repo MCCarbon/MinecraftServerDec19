@@ -24,7 +24,7 @@ import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_pv;
+import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_wb;
@@ -74,7 +74,7 @@ public class class_xd extends Entity implements class_xi {
    }
 
    protected void h() {
-      this.ac.add(g, Byte.valueOf((byte)0));
+      this.datawatcher.add(g, Byte.valueOf((byte)0));
    }
 
    public void a(float var1, float var2, float var3, float var4, float var5) {
@@ -89,9 +89,9 @@ public class class_xd extends Entity implements class_xi {
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
-      var1 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
-      var3 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
-      var5 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var1 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var3 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var5 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
       var1 *= (double)var7;
       var3 *= (double)var7;
       var5 *= (double)var7;
@@ -136,9 +136,9 @@ public class class_xd extends Entity implements class_xi {
             }
          } else {
             this.a = false;
-            this.v *= (double)(this.V.nextFloat() * 0.2F);
-            this.motY *= (double)(this.V.nextFloat() * 0.2F);
-            this.x *= (double)(this.V.nextFloat() * 0.2F);
+            this.v *= (double)(this.random.nextFloat() * 0.2F);
+            this.motY *= (double)(this.random.nextFloat() * 0.2F);
+            this.x *= (double)(this.random.nextFloat() * 0.2F);
             this.av = 0;
             this.aw = 0;
          }
@@ -163,7 +163,7 @@ public class class_xd extends Entity implements class_xi {
 
          if(var6 != null && var6.d != null && var6.d instanceof EntityHuman) {
             EntityHuman var8 = (EntityHuman)var6.d;
-            if(var8.bH.invulnerable || this.e instanceof EntityHuman && !((EntityHuman)this.e).a(var8)) {
+            if(var8.abilities.invulnerable || this.e instanceof EntityHuman && !((EntityHuman)this.e).a(var8)) {
                var6 = null;
             }
          }
@@ -232,7 +232,7 @@ public class class_xd extends Entity implements class_xi {
          float var3 = MathHelper.sqrt(this.v * this.v + this.motY * this.motY + this.x * this.x);
          int var4 = MathHelper.ceil((double)var3 * this.ax);
          if(this.m()) {
-            var4 += this.V.nextInt(var4 / 2 + 2);
+            var4 += this.random.nextInt(var4 / 2 + 2);
          }
 
          class_pc var5;
@@ -246,7 +246,7 @@ public class class_xd extends Entity implements class_xi {
             var2.f(5);
          }
 
-         if(var2.a(var5, (float)var4)) {
+         if(var2.damageEntity(var5, (float)var4)) {
             if(var2 instanceof EntityLiving) {
                EntityLiving var6 = (EntityLiving)var2;
                if(!this.o.isClientSide) {
@@ -271,7 +271,7 @@ public class class_xd extends Entity implements class_xi {
                }
             }
 
-            this.a("random.bowhit", 1.0F, 1.2F / (this.V.nextFloat() * 0.2F + 0.9F));
+            this.a("random.bowhit", 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
             if(!(var2 instanceof class_wb)) {
                this.J();
             }
@@ -298,7 +298,7 @@ public class class_xd extends Entity implements class_xi {
          this.s -= this.v / (double)var10 * 0.05000000074505806D;
          this.t -= this.motY / (double)var10 * 0.05000000074505806D;
          this.u -= this.x / (double)var10 * 0.05000000074505806D;
-         this.a("random.bowhit", 1.0F, 1.2F / (this.V.nextFloat() * 0.2F + 0.9F));
+         this.a("random.bowhit", 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
          this.a = true;
          this.d = 7;
          this.a(false);
@@ -336,7 +336,7 @@ public class class_xd extends Entity implements class_xi {
       return var3;
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       var1.put("xTile", (short)this.h);
       var1.put("yTile", (short)this.i);
       var1.put("zTile", (short)this.as);
@@ -350,7 +350,7 @@ public class class_xd extends Entity implements class_xi {
       var1.put("damage", this.ax);
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       this.h = var1.getShort("xTile");
       this.i = var1.getShort("yTile");
       this.as = var1.getShort("zTile");
@@ -378,13 +378,13 @@ public class class_xd extends Entity implements class_xi {
 
    public void d(EntityHuman var1) {
       if(!this.o.isClientSide && this.a && this.d <= 0) {
-         boolean var2 = this.c == 1 || this.c == 2 && var1.bH.instabuild;
-         if(this.c == 1 && !var1.bp.a(this.j())) {
+         boolean var2 = this.c == 1 || this.c == 2 && var1.abilities.instabuild;
+         if(this.c == 1 && !var1.inventory.a(this.j())) {
             var2 = false;
          }
 
          if(var2) {
-            this.a("random.pop", 0.2F, ((this.V.nextFloat() - this.V.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+            this.a("random.pop", 0.2F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.0F) * 2.0F);
             var1.a(this, 1);
             this.J();
          }
@@ -421,22 +421,22 @@ public class class_xd extends Entity implements class_xi {
    }
 
    public void a(boolean var1) {
-      byte var2 = this.ac.getByte(g);
+      byte var2 = this.datawatcher.getByte(g);
       if(var1) {
-         this.ac.b(g, Byte.valueOf((byte)(var2 | 1)));
+         this.datawatcher.update(g, Byte.valueOf((byte)(var2 | 1)));
       } else {
-         this.ac.b(g, Byte.valueOf((byte)(var2 & -2)));
+         this.datawatcher.update(g, Byte.valueOf((byte)(var2 & -2)));
       }
 
    }
 
    public boolean m() {
-      byte var1 = this.ac.getByte(g);
+      byte var1 = this.datawatcher.getByte(g);
       return (var1 & 1) != 0;
    }
 
    static {
-      f = Predicates.and(new Predicate[]{class_pv.d, class_pv.a, new Predicate() {
+      f = Predicates.and(new Predicate[]{IEntitySelector.NOT_PLAYER_SPECTATOR, IEntitySelector.IS_ALIVE, new Predicate() {
          public boolean a(Entity var1) {
             return var1.ad();
          }

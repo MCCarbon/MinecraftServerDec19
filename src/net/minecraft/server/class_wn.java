@@ -90,8 +90,8 @@ public class class_wn extends class_wi implements class_wk {
 
    protected void h() {
       super.h();
-      this.ac.add(a, Byte.valueOf((byte)0));
-      this.ac.add(b, Byte.valueOf((byte)0));
+      this.datawatcher.add(a, Byte.valueOf((byte)0));
+      this.datawatcher.add(b, Byte.valueOf((byte)0));
    }
 
    protected String C() {
@@ -130,12 +130,12 @@ public class class_wn extends class_wi implements class_wk {
       if(this.o.x() && !this.o.isClientSide) {
          float var1 = this.c(1.0F);
          BlockPosition var2 = new BlockPosition(this.s, (double)Math.round(this.t), this.u);
-         if(var1 > 0.5F && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
+         if(var1 > 0.5F && this.random.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
             boolean var3 = true;
             ItemStack var4 = this.a((class_pw)class_pw.f);
             if(var4 != null) {
                if(var4.e()) {
-                  var4.setData(var4.h() + this.V.nextInt(2));
+                  var4.setData(var4.h() + this.random.nextInt(2));
                   if(var4.h() >= var4.j()) {
                      this.b(var4);
                      this.a((class_pw)class_pw.f, (ItemStack)null);
@@ -160,8 +160,8 @@ public class class_wn extends class_wi implements class_wk {
 
    public void ak() {
       super.ak();
-      if(this.m instanceof class_qh) {
-         class_qh var1 = (class_qh)this.m;
+      if(this.vehicle instanceof class_qh) {
+         class_qh var1 = (class_qh)this.vehicle;
          this.aL = var1.aL;
       }
 
@@ -191,20 +191,20 @@ public class class_wn extends class_wi implements class_wk {
       int var3;
       int var4;
       if(this.cB() == 1) {
-         var3 = this.V.nextInt(3 + var2) - 1;
+         var3 = this.random.nextInt(3 + var2) - 1;
 
          for(var4 = 0; var4 < var3; ++var4) {
             this.a(Items.j, 1);
          }
       } else {
-         var3 = this.V.nextInt(3 + var2);
+         var3 = this.random.nextInt(3 + var2);
 
          for(var4 = 0; var4 < var3; ++var4) {
             this.a(Items.g, 1);
          }
       }
 
-      var3 = this.V.nextInt(3 + var2);
+      var3 = this.random.nextInt(3 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          this.a(Items.aZ, 1);
@@ -237,11 +237,11 @@ public class class_wn extends class_wi implements class_wk {
          this.b(var1);
       }
 
-      this.j(this.V.nextFloat() < 0.55F * var1.c());
+      this.j(this.random.nextFloat() < 0.55F * var1.c());
       if(this.a((class_pw)class_pw.f) == null) {
          Calendar var3 = this.o.Z();
-         if(var3.get(2) + 1 == 10 && var3.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.a(class_pw.f, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN));
+         if(var3.get(2) + 1 == 10 && var3.get(5) == 31 && this.random.nextFloat() < 0.25F) {
+            this.a(class_pw.f, new ItemStack(this.random.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN));
             this.bp[class_pw.f.b()] = 0.0F;
          }
       }
@@ -270,7 +270,7 @@ public class class_wn extends class_wi implements class_wk {
       var3.c(var4, var6 + var10 * 0.20000000298023224D, var8, 1.6F, (float)(14 - this.o.ab().a() * 4));
       int var12 = EnchantmentManager.a((class_adi)Enchantment.t, (EntityLiving)this);
       int var13 = EnchantmentManager.a((class_adi)Enchantment.u, (EntityLiving)this);
-      var3.b((double)(var2 * 2.0F) + this.V.nextGaussian() * 0.25D + (double)((float)this.o.ab().a() * 0.11F));
+      var3.b((double)(var2 * 2.0F) + this.random.nextGaussian() * 0.25D + (double)((float)this.o.ab().a() * 0.11F));
       if(var12 > 0) {
          var3.b(var3.l() + (double)var12 * 0.5D + 0.5D);
       }
@@ -288,11 +288,11 @@ public class class_wn extends class_wi implements class_wk {
    }
 
    public int cB() {
-      return this.ac.getByte(a);
+      return this.datawatcher.getByte(a);
    }
 
    public void a(int var1) {
-      this.ac.b(a, Byte.valueOf((byte)var1));
+      this.datawatcher.update(a, Byte.valueOf((byte)var1));
       this.ab = var1 == 1;
       if(var1 == 1) {
          this.a(0.72F, 2.535F);
@@ -302,8 +302,8 @@ public class class_wn extends class_wi implements class_wk {
 
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       if(var1.hasOfType("SkeletonType", 99)) {
          byte var2 = var1.getByte("SkeletonType");
          this.a(var2);
@@ -312,8 +312,8 @@ public class class_wn extends class_wi implements class_wk {
       this.n();
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("SkeletonType", (byte)this.cB());
    }
 
@@ -334,6 +334,6 @@ public class class_wn extends class_wi implements class_wk {
    }
 
    public void a(boolean var1) {
-      this.ac.b(b, Byte.valueOf((byte)(var1?1:0)));
+      this.datawatcher.update(b, Byte.valueOf((byte)(var1?1:0)));
    }
 }

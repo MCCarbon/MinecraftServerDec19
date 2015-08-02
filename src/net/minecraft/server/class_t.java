@@ -44,9 +44,9 @@ public class class_t extends class_i {
       if(var2.length >= 2 && var4 == null) {
          throw new class_bz("commands.clear.failure", new Object[]{var3.getName()});
       } else {
-         int var8 = var3.bp.a(var4, var5, var6, var7);
+         int var8 = var3.inventory.a(var4, var5, var6, var7);
          var3.bq.b();
-         if(!var3.bH.instabuild) {
+         if(!var3.abilities.instabuild) {
             var3.o();
          }
 

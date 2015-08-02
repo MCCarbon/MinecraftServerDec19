@@ -84,9 +84,9 @@ public class EntityItem extends Entity {
 			if (var1 || this.W % 25 == 0) {
 				if (this.o.getType(new BlockPosition(this)).getBlock().getMaterial() == Material.LAVA) {
 					this.motY = 0.20000000298023224D;
-					this.v = (double) ((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
-					this.x = (double) ((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
-					this.a("random.fizz", 0.4F, 2.0F + this.V.nextFloat() * 0.4F);
+					this.v = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+					this.x = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+					this.a("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
 				}
 
 				if (!this.o.isClientSide) {
@@ -131,7 +131,7 @@ public class EntityItem extends Entity {
 	private boolean a(EntityItem var1) {
 		if (var1 == this) {
 			return false;
-		} else if (var1.ai() && this.ai()) {
+		} else if (var1.isAlive() && this.isAlive()) {
 			ItemStack var2 = this.l();
 			ItemStack var3 = var1.l();
 			if (this.pickupDelay != 32767 && var1.pickupDelay != 32767) {
@@ -188,10 +188,10 @@ public class EntityItem extends Entity {
 	}
 
 	protected void g(int var1) {
-		this.a(class_pc.a, (float) var1);
+		this.damageEntity(class_pc.a, (float) var1);
 	}
 
-	public boolean a(class_pc var1, float var2) {
+	public boolean damageEntity(class_pc var1, float var2) {
 		if (this.b((class_pc) var1)) {
 			return false;
 		} else if (this.l() != null && this.l().getItem() == Items.cc && var1.c()) {
@@ -207,7 +207,7 @@ public class EntityItem extends Entity {
 		}
 	}
 
-	public void b(NBTTagCompound var1) {
+	public void write(NBTTagCompound var1) {
 		var1.put("Health", (short) ((byte) this.f));
 		var1.put("Age", (short) this.d);
 		var1.put("PickupDelay", (short) this.pickupDelay);
@@ -225,7 +225,7 @@ public class EntityItem extends Entity {
 
 	}
 
-	public void a(NBTTagCompound var1) {
+	public void read(NBTTagCompound var1) {
 		this.f = var1.getShort("Health") & 255;
 		this.d = var1.getShort("Age");
 		if (var1.has("PickupDelay")) {
@@ -252,7 +252,7 @@ public class EntityItem extends Entity {
 		if (!this.o.isClientSide) {
 			ItemStack var2 = this.l();
 			int var3 = var2.count;
-			if (this.pickupDelay == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.getName())) && var1.bp.a(var2)) {
+			if (this.pickupDelay == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.getName())) && var1.inventory.a(var2)) {
 				if (var2.getItem() == Item.getItemOf(Blocks.LOG)) {
 					var1.b((class_my) class_mt.g);
 				}
@@ -281,7 +281,7 @@ public class EntityItem extends Entity {
 				}
 
 				if (!this.R()) {
-					this.o.a((Entity) var1, "random.pop", 0.2F, ((this.V.nextFloat() - this.V.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+					this.o.a((Entity) var1, "random.pop", 0.2F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 				}
 
 				var1.a(this, var3);
@@ -323,7 +323,7 @@ public class EntityItem extends Entity {
 	}
 
 	public void a(ItemStack var1) {
-		this.H().b(c, var1);
+		this.H().update(c, var1);
 		this.H().i(c);
 	}
 

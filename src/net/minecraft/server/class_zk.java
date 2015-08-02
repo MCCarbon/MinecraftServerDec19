@@ -41,7 +41,7 @@ public class class_zk extends Item {
                   return new class_or(class_oq.a, new ItemStack(Items.bB));
                }
 
-               if(!var3.bp.a(new ItemStack(Items.bB))) {
+               if(!var3.inventory.a(new ItemStack(Items.bB))) {
                   var3.a(new ItemStack(Items.bB), false);
                }
 

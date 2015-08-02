@@ -51,7 +51,7 @@ public class class_yo extends Container {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.a.isReachable(var1) && this.f.ai() && this.f.g(var1) < 8.0F;
+      return this.a.isReachable(var1) && this.f.isAlive() && this.f.g(var1) < 8.0F;
    }
 
    public ItemStack b(EntityHuman var1, int var2) {

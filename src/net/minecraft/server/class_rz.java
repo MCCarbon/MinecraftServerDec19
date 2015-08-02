@@ -42,7 +42,7 @@ public class class_rz extends class_rm {
    }
 
    public boolean b() {
-      return !this.a.u().m() && this.b.ai() && this.b.h(this.a) < (double)(this.g * this.g);
+      return !this.a.u().m() && this.b.isAlive() && this.b.h(this.a) < (double)(this.g * this.g);
    }
 
    public void d() {

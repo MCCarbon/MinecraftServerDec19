@@ -112,28 +112,28 @@ public class class_ul extends class_qj {
    }
 
    protected void cc() {
-      this.ac.b(bw, Float.valueOf(this.bo()));
+      this.datawatcher.update(bw, Float.valueOf(this.getHealth()));
    }
 
    protected void h() {
       super.h();
-      this.ac.add(bw, new Float(this.bo()));
-      this.ac.add(bx, new Byte((byte)0));
-      this.ac.add(by, new Byte((byte)EnumColor.o.a()));
+      this.datawatcher.add(bw, new Float(this.getHealth()));
+      this.datawatcher.add(bx, new Byte((byte)0));
+      this.datawatcher.add(by, new Byte((byte)EnumColor.o.a()));
    }
 
    protected void a(BlockPosition var1, Block var2) {
       this.a("mob.wolf.step", 0.15F, 1.0F);
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Angry", this.cK());
       var1.put("CollarColor", (byte)this.cL().b());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.p(var1.getBoolean("Angry"));
       if(var1.hasOfType("CollarColor", 99)) {
          this.a(EnumColor.a(var1.getByte("CollarColor")));
@@ -142,7 +142,7 @@ public class class_ul extends class_qj {
    }
 
    protected String C() {
-      return this.cK()?"mob.wolf.growl":(this.V.nextInt(3) == 0?(this.cA() && this.ac.getFloat(bw) < 10.0F?"mob.wolf.whine":"mob.wolf.panting"):"mob.wolf.bark");
+      return this.cK()?"mob.wolf.growl":(this.random.nextInt(3) == 0?(this.cA() && this.datawatcher.getFloat(bw) < 10.0F?"mob.wolf.whine":"mob.wolf.panting"):"mob.wolf.bark");
    }
 
    protected String bp() {
@@ -192,7 +192,7 @@ public class class_ul extends class_qj {
          this.bE = 0.0F;
       } else if((this.bB || this.bC) && this.bC) {
          if(this.bD == 0.0F) {
-            this.a("mob.wolf.shake", this.bC(), (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
+            this.a("mob.wolf.shake", this.bC(), (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
          }
 
          this.bE = this.bD;
@@ -209,8 +209,8 @@ public class class_ul extends class_qj {
             int var2 = (int)(MathHelper.sin((this.bD - 0.4F) * 3.1415927F) * 7.0F);
 
             for(int var3 = 0; var3 < var2; ++var3) {
-               float var4 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
-               float var5 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
+               float var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
+               float var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
                this.o.a(class_cy.f, this.s + (double)var4, (double)(var1 + 0.8F), this.u + (double)var5, this.v, this.motY, this.x, new int[0]);
             }
          }
@@ -226,7 +226,7 @@ public class class_ul extends class_qj {
       return this.cC()?20:super.cd();
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
@@ -236,12 +236,12 @@ public class class_ul extends class_qj {
             var2 = (var2 + 1.0F) / 2.0F;
          }
 
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 
    public boolean r(Entity var1) {
-      boolean var2 = var1.a(class_pc.a((EntityLiving)this), (float)((int)this.a((class_qk)class_wl.e).e()));
+      boolean var2 = var1.damageEntity(class_pc.a((EntityLiving)this), (float)((int)this.a((class_qk)class_wl.e).e()));
       if(var2) {
          this.a((EntityLiving)this, (Entity)var1);
       }
@@ -265,8 +265,8 @@ public class class_ul extends class_qj {
          if(var3 != null) {
             if(var3.getItem() instanceof class_aan) {
                class_aan var4 = (class_aan)var3.getItem();
-               if(var4.g() && this.ac.getFloat(bw) < 20.0F) {
-                  if(!var1.bH.instabuild) {
+               if(var4.g() && this.datawatcher.getFloat(bw) < 20.0F) {
+                  if(!var1.abilities.instabuild) {
                      --var3.count;
                   }
 
@@ -277,7 +277,7 @@ public class class_ul extends class_qj {
                EnumColor var5 = EnumColor.a(var3.i());
                if(var5 != this.cL()) {
                   this.a(var5);
-                  if(!var1.bH.instabuild) {
+                  if(!var1.abilities.instabuild) {
                      --var3.count;
                   }
 
@@ -293,12 +293,12 @@ public class class_ul extends class_qj {
             this.d((EntityLiving)null);
          }
       } else if(var3 != null && var3.getItem() == Items.aZ && !this.cK()) {
-         if(!var1.bH.instabuild) {
+         if(!var1.abilities.instabuild) {
             --var3.count;
          }
 
          if(!this.o.isClientSide) {
-            if(this.V.nextInt(3) == 0) {
+            if(this.random.nextInt(3) == 0) {
                this.n(true);
                this.h.n();
                this.d((EntityLiving)null);
@@ -328,25 +328,25 @@ public class class_ul extends class_qj {
    }
 
    public boolean cK() {
-      return (this.ac.getByte(bs) & 2) != 0;
+      return (this.datawatcher.getByte(bs) & 2) != 0;
    }
 
    public void p(boolean var1) {
-      byte var2 = this.ac.getByte(bs);
+      byte var2 = this.datawatcher.getByte(bs);
       if(var1) {
-         this.ac.b(bs, Byte.valueOf((byte)(var2 | 2)));
+         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 | 2)));
       } else {
-         this.ac.b(bs, Byte.valueOf((byte)(var2 & -3)));
+         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 & -3)));
       }
 
    }
 
    public EnumColor cL() {
-      return EnumColor.a(this.ac.getByte(by) & 15);
+      return EnumColor.a(this.datawatcher.getByte(by) & 15);
    }
 
    public void a(EnumColor var1) {
-      this.ac.b(by, Byte.valueOf((byte)(var1.b() & 15)));
+      this.datawatcher.update(by, Byte.valueOf((byte)(var1.b() & 15)));
    }
 
    public class_ul b(class_po var1) {
@@ -362,9 +362,9 @@ public class class_ul extends class_qj {
 
    public void q(boolean var1) {
       if(var1) {
-         this.ac.b(bx, Byte.valueOf((byte)1));
+         this.datawatcher.update(bx, Byte.valueOf((byte)1));
       } else {
-         this.ac.b(bx, Byte.valueOf((byte)0));
+         this.datawatcher.update(bx, Byte.valueOf((byte)0));
       }
 
    }
@@ -383,7 +383,7 @@ public class class_ul extends class_qj {
    }
 
    public boolean cM() {
-      return this.ac.getByte(bx) == 1;
+      return this.datawatcher.getByte(bx) == 1;
    }
 
    protected boolean E() {

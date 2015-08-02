@@ -14,7 +14,7 @@ public class class_ss extends class_rm {
    }
 
    public boolean a() {
-      if(!this.a.ai()) {
+      if(!this.a.isAlive()) {
          return false;
       } else if(this.a.V()) {
          return false;

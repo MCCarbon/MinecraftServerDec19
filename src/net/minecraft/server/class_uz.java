@@ -110,7 +110,7 @@ public abstract class class_uz extends Entity {
             }
          }
 
-         List var9 = this.o.b((Entity)this, (AxisAlignedBB)this.aT());
+         List var9 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT());
          Iterator var10 = var9.iterator();
 
          Entity var11;
@@ -131,14 +131,14 @@ public abstract class class_uz extends Entity {
    }
 
    public boolean l(Entity var1) {
-      return var1 instanceof EntityHuman?this.a(class_pc.a((EntityHuman)var1), 0.0F):false;
+      return var1 instanceof EntityHuman?this.damageEntity(class_pc.a((EntityHuman)var1), 0.0F):false;
    }
 
    public EnumDirection aR() {
       return this.b;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
@@ -168,14 +168,14 @@ public abstract class class_uz extends Entity {
 
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       var1.put("Facing", (byte)this.b.getHorizontalId());
       var1.put("TileX", this.n().getX());
       var1.put("TileY", this.n().getY());
       var1.put("TileZ", this.n().getZ());
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       this.a = new BlockPosition(var1.getInt("TileX"), var1.getInt("TileY"), var1.getInt("TileZ"));
       EnumDirection var2;
       if(var1.hasOfType("Direction", 99)) {

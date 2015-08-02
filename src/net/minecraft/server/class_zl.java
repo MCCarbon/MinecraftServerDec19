@@ -54,10 +54,10 @@ public class class_zl extends Item {
    public void a(ItemStack var1, World var2, EntityLiving var3, int var4) {
       if(var3 instanceof EntityHuman) {
          EntityHuman var5 = (EntityHuman)var3;
-         boolean var6 = var5.bH.instabuild || EnchantmentManager.getLevel(Enchantment.w, var1) > 0;
-         int var7 = this.a(var5.bp);
+         boolean var6 = var5.abilities.instabuild || EnchantmentManager.getLevel(Enchantment.w, var1) > 0;
+         int var7 = this.a(var5.inventory);
          if(var6 || var7 > -1) {
-            ItemStack var8 = var7 > -1?var5.bp.getItem(var7):null;
+            ItemStack var8 = var7 > -1?var5.inventory.getItem(var7):null;
             if(var8 == null) {
                var8 = new ItemStack(Items.g);
             }
@@ -91,7 +91,7 @@ public class class_zl extends Item {
                if(var6) {
                   var12.c = 2;
                } else {
-                  var5.bp.splitStack(var7, 1);
+                  var5.inventory.splitStack(var7, 1);
                }
 
                var5.b(StatisticList.ad[Item.getId((Item)this)]);
@@ -123,7 +123,7 @@ public class class_zl extends Item {
    }
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-      if((var3.bH.instabuild || this.a(var3.bp) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
+      if((var3.abilities.instabuild || this.a(var3.inventory) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
          return new class_or(class_oq.a, var1);
       } else {

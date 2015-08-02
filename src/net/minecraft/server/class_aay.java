@@ -20,7 +20,7 @@ public class class_aay extends Item {
    }
 
    public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
-      if(var3 instanceof EntityHuman && !((EntityHuman)var3).bH.instabuild) {
+      if(var3 instanceof EntityHuman && !((EntityHuman)var3).abilities.instabuild) {
          --var1.count;
       }
 

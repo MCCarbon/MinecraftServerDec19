@@ -51,7 +51,7 @@ public class class_rl extends class_rm {
    public boolean b() {
       if(this.a.l() >= 0) {
          return false;
-      } else if(!this.b.ai()) {
+      } else if(!this.b.isAlive()) {
          return false;
       } else {
          double var1 = this.a.h(this.b);

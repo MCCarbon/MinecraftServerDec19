@@ -90,13 +90,13 @@ public class class_uy extends EntityLiving {
 
    protected void h() {
       super.h();
-      this.ac.add(g, Byte.valueOf((byte)0));
-      this.ac.add(h, br);
-      this.ac.add(i, bs);
-      this.ac.add(bn, bt);
-      this.ac.add(bo, bu);
-      this.ac.add(bp, bv);
-      this.ac.add(bq, bw);
+      this.datawatcher.add(g, Byte.valueOf((byte)0));
+      this.datawatcher.add(h, br);
+      this.datawatcher.add(i, bs);
+      this.datawatcher.add(bn, bt);
+      this.datawatcher.add(bo, bu);
+      this.datawatcher.add(bp, bv);
+      this.datawatcher.add(bq, bw);
    }
 
    public Iterable as() {
@@ -157,8 +157,8 @@ public class class_uy extends EntityLiving {
       }
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.by.length; ++var3) {
@@ -200,8 +200,8 @@ public class class_uy extends EntityLiving {
       var1.put((String)"Pose", (NBTTag)this.A());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       if(var1.hasOfType("Equipment", 9)) {
          ItemStack[] var2 = new ItemStack[5];
          NBTTagList var3 = var1.getList("Equipment", 10);
@@ -330,7 +330,7 @@ public class class_uy extends EntityLiving {
    }
 
    protected void bM() {
-      List var1 = this.o.b((Entity)this, (AxisAlignedBB)this.aT());
+      List var1 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT());
       if(var1 != null && !var1.isEmpty()) {
          for(int var2 = 0; var2 < var1.size(); ++var2) {
             Entity var3 = (Entity)var1.get(var2);
@@ -345,7 +345,7 @@ public class class_uy extends EntityLiving {
    public class_oq a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
       if(this.t()) {
          return class_oq.b;
-      } else if(!this.o.isClientSide && !var1.v()) {
+      } else if(!this.o.isClientSide && !var1.isSpectator()) {
          class_pw var5 = class_pw.a;
          boolean var6 = var3 != null;
          Item var7 = var6?var3.getItem():null;
@@ -407,7 +407,7 @@ public class class_uy extends EntityLiving {
       if(var5 == null || (this.bB & 1 << var2.c() + 8) == 0) {
          if(var5 != null || (this.bB & 1 << var2.c() + 16) == 0) {
             ItemStack var6;
-            if(var1.bH.instabuild && (var5 == null || var5.getItem() == Item.getItemOf(Blocks.AIR)) && var3 != null) {
+            if(var1.abilities.instabuild && (var5 == null || var5.getItem() == Item.getItemOf(Blocks.AIR)) && var3 != null) {
                var6 = var3.clone();
                var6.count = 1;
                this.a(var2, var6);
@@ -426,7 +426,7 @@ public class class_uy extends EntityLiving {
       }
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.o.isClientSide) {
          return false;
       } else if(class_pc.j.equals(var1)) {
@@ -445,7 +445,7 @@ public class class_uy extends EntityLiving {
             }
 
             return false;
-         } else if(class_pc.c.equals(var1) && this.bo() > 0.5F) {
+         } else if(class_pc.c.equals(var1) && this.getHealth() > 0.5F) {
             this.a(4.0F);
             return false;
          } else {
@@ -458,7 +458,7 @@ public class class_uy extends EntityLiving {
                   var1.i().J();
                }
 
-               if(var1.j() instanceof EntityHuman && !((EntityHuman)var1.j()).bH.mayBuild) {
+               if(var1.j() instanceof EntityHuman && !((EntityHuman)var1.j()).abilities.mayBuild) {
                   return false;
                } else if(var1.u()) {
                   this.C();
@@ -491,7 +491,7 @@ public class class_uy extends EntityLiving {
    }
 
    private void a(float var1) {
-      float var2 = this.bo();
+      float var2 = this.getHealth();
       var2 -= var1;
       if(var2 <= 0.5F) {
          this.E();
@@ -549,32 +549,32 @@ public class class_uy extends EntityLiving {
 
    public void t_() {
       super.t_();
-      class_dc var1 = this.ac.h(h);
+      class_dc var1 = this.datawatcher.h(h);
       if(!this.bD.equals(var1)) {
          this.a(var1);
       }
 
-      class_dc var2 = this.ac.h(i);
+      class_dc var2 = this.datawatcher.h(i);
       if(!this.bE.equals(var2)) {
          this.b(var2);
       }
 
-      class_dc var3 = this.ac.h(bn);
+      class_dc var3 = this.datawatcher.h(bn);
       if(!this.bF.equals(var3)) {
          this.c(var3);
       }
 
-      class_dc var4 = this.ac.h(bo);
+      class_dc var4 = this.datawatcher.h(bo);
       if(!this.bG.equals(var4)) {
          this.d(var4);
       }
 
-      class_dc var5 = this.ac.h(bp);
+      class_dc var5 = this.datawatcher.h(bp);
       if(!this.bH.equals(var5)) {
          this.e(var5);
       }
 
-      class_dc var6 = this.ac.h(bq);
+      class_dc var6 = this.datawatcher.h(bq);
       if(!this.bI.equals(var6)) {
          this.f(var6);
       }
@@ -628,108 +628,108 @@ public class class_uy extends EntityLiving {
    }
 
    private void j(boolean var1) {
-      byte var2 = this.ac.getByte(g);
+      byte var2 = this.datawatcher.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 1);
       } else {
          var2 &= -2;
       }
 
-      this.ac.b(g, Byte.valueOf(var2));
+      this.datawatcher.update(g, Byte.valueOf(var2));
    }
 
    public boolean n() {
-      return (this.ac.getByte(g) & 1) != 0;
+      return (this.datawatcher.getByte(g) & 1) != 0;
    }
 
    private void k(boolean var1) {
-      byte var2 = this.ac.getByte(g);
+      byte var2 = this.datawatcher.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 2);
       } else {
          var2 &= -3;
       }
 
-      this.ac.b(g, Byte.valueOf(var2));
+      this.datawatcher.update(g, Byte.valueOf(var2));
    }
 
    public boolean p() {
-      return (this.ac.getByte(g) & 2) != 0;
+      return (this.datawatcher.getByte(g) & 2) != 0;
    }
 
    private void l(boolean var1) {
-      byte var2 = this.ac.getByte(g);
+      byte var2 = this.datawatcher.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 4);
       } else {
          var2 &= -5;
       }
 
-      this.ac.b(g, Byte.valueOf(var2));
+      this.datawatcher.update(g, Byte.valueOf(var2));
    }
 
    public boolean q() {
-      return (this.ac.getByte(g) & 4) != 0;
+      return (this.datawatcher.getByte(g) & 4) != 0;
    }
 
    private void m(boolean var1) {
-      byte var2 = this.ac.getByte(g);
+      byte var2 = this.datawatcher.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 8);
       } else {
          var2 &= -9;
       }
 
-      this.ac.b(g, Byte.valueOf(var2));
+      this.datawatcher.update(g, Byte.valueOf(var2));
    }
 
    public boolean r() {
-      return (this.ac.getByte(g) & 8) != 0;
+      return (this.datawatcher.getByte(g) & 8) != 0;
    }
 
    private void n(boolean var1) {
-      byte var2 = this.ac.getByte(g);
+      byte var2 = this.datawatcher.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 16);
       } else {
          var2 &= -17;
       }
 
-      this.ac.b(g, Byte.valueOf(var2));
+      this.datawatcher.update(g, Byte.valueOf(var2));
    }
 
    public boolean t() {
-      return (this.ac.getByte(g) & 16) != 0;
+      return (this.datawatcher.getByte(g) & 16) != 0;
    }
 
    public void a(class_dc var1) {
       this.bD = var1;
-      this.ac.b(h, var1);
+      this.datawatcher.update(h, var1);
    }
 
    public void b(class_dc var1) {
       this.bE = var1;
-      this.ac.b(i, var1);
+      this.datawatcher.update(i, var1);
    }
 
    public void c(class_dc var1) {
       this.bF = var1;
-      this.ac.b(bn, var1);
+      this.datawatcher.update(bn, var1);
    }
 
    public void d(class_dc var1) {
       this.bG = var1;
-      this.ac.b(bo, var1);
+      this.datawatcher.update(bo, var1);
    }
 
    public void e(class_dc var1) {
       this.bH = var1;
-      this.ac.b(bp, var1);
+      this.datawatcher.update(bp, var1);
    }
 
    public void f(class_dc var1) {
       this.bI = var1;
-      this.ac.b(bq, var1);
+      this.datawatcher.update(bq, var1);
    }
 
    public class_dc u() {

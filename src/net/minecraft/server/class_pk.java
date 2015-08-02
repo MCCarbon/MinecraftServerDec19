@@ -63,15 +63,15 @@ public class class_pk {
 
 	public void a(EntityLiving var1, int var2) {
 		if (this == class_pm.j) {
-			if (var1.bo() < var1.bv()) {
+			if (var1.getHealth() < var1.bv()) {
 				var1.h(1.0F);
 			}
 		} else if (this == class_pm.s) {
-			if (var1.bo() > 1.0F) {
-				var1.a(class_pc.l, 1.0F);
+			if (var1.getHealth() > 1.0F) {
+				var1.damageEntity(class_pc.l, 1.0F);
 			}
 		} else if (this == class_pm.t) {
-			var1.a(class_pc.m, 1.0F);
+			var1.damageEntity(class_pc.m, 1.0F);
 		} else if (this == class_pm.q && var1 instanceof EntityHuman) {
 			((EntityHuman) var1).a(0.025F * (float) (var2 + 1));
 		} else if (this == class_pm.w && var1 instanceof EntityHuman) {
@@ -80,7 +80,7 @@ public class class_pk {
 			}
 		} else if ((this != class_pm.f || var1.bn()) && (this != class_pm.g || !var1.bn())) {
 			if (this == class_pm.g && !var1.bn() || this == class_pm.f && var1.bn()) {
-				var1.a(class_pc.l, (float) (6 << var2));
+				var1.damageEntity(class_pc.l, (float) (6 << var2));
 			}
 		} else {
 			var1.h((float) Math.max(4 << var2, 0));
@@ -94,9 +94,9 @@ public class class_pk {
 			if (this == class_pm.g && !var3.bn() || this == class_pm.f && var3.bn()) {
 				var7 = (int) (var5 * (double) (6 << var4) + 0.5D);
 				if (var1 == null) {
-					var3.a(class_pc.l, (float) var7);
+					var3.damageEntity(class_pc.l, (float) var7);
 				} else {
-					var3.a(class_pc.b(var1, var2), (float) var7);
+					var3.damageEntity(class_pc.b(var1, var2), (float) var7);
 				}
 			}
 		} else {

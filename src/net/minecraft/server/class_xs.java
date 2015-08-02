@@ -118,8 +118,8 @@ public class class_xs extends class_xo {
 
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.d = ItemStack.a(var1.getCompound("Potion"));
       if(this.d == null) {
          this.J();
@@ -127,8 +127,8 @@ public class class_xs extends class_xo {
 
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       if(this.d != null) {
          var1.put((String)"Potion", (NBTTag)this.d.write(new NBTTagCompound()));
       }

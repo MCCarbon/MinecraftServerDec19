@@ -116,8 +116,8 @@ public abstract class class_vq extends class_vn implements ITileInventory {
       super.J();
    }
 
-   protected void b(NBTTagCompound var1) {
-      super.b(var1);
+   protected void write(NBTTagCompound var1) {
+      super.write(var1);
       NBTTagList var2 = new NBTTagList();
 
       for(int var3 = 0; var3 < this.a.length; ++var3) {
@@ -132,8 +132,8 @@ public abstract class class_vq extends class_vn implements ITileInventory {
       var1.put((String)"Items", (NBTTag)var2);
    }
 
-   protected void a(NBTTagCompound var1) {
-      super.a(var1);
+   protected void read(NBTTagCompound var1) {
+      super.read(var1);
       NBTTagList var2 = var1.getList("Items", 10);
       this.a = new ItemStack[this.getSize()];
 

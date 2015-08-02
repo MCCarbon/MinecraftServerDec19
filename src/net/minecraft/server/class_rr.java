@@ -49,7 +49,7 @@ public class class_rr extends class_rm {
    }
 
    public boolean b() {
-      return !this.b.ai()?false:(this.a.h(this.b) > (double)(this.c * this.c)?false:this.e > 0);
+      return !this.b.isAlive()?false:(this.a.h(this.b) > (double)(this.c * this.c)?false:this.e > 0);
    }
 
    public void c() {

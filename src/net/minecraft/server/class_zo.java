@@ -21,8 +21,8 @@ public class class_zo extends Item {
    }
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-      if(var3.aw() && var3.m instanceof class_ud) {
-         class_ud var5 = (class_ud)var3.m;
+      if(var3.aw() && var3.vehicle instanceof class_ud) {
+         class_ud var5 = (class_ud)var3.vehicle;
          if(var5.cB().h() && var1.j() - var1.i() >= 7) {
             var5.cB().g();
             var1.a(7, (EntityLiving)var3);

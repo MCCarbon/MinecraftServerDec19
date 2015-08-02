@@ -30,7 +30,7 @@ public class class_aah extends Item {
                var3.setTypeUpdate(var4, Blocks.FIRE.getBlockData());
             }
 
-            if(!var2.bH.instabuild) {
+            if(!var2.abilities.instabuild) {
                --var1.count;
             }
 

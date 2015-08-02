@@ -71,7 +71,7 @@ public class class_wq extends class_wi implements class_wk {
    }
 
    public void a(boolean var1) {
-      this.H().b(c, Byte.valueOf((byte)(var1?1:0)));
+      this.H().update(c, Byte.valueOf((byte)(var1?1:0)));
    }
 
    public boolean n() {
@@ -107,13 +107,13 @@ public class class_wq extends class_wi implements class_wk {
             }
          } else {
             class_acd var1 = null;
-            if(this.V.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(class_pm.m)) {
+            if(this.random.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(class_pm.m)) {
                var1 = class_acf.s;
-            } else if(this.V.nextFloat() < 0.15F && this.av() && !this.a(class_pm.l)) {
+            } else if(this.random.nextFloat() < 0.15F && this.av() && !this.a(class_pm.l)) {
                var1 = class_acf.l;
-            } else if(this.V.nextFloat() < 0.05F && this.bo() < this.bv()) {
+            } else if(this.random.nextFloat() < 0.05F && this.getHealth() < this.bv()) {
                var1 = class_acf.u;
-            } else if(this.V.nextFloat() < 0.5F && this.w() != null && !this.a(class_pm.a) && this.w().h(this) > 121.0D) {
+            } else if(this.random.nextFloat() < 0.5F && this.w() != null && !this.a(class_pm.a) && this.w().h(this) > 121.0D) {
                var1 = class_acf.n;
             }
 
@@ -127,7 +127,7 @@ public class class_wq extends class_wi implements class_wk {
             }
          }
 
-         if(this.V.nextFloat() < 7.5E-4F) {
+         if(this.random.nextFloat() < 7.5E-4F) {
             this.o.a((Entity)this, (byte)15);
          }
       }
@@ -149,13 +149,13 @@ public class class_wq extends class_wi implements class_wk {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(3) + 1;
+      int var3 = this.random.nextInt(3) + 1;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         int var5 = this.V.nextInt(3);
-         Item var6 = bs[this.V.nextInt(bs.length)];
+         int var5 = this.random.nextInt(3);
+         Item var6 = bs[this.random.nextInt(bs.length)];
          if(var2 > 0) {
-            var5 += this.V.nextInt(var2 + 1);
+            var5 += this.random.nextInt(var2 + 1);
          }
 
          for(int var7 = 0; var7 < var5; ++var7) {
@@ -175,9 +175,9 @@ public class class_wq extends class_wi implements class_wk {
          class_acd var12 = class_acf.w;
          if(var11 >= 8.0F && !var1.a(class_pm.b)) {
             var12 = class_acf.q;
-         } else if(var1.bo() >= 8.0F && !var1.a(class_pm.s)) {
+         } else if(var1.getHealth() >= 8.0F && !var1.a(class_pm.s)) {
             var12 = class_acf.y;
-         } else if(var11 <= 3.0F && !var1.a(class_pm.r) && this.V.nextFloat() < 0.25F) {
+         } else if(var11 <= 3.0F && !var1.a(class_pm.r) && this.random.nextFloat() < 0.25F) {
             var12 = class_acf.H;
          }
 

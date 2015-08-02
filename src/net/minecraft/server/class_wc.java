@@ -70,14 +70,14 @@ public class class_wc extends class_wi {
       return null;
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.a = var1.getInt("Lifetime");
       this.b = var1.getBoolean("PlayerSpawned");
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Lifetime", this.a);
       var1.put("PlayerSpawned", this.b);
    }
@@ -99,7 +99,7 @@ public class class_wc extends class_wi {
       super.m();
       if(this.o.isClientSide) {
          for(int var1 = 0; var1 < 2; ++var1) {
-            this.o.a(class_cy.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
+            this.o.a(class_cy.y, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J, this.t + this.random.nextDouble() * (double)this.K, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J, (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
       } else {
          if(!this.cn()) {

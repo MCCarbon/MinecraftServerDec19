@@ -30,7 +30,7 @@ public class class_xl extends class_xf {
       if(!this.o.isClientSide) {
          boolean var2;
          if(var1.d != null) {
-            var2 = var1.d.a(class_pc.a((class_xf)this, (Entity)this.a), 5.0F);
+            var2 = var1.d.damageEntity(class_pc.a((class_xf)this, (Entity)this.a), 5.0F);
             if(var2) {
                this.a(this.a, var1.d);
                if(!var1.d.T()) {
@@ -60,7 +60,7 @@ public class class_xl extends class_xf {
       return false;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       return false;
    }
 }

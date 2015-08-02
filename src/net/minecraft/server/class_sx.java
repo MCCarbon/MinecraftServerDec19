@@ -65,7 +65,7 @@ public class class_sx extends class_rm {
       EntityLiving var1 = this.b.w();
       if(var1 == null) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
       } else {
          double var2 = this.f();

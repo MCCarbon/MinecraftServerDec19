@@ -37,7 +37,7 @@ public class class_vr extends class_vn {
 
    protected void h() {
       super.h();
-      this.ac.add(c, new Byte((byte)0));
+      this.datawatcher.add(c, new Byte((byte)0));
    }
 
    public void t_() {
@@ -51,7 +51,7 @@ public class class_vr extends class_vn {
       }
 
       this.i(this.d > 0);
-      if(this.j() && this.V.nextInt(4) == 0) {
+      if(this.j() && this.random.nextInt(4) == 0) {
          this.o.a(class_cy.m, this.s, this.t + 0.8D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
@@ -111,7 +111,7 @@ public class class_vr extends class_vn {
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
       if(var2 != null && var2.getItem() == Items.j) {
-         if(!var1.bH.instabuild) {
+         if(!var1.abilities.instabuild) {
             --var2.count;
          }
 
@@ -123,29 +123,29 @@ public class class_vr extends class_vn {
       return true;
    }
 
-   protected void b(NBTTagCompound var1) {
-      super.b(var1);
+   protected void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("PushX", this.a);
       var1.put("PushZ", this.b);
       var1.put("Fuel", (short)this.d);
    }
 
-   protected void a(NBTTagCompound var1) {
-      super.a(var1);
+   protected void read(NBTTagCompound var1) {
+      super.read(var1);
       this.a = var1.getDouble("PushX");
       this.b = var1.getDouble("PushZ");
       this.d = var1.getShort("Fuel");
    }
 
    protected boolean j() {
-      return (this.ac.getByte(c) & 1) != 0;
+      return (this.datawatcher.getByte(c) & 1) != 0;
    }
 
    protected void i(boolean var1) {
       if(var1) {
-         this.ac.b(c, Byte.valueOf((byte)(this.ac.getByte(c) | 1)));
+         this.datawatcher.update(c, Byte.valueOf((byte)(this.datawatcher.getByte(c) | 1)));
       } else {
-         this.ac.b(c, Byte.valueOf((byte)(this.ac.getByte(c) & -2)));
+         this.datawatcher.update(c, Byte.valueOf((byte)(this.datawatcher.getByte(c) & -2)));
       }
 
    }

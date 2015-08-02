@@ -52,9 +52,9 @@ public class class_wh extends class_wo {
    protected void b(boolean var1, int var2) {
       Item var3 = this.D();
       if(var3 != null && this.cB() > 1) {
-         int var4 = this.V.nextInt(4) - 2;
+         int var4 = this.random.nextInt(4) - 2;
          if(var2 > 0) {
-            var4 += this.V.nextInt(var2 + 1);
+            var4 += this.random.nextInt(var2 + 1);
          }
 
          for(int var5 = 0; var5 < var4; ++var5) {

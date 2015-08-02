@@ -75,7 +75,7 @@ public class class_alo extends Block {
          var1.setAir(var2);
          if(var6.getItem() == Items.d) {
             var6.a(1, (EntityLiving)var4);
-         } else if(!var4.bH.instabuild) {
+         } else if(!var4.abilities.instabuild) {
             --var6.count;
          }
 

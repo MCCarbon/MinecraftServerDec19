@@ -48,7 +48,7 @@ public class class_aj extends class_i {
             }
          }
 
-         boolean var11 = var3.bp.a(var7);
+         boolean var11 = var3.inventory.a(var7);
          if(var11) {
             var3.o.a((Entity)var3, "random.pop", 0.2F, ((var3.bd().nextFloat() - var3.bd().nextFloat()) * 0.7F + 1.0F) * 2.0F);
             var3.bq.b();

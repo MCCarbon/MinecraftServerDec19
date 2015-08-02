@@ -35,18 +35,18 @@ public class class_vc extends class_uz {
       }
 
       if(!var4.isEmpty()) {
-         this.c = (class_vc.class_a_in_class_vc)var4.get(this.V.nextInt(var4.size()));
+         this.c = (class_vc.class_a_in_class_vc)var4.get(this.random.nextInt(var4.size()));
       }
 
       this.a(var3);
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       var1.put("Motive", this.c.B);
-      super.b(var1);
+      super.write(var1);
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       String var2 = var1.getString("Motive");
       class_vc.class_a_in_class_vc[] var3 = class_vc.class_a_in_class_vc.values();
       int var4 = var3.length;
@@ -62,7 +62,7 @@ public class class_vc extends class_uz {
          this.c = class_vc.class_a_in_class_vc.a;
       }
 
-      super.a(var1);
+      super.read(var1);
    }
 
    public int l() {
@@ -77,7 +77,7 @@ public class class_vc extends class_uz {
       if(this.o.R().b("doEntityDrops")) {
          if(var1 instanceof EntityHuman) {
             EntityHuman var2 = (EntityHuman)var1;
-            if(var2.bH.instabuild) {
+            if(var2.abilities.instabuild) {
                return;
             }
          }

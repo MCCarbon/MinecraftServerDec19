@@ -20,8 +20,8 @@ public class class_vp extends class_vn {
    private static final int b = Datawathcer.claimId(class_vp.class);
    private final class_aed c = new class_aed() {
       public void h() {
-         class_vp.this.H().b(class_vp.a, this.l());
-         class_vp.this.H().b(class_vp.b, IChatBaseComponent.ChatSerializer.toJson(this.k()));
+         class_vp.this.H().update(class_vp.a, this.l());
+         class_vp.this.H().update(class_vp.b, IChatBaseComponent.ChatSerializer.toJson(this.k()));
       }
 
       public BlockPosition c() {
@@ -56,15 +56,15 @@ public class class_vp extends class_vn {
       this.H().add(b, "");
    }
 
-   protected void a(NBTTagCompound var1) {
-      super.a(var1);
+   protected void read(NBTTagCompound var1) {
+      super.read(var1);
       this.c.b(var1);
-      this.H().b(a, this.j().l());
-      this.H().b(b, IChatBaseComponent.ChatSerializer.toJson(this.j().k()));
+      this.H().update(a, this.j().l());
+      this.H().update(b, IChatBaseComponent.ChatSerializer.toJson(this.j().k()));
    }
 
-   protected void b(NBTTagCompound var1) {
-      super.b(var1);
+   protected void write(NBTTagCompound var1) {
+      super.write(var1);
       this.c.a(var1);
    }
 

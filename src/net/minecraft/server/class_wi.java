@@ -45,12 +45,12 @@ public abstract class class_wi extends class_qh implements class_wd {
       return "game.hostile.swim.splash";
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
-      } else if(super.a(var1, var2)) {
+      } else if(super.damageEntity(var1, var2)) {
          Entity var3 = var1.j();
-         return this.l != var3 && this.m != var3?true:true;
+         return this.passenger != var3 && this.vehicle != var3?true:true;
       } else {
          return false;
       }
@@ -76,7 +76,7 @@ public abstract class class_wi extends class_qh implements class_wd {
          var3 += EnchantmentManager.a((EntityLiving)this);
       }
 
-      boolean var4 = var1.a(class_pc.a((EntityLiving)this), var2);
+      boolean var4 = var1.damageEntity(class_pc.a((EntityLiving)this), var2);
       if(var4) {
          if(var3 > 0) {
             var1.g((double)(-MathHelper.sin(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F), 0.1D, (double)(MathHelper.cos(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F));
@@ -101,7 +101,7 @@ public abstract class class_wi extends class_qh implements class_wd {
 
    protected boolean n_() {
       BlockPosition var1 = new BlockPosition(this.s, this.aT().yMin, this.u);
-      if(this.o.b(class_aet.a, var1) > this.V.nextInt(32)) {
+      if(this.o.b(class_aet.a, var1) > this.random.nextInt(32)) {
          return false;
       } else {
          int var2 = this.o.l(var1);
@@ -112,7 +112,7 @@ public abstract class class_wi extends class_qh implements class_wd {
             this.o.c(var3);
          }
 
-         return var2 <= this.V.nextInt(8);
+         return var2 <= this.random.nextInt(8);
       }
    }
 

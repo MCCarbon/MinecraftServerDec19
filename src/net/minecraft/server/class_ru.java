@@ -39,7 +39,7 @@ public class class_ru extends class_rm {
       EntityLiving var1 = this.b.w();
       if(var1 == null) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
       } else if(this.g != null && !this.g.isAssignableFrom(var1.getClass())) {
          return false;
@@ -51,7 +51,7 @@ public class class_ru extends class_rm {
 
    public boolean b() {
       EntityLiving var1 = this.b.w();
-      return var1 == null?false:(!var1.ai()?false:(!this.e?!this.b.u().m():this.b.e(new BlockPosition(var1))));
+      return var1 == null?false:(!var1.isAlive()?false:(!this.e?!this.b.u().m():this.b.e(new BlockPosition(var1))));
    }
 
    public void c() {

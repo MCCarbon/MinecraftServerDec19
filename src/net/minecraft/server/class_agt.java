@@ -83,7 +83,7 @@ public class class_agt extends Block {
          Item var12 = var6.getItem();
          if(var12 == Items.az) {
             if(var11 < 3) {
-               if(!var4.bH.instabuild) {
+               if(!var4.abilities.instabuild) {
                   var4.a((EnumUsedHand)var5, (ItemStack)(new ItemStack(Items.ay)));
                }
 
@@ -96,12 +96,12 @@ public class class_agt extends Block {
             ItemStack var14;
             if(var12 == Items.bD) {
                if(var11 > 0) {
-                  if(!var4.bH.instabuild) {
+                  if(!var4.abilities.instabuild) {
                      var14 = class_abe.a(new ItemStack(Items.bB), class_acf.a);
                      var4.b(StatisticList.J);
                      if(--var6.count == 0) {
                         var4.a((EnumUsedHand)var5, (ItemStack)var14);
-                     } else if(!var4.bp.a(var14)) {
+                     } else if(!var4.inventory.a(var14)) {
                         var4.a(var14, false);
                      } else if(var4 instanceof EntityPlayer) {
                         ((EntityPlayer)var4).a(var4.bq);
@@ -128,19 +128,19 @@ public class class_agt extends Block {
                   var14.count = 1;
                   TileEntityBanner.e(var14);
                   var4.b(StatisticList.L);
-                  if(var4.bH.instabuild) {
+                  if(var4.abilities.instabuild) {
                      --var6.count;
                   }
 
                   if(var6.count == 0) {
                      var4.a((EnumUsedHand)var5, (ItemStack)var14);
-                  } else if(!var4.bp.a(var14)) {
+                  } else if(!var4.inventory.a(var14)) {
                      var4.a(var14, false);
                   } else if(var4 instanceof EntityPlayer) {
                      ((EntityPlayer)var4).a(var4.bq);
                   }
 
-                  if(!var4.bH.instabuild) {
+                  if(!var4.abilities.instabuild) {
                      this.a(var1, var2, var3, var11 - 1);
                   }
 

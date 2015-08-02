@@ -17,7 +17,7 @@ public class BlockPistonExtension extends class_ahi {
 
 	@Override
 	public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
-		if (var4.bH.instabuild) {
+		if (var4.abilities.instabuild) {
 			EnumDirection var5 = var3.get(FACING);
 			if (var5 != null) {
 				BlockPosition var6 = var2.shift(var5.opposite());

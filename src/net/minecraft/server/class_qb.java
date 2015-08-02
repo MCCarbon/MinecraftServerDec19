@@ -149,7 +149,7 @@ public abstract class class_qb extends EntityLiving {
 
    protected void h() {
       super.h();
-      this.ac.add(a, Byte.valueOf((byte)0));
+      this.datawatcher.add(a, Byte.valueOf((byte)0));
    }
 
    public int y() {
@@ -167,7 +167,7 @@ public abstract class class_qb extends EntityLiving {
    public void K() {
       super.K();
       this.o.B.a("mobBaseTick");
-      if(this.ai() && this.V.nextInt(1000) < this.a_++) {
+      if(this.isAlive() && this.random.nextInt(1000) < this.a_++) {
          this.a_ = -this.y();
          this.z();
       }
@@ -182,13 +182,13 @@ public abstract class class_qb extends EntityLiving {
          int var3;
          for(var3 = 0; var3 < this.bt.length; ++var3) {
             if(this.bt[var3] != null && this.bp[var3] <= 1.0F) {
-               var2 += 1 + this.V.nextInt(3);
+               var2 += 1 + this.random.nextInt(3);
             }
          }
 
          for(var3 = 0; var3 < this.bs.length; ++var3) {
             if(this.bs[var3] != null && this.bo[var3] <= 1.0F) {
-               var2 += 1 + this.V.nextInt(3);
+               var2 += 1 + this.random.nextInt(3);
             }
          }
 
@@ -201,11 +201,11 @@ public abstract class class_qb extends EntityLiving {
    public void A() {
       if(this.o.isClientSide) {
          for(int var1 = 0; var1 < 20; ++var1) {
-            double var2 = this.V.nextGaussian() * 0.02D;
-            double var4 = this.V.nextGaussian() * 0.02D;
-            double var6 = this.V.nextGaussian() * 0.02D;
+            double var2 = this.random.nextGaussian() * 0.02D;
+            double var4 = this.random.nextGaussian() * 0.02D;
+            double var6 = this.random.nextGaussian() * 0.02D;
             double var8 = 10.0D;
-            this.o.a(class_cy.a, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J - var2 * var8, this.t + (double)(this.V.nextFloat() * this.K) - var4 * var8, this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J - var6 * var8, var2, var4, var6, new int[0]);
+            this.o.a(class_cy.a, this.s + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J - var2 * var8, this.t + (double)(this.random.nextFloat() * this.K) - var4 * var8, this.u + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J - var6 * var8, var2, var4, var6, new int[0]);
          }
       } else {
          this.o.a((Entity)this, (byte)20);
@@ -237,9 +237,9 @@ public abstract class class_qb extends EntityLiving {
    protected void b(boolean var1, int var2) {
       Item var3 = this.D();
       if(var3 != null) {
-         int var4 = this.V.nextInt(3);
+         int var4 = this.random.nextInt(3);
          if(var2 > 0) {
-            var4 += this.V.nextInt(var2 + 1);
+            var4 += this.random.nextInt(var2 + 1);
          }
 
          for(int var5 = 0; var5 < var4; ++var5) {
@@ -249,8 +249,8 @@ public abstract class class_qb extends EntityLiving {
 
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("CanPickUpLoot", this.cm());
       var1.put("PersistenceRequired", this.bv);
       NBTTagList var2 = new NBTTagList();
@@ -314,8 +314,8 @@ public abstract class class_qb extends EntityLiving {
 
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       if(var1.hasOfType("CanPickUpLoot", 1)) {
          this.j(var1.getBoolean("CanPickUpLoot"));
       }
@@ -473,7 +473,7 @@ public abstract class class_qb extends EntityLiving {
             var10 = 0.0D;
          }
 
-         if(var5 != null && (double)(this.V.nextFloat() - 0.1F) < var10) {
+         if(var5 != null && (double)(this.random.nextFloat() - 0.1F) < var10) {
             this.a(var5, 0.0F);
          }
 
@@ -522,7 +522,7 @@ public abstract class class_qb extends EntityLiving {
                this.J();
             }
 
-            if(this.aT > 600 && this.V.nextInt(800) == 0 && var8 > 1024.0D && this.E()) {
+            if(this.aT > 600 && this.random.nextInt(800) == 0 && var8 > 1024.0D && this.E()) {
                this.J();
             } else if(var8 < 1024.0D) {
                this.aT = 0;
@@ -621,7 +621,7 @@ public abstract class class_qb extends EntityLiving {
       if(this.w() == null) {
          return 3;
       } else {
-         int var1 = (int)(this.bo() - this.bv() * 0.33F);
+         int var1 = (int)(this.getHealth() - this.bv() * 0.33F);
          var1 -= (3 - this.o.ab().a()) * 4;
          if(var1 < 0) {
             var1 = 0;
@@ -683,10 +683,10 @@ public abstract class class_qb extends EntityLiving {
          }
 
          boolean var10 = var8 > 1.0D;
-         if(var7 != null && (var1 || var10) && (double)(this.V.nextFloat() - (float)var2 * 0.01F) < var8) {
+         if(var7 != null && (var1 || var10) && (double)(this.random.nextFloat() - (float)var2 * 0.01F) < var8) {
             if(!var10 && var7.e()) {
                int var11 = Math.max(var7.j() - 25, 1);
-               int var12 = var7.j() - this.V.nextInt(this.V.nextInt(var11) + 1);
+               int var12 = var7.j() - this.random.nextInt(this.random.nextInt(var11) + 1);
                if(var12 > var11) {
                   var12 = var11;
                }
@@ -705,18 +705,18 @@ public abstract class class_qb extends EntityLiving {
    }
 
    protected void a(class_on var1) {
-      if(this.V.nextFloat() < 0.15F * var1.c()) {
-         int var2 = this.V.nextInt(2);
+      if(this.random.nextFloat() < 0.15F * var1.c()) {
+         int var2 = this.random.nextInt(2);
          float var3 = this.o.ab() == class_om.d?0.1F:0.25F;
-         if(this.V.nextFloat() < 0.095F) {
+         if(this.random.nextFloat() < 0.095F) {
             ++var2;
          }
 
-         if(this.V.nextFloat() < 0.095F) {
+         if(this.random.nextFloat() < 0.095F) {
             ++var2;
          }
 
-         if(this.V.nextFloat() < 0.095F) {
+         if(this.random.nextFloat() < 0.095F) {
             ++var2;
          }
 
@@ -728,7 +728,7 @@ public abstract class class_qb extends EntityLiving {
             class_pw var8 = var5[var7];
             if(var8.a() == class_pw.class_a_in_class_pw.b) {
                ItemStack var9 = this.a(var8);
-               if(!var4 && this.V.nextFloat() < var3) {
+               if(!var4 && this.random.nextFloat() < var3) {
                   break;
                }
 
@@ -806,8 +806,8 @@ public abstract class class_qb extends EntityLiving {
 
    protected void b(class_on var1) {
       float var2 = var1.c();
-      if(this.bA() != null && this.V.nextFloat() < 0.25F * var2) {
-         EnchantmentManager.a(this.V, this.bA(), (int)(5.0F + var2 * (float)this.V.nextInt(18)));
+      if(this.bA() != null && this.random.nextFloat() < 0.25F * var2) {
+         EnchantmentManager.a(this.random, this.bA(), (int)(5.0F + var2 * (float)this.random.nextInt(18)));
       }
 
       class_pw[] var3 = class_pw.values();
@@ -817,8 +817,8 @@ public abstract class class_qb extends EntityLiving {
          class_pw var6 = var3[var5];
          if(var6.a() == class_pw.class_a_in_class_pw.b) {
             ItemStack var7 = this.a(var6);
-            if(var7 != null && this.V.nextFloat() < 0.5F * var2) {
-               EnchantmentManager.a(this.V, var7, (int)(5.0F + var2 * (float)this.V.nextInt(18)));
+            if(var7 != null && this.random.nextFloat() < 0.5F * var2) {
+               EnchantmentManager.a(this.random, var7, (int)(5.0F + var2 * (float)this.random.nextInt(18)));
             }
          }
       }
@@ -826,8 +826,8 @@ public abstract class class_qb extends EntityLiving {
    }
 
    public class_qd a(class_on var1, class_qd var2) {
-      this.a((class_qk)class_wl.b).b(new class_qm("Random spawn bonus", this.V.nextGaussian() * 0.05D, 1));
-      if(this.V.nextFloat() < 0.05F) {
+      this.a((class_qk)class_wl.b).b(new class_qm("Random spawn bonus", this.random.nextGaussian() * 0.05D, 1));
+      if(this.random.nextFloat() < 0.05F) {
          this.l(true);
       } else {
          this.l(false);
@@ -869,7 +869,7 @@ public abstract class class_qb extends EntityLiving {
 
    public final boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
       if(this.cq() && this.cr() == var1) {
-         this.a(true, !var1.bH.instabuild);
+         this.a(true, !var1.abilities.instabuild);
          return true;
       } else {
          if(var2 != null && var2.getItem() == Items.cq && this.cp()) {
@@ -900,7 +900,7 @@ public abstract class class_qb extends EntityLiving {
       }
 
       if(this.bw) {
-         if(!this.ai()) {
+         if(!this.isAlive()) {
             this.a(true, true);
          }
 
@@ -1009,21 +1009,21 @@ public abstract class class_qb extends EntityLiving {
    }
 
    public void k(boolean var1) {
-      byte var2 = this.ac.getByte(a);
-      this.ac.b(a, Byte.valueOf(var1?(byte)(var2 | 1):(byte)(var2 & -2)));
+      byte var2 = this.datawatcher.getByte(a);
+      this.datawatcher.update(a, Byte.valueOf(var1?(byte)(var2 | 1):(byte)(var2 & -2)));
    }
 
    public void l(boolean var1) {
-      byte var2 = this.ac.getByte(a);
-      this.ac.b(a, Byte.valueOf(var1?(byte)(var2 | 2):(byte)(var2 & -3)));
+      byte var2 = this.datawatcher.getByte(a);
+      this.datawatcher.update(a, Byte.valueOf(var1?(byte)(var2 | 2):(byte)(var2 & -3)));
    }
 
    public boolean cs() {
-      return (this.ac.getByte(a) & 1) != 0;
+      return (this.datawatcher.getByte(a) & 1) != 0;
    }
 
    public boolean ct() {
-      return (this.ac.getByte(a) & 2) != 0;
+      return (this.datawatcher.getByte(a) & 2) != 0;
    }
 
    // $FF: synthetic class

@@ -52,7 +52,7 @@ public class class_abe extends Item {
 
    public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
       EntityHuman var4 = var3 instanceof EntityHuman?(EntityHuman)var3:null;
-      if(var4 == null || !var4.bH.instabuild) {
+      if(var4 == null || !var4.abilities.instabuild) {
          --var1.count;
       }
 
@@ -70,13 +70,13 @@ public class class_abe extends Item {
          var4.b(StatisticList.ad[Item.getId((Item)this)]);
       }
 
-      if(var4 == null || !var4.bH.instabuild) {
+      if(var4 == null || !var4.abilities.instabuild) {
          if(var1.count <= 0) {
             return new ItemStack(Items.bD);
          }
 
          if(var4 != null) {
-            var4.bp.a(new ItemStack(Items.bD));
+            var4.inventory.a(new ItemStack(Items.bD));
          }
       }
 

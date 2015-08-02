@@ -49,11 +49,11 @@ public class class_uh extends class_ua implements class_wk {
          int var2 = MathHelper.floor(this.t);
          int var3 = MathHelper.floor(this.u);
          if(this.U()) {
-            this.a(class_pc.f, 1.0F);
+            this.damageEntity(class_pc.f, 1.0F);
          }
 
          if(this.o.b(new BlockPosition(var1, 0, var3)).a(new BlockPosition(var1, var2, var3)) > 1.0F) {
-            this.a(class_pc.c, 1.0F);
+            this.damageEntity(class_pc.c, 1.0F);
          }
 
          for(int var4 = 0; var4 < 4; ++var4) {
@@ -74,7 +74,7 @@ public class class_uh extends class_ua implements class_wk {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(16);
+      int var3 = this.random.nextInt(16);
 
       for(int var4 = 0; var4 < var3; ++var4) {
          this.a(Items.aF, 1);

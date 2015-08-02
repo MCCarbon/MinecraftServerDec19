@@ -30,7 +30,7 @@ public class class_aew implements IBlockAccess {
       int var8;
       for(var7 = this.a; var7 <= var5; ++var7) {
          for(var8 = this.b; var8 <= var6; ++var8) {
-            this.c[var7 - this.a][var8 - this.b] = var1.a(var7, var8);
+            this.c[var7 - this.a][var8 - this.b] = var1.getChunkAt(var7, var8);
          }
       }
 

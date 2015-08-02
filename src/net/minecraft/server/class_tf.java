@@ -31,7 +31,7 @@ public class class_tf extends class_tg {
    }
 
    protected boolean b() {
-      return this.b.C || this.h() && this.o() || this.b.aw() && this.b instanceof class_wr && this.b.m instanceof class_tx;
+      return this.b.C || this.h() && this.o() || this.b.aw() && this.b instanceof class_wr && this.b.vehicle instanceof class_tx;
    }
 
    protected Vec3D c() {

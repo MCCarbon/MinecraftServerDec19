@@ -51,7 +51,7 @@ public class class_pb {
       this.a.add(var4);
       this.c = this.b.W;
       this.g = true;
-      if(var4.f() && !this.f && this.b.ai()) {
+      if(var4.f() && !this.f && this.b.isAlive()) {
          this.f = true;
          this.d = this.b.W;
          this.e = this.d;
@@ -183,7 +183,7 @@ public class class_pb {
 
    public void g() {
       int var1 = this.f?300:100;
-      if(this.g && (!this.b.ai() || this.b.W - this.c > var1)) {
+      if(this.g && (!this.b.isAlive() || this.b.W - this.c > var1)) {
          boolean var2 = this.f;
          this.g = false;
          this.f = false;

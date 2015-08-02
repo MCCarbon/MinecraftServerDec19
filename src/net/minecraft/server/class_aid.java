@@ -77,7 +77,7 @@ public class class_aid extends BlockContainer {
                var11.update();
                var1.notify(var2);
                var4.b(StatisticList.T);
-               if(!var4.bH.instabuild) {
+               if(!var4.abilities.instabuild) {
                   --var6.count;
                }
 
@@ -121,7 +121,7 @@ public class class_aid extends BlockContainer {
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
       super.a(var1, var2, var3, var4);
-      if(var4.bH.instabuild) {
+      if(var4.abilities.instabuild) {
          TileEntityFlowerPot var5 = this.f(var1, var2);
          if(var5 != null) {
             var5.a((Item)null, 0);

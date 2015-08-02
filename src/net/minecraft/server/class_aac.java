@@ -32,7 +32,7 @@ public class class_aac extends class_zt {
       if(var1.count <= 0) {
          return new class_or(class_oq.a, var5);
       } else {
-         if(!var3.bp.a(var5.clone())) {
+         if(!var3.inventory.a(var5.clone())) {
             var3.a(var5, false);
          }
 

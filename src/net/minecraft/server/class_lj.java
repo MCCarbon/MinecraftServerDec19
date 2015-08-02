@@ -130,9 +130,9 @@ public class class_lj {
          this.b(var1);
       }
 
-      if(this.w != this.a.m || this.a.m != null && this.m % 60 == 0) {
-         this.w = this.a.m;
-         this.a((Packet)(new PacketPlayOutAttachEntity(0, this.a, this.a.m)));
+      if(this.w != this.a.vehicle || this.a.vehicle != null && this.m % 60 == 0) {
+         this.w = this.a.vehicle;
+         this.a((Packet)(new PacketPlayOutAttachEntity(0, this.a, this.a.vehicle)));
       }
 
       if(this.a instanceof class_va && this.m % 10 == 0) {
@@ -159,7 +159,7 @@ public class class_lj {
       if(this.m % this.c == 0 || this.a.ai || this.a.H().a()) {
          int var23;
          int var24;
-         if(this.a.m == null) {
+         if(this.a.vehicle == null) {
             ++this.v;
             var23 = MathHelper.floor(this.a.s * 32.0D);
             var24 = MathHelper.floor(this.a.t * 32.0D);
@@ -337,8 +337,8 @@ public class class_lj {
                   var1.a.a((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.a.v, this.a.motY, this.a.x)));
                }
 
-               if(this.a.m != null) {
-                  var1.a.a((Packet)(new PacketPlayOutAttachEntity(0, this.a, this.a.m)));
+               if(this.a.vehicle != null) {
+                  var1.a.a((Packet)(new PacketPlayOutAttachEntity(0, this.a, this.a.vehicle)));
                }
 
                if(this.a instanceof class_qb && ((class_qb)this.a).cr() != null) {

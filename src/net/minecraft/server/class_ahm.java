@@ -127,7 +127,7 @@ public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
       if(var3.get(b) == class_ahm.class_a_in_class_ahm.a) {
          if(var1.getType(var2.down()).getBlock() == this) {
-            if(!var4.bH.instabuild) {
+            if(!var4.abilities.instabuild) {
                IBlockData var5 = var1.getType(var2.down());
                class_ahm.class_b_in_class_ahm var6 = (class_ahm.class_b_in_class_ahm)var5.get(a);
                if(var6 != class_ahm.class_b_in_class_ahm.d && var6 != class_ahm.class_b_in_class_ahm.c) {
@@ -146,7 +146,7 @@ public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
                var1.setAir(var2.down());
             }
          }
-      } else if(var4.bH.instabuild && var1.getType(var2.up()).getBlock() == this) {
+      } else if(var4.abilities.instabuild && var1.getType(var2.up()).getBlock() == this) {
          var1.setTypeAndData((BlockPosition)var2.up(), (IBlockData)Blocks.AIR.getBlockData(), 2);
       }
 

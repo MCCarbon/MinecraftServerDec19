@@ -91,7 +91,7 @@ import net.minecraft.server.class_mc;
 import net.minecraft.server.class_mf;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
-import net.minecraft.server.class_no;
+import net.minecraft.server.IntHashMap;
 import net.minecraft.server.IInventory;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.Entity;
@@ -125,7 +125,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
    private long k;
    private int l;
    private int m;
-   private class_no n = new class_no();
+   private IntHashMap n = new IntHashMap();
    private double o;
    private double p;
    private double q;
@@ -220,10 +220,10 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
                double var19;
                double var21;
                double var23;
-               if(this.b.m != null) {
+               if(this.b.vehicle != null) {
                   float var44 = this.b.y;
                   float var18 = this.b.z;
-                  this.b.m.al();
+                  this.b.vehicle.al();
                   var19 = this.b.s;
                   var21 = this.b.t;
                   var23 = this.b.u;
@@ -235,19 +235,19 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
                   this.b.C = var1.isOnGround();
                   this.b.l();
                   this.b.a(var19, var21, var23, var44, var18);
-                  if(this.b.m != null) {
-                     this.b.m.al();
+                  if(this.b.vehicle != null) {
+                     this.b.vehicle.al();
                   }
 
                   this.d.getPlayerList().d(this.b);
-                  if(this.b.m != null) {
+                  if(this.b.vehicle != null) {
                      if(var9 > 4.0D) {
-                        Entity var45 = this.b.m;
+                        Entity var45 = this.b.vehicle;
                         this.b.a.a((Packet)(new PacketPlayOutEntityTeleport(var45)));
                         this.a(this.b.s, this.b.t, this.b.u, this.b.y, this.b.z);
                      }
 
-                     this.b.m.ai = true;
+                     this.b.vehicle.ai = true;
                   }
 
                   if(this.r) {
@@ -346,7 +346,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
                }
 
                AxisAlignedBB var43 = this.b.aT().grow((double)var37, (double)var37, (double)var37).add(0.0D, -0.55D, 0.0D);
-               if (!(this.d.ak() || this.b.bH.mayfly || var2.c(var43) || this.b.a(class_pm.y))) {
+               if (!(this.d.ak() || this.b.abilities.mayfly || var2.c(var43) || this.b.a(class_pm.y))) {
                   if(var39 >= -0.03125D) {
                      ++this.g;
                      if(this.g > 80) {
@@ -412,7 +412,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
       this.b.z();
       switch(class_lo.SyntheticClass_1.a[var1.getDigType().ordinal()]) {
       case 1:
-         if(!this.b.v()) {
+         if(!this.b.isSpectator()) {
             ItemStack var12 = this.b.b((EnumUsedHand)EnumUsedHand.OFF_HAND);
             this.b.a((EnumUsedHand)EnumUsedHand.OFF_HAND, (ItemStack)this.b.b((EnumUsedHand)EnumUsedHand.MAIN_HAND));
             this.b.a((EnumUsedHand)EnumUsedHand.MAIN_HAND, (ItemStack)var12);
@@ -420,13 +420,13 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
 
          return;
       case 2:
-         if(!this.b.v()) {
+         if(!this.b.isSpectator()) {
             this.b.a(false);
          }
 
          return;
       case 3:
-         if(!this.b.v()) {
+         if(!this.b.isSpectator()) {
             this.b.a(true);
          }
 
@@ -516,7 +516,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
 
    public void handle(PacketPlayInSpectate var1) {
       class_fh.a(var1, this, this.b.u());
-      if(this.b.v()) {
+      if(this.b.isSpectator()) {
          Entity var2 = null;
          WorldServer[] var3 = this.d.d;
          int var4 = var3.length;
@@ -542,7 +542,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
                var7.f(this.b);
                this.b.I = false;
                this.b.b(var2.s, var2.t, var2.u, var2.y, var2.z);
-               if(this.b.ai()) {
+               if(this.b.isAlive()) {
                   var7.a((Entity)this.b, false);
                   var8.addEntity((Entity)this.b);
                   var8.a((Entity)this.b, false);
@@ -615,7 +615,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
    public void handle(PacketPlayInHeldItemSlot var1) {
       class_fh.a(var1, this, this.b.u());
       if(var1.getSlot() >= 0 && var1.getSlot() < PlayerInventory.i()) {
-         this.b.bp.d = var1.getSlot();
+         this.b.inventory.itemInHandIndex = var1.getSlot();
          this.b.z();
       } else {
          c.warn(this.b.getName() + " tried to set an invalid carried item");
@@ -686,13 +686,13 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
          this.r = false;
          break;
       case 6:
-         if(this.b.m instanceof class_tz) {
-            ((class_tz)this.b.m).q(var1.getJumpBoost());
+         if(this.b.vehicle instanceof class_tz) {
+            ((class_tz)this.b.vehicle).q(var1.getJumpBoost());
          }
          break;
       case 7:
-         if(this.b.m instanceof class_tz) {
-            ((class_tz)this.b.m).c(this.b);
+         if(this.b.vehicle instanceof class_tz) {
+            ((class_tz)this.b.vehicle).c(this.b);
          }
          break;
       default:
@@ -756,7 +756,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
                this.b.a.c("You have died. Game over, man, it\'s game over!");
             }
          } else {
-            if(this.b.bo() > 0.0F) {
+            if(this.b.getHealth() > 0.0F) {
                return;
             }
 
@@ -781,7 +781,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
       if(this.b.br.d == var1.getWindowId() && this.b.br.c(this.b)) {
-         if(this.b.v()) {
+         if(this.b.isSpectator()) {
             ArrayList var2 = Lists.newArrayList();
 
             for(int var3 = 0; var3 < this.b.br.c.size(); ++var3) {
@@ -817,7 +817,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
    public void handle(PacketPlayInEnchantItem var1) {
       class_fh.a(var1, this, this.b.u());
       this.b.z();
-      if(this.b.br.d == var1.getWindowId() && this.b.br.c(this.b) && !this.b.v()) {
+      if(this.b.br.d == var1.getWindowId() && this.b.br.c(this.b) && !this.b.isSpectator()) {
          this.b.br.a((EntityHuman)this.b, var1.getEnchantment());
          this.b.br.b();
       }
@@ -870,7 +870,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
    public void handle(PacketPlayInTransaction var1) {
       class_fh.a(var1, this, this.b.u());
       Short var2 = (Short)this.n.a(this.b.br.d);
-      if(var2 != null && var1.getActionNumber() == var2.shortValue() && this.b.br.d == var1.getWindowId() && !this.b.br.c(this.b) && !this.b.v()) {
+      if(var2 != null && var1.getActionNumber() == var2.shortValue() && this.b.br.d == var1.getWindowId() && !this.b.br.c(this.b) && !this.b.isSpectator()) {
          this.b.br.a(this.b, true);
       }
 
@@ -919,7 +919,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
 
    public void handle(PacketPlayInAbilities var1) {
       class_fh.a(var1, this, this.b.u());
-      this.b.bH.flying = var1.isFlying() && this.b.bH.mayfly;
+      this.b.abilities.flying = var1.isFlying() && this.b.abilities.mayfly;
    }
 
    public void handle(PacketPlayInTabComplete var1) {
@@ -1019,7 +1019,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
       } else if("MC|AdvCdm".equals(var1.getTag())) {
          if(!this.d.al()) {
             this.b.a((IChatBaseComponent)(new ChatMessage("advMode.notEnabled", new Object[0])));
-         } else if(this.b.a(2, "") && this.b.bH.instabuild) {
+         } else if(this.b.a(2, "") && this.b.abilities.instabuild) {
             var61 = var1.getData();
 
             try {
@@ -1092,7 +1092,7 @@ public class class_lo implements PacketListenerPlayIn, ITickAble {
          var61 = var1.getData();
 
          try {
-            if(this.b.a(4, "") && this.b.bH.instabuild) {
+            if(this.b.a(4, "") && this.b.abilities.instabuild) {
                BlockPosition var66 = new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt());
                TileEntity var70 = this.b.o.getTileEntity(var66);
                if(var70 instanceof TileEntityStructure) {

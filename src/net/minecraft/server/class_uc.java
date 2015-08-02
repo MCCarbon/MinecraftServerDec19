@@ -64,7 +64,7 @@ public class class_uc extends class_qj {
 
    protected void h() {
       super.h();
-      this.ac.add(bw, Byte.valueOf((byte)0));
+      this.datawatcher.add(bw, Byte.valueOf((byte)0));
    }
 
    public void cc() {
@@ -100,18 +100,18 @@ public class class_uc extends class_qj {
    public void e(float var1, float var2) {
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("CatType", this.cI());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.m(var1.getInt("CatType"));
    }
 
    protected String C() {
-      return this.cA()?(this.cG()?"mob.cat.purr":(this.V.nextInt(4) == 0?"mob.cat.purreow":"mob.cat.meow")):"";
+      return this.cA()?(this.cG()?"mob.cat.purr":(this.random.nextInt(4) == 0?"mob.cat.purreow":"mob.cat.meow")):"";
    }
 
    protected String bp() {
@@ -131,15 +131,15 @@ public class class_uc extends class_qj {
    }
 
    public boolean r(Entity var1) {
-      return var1.a(class_pc.a((EntityLiving)this), 3.0F);
+      return var1.damageEntity(class_pc.a((EntityLiving)this), 3.0F);
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
          this.bu.a(false);
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 
@@ -152,12 +152,12 @@ public class class_uc extends class_qj {
             this.bu.a(!this.cC());
          }
       } else if(this.by.f() && var3 != null && var3.getItem() == Items.aW && var1.h(this) < 9.0D) {
-         if(!var1.bH.instabuild) {
+         if(!var1.abilities.instabuild) {
             --var3.count;
          }
 
          if(!this.o.isClientSide) {
-            if(this.V.nextInt(3) == 0) {
+            if(this.random.nextInt(3) == 0) {
                this.n(true);
                this.m(1 + this.o.random.nextInt(3));
                this.b((String)var1.aM().toString());
@@ -205,11 +205,11 @@ public class class_uc extends class_qj {
    }
 
    public int cI() {
-      return this.ac.getByte(bw);
+      return this.datawatcher.getByte(bw);
    }
 
    public void m(int var1) {
-      this.ac.b(bw, Byte.valueOf((byte)var1));
+      this.datawatcher.update(bw, Byte.valueOf((byte)var1));
    }
 
    public boolean cf() {

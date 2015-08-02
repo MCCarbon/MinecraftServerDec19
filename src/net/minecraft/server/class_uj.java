@@ -65,12 +65,12 @@ public class class_uj extends class_ua {
 
    protected void h() {
       super.h();
-      this.ac.add(a, Byte.valueOf((byte)0));
+      this.datawatcher.add(a, Byte.valueOf((byte)0));
    }
 
    protected void cc() {
       if(--this.c <= 0) {
-         this.c = 70 + this.V.nextInt(50);
+         this.c = 70 + this.random.nextInt(50);
          this.b = this.o.af().a(new BlockPosition(this), 32);
          if(this.b == null) {
             this.cy();
@@ -111,14 +111,14 @@ public class class_uj extends class_ua {
          --this.bt;
       }
 
-      if(this.v * this.v + this.x * this.x > 2.500000277905201E-7D && this.V.nextInt(5) == 0) {
+      if(this.v * this.v + this.x * this.x > 2.500000277905201E-7D && this.random.nextInt(5) == 0) {
          int var1 = MathHelper.floor(this.s);
          int var2 = MathHelper.floor(this.t - 0.20000000298023224D);
          int var3 = MathHelper.floor(this.u);
          IBlockData var4 = this.o.getType(new BlockPosition(var1, var2, var3));
          Block var5 = var4.getBlock();
          if(var5.getMaterial() != Material.AIR) {
-            this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().yMin + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.V.nextFloat() - 0.5D), 0.5D, ((double)this.V.nextFloat() - 0.5D) * 4.0D, new int[]{Block.getCombinedId(var4)});
+            this.o.a(class_cy.L, this.s + ((double)this.random.nextFloat() - 0.5D) * (double)this.J, this.aT().yMin + 0.1D, this.u + ((double)this.random.nextFloat() - 0.5D) * (double)this.J, 4.0D * ((double)this.random.nextFloat() - 0.5D), 0.5D, ((double)this.random.nextFloat() - 0.5D) * 4.0D, new int[]{Block.getCombinedId(var4)});
          }
       }
 
@@ -128,20 +128,20 @@ public class class_uj extends class_ua {
       return this.cC() && EntityHuman.class.isAssignableFrom(var1)?false:(var1 == class_wa.class?false:super.a(var1));
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("PlayerCreated", this.cC());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.m(var1.getBoolean("PlayerCreated"));
    }
 
    public boolean r(Entity var1) {
       this.bs = 10;
       this.o.a((Entity)this, (byte)4);
-      boolean var2 = var1.a(class_pc.a((EntityLiving)this), (float)(7 + this.V.nextInt(15)));
+      boolean var2 = var1.damageEntity(class_pc.a((EntityLiving)this), (float)(7 + this.random.nextInt(15)));
       if(var2) {
          var1.motY += 0.4000000059604645D;
          this.a(this, var1);
@@ -173,14 +173,14 @@ public class class_uj extends class_ua {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(3);
+      int var3 = this.random.nextInt(3);
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
          this.a(Item.getItemOf((Block)Blocks.RED_FLOWER), 1, (float)BlockFlowers.EnumFlowerVarient.POPPY.getId());
       }
 
-      var4 = 3 + this.V.nextInt(3);
+      var4 = 3 + this.random.nextInt(3);
 
       for(int var5 = 0; var5 < var4; ++var5) {
          this.a(Items.l, 1);
@@ -193,15 +193,15 @@ public class class_uj extends class_ua {
    }
 
    public boolean cC() {
-      return (this.ac.getByte(a) & 1) != 0;
+      return (this.datawatcher.getByte(a) & 1) != 0;
    }
 
    public void m(boolean var1) {
-      byte var2 = this.ac.getByte(a);
+      byte var2 = this.datawatcher.getByte(a);
       if(var1) {
-         this.ac.b(a, Byte.valueOf((byte)(var2 | 1)));
+         this.datawatcher.update(a, Byte.valueOf((byte)(var2 | 1)));
       } else {
-         this.ac.b(a, Byte.valueOf((byte)(var2 & -2)));
+         this.datawatcher.update(a, Byte.valueOf((byte)(var2 & -2)));
       }
 
    }

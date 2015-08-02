@@ -47,7 +47,7 @@ public class class_li {
 
    public void a(WorldSettings.EnumGameMode var1) {
       this.c = var1;
-      var1.setAbilities(this.b.bH);
+      var1.setAbilities(this.b.abilities);
       this.b.t();
       this.b.b.getPlayerList().a((Packet)(new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.b, new EntityPlayer[]{this.b})));
    }

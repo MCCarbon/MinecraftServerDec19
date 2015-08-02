@@ -428,7 +428,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 	}
 
 	public static List a(World var0, double var1, double var3, double var5) {
-		return var0.a(EntityItem.class, new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), class_pv.a);
+		return var0.a(EntityItem.class, new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), IEntitySelector.IS_ALIVE);
 	}
 
 	public static IInventory b(World var0, double var1, double var3, double var5) {
@@ -449,7 +449,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 		}
 
 		if (var7 == null) {
-			List var14 = var0.a((Entity) null, (new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D)), class_pv.c);
+			List var14 = var0.a((Entity) null, (new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D)), IEntitySelector.IS_ALIVE_AND_HAS_INVENTORY);
 			if (!var14.isEmpty()) {
 				var7 = var14.get(var0.random.nextInt(var14.size()));
 			}

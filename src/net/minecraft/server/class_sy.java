@@ -36,7 +36,7 @@ public class class_sy extends class_rm {
          public boolean a(Entity var1) {
             if(!(var1 instanceof EntityHuman)) {
                return false;
-            } else if(((EntityHuman)var1).bH.invulnerable) {
+            } else if(((EntityHuman)var1).abilities.invulnerable) {
                return false;
             } else {
                double var2 = class_sy.this.f();
@@ -81,9 +81,9 @@ public class class_sy extends class_rm {
       EntityLiving var1 = this.b.w();
       if(var1 == null) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
-      } else if(var1 instanceof EntityHuman && ((EntityHuman)var1).bH.invulnerable) {
+      } else if(var1 instanceof EntityHuman && ((EntityHuman)var1).abilities.invulnerable) {
          return false;
       } else {
          class_awp var2 = this.b.bP();

@@ -200,7 +200,7 @@ public final class ItemStack {
 	}
 
 	public void a(int var1, EntityLiving var2) {
-		if (!(var2 instanceof EntityHuman) || !((EntityHuman) var2).bH.instabuild) {
+		if (!(var2 instanceof EntityHuman) || !((EntityHuman) var2).abilities.instabuild) {
 			if (e()) {
 				if (this.a(var1, var2.bd())) {
 					var2.b(this);

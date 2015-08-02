@@ -29,7 +29,7 @@ public class class_sa extends class_rm {
    }
 
    public boolean b() {
-      return !this.c.ai()?false:(this.b.h(this.c) > 225.0D?false:!this.b.u().m() || this.a());
+      return !this.c.isAlive()?false:(this.b.h(this.c) > 225.0D?false:!this.b.u().m() || this.a());
    }
 
    public void d() {

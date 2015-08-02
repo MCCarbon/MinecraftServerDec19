@@ -43,21 +43,21 @@ public abstract class class_tw extends class_po implements class_pp {
       if(this.bs > 0) {
          --this.bs;
          if(this.bs % 10 == 0) {
-            double var1 = this.V.nextGaussian() * 0.02D;
-            double var3 = this.V.nextGaussian() * 0.02D;
-            double var5 = this.V.nextGaussian() * 0.02D;
-            this.o.a(class_cy.I, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, var1, var3, var5, new int[0]);
+            double var1 = this.random.nextGaussian() * 0.02D;
+            double var3 = this.random.nextGaussian() * 0.02D;
+            double var5 = this.random.nextGaussian() * 0.02D;
+            this.o.a(class_cy.I, this.s + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.random.nextFloat() * this.K), this.u + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, var1, var3, var5, new int[0]);
          }
       }
 
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
          this.bs = 0;
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 
@@ -65,13 +65,13 @@ public abstract class class_tw extends class_po implements class_pp {
       return this.o.getType(var1.down()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("InLove", this.bs);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.bs = var1.getInt("InLove");
    }
 
@@ -118,7 +118,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    protected void a(EntityHuman var1, ItemStack var2) {
-      if(!var1.bH.instabuild) {
+      if(!var1.abilities.instabuild) {
          --var2.count;
       }
 

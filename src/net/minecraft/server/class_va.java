@@ -40,7 +40,7 @@ public class class_va extends class_uz {
       return 0.0F;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
       } else if(!var1.c() && this.o() != null) {
@@ -51,7 +51,7 @@ public class class_va extends class_uz {
 
          return true;
       } else {
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 
@@ -72,7 +72,7 @@ public class class_va extends class_uz {
          ItemStack var3 = this.o();
          if(var1 instanceof EntityHuman) {
             EntityHuman var4 = (EntityHuman)var1;
-            if(var4.bH.instabuild) {
+            if(var4.abilities.instabuild) {
                this.b(var3);
                return;
             }
@@ -82,7 +82,7 @@ public class class_va extends class_uz {
             this.a(new ItemStack(Items.bS), 0.0F);
          }
 
-         if(var3 != null && this.V.nextFloat() < this.e) {
+         if(var3 != null && this.random.nextFloat() < this.e) {
             var3 = var3.clone();
             this.b(var3);
             this.a(var3, 0.0F);
@@ -117,7 +117,7 @@ public class class_va extends class_uz {
          var1.setItemFrame(this);
       }
 
-      this.H().b(c, var1);
+      this.H().update(c, var1);
       this.H().i(c);
       if(var2 && this.a != null) {
          this.o.e(this.a, Blocks.AIR);
@@ -134,24 +134,24 @@ public class class_va extends class_uz {
    }
 
    private void a(int var1, boolean var2) {
-      this.H().b(d, Byte.valueOf((byte)(var1 % 8)));
+      this.H().update(d, Byte.valueOf((byte)(var1 % 8)));
       if(var2 && this.a != null) {
          this.o.e(this.a, Blocks.AIR);
       }
 
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       if(this.o() != null) {
          var1.put((String)"Item", (NBTTag)this.o().write(new NBTTagCompound()));
          var1.put("ItemRotation", (byte)this.p());
          var1.put("ItemDropChance", this.e);
       }
 
-      super.b(var1);
+      super.write(var1);
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       NBTTagCompound var2 = var1.getCompound("Item");
       if(var2 != null && !var2.isEmpty()) {
          this.a(ItemStack.a(var2), false);
@@ -165,14 +165,14 @@ public class class_va extends class_uz {
          }
       }
 
-      super.a(var1);
+      super.read(var1);
    }
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
       if(this.o() == null) {
          if(var2 != null && !this.o.isClientSide) {
             this.a(var2);
-            if(!var1.bH.instabuild) {
+            if(!var1.abilities.instabuild) {
                --var2.count;
             }
          }

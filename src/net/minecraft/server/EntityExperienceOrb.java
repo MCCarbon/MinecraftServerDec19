@@ -54,9 +54,9 @@ public class EntityExperienceOrb extends Entity {
       this.motY -= 0.029999999329447746D;
       if(this.o.getType(new BlockPosition(this)).getBlock().getMaterial() == Material.LAVA) {
          this.motY = 0.20000000298023224D;
-         this.v = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
-         this.x = (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.2F);
-         this.a("random.fizz", 0.4F, 2.0F + this.V.nextFloat() * 0.4F);
+         this.v = (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+         this.x = (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+         this.a("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
       }
 
       this.j(this.s, (this.aT().yMin + this.aT().yMax) / 2.0D, this.u);
@@ -69,7 +69,7 @@ public class EntityExperienceOrb extends Entity {
          this.g = this.a;
       }
 
-      if(this.f != null && this.f.v()) {
+      if(this.f != null && this.f.isSpectator()) {
          this.f = null;
       }
 
@@ -113,10 +113,10 @@ public class EntityExperienceOrb extends Entity {
    }
 
    protected void g(int var1) {
-      this.a(class_pc.a, (float)var1);
+      this.damageEntity(class_pc.a, (float)var1);
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {
@@ -130,13 +130,13 @@ public class EntityExperienceOrb extends Entity {
       }
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       var1.put("Health", (short)((byte)this.d));
       var1.put("Age", (short)this.b);
       var1.put("Value", (short)this.e);
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       this.d = var1.getShort("Health") & 255;
       this.b = var1.getShort("Age");
       this.e = var1.getShort("Value");
@@ -146,7 +146,7 @@ public class EntityExperienceOrb extends Entity {
       if(!this.o.isClientSide) {
          if(this.c == 0 && var1.bw == 0) {
             var1.bw = 2;
-            this.o.a((Entity)var1, "random.orb", 0.1F, 0.5F * ((this.V.nextFloat() - this.V.nextFloat()) * 0.7F + 1.8F));
+            this.o.a((Entity)var1, "random.orb", 0.1F, 0.5F * ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.8F));
             var1.a(this, 1);
             var1.o(this.e);
             this.J();
