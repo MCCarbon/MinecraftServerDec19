@@ -10,11 +10,11 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_qh;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.EntityHuman;
 
 public abstract class class_po extends class_qh {
-   private static final int bs = class_qi.a(class_po.class);
+   private static final int bs = Datawathcer.claimId(class_po.class);
    protected int a;
    protected int b;
    protected int c;
@@ -56,11 +56,11 @@ public abstract class class_po extends class_qh {
 
    protected void h() {
       super.h();
-      this.ac.a(bs, Byte.valueOf((byte)0));
+      this.ac.add(bs, Byte.valueOf((byte)0));
    }
 
    public int l() {
-      return this.o.isClientSide?this.ac.a(bs):this.a;
+      return this.o.isClientSide?this.ac.getByte(bs):this.a;
    }
 
    public void a(int var1, boolean var2) {

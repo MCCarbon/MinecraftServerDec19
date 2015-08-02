@@ -27,7 +27,7 @@ import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pe;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_qm;
@@ -93,9 +93,9 @@ public class class_wb extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(bt, new Short((short)0));
-      this.ac.a(bu, new Byte((byte)0));
-      this.ac.a(bv, new Byte((byte)0));
+      this.ac.add(bt, new Short((short)0));
+      this.ac.add(bu, new Byte((byte)0));
+      this.ac.add(bv, new Byte((byte)0));
    }
 
    public void b(NBTTagCompound var1) {
@@ -279,7 +279,7 @@ public class class_wb extends class_wi {
    }
 
    public IBlockData cB() {
-      return Block.getByCombinedId(this.ac.b(bt) & '\uffff');
+      return Block.getByCombinedId(this.ac.getShort(bt) & '\uffff');
    }
 
    public boolean a(class_pc var1, float var2) {
@@ -322,7 +322,7 @@ public class class_wb extends class_wi {
    }
 
    public boolean cD() {
-      return this.ac.a(bv) > 0;
+      return this.ac.getByte(bv) > 0;
    }
 
    public void a(boolean var1) {
@@ -347,9 +347,9 @@ public class class_wb extends class_wi {
       c.add(Blocks.PUMPKIN);
       c.add(Blocks.MELON_BLOCK);
       c.add(Blocks.MYCELIM);
-      bt = class_qi.a(class_wb.class);
-      bu = class_qi.a(class_wb.class);
-      bv = class_qi.a(class_wb.class);
+      bt = Datawathcer.claimId(class_wb.class);
+      bu = Datawathcer.claimId(class_wb.class);
+      bv = Datawathcer.claimId(class_wb.class);
    }
 
    static class class_c_in_class_wb extends class_rm {

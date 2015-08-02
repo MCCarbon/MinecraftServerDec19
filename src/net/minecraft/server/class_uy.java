@@ -24,7 +24,7 @@ import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
@@ -90,13 +90,13 @@ public class class_uy extends EntityLiving {
 
    protected void h() {
       super.h();
-      this.ac.a(g, Byte.valueOf((byte)0));
-      this.ac.a(h, br);
-      this.ac.a(i, bs);
-      this.ac.a(bn, bt);
-      this.ac.a(bo, bu);
-      this.ac.a(bp, bv);
-      this.ac.a(bq, bw);
+      this.ac.add(g, Byte.valueOf((byte)0));
+      this.ac.add(h, br);
+      this.ac.add(i, bs);
+      this.ac.add(bn, bt);
+      this.ac.add(bo, bu);
+      this.ac.add(bp, bv);
+      this.ac.add(bq, bw);
    }
 
    public Iterable as() {
@@ -628,7 +628,7 @@ public class class_uy extends EntityLiving {
    }
 
    private void j(boolean var1) {
-      byte var2 = this.ac.a(g);
+      byte var2 = this.ac.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 1);
       } else {
@@ -639,11 +639,11 @@ public class class_uy extends EntityLiving {
    }
 
    public boolean n() {
-      return (this.ac.a(g) & 1) != 0;
+      return (this.ac.getByte(g) & 1) != 0;
    }
 
    private void k(boolean var1) {
-      byte var2 = this.ac.a(g);
+      byte var2 = this.ac.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 2);
       } else {
@@ -654,11 +654,11 @@ public class class_uy extends EntityLiving {
    }
 
    public boolean p() {
-      return (this.ac.a(g) & 2) != 0;
+      return (this.ac.getByte(g) & 2) != 0;
    }
 
    private void l(boolean var1) {
-      byte var2 = this.ac.a(g);
+      byte var2 = this.ac.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 4);
       } else {
@@ -669,11 +669,11 @@ public class class_uy extends EntityLiving {
    }
 
    public boolean q() {
-      return (this.ac.a(g) & 4) != 0;
+      return (this.ac.getByte(g) & 4) != 0;
    }
 
    private void m(boolean var1) {
-      byte var2 = this.ac.a(g);
+      byte var2 = this.ac.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 8);
       } else {
@@ -684,11 +684,11 @@ public class class_uy extends EntityLiving {
    }
 
    public boolean r() {
-      return (this.ac.a(g) & 8) != 0;
+      return (this.ac.getByte(g) & 8) != 0;
    }
 
    private void n(boolean var1) {
-      byte var2 = this.ac.a(g);
+      byte var2 = this.ac.getByte(g);
       if(var1) {
          var2 = (byte)(var2 | 16);
       } else {
@@ -699,7 +699,7 @@ public class class_uy extends EntityLiving {
    }
 
    public boolean t() {
-      return (this.ac.a(g) & 16) != 0;
+      return (this.ac.getByte(g) & 16) != 0;
    }
 
    public void a(class_dc var1) {
@@ -751,13 +751,13 @@ public class class_uy extends EntityLiving {
       d = 1 << class_pw.e.c();
       e = 1 << class_pw.f.c();
       f = 1 << class_pw.b.c();
-      g = class_qi.a(class_uy.class);
-      h = class_qi.a(class_uy.class);
-      i = class_qi.a(class_uy.class);
-      bn = class_qi.a(class_uy.class);
-      bo = class_qi.a(class_uy.class);
-      bp = class_qi.a(class_uy.class);
-      bq = class_qi.a(class_uy.class);
+      g = Datawathcer.claimId(class_uy.class);
+      h = Datawathcer.claimId(class_uy.class);
+      i = Datawathcer.claimId(class_uy.class);
+      bn = Datawathcer.claimId(class_uy.class);
+      bo = Datawathcer.claimId(class_uy.class);
+      bp = Datawathcer.claimId(class_uy.class);
+      bq = Datawathcer.claimId(class_uy.class);
    }
 
    // $FF: synthetic class

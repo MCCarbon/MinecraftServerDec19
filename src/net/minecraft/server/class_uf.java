@@ -17,7 +17,7 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_re;
 import net.minecraft.server.class_rh;
@@ -38,7 +38,7 @@ import net.minecraft.server.class_yg;
 import net.minecraft.server.EnumColor;
 
 public class class_uf extends class_tw {
-   private static final int bs = class_qi.a(class_uf.class);
+   private static final int bs = Datawathcer.claimId(class_uf.class);
    private final class_yg bt = new class_yg(new Container() {
       public boolean a(EntityHuman var1) {
          return false;
@@ -90,7 +90,7 @@ public class class_uf extends class_tw {
 
    protected void h() {
       super.h();
-      this.ac.a(bs, new Byte((byte)0));
+      this.ac.add(bs, new Byte((byte)0));
    }
 
    protected void b(boolean var1, int var2) {
@@ -164,20 +164,20 @@ public class class_uf extends class_tw {
    }
 
    public EnumColor cA() {
-      return EnumColor.b(this.ac.a(bs) & 15);
+      return EnumColor.b(this.ac.getByte(bs) & 15);
    }
 
    public void b(EnumColor var1) {
-      byte var2 = this.ac.a(bs);
+      byte var2 = this.ac.getByte(bs);
       this.ac.b(bs, Byte.valueOf((byte)(var2 & 240 | var1.a() & 15)));
    }
 
    public boolean cB() {
-      return (this.ac.a(bs) & 16) != 0;
+      return (this.ac.getByte(bs) & 16) != 0;
    }
 
    public void m(boolean var1) {
-      byte var2 = this.ac.a(bs);
+      byte var2 = this.ac.getByte(bs);
       if(var1) {
          this.ac.b(bs, Byte.valueOf((byte)(var2 | 16)));
       } else {

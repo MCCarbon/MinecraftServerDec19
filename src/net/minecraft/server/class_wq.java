@@ -18,7 +18,7 @@ import net.minecraft.server.class_pm;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_qm;
 import net.minecraft.server.class_rj;
@@ -55,7 +55,7 @@ public class class_wq extends class_wi implements class_wk {
 
    protected void h() {
       super.h();
-      this.H().a(c, Byte.valueOf((byte)0));
+      this.H().add(c, Byte.valueOf((byte)0));
    }
 
    protected String C() {
@@ -75,7 +75,7 @@ public class class_wq extends class_wi implements class_wk {
    }
 
    public boolean n() {
-      return this.H().a(c) == 1;
+      return this.H().getByte(c) == 1;
    }
 
    protected void aY() {
@@ -194,7 +194,7 @@ public class class_wq extends class_wi implements class_wk {
 
    static {
       b = (new class_qm(a, "Drinking speed penalty", -0.25D, 0)).a(false);
-      c = class_qi.a(class_wq.class);
+      c = Datawathcer.claimId(class_wq.class);
       bs = new Item[]{Items.aV, Items.ba, Items.aE, Items.bE, Items.bD, Items.J, Items.A, Items.A};
    }
 }

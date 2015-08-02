@@ -18,13 +18,13 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pe;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.EntityHuman;
 
 public class class_vk extends Entity {
-   private static final int a = class_qi.a(class_vk.class);
-   private static final int b = class_qi.a(class_vk.class);
-   private static final int c = class_qi.a(class_vk.class);
+   private static final int a = Datawathcer.claimId(class_vk.class);
+   private static final int b = Datawathcer.claimId(class_vk.class);
+   private static final int c = Datawathcer.claimId(class_vk.class);
    private boolean d;
    private double e;
    private int f;
@@ -47,9 +47,9 @@ public class class_vk extends Entity {
    }
 
    protected void h() {
-      this.ac.a(a, new Integer(0));
-      this.ac.a(b, new Integer(1));
-      this.ac.a(c, new Float(0.0F));
+      this.ac.add(a, new Integer(0));
+      this.ac.add(b, new Integer(1));
+      this.ac.add(c, new Float(0.0F));
    }
 
    public AxisAlignedBB j(Entity var1) {
@@ -372,7 +372,7 @@ public class class_vk extends Entity {
    }
 
    public float j() {
-      return this.ac.d(c);
+      return this.ac.getFloat(c);
    }
 
    public void a(int var1) {
@@ -380,7 +380,7 @@ public class class_vk extends Entity {
    }
 
    public int l() {
-      return this.ac.c(a);
+      return this.ac.getInt(a);
    }
 
    public void b(int var1) {
@@ -388,6 +388,6 @@ public class class_vk extends Entity {
    }
 
    public int m() {
-      return this.ac.c(b);
+      return this.ac.getInt(b);
    }
 }

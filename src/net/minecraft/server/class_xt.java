@@ -15,11 +15,11 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_xd;
 
 public class class_xt extends class_xd {
-   private static final int f = class_qi.a(class_xt.class);
+   private static final int f = Datawathcer.claimId(class_xt.class);
    private final Set g;
    private ItemStack h;
 
@@ -63,7 +63,7 @@ public class class_xt extends class_xd {
 
    protected void h() {
       super.h();
-      this.ac.a(f, Integer.valueOf(0));
+      this.ac.add(f, Integer.valueOf(0));
    }
 
    public void t_() {
@@ -74,7 +74,7 @@ public class class_xt extends class_xd {
       double var6;
       if(this.a) {
          if(this.o.isClientSide) {
-            var1 = this.ac.c(f);
+            var1 = this.ac.getInt(f);
             if(var1 > 0 && this.b % 5 == 0) {
                var2 = (double)(var1 >> 16 & 255) / 255.0D;
                var4 = (double)(var1 >> 8 & 255) / 255.0D;
@@ -87,7 +87,7 @@ public class class_xt extends class_xd {
             this.ac.b(f, Integer.valueOf(0));
          }
       } else if(this.o.isClientSide) {
-         var1 = this.ac.c(f);
+         var1 = this.ac.getInt(f);
          if(var1 > 0) {
             var2 = (double)(var1 >> 16 & 255) / 255.0D;
             var4 = (double)(var1 >> 8 & 255) / 255.0D;

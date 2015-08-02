@@ -11,13 +11,13 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.EntityHuman;
 
 public class class_vp extends class_vn {
-   private static final int a = class_qi.a(class_vp.class);
-   private static final int b = class_qi.a(class_vp.class);
+   private static final int a = Datawathcer.claimId(class_vp.class);
+   private static final int b = Datawathcer.claimId(class_vp.class);
    private final class_aed c = new class_aed() {
       public void h() {
          class_vp.this.H().b(class_vp.a, this.l());
@@ -52,8 +52,8 @@ public class class_vp extends class_vn {
 
    protected void h() {
       super.h();
-      this.H().a(a, "");
-      this.H().a(b, "");
+      this.H().add(a, "");
+      this.H().add(b, "");
    }
 
    protected void a(NBTTagCompound var1) {
@@ -97,12 +97,12 @@ public class class_vp extends class_vn {
       super.d(var1);
       if(var1 == b) {
          try {
-            this.c.b(IChatBaseComponent.ChatSerializer.fromJson(this.H().e(b)));
+            this.c.b(IChatBaseComponent.ChatSerializer.fromJson(this.H().getString(b)));
          } catch (Throwable var3) {
             ;
          }
       } else if(var1 == a) {
-         this.c.a(this.H().e(a));
+         this.c.a(this.H().getString(a));
       }
 
    }

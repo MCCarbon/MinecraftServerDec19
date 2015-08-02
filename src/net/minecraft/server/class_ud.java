@@ -15,7 +15,7 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_re;
 import net.minecraft.server.class_rf;
@@ -34,7 +34,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_ud extends class_tw {
-   private static final int bs = class_qi.a(class_ud.class);
+   private static final int bs = Datawathcer.claimId(class_ud.class);
    private static final Set bt;
    private final class_rf bu;
 
@@ -72,7 +72,7 @@ public class class_ud extends class_tw {
 
    protected void h() {
       super.h();
-      this.ac.a(bs, Byte.valueOf((byte)0));
+      this.ac.add(bs, Byte.valueOf((byte)0));
    }
 
    public void b(NBTTagCompound var1) {
@@ -134,7 +134,7 @@ public class class_ud extends class_tw {
    }
 
    public boolean cA() {
-      return (this.ac.a(bs) & 1) != 0;
+      return (this.ac.getByte(bs) & 1) != 0;
    }
 
    public void m(boolean var1) {

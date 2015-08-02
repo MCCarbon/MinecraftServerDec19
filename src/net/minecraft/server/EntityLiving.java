@@ -51,7 +51,7 @@ import net.minecraft.server.class_pv;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityExperienceOrb;
 import net.minecraft.server.class_qf;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_qm;
@@ -150,11 +150,11 @@ public abstract class EntityLiving extends Entity {
    }
 
    protected void h() {
-      this.ac.a(as, Integer.valueOf(0));
-      this.ac.a(f, Integer.valueOf(0));
-      this.ac.a(g, Byte.valueOf((byte)0));
-      this.ac.a(h, Byte.valueOf((byte)0));
-      this.ac.a(c, Float.valueOf(1.0F));
+      this.ac.add(as, Integer.valueOf(0));
+      this.ac.add(f, Integer.valueOf(0));
+      this.ac.add(g, Byte.valueOf((byte)0));
+      this.ac.add(h, Byte.valueOf((byte)0));
+      this.ac.add(c, Float.valueOf(1.0F));
    }
 
    protected void aY() {
@@ -479,8 +479,8 @@ public abstract class EntityLiving extends Entity {
          this.br = false;
       }
 
-      int var11 = this.ac.c(f);
-      boolean var12 = this.ac.a(g) > 0;
+      int var11 = this.ac.getInt(f);
+      boolean var12 = this.ac.getByte(g) > 0;
       if(var11 > 0) {
          boolean var4 = false;
          if(!this.aA()) {
@@ -636,7 +636,7 @@ public abstract class EntityLiving extends Entity {
    }
 
    public final float bo() {
-      return this.ac.d(c);
+      return this.ac.getFloat(c);
    }
 
    public void i(float var1) {
@@ -964,7 +964,7 @@ public abstract class EntityLiving extends Entity {
    }
 
    public final int bw() {
-      return this.ac.a(h);
+      return this.ac.getByte(h);
    }
 
    public final void l(int var1) {
@@ -1653,11 +1653,11 @@ public abstract class EntityLiving extends Entity {
    }
 
    public boolean bS() {
-      return (this.ac.c(as) & 1) > 0;
+      return (this.ac.getInt(as) & 1) > 0;
    }
 
    public EnumUsedHand bT() {
-      return (this.ac.c(as) & 2) > 0?EnumUsedHand.OFF_HAND:EnumUsedHand.MAIN_HAND;
+      return (this.ac.getInt(as) & 2) > 0?EnumUsedHand.OFF_HAND:EnumUsedHand.MAIN_HAND;
    }
 
    protected void bU() {
@@ -1785,11 +1785,11 @@ public abstract class EntityLiving extends Entity {
 
    static {
       b = (new class_qm(a, "Sprinting speed boost", 0.30000001192092896D, 2)).a(false);
-      as = class_qi.a(EntityLiving.class);
-      c = class_qi.a(EntityLiving.class);
-      f = class_qi.a(EntityLiving.class);
-      g = class_qi.a(EntityLiving.class);
-      h = class_qi.a(EntityLiving.class);
+      as = Datawathcer.claimId(EntityLiving.class);
+      c = Datawathcer.claimId(EntityLiving.class);
+      f = Datawathcer.claimId(EntityLiving.class);
+      g = Datawathcer.claimId(EntityLiving.class);
+      h = Datawathcer.claimId(EntityLiving.class);
    }
 
    // $FF: synthetic class

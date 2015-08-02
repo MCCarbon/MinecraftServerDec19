@@ -10,7 +10,7 @@ import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 
 public class PacketPlayOutSpawnEntityLiving implements Packet {
    private int a;
@@ -25,7 +25,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
    private byte j;
    private byte k;
    private byte l;
-   private class_qi m;
+   private Datawathcer m;
    private List n;
 
    public PacketPlayOutSpawnEntityLiving() {
@@ -88,7 +88,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
       this.g = var1.readShort();
       this.h = var1.readShort();
       this.i = var1.readShort();
-      this.n = class_qi.b(var1);
+      this.n = Datawathcer.b(var1);
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {

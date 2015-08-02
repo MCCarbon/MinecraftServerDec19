@@ -17,7 +17,7 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qv;
 import net.minecraft.server.class_rm;
@@ -33,9 +33,9 @@ import net.minecraft.server.class_xd;
 import net.minecraft.server.class_xk;
 
 public class class_ug extends class_ua implements class_wd {
-   protected static final int a = class_qi.a(class_ug.class);
-   protected static final int b = class_qi.a(class_ug.class);
-   protected static final int c = class_qi.a(class_ug.class);
+   protected static final int a = Datawathcer.claimId(class_ug.class);
+   protected static final int b = Datawathcer.claimId(class_ug.class);
+   protected static final int c = Datawathcer.claimId(class_ug.class);
    public static final BlockPosition bs = new BlockPosition(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
    private float bt;
    private float bu;
@@ -60,9 +60,9 @@ public class class_ug extends class_ua implements class_wd {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Byte.valueOf((byte)EnumDirection.DOWN.getId()));
-      this.ac.a(b, bs);
-      this.ac.a(c, Byte.valueOf((byte)0));
+      this.ac.add(a, Byte.valueOf((byte)EnumDirection.DOWN.getId()));
+      this.ac.add(b, bs);
+      this.ac.add(c, Byte.valueOf((byte)0));
    }
 
    protected void aY() {
@@ -91,7 +91,7 @@ public class class_ug extends class_ua implements class_wd {
 
    public void t_() {
       super.t_();
-      BlockPosition var1 = this.ac.g(b);
+      BlockPosition var1 = this.ac.getBlockPosition(b);
       if((var1 == null || bs.equals(var1)) && !this.o.isClientSide) {
          var1 = new BlockPosition(this);
          this.ac.b(b, var1);
@@ -296,11 +296,11 @@ public class class_ug extends class_ua implements class_wd {
    }
 
    public EnumDirection cA() {
-      return EnumDirection.getById(this.ac.a(a));
+      return EnumDirection.getById(this.ac.getByte(a));
    }
 
    public BlockPosition cB() {
-      return this.ac.g(b);
+      return this.ac.getBlockPosition(b);
    }
 
    public void f(BlockPosition var1) {
@@ -308,7 +308,7 @@ public class class_ug extends class_ua implements class_wd {
    }
 
    public int cC() {
-      return this.ac.a(c);
+      return this.ac.getByte(c);
    }
 
    public void a(int var1) {

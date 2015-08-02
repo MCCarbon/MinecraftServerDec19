@@ -15,7 +15,7 @@ import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qf;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_rj;
 import net.minecraft.server.class_rq;
 import net.minecraft.server.class_rr;
@@ -33,7 +33,7 @@ import net.minecraft.server.class_wn;
 import net.minecraft.server.EntityHuman;
 
 public class class_wp extends class_wi {
-   private static final int a = class_qi.a(class_wp.class);
+   private static final int a = Datawathcer.claimId(class_wp.class);
 
    public class_wp(World var1) {
       super(var1);
@@ -60,7 +60,7 @@ public class class_wp extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(a, new Byte((byte)0));
+      this.ac.add(a, new Byte((byte)0));
    }
 
    public void t_() {
@@ -121,11 +121,11 @@ public class class_wp extends class_wi {
    }
 
    public boolean n() {
-      return (this.ac.a(a) & 1) != 0;
+      return (this.ac.getByte(a) & 1) != 0;
    }
 
    public void a(boolean var1) {
-      byte var2 = this.ac.a(a);
+      byte var2 = this.ac.getByte(a);
       if(var1) {
          var2 = (byte)(var2 | 1);
       } else {

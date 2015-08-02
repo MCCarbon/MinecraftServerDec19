@@ -26,7 +26,7 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pv;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_wb;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xi;
@@ -74,7 +74,7 @@ public class class_xd extends Entity implements class_xi {
    }
 
    protected void h() {
-      this.ac.a(g, Byte.valueOf((byte)0));
+      this.ac.add(g, Byte.valueOf((byte)0));
    }
 
    public void a(float var1, float var2, float var3, float var4, float var5) {
@@ -421,7 +421,7 @@ public class class_xd extends Entity implements class_xi {
    }
 
    public void a(boolean var1) {
-      byte var2 = this.ac.a(g);
+      byte var2 = this.ac.getByte(g);
       if(var1) {
          this.ac.b(g, Byte.valueOf((byte)(var2 | 1)));
       } else {
@@ -431,7 +431,7 @@ public class class_xd extends Entity implements class_xi {
    }
 
    public boolean m() {
-      byte var1 = this.ac.a(g);
+      byte var1 = this.ac.getByte(g);
       return (var1 & 1) != 0;
    }
 
@@ -446,6 +446,6 @@ public class class_xd extends Entity implements class_xi {
             return this.a((Entity)var1);
          }
       }});
-      g = class_qi.a(class_xd.class);
+      g = Datawathcer.claimId(class_xd.class);
    }
 }

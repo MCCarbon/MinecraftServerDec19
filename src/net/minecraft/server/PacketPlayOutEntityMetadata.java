@@ -6,7 +6,7 @@ import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 
 public class PacketPlayOutEntityMetadata implements Packet {
    private int a;
@@ -15,10 +15,10 @@ public class PacketPlayOutEntityMetadata implements Packet {
    public PacketPlayOutEntityMetadata() {
    }
 
-   public PacketPlayOutEntityMetadata(int var1, class_qi var2, boolean var3) {
+   public PacketPlayOutEntityMetadata(int var1, Datawathcer var2, boolean var3) {
       this.a = var1;
       if(var3) {
-         this.b = var2.c();
+         this.b = var2.getObjects();
       } else {
          this.b = var2.b();
       }
@@ -27,12 +27,12 @@ public class PacketPlayOutEntityMetadata implements Packet {
 
    public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readVarInt();
-      this.b = class_qi.b(var1);
+      this.b = Datawathcer.b(var1);
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeVarInt(this.a);
-      class_qi.a(this.b, var1);
+      Datawathcer.a(this.b, var1);
    }
 
    public void a(PacketListenerPlayOut var1) {

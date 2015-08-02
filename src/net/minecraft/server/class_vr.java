@@ -13,12 +13,12 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.EntityHuman;
 
 public class class_vr extends class_vn {
-   private static final int c = class_qi.a(class_vr.class);
+   private static final int c = Datawathcer.claimId(class_vr.class);
    private int d;
    public double a;
    public double b;
@@ -37,7 +37,7 @@ public class class_vr extends class_vn {
 
    protected void h() {
       super.h();
-      this.ac.a(c, new Byte((byte)0));
+      this.ac.add(c, new Byte((byte)0));
    }
 
    public void t_() {
@@ -138,14 +138,14 @@ public class class_vr extends class_vn {
    }
 
    protected boolean j() {
-      return (this.ac.a(c) & 1) != 0;
+      return (this.ac.getByte(c) & 1) != 0;
    }
 
    protected void i(boolean var1) {
       if(var1) {
-         this.ac.b(c, Byte.valueOf((byte)(this.ac.a(c) | 1)));
+         this.ac.b(c, Byte.valueOf((byte)(this.ac.getByte(c) | 1)));
       } else {
-         this.ac.b(c, Byte.valueOf((byte)(this.ac.a(c) & -2)));
+         this.ac.b(c, Byte.valueOf((byte)(this.ac.getByte(c) & -2)));
       }
 
    }

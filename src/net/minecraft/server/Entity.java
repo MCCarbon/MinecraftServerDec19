@@ -51,7 +51,7 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_vi;
 import net.minecraft.server.EntityItem;
 import net.minecraft.server.EntityHuman;
@@ -109,12 +109,12 @@ public abstract class Entity implements class_m {
    public int Z;
    protected boolean aa;
    protected boolean ab;
-   protected class_qi ac;
-   private static final int as = class_qi.a(Entity.class);
-   private static final int at = class_qi.a(Entity.class);
-   private static final int au = class_qi.a(Entity.class);
-   private static final int av = class_qi.a(Entity.class);
-   private static final int aw = class_qi.a(Entity.class);
+   protected Datawathcer ac;
+   private static final int as = Datawathcer.claimId(Entity.class);
+   private static final int at = Datawathcer.claimId(Entity.class);
+   private static final int au = Datawathcer.claimId(Entity.class);
+   private static final int av = Datawathcer.claimId(Entity.class);
+   private static final int aw = Datawathcer.claimId(Entity.class);
    private double ax;
    private double ay;
    public boolean ad;
@@ -167,18 +167,18 @@ public abstract class Entity implements class_m {
          this.am = var1.worldProvider.p().a();
       }
 
-      this.ac = new class_qi(this);
-      this.ac.a(as, Byte.valueOf((byte)0));
-      this.ac.a(at, Short.valueOf((short)300));
-      this.ac.a(av, Byte.valueOf((byte)0));
-      this.ac.a(au, "");
-      this.ac.a(aw, Byte.valueOf((byte)0));
+      this.ac = new Datawathcer(this);
+      this.ac.add(as, Byte.valueOf((byte)0));
+      this.ac.add(at, Short.valueOf((short)300));
+      this.ac.add(av, Byte.valueOf((byte)0));
+      this.ac.add(au, "");
+      this.ac.add(aw, Byte.valueOf((byte)0));
       this.h();
    }
 
    protected abstract void h();
 
-   public class_qi H() {
+   public Datawathcer H() {
       return this.ac;
    }
 
@@ -678,7 +678,7 @@ public abstract class Entity implements class_m {
    }
 
    public boolean R() {
-      return this.ac.a(aw) == 1;
+      return this.ac.getByte(aw) == 1;
    }
 
    public void b(boolean var1) {
@@ -1404,11 +1404,11 @@ public abstract class Entity implements class_m {
    }
 
    protected boolean h(int var1) {
-      return (this.ac.a(as) & 1 << var1) != 0;
+      return (this.ac.getByte(as) & 1 << var1) != 0;
    }
 
    protected void b(int var1, boolean var2) {
-      byte var3 = this.ac.a(as);
+      byte var3 = this.ac.getByte(as);
       if(var2) {
          this.ac.b(as, Byte.valueOf((byte)(var3 | 1 << var1)));
       } else {
@@ -1418,7 +1418,7 @@ public abstract class Entity implements class_m {
    }
 
    public int aB() {
-      return this.ac.b(at);
+      return this.ac.getShort(at);
    }
 
    public void i(int var1) {
@@ -1692,11 +1692,11 @@ public abstract class Entity implements class_m {
    }
 
    public String aO() {
-      return this.ac.e(au);
+      return this.ac.getString(au);
    }
 
    public boolean hasCustomName() {
-      return !this.ac.e(au).isEmpty();
+      return !this.ac.getString(au).isEmpty();
    }
 
    public void g(boolean var1) {
@@ -1704,7 +1704,7 @@ public abstract class Entity implements class_m {
    }
 
    public boolean aP() {
-      return this.ac.a(av) == 1;
+      return this.ac.getByte(av) == 1;
    }
 
    public void a(double var1, double var3, double var5) {

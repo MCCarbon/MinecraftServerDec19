@@ -8,14 +8,14 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_tt;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_tu extends class_tt {
-   private static final int a = class_qi.a(class_tu.class);
+   private static final int a = Datawathcer.claimId(class_tu.class);
    private BlockPosition b;
 
    public class_tu(World var1) {
@@ -26,7 +26,7 @@ public class class_tu extends class_tt {
 
    protected void h() {
       super.h();
-      this.ac.a(a, new Byte((byte)0));
+      this.ac.add(a, new Byte((byte)0));
    }
 
    protected float bC() {
@@ -65,11 +65,11 @@ public class class_tu extends class_tt {
    }
 
    public boolean n() {
-      return (this.ac.a(a) & 1) != 0;
+      return (this.ac.getByte(a) & 1) != 0;
    }
 
    public void a(boolean var1) {
-      byte var2 = this.ac.a(a);
+      byte var2 = this.ac.getByte(a);
       if(var1) {
          this.ac.b(a, Byte.valueOf((byte)(var2 | 1)));
       } else {
@@ -166,7 +166,7 @@ public class class_tu extends class_tt {
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      var1.put("BatFlags", this.ac.a(a));
+      var1.put("BatFlags", this.ac.getByte(a));
    }
 
    public boolean cf() {

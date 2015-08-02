@@ -9,7 +9,7 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_rb;
 import net.minecraft.server.class_rj;
@@ -28,9 +28,9 @@ import net.minecraft.server.class_wn;
 import net.minecraft.server.EntityHuman;
 
 public class class_wa extends class_wi {
-   private static final int a = class_qi.a(class_wa.class);
-   private static final int b = class_qi.a(class_wa.class);
-   private static final int c = class_qi.a(class_wa.class);
+   private static final int a = Datawathcer.claimId(class_wa.class);
+   private static final int b = Datawathcer.claimId(class_wa.class);
+   private static final int c = Datawathcer.claimId(class_wa.class);
    private int bs;
    private int bt;
    private int bu = 30;
@@ -70,14 +70,14 @@ public class class_wa extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Byte.valueOf((byte)-1));
-      this.ac.a(b, Byte.valueOf((byte)0));
-      this.ac.a(c, Byte.valueOf((byte)0));
+      this.ac.add(a, Byte.valueOf((byte)-1));
+      this.ac.add(b, Byte.valueOf((byte)0));
+      this.ac.add(c, Byte.valueOf((byte)0));
    }
 
    public void b(NBTTagCompound var1) {
       super.b(var1);
-      if(this.ac.a(b) == 1) {
+      if(this.ac.getByte(b) == 1) {
          var1.put("powered", true);
       }
 
@@ -156,7 +156,7 @@ public class class_wa extends class_wi {
    }
 
    public boolean n() {
-      return this.ac.a(b) == 1;
+      return this.ac.getByte(b) == 1;
    }
 
    protected Item D() {
@@ -164,7 +164,7 @@ public class class_wa extends class_wi {
    }
 
    public int cB() {
-      return this.ac.a(a);
+      return this.ac.getByte(a);
    }
 
    public void a(int var1) {
@@ -201,7 +201,7 @@ public class class_wa extends class_wi {
    }
 
    public boolean cC() {
-      return this.ac.a(c) != 0;
+      return this.ac.getByte(c) != 0;
    }
 
    public void cD() {

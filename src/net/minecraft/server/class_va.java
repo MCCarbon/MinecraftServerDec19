@@ -13,13 +13,13 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_uz;
 import net.minecraft.server.EntityHuman;
 
 public class class_va extends class_uz {
-   private static final int c = class_qi.a(class_va.class);
-   private static final int d = class_qi.a(class_va.class);
+   private static final int c = Datawathcer.claimId(class_va.class);
+   private static final int d = Datawathcer.claimId(class_va.class);
    private float e = 1.0F;
 
    public class_va(World var1) {
@@ -32,8 +32,8 @@ public class class_va extends class_uz {
    }
 
    protected void h() {
-      this.H().a(c, 5);
-      this.H().a(d, Byte.valueOf((byte)0));
+      this.H().addNull(c, 5);
+      this.H().add(d, Byte.valueOf((byte)0));
    }
 
    public float ao() {
@@ -103,7 +103,7 @@ public class class_va extends class_uz {
    }
 
    public ItemStack o() {
-      return this.H().f(c);
+      return this.H().getItemStack(c);
    }
 
    public void a(ItemStack var1) {
@@ -126,7 +126,7 @@ public class class_va extends class_uz {
    }
 
    public int p() {
-      return this.H().a(d);
+      return this.H().getByte(d);
    }
 
    public void a(int var1) {

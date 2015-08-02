@@ -16,7 +16,7 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_py;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qz;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_sy;
@@ -26,7 +26,7 @@ import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xh;
 
 public class class_we extends class_py implements class_wd {
-   private static final int a = class_qi.a(class_we.class);
+   private static final int a = Datawathcer.claimId(class_we.class);
    private int b = 1;
 
    public class_we(World var1) {
@@ -71,7 +71,7 @@ public class class_we extends class_py implements class_wd {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Byte.valueOf((byte)0));
+      this.ac.add(a, Byte.valueOf((byte)0));
    }
 
    protected void aY() {

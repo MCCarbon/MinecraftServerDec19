@@ -11,12 +11,12 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_uw;
 import net.minecraft.server.class_xf;
 
 public class class_xu extends class_xf {
-   private static final int e = class_qi.a(class_xu.class);
+   private static final int e = Datawathcer.claimId(class_xu.class);
 
    public class_xu(World var1) {
       super(var1);
@@ -90,11 +90,11 @@ public class class_xu extends class_xf {
    }
 
    protected void h() {
-      this.ac.a(e, Byte.valueOf((byte)0));
+      this.ac.add(e, Byte.valueOf((byte)0));
    }
 
    public boolean l() {
-      return this.ac.a(e) == 1;
+      return this.ac.getByte(e) == 1;
    }
 
    public void a(boolean var1) {

@@ -35,7 +35,7 @@ import net.minecraft.server.EntityExperienceOrb;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_rb;
 import net.minecraft.server.class_rj;
@@ -66,7 +66,7 @@ import net.minecraft.server.EntityHuman;
 import net.minecraft.server.EnumColor;
 
 public class class_wv extends class_po implements class_adz, class_wu {
-   private static final int bt = class_qi.a(class_wv.class);
+   private static final int bt = Datawathcer.claimId(class_wv.class);
    private int bu;
    private boolean bv;
    private boolean bw;
@@ -201,7 +201,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    protected void h() {
       super.h();
-      this.ac.a(bt, Integer.valueOf(0));
+      this.ac.add(bt, Integer.valueOf(0));
    }
 
    public void b(NBTTagCompound var1) {
@@ -273,7 +273,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
    }
 
    public int cA() {
-      return Math.max(this.ac.c(bt) % 5, 0);
+      return Math.max(this.ac.getInt(bt) % 5, 0);
    }
 
    public boolean cB() {

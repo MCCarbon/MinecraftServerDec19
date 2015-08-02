@@ -29,7 +29,7 @@ import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qf;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_qm;
@@ -101,9 +101,9 @@ public class class_wr extends class_wi {
 
    protected void h() {
       super.h();
-      this.H().a(bs, Byte.valueOf((byte)0));
-      this.H().a(bt, Byte.valueOf((byte)0));
-      this.H().a(bu, Byte.valueOf((byte)0));
+      this.H().add(bs, Byte.valueOf((byte)0));
+      this.H().add(bt, Byte.valueOf((byte)0));
+      this.H().add(bu, Byte.valueOf((byte)0));
    }
 
    public int bs() {
@@ -132,7 +132,7 @@ public class class_wr extends class_wi {
    }
 
    public boolean j_() {
-      return this.H().a(bs) == 1;
+      return this.H().getByte(bs) == 1;
    }
 
    protected int b(EntityHuman var1) {
@@ -157,7 +157,7 @@ public class class_wr extends class_wi {
    }
 
    public boolean cD() {
-      return this.H().a(bt) == 1;
+      return this.H().getByte(bt) == 1;
    }
 
    public void n(boolean var1) {
@@ -478,7 +478,7 @@ public class class_wr extends class_wi {
    }
 
    public boolean cE() {
-      return this.H().a(bu) == 1;
+      return this.H().getByte(bu) == 1;
    }
 
    protected void cF() {
@@ -560,9 +560,9 @@ public class class_wr extends class_wi {
 
    static {
       c = new class_qm(b, "Baby speed boost", 0.5D, 1);
-      bs = class_qi.a(class_wr.class);
-      bt = class_qi.a(class_wr.class);
-      bu = class_qi.a(class_wr.class);
+      bs = Datawathcer.claimId(class_wr.class);
+      bt = Datawathcer.claimId(class_wr.class);
+      bu = Datawathcer.claimId(class_wr.class);
    }
 
    // $FF: synthetic class

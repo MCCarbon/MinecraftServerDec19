@@ -39,7 +39,7 @@ import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityExperienceOrb;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qr;
 import net.minecraft.server.class_uq;
 import net.minecraft.server.class_uy;
@@ -256,7 +256,7 @@ public class class_lj {
    }
 
    private void b() {
-      class_qi var1 = this.a.H();
+      Datawathcer var1 = this.a.H();
       if(var1.a()) {
          this.b((Packet)(new PacketPlayOutEntityMetadata(this.a.getId(), var1, false)));
       }

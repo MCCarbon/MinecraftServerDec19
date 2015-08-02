@@ -60,7 +60,7 @@ import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qf;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_tz;
@@ -85,10 +85,10 @@ import net.minecraft.server.class_za;
 import net.minecraft.server.ItemBlock;
 
 public abstract class EntityHuman extends EntityLiving {
-	private static final int a = class_qi.a(EntityHuman.class);
-	private static final int b = class_qi.a(EntityHuman.class);
-	protected static final int bn = class_qi.a(EntityHuman.class);
-	protected static final int bo = class_qi.a(EntityHuman.class);
+	private static final int a = Datawathcer.claimId(EntityHuman.class); //value = 10
+	private static final int b = Datawathcer.claimId(EntityHuman.class); //value = 11
+	protected static final int bn = Datawathcer.claimId(EntityHuman.class); //value = 12
+	protected static final int bo = Datawathcer.claimId(EntityHuman.class); //value = 13
 	public PlayerInventory bp = new PlayerInventory(this);
 	private class_yu c = new class_yu();
 	public Container bq;
@@ -144,10 +144,10 @@ public abstract class EntityHuman extends EntityLiving {
 
 	protected void h() {
 		super.h();
-		this.ac.a(a, Float.valueOf(0.0F));
-		this.ac.a(b, Integer.valueOf(0));
-		this.ac.a(bn, Byte.valueOf((byte) 0));
-		this.ac.a(bo, Byte.valueOf((byte) 1));
+		this.ac.add(a, Float.valueOf(0.0F));
+		this.ac.add(b, Integer.valueOf(0));
+		this.ac.add(bn, Byte.valueOf((byte) 0));
+		this.ac.add(bo, Byte.valueOf((byte) 1));
 	}
 
 	public void t_() {
@@ -372,7 +372,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	public int cb() {
-		return this.ac.c(b);
+		return this.ac.getInt(b);
 	}
 
 	public void m(int var1) {
@@ -1346,7 +1346,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 		this.h = var1.h;
 		this.c = var1.c;
-		this.H().b(bn, Byte.valueOf(var1.H().a(bn)));
+		this.H().b(bn, Byte.valueOf(var1.H().getByte(bn)));
 	}
 
 	protected boolean s_() {
@@ -1434,7 +1434,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	public float bO() {
-		return this.H().d(a);
+		return this.H().getFloat(a);
 	}
 
 	public static UUID a(GameProfile var0) {
@@ -1514,7 +1514,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 	public EnumMainHandOption bR() {
 		EnumMainHandOption pz;
-		if (this.ac.a(bo) == 0) {
+		if (this.ac.getByte(bo) == 0) {
 			pz = EnumMainHandOption.LEFT;
 			return pz;
 		}

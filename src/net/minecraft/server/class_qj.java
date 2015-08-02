@@ -11,13 +11,13 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qg;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_so;
 import net.minecraft.server.class_tw;
 
 public abstract class class_qj extends class_tw implements class_qg {
-   protected static final int bs = class_qi.a(class_qj.class);
-   protected static final int bt = class_qi.a(class_qj.class);
+   protected static final int bs = Datawathcer.claimId(class_qj.class);
+   protected static final int bt = Datawathcer.claimId(class_qj.class);
    protected class_so bu = new class_so(this);
 
    public class_qj(World var1) {
@@ -27,8 +27,8 @@ public abstract class class_qj extends class_tw implements class_qg {
 
    protected void h() {
       super.h();
-      this.ac.a(bs, Byte.valueOf((byte)0));
-      this.ac.a(bt, "");
+      this.ac.add(bs, Byte.valueOf((byte)0));
+      this.ac.add(bt, "");
    }
 
    public void b(NBTTagCompound var1) {
@@ -77,11 +77,11 @@ public abstract class class_qj extends class_tw implements class_qg {
    }
 
    public boolean cA() {
-      return (this.ac.a(bs) & 4) != 0;
+      return (this.ac.getByte(bs) & 4) != 0;
    }
 
    public void n(boolean var1) {
-      byte var2 = this.ac.a(bs);
+      byte var2 = this.ac.getByte(bs);
       if(var1) {
          this.ac.b(bs, Byte.valueOf((byte)(var2 | 4)));
       } else {
@@ -95,11 +95,11 @@ public abstract class class_qj extends class_tw implements class_qg {
    }
 
    public boolean cC() {
-      return (this.ac.a(bs) & 1) != 0;
+      return (this.ac.getByte(bs) & 1) != 0;
    }
 
    public void o(boolean var1) {
-      byte var2 = this.ac.a(bs);
+      byte var2 = this.ac.getByte(bs);
       if(var1) {
          this.ac.b(bs, Byte.valueOf((byte)(var2 | 1)));
       } else {
@@ -109,7 +109,7 @@ public abstract class class_qj extends class_tw implements class_qg {
    }
 
    public String b() {
-      return this.ac.e(bt);
+      return this.ac.getString(bt);
    }
 
    public void b(String var1) {

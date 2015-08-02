@@ -7,10 +7,10 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 
 public class class_xg extends Entity {
-   private static final int a = class_qi.a(class_xg.class);
+   private static final int a = Datawathcer.claimId(class_xg.class);
    private int b;
    private int c;
 
@@ -20,7 +20,7 @@ public class class_xg extends Entity {
    }
 
    protected void h() {
-      this.ac.a(a, 5);
+      this.ac.addNull(a, 5);
    }
 
    public class_xg(World var1, double var2, double var4, double var6, ItemStack var8) {
@@ -93,7 +93,7 @@ public class class_xg extends Entity {
    public void b(NBTTagCompound var1) {
       var1.put("Life", this.b);
       var1.put("LifeTime", this.c);
-      ItemStack var2 = this.ac.f(a);
+      ItemStack var2 = this.ac.getItemStack(a);
       if(var2 != null) {
          NBTTagCompound var3 = new NBTTagCompound();
          var2.write(var3);

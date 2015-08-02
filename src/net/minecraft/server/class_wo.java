@@ -17,7 +17,7 @@ import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qz;
 import net.minecraft.server.class_rm;
@@ -30,7 +30,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_wo extends class_qb implements class_wd {
-   private static final int bq = class_qi.a(class_wo.class);
+   private static final int bq = Datawathcer.claimId(class_wo.class);
    public float a;
    public float b;
    public float c;
@@ -49,7 +49,7 @@ public class class_wo extends class_qb implements class_wd {
 
    protected void h() {
       super.h();
-      this.ac.a(bq, Byte.valueOf((byte)1));
+      this.ac.add(bq, Byte.valueOf((byte)1));
    }
 
    protected void a(int var1) {
@@ -63,7 +63,7 @@ public class class_wo extends class_qb implements class_wd {
    }
 
    public int cB() {
-      return this.ac.a(bq);
+      return this.ac.getByte(bq);
    }
 
    public void b(NBTTagCompound var1) {

@@ -26,7 +26,7 @@ import net.minecraft.server.class_pv;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qf;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_rj;
 import net.minecraft.server.class_rr;
@@ -45,10 +45,10 @@ import net.minecraft.server.class_xd;
 import net.minecraft.server.class_xu;
 
 public class class_uw extends class_wi implements class_wk {
-   private static final int a = class_qi.a(class_uw.class);
-   private static final int b = class_qi.a(class_uw.class);
-   private static final int c = class_qi.a(class_uw.class);
-   private static final int bs = class_qi.a(class_uw.class);
+   private static final int a = Datawathcer.claimId(class_uw.class);
+   private static final int b = Datawathcer.claimId(class_uw.class);
+   private static final int c = Datawathcer.claimId(class_uw.class);
+   private static final int bs = Datawathcer.claimId(class_uw.class);
    private float[] bt = new float[2];
    private float[] bu = new float[2];
    private float[] bv = new float[2];
@@ -87,10 +87,10 @@ public class class_uw extends class_wi implements class_wk {
 
    protected void h() {
       super.h();
-      this.ac.a(a, new Integer(0));
-      this.ac.a(b, new Integer(0));
-      this.ac.a(c, new Integer(0));
-      this.ac.a(bs, new Integer(0));
+      this.ac.add(a, new Integer(0));
+      this.ac.add(b, new Integer(0));
+      this.ac.add(c, new Integer(0));
+      this.ac.add(bs, new Integer(0));
    }
 
    public void b(NBTTagCompound var1) {
@@ -474,7 +474,7 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    public int cA() {
-      return this.ac.c(bs);
+      return this.ac.getInt(bs);
    }
 
    public void m(int var1) {
@@ -482,7 +482,7 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    public int n(int var1) {
-      return this.ac.c(a + var1);
+      return this.ac.getInt(a + var1);
    }
 
    public void a(int var1, int var2) {

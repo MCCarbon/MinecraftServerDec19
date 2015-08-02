@@ -16,7 +16,7 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.class_po;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qj;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_rc;
@@ -47,9 +47,9 @@ import net.minecraft.server.class_xd;
 import net.minecraft.server.EnumColor;
 
 public class class_ul extends class_qj {
-   private static final int bw = class_qi.a(class_ul.class);
-   private static final int bx = class_qi.a(class_ul.class);
-   private static final int by = class_qi.a(class_ul.class);
+   private static final int bw = Datawathcer.claimId(class_ul.class);
+   private static final int bx = Datawathcer.claimId(class_ul.class);
+   private static final int by = Datawathcer.claimId(class_ul.class);
    private float bz;
    private float bA;
    private boolean bB;
@@ -117,9 +117,9 @@ public class class_ul extends class_qj {
 
    protected void h() {
       super.h();
-      this.ac.a(bw, new Float(this.bo()));
-      this.ac.a(bx, new Byte((byte)0));
-      this.ac.a(by, new Byte((byte)EnumColor.o.a()));
+      this.ac.add(bw, new Float(this.bo()));
+      this.ac.add(bx, new Byte((byte)0));
+      this.ac.add(by, new Byte((byte)EnumColor.o.a()));
    }
 
    protected void a(BlockPosition var1, Block var2) {
@@ -142,7 +142,7 @@ public class class_ul extends class_qj {
    }
 
    protected String C() {
-      return this.cK()?"mob.wolf.growl":(this.V.nextInt(3) == 0?(this.cA() && this.ac.d(bw) < 10.0F?"mob.wolf.whine":"mob.wolf.panting"):"mob.wolf.bark");
+      return this.cK()?"mob.wolf.growl":(this.V.nextInt(3) == 0?(this.cA() && this.ac.getFloat(bw) < 10.0F?"mob.wolf.whine":"mob.wolf.panting"):"mob.wolf.bark");
    }
 
    protected String bp() {
@@ -265,7 +265,7 @@ public class class_ul extends class_qj {
          if(var3 != null) {
             if(var3.getItem() instanceof class_aan) {
                class_aan var4 = (class_aan)var3.getItem();
-               if(var4.g() && this.ac.d(bw) < 20.0F) {
+               if(var4.g() && this.ac.getFloat(bw) < 20.0F) {
                   if(!var1.bH.instabuild) {
                      --var3.count;
                   }
@@ -328,11 +328,11 @@ public class class_ul extends class_qj {
    }
 
    public boolean cK() {
-      return (this.ac.a(bs) & 2) != 0;
+      return (this.ac.getByte(bs) & 2) != 0;
    }
 
    public void p(boolean var1) {
-      byte var2 = this.ac.a(bs);
+      byte var2 = this.ac.getByte(bs);
       if(var1) {
          this.ac.b(bs, Byte.valueOf((byte)(var2 | 2)));
       } else {
@@ -342,7 +342,7 @@ public class class_ul extends class_qj {
    }
 
    public EnumColor cL() {
-      return EnumColor.a(this.ac.a(by) & 15);
+      return EnumColor.a(this.ac.getByte(by) & 15);
    }
 
    public void a(EnumColor var1) {
@@ -383,7 +383,7 @@ public class class_ul extends class_qj {
    }
 
    public boolean cM() {
-      return this.ac.a(bx) == 1;
+      return this.ac.getByte(bx) == 1;
    }
 
    protected boolean E() {

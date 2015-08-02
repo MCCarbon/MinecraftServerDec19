@@ -26,7 +26,7 @@ import net.minecraft.server.class_pv;
 import net.minecraft.server.EntityExperienceOrb;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_uo;
 import net.minecraft.server.class_up;
@@ -41,7 +41,7 @@ import org.apache.logging.log4j.Logger;
 
 public class class_ur extends class_qb implements class_uo, class_wd {
    private static final Logger bH = LogManager.getLogger();
-   private static final int bI = class_qi.a(class_ur.class);
+   private static final int bI = Datawathcer.claimId(class_ur.class);
    public double a;
    public double b;
    public double c;
@@ -101,11 +101,11 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
    protected void h() {
       super.h();
-      this.H().a(bI, Byte.valueOf((byte)class_us.a.a()));
+      this.H().add(bI, Byte.valueOf((byte)class_us.a.a()));
    }
 
    public class_us n() {
-      return class_us.a(this.H().a(bI));
+      return class_us.a(this.H().getByte(bI));
    }
 
    public boolean a(class_us var1) {

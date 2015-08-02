@@ -26,7 +26,7 @@ import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qy;
 import net.minecraft.server.class_qz;
@@ -46,8 +46,8 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_wg extends class_wi {
-   private static final int a = class_qi.a(class_wg.class);
-   private static final int b = class_qi.a(class_wg.class);
+   private static final int a = Datawathcer.claimId(class_wg.class);
+   private static final int b = Datawathcer.claimId(class_wg.class);
    private float c;
    private float bs;
    private float bt;
@@ -100,16 +100,16 @@ public class class_wg extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Integer.valueOf(0));
-      this.ac.a(b, Integer.valueOf(0));
+      this.ac.add(a, Integer.valueOf(0));
+      this.ac.add(b, Integer.valueOf(0));
    }
 
    private boolean a(int var1) {
-      return (this.ac.c(a) & var1) != 0;
+      return (this.ac.getInt(a) & var1) != 0;
    }
 
    private void a(int var1, boolean var2) {
-      int var3 = this.ac.c(a);
+      int var3 = this.ac.getInt(a);
       if(var2) {
          this.ac.b(a, Integer.valueOf(var3 | var1));
       } else {
@@ -152,7 +152,7 @@ public class class_wg extends class_wi {
    }
 
    public boolean cE() {
-      return this.ac.c(b) != 0;
+      return this.ac.getInt(b) != 0;
    }
 
    public EntityLiving cF() {
@@ -162,7 +162,7 @@ public class class_wg extends class_wi {
          if(this.bw != null) {
             return this.bw;
          } else {
-            Entity var1 = this.o.getEntityById(this.ac.c(b));
+            Entity var1 = this.o.getEntityById(this.ac.getInt(b));
             if(var1 instanceof EntityLiving) {
                this.bw = (EntityLiving)var1;
                return this.bw;

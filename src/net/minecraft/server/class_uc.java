@@ -19,7 +19,7 @@ import net.minecraft.server.class_po;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qj;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_rb;
@@ -41,7 +41,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_uc extends class_qj {
-   private static final int bw = class_qi.a(class_uc.class);
+   private static final int bw = Datawathcer.claimId(class_uc.class);
    private class_rb bx;
    private class_sr by;
 
@@ -64,7 +64,7 @@ public class class_uc extends class_qj {
 
    protected void h() {
       super.h();
-      this.ac.a(bw, Byte.valueOf((byte)0));
+      this.ac.add(bw, Byte.valueOf((byte)0));
    }
 
    public void cc() {
@@ -205,7 +205,7 @@ public class class_uc extends class_qj {
    }
 
    public int cI() {
-      return this.ac.a(bw);
+      return this.ac.getByte(bw);
    }
 
    public void m(int var1) {

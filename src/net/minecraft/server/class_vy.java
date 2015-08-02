@@ -9,7 +9,7 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_rr;
 import net.minecraft.server.class_ry;
@@ -25,7 +25,7 @@ import net.minecraft.server.class_xl;
 public class class_vy extends class_wi {
    private float a = 0.5F;
    private int b;
-   private static final int c = class_qi.a(class_vy.class);
+   private static final int c = Datawathcer.claimId(class_vy.class);
 
    public class_vy(World var1) {
       super(var1);
@@ -49,7 +49,7 @@ public class class_vy extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(c, new Byte((byte)0));
+      this.ac.add(c, new Byte((byte)0));
    }
 
    protected String C() {
@@ -129,11 +129,11 @@ public class class_vy extends class_wi {
    }
 
    public boolean n() {
-      return (this.ac.a(c) & 1) != 0;
+      return (this.ac.getByte(c) & 1) != 0;
    }
 
    public void a(boolean var1) {
-      byte var2 = this.ac.a(c);
+      byte var2 = this.ac.getByte(c);
       if(var1) {
          var2 = (byte)(var2 | 1);
       } else {

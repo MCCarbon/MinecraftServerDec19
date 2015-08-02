@@ -8,13 +8,13 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_ur;
 
 public class class_uq extends Entity {
    public int a;
    public int b;
-   private static final int c = class_qi.a(class_uq.class);
+   private static final int c = Datawathcer.claimId(class_uq.class);
 
    public class_uq(World var1) {
       super(var1);
@@ -29,7 +29,7 @@ public class class_uq extends Entity {
    }
 
    protected void h() {
-      this.ac.a(c, Integer.valueOf(this.b));
+      this.ac.add(c, Integer.valueOf(this.b));
    }
 
    public void t_() {

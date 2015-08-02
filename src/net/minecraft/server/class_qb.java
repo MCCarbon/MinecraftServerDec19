@@ -31,7 +31,7 @@ import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qj;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qm;
@@ -55,7 +55,7 @@ import net.minecraft.server.ItemBlock;
 import net.minecraft.server.class_zl;
 
 public abstract class class_qb extends EntityLiving {
-   private static final int a = class_qi.a(class_qb.class);
+   private static final int a = Datawathcer.claimId(class_qb.class);
    public int a_;
    protected int b_;
    private class_qy b;
@@ -149,7 +149,7 @@ public abstract class class_qb extends EntityLiving {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Byte.valueOf((byte)0));
+      this.ac.add(a, Byte.valueOf((byte)0));
    }
 
    public int y() {
@@ -1009,21 +1009,21 @@ public abstract class class_qb extends EntityLiving {
    }
 
    public void k(boolean var1) {
-      byte var2 = this.ac.a(a);
+      byte var2 = this.ac.getByte(a);
       this.ac.b(a, Byte.valueOf(var1?(byte)(var2 | 1):(byte)(var2 & -2)));
    }
 
    public void l(boolean var1) {
-      byte var2 = this.ac.a(a);
+      byte var2 = this.ac.getByte(a);
       this.ac.b(a, Byte.valueOf(var1?(byte)(var2 | 2):(byte)(var2 & -3)));
    }
 
    public boolean cs() {
-      return (this.ac.a(a) & 1) != 0;
+      return (this.ac.getByte(a) & 1) != 0;
    }
 
    public boolean ct() {
-      return (this.ac.a(a) & 2) != 0;
+      return (this.ac.getByte(a) & 2) != 0;
    }
 
    // $FF: synthetic class

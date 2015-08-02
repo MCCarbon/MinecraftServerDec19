@@ -17,14 +17,14 @@ import net.minecraft.server.class_my;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.EntityHuman;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class EntityItem extends Entity {
 	private static final Logger b = LogManager.getLogger();
-	private static final int c = class_qi.a(EntityItem.class);
+	private static final int c = Datawathcer.claimId(EntityItem.class);
 	private int d;
 	private int pickupDelay;
 	private int f;
@@ -62,7 +62,7 @@ public class EntityItem extends Entity {
 	}
 
 	protected void h() {
-		this.H().a(c, 5);
+		this.H().addNull(c, 5);
 	}
 
 	public void t_() {
@@ -310,7 +310,7 @@ public class EntityItem extends Entity {
 	}
 
 	public ItemStack l() {
-		ItemStack var1 = this.H().f(c);
+		ItemStack var1 = this.H().getItemStack(c);
 		if (var1 == null) {
 			if (this.o != null) {
 				b.error("Item entity " + this.getId() + " has no item?!");

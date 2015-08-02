@@ -26,7 +26,7 @@ import net.minecraft.server.INamableTileEntity;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_uj;
 import net.minecraft.server.class_vo;
 import net.minecraft.server.class_vp;
@@ -38,12 +38,12 @@ import net.minecraft.server.class_vv;
 import net.minecraft.server.EntityHuman;
 
 public abstract class class_vn extends Entity implements INamableTileEntity {
-   private static final int a = class_qi.a(class_vn.class);
-   private static final int b = class_qi.a(class_vn.class);
-   private static final int c = class_qi.a(class_vn.class);
-   private static final int d = class_qi.a(class_vn.class);
-   private static final int e = class_qi.a(class_vn.class);
-   private static final int f = class_qi.a(class_vn.class);
+   private static final int a = Datawathcer.claimId(class_vn.class);
+   private static final int b = Datawathcer.claimId(class_vn.class);
+   private static final int c = Datawathcer.claimId(class_vn.class);
+   private static final int d = Datawathcer.claimId(class_vn.class);
+   private static final int e = Datawathcer.claimId(class_vn.class);
+   private static final int f = Datawathcer.claimId(class_vn.class);
    private boolean g;
    private String h;
    private static final int[][][] i = new int[][][]{{{0, 0, -1}, {0, 0, 1}}, {{-1, 0, 0}, {1, 0, 0}}, {{-1, -1, 0}, {1, 0, 0}}, {{-1, 0, 0}, {1, -1, 0}}, {{0, 0, -1}, {0, -1, 1}}, {{0, -1, -1}, {0, 0, 1}}, {{0, 0, 1}, {1, 0, 0}}, {{0, 0, 1}, {-1, 0, 0}}, {{0, 0, -1}, {-1, 0, 0}}, {{0, 0, -1}, {1, 0, 0}}};
@@ -84,12 +84,12 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    protected void h() {
-      this.ac.a(a, new Integer(0));
-      this.ac.a(b, new Integer(1));
-      this.ac.a(c, new Float(0.0F));
-      this.ac.a(d, new Integer(0));
-      this.ac.a(e, new Integer(6));
-      this.ac.a(f, Byte.valueOf((byte)0));
+      this.ac.add(a, new Integer(0));
+      this.ac.add(b, new Integer(1));
+      this.ac.add(c, new Float(0.0F));
+      this.ac.add(d, new Integer(0));
+      this.ac.add(e, new Integer(6));
+      this.ac.add(f, Byte.valueOf((byte)0));
    }
 
    public AxisAlignedBB j(Entity var1) {
@@ -686,7 +686,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public float p() {
-      return this.ac.d(c);
+      return this.ac.getFloat(c);
    }
 
    public void j(int var1) {
@@ -694,7 +694,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public int q() {
-      return this.ac.c(a);
+      return this.ac.getInt(a);
    }
 
    public void k(int var1) {
@@ -702,13 +702,13 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public int r() {
-      return this.ac.c(b);
+      return this.ac.getInt(b);
    }
 
    public abstract class_vn.class_a_in_class_vn s();
 
    public IBlockData t() {
-      return !this.x()?this.u():Block.getByCombinedId(this.H().c(d));
+      return !this.x()?this.u():Block.getByCombinedId(this.H().getInt(d));
    }
 
    public IBlockData u() {
@@ -716,7 +716,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public int v() {
-      return !this.x()?this.w():this.H().c(e);
+      return !this.x()?this.w():this.H().getInt(e);
    }
 
    public int w() {
@@ -734,7 +734,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public boolean x() {
-      return this.H().a(f) == 1;
+      return this.H().getByte(f) == 1;
    }
 
    public void a(boolean var1) {

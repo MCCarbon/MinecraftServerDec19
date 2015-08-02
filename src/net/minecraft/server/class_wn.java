@@ -26,7 +26,7 @@ import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
 import net.minecraft.server.class_qf;
 import net.minecraft.server.class_qh;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_rb;
 import net.minecraft.server.class_ri;
@@ -50,8 +50,8 @@ import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
 
 public class class_wn extends class_wi implements class_wk {
-   private static final int a = class_qi.a(class_wn.class);
-   private static final int b = class_qi.a(class_wn.class);
+   private static final int a = Datawathcer.claimId(class_wn.class);
+   private static final int b = Datawathcer.claimId(class_wn.class);
    private class_sk c = new class_sk(this, 1.0D, 20, 60, 15.0F);
    private class_ru bs = new class_ru(this, EntityHuman.class, 1.2D, false) {
       public void d() {
@@ -90,8 +90,8 @@ public class class_wn extends class_wi implements class_wk {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Byte.valueOf((byte)0));
-      this.ac.a(b, Byte.valueOf((byte)0));
+      this.ac.add(a, Byte.valueOf((byte)0));
+      this.ac.add(b, Byte.valueOf((byte)0));
    }
 
    protected String C() {
@@ -288,7 +288,7 @@ public class class_wn extends class_wi implements class_wk {
    }
 
    public int cB() {
-      return this.ac.a(a);
+      return this.ac.getByte(a);
    }
 
    public void a(int var1) {

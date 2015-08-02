@@ -29,7 +29,7 @@ import net.minecraft.server.class_po;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_qs;
@@ -59,11 +59,11 @@ public class class_tz extends class_tw implements class_ok {
       }
    };
    private static final class_qk bz = (new class_qs((class_qk)null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true);
-   private static final int bA = class_qi.a(class_tz.class);
-   private static final int bB = class_qi.a(class_tz.class);
-   private static final int bC = class_qi.a(class_tz.class);
-   private static final int bD = class_qi.a(class_tz.class);
-   private static final int bE = class_qi.a(class_tz.class);
+   private static final int bA = Datawathcer.claimId(class_tz.class);
+   private static final int bB = Datawathcer.claimId(class_tz.class);
+   private static final int bC = Datawathcer.claimId(class_tz.class);
+   private static final int bD = Datawathcer.claimId(class_tz.class);
+   private static final int bE = Datawathcer.claimId(class_tz.class);
    private static final String[] bF = new String[]{null, "textures/entity/horse/armor/horse_armor_iron.png", "textures/entity/horse/armor/horse_armor_gold.png", "textures/entity/horse/armor/horse_armor_diamond.png"};
    private static final String[] bG = new String[]{"", "meo", "goo", "dio"};
    private static final int[] bH = new int[]{0, 5, 7, 11};
@@ -112,11 +112,11 @@ public class class_tz extends class_tw implements class_ok {
 
    protected void h() {
       super.h();
-      this.ac.a(bA, Integer.valueOf(0));
-      this.ac.a(bB, Byte.valueOf((byte)0));
-      this.ac.a(bC, Integer.valueOf(0));
-      this.ac.a(bD, String.valueOf(""));
-      this.ac.a(bE, Integer.valueOf(0));
+      this.ac.add(bA, Integer.valueOf(0));
+      this.ac.add(bB, Byte.valueOf((byte)0));
+      this.ac.add(bC, Integer.valueOf(0));
+      this.ac.add(bD, String.valueOf(""));
+      this.ac.add(bE, Integer.valueOf(0));
    }
 
    public void m(int var1) {
@@ -125,7 +125,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public int cA() {
-      return this.ac.a(bB);
+      return this.ac.getByte(bB);
    }
 
    public void n(int var1) {
@@ -134,7 +134,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public int cB() {
-      return this.ac.c(bC);
+      return this.ac.getInt(bC);
    }
 
    public String getName() {
@@ -159,11 +159,11 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    private boolean r(int var1) {
-      return (this.ac.c(bA) & var1) != 0;
+      return (this.ac.getInt(bA) & var1) != 0;
    }
 
    private void c(int var1, boolean var2) {
-      int var3 = this.ac.c(bA);
+      int var3 = this.ac.getInt(bA);
       if(var2) {
          this.ac.b(bA, Integer.valueOf(var3 | var1));
       } else {
@@ -185,7 +185,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public String cI() {
-      return this.ac.e(bD);
+      return this.ac.getString(bD);
    }
 
    public void b(String var1) {
@@ -233,7 +233,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public int cM() {
-      return this.ac.c(bE);
+      return this.ac.getInt(bE);
    }
 
    private int f(ItemStack var1) {
