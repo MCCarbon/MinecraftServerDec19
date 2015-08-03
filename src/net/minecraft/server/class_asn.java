@@ -3,25 +3,6 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockDispenser;
-import net.minecraft.server.class_ahl;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityChest;
-import net.minecraft.server.TileEntityDispenser;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asl;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_od;
-import net.minecraft.server.IInventory;
 
 public abstract class class_asn {
    protected class_arw l;
@@ -359,8 +340,8 @@ public abstract class class_asn {
    }
 
    protected void a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, EnumDirection var7) {
-      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7), var4, var5, var6, var2);
-      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
+      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(BlockDoor.a, var7), var4, var5, var6, var2);
+      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(BlockDoor.a, var7).set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
    }
 
    public void a(int var1, int var2, int var3) {

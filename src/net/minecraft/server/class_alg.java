@@ -132,6 +132,6 @@ public class class_alg extends BlockPlant implements IBlockFragilePlantElement {
    }
 
    static {
-      b = class_alp.a;
+      b = BlockTorch.a;
    }
 }

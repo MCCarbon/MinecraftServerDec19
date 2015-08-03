@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_ako extends class_ahh {
+public class BlockRedstoneRepeater extends class_ahh {
    public static final BlockStateBoolean a = BlockStateBoolean.of("locked");
    public static final BlockStateInteger b = BlockStateInteger.of("delay", 1, 4);
 
-   protected class_ako(boolean var1) {
+   protected BlockRedstoneRepeater(boolean var1) {
       super(var1);
       this.setBlockData(this.blockStateList.getFirst().set(FACING, EnumDirection.NORTH).set(b, Integer.valueOf(1)).set(a, Boolean.valueOf(false)));
    }

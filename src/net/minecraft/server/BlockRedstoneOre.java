@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_akj extends Block {
+public class BlockRedstoneOre extends Block {
    private final boolean a;
 
-   public class_akj(boolean var1) {
+   public BlockRedstoneOre(boolean var1) {
       super(Material.STONE);
       if(var1) {
          this.setTicking(true);

@@ -249,7 +249,7 @@ public class Bootstrap {
 						var2.count = 0;
 					}
 				} else if(var3.getType(var4).getBlock() == Blocks.TNT) {
-					Blocks.TNT.postBreak(var3, var4, Blocks.TNT.getBlockData().set(class_alo.a, Boolean.valueOf(true)));
+					Blocks.TNT.postBreak(var3, var4, Blocks.TNT.getBlockData().set(BlockTNT.a, Boolean.valueOf(true)));
 					var3.setAir(var4);
 				} else {
 					b = false;
@@ -320,10 +320,10 @@ public class Bootstrap {
 				World var3 = var1.getWorld();
 				EnumDirection var4 = BlockDispenser.b(var1.getData());
 				BlockPosition var5 = var1.getPosition().shift(var4);
-				class_akv var6 = Blocks.SKULL;
+				BlockSkull var6 = Blocks.SKULL;
 				if(var3.isEmpty(var5) && var6.b(var3, var5, var2)) {
 					if(!var3.isClientSide) {
-						var3.setTypeAndData(var5, var6.getBlockData().set(class_akv.a, EnumDirection.UP), 3);
+						var3.setTypeAndData(var5, var6.getBlockData().set(BlockSkull.a, EnumDirection.UP), 3);
 						TileEntity var7 = var3.getTileEntity(var5);
 						if(var7 instanceof TileEntitySkull) {
 							if(var2.i() == 3) {
@@ -409,7 +409,7 @@ public class Bootstrap {
 			}
 
 			Block.init();
-			class_aib.l();
+			BlockFire.l();
 			class_pk.k();
 			class_adi.e();
 			Item.init();

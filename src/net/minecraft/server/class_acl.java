@@ -33,10 +33,10 @@ public class class_acl {
       var1.b(new ItemStack(Items.DYE, 1, EnumColor.i.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.WHITE_TULIP.getId())});
       var1.b(new ItemStack(Items.DYE, 1, EnumColor.g.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.PINK_TULIP.getId())});
       var1.b(new ItemStack(Items.DYE, 1, EnumColor.i.b()), new Object[]{new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.OXEYE_DAISY.getId())});
-      var1.b(new ItemStack(Items.DYE, 2, EnumColor.e.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.a.a())});
-      var1.b(new ItemStack(Items.DYE, 2, EnumColor.c.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.b.a())});
-      var1.b(new ItemStack(Items.DYE, 2, EnumColor.o.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.e.a())});
-      var1.b(new ItemStack(Items.DYE, 2, EnumColor.g.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, class_ahm.class_b_in_class_ahm.f.a())});
+      var1.b(new ItemStack(Items.DYE, 2, EnumColor.e.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, BlockTallPlant.class_b_in_class_ahm.a.a())});
+      var1.b(new ItemStack(Items.DYE, 2, EnumColor.c.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, BlockTallPlant.class_b_in_class_ahm.b.a())});
+      var1.b(new ItemStack(Items.DYE, 2, EnumColor.o.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, BlockTallPlant.class_b_in_class_ahm.e.a())});
+      var1.b(new ItemStack(Items.DYE, 2, EnumColor.g.b()), new Object[]{new ItemStack(Blocks.DOUBLE_PLANT, 1, BlockTallPlant.class_b_in_class_ahm.f.a())});
       var1.b(new ItemStack(Items.DYE, 1, EnumColor.o.b()), new Object[]{new ItemStack(Items.BEETROOT, 1)});
 
       for(var2 = 0; var2 < 16; ++var2) {

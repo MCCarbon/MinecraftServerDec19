@@ -784,7 +784,7 @@ public abstract class EntityLiving extends Entity {
 	private boolean a(BlockPosition var1, IBlockData var2) {
 		if (((Boolean) var2.get(class_alr.b)).booleanValue()) {
 			IBlockData var3 = this.o.getType(var1.down());
-			if (var3.getBlock() == Blocks.LADDER && var3.get(class_aiz.a) == var2.get(class_alr.a)) {
+			if (var3.getBlock() == Blocks.LADDER && var3.get(BlockLadder.a) == var2.get(class_alr.a)) {
 				return true;
 			}
 		}

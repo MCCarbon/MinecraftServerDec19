@@ -17,10 +17,10 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.CreativeTab;
 
-public class class_agq extends Block {
+public class BlockCactus extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 15);
 
-   protected class_agq() {
+   protected BlockCactus() {
       super(Material.CACTUS);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       this.setTicking(true);

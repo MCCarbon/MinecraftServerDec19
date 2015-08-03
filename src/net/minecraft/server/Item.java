@@ -528,7 +528,7 @@ public class Item {
 		register(Blocks.GRASS_PATH);
 		register(Blocks.DOUBLE_PLANT, (new class_zx(Blocks.DOUBLE_PLANT, Blocks.DOUBLE_PLANT, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
-				return class_ahm.class_b_in_class_ahm.a(var1.i()).c();
+				return BlockTallPlant.class_b_in_class_ahm.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method

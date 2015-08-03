@@ -1521,7 +1521,7 @@ public abstract class World implements IBlockAccess {
 	public static boolean a(IBlockAccess var0, BlockPosition var1) {
 		IBlockData var2 = var0.getType(var1);
 		Block var3 = var2.getBlock();
-		return var3.getMaterial().isOpaque() && var3.isFullCube() ? true : (var3 instanceof BlockStairs ? var2.get(BlockStairs.b) == BlockStairs.EnumHalf.TOP : (var3 instanceof BlockStepAbstract ? var2.get(BlockStepAbstract.HALF) == BlockStepAbstract.EnumSlabHalf.TOP : (var3 instanceof class_aiu ? true : (var3 instanceof class_aky ? var2.get(class_aky.a).intValue() == 7 : false))));
+		return var3.getMaterial().isOpaque() && var3.isFullCube() ? true : (var3 instanceof BlockStairs ? var2.get(BlockStairs.b) == BlockStairs.EnumHalf.TOP : (var3 instanceof BlockStepAbstract ? var2.get(BlockStepAbstract.HALF) == BlockStepAbstract.EnumSlabHalf.TOP : (var3 instanceof BlockHopper ? true : (var3 instanceof BlockSnow ? var2.get(BlockSnow.a).intValue() == 7 : false))));
 	}
 
 	public boolean d(BlockPosition var1, boolean var2) {

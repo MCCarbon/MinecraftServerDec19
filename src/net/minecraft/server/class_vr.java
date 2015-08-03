@@ -134,6 +134,6 @@ public class class_vr extends class_vn {
    }
 
    public IBlockData u() {
-      return (this.j()?Blocks.LIT_FURNACE:Blocks.FURNACE).getBlockData().set(class_aih.a, EnumDirection.NORTH);
+      return (this.j()?Blocks.LIT_FURNACE:Blocks.FURNACE).getBlockData().set(BlockFurnace.a, EnumDirection.NORTH);
    }
 }

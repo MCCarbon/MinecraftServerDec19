@@ -3,19 +3,6 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_ahl;
-import net.minecraft.server.class_aoy;
-import net.minecraft.server.Material;
-import net.minecraft.server.class_avd;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_to;
-import net.minecraft.server.class_tp;
 
 public class class_tr extends class_avd {
    private World b;
@@ -182,7 +169,7 @@ public class class_tr extends class_avd {
    }
 
    private void d(BlockPosition var1) {
-      EnumDirection var2 = class_ahl.h(this.b, var1);
+      EnumDirection var2 = BlockDoor.h(this.b, var1);
       EnumDirection var3 = var2.opposite();
       int var4 = this.a(var1, var2, 5);
       int var5 = this.a(var1, var3, var4 + 1);
@@ -224,7 +211,7 @@ public class class_tr extends class_avd {
 
    private boolean f(BlockPosition var1) {
       Block var2 = this.b.getType(var1).getBlock();
-      return var2 instanceof class_ahl?var2.getMaterial() == Material.WOOD:false;
+      return var2 instanceof BlockDoor ?var2.getMaterial() == Material.WOOD:false;
    }
 
    public void a(NBTTagCompound var1) {

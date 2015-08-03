@@ -2,25 +2,8 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import java.util.Iterator;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahz;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateDirection;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.CreativeTab;
 
-public class class_alp extends Block {
+public class BlockTorch extends Block {
    public static final BlockStateDirection a = BlockStateDirection.of("facing", new Predicate() {
       public boolean a(EnumDirection var1) {
          return var1 != EnumDirection.DOWN;
@@ -32,7 +15,7 @@ public class class_alp extends Block {
       }
    });
 
-   protected class_alp() {
+   protected BlockTorch() {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.UP));
       this.setTicking(true);
@@ -190,7 +173,7 @@ public class class_alp extends Block {
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3;
-      switch(class_alp.SyntheticClass_1.a[((EnumDirection)var1.get(a)).ordinal()]) {
+      switch(BlockTorch.SyntheticClass_1.a[((EnumDirection)var1.get(a)).ordinal()]) {
       case 1:
          var3 = var2 | 1;
          break;

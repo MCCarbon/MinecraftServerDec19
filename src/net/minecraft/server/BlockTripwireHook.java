@@ -3,32 +3,14 @@ package net.minecraft.server;
 import com.google.common.base.Objects;
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockDirectional;
-import net.minecraft.server.class_als;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.BlockStateDirection;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.CreativeTab;
 
-public class class_alt extends Block {
+public class BlockTripwireHook extends Block {
    public static final BlockStateDirection a;
    public static final BlockStateBoolean b;
    public static final BlockStateBoolean N;
    public static final BlockStateBoolean O;
 
-   public class_alt() {
+   public BlockTripwireHook() {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)));
       this.setCreativeTab(CreativeTab.REDSTONE);
@@ -206,7 +188,7 @@ public class class_alt extends Block {
 
    public void updateShape(IBlockAccess var1, BlockPosition var2) {
       float var3 = 0.1875F;
-      switch(class_alt.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
+      switch(BlockTripwireHook.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
       case 1:
          this.setSizes(0.0F, 0.2F, 0.5F - var3, var3 * 2.0F, 0.8F, 0.5F + var3);
          break;

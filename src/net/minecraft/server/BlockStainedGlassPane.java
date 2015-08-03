@@ -1,23 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.class_agg;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_aln;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.CreativeTab;
-import net.minecraft.server.EnumColor;
-
-public class class_alc extends class_aln {
+public class BlockStainedGlassPane extends class_aln {
    public static final BlockStateEnum a = BlockStateEnum.of("color", EnumColor.class);
 
-   public class_alc() {
+   public BlockStainedGlassPane() {
       super(Material.SHATTERABLE, false);
       this.setBlockData(this.blockStateList.getFirst().set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(a, EnumColor.a));
       this.setCreativeTab(CreativeTab.DECORATIONS);
@@ -43,7 +29,7 @@ public class class_alc extends class_aln {
       if(var1.getBlock() != this) {
          return var1;
       } else {
-         switch(class_alc.SyntheticClass_1.a[var2.ordinal()]) {
+         switch(BlockStainedGlassPane.SyntheticClass_1.a[var2.ordinal()]) {
          case 1:
             return var1.set(b, var1.get(O)).set(N, var1.get(P)).set(O, var1.get(b)).set(P, var1.get(N));
          case 2:
@@ -60,7 +46,7 @@ public class class_alc extends class_aln {
       if(var1.getBlock() != this) {
          return var1;
       } else {
-         switch(class_alc.SyntheticClass_1.b[var2.ordinal()]) {
+         switch(BlockStainedGlassPane.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
             return var1.set(b, var1.get(O)).set(O, var1.get(b));
          case 2:
@@ -77,14 +63,14 @@ public class class_alc extends class_aln {
 
    public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.isClientSide) {
-         class_agg.f(var1, var2);
+         BlockBeacon.f(var1, var2);
       }
 
    }
 
    public void remove(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.isClientSide) {
-         class_agg.f(var1, var2);
+         BlockBeacon.f(var1, var2);
       }
 
    }

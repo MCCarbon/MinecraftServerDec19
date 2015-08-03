@@ -1,16 +1,11 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahm;
-import net.minecraft.server.class_aql;
-import net.minecraft.server.BlockPosition;
 
 public class class_aqh extends class_aql {
-   private class_ahm.class_b_in_class_ahm a;
+   private BlockTallPlant.class_b_in_class_ahm a;
 
-   public void a(class_ahm.class_b_in_class_ahm var1) {
+   public void a(BlockTallPlant.class_b_in_class_ahm var1) {
       this.a = var1;
    }
 

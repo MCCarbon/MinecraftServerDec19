@@ -2,12 +2,6 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_alp;
-import net.minecraft.server.class_aql;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
 
 public class class_aqk extends class_aql {
    public static final BlockPosition a = new BlockPosition(0, 0, 0);
@@ -52,7 +46,7 @@ public class class_aqk extends class_aql {
 
       while(var10.hasNext()) {
          EnumDirection var11 = (EnumDirection)var10.next();
-         this.a(var1, var9.shift(var11), Blocks.TORCH.getBlockData().set(class_alp.a, var11));
+         this.a(var1, var9.shift(var11), Blocks.TORCH.getBlockData().set(BlockTorch.a, var11));
       }
 
       if(this.c) {

@@ -1,18 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_aky;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.ItemBlock;
-
 public class class_abr extends ItemBlock {
    public class_abr(Block var1) {
       super(var1);
@@ -36,9 +23,9 @@ public class class_abr extends ItemBlock {
          }
 
          if(var11 == this.block) {
-            int var13 = ((Integer)var10.get(class_aky.a)).intValue();
+            int var13 = ((Integer)var10.get(BlockSnow.a)).intValue();
             if(var13 <= 7) {
-               IBlockData var14 = var10.set(class_aky.a, Integer.valueOf(var13 + 1));
+               IBlockData var14 = var10.set(BlockSnow.a, Integer.valueOf(var13 + 1));
                AxisAlignedBB var15 = this.block.getBoundingBox(var3, var12, var14);
                if(var15 != null && var3.b(var15) && var3.setTypeAndData((BlockPosition)var12, (IBlockData)var14, 2)) {
                   var3.a((double)((float)var12.getX() + 0.5F), (double)((float)var12.getY() + 0.5F), (double)((float)var12.getZ() + 0.5F), this.block.stepSound.getPlaceSound(), (this.block.stepSound.getVolume() + 1.0F) / 2.0F, this.block.stepSound.getPitch() * 0.8F);

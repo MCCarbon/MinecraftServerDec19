@@ -9,10 +9,10 @@ import net.minecraft.server.BlockStateInteger;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.BlockPosition;
 
-public class class_ale extends class_aku {
+public class BlockFloorSign extends class_aku {
    public static final BlockStateInteger a = BlockStateInteger.of("rotation", 0, 15);
 
-   public class_ale() {
+   public BlockFloorSign() {
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
    }
 

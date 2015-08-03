@@ -184,7 +184,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 
 			if (var1 != m()) {
 				var2 = true;
-				class_aih.a(m(), world, position);
+				BlockFurnace.a(m(), world, position);
 			}
 		}
 

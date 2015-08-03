@@ -235,8 +235,8 @@ public class class_ash {
             this.a(var1, var3, 7, -2, 1, 9, -2, 1, false, var2, k);
             this.a(var1, var3, 6, -3, 1, 6, -3, 1, false, var2, k);
             this.a(var1, var3, 6, -1, 1, 6, -1, 1, false, var2, k);
-            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, EnumDirection.EAST).set(class_alt.N, Boolean.valueOf(true)), 1, -3, 8, var3);
-            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, EnumDirection.WEST).set(class_alt.N, Boolean.valueOf(true)), 4, -3, 8, var3);
+            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(BlockTripwireHook.a, EnumDirection.EAST).set(BlockTripwireHook.N, Boolean.valueOf(true)), 1, -3, 8, var3);
+            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(BlockTripwireHook.a, EnumDirection.WEST).set(BlockTripwireHook.N, Boolean.valueOf(true)), 4, -3, 8, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 2, -3, 8, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 3, -3, 8, var3);
             this.a(var1, Blocks.REDSTONE_WIRE.getBlockData(), 5, -3, 7, var3);
@@ -253,8 +253,8 @@ public class class_ash {
             }
 
             this.a(var1, Blocks.VINE.getBlockData().set(class_alu.O, Boolean.valueOf(true)), 3, -2, 2, var3);
-            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, EnumDirection.NORTH).set(class_alt.N, Boolean.valueOf(true)), 7, -3, 1, var3);
-            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(class_alt.a, EnumDirection.SOUTH).set(class_alt.N, Boolean.valueOf(true)), 7, -3, 5, var3);
+            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(BlockTripwireHook.a, EnumDirection.NORTH).set(BlockTripwireHook.N, Boolean.valueOf(true)), 7, -3, 1, var3);
+            this.a(var1, Blocks.TRIPWIRE_HOOK.getBlockData().set(BlockTripwireHook.a, EnumDirection.SOUTH).set(BlockTripwireHook.N, Boolean.valueOf(true)), 7, -3, 5, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 7, -3, 2, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 7, -3, 3, var3);
             this.a(var1, Blocks.TRIPWIRE.getBlockData().set(class_als.N, Boolean.valueOf(true)), 7, -3, 4, var3);
@@ -287,7 +287,7 @@ public class class_ash {
             this.a(var1, Blocks.STONEBRICK.fromLegacyData(class_ali.P), 8, -2, 11, var3);
             this.a(var1, Blocks.STONEBRICK.fromLegacyData(class_ali.P), 9, -2, 11, var3);
             this.a(var1, Blocks.STONEBRICK.fromLegacyData(class_ali.P), 10, -2, 11, var3);
-            IBlockData var11 = Blocks.LEVER.getBlockData().set(class_ajc.a, class_ajc.class_a_in_class_ajc.e);
+            IBlockData var11 = Blocks.LEVER.getBlockData().set(BlockLever.a, BlockLever.class_a_in_class_ajc.e);
             this.a(var1, var11, 8, -2, 12, var3);
             this.a(var1, var11, 9, -2, 12, var3);
             this.a(var1, var11, 10, -2, 12, var3);
@@ -300,7 +300,7 @@ public class class_ash {
             this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(BlockPiston.FACING, EnumDirection.UP), 9, -2, 8, var3);
             this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(BlockPiston.FACING, EnumDirection.WEST), 10, -2, 8, var3);
             this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(BlockPiston.FACING, EnumDirection.WEST), 10, -1, 8, var3);
-            this.a(var1, Blocks.UNPOWERED_REPEATER.getBlockData().set(class_ako.FACING, EnumDirection.NORTH), 10, -2, 10, var3);
+            this.a(var1, Blocks.UNPOWERED_REPEATER.getBlockData().set(BlockRedstoneRepeater.FACING, EnumDirection.NORTH), 10, -2, 10, var3);
             if(!this.f) {
                this.f = this.a(var1, var3, var2, 9, -3, 10, class_od.a(i, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 2 + var2.nextInt(5));
             }

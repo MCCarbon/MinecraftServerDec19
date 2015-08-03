@@ -17,8 +17,8 @@ import net.minecraft.server.StatisticList;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
-public class class_aix extends BlockHalfTransparent {
-   public class_aix() {
+public class BlockIce extends BlockHalfTransparent {
+   public BlockIce() {
       super(Material.ICE, false);
       this.frictionFactor = 0.98F;
       this.setTicking(true);

@@ -1,12 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Block;
-import net.minecraft.server.class_ahl;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_rg;
-
 public class class_rd extends class_rg {
    private int g;
    private int h = -1;
@@ -21,8 +14,8 @@ public class class_rd extends class_rg {
       } else if(!this.a.o.R().b("mobGriefing")) {
          return false;
       } else {
-         class_ahl var10000 = this.c;
-         return !class_ahl.f(this.a.o, this.b);
+         BlockDoor var10000 = this.c;
+         return !BlockDoor.f(this.a.o, this.b);
       }
    }
 
@@ -35,8 +28,8 @@ public class class_rd extends class_rg {
       double var1 = this.a.b((BlockPosition)this.b);
       boolean var3;
       if(this.g <= 240) {
-         class_ahl var10000 = this.c;
-         if(!class_ahl.f(this.a.o, this.b) && var1 < 4.0D) {
+         BlockDoor var10000 = this.c;
+         if(!BlockDoor.f(this.a.o, this.b) && var1 < 4.0D) {
             var3 = true;
             return var3;
          }

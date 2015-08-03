@@ -441,7 +441,7 @@ public class class_asa {
       protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
          BlockPosition var9 = new BlockPosition(this.a(var4, var6), this.d(var5), this.b(var4, var6));
          if(var2.b((BaseBlockPosition)var9) && var1.getType(var9).getBlock().getMaterial() == Material.AIR) {
-            IBlockData var10 = Blocks.RAIL.getBlockData().set(class_akg.b, var3.nextBoolean()?BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH:BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST);
+            IBlockData var10 = Blocks.RAIL.getBlockData().set(BlockMinecartTrack.b, var3.nextBoolean()?BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH:BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST);
             this.a(var1, var10, var4, var5, var6, var2);
             class_vo var11 = new class_vo(var1, (double)((float)var9.getX() + 0.5F), (double)((float)var9.getY() + 0.5F), (double)((float)var9.getZ() + 0.5F));
             class_od.a(var3, var7, (IInventory)var11, var8);
@@ -488,8 +488,8 @@ public class class_asa {
                this.a(var1, var3, var2, 0.05F, 2, 2, var10 - 2, Blocks.WEB.getBlockData());
                this.a(var1, var3, var2, 0.05F, 0, 2, var10 + 2, Blocks.WEB.getBlockData());
                this.a(var1, var3, var2, 0.05F, 2, 2, var10 + 2, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH));
-               this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH));
+               this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.SOUTH));
+               this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.NORTH));
                if(var2.nextInt(100) == 0) {
                   this.a(var1, var3, var2, 2, 0, var10 - 1, class_od.a(class_asa.a, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 3 + var2.nextInt(4));
                }
@@ -527,7 +527,7 @@ public class class_asa {
             }
 
             if(this.a) {
-               IBlockData var16 = Blocks.RAIL.getBlockData().set(class_akg.b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH);
+               IBlockData var16 = Blocks.RAIL.getBlockData().set(BlockMinecartTrack.b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH);
 
                for(var10 = 0; var10 <= var8; ++var10) {
                   IBlockData var18 = this.a(var1, 1, -1, var10, var3);

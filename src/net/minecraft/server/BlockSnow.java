@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aky extends Block {
+public class BlockSnow extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("layers", 1, 8);
 
-   protected class_aky() {
+   protected BlockSnow() {
       super(Material.PACKED_ICE);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(1)));
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);

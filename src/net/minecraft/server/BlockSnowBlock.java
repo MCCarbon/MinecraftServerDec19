@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_akx extends Block {
-   protected class_akx() {
+public class BlockSnowBlock extends Block {
+   protected BlockSnowBlock() {
       super(Material.SNOW_BLOCK);
       this.setTicking(true);
       this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);

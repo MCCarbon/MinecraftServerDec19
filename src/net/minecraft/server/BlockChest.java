@@ -31,11 +31,11 @@ import net.minecraft.server.EntityHuman;
 import net.minecraft.server.Container;
 import net.minecraft.server.CreativeTab;
 
-public class class_agu extends BlockContainer {
+public class BlockChest extends BlockContainer {
    public static final BlockStateDirection a;
    public final int b;
 
-   protected class_agu(int var1) {
+   protected BlockChest(int var1) {
       super(Material.WOOD);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
       this.b = var1;

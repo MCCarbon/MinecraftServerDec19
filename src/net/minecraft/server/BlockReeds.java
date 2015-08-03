@@ -3,10 +3,10 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_akn extends Block {
+public class BlockReeds extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 15);
 
-   protected class_akn() {
+   protected BlockReeds() {
       super(Material.PLANT);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       float var1 = 0.375F;

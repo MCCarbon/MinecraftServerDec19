@@ -3,10 +3,10 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class class_agt extends Block {
+public class BlockCauldron extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("level", 0, 3);
 
-   public class_agt() {
+   public BlockCauldron() {
       super(Material.ORE, MaterialMapColor.COLOR12);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
    }

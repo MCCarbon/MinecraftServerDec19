@@ -25,12 +25,12 @@ import net.minecraft.server.EntityLiving;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.Container;
 
-public class class_aih extends BlockContainer {
+public class BlockFurnace extends BlockContainer {
    public static final BlockStateDirection a;
    private final boolean b;
    private static boolean N;
 
-   protected class_aih(boolean var1) {
+   protected BlockFurnace(boolean var1) {
       super(Material.STONE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
       this.b = var1;

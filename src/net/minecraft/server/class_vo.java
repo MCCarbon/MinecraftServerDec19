@@ -1,20 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_agu;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_vn;
-import net.minecraft.server.class_vq;
-import net.minecraft.server.PlayerInventory;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-import net.minecraft.server.class_yf;
-
 public class class_vo extends class_vq {
    public class_vo(World var1) {
       super(var1);
@@ -41,7 +26,7 @@ public class class_vo extends class_vq {
    }
 
    public IBlockData u() {
-      return Blocks.CHEST.getBlockData().set(class_agu.a, EnumDirection.NORTH);
+      return Blocks.CHEST.getBlockData().set(BlockChest.a, EnumDirection.NORTH);
    }
 
    public int w() {

@@ -241,10 +241,10 @@ public class class_asr {
          this.a(var1, Blocks.FENCE.getBlockData(), 1, 1, 0, var3);
          this.a(var1, Blocks.FENCE.getBlockData(), 1, 2, 0, var3);
          this.a(var1, Blocks.WOOL.fromLegacyData(EnumColor.a.b()), 1, 3, 0, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 2, 3, 0, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 1, 3, 1, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 0, 3, 0, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 1, 3, -1, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.EAST), 2, 3, 0, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.NORTH), 1, 3, 1, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.WEST), 0, 3, 0, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.SOUTH), 1, 3, -1, var3);
          return true;
       }
    }
@@ -665,7 +665,7 @@ public class class_asr {
          this.a(var1, Blocks.PLANKS.getBlockData(), 5, 5, 10, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 2, 1, 0, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 2, 2, 0, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.NORTH), 2, 3, 1, var3);
          this.a(var1, var3, var2, 2, 1, 0, EnumDirection.NORTH);
          this.a(var1, var3, 1, 0, -1, 3, 2, -1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
          if(this.a(var1, 2, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 2, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
@@ -772,7 +772,7 @@ public class class_asr {
          this.a(var1, Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), 6, 1, 2, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 2, 1, 0, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 2, 2, 0, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.NORTH), 2, 3, 1, var3);
          this.a(var1, var3, var2, 2, 1, 0, EnumDirection.NORTH);
          if(this.a(var1, 2, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 2, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
             this.a(var1, var4, 2, 0, -1, var3);
@@ -780,7 +780,7 @@ public class class_asr {
 
          this.a(var1, Blocks.AIR.getBlockData(), 6, 1, 5, var3);
          this.a(var1, Blocks.AIR.getBlockData(), 6, 2, 5, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 6, 3, 4, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.SOUTH), 6, 3, 4, var3);
          this.a(var1, var3, var2, 6, 1, 5, EnumDirection.SOUTH);
 
          for(var7 = 0; var7 < 5; ++var7) {
@@ -1071,11 +1071,11 @@ public class class_asr {
          this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 3, 6, var3);
          this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 3, 6, var3);
          this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 3, 8, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 2, 4, 7, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 1, 4, 6, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 3, 4, 6, var3);
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 4, 5, var3);
-         IBlockData var7 = Blocks.LADDER.getBlockData().set(class_aiz.a, EnumDirection.WEST);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.SOUTH), 2, 4, 7, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.EAST), 1, 4, 6, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.WEST), 3, 4, 6, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.NORTH), 2, 4, 5, var3);
+         IBlockData var7 = Blocks.LADDER.getBlockData().set(BlockLadder.a, EnumDirection.WEST);
 
          int var8;
          for(var8 = 1; var8 <= 9; ++var8) {
@@ -1196,14 +1196,14 @@ public class class_asr {
          }
 
          if(this.a) {
-            IBlockData var4 = Blocks.LADDER.getBlockData().set(class_aiz.a, EnumDirection.SOUTH);
+            IBlockData var4 = Blocks.LADDER.getBlockData().set(BlockLadder.a, EnumDirection.SOUTH);
             this.a(var1, var4, 3, 1, 3, var3);
             this.a(var1, var4, 3, 2, 3, var3);
             this.a(var1, var4, 3, 3, 3, var3);
             this.a(var1, var4, 3, 4, 3, var3);
          }
 
-         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.NORTH), 2, 3, 1, var3);
 
          for(int var6 = 0; var6 < 5; ++var6) {
             for(int var5 = 0; var5 < 5; ++var5) {

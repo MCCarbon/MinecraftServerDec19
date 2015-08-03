@@ -1,33 +1,14 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_agp;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.INamable;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
 
-public class class_ajc extends Block {
-   public static final BlockStateEnum a = BlockStateEnum.of("facing", class_ajc.class_a_in_class_ajc.class);
+public class BlockLever extends Block {
+   public static final BlockStateEnum a = BlockStateEnum.of("facing", BlockLever.class_a_in_class_ajc.class);
    public static final BlockStateBoolean b = BlockStateBoolean.of("powered");
 
-   protected class_ajc() {
+   protected BlockLever() {
       super(Material.ORIENTABLE);
-      this.setBlockData(this.blockStateList.getFirst().set(a, class_ajc.class_a_in_class_ajc.e).set(b, Boolean.valueOf(false)));
+      this.setBlockData(this.blockStateList.getFirst().set(a, BlockLever.class_a_in_class_ajc.e).set(b, Boolean.valueOf(false)));
       this.setCreativeTab(CreativeTab.REDSTONE);
    }
 
@@ -68,7 +49,7 @@ public class class_ajc extends Block {
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
       IBlockData var9 = this.getBlockData().set(b, Boolean.valueOf(false));
       if(a(var1, var2, var3.opposite())) {
-         return var9.set(a, class_ajc.class_a_in_class_ajc.a(var3, var8.aR()));
+         return var9.set(a, BlockLever.class_a_in_class_ajc.a(var3, var8.aR()));
       } else {
          Iterator var10 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
@@ -76,7 +57,7 @@ public class class_ajc extends Block {
          do {
             if(!var10.hasNext()) {
                if(World.a((IBlockAccess)var1, (BlockPosition)var2.down())) {
-                  return var9.set(a, class_ajc.class_a_in_class_ajc.a(EnumDirection.UP, var8.aR()));
+                  return var9.set(a, BlockLever.class_a_in_class_ajc.a(EnumDirection.UP, var8.aR()));
                }
 
                return var9;
@@ -85,12 +66,12 @@ public class class_ajc extends Block {
             var11 = (EnumDirection)var10.next();
          } while(var11 == var3 || !a(var1, var2, var11.opposite()));
 
-         return var9.set(a, class_ajc.class_a_in_class_ajc.a(var11, var8.aR()));
+         return var9.set(a, BlockLever.class_a_in_class_ajc.a(var11, var8.aR()));
       }
    }
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(this.e(var1, var2, var3) && !a(var1, var2, ((class_ajc.class_a_in_class_ajc)var3.get(a)).c().opposite())) {
+      if(this.e(var1, var2, var3) && !a(var1, var2, ((BlockLever.class_a_in_class_ajc)var3.get(a)).c().opposite())) {
          this.dropNaturallyForSure(var1, var2, var3, 0);
          var1.setAir(var2);
       }
@@ -109,7 +90,7 @@ public class class_ajc extends Block {
 
    public void updateShape(IBlockAccess var1, BlockPosition var2) {
       float var3 = 0.1875F;
-      switch(class_ajc.SyntheticClass_1.b[((class_ajc.class_a_in_class_ajc)var1.getType(var2).get(a)).ordinal()]) {
+      switch(BlockLever.SyntheticClass_1.b[((BlockLever.class_a_in_class_ajc)var1.getType(var2).get(a)).ordinal()]) {
       case 1:
          this.setSizes(0.0F, 0.2F, 0.5F - var3, var3 * 2.0F, 0.8F, 0.5F + var3);
          break;
@@ -143,7 +124,7 @@ public class class_ajc extends Block {
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 3);
          var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, ((Boolean)var3.get(b)).booleanValue()?0.6F:0.5F);
          var1.c((BlockPosition)var2, (Block)this);
-         EnumDirection var11 = ((class_ajc.class_a_in_class_ajc)var3.get(a)).c();
+         EnumDirection var11 = ((BlockLever.class_a_in_class_ajc)var3.get(a)).c();
          var1.c((BlockPosition)var2.shift(var11.opposite()), (Block)this);
          return true;
       }
@@ -152,7 +133,7 @@ public class class_ajc extends Block {
    public void remove(World var1, BlockPosition var2, IBlockData var3) {
       if(((Boolean)var3.get(b)).booleanValue()) {
          var1.c((BlockPosition)var2, (Block)this);
-         EnumDirection var4 = ((class_ajc.class_a_in_class_ajc)var3.get(a)).c();
+         EnumDirection var4 = ((BlockLever.class_a_in_class_ajc)var3.get(a)).c();
          var1.c((BlockPosition)var2.shift(var4.opposite()), (Block)this);
       }
 
@@ -164,7 +145,7 @@ public class class_ajc extends Block {
    }
 
    public int b(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
-      return !((Boolean)var3.get(b)).booleanValue()?0:(((class_ajc.class_a_in_class_ajc)var3.get(a)).c() == var4?15:0);
+      return !((Boolean)var3.get(b)).booleanValue()?0:(((BlockLever.class_a_in_class_ajc)var3.get(a)).c() == var4?15:0);
    }
 
    public boolean isPowerSource() {
@@ -172,12 +153,12 @@ public class class_ajc extends Block {
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(a, class_ajc.class_a_in_class_ajc.a(var1 & 7)).set(b, Boolean.valueOf((var1 & 8) > 0));
+      return this.getBlockData().set(a, BlockLever.class_a_in_class_ajc.a(var1 & 7)).set(b, Boolean.valueOf((var1 & 8) > 0));
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
-      int var3 = var2 | ((class_ajc.class_a_in_class_ajc)var1.get(a)).a();
+      int var3 = var2 | ((BlockLever.class_a_in_class_ajc)var1.get(a)).a();
       if(((Boolean)var1.get(b)).booleanValue()) {
          var3 |= 8;
       }
@@ -189,57 +170,57 @@ public class class_ajc extends Block {
       if(var1.getBlock() != this) {
          return var1;
       } else {
-         switch(class_ajc.SyntheticClass_1.c[var2.ordinal()]) {
+         switch(BlockLever.SyntheticClass_1.c[var2.ordinal()]) {
          case 1:
-            switch(class_ajc.SyntheticClass_1.b[((class_ajc.class_a_in_class_ajc)var1.get(a)).ordinal()]) {
+            switch(BlockLever.SyntheticClass_1.b[((BlockLever.class_a_in_class_ajc)var1.get(a)).ordinal()]) {
             case 1:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.c);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.c);
             case 2:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.b);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.b);
             case 3:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.e);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.e);
             case 4:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.d);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.d);
             default:
                return var1;
             }
          case 2:
-            switch(class_ajc.SyntheticClass_1.b[((class_ajc.class_a_in_class_ajc)var1.get(a)).ordinal()]) {
+            switch(BlockLever.SyntheticClass_1.b[((BlockLever.class_a_in_class_ajc)var1.get(a)).ordinal()]) {
             case 1:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.e);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.e);
             case 2:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.d);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.d);
             case 3:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.b);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.b);
             case 4:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.c);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.c);
             case 5:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.g);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.g);
             case 6:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.f);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.f);
             case 7:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.h);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.h);
             case 8:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.a);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.a);
             }
          case 3:
-            switch(class_ajc.SyntheticClass_1.b[((class_ajc.class_a_in_class_ajc)var1.get(a)).ordinal()]) {
+            switch(BlockLever.SyntheticClass_1.b[((BlockLever.class_a_in_class_ajc)var1.get(a)).ordinal()]) {
             case 1:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.d);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.d);
             case 2:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.e);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.e);
             case 3:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.c);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.c);
             case 4:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.b);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.b);
             case 5:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.g);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.g);
             case 6:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.f);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.f);
             case 7:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.h);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.h);
             case 8:
-               return var1.set(a, class_ajc.class_a_in_class_ajc.a);
+               return var1.set(a, BlockLever.class_a_in_class_ajc.a);
             }
          default:
             return var1;
@@ -248,7 +229,7 @@ public class class_ajc extends Block {
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() != this?var1:this.a(var1, var2.a(((class_ajc.class_a_in_class_ajc)var1.get(a)).c()));
+      return var1.getBlock() != this?var1:this.a(var1, var2.a(((BlockLever.class_a_in_class_ajc)var1.get(a)).c()));
    }
 
    protected BlockStateList getStateList() {
@@ -299,52 +280,52 @@ public class class_ajc extends Block {
             ;
          }
 
-         b = new int[class_ajc.class_a_in_class_ajc.values().length];
+         b = new int[BlockLever.class_a_in_class_ajc.values().length];
 
          try {
-            b[class_ajc.class_a_in_class_ajc.b.ordinal()] = 1;
+            b[BlockLever.class_a_in_class_ajc.b.ordinal()] = 1;
          } catch (NoSuchFieldError var14) {
             ;
          }
 
          try {
-            b[class_ajc.class_a_in_class_ajc.c.ordinal()] = 2;
+            b[BlockLever.class_a_in_class_ajc.c.ordinal()] = 2;
          } catch (NoSuchFieldError var13) {
             ;
          }
 
          try {
-            b[class_ajc.class_a_in_class_ajc.d.ordinal()] = 3;
+            b[BlockLever.class_a_in_class_ajc.d.ordinal()] = 3;
          } catch (NoSuchFieldError var12) {
             ;
          }
 
          try {
-            b[class_ajc.class_a_in_class_ajc.e.ordinal()] = 4;
+            b[BlockLever.class_a_in_class_ajc.e.ordinal()] = 4;
          } catch (NoSuchFieldError var11) {
             ;
          }
 
          try {
-            b[class_ajc.class_a_in_class_ajc.f.ordinal()] = 5;
+            b[BlockLever.class_a_in_class_ajc.f.ordinal()] = 5;
          } catch (NoSuchFieldError var10) {
             ;
          }
 
          try {
-            b[class_ajc.class_a_in_class_ajc.g.ordinal()] = 6;
+            b[BlockLever.class_a_in_class_ajc.g.ordinal()] = 6;
          } catch (NoSuchFieldError var9) {
             ;
          }
 
          try {
-            b[class_ajc.class_a_in_class_ajc.a.ordinal()] = 7;
+            b[BlockLever.class_a_in_class_ajc.a.ordinal()] = 7;
          } catch (NoSuchFieldError var8) {
             ;
          }
 
          try {
-            b[class_ajc.class_a_in_class_ajc.h.ordinal()] = 8;
+            b[BlockLever.class_a_in_class_ajc.h.ordinal()] = 8;
          } catch (NoSuchFieldError var7) {
             ;
          }
@@ -400,7 +381,7 @@ public class class_ajc extends Block {
        g(6, "up_x", EnumDirection.UP),
        h(7, "down_z", EnumDirection.DOWN);
 
-      private static final class_ajc.class_a_in_class_ajc[] i;
+      private static final BlockLever.class_a_in_class_ajc[] i;
       private final int j;
       private final String k;
       private final EnumDirection l;
@@ -423,7 +404,7 @@ public class class_ajc extends Block {
          return this.k;
       }
 
-      public static class_ajc.class_a_in_class_ajc a(int var0) {
+      public static BlockLever.class_a_in_class_ajc a(int var0) {
          if(var0 < 0 || var0 >= i.length) {
             var0 = 0;
          }
@@ -431,10 +412,10 @@ public class class_ajc extends Block {
          return i[var0];
       }
 
-      public static class_ajc.class_a_in_class_ajc a(EnumDirection var0, EnumDirection var1) {
-         switch(class_ajc.SyntheticClass_1.a[var0.ordinal()]) {
+      public static BlockLever.class_a_in_class_ajc a(EnumDirection var0, EnumDirection var1) {
+         switch(BlockLever.SyntheticClass_1.a[var0.ordinal()]) {
          case 1:
-            switch(class_ajc.SyntheticClass_1.d[var1.getAxis().ordinal()]) {
+            switch(BlockLever.SyntheticClass_1.d[var1.getAxis().ordinal()]) {
             case 1:
                return a;
             case 2:
@@ -443,7 +424,7 @@ public class class_ajc extends Block {
                throw new IllegalArgumentException("Invalid entityFacing " + var1 + " for facing " + var0);
             }
          case 2:
-            switch(class_ajc.SyntheticClass_1.d[var1.getAxis().ordinal()]) {
+            switch(BlockLever.SyntheticClass_1.d[var1.getAxis().ordinal()]) {
             case 1:
                return g;
             case 2:
@@ -469,12 +450,12 @@ public class class_ajc extends Block {
       }
 
       static {
-         i = new class_ajc.class_a_in_class_ajc[values().length];
-         class_ajc.class_a_in_class_ajc[] var0 = values();
+         i = new BlockLever.class_a_in_class_ajc[values().length];
+         BlockLever.class_a_in_class_ajc[] var0 = values();
          int var1 = var0.length;
 
          for(int var2 = 0; var2 < var1; ++var2) {
-            class_ajc.class_a_in_class_ajc var3 = var0[var2];
+            BlockLever.class_a_in_class_ajc var3 = var0[var2];
             i[var3.a()] = var3;
          }
 

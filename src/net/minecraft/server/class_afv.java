@@ -1,22 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockDirt;
-import net.minecraft.server.class_ahm;
-import net.minecraft.server.BlockLongGrass;
-import net.minecraft.server.class_aph;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.class_apz;
-import net.minecraft.server.class_aql;
-import net.minecraft.server.class_aqx;
-import net.minecraft.server.class_arc;
-import net.minecraft.server.class_ark;
-import net.minecraft.server.class_arm;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_ul;
 
 public class class_afv extends BiomeBase {
    private static final class_arc aD = new class_arc();
@@ -66,7 +50,7 @@ public class class_afv extends BiomeBase {
          }
       }
 
-      ag.a(class_ahm.class_b_in_class_ahm.d);
+      ag.a(BlockTallPlant.class_b_in_class_ahm.d);
 
       for(var4 = 0; var4 < 7; ++var4) {
          var5 = var2.nextInt(16) + 8;

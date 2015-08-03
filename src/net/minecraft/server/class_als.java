@@ -95,7 +95,7 @@ public class class_als extends Block {
             BlockPosition var9 = var2.shift(var7, var8);
             IBlockData var10 = var1.getType(var9);
             if(var10.getBlock() == Blocks.TRIPWIRE_HOOK) {
-               if(var10.get(class_alt.a) == var7.opposite()) {
+               if(var10.get(BlockTripwireHook.a) == var7.opposite()) {
                   Blocks.TRIPWIRE_HOOK.a(var1, var9, var10, false, true, var8, var3);
                }
                break;
@@ -163,7 +163,7 @@ public class class_als extends Block {
       Block var6 = var5.getBlock();
       if(var6 == Blocks.TRIPWIRE_HOOK) {
          EnumDirection var9 = var3.opposite();
-         return var5.get(class_alt.a) == var9;
+         return var5.get(BlockTripwireHook.a) == var9;
       } else if(var6 == Blocks.TRIPWIRE) {
          boolean var7 = ((Boolean)var2.get(b)).booleanValue();
          boolean var8 = ((Boolean)var5.get(b)).booleanValue();

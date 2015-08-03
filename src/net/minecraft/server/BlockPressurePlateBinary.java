@@ -2,23 +2,12 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.class_age;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
 
-public class class_akb extends class_age {
+public class BlockPressurePlateBinary extends class_age {
    public static final BlockStateBoolean a = BlockStateBoolean.of("powered");
-   private final class_akb.class_a_in_class_akb b;
+   private final BlockPressurePlateBinary.class_a_in_class_akb b;
 
-   protected class_akb(Material var1, class_akb.class_a_in_class_akb var2) {
+   protected BlockPressurePlateBinary(Material var1, BlockPressurePlateBinary.class_a_in_class_akb var2) {
       super(var1);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
       this.b = var2;
@@ -35,7 +24,7 @@ public class class_akb extends class_age {
    protected int f(World var1, BlockPosition var2) {
       AxisAlignedBB var3 = this.a(var2);
       List var4;
-      switch(class_akb.SyntheticClass_1.a[this.b.ordinal()]) {
+      switch(BlockPressurePlateBinary.SyntheticClass_1.a[this.b.ordinal()]) {
       case 1:
          var4 = var1.getEntities((Entity)null, (AxisAlignedBB)var3);
          break;
@@ -75,17 +64,17 @@ public class class_akb extends class_age {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_akb.class_a_in_class_akb.values().length];
+      static final int[] a = new int[BlockPressurePlateBinary.class_a_in_class_akb.values().length];
 
       static {
          try {
-            a[class_akb.class_a_in_class_akb.a.ordinal()] = 1;
+            a[BlockPressurePlateBinary.class_a_in_class_akb.a.ordinal()] = 1;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_akb.class_a_in_class_akb.b.ordinal()] = 2;
+            a[BlockPressurePlateBinary.class_a_in_class_akb.b.ordinal()] = 2;
          } catch (NoSuchFieldError var1) {
             ;
          }

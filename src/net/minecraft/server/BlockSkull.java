@@ -4,14 +4,14 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_akv extends BlockContainer {
+public class BlockSkull extends BlockContainer {
    public static final BlockStateDirection a;
    public static final BlockStateBoolean b;
    private static final Predicate N;
    private class_anp O;
    private class_anp P;
 
-   protected class_akv() {
+   protected BlockSkull() {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Boolean.valueOf(false)));
       this.setSizes(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
@@ -30,7 +30,7 @@ public class class_akv extends BlockContainer {
    }
 
    public void updateShape(IBlockAccess var1, BlockPosition var2) {
-      switch(class_akv.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
+      switch(BlockSkull.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
       case 1:
       default:
          this.setSizes(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);

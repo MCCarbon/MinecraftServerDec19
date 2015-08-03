@@ -6,27 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.TreeMap;
 import java.util.UUID;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_ahl;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_lv;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_to;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_wv;
-import net.minecraft.server.EntityHuman;
 
 public class class_tp {
    private World a;
@@ -332,7 +311,7 @@ public class class_tp {
 
    private boolean f(BlockPosition var1) {
       Block var2 = this.a.getType(var1).getBlock();
-      return var2 instanceof class_ahl?var2.getMaterial() == Material.WOOD:false;
+      return var2 instanceof BlockDoor ?var2.getMaterial() == Material.WOOD:false;
    }
 
    private void n() {

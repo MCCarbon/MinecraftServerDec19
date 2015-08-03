@@ -2,26 +2,6 @@ package net.minecraft.server;
 
 import com.mojang.authlib.GameProfile;
 import java.util.UUID;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_akv;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntitySkull;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_dy;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
 
 public class class_abp extends Item {
    private static final String[] a = new String[]{"skeleton", "wither", "zombie", "char", "creeper", "dragon"};
@@ -53,7 +33,7 @@ public class class_abp extends Item {
             return UseResult.CANT_USE;
          } else {
             if(!var3.isClientSide) {
-               var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.SKULL.getBlockData().set(class_akv.a, var6), 3);
+               var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.SKULL.getBlockData().set(BlockSkull.a, var6), 3);
                int var13 = 0;
                if(var6 == EnumDirection.UP) {
                   var13 = MathHelper.floor((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;

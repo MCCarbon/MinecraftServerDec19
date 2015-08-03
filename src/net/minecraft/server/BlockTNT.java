@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
-public class class_alo extends Block {
+public class BlockTNT extends Block {
    public static final BlockStateBoolean a = BlockStateBoolean.of("explode");
 
-   public class_alo() {
+   public BlockTNT() {
       super(Material.TNT);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
       this.setCreativeTab(CreativeTab.REDSTONE);
