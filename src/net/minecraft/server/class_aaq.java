@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockDirt;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
@@ -33,16 +33,16 @@ public class class_aaq extends Item {
          IBlockData var10 = var3.getType(var4);
          Block var11 = var10.getBlock();
          if(var6 != EnumDirection.DOWN && var3.getType(var4.up()).getBlock().getMaterial() == Material.AIR) {
-            if(var11 == Blocks.GRASS || var11 == Blocks.GRASS_PATH) {
-               return this.a(var1, var2, var3, var4, Blocks.FARMLAND.getBlockData());
+            if(var11 == BlockStainedGlassPane.GRASS || var11 == BlockStainedGlassPane.GRASS_PATH) {
+               return this.a(var1, var2, var3, var4, BlockStainedGlassPane.FARMLAND.getBlockData());
             }
 
-            if(var11 == Blocks.DIRT) {
+            if(var11 == BlockStainedGlassPane.DIRT) {
                switch(class_aaq.SyntheticClass_1.a[((BlockDirt.EnumDirtVariant)var10.get(BlockDirt.VARIANT)).ordinal()]) {
                case 1:
-                  return this.a(var1, var2, var3, var4, Blocks.FARMLAND.getBlockData());
+                  return this.a(var1, var2, var3, var4, BlockStainedGlassPane.FARMLAND.getBlockData());
                case 2:
-                  return this.a(var1, var2, var3, var4, Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT));
+                  return this.a(var1, var2, var3, var4, BlockStainedGlassPane.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT));
                }
             }
          }

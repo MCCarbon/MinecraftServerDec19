@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockLongGrass;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ant;
@@ -30,7 +30,7 @@ public class class_rh extends class_rm {
          return false;
       } else {
          BlockPosition var1 = new BlockPosition(this.c.s, this.c.t, this.c.u);
-         return b.apply(this.d.getType(var1))?true:this.d.getType(var1.down()).getBlock() == Blocks.GRASS;
+         return b.apply(this.d.getType(var1))?true:this.d.getType(var1.down()).getBlock() == BlockStainedGlassPane.GRASS;
       }
    }
 
@@ -64,10 +64,10 @@ public class class_rh extends class_rm {
             this.c.x();
          } else {
             BlockPosition var2 = var1.down();
-            if(this.d.getType(var2).getBlock() == Blocks.GRASS) {
+            if(this.d.getType(var2).getBlock() == BlockStainedGlassPane.GRASS) {
                if(this.d.R().b("mobGriefing")) {
-                  this.d.b(2001, var2, Block.getId((Block)Blocks.GRASS));
-                  this.d.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.DIRT.getBlockData(), 2);
+                  this.d.b(2001, var2, Block.getId((Block)BlockStainedGlassPane.GRASS));
+                  this.d.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.DIRT.getBlockData(), 2);
                }
 
                this.c.x();
@@ -78,6 +78,6 @@ public class class_rh extends class_rm {
    }
 
    static {
-      b = class_ant.a((Block)Blocks.TALLGRASS).a(BlockLongGrass.TYPE, Predicates.equalTo(BlockLongGrass.EnumTallGrassType.GRASS));
+      b = class_ant.a((Block)BlockStainedGlassPane.TALLGRASS).a(BlockLongGrass.TYPE, Predicates.equalTo(BlockLongGrass.EnumTallGrassType.GRASS));
    }
 }

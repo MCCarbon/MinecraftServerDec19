@@ -5,7 +5,7 @@ import java.util.Iterator;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -56,7 +56,7 @@ public class class_alp extends Block {
          return true;
       } else {
          Block var3 = var1.getType(var2).getBlock();
-         return var3 instanceof class_ahz || var3 == Blocks.GLASS || var3 == Blocks.COBBLESTONE_WALL || var3 == Blocks.STAINED_GLASS;
+         return var3 instanceof class_ahz || var3 == BlockStainedGlassPane.GLASS || var3 == BlockStainedGlassPane.COBBLESTONE_WALL || var3 == BlockStainedGlassPane.STAINED_GLASS;
       }
    }
 

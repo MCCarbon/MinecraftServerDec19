@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockLeaves1;
 import net.minecraft.server.BlockLog1;
 import net.minecraft.server.BlockWood;
@@ -49,7 +49,7 @@ public class class_arl extends class_apw {
                   if(var6 >= 0 && var6 < 256) {
                      Block var11 = var1.getType(var8.setPosition(var9, var6, var10)).getBlock();
                      if(var11.getMaterial() != Material.AIR && var11.getMaterial() != Material.LEAVES) {
-                        if(var11 != Blocks.WATER && var11 != Blocks.FLOWING_WATER) {
+                        if(var11 != BlockStainedGlassPane.WATER && var11 != BlockStainedGlassPane.FLOWING_WATER) {
                            var5 = false;
                         } else if(var6 > var3.getY()) {
                            var5 = false;
@@ -66,7 +66,7 @@ public class class_arl extends class_apw {
             return false;
          } else {
             Block var17 = var1.getType(var3.down()).getBlock();
-            if((var17 == Blocks.GRASS || var17 == Blocks.DIRT) && var3.getY() < 256 - var4 - 1) {
+            if((var17 == BlockStainedGlassPane.GRASS || var17 == BlockStainedGlassPane.DIRT) && var3.getY() < 256 - var4 - 1) {
                this.a(var1, var3.down());
 
                int var12;
@@ -95,7 +95,7 @@ public class class_arl extends class_apw {
 
                for(var18 = 0; var18 < var4; ++var18) {
                   Block var20 = var1.getType(var3.up(var18)).getBlock();
-                  if(var20.getMaterial() == Material.AIR || var20.getMaterial() == Material.LEAVES || var20 == Blocks.FLOWING_WATER || var20 == Blocks.WATER) {
+                  if(var20.getMaterial() == Material.AIR || var20.getMaterial() == Material.LEAVES || var20 == BlockStainedGlassPane.FLOWING_WATER || var20 == BlockStainedGlassPane.WATER) {
                      this.a(var1, var3.up(var18), a);
                   }
                }
@@ -144,7 +144,7 @@ public class class_arl extends class_apw {
    }
 
    private void a(World var1, BlockPosition var2, BlockStateBoolean var3) {
-      IBlockData var4 = Blocks.VINE.getBlockData().set(var3, Boolean.valueOf(true));
+      IBlockData var4 = BlockStainedGlassPane.VINE.getBlockData().set(var3, Boolean.valueOf(true));
       this.a(var1, var2, var4);
       int var5 = 4;
 
@@ -156,7 +156,7 @@ public class class_arl extends class_apw {
    }
 
    static {
-      a = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.OAK);
-      b = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.OAK).set(BlockLeaves1.CHECK_DECAY, Boolean.valueOf(false));
+      a = BlockStainedGlassPane.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.OAK);
+      b = BlockStainedGlassPane.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.OAK).set(BlockLeaves1.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

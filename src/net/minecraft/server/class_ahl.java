@@ -7,7 +7,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -217,7 +217,7 @@ public class class_ahl extends Block {
    }
 
    private Item l() {
-      return this == Blocks.IRON_DOOR?Items.aD:(this == Blocks.SPRUCE_DOOR?Items.at:(this == Blocks.BIRCH_DOOR?Items.au:(this == Blocks.JUNGLE_DOOR?Items.av:(this == Blocks.ACACIA_DOOR?Items.aw:(this == Blocks.DARK_OAK_DOOR?Items.ax:Items.as)))));
+      return this == BlockStainedGlassPane.IRON_DOOR?Items.aD:(this == BlockStainedGlassPane.SPRUCE_DOOR?Items.at:(this == BlockStainedGlassPane.BIRCH_DOOR?Items.au:(this == BlockStainedGlassPane.JUNGLE_DOOR?Items.av:(this == BlockStainedGlassPane.ACACIA_DOOR?Items.aw:(this == BlockStainedGlassPane.DARK_OAK_DOOR?Items.ax:Items.as)))));
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {

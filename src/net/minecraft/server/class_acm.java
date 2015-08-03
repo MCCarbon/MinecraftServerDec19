@@ -37,7 +37,7 @@ public class class_acm implements class_acs {
                ++var3;
             } else if(var10.getItem() == Items.aV) {
                ++var7;
-            } else if(var10.getItem() == Items.k) {
+            } else if(var10.getItem() == Items.DIAMOND) {
                ++var7;
             } else if(var10.getItem() == Items.bO) {
                ++var8;
@@ -94,7 +94,7 @@ public class class_acm implements class_acs {
                      var12.add(Integer.valueOf(class_zz.a[var14.i() & 15]));
                   } else if(var14.getItem() == Items.aV) {
                      var19.put("Flicker", true);
-                  } else if(var14.getItem() == Items.k) {
+                  } else if(var14.getItem() == Items.DIAMOND) {
                      var19.put("Trail", true);
                   } else if(var14.getItem() == Items.bO) {
                      var23 = 1;

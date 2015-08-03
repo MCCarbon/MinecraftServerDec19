@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockFragilePlantElement;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.BlockLog1;
@@ -46,7 +46,7 @@ public class class_agy extends BlockDirectional implements IBlockFragilePlantEle
    public boolean e(World var1, BlockPosition var2, IBlockData var3) {
       var2 = var2.shift((EnumDirection)var3.get(FACING));
       IBlockData var4 = var1.getType(var2);
-      return var4.getBlock() == Blocks.LOG && var4.get(BlockLog1.b) == BlockWood.EnumLogVariant.JUNGLE;
+      return var4.getBlock() == BlockStainedGlassPane.LOG && var4.get(BlockLog1.b) == BlockWood.EnumLogVariant.JUNGLE;
    }
 
    public boolean isFullCube() {
@@ -114,7 +114,7 @@ public class class_agy extends BlockDirectional implements IBlockFragilePlantEle
    }
 
    private void f(World var1, BlockPosition var2, IBlockData var3) {
-      var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 3);
+      var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 3);
       this.dropNaturallyForSure(var1, var2, var3, 0);
    }
 

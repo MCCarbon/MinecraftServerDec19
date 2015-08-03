@@ -8,7 +8,7 @@ import net.minecraft.server.class_adi;
 import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aga;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IInventory;
@@ -74,7 +74,7 @@ public class class_yb extends Container {
 
             class_yb.this.a = 0;
             IBlockData var5 = var2.getType(var3);
-            if(!var1.bH.instabuild && !var2.isClientSide && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
+            if(!var1.bH.instabuild && !var2.isClientSide && var5.getBlock() == BlockStainedGlassPane.ANVIL && var1.bd().nextFloat() < 0.12F) {
                int var4 = ((Integer)var5.get(class_aga.b)).intValue();
                ++var4;
                if(var4 > 2) {
@@ -296,7 +296,7 @@ public class class_yb extends Container {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.i.getType(this.j).getBlock() != Blocks.ANVIL?false:var1.e((double)this.j.getX() + 0.5D, (double)this.j.getY() + 0.5D, (double)this.j.getZ() + 0.5D) <= 64.0D;
+      return this.i.getType(this.j).getBlock() != BlockStainedGlassPane.ANVIL?false:var1.e((double)this.j.getX() + 0.5D, (double)this.j.getY() + 0.5D, (double)this.j.getZ() + 0.5D) <= 64.0D;
    }
 
    public ItemStack b(EntityHuman var1, int var2) {

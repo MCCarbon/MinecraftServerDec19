@@ -4,7 +4,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.NBTTagCompound;
@@ -23,7 +23,7 @@ public abstract class class_tw extends class_po implements class_pp {
 
    public class_tw(World var1) {
       super(var1);
-      this.bv = Blocks.GRASS;
+      this.bv = BlockStainedGlassPane.GRASS;
    }
 
    protected void cc() {
@@ -62,7 +62,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    public float a(BlockPosition var1) {
-      return this.o.getType(var1.down()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
+      return this.o.getType(var1.down()).getBlock() == BlockStainedGlassPane.GRASS?10.0F:this.o.o(var1) - 0.5F;
    }
 
    public void b(NBTTagCompound var1) {

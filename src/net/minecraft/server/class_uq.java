@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apd;
 import net.minecraft.server.BlockPosition;
@@ -40,8 +40,8 @@ public class class_uq extends Entity {
       this.ac.b(c, Integer.valueOf(this.b));
       if(!this.o.isClientSide) {
          BlockPosition var1 = new BlockPosition(this);
-         if(this.o.worldProvider instanceof class_apd && this.o.getType(var1).getBlock() != Blocks.FIRE) {
-            this.o.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
+         if(this.o.worldProvider instanceof class_apd && this.o.getType(var1).getBlock() != BlockStainedGlassPane.FIRE) {
+            this.o.setTypeUpdate(var1, BlockStainedGlassPane.FIRE.getBlockData());
          }
       }
 

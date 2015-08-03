@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockDispenser;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.TileEntity;
@@ -207,14 +207,14 @@ public abstract class class_asn {
       int var7 = this.d(var3);
       int var8 = this.b(var2, var4);
       BlockPosition var9 = new BlockPosition(var6, var7, var8);
-      return !var5.b((BaseBlockPosition)var9)?Blocks.AIR.getBlockData():var1.getType(var9);
+      return !var5.b((BaseBlockPosition)var9)?BlockStainedGlassPane.AIR.getBlockData():var1.getType(var9);
    }
 
    protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8) {
       for(int var9 = var4; var9 <= var7; ++var9) {
          for(int var10 = var3; var10 <= var6; ++var10) {
             for(int var11 = var5; var11 <= var8; ++var11) {
-               this.a(var1, Blocks.AIR.getBlockData(), var10, var9, var11, var2);
+               this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), var10, var9, var11, var2);
             }
          }
       }
@@ -307,7 +307,7 @@ public abstract class class_asn {
       BlockPosition var6 = new BlockPosition(this.a(var2, var4), this.d(var3), this.b(var2, var4));
       if(var5.b((BaseBlockPosition)var6)) {
          while(!var1.isEmpty(var6) && var6.getY() < 255) {
-            var1.setTypeAndData((BlockPosition)var6, (IBlockData)Blocks.AIR.getBlockData(), 2);
+            var1.setTypeAndData((BlockPosition)var6, (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
             var6 = var6.up();
          }
 
@@ -329,9 +329,9 @@ public abstract class class_asn {
 
    protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
       BlockPosition var9 = new BlockPosition(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((BaseBlockPosition)var9) && var1.getType(var9).getBlock() != Blocks.CHEST) {
-         IBlockData var10 = Blocks.CHEST.getBlockData();
-         var1.setTypeAndData((BlockPosition)var9, (IBlockData)Blocks.CHEST.f(var1, var9, var10), 2);
+      if(var2.b((BaseBlockPosition)var9) && var1.getType(var9).getBlock() != BlockStainedGlassPane.CHEST) {
+         IBlockData var10 = BlockStainedGlassPane.CHEST.getBlockData();
+         var1.setTypeAndData((BlockPosition)var9, (IBlockData)BlockStainedGlassPane.CHEST.f(var1, var9, var10), 2);
          TileEntity var11 = var1.getTileEntity(var9);
          if(var11 instanceof TileEntityChest) {
             class_od.a(var3, var7, (IInventory)((TileEntityChest)var11), var8);
@@ -345,8 +345,8 @@ public abstract class class_asn {
 
    protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, EnumDirection var7, List var8, int var9) {
       BlockPosition var10 = new BlockPosition(this.a(var4, var6), this.d(var5), this.b(var4, var6));
-      if(var2.b((BaseBlockPosition)var10) && var1.getType(var10).getBlock() != Blocks.DISPENSER) {
-         this.a(var1, Blocks.DISPENSER.getBlockData().set(BlockDispenser.FACING, var7), var4, var5, var6, var2);
+      if(var2.b((BaseBlockPosition)var10) && var1.getType(var10).getBlock() != BlockStainedGlassPane.DISPENSER) {
+         this.a(var1, BlockStainedGlassPane.DISPENSER.getBlockData().set(BlockDispenser.FACING, var7), var4, var5, var6, var2);
          TileEntity var11 = var1.getTileEntity(var10);
          if(var11 instanceof TileEntityDispenser) {
             class_od.a(var3, var8, (TileEntityDispenser)var11, var9);
@@ -359,8 +359,8 @@ public abstract class class_asn {
    }
 
    protected void a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, EnumDirection var7) {
-      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7), var4, var5, var6, var2);
-      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
+      this.a(var1, BlockStainedGlassPane.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7), var4, var5, var6, var2);
+      this.a(var1, BlockStainedGlassPane.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
    }
 
    public void a(int var1, int var2, int var3) {
@@ -435,7 +435,7 @@ public abstract class class_asn {
       protected IBlockData a;
 
       protected class_a_in_class_asn() {
-         this.a = Blocks.AIR.getBlockData();
+         this.a = BlockStainedGlassPane.AIR.getBlockData();
       }
 
       public abstract void a(Random var1, int var2, int var3, int var4, boolean var5);

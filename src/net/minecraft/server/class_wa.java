@@ -177,7 +177,7 @@ public class class_wa extends class_wi {
    }
 
    protected boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.d) {
+      if(var3 != null && var3.getItem() == Items.FLINT_AND_STEEL) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
          var1.a((EnumUsedHand)var2);
          if(!this.o.isClientSide) {

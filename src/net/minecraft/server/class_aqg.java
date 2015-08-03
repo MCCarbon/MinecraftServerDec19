@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockStepAbstract;
 import net.minecraft.server.BlockSand;
 import net.minecraft.server.BlockDoubleStepAbstract;
@@ -22,9 +22,9 @@ public class class_aqg extends class_aql {
    private final IBlockData d;
 
    public class_aqg() {
-      this.b = Blocks.STONE_SLAB.getBlockData().set(BlockDoubleStepAbstract.VARIANT, BlockDoubleStepAbstract.EnumStoneSlabVariant.SAND).set(BlockStepAbstract.HALF, BlockStepAbstract.EnumSlabHalf.BOTTOM);
-      this.c = Blocks.SANDSTONE.getBlockData();
-      this.d = Blocks.FLOWING_WATER.getBlockData();
+      this.b = BlockStainedGlassPane.STONE_SLAB.getBlockData().set(BlockDoubleStepAbstract.VARIANT, BlockDoubleStepAbstract.EnumStoneSlabVariant.SAND).set(BlockStepAbstract.HALF, BlockStepAbstract.EnumSlabHalf.BOTTOM);
+      this.c = BlockStainedGlassPane.SANDSTONE.getBlockData();
+      this.d = BlockStainedGlassPane.FLOWING_WATER.getBlockData();
    }
 
    public boolean b(World var1, Random var2, BlockPosition var3) {
@@ -96,6 +96,6 @@ public class class_aqg extends class_aql {
    }
 
    static {
-      a = class_ant.a((Block)Blocks.SAND).a(BlockSand.VARIANT, Predicates.equalTo(BlockSand.EnumSandVariant.SAND));
+      a = class_ant.a((Block)BlockStainedGlassPane.SAND).a(BlockSand.VARIANT, Predicates.equalTo(BlockSand.EnumSandVariant.SAND));
    }
 }

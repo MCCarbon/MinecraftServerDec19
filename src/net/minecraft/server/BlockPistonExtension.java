@@ -22,7 +22,7 @@ public class BlockPistonExtension extends class_ahi {
 			if (var5 != null) {
 				BlockPosition var6 = var2.shift(var5.opposite());
 				Block var7 = var1.getType(var6).getBlock();
-				if ((var7 == Blocks.PISTON) || (var7 == Blocks.STICKY_PISTON)) {
+				if ((var7 == BlockStainedGlassPane.PISTON) || (var7 == BlockStainedGlassPane.STICKY_PISTON)) {
 					var1.setAir(var6);
 				}
 			}
@@ -37,7 +37,7 @@ public class BlockPistonExtension extends class_ahi {
 		EnumDirection var4 = var3.get(FACING).opposite();
 		var2 = var2.shift(var4);
 		IBlockData var5 = var1.getType(var2);
-		if (((var5.getBlock() == Blocks.PISTON) || (var5.getBlock() == Blocks.STICKY_PISTON)) && var5.get(BlockPiston.EXTENDED).booleanValue()) {
+		if (((var5.getBlock() == BlockStainedGlassPane.PISTON) || (var5.getBlock() == BlockStainedGlassPane.STICKY_PISTON)) && var5.get(BlockPiston.EXTENDED).booleanValue()) {
 			var5.getBlock().dropNaturallyForSure(var1, var2, var5, 0);
 			var1.setAir(var2);
 		}
@@ -138,7 +138,7 @@ public class BlockPistonExtension extends class_ahi {
 		EnumDirection var5 = var3.get(FACING);
 		BlockPosition var6 = var2.shift(var5.opposite());
 		IBlockData var7 = var1.getType(var6);
-		if ((var7.getBlock() != Blocks.PISTON) && (var7.getBlock() != Blocks.STICKY_PISTON)) {
+		if ((var7.getBlock() != BlockStainedGlassPane.PISTON) && (var7.getBlock() != BlockStainedGlassPane.STICKY_PISTON)) {
 			var1.setAir(var2);
 		} else {
 			var7.getBlock().doPhysics(var1, var6, var7, var4);

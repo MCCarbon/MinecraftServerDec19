@@ -180,11 +180,11 @@ public class class_wj extends class_wr {
    }
 
    protected void br() {
-      this.a(Items.m, 1);
+      this.a(Items.GOLD_INGOT, 1);
    }
 
    protected void a(class_on var1) {
-      this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
+      this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.GOLDEN_SWORD)));
    }
 
    public class_qd a(class_on var1, class_qd var2) {

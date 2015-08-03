@@ -4,7 +4,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.BlockWood;
 import net.minecraft.server.IBlockData;
@@ -33,7 +33,7 @@ public class class_aia extends BlockDirectional {
 
    public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
       EnumDirection.EnumAxis var4 = ((EnumDirection)var1.get(FACING)).getAxis();
-      if(var4 == EnumDirection.EnumAxis.Z && (var2.getType(var3.west()).getBlock() == Blocks.COBBLESTONE_WALL || var2.getType(var3.east()).getBlock() == Blocks.COBBLESTONE_WALL) || var4 == EnumDirection.EnumAxis.X && (var2.getType(var3.north()).getBlock() == Blocks.COBBLESTONE_WALL || var2.getType(var3.south()).getBlock() == Blocks.COBBLESTONE_WALL)) {
+      if(var4 == EnumDirection.EnumAxis.Z && (var2.getType(var3.west()).getBlock() == BlockStainedGlassPane.COBBLESTONE_WALL || var2.getType(var3.east()).getBlock() == BlockStainedGlassPane.COBBLESTONE_WALL) || var4 == EnumDirection.EnumAxis.X && (var2.getType(var3.north()).getBlock() == BlockStainedGlassPane.COBBLESTONE_WALL || var2.getType(var3.south()).getBlock() == BlockStainedGlassPane.COBBLESTONE_WALL)) {
          var1 = var1.set(N, Boolean.valueOf(true));
       }
 

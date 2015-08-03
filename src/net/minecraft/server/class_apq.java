@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockChorusFlower;
 import net.minecraft.server.BlockFalling;
 import net.minecraft.server.IBlockData;
@@ -85,7 +85,7 @@ public class class_apq implements class_aoh {
                      for(int var47 = 0; var47 < 8; ++var47) {
                         IBlockData var48 = null;
                         if(var43 > 0.0D) {
-                           var48 = Blocks.END_STONE.getBlockData();
+                           var48 = BlockStainedGlassPane.END_STONE.getBlockData();
                         }
 
                         int var49 = var40 + var8 * 8;
@@ -115,18 +115,18 @@ public class class_apq implements class_aoh {
          for(int var3 = 0; var3 < 16; ++var3) {
             byte var4 = 1;
             int var5 = -1;
-            IBlockData var6 = Blocks.END_STONE.getBlockData();
-            IBlockData var7 = Blocks.END_STONE.getBlockData();
+            IBlockData var6 = BlockStainedGlassPane.END_STONE.getBlockData();
+            IBlockData var7 = BlockStainedGlassPane.END_STONE.getBlockData();
 
             for(int var8 = 127; var8 >= 0; --var8) {
                IBlockData var9 = var1.a(var2, var8, var3);
                if(var9.getBlock().getMaterial() == Material.AIR) {
                   var5 = -1;
-               } else if(var9.getBlock() == Blocks.STONE) {
+               } else if(var9.getBlock() == BlockStainedGlassPane.STONE) {
                   if(var5 == -1) {
                      if(var4 <= 0) {
-                        var6 = Blocks.AIR.getBlockData();
-                        var7 = Blocks.END_STONE.getBlockData();
+                        var6 = BlockStainedGlassPane.AIR.getBlockData();
+                        var7 = BlockStainedGlassPane.END_STONE.getBlockData();
                      }
 
                      var5 = var4;
@@ -290,7 +290,7 @@ public class class_apq implements class_aoh {
             int var10 = this.j.m(var4.add(var8, 0, var9)).getY();
             if(var10 > 0) {
                int var11 = var10 - 1;
-               if(this.j.isEmpty(var4.add(var8, var11 + 1, var9)) && this.j.getType(var4.add(var8, var11, var9)).getBlock() == Blocks.END_STONE) {
+               if(this.j.isEmpty(var4.add(var8, var11 + 1, var9)) && this.j.getType(var4.add(var8, var11, var9)).getBlock() == BlockStainedGlassPane.END_STONE) {
                   BlockChorusFlower.a(this.j, var4.add(var8, var11 + 1, var9), this.f, 8);
                }
             }

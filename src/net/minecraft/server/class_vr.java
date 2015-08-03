@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_aih;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
@@ -64,7 +64,7 @@ public class class_vr extends class_vn {
    public void a(class_pc var1) {
       super.a(var1);
       if(!var1.c() && this.o.R().b("doEntityDrops")) {
-         this.a(new ItemStack(Blocks.FURNACE, 1), 0.0F);
+         this.a(new ItemStack(BlockStainedGlassPane.FURNACE, 1), 0.0F);
       }
 
    }
@@ -110,7 +110,7 @@ public class class_vr extends class_vn {
    }
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
-      if(var2 != null && var2.getItem() == Items.j) {
+      if(var2 != null && var2.getItem() == Items.COAL) {
          if(!var1.bH.instabuild) {
             --var2.count;
          }
@@ -151,6 +151,6 @@ public class class_vr extends class_vn {
    }
 
    public IBlockData u() {
-      return (this.j()?Blocks.LIT_FURNACE:Blocks.FURNACE).getBlockData().set(class_aih.a, EnumDirection.NORTH);
+      return (this.j()?BlockStainedGlassPane.LIT_FURNACE:BlockStainedGlassPane.FURNACE).getBlockData().set(class_aih.a, EnumDirection.NORTH);
    }
 }

@@ -10,7 +10,7 @@ public class class_aci {
    private Item[][] b;
 
    public class_aci() {
-      this.b = new Item[][]{{Items.aH, Items.l, Items.k, Items.m}, {Items.S, Items.aa, Items.ae, Items.ai}, {Items.T, Items.ab, Items.af, Items.aj}, {Items.U, Items.ac, Items.ag, Items.ak}, {Items.V, Items.ad, Items.ah, Items.al}};
+      this.b = new Item[][]{{Items.aH, Items.IRON_INGOT, Items.DIAMOND, Items.GOLD_INGOT}, {Items.S, Items.aa, Items.ae, Items.ai}, {Items.T, Items.ab, Items.af, Items.aj}, {Items.U, Items.ac, Items.ag, Items.ak}, {Items.V, Items.ad, Items.ah, Items.al}};
    }
 
    public void a(class_act var1) {

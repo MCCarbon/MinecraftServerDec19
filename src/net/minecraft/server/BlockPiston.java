@@ -123,13 +123,13 @@ public class BlockPiston extends class_ahi {
 				((TileEntityPiston) var13).h();
 			}
 
-			var1.setTypeAndData(var2, Blocks.PISTON_EXTENSION.getBlockData().set(BlockPistonMoving.FACING, var6).set(BlockPistonMoving.TYPE, N ? BlockPistonExtension.EnumPistonType.STICKY : BlockPistonExtension.EnumPistonType.DEFAULT), 3);
+			var1.setTypeAndData(var2, BlockStainedGlassPane.PISTON_EXTENSION.getBlockData().set(BlockPistonMoving.FACING, var6).set(BlockPistonMoving.TYPE, N ? BlockPistonExtension.EnumPistonType.STICKY : BlockPistonExtension.EnumPistonType.DEFAULT), 3);
 			var1.a(var2, BlockPistonMoving.a(fromLegacyData(var5), var6, false, true));
 			if (N) {
 				BlockPosition var8 = var2.add(var6.getAdjacentX() * 2, var6.getAdjacentY() * 2, var6.getAdjacentZ() * 2);
 				Block var9 = var1.getType(var8).getBlock();
 				boolean var10 = false;
-				if (var9 == Blocks.PISTON_EXTENSION) {
+				if (var9 == BlockStainedGlassPane.PISTON_EXTENSION) {
 					TileEntity var11 = var1.getTileEntity(var8);
 					if (var11 instanceof TileEntityPiston) {
 						TileEntityPiston var12 = (TileEntityPiston) var11;
@@ -140,7 +140,7 @@ public class BlockPiston extends class_ahi {
 					}
 				}
 
-				if (!var10 && (var9.getMaterial() != Material.AIR) && a(var9, var1, var8, var6.opposite(), false) && ((var9.getPushReaction() == 0) || (var9 == Blocks.PISTON) || (var9 == Blocks.STICKY_PISTON))) {
+				if (!var10 && (var9.getMaterial() != Material.AIR) && a(var9, var1, var8, var6.opposite(), false) && ((var9.getPushReaction() == 0) || (var9 == BlockStainedGlassPane.PISTON) || (var9 == BlockStainedGlassPane.STICKY_PISTON))) {
 					this.a(var1, var2, var6, false);
 				}
 			} else {
@@ -229,14 +229,14 @@ public class BlockPiston extends class_ahi {
 	}
 
 	public static boolean a(Block var0, World var1, BlockPosition var2, EnumDirection var3, boolean var4) {
-		if (var0 == Blocks.OBSIDIAN) {
+		if (var0 == BlockStainedGlassPane.OBSIDIAN) {
 			return false;
 		} else if (!var1.ag().a(var2)) {
 			return false;
 		} else if ((var2.getY() < 0) || ((var3 == EnumDirection.DOWN) && (var2.getY() == 0))) {
 			return false;
 		} else if ((var2.getY() <= (var1.V() - 1)) && ((var3 != EnumDirection.UP) || (var2.getY() != (var1.V() - 1)))) {
-			if ((var0 != Blocks.PISTON) && (var0 != Blocks.STICKY_PISTON)) {
+			if ((var0 != BlockStainedGlassPane.PISTON) && (var0 != BlockStainedGlassPane.STICKY_PISTON)) {
 				if (var0.getStrength(var1, var2) == -1.0F) {
 					return false;
 				}
@@ -296,7 +296,7 @@ public class BlockPiston extends class_ahi {
 				var14.toLegacyData(var18);
 				var1.setAir(var12);
 				var12 = var12.shift(var10);
-				var1.setTypeAndData(var12, Blocks.PISTON_EXTENSION.getBlockData().set(FACING, var3), 4);
+				var1.setTypeAndData(var12, BlockStainedGlassPane.PISTON_EXTENSION.getBlockData().set(FACING, var3), 4);
 				var1.a(var12, BlockPistonMoving.a(var18, var3, var4, false));
 				--var8;
 				var9[var8] = var14;
@@ -305,8 +305,8 @@ public class BlockPiston extends class_ahi {
 			BlockPosition var16 = var2.shift(var3);
 			if (var4) {
 				BlockPistonExtension.EnumPistonType var17 = N ? BlockPistonExtension.EnumPistonType.STICKY : BlockPistonExtension.EnumPistonType.DEFAULT;
-				var18 = Blocks.PISTON_HEAD.getBlockData().set(class_ahi.FACING, var3).set(BlockPistonExtension.TYPE, var17);
-				IBlockData var20 = Blocks.PISTON_EXTENSION.getBlockData().set(BlockPistonMoving.FACING, var3).set(BlockPistonMoving.TYPE, N ? BlockPistonExtension.EnumPistonType.STICKY : BlockPistonExtension.EnumPistonType.DEFAULT);
+				var18 = BlockStainedGlassPane.PISTON_HEAD.getBlockData().set(class_ahi.FACING, var3).set(BlockPistonExtension.TYPE, var17);
+				IBlockData var20 = BlockStainedGlassPane.PISTON_EXTENSION.getBlockData().set(BlockPistonMoving.FACING, var3).set(BlockPistonMoving.TYPE, N ? BlockPistonExtension.EnumPistonType.STICKY : BlockPistonExtension.EnumPistonType.DEFAULT);
 				var1.setTypeAndData(var16, var20, 4);
 				var1.a(var16, BlockPistonMoving.a(var18, var3, true, false));
 			}
@@ -321,7 +321,7 @@ public class BlockPiston extends class_ahi {
 			}
 
 			if (var4) {
-				var1.c(var16, Blocks.PISTON_HEAD);
+				var1.c(var16, BlockStainedGlassPane.PISTON_HEAD);
 				var1.c(var2, this);
 			}
 

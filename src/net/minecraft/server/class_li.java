@@ -5,7 +5,7 @@ import net.minecraft.server.class_abw;
 import net.minecraft.server.World;
 import net.minecraft.server.WorldSettings;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_agu;
+import net.minecraft.server.BlockChest;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.IBlockData;
@@ -279,8 +279,8 @@ public class class_li {
          if(var14 instanceof ITileInventory) {
             Block var15 = var2.getType(var5).getBlock();
             ITileInventory var16 = (ITileInventory)var14;
-            if(var16 instanceof TileEntityChest && var15 instanceof class_agu) {
-               var16 = ((class_agu)var15).f(var2, var5);
+            if(var16 instanceof TileEntityChest && var15 instanceof BlockChest) {
+               var16 = ((BlockChest)var15).f(var2, var5);
             }
 
             if(var16 != null) {

@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_adi;
 import net.minecraft.server.class_adj;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_za;
+import net.minecraft.server.ItemArmor;
 
 public class class_adg extends class_adi {
    protected class_adg(class_adi.class_a_in_class_adi var1, class_pw... var2) {
@@ -30,6 +30,6 @@ public class class_adg extends class_adi {
    }
 
    public static boolean a(ItemStack var0, int var1, Random var2) {
-      return var0.getItem() instanceof class_za && var2.nextFloat() < 0.6F?false:var2.nextInt(var1 + 1) > 0;
+      return var0.getItem() instanceof ItemArmor && var2.nextFloat() < 0.6F?false:var2.nextInt(var1 + 1) > 0;
    }
 }

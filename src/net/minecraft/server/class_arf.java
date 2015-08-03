@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.class_ajn;
 import net.minecraft.server.class_ajo;
@@ -30,7 +30,7 @@ public class class_arf extends class_apw {
       if(var6 >= 1 && var6 + var4 + 1 < 256) {
          BlockPosition var8 = var3.down();
          Block var9 = var1.getType(var8).getBlock();
-         if(var9 != Blocks.GRASS && var9 != Blocks.DIRT) {
+         if(var9 != BlockStainedGlassPane.GRASS && var9 != BlockStainedGlassPane.DIRT) {
             return false;
          } else if(!this.a(var1, var3, var4)) {
             return false;
@@ -178,7 +178,7 @@ public class class_arf extends class_apw {
    }
 
    static {
-      a = Blocks.LOG2.getBlockData().set(class_ajo.b, BlockWood.EnumLogVariant.DARK_OAK);
-      b = Blocks.LEAVES2.getBlockData().set(class_ajn.Q, BlockWood.EnumLogVariant.DARK_OAK).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      a = BlockStainedGlassPane.LOG2.getBlockData().set(class_ajo.b, BlockWood.EnumLogVariant.DARK_OAK);
+      b = BlockStainedGlassPane.LEAVES2.getBlockData().set(class_ajn.Q, BlockWood.EnumLogVariant.DARK_OAK).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

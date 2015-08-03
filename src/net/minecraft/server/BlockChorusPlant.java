@@ -26,7 +26,7 @@ public class BlockChorusPlant extends Block {
 		Block east = access.getType(position.east()).getBlock();
 		Block south = access.getType(position.south()).getBlock();
 		Block west = access.getType(position.west()).getBlock();
-		return blockdata.set(DOWN, Boolean.valueOf((downB == this) || (downB == Blocks.CHORUS_FLOWER) || (downB == Blocks.END_STONE))).set(UP, Boolean.valueOf((up == this) || (up == Blocks.CHORUS_FLOWER))).set(NORTH, Boolean.valueOf((north == this) || (north == Blocks.CHORUS_FLOWER))).set(EAST, Boolean.valueOf((east == this) || (east == Blocks.CHORUS_FLOWER))).set(SOUTH, Boolean.valueOf((south == this) || (south == Blocks.CHORUS_FLOWER))).set(WEST, Boolean.valueOf((west == this) || (west == Blocks.CHORUS_FLOWER)));
+		return blockdata.set(DOWN, Boolean.valueOf((downB == this) || (downB == BlockStainedGlassPane.CHORUS_FLOWER) || (downB == BlockStainedGlassPane.END_STONE))).set(UP, Boolean.valueOf((up == this) || (up == BlockStainedGlassPane.CHORUS_FLOWER))).set(NORTH, Boolean.valueOf((north == this) || (north == BlockStainedGlassPane.CHORUS_FLOWER))).set(EAST, Boolean.valueOf((east == this) || (east == BlockStainedGlassPane.CHORUS_FLOWER))).set(SOUTH, Boolean.valueOf((south == this) || (south == BlockStainedGlassPane.CHORUS_FLOWER))).set(WEST, Boolean.valueOf((west == this) || (west == BlockStainedGlassPane.CHORUS_FLOWER)));
 	}
 
 	@Override
@@ -90,7 +90,7 @@ public class BlockChorusPlant extends Block {
 			do {
 				if (!directionIt.hasNext()) {
 					Block var10 = world.getType(position.down()).getBlock();
-					if ((var10 != this) && (var10 != Blocks.END_STONE)) {
+					if ((var10 != this) && (var10 != BlockStainedGlassPane.END_STONE)) {
 						return false;
 					}
 
@@ -107,7 +107,7 @@ public class BlockChorusPlant extends Block {
 			}
 
 			block = world.getType(searchposition.down()).getBlock();
-		} while ((block != this) && (block != Blocks.END_STONE));
+		} while ((block != this) && (block != BlockStainedGlassPane.END_STONE));
 
 		return true;
 	}

@@ -10,7 +10,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.WorldServer;
@@ -179,7 +179,7 @@ public final class class_aeu {
                return false;
             } else {
                Block var5 = var1.getType(var4).getBlock();
-               boolean var6 = var5 != Blocks.BEDROCK && var5 != Blocks.BARRIER;
+               boolean var6 = var5 != BlockStainedGlassPane.BEDROCK && var5 != BlockStainedGlassPane.BARRIER;
                return var6 && !var3.isOccluding() && !var3.getMaterial().isLiquid() && !var1.getType(var2.up()).getBlock().isOccluding();
             }
          }

@@ -8,7 +8,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.BlockWood;
 import net.minecraft.server.BlockLongGrass;
@@ -90,7 +90,7 @@ public class class_aid extends BlockContainer {
    }
 
    private boolean a(Block var1, int var2) {
-      return var1 != Blocks.YELLOW_FLOWER && var1 != Blocks.RED_FLOWER && var1 != Blocks.CACTUS && var1 != Blocks.BROWN_MUSHROOM && var1 != Blocks.RED_MUSHROOM && var1 != Blocks.SAPLING && var1 != Blocks.DEADBUSH?var1 == Blocks.TALLGRASS && var2 == BlockLongGrass.EnumTallGrassType.FERN.getId():true;
+      return var1 != BlockStainedGlassPane.YELLOW_FLOWER && var1 != BlockStainedGlassPane.RED_FLOWER && var1 != BlockStainedGlassPane.CACTUS && var1 != BlockStainedGlassPane.BROWN_MUSHROOM && var1 != BlockStainedGlassPane.RED_MUSHROOM && var1 != BlockStainedGlassPane.SAPLING && var1 != BlockStainedGlassPane.DEADBUSH?var1 == BlockStainedGlassPane.TALLGRASS && var2 == BlockLongGrass.EnumTallGrassType.FERN.getId():true;
    }
 
    public int getDropData(World var1, BlockPosition var2) {
@@ -144,50 +144,50 @@ public class class_aid extends BlockContainer {
       int var4 = 0;
       switch(var2) {
       case 1:
-         var3 = Blocks.RED_FLOWER;
+         var3 = BlockStainedGlassPane.RED_FLOWER;
          var4 = BlockFlowers.EnumFlowerVarient.POPPY.getId();
          break;
       case 2:
-         var3 = Blocks.YELLOW_FLOWER;
+         var3 = BlockStainedGlassPane.YELLOW_FLOWER;
          break;
       case 3:
-         var3 = Blocks.SAPLING;
+         var3 = BlockStainedGlassPane.SAPLING;
          var4 = BlockWood.EnumLogVariant.OAK.getId();
          break;
       case 4:
-         var3 = Blocks.SAPLING;
+         var3 = BlockStainedGlassPane.SAPLING;
          var4 = BlockWood.EnumLogVariant.SPRUCE.getId();
          break;
       case 5:
-         var3 = Blocks.SAPLING;
+         var3 = BlockStainedGlassPane.SAPLING;
          var4 = BlockWood.EnumLogVariant.BIRCH.getId();
          break;
       case 6:
-         var3 = Blocks.SAPLING;
+         var3 = BlockStainedGlassPane.SAPLING;
          var4 = BlockWood.EnumLogVariant.JUNGLE.getId();
          break;
       case 7:
-         var3 = Blocks.RED_MUSHROOM;
+         var3 = BlockStainedGlassPane.RED_MUSHROOM;
          break;
       case 8:
-         var3 = Blocks.BROWN_MUSHROOM;
+         var3 = BlockStainedGlassPane.BROWN_MUSHROOM;
          break;
       case 9:
-         var3 = Blocks.CACTUS;
+         var3 = BlockStainedGlassPane.CACTUS;
          break;
       case 10:
-         var3 = Blocks.DEADBUSH;
+         var3 = BlockStainedGlassPane.DEADBUSH;
          break;
       case 11:
-         var3 = Blocks.TALLGRASS;
+         var3 = BlockStainedGlassPane.TALLGRASS;
          var4 = BlockLongGrass.EnumTallGrassType.FERN.getId();
          break;
       case 12:
-         var3 = Blocks.SAPLING;
+         var3 = BlockStainedGlassPane.SAPLING;
          var4 = BlockWood.EnumLogVariant.ACACIA.getId();
          break;
       case 13:
-         var3 = Blocks.SAPLING;
+         var3 = BlockStainedGlassPane.SAPLING;
          var4 = BlockWood.EnumLogVariant.DARK_OAK.getId();
       }
 
@@ -211,7 +211,7 @@ public class class_aid extends BlockContainer {
          if(var7 instanceof ItemBlock) {
             int var8 = var6.c();
             Block var9 = Block.getByItem(var7);
-            if(var9 == Blocks.SAPLING) {
+            if(var9 == BlockStainedGlassPane.SAPLING) {
                switch(class_aid.SyntheticClass_1.a[BlockWood.EnumLogVariant.getById(var8).ordinal()]) {
                case 1:
                   var4 = class_aid.class_a_in_class_aid.l;
@@ -234,7 +234,7 @@ public class class_aid extends BlockContainer {
                default:
                   var4 = class_aid.class_a_in_class_aid.a;
                }
-            } else if(var9 == Blocks.TALLGRASS) {
+            } else if(var9 == BlockStainedGlassPane.TALLGRASS) {
                switch(var8) {
                case 0:
                   var4 = class_aid.class_a_in_class_aid.t;
@@ -245,9 +245,9 @@ public class class_aid extends BlockContainer {
                default:
                   var4 = class_aid.class_a_in_class_aid.a;
                }
-            } else if(var9 == Blocks.YELLOW_FLOWER) {
+            } else if(var9 == BlockStainedGlassPane.YELLOW_FLOWER) {
                var4 = class_aid.class_a_in_class_aid.k;
-            } else if(var9 == Blocks.RED_FLOWER) {
+            } else if(var9 == BlockStainedGlassPane.RED_FLOWER) {
                switch(class_aid.SyntheticClass_1.b[BlockFlowers.EnumFlowerVarient.getById(BlockFlowers.EnumFlowerType.RED, var8).ordinal()]) {
                case 1:
                   var4 = class_aid.class_a_in_class_aid.b;
@@ -279,13 +279,13 @@ public class class_aid extends BlockContainer {
                default:
                   var4 = class_aid.class_a_in_class_aid.a;
                }
-            } else if(var9 == Blocks.RED_MUSHROOM) {
+            } else if(var9 == BlockStainedGlassPane.RED_MUSHROOM) {
                var4 = class_aid.class_a_in_class_aid.r;
-            } else if(var9 == Blocks.BROWN_MUSHROOM) {
+            } else if(var9 == BlockStainedGlassPane.BROWN_MUSHROOM) {
                var4 = class_aid.class_a_in_class_aid.s;
-            } else if(var9 == Blocks.DEADBUSH) {
+            } else if(var9 == BlockStainedGlassPane.DEADBUSH) {
                var4 = class_aid.class_a_in_class_aid.t;
-            } else if(var9 == Blocks.CACTUS) {
+            } else if(var9 == BlockStainedGlassPane.CACTUS) {
                var4 = class_aid.class_a_in_class_aid.v;
             }
          }

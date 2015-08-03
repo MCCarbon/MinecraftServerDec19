@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Chunk;
@@ -63,7 +63,7 @@ public class class_aew implements IBlockAccess {
          }
       }
 
-      return Blocks.AIR.getBlockData();
+      return BlockStainedGlassPane.AIR.getBlockData();
    }
 
    public boolean isEmpty(BlockPosition var1) {

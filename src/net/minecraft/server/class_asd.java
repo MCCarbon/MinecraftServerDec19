@@ -8,7 +8,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockStairs;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityMobSpawner;
@@ -138,29 +138,29 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 0, 0, 8, 1, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 8, 5, 8, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 6, 0, 8, 6, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 2, 5, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 2, 0, 8, 5, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 3, 0, 1, 4, 0, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 7, 3, 0, 7, 4, 0, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 4, 8, 2, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 4, 2, 2, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 6, 1, 4, 7, 2, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 8, 8, 3, 8, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 6, 0, 3, 7, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 8, 3, 6, 8, 3, 7, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 4, 0, 5, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 8, 3, 4, 8, 5, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 3, 5, 2, 5, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 3, 5, 7, 5, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 4, 5, 1, 5, 5, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 7, 4, 5, 7, 5, 5, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 8, 1, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 8, 5, 8, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 6, 0, 8, 6, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 2, 5, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 2, 0, 8, 5, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 3, 0, 1, 4, 0, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 7, 3, 0, 7, 4, 0, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 4, 8, 2, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 4, 2, 2, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 6, 1, 4, 7, 2, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 8, 8, 3, 8, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 6, 0, 3, 7, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 8, 3, 6, 8, 3, 7, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 4, 0, 5, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 8, 3, 4, 8, 5, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 3, 5, 2, 5, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 3, 5, 7, 5, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 4, 5, 1, 5, 5, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 7, 4, 5, 7, 5, 5, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 5; ++var4) {
             for(int var5 = 0; var5 <= 8; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var5, -1, var4, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var5, -1, var4, var3);
             }
          }
 
@@ -188,30 +188,30 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         IBlockData var4 = Blocks.NETHER_BTICK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
+         IBlockData var4 = BlockStainedGlassPane.NETHER_BTICK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
 
          for(int var5 = 0; var5 <= 9; ++var5) {
             int var6 = Math.max(1, 7 - var5);
             int var7 = Math.min(Math.max(var6 + 5, 14 - var5), 13);
             int var8 = var5;
-            this.a(var1, var3, 0, 0, var5, 4, var6, var5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-            this.a(var1, var3, 1, var6 + 1, var5, 3, var7 - 1, var5, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, 0, 0, var5, 4, var6, var5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+            this.a(var1, var3, 1, var6 + 1, var5, 3, var7 - 1, var5, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             if(var5 <= 6) {
                this.a(var1, var4, 1, var6 + 1, var5, var3);
                this.a(var1, var4, 2, var6 + 1, var5, var3);
                this.a(var1, var4, 3, var6 + 1, var5, var3);
             }
 
-            this.a(var1, var3, 0, var7, var5, 4, var7, var5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-            this.a(var1, var3, 0, var6 + 1, var5, 0, var7 - 1, var5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-            this.a(var1, var3, 4, var6 + 1, var5, 4, var7 - 1, var5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+            this.a(var1, var3, 0, var7, var5, 4, var7, var5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+            this.a(var1, var3, 0, var6 + 1, var5, 0, var7 - 1, var5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+            this.a(var1, var3, 4, var6 + 1, var5, 4, var7 - 1, var5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
             if((var5 & 1) == 0) {
-               this.a(var1, var3, 0, var6 + 2, var5, 0, var6 + 3, var5, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-               this.a(var1, var3, 4, var6 + 2, var5, 4, var6 + 3, var5, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+               this.a(var1, var3, 0, var6 + 2, var5, 0, var6 + 3, var5, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+               this.a(var1, var3, 4, var6 + 2, var5, 4, var6 + 3, var5, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
             }
 
             for(int var9 = 0; var9 <= 4; ++var9) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var9, -1, var8, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var9, -1, var8, var3);
             }
          }
 
@@ -252,25 +252,25 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 4, 3, 5, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 3, 4, 1, 4, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 3, 3, 4, 3, 4, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 4, 1, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 4, 5, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 4, 2, 0, 4, 5, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 3, 1, 4, 4, 1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 4, 3, 3, 4, 4, 3, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 0, 5, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 4, 3, 5, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 3, 4, 1, 4, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 3, 3, 4, 3, 4, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
          if(this.b && var3.b((BaseBlockPosition)(new BlockPosition(this.a(3, 3), this.d(2), this.b(3, 3))))) {
             this.b = false;
             this.a(var1, var3, var2, 3, 2, 3, a, 2 + var2.nextInt(4));
          }
 
-         this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 6, 0, 4, 6, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 4; ++var4) {
             for(int var5 = 0; var5 <= 4; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
             }
          }
 
@@ -311,25 +311,25 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 0, 5, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 1, 0, 4, 1, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 3, 0, 4, 3, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 4, 2, 0, 4, 5, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 4, 4, 5, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 3, 4, 1, 4, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 3, 3, 4, 3, 4, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 4, 1, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 4, 5, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 0, 5, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 1, 0, 4, 1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 3, 0, 4, 3, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 4, 2, 0, 4, 5, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 4, 4, 5, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 3, 4, 1, 4, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 3, 3, 4, 3, 4, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
          if(this.b && var3.b((BaseBlockPosition)(new BlockPosition(this.a(1, 3), this.d(2), this.b(1, 3))))) {
             this.b = false;
             this.a(var1, var3, var2, 1, 2, 3, a, 2 + var2.nextInt(4));
          }
 
-         this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 6, 0, 4, 6, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 4; ++var4) {
             for(int var5 = 0; var5 <= 4; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
             }
          }
 
@@ -359,17 +359,17 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 0, 5, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 2, 0, 4, 5, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 4, 0, 5, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 2, 4, 4, 5, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 4, 1, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 4, 5, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 0, 5, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 2, 0, 4, 5, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 4, 0, 5, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 2, 4, 4, 5, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 6, 0, 4, 6, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 4; ++var4) {
             for(int var5 = 0; var5 <= 4; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
             }
          }
 
@@ -397,19 +397,19 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 0, 0, 4, 1, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 4, 5, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 0, 5, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 2, 0, 4, 5, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 1, 0, 4, 1, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 3, 0, 4, 3, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 4, 3, 1, 4, 4, 1, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 4, 3, 3, 4, 4, 3, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 6, 0, 4, 6, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 4, 1, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 4, 5, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 0, 5, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 2, 0, 4, 5, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 1, 0, 4, 1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 3, 0, 4, 3, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 4, 3, 1, 4, 4, 1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 4, 3, 3, 4, 4, 3, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 6, 0, 4, 6, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 4; ++var4) {
             for(int var5 = 0; var5 <= 4; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
             }
          }
 
@@ -438,45 +438,45 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 3, 0, 12, 4, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 0, 12, 13, 12, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 0, 1, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 11, 5, 0, 12, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 11, 4, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 8, 5, 11, 10, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 9, 11, 7, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 0, 4, 12, 1, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 8, 5, 0, 10, 12, 1, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 9, 0, 7, 12, 1, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 11, 2, 10, 12, 10, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 0, 12, 4, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 0, 12, 13, 12, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 0, 1, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 11, 5, 0, 12, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 11, 4, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 8, 5, 11, 10, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 9, 11, 7, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 0, 4, 12, 1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 8, 5, 0, 10, 12, 1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 9, 0, 7, 12, 1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 11, 2, 10, 12, 10, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          int var4;
          for(var4 = 1; var4 <= 11; var4 += 2) {
-            this.a(var1, var3, var4, 10, 0, var4, 11, 0, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, var3, var4, 10, 12, var4, 11, 12, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, var3, 0, 10, var4, 0, 11, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, var3, 12, 10, var4, 12, 11, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, Blocks.NETHER_BRICK.getBlockData(), var4, 13, 0, var3);
-            this.a(var1, Blocks.NETHER_BRICK.getBlockData(), var4, 13, 12, var3);
-            this.a(var1, Blocks.NETHER_BRICK.getBlockData(), 0, 13, var4, var3);
-            this.a(var1, Blocks.NETHER_BRICK.getBlockData(), 12, 13, var4, var3);
-            this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), var4 + 1, 13, 0, var3);
-            this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), var4 + 1, 13, 12, var3);
-            this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 0, 13, var4 + 1, var3);
-            this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 12, 13, var4 + 1, var3);
+            this.a(var1, var3, var4, 10, 0, var4, 11, 0, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, var4, 10, 12, var4, 11, 12, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, 0, 10, var4, 0, 11, var4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, 12, 10, var4, 12, 11, var4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, 13, 0, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, 13, 12, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 0, 13, var4, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 12, 13, var4, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), var4 + 1, 13, 0, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), var4 + 1, 13, 12, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 0, 13, var4 + 1, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 12, 13, var4 + 1, var3);
          }
 
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 0, var3);
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 12, var3);
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 0, var3);
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 12, 13, 0, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 0, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 12, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 0, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 12, 13, 0, var3);
 
          for(var4 = 3; var4 <= 9; var4 += 2) {
-            this.a(var1, var3, 1, 7, var4, 1, 8, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, var3, 11, 7, var4, 11, 8, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, 1, 7, var4, 1, 8, var4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, 11, 7, var4, 11, 8, var4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
          }
 
-         IBlockData var9 = Blocks.NETHER_BTICK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         IBlockData var9 = BlockStainedGlassPane.NETHER_BTICK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
 
          int var5;
          int var7;
@@ -488,13 +488,13 @@ public class class_asd {
             }
 
             if(var6 >= 5 && var6 <= 8) {
-               this.a(var1, var3, 5, 5, var6, 7, var5 + 4, var6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+               this.a(var1, var3, 5, 5, var6, 7, var5 + 4, var6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
             } else if(var6 >= 9 && var6 <= 10) {
-               this.a(var1, var3, 5, 8, var6, 7, var5 + 4, var6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+               this.a(var1, var3, 5, 8, var6, 7, var5 + 4, var6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
             }
 
             if(var5 >= 1) {
-               this.a(var1, var3, 5, 6 + var5, var6, 7, 9 + var5, var6, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, 5, 6 + var5, var6, 7, 9 + var5, var6, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             }
          }
 
@@ -502,15 +502,15 @@ public class class_asd {
             this.a(var1, var9, var5, 12, 11, var3);
          }
 
-         this.a(var1, var3, 5, 6, 7, 5, 7, 7, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 7, 6, 7, 7, 7, 7, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 5, 13, 12, 7, 13, 12, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 2, 3, 5, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 9, 3, 5, 10, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 4, 2, 5, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 9, 5, 2, 10, 5, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 9, 5, 9, 10, 5, 10, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 10, 5, 4, 10, 5, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 6, 7, 5, 7, 7, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 7, 6, 7, 7, 7, 7, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 5, 13, 12, 7, 13, 12, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 2, 3, 5, 3, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 9, 3, 5, 10, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 4, 2, 5, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 9, 5, 2, 10, 5, 3, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 9, 5, 9, 10, 5, 10, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 10, 5, 4, 10, 5, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
          IBlockData var10 = var9.set(BlockStairs.a, EnumDirection.EAST);
          IBlockData var11 = var9.set(BlockStairs.a, EnumDirection.WEST);
          this.a(var1, var11, 4, 5, 2, var3);
@@ -521,29 +521,29 @@ public class class_asd {
          this.a(var1, var10, 8, 5, 3, var3);
          this.a(var1, var10, 8, 5, 9, var3);
          this.a(var1, var10, 8, 5, 10, var3);
-         this.a(var1, var3, 3, 4, 4, 4, 4, 8, Blocks.SOUL_SAND.getBlockData(), Blocks.SOUL_SAND.getBlockData(), false);
-         this.a(var1, var3, 8, 4, 4, 9, 4, 8, Blocks.SOUL_SAND.getBlockData(), Blocks.SOUL_SAND.getBlockData(), false);
-         this.a(var1, var3, 3, 5, 4, 4, 5, 8, Blocks.NETHER_WART.getBlockData(), Blocks.NETHER_WART.getBlockData(), false);
-         this.a(var1, var3, 8, 5, 4, 9, 5, 8, Blocks.NETHER_WART.getBlockData(), Blocks.NETHER_WART.getBlockData(), false);
-         this.a(var1, var3, 4, 2, 0, 8, 2, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 4, 12, 2, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 0, 0, 8, 1, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 0, 9, 8, 1, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 4, 3, 1, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 9, 0, 4, 12, 1, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 3, 4, 4, 4, 4, 8, BlockStainedGlassPane.SOUL_SAND.getBlockData(), BlockStainedGlassPane.SOUL_SAND.getBlockData(), false);
+         this.a(var1, var3, 8, 4, 4, 9, 4, 8, BlockStainedGlassPane.SOUL_SAND.getBlockData(), BlockStainedGlassPane.SOUL_SAND.getBlockData(), false);
+         this.a(var1, var3, 3, 5, 4, 4, 5, 8, BlockStainedGlassPane.NETHER_WART.getBlockData(), BlockStainedGlassPane.NETHER_WART.getBlockData(), false);
+         this.a(var1, var3, 8, 5, 4, 9, 5, 8, BlockStainedGlassPane.NETHER_WART.getBlockData(), BlockStainedGlassPane.NETHER_WART.getBlockData(), false);
+         this.a(var1, var3, 4, 2, 0, 8, 2, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 4, 12, 2, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 0, 0, 8, 1, 3, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 0, 9, 8, 1, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 4, 3, 1, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 9, 0, 4, 12, 1, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          int var8;
          for(var7 = 4; var7 <= 8; ++var7) {
             for(var8 = 0; var8 <= 2; ++var8) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var7, -1, var8, var3);
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var7, -1, 12 - var8, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var7, -1, var8, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var7, -1, 12 - var8, var3);
             }
          }
 
          for(var7 = 0; var7 <= 2; ++var7) {
             for(var8 = 4; var8 <= 8; ++var8) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var7, -1, var8, var3);
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), 12 - var7, -1, var8, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var7, -1, var8, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 12 - var7, -1, var8, var3);
             }
          }
 
@@ -571,74 +571,74 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 3, 0, 12, 4, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 0, 12, 13, 12, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 0, 1, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 11, 5, 0, 12, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 11, 4, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 8, 5, 11, 10, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 9, 11, 7, 12, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 0, 4, 12, 1, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 8, 5, 0, 10, 12, 1, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 9, 0, 7, 12, 1, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 11, 2, 10, 12, 10, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 8, 0, 7, 8, 0, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 0, 12, 4, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 0, 12, 13, 12, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 0, 1, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 11, 5, 0, 12, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 11, 4, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 8, 5, 11, 10, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 9, 11, 7, 12, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 0, 4, 12, 1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 8, 5, 0, 10, 12, 1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 9, 0, 7, 12, 1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 11, 2, 10, 12, 10, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 8, 0, 7, 8, 0, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
 
          int var4;
          for(var4 = 1; var4 <= 11; var4 += 2) {
-            this.a(var1, var3, var4, 10, 0, var4, 11, 0, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, var3, var4, 10, 12, var4, 11, 12, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, var3, 0, 10, var4, 0, 11, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, var3, 12, 10, var4, 12, 11, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, Blocks.NETHER_BRICK.getBlockData(), var4, 13, 0, var3);
-            this.a(var1, Blocks.NETHER_BRICK.getBlockData(), var4, 13, 12, var3);
-            this.a(var1, Blocks.NETHER_BRICK.getBlockData(), 0, 13, var4, var3);
-            this.a(var1, Blocks.NETHER_BRICK.getBlockData(), 12, 13, var4, var3);
-            this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), var4 + 1, 13, 0, var3);
-            this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), var4 + 1, 13, 12, var3);
-            this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 0, 13, var4 + 1, var3);
-            this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 12, 13, var4 + 1, var3);
+            this.a(var1, var3, var4, 10, 0, var4, 11, 0, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, var4, 10, 12, var4, 11, 12, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, 0, 10, var4, 0, 11, var4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, 12, 10, var4, 12, 11, var4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, 13, 0, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, 13, 12, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 0, 13, var4, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 12, 13, var4, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), var4 + 1, 13, 0, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), var4 + 1, 13, 12, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 0, 13, var4 + 1, var3);
+            this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 12, 13, var4 + 1, var3);
          }
 
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 0, var3);
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 12, var3);
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 0, var3);
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 12, 13, 0, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 0, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 12, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 0, 13, 0, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 12, 13, 0, var3);
 
          for(var4 = 3; var4 <= 9; var4 += 2) {
-            this.a(var1, var3, 1, 7, var4, 1, 8, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-            this.a(var1, var3, 11, 7, var4, 11, 8, var4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, 1, 7, var4, 1, 8, var4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+            this.a(var1, var3, 11, 7, var4, 11, 8, var4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
          }
 
-         this.a(var1, var3, 4, 2, 0, 8, 2, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 4, 12, 2, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 0, 0, 8, 1, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 0, 9, 8, 1, 12, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 4, 3, 1, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 9, 0, 4, 12, 1, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 2, 0, 8, 2, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 4, 12, 2, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 0, 0, 8, 1, 3, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 0, 9, 8, 1, 12, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 4, 3, 1, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 9, 0, 4, 12, 1, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          int var5;
          for(var4 = 4; var4 <= 8; ++var4) {
             for(var5 = 0; var5 <= 2; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, 12 - var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, 12 - var5, var3);
             }
          }
 
          for(var4 = 0; var4 <= 2; ++var4) {
             for(var5 = 4; var5 <= 8; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), 12 - var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 12 - var4, -1, var5, var3);
             }
          }
 
-         this.a(var1, var3, 5, 5, 5, 7, 5, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 1, 6, 6, 4, 6, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, Blocks.NETHER_BRICK.getBlockData(), 6, 0, 6, var3);
-         this.a(var1, Blocks.FLOWING_LAVA.getBlockData(), 6, 5, 6, var3);
+         this.a(var1, var3, 5, 5, 5, 7, 5, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 1, 6, 6, 4, 6, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 6, 0, 6, var3);
+         this.a(var1, BlockStainedGlassPane.FLOWING_LAVA.getBlockData(), 6, 5, 6, var3);
          BlockPosition var6 = new BlockPosition(this.a(6, 6), this.d(5), this.b(6, 6));
          if(var3.b((BaseBlockPosition)var6)) {
-            var1.a((Block)Blocks.FLOWING_LAVA, (BlockPosition)var6, (Random)var2);
+            var1.a((Block)BlockStainedGlassPane.FLOWING_LAVA, (BlockPosition)var6, (Random)var2);
          }
 
          return true;
@@ -673,29 +673,29 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 2, 0, 6, 7, 7, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 0, 5, 1, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 1, 5, 2, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 3, 2, 5, 3, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 4, 3, 5, 4, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 0, 1, 4, 2, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 2, 0, 5, 4, 2, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 5, 2, 1, 5, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 5, 2, 5, 5, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 3, 0, 5, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 5, 3, 6, 5, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 5, 8, 5, 5, 8, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 1, 6, 3, var3);
-         this.a(var1, Blocks.NETHER_BRICK_FENCE.getBlockData(), 5, 6, 3, var3);
-         this.a(var1, var3, 0, 6, 3, 0, 6, 8, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 6, 6, 3, 6, 6, 8, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 1, 6, 8, 5, 7, 8, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 2, 8, 8, 4, 8, 8, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 6, 7, 7, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 0, 5, 1, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 1, 5, 2, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 3, 2, 5, 3, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 4, 3, 5, 4, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 0, 1, 4, 2, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 2, 0, 5, 4, 2, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 5, 2, 1, 5, 3, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 5, 2, 5, 5, 3, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 3, 0, 5, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 5, 3, 6, 5, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 5, 8, 5, 5, 8, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 1, 6, 3, var3);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), 5, 6, 3, var3);
+         this.a(var1, var3, 0, 6, 3, 0, 6, 8, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 6, 6, 3, 6, 6, 8, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 1, 6, 8, 5, 7, 8, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 2, 8, 8, 4, 8, 8, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
          if(!this.b) {
             BlockPosition var4 = new BlockPosition(this.a(3, 5), this.d(5), this.b(3, 5));
             if(var3.b((BaseBlockPosition)var4)) {
                this.b = true;
-               var1.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
+               var1.setTypeAndData((BlockPosition)var4, (IBlockData)BlockStainedGlassPane.MOB_SPAWNER.getBlockData(), 2);
                TileEntity var5 = var1.getTileEntity(var4);
                if(var5 instanceof TileEntityMobSpawner) {
                   ((TileEntityMobSpawner)var5).b().a("Blaze");
@@ -705,7 +705,7 @@ public class class_asd {
 
          for(int var6 = 0; var6 <= 6; ++var6) {
             for(int var7 = 0; var7 <= 6; ++var7) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var6, -1, var7, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var6, -1, var7, var3);
             }
          }
 
@@ -733,29 +733,29 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 6, 10, 6, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 1, 8, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 2, 0, 6, 8, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 1, 0, 8, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 2, 1, 6, 8, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 6, 5, 8, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 2, 0, 5, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 6, 3, 2, 6, 5, 2, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 6, 3, 4, 6, 5, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, Blocks.NETHER_BRICK.getBlockData(), 5, 2, 5, var3);
-         this.a(var1, var3, 4, 2, 5, 4, 3, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 3, 2, 5, 3, 4, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 2, 5, 2, 5, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 5, 1, 6, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 7, 1, 5, 7, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 8, 2, 6, 8, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 2, 6, 0, 4, 8, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 0, 4, 5, 0, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 6, 1, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 6, 10, 6, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 1, 8, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 2, 0, 6, 8, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 1, 0, 8, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 2, 1, 6, 8, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 6, 5, 8, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 2, 0, 5, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 6, 3, 2, 6, 5, 2, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 6, 3, 4, 6, 5, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 5, 2, 5, var3);
+         this.a(var1, var3, 4, 2, 5, 4, 3, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 3, 2, 5, 3, 4, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 2, 5, 2, 5, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 5, 1, 6, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 7, 1, 5, 7, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 8, 2, 6, 8, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 2, 6, 0, 4, 8, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 0, 4, 5, 0, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 6; ++var4) {
             for(int var5 = 0; var5 <= 6; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
             }
          }
 
@@ -785,28 +785,28 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 0, 0, 6, 1, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 6, 7, 6, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 1, 6, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 6, 1, 6, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 2, 0, 6, 6, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 5, 2, 6, 6, 6, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 0, 6, 1, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 5, 0, 6, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 2, 0, 6, 6, 1, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 2, 5, 6, 6, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 6, 0, 4, 6, 0, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 0, 4, 5, 0, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 2, 6, 6, 4, 6, 6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 2, 5, 6, 4, 5, 6, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 6, 2, 0, 6, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 2, 0, 5, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 6, 6, 2, 6, 6, 4, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 6, 5, 2, 6, 5, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 6, 1, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 6, 7, 6, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 1, 6, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 6, 1, 6, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 2, 0, 6, 6, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 5, 2, 6, 6, 6, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 0, 6, 1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 5, 0, 6, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 2, 0, 6, 6, 1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 2, 5, 6, 6, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 6, 0, 4, 6, 0, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 0, 4, 5, 0, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 2, 6, 6, 4, 6, 6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 2, 5, 6, 4, 5, 6, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 6, 2, 0, 6, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 2, 0, 5, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 6, 6, 2, 6, 6, 4, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 6, 5, 2, 6, 5, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 6; ++var4) {
             for(int var5 = 0; var5 <= 6; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
             }
          }
 
@@ -847,41 +847,41 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 7, 3, 0, 11, 4, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 7, 18, 4, 11, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 8, 5, 0, 10, 7, 18, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 8, 18, 7, 10, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 7, 5, 0, 7, 5, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 7, 5, 11, 7, 5, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 11, 5, 0, 11, 5, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 11, 5, 11, 11, 5, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 7, 7, 5, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 11, 5, 7, 18, 5, 7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 11, 7, 5, 11, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 11, 5, 11, 18, 5, 11, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 7, 2, 0, 11, 2, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 7, 2, 13, 11, 2, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 7, 0, 0, 11, 1, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 7, 0, 15, 11, 1, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 7, 3, 0, 11, 4, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 7, 18, 4, 11, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 8, 5, 0, 10, 7, 18, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 8, 18, 7, 10, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 7, 5, 0, 7, 5, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 7, 5, 11, 7, 5, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 11, 5, 0, 11, 5, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 11, 5, 11, 11, 5, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 7, 7, 5, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 11, 5, 7, 18, 5, 7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 11, 7, 5, 11, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 11, 5, 11, 18, 5, 11, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 7, 2, 0, 11, 2, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 7, 2, 13, 11, 2, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 7, 0, 0, 11, 1, 3, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 7, 0, 15, 11, 1, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          int var4;
          int var5;
          for(var4 = 7; var4 <= 11; ++var4) {
             for(var5 = 0; var5 <= 2; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, 18 - var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, 18 - var5, var3);
             }
          }
 
-         this.a(var1, var3, 0, 2, 7, 5, 2, 11, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 13, 2, 7, 18, 2, 11, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 7, 3, 1, 11, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 15, 0, 7, 18, 1, 11, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 7, 5, 2, 11, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 13, 2, 7, 18, 2, 11, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 7, 3, 1, 11, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 15, 0, 7, 18, 1, 11, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          for(var4 = 0; var4 <= 2; ++var4) {
             for(var5 = 7; var5 <= 11; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), 18 - var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), 18 - var4, -1, var5, var3);
             }
          }
 
@@ -926,24 +926,24 @@ public class class_asd {
          for(var5 = 0; var5 <= 4; ++var5) {
             for(var6 = 3; var6 <= 4; ++var6) {
                var7 = var4.nextInt(8);
-               this.a(var1, var3, var5, var6, 0, var5, var6, var7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+               this.a(var1, var3, var5, var6, 0, var5, var6, var7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
             }
          }
 
          var5 = var4.nextInt(8);
-         this.a(var1, var3, 0, 5, 0, 0, 5, var5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 0, 0, 5, var5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
          var5 = var4.nextInt(8);
-         this.a(var1, var3, 4, 5, 0, 4, 5, var5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 5, 0, 4, 5, var5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          for(var5 = 0; var5 <= 4; ++var5) {
             var6 = var4.nextInt(5);
-            this.a(var1, var3, var5, 2, 0, var5, 2, var6, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+            this.a(var1, var3, var5, 2, 0, var5, 2, var6, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
          }
 
          for(var5 = 0; var5 <= 4; ++var5) {
             for(var6 = 0; var6 <= 1; ++var6) {
                var7 = var4.nextInt(3);
-               this.a(var1, var3, var5, var6, 0, var5, var6, var7, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+               this.a(var1, var3, var5, var6, 0, var5, var6, var7, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
             }
          }
 
@@ -971,30 +971,30 @@ public class class_asd {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         this.a(var1, var3, 0, 3, 0, 4, 4, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 1, 5, 0, 3, 7, 18, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 0, 0, 5, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 4, 5, 0, 4, 5, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 4, 2, 5, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 13, 4, 2, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 0, 4, 1, 3, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 15, 4, 1, 18, Blocks.NETHER_BRICK.getBlockData(), Blocks.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 0, 4, 4, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 1, 5, 0, 3, 7, 18, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 0, 0, 5, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 4, 5, 0, 4, 5, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 4, 2, 5, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 13, 4, 2, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 4, 1, 3, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 15, 4, 1, 18, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), BlockStainedGlassPane.NETHER_BRICK.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 4; ++var4) {
             for(int var5 = 0; var5 <= 2; ++var5) {
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
-               this.b(var1, Blocks.NETHER_BRICK.getBlockData(), var4, -1, 18 - var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, var5, var3);
+               this.b(var1, BlockStainedGlassPane.NETHER_BRICK.getBlockData(), var4, -1, 18 - var5, var3);
             }
          }
 
-         this.a(var1, var3, 0, 1, 1, 0, 4, 1, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 4, 0, 4, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 3, 14, 0, 4, 14, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 0, 1, 17, 0, 4, 17, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 4, 1, 1, 4, 4, 1, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 4, 3, 4, 4, 4, 4, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 4, 3, 14, 4, 4, 14, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
-         this.a(var1, var3, 4, 1, 17, 4, 4, 17, Blocks.NETHER_BRICK_FENCE.getBlockData(), Blocks.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 1, 0, 4, 1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 4, 0, 4, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 3, 14, 0, 4, 14, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 17, 0, 4, 17, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 4, 1, 1, 4, 4, 1, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 4, 3, 4, 4, 4, 4, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 4, 3, 14, 4, 4, 14, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
+         this.a(var1, var3, 4, 1, 17, 4, 4, 17, BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), BlockStainedGlassPane.NETHER_BRICK_FENCE.getBlockData(), false);
          return true;
       }
    }
@@ -1187,7 +1187,7 @@ public class class_asd {
       }
 
       static {
-         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 1, 3, 5), new class_od(Items.l, 0, 1, 5, 5), new class_od(Items.m, 0, 1, 3, 15), new class_od(Items.D, 0, 1, 1, 5), new class_od(Items.aj, 0, 1, 1, 5), new class_od(Items.d, 0, 1, 1, 5), new class_od(Items.bA, 0, 3, 7, 5), new class_od(Items.aC, 0, 1, 1, 10), new class_od(Items.co, 0, 1, 1, 8), new class_od(Items.cn, 0, 1, 1, 5), new class_od(Items.cp, 0, 1, 1, 3), new class_od(Item.getItemOf(Blocks.OBSIDIAN), 0, 2, 4, 2)}));
+         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 1, 3, 5), new class_od(Items.IRON_INGOT, 0, 1, 5, 5), new class_od(Items.GOLD_INGOT, 0, 1, 3, 15), new class_od(Items.GOLDEN_SWORD, 0, 1, 1, 5), new class_od(Items.aj, 0, 1, 1, 5), new class_od(Items.FLINT_AND_STEEL, 0, 1, 1, 5), new class_od(Items.bA, 0, 3, 7, 5), new class_od(Items.aC, 0, 1, 1, 10), new class_od(Items.co, 0, 1, 1, 8), new class_od(Items.cn, 0, 1, 1, 5), new class_od(Items.cp, 0, 1, 1, 3), new class_od(Item.getItemOf(BlockStainedGlassPane.OBSIDIAN), 0, 2, 4, 2)}));
       }
    }
 

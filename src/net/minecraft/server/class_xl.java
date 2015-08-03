@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pc;
@@ -46,7 +46,7 @@ public class class_xl extends class_xf {
             if(var2) {
                BlockPosition var3 = var1.a().shift(var1.b);
                if(this.o.isEmpty(var3)) {
-                  this.o.setTypeUpdate(var3, Blocks.FIRE.getBlockData());
+                  this.o.setTypeUpdate(var3, BlockStainedGlassPane.FIRE.getBlockData());
                }
             }
          }

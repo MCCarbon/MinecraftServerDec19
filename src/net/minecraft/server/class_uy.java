@@ -7,7 +7,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
@@ -28,7 +28,7 @@ import net.minecraft.server.class_qi;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
-import net.minecraft.server.class_za;
+import net.minecraft.server.ItemArmor;
 import net.minecraft.server.ItemBlock;
 
 public class class_uy extends EntityLiving {
@@ -349,11 +349,11 @@ public class class_uy extends EntityLiving {
          class_pw var5 = class_pw.a;
          boolean var6 = var3 != null;
          Item var7 = var6?var3.getItem():null;
-         if(var6 && var7 instanceof class_za) {
-            var5 = ((class_za)var7).b;
+         if(var6 && var7 instanceof ItemArmor) {
+            var5 = ((ItemArmor)var7).b;
          }
 
-         if(var6 && (var7 == Items.ca || var7 == Item.getItemOf(Blocks.PUMPKIN))) {
+         if(var6 && (var7 == Items.ca || var7 == Item.getItemOf(BlockStainedGlassPane.PUMPKIN))) {
             var5 = class_pw.f;
          }
 
@@ -407,7 +407,7 @@ public class class_uy extends EntityLiving {
       if(var5 == null || (this.bB & 1 << var2.c() + 8) == 0) {
          if(var5 != null || (this.bB & 1 << var2.c() + 16) == 0) {
             ItemStack var6;
-            if(var1.bH.instabuild && (var5 == null || var5.getItem() == Item.getItemOf(Blocks.AIR)) && var3 != null) {
+            if(var1.bH.instabuild && (var5 == null || var5.getItem() == Item.getItemOf(BlockStainedGlassPane.AIR)) && var3 != null) {
                var6 = var3.clone();
                var6.count = 1;
                this.a(var2, var6);
@@ -485,7 +485,7 @@ public class class_uy extends EntityLiving {
 
    private void C() {
       if(this.o instanceof WorldServer) {
-         ((WorldServer)this.o).a(class_cy.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.getCombinedId(Blocks.PLANKS.getBlockData())});
+         ((WorldServer)this.o).a(class_cy.M, this.s, this.t + (double)this.K / 1.5D, this.u, 10, (double)(this.J / 4.0F), (double)(this.K / 4.0F), (double)(this.J / 4.0F), 0.05D, new int[]{Block.getCombinedId(BlockStainedGlassPane.PLANKS.getBlockData())});
       }
 
    }

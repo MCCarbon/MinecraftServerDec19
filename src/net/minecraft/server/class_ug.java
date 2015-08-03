@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockPiston;
 import net.minecraft.server.BlockPistonExtension;
 import net.minecraft.server.IBlockData;
@@ -99,13 +99,13 @@ public class class_ug extends class_ua implements class_wd {
 
       if(!this.o.isClientSide) {
          IBlockData var2 = this.o.getType(var1);
-         if(var2.getBlock() != Blocks.AIR) {
+         if(var2.getBlock() != BlockStainedGlassPane.AIR) {
             EnumDirection var3;
-            if(var2.getBlock() == Blocks.PISTON_EXTENSION) {
+            if(var2.getBlock() == BlockStainedGlassPane.PISTON_EXTENSION) {
                var3 = (EnumDirection)var2.get(BlockPiston.FACING);
                var1 = var1.shift(var3);
                this.ac.b(b, var1);
-            } else if(var2.getBlock() == Blocks.PISTON_HEAD) {
+            } else if(var2.getBlock() == BlockStainedGlassPane.PISTON_HEAD) {
                var3 = (EnumDirection)var2.get(BlockPistonExtension.FACING);
                var1 = var1.shift(var3);
                this.ac.b(b, var1);

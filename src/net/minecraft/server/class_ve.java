@@ -9,7 +9,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.MovingObjectPosition;
@@ -294,7 +294,7 @@ public class class_ve extends Entity {
                         var41 = (double)((float)MathHelper.floor(this.aT().yMin) + 1.0F);
                         var23 = this.u + (double)(var18 * (float)this.ay * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
-                        if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
+                        if(var25 == BlockStainedGlassPane.WATER || var25 == BlockStainedGlassPane.FLOWING_WATER) {
                            if(this.V.nextFloat() < 0.15F) {
                               var37.a(class_cy.e, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
                            }
@@ -323,7 +323,7 @@ public class class_ve extends Entity {
                         var41 = (double)((float)MathHelper.floor(this.aT().yMin) + 1.0F);
                         var23 = this.u + (double)(MathHelper.cos(var40) * var18 * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
-                        if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
+                        if(var25 == BlockStainedGlassPane.WATER || var25 == BlockStainedGlassPane.FLOWING_WATER) {
                            var37.a(class_cy.f, var19, var41, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                         }
                      }
@@ -455,8 +455,8 @@ public class class_ve extends Entity {
    }
 
    static {
-      d = Arrays.asList(new class_vf[]{(new class_vf(new ItemStack(Items.V), 10)).a(0.9F), new class_vf(new ItemStack(Items.aH), 10), new class_vf(new ItemStack(Items.aZ), 10), new class_vf(new ItemStack(Items.bB), 10), new class_vf(new ItemStack(Items.H), 5), (new class_vf(new ItemStack(Items.aT), 2)).a(0.9F), new class_vf(new ItemStack(Items.B), 10), new class_vf(new ItemStack(Items.A), 5), new class_vf(new ItemStack(Items.aY, 10, EnumColor.p.b()), 1), new class_vf(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new class_vf(new ItemStack(Items.bv), 10)});
-      e = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Blocks.WATERLILY), 1), new class_vf(new ItemStack(Items.cr), 1), new class_vf(new ItemStack(Items.aC), 1), (new class_vf(new ItemStack(Items.f), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aT), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aN), 1)).a()});
+      d = Arrays.asList(new class_vf[]{(new class_vf(new ItemStack(Items.V), 10)).a(0.9F), new class_vf(new ItemStack(Items.aH), 10), new class_vf(new ItemStack(Items.aZ), 10), new class_vf(new ItemStack(Items.bB), 10), new class_vf(new ItemStack(Items.H), 5), (new class_vf(new ItemStack(Items.aT), 2)).a(0.9F), new class_vf(new ItemStack(Items.BOWL), 10), new class_vf(new ItemStack(Items.STICK), 5), new class_vf(new ItemStack(Items.aY, 10, EnumColor.p.b()), 1), new class_vf(new ItemStack(BlockStainedGlassPane.TRIPWIRE_HOOK), 10), new class_vf(new ItemStack(Items.bv), 10)});
+      e = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(BlockStainedGlassPane.WATERLILY), 1), new class_vf(new ItemStack(Items.cr), 1), new class_vf(new ItemStack(Items.aC), 1), (new class_vf(new ItemStack(Items.BOW), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aT), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aN), 1)).a()});
       f = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 60), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.b.a()), 25), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.c.a()), 2), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.d.a()), 13)});
    }
 }

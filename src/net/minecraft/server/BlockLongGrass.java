@@ -37,7 +37,7 @@ public class BlockLongGrass extends BlockPlant implements IBlockFragilePlantElem
 	public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
 		if (!var1.isClientSide && (var6 != null) && (var6.getItem() == Items.bg)) {
 			var2.b(StatisticList.ab[Block.getId(this)]);
-			dropItem(var1, var3, new ItemStack(Blocks.TALLGRASS, 1, var4.get(TYPE).getId()));
+			dropItem(var1, var3, new ItemStack(BlockStainedGlassPane.TALLGRASS, 1, var4.get(TYPE).getId()));
 		} else {
 			super.breakBlockNaturally(var1, var2, var3, var4, var5, var6);
 		}
@@ -62,13 +62,13 @@ public class BlockLongGrass extends BlockPlant implements IBlockFragilePlantElem
 
 	@Override
 	public void b(World var1, Random var2, BlockPosition var3, IBlockData var4) {
-		class_ahm.class_b_in_class_ahm var5 = class_ahm.class_b_in_class_ahm.c;
+		BlockTallPlant.class_b_in_class_ahm var5 = BlockTallPlant.class_b_in_class_ahm.c;
 		if (var4.get(TYPE) == BlockLongGrass.EnumTallGrassType.FERN) {
-			var5 = class_ahm.class_b_in_class_ahm.d;
+			var5 = BlockTallPlant.class_b_in_class_ahm.d;
 		}
 
-		if (Blocks.DOUBLE_PLANT.canPlace(var1, var3)) {
-			Blocks.DOUBLE_PLANT.a(var1, var3, var5, 2);
+		if (BlockStainedGlassPane.DOUBLE_PLANT.canPlace(var1, var3)) {
+			BlockStainedGlassPane.DOUBLE_PLANT.a(var1, var3, var5, 2);
 		}
 
 	}

@@ -5,7 +5,7 @@ import java.util.List;
 import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apd;
 import net.minecraft.server.class_aqk;
@@ -815,7 +815,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
                BlockPosition var13 = new BlockPosition(var10, var11, var12);
                Block var14 = this.o.getType(var13).getBlock();
                if(var14.getMaterial() != Material.AIR && var14.getMaterial() != Material.FIRE) {
-                  if(var14 != Blocks.BARRIER && var14 != Blocks.OBSIDIAN && var14 != Blocks.END_STONE && var14 != Blocks.BEDROCK && var14 != Blocks.COMMAND_BLOCK && var14 != Blocks.IRON_BARS && this.o.R().b("mobGriefing")) {
+                  if(var14 != BlockStainedGlassPane.BARRIER && var14 != BlockStainedGlassPane.OBSIDIAN && var14 != BlockStainedGlassPane.END_STONE && var14 != BlockStainedGlassPane.BEDROCK && var14 != BlockStainedGlassPane.COMMAND_BLOCK && var14 != BlockStainedGlassPane.IRON_BARS && this.o.R().b("mobGriefing")) {
                      var9 = this.o.setAir(var13) || var9;
                   } else {
                      var8 = true;

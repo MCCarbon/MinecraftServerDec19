@@ -7,7 +7,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_abc;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.class_act;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
 import net.minecraft.server.IInventory;
@@ -49,7 +49,7 @@ public class class_yw extends class_yx {
       }
 
       this.c = 0;
-      if(var1.getItem() == Item.getItemOf(Blocks.CRAFTING_TABLE)) {
+      if(var1.getItem() == Item.getItemOf(BlockStainedGlassPane.CRAFTING_TABLE)) {
          this.b.b((class_my)class_mt.h);
       }
 
@@ -57,7 +57,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.i);
       }
 
-      if(var1.getItem() == Item.getItemOf(Blocks.FURNACE)) {
+      if(var1.getItem() == Item.getItemOf(BlockStainedGlassPane.FURNACE)) {
          this.b.b((class_my)class_mt.j);
       }
 
@@ -81,11 +81,11 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.r);
       }
 
-      if(var1.getItem() == Item.getItemOf(Blocks.ENCHANTING_TABLE)) {
+      if(var1.getItem() == Item.getItemOf(BlockStainedGlassPane.ENCHANTING_TABLE)) {
          this.b.b((class_my)class_mt.E);
       }
 
-      if(var1.getItem() == Item.getItemOf(Blocks.BOOKSHELF)) {
+      if(var1.getItem() == Item.getItemOf(BlockStainedGlassPane.BOOKSHELF)) {
          this.b.b((class_my)class_mt.G);
       }
 

@@ -11,7 +11,7 @@ import java.util.Map;
 import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityStructure;
 import net.minecraft.server.IBlockData;
@@ -144,7 +144,7 @@ public class class_asv {
          } while(var4 != null && !var4.b((BaseBlockPosition)var7));
 
          IBlockData var8 = var6.b;
-         if(var8.getBlock() == Blocks.STRUCTURE_BLOCK && var6.c != null) {
+         if(var8.getBlock() == BlockStainedGlassPane.STRUCTURE_BLOCK && var6.c != null) {
             TileEntityStructure.EnumMode var9 = TileEntityStructure.EnumMode.valueOf(var6.c.getString("mode"));
             if(var9 == TileEntityStructure.EnumMode.DATA) {
                var3.put(var7, var6.c.getString("metadata"));
@@ -196,7 +196,7 @@ public class class_asv {
                                  }
 
                                  var6 = (class_asv.class_a_in_class_asv)var5.next();
-                              } while(var3.f() && var6.b.getBlock() == Blocks.AIR);
+                              } while(var3.f() && var6.b.getBlock() == BlockStainedGlassPane.AIR);
 
                               var12 = this.a(var3, var6.a).add((BaseBlockPosition)var2);
                            } while(var4 != null && !var4.b((BaseBlockPosition)var12));
@@ -213,8 +213,8 @@ public class class_asv {
 
                      var6 = (class_asv.class_a_in_class_asv)var5.next();
                      var7 = var6.b.getBlock();
-                  } while(var3.f() && var7 == Blocks.AIR);
-               } while(var3.h() && var7 == Blocks.STRUCTURE_BLOCK);
+                  } while(var3.f() && var7 == BlockStainedGlassPane.AIR);
+               } while(var3.h() && var7 == BlockStainedGlassPane.STRUCTURE_BLOCK);
 
                var8 = this.a(var3, var6.a).add((BaseBlockPosition)var2);
             } while(var4 != null && !var4.b((BaseBlockPosition)var8));
@@ -229,7 +229,7 @@ public class class_asv {
                      ((IInventory)var11).remove();
                   }
 
-                  var1.setTypeAndData((BlockPosition)var8, (IBlockData)Blocks.BARRIER.getBlockData(), 4);
+                  var1.setTypeAndData((BlockPosition)var8, (IBlockData)BlockStainedGlassPane.BARRIER.getBlockData(), 4);
                }
             }
 

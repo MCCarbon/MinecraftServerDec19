@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.BlockPosition;
@@ -15,8 +15,8 @@ public class class_aqc extends class_aql {
             int var6 = 1 + var2.nextInt(var2.nextInt(3) + 1);
 
             for(int var7 = 0; var7 < var6; ++var7) {
-               if(Blocks.CACTUS.e(var1, var5)) {
-                  var1.setTypeAndData((BlockPosition)var5.up(var7), (IBlockData)Blocks.CACTUS.getBlockData(), 2);
+               if(BlockStainedGlassPane.CACTUS.e(var1, var5)) {
+                  var1.setTypeAndData((BlockPosition)var5.up(var7), (IBlockData)BlockStainedGlassPane.CACTUS.getBlockData(), 2);
                }
             }
          }

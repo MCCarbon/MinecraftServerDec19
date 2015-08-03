@@ -8,7 +8,7 @@ import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockFluids;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.AxisAlignedBB;
@@ -112,8 +112,8 @@ public class class_xs extends class_xo {
    }
 
    private void a(BlockPosition var1) {
-      if(this.o.getType(var1).getBlock() == Blocks.FIRE) {
-         this.o.setTypeAndData((BlockPosition)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(BlockFluids.LEVEL, Integer.valueOf(7)), 2);
+      if(this.o.getType(var1).getBlock() == BlockStainedGlassPane.FIRE) {
+         this.o.setTypeAndData((BlockPosition)var1, (IBlockData)BlockStainedGlassPane.FLOWING_WATER.getBlockData().set(BlockFluids.LEVEL, Integer.valueOf(7)), 2);
       }
 
    }

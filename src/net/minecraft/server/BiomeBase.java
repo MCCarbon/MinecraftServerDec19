@@ -28,7 +28,7 @@ import net.minecraft.server.class_aft;
 import net.minecraft.server.class_afu;
 import net.minecraft.server.class_afv;
 import net.minecraft.server.class_afw;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.BlockSand;
 import net.minecraft.server.BlockLongGrass;
@@ -149,8 +149,8 @@ public abstract class BiomeBase {
 	protected class_arl aC;
 
 	protected BiomeBase(int var1) {
-		this.ak = Blocks.GRASS.getBlockData();
-		this.al = Blocks.DIRT.getBlockData();
+		this.ak = BlockStainedGlassPane.GRASS.getBlockData();
+		this.al = BlockStainedGlassPane.DIRT.getBlockData();
 		this.am = 5169201;
 		this.an = a.a;
 		this.ao = a.b;
@@ -325,16 +325,16 @@ public abstract class BiomeBase {
 
 		for (int var16 = 255; var16 >= 0; --var16) {
 			if (var16 <= var2.nextInt(5)) {
-				var3.a(var14, var16, var13, Blocks.BEDROCK.getBlockData());
+				var3.a(var14, var16, var13, BlockStainedGlassPane.BEDROCK.getBlockData());
 			} else {
 				IBlockData var17 = var3.a(var14, var16, var13);
 				if (var17.getBlock().getMaterial() == Material.AIR) {
 					var11 = -1;
-				} else if (var17.getBlock() == Blocks.STONE) {
+				} else if (var17.getBlock() == BlockStainedGlassPane.STONE) {
 					if (var11 == -1) {
 						if (var12 <= 0) {
 							var9 = null;
-							var10 = Blocks.STONE.getBlockData();
+							var10 = BlockStainedGlassPane.STONE.getBlockData();
 						} else if (var16 >= var8 - 4 && var16 <= var8 + 1) {
 							var9 = this.ak;
 							var10 = this.al;
@@ -342,9 +342,9 @@ public abstract class BiomeBase {
 
 						if (var16 < var8 && (var9 == null || var9.getBlock().getMaterial() == Material.AIR)) {
 							if (this.a((BlockPosition) var15.setPosition(var4, var16, var5)) < 0.15F) {
-								var9 = Blocks.ICE.getBlockData();
+								var9 = BlockStainedGlassPane.ICE.getBlockData();
 							} else {
-								var9 = Blocks.WATER.getBlockData();
+								var9 = BlockStainedGlassPane.WATER.getBlockData();
 							}
 						}
 
@@ -353,17 +353,17 @@ public abstract class BiomeBase {
 							var3.a(var14, var16, var13, var9);
 						} else if (var16 < var8 - 7 - var12) {
 							var9 = null;
-							var10 = Blocks.STONE.getBlockData();
-							var3.a(var14, var16, var13, Blocks.GRAVEL.getBlockData());
+							var10 = BlockStainedGlassPane.STONE.getBlockData();
+							var3.a(var14, var16, var13, BlockStainedGlassPane.GRAVEL.getBlockData());
 						} else {
 							var3.a(var14, var16, var13, var10);
 						}
 					} else if (var11 > 0) {
 						--var11;
 						var3.a(var14, var16, var13, var10);
-						if (var11 == 0 && var10.getBlock() == Blocks.SAND) {
+						if (var11 == 0 && var10.getBlock() == BlockStainedGlassPane.SAND) {
 							var11 = var2.nextInt(4) + Math.max(0, var16 - 63);
-							var10 = var10.get(BlockSand.VARIANT) == BlockSand.EnumSandVariant.RED_SAND ? Blocks.RED_SANDSTONE.getBlockData() : Blocks.SANDSTONE.getBlockData();
+							var10 = var10.get(BlockSand.VARIANT) == BlockSand.EnumSandVariant.RED_SAND ? BlockStainedGlassPane.RED_SANDSTONE.getBlockData() : BlockStainedGlassPane.SANDSTONE.getBlockData();
 						}
 					}
 				}

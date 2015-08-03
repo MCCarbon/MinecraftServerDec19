@@ -10,7 +10,7 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_za;
+import net.minecraft.server.ItemArmor;
 
 public class class_adt extends class_adi {
    public class_adt(class_adi.class_a_in_class_adi var1, class_pw... var2) {
@@ -31,7 +31,7 @@ public class class_adt extends class_adi {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.getItem() instanceof class_za?true:super.a(var1);
+      return var1.getItem() instanceof ItemArmor?true:super.a(var1);
    }
 
    public void b(EntityLiving var1, Entity var2, int var3) {

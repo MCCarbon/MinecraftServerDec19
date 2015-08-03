@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_ahm;
+import net.minecraft.server.BlockTallPlant;
 import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_tz;
@@ -57,7 +57,7 @@ public class class_afp extends BiomeBase {
       } else {
          this.as.B = 4;
          this.as.C = 10;
-         ag.a(class_ahm.class_b_in_class_ahm.c);
+         ag.a(BlockTallPlant.class_b_in_class_ahm.c);
 
          for(var6 = 0; var6 < 7; ++var6) {
             var7 = var2.nextInt(16) + 8;
@@ -68,7 +68,7 @@ public class class_afp extends BiomeBase {
       }
 
       if(this.aD) {
-         ag.a(class_ahm.class_b_in_class_ahm.a);
+         ag.a(BlockTallPlant.class_b_in_class_ahm.a);
 
          for(var6 = 0; var6 < 10; ++var6) {
             var7 = var2.nextInt(16) + 8;

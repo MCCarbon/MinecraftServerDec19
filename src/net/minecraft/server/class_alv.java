@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_aia;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -97,7 +97,7 @@ public class class_alv extends Block {
 
    public boolean e(IBlockAccess var1, BlockPosition var2) {
       Block var3 = var1.getType(var2).getBlock();
-      return var3 == Blocks.BARRIER?false:(var3 != this && !(var3 instanceof class_aia)?(var3.material.isOpaque() && var3.isFullCube()?var3.material != Material.PUMPKIN:false):true);
+      return var3 == BlockStainedGlassPane.BARRIER?false:(var3 != this && !(var3 instanceof class_aia)?(var3.material.isOpaque() && var3.isFullCube()?var3.material != Material.PUMPKIN:false):true);
    }
 
    public int getDropData(IBlockData var1) {

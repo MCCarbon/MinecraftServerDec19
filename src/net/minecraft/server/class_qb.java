@@ -10,7 +10,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_abw;
 import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
@@ -50,7 +50,7 @@ import net.minecraft.server.class_wd;
 import net.minecraft.server.class_we;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_za;
+import net.minecraft.server.ItemArmor;
 import net.minecraft.server.ItemBlock;
 import net.minecraft.server.class_zl;
 
@@ -445,11 +445,11 @@ public abstract class class_qb extends EntityLiving {
             } else {
                var4 = false;
             }
-         } else if(var2.getItem() instanceof class_za && !(var5.getItem() instanceof class_za)) {
+         } else if(var2.getItem() instanceof ItemArmor && !(var5.getItem() instanceof ItemArmor)) {
             var4 = true;
-         } else if(var2.getItem() instanceof class_za && var5.getItem() instanceof class_za) {
-            class_za var9 = (class_za)var2.getItem();
-            class_za var11 = (class_za)var5.getItem();
+         } else if(var2.getItem() instanceof ItemArmor && var5.getItem() instanceof ItemArmor) {
+            ItemArmor var9 = (ItemArmor)var2.getItem();
+            ItemArmor var11 = (ItemArmor)var5.getItem();
             if(var9.c == var11.c) {
                var4 = var2.i() > var5.i() || var2.hasTag() && !var5.hasTag();
             } else {
@@ -477,7 +477,7 @@ public abstract class class_qb extends EntityLiving {
             this.a(var5, 0.0F);
          }
 
-         if(var2.getItem() == Items.k && var1.n() != null) {
+         if(var2.getItem() == Items.DIAMOND && var1.n() != null) {
             EntityHuman var8 = this.o.a(var1.n());
             if(var8 != null) {
                var8.b((class_my)class_mt.x);
@@ -746,7 +746,7 @@ public abstract class class_qb extends EntityLiving {
    }
 
    public static class_pw c(ItemStack var0) {
-      return var0.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var0.getItem() != Items.ca?(var0.getItem() instanceof class_za?((class_za)var0.getItem()).b:class_pw.a):class_pw.f;
+      return var0.getItem() != Item.getItemOf(BlockStainedGlassPane.PUMPKIN) && var0.getItem() != Items.ca?(var0.getItem() instanceof ItemArmor?((ItemArmor)var0.getItem()).b:class_pw.a):class_pw.f;
    }
 
    public static Item a(class_pw var0, int var1) {

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
@@ -17,15 +17,15 @@ public class class_ub extends class_ty {
    public class_ub(World var1) {
       super(var1);
       this.a(0.9F, 1.3F);
-      this.bv = Blocks.MYCELIM;
+      this.bv = BlockStainedGlassPane.MYCELIM;
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.B && this.l() >= 0 && !var1.bH.instabuild) {
+      if(var3 != null && var3.getItem() == Items.BOWL && this.l() >= 0 && !var1.bH.instabuild) {
          if(--var3.count == 0) {
-            var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.C)));
-         } else if(!var1.bp.a(new ItemStack(Items.C))) {
-            var1.a(new ItemStack(Items.C), false);
+            var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.MUSHROOM_STEW)));
+         } else if(!var1.bp.a(new ItemStack(Items.MUSHROOM_STEW))) {
+            var1.a(new ItemStack(Items.MUSHROOM_STEW), false);
          }
 
          return true;
@@ -44,7 +44,7 @@ public class class_ub extends class_ty {
             this.o.addEntity((Entity)var4);
 
             for(int var5 = 0; var5 < 5; ++var5) {
-               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(Blocks.RED_MUSHROOM))));
+               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(BlockStainedGlassPane.RED_MUSHROOM))));
             }
 
             var3.a(1, (EntityLiving)var1);

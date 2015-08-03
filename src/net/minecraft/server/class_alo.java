@@ -70,10 +70,10 @@ public class class_alo extends Block {
    }
 
    public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(var6 != null && (var6.getItem() == Items.d || var6.getItem() == Items.bO)) {
+      if(var6 != null && (var6.getItem() == Items.FLINT_AND_STEEL || var6.getItem() == Items.bO)) {
          this.a(var1, var2, var3.set(a, Boolean.valueOf(true)), (EntityLiving)var4);
          var1.setAir(var2);
-         if(var6.getItem() == Items.d) {
+         if(var6.getItem() == Items.FLINT_AND_STEEL) {
             var6.a(1, (EntityLiving)var4);
          } else if(!var4.bH.instabuild) {
             --var6.count;

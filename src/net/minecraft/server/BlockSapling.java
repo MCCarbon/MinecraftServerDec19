@@ -67,8 +67,8 @@ public class BlockSapling extends BlockPlant implements IBlockFragilePlantElemen
 				var5 = new class_apy(true, false);
 				break;
 			case JUNGLE:
-				var9 = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.JUNGLE);
-				IBlockData var10 = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.JUNGLE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+				var9 = BlockStainedGlassPane.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.JUNGLE);
+				IBlockData var10 = BlockStainedGlassPane.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.JUNGLE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
 
 				label82: for (var6 = 0; var6 >= -1; --var6) {
 					for (var7 = 0; var7 >= -1; --var7) {
@@ -107,7 +107,7 @@ public class BlockSapling extends BlockPlant implements IBlockFragilePlantElemen
 				break;
 		}
 
-		var9 = Blocks.AIR.getBlockData();
+		var9 = BlockStainedGlassPane.AIR.getBlockData();
 		if (var8) {
 			var1.setTypeAndData(var2.add(var6, 0, var7), var9, 4);
 			var1.setTypeAndData(var2.add(var6 + 1, 0, var7), var9, 4);

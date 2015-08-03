@@ -131,6 +131,6 @@ public class class_xt extends class_xd {
    }
 
    protected ItemStack j() {
-      return this.g.isEmpty()?new ItemStack(Items.g):this.h;
+      return this.g.isEmpty()?new ItemStack(Items.ARROW):this.h;
    }
 }

@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aee;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.BlockFluids;
 import net.minecraft.server.TileEntity;
@@ -51,7 +51,7 @@ public class class_abt extends Item {
          return class_oq.b;
       } else {
          IBlockData var10 = var3.getType(var4);
-         if(var10.getBlock() == Blocks.MOB_SPAWNER) {
+         if(var10.getBlock() == BlockStainedGlassPane.MOB_SPAWNER) {
             TileEntity var11 = var3.getTileEntity(var4);
             if(var11 instanceof TileEntityMobSpawner) {
                class_aee var12 = ((TileEntityMobSpawner)var11).b();

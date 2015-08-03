@@ -4,7 +4,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockMinecartTrackAbstract;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
@@ -30,7 +30,7 @@ public class class_vv extends class_vn {
    }
 
    public IBlockData u() {
-      return Blocks.TNT.getBlockData();
+      return BlockStainedGlassPane.TNT.getBlockData();
    }
 
    public void t_() {
@@ -67,7 +67,7 @@ public class class_vv extends class_vn {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
       if(!var1.c() && this.o.R().b("doEntityDrops")) {
-         this.a(new ItemStack(Blocks.TNT, 1), 0.0F);
+         this.a(new ItemStack(BlockStainedGlassPane.TNT, 1), 0.0F);
       }
 
       if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {

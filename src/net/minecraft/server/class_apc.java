@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.class_afx;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityEnderPortal;
 import net.minecraft.server.IBlockData;
@@ -95,7 +95,7 @@ public class class_apc {
          Collections.shuffle(this.e, new Random(var1.K()));
       }
 
-      this.f = class_anq.a().a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"  ###  ", " #   # ", "#     #", "#  #  #", "#     #", " #   # ", "  ###  "}).a(new String[]{"       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       "}).a('#', class_ano.a(class_ans.a(Blocks.BEDROCK))).b();
+      this.f = class_anq.a().a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"  ###  ", " #   # ", "#     #", "#  #  #", "#     #", " #   # ", "  ###  "}).a(new String[]{"       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       "}).a('#', class_ano.a(class_ans.a(BlockStainedGlassPane.BEDROCK))).b();
    }
 
    public NBTTagCompound a() {
@@ -289,7 +289,7 @@ public class class_apc {
       class_aqk var2 = new class_aqk(var1);
 
       BlockPosition var3;
-      for(var3 = this.d.r(class_aqk.a).down(); this.d.getType(var3).getBlock() == Blocks.BEDROCK && var3.getY() > this.d.G(); var3 = var3.down()) {
+      for(var3 = this.d.r(class_aqk.a).down(); this.d.getType(var3).getBlock() == BlockStainedGlassPane.BEDROCK && var3.getY() > this.d.G(); var3 = var3.down()) {
          ;
       }
 
@@ -336,8 +336,8 @@ public class class_apc {
                for(int var3 = 0; var3 < this.f.b(); ++var3) {
                   for(int var4 = 0; var4 < this.f.a(); ++var4) {
                      class_ano var5 = var1.a(var2, var3, var4);
-                     if(var5.a().getBlock() == Blocks.BEDROCK || var5.a().getBlock() == Blocks.END_PORTAL) {
-                        this.d.setTypeUpdate((BlockPosition)var5.d(), (IBlockData)Blocks.END_STONE.getBlockData());
+                     if(var5.a().getBlock() == BlockStainedGlassPane.BEDROCK || var5.a().getBlock() == BlockStainedGlassPane.END_PORTAL) {
+                        this.d.setTypeUpdate((BlockPosition)var5.d(), (IBlockData)BlockStainedGlassPane.END_STONE.getBlockData());
                      }
                   }
                }

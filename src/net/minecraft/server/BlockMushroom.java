@@ -60,7 +60,7 @@ public class BlockMushroom extends BlockPlant implements IBlockFragilePlantEleme
 	public boolean f(World var1, BlockPosition var2, IBlockData var3) {
 		if ((var2.getY() >= 0) && (var2.getY() < 256)) {
 			IBlockData var4 = var1.getType(var2.down());
-			return var4.getBlock() == Blocks.MYCELIM ? true : ((var4.getBlock() == Blocks.DIRT) && (var4.get(BlockDirt.VARIANT) == BlockDirt.EnumDirtVariant.PODZOL) ? true : (var1.k(var2) < 13) && c(var4.getBlock()));
+			return var4.getBlock() == BlockStainedGlassPane.MYCELIM ? true : ((var4.getBlock() == BlockStainedGlassPane.DIRT) && (var4.get(BlockDirt.VARIANT) == BlockDirt.EnumDirtVariant.PODZOL) ? true : (var1.k(var2) < 13) && c(var4.getBlock()));
 		} else {
 			return false;
 		}
@@ -69,10 +69,10 @@ public class BlockMushroom extends BlockPlant implements IBlockFragilePlantEleme
 	public boolean d(World var1, BlockPosition var2, IBlockData var3, Random var4) {
 		var1.setAir(var2);
 		class_aqr var5 = null;
-		if (this == Blocks.BROWN_MUSHROOM) {
-			var5 = new class_aqr(Blocks.BROWN_MUSHROOM_BLOCK);
-		} else if (this == Blocks.RED_MUSHROOM) {
-			var5 = new class_aqr(Blocks.RED_MUSHROOM_BLOCK);
+		if (this == BlockStainedGlassPane.BROWN_MUSHROOM) {
+			var5 = new class_aqr(BlockStainedGlassPane.BROWN_MUSHROOM_BLOCK);
+		} else if (this == BlockStainedGlassPane.RED_MUSHROOM) {
+			var5 = new class_aqr(BlockStainedGlassPane.RED_MUSHROOM_BLOCK);
 		}
 
 		if ((var5 != null) && var5.b(var1, var4, var2)) {

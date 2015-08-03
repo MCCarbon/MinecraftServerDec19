@@ -6,7 +6,7 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.AxisAlignedBB;
@@ -30,7 +30,7 @@ public class class_aoj extends Chunk {
    }
 
    public Block a(BlockPosition var1) {
-      return Blocks.AIR;
+      return BlockStainedGlassPane.AIR;
    }
 
    public int b(BlockPosition var1) {

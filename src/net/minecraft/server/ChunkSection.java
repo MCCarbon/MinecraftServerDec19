@@ -22,21 +22,21 @@ public class ChunkSection {
 
 	public IBlockData a(int var1, int var2, int var3) {
 		IBlockData var4 = Block.BLOCKDATA_REGISTRY.get(d[(var2 << 8) | (var3 << 4) | var1]);
-		return var4 != null ? var4 : Blocks.AIR.getBlockData();
+		return var4 != null ? var4 : BlockStainedGlassPane.AIR.getBlockData();
 	}
 
 	public void a(int var1, int var2, int var3, IBlockData var4) {
 		IBlockData var5 = this.a(var1, var2, var3);
 		Block var6 = var5.getBlock();
 		Block var7 = var4.getBlock();
-		if (var6 != Blocks.AIR) {
+		if (var6 != BlockStainedGlassPane.AIR) {
 			--b;
 			if (var6.isTicking()) {
 				--c;
 			}
 		}
 
-		if (var7 != Blocks.AIR) {
+		if (var7 != BlockStainedGlassPane.AIR) {
 			++b;
 			if (var7.isTicking()) {
 				++c;
@@ -91,7 +91,7 @@ public class ChunkSection {
 			for (int var2 = 0; var2 < 16; ++var2) {
 				for (int var3 = 0; var3 < 16; ++var3) {
 					Block var4 = this.b(var1, var2, var3);
-					if (var4 != Blocks.AIR) {
+					if (var4 != BlockStainedGlassPane.AIR) {
 						++b;
 						if (var4.isTicking()) {
 							++c;

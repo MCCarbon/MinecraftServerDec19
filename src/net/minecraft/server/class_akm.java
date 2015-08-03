@@ -9,7 +9,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_alp;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
@@ -104,7 +104,7 @@ public class class_akm extends class_alp {
 
       if(this.N) {
          if(var5) {
-            var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.UNLIT_REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
+            var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.UNLIT_REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
             if(this.a(var1, var2, true)) {
                var1.a((double)((float)var2.getX() + 0.5F), (double)((float)var2.getY() + 0.5F), (double)((float)var2.getZ() + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
@@ -119,7 +119,7 @@ public class class_akm extends class_alp {
             }
          }
       } else if(!var5 && !this.a(var1, var2, false)) {
-         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
       }
 
    }
@@ -138,7 +138,7 @@ public class class_akm extends class_alp {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getItemOf(Blocks.REDSTONE_TORCH);
+      return Item.getItemOf(BlockStainedGlassPane.REDSTONE_TORCH);
    }
 
    public boolean isPowerSource() {
@@ -146,7 +146,7 @@ public class class_akm extends class_alp {
    }
 
    public boolean b(Block var1) {
-      return var1 == Blocks.UNLIT_REDSTONE_TORCH || var1 == Blocks.REDSTONE_TORCH;
+      return var1 == BlockStainedGlassPane.UNLIT_REDSTONE_TORCH || var1 == BlockStainedGlassPane.REDSTONE_TORCH;
    }
 
    static class class_a_in_class_akm {

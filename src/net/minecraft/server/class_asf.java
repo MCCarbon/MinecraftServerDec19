@@ -7,7 +7,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_akc;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
@@ -481,7 +481,7 @@ public class class_asf {
          }
 
          this.a(var1, var3, 6, 3, 6, 9, 6, 9, c, c, false);
-         this.a(var1, var3, 7, 4, 7, 8, 5, 8, Blocks.GOLD_BLOCK.getBlockData(), Blocks.GOLD_BLOCK.getBlockData(), false);
+         this.a(var1, var3, 7, 4, 7, 8, 5, 8, BlockStainedGlassPane.GOLD_BLOCK.getBlockData(), BlockStainedGlassPane.GOLD_BLOCK.getBlockData(), false);
 
          for(var7 = 3; var7 <= 6; var7 += 3) {
             for(int var8 = 6; var8 <= 9; var8 += 3) {
@@ -1006,7 +1006,7 @@ public class class_asf {
             for(int var5 = 1; var5 <= 6; ++var5) {
                if(var2.nextInt(3) != 0) {
                   int var6 = 2 + (var2.nextInt(4) == 0?0:1);
-                  this.a(var1, var3, var4, var6, var5, var4, 3, var5, Blocks.SPONGE.fromLegacyData(1), Blocks.SPONGE.fromLegacyData(1), false);
+                  this.a(var1, var3, var4, var6, var5, var4, 3, var5, BlockStainedGlassPane.SPONGE.fromLegacyData(1), BlockStainedGlassPane.SPONGE.fromLegacyData(1), false);
                }
             }
          }
@@ -1916,7 +1916,7 @@ public class class_asf {
                for(int var12 = var5; var12 <= var8; ++var12) {
                   if(!var9 || this.a(var1, var11, var10, var12, var2).getBlock().getMaterial() != Material.AIR) {
                      if(this.d(var10) >= var1.G()) {
-                        this.a(var1, Blocks.AIR.getBlockData(), var11, var10, var12, var2);
+                        this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), var11, var10, var12, var2);
                      } else {
                         this.a(var1, f, var11, var10, var12, var2);
                      }
@@ -1982,12 +1982,12 @@ public class class_asf {
       }
 
       static {
-         a = Blocks.PRISMARINE.fromLegacyData(class_akc.b);
-         b = Blocks.PRISMARINE.fromLegacyData(class_akc.N);
-         c = Blocks.PRISMARINE.fromLegacyData(class_akc.O);
+         a = BlockStainedGlassPane.PRISMARINE.fromLegacyData(class_akc.b);
+         b = BlockStainedGlassPane.PRISMARINE.fromLegacyData(class_akc.N);
+         c = BlockStainedGlassPane.PRISMARINE.fromLegacyData(class_akc.O);
          d = b;
-         e = Blocks.SEA_LANTERN.getBlockData();
-         f = Blocks.WATER.getBlockData();
+         e = BlockStainedGlassPane.SEA_LANTERN.getBlockData();
+         f = BlockStainedGlassPane.WATER.getBlockData();
          g = b(2, 0, 0);
          h = b(2, 2, 0);
          i = b(0, 1, 0);

@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
@@ -224,7 +224,7 @@ public class class_uc extends class_qj {
          }
 
          Block var2 = this.o.getType(var1.down()).getBlock();
-         if(var2 == Blocks.GRASS || var2.getMaterial() == Material.LEAVES) {
+         if(var2 == BlockStainedGlassPane.GRASS || var2.getMaterial() == Material.LEAVES) {
             return true;
          }
       }

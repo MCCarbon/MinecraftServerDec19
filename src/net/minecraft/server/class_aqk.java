@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_alp;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.BlockPosition;
@@ -27,24 +27,24 @@ public class class_aqk extends class_aql {
          if(var6 <= 3.5D) {
             if(var5.getY() < var3.getY()) {
                if(var6 <= 2.5D) {
-                  this.a(var1, var5, Blocks.BEDROCK.getBlockData());
+                  this.a(var1, var5, BlockStainedGlassPane.BEDROCK.getBlockData());
                } else if(var5.getY() < var3.getY()) {
-                  this.a(var1, var5, Blocks.END_STONE.getBlockData());
+                  this.a(var1, var5, BlockStainedGlassPane.END_STONE.getBlockData());
                }
             } else if(var5.getY() > var3.getY()) {
-               this.a(var1, var5, Blocks.AIR.getBlockData());
+               this.a(var1, var5, BlockStainedGlassPane.AIR.getBlockData());
             } else if(var6 > 2.5D) {
-               this.a(var1, var5, Blocks.BEDROCK.getBlockData());
+               this.a(var1, var5, BlockStainedGlassPane.BEDROCK.getBlockData());
             } else if(this.c) {
-               this.a(var1, new BlockPosition(var5), Blocks.END_PORTAL.getBlockData());
+               this.a(var1, new BlockPosition(var5), BlockStainedGlassPane.END_PORTAL.getBlockData());
             } else {
-               this.a(var1, new BlockPosition(var5), Blocks.AIR.getBlockData());
+               this.a(var1, new BlockPosition(var5), BlockStainedGlassPane.AIR.getBlockData());
             }
          }
       }
 
       for(int var8 = 0; var8 < 4; ++var8) {
-         this.a(var1, var3.up(var8), Blocks.BEDROCK.getBlockData());
+         this.a(var1, var3.up(var8), BlockStainedGlassPane.BEDROCK.getBlockData());
       }
 
       BlockPosition var9 = var3.up(2);
@@ -52,11 +52,11 @@ public class class_aqk extends class_aql {
 
       while(var10.hasNext()) {
          EnumDirection var11 = (EnumDirection)var10.next();
-         this.a(var1, var9.shift(var11), Blocks.TORCH.getBlockData().set(class_alp.a, var11));
+         this.a(var1, var9.shift(var11), BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, var11));
       }
 
       if(this.c) {
-         this.a(var1, var3.up(4), Blocks.DRAGON_EGG.getBlockData());
+         this.a(var1, var3.up(4), BlockStainedGlassPane.DRAGON_EGG.getBlockData());
       }
 
       return true;

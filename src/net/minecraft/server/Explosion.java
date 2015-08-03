@@ -11,7 +11,7 @@ import java.util.Random;
 import net.minecraft.server.class_ads;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
@@ -178,7 +178,7 @@ public class Explosion {
 						var4.dropNaturally(this.world, var3, this.world.getType(var3), 1.0F / this.size, 0);
 					}
 
-					this.world.setTypeAndData((BlockPosition) var3, (IBlockData) Blocks.AIR.getBlockData(), 3);
+					this.world.setTypeAndData((BlockPosition) var3, (IBlockData) BlockStainedGlassPane.AIR.getBlockData(), 3);
 					var4.wasExploded(this.world, var3, this);
 				}
 			}
@@ -190,7 +190,7 @@ public class Explosion {
 			while (var2.hasNext()) {
 				var3 = (BlockPosition) var2.next();
 				if (this.world.getType(var3).getBlock().getMaterial() == Material.AIR && this.world.getType(var3.down()).getBlock().isFullBlock() && this.random.nextInt(3) == 0) {
-					this.world.setTypeUpdate(var3, Blocks.FIRE.getBlockData());
+					this.world.setTypeUpdate(var3, BlockStainedGlassPane.FIRE.getBlockData());
 				}
 			}
 		}

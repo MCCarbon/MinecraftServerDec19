@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockFragilePlantElement;
 import net.minecraft.server.BlockWood;
 import net.minecraft.server.IBlockData;
@@ -48,7 +48,7 @@ public class class_zz extends Item {
          } else if(var10 == EnumColor.m) {
             IBlockData var11 = var3.getType(var4);
             Block var12 = var11.getBlock();
-            if(var12 == Blocks.LOG && var11.get(BlockLog1.b) == BlockWood.EnumLogVariant.JUNGLE) {
+            if(var12 == BlockStainedGlassPane.LOG && var11.get(BlockLog1.b) == BlockWood.EnumLogVariant.JUNGLE) {
                if(var6 == EnumDirection.DOWN) {
                   return class_oq.b;
                }
@@ -59,7 +59,7 @@ public class class_zz extends Item {
 
                var4 = var4.shift(var6);
                if(var3.isEmpty(var4)) {
-                  IBlockData var13 = Blocks.COCOA.getPlacedState(var3, var4, var6, var7, var8, var9, 0, var2);
+                  IBlockData var13 = BlockStainedGlassPane.COCOA.getPlacedState(var3, var4, var6, var7, var8, var9, 0, var2);
                   var3.setTypeAndData((BlockPosition)var4, (IBlockData)var13, 2);
                   if(!var2.bH.instabuild) {
                      --var1.count;

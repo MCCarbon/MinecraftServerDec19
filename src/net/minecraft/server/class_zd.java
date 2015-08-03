@@ -5,7 +5,7 @@ import java.util.Set;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_zv;
 
@@ -21,6 +21,6 @@ public class class_zd extends class_zv {
    }
 
    static {
-      c = Sets.newHashSet((Object[])(new Block[]{Blocks.PLANKS, Blocks.BOOKSHELF, Blocks.LOG, Blocks.LOG2, Blocks.CHEST, Blocks.PUMPKIN, Blocks.LIT_PUMPKIN, Blocks.MELON_BLOCK, Blocks.LADDER}));
+      c = Sets.newHashSet((Object[])(new Block[]{BlockStainedGlassPane.PLANKS, BlockStainedGlassPane.BOOKSHELF, BlockStainedGlassPane.LOG, BlockStainedGlassPane.LOG2, BlockStainedGlassPane.CHEST, BlockStainedGlassPane.PUMPKIN, BlockStainedGlassPane.LIT_PUMPKIN, BlockStainedGlassPane.MELON_BLOCK, BlockStainedGlassPane.LADDER}));
    }
 }

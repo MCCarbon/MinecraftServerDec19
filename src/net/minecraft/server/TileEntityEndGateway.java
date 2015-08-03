@@ -148,7 +148,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 					for (int var7 = 255; var7 > (var4 == null ? 0 : var4.getY()); --var7) {
 						BlockPosition var8 = new BlockPosition(var1.getX() + var5, var7, var1.getZ() + var6);
 						IBlockData var9 = var0.getType(var8);
-						if (var9.getBlock().isSoildFullCube() && (var3 || (var9.getBlock() != Blocks.BEDROCK))) {
+						if (var9.getBlock().isSoildFullCube() && (var3 || (var9.getBlock() != BlockStainedGlassPane.BEDROCK))) {
 							var4 = var8;
 							break;
 						}
@@ -186,7 +186,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 
 							var8 = (BlockPosition) var7.next();
 							var9 = var0.g(var8);
-						} while (var9.getBlock() != Blocks.END_STONE);
+						} while (var9.getBlock() != BlockStainedGlassPane.END_STONE);
 					} while (var0.a(var8.up(1)).isSoildFullCube());
 				} while (var0.a(var8.up(2)).isSoildFullCube());
 

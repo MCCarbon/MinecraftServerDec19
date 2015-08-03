@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityFurnace;
@@ -37,7 +37,7 @@ public class class_aih extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getItemOf(Blocks.FURNACE);
+      return Item.getItemOf(BlockStainedGlassPane.FURNACE);
    }
 
    public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
@@ -84,11 +84,11 @@ public class class_aih extends BlockContainer {
       TileEntity var4 = var1.getTileEntity(var2);
       N = true;
       if(var0) {
-         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
-         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.LIT_FURNACE.getBlockData().set(a, var3.get(a)), 3);
       } else {
-         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
-         var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.FURNACE.getBlockData().set(a, var3.get(a)), 3);
+         var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.FURNACE.getBlockData().set(a, var3.get(a)), 3);
       }
 
       N = false;

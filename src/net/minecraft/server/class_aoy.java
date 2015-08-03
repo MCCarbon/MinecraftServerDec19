@@ -5,7 +5,7 @@ import net.minecraft.server.class_aes;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.class_afg;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_aoe;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.class_aoz;
@@ -63,7 +63,7 @@ public abstract class class_aoy {
    }
 
    public boolean a(int var1, int var2) {
-      return this.b.c(new BlockPosition(var1, 0, var2)) == Blocks.GRASS;
+      return this.b.c(new BlockPosition(var1, 0, var2)) == BlockStainedGlassPane.GRASS;
    }
 
    public float a(long var1, float var3) {

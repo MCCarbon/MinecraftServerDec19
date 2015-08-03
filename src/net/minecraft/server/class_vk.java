@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
@@ -241,10 +241,10 @@ public class class_vk extends Entity {
                int var12 = MathHelper.floor(this.t) + var25;
                BlockPosition var27 = new BlockPosition(var23, var12, var10);
                Block var14 = this.o.getType(var27).getBlock();
-               if(var14 == Blocks.SNOW_LAYER) {
+               if(var14 == BlockStainedGlassPane.SNOW_LAYER) {
                   this.o.setAir(var27);
                   this.D = false;
-               } else if(var14 == Blocks.WATERLILY) {
+               } else if(var14 == BlockStainedGlassPane.WATERLILY) {
                   this.o.setAir(var27, true);
                   this.D = false;
                }
@@ -263,11 +263,11 @@ public class class_vk extends Entity {
                this.J();
                if(this.o.R().b("doEntityDrops")) {
                   for(var22 = 0; var22 < 3; ++var22) {
-                     this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);
+                     this.a(Item.getItemOf(BlockStainedGlassPane.PLANKS), 1, 0.0F);
                   }
 
                   for(var22 = 0; var22 < 2; ++var22) {
-                     this.a(Items.A, 1, 0.0F);
+                     this.a(Items.STICK, 1, 0.0F);
                   }
                }
             }
@@ -350,11 +350,11 @@ public class class_vk extends Entity {
                if(this.o.R().b("doEntityDrops")) {
                   int var6;
                   for(var6 = 0; var6 < 3; ++var6) {
-                     this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);
+                     this.a(Item.getItemOf(BlockStainedGlassPane.PLANKS), 1, 0.0F);
                   }
 
                   for(var6 = 0; var6 < 2; ++var6) {
-                     this.a(Items.A, 1, 0.0F);
+                     this.a(Items.STICK, 1, 0.0F);
                   }
                }
             }

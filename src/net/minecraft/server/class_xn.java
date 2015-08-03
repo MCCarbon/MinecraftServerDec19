@@ -34,7 +34,7 @@ public class class_xn extends class_xd {
    }
 
    protected ItemStack j() {
-      return new ItemStack(Items.h);
+      return new ItemStack(Items.SPECTRAL_ARROW);
    }
 
    protected void b(EntityLiving var1) {

@@ -195,6 +195,6 @@ public class class_wq extends class_wi implements class_wk {
    static {
       b = (new class_qm(a, "Drinking speed penalty", -0.25D, 0)).a(false);
       c = class_qi.a(class_wq.class);
-      bs = new Item[]{Items.aV, Items.ba, Items.aE, Items.bE, Items.bD, Items.J, Items.A, Items.A};
+      bs = new Item[]{Items.aV, Items.ba, Items.aE, Items.bE, Items.bD, Items.J, Items.STICK, Items.STICK};
    }
 }

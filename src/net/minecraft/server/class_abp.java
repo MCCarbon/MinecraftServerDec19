@@ -6,8 +6,8 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_akv;
+import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.BlockSkull;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntitySkull;
 import net.minecraft.server.IBlockData;
@@ -49,11 +49,11 @@ public class class_abp extends Item {
 
          if(!var2.a(var4, var6, var1)) {
             return class_oq.b;
-         } else if(!Blocks.SKULL.canPlace(var3, var4)) {
+         } else if(!BlockStainedGlassPane.SKULL.canPlace(var3, var4)) {
             return class_oq.b;
          } else {
             if(!var3.isClientSide) {
-               var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.SKULL.getBlockData().set(class_akv.a, var6), 3);
+               var3.setTypeAndData((BlockPosition)var4, (IBlockData)BlockStainedGlassPane.SKULL.getBlockData().set(BlockSkull.a, var6), 3);
                int var13 = 0;
                if(var6 == EnumDirection.UP) {
                   var13 = MathHelper.floor((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
@@ -79,7 +79,7 @@ public class class_abp extends Item {
                   }
 
                   var15.b(var13);
-                  Blocks.SKULL.a(var3, var4, var15);
+                  BlockStainedGlassPane.SKULL.a(var3, var4, var15);
                }
 
                --var1.count;

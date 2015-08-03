@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
@@ -74,7 +74,7 @@ public class class_rk extends class_rm {
    private boolean a(BlockPosition var1) {
       IBlockData var2 = this.a.getType(var1);
       Block var3 = var2.getBlock();
-      return var3 == Blocks.AIR?true:!var3.isFullCube();
+      return var3 == BlockStainedGlassPane.AIR?true:!var3.isFullCube();
    }
 
    public void e() {

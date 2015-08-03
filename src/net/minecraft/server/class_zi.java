@@ -4,7 +4,7 @@ import java.util.List;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
@@ -65,7 +65,7 @@ public class class_zi extends Item {
             return new class_or(class_oq.b, var1);
          } else if(var25.a == MovingObjectPosition.class_a_in_class_awg.b) {
             BlockPosition var34 = var25.a();
-            if(var2.getType(var34).getBlock() == Blocks.SNOW_LAYER) {
+            if(var2.getType(var34).getBlock() == BlockStainedGlassPane.SNOW_LAYER) {
                var34 = var34.down();
             }
 

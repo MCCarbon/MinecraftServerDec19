@@ -7,7 +7,7 @@ import java.util.List;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
@@ -315,7 +315,7 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    public static boolean a(Block var0) {
-      return var0 != Blocks.BEDROCK && var0 != Blocks.END_PORTAL && var0 != Blocks.END_PORTAL_FRAME && var0 != Blocks.COMMAND_BLOCK && var0 != Blocks.BARRIER;
+      return var0 != BlockStainedGlassPane.BEDROCK && var0 != BlockStainedGlassPane.END_PORTAL && var0 != BlockStainedGlassPane.END_PORTAL_FRAME && var0 != BlockStainedGlassPane.COMMAND_BLOCK && var0 != BlockStainedGlassPane.BARRIER;
    }
 
    public void n() {

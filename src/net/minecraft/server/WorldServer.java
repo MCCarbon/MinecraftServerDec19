@@ -30,7 +30,7 @@ import net.minecraft.server.class_aex;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
@@ -314,11 +314,11 @@ public class WorldServer extends World implements class_of {
                var9 = this.q(new BlockPosition(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
                BlockPosition var10 = var9.down();
                if(this.w(var10)) {
-                  this.setTypeUpdate((BlockPosition)var10, (IBlockData)Blocks.ICE.getBlockData());
+                  this.setTypeUpdate((BlockPosition)var10, (IBlockData)BlockStainedGlassPane.ICE.getBlockData());
                }
 
                if(this.T() && this.f(var9, true)) {
-                  this.setTypeUpdate((BlockPosition)var9, (IBlockData)Blocks.SNOW_LAYER.getBlockData());
+                  this.setTypeUpdate((BlockPosition)var9, (IBlockData)BlockStainedGlassPane.SNOW_LAYER.getBlockData());
                }
 
                if(this.T() && this.b((BlockPosition)var10).e()) {
@@ -947,7 +947,7 @@ public class WorldServer extends World implements class_of {
    }
 
    static {
-      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.A, 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.PLANKS), 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.LOG), 0, 1, 3, 10), new class_od(Items.v, 0, 1, 1, 3), new class_od(Items.r, 0, 1, 1, 5), new class_od(Items.u, 0, 1, 1, 3), new class_od(Items.q, 0, 1, 1, 5), new class_od(Items.e, 0, 2, 3, 5), new class_od(Items.R, 0, 2, 3, 3), new class_od(Item.getItemOf(Blocks.LOG2), 0, 1, 3, 10)}));
+      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.STICK, 0, 1, 3, 10), new class_od(Item.getItemOf(BlockStainedGlassPane.PLANKS), 0, 1, 3, 10), new class_od(Item.getItemOf(BlockStainedGlassPane.LOG), 0, 1, 3, 10), new class_od(Items.STONE_AXE, 0, 1, 1, 3), new class_od(Items.WOODEN_AXE, 0, 1, 1, 5), new class_od(Items.STONE_PICKAXE, 0, 1, 1, 3), new class_od(Items.WOODEN_PICKAXE, 0, 1, 1, 5), new class_od(Items.APPLE, 0, 2, 3, 5), new class_od(Items.R, 0, 2, 3, 3), new class_od(Item.getItemOf(BlockStainedGlassPane.LOG2), 0, 1, 3, 10)}));
    }
 
    static class class_a_in_class_lg extends ArrayList {

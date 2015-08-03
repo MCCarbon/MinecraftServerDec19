@@ -149,7 +149,7 @@ public class class_ud extends class_tw {
    public void a(class_vi var1) {
       if(!this.o.isClientSide && !this.I) {
          class_wj var2 = new class_wj(this.o);
-         var2.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
+         var2.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.GOLDEN_SWORD)));
          var2.b(this.s, this.t, this.u, this.y, this.z);
          var2.k(this.cs());
          if(this.hasCustomName()) {

@@ -4,7 +4,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockFalling;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.IBlockData;
@@ -123,7 +123,7 @@ public class class_aga extends BlockFalling {
       }
 
       public IChatBaseComponent getScoreboardDisplayName() {
-         return new ChatMessage(Blocks.ANVIL.getInternalName() + ".name", new Object[0]);
+         return new ChatMessage(BlockStainedGlassPane.ANVIL.getInternalName() + ".name", new Object[0]);
       }
 
       public Container createContainer(PlayerInventory var1, EntityHuman var2) {

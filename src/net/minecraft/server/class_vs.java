@@ -5,7 +5,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_ams;
 import net.minecraft.server.TileEntityHopper;
 import net.minecraft.server.IBlockData;
@@ -43,7 +43,7 @@ public class class_vs extends class_vq implements class_ams {
    }
 
    public IBlockData u() {
-      return Blocks.HOPPER.getBlockData();
+      return BlockStainedGlassPane.HOPPER.getBlockData();
    }
 
    public int w() {
@@ -131,7 +131,7 @@ public class class_vs extends class_vq implements class_ams {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(Item.getItemOf((Block)Blocks.HOPPER), 1, 0.0F);
+         this.a(Item.getItemOf((Block)BlockStainedGlassPane.HOPPER), 1, 0.0F);
       }
 
    }

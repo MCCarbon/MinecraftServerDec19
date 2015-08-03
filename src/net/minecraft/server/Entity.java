@@ -15,7 +15,7 @@ import net.minecraft.server.class_ads;
 import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_aia;
 import net.minecraft.server.BlockFluids;
@@ -568,7 +568,7 @@ public abstract class Entity implements class_m {
             double var61 = this.s - var7;
             double var64 = this.t - var9;
             double var66 = this.u - var11;
-            if(var60 != Blocks.LADDER) {
+            if(var60 != BlockStainedGlassPane.LADDER) {
                var64 = 0.0D;
             }
 
@@ -661,8 +661,8 @@ public abstract class Entity implements class_m {
 
    protected void a(BlockPosition var1, Block var2) {
       Block.Sound var3 = var2.stepSound;
-      if(this.o.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
-         var3 = Blocks.SNOW_LAYER.stepSound;
+      if(this.o.getType(var1.up()).getBlock() == BlockStainedGlassPane.SNOW_LAYER) {
+         var3 = BlockStainedGlassPane.SNOW_LAYER.stepSound;
          this.a(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
       } else if(!var2.getMaterial().isLiquid()) {
          this.a(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
@@ -1334,7 +1334,7 @@ public abstract class Entity implements class_m {
       } else {
          if(!this.o.isClientSide && !var1.equals(this.an)) {
             this.an = var1;
-            class_anp.class_b_in_class_anp var2 = Blocks.PORTAL.f(this.o, var1);
+            class_anp.class_b_in_class_anp var2 = BlockStainedGlassPane.PORTAL.f(this.o, var1);
             double var3 = var2.b().getAxis() == EnumDirection.EnumAxis.X?(double)var2.a().getZ():(double)var2.a().getX();
             double var5 = var2.b().getAxis() == EnumDirection.EnumAxis.X?this.u:this.s;
             var5 = Math.abs(MathHelper.c(var5 - (double)(var2.b().rotateY().getAxisDirection() == EnumDirection.EnumAxisDirection.NEGATIVE?1:0), var3, var3 - (double)var2.d()));

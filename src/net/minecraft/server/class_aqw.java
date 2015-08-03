@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_alu;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateBoolean;
@@ -89,7 +89,7 @@ public class class_aqw extends class_aqy {
 
    private void a(World var1, Random var2, BlockPosition var3, BlockStateBoolean var4) {
       if(var2.nextInt(3) > 0 && var1.isEmpty(var3)) {
-         this.a(var1, var3, Blocks.VINE.getBlockData().set(var4, Boolean.valueOf(true)));
+         this.a(var1, var3, BlockStainedGlassPane.VINE.getBlockData().set(var4, Boolean.valueOf(true)));
       }
 
    }

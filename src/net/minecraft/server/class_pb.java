@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatMessage;
@@ -33,9 +33,9 @@ public class class_pb {
       this.j();
       if(this.b.k_()) {
          Block var1 = this.b.o.getType(new BlockPosition(this.b.s, this.b.aT().yMin, this.b.u)).getBlock();
-         if(var1 == Blocks.LADDER) {
+         if(var1 == BlockStainedGlassPane.LADDER) {
             this.h = "ladder";
-         } else if(var1 == Blocks.VINE) {
+         } else if(var1 == BlockStainedGlassPane.VINE) {
             this.h = "vines";
          }
       } else if(this.b.V()) {

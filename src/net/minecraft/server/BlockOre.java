@@ -15,12 +15,12 @@ public class BlockOre extends Block {
 
 	@Override
 	public Item getDropType(IBlockData blockdata, Random rnd, int fortune) {
-		return this == Blocks.COAL_ORE ? Items.j : (this == Blocks.DIAMOND_ORE ? Items.k : (this == Blocks.LAPIS_ORE ? Items.aY : (this == Blocks.EMERALD_ORE ? Items.bR : (this == Blocks.QUARTZ_ORE ? Items.cj : Item.getItemOf(this)))));
+		return this == BlockStainedGlassPane.COAL_ORE ? Items.COAL : (this == BlockStainedGlassPane.DIAMOND_ORE ? Items.DIAMOND : (this == BlockStainedGlassPane.LAPIS_ORE ? Items.aY : (this == BlockStainedGlassPane.EMERALD_ORE ? Items.bR : (this == BlockStainedGlassPane.QUARTZ_ORE ? Items.cj : Item.getItemOf(this)))));
 	}
 
 	@Override
 	public int getDropCount(Random rnd) {
-		return this == Blocks.LAPIS_ORE ? 4 + rnd.nextInt(5) : 1;
+		return this == BlockStainedGlassPane.LAPIS_ORE ? 4 + rnd.nextInt(5) : 1;
 	}
 
 	@Override
@@ -42,15 +42,15 @@ public class BlockOre extends Block {
 		super.dropNaturally(world, position, blockdata, chance, fortune);
 		if (getDropType(blockdata, world.random, fortune) != Item.getItemOf(this)) {
 			int exp = 0;
-			if (this == Blocks.COAL_ORE) {
+			if (this == BlockStainedGlassPane.COAL_ORE) {
 				exp = MathHelper.getRandomIntInRange(world.random, 0, 2);
-			} else if (this == Blocks.DIAMOND_ORE) {
+			} else if (this == BlockStainedGlassPane.DIAMOND_ORE) {
 				exp = MathHelper.getRandomIntInRange(world.random, 3, 7);
-			} else if (this == Blocks.EMERALD_ORE) {
+			} else if (this == BlockStainedGlassPane.EMERALD_ORE) {
 				exp = MathHelper.getRandomIntInRange(world.random, 3, 7);
-			} else if (this == Blocks.LAPIS_ORE) {
+			} else if (this == BlockStainedGlassPane.LAPIS_ORE) {
 				exp = MathHelper.getRandomIntInRange(world.random, 2, 5);
-			} else if (this == Blocks.QUARTZ_ORE) {
+			} else if (this == BlockStainedGlassPane.QUARTZ_ORE) {
 				exp = MathHelper.getRandomIntInRange(world.random, 2, 5);
 			}
 
@@ -66,7 +66,7 @@ public class BlockOre extends Block {
 
 	@Override
 	public int getDropData(IBlockData blockdata) {
-		return this == Blocks.LAPIS_ORE ? EnumColor.l.b() : 0;
+		return this == BlockStainedGlassPane.LAPIS_ORE ? EnumColor.l.b() : 0;
 	}
 
 }

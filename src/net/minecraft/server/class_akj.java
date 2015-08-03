@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -49,15 +49,15 @@ public class class_akj extends Block {
 
    private void e(World var1, BlockPosition var2) {
       this.f(var1, var2);
-      if(this == Blocks.REDSTONE_ORE) {
-         var1.setTypeUpdate(var2, Blocks.LIT_REDSTONE_ORE.getBlockData());
+      if(this == BlockStainedGlassPane.REDSTONE_ORE) {
+         var1.setTypeUpdate(var2, BlockStainedGlassPane.LIT_REDSTONE_ORE.getBlockData());
       }
 
    }
 
    public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      if(this == Blocks.LIT_REDSTONE_ORE) {
-         var1.setTypeUpdate(var2, Blocks.REDSTONE_ORE.getBlockData());
+      if(this == BlockStainedGlassPane.LIT_REDSTONE_ORE) {
+         var1.setTypeUpdate(var2, BlockStainedGlassPane.REDSTONE_ORE.getBlockData());
       }
 
    }
@@ -123,6 +123,6 @@ public class class_akj extends Block {
    }
 
    protected ItemStack createItemStack(IBlockData var1) {
-      return new ItemStack(Blocks.REDSTONE_ORE);
+      return new ItemStack(BlockStainedGlassPane.REDSTONE_ORE);
    }
 }

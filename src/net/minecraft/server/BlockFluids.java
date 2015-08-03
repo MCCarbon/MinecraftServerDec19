@@ -158,13 +158,13 @@ public abstract class BlockFluids extends Block {
 			if (var4) {
 				Integer var9 = var3.get(LEVEL);
 				if (var9.intValue() == 0) {
-					var1.setTypeUpdate(var2, Blocks.OBSIDIAN.getBlockData());
+					var1.setTypeUpdate(var2, BlockStainedGlassPane.OBSIDIAN.getBlockData());
 					this.e(var1, var2);
 					return true;
 				}
 
 				if (var9.intValue() <= 4) {
-					var1.setTypeUpdate(var2, Blocks.COBBLESTONE.getBlockData());
+					var1.setTypeUpdate(var2, BlockStainedGlassPane.COBBLESTONE.getBlockData());
 					this.e(var1, var2);
 					return true;
 				}
@@ -203,9 +203,9 @@ public abstract class BlockFluids extends Block {
 
 	public static BlockFlowing a(Material var0) {
 		if (var0 == Material.WATER) {
-			return Blocks.FLOWING_WATER;
+			return BlockStainedGlassPane.FLOWING_WATER;
 		} else if (var0 == Material.LAVA) {
-			return Blocks.FLOWING_LAVA;
+			return BlockStainedGlassPane.FLOWING_LAVA;
 		} else {
 			throw new IllegalArgumentException("Invalid material");
 		}
@@ -213,9 +213,9 @@ public abstract class BlockFluids extends Block {
 
 	public static BlockStationary b(Material var0) {
 		if (var0 == Material.WATER) {
-			return Blocks.WATER;
+			return BlockStainedGlassPane.WATER;
 		} else if (var0 == Material.LAVA) {
-			return Blocks.LAVA;
+			return BlockStainedGlassPane.LAVA;
 		} else {
 			throw new IllegalArgumentException("Invalid material");
 		}

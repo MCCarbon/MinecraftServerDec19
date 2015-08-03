@@ -229,7 +229,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean setAir(BlockPosition var1) {
-		return setTypeAndData(var1, Blocks.AIR.getBlockData(), 3);
+		return setTypeAndData(var1, BlockStainedGlassPane.AIR.getBlockData(), 3);
 	}
 
 	public boolean setAir(BlockPosition var1, boolean var2) {
@@ -243,7 +243,7 @@ public abstract class World implements IBlockAccess {
 				var4.dropNaturallyForSure(this, var1, var3, 0);
 			}
 
-			return setTypeAndData(var1, Blocks.AIR.getBlockData(), 3);
+			return setTypeAndData(var1, BlockStainedGlassPane.AIR.getBlockData(), 3);
 		}
 	}
 
@@ -510,7 +510,7 @@ public abstract class World implements IBlockAccess {
 	@Override
 	public IBlockData getType(BlockPosition var1) {
 		if (!this.a(var1)) {
-			return Blocks.AIR.getBlockData();
+			return BlockStainedGlassPane.AIR.getBlockData();
 		} else {
 			Chunk var2 = this.f(var1);
 			return var2.g(var1);
@@ -794,7 +794,7 @@ public abstract class World implements IBlockAccess {
 		class_aoe var10 = ag();
 		boolean var11 = var1.aV();
 		boolean var12 = this.a(var10, var1);
-		IBlockData var13 = Blocks.STONE.getBlockData();
+		IBlockData var13 = BlockStainedGlassPane.STONE.getBlockData();
 		BlockPosition.MutableBlockPosition var14 = new BlockPosition.MutableBlockPosition();
 
 		for (int var15 = var4; var15 < var5; ++var15) {
@@ -879,7 +879,7 @@ public abstract class World implements IBlockAccess {
 						if ((var10 >= -30000000) && (var10 < 30000000) && (var11 >= -30000000) && (var11 < 30000000)) {
 							var13 = getType(var9);
 						} else {
-							var13 = Blocks.BEDROCK.getBlockData();
+							var13 = BlockStainedGlassPane.BEDROCK.getBlockData();
 						}
 
 						var13.getBlock().addBBIfInsideInputBB(this, var9, var13, var1, var2, (Entity) null);
@@ -1271,7 +1271,7 @@ public abstract class World implements IBlockAccess {
 				for (int var10 = var4; var10 < var5; ++var10) {
 					for (int var11 = var6; var11 < var7; ++var11) {
 						Block var12 = getType(var8.setPosition(var9, var10, var11)).getBlock();
-						if ((var12 == Blocks.FIRE) || (var12 == Blocks.FLOWING_LAVA) || (var12 == Blocks.LAVA)) {
+						if ((var12 == BlockStainedGlassPane.FIRE) || (var12 == BlockStainedGlassPane.FLOWING_LAVA) || (var12 == BlockStainedGlassPane.LAVA)) {
 							return true;
 						}
 					}
@@ -1423,7 +1423,7 @@ public abstract class World implements IBlockAccess {
 
 	public boolean a(EntityHuman var1, BlockPosition var2, EnumDirection var3) {
 		var2 = var2.shift(var3);
-		if (getType(var2).getBlock() == Blocks.FIRE) {
+		if (getType(var2).getBlock() == BlockStainedGlassPane.FIRE) {
 			this.a(var1, 1004, var2, 0);
 			this.setAir(var2);
 			return true;
@@ -1521,7 +1521,7 @@ public abstract class World implements IBlockAccess {
 	public static boolean a(IBlockAccess var0, BlockPosition var1) {
 		IBlockData var2 = var0.getType(var1);
 		Block var3 = var2.getBlock();
-		return var3.getMaterial().isOpaque() && var3.isFullCube() ? true : (var3 instanceof BlockStairs ? var2.get(BlockStairs.b) == BlockStairs.EnumHalf.TOP : (var3 instanceof BlockStepAbstract ? var2.get(BlockStepAbstract.HALF) == BlockStepAbstract.EnumSlabHalf.TOP : (var3 instanceof class_aiu ? true : (var3 instanceof class_aky ? var2.get(class_aky.a).intValue() == 7 : false))));
+		return var3.getMaterial().isOpaque() && var3.isFullCube() ? true : (var3 instanceof BlockStairs ? var2.get(BlockStairs.b) == BlockStairs.EnumHalf.TOP : (var3 instanceof BlockStepAbstract ? var2.get(BlockStepAbstract.HALF) == BlockStepAbstract.EnumSlabHalf.TOP : (var3 instanceof BlockHopper ? true : (var3 instanceof class_aky ? var2.get(class_aky.a).intValue() == 7 : false))));
 	}
 
 	public boolean d(BlockPosition var1, boolean var2) {
@@ -1720,7 +1720,7 @@ public abstract class World implements IBlockAccess {
 			if ((var1.getY() >= 0) && (var1.getY() < 256) && (this.b(class_aet.b, var1) < 10)) {
 				IBlockData var5 = getType(var1);
 				Block var6 = var5.getBlock();
-				if (((var6 == Blocks.WATER) || (var6 == Blocks.FLOWING_WATER)) && (var5.get(BlockFluids.LEVEL).intValue() == 0)) {
+				if (((var6 == BlockStainedGlassPane.WATER) || (var6 == BlockStainedGlassPane.FLOWING_WATER)) && (var5.get(BlockFluids.LEVEL).intValue() == 0)) {
 					if (!var2) {
 						return true;
 					}
@@ -1750,7 +1750,7 @@ public abstract class World implements IBlockAccess {
 		} else {
 			if ((var1.getY() >= 0) && (var1.getY() < 256) && (this.b(class_aet.b, var1) < 10)) {
 				Block var5 = getType(var1).getBlock();
-				if ((var5.getMaterial() == Material.AIR) && Blocks.SNOW_LAYER.canPlace(this, var1)) {
+				if ((var5.getMaterial() == Material.AIR) && BlockStainedGlassPane.SNOW_LAYER.canPlace(this, var1)) {
 					return true;
 				}
 			}
@@ -2086,7 +2086,7 @@ public abstract class World implements IBlockAccess {
 	public boolean a(Block var1, BlockPosition var2, boolean var3, EnumDirection var4, Entity var5, ItemStack var6) {
 		Block var7 = getType(var2).getBlock();
 		AxisAlignedBB var8 = var3 ? null : var1.getBoundingBox(this, var2, var1.getBlockData());
-		return (var8 != null) && !this.a(var8, var5) ? false : ((var7.getMaterial() == Material.ORIENTABLE) && (var1 == Blocks.ANVIL) ? true : var7.getMaterial().isReplaceable() && var1.canPlace(this, var2, var4, var6));
+		return (var8 != null) && !this.a(var8, var5) ? false : ((var7.getMaterial() == Material.ORIENTABLE) && (var1 == BlockStainedGlassPane.ANVIL) ? true : var7.getMaterial().isReplaceable() && var1.canPlace(this, var2, var4, var6));
 	}
 
 	public int G() {
@@ -2492,12 +2492,12 @@ public abstract class World implements IBlockAccess {
 			BlockPosition var5 = var1.shift(var4);
 			if (this.e(var5)) {
 				IBlockData var6 = getType(var5);
-				if (Blocks.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
+				if (BlockStainedGlassPane.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
 					var6.getBlock().doPhysics(this, var5, var6, var2);
 				} else if (var6.getBlock().isOccluding()) {
 					var5 = var5.shift(var4);
 					var6 = getType(var5);
-					if (Blocks.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
+					if (BlockStainedGlassPane.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
 						var6.getBlock().doPhysics(this, var5, var6, var2);
 					}
 				}

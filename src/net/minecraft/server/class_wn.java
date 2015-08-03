@@ -9,7 +9,7 @@ import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.Enchantment;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_apa;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
@@ -184,7 +184,7 @@ public class class_wn extends class_wi implements class_wk {
    }
 
    protected Item D() {
-      return Items.g;
+      return Items.ARROW;
    }
 
    protected void b(boolean var1, int var2) {
@@ -194,13 +194,13 @@ public class class_wn extends class_wi implements class_wk {
          var3 = this.V.nextInt(3 + var2) - 1;
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(Items.j, 1);
+            this.a(Items.COAL, 1);
          }
       } else {
          var3 = this.V.nextInt(3 + var2);
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(Items.g, 1);
+            this.a(Items.ARROW, 1);
          }
       }
 
@@ -221,7 +221,7 @@ public class class_wn extends class_wi implements class_wk {
 
    protected void a(class_on var1) {
       super.a(var1);
-      this.a(class_pw.a, new ItemStack(Items.f));
+      this.a(class_pw.a, new ItemStack(Items.BOW));
    }
 
    public class_qd a(class_on var1, class_qd var2) {
@@ -229,7 +229,7 @@ public class class_wn extends class_wi implements class_wk {
       if(this.o.worldProvider instanceof class_apa && this.bd().nextInt(5) > 0) {
          this.i.a(4, this.bs);
          this.a(1);
-         this.a(class_pw.a, new ItemStack(Items.s));
+         this.a(class_pw.a, new ItemStack(Items.STONE_SWORD));
          this.a((class_qk)class_wl.e).a(4.0D);
       } else {
          this.i.a(4, this.c);
@@ -241,7 +241,7 @@ public class class_wn extends class_wi implements class_wk {
       if(this.a((class_pw)class_pw.f) == null) {
          Calendar var3 = this.o.Z();
          if(var3.get(2) + 1 == 10 && var3.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.a(class_pw.f, new ItemStack(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN));
+            this.a(class_pw.f, new ItemStack(this.V.nextFloat() < 0.1F?BlockStainedGlassPane.LIT_PUMPKIN:BlockStainedGlassPane.PUMPKIN));
             this.bp[class_pw.f.b()] = 0.0F;
          }
       }
@@ -253,7 +253,7 @@ public class class_wn extends class_wi implements class_wk {
       this.i.a((class_rm)this.bs);
       this.i.a((class_rm)this.c);
       ItemStack var1 = this.bA();
-      if(var1 != null && var1.getItem() == Items.f) {
+      if(var1 != null && var1.getItem() == Items.BOW) {
          this.i.a(4, this.c);
       } else {
          this.i.a(4, this.bs);

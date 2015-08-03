@@ -4,7 +4,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.class_aax;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
@@ -120,7 +120,7 @@ public class class_va extends class_uz {
       this.H().b(c, var1);
       this.H().i(c);
       if(var2 && this.a != null) {
-         this.o.e(this.a, Blocks.AIR);
+         this.o.e(this.a, BlockStainedGlassPane.AIR);
       }
 
    }
@@ -136,7 +136,7 @@ public class class_va extends class_uz {
    private void a(int var1, boolean var2) {
       this.H().b(d, Byte.valueOf((byte)(var1 % 8)));
       if(var2 && this.a != null) {
-         this.o.e(this.a, Blocks.AIR);
+         this.o.e(this.a, BlockStainedGlassPane.AIR);
       }
 
    }

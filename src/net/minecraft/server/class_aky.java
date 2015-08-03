@@ -8,7 +8,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -67,7 +67,7 @@ public class class_aky extends Block {
    public boolean canPlace(World var1, BlockPosition var2) {
       IBlockData var3 = var1.getType(var2.down());
       Block var4 = var3.getBlock();
-      return var4 != Blocks.ICE && var4 != Blocks.PACKED_ICE?(var4.getMaterial() == Material.LEAVES?true:(var4 == this && ((Integer)var3.get(a)).intValue() >= 7?true:var4.isOpaqueCube() && var4.material.isSolid())):false;
+      return var4 != BlockStainedGlassPane.ICE && var4 != BlockStainedGlassPane.PACKED_ICE?(var4.getMaterial() == Material.LEAVES?true:(var4 == this && ((Integer)var3.get(a)).intValue() >= 7?true:var4.isOpaqueCube() && var4.material.isSolid())):false;
    }
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {

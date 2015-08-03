@@ -7,7 +7,7 @@ import net.minecraft.server.class_aak;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
@@ -360,7 +360,7 @@ public class class_wg extends class_wi {
       }
 
       if(var1 && this.cC()) {
-         this.a(new ItemStack(Blocks.SPONGE, 1, 1), 1.0F);
+         this.a(new ItemStack(BlockStainedGlassPane.SPONGE, 1, 1), 1.0F);
       }
 
    }

@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumUsedHand;
@@ -36,7 +36,7 @@ public class class_abw extends Item {
    }
 
    public float a(ItemStack var1, Block var2) {
-      if(var2 == Blocks.WEB) {
+      if(var2 == BlockStainedGlassPane.WEB) {
          return 15.0F;
       } else {
          Material var3 = var2.getMaterial();
@@ -71,7 +71,7 @@ public class class_abw extends Item {
    }
 
    public boolean b(Block var1) {
-      return var1 == Blocks.WEB;
+      return var1 == BlockStainedGlassPane.WEB;
    }
 
    public int c() {

@@ -10,7 +10,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
@@ -292,7 +292,7 @@ public class class_wr extends class_wi {
    protected void br() {
       switch(this.V.nextInt(3)) {
       case 0:
-         this.a(Items.l, 1);
+         this.a(Items.IRON_INGOT, 1);
          break;
       case 1:
          this.a(Items.bU, 1);
@@ -308,9 +308,9 @@ public class class_wr extends class_wi {
       if(this.V.nextFloat() < (this.o.ab() == class_om.d?0.05F:0.01F)) {
          int var2 = this.V.nextInt(3);
          if(var2 == 0) {
-            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.n)));
+            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.IRON_SWORD)));
          } else {
-            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.a)));
+            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.IRON_SHOVEL)));
          }
       }
 
@@ -429,7 +429,7 @@ public class class_wr extends class_wi {
       if(this.a((class_pw)class_pw.f) == null) {
          Calendar var8 = this.o.Z();
          if(var8.get(2) + 1 == 10 && var8.get(5) == 31 && this.V.nextFloat() < 0.25F) {
-            this.a((class_pw)class_pw.f, (ItemStack)(new ItemStack(this.V.nextFloat() < 0.1F?Blocks.LIT_PUMPKIN:Blocks.PUMPKIN)));
+            this.a((class_pw)class_pw.f, (ItemStack)(new ItemStack(this.V.nextFloat() < 0.1F?BlockStainedGlassPane.LIT_PUMPKIN:BlockStainedGlassPane.PUMPKIN)));
             this.bp[class_pw.f.b()] = 0.0F;
          }
       }
@@ -512,7 +512,7 @@ public class class_wr extends class_wi {
             for(int var5 = (int)this.t - 4; var5 < (int)this.t + 4 && var2 < 14; ++var5) {
                for(int var6 = (int)this.u - 4; var6 < (int)this.u + 4 && var2 < 14; ++var6) {
                   Block var7 = this.o.getType(var3.setPosition(var4, var5, var6)).getBlock();
-                  if(var7 == Blocks.IRON_BARS || var7 == Blocks.BED) {
+                  if(var7 == BlockStainedGlassPane.IRON_BARS || var7 == BlockStainedGlassPane.BED) {
                      if(this.V.nextFloat() < 0.3F) {
                         ++var1;
                      }

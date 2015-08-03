@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
@@ -27,9 +27,9 @@ public class class_abh extends Item {
          Block var12 = var3.getType(var11).getBlock();
          if(!var3.a(var12, var11, false, var6, (Entity)null, var1)) {
             return class_oq.b;
-         } else if(Blocks.REDSTONE_WIRE.canPlace(var3, var11)) {
+         } else if(BlockStainedGlassPane.REDSTONE_WIRE.canPlace(var3, var11)) {
             --var1.count;
-            var3.setTypeUpdate(var11, Blocks.REDSTONE_WIRE.getBlockData());
+            var3.setTypeUpdate(var11, BlockStainedGlassPane.REDSTONE_WIRE.getBlockData());
             return class_oq.a;
          } else {
             return class_oq.b;

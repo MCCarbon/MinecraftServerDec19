@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.TileEntityMobSpawner;
@@ -68,16 +68,16 @@ public class class_ara extends class_aql {
                for(var16 = var11; var16 <= var12; ++var16) {
                   var17 = var3.add(var14, var15, var16);
                   if(var14 != var6 && var15 != -1 && var16 != var11 && var14 != var7 && var15 != 4 && var16 != var12) {
-                     if(var1.getType(var17).getBlock() != Blocks.CHEST) {
+                     if(var1.getType(var17).getBlock() != BlockStainedGlassPane.CHEST) {
                         var1.setAir(var17);
                      }
                   } else if(var17.getY() >= 0 && !var1.getType(var17.down()).getBlock().getMaterial().isBuildable()) {
                      var1.setAir(var17);
-                  } else if(var1.getType(var17).getBlock().getMaterial().isBuildable() && var1.getType(var17).getBlock() != Blocks.CHEST) {
+                  } else if(var1.getType(var17).getBlock().getMaterial().isBuildable() && var1.getType(var17).getBlock() != BlockStainedGlassPane.CHEST) {
                      if(var15 == -1 && var2.nextInt(4) != 0) {
-                        var1.setTypeAndData((BlockPosition)var17, (IBlockData)Blocks.MOSSY_COBBLESTONE.getBlockData(), 2);
+                        var1.setTypeAndData((BlockPosition)var17, (IBlockData)BlockStainedGlassPane.MOSSY_COBBLESTONE.getBlockData(), 2);
                      } else {
-                        var1.setTypeAndData((BlockPosition)var17, (IBlockData)Blocks.COBBLESTONE.getBlockData(), 2);
+                        var1.setTypeAndData((BlockPosition)var17, (IBlockData)BlockStainedGlassPane.COBBLESTONE.getBlockData(), 2);
                      }
                   }
                }
@@ -102,7 +102,7 @@ public class class_ara extends class_aql {
                   }
 
                   if(var20 == 1) {
-                     var1.setTypeAndData((BlockPosition)var26, (IBlockData)Blocks.CHEST.f(var1, var26, Blocks.CHEST.getBlockData()), 2);
+                     var1.setTypeAndData((BlockPosition)var26, (IBlockData)BlockStainedGlassPane.CHEST.f(var1, var26, BlockStainedGlassPane.CHEST.getBlockData()), 2);
                      List var27 = class_od.a(c, new class_od[]{Items.cg.b(var2)});
                      TileEntity var28 = var1.getTileEntity(var26);
                      if(var28 instanceof TileEntityChest) {
@@ -114,7 +114,7 @@ public class class_ara extends class_aql {
             }
          }
 
-         var1.setTypeAndData((BlockPosition)var3, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
+         var1.setTypeAndData((BlockPosition)var3, (IBlockData)BlockStainedGlassPane.MOB_SPAWNER.getBlockData(), 2);
          TileEntity var23 = var1.getTileEntity(var3);
          if(var23 instanceof TileEntityMobSpawner) {
             ((TileEntityMobSpawner)var23).b().a(this.a(var2));
@@ -133,6 +133,6 @@ public class class_ara extends class_aql {
    }
 
    static {
-      c = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.aC, 0, 1, 1, 10), new class_od(Items.l, 0, 1, 4, 10), new class_od(Items.R, 0, 1, 1, 10), new class_od(Items.Q, 0, 1, 4, 10), new class_od(Items.J, 0, 1, 4, 10), new class_od(Items.H, 0, 1, 4, 10), new class_od(Items.ay, 0, 1, 1, 10), new class_od(Items.aq, 0, 1, 1, 1), new class_od(Items.aE, 0, 1, 4, 10), new class_od(Items.ct, 0, 1, 1, 4), new class_od(Items.cu, 0, 1, 1, 4), new class_od(Items.cr, 0, 1, 1, 10), new class_od(Items.co, 0, 1, 1, 2), new class_od(Items.cn, 0, 1, 1, 5), new class_od(Items.cp, 0, 1, 1, 1)}));
+      c = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.aC, 0, 1, 1, 10), new class_od(Items.IRON_INGOT, 0, 1, 4, 10), new class_od(Items.R, 0, 1, 1, 10), new class_od(Items.Q, 0, 1, 4, 10), new class_od(Items.J, 0, 1, 4, 10), new class_od(Items.H, 0, 1, 4, 10), new class_od(Items.ay, 0, 1, 1, 10), new class_od(Items.aq, 0, 1, 1, 1), new class_od(Items.aE, 0, 1, 4, 10), new class_od(Items.ct, 0, 1, 1, 4), new class_od(Items.cu, 0, 1, 1, 4), new class_od(Items.cr, 0, 1, 1, 10), new class_od(Items.co, 0, 1, 1, 2), new class_od(Items.cn, 0, 1, 1, 5), new class_od(Items.cp, 0, 1, 1, 1)}));
    }
 }

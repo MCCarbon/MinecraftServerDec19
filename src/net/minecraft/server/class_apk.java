@@ -8,7 +8,7 @@ import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.Chunk;
@@ -72,11 +72,11 @@ public class class_apk implements class_aoh {
       }
 
       if(this.d.b().containsKey("lake")) {
-         this.h = new class_aqu(Blocks.WATER);
+         this.h = new class_aqu(BlockStainedGlassPane.WATER);
       }
 
       if(this.d.b().containsKey("lava_lake")) {
-         this.i = new class_aqu(Blocks.LAVA);
+         this.i = new class_aqu(BlockStainedGlassPane.LAVA);
       }
 
       this.g = this.d.b().containsKey("dungeon");
@@ -90,13 +90,13 @@ public class class_apk implements class_aoh {
 
          for(int var11 = var10.d(); var11 < var10.d() + var10.b(); ++var11) {
             IBlockData var12 = var10.c();
-            if(var12.getBlock() != Blocks.AIR) {
+            if(var12.getBlock() != BlockStainedGlassPane.AIR) {
                var8 = false;
                this.c[var11] = var12;
             }
          }
 
-         if(var10.c().getBlock() == Blocks.AIR) {
+         if(var10.c().getBlock() == BlockStainedGlassPane.AIR) {
             var14 += var10.b();
          } else {
             var13 += var10.b() + var14;

@@ -12,7 +12,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
@@ -119,7 +119,7 @@ public class class_wb extends class_wi {
 
    private boolean a(EntityHuman var1) {
       ItemStack var2 = var1.bp.b[3];
-      if(var2 != null && var2.getItem() == Item.getItemOf(Blocks.PUMPKIN)) {
+      if(var2 != null && var2.getItem() == Item.getItemOf(BlockStainedGlassPane.PUMPKIN)) {
          return false;
       } else {
          Vec3D var3 = var1.d(1.0F).normalize();
@@ -332,21 +332,21 @@ public class class_wb extends class_wi {
    static {
       b = (new class_qm(a, "Attacking speed boost", 0.15000000596046448D, 0)).a(false);
       c = Sets.newIdentityHashSet();
-      bs = Blocks.AIR.getBlockData();
-      c.add(Blocks.GRASS);
-      c.add(Blocks.DIRT);
-      c.add(Blocks.SAND);
-      c.add(Blocks.GRAVEL);
-      c.add(Blocks.YELLOW_FLOWER);
-      c.add(Blocks.RED_FLOWER);
-      c.add(Blocks.BROWN_MUSHROOM);
-      c.add(Blocks.RED_MUSHROOM);
-      c.add(Blocks.TNT);
-      c.add(Blocks.CACTUS);
-      c.add(Blocks.CLAY);
-      c.add(Blocks.PUMPKIN);
-      c.add(Blocks.MELON_BLOCK);
-      c.add(Blocks.MYCELIM);
+      bs = BlockStainedGlassPane.AIR.getBlockData();
+      c.add(BlockStainedGlassPane.GRASS);
+      c.add(BlockStainedGlassPane.DIRT);
+      c.add(BlockStainedGlassPane.SAND);
+      c.add(BlockStainedGlassPane.GRAVEL);
+      c.add(BlockStainedGlassPane.YELLOW_FLOWER);
+      c.add(BlockStainedGlassPane.RED_FLOWER);
+      c.add(BlockStainedGlassPane.BROWN_MUSHROOM);
+      c.add(BlockStainedGlassPane.RED_MUSHROOM);
+      c.add(BlockStainedGlassPane.TNT);
+      c.add(BlockStainedGlassPane.CACTUS);
+      c.add(BlockStainedGlassPane.CLAY);
+      c.add(BlockStainedGlassPane.PUMPKIN);
+      c.add(BlockStainedGlassPane.MELON_BLOCK);
+      c.add(BlockStainedGlassPane.MYCELIM);
       bt = class_qi.a(class_wb.class);
       bu = class_qi.a(class_wb.class);
       bv = class_qi.a(class_wb.class);

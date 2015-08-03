@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_aqs;
 import net.minecraft.server.class_aqt;
@@ -19,7 +19,7 @@ public class class_afj extends BiomeBase {
       super(var1);
       this.aD = var2;
       if(var2) {
-         this.ak = Blocks.SNOW.getBlockData();
+         this.ak = BlockStainedGlassPane.SNOW.getBlockData();
       }
 
       this.au.clear();

@@ -27,14 +27,14 @@ public class BlockGrassPath extends Block {
 
 	@Override
 	public Item getDropType(IBlockData blockdata, Random var2, int var3) {
-		return Blocks.DIRT.getDropType(Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT), var2, var3);
+		return BlockStainedGlassPane.DIRT.getDropType(BlockStainedGlassPane.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT), var2, var3);
 	}
 
 	@Override
 	public void doPhysics(World world, BlockPosition position, IBlockData blockdata, Block block) {
 		super.doPhysics(world, position, blockdata, block);
 		if (world.getType(position.up()).getBlock().getMaterial().isBuildable()) {
-			world.setTypeUpdate(position, Blocks.DIRT.getBlockData());
+			world.setTypeUpdate(position, BlockStainedGlassPane.DIRT.getBlockData());
 		}
 	}
 

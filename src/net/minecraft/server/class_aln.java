@@ -6,7 +6,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateBoolean;
@@ -117,7 +117,7 @@ public class class_aln extends Block {
    }
 
    public final boolean c(Block var1) {
-      return var1.isFullBlock() || var1 == this || var1 == Blocks.GLASS || var1 == Blocks.STAINED_GLASS || var1 == Blocks.STAINED_GLASS_PANE || var1 instanceof class_aln;
+      return var1.isFullBlock() || var1 == this || var1 == BlockStainedGlassPane.GLASS || var1 == BlockStainedGlassPane.STAINED_GLASS || var1 == BlockStainedGlassPane.STAINED_GLASS_PANE || var1 instanceof class_aln;
    }
 
    protected boolean canApplySilkTouch() {

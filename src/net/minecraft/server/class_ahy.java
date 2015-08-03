@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockCrops;
 import net.minecraft.server.BlockDirt;
 import net.minecraft.server.class_alg;
@@ -49,7 +49,7 @@ public class class_ahy extends Block {
          if(var5 > 0) {
             var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 - 1)), 2);
          } else if(!this.e(var1, var2)) {
-            var1.setTypeUpdate(var2, Blocks.DIRT.getBlockData());
+            var1.setTypeUpdate(var2, BlockStainedGlassPane.DIRT.getBlockData());
          }
       } else if(var5 < 7) {
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(7)), 2);
@@ -64,7 +64,7 @@ public class class_ahy extends Block {
                return;
             }
 
-            var1.setTypeUpdate(var2, Blocks.DIRT.getBlockData());
+            var1.setTypeUpdate(var2, BlockStainedGlassPane.DIRT.getBlockData());
          }
 
          super.fallOn(var1, var2, var3, var4);
@@ -94,13 +94,13 @@ public class class_ahy extends Block {
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       super.doPhysics(var1, var2, var3, var4);
       if(var1.getType(var2.up()).getBlock().getMaterial().isBuildable()) {
-         var1.setTypeUpdate(var2, Blocks.DIRT.getBlockData());
+         var1.setTypeUpdate(var2, BlockStainedGlassPane.DIRT.getBlockData());
       }
 
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Blocks.DIRT.getDropType(Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT), var2, var3);
+      return BlockStainedGlassPane.DIRT.getDropType(BlockStainedGlassPane.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT), var2, var3);
    }
 
    public IBlockData fromLegacyData(int var1) {

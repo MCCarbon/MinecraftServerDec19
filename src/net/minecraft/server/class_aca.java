@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abx;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockFluids;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
@@ -40,7 +40,7 @@ public class class_aca extends class_abx {
             BlockPosition var7 = var6.up();
             IBlockData var8 = var2.getType(var6);
             if(var8.getBlock().getMaterial() == Material.WATER && ((Integer)var8.get(BlockFluids.LEVEL)).intValue() == 0 && var2.isEmpty(var7)) {
-               var2.setTypeUpdate(var7, Blocks.WATERLILY.getBlockData());
+               var2.setTypeUpdate(var7, BlockStainedGlassPane.WATERLILY.getBlockData());
                if(!var3.bH.instabuild) {
                   --var1.count;
                }

@@ -6,7 +6,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abf;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockJukeBox;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
@@ -30,11 +30,11 @@ public class class_abg extends Item {
 
    public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.getType(var4);
-      if(var10.getBlock() == Blocks.JUKEBOX && !((Boolean)var10.get(BlockJukeBox.HAS_RECORD)).booleanValue()) {
+      if(var10.getBlock() == BlockStainedGlassPane.JUKEBOX && !((Boolean)var10.get(BlockJukeBox.HAS_RECORD)).booleanValue()) {
          if(var3.isClientSide) {
             return class_oq.a;
          } else {
-            ((BlockJukeBox)Blocks.JUKEBOX).a(var3, var4, var10, var1);
+            ((BlockJukeBox)BlockStainedGlassPane.JUKEBOX).a(var3, var4, var10, var1);
             var3.a((EntityHuman)null, 1005, var4, Item.getId((Item)this));
             --var1.count;
             var2.b(StatisticList.X);

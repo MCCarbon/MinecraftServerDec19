@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
@@ -24,14 +24,14 @@ public class class_vi extends class_vh {
       this.c = this.V.nextInt(3) + 1;
       BlockPosition var8 = new BlockPosition(this);
       if(!var1.isClientSide && var1.R().b("doFireTick") && (var1.ab() == class_om.c || var1.ab() == class_om.d) && var1.a((BlockPosition)var8, (int)10)) {
-         if(var1.getType(var8).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var8)) {
-            var1.setTypeUpdate(var8, Blocks.FIRE.getBlockData());
+         if(var1.getType(var8).getBlock().getMaterial() == Material.AIR && BlockStainedGlassPane.FIRE.canPlace(var1, var8)) {
+            var1.setTypeUpdate(var8, BlockStainedGlassPane.FIRE.getBlockData());
          }
 
          for(int var9 = 0; var9 < 4; ++var9) {
             BlockPosition var10 = var8.add(this.V.nextInt(3) - 1, this.V.nextInt(3) - 1, this.V.nextInt(3) - 1);
-            if(var1.getType(var10).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var10)) {
-               var1.setTypeUpdate(var10, Blocks.FIRE.getBlockData());
+            if(var1.getType(var10).getBlock().getMaterial() == Material.AIR && BlockStainedGlassPane.FIRE.canPlace(var1, var10)) {
+               var1.setTypeUpdate(var10, BlockStainedGlassPane.FIRE.getBlockData());
             }
          }
       }
@@ -54,8 +54,8 @@ public class class_vi extends class_vh {
             this.b = 1;
             this.a = this.V.nextLong();
             BlockPosition var1 = new BlockPosition(this);
-            if(!this.o.isClientSide && this.o.R().b("doFireTick") && this.o.a((BlockPosition)var1, (int)10) && this.o.getType(var1).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(this.o, var1)) {
-               this.o.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
+            if(!this.o.isClientSide && this.o.R().b("doFireTick") && this.o.a((BlockPosition)var1, (int)10) && this.o.getType(var1).getBlock().getMaterial() == Material.AIR && BlockStainedGlassPane.FIRE.canPlace(this.o, var1)) {
+               this.o.setTypeUpdate(var1, BlockStainedGlassPane.FIRE.getBlockData());
             }
          }
       }

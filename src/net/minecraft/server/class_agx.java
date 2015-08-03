@@ -5,7 +5,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ano;
 import net.minecraft.server.class_anp;
@@ -35,7 +35,7 @@ public class class_agx extends Block {
 
    protected class_anp l() {
       if(this.a == null) {
-         this.a = class_anq.a().a(new String[]{"##  ##", "##  ##", "  ##  ", " #### ", " #### ", " #  # "}).a('#', class_ano.a(class_ant.a(Blocks.CLAY))).b();
+         this.a = class_anq.a().a(new String[]{"##  ##", "##  ##", "  ##  ", " #### ", " #### ", " #  # "}).a('#', class_ano.a(class_ant.a(BlockStainedGlassPane.CLAY))).b();
       }
 
       return this.a;
@@ -53,7 +53,7 @@ public class class_agx extends Block {
          int var5;
          for(var4 = 0; var4 < this.l().c(); ++var4) {
             for(var5 = 0; var5 < this.l().b(); ++var5) {
-               var1.setTypeAndData((BlockPosition)var3.a(var4, var5, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
+               var1.setTypeAndData((BlockPosition)var3.a(var4, var5, 0).d(), (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
             }
          }
 
@@ -67,7 +67,7 @@ public class class_agx extends Block {
          for(var4 = 0; var4 < this.l().c(); ++var4) {
             for(var5 = 0; var5 < this.l().b(); ++var5) {
                class_ano var6 = var3.a(var4, var5, 0);
-               var1.update(var6.d(), Blocks.AIR);
+               var1.update(var6.d(), BlockStainedGlassPane.AIR);
             }
          }
       }

@@ -9,7 +9,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockMinecartTrackAbstract;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockPoweredRail;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.AxisAlignedBB;
@@ -253,7 +253,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
          IBlockData var5 = this.o.getType(var4);
          if(BlockMinecartTrackAbstract.d(var5)) {
             this.a(var4, var5);
-            if(var5.getBlock() == Blocks.ACTIVATOR_RAIL) {
+            if(var5.getBlock() == BlockStainedGlassPane.ACTIVATOR_RAIL) {
                this.a(var14, var2, var16, ((Boolean)var5.get(BlockPoweredRail.POWERED)).booleanValue());
             }
          } else {
@@ -332,7 +332,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
       boolean var4 = false;
       boolean var5 = false;
       BlockMinecartTrackAbstract var6 = (BlockMinecartTrackAbstract)var2.getBlock();
-      if(var6 == Blocks.GOLDEN_RAIL) {
+      if(var6 == BlockStainedGlassPane.GOLDEN_RAIL) {
          var4 = ((Boolean)var2.get(BlockPoweredRail.POWERED)).booleanValue();
          var5 = !var4;
       }
@@ -570,14 +570,14 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
          if(var1.hasOfType("DisplayTile", 8)) {
             var3 = Block.getByName(var1.getString("DisplayTile"));
             if(var3 == null) {
-               this.a(Blocks.AIR.getBlockData());
+               this.a(BlockStainedGlassPane.AIR.getBlockData());
             } else {
                this.a(var3.fromLegacyData(var2));
             }
          } else {
             var3 = Block.getById(var1.getInt("DisplayTile"));
             if(var3 == null) {
-               this.a(Blocks.AIR.getBlockData());
+               this.a(BlockStainedGlassPane.AIR.getBlockData());
             } else {
                this.a(var3.fromLegacyData(var2));
             }
@@ -712,7 +712,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    }
 
    public IBlockData u() {
-      return Blocks.AIR.getBlockData();
+      return BlockStainedGlassPane.AIR.getBlockData();
    }
 
    public int v() {

@@ -5,7 +5,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
@@ -58,7 +58,7 @@ public class EntityItem extends Entity {
 		this.f = 5;
 		this.a = (float) (Math.random() * 3.141592653589793D * 2.0D);
 		this.a(0.25F, 0.25F);
-		this.a(new ItemStack(Blocks.AIR, 0));
+		this.a(new ItemStack(BlockStainedGlassPane.AIR, 0));
 	}
 
 	protected void h() {
@@ -253,11 +253,11 @@ public class EntityItem extends Entity {
 			ItemStack var2 = this.l();
 			int var3 = var2.count;
 			if (this.pickupDelay == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.getName())) && var1.bp.a(var2)) {
-				if (var2.getItem() == Item.getItemOf(Blocks.LOG)) {
+				if (var2.getItem() == Item.getItemOf(BlockStainedGlassPane.LOG)) {
 					var1.b((class_my) class_mt.g);
 				}
 
-				if (var2.getItem() == Item.getItemOf(Blocks.LOG2)) {
+				if (var2.getItem() == Item.getItemOf(BlockStainedGlassPane.LOG2)) {
 					var1.b((class_my) class_mt.g);
 				}
 
@@ -265,7 +265,7 @@ public class EntityItem extends Entity {
 					var1.b((class_my) class_mt.t);
 				}
 
-				if (var2.getItem() == Items.k) {
+				if (var2.getItem() == Items.DIAMOND) {
 					var1.b((class_my) class_mt.w);
 				}
 
@@ -273,7 +273,7 @@ public class EntityItem extends Entity {
 					var1.b((class_my) class_mt.A);
 				}
 
-				if (var2.getItem() == Items.k && this.n() != null) {
+				if (var2.getItem() == Items.DIAMOND && this.n() != null) {
 					EntityHuman var4 = this.o.a(this.n());
 					if (var4 != null && var4 != var1) {
 						var4.b((class_my) class_mt.x);
@@ -316,7 +316,7 @@ public class EntityItem extends Entity {
 				b.error("Item entity " + this.getId() + " has no item?!");
 			}
 
-			return new ItemStack(Blocks.STONE);
+			return new ItemStack(BlockStainedGlassPane.STONE);
 		} else {
 			return var1;
 		}

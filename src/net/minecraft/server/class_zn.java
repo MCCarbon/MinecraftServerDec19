@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockFluids;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
@@ -29,7 +29,7 @@ public class class_zn extends Item {
    }
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-      boolean var5 = this.a == Blocks.AIR;
+      boolean var5 = this.a == BlockStainedGlassPane.AIR;
       MovingObjectPosition var6 = this.a(var2, var3, var5);
       if(var6 == null) {
          return new class_or(class_oq.b, var1);
@@ -41,7 +41,7 @@ public class class_zn extends Item {
             }
 
             if(!var5) {
-               if(this.a == Blocks.AIR) {
+               if(this.a == BlockStainedGlassPane.AIR) {
                   return new class_or(class_oq.a, new ItemStack(Items.ay));
                }
 
@@ -96,7 +96,7 @@ public class class_zn extends Item {
    }
 
    public boolean a(World var1, BlockPosition var2) {
-      if(this.a == Blocks.AIR) {
+      if(this.a == BlockStainedGlassPane.AIR) {
          return false;
       } else {
          Material var3 = var1.getType(var2).getBlock().getMaterial();
@@ -104,7 +104,7 @@ public class class_zn extends Item {
          if(!var1.isEmpty(var2) && !var4) {
             return false;
          } else {
-            if(var1.worldProvider.l() && this.a == Blocks.FLOWING_WATER) {
+            if(var1.worldProvider.l() && this.a == BlockStainedGlassPane.FLOWING_WATER) {
                int var5 = var2.getX();
                int var6 = var2.getY();
                int var7 = var2.getZ();

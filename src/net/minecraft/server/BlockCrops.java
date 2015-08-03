@@ -19,7 +19,7 @@ public class BlockCrops extends BlockPlant implements IBlockFragilePlantElement 
 
 	@Override
 	protected boolean c(Block var1) {
-		return var1 == Blocks.FARMLAND;
+		return var1 == BlockStainedGlassPane.FARMLAND;
 	}
 
 	protected BlockStateInteger l() {
@@ -79,7 +79,7 @@ public class BlockCrops extends BlockPlant implements IBlockFragilePlantElement 
 			for (int var6 = -1; var6 <= 1; ++var6) {
 				float var7 = 0.0F;
 				IBlockData var8 = var1.getType(var4.add(var5, 0, var6));
-				if (var8.getBlock() == Blocks.FARMLAND) {
+				if (var8.getBlock() == BlockStainedGlassPane.FARMLAND) {
 					var7 = 1.0F;
 					if (var8.get(class_ahy.a).intValue() > 0) {
 						var7 = 3.0F;

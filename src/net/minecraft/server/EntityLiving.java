@@ -17,7 +17,7 @@ import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_aiz;
 import net.minecraft.server.class_alr;
 import net.minecraft.server.IBlockData;
@@ -62,7 +62,7 @@ import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xd;
-import net.minecraft.server.class_za;
+import net.minecraft.server.ItemArmor;
 
 public abstract class EntityLiving extends Entity {
    private static final UUID a = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
@@ -830,14 +830,14 @@ public abstract class EntityLiving extends Entity {
          BlockPosition var4 = new BlockPosition(var1, var2, var3);
          IBlockData var5 = this.o.getType(var4);
          Block var6 = var5.getBlock();
-         return var6 != Blocks.LADDER && var6 != Blocks.VINE?var6 instanceof class_alr && this.a(var4, var5):true;
+         return var6 != BlockStainedGlassPane.LADDER && var6 != BlockStainedGlassPane.VINE?var6 instanceof class_alr && this.a(var4, var5):true;
       }
    }
 
    private boolean a(BlockPosition var1, IBlockData var2) {
       if(((Boolean)var2.get(class_alr.b)).booleanValue()) {
          IBlockData var3 = this.o.getType(var1.down());
-         if(var3.getBlock() == Blocks.LADDER && var3.get(class_aiz.a) == var2.get(class_alr.a)) {
+         if(var3.getBlock() == BlockStainedGlassPane.LADDER && var3.get(class_aiz.a) == var2.get(class_alr.a)) {
             return true;
          }
       }
@@ -879,8 +879,8 @@ public abstract class EntityLiving extends Entity {
 
       while(var2.hasNext()) {
          ItemStack var3 = (ItemStack)var2.next();
-         if(var3 != null && var3.getItem() instanceof class_za) {
-            int var4 = ((class_za)var3.getItem()).c;
+         if(var3 != null && var3.getItem() instanceof ItemArmor) {
+            int var4 = ((ItemArmor)var3.getItem()).c;
             var1 += var4;
          }
       }

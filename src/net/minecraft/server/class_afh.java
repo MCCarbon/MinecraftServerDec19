@@ -4,7 +4,7 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afn;
-import net.minecraft.server.class_ahm;
+import net.minecraft.server.BlockTallPlant;
 import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_apy;
@@ -110,11 +110,11 @@ public class class_afh extends BiomeBase {
       for(var5 = 0; var5 < var4; ++var5) {
          var6 = var2.nextInt(3);
          if(var6 == 0) {
-            ag.a(class_ahm.class_b_in_class_ahm.b);
+            ag.a(BlockTallPlant.class_b_in_class_ahm.b);
          } else if(var6 == 1) {
-            ag.a(class_ahm.class_b_in_class_ahm.e);
+            ag.a(BlockTallPlant.class_b_in_class_ahm.e);
          } else if(var6 == 2) {
-            ag.a(class_ahm.class_b_in_class_ahm.f);
+            ag.a(BlockTallPlant.class_b_in_class_ahm.f);
          }
 
          for(var7 = 0; var7 < 5; ++var7) {

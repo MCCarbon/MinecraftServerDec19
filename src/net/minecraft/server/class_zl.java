@@ -59,10 +59,10 @@ public class class_zl extends Item {
          if(var6 || var7 > -1) {
             ItemStack var8 = var7 > -1?var5.bp.getItem(var7):null;
             if(var8 == null) {
-               var8 = new ItemStack(Items.g);
+               var8 = new ItemStack(Items.ARROW);
             }
 
-            class_zc var9 = (class_zc)((class_zc)(var8.getItem() instanceof class_zc?var8.getItem():Items.g));
+            class_zc var9 = (class_zc)((class_zc)(var8.getItem() instanceof class_zc?var8.getItem():Items.ARROW));
             int var10 = this.e(var1) - var4;
             float var11 = b(var10);
             if((double)var11 >= 0.1D) {

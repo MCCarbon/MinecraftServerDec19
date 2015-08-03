@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.BlockPosition;
@@ -28,7 +28,7 @@ public class class_apz extends class_aql {
                }
 
                Block var4 = var1.getType(var3.down()).getBlock();
-               if(var4 != Blocks.GRASS && var4 != Blocks.DIRT && var4 != Blocks.STONE) {
+               if(var4 != BlockStainedGlassPane.GRASS && var4 != BlockStainedGlassPane.DIRT && var4 != BlockStainedGlassPane.STONE) {
                   break label50;
                }
             }

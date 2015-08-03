@@ -4,7 +4,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntityBeacon;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
@@ -91,13 +91,13 @@ public class class_agg extends BlockContainer {
                }
 
                IBlockData var4 = var0.getType(var3);
-               if(var4.getBlock() == Blocks.BEACON) {
+               if(var4.getBlock() == BlockStainedGlassPane.BEACON) {
                   ((WorldServer)var0).a(new Runnable() {
                      public void run() {
                         TileEntity var1x = var0.getTileEntity(var3);
                         if(var1x instanceof TileEntityBeacon) {
                            ((TileEntityBeacon)var1x).m();
-                           var0.c(var3, Blocks.BEACON, 1, 0);
+                           var0.c(var3, BlockStainedGlassPane.BEACON, 1, 0);
                         }
 
                      }

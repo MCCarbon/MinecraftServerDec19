@@ -393,7 +393,7 @@ public class class_xd extends Entity implements class_xi {
    }
 
    protected ItemStack j() {
-      return new ItemStack(Items.g);
+      return new ItemStack(Items.ARROW);
    }
 
    protected boolean s_() {

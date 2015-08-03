@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
@@ -27,7 +27,7 @@ public class class_aam extends Item {
       } else {
          if(var3.getType(var4).getBlock().getMaterial() == Material.AIR) {
             var3.a((double)var4.getX() + 0.5D, (double)var4.getY() + 0.5D, (double)var4.getZ() + 0.5D, "fire.ignite", 1.0F, random.nextFloat() * 0.4F + 0.8F);
-            var3.setTypeUpdate(var4, Blocks.FIRE.getBlockData());
+            var3.setTypeUpdate(var4, BlockStainedGlassPane.FIRE.getBlockData());
          }
 
          var1.a(1, (EntityLiving)var2);

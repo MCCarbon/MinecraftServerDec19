@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_aky;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
@@ -25,7 +25,7 @@ public class class_zh extends Item {
    public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.getType(var4);
       Block var11 = var10.getBlock();
-      if(var11 == Blocks.SNOW_LAYER && ((Integer)var10.get(class_aky.a)).intValue() < 1) {
+      if(var11 == BlockStainedGlassPane.SNOW_LAYER && ((Integer)var10.get(class_aky.a)).intValue() < 1) {
          var6 = EnumDirection.UP;
       } else if(!var11.isReplaceable(var3, var4)) {
          var4 = var4.shift(var6);

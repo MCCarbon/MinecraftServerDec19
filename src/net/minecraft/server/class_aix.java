@@ -7,7 +7,7 @@ import net.minecraft.server.Enchantment;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockHalfTransparent;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
@@ -43,7 +43,7 @@ public class class_aix extends BlockHalfTransparent {
          this.dropNaturallyForSure(var1, var3, var4, var7);
          Material var8 = var1.getType(var3.down()).getBlock().getMaterial();
          if(var8.isSolid() || var8.isLiquid()) {
-            var1.setTypeUpdate(var3, Blocks.FLOWING_WATER.getBlockData());
+            var1.setTypeUpdate(var3, BlockStainedGlassPane.FLOWING_WATER.getBlockData());
          }
       }
 
@@ -59,7 +59,7 @@ public class class_aix extends BlockHalfTransparent {
             var1.setAir(var2);
          } else {
             this.dropNaturallyForSure(var1, var2, var1.getType(var2), 0);
-            var1.setTypeUpdate(var2, Blocks.WATER.getBlockData());
+            var1.setTypeUpdate(var2, BlockStainedGlassPane.WATER.getBlockData());
          }
       }
    }

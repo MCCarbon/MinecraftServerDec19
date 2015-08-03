@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_ajh;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
@@ -23,7 +23,7 @@ public class class_aff extends BiomeBase {
 
    protected class_aff(int var1, boolean var2) {
       super(var1);
-      this.aD = new class_arb(Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a), 9);
+      this.aD = new class_arb(BlockStainedGlassPane.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a), 9);
       this.aE = new class_ark(false);
       this.aF = 0;
       this.aG = 1;
@@ -52,8 +52,8 @@ public class class_aff extends BiomeBase {
          var7 = var2.nextInt(28) + 4;
          int var8 = var2.nextInt(16);
          BlockPosition var9 = var3.add(var6, var7, var8);
-         if(var1.getType(var9).getBlock() == Blocks.STONE) {
-            var1.setTypeAndData((BlockPosition)var9, (IBlockData)Blocks.EMERALD_ORE.getBlockData(), 2);
+         if(var1.getType(var9).getBlock() == BlockStainedGlassPane.STONE) {
+            var1.setTypeAndData((BlockPosition)var9, (IBlockData)BlockStainedGlassPane.EMERALD_ORE.getBlockData(), 2);
          }
       }
 
@@ -67,14 +67,14 @@ public class class_aff extends BiomeBase {
    }
 
    public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
-      this.ak = Blocks.GRASS.getBlockData();
-      this.al = Blocks.DIRT.getBlockData();
+      this.ak = BlockStainedGlassPane.GRASS.getBlockData();
+      this.al = BlockStainedGlassPane.DIRT.getBlockData();
       if((var6 < -1.0D || var6 > 2.0D) && this.aI == this.aH) {
-         this.ak = Blocks.GRAVEL.getBlockData();
-         this.al = Blocks.GRAVEL.getBlockData();
+         this.ak = BlockStainedGlassPane.GRAVEL.getBlockData();
+         this.al = BlockStainedGlassPane.GRAVEL.getBlockData();
       } else if(var6 > 1.0D && this.aI != this.aG) {
-         this.ak = Blocks.STONE.getBlockData();
-         this.al = Blocks.STONE.getBlockData();
+         this.ak = BlockStainedGlassPane.STONE.getBlockData();
+         this.al = BlockStainedGlassPane.STONE.getBlockData();
       }
 
       this.b(var1, var2, var3, var4, var5, var6);

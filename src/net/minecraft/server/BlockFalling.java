@@ -66,7 +66,7 @@ public class BlockFalling extends Block {
 	public static boolean canFall(World world, BlockPosition position) {
 		Block block = world.getType(position).getBlock();
 		Material material = block.material;
-		return (block == Blocks.FIRE) || (material == Material.AIR) || (material == Material.WATER) || (material == Material.LAVA);
+		return (block == BlockStainedGlassPane.FIRE) || (material == Material.AIR) || (material == Material.WATER) || (material == Material.LAVA);
 	}
 
 	public void a_(World var1, BlockPosition var2) {

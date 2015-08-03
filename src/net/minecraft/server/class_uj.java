@@ -5,7 +5,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
@@ -177,13 +177,13 @@ public class class_uj extends class_ua {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Item.getItemOf((Block)Blocks.RED_FLOWER), 1, (float)BlockFlowers.EnumFlowerVarient.POPPY.getId());
+         this.a(Item.getItemOf((Block)BlockStainedGlassPane.RED_FLOWER), 1, (float)BlockFlowers.EnumFlowerVarient.POPPY.getId());
       }
 
       var4 = 3 + this.V.nextInt(3);
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         this.a(Items.l, 1);
+         this.a(Items.IRON_INGOT, 1);
       }
 
    }

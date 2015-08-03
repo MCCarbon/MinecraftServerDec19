@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -31,7 +31,7 @@ public class class_akd extends BlockDirectional {
    private class_anp P;
    private static final Predicate Q = new Predicate() {
       public boolean a(IBlockData var1) {
-         return var1 != null && (var1.getBlock() == Blocks.PUMPKIN || var1.getBlock() == Blocks.LIT_PUMPKIN);
+         return var1 != null && (var1.getBlock() == BlockStainedGlassPane.PUMPKIN || var1.getBlock() == BlockStainedGlassPane.LIT_PUMPKIN);
       }
 
       // $FF: synthetic method
@@ -63,7 +63,7 @@ public class class_akd extends BlockDirectional {
       if((var3 = this.n().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.n().b(); ++var4) {
             class_ano var5 = var3.a(0, var4, 0);
-            var1.setTypeAndData((BlockPosition)var5.d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
+            var1.setTypeAndData((BlockPosition)var5.d(), (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
          }
 
          class_uh var9 = new class_uh(var1);
@@ -77,12 +77,12 @@ public class class_akd extends BlockDirectional {
 
          for(var6 = 0; var6 < this.n().b(); ++var6) {
             class_ano var7 = var3.a(0, var6, 0);
-            var1.update(var7.d(), Blocks.AIR);
+            var1.update(var7.d(), BlockStainedGlassPane.AIR);
          }
       } else if((var3 = this.p().a(var1, var2)) != null) {
          for(var4 = 0; var4 < this.p().c(); ++var4) {
             for(int var12 = 0; var12 < this.p().b(); ++var12) {
-               var1.setTypeAndData((BlockPosition)var3.a(var4, var12, 0).d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
+               var1.setTypeAndData((BlockPosition)var3.a(var4, var12, 0).d(), (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
             }
          }
 
@@ -99,7 +99,7 @@ public class class_akd extends BlockDirectional {
          for(var6 = 0; var6 < this.p().c(); ++var6) {
             for(int var14 = 0; var14 < this.p().b(); ++var14) {
                class_ano var8 = var3.a(var6, var14, 0);
-               var1.update(var8.d(), Blocks.AIR);
+               var1.update(var8.d(), BlockStainedGlassPane.AIR);
             }
          }
       }
@@ -136,7 +136,7 @@ public class class_akd extends BlockDirectional {
 
    protected class_anp l() {
       if(this.a == null) {
-         this.a = class_anq.a().a(new String[]{" ", "#", "#"}).a('#', class_ano.a(class_ant.a(Blocks.SNOW))).b();
+         this.a = class_anq.a().a(new String[]{" ", "#", "#"}).a('#', class_ano.a(class_ant.a(BlockStainedGlassPane.SNOW))).b();
       }
 
       return this.a;
@@ -144,7 +144,7 @@ public class class_akd extends BlockDirectional {
 
    protected class_anp n() {
       if(this.b == null) {
-         this.b = class_anq.a().a(new String[]{"^", "#", "#"}).a('^', class_ano.a(Q)).a('#', class_ano.a(class_ant.a(Blocks.SNOW))).b();
+         this.b = class_anq.a().a(new String[]{"^", "#", "#"}).a('^', class_ano.a(Q)).a('#', class_ano.a(class_ant.a(BlockStainedGlassPane.SNOW))).b();
       }
 
       return this.b;
@@ -152,7 +152,7 @@ public class class_akd extends BlockDirectional {
 
    protected class_anp o() {
       if(this.N == null) {
-         this.N = class_anq.a().a(new String[]{"~ ~", "###", "~#~"}).a('#', class_ano.a(class_ant.a(Blocks.IRON_BLOCK))).a('~', class_ano.a(class_ant.a(Blocks.AIR))).b();
+         this.N = class_anq.a().a(new String[]{"~ ~", "###", "~#~"}).a('#', class_ano.a(class_ant.a(BlockStainedGlassPane.IRON_BLOCK))).a('~', class_ano.a(class_ant.a(BlockStainedGlassPane.AIR))).b();
       }
 
       return this.N;
@@ -160,7 +160,7 @@ public class class_akd extends BlockDirectional {
 
    protected class_anp p() {
       if(this.P == null) {
-         this.P = class_anq.a().a(new String[]{"~^~", "###", "~#~"}).a('^', class_ano.a(Q)).a('#', class_ano.a(class_ant.a(Blocks.IRON_BLOCK))).a('~', class_ano.a(class_ant.a(Blocks.AIR))).b();
+         this.P = class_anq.a().a(new String[]{"~^~", "###", "~#~"}).a('^', class_ano.a(Q)).a('#', class_ano.a(class_ant.a(BlockStainedGlassPane.IRON_BLOCK))).a('~', class_ano.a(class_ant.a(BlockStainedGlassPane.AIR))).b();
       }
 
       return this.P;

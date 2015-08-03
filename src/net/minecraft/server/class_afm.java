@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_ub;
 
 public class class_afm extends BiomeBase {
@@ -12,7 +12,7 @@ public class class_afm extends BiomeBase {
       this.as.C = -100;
       this.as.E = 1;
       this.as.K = 1;
-      this.ak = Blocks.MYCELIM.getBlockData();
+      this.ak = BlockStainedGlassPane.MYCELIM.getBlockData();
       this.at.clear();
       this.au.clear();
       this.av.clear();

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
@@ -62,7 +62,7 @@ public class class_be extends class_i {
             if(var2.length >= 6) {
                if(var2[5].equals("destroy")) {
                   var6.setAir(var3, true);
-                  if(var4 == Blocks.AIR) {
+                  if(var4 == BlockStainedGlassPane.AIR) {
                      a(var1, this, "commands.setblock.success", new Object[0]);
                      return;
                   }
@@ -77,7 +77,7 @@ public class class_be extends class_i {
                   ((IInventory)var13).remove();
                }
 
-               var6.setTypeAndData(var3, Blocks.AIR.getBlockData(), var4 == Blocks.AIR?2:4);
+               var6.setTypeAndData(var3, BlockStainedGlassPane.AIR.getBlockData(), var4 == BlockStainedGlassPane.AIR?2:4);
             }
 
             IBlockData var10 = var4.fromLegacyData(var5);

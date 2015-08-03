@@ -6,7 +6,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.BlockBed;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
@@ -42,7 +42,7 @@ public class class_zf extends Item {
             boolean var17 = var12 || var3.isEmpty(var4);
             boolean var18 = var16 || var3.isEmpty(var15);
             if(var17 && var18 && World.a((IBlockAccess)var3, (BlockPosition)var4.down()) && World.a((IBlockAccess)var3, (BlockPosition)var15.down())) {
-               IBlockData var19 = Blocks.BED.getBlockData().set(BlockBed.OCCUPIED, Boolean.valueOf(false)).set(BlockBed.FACING, var14).set(BlockBed.PART, BlockBed.EnumBedPart.FOOT);
+               IBlockData var19 = BlockStainedGlassPane.BED.getBlockData().set(BlockBed.OCCUPIED, Boolean.valueOf(false)).set(BlockBed.FACING, var14).set(BlockBed.PART, BlockBed.EnumBedPart.FOOT);
                if(var3.setTypeAndData((BlockPosition)var4, (IBlockData)var19, 3)) {
                   IBlockData var20 = var19.set(BlockBed.PART, BlockBed.EnumBedPart.HEAD);
                   var3.setTypeAndData((BlockPosition)var15, (IBlockData)var20, 3);

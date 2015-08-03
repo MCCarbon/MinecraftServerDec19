@@ -8,7 +8,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockMinecartTrackAbstract;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_akg;
 import net.minecraft.server.class_alp;
 import net.minecraft.server.TileEntity;
@@ -80,7 +80,7 @@ public class class_asa {
    }
 
    static {
-      a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.aY, EnumColor.l.b(), 4, 9, 5), new class_od(Items.k, 0, 1, 2, 3), new class_od(Items.j, 0, 3, 8, 10), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 1), new class_od(Item.getItemOf(Blocks.RAIL), 0, 4, 8, 1), new class_od(Items.bj, 0, 2, 4, 10), new class_od(Items.bi, 0, 2, 4, 10), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1)}));
+      a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.aY, EnumColor.l.b(), 4, 9, 5), new class_od(Items.DIAMOND, 0, 1, 2, 3), new class_od(Items.COAL, 0, 3, 8, 10), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.IRON_PICKAXE, 0, 1, 1, 1), new class_od(Item.getItemOf(BlockStainedGlassPane.RAIL), 0, 4, 8, 1), new class_od(Items.bj, 0, 2, 4, 10), new class_od(Items.bi, 0, 2, 4, 10), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1)}));
    }
 
    // $FF: synthetic class
@@ -180,11 +180,11 @@ public class class_asa {
          if(this.a(var1, var3)) {
             return false;
          } else {
-            this.a(var1, var3, 0, 5, 0, 2, 7, 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-            this.a(var1, var3, 0, 0, 7, 2, 2, 8, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, 0, 5, 0, 2, 7, 1, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+            this.a(var1, var3, 0, 0, 7, 2, 2, 8, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
 
             for(int var4 = 0; var4 < 5; ++var4) {
-               this.a(var1, var3, 0, 5 - var4 - (var4 < 4?1:0), 2 + var4, 2, 7 - var4, 2 + var4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, 0, 5 - var4 - (var4 < 4?1:0), 2 + var4, 2, 7 - var4, 2 + var4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             }
 
             return true;
@@ -296,25 +296,25 @@ public class class_asa {
             return false;
          } else {
             if(this.b) {
-               this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.b + 3 - 1, this.l.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.b + 3 - 1, this.l.f - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a + 1, this.l.e - 2, this.l.c, this.l.d - 1, this.l.e, this.l.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a, this.l.e - 2, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a + 1, this.l.b + 3, this.l.c + 1, this.l.d - 1, this.l.b + 3, this.l.f - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.b + 3 - 1, this.l.f, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.b + 3 - 1, this.l.f - 1, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.a + 1, this.l.e - 2, this.l.c, this.l.d - 1, this.l.e, this.l.f, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.a, this.l.e - 2, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.a + 1, this.l.b + 3, this.l.c + 1, this.l.d - 1, this.l.b + 3, this.l.f - 1, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             } else {
-               this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.e, this.l.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.e, this.l.f, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             }
 
-            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c + 1, this.l.a + 1, this.l.e, this.l.c + 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
-            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.f - 1, this.l.a + 1, this.l.e, this.l.f - 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
-            this.a(var1, var3, this.l.d - 1, this.l.b, this.l.c + 1, this.l.d - 1, this.l.e, this.l.c + 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
-            this.a(var1, var3, this.l.d - 1, this.l.b, this.l.f - 1, this.l.d - 1, this.l.e, this.l.f - 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c + 1, this.l.a + 1, this.l.e, this.l.c + 1, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.f - 1, this.l.a + 1, this.l.e, this.l.f - 1, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.d - 1, this.l.b, this.l.c + 1, this.l.d - 1, this.l.e, this.l.c + 1, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.d - 1, this.l.b, this.l.f - 1, this.l.d - 1, this.l.e, this.l.f - 1, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
 
             for(int var4 = this.l.a; var4 <= this.l.d; ++var4) {
                for(int var5 = this.l.c; var5 <= this.l.f; ++var5) {
                   if(this.a(var1, var4, this.l.b - 1, var5, var3).getBlock().getMaterial() == Material.AIR) {
-                     this.a(var1, Blocks.PLANKS.getBlockData(), var4, this.l.b - 1, var5, var3);
+                     this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), var4, this.l.b - 1, var5, var3);
                   }
                }
             }
@@ -466,7 +466,7 @@ public class class_asa {
       protected boolean a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, List var7, int var8) {
          BlockPosition var9 = new BlockPosition(this.a(var4, var6), this.d(var5), this.b(var4, var6));
          if(var2.b((BaseBlockPosition)var9) && var1.getType(var9).getBlock().getMaterial() == Material.AIR) {
-            IBlockData var10 = Blocks.RAIL.getBlockData().set(class_akg.b, var3.nextBoolean()?BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH:BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST);
+            IBlockData var10 = BlockStainedGlassPane.RAIL.getBlockData().set(class_akg.b, var3.nextBoolean()?BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH:BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST);
             this.a(var1, var10, var4, var5, var6, var2);
             class_vo var11 = new class_vo(var1, (double)((float)var9.getX() + 0.5F), (double)((float)var9.getY() + 0.5F), (double)((float)var9.getZ() + 0.5F));
             class_od.a(var3, var7, (IInventory)var11, var8);
@@ -486,35 +486,35 @@ public class class_asa {
             boolean var6 = false;
             boolean var7 = true;
             int var8 = this.d * 5 - 1;
-            this.a(var1, var3, 0, 0, 0, 2, 1, var8, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-            this.a(var1, var3, var2, 0.8F, 0, 2, 0, 2, 2, var8, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, 0, 0, 0, 2, 1, var8, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+            this.a(var1, var3, var2, 0.8F, 0, 2, 0, 2, 2, var8, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             if(this.b) {
-               this.a(var1, var3, var2, 0.6F, 0, 0, 0, 2, 1, var8, Blocks.WEB.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, var2, 0.6F, 0, 0, 0, 2, 1, var8, BlockStainedGlassPane.WEB.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             }
 
             int var9;
             int var10;
             for(var9 = 0; var9 < this.d; ++var9) {
                var10 = 2 + var9 * 5;
-               this.a(var1, var3, 0, 0, var10, 0, 1, var10, Blocks.FENCE.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, 2, 0, var10, 2, 1, var10, Blocks.FENCE.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, 0, 0, var10, 0, 1, var10, BlockStainedGlassPane.FENCE.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+               this.a(var1, var3, 2, 0, var10, 2, 1, var10, BlockStainedGlassPane.FENCE.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
                if(var2.nextInt(4) == 0) {
-                  this.a(var1, var3, 0, 2, var10, 0, 2, var10, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
-                  this.a(var1, var3, 2, 2, var10, 2, 2, var10, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
+                  this.a(var1, var3, 0, 2, var10, 0, 2, var10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+                  this.a(var1, var3, 2, 2, var10, 2, 2, var10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
                } else {
-                  this.a(var1, var3, 0, 2, var10, 2, 2, var10, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
+                  this.a(var1, var3, 0, 2, var10, 2, 2, var10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
                }
 
-               this.a(var1, var3, var2, 0.1F, 0, 2, var10 - 1, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.1F, 2, 2, var10 - 1, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.1F, 0, 2, var10 + 1, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.1F, 2, 2, var10 + 1, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.05F, 0, 2, var10 - 2, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.05F, 2, 2, var10 - 2, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.05F, 0, 2, var10 + 2, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.05F, 2, 2, var10 + 2, Blocks.WEB.getBlockData());
-               this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH));
-               this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH));
+               this.a(var1, var3, var2, 0.1F, 0, 2, var10 - 1, BlockStainedGlassPane.WEB.getBlockData());
+               this.a(var1, var3, var2, 0.1F, 2, 2, var10 - 1, BlockStainedGlassPane.WEB.getBlockData());
+               this.a(var1, var3, var2, 0.1F, 0, 2, var10 + 1, BlockStainedGlassPane.WEB.getBlockData());
+               this.a(var1, var3, var2, 0.1F, 2, 2, var10 + 1, BlockStainedGlassPane.WEB.getBlockData());
+               this.a(var1, var3, var2, 0.05F, 0, 2, var10 - 2, BlockStainedGlassPane.WEB.getBlockData());
+               this.a(var1, var3, var2, 0.05F, 2, 2, var10 - 2, BlockStainedGlassPane.WEB.getBlockData());
+               this.a(var1, var3, var2, 0.05F, 0, 2, var10 + 2, BlockStainedGlassPane.WEB.getBlockData());
+               this.a(var1, var3, var2, 0.05F, 2, 2, var10 + 2, BlockStainedGlassPane.WEB.getBlockData());
+               this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH));
+               this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH));
                if(var2.nextInt(100) == 0) {
                   this.a(var1, var3, var2, 2, 0, var10 - 1, class_od.a(class_asa.a, new class_od[]{Items.cg.b(var2)}), 3 + var2.nextInt(4));
                }
@@ -531,7 +531,7 @@ public class class_asa {
                   BlockPosition var14 = new BlockPosition(var13, var11, var12);
                   if(var3.b((BaseBlockPosition)var14)) {
                      this.c = true;
-                     var1.setTypeAndData((BlockPosition)var14, (IBlockData)Blocks.MOB_SPAWNER.getBlockData(), 2);
+                     var1.setTypeAndData((BlockPosition)var14, (IBlockData)BlockStainedGlassPane.MOB_SPAWNER.getBlockData(), 2);
                      TileEntity var15 = var1.getTileEntity(var14);
                      if(var15 instanceof TileEntityMobSpawner) {
                         ((TileEntityMobSpawner)var15).b().a("CaveSpider");
@@ -546,13 +546,13 @@ public class class_asa {
                   IBlockData var19 = this.a(var1, var9, var17, var10, var3);
                   if(var19.getBlock().getMaterial() == Material.AIR) {
                      byte var20 = -1;
-                     this.a(var1, Blocks.PLANKS.getBlockData(), var9, var20, var10, var3);
+                     this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), var9, var20, var10, var3);
                   }
                }
             }
 
             if(this.a) {
-               IBlockData var16 = Blocks.RAIL.getBlockData().set(class_akg.b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH);
+               IBlockData var16 = BlockStainedGlassPane.RAIL.getBlockData().set(class_akg.b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH);
 
                for(var10 = 0; var10 <= var8; ++var10) {
                   IBlockData var18 = this.a(var1, 1, -1, var10, var3);
@@ -646,16 +646,16 @@ public class class_asa {
          if(this.a(var1, var3)) {
             return false;
          } else {
-            this.a(var1, var3, this.l.a, this.l.b, this.l.c, this.l.d, this.l.b, this.l.f, Blocks.DIRT.getBlockData(), Blocks.AIR.getBlockData(), true);
-            this.a(var1, var3, this.l.a, this.l.b + 1, this.l.c, this.l.d, Math.min(this.l.b + 3, this.l.e), this.l.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.a, this.l.b, this.l.c, this.l.d, this.l.b, this.l.f, BlockStainedGlassPane.DIRT.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), true);
+            this.a(var1, var3, this.l.a, this.l.b + 1, this.l.c, this.l.d, Math.min(this.l.b + 3, this.l.e), this.l.f, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             Iterator var4 = this.a.iterator();
 
             while(var4.hasNext()) {
                class_arw var5 = (class_arw)var4.next();
-               this.a(var1, var3, var5.a, var5.e - 2, var5.c, var5.d, var5.e, var5.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, var5.a, var5.e - 2, var5.c, var5.d, var5.e, var5.f, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
             }
 
-            this.a(var1, var3, this.l.a, this.l.b + 4, this.l.c, this.l.d, this.l.e, this.l.f, Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.a, this.l.b + 4, this.l.c, this.l.d, this.l.e, this.l.f, BlockStainedGlassPane.AIR.getBlockData(), false);
             return true;
          }
       }

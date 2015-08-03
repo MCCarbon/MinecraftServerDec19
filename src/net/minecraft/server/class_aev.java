@@ -5,8 +5,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ajx;
+import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.BlockPortal;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.BlockPosition;
@@ -47,7 +47,7 @@ public class class_aev {
                   int var12 = var4 + var10;
                   int var13 = var5 + var9 * var7 - var8 * var6;
                   boolean var14 = var10 < 0;
-                  this.a.setTypeUpdate((BlockPosition)(new BlockPosition(var11, var12, var13)), (IBlockData)(var14?Blocks.OBSIDIAN.getBlockData():Blocks.AIR.getBlockData()));
+                  this.a.setTypeUpdate((BlockPosition)(new BlockPosition(var11, var12, var13)), (IBlockData)(var14?BlockStainedGlassPane.OBSIDIAN.getBlockData():BlockStainedGlassPane.AIR.getBlockData()));
                }
             }
          }
@@ -79,8 +79,8 @@ public class class_aev {
             for(int var14 = -128; var14 <= 128; ++var14) {
                for(BlockPosition var15 = var30.add(var13, this.a.W() - 1 - var30.getY(), var14); var15.getY() >= 0; var15 = var16) {
                   var16 = var15.down();
-                  if(this.a.getType(var15).getBlock() == Blocks.PORTAL) {
-                     while(this.a.getType(var16 = var15.down()).getBlock() == Blocks.PORTAL) {
+                  if(this.a.getType(var15).getBlock() == BlockStainedGlassPane.PORTAL) {
+                     while(this.a.getType(var16 = var15.down()).getBlock() == BlockStainedGlassPane.PORTAL) {
                         var15 = var16;
                      }
 
@@ -104,7 +104,7 @@ public class class_aev {
          double var31 = (double)((BlockPosition)var9).getX() + 0.5D;
          double var32 = (double)((BlockPosition)var9).getY() + 0.5D;
          double var33 = (double)((BlockPosition)var9).getZ() + 0.5D;
-         class_anp.class_b_in_class_anp var18 = Blocks.PORTAL.f(this.a, (BlockPosition)var9);
+         class_anp.class_b_in_class_anp var18 = BlockStainedGlassPane.PORTAL.f(this.a, (BlockPosition)var9);
          boolean var19 = var18.b().rotateY().getAxisDirection() == EnumDirection.EnumAxisDirection.NEGATIVE;
          double var20 = var18.b().getAxis() == EnumDirection.EnumAxis.X?(double)var18.a().getZ():(double)var18.a().getX();
          var32 = (double)(var18.a().getY() + 1) - var1.aI().y * (double)var18.e();
@@ -293,13 +293,13 @@ public class class_aev {
                   var24 = var16 + var22;
                   var25 = var17 + (var21 - 1) * var19 - var20 * var31;
                   boolean var35 = var22 < 0;
-                  this.a.setTypeUpdate((BlockPosition)(new BlockPosition(var23, var24, var25)), (IBlockData)(var35?Blocks.OBSIDIAN.getBlockData():Blocks.AIR.getBlockData()));
+                  this.a.setTypeUpdate((BlockPosition)(new BlockPosition(var23, var24, var25)), (IBlockData)(var35?BlockStainedGlassPane.OBSIDIAN.getBlockData():BlockStainedGlassPane.AIR.getBlockData()));
                }
             }
          }
       }
 
-      IBlockData var32 = Blocks.PORTAL.getBlockData().set(class_ajx.a, var31 != 0?EnumDirection.EnumAxis.X:EnumDirection.EnumAxis.Z);
+      IBlockData var32 = BlockStainedGlassPane.PORTAL.getBlockData().set(BlockPortal.a, var31 != 0?EnumDirection.EnumAxis.X:EnumDirection.EnumAxis.Z);
 
       for(var21 = 0; var21 < 4; ++var21) {
          for(var22 = 0; var22 < 4; ++var22) {
@@ -308,7 +308,7 @@ public class class_aev {
                var25 = var16 + var23;
                var26 = var17 + (var22 - 1) * var19;
                boolean var36 = var22 == 0 || var22 == 3 || var23 == -1 || var23 == 3;
-               this.a.setTypeAndData(new BlockPosition(var24, var25, var26), var36?Blocks.OBSIDIAN.getBlockData():var32, 2);
+               this.a.setTypeAndData(new BlockPosition(var24, var25, var26), var36?BlockStainedGlassPane.OBSIDIAN.getBlockData():var32, 2);
             }
          }
 

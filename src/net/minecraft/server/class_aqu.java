@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
@@ -79,7 +79,7 @@ public class class_aqu extends class_aql {
             for(var30 = 0; var30 < 16; ++var30) {
                for(var8 = 0; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
-                     var1.setTypeAndData((BlockPosition)var3.add(var6, var8, var30), (IBlockData)(var8 >= 4?Blocks.AIR.getBlockData():this.a.getBlockData()), 2);
+                     var1.setTypeAndData((BlockPosition)var3.add(var6, var8, var30), (IBlockData)(var8 >= 4?BlockStainedGlassPane.AIR.getBlockData():this.a.getBlockData()), 2);
                   }
                }
             }
@@ -90,12 +90,12 @@ public class class_aqu extends class_aql {
                for(var8 = 4; var8 < 8; ++var8) {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
                      BlockPosition var32 = var3.add(var6, var8 - 1, var30);
-                     if(var1.getType(var32).getBlock() == Blocks.DIRT && var1.b(class_aet.a, var3.add(var6, var8, var30)) > 0) {
+                     if(var1.getType(var32).getBlock() == BlockStainedGlassPane.DIRT && var1.b(class_aet.a, var3.add(var6, var8, var30)) > 0) {
                         BiomeBase var33 = var1.b(var32);
-                        if(var33.ak.getBlock() == Blocks.MYCELIM) {
-                           var1.setTypeAndData((BlockPosition)var32, (IBlockData)Blocks.MYCELIM.getBlockData(), 2);
+                        if(var33.ak.getBlock() == BlockStainedGlassPane.MYCELIM) {
+                           var1.setTypeAndData((BlockPosition)var32, (IBlockData)BlockStainedGlassPane.MYCELIM.getBlockData(), 2);
                         } else {
-                           var1.setTypeAndData((BlockPosition)var32, (IBlockData)Blocks.GRASS.getBlockData(), 2);
+                           var1.setTypeAndData((BlockPosition)var32, (IBlockData)BlockStainedGlassPane.GRASS.getBlockData(), 2);
                         }
                      }
                   }
@@ -109,7 +109,7 @@ public class class_aqu extends class_aql {
                   for(var8 = 0; var8 < 8; ++var8) {
                      var31 = !var4[(var6 * 16 + var30) * 8 + var8] && (var6 < 15 && var4[((var6 + 1) * 16 + var30) * 8 + var8] || var6 > 0 && var4[((var6 - 1) * 16 + var30) * 8 + var8] || var30 < 15 && var4[(var6 * 16 + var30 + 1) * 8 + var8] || var30 > 0 && var4[(var6 * 16 + (var30 - 1)) * 8 + var8] || var8 < 7 && var4[(var6 * 16 + var30) * 8 + var8 + 1] || var8 > 0 && var4[(var6 * 16 + var30) * 8 + (var8 - 1)]);
                      if(var31 && (var8 < 4 || var2.nextInt(2) != 0) && var1.getType(var3.add(var6, var8, var30)).getBlock().getMaterial().isBuildable()) {
-                        var1.setTypeAndData((BlockPosition)var3.add(var6, var8, var30), (IBlockData)Blocks.STONE.getBlockData(), 2);
+                        var1.setTypeAndData((BlockPosition)var3.add(var6, var8, var30), (IBlockData)BlockStainedGlassPane.STONE.getBlockData(), 2);
                      }
                   }
                }
@@ -121,7 +121,7 @@ public class class_aqu extends class_aql {
                for(var30 = 0; var30 < 16; ++var30) {
                   byte var34 = 4;
                   if(var1.v(var3.add(var6, var34, var30))) {
-                     var1.setTypeAndData((BlockPosition)var3.add(var6, var34, var30), (IBlockData)Blocks.ICE.getBlockData(), 2);
+                     var1.setTypeAndData((BlockPosition)var3.add(var6, var34, var30), (IBlockData)BlockStainedGlassPane.ICE.getBlockData(), 2);
                   }
                }
             }

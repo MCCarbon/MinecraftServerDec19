@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityEnderChest;
@@ -48,7 +48,7 @@ public class class_ahv extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getItemOf(Blocks.OBSIDIAN);
+      return Item.getItemOf(BlockStainedGlassPane.OBSIDIAN);
    }
 
    public int getDropCount(Random var1) {

@@ -125,7 +125,7 @@ public abstract class TileEntity {
 			IBlockData blockdata = world.getType(position);
 			metadata = blockdata.getBlock().toLegacyData(blockdata);
 			world.b(position, this);
-			if (getBlock() != Blocks.AIR) {
+			if (getBlock() != BlockStainedGlassPane.AIR) {
 				world.e(position, getBlock());
 			}
 		}

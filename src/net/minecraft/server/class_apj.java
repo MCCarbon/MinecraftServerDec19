@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.Chunk;
@@ -34,7 +34,7 @@ public class class_apj implements class_aoh {
          for(int var5 = 0; var5 < 16; ++var5) {
             int var6 = var1 * 16 + var4;
             var7 = var2 * 16 + var5;
-            var3.a(var4, 60, var5, Blocks.BARRIER.getBlockData());
+            var3.a(var4, 60, var5, BlockStainedGlassPane.BARRIER.getBlockData());
             IBlockData var8 = b(var6, var7);
             if(var8 != null) {
                var3.a(var4, 70, var5, var8);

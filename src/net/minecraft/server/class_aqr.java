@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.class_aiw;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
@@ -23,7 +23,7 @@ public class class_aqr extends class_aql {
 
    public boolean b(World var1, Random var2, BlockPosition var3) {
       if(this.a == null) {
-         this.a = var2.nextBoolean()?Blocks.BROWN_MUSHROOM_BLOCK:Blocks.RED_MUSHROOM_BLOCK;
+         this.a = var2.nextBoolean()?BlockStainedGlassPane.BROWN_MUSHROOM_BLOCK:BlockStainedGlassPane.RED_MUSHROOM_BLOCK;
       }
 
       int var4 = var2.nextInt(3) + 4;
@@ -57,11 +57,11 @@ public class class_aqr extends class_aql {
             return false;
          } else {
             Block var19 = var1.getType(var3.down()).getBlock();
-            if(var19 != Blocks.DIRT && var19 != Blocks.GRASS && var19 != Blocks.MYCELIM) {
+            if(var19 != BlockStainedGlassPane.DIRT && var19 != BlockStainedGlassPane.GRASS && var19 != BlockStainedGlassPane.MYCELIM) {
                return false;
             } else {
                int var20 = var3.getY() + var4;
-               if(this.a == Blocks.RED_MUSHROOM_BLOCK) {
+               if(this.a == BlockStainedGlassPane.RED_MUSHROOM_BLOCK) {
                   var20 = var3.getY() + var4 - 3;
                }
 
@@ -72,7 +72,7 @@ public class class_aqr extends class_aql {
                      ++var9;
                   }
 
-                  if(this.a == Blocks.BROWN_MUSHROOM_BLOCK) {
+                  if(this.a == BlockStainedGlassPane.BROWN_MUSHROOM_BLOCK) {
                      var9 = 3;
                   }
 
@@ -97,7 +97,7 @@ public class class_aqr extends class_aql {
                         }
 
                         class_aiw.class_a_in_class_aiw var17 = class_aiw.class_a_in_class_aiw.a(var16);
-                        if(this.a == Blocks.BROWN_MUSHROOM_BLOCK || var21 < var3.getY() + var4) {
+                        if(this.a == BlockStainedGlassPane.BROWN_MUSHROOM_BLOCK || var21 < var3.getY() + var4) {
                            if((var14 == var10 || var14 == var23) && (var15 == var12 || var15 == var13)) {
                               continue;
                            }

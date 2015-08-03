@@ -18,7 +18,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.WorldSettings;
 import net.minecraft.server.BlockBed;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.TileEntitySign;
 import net.minecraft.server.IBlockData;
@@ -81,7 +81,7 @@ import net.minecraft.server.class_xx;
 import net.minecraft.server.Container;
 import net.minecraft.server.class_yp;
 import net.minecraft.server.class_yu;
-import net.minecraft.server.class_za;
+import net.minecraft.server.ItemArmor;
 import net.minecraft.server.ItemBlock;
 
 public abstract class EntityHuman extends EntityLiving {
@@ -390,7 +390,7 @@ public abstract class EntityHuman extends EntityLiving {
 		this.b(this.s, this.t, this.u);
 		this.motY = 0.10000000149011612D;
 		if (this.getName().equals("Notch")) {
-			this.a(new ItemStack(Items.e, 1), true, false);
+			this.a(new ItemStack(Items.APPLE, 1), true, false);
 		}
 
 		if (!this.o.R().b("keepInventory")) {
@@ -1002,7 +1002,7 @@ public abstract class EntityHuman extends EntityLiving {
 	public void a(boolean var1, boolean var2, boolean var3) {
 		this.a(0.6F, 1.8F);
 		IBlockData var4 = this.o.getType(this.bedPosition);
-		if (this.bedPosition != null && var4.getBlock() == Blocks.BED) {
+		if (this.bedPosition != null && var4.getBlock() == BlockStainedGlassPane.BED) {
 			this.o.setTypeAndData((BlockPosition) this.bedPosition, (IBlockData) var4.set(BlockBed.OCCUPIED, Boolean.valueOf(false)), 4);
 			BlockPosition var5 = BlockBed.a((World) this.o, (BlockPosition) this.bedPosition, 0);
 			if (var5 == null) {
@@ -1025,12 +1025,12 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	private boolean p() {
-		return this.o.getType(this.bedPosition).getBlock() == Blocks.BED;
+		return this.o.getType(this.bedPosition).getBlock() == BlockStainedGlassPane.BED;
 	}
 
 	public static BlockPosition a(World var0, BlockPosition var1, boolean var2) {
 		Block var3 = var0.getType(var1).getBlock();
-		if (var3 != Blocks.BED) {
+		if (var3 != BlockStainedGlassPane.BED) {
 			if (!var2) {
 				return null;
 			} else {
@@ -1497,7 +1497,7 @@ public abstract class EntityHuman extends EntityLiving {
 				}
 			} else {
 				if (var2 != null && var2.getItem() != null) {
-					if (var2.getItem() instanceof class_za) {
+					if (var2.getItem() instanceof ItemArmor) {
 						if (class_qb.c(var2) != var3) {
 							return false;
 						}

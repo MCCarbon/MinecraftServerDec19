@@ -322,7 +322,7 @@ public class Chunk {
 	}
 
 	private Block f(int var1, int var2, int var3) {
-		Block var4 = Blocks.AIR;
+		Block var4 = BlockStainedGlassPane.AIR;
 		if ((var2 >= 0) && ((var2 >> 4) < d.length)) {
 			ChunkSection var5 = d[var2 >> 4];
 			if (var5 != null) {
@@ -382,14 +382,14 @@ public class Chunk {
 		if (i.H() == class_aes.g) {
 			IBlockData var7 = null;
 			if (var1.getY() == 60) {
-				var7 = Blocks.BARRIER.getBlockData();
+				var7 = BlockStainedGlassPane.BARRIER.getBlockData();
 			}
 
 			if (var1.getY() == 70) {
 				var7 = class_apj.b(var1.getX(), var1.getZ());
 			}
 
-			return var7 == null ? Blocks.AIR.getBlockData() : var7;
+			return var7 == null ? BlockStainedGlassPane.AIR.getBlockData() : var7;
 		} else {
 			try {
 				if ((var1.getY() >= 0) && ((var1.getY() >> 4) < d.length)) {
@@ -402,7 +402,7 @@ public class Chunk {
 					}
 				}
 
-				return Blocks.AIR.getBlockData();
+				return BlockStainedGlassPane.AIR.getBlockData();
 			} catch (Throwable var6) {
 				class_b var3 = class_b.a(var6, "Getting block state");
 				class_c var4 = var3.a("Block being got");
@@ -454,7 +454,7 @@ public class Chunk {
 			ChunkSection var11 = d[var4 >> 4];
 			boolean var12 = false;
 			if (var11 == null) {
-				if (var9 == Blocks.AIR) {
+				if (var9 == BlockStainedGlassPane.AIR) {
 					return null;
 				}
 

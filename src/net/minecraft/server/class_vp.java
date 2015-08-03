@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aed;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
@@ -73,7 +73,7 @@ public class class_vp extends class_vn {
    }
 
    public IBlockData u() {
-      return Blocks.COMMAND_BLOCK.getBlockData();
+      return BlockStainedGlassPane.COMMAND_BLOCK.getBlockData();
    }
 
    public class_aed j() {

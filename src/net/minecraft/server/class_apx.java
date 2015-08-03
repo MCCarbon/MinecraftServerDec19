@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.BlockLogAbstract;
 import net.minecraft.server.IBlockData;
@@ -124,7 +124,7 @@ public class class_apx extends class_apw {
 
    void a(BlockPosition var1) {
       for(int var2 = 0; var2 < this.i; ++var2) {
-         this.a(var1.up(var2), this.b(var2), Blocks.LEAVES.getBlockData().set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
+         this.a(var1.up(var2), this.b(var2), BlockStainedGlassPane.LEAVES.getBlockData().set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false)));
       }
 
    }
@@ -184,7 +184,7 @@ public class class_apx extends class_apw {
    void c() {
       BlockPosition var1 = this.m;
       BlockPosition var2 = this.m.up(this.b);
-      Block var3 = Blocks.LOG;
+      Block var3 = BlockStainedGlassPane.LOG;
       this.a(var1, var2, var3);
       if(this.g == 2) {
          this.a(var1.east(), var2.east(), var3);
@@ -202,7 +202,7 @@ public class class_apx extends class_apw {
          int var3 = var2.q();
          BlockPosition var4 = new BlockPosition(this.m.getX(), var3, this.m.getZ());
          if(!var4.equals(var2) && this.c(var3 - this.m.getY())) {
-            this.a(var4, var2, Blocks.LOG);
+            this.a(var4, var2, BlockStainedGlassPane.LOG);
          }
       }
 
@@ -253,7 +253,7 @@ public class class_apx extends class_apw {
 
    private boolean f() {
       Block var1 = this.l.getType(this.m.down()).getBlock();
-      if(var1 != Blocks.DIRT && var1 != Blocks.GRASS && var1 != Blocks.FARMLAND) {
+      if(var1 != BlockStainedGlassPane.DIRT && var1 != BlockStainedGlassPane.GRASS && var1 != BlockStainedGlassPane.FARMLAND) {
          return false;
       } else {
          int var2 = this.a(this.m, this.m.up(this.a - 1));

@@ -8,7 +8,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.LocaleI18n;
@@ -318,7 +318,7 @@ public class class_tz extends class_tw implements class_ok {
 
    public void cT() {
       if(!this.o.isClientSide && this.cL()) {
-         this.a(Item.getItemOf((Block)Blocks.CHEST), 1);
+         this.a(Item.getItemOf((Block)BlockStainedGlassPane.CHEST), 1);
          this.p(false);
       }
    }
@@ -477,8 +477,8 @@ public class class_tz extends class_tw implements class_ok {
 
    protected void a(BlockPosition var1, Block var2) {
       Block.Sound var3 = var2.stepSound;
-      if(this.o.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
-         var3 = Blocks.SNOW_LAYER.stepSound;
+      if(this.o.getType(var1.up()).getBlock() == BlockStainedGlassPane.SNOW_LAYER) {
+         var3 = BlockStainedGlassPane.SNOW_LAYER.stepSound;
       }
 
       if(!var2.getMaterial().isLiquid()) {
@@ -583,10 +583,10 @@ public class class_tz extends class_tw implements class_ok {
                   var5 = 1.0F;
                   var6 = 30;
                   var7 = 3;
-               } else if(Block.getByItem(var3.getItem()) == Blocks.HAY_BLOCK) {
+               } else if(Block.getByItem(var3.getItem()) == BlockStainedGlassPane.HAY_BLOCK) {
                   var5 = 20.0F;
                   var6 = 180;
-               } else if(var3.getItem() == Items.e) {
+               } else if(var3.getItem() == Items.APPLE) {
                   var5 = 3.0F;
                   var6 = 60;
                   var7 = 3;
@@ -637,7 +637,7 @@ public class class_tz extends class_tw implements class_ok {
                return true;
             }
 
-            if(!var8 && this.de() && !this.cL() && var3.getItem() == Item.getItemOf((Block)Blocks.CHEST)) {
+            if(!var8 && this.de() && !this.cL() && var3.getItem() == Item.getItemOf((Block)BlockStainedGlassPane.CHEST)) {
                this.p(true);
                this.a("mob.chickenplop", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
                var8 = true;
@@ -731,7 +731,7 @@ public class class_tz extends class_tw implements class_ok {
             this.h(1.0F);
          }
 
-         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.getType(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.t) - 1, MathHelper.floor(this.u))).getBlock() == Blocks.GRASS) {
+         if(!this.cN() && this.l == null && this.V.nextInt(300) == 0 && this.o.getType(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.t) - 1, MathHelper.floor(this.u))).getBlock() == BlockStainedGlassPane.GRASS) {
             this.s(true);
          }
 
@@ -1224,7 +1224,7 @@ public class class_tz extends class_tw implements class_ok {
             return true;
          }
 
-         if(var2 != null && var2.getItem() == Item.getItemOf((Block)Blocks.CHEST) && !this.cL()) {
+         if(var2 != null && var2.getItem() == Item.getItemOf((Block)BlockStainedGlassPane.CHEST) && !this.cL()) {
             this.p(true);
             this.dp();
             return true;

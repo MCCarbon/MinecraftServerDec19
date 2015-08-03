@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.BlockCarrots;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_auv;
@@ -69,7 +69,7 @@ public class class_ue extends class_tw {
       this.i.a(1, new class_ue.class_g_in_class_ue(this, 1.33D));
       this.i.a(2, new class_sr(this, 1.0D, Items.bU, false));
       this.i.a(2, new class_sr(this, 1.0D, Items.bZ, false));
-      this.i.a(2, new class_sr(this, 1.0D, Item.getItemOf((Block)Blocks.YELLOW_FLOWER), false));
+      this.i.a(2, new class_sr(this, 1.0D, Item.getItemOf((Block)BlockStainedGlassPane.YELLOW_FLOWER), false));
       this.i.a(3, new class_re(this, 0.8D));
       this.i.a(5, new class_ue.class_h_in_class_ue(this));
       this.i.a(5, new class_si(this, 0.6D));
@@ -290,7 +290,7 @@ public class class_ue extends class_tw {
    }
 
    private boolean a(Item var1) {
-      return var1 == Items.bU || var1 == Items.bZ || var1 == Item.getItemOf((Block)Blocks.YELLOW_FLOWER);
+      return var1 == Items.bU || var1 == Items.bZ || var1 == Item.getItemOf((Block)BlockStainedGlassPane.YELLOW_FLOWER);
    }
 
    public class_ue b(class_po var1) {
@@ -353,7 +353,7 @@ public class class_ue extends class_tw {
    }
 
    protected void cE() {
-      BlockCarrots var1 = (BlockCarrots)Blocks.CARROTS;
+      BlockCarrots var1 = (BlockCarrots)BlockStainedGlassPane.CARROTS;
       IBlockData var2 = var1.b(var1.n());
       this.o.a(class_cy.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.getCombinedId(var2)});
       this.bB = 100;
@@ -468,7 +468,7 @@ public class class_ue extends class_tw {
             IBlockData var3 = var1.getType(var2);
             Block var4 = var3.getBlock();
             if(this.e && var4 instanceof BlockCarrots && ((BlockCarrots)var4).e(var3)) {
-               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 2);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
                var1.setAir(var2, true);
                this.c.cE();
             }
@@ -481,7 +481,7 @@ public class class_ue extends class_tw {
 
       protected boolean a(World var1, BlockPosition var2) {
          Block var3 = var1.getType(var2).getBlock();
-         if(var3 == Blocks.FARMLAND) {
+         if(var3 == BlockStainedGlassPane.FARMLAND) {
             var2 = var2.up();
             IBlockData var4 = var1.getType(var2);
             var3 = var4.getBlock();

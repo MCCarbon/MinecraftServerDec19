@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
@@ -163,7 +163,7 @@ public abstract class class_xo extends Entity implements class_xi {
       }
 
       if(var3 != null) {
-         if(var3.a == MovingObjectPosition.class_a_in_class_awg.b && this.o.getType(var3.a()).getBlock() == Blocks.PORTAL) {
+         if(var3.a == MovingObjectPosition.class_a_in_class_awg.b && this.o.getType(var3.a()).getBlock() == BlockStainedGlassPane.PORTAL) {
             this.d(var3.a());
          } else {
             this.a(var3);

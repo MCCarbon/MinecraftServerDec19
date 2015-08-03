@@ -20,7 +20,7 @@ public class Bootstrap {
 	}
 
 	static void b() {
-		BlockDispenser.REGISTRY.register(Items.g, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				class_xd var4 = new class_xd(var1, var2.getX(), var2.getY(), var2.getZ());
@@ -28,7 +28,7 @@ public class Bootstrap {
 				return var4;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.i, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.TIPPED_ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				class_xt var4 = new class_xt(var1, var2.getX(), var2.getY(), var2.getZ(), var3);
@@ -36,7 +36,7 @@ public class Bootstrap {
 				return var4;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.h, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.SPECTRAL_ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				class_xn var4 = new class_xn(var1, var2.getX(), var2.getY(), var2.getZ());
@@ -236,7 +236,7 @@ public class Bootstrap {
 				return var2;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.d, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.FLINT_AND_STEEL, new DispenseBehaviorItem() {
 			private boolean b = true;
 
 			@Override
@@ -244,12 +244,12 @@ public class Bootstrap {
 				World var3 = var1.getWorld();
 				BlockPosition var4 = var1.getPosition().shift(BlockDispenser.b(var1.getData()));
 				if(var3.isEmpty(var4)) {
-					var3.setTypeUpdate(var4, Blocks.FIRE.getBlockData());
+					var3.setTypeUpdate(var4, BlockStainedGlassPane.FIRE.getBlockData());
 					if(var2.a(1, var3.random)) {
 						var2.count = 0;
 					}
-				} else if(var3.getType(var4).getBlock() == Blocks.TNT) {
-					Blocks.TNT.postBreak(var3, var4, Blocks.TNT.getBlockData().set(class_alo.a, Boolean.valueOf(true)));
+				} else if(var3.getType(var4).getBlock() == BlockStainedGlassPane.TNT) {
+					BlockStainedGlassPane.TNT.postBreak(var3, var4, BlockStainedGlassPane.TNT.getBlockData().set(class_alo.a, Boolean.valueOf(true)));
 					var3.setAir(var4);
 				} else {
 					b = false;
@@ -300,7 +300,7 @@ public class Bootstrap {
 
 			}
 		});
-		BlockDispenser.REGISTRY.register(Item.getItemOf(Blocks.TNT), new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Item.getItemOf(BlockStainedGlassPane.TNT), new DispenseBehaviorItem() {
 			@Override
 			protected ItemStack b(ISourceBlock var1, ItemStack var2) {
 				World var3 = var1.getWorld();
@@ -320,10 +320,10 @@ public class Bootstrap {
 				World var3 = var1.getWorld();
 				EnumDirection var4 = BlockDispenser.b(var1.getData());
 				BlockPosition var5 = var1.getPosition().shift(var4);
-				class_akv var6 = Blocks.SKULL;
+				BlockSkull var6 = BlockStainedGlassPane.SKULL;
 				if(var3.isEmpty(var5) && var6.b(var3, var5, var2)) {
 					if(!var3.isClientSide) {
-						var3.setTypeAndData(var5, var6.getBlockData().set(class_akv.a, EnumDirection.UP), 3);
+						var3.setTypeAndData(var5, var6.getBlockData().set(BlockSkull.a, EnumDirection.UP), 3);
 						TileEntity var7 = var3.getTileEntity(var5);
 						if(var7 instanceof TileEntitySkull) {
 							if(var2.i() == 3) {
@@ -346,7 +346,7 @@ public class Bootstrap {
 							}
 
 							((TileEntitySkull)var7).b(var4.opposite().getHorizontalId() * 4);
-							Blocks.SKULL.a(var3, var5, (TileEntitySkull)var7);
+							BlockStainedGlassPane.SKULL.a(var3, var5, (TileEntitySkull)var7);
 						}
 
 						--var2.count;
@@ -368,14 +368,14 @@ public class Bootstrap {
 
 			}
 		});
-		BlockDispenser.REGISTRY.register(Item.getItemOf(Blocks.PUMPKIN), new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Item.getItemOf(BlockStainedGlassPane.PUMPKIN), new DispenseBehaviorItem() {
 			private boolean b = true;
 
 			@Override
 			protected ItemStack b(ISourceBlock var1, ItemStack var2) {
 				World var3 = var1.getWorld();
 				BlockPosition var4 = var1.getPosition().shift(BlockDispenser.b(var1.getData()));
-				class_akd var5 = (class_akd)Blocks.PUMPKIN;
+				class_akd var5 = (class_akd)BlockStainedGlassPane.PUMPKIN;
 				if(var3.isEmpty(var4) && var5.e(var3, var4)) {
 					if(!var3.isClientSide) {
 						var3.setTypeAndData(var4, var5.getBlockData(), 3);
@@ -409,7 +409,7 @@ public class Bootstrap {
 			}
 
 			Block.init();
-			class_aib.l();
+			BlockFire.l();
 			class_pk.k();
 			class_adi.e();
 			Item.init();

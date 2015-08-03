@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.Item;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockStainedGlassPane;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
@@ -61,8 +61,8 @@ public class class_uh extends class_ua implements class_wk {
             var2 = MathHelper.floor(this.t);
             var3 = MathHelper.floor(this.u + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
             BlockPosition var5 = new BlockPosition(var1, var2, var3);
-            if(this.o.getType(var5).getBlock().getMaterial() == Material.AIR && this.o.b(new BlockPosition(var1, 0, var3)).a(var5) < 0.8F && Blocks.SNOW_LAYER.canPlace(this.o, var5)) {
-               this.o.setTypeUpdate(var5, Blocks.SNOW_LAYER.getBlockData());
+            if(this.o.getType(var5).getBlock().getMaterial() == Material.AIR && this.o.b(new BlockPosition(var1, 0, var3)).a(var5) < 0.8F && BlockStainedGlassPane.SNOW_LAYER.canPlace(this.o, var5)) {
+               this.o.setTypeUpdate(var5, BlockStainedGlassPane.SNOW_LAYER.getBlockData());
             }
          }
       }
