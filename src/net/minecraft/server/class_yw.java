@@ -82,7 +82,7 @@ public class class_yw extends class_yx {
 
    public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
-      ItemStack[] var3 = class_act.a().b(this.a, var1.o);
+      ItemStack[] var3 = RecipeManager.a().b(this.a, var1.o);
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
          ItemStack var5 = this.a.getItem(var4);

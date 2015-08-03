@@ -219,8 +219,8 @@ public class class_ul extends class_qj {
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(this.cA()) {
          if(var3 != null) {
-            if(var3.getItem() instanceof ItemApple) {
-               ItemApple var4 = (ItemApple)var3.getItem();
+            if(var3.getItem() instanceof ItemFood) {
+               ItemFood var4 = (ItemFood)var3.getItem();
                if(var4.g() && this.datawatcher.getFloat(bw) < 20.0F) {
                   if(!var1.abilities.instabuild) {
                      --var3.count;
@@ -276,7 +276,7 @@ public class class_ul extends class_qj {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 == null?false:(!(var1.getItem() instanceof ItemApple)?false:((ItemApple)var1.getItem()).g());
+      return var1 == null?false:(!(var1.getItem() instanceof ItemFood)?false:((ItemFood)var1.getItem()).g());
    }
 
    public int cj() {

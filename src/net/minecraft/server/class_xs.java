@@ -8,18 +8,18 @@ public class class_xs extends class_xo {
 
    public class_xs(World var1) {
       super(var1);
-      this.d = class_abe.a(new ItemStack(Items.POTION), class_acf.a);
+      this.d = ItemPotion.a(new ItemStack(Items.POTION), class_acf.a);
    }
 
    public class_xs(World var1, EntityLiving var2, ItemStack var3) {
       super(var1, var2);
-      this.d = class_abe.a(new ItemStack(Items.POTION), class_acf.a);
+      this.d = ItemPotion.a(new ItemStack(Items.POTION), class_acf.a);
       this.d = var3;
    }
 
    public class_xs(World var1, double var2, double var4, double var6, ItemStack var8) {
       super(var1, var2, var4, var6);
-      this.d = class_abe.a(new ItemStack(Items.POTION), class_acf.a);
+      this.d = ItemPotion.a(new ItemStack(Items.POTION), class_acf.a);
       this.d = var8;
    }
 
@@ -29,7 +29,7 @@ public class class_xs extends class_xo {
 
    protected void a(MovingObjectPosition var1) {
       if(!this.o.isClientSide) {
-         class_acd var2 = class_abe.i(this.d);
+         class_acd var2 = ItemPotion.i(this.d);
          if(var1.a == MovingObjectPosition.class_a_in_class_awg.b && var2 == class_acf.a) {
             BlockPosition var16 = var1.a().shift(var1.b);
             this.a(var16);

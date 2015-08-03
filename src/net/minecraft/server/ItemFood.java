@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ItemApple extends Item {
+public class ItemFood extends Item {
    public final int a;
    private final int b;
    private final float c;
@@ -9,7 +9,7 @@ public class ItemApple extends Item {
    private class_pl l;
    private float m;
 
-   public ItemApple(int var1, float var2, boolean var3) {
+   public ItemFood(int var1, float var2, boolean var3) {
       this.a = 32;
       this.b = var1;
       this.d = var3;
@@ -17,7 +17,7 @@ public class ItemApple extends Item {
       this.a(CreativeTab.FOOD);
    }
 
-   public ItemApple(int var1, boolean var2) {
+   public ItemFood(int var1, boolean var2) {
       this(var1, 0.6F, var2);
    }
 
@@ -70,13 +70,13 @@ public class ItemApple extends Item {
       return this.d;
    }
 
-   public ItemApple a(class_pl var1, float var2) {
+   public ItemFood a(class_pl var1, float var2) {
       this.l = var1;
       this.m = var2;
       return this;
    }
 
-   public ItemApple h() {
+   public ItemFood h() {
       this.k = true;
       return this;
    }

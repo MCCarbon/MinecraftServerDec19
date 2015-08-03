@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 public class class_acj {
-   void a(class_act var1) {
+   void a(RecipeManager var1) {
       EnumColor[] var2 = EnumColor.values();
       int var3 = var2.length;
 

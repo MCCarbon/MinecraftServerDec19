@@ -62,7 +62,7 @@ public class class_wq extends class_wi implements class_wk {
                ItemStack var6 = this.bA();
                this.a(class_pw.a, (ItemStack)null);
                if(var6 != null && var6.getItem() == Items.POTION) {
-                  List var5 = class_abe.h(var6);
+                  List var5 = ItemPotion.h(var6);
                   if(var5 != null) {
                      Iterator var3 = var5.iterator();
 
@@ -88,7 +88,7 @@ public class class_wq extends class_wi implements class_wk {
             }
 
             if(var1 != null) {
-               this.a(class_pw.a, class_abe.a(new ItemStack(Items.POTION), var1));
+               this.a(class_pw.a, ItemPotion.a(new ItemStack(Items.POTION), var1));
                this.bt = this.bA().l();
                this.a(true);
                class_ql var2 = this.a(class_wl.d);
@@ -151,7 +151,7 @@ public class class_wq extends class_wi implements class_wk {
             var12 = class_acf.H;
          }
 
-         class_xs var13 = new class_xs(this.o, this, class_abe.a(new ItemStack(Items.SPLASH_POTION), var12));
+         class_xs var13 = new class_xs(this.o, this, ItemPotion.a(new ItemStack(Items.SPLASH_POTION), var12));
          var13.z -= -20.0F;
          var13.c(var5, var7 + (double)(var11 * 0.2F), var9, 0.75F, 8.0F);
          this.o.addEntity((Entity)var13);

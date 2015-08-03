@@ -78,7 +78,7 @@ public class class_ace {
    }
 
    protected static boolean c(ItemStack var0, ItemStack var1) {
-      class_acd var2 = class_abe.i(var0);
+      class_acd var2 = ItemPotion.i(var0);
       int var3 = 0;
 
       for(int var4 = a.size(); var3 < var4; ++var3) {
@@ -93,7 +93,7 @@ public class class_ace {
 
    public static ItemStack d(ItemStack var0, ItemStack var1) {
       if(var1 != null) {
-         class_acd var2 = class_abe.i(var1);
+         class_acd var2 = ItemPotion.i(var1);
          Item var3 = var1.getItem();
          int var4 = 0;
 
@@ -102,7 +102,7 @@ public class class_ace {
          for(var5 = b.size(); var4 < var5; ++var4) {
             var6 = (class_ace.class_b_in_class_ace)b.get(var4);
             if(var6.a == var3 && var6.b.apply(var0)) {
-               return class_abe.a(new ItemStack((Item)var6.c), var2);
+               return ItemPotion.a(new ItemStack((Item) var6.c), var2);
             }
          }
 
@@ -111,7 +111,7 @@ public class class_ace {
          for(var5 = a.size(); var4 < var5; ++var4) {
             var6 = (class_ace.class_b_in_class_ace)a.get(var4);
             if(var6.a == var2 && var6.b.apply(var0)) {
-               return class_abe.a(new ItemStack(var3), (class_acd)var6.c);
+               return ItemPotion.a(new ItemStack(var3), (class_acd) var6.c);
             }
          }
       }
@@ -187,7 +187,7 @@ public class class_ace {
       a((class_acd)class_acf.H, (Predicate)var2, (class_acd)class_acf.I);
    }
 
-   private static void a(class_abe var0, class_ace.class_a_in_class_ace var1, class_abe var2) {
+   private static void a(ItemPotion var0, class_ace.class_a_in_class_ace var1, ItemPotion var2) {
       b.add(new class_ace.class_b_in_class_ace(var0, var1, var2));
    }
 

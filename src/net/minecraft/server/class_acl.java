@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 public class class_acl {
-   public void a(class_act var1) {
+   public void a(RecipeManager var1) {
       int var2;
       for(var2 = 0; var2 < 16; ++var2) {
          var1.b(new ItemStack(Blocks.WOOL, 1, var2), new Object[]{new ItemStack(Items.DYE, 1, 15 - var2), new ItemStack(Item.getItemOf(Blocks.WOOL))});

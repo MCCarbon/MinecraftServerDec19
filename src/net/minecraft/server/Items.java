@@ -133,8 +133,8 @@ public class Items {
     public static final Item GHAST_TEAR;
     public static final Item GOLD_NUGGET;
     public static final Item NETHER_WART;
-    public static final class_abe POTION;
-    public static final class_abe SPLASH_POTION;
+    public static final ItemPotion POTION;
+    public static final ItemPotion SPLASH_POTION;
     public static final Item GLASS_BOTTLE;
     public static final Item SPIDER_EYE;
     public static final Item FERMENTED_SPIDER_EYE;
@@ -342,8 +342,8 @@ public class Items {
             GHAST_TEAR = getByName("ghast_tear");
             GOLD_NUGGET = getByName("gold_nugget");
             NETHER_WART = getByName("nether_wart");
-            POTION = (class_abe) getByName("potion");
-            SPLASH_POTION = (class_abe) getByName("splash_potion");
+            POTION = (ItemPotion) getByName("potion");
+            SPLASH_POTION = (ItemPotion) getByName("splash_potion");
             GLASS_BOTTLE = getByName("glass_bottle");
             SPIDER_EYE = getByName("spider_eye");
             FERMENTED_SPIDER_EYE = getByName("fermented_spider_eye");

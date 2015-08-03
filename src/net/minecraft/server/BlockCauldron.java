@@ -72,7 +72,7 @@ public class BlockCauldron extends Block {
             if(var12 == Items.GLASS_BOTTLE) {
                if(var11 > 0) {
                   if(!var4.abilities.instabuild) {
-                     var14 = class_abe.a(new ItemStack(Items.POTION), class_acf.a);
+                     var14 = ItemPotion.a(new ItemStack(Items.POTION), class_acf.a);
                      var4.b(StatisticList.J);
                      if(--var6.count == 0) {
                         var4.a((EnumUsedHand)var5, (ItemStack)var14);

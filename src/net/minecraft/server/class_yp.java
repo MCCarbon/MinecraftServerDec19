@@ -52,7 +52,7 @@ public class class_yp extends Container {
    }
 
    public void a(IInventory var1) {
-      this.f.setItem(0, class_act.a().a(this.a, this.i.o));
+      this.f.setItem(0, RecipeManager.a().a(this.a, this.i.o));
    }
 
    public void b(EntityHuman var1) {

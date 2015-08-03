@@ -128,7 +128,7 @@ public class class_yd extends Container {
       }
 
       public void a(EntityHuman var1, ItemStack var2) {
-         if(class_abe.i(var2) != class_acf.a) {
+         if(ItemPotion.i(var2) != class_acf.a) {
             this.a.b((class_my)class_mt.B);
          }
 

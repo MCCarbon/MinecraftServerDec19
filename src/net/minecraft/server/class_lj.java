@@ -376,7 +376,7 @@ public class class_lj {
          } else if(this.a instanceof class_xm) {
             return new PacketPlayOutSpawnEntity(this.a, 61);
          } else if(this.a instanceof class_xs) {
-            return new PacketPlayOutSpawnEntity(this.a, 73, class_acd.a(class_abe.i(((class_xs)this.a).m())));
+            return new PacketPlayOutSpawnEntity(this.a, 73, class_acd.a(ItemPotion.i(((class_xs) this.a).m())));
          } else if(this.a instanceof class_xr) {
             return new PacketPlayOutSpawnEntity(this.a, 75);
          } else if(this.a instanceof class_xq) {

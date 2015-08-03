@@ -33,7 +33,7 @@ public class class_xt extends class_xd {
    }
 
    private void a(ItemStack var1) {
-      List var2 = class_abe.h(var1);
+      List var2 = ItemPotion.h(var1);
       if(!var2.isEmpty()) {
          Iterator var3 = var2.iterator();
 
@@ -42,7 +42,7 @@ public class class_xt extends class_xd {
             this.g.add(new class_pl(var4));
          }
 
-         this.datawatcher.update(f, Integer.valueOf(class_abe.a((Collection)this.g)));
+         this.datawatcher.update(f, Integer.valueOf(ItemPotion.a((Collection) this.g)));
       }
 
       this.h = var1.clone();

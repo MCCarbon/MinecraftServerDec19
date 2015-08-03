@@ -184,7 +184,7 @@ public class class_uf extends class_tw {
       int var4 = ((class_uf)var2).cA().b();
       this.bt.getItem(0).setData(var3);
       this.bt.getItem(1).setData(var4);
-      ItemStack var5 = class_act.a().a(this.bt, ((class_uf)var1).o);
+      ItemStack var5 = RecipeManager.a().a(this.bt, ((class_uf)var1).o);
       int var6;
       if(var5 != null && var5.getItem() == Items.DYE) {
          var6 = var5.i();

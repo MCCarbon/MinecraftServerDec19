@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 public class class_acx {
-   public void a(class_act var1) {
+   public void a(RecipeManager var1) {
       var1.a(new ItemStack(Blocks.CHEST), new Object[]{"###", "# #", "###", Character.valueOf('#'), Blocks.PLANKS});
       var1.a(new ItemStack(Blocks.TRAPPED_CHEST), new Object[]{"#-", Character.valueOf('#'), Blocks.CHEST, Character.valueOf('-'), Blocks.TRIPWIRE_HOOK});
       var1.a(new ItemStack(Blocks.ENDER_CHEST), new Object[]{"###", "#GOLDEN_SHOVEL#", "###", Character.valueOf('#'), Blocks.OBSIDIAN, Character.valueOf('GOLDEN_SHOVEL'), Items.ENDER_EYE});

@@ -7,7 +7,7 @@ public class class_acr {
       this.a = new Object[][]{{Blocks.GOLD_BLOCK, new ItemStack(Items.GOLD_INGOT, 9)}, {Blocks.IRON_BLOCK, new ItemStack(Items.IRON_INGOT, 9)}, {Blocks.DIAMOND_BLOCK, new ItemStack(Items.DIAMOND, 9)}, {Blocks.EMERALD_BLOCK, new ItemStack(Items.EMERALD, 9)}, {Blocks.LAPIS_BLOCK, new ItemStack(Items.DYE, 9, EnumColor.l.b())}, {Blocks.REDSTONE_BLOCK, new ItemStack(Items.REDSTONE, 9)}, {Blocks.COAL_BLOCK, new ItemStack(Items.COAL, 9, 0)}, {Blocks.HAY_BLOCK, new ItemStack(Items.WHEAT, 9)}, {Blocks.SLINE, new ItemStack(Items.SLIME_BALL, 9)}};
    }
 
-   public void a(class_act var1) {
+   public void a(RecipeManager var1) {
       for(int var2 = 0; var2 < this.a.length; ++var2) {
          Block var3 = (Block)this.a[var2][0];
          ItemStack var4 = (ItemStack)this.a[var2][1];

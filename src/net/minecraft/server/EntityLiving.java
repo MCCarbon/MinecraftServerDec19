@@ -457,7 +457,7 @@ public abstract class EntityLiving extends Entity {
 		} else {
 			Collection<class_pl> var1 = this.bo.values();
 			this.datawatcher.update(g, Byte.valueOf((byte) (a(var1) ? 1 : 0)));
-			this.datawatcher.update(f, Integer.valueOf(class_abe.a(var1)));
+			this.datawatcher.update(f, Integer.valueOf(ItemPotion.a(var1)));
 			this.f(this.a(class_pm.n));
 		}
 
