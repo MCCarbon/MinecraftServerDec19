@@ -567,7 +567,7 @@ public class Item {
 		register(259, "flint_and_steel", (new class_aam()).c("flintAndSteel"));
 		register(260, "apple", (new ItemFood(4, 0.3F, false)).c("apple"));
 		register(261, "bow", (new ItemBow()).c("bow"));
-		register(262, "arrow", (new class_zc()).c("arrow"));
+		register(262, "arrow", (new ItemArrow()).c("arrow"));
 		register(263, "coal", (new class_zr()).c("coal"));
 		register(264, "diamond", (new Item()).c("diamond").a(CreativeTab.MATERIALS));
 		register(265, "iron_ingot", (new Item()).c("ingotIron").a(CreativeTab.MATERIALS));

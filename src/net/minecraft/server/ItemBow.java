@@ -27,7 +27,7 @@ public class ItemBow extends Item {
    }
 
    protected boolean g_(ItemStack var1) {
-      return var1 != null && var1.getItem() instanceof class_zc;
+      return var1 != null && var1.getItem() instanceof ItemArrow;
    }
 
    public void a(ItemStack var1, World var2, EntityLiving var3, int var4) {
@@ -41,7 +41,7 @@ public class ItemBow extends Item {
                var8 = new ItemStack(Items.ARROW);
             }
 
-            class_zc var9 = (class_zc)((class_zc)(var8.getItem() instanceof class_zc?var8.getItem():Items.ARROW));
+            ItemArrow var9 = (ItemArrow)((ItemArrow)(var8.getItem() instanceof ItemArrow ?var8.getItem():Items.ARROW));
             int var10 = this.e(var1) - var4;
             float var11 = b(var10);
             if((double)var11 >= 0.1D) {
