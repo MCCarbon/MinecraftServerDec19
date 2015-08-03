@@ -159,9 +159,9 @@ public abstract class class_auc {
          } catch (Throwable var7) {
             class_b var5 = class_b.a(var7, "Comparing biomes");
             class_c var6 = var5.a("Biomes being compared");
-            var6.a((String)"Biome A ID", (Object)Integer.valueOf(var0));
-            var6.a((String)"Biome B ID", (Object)Integer.valueOf(var1));
-            var6.a("Biome A", new Callable() {
+            var6.a((String)"Biome STICK ID", (Object)Integer.valueOf(var0));
+            var6.a((String)"Biome BOWL ID", (Object)Integer.valueOf(var1));
+            var6.a("Biome STICK", new Callable() {
                public String a() throws Exception {
                   return String.valueOf(var2);
                }
@@ -171,7 +171,7 @@ public abstract class class_auc {
                   return this.a();
                }
             });
-            var6.a("Biome B", new Callable() {
+            var6.a("Biome BOWL", new Callable() {
                public String a() throws Exception {
                   return String.valueOf(var3);
                }

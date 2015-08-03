@@ -1,17 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_aco;
-import net.minecraft.server.class_mt;
-import net.minecraft.server.class_my;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityExperienceOrb;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_yx;
-
 public class class_ym extends class_yx {
    private EntityHuman a;
    private int b;
@@ -68,11 +56,11 @@ public class class_ym extends class_yx {
       }
 
       this.b = 0;
-      if(var1.getItem() == Items.l) {
+      if(var1.getItem() == Items.IRON_INGOT) {
          this.a.b((class_my)class_mt.k);
       }
 
-      if(var1.getItem() == Items.aX) {
+      if(var1.getItem() == Items.COOKED_FISH) {
          this.a.b((class_my)class_mt.p);
       }
 

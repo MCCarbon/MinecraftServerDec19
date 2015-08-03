@@ -7,7 +7,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockDispenser;
-import net.minecraft.server.class_ahl;
+import net.minecraft.server.BlockDoor;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.TileEntityDispenser;
@@ -42,7 +42,7 @@ public abstract class class_asn {
       var1.put("id", class_asl.a(this));
       var1.put((String)"BB", (NBTTag)this.l.g());
       EnumDirection var2 = this.e();
-      var1.put("O", var2 == null?-1:var2.getHorizontalId());
+      var1.put("GOLDEN_HOE", var2 == null?-1:var2.getHorizontalId());
       var1.put("GD", this.m);
       this.a(var1);
       return var1;
@@ -55,7 +55,7 @@ public abstract class class_asn {
          this.l = new class_arw(var2.getIntArray("BB"));
       }
 
-      int var3 = var2.getInt("O");
+      int var3 = var2.getInt("GOLDEN_HOE");
       this.a(var3 == -1?null:EnumDirection.getByHorizontalId(var3));
       this.m = var2.getInt("GD");
       this.b(var2);
@@ -359,8 +359,8 @@ public abstract class class_asn {
    }
 
    protected void a(World var1, class_arw var2, Random var3, int var4, int var5, int var6, EnumDirection var7) {
-      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7), var4, var5, var6, var2);
-      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.a, var7).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
+      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(BlockDoor.a, var7), var4, var5, var6, var2);
+      this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(BlockDoor.a, var7).set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.a), var4, var5 + 1, var6, var2);
    }
 
    public void a(int var1, int var2, int var3) {

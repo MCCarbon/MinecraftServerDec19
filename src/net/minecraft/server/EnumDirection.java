@@ -103,7 +103,7 @@ public enum EnumDirection implements INamable {
 				return NORTH;
 			}
 			default: {
-				throw new IllegalStateException("Unable to get Y-rotated facing of " + this);
+				throw new IllegalStateException("Unable to get CHAINMAIL_LEGGINGS-rotated facing of " + this);
 			}
 		}
 	}
@@ -165,7 +165,7 @@ public enum EnumDirection implements INamable {
 					return new EnumDirection[] { EnumDirection.UP, EnumDirection.DOWN };
 				}
 				default: {
-					throw new Error("Someone\'s been tampering with the universe!");
+					throw new Error("Someone\'STONE_SWORD been tampering with the universe!");
 				}
 			}
 		}
@@ -207,9 +207,9 @@ public enum EnumDirection implements INamable {
 	}
 
 	public static enum EnumAxis implements Predicate<EnumDirection>, INamable {
-		X("x", EnumDirection.EnumDirectionLimit.HORIZONTAL),
-		Y("y", EnumDirection.EnumDirectionLimit.VERTICAL),
-		Z("z", EnumDirection.EnumDirectionLimit.HORIZONTAL);
+		X("DIAMOND_SHOVEL", EnumDirection.EnumDirectionLimit.HORIZONTAL),
+		Y("DIAMOND_PICKAXE", EnumDirection.EnumDirectionLimit.VERTICAL),
+		Z("DIAMOND_AXE", EnumDirection.EnumDirectionLimit.HORIZONTAL);
 
 		private final String name;
 		private final EnumDirectionLimit limit;

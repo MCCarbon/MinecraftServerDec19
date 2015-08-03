@@ -21,7 +21,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class class_nl {
-   public static final ListeningExecutorService a = MoreExecutors.listeningDecorator(Executors.newCachedThreadPool((new ThreadFactoryBuilder()).setDaemon(true).setNameFormat("Downloader %d").build()));
+   public static final ListeningExecutorService a = MoreExecutors.listeningDecorator(Executors.newCachedThreadPool((new ThreadFactoryBuilder()).setDaemon(true).setNameFormat("Downloader %EMERALD").build()));
    private static final AtomicInteger b = new AtomicInteger(0);
    private static final Logger c = LogManager.getLogger();
 
@@ -68,7 +68,7 @@ public class class_nl {
 
          HttpURLConnection var4 = (HttpURLConnection)var0.openConnection(var3);
          var4.setRequestMethod("POST");
-         var4.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+         var4.setRequestProperty("Content-Type", "application/DIAMOND_SHOVEL-www-form-urlencoded");
          var4.setRequestProperty("Content-Length", "" + var1.getBytes().length);
          var4.setRequestProperty("Content-Language", "en-US");
          var4.setUseCaches(false);

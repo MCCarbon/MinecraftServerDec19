@@ -2,36 +2,11 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_abe;
-import net.minecraft.server.class_acf;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.TileEntityBanner;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateInteger;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_za;
-import net.minecraft.server.class_ze;
 
-public class class_agt extends Block {
+public class BlockCauldron extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("level", 0, 3);
 
-   public class_agt() {
+   public BlockCauldron() {
       super(Material.ORE, MaterialMapColor.COLOR12);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
    }
@@ -81,10 +56,10 @@ public class class_agt extends Block {
       } else {
          int var11 = ((Integer)var3.get(a)).intValue();
          Item var12 = var6.getItem();
-         if(var12 == Items.az) {
+         if(var12 == Items.WATER_BUCKET) {
             if(var11 < 3) {
                if(!var4.abilities.instabuild) {
-                  var4.a((EnumUsedHand)var5, (ItemStack)(new ItemStack(Items.ay)));
+                  var4.a((EnumUsedHand)var5, (ItemStack)(new ItemStack(Items.BUCKET)));
                }
 
                var4.b(StatisticList.I);
@@ -94,10 +69,10 @@ public class class_agt extends Block {
             return true;
          } else {
             ItemStack var14;
-            if(var12 == Items.bD) {
+            if(var12 == Items.GLASS_BOTTLE) {
                if(var11 > 0) {
                   if(!var4.abilities.instabuild) {
-                     var14 = class_abe.a(new ItemStack(Items.bB), class_acf.a);
+                     var14 = class_abe.a(new ItemStack(Items.POTION), class_acf.a);
                      var4.b(StatisticList.J);
                      if(--var6.count == 0) {
                         var4.a((EnumUsedHand)var5, (ItemStack)var14);
@@ -113,9 +88,9 @@ public class class_agt extends Block {
 
                return true;
             } else {
-               if(var11 > 0 && var12 instanceof class_za) {
-                  class_za var13 = (class_za)var12;
-                  if(var13.d() == class_za.class_a_in_class_za.a && var13.d_(var6)) {
+               if(var11 > 0 && var12 instanceof ItemArmor) {
+                  ItemArmor var13 = (ItemArmor)var12;
+                  if(var13.d() == ItemArmor.class_a_in_class_za.a && var13.d_(var6)) {
                      var13.c(var6);
                      this.a(var1, var2, var3, var11 - 1);
                      var4.b(StatisticList.K);
@@ -169,7 +144,7 @@ public class class_agt extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.bJ;
+      return Items.CAULDRON;
    }
 
    public boolean isComplexRedstone() {

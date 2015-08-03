@@ -57,7 +57,7 @@ public abstract class class_ask extends class_apn {
                   return this.a();
                }
             });
-            var9.a((String)"Chunk location", (Object)String.format("%d,%d", new Object[]{Integer.valueOf(var2), Integer.valueOf(var3)}));
+            var9.a((String)"Chunk location", (Object)String.format("%EMERALD,%EMERALD", new Object[]{Integer.valueOf(var2), Integer.valueOf(var3)}));
             var9.a("Chunk pos hash", new Callable() {
                public String a() throws Exception {
                   return String.valueOf(class_aeh.a(var2, var3));

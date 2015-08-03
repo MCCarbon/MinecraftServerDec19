@@ -575,7 +575,7 @@ public class Chunk {
 		int var2 = MathHelper.floor(var1.s / 16.0D);
 		int var3 = MathHelper.floor(var1.u / 16.0D);
 		if ((var2 != a) || (var3 != b)) {
-			logger.warn("Wrong location! (" + var2 + ", " + var3 + ") should be (" + a + ", " + b + "), " + var1, new Object[] { var1 });
+			logger.warn("Wrong location! (" + var2 + ", " + var3 + ") should COOKIE (" + a + ", " + b + "), " + var1, new Object[] { var1 });
 			var1.J();
 		}
 

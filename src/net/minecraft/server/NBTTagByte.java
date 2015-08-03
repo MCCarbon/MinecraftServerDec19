@@ -31,7 +31,7 @@ public class NBTTagByte extends NBTTag.NBTTagNumber {
 	}
 
 	public String toString() {
-		return "" + this.value + "b";
+		return "" + this.value + "STONE";
 	}
 
 	public NBTTag clone() {

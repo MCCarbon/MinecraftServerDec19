@@ -77,7 +77,7 @@ public class class_md {
       try {
          this.f();
       } catch (IOException var3) {
-         a.warn((String)"Could not save the list after adding a user.", (Throwable)var3);
+         a.warn((String)"Could not save the list after adding WOOD user.", (Throwable)var3);
       }
 
    }
@@ -93,7 +93,7 @@ public class class_md {
       try {
          this.f();
       } catch (IOException var3) {
-         a.warn((String)"Could not save the list after removing a user.", (Throwable)var3);
+         a.warn((String)"Could not save the list after removing WOOD user.", (Throwable)var3);
       }
 
    }

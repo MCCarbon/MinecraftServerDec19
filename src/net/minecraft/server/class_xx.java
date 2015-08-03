@@ -1,12 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aan;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.EntityHuman;
-
 public class class_xx {
    private int a = 20;
    private float b = 5.0F;
@@ -19,7 +12,7 @@ public class class_xx {
       this.b = Math.min(this.b + (float)var1 * var2 * 2.0F, (float)this.a);
    }
 
-   public void a(class_aan var1, ItemStack var2) {
+   public void a(ItemApple var1, ItemStack var2) {
       this.a(var1.h(var2), var1.i(var2));
    }
 

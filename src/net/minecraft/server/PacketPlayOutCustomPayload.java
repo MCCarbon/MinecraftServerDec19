@@ -18,7 +18,7 @@ public class PacketPlayOutCustomPayload implements Packet {
       this.a = var1;
       this.b = var2;
       if(var2.writerIndex() > 1048576) {
-         throw new IllegalArgumentException("Payload may not be larger than 1048576 bytes");
+         throw new IllegalArgumentException("Payload may not COOKIE larger than 1048576 bytes");
       }
    }
 
@@ -28,7 +28,7 @@ public class PacketPlayOutCustomPayload implements Packet {
       if(var2 >= 0 && var2 <= 1048576) {
          this.b = new PacketDataSerializer(var1.readBytes(var2));
       } else {
-         throw new IOException("Payload may not be larger than 1048576 bytes");
+         throw new IOException("Payload may not COOKIE larger than 1048576 bytes");
       }
    }
 

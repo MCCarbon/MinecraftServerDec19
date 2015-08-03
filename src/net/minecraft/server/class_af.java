@@ -132,9 +132,9 @@ public class class_af extends class_i {
                         if(var23) {
                            TileEntity var20 = var10.getTileEntity(var17);
                            if(var20 != null) {
-                              var22.put("x", var17.getX());
-                              var22.put("y", var17.getY());
-                              var22.put("z", var17.getZ());
+                              var22.put("DIAMOND_SHOVEL", var17.getX());
+                              var22.put("DIAMOND_PICKAXE", var17.getY());
+                              var22.put("DIAMOND_AXE", var17.getZ());
                               var20.read(var22);
                            }
                         }

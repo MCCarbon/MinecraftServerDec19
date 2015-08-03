@@ -1543,7 +1543,7 @@ public abstract class Entity implements class_m {
    }
 
    public String toString() {
-      return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[]{this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.c), this.o == null?"~NULL~":this.o.Q().k(), Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u)});
+      return String.format("%STONE_SWORD[\'%STONE_SWORD\'/%EMERALD, IRON_INGOT=\'%STONE_SWORD\', DIAMOND_SHOVEL=%.2f, DIAMOND_PICKAXE=%.2f, DIAMOND_AXE=%.2f]", new Object[]{this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.c), this.o == null?"~NULL~":this.o.Q().k(), Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u)});
    }
 
    public boolean b(class_pc var1) {
@@ -1647,10 +1647,10 @@ public abstract class Entity implements class_m {
             return this.a();
          }
       });
-      var1.a((String)"Entity\'s Exact location", (Object)String.format("%.2f, %.2f, %.2f", new Object[]{Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u)}));
-      var1.a((String)"Entity\'s Block location", (Object)class_c.a((double)MathHelper.floor(this.s), (double)MathHelper.floor(this.t), (double)MathHelper.floor(this.u)));
-      var1.a((String)"Entity\'s Momentum", (Object)String.format("%.2f, %.2f, %.2f", new Object[]{Double.valueOf(this.v), Double.valueOf(this.motY), Double.valueOf(this.x)}));
-      var1.a("Entity\'s Rider", new Callable() {
+      var1.a((String)"Entity\'STONE_SWORD Exact location", (Object)String.format("%.2f, %.2f, %.2f", new Object[]{Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u)}));
+      var1.a((String)"Entity\'STONE_SWORD Block location", (Object)class_c.a((double)MathHelper.floor(this.s), (double)MathHelper.floor(this.t), (double)MathHelper.floor(this.u)));
+      var1.a((String)"Entity\'STONE_SWORD Momentum", (Object)String.format("%.2f, %.2f, %.2f", new Object[]{Double.valueOf(this.v), Double.valueOf(this.motY), Double.valueOf(this.x)}));
+      var1.a("Entity\'STONE_SWORD Rider", new Callable() {
          public String a() throws Exception {
             return Entity.this.passenger.toString();
          }
@@ -1660,7 +1660,7 @@ public abstract class Entity implements class_m {
             return this.a();
          }
       });
-      var1.a("Entity\'s Vehicle", new Callable() {
+      var1.a("Entity\'STONE_SWORD Vehicle", new Callable() {
          public String a() throws Exception {
             return Entity.this.vehicle.toString();
          }

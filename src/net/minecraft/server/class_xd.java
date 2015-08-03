@@ -3,33 +3,6 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import java.util.List;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutGameStateChange;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_wb;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xi;
 
 public class class_xd extends Entity implements class_xi {
    private static final Predicate f;
@@ -393,7 +366,7 @@ public class class_xd extends Entity implements class_xi {
    }
 
    protected ItemStack j() {
-      return new ItemStack(Items.g);
+      return new ItemStack(Items.ARROW);
    }
 
    protected boolean s_() {

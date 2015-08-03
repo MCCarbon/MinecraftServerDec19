@@ -29,7 +29,7 @@ import net.minecraft.server.EntityHuman;
 import net.minecraft.server.Container;
 import net.minecraft.server.CreativeTab;
 
-public class class_aiu extends BlockContainer {
+public class BlockHopper extends BlockContainer {
    public static final BlockStateDirection a = BlockStateDirection.of("facing", new Predicate() {
       public boolean a(EnumDirection var1) {
          return var1 != EnumDirection.UP;
@@ -42,7 +42,7 @@ public class class_aiu extends BlockContainer {
    });
    public static final BlockStateBoolean b = BlockStateBoolean.of("enabled");
 
-   public class_aiu() {
+   public BlockHopper() {
       super(Material.ORE, MaterialMapColor.COLOR12);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.DOWN).set(b, Boolean.valueOf(true)));
       this.setCreativeTab(CreativeTab.REDSTONE);

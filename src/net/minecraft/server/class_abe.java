@@ -5,25 +5,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_abz;
-import net.minecraft.server.class_acd;
-import net.minecraft.server.class_acf;
-import net.minecraft.server.World;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_or;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
 
 public class class_abe extends Item {
    public class_abe() {
@@ -72,11 +53,11 @@ public class class_abe extends Item {
 
       if(var4 == null || !var4.abilities.instabuild) {
          if(var1.count <= 0) {
-            return new ItemStack(Items.bD);
+            return new ItemStack(Items.GLASS_BOTTLE);
          }
 
          if(var4 != null) {
-            var4.inventory.a(new ItemStack(Items.bD));
+            var4.inventory.a(new ItemStack(Items.GLASS_BOTTLE));
          }
       }
 

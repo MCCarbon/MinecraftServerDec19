@@ -3,32 +3,6 @@ package net.minecraft.server;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aak;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oc;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityExperienceOrb;
-import net.minecraft.server.class_vf;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.EnumColor;
 
 public class class_ve extends Entity {
    private static final List d;
@@ -121,7 +95,7 @@ public class class_ve extends Entity {
       } else {
          if(!this.o.isClientSide) {
             ItemStack var1 = this.b.bA();
-            if(this.b.I || !this.b.isAlive() || var1 == null || var1.getItem() != Items.aT || this.h(this.b) > 1024.0D) {
+            if(this.b.I || !this.b.isAlive() || var1 == null || var1.getItem() != Items.FISHING_ROD || this.h(this.b) > 1024.0D) {
                this.J();
                this.b.bN = null;
                return;
@@ -455,8 +429,8 @@ public class class_ve extends Entity {
    }
 
    static {
-      d = Arrays.asList(new class_vf[]{(new class_vf(new ItemStack(Items.V), 10)).a(0.9F), new class_vf(new ItemStack(Items.aH), 10), new class_vf(new ItemStack(Items.aZ), 10), new class_vf(new ItemStack(Items.bB), 10), new class_vf(new ItemStack(Items.H), 5), (new class_vf(new ItemStack(Items.aT), 2)).a(0.9F), new class_vf(new ItemStack(Items.B), 10), new class_vf(new ItemStack(Items.A), 5), new class_vf(new ItemStack(Items.aY, 10, EnumColor.p.b()), 1), new class_vf(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new class_vf(new ItemStack(Items.bv), 10)});
-      e = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Blocks.WATERLILY), 1), new class_vf(new ItemStack(Items.cr), 1), new class_vf(new ItemStack(Items.aC), 1), (new class_vf(new ItemStack(Items.f), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aT), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aN), 1)).a()});
-      f = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 60), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.b.a()), 25), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.c.a()), 2), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.d.a()), 13)});
+      d = Arrays.asList(new class_vf[]{(new class_vf(new ItemStack(Items.LEATHER_BOOTS), 10)).a(0.9F), new class_vf(new ItemStack(Items.LEATHER), 10), new class_vf(new ItemStack(Items.BONE), 10), new class_vf(new ItemStack(Items.POTION), 10), new class_vf(new ItemStack(Items.STRING), 5), (new class_vf(new ItemStack(Items.FISHING_ROD), 2)).a(0.9F), new class_vf(new ItemStack(Items.BOWL), 10), new class_vf(new ItemStack(Items.STICK), 5), new class_vf(new ItemStack(Items.DYE, 10, EnumColor.p.b()), 1), new class_vf(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new class_vf(new ItemStack(Items.ROTTEN_FLESH), 10)});
+      e = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Blocks.WATERLILY), 1), new class_vf(new ItemStack(Items.NAME_TAG), 1), new class_vf(new ItemStack(Items.SADDLE), 1), (new class_vf(new ItemStack(Items.BOW), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.FISHING_ROD), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.BOOK), 1)).a()});
+      f = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Items.FISH, 1, class_aak.class_a_in_class_aak.a.a()), 60), new class_vf(new ItemStack(Items.FISH, 1, class_aak.class_a_in_class_aak.b.a()), 25), new class_vf(new ItemStack(Items.FISH, 1, class_aak.class_a_in_class_aak.c.a()), 2), new class_vf(new ItemStack(Items.FISH, 1, class_aak.class_a_in_class_aak.d.a()), 13)});
    }
 }

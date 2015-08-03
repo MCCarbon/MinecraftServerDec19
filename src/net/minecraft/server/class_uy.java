@@ -2,34 +2,6 @@ package net.minecraft.server;
 
 import java.util.Arrays;
 import java.util.List;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.class_dc;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_vn;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xd;
-import net.minecraft.server.class_za;
-import net.minecraft.server.ItemBlock;
 
 public class class_uy extends EntityLiving {
    private static final class_dc br = new class_dc(0.0F, 0.0F, 0.0F);
@@ -349,11 +321,11 @@ public class class_uy extends EntityLiving {
          class_pw var5 = class_pw.a;
          boolean var6 = var3 != null;
          Item var7 = var6?var3.getItem():null;
-         if(var6 && var7 instanceof class_za) {
-            var5 = ((class_za)var7).b;
+         if(var6 && var7 instanceof ItemArmor) {
+            var5 = ((ItemArmor)var7).b;
          }
 
-         if(var6 && (var7 == Items.ca || var7 == Item.getItemOf(Blocks.PUMPKIN))) {
+         if(var6 && (var7 == Items.SKULL || var7 == Item.getItemOf(Blocks.PUMPKIN))) {
             var5 = class_pw.f;
          }
 
@@ -503,7 +475,7 @@ public class class_uy extends EntityLiving {
    }
 
    private void D() {
-      Block.dropItem(this.o, new BlockPosition(this), new ItemStack(Items.cm));
+      Block.dropItem(this.o, new BlockPosition(this), new ItemStack(Items.ARMOR_STAND));
       this.E();
    }
 

@@ -20,7 +20,7 @@ public enum EnumChatFormat {
 	GRAY("GRAY", '7', 7),
 	DARK_GRAY("DARK_GRAY", '8', 8),
 	BLUE("BLUE", '9', 9),
-	GREEN("GREEN", 'a', 10),
+	GREEN("GREEN", 'WOOD', 10),
 	AQUA("AQUA", 'b', 11),
 	RED("RED", 'c', 12),
 	LIGHT_PURPLE("LIGHT_PURPLE", 'd', 13),

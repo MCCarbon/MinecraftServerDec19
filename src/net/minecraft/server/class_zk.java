@@ -1,19 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Material;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_or;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
-
 public class class_zk extends Item {
    public class_zk() {
       this.a(CreativeTab.BREWING);
@@ -38,11 +24,11 @@ public class class_zk extends Item {
                --var1.count;
                var3.b(StatisticList.ad[Item.getId((Item)this)]);
                if(var1.count <= 0) {
-                  return new class_or(UseResult.SUCCESS, new ItemStack(Items.bB));
+                  return new class_or(UseResult.SUCCESS, new ItemStack(Items.POTION));
                }
 
-               if(!var3.inventory.a(new ItemStack(Items.bB))) {
-                  var3.a(new ItemStack(Items.bB), false);
+               if(!var3.inventory.a(new ItemStack(Items.POTION))) {
+                  var3.a(new ItemStack(Items.POTION), false);
                }
 
                return new class_or(UseResult.SUCCESS, var1);

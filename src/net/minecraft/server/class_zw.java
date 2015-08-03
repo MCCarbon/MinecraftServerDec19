@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_ahl;
+import net.minecraft.server.BlockDoor;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
@@ -56,9 +56,9 @@ public class class_zw extends Item {
       }
 
       BlockPosition var11 = var1.up();
-      IBlockData var12 = var3.getBlockData().set(class_ahl.a, var2).set(class_ahl.N, var10?class_ahl.class_b_in_class_ahl.b:class_ahl.class_b_in_class_ahl.a);
-      var0.setTypeAndData((BlockPosition)var1, (IBlockData)var12.set(class_ahl.P, class_ahl.class_a_in_class_ahl.b), 2);
-      var0.setTypeAndData((BlockPosition)var11, (IBlockData)var12.set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), 2);
+      IBlockData var12 = var3.getBlockData().set(BlockDoor.a, var2).set(BlockDoor.N, var10?BlockDoor.class_b_in_class_ahl.b:BlockDoor.class_b_in_class_ahl.a);
+      var0.setTypeAndData((BlockPosition)var1, (IBlockData)var12.set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.b), 2);
+      var0.setTypeAndData((BlockPosition)var11, (IBlockData)var12.set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.a), 2);
       var0.c(var1, var3);
       var0.c(var11, var3);
    }

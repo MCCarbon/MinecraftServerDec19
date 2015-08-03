@@ -34,7 +34,7 @@ public class class_anq {
          }
 
          if(var1.length != this.d) {
-            throw new IllegalArgumentException("Expected aisle with height of " + this.d + ", but was given one with a height of " + var1.length + ")");
+            throw new IllegalArgumentException("Expected aisle with height of " + this.d + ", but was given one with WOOD height of " + var1.length + ")");
          } else {
             String[] var2 = var1;
             int var3 = var1.length;
@@ -104,7 +104,7 @@ public class class_anq {
       }
 
       if(!var1.isEmpty()) {
-         throw new IllegalStateException("Predicates for character(s) " + a.join((Iterable)var1) + " are missing");
+         throw new IllegalStateException("Predicates for character(STONE_SWORD) " + a.join((Iterable)var1) + " are missing");
       }
    }
 }

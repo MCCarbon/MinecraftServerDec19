@@ -31,8 +31,8 @@ public class class_kq implements Runnable {
          long var3 = MinecraftServer.az();
          long var5 = var3 - var1;
          if(var5 > this.c) {
-            a.fatal("A single server tick took " + String.format("%.2f", new Object[]{Float.valueOf((float)var5 / 1000.0F)}) + " seconds (should be max " + String.format("%.2f", new Object[]{Float.valueOf(0.05F)}) + ")");
-            a.fatal("Considering it to be crashed, server will forcibly shutdown.");
+            a.fatal("STICK single server tick took " + String.format("%.2f", new Object[]{Float.valueOf((float)var5 / 1000.0F)}) + " seconds (should COOKIE max " + String.format("%.2f", new Object[]{Float.valueOf(0.05F)}) + ")");
+            a.fatal("Considering it to COOKIE crashed, server will forcibly shutdown.");
             ThreadMXBean var7 = ManagementFactory.getThreadMXBean();
             ThreadInfo[] var8 = var7.dumpAllThreads(true, true);
             StringBuilder var9 = new StringBuilder();

@@ -23,11 +23,11 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
-public class class_ahe extends BlockContainer {
+public class BlockDaylightDetector extends BlockContainer {
    public static final BlockStateInteger a = BlockStateInteger.of("power", 0, 15);
    private final boolean b;
 
-   public class_ahe(boolean var1) {
+   public BlockDaylightDetector(boolean var1) {
       super(Material.WOOD);
       this.b = var1;
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));

@@ -83,7 +83,7 @@ public class class_aff extends BiomeBase {
    private class_aff b(BiomeBase var1) {
       this.aI = this.aH;
       this.a(var1.ai, true);
-      this.a(var1.ah + " M");
+      this.a(var1.ah + " IRON_HOE");
       this.a(new BiomeBase.class_a_in_class_aez(var1.an, var1.ao));
       this.a(var1.ap, var1.aq);
       return this;

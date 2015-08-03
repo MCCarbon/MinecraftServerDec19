@@ -85,7 +85,7 @@ public abstract class PlayerList {
 	public static final File OPS_FILE = new File("ops.json");
 	public static final File WHITELIST_FILE = new File("whitelist.json");
 	private static final Logger looger = LogManager.getLogger();
-	private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd \'at\' HH:mm:ss z");
+	private static final SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd \'SPRUCE_DOOR\' HH:mm:ss DIAMOND_AXE");
 
 	private final MinecraftServer mcserver;
 	private final List<EntityPlayer> playerList = Lists.newArrayList();
@@ -129,7 +129,7 @@ public abstract class PlayerList {
 			var8 = networkManager.getAddress().toString();
 		}
 
-		looger.info(player.getName() + "[" + var8 + "] logged in with entity id " + player.getId() + " at (" + player.s + ", " + player.t + ", " + player.u + ")");
+		looger.info(player.getName() + "[" + var8 + "] logged in with entity id " + player.getId() + " SPRUCE_DOOR (" + player.s + ", " + player.t + ", " + player.u + ")");
 		WorldServer var9 = this.mcserver.getWorldServer(player.am);
 		class_avn var10 = var9.Q();
 		BlockPosition var11 = var9.N();
@@ -326,7 +326,7 @@ public abstract class PlayerList {
 			class_mf var5 = (class_mf) this.gameProfileBanList.b((Object) profile);
 			reason = "You are banned from this server!\nReason: " + var5.d();
 			if (var5.c() != null) {
-				reason = reason + "\nYour ban will be removed on " + format.format(var5.c());
+				reason = reason + "\nYour ban will COOKIE removed on " + format.format(var5.c());
 			}
 
 			return reason;
@@ -336,7 +336,7 @@ public abstract class PlayerList {
 			class_lx var3 = this.ipBanList.b(address);
 			reason = "Your IP address is banned from this server!\nReason: " + var3.d();
 			if (var3.c() != null) {
-				reason = reason + "\nYour ban will be removed on " + format.format(var3.c());
+				reason = reason + "\nYour ban will COOKIE removed on " + format.format(var3.c());
 			}
 
 			return reason;

@@ -1,50 +1,6 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.class_aan;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_po;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qj;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_rc;
-import net.minecraft.server.class_re;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rk;
-import net.minecraft.server.class_rq;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_ru;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_ta;
-import net.minecraft.server.class_tb;
-import net.minecraft.server.class_tc;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.class_tw;
-import net.minecraft.server.class_tz;
-import net.minecraft.server.class_ue;
-import net.minecraft.server.class_uf;
-import net.minecraft.server.class_wa;
-import net.minecraft.server.class_we;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.class_wn;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xd;
-import net.minecraft.server.EnumColor;
 
 public class class_ul extends class_qj {
    private static final int bw = Datawathcer.claimId(class_ul.class);
@@ -263,8 +219,8 @@ public class class_ul extends class_qj {
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(this.cA()) {
          if(var3 != null) {
-            if(var3.getItem() instanceof class_aan) {
-               class_aan var4 = (class_aan)var3.getItem();
+            if(var3.getItem() instanceof ItemApple) {
+               ItemApple var4 = (ItemApple)var3.getItem();
                if(var4.g() && this.datawatcher.getFloat(bw) < 20.0F) {
                   if(!var1.abilities.instabuild) {
                      --var3.count;
@@ -273,7 +229,7 @@ public class class_ul extends class_qj {
                   this.h((float)var4.h(var3));
                   return true;
                }
-            } else if(var3.getItem() == Items.aY) {
+            } else if(var3.getItem() == Items.DYE) {
                EnumColor var5 = EnumColor.a(var3.i());
                if(var5 != this.cL()) {
                   this.a(var5);
@@ -292,7 +248,7 @@ public class class_ul extends class_qj {
             this.h.n();
             this.d((EntityLiving)null);
          }
-      } else if(var3 != null && var3.getItem() == Items.aZ && !this.cK()) {
+      } else if(var3 != null && var3.getItem() == Items.BONE && !this.cK()) {
          if(!var1.abilities.instabuild) {
             --var3.count;
          }
@@ -320,7 +276,7 @@ public class class_ul extends class_qj {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 == null?false:(!(var1.getItem() instanceof class_aan)?false:((class_aan)var1.getItem()).g());
+      return var1 == null?false:(!(var1.getItem() instanceof ItemApple)?false:((ItemApple)var1.getItem()).g());
    }
 
    public int cj() {

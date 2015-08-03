@@ -42,7 +42,7 @@ import net.minecraft.server.EntityHuman;
 import org.apache.commons.io.IOUtils;
 
 public class class_lv {
-   public static final SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
+   public static final SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss CHAINMAIL_BOOTS");
    private final Map c = Maps.newHashMap();
    private final Map d = Maps.newHashMap();
    private final LinkedList e = Lists.newLinkedList();

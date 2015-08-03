@@ -2,19 +2,6 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.class_ahz;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_uz;
-import net.minecraft.server.EntityHuman;
 
 public class class_vb extends class_uz {
    public class_vb(World var1) {
@@ -67,7 +54,7 @@ public class class_vb extends class_uz {
          List var7;
          Iterator var8;
          class_qb var9;
-         if(var2 != null && var2.getItem() == Items.cq) {
+         if(var2 != null && var2.getItem() == Items.LEAD) {
             var5 = 7.0D;
             var7 = this.o.getEntities(class_qb.class, new AxisAlignedBB(this.s - var5, this.t - var5, this.u - var5, this.s + var5, this.t + var5, this.u + var5));
             var8 = var7.iterator();

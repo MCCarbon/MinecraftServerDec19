@@ -1,29 +1,12 @@
 package net.minecraft.server;
 
 import com.google.common.collect.Multimap;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_abz;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_or;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qm;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
 
 public class class_abw extends Item {
    private float a;
-   private final Item.class_a_in_class_aar b;
+   private final EnumToolMaterial b;
 
-   public class_abw(Item.class_a_in_class_aar var1) {
+   public class_abw(EnumToolMaterial var1) {
       this.b = var1;
       this.h = 1;
       this.e(var1.a());

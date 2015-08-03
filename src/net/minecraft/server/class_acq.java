@@ -1,16 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_acv;
-import net.minecraft.server.World;
-import net.minecraft.server.class_avf;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_yg;
-
 public class class_acq extends class_acv {
    public class_acq() {
-      super(3, 3, new ItemStack[]{new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.bf, 0, 32767), new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.aM)}, new ItemStack(Items.bY, 0, 0));
+      super(3, 3, new ItemStack[]{new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.FILLED_MAP, 0, 32767), new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.aM), new ItemStack(Items.aM)}, new ItemStack(Items.MAP, 0, 0));
    }
 
    public boolean a(class_yg var1, World var2) {
@@ -21,7 +13,7 @@ public class class_acq extends class_acv {
 
          for(int var4 = 0; var4 < var1.getSize() && var3 == null; ++var4) {
             ItemStack var5 = var1.getItem(var4);
-            if(var5 != null && var5.getItem() == Items.bf) {
+            if(var5 != null && var5.getItem() == Items.FILLED_MAP) {
                var3 = var5;
             }
          }
@@ -29,7 +21,7 @@ public class class_acq extends class_acv {
          if(var3 == null) {
             return false;
          } else {
-            class_avf var6 = Items.bf.a(var3, var2);
+            class_avf var6 = Items.FILLED_MAP.a(var3, var2);
             return var6 == null?false:var6.e < 4;
          }
       }
@@ -40,7 +32,7 @@ public class class_acq extends class_acv {
 
       for(int var3 = 0; var3 < var1.getSize() && var2 == null; ++var3) {
          ItemStack var4 = var1.getItem(var3);
-         if(var4 != null && var4.getItem() == Items.bf) {
+         if(var4 != null && var4.getItem() == Items.FILLED_MAP) {
             var2 = var4;
          }
       }

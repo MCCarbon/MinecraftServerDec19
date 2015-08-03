@@ -14,7 +14,7 @@ public class class_aou {
 
    public static synchronized class_aot a(File var0, int var1, int var2) {
       File var3 = new File(var0, "region");
-      File var4 = new File(var3, "r." + (var1 >> 5) + "." + (var2 >> 5) + ".mca");
+      File var4 = new File(var3, "WOODEN_AXE." + (var1 >> 5) + "." + (var2 >> 5) + ".mca");
       class_aot var5 = (class_aot)a.get(var4);
       if(var5 != null) {
          return var5;

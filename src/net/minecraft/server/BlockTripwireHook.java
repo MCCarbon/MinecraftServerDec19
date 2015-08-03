@@ -22,13 +22,13 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.CreativeTab;
 
-public class class_alt extends Block {
+public class BlockTripwireHook extends Block {
    public static final BlockStateDirection a;
    public static final BlockStateBoolean b;
    public static final BlockStateBoolean N;
    public static final BlockStateBoolean O;
 
-   public class_alt() {
+   public BlockTripwireHook() {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)));
       this.setCreativeTab(CreativeTab.REDSTONE);
@@ -206,7 +206,7 @@ public class class_alt extends Block {
 
    public void updateShape(IBlockAccess var1, BlockPosition var2) {
       float var3 = 0.1875F;
-      switch(class_alt.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
+      switch(BlockTripwireHook.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
       case 1:
          this.setSizes(0.0F, 0.2F, 0.5F - var3, var3 * 2.0F, 0.8F, 0.5F + var3);
          break;

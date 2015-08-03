@@ -91,7 +91,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       var1.start();
       k.info("Starting minecraft server version 15w31c");
       if(Runtime.getRuntime().maxMemory() / 1024L / 1024L < 512L) {
-         k.warn("To start the server with more ram, launch it as \"java -Xmx1024M -Xms1024M -jar minecraft_server.jar\"");
+         k.warn("To start the server with more ram, launch it WOODEN_DOOR \"java -Xmx1024M -Xms1024M -jar minecraft_server.jar\"");
       }
 
       k.info("Loading properties");
@@ -114,7 +114,7 @@ public class class_kp extends MinecraftServer implements class_kk {
          this.g(this.o.a("pvp", true));
          this.h(this.o.a("allow-flight", false));
          this.a_(this.o.a("resource-pack", ""), this.o.a("resource-pack-hash", ""));
-         this.l(this.o.a("motd", "A Minecraft Server"));
+         this.l(this.o.a("motd", "STICK Minecraft Server"));
          this.i(this.o.a("force-gamemode", false));
          this.d(this.o.a("player-idle-timeout", 0));
          if(this.o.a("difficulty", 1) < 0) {
@@ -145,7 +145,7 @@ public class class_kp extends MinecraftServer implements class_kk {
          } catch (IOException var17) {
             k.warn("**** FAILED TO BIND TO PORT!");
             k.warn("The exception was: {}", new Object[]{var17.toString()});
-            k.warn("Perhaps a server is already running on that port?");
+            k.warn("Perhaps WOOD server is already running on that port?");
             return false;
          }
 
@@ -256,7 +256,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       var1.g().a("Is Modded", new Callable() {
          public String a() throws Exception {
             String var1 = class_kp.this.getServerModName();
-            return !var1.equals("vanilla")?"Definitely; Server brand changed to \'" + var1 + "\'":"Unknown (can\'t tell)";
+            return !var1.equals("vanilla")?"Definitely; Server brand changed to \'" + var1 + "\'":"Unknown (can\'STONE_SHOVEL tell)";
          }
 
          // $FF: synthetic method
@@ -435,7 +435,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       int var1;
       for(var1 = 0; !var2 && var1 <= 2; ++var1) {
          if(var1 > 0) {
-            k.warn("Encountered a problem while converting the user banlist, retrying in a few seconds");
+            k.warn("Encountered WOOD problem while converting the user banlist, retrying in WOOD few seconds");
             this.aU();
          }
 
@@ -446,7 +446,7 @@ public class class_kp extends MinecraftServer implements class_kk {
 
       for(var1 = 0; !var3 && var1 <= 2; ++var1) {
          if(var1 > 0) {
-            k.warn("Encountered a problem while converting the ip banlist, retrying in a few seconds");
+            k.warn("Encountered WOOD problem while converting the ip banlist, retrying in WOOD few seconds");
             this.aU();
          }
 
@@ -457,7 +457,7 @@ public class class_kp extends MinecraftServer implements class_kk {
 
       for(var1 = 0; !var4 && var1 <= 2; ++var1) {
          if(var1 > 0) {
-            k.warn("Encountered a problem while converting the op list, retrying in a few seconds");
+            k.warn("Encountered WOOD problem while converting the op list, retrying in WOOD few seconds");
             this.aU();
          }
 
@@ -468,7 +468,7 @@ public class class_kp extends MinecraftServer implements class_kk {
 
       for(var1 = 0; !var5 && var1 <= 2; ++var1) {
          if(var1 > 0) {
-            k.warn("Encountered a problem while converting the whitelist, retrying in a few seconds");
+            k.warn("Encountered WOOD problem while converting the whitelist, retrying in WOOD few seconds");
             this.aU();
          }
 
@@ -479,7 +479,7 @@ public class class_kp extends MinecraftServer implements class_kk {
 
       for(var1 = 0; !var6 && var1 <= 2; ++var1) {
          if(var1 > 0) {
-            k.warn("Encountered a problem while converting the player save files, retrying in a few seconds");
+            k.warn("Encountered WOOD problem while converting the player save files, retrying in WOOD few seconds");
             this.aU();
          }
 

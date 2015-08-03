@@ -42,7 +42,7 @@ public class MovingObjectPosition {
    }
 
    public String toString() {
-      return "HitResult{type=" + this.a + ", blockpos=" + this.e + ", f=" + this.b + ", pos=" + this.c + ", entity=" + this.d + '}';
+      return "HitResult{type=" + this.a + ", blockpos=" + this.e + ", BOW=" + this.b + ", pos=" + this.c + ", entity=" + this.d + '}';
    }
 
    public static enum class_a_in_class_awg {

@@ -3,49 +3,6 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_ly;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.class_ok;
-import net.minecraft.server.class_on;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_ow;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pk;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.class_po;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_qs;
-import net.minecraft.server.class_re;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rl;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_se;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sn;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.class_tw;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_ya;
 
 public class class_tz extends class_tw implements class_ok {
    private static final Predicate by = new Predicate() {
@@ -241,7 +198,7 @@ public class class_tz extends class_tw implements class_ok {
          return 0;
       } else {
          Item var2 = var1.getItem();
-         return var2 == Items.cn?1:(var2 == Items.co?2:(var2 == Items.cp?3:0));
+         return var2 == Items.IRON_HORSE_ARMOR ?1:(var2 == Items.GOLDEN_HORSE_ARMOR ?2:(var2 == Items.DIAMOND_HORSE_ARMOR ?3:0));
       }
    }
 
@@ -441,7 +398,7 @@ public class class_tz extends class_tw implements class_ok {
    protected Item D() {
       boolean var1 = this.random.nextInt(4) == 0;
       int var2 = this.cA();
-      return var2 == 4?Items.aZ:(var2 == 3?(var1?null:Items.bv):Items.aH);
+      return var2 == 4?Items.BONE :(var2 == 3?(var1?null:Items.ROTTEN_FLESH):Items.LEATHER);
    }
 
    protected String bp() {
@@ -538,7 +495,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.bM) {
+      if(var3 != null && var3.getItem() == Items.SPAWN_EGG) {
          return super.a(var1, var2, var3);
       } else if(!this.cD() && this.dg()) {
          return false;
@@ -551,11 +508,11 @@ public class class_tz extends class_tw implements class_ok {
          if(var3 != null) {
             if(this.dd()) {
                byte var4 = -1;
-               if(var3.getItem() == Items.cn) {
+               if(var3.getItem() == Items.IRON_HORSE_ARMOR) {
                   var4 = 1;
-               } else if(var3.getItem() == Items.co) {
+               } else if(var3.getItem() == Items.GOLDEN_HORSE_ARMOR) {
                   var4 = 2;
-               } else if(var3.getItem() == Items.cp) {
+               } else if(var3.getItem() == Items.DIAMOND_HORSE_ARMOR) {
                   var4 = 3;
                }
 
@@ -575,22 +532,22 @@ public class class_tz extends class_tw implements class_ok {
                float var5 = 0.0F;
                short var6 = 0;
                byte var7 = 0;
-               if(var3.getItem() == Items.Q) {
+               if(var3.getItem() == Items.WHEAT) {
                   var5 = 2.0F;
                   var6 = 20;
                   var7 = 3;
-               } else if(var3.getItem() == Items.ba) {
+               } else if(var3.getItem() == Items.SUGAR) {
                   var5 = 1.0F;
                   var6 = 30;
                   var7 = 3;
                } else if(Block.getByItem(var3.getItem()) == Blocks.HAY_BLOCK) {
                   var5 = 20.0F;
                   var6 = 180;
-               } else if(var3.getItem() == Items.e) {
+               } else if(var3.getItem() == Items.APPLE) {
                   var5 = 3.0F;
                   var6 = 60;
                   var7 = 3;
-               } else if(var3.getItem() == Items.bZ) {
+               } else if(var3.getItem() == Items.GOLDEN_CARROT) {
                   var5 = 4.0F;
                   var6 = 60;
                   var7 = 5;
@@ -598,7 +555,7 @@ public class class_tz extends class_tw implements class_ok {
                      var8 = true;
                      this.a((EntityHuman)var1);
                   }
-               } else if(var3.getItem() == Items.aq) {
+               } else if(var3.getItem() == Items.GOLDEN_APPLE) {
                   var5 = 10.0F;
                   var6 = 240;
                   var7 = 10;
@@ -644,7 +601,7 @@ public class class_tz extends class_tw implements class_ok {
                this.dp();
             }
 
-            if(!var8 && this.cE() && !this.cV() && var3.getItem() == Items.aC) {
+            if(!var8 && this.cE() && !this.cV() && var3.getItem() == Items.SADDLE) {
                this.c(var1);
                return true;
             }
@@ -1038,11 +995,11 @@ public class class_tz extends class_tw implements class_ok {
 
       if(var1.hasOfType("SaddleItem", 10)) {
          var9 = ItemStack.a(var1.getCompound("SaddleItem"));
-         if(var9 != null && var9.getItem() == Items.aC) {
+         if(var9 != null && var9.getItem() == Items.SADDLE) {
             this.bP.setItem(0, var9);
          }
       } else if(var1.getBoolean("Saddle")) {
-         this.bP.setItem(0, new ItemStack(Items.aC));
+         this.bP.setItem(0, new ItemStack(Items.SADDLE));
       }
 
       this.dq();
@@ -1205,7 +1162,7 @@ public class class_tz extends class_tw implements class_ok {
    }
 
    public static boolean a(Item var0) {
-      return var0 == Items.cn || var0 == Items.co || var0 == Items.cp;
+      return var0 == Items.IRON_HORSE_ARMOR || var0 == Items.GOLDEN_HORSE_ARMOR || var0 == Items.DIAMOND_HORSE_ARMOR;
    }
 
    public boolean k_() {
@@ -1233,7 +1190,7 @@ public class class_tz extends class_tw implements class_ok {
 
       int var3 = var1 - 400;
       if(var3 >= 0 && var3 < 2 && var3 < this.bP.getSize()) {
-         if(var3 == 0 && var2 != null && var2.getItem() != Items.aC) {
+         if(var3 == 0 && var2 != null && var2.getItem() != Items.SADDLE) {
             return false;
          } else if(var3 != 1 || (var2 == null || a(var2.getItem())) && this.dd()) {
             this.bP.setItem(var3, var2);

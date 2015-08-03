@@ -16,10 +16,10 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.CreativeTab;
 
-public class class_aiz extends Block {
+public class BlockLadder extends Block {
    public static final BlockStateDirection a;
 
-   protected class_aiz() {
+   protected BlockLadder() {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
       this.setCreativeTab(CreativeTab.DECORATIONS);
@@ -34,7 +34,7 @@ public class class_aiz extends Block {
       IBlockData var3 = var1.getType(var2);
       if(var3.getBlock() == this) {
          float var4 = 0.1875F;
-         switch(class_aiz.SyntheticClass_1.a[((EnumDirection)var3.get(a)).ordinal()]) {
+         switch(BlockLadder.SyntheticClass_1.a[((EnumDirection)var3.get(a)).ordinal()]) {
          case 1:
             this.setSizes(0.0F, 0.0F, 1.0F - var4, 1.0F, 1.0F, 1.0F);
             break;

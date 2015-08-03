@@ -1,36 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_on;
-import net.minecraft.server.class_pk;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qf;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rq;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_ru;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_tg;
-import net.minecraft.server.class_th;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_wi;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.class_wn;
-import net.minecraft.server.EntityHuman;
 
 public class class_wp extends class_wi {
    private static final int a = Datawathcer.claimId(class_wp.class);
@@ -94,7 +64,7 @@ public class class_wp extends class_wi {
    }
 
    protected Item D() {
-      return Items.H;
+      return Items.STRING;
    }
 
    protected void b(boolean var1, int var2) {

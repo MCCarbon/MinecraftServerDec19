@@ -1,30 +1,12 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahh;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.BlockStateInteger;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.EntityHuman;
 
-public class class_ako extends class_ahh {
+public class BlockRedstoneRepeater extends class_ahh {
    public static final BlockStateBoolean a = BlockStateBoolean.of("locked");
    public static final BlockStateInteger b = BlockStateInteger.of("delay", 1, 4);
 
-   protected class_ako(boolean var1) {
+   protected BlockRedstoneRepeater(boolean var1) {
       super(var1);
       this.setBlockData(this.blockStateList.getFirst().set(FACING, EnumDirection.NORTH).set(b, Integer.valueOf(1)).set(a, Boolean.valueOf(false)));
    }
@@ -73,7 +55,7 @@ public class class_ako extends class_ahh {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.bd;
+      return Items.REPEATER;
    }
 
    public boolean b(IBlockAccess var1, BlockPosition var2, IBlockData var3) {

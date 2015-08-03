@@ -20,7 +20,7 @@ public class Bootstrap {
 	}
 
 	static void b() {
-		BlockDispenser.REGISTRY.register(Items.g, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				class_xd var4 = new class_xd(var1, var2.getX(), var2.getY(), var2.getZ());
@@ -28,7 +28,7 @@ public class Bootstrap {
 				return var4;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.i, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.TIPPED_ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				class_xt var4 = new class_xt(var1, var2.getX(), var2.getY(), var2.getZ(), var3);
@@ -36,7 +36,7 @@ public class Bootstrap {
 				return var4;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.h, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.SPECTRAL_ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				class_xn var4 = new class_xn(var1, var2.getX(), var2.getY(), var2.getZ());
@@ -44,19 +44,19 @@ public class Bootstrap {
 				return var4;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.aR, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.EGG, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				return new class_xp(var1, var2.getX(), var2.getY(), var2.getZ());
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.aF, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.SNOWBALL, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				return new class_xm(var1, var2.getX(), var2.getY(), var2.getZ());
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.bN, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.EXPERIENCE_BOTTLE, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				return new class_xr(var1, var2.getX(), var2.getY(), var2.getZ());
@@ -72,7 +72,7 @@ public class Bootstrap {
 				return super.b() * 1.25F;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.bC, new IDispenseBehavior() {
+		BlockDispenser.REGISTRY.register(Items.SPLASH_POTION, new IDispenseBehavior() {
 			private final DispenseBehaviorItem b = new DispenseBehaviorItem();
 
 			@Override
@@ -95,7 +95,7 @@ public class Bootstrap {
 				}).a(var1, var2);
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.bM, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.SPAWN_EGG, new DispenseBehaviorItem() {
 			@Override
 			public ItemStack b(ISourceBlock var1, ItemStack var2) {
 				EnumDirection var3 = BlockDispenser.b(var1.getData());
@@ -111,7 +111,7 @@ public class Bootstrap {
 				return var2;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.ce, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.FIREWORKS, new DispenseBehaviorItem() {
 			@Override
 			public ItemStack b(ISourceBlock var1, ItemStack var2) {
 				EnumDirection var3 = BlockDispenser.b(var1.getData());
@@ -129,7 +129,7 @@ public class Bootstrap {
 				var1.getWorld().b(1002, var1.getPosition(), 0);
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.bO, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.FIRE_CHARGE, new DispenseBehaviorItem() {
 			@Override
 			public ItemStack b(ISourceBlock var1, ItemStack var2) {
 				EnumDirection var3 = BlockDispenser.b(var1.getData());
@@ -152,7 +152,7 @@ public class Bootstrap {
 				var1.getWorld().b(1009, var1.getPosition(), 0);
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.aG, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.BOAT, new DispenseBehaviorItem() {
 			private final DispenseBehaviorItem b = new DispenseBehaviorItem();
 
 			@Override
@@ -194,7 +194,7 @@ public class Bootstrap {
 				class_zn var3 = (class_zn)var2.getItem();
 				BlockPosition var4 = var1.getPosition().shift(BlockDispenser.b(var1.getData()));
 				if(var3.a(var1.getWorld(), var4)) {
-					var2.a(Items.ay);
+					var2.a(Items.BUCKET);
 					var2.count = 1;
 					return var2;
 				} else {
@@ -202,9 +202,9 @@ public class Bootstrap {
 				}
 			}
 		};
-		BlockDispenser.REGISTRY.register(Items.aA, var0);
-		BlockDispenser.REGISTRY.register(Items.az, var0);
-		BlockDispenser.REGISTRY.register(Items.ay, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.LAVA_BUCKET, var0);
+		BlockDispenser.REGISTRY.register(Items.WATER_BUCKET, var0);
+		BlockDispenser.REGISTRY.register(Items.BUCKET, new DispenseBehaviorItem() {
 			private final DispenseBehaviorItem b = new DispenseBehaviorItem();
 
 			@Override
@@ -216,13 +216,13 @@ public class Bootstrap {
 				Material var7 = var6.getMaterial();
 				Item var8;
 				if(Material.WATER.equals(var7) && (var6 instanceof BlockFluids) && (((Integer)var5.get(BlockFluids.LEVEL)).intValue() == 0)) {
-					var8 = Items.az;
+					var8 = Items.WATER_BUCKET;
 				} else {
 					if(!Material.LAVA.equals(var7) || !(var6 instanceof BlockFluids) || (((Integer)var5.get(BlockFluids.LEVEL)).intValue() != 0)) {
 						return super.b(var1, var2);
 					}
 
-					var8 = Items.aA;
+					var8 = Items.LAVA_BUCKET;
 				}
 
 				var3.setAir(var4);
@@ -236,7 +236,7 @@ public class Bootstrap {
 				return var2;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.d, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.FLINT_AND_STEEL, new DispenseBehaviorItem() {
 			private boolean b = true;
 
 			@Override
@@ -249,7 +249,7 @@ public class Bootstrap {
 						var2.count = 0;
 					}
 				} else if(var3.getType(var4).getBlock() == Blocks.TNT) {
-					Blocks.TNT.postBreak(var3, var4, Blocks.TNT.getBlockData().set(class_alo.a, Boolean.valueOf(true)));
+					Blocks.TNT.postBreak(var3, var4, Blocks.TNT.getBlockData().set(BlockTNT.a, Boolean.valueOf(true)));
 					var3.setAir(var4);
 				} else {
 					b = false;
@@ -268,7 +268,7 @@ public class Bootstrap {
 
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.aY, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.DYE, new DispenseBehaviorItem() {
 			private boolean b = true;
 
 			@Override
@@ -312,7 +312,7 @@ public class Bootstrap {
 				return var2;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.ca, new DispenseBehaviorItem() {
+		BlockDispenser.REGISTRY.register(Items.SKULL, new DispenseBehaviorItem() {
 			private boolean b = true;
 
 			@Override
@@ -320,10 +320,10 @@ public class Bootstrap {
 				World var3 = var1.getWorld();
 				EnumDirection var4 = BlockDispenser.b(var1.getData());
 				BlockPosition var5 = var1.getPosition().shift(var4);
-				class_akv var6 = Blocks.SKULL;
+				BlockSkull var6 = Blocks.SKULL;
 				if(var3.isEmpty(var5) && var6.b(var3, var5, var2)) {
 					if(!var3.isClientSide) {
-						var3.setTypeAndData(var5, var6.getBlockData().set(class_akv.a, EnumDirection.UP), 3);
+						var3.setTypeAndData(var5, var6.getBlockData().set(BlockSkull.a, EnumDirection.UP), 3);
 						TileEntity var7 = var3.getTileEntity(var5);
 						if(var7 instanceof TileEntitySkull) {
 							if(var2.i() == 3) {
@@ -409,7 +409,7 @@ public class Bootstrap {
 			}
 
 			Block.init();
-			class_aib.l();
+			BlockFire.l();
 			class_pk.k();
 			class_adi.e();
 			Item.init();

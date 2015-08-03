@@ -1,15 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityItem;
-
 public class class_xe extends Entity {
    private double a;
    private double b;
@@ -117,7 +107,7 @@ public class class_xe extends Entity {
          if(this.d > 80 && !this.o.isClientSide) {
             this.J();
             if(this.e) {
-               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new ItemStack(Items.bK))));
+               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t, this.u, new ItemStack(Items.ENDER_EYE))));
             } else {
                this.o.b(2003, new BlockPosition(this), 0);
             }

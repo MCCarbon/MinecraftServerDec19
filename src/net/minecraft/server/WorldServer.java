@@ -14,74 +14,7 @@ import java.util.Random;
 import java.util.Set;
 import java.util.TreeSet;
 import java.util.UUID;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_aef;
-import net.minecraft.server.class_aeh;
-import net.minecraft.server.Explosion;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aeo;
-import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_aes;
-import net.minecraft.server.class_aeu;
-import net.minecraft.server.class_aev;
-import net.minecraft.server.class_aex;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afd;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aoh;
-import net.minecraft.server.Chunk;
-import net.minecraft.server.ChunkSection;
-import net.minecraft.server.class_aop;
-import net.minecraft.server.class_aoz;
-import net.minecraft.server.class_aqa;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.Material;
-import net.minecraft.server.class_avd;
-import net.minecraft.server.class_avn;
-import net.minecraft.server.class_avo;
-import net.minecraft.server.class_avz;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_awo;
-import net.minecraft.server.class_b;
-import net.minecraft.server.class_c;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.class_e;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutSpawnEntityWeather;
-import net.minecraft.server.PacketPlayOutBlockAction;
-import net.minecraft.server.PacketPlayOutEntityStatus;
-import net.minecraft.server.PacketPlayOutExplosion;
-import net.minecraft.server.PacketPlayOutGameStateChange;
-import net.minecraft.server.PacketPlayOutWorldParticles;
-import net.minecraft.server.class_kl;
-import net.minecraft.server.class_la;
-import net.minecraft.server.class_lb;
-import net.minecraft.server.class_ld;
-import net.minecraft.server.class_lf;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_nv;
-import net.minecraft.server.class_nw;
-import net.minecraft.server.class_oc;
-import net.minecraft.server.class_od;
-import net.minecraft.server.class_of;
-import net.minecraft.server.class_om;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qc;
-import net.minecraft.server.class_tq;
-import net.minecraft.server.class_tr;
-import net.minecraft.server.class_tw;
-import net.minecraft.server.class_uk;
-import net.minecraft.server.class_vi;
-import net.minecraft.server.class_wu;
-import net.minecraft.server.EntityHuman;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -486,7 +419,7 @@ public class WorldServer extends World implements class_of {
                      try {
                         var6.getBlock().tick((World)this, var4.a, var6, (Random)this.random);
                      } catch (Throwable var10) {
-                        class_b var8 = class_b.a(var10, "Exception while ticking a block");
+                        class_b var8 = class_b.a(var10, "Exception while ticking WOOD block");
                         class_c var9 = var8.a("Block being ticked");
                         class_c.a(var9, var4.a, var6);
                         throw new class_e(var8);
@@ -947,7 +880,7 @@ public class WorldServer extends World implements class_of {
    }
 
    static {
-      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.A, 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.PLANKS), 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.LOG), 0, 1, 3, 10), new class_od(Items.v, 0, 1, 1, 3), new class_od(Items.r, 0, 1, 1, 5), new class_od(Items.u, 0, 1, 1, 3), new class_od(Items.q, 0, 1, 1, 5), new class_od(Items.e, 0, 2, 3, 5), new class_od(Items.R, 0, 2, 3, 3), new class_od(Item.getItemOf(Blocks.LOG2), 0, 1, 3, 10)}));
+      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.STICK, 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.PLANKS), 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.LOG), 0, 1, 3, 10), new class_od(Items.STONE_AXE, 0, 1, 1, 3), new class_od(Items.WOODEN_AXE, 0, 1, 1, 5), new class_od(Items.STONE_PICKAXE, 0, 1, 1, 3), new class_od(Items.WOODEN_PICKAXE, 0, 1, 1, 5), new class_od(Items.APPLE, 0, 2, 3, 5), new class_od(Items.BREAD, 0, 2, 3, 3), new class_od(Item.getItemOf(Blocks.LOG2), 0, 1, 3, 10)}));
    }
 
    static class class_a_in_class_lg extends ArrayList {

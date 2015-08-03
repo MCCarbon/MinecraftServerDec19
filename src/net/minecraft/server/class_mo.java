@@ -276,7 +276,7 @@ public class class_mo extends class_mn {
       } catch (UnknownHostException var3) {
          this.c("Unable to initialise query system on " + this.s + ":" + this.i + " (Unknown Host): " + var3.getMessage());
       } catch (Exception var4) {
-         this.c("Unable to initialise query system on " + this.s + ":" + this.i + " (E): " + var4.getMessage());
+         this.c("Unable to initialise query system on " + this.s + ":" + this.i + " (GOLDEN_SHOVEL): " + var4.getMessage());
       }
 
       return false;
@@ -298,7 +298,7 @@ public class class_mo extends class_mn {
          this.d[3] = var3[6];
          this.f = new String(this.d);
          this.c = (new Random()).nextInt(16777216);
-         this.e = String.format("\t%s%d\u0000", new Object[]{this.f, Integer.valueOf(this.c)}).getBytes();
+         this.e = String.format("\t%STONE_SWORD%EMERALD\u0000", new Object[]{this.f, Integer.valueOf(this.c)}).getBytes();
       }
 
       public Boolean a(long var1) {

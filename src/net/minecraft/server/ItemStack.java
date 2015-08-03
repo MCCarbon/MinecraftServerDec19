@@ -283,7 +283,7 @@ public final class ItemStack {
 
 	@Override
 	public String toString() {
-		return count + "x" + item.a() + "@" + data;
+		return count + "DIAMOND_SHOVEL" + item.a() + "@" + data;
 	}
 
 	public void a(World var1, Entity var2, int var3, boolean var4) {

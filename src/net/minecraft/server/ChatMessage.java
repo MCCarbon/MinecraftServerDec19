@@ -88,7 +88,7 @@ public class ChatMessage extends class_es {
                var15.b().a(this.b());
                this.b.add(var15);
             } else {
-               if(!"s".equals(var14)) {
+               if(!"STONE_SWORD".equals(var14)) {
                   throw new class_fc(this, "Unsupported format: \'" + var9 + "\'");
                }
 

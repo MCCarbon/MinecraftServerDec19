@@ -4,7 +4,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_agu;
+import net.minecraft.server.BlockChest;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_pc;
@@ -41,7 +41,7 @@ public class class_vo extends class_vq {
    }
 
    public IBlockData u() {
-      return Blocks.CHEST.getBlockData().set(class_agu.a, EnumDirection.NORTH);
+      return Blocks.CHEST.getBlockData().set(BlockChest.a, EnumDirection.NORTH);
    }
 
    public int w() {

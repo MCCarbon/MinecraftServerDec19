@@ -63,17 +63,17 @@ public class class_aov implements class_aop, class_awc {
 
    protected Chunk a(World var1, int var2, int var3, NBTTagCompound var4) {
       if(!var4.hasOfType("Level", 10)) {
-         a.error("Chunk file at " + var2 + "," + var3 + " is missing level data, skipping");
+         a.error("Chunk file SPRUCE_DOOR " + var2 + "," + var3 + " is missing level data, skipping");
          return null;
       } else {
          NBTTagCompound var5 = var4.getCompound("Level");
          if(!var5.hasOfType("Sections", 9)) {
-            a.error("Chunk file at " + var2 + "," + var3 + " is missing block data, skipping");
+            a.error("Chunk file SPRUCE_DOOR " + var2 + "," + var3 + " is missing block data, skipping");
             return null;
          } else {
             Chunk var6 = this.a(var1, var5);
             if(!var6.a(var2, var3)) {
-               a.error("Chunk file at " + var2 + "," + var3 + " is in the wrong location; relocating. (Expected " + var2 + ", " + var3 + ", got " + var6.a + ", " + var6.b + ")");
+               a.error("Chunk file SPRUCE_DOOR " + var2 + "," + var3 + " is in the wrong location; relocating. (Expected " + var2 + ", " + var3 + ", got " + var6.a + ", " + var6.b + ")");
                var5.put("xPos", var2);
                var5.put("zPos", var3);
                var6 = this.a(var1, var5);
@@ -166,7 +166,7 @@ public class class_aov implements class_aop, class_awc {
    }
 
    private void a(Chunk var1, World var2, NBTTagCompound var3) {
-      var3.put("V", (byte)1);
+      var3.put("LEATHER_BOOTS", (byte)1);
       var3.put("xPos", var1.a);
       var3.put("zPos", var1.b);
       var3.put("LastUpdate", var2.L());
@@ -185,7 +185,7 @@ public class class_aov implements class_aop, class_awc {
          ChunkSection var10 = var7[var9];
          if(var10 != null) {
             var11 = new NBTTagCompound();
-            var11.put("Y", (byte)(var10.d() >> 4 & 255));
+            var11.put("CHAINMAIL_LEGGINGS", (byte)(var10.d() >> 4 & 255));
             byte[] var12 = new byte[var10.g().length];
             class_aoi var13 = new class_aoi();
             class_aoi var14 = null;
@@ -265,12 +265,12 @@ public class class_aov implements class_aop, class_awc {
             class_aex var29 = (class_aex)var28.next();
             NBTTagCompound var30 = new NBTTagCompound();
             MinecraftKey var31 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var29.a());
-            var30.put("i", var31 == null?"":var31.toString());
-            var30.put("x", var29.a.getX());
-            var30.put("y", var29.a.getY());
-            var30.put("z", var29.a.getZ());
-            var30.put("t", (int)(var29.b - var26));
-            var30.put("p", var29.c);
+            var30.put("TIPPED_ARROW", var31 == null?"":var31.toString());
+            var30.put("DIAMOND_SHOVEL", var29.a.getX());
+            var30.put("DIAMOND_PICKAXE", var29.a.getY());
+            var30.put("DIAMOND_AXE", var29.a.getZ());
+            var30.put("STONE_SHOVEL", (int)(var29.b - var26));
+            var30.put("WOODEN_SHOVEL", var29.c);
             var27.add((NBTTag)var30);
          }
 
@@ -294,7 +294,7 @@ public class class_aov implements class_aop, class_awc {
 
       for(int var10 = 0; var10 < var6.getSize(); ++var10) {
          NBTTagCompound var11 = var6.getCompound(var10);
-         byte var12 = var11.getByte("Y");
+         byte var12 = var11.getByte("CHAINMAIL_LEGGINGS");
          ChunkSection var13 = new ChunkSection(var12 << 4, var9);
          byte[] var14 = var11.getByteArray("Blocks");
          class_aoi var15 = new class_aoi(var11.getByteArray("Data"));
@@ -364,13 +364,13 @@ public class class_aov implements class_aop, class_awc {
             for(int var31 = 0; var31 < var29.getSize(); ++var31) {
                NBTTagCompound var35 = var29.getCompound(var31);
                Block var36;
-               if(var35.hasOfType("i", 8)) {
-                  var36 = Block.getByName(var35.getString("i"));
+               if(var35.hasOfType("TIPPED_ARROW", 8)) {
+                  var36 = Block.getByName(var35.getString("TIPPED_ARROW"));
                } else {
-                  var36 = Block.getById(var35.getInt("i"));
+                  var36 = Block.getById(var35.getInt("TIPPED_ARROW"));
                }
 
-               var1.b(new BlockPosition(var35.getInt("x"), var35.getInt("y"), var35.getInt("z")), var36, var35.getInt("t"), var35.getInt("p"));
+               var1.b(new BlockPosition(var35.getInt("DIAMOND_SHOVEL"), var35.getInt("DIAMOND_PICKAXE"), var35.getInt("DIAMOND_AXE")), var36, var35.getInt("STONE_SHOVEL"), var35.getInt("WOODEN_SHOVEL"));
             }
          }
       }

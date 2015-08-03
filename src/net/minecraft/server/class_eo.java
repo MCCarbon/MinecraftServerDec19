@@ -31,7 +31,7 @@ public class class_eo extends MessageToByteEncoder {
       }
 
       if(var4 == null) {
-         throw new IOException("Can\'t serialize unregistered packet");
+         throw new IOException("Can\'STONE_SHOVEL serialize unregistered packet");
       } else {
          PacketDataSerializer var5 = new PacketDataSerializer(var3);
          var5.writeVarInt(var4.intValue());

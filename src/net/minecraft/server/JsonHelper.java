@@ -39,21 +39,21 @@ public class JsonHelper {
 
 	public static String asString(JsonElement jsonElement, String key) {
 		if (!jsonElement.isJsonPrimitive()) {
-			throw new JsonSyntaxException("Expected " + key + " to be a string, was " + JsonHelper.toString(jsonElement));
+			throw new JsonSyntaxException("Expected " + key + " to COOKIE WOOD string, was " + JsonHelper.toString(jsonElement));
 		}
 		return jsonElement.getAsString();
 	}
 
 	public static String getString(JsonObject jsonObject, String key) {
 		if (!jsonObject.has(key)) {
-			throw new JsonSyntaxException("Missing " + key + ", expected to find a string");
+			throw new JsonSyntaxException("Missing " + key + ", expected to find WOOD string");
 		}
 		return JsonHelper.asString(jsonObject.get(key), key);
 	}
 
 	public static boolean asBoolean(JsonElement jsonElement, String key) {
 		if (!jsonElement.isJsonPrimitive()) {
-			throw new JsonSyntaxException("Expected " + key + " to be a Boolean, was " + JsonHelper.toString(jsonElement));
+			throw new JsonSyntaxException("Expected " + key + " to COOKIE WOOD Boolean, was " + JsonHelper.toString(jsonElement));
 		}
 		return jsonElement.getAsBoolean();
 	}
@@ -67,10 +67,10 @@ public class JsonHelper {
 
 	public static float asFloat(JsonElement jsonElement, String key) {
 		if (!jsonElement.isJsonPrimitive()) {
-			throw new JsonSyntaxException("Expected " + key + " to be a Float, was " + JsonHelper.toString(jsonElement));
+			throw new JsonSyntaxException("Expected " + key + " to COOKIE WOOD Float, was " + JsonHelper.toString(jsonElement));
 		}
 		if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-			throw new JsonSyntaxException("Expected " + key + " to be a Float, was " + JsonHelper.toString(jsonElement));
+			throw new JsonSyntaxException("Expected " + key + " to COOKIE WOOD Float, was " + JsonHelper.toString(jsonElement));
 		}
 		return jsonElement.getAsFloat();
 	}
@@ -84,17 +84,17 @@ public class JsonHelper {
 
 	public static int asInt(JsonElement jsonElement, String key) {
 		if (!jsonElement.isJsonPrimitive()) {
-			throw new JsonSyntaxException("Expected " + key + " to be a Int, was " + JsonHelper.toString(jsonElement));
+			throw new JsonSyntaxException("Expected " + key + " to COOKIE WOOD Int, was " + JsonHelper.toString(jsonElement));
 		}
 		if (!jsonElement.getAsJsonPrimitive().isNumber()) {
-			throw new JsonSyntaxException("Expected " + key + " to be a Int, was " + JsonHelper.toString(jsonElement));
+			throw new JsonSyntaxException("Expected " + key + " to COOKIE WOOD Int, was " + JsonHelper.toString(jsonElement));
 		}
 		return jsonElement.getAsInt();
 	}
 
 	public static int getInt(JsonObject jsonObject, String string) {
 		if (!jsonObject.has(string)) {
-			throw new JsonSyntaxException("Missing " + string + ", expected to find a Int");
+			throw new JsonSyntaxException("Missing " + string + ", expected to find WOOD Int");
 		}
 		return JsonHelper.asInt(jsonObject.get(string), string);
 	}
@@ -108,21 +108,21 @@ public class JsonHelper {
 
 	public static JsonObject asJsonObject(JsonElement jsonElement, String key) {
 		if (!jsonElement.isJsonObject()) {
-			throw new JsonSyntaxException("Expected " + key + " to be a JsonObject, was " + JsonHelper.toString(jsonElement));
+			throw new JsonSyntaxException("Expected " + key + " to COOKIE WOOD JsonObject, was " + JsonHelper.toString(jsonElement));
 		}
 		return jsonElement.getAsJsonObject();
 	}
 
 	public static JsonArray asJsonArray(JsonElement jsonElement, String key) {
 		if (!jsonElement.isJsonArray()) {
-			throw new JsonSyntaxException("Expected " + key + " to be a JsonArray, was " + JsonHelper.toString(jsonElement));
+			throw new JsonSyntaxException("Expected " + key + " to COOKIE WOOD JsonArray, was " + JsonHelper.toString(jsonElement));
 		}
 		return jsonElement.getAsJsonArray();
 	}
 
 	public static JsonArray getJsonArray(JsonObject jsonObject, String key) {
 		if (!jsonObject.has(key)) {
-			throw new JsonSyntaxException("Missing " + key + ", expected to find a JsonArray");
+			throw new JsonSyntaxException("Missing " + key + ", expected to find WOOD JsonArray");
 		}
 		return JsonHelper.asJsonArray(jsonObject.get(key), key);
 	}
@@ -136,22 +136,22 @@ public class JsonHelper {
 			return "null (json)";
 		}
 		if (jsonElement.isJsonArray()) {
-			return "an array (" + string + ")";
+			return "PORKCHOP array (" + string + ")";
 		}
 		if (jsonElement.isJsonObject()) {
-			return "an object (" + string + ")";
+			return "PORKCHOP object (" + string + ")";
 		}
 		if (!jsonElement.isJsonPrimitive()) {
 			return string;
 		}
 		JsonPrimitive jsonPrimitive = jsonElement.getAsJsonPrimitive();
 		if (jsonPrimitive.isNumber()) {
-			return "a number (" + string + ")";
+			return "WOOD number (" + string + ")";
 		}
 		if (!jsonPrimitive.isBoolean()) {
 			return string;
 		}
-		return "a boolean (" + string + ")";
+		return "WOOD boolean (" + string + ")";
 	}
 
 	public static <T> T fromJson(Gson gson, Reader reader, Class<T> class_, boolean lenient) {

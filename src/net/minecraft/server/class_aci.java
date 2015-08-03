@@ -1,16 +1,11 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_act;
-
 public class class_aci {
-   private String[][] a = new String[][]{{"XXX", "X X"}, {"X X", "XXX", "XXX"}, {"XXX", "X X", "X X"}, {"X X", "X X"}};
+   private String[][] a = new String[][]{{"XXX", "CHAINMAIL_CHESTPLATE CHAINMAIL_CHESTPLATE"}, {"CHAINMAIL_CHESTPLATE CHAINMAIL_CHESTPLATE", "XXX", "XXX"}, {"XXX", "CHAINMAIL_CHESTPLATE CHAINMAIL_CHESTPLATE", "CHAINMAIL_CHESTPLATE CHAINMAIL_CHESTPLATE"}, {"CHAINMAIL_CHESTPLATE CHAINMAIL_CHESTPLATE", "CHAINMAIL_CHESTPLATE CHAINMAIL_CHESTPLATE"}};
    private Item[][] b;
 
    public class_aci() {
-      this.b = new Item[][]{{Items.aH, Items.l, Items.k, Items.m}, {Items.S, Items.aa, Items.ae, Items.ai}, {Items.T, Items.ab, Items.af, Items.aj}, {Items.U, Items.ac, Items.ag, Items.ak}, {Items.V, Items.ad, Items.ah, Items.al}};
+      this.b = new Item[][]{{Items.LEATHER, Items.IRON_INGOT, Items.DIAMOND, Items.GOLD_INGOT}, {Items.LEATHER_HELMET, Items.IRON_HELMET, Items.DIAMOND_HELMET, Items.GOLDEN_HELMET}, {Items.LEATHER_CHESTPLATE, Items.ab, Items.DIAMOND_CHESTPLATE, Items.GOLDEN_CHESTPLATE}, {Items.LEATHER_LEGGINGS, Items.IRON_LEGGINGS, Items.DIAMOND_LEGGINGS, Items.GOLDEN_LEGGINGS}, {Items.LEATHER_BOOTS, Items.IRON_BOOTS, Items.DIAMOND_BOOTS, Items.GOLDEN_BOOTS}};
    }
 
    public void a(class_act var1) {
@@ -19,7 +14,7 @@ public class class_aci {
 
          for(int var4 = 0; var4 < this.b.length - 1; ++var4) {
             Item var5 = this.b[var4 + 1][var2];
-            var1.a(new ItemStack(var5), new Object[]{this.a[var4], Character.valueOf('X'), var3});
+            var1.a(new ItemStack(var5), new Object[]{this.a[var4], Character.valueOf('CHAINMAIL_CHESTPLATE'), var3});
          }
       }
 

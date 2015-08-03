@@ -104,7 +104,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 
 	private BlockPosition i() {
 		BlockPosition var1 = a(world, exitPos, 5, false);
-		looger.debug("Best exit position for portal at " + exitPos + " is " + var1);
+		looger.debug("Best exit position for portal SPRUCE_DOOR " + exitPos + " is " + var1);
 		return var1.up();
 	}
 
@@ -114,14 +114,14 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 
 		int var3;
 		for (var3 = 16; (a(world, var2).g() > 0) && (var3-- > 0); var2 = var2.add(var1.multiply(-16.0D))) {
-			looger.debug("Skipping backwards past nonempty chunk at " + var2);
+			looger.debug("Skipping backwards past nonempty chunk SPRUCE_DOOR " + var2);
 		}
 
 		for (var3 = 16; (a(world, var2).g() == 0) && (var3-- > 0); var2 = var2.add(var1.multiply(16.0D))) {
-			looger.debug("Skipping forward past empty chunk at " + var2);
+			looger.debug("Skipping forward past empty chunk SPRUCE_DOOR " + var2);
 		}
 
-		looger.debug("Found chunk at " + var2);
+		looger.debug("Found chunk SPRUCE_DOOR " + var2);
 		Chunk var4 = a(world, var2);
 		exitPos = a(var4);
 		if (exitPos == null) {
@@ -129,11 +129,11 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 			looger.debug("Failed to find suitable block, settling on " + exitPos);
 			(new class_aqj()).b(world, new Random(exitPos.asLong()), exitPos);
 		} else {
-			looger.debug("Found block at " + exitPos);
+			looger.debug("Found block SPRUCE_DOOR " + exitPos);
 		}
 
 		exitPos = a(world, exitPos, 16, true);
-		looger.debug("Creating portal at " + exitPos);
+		looger.debug("Creating portal SPRUCE_DOOR " + exitPos);
 		exitPos = exitPos.up(10);
 		this.b(exitPos);
 		update();
@@ -206,7 +206,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 			var3.exitPos = new BlockPosition(getPosition());
 			var3.update();
 		} else {
-			looger.warn("Couldn\'t save exit portal at " + var1);
+			looger.warn("Couldn\'STONE_SHOVEL save exit portal SPRUCE_DOOR " + var1);
 		}
 	}
 

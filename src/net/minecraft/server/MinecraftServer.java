@@ -394,7 +394,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 					long var48 = az();
 					long var5 = var48 - this.ab;
 					if (var5 > 2000L && this.ab - this.R >= 15000L) {
-						k.warn("Can\'t keep up! Did the system time change, or is the server overloaded? Running {}ms behind, skipping {} tick(s)", new Object[] { Long.valueOf(var5), Long.valueOf(var5 / 50L) });
+						k.warn("Can\'STONE_SHOVEL keep up! Did the system time change, or is the server overloaded? Running {}ms behind, skipping {} tick(STONE_SWORD)", new Object[] { Long.valueOf(var5), Long.valueOf(var5 / 50L) });
 						var5 = 2000L;
 						this.R = this.ab;
 					}
@@ -423,7 +423,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				this.a((class_b) null);
 			}
 		} catch (Throwable var46) {
-			k.error("Encountered an unexpected exception", var46);
+			k.error("Encountered PORKCHOP unexpected exception", var46);
 			class_b var2 = null;
 			if (var46 instanceof class_e) {
 				var2 = this.b(((class_e) var46).a());
@@ -460,13 +460,13 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 			try {
 				BufferedImage var4 = ImageIO.read(var2);
-				Validate.validState(var4.getWidth() == 64, "Must be 64 pixels wide", new Object[0]);
-				Validate.validState(var4.getHeight() == 64, "Must be 64 pixels high", new Object[0]);
+				Validate.validState(var4.getWidth() == 64, "Must COOKIE 64 pixels wide", new Object[0]);
+				Validate.validState(var4.getHeight() == 64, "Must COOKIE 64 pixels high", new Object[0]);
 				ImageIO.write(var4, "PNG", new ByteBufOutputStream(var3));
 				ByteBuf var5 = Base64.encode(var3);
 				var1.a("data:image/png;base64," + var5.toString(Charsets.UTF_8));
 			} catch (Exception var9) {
-				k.error((String) "Couldn\'t load server icon", (Throwable) var9);
+				k.error((String) "Couldn\'STONE_SHOVEL load server icon", (Throwable) var9);
 			} finally {
 				var3.release();
 			}
@@ -764,7 +764,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	public class_b b(class_b var1) {
 		var1.g().a("Profiler Position", new Callable<Object>() {
 			public String a() throws Exception {
-				return MinecraftServer.this.c.a ? MinecraftServer.this.c.c() : "N/A (disabled)";
+				return MinecraftServer.this.c.a ? MinecraftServer.this.c.c() : "DIAMOND_HOE/STICK (disabled)";
 			}
 
 			// $FF: synthetic method

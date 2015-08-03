@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockDirt;
-import net.minecraft.server.class_ahm;
+import net.minecraft.server.BlockTallPlant;
 import net.minecraft.server.BlockLongGrass;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
@@ -66,7 +66,7 @@ public class class_afv extends BiomeBase {
          }
       }
 
-      ag.a(class_ahm.class_b_in_class_ahm.d);
+      ag.a(BlockTallPlant.class_b_in_class_ahm.d);
 
       for(var4 = 0; var4 < 7; ++var4) {
          var5 = var2.nextInt(16) + 8;

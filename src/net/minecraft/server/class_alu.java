@@ -2,26 +2,6 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
 
 public class class_alu extends Block {
    public static final BlockStateBoolean a = BlockStateBoolean.of("up");
@@ -319,7 +299,7 @@ public class class_alu extends Block {
    }
 
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
-      if(!var1.isClientSide && var6 != null && var6.getItem() == Items.bg) {
+      if(!var1.isClientSide && var6 != null && var6.getItem() == Items.SHEARS) {
          var2.b(StatisticList.ab[Block.getId((Block)this)]);
          dropItem((World)var1, (BlockPosition)var3, (ItemStack)(new ItemStack(Blocks.VINE, 1, 0)));
       } else {
@@ -402,7 +382,7 @@ public class class_alu extends Block {
       case 5:
          return P;
       default:
-         throw new IllegalArgumentException(var0 + " is an invalid choice");
+         throw new IllegalArgumentException(var0 + " is PORKCHOP invalid choice");
       }
    }
 

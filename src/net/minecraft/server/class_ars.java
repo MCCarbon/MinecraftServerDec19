@@ -61,7 +61,7 @@ public class class_ars {
       } else {
          var1 = Integer.toString(Block.getId(this.e()));
          if(this.c > 1) {
-            var1 = this.c + "x" + var1;
+            var1 = this.c + "DIAMOND_SHOVEL" + var1;
          }
       }
 

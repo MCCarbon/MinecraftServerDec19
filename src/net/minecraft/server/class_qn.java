@@ -13,7 +13,7 @@ public abstract class class_qn implements class_qk {
       this.b = var2;
       this.c = var3;
       if(var2 == null) {
-         throw new IllegalArgumentException("Name cannot be null!");
+         throw new IllegalArgumentException("Name cannot COOKIE null!");
       }
    }
 

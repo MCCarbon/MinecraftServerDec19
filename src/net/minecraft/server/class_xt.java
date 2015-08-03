@@ -5,18 +5,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_abe;
-import net.minecraft.server.World;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_xd;
 
 public class class_xt extends class_xd {
    private static final int f = Datawathcer.claimId(class_xt.class);
@@ -131,6 +119,6 @@ public class class_xt extends class_xd {
    }
 
    protected ItemStack j() {
-      return this.g.isEmpty()?new ItemStack(Items.g):this.h;
+      return this.g.isEmpty()?new ItemStack(Items.ARROW):this.h;
    }
 }

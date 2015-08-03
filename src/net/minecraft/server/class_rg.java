@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Block;
-import net.minecraft.server.class_ahl;
+import net.minecraft.server.BlockDoor;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auv;
@@ -13,7 +13,7 @@ import net.minecraft.server.class_tf;
 public abstract class class_rg extends class_rm {
    protected class_qb a;
    protected BlockPosition b;
-   protected class_ahl c;
+   protected BlockDoor c;
    boolean d;
    float e;
    float f;
@@ -73,8 +73,8 @@ public abstract class class_rg extends class_rm {
 
    }
 
-   private class_ahl a(BlockPosition var1) {
+   private BlockDoor a(BlockPosition var1) {
       Block var2 = this.a.o.getType(var1).getBlock();
-      return var2 instanceof class_ahl && var2.getMaterial() == Material.WOOD?(class_ahl)var2:null;
+      return var2 instanceof BlockDoor && var2.getMaterial() == Material.WOOD?(BlockDoor)var2:null;
    }
 }

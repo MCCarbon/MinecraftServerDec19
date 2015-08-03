@@ -32,7 +32,7 @@ public class NBTTagDouble extends NBTTag.NBTTagNumber {
 	}
 
 	public String toString() {
-		return "" + this.value + "d";
+		return "" + this.value + "EMERALD";
 	}
 
 	public NBTTag clone() {

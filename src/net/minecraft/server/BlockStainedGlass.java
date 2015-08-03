@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_agg;
+import net.minecraft.server.BlockBeacon;
 import net.minecraft.server.BlockHalfTransparent;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -14,10 +14,10 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
 import net.minecraft.server.EnumColor;
 
-public class class_alb extends BlockHalfTransparent {
+public class BlockStainedGlass extends BlockHalfTransparent {
    public static final BlockStateEnum a = BlockStateEnum.of("color", EnumColor.class);
 
-   public class_alb(Material var1) {
+   public BlockStainedGlass(Material var1) {
       super(var1, false);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumColor.a));
       this.setCreativeTab((CreativeTab)CreativeTab.BUILDING_BLOCKS);
@@ -49,14 +49,14 @@ public class class_alb extends BlockHalfTransparent {
 
    public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.isClientSide) {
-         class_agg.f(var1, var2);
+         BlockBeacon.f(var1, var2);
       }
 
    }
 
    public void remove(World var1, BlockPosition var2, IBlockData var3) {
       if(!var1.isClientSide) {
-         class_agg.f(var1, var2);
+         BlockBeacon.f(var1, var2);
       }
 
    }

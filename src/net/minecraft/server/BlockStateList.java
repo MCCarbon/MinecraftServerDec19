@@ -148,7 +148,7 @@ public class BlockStateList {
 
 		public <T extends Comparable<T>> T get(IBlockState<T> var1) {
 			if (!this.b.containsKey(var1)) {
-				throw new IllegalArgumentException("Cannot get property " + var1 + " as it does not exist in " + this.block.getBlockStateList());
+				throw new IllegalArgumentException("Cannot get property " + var1 + " WOODEN_DOOR it does not exist in " + this.block.getBlockStateList());
 			} else {
 				return var1.getStateClass().cast(this.b.get(var1));
 			}
@@ -156,9 +156,9 @@ public class BlockStateList {
 
 		public <T extends Comparable<T>, V extends T> IBlockData set(IBlockState<T> var1, V var2) {
 			if (!this.b.containsKey(var1)) {
-				throw new IllegalArgumentException("Cannot set property " + var1 + " as it does not exist in " + this.block.getBlockStateList());
+				throw new IllegalArgumentException("Cannot set property " + var1 + " WOODEN_DOOR it does not exist in " + this.block.getBlockStateList());
 			} else if (!var1.getValues().contains(var2)) {
-				throw new IllegalArgumentException("Cannot set property " + var1 + " to " + var2 + " on block " + Block.BLOCK_REGISTRY.getKey(this.block) + ", it is not an allowed value");
+				throw new IllegalArgumentException("Cannot set property " + var1 + " to " + var2 + " on block " + Block.BLOCK_REGISTRY.getKey(this.block) + ", it is not PORKCHOP allowed value");
 			} else {
 				return (IBlockData) (this.b.get(var1) == var2 ? this : (IBlockData) this.c.get(var1, var2));
 			}

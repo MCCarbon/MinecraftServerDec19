@@ -4,56 +4,6 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_on;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pk;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.Entity;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qf;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_qm;
-import net.minecraft.server.class_qs;
-import net.minecraft.server.class_rd;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_ru;
-import net.minecraft.server.class_rw;
-import net.minecraft.server.class_ry;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.class_tx;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_wa;
-import net.minecraft.server.class_wi;
-import net.minecraft.server.class_wj;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.class_wv;
-import net.minecraft.server.EntityHuman;
 
 public class class_wr extends class_wi {
    protected static final class_qk a = (new class_qs((class_qk)null, "zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).a("Spawn Reinforcements Chance");
@@ -282,7 +232,7 @@ public class class_wr extends class_wi {
    }
 
    protected Item D() {
-      return Items.bv;
+      return Items.ROTTEN_FLESH;
    }
 
    public class_qf bz() {
@@ -292,13 +242,13 @@ public class class_wr extends class_wi {
    protected void br() {
       switch(this.random.nextInt(3)) {
       case 0:
-         this.a(Items.l, 1);
+         this.a(Items.IRON_INGOT, 1);
          break;
       case 1:
-         this.a(Items.bU, 1);
+         this.a(Items.CARROT, 1);
          break;
       case 2:
-         this.a(Items.bV, 1);
+         this.a(Items.POTATO, 1);
       }
 
    }
@@ -308,9 +258,9 @@ public class class_wr extends class_wi {
       if(this.random.nextFloat() < (this.o.ab() == class_om.d?0.05F:0.01F)) {
          int var2 = this.random.nextInt(3);
          if(var2 == 0) {
-            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.n)));
+            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.IRON_SWORD)));
          } else {
-            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.a)));
+            this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.IRON_SHOVEL)));
          }
       }
 
@@ -386,7 +336,7 @@ public class class_wr extends class_wi {
    }
 
    protected boolean a(ItemStack var1) {
-      return var1.getItem() == Items.aR && this.j_() && this.aw()?false:super.a(var1);
+      return var1.getItem() == Items.EGG && this.j_() && this.aw()?false:super.a(var1);
    }
 
    public class_qd a(class_on var1, class_qd var2) {
@@ -450,7 +400,7 @@ public class class_wr extends class_wi {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.aq && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
+      if(var3 != null && var3.getItem() == Items.GOLDEN_APPLE && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
          if(!var1.abilities.instabuild) {
             --var3.count;
          }
@@ -553,7 +503,7 @@ public class class_wr extends class_wi {
       super.a(var1);
       if(var1.j() instanceof class_wa && !(this instanceof class_wj) && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new ItemStack(Items.ca, 1, 2), 0.0F);
+         this.a(new ItemStack(Items.SKULL, 1, 2), 0.0F);
       }
 
    }

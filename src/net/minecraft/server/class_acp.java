@@ -1,11 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_acs;
-import net.minecraft.server.World;
-import net.minecraft.server.class_yg;
-
 public class class_acp implements class_acs {
    public boolean a(class_yg var1, World var2) {
       int var3 = 0;
@@ -14,14 +8,14 @@ public class class_acp implements class_acs {
       for(int var5 = 0; var5 < var1.getSize(); ++var5) {
          ItemStack var6 = var1.getItem(var5);
          if(var6 != null) {
-            if(var6.getItem() == Items.bf) {
+            if(var6.getItem() == Items.FILLED_MAP) {
                if(var4 != null) {
                   return false;
                }
 
                var4 = var6;
             } else {
-               if(var6.getItem() != Items.bY) {
+               if(var6.getItem() != Items.MAP) {
                   return false;
                }
 
@@ -40,14 +34,14 @@ public class class_acp implements class_acs {
       for(int var4 = 0; var4 < var1.getSize(); ++var4) {
          ItemStack var5 = var1.getItem(var4);
          if(var5 != null) {
-            if(var5.getItem() == Items.bf) {
+            if(var5.getItem() == Items.FILLED_MAP) {
                if(var3 != null) {
                   return null;
                }
 
                var3 = var5;
             } else {
-               if(var5.getItem() != Items.bY) {
+               if(var5.getItem() != Items.MAP) {
                   return null;
                }
 
@@ -57,7 +51,7 @@ public class class_acp implements class_acs {
       }
 
       if(var3 != null && var2 >= 1) {
-         ItemStack var6 = new ItemStack(Items.bf, var2 + 1, var3.i());
+         ItemStack var6 = new ItemStack(Items.FILLED_MAP, var2 + 1, var3.i());
          if(var3.hasDisplayName()) {
             var6.setDisplayName(var3.getDisplayName());
          }

@@ -13,9 +13,9 @@ public class BlockStateInteger extends BlockState<Integer> {
 	protected BlockStateInteger(String name, int min, int max) {
 		super(name, Integer.class);
 		if (min < 0) {
-			throw new IllegalArgumentException("Min value of " + name + " must be 0 or greater");
+			throw new IllegalArgumentException("Min value of " + name + " must COOKIE 0 or greater");
 		} else if (max <= min) {
-			throw new IllegalArgumentException("Max value of " + name + " must be greater than min (" + min + ")");
+			throw new IllegalArgumentException("Max value of " + name + " must COOKIE greater than min (" + min + ")");
 		} else {
 			HashSet<Integer> set = Sets.newHashSet();
 			for (int i = min; i <= max; ++i) {

@@ -38,7 +38,7 @@ public class class_ex extends class_es {
          class_awj var3 = var2.b(this.c);
          if(var2.b(this.b, var3)) {
             class_awl var4 = var2.c(this.b, var3);
-            this.b(String.format("%d", new Object[]{Integer.valueOf(var4.c())}));
+            this.b(String.format("%EMERALD", new Object[]{Integer.valueOf(var4.c())}));
          } else {
             this.d = "";
          }

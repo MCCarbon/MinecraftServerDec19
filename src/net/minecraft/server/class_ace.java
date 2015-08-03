@@ -4,13 +4,6 @@ import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aak;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_abe;
-import net.minecraft.server.class_acd;
-import net.minecraft.server.class_acf;
 
 public class class_ace {
    private static final List a = Lists.newArrayList();
@@ -127,22 +120,22 @@ public class class_ace {
    }
 
    public static void a() {
-      class_ace.class_a_in_class_ace var0 = new class_ace.class_a_in_class_ace(Items.bA);
-      class_ace.class_a_in_class_ace var1 = new class_ace.class_a_in_class_ace(Items.bZ);
-      class_ace.class_a_in_class_ace var2 = new class_ace.class_a_in_class_ace(Items.aE);
+      class_ace.class_a_in_class_ace var0 = new class_ace.class_a_in_class_ace(Items.NETHER_WART);
+      class_ace.class_a_in_class_ace var1 = new class_ace.class_a_in_class_ace(Items.GOLDEN_CARROT);
+      class_ace.class_a_in_class_ace var2 = new class_ace.class_a_in_class_ace(Items.REDSTONE);
       class_ace.class_a_in_class_ace var3 = new class_ace.class_a_in_class_ace(Items.bF);
-      class_ace.class_a_in_class_ace var4 = new class_ace.class_a_in_class_ace(Items.bt);
-      class_ace.class_a_in_class_ace var5 = new class_ace.class_a_in_class_ace(Items.aV);
-      class_ace.class_a_in_class_ace var6 = new class_ace.class_a_in_class_ace(Items.bH);
-      class_ace.class_a_in_class_ace var7 = new class_ace.class_a_in_class_ace(Items.ba);
-      class_ace.class_a_in_class_ace var8 = new class_ace.class_a_in_class_ace(Items.aW, class_aak.class_a_in_class_aak.d.a());
-      class_ace.class_a_in_class_ace var9 = new class_ace.class_a_in_class_ace(Items.bL);
+      class_ace.class_a_in_class_ace var4 = new class_ace.class_a_in_class_ace(Items.RABBIT_FOOT);
+      class_ace.class_a_in_class_ace var5 = new class_ace.class_a_in_class_ace(Items.GLOWSTONE_DUST);
+      class_ace.class_a_in_class_ace var6 = new class_ace.class_a_in_class_ace(Items.MAGMA_CREAM);
+      class_ace.class_a_in_class_ace var7 = new class_ace.class_a_in_class_ace(Items.SUGAR);
+      class_ace.class_a_in_class_ace var8 = new class_ace.class_a_in_class_ace(Items.FISH, class_aak.class_a_in_class_aak.d.a());
+      class_ace.class_a_in_class_ace var9 = new class_ace.class_a_in_class_ace(Items.SPECKLED_MELON);
       class_ace.class_a_in_class_ace var10 = new class_ace.class_a_in_class_ace(Items.bE);
       class_ace.class_a_in_class_ace var11 = new class_ace.class_a_in_class_ace(Items.by);
-      class_ace.class_a_in_class_ace var12 = new class_ace.class_a_in_class_ace(Items.bG);
-      a(new class_ace.class_a_in_class_ace(Items.bB));
-      a(new class_ace.class_a_in_class_ace(Items.bC));
-      a(Items.bB, new class_ace.class_a_in_class_ace(Items.J), Items.bC);
+      class_ace.class_a_in_class_ace var12 = new class_ace.class_a_in_class_ace(Items.BLAZE_POWDER);
+      a(new class_ace.class_a_in_class_ace(Items.POTION));
+      a(new class_ace.class_a_in_class_ace(Items.SPLASH_POTION));
+      a(Items.POTION, new class_ace.class_a_in_class_ace(Items.GUNPOWDER), Items.SPLASH_POTION);
       a((class_acd)class_acf.a, (Predicate)var9, (class_acd)class_acf.b);
       a((class_acd)class_acf.a, (Predicate)var11, (class_acd)class_acf.b);
       a((class_acd)class_acf.a, (Predicate)var4, (class_acd)class_acf.b);

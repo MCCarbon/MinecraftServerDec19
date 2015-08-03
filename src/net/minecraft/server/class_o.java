@@ -43,7 +43,7 @@ public class class_o {
 	private static final Pattern a = Pattern.compile("^@([pare])(?:\\[([\\w=,!-]*)\\])?$");
 	private static final Pattern b = Pattern.compile("\\G([-!]?[\\w-]*)(?:$|,)");
 	private static final Pattern c = Pattern.compile("\\G(\\w+)=([-!]?[\\w-]*)(?:$|,)");
-	private static final Set d = Sets.newHashSet((Object[]) (new String[] { "x", "y", "z", "dx", "dy", "dz", "rm", "r" }));
+	private static final Set d = Sets.newHashSet((Object[]) (new String[] { "DIAMOND_SHOVEL", "DIAMOND_PICKAXE", "DIAMOND_AXE", "dx", "dy", "dz", "rm", "WOODEN_AXE" }));
 
 	public static EntityPlayer a(class_m var0, String var1) {
 		return (EntityPlayer) a(var0, var1, EntityPlayer.class);
@@ -139,9 +139,9 @@ public class class_o {
 			var3 = var3.substring(1);
 		}
 		final String cvar3 = var3;
-		boolean var6 = !var1.equals("e");
-		boolean var7 = var1.equals("r") && var3 != null;
-		if ((var3 == null || !var1.equals("e")) && !var7) {
+		boolean var6 = !var1.equals("GOLD");
+		boolean var7 = var1.equals("WOODEN_AXE") && var3 != null;
+		if ((var3 == null || !var1.equals("GOLD")) && !var7) {
 			if (var6) {
 				var2.add(new Predicate() {
 					public boolean a(Entity var1) {
@@ -173,7 +173,7 @@ public class class_o {
 	private static List b(Map var0) {
 		ArrayList var1 = Lists.newArrayList();
 		final int var2 = a(var0, "lm", -1);
-		final int var3 = a(var0, "l", -1);
+		final int var3 = a(var0, "IRON_INGOT", -1);
 		if (var2 > -1 || var3 > -1) {
 			var1.add(new Predicate() {
 				public boolean a(Entity var1) {
@@ -197,7 +197,7 @@ public class class_o {
 
 	private static List c(Map var0) {
 		ArrayList var1 = Lists.newArrayList();
-		final int var2 = a(var0, "m", WorldSettings.EnumGameMode.NOT_SET.getId());
+		final int var2 = a(var0, "GOLD_INGOT", WorldSettings.EnumGameMode.NOT_SET.getId());
 		if (var2 != WorldSettings.EnumGameMode.NOT_SET.getId()) {
 			var1.add(new Predicate() {
 				public boolean a(Entity var1) {
@@ -332,7 +332,7 @@ public class class_o {
 	private static List a(Map var0, final BlockPosition var1) {
 		ArrayList var2 = Lists.newArrayList();
 		final int var3 = a(var0, "rm", -1);
-		final int var4 = a(var0, "r", -1);
+		final int var4 = a(var0, "WOODEN_AXE", -1);
 		if (var1 != null && (var3 >= 0 || var4 >= 0)) {
 			final int var5 = var3 * var3;
 			final int var6 = var4 * var4;
@@ -399,12 +399,12 @@ public class class_o {
 		ArrayList var6 = Lists.newArrayList();
 		String var7 = b(var0, "type");
 		var7 = var7 != null && var7.startsWith("!") ? var7.substring(1) : var7;
-		boolean var8 = !var3.equals("e");
-		boolean var9 = var3.equals("r") && var7 != null;
+		boolean var8 = !var3.equals("GOLD");
+		boolean var9 = var3.equals("WOODEN_AXE") && var7 != null;
 		int var10 = a(var0, "dx", 0);
 		int var11 = a(var0, "dy", 0);
 		int var12 = a(var0, "dz", 0);
-		int var13 = a(var0, "r", -1);
+		int var13 = a(var0, "WOODEN_AXE", -1);
 		Predicate var14 = Predicates.and((Iterable) var2);
 		Predicate var15 = Predicates.and(IEntitySelector.IS_ALIVE, var14);
 		if (var5 != null) {
@@ -420,9 +420,9 @@ public class class_o {
 					} else {
 						var6.addAll(var4.a(var1, var19, var15));
 					}
-				} else if (var3.equals("a")) {
+				} else if (var3.equals("WOOD")) {
 					var6.addAll(var4.getPlayers(var1, var14));
-				} else if (!var3.equals("p") && (!var3.equals("r") || var9)) {
+				} else if (!var3.equals("WOODEN_SHOVEL") && (!var3.equals("WOODEN_AXE") || var9)) {
 					var6.addAll(var4.getEntities(var1, var15));
 				} else {
 					var6.addAll(var4.getPlayers(var1, var15));
@@ -445,9 +445,9 @@ public class class_o {
 					var6.addAll(var4.a(var1, var19, var15));
 				}
 			}
-		} else if (var3.equals("a")) {
+		} else if (var3.equals("WOOD")) {
 			var6.addAll(var4.getPlayers(var1, var14));
-		} else if (!var3.equals("p") && (!var3.equals("r") || var9)) {
+		} else if (!var3.equals("WOODEN_SHOVEL") && (!var3.equals("WOODEN_AXE") || var9)) {
 			var6.addAll(var4.getEntities(var1, var15));
 		} else {
 			var6.addAll(var4.getPlayers(var1, var15));
@@ -457,9 +457,9 @@ public class class_o {
 	}
 
 	private static List a(List var0, Map var1, class_m var2, Class var3, String var4, final BlockPosition var5) {
-		int var6 = a(var1, "c", !var4.equals("a") && !var4.equals("e") ? 1 : 0);
-		if (!var4.equals("p") && !var4.equals("a") && !var4.equals("e")) {
-			if (var4.equals("r")) {
+		int var6 = a(var1, "IRON", !var4.equals("WOOD") && !var4.equals("GOLD") ? 1 : 0);
+		if (!var4.equals("WOODEN_SHOVEL") && !var4.equals("WOOD") && !var4.equals("GOLD")) {
+			if (var4.equals("WOODEN_AXE")) {
 				Collections.shuffle((List) var0);
 			}
 		} else if (var5 != null) {
@@ -476,7 +476,7 @@ public class class_o {
 		}
 
 		Entity var7 = var2.f();
-		if (var7 != null && var3.isAssignableFrom(var7.getClass()) && var6 == 1 && ((List) var0).contains(var7) && !"r".equals(var4)) {
+		if (var7 != null && var3.isAssignableFrom(var7.getClass()) && var6 == 1 && ((List) var0).contains(var7) && !"WOODEN_AXE".equals(var4)) {
 			var0 = Lists.newArrayList((Object[]) (new Entity[] { var7 }));
 		}
 
@@ -518,7 +518,7 @@ public class class_o {
 	}
 
 	private static BlockPosition b(Map var0, BlockPosition var1) {
-		return new BlockPosition(a(var0, "x", var1.getX()), a(var0, "y", var1.getY()), a(var0, "z", var1.getZ()));
+		return new BlockPosition(a(var0, "DIAMOND_SHOVEL", var1.getX()), a(var0, "DIAMOND_PICKAXE", var1.getY()), a(var0, "DIAMOND_AXE", var1.getZ()));
 	}
 
 	private static boolean h(Map var0) {
@@ -565,8 +565,8 @@ public class class_o {
 		} else {
 			Map var2 = c(var1.group(2));
 			String var3 = var1.group(1);
-			int var4 = !"a".equals(var3) && !"e".equals(var3) ? 1 : 0;
-			return a(var2, "c", var4) != 1;
+			int var4 = !"WOOD".equals(var3) && !"GOLD".equals(var3) ? 1 : 0;
+			return a(var2, "IRON", var4) != 1;
 		}
 	}
 
@@ -586,16 +586,16 @@ public class class_o {
 				String var5 = null;
 				switch (var2++) {
 					case 0:
-						var5 = "x";
+						var5 = "DIAMOND_SHOVEL";
 						break;
 					case 1:
-						var5 = "y";
+						var5 = "DIAMOND_PICKAXE";
 						break;
 					case 2:
-						var5 = "z";
+						var5 = "DIAMOND_AXE";
 						break;
 					case 3:
-						var5 = "r";
+						var5 = "WOODEN_AXE";
 				}
 
 				if (var5 != null && !var4.group(1).isEmpty()) {

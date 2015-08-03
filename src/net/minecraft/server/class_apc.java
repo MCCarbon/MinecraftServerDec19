@@ -143,7 +143,7 @@ public class class_apc {
             if(!var1.isEmpty()) {
                class_ur var2 = (class_ur)var1.get(0);
                this.m = var2.aM();
-               a.info("Found that there\'s a dragon still alive (" + var2 + ")");
+               a.info("Found that there\'STONE_SWORD WOOD dragon still alive (" + var2 + ")");
                this.k = false;
             } else {
                this.k = true;

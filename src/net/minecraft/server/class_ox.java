@@ -83,7 +83,7 @@ public class class_ox {
 
       while(var4.hasNext()) {
          String var5 = (String)var4.next();
-         if(var5.startsWith("-X")) {
+         if(var5.startsWith("-CHAINMAIL_CHESTPLATE")) {
             this.a("jvm_arg[" + var3++ + "]", var5);
          }
       }

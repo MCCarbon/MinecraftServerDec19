@@ -31,7 +31,7 @@ public class NBTTagShort extends NBTTag.NBTTagNumber {
 	}
 
 	public String toString() {
-		return "" + this.value + "s";
+		return "" + this.value + "STONE_SWORD";
 	}
 
 	public NBTTag clone() {

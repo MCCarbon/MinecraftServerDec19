@@ -2,24 +2,6 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_adi;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.class_adl;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.class_ow;
-import net.minecraft.server.PlayerInventory;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-import net.minecraft.server.class_ye;
-import net.minecraft.server.class_yx;
-import net.minecraft.server.EnumColor;
 
 public class class_yj extends Container {
    public IInventory a = new class_ow("Enchant", true, 2) {
@@ -55,7 +37,7 @@ public class class_yj extends Container {
       }));
       this.a((class_yx)(new class_yx(this.a, 1, 35, 47) {
          public boolean a(ItemStack var1) {
-            return var1.getItem() == Items.aY && EnumColor.a(var1.i()) == EnumColor.l;
+            return var1.getItem() == Items.DYE && EnumColor.a(var1.i()) == EnumColor.l;
          }
       }));
 
@@ -187,17 +169,17 @@ public class class_yj extends Container {
       } else {
          if(!this.j.isClientSide) {
             List var6 = this.a(var3, var2, this.g[var2]);
-            boolean var7 = var3.getItem() == Items.aN;
+            boolean var7 = var3.getItem() == Items.BOOK;
             if(var6 != null) {
                var1.b(var5);
                if(var7) {
-                  var3.a((Item)Items.cg);
+                  var3.a((Item)Items.ENCHANTED_BOOK);
                }
 
                for(int var8 = 0; var8 < var6.size(); ++var8) {
                   class_adl var9 = (class_adl)var6.get(var8);
                   if(var7) {
-                     Items.cg.a(var3, var9);
+                     Items.ENCHANTED_BOOK.a(var3, var9);
                   } else {
                      var3.addEnchantment(var9.b, var9.c);
                   }
@@ -224,7 +206,7 @@ public class class_yj extends Container {
    private List a(ItemStack var1, int var2, int var3) {
       this.l.setSeed((long)(this.f + var2));
       List var4 = EnchantmentManager.b(this.l, var1, var3);
-      if(var1.getItem() == Items.aN && var4.size() > 1) {
+      if(var1.getItem() == Items.BOOK && var4.size() > 1) {
          var4.remove(this.l.nextInt(var4.size()));
       }
 
@@ -262,7 +244,7 @@ public class class_yj extends Container {
             if(!this.a(var5, 2, 38, true)) {
                return null;
             }
-         } else if(var5.getItem() == Items.aY && EnumColor.a(var5.i()) == EnumColor.l) {
+         } else if(var5.getItem() == Items.DYE && EnumColor.a(var5.i()) == EnumColor.l) {
             if(!this.a(var5, 1, 2, true)) {
                return null;
             }

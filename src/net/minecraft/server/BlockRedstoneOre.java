@@ -1,25 +1,11 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
 
-public class class_akj extends Block {
+public class BlockRedstoneOre extends Block {
    private final boolean a;
 
-   public class_akj(boolean var1) {
+   public BlockRedstoneOre(boolean var1) {
       super(Material.STONE);
       if(var1) {
          this.setTicking(true);
@@ -63,7 +49,7 @@ public class class_akj extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.aE;
+      return Items.REDSTONE;
    }
 
    public int getDropCount(int var1, Random var2) {

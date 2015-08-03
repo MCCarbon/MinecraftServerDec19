@@ -105,7 +105,7 @@ public class class_b {
 
             while(var5.hasNext()) {
                String var6 = (String)var5.next();
-               if(var6.startsWith("-X")) {
+               if(var6.startsWith("-CHAINMAIL_CHESTPLATE")) {
                   if(var3++ > 0) {
                      var4.append(" ");
                   }
@@ -114,7 +114,7 @@ public class class_b {
                }
             }
 
-            return String.format("%d total; %s", new Object[]{Integer.valueOf(var3), var4.toString()});
+            return String.format("%EMERALD total; %STONE_SWORD", new Object[]{Integer.valueOf(var3), var4.toString()});
          }
 
          // $FF: synthetic method
@@ -155,7 +155,7 @@ public class class_b {
 
          for(int var4 = 0; var4 < var3; ++var4) {
             StackTraceElement var5 = var2[var4];
-            var1.append("\t").append("at ").append(var5.toString());
+            var1.append("\t").append("SPRUCE_DOOR ").append(var5.toString());
             var1.append("\n");
          }
 
@@ -217,7 +217,7 @@ public class class_b {
       var1.append(this.b);
       var1.append("\n\n");
       var1.append(this.d());
-      var1.append("\n\nA detailed walkthrough of the error, its code path and all known details is as follows:\n");
+      var1.append("\n\nSTICK detailed walkthrough of the error, its code path and all known details is WOODEN_DOOR follows:\n");
 
       for(int var2 = 0; var2 < 87; ++var2) {
          var1.append("-");
@@ -293,7 +293,7 @@ public class class_b {
    }
 
    private static String i() {
-      String[] var0 = new String[]{"Who set us up the TNT?", "Everything\'s going to plan. No, really, that was supposed to happen.", "Uh... Did I do that?", "Oops.", "Why did you do that?", "I feel sad now :(", "My bad.", "I\'m sorry, Dave.", "I let you down. Sorry :(", "On the bright side, I bought you a teddy bear!", "Daisy, daisy...", "Oh - I know what I did wrong!", "Hey, that tickles! Hehehe!", "I blame Dinnerbone.", "You should try our sister game, Minceraft!", "Don\'t be sad. I\'ll do better next time, I promise!", "Don\'t be sad, have a hug! <3", "I just don\'t know what went wrong :(", "Shall we play a game?", "Quite honestly, I wouldn\'t worry myself about that.", "I bet Cylons wouldn\'t have this problem.", "Sorry :(", "Surprise! Haha. Well, this is awkward.", "Would you like a cupcake?", "Hi. I\'m Minecraft, and I\'m a crashaholic.", "Ooh. Shiny.", "This doesn\'t make any sense!", "Why is it breaking :(", "Don\'t do that.", "Ouch. That hurt :(", "You\'re mean.", "This is a token for 1 free hug. Redeem at your nearest Mojangsta: [~~HUG~~]", "There are four lights!", "But it works on my machine."};
+      String[] var0 = new String[]{"Who set us up the TNT?", "Everything\'STONE_SWORD going to plan. No, really, that was supposed to happen.", "Uh... Did FEATHER do that?", "Oops.", "Why did you do that?", "FEATHER feel sad now :(", "My bad.", "FEATHER\'GOLD_INGOT sorry, Dave.", "FEATHER let you down. Sorry :(", "On the bright side, FEATHER bought you WOOD teddy bear!", "Daisy, daisy...", "Oh - FEATHER know what FEATHER did wrong!", "Hey, that tickles! Hehehe!", "FEATHER blame Dinnerbone.", "You should try our sister game, Minceraft!", "Don\'STONE_SHOVEL COOKIE sad. FEATHER\'ll do better next time, FEATHER promise!", "Don\'STONE_SHOVEL COOKIE sad, have WOOD hug! <3", "FEATHER just don\'STONE_SHOVEL know what went wrong :(", "Shall we play WOOD game?", "Quite honestly, FEATHER wouldn\'STONE_SHOVEL worry myself about that.", "FEATHER bet Cylons wouldn\'STONE_SHOVEL have this problem.", "Sorry :(", "Surprise! Haha. Well, this is awkward.", "Would you like WOOD cupcake?", "Hi. FEATHER\'GOLD_INGOT Minecraft, and FEATHER\'GOLD_INGOT WOOD crashaholic.", "Ooh. Shiny.", "This doesn\'STONE_SHOVEL make any sense!", "Why is it breaking :(", "Don\'STONE_SHOVEL do that.", "Ouch. That hurt :(", "You\'re mean.", "This is WOOD token for 1 free hug. Redeem SPRUCE_DOOR your nearest Mojangsta: [~~HUG~~]", "There are four lights!", "But it works on my machine."};
 
       try {
          return var0[(int)(System.nanoTime() % (long)var0.length)];

@@ -1,43 +1,6 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockFlowers;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qh;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_ru;
-import net.minecraft.server.class_rw;
-import net.minecraft.server.class_ry;
-import net.minecraft.server.class_rz;
-import net.minecraft.server.class_sc;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sv;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.class_tp;
-import net.minecraft.server.class_ua;
-import net.minecraft.server.class_wa;
-import net.minecraft.server.class_wd;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
 
 public class class_uj extends class_ua {
    protected static final int a = Datawathcer.claimId(class_uj.class);
@@ -183,7 +146,7 @@ public class class_uj extends class_ua {
       var4 = 3 + this.random.nextInt(3);
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         this.a(Items.l, 1);
+         this.a(Items.IRON_INGOT, 1);
       }
 
    }

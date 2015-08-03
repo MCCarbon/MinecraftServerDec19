@@ -2,23 +2,6 @@ package net.minecraft.server;
 
 import java.util.Arrays;
 import java.util.concurrent.Callable;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_b;
-import net.minecraft.server.class_c;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.class_dy;
-import net.minecraft.server.class_e;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatComponentText;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_za;
 
 public class PlayerInventory implements IInventory {
    public final ItemStack[] a = new ItemStack[36];
@@ -412,8 +395,8 @@ public class PlayerInventory implements IInventory {
       int var1 = 0;
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         if(this.b[var2] != null && this.b[var2].getItem() instanceof class_za) {
-            int var3 = ((class_za)this.b[var2].getItem()).c;
+         if(this.b[var2] != null && this.b[var2].getItem() instanceof ItemArmor) {
+            int var3 = ((ItemArmor)this.b[var2].getItem()).c;
             var1 += var3;
          }
       }
@@ -428,7 +411,7 @@ public class PlayerInventory implements IInventory {
       }
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {
-         if(this.b[var2] != null && this.b[var2].getItem() instanceof class_za) {
+         if(this.b[var2] != null && this.b[var2].getItem() instanceof ItemArmor) {
             this.b[var2].a((int)var1, (EntityLiving)this.e);
             if(this.b[var2].count == 0) {
                this.b[var2] = null;

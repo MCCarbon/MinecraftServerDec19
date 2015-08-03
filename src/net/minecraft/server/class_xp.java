@@ -1,16 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_tx;
-import net.minecraft.server.class_xo;
-
 public class class_xp extends class_xo {
    public class_xp(World var1) {
       super(var1);
@@ -46,7 +35,7 @@ public class class_xp extends class_xo {
       double var5 = 0.08D;
 
       for(int var6 = 0; var6 < 8; ++var6) {
-         this.o.a(class_cy.K, this.s, this.t, this.u, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, new int[]{Item.getId(Items.aR)});
+         this.o.a(class_cy.K, this.s, this.t, this.u, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, ((double)this.random.nextFloat() - 0.5D) * 0.08D, new int[]{Item.getId(Items.EGG)});
       }
 
       if(!this.o.isClientSide) {

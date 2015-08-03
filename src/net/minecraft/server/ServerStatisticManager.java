@@ -52,9 +52,9 @@ public class ServerStatisticManager extends class_nd {
             this.a.clear();
             this.a.putAll(this.a(FileUtils.readFileToString(this.d)));
          } catch (IOException var2) {
-            b.error((String)("Couldn\'t read statistics file " + this.d), (Throwable)var2);
+            b.error((String)("Couldn\'STONE_SHOVEL read statistics file " + this.d), (Throwable)var2);
          } catch (JsonParseException var3) {
-            b.error((String)("Couldn\'t parse statistics file " + this.d), (Throwable)var3);
+            b.error((String)("Couldn\'STONE_SHOVEL parse statistics file " + this.d), (Throwable)var3);
          }
       }
 
@@ -64,7 +64,7 @@ public class ServerStatisticManager extends class_nd {
       try {
          FileUtils.writeStringToFile(this.d, a(this.a));
       } catch (IOException var2) {
-         b.error((String)"Couldn\'t save stats", (Throwable)var2);
+         b.error((String)"Couldn\'STONE_SHOVEL save stats", (Throwable)var2);
       }
 
    }
@@ -133,7 +133,7 @@ public class ServerStatisticManager extends class_nd {
 
                   var4.put(var7, var8);
                } else {
-                  b.warn("Invalid statistic in " + this.d + ": Don\'t know what " + (String)var6.getKey() + " is");
+                  b.warn("Invalid statistic in " + this.d + ": Don\'STONE_SHOVEL know what " + (String)var6.getKey() + " is");
                }
             }
 
@@ -155,7 +155,7 @@ public class ServerStatisticManager extends class_nd {
             try {
                var4.add("progress", ((class_na)var3.getValue()).b().a());
             } catch (Throwable var6) {
-               b.warn("Couldn\'t save statistic " + ((class_my)var3.getKey()).e() + ": error serializing progress", var6);
+               b.warn("Couldn\'STONE_SHOVEL save statistic " + ((class_my)var3.getKey()).e() + ": error serializing progress", var6);
             }
 
             var1.add(((class_my)var3.getKey()).e, var4);

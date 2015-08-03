@@ -12,10 +12,10 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 
-public class class_alw extends class_aku {
+public class BlockWallSign extends class_aku {
    public static final BlockStateDirection a;
 
-   public class_alw() {
+   public BlockWallSign() {
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH));
    }
 
@@ -27,7 +27,7 @@ public class class_alw extends class_aku {
       float var7 = 1.0F;
       float var8 = 0.125F;
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
-      switch(class_alw.SyntheticClass_1.a[var3.ordinal()]) {
+      switch(BlockWallSign.SyntheticClass_1.a[var3.ordinal()]) {
       case 1:
          this.setSizes(var6, var4, 1.0F - var8, var7, var5, 1.0F);
          break;

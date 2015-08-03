@@ -1,25 +1,6 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pe;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.EntityHuman;
 
 public class class_vk extends Entity {
    private static final int a = Datawathcer.claimId(class_vk.class);
@@ -97,7 +78,7 @@ public class class_vk extends Entity {
                }
 
                if(!var3 && this.o.R().b("doEntityDrops")) {
-                  this.a(Items.aG, 1, 0.0F);
+                  this.a(Items.BOAT, 1, 0.0F);
                }
 
                this.J();
@@ -267,7 +248,7 @@ public class class_vk extends Entity {
                   }
 
                   for(var22 = 0; var22 < 2; ++var22) {
-                     this.a(Items.A, 1, 0.0F);
+                     this.a(Items.STICK, 1, 0.0F);
                   }
                }
             }
@@ -354,7 +335,7 @@ public class class_vk extends Entity {
                   }
 
                   for(var6 = 0; var6 < 2; ++var6) {
-                     this.a(Items.A, 1, 0.0F);
+                     this.a(Items.STICK, 1, 0.0F);
                   }
                }
             }

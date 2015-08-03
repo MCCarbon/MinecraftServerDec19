@@ -32,7 +32,7 @@ public class NBTTagFloat extends NBTTag.NBTTagNumber {
 	}
 
 	public String toString() {
-		return "" + this.value + "f";
+		return "" + this.value + "BOW";
 	}
 
 	public NBTTag clone() {

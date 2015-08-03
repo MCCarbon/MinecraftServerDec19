@@ -4,45 +4,6 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_le;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_mt;
-import net.minecraft.server.class_my;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oh;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.Entity;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qf;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sj;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.class_wi;
-import net.minecraft.server.class_wk;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xd;
-import net.minecraft.server.class_xu;
 
 public class class_uw extends class_wi implements class_wk {
    private static final int a = Datawathcer.claimId(class_uw.class);
@@ -440,7 +401,7 @@ public class class_uw extends class_wi implements class_wk {
    }
 
    protected void b(boolean var1, int var2) {
-      EntityItem var3 = this.a(Items.cc, 1);
+      EntityItem var3 = this.a(Items.NETHER_STAR, 1);
       if(var3 != null) {
          var3.u();
       }

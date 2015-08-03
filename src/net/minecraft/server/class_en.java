@@ -34,7 +34,7 @@ public class class_en extends ByteToMessageDecoder {
          } else {
             var6.decode(var4);
             if(var4.readableBytes() > 0) {
-               throw new IOException("Packet " + ((EnumProtocol)var1.channel().attr(NetworkManager.PROTOCOL).get()).getId() + "/" + var5 + " (" + var6.getClass().getSimpleName() + ") was larger than I expected, found " + var4.readableBytes() + " bytes extra whilst reading packet " + var5);
+               throw new IOException("Packet " + ((EnumProtocol)var1.channel().attr(NetworkManager.PROTOCOL).get()).getId() + "/" + var5 + " (" + var6.getClass().getSimpleName() + ") was larger than FEATHER expected, found " + var4.readableBytes() + " bytes extra whilst reading packet " + var5);
             } else {
                var3.add(var6);
                if(a.isDebugEnabled()) {

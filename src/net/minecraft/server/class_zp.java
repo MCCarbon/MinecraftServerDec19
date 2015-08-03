@@ -1,12 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aan;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_wb;
-
-public class class_zp extends class_aan {
+public class class_zp extends ItemApple {
    public class_zp(int var1, float var2) {
       super(var1, var2, false);
    }

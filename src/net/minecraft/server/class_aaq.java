@@ -1,25 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockDirt;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
-
 public class class_aaq extends Item {
-   protected Item.class_a_in_class_aar a;
+   protected EnumToolMaterial a;
 
-   public class_aaq(Item.class_a_in_class_aar var1) {
+   public class_aaq(EnumToolMaterial var1) {
       this.a = var1;
       this.h = 1;
       this.e(var1.a());

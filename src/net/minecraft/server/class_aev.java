@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ajx;
+import net.minecraft.server.BlockPortal;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_anp;
 import net.minecraft.server.BlockPosition;
@@ -299,7 +299,7 @@ public class class_aev {
          }
       }
 
-      IBlockData var32 = Blocks.PORTAL.getBlockData().set(class_ajx.a, var31 != 0?EnumDirection.EnumAxis.X:EnumDirection.EnumAxis.Z);
+      IBlockData var32 = Blocks.PORTAL.getBlockData().set(BlockPortal.a, var31 != 0?EnumDirection.EnumAxis.X:EnumDirection.EnumAxis.Z);
 
       for(var21 = 0; var21 < 4; ++var21) {
          for(var22 = 0; var22 < 4; ++var22) {

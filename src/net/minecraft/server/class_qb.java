@@ -4,55 +4,6 @@ import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_abw;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagFloat;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutAttachEntity;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_mt;
-import net.minecraft.server.class_my;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_on;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qj;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_qm;
-import net.minecraft.server.class_qv;
-import net.minecraft.server.class_qx;
-import net.minecraft.server.class_qy;
-import net.minecraft.server.class_qz;
-import net.minecraft.server.class_rn;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.class_tg;
-import net.minecraft.server.class_tk;
-import net.minecraft.server.class_uz;
-import net.minecraft.server.class_vb;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.class_wd;
-import net.minecraft.server.class_we;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_za;
-import net.minecraft.server.ItemBlock;
-import net.minecraft.server.class_zl;
 
 public abstract class class_qb extends EntityLiving {
    private static final int a = Datawathcer.claimId(class_qb.class);
@@ -299,9 +250,9 @@ public abstract class class_qb extends EntityLiving {
             var13.put("UUIDLeast", this.bx.aM().getLeastSignificantBits());
          } else if(this.bx instanceof class_uz) {
             BlockPosition var7 = ((class_uz)this.bx).n();
-            var13.put("X", var7.getX());
-            var13.put("Y", var7.getY());
-            var13.put("Z", var7.getZ());
+            var13.put("CHAINMAIL_CHESTPLATE", var7.getX());
+            var13.put("CHAINMAIL_LEGGINGS", var7.getY());
+            var13.put("CHAINMAIL_BOOTS", var7.getZ());
          }
 
          var1.put((String)"Leash", (NBTTag)var13);
@@ -440,16 +391,16 @@ public abstract class class_qb extends EntityLiving {
                } else {
                   var4 = var6.g() > var7.g();
                }
-            } else if(var2.getItem() instanceof class_zl && var5.getItem() instanceof class_zl) {
+            } else if(var2.getItem() instanceof ItemBow && var5.getItem() instanceof ItemBow) {
                var4 = var2.hasTag() && !var5.hasTag();
             } else {
                var4 = false;
             }
-         } else if(var2.getItem() instanceof class_za && !(var5.getItem() instanceof class_za)) {
+         } else if(var2.getItem() instanceof ItemArmor && !(var5.getItem() instanceof ItemArmor)) {
             var4 = true;
-         } else if(var2.getItem() instanceof class_za && var5.getItem() instanceof class_za) {
-            class_za var9 = (class_za)var2.getItem();
-            class_za var11 = (class_za)var5.getItem();
+         } else if(var2.getItem() instanceof ItemArmor && var5.getItem() instanceof ItemArmor) {
+            ItemArmor var9 = (ItemArmor)var2.getItem();
+            ItemArmor var11 = (ItemArmor)var5.getItem();
             if(var9.c == var11.c) {
                var4 = var2.i() > var5.i() || var2.hasTag() && !var5.hasTag();
             } else {
@@ -477,7 +428,7 @@ public abstract class class_qb extends EntityLiving {
             this.a(var5, 0.0F);
          }
 
-         if(var2.getItem() == Items.k && var1.n() != null) {
+         if(var2.getItem() == Items.DIAMOND && var1.n() != null) {
             EntityHuman var8 = this.o.a(var1.n());
             if(var8 != null) {
                var8.b((class_my)class_mt.x);
@@ -746,58 +697,58 @@ public abstract class class_qb extends EntityLiving {
    }
 
    public static class_pw c(ItemStack var0) {
-      return var0.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var0.getItem() != Items.ca?(var0.getItem() instanceof class_za?((class_za)var0.getItem()).b:class_pw.a):class_pw.f;
+      return var0.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var0.getItem() != Items.SKULL ?(var0.getItem() instanceof ItemArmor ?((ItemArmor)var0.getItem()).b:class_pw.a):class_pw.f;
    }
 
    public static Item a(class_pw var0, int var1) {
       switch(class_qb.SyntheticClass_1.b[var0.ordinal()]) {
       case 1:
          if(var1 == 0) {
-            return Items.S;
+            return Items.LEATHER_HELMET;
          } else if(var1 == 1) {
-            return Items.ai;
+            return Items.GOLDEN_HELMET;
          } else if(var1 == 2) {
-            return Items.W;
+            return Items.CHAINMAIL_HELMET;
          } else if(var1 == 3) {
-            return Items.aa;
+            return Items.IRON_HELMET;
          } else if(var1 == 4) {
-            return Items.ae;
+            return Items.DIAMOND_HELMET;
          }
       case 2:
          if(var1 == 0) {
-            return Items.T;
+            return Items.LEATHER_CHESTPLATE;
          } else if(var1 == 1) {
-            return Items.aj;
+            return Items.GOLDEN_CHESTPLATE;
          } else if(var1 == 2) {
-            return Items.X;
+            return Items.CHAINMAIL_CHESTPLATE;
          } else if(var1 == 3) {
             return Items.ab;
          } else if(var1 == 4) {
-            return Items.af;
+            return Items.DIAMOND_CHESTPLATE;
          }
       case 3:
          if(var1 == 0) {
-            return Items.U;
+            return Items.LEATHER_LEGGINGS;
          } else if(var1 == 1) {
-            return Items.ak;
+            return Items.GOLDEN_LEGGINGS;
          } else if(var1 == 2) {
-            return Items.Y;
+            return Items.CHAINMAIL_LEGGINGS;
          } else if(var1 == 3) {
-            return Items.ac;
+            return Items.IRON_LEGGINGS;
          } else if(var1 == 4) {
-            return Items.ag;
+            return Items.DIAMOND_LEGGINGS;
          }
       case 4:
          if(var1 == 0) {
-            return Items.V;
+            return Items.LEATHER_BOOTS;
          } else if(var1 == 1) {
-            return Items.al;
+            return Items.GOLDEN_BOOTS;
          } else if(var1 == 2) {
-            return Items.Z;
+            return Items.CHAINMAIL_BOOTS;
          } else if(var1 == 3) {
-            return Items.ad;
+            return Items.IRON_BOOTS;
          } else if(var1 == 4) {
-            return Items.ah;
+            return Items.DIAMOND_BOOTS;
          }
       default:
          return null;
@@ -872,7 +823,7 @@ public abstract class class_qb extends EntityLiving {
          this.a(true, !var1.abilities.instabuild);
          return true;
       } else {
-         if(var2 != null && var2.getItem() == Items.cq && this.cp()) {
+         if(var2 != null && var2.getItem() == Items.LEAD && this.cp()) {
             if(!(this instanceof class_qj) || !((class_qj)this).cA()) {
                this.a(var1, true);
                --var2.count;
@@ -915,7 +866,7 @@ public abstract class class_qb extends EntityLiving {
          this.bw = false;
          this.bx = null;
          if(!this.o.isClientSide && var2) {
-            this.a(Items.cq, 1);
+            this.a(Items.LEAD, 1);
          }
 
          if(!this.o.isClientSide && var1 && this.o instanceof WorldServer) {
@@ -960,8 +911,8 @@ public abstract class class_qb extends EntityLiving {
                   break;
                }
             }
-         } else if(this.by.hasOfType("X", 99) && this.by.hasOfType("Y", 99) && this.by.hasOfType("Z", 99)) {
-            BlockPosition var1 = new BlockPosition(this.by.getInt("X"), this.by.getInt("Y"), this.by.getInt("Z"));
+         } else if(this.by.hasOfType("CHAINMAIL_CHESTPLATE", 99) && this.by.hasOfType("CHAINMAIL_LEGGINGS", 99) && this.by.hasOfType("CHAINMAIL_BOOTS", 99)) {
+            BlockPosition var1 = new BlockPosition(this.by.getInt("CHAINMAIL_CHESTPLATE"), this.by.getInt("CHAINMAIL_LEGGINGS"), this.by.getInt("CHAINMAIL_BOOTS"));
             class_vb var2 = class_vb.b(this.o, var1);
             if(var2 == null) {
                var2 = class_vb.a(this.o, var1);

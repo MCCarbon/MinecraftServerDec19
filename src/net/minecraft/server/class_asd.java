@@ -4,23 +4,6 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockStairs;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityMobSpawner;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asl;
-import net.minecraft.server.class_asn;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_od;
 
 public class class_asd {
    private static final class_asd.class_n_in_class_asd[] a = new class_asd.class_n_in_class_asd[]{new class_asd.class_n_in_class_asd(class_asd.class_c_in_class_asd.class, 30, 0, true), new class_asd.class_n_in_class_asd(class_asd.class_a_in_class_asd.class, 10, 4), new class_asd.class_n_in_class_asd(class_asd.class_o_in_class_asd.class, 10, 4), new class_asd.class_n_in_class_asd(class_asd.class_p_in_class_asd.class, 10, 3), new class_asd.class_n_in_class_asd(class_asd.class_l_in_class_asd.class, 5, 2), new class_asd.class_n_in_class_asd(class_asd.class_f_in_class_asd.class, 5, 1)};
@@ -1187,7 +1170,7 @@ public class class_asd {
       }
 
       static {
-         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 1, 3, 5), new class_od(Items.l, 0, 1, 5, 5), new class_od(Items.m, 0, 1, 3, 15), new class_od(Items.D, 0, 1, 1, 5), new class_od(Items.aj, 0, 1, 1, 5), new class_od(Items.d, 0, 1, 1, 5), new class_od(Items.bA, 0, 3, 7, 5), new class_od(Items.aC, 0, 1, 1, 10), new class_od(Items.co, 0, 1, 1, 8), new class_od(Items.cn, 0, 1, 1, 5), new class_od(Items.cp, 0, 1, 1, 3), new class_od(Item.getItemOf(Blocks.OBSIDIAN), 0, 2, 4, 2)}));
+         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 1, 3, 5), new class_od(Items.IRON_INGOT, 0, 1, 5, 5), new class_od(Items.GOLD_INGOT, 0, 1, 3, 15), new class_od(Items.GOLDEN_SWORD, 0, 1, 1, 5), new class_od(Items.GOLDEN_CHESTPLATE, 0, 1, 1, 5), new class_od(Items.FLINT_AND_STEEL, 0, 1, 1, 5), new class_od(Items.NETHER_WART, 0, 3, 7, 5), new class_od(Items.SADDLE, 0, 1, 1, 10), new class_od(Items.GOLDEN_HORSE_ARMOR, 0, 1, 1, 8), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 5), new class_od(Items.DIAMOND_HORSE_ARMOR, 0, 1, 1, 3), new class_od(Item.getItemOf(Blocks.OBSIDIAN), 0, 2, 4, 2)}));
       }
    }
 

@@ -4,8 +4,8 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ale;
-import net.minecraft.server.class_alw;
+import net.minecraft.server.BlockFloorSign;
+import net.minecraft.server.BlockWallSign;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntitySign;
 import net.minecraft.server.IBlockData;
@@ -40,9 +40,9 @@ public class class_abn extends Item {
          } else {
             if(var6 == EnumDirection.UP) {
                int var10 = MathHelper.floor((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
-               var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.STANDING_SIGN.getBlockData().set(class_ale.a, Integer.valueOf(var10)), 3);
+               var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.STANDING_SIGN.getBlockData().set(BlockFloorSign.a, Integer.valueOf(var10)), 3);
             } else {
-               var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.WALL_SIGN.getBlockData().set(class_alw.a, var6), 3);
+               var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.WALL_SIGN.getBlockData().set(BlockWallSign.a, var6), 3);
             }
 
             --var1.count;

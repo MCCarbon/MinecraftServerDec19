@@ -17,7 +17,7 @@ import net.minecraft.server.EntityHuman;
 
 public class class_ap extends class_i {
    public List b() {
-      return Arrays.asList(new String[]{"w", "msg"});
+      return Arrays.asList(new String[]{"DIAMOND_SWORD", "msg"});
    }
 
    public String c() {

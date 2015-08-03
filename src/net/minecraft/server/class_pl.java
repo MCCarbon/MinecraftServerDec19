@@ -46,7 +46,7 @@ public class class_pl implements Comparable {
 
    public void a(class_pl var1) {
       if(this.b != var1.b) {
-         a.warn("This method should only be called for matching effects!");
+         a.warn("This method should only COOKIE called for matching effects!");
       }
 
       if(var1.d > this.d) {
@@ -111,7 +111,7 @@ public class class_pl implements Comparable {
    public String toString() {
       String var1 = "";
       if(this.d > 0) {
-         var1 = this.f() + " x " + (this.d + 1) + ", Duration: " + this.c;
+         var1 = this.f() + " DIAMOND_SHOVEL " + (this.d + 1) + ", Duration: " + this.c;
       } else {
          var1 = this.f() + ", Duration: " + this.c;
       }

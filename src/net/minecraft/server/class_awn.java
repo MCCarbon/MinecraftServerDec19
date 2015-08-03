@@ -199,7 +199,7 @@ public class class_awn {
       } else {
          class_awk var2 = this.d(var1);
          if(var2 != null) {
-            throw new IllegalArgumentException("A team with the name \'" + var1 + "\' already exists!");
+            throw new IllegalArgumentException("STICK team with the name \'" + var1 + "\' already exists!");
          } else {
             var2 = new class_awk(this, var1);
             this.e.put(var1, var2);

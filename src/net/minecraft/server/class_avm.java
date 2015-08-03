@@ -93,12 +93,12 @@ public class class_avm implements class_avq {
          File var2 = var0[var1];
          b.debug("Deleting " + var2);
          if(var2.isDirectory() && !a(var2.listFiles())) {
-            b.warn("Couldn\'t delete directory " + var2);
+            b.warn("Couldn\'STONE_SHOVEL delete directory " + var2);
             return false;
          }
 
          if(!var2.delete()) {
-            b.warn("Couldn\'t delete file " + var2);
+            b.warn("Couldn\'STONE_SHOVEL delete file " + var2);
             return false;
          }
       }

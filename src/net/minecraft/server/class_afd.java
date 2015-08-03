@@ -79,10 +79,10 @@ public class class_afd {
             class_c var10 = var9.a("DownfallBlock");
             var10.a((String)"biome id", (Object)Integer.valueOf(var7));
             var10.a((String)"downfalls[] size", (Object)Integer.valueOf(var1.length));
-            var10.a((String)"x", (Object)Integer.valueOf(var2));
-            var10.a((String)"z", (Object)Integer.valueOf(var3));
-            var10.a((String)"w", (Object)Integer.valueOf(var4));
-            var10.a((String)"h", (Object)Integer.valueOf(var5));
+            var10.a((String)"DIAMOND_SHOVEL", (Object)Integer.valueOf(var2));
+            var10.a((String)"DIAMOND_AXE", (Object)Integer.valueOf(var3));
+            var10.a((String)"DIAMOND_SWORD", (Object)Integer.valueOf(var4));
+            var10.a((String)"SPECTRAL_ARROW", (Object)Integer.valueOf(var5));
             throw new class_e(var9);
          }
       }
@@ -108,10 +108,10 @@ public class class_afd {
          class_b var8 = class_b.a(var10, "Invalid Biome id");
          class_c var9 = var8.a("RawBiomeBlock");
          var9.a((String)"biomes[] size", (Object)Integer.valueOf(var1.length));
-         var9.a((String)"x", (Object)Integer.valueOf(var2));
-         var9.a((String)"z", (Object)Integer.valueOf(var3));
-         var9.a((String)"w", (Object)Integer.valueOf(var4));
-         var9.a((String)"h", (Object)Integer.valueOf(var5));
+         var9.a((String)"DIAMOND_SHOVEL", (Object)Integer.valueOf(var2));
+         var9.a((String)"DIAMOND_AXE", (Object)Integer.valueOf(var3));
+         var9.a((String)"DIAMOND_SWORD", (Object)Integer.valueOf(var4));
+         var9.a((String)"SPECTRAL_ARROW", (Object)Integer.valueOf(var5));
          throw new class_e(var8);
       }
    }
@@ -164,8 +164,8 @@ public class class_afd {
          class_b var13 = class_b.a(var15, "Invalid Biome id");
          class_c var14 = var13.a("Layer");
          var14.a((String)"Layer", (Object)this.b.toString());
-         var14.a((String)"x", (Object)Integer.valueOf(var1));
-         var14.a((String)"z", (Object)Integer.valueOf(var2));
+         var14.a((String)"DIAMOND_SHOVEL", (Object)Integer.valueOf(var1));
+         var14.a((String)"DIAMOND_AXE", (Object)Integer.valueOf(var2));
          var14.a((String)"radius", (Object)Integer.valueOf(var3));
          var14.a((String)"allowed", (Object)var4);
          throw new class_e(var13);

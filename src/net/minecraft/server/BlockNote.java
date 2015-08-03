@@ -6,7 +6,7 @@ import com.google.common.collect.Lists;
 
 public class BlockNote extends BlockContainer {
 
-	private static final ArrayList<String> note = Lists.newArrayList((new String[] { "harp", "bd", "snare", "hat", "bassattack" }));
+	private static final ArrayList<String> note = Lists.newArrayList((new String[] { "harp", "REPEATER", "snare", "hat", "bassattack" }));
 
 	public BlockNote() {
 		super(Material.WOOD);

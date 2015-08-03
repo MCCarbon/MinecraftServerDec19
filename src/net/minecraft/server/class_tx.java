@@ -2,28 +2,6 @@ package net.minecraft.server;
 
 import com.google.common.collect.Sets;
 import java.util.Set;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_po;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_re;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rl;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_se;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sr;
-import net.minecraft.server.class_tw;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
 
 public class class_tx extends class_tw {
    private static final Set bA;
@@ -77,7 +55,7 @@ public class class_tx extends class_tw {
       this.bs += this.bx * 2.0F;
       if(!this.o.isClientSide && !this.j_() && !this.cA() && --this.by <= 0) {
          this.a("mob.chicken.plop", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-         this.a(Items.aR, 1);
+         this.a(Items.EGG, 1);
          this.by = this.random.nextInt(6000) + 6000;
       }
 
@@ -103,20 +81,20 @@ public class class_tx extends class_tw {
    }
 
    protected Item D() {
-      return Items.I;
+      return Items.FEATHER;
    }
 
    protected void b(boolean var1, int var2) {
       int var3 = this.random.nextInt(3) + this.random.nextInt(1 + var2);
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.I, 1);
+         this.a(Items.FEATHER, 1);
       }
 
       if(this.av()) {
-         this.a(Items.bn, 1);
+         this.a(Items.COOKED_CHICKEN, 1);
       } else {
-         this.a(Items.bm, 1);
+         this.a(Items.CHICKEN, 1);
       }
 
    }
@@ -179,6 +157,6 @@ public class class_tx extends class_tw {
    }
 
    static {
-      bA = Sets.newHashSet((Object[])(new Item[]{Items.P, Items.bj, Items.bi, Items.cK}));
+      bA = Sets.newHashSet((Object[])(new Item[]{Items.WHEAT_SEEDS, Items.MELON_SEEDS, Items.PUMPKIN_SEEDS, Items.BEETROOT_SEEDS}));
    }
 }

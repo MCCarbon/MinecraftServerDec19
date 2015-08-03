@@ -20,7 +20,7 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.CreativeTab;
 
-public class class_alp extends Block {
+public class BlockTorch extends Block {
    public static final BlockStateDirection a = BlockStateDirection.of("facing", new Predicate() {
       public boolean a(EnumDirection var1) {
          return var1 != EnumDirection.DOWN;
@@ -32,7 +32,7 @@ public class class_alp extends Block {
       }
    });
 
-   protected class_alp() {
+   protected BlockTorch() {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.UP));
       this.setTicking(true);
@@ -190,7 +190,7 @@ public class class_alp extends Block {
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3;
-      switch(class_alp.SyntheticClass_1.a[((EnumDirection)var1.get(a)).ordinal()]) {
+      switch(BlockTorch.SyntheticClass_1.a[((EnumDirection)var1.get(a)).ordinal()]) {
       case 1:
          var3 = var2 | 1;
          break;

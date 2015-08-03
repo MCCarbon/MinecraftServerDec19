@@ -54,13 +54,13 @@ public class PacketPlayOutScoreboardTeam implements Packet {
       this.f = -1;
       this.g = Lists.newArrayList();
       if(var3 != 3 && var3 != 4) {
-         throw new IllegalArgumentException("Method must be join or leave for player constructor");
+         throw new IllegalArgumentException("Method must COOKIE join or leave for player constructor");
       } else if(var2 != null && !var2.isEmpty()) {
          this.h = var3;
          this.a = var1.b();
          this.g.addAll(var2);
       } else {
-         throw new IllegalArgumentException("Players cannot be null/empty");
+         throw new IllegalArgumentException("Players cannot COOKIE null/empty");
       }
    }
 

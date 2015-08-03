@@ -67,14 +67,14 @@ public class class_v extends class_i {
                               if(var19 != null && var20 != null) {
                                  NBTTagCompound var21 = new NBTTagCompound();
                                  var19.write(var21);
-                                 var21.remove("x");
-                                 var21.remove("y");
-                                 var21.remove("z");
+                                 var21.remove("DIAMOND_SHOVEL");
+                                 var21.remove("DIAMOND_PICKAXE");
+                                 var21.remove("DIAMOND_AXE");
                                  NBTTagCompound var22 = new NBTTagCompound();
                                  var20.write(var22);
-                                 var22.remove("x");
-                                 var22.remove("y");
-                                 var22.remove("z");
+                                 var22.remove("DIAMOND_SHOVEL");
+                                 var22.remove("DIAMOND_PICKAXE");
+                                 var22.remove("DIAMOND_AXE");
                                  if(!var21.equals(var22)) {
                                     var17 = true;
                                  }

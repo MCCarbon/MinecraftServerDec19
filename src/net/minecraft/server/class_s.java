@@ -52,9 +52,9 @@ public class class_s extends class_i {
                }
 
                var6.copyFrom(var8);
-               var6.put("x", var3.getX());
-               var6.put("y", var3.getY());
-               var6.put("z", var3.getZ());
+               var6.put("DIAMOND_SHOVEL", var3.getX());
+               var6.put("DIAMOND_PICKAXE", var3.getY());
+               var6.put("DIAMOND_AXE", var3.getZ());
                if(var6.equals(var7)) {
                   throw new class_bz("commands.blockdata.failed", new Object[]{var6.toString()});
                } else {

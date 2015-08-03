@@ -1,32 +1,17 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_ano;
-import net.minecraft.server.class_anp;
-import net.minecraft.server.class_anq;
-import net.minecraft.server.class_ant;
-import net.minecraft.server.class_apc;
-import net.minecraft.server.class_apd;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.CreativeTab;
 
-public class class_agx extends Block {
+public class BlockClay extends Block {
    private class_anp a;
 
-   public class_agx() {
+   public BlockClay() {
       super(Material.CLAY);
       this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.aK;
+      return Items.CLAY_BALL;
    }
 
    public int getDropCount(Random var1) {
