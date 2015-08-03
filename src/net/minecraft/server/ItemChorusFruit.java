@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class ItemChorusFruit extends ItemBeetroot {
+public class ItemChorusFruit extends ItemFood {
    public ItemChorusFruit(int var1, float var2) {
       super(var1, var2, false);
    }

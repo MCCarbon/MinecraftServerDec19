@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class class_abj extends ItemBeetroot {
+public class class_abj extends ItemFood {
    private Block b;
    private Block c;
 

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-public class ItemBeetrootSoup extends ItemBeetroot {
-   public ItemBeetrootSoup(int var1) {
+public class ItemSoup extends ItemFood {
+   public ItemSoup(int var1) {
       super(var1, false);
       this.d(1);
    }

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Map;
 
-public class class_aak extends ItemBeetroot {
+public class class_aak extends ItemFood {
    private final boolean b;
 
    public class_aak(boolean var1) {
