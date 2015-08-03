@@ -9,28 +9,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityStructure;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asu;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagDouble;
-import net.minecraft.server.NBTTagInt;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pt;
-import net.minecraft.server.class_vc;
-import net.minecraft.server.EntityHuman;
 
 public class class_asv {
    private final List a = Lists.newArrayList();
@@ -275,7 +253,7 @@ public class class_asv {
 
          Entity var14;
          try {
-            var14 = class_pt.a(var9, var1);
+            var14 = EntityTypes.a(var9, var1);
          } catch (Exception var16) {
             var14 = null;
          }

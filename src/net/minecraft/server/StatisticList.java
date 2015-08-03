@@ -73,7 +73,7 @@ public class StatisticList {
       e();
       b();
       class_mt.a();
-      class_pt.a();
+      EntityTypes.a();
    }
 
    private static void b() {
@@ -201,13 +201,13 @@ public class StatisticList {
       }
    }
 
-   public static class_my a(class_pt.class_a_in_class_pt var0) {
-      String var1 = class_pt.b(var0.a);
+   public static class_my a(EntityTypes.class_a_in_class_pt var0) {
+      String var1 = EntityTypes.b(var0.a);
       return var1 == null?null:(new class_my("stat.killEntity." + var1, new ChatMessage("stat.entityKill", new Object[]{new ChatMessage("entity." + var1 + ".name", new Object[0])}))).h();
    }
 
-   public static class_my b(class_pt.class_a_in_class_pt var0) {
-      String var1 = class_pt.b(var0.a);
+   public static class_my b(EntityTypes.class_a_in_class_pt var0) {
+      String var1 = EntityTypes.b(var0.a);
       return var1 == null?null:(new class_my("stat.entityKilledBy." + var1, new ChatMessage("stat.entityKilledBy", new Object[]{new ChatMessage("entity." + var1 + ".name", new Object[0])}))).h();
    }
 

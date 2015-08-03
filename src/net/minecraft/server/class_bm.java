@@ -1,23 +1,6 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_ec;
-import net.minecraft.server.class_ed;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_i;
-import net.minecraft.server.class_m;
-import net.minecraft.server.class_on;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pt;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_vi;
 
 public class class_bm extends class_i {
    public String c() {
@@ -73,7 +56,7 @@ public class class_bm extends class_i {
 
             Entity var21;
             try {
-               var21 = class_pt.a(var13, var12);
+               var21 = EntityTypes.a(var13, var12);
             } catch (RuntimeException var19) {
                throw new class_bz("commands.summon.failed", new Object[0]);
             }
@@ -92,7 +75,7 @@ public class class_bm extends class_i {
                   Entity var16 = var21;
 
                   for(NBTTagCompound var17 = var13; var16 != null && var17.hasOfType("Riding", 10); var17 = var17.getCompound("Riding")) {
-                     Entity var18 = class_pt.a(var17.getCompound("Riding"), var12);
+                     Entity var18 = EntityTypes.a(var17.getCompound("Riding"), var12);
                      if(var18 != null) {
                         var18.b(var6, var8, var10, var18.y, var18.z);
                         var12.addEntity(var18);
@@ -110,6 +93,6 @@ public class class_bm extends class_i {
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, class_pt.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
+      return var2.length == 1?a(var2, EntityTypes.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 }

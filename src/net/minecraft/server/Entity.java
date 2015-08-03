@@ -7,54 +7,6 @@ import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.Callable;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.class_ads;
-import net.minecraft.server.Explosion;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahz;
-import net.minecraft.server.class_aia;
-import net.minecraft.server.BlockFluids;
-import net.minecraft.server.class_alv;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_anp;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_b;
-import net.minecraft.server.class_c;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagDouble;
-import net.minecraft.server.NBTTagFloat;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.class_e;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_ew;
-import net.minecraft.server.ChatComponentText;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pt;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_vi;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.EntityHuman;
 
 public abstract class Entity implements class_m {
    private static final AxisAlignedBB a = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
@@ -1136,7 +1088,7 @@ public abstract class Entity implements class_m {
    }
 
    protected final String ag() {
-      return class_pt.b(this);
+      return EntityTypes.b(this);
    }
 
    protected abstract void read(NBTTagCompound var1);
@@ -1507,7 +1459,7 @@ public abstract class Entity implements class_m {
       if(this.hasCustomName()) {
          return this.aO();
       } else {
-         String var1 = class_pt.b(this);
+         String var1 = EntityTypes.b(this);
          if(var1 == null) {
             var1 = "generic";
          }
@@ -1582,7 +1534,7 @@ public abstract class Entity implements class_m {
          this.o.B.a("reposition");
          var2.getPlayerList().a(this, var3, var4, var5);
          this.o.B.c("reloading");
-         Entity var6 = class_pt.a((String)class_pt.b(this), (World)var5);
+         Entity var6 = EntityTypes.a((String) EntityTypes.b(this), (World) var5);
          if(var6 != null) {
             var6.n(this);
             if(var3 == 1 && var1 == 1) {
@@ -1628,7 +1580,7 @@ public abstract class Entity implements class_m {
    public void a(class_c var1) {
       var1.a("Entity Type", new Callable() {
          public String a() throws Exception {
-            return class_pt.b(Entity.this) + " (" + Entity.this.getClass().getCanonicalName() + ")";
+            return EntityTypes.b(Entity.this) + " (" + Entity.this.getClass().getCanonicalName() + ")";
          }
 
          // $FF: synthetic method
@@ -1720,7 +1672,7 @@ public abstract class Entity implements class_m {
 
    protected class_ew aS() {
       NBTTagCompound var1 = new NBTTagCompound();
-      String var2 = class_pt.b(this);
+      String var2 = EntityTypes.b(this);
       var1.put("id", this.aM().toString());
       if(var2 != null) {
          var1.put("type", var2);

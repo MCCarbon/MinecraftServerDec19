@@ -1168,7 +1168,7 @@ public abstract class EntityHuman extends EntityLiving {
 			this.b(class_mt.s);
 		}
 
-		class_pt.class_a_in_class_pt var2 = (class_pt.class_a_in_class_pt) class_pt.a.get(Integer.valueOf(class_pt.a(var1)));
+		EntityTypes.class_a_in_class_pt var2 = (EntityTypes.class_a_in_class_pt) EntityTypes.a.get(Integer.valueOf(EntityTypes.a(var1)));
 		if (var2 != null) {
 			this.b(var2.d);
 		}

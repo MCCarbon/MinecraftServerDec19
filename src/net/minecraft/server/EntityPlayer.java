@@ -313,7 +313,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 		EntityLiving var7 = this.bu();
 		if (var7 != null) {
-			class_pt.class_a_in_class_pt var8 = (class_pt.class_a_in_class_pt) class_pt.a.get(Integer.valueOf(class_pt.a(var7)));
+			EntityTypes.class_a_in_class_pt var8 = (EntityTypes.class_a_in_class_pt) EntityTypes.a.get(Integer.valueOf(EntityTypes.a(var7)));
 			if (var8 != null) {
 				this.b((class_my) var8.e);
 			}

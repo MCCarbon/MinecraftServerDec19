@@ -8,7 +8,7 @@ public class class_abt extends Item {
 
    public String getLocalizedName(ItemStack var1) {
       String var2 = ("" + LocaleI18n.get(this.registerItemKey() + ".name")).trim();
-      String var3 = class_pt.b(var1.i());
+      String var3 = EntityTypes.b(var1.i());
       if(var3 != null) {
          var2 = var2 + " " + LocaleI18n.get("entity." + var3 + ".name");
       }
@@ -27,7 +27,7 @@ public class class_abt extends Item {
             TileEntity var11 = var3.getTileEntity(var4);
             if(var11 instanceof TileEntityMobSpawner) {
                class_aee var12 = ((TileEntityMobSpawner)var11).b();
-               var12.a(class_pt.b(var1.i()));
+               var12.a(EntityTypes.b(var1.i()));
                var11.update();
                var3.notify(var4);
                if(!var2.abilities.instabuild) {
@@ -100,13 +100,13 @@ public class class_abt extends Item {
    }
 
    public static Entity a(World var0, int var1, double var2, double var4, double var6) {
-      if(!class_pt.a.containsKey(Integer.valueOf(var1))) {
+      if(!EntityTypes.a.containsKey(Integer.valueOf(var1))) {
          return null;
       } else {
          Entity var8 = null;
 
          for(int var9 = 0; var9 < 1; ++var9) {
-            var8 = class_pt.a(var1, var0);
+            var8 = EntityTypes.a(var1, var0);
             if(var8 instanceof EntityLiving) {
                class_qb var10 = (class_qb)var8;
                var8.b(var2, var4, var6, MathHelper.clampAngle(var0.random.nextFloat() * 360.0F), 0.0F);

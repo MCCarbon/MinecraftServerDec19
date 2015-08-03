@@ -17,27 +17,6 @@ import java.util.Set;
 import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.EnumChatFormat;
-import net.minecraft.server.World;
-import net.minecraft.server.WorldSettings;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.class_awj;
-import net.minecraft.server.class_awl;
-import net.minecraft.server.class_awn;
-import net.minecraft.server.class_awp;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.class_i;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pt;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
 
 public class class_o {
 	private static final Pattern a = Pattern.compile("^@([pare])(?:\\[([\\w=,!-]*)\\])?$");
@@ -121,7 +100,7 @@ public class class_o {
 	private static boolean b(class_m var0, Map var1) {
 		String var2 = b(var1, "type");
 		var2 = var2 != null && var2.startsWith("!") ? var2.substring(1) : var2;
-		if (var2 != null && !class_pt.b(var2)) {
+		if (var2 != null && !EntityTypes.b(var2)) {
 			ChatMessage var3 = new ChatMessage("commands.generic.entity.invalidType", new Object[] { var2 });
 			var3.b().a(EnumChatFormat.RED);
 			var0.a(var3);
@@ -157,7 +136,7 @@ public class class_o {
 		} else {
 			var2.add(new Predicate() {
 				public boolean a(Entity var1) {
-					return class_pt.a(var1, cvar3) != var4;
+					return EntityTypes.a(var1, cvar3) != var4;
 				}
 
 				// $FF: synthetic method

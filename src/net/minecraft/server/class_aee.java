@@ -3,22 +3,6 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_nz;
-import net.minecraft.server.class_oc;
-import net.minecraft.server.class_on;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pt;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_vn;
 
 public abstract class class_aee {
    private int a = 20;
@@ -93,7 +77,7 @@ public abstract class class_aee {
                   break;
                }
 
-               Entity var4 = class_pt.a(this.f(), this.a());
+               Entity var4 = EntityTypes.a(this.f(), this.a());
                if(var4 == null) {
                   return;
                }
@@ -146,7 +130,7 @@ public abstract class class_aee {
          NBTTagCompound var12;
          for(Entity var11 = var1; var3.hasOfType("Riding", 10); var3 = var12) {
             var12 = var3.getCompound("Riding");
-            Entity var13 = class_pt.a(var12.getString("id"), var1.o);
+            Entity var13 = EntityTypes.a(var12.getString("id"), var1.o);
             if(var13 != null) {
                NBTTagCompound var7 = new NBTTagCompound();
                var13.d(var7);

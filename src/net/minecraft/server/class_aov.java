@@ -11,27 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import net.minecraft.server.class_aeh;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aeo;
-import net.minecraft.server.class_aex;
-import net.minecraft.server.Block;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.class_aoi;
-import net.minecraft.server.Chunk;
-import net.minecraft.server.ChunkSection;
-import net.minecraft.server.class_aop;
-import net.minecraft.server.class_aou;
-import net.minecraft.server.class_awb;
-import net.minecraft.server.class_awc;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTCompressedStreamTools;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pt;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -328,14 +308,14 @@ public class class_aov implements class_aop, class_awc {
       if(var23 != null) {
          for(int var24 = 0; var24 < var23.getSize(); ++var24) {
             NBTTagCompound var26 = var23.getCompound(var24);
-            Entity var28 = class_pt.a(var26, var1);
+            Entity var28 = EntityTypes.a(var26, var1);
             var5.g(true);
             if(var28 != null) {
                var5.a(var28);
                Entity var32 = var28;
 
                for(NBTTagCompound var34 = var26; var34.hasOfType("Riding", 10); var34 = var34.getCompound("Riding")) {
-                  Entity var37 = class_pt.a(var34.getCompound("Riding"), var1);
+                  Entity var37 = EntityTypes.a(var34.getCompound("Riding"), var1);
                   if(var37 != null) {
                      var5.a(var37);
                      var32.a(var37);

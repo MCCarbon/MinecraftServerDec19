@@ -3,14 +3,6 @@ package net.minecraft.server;
 import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.PacketDataSerializer;
-import net.minecraft.server.PacketListener;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pt;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
 
 public class PacketPlayOutSpawnEntityLiving implements Packet {
    private int a;
@@ -34,7 +26,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
    public PacketPlayOutSpawnEntityLiving(EntityLiving var1) {
       this.a = var1.getId();
       this.b = var1.aM();
-      this.c = (byte)class_pt.a(var1);
+      this.c = (byte) EntityTypes.a(var1);
       this.d = MathHelper.floor(var1.s * 32.0D);
       this.e = MathHelper.floor(var1.t * 32.0D);
       this.f = MathHelper.floor(var1.u * 32.0D);

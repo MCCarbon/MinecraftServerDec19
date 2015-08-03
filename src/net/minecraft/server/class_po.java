@@ -17,7 +17,7 @@ public abstract class class_po extends class_qh {
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.SPAWN_EGG) {
          if(!this.o.isClientSide) {
-            Class var4 = class_pt.a(var3.i());
+            Class var4 = EntityTypes.a(var3.i());
             if(var4 != null && this.getClass() == var4) {
                class_po var5 = this.a(this);
                if(var5 != null) {
