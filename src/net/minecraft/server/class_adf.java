@@ -1,5 +1,16 @@
 package net.minecraft.server;
 
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.class_adi;
+import net.minecraft.server.class_adj;
+import net.minecraft.server.class_pl;
+import net.minecraft.server.class_pm;
+import net.minecraft.server.Entity;
+import net.minecraft.server.class_pw;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_qf;
+import net.minecraft.server.class_zd;
+
 public class class_adf extends class_adi {
    private static final String[] e = new String[]{"all", "undead", "arthropods"};
    private static final int[] f = new int[]{1, 5, 5};
@@ -37,7 +48,7 @@ public class class_adf extends class_adi {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.getItem() instanceof ItemAxe ?true:super.a(var1);
+      return var1.getItem() instanceof class_zd?true:super.a(var1);
    }
 
    public void a(EntityLiving var1, Entity var2, int var3) {

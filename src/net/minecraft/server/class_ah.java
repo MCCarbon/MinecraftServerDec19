@@ -49,7 +49,7 @@ public class class_ah extends class_i {
    }
 
    protected WorldSettings.EnumGameMode h(class_m var1, String var2) throws class_cb {
-      return !var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SURVIVAL.getName()) && !var2.equalsIgnoreCase("STONE_SWORD")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.CREATIVE.getName()) && !var2.equalsIgnoreCase("IRON")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.ADVENTURE.getName()) && !var2.equalsIgnoreCase("WOOD")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SPECTATOR.getName()) && !var2.equalsIgnoreCase("sp")?WorldSettings.a(a(var2, 0, WorldSettings.EnumGameMode.values().length - 2)):WorldSettings.EnumGameMode.SPECTATOR):WorldSettings.EnumGameMode.ADVENTURE):WorldSettings.EnumGameMode.CREATIVE):WorldSettings.EnumGameMode.SURVIVAL;
+      return !var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SURVIVAL.getName()) && !var2.equalsIgnoreCase("s")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.CREATIVE.getName()) && !var2.equalsIgnoreCase("c")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.ADVENTURE.getName()) && !var2.equalsIgnoreCase("a")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SPECTATOR.getName()) && !var2.equalsIgnoreCase("sp")?WorldSettings.a(a(var2, 0, WorldSettings.EnumGameMode.values().length - 2)):WorldSettings.EnumGameMode.SPECTATOR):WorldSettings.EnumGameMode.ADVENTURE):WorldSettings.EnumGameMode.CREATIVE):WorldSettings.EnumGameMode.SURVIVAL;
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {

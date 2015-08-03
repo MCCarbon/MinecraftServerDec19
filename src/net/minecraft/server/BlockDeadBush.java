@@ -32,12 +32,12 @@ public class BlockDeadBush extends BlockPlant {
 
 	@Override
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return Items.STICK;
+		return Items.A;
 	}
 
 	@Override
 	public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
-		if (!var1.isClientSide && (var6 != null) && (var6.getItem() == Items.SHEARS)) {
+		if (!var1.isClientSide && (var6 != null) && (var6.getItem() == Items.bg)) {
 			var2.b(StatisticList.ab[Block.getId(this)]);
 			dropItem(var1, var3, new ItemStack(Blocks.DEADBUSH, 1, 0));
 		} else {

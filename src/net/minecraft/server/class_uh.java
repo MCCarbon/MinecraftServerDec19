@@ -1,5 +1,29 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_qb;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_sh;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sj;
+import net.minecraft.server.class_sz;
+import net.minecraft.server.class_tf;
+import net.minecraft.server.class_ua;
+import net.minecraft.server.class_wd;
+import net.minecraft.server.class_wk;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.class_xm;
+
 public class class_uh extends class_ua implements class_wk {
    public class_uh(World var1) {
       super(var1);
@@ -46,14 +70,14 @@ public class class_uh extends class_ua implements class_wk {
    }
 
    protected Item D() {
-      return Items.SNOWBALL;
+      return Items.aF;
    }
 
    protected void b(boolean var1, int var2) {
       int var3 = this.random.nextInt(16);
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.SNOWBALL, 1);
+         this.a(Items.aF, 1);
       }
 
    }

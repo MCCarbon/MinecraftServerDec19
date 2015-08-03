@@ -7,6 +7,42 @@ import java.util.List;
 import java.util.Random;
 import java.util.Set;
 import java.util.UUID;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.EntityPlayer;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.class_pd;
+import net.minecraft.server.class_pe;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.class_qk;
+import net.minecraft.server.class_ql;
+import net.minecraft.server.class_qm;
+import net.minecraft.server.class_rj;
+import net.minecraft.server.class_rm;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_ru;
+import net.minecraft.server.class_sh;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sw;
+import net.minecraft.server.class_sz;
+import net.minecraft.server.class_wc;
+import net.minecraft.server.class_wi;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
 
 public class class_wb extends class_wi {
    private static final UUID a = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
@@ -218,7 +254,7 @@ public class class_wb extends class_wi {
    }
 
    protected Item D() {
-      return Items.ENDER_PEARL;
+      return Items.bw;
    }
 
    protected void b(boolean var1, int var2) {

@@ -159,9 +159,9 @@ public class class_u extends class_i {
                         var33 = (class_u.class_a_in_class_u)var32.next();
                         var34 = var12.getTileEntity(var33.a);
                         if(var33.c != null && var34 != null) {
-                           var33.c.put("DIAMOND_SHOVEL", var33.a.getX());
-                           var33.c.put("DIAMOND_PICKAXE", var33.a.getY());
-                           var33.c.put("DIAMOND_AXE", var33.a.getZ());
+                           var33.c.put("x", var33.a.getX());
+                           var33.c.put("y", var33.a.getY());
+                           var33.c.put("z", var33.a.getZ());
                            var34.read(var33.c);
                            var34.update();
                         }

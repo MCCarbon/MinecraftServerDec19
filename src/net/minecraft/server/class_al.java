@@ -26,7 +26,7 @@ public class class_al extends class_i {
    public void a(class_m var1, String[] var2) throws class_bz {
       if(var2.length > 0 && var2[0].length() > 1) {
          EntityPlayer var3 = MinecraftServer.N().getPlayerList().a(var2[0]);
-         String var4 = "Kicked by PORKCHOP operator.";
+         String var4 = "Kicked by an operator.";
          boolean var5 = false;
          if(var3 == null) {
             throw new class_cd();

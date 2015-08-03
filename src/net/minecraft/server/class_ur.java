@@ -185,7 +185,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 		}
 
 		if (!var2 && !var3) {
-			bH.debug("Couldn\'STONE_SHOVEL transition dragon into phase " + var1 + " from " + this.n());
+			bH.debug("Couldn\'t transition dragon into phase " + var1 + " from " + this.n());
 			return false;
 		} else {
 			bH.debug("Dragon phase is now " + var1 + " (from " + this.n() + ")");

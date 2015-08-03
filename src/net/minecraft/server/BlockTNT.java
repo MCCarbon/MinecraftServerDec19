@@ -1,9 +1,29 @@
 package net.minecraft.server;
 
-public class BlockTNT extends Block {
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.Explosion;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateBoolean;
+import net.minecraft.server.IBlockState;
+import net.minecraft.server.Material;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityTNTPrimed;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.class_xd;
+import net.minecraft.server.CreativeTab;
+
+public class class_alo extends Block {
    public static final BlockStateBoolean a = BlockStateBoolean.of("explode");
 
-   public BlockTNT() {
+   public class_alo() {
       super(Material.TNT);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
       this.setCreativeTab(CreativeTab.REDSTONE);
@@ -50,10 +70,10 @@ public class BlockTNT extends Block {
    }
 
    public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(var6 != null && (var6.getItem() == Items.FLINT_AND_STEEL || var6.getItem() == Items.FIRE_CHARGE)) {
+      if(var6 != null && (var6.getItem() == Items.d || var6.getItem() == Items.bO)) {
          this.a(var1, var2, var3.set(a, Boolean.valueOf(true)), (EntityLiving)var4);
          var1.setAir(var2);
-         if(var6.getItem() == Items.FLINT_AND_STEEL) {
+         if(var6.getItem() == Items.d) {
             var6.a(1, (EntityLiving)var4);
          } else if(!var4.abilities.instabuild) {
             --var6.count;

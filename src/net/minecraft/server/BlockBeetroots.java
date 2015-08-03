@@ -18,12 +18,12 @@ public class BlockBeetroots extends BlockCrops {
 
 	@Override
 	protected Item getSeedItem() {
-		return Items.BEETROOT_SEEDS;
+		return Items.cK;
 	}
 
 	@Override
 	protected Item getPlantItem() {
-		return Items.BEETROOT;
+		return Items.cL;
 	}
 
 	@Override

@@ -85,7 +85,7 @@ public class BlockJukeBox extends BlockContainer {
 		if (var3 instanceof BlockJukeBox.TileEntityRecordPlayer) {
 			ItemStack var4 = ((BlockJukeBox.TileEntityRecordPlayer) var3).a();
 			if (var4 != null) {
-				return (Item.getId(var4.getItem()) + 1) - Item.getId(Items.RECORD_13);
+				return (Item.getId(var4.getItem()) + 1) - Item.getId(Items.ct);
 			}
 		}
 

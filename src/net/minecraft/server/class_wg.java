@@ -3,6 +3,47 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
+import net.minecraft.server.class_aak;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.Packet;
+import net.minecraft.server.PacketPlayOutGameStateChange;
+import net.minecraft.server.EntityPlayer;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.class_oc;
+import net.minecraft.server.class_om;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.class_pk;
+import net.minecraft.server.class_pl;
+import net.minecraft.server.class_pm;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.class_qk;
+import net.minecraft.server.class_qy;
+import net.minecraft.server.class_qz;
+import net.minecraft.server.class_rm;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_ry;
+import net.minecraft.server.class_sh;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sz;
+import net.minecraft.server.class_tg;
+import net.minecraft.server.class_ti;
+import net.minecraft.server.class_ui;
+import net.minecraft.server.class_ve;
+import net.minecraft.server.class_vf;
+import net.minecraft.server.class_wi;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
 
 public class class_wg extends class_wi {
    private static final int a = Datawathcer.claimId(class_wg.class);
@@ -309,13 +350,13 @@ public class class_wg extends class_wi {
    protected void b(boolean var1, int var2) {
       int var3 = this.random.nextInt(3) + this.random.nextInt(var2 + 1);
       if(var3 > 0) {
-         this.a(new ItemStack(Items.PRISMARINE_SHARD, var3, 0), 1.0F);
+         this.a(new ItemStack(Items.cF, var3, 0), 1.0F);
       }
 
       if(this.random.nextInt(3 + var2) > 1) {
-         this.a(new ItemStack(Items.FISH, 1, class_aak.class_a_in_class_aak.a.a()), 1.0F);
+         this.a(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 1.0F);
       } else if(this.random.nextInt(3 + var2) > 1) {
-         this.a(new ItemStack(Items.PRISMARINE_CRYSTALS), 1.0F);
+         this.a(new ItemStack(Items.cG), 1.0F);
       }
 
       if(var1 && this.cC()) {

@@ -2,14 +2,24 @@ package net.minecraft.server;
 
 import com.google.common.collect.Multimap;
 import java.util.Set;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.class_pw;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_qm;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.CreativeTab;
 
 public class class_zv extends Item {
    private Set c;
    protected float a = 4.0F;
    private float d;
-   protected EnumToolMaterial b;
+   protected Item.class_a_in_class_aar b;
 
-   protected class_zv(float var1, EnumToolMaterial var2, Set var3) {
+   protected class_zv(float var1, Item.class_a_in_class_aar var2, Set var3) {
       this.b = var2;
       this.c = var3;
       this.h = 1;
@@ -36,7 +46,7 @@ public class class_zv extends Item {
       return true;
    }
 
-   public EnumToolMaterial g() {
+   public Item.class_a_in_class_aar g() {
       return this.b;
    }
 

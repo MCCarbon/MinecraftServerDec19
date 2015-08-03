@@ -1,5 +1,18 @@
 package net.minecraft.server;
 
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.Entity;
+import net.minecraft.server.class_pt;
+import net.minecraft.server.class_qh;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.EntityHuman;
+
 public abstract class class_po extends class_qh {
    private static final int bs = Datawathcer.claimId(class_po.class);
    protected int a;
@@ -15,7 +28,7 @@ public abstract class class_po extends class_qh {
    public abstract class_po a(class_po var1);
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.SPAWN_EGG) {
+      if(var3 != null && var3.getItem() == Items.bM) {
          if(!this.o.isClientSide) {
             Class var4 = class_pt.a(var3.i());
             if(var4 != null && this.getClass() == var4) {

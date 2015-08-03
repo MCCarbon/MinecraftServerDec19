@@ -379,10 +379,10 @@ public class class_ly {
    private static void b(File var0) {
       if(var0.exists()) {
          if(!var0.isDirectory()) {
-            throw new class_ly.class_a_in_class_ly("Can\'STONE_SHOVEL create directory " + var0.getName() + " in world save directory.", null);
+            throw new class_ly.class_a_in_class_ly("Can\'t create directory " + var0.getName() + " in world save directory.", null);
          }
       } else if(!var0.mkdirs()) {
-         throw new class_ly.class_a_in_class_ly("Can\'STONE_SHOVEL create directory " + var0.getName() + " in world save directory.", null);
+         throw new class_ly.class_a_in_class_ly("Can\'t create directory " + var0.getName() + " in world save directory.", null);
       }
    }
 

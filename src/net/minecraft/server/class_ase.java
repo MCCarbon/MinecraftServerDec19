@@ -153,8 +153,8 @@ public class class_ase extends class_ask {
          while(var3.hasNext()) {
             class_aeh var4 = (class_aeh)var3.next();
             NBTTagCompound var5 = new NBTTagCompound();
-            var5.put("CHAINMAIL_CHESTPLATE", var4.a);
-            var5.put("CHAINMAIL_BOOTS", var4.b);
+            var5.put("X", var4.a);
+            var5.put("Z", var4.b);
             var2.add((NBTTag)var5);
          }
 
@@ -168,7 +168,7 @@ public class class_ase extends class_ask {
 
             for(int var3 = 0; var3 < var2.getSize(); ++var3) {
                NBTTagCompound var4 = var2.getCompound(var3);
-               this.c.add(new class_aeh(var4.getInt("CHAINMAIL_CHESTPLATE"), var4.getInt("CHAINMAIL_BOOTS")));
+               this.c.add(new class_aeh(var4.getInt("X"), var4.getInt("Z")));
             }
          }
 

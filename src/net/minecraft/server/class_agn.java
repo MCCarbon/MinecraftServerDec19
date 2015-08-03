@@ -2,6 +2,30 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.BlockContainer;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityBrewingStand;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateBoolean;
+import net.minecraft.server.IBlockState;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.LocaleI18n;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.class_ol;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
 
 public class class_agn extends BlockContainer {
    public static final BlockStateBoolean[] a = new BlockStateBoolean[]{BlockStateBoolean.of("has_bottle_0"), BlockStateBoolean.of("has_bottle_1"), BlockStateBoolean.of("has_bottle_2")};
@@ -76,7 +100,7 @@ public class class_agn extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.BREWING_STAND;
+      return Items.bI;
    }
 
    public boolean isComplexRedstone() {

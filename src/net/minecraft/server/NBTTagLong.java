@@ -31,7 +31,7 @@ public class NBTTagLong extends NBTTag.NBTTagNumber {
 	}
 
 	public String toString() {
-		return "" + this.value + "STONE_HOE";
+		return "" + this.value + "L";
 	}
 
 	public NBTTag clone() {

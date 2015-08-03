@@ -4,7 +4,19 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityChest;
+import net.minecraft.server.TileEntityMobSpawner;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.class_aql;
+import net.minecraft.server.Material;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.class_od;
+import net.minecraft.server.IInventory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -91,7 +103,7 @@ public class class_ara extends class_aql {
 
                   if(var20 == 1) {
                      var1.setTypeAndData((BlockPosition)var26, (IBlockData)Blocks.CHEST.f(var1, var26, Blocks.CHEST.getBlockData()), 2);
-                     List var27 = class_od.a(c, new class_od[]{Items.ENCHANTED_BOOK.b(var2)});
+                     List var27 = class_od.a(c, new class_od[]{Items.cg.b(var2)});
                      TileEntity var28 = var1.getTileEntity(var26);
                      if(var28 instanceof TileEntityChest) {
                         class_od.a(var2, var27, (IInventory)((TileEntityChest)var28), 8);
@@ -107,7 +119,7 @@ public class class_ara extends class_aql {
          if(var23 instanceof TileEntityMobSpawner) {
             ((TileEntityMobSpawner)var23).b().a(this.a(var2));
          } else {
-            a.error("Failed to fetch mob spawner entity SPRUCE_DOOR (" + var3.getX() + ", " + var3.getY() + ", " + var3.getZ() + ")");
+            a.error("Failed to fetch mob spawner entity at (" + var3.getX() + ", " + var3.getY() + ", " + var3.getZ() + ")");
          }
 
          return true;
@@ -121,6 +133,6 @@ public class class_ara extends class_aql {
    }
 
    static {
-      c = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.SADDLE, 0, 1, 1, 10), new class_od(Items.IRON_INGOT, 0, 1, 4, 10), new class_od(Items.BREAD, 0, 1, 1, 10), new class_od(Items.WHEAT, 0, 1, 4, 10), new class_od(Items.GUNPOWDER, 0, 1, 4, 10), new class_od(Items.STRING, 0, 1, 4, 10), new class_od(Items.BUCKET, 0, 1, 1, 10), new class_od(Items.GOLDEN_APPLE, 0, 1, 1, 1), new class_od(Items.REDSTONE, 0, 1, 4, 10), new class_od(Items.RECORD_13, 0, 1, 1, 4), new class_od(Items.RECORD_CAT, 0, 1, 1, 4), new class_od(Items.NAME_TAG, 0, 1, 1, 10), new class_od(Items.GOLDEN_HORSE_ARMOR, 0, 1, 1, 2), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 5), new class_od(Items.DIAMOND_HORSE_ARMOR, 0, 1, 1, 1)}));
+      c = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.aC, 0, 1, 1, 10), new class_od(Items.l, 0, 1, 4, 10), new class_od(Items.R, 0, 1, 1, 10), new class_od(Items.Q, 0, 1, 4, 10), new class_od(Items.J, 0, 1, 4, 10), new class_od(Items.H, 0, 1, 4, 10), new class_od(Items.ay, 0, 1, 1, 10), new class_od(Items.aq, 0, 1, 1, 1), new class_od(Items.aE, 0, 1, 4, 10), new class_od(Items.ct, 0, 1, 1, 4), new class_od(Items.cu, 0, 1, 1, 4), new class_od(Items.cr, 0, 1, 1, 10), new class_od(Items.co, 0, 1, 1, 2), new class_od(Items.cn, 0, 1, 1, 5), new class_od(Items.cp, 0, 1, 1, 1)}));
    }
 }

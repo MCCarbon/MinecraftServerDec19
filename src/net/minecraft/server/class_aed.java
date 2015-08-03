@@ -90,7 +90,7 @@ public abstract class class_aed implements class_m {
             this.b = var3.a(this, this.e);
          } catch (Throwable var7) {
             class_b var5 = class_b.a(var7, "Executing command block");
-            class_c var6 = var5.a("Command to COOKIE executed");
+            class_c var6 = var5.a("Command to be executed");
             var6.a("Command", new Callable() {
                public String a() throws Exception {
                   return class_aed.this.l();

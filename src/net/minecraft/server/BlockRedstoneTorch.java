@@ -10,14 +10,14 @@ import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockTorch;
+import net.minecraft.server.class_alp;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.CreativeTab;
 
-public class BlockRedstoneTorch extends BlockTorch {
+public class class_akm extends class_alp {
    private static Map b = Maps.newHashMap();
    private final boolean N;
 
@@ -28,13 +28,13 @@ public class BlockRedstoneTorch extends BlockTorch {
 
       List var4 = (List)b.get(var1);
       if(var3) {
-         var4.add(new BlockRedstoneTorch.class_a_in_class_akm(var2, var1.L()));
+         var4.add(new class_akm.class_a_in_class_akm(var2, var1.L()));
       }
 
       int var5 = 0;
 
       for(int var6 = 0; var6 < var4.size(); ++var6) {
-         BlockRedstoneTorch.class_a_in_class_akm var7 = (BlockRedstoneTorch.class_a_in_class_akm)var4.get(var6);
+         class_akm.class_a_in_class_akm var7 = (class_akm.class_a_in_class_akm)var4.get(var6);
          if(var7.a.equals(var2)) {
             ++var5;
             if(var5 >= 8) {
@@ -46,7 +46,7 @@ public class BlockRedstoneTorch extends BlockTorch {
       return false;
    }
 
-   protected BlockRedstoneTorch(boolean var1) {
+   protected class_akm(boolean var1) {
       this.N = var1;
       this.setTicking(true);
       this.setCreativeTab((CreativeTab)null);
@@ -98,7 +98,7 @@ public class BlockRedstoneTorch extends BlockTorch {
       boolean var5 = this.g(var1, var2, var3);
       List var6 = (List)b.get(var1);
 
-      while(var6 != null && !var6.isEmpty() && var1.L() - ((BlockRedstoneTorch.class_a_in_class_akm)var6.get(0)).b > 60L) {
+      while(var6 != null && !var6.isEmpty() && var1.L() - ((class_akm.class_a_in_class_akm)var6.get(0)).b > 60L) {
          var6.remove(0);
       }
 

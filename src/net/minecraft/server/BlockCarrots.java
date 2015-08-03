@@ -5,12 +5,12 @@ public class BlockCarrots extends BlockCrops {
 
 	@Override
 	protected Item getSeedItem() {
-		return Items.CARROT;
+		return Items.bU;
 	}
 
 	@Override
 	protected Item getPlantItem() {
-		return Items.CARROT;
+		return Items.bU;
 	}
 
 }

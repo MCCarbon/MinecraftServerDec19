@@ -22,8 +22,8 @@ import net.minecraft.server.EntityLiving;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
-public class BlockBeacon extends BlockContainer {
-   public BlockBeacon() {
+public class class_agg extends BlockContainer {
+   public class_agg() {
       super(Material.SHATTERABLE, MaterialMapColor.COLOR32);
       this.setStrength(3.0F);
       this.setCreativeTab(CreativeTab.MISC);

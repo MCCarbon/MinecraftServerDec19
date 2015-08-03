@@ -449,7 +449,7 @@ public abstract class BiomeBase {
 		Y = (new class_afs(35)).b(12431967).a("Savanna").a(1.2F, 0.0F).b().a(e);
 		Z = (new class_afs(36)).b(10984804).a("Savanna Plateau").a(1.0F, 0.0F).b().a(h);
 		aa = (new class_afl(37, false, false)).b(14238997).a("Mesa");
-		ab = (new class_afl(38, false, true)).b(11573093).a("Mesa Plateau GOLDEN_PICKAXE").a(h);
+		ab = (new class_afl(38, false, true)).b(11573093).a("Mesa Plateau F").a(h);
 		ac = (new class_afl(39, false, false)).b(13274213).a("Mesa Plateau").a(h);
 		ad = p;
 		q.k();
@@ -472,7 +472,7 @@ public abstract class BiomeBase {
 		V.k();
 		s.k();
 		X.k();
-		V.d(W.az + 128).a("Redwood Taiga Hills IRON_HOE");
+		V.d(W.az + 128).a("Redwood Taiga Hills M");
 		BiomeBase[] var0 = aE;
 		int var1 = var0.length;
 
@@ -480,7 +480,7 @@ public abstract class BiomeBase {
 			BiomeBase var3 = var0[var2];
 			if (var3 != null) {
 				if (o.containsKey(var3.ah)) {
-					throw new Error("Biome \"" + var3.ah + "\" is defined WOODEN_DOOR both ID " + ((BiomeBase) o.get(var3.ah)).az + " and " + var3.az);
+					throw new Error("Biome \"" + var3.ah + "\" is defined as both ID " + ((BiomeBase) o.get(var3.ah)).az + " and " + var3.az);
 				}
 
 				o.put(var3.ah, var3);

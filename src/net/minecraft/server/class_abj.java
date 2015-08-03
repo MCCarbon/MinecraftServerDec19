@@ -1,6 +1,16 @@
 package net.minecraft.server;
 
-public class class_abj extends ItemFood {
+import net.minecraft.server.class_aan;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.UseResult;
+import net.minecraft.server.EntityHuman;
+
+public class class_abj extends class_aan {
    private Block b;
    private Block c;
 

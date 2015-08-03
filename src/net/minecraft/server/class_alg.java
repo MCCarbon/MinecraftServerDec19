@@ -2,6 +2,27 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.IBlockAccess;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.IBlockFragilePlantElement;
+import net.minecraft.server.BlockPlant;
+import net.minecraft.server.BlockCrops;
+import net.minecraft.server.class_alp;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateDirection;
+import net.minecraft.server.BlockStateInteger;
+import net.minecraft.server.IBlockState;
+import net.minecraft.server.Material;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.CreativeTab;
 
 public class class_alg extends BlockPlant implements IBlockFragilePlantElement {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 7);
@@ -100,7 +121,7 @@ public class class_alg extends BlockPlant implements IBlockFragilePlantElement {
    }
 
    protected Item l() {
-      return this.N == Blocks.PUMPKIN?Items.PUMPKIN_SEEDS :(this.N == Blocks.MELON_BLOCK?Items.MELON_SEEDS :null);
+      return this.N == Blocks.PUMPKIN?Items.bi:(this.N == Blocks.MELON_BLOCK?Items.bj:null);
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
@@ -132,6 +153,6 @@ public class class_alg extends BlockPlant implements IBlockFragilePlantElement {
    }
 
    static {
-      b = BlockTorch.a;
+      b = class_alp.a;
    }
 }

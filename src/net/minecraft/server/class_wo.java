@@ -1,5 +1,34 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.class_aes;
+import net.minecraft.server.BiomeBase;
+import net.minecraft.server.Chunk;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.class_om;
+import net.minecraft.server.class_on;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_qb;
+import net.minecraft.server.class_qd;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.class_qk;
+import net.minecraft.server.class_qz;
+import net.minecraft.server.class_rm;
+import net.minecraft.server.class_sx;
+import net.minecraft.server.class_sy;
+import net.minecraft.server.class_tf;
+import net.minecraft.server.class_uj;
+import net.minecraft.server.class_wd;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
+
 public class class_wo extends class_qb implements class_wd {
    private static final int bq = Datawathcer.claimId(class_wo.class);
    public float a;
@@ -195,7 +224,7 @@ public class class_wo extends class_qb implements class_wd {
    }
 
    protected Item D() {
-      return this.cB() == 1?Items.SLIME_BALL :null;
+      return this.cB() == 1?Items.aO:null;
    }
 
    public boolean cf() {

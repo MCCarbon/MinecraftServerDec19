@@ -1,6 +1,17 @@
 package net.minecraft.server;
 
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.class_abf;
+import net.minecraft.server.class_adi;
+import net.minecraft.server.EnchantmentManager;
+import net.minecraft.server.class_adl;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
+import net.minecraft.server.class_od;
 
 public class class_aad extends Item {
    public boolean f_(ItemStack var1) {
@@ -57,7 +68,7 @@ public class class_aad extends Item {
    }
 
    public class_od a(Random var1, int var2, int var3, int var4) {
-      ItemStack var5 = new ItemStack(Items.BOOK);
+      ItemStack var5 = new ItemStack(Items.aN);
       EnchantmentManager.a(var1, var5, 30);
       return new class_od(var5, var2, var3, var4);
    }

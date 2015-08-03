@@ -81,7 +81,7 @@ public class BlockCrops extends BlockPlant implements IBlockFragilePlantElement 
 				IBlockData var8 = var1.getType(var4.add(var5, 0, var6));
 				if (var8.getBlock() == Blocks.FARMLAND) {
 					var7 = 1.0F;
-					if (var8.get(BlockSoil.a).intValue() > 0) {
+					if (var8.get(class_ahy.a).intValue() > 0) {
 						var7 = 3.0F;
 					}
 				}
@@ -118,11 +118,11 @@ public class BlockCrops extends BlockPlant implements IBlockFragilePlantElement 
 	}
 
 	protected Item getSeedItem() {
-		return Items.WHEAT_SEEDS;
+		return Items.P;
 	}
 
 	protected Item getPlantItem() {
-		return Items.WHEAT;
+		return Items.Q;
 	}
 
 	@Override

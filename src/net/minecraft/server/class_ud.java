@@ -2,6 +2,36 @@ package net.minecraft.server;
 
 import com.google.common.collect.Sets;
 import java.util.Set;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.class_mt;
+import net.minecraft.server.class_my;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.class_po;
+import net.minecraft.server.Entity;
+import net.minecraft.server.class_pw;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.class_qk;
+import net.minecraft.server.class_re;
+import net.minecraft.server.class_rf;
+import net.minecraft.server.class_rj;
+import net.minecraft.server.class_rl;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_se;
+import net.minecraft.server.class_sh;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sr;
+import net.minecraft.server.class_tf;
+import net.minecraft.server.class_tw;
+import net.minecraft.server.class_vi;
+import net.minecraft.server.class_wj;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
 
 public class class_ud extends class_tw {
    private static final int bs = Datawathcer.claimId(class_ud.class);
@@ -16,7 +46,7 @@ public class class_ud extends class_tw {
       this.i.a(1, new class_se(this, 1.25D));
       this.i.a(2, this.bu = new class_rf(this, 0.3F));
       this.i.a(3, new class_re(this, 1.0D));
-      this.i.a(4, new class_sr(this, 1.2D, Items.CARROT_ON_A_STICK, false));
+      this.i.a(4, new class_sr(this, 1.2D, Items.cb, false));
       this.i.a(4, new class_sr(this, 1.2D, false, bt));
       this.i.a(5, new class_rl(this, 1.1D));
       this.i.a(6, new class_si(this, 1.0D));
@@ -32,11 +62,11 @@ public class class_ud extends class_tw {
 
    public boolean ck() {
       ItemStack var1 = ((EntityHuman)this.passenger).bA();
-      if(var1 != null && var1.getItem() == Items.CARROT_ON_A_STICK) {
+      if(var1 != null && var1.getItem() == Items.cb) {
          return true;
       } else {
          var1 = ((EntityHuman)this.passenger).bB();
-         return var1 != null && var1.getItem() == Items.CARROT_ON_A_STICK;
+         return var1 != null && var1.getItem() == Items.cb;
       }
    }
 
@@ -83,7 +113,7 @@ public class class_ud extends class_tw {
    }
 
    protected Item D() {
-      return this.av()?Items.COOKED_PORKCHOP :Items.PORKCHOP;
+      return this.av()?Items.ao:Items.an;
    }
 
    protected void b(boolean var1, int var2) {
@@ -91,14 +121,14 @@ public class class_ud extends class_tw {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
-            this.a(Items.COOKED_PORKCHOP, 1);
+            this.a(Items.ao, 1);
          } else {
-            this.a(Items.PORKCHOP, 1);
+            this.a(Items.an, 1);
          }
       }
 
       if(this.cA()) {
-         this.a(Items.SADDLE, 1);
+         this.a(Items.aC, 1);
       }
 
    }
@@ -119,7 +149,7 @@ public class class_ud extends class_tw {
    public void a(class_vi var1) {
       if(!this.o.isClientSide && !this.I) {
          class_wj var2 = new class_wj(this.o);
-         var2.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.GOLDEN_SWORD)));
+         var2.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
          var2.b(this.s, this.t, this.u, this.y, this.z);
          var2.k(this.cs());
          if(this.hasCustomName()) {
@@ -158,6 +188,6 @@ public class class_ud extends class_tw {
    }
 
    static {
-      bt = Sets.newHashSet((Object[])(new Item[]{Items.CARROT, Items.POTATO, Items.BEETROOT}));
+      bt = Sets.newHashSet((Object[])(new Item[]{Items.bU, Items.bV, Items.cL}));
    }
 }

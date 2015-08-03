@@ -497,7 +497,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 		player.q();
 		minecraftServer.getPlayerList().e(player);
 		if (minecraftServer.isLocal() && player.getName().equals(minecraftServer.S())) {
-			logger.info("Stopping singleplayer server WOODEN_DOOR player logged out");
+			logger.info("Stopping singleplayer server as player logged out");
 			minecraftServer.w();
 		}
 
@@ -543,7 +543,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 			player.inventory.itemInHandIndex = var1.getSlot();
 			player.z();
 		} else {
-			logger.warn(player.getName() + " tried to set PORKCHOP invalid carried item");
+			logger.warn(player.getName() + " tried to set an invalid carried item");
 		}
 	}
 
@@ -655,8 +655,8 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					var3.a(player, var1.getInteractAt(), var8, var7);
 				} else if (var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.ATTACK) {
 					if ((var3 instanceof EntityItem) || (var3 instanceof EntityExperienceOrb) || (var3 instanceof class_xd) || (var3 == player)) {
-						c("Attempting to attack PORKCHOP invalid entity");
-						minecraftServer.f("Player " + player.getName() + " tried to attack PORKCHOP invalid entity");
+						c("Attempting to attack an invalid entity");
+						minecraftServer.f("Player " + player.getName() + " tried to attack an invalid entity");
 						return;
 					}
 
@@ -678,12 +678,12 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					player = minecraftServer.getPlayerList().a(player, 0, true);
 				} else if (player.u().Q().t()) {
 					if (minecraftServer.isLocal() && player.getName().equals(minecraftServer.S())) {
-						player.playerConnection.c("You have died. Game over, man, it\'STONE_SWORD game over!");
+						player.playerConnection.c("You have died. Game over, man, it\'s game over!");
 						minecraftServer.aa();
 					} else {
 						class_mf var3 = new class_mf(player.cf(), (Date) null, "(You just lost the game)", (Date) null, "Death in Hardcore");
 						minecraftServer.getPlayerList().h().a(var3);
-						player.playerConnection.c("You have died. Game over, man, it\'STONE_SWORD game over!");
+						player.playerConnection.c("You have died. Game over, man, it\'s game over!");
 					}
 				} else {
 					if (player.getHealth() > 0.0F) {
@@ -765,15 +765,15 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 			ItemStack var3 = var1.getItemStack();
 			if ((var3 != null) && var3.hasTag() && var3.getTag().hasOfType("BlockEntityTag", 10)) {
 				NBTTagCompound var4 = var3.getTag().getCompound("BlockEntityTag");
-				if (var4.has("DIAMOND_SHOVEL") && var4.has("DIAMOND_PICKAXE") && var4.has("DIAMOND_AXE")) {
-					BlockPosition var5 = new BlockPosition(var4.getInt("DIAMOND_SHOVEL"), var4.getInt("DIAMOND_PICKAXE"), var4.getInt("DIAMOND_AXE"));
+				if (var4.has("x") && var4.has("y") && var4.has("z")) {
+					BlockPosition var5 = new BlockPosition(var4.getInt("x"), var4.getInt("y"), var4.getInt("z"));
 					TileEntity var6 = player.o.getTileEntity(var5);
 					if (var6 != null) {
 						NBTTagCompound var7 = new NBTTagCompound();
 						var6.write(var7);
-						var7.remove("DIAMOND_SHOVEL");
-						var7.remove("DIAMOND_PICKAXE");
-						var7.remove("DIAMOND_AXE");
+						var7.remove("x");
+						var7.remove("y");
+						var7.remove("z");
 						var3.addTag("BlockEntityTag", var7);
 					}
 				}
@@ -901,14 +901,14 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						return;
 					}
 
-					if ((var67.getItem() == Items.WRITABLE_BOOK) && (var67.getItem() == var72.getItem())) {
+					if ((var67.getItem() == Items.bP) && (var67.getItem() == var72.getItem())) {
 						var72.addTag("pages", var67.getTag().getList("pages", 8));
 					}
 
 					return;
 				}
 			} catch (Exception var57) {
-				logger.error("Couldn\'STONE_SHOVEL handle book info", var57);
+				logger.error("Couldn\'t handle book info", var57);
 				return;
 			} finally {
 				var61.release();
@@ -930,17 +930,17 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 
 				var72 = player.bA();
 				if (var72 != null) {
-					if ((var67.getItem() == Items.WRITTEN_BOOK) && (var72.getItem() == Items.WRITABLE_BOOK)) {
+					if ((var67.getItem() == Items.bQ) && (var72.getItem() == Items.bP)) {
 						var72.addTag("author", (new NBTTagString(player.getName())));
 						var72.addTag("title", (new NBTTagString(var67.getTag().getString("title"))));
 						var72.addTag("pages", var67.getTag().getList("pages", 8));
-						var72.a(Items.WRITTEN_BOOK);
+						var72.a(Items.bQ);
 					}
 
 					return;
 				}
 			} catch (Exception var59) {
-				logger.error("Couldn\'STONE_SHOVEL sign book", var59);
+				logger.error("Couldn\'t sign book", var59);
 				return;
 			} finally {
 				var61.release();
@@ -955,7 +955,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					((class_ys) var3).d(var2);
 				}
 			} catch (Exception var56) {
-				logger.error("Couldn\'STONE_SHOVEL select trade", var56);
+				logger.error("Couldn\'t select trade", var56);
 			}
 		} else if ("MC|AdvCdm".equals(var1.getTag())) {
 			if (!minecraftServer.al()) {
@@ -991,7 +991,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						player.a((new ChatMessage("advMode.setCommand.success", new Object[] { var71 })));
 					}
 				} catch (Exception var54) {
-					logger.error("Couldn\'STONE_SHOVEL set command block", var54);
+					logger.error("Couldn\'t set command block", var54);
 				} finally {
 					var61.release();
 				}
@@ -1014,7 +1014,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						var7.update();
 					}
 				} catch (Exception var53) {
-					logger.error("Couldn\'STONE_SHOVEL set beacon", var53);
+					logger.error("Couldn\'t set beacon", var53);
 				}
 			}
 		} else if ("MC|ItemName".equals(var1.getTag())) {
@@ -1071,7 +1071,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					}
 				}
 			} catch (Exception var51) {
-				logger.error("Couldn\'STONE_SHOVEL set structure block", var51);
+				logger.error("Couldn\'t set structure block", var51);
 			} finally {
 				var61.release();
 			}

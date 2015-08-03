@@ -1,6 +1,21 @@
 package net.minecraft.server;
 
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockPlant;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateInteger;
+import net.minecraft.server.IBlockState;
+import net.minecraft.server.Material;
+import net.minecraft.server.MaterialMapColor;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.CreativeTab;
 
 public class class_ajl extends BlockPlant {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 3);
@@ -43,7 +58,7 @@ public class class_ajl extends BlockPlant {
          }
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            dropItem(var1, var2, new ItemStack(Items.NETHER_WART));
+            dropItem(var1, var2, new ItemStack(Items.bA));
          }
 
       }

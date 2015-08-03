@@ -20,10 +20,10 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.Entity;
 
-public class BlockPortal extends BlockHalfTransparent {
+public class class_ajx extends BlockHalfTransparent {
    public static final BlockStateEnum a;
 
-   public BlockPortal() {
+   public class_ajx() {
       super(Material.PORTAL, false);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.EnumAxis.X));
       this.setTicking(true);
@@ -77,12 +77,12 @@ public class BlockPortal extends BlockHalfTransparent {
    }
 
    public boolean e(World var1, BlockPosition var2) {
-      BlockPortal.class_a_in_class_ajx var3 = new BlockPortal.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.X);
+      class_ajx.class_a_in_class_ajx var3 = new class_ajx.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.X);
       if(var3.d() && var3.e == 0) {
          var3.e();
          return true;
       } else {
-         BlockPortal.class_a_in_class_ajx var4 = new BlockPortal.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.Z);
+         class_ajx.class_a_in_class_ajx var4 = new class_ajx.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.Z);
          if(var4.d() && var4.e == 0) {
             var4.e();
             return true;
@@ -94,14 +94,14 @@ public class BlockPortal extends BlockHalfTransparent {
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
       EnumDirection.EnumAxis var5 = (EnumDirection.EnumAxis)var3.get(a);
-      BlockPortal.class_a_in_class_ajx var6;
+      class_ajx.class_a_in_class_ajx var6;
       if(var5 == EnumDirection.EnumAxis.X) {
-         var6 = new BlockPortal.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.X);
+         var6 = new class_ajx.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.X);
          if(!var6.d() || var6.e < var6.h * var6.g) {
             var1.setTypeUpdate(var2, Blocks.AIR.getBlockData());
          }
       } else if(var5 == EnumDirection.EnumAxis.Z) {
-         var6 = new BlockPortal.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.Z);
+         var6 = new class_ajx.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.Z);
          if(!var6.d() || var6.e < var6.h * var6.g) {
             var1.setTypeUpdate(var2, Blocks.AIR.getBlockData());
          }
@@ -132,10 +132,10 @@ public class BlockPortal extends BlockHalfTransparent {
       if(var1.getBlock() != this) {
          return var1;
       } else {
-         switch(BlockPortal.SyntheticClass_1.b[var2.ordinal()]) {
+         switch(class_ajx.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
          case 2:
-            switch(BlockPortal.SyntheticClass_1.a[((EnumDirection.EnumAxis)var1.get(a)).ordinal()]) {
+            switch(class_ajx.SyntheticClass_1.a[((EnumDirection.EnumAxis)var1.get(a)).ordinal()]) {
             case 1:
                return var1.set(a, EnumDirection.EnumAxis.Z);
             case 2:
@@ -155,11 +155,11 @@ public class BlockPortal extends BlockHalfTransparent {
 
    public class_anp.class_b_in_class_anp f(World var1, BlockPosition var2) {
       EnumDirection.EnumAxis var3 = EnumDirection.EnumAxis.Z;
-      BlockPortal.class_a_in_class_ajx var4 = new BlockPortal.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.X);
+      class_ajx.class_a_in_class_ajx var4 = new class_ajx.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.X);
       LoadingCache var5 = class_anp.a(var1, true);
       if(!var4.d()) {
          var3 = EnumDirection.EnumAxis.X;
-         var4 = new BlockPortal.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.Z);
+         var4 = new class_ajx.class_a_in_class_ajx(var1, var2, EnumDirection.EnumAxis.Z);
       }
 
       if(!var4.d()) {
@@ -363,7 +363,7 @@ public class BlockPortal extends BlockHalfTransparent {
             BlockPosition var2 = this.f.shift(this.c, var1);
 
             for(int var3 = 0; var3 < this.g; ++var3) {
-               this.a.setTypeAndData((BlockPosition)var2.up(var3), (IBlockData)Blocks.PORTAL.getBlockData().set(BlockPortal.a, this.b), 2);
+               this.a.setTypeAndData((BlockPosition)var2.up(var3), (IBlockData)Blocks.PORTAL.getBlockData().set(class_ajx.a, this.b), 2);
             }
          }
 

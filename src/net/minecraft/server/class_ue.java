@@ -1,5 +1,48 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockCarrots;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.class_auv;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.LocaleI18n;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.class_on;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.class_po;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_qd;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.class_qk;
+import net.minecraft.server.class_qx;
+import net.minecraft.server.class_qz;
+import net.minecraft.server.class_rb;
+import net.minecraft.server.class_re;
+import net.minecraft.server.class_rj;
+import net.minecraft.server.class_rm;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_ru;
+import net.minecraft.server.class_rx;
+import net.minecraft.server.class_se;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sr;
+import net.minecraft.server.class_sw;
+import net.minecraft.server.class_sz;
+import net.minecraft.server.class_tf;
+import net.minecraft.server.class_tw;
+import net.minecraft.server.class_ul;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
+
 public class class_ue extends class_tw {
    private static final int bs = Datawathcer.claimId(class_ue.class);
    private class_ue.class_c_in_class_ue bt;
@@ -24,8 +67,8 @@ public class class_ue extends class_tw {
       this.h.a(2.5F);
       this.i.a(1, new class_rj(this));
       this.i.a(1, new class_ue.class_g_in_class_ue(this, 1.33D));
-      this.i.a(2, new class_sr(this, 1.0D, Items.CARROT, false));
-      this.i.a(2, new class_sr(this, 1.0D, Items.GOLDEN_CARROT, false));
+      this.i.a(2, new class_sr(this, 1.0D, Items.bU, false));
+      this.i.a(2, new class_sr(this, 1.0D, Items.bZ, false));
       this.i.a(2, new class_sr(this, 1.0D, Item.getItemOf((Block)Blocks.YELLOW_FLOWER), false));
       this.i.a(3, new class_re(this, 0.8D));
       this.i.a(5, new class_ue.class_h_in_class_ue(this));
@@ -223,7 +266,7 @@ public class class_ue extends class_tw {
    }
 
    protected void br() {
-      this.a(new ItemStack(Items.RABBIT_FOOT, 1), 0.0F);
+      this.a(new ItemStack(Items.bt, 1), 0.0F);
    }
 
    protected void b(boolean var1, int var2) {
@@ -231,23 +274,23 @@ public class class_ue extends class_tw {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.RABBIT_HIDE, 1);
+         this.a(Items.bu, 1);
       }
 
       var3 = this.random.nextInt(2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
-            this.a(Items.COOKED_RABBIT, 1);
+            this.a(Items.br, 1);
          } else {
-            this.a(Items.RABBIT, 1);
+            this.a(Items.bq, 1);
          }
       }
 
    }
 
    private boolean a(Item var1) {
-      return var1 == Items.CARROT || var1 == Items.GOLDEN_CARROT || var1 == Item.getItemOf((Block)Blocks.YELLOW_FLOWER);
+      return var1 == Items.bU || var1 == Items.bZ || var1 == Item.getItemOf((Block)Blocks.YELLOW_FLOWER);
    }
 
    public class_ue b(class_po var1) {

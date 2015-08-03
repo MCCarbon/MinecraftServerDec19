@@ -249,7 +249,7 @@ public class class_afl extends BiomeBase {
       class_afl var3 = new class_afl(var1, var2, this.aJ);
       if(!var2) {
          var3.a(g);
-         var3.a(this.ah + " IRON_HOE");
+         var3.a(this.ah + " M");
       } else {
          var3.a(this.ah + " (Bryce)");
       }

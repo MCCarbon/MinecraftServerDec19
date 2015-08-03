@@ -1,5 +1,18 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.UseResult;
+import net.minecraft.server.class_or;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_ud;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.CreativeTab;
+
 public class class_zo extends Item {
    public class_zo() {
       this.a(CreativeTab.TRANSPORTATION);
@@ -14,7 +27,7 @@ public class class_zo extends Item {
             var5.cB().g();
             var1.a(7, (EntityLiving)var3);
             if(var1.count == 0) {
-               ItemStack var6 = new ItemStack(Items.FISHING_ROD);
+               ItemStack var6 = new ItemStack(Items.aT);
                var6.setTag(var1.getTag());
                return new class_or(UseResult.SUCCESS, var6);
             }

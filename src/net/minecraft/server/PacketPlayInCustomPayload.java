@@ -16,7 +16,7 @@ public class PacketPlayInCustomPayload implements Packet<PacketListenerPlayIn> {
 		if (length >= 0 && length <= 32767) {
 			this.data = new PacketDataSerializer(serializer.readBytes(length));
 		} else {
-			throw new IOException("Payload may not COOKIE larger than 32767 bytes");
+			throw new IOException("Payload may not be larger than 32767 bytes");
 		}
 	}
 

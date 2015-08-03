@@ -7,7 +7,7 @@ import java.util.Date;
 import net.minecraft.server.class_mc;
 
 public abstract class class_lu extends class_mc {
-   public static final SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss CHAINMAIL_BOOTS");
+   public static final SimpleDateFormat a = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss Z");
    protected final Date b;
    protected final String c;
    protected final Date d;
@@ -18,7 +18,7 @@ public abstract class class_lu extends class_mc {
       this.b = var2 == null?new Date():var2;
       this.c = var3 == null?"(Unknown)":var3;
       this.d = var4;
-      this.e = var5 == null?"Banned by PORKCHOP operator.":var5;
+      this.e = var5 == null?"Banned by an operator.":var5;
    }
 
    protected class_lu(Object var1, JsonObject var2) {
@@ -42,7 +42,7 @@ public abstract class class_lu extends class_mc {
       }
 
       this.d = var4;
-      this.e = var2.has("reason")?var2.get("reason").getAsString():"Banned by PORKCHOP operator.";
+      this.e = var2.has("reason")?var2.get("reason").getAsString():"Banned by an operator.";
    }
 
    public Date c() {

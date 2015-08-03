@@ -49,7 +49,7 @@ public class MaterialMapColor {
 			this.id = color;
 			ALL[id] = this;
 		} else {
-			throw new IndexOutOfBoundsException("Map colour ID must COOKIE between 0 and 63 (inclusive)");
+			throw new IndexOutOfBoundsException("Map colour ID must be between 0 and 63 (inclusive)");
 		}
 	}
 

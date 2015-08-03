@@ -1,5 +1,19 @@
 package net.minecraft.server;
 
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.class_abe;
+import net.minecraft.server.class_ace;
+import net.minecraft.server.class_acf;
+import net.minecraft.server.class_mt;
+import net.minecraft.server.class_my;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
+import net.minecraft.server.class_ye;
+import net.minecraft.server.class_yx;
+
 public class class_yd extends Container {
    private IInventory a;
    private final class_yx f;
@@ -128,7 +142,7 @@ public class class_yd extends Container {
       }
 
       public void a(EntityHuman var1, ItemStack var2) {
-         if(ItemPotion.i(var2) != class_acf.a) {
+         if(class_abe.i(var2) != class_acf.a) {
             this.a.b((class_my)class_mt.B);
          }
 
@@ -136,7 +150,7 @@ public class class_yd extends Container {
       }
 
       public static boolean b_(ItemStack var0) {
-         return var0 != null && (var0.getItem() == Items.POTION || var0.getItem() == Items.GLASS_BOTTLE);
+         return var0 != null && (var0.getItem() == Items.bB || var0.getItem() == Items.bD);
       }
    }
 }

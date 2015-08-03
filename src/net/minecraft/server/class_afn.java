@@ -15,7 +15,7 @@ public class class_afn extends BiomeBase {
       super(var1);
       this.aE = var2;
       this.a(var2.ai, true);
-      this.ah = var2.ah + " IRON_HOE";
+      this.ah = var2.ah + " M";
       this.ak = var2.ak;
       this.al = var2.al;
       this.am = var2.am;

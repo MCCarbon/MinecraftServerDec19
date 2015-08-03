@@ -10,7 +10,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockDoor;
+import net.minecraft.server.class_ahl;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
@@ -332,7 +332,7 @@ public class class_tp {
 
    private boolean f(BlockPosition var1) {
       Block var2 = this.a.getType(var1).getBlock();
-      return var2 instanceof BlockDoor?var2.getMaterial() == Material.WOOD:false;
+      return var2 instanceof class_ahl?var2.getMaterial() == Material.WOOD:false;
    }
 
    private void n() {
@@ -382,7 +382,7 @@ public class class_tp {
 
       for(int var3 = 0; var3 < var2.getSize(); ++var3) {
          NBTTagCompound var4 = var2.getCompound(var3);
-         class_to var5 = new class_to(new BlockPosition(var4.getInt("CHAINMAIL_CHESTPLATE"), var4.getInt("CHAINMAIL_LEGGINGS"), var4.getInt("CHAINMAIL_BOOTS")), var4.getInt("IDX"), var4.getInt("IDZ"), var4.getInt("TS"));
+         class_to var5 = new class_to(new BlockPosition(var4.getInt("X"), var4.getInt("Y"), var4.getInt("Z")), var4.getInt("IDX"), var4.getInt("IDZ"), var4.getInt("TS"));
          this.b.add(var5);
       }
 
@@ -394,10 +394,10 @@ public class class_tp {
             class_lv var6 = MinecraftServer.N().aF();
             GameProfile var7 = var6.a(UUID.fromString(var10.getString("UUID")));
             if(var7 != null) {
-               this.j.put(var7.getName(), Integer.valueOf(var10.getInt("LEATHER_HELMET")));
+               this.j.put(var7.getName(), Integer.valueOf(var10.getInt("S")));
             }
          } else {
-            this.j.put(var10.getString("Name"), Integer.valueOf(var10.getInt("LEATHER_HELMET")));
+            this.j.put(var10.getString("Name"), Integer.valueOf(var10.getInt("S")));
          }
       }
 
@@ -422,9 +422,9 @@ public class class_tp {
       while(var3.hasNext()) {
          class_to var4 = (class_to)var3.next();
          NBTTagCompound var5 = new NBTTagCompound();
-         var5.put("CHAINMAIL_CHESTPLATE", var4.d().getX());
-         var5.put("CHAINMAIL_LEGGINGS", var4.d().getY());
-         var5.put("CHAINMAIL_BOOTS", var4.d().getZ());
+         var5.put("X", var4.d().getX());
+         var5.put("Y", var4.d().getY());
+         var5.put("Z", var4.d().getZ());
          var5.put("IDX", var4.f());
          var5.put("IDZ", var4.g());
          var5.put("TS", var4.h());
@@ -442,7 +442,7 @@ public class class_tp {
          GameProfile var8 = var7.a(var11);
          if(var8 != null) {
             var6.put("UUID", var8.getId().toString());
-            var6.put("LEATHER_HELMET", ((Integer)this.j.get(var11)).intValue());
+            var6.put("S", ((Integer)this.j.get(var11)).intValue());
             var9.add((NBTTag)var6);
          }
       }

@@ -92,7 +92,7 @@ public class class_x extends class_i {
       var4.append("\n\n");
       var4.append("Time span: ").append(var1).append(" ms\n");
       var4.append("Tick span: ").append(var3).append(" ticks\n");
-      var4.append("// This is approximately ").append(String.format("%.2f", new Object[]{Float.valueOf((float)var3 / ((float)var1 / 1000.0F))})).append(" ticks per second. It should COOKIE ").append(20).append(" ticks per second\n\n");
+      var4.append("// This is approximately ").append(String.format("%.2f", new Object[]{Float.valueOf((float)var3 / ((float)var1 / 1000.0F))})).append(" ticks per second. It should be ").append(20).append(" ticks per second\n\n");
       var4.append("--- BEGIN PROFILE DUMP ---\n\n");
       this.a(0, "root", var4);
       var4.append("--- END PROFILE DUMP ---\n\n");
@@ -124,7 +124,7 @@ public class class_x extends class_i {
    }
 
    private static String d() {
-      String[] var0 = new String[]{"Shiny numbers!", "Am FEATHER not running fast enough? :(", "FEATHER\'GOLD_INGOT working WOODEN_DOOR hard WOODEN_DOOR FEATHER can!", "Will FEATHER ever COOKIE good enough for you? :(", "Speedy. Zoooooom!", "Hello world", "40% better than WOOD crash report.", "Now with extra numbers", "Now with less numbers", "Now with the same numbers", "You should add flames to things, it makes them go faster!", "Do you feel the need for... optimization?", "*cracks redstone whip*", "Maybe if you treated it better then it\'ll have more motivation to work faster! Poor server."};
+      String[] var0 = new String[]{"Shiny numbers!", "Am I not running fast enough? :(", "I\'m working as hard as I can!", "Will I ever be good enough for you? :(", "Speedy. Zoooooom!", "Hello world", "40% better than a crash report.", "Now with extra numbers", "Now with less numbers", "Now with the same numbers", "You should add flames to things, it makes them go faster!", "Do you feel the need for... optimization?", "*cracks redstone whip*", "Maybe if you treated it better then it\'ll have more motivation to work faster! Poor server."};
 
       try {
          return var0[(int)(System.nanoTime() % (long)var0.length)];

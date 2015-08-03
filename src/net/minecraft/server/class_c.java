@@ -21,7 +21,7 @@ public class class_c {
    }
 
    public static String a(double var0, double var2, double var4) {
-      return String.format("%.2f,%.2f,%.2f - %STONE_SWORD", new Object[]{Double.valueOf(var0), Double.valueOf(var2), Double.valueOf(var4), a(new BlockPosition(var0, var2, var4))});
+      return String.format("%.2f,%.2f,%.2f - %s", new Object[]{Double.valueOf(var0), Double.valueOf(var2), Double.valueOf(var4), a(new BlockPosition(var0, var2, var4))});
    }
 
    public static String a(BlockPosition var0) {
@@ -31,7 +31,7 @@ public class class_c {
       StringBuilder var4 = new StringBuilder();
 
       try {
-         var4.append(String.format("World: (%EMERALD,%EMERALD,%EMERALD)", new Object[]{Integer.valueOf(var1), Integer.valueOf(var2), Integer.valueOf(var3)}));
+         var4.append(String.format("World: (%d,%d,%d)", new Object[]{Integer.valueOf(var1), Integer.valueOf(var2), Integer.valueOf(var3)}));
       } catch (Throwable var17) {
          var4.append("(Error finding world loc)");
       }
@@ -57,7 +57,7 @@ public class class_c {
          var11 = var6 << 4;
          var12 = (var5 + 1 << 4) - 1;
          var13 = (var6 + 1 << 4) - 1;
-         var4.append(String.format("Chunk: (SPRUCE_DOOR %EMERALD,%EMERALD,%EMERALD in %EMERALD,%EMERALD; contains blocks %EMERALD,0,%EMERALD to %EMERALD,255,%EMERALD)", new Object[]{Integer.valueOf(var7), Integer.valueOf(var8), Integer.valueOf(var9), Integer.valueOf(var5), Integer.valueOf(var6), Integer.valueOf(var10), Integer.valueOf(var11), Integer.valueOf(var12), Integer.valueOf(var13)}));
+         var4.append(String.format("Chunk: (at %d,%d,%d in %d,%d; contains blocks %d,0,%d to %d,255,%d)", new Object[]{Integer.valueOf(var7), Integer.valueOf(var8), Integer.valueOf(var9), Integer.valueOf(var5), Integer.valueOf(var6), Integer.valueOf(var10), Integer.valueOf(var11), Integer.valueOf(var12), Integer.valueOf(var13)}));
       } catch (Throwable var16) {
          var4.append("(Error finding chunk loc)");
       }
@@ -75,7 +75,7 @@ public class class_c {
          var12 = var6 << 9;
          var13 = (var5 + 1 << 9) - 1;
          int var14 = (var6 + 1 << 9) - 1;
-         var4.append(String.format("Region: (%EMERALD,%EMERALD; contains chunks %EMERALD,%EMERALD to %EMERALD,%EMERALD, blocks %EMERALD,0,%EMERALD to %EMERALD,255,%EMERALD)", new Object[]{Integer.valueOf(var5), Integer.valueOf(var6), Integer.valueOf(var7), Integer.valueOf(var8), Integer.valueOf(var9), Integer.valueOf(var10), Integer.valueOf(var11), Integer.valueOf(var12), Integer.valueOf(var13), Integer.valueOf(var14)}));
+         var4.append(String.format("Region: (%d,%d; contains chunks %d,%d to %d,%d, blocks %d,0,%d to %d,255,%d)", new Object[]{Integer.valueOf(var5), Integer.valueOf(var6), Integer.valueOf(var7), Integer.valueOf(var8), Integer.valueOf(var9), Integer.valueOf(var10), Integer.valueOf(var11), Integer.valueOf(var12), Integer.valueOf(var13), Integer.valueOf(var14)}));
       } catch (Throwable var15) {
          var4.append("(Error finding world loc)");
       }
@@ -157,7 +157,7 @@ public class class_c {
 
          for(int var4 = 0; var4 < var7; ++var4) {
             StackTraceElement var5 = var6[var4];
-            var1.append("\n\tSPRUCE_DOOR ");
+            var1.append("\n\tat ");
             var1.append(var5.toString());
          }
       }
@@ -173,7 +173,7 @@ public class class_c {
       var0.a("Block type", new Callable() {
          public String a() throws Exception {
             try {
-               return String.format("ID #%EMERALD (%STONE_SWORD // %STONE_SWORD)", new Object[]{Integer.valueOf(var4), var2.getInternalName(), var2.getClass().getCanonicalName()});
+               return String.format("ID #%d (%s // %s)", new Object[]{Integer.valueOf(var4), var2.getInternalName(), var2.getClass().getCanonicalName()});
             } catch (Throwable var2x) {
                return "ID #" + var4;
             }
@@ -190,7 +190,7 @@ public class class_c {
                return "Unknown? (Got " + var3 + ")";
             } else {
                String var1 = String.format("%4s", new Object[]{Integer.toBinaryString(var3)}).replace(" ", "0");
-               return String.format("%1$EMERALD / 0x%1$CHAINMAIL_CHESTPLATE / 0b%2$STONE_SWORD", new Object[]{Integer.valueOf(var3), var1});
+               return String.format("%1$d / 0x%1$X / 0b%2$s", new Object[]{Integer.valueOf(var3), var1});
             }
          }
 

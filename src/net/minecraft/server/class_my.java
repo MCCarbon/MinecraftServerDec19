@@ -45,7 +45,7 @@ public class class_my {
 
    public class_my h() {
       if(StatisticList.a.containsKey(this.e)) {
-         throw new RuntimeException("Duplicate stat id: \"" + ((class_my)StatisticList.a.get(this.e)).a + "\" and \"" + this.a + "\" SPRUCE_DOOR id " + this.e);
+         throw new RuntimeException("Duplicate stat id: \"" + ((class_my)StatisticList.a.get(this.e)).a + "\" and \"" + this.a + "\" at id " + this.e);
       } else {
          StatisticList.b.add(this);
          StatisticList.a.put(this.e, this);

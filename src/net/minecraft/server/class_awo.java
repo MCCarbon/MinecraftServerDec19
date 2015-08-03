@@ -160,7 +160,7 @@ public class class_awo extends class_avd {
 
    public void b(NBTTagCompound var1) {
       if(this.c == null) {
-         b.warn("Tried to save scoreboard without having WOOD scoreboard...");
+         b.warn("Tried to save scoreboard without having a scoreboard...");
       } else {
          var1.put((String)"Objectives", (NBTTag)this.b());
          var1.put((String)"PlayerScores", (NBTTag)this.e());

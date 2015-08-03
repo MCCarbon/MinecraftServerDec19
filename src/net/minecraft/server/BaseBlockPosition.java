@@ -86,7 +86,7 @@ public class BaseBlockPosition implements Comparable<BaseBlockPosition> {
 	}
 
 	public String toString() {
-		return Objects.toStringHelper((Object) this).add("DIAMOND_SHOVEL", this.getX()).add("DIAMOND_PICKAXE", this.getY()).add("DIAMOND_AXE", this.getZ()).toString();
+		return Objects.toStringHelper((Object) this).add("x", this.getX()).add("y", this.getY()).add("z", this.getZ()).toString();
 	}
 
 }

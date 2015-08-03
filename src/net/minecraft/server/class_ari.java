@@ -20,7 +20,7 @@ public class class_ari extends class_aql {
 
    public boolean b(World var1, Random var2, BlockPosition var3) {
       if(this.a == null) {
-         throw new IllegalStateException("Decoration requires priming with WOOD spike");
+         throw new IllegalStateException("Decoration requires priming with a spike");
       } else {
          Iterator var4 = BlockPosition.allInCubeM(var3.add(-this.a.c(), -10, -this.a.c()), var3.add(this.a.c(), this.a.d() - 1, this.a.c())).iterator();
 

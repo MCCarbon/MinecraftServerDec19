@@ -4,6 +4,29 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.class_agp;
+import net.minecraft.server.class_ahl;
+import net.minecraft.server.class_aht;
+import net.minecraft.server.class_aiz;
+import net.minecraft.server.class_ajh;
+import net.minecraft.server.BlockStairs;
+import net.minecraft.server.class_ali;
+import net.minecraft.server.BlockDoubleStepAbstract;
+import net.minecraft.server.class_alp;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityMobSpawner;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.class_arw;
+import net.minecraft.server.class_asl;
+import net.minecraft.server.class_asn;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.BaseBlockPosition;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.class_od;
 
 public class class_asj {
    private static final class_asj.class_f_in_class_asj[] b = new class_asj.class_f_in_class_asj[]{new class_asj.class_f_in_class_asj(class_asj.class_n_in_class_asj.class, 40, 0), new class_asj.class_f_in_class_asj(class_asj.class_h_in_class_asj.class, 5, 5), new class_asj.class_f_in_class_asj(class_asj.class_d_in_class_asj.class, 20, 0), new class_asj.class_f_in_class_asj(class_asj.class_i_in_class_asj.class, 20, 0), new class_asj.class_f_in_class_asj(class_asj.class_j_in_class_asj.class, 10, 6), new class_asj.class_f_in_class_asj(class_asj.class_o_in_class_asj.class, 5, 5), new class_asj.class_f_in_class_asj(class_asj.class_l_in_class_asj.class, 5, 5), new class_asj.class_f_in_class_asj(class_asj.class_c_in_class_asj.class, 5, 4), new class_asj.class_f_in_class_asj(class_asj.class_a_in_class_asj.class, 5, 4), new class_asj.class_f_in_class_asj(class_asj.class_e_in_class_asj.class, 10, 2) {
@@ -457,7 +480,7 @@ public class class_asj {
             this.a(var1, var3, 4, 5, 7, 4, 5, 9, Blocks.STONE_SLAB.getBlockData(), Blocks.STONE_SLAB.getBlockData(), false);
             this.a(var1, var3, 8, 5, 7, 8, 5, 9, Blocks.STONE_SLAB.getBlockData(), Blocks.STONE_SLAB.getBlockData(), false);
             this.a(var1, var3, 5, 5, 7, 7, 5, 9, Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), false);
-            this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.SOUTH), 6, 5, 6, var3);
+            this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 6, 5, 6, var3);
             return true;
          }
       }
@@ -520,8 +543,8 @@ public class class_asj {
                if((var7 - 1) % 4 == 0) {
                   this.a(var1, var3, 1, 1, var7, 1, 4, var7, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
                   this.a(var1, var3, 12, 1, var7, 12, 4, var7, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
-                  this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.EAST), 2, 3, var7, var3);
-                  this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.WEST), 11, 3, var7, var3);
+                  this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 2, 3, var7, var3);
+                  this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 11, 3, var7, var3);
                   if(this.b) {
                      this.a(var1, var3, 1, 6, var7, 1, 9, var7, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
                      this.a(var1, var3, 12, 6, var7, 12, 9, var7, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
@@ -557,7 +580,7 @@ public class class_asj {
                this.a(var1, Blocks.FENCE.getBlockData(), 9, 6, 11, var3);
                this.a(var1, Blocks.FENCE.getBlockData(), 8, 6, 11, var3);
                this.a(var1, Blocks.FENCE.getBlockData(), 9, 6, 10, var3);
-               IBlockData var11 = Blocks.LADDER.getBlockData().set(BlockLadder.a, EnumDirection.SOUTH);
+               IBlockData var11 = Blocks.LADDER.getBlockData().set(class_aiz.a, EnumDirection.SOUTH);
                this.a(var1, var11, 10, 1, 13, var3);
                this.a(var1, var11, 10, 2, 13, var3);
                this.a(var1, var11, 10, 3, 13, var3);
@@ -579,7 +602,7 @@ public class class_asj {
                this.a(var1, Blocks.FENCE.getBlockData(), var8 - 1, 7, var9 + 1, var3);
                this.a(var1, Blocks.FENCE.getBlockData(), var8, 7, var9 - 1, var3);
                this.a(var1, Blocks.FENCE.getBlockData(), var8, 7, var9 + 1, var3);
-               IBlockData var10 = Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.UP);
+               IBlockData var10 = Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.UP);
                this.a(var1, var10, var8 - 2, 8, var9, var3);
                this.a(var1, var10, var8 + 1, 8, var9, var3);
                this.a(var1, var10, var8 - 1, 8, var9 - 1, var3);
@@ -588,10 +611,10 @@ public class class_asj {
                this.a(var1, var10, var8, 8, var9 + 1, var3);
             }
 
-            this.a(var1, var3, var2, 3, 3, 5, class_od.a(a, new class_od[]{Items.ENCHANTED_BOOK.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
+            this.a(var1, var3, var2, 3, 3, 5, class_od.a(a, new class_od[]{Items.cg.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
             if(this.b) {
                this.a(var1, Blocks.AIR.getBlockData(), 12, 9, 1, var3);
-               this.a(var1, var3, var2, 12, 8, 1, class_od.a(a, new class_od[]{Items.ENCHANTED_BOOK.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
+               this.a(var1, var3, var2, 12, 8, 1, class_od.a(a, new class_od[]{Items.cg.a(var2, 1, 5, 2)}), 1 + var2.nextInt(4));
             }
 
             return true;
@@ -599,7 +622,7 @@ public class class_asj {
       }
 
       static {
-         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.BOOK, 0, 1, 3, 20), new class_od(Items.aM, 0, 2, 7, 20), new class_od(Items.MAP, 0, 1, 1, 1), new class_od(Items.COMPASS, 0, 1, 1, 1)}));
+         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.aN, 0, 1, 3, 20), new class_od(Items.aM, 0, 2, 7, 20), new class_od(Items.bY, 0, 1, 1, 1), new class_od(Items.aS, 0, 1, 1, 1)}));
       }
    }
 
@@ -638,8 +661,8 @@ public class class_asj {
             this.a(var1, var3, 5, 1, 5, 7, 3, 5, Blocks.IRON_BARS.getBlockData(), Blocks.IRON_BARS.getBlockData(), false);
             this.a(var1, Blocks.IRON_BARS.getBlockData(), 4, 3, 2, var3);
             this.a(var1, Blocks.IRON_BARS.getBlockData(), 4, 3, 8, var3);
-            IBlockData var4 = Blocks.IRON_DOOR.getBlockData().set(BlockDoor.a, EnumDirection.WEST);
-            IBlockData var5 = Blocks.IRON_DOOR.getBlockData().set(BlockDoor.a, EnumDirection.WEST).set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.a);
+            IBlockData var4 = Blocks.IRON_DOOR.getBlockData().set(class_ahl.a, EnumDirection.WEST);
+            IBlockData var5 = Blocks.IRON_DOOR.getBlockData().set(class_ahl.a, EnumDirection.WEST).set(class_ahl.P, class_ahl.class_a_in_class_ahl.a);
             this.a(var1, var4, 4, 1, 2, var3);
             this.a(var1, var5, 4, 2, 2, var3);
             this.a(var1, var4, 4, 1, 8, var3);
@@ -700,10 +723,10 @@ public class class_asj {
                this.a(var1, Blocks.STONEBRICK.getBlockData(), 5, 1, 5, var3);
                this.a(var1, Blocks.STONEBRICK.getBlockData(), 5, 2, 5, var3);
                this.a(var1, Blocks.STONEBRICK.getBlockData(), 5, 3, 5, var3);
-               this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.WEST), 4, 3, 5, var3);
-               this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.EAST), 6, 3, 5, var3);
-               this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.SOUTH), 5, 3, 4, var3);
-               this.a(var1, Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.NORTH), 5, 3, 6, var3);
+               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 4, 3, 5, var3);
+               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 6, 3, 5, var3);
+               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 5, 3, 4, var3);
+               this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 5, 3, 6, var3);
                this.a(var1, Blocks.STONE_SLAB.getBlockData(), 4, 1, 4, var3);
                this.a(var1, Blocks.STONE_SLAB.getBlockData(), 4, 1, 5, var3);
                this.a(var1, Blocks.STONE_SLAB.getBlockData(), 4, 1, 6, var3);
@@ -768,11 +791,11 @@ public class class_asj {
                   this.a(var1, Blocks.PLANKS.getBlockData(), 8, 3, var4, var3);
                }
 
-               IBlockData var5 = Blocks.LADDER.getBlockData().set(BlockLadder.a, EnumDirection.WEST);
+               IBlockData var5 = Blocks.LADDER.getBlockData().set(class_aiz.a, EnumDirection.WEST);
                this.a(var1, var5, 9, 1, 3, var3);
                this.a(var1, var5, 9, 2, 3, var3);
                this.a(var1, var5, 9, 3, 3, var3);
-               this.a(var1, var3, var2, 3, 4, 8, class_od.a(b, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 1 + var2.nextInt(4));
+               this.a(var1, var3, var2, 3, 4, 8, class_od.a(b, new class_od[]{Items.cg.b(var2)}), 1 + var2.nextInt(4));
             }
 
             return true;
@@ -780,7 +803,7 @@ public class class_asj {
       }
 
       static {
-         b = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 1, 3, 5), new class_od(Items.REDSTONE, 0, 4, 9, 5), new class_od(Items.COAL, 0, 3, 8, 10), new class_od(Items.BREAD, 0, 1, 3, 15), new class_od(Items.APPLE, 0, 1, 3, 15), new class_od(Items.IRON_PICKAXE, 0, 1, 1, 1)}));
+         b = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.j, 0, 3, 8, 10), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.e, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 1)}));
       }
    }
 
@@ -954,7 +977,7 @@ public class class_asj {
 
             if(!this.b && var3.b((BaseBlockPosition)(new BlockPosition(this.a(3, 3), this.d(2), this.b(3, 3))))) {
                this.b = true;
-               this.a(var1, var3, var2, 3, 2, 3, class_od.a(a, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 2 + var2.nextInt(2));
+               this.a(var1, var3, var2, 3, 2, 3, class_od.a(a, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(2));
             }
 
             return true;
@@ -962,7 +985,7 @@ public class class_asj {
       }
 
       static {
-         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.ENDER_PEARL, 0, 1, 1, 10), new class_od(Items.DIAMOND, 0, 1, 3, 3), new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 1, 3, 5), new class_od(Items.REDSTONE, 0, 4, 9, 5), new class_od(Items.BREAD, 0, 1, 3, 15), new class_od(Items.APPLE, 0, 1, 3, 15), new class_od(Items.IRON_PICKAXE, 0, 1, 1, 5), new class_od(Items.IRON_SWORD, 0, 1, 1, 5), new class_od(Items.ab, 0, 1, 1, 5), new class_od(Items.IRON_HELMET, 0, 1, 1, 5), new class_od(Items.IRON_LEGGINGS, 0, 1, 1, 5), new class_od(Items.IRON_BOOTS, 0, 1, 1, 5), new class_od(Items.GOLDEN_APPLE, 0, 1, 1, 1), new class_od(Items.SADDLE, 0, 1, 1, 1), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.GOLDEN_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.DIAMOND_HORSE_ARMOR, 0, 1, 1, 1)}));
+         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.bw, 0, 1, 1, 10), new class_od(Items.k, 0, 1, 3, 3), new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.e, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 5), new class_od(Items.n, 0, 1, 1, 5), new class_od(Items.ab, 0, 1, 1, 5), new class_od(Items.aa, 0, 1, 1, 5), new class_od(Items.ac, 0, 1, 1, 5), new class_od(Items.ad, 0, 1, 1, 5), new class_od(Items.aq, 0, 1, 1, 1), new class_od(Items.aC, 0, 1, 1, 1), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
       }
    }
 
@@ -1018,8 +1041,8 @@ public class class_asj {
             this.a(var1, var3, 0, 0, 0, 4, 4, 6, true, var2, class_asj.e);
             this.a(var1, var2, var3, this.d, 1, 1, 0);
             this.a(var1, var2, var3, class_asj.class_p_in_class_asj.class_p_in_class_asj$class_a_in_class_p_in_class_asj.a, 1, 1, 6);
-            IBlockData var4 = Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.EAST);
-            IBlockData var5 = Blocks.TORCH.getBlockData().set(BlockTorch.a, EnumDirection.WEST);
+            IBlockData var4 = Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST);
+            IBlockData var5 = Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST);
             this.a(var1, var3, var2, 0.1F, 1, 2, 1, var4);
             this.a(var1, var3, var2, 0.1F, 3, 2, 1, var5);
             this.a(var1, var3, var2, 0.1F, 1, 2, 5, var4);
@@ -1242,7 +1265,7 @@ public class class_asj {
             this.a(var1, Blocks.STONEBRICK.getBlockData(), var5 + 2, var6 + 1, var7, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), var5 + 2, var6, var7, var3);
             this.a(var1, Blocks.WOODEN_DOOR.getBlockData(), var5 + 1, var6, var7, var3);
-            this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.a), var5 + 1, var6 + 1, var7, var3);
+            this.a(var1, Blocks.WOODEN_DOOR.getBlockData().set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var5 + 1, var6 + 1, var7, var3);
             break;
          case 3:
             this.a(var1, Blocks.AIR.getBlockData(), var5 + 1, var6, var7, var3);
@@ -1264,7 +1287,7 @@ public class class_asj {
             this.a(var1, Blocks.STONEBRICK.getBlockData(), var5 + 2, var6 + 1, var7, var3);
             this.a(var1, Blocks.STONEBRICK.getBlockData(), var5 + 2, var6, var7, var3);
             this.a(var1, Blocks.IRON_DOOR.getBlockData(), var5 + 1, var6, var7, var3);
-            this.a(var1, Blocks.IRON_DOOR.getBlockData().set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.a), var5 + 1, var6 + 1, var7, var3);
+            this.a(var1, Blocks.IRON_DOOR.getBlockData().set(class_ahl.P, class_ahl.class_a_in_class_ahl.a), var5 + 1, var6 + 1, var7, var3);
             this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.FACING, EnumDirection.NORTH), var5 + 2, var6 + 1, var7 + 1, var3);
             this.a(var1, Blocks.STONE_BUTTON.getBlockData().set(class_agp.FACING, EnumDirection.SOUTH), var5 + 2, var6 + 1, var7 - 1, var3);
          }

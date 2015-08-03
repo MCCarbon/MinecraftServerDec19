@@ -1,6 +1,29 @@
 package net.minecraft.server;
 
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.IBlockAccess;
+import net.minecraft.server.BlockContainer;
+import net.minecraft.server.Block;
+import net.minecraft.server.BlockDirectional;
+import net.minecraft.server.TileEntityBanner;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateDirection;
+import net.minecraft.server.BlockStateInteger;
+import net.minecraft.server.IBlockState;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.LocaleI18n;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
+import net.minecraft.server.EntityHuman;
 
 public class class_agb extends BlockContainer {
    public static final BlockStateDirection a;
@@ -42,18 +65,18 @@ public class class_agb extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.BANNER;
+      return Items.cH;
    }
 
    public void dropNaturally(World var1, BlockPosition var2, IBlockData var3, float var4, int var5) {
       TileEntity var6 = var1.getTileEntity(var2);
       if(var6 instanceof TileEntityBanner) {
-         ItemStack var7 = new ItemStack(Items.BANNER, 1, ((TileEntityBanner)var6).b());
+         ItemStack var7 = new ItemStack(Items.cH, 1, ((TileEntityBanner)var6).b());
          NBTTagCompound var8 = new NBTTagCompound();
          var6.write(var8);
-         var8.remove("DIAMOND_SHOVEL");
-         var8.remove("DIAMOND_PICKAXE");
-         var8.remove("DIAMOND_AXE");
+         var8.remove("x");
+         var8.remove("y");
+         var8.remove("z");
          var8.remove("id");
          var7.addTag((String)"BlockEntityTag", (NBTTag)var8);
          dropItem(var1, var2, var7);
@@ -70,7 +93,7 @@ public class class_agb extends BlockContainer {
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
       if(var5 instanceof TileEntityBanner) {
          TileEntityBanner var7 = (TileEntityBanner)var5;
-         ItemStack var8 = new ItemStack(Items.BANNER, 1, ((TileEntityBanner)var5).b());
+         ItemStack var8 = new ItemStack(Items.cH, 1, ((TileEntityBanner)var5).b());
          NBTTagCompound var9 = new NBTTagCompound();
          TileEntityBanner.a(var9, var7.b(), var7.d());
          var8.addTag((String)"BlockEntityTag", (NBTTag)var9);

@@ -9,10 +9,10 @@ import net.minecraft.server.BlockStateEnum;
 import net.minecraft.server.IBlockState;
 import net.minecraft.server.BlockPosition;
 
-public class BlockMinecartTrack extends BlockMinecartTrackAbstract {
+public class class_akg extends BlockMinecartTrackAbstract {
    public static final BlockStateEnum b = BlockStateEnum.of("shape", BlockMinecartTrackAbstract.EnumTrackPosition.class);
 
-   protected BlockMinecartTrack() {
+   protected class_akg() {
       super(false);
       this.setBlockData(this.blockStateList.getFirst().set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH));
    }
@@ -40,9 +40,9 @@ public class BlockMinecartTrack extends BlockMinecartTrackAbstract {
       if(var1.getBlock() != this) {
          return var1;
       } else {
-         switch(BlockMinecartTrack.SyntheticClass_1.b[var2.ordinal()]) {
+         switch(class_akg.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
-            switch(BlockMinecartTrack.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
+            switch(class_akg.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
             case 1:
                return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_WEST);
             case 2:
@@ -61,7 +61,7 @@ public class BlockMinecartTrack extends BlockMinecartTrackAbstract {
                return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.SOUTH_WEST);
             }
          case 2:
-            switch(BlockMinecartTrack.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
+            switch(class_akg.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
             case 1:
                return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_NORTH);
             case 2:
@@ -84,7 +84,7 @@ public class BlockMinecartTrack extends BlockMinecartTrackAbstract {
                return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH);
             }
          case 3:
-            switch(BlockMinecartTrack.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
+            switch(class_akg.SyntheticClass_1.a[((BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b)).ordinal()]) {
             case 1:
                return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_SOUTH);
             case 2:
@@ -117,9 +117,9 @@ public class BlockMinecartTrack extends BlockMinecartTrackAbstract {
          return var1;
       } else {
          BlockMinecartTrackAbstract.EnumTrackPosition var3 = (BlockMinecartTrackAbstract.EnumTrackPosition)var1.get(b);
-         switch(BlockMinecartTrack.SyntheticClass_1.c[var2.ordinal()]) {
+         switch(class_akg.SyntheticClass_1.c[var2.ordinal()]) {
          case 1:
-            switch(BlockMinecartTrack.SyntheticClass_1.a[var3.ordinal()]) {
+            switch(class_akg.SyntheticClass_1.a[var3.ordinal()]) {
             case 3:
                return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_SOUTH);
             case 4:
@@ -136,7 +136,7 @@ public class BlockMinecartTrack extends BlockMinecartTrackAbstract {
                return super.a(var1, var2);
             }
          case 2:
-            switch(BlockMinecartTrack.SyntheticClass_1.a[var3.ordinal()]) {
+            switch(class_akg.SyntheticClass_1.a[var3.ordinal()]) {
             case 1:
                return var1.set(b, BlockMinecartTrackAbstract.EnumTrackPosition.ASCENDING_WEST);
             case 2:

@@ -1,5 +1,15 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.class_ow;
+import net.minecraft.server.Entity;
+import net.minecraft.server.class_rp;
+import net.minecraft.server.EntityItem;
+import net.minecraft.server.class_wv;
+
 public class class_st extends class_rp {
    private int e;
    private class_wv f;
@@ -32,15 +42,15 @@ public class class_st extends class_rp {
                if(var3 != null) {
                   Item var5 = var3.getItem();
                   int var6;
-                  if((var5 == Items.BREAD || var5 == Items.POTATO || var5 == Items.CARROT) && var3.count > 3) {
+                  if((var5 == Items.R || var5 == Items.bV || var5 == Items.bU) && var3.count > 3) {
                      var6 = var3.count / 2;
                      var3.count -= var6;
                      var4 = new ItemStack(var5, var6, var3.i());
-                  } else if(var5 == Items.WHEAT && var3.count > 5) {
+                  } else if(var5 == Items.Q && var3.count > 5) {
                      var6 = var3.count / 2 / 3 * 3;
                      int var7 = var6 / 3;
                      var3.count -= var6;
-                     var4 = new ItemStack(Items.BREAD, var7, 0);
+                     var4 = new ItemStack(Items.R, var7, 0);
                   }
 
                   if(var3.count <= 0) {

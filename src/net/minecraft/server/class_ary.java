@@ -5,6 +5,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.EnchantmentManager;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.TileEntity;
+import net.minecraft.server.TileEntityChest;
+import net.minecraft.server.class_arw;
+import net.minecraft.server.class_asl;
+import net.minecraft.server.class_asn;
+import net.minecraft.server.class_asp;
+import net.minecraft.server.class_ast;
+import net.minecraft.server.class_asu;
+import net.minecraft.server.class_asv;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.BaseBlockPosition;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.MinecraftKey;
+import net.minecraft.server.Tuple;
+import net.minecraft.server.class_od;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.Entity;
+import net.minecraft.server.class_ug;
 
 public class class_ary {
    public static final class_ast a = new class_ast();
@@ -76,8 +100,8 @@ public class class_ary {
    }
 
    static {
-      d = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 2, 7, 5), new class_od(Items.IRON_INGOT, 0, 4, 8, 10), new class_od(Items.GOLD_INGOT, 0, 2, 7, 15), new class_od(Items.EMERALD, 0, 2, 6, 2), new class_od(Items.BEETROOT_SEEDS, 0, 1, 10, 5), new class_od(Items.SADDLE, 0, 1, 1, 3), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.GOLDEN_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.DIAMOND_HORSE_ARMOR, 0, 1, 1, 1)}));
-      e = Lists.newArrayList((Object[])(new Item[]{Items.DIAMOND_SWORD, Items.DIAMOND_BOOTS, Items.DIAMOND_CHESTPLATE, Items.DIAMOND_LEGGINGS, Items.DIAMOND_HELMET, Items.DIAMOND_PICKAXE, Items.DIAMOND_SHOVEL, Items.IRON_SWORD, Items.IRON_BOOTS, Items.ab, Items.IRON_LEGGINGS, Items.IRON_HELMET, Items.IRON_PICKAXE, Items.IRON_SHOVEL}));
+      d = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 2, 7, 5), new class_od(Items.l, 0, 4, 8, 10), new class_od(Items.m, 0, 2, 7, 15), new class_od(Items.bR, 0, 2, 6, 2), new class_od(Items.cK, 0, 1, 10, 5), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
+      e = Lists.newArrayList((Object[])(new Item[]{Items.w, Items.ah, Items.af, Items.ag, Items.ae, Items.y, Items.x, Items.n, Items.ad, Items.ab, Items.ac, Items.aa, Items.b, Items.a}));
       f = new class_ary.class_b_in_class_ary() {
          public void a() {
          }

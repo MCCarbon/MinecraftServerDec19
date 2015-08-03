@@ -107,7 +107,7 @@ public class BlockBed extends BlockDirectional {
 
 	@Override
 	public Item getDropType(IBlockData blockdata, Random rnd, int fortune) {
-		return blockdata.get(PART) == BlockBed.EnumBedPart.HEAD ? null : Items.BED;
+		return blockdata.get(PART) == BlockBed.EnumBedPart.HEAD ? null : Items.bc;
 	}
 
 	private void updateShape0() {

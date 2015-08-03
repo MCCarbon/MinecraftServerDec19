@@ -1,5 +1,7 @@
 package net.minecraft.server;
 
+import java.util.List;
+
 public class TileEntityBanner extends TileEntity {
 
 	private int a;
@@ -87,23 +89,23 @@ public class TileEntityBanner extends TileEntity {
 	}
 
 	public static enum EnumBannerPattern {
-		a("base", "STONE"),
-		b("square_bottom_left", "COOKED_BEEF", "   ", "   ", "#  "),
-		c("square_bottom_right", "COOKED_RABBIT", "   ", "   ", "  #"),
+		a("base", "b"),
+		b("square_bottom_left", "bl", "   ", "   ", "#  "),
+		c("square_bottom_right", "br", "   ", "   ", "  #"),
 		d("square_top_left", "tl", "#  ", "   ", "   "),
 		e("square_top_right", "tr", "  #", "   ", "   "),
-		f("stripe_bottom", "RABBIT_STEW", "   ", "   ", "###"),
+		f("stripe_bottom", "bs", "   ", "   ", "###"),
 		g("stripe_top", "ts", "###", "   ", "   "),
 		h("stripe_left", "ls", "#  ", "#  ", "#  "),
 		i("stripe_right", "rs", "  #", "  #", "  #"),
-		j("stripe_center", "COMMAND_BLOCK_MINECART", " # ", " # ", " # "),
+		j("stripe_center", "cs", " # ", " # ", " # "),
 		k("stripe_middle", "ms", "   ", "###", "   "),
 		l("stripe_downright", "drs", "#  ", " # ", "  #"),
 		m("stripe_downleft", "dls", "  #", " # ", "#  "),
 		n("small_stripes", "ss", "# #", "# #", "   "),
-		o("cross", "NAME_TAG", "# #", " # ", "# #"),
+		o("cross", "cr", "# #", " # ", "# #"),
 		p("straight_cross", "sc", " # ", "###", " # "),
-		q("triangle_bottom", "RABBIT_FOOT", "   ", " # ", "# #"),
+		q("triangle_bottom", "bt", "   ", " # ", "# #"),
 		r("triangle_top", "tt", "# #", " # ", "   "),
 		s("triangles_bottom", "bts", "   ", "# #", " # "),
 		t("triangles_top", "tts", " # ", "# #", "   "),
@@ -116,15 +118,15 @@ public class TileEntityBanner extends TileEntity {
 		B("half_horizontal", "hh", "###", "###", "   "),
 		C("half_vertical_right", "vhr", " ##", " ##", " ##"),
 		D("half_horizontal_bottom", "hhb", "   ", "###", "###"),
-		E("border", "MUTTON", "###", "# #", "###"),
+		E("border", "bo", "###", "# #", "###"),
 		F("curly_border", "cbo", new ItemStack(Blocks.VINE)),
-		G("creeper", "cre", new ItemStack(Items.SKULL, 1, 4)),
+		G("creeper", "cre", new ItemStack(Items.ca, 1, 4)),
 		H("gradient", "gra", "# #", " # ", " # "),
 		I("gradient_up", "gru", " # ", " # ", "# #"),
 		J("bricks", "bri", new ItemStack(Blocks.BRICK_BLOCK)),
-		K("skull", "sku", new ItemStack(Items.SKULL, 1, 1)),
+		K("skull", "sku", new ItemStack(Items.ca, 1, 1)),
 		L("flower", "flo", new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.OXEYE_DAISY.getId())),
-		M("mojang", "moj", new ItemStack(Items.GOLDEN_APPLE, 1, 1));
+		M("mojang", "moj", new ItemStack(Items.aq, 1, 1));
 
 		private String O;
 		private String[] P;

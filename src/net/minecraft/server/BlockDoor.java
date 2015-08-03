@@ -1,17 +1,41 @@
 package net.minecraft.server;
 
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.IBlockAccess;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockDirectional;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateBoolean;
+import net.minecraft.server.BlockStateDirection;
+import net.minecraft.server.BlockStateEnum;
+import net.minecraft.server.IBlockState;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.MovingObjectPosition;
+import net.minecraft.server.Vec3D;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.LocaleI18n;
+import net.minecraft.server.INamable;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.EntityHuman;
 
-public class BlockDoor extends Block {
+public class class_ahl extends Block {
    public static final BlockStateDirection a;
    public static final BlockStateBoolean b;
    public static final BlockStateEnum N;
    public static final BlockStateBoolean O;
    public static final BlockStateEnum P;
 
-   protected BlockDoor(Material var1) {
+   protected class_ahl(Material var1) {
       super(var1);
-      this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Boolean.valueOf(false)).set(N, BlockDoor.class_b_in_class_ahl.a).set(O, Boolean.valueOf(false)).set(P, BlockDoor.class_a_in_class_ahl.b));
+      this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Boolean.valueOf(false)).set(N, class_ahl.class_b_in_class_ahl.a).set(O, Boolean.valueOf(false)).set(P, class_ahl.class_a_in_class_ahl.b));
    }
 
    public String getName() {
@@ -87,7 +111,7 @@ public class BlockDoor extends Block {
       if(this.material == Material.ORE) {
          return true;
       } else {
-         BlockPosition var11 = var3.get(P) == BlockDoor.class_a_in_class_ahl.b?var2:var2.down();
+         BlockPosition var11 = var3.get(P) == class_ahl.class_a_in_class_ahl.b?var2:var2.down();
          IBlockData var12 = var2.equals(var11)?var3:var1.getType(var11);
          if(var12.getBlock() != this) {
             return false;
@@ -104,7 +128,7 @@ public class BlockDoor extends Block {
    public void a(World var1, BlockPosition var2, boolean var3) {
       IBlockData var4 = var1.getType(var2);
       if(var4.getBlock() == this) {
-         BlockPosition var5 = var4.get(P) == BlockDoor.class_a_in_class_ahl.b?var2:var2.down();
+         BlockPosition var5 = var4.get(P) == class_ahl.class_a_in_class_ahl.b?var2:var2.down();
          IBlockData var6 = var2 == var5?var4:var1.getType(var5);
          if(var6.getBlock() == this && ((Boolean)var6.get(b)).booleanValue() != var3) {
             var1.setTypeAndData((BlockPosition)var5, (IBlockData)var6.set(b, Boolean.valueOf(var3)), 2);
@@ -116,7 +140,7 @@ public class BlockDoor extends Block {
    }
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
-      if(var3.get(P) == BlockDoor.class_a_in_class_ahl.a) {
+      if(var3.get(P) == class_ahl.class_a_in_class_ahl.a) {
          BlockPosition var5 = var2.down();
          IBlockData var6 = var1.getType(var5);
          if(var6.getBlock() != this) {
@@ -161,7 +185,7 @@ public class BlockDoor extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return var1.get(P) == BlockDoor.class_a_in_class_ahl.a?null:this.l();
+      return var1.get(P) == class_ahl.class_a_in_class_ahl.a?null:this.l();
    }
 
    public MovingObjectPosition rayTraceCollision(World var1, BlockPosition var2, Vec3D var3, Vec3D var4) {
@@ -193,12 +217,12 @@ public class BlockDoor extends Block {
    }
 
    private Item l() {
-      return this == Blocks.IRON_DOOR?Items.IRON_DOOR :(this == Blocks.SPRUCE_DOOR?Items.SPRUCE_DOOR :(this == Blocks.BIRCH_DOOR?Items.au:(this == Blocks.JUNGLE_DOOR?Items.JUNGLE_DOOR :(this == Blocks.ACACIA_DOOR?Items.ACACIA_DOOR :(this == Blocks.DARK_OAK_DOOR?Items.DARK_OAK_DOOR :Items.WOODEN_DOOR)))));
+      return this == Blocks.IRON_DOOR?Items.aD:(this == Blocks.SPRUCE_DOOR?Items.at:(this == Blocks.BIRCH_DOOR?Items.au:(this == Blocks.JUNGLE_DOOR?Items.av:(this == Blocks.ACACIA_DOOR?Items.aw:(this == Blocks.DARK_OAK_DOOR?Items.ax:Items.as)))));
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
       BlockPosition var5 = var2.down();
-      if(var4.abilities.instabuild && var3.get(P) == BlockDoor.class_a_in_class_ahl.a && var1.getType(var5).getBlock() == this) {
+      if(var4.abilities.instabuild && var3.get(P) == class_ahl.class_a_in_class_ahl.a && var1.getType(var5).getBlock() == this) {
          var1.setAir(var5);
       }
 
@@ -206,7 +230,7 @@ public class BlockDoor extends Block {
 
    public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
       IBlockData var4;
-      if(var1.get(P) == BlockDoor.class_a_in_class_ahl.b) {
+      if(var1.get(P) == class_ahl.class_a_in_class_ahl.b) {
          var4 = var2.getType(var3.up());
          if(var4.getBlock() == this) {
             var1 = var1.set(N, var4.get(N)).set(O, var4.get(O));
@@ -222,23 +246,23 @@ public class BlockDoor extends Block {
    }
 
    public IBlockData a(IBlockData var1, Block.EnumRotation var2) {
-      return var1.getBlock() == this && var1.get(P) == BlockDoor.class_a_in_class_ahl.b?var1.set(a, var2.a((EnumDirection)var1.get(a))):var1;
+      return var1.getBlock() == this && var1.get(P) == class_ahl.class_a_in_class_ahl.b?var1.set(a, var2.a((EnumDirection)var1.get(a))):var1;
    }
 
    public IBlockData a(IBlockData var1, Block.class_a_in_class_agj var2) {
-      return var1.getBlock() == this && var1.get(P) == BlockDoor.class_a_in_class_ahl.b?this.a(var1, var2.a((EnumDirection)var1.get(a))):var1;
+      return var1.getBlock() == this && var1.get(P) == class_ahl.class_a_in_class_ahl.b?this.a(var1, var2.a((EnumDirection)var1.get(a))):var1;
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return (var1 & 8) > 0?this.getBlockData().set(P, BlockDoor.class_a_in_class_ahl.a).set(N, (var1 & 1) > 0?BlockDoor.class_b_in_class_ahl.b:BlockDoor.class_b_in_class_ahl.a).set(O, Boolean.valueOf((var1 & 2) > 0)):this.getBlockData().set(P, BlockDoor.class_a_in_class_ahl.b).set(a, EnumDirection.getByHorizontalId(var1 & 3).rotateYCCW()).set(b, Boolean.valueOf((var1 & 4) > 0));
+      return (var1 & 8) > 0?this.getBlockData().set(P, class_ahl.class_a_in_class_ahl.a).set(N, (var1 & 1) > 0?class_ahl.class_b_in_class_ahl.b:class_ahl.class_b_in_class_ahl.a).set(O, Boolean.valueOf((var1 & 2) > 0)):this.getBlockData().set(P, class_ahl.class_a_in_class_ahl.b).set(a, EnumDirection.getByHorizontalId(var1 & 3).rotateYCCW()).set(b, Boolean.valueOf((var1 & 4) > 0));
    }
 
    public int toLegacyData(IBlockData var1) {
       byte var2 = 0;
       int var3;
-      if(var1.get(P) == BlockDoor.class_a_in_class_ahl.a) {
+      if(var1.get(P) == class_ahl.class_a_in_class_ahl.a) {
          var3 = var2 | 8;
-         if(var1.get(N) == BlockDoor.class_b_in_class_ahl.b) {
+         if(var1.get(N) == class_ahl.class_b_in_class_ahl.b) {
             var3 |= 1;
          }
 
@@ -290,9 +314,9 @@ public class BlockDoor extends Block {
    static {
       a = BlockDirectional.FACING;
       b = BlockStateBoolean.of("open");
-      N = BlockStateEnum.of("hinge", BlockDoor.class_b_in_class_ahl.class);
+      N = BlockStateEnum.of("hinge", class_ahl.class_b_in_class_ahl.class);
       O = BlockStateBoolean.of("powered");
-      P = BlockStateEnum.of("half", BlockDoor.class_a_in_class_ahl.class);
+      P = BlockStateEnum.of("half", class_ahl.class_a_in_class_ahl.class);
    }
 
    public static enum class_b_in_class_ahl implements INamable {

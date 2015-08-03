@@ -1,5 +1,21 @@
 package net.minecraft.server;
 
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.Block;
+import net.minecraft.server.BlockStepAbstract;
+import net.minecraft.server.BlockStairs;
+import net.minecraft.server.Material;
+import net.minecraft.server.class_auz;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_qb;
+import net.minecraft.server.class_qh;
+import net.minecraft.server.class_rm;
+import net.minecraft.server.EntityHuman;
+
 public class class_rf extends class_rm {
    private final class_qb a;
    private final float b;
@@ -112,10 +128,10 @@ public class class_rf extends class_rm {
          EnumUsedHand var25 = this.a(var1);
          if(var25 != null) {
             ItemStack var26 = var1.getItemInHand((EnumUsedHand)var25);
-            if(var26 != null && var26.getItem() == Items.CARROT_ON_A_STICK) {
+            if(var26 != null && var26.getItem() == Items.cb) {
                var26.a(1, (EntityLiving)var1);
                if(var26.count == 0) {
-                  ItemStack var24 = new ItemStack(Items.FISHING_ROD);
+                  ItemStack var24 = new ItemStack(Items.aT);
                   var24.setTag(var26.getTag());
                   var1.a((EnumUsedHand)var25, (ItemStack)var24);
                }
@@ -133,7 +149,7 @@ public class class_rf extends class_rm {
       for(int var4 = 0; var4 < var3; ++var4) {
          EnumUsedHand var5 = var2[var4];
          ItemStack var6 = var1.getItemInHand((EnumUsedHand)var5);
-         if(var6 != null && var6.getItem() == Items.CARROT_ON_A_STICK) {
+         if(var6 != null && var6.getItem() == Items.cb) {
             return var5;
          }
       }

@@ -76,18 +76,18 @@ public abstract class TileEntity {
 	}
 
 	public void read(NBTTagCompound compound) {
-		position = new BlockPosition(compound.getInt("DIAMOND_SHOVEL"), compound.getInt("DIAMOND_PICKAXE"), compound.getInt("DIAMOND_AXE"));
+		position = new BlockPosition(compound.getInt("x"), compound.getInt("y"), compound.getInt("z"));
 	}
 
 	public void write(NBTTagCompound compound) {
 		String name = CLASS_TO_NAME.get(this.getClass());
 		if (name == null) {
-			throw new RuntimeException(this.getClass() + " is missing WOOD mapping! This is WOOD bug!");
+			throw new RuntimeException(this.getClass() + " is missing a mapping! This is a bug!");
 		} else {
 			compound.put("id", name);
-			compound.put("DIAMOND_SHOVEL", position.getX());
-			compound.put("DIAMOND_PICKAXE", position.getY());
-			compound.put("DIAMOND_AXE", position.getZ());
+			compound.put("x", position.getX());
+			compound.put("y", position.getY());
+			compound.put("z", position.getZ());
 		}
 	}
 
@@ -183,7 +183,7 @@ public abstract class TileEntity {
 					int var1 = Block.getId(world.getType(position).getBlock());
 
 					try {
-						return String.format("ID #%EMERALD (%STONE_SWORD // %STONE_SWORD)", new Object[] { Integer.valueOf(var1), Block.getById(var1).getInternalName(), Block.getById(var1).getClass().getCanonicalName() });
+						return String.format("ID #%d (%s // %s)", new Object[] { Integer.valueOf(var1), Block.getById(var1).getInternalName(), Block.getById(var1).getClass().getCanonicalName() });
 					} catch (Throwable var3) {
 						return "ID #" + var1;
 					}
@@ -198,7 +198,7 @@ public abstract class TileEntity {
 						return "Unknown? (Got " + var2 + ")";
 					} else {
 						String var3 = String.format("%4s", new Object[] { Integer.toBinaryString(var2) }).replace(" ", "0");
-						return String.format("%1$EMERALD / 0x%1$CHAINMAIL_CHESTPLATE / 0b%2$STONE_SWORD", new Object[] { Integer.valueOf(var2), var3 });
+						return String.format("%1$d / 0x%1$X / 0b%2$s", new Object[] { Integer.valueOf(var2), var3 });
 					}
 				}
 			});
@@ -207,7 +207,7 @@ public abstract class TileEntity {
 
 	public void setPosition(BlockPosition position) {
 		if (position instanceof BlockPosition.MutableBlockPosition) {
-			logger.warn("Tried to assign WOOD mutable BlockPos to WOOD block entity...", (new Error()));
+			logger.warn("Tried to assign a mutable BlockPos to a block entity...", (new Error()));
 			position = new BlockPosition(position);
 		}
 

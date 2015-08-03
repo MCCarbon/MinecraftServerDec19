@@ -1,7 +1,24 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.LocaleI18n;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
+import net.minecraft.server.class_mt;
+import net.minecraft.server.class_my;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.Entity;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.EntityHuman;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -177,7 +194,7 @@ public class EntityItem extends Entity {
 	public boolean damageEntity(class_pc var1, float var2) {
 		if (this.b((class_pc) var1)) {
 			return false;
-		} else if (this.l() != null && this.l().getItem() == Items.NETHER_STAR && var1.c()) {
+		} else if (this.l() != null && this.l().getItem() == Items.cc && var1.c()) {
 			return false;
 		} else {
 			this.ac();
@@ -244,19 +261,19 @@ public class EntityItem extends Entity {
 					var1.b((class_my) class_mt.g);
 				}
 
-				if (var2.getItem() == Items.LEATHER) {
+				if (var2.getItem() == Items.aH) {
 					var1.b((class_my) class_mt.t);
 				}
 
-				if (var2.getItem() == Items.DIAMOND) {
+				if (var2.getItem() == Items.k) {
 					var1.b((class_my) class_mt.w);
 				}
 
-				if (var2.getItem() == Items.BLAZE_ROD) {
+				if (var2.getItem() == Items.bx) {
 					var1.b((class_my) class_mt.A);
 				}
 
-				if (var2.getItem() == Items.DIAMOND && this.n() != null) {
+				if (var2.getItem() == Items.k && this.n() != null) {
 					EntityHuman var4 = this.o.a(this.n());
 					if (var4 != null && var4 != var1) {
 						var4.b((class_my) class_mt.x);

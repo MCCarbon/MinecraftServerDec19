@@ -35,7 +35,7 @@ public class class_ag extends class_i {
    }
 
    protected class_om e(String var1) throws class_cb {
-      return !var1.equalsIgnoreCase("peaceful") && !var1.equalsIgnoreCase("WOODEN_SHOVEL")?(!var1.equalsIgnoreCase("easy") && !var1.equalsIgnoreCase("GOLD")?(!var1.equalsIgnoreCase("normal") && !var1.equalsIgnoreCase("IRON_SWORD")?(!var1.equalsIgnoreCase("hard") && !var1.equalsIgnoreCase("SPECTRAL_ARROW")?class_om.a(a(var1, 0, 3)):class_om.d):class_om.c):class_om.b):class_om.a;
+      return !var1.equalsIgnoreCase("peaceful") && !var1.equalsIgnoreCase("p")?(!var1.equalsIgnoreCase("easy") && !var1.equalsIgnoreCase("e")?(!var1.equalsIgnoreCase("normal") && !var1.equalsIgnoreCase("n")?(!var1.equalsIgnoreCase("hard") && !var1.equalsIgnoreCase("h")?class_om.a(a(var1, 0, 3)):class_om.d):class_om.c):class_om.b):class_om.a;
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {

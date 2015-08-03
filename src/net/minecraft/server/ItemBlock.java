@@ -76,9 +76,9 @@ public class ItemBlock extends Item {
 					var5.write(var6);
 					NBTTagCompound var8 = (NBTTagCompound) var3.getTag().getTag("BlockEntityTag");
 					var6.copyFrom(var8);
-					var6.put("DIAMOND_SHOVEL", var2.getX());
-					var6.put("DIAMOND_PICKAXE", var2.getY());
-					var6.put("DIAMOND_AXE", var2.getZ());
+					var6.put("x", var2.getX());
+					var6.put("y", var2.getY());
+					var6.put("z", var2.getZ());
 					if (!var6.equals(var7)) {
 						var5.read(var6);
 						var5.update();

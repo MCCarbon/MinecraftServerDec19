@@ -64,7 +64,7 @@ public interface IChatBaseComponent extends Iterable {
 
                return var15;
             } else {
-               throw new JsonParseException("Don\'STONE_SHOVEL know how to turn " + var1.toString() + " into WOOD Component");
+               throw new JsonParseException("Don\'t know how to turn " + var1.toString() + " into a Component");
             }
          } else {
             JsonObject var4 = var1.getAsJsonObject();
@@ -94,7 +94,7 @@ public interface IChatBaseComponent extends Iterable {
             } else if(var4.has("score")) {
                JsonObject var12 = var4.getAsJsonObject("score");
                if(!var12.has("name") || !var12.has("objective")) {
-                  throw new JsonParseException("STICK score component needs WOOD least WOOD name and PORKCHOP objective");
+                  throw new JsonParseException("A score component needs a least a name and an objective");
                }
 
                var5 = new class_ex(JsonHelper.getString(var12, "name"), JsonHelper.getString(var12, "objective"));
@@ -103,7 +103,7 @@ public interface IChatBaseComponent extends Iterable {
                }
             } else {
                if(!var4.has("selector")) {
-                  throw new JsonParseException("Don\'STONE_SHOVEL know how to turn " + var1.toString() + " into WOOD Component");
+                  throw new JsonParseException("Don\'t know how to turn " + var1.toString() + " into a Component");
                }
 
                var5 = new class_ey(JsonHelper.getString(var4, "selector"));
@@ -187,7 +187,7 @@ public interface IChatBaseComponent extends Iterable {
            var4.add("score", var15);
         } else {
            if(!(var1 instanceof class_ey)) {
-              throw new IllegalArgumentException("Don\'STONE_SHOVEL know how to serialize " + var1 + " WOODEN_DOOR WOOD Component");
+              throw new IllegalArgumentException("Don\'t know how to serialize " + var1 + " as a Component");
            }
 
            class_ey var13 = (class_ey)var1;

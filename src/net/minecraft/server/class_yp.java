@@ -1,5 +1,21 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.class_act;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.class_pw;
+import net.minecraft.server.PlayerInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
+import net.minecraft.server.class_yg;
+import net.minecraft.server.class_yv;
+import net.minecraft.server.class_yw;
+import net.minecraft.server.class_yx;
+import net.minecraft.server.class_za;
+
 public class class_yp extends Container {
    private static final class_pw[] h;
    public class_yg a = new class_yg(this, 2, 2);
@@ -28,7 +44,7 @@ public class class_yp extends Container {
             }
 
             public boolean a(ItemStack var1) {
-               return var1 == null?false:(var1.getItem() instanceof ItemArmor ?((ItemArmor)var1.getItem()).b == var6:(var1.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var1.getItem() != Items.SKULL ?false:var6 == class_pw.f));
+               return var1 == null?false:(var1.getItem() instanceof class_za?((class_za)var1.getItem()).b == var6:(var1.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var1.getItem() != Items.ca?false:var6 == class_pw.f));
             }
          }));
       }
@@ -52,7 +68,7 @@ public class class_yp extends Container {
    }
 
    public void a(IInventory var1) {
-      this.f.setItem(0, RecipeManager.a().a(this.a, this.i.o));
+      this.f.setItem(0, class_act.a().a(this.a, this.i.o));
    }
 
    public void b(EntityHuman var1) {
@@ -92,8 +108,8 @@ public class class_yp extends Container {
             if(!this.a(var5, 9, 45, false)) {
                return null;
             }
-         } else if(var3.getItem() instanceof ItemArmor && !((class_yx)this.c.get(8 - ((ItemArmor)var3.getItem()).b.b())).e()) {
-            int var6 = 8 - ((ItemArmor)var3.getItem()).b.b();
+         } else if(var3.getItem() instanceof class_za && !((class_yx)this.c.get(8 - ((class_za)var3.getItem()).b.b())).e()) {
+            int var6 = 8 - ((class_za)var3.getItem()).b.b();
             if(!this.a(var5, var6, var6 + 1, false)) {
                return null;
             }

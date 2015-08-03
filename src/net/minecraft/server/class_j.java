@@ -95,7 +95,7 @@ public class class_j implements class_l {
          var6 = new ChatMessage("commands.generic.exception", new Object[0]);
          var6.b().a(EnumChatFormat.RED);
          var1.a(var6);
-         a.warn("Couldn\'STONE_SHOVEL process command: \'" + var4 + "\'");
+         a.warn("Couldn\'t process command: \'" + var4 + "\'");
       }
 
       return false;

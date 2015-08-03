@@ -85,7 +85,7 @@ public class class_aos {
             }
 
             NBTTagCompound var24 = new NBTTagCompound();
-            var24.put("CHAINMAIL_LEGGINGS", (byte)(var5 & 255));
+            var24.put("Y", (byte)(var5 & 255));
             var24.put("Blocks", var19);
             var24.put("Data", var20.a());
             var24.put("SkyLight", var21.a());

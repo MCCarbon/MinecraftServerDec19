@@ -1,5 +1,26 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.class_po;
+import net.minecraft.server.class_re;
+import net.minecraft.server.class_rj;
+import net.minecraft.server.class_rl;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_se;
+import net.minecraft.server.class_sh;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sr;
+import net.minecraft.server.class_tf;
+import net.minecraft.server.class_tw;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
+
 public class class_ty extends class_tw {
    public class_ty(World var1) {
       super(var1);
@@ -8,7 +29,7 @@ public class class_ty extends class_tw {
       this.i.a(0, new class_rj(this));
       this.i.a(1, new class_se(this, 2.0D));
       this.i.a(2, new class_re(this, 1.0D));
-      this.i.a(3, new class_sr(this, 1.25D, Items.WHEAT, false));
+      this.i.a(3, new class_sr(this, 1.25D, Items.Q, false));
       this.i.a(4, new class_rl(this, 1.25D));
       this.i.a(5, new class_si(this, 1.0D));
       this.i.a(6, new class_rr(this, EntityHuman.class, 6.0F));
@@ -42,7 +63,7 @@ public class class_ty extends class_tw {
    }
 
    protected Item D() {
-      return Items.LEATHER;
+      return Items.aH;
    }
 
    protected void b(boolean var1, int var2) {
@@ -50,27 +71,27 @@ public class class_ty extends class_tw {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.LEATHER, 1);
+         this.a(Items.aH, 1);
       }
 
       var3 = this.random.nextInt(3) + 1 + this.random.nextInt(1 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
-            this.a(Items.COOKED_BEEF, 1);
+            this.a(Items.bl, 1);
          } else {
-            this.a(Items.BEEF, 1);
+            this.a(Items.bk, 1);
          }
       }
 
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.BUCKET && !var1.abilities.instabuild && !this.j_()) {
+      if(var3 != null && var3.getItem() == Items.ay && !var1.abilities.instabuild && !this.j_()) {
          if(--var3.count == 0) {
-            var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.MILK_BUCKET)));
-         } else if(!var1.inventory.a(new ItemStack(Items.MILK_BUCKET))) {
-            var1.a(new ItemStack(Items.MILK_BUCKET), false);
+            var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.aI)));
+         } else if(!var1.inventory.a(new ItemStack(Items.aI))) {
+            var1.a(new ItemStack(Items.aI), false);
          }
 
          return true;

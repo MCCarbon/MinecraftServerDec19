@@ -70,9 +70,9 @@ public class class_asv {
                if(var15 != null) {
                   NBTTagCompound var16 = new NBTTagCompound();
                   var15.write(var16);
-                  var16.remove("DIAMOND_SHOVEL");
-                  var16.remove("DIAMOND_PICKAXE");
-                  var16.remove("DIAMOND_AXE");
+                  var16.remove("x");
+                  var16.remove("y");
+                  var16.remove("z");
                   var7.add(new class_asv.class_a_in_class_asv(var13, var14, var16, null));
                } else if(!var14.getBlock().isFullBlock() && !var14.getBlock().isFullCube()) {
                   var8.add(new class_asv.class_a_in_class_asv(var13, var14, (NBTTagCompound)null, null));
@@ -236,9 +236,9 @@ public class class_asv {
             if(var1.setTypeAndData((BlockPosition)var8, (IBlockData)var10, 2) && var6.c != null) {
                var11 = var1.getTileEntity(var8);
                if(var11 != null) {
-                  var6.c.put("DIAMOND_SHOVEL", var8.getX());
-                  var6.c.put("DIAMOND_PICKAXE", var8.getY());
-                  var6.c.put("DIAMOND_AXE", var8.getZ());
+                  var6.c.put("x", var8.getX());
+                  var6.c.put("y", var8.getY());
+                  var6.c.put("z", var8.getZ());
                   var11.read(var6.c);
                }
             }

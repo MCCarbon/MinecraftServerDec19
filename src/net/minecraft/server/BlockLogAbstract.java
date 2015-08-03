@@ -118,7 +118,7 @@ public abstract class BlockLogAbstract extends BlockRotatable {
 	}
 
 	public static enum EnumLogRotation implements INamable {
-		X("DIAMOND_SHOVEL"), Y("DIAMOND_PICKAXE"), Z("DIAMOND_AXE"), NONE("none");
+		X("x"), Y("y"), Z("z"), NONE("none");
 
 		private final String e;
 

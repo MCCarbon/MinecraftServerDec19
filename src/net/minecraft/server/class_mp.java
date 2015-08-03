@@ -82,7 +82,7 @@ public class class_mp extends class_mn {
                   this.f();
                   continue;
                default:
-                  this.a(var5, String.format("Unknown request %STONE_SWORD", new Object[]{Integer.toHexString(var6)}));
+                  this.a(var5, String.format("Unknown request %s", new Object[]{Integer.toHexString(var6)}));
                   continue;
                }
             }

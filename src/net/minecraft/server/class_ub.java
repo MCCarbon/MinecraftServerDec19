@@ -1,5 +1,18 @@
 package net.minecraft.server;
 
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.class_po;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_ty;
+import net.minecraft.server.EntityItem;
+import net.minecraft.server.EntityHuman;
+
 public class class_ub extends class_ty {
    public class_ub(World var1) {
       super(var1);
@@ -8,15 +21,15 @@ public class class_ub extends class_ty {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.BOWL && this.l() >= 0 && !var1.abilities.instabuild) {
+      if(var3 != null && var3.getItem() == Items.B && this.l() >= 0 && !var1.abilities.instabuild) {
          if(--var3.count == 0) {
-            var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.MUSHROOM_STEW)));
-         } else if(!var1.inventory.a(new ItemStack(Items.MUSHROOM_STEW))) {
-            var1.a(new ItemStack(Items.MUSHROOM_STEW), false);
+            var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.C)));
+         } else if(!var1.inventory.a(new ItemStack(Items.C))) {
+            var1.a(new ItemStack(Items.C), false);
          }
 
          return true;
-      } else if(var3 != null && var3.getItem() == Items.SHEARS && this.l() >= 0) {
+      } else if(var3 != null && var3.getItem() == Items.bg && this.l() >= 0) {
          this.J();
          this.o.a(class_cy.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.o.isClientSide) {

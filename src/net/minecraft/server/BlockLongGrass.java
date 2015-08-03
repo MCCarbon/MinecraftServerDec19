@@ -25,7 +25,7 @@ public class BlockLongGrass extends BlockPlant implements IBlockFragilePlantElem
 
 	@Override
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return var2.nextInt(8) == 0 ? Items.WHEAT_SEEDS : null;
+		return var2.nextInt(8) == 0 ? Items.P : null;
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class BlockLongGrass extends BlockPlant implements IBlockFragilePlantElem
 
 	@Override
 	public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
-		if (!var1.isClientSide && (var6 != null) && (var6.getItem() == Items.SHEARS)) {
+		if (!var1.isClientSide && (var6 != null) && (var6.getItem() == Items.bg)) {
 			var2.b(StatisticList.ab[Block.getId(this)]);
 			dropItem(var1, var3, new ItemStack(Blocks.TALLGRASS, 1, var4.get(TYPE).getId()));
 		} else {
@@ -62,9 +62,9 @@ public class BlockLongGrass extends BlockPlant implements IBlockFragilePlantElem
 
 	@Override
 	public void b(World var1, Random var2, BlockPosition var3, IBlockData var4) {
-		BlockTallPlant.class_b_in_class_ahm var5 = BlockTallPlant.class_b_in_class_ahm.c;
+		class_ahm.class_b_in_class_ahm var5 = class_ahm.class_b_in_class_ahm.c;
 		if (var4.get(TYPE) == BlockLongGrass.EnumTallGrassType.FERN) {
-			var5 = BlockTallPlant.class_b_in_class_ahm.d;
+			var5 = class_ahm.class_b_in_class_ahm.d;
 		}
 
 		if (Blocks.DOUBLE_PLANT.canPlace(var1, var3)) {

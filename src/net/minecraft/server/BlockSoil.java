@@ -20,10 +20,10 @@ import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.EntityHuman;
 
-public class BlockSoil extends Block {
+public class class_ahy extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("moisture", 0, 7);
 
-   protected BlockSoil() {
+   protected class_ahy() {
       super(Material.EARTH);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       this.setTicking(true);

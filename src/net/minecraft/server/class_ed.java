@@ -29,7 +29,7 @@ public class class_ed {
    public static NBTTagCompound a(String var0) throws class_ec {
       var0 = var0.trim();
       if(!var0.startsWith("{")) {
-         throw new class_ec("Invalid tag encountered, expected \'{\' WOODEN_DOOR first char.");
+         throw new class_ec("Invalid tag encountered, expected \'{\' as first char.");
       } else if(b(var0) != 1) {
          throw new class_ec("Encountered multiple top tags, only one expected");
       } else {
@@ -110,7 +110,7 @@ public class class_ed {
 
             var6 = var1.charAt(var3.length());
             if(var6 != 44 && var6 != 123 && var6 != 125 && var6 != 91 && var6 != 93) {
-               throw new class_ec("Unexpected token \'" + var6 + "\' SPRUCE_DOOR: " + var1.substring(var3.length()));
+               throw new class_ec("Unexpected token \'" + var6 + "\' at: " + var1.substring(var3.length()));
             }
          }
 
@@ -132,7 +132,7 @@ public class class_ed {
 
             var6 = var1.charAt(var3.length());
             if(var6 != 44 && var6 != 123 && var6 != 125 && var6 != 91 && var6 != 93) {
-               throw new class_ec("Unexpected token \'" + var6 + "\' SPRUCE_DOOR: " + var1.substring(var3.length()));
+               throw new class_ec("Unexpected token \'" + var6 + "\' at: " + var1.substring(var3.length()));
             }
          }
 
@@ -157,7 +157,7 @@ public class class_ed {
          }
 
          if(var3 != -1 && var3 < var2) {
-            throw new class_ec("Name error SPRUCE_DOOR: " + var0);
+            throw new class_ec("Name error at: " + var0);
          }
       } else if(var2 == -1 || var2 > var3) {
          var2 = -1;

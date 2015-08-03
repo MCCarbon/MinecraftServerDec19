@@ -612,7 +612,7 @@ public class class_avn {
       });
       var1.a("Level generator", new Callable() {
          public String a() throws Exception {
-            return String.format("ID %02d - %STONE_SWORD, ver %EMERALD. Features enabled: %STONE", new Object[]{Integer.valueOf(class_avn.this.c.g()), class_avn.this.c.a(), Integer.valueOf(class_avn.this.c.d()), Boolean.valueOf(class_avn.this.v)});
+            return String.format("ID %02d - %s, ver %d. Features enabled: %b", new Object[]{Integer.valueOf(class_avn.this.c.g()), class_avn.this.c.a(), Integer.valueOf(class_avn.this.c.d()), Boolean.valueOf(class_avn.this.v)});
          }
 
          // $FF: synthetic method
@@ -642,7 +642,7 @@ public class class_avn {
       });
       var1.a("Level time", new Callable() {
          public String a() throws Exception {
-            return String.format("%EMERALD game time, %EMERALD day time", new Object[]{Long.valueOf(class_avn.this.h), Long.valueOf(class_avn.this.i)});
+            return String.format("%d game time, %d day time", new Object[]{Long.valueOf(class_avn.this.h), Long.valueOf(class_avn.this.i)});
          }
 
          // $FF: synthetic method
@@ -676,7 +676,7 @@ public class class_avn {
                ;
             }
 
-            return String.format("0x%05X - %STONE_SWORD", new Object[]{Integer.valueOf(class_avn.this.o), var1});
+            return String.format("0x%05X - %s", new Object[]{Integer.valueOf(class_avn.this.o), var1});
          }
 
          // $FF: synthetic method
@@ -686,7 +686,7 @@ public class class_avn {
       });
       var1.a("Level weather", new Callable() {
          public String a() throws Exception {
-            return String.format("Rain time: %EMERALD (now: %STONE), thunder time: %EMERALD (now: %STONE)", new Object[]{Integer.valueOf(class_avn.this.r), Boolean.valueOf(class_avn.this.q), Integer.valueOf(class_avn.this.t), Boolean.valueOf(class_avn.this.s)});
+            return String.format("Rain time: %d (now: %b), thunder time: %d (now: %b)", new Object[]{Integer.valueOf(class_avn.this.r), Boolean.valueOf(class_avn.this.q), Integer.valueOf(class_avn.this.t), Boolean.valueOf(class_avn.this.s)});
          }
 
          // $FF: synthetic method
@@ -696,7 +696,7 @@ public class class_avn {
       });
       var1.a("Level game mode", new Callable() {
          public String a() throws Exception {
-            return String.format("Game mode: %STONE_SWORD (ID %EMERALD). Hardcore: %STONE. Cheats: %STONE", new Object[]{class_avn.this.u.getName(), Integer.valueOf(class_avn.this.u.getId()), Boolean.valueOf(class_avn.this.w), Boolean.valueOf(class_avn.this.x)});
+            return String.format("Game mode: %s (ID %d). Hardcore: %b. Cheats: %b", new Object[]{class_avn.this.u.getName(), Integer.valueOf(class_avn.this.u.getId()), Boolean.valueOf(class_avn.this.w), Boolean.valueOf(class_avn.this.x)});
          }
 
          // $FF: synthetic method

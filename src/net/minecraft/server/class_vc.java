@@ -2,6 +2,15 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.Entity;
+import net.minecraft.server.class_uz;
+import net.minecraft.server.EntityHuman;
 
 public class class_vc extends class_uz {
    public class_vc.class_a_in_class_vc c;
@@ -73,7 +82,7 @@ public class class_vc extends class_uz {
             }
          }
 
-         this.a(new ItemStack(Items.PAINTING), 0.0F);
+         this.a(new ItemStack(Items.ap), 0.0F);
       }
    }
 

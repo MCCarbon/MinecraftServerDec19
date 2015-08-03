@@ -81,7 +81,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 			IBlockData var9 = world.getType(var7.setPosition(var2, var8, var4));
 			float[] var10;
 			if (var9.getBlock() == Blocks.STAINED_GLASS) {
-				var10 = class_uf.a((EnumColor) var9.get(BlockStainedGlass.a));
+				var10 = class_uf.a((EnumColor) var9.get(class_alb.a));
 			} else {
 				if (var9.getBlock() != Blocks.STAINED_GLASS_PANE) {
 					if ((var9.getBlock().getLightOpacity() >= 15) && (var9.getBlock() != Blocks.BEDROCK)) {
@@ -94,7 +94,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 					continue;
 				}
 
-				var10 = class_uf.a((EnumColor) var9.get(BlockStainedGlassPane.a));
+				var10 = class_uf.a((EnumColor) var9.get(class_alc.a));
 			}
 
 			if (!var6) {
@@ -258,7 +258,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 
 	@Override
 	public boolean canPlaceItem(int var1, ItemStack var2) {
-		return (var2.getItem() == Items.EMERALD) || (var2.getItem() == Items.DIAMOND) || (var2.getItem() == Items.GOLD_INGOT) || (var2.getItem() == Items.IRON_INGOT);
+		return (var2.getItem() == Items.bR) || (var2.getItem() == Items.k) || (var2.getItem() == Items.m) || (var2.getItem() == Items.l);
 	}
 
 	@Override

@@ -87,9 +87,9 @@ public class class_be extends class_i {
                if(var8) {
                   TileEntity var11 = var6.getTileEntity(var3);
                   if(var11 != null) {
-                     var7.put("DIAMOND_SHOVEL", var3.getX());
-                     var7.put("DIAMOND_PICKAXE", var3.getY());
-                     var7.put("DIAMOND_AXE", var3.getZ());
+                     var7.put("x", var3.getX());
+                     var7.put("y", var3.getY());
+                     var7.put("z", var3.getZ());
                      var11.read(var7);
                   }
                }

@@ -15,7 +15,7 @@ public class BlockOre extends Block {
 
 	@Override
 	public Item getDropType(IBlockData blockdata, Random rnd, int fortune) {
-		return this == Blocks.COAL_ORE ? Items.COAL : (this == Blocks.DIAMOND_ORE ? Items.DIAMOND : (this == Blocks.LAPIS_ORE ? Items.DYE : (this == Blocks.EMERALD_ORE ? Items.EMERALD : (this == Blocks.QUARTZ_ORE ? Items.QUARTZ : Item.getItemOf(this)))));
+		return this == Blocks.COAL_ORE ? Items.j : (this == Blocks.DIAMOND_ORE ? Items.k : (this == Blocks.LAPIS_ORE ? Items.aY : (this == Blocks.EMERALD_ORE ? Items.bR : (this == Blocks.QUARTZ_ORE ? Items.cj : Item.getItemOf(this)))));
 	}
 
 	@Override

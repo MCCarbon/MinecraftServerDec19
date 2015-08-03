@@ -28,7 +28,7 @@ public class class_ae extends class_i {
          throw new class_cf("commands.xp.usage", new Object[0]);
       } else {
          String var3 = var2[0];
-         boolean var4 = var3.endsWith("IRON_INGOT") || var3.endsWith("STONE_HOE");
+         boolean var4 = var3.endsWith("l") || var3.endsWith("L");
          if(var4 && var3.length() > 1) {
             var3 = var3.substring(0, var3.length() - 1);
          }

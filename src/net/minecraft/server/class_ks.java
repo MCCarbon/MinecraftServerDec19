@@ -77,7 +77,7 @@ public class class_ks extends JComponent {
          this.add(this.c(), "Center");
          this.add(this.a(), "West");
       } catch (Exception var3) {
-         b.error((String)"Couldn\'STONE_SHOVEL build server GUI", (Throwable)var3);
+         b.error((String)"Couldn\'t build server GUI", (Throwable)var3);
       }
 
    }

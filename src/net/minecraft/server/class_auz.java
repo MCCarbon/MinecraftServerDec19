@@ -4,7 +4,7 @@ import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.BlockMinecartTrackAbstract;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockDoor;
+import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_aia;
 import net.minecraft.server.class_alv;
@@ -150,7 +150,7 @@ public class class_auz extends class_auu {
                if(var17.getMaterial() != Material.AIR) {
                   if(var17 != Blocks.TRAPDOOR && var17 != Blocks.IRON_TRAPDOOR) {
                      if(var17 != Blocks.FLOWING_WATER && var17 != Blocks.WATER) {
-                        if(!var10 && var17 instanceof BlockDoor && var17.getMaterial() == Material.WOOD) {
+                        if(!var10 && var17 instanceof class_ahl && var17.getMaterial() == Material.WOOD) {
                            return 0;
                         }
                      } else {
@@ -168,7 +168,7 @@ public class class_auz extends class_auu {
                      if(!(var1.o.getType(var12).getBlock() instanceof BlockMinecartTrackAbstract) && !(var1.o.getType(var12.down()).getBlock() instanceof BlockMinecartTrackAbstract)) {
                         return -3;
                      }
-                  } else if(!var17.isPassable(var0, var13) && (!var9 || !(var17 instanceof BlockDoor) || var17.getMaterial() != Material.WOOD)) {
+                  } else if(!var17.isPassable(var0, var13) && (!var9 || !(var17 instanceof class_ahl) || var17.getMaterial() != Material.WOOD)) {
                      if(var17 instanceof class_ahz || var17 instanceof class_aia || var17 instanceof class_alv) {
                         return -3;
                      }

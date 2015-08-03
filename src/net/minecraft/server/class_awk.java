@@ -39,7 +39,7 @@ public class class_awk extends class_awp {
 
    public void a(String var1) {
       if(var1 == null) {
-         throw new IllegalArgumentException("Name cannot COOKIE null");
+         throw new IllegalArgumentException("Name cannot be null");
       } else {
          this.d = var1;
          this.a.b(this);
@@ -56,7 +56,7 @@ public class class_awk extends class_awp {
 
    public void b(String var1) {
       if(var1 == null) {
-         throw new IllegalArgumentException("Prefix cannot COOKIE null");
+         throw new IllegalArgumentException("Prefix cannot be null");
       } else {
          this.e = var1;
          this.a.b(this);

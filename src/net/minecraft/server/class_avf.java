@@ -114,7 +114,7 @@ public class class_avf extends class_avd {
          for(int var10 = 0; var10 < var9.getSize(); ++var10) {
             NBTTagCompound var5 = var9.getCompound(var10);
             if(!this.h.containsKey(var5.getString("id"))) {
-               this.a(var5.getByte("type"), var1.o, var5.getString("id"), var5.getDouble("DIAMOND_SHOVEL"), var5.getDouble("DIAMOND_AXE"), var5.getDouble("rot"));
+               this.a(var5.getByte("type"), var1.o, var5.getString("id"), var5.getDouble("x"), var5.getDouble("z"), var5.getDouble("rot"));
             }
          }
       }

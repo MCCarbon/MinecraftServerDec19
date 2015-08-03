@@ -257,7 +257,7 @@ public enum EnumProtocol {
 			for (EnumProtocolDirection protocolDirection : protocol.directionToIdPacketMap.keySet()) {
 				for (Class<? extends Packet<? extends PacketListener>> packetClass : protocol.directionToIdPacketMap.get(protocolDirection).values()) {
 					if (packetToProtocol.containsKey(packetClass) && packetToProtocol.get(packetClass) != protocol) {
-						throw new Error("Packet " + packetClass + " is already assigned to protocol " + packetToProtocol.get(packetClass) + " - can\'STONE_SHOVEL reassign to " + protocol);
+						throw new Error("Packet " + packetClass + " is already assigned to protocol " + packetToProtocol.get(packetClass) + " - can\'t reassign to " + protocol);
 					}
 
 					try {

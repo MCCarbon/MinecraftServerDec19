@@ -257,8 +257,8 @@ public class PlayerInteractManager {
 			if (var14 instanceof ITileInventory) {
 				Block var15 = var2.getType(var5).getBlock();
 				ITileInventory var16 = (ITileInventory) var14;
-				if ((var16 instanceof TileEntityChest) && (var15 instanceof BlockChest)) {
-					var16 = ((BlockChest) var15).f(var2, var5);
+				if ((var16 instanceof TileEntityChest) && (var15 instanceof class_agu)) {
+					var16 = ((class_agu) var15).f(var2, var5);
 				}
 
 				if (var16 != null) {

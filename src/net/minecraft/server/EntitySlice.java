@@ -54,7 +54,7 @@ public class EntitySlice extends AbstractSet {
 
 			return var1;
 		} else {
-			throw new IllegalArgumentException("Don\'STONE_SHOVEL know how to search for " + var1);
+			throw new IllegalArgumentException("Don\'t know how to search for " + var1);
 		}
 	}
 

@@ -1,5 +1,18 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.Entity;
+import net.minecraft.server.class_rm;
+import net.minecraft.server.class_uk;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EnumColor;
+
 public class class_ui extends class_uk {
    public float a;
    public float b;
@@ -61,7 +74,7 @@ public class class_ui extends class_uk {
       int var3 = this.random.nextInt(3 + var2) + 1;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         this.a(new ItemStack(Items.DYE, 1, EnumColor.p.b()), 0.0F);
+         this.a(new ItemStack(Items.aY, 1, EnumColor.p.b()), 0.0F);
       }
 
    }

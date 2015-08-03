@@ -2,11 +2,24 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateInteger;
+import net.minecraft.server.IBlockState;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
 
-public class BlockReeds extends Block {
+public class class_akn extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 15);
 
-   protected BlockReeds() {
+   protected class_akn() {
       super(Material.PLANT);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       float var1 = 0.375F;
@@ -81,7 +94,7 @@ public class BlockReeds extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.REEDS;
+      return Items.aL;
    }
 
    public boolean isOpaqueCube() {

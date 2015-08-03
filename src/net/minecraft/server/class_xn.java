@@ -1,5 +1,15 @@
 package net.minecraft.server;
 
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.class_pl;
+import net.minecraft.server.class_pm;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_xd;
+
 public class class_xn extends class_xd {
    private int f = 200;
 
@@ -24,7 +34,7 @@ public class class_xn extends class_xd {
    }
 
    protected ItemStack j() {
-      return new ItemStack(Items.SPECTRAL_ARROW);
+      return new ItemStack(Items.h);
    }
 
    protected void b(EntityLiving var1) {

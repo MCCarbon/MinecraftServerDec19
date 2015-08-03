@@ -9,8 +9,8 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.CreativeTab;
 
-public class BlockObsidian extends Block {
-   public BlockObsidian() {
+public class class_ajr extends Block {
+   public class_ajr() {
       super(Material.STONE);
       this.setCreativeTab(CreativeTab.BUILDING_BLOCKS);
    }

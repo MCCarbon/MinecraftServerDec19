@@ -7,6 +7,21 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.class_aco;
+import net.minecraft.server.class_acs;
+import net.minecraft.server.class_act;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.ChatMessage;
+import net.minecraft.server.MinecraftKey;
+import net.minecraft.server.class_mt;
+import net.minecraft.server.class_mv;
+import net.minecraft.server.class_mw;
+import net.minecraft.server.class_my;
+import net.minecraft.server.class_pt;
+import net.minecraft.server.ItemBlock;
 
 public class StatisticList {
    protected static Map a = Maps.newHashMap();
@@ -78,7 +93,7 @@ public class StatisticList {
 
    private static void b() {
       HashSet var0 = Sets.newHashSet();
-      Iterator var1 = RecipeManager.a().b().iterator();
+      Iterator var1 = class_act.a().b().iterator();
 
       while(var1.hasNext()) {
          class_acs var2 = (class_acs)var1.next();

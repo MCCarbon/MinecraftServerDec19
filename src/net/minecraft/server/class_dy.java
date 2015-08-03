@@ -150,24 +150,24 @@ public final class class_dy {
 
    public static NBTTagCompound a(UUID var0) {
       NBTTagCompound var1 = new NBTTagCompound();
-      var1.put("IRON_HOE", var0.getMostSignificantBits());
-      var1.put("STONE_HOE", var0.getLeastSignificantBits());
+      var1.put("M", var0.getMostSignificantBits());
+      var1.put("L", var0.getLeastSignificantBits());
       return var1;
    }
 
    public static UUID b(NBTTagCompound var0) {
-      return new UUID(var0.getLong("IRON_HOE"), var0.getLong("STONE_HOE"));
+      return new UUID(var0.getLong("M"), var0.getLong("L"));
    }
 
    public static BlockPosition c(NBTTagCompound var0) {
-      return new BlockPosition(var0.getInt("CHAINMAIL_CHESTPLATE"), var0.getInt("CHAINMAIL_LEGGINGS"), var0.getInt("CHAINMAIL_BOOTS"));
+      return new BlockPosition(var0.getInt("X"), var0.getInt("Y"), var0.getInt("Z"));
    }
 
    public static NBTTagCompound a(BlockPosition var0) {
       NBTTagCompound var1 = new NBTTagCompound();
-      var1.put("CHAINMAIL_CHESTPLATE", var0.getX());
-      var1.put("CHAINMAIL_LEGGINGS", var0.getY());
-      var1.put("CHAINMAIL_BOOTS", var0.getZ());
+      var1.put("X", var0.getX());
+      var1.put("Y", var0.getY());
+      var1.put("Z", var0.getZ());
       return var1;
    }
 }

@@ -49,7 +49,7 @@ public class class_nv {
          }
 
          if(var5 > 100000000L) {
-            b.warn("Something\'STONE_SWORD taking too long! \'" + this.e + "\' took aprox " + (double)var5 / 1000000.0D + " ms");
+            b.warn("Something\'s taking too long! \'" + this.e + "\' took aprox " + (double)var5 / 1000000.0D + " ms");
          }
 
          this.e = !this.c.isEmpty()?(String)this.c.get(this.c.size() - 1):"";

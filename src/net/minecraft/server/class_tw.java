@@ -1,5 +1,21 @@
 package net.minecraft.server;
 
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.class_po;
+import net.minecraft.server.class_pp;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityHuman;
+
 public abstract class class_tw extends class_po implements class_pp {
    protected Block bv;
    private int bs;
@@ -80,7 +96,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 == null?false:var1.getItem() == Items.WHEAT;
+      return var1 == null?false:var1.getItem() == Items.Q;
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {

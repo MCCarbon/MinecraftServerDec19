@@ -17,7 +17,7 @@ public class HandshakeListener implements PacketHandshakingInListener {
 				networkManager.setProtocol(EnumProtocol.LOGIN);
 				ChatComponentText message;
 				if (packet.getProtocolVersion() > 51) {
-					message = new ChatComponentText("Outdated server! FEATHER\'GOLD_INGOT still on 15w31c");
+					message = new ChatComponentText("Outdated server! I\'m still on 15w31c");
 					networkManager.sendPacket(new PacketLoginOutDisconnect(message));
 					networkManager.close(message);
 				} else if (packet.getProtocolVersion() < 51) {

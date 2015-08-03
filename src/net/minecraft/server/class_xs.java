@@ -2,24 +2,43 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.class_abe;
+import net.minecraft.server.class_acd;
+import net.minecraft.server.class_acf;
+import net.minecraft.server.World;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockFluids;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.MovingObjectPosition;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTag;
+import net.minecraft.server.class_pk;
+import net.minecraft.server.class_pl;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_xo;
 
 public class class_xs extends class_xo {
    private ItemStack d;
 
    public class_xs(World var1) {
       super(var1);
-      this.d = ItemPotion.a(new ItemStack(Items.POTION), class_acf.a);
+      this.d = class_abe.a(new ItemStack(Items.bB), class_acf.a);
    }
 
    public class_xs(World var1, EntityLiving var2, ItemStack var3) {
       super(var1, var2);
-      this.d = ItemPotion.a(new ItemStack(Items.POTION), class_acf.a);
+      this.d = class_abe.a(new ItemStack(Items.bB), class_acf.a);
       this.d = var3;
    }
 
    public class_xs(World var1, double var2, double var4, double var6, ItemStack var8) {
       super(var1, var2, var4, var6);
-      this.d = ItemPotion.a(new ItemStack(Items.POTION), class_acf.a);
+      this.d = class_abe.a(new ItemStack(Items.bB), class_acf.a);
       this.d = var8;
    }
 
@@ -29,7 +48,7 @@ public class class_xs extends class_xo {
 
    protected void a(MovingObjectPosition var1) {
       if(!this.o.isClientSide) {
-         class_acd var2 = ItemPotion.i(this.d);
+         class_acd var2 = class_abe.i(this.d);
          if(var1.a == MovingObjectPosition.class_a_in_class_awg.b && var2 == class_acf.a) {
             BlockPosition var16 = var1.a().shift(var1.b);
             this.a(var16);

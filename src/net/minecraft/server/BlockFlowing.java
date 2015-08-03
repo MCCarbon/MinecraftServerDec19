@@ -206,7 +206,7 @@ public class BlockFlowing extends BlockFluids {
 
 	private boolean g(World var1, BlockPosition var2, IBlockData var3) {
 		Block var4 = var1.getType(var2).getBlock();
-		return !(var4 instanceof BlockDoor) && (var4 != Blocks.STANDING_SIGN) && (var4 != Blocks.LADDER) && (var4 != Blocks.REEDS) ? (var4.material == Material.PORTAL ? true : var4.material.isSolid()) : true;
+		return !(var4 instanceof class_ahl) && (var4 != Blocks.STANDING_SIGN) && (var4 != Blocks.LADDER) && (var4 != Blocks.REEDS) ? (var4.material == Material.PORTAL ? true : var4.material.isSolid()) : true;
 	}
 
 	protected int a(World var1, BlockPosition var2, int var3) {

@@ -3,6 +3,39 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.Random;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.class_act;
+import net.minecraft.server.World;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.class_on;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.class_po;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_qd;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.class_qk;
+import net.minecraft.server.class_re;
+import net.minecraft.server.class_rh;
+import net.minecraft.server.class_rj;
+import net.minecraft.server.class_rl;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_se;
+import net.minecraft.server.class_sh;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sr;
+import net.minecraft.server.class_tf;
+import net.minecraft.server.class_tw;
+import net.minecraft.server.EntityItem;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.Container;
+import net.minecraft.server.class_yg;
+import net.minecraft.server.EnumColor;
 
 public class class_uf extends class_tw {
    private static final int bs = Datawathcer.claimId(class_uf.class);
@@ -26,14 +59,14 @@ public class class_uf extends class_tw {
       this.i.a(0, new class_rj(this));
       this.i.a(1, new class_se(this, 1.25D));
       this.i.a(2, new class_re(this, 1.0D));
-      this.i.a(3, new class_sr(this, 1.1D, Items.WHEAT, false));
+      this.i.a(3, new class_sr(this, 1.1D, Items.Q, false));
       this.i.a(4, new class_rl(this, 1.1D));
       this.i.a(5, this.bx);
       this.i.a(6, new class_si(this, 1.0D));
       this.i.a(7, new class_rr(this, EntityHuman.class, 6.0F));
       this.i.a(8, new class_sh(this));
-      this.bt.setItem(0, new ItemStack(Items.DYE));
-      this.bt.setItem(1, new ItemStack(Items.DYE));
+      this.bt.setItem(0, new ItemStack(Items.aY));
+      this.bt.setItem(1, new ItemStack(Items.aY));
    }
 
    protected void cc() {
@@ -69,9 +102,9 @@ public class class_uf extends class_tw {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
-            this.a(Items.COOKED_MUTTON, 1);
+            this.a(Items.bp, 1);
          } else {
-            this.a(Items.MUTTON, 1);
+            this.a(Items.bo, 1);
          }
       }
 
@@ -82,7 +115,7 @@ public class class_uf extends class_tw {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.SHEARS && !this.cB() && !this.j_()) {
+      if(var3 != null && var3.getItem() == Items.bg && !this.cB() && !this.j_()) {
          if(!this.o.isClientSide) {
             this.m(true);
             int var4 = 1 + this.random.nextInt(3);
@@ -184,9 +217,9 @@ public class class_uf extends class_tw {
       int var4 = ((class_uf)var2).cA().b();
       this.bt.getItem(0).setData(var3);
       this.bt.getItem(1).setData(var4);
-      ItemStack var5 = RecipeManager.a().a(this.bt, ((class_uf)var1).o);
+      ItemStack var5 = class_act.a().a(this.bt, ((class_uf)var1).o);
       int var6;
-      if(var5 != null && var5.getItem() == Items.DYE) {
+      if(var5 != null && var5.getItem() == Items.aY) {
          var6 = var5.i();
       } else {
          var6 = this.o.random.nextBoolean()?var3:var4;

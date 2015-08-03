@@ -16,10 +16,10 @@ import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
 
-public class BlockMycel extends Block {
+public class class_ajj extends Block {
    public static final BlockStateBoolean a = BlockStateBoolean.of("snowy");
 
-   protected BlockMycel() {
+   protected class_ajj() {
       super(Material.GRASS, MaterialMapColor.COLOR25);
       this.setBlockData(this.blockStateList.getFirst().set(a, Boolean.valueOf(false)));
       this.setTicking(true);

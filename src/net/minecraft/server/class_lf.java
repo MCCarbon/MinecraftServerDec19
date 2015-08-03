@@ -83,8 +83,8 @@ public class class_lf implements class_aoh {
                   var5 = this.e.d(var1, var2);
                } catch (Throwable var9) {
                   class_b var7 = class_b.a(var9, "Exception generating new chunk");
-                  class_c var8 = var7.a("Chunk to COOKIE generated");
-                  var8.a((String)"Location", (Object)String.format("%EMERALD,%EMERALD", new Object[]{Integer.valueOf(var1), Integer.valueOf(var2)}));
+                  class_c var8 = var7.a("Chunk to be generated");
+                  var8.a((String)"Location", (Object)String.format("%d,%d", new Object[]{Integer.valueOf(var1), Integer.valueOf(var2)}));
                   var8.a((String)"Position hash", (Object)Long.valueOf(var3));
                   var8.a((String)"Generator", (Object)this.e.f());
                   throw new class_e(var7);
@@ -121,7 +121,7 @@ public class class_lf implements class_aoh {
 
             return var3;
          } catch (Exception var4) {
-            b.error((String)"Couldn\'STONE_SHOVEL load chunk", (Throwable)var4);
+            b.error((String)"Couldn\'t load chunk", (Throwable)var4);
             return null;
          }
       }
@@ -132,7 +132,7 @@ public class class_lf implements class_aoh {
          try {
             this.f.b(this.i, var1);
          } catch (Exception var3) {
-            b.error((String)"Couldn\'STONE_SHOVEL save entities", (Throwable)var3);
+            b.error((String)"Couldn\'t save entities", (Throwable)var3);
          }
 
       }
@@ -144,9 +144,9 @@ public class class_lf implements class_aoh {
             var1.b(this.i.L());
             this.f.a(this.i, var1);
          } catch (IOException var3) {
-            b.error((String)"Couldn\'STONE_SHOVEL save chunk", (Throwable)var3);
+            b.error((String)"Couldn\'t save chunk", (Throwable)var3);
          } catch (class_aeo var4) {
-            b.error((String)"Couldn\'STONE_SHOVEL save chunk; already in use by another instance of Minecraft?", (Throwable)var4);
+            b.error((String)"Couldn\'t save chunk; already in use by another instance of Minecraft?", (Throwable)var4);
          }
 
       }

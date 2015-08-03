@@ -23,7 +23,7 @@ public class class_qm {
       this.c = var2;
       this.a = var3;
       this.b = var5;
-      Validate.notEmpty((CharSequence)var2, "Modifier name cannot COOKIE empty", new Object[0]);
+      Validate.notEmpty((CharSequence)var2, "Modifier name cannot be empty", new Object[0]);
       Validate.inclusiveBetween(0L, 2L, (long)var5, "Invalid operation");
    }
 

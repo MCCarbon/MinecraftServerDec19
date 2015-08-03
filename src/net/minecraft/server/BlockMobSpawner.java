@@ -10,8 +10,8 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public class BlockMobSpawner extends BlockContainer {
-   protected BlockMobSpawner() {
+public class class_ajg extends BlockContainer {
+   protected class_ajg() {
       super(Material.STONE);
    }
 

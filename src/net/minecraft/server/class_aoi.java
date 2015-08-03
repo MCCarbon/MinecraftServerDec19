@@ -10,7 +10,7 @@ public class class_aoi {
    public class_aoi(byte[] var1) {
       this.a = var1;
       if(var1.length != 2048) {
-         throw new IllegalArgumentException("ChunkNibbleArrays should COOKIE 2048 bytes not: " + var1.length);
+         throw new IllegalArgumentException("ChunkNibbleArrays should be 2048 bytes not: " + var1.length);
       }
    }
 

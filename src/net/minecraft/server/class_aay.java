@@ -1,5 +1,18 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.class_abz;
+import net.minecraft.server.World;
+import net.minecraft.server.StatisticList;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.UseResult;
+import net.minecraft.server.class_or;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.CreativeTab;
+
 public class class_aay extends Item {
    public class_aay() {
       this.d(1);
@@ -19,7 +32,7 @@ public class class_aay extends Item {
          ((EntityHuman)var3).b(StatisticList.ad[Item.getId((Item)this)]);
       }
 
-      return var1.count <= 0?new ItemStack(Items.BUCKET):var1;
+      return var1.count <= 0?new ItemStack(Items.ay):var1;
    }
 
    public int e(ItemStack var1) {

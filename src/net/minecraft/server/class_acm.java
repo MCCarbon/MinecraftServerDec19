@@ -2,6 +2,15 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.class_acs;
+import net.minecraft.server.World;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.NBTTagList;
+import net.minecraft.server.NBTTag;
+import net.minecraft.server.class_yg;
+import net.minecraft.server.class_zz;
 
 public class class_acm implements class_acs {
    private ItemStack a;
@@ -18,26 +27,26 @@ public class class_acm implements class_acs {
       for(int var9 = 0; var9 < var1.getSize(); ++var9) {
          ItemStack var10 = var1.getItem(var9);
          if(var10 != null) {
-            if(var10.getItem() == Items.GUNPOWDER) {
+            if(var10.getItem() == Items.J) {
                ++var4;
-            } else if(var10.getItem() == Items.FIREWORK_CHARGE) {
+            } else if(var10.getItem() == Items.cf) {
                ++var6;
-            } else if(var10.getItem() == Items.DYE) {
+            } else if(var10.getItem() == Items.aY) {
                ++var5;
             } else if(var10.getItem() == Items.aM) {
                ++var3;
-            } else if(var10.getItem() == Items.GLOWSTONE_DUST) {
+            } else if(var10.getItem() == Items.aV) {
                ++var7;
-            } else if(var10.getItem() == Items.DIAMOND) {
+            } else if(var10.getItem() == Items.k) {
                ++var7;
-            } else if(var10.getItem() == Items.FIRE_CHARGE) {
+            } else if(var10.getItem() == Items.bO) {
                ++var8;
-            } else if(var10.getItem() == Items.FEATHER) {
+            } else if(var10.getItem() == Items.I) {
                ++var8;
-            } else if(var10.getItem() == Items.GOLD_NUGGET) {
+            } else if(var10.getItem() == Items.bz) {
                ++var8;
             } else {
-               if(var10.getItem() != Items.SKULL) {
+               if(var10.getItem() != Items.ca) {
                   return false;
                }
 
@@ -51,7 +60,7 @@ public class class_acm implements class_acs {
          NBTTagCompound var16;
          NBTTagCompound var19;
          if(var4 >= 1 && var3 == 1 && var7 == 0) {
-            this.a = new ItemStack(Items.FIREWORKS);
+            this.a = new ItemStack(Items.ce);
             if(var6 > 0) {
                var16 = new NBTTagCompound();
                var19 = new NBTTagCompound();
@@ -59,7 +68,7 @@ public class class_acm implements class_acs {
 
                for(int var22 = 0; var22 < var1.getSize(); ++var22) {
                   ItemStack var26 = var1.getItem(var22);
-                  if(var26 != null && var26.getItem() == Items.FIREWORK_CHARGE && var26.hasTag() && var26.getTag().hasOfType("Explosion", 10)) {
+                  if(var26 != null && var26.getItem() == Items.cf && var26.hasTag() && var26.getTag().hasOfType("Explosion", 10)) {
                      var25.add((NBTTag)var26.getTag().getCompound("Explosion"));
                   }
                }
@@ -72,7 +81,7 @@ public class class_acm implements class_acs {
 
             return true;
          } else if(var4 == 1 && var3 == 0 && var6 == 0 && var5 > 0 && var8 <= 1) {
-            this.a = new ItemStack(Items.FIREWORK_CHARGE);
+            this.a = new ItemStack(Items.cf);
             var16 = new NBTTagCompound();
             var19 = new NBTTagCompound();
             byte var23 = 0;
@@ -81,19 +90,19 @@ public class class_acm implements class_acs {
             for(int var13 = 0; var13 < var1.getSize(); ++var13) {
                ItemStack var14 = var1.getItem(var13);
                if(var14 != null) {
-                  if(var14.getItem() == Items.DYE) {
+                  if(var14.getItem() == Items.aY) {
                      var12.add(Integer.valueOf(class_zz.a[var14.i() & 15]));
-                  } else if(var14.getItem() == Items.GLOWSTONE_DUST) {
+                  } else if(var14.getItem() == Items.aV) {
                      var19.put("Flicker", true);
-                  } else if(var14.getItem() == Items.DIAMOND) {
+                  } else if(var14.getItem() == Items.k) {
                      var19.put("Trail", true);
-                  } else if(var14.getItem() == Items.FIRE_CHARGE) {
+                  } else if(var14.getItem() == Items.bO) {
                      var23 = 1;
-                  } else if(var14.getItem() == Items.FEATHER) {
+                  } else if(var14.getItem() == Items.I) {
                      var23 = 4;
-                  } else if(var14.getItem() == Items.GOLD_NUGGET) {
+                  } else if(var14.getItem() == Items.bz) {
                      var23 = 2;
-                  } else if(var14.getItem() == Items.SKULL) {
+                  } else if(var14.getItem() == Items.ca) {
                      var23 = 3;
                   }
                }
@@ -116,9 +125,9 @@ public class class_acm implements class_acs {
             for(int var17 = 0; var17 < var1.getSize(); ++var17) {
                ItemStack var11 = var1.getItem(var17);
                if(var11 != null) {
-                  if(var11.getItem() == Items.DYE) {
+                  if(var11.getItem() == Items.aY) {
                      var15.add(Integer.valueOf(class_zz.a[var11.i() & 15]));
-                  } else if(var11.getItem() == Items.FIREWORK_CHARGE) {
+                  } else if(var11.getItem() == Items.cf) {
                      this.a = var11.clone();
                      this.a.count = 1;
                   }

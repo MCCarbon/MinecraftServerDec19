@@ -2,8 +2,14 @@ package net.minecraft.server;
 
 import com.google.common.collect.Maps;
 import java.util.Map;
+import net.minecraft.server.class_aan;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.World;
+import net.minecraft.server.class_pl;
+import net.minecraft.server.class_pm;
+import net.minecraft.server.EntityHuman;
 
-public class class_aak extends ItemFood {
+public class class_aak extends class_aan {
    private final boolean b;
 
    public class_aak(boolean var1) {

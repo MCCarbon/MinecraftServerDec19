@@ -111,7 +111,7 @@ public class EntityFallingBlock extends Entity {
                               while(var5.hasNext()) {
                                  String var6 = (String)var5.next();
                                  NBTTag var7 = this.c.getTag(var6);
-                                 if(!var6.equals("DIAMOND_SHOVEL") && !var6.equals("DIAMOND_PICKAXE") && !var6.equals("DIAMOND_AXE")) {
+                                 if(!var6.equals("x") && !var6.equals("y") && !var6.equals("z")) {
                                     var4.put(var6, var7.clone());
                                  }
                               }

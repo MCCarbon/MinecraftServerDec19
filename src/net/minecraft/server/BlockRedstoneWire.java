@@ -7,19 +7,37 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.IBlockAccess;
+import net.minecraft.server.Block;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.class_ahh;
+import net.minecraft.server.class_ako;
+import net.minecraft.server.IBlockData;
+import net.minecraft.server.BlockStateList;
+import net.minecraft.server.BlockStateEnum;
+import net.minecraft.server.BlockStateInteger;
+import net.minecraft.server.IBlockState;
+import net.minecraft.server.Material;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.EnumDirection;
+import net.minecraft.server.INamable;
 
-public class BlockRedstoneWire extends Block {
-   public static final BlockStateEnum a = BlockStateEnum.of("north", BlockRedstoneWire.class_a_in_class_akk.class);
-   public static final BlockStateEnum b = BlockStateEnum.of("east", BlockRedstoneWire.class_a_in_class_akk.class);
-   public static final BlockStateEnum N = BlockStateEnum.of("south", BlockRedstoneWire.class_a_in_class_akk.class);
-   public static final BlockStateEnum O = BlockStateEnum.of("west", BlockRedstoneWire.class_a_in_class_akk.class);
+public class class_akk extends Block {
+   public static final BlockStateEnum a = BlockStateEnum.of("north", class_akk.class_a_in_class_akk.class);
+   public static final BlockStateEnum b = BlockStateEnum.of("east", class_akk.class_a_in_class_akk.class);
+   public static final BlockStateEnum N = BlockStateEnum.of("south", class_akk.class_a_in_class_akk.class);
+   public static final BlockStateEnum O = BlockStateEnum.of("west", class_akk.class_a_in_class_akk.class);
    public static final BlockStateInteger P = BlockStateInteger.of("power", 0, 15);
    private boolean Q = true;
    private final Set R = Sets.newHashSet();
 
-   public BlockRedstoneWire() {
+   public class_akk() {
       super(Material.ORIENTABLE);
-      this.setBlockData(this.blockStateList.getFirst().set(a, BlockRedstoneWire.class_a_in_class_akk.c).set(b, BlockRedstoneWire.class_a_in_class_akk.c).set(N, BlockRedstoneWire.class_a_in_class_akk.c).set(O, BlockRedstoneWire.class_a_in_class_akk.c).set(P, Integer.valueOf(0)));
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_akk.class_a_in_class_akk.c).set(b, class_akk.class_a_in_class_akk.c).set(N, class_akk.class_a_in_class_akk.c).set(O, class_akk.class_a_in_class_akk.c).set(P, Integer.valueOf(0)));
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 0.0625F, 1.0F);
    }
 
@@ -31,14 +49,14 @@ public class BlockRedstoneWire extends Block {
       return var1;
    }
 
-   private BlockRedstoneWire.class_a_in_class_akk c(IBlockAccess var1, BlockPosition var2, EnumDirection var3) {
+   private class_akk.class_a_in_class_akk c(IBlockAccess var1, BlockPosition var2, EnumDirection var3) {
       BlockPosition var4 = var2.shift(var3);
       Block var5 = var1.getType(var2.shift(var3)).getBlock();
       if(a(var1.getType(var4), var3) || !var5.isSoildFullCube() && d(var1.getType(var4.down()))) {
-         return BlockRedstoneWire.class_a_in_class_akk.b;
+         return class_akk.class_a_in_class_akk.b;
       } else {
          Block var6 = var1.getType(var2.up()).getBlock();
-         return !var6.isSoildFullCube() && var5.isSoildFullCube() && d(var1.getType(var4.up()))?BlockRedstoneWire.class_a_in_class_akk.a:BlockRedstoneWire.class_a_in_class_akk.c;
+         return !var6.isSoildFullCube() && var5.isSoildFullCube() && d(var1.getType(var4.up()))?class_akk.class_a_in_class_akk.a:class_akk.class_a_in_class_akk.c;
       }
    }
 
@@ -241,7 +259,7 @@ public class BlockRedstoneWire extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.REDSTONE;
+      return Items.aE;
    }
 
    public int b(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {
@@ -301,7 +319,7 @@ public class BlockRedstoneWire extends Block {
       if(var2 == Blocks.REDSTONE_WIRE) {
          return true;
       } else if(Blocks.UNPOWERED_REPEATER.e(var2)) {
-         EnumDirection var3 = (EnumDirection)var0.get(BlockRedstoneRepeater.FACING);
+         EnumDirection var3 = (EnumDirection)var0.get(class_ako.FACING);
          return var3 == var1 || var3.opposite() == var1;
       } else {
          return var2.isPowerSource() && var1 != null;
@@ -324,7 +342,7 @@ public class BlockRedstoneWire extends Block {
       if(var1.getBlock() != this) {
          return var1;
       } else {
-         switch(BlockRedstoneWire.SyntheticClass_1.a[var2.ordinal()]) {
+         switch(class_akk.SyntheticClass_1.a[var2.ordinal()]) {
          case 1:
             return var1.set(a, var1.get(N)).set(b, var1.get(O)).set(N, var1.get(a)).set(O, var1.get(b));
          case 2:
@@ -341,7 +359,7 @@ public class BlockRedstoneWire extends Block {
       if(var1.getBlock() != this) {
          return var1;
       } else {
-         switch(BlockRedstoneWire.SyntheticClass_1.b[var2.ordinal()]) {
+         switch(class_akk.SyntheticClass_1.b[var2.ordinal()]) {
          case 1:
             return var1.set(a, var1.get(N)).set(N, var1.get(a));
          case 2:

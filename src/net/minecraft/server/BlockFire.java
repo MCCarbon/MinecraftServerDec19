@@ -7,7 +7,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockTNT;
+import net.minecraft.server.class_alo;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateBoolean;
@@ -20,7 +20,7 @@ import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 
-public class BlockFire extends Block {
+public class class_aib extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 15);
    public static final BlockStateBoolean b = BlockStateBoolean.of("north");
    public static final BlockStateBoolean N = BlockStateBoolean.of("east");
@@ -34,7 +34,7 @@ public class BlockFire extends Block {
       return !World.a(var2, var3.down()) && !Blocks.FIRE.e(var2, var3.down())?var1.set(b, Boolean.valueOf(this.e(var2, var3.north()))).set(N, Boolean.valueOf(this.e(var2, var3.east()))).set(O, Boolean.valueOf(this.e(var2, var3.south()))).set(P, Boolean.valueOf(this.e(var2, var3.west()))).set(Q, Boolean.valueOf(this.e(var2, var3.up()))):this.getBlockData();
    }
 
-   protected BlockFire() {
+   protected class_aib() {
       super(Material.FIRE);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, Boolean.valueOf(false)));
       this.setTicking(true);
@@ -222,7 +222,7 @@ public class BlockFire extends Block {
          }
 
          if(var7.getBlock() == Blocks.TNT) {
-            Blocks.TNT.postBreak(var1, var2, var7.set(BlockTNT.a, Boolean.valueOf(true)));
+            Blocks.TNT.postBreak(var1, var2, var7.set(class_alo.a, Boolean.valueOf(true)));
          }
       }
 

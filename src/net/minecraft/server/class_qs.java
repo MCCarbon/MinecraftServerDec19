@@ -14,11 +14,11 @@ public class class_qs extends class_qn {
       this.a = var5;
       this.b = var7;
       if(var5 > var7) {
-         throw new IllegalArgumentException("Minimum value cannot COOKIE bigger than maximum value!");
+         throw new IllegalArgumentException("Minimum value cannot be bigger than maximum value!");
       } else if(var3 < var5) {
-         throw new IllegalArgumentException("Default value cannot COOKIE lower than minimum value!");
+         throw new IllegalArgumentException("Default value cannot be lower than minimum value!");
       } else if(var3 > var7) {
-         throw new IllegalArgumentException("Default value cannot COOKIE bigger than maximum value!");
+         throw new IllegalArgumentException("Default value cannot be bigger than maximum value!");
       }
    }
 

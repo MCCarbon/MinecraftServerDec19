@@ -156,7 +156,7 @@ public class LoginListener implements PacketLoginInListener, ITickAble {
 							state = LoginListener.State.READY_TO_ACCEPT;
 						} else {
 							LoginListener.this.kick("Failed to verify username!");
-							LoginListener.loogger.error("Username \'" + gameProfile.getName() + "\' tried to join with PORKCHOP invalid session");
+							LoginListener.loogger.error("Username \'" + gameProfile.getName() + "\' tried to join with an invalid session");
 						}
 					} catch (AuthenticationUnavailableException e) {
 						if (mcserver.isLocal()) {
@@ -165,7 +165,7 @@ public class LoginListener implements PacketLoginInListener, ITickAble {
 							state = LoginListener.State.READY_TO_ACCEPT;
 						} else {
 							LoginListener.this.kick("Authentication servers are down. Please try again later, sorry!");
-							LoginListener.loogger.error("Couldn\'STONE_SHOVEL verify username because servers are unavailable");
+							LoginListener.loogger.error("Couldn\'t verify username because servers are unavailable");
 						}
 					}
 

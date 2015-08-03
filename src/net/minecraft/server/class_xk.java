@@ -64,18 +64,18 @@ public class class_xk extends Entity {
 		if (this.a != null) {
 			var2 = new BlockPosition(this.a);
 			var3 = class_dy.a(this.a.aM());
-			var3.put("CHAINMAIL_CHESTPLATE", var2.getX());
-			var3.put("CHAINMAIL_LEGGINGS", var2.getY());
-			var3.put("CHAINMAIL_BOOTS", var2.getZ());
+			var3.put("X", var2.getX());
+			var3.put("Y", var2.getY());
+			var3.put("Z", var2.getZ());
 			var1.put((String) "Owner", (NBTTag) var3);
 		}
 
 		if (this.b != null) {
 			var2 = new BlockPosition(this.b);
 			var3 = class_dy.a(this.b.aM());
-			var3.put("CHAINMAIL_CHESTPLATE", var2.getX());
-			var3.put("CHAINMAIL_LEGGINGS", var2.getY());
-			var3.put("CHAINMAIL_BOOTS", var2.getZ());
+			var3.put("X", var2.getX());
+			var3.put("Y", var2.getY());
+			var3.put("Z", var2.getZ());
 			var1.put((String) "Target", (NBTTag) var3);
 		}
 
@@ -102,13 +102,13 @@ public class class_xk extends Entity {
 		if (var1.hasOfType("Owner", 10)) {
 			var2 = var1.getCompound("Owner");
 			this.h = class_dy.b(var2);
-			this.i = new BlockPosition(var2.getInt("CHAINMAIL_CHESTPLATE"), var2.getInt("CHAINMAIL_LEGGINGS"), var2.getInt("CHAINMAIL_BOOTS"));
+			this.i = new BlockPosition(var2.getInt("X"), var2.getInt("Y"), var2.getInt("Z"));
 		}
 
 		if (var1.hasOfType("Target", 10)) {
 			var2 = var1.getCompound("Target");
 			this.as = class_dy.b(var2);
-			this.at = new BlockPosition(var2.getInt("CHAINMAIL_CHESTPLATE"), var2.getInt("CHAINMAIL_LEGGINGS"), var2.getInt("CHAINMAIL_BOOTS"));
+			this.at = new BlockPosition(var2.getInt("X"), var2.getInt("Y"), var2.getInt("Z"));
 		}
 
 	}

@@ -1,6 +1,28 @@
 package net.minecraft.server;
 
 import java.util.UUID;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.AxisAlignedBB;
+import net.minecraft.server.NBTTagCompound;
+import net.minecraft.server.class_om;
+import net.minecraft.server.class_on;
+import net.minecraft.server.EnumUsedHand;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.Entity;
+import net.minecraft.server.class_pw;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.class_qd;
+import net.minecraft.server.class_qh;
+import net.minecraft.server.class_qk;
+import net.minecraft.server.class_ql;
+import net.minecraft.server.class_qm;
+import net.minecraft.server.class_sw;
+import net.minecraft.server.class_sz;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.class_wr;
+import net.minecraft.server.EntityHuman;
 
 public class class_wj extends class_wr {
    private static final UUID b = UUID.fromString("49455A49-7EC5-45BA-B886-3B90B23A1718");
@@ -142,13 +164,13 @@ public class class_wj extends class_wr {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.ROTTEN_FLESH, 1);
+         this.a(Items.bv, 1);
       }
 
       var3 = this.random.nextInt(2 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.GOLD_NUGGET, 1);
+         this.a(Items.bz, 1);
       }
 
    }
@@ -158,11 +180,11 @@ public class class_wj extends class_wr {
    }
 
    protected void br() {
-      this.a(Items.GOLD_INGOT, 1);
+      this.a(Items.m, 1);
    }
 
    protected void a(class_on var1) {
-      this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.GOLDEN_SWORD)));
+      this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
    }
 
    public class_qd a(class_on var1, class_qd var2) {

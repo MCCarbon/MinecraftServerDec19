@@ -184,7 +184,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 
 			if (var1 != m()) {
 				var2 = true;
-				BlockFurnace.a(m(), world, position);
+				class_aih.a(m(), world, position);
 			}
 		}
 
@@ -216,8 +216,8 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 				++h[2].count;
 			}
 
-			if ((h[0].getItem() == Item.getItemOf(Blocks.SPONGE)) && (h[0].i() == 1) && (h[1] != null) && (h[1].getItem() == Items.BUCKET)) {
-				h[1] = new ItemStack(Items.WATER_BUCKET);
+			if ((h[0].getItem() == Item.getItemOf(Blocks.SPONGE)) && (h[0].i() == 1) && (h[1] != null) && (h[1].getItem() == Items.ay)) {
+				h[1] = new ItemStack(Items.az);
 			}
 
 			--h[0].count;
@@ -248,7 +248,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 				}
 			}
 
-			return (var1 instanceof class_zv) && ((class_zv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_abw) && ((class_abw) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_aaq) && ((class_aaq) var1).g().equals("WOOD") ? 200 : (var1 == Items.STICK ? 100 : (var1 == Items.COAL ? 1600 : (var1 == Items.LAVA_BUCKET ? 20000 : (var1 == Item.getItemOf(Blocks.SAPLING) ? 100 : (var1 == Items.BLAZE_ROD ? 2400 : 0)))))));
+			return (var1 instanceof class_zv) && ((class_zv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_abw) && ((class_abw) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_aaq) && ((class_aaq) var1).g().equals("WOOD") ? 200 : (var1 == Items.A ? 100 : (var1 == Items.j ? 1600 : (var1 == Items.aA ? 20000 : (var1 == Item.getItemOf(Blocks.SAPLING) ? 100 : (var1 == Items.bx ? 2400 : 0)))))));
 		}
 	}
 
@@ -288,7 +288,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 	public boolean canTakeItemThroughFace(int var1, ItemStack var2, EnumDirection var3) {
 		if ((var3 == EnumDirection.DOWN) && (var1 == 1)) {
 			Item var4 = var2.getItem();
-			if ((var4 != Items.WATER_BUCKET) && (var4 != Items.BUCKET)) {
+			if ((var4 != Items.az) && (var4 != Items.ay)) {
 				return false;
 			}
 		}

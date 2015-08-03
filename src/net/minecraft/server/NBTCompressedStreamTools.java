@@ -47,7 +47,7 @@ public class NBTCompressedStreamTools {
 		if (rootTag instanceof NBTTagCompound) {
 			return (NBTTagCompound) rootTag;
 		} else {
-			throw new IOException("Root tag must COOKIE WOOD named compound tag");
+			throw new IOException("Root tag must be a named compound tag");
 		}
 	}
 

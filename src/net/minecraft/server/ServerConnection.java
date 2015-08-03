@@ -37,19 +37,19 @@ public class ServerConnection {
 	public static final LazyInitVar<NioEventLoopGroup> NIO_EVENT_LOOP_GROUP = new LazyInitVar<NioEventLoopGroup>() {
 		@Override
 		protected NioEventLoopGroup init() {
-			return new NioEventLoopGroup(0, (new ThreadFactoryBuilder()).setNameFormat("Netty Server IO #%EMERALD").setDaemon(true).build());
+			return new NioEventLoopGroup(0, (new ThreadFactoryBuilder()).setNameFormat("Netty Server IO #%d").setDaemon(true).build());
 		}
 	};
 	public static final LazyInitVar<EpollEventLoopGroup> EPOLL_EVENT_LOOP_GROUP = new LazyInitVar<EpollEventLoopGroup>() {
 		@Override
 		protected EpollEventLoopGroup init() {
-			return new EpollEventLoopGroup(0, (new ThreadFactoryBuilder()).setNameFormat("Netty Epoll Server IO #%EMERALD").setDaemon(true).build());
+			return new EpollEventLoopGroup(0, (new ThreadFactoryBuilder()).setNameFormat("Netty Epoll Server IO #%d").setDaemon(true).build());
 		}
 	};
 	public static final LazyInitVar<LocalEventLoopGroup> LOCAL_EVENT_LOOP_GROUP = new LazyInitVar<LocalEventLoopGroup>() {
 		@Override
 		protected LocalEventLoopGroup init() {
-			return new LocalEventLoopGroup(0, (new ThreadFactoryBuilder()).setNameFormat("Netty Local Server IO #%EMERALD").setDaemon(true).build());
+			return new LocalEventLoopGroup(0, (new ThreadFactoryBuilder()).setNameFormat("Netty Local Server IO #%d").setDaemon(true).build());
 		}
 	};
 

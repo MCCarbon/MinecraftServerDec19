@@ -33,8 +33,8 @@ public class class_ll extends ChannelInboundHandlerAdapter {
             String var8;
             switch(var7) {
             case 0:
-               a.debug("Ping: (<1.3.DIAMOND_SHOVEL) from {}:{}", new Object[]{var5.getAddress(), Integer.valueOf(var5.getPort())});
-               var8 = String.format("%STONE_SWORD§%EMERALD§%EMERALD", new Object[]{var6.am(), Integer.valueOf(var6.I()), Integer.valueOf(var6.J())});
+               a.debug("Ping: (<1.3.x) from {}:{}", new Object[]{var5.getAddress(), Integer.valueOf(var5.getPort())});
+               var8 = String.format("%s§%d§%d", new Object[]{var6.am(), Integer.valueOf(var6.I()), Integer.valueOf(var6.J())});
                this.a(var1, this.a(var8));
                break;
             case 1:
@@ -42,8 +42,8 @@ public class class_ll extends ChannelInboundHandlerAdapter {
                   return;
                }
 
-               a.debug("Ping: (1.4-1.5.DIAMOND_SHOVEL) from {}:{}", new Object[]{var5.getAddress(), Integer.valueOf(var5.getPort())});
-               var8 = String.format("§1\u0000%EMERALD\u0000%STONE_SWORD\u0000%STONE_SWORD\u0000%EMERALD\u0000%EMERALD", new Object[]{Integer.valueOf(127), var6.H(), var6.am(), Integer.valueOf(var6.I()), Integer.valueOf(var6.J())});
+               a.debug("Ping: (1.4-1.5.x) from {}:{}", new Object[]{var5.getAddress(), Integer.valueOf(var5.getPort())});
+               var8 = String.format("§1\u0000%d\u0000%s\u0000%s\u0000%d\u0000%d", new Object[]{Integer.valueOf(127), var6.H(), var6.am(), Integer.valueOf(var6.I()), Integer.valueOf(var6.J())});
                this.a(var1, this.a(var8));
                break;
             default:
@@ -60,7 +60,7 @@ public class class_ll extends ChannelInboundHandlerAdapter {
                }
 
                a.debug("Ping: (1.6) from {}:{}", new Object[]{var5.getAddress(), Integer.valueOf(var5.getPort())});
-               String var10 = String.format("§1\u0000%EMERALD\u0000%STONE_SWORD\u0000%STONE_SWORD\u0000%EMERALD\u0000%EMERALD", new Object[]{Integer.valueOf(127), var6.H(), var6.am(), Integer.valueOf(var6.I()), Integer.valueOf(var6.J())});
+               String var10 = String.format("§1\u0000%d\u0000%s\u0000%s\u0000%d\u0000%d", new Object[]{Integer.valueOf(127), var6.H(), var6.am(), Integer.valueOf(var6.I()), Integer.valueOf(var6.J())});
                ByteBuf var11 = this.a(var10);
 
                try {

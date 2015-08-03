@@ -1,5 +1,20 @@
 package net.minecraft.server;
 
+import net.minecraft.server.class_aaq;
+import net.minecraft.server.Item;
+import net.minecraft.server.ItemStack;
+import net.minecraft.server.Items;
+import net.minecraft.server.class_abc;
+import net.minecraft.server.class_abw;
+import net.minecraft.server.class_act;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.class_mt;
+import net.minecraft.server.class_my;
+import net.minecraft.server.IInventory;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.class_yg;
+import net.minecraft.server.class_yx;
+
 public class class_yw extends class_yx {
    private final class_yg a;
    private final EntityHuman b;
@@ -38,7 +53,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.h);
       }
 
-      if(var1.getItem() instanceof ItemPickaxe) {
+      if(var1.getItem() instanceof class_abc) {
          this.b.b((class_my)class_mt.i);
       }
 
@@ -50,7 +65,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.l);
       }
 
-      if(var1.getItem() == Items.BREAD) {
+      if(var1.getItem() == Items.R) {
          this.b.b((class_my)class_mt.m);
       }
 
@@ -58,7 +73,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.n);
       }
 
-      if(var1.getItem() instanceof ItemPickaxe && ((ItemPickaxe)var1.getItem()).g() != Item.EnumToolMaterial.WOOD) {
+      if(var1.getItem() instanceof class_abc && ((class_abc)var1.getItem()).g() != Item.class_a_in_class_aar.a) {
          this.b.b((class_my)class_mt.o);
       }
 
@@ -74,7 +89,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.G);
       }
 
-      if(var1.getItem() == Items.GOLDEN_APPLE && var1.i() == 1) {
+      if(var1.getItem() == Items.aq && var1.i() == 1) {
          this.b.b((class_my)class_mt.M);
       }
 
@@ -82,7 +97,7 @@ public class class_yw extends class_yx {
 
    public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
-      ItemStack[] var3 = RecipeManager.a().b(this.a, var1.o);
+      ItemStack[] var3 = class_act.a().b(this.a, var1.o);
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
          ItemStack var5 = this.a.getItem(var4);

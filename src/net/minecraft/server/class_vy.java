@@ -1,5 +1,27 @@
 package net.minecraft.server;
 
+import net.minecraft.server.Item;
+import net.minecraft.server.Items;
+import net.minecraft.server.World;
+import net.minecraft.server.BlockPosition;
+import net.minecraft.server.class_cy;
+import net.minecraft.server.MathHelper;
+import net.minecraft.server.class_pc;
+import net.minecraft.server.Entity;
+import net.minecraft.server.EntityLiving;
+import net.minecraft.server.Datawathcer;
+import net.minecraft.server.class_rm;
+import net.minecraft.server.class_rr;
+import net.minecraft.server.class_ry;
+import net.minecraft.server.class_sh;
+import net.minecraft.server.class_si;
+import net.minecraft.server.class_sw;
+import net.minecraft.server.class_sz;
+import net.minecraft.server.class_wi;
+import net.minecraft.server.class_wl;
+import net.minecraft.server.EntityHuman;
+import net.minecraft.server.class_xl;
+
 public class class_vy extends class_wi {
    private float a = 0.5F;
    private int b;
@@ -88,7 +110,7 @@ public class class_vy extends class_wi {
    }
 
    protected Item D() {
-      return Items.BLAZE_ROD;
+      return Items.bx;
    }
 
    public boolean av() {
@@ -100,7 +122,7 @@ public class class_vy extends class_wi {
          int var3 = this.random.nextInt(2 + var2);
 
          for(int var4 = 0; var4 < var3; ++var4) {
-            this.a(Items.BLAZE_ROD, 1);
+            this.a(Items.bx, 1);
          }
       }
 
