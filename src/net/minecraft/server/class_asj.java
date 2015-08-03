@@ -319,22 +319,22 @@ public class class_asj {
             this.a(var1, var13, var6, 3, 6, var3);
          }
 
-         IBlockData var14 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, EnumDirection.NORTH);
-         IBlockData var7 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, EnumDirection.SOUTH);
-         IBlockData var8 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, EnumDirection.EAST);
-         IBlockData var9 = Blocks.END_PORTAL_FRAME.getBlockData().set(class_aht.a, EnumDirection.WEST);
-         this.a(var1, var14.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 8, var3);
-         this.a(var1, var14.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 8, var3);
-         this.a(var1, var14.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 8, var3);
-         this.a(var1, var7.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 12, var3);
-         this.a(var1, var7.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 12, var3);
-         this.a(var1, var7.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 12, var3);
-         this.a(var1, var8.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 9, var3);
-         this.a(var1, var8.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 10, var3);
-         this.a(var1, var8.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 11, var3);
-         this.a(var1, var9.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 9, var3);
-         this.a(var1, var9.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 10, var3);
-         this.a(var1, var9.set(class_aht.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 11, var3);
+         IBlockData var14 = Blocks.END_PORTAL_FRAME.getBlockData().set(BlockEnderPortalFrame.a, EnumDirection.NORTH);
+         IBlockData var7 = Blocks.END_PORTAL_FRAME.getBlockData().set(BlockEnderPortalFrame.a, EnumDirection.SOUTH);
+         IBlockData var8 = Blocks.END_PORTAL_FRAME.getBlockData().set(BlockEnderPortalFrame.a, EnumDirection.EAST);
+         IBlockData var9 = Blocks.END_PORTAL_FRAME.getBlockData().set(BlockEnderPortalFrame.a, EnumDirection.WEST);
+         this.a(var1, var14.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 8, var3);
+         this.a(var1, var14.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 8, var3);
+         this.a(var1, var14.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 8, var3);
+         this.a(var1, var7.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 4, 3, 12, var3);
+         this.a(var1, var7.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 5, 3, 12, var3);
+         this.a(var1, var7.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 6, 3, 12, var3);
+         this.a(var1, var8.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 9, var3);
+         this.a(var1, var8.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 10, var3);
+         this.a(var1, var8.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 3, 3, 11, var3);
+         this.a(var1, var9.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 9, var3);
+         this.a(var1, var9.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 10, var3);
+         this.a(var1, var9.set(BlockEnderPortalFrame.b, Boolean.valueOf(var2.nextFloat() > 0.9F)), 7, 3, 11, var3);
          if(!this.a) {
             int var12 = this.d(3);
             BlockPosition var10 = new BlockPosition(this.a(5, 6), var12, this.b(5, 6));

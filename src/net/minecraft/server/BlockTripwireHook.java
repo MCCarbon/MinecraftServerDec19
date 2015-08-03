@@ -107,9 +107,9 @@ public class BlockTripwireHook extends Block {
                var18 = (IBlockData)Objects.firstNonNull(var7, var18);
             }
 
-            boolean var19 = !((Boolean)var18.get(class_als.O)).booleanValue();
-            boolean var20 = ((Boolean)var18.get(class_als.a)).booleanValue();
-            boolean var21 = ((Boolean)var18.get(class_als.b)).booleanValue();
+            boolean var19 = !((Boolean)var18.get(BlockTripwire.O)).booleanValue();
+            boolean var20 = ((Boolean)var18.get(BlockTripwire.a)).booleanValue();
+            boolean var21 = ((Boolean)var18.get(BlockTripwire.b)).booleanValue();
             var12 &= var21 == var11;
             var13 |= var19 && var20;
             var15[var16] = var18;

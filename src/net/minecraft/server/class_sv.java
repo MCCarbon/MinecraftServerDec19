@@ -1,16 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_td;
-import net.minecraft.server.class_tp;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_wa;
-
 public class class_sv extends class_td {
-   class_uj a;
+   EntityVillagerGolem a;
    EntityLiving b;
 
-   public class_sv(class_uj var1) {
+   public class_sv(EntityVillagerGolem var1) {
       super(var1, false, true);
       this.a = var1;
       this.a(1);
@@ -22,7 +16,7 @@ public class class_sv extends class_td {
          return false;
       } else {
          this.b = var1.b((EntityLiving)this.a);
-         if(this.b instanceof class_wa) {
+         if(this.b instanceof EntityCreeper) {
             return false;
          } else if(!this.a(this.b, false)) {
             if(this.e.bd().nextInt(20) == 0) {

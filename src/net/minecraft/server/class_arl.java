@@ -1,18 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockLeaves1;
-import net.minecraft.server.BlockLog1;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.class_alu;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
 
 public class class_arl extends class_apw {
    private static final IBlockData a;
@@ -114,19 +102,19 @@ public class class_arl extends class_apw {
                            BlockPosition var15 = var22.north();
                            BlockPosition var16 = var22.south();
                            if(var2.nextInt(4) == 0 && var1.getType(var23).getBlock().getMaterial() == Material.AIR) {
-                              this.a(var1, var23, class_alu.N);
+                              this.a(var1, var23, BlockVine.N);
                            }
 
                            if(var2.nextInt(4) == 0 && var1.getType(var14).getBlock().getMaterial() == Material.AIR) {
-                              this.a(var1, var14, class_alu.P);
+                              this.a(var1, var14, BlockVine.P);
                            }
 
                            if(var2.nextInt(4) == 0 && var1.getType(var15).getBlock().getMaterial() == Material.AIR) {
-                              this.a(var1, var15, class_alu.O);
+                              this.a(var1, var15, BlockVine.O);
                            }
 
                            if(var2.nextInt(4) == 0 && var1.getType(var16).getBlock().getMaterial() == Material.AIR) {
-                              this.a(var1, var16, class_alu.b);
+                              this.a(var1, var16, BlockVine.b);
                            }
                         }
                      }

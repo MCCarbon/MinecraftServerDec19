@@ -64,7 +64,7 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
 	private void e(World var1, BlockPosition var2, IBlockData var3) {
 		boolean var4 = var3.get(N).booleanValue();
 		boolean var5 = false;
-		List<?> var6 = this.a(var1, var2, class_vn.class, new Predicate[0]);
+		List<?> var6 = this.a(var1, var2, EntityMinecartAbstract.class, new Predicate[0]);
 		if (!var6.isEmpty()) {
 			var5 = true;
 		}
@@ -109,12 +109,12 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
 	@Override
 	public int getRedstonePower(World var1, BlockPosition var2) {
 		if (var1.getType(var2).get(N).booleanValue()) {
-			List<?> var3 = this.a(var1, var2, class_vp.class, new Predicate[0]);
+			List<?> var3 = this.a(var1, var2, EntityMinecartCommandBlock.class, new Predicate[0]);
 			if (!var3.isEmpty()) {
-				return ((class_vp) var3.get(0)).j().j();
+				return ((EntityMinecartCommandBlock) var3.get(0)).j().j();
 			}
 
-			List<?> var4 = this.a(var1, var2, class_vn.class, new Predicate[] { IEntitySelector.IS_ALIVE_AND_HAS_INVENTORY });
+			List<?> var4 = this.a(var1, var2, EntityMinecartAbstract.class, new Predicate[] { IEntitySelector.IS_ALIVE_AND_HAS_INVENTORY });
 			if (!var4.isEmpty()) {
 				return Container.b((IInventory) var4.get(0));
 			}

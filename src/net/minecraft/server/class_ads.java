@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class class_ads extends class_adi {
    public final class_ads.class_a_in_class_ads a;
 
-   public class_ads(class_adi.class_a_in_class_adi var1, class_ads.class_a_in_class_ads var2, class_pw... var3) {
+   public class_ads(class_adi.class_a_in_class_adi var1, class_ads.class_a_in_class_ads var2, EnumWearable... var3) {
       super(var1, class_adj.b, var3);
       this.a = var2;
       if(var2 == class_ads.class_a_in_class_ads.c) {

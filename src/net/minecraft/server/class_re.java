@@ -3,18 +3,6 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.class_mt;
-import net.minecraft.server.class_my;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.class_po;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityExperienceOrb;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_tw;
-import net.minecraft.server.class_ty;
-import net.minecraft.server.EntityHuman;
 
 public class class_re extends class_rm {
    private class_tw d;
@@ -86,7 +74,7 @@ public class class_re extends class_rm {
 
          if(var2 != null) {
             var2.b(StatisticList.A);
-            if(this.d instanceof class_ty) {
+            if(this.d instanceof EntityCow) {
                var2.b((class_my)class_mt.H);
             }
          }

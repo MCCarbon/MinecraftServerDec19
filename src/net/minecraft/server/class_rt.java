@@ -1,22 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_po;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_tp;
-import net.minecraft.server.class_wv;
-
 public class class_rt extends class_rm {
-   private class_wv b;
-   private class_wv c;
+   private EntityVillager b;
+   private EntityVillager c;
    private World d;
    private int e;
    class_tp a;
 
-   public class_rt(class_wv var1) {
+   public class_rt(EntityVillager var1) {
       this.b = var1;
       this.d = var1.o;
       this.a(3);
@@ -32,11 +23,11 @@ public class class_rt extends class_rm {
          if(this.a == null) {
             return false;
          } else if(this.f() && this.b.o(true)) {
-            Entity var1 = this.d.a((Class)class_wv.class, (AxisAlignedBB)this.b.aT().grow(8.0D, 3.0D, 8.0D), (Entity)this.b);
+            Entity var1 = this.d.a((Class)EntityVillager.class, (AxisAlignedBB)this.b.aT().grow(8.0D, 3.0D, 8.0D), (Entity)this.b);
             if(var1 == null) {
                return false;
             } else {
-               this.c = (class_wv)var1;
+               this.c = (EntityVillager)var1;
                return this.c.l() == 0 && this.c.o(true);
             }
          } else {
@@ -85,7 +76,7 @@ public class class_rt extends class_rm {
    }
 
    private void g() {
-      class_wv var1 = this.b.b((class_po)this.c);
+      EntityVillager var1 = this.b.b((class_po)this.c);
       this.c.b(6000);
       this.b.b(6000);
       this.c.p(false);

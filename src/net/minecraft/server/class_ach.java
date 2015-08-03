@@ -11,9 +11,9 @@ public class class_ach implements class_acs {
       for(int var5 = 0; var5 < var1.getSize(); ++var5) {
          ItemStack var6 = var1.getItem(var5);
          if(var6 != null) {
-            if(var6.getItem() instanceof class_za) {
-               class_za var7 = (class_za)var6.getItem();
-               if(var7.d() != class_za.class_a_in_class_za.a || var3 != null) {
+            if(var6.getItem() instanceof ItemArmor) {
+               ItemArmor var7 = (ItemArmor)var6.getItem();
+               if(var7.d() != ItemArmor.EnumArmorMaterial.LEATHER || var3 != null) {
                   return false;
                }
 
@@ -36,7 +36,7 @@ public class class_ach implements class_acs {
       int[] var3 = new int[3];
       int var4 = 0;
       int var5 = 0;
-      class_za var6 = null;
+      ItemArmor var6 = null;
 
       int var7;
       int var9;
@@ -46,9 +46,9 @@ public class class_ach implements class_acs {
       for(var7 = 0; var7 < var1.getSize(); ++var7) {
          ItemStack var8 = var1.getItem(var7);
          if(var8 != null) {
-            if(var8.getItem() instanceof class_za) {
-               var6 = (class_za)var8.getItem();
-               if(var6.d() != class_za.class_a_in_class_za.a || var2 != null) {
+            if(var8.getItem() instanceof ItemArmor) {
+               var6 = (ItemArmor)var8.getItem();
+               if(var6.d() != ItemArmor.EnumArmorMaterial.LEATHER || var2 != null) {
                   return null;
                }
 
@@ -70,7 +70,7 @@ public class class_ach implements class_acs {
                   return null;
                }
 
-               float[] var14 = class_uf.a(EnumColor.a(var8.i()));
+               float[] var14 = EntitySheep.a(EnumColor.a(var8.i()));
                int var15 = (int)(var14[0] * 255.0F);
                int var16 = (int)(var14[1] * 255.0F);
                var17 = (int)(var14[2] * 255.0F);

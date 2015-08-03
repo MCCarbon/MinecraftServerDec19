@@ -65,8 +65,8 @@ public class class_bm extends class_i {
                throw new class_bz("commands.summon.failed", new Object[0]);
             } else {
                var21.b(var6, var8, var10, var21.y, var21.z);
-               if(!var14 && var21 instanceof class_qb) {
-                  ((class_qb)var21).a((class_on)var12.E(new BlockPosition(var21)), (class_qd)null);
+               if(!var14 && var21 instanceof EntityInsentient) {
+                  ((EntityInsentient)var21).a((class_on)var12.E(new BlockPosition(var21)), (class_qd)null);
                }
 
                if(!var12.addEntity(var21)) {

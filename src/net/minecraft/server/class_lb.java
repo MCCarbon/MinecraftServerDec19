@@ -6,42 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.concurrent.Callable;
-import net.minecraft.server.Chunk;
-import net.minecraft.server.class_b;
-import net.minecraft.server.class_c;
-import net.minecraft.server.class_e;
-import net.minecraft.server.Packet;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_lj;
-import net.minecraft.server.IntHashMap;
-import net.minecraft.server.class_pp;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityExperienceOrb;
-import net.minecraft.server.class_tu;
-import net.minecraft.server.class_ui;
-import net.minecraft.server.class_uq;
-import net.minecraft.server.class_ur;
-import net.minecraft.server.class_uw;
-import net.minecraft.server.class_uy;
-import net.minecraft.server.class_uz;
-import net.minecraft.server.class_ve;
-import net.minecraft.server.class_vk;
-import net.minecraft.server.EntityFallingBlock;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.class_vn;
-import net.minecraft.server.EntityTNTPrimed;
-import net.minecraft.server.class_xd;
-import net.minecraft.server.class_xe;
-import net.minecraft.server.class_xf;
-import net.minecraft.server.class_xg;
-import net.minecraft.server.class_xk;
-import net.minecraft.server.class_xl;
-import net.minecraft.server.class_xm;
-import net.minecraft.server.class_xp;
-import net.minecraft.server.class_xq;
-import net.minecraft.server.class_xr;
-import net.minecraft.server.class_xs;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -71,41 +36,41 @@ public class class_lb {
          }
       } else if(var1 instanceof class_ve) {
          this.a(var1, 64, 5, true);
-      } else if(var1 instanceof class_xd) {
+      } else if(var1 instanceof EntityArrow) {
          this.a(var1, 64, 20, false);
-      } else if(var1 instanceof class_xl) {
+      } else if(var1 instanceof EntitySmallFireball) {
          this.a(var1, 64, 10, false);
       } else if(var1 instanceof class_xf) {
          this.a(var1, 64, 10, false);
-      } else if(var1 instanceof class_xm) {
+      } else if(var1 instanceof EntitySnowball) {
          this.a(var1, 64, 10, true);
-      } else if(var1 instanceof class_xq) {
+      } else if(var1 instanceof EntityEnderpearl) {
          this.a(var1, 64, 10, true);
-      } else if(var1 instanceof class_xe) {
+      } else if(var1 instanceof EntityEnderSignal) {
          this.a(var1, 64, 4, true);
-      } else if(var1 instanceof class_xp) {
+      } else if(var1 instanceof EntityEgg) {
          this.a(var1, 64, 10, true);
-      } else if(var1 instanceof class_xs) {
+      } else if(var1 instanceof EntityPotion) {
          this.a(var1, 64, 10, true);
-      } else if(var1 instanceof class_xr) {
+      } else if(var1 instanceof EntityThrownExpBottle) {
          this.a(var1, 64, 10, true);
-      } else if(var1 instanceof class_xg) {
+      } else if(var1 instanceof EntityFireworks) {
          this.a(var1, 64, 10, true);
       } else if(var1 instanceof EntityItem) {
          this.a(var1, 64, 20, true);
-      } else if(var1 instanceof class_vn) {
+      } else if(var1 instanceof EntityMinecartAbstract) {
          this.a(var1, 80, 3, true);
-      } else if(var1 instanceof class_vk) {
+      } else if(var1 instanceof EntityBoat) {
          this.a(var1, 80, 3, true);
-      } else if(var1 instanceof class_ui) {
+      } else if(var1 instanceof EntitySquid) {
          this.a(var1, 64, 3, true);
-      } else if(var1 instanceof class_uw) {
+      } else if(var1 instanceof EntityWither) {
          this.a(var1, 80, 3, false);
-      } else if(var1 instanceof class_xk) {
+      } else if(var1 instanceof EntityShulkerBullet) {
          this.a(var1, 80, 3, true);
-      } else if(var1 instanceof class_tu) {
+      } else if(var1 instanceof EntityBat) {
          this.a(var1, 80, 3, false);
-      } else if(var1 instanceof class_ur) {
+      } else if(var1 instanceof EntityEnderDragon) {
          this.a(var1, 160, 3, true);
       } else if(var1 instanceof class_pp) {
          this.a(var1, 80, 3, true);
@@ -115,11 +80,11 @@ public class class_lb {
          this.a(var1, 160, 20, true);
       } else if(var1 instanceof class_uz) {
          this.a(var1, 160, Integer.MAX_VALUE, false);
-      } else if(var1 instanceof class_uy) {
+      } else if(var1 instanceof EntityArmorStand) {
          this.a(var1, 160, 3, true);
       } else if(var1 instanceof EntityExperienceOrb) {
          this.a(var1, 160, 20, true);
-      } else if(var1 instanceof class_uq) {
+      } else if(var1 instanceof EntityEnderCrystal) {
          this.a(var1, 256, Integer.MAX_VALUE, false);
       }
 

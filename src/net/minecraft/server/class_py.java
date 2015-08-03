@@ -1,12 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_qb;
-
-public abstract class class_py extends class_qb {
+public abstract class class_py extends EntityInsentient {
    public class_py(World var1) {
       super(var1);
    }

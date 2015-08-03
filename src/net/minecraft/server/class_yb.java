@@ -59,13 +59,13 @@ public class class_yb extends Container {
             class_yb.this.a = 0;
             IBlockData var5 = var2.getType(var3);
             if(!var1.abilities.instabuild && !var2.isClientSide && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
-               int var4 = ((Integer)var5.get(class_aga.b)).intValue();
+               int var4 = ((Integer)var5.get(BlockAnvil.b)).intValue();
                ++var4;
                if(var4 > 2) {
                   var2.setAir(var3);
                   var2.b(1020, var3, 0);
                } else {
-                  var2.setTypeAndData((BlockPosition)var3, (IBlockData)var5.set(class_aga.b, Integer.valueOf(var4)), 2);
+                  var2.setTypeAndData((BlockPosition)var3, (IBlockData)var5.set(BlockAnvil.b, Integer.valueOf(var4)), 2);
                   var2.b(1021, var3, 0);
                }
             } else if(!var2.isClientSide) {

@@ -175,7 +175,7 @@ public class PlayerInteractManager {
 	}
 
 	public boolean breakBlock(BlockPosition var1) {
-		if (gamemode.isCreative() && (player.bA() != null) && (player.bA().getItem() instanceof class_abw)) {
+		if (gamemode.isCreative() && (player.bA() != null) && (player.bA().getItem() instanceof ItemSword)) {
 			return false;
 		} else {
 			IBlockData var2 = world.getType(var1);

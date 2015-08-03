@@ -1,22 +1,16 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.PacketDataSerializer;
-import net.minecraft.server.PacketListener;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_pw;
 
 public class PacketPlayOutEntityEquipment implements Packet {
    private int a;
-   private class_pw b;
+   private EnumWearable b;
    private ItemStack c;
 
    public PacketPlayOutEntityEquipment() {
    }
 
-   public PacketPlayOutEntityEquipment(int var1, class_pw var2, ItemStack var3) {
+   public PacketPlayOutEntityEquipment(int var1, EnumWearable var2, ItemStack var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3 == null?null:var3.clone();
@@ -24,7 +18,7 @@ public class PacketPlayOutEntityEquipment implements Packet {
 
    public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readVarInt();
-      this.b = (class_pw)var1.readEnum(class_pw.class);
+      this.b = (EnumWearable)var1.readEnum(EnumWearable.class);
       this.c = var1.readItemStack();
    }
 

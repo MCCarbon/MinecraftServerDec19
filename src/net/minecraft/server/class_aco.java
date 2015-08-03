@@ -36,11 +36,11 @@ public class class_aco {
       this.a(Blocks.NETHERRACK, new ItemStack(Items.NETHERBRICK), 0.1F);
       this.a(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.15F);
       this.a(Items.CHORUS_FRUIT, new ItemStack(Items.CHORUS_FRUIT_POPPED), 0.1F);
-      class_aak.class_a_in_class_aak[] var1 = class_aak.class_a_in_class_aak.values();
+      ItemFish.class_a_in_class_aak[] var1 = ItemFish.class_a_in_class_aak.values();
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_aak.class_a_in_class_aak var4 = var1[var3];
+         ItemFish.class_a_in_class_aak var4 = var1[var3];
          if(var4.g()) {
             this.a(new ItemStack(Items.FISH, 1, var4.a()), new ItemStack(Items.COOKED_FISH, 1, var4.a()), 0.35F);
          }

@@ -1,14 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_wk;
-
 public class class_sj extends class_rm {
-   private final class_qb a;
+   private final EntityInsentient a;
    private final class_wk b;
    private EntityLiving c;
    private int d;
@@ -29,7 +22,7 @@ public class class_sj extends class_rm {
          throw new IllegalArgumentException("ArrowAttackGoal requires Mob implements RangedAttackMob");
       } else {
          this.b = var1;
-         this.a = (class_qb)var1;
+         this.a = (EntityInsentient)var1;
          this.e = var2;
          this.g = var4;
          this.h = var5;

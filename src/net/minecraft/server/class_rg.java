@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 public abstract class class_rg extends class_rm {
-   protected class_qb a;
+   protected EntityInsentient a;
    protected BlockPosition b;
    protected BlockDoor c;
    boolean d;
    float e;
    float f;
 
-   public class_rg(class_qb var1) {
+   public class_rg(EntityInsentient var1) {
       this.b = BlockPosition.ZERO;
       this.a = var1;
       if(!(var1.u() instanceof class_tf)) {

@@ -2,15 +2,13 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import java.util.List;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
 
 public class class_tk {
-   class_qb a;
+   EntityInsentient a;
    List b = Lists.newArrayList();
    List c = Lists.newArrayList();
 
-   public class_tk(class_qb var1) {
+   public class_tk(EntityInsentient var1) {
       this.a = var1;
    }
 

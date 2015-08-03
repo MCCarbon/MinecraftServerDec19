@@ -1,13 +1,6 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_uy;
-import net.minecraft.server.EntityHuman;
 
 public final class IEntitySelector {
 	public static final Predicate<Entity> IS_ALIVE = new Predicate<Entity>() {
@@ -54,7 +47,7 @@ public final class IEntitySelector {
 				return false;
 			} else {
 				EntityLiving var2 = (EntityLiving) var1;
-				return var2.a(class_qb.c(this.a)) != null ? false : (var2 instanceof class_qb ? ((class_qb) var2).cm() : (var2 instanceof class_uy ? true : var2 instanceof EntityHuman));
+				return var2.a(EntityInsentient.c(this.a)) != null ? false : (var2 instanceof EntityInsentient ? ((EntityInsentient) var2).cm() : (var2 instanceof EntityArmorStand ? true : var2 instanceof EntityHuman));
 			}
 		}
 	}

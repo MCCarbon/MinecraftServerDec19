@@ -1,20 +1,14 @@
 package net.minecraft.server;
 
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.EntityHuman;
-
 public class class_rr extends class_rm {
-   protected class_qb a;
+   protected EntityInsentient a;
    protected Entity b;
    protected float c;
    private int e;
    private float f;
    protected Class d;
 
-   public class_rr(class_qb var1, Class var2, float var3) {
+   public class_rr(EntityInsentient var1, Class var2, float var3) {
       this.a = var1;
       this.d = var2;
       this.c = var3;
@@ -22,7 +16,7 @@ public class class_rr extends class_rm {
       this.a(2);
    }
 
-   public class_rr(class_qb var1, Class var2, float var3, float var4) {
+   public class_rr(EntityInsentient var1, Class var2, float var3, float var4) {
       this.a = var1;
       this.d = var2;
       this.c = var3;

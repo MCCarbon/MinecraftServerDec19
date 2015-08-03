@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class BlockStainedGlassPane extends class_aln {
+public class BlockStainedGlassPane extends BlockThin {
    public static final BlockStateEnum a = BlockStateEnum.of("color", EnumColor.class);
 
    public BlockStainedGlassPane() {

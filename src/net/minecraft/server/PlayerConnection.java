@@ -654,7 +654,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					var8 = player.getItemInHand(var7);
 					var3.a(player, var1.getInteractAt(), var8, var7);
 				} else if (var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.ATTACK) {
-					if ((var3 instanceof EntityItem) || (var3 instanceof EntityExperienceOrb) || (var3 instanceof class_xd) || (var3 == player)) {
+					if ((var3 instanceof EntityItem) || (var3 instanceof EntityExperienceOrb) || (var3 instanceof EntityArrow) || (var3 == player)) {
 						c("Attempting to attack an invalid entity");
 						minecraftServer.f("Player " + player.getName() + " tried to attack an invalid entity");
 						return;
@@ -892,7 +892,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 			try {
 				var67 = var61.readItemStack();
 				if (var67 != null) {
-					if (!class_acb.b(var67.getTag())) {
+					if (!ItemBookAndQuill.b(var67.getTag())) {
 						throw new IOException("Invalid book tag!");
 					}
 
@@ -924,7 +924,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					return;
 				}
 
-				if (!class_acc.b(var67.getTag())) {
+				if (!ItemWrittenBook.b(var67.getTag())) {
 					throw new IOException("Invalid book tag!");
 				}
 
@@ -973,8 +973,8 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						}
 					} else if (var63 == 1) {
 						Entity var69 = player.o.getEntityById(var61.readInt());
-						if (var69 instanceof class_vp) {
-							var4 = ((class_vp) var69).j();
+						if (var69 instanceof EntityMinecartCommandBlock) {
+							var4 = ((EntityMinecartCommandBlock) var69).j();
 						}
 					}
 

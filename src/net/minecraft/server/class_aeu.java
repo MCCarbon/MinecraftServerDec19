@@ -5,23 +5,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
-import net.minecraft.server.class_aeh;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Chunk;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qc;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qe;
-import net.minecraft.server.EntityHuman;
 
 public final class class_aeu {
    private static final int a = (int)Math.pow(17.0D, 2.0D);
@@ -100,9 +83,9 @@ public final class class_aeu {
                                        }
 
                                        if(var1.a(var40, var27, var30) && a(class_qe.a(var27.b), var1, var30)) {
-                                          class_qb var33;
+                                          EntityInsentient var33;
                                           try {
-                                             var33 = (class_qb)var27.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
+                                             var33 = (EntityInsentient)var27.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var1});
                                           } catch (Exception var35) {
                                              var35.printStackTrace();
                                              return var36;
@@ -166,12 +149,12 @@ public final class class_aeu {
       return new BlockPosition(var4, var7, var5);
    }
 
-   public static boolean a(class_qb.class_a_in_class_qb var0, World var1, BlockPosition var2) {
+   public static boolean a(EntityInsentient.class_a_in_class_qb var0, World var1, BlockPosition var2) {
       if(!var1.ag().a(var2)) {
          return false;
       } else {
          Block var3 = var1.getType(var2).getBlock();
-         if(var0 == class_qb.class_a_in_class_qb.c) {
+         if(var0 == EntityInsentient.class_a_in_class_qb.c) {
             return var3.getMaterial().isLiquid() && var1.getType(var2.down()).getBlock().getMaterial().isLiquid() && !var1.getType(var2.up()).getBlock().isOccluding();
          } else {
             BlockPosition var4 = var2.down();
@@ -203,10 +186,10 @@ public final class class_aeu {
 
                for(int var17 = 0; !var16 && var17 < 4; ++var17) {
                   BlockPosition var18 = var0.r(new BlockPosition(var11, 0, var12));
-                  if(a(class_qb.class_a_in_class_qb.a, var0, var18)) {
-                     class_qb var19;
+                  if(a(EntityInsentient.class_a_in_class_qb.a, var0, var18)) {
+                     EntityInsentient var19;
                      try {
-                        var19 = (class_qb)var8.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var0});
+                        var19 = (EntityInsentient)var8.b.getConstructor(new Class[]{World.class}).newInstance(new Object[]{var0});
                      } catch (Exception var21) {
                         var21.printStackTrace();
                         continue;

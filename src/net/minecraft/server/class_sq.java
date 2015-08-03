@@ -2,18 +2,14 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_wv;
 
 public class class_sq extends class_rm {
-   private class_wv a;
-   private class_uj b;
+   private EntityVillager a;
+   private EntityVillagerGolem b;
    private int c;
    private boolean d;
 
-   public class_sq(class_wv var1) {
+   public class_sq(EntityVillager var1) {
       this.a = var1;
       this.a(3);
    }
@@ -24,14 +20,14 @@ public class class_sq extends class_rm {
       } else if(!this.a.o.x()) {
          return false;
       } else {
-         List var1 = this.a.o.getEntities(class_uj.class, this.a.aT().grow(6.0D, 2.0D, 6.0D));
+         List var1 = this.a.o.getEntities(EntityVillagerGolem.class, this.a.aT().grow(6.0D, 2.0D, 6.0D));
          if(var1.isEmpty()) {
             return false;
          } else {
             Iterator var2 = var1.iterator();
 
             while(var2.hasNext()) {
-               class_uj var3 = (class_uj)var2.next();
+               EntityVillagerGolem var3 = (EntityVillagerGolem)var2.next();
                if(var3.cB() > 0) {
                   this.b = var3;
                   break;

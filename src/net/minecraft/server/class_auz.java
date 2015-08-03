@@ -154,7 +154,7 @@ public class class_auz extends class_auu {
                         return -3;
                      }
                   } else if(!var17.isPassable(var0, var13) && (!var9 || !(var17 instanceof BlockDoor) || var17.getMaterial() != Material.WOOD)) {
-                     if(var17 instanceof class_ahz || var17 instanceof class_aia || var17 instanceof class_alv) {
+                     if(var17 instanceof BlockFence || var17 instanceof BlockFenceGate || var17 instanceof BlockCobbleWall) {
                         return -3;
                      }
 

@@ -1,18 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockLeaves;
-import net.minecraft.server.class_ajn;
-import net.minecraft.server.class_ajo;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
 
 public class class_arh extends class_apw {
    private static final IBlockData a;
@@ -176,7 +164,7 @@ public class class_arh extends class_apw {
    }
 
    static {
-      a = Blocks.LOG2.getBlockData().set(class_ajo.b, BlockWood.EnumLogVariant.ACACIA);
-      b = Blocks.LEAVES2.getBlockData().set(class_ajn.Q, BlockWood.EnumLogVariant.ACACIA).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      a = Blocks.LOG2.getBlockData().set(BlockLog2.b, BlockWood.EnumLogVariant.ACACIA);
+      b = Blocks.LEAVES2.getBlockData().set(BlockLeaves2.Q, BlockWood.EnumLogVariant.ACACIA).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

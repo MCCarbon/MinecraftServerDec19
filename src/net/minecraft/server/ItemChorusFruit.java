@@ -12,7 +12,7 @@ public class ItemChorusFruit extends ItemFood {
          double var6 = var3.s + (var3.bd().nextDouble() - 0.5D) * 64.0D;
          double var8 = var3.t + (double)(var3.bd().nextInt(64) - 32);
          double var10 = var3.u + (var3.bd().nextDouble() - 0.5D) * 64.0D;
-         if(class_wb.a(var3, var6, var8, var10)) {
+         if(EntityEnderman.a(var3, var6, var8, var10)) {
             break;
          }
       }

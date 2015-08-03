@@ -1,26 +1,12 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.class_aut;
-import net.minecraft.server.class_auw;
-import net.minecraft.server.class_auz;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_tg;
-import net.minecraft.server.class_tx;
-import net.minecraft.server.class_wr;
 
 public class class_tf extends class_tg {
    protected class_auz a;
    private boolean f;
 
-   public class_tf(class_qb var1, World var2) {
+   public class_tf(EntityInsentient var1, World var2) {
       super(var1, var2);
    }
 
@@ -31,7 +17,7 @@ public class class_tf extends class_tg {
    }
 
    protected boolean b() {
-      return this.b.C || this.h() && this.o() || this.b.aw() && this.b instanceof class_wr && this.b.vehicle instanceof class_tx;
+      return this.b.C || this.h() && this.o() || this.b.aw() && this.b instanceof EntityZombie && this.b.vehicle instanceof EntityChicken;
    }
 
    protected Vec3D c() {

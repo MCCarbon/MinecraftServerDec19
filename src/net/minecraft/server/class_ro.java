@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 public class class_ro extends class_rx {
-   private final class_wv c;
+   private final EntityVillager c;
    private boolean d;
    private boolean e;
    private int f;
 
-   public class_ro(class_wv var1, double var2) {
+   public class_ro(EntityVillager var1, double var2) {
       super(var1, var2, 16);
       this.c = var1;
    }

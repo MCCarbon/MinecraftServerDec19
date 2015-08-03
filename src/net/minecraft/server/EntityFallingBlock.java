@@ -133,12 +133,12 @@ public class EntityFallingBlock extends Entity {
             }
 
             if(var6 && (double)this.random.nextFloat() < 0.05000000074505806D + (double)var4 * 0.05D) {
-               int var10 = ((Integer)this.d.get(class_aga.b)).intValue();
+               int var10 = ((Integer)this.d.get(BlockAnvil.b)).intValue();
                ++var10;
                if(var10 > 2) {
                   this.e = true;
                } else {
-                  this.d = this.d.set(class_aga.b, Integer.valueOf(var10));
+                  this.d = this.d.set(BlockAnvil.b, Integer.valueOf(var10));
                }
             }
          }

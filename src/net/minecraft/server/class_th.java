@@ -1,17 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.class_auv;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_tf;
-
 public class class_th extends class_tf {
    private BlockPosition f;
 
-   public class_th(class_qb var1, World var2) {
+   public class_th(EntityInsentient var1, World var2) {
       super(var1, var2);
    }
 

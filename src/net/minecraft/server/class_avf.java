@@ -5,18 +5,6 @@ import com.google.common.collect.Maps;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.class_avd;
-import net.minecraft.server.class_ave;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutMap;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_va;
-import net.minecraft.server.EntityHuman;
 
 public class class_avf extends class_avd {
    public int b;
@@ -103,7 +91,7 @@ public class class_avf extends class_avd {
       }
 
       if(var2.isInItemFrame()) {
-         class_va var7 = var2.getItemFrame();
+         EntityItemFrame var7 = var2.getItemFrame();
          BlockPosition var8 = var7.n();
          this.a(1, var1.o, "frame-" + var7.getId(), (double)var8.getX(), (double)var8.getZ(), (double)(var7.b.getHorizontalId() * 90));
       }

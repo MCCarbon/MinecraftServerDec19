@@ -1,19 +1,14 @@
 package net.minecraft.server;
 
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_wl;
-
 public class class_qz {
-   protected class_qb a;
+   protected EntityInsentient a;
    protected double b;
    protected double c;
    protected double d;
    protected double e;
    protected boolean f;
 
-   public class_qz(class_qb var1) {
+   public class_qz(EntityInsentient var1) {
       this.a = var1;
       this.b = var1.s;
       this.c = var1.t;

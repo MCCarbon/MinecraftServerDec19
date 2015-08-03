@@ -2053,7 +2053,7 @@ public abstract class World implements IBlockAccess {
 				}
 
 				var4 = (Entity) var3.next();
-			} while ((var4 instanceof class_qb) && ((class_qb) var4).cn());
+			} while ((var4 instanceof EntityInsentient) && ((EntityInsentient) var4).cn());
 
 			if (var1.isAssignableFrom(var4.getClass())) {
 				++var2;

@@ -3,30 +3,18 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Collections;
 import java.util.List;
-import net.minecraft.server.class_awp;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qh;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_td;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class class_sy extends class_rm {
    private static final Logger a = LogManager.getLogger();
-   private class_qb b;
+   private EntityInsentient b;
    private final Predicate c;
    private final class_sz.class_a_in_class_sz d;
    private EntityLiving e;
 
-   public class_sy(class_qb var1) {
+   public class_sy(EntityInsentient var1) {
       this.b = var1;
       if(var1 instanceof class_qh) {
          a.warn("Use NearestAttackableTargetGoal.class for PathfinerMob mobs!");

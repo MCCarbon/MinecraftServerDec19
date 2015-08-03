@@ -9,20 +9,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Set;
 import java.util.Map.Entry;
-import net.minecraft.server.class_aeh;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asf;
-import net.minecraft.server.class_ask;
-import net.minecraft.server.class_aso;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_wg;
 
 public class class_ase extends class_ask {
    private int f;
@@ -97,7 +83,7 @@ public class class_ase extends class_ask {
    static {
       d = Arrays.asList(new BiomeBase[]{BiomeBase.p, BiomeBase.N, BiomeBase.w, BiomeBase.z, BiomeBase.A});
       h = Lists.newArrayList();
-      h.add(new BiomeBase.class_c_in_class_aez(class_wg.class, 1, 2, 4));
+      h.add(new BiomeBase.class_c_in_class_aez(EntityGuardian.class, 1, 2, 4));
    }
 
    public static class class_a_in_class_ase extends class_aso {

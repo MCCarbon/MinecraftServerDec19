@@ -1,18 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_rm;
-
 public class class_sa extends class_rm {
    World a;
-   class_qb b;
+   EntityInsentient b;
    EntityLiving c;
    int d;
 
-   public class_sa(class_qb var1) {
+   public class_sa(EntityInsentient var1) {
       this.b = var1;
       this.a = var1.o;
       this.a(3);

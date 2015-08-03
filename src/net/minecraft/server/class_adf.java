@@ -7,7 +7,7 @@ public class class_adf extends class_adi {
    private static final int[] h = new int[]{20, 20, 20};
    public final int a;
 
-   public class_adf(class_adi.class_a_in_class_adi var1, int var2, class_pw... var3) {
+   public class_adf(class_adi.class_a_in_class_adi var1, int var2, EnumWearable... var3) {
       super(var1, class_adj.g, var3);
       this.a = var2;
    }
@@ -37,7 +37,7 @@ public class class_adf extends class_adi {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.getItem() instanceof class_zd?true:super.a(var1);
+      return var1.getItem() instanceof ItemAxe ?true:super.a(var1);
    }
 
    public void a(EntityLiving var1, Entity var2, int var3) {

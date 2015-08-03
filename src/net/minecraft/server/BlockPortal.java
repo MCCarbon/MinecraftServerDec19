@@ -23,7 +23,7 @@ public class BlockPortal extends BlockHalfTransparent {
          }
 
          if(var5 > 0 && !var1.getType(var6.up()).getBlock().isOccluding()) {
-            Entity var7 = class_abt.a(var1, 57, (double)var6.getX() + 0.5D, (double)var6.getY() + 1.1D, (double)var6.getZ() + 0.5D);
+            Entity var7 = ItemMonsterEgg.a(var1, 57, (double) var6.getX() + 0.5D, (double) var6.getY() + 1.1D, (double) var6.getZ() + 0.5D);
             if(var7 != null) {
                var7.aj = var7.aq();
             }

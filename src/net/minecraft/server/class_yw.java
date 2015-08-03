@@ -38,7 +38,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.h);
       }
 
-      if(var1.getItem() instanceof class_abc) {
+      if(var1.getItem() instanceof ItemPickaxe) {
          this.b.b((class_my)class_mt.i);
       }
 
@@ -46,7 +46,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.j);
       }
 
-      if(var1.getItem() instanceof class_aaq) {
+      if(var1.getItem() instanceof ItemHoe) {
          this.b.b((class_my)class_mt.l);
       }
 
@@ -58,11 +58,11 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.n);
       }
 
-      if(var1.getItem() instanceof class_abc && ((class_abc)var1.getItem()).g() != Item.EnumToolMaterial.WOOD) {
+      if(var1.getItem() instanceof ItemPickaxe && ((ItemPickaxe)var1.getItem()).g() != Item.EnumToolMaterial.WOOD) {
          this.b.b((class_my)class_mt.o);
       }
 
-      if(var1.getItem() instanceof class_abw) {
+      if(var1.getItem() instanceof ItemSword) {
          this.b.b((class_my)class_mt.r);
       }
 

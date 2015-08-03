@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 public class class_sk extends class_rm {
-   private final class_wn a;
+   private final EntitySkeleton a;
    private EntityLiving b;
    private int c = -1;
    private double d;
@@ -11,7 +11,7 @@ public class class_sk extends class_rm {
    private float h;
    private float i;
 
-   public class_sk(class_wn var1, double var2, int var4, int var5, float var6) {
+   public class_sk(EntitySkeleton var1, double var2, int var4, int var5, float var6) {
       this.a = var1;
       this.d = var2;
       this.f = var4;

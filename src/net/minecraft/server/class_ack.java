@@ -50,10 +50,10 @@ public class class_ack implements class_acs {
          }
       }
 
-      if(var3 != null && var2 >= 1 && class_acc.h(var3) < 2) {
+      if(var3 != null && var2 >= 1 && ItemWrittenBook.h(var3) < 2) {
          ItemStack var6 = new ItemStack(Items.WRITTEN_BOOK, var2);
          var6.setTag((NBTTagCompound)var3.getTag().clone());
-         var6.getTag().put("generation", class_acc.h(var3) + 1);
+         var6.getTag().put("generation", ItemWrittenBook.h(var3) + 1);
          if(var3.hasDisplayName()) {
             var6.setDisplayName(var3.getDisplayName());
          }
@@ -77,7 +77,7 @@ public class class_ack implements class_acs {
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
          ItemStack var4 = var1.getItem(var3);
-         if(var4 != null && var4.getItem() instanceof class_acc) {
+         if(var4 != null && var4.getItem() instanceof ItemWrittenBook) {
             var2[var3] = var4;
             break;
          }

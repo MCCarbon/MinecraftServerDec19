@@ -129,7 +129,7 @@ public class BlockSkull extends BlockContainer {
             }
 
             BlockPosition var12 = var5.a(1, 0, 0).d();
-            class_uw var14 = new class_uw(var1);
+            EntityWither var14 = new EntityWither(var1);
             BlockPosition var15 = var5.a(1, 2, 0).d();
             var14.b((double)var15.getX() + 0.5D, (double)var15.getY() + 0.55D, (double)var15.getZ() + 0.5D, var5.b().getAxis() == EnumDirection.EnumAxis.X?0.0F:90.0F, 0.0F);
             var14.aL = var5.b().getAxis() == EnumDirection.EnumAxis.X?0.0F:90.0F;

@@ -1,18 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_ahz;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.Entity;
-import net.minecraft.server.CreativeTab;
 
 public abstract class class_age extends Block {
    protected class_age(Material var1) {
@@ -77,7 +65,7 @@ public abstract class class_age extends Block {
    }
 
    private boolean m(World var1, BlockPosition var2) {
-      return World.a((IBlockAccess)var1, (BlockPosition)var2) || var1.getType(var2).getBlock() instanceof class_ahz;
+      return World.a((IBlockAccess)var1, (BlockPosition)var2) || var1.getType(var2).getBlock() instanceof BlockFence;
    }
 
    public void randomTick(World var1, BlockPosition var2, IBlockData var3, Random var4) {

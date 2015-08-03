@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class class_vq extends class_vn implements ITileInventory {
+public abstract class class_vq extends EntityMinecartAbstract implements ITileInventory {
    private ItemStack[] a = new ItemStack[36];
    private boolean b = true;
 

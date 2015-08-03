@@ -2,4 +2,6 @@
 /nbproject/private/
 /nbproject
 build.xml
-MinecraftServerDec19.iml
+/*.iml
+/dist
+/.idea

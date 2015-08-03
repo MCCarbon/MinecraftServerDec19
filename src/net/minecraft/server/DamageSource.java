@@ -39,7 +39,7 @@ public class DamageSource {
       return new class_pd("player", var0);
    }
 
-   public static DamageSource a(class_xd var0, Entity var1) {
+   public static DamageSource a(EntityArrow var0, Entity var1) {
       return (new class_pe("arrow", var0, var1)).b();
    }
 

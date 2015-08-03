@@ -92,7 +92,7 @@ public class Blocks {
 	public static final Block SNOW;
 	public static final BlockCactus CACTUS;
 	public static final Block CLAY;
-	public static final BlockReeds REEDS;
+	public static final BlockReed REEDS;
 	public static final Block JUKEBOX;
 	public static final Block FENCE;
 	public static final Block SPRUCE_FENCE;
@@ -317,7 +317,7 @@ public class Blocks {
 			SNOW = getByName("snow");
 			CACTUS = (BlockCactus) getByName("cactus");
 			CLAY = getByName("clay");
-			REEDS = (BlockReeds) getByName("reeds");
+			REEDS = (BlockReed) getByName("reeds");
 			JUKEBOX = getByName("jukebox");
 			FENCE = getByName("fence");
 			SPRUCE_FENCE = getByName("spruce_fence");

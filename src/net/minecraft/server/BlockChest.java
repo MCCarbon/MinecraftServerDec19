@@ -1,35 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.BlockContainer;
-import net.minecraft.server.Block;
-import net.minecraft.server.BlockDirectional;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityChest;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateDirection;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oi;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.class_ol;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.ITileInventory;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_uc;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-import net.minecraft.server.CreativeTab;
 
 public class BlockChest extends BlockContainer {
    public static final BlockStateDirection a;
@@ -423,16 +394,16 @@ public class BlockChest extends BlockContainer {
    }
 
    private boolean p(World var1, BlockPosition var2) {
-      Iterator var3 = var1.getEntities(class_uc.class, new AxisAlignedBB((double)var2.getX(), (double)(var2.getY() + 1), (double)var2.getZ(), (double)(var2.getX() + 1), (double)(var2.getY() + 2), (double)(var2.getZ() + 1))).iterator();
+      Iterator var3 = var1.getEntities(EntityOcelot.class, new AxisAlignedBB((double)var2.getX(), (double)(var2.getY() + 1), (double)var2.getZ(), (double)(var2.getX() + 1), (double)(var2.getY() + 2), (double)(var2.getZ() + 1))).iterator();
 
-      class_uc var5;
+      EntityOcelot var5;
       do {
          if(!var3.hasNext()) {
             return false;
          }
 
          Entity var4 = (Entity)var3.next();
-         var5 = (class_uc)var4;
+         var5 = (EntityOcelot)var4;
       } while(!var5.cC());
 
       return true;

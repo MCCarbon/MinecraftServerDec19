@@ -2,14 +2,6 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aql;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_uq;
 
 public class class_ari extends class_aql {
    private class_ari.class_a_in_class_ari a = null;
@@ -45,7 +37,7 @@ public class class_ari extends class_aql {
             }
          }
 
-         class_uq var7 = new class_uq(var1);
+         EntityEnderCrystal var7 = new EntityEnderCrystal(var1);
          var7.b((double)((float)var3.getX() + 0.5F), (double)(var3.getY() + this.a.d() + 1), (double)((float)var3.getZ() + 0.5F), var2.nextFloat() * 360.0F, 0.0F);
          var1.addEntity((Entity)var7);
          this.a(var1, var3.up(this.a.d()), Blocks.BEDROCK.getBlockData());

@@ -1,13 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aiw;
-import net.minecraft.server.class_aql;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
 
 public class class_aqr extends class_aql {
    private Block a;
@@ -96,53 +89,53 @@ public class class_aqr extends class_aql {
                            var16 += 3;
                         }
 
-                        class_aiw.class_a_in_class_aiw var17 = class_aiw.class_a_in_class_aiw.a(var16);
+                        BlockHugeMushroom.class_a_in_class_aiw var17 = BlockHugeMushroom.class_a_in_class_aiw.a(var16);
                         if(this.a == Blocks.BROWN_MUSHROOM_BLOCK || var21 < var3.getY() + var4) {
                            if((var14 == var10 || var14 == var23) && (var15 == var12 || var15 == var13)) {
                               continue;
                            }
 
                            if(var14 == var3.getX() - (var9 - 1) && var15 == var12) {
-                              var17 = class_aiw.class_a_in_class_aiw.a;
+                              var17 = BlockHugeMushroom.class_a_in_class_aiw.a;
                            }
 
                            if(var14 == var10 && var15 == var3.getZ() - (var9 - 1)) {
-                              var17 = class_aiw.class_a_in_class_aiw.a;
+                              var17 = BlockHugeMushroom.class_a_in_class_aiw.a;
                            }
 
                            if(var14 == var3.getX() + (var9 - 1) && var15 == var12) {
-                              var17 = class_aiw.class_a_in_class_aiw.c;
+                              var17 = BlockHugeMushroom.class_a_in_class_aiw.c;
                            }
 
                            if(var14 == var23 && var15 == var3.getZ() - (var9 - 1)) {
-                              var17 = class_aiw.class_a_in_class_aiw.c;
+                              var17 = BlockHugeMushroom.class_a_in_class_aiw.c;
                            }
 
                            if(var14 == var3.getX() - (var9 - 1) && var15 == var13) {
-                              var17 = class_aiw.class_a_in_class_aiw.g;
+                              var17 = BlockHugeMushroom.class_a_in_class_aiw.g;
                            }
 
                            if(var14 == var10 && var15 == var3.getZ() + (var9 - 1)) {
-                              var17 = class_aiw.class_a_in_class_aiw.g;
+                              var17 = BlockHugeMushroom.class_a_in_class_aiw.g;
                            }
 
                            if(var14 == var3.getX() + (var9 - 1) && var15 == var13) {
-                              var17 = class_aiw.class_a_in_class_aiw.i;
+                              var17 = BlockHugeMushroom.class_a_in_class_aiw.i;
                            }
 
                            if(var14 == var23 && var15 == var3.getZ() + (var9 - 1)) {
-                              var17 = class_aiw.class_a_in_class_aiw.i;
+                              var17 = BlockHugeMushroom.class_a_in_class_aiw.i;
                            }
                         }
 
-                        if(var17 == class_aiw.class_a_in_class_aiw.e && var21 < var3.getY() + var4) {
-                           var17 = class_aiw.class_a_in_class_aiw.k;
+                        if(var17 == BlockHugeMushroom.class_a_in_class_aiw.e && var21 < var3.getY() + var4) {
+                           var17 = BlockHugeMushroom.class_a_in_class_aiw.k;
                         }
 
-                        if(var3.getY() >= var3.getY() + var4 - 1 || var17 != class_aiw.class_a_in_class_aiw.k) {
+                        if(var3.getY() >= var3.getY() + var4 - 1 || var17 != BlockHugeMushroom.class_a_in_class_aiw.k) {
                            BlockPosition var18 = new BlockPosition(var14, var21, var15);
                            if(!var1.getType(var18).getBlock().isFullBlock()) {
-                              this.a(var1, var18, this.a.getBlockData().set(class_aiw.a, var17));
+                              this.a(var1, var18, this.a.getBlockData().set(BlockHugeMushroom.a, var17));
                            }
                         }
                      }
@@ -152,7 +145,7 @@ public class class_aqr extends class_aql {
                for(var21 = 0; var21 < var4; ++var21) {
                   Block var22 = var1.getType(var3.up(var21)).getBlock();
                   if(!var22.isFullBlock()) {
-                     this.a(var1, var3.up(var21), this.a.getBlockData().set(class_aiw.a, class_aiw.class_a_in_class_aiw.j));
+                     this.a(var1, var3.up(var21), this.a.getBlockData().set(BlockHugeMushroom.a, BlockHugeMushroom.class_a_in_class_aiw.j));
                   }
                }
 

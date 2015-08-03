@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 public class class_rf extends class_rm {
-   private final class_qb a;
+   private final EntityInsentient a;
    private final float b;
    private float c;
    private boolean d;
    private int e;
    private int f;
 
-   public class_rf(class_qb var1, float var2) {
+   public class_rf(EntityInsentient var1, float var2) {
       this.a = var1;
       this.b = var2;
       this.a(7);

@@ -225,10 +225,10 @@ public abstract class EntityHuman extends EntityLiving {
 			bu = bv;
 			bv = 0.0F;
 			this.l(s - var1, t - var3, u - var5);
-			if (vehicle instanceof class_ud) {
+			if (vehicle instanceof EntityPig) {
 				z = var8;
 				y = var7;
-				aL = ((class_ud) vehicle).aL;
+				aL = ((EntityPig) vehicle).aL;
 			}
 
 		}
@@ -607,8 +607,8 @@ public abstract class EntityHuman extends EntityLiving {
 					return false;
 				} else {
 					Entity var3 = var1.j();
-					if ((var3 instanceof class_xd) && (((class_xd) var3).e != null)) {
-						var3 = ((class_xd) var3).e;
+					if ((var3 instanceof EntityArrow) && (((EntityArrow) var3).e != null)) {
+						var3 = ((EntityArrow) var3).e;
 					}
 
 					return super.damageEntity(var1, var2);
@@ -885,7 +885,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 			double var2 = 8.0D;
 			double var4 = 5.0D;
-			List var6 = o.getEntities(class_wi.class, new AxisAlignedBB(var1.getX() - var2, var1.getY() - var4, var1.getZ() - var2, var1.getX() + var2, var1.getY() + var4, var1.getZ() + var2));
+			List var6 = o.getEntities(EntityMonster.class, new AxisAlignedBB(var1.getX() - var2, var1.getY() - var4, var1.getZ() - var2, var1.getX() + var2, var1.getY() + var4, var1.getZ() + var2));
 			if (!var6.isEmpty()) {
 				return EntityHuman.EnumBedResult.NOT_SAFE;
 			}
@@ -1119,16 +1119,16 @@ public abstract class EntityHuman extends EntityLiving {
 		if (vehicle != null) {
 			int var7 = Math.round(MathHelper.sqrt((var1 * var1) + (var3 * var3) + (var5 * var5)) * 100.0F);
 			if (var7 > 0) {
-				if (vehicle instanceof class_vn) {
+				if (vehicle instanceof EntityMinecartAbstract) {
 					this.a(StatisticList.q, var7);
 					if (g == null) {
 						g = new BlockPosition(this);
 					} else if (g.distanceSquared(MathHelper.floor(s), MathHelper.floor(t), MathHelper.floor(u)) >= 1000000.0D) {
 						this.b(class_mt.q);
 					}
-				} else if (vehicle instanceof class_vk) {
+				} else if (vehicle instanceof EntityBoat) {
 					this.a(StatisticList.r, var7);
-				} else if (vehicle instanceof class_ud) {
+				} else if (vehicle instanceof EntityPig) {
 					this.a(StatisticList.s, var7);
 				} else if (vehicle instanceof EntityHorse) {
 					this.a(StatisticList.t, var7);
@@ -1332,18 +1332,18 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	@Override
-	public ItemStack a(class_pw var1) {
-		return var1 == class_pw.a ? inventory.getItemInHand() : (var1 == class_pw.b ? inventory.c[0] : (var1.a() == class_pw.class_a_in_class_pw.b ? inventory.b[var1.b()] : null));
+	public ItemStack a(EnumWearable var1) {
+		return var1 == EnumWearable.MAINHAND ? inventory.getItemInHand() : (var1 == EnumWearable.OFFHAND ? inventory.c[0] : (var1.getSlot() == EnumWearable.SLOT.ARMOR ? inventory.b[var1.getRelative()] : null));
 	}
 
 	@Override
-	public void a(class_pw var1, ItemStack var2) {
-		if (var1 == class_pw.a) {
+	public void a(EnumWearable var1, ItemStack var2) {
+		if (var1 == EnumWearable.MAINHAND) {
 			inventory.a[inventory.itemInHandIndex] = var2;
-		} else if (var1 == class_pw.b) {
+		} else if (var1 == EnumWearable.OFFHAND) {
 			inventory.c[0] = var2;
-		} else if (var1.a() == class_pw.class_a_in_class_pw.b) {
-			inventory.b[var1.b()] = var2;
+		} else if (var1.getSlot() == EnumWearable.SLOT.ARMOR) {
+			inventory.b[var1.getRelative()] = var2;
 		}
 
 	}
@@ -1444,24 +1444,24 @@ public abstract class EntityHuman extends EntityLiving {
 			inventory.setItem(var1, var2);
 			return true;
 		} else {
-			class_pw var3;
-			if (var1 == (100 + class_pw.f.b())) {
-				var3 = class_pw.f;
-			} else if (var1 == (100 + class_pw.e.b())) {
-				var3 = class_pw.e;
-			} else if (var1 == (100 + class_pw.d.b())) {
-				var3 = class_pw.d;
-			} else if (var1 == (100 + class_pw.c.b())) {
-				var3 = class_pw.c;
+			EnumWearable var3;
+			if (var1 == (100 + EnumWearable.HEAD.getRelative())) {
+				var3 = EnumWearable.HEAD;
+			} else if (var1 == (100 + EnumWearable.TORSO.getRelative())) {
+				var3 = EnumWearable.TORSO;
+			} else if (var1 == (100 + EnumWearable.LEGS.getRelative())) {
+				var3 = EnumWearable.LEGS;
+			} else if (var1 == (100 + EnumWearable.FEET.getRelative())) {
+				var3 = EnumWearable.FEET;
 			} else {
 				var3 = null;
 			}
 
 			if (var1 == 98) {
-				this.a(class_pw.a, var2);
+				this.a(EnumWearable.MAINHAND, var2);
 				return true;
 			} else if (var1 == 99) {
-				this.a(class_pw.b, var2);
+				this.a(EnumWearable.OFFHAND, var2);
 				return true;
 			} else if (var3 == null) {
 				int var4 = var1 - 200;
@@ -1473,16 +1473,16 @@ public abstract class EntityHuman extends EntityLiving {
 				}
 			} else {
 				if ((var2 != null) && (var2.getItem() != null)) {
-					if (var2.getItem() instanceof class_za) {
-						if (class_qb.c(var2) != var3) {
+					if (var2.getItem() instanceof ItemArmor) {
+						if (EntityInsentient.c(var2) != var3) {
 							return false;
 						}
-					} else if ((var3 != class_pw.f) || ((var2.getItem() != Items.SKULL) && !(var2.getItem() instanceof ItemBlock))) {
+					} else if ((var3 != EnumWearable.HEAD) || ((var2.getItem() != Items.SKULL) && !(var2.getItem() instanceof ItemBlock))) {
 						return false;
 					}
 				}
 
-				inventory.setItem(var3.b() + inventory.a.length, var2);
+				inventory.setItem(var3.getRelative() + inventory.a.length, var2);
 				return true;
 			}
 		}

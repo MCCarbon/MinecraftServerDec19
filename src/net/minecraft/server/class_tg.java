@@ -2,23 +2,9 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.class_aew;
-import net.minecraft.server.class_auv;
-import net.minecraft.server.class_auw;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_wl;
 
 public abstract class class_tg {
-   protected class_qb b;
+   protected EntityInsentient b;
    protected World c;
    protected class_auv d;
    protected double e;
@@ -29,7 +15,7 @@ public abstract class class_tg {
    private float i = 1.0F;
    private final class_auw j;
 
-   public class_tg(class_qb var1, World var2) {
+   public class_tg(EntityInsentient var1, World var2) {
       this.b = var1;
       this.c = var2;
       this.a = var1.a((class_qk)class_wl.b);

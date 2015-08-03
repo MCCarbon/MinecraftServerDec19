@@ -15,7 +15,7 @@ public final class ItemStack {
 	private Item item;
 	private NBTTagCompound tag;
 	private int data;
-	private class_va itemFrame;
+	private EntityItemFrame itemFrame;
 	private Block h;
 	private boolean i;
 	private Block j;
@@ -425,11 +425,11 @@ public final class ItemStack {
 		return itemFrame != null;
 	}
 
-	public void setItemFrame(class_va var1) {
+	public void setItemFrame(EntityItemFrame var1) {
 		itemFrame = var1;
 	}
 
-	public class_va getItemFrame() {
+	public EntityItemFrame getItemFrame() {
 		return itemFrame;
 	}
 
@@ -445,7 +445,7 @@ public final class ItemStack {
 		tag.put("RepairCost", repaircost);
 	}
 
-	public Multimap a(class_pw var1) {
+	public Multimap a(EnumWearable var1) {
 		Object var2;
 		if (hasTag() && tag.hasOfType("AttributeModifiers", 9)) {
 			var2 = HashMultimap.create();

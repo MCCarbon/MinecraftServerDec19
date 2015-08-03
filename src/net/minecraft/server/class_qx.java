@@ -1,12 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_qb;
-
 public class class_qx {
-   private class_qb b;
+   private EntityInsentient b;
    protected boolean a;
 
-   public class_qx(class_qb var1) {
+   public class_qx(EntityInsentient var1) {
       this.b = var1;
    }
 

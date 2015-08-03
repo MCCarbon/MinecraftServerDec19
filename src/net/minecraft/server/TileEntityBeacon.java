@@ -71,7 +71,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 		j = 0;
 		f.clear();
 		i = true;
-		TileEntityBeacon.class_a_in_class_amf var5 = new TileEntityBeacon.class_a_in_class_amf(class_uf.a(EnumColor.a));
+		TileEntityBeacon.class_a_in_class_amf var5 = new TileEntityBeacon.class_a_in_class_amf(EntitySheep.a(EnumColor.a));
 		f.add(var5);
 		boolean var6 = true;
 		BlockPosition.MutableBlockPosition var7 = new BlockPosition.MutableBlockPosition();
@@ -81,7 +81,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 			IBlockData var9 = world.getType(var7.setPosition(var2, var8, var4));
 			float[] var10;
 			if (var9.getBlock() == Blocks.STAINED_GLASS) {
-				var10 = class_uf.a((EnumColor) var9.get(BlockStainedGlass.a));
+				var10 = EntitySheep.a((EnumColor) var9.get(BlockStainedGlass.a));
 			} else {
 				if (var9.getBlock() != Blocks.STAINED_GLASS_PANE) {
 					if ((var9.getBlock().getLightOpacity() >= 15) && (var9.getBlock() != Blocks.BEDROCK)) {
@@ -94,7 +94,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 					continue;
 				}
 
-				var10 = class_uf.a((EnumColor) var9.get(BlockStainedGlassPane.a));
+				var10 = EntitySheep.a((EnumColor) var9.get(BlockStainedGlassPane.a));
 			}
 
 			if (!var6) {
