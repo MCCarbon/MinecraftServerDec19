@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -185,7 +186,7 @@ public class RecipeManager {
       int var5 = 0;
       int var6 = 0;
       if(var2[var4] instanceof String[]) {
-         String[] var11 = var2[var4++];
+         String[] var11 = (String[]) var2[var4++];
 
          for(int var8 = 0; var8 < var11.length; ++var8) {
             String var9 = var11[var8];
