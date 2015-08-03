@@ -1,19 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Explosion;
-import net.minecraft.server.World;
-import net.minecraft.server.BlockMinecartTrackAbstract;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_vn;
-import net.minecraft.server.class_xd;
-
 public class class_vv extends class_vn {
    private int a = -1;
 
@@ -51,7 +37,7 @@ public class class_vv extends class_vn {
 
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       Entity var3 = var1.i();
       if(var3 instanceof class_xd) {
          class_xd var4 = (class_xd)var3;
@@ -63,7 +49,7 @@ public class class_vv extends class_vn {
       return super.damageEntity(var1, var2);
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
       if(!var1.c() && this.o.R().b("doEntityDrops")) {

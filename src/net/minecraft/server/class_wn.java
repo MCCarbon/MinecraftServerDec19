@@ -66,7 +66,7 @@ public class class_wn extends class_wi implements class_wk {
    public boolean r(Entity var1) {
       if(super.r(var1)) {
          if(this.cB() == 1 && var1 instanceof EntityLiving) {
-            ((EntityLiving)var1).c(new class_pl(class_pm.t, 200));
+            ((EntityLiving)var1).c(new class_pl(MobEffectList.t, 200));
          }
 
          return true;
@@ -120,7 +120,7 @@ public class class_wn extends class_wi implements class_wk {
 
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       if(var1.i() instanceof class_xd && var1.j() instanceof EntityHuman) {
          EntityHuman var2 = (EntityHuman)var1.j();

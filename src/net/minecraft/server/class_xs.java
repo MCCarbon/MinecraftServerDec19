@@ -72,7 +72,7 @@ public class class_xs extends class_xo {
 
                      while(var12.hasNext()) {
                         class_pl var13 = (class_pl)var12.next();
-                        class_pk var14 = var13.a();
+                        MobEffect var14 = var13.a();
                         if(var14.b()) {
                            var14.a(this, this.l(), var7, var13.c(), var10);
                         } else {

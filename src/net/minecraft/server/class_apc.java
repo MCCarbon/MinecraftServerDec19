@@ -13,36 +13,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 import java.util.UUID;
-import net.minecraft.server.World;
-import net.minecraft.server.class_afx;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityEnderPortal;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_ano;
-import net.minecraft.server.class_anp;
-import net.minecraft.server.class_anq;
-import net.minecraft.server.class_ans;
-import net.minecraft.server.Chunk;
-import net.minecraft.server.class_aqi;
-import net.minecraft.server.class_aqk;
-import net.minecraft.server.class_ari;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagInt;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.class_le;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_oh;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.class_uq;
-import net.minecraft.server.class_ur;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -316,7 +287,7 @@ public class class_apc {
       return this.h;
    }
 
-   public void a(class_uq var1, class_pc var2) {
+   public void a(class_uq var1, DamageSource var2) {
       this.j();
       Entity var3 = this.d.getEntityByUUID(this.m);
       if(var3 instanceof class_ur) {

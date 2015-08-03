@@ -1,19 +1,6 @@
 package net.minecraft.server;
 
 import java.util.UUID;
-import net.minecraft.server.World;
-import net.minecraft.server.class_awp;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_ly;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qg;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_so;
-import net.minecraft.server.class_tw;
 
 public abstract class class_qj extends class_tw implements class_qg {
    protected static final int bs = Datawathcer.claimId(class_qj.class);
@@ -163,12 +150,12 @@ public abstract class class_qj extends class_tw implements class_qg {
       return super.c(var1);
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       if(!this.o.isClientSide && this.o.R().b("showDeathMessages") && this.hasCustomName() && this.cD() instanceof EntityPlayer) {
          ((EntityPlayer)this.cD()).a(this.bt().b());
       }
 
-      super.a((class_pc)var1);
+      super.a((DamageSource)var1);
    }
 
    // $FF: synthetic method

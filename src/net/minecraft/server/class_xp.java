@@ -15,7 +15,7 @@ public class class_xp extends class_xo {
 
    protected void a(MovingObjectPosition var1) {
       if(var1.d != null) {
-         var1.d.damageEntity(class_pc.a((Entity)this, (Entity)this.l()), 0.0F);
+         var1.d.damageEntity(DamageSource.a((Entity) this, (Entity) this.l()), 0.0F);
       }
 
       if(!this.o.isClientSide && this.random.nextInt(8) == 0) {

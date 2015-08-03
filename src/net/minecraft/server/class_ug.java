@@ -3,34 +3,6 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockPiston;
-import net.minecraft.server.BlockPistonExtension;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aoe;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_qv;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_ua;
-import net.minecraft.server.class_wd;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xd;
-import net.minecraft.server.class_xk;
 
 public class class_ug extends class_ua implements class_wd {
    protected static final int a = Datawathcer.claimId(class_ug.class);
@@ -272,7 +244,7 @@ public class class_ug extends class_ua implements class_wd {
       return this.cC() == 0?20:super.bs();
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.cC() == 0) {
          Entity var3 = var1.i();
          if(var3 instanceof class_xd) {

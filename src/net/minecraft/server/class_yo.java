@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 public class class_yo extends Container {
    private IInventory a;
-   private class_tz f;
+   private EntityHorse f;
 
-   public class_yo(IInventory var1, final IInventory var2, final class_tz var3, EntityHuman var4) {
+   public class_yo(IInventory var1, final IInventory var2, final EntityHorse var3, EntityHuman var4) {
       this.a = var2;
       this.f = var3;
       byte var5 = 3;
@@ -17,7 +17,7 @@ public class class_yo extends Container {
       });
       this.a(new class_yx(var2, 1, 8, 36) {
          public boolean a(ItemStack var1) {
-            return super.a(var1) && var3.dd() && class_tz.a(var1.getItem());
+            return super.a(var1) && var3.dd() && EntityHorse.a(var1.getItem());
          }
       });
       int var7;

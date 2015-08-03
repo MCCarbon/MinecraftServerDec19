@@ -107,7 +107,7 @@ public class EnchantmentManager {
 
    }
 
-   public static int a(Iterable var0, class_pc var1) {
+   public static int a(Iterable var0, DamageSource var1) {
       b.a = 0;
       b.b = var1;
       a((EnchantmentManager.class_c_in_class_adk)b, (Iterable)var0);
@@ -376,7 +376,7 @@ public class EnchantmentManager {
 
    static final class class_e_in_class_adk implements EnchantmentManager.class_c_in_class_adk {
       public int a;
-      public class_pc b;
+      public DamageSource b;
 
       private class_e_in_class_adk() {
       }

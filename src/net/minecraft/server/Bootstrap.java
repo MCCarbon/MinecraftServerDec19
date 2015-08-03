@@ -410,7 +410,7 @@ public class Bootstrap {
 
 			Block.init();
 			BlockFire.l();
-			class_pk.k();
+			MobEffect.k();
 			class_adi.e();
 			Item.init();
 			class_acd.c();

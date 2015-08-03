@@ -1,19 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityEndGateway;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_wc;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xo;
-
 public class class_xq extends class_xo {
    private EntityLiving d;
 
@@ -33,7 +19,7 @@ public class class_xq extends class_xo {
             return;
          }
 
-         var1.d.damageEntity(class_pc.a((Entity)this, (Entity)var2), 0.0F);
+         var1.d.damageEntity(DamageSource.a((Entity) this, (Entity) var2), 0.0F);
       }
 
       if(var1.a == MovingObjectPosition.class_a_in_class_awg.b) {
@@ -73,7 +59,7 @@ public class class_xq extends class_xo {
 
                var2.a(this.s, this.t, this.u);
                var2.O = 0.0F;
-               var2.damageEntity(class_pc.i, 5.0F);
+               var2.damageEntity(DamageSource.i, 5.0F);
             }
          } else if(var2 != null) {
             var2.a(this.s, this.t, this.u);

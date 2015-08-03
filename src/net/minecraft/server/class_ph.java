@@ -1,9 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_pk;
-import net.minecraft.server.class_qm;
-
-public class class_ph extends class_pk {
+public class class_ph extends MobEffect {
    protected final double a;
 
    protected class_ph(boolean var1, int var2, double var3) {

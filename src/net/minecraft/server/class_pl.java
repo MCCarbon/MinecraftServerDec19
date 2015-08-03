@@ -1,34 +1,31 @@
 package net.minecraft.server;
 
 import com.google.common.collect.ComparisonChain;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pk;
-import net.minecraft.server.EntityLiving;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class class_pl implements Comparable {
    private static final Logger a = LogManager.getLogger();
-   private final class_pk b;
+   private final MobEffect b;
    private int c;
    private int d;
    private boolean e;
    private boolean f;
    private boolean h;
 
-   public class_pl(class_pk var1) {
+   public class_pl(MobEffect var1) {
       this(var1, 0, 0);
    }
 
-   public class_pl(class_pk var1, int var2) {
+   public class_pl(MobEffect var1, int var2) {
       this(var1, var2, 0);
    }
 
-   public class_pl(class_pk var1, int var2, int var3) {
+   public class_pl(MobEffect var1, int var2, int var3) {
       this(var1, var2, var3, false, true);
    }
 
-   public class_pl(class_pk var1, int var2, int var3, boolean var4, boolean var5) {
+   public class_pl(MobEffect var1, int var2, int var3, boolean var4, boolean var5) {
       this.b = var1;
       this.c = var2;
       this.d = var3;
@@ -61,7 +58,7 @@ public class class_pl implements Comparable {
       this.h = var1.h;
    }
 
-   public class_pk a() {
+   public MobEffect a() {
       return this.b;
    }
 
@@ -148,7 +145,7 @@ public class class_pl implements Comparable {
    }
 
    public NBTTagCompound a(NBTTagCompound var1) {
-      var1.put("Id", (byte)class_pk.a(this.a()));
+      var1.put("Id", (byte) MobEffect.a(this.a()));
       var1.put("Amplifier", (byte)this.c());
       var1.put("Duration", this.b());
       var1.put("Ambient", this.d());
@@ -158,7 +155,7 @@ public class class_pl implements Comparable {
 
    public static class_pl b(NBTTagCompound var0) {
       byte var1 = var0.getByte("Id");
-      class_pk var2 = class_pk.a(var1);
+      MobEffect var2 = MobEffect.a(var1);
       if(var2 == null) {
          return null;
       } else {

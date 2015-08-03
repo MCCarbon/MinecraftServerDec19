@@ -99,8 +99,8 @@ public class class_wj extends class_wr {
 
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      if(this.b((class_pc)var1)) {
+   public boolean damageEntity(DamageSource var1, float var2) {
+      if(this.b((DamageSource)var1)) {
          return false;
       } else {
          Entity var3 = var1.j();

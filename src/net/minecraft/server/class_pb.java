@@ -3,17 +3,6 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.class_pa;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
 
 public class class_pb {
    private final List a = Lists.newArrayList();
@@ -44,7 +33,7 @@ public class class_pb {
 
    }
 
-   public void a(class_pc var1, float var2, float var3) {
+   public void a(DamageSource var1, float var2, float var3) {
       this.g();
       this.a();
       class_pa var4 = new class_pa(var1, this.b.W, var2, var3, this.h, this.b.O);
@@ -69,9 +58,9 @@ public class class_pb {
          IChatBaseComponent var4 = var2.h();
          Entity var5 = var2.a().j();
          Object var3;
-         if(var1 != null && var2.a() == class_pc.i) {
+         if(var1 != null && var2.a() == DamageSource.i) {
             IChatBaseComponent var6 = var1.h();
-            if(var1.a() != class_pc.i && var1.a() != class_pc.j) {
+            if(var1.a() != DamageSource.i && var1.a() != DamageSource.j) {
                if(var6 == null || var4 != null && var6.equals(var4)) {
                   if(var4 != null) {
                      ItemStack var9 = var5 instanceof EntityLiving?((EntityLiving)var5).bA():null;
@@ -144,7 +133,7 @@ public class class_pb {
       for(int var5 = 0; var5 < this.a.size(); ++var5) {
          class_pa var6 = (class_pa)this.a.get(var5);
          class_pa var7 = var5 > 0?(class_pa)this.a.get(var5 - 1):null;
-         if((var6.a() == class_pc.i || var6.a() == class_pc.j) && var6.i() > 0.0F && (var1 == null || var6.i() > var4)) {
+         if((var6.a() == DamageSource.i || var6.a() == DamageSource.j) && var6.i() > 0.0F && (var1 == null || var6.i() > var4)) {
             if(var5 > 0) {
                var1 = var7;
             } else {

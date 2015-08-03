@@ -325,7 +325,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	@Override
-	public void a(class_pc var1) {
+	public void a(DamageSource var1) {
 		super.a(var1);
 		this.a(0.2F, 0.2F);
 		this.b(s, t, u);
@@ -471,13 +471,13 @@ public abstract class EntityHuman extends EntityLiving {
 			}
 		}
 
-		if (this.a(class_pm.c)) {
-			var2 *= 1.0F + ((this.b(class_pm.c).c() + 1) * 0.2F);
+		if (this.a(MobEffectList.c)) {
+			var2 *= 1.0F + ((this.b(MobEffectList.c).c() + 1) * 0.2F);
 		}
 
-		if (this.a(class_pm.d)) {
+		if (this.a(MobEffectList.d)) {
 			float var5 = 1.0F;
-			switch (this.b(class_pm.d).c()) {
+			switch (this.b(MobEffectList.d).c()) {
 				case 0:
 					var5 = 0.3F;
 					break;
@@ -575,7 +575,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	@Override
-	public boolean damageEntity(class_pc var1, float var2) {
+	public boolean damageEntity(DamageSource var1, float var2) {
 		if (this.b(var1)) {
 			return false;
 		} else if (abilities.invulnerable && !var1.g()) {
@@ -649,7 +649,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	@Override
-	protected void d(class_pc var1, float var2) {
+	protected void d(DamageSource var1, float var2) {
 		if (!this.b(var1)) {
 			if (!var1.e() && ca() && (var2 > 0.0F)) {
 				var2 = (1.0F + var2) * 0.5F;
@@ -685,7 +685,7 @@ public abstract class EntityHuman extends EntityLiving {
 	public void openContainer(IInventory var1) {
 	}
 
-	public void a(class_tz var1, IInventory var2) {
+	public void a(EntityHorse var1, IInventory var2) {
 	}
 
 	public void a(ITileEntityContainer var1) {
@@ -756,7 +756,7 @@ public abstract class EntityHuman extends EntityLiving {
 				}
 
 				if ((var2 > 0.0F) || (var4 > 0.0F)) {
-					boolean var5 = (O > 0.0F) && !C && !k_() && !V() && !this.a(class_pm.o) && (vehicle == null) && (var1 instanceof EntityLiving);
+					boolean var5 = (O > 0.0F) && !C && !k_() && !V() && !this.a(MobEffectList.o) && (vehicle == null) && (var1 instanceof EntityLiving);
 					if (var5 && (var2 > 0.0F)) {
 						var2 *= 1.5F;
 					}
@@ -772,7 +772,7 @@ public abstract class EntityHuman extends EntityLiving {
 					double var8 = var1.v;
 					double var10 = var1.motY;
 					double var12 = var1.x;
-					boolean var14 = var1.damageEntity(class_pc.a(this), var2);
+					boolean var14 = var1.damageEntity(DamageSource.a(this), var2);
 					if (var14) {
 						if (var18 > 0) {
 							var1.g(-MathHelper.sin((y * 3.1415927F) / 180.0F) * var18 * 0.5F, 0.1D, MathHelper.cos((y * 3.1415927F) / 180.0F) * var18 * 0.5F);
@@ -1130,7 +1130,7 @@ public abstract class EntityHuman extends EntityLiving {
 					this.a(StatisticList.r, var7);
 				} else if (vehicle instanceof class_ud) {
 					this.a(StatisticList.s, var7);
-				} else if (vehicle instanceof class_tz) {
+				} else if (vehicle instanceof EntityHorse) {
 					this.a(StatisticList.t, var7);
 				}
 			}

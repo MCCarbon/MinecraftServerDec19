@@ -1,13 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_xf;
-
 public class class_xh extends class_xf {
    public int e = 1;
 
@@ -22,7 +14,7 @@ public class class_xh extends class_xf {
    protected void a(MovingObjectPosition var1) {
       if(!this.o.isClientSide) {
          if(var1.d != null) {
-            var1.d.damageEntity(class_pc.a((class_xf)this, (Entity)this.a), 6.0F);
+            var1.d.damageEntity(DamageSource.a((class_xf) this, (Entity) this.a), 6.0F);
             this.a(this.a, var1.d);
          }
 

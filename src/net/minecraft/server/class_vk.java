@@ -60,7 +60,7 @@ public class class_vk extends Entity {
       return -0.3D;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else if(!this.o.isClientSide && !this.I) {

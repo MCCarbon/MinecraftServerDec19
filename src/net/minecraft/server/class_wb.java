@@ -112,7 +112,7 @@ public class class_wb extends class_wi {
 
    protected void cc() {
       if(this.U()) {
-         this.damageEntity(class_pc.f, 1.0F);
+         this.damageEntity(DamageSource.f, 1.0F);
       }
 
       if(this.cD() && !this.bw && this.random.nextInt(100) == 0) {
@@ -246,8 +246,8 @@ public class class_wb extends class_wi {
       return Block.getByCombinedId(this.datawatcher.getShort(bt) & '\uffff');
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      if(this.b((class_pc)var1)) {
+   public boolean damageEntity(DamageSource var1, float var2) {
+      if(this.b((DamageSource)var1)) {
          return false;
       } else {
          if(var1.j() == null || !(var1.j() instanceof class_wc)) {

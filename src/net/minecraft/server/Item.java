@@ -629,7 +629,7 @@ public class Item {
 		registerItem(319, "porkchop", (new ItemFood(3, 0.3F, true)).c("porkchopRaw"));
 		registerItem(320, "cooked_porkchop", (new ItemFood(8, 0.8F, true)).c("porkchopCooked"));
 		registerItem(321, "painting", (new class_aap(class_vc.class)).c("painting"));
-		registerItem(322, "golden_apple", (new class_aao(4, 1.2F, false)).h().a(new class_pl(class_pm.j, 100, 1), 1.0F).c("appleGold"));
+		registerItem(322, "golden_apple", (new class_aao(4, 1.2F, false)).h().a(new class_pl(MobEffectList.j, 100, 1), 1.0F).c("appleGold"));
 		registerItem(323, "sign", (new class_abn()).c("sign"));
 		registerItem(324, "wooden_door", (new class_zw(Blocks.WOODEN_DOOR)).c("doorOak"));
 		Item var0 = (new class_zn(Blocks.AIR)).c("bucket").d(16);
@@ -673,9 +673,9 @@ public class Item {
 		registerItem(362, "melon_seeds", (new ItemSeeds(Blocks.MELON_STEM, Blocks.FARMLAND)).c("seeds_melon"));
 		registerItem(363, "beef", (new ItemFood(3, 0.3F, true)).c("beefRaw"));
 		registerItem(364, "cooked_beef", (new ItemFood(8, 0.8F, true)).c("beefCooked"));
-		registerItem(365, "chicken", (new ItemFood(2, 0.3F, true)).a(new class_pl(class_pm.q, 600, 0), 0.3F).c("chickenRaw"));
+		registerItem(365, "chicken", (new ItemFood(2, 0.3F, true)).a(new class_pl(MobEffectList.q, 600, 0), 0.3F).c("chickenRaw"));
 		registerItem(366, "cooked_chicken", (new ItemFood(6, 0.6F, true)).c("chickenCooked"));
-		registerItem(367, "rotten_flesh", (new ItemFood(4, 0.1F, true)).a(new class_pl(class_pm.q, 600, 0), 0.8F).c("rottenFlesh"));
+		registerItem(367, "rotten_flesh", (new ItemFood(4, 0.1F, true)).a(new class_pl(MobEffectList.q, 600, 0), 0.8F).c("rottenFlesh"));
 		registerItem(368, "ender_pearl", (new class_aaf()).c("enderPearl"));
 		registerItem(369, "blaze_rod", (new Item()).c("blazeRod").registerItemKey(CreativeTab.MATERIALS).n());
 		registerItem(370, "ghast_tear", (new Item()).c("ghastTear").registerItemKey(CreativeTab.BREWING));
@@ -683,7 +683,7 @@ public class Item {
 		registerItem(372, "nether_wart", (new ItemSeeds(Blocks.NETHER_WART, Blocks.SOUL_SAND)).c("netherStalkSeeds"));
 		registerItem(373, "potion", (new ItemPotion()).c("potion"));
 		registerItem(374, "glass_bottle", (new class_zk()).c("glassBottle"));
-		registerItem(375, "spider_eye", (new ItemFood(2, 0.8F, false)).a(new class_pl(class_pm.s, 100, 0), 1.0F).c("spiderEye"));
+		registerItem(375, "spider_eye", (new ItemFood(2, 0.8F, false)).a(new class_pl(MobEffectList.s, 100, 0), 1.0F).c("spiderEye"));
 		registerItem(376, "fermented_spider_eye", (new Item()).c("fermentedSpiderEye").registerItemKey(CreativeTab.BREWING));
 		registerItem(377, "blaze_powder", (new Item()).c("blazePowder").registerItemKey(CreativeTab.BREWING));
 		registerItem(378, "magma_cream", (new Item()).c("magmaCream").registerItemKey(CreativeTab.BREWING));
@@ -702,7 +702,7 @@ public class Item {
 		registerItem(391, "carrot", (new class_abj(3, 0.6F, Blocks.CARROTS, Blocks.FARMLAND)).c("carrots"));
 		registerItem(392, "potato", (new class_abj(1, 0.3F, Blocks.POTATOES, Blocks.FARMLAND)).c("potato"));
 		registerItem(393, "baked_potato", (new ItemFood(5, 0.6F, false)).c("potatoBaked"));
-		registerItem(394, "poisonous_potato", (new ItemFood(2, 0.3F, false)).a(new class_pl(class_pm.s, 100, 0), 0.6F).c("potatoPoisonous"));
+		registerItem(394, "poisonous_potato", (new ItemFood(2, 0.3F, false)).a(new class_pl(MobEffectList.s, 100, 0), 0.6F).c("potatoPoisonous"));
 		registerItem(395, "map", (new ItemMapEmpty()).c("emptyMap"));
 		registerItem(396, "golden_carrot", (new ItemFood(6, 1.2F, false)).c("carrotGolden").registerItemKey(CreativeTab.BREWING));
 		registerItem(397, "skull", (new class_abp()).c("skull"));

@@ -1,18 +1,14 @@
 package net.minecraft.server;
 
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.EntityLiving;
-
 public class class_pa {
-   private final class_pc a;
+   private final DamageSource a;
    private final int b;
    private final float c;
    private final float d;
    private final String e;
    private final float f;
 
-   public class_pa(class_pc var1, int var2, float var3, float var4, String var5, float var6) {
+   public class_pa(DamageSource var1, int var2, float var3, float var4, String var5, float var6) {
       this.a = var1;
       this.b = var2;
       this.c = var4;
@@ -21,7 +17,7 @@ public class class_pa {
       this.f = var6;
    }
 
-   public class_pc a() {
+   public DamageSource a() {
       return this.a;
    }
 
@@ -42,6 +38,6 @@ public class class_pa {
    }
 
    public float i() {
-      return this.a == class_pc.j?Float.MAX_VALUE:this.f;
+      return this.a == DamageSource.j?Float.MAX_VALUE:this.f;
    }
 }

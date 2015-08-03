@@ -1,18 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aet;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qh;
-import net.minecraft.server.class_wd;
-import net.minecraft.server.class_wl;
-
 public abstract class class_wi extends class_qh implements class_wd {
    public class_wi(World var1) {
       super(var1);
@@ -45,7 +32,7 @@ public abstract class class_wi extends class_qh implements class_wd {
       return "game.hostile.swim.splash";
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else if(super.damageEntity(var1, var2)) {
@@ -76,7 +63,7 @@ public abstract class class_wi extends class_qh implements class_wd {
          var3 += EnchantmentManager.a((EntityLiving)this);
       }
 
-      boolean var4 = var1.damageEntity(class_pc.a((EntityLiving)this), var2);
+      boolean var4 = var1.damageEntity(DamageSource.a((EntityLiving) this), var2);
       if(var4) {
          if(var3 > 0) {
             var1.g((double)(-MathHelper.sin(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F), 0.1D, (double)(MathHelper.cos(this.y * 3.1415927F / 180.0F) * (float)var3 * 0.5F));

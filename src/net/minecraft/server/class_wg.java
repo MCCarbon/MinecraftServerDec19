@@ -270,7 +270,7 @@ public class class_wg extends class_wi {
          boolean var3 = true;
          boolean var4 = true;
          if((this.W + this.getId()) % 1200 == 0) {
-            class_pk var5 = class_pm.d;
+            MobEffect var5 = MobEffectList.d;
             List var6 = this.o.getPlayers(EntityPlayer.class, new Predicate() {
                public boolean a(EntityPlayer var1) {
                   return class_wg.this.h(var1) < 2500.0D && var1.playerInteractManager.c();
@@ -292,7 +292,7 @@ public class class_wg extends class_wi {
                   }
 
                   var8 = (EntityPlayer)var7.next();
-               } while(var8.a((class_pk)var5) && var8.b((class_pk)var5).c() >= 2 && var8.b((class_pk)var5).b() >= 1200);
+               } while(var8.a((MobEffect)var5) && var8.b((MobEffect)var5).c() >= 2 && var8.b((MobEffect)var5).b() >= 1200);
 
                var8.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(10, 0.0F)));
                var8.c(new class_pl(var5, 6000, 2));
@@ -341,11 +341,11 @@ public class class_wg extends class_wi {
       return (this.random.nextInt(20) == 0 || !this.o.j(new BlockPosition(this))) && super.cf();
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(!this.n() && !var1.s() && var1.i() instanceof EntityLiving) {
          EntityLiving var3 = (EntityLiving)var1.i();
          if(!var1.c()) {
-            var3.damageEntity(class_pc.a((Entity)this), 2.0F);
+            var3.damageEntity(DamageSource.a((Entity) this), 2.0F);
             var3.a("damage.thorns", 0.5F, 1.0F);
          }
       }
@@ -481,8 +481,8 @@ public class class_wg extends class_wi {
                   var2 += 2.0F;
                }
 
-               var1.damageEntity(class_pc.b(this.a, this.a), var2);
-               var1.damageEntity(class_pc.a((EntityLiving)this.a), (float)this.a.a((class_qk)class_wl.e).e());
+               var1.damageEntity(DamageSource.b(this.a, this.a), var2);
+               var1.damageEntity(DamageSource.a((EntityLiving) this.a), (float)this.a.a((class_qk)class_wl.e).e());
                this.a.d((EntityLiving)null);
             } else if(this.b >= 60 && this.b % 20 == 0) {
                ;

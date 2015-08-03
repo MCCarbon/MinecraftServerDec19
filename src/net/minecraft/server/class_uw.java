@@ -365,11 +365,11 @@ public class class_uw extends class_wi implements class_wk {
       this.a(0, var1);
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      if(this.b((class_pc)var1)) {
+   public boolean damageEntity(DamageSource var1, float var2) {
+      if(this.b((DamageSource)var1)) {
          return false;
-      } else if(var1 != class_pc.f && !(var1.j() instanceof class_uw)) {
-         if(this.cA() > 0 && var1 != class_pc.j) {
+      } else if(var1 != DamageSource.f && !(var1.j() instanceof class_uw)) {
+         if(this.cA() > 0 && var1 != DamageSource.j) {
             return false;
          } else {
             Entity var3;

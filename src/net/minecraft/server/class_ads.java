@@ -1,14 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_adi;
-import net.minecraft.server.class_adj;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.Enchantment;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-
 public class class_ads extends class_adi {
    public final class_ads.class_a_in_class_ads a;
 
@@ -33,12 +24,12 @@ public class class_ads extends class_adi {
       return 4;
    }
 
-   public int a(int var1, class_pc var2) {
+   public int a(int var1, DamageSource var2) {
       if(var2.g()) {
          return 0;
       } else {
          float var3 = (float)(6 + var1 * var1) / 3.0F;
-         return this.a == class_ads.class_a_in_class_ads.a?MathHelper.floor(var3 * 0.75F):(this.a == class_ads.class_a_in_class_ads.b && var2.o()?MathHelper.floor(var3 * 1.25F):(this.a == class_ads.class_a_in_class_ads.c && var2 == class_pc.i?MathHelper.floor(var3 * 2.5F):(this.a == class_ads.class_a_in_class_ads.d && var2.c()?MathHelper.floor(var3 * 1.5F):(this.a == class_ads.class_a_in_class_ads.e && var2.a()?MathHelper.floor(var3 * 1.5F):0))));
+         return this.a == class_ads.class_a_in_class_ads.a?MathHelper.floor(var3 * 0.75F):(this.a == class_ads.class_a_in_class_ads.b && var2.o()?MathHelper.floor(var3 * 1.25F):(this.a == class_ads.class_a_in_class_ads.c && var2 == DamageSource.i?MathHelper.floor(var3 * 2.5F):(this.a == class_ads.class_a_in_class_ads.d && var2.c()?MathHelper.floor(var3 * 1.5F):(this.a == class_ads.class_a_in_class_ads.e && var2.a()?MathHelper.floor(var3 * 1.5F):0))));
       }
    }
 

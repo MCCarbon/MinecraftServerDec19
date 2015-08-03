@@ -3,26 +3,6 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Iterator;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aga;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IContainer;
-import net.minecraft.server.BlockFalling;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.class_c;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
 
 public class EntityFallingBlock extends Entity {
    private IBlockData d;
@@ -144,7 +124,7 @@ public class EntityFallingBlock extends Entity {
          if(var4 > 0) {
             ArrayList var5 = Lists.newArrayList((Iterable)this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT()));
             boolean var6 = var3 == Blocks.ANVIL;
-            class_pc var7 = var6?class_pc.n:class_pc.o;
+            DamageSource var7 = var6? DamageSource.n: DamageSource.o;
             Iterator var8 = var5.iterator();
 
             while(var8.hasNext()) {

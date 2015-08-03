@@ -36,8 +36,8 @@ public abstract class class_tw extends class_po implements class_pp {
 
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      if(this.b((class_pc)var1)) {
+   public boolean damageEntity(DamageSource var1, float var2) {
+      if(this.b((DamageSource)var1)) {
          return false;
       } else {
          this.bs = 0;

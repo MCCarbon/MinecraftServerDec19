@@ -24,9 +24,9 @@ public class class_aak extends ItemFood {
    protected void a(ItemStack var1, World var2, EntityHuman var3) {
       class_aak.class_a_in_class_aak var4 = class_aak.class_a_in_class_aak.a(var1);
       if(var4 == class_aak.class_a_in_class_aak.d) {
-         var3.c(new class_pl(class_pm.s, 1200, 3));
-         var3.c(new class_pl(class_pm.q, 300, 2));
-         var3.c(new class_pl(class_pm.i, 300, 1));
+         var3.c(new class_pl(MobEffectList.s, 1200, 3));
+         var3.c(new class_pl(MobEffectList.q, 300, 2));
+         var3.c(new class_pl(MobEffectList.i, 300, 1));
       }
 
       super.a(var1, var2, var3);

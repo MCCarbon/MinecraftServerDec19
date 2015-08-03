@@ -1,20 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Explosion;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_uw;
-import net.minecraft.server.class_xf;
-
 public class class_xu extends class_xf {
    private static final int e = Datawathcer.claimId(class_xu.class);
 
@@ -50,7 +35,7 @@ public class class_xu extends class_xf {
       if(!this.o.isClientSide) {
          if(var1.d != null) {
             if(this.a != null) {
-               if(var1.d.damageEntity(class_pc.a(this.a), 8.0F)) {
+               if(var1.d.damageEntity(DamageSource.a(this.a), 8.0F)) {
                   if(!var1.d.isAlive()) {
                      this.a.h(5.0F);
                   } else {
@@ -58,7 +43,7 @@ public class class_xu extends class_xf {
                   }
                }
             } else {
-               var1.d.damageEntity(class_pc.l, 5.0F);
+               var1.d.damageEntity(DamageSource.l, 5.0F);
             }
 
             if(var1.d instanceof EntityLiving) {
@@ -70,7 +55,7 @@ public class class_xu extends class_xf {
                }
 
                if(var2 > 0) {
-                  ((EntityLiving)var1.d).c(new class_pl(class_pm.t, 20 * var2, 1));
+                  ((EntityLiving)var1.d).c(new class_pl(MobEffectList.t, 20 * var2, 1));
                }
             }
          }
@@ -85,7 +70,7 @@ public class class_xu extends class_xf {
       return false;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       return false;
    }
 

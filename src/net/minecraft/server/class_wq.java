@@ -77,13 +77,13 @@ public class class_wq extends class_wi implements class_wk {
             }
          } else {
             class_acd var1 = null;
-            if(this.random.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(class_pm.m)) {
+            if(this.random.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(MobEffectList.m)) {
                var1 = class_acf.s;
-            } else if(this.random.nextFloat() < 0.15F && this.av() && !this.a(class_pm.l)) {
+            } else if(this.random.nextFloat() < 0.15F && this.av() && !this.a(MobEffectList.l)) {
                var1 = class_acf.l;
             } else if(this.random.nextFloat() < 0.05F && this.getHealth() < this.bv()) {
                var1 = class_acf.u;
-            } else if(this.random.nextFloat() < 0.5F && this.w() != null && !this.a(class_pm.a) && this.w().h(this) > 121.0D) {
+            } else if(this.random.nextFloat() < 0.5F && this.w() != null && !this.a(MobEffectList.a) && this.w().h(this) > 121.0D) {
                var1 = class_acf.n;
             }
 
@@ -105,7 +105,7 @@ public class class_wq extends class_wi implements class_wk {
       super.m();
    }
 
-   protected float c(class_pc var1, float var2) {
+   protected float c(DamageSource var1, float var2) {
       var2 = super.c(var1, var2);
       if(var1.j() == this) {
          var2 = 0.0F;
@@ -143,11 +143,11 @@ public class class_wq extends class_wi implements class_wk {
          double var9 = var1.u + var1.x - this.u;
          float var11 = MathHelper.sqrt(var5 * var5 + var9 * var9);
          class_acd var12 = class_acf.w;
-         if(var11 >= 8.0F && !var1.a(class_pm.b)) {
+         if(var11 >= 8.0F && !var1.a(MobEffectList.b)) {
             var12 = class_acf.q;
-         } else if(var1.getHealth() >= 8.0F && !var1.a(class_pm.s)) {
+         } else if(var1.getHealth() >= 8.0F && !var1.a(MobEffectList.s)) {
             var12 = class_acf.y;
-         } else if(var11 <= 3.0F && !var1.a(class_pm.r) && this.random.nextFloat() < 0.25F) {
+         } else if(var11 <= 3.0F && !var1.a(MobEffectList.r) && this.random.nextFloat() < 0.25F) {
             var12 = class_acf.H;
          }
 

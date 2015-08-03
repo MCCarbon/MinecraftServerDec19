@@ -86,7 +86,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
       return 0.0D;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(!this.o.isClientSide && !this.I) {
          if(this.b(var1)) {
             return false;
@@ -115,7 +115,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
       }
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       this.J();
       if(this.o.R().b("doEntityDrops")) {
          ItemStack var2 = new ItemStack(Items.MINECART, 1);

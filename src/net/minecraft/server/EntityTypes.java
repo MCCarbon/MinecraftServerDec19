@@ -217,7 +217,7 @@ public class EntityTypes {
       a(class_uh.class, "SnowMan", 97);
       a(class_uc.class, "Ozelot", 98, 15720061, 5653556);
       a(class_uj.class, "VillagerGolem", 99);
-      a(class_tz.class, "EntityHorse", 100, 12623485, 15656192);
+      a(EntityHorse.class, "EntityHorse", 100, 12623485, 15656192);
       a(class_ue.class, "Rabbit", 101, 10051392, 7555121);
       a(class_wv.class, "Villager", 120, 5651507, 12422002);
       a(class_uq.class, "EnderCrystal", 200);

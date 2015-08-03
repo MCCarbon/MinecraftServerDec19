@@ -1,16 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_apc;
-import net.minecraft.server.class_apd;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_ur;
-
 public class class_uq extends Entity {
    public int a;
    public int b;
@@ -57,7 +46,7 @@ public class class_uq extends Entity {
       return true;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else if(var1.j() instanceof class_ur) {

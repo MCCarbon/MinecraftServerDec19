@@ -208,11 +208,11 @@ public class class_xd extends Entity implements class_xi {
             var4 += this.random.nextInt(var4 / 2 + 2);
          }
 
-         class_pc var5;
+         DamageSource var5;
          if(this.e == null) {
-            var5 = class_pc.a((class_xd)this, (Entity)this);
+            var5 = DamageSource.a((class_xd) this, (Entity) this);
          } else {
-            var5 = class_pc.a(this, this.e);
+            var5 = DamageSource.a(this, this.e);
          }
 
          if(this.av() && !(var2 instanceof class_wb)) {

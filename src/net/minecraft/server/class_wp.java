@@ -87,7 +87,7 @@ public class class_wp extends class_wi {
    }
 
    public boolean d(class_pl var1) {
-      return var1.a() == class_pm.s?false:super.d(var1);
+      return var1.a() == MobEffectList.s?false:super.d(var1);
    }
 
    public boolean n() {
@@ -123,7 +123,7 @@ public class class_wp extends class_wi {
       }
 
       if(var4 instanceof class_wp.class_b_in_class_wp) {
-         class_pk var5 = ((class_wp.class_b_in_class_wp)var4).a;
+         MobEffect var5 = ((class_wp.class_b_in_class_wp)var4).a;
          if(var5 != null) {
             this.c(new class_pl(var5, Integer.MAX_VALUE));
          }
@@ -168,18 +168,18 @@ public class class_wp extends class_wi {
    }
 
    public static class class_b_in_class_wp implements class_qd {
-      public class_pk a;
+      public MobEffect a;
 
       public void a(Random var1) {
          int var2 = var1.nextInt(5);
          if(var2 <= 1) {
-            this.a = class_pm.a;
+            this.a = MobEffectList.a;
          } else if(var2 <= 2) {
-            this.a = class_pm.e;
+            this.a = MobEffectList.e;
          } else if(var2 <= 3) {
-            this.a = class_pm.j;
+            this.a = MobEffectList.j;
          } else if(var2 <= 4) {
-            this.a = class_pm.n;
+            this.a = MobEffectList.n;
          }
 
       }

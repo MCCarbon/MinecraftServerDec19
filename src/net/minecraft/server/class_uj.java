@@ -104,7 +104,7 @@ public class class_uj extends class_ua {
    public boolean r(Entity var1) {
       this.bs = 10;
       this.o.a((Entity)this, (byte)4);
-      boolean var2 = var1.damageEntity(class_pc.a((EntityLiving)this), (float)(7 + this.random.nextInt(15)));
+      boolean var2 = var1.damageEntity(DamageSource.a((EntityLiving) this), (float)(7 + this.random.nextInt(15)));
       if(var2) {
          var1.motY += 0.4000000059604645D;
          this.a(this, var1);
@@ -169,7 +169,7 @@ public class class_uj extends class_ua {
 
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       if(!this.cC() && this.aQ != null && this.b != null) {
          this.b.a(this.aQ.getName(), -5);
       }

@@ -93,11 +93,11 @@ public class class_uc extends class_qj {
    }
 
    public boolean r(Entity var1) {
-      return var1.damageEntity(class_pc.a((EntityLiving)this), 3.0F);
+      return var1.damageEntity(DamageSource.a((EntityLiving) this), 3.0F);
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      if(this.b((class_pc)var1)) {
+   public boolean damageEntity(DamageSource var1, float var2) {
+      if(this.b((DamageSource)var1)) {
          return false;
       } else {
          this.bu.a(false);

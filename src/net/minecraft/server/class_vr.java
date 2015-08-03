@@ -44,7 +44,7 @@ public class class_vr extends class_vn {
       return 0.2D;
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       if(!var1.c() && this.o.R().b("doEntityDrops")) {
          this.a(new ItemStack(Blocks.FURNACE, 1), 0.0F);

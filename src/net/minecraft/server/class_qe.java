@@ -4,40 +4,6 @@ import com.google.common.collect.Maps;
 
 import java.util.Map;
 
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_tu;
-import net.minecraft.server.class_tx;
-import net.minecraft.server.class_ty;
-import net.minecraft.server.class_tz;
-import net.minecraft.server.class_ub;
-import net.minecraft.server.class_uc;
-import net.minecraft.server.class_ud;
-import net.minecraft.server.class_ue;
-import net.minecraft.server.class_uf;
-import net.minecraft.server.class_uh;
-import net.minecraft.server.class_ui;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_ul;
-import net.minecraft.server.class_ur;
-import net.minecraft.server.class_uw;
-import net.minecraft.server.class_vy;
-import net.minecraft.server.class_vz;
-import net.minecraft.server.class_wa;
-import net.minecraft.server.class_wb;
-import net.minecraft.server.class_wc;
-import net.minecraft.server.class_we;
-import net.minecraft.server.class_wf;
-import net.minecraft.server.class_wg;
-import net.minecraft.server.class_wh;
-import net.minecraft.server.class_wj;
-import net.minecraft.server.class_wm;
-import net.minecraft.server.class_wn;
-import net.minecraft.server.class_wo;
-import net.minecraft.server.class_wp;
-import net.minecraft.server.class_wq;
-import net.minecraft.server.class_wr;
-import net.minecraft.server.class_wv;
-
 public class class_qe {
    private static final Map a = Maps.newHashMap();
 
@@ -49,7 +15,7 @@ public class class_qe {
       a.put(class_tu.class, class_qb.class_a_in_class_qb.a);
       a.put(class_tx.class, class_qb.class_a_in_class_qb.a);
       a.put(class_ty.class, class_qb.class_a_in_class_qb.a);
-      a.put(class_tz.class, class_qb.class_a_in_class_qb.a);
+      a.put(EntityHorse.class, class_qb.class_a_in_class_qb.a);
       a.put(class_ub.class, class_qb.class_a_in_class_qb.a);
       a.put(class_uc.class, class_qb.class_a_in_class_qb.a);
       a.put(class_ud.class, class_qb.class_a_in_class_qb.a);

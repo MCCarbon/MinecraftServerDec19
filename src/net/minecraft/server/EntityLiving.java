@@ -21,7 +21,7 @@ public abstract class EntityLiving extends Entity {
 	private static final int h;
 	private class_qo i;
 	private final class_pb bn = new class_pb(this);
-	private final Map<class_pk, class_pl> bo = Maps.newHashMap();
+	private final Map<MobEffect, class_pl> bo = Maps.newHashMap();
 	private final ItemStack[] bp = new ItemStack[2];
 	private final ItemStack[] bq = new ItemStack[4];
 	public boolean at;
@@ -80,7 +80,7 @@ public abstract class EntityLiving extends Entity {
 	protected int bm;
 
 	public void G() {
-		this.damageEntity(class_pc.j, Float.MAX_VALUE);
+		this.damageEntity(DamageSource.j, Float.MAX_VALUE);
 	}
 
 	public EntityLiving(World var1) {
@@ -144,11 +144,11 @@ public abstract class EntityLiving extends Entity {
 		boolean var1 = this instanceof EntityHuman;
 		if (this.isAlive()) {
 			if (this.aj()) {
-				this.damageEntity(class_pc.e, 1.0F);
+				this.damageEntity(DamageSource.e, 1.0F);
 			} else if (var1 && !this.o.ag().a(this.aT())) {
 				double var2 = this.o.ag().a((Entity) this) + this.o.ag().m();
 				if (var2 < 0.0D) {
-					this.damageEntity(class_pc.e, (float) Math.max(1, MathHelper.floor(-var2 * this.o.ag().n())));
+					this.damageEntity(DamageSource.e, (float) Math.max(1, MathHelper.floor(-var2 * this.o.ag().n())));
 				}
 			}
 		}
@@ -160,7 +160,7 @@ public abstract class EntityLiving extends Entity {
 		boolean var7 = var1 && ((EntityHuman) this).abilities.invulnerable;
 		if (this.isAlive()) {
 			if (this.a((Material) Material.WATER)) {
-				if (!this.aZ() && !this.a(class_pm.m) && !var7) {
+				if (!this.aZ() && !this.a(MobEffectList.m) && !var7) {
 					this.i(this.j(this.aB()));
 					if (this.aB() == -20) {
 						this.i(0);
@@ -172,7 +172,7 @@ public abstract class EntityLiving extends Entity {
 							this.o.a(class_cy.e, this.s + (double) var4, this.t + (double) var5, this.u + (double) var6, this.v, this.motY, this.x, new int[0]);
 						}
 
-						this.damageEntity(class_pc.f, 2.0F);
+						this.damageEntity(DamageSource.f, 2.0F);
 					}
 				}
 
@@ -403,10 +403,10 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	protected void bj() {
-		Iterator<class_pk> var1 = this.bo.keySet().iterator();
+		Iterator<MobEffect> var1 = this.bo.keySet().iterator();
 
 		while (var1.hasNext()) {
-			class_pk var2 = (class_pk) var1.next();
+			MobEffect var2 = (MobEffect) var1.next();
 			class_pl var3 = (class_pl) this.bo.get(var2);
 			if (!var3.a(this)) {
 				if (!this.o.isClientSide) {
@@ -458,7 +458,7 @@ public abstract class EntityLiving extends Entity {
 			Collection<class_pl> var1 = this.bo.values();
 			this.datawatcher.update(g, Byte.valueOf((byte) (a(var1) ? 1 : 0)));
 			this.datawatcher.update(f, Integer.valueOf(ItemPotion.a(var1)));
-			this.f(this.a(class_pm.n));
+			this.f(this.a(MobEffectList.n));
 		}
 
 	}
@@ -499,11 +499,11 @@ public abstract class EntityLiving extends Entity {
 		return this.bo.values();
 	}
 
-	public boolean a(class_pk var1) {
+	public boolean a(MobEffect var1) {
 		return this.bo.containsKey(var1);
 	}
 
-	public class_pl b(class_pk var1) {
+	public class_pl b(MobEffect var1) {
 		return (class_pl) this.bo.get(var1);
 	}
 
@@ -523,8 +523,8 @@ public abstract class EntityLiving extends Entity {
 
 	public boolean d(class_pl var1) {
 		if (this.bz() == class_qf.b) {
-			class_pk var2 = var1.a();
-			if (var2 == class_pm.j || var2 == class_pm.s) {
+			MobEffect var2 = var1.a();
+			if (var2 == MobEffectList.j || var2 == MobEffectList.s) {
 				return false;
 			}
 		}
@@ -536,11 +536,11 @@ public abstract class EntityLiving extends Entity {
 		return this.bz() == class_qf.b;
 	}
 
-	public class_pl c(class_pk var1) {
+	public class_pl c(MobEffect var1) {
 		return (class_pl) this.bo.remove(var1);
 	}
 
-	public void d(class_pk var1) {
+	public void d(MobEffect var1) {
 		class_pl var2 = this.c(var1);
 		if (var2 != null) {
 			this.b(var2);
@@ -559,7 +559,7 @@ public abstract class EntityLiving extends Entity {
 	protected void a(class_pl var1, boolean var2) {
 		this.br = true;
 		if (var2 && !this.o.isClientSide) {
-			class_pk var3 = var1.a();
+			MobEffect var3 = var1.a();
 			var3.a(this, this.by(), var1.c());
 			var3.b(this, this.by(), var1.c());
 		}
@@ -590,8 +590,8 @@ public abstract class EntityLiving extends Entity {
 		this.datawatcher.update(c, Float.valueOf(MathHelper.clamp(var1, 0.0F, this.bv())));
 	}
 
-	public boolean damageEntity(class_pc var1, float var2) {
-		if (this.b((class_pc) var1)) {
+	public boolean damageEntity(DamageSource var1, float var2) {
+		if (this.b((DamageSource) var1)) {
 			return false;
 		} else if (this.o.isClientSide) {
 			return false;
@@ -599,10 +599,10 @@ public abstract class EntityLiving extends Entity {
 			this.aT = 0;
 			if (this.getHealth() <= 0.0F) {
 				return false;
-			} else if (var1.o() && this.a(class_pm.l)) {
+			} else if (var1.o() && this.a(MobEffectList.l)) {
 				return false;
 			} else {
-				if ((var1 == class_pc.n || var1 == class_pc.o) && this.a(class_pw.f) != null) {
+				if ((var1 == DamageSource.n || var1 == DamageSource.o) && this.a(class_pw.f) != null) {
 					this.a(class_pw.f).a((int) (var2 * 4.0F + this.random.nextFloat() * var2 * 2.0F), this);
 					var2 *= 0.75F;
 				}
@@ -645,7 +645,7 @@ public abstract class EntityLiving extends Entity {
 
 				if (var3) {
 					this.o.a((Entity) this, (byte) 2);
-					if (var1 != class_pc.f) {
+					if (var1 != DamageSource.f) {
 						this.ac();
 					}
 
@@ -701,7 +701,7 @@ public abstract class EntityLiving extends Entity {
 
 	}
 
-	public void a(class_pc var1) {
+	public void a(DamageSource var1) {
 		Entity var2 = var1.j();
 		EntityLiving var3 = this.bu();
 		if (this.aZ >= 0 && var3 != null) {
@@ -798,12 +798,12 @@ public abstract class EntityLiving extends Entity {
 
 	public void e(float var1, float var2) {
 		super.e(var1, var2);
-		class_pl var3 = this.b(class_pm.h);
+		class_pl var3 = this.b(MobEffectList.h);
 		float var4 = var3 != null ? (float) (var3.c() + 1) : 0.0F;
 		int var5 = MathHelper.ceil((var1 - 3.0F - var4) * var2);
 		if (var5 > 0) {
 			this.a(this.k(var5), 1.0F, 1.0F);
-			this.damageEntity(class_pc.i, (float) var5);
+			this.damageEntity(DamageSource.i, (float) var5);
 			int var6 = MathHelper.floor(this.s);
 			int var7 = MathHelper.floor(this.t - 0.20000000298023224D);
 			int var8 = MathHelper.floor(this.u);
@@ -838,7 +838,7 @@ public abstract class EntityLiving extends Entity {
 	protected void j(float var1) {
 	}
 
-	protected float b(class_pc var1, float var2) {
+	protected float b(DamageSource var1, float var2) {
 		if (!var1.e()) {
 			int var3 = 25 - this.bs();
 			float var4 = var2 * (float) var3;
@@ -849,15 +849,15 @@ public abstract class EntityLiving extends Entity {
 		return var2;
 	}
 
-	protected float c(class_pc var1, float var2) {
+	protected float c(DamageSource var1, float var2) {
 		if (var1.h()) {
 			return var2;
 		} else {
 			int var3;
 			int var4;
 			float var5;
-			if (this.a(class_pm.k) && var1 != class_pc.j) {
-				var3 = (this.b(class_pm.k).c() + 1) * 5;
+			if (this.a(MobEffectList.k) && var1 != DamageSource.j) {
+				var3 = (this.b(MobEffectList.k).c() + 1) * 5;
 				var4 = 25 - var3;
 				var5 = var2 * (float) var4;
 				var2 = var5 / 25.0F;
@@ -882,8 +882,8 @@ public abstract class EntityLiving extends Entity {
 		}
 	}
 
-	protected void d(class_pc var1, float var2) {
-		if (!this.b((class_pc) var1)) {
+	protected void d(DamageSource var1, float var2) {
+		if (!this.b((DamageSource) var1)) {
 			var2 = this.b(var1, var2);
 			var2 = this.c(var1, var2);
 			float var3 = var2;
@@ -919,7 +919,7 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	private int n() {
-		return this.a(class_pm.c) ? 6 - (1 + this.b(class_pm.c).c()) * 1 : (this.a(class_pm.d) ? 6 + (1 + this.b(class_pm.d).c()) * 2 : 6);
+		return this.a(MobEffectList.c) ? 6 - (1 + this.b(MobEffectList.c).c()) * 1 : (this.a(MobEffectList.d) ? 6 + (1 + this.b(MobEffectList.d).c()) * 2 : 6);
 	}
 
 	public void a(EnumUsedHand var1) {
@@ -935,7 +935,7 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	protected void O() {
-		this.damageEntity(class_pc.j, 4.0F);
+		this.damageEntity(DamageSource.j, 4.0F);
 	}
 
 	protected void bx() {
@@ -1068,8 +1068,8 @@ public abstract class EntityLiving extends Entity {
 
 	protected void bG() {
 		this.motY = (double) this.bF();
-		if (this.a(class_pm.h)) {
-			this.motY += (double) ((float) (this.b(class_pm.h).c() + 1) * 0.1F);
+		if (this.a(MobEffectList.h)) {
+			this.motY += (double) ((float) (this.b(MobEffectList.h).c() + 1) * 0.1F);
 		}
 
 		if (this.ay()) {
@@ -1161,8 +1161,8 @@ public abstract class EntityLiving extends Entity {
 					this.motY = 0.2D;
 				}
 
-				if (this.a(class_pm.y)) {
-					this.motY += (0.05D * (double) (this.b(class_pm.y).c() + 1) - this.motY) * 0.2D;
+				if (this.a(MobEffectList.y)) {
+					this.motY += (0.05D * (double) (this.b(MobEffectList.y).c() + 1) - this.motY) * 0.2D;
 				} else if (!this.o.isClientSide || this.o.e(new BlockPosition((int) this.s, 0, (int) this.u)) && this.o.f(new BlockPosition((int) this.s, 0, (int) this.u)).o()) {
 					this.motY -= 0.08D;
 				} else if (this.t > 0.0D) {
@@ -1276,7 +1276,7 @@ public abstract class EntityLiving extends Entity {
 			}
 
 			if (!this.ar) {
-				boolean var10 = this.a(class_pm.x);
+				boolean var10 = this.a(MobEffectList.x);
 				if (this.h(6) != var10) {
 					this.b(6, var10);
 				}

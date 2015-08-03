@@ -1,15 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
-
-public class class_pd extends class_pc {
+public class class_pd extends DamageSource {
    protected Entity q;
    private boolean r = false;
 

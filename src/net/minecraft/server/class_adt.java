@@ -1,16 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_adi;
-import net.minecraft.server.class_adj;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.Enchantment;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_za;
 
 public class class_adt extends class_adi {
    public class_adt(class_adi.class_a_in_class_adi var1, class_pw... var2) {
@@ -39,7 +29,7 @@ public class class_adt extends class_adi {
       ItemStack var5 = EnchantmentManager.b(Enchantment.h, var1);
       if(a(var3, var4)) {
          if(var2 != null) {
-            var2.damageEntity(class_pc.a((Entity)var1), (float)b(var3, var4));
+            var2.damageEntity(DamageSource.a((Entity) var1), (float)b(var3, var4));
             var2.a("damage.thorns", 0.5F, 1.0F);
          }
 

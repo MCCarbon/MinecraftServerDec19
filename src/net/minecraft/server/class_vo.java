@@ -9,7 +9,7 @@ public class class_vo extends class_vq {
       super(var1, var2, var4, var6);
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
          this.a(Item.getItemOf((Block)Blocks.CHEST), 1, 0.0F);

@@ -283,7 +283,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	}
 
-	public void a(class_pc var1) {
+	public void a(DamageSource var1) {
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutCombatEvent(this.bt(), PacketPlayOutCombatEvent.class_a_in_class_gy.c)));
 		if (this.o.R().b("showDeathMessages")) {
 			class_awp var2 = this.bP();
@@ -326,12 +326,12 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.bt().g();
 	}
 
-	public boolean damageEntity(class_pc var1, float var2) {
-		if (this.b((class_pc) var1)) {
+	public boolean damageEntity(DamageSource var1, float var2) {
+		if (this.b((DamageSource) var1)) {
 			return false;
 		} else {
 			boolean var3 = this.b.ae() && this.ct() && "fall".equals(var1.p);
-			if (!var3 && this.bX > 0 && var1 != class_pc.j) {
+			if (!var3 && this.bX > 0 && var1 != DamageSource.j) {
 				return false;
 			} else {
 				if (var1 instanceof class_pd) {
@@ -523,7 +523,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	}
 
-	public void a(class_tz var1, IInventory var2) {
+	public void a(EntityHorse var1, IInventory var2) {
 		if (this.br != this.bq) {
 			this.n();
 		}

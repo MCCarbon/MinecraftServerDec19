@@ -1,16 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_adi;
-import net.minecraft.server.class_adj;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qf;
-import net.minecraft.server.class_zd;
-
 public class class_adf extends class_adi {
    private static final String[] e = new String[]{"all", "undead", "arthropods"};
    private static final int[] f = new int[]{1, 5, 5};
@@ -56,7 +45,7 @@ public class class_adf extends class_adi {
          EntityLiving var4 = (EntityLiving)var2;
          if(this.a == 2 && var4.bz() == class_qf.c) {
             int var5 = 20 + var1.bd().nextInt(10 * var3);
-            var4.c(new class_pl(class_pm.b, var5, 3));
+            var4.c(new class_pl(MobEffectList.b, var5, 3));
          }
       }
 

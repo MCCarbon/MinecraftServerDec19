@@ -39,7 +39,7 @@ public class class_xx {
          ++this.d;
          if(this.d >= 80) {
             if(var1.getHealth() > 10.0F || var2 == class_om.d || var1.getHealth() > 1.0F && var2 == class_om.c) {
-               var1.damageEntity(class_pc.g, 1.0F);
+               var1.damageEntity(DamageSource.g, 1.0F);
             }
 
             this.d = 0;

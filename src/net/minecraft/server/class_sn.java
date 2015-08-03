@@ -1,20 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_tm;
-import net.minecraft.server.class_tz;
-import net.minecraft.server.EntityHuman;
-
 public class class_sn extends class_rm {
-   private class_tz a;
+   private EntityHorse a;
    private double b;
    private double c;
    private double d;
    private double e;
 
-   public class_sn(class_tz var1, double var2) {
+   public class_sn(EntityHorse var1, double var2) {
       this.a = var1;
       this.b = var2;
       this.a(1);

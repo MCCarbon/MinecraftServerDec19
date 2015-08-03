@@ -208,9 +208,9 @@ public class class_ue extends class_tw {
    public boolean r(Entity var1) {
       if(this.cC() == 99) {
          this.a("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-         return var1.damageEntity(class_pc.a((EntityLiving)this), 8.0F);
+         return var1.damageEntity(DamageSource.a((EntityLiving) this), 8.0F);
       } else {
-         return var1.damageEntity(class_pc.a((EntityLiving)this), 3.0F);
+         return var1.damageEntity(DamageSource.a((EntityLiving) this), 3.0F);
       }
    }
 
@@ -218,8 +218,8 @@ public class class_ue extends class_tw {
       return this.cC() == 99?8:super.bs();
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      return this.b((class_pc)var1)?false:super.damageEntity(var1, var2);
+   public boolean damageEntity(DamageSource var1, float var2) {
+      return this.b((DamageSource)var1)?false:super.damageEntity(var1, var2);
    }
 
    protected void br() {

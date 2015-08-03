@@ -7,7 +7,7 @@ public class class_afs extends BiomeBase {
 
    protected class_afs(int var1) {
       super(var1);
-      this.au.add(new BiomeBase.class_c_in_class_aez(class_tz.class, 1, 2, 6));
+      this.au.add(new BiomeBase.class_c_in_class_aez(EntityHorse.class, 1, 2, 6));
       this.as.A = 1;
       this.as.B = 4;
       this.as.C = 20;

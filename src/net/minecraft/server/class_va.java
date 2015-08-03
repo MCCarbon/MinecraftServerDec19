@@ -23,8 +23,8 @@ public class class_va extends class_uz {
       return 0.0F;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      if(this.b((class_pc)var1)) {
+   public boolean damageEntity(DamageSource var1, float var2) {
+      if(this.b((DamageSource)var1)) {
          return false;
       } else if(!var1.c() && this.o() != null) {
          if(!this.o.isClientSide) {

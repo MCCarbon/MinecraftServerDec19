@@ -1,21 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.class_ol;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.ChestLock;
-import net.minecraft.server.ITileInventory;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_vn;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-
 public abstract class class_vq extends class_vn implements ITileInventory {
    private ItemStack[] a = new ItemStack[36];
    private boolean b = true;
@@ -28,7 +12,7 @@ public abstract class class_vq extends class_vn implements ITileInventory {
       super(var1, var2, var4, var6);
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
          class_ol.a(this.o, (Entity)this, this);

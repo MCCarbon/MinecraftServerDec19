@@ -398,18 +398,18 @@ public class class_uy extends EntityLiving {
       }
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.o.isClientSide) {
          return false;
-      } else if(class_pc.j.equals(var1)) {
+      } else if(DamageSource.j.equals(var1)) {
          this.J();
          return false;
-      } else if(!this.b((class_pc)var1) && !this.bz && !this.t()) {
+      } else if(!this.b((DamageSource)var1) && !this.bz && !this.t()) {
          if(var1.c()) {
             this.E();
             this.J();
             return false;
-         } else if(class_pc.a.equals(var1)) {
+         } else if(DamageSource.a.equals(var1)) {
             if(!this.av()) {
                this.f(5);
             } else {
@@ -417,7 +417,7 @@ public class class_uy extends EntityLiving {
             }
 
             return false;
-         } else if(class_pc.c.equals(var1) && this.getHealth() > 0.5F) {
+         } else if(DamageSource.c.equals(var1) && this.getHealth() > 0.5F) {
             this.a(4.0F);
             return false;
          } else {

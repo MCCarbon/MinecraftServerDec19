@@ -1,16 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_on;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.class_wp;
-
 public class class_vz extends class_wp {
    public class_vz(World var1) {
       super(var1);
@@ -33,7 +22,7 @@ public class class_vz extends class_wp {
             }
 
             if(var2 > 0) {
-               ((EntityLiving)var1).c(new class_pl(class_pm.s, var2 * 20, 0));
+               ((EntityLiving)var1).c(new class_pl(MobEffectList.s, var2 * 20, 0));
             }
          }
 

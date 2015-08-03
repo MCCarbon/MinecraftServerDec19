@@ -2,40 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.Explosion;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_apc;
-import net.minecraft.server.class_apd;
-import net.minecraft.server.class_aqk;
-import net.minecraft.server.Material;
-import net.minecraft.server.class_aus;
-import net.minecraft.server.class_aut;
-import net.minecraft.server.class_auv;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pd;
-import net.minecraft.server.Entity;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.EntityExperienceOrb;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_uo;
-import net.minecraft.server.class_up;
-import net.minecraft.server.class_uq;
-import net.minecraft.server.class_us;
-import net.minecraft.server.class_wd;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xh;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -400,7 +367,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 
 							while (var48.hasNext()) {
 								EntityLiving var13 = (EntityLiving) var48.next();
-								var13.damageEntity(class_pc.b(this, this), 2.0F);
+								var13.damageEntity(DamageSource.b(this, this), 2.0F);
 							}
 						}
 					}
@@ -621,7 +588,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 		if (this.bG != null) {
 			if (this.bG.I) {
 				if (!this.o.isClientSide) {
-					this.a(this.bt, class_pc.a((Explosion) null), 10.0F);
+					this.a(this.bt, DamageSource.a((Explosion) null), 10.0F);
 				}
 
 				this.bG = null;
@@ -672,7 +639,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 		for (int var2 = 0; var2 < var1.size(); ++var2) {
 			Entity var3 = (Entity) var1.get(var2);
 			if (var3 instanceof EntityLiving) {
-				var3.damageEntity(class_pc.a((EntityLiving) this), 10.0F);
+				var3.damageEntity(DamageSource.a((EntityLiving) this), 10.0F);
 				this.a((EntityLiving) this, (Entity) var3);
 			}
 		}
@@ -835,7 +802,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 		return var8;
 	}
 
-	public boolean a(class_up var1, class_pc var2, float var3) {
+	public boolean a(class_up var1, DamageSource var2, float var3) {
 		if (var1 != this.bt) {
 			var3 = var3 / 4.0F + 1.0F;
 		}
@@ -870,7 +837,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 		return true;
 	}
 
-	public boolean damageEntity(class_pc var1, float var2) {
+	public boolean damageEntity(DamageSource var1, float var2) {
 		if (var1 instanceof class_pd && ((class_pd) var1).w()) {
 			this.a(this.bv, var1, var2);
 		}
@@ -878,7 +845,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 		return false;
 	}
 
-	protected boolean e(class_pc var1, float var2) {
+	protected boolean e(DamageSource var1, float var2) {
 		return super.damageEntity(var1, var2);
 	}
 
@@ -1238,7 +1205,7 @@ public class class_ur extends class_qb implements class_uo, class_wd {
 		return var3;
 	}
 
-	public void a(BlockPosition var1, class_pc var2) {
+	public void a(BlockPosition var1, DamageSource var2) {
 		EntityHuman var3;
 		if (var2.j() instanceof EntityHuman) {
 			var3 = (EntityHuman) var2.j();

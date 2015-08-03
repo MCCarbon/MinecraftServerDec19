@@ -1,8 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_pk;
-
-public class class_pj extends class_pk {
+public class class_pj extends MobEffect {
    public class_pj(boolean var1, int var2) {
       super(var1, var2);
    }

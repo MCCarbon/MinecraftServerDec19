@@ -243,7 +243,7 @@ public abstract class Entity implements class_m {
             }
          } else {
             if(this.i % 20 == 0) {
-               this.damageEntity(class_pc.c, 1.0F);
+               this.damageEntity(DamageSource.c, 1.0F);
             }
 
             --this.i;
@@ -273,7 +273,7 @@ public abstract class Entity implements class_m {
 
    protected void M() {
       if(!this.ab) {
-         this.damageEntity(class_pc.d, 4.0F);
+         this.damageEntity(DamageSource.d, 4.0F);
          this.f(15);
       }
    }
@@ -664,7 +664,7 @@ public abstract class Entity implements class_m {
 
    protected void g(int var1) {
       if(!this.ab) {
-         this.damageEntity(class_pc.a, (float)var1);
+         this.damageEntity(DamageSource.a, (float)var1);
       }
 
    }
@@ -916,7 +916,7 @@ public abstract class Entity implements class_m {
       this.G = true;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {
@@ -1378,7 +1378,7 @@ public abstract class Entity implements class_m {
    }
 
    public void a(class_vi var1) {
-      this.damageEntity(class_pc.b, 5.0F);
+      this.damageEntity(DamageSource.b, 5.0F);
       ++this.i;
       if(this.i == 0) {
          this.f(8);
@@ -1498,8 +1498,8 @@ public abstract class Entity implements class_m {
       return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[]{this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.c), this.o == null?"~NULL~":this.o.Q().k(), Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u)});
    }
 
-   public boolean b(class_pc var1) {
-      return this.az && var1 != class_pc.j && !var1.u();
+   public boolean b(DamageSource var1) {
+      return this.az && var1 != DamageSource.j && !var1.u();
    }
 
    public void m(Entity var1) {

@@ -182,8 +182,8 @@ public class class_ul extends class_qj {
       return this.cC()?20:super.cd();
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      if(this.b((class_pc)var1)) {
+   public boolean damageEntity(DamageSource var1, float var2) {
+      if(this.b((DamageSource)var1)) {
          return false;
       } else {
          Entity var3 = var1.j();
@@ -197,7 +197,7 @@ public class class_ul extends class_qj {
    }
 
    public boolean r(Entity var1) {
-      boolean var2 = var1.damageEntity(class_pc.a((EntityLiving)this), (float)((int)this.a((class_qk)class_wl.e).e()));
+      boolean var2 = var1.damageEntity(DamageSource.a((EntityLiving) this), (float)((int)this.a((class_qk)class_wl.e).e()));
       if(var2) {
          this.a((EntityLiving)this, (Entity)var1);
       }
@@ -355,7 +355,7 @@ public class class_ul extends class_qj {
             }
          }
 
-         return var1 instanceof EntityHuman && var2 instanceof EntityHuman && !((EntityHuman)var2).a((EntityHuman)var1)?false:!(var1 instanceof class_tz) || !((class_tz)var1).cD();
+         return var1 instanceof EntityHuman && var2 instanceof EntityHuman && !((EntityHuman)var2).a((EntityHuman)var1)?false:!(var1 instanceof EntityHorse) || !((EntityHorse)var1).cD();
       } else {
          return false;
       }

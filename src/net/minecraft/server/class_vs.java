@@ -1,27 +1,6 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ams;
-import net.minecraft.server.TileEntityHopper;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.class_vn;
-import net.minecraft.server.class_vq;
-import net.minecraft.server.PlayerInventory;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-import net.minecraft.server.class_yn;
 
 public class class_vs extends class_vq implements class_ams {
    private boolean a = true;
@@ -128,7 +107,7 @@ public class class_vs extends class_vq implements class_ams {
       }
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
          this.a(Item.getItemOf((Block)Blocks.HOPPER), 1, 0.0F);

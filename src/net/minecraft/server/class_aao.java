@@ -12,14 +12,14 @@ public class class_aao extends ItemFood {
 
    protected void a(ItemStack var1, World var2, EntityHuman var3) {
       if(!var2.isClientSide) {
-         var3.c(new class_pl(class_pm.v, 2400, 0));
+         var3.c(new class_pl(MobEffectList.v, 2400, 0));
       }
 
       if(var1.i() > 0) {
          if(!var2.isClientSide) {
-            var3.c(new class_pl(class_pm.j, 600, 4));
-            var3.c(new class_pl(class_pm.k, 6000, 0));
-            var3.c(new class_pl(class_pm.l, 6000, 0));
+            var3.c(new class_pl(MobEffectList.j, 600, 4));
+            var3.c(new class_pl(MobEffectList.k, 6000, 0));
+            var3.c(new class_pl(MobEffectList.l, 6000, 0));
          }
       } else {
          super.a(var1, var2, var3);

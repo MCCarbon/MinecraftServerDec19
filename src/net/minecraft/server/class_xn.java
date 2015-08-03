@@ -29,7 +29,7 @@ public class class_xn extends class_xd {
 
    protected void b(EntityLiving var1) {
       super.b(var1);
-      class_pl var2 = new class_pl(class_pm.x, this.f, 0);
+      class_pl var2 = new class_pl(MobEffectList.x, this.f, 0);
       var1.c(var2);
    }
 

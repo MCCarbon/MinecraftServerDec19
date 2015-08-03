@@ -2,20 +2,6 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateInteger;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.CreativeTab;
 
 public class BlockCactus extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 15);
@@ -89,7 +75,7 @@ public class BlockCactus extends Block {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
-      var4.damageEntity(class_pc.h, 1.0F);
+      var4.damageEntity(DamageSource.h, 1.0F);
    }
 
    public IBlockData fromLegacyData(int var1) {

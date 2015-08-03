@@ -1,12 +1,6 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.PacketDataSerializer;
-import net.minecraft.server.PacketListener;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_pk;
-import net.minecraft.server.class_pl;
 
 public class PacketPlayOutEntityEffect implements Packet {
    private int a;
@@ -20,7 +14,7 @@ public class PacketPlayOutEntityEffect implements Packet {
 
    public PacketPlayOutEntityEffect(int var1, class_pl var2) {
       this.a = var1;
-      this.b = (byte)(class_pk.a(var2.a()) & 255);
+      this.b = (byte)(MobEffect.a(var2.a()) & 255);
       this.c = (byte)(var2.c() & 255);
       if(var2.b() > 32767) {
          this.d = 32767;

@@ -66,7 +66,7 @@ public class class_vy extends class_wi {
 
    protected void cc() {
       if(this.U()) {
-         this.damageEntity(class_pc.f, 1.0F);
+         this.damageEntity(DamageSource.f, 1.0F);
       }
 
       --this.b;

@@ -34,7 +34,7 @@ public class class_we extends class_py implements class_wd {
 
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else if("fireball".equals(var1.p()) && var1.j() instanceof EntityHuman) {

@@ -167,7 +167,7 @@ public class class_wo extends class_qb implements class_wd {
 
    protected void e(EntityLiving var1) {
       int var2 = this.cB();
-      if(this.t(var1) && this.h(var1) < 0.6D * (double)var2 * 0.6D * (double)var2 && var1.damageEntity(class_pc.a((EntityLiving)this), (float)this.cy())) {
+      if(this.t(var1) && this.h(var1) < 0.6D * (double)var2 * 0.6D * (double)var2 && var1.damageEntity(DamageSource.a((EntityLiving) this), (float)this.cy())) {
          this.a("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
          this.a(this, var1);
       }

@@ -1,10 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_uo;
-
 public class class_up extends Entity {
    public final class_uo a;
    public final String b;
@@ -29,7 +24,7 @@ public class class_up extends Entity {
       return true;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       return this.b(var1)?false:this.a.a(this, var1, var2);
    }
 

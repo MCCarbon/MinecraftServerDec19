@@ -8,22 +8,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
-import net.minecraft.server.class_ads;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityTNTPrimed;
-import net.minecraft.server.EntityHuman;
 
 public class Explosion {
 
@@ -118,7 +102,7 @@ public class Explosion {
 						var20 /= var36;
 						double var37 = (double) this.world.a(var11, var13.aT());
 						double var26 = (1.0D - var35) * var37;
-						var13.damageEntity(class_pc.a(this), (float) ((int) ((var26 * var26 + var26) / 2.0D * 8.0D * (double) var30 + 1.0D)));
+						var13.damageEntity(DamageSource.a(this), (float) ((int) ((var26 * var26 + var26) / 2.0D * 8.0D * (double) var30 + 1.0D)));
 						double var28 = 1.0D;
 						if (var13 instanceof EntityLiving) {
 							var28 = class_ads.a((EntityLiving) var13, var26);

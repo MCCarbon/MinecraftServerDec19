@@ -115,7 +115,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
                }
             }
 
-            this.c(new class_pl(class_pm.j, 200, 0));
+            this.c(new class_pl(MobEffectList.j, 200, 0));
          }
       }
 
@@ -249,7 +249,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
 
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       if(this.bs != null) {
          Entity var2 = var1.j();
          if(var2 != null) {
@@ -266,7 +266,7 @@ public class class_wv extends class_po implements class_adz, class_wu {
          }
       }
 
-      super.a((class_pc)var1);
+      super.a((DamageSource)var1);
    }
 
    public void a(EntityHuman var1) {

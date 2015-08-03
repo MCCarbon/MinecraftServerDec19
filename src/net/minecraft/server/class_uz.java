@@ -2,16 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_ahh;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
+
 import org.apache.commons.lang3.Validate;
 
 public abstract class class_uz extends Entity {
@@ -131,15 +122,15 @@ public abstract class class_uz extends Entity {
    }
 
    public boolean l(Entity var1) {
-      return var1 instanceof EntityHuman?this.damageEntity(class_pc.a((EntityHuman)var1), 0.0F):false;
+      return var1 instanceof EntityHuman?this.damageEntity(DamageSource.a((EntityHuman) var1), 0.0F):false;
    }
 
    public EnumDirection aR() {
       return this.b;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
-      if(this.b((class_pc)var1)) {
+   public boolean damageEntity(DamageSource var1, float var2) {
+      if(this.b((DamageSource)var1)) {
          return false;
       } else {
          if(!this.I && !this.o.isClientSide) {

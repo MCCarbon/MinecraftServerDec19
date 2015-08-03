@@ -1,15 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
-
 public class EntityExperienceOrb extends Entity {
    public int a;
    public int b;
@@ -113,10 +103,10 @@ public class EntityExperienceOrb extends Entity {
    }
 
    protected void g(int var1) {
-      this.damageEntity(class_pc.a, (float)var1);
+      this.damageEntity(DamageSource.a, (float)var1);
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {

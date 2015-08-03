@@ -47,11 +47,11 @@ public class class_wm extends class_wi {
       return "mob.silverfish.kill";
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {
-         if(var1 instanceof class_pd || var1 == class_pc.l) {
+         if(var1 instanceof class_pd || var1 == DamageSource.l) {
             this.a.f();
          }
 

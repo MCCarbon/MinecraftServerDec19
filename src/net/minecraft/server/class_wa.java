@@ -110,7 +110,7 @@ public class class_wa extends class_wi {
       return "mob.creeper.death";
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       if(var1.j() instanceof class_wn) {
          int var2 = Item.getId(Items.RECORD_13);

@@ -1,13 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pp;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.EntityHuman;
-
 public abstract class class_uk extends class_qb implements class_pp {
    public class_uk(World var1) {
       super(var1);
@@ -45,7 +37,7 @@ public abstract class class_uk extends class_qb implements class_pp {
          this.i(var1);
          if(this.aB() == -20) {
             this.i(0);
-            this.damageEntity(class_pc.f, 2.0F);
+            this.damageEntity(DamageSource.f, 2.0F);
          }
       } else {
          this.i(300);

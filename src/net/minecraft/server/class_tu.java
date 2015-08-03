@@ -1,18 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Calendar;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_tt;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
 
 public class class_tu extends class_tt {
    private static final int a = Datawathcer.claimId(class_tu.class);
@@ -147,7 +135,7 @@ public class class_tu extends class_tt {
       return true;
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {

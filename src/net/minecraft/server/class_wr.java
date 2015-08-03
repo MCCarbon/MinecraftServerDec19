@@ -154,7 +154,7 @@ public class class_wr extends class_wi {
       super.m();
    }
 
-   public boolean damageEntity(class_pc var1, float var2) {
+   public boolean damageEntity(DamageSource var1, float var2) {
       if(super.damageEntity(var1, var2)) {
          EntityLiving var3 = this.w();
          if(var3 == null && var1.j() instanceof EntityLiving) {
@@ -400,7 +400,7 @@ public class class_wr extends class_wi {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.GOLDEN_APPLE && var3.i() == 0 && this.cD() && this.a((class_pk)class_pm.r)) {
+      if(var3 != null && var3.getItem() == Items.GOLDEN_APPLE && var3.i() == 0 && this.cD() && this.a((MobEffect) MobEffectList.r)) {
          if(!var1.abilities.instabuild) {
             --var3.count;
          }
@@ -418,8 +418,8 @@ public class class_wr extends class_wi {
    protected void a(int var1) {
       this.bw = var1;
       this.H().update(bu, Byte.valueOf((byte)1));
-      this.d(class_pm.r);
-      this.c(new class_pl(class_pm.e, var1, Math.min(this.o.ab().a() - 1, 0)));
+      this.d(MobEffectList.r);
+      this.c(new class_pl(MobEffectList.e, var1, Math.min(this.o.ab().a() - 1, 0)));
       this.o.a((Entity)this, (byte)16);
    }
 
@@ -448,7 +448,7 @@ public class class_wr extends class_wi {
       }
 
       this.o.addEntity((Entity)var1);
-      var1.c(new class_pl(class_pm.i, 200, 0));
+      var1.c(new class_pl(MobEffectList.i, 200, 0));
       this.o.a((EntityHuman)null, 1017, new BlockPosition((int)this.s, (int)this.t, (int)this.u), 0);
    }
 
@@ -499,7 +499,7 @@ public class class_wr extends class_wi {
       return this.j_()?0.0D:-0.35D;
    }
 
-   public void a(class_pc var1) {
+   public void a(DamageSource var1) {
       super.a(var1);
       if(var1.j() instanceof class_wa && !(this instanceof class_wj) && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();

@@ -1,14 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_vy;
-import net.minecraft.server.class_xo;
-
 public class class_xm extends class_xo {
    public class_xm(World var1) {
       super(var1);
@@ -29,7 +20,7 @@ public class class_xm extends class_xo {
             var2 = 3;
          }
 
-         var1.d.damageEntity(class_pc.a((Entity)this, (Entity)this.l()), (float)var2);
+         var1.d.damageEntity(DamageSource.a((Entity) this, (Entity) this.l()), (float)var2);
       }
 
       for(int var3 = 0; var3 < 8; ++var3) {

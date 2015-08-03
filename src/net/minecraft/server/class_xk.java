@@ -7,23 +7,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
 
-import net.minecraft.server.World;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_dy;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_xj;
 import net.minecraft.server.EnumDirection.EnumAxis;
 
 public class class_xk extends Entity {
@@ -287,11 +270,11 @@ public class class_xk extends Entity {
 
 	protected void a(MovingObjectPosition var1) {
 		if (var1.d != null) {
-			boolean var2 = var1.d.damageEntity(class_pc.a((Entity) this, (EntityLiving) this.a), 4.0F);
+			boolean var2 = var1.d.damageEntity(DamageSource.a((Entity) this, (EntityLiving) this.a), 4.0F);
 			if (var2) {
 				this.a(this.a, var1.d);
 				if (var1.d instanceof EntityLiving) {
-					((EntityLiving) var1.d).c(new class_pl(class_pm.y, 200));
+					((EntityLiving) var1.d).c(new class_pl(MobEffectList.y, 200));
 				}
 			}
 		} else {
@@ -306,7 +289,7 @@ public class class_xk extends Entity {
 		return true;
 	}
 
-	public boolean damageEntity(class_pc var1, float var2) {
+	public boolean damageEntity(DamageSource var1, float var2) {
 		if (!this.o.isClientSide) {
 			this.a("mob.irongolem.hit", 1.0F, 1.0F);
 			((WorldServer) this.o).a(class_cy.j, this.s, this.t, this.u, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);

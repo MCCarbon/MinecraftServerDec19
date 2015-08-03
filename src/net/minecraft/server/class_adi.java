@@ -4,34 +4,6 @@ import com.google.common.collect.Lists;
 
 import java.util.List;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_adb;
-import net.minecraft.server.class_adc;
-import net.minecraft.server.class_add;
-import net.minecraft.server.class_ade;
-import net.minecraft.server.class_adf;
-import net.minecraft.server.class_adg;
-import net.minecraft.server.class_adh;
-import net.minecraft.server.class_adj;
-import net.minecraft.server.class_adn;
-import net.minecraft.server.class_ado;
-import net.minecraft.server.class_adp;
-import net.minecraft.server.class_adq;
-import net.minecraft.server.class_adr;
-import net.minecraft.server.class_ads;
-import net.minecraft.server.class_adt;
-import net.minecraft.server.class_adu;
-import net.minecraft.server.class_adv;
-import net.minecraft.server.class_adw;
-import net.minecraft.server.RegistryMaterials;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qf;
-
 public abstract class class_adi {
    public static final RegistryMaterials<MinecraftKey, class_adi> b = new RegistryMaterials<MinecraftKey, class_adi>();
    private final class_pw[] a;
@@ -93,7 +65,7 @@ public abstract class class_adi {
       return this.a(var1) + 5;
    }
 
-   public int a(int var1, class_pc var2) {
+   public int a(int var1, DamageSource var2) {
       return 0;
    }
 

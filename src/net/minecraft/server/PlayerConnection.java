@@ -263,7 +263,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					}
 
 					AxisAlignedBB var43 = player.aT().grow(var37, var37, var37).add(0.0D, -0.55D, 0.0D);
-					if (!(minecraftServer.ak() || player.abilities.mayfly || var2.c(var43) || player.a(class_pm.y))) {
+					if (!(minecraftServer.ak() || player.abilities.mayfly || var2.c(var43) || player.a(MobEffectList.y))) {
 						if (var39 >= -0.03125D) {
 							++g;
 							if (g > 80) {
@@ -614,13 +614,13 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 				r = false;
 				break;
 			case 6:
-				if (player.vehicle instanceof class_tz) {
-					((class_tz) player.vehicle).q(var1.getJumpBoost());
+				if (player.vehicle instanceof EntityHorse) {
+					((EntityHorse) player.vehicle).q(var1.getJumpBoost());
 				}
 				break;
 			case 7:
-				if (player.vehicle instanceof class_tz) {
-					((class_tz) player.vehicle).c(player);
+				if (player.vehicle instanceof EntityHorse) {
+					((EntityHorse) player.vehicle).c(player);
 				}
 				break;
 			default:

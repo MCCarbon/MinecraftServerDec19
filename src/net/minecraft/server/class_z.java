@@ -1,17 +1,6 @@
 package net.minecraft.server;
 
 import java.util.List;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cb;
-import net.minecraft.server.class_cf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.class_i;
-import net.minecraft.server.class_m;
-import net.minecraft.server.class_pk;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.EntityLiving;
 
 public class class_z extends class_i {
    public String c() {
@@ -39,11 +28,11 @@ public class class_z extends class_i {
                a(var1, this, "commands.effect.success.removed.all", new Object[]{var3.getName()});
             }
          } else {
-            class_pk var4;
+            MobEffect var4;
             try {
-               var4 = class_pk.a(a(var2[1], 1));
+               var4 = MobEffect.a(a(var2[1], 1));
             } catch (class_cb var10) {
-               var4 = class_pk.b(var2[1]);
+               var4 = MobEffect.b(var2[1]);
             }
 
             if(var4 == null) {
@@ -75,7 +64,7 @@ public class class_z extends class_i {
                if(var6 > 0) {
                   class_pl var9 = new class_pl(var4, var5, var7, false, var8);
                   var3.c(var9);
-                  a(var1, this, "commands.effect.success", new Object[]{new ChatMessage(var9.f(), new Object[0]), Integer.valueOf(class_pk.a(var4)), Integer.valueOf(var7), var3.getName(), Integer.valueOf(var6)});
+                  a(var1, this, "commands.effect.success", new Object[]{new ChatMessage(var9.f(), new Object[0]), Integer.valueOf(MobEffect.a(var4)), Integer.valueOf(var7), var3.getName(), Integer.valueOf(var6)});
                } else if(var3.a(var4)) {
                   var3.d(var4);
                   a(var1, this, "commands.effect.success.removed", new Object[]{new ChatMessage(var4.a(), new Object[0]), var3.getName()});
@@ -88,7 +77,7 @@ public class class_z extends class_i {
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, class_pk.b.getKeys()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, MobEffect.b.getKeys()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
    }
 
    protected String[] d() {
