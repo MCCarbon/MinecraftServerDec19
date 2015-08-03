@@ -314,7 +314,7 @@ public class class_wg extends class_wi {
             class_pk var5 = class_pm.d;
             List var6 = this.o.getPlayers(EntityPlayer.class, new Predicate() {
                public boolean a(EntityPlayer var1) {
-                  return class_wg.this.h(var1) < 2500.0D && var1.c.c();
+                  return class_wg.this.h(var1) < 2500.0D && var1.playerInteractManager.c();
                }
 
                // $FF: synthetic method
@@ -335,7 +335,7 @@ public class class_wg extends class_wi {
                   var8 = (EntityPlayer)var7.next();
                } while(var8.a((class_pk)var5) && var8.b((class_pk)var5).c() >= 2 && var8.b((class_pk)var5).b() >= 1200);
 
-               var8.a.a((Packet)(new PacketPlayOutGameStateChange(10, 0.0F)));
+               var8.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(10, 0.0F)));
                var8.c(new class_pl(var5, 6000, 2));
             }
          }

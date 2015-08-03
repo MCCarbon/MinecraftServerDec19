@@ -70,7 +70,7 @@ public class class_q extends class_i {
       EntityPlayer var9;
       for(Iterator var8 = var5.iterator(); var8.hasNext(); var6[var7++] = var9.getName()) {
          var9 = (EntityPlayer)var8.next();
-         var9.a.c("You have been IP banned.");
+         var9.playerConnection.c("You have been IP banned.");
       }
 
       if(var5.isEmpty()) {

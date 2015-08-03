@@ -46,7 +46,7 @@ public class class_bu extends class_i {
             var3 = (EntityPlayer)var4;
          }
 
-         class_awn var8 = MinecraftServer.N().a(0).aa();
+         class_awn var8 = MinecraftServer.N().getWorldServer(0).aa();
          class_awj var5 = var8.b(var2[0]);
          if(var5 != null && var5.c() == class_awt.c) {
             int var6 = a(var2[2]);
@@ -68,7 +68,7 @@ public class class_bu extends class_i {
                   }
 
                   var7.a(true);
-                  if(var3.c.d()) {
+                  if(var3.playerInteractManager.d()) {
                      a(var1, this, "commands.trigger.success", new Object[]{var2[0], var2[1], var2[2]});
                   }
 
@@ -82,7 +82,7 @@ public class class_bu extends class_i {
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
-         class_awn var4 = MinecraftServer.N().a(0).aa();
+         class_awn var4 = MinecraftServer.N().getWorldServer(0).aa();
          ArrayList var5 = Lists.newArrayList();
          Iterator var6 = var4.c().iterator();
 

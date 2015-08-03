@@ -15,7 +15,7 @@ import net.minecraft.server.IDispenseBehavior;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.class_pw;
@@ -138,9 +138,9 @@ public class class_za extends Item {
       if(var6 == null) {
          var3.a(var5, var1.clone());
          var1.count = 0;
-         return new class_or(class_oq.a, var1);
+         return new class_or(UseResult.SUCCESS, var1);
       } else {
-         return new class_or(class_oq.b, var1);
+         return new class_or(UseResult.CANT_USE, var1);
       }
    }
 

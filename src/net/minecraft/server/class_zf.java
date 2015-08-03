@@ -12,7 +12,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
@@ -21,11 +21,11 @@ public class class_zf extends Item {
       this.a(CreativeTab.DECORATIONS);
    }
 
-   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var3.isClientSide) {
-         return class_oq.a;
+         return UseResult.SUCCESS;
       } else if(var6 != EnumDirection.UP) {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       } else {
          IBlockData var10 = var3.getType(var4);
          Block var11 = var10.getBlock();
@@ -49,12 +49,12 @@ public class class_zf extends Item {
                }
 
                --var1.count;
-               return class_oq.a;
+               return UseResult.SUCCESS;
             } else {
-               return class_oq.b;
+               return UseResult.CANT_USE;
             }
          } else {
-            return class_oq.b;
+            return UseResult.CANT_USE;
          }
       }
    }

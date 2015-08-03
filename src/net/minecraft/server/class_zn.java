@@ -14,7 +14,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
@@ -32,34 +32,34 @@ public class class_zn extends Item {
       boolean var5 = this.a == Blocks.AIR;
       MovingObjectPosition var6 = this.a(var2, var3, var5);
       if(var6 == null) {
-         return new class_or(class_oq.b, var1);
+         return new class_or(UseResult.CANT_USE, var1);
       } else {
          if(var6.a == MovingObjectPosition.class_a_in_class_awg.b) {
             BlockPosition var7 = var6.a();
             if(!var2.a(var3, var7)) {
-               return new class_or(class_oq.b, var1);
+               return new class_or(UseResult.CANT_USE, var1);
             }
 
             if(!var5) {
                if(this.a == Blocks.AIR) {
-                  return new class_or(class_oq.a, new ItemStack(Items.ay));
+                  return new class_or(UseResult.SUCCESS, new ItemStack(Items.ay));
                }
 
                BlockPosition var10 = var7.shift(var6.b);
                if(!var3.a(var10, var6.b, var1)) {
-                  return new class_or(class_oq.b, var1);
+                  return new class_or(UseResult.CANT_USE, var1);
                }
 
                if(this.a(var2, var10) && !var3.abilities.instabuild) {
                   var3.b(StatisticList.ad[Item.getId((Item)this)]);
-                  return new class_or(class_oq.a, new ItemStack(Items.ay));
+                  return new class_or(UseResult.SUCCESS, new ItemStack(Items.ay));
                }
 
-               return new class_or(class_oq.a, var1);
+               return new class_or(UseResult.SUCCESS, var1);
             }
 
             if(!var3.a(var7.shift(var6.b), var6.b, var1)) {
-               return new class_or(class_oq.b, var1);
+               return new class_or(UseResult.CANT_USE, var1);
             }
 
             IBlockData var8 = var2.getType(var7);
@@ -67,17 +67,17 @@ public class class_zn extends Item {
             if(var9 == Material.WATER && ((Integer)var8.get(BlockFluids.LEVEL)).intValue() == 0) {
                var2.setAir(var7);
                var3.b(StatisticList.ad[Item.getId((Item)this)]);
-               return new class_or(class_oq.a, this.a(var1, var3, Items.az));
+               return new class_or(UseResult.SUCCESS, this.a(var1, var3, Items.az));
             }
 
             if(var9 == Material.LAVA && ((Integer)var8.get(BlockFluids.LEVEL)).intValue() == 0) {
                var2.setAir(var7);
                var3.b(StatisticList.ad[Item.getId((Item)this)]);
-               return new class_or(class_oq.a, this.a(var1, var3, Items.aA));
+               return new class_or(UseResult.SUCCESS, this.a(var1, var3, Items.aA));
             }
          }
 
-         return new class_or(class_oq.b, var1);
+         return new class_or(UseResult.CANT_USE, var1);
       }
    }
 

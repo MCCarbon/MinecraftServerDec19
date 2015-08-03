@@ -822,7 +822,7 @@ public class WorldServer extends World implements class_of {
       while(var12.hasNext()) {
          EntityHuman var13 = (EntityHuman)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((EntityPlayer)var13).a.a((Packet)(new PacketPlayOutExplosion(var2, var4, var6, var8, var11.getBlocks(), (Vec3D)var11.getAffectedPlayers().get(var13))));
+            ((EntityPlayer)var13).playerConnection.sendPacket((Packet)(new PacketPlayOutExplosion(var2, var4, var6, var8, var11.getBlocks(), (Vec3D)var11.getAffectedPlayers().get(var13))));
          }
       }
 
@@ -928,7 +928,7 @@ public class WorldServer extends World implements class_of {
          BlockPosition var22 = var21.c();
          double var23 = var22.distanceSquared(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
-            var21.a.a((Packet)var19);
+            var21.playerConnection.sendPacket((Packet)var19);
          }
       }
 

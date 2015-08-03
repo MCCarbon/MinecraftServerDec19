@@ -59,7 +59,7 @@ public class class_xq extends class_xo {
       if(!this.o.isClientSide) {
          if(var2 instanceof EntityPlayer) {
             EntityPlayer var7 = (EntityPlayer)var2;
-            if(var7.a.a().isActive() && var7.o == this.o && !var7.isSleeping()) {
+            if(var7.playerConnection.a().isActive() && var7.o == this.o && !var7.isSleeping()) {
                if(this.random.nextFloat() < 0.05F && this.o.R().b("doMobSpawning")) {
                   class_wc var8 = new class_wc(this.o);
                   var8.a(true);

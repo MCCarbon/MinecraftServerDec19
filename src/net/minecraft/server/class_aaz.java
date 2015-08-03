@@ -13,7 +13,7 @@ import net.minecraft.server.DispenseBehaviorItem;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.IDispenseBehavior;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.EntityHuman;
@@ -76,7 +76,7 @@ public class class_aaz extends Item {
       BlockDispenser.REGISTRY.register(this, a);
    }
 
-   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.getType(var4);
       if(BlockMinecartTrackAbstract.d(var10)) {
          if(!var3.isClientSide) {
@@ -95,9 +95,9 @@ public class class_aaz extends Item {
          }
 
          --var1.count;
-         return class_oq.a;
+         return UseResult.SUCCESS;
       } else {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       }
    }
 }

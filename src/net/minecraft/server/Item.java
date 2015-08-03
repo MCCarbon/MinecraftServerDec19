@@ -90,7 +90,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
@@ -187,8 +187,8 @@ public class Item {
 		return this;
 	}
 
-	public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
-		return class_oq.b;
+	public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+		return UseResult.CANT_USE;
 	}
 
 	public float a(ItemStack var1, Block var2) {
@@ -196,7 +196,7 @@ public class Item {
 	}
 
 	public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-		return new class_or(class_oq.b, var1);
+		return new class_or(UseResult.CANT_USE, var1);
 	}
 
 	public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {

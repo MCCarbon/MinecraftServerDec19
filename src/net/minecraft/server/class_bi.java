@@ -26,7 +26,7 @@ public class class_bi extends class_i {
    }
 
    public void a(class_m var1, String[] var2) throws class_bz {
-      Object var3 = var1 instanceof EntityHuman?((EntityHuman)var1).o:MinecraftServer.N().a(0);
+      Object var3 = var1 instanceof EntityHuman?((EntityHuman)var1).o:MinecraftServer.N().getWorldServer(0);
       var1.a(new ChatMessage("commands.seed.success", new Object[]{Long.valueOf(((World)var3).K())}));
    }
 }

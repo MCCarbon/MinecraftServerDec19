@@ -46,7 +46,7 @@ public class class_r extends class_i {
             var3.getPlayerList().h().a((class_mc)var6);
             EntityPlayer var7 = var3.getPlayerList().a(var2[0]);
             if(var7 != null) {
-               var7.a.c("You are banned from this server.");
+               var7.playerConnection.c("You are banned from this server.");
             }
 
             a(var1, this, "commands.ban.success", new Object[]{var2[0]});

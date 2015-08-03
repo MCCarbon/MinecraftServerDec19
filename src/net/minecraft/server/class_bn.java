@@ -88,7 +88,7 @@ public class class_bn extends class_i {
                   }
 
                   ((Entity)var4).a((Entity)null);
-                  ((EntityPlayer)var4).a.a(var6.b(), var7.b(), var8.b(), var12, var13, var11);
+                  ((EntityPlayer)var4).playerConnection.a(var6.b(), var7.b(), var8.b(), var12, var13, var11);
                   ((Entity)var4).f(var12);
                } else {
                   float var15 = (float)MathHelper.clampAngle(var9.a());
@@ -111,7 +111,7 @@ public class class_bn extends class_i {
             } else {
                ((Entity)var4).a((Entity)null);
                if(var4 instanceof EntityPlayer) {
-                  ((EntityPlayer)var4).a.a(var5.s, var5.t, var5.u, var5.y, var5.z);
+                  ((EntityPlayer)var4).playerConnection.a(var5.s, var5.t, var5.u, var5.y, var5.z);
                } else {
                   ((Entity)var4).b(var5.s, var5.t, var5.u, var5.y, var5.z);
                }

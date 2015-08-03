@@ -18,7 +18,7 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.EntityLiving;
@@ -93,7 +93,7 @@ public class class_abe extends Item {
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
-      return new class_or(class_oq.a, var1);
+      return new class_or(UseResult.SUCCESS, var1);
    }
 
    public static int a(Collection var0) {

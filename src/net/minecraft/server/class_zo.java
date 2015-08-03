@@ -6,7 +6,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_ud;
@@ -29,14 +29,14 @@ public class class_zo extends Item {
             if(var1.count == 0) {
                ItemStack var6 = new ItemStack(Items.aT);
                var6.setTag(var1.getTag());
-               return new class_or(class_oq.a, var6);
+               return new class_or(UseResult.SUCCESS, var6);
             }
 
-            return new class_or(class_oq.a, var1);
+            return new class_or(UseResult.SUCCESS, var1);
          }
       }
 
       var3.b(StatisticList.ad[Item.getId((Item)this)]);
-      return new class_or(class_oq.b, var1);
+      return new class_or(UseResult.CANT_USE, var1);
    }
 }

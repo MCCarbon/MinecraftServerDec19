@@ -19,7 +19,7 @@ import net.minecraft.server.class_dy;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
@@ -32,25 +32,25 @@ public class class_abp extends Item {
       this.a(true);
    }
 
-   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       } else {
          IBlockData var10 = var3.getType(var4);
          Block var11 = var10.getBlock();
          boolean var12 = var11.isReplaceable(var3, var4);
          if(!var12) {
             if(!var3.getType(var4).getBlock().getMaterial().isBuildable()) {
-               return class_oq.b;
+               return UseResult.CANT_USE;
             }
 
             var4 = var4.shift(var6);
          }
 
          if(!var2.a(var4, var6, var1)) {
-            return class_oq.b;
+            return UseResult.CANT_USE;
          } else if(!Blocks.SKULL.canPlace(var3, var4)) {
-            return class_oq.b;
+            return UseResult.CANT_USE;
          } else {
             if(!var3.isClientSide) {
                var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.SKULL.getBlockData().set(class_akv.a, var6), 3);
@@ -85,7 +85,7 @@ public class class_abp extends Item {
                --var1.count;
             }
 
-            return class_oq.a;
+            return UseResult.SUCCESS;
          }
       }
    }

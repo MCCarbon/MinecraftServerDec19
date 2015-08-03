@@ -11,7 +11,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityHuman;
 
@@ -28,7 +28,7 @@ public class ItemBlock extends Item {
 		return this;
 	}
 
-	public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+	public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
 		IBlockData var10 = var3.getType(var4);
 		Block var11 = var10.getBlock();
 		if (!var11.isReplaceable(var3, var4)) {
@@ -36,9 +36,9 @@ public class ItemBlock extends Item {
 		}
 
 		if (var1.count == 0) {
-			return class_oq.b;
+			return UseResult.CANT_USE;
 		} else if (!var2.a(var4, var6, var1)) {
-			return class_oq.b;
+			return UseResult.CANT_USE;
 		} else if (var3.a(this.block, var4, false, var6, (Entity) null, var1)) {
 			int var12 = this.a(var1.i());
 			IBlockData var13 = this.block.getPlacedState(var3, var4, var6, var7, var8, var9, var12, var2);
@@ -53,9 +53,9 @@ public class ItemBlock extends Item {
 				--var1.count;
 			}
 
-			return class_oq.a;
+			return UseResult.SUCCESS;
 		} else {
-			return class_oq.b;
+			return UseResult.CANT_USE;
 		}
 	}
 

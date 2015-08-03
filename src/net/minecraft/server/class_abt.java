@@ -18,7 +18,7 @@ import net.minecraft.server.StatisticList;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_on;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
@@ -44,11 +44,11 @@ public class class_abt extends Item {
       return var2;
    }
 
-   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var3.isClientSide) {
-         return class_oq.a;
+         return UseResult.SUCCESS;
       } else if(!var2.a(var4.shift(var6), var6, var1)) {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       } else {
          IBlockData var10 = var3.getType(var4);
          if(var10.getBlock() == Blocks.MOB_SPAWNER) {
@@ -62,7 +62,7 @@ public class class_abt extends Item {
                   --var1.count;
                }
 
-               return class_oq.a;
+               return UseResult.SUCCESS;
             }
          }
 
@@ -83,26 +83,26 @@ public class class_abt extends Item {
             }
          }
 
-         return class_oq.a;
+         return UseResult.SUCCESS;
       }
    }
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(var2.isClientSide) {
-         return new class_or(class_oq.b, var1);
+         return new class_or(UseResult.CANT_USE, var1);
       } else {
          MovingObjectPosition var5 = this.a(var2, var3, true);
          if(var5 == null) {
-            return new class_or(class_oq.b, var1);
+            return new class_or(UseResult.CANT_USE, var1);
          } else {
             if(var5.a == MovingObjectPosition.class_a_in_class_awg.b) {
                BlockPosition var6 = var5.a();
                if(!var2.a(var3, var6)) {
-                  return new class_or(class_oq.b, var1);
+                  return new class_or(UseResult.CANT_USE, var1);
                }
 
                if(!var3.a(var6, var5.b, var1)) {
-                  return new class_or(class_oq.b, var1);
+                  return new class_or(UseResult.CANT_USE, var1);
                }
 
                if(var2.getType(var6).getBlock() instanceof BlockFluids) {
@@ -117,12 +117,12 @@ public class class_abt extends Item {
                      }
 
                      var3.b(StatisticList.ad[Item.getId((Item)this)]);
-                     return new class_or(class_oq.a, var1);
+                     return new class_or(UseResult.SUCCESS, var1);
                   }
                }
             }
 
-            return new class_or(class_oq.b, var1);
+            return new class_or(UseResult.CANT_USE, var1);
          }
       }
    }

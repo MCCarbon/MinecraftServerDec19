@@ -18,7 +18,7 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
@@ -342,9 +342,9 @@ public class class_uy extends EntityLiving {
 
    }
 
-   public class_oq a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
+   public UseResult a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
       if(this.t()) {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       } else if(!this.o.isClientSide && !var1.isSpectator()) {
          class_pw var5 = class_pw.a;
          boolean var6 = var3 != null;
@@ -379,7 +379,7 @@ public class class_uy extends EntityLiving {
             var16 = var5;
             if((this.bB & 1 << var5.c()) != 0) {
                if((this.bB & a) != 0) {
-                  return class_oq.c;
+                  return UseResult.FAILURE;
                }
 
                var16 = class_pw.a;
@@ -387,7 +387,7 @@ public class class_uy extends EntityLiving {
          }
 
          if(var6 && var5 == class_pw.a && !this.q()) {
-            return class_oq.c;
+            return UseResult.FAILURE;
          } else {
             if(var6) {
                this.a(var1, var5, var3, var4);
@@ -395,10 +395,10 @@ public class class_uy extends EntityLiving {
                this.a(var1, var16, var3, var4);
             }
 
-            return class_oq.a;
+            return UseResult.SUCCESS;
          }
       } else {
-         return class_oq.a;
+         return UseResult.SUCCESS;
       }
    }
 

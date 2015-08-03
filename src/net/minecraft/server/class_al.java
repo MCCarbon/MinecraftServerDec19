@@ -36,7 +36,7 @@ public class class_al extends class_i {
                var5 = true;
             }
 
-            var3.a.c(var4);
+            var3.playerConnection.c(var4);
             if(var5) {
                a(var1, this, "commands.kick.success.reason", new Object[]{var3.getName(), var4});
             } else {

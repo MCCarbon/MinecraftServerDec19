@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityHuman;
@@ -31,6 +31,6 @@ public class class_abs extends Item {
       }
 
       var3.b(StatisticList.ad[Item.getId((Item)this)]);
-      return new class_or(class_oq.a, var1);
+      return new class_or(UseResult.SUCCESS, var1);
    }
 }

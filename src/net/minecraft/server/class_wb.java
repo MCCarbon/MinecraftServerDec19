@@ -292,7 +292,7 @@ public class class_wb extends class_wi {
             }
 
             if(var1 instanceof class_pd && var1.j() instanceof EntityHuman) {
-               if(var1.j() instanceof EntityPlayer && ((EntityPlayer)var1.j()).c.d()) {
+               if(var1.j() instanceof EntityPlayer && ((EntityPlayer)var1.j()).playerInteractManager.d()) {
                   this.a(false);
                } else {
                   this.bw = true;

@@ -46,7 +46,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_pw;
@@ -1569,11 +1569,11 @@ public abstract class Entity implements class_m {
          this.o.B.a("changeDimension");
          MinecraftServer var2 = MinecraftServer.N();
          int var3 = this.am;
-         WorldServer var4 = var2.a(var3);
-         WorldServer var5 = var2.a(var1);
+         WorldServer var4 = var2.getWorldServer(var3);
+         WorldServer var5 = var2.getWorldServer(var1);
          this.am = var1;
          if(var3 == 1 && var1 == 1) {
-            var5 = var2.a(0);
+            var5 = var2.getWorldServer(0);
             this.am = 0;
          }
 
@@ -1797,8 +1797,8 @@ public abstract class Entity implements class_m {
       this.aA.a(var1.aW());
    }
 
-   public class_oq a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
-      return class_oq.b;
+   public UseResult a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
+      return UseResult.CANT_USE;
    }
 
    public boolean aX() {

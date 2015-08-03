@@ -69,7 +69,7 @@ public class class_sx extends class_rm {
          return false;
       } else {
          double var2 = this.f();
-         return this.b.h(var1) > var2 * var2?false:!(var1 instanceof EntityPlayer) || !((EntityPlayer)var1).c.d();
+         return this.b.h(var1) > var2 * var2?false:!(var1 instanceof EntityPlayer) || !((EntityPlayer)var1).playerInteractManager.d();
       }
    }
 

@@ -34,7 +34,7 @@ public class class_ex extends class_es {
    public String e() {
       MinecraftServer var1 = MinecraftServer.N();
       if(var1 != null && var1.O() && class_nz.b(this.d)) {
-         class_awn var2 = var1.a(0).aa();
+         class_awn var2 = var1.getWorldServer(0).aa();
          class_awj var3 = var2.b(this.c);
          if(var2.b(this.b, var3)) {
             class_awl var4 = var2.c(this.b, var3);

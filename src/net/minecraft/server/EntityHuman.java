@@ -12,7 +12,7 @@ import com.mojang.authlib.GameProfile;
 
 public abstract class EntityHuman extends EntityLiving {
 
-	private static final int ABS_HEARTH_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 10
+	private static final int ABS_HEARTS_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 10
 	private static final int SCORE_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 11
 	protected static final int SKIN_PARTS_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 12
 	protected static final int MAIN_HAND_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 13
@@ -74,7 +74,7 @@ public abstract class EntityHuman extends EntityLiving {
 	@Override
 	protected void h() {
 		super.h();
-		datawatcher.add(ABS_HEARTH_DW_ID, Float.valueOf(0.0F));
+		datawatcher.add(ABS_HEARTS_DW_ID, Float.valueOf(0.0F));
 		datawatcher.add(SCORE_DW_ID, Integer.valueOf(0));
 		datawatcher.add(SKIN_PARTS_DW_ID, Byte.valueOf((byte) 0));
 		datawatcher.add(MAIN_HAND_DW_ID, Byte.valueOf((byte) 1));
@@ -694,13 +694,13 @@ public abstract class EntityHuman extends EntityLiving {
 	public void a(ItemStack var1) {
 	}
 
-	public class_oq a(Entity var1, ItemStack var2, EnumUsedHand var3) {
+	public UseResult a(Entity var1, ItemStack var2, EnumUsedHand var3) {
 		if (isSpectator()) {
 			if (var1 instanceof IInventory) {
 				openContainer((IInventory) var1);
 			}
 
-			return class_oq.b;
+			return UseResult.CANT_USE;
 		} else {
 			ItemStack var4 = var2 != null ? var2.clone() : null;
 			if (!var1.a(this, var2, var3)) {
@@ -714,11 +714,11 @@ public abstract class EntityHuman extends EntityLiving {
 							this.a(var3, (ItemStack) null);
 						}
 
-						return class_oq.a;
+						return UseResult.SUCCESS;
 					}
 				}
 
-				return class_oq.b;
+				return UseResult.CANT_USE;
 			} else {
 				if ((var2 != null) && (var2 == bA())) {
 					if ((var2.count <= 0) && !abilities.instabuild) {
@@ -728,7 +728,7 @@ public abstract class EntityHuman extends EntityLiving {
 					}
 				}
 
-				return class_oq.a;
+				return UseResult.SUCCESS;
 			}
 		}
 	}
@@ -782,7 +782,7 @@ public abstract class EntityHuman extends EntityLiving {
 						}
 
 						if ((var1 instanceof EntityPlayer) && var1.G) {
-							((EntityPlayer) var1).a.a((new PacketPlayOutEntityVelocity(var1)));
+							((EntityPlayer) var1).playerConnection.sendPacket((new PacketPlayOutEntityVelocity(var1)));
 							var1.G = false;
 							var1.v = var8;
 							var1.motY = var10;
@@ -1403,12 +1403,12 @@ public abstract class EntityHuman extends EntityLiving {
 			var1 = 0.0F;
 		}
 
-		H().update(ABS_HEARTH_DW_ID, Float.valueOf(var1));
+		H().update(ABS_HEARTS_DW_ID, Float.valueOf(var1));
 	}
 
 	@Override
 	public float getAbsorptionHearts() {
-		return H().getFloat(ABS_HEARTH_DW_ID);
+		return H().getFloat(ABS_HEARTS_DW_ID);
 	}
 
 	public static UUID a(GameProfile var0) {

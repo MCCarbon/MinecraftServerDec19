@@ -267,7 +267,7 @@ public class class_xd extends Entity implements class_xi {
 
                this.b(var6);
                if(this.e != null && var6 != this.e && var6 instanceof EntityHuman && this.e instanceof EntityPlayer) {
-                  ((EntityPlayer)this.e).a.a((Packet)(new PacketPlayOutGameStateChange(6, 0.0F)));
+                  ((EntityPlayer)this.e).playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(6, 0.0F)));
                }
             }
 

@@ -11,7 +11,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
@@ -125,9 +125,9 @@ public class class_zl extends Item {
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if((var3.abilities.instabuild || this.a(var3.inventory) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
-         return new class_or(class_oq.a, var1);
+         return new class_or(UseResult.SUCCESS, var1);
       } else {
-         return new class_or(class_oq.b, var1);
+         return new class_or(UseResult.CANT_USE, var1);
       }
    }
 

@@ -9,7 +9,7 @@ import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.ItemBlock;
 
@@ -20,11 +20,11 @@ public class class_abr extends ItemBlock {
       this.a(true);
    }
 
-   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var1.count == 0) {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       } else if(!var2.a(var4, var6, var1)) {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       } else {
          IBlockData var10 = var3.getType(var4);
          Block var11 = var10.getBlock();
@@ -43,7 +43,7 @@ public class class_abr extends ItemBlock {
                if(var15 != null && var3.b(var15) && var3.setTypeAndData((BlockPosition)var12, (IBlockData)var14, 2)) {
                   var3.a((double)((float)var12.getX() + 0.5F), (double)((float)var12.getY() + 0.5F), (double)((float)var12.getZ() + 0.5F), this.block.stepSound.getPlaceSound(), (this.block.stepSound.getVolume() + 1.0F) / 2.0F, this.block.stepSound.getPitch() * 0.8F);
                   --var1.count;
-                  return class_oq.a;
+                  return UseResult.SUCCESS;
                }
             }
          }

@@ -1032,7 +1032,7 @@ public abstract class EntityLiving extends Entity {
 		return this.a(class_pw.b);
 	}
 
-	public ItemStack b(EnumUsedHand var1) {
+	public ItemStack getItemInHand(EnumUsedHand var1) {
 		if (var1 == EnumUsedHand.MAIN_HAND) {
 			return this.a(class_pw.a);
 		} else if (var1 == EnumUsedHand.OFF_HAND) {
@@ -1664,7 +1664,7 @@ public abstract class EntityLiving extends Entity {
 
 	protected void bU() {
 		if (this.bS()) {
-			ItemStack var1 = this.b(this.bT());
+			ItemStack var1 = this.getItemInHand(this.bT());
 			if (var1 == this.bl) {
 				if (this.bW() <= 25 && this.bW() % 4 == 0) {
 					this.a((ItemStack) this.bl, 5);
@@ -1681,7 +1681,7 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	public void c(EnumUsedHand var1) {
-		ItemStack var2 = this.b(var1);
+		ItemStack var2 = this.getItemInHand(var1);
 		if (var2 != null && !this.bS()) {
 			this.bl = var2;
 			this.bm = var2.l();
@@ -1701,7 +1701,7 @@ public abstract class EntityLiving extends Entity {
 		super.d(var1);
 		if (var1 == as && this.o.isClientSide) {
 			if (this.bS() && this.bl == null) {
-				this.bl = this.b(this.bT());
+				this.bl = this.getItemInHand(this.bT());
 				if (this.bl != null) {
 					this.bm = this.bl.l();
 				}

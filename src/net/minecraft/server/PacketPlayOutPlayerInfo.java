@@ -29,7 +29,7 @@ public class PacketPlayOutPlayerInfo implements Packet {
 
       for(int var5 = 0; var5 < var4; ++var5) {
          EntityPlayer var6 = var3[var5];
-         this.b.add(new PacketPlayOutPlayerInfo.class_b_in_class_gz(var6.cf(), var6.h, var6.c.b(), var6.E()));
+         this.b.add(new PacketPlayOutPlayerInfo.class_b_in_class_gz(var6.cf(), var6.h, var6.playerInteractManager.getGameMode(), var6.E()));
       }
 
    }
@@ -40,7 +40,7 @@ public class PacketPlayOutPlayerInfo implements Packet {
 
       while(var3.hasNext()) {
          EntityPlayer var4 = (EntityPlayer)var3.next();
-         this.b.add(new PacketPlayOutPlayerInfo.class_b_in_class_gz(var4.cf(), var4.h, var4.c.b(), var4.E()));
+         this.b.add(new PacketPlayOutPlayerInfo.class_b_in_class_gz(var4.cf(), var4.h, var4.playerInteractManager.getGameMode(), var4.E()));
       }
 
    }

@@ -7,7 +7,7 @@ import net.minecraft.server.class_abz;
 import net.minecraft.server.World;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.EntityHuman;
@@ -45,6 +45,6 @@ public class class_aay extends Item {
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
-      return new class_or(class_oq.a, var1);
+      return new class_or(UseResult.SUCCESS, var1);
    }
 }
