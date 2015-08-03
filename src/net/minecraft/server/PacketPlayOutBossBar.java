@@ -2,16 +2,10 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import java.util.UUID;
-import net.minecraft.server.PacketDataSerializer;
-import net.minecraft.server.PacketListener;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketListenerPlayOut;
-import net.minecraft.server.class_oh;
 
 public class PacketPlayOutBossBar implements Packet {
    private UUID a;
-   private PacketPlayOutBossBar.class_a_in_class_fw b;
+   private BossBarType b;
    private IChatBaseComponent c;
    private float d;
    private class_oh.class_a_in_class_oh e;
@@ -22,7 +16,7 @@ public class PacketPlayOutBossBar implements Packet {
    public PacketPlayOutBossBar() {
    }
 
-   public PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw var1, class_oh var2) {
+   public PacketPlayOutBossBar(BossBarType var1, class_oh var2) {
       this.b = var1;
       this.a = var2.d();
       this.c = var2.e();
@@ -35,7 +29,7 @@ public class PacketPlayOutBossBar implements Packet {
 
    public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readUUID();
-      this.b = (PacketPlayOutBossBar.class_a_in_class_fw)var1.readEnum(PacketPlayOutBossBar.class_a_in_class_fw.class);
+      this.b = (BossBarType)var1.readEnum(BossBarType.class);
       switch(PacketPlayOutBossBar.SyntheticClass_1.a[this.b.ordinal()]) {
       case 1:
          this.c = var1.readChat();
@@ -116,47 +110,47 @@ public class PacketPlayOutBossBar implements Packet {
    // $FF: synthetic method
    // $FF: bridge method
    public void handle(PacketListener var1) {
-      this.a((PacketListenerPlayOut)var1);
+      this.a((PacketListenerPlayOut) var1);
    }
 
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[PacketPlayOutBossBar.class_a_in_class_fw.values().length];
+      static final int[] a = new int[BossBarType.values().length];
 
       static {
          try {
-            a[PacketPlayOutBossBar.class_a_in_class_fw.a.ordinal()] = 1;
+            a[BossBarType.a.ordinal()] = 1;
          } catch (NoSuchFieldError var6) {
             ;
          }
 
          try {
-            a[PacketPlayOutBossBar.class_a_in_class_fw.b.ordinal()] = 2;
+            a[BossBarType.b.ordinal()] = 2;
          } catch (NoSuchFieldError var5) {
             ;
          }
 
          try {
-            a[PacketPlayOutBossBar.class_a_in_class_fw.c.ordinal()] = 3;
+            a[BossBarType.c.ordinal()] = 3;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[PacketPlayOutBossBar.class_a_in_class_fw.d.ordinal()] = 4;
+            a[BossBarType.d.ordinal()] = 4;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[PacketPlayOutBossBar.class_a_in_class_fw.e.ordinal()] = 5;
+            a[BossBarType.e.ordinal()] = 5;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[PacketPlayOutBossBar.class_a_in_class_fw.f.ordinal()] = 6;
+            a[BossBarType.f.ordinal()] = 6;
          } catch (NoSuchFieldError var1) {
             ;
          }
@@ -164,7 +158,7 @@ public class PacketPlayOutBossBar implements Packet {
       }
    }
 
-   public static enum class_a_in_class_fw {
+   public enum BossBarType {
       a,
       b,
       c,

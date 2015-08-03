@@ -62,7 +62,6 @@ public class ItemStep extends ItemBlock {
 				return true;
 			}
 		}
-
 		return false;
 	}
 }

@@ -5,12 +5,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Set;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutBossBar;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oh;
 
 public class class_le extends class_oh {
    private final Set g = Sets.newHashSet();
@@ -26,12 +20,12 @@ public class class_le extends class_oh {
    public void a(float var1) {
       if(var1 != this.b) {
          super.a(var1);
-         this.a(PacketPlayOutBossBar.class_a_in_class_fw.c);
+         this.a(PacketPlayOutBossBar.BossBarType.c);
       }
 
    }
 
-   private void a(PacketPlayOutBossBar.class_a_in_class_fw var1) {
+   private void a(PacketPlayOutBossBar.BossBarType var1) {
       if(this.i) {
          PacketPlayOutBossBar var2 = new PacketPlayOutBossBar(var1, this);
          Iterator var3 = this.g.iterator();
@@ -46,14 +40,14 @@ public class class_le extends class_oh {
 
    public void a(EntityPlayer var1) {
       if(this.g.add(var1) && this.i) {
-         var1.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.a, this)));
+         var1.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.BossBarType.a, this)));
       }
 
    }
 
    public void b(EntityPlayer var1) {
       if(this.g.remove(var1) && this.i) {
-         var1.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
+         var1.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.BossBarType.b, this)));
       }
 
    }
@@ -65,7 +59,7 @@ public class class_le extends class_oh {
 
          while(var2.hasNext()) {
             EntityPlayer var3 = (EntityPlayer)var2.next();
-            var3.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(var1?PacketPlayOutBossBar.class_a_in_class_fw.a:PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
+            var3.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(var1? PacketPlayOutBossBar.BossBarType.a: PacketPlayOutBossBar.BossBarType.b, this)));
          }
       }
 
