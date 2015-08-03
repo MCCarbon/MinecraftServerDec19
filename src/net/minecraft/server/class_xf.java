@@ -55,9 +55,9 @@ public abstract class class_xf extends Entity {
       this.b(var2.s, var2.t, var2.u, var2.y, var2.z);
       this.b(this.s, this.t, this.u);
       this.v = this.motY = this.x = 0.0D;
-      var3 += this.V.nextGaussian() * 0.4D;
-      var5 += this.V.nextGaussian() * 0.4D;
-      var7 += this.V.nextGaussian() * 0.4D;
+      var3 += this.random.nextGaussian() * 0.4D;
+      var5 += this.random.nextGaussian() * 0.4D;
+      var7 += this.random.nextGaussian() * 0.4D;
       double var9 = (double)MathHelper.sqrt(var3 * var3 + var5 * var5 + var7 * var7);
       this.b = var3 / var9 * 0.1D;
       this.c = var5 / var9 * 0.1D;
@@ -79,9 +79,9 @@ public abstract class class_xf extends Entity {
             }
 
             this.i = false;
-            this.v *= (double)(this.V.nextFloat() * 0.2F);
-            this.motY *= (double)(this.V.nextFloat() * 0.2F);
-            this.x *= (double)(this.V.nextFloat() * 0.2F);
+            this.v *= (double)(this.random.nextFloat() * 0.2F);
+            this.motY *= (double)(this.random.nextFloat() * 0.2F);
+            this.x *= (double)(this.random.nextFloat() * 0.2F);
             this.as = 0;
             this.at = 0;
          } else {
@@ -126,7 +126,7 @@ public abstract class class_xf extends Entity {
 
    protected abstract void a(MovingObjectPosition var1);
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       var1.put("xTile", (short)this.e);
       var1.put("yTile", (short)this.f);
       var1.put("zTile", (short)this.g);
@@ -136,7 +136,7 @@ public abstract class class_xf extends Entity {
       var1.put((String)"direction", (NBTTag)this.a((double[])(new double[]{this.v, this.motY, this.x})));
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       this.e = var1.getShort("xTile");
       this.f = var1.getShort("yTile");
       this.g = var1.getShort("zTile");
@@ -166,7 +166,7 @@ public abstract class class_xf extends Entity {
       return 1.0F;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {

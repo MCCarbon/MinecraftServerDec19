@@ -8,7 +8,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -321,7 +321,7 @@ public class class_alu extends Block {
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
       if(!var1.isClientSide && var6 != null && var6.getItem() == Items.bg) {
          var2.b(StatisticList.ab[Block.getId((Block)this)]);
-         dropItem((World)var1, (BlockPosition)var3, (ItemStack)(new ItemStack(BlockStainedGlassPane.VINE, 1, 0)));
+         dropItem((World)var1, (BlockPosition)var3, (ItemStack)(new ItemStack(Blocks.VINE, 1, 0)));
       } else {
          super.breakBlockNaturally(var1, var2, var3, var4, var5, var6);
       }

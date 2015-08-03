@@ -111,7 +111,7 @@ public abstract class BlockLeaves extends BlockTransparent {
 						for (var15 = -var5; var15 <= var5; ++var15) {
 							for (var16 = -var5; var16 <= var5; ++var16) {
 								Block var17 = var1.getType(var13.setPosition(var7 + var14, var8 + var15, var9 + var16)).getBlock();
-								if ((var17 != BlockStainedGlassPane.LOG) && (var17 != BlockStainedGlassPane.LOG2)) {
+								if ((var17 != Blocks.LOG) && (var17 != Blocks.LOG2)) {
 									if (var17.getMaterial() == Material.LEAVES) {
 										N[((var14 + var12) * var11) + ((var15 + var12) * var10) + var16 + var12] = -2;
 									} else {
@@ -150,7 +150,7 @@ public abstract class BlockLeaves extends BlockTransparent {
 
 	@Override
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return Item.getItemOf(BlockStainedGlassPane.SAPLING);
+		return Item.getItemOf(Blocks.SAPLING);
 	}
 
 	@Override

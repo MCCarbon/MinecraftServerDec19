@@ -163,7 +163,7 @@ public abstract class class_aed implements class_m {
    }
 
    public boolean a(EntityHuman var1) {
-      if(!var1.bH.instabuild) {
+      if(!var1.abilities.instabuild) {
          return false;
       } else {
          if(var1.e().isClientSide) {

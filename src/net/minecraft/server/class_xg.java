@@ -7,10 +7,10 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 
 public class class_xg extends Entity {
-   private static final int a = class_qi.a(class_xg.class);
+   private static final int a = Datawathcer.claimId(class_xg.class);
    private int b;
    private int c;
 
@@ -20,7 +20,7 @@ public class class_xg extends Entity {
    }
 
    protected void h() {
-      this.ac.a(a, 5);
+      this.datawatcher.addNull(a, 5);
    }
 
    public class_xg(World var1, double var2, double var4, double var6, ItemStack var8) {
@@ -30,7 +30,7 @@ public class class_xg extends Entity {
       this.b(var2, var4, var6);
       int var9 = 1;
       if(var8 != null && var8.hasTag()) {
-         this.ac.b(a, var8);
+         this.datawatcher.update(a, var8);
          NBTTagCompound var10 = var8.getTag();
          NBTTagCompound var11 = var10.getCompound("Fireworks");
          if(var11 != null) {
@@ -38,10 +38,10 @@ public class class_xg extends Entity {
          }
       }
 
-      this.v = this.V.nextGaussian() * 0.001D;
-      this.x = this.V.nextGaussian() * 0.001D;
+      this.v = this.random.nextGaussian() * 0.001D;
+      this.x = this.random.nextGaussian() * 0.001D;
       this.motY = 0.05D;
-      this.c = 10 * var9 + this.V.nextInt(6) + this.V.nextInt(7);
+      this.c = 10 * var9 + this.random.nextInt(6) + this.random.nextInt(7);
    }
 
    public void t_() {
@@ -80,7 +80,7 @@ public class class_xg extends Entity {
 
       ++this.b;
       if(this.o.isClientSide && this.b % 2 < 2) {
-         this.o.a(class_cy.d, this.s, this.t - 0.3D, this.u, this.V.nextGaussian() * 0.05D, -this.motY * 0.5D, this.V.nextGaussian() * 0.05D, new int[0]);
+         this.o.a(class_cy.d, this.s, this.t - 0.3D, this.u, this.random.nextGaussian() * 0.05D, -this.motY * 0.5D, this.random.nextGaussian() * 0.05D, new int[0]);
       }
 
       if(!this.o.isClientSide && this.b > this.c) {
@@ -90,10 +90,10 @@ public class class_xg extends Entity {
 
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       var1.put("Life", this.b);
       var1.put("LifeTime", this.c);
-      ItemStack var2 = this.ac.f(a);
+      ItemStack var2 = this.datawatcher.getItemStack(a);
       if(var2 != null) {
          NBTTagCompound var3 = new NBTTagCompound();
          var2.write(var3);
@@ -102,14 +102,14 @@ public class class_xg extends Entity {
 
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       this.b = var1.getInt("Life");
       this.c = var1.getInt("LifeTime");
       NBTTagCompound var2 = var1.getCompound("FireworksItem");
       if(var2 != null) {
          ItemStack var3 = ItemStack.a(var2);
          if(var3 != null) {
-            this.ac.b(a, var3);
+            this.datawatcher.update(a, var3);
          }
       }
 

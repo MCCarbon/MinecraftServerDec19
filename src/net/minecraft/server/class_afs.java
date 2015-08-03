@@ -4,9 +4,9 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afn;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockDirt;
-import net.minecraft.server.BlockTallPlant;
+import net.minecraft.server.class_ahm;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_arh;
@@ -37,7 +37,7 @@ public class class_afs extends BiomeBase {
    }
 
    public void a(World var1, Random var2, BlockPosition var3) {
-      ag.a(BlockTallPlant.class_b_in_class_ahm.c);
+      ag.a(class_ahm.class_b_in_class_ahm.c);
 
       for(int var4 = 0; var4 < 7; ++var4) {
          int var5 = var2.nextInt(16) + 8;
@@ -58,13 +58,13 @@ public class class_afs extends BiomeBase {
       }
 
       public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
-         this.ak = BlockStainedGlassPane.GRASS.getBlockData();
-         this.al = BlockStainedGlassPane.DIRT.getBlockData();
+         this.ak = Blocks.GRASS.getBlockData();
+         this.al = Blocks.DIRT.getBlockData();
          if(var6 > 1.75D) {
-            this.ak = BlockStainedGlassPane.STONE.getBlockData();
-            this.al = BlockStainedGlassPane.STONE.getBlockData();
+            this.ak = Blocks.STONE.getBlockData();
+            this.al = Blocks.STONE.getBlockData();
          } else if(var6 > -0.5D) {
-            this.ak = BlockStainedGlassPane.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.COARSE_DIRT);
+            this.ak = Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.COARSE_DIRT);
          }
 
          this.b(var1, var2, var3, var4, var5, var6);

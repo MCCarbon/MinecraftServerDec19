@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.class_ajn;
 import net.minecraft.server.class_ajo;
@@ -57,7 +57,7 @@ public class class_arh extends class_apw {
             return false;
          } else {
             Block var20 = var1.getType(var3.down()).getBlock();
-            if((var20 == BlockStainedGlassPane.GRASS || var20 == BlockStainedGlassPane.DIRT) && var3.getY() < 256 - var4 - 1) {
+            if((var20 == Blocks.GRASS || var20 == Blocks.DIRT) && var3.getY() < 256 - var4 - 1) {
                this.a(var1, var3.down());
                EnumDirection var21 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
                int var22 = var4 - var2.nextInt(4) - 1;
@@ -176,7 +176,7 @@ public class class_arh extends class_apw {
    }
 
    static {
-      a = BlockStainedGlassPane.LOG2.getBlockData().set(class_ajo.b, BlockWood.EnumLogVariant.ACACIA);
-      b = BlockStainedGlassPane.LEAVES2.getBlockData().set(class_ajn.Q, BlockWood.EnumLogVariant.ACACIA).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      a = Blocks.LOG2.getBlockData().set(class_ajo.b, BlockWood.EnumLogVariant.ACACIA);
+      b = Blocks.LEAVES2.getBlockData().set(class_ajn.Q, BlockWood.EnumLogVariant.ACACIA).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

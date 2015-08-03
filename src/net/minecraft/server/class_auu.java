@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.class_aut;
-import net.minecraft.server.class_no;
+import net.minecraft.server.IntHashMap;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.Entity;
 
 public abstract class class_auu {
    protected IBlockAccess a;
-   protected class_no b = new class_no();
+   protected IntHashMap b = new IntHashMap();
    protected int c;
    protected int d;
    protected int e;

@@ -7,7 +7,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockFragilePlantElement;
 import net.minecraft.server.BlockPlant;
 import net.minecraft.server.BlockDirectional;
@@ -25,14 +25,14 @@ import net.minecraft.server.INamable;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.EntityHuman;
 
-public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElement {
-   public static final BlockStateEnum a = BlockStateEnum.of("variant", BlockTallPlant.class_b_in_class_ahm.class);
-   public static final BlockStateEnum b = BlockStateEnum.of("half", BlockTallPlant.class_a_in_class_ahm.class);
+public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
+   public static final BlockStateEnum a = BlockStateEnum.of("variant", class_ahm.class_b_in_class_ahm.class);
+   public static final BlockStateEnum b = BlockStateEnum.of("half", class_ahm.class_a_in_class_ahm.class);
    public static final BlockStateEnum N;
 
-   public BlockTallPlant() {
+   public class_ahm() {
       super(Material.REPLACEABLE_PLANT);
-      this.setBlockData(this.blockStateList.getFirst().set(a, BlockTallPlant.class_b_in_class_ahm.a).set(b, BlockTallPlant.class_a_in_class_ahm.b).set(N, EnumDirection.NORTH));
+      this.setBlockData(this.blockStateList.getFirst().set(a, class_ahm.class_b_in_class_ahm.a).set(b, class_ahm.class_a_in_class_ahm.b).set(N, EnumDirection.NORTH));
       this.setStrength(0.0F);
       this.setStepSound(STEP_SOUND_GRASS);
       this.setName("doublePlant");
@@ -42,13 +42,13 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
       this.setSizes(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
    }
 
-   public BlockTallPlant.class_b_in_class_ahm e(IBlockAccess var1, BlockPosition var2) {
+   public class_ahm.class_b_in_class_ahm e(IBlockAccess var1, BlockPosition var2) {
       IBlockData var3 = var1.getType(var2);
       if(var3.getBlock() == this) {
          var3 = this.updateState(var3, var1, var2);
-         return (BlockTallPlant.class_b_in_class_ahm)var3.get(a);
+         return (class_ahm.class_b_in_class_ahm)var3.get(a);
       } else {
-         return BlockTallPlant.class_b_in_class_ahm.d;
+         return class_ahm.class_b_in_class_ahm.d;
       }
    }
 
@@ -61,24 +61,24 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
       if(var3.getBlock() != this) {
          return true;
       } else {
-         BlockTallPlant.class_b_in_class_ahm var4 = (BlockTallPlant.class_b_in_class_ahm)this.updateState(var3, var1, var2).get(a);
-         return var4 == BlockTallPlant.class_b_in_class_ahm.d || var4 == BlockTallPlant.class_b_in_class_ahm.c;
+         class_ahm.class_b_in_class_ahm var4 = (class_ahm.class_b_in_class_ahm)this.updateState(var3, var1, var2).get(a);
+         return var4 == class_ahm.class_b_in_class_ahm.d || var4 == class_ahm.class_b_in_class_ahm.c;
       }
    }
 
    protected void e(World var1, BlockPosition var2, IBlockData var3) {
       if(!this.f(var1, var2, var3)) {
-         boolean var4 = var3.get(b) == BlockTallPlant.class_a_in_class_ahm.a;
+         boolean var4 = var3.get(b) == class_ahm.class_a_in_class_ahm.a;
          BlockPosition var5 = var4?var2:var2.up();
          BlockPosition var6 = var4?var2.down():var2;
          Object var7 = var4?this:var1.getType(var5).getBlock();
          Object var8 = var4?var1.getType(var6).getBlock():this;
          if(var7 == this) {
-            var1.setTypeAndData((BlockPosition)var5, (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
+            var1.setTypeAndData((BlockPosition)var5, (IBlockData)Blocks.AIR.getBlockData(), 2);
          }
 
          if(var8 == this) {
-            var1.setTypeAndData((BlockPosition)var6, (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 3);
+            var1.setTypeAndData((BlockPosition)var6, (IBlockData)Blocks.AIR.getBlockData(), 3);
             if(!var4) {
                this.dropNaturallyForSure(var1, var6, var3, 0);
             }
@@ -88,7 +88,7 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
    }
 
    public boolean f(World var1, BlockPosition var2, IBlockData var3) {
-      if(var3.get(b) == BlockTallPlant.class_a_in_class_ahm.a) {
+      if(var3.get(b) == class_ahm.class_a_in_class_ahm.a) {
          return var1.getType(var2.down()).getBlock() == this;
       } else {
          IBlockData var4 = var1.getType(var2.up());
@@ -97,40 +97,40 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      if(var1.get(b) == BlockTallPlant.class_a_in_class_ahm.a) {
+      if(var1.get(b) == class_ahm.class_a_in_class_ahm.a) {
          return null;
       } else {
-         BlockTallPlant.class_b_in_class_ahm var4 = (BlockTallPlant.class_b_in_class_ahm)var1.get(a);
-         return var4 == BlockTallPlant.class_b_in_class_ahm.d?null:(var4 == BlockTallPlant.class_b_in_class_ahm.c?(var2.nextInt(8) == 0?Items.P:null):Item.getItemOf((Block)this));
+         class_ahm.class_b_in_class_ahm var4 = (class_ahm.class_b_in_class_ahm)var1.get(a);
+         return var4 == class_ahm.class_b_in_class_ahm.d?null:(var4 == class_ahm.class_b_in_class_ahm.c?(var2.nextInt(8) == 0?Items.P:null):Item.getItemOf((Block)this));
       }
    }
 
    public int getDropData(IBlockData var1) {
-      return var1.get(b) != BlockTallPlant.class_a_in_class_ahm.a && var1.get(a) != BlockTallPlant.class_b_in_class_ahm.c?((BlockTallPlant.class_b_in_class_ahm)var1.get(a)).a():0;
+      return var1.get(b) != class_ahm.class_a_in_class_ahm.a && var1.get(a) != class_ahm.class_b_in_class_ahm.c?((class_ahm.class_b_in_class_ahm)var1.get(a)).a():0;
    }
 
-   public void a(World var1, BlockPosition var2, BlockTallPlant.class_b_in_class_ahm var3, int var4) {
-      var1.setTypeAndData(var2, this.getBlockData().set(b, BlockTallPlant.class_a_in_class_ahm.b).set(a, var3), var4);
-      var1.setTypeAndData(var2.up(), this.getBlockData().set(b, BlockTallPlant.class_a_in_class_ahm.a), var4);
+   public void a(World var1, BlockPosition var2, class_ahm.class_b_in_class_ahm var3, int var4) {
+      var1.setTypeAndData(var2, this.getBlockData().set(b, class_ahm.class_a_in_class_ahm.b).set(a, var3), var4);
+      var1.setTypeAndData(var2.up(), this.getBlockData().set(b, class_ahm.class_a_in_class_ahm.a), var4);
    }
 
    public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      var1.setTypeAndData((BlockPosition)var2.up(), (IBlockData)this.getBlockData().set(b, BlockTallPlant.class_a_in_class_ahm.a), 2);
+      var1.setTypeAndData((BlockPosition)var2.up(), (IBlockData)this.getBlockData().set(b, class_ahm.class_a_in_class_ahm.a), 2);
    }
 
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
-      if(var1.isClientSide || var6 == null || var6.getItem() != Items.bg || var4.get(b) != BlockTallPlant.class_a_in_class_ahm.b || !this.b(var1, var3, var4, var2)) {
+      if(var1.isClientSide || var6 == null || var6.getItem() != Items.bg || var4.get(b) != class_ahm.class_a_in_class_ahm.b || !this.b(var1, var3, var4, var2)) {
          super.breakBlockNaturally(var1, var2, var3, var4, var5, var6);
       }
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
-      if(var3.get(b) == BlockTallPlant.class_a_in_class_ahm.a) {
+      if(var3.get(b) == class_ahm.class_a_in_class_ahm.a) {
          if(var1.getType(var2.down()).getBlock() == this) {
-            if(!var4.bH.instabuild) {
+            if(!var4.abilities.instabuild) {
                IBlockData var5 = var1.getType(var2.down());
-               BlockTallPlant.class_b_in_class_ahm var6 = (BlockTallPlant.class_b_in_class_ahm)var5.get(a);
-               if(var6 != BlockTallPlant.class_b_in_class_ahm.d && var6 != BlockTallPlant.class_b_in_class_ahm.c) {
+               class_ahm.class_b_in_class_ahm var6 = (class_ahm.class_b_in_class_ahm)var5.get(a);
+               if(var6 != class_ahm.class_b_in_class_ahm.d && var6 != class_ahm.class_b_in_class_ahm.c) {
                   var1.setAir(var2.down(), true);
                } else if(!var1.isClientSide) {
                   if(var4.bA() != null && var4.bA().getItem() == Items.bg) {
@@ -146,21 +146,21 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
                var1.setAir(var2.down());
             }
          }
-      } else if(var4.bH.instabuild && var1.getType(var2.up()).getBlock() == this) {
-         var1.setTypeAndData((BlockPosition)var2.up(), (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
+      } else if(var4.abilities.instabuild && var1.getType(var2.up()).getBlock() == this) {
+         var1.setTypeAndData((BlockPosition)var2.up(), (IBlockData)Blocks.AIR.getBlockData(), 2);
       }
 
       super.a(var1, var2, var3, var4);
    }
 
    private boolean b(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
-      BlockTallPlant.class_b_in_class_ahm var5 = (BlockTallPlant.class_b_in_class_ahm)var3.get(a);
-      if(var5 != BlockTallPlant.class_b_in_class_ahm.d && var5 != BlockTallPlant.class_b_in_class_ahm.c) {
+      class_ahm.class_b_in_class_ahm var5 = (class_ahm.class_b_in_class_ahm)var3.get(a);
+      if(var5 != class_ahm.class_b_in_class_ahm.d && var5 != class_ahm.class_b_in_class_ahm.c) {
          return false;
       } else {
          var4.b(StatisticList.ab[Block.getId((Block)this)]);
-         int var6 = (var5 == BlockTallPlant.class_b_in_class_ahm.c?BlockLongGrass.EnumTallGrassType.GRASS:BlockLongGrass.EnumTallGrassType.FERN).getId();
-         dropItem(var1, var2, new ItemStack(BlockStainedGlassPane.TALLGRASS, 2, var6));
+         int var6 = (var5 == class_ahm.class_b_in_class_ahm.c?BlockLongGrass.EnumTallGrassType.GRASS:BlockLongGrass.EnumTallGrassType.FERN).getId();
+         dropItem(var1, var2, new ItemStack(Blocks.TALLGRASS, 2, var6));
          return true;
       }
    }
@@ -170,8 +170,8 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
    }
 
    public boolean a(World var1, BlockPosition var2, IBlockData var3, boolean var4) {
-      BlockTallPlant.class_b_in_class_ahm var5 = this.e(var1, var2);
-      return var5 != BlockTallPlant.class_b_in_class_ahm.c && var5 != BlockTallPlant.class_b_in_class_ahm.d;
+      class_ahm.class_b_in_class_ahm var5 = this.e(var1, var2);
+      return var5 != class_ahm.class_b_in_class_ahm.c && var5 != class_ahm.class_b_in_class_ahm.d;
    }
 
    public boolean a(World var1, Random var2, BlockPosition var3, IBlockData var4) {
@@ -183,11 +183,11 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return (var1 & 8) > 0?this.getBlockData().set(b, BlockTallPlant.class_a_in_class_ahm.a):this.getBlockData().set(b, BlockTallPlant.class_a_in_class_ahm.b).set(a, BlockTallPlant.class_b_in_class_ahm.a(var1 & 7));
+      return (var1 & 8) > 0?this.getBlockData().set(b, class_ahm.class_a_in_class_ahm.a):this.getBlockData().set(b, class_ahm.class_a_in_class_ahm.b).set(a, class_ahm.class_b_in_class_ahm.a(var1 & 7));
    }
 
    public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
-      if(var1.get(b) == BlockTallPlant.class_a_in_class_ahm.a) {
+      if(var1.get(b) == class_ahm.class_a_in_class_ahm.a) {
          IBlockData var4 = var2.getType(var3.down());
          if(var4.getBlock() == this) {
             var1 = var1.set(a, var4.get(a));
@@ -198,7 +198,7 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
    }
 
    public int toLegacyData(IBlockData var1) {
-      return var1.get(b) == BlockTallPlant.class_a_in_class_ahm.a?8 | ((EnumDirection)var1.get(N)).getHorizontalId():((BlockTallPlant.class_b_in_class_ahm)var1.get(a)).a();
+      return var1.get(b) == class_ahm.class_a_in_class_ahm.a?8 | ((EnumDirection)var1.get(N)).getHorizontalId():((class_ahm.class_b_in_class_ahm)var1.get(a)).a();
    }
 
    protected BlockStateList getStateList() {
@@ -230,7 +230,7 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
       e(4, "double_rose", "rose"),
       f(5, "paeonia");
 
-      private static final BlockTallPlant.class_b_in_class_ahm[] g;
+      private static final class_ahm.class_b_in_class_ahm[] g;
       private final int h;
       private final String i;
       private final String j;
@@ -253,7 +253,7 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
          return this.i;
       }
 
-      public static BlockTallPlant.class_b_in_class_ahm a(int var0) {
+      public static class_ahm.class_b_in_class_ahm a(int var0) {
          if(var0 < 0 || var0 >= g.length) {
             var0 = 0;
          }
@@ -270,12 +270,12 @@ public class BlockTallPlant extends BlockPlant implements IBlockFragilePlantElem
       }
 
       static {
-         g = new BlockTallPlant.class_b_in_class_ahm[values().length];
-         BlockTallPlant.class_b_in_class_ahm[] var0 = values();
+         g = new class_ahm.class_b_in_class_ahm[values().length];
+         class_ahm.class_b_in_class_ahm[] var0 = values();
          int var1 = var0.length;
 
          for(int var2 = 0; var2 < var1; ++var2) {
-            BlockTallPlant.class_b_in_class_ahm var3 = var0[var2];
+            class_ahm.class_b_in_class_ahm var3 = var0[var2];
             g[var3.a()] = var3;
          }
 

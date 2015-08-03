@@ -7,7 +7,7 @@ import net.minecraft.server.class_aak;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Vec3D;
@@ -26,7 +26,7 @@ import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qy;
 import net.minecraft.server.class_qz;
@@ -46,8 +46,8 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_wg extends class_wi {
-   private static final int a = class_qi.a(class_wg.class);
-   private static final int b = class_qi.a(class_wg.class);
+   private static final int a = Datawathcer.claimId(class_wg.class);
+   private static final int b = Datawathcer.claimId(class_wg.class);
    private float c;
    private float bs;
    private float bt;
@@ -73,7 +73,7 @@ public class class_wg extends class_wi {
       var2.a(3);
       this.bn.a(1, new class_sz(this, EntityLiving.class, 10, true, false, new class_wg.class_b_in_class_wg(this)));
       this.f = new class_wg.class_c_in_class_wg(this);
-      this.bs = this.c = this.V.nextFloat();
+      this.bs = this.c = this.random.nextFloat();
    }
 
    protected void aY() {
@@ -84,13 +84,13 @@ public class class_wg extends class_wi {
       this.a((class_qk)class_wl.a).a(30.0D);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.a(var1.getBoolean("Elder"));
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Elder", this.cC());
    }
 
@@ -100,20 +100,20 @@ public class class_wg extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Integer.valueOf(0));
-      this.ac.a(b, Integer.valueOf(0));
+      this.datawatcher.add(a, Integer.valueOf(0));
+      this.datawatcher.add(b, Integer.valueOf(0));
    }
 
    private boolean a(int var1) {
-      return (this.ac.c(a) & var1) != 0;
+      return (this.datawatcher.getInt(a) & var1) != 0;
    }
 
    private void a(int var1, boolean var2) {
-      int var3 = this.ac.c(a);
+      int var3 = this.datawatcher.getInt(a);
       if(var2) {
-         this.ac.b(a, Integer.valueOf(var3 | var1));
+         this.datawatcher.update(a, Integer.valueOf(var3 | var1));
       } else {
-         this.ac.b(a, Integer.valueOf(var3 & ~var1));
+         this.datawatcher.update(a, Integer.valueOf(var3 & ~var1));
       }
 
    }
@@ -148,11 +148,11 @@ public class class_wg extends class_wi {
    }
 
    private void b(int var1) {
-      this.ac.b(b, Integer.valueOf(var1));
+      this.datawatcher.update(b, Integer.valueOf(var1));
    }
 
    public boolean cE() {
-      return this.ac.c(b) != 0;
+      return this.datawatcher.getInt(b) != 0;
    }
 
    public EntityLiving cF() {
@@ -162,7 +162,7 @@ public class class_wg extends class_wi {
          if(this.bw != null) {
             return this.bw;
          } else {
-            Entity var1 = this.o.getEntityById(this.ac.c(b));
+            Entity var1 = this.o.getEntityById(this.datawatcher.getInt(b));
             if(var1 instanceof EntityLiving) {
                this.bw = (EntityLiving)var1;
                return this.bw;
@@ -239,7 +239,7 @@ public class class_wg extends class_wi {
          this.c += this.bt;
          this.bv = this.bu;
          if(!this.V()) {
-            this.bu = this.V.nextFloat();
+            this.bu = this.random.nextFloat();
          } else if(this.n()) {
             this.bu += (0.0F - this.bu) * 0.25F;
          } else {
@@ -250,7 +250,7 @@ public class class_wg extends class_wi {
             Vec3D var1 = this.d(0.0F);
 
             for(int var2 = 0; var2 < 2; ++var2) {
-               this.o.a(class_cy.e, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.x * 1.5D, this.t + this.V.nextDouble() * (double)this.K - var1.y * 1.5D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
+               this.o.a(class_cy.e, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J - var1.x * 1.5D, this.t + this.random.nextDouble() * (double)this.K - var1.y * 1.5D, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
             }
          }
 
@@ -271,10 +271,10 @@ public class class_wg extends class_wi {
                var4 /= var10;
                var6 /= var10;
                var8 /= var10;
-               double var12 = this.V.nextDouble();
+               double var12 = this.random.nextDouble();
 
                while(var12 < var10) {
-                  var12 += 1.8D - var15 + this.V.nextDouble() * (1.7D - var15);
+                  var12 += 1.8D - var15 + this.random.nextDouble() * (1.7D - var15);
                   this.o.a(class_cy.e, this.s + var4 * var12, this.t + var6 * var12 + (double)this.aU(), this.u + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
                }
             }
@@ -285,9 +285,9 @@ public class class_wg extends class_wi {
          this.i(300);
       } else if(this.C) {
          this.motY += 0.5D;
-         this.v += (double)((this.V.nextFloat() * 2.0F - 1.0F) * 0.4F);
-         this.x += (double)((this.V.nextFloat() * 2.0F - 1.0F) * 0.4F);
-         this.y = this.V.nextFloat() * 360.0F;
+         this.v += (double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.4F);
+         this.x += (double)((this.random.nextFloat() * 2.0F - 1.0F) * 0.4F);
+         this.y = this.random.nextFloat() * 360.0F;
          this.C = false;
          this.ai = true;
       }
@@ -312,9 +312,9 @@ public class class_wg extends class_wi {
          boolean var4 = true;
          if((this.W + this.getId()) % 1200 == 0) {
             class_pk var5 = class_pm.d;
-            List var6 = this.o.b(EntityPlayer.class, new Predicate() {
+            List var6 = this.o.getPlayers(EntityPlayer.class, new Predicate() {
                public boolean a(EntityPlayer var1) {
-                  return class_wg.this.h(var1) < 2500.0D && var1.c.c();
+                  return class_wg.this.h(var1) < 2500.0D && var1.playerInteractManager.c();
                }
 
                // $FF: synthetic method
@@ -335,7 +335,7 @@ public class class_wg extends class_wi {
                   var8 = (EntityPlayer)var7.next();
                } while(var8.a((class_pk)var5) && var8.b((class_pk)var5).c() >= 2 && var8.b((class_pk)var5).b() >= 1200);
 
-               var8.a.a((Packet)(new PacketPlayOutGameStateChange(10, 0.0F)));
+               var8.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(10, 0.0F)));
                var8.c(new class_pl(var5, 6000, 2));
             }
          }
@@ -348,25 +348,25 @@ public class class_wg extends class_wi {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(3) + this.V.nextInt(var2 + 1);
+      int var3 = this.random.nextInt(3) + this.random.nextInt(var2 + 1);
       if(var3 > 0) {
          this.a(new ItemStack(Items.cF, var3, 0), 1.0F);
       }
 
-      if(this.V.nextInt(3 + var2) > 1) {
+      if(this.random.nextInt(3 + var2) > 1) {
          this.a(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 1.0F);
-      } else if(this.V.nextInt(3 + var2) > 1) {
+      } else if(this.random.nextInt(3 + var2) > 1) {
          this.a(new ItemStack(Items.cG), 1.0F);
       }
 
       if(var1 && this.cC()) {
-         this.a(new ItemStack(BlockStainedGlassPane.SPONGE, 1, 1), 1.0F);
+         this.a(new ItemStack(Blocks.SPONGE, 1, 1), 1.0F);
       }
 
    }
 
    protected void br() {
-      ItemStack var1 = ((class_vf)class_oc.a(this.V, class_ve.j())).a(this.V);
+      ItemStack var1 = ((class_vf)class_oc.a(this.random, class_ve.j())).a(this.random);
       this.a(var1, 1.0F);
    }
 
@@ -379,20 +379,20 @@ public class class_wg extends class_wi {
    }
 
    public boolean cf() {
-      return (this.V.nextInt(20) == 0 || !this.o.j(new BlockPosition(this))) && super.cf();
+      return (this.random.nextInt(20) == 0 || !this.o.j(new BlockPosition(this))) && super.cf();
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(!this.n() && !var1.s() && var1.i() instanceof EntityLiving) {
          EntityLiving var3 = (EntityLiving)var1.i();
          if(!var1.c()) {
-            var3.a(class_pc.a((Entity)this), 2.0F);
+            var3.damageEntity(class_pc.a((Entity)this), 2.0F);
             var3.a("damage.thorns", 0.5F, 1.0F);
          }
       }
 
       this.bz.f();
-      return super.a(var1, var2);
+      return super.damageEntity(var1, var2);
    }
 
    public int cd() {
@@ -481,7 +481,7 @@ public class class_wg extends class_wi {
 
       public boolean a() {
          EntityLiving var1 = this.a.w();
-         return var1 != null && var1.ai();
+         return var1 != null && var1.isAlive();
       }
 
       public boolean b() {
@@ -522,8 +522,8 @@ public class class_wg extends class_wi {
                   var2 += 2.0F;
                }
 
-               var1.a(class_pc.b(this.a, this.a), var2);
-               var1.a(class_pc.a((EntityLiving)this.a), (float)this.a.a((class_qk)class_wl.e).e());
+               var1.damageEntity(class_pc.b(this.a, this.a), var2);
+               var1.damageEntity(class_pc.a((EntityLiving)this.a), (float)this.a.a((class_qk)class_wl.e).e());
                this.a.d((EntityLiving)null);
             } else if(this.b >= 60 && this.b % 20 == 0) {
                ;

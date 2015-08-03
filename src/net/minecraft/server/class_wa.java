@@ -9,7 +9,7 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_rb;
 import net.minecraft.server.class_rj;
@@ -28,9 +28,9 @@ import net.minecraft.server.class_wn;
 import net.minecraft.server.EntityHuman;
 
 public class class_wa extends class_wi {
-   private static final int a = class_qi.a(class_wa.class);
-   private static final int b = class_qi.a(class_wa.class);
-   private static final int c = class_qi.a(class_wa.class);
+   private static final int a = Datawathcer.claimId(class_wa.class);
+   private static final int b = Datawathcer.claimId(class_wa.class);
+   private static final int c = Datawathcer.claimId(class_wa.class);
    private int bs;
    private int bt;
    private int bu = 30;
@@ -56,7 +56,7 @@ public class class_wa extends class_wi {
    }
 
    public int aG() {
-      return this.w() == null?3:3 + (int)(this.bo() - 1.0F);
+      return this.w() == null?3:3 + (int)(this.getHealth() - 1.0F);
    }
 
    public void e(float var1, float var2) {
@@ -70,14 +70,14 @@ public class class_wa extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(a, Byte.valueOf((byte)-1));
-      this.ac.a(b, Byte.valueOf((byte)0));
-      this.ac.a(c, Byte.valueOf((byte)0));
+      this.datawatcher.add(a, Byte.valueOf((byte)-1));
+      this.datawatcher.add(b, Byte.valueOf((byte)0));
+      this.datawatcher.add(c, Byte.valueOf((byte)0));
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
-      if(this.ac.a(b) == 1) {
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
+      if(this.datawatcher.getByte(b) == 1) {
          var1.put("powered", true);
       }
 
@@ -86,9 +86,9 @@ public class class_wa extends class_wi {
       var1.put("ignited", this.cC());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
-      this.ac.b(b, Byte.valueOf((byte)(var1.getBoolean("powered")?1:0)));
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
+      this.datawatcher.update(b, Byte.valueOf((byte)(var1.getBoolean("powered")?1:0)));
       if(var1.hasOfType("Fuse", 99)) {
          this.bu = var1.getShort("Fuse");
       }
@@ -104,7 +104,7 @@ public class class_wa extends class_wi {
    }
 
    public void t_() {
-      if(this.ai()) {
+      if(this.isAlive()) {
          this.bs = this.bt;
          if(this.cC()) {
             this.a(1);
@@ -142,7 +142,7 @@ public class class_wa extends class_wi {
       if(var1.j() instanceof class_wn) {
          int var2 = Item.getId(Items.ct);
          int var3 = Item.getId(Items.cE);
-         int var4 = var2 + this.V.nextInt(var3 - var2 + 1);
+         int var4 = var2 + this.random.nextInt(var3 - var2 + 1);
          this.a(Item.getById(var4), 1);
       } else if(var1.j() instanceof class_wa && var1.j() != this && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
@@ -156,7 +156,7 @@ public class class_wa extends class_wi {
    }
 
    public boolean n() {
-      return this.ac.a(b) == 1;
+      return this.datawatcher.getByte(b) == 1;
    }
 
    protected Item D() {
@@ -164,21 +164,21 @@ public class class_wa extends class_wi {
    }
 
    public int cB() {
-      return this.ac.a(a);
+      return this.datawatcher.getByte(a);
    }
 
    public void a(int var1) {
-      this.ac.b(a, Byte.valueOf((byte)var1));
+      this.datawatcher.update(a, Byte.valueOf((byte)var1));
    }
 
    public void a(class_vi var1) {
       super.a(var1);
-      this.ac.b(b, Byte.valueOf((byte)1));
+      this.datawatcher.update(b, Byte.valueOf((byte)1));
    }
 
    protected boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.FLINT_AND_STEEL) {
-         this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.V.nextFloat() * 0.4F + 0.8F);
+      if(var3 != null && var3.getItem() == Items.d) {
+         this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
          var1.a((EnumUsedHand)var2);
          if(!this.o.isClientSide) {
             this.cD();
@@ -201,11 +201,11 @@ public class class_wa extends class_wi {
    }
 
    public boolean cC() {
-      return this.ac.a(c) != 0;
+      return this.datawatcher.getByte(c) != 0;
    }
 
    public void cD() {
-      this.ac.b(c, Byte.valueOf((byte)1));
+      this.datawatcher.update(c, Byte.valueOf((byte)1));
    }
 
    public boolean cE() {

@@ -40,7 +40,7 @@ public class BlockSponge extends Block {
 	protected void e(World var1, BlockPosition var2, IBlockData var3) {
 		if (!var3.get(WET).booleanValue() && this.e(var1, var2)) {
 			var1.setTypeAndData(var2, var3.set(WET, Boolean.valueOf(true)), 2);
-			var1.b(2001, var2, Block.getId(BlockStainedGlassPane.WATER));
+			var1.b(2001, var2, Block.getId(Blocks.WATER));
 		}
 
 	}
@@ -63,7 +63,7 @@ public class BlockSponge extends Block {
 				EnumDirection var12 = var9[var11];
 				BlockPosition var13 = var7.shift(var12);
 				if (var1.getType(var13).getBlock().getMaterial() == Material.WATER) {
-					var1.setTypeAndData(var13, BlockStainedGlassPane.AIR.getBlockData(), 2);
+					var1.setTypeAndData(var13, Blocks.AIR.getBlockData(), 2);
 					var4.add(var13);
 					++var5;
 					if (var8 < 6) {
@@ -81,7 +81,7 @@ public class BlockSponge extends Block {
 
 		while (var14.hasNext()) {
 			var7 = (BlockPosition) var14.next();
-			var1.c(var7, BlockStainedGlassPane.AIR);
+			var1.c(var7, Blocks.AIR);
 		}
 
 		return var5 > 0;

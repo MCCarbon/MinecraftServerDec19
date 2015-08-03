@@ -10,7 +10,7 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.ItemArmor;
+import net.minecraft.server.class_za;
 
 public class class_adt extends class_adi {
    public class_adt(class_adi.class_a_in_class_adi var1, class_pw... var2) {
@@ -31,7 +31,7 @@ public class class_adt extends class_adi {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.getItem() instanceof ItemArmor?true:super.a(var1);
+      return var1.getItem() instanceof class_za?true:super.a(var1);
    }
 
    public void b(EntityLiving var1, Entity var2, int var3) {
@@ -39,7 +39,7 @@ public class class_adt extends class_adi {
       ItemStack var5 = EnchantmentManager.b(Enchantment.h, var1);
       if(a(var3, var4)) {
          if(var2 != null) {
-            var2.a(class_pc.a((Entity)var1), (float)b(var3, var4));
+            var2.damageEntity(class_pc.a((Entity)var1), (float)b(var3, var4));
             var2.a("damage.thorns", 0.5F, 1.0F);
          }
 

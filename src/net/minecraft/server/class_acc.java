@@ -18,7 +18,7 @@ import net.minecraft.server.StatisticList;
 import net.minecraft.server.class_nz;
 import net.minecraft.server.IInventory;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_yx;
@@ -62,7 +62,7 @@ public class class_acc extends Item {
 
       var3.a(var1);
       var3.b(StatisticList.ad[Item.getId((Item)this)]);
-      return new class_or(class_oq.a, var1);
+      return new class_or(UseResult.SUCCESS, var1);
    }
 
    private void a(ItemStack var1, EntityHuman var2) {
@@ -89,8 +89,8 @@ public class class_acc extends Item {
 
                var3.put((String)"pages", (NBTTag)var4);
                if(var2 instanceof EntityPlayer && var2.bA() == var1) {
-                  class_yx var10 = var2.br.a((IInventory)var2.bp, var2.bp.d);
-                  ((EntityPlayer)var2).a.a((Packet)(new PacketPlayOutSetSlot(0, var10.e, var1)));
+                  class_yx var10 = var2.br.a((IInventory)var2.inventory, var2.inventory.itemInHandIndex);
+                  ((EntityPlayer)var2).playerConnection.sendPacket((Packet)(new PacketPlayOutSetSlot(0, var10.e, var1)));
                }
 
             }

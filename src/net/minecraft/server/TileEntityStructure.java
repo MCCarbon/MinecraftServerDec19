@@ -108,7 +108,7 @@ public class TileEntityStructure extends TileEntity {
 	public void a(TileEntityStructure.EnumMode var1) {
 		mode = var1;
 		IBlockData var2 = world.getType(getPosition());
-		if (var2.getBlock() == BlockStainedGlassPane.STRUCTURE_BLOCK) {
+		if (var2.getBlock() == Blocks.STRUCTURE_BLOCK) {
 			world.setTypeAndData(getPosition(), var2.set(BlockStructureBlock.MODE, var1), 2);
 		}
 
@@ -161,7 +161,7 @@ public class TileEntityStructure extends TileEntity {
 		while (var4.hasNext()) {
 			BlockPosition.MutableBlockPosition var5 = (BlockPosition.MutableBlockPosition) var4.next();
 			IBlockData var6 = world.getType(var5);
-			if (var6.getBlock() == BlockStainedGlassPane.STRUCTURE_BLOCK) {
+			if (var6.getBlock() == Blocks.STRUCTURE_BLOCK) {
 				TileEntity var7 = world.getTileEntity(var5);
 				if ((var7 != null) && (var7 instanceof TileEntityStructure)) {
 					var3.add((TileEntityStructure) var7);
@@ -238,7 +238,7 @@ public class TileEntityStructure extends TileEntity {
 				return false;
 			} else {
 				BlockPosition var4 = var3.a(rotation);
-				Iterator<?> var5 = world.b((Entity) null, (new AxisAlignedBB(var1, var4.add(var1).add(-1, -1, -1)))).iterator();
+				Iterator<?> var5 = world.getEntities((Entity) null, (new AxisAlignedBB(var1, var4.add(var1).add(-1, -1, -1)))).iterator();
 
 				while (var5.hasNext()) {
 					Entity var6 = (Entity) var5.next();

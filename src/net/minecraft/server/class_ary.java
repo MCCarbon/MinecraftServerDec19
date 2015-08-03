@@ -100,8 +100,8 @@ public class class_ary {
    }
 
    static {
-      d = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 2, 7, 5), new class_od(Items.IRON_INGOT, 0, 4, 8, 10), new class_od(Items.GOLD_INGOT, 0, 2, 7, 15), new class_od(Items.bR, 0, 2, 6, 2), new class_od(Items.cK, 0, 1, 10, 5), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
-      e = Lists.newArrayList((Object[])(new Item[]{Items.DIAMOND_SWORD, Items.ah, Items.af, Items.ag, Items.ae, Items.DIAMOND_PICKAXE, Items.DIAMOND_SHOVEL, Items.IRON_SWORD, Items.ad, Items.ab, Items.ac, Items.aa, Items.IRON_PICKAXE, Items.IRON_SHOVEL}));
+      d = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 2, 7, 5), new class_od(Items.l, 0, 4, 8, 10), new class_od(Items.m, 0, 2, 7, 15), new class_od(Items.bR, 0, 2, 6, 2), new class_od(Items.cK, 0, 1, 10, 5), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
+      e = Lists.newArrayList((Object[])(new Item[]{Items.w, Items.ah, Items.af, Items.ag, Items.ae, Items.y, Items.x, Items.n, Items.ad, Items.ab, Items.ac, Items.aa, Items.b, Items.a}));
       f = new class_ary.class_b_in_class_ary() {
          public void a() {
          }

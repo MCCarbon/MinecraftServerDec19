@@ -35,7 +35,7 @@ public class class_ajn extends BlockLeaves {
 
    protected void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
       if(var3.get(Q) == BlockWood.EnumLogVariant.DARK_OAK && var1.random.nextInt(var4) == 0) {
-         dropItem(var1, var2, new ItemStack(Items.APPLE));
+         dropItem(var1, var2, new ItemStack(Items.e));
       }
 
    }

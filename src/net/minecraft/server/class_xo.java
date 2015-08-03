@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
@@ -66,9 +66,9 @@ public abstract class class_xo extends Entity implements class_xi {
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
-      var1 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
-      var3 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
-      var5 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var1 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var3 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var5 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
       var1 *= (double)var7;
       var3 *= (double)var7;
       var5 *= (double)var7;
@@ -101,9 +101,9 @@ public abstract class class_xo extends Entity implements class_xi {
          }
 
          this.a = false;
-         this.v *= (double)(this.V.nextFloat() * 0.2F);
-         this.motY *= (double)(this.V.nextFloat() * 0.2F);
-         this.x *= (double)(this.V.nextFloat() * 0.2F);
+         this.v *= (double)(this.random.nextFloat() * 0.2F);
+         this.motY *= (double)(this.random.nextFloat() * 0.2F);
+         this.x *= (double)(this.random.nextFloat() * 0.2F);
          this.as = 0;
          this.at = 0;
       } else {
@@ -121,7 +121,7 @@ public abstract class class_xo extends Entity implements class_xi {
 
       if(!this.o.isClientSide) {
          Entity var4 = null;
-         List var5 = this.o.b((Entity)this, (AxisAlignedBB)this.aT().add(this.v, this.motY, this.x).grow(1.0D, 1.0D, 1.0D));
+         List var5 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT().add(this.v, this.motY, this.x).grow(1.0D, 1.0D, 1.0D));
          double var6 = 0.0D;
          boolean var8 = false;
 
@@ -163,7 +163,7 @@ public abstract class class_xo extends Entity implements class_xi {
       }
 
       if(var3 != null) {
-         if(var3.a == MovingObjectPosition.class_a_in_class_awg.b && this.o.getType(var3.a()).getBlock() == BlockStainedGlassPane.PORTAL) {
+         if(var3.a == MovingObjectPosition.class_a_in_class_awg.b && this.o.getType(var3.a()).getBlock() == Blocks.PORTAL) {
             this.d(var3.a());
          } else {
             this.a(var3);
@@ -218,7 +218,7 @@ public abstract class class_xo extends Entity implements class_xi {
 
    protected abstract void a(MovingObjectPosition var1);
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       var1.put("xTile", (short)this.d);
       var1.put("yTile", (short)this.e);
       var1.put("zTile", (short)this.f);
@@ -233,7 +233,7 @@ public abstract class class_xo extends Entity implements class_xi {
       var1.put("ownerName", this.i == null?"":this.i);
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       this.d = var1.getShort("xTile");
       this.e = var1.getShort("yTile");
       this.f = var1.getShort("zTile");

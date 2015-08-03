@@ -14,10 +14,10 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CreativeTab;
 import net.minecraft.server.EnumColor;
 
-public class BlockStainedGlass extends BlockHalfTransparent {
+public class class_alb extends BlockHalfTransparent {
    public static final BlockStateEnum a = BlockStateEnum.of("color", EnumColor.class);
 
-   public BlockStainedGlass(Material var1) {
+   public class_alb(Material var1) {
       super(var1, false);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumColor.a));
       this.setCreativeTab((CreativeTab)CreativeTab.BUILDING_BLOCKS);

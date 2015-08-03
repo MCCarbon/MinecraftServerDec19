@@ -4,7 +4,7 @@ import java.util.List;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
@@ -12,7 +12,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_vk;
@@ -43,12 +43,12 @@ public class class_zi extends Item {
       Vec3D var24 = var14.add((double)var19 * var22, (double)var18 * var22, (double)var21 * var22);
       MovingObjectPosition var25 = var2.a(var14, var24, true);
       if(var25 == null) {
-         return new class_or(class_oq.b, var1);
+         return new class_or(UseResult.CANT_USE, var1);
       } else {
          Vec3D var26 = var3.d(var5);
          boolean var27 = false;
          float var28 = 1.0F;
-         List var29 = var2.b((Entity)var3, (AxisAlignedBB)var3.aT().add(var26.x * var22, var26.y * var22, var26.z * var22).grow((double)var28, (double)var28, (double)var28));
+         List var29 = var2.getEntities((Entity)var3, (AxisAlignedBB)var3.aT().add(var26.x * var22, var26.y * var22, var26.z * var22).grow((double)var28, (double)var28, (double)var28));
 
          for(int var30 = 0; var30 < var29.size(); ++var30) {
             Entity var31 = (Entity)var29.get(var30);
@@ -62,31 +62,31 @@ public class class_zi extends Item {
          }
 
          if(var27) {
-            return new class_or(class_oq.b, var1);
+            return new class_or(UseResult.CANT_USE, var1);
          } else if(var25.a == MovingObjectPosition.class_a_in_class_awg.b) {
             BlockPosition var34 = var25.a();
-            if(var2.getType(var34).getBlock() == BlockStainedGlassPane.SNOW_LAYER) {
+            if(var2.getType(var34).getBlock() == Blocks.SNOW_LAYER) {
                var34 = var34.down();
             }
 
             class_vk var35 = new class_vk(var2, (double)((float)var34.getX() + 0.5F), (double)((float)var34.getY() + 1.0F), (double)((float)var34.getZ() + 0.5F));
             var35.y = (float)(((MathHelper.floor((double)(var3.y * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
             if(!var2.a((Entity)var35, (AxisAlignedBB)var35.aT().grow(-0.1D, -0.1D, -0.1D)).isEmpty()) {
-               return new class_or(class_oq.b, var1);
+               return new class_or(UseResult.CANT_USE, var1);
             } else {
                if(!var2.isClientSide) {
                   var2.addEntity((Entity)var35);
                }
 
-               if(!var3.bH.instabuild) {
+               if(!var3.abilities.instabuild) {
                   --var1.count;
                }
 
                var3.b(StatisticList.ad[Item.getId((Item)this)]);
-               return new class_or(class_oq.a, var1);
+               return new class_or(UseResult.SUCCESS, var1);
             }
          } else {
-            return new class_or(class_oq.b, var1);
+            return new class_or(UseResult.CANT_USE, var1);
          }
       }
    }

@@ -9,7 +9,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ali;
 import net.minecraft.server.EnumColor;
 
@@ -23,26 +23,26 @@ public class class_aco {
    }
 
    private class_aco() {
-      this.a(BlockStainedGlassPane.IRON_ORE, new ItemStack(Items.IRON_INGOT), 0.7F);
-      this.a(BlockStainedGlassPane.GOLD_ORE, new ItemStack(Items.GOLD_INGOT), 1.0F);
-      this.a(BlockStainedGlassPane.DIAMOND_ORE, new ItemStack(Items.DIAMOND), 1.0F);
-      this.a((Block)BlockStainedGlassPane.SAND, new ItemStack(BlockStainedGlassPane.GLASS), 0.1F);
+      this.a(Blocks.IRON_ORE, new ItemStack(Items.l), 0.7F);
+      this.a(Blocks.GOLD_ORE, new ItemStack(Items.m), 1.0F);
+      this.a(Blocks.DIAMOND_ORE, new ItemStack(Items.k), 1.0F);
+      this.a((Block)Blocks.SAND, new ItemStack(Blocks.GLASS), 0.1F);
       this.a(Items.an, new ItemStack(Items.ao), 0.35F);
       this.a(Items.bk, new ItemStack(Items.bl), 0.35F);
       this.a(Items.bm, new ItemStack(Items.bn), 0.35F);
       this.a(Items.bq, new ItemStack(Items.br), 0.35F);
       this.a(Items.bo, new ItemStack(Items.bp), 0.35F);
-      this.a(BlockStainedGlassPane.COBBLESTONE, new ItemStack(BlockStainedGlassPane.STONE), 0.1F);
-      this.a(new ItemStack(BlockStainedGlassPane.STONEBRICK, 1, class_ali.b), new ItemStack(BlockStainedGlassPane.STONEBRICK, 1, class_ali.O), 0.1F);
+      this.a(Blocks.COBBLESTONE, new ItemStack(Blocks.STONE), 0.1F);
+      this.a(new ItemStack(Blocks.STONEBRICK, 1, class_ali.b), new ItemStack(Blocks.STONEBRICK, 1, class_ali.O), 0.1F);
       this.a(Items.aK, new ItemStack(Items.aJ), 0.3F);
-      this.a(BlockStainedGlassPane.CLAY, new ItemStack(BlockStainedGlassPane.HARDENED_CLAY), 0.35F);
-      this.a((Block)BlockStainedGlassPane.CACTUS, new ItemStack(Items.aY, 1, EnumColor.n.b()), 0.2F);
-      this.a(BlockStainedGlassPane.LOG, new ItemStack(Items.COAL, 1, 1), 0.15F);
-      this.a(BlockStainedGlassPane.LOG2, new ItemStack(Items.COAL, 1, 1), 0.15F);
-      this.a(BlockStainedGlassPane.EMERALD_ORE, new ItemStack(Items.bR), 1.0F);
+      this.a(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.35F);
+      this.a((Block)Blocks.CACTUS, new ItemStack(Items.aY, 1, EnumColor.n.b()), 0.2F);
+      this.a(Blocks.LOG, new ItemStack(Items.j, 1, 1), 0.15F);
+      this.a(Blocks.LOG2, new ItemStack(Items.j, 1, 1), 0.15F);
+      this.a(Blocks.EMERALD_ORE, new ItemStack(Items.bR), 1.0F);
       this.a(Items.bV, new ItemStack(Items.bW), 0.35F);
-      this.a(BlockStainedGlassPane.NETHERRACK, new ItemStack(Items.ci), 0.1F);
-      this.a(new ItemStack(BlockStainedGlassPane.SPONGE, 1, 1), new ItemStack(BlockStainedGlassPane.SPONGE, 1, 0), 0.15F);
+      this.a(Blocks.NETHERRACK, new ItemStack(Items.ci), 0.1F);
+      this.a(new ItemStack(Blocks.SPONGE, 1, 1), new ItemStack(Blocks.SPONGE, 1, 0), 0.15F);
       this.a(Items.cI, new ItemStack(Items.cJ), 0.1F);
       class_aak.class_a_in_class_aak[] var1 = class_aak.class_a_in_class_aak.values();
       int var2 = var1.length;
@@ -54,10 +54,10 @@ public class class_aco {
          }
       }
 
-      this.a(BlockStainedGlassPane.COAL_ORE, new ItemStack(Items.COAL), 0.1F);
-      this.a(BlockStainedGlassPane.REDSTONE_ORE, new ItemStack(Items.aE), 0.7F);
-      this.a(BlockStainedGlassPane.LAPIS_ORE, new ItemStack(Items.aY, 1, EnumColor.l.b()), 0.2F);
-      this.a(BlockStainedGlassPane.QUARTZ_ORE, new ItemStack(Items.cj), 0.2F);
+      this.a(Blocks.COAL_ORE, new ItemStack(Items.j), 0.1F);
+      this.a(Blocks.REDSTONE_ORE, new ItemStack(Items.aE), 0.7F);
+      this.a(Blocks.LAPIS_ORE, new ItemStack(Items.aY, 1, EnumColor.l.b()), 0.2F);
+      this.a(Blocks.QUARTZ_ORE, new ItemStack(Items.cj), 0.2F);
    }
 
    public void a(Block var1, ItemStack var2, float var3) {

@@ -8,7 +8,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
@@ -76,7 +76,7 @@ public class class_ax extends class_i {
          try {
             var6 = f(var1, var2[var16]);
          } catch (class_cb var15) {
-            if(Block.getByName(var2[var16]) != BlockStainedGlassPane.AIR) {
+            if(Block.getByName(var2[var16]) != Blocks.AIR) {
                throw var15;
             }
 

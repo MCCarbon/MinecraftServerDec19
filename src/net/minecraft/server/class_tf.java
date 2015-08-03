@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.class_aut;
 import net.minecraft.server.class_auw;
@@ -31,7 +31,7 @@ public class class_tf extends class_tg {
    }
 
    protected boolean b() {
-      return this.b.C || this.h() && this.o() || this.b.aw() && this.b instanceof class_wr && this.b.m instanceof class_tx;
+      return this.b.C || this.h() && this.o() || this.b.aw() && this.b instanceof class_wr && this.b.vehicle instanceof class_tx;
    }
 
    protected Vec3D c() {
@@ -45,7 +45,7 @@ public class class_tf extends class_tg {
          int var3 = 0;
 
          do {
-            if(var2 != BlockStainedGlassPane.FLOWING_WATER && var2 != BlockStainedGlassPane.WATER) {
+            if(var2 != Blocks.FLOWING_WATER && var2 != Blocks.WATER) {
                return var1;
             }
 

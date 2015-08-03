@@ -26,7 +26,7 @@ public class BlockPlant extends Block {
 	}
 
 	protected boolean c(Block var1) {
-		return (var1 == BlockStainedGlassPane.GRASS) || (var1 == BlockStainedGlassPane.DIRT) || (var1 == BlockStainedGlassPane.FARMLAND);
+		return (var1 == Blocks.GRASS) || (var1 == Blocks.DIRT) || (var1 == Blocks.FARMLAND);
 	}
 
 	@Override
@@ -43,7 +43,7 @@ public class BlockPlant extends Block {
 	protected void e(World var1, BlockPosition var2, IBlockData var3) {
 		if (!f(var1, var2, var3)) {
 			dropNaturallyForSure(var1, var2, var3, 0);
-			var1.setTypeAndData(var2, BlockStainedGlassPane.AIR.getBlockData(), 3);
+			var1.setTypeAndData(var2, Blocks.AIR.getBlockData(), 3);
 		}
 
 	}

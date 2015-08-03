@@ -16,7 +16,7 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_py;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qz;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_sy;
@@ -26,7 +26,7 @@ import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xh;
 
 public class class_we extends class_py implements class_wd {
-   private static final int a = class_qi.a(class_we.class);
+   private static final int a = Datawathcer.claimId(class_we.class);
    private int b = 1;
 
    public class_we(World var1) {
@@ -42,7 +42,7 @@ public class class_we extends class_py implements class_wd {
    }
 
    public void a(boolean var1) {
-      this.ac.b(a, Byte.valueOf((byte)(var1?1:0)));
+      this.datawatcher.update(a, Byte.valueOf((byte)(var1?1:0)));
    }
 
    public int cu() {
@@ -57,21 +57,21 @@ public class class_we extends class_py implements class_wd {
 
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else if("fireball".equals(var1.p()) && var1.j() instanceof EntityHuman) {
-         super.a(var1, 1000.0F);
+         super.damageEntity(var1, 1000.0F);
          ((EntityHuman)var1.j()).b((class_my)class_mt.z);
          return true;
       } else {
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 
    protected void h() {
       super.h();
-      this.ac.a(a, Byte.valueOf((byte)0));
+      this.datawatcher.add(a, Byte.valueOf((byte)0));
    }
 
    protected void aY() {
@@ -97,14 +97,14 @@ public class class_we extends class_py implements class_wd {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(2) + this.V.nextInt(1 + var2);
+      int var3 = this.random.nextInt(2) + this.random.nextInt(1 + var2);
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
          this.a(Items.by, 1);
       }
 
-      var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
+      var3 = this.random.nextInt(3) + this.random.nextInt(1 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          this.a(Items.J, 1);
@@ -117,20 +117,20 @@ public class class_we extends class_py implements class_wd {
    }
 
    public boolean cf() {
-      return this.V.nextInt(20) == 0 && super.cf() && this.o.ab() != class_om.a;
+      return this.random.nextInt(20) == 0 && super.cf() && this.o.ab() != class_om.a;
    }
 
    public int cj() {
       return 1;
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("ExplosionPower", this.b);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       if(var1.hasOfType("ExplosionPower", 99)) {
          this.b = var1.getInt("ExplosionPower");
       }

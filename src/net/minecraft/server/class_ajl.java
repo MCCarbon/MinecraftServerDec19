@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPlant;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -30,7 +30,7 @@ public class class_ajl extends BlockPlant {
    }
 
    protected boolean c(Block var1) {
-      return var1 == BlockStainedGlassPane.SOUL_SAND;
+      return var1 == Blocks.SOUL_SAND;
    }
 
    public boolean f(World var1, BlockPosition var2, IBlockData var3) {

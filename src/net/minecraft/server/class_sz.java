@@ -7,7 +7,7 @@ import java.util.Comparator;
 import java.util.List;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_pv;
+import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_td;
@@ -75,7 +75,7 @@ public class class_sz extends class_td {
          return false;
       } else {
          double var1 = this.f();
-         List var3 = this.e.o.a(this.a, this.a(var1), Predicates.and(this.c, class_pv.d));
+         List var3 = this.e.o.a(this.a, this.a(var1), Predicates.and(this.c, IEntitySelector.NOT_PLAYER_SPECTATOR));
          Collections.sort(var3, this.b);
          if(var3.isEmpty()) {
             return false;

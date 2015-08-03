@@ -30,10 +30,10 @@ public class BlockChorusFlower extends Block {
 				boolean var7 = false;
 				Block var8 = world.getType(position.down()).getBlock();
 				int var9;
-				if (var8 == BlockStainedGlassPane.END_STONE) {
+				if (var8 == Blocks.END_STONE) {
 					var6 = true;
-				} else if (var8 != BlockStainedGlassPane.CHORUS_PLANT) {
-					if (var8 == BlockStainedGlassPane.AIR) {
+				} else if (var8 != Blocks.CHORUS_PLANT) {
+					if (var8 == Blocks.AIR) {
 						var6 = true;
 					}
 				} else {
@@ -42,8 +42,8 @@ public class BlockChorusFlower extends Block {
 					int var10;
 					for (var10 = 0; var10 < 4; ++var10) {
 						Block var11 = world.getType(position.down(var9 + 1)).getBlock();
-						if (var11 != BlockStainedGlassPane.CHORUS_PLANT) {
-							if (var11 == BlockStainedGlassPane.END_STONE) {
+						if (var11 != Blocks.CHORUS_PLANT) {
+							if (var11 == Blocks.END_STONE) {
 								var7 = true;
 							}
 							break;
@@ -63,7 +63,7 @@ public class BlockChorusFlower extends Block {
 				}
 
 				if (var6 && a(world, position.up(), (EnumDirection) null) && world.isEmpty(position.up(2))) {
-					world.setTypeAndData(position, BlockStainedGlassPane.CHORUS_PLANT.getBlockData(), 2);
+					world.setTypeAndData(position, Blocks.CHORUS_PLANT.getBlockData(), 2);
 					world.setTypeAndData(position.up(), getBlockData().set(AGE, Integer.valueOf(agev)), 2);
 				} else if (agev < 4) {
 					var9 = random.nextInt(4);
@@ -82,7 +82,7 @@ public class BlockChorusFlower extends Block {
 					}
 
 					if (var15) {
-						world.setTypeAndData(position, BlockStainedGlassPane.CHORUS_PLANT.getBlockData(), 2);
+						world.setTypeAndData(position, Blocks.CHORUS_PLANT.getBlockData(), 2);
 					} else {
 						world.setTypeAndData(position, blockdata.set(AGE, Integer.valueOf(5)), 2);
 					}
@@ -134,17 +134,17 @@ public class BlockChorusFlower extends Block {
 
 	public boolean isValid(World world, BlockPosition position) {
 		Block var3 = world.getType(position.down()).getBlock();
-		if ((var3 != BlockStainedGlassPane.CHORUS_PLANT) && (var3 != BlockStainedGlassPane.END_STONE)) {
-			if (var3 == BlockStainedGlassPane.AIR) {
+		if ((var3 != Blocks.CHORUS_PLANT) && (var3 != Blocks.END_STONE)) {
+			if (var3 == Blocks.AIR) {
 				int var4 = 0;
 				Iterator<EnumDirection> var5 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
 				while (var5.hasNext()) {
 					EnumDirection var6 = var5.next();
 					Block var7 = world.getType(position.shift(var6)).getBlock();
-					if (var7 == BlockStainedGlassPane.CHORUS_PLANT) {
+					if (var7 == Blocks.CHORUS_PLANT) {
 						++var4;
-					} else if (var7 != BlockStainedGlassPane.AIR) {
+					} else if (var7 != Blocks.AIR) {
 						return false;
 					}
 				}
@@ -190,7 +190,7 @@ public class BlockChorusFlower extends Block {
 	}
 
 	public static void a(World var0, BlockPosition var1, Random var2, int var3) {
-		var0.setTypeAndData(var1, BlockStainedGlassPane.CHORUS_PLANT.getBlockData(), 2);
+		var0.setTypeAndData(var1, Blocks.CHORUS_PLANT.getBlockData(), 2);
 		a(var0, var1, var2, var1, var3, 0);
 	}
 
@@ -206,7 +206,7 @@ public class BlockChorusFlower extends Block {
 				return;
 			}
 
-			var0.setTypeAndData(var8, BlockStainedGlassPane.CHORUS_PLANT.getBlockData(), 2);
+			var0.setTypeAndData(var8, Blocks.CHORUS_PLANT.getBlockData(), 2);
 		}
 
 		boolean var12 = false;
@@ -221,14 +221,14 @@ public class BlockChorusFlower extends Block {
 				BlockPosition var11 = var1.up(var6).shift(var10);
 				if ((Math.abs(var11.getX() - var3.getX()) < var4) && (Math.abs(var11.getZ() - var3.getZ()) < var4) && var0.isEmpty(var11) && var0.isEmpty(var11.down()) && a(var0, var11, var10.opposite())) {
 					var12 = true;
-					var0.setTypeAndData(var11, BlockStainedGlassPane.CHORUS_PLANT.getBlockData(), 2);
+					var0.setTypeAndData(var11, Blocks.CHORUS_PLANT.getBlockData(), 2);
 					a(var0, var11, var2, var3, var4, var5 + 1);
 				}
 			}
 		}
 
 		if (!var12) {
-			var0.setTypeAndData(var1.up(var6), BlockStainedGlassPane.CHORUS_FLOWER.getBlockData().set(AGE, Integer.valueOf(5)), 2);
+			var0.setTypeAndData(var1.up(var6), Blocks.CHORUS_FLOWER.getBlockData().set(AGE, Integer.valueOf(5)), 2);
 		}
 	}
 

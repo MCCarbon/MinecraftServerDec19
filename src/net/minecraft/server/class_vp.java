@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_aed;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
@@ -11,17 +11,17 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.EntityHuman;
 
 public class class_vp extends class_vn {
-   private static final int a = class_qi.a(class_vp.class);
-   private static final int b = class_qi.a(class_vp.class);
+   private static final int a = Datawathcer.claimId(class_vp.class);
+   private static final int b = Datawathcer.claimId(class_vp.class);
    private final class_aed c = new class_aed() {
       public void h() {
-         class_vp.this.H().b(class_vp.a, this.l());
-         class_vp.this.H().b(class_vp.b, IChatBaseComponent.ChatSerializer.toJson(this.k()));
+         class_vp.this.H().update(class_vp.a, this.l());
+         class_vp.this.H().update(class_vp.b, IChatBaseComponent.ChatSerializer.toJson(this.k()));
       }
 
       public BlockPosition c() {
@@ -52,19 +52,19 @@ public class class_vp extends class_vn {
 
    protected void h() {
       super.h();
-      this.H().a(a, "");
-      this.H().a(b, "");
+      this.H().add(a, "");
+      this.H().add(b, "");
    }
 
-   protected void a(NBTTagCompound var1) {
-      super.a(var1);
+   protected void read(NBTTagCompound var1) {
+      super.read(var1);
       this.c.b(var1);
-      this.H().b(a, this.j().l());
-      this.H().b(b, IChatBaseComponent.ChatSerializer.toJson(this.j().k()));
+      this.H().update(a, this.j().l());
+      this.H().update(b, IChatBaseComponent.ChatSerializer.toJson(this.j().k()));
    }
 
-   protected void b(NBTTagCompound var1) {
-      super.b(var1);
+   protected void write(NBTTagCompound var1) {
+      super.write(var1);
       this.c.a(var1);
    }
 
@@ -73,7 +73,7 @@ public class class_vp extends class_vn {
    }
 
    public IBlockData u() {
-      return BlockStainedGlassPane.COMMAND_BLOCK.getBlockData();
+      return Blocks.COMMAND_BLOCK.getBlockData();
    }
 
    public class_aed j() {
@@ -97,12 +97,12 @@ public class class_vp extends class_vn {
       super.d(var1);
       if(var1 == b) {
          try {
-            this.c.b(IChatBaseComponent.ChatSerializer.fromJson(this.H().e(b)));
+            this.c.b(IChatBaseComponent.ChatSerializer.fromJson(this.H().getString(b)));
          } catch (Throwable var3) {
             ;
          }
       } else if(var1 == a) {
-         this.c.a(this.H().e(a));
+         this.c.a(this.H().getString(a));
       }
 
    }

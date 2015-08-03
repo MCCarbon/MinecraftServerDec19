@@ -17,7 +17,7 @@ import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qz;
 import net.minecraft.server.class_rm;
@@ -30,7 +30,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_wo extends class_qb implements class_wd {
-   private static final int bq = class_qi.a(class_wo.class);
+   private static final int bq = Datawathcer.claimId(class_wo.class);
    public float a;
    public float b;
    public float c;
@@ -49,11 +49,11 @@ public class class_wo extends class_qb implements class_wd {
 
    protected void h() {
       super.h();
-      this.ac.a(bq, Byte.valueOf((byte)1));
+      this.datawatcher.add(bq, Byte.valueOf((byte)1));
    }
 
    protected void a(int var1) {
-      this.ac.b(bq, Byte.valueOf((byte)var1));
+      this.datawatcher.update(bq, Byte.valueOf((byte)var1));
       this.a(0.51000005F * (float)var1, 0.51000005F * (float)var1);
       this.b(this.s, this.t, this.u);
       this.a(class_wl.a).a((double)(var1 * var1));
@@ -63,17 +63,17 @@ public class class_wo extends class_qb implements class_wd {
    }
 
    public int cB() {
-      return this.ac.a(bq);
+      return this.datawatcher.getByte(bq);
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Size", this.cB() - 1);
       var1.put("wasOnGround", this.br);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       int var2 = var1.getInt("Size");
       if(var2 < 0) {
          var2 = 0;
@@ -103,8 +103,8 @@ public class class_wo extends class_qb implements class_wd {
          int var1 = this.cB();
 
          for(int var2 = 0; var2 < var1 * 8; ++var2) {
-            float var3 = this.V.nextFloat() * 3.1415927F * 2.0F;
-            float var4 = this.V.nextFloat() * 0.5F + 0.5F;
+            float var3 = this.random.nextFloat() * 3.1415927F * 2.0F;
+            float var4 = this.random.nextFloat() * 0.5F + 0.5F;
             float var5 = MathHelper.sin(var3) * (float)var1 * 0.5F * var4;
             float var6 = MathHelper.cos(var3) * (float)var1 * 0.5F * var4;
             World var10000 = this.o;
@@ -115,7 +115,7 @@ public class class_wo extends class_qb implements class_wd {
          }
 
          if(this.cA()) {
-            this.a(this.cz(), this.bC(), ((this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F) / 0.8F);
+            this.a(this.cz(), this.bC(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
          }
 
          this.a = -0.5F;
@@ -132,7 +132,7 @@ public class class_wo extends class_qb implements class_wd {
    }
 
    protected int cv() {
-      return this.V.nextInt(20) + 10;
+      return this.random.nextInt(20) + 10;
    }
 
    protected class_wo cu() {
@@ -145,7 +145,7 @@ public class class_wo extends class_qb implements class_wd {
          this.a(0.51000005F * (float)var2, 0.51000005F * (float)var2);
          this.y = this.aN;
          this.aL = this.aN;
-         if(this.V() && this.V.nextInt(20) == 0) {
+         if(this.V() && this.random.nextInt(20) == 0) {
             this.X();
          }
       }
@@ -155,8 +155,8 @@ public class class_wo extends class_qb implements class_wd {
 
    public void J() {
       int var1 = this.cB();
-      if(!this.o.isClientSide && var1 > 1 && this.bo() <= 0.0F) {
-         int var2 = 2 + this.V.nextInt(3);
+      if(!this.o.isClientSide && var1 > 1 && this.getHealth() <= 0.0F) {
+         int var2 = 2 + this.random.nextInt(3);
 
          for(int var3 = 0; var3 < var2; ++var3) {
             float var4 = ((float)(var3 % 2) - 0.5F) * (float)var1 / 4.0F;
@@ -171,7 +171,7 @@ public class class_wo extends class_qb implements class_wd {
             }
 
             var6.a(var1 / 2);
-            var6.b(this.s + (double)var4, this.t + 0.5D, this.u + (double)var5, this.V.nextFloat() * 360.0F, 0.0F);
+            var6.b(this.s + (double)var4, this.t + 0.5D, this.u + (double)var5, this.random.nextFloat() * 360.0F, 0.0F);
             this.o.addEntity((Entity)var6);
          }
       }
@@ -196,8 +196,8 @@ public class class_wo extends class_qb implements class_wd {
 
    protected void e(EntityLiving var1) {
       int var2 = this.cB();
-      if(this.t(var1) && this.h(var1) < 0.6D * (double)var2 * 0.6D * (double)var2 && var1.a(class_pc.a((EntityLiving)this), (float)this.cy())) {
-         this.a("mob.attack", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
+      if(this.t(var1) && this.h(var1) < 0.6D * (double)var2 * 0.6D * (double)var2 && var1.damageEntity(class_pc.a((EntityLiving)this), (float)this.cy())) {
+         this.a("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
          this.a(this, var1);
       }
 
@@ -230,16 +230,16 @@ public class class_wo extends class_qb implements class_wd {
    public boolean cf() {
       BlockPosition var1 = new BlockPosition(MathHelper.floor(this.s), 0, MathHelper.floor(this.u));
       Chunk var2 = this.o.f(var1);
-      if(this.o.Q().u() == class_aes.c && this.V.nextInt(4) != 1) {
+      if(this.o.Q().u() == class_aes.c && this.random.nextInt(4) != 1) {
          return false;
       } else {
          if(this.o.ab() != class_om.a) {
             BiomeBase var3 = this.o.b(var1);
-            if(var3 == BiomeBase.v && this.t > 50.0D && this.t < 70.0D && this.V.nextFloat() < 0.5F && this.V.nextFloat() < this.o.z() && this.o.l(new BlockPosition(this)) <= this.V.nextInt(8)) {
+            if(var3 == BiomeBase.v && this.t > 50.0D && this.t < 70.0D && this.random.nextFloat() < 0.5F && this.random.nextFloat() < this.o.z() && this.o.l(new BlockPosition(this)) <= this.random.nextInt(8)) {
                return super.cf();
             }
 
-            if(this.V.nextInt(10) == 0 && var2.a(987234911L).nextInt(10) == 0 && this.t < 40.0D) {
+            if(this.random.nextInt(10) == 0 && var2.a(987234911L).nextInt(10) == 0 && this.t < 40.0D) {
                return super.cf();
             }
          }
@@ -270,8 +270,8 @@ public class class_wo extends class_qb implements class_wd {
    }
 
    public class_qd a(class_on var1, class_qd var2) {
-      int var3 = this.V.nextInt(3);
-      if(var3 < 2 && this.V.nextFloat() < 0.5F * var1.c()) {
+      int var3 = this.random.nextInt(3);
+      if(var3 < 2 && this.random.nextFloat() < 0.5F * var1.c()) {
          ++var3;
       }
 
@@ -354,7 +354,7 @@ public class class_wo extends class_qb implements class_wd {
 
       public boolean a() {
          EntityLiving var1 = this.a.w();
-         return var1 == null?false:(!var1.ai()?false:!(var1 instanceof EntityHuman) || !((EntityHuman)var1).bH.invulnerable);
+         return var1 == null?false:(!var1.isAlive()?false:!(var1 instanceof EntityHuman) || !((EntityHuman)var1).abilities.invulnerable);
       }
 
       public void c() {
@@ -364,7 +364,7 @@ public class class_wo extends class_qb implements class_wd {
 
       public boolean b() {
          EntityLiving var1 = this.a.w();
-         return var1 == null?false:(!var1.ai()?false:(var1 instanceof EntityHuman && ((EntityHuman)var1).bH.invulnerable?false:--this.b > 0));
+         return var1 == null?false:(!var1.isAlive()?false:(var1 instanceof EntityHuman && ((EntityHuman)var1).abilities.invulnerable?false:--this.b > 0));
       }
 
       public void e() {

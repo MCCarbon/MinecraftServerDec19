@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
@@ -18,8 +18,8 @@ public class class_are extends class_aql {
                int var7 = 2 + var2.nextInt(var2.nextInt(3) + 1);
 
                for(int var8 = 0; var8 < var7; ++var8) {
-                  if(BlockStainedGlassPane.REEDS.e(var1, var5)) {
-                     var1.setTypeAndData((BlockPosition)var5.up(var8), (IBlockData)BlockStainedGlassPane.REEDS.getBlockData(), 2);
+                  if(Blocks.REEDS.e(var1, var5)) {
+                     var1.setTypeAndData((BlockPosition)var5.up(var8), (IBlockData)Blocks.REEDS.getBlockData(), 2);
                   }
                }
             }

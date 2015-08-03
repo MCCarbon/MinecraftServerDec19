@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockCarrots;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_auv;
@@ -21,7 +21,7 @@ import net.minecraft.server.class_po;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_qx;
 import net.minecraft.server.class_qz;
@@ -44,7 +44,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_ue extends class_tw {
-   private static final int bs = class_qi.a(class_ue.class);
+   private static final int bs = Datawathcer.claimId(class_ue.class);
    private class_ue.class_c_in_class_ue bt;
    private int bu = 0;
    private int bw = 0;
@@ -69,7 +69,7 @@ public class class_ue extends class_tw {
       this.i.a(1, new class_ue.class_g_in_class_ue(this, 1.33D));
       this.i.a(2, new class_sr(this, 1.0D, Items.bU, false));
       this.i.a(2, new class_sr(this, 1.0D, Items.bZ, false));
-      this.i.a(2, new class_sr(this, 1.0D, Item.getItemOf((Block)BlockStainedGlassPane.YELLOW_FLOWER), false));
+      this.i.a(2, new class_sr(this, 1.0D, Item.getItemOf((Block)Blocks.YELLOW_FLOWER), false));
       this.i.a(3, new class_re(this, 0.8D));
       this.i.a(5, new class_ue.class_h_in_class_ue(this));
       this.i.a(5, new class_si(this, 0.6D));
@@ -100,7 +100,7 @@ public class class_ue extends class_tw {
          }
       } else {
          this.b(1.5D * (double)var2.a());
-         this.a(this.cB(), this.bC(), ((this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F) * 0.8F);
+         this.a(this.cB(), this.bC(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 0.8F);
       }
 
       this.bx = var1;
@@ -118,7 +118,7 @@ public class class_ue extends class_tw {
 
    protected void h() {
       super.h();
-      this.ac.a(bs, Byte.valueOf((byte)0));
+      this.datawatcher.add(bs, Byte.valueOf((byte)0));
    }
 
    public void cc() {
@@ -133,7 +133,7 @@ public class class_ue extends class_tw {
       }
 
       if(this.bB > 0) {
-         this.bB -= this.V.nextInt(3);
+         this.bB -= this.random.nextInt(3);
          if(this.bB < 0) {
             this.bB = 0;
          }
@@ -220,14 +220,14 @@ public class class_ue extends class_tw {
       this.a((class_qk)class_wl.d).a(0.30000001192092896D);
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("RabbitType", this.cC());
       var1.put("MoreCarrotTicks", this.bB);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.m(var1.getInt("RabbitType"));
       this.bB = var1.getInt("MoreCarrotTicks");
    }
@@ -250,10 +250,10 @@ public class class_ue extends class_tw {
 
    public boolean r(Entity var1) {
       if(this.cC() == 99) {
-         this.a("mob.attack", 1.0F, (this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F);
-         return var1.a(class_pc.a((EntityLiving)this), 8.0F);
+         this.a("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+         return var1.damageEntity(class_pc.a((EntityLiving)this), 8.0F);
       } else {
-         return var1.a(class_pc.a((EntityLiving)this), 3.0F);
+         return var1.damageEntity(class_pc.a((EntityLiving)this), 3.0F);
       }
    }
 
@@ -261,8 +261,8 @@ public class class_ue extends class_tw {
       return this.cC() == 99?8:super.bs();
    }
 
-   public boolean a(class_pc var1, float var2) {
-      return this.b((class_pc)var1)?false:super.a(var1, var2);
+   public boolean damageEntity(class_pc var1, float var2) {
+      return this.b((class_pc)var1)?false:super.damageEntity(var1, var2);
    }
 
    protected void br() {
@@ -270,14 +270,14 @@ public class class_ue extends class_tw {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(2) + this.V.nextInt(1 + var2);
+      int var3 = this.random.nextInt(2) + this.random.nextInt(1 + var2);
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
          this.a(Items.bu, 1);
       }
 
-      var3 = this.V.nextInt(2);
+      var3 = this.random.nextInt(2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
@@ -290,13 +290,13 @@ public class class_ue extends class_tw {
    }
 
    private boolean a(Item var1) {
-      return var1 == Items.bU || var1 == Items.bZ || var1 == Item.getItemOf((Block)BlockStainedGlassPane.YELLOW_FLOWER);
+      return var1 == Items.bU || var1 == Items.bZ || var1 == Item.getItemOf((Block)Blocks.YELLOW_FLOWER);
    }
 
    public class_ue b(class_po var1) {
       class_ue var2 = new class_ue(this.o);
       if(var1 instanceof class_ue) {
-         var2.m(this.V.nextBoolean()?this.cC():((class_ue)var1).cC());
+         var2.m(this.random.nextBoolean()?this.cC():((class_ue)var1).cC());
       }
 
       return var2;
@@ -307,7 +307,7 @@ public class class_ue extends class_tw {
    }
 
    public int cC() {
-      return this.ac.a(bs);
+      return this.datawatcher.getByte(bs);
    }
 
    public void m(int var1) {
@@ -322,12 +322,12 @@ public class class_ue extends class_tw {
          }
       }
 
-      this.ac.b(bs, Byte.valueOf((byte)var1));
+      this.datawatcher.update(bs, Byte.valueOf((byte)var1));
    }
 
    public class_qd a(class_on var1, class_qd var2) {
       Object var5 = super.a(var1, var2);
-      int var3 = this.V.nextInt(6);
+      int var3 = this.random.nextInt(6);
       boolean var4 = false;
       if(var5 instanceof class_ue.class_d_in_class_ue) {
          var3 = ((class_ue.class_d_in_class_ue)var5).a;
@@ -353,9 +353,9 @@ public class class_ue extends class_tw {
    }
 
    protected void cE() {
-      BlockCarrots var1 = (BlockCarrots)BlockStainedGlassPane.CARROTS;
+      BlockCarrots var1 = (BlockCarrots)Blocks.CARROTS;
       IBlockData var2 = var1.b(var1.n());
-      this.o.a(class_cy.M, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.getCombinedId(var2)});
+      this.o.a(class_cy.M, this.s + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.random.nextFloat() * this.K), this.u + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[]{Block.getCombinedId(var2)});
       this.bB = 100;
    }
 
@@ -468,7 +468,7 @@ public class class_ue extends class_tw {
             IBlockData var3 = var1.getType(var2);
             Block var4 = var3.getBlock();
             if(this.e && var4 instanceof BlockCarrots && ((BlockCarrots)var4).e(var3)) {
-               var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.AIR.getBlockData(), 2);
                var1.setAir(var2, true);
                this.c.cE();
             }
@@ -481,7 +481,7 @@ public class class_ue extends class_tw {
 
       protected boolean a(World var1, BlockPosition var2) {
          Block var3 = var1.getType(var2).getBlock();
-         if(var3 == BlockStainedGlassPane.FARMLAND) {
+         if(var3 == Blocks.FARMLAND) {
             var2 = var2.up();
             IBlockData var4 = var1.getType(var2);
             var3 = var4.getBlock();

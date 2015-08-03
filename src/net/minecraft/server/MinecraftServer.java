@@ -706,7 +706,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		k.warn(var1);
 	}
 
-	public WorldServer a(int var1) {
+	public WorldServer getWorldServer(int var1) {
 		return var1 == -1 ? this.d[1] : (var1 == 1 ? this.d[2] : this.d[0]);
 	}
 

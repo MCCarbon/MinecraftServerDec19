@@ -95,7 +95,7 @@ public abstract class Container {
 
    public ItemStack a(int var1, int var2, int var3, EntityHuman var4) {
       ItemStack var5 = null;
-      PlayerInventory var6 = var4.bp;
+      PlayerInventory var6 = var4.inventory;
       int var9;
       ItemStack var17;
       if(var3 == 5) {
@@ -299,7 +299,7 @@ public abstract class Container {
                   var16.d(var17);
                }
             }
-         } else if(var3 == 3 && var4.bH.instabuild && var6.o() == null && var1 >= 0) {
+         } else if(var3 == 3 && var4.abilities.instabuild && var6.o() == null && var1 >= 0) {
             var16 = (class_yx)this.c.get(var1);
             if(var16 != null && var16.e()) {
                var17 = var16.d().clone();
@@ -353,7 +353,7 @@ public abstract class Container {
    }
 
    public void b(EntityHuman var1) {
-      PlayerInventory var2 = var1.bp;
+      PlayerInventory var2 = var1.inventory;
       if(var2.o() != null) {
          var1.a(var2.o(), false);
          var2.b((ItemStack)null);
@@ -458,7 +458,7 @@ public abstract class Container {
    }
 
    public static boolean a(int var0, EntityHuman var1) {
-      return var0 == 0?true:(var0 == 1?true:var0 == 2 && var1.bH.instabuild);
+      return var0 == 0?true:(var0 == 1?true:var0 == 2 && var1.abilities.instabuild);
    }
 
    protected void d() {

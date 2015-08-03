@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPiston;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -48,7 +48,7 @@ public class class_ani {
       } else {
          for(int var2 = 0; var2 < this.e.size(); ++var2) {
             BlockPosition var3 = (BlockPosition)this.e.get(var2);
-            if(this.a.getType(var3).getBlock() == BlockStainedGlassPane.SLINE && !this.b(var3)) {
+            if(this.a.getType(var3).getBlock() == Blocks.SLINE && !this.b(var3)) {
                return false;
             }
          }
@@ -72,7 +72,7 @@ public class class_ani {
          if(var3 + this.e.size() > 12) {
             return false;
          } else {
-            while(var2 == BlockStainedGlassPane.SLINE) {
+            while(var2 == Blocks.SLINE) {
                BlockPosition var4 = var1.shift(this.d.opposite(), var3);
                var2 = this.a.getType(var4).getBlock();
                if(var2.getMaterial() == Material.AIR || !BlockPiston.a(var2, this.a, var4, this.d, false) || var4.equals(this.b)) {
@@ -103,7 +103,7 @@ public class class_ani {
 
                   for(int var8 = 0; var8 <= var7 + var10; ++var8) {
                      BlockPosition var9 = (BlockPosition)this.e.get(var8);
-                     if(this.a.getType(var9).getBlock() == BlockStainedGlassPane.SLINE && !this.b(var9)) {
+                     if(this.a.getType(var9).getBlock() == Blocks.SLINE && !this.b(var9)) {
                         return false;
                      }
                   }

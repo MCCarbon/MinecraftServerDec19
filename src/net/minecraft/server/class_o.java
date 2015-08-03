@@ -35,7 +35,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
-import net.minecraft.server.class_pv;
+import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.EntityHuman;
 
@@ -181,7 +181,7 @@ public class class_o {
 						return false;
 					} else {
 						EntityPlayer var2x = (EntityPlayer) var1;
-						return (var2 <= -1 || var2x.bI >= var2) && (var3 <= -1 || var2x.bI <= var3);
+						return (var2 <= -1 || var2x.expLevel >= var2) && (var3 <= -1 || var2x.expLevel <= var3);
 					}
 				}
 
@@ -205,7 +205,7 @@ public class class_o {
 						return false;
 					} else {
 						EntityPlayer var2x = (EntityPlayer) var1;
-						return var2x.c.b().getId() == var2;
+						return var2x.playerInteractManager.getGameMode().getId() == var2;
 					}
 				}
 
@@ -256,7 +256,7 @@ public class class_o {
 		if (var2 != null && !var2.isEmpty()) {
 			var1.add(new Predicate() {
 				public boolean a(Entity var1) {
-					class_awn var2x = MinecraftServer.N().a(0).aa();
+					class_awn var2x = MinecraftServer.N().getWorldServer(0).aa();
 					Iterator var3 = var2.entrySet().iterator();
 
 					Entry var4;
@@ -406,26 +406,26 @@ public class class_o {
 		int var12 = a(var0, "dz", 0);
 		int var13 = a(var0, "r", -1);
 		Predicate var14 = Predicates.and((Iterable) var2);
-		Predicate var15 = Predicates.and(class_pv.a, var14);
+		Predicate var15 = Predicates.and(IEntitySelector.IS_ALIVE, var14);
 		if (var5 != null) {
 			int var16 = var4.players.size();
-			int var17 = var4.f.size();
+			int var17 = var4.entityList.size();
 			boolean var18 = var16 < var17 / 16;
 			final AxisAlignedBB var19;
 			if (!var0.containsKey("dx") && !var0.containsKey("dy") && !var0.containsKey("dz")) {
 				if (var13 >= 0) {
 					var19 = new AxisAlignedBB((double) (var5.getX() - var13), (double) (var5.getY() - var13), (double) (var5.getZ() - var13), (double) (var5.getX() + var13 + 1), (double) (var5.getY() + var13 + 1), (double) (var5.getZ() + var13 + 1));
 					if (var8 && var18 && !var9) {
-						var6.addAll(var4.b(var1, var15));
+						var6.addAll(var4.getPlayers(var1, var15));
 					} else {
 						var6.addAll(var4.a(var1, var19, var15));
 					}
 				} else if (var3.equals("a")) {
-					var6.addAll(var4.b(var1, var14));
+					var6.addAll(var4.getPlayers(var1, var14));
 				} else if (!var3.equals("p") && (!var3.equals("r") || var9)) {
-					var6.addAll(var4.a(var1, var15));
+					var6.addAll(var4.getEntities(var1, var15));
 				} else {
-					var6.addAll(var4.b(var1, var15));
+					var6.addAll(var4.getPlayers(var1, var15));
 				}
 			} else {
 				var19 = a(var5, var10, var11, var12);
@@ -440,17 +440,17 @@ public class class_o {
 							return this.a((Entity) var1);
 						}
 					};
-					var6.addAll(var4.b(var1, Predicates.and(var15, var20)));
+					var6.addAll(var4.getPlayers(var1, Predicates.and(var15, var20)));
 				} else {
 					var6.addAll(var4.a(var1, var19, var15));
 				}
 			}
 		} else if (var3.equals("a")) {
-			var6.addAll(var4.b(var1, var14));
+			var6.addAll(var4.getPlayers(var1, var14));
 		} else if (!var3.equals("p") && (!var3.equals("r") || var9)) {
-			var6.addAll(var4.a(var1, var15));
+			var6.addAll(var4.getEntities(var1, var15));
 		} else {
-			var6.addAll(var4.b(var1, var15));
+			var6.addAll(var4.getPlayers(var1, var15));
 		}
 
 		return var6;

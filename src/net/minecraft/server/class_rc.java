@@ -28,7 +28,7 @@ public class class_rc extends class_rm {
    }
 
    public boolean b() {
-      return !this.b.ai()?false:(this.a.h(this.b) > (double)(this.d * this.d)?false:this.e > 0 && this.a(this.b));
+      return !this.b.isAlive()?false:(this.a.h(this.b) > (double)(this.d * this.d)?false:this.e > 0 && this.a(this.b));
    }
 
    public void c() {
@@ -52,7 +52,7 @@ public class class_rc extends class_rm {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          EnumUsedHand var5 = var2[var4];
-         ItemStack var6 = var1.b((EnumUsedHand)var5);
+         ItemStack var6 = var1.getItemInHand((EnumUsedHand)var5);
          if(var6 != null) {
             if(this.a.cA() && var6.getItem() == Items.aZ) {
                return true;

@@ -10,7 +10,7 @@ import net.minecraft.server.IBlockState;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.ItemBlock;
 
@@ -35,11 +35,11 @@ public class class_abq extends ItemBlock {
 		return this.b.b(var1.i());
 	}
 
-	public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+	public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
 		if (var1.count == 0) {
-			return class_oq.b;
+			return UseResult.CANT_USE;
 		} else if (!var2.a(var4.shift(var6), var6, var1)) {
-			return class_oq.b;
+			return UseResult.CANT_USE;
 		} else {
 			Object var10 = this.b.a(var1);
 			IBlockData var11 = var3.getType(var4);
@@ -54,11 +54,11 @@ public class class_abq extends ItemBlock {
 						--var1.count;
 					}
 
-					return class_oq.a;
+					return UseResult.SUCCESS;
 				}
 			}
 
-			return this.a(var1, var3, var4.shift(var6), var10) ? class_oq.a : super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9);
+			return this.a(var1, var3, var4.shift(var6), var10) ? UseResult.SUCCESS : super.a(var1, var2, var3, var4, var5, var6, var7, var8, var9);
 		}
 	}
 

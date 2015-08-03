@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.BlockStone;
 import net.minecraft.server.class_api;
@@ -65,11 +65,11 @@ public class class_afc {
    public boolean L;
 
    public class_afc() {
-      this.f = new class_arg(BlockStainedGlassPane.SAND, 7);
-      this.g = new class_arg(BlockStainedGlassPane.GRAVEL, 6);
-      this.s = new class_aqm(BlockStainedGlassPane.YELLOW_FLOWER, BlockFlowers.EnumFlowerVarient.DANDELION);
-      this.t = new class_aqb(BlockStainedGlassPane.BROWN_MUSHROOM);
-      this.u = new class_aqb(BlockStainedGlassPane.RED_MUSHROOM);
+      this.f = new class_arg(Blocks.SAND, 7);
+      this.g = new class_arg(Blocks.GRAVEL, 6);
+      this.s = new class_aqm(Blocks.YELLOW_FLOWER, BlockFlowers.EnumFlowerVarient.DANDELION);
+      this.t = new class_aqb(Blocks.BROWN_MUSHROOM);
+      this.u = new class_aqb(Blocks.RED_MUSHROOM);
       this.v = new class_aqr();
       this.w = new class_are();
       this.x = new class_aqc();
@@ -96,17 +96,17 @@ public class class_afc {
 
          this.b = var2;
          this.c = var4;
-         this.h = new class_arb(BlockStainedGlassPane.DIRT.getBlockData(), this.d.I);
-         this.i = new class_arb(BlockStainedGlassPane.GRAVEL.getBlockData(), this.d.M);
-         this.j = new class_arb(BlockStainedGlassPane.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.GRANITE), this.d.Q);
-         this.k = new class_arb(BlockStainedGlassPane.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.DIORITE), this.d.U);
-         this.l = new class_arb(BlockStainedGlassPane.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.ANDESITE), this.d.Y);
-         this.m = new class_arb(BlockStainedGlassPane.COAL_ORE.getBlockData(), this.d.ac);
-         this.n = new class_arb(BlockStainedGlassPane.IRON_ORE.getBlockData(), this.d.ag);
-         this.o = new class_arb(BlockStainedGlassPane.GOLD_ORE.getBlockData(), this.d.ak);
-         this.p = new class_arb(BlockStainedGlassPane.REDSTONE_ORE.getBlockData(), this.d.ao);
-         this.q = new class_arb(BlockStainedGlassPane.DIAMOND_ORE.getBlockData(), this.d.as);
-         this.r = new class_arb(BlockStainedGlassPane.LAPIS_ORE.getBlockData(), this.d.aw);
+         this.h = new class_arb(Blocks.DIRT.getBlockData(), this.d.I);
+         this.i = new class_arb(Blocks.GRAVEL.getBlockData(), this.d.M);
+         this.j = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.GRANITE), this.d.Q);
+         this.k = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.DIORITE), this.d.U);
+         this.l = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.ANDESITE), this.d.Y);
+         this.m = new class_arb(Blocks.COAL_ORE.getBlockData(), this.d.ac);
+         this.n = new class_arb(Blocks.IRON_ORE.getBlockData(), this.d.ag);
+         this.o = new class_arb(Blocks.GOLD_ORE.getBlockData(), this.d.ak);
+         this.p = new class_arb(Blocks.REDSTONE_ORE.getBlockData(), this.d.ao);
+         this.q = new class_arb(Blocks.DIAMOND_ORE.getBlockData(), this.d.as);
+         this.r = new class_arb(Blocks.LAPIS_ORE.getBlockData(), this.d.aw);
          this.a(var3);
          this.a = null;
          this.b = null;
@@ -307,7 +307,7 @@ public class class_afc {
             if(var11 > 0) {
                var12 = this.b.nextInt(var11);
                var8 = this.c.add(var4, var12, var5);
-               (new class_arj(BlockStainedGlassPane.FLOWING_WATER)).b(this.a, this.b, var8);
+               (new class_arj(Blocks.FLOWING_WATER)).b(this.a, this.b, var8);
             }
          }
 
@@ -316,7 +316,7 @@ public class class_afc {
             var5 = this.b.nextInt(16) + 8;
             var11 = this.b.nextInt(this.b.nextInt(this.b.nextInt(240) + 8) + 8);
             var7 = this.c.add(var4, var11, var5);
-            (new class_arj(BlockStainedGlassPane.FLOWING_LAVA)).b(this.a, this.b, var7);
+            (new class_arj(Blocks.FLOWING_LAVA)).b(this.a, this.b, var7);
          }
       }
 

@@ -295,7 +295,7 @@ public class class_tp {
             }
 
             var2 = (class_tp.class_a_in_class_tp)var1.next();
-         } while(var2.a.ai() && Math.abs(this.g - var2.b) <= 300);
+         } while(var2.a.isAlive() && Math.abs(this.g - var2.b) <= 300);
 
          var1.remove();
       }

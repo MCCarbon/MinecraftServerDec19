@@ -12,7 +12,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
@@ -27,7 +27,7 @@ import net.minecraft.server.class_pd;
 import net.minecraft.server.class_pe;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_ql;
 import net.minecraft.server.class_qm;
@@ -93,20 +93,20 @@ public class class_wb extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(bt, new Short((short)0));
-      this.ac.a(bu, new Byte((byte)0));
-      this.ac.a(bv, new Byte((byte)0));
+      this.datawatcher.add(bt, new Short((short)0));
+      this.datawatcher.add(bu, new Byte((byte)0));
+      this.datawatcher.add(bv, new Byte((byte)0));
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       IBlockData var2 = this.cB();
       var1.put("carried", (short)Block.getId(var2.getBlock()));
       var1.put("carriedData", (short)var2.getBlock().toLegacyData(var2));
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       IBlockData var2;
       if(var1.hasOfType("carried", 8)) {
          var2 = Block.getByName(var1.getString("carried")).fromLegacyData(var1.getShort("carriedData") & '\uffff');
@@ -118,8 +118,8 @@ public class class_wb extends class_wi {
    }
 
    private boolean a(EntityHuman var1) {
-      ItemStack var2 = var1.bp.b[3];
-      if(var2 != null && var2.getItem() == Item.getItemOf(BlockStainedGlassPane.PUMPKIN)) {
+      ItemStack var2 = var1.inventory.b[3];
+      if(var2 != null && var2.getItem() == Item.getItemOf(Blocks.PUMPKIN)) {
          return false;
       } else {
          Vec3D var3 = var1.d(1.0F).normalize();
@@ -138,7 +138,7 @@ public class class_wb extends class_wi {
    public void m() {
       if(this.o.isClientSide) {
          for(int var1 = 0; var1 < 2; ++var1) {
-            this.o.a(class_cy.y, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K - 0.25D, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, (this.V.nextDouble() - 0.5D) * 2.0D, -this.V.nextDouble(), (this.V.nextDouble() - 0.5D) * 2.0D, new int[0]);
+            this.o.a(class_cy.y, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J, this.t + this.random.nextDouble() * (double)this.K - 0.25D, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J, (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
       }
 
@@ -148,16 +148,16 @@ public class class_wb extends class_wi {
 
    protected void cc() {
       if(this.U()) {
-         this.a(class_pc.f, 1.0F);
+         this.damageEntity(class_pc.f, 1.0F);
       }
 
-      if(this.cD() && !this.bw && this.V.nextInt(100) == 0) {
+      if(this.cD() && !this.bw && this.random.nextInt(100) == 0) {
          this.a(false);
       }
 
       if(this.o.x()) {
          float var1 = this.c(1.0F);
-         if(var1 > 0.5F && this.o.i(new BlockPosition(this)) && this.V.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
+         if(var1 > 0.5F && this.o.i(new BlockPosition(this)) && this.random.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F) {
             this.d((EntityLiving)null);
             this.a(false);
             this.bw = false;
@@ -169,9 +169,9 @@ public class class_wb extends class_wi {
    }
 
    protected boolean n() {
-      double var1 = this.s + (this.V.nextDouble() - 0.5D) * 64.0D;
-      double var3 = this.t + (double)(this.V.nextInt(64) - 32);
-      double var5 = this.u + (this.V.nextDouble() - 0.5D) * 64.0D;
+      double var1 = this.s + (this.random.nextDouble() - 0.5D) * 64.0D;
+      double var3 = this.t + (double)(this.random.nextInt(64) - 32);
+      double var5 = this.u + (this.random.nextDouble() - 0.5D) * 64.0D;
       return a(this, var1, var3, var5);
    }
 
@@ -179,9 +179,9 @@ public class class_wb extends class_wi {
       Vec3D var2 = new Vec3D(this.s - var1.s, this.aT().yMin + (double)(this.K / 2.0F) - var1.t + (double)var1.aU(), this.u - var1.u);
       var2 = var2.normalize();
       double var3 = 16.0D;
-      double var5 = this.s + (this.V.nextDouble() - 0.5D) * 8.0D - var2.x * var3;
-      double var7 = this.t + (double)(this.V.nextInt(16) - 8) - var2.y * var3;
-      double var9 = this.u + (this.V.nextDouble() - 0.5D) * 8.0D - var2.z * var3;
+      double var5 = this.s + (this.random.nextDouble() - 0.5D) * 8.0D - var2.x * var3;
+      double var7 = this.t + (double)(this.random.nextInt(16) - 8) - var2.y * var3;
+      double var9 = this.u + (this.random.nextDouble() - 0.5D) * 8.0D - var2.z * var3;
       return a(this, var5, var7, var9);
    }
 
@@ -260,7 +260,7 @@ public class class_wb extends class_wi {
    protected void b(boolean var1, int var2) {
       Item var3 = this.D();
       if(var3 != null) {
-         int var4 = this.V.nextInt(2 + var2);
+         int var4 = this.random.nextInt(2 + var2);
 
          for(int var5 = 0; var5 < var4; ++var5) {
             this.a(var3, 1);
@@ -275,14 +275,14 @@ public class class_wb extends class_wi {
    }
 
    public void a(IBlockData var1) {
-      this.ac.b(bt, Short.valueOf((short)(Block.getCombinedId(var1) & '\uffff')));
+      this.datawatcher.update(bt, Short.valueOf((short)(Block.getCombinedId(var1) & '\uffff')));
    }
 
    public IBlockData cB() {
-      return Block.getByCombinedId(this.ac.b(bt) & '\uffff');
+      return Block.getByCombinedId(this.datawatcher.getShort(bt) & '\uffff');
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
@@ -292,7 +292,7 @@ public class class_wb extends class_wi {
             }
 
             if(var1 instanceof class_pd && var1.j() instanceof EntityHuman) {
-               if(var1.j() instanceof EntityPlayer && ((EntityPlayer)var1.j()).c.d()) {
+               if(var1.j() instanceof EntityPlayer && ((EntityPlayer)var1.j()).playerInteractManager.d()) {
                   this.a(false);
                } else {
                   this.bw = true;
@@ -312,8 +312,8 @@ public class class_wb extends class_wi {
             }
          }
 
-         boolean var3 = super.a(var1, var2);
-         if(var1.e() && this.V.nextInt(10) != 0) {
+         boolean var3 = super.damageEntity(var1, var2);
+         if(var1.e() && this.random.nextInt(10) != 0) {
             this.n();
          }
 
@@ -322,34 +322,34 @@ public class class_wb extends class_wi {
    }
 
    public boolean cD() {
-      return this.ac.a(bv) > 0;
+      return this.datawatcher.getByte(bv) > 0;
    }
 
    public void a(boolean var1) {
-      this.ac.b(bv, Byte.valueOf((byte)(var1?1:0)));
+      this.datawatcher.update(bv, Byte.valueOf((byte)(var1?1:0)));
    }
 
    static {
       b = (new class_qm(a, "Attacking speed boost", 0.15000000596046448D, 0)).a(false);
       c = Sets.newIdentityHashSet();
-      bs = BlockStainedGlassPane.AIR.getBlockData();
-      c.add(BlockStainedGlassPane.GRASS);
-      c.add(BlockStainedGlassPane.DIRT);
-      c.add(BlockStainedGlassPane.SAND);
-      c.add(BlockStainedGlassPane.GRAVEL);
-      c.add(BlockStainedGlassPane.YELLOW_FLOWER);
-      c.add(BlockStainedGlassPane.RED_FLOWER);
-      c.add(BlockStainedGlassPane.BROWN_MUSHROOM);
-      c.add(BlockStainedGlassPane.RED_MUSHROOM);
-      c.add(BlockStainedGlassPane.TNT);
-      c.add(BlockStainedGlassPane.CACTUS);
-      c.add(BlockStainedGlassPane.CLAY);
-      c.add(BlockStainedGlassPane.PUMPKIN);
-      c.add(BlockStainedGlassPane.MELON_BLOCK);
-      c.add(BlockStainedGlassPane.MYCELIM);
-      bt = class_qi.a(class_wb.class);
-      bu = class_qi.a(class_wb.class);
-      bv = class_qi.a(class_wb.class);
+      bs = Blocks.AIR.getBlockData();
+      c.add(Blocks.GRASS);
+      c.add(Blocks.DIRT);
+      c.add(Blocks.SAND);
+      c.add(Blocks.GRAVEL);
+      c.add(Blocks.YELLOW_FLOWER);
+      c.add(Blocks.RED_FLOWER);
+      c.add(Blocks.BROWN_MUSHROOM);
+      c.add(Blocks.RED_MUSHROOM);
+      c.add(Blocks.TNT);
+      c.add(Blocks.CACTUS);
+      c.add(Blocks.CLAY);
+      c.add(Blocks.PUMPKIN);
+      c.add(Blocks.MELON_BLOCK);
+      c.add(Blocks.MYCELIM);
+      bt = Datawathcer.claimId(class_wb.class);
+      bu = Datawathcer.claimId(class_wb.class);
+      bv = Datawathcer.claimId(class_wb.class);
    }
 
    static class class_c_in_class_wb extends class_rm {

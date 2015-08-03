@@ -18,7 +18,7 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.EntityLiving;
@@ -52,7 +52,7 @@ public class class_abe extends Item {
 
    public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
       EntityHuman var4 = var3 instanceof EntityHuman?(EntityHuman)var3:null;
-      if(var4 == null || !var4.bH.instabuild) {
+      if(var4 == null || !var4.abilities.instabuild) {
          --var1.count;
       }
 
@@ -70,13 +70,13 @@ public class class_abe extends Item {
          var4.b(StatisticList.ad[Item.getId((Item)this)]);
       }
 
-      if(var4 == null || !var4.bH.instabuild) {
+      if(var4 == null || !var4.abilities.instabuild) {
          if(var1.count <= 0) {
             return new ItemStack(Items.bD);
          }
 
          if(var4 != null) {
-            var4.bp.a(new ItemStack(Items.bD));
+            var4.inventory.a(new ItemStack(Items.bD));
          }
       }
 
@@ -93,7 +93,7 @@ public class class_abe extends Item {
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
-      return new class_or(class_oq.a, var1);
+      return new class_or(UseResult.SUCCESS, var1);
    }
 
    public static int a(Collection var0) {

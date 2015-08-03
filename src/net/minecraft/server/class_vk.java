@@ -6,7 +6,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
@@ -18,13 +18,13 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pe;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.EntityHuman;
 
 public class class_vk extends Entity {
-   private static final int a = class_qi.a(class_vk.class);
-   private static final int b = class_qi.a(class_vk.class);
-   private static final int c = class_qi.a(class_vk.class);
+   private static final int a = Datawathcer.claimId(class_vk.class);
+   private static final int b = Datawathcer.claimId(class_vk.class);
+   private static final int c = Datawathcer.claimId(class_vk.class);
    private boolean d;
    private double e;
    private int f;
@@ -47,9 +47,9 @@ public class class_vk extends Entity {
    }
 
    protected void h() {
-      this.ac.a(a, new Integer(0));
-      this.ac.a(b, new Integer(1));
-      this.ac.a(c, new Float(0.0F));
+      this.datawatcher.add(a, new Integer(0));
+      this.datawatcher.add(b, new Integer(1));
+      this.datawatcher.add(c, new Float(0.0F));
    }
 
    public AxisAlignedBB j(Entity var1) {
@@ -79,21 +79,21 @@ public class class_vk extends Entity {
       return -0.3D;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else if(!this.o.isClientSide && !this.I) {
-         if(this.l != null && this.l == var1.j() && var1 instanceof class_pe) {
+         if(this.passenger != null && this.passenger == var1.j() && var1 instanceof class_pe) {
             return false;
          } else {
             this.b(-this.m());
             this.a(10);
             this.a(this.j() + var2 * 10.0F);
             this.ac();
-            boolean var3 = var1.j() instanceof EntityHuman && ((EntityHuman)var1.j()).bH.instabuild;
+            boolean var3 = var1.j() instanceof EntityHuman && ((EntityHuman)var1.j()).abilities.instabuild;
             if(var3 || this.j() > 40.0F) {
-               if(this.l != null) {
-                  this.l.a((Entity)this);
+               if(this.passenger != null) {
+                  this.passenger.a((Entity)this);
                }
 
                if(!var3 && this.o.R().b("doEntityDrops")) {
@@ -148,11 +148,11 @@ public class class_vk extends Entity {
          var8 = Math.sin((double)this.y * 3.141592653589793D / 180.0D);
 
          for(var10 = 0; (double)var10 < 1.0D + var19 * 60.0D; ++var10) {
-            double var11 = (double)(this.V.nextFloat() * 2.0F - 1.0F);
-            double var13 = (double)(this.V.nextInt(2) * 2 - 1) * 0.7D;
+            double var11 = (double)(this.random.nextFloat() * 2.0F - 1.0F);
+            double var13 = (double)(this.random.nextInt(2) * 2 - 1) * 0.7D;
             double var15;
             double var17;
-            if(this.V.nextBoolean()) {
+            if(this.random.nextBoolean()) {
                var15 = this.s - var6 * var11 * 0.8D + var8 * var13;
                var17 = this.u - var8 * var11 * 0.8D - var6 * var13;
                this.o.a(class_cy.f, var15, this.t - 0.125D, var17, this.v, this.motY, this.x, new int[0]);
@@ -205,9 +205,9 @@ public class class_vk extends Entity {
             this.motY += 0.007000000216066837D;
          }
 
-         if(this.l instanceof EntityLiving) {
-            EntityLiving var20 = (EntityLiving)this.l;
-            float var21 = this.l.y + -var20.bc * 90.0F;
+         if(this.passenger instanceof EntityLiving) {
+            EntityLiving var20 = (EntityLiving)this.passenger;
+            float var21 = this.passenger.y + -var20.bc * 90.0F;
             this.v += -Math.sin((double)(var21 * 3.1415927F / 180.0F)) * this.e * (double)var20.bd * 0.05000000074505806D;
             this.x += Math.cos((double)(var21 * 3.1415927F / 180.0F)) * this.e * (double)var20.bd * 0.05000000074505806D;
          }
@@ -241,10 +241,10 @@ public class class_vk extends Entity {
                int var12 = MathHelper.floor(this.t) + var25;
                BlockPosition var27 = new BlockPosition(var23, var12, var10);
                Block var14 = this.o.getType(var27).getBlock();
-               if(var14 == BlockStainedGlassPane.SNOW_LAYER) {
+               if(var14 == Blocks.SNOW_LAYER) {
                   this.o.setAir(var27);
                   this.D = false;
-               } else if(var14 == BlockStainedGlassPane.WATERLILY) {
+               } else if(var14 == Blocks.WATERLILY) {
                   this.o.setAir(var27, true);
                   this.D = false;
                }
@@ -263,11 +263,11 @@ public class class_vk extends Entity {
                this.J();
                if(this.o.R().b("doEntityDrops")) {
                   for(var22 = 0; var22 < 3; ++var22) {
-                     this.a(Item.getItemOf(BlockStainedGlassPane.PLANKS), 1, 0.0F);
+                     this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);
                   }
 
                   for(var22 = 0; var22 < 2; ++var22) {
-                     this.a(Items.STICK, 1, 0.0F);
+                     this.a(Items.A, 1, 0.0F);
                   }
                }
             }
@@ -297,18 +297,18 @@ public class class_vk extends Entity {
          this.y = (float)((double)this.y + var28);
          this.b(this.y, this.z);
          if(!this.o.isClientSide) {
-            List var16 = this.o.b((Entity)this, (AxisAlignedBB)this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D));
+            List var16 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D));
             if(var16 != null && !var16.isEmpty()) {
                for(int var29 = 0; var29 < var16.size(); ++var29) {
                   Entity var18 = (Entity)var16.get(var29);
-                  if(var18 != this.l && var18.ae() && var18 instanceof class_vk) {
+                  if(var18 != this.passenger && var18.ae() && var18 instanceof class_vk) {
                      var18.i(this);
                   }
                }
             }
 
-            if(this.l != null && this.l.I) {
-               this.l = null;
+            if(this.passenger != null && this.passenger.I) {
+               this.passenger = null;
             }
 
          }
@@ -316,21 +316,21 @@ public class class_vk extends Entity {
    }
 
    public void al() {
-      if(this.l != null) {
+      if(this.passenger != null) {
          double var1 = Math.cos((double)this.y * 3.141592653589793D / 180.0D) * 0.4D;
          double var3 = Math.sin((double)this.y * 3.141592653589793D / 180.0D) * 0.4D;
-         this.l.b(this.s + var1, this.t + this.an() + this.l.am(), this.u + var3);
+         this.passenger.b(this.s + var1, this.t + this.an() + this.passenger.am(), this.u + var3);
       }
    }
 
-   protected void b(NBTTagCompound var1) {
+   protected void write(NBTTagCompound var1) {
    }
 
-   protected void a(NBTTagCompound var1) {
+   protected void read(NBTTagCompound var1) {
    }
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
-      if(this.l != null && this.l instanceof EntityHuman && this.l != var1) {
+      if(this.passenger != null && this.passenger instanceof EntityHuman && this.passenger != var1) {
          return true;
       } else {
          if(!this.o.isClientSide) {
@@ -350,11 +350,11 @@ public class class_vk extends Entity {
                if(this.o.R().b("doEntityDrops")) {
                   int var6;
                   for(var6 = 0; var6 < 3; ++var6) {
-                     this.a(Item.getItemOf(BlockStainedGlassPane.PLANKS), 1, 0.0F);
+                     this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);
                   }
 
                   for(var6 = 0; var6 < 2; ++var6) {
-                     this.a(Items.STICK, 1, 0.0F);
+                     this.a(Items.A, 1, 0.0F);
                   }
                }
             }
@@ -368,26 +368,26 @@ public class class_vk extends Entity {
    }
 
    public void a(float var1) {
-      this.ac.b(c, Float.valueOf(var1));
+      this.datawatcher.update(c, Float.valueOf(var1));
    }
 
    public float j() {
-      return this.ac.d(c);
+      return this.datawatcher.getFloat(c);
    }
 
    public void a(int var1) {
-      this.ac.b(a, Integer.valueOf(var1));
+      this.datawatcher.update(a, Integer.valueOf(var1));
    }
 
    public int l() {
-      return this.ac.c(a);
+      return this.datawatcher.getInt(a);
    }
 
    public void b(int var1) {
-      this.ac.b(b, Integer.valueOf(var1));
+      this.datawatcher.update(b, Integer.valueOf(var1));
    }
 
    public int m() {
-      return this.ac.c(b);
+      return this.datawatcher.getInt(b);
    }
 }

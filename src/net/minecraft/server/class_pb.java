@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatMessage;
@@ -33,9 +33,9 @@ public class class_pb {
       this.j();
       if(this.b.k_()) {
          Block var1 = this.b.o.getType(new BlockPosition(this.b.s, this.b.aT().yMin, this.b.u)).getBlock();
-         if(var1 == BlockStainedGlassPane.LADDER) {
+         if(var1 == Blocks.LADDER) {
             this.h = "ladder";
-         } else if(var1 == BlockStainedGlassPane.VINE) {
+         } else if(var1 == Blocks.VINE) {
             this.h = "vines";
          }
       } else if(this.b.V()) {
@@ -51,7 +51,7 @@ public class class_pb {
       this.a.add(var4);
       this.c = this.b.W;
       this.g = true;
-      if(var4.f() && !this.f && this.b.ai()) {
+      if(var4.f() && !this.f && this.b.isAlive()) {
          this.f = true;
          this.d = this.b.W;
          this.e = this.d;
@@ -183,7 +183,7 @@ public class class_pb {
 
    public void g() {
       int var1 = this.f?300:100;
-      if(this.g && (!this.b.ai() || this.b.W - this.c > var1)) {
+      if(this.g && (!this.b.isAlive() || this.b.W - this.c > var1)) {
          boolean var2 = this.f;
          this.g = false;
          this.f = false;

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockBed;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.IBlockData;
@@ -54,17 +54,17 @@ public class class_sb extends class_rx {
       } else {
          IBlockData var3 = var1.getType(var2);
          Block var4 = var3.getBlock();
-         if(var4 == BlockStainedGlassPane.CHEST) {
+         if(var4 == Blocks.CHEST) {
             TileEntity var5 = var1.getTileEntity(var2);
             if(var5 instanceof TileEntityChest && ((TileEntityChest)var5).l < 1) {
                return true;
             }
          } else {
-            if(var4 == BlockStainedGlassPane.LIT_FURNACE) {
+            if(var4 == Blocks.LIT_FURNACE) {
                return true;
             }
 
-            if(var4 == BlockStainedGlassPane.BED && var3.get(BlockBed.PART) != BlockBed.EnumBedPart.HEAD) {
+            if(var4 == Blocks.BED && var3.get(BlockBed.PART) != BlockBed.EnumBedPart.HEAD) {
                return true;
             }
          }

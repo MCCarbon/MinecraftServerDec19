@@ -52,10 +52,10 @@ public class class_vb extends class_uz {
       return false;
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
    }
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
@@ -83,7 +83,7 @@ public class class_vb extends class_uz {
 
          if(!var4) {
             this.J();
-            if(var1.bH.instabuild) {
+            if(var1.abilities.instabuild) {
                var5 = 7.0D;
                var7 = this.o.getEntities(class_qb.class, new AxisAlignedBB(this.s - var5, this.t - var5, this.u - var5, this.s + var5, this.t + var5, this.u + var5));
                var8 = var7.iterator();

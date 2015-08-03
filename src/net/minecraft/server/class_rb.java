@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.server.class_auv;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_pv;
+import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.class_qh;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tg;
@@ -31,7 +31,7 @@ public class class_rb extends class_rm {
    public class_rb(class_qh var1, Class var2, Predicate var3, float var4, double var5, double var7) {
       this.c = new Predicate() {
          public boolean a(Entity var1) {
-            return var1.ai() && class_rb.this.a.v().a(var1);
+            return var1.isAlive() && class_rb.this.a.v().a(var1);
          }
 
          // $FF: synthetic method
@@ -50,7 +50,7 @@ public class class_rb extends class_rm {
    }
 
    public boolean a() {
-      List var1 = this.a.o.a(this.i, this.a.aT().grow((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{class_pv.d, this.c, this.j}));
+      List var1 = this.a.o.a(this.i, this.a.aT().grow((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{IEntitySelector.NOT_PLAYER_SPECTATOR, this.c, this.j}));
       if(var1.isEmpty()) {
          return false;
       } else {

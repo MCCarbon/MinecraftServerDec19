@@ -10,11 +10,11 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_qh;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.EntityHuman;
 
 public abstract class class_po extends class_qh {
-   private static final int bs = class_qi.a(class_po.class);
+   private static final int bs = Datawathcer.claimId(class_po.class);
    protected int a;
    protected int b;
    protected int c;
@@ -41,7 +41,7 @@ public abstract class class_po extends class_qh {
                      var5.a((String)var3.getDisplayName());
                   }
 
-                  if(!var1.bH.instabuild) {
+                  if(!var1.abilities.instabuild) {
                      --var3.count;
                   }
                }
@@ -56,11 +56,11 @@ public abstract class class_po extends class_qh {
 
    protected void h() {
       super.h();
-      this.ac.a(bs, Byte.valueOf((byte)0));
+      this.datawatcher.add(bs, Byte.valueOf((byte)0));
    }
 
    public int l() {
-      return this.o.isClientSide?this.ac.a(bs):this.a;
+      return this.o.isClientSide?this.datawatcher.getByte(bs):this.a;
    }
 
    public void a(int var1, boolean var2) {
@@ -94,19 +94,19 @@ public abstract class class_po extends class_qh {
    }
 
    public void b(int var1) {
-      this.ac.b(bs, Byte.valueOf((byte)MathHelper.clamp(var1, -1, 1)));
+      this.datawatcher.update(bs, Byte.valueOf((byte)MathHelper.clamp(var1, -1, 1)));
       this.a = var1;
       this.a(this.j_());
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Age", this.l());
       var1.put("ForcedAge", this.b);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.b(var1.getInt("Age"));
       this.b = var1.getInt("ForcedAge");
    }
@@ -124,7 +124,7 @@ public abstract class class_po extends class_qh {
       if(this.o.isClientSide) {
          if(this.c > 0) {
             if(this.c % 4 == 0) {
-               this.o.a(class_cy.v, this.s + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.V.nextFloat() * this.K), this.u + (double)(this.V.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[0]);
+               this.o.a(class_cy.v, this.s + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.random.nextFloat() * this.K), this.u + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, 0.0D, 0.0D, 0.0D, new int[0]);
             }
 
             --this.c;

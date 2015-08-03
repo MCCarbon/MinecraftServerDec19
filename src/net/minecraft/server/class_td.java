@@ -38,7 +38,7 @@ public abstract class class_td extends class_rm {
       EntityLiving var1 = this.e.w();
       if(var1 == null) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
       } else {
          class_awp var2 = this.e.bP();
@@ -58,7 +58,7 @@ public abstract class class_td extends class_rm {
                   }
                }
 
-               return !(var1 instanceof EntityHuman) || !((EntityHuman)var1).bH.invulnerable;
+               return !(var1 instanceof EntityHuman) || !((EntityHuman)var1).abilities.invulnerable;
             }
          }
       }
@@ -84,7 +84,7 @@ public abstract class class_td extends class_rm {
          return false;
       } else if(var1 == var0) {
          return false;
-      } else if(!var1.ai()) {
+      } else if(!var1.isAlive()) {
          return false;
       } else if(!var0.a(var1.getClass())) {
          return false;
@@ -99,7 +99,7 @@ public abstract class class_td extends class_rm {
             if(var1 == ((class_qg)var0).m_()) {
                return false;
             }
-         } else if(var1 instanceof EntityHuman && !var2 && ((EntityHuman)var1).bH.invulnerable) {
+         } else if(var1 instanceof EntityHuman && !var2 && ((EntityHuman)var1).abilities.invulnerable) {
             return false;
          }
 

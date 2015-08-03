@@ -65,9 +65,9 @@ import net.minecraft.server.class_acb;
 import net.minecraft.server.class_acc;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockDirt;
-import net.minecraft.server.BlockTallPlant;
+import net.minecraft.server.class_ahm;
 import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.class_ajh;
 import net.minecraft.server.BlockWood;
@@ -90,7 +90,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.class_pm;
@@ -102,7 +102,7 @@ import net.minecraft.server.class_vc;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_yz;
-import net.minecraft.server.ItemArmor;
+import net.minecraft.server.class_za;
 import net.minecraft.server.class_zb;
 import net.minecraft.server.class_zc;
 import net.minecraft.server.class_zd;
@@ -187,8 +187,8 @@ public class Item {
 		return this;
 	}
 
-	public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
-		return class_oq.b;
+	public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+		return UseResult.CANT_USE;
 	}
 
 	public float a(ItemStack var1, Block var2) {
@@ -196,7 +196,7 @@ public class Item {
 	}
 
 	public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-		return new class_or(class_oq.b, var1);
+		return new class_or(UseResult.CANT_USE, var1);
 	}
 
 	public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
@@ -366,7 +366,7 @@ public class Item {
 	}
 
 	public static void init() {
-		register((Block) BlockStainedGlassPane.STONE, (Item) (new class_aba(BlockStainedGlassPane.STONE, BlockStainedGlassPane.STONE, new Function<Object, Object>() {
+		register((Block) Blocks.STONE, (Item) (new class_aba(Blocks.STONE, Blocks.STONE, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockStone.EnumStoneVariant.getByData(var1.i()).getILocaleName();
 			}
@@ -376,8 +376,8 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("stone"));
-		register((Block) BlockStainedGlassPane.GRASS, (Item) (new class_abx(BlockStainedGlassPane.GRASS, false)));
-		register((Block) BlockStainedGlassPane.DIRT, (Item) (new class_aba(BlockStainedGlassPane.DIRT, BlockStainedGlassPane.DIRT, new Function<Object, Object>() {
+		register((Block) Blocks.GRASS, (Item) (new class_abx(Blocks.GRASS, false)));
+		register((Block) Blocks.DIRT, (Item) (new class_aba(Blocks.DIRT, Blocks.DIRT, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockDirt.EnumDirtVariant.getById(var1.i()).c();
 			}
@@ -387,8 +387,8 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("dirt"));
-		register(BlockStainedGlassPane.COBBLESTONE);
-		register((Block) BlockStainedGlassPane.PLANKS, (Item) (new class_aba(BlockStainedGlassPane.PLANKS, BlockStainedGlassPane.PLANKS, new Function<Object, Object>() {
+		register(Blocks.COBBLESTONE);
+		register((Block) Blocks.PLANKS, (Item) (new class_aba(Blocks.PLANKS, Blocks.PLANKS, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockWood.EnumLogVariant.getById(var1.i()).d();
 			}
@@ -398,7 +398,7 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("wood"));
-		register((Block) BlockStainedGlassPane.SAPLING, (Item) (new class_aba(BlockStainedGlassPane.SAPLING, BlockStainedGlassPane.SAPLING, new Function<Object, Object>() {
+		register((Block) Blocks.SAPLING, (Item) (new class_aba(Blocks.SAPLING, Blocks.SAPLING, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockWood.EnumLogVariant.getById(var1.i()).d();
 			}
@@ -408,8 +408,8 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("sapling"));
-		register(BlockStainedGlassPane.BEDROCK);
-		register((Block) BlockStainedGlassPane.SAND, (Item) (new class_aba(BlockStainedGlassPane.SAND, BlockStainedGlassPane.SAND, new Function<Object, Object>() {
+		register(Blocks.BEDROCK);
+		register((Block) Blocks.SAND, (Item) (new class_aba(Blocks.SAND, Blocks.SAND, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockSand.EnumSandVariant.getById(var1.i()).d();
 			}
@@ -419,11 +419,11 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("sand"));
-		register(BlockStainedGlassPane.GRAVEL);
-		register(BlockStainedGlassPane.GOLD_ORE);
-		register(BlockStainedGlassPane.IRON_ORE);
-		register(BlockStainedGlassPane.COAL_ORE);
-		register((Block) BlockStainedGlassPane.LOG, (Item) (new class_aba(BlockStainedGlassPane.LOG, BlockStainedGlassPane.LOG, new Function<Object, Object>() {
+		register(Blocks.GRAVEL);
+		register(Blocks.GOLD_ORE);
+		register(Blocks.IRON_ORE);
+		register(Blocks.COAL_ORE);
+		register((Block) Blocks.LOG, (Item) (new class_aba(Blocks.LOG, Blocks.LOG, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockWood.EnumLogVariant.getById(var1.i()).d();
 			}
@@ -433,7 +433,7 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("log"));
-		register((Block) BlockStainedGlassPane.LOG2, (Item) (new class_aba(BlockStainedGlassPane.LOG2, BlockStainedGlassPane.LOG2, new Function<Object, Object>() {
+		register((Block) Blocks.LOG2, (Item) (new class_aba(Blocks.LOG2, Blocks.LOG2, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockWood.EnumLogVariant.getById(var1.i() + 4).d();
 			}
@@ -443,9 +443,9 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("log"));
-		register((Block) BlockStainedGlassPane.LEAVES, (Item) (new class_aaw(BlockStainedGlassPane.LEAVES)).b("leaves"));
-		register((Block) BlockStainedGlassPane.LEAVES2, (Item) (new class_aaw(BlockStainedGlassPane.LEAVES2)).b("leaves"));
-		register((Block) BlockStainedGlassPane.SPONGE, (Item) (new class_aba(BlockStainedGlassPane.SPONGE, BlockStainedGlassPane.SPONGE, new Function<Object, Object>() {
+		register((Block) Blocks.LEAVES, (Item) (new class_aaw(Blocks.LEAVES)).b("leaves"));
+		register((Block) Blocks.LEAVES2, (Item) (new class_aaw(Blocks.LEAVES2)).b("leaves"));
+		register((Block) Blocks.SPONGE, (Item) (new class_aba(Blocks.SPONGE, Blocks.SPONGE, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return (var1.i() & 1) == 1 ? "wet" : "dry";
 			}
@@ -455,11 +455,11 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("sponge"));
-		register(BlockStainedGlassPane.GLASS);
-		register(BlockStainedGlassPane.LAPIS_ORE);
-		register(BlockStainedGlassPane.LAPIS_BLOCK);
-		register(BlockStainedGlassPane.DISPENSER);
-		register((Block) BlockStainedGlassPane.SANDSTONE, (Item) (new class_aba(BlockStainedGlassPane.SANDSTONE, BlockStainedGlassPane.SANDSTONE, new Function<Object, Object>() {
+		register(Blocks.GLASS);
+		register(Blocks.LAPIS_ORE);
+		register(Blocks.LAPIS_BLOCK);
+		register(Blocks.DISPENSER);
+		register((Block) Blocks.SANDSTONE, (Item) (new class_aba(Blocks.SANDSTONE, Blocks.SANDSTONE, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockSandStone.EnumSandstoneVariant.getById(var1.i()).c();
 			}
@@ -469,16 +469,16 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("sandStone"));
-		register(BlockStainedGlassPane.NOTEBLOCK);
-		register(BlockStainedGlassPane.GOLDEN_RAIL);
-		register(BlockStainedGlassPane.DETECTOR_RAIL);
-		register((Block) BlockStainedGlassPane.STICKY_PISTON, (Item) (new class_abd(BlockStainedGlassPane.STICKY_PISTON)));
-		register(BlockStainedGlassPane.WEB);
-		register((Block) BlockStainedGlassPane.TALLGRASS, (Item) (new class_abx(BlockStainedGlassPane.TALLGRASS, true)).a(new String[] { "shrub", "grass", "fern" }));
-		register((Block) BlockStainedGlassPane.DEADBUSH);
-		register((Block) BlockStainedGlassPane.PISTON, (Item) (new class_abd(BlockStainedGlassPane.PISTON)));
-		register((Block) BlockStainedGlassPane.WOOL, (Item) (new class_aaa(BlockStainedGlassPane.WOOL)).b("cloth"));
-		register((Block) BlockStainedGlassPane.YELLOW_FLOWER, (Item) (new class_aba(BlockStainedGlassPane.YELLOW_FLOWER, BlockStainedGlassPane.YELLOW_FLOWER, new Function<Object, Object>() {
+		register(Blocks.NOTEBLOCK);
+		register(Blocks.GOLDEN_RAIL);
+		register(Blocks.DETECTOR_RAIL);
+		register((Block) Blocks.STICKY_PISTON, (Item) (new class_abd(Blocks.STICKY_PISTON)));
+		register(Blocks.WEB);
+		register((Block) Blocks.TALLGRASS, (Item) (new class_abx(Blocks.TALLGRASS, true)).a(new String[] { "shrub", "grass", "fern" }));
+		register((Block) Blocks.DEADBUSH);
+		register((Block) Blocks.PISTON, (Item) (new class_abd(Blocks.PISTON)));
+		register((Block) Blocks.WOOL, (Item) (new class_aaa(Blocks.WOOL)).b("cloth"));
+		register((Block) Blocks.YELLOW_FLOWER, (Item) (new class_aba(Blocks.YELLOW_FLOWER, Blocks.YELLOW_FLOWER, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockFlowers.EnumFlowerVarient.getById(BlockFlowers.EnumFlowerType.YELLOW, var1.i()).d();
 			}
@@ -488,7 +488,7 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("flower"));
-		register((Block) BlockStainedGlassPane.RED_FLOWER, (Item) (new class_aba(BlockStainedGlassPane.RED_FLOWER, BlockStainedGlassPane.RED_FLOWER, new Function<Object, Object>() {
+		register((Block) Blocks.RED_FLOWER, (Item) (new class_aba(Blocks.RED_FLOWER, Blocks.RED_FLOWER, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return BlockFlowers.EnumFlowerVarient.getById(BlockFlowers.EnumFlowerType.RED, var1.i()).d();
 			}
@@ -498,61 +498,61 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("rose"));
-		register((Block) BlockStainedGlassPane.BROWN_MUSHROOM);
-		register((Block) BlockStainedGlassPane.RED_MUSHROOM);
-		register(BlockStainedGlassPane.GOLD_BLOCK);
-		register(BlockStainedGlassPane.IRON_BLOCK);
-		register((Block) BlockStainedGlassPane.STONE_SLAB, (Item) (new class_abq(BlockStainedGlassPane.STONE_SLAB, BlockStainedGlassPane.STONE_SLAB, BlockStainedGlassPane.DOUBLE_SANDSTONE_SLAB)).b("stoneSlab"));
-		register(BlockStainedGlassPane.BRICK_BLOCK);
-		register(BlockStainedGlassPane.TNT);
-		register(BlockStainedGlassPane.BOOKSHELF);
-		register(BlockStainedGlassPane.MOSSY_COBBLESTONE);
-		register(BlockStainedGlassPane.OBSIDIAN);
-		register(BlockStainedGlassPane.TORCH);
-		register(BlockStainedGlassPane.END_ROD);
-		register(BlockStainedGlassPane.CHORUS_PLANT);
-		register(BlockStainedGlassPane.CHORUS_FLOWER);
-		register(BlockStainedGlassPane.PURPUR_BLOCK);
-		register(BlockStainedGlassPane.PURPUR_PILLAR);
-		register(BlockStainedGlassPane.PURPUR_STAIRS);
-		register((Block) BlockStainedGlassPane.PURPUR_SLAB, (Item) (new class_abq(BlockStainedGlassPane.PURPUR_SLAB, BlockStainedGlassPane.PURPUR_SLAB, BlockStainedGlassPane.PURPUR_DOUBLE_SLAB)).b("purpurSlab"));
-		register(BlockStainedGlassPane.MOB_SPAWNER);
-		register(BlockStainedGlassPane.OAK_STAIRS);
-		register((Block) BlockStainedGlassPane.CHEST);
-		register(BlockStainedGlassPane.DIAMOND_ORE);
-		register(BlockStainedGlassPane.DIAMOND_BLOCK);
-		register(BlockStainedGlassPane.CRAFTING_TABLE);
-		register(BlockStainedGlassPane.FARMLAND);
-		register(BlockStainedGlassPane.FURNACE);
-		register(BlockStainedGlassPane.LIT_FURNACE);
-		register(BlockStainedGlassPane.LADDER);
-		register(BlockStainedGlassPane.RAIL);
-		register(BlockStainedGlassPane.STONE_STAIRS);
-		register(BlockStainedGlassPane.LEVER);
-		register(BlockStainedGlassPane.STONE_PRESSURE_PLATE);
-		register(BlockStainedGlassPane.WOODEN_PRESSURE_PLATE);
-		register(BlockStainedGlassPane.REDSTONE_ORE);
-		register(BlockStainedGlassPane.REDSTONE_TORCH);
-		register(BlockStainedGlassPane.STONE_BUTTON);
-		register((Block) BlockStainedGlassPane.SNOW_LAYER, (Item) (new class_abr(BlockStainedGlassPane.SNOW_LAYER)));
-		register(BlockStainedGlassPane.ICE);
-		register(BlockStainedGlassPane.SNOW);
-		register((Block) BlockStainedGlassPane.CACTUS);
-		register(BlockStainedGlassPane.CLAY);
-		register(BlockStainedGlassPane.JUKEBOX);
-		register(BlockStainedGlassPane.FENCE);
-		register(BlockStainedGlassPane.SPRUCE_FENCE);
-		register(BlockStainedGlassPane.BIRCH_FENCE);
-		register(BlockStainedGlassPane.JUNGLE_FENCE);
-		register(BlockStainedGlassPane.DARK_OAK_FENCE);
-		register(BlockStainedGlassPane.ACACIA_FENCE);
-		register(BlockStainedGlassPane.PUMPKIN);
-		register(BlockStainedGlassPane.NETHERRACK);
-		register(BlockStainedGlassPane.SOUL_SAND);
-		register(BlockStainedGlassPane.GLOWSTONE);
-		register(BlockStainedGlassPane.LIT_PUMPKIN);
-		register(BlockStainedGlassPane.TRAPDOOR);
-		register((Block) BlockStainedGlassPane.MONSTER_EGG, (Item) (new class_aba(BlockStainedGlassPane.MONSTER_EGG, BlockStainedGlassPane.MONSTER_EGG, new Function<Object, Object>() {
+		register((Block) Blocks.BROWN_MUSHROOM);
+		register((Block) Blocks.RED_MUSHROOM);
+		register(Blocks.GOLD_BLOCK);
+		register(Blocks.IRON_BLOCK);
+		register((Block) Blocks.STONE_SLAB, (Item) (new class_abq(Blocks.STONE_SLAB, Blocks.STONE_SLAB, Blocks.DOUBLE_SANDSTONE_SLAB)).b("stoneSlab"));
+		register(Blocks.BRICK_BLOCK);
+		register(Blocks.TNT);
+		register(Blocks.BOOKSHELF);
+		register(Blocks.MOSSY_COBBLESTONE);
+		register(Blocks.OBSIDIAN);
+		register(Blocks.TORCH);
+		register(Blocks.END_ROD);
+		register(Blocks.CHORUS_PLANT);
+		register(Blocks.CHORUS_FLOWER);
+		register(Blocks.PURPUR_BLOCK);
+		register(Blocks.PURPUR_PILLAR);
+		register(Blocks.PURPUR_STAIRS);
+		register((Block) Blocks.PURPUR_SLAB, (Item) (new class_abq(Blocks.PURPUR_SLAB, Blocks.PURPUR_SLAB, Blocks.PURPUR_DOUBLE_SLAB)).b("purpurSlab"));
+		register(Blocks.MOB_SPAWNER);
+		register(Blocks.OAK_STAIRS);
+		register((Block) Blocks.CHEST);
+		register(Blocks.DIAMOND_ORE);
+		register(Blocks.DIAMOND_BLOCK);
+		register(Blocks.CRAFTING_TABLE);
+		register(Blocks.FARMLAND);
+		register(Blocks.FURNACE);
+		register(Blocks.LIT_FURNACE);
+		register(Blocks.LADDER);
+		register(Blocks.RAIL);
+		register(Blocks.STONE_STAIRS);
+		register(Blocks.LEVER);
+		register(Blocks.STONE_PRESSURE_PLATE);
+		register(Blocks.WOODEN_PRESSURE_PLATE);
+		register(Blocks.REDSTONE_ORE);
+		register(Blocks.REDSTONE_TORCH);
+		register(Blocks.STONE_BUTTON);
+		register((Block) Blocks.SNOW_LAYER, (Item) (new class_abr(Blocks.SNOW_LAYER)));
+		register(Blocks.ICE);
+		register(Blocks.SNOW);
+		register((Block) Blocks.CACTUS);
+		register(Blocks.CLAY);
+		register(Blocks.JUKEBOX);
+		register(Blocks.FENCE);
+		register(Blocks.SPRUCE_FENCE);
+		register(Blocks.BIRCH_FENCE);
+		register(Blocks.JUNGLE_FENCE);
+		register(Blocks.DARK_OAK_FENCE);
+		register(Blocks.ACACIA_FENCE);
+		register(Blocks.PUMPKIN);
+		register(Blocks.NETHERRACK);
+		register(Blocks.SOUL_SAND);
+		register(Blocks.GLOWSTONE);
+		register(Blocks.LIT_PUMPKIN);
+		register(Blocks.TRAPDOOR);
+		register((Block) Blocks.MONSTER_EGG, (Item) (new class_aba(Blocks.MONSTER_EGG, Blocks.MONSTER_EGG, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return class_ajh.class_a_in_class_ajh.a(var1.i()).c();
 			}
@@ -562,7 +562,7 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("monsterStoneEgg"));
-		register((Block) BlockStainedGlassPane.STONEBRICK, (Item) (new class_aba(BlockStainedGlassPane.STONEBRICK, BlockStainedGlassPane.STONEBRICK, new Function<Object, Object>() {
+		register((Block) Blocks.STONEBRICK, (Item) (new class_aba(Blocks.STONEBRICK, Blocks.STONEBRICK, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return class_ali.class_a_in_class_ali.a(var1.i()).c();
 			}
@@ -572,43 +572,43 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("stonebricksmooth"));
-		register(BlockStainedGlassPane.BROWN_MUSHROOM_BLOCK);
-		register(BlockStainedGlassPane.RED_MUSHROOM_BLOCK);
-		register(BlockStainedGlassPane.IRON_BARS);
-		register(BlockStainedGlassPane.GLASS_PANE);
-		register(BlockStainedGlassPane.MELON_BLOCK);
-		register((Block) BlockStainedGlassPane.VINE, (Item) (new class_abx(BlockStainedGlassPane.VINE, false)));
-		register(BlockStainedGlassPane.FENCE_GATE);
-		register(BlockStainedGlassPane.SPRUCE_FENCE_GATE);
-		register(BlockStainedGlassPane.BIRCH_FENCE_GATE);
-		register(BlockStainedGlassPane.JUGLE_FENCE_GATE);
-		register(BlockStainedGlassPane.DARK_OAK_FENCE_GATE);
-		register(BlockStainedGlassPane.ACACIA_FENCE_GATE);
-		register(BlockStainedGlassPane.BRICK_STAIRS);
-		register(BlockStainedGlassPane.STONE_BRICK_STAIRS);
-		register((Block) BlockStainedGlassPane.MYCELIM);
-		register((Block) BlockStainedGlassPane.WATERLILY, (Item) (new class_aca(BlockStainedGlassPane.WATERLILY)));
-		register(BlockStainedGlassPane.NETHER_BRICK);
-		register(BlockStainedGlassPane.NETHER_BRICK_FENCE);
-		register(BlockStainedGlassPane.NETHER_BTICK_STAIRS);
-		register(BlockStainedGlassPane.ENCHANTING_TABLE);
-		register(BlockStainedGlassPane.END_PORTAL_FRAME);
-		register(BlockStainedGlassPane.END_STONE);
-		register(BlockStainedGlassPane.END_BRICKS);
-		register(BlockStainedGlassPane.DRAGON_EGG);
-		register(BlockStainedGlassPane.REDSTONE_LAMP);
-		register((Block) BlockStainedGlassPane.WOODEN_SLAB, (Item) (new class_abq(BlockStainedGlassPane.WOODEN_SLAB, BlockStainedGlassPane.WOODEN_SLAB, BlockStainedGlassPane.DOUBLE_WOODEN_SLAB)).b("woodSlab"));
-		register(BlockStainedGlassPane.SANDSTONE_STAIRS);
-		register(BlockStainedGlassPane.EMERALD_ORE);
-		register(BlockStainedGlassPane.ENDER_CHEST);
-		register((Block) BlockStainedGlassPane.TRIPWIRE_HOOK);
-		register(BlockStainedGlassPane.EMERALD_BLOCK);
-		register(BlockStainedGlassPane.SPRUCE_STAIRS);
-		register(BlockStainedGlassPane.BIRCH_STAIRS);
-		register(BlockStainedGlassPane.JUNGKE_STAIRS);
-		register(BlockStainedGlassPane.COMMAND_BLOCK);
-		register((Block) BlockStainedGlassPane.BEACON);
-		register((Block) BlockStainedGlassPane.COBBLESTONE_WALL, (Item) (new class_aba(BlockStainedGlassPane.COBBLESTONE_WALL, BlockStainedGlassPane.COBBLESTONE_WALL, new Function<Object, Object>() {
+		register(Blocks.BROWN_MUSHROOM_BLOCK);
+		register(Blocks.RED_MUSHROOM_BLOCK);
+		register(Blocks.IRON_BARS);
+		register(Blocks.GLASS_PANE);
+		register(Blocks.MELON_BLOCK);
+		register((Block) Blocks.VINE, (Item) (new class_abx(Blocks.VINE, false)));
+		register(Blocks.FENCE_GATE);
+		register(Blocks.SPRUCE_FENCE_GATE);
+		register(Blocks.BIRCH_FENCE_GATE);
+		register(Blocks.JUGLE_FENCE_GATE);
+		register(Blocks.DARK_OAK_FENCE_GATE);
+		register(Blocks.ACACIA_FENCE_GATE);
+		register(Blocks.BRICK_STAIRS);
+		register(Blocks.STONE_BRICK_STAIRS);
+		register((Block) Blocks.MYCELIM);
+		register((Block) Blocks.WATERLILY, (Item) (new class_aca(Blocks.WATERLILY)));
+		register(Blocks.NETHER_BRICK);
+		register(Blocks.NETHER_BRICK_FENCE);
+		register(Blocks.NETHER_BTICK_STAIRS);
+		register(Blocks.ENCHANTING_TABLE);
+		register(Blocks.END_PORTAL_FRAME);
+		register(Blocks.END_STONE);
+		register(Blocks.END_BRICKS);
+		register(Blocks.DRAGON_EGG);
+		register(Blocks.REDSTONE_LAMP);
+		register((Block) Blocks.WOODEN_SLAB, (Item) (new class_abq(Blocks.WOODEN_SLAB, Blocks.WOODEN_SLAB, Blocks.DOUBLE_WOODEN_SLAB)).b("woodSlab"));
+		register(Blocks.SANDSTONE_STAIRS);
+		register(Blocks.EMERALD_ORE);
+		register(Blocks.ENDER_CHEST);
+		register((Block) Blocks.TRIPWIRE_HOOK);
+		register(Blocks.EMERALD_BLOCK);
+		register(Blocks.SPRUCE_STAIRS);
+		register(Blocks.BIRCH_STAIRS);
+		register(Blocks.JUNGKE_STAIRS);
+		register(Blocks.COMMAND_BLOCK);
+		register((Block) Blocks.BEACON);
+		register((Block) Blocks.COBBLESTONE_WALL, (Item) (new class_aba(Blocks.COBBLESTONE_WALL, Blocks.COBBLESTONE_WALL, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return class_alv.class_a_in_class_alv.a(var1.i()).c();
 			}
@@ -618,34 +618,34 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("cobbleWall"));
-		register(BlockStainedGlassPane.WOODEN_BUTTON);
-		register((Block) BlockStainedGlassPane.ANVIL, (Item) (new class_yz(BlockStainedGlassPane.ANVIL)).b("anvil"));
-		register(BlockStainedGlassPane.TRAPPED_CHEST);
-		register(BlockStainedGlassPane.LIGHT_W_PRESSURE_PLATE);
-		register(BlockStainedGlassPane.HEAVY_W_PRESSURE_PLATE);
-		register((Block) BlockStainedGlassPane.DAYLIGHT_DETECTOR);
-		register(BlockStainedGlassPane.REDSTONE_BLOCK);
-		register(BlockStainedGlassPane.QUARTZ_ORE);
-		register((Block) BlockStainedGlassPane.HOPPER);
-		register((Block) BlockStainedGlassPane.QUARTZ_BLOCK, (Item) (new class_aba(BlockStainedGlassPane.QUARTZ_BLOCK, BlockStainedGlassPane.QUARTZ_BLOCK, new String[] { "default", "chiseled", "lines" })).b("quartzBlock"));
-		register(BlockStainedGlassPane.QUARTZ_STAIRS);
-		register(BlockStainedGlassPane.ACTIVATOR_RAIL);
-		register(BlockStainedGlassPane.DROPPER);
-		register((Block) BlockStainedGlassPane.STAINED_HARDENED_CLAY, (Item) (new class_aaa(BlockStainedGlassPane.STAINED_HARDENED_CLAY)).b("clayHardenedStained"));
-		register(BlockStainedGlassPane.BARRIER);
-		register(BlockStainedGlassPane.IRON_TRAPDOOR);
-		register(BlockStainedGlassPane.HAY_BLOCK);
-		register((Block) BlockStainedGlassPane.CARPET, (Item) (new class_aaa(BlockStainedGlassPane.CARPET)).b("woolCarpet"));
-		register(BlockStainedGlassPane.HARDENED_CLAY);
-		register(BlockStainedGlassPane.COAL_BLOCK);
-		register(BlockStainedGlassPane.PACKED_ICE);
-		register(BlockStainedGlassPane.ACACIA_STAIRS);
-		register(BlockStainedGlassPane.DARK_OAK_STAIRS);
-		register(BlockStainedGlassPane.SLINE);
-		register(BlockStainedGlassPane.GRASS_PATH);
-		register((Block) BlockStainedGlassPane.DOUBLE_PLANT, (Item) (new class_zx(BlockStainedGlassPane.DOUBLE_PLANT, BlockStainedGlassPane.DOUBLE_PLANT, new Function<Object, Object>() {
+		register(Blocks.WOODEN_BUTTON);
+		register((Block) Blocks.ANVIL, (Item) (new class_yz(Blocks.ANVIL)).b("anvil"));
+		register(Blocks.TRAPPED_CHEST);
+		register(Blocks.LIGHT_W_PRESSURE_PLATE);
+		register(Blocks.HEAVY_W_PRESSURE_PLATE);
+		register((Block) Blocks.DAYLIGHT_DETECTOR);
+		register(Blocks.REDSTONE_BLOCK);
+		register(Blocks.QUARTZ_ORE);
+		register((Block) Blocks.HOPPER);
+		register((Block) Blocks.QUARTZ_BLOCK, (Item) (new class_aba(Blocks.QUARTZ_BLOCK, Blocks.QUARTZ_BLOCK, new String[] { "default", "chiseled", "lines" })).b("quartzBlock"));
+		register(Blocks.QUARTZ_STAIRS);
+		register(Blocks.ACTIVATOR_RAIL);
+		register(Blocks.DROPPER);
+		register((Block) Blocks.STAINED_HARDENED_CLAY, (Item) (new class_aaa(Blocks.STAINED_HARDENED_CLAY)).b("clayHardenedStained"));
+		register(Blocks.BARRIER);
+		register(Blocks.IRON_TRAPDOOR);
+		register(Blocks.HAY_BLOCK);
+		register((Block) Blocks.CARPET, (Item) (new class_aaa(Blocks.CARPET)).b("woolCarpet"));
+		register(Blocks.HARDENED_CLAY);
+		register(Blocks.COAL_BLOCK);
+		register(Blocks.PACKED_ICE);
+		register(Blocks.ACACIA_STAIRS);
+		register(Blocks.DARK_OAK_STAIRS);
+		register(Blocks.SLINE);
+		register(Blocks.GRASS_PATH);
+		register((Block) Blocks.DOUBLE_PLANT, (Item) (new class_zx(Blocks.DOUBLE_PLANT, Blocks.DOUBLE_PLANT, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
-				return BlockTallPlant.class_b_in_class_ahm.a(var1.i()).c();
+				return class_ahm.class_b_in_class_ahm.a(var1.i()).c();
 			}
 
 			// $FF: synthetic method
@@ -653,9 +653,9 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("doublePlant"));
-		register((Block) BlockStainedGlassPane.STAINED_GLASS, (Item) (new class_aaa(BlockStainedGlassPane.STAINED_GLASS)).b("stainedGlass"));
-		register((Block) BlockStainedGlassPane.STAINED_GLASS_PANE, (Item) (new class_aaa(BlockStainedGlassPane.STAINED_GLASS_PANE)).b("stainedGlassPane"));
-		register((Block) BlockStainedGlassPane.PRISMARINE, (Item) (new class_aba(BlockStainedGlassPane.PRISMARINE, BlockStainedGlassPane.PRISMARINE, new Function<Object, Object>() {
+		register((Block) Blocks.STAINED_GLASS, (Item) (new class_aaa(Blocks.STAINED_GLASS)).b("stainedGlass"));
+		register((Block) Blocks.STAINED_GLASS_PANE, (Item) (new class_aaa(Blocks.STAINED_GLASS_PANE)).b("stainedGlassPane"));
+		register((Block) Blocks.PRISMARINE, (Item) (new class_aba(Blocks.PRISMARINE, Blocks.PRISMARINE, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return class_akc.class_a_in_class_akc.a(var1.i()).c();
 			}
@@ -665,8 +665,8 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("prismarine"));
-		register(BlockStainedGlassPane.SEA_LANTERN);
-		register((Block) BlockStainedGlassPane.RED_SANDSTONE, (Item) (new class_aba(BlockStainedGlassPane.RED_SANDSTONE, BlockStainedGlassPane.RED_SANDSTONE, new Function<Object, Object>() {
+		register(Blocks.SEA_LANTERN);
+		register((Block) Blocks.RED_SANDSTONE, (Item) (new class_aba(Blocks.RED_SANDSTONE, Blocks.RED_SANDSTONE, new Function<Object, Object>() {
 			public String a(ItemStack var1) {
 				return class_aki.class_a_in_class_aki.a(var1.i()).c();
 			}
@@ -676,8 +676,8 @@ public class Item {
 				return this.a((ItemStack) var1);
 			}
 		})).b("redSandStone"));
-		register(BlockStainedGlassPane.RED_SANDSTONE_STAIRS);
-		register((Block) BlockStainedGlassPane.STONE_SLAB2, (Item) (new class_abq(BlockStainedGlassPane.STONE_SLAB2, BlockStainedGlassPane.STONE_SLAB2, BlockStainedGlassPane.DOUBLE_STONE_SLAB2)).b("stoneSlab2"));
+		register(Blocks.RED_SANDSTONE_STAIRS);
+		register((Block) Blocks.STONE_SLAB2, (Item) (new class_abq(Blocks.STONE_SLAB2, Blocks.STONE_SLAB2, Blocks.DOUBLE_STONE_SLAB2)).b("stoneSlab2"));
 		register(256, (String) "iron_shovel", (new class_abm(Item.class_a_in_class_aar.c)).c("shovelIron"));
 		register(257, (String) "iron_pickaxe", (new class_abc(Item.class_a_in_class_aar.c)).c("pickaxeIron"));
 		register(258, (String) "iron_axe", (new class_zd(Item.class_a_in_class_aar.c)).c("hatchetIron"));
@@ -709,7 +709,7 @@ public class Item {
 		register(284, (String) "golden_shovel", (new class_abm(Item.class_a_in_class_aar.e)).c("shovelGold"));
 		register(285, (String) "golden_pickaxe", (new class_abc(Item.class_a_in_class_aar.e)).c("pickaxeGold"));
 		register(286, (String) "golden_axe", (new class_zd(Item.class_a_in_class_aar.e)).c("hatchetGold"));
-		register(287, (String) "string", (new class_zh(BlockStainedGlassPane.TRIPWIRE)).c("string").a(CreativeTab.MATERIALS));
+		register(287, (String) "string", (new class_zh(Blocks.TRIPWIRE)).c("string").a(CreativeTab.MATERIALS));
 		register(288, (String) "feather", (new Item()).c("feather").a(CreativeTab.MATERIALS));
 		register(289, (String) "gunpowder", (new Item()).c("sulphur").a(CreativeTab.MATERIALS));
 		register(290, (String) "wooden_hoe", (new class_aaq(Item.class_a_in_class_aar.a)).c("hoeWood"));
@@ -717,43 +717,43 @@ public class Item {
 		register(292, (String) "iron_hoe", (new class_aaq(Item.class_a_in_class_aar.c)).c("hoeIron"));
 		register(293, (String) "diamond_hoe", (new class_aaq(Item.class_a_in_class_aar.d)).c("hoeDiamond"));
 		register(294, (String) "golden_hoe", (new class_aaq(Item.class_a_in_class_aar.e)).c("hoeGold"));
-		register(295, (String) "wheat_seeds", (new class_abk(BlockStainedGlassPane.WHEAT, BlockStainedGlassPane.FARMLAND)).c("seeds"));
+		register(295, (String) "wheat_seeds", (new class_abk(Blocks.WHEAT, Blocks.FARMLAND)).c("seeds"));
 		register(296, (String) "wheat", (new Item()).c("wheat").a(CreativeTab.MATERIALS));
 		register(297, (String) "bread", (new class_aan(5, 0.6F, false)).c("bread"));
-		register(298, (String) "leather_helmet", (new ItemArmor(ItemArmor.class_a_in_class_za.a, 0, class_pw.f)).c("helmetCloth"));
-		register(299, (String) "leather_chestplate", (new ItemArmor(ItemArmor.class_a_in_class_za.a, 0, class_pw.e)).c("chestplateCloth"));
-		register(300, (String) "leather_leggings", (new ItemArmor(ItemArmor.class_a_in_class_za.a, 0, class_pw.d)).c("leggingsCloth"));
-		register(301, (String) "leather_boots", (new ItemArmor(ItemArmor.class_a_in_class_za.a, 0, class_pw.c)).c("bootsCloth"));
-		register(302, (String) "chainmail_helmet", (new ItemArmor(ItemArmor.class_a_in_class_za.b, 1, class_pw.f)).c("helmetChain"));
-		register(303, (String) "chainmail_chestplate", (new ItemArmor(ItemArmor.class_a_in_class_za.b, 1, class_pw.e)).c("chestplateChain"));
-		register(304, (String) "chainmail_leggings", (new ItemArmor(ItemArmor.class_a_in_class_za.b, 1, class_pw.d)).c("leggingsChain"));
-		register(305, (String) "chainmail_boots", (new ItemArmor(ItemArmor.class_a_in_class_za.b, 1, class_pw.c)).c("bootsChain"));
-		register(306, (String) "iron_helmet", (new ItemArmor(ItemArmor.class_a_in_class_za.c, 2, class_pw.f)).c("helmetIron"));
-		register(307, (String) "iron_chestplate", (new ItemArmor(ItemArmor.class_a_in_class_za.c, 2, class_pw.e)).c("chestplateIron"));
-		register(308, (String) "iron_leggings", (new ItemArmor(ItemArmor.class_a_in_class_za.c, 2, class_pw.d)).c("leggingsIron"));
-		register(309, (String) "iron_boots", (new ItemArmor(ItemArmor.class_a_in_class_za.c, 2, class_pw.c)).c("bootsIron"));
-		register(310, (String) "diamond_helmet", (new ItemArmor(ItemArmor.class_a_in_class_za.e, 3, class_pw.f)).c("helmetDiamond"));
-		register(311, (String) "diamond_chestplate", (new ItemArmor(ItemArmor.class_a_in_class_za.e, 3, class_pw.e)).c("chestplateDiamond"));
-		register(312, (String) "diamond_leggings", (new ItemArmor(ItemArmor.class_a_in_class_za.e, 3, class_pw.d)).c("leggingsDiamond"));
-		register(313, (String) "diamond_boots", (new ItemArmor(ItemArmor.class_a_in_class_za.e, 3, class_pw.c)).c("bootsDiamond"));
-		register(314, (String) "golden_helmet", (new ItemArmor(ItemArmor.class_a_in_class_za.d, 4, class_pw.f)).c("helmetGold"));
-		register(315, (String) "golden_chestplate", (new ItemArmor(ItemArmor.class_a_in_class_za.d, 4, class_pw.e)).c("chestplateGold"));
-		register(316, (String) "golden_leggings", (new ItemArmor(ItemArmor.class_a_in_class_za.d, 4, class_pw.d)).c("leggingsGold"));
-		register(317, (String) "golden_boots", (new ItemArmor(ItemArmor.class_a_in_class_za.d, 4, class_pw.c)).c("bootsGold"));
+		register(298, (String) "leather_helmet", (new class_za(class_za.class_a_in_class_za.a, 0, class_pw.f)).c("helmetCloth"));
+		register(299, (String) "leather_chestplate", (new class_za(class_za.class_a_in_class_za.a, 0, class_pw.e)).c("chestplateCloth"));
+		register(300, (String) "leather_leggings", (new class_za(class_za.class_a_in_class_za.a, 0, class_pw.d)).c("leggingsCloth"));
+		register(301, (String) "leather_boots", (new class_za(class_za.class_a_in_class_za.a, 0, class_pw.c)).c("bootsCloth"));
+		register(302, (String) "chainmail_helmet", (new class_za(class_za.class_a_in_class_za.b, 1, class_pw.f)).c("helmetChain"));
+		register(303, (String) "chainmail_chestplate", (new class_za(class_za.class_a_in_class_za.b, 1, class_pw.e)).c("chestplateChain"));
+		register(304, (String) "chainmail_leggings", (new class_za(class_za.class_a_in_class_za.b, 1, class_pw.d)).c("leggingsChain"));
+		register(305, (String) "chainmail_boots", (new class_za(class_za.class_a_in_class_za.b, 1, class_pw.c)).c("bootsChain"));
+		register(306, (String) "iron_helmet", (new class_za(class_za.class_a_in_class_za.c, 2, class_pw.f)).c("helmetIron"));
+		register(307, (String) "iron_chestplate", (new class_za(class_za.class_a_in_class_za.c, 2, class_pw.e)).c("chestplateIron"));
+		register(308, (String) "iron_leggings", (new class_za(class_za.class_a_in_class_za.c, 2, class_pw.d)).c("leggingsIron"));
+		register(309, (String) "iron_boots", (new class_za(class_za.class_a_in_class_za.c, 2, class_pw.c)).c("bootsIron"));
+		register(310, (String) "diamond_helmet", (new class_za(class_za.class_a_in_class_za.e, 3, class_pw.f)).c("helmetDiamond"));
+		register(311, (String) "diamond_chestplate", (new class_za(class_za.class_a_in_class_za.e, 3, class_pw.e)).c("chestplateDiamond"));
+		register(312, (String) "diamond_leggings", (new class_za(class_za.class_a_in_class_za.e, 3, class_pw.d)).c("leggingsDiamond"));
+		register(313, (String) "diamond_boots", (new class_za(class_za.class_a_in_class_za.e, 3, class_pw.c)).c("bootsDiamond"));
+		register(314, (String) "golden_helmet", (new class_za(class_za.class_a_in_class_za.d, 4, class_pw.f)).c("helmetGold"));
+		register(315, (String) "golden_chestplate", (new class_za(class_za.class_a_in_class_za.d, 4, class_pw.e)).c("chestplateGold"));
+		register(316, (String) "golden_leggings", (new class_za(class_za.class_a_in_class_za.d, 4, class_pw.d)).c("leggingsGold"));
+		register(317, (String) "golden_boots", (new class_za(class_za.class_a_in_class_za.d, 4, class_pw.c)).c("bootsGold"));
 		register(318, (String) "flint", (new Item()).c("flint").a(CreativeTab.MATERIALS));
 		register(319, (String) "porkchop", (new class_aan(3, 0.3F, true)).c("porkchopRaw"));
 		register(320, (String) "cooked_porkchop", (new class_aan(8, 0.8F, true)).c("porkchopCooked"));
 		register(321, (String) "painting", (new class_aap(class_vc.class)).c("painting"));
 		register(322, (String) "golden_apple", (new class_aao(4, 1.2F, false)).h().a(new class_pl(class_pm.j, 100, 1), 1.0F).c("appleGold"));
 		register(323, (String) "sign", (new class_abn()).c("sign"));
-		register(324, (String) "wooden_door", (new class_zw(BlockStainedGlassPane.WOODEN_DOOR)).c("doorOak"));
-		Item var0 = (new class_zn(BlockStainedGlassPane.AIR)).c("bucket").d(16);
+		register(324, (String) "wooden_door", (new class_zw(Blocks.WOODEN_DOOR)).c("doorOak"));
+		Item var0 = (new class_zn(Blocks.AIR)).c("bucket").d(16);
 		register(325, (String) "bucket", var0);
-		register(326, (String) "water_bucket", (new class_zn(BlockStainedGlassPane.FLOWING_WATER)).c("bucketWater").c(var0));
-		register(327, (String) "lava_bucket", (new class_zn(BlockStainedGlassPane.FLOWING_LAVA)).c("bucketLava").c(var0));
+		register(326, (String) "water_bucket", (new class_zn(Blocks.FLOWING_WATER)).c("bucketWater").c(var0));
+		register(327, (String) "lava_bucket", (new class_zn(Blocks.FLOWING_LAVA)).c("bucketLava").c(var0));
 		register(328, (String) "minecart", (new class_aaz(class_vn.class_a_in_class_vn.a)).c("minecart"));
 		register(329, (String) "saddle", (new class_abi()).c("saddle"));
-		register(330, (String) "iron_door", (new class_zw(BlockStainedGlassPane.IRON_DOOR)).c("doorIron"));
+		register(330, (String) "iron_door", (new class_zw(Blocks.IRON_DOOR)).c("doorIron"));
 		register(331, (String) "redstone", (new class_abh()).c("redstone"));
 		register(332, (String) "snowball", (new class_abs()).c("snowball"));
 		register(333, (String) "boat", (new class_zi()).c("boat"));
@@ -761,7 +761,7 @@ public class Item {
 		register(335, (String) "milk_bucket", (new class_aay()).c("milk").c(var0));
 		register(336, (String) "brick", (new Item()).c("brick").a(CreativeTab.MATERIALS));
 		register(337, (String) "clay_ball", (new Item()).c("clay").a(CreativeTab.MATERIALS));
-		register(338, (String) "reeds", (new class_zh(BlockStainedGlassPane.REEDS)).c("reeds").a(CreativeTab.MATERIALS));
+		register(338, (String) "reeds", (new class_zh(Blocks.REEDS)).c("reeds").a(CreativeTab.MATERIALS));
 		register(339, (String) "paper", (new Item()).c("paper").a(CreativeTab.MISC));
 		register(340, (String) "book", (new class_zj()).c("book").a(CreativeTab.MISC));
 		register(341, (String) "slime_ball", (new Item()).c("slimeball").a(CreativeTab.MISC));
@@ -777,15 +777,15 @@ public class Item {
 		register(351, (String) "dye", (new class_zz()).c("dyePowder"));
 		register(352, (String) "bone", (new Item()).c("bone").n().a(CreativeTab.MISC));
 		register(353, (String) "sugar", (new Item()).c("sugar").a(CreativeTab.MATERIALS));
-		register(354, (String) "cake", (new class_zh(BlockStainedGlassPane.CAKE)).d(1).c("cake").a(CreativeTab.FOOD));
+		register(354, (String) "cake", (new class_zh(Blocks.CAKE)).d(1).c("cake").a(CreativeTab.FOOD));
 		register(355, (String) "bed", (new class_zf()).d(1).c("bed"));
-		register(356, (String) "repeater", (new class_zh(BlockStainedGlassPane.UNPOWERED_REPEATER)).c("diode").a(CreativeTab.REDSTONE));
+		register(356, (String) "repeater", (new class_zh(Blocks.UNPOWERED_REPEATER)).c("diode").a(CreativeTab.REDSTONE));
 		register(357, (String) "cookie", (new class_aan(2, 0.1F, false)).c("cookie"));
 		register(358, (String) "filled_map", (new class_aax()).c("map"));
 		register(359, (String) "shears", (new class_abl()).c("shears"));
 		register(360, (String) "melon", (new class_aan(2, 0.3F, false)).c("melon"));
-		register(361, (String) "pumpkin_seeds", (new class_abk(BlockStainedGlassPane.PUMPKIN_STEM, BlockStainedGlassPane.FARMLAND)).c("seeds_pumpkin"));
-		register(362, (String) "melon_seeds", (new class_abk(BlockStainedGlassPane.MELON_STEM, BlockStainedGlassPane.FARMLAND)).c("seeds_melon"));
+		register(361, (String) "pumpkin_seeds", (new class_abk(Blocks.PUMPKIN_STEM, Blocks.FARMLAND)).c("seeds_pumpkin"));
+		register(362, (String) "melon_seeds", (new class_abk(Blocks.MELON_STEM, Blocks.FARMLAND)).c("seeds_melon"));
 		register(363, (String) "beef", (new class_aan(3, 0.3F, true)).c("beefRaw"));
 		register(364, (String) "cooked_beef", (new class_aan(8, 0.8F, true)).c("beefCooked"));
 		register(365, (String) "chicken", (new class_aan(2, 0.3F, true)).a(new class_pl(class_pm.q, 600, 0), 0.3F).c("chickenRaw"));
@@ -795,15 +795,15 @@ public class Item {
 		register(369, (String) "blaze_rod", (new Item()).c("blazeRod").a(CreativeTab.MATERIALS).n());
 		register(370, (String) "ghast_tear", (new Item()).c("ghastTear").a(CreativeTab.BREWING));
 		register(371, (String) "gold_nugget", (new Item()).c("goldNugget").a(CreativeTab.MATERIALS));
-		register(372, (String) "nether_wart", (new class_abk(BlockStainedGlassPane.NETHER_WART, BlockStainedGlassPane.SOUL_SAND)).c("netherStalkSeeds"));
+		register(372, (String) "nether_wart", (new class_abk(Blocks.NETHER_WART, Blocks.SOUL_SAND)).c("netherStalkSeeds"));
 		register(373, (String) "potion", (new class_abe()).c("potion"));
 		register(374, (String) "glass_bottle", (new class_zk()).c("glassBottle"));
 		register(375, (String) "spider_eye", (new class_aan(2, 0.8F, false)).a(new class_pl(class_pm.s, 100, 0), 1.0F).c("spiderEye"));
 		register(376, (String) "fermented_spider_eye", (new Item()).c("fermentedSpiderEye").a(CreativeTab.BREWING));
 		register(377, (String) "blaze_powder", (new Item()).c("blazePowder").a(CreativeTab.BREWING));
 		register(378, (String) "magma_cream", (new Item()).c("magmaCream").a(CreativeTab.BREWING));
-		register(379, (String) "brewing_stand", (new class_zh(BlockStainedGlassPane.BREWING_STAND)).c("brewingStand").a(CreativeTab.BREWING));
-		register(380, (String) "cauldron", (new class_zh(BlockStainedGlassPane.CAULDRON)).c("cauldron").a(CreativeTab.BREWING));
+		register(379, (String) "brewing_stand", (new class_zh(Blocks.BREWING_STAND)).c("brewingStand").a(CreativeTab.BREWING));
+		register(380, (String) "cauldron", (new class_zh(Blocks.CAULDRON)).c("cauldron").a(CreativeTab.BREWING));
 		register(381, (String) "ender_eye", (new class_aae()).c("eyeOfEnder"));
 		register(382, (String) "speckled_melon", (new Item()).c("speckledMelon").a(CreativeTab.BREWING));
 		register(383, (String) "spawn_egg", (new class_abt()).c("monsterPlacer"));
@@ -813,9 +813,9 @@ public class Item {
 		register(387, (String) "written_book", (new class_acc()).c("writtenBook").d(16));
 		register(388, (String) "emerald", (new Item()).c("emerald").a(CreativeTab.MATERIALS));
 		register(389, (String) "item_frame", (new class_aap(class_va.class)).c("frame"));
-		register(390, (String) "flower_pot", (new class_zh(BlockStainedGlassPane.FLOWER_POT)).c("flowerPot").a(CreativeTab.DECORATIONS));
-		register(391, (String) "carrot", (new class_abj(3, 0.6F, BlockStainedGlassPane.CARROTS, BlockStainedGlassPane.FARMLAND)).c("carrots"));
-		register(392, (String) "potato", (new class_abj(1, 0.3F, BlockStainedGlassPane.POTATOES, BlockStainedGlassPane.FARMLAND)).c("potato"));
+		register(390, (String) "flower_pot", (new class_zh(Blocks.FLOWER_POT)).c("flowerPot").a(CreativeTab.DECORATIONS));
+		register(391, (String) "carrot", (new class_abj(3, 0.6F, Blocks.CARROTS, Blocks.FARMLAND)).c("carrots"));
+		register(392, (String) "potato", (new class_abj(1, 0.3F, Blocks.POTATOES, Blocks.FARMLAND)).c("potato"));
 		register(393, (String) "baked_potato", (new class_aan(5, 0.6F, false)).c("potatoBaked"));
 		register(394, (String) "poisonous_potato", (new class_aan(2, 0.3F, false)).a(new class_pl(class_pm.s, 100, 0), 0.6F).c("potatoPoisonous"));
 		register(395, (String) "map", (new class_aac()).c("emptyMap"));
@@ -827,7 +827,7 @@ public class Item {
 		register(401, (String) "fireworks", (new class_aaj()).c("fireworks"));
 		register(402, (String) "firework_charge", (new class_aai()).c("fireworksCharge").a(CreativeTab.MISC));
 		register(403, (String) "enchanted_book", (new class_aad()).d(1).c("enchantedBook"));
-		register(404, (String) "comparator", (new class_zh(BlockStainedGlassPane.UNPOWERED_COMPARATOR)).c("comparator").a(CreativeTab.REDSTONE));
+		register(404, (String) "comparator", (new class_zh(Blocks.UNPOWERED_COMPARATOR)).c("comparator").a(CreativeTab.REDSTONE));
 		register(405, (String) "netherbrick", (new Item()).c("netherbrick").a(CreativeTab.MATERIALS));
 		register(406, (String) "quartz", (new Item()).c("netherquartz").a(CreativeTab.MATERIALS));
 		register(407, (String) "tnt_minecart", (new class_aaz(class_vn.class_a_in_class_vn.d)).c("minecartTnt"));
@@ -849,15 +849,15 @@ public class Item {
 		register(423, (String) "mutton", (new class_aan(2, 0.3F, true)).c("muttonRaw"));
 		register(424, (String) "cooked_mutton", (new class_aan(6, 0.8F, true)).c("muttonCooked"));
 		register(425, (String) "banner", (new class_ze()).b("banner"));
-		register(427, (String) "spruce_door", (new class_zw(BlockStainedGlassPane.SPRUCE_DOOR)).c("doorSpruce"));
-		register(428, (String) "birch_door", (new class_zw(BlockStainedGlassPane.BIRCH_DOOR)).c("doorBirch"));
-		register(429, (String) "jungle_door", (new class_zw(BlockStainedGlassPane.JUNGLE_DOOR)).c("doorJungle"));
-		register(430, (String) "acacia_door", (new class_zw(BlockStainedGlassPane.ACACIA_DOOR)).c("doorAcacia"));
-		register(431, (String) "dark_oak_door", (new class_zw(BlockStainedGlassPane.DARK_OAK_DOOR)).c("doorDarkOak"));
+		register(427, (String) "spruce_door", (new class_zw(Blocks.SPRUCE_DOOR)).c("doorSpruce"));
+		register(428, (String) "birch_door", (new class_zw(Blocks.BIRCH_DOOR)).c("doorBirch"));
+		register(429, (String) "jungle_door", (new class_zw(Blocks.JUNGLE_DOOR)).c("doorJungle"));
+		register(430, (String) "acacia_door", (new class_zw(Blocks.ACACIA_DOOR)).c("doorAcacia"));
+		register(431, (String) "dark_oak_door", (new class_zw(Blocks.DARK_OAK_DOOR)).c("doorDarkOak"));
 		register(432, (String) "chorus_fruit", (new class_zp(4, 0.3F)).h().c("chorusFruit").a(CreativeTab.MATERIALS));
 		register(433, (String) "chorus_fruit_popped", (new Item()).c("chorusFruitPopped").a(CreativeTab.MATERIALS));
 		register(434, (String) "beetroot", (new class_aan(1, 0.6F, false)).c("beetroot"));
-		register(435, (String) "beetroot_seeds", (new class_abk(BlockStainedGlassPane.BEETROOTS, BlockStainedGlassPane.FARMLAND)).c("beetroot_seeds"));
+		register(435, (String) "beetroot_seeds", (new class_abk(Blocks.BEETROOTS, Blocks.FARMLAND)).c("beetroot_seeds"));
 		register(436, (String) "beetroot_soup", (new class_zm(6)).c("beetroot_soup"));
 		register(438, (String) "splash_potion", (new class_abv()).c("splash_potion"));
 		register(439, (String) "spectral_arrow", (new class_abu()).c("spectral_arrow"));
@@ -931,7 +931,7 @@ public class Item {
 		}
 
 		public Item f() {
-			return this == a ? Item.getItemOf(BlockStainedGlassPane.PLANKS) : (this == b ? Item.getItemOf(BlockStainedGlassPane.COBBLESTONE) : (this == e ? Items.GOLD_INGOT : (this == c ? Items.IRON_INGOT : (this == d ? Items.DIAMOND : null))));
+			return this == a ? Item.getItemOf(Blocks.PLANKS) : (this == b ? Item.getItemOf(Blocks.COBBLESTONE) : (this == e ? Items.m : (this == c ? Items.l : (this == d ? Items.k : null))));
 		}
 	}
 }

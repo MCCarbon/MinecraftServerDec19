@@ -10,7 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ars;
 import net.minecraft.server.MathHelper;
 
@@ -153,7 +153,7 @@ public class class_arr {
             }
          }
 
-         if(var6 == BlockStainedGlassPane.AIR) {
+         if(var6 == Blocks.AIR) {
             var5 = 0;
          }
 
@@ -253,9 +253,9 @@ public class class_arr {
    public static class_arr e() {
       class_arr var0 = new class_arr();
       var0.a(BiomeBase.q.az);
-      var0.c().add(new class_ars(1, BlockStainedGlassPane.BEDROCK));
-      var0.c().add(new class_ars(2, BlockStainedGlassPane.DIRT));
-      var0.c().add(new class_ars(1, BlockStainedGlassPane.GRASS));
+      var0.c().add(new class_ars(1, Blocks.BEDROCK));
+      var0.c().add(new class_ars(2, Blocks.DIRT));
+      var0.c().add(new class_ars(1, Blocks.GRASS));
       var0.d();
       var0.b().put("village", Maps.newHashMap());
       return var0;

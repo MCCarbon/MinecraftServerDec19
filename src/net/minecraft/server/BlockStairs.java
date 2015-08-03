@@ -424,7 +424,7 @@ public class BlockStairs extends Block {
 
 	@Override
 	public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
-		doPhysics(var1, var2, Q, BlockStainedGlassPane.AIR);
+		doPhysics(var1, var2, Q, Blocks.AIR);
 		P.onPlace(var1, var2, Q);
 	}
 

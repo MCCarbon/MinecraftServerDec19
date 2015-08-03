@@ -84,7 +84,7 @@ public class class_av extends class_i {
             var13 = var17;
          }
 
-         var5.a.a((Packet)(new PacketPlayOutNamedSoundEffect(var4, var7, var9, var11, (float)var13, (float)var15)));
+         var5.playerConnection.sendPacket((Packet)(new PacketPlayOutNamedSoundEffect(var4, var7, var9, var11, (float)var13, (float)var15)));
          a(var1, this, "commands.playsound.success", new Object[]{var4, var5.getName()});
       }
    }

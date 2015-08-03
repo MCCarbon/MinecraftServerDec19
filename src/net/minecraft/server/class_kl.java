@@ -171,7 +171,7 @@ public class class_kl extends class_awn {
 
          while(var5.hasNext()) {
             Packet var6 = (Packet)var5.next();
-            var4.a.a(var6);
+            var4.playerConnection.sendPacket(var6);
          }
       }
 
@@ -201,7 +201,7 @@ public class class_kl extends class_awn {
 
          while(var5.hasNext()) {
             Packet var6 = (Packet)var5.next();
-            var4.a.a(var6);
+            var4.playerConnection.sendPacket(var6);
          }
       }
 

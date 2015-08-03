@@ -8,8 +8,8 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
-import net.minecraft.server.BlockTripwireHook;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.class_alt;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateBoolean;
@@ -111,14 +111,14 @@ public class class_als extends Block {
          for(int var8 = 1; var8 < 42; ++var8) {
             BlockPosition var9 = var2.shift(var7, var8);
             IBlockData var10 = var1.getType(var9);
-            if(var10.getBlock() == BlockStainedGlassPane.TRIPWIRE_HOOK) {
-               if(var10.get(BlockTripwireHook.a) == var7.opposite()) {
-                  BlockStainedGlassPane.TRIPWIRE_HOOK.a(var1, var9, var10, false, true, var8, var3);
+            if(var10.getBlock() == Blocks.TRIPWIRE_HOOK) {
+               if(var10.get(class_alt.a) == var7.opposite()) {
+                  Blocks.TRIPWIRE_HOOK.a(var1, var9, var10, false, true, var8, var3);
                }
                break;
             }
 
-            if(var10.getBlock() != BlockStainedGlassPane.TRIPWIRE) {
+            if(var10.getBlock() != Blocks.TRIPWIRE) {
                break;
             }
          }
@@ -149,7 +149,7 @@ public class class_als extends Block {
       IBlockData var3 = var1.getType(var2);
       boolean var4 = ((Boolean)var3.get(a)).booleanValue();
       boolean var5 = false;
-      List var6 = var1.b((Entity)null, (AxisAlignedBB)(new AxisAlignedBB((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ)));
+      List var6 = var1.getEntities((Entity)null, (AxisAlignedBB)(new AxisAlignedBB((double)var2.getX() + this.minX, (double)var2.getY() + this.minY, (double)var2.getZ() + this.minZ, (double)var2.getX() + this.maxX, (double)var2.getY() + this.maxY, (double)var2.getZ() + this.maxZ)));
       if(!var6.isEmpty()) {
          Iterator var7 = var6.iterator();
 
@@ -178,10 +178,10 @@ public class class_als extends Block {
       BlockPosition var4 = var1.shift(var3);
       IBlockData var5 = var0.getType(var4);
       Block var6 = var5.getBlock();
-      if(var6 == BlockStainedGlassPane.TRIPWIRE_HOOK) {
+      if(var6 == Blocks.TRIPWIRE_HOOK) {
          EnumDirection var9 = var3.opposite();
-         return var5.get(BlockTripwireHook.a) == var9;
-      } else if(var6 == BlockStainedGlassPane.TRIPWIRE) {
+         return var5.get(class_alt.a) == var9;
+      } else if(var6 == Blocks.TRIPWIRE) {
          boolean var7 = ((Boolean)var2.get(b)).booleanValue();
          boolean var8 = ((Boolean)var5.get(b)).booleanValue();
          return var7 == var8;

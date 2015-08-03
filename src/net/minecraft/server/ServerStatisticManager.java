@@ -190,7 +190,7 @@ public class ServerStatisticManager extends class_nd {
          }
       }
 
-      var1.a.a((Packet)(new PacketPlayOutStatistic(var3)));
+      var1.playerConnection.sendPacket((Packet)(new PacketPlayOutStatistic(var3)));
    }
 
    public void b(EntityPlayer var1) {
@@ -205,7 +205,7 @@ public class ServerStatisticManager extends class_nd {
          }
       }
 
-      var1.a.a((Packet)(new PacketPlayOutStatistic(var2)));
+      var1.playerConnection.sendPacket((Packet)(new PacketPlayOutStatistic(var2)));
    }
 
    public boolean e() {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_pc;
@@ -30,7 +30,7 @@ public class class_xl extends class_xf {
       if(!this.o.isClientSide) {
          boolean var2;
          if(var1.d != null) {
-            var2 = var1.d.a(class_pc.a((class_xf)this, (Entity)this.a), 5.0F);
+            var2 = var1.d.damageEntity(class_pc.a((class_xf)this, (Entity)this.a), 5.0F);
             if(var2) {
                this.a(this.a, var1.d);
                if(!var1.d.T()) {
@@ -46,7 +46,7 @@ public class class_xl extends class_xf {
             if(var2) {
                BlockPosition var3 = var1.a().shift(var1.b);
                if(this.o.isEmpty(var3)) {
-                  this.o.setTypeUpdate(var3, BlockStainedGlassPane.FIRE.getBlockData());
+                  this.o.setTypeUpdate(var3, Blocks.FIRE.getBlockData());
                }
             }
          }
@@ -60,7 +60,7 @@ public class class_xl extends class_xf {
       return false;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       return false;
    }
 }

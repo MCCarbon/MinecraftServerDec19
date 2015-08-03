@@ -10,7 +10,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.WorldServer;
@@ -135,7 +135,7 @@ public final class class_aeu {
                }
 
                var7 = (EntityHuman)var6.next();
-            } while(var7.v());
+            } while(var7.isSpectator());
 
             int var8 = MathHelper.floor(var7.s / 16.0D);
             var9 = MathHelper.floor(var7.u / 16.0D);
@@ -158,7 +158,7 @@ public final class class_aeu {
    }
 
    protected static BlockPosition a(World var0, int var1, int var2) {
-      Chunk var3 = var0.a(var1, var2);
+      Chunk var3 = var0.getChunkAt(var1, var2);
       int var4 = var1 * 16 + var0.random.nextInt(16);
       int var5 = var2 * 16 + var0.random.nextInt(16);
       int var6 = MathHelper.ceilByBase(var3.f(new BlockPosition(var4, 0, var5)) + 1, 16);
@@ -179,7 +179,7 @@ public final class class_aeu {
                return false;
             } else {
                Block var5 = var1.getType(var4).getBlock();
-               boolean var6 = var5 != BlockStainedGlassPane.BEDROCK && var5 != BlockStainedGlassPane.BARRIER;
+               boolean var6 = var5 != Blocks.BEDROCK && var5 != Blocks.BARRIER;
                return var6 && !var3.isOccluding() && !var3.getMaterial().isLiquid() && !var1.getType(var2.up()).getBlock().isOccluding();
             }
          }

@@ -45,7 +45,7 @@ public class class_ahs extends BlockContainer {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
-      if(var4.m == null && var4.l == null && !var1.isClientSide) {
+      if(var4.vehicle == null && var4.passenger == null && !var1.isClientSide) {
          var4.c(1);
       }
 

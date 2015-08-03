@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
 import net.minecraft.server.BlockStateInteger;
@@ -17,10 +17,10 @@ import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.CreativeTab;
 
-public class BlockCactus extends Block {
+public class class_agq extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 15);
 
-   protected BlockCactus() {
+   protected class_agq() {
       super(Material.CACTUS);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
       this.setTicking(true);
@@ -85,11 +85,11 @@ public class BlockCactus extends Block {
       }
 
       Block var5 = var1.getType(var2.down()).getBlock();
-      return var5 == BlockStainedGlassPane.CACTUS || var5 == BlockStainedGlassPane.SAND;
+      return var5 == Blocks.CACTUS || var5 == Blocks.SAND;
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
-      var4.a(class_pc.h, 1.0F);
+      var4.damageEntity(class_pc.h, 1.0F);
    }
 
    public IBlockData fromLegacyData(int var1) {

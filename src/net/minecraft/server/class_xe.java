@@ -50,7 +50,7 @@ public class class_xe extends Entity {
       }
 
       this.d = 0;
-      this.e = this.V.nextInt(5) > 0;
+      this.e = this.random.nextInt(5) > 0;
    }
 
    public void t_() {
@@ -108,7 +108,7 @@ public class class_xe extends Entity {
             this.o.a(class_cy.e, this.s - this.v * (double)var10, this.t - this.motY * (double)var10, this.u - this.x * (double)var10, this.v, this.motY, this.x, new int[0]);
          }
       } else {
-         this.o.a(class_cy.y, this.s - this.v * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.t - this.motY * (double)var10 - 0.5D, this.u - this.x * (double)var10 + this.V.nextDouble() * 0.6D - 0.3D, this.v, this.motY, this.x, new int[0]);
+         this.o.a(class_cy.y, this.s - this.v * (double)var10 + this.random.nextDouble() * 0.6D - 0.3D, this.t - this.motY * (double)var10 - 0.5D, this.u - this.x * (double)var10 + this.random.nextDouble() * 0.6D - 0.3D, this.v, this.motY, this.x, new int[0]);
       }
 
       if(!this.o.isClientSide) {
@@ -126,10 +126,10 @@ public class class_xe extends Entity {
 
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
    }
 
    public float c(float var1) {

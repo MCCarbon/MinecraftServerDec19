@@ -148,7 +148,7 @@ public class class_bk extends class_i {
    }
 
    protected List e() {
-      Collection var1 = MinecraftServer.N().a(0).aa().c();
+      Collection var1 = MinecraftServer.N().getWorldServer(0).aa().c();
       ArrayList var2 = Lists.newArrayList();
       Iterator var3 = var1.iterator();
 

@@ -89,7 +89,7 @@ public class class_tq {
                         }
 
                         var3 = (EntityHuman)var2.next();
-                     } while(var3.v());
+                     } while(var3.isSpectator());
 
                      this.f = this.a.af().a(new BlockPosition(var3), 1);
                   } while(this.f == null);

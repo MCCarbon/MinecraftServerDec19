@@ -6,7 +6,7 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_alo;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockStateList;
@@ -20,7 +20,7 @@ import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 
-public class BlockFire extends Block {
+public class class_aib extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("age", 0, 15);
    public static final BlockStateBoolean b = BlockStateBoolean.of("north");
    public static final BlockStateBoolean N = BlockStateBoolean.of("east");
@@ -31,51 +31,51 @@ public class BlockFire extends Block {
    private final Map S = Maps.newIdentityHashMap();
 
    public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
-      return !World.a(var2, var3.down()) && !BlockStainedGlassPane.FIRE.e(var2, var3.down())?var1.set(b, Boolean.valueOf(this.e(var2, var3.north()))).set(N, Boolean.valueOf(this.e(var2, var3.east()))).set(O, Boolean.valueOf(this.e(var2, var3.south()))).set(P, Boolean.valueOf(this.e(var2, var3.west()))).set(Q, Boolean.valueOf(this.e(var2, var3.up()))):this.getBlockData();
+      return !World.a(var2, var3.down()) && !Blocks.FIRE.e(var2, var3.down())?var1.set(b, Boolean.valueOf(this.e(var2, var3.north()))).set(N, Boolean.valueOf(this.e(var2, var3.east()))).set(O, Boolean.valueOf(this.e(var2, var3.south()))).set(P, Boolean.valueOf(this.e(var2, var3.west()))).set(Q, Boolean.valueOf(this.e(var2, var3.up()))):this.getBlockData();
    }
 
-   protected BlockFire() {
+   protected class_aib() {
       super(Material.FIRE);
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)).set(P, Boolean.valueOf(false)).set(Q, Boolean.valueOf(false)));
       this.setTicking(true);
    }
 
    public static void l() {
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.PLANKS, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.DOUBLE_WOODEN_SLAB, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.WOODEN_SLAB, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.FENCE_GATE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.SPRUCE_FENCE_GATE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.BIRCH_FENCE_GATE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.JUGLE_FENCE_GATE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.DARK_OAK_FENCE_GATE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.ACACIA_FENCE_GATE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.FENCE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.SPRUCE_FENCE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.BIRCH_FENCE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.JUNGLE_FENCE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.DARK_OAK_FENCE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.ACACIA_FENCE, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.OAK_STAIRS, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.BIRCH_STAIRS, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.SPRUCE_STAIRS, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.JUNGKE_STAIRS, 5, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.LOG, 5, 5);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.LOG2, 5, 5);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.LEAVES, 30, 60);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.LEAVES2, 30, 60);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.BOOKSHELF, 30, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.TNT, 15, 100);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.TALLGRASS, 60, 100);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.DOUBLE_PLANT, 60, 100);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.YELLOW_FLOWER, 60, 100);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.RED_FLOWER, 60, 100);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.DEADBUSH, 60, 100);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.WOOL, 30, 60);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.VINE, 15, 100);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.COAL_BLOCK, 5, 5);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.HAY_BLOCK, 60, 20);
-      BlockStainedGlassPane.FIRE.a(BlockStainedGlassPane.CARPET, 60, 20);
+      Blocks.FIRE.a(Blocks.PLANKS, 5, 20);
+      Blocks.FIRE.a(Blocks.DOUBLE_WOODEN_SLAB, 5, 20);
+      Blocks.FIRE.a(Blocks.WOODEN_SLAB, 5, 20);
+      Blocks.FIRE.a(Blocks.FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.JUGLE_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.DARK_OAK_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.ACACIA_FENCE_GATE, 5, 20);
+      Blocks.FIRE.a(Blocks.FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.JUNGLE_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.DARK_OAK_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.ACACIA_FENCE, 5, 20);
+      Blocks.FIRE.a(Blocks.OAK_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.BIRCH_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.SPRUCE_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.JUNGKE_STAIRS, 5, 20);
+      Blocks.FIRE.a(Blocks.LOG, 5, 5);
+      Blocks.FIRE.a(Blocks.LOG2, 5, 5);
+      Blocks.FIRE.a(Blocks.LEAVES, 30, 60);
+      Blocks.FIRE.a(Blocks.LEAVES2, 30, 60);
+      Blocks.FIRE.a(Blocks.BOOKSHELF, 30, 20);
+      Blocks.FIRE.a(Blocks.TNT, 15, 100);
+      Blocks.FIRE.a(Blocks.TALLGRASS, 60, 100);
+      Blocks.FIRE.a(Blocks.DOUBLE_PLANT, 60, 100);
+      Blocks.FIRE.a(Blocks.YELLOW_FLOWER, 60, 100);
+      Blocks.FIRE.a(Blocks.RED_FLOWER, 60, 100);
+      Blocks.FIRE.a(Blocks.DEADBUSH, 60, 100);
+      Blocks.FIRE.a(Blocks.WOOL, 30, 60);
+      Blocks.FIRE.a(Blocks.VINE, 15, 100);
+      Blocks.FIRE.a(Blocks.COAL_BLOCK, 5, 5);
+      Blocks.FIRE.a(Blocks.HAY_BLOCK, 60, 20);
+      Blocks.FIRE.a(Blocks.CARPET, 60, 20);
    }
 
    public void a(Block var1, int var2, int var3) {
@@ -110,8 +110,8 @@ public class BlockFire extends Block {
          }
 
          Block var5 = var1.getType(var2.down()).getBlock();
-         boolean var6 = var5 == BlockStainedGlassPane.NETHERRACK;
-         if(var1.worldProvider instanceof class_apd && var5 == BlockStainedGlassPane.BEDROCK) {
+         boolean var6 = var5 == Blocks.NETHERRACK;
+         if(var1.worldProvider instanceof class_apd && var5 == Blocks.BEDROCK) {
             var6 = true;
          }
 
@@ -221,8 +221,8 @@ public class BlockFire extends Block {
             var1.setAir(var2);
          }
 
-         if(var7.getBlock() == BlockStainedGlassPane.TNT) {
-            BlockStainedGlassPane.TNT.postBreak(var1, var2, var7.set(class_alo.a, Boolean.valueOf(true)));
+         if(var7.getBlock() == Blocks.TNT) {
+            Blocks.TNT.postBreak(var1, var2, var7.set(class_alo.a, Boolean.valueOf(true)));
          }
       }
 
@@ -279,7 +279,7 @@ public class BlockFire extends Block {
    }
 
    public void onPlace(World var1, BlockPosition var2, IBlockData var3) {
-      if(var1.worldProvider.p().a() > 0 || !BlockStainedGlassPane.PORTAL.e(var1, var2)) {
+      if(var1.worldProvider.p().a() > 0 || !Blocks.PORTAL.e(var1, var2)) {
          if(!World.a((IBlockAccess)var1, (BlockPosition)var2.down()) && !this.f(var1, var2)) {
             var1.setAir(var2);
          } else {

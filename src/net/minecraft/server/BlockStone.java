@@ -24,7 +24,7 @@ public class BlockStone extends Block {
 
 	@Override
 	public Item getDropType(IBlockData blockdata, Random random, int id) {
-		return blockdata.get(VARIANT) == BlockStone.EnumStoneVariant.STONE ? Item.getItemOf(BlockStainedGlassPane.COBBLESTONE) : Item.getItemOf(BlockStainedGlassPane.STONE);
+		return blockdata.get(VARIANT) == BlockStone.EnumStoneVariant.STONE ? Item.getItemOf(Blocks.COBBLESTONE) : Item.getItemOf(Blocks.STONE);
 	}
 
 	@Override

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
@@ -14,7 +14,7 @@ public class class_aqe extends class_aql {
    private int b;
 
    public class_aqe(int var1) {
-      this.a = BlockStainedGlassPane.CLAY;
+      this.a = Blocks.CLAY;
       this.b = var1;
    }
 
@@ -33,7 +33,7 @@ public class class_aqe extends class_aql {
                   for(int var10 = var3.getY() - var5; var10 <= var3.getY() + var5; ++var10) {
                      BlockPosition var11 = new BlockPosition(var6, var10, var7);
                      Block var12 = var1.getType(var11).getBlock();
-                     if(var12 == BlockStainedGlassPane.DIRT || var12 == BlockStainedGlassPane.CLAY) {
+                     if(var12 == Blocks.DIRT || var12 == Blocks.CLAY) {
                         var1.setTypeAndData((BlockPosition)var11, (IBlockData)this.a.getBlockData(), 2);
                      }
                   }

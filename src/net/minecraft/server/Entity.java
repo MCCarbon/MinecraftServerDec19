@@ -15,7 +15,7 @@ import net.minecraft.server.class_ads;
 import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_aia;
 import net.minecraft.server.BlockFluids;
@@ -46,12 +46,12 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.class_pt;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_vi;
 import net.minecraft.server.EntityItem;
 import net.minecraft.server.EntityHuman;
@@ -62,8 +62,8 @@ public abstract class Entity implements class_m {
    private int c;
    public double j;
    public boolean k;
-   public Entity l;
-   public Entity m;
+   public Entity passenger;
+   public Entity vehicle;
    public boolean n;
    public World o;
    public double p;
@@ -101,7 +101,7 @@ public abstract class Entity implements class_m {
    public float S;
    public boolean T;
    public float U;
-   protected Random V;
+   protected Random random;
    public int W;
    public int X;
    private int i;
@@ -109,12 +109,12 @@ public abstract class Entity implements class_m {
    public int Z;
    protected boolean aa;
    protected boolean ab;
-   protected class_qi ac;
-   private static final int as = class_qi.a(Entity.class);
-   private static final int at = class_qi.a(Entity.class);
-   private static final int au = class_qi.a(Entity.class);
-   private static final int av = class_qi.a(Entity.class);
-   private static final int aw = class_qi.a(Entity.class);
+   protected Datawathcer datawatcher;
+   private static final int as = Datawathcer.claimId(Entity.class);
+   private static final int at = Datawathcer.claimId(Entity.class);
+   private static final int au = Datawathcer.claimId(Entity.class);
+   private static final int av = Datawathcer.claimId(Entity.class);
+   private static final int aw = Datawathcer.claimId(Entity.class);
    private double ax;
    private double ay;
    public boolean ad;
@@ -131,7 +131,7 @@ public abstract class Entity implements class_m {
    protected Vec3D ao;
    protected EnumDirection ap;
    private boolean az;
-   protected UUID aq;
+   protected UUID uniqueID;
    private final class_n aA;
    private final List aB;
    protected boolean ar;
@@ -155,10 +155,10 @@ public abstract class Entity implements class_m {
       this.J = 0.6F;
       this.K = 1.8F;
       this.h = 1;
-      this.V = new Random();
+      this.random = new Random();
       this.X = 1;
       this.aa = true;
-      this.aq = MathHelper.getRandomUUID(this.V);
+      this.uniqueID = MathHelper.getRandomUUID(this.random);
       this.aA = new class_n();
       this.aB = Lists.newArrayList();
       this.o = var1;
@@ -167,19 +167,19 @@ public abstract class Entity implements class_m {
          this.am = var1.worldProvider.p().a();
       }
 
-      this.ac = new class_qi(this);
-      this.ac.a(as, Byte.valueOf((byte)0));
-      this.ac.a(at, Short.valueOf((short)300));
-      this.ac.a(av, Byte.valueOf((byte)0));
-      this.ac.a(au, "");
-      this.ac.a(aw, Byte.valueOf((byte)0));
+      this.datawatcher = new Datawathcer(this);
+      this.datawatcher.add(as, Byte.valueOf((byte)0));
+      this.datawatcher.add(at, Short.valueOf((short)300));
+      this.datawatcher.add(av, Byte.valueOf((byte)0));
+      this.datawatcher.add(au, "");
+      this.datawatcher.add(aw, Byte.valueOf((byte)0));
       this.h();
    }
 
    protected abstract void h();
 
-   public class_qi H() {
-      return this.ac;
+   public Datawathcer H() {
+      return this.datawatcher;
    }
 
    public boolean equals(Object var1) {
@@ -231,8 +231,8 @@ public abstract class Entity implements class_m {
 
    public void K() {
       this.o.B.a("entityBaseTick");
-      if(this.m != null && this.m.I) {
-         this.m = null;
+      if(this.vehicle != null && this.vehicle.I) {
+         this.vehicle = null;
       }
 
       this.L = this.M;
@@ -247,7 +247,7 @@ public abstract class Entity implements class_m {
          int var2 = this.L();
          if(this.ak) {
             if(var1.C()) {
-               if(this.m == null && this.al++ >= var2) {
+               if(this.vehicle == null && this.al++ >= var2) {
                   this.al = var2;
                   this.aj = this.aq();
                   byte var3;
@@ -291,7 +291,7 @@ public abstract class Entity implements class_m {
             }
          } else {
             if(this.i % 20 == 0) {
-               this.a(class_pc.c, 1.0F);
+               this.damageEntity(class_pc.c, 1.0F);
             }
 
             --this.i;
@@ -321,7 +321,7 @@ public abstract class Entity implements class_m {
 
    protected void M() {
       if(!this.ab) {
-         this.a(class_pc.d, 4.0F);
+         this.damageEntity(class_pc.d, 4.0F);
          this.f(15);
       }
    }
@@ -564,11 +564,11 @@ public abstract class Entity implements class_m {
             var60.landOn(this.o, this);
          }
 
-         if(this.s_() && !var19 && this.m == null) {
+         if(this.s_() && !var19 && this.vehicle == null) {
             double var61 = this.s - var7;
             double var64 = this.t - var9;
             double var66 = this.u - var11;
-            if(var60 != BlockStainedGlassPane.LADDER) {
+            if(var60 != Blocks.LADDER) {
                var64 = 0.0D;
             }
 
@@ -586,7 +586,7 @@ public abstract class Entity implements class_m {
                      var34 = 1.0F;
                   }
 
-                  this.a(this.P(), var34, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
+                  this.a(this.P(), var34, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
                }
 
                this.a(var26, var60);
@@ -616,7 +616,7 @@ public abstract class Entity implements class_m {
          }
 
          if(var62 && this.i > 0) {
-            this.a("random.fizz", 0.7F, 1.6F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
+            this.a("random.fizz", 0.7F, 1.6F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
             this.i = -this.X;
          }
 
@@ -661,8 +661,8 @@ public abstract class Entity implements class_m {
 
    protected void a(BlockPosition var1, Block var2) {
       Block.Sound var3 = var2.stepSound;
-      if(this.o.getType(var1.up()).getBlock() == BlockStainedGlassPane.SNOW_LAYER) {
-         var3 = BlockStainedGlassPane.SNOW_LAYER.stepSound;
+      if(this.o.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
+         var3 = Blocks.SNOW_LAYER.stepSound;
          this.a(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
       } else if(!var2.getMaterial().isLiquid()) {
          this.a(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
@@ -678,11 +678,11 @@ public abstract class Entity implements class_m {
    }
 
    public boolean R() {
-      return this.ac.a(aw) == 1;
+      return this.datawatcher.getByte(aw) == 1;
    }
 
    public void b(boolean var1) {
-      this.ac.b(aw, Byte.valueOf((byte)(var1?1:0)));
+      this.datawatcher.update(aw, Byte.valueOf((byte)(var1?1:0)));
    }
 
    protected boolean s_() {
@@ -712,7 +712,7 @@ public abstract class Entity implements class_m {
 
    protected void g(int var1) {
       if(!this.ab) {
-         this.a(class_pc.a, (float)var1);
+         this.damageEntity(class_pc.a, (float)var1);
       }
 
    }
@@ -722,8 +722,8 @@ public abstract class Entity implements class_m {
    }
 
    public void e(float var1, float var2) {
-      if(this.l != null) {
-         this.l.e(var1, var2);
+      if(this.passenger != null) {
+         this.passenger.e(var1, var2);
       }
 
    }
@@ -758,21 +758,21 @@ public abstract class Entity implements class_m {
          var1 = 1.0F;
       }
 
-      this.a(this.aa(), var1, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
+      this.a(this.aa(), var1, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
       float var2 = (float)MathHelper.floor(this.aT().yMin);
 
       int var3;
       float var4;
       float var5;
       for(var3 = 0; (float)var3 < 1.0F + this.J * 20.0F; ++var3) {
-         var4 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J;
-         var5 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J;
-         this.o.a(class_cy.e, this.s + (double)var4, (double)(var2 + 1.0F), this.u + (double)var5, this.v, this.motY - (double)(this.V.nextFloat() * 0.2F), this.x, new int[0]);
+         var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J;
+         var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J;
+         this.o.a(class_cy.e, this.s + (double)var4, (double)(var2 + 1.0F), this.u + (double)var5, this.v, this.motY - (double)(this.random.nextFloat() * 0.2F), this.x, new int[0]);
       }
 
       for(var3 = 0; (float)var3 < 1.0F + this.J * 20.0F; ++var3) {
-         var4 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J;
-         var5 = (this.V.nextFloat() * 2.0F - 1.0F) * this.J;
+         var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J;
+         var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J;
          this.o.a(class_cy.f, this.s + (double)var4, (double)(var2 + 1.0F), this.u + (double)var5, this.v, this.motY, this.x, new int[0]);
       }
 
@@ -793,7 +793,7 @@ public abstract class Entity implements class_m {
       IBlockData var5 = this.o.getType(var4);
       Block var6 = var5.getBlock();
       if(var6.getRenderType() != -1) {
-         this.o.a(class_cy.L, this.s + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, this.aT().yMin + 0.1D, this.u + ((double)this.V.nextFloat() - 0.5D) * (double)this.J, -this.v * 4.0D, 1.5D, -this.x * 4.0D, new int[]{Block.getCombinedId(var5)});
+         this.o.a(class_cy.L, this.s + ((double)this.random.nextFloat() - 0.5D) * (double)this.J, this.aT().yMin + 0.1D, this.u + ((double)this.random.nextFloat() - 0.5D) * (double)this.J, -this.v * 4.0D, 1.5D, -this.x * 4.0D, new int[]{Block.getCombinedId(var5)});
       }
 
    }
@@ -920,7 +920,7 @@ public abstract class Entity implements class_m {
    }
 
    public void i(Entity var1) {
-      if(var1.l != this && var1.m != this) {
+      if(var1.passenger != this && var1.vehicle != this) {
          if(!var1.T && !this.T) {
             double var2 = var1.s - this.s;
             double var4 = var1.u - this.u;
@@ -940,11 +940,11 @@ public abstract class Entity implements class_m {
                var4 *= 0.05000000074505806D;
                var2 *= (double)(1.0F - this.U);
                var4 *= (double)(1.0F - this.U);
-               if(this.l == null) {
+               if(this.passenger == null) {
                   this.g(-var2, 0.0D, -var4);
                }
 
-               if(var1.l == null) {
+               if(var1.passenger == null) {
                   var1.g(var2, 0.0D, var4);
                }
             }
@@ -964,7 +964,7 @@ public abstract class Entity implements class_m {
       this.G = true;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {
@@ -1015,7 +1015,7 @@ public abstract class Entity implements class_m {
 
    public boolean d(NBTTagCompound var1) {
       String var2 = this.ag();
-      if(!this.I && var2 != null && this.l == null) {
+      if(!this.I && var2 != null && this.passenger == null) {
          var1.put("id", var2);
          this.e(var1);
          return true;
@@ -1051,10 +1051,10 @@ public abstract class Entity implements class_m {
             var1.put("Glowing", this.ar);
          }
 
-         this.b(var1);
-         if(this.m != null) {
+         this.write(var1);
+         if(this.vehicle != null) {
             NBTTagCompound var2 = new NBTTagCompound();
-            if(this.m.c(var2)) {
+            if(this.vehicle.c(var2)) {
                var1.put((String)"Riding", (NBTTag)var2);
             }
          }
@@ -1103,9 +1103,9 @@ public abstract class Entity implements class_m {
          this.aj = var1.getInt("PortalCooldown");
          UUID var5 = var1.getUUID("UUID");
          if(var5 != null) {
-            this.aq = var5;
+            this.uniqueID = var5;
          } else if(var1.hasOfType("UUID", 8)) {
-            this.aq = UUID.fromString(var1.getString("UUID"));
+            this.uniqueID = UUID.fromString(var1.getString("UUID"));
          }
 
          this.b(this.s, this.t, this.u);
@@ -1118,7 +1118,7 @@ public abstract class Entity implements class_m {
          this.aA.a(var1);
          this.b(var1.getBoolean("Silent"));
          this.ar = var1.getBoolean("Glowing");
-         this.a(var1);
+         this.read(var1);
          if(this.af()) {
             this.b(this.s, this.t, this.u);
          }
@@ -1139,9 +1139,9 @@ public abstract class Entity implements class_m {
       return class_pt.b(this);
    }
 
-   protected abstract void a(NBTTagCompound var1);
+   protected abstract void read(NBTTagCompound var1);
 
-   protected abstract void b(NBTTagCompound var1);
+   protected abstract void write(NBTTagCompound var1);
 
    public void ah() {
    }
@@ -1191,7 +1191,7 @@ public abstract class Entity implements class_m {
       }
    }
 
-   public boolean ai() {
+   public boolean isAlive() {
       return !this.I;
    }
 
@@ -1226,18 +1226,18 @@ public abstract class Entity implements class_m {
    }
 
    public void ak() {
-      if(this.m.I) {
-         this.m = null;
+      if(this.vehicle.I) {
+         this.vehicle = null;
       } else {
          this.v = 0.0D;
          this.motY = 0.0D;
          this.x = 0.0D;
          this.t_();
-         if(this.m != null) {
-            this.m.al();
-            this.ay += (double)(this.m.y - this.m.A);
+         if(this.vehicle != null) {
+            this.vehicle.al();
+            this.ay += (double)(this.vehicle.y - this.vehicle.A);
 
-            for(this.ax += (double)(this.m.z - this.m.B); this.ay >= 180.0D; this.ay -= 360.0D) {
+            for(this.ax += (double)(this.vehicle.z - this.vehicle.B); this.ay >= 180.0D; this.ay -= 360.0D) {
                ;
             }
 
@@ -1279,8 +1279,8 @@ public abstract class Entity implements class_m {
    }
 
    public void al() {
-      if(this.l != null) {
-         this.l.b(this.s, this.t + this.an() + this.l.am(), this.u);
+      if(this.passenger != null) {
+         this.passenger.b(this.s, this.t + this.an() + this.passenger.am(), this.u);
       }
    }
 
@@ -1296,27 +1296,27 @@ public abstract class Entity implements class_m {
       this.ax = 0.0D;
       this.ay = 0.0D;
       if(var1 == null) {
-         if(this.m != null) {
-            this.b(this.m.s, this.m.aT().yMin + (double)this.m.K, this.m.u, this.y, this.z);
-            this.m.l = null;
+         if(this.vehicle != null) {
+            this.b(this.vehicle.s, this.vehicle.aT().yMin + (double)this.vehicle.K, this.vehicle.u, this.y, this.z);
+            this.vehicle.passenger = null;
          }
 
-         this.m = null;
+         this.vehicle = null;
       } else {
-         if(this.m != null) {
-            this.m.l = null;
+         if(this.vehicle != null) {
+            this.vehicle.passenger = null;
          }
 
          if(var1 != null) {
-            for(Entity var2 = var1.m; var2 != null; var2 = var2.m) {
+            for(Entity var2 = var1.vehicle; var2 != null; var2 = var2.vehicle) {
                if(var2 == this) {
                   return;
                }
             }
          }
 
-         this.m = var1;
-         var1.l = this;
+         this.vehicle = var1;
+         var1.passenger = this;
       }
    }
 
@@ -1334,7 +1334,7 @@ public abstract class Entity implements class_m {
       } else {
          if(!this.o.isClientSide && !var1.equals(this.an)) {
             this.an = var1;
-            class_anp.class_b_in_class_anp var2 = BlockStainedGlassPane.PORTAL.f(this.o, var1);
+            class_anp.class_b_in_class_anp var2 = Blocks.PORTAL.f(this.o, var1);
             double var3 = var2.b().getAxis() == EnumDirection.EnumAxis.X?(double)var2.a().getZ():(double)var2.a().getX();
             double var5 = var2.b().getAxis() == EnumDirection.EnumAxis.X?this.u:this.s;
             var5 = Math.abs(MathHelper.c(var5 - (double)(var2.b().rotateY().getAxisDirection() == EnumDirection.EnumAxisDirection.NEGATIVE?1:0), var3, var3 - (double)var2.d()));
@@ -1372,7 +1372,7 @@ public abstract class Entity implements class_m {
    }
 
    public boolean aw() {
-      return this.m != null;
+      return this.vehicle != null;
    }
 
    public boolean ax() {
@@ -1404,29 +1404,29 @@ public abstract class Entity implements class_m {
    }
 
    protected boolean h(int var1) {
-      return (this.ac.a(as) & 1 << var1) != 0;
+      return (this.datawatcher.getByte(as) & 1 << var1) != 0;
    }
 
    protected void b(int var1, boolean var2) {
-      byte var3 = this.ac.a(as);
+      byte var3 = this.datawatcher.getByte(as);
       if(var2) {
-         this.ac.b(as, Byte.valueOf((byte)(var3 | 1 << var1)));
+         this.datawatcher.update(as, Byte.valueOf((byte)(var3 | 1 << var1)));
       } else {
-         this.ac.b(as, Byte.valueOf((byte)(var3 & ~(1 << var1))));
+         this.datawatcher.update(as, Byte.valueOf((byte)(var3 & ~(1 << var1))));
       }
 
    }
 
    public int aB() {
-      return this.ac.b(at);
+      return this.datawatcher.getShort(at);
    }
 
    public void i(int var1) {
-      this.ac.b(at, Short.valueOf((short)var1));
+      this.datawatcher.update(at, Short.valueOf((short)var1));
    }
 
    public void a(class_vi var1) {
-      this.a(class_pc.b, 5.0F);
+      this.damageEntity(class_pc.b, 5.0F);
       ++this.i;
       if(this.i == 0) {
          this.f(8);
@@ -1473,7 +1473,7 @@ public abstract class Entity implements class_m {
             var15 = 5;
          }
 
-         float var18 = this.V.nextFloat() * 0.2F + 0.1F;
+         float var18 = this.random.nextFloat() * 0.2F + 0.1F;
          if(var15 == 0) {
             this.v = (double)(-var18);
          }
@@ -1569,11 +1569,11 @@ public abstract class Entity implements class_m {
          this.o.B.a("changeDimension");
          MinecraftServer var2 = MinecraftServer.N();
          int var3 = this.am;
-         WorldServer var4 = var2.a(var3);
-         WorldServer var5 = var2.a(var1);
+         WorldServer var4 = var2.getWorldServer(var3);
+         WorldServer var5 = var2.getWorldServer(var1);
          this.am = var1;
          if(var3 == 1 && var1 == 1) {
-            var5 = var2.a(0);
+            var5 = var2.getWorldServer(0);
             this.am = 0;
          }
 
@@ -1652,7 +1652,7 @@ public abstract class Entity implements class_m {
       var1.a((String)"Entity\'s Momentum", (Object)String.format("%.2f, %.2f, %.2f", new Object[]{Double.valueOf(this.v), Double.valueOf(this.motY), Double.valueOf(this.x)}));
       var1.a("Entity\'s Rider", new Callable() {
          public String a() throws Exception {
-            return Entity.this.l.toString();
+            return Entity.this.passenger.toString();
          }
 
          // $FF: synthetic method
@@ -1662,7 +1662,7 @@ public abstract class Entity implements class_m {
       });
       var1.a("Entity\'s Vehicle", new Callable() {
          public String a() throws Exception {
-            return Entity.this.m.toString();
+            return Entity.this.vehicle.toString();
          }
 
          // $FF: synthetic method
@@ -1673,7 +1673,7 @@ public abstract class Entity implements class_m {
    }
 
    public UUID aM() {
-      return this.aq;
+      return this.uniqueID;
    }
 
    public boolean aN() {
@@ -1688,23 +1688,23 @@ public abstract class Entity implements class_m {
    }
 
    public void a(String var1) {
-      this.ac.b(au, var1);
+      this.datawatcher.update(au, var1);
    }
 
    public String aO() {
-      return this.ac.e(au);
+      return this.datawatcher.getString(au);
    }
 
    public boolean hasCustomName() {
-      return !this.ac.e(au).isEmpty();
+      return !this.datawatcher.getString(au).isEmpty();
    }
 
    public void g(boolean var1) {
-      this.ac.b(av, Byte.valueOf((byte)(var1?1:0)));
+      this.datawatcher.update(av, Byte.valueOf((byte)(var1?1:0)));
    }
 
    public boolean aP() {
-      return this.ac.a(av) == 1;
+      return this.datawatcher.getByte(av) == 1;
    }
 
    public void a(double var1, double var3, double var5) {
@@ -1797,8 +1797,8 @@ public abstract class Entity implements class_m {
       this.aA.a(var1.aW());
    }
 
-   public class_oq a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
-      return class_oq.b;
+   public UseResult a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
+      return UseResult.CANT_USE;
    }
 
    public boolean aX() {

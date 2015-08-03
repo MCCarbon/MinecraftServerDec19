@@ -6,11 +6,11 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_abz;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.class_pw;
 import net.minecraft.server.EntityLiving;
@@ -36,7 +36,7 @@ public class class_abw extends Item {
    }
 
    public float a(ItemStack var1, Block var2) {
-      if(var2 == BlockStainedGlassPane.WEB) {
+      if(var2 == Blocks.WEB) {
          return 15.0F;
       } else {
          Material var3 = var2.getMaterial();
@@ -67,11 +67,11 @@ public class class_abw extends Item {
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
-      return new class_or(class_oq.a, var1);
+      return new class_or(UseResult.SUCCESS, var1);
    }
 
    public boolean b(Block var1) {
-      return var1 == BlockStainedGlassPane.WEB;
+      return var1 == Blocks.WEB;
    }
 
    public int c() {

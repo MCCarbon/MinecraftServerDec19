@@ -20,7 +20,7 @@ public class BlockDirt extends Block {
 	public IBlockData updateState(IBlockData blockdata, IBlockAccess access, BlockPosition position) {
 		if (blockdata.get(VARIANT) == BlockDirt.EnumDirtVariant.PODZOL) {
 			Block upperBlock = access.getType(position.up()).getBlock();
-			blockdata = blockdata.set(SNOWY, ((upperBlock == BlockStainedGlassPane.SNOW) || (upperBlock == BlockStainedGlassPane.SNOW_LAYER)));
+			blockdata = blockdata.set(SNOWY, ((upperBlock == Blocks.SNOW) || (upperBlock == Blocks.SNOW_LAYER)));
 		}
 		return blockdata;
 	}

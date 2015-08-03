@@ -32,8 +32,8 @@ public class class_ui extends class_uk {
    public class_ui(World var1) {
       super(var1);
       this.a(0.95F, 0.95F);
-      this.V.setSeed((long)(1 + this.getId()));
-      this.bw = 1.0F / (this.V.nextFloat() + 1.0F) * 0.2F;
+      this.random.setSeed((long)(1 + this.getId()));
+      this.bw = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
       this.i.a(0, new class_ui.class_a_in_class_ui(this));
    }
 
@@ -71,7 +71,7 @@ public class class_ui extends class_uk {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(3 + var2) + 1;
+      int var3 = this.random.nextInt(3 + var2) + 1;
 
       for(int var4 = 0; var4 < var3; ++var4) {
          this.a(new ItemStack(Items.aY, 1, EnumColor.p.b()), 0.0F);
@@ -95,8 +95,8 @@ public class class_ui extends class_uk {
             this.br = 6.2831855F;
          } else {
             this.br = (float)((double)this.br - 6.283185307179586D);
-            if(this.V.nextInt(10) == 0) {
-               this.bw = 1.0F / (this.V.nextFloat() + 1.0F) * 0.2F;
+            if(this.random.nextInt(10) == 0) {
+               this.bw = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
             }
 
             this.o.a((Entity)this, (byte)19);

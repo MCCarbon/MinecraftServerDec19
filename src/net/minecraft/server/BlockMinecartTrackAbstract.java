@@ -15,7 +15,7 @@ public abstract class BlockMinecartTrackAbstract extends Block {
 
 	public static boolean d(IBlockData var0) {
 		Block var1 = var0.getBlock();
-		return (var1 == BlockStainedGlassPane.RAIL) || (var1 == BlockStainedGlassPane.GOLDEN_RAIL) || (var1 == BlockStainedGlassPane.DETECTOR_RAIL) || (var1 == BlockStainedGlassPane.ACTIVATOR_RAIL);
+		return (var1 == Blocks.RAIL) || (var1 == Blocks.GOLDEN_RAIL) || (var1 == Blocks.DETECTOR_RAIL) || (var1 == Blocks.ACTIVATOR_RAIL);
 	}
 
 	protected BlockMinecartTrackAbstract(boolean var1) {

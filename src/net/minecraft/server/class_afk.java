@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.BlockLeaves1;
 import net.minecraft.server.BlockLog1;
@@ -72,8 +72,8 @@ public class class_afk extends BiomeBase {
    }
 
    static {
-      aE = BlockStainedGlassPane.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.JUNGLE);
-      aF = BlockStainedGlassPane.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.JUNGLE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
-      aG = BlockStainedGlassPane.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.OAK).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      aE = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.JUNGLE);
+      aF = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.JUNGLE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      aG = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.OAK).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

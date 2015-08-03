@@ -4,7 +4,7 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ajh;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
@@ -67,7 +67,7 @@ public class class_wm extends class_wi {
       return "mob.silverfish.kill";
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b(var1)) {
          return false;
       } else {
@@ -75,7 +75,7 @@ public class class_wm extends class_wi {
             this.a.f();
          }
 
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 
@@ -93,7 +93,7 @@ public class class_wm extends class_wi {
    }
 
    public float a(BlockPosition var1) {
-      return this.o.getType(var1.down()).getBlock() == BlockStainedGlassPane.STONE?10.0F:super.a(var1);
+      return this.o.getType(var1.down()).getBlock() == Blocks.STONE?10.0F:super.a(var1);
    }
 
    protected boolean n_() {
@@ -158,7 +158,7 @@ public class class_wm extends class_wi {
             BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
             IBlockData var3 = var1.getType(var2);
             if(class_ajh.d(var3)) {
-               var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
                this.a.A();
                this.a.J();
             }
@@ -198,7 +198,7 @@ public class class_wm extends class_wi {
                   for(int var6 = 0; var6 <= 10 && var6 >= -10; var6 = var6 <= 0?1 - var6:0 - var6) {
                      BlockPosition var7 = var3.add(var5, var4, var6);
                      IBlockData var8 = var1.getType(var7);
-                     if(var8.getBlock() == BlockStainedGlassPane.MONSTER_EGG) {
+                     if(var8.getBlock() == Blocks.MONSTER_EGG) {
                         if(var1.R().b("mobGriefing")) {
                            var1.setAir(var7, true);
                         } else {

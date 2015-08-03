@@ -22,7 +22,7 @@ public class class_xh extends class_xf {
    protected void a(MovingObjectPosition var1) {
       if(!this.o.isClientSide) {
          if(var1.d != null) {
-            var1.d.a(class_pc.a((class_xf)this, (Entity)this.a), 6.0F);
+            var1.d.damageEntity(class_pc.a((class_xf)this, (Entity)this.a), 6.0F);
             this.a(this.a, var1.d);
          }
 
@@ -33,13 +33,13 @@ public class class_xh extends class_xf {
 
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("ExplosionPower", this.e);
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       if(var1.hasOfType("ExplosionPower", 99)) {
          this.e = var1.getInt("ExplosionPower");
       }

@@ -15,7 +15,7 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_pw;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_re;
 import net.minecraft.server.class_rf;
@@ -34,7 +34,7 @@ import net.minecraft.server.class_wl;
 import net.minecraft.server.EntityHuman;
 
 public class class_ud extends class_tw {
-   private static final int bs = class_qi.a(class_ud.class);
+   private static final int bs = Datawathcer.claimId(class_ud.class);
    private static final Set bt;
    private final class_rf bu;
 
@@ -61,27 +61,27 @@ public class class_ud extends class_tw {
    }
 
    public boolean ck() {
-      ItemStack var1 = ((EntityHuman)this.l).bA();
+      ItemStack var1 = ((EntityHuman)this.passenger).bA();
       if(var1 != null && var1.getItem() == Items.cb) {
          return true;
       } else {
-         var1 = ((EntityHuman)this.l).bB();
+         var1 = ((EntityHuman)this.passenger).bB();
          return var1 != null && var1.getItem() == Items.cb;
       }
    }
 
    protected void h() {
       super.h();
-      this.ac.a(bs, Byte.valueOf((byte)0));
+      this.datawatcher.add(bs, Byte.valueOf((byte)0));
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Saddle", this.cA());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.m(var1.getBoolean("Saddle"));
    }
 
@@ -104,7 +104,7 @@ public class class_ud extends class_tw {
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(super.a(var1, var2, var3)) {
          return true;
-      } else if(!this.cA() || this.o.isClientSide || this.l != null && this.l != var1) {
+      } else if(!this.cA() || this.o.isClientSide || this.passenger != null && this.passenger != var1) {
          return false;
       } else {
          var1.a((Entity)this);
@@ -117,7 +117,7 @@ public class class_ud extends class_tw {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(3) + 1 + this.V.nextInt(1 + var2);
+      int var3 = this.random.nextInt(3) + 1 + this.random.nextInt(1 + var2);
 
       for(int var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
@@ -134,14 +134,14 @@ public class class_ud extends class_tw {
    }
 
    public boolean cA() {
-      return (this.ac.a(bs) & 1) != 0;
+      return (this.datawatcher.getByte(bs) & 1) != 0;
    }
 
    public void m(boolean var1) {
       if(var1) {
-         this.ac.b(bs, Byte.valueOf((byte)1));
+         this.datawatcher.update(bs, Byte.valueOf((byte)1));
       } else {
-         this.ac.b(bs, Byte.valueOf((byte)0));
+         this.datawatcher.update(bs, Byte.valueOf((byte)0));
       }
 
    }
@@ -149,7 +149,7 @@ public class class_ud extends class_tw {
    public void a(class_vi var1) {
       if(!this.o.isClientSide && !this.I) {
          class_wj var2 = new class_wj(this.o);
-         var2.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.GOLDEN_SWORD)));
+         var2.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
          var2.b(this.s, this.t, this.u, this.y, this.z);
          var2.k(this.cs());
          if(this.hasCustomName()) {
@@ -164,8 +164,8 @@ public class class_ud extends class_tw {
 
    public void e(float var1, float var2) {
       super.e(var1, var2);
-      if(var1 > 5.0F && this.l instanceof EntityHuman) {
-         ((EntityHuman)this.l).b((class_my)class_mt.u);
+      if(var1 > 5.0F && this.passenger instanceof EntityHuman) {
+         ((EntityHuman)this.passenger).b((class_my)class_mt.u);
       }
 
    }

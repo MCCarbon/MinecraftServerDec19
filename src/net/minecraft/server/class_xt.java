@@ -15,11 +15,11 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_pl;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_xd;
 
 public class class_xt extends class_xd {
-   private static final int f = class_qi.a(class_xt.class);
+   private static final int f = Datawathcer.claimId(class_xt.class);
    private final Set g;
    private ItemStack h;
 
@@ -54,7 +54,7 @@ public class class_xt extends class_xd {
             this.g.add(new class_pl(var4));
          }
 
-         this.ac.b(f, Integer.valueOf(class_abe.a((Collection)this.g)));
+         this.datawatcher.update(f, Integer.valueOf(class_abe.a((Collection)this.g)));
       }
 
       this.h = var1.clone();
@@ -63,7 +63,7 @@ public class class_xt extends class_xd {
 
    protected void h() {
       super.h();
-      this.ac.a(f, Integer.valueOf(0));
+      this.datawatcher.add(f, Integer.valueOf(0));
    }
 
    public void t_() {
@@ -74,43 +74,43 @@ public class class_xt extends class_xd {
       double var6;
       if(this.a) {
          if(this.o.isClientSide) {
-            var1 = this.ac.c(f);
+            var1 = this.datawatcher.getInt(f);
             if(var1 > 0 && this.b % 5 == 0) {
                var2 = (double)(var1 >> 16 & 255) / 255.0D;
                var4 = (double)(var1 >> 8 & 255) / 255.0D;
                var6 = (double)(var1 >> 0 & 255) / 255.0D;
-               this.o.a(class_cy.p, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, var2, var4, var6, new int[0]);
+               this.o.a(class_cy.p, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J, this.t + this.random.nextDouble() * (double)this.K, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J, var2, var4, var6, new int[0]);
             }
          } else if(!this.g.isEmpty() && this.b >= 200) {
             this.o.a((Entity)this, (byte)0);
             this.g.clear();
-            this.ac.b(f, Integer.valueOf(0));
+            this.datawatcher.update(f, Integer.valueOf(0));
          }
       } else if(this.o.isClientSide) {
-         var1 = this.ac.c(f);
+         var1 = this.datawatcher.getInt(f);
          if(var1 > 0) {
             var2 = (double)(var1 >> 16 & 255) / 255.0D;
             var4 = (double)(var1 >> 8 & 255) / 255.0D;
             var6 = (double)(var1 >> 0 & 255) / 255.0D;
 
             for(int var8 = 0; var8 < 2; ++var8) {
-               this.o.a(class_cy.p, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, var2, var4, var6, new int[0]);
+               this.o.a(class_cy.p, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J, this.t + this.random.nextDouble() * (double)this.K, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J, var2, var4, var6, new int[0]);
             }
          }
       }
 
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       if(this.h != null) {
          var1.put((String)"Item", (NBTTag)this.h.write(new NBTTagCompound()));
       }
 
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       if(var1.hasOfType("Item", 10)) {
          this.h = ItemStack.a(var1.getCompound("Item"));
       }
@@ -131,6 +131,6 @@ public class class_xt extends class_xd {
    }
 
    protected ItemStack j() {
-      return this.g.isEmpty()?new ItemStack(Items.ARROW):this.h;
+      return this.g.isEmpty()?new ItemStack(Items.g):this.h;
    }
 }

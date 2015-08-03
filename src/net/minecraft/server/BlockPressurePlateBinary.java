@@ -37,7 +37,7 @@ public class class_akb extends class_age {
       List var4;
       switch(class_akb.SyntheticClass_1.a[this.b.ordinal()]) {
       case 1:
-         var4 = var1.b((Entity)null, (AxisAlignedBB)var3);
+         var4 = var1.getEntities((Entity)null, (AxisAlignedBB)var3);
          break;
       case 2:
          var4 = var1.getEntities(EntityLiving.class, var3);

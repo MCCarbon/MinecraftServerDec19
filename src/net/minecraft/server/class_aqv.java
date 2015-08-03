@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
@@ -13,10 +13,10 @@ public class class_aqv extends class_aql {
    public boolean b(World var1, Random var2, BlockPosition var3) {
       if(!var1.isEmpty(var3)) {
          return false;
-      } else if(var1.getType(var3.up()).getBlock() != BlockStainedGlassPane.NETHERRACK) {
+      } else if(var1.getType(var3.up()).getBlock() != Blocks.NETHERRACK) {
          return false;
       } else {
-         var1.setTypeAndData((BlockPosition)var3, (IBlockData)BlockStainedGlassPane.GLOWSTONE.getBlockData(), 2);
+         var1.setTypeAndData((BlockPosition)var3, (IBlockData)Blocks.GLOWSTONE.getBlockData(), 2);
 
          for(int var4 = 0; var4 < 1500; ++var4) {
             BlockPosition var5 = var3.add(var2.nextInt(8) - var2.nextInt(8), -var2.nextInt(12), var2.nextInt(8) - var2.nextInt(8));
@@ -27,7 +27,7 @@ public class class_aqv extends class_aql {
 
                for(int var9 = 0; var9 < var8; ++var9) {
                   EnumDirection var10 = var7[var9];
-                  if(var1.getType(var5.shift(var10)).getBlock() == BlockStainedGlassPane.GLOWSTONE) {
+                  if(var1.getType(var5.shift(var10)).getBlock() == Blocks.GLOWSTONE) {
                      ++var6;
                   }
 
@@ -37,7 +37,7 @@ public class class_aqv extends class_aql {
                }
 
                if(var6 == 1) {
-                  var1.setTypeAndData((BlockPosition)var5, (IBlockData)BlockStainedGlassPane.GLOWSTONE.getBlockData(), 2);
+                  var1.setTypeAndData((BlockPosition)var5, (IBlockData)Blocks.GLOWSTONE.getBlockData(), 2);
                }
             }
          }

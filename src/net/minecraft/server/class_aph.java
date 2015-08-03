@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 
 public class class_aph {
@@ -9,7 +9,7 @@ public class class_aph {
    private final IBlockData b;
 
    public class_aph() {
-      this.b = BlockStainedGlassPane.AIR.getBlockData();
+      this.b = Blocks.AIR.getBlockData();
    }
 
    public IBlockData a(int var1, int var2, int var3) {

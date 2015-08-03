@@ -14,7 +14,7 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_lj;
-import net.minecraft.server.class_no;
+import net.minecraft.server.IntHashMap;
 import net.minecraft.server.class_pp;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityExperienceOrb;
@@ -49,7 +49,7 @@ public class class_lb {
    private static final Logger a = LogManager.getLogger();
    private final WorldServer b;
    private Set c = Sets.newHashSet();
-   private class_no d = new class_no();
+   private IntHashMap d = new IntHashMap();
    private int e;
 
    public class_lb(WorldServer var1) {

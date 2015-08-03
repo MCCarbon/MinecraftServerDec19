@@ -3,8 +3,8 @@ package net.minecraft.server;
 import net.minecraft.server.Item;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
-import net.minecraft.server.BlockChest;
+import net.minecraft.server.Blocks;
+import net.minecraft.server.class_agu;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.class_pc;
@@ -27,7 +27,7 @@ public class class_vo extends class_vq {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(Item.getItemOf((Block)BlockStainedGlassPane.CHEST), 1, 0.0F);
+         this.a(Item.getItemOf((Block)Blocks.CHEST), 1, 0.0F);
       }
 
    }
@@ -41,7 +41,7 @@ public class class_vo extends class_vq {
    }
 
    public IBlockData u() {
-      return BlockStainedGlassPane.CHEST.getBlockData().set(BlockChest.a, EnumDirection.NORTH);
+      return Blocks.CHEST.getBlockData().set(class_agu.a, EnumDirection.NORTH);
    }
 
    public int w() {

@@ -8,7 +8,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockFragilePlantElement;
 import net.minecraft.server.BlockPlant;
 import net.minecraft.server.BlockCrops;
@@ -54,7 +54,7 @@ public class class_alg extends BlockPlant implements IBlockFragilePlantElement {
    }
 
    protected boolean c(Block var1) {
-      return var1 == BlockStainedGlassPane.FARMLAND;
+      return var1 == Blocks.FARMLAND;
    }
 
    public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
@@ -78,7 +78,7 @@ public class class_alg extends BlockPlant implements IBlockFragilePlantElement {
 
                var2 = var2.shift(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var4));
                Block var9 = var1.getType(var2.down()).getBlock();
-               if(var1.getType(var2).getBlock().material == Material.AIR && (var9 == BlockStainedGlassPane.FARMLAND || var9 == BlockStainedGlassPane.DIRT || var9 == BlockStainedGlassPane.GRASS)) {
+               if(var1.getType(var2).getBlock().material == Material.AIR && (var9 == Blocks.FARMLAND || var9 == Blocks.DIRT || var9 == Blocks.GRASS)) {
                   var1.setTypeUpdate(var2, this.N.getBlockData());
                }
             }
@@ -121,7 +121,7 @@ public class class_alg extends BlockPlant implements IBlockFragilePlantElement {
    }
 
    protected Item l() {
-      return this.N == BlockStainedGlassPane.PUMPKIN?Items.bi:(this.N == BlockStainedGlassPane.MELON_BLOCK?Items.bj:null);
+      return this.N == Blocks.PUMPKIN?Items.bi:(this.N == Blocks.MELON_BLOCK?Items.bj:null);
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {

@@ -10,12 +10,12 @@ public class class_pg extends class_pk {
    }
 
    public void a(EntityLiving var1, class_qo var2, int var3) {
-      var1.m(var1.bO() - (float)(4 * (var3 + 1)));
+      var1.setAbsorptionHearts(var1.getAbsorptionHearts() - (float)(4 * (var3 + 1)));
       super.a(var1, var2, var3);
    }
 
    public void b(EntityLiving var1, class_qo var2, int var3) {
-      var1.m(var1.bO() + (float)(4 * (var3 + 1)));
+      var1.setAbsorptionHearts(var1.getAbsorptionHearts() + (float)(4 * (var3 + 1)));
       super.b(var1, var2, var3);
    }
 }

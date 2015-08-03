@@ -11,7 +11,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
@@ -54,15 +54,15 @@ public class class_zl extends Item {
    public void a(ItemStack var1, World var2, EntityLiving var3, int var4) {
       if(var3 instanceof EntityHuman) {
          EntityHuman var5 = (EntityHuman)var3;
-         boolean var6 = var5.bH.instabuild || EnchantmentManager.getLevel(Enchantment.w, var1) > 0;
-         int var7 = this.a(var5.bp);
+         boolean var6 = var5.abilities.instabuild || EnchantmentManager.getLevel(Enchantment.w, var1) > 0;
+         int var7 = this.a(var5.inventory);
          if(var6 || var7 > -1) {
-            ItemStack var8 = var7 > -1?var5.bp.getItem(var7):null;
+            ItemStack var8 = var7 > -1?var5.inventory.getItem(var7):null;
             if(var8 == null) {
-               var8 = new ItemStack(Items.ARROW);
+               var8 = new ItemStack(Items.g);
             }
 
-            class_zc var9 = (class_zc)((class_zc)(var8.getItem() instanceof class_zc?var8.getItem():Items.ARROW));
+            class_zc var9 = (class_zc)((class_zc)(var8.getItem() instanceof class_zc?var8.getItem():Items.g));
             int var10 = this.e(var1) - var4;
             float var11 = b(var10);
             if((double)var11 >= 0.1D) {
@@ -91,7 +91,7 @@ public class class_zl extends Item {
                if(var6) {
                   var12.c = 2;
                } else {
-                  var5.bp.splitStack(var7, 1);
+                  var5.inventory.splitStack(var7, 1);
                }
 
                var5.b(StatisticList.ad[Item.getId((Item)this)]);
@@ -123,11 +123,11 @@ public class class_zl extends Item {
    }
 
    public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-      if((var3.bH.instabuild || this.a(var3.bp) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
+      if((var3.abilities.instabuild || this.a(var3.inventory) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
-         return new class_or(class_oq.a, var1);
+         return new class_or(UseResult.SUCCESS, var1);
       } else {
-         return new class_or(class_oq.b, var1);
+         return new class_or(UseResult.CANT_USE, var1);
       }
    }
 

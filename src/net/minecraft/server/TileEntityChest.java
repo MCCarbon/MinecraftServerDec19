@@ -200,7 +200,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 			return false;
 		} else {
 			Block var2 = world.getType(var1).getBlock();
-			return (var2 instanceof BlockChest) && (((BlockChest) var2).b == n());
+			return (var2 instanceof class_agu) && (((class_agu) var2).b == n());
 		}
 	}
 
@@ -300,7 +300,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 
 	@Override
 	public void startOpen(EntityHuman var1) {
-		if (!var1.v()) {
+		if (!var1.isSpectator()) {
 			if (l < 0) {
 				l = 0;
 			}
@@ -315,7 +315,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 
 	@Override
 	public void closeContainer(EntityHuman var1) {
-		if (!var1.v() && (getBlock() instanceof BlockChest)) {
+		if (!var1.isSpectator() && (getBlock() instanceof class_agu)) {
 			--l;
 			world.c(position, getBlock(), 1, l);
 			world.c(position, getBlock());
@@ -338,11 +338,11 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 
 	public int n() {
 		if (o == -1) {
-			if ((world == null) || !(getBlock() instanceof BlockChest)) {
+			if ((world == null) || !(getBlock() instanceof class_agu)) {
 				return 0;
 			}
 
-			o = ((BlockChest) getBlock()).b;
+			o = ((class_agu) getBlock()).b;
 		}
 
 		return o;

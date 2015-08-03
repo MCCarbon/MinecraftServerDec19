@@ -8,7 +8,7 @@ import net.minecraft.server.class_adi;
 import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aga;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IInventory;
@@ -51,11 +51,11 @@ public class class_yb extends Container {
          }
 
          public boolean a(EntityHuman var1) {
-            return (var1.bH.instabuild || var1.bI >= class_yb.this.a) && class_yb.this.a > 0 && this.e();
+            return (var1.abilities.instabuild || var1.expLevel >= class_yb.this.a) && class_yb.this.a > 0 && this.e();
          }
 
          public void a(EntityHuman var1, ItemStack var2x) {
-            if(!var1.bH.instabuild) {
+            if(!var1.abilities.instabuild) {
                var1.a(-class_yb.this.a);
             }
 
@@ -74,7 +74,7 @@ public class class_yb extends Container {
 
             class_yb.this.a = 0;
             IBlockData var5 = var2.getType(var3);
-            if(!var1.bH.instabuild && !var2.isClientSide && var5.getBlock() == BlockStainedGlassPane.ANVIL && var1.bd().nextFloat() < 0.12F) {
+            if(!var1.abilities.instabuild && !var2.isClientSide && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
                int var4 = ((Integer)var5.get(class_aga.b)).intValue();
                ++var4;
                if(var4 > 2) {
@@ -191,7 +191,7 @@ public class class_yb extends Container {
                   var13 = ((Integer)var19.get(var21)).intValue();
                   var13 = var12 == var13?var13 + 1:Math.max(var13, var12);
                   boolean var14 = var21.a(var1);
-                  if(this.m.bH.instabuild || var1.getItem() == Items.cg) {
+                  if(this.m.abilities.instabuild || var1.getItem() == Items.cg) {
                      var14 = true;
                   }
 
@@ -257,7 +257,7 @@ public class class_yb extends Container {
             this.a = 39;
          }
 
-         if(this.a >= 40 && !this.m.bH.instabuild) {
+         if(this.a >= 40 && !this.m.abilities.instabuild) {
             var5 = null;
          }
 
@@ -296,7 +296,7 @@ public class class_yb extends Container {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.i.getType(this.j).getBlock() != BlockStainedGlassPane.ANVIL?false:var1.e((double)this.j.getX() + 0.5D, (double)this.j.getY() + 0.5D, (double)this.j.getZ() + 0.5D) <= 64.0D;
+      return this.i.getType(this.j).getBlock() != Blocks.ANVIL?false:var1.e((double)this.j.getX() + 0.5D, (double)this.j.getY() + 0.5D, (double)this.j.getZ() + 0.5D) <= 64.0D;
    }
 
    public ItemStack b(EntityHuman var1, int var2) {

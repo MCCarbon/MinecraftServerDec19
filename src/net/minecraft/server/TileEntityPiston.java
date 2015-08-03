@@ -57,9 +57,9 @@ public class TileEntityPiston extends TileEntity implements ITickAble {
 			--var1;
 		}
 
-		AxisAlignedBB var3 = BlockStainedGlassPane.PISTON_EXTENSION.a(world, position, a, var1, f);
+		AxisAlignedBB var3 = Blocks.PISTON_EXTENSION.a(world, position, a, var1, f);
 		if (var3 != null) {
-			List var4 = world.b((Entity) null, var3);
+			List var4 = world.getEntities((Entity) null, var3);
 			if (!var4.isEmpty()) {
 				k.addAll(var4);
 				Iterator var5 = k.iterator();
@@ -67,7 +67,7 @@ public class TileEntityPiston extends TileEntity implements ITickAble {
 				while (true) {
 					while (var5.hasNext()) {
 						Entity var6 = (Entity) var5.next();
-						if ((a.getBlock() == BlockStainedGlassPane.SLINE) && g) {
+						if ((a.getBlock() == Blocks.SLINE) && g) {
 							switch (TileEntityPiston.SyntheticClass_1.a[f.getAxis().ordinal()]) {
 								case 1:
 									var6.v = f.getAdjacentX();
@@ -96,7 +96,7 @@ public class TileEntityPiston extends TileEntity implements ITickAble {
 			j = i = 1.0F;
 			world.t(position);
 			setInvalid();
-			if (world.getType(position).getBlock() == BlockStainedGlassPane.PISTON_EXTENSION) {
+			if (world.getType(position).getBlock() == Blocks.PISTON_EXTENSION) {
 				world.setTypeAndData(position, a, 3);
 				world.d(position, a.getBlock());
 			}
@@ -111,7 +111,7 @@ public class TileEntityPiston extends TileEntity implements ITickAble {
 			this.a(1.0F, 0.25F);
 			world.t(position);
 			setInvalid();
-			if (world.getType(position).getBlock() == BlockStainedGlassPane.PISTON_EXTENSION) {
+			if (world.getType(position).getBlock() == Blocks.PISTON_EXTENSION) {
 				world.setTypeAndData(position, a, 3);
 				world.d(position, a.getBlock());
 			}

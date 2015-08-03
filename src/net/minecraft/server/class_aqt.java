@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -15,7 +15,7 @@ public class class_aqt extends class_aql {
          var3 = var3.down();
       }
 
-      if(var1.getType(var3).getBlock() != BlockStainedGlassPane.SNOW) {
+      if(var1.getType(var3).getBlock() != Blocks.SNOW) {
          return false;
       } else {
          var3 = var3.up(var2.nextInt(4));
@@ -38,14 +38,14 @@ public class class_aqt extends class_aql {
                   float var12 = (float)MathHelper.abs(var11) - 0.25F;
                   if((var9 == 0 && var11 == 0 || var10 * var10 + var12 * var12 <= var7 * var7) && (var9 != -var8 && var9 != var8 && var11 != -var8 && var11 != var8 || var2.nextFloat() <= 0.75F)) {
                      Block var13 = var1.getType(var3.add(var9, var6, var11)).getBlock();
-                     if(var13.getMaterial() == Material.AIR || var13 == BlockStainedGlassPane.DIRT || var13 == BlockStainedGlassPane.SNOW || var13 == BlockStainedGlassPane.ICE) {
-                        this.a(var1, var3.add(var9, var6, var11), BlockStainedGlassPane.PACKED_ICE.getBlockData());
+                     if(var13.getMaterial() == Material.AIR || var13 == Blocks.DIRT || var13 == Blocks.SNOW || var13 == Blocks.ICE) {
+                        this.a(var1, var3.add(var9, var6, var11), Blocks.PACKED_ICE.getBlockData());
                      }
 
                      if(var6 != 0 && var8 > 1) {
                         var13 = var1.getType(var3.add(var9, -var6, var11)).getBlock();
-                        if(var13.getMaterial() == Material.AIR || var13 == BlockStainedGlassPane.DIRT || var13 == BlockStainedGlassPane.SNOW || var13 == BlockStainedGlassPane.ICE) {
-                           this.a(var1, var3.add(var9, -var6, var11), BlockStainedGlassPane.PACKED_ICE.getBlockData());
+                        if(var13.getMaterial() == Material.AIR || var13 == Blocks.DIRT || var13 == Blocks.SNOW || var13 == Blocks.ICE) {
+                           this.a(var1, var3.add(var9, -var6, var11), Blocks.PACKED_ICE.getBlockData());
                         }
                      }
                   }
@@ -70,11 +70,11 @@ public class class_aqt extends class_aql {
 
                while(var15.getY() > 50) {
                   Block var17 = var1.getType(var15).getBlock();
-                  if(var17.getMaterial() != Material.AIR && var17 != BlockStainedGlassPane.DIRT && var17 != BlockStainedGlassPane.SNOW && var17 != BlockStainedGlassPane.ICE && var17 != BlockStainedGlassPane.PACKED_ICE) {
+                  if(var17.getMaterial() != Material.AIR && var17 != Blocks.DIRT && var17 != Blocks.SNOW && var17 != Blocks.ICE && var17 != Blocks.PACKED_ICE) {
                      break;
                   }
 
-                  this.a(var1, var15, BlockStainedGlassPane.PACKED_ICE.getBlockData());
+                  this.a(var1, var15, Blocks.PACKED_ICE.getBlockData());
                   var15 = var15.down();
                   --var16;
                   if(var16 <= 0) {

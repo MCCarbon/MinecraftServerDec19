@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.Material;
@@ -61,7 +61,7 @@ public abstract class class_aqy extends class_apw {
    private boolean a(BlockPosition var1, World var2) {
       BlockPosition var3 = var1.down();
       Block var4 = var2.getType(var3).getBlock();
-      if((var4 == BlockStainedGlassPane.GRASS || var4 == BlockStainedGlassPane.DIRT) && var1.getY() >= 2) {
+      if((var4 == Blocks.GRASS || var4 == Blocks.DIRT) && var1.getY() >= 2) {
          this.a(var2, var3);
          this.a(var2, var3.east());
          this.a(var2, var3.south());

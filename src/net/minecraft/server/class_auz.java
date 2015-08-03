@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.BlockMinecartTrackAbstract;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahl;
 import net.minecraft.server.class_ahz;
 import net.minecraft.server.class_aia;
@@ -38,7 +38,7 @@ public class class_auz extends class_auu {
          var2 = (int)var1.aT().yMin;
          BlockPosition.MutableBlockPosition var3 = new BlockPosition.MutableBlockPosition(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u));
 
-         for(Block var4 = this.a.getType(var3).getBlock(); var4 == BlockStainedGlassPane.FLOWING_WATER || var4 == BlockStainedGlassPane.WATER; var4 = this.a.getType(var3).getBlock()) {
+         for(Block var4 = this.a.getType(var3).getBlock(); var4 == Blocks.FLOWING_WATER || var4 == Blocks.WATER; var4 = this.a.getType(var3).getBlock()) {
             ++var2;
             var3.setPosition(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u));
          }
@@ -148,8 +148,8 @@ public class class_auz extends class_auu {
                var13.setPosition(var14, var15, var16);
                Block var17 = var0.getType(var13).getBlock();
                if(var17.getMaterial() != Material.AIR) {
-                  if(var17 != BlockStainedGlassPane.TRAPDOOR && var17 != BlockStainedGlassPane.IRON_TRAPDOOR) {
-                     if(var17 != BlockStainedGlassPane.FLOWING_WATER && var17 != BlockStainedGlassPane.WATER) {
+                  if(var17 != Blocks.TRAPDOOR && var17 != Blocks.IRON_TRAPDOOR) {
+                     if(var17 != Blocks.FLOWING_WATER && var17 != Blocks.WATER) {
                         if(!var10 && var17 instanceof class_ahl && var17.getMaterial() == Material.WOOD) {
                            return 0;
                         }
@@ -173,7 +173,7 @@ public class class_auz extends class_auu {
                         return -3;
                      }
 
-                     if(var17 == BlockStainedGlassPane.TRAPDOOR || var17 == BlockStainedGlassPane.IRON_TRAPDOOR) {
+                     if(var17 == Blocks.TRAPDOOR || var17 == Blocks.IRON_TRAPDOOR) {
                         return -4;
                      }
 

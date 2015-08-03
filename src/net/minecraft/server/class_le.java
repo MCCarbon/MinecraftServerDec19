@@ -38,7 +38,7 @@ public class class_le extends class_oh {
 
          while(var3.hasNext()) {
             EntityPlayer var4 = (EntityPlayer)var3.next();
-            var4.a.a((Packet)var2);
+            var4.playerConnection.sendPacket((Packet)var2);
          }
       }
 
@@ -46,14 +46,14 @@ public class class_le extends class_oh {
 
    public void a(EntityPlayer var1) {
       if(this.g.add(var1) && this.i) {
-         var1.a.a((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.a, this)));
+         var1.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.a, this)));
       }
 
    }
 
    public void b(EntityPlayer var1) {
       if(this.g.remove(var1) && this.i) {
-         var1.a.a((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
+         var1.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
       }
 
    }
@@ -65,7 +65,7 @@ public class class_le extends class_oh {
 
          while(var2.hasNext()) {
             EntityPlayer var3 = (EntityPlayer)var2.next();
-            var3.a.a((Packet)(new PacketPlayOutBossBar(var1?PacketPlayOutBossBar.class_a_in_class_fw.a:PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
+            var3.playerConnection.sendPacket((Packet)(new PacketPlayOutBossBar(var1?PacketPlayOutBossBar.class_a_in_class_fw.a:PacketPlayOutBossBar.class_a_in_class_fw.b, this)));
          }
       }
 

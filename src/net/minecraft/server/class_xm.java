@@ -29,7 +29,7 @@ public class class_xm extends class_xo {
             var2 = 3;
          }
 
-         var1.d.a(class_pc.a((Entity)this, (Entity)this.l()), (float)var2);
+         var1.d.damageEntity(class_pc.a((Entity)this, (Entity)this.l()), (float)var2);
       }
 
       for(int var3 = 0; var3 < 8; ++var3) {

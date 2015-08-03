@@ -178,6 +178,6 @@ public class class_pc {
 
    public boolean u() {
       Entity var1 = this.j();
-      return var1 instanceof EntityHuman && ((EntityHuman)var1).bH.instabuild;
+      return var1 instanceof EntityHuman && ((EntityHuman)var1).abilities.instabuild;
    }
 }

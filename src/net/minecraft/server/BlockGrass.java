@@ -5,7 +5,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockFragilePlantElement;
 import net.minecraft.server.BlockDirt;
 import net.minecraft.server.BlockFlowers;
@@ -30,21 +30,21 @@ public class BlockGrass extends Block implements IBlockFragilePlantElement {
 
 	public IBlockData updateState(IBlockData var1, IBlockAccess var2, BlockPosition var3) {
 		Block var4 = var2.getType(var3.up()).getBlock();
-		return var1.set(a, Boolean.valueOf(var4 == BlockStainedGlassPane.SNOW || var4 == BlockStainedGlassPane.SNOW_LAYER));
+		return var1.set(a, Boolean.valueOf(var4 == Blocks.SNOW || var4 == Blocks.SNOW_LAYER));
 	}
 
 	public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
 		if (!var1.isClientSide) {
 			if (var1.l(var2.up()) < 4 && var1.getType(var2.up()).getBlock().getLightOpacity() > 2) {
-				var1.setTypeUpdate(var2, BlockStainedGlassPane.DIRT.getBlockData());
+				var1.setTypeUpdate(var2, Blocks.DIRT.getBlockData());
 			} else {
 				if (var1.l(var2.up()) >= 9) {
 					for (int var5 = 0; var5 < 4; ++var5) {
 						BlockPosition var6 = var2.add(var4.nextInt(3) - 1, var4.nextInt(5) - 3, var4.nextInt(3) - 1);
 						Block var7 = var1.getType(var6.up()).getBlock();
 						IBlockData var8 = var1.getType(var6);
-						if (var8.getBlock() == BlockStainedGlassPane.DIRT && var8.get(BlockDirt.VARIANT) == BlockDirt.EnumDirtVariant.DIRT && var1.l(var6.up()) >= 4 && var7.getLightOpacity() <= 2) {
-							var1.setTypeUpdate(var6, BlockStainedGlassPane.GRASS.getBlockData());
+						if (var8.getBlock() == Blocks.DIRT && var8.get(BlockDirt.VARIANT) == BlockDirt.EnumDirtVariant.DIRT && var1.l(var6.up()) >= 4 && var7.getLightOpacity() <= 2) {
+							var1.setTypeUpdate(var6, Blocks.GRASS.getBlockData());
 						}
 					}
 				}
@@ -54,7 +54,7 @@ public class BlockGrass extends Block implements IBlockFragilePlantElement {
 	}
 
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return BlockStainedGlassPane.DIRT.getDropType(BlockStainedGlassPane.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT), var2, var3);
+		return Blocks.DIRT.getDropType(Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT), var2, var3);
 	}
 
 	public boolean a(World var1, BlockPosition var2, IBlockData var3, boolean var4) {
@@ -73,7 +73,7 @@ public class BlockGrass extends Block implements IBlockFragilePlantElement {
 
 			for (int var8 = 0; var8 < var6 / 16; ++var8) {
 				var7 = var7.add(var2.nextInt(3) - 1, (var2.nextInt(3) - 1) * var2.nextInt(3) / 2, var2.nextInt(3) - 1);
-				if (var1.getType(var7.down()).getBlock() != BlockStainedGlassPane.GRASS || var1.getType(var7).getBlock().isOccluding()) {
+				if (var1.getType(var7.down()).getBlock() != Blocks.GRASS || var1.getType(var7).getBlock().isOccluding()) {
 					continue label38;
 				}
 			}
@@ -87,8 +87,8 @@ public class BlockGrass extends Block implements IBlockFragilePlantElement {
 						var1.setTypeAndData((BlockPosition) var7, (IBlockData) var10, 3);
 					}
 				} else {
-					IBlockData var12 = BlockStainedGlassPane.TALLGRASS.getBlockData().set(BlockLongGrass.TYPE, BlockLongGrass.EnumTallGrassType.GRASS);
-					if (BlockStainedGlassPane.TALLGRASS.f(var1, var7, var12)) {
+					IBlockData var12 = Blocks.TALLGRASS.getBlockData().set(BlockLongGrass.TYPE, BlockLongGrass.EnumTallGrassType.GRASS);
+					if (Blocks.TALLGRASS.f(var1, var7, var12)) {
 						var1.setTypeAndData((BlockPosition) var7, (IBlockData) var12, 3);
 					}
 				}

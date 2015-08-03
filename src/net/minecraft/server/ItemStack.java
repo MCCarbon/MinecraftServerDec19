@@ -81,9 +81,9 @@ public final class ItemStack {
 		return item;
 	}
 
-	public class_oq a(EntityHuman var1, World var2, BlockPosition var3, EnumUsedHand var4, EnumDirection var5, float var6, float var7, float var8) {
-		class_oq var9 = getItem().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
-		if (var9 == class_oq.a) {
+	public UseResult a(EntityHuman var1, World var2, BlockPosition var3, EnumUsedHand var4, EnumDirection var5, float var6, float var7, float var8) {
+		UseResult var9 = getItem().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
+		if (var9 == UseResult.SUCCESS) {
 			var1.b(StatisticList.ad[Item.getId(item)]);
 		}
 
@@ -200,7 +200,7 @@ public final class ItemStack {
 	}
 
 	public void a(int var1, EntityLiving var2) {
-		if (!(var2 instanceof EntityHuman) || !((EntityHuman) var2).bH.instabuild) {
+		if (!(var2 instanceof EntityHuman) || !((EntityHuman) var2).abilities.instabuild) {
 			if (e()) {
 				if (this.a(var1, var2.bd())) {
 					var2.b(this);

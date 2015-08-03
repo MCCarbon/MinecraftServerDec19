@@ -40,11 +40,11 @@ public class class_rf extends class_rm {
    }
 
    public boolean a() {
-      return this.a.ai() && this.a.l != null && this.a.l instanceof EntityHuman && (this.d || this.a.ck());
+      return this.a.isAlive() && this.a.passenger != null && this.a.passenger instanceof EntityHuman && (this.d || this.a.ck());
    }
 
    public void e() {
-      EntityHuman var1 = (EntityHuman)this.a.l;
+      EntityHuman var1 = (EntityHuman)this.a.passenger;
       class_qh var2 = (class_qh)this.a;
       float var3 = MathHelper.clampAngle(var1.y - this.a.y) * 0.5F;
       if(var3 > 5.0F) {
@@ -124,10 +124,10 @@ public class class_rf extends class_rm {
          }
       }
 
-      if(!var1.bH.instabuild && this.c >= this.b * 0.5F && this.a.bd().nextFloat() < 0.006F && !this.d) {
+      if(!var1.abilities.instabuild && this.c >= this.b * 0.5F && this.a.bd().nextFloat() < 0.006F && !this.d) {
          EnumUsedHand var25 = this.a(var1);
          if(var25 != null) {
-            ItemStack var26 = var1.b((EnumUsedHand)var25);
+            ItemStack var26 = var1.getItemInHand((EnumUsedHand)var25);
             if(var26 != null && var26.getItem() == Items.cb) {
                var26.a(1, (EntityLiving)var1);
                if(var26.count == 0) {
@@ -148,7 +148,7 @@ public class class_rf extends class_rm {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          EnumUsedHand var5 = var2[var4];
-         ItemStack var6 = var1.b((EnumUsedHand)var5);
+         ItemStack var6 = var1.getItemInHand((EnumUsedHand)var5);
          if(var6 != null && var6.getItem() == Items.cb) {
             return var5;
          }

@@ -4,7 +4,7 @@ import java.util.Random;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockStepAbstract;
 import net.minecraft.server.BlockWood;
 import net.minecraft.server.IBlockData;
@@ -34,7 +34,7 @@ public abstract class class_amb extends BlockStepAbstract {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getItemOf((Block)BlockStainedGlassPane.WOODEN_SLAB);
+      return Item.getItemOf((Block)Blocks.WOODEN_SLAB);
    }
 
    public String b(int var1) {

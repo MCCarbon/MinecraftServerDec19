@@ -63,7 +63,7 @@ public class class_ai extends class_i {
 
          while(var3.hasNext()) {
             EntityPlayer var4 = (EntityPlayer)var3.next();
-            var4.a.a((Packet)(new PacketPlayOutEntityStatus(var4, (byte)var2)));
+            var4.playerConnection.sendPacket((Packet)(new PacketPlayOutEntityStatus(var4, (byte)var2)));
          }
       }
 
@@ -85,6 +85,6 @@ public class class_ai extends class_i {
    }
 
    private class_ael d() {
-      return MinecraftServer.N().a(0).R();
+      return MinecraftServer.N().getWorldServer(0).R();
    }
 }

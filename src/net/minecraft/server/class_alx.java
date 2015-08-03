@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPlant;
 import net.minecraft.server.BlockFluids;
 import net.minecraft.server.IBlockData;
@@ -34,7 +34,7 @@ public class class_alx extends BlockPlant {
    }
 
    protected boolean c(Block var1) {
-      return var1 == BlockStainedGlassPane.WATER;
+      return var1 == Blocks.WATER;
    }
 
    public boolean f(World var1, BlockPosition var2, IBlockData var3) {

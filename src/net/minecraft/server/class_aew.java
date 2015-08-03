@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Chunk;
@@ -30,7 +30,7 @@ public class class_aew implements IBlockAccess {
       int var8;
       for(var7 = this.a; var7 <= var5; ++var7) {
          for(var8 = this.b; var8 <= var6; ++var8) {
-            this.c[var7 - this.a][var8 - this.b] = var1.a(var7, var8);
+            this.c[var7 - this.a][var8 - this.b] = var1.getChunkAt(var7, var8);
          }
       }
 
@@ -63,7 +63,7 @@ public class class_aew implements IBlockAccess {
          }
       }
 
-      return BlockStainedGlassPane.AIR.getBlockData();
+      return Blocks.AIR.getBlockData();
    }
 
    public boolean isEmpty(BlockPosition var1) {

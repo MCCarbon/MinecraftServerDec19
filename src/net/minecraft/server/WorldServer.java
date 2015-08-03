@@ -30,7 +30,7 @@ import net.minecraft.server.class_aex;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
@@ -220,7 +220,7 @@ public class WorldServer extends World implements class_of {
 
          while(var3.hasNext()) {
             EntityHuman var4 = (EntityHuman)var3.next();
-            if(var4.v()) {
+            if(var4.isSpectator()) {
                ++var1;
             } else if(var4.isSleeping()) {
                ++var2;
@@ -264,7 +264,7 @@ public class WorldServer extends World implements class_of {
             }
 
             var2 = (EntityHuman)var1.next();
-         } while(!var2.v() && var2.ch());
+         } while(!var2.isSpectator() && var2.ch());
 
          return false;
       } else {
@@ -279,7 +279,7 @@ public class WorldServer extends World implements class_of {
 
          while(var20.hasNext()) {
             class_aeh var21 = (class_aeh)var20.next();
-            this.a(var21.a, var21.b).b(false);
+            this.getChunkAt(var21.a, var21.b).b(false);
          }
 
       } else {
@@ -291,7 +291,7 @@ public class WorldServer extends World implements class_of {
             int var5 = var4.a * 16;
             int var6 = var4.b * 16;
             this.B.a("getChunk");
-            Chunk var7 = this.a(var4.a, var4.b);
+            Chunk var7 = this.getChunkAt(var4.a, var4.b);
             this.a(var5, var6, var7);
             this.B.c("tickChunk");
             var7.b(false);
@@ -314,11 +314,11 @@ public class WorldServer extends World implements class_of {
                var9 = this.q(new BlockPosition(var5 + (var8 & 15), 0, var6 + (var8 >> 8 & 15)));
                BlockPosition var10 = var9.down();
                if(this.w(var10)) {
-                  this.setTypeUpdate((BlockPosition)var10, (IBlockData)BlockStainedGlassPane.ICE.getBlockData());
+                  this.setTypeUpdate((BlockPosition)var10, (IBlockData)Blocks.ICE.getBlockData());
                }
 
                if(this.T() && this.f(var9, true)) {
-                  this.setTypeUpdate((BlockPosition)var9, (IBlockData)BlockStainedGlassPane.SNOW_LAYER.getBlockData());
+                  this.setTypeUpdate((BlockPosition)var9, (IBlockData)Blocks.SNOW_LAYER.getBlockData());
                }
 
                if(this.T() && this.b((BlockPosition)var10).e()) {
@@ -362,7 +362,7 @@ public class WorldServer extends World implements class_of {
       AxisAlignedBB var3 = (new AxisAlignedBB(var2, new BlockPosition(var2.getX(), this.V(), var2.getZ()))).grow(3.0D, 3.0D, 3.0D);
       List var4 = this.a(EntityLiving.class, var3, new Predicate() {
          public boolean a(EntityLiving var1) {
-            return var1 != null && var1.ai() && WorldServer.this.i(var1.c());
+            return var1 != null && var1.isAlive() && WorldServer.this.i(var1.c());
          }
 
          // $FF: synthetic method
@@ -763,7 +763,7 @@ public class WorldServer extends World implements class_of {
          if(this.N.containsKey(var4)) {
             a.warn("Tried to add entity with duplicate UUID " + var4.toString());
          } else {
-            this.f.add(var3);
+            this.entityList.add(var3);
             this.b(var3);
          }
       }
@@ -772,12 +772,12 @@ public class WorldServer extends World implements class_of {
 
    protected void b(Entity var1) {
       super.b(var1);
-      this.l.a(var1.getId(), var1);
+      this.entitiesById.a(var1.getId(), var1);
       this.N.put(var1.aM(), var1);
       Entity[] var2 = var1.aD();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            this.l.a(var2[var3].getId(), var2[var3]);
+            this.entitiesById.a(var2[var3].getId(), var2[var3]);
          }
       }
 
@@ -785,12 +785,12 @@ public class WorldServer extends World implements class_of {
 
    protected void c(Entity var1) {
       super.c(var1);
-      this.l.d(var1.getId());
+      this.entitiesById.d(var1.getId());
       this.N.remove(var1.aM());
       Entity[] var2 = var1.aD();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            this.l.d(var2[var3].getId());
+            this.entitiesById.d(var2[var3].getId());
          }
       }
 
@@ -822,7 +822,7 @@ public class WorldServer extends World implements class_of {
       while(var12.hasNext()) {
          EntityHuman var13 = (EntityHuman)var12.next();
          if(var13.e(var2, var4, var6) < 4096.0D) {
-            ((EntityPlayer)var13).a.a((Packet)(new PacketPlayOutExplosion(var2, var4, var6, var8, var11.getBlocks(), (Vec3D)var11.getAffectedPlayers().get(var13))));
+            ((EntityPlayer)var13).playerConnection.sendPacket((Packet)(new PacketPlayOutExplosion(var2, var4, var6, var8, var11.getBlocks(), (Vec3D)var11.getAffectedPlayers().get(var13))));
          }
       }
 
@@ -928,7 +928,7 @@ public class WorldServer extends World implements class_of {
          BlockPosition var22 = var21.c();
          double var23 = var22.distanceSquared(var3, var5, var7);
          if(var23 <= 256.0D || var2 && var23 <= 65536.0D) {
-            var21.a.a((Packet)var19);
+            var21.playerConnection.sendPacket((Packet)var19);
          }
       }
 
@@ -947,7 +947,7 @@ public class WorldServer extends World implements class_of {
    }
 
    static {
-      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.STICK, 0, 1, 3, 10), new class_od(Item.getItemOf(BlockStainedGlassPane.PLANKS), 0, 1, 3, 10), new class_od(Item.getItemOf(BlockStainedGlassPane.LOG), 0, 1, 3, 10), new class_od(Items.STONE_AXE, 0, 1, 1, 3), new class_od(Items.WOODEN_AXE, 0, 1, 1, 5), new class_od(Items.STONE_PICKAXE, 0, 1, 1, 3), new class_od(Items.WOODEN_PICKAXE, 0, 1, 1, 5), new class_od(Items.APPLE, 0, 2, 3, 5), new class_od(Items.R, 0, 2, 3, 3), new class_od(Item.getItemOf(BlockStainedGlassPane.LOG2), 0, 1, 3, 10)}));
+      U = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.A, 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.PLANKS), 0, 1, 3, 10), new class_od(Item.getItemOf(Blocks.LOG), 0, 1, 3, 10), new class_od(Items.v, 0, 1, 1, 3), new class_od(Items.r, 0, 1, 1, 5), new class_od(Items.u, 0, 1, 1, 3), new class_od(Items.q, 0, 1, 1, 5), new class_od(Items.e, 0, 2, 3, 5), new class_od(Items.R, 0, 2, 3, 3), new class_od(Item.getItemOf(Blocks.LOG2), 0, 1, 3, 10)}));
    }
 
    static class class_a_in_class_lg extends ArrayList {

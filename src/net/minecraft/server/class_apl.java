@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockFalling;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
@@ -61,11 +61,11 @@ public class class_apl implements class_aoh {
    double[] g;
 
    public class_apl(World var1, boolean var2, long var3) {
-      this.w = new class_arb(BlockStainedGlassPane.QUARTZ_ORE.getBlockData(), 14, class_ans.a(BlockStainedGlassPane.NETHERRACK));
-      this.x = new class_aqq(BlockStainedGlassPane.FLOWING_LAVA, true);
-      this.y = new class_aqq(BlockStainedGlassPane.FLOWING_LAVA, false);
-      this.z = new class_aqb(BlockStainedGlassPane.BROWN_MUSHROOM);
-      this.A = new class_aqb(BlockStainedGlassPane.RED_MUSHROOM);
+      this.w = new class_arb(Blocks.QUARTZ_ORE.getBlockData(), 14, class_ans.a(Blocks.NETHERRACK));
+      this.x = new class_aqq(Blocks.FLOWING_LAVA, true);
+      this.y = new class_aqq(Blocks.FLOWING_LAVA, false);
+      this.z = new class_aqb(Blocks.BROWN_MUSHROOM);
+      this.A = new class_aqb(Blocks.RED_MUSHROOM);
       this.B = new class_asc();
       this.C = new class_apo();
       this.h = var1;
@@ -117,11 +117,11 @@ public class class_apl implements class_aoh {
                      for(int var48 = 0; var48 < 4; ++var48) {
                         IBlockData var49 = null;
                         if(var11 * 8 + var30 < var5) {
-                           var49 = BlockStainedGlassPane.LAVA.getBlockData();
+                           var49 = Blocks.LAVA.getBlockData();
                         }
 
                         if(var44 > 0.0D) {
-                           var49 = BlockStainedGlassPane.NETHERRACK.getBlockData();
+                           var49 = Blocks.NETHERRACK.getBlockData();
                         }
 
                         int var50 = var41 + var9 * 4;
@@ -159,34 +159,34 @@ public class class_apl implements class_aoh {
             boolean var10 = this.l[var7 + var8 * 16] + this.j.nextDouble() * 0.2D > 0.0D;
             int var11 = (int)(this.m[var7 + var8 * 16] / 3.0D + 3.0D + this.j.nextDouble() * 0.25D);
             int var12 = -1;
-            IBlockData var13 = BlockStainedGlassPane.NETHERRACK.getBlockData();
-            IBlockData var14 = BlockStainedGlassPane.NETHERRACK.getBlockData();
+            IBlockData var13 = Blocks.NETHERRACK.getBlockData();
+            IBlockData var14 = Blocks.NETHERRACK.getBlockData();
 
             for(int var15 = 127; var15 >= 0; --var15) {
                if(var15 < 127 - this.j.nextInt(5) && var15 > this.j.nextInt(5)) {
                   IBlockData var16 = var3.a(var8, var15, var7);
                   if(var16.getBlock() != null && var16.getBlock().getMaterial() != Material.AIR) {
-                     if(var16.getBlock() == BlockStainedGlassPane.NETHERRACK) {
+                     if(var16.getBlock() == Blocks.NETHERRACK) {
                         if(var12 == -1) {
                            if(var11 <= 0) {
                               var13 = null;
-                              var14 = BlockStainedGlassPane.NETHERRACK.getBlockData();
+                              var14 = Blocks.NETHERRACK.getBlockData();
                            } else if(var15 >= var4 - 4 && var15 <= var4 + 1) {
-                              var13 = BlockStainedGlassPane.NETHERRACK.getBlockData();
-                              var14 = BlockStainedGlassPane.NETHERRACK.getBlockData();
+                              var13 = Blocks.NETHERRACK.getBlockData();
+                              var14 = Blocks.NETHERRACK.getBlockData();
                               if(var10) {
-                                 var13 = BlockStainedGlassPane.GRAVEL.getBlockData();
-                                 var14 = BlockStainedGlassPane.NETHERRACK.getBlockData();
+                                 var13 = Blocks.GRAVEL.getBlockData();
+                                 var14 = Blocks.NETHERRACK.getBlockData();
                               }
 
                               if(var9) {
-                                 var13 = BlockStainedGlassPane.SOUL_SAND.getBlockData();
-                                 var14 = BlockStainedGlassPane.SOUL_SAND.getBlockData();
+                                 var13 = Blocks.SOUL_SAND.getBlockData();
+                                 var14 = Blocks.SOUL_SAND.getBlockData();
                               }
                            }
 
                            if(var15 < var4 && (var13 == null || var13.getBlock().getMaterial() == Material.AIR)) {
-                              var13 = BlockStainedGlassPane.LAVA.getBlockData();
+                              var13 = Blocks.LAVA.getBlockData();
                            }
 
                            var12 = var11;
@@ -204,7 +204,7 @@ public class class_apl implements class_aoh {
                      var12 = -1;
                   }
                } else {
-                  var3.a(var8, var15, var7, BlockStainedGlassPane.BEDROCK.getBlockData());
+                  var3.a(var8, var15, var7, Blocks.BEDROCK.getBlockData());
                }
             }
          }
@@ -378,7 +378,7 @@ public class class_apl implements class_aoh {
             return this.B.b();
          }
 
-         if(this.B.a(this.h, var2) && this.h.getType(var2.down()).getBlock() == BlockStainedGlassPane.NETHER_BRICK) {
+         if(this.B.a(this.h, var2) && this.h.getType(var2.down()).getBlock() == Blocks.NETHER_BRICK) {
             return this.B.b();
          }
       }

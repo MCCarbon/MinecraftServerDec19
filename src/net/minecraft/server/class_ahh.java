@@ -5,9 +5,9 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockDirectional;
-import net.minecraft.server.BlockRedstoneWire;
+import net.minecraft.server.class_akk;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -115,7 +115,7 @@ public abstract class class_ahh extends BlockDirectional {
          return var6;
       } else {
          IBlockData var7 = var1.getType(var5);
-         return Math.max(var6, var7.getBlock() == BlockStainedGlassPane.REDSTONE_WIRE?((Integer)var7.get(BlockRedstoneWire.P)).intValue():0);
+         return Math.max(var6, var7.getBlock() == Blocks.REDSTONE_WIRE?((Integer)var7.get(class_akk.P)).intValue():0);
       }
    }
 
@@ -129,7 +129,7 @@ public abstract class class_ahh extends BlockDirectional {
    protected int c(IBlockAccess var1, BlockPosition var2, EnumDirection var3) {
       IBlockData var4 = var1.getType(var2);
       Block var5 = var4.getBlock();
-      return this.c(var5)?(var5 == BlockStainedGlassPane.REDSTONE_WIRE?((Integer)var4.get(BlockRedstoneWire.P)).intValue():var1.a(var2, var3)):0;
+      return this.c(var5)?(var5 == Blocks.REDSTONE_WIRE?((Integer)var4.get(class_akk.P)).intValue():var1.a(var2, var3)):0;
    }
 
    public boolean isPowerSource() {
@@ -185,7 +185,7 @@ public abstract class class_ahh extends BlockDirectional {
    }
 
    public static boolean d(Block var0) {
-      return BlockStainedGlassPane.UNPOWERED_REPEATER.e(var0) || BlockStainedGlassPane.UNPOWERED_COMPARATOR.e(var0);
+      return Blocks.UNPOWERED_REPEATER.e(var0) || Blocks.UNPOWERED_COMPARATOR.e(var0);
    }
 
    public boolean e(Block var1) {

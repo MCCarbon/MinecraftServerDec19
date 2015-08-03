@@ -9,7 +9,7 @@ import net.minecraft.server.class_adi;
 import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.class_adl;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.IInventory;
@@ -112,28 +112,28 @@ public class class_yj extends Container {
                for(var4 = -1; var4 <= 1; ++var4) {
                   for(int var5 = -1; var5 <= 1; ++var5) {
                      if((var4 != 0 || var5 != 0) && this.j.isEmpty(this.k.add(var5, 0, var4)) && this.j.isEmpty(this.k.add(var5, 1, var4))) {
-                        if(this.j.getType(this.k.add(var5 * 2, 0, var4 * 2)).getBlock() == BlockStainedGlassPane.BOOKSHELF) {
+                        if(this.j.getType(this.k.add(var5 * 2, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
 
-                        if(this.j.getType(this.k.add(var5 * 2, 1, var4 * 2)).getBlock() == BlockStainedGlassPane.BOOKSHELF) {
+                        if(this.j.getType(this.k.add(var5 * 2, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                            ++var3;
                         }
 
                         if(var5 != 0 && var4 != 0) {
-                           if(this.j.getType(this.k.add(var5 * 2, 0, var4)).getBlock() == BlockStainedGlassPane.BOOKSHELF) {
+                           if(this.j.getType(this.k.add(var5 * 2, 0, var4)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.getType(this.k.add(var5 * 2, 1, var4)).getBlock() == BlockStainedGlassPane.BOOKSHELF) {
+                           if(this.j.getType(this.k.add(var5 * 2, 1, var4)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.getType(this.k.add(var5, 0, var4 * 2)).getBlock() == BlockStainedGlassPane.BOOKSHELF) {
+                           if(this.j.getType(this.k.add(var5, 0, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
 
-                           if(this.j.getType(this.k.add(var5, 1, var4 * 2)).getBlock() == BlockStainedGlassPane.BOOKSHELF) {
+                           if(this.j.getType(this.k.add(var5, 1, var4 * 2)).getBlock() == Blocks.BOOKSHELF) {
                               ++var3;
                            }
                         }
@@ -180,9 +180,9 @@ public class class_yj extends Container {
       ItemStack var3 = this.a.getItem(0);
       ItemStack var4 = this.a.getItem(1);
       int var5 = var2 + 1;
-      if((var4 == null || var4.count < var5) && !var1.bH.instabuild) {
+      if((var4 == null || var4.count < var5) && !var1.abilities.instabuild) {
          return false;
-      } else if(this.g[var2] <= 0 || var3 == null || (var1.bI < var5 || var1.bI < this.g[var2]) && !var1.bH.instabuild) {
+      } else if(this.g[var2] <= 0 || var3 == null || (var1.expLevel < var5 || var1.expLevel < this.g[var2]) && !var1.abilities.instabuild) {
          return false;
       } else {
          if(!this.j.isClientSide) {
@@ -203,7 +203,7 @@ public class class_yj extends Container {
                   }
                }
 
-               if(!var1.bH.instabuild) {
+               if(!var1.abilities.instabuild) {
                   var4.count -= var5;
                   if(var4.count <= 0) {
                      this.a.setItem(1, (ItemStack)null);
@@ -245,7 +245,7 @@ public class class_yj extends Container {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.j.getType(this.k).getBlock() != BlockStainedGlassPane.ENCHANTING_TABLE?false:var1.e((double)this.k.getX() + 0.5D, (double)this.k.getY() + 0.5D, (double)this.k.getZ() + 0.5D) <= 64.0D;
+      return this.j.getType(this.k).getBlock() != Blocks.ENCHANTING_TABLE?false:var1.e((double)this.k.getX() + 0.5D, (double)this.k.getY() + 0.5D, (double)this.k.getZ() + 0.5D) <= 64.0D;
    }
 
    public ItemStack b(EntityHuman var1, int var2) {

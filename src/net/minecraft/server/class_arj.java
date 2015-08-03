@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
@@ -17,27 +17,27 @@ public class class_arj extends class_aql {
    }
 
    public boolean b(World var1, Random var2, BlockPosition var3) {
-      if(var1.getType(var3.up()).getBlock() != BlockStainedGlassPane.STONE) {
+      if(var1.getType(var3.up()).getBlock() != Blocks.STONE) {
          return false;
-      } else if(var1.getType(var3.down()).getBlock() != BlockStainedGlassPane.STONE) {
+      } else if(var1.getType(var3.down()).getBlock() != Blocks.STONE) {
          return false;
-      } else if(var1.getType(var3).getBlock().getMaterial() != Material.AIR && var1.getType(var3).getBlock() != BlockStainedGlassPane.STONE) {
+      } else if(var1.getType(var3).getBlock().getMaterial() != Material.AIR && var1.getType(var3).getBlock() != Blocks.STONE) {
          return false;
       } else {
          int var4 = 0;
-         if(var1.getType(var3.west()).getBlock() == BlockStainedGlassPane.STONE) {
+         if(var1.getType(var3.west()).getBlock() == Blocks.STONE) {
             ++var4;
          }
 
-         if(var1.getType(var3.east()).getBlock() == BlockStainedGlassPane.STONE) {
+         if(var1.getType(var3.east()).getBlock() == Blocks.STONE) {
             ++var4;
          }
 
-         if(var1.getType(var3.north()).getBlock() == BlockStainedGlassPane.STONE) {
+         if(var1.getType(var3.north()).getBlock() == Blocks.STONE) {
             ++var4;
          }
 
-         if(var1.getType(var3.south()).getBlock() == BlockStainedGlassPane.STONE) {
+         if(var1.getType(var3.south()).getBlock() == Blocks.STONE) {
             ++var4;
          }
 

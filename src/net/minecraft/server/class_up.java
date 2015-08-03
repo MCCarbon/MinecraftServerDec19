@@ -19,17 +19,17 @@ public class class_up extends Entity {
    protected void h() {
    }
 
-   protected void a(NBTTagCompound var1) {
+   protected void read(NBTTagCompound var1) {
    }
 
-   protected void b(NBTTagCompound var1) {
+   protected void write(NBTTagCompound var1) {
    }
 
    public boolean ad() {
       return true;
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       return this.b(var1)?false:this.a.a(this, var1, var2);
    }
 

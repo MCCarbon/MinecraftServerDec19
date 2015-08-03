@@ -9,7 +9,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahh;
 import net.minecraft.server.IContainer;
 import net.minecraft.server.TileEntity;
@@ -31,13 +31,13 @@ import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_va;
 import net.minecraft.server.EntityHuman;
 
-public class BlockRedstoneComparator extends class_ahh implements IContainer {
+public class class_ahb extends class_ahh implements IContainer {
    public static final BlockStateBoolean a = BlockStateBoolean.of("powered");
-   public static final BlockStateEnum b = BlockStateEnum.of("mode", BlockRedstoneComparator.class_a_in_class_ahb.class);
+   public static final BlockStateEnum b = BlockStateEnum.of("mode", class_ahb.class_a_in_class_ahb.class);
 
-   public BlockRedstoneComparator(boolean var1) {
+   public class_ahb(boolean var1) {
       super(var1);
-      this.setBlockData(this.blockStateList.getFirst().set(FACING, EnumDirection.NORTH).set(a, Boolean.valueOf(false)).set(b, BlockRedstoneComparator.class_a_in_class_ahb.a));
+      this.setBlockData(this.blockStateList.getFirst().set(FACING, EnumDirection.NORTH).set(a, Boolean.valueOf(false)).set(b, class_ahb.class_a_in_class_ahb.a));
       this.isTileEntity = true;
    }
 
@@ -55,16 +55,16 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
 
    protected IBlockData e(IBlockData var1) {
       Boolean var2 = (Boolean)var1.get(a);
-      BlockRedstoneComparator.class_a_in_class_ahb var3 = (BlockRedstoneComparator.class_a_in_class_ahb)var1.get(b);
+      class_ahb.class_a_in_class_ahb var3 = (class_ahb.class_a_in_class_ahb)var1.get(b);
       EnumDirection var4 = (EnumDirection)var1.get(FACING);
-      return BlockStainedGlassPane.POWERED_COMPARATOR.getBlockData().set(FACING, var4).set(a, var2).set(b, var3);
+      return Blocks.POWERED_COMPARATOR.getBlockData().set(FACING, var4).set(a, var2).set(b, var3);
    }
 
    protected IBlockData k(IBlockData var1) {
       Boolean var2 = (Boolean)var1.get(a);
-      BlockRedstoneComparator.class_a_in_class_ahb var3 = (BlockRedstoneComparator.class_a_in_class_ahb)var1.get(b);
+      class_ahb.class_a_in_class_ahb var3 = (class_ahb.class_a_in_class_ahb)var1.get(b);
       EnumDirection var4 = (EnumDirection)var1.get(FACING);
-      return BlockStainedGlassPane.UNPOWERED_COMPARATOR.getBlockData().set(FACING, var4).set(a, var2).set(b, var3);
+      return Blocks.UNPOWERED_COMPARATOR.getBlockData().set(FACING, var4).set(a, var2).set(b, var3);
    }
 
    protected boolean l(IBlockData var1) {
@@ -77,7 +77,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
    }
 
    private int j(World var1, BlockPosition var2, IBlockData var3) {
-      return var3.get(b) == BlockRedstoneComparator.class_a_in_class_ahb.b?Math.max(this.f(var1, var2, var3) - this.c((IBlockAccess) var1, var2, var3), 0):this.f(var1, var2, var3);
+      return var3.get(b) == class_ahb.class_a_in_class_ahb.b?Math.max(this.f(var1, var2, var3) - this.c((IBlockAccess) var1, var2, var3), 0):this.f(var1, var2, var3);
    }
 
    protected boolean e(World var1, BlockPosition var2, IBlockData var3) {
@@ -130,11 +130,11 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
    }
 
    public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      if(!var4.bH.mayBuild) {
+      if(!var4.abilities.mayBuild) {
          return false;
       } else {
          var3 = var3.a(b);
-         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, var3.get(b) == BlockRedstoneComparator.class_a_in_class_ahb.b?0.55F:0.5F);
+         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, var3.get(b) == class_ahb.class_a_in_class_ahb.b?0.55F:0.5F);
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 2);
          this.k(var1, var2, var3);
          return true;
@@ -167,7 +167,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
          var7.a(var4);
       }
 
-      if(var6 != var4 || var3.get(b) == BlockRedstoneComparator.class_a_in_class_ahb.a) {
+      if(var6 != var4 || var3.get(b) == class_ahb.class_a_in_class_ahb.a) {
          boolean var9 = this.e(var1, var2, var3);
          boolean var8 = this.l(var3);
          if(var8 && !var9) {
@@ -211,7 +211,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
    }
 
    public IBlockData fromLegacyData(int var1) {
-      return this.getBlockData().set(FACING, EnumDirection.getByHorizontalId(var1)).set(a, Boolean.valueOf((var1 & 8) > 0)).set(b, (var1 & 4) > 0?BlockRedstoneComparator.class_a_in_class_ahb.b:BlockRedstoneComparator.class_a_in_class_ahb.a);
+      return this.getBlockData().set(FACING, EnumDirection.getByHorizontalId(var1)).set(a, Boolean.valueOf((var1 & 8) > 0)).set(b, (var1 & 4) > 0?class_ahb.class_a_in_class_ahb.b:class_ahb.class_a_in_class_ahb.a);
    }
 
    public int toLegacyData(IBlockData var1) {
@@ -221,7 +221,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
          var3 |= 8;
       }
 
-      if(var1.get(b) == BlockRedstoneComparator.class_a_in_class_ahb.b) {
+      if(var1.get(b) == class_ahb.class_a_in_class_ahb.b) {
          var3 |= 4;
       }
 
@@ -241,7 +241,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
    }
 
    public IBlockData getPlacedState(World var1, BlockPosition var2, EnumDirection var3, float var4, float var5, float var6, int var7, EntityLiving var8) {
-      return this.getBlockData().set(FACING, var8.aR().opposite()).set(a, Boolean.valueOf(false)).set(b, BlockRedstoneComparator.class_a_in_class_ahb.a);
+      return this.getBlockData().set(FACING, var8.aR().opposite()).set(a, Boolean.valueOf(false)).set(b, class_ahb.class_a_in_class_ahb.a);
    }
 
    public static enum class_a_in_class_ahb implements INamable {

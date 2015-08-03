@@ -13,7 +13,7 @@ import net.minecraft.server.class_aco;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.class_act;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.class_mt;
@@ -187,20 +187,20 @@ public class StatisticList {
    }
 
    private static void a(class_my[] var0) {
-      a(var0, BlockStainedGlassPane.WATER, BlockStainedGlassPane.FLOWING_WATER);
-      a(var0, BlockStainedGlassPane.LAVA, BlockStainedGlassPane.FLOWING_LAVA);
-      a(var0, BlockStainedGlassPane.LIT_PUMPKIN, BlockStainedGlassPane.PUMPKIN);
-      a(var0, BlockStainedGlassPane.LIT_FURNACE, BlockStainedGlassPane.FURNACE);
-      a(var0, BlockStainedGlassPane.LIT_REDSTONE_ORE, BlockStainedGlassPane.REDSTONE_ORE);
-      a(var0, BlockStainedGlassPane.POWERED_REPEATER, BlockStainedGlassPane.UNPOWERED_REPEATER);
-      a(var0, BlockStainedGlassPane.POWERED_COMPARATOR, BlockStainedGlassPane.UNPOWERED_COMPARATOR);
-      a(var0, BlockStainedGlassPane.REDSTONE_TORCH, BlockStainedGlassPane.UNLIT_REDSTONE_TORCH);
-      a(var0, BlockStainedGlassPane.LIT_REDSTONE_LAMP, BlockStainedGlassPane.REDSTONE_LAMP);
-      a(var0, BlockStainedGlassPane.DOUBLE_SANDSTONE_SLAB, BlockStainedGlassPane.STONE_SLAB);
-      a(var0, BlockStainedGlassPane.DOUBLE_WOODEN_SLAB, BlockStainedGlassPane.WOODEN_SLAB);
-      a(var0, BlockStainedGlassPane.DOUBLE_STONE_SLAB2, BlockStainedGlassPane.STONE_SLAB2);
-      a(var0, BlockStainedGlassPane.GRASS, BlockStainedGlassPane.DIRT);
-      a(var0, BlockStainedGlassPane.FARMLAND, BlockStainedGlassPane.DIRT);
+      a(var0, Blocks.WATER, Blocks.FLOWING_WATER);
+      a(var0, Blocks.LAVA, Blocks.FLOWING_LAVA);
+      a(var0, Blocks.LIT_PUMPKIN, Blocks.PUMPKIN);
+      a(var0, Blocks.LIT_FURNACE, Blocks.FURNACE);
+      a(var0, Blocks.LIT_REDSTONE_ORE, Blocks.REDSTONE_ORE);
+      a(var0, Blocks.POWERED_REPEATER, Blocks.UNPOWERED_REPEATER);
+      a(var0, Blocks.POWERED_COMPARATOR, Blocks.UNPOWERED_COMPARATOR);
+      a(var0, Blocks.REDSTONE_TORCH, Blocks.UNLIT_REDSTONE_TORCH);
+      a(var0, Blocks.LIT_REDSTONE_LAMP, Blocks.REDSTONE_LAMP);
+      a(var0, Blocks.DOUBLE_SANDSTONE_SLAB, Blocks.STONE_SLAB);
+      a(var0, Blocks.DOUBLE_WOODEN_SLAB, Blocks.WOODEN_SLAB);
+      a(var0, Blocks.DOUBLE_STONE_SLAB2, Blocks.STONE_SLAB2);
+      a(var0, Blocks.GRASS, Blocks.DIRT);
+      a(var0, Blocks.FARMLAND, Blocks.DIRT);
    }
 
    private static void a(class_my[] var0, Block var1, Block var2) {

@@ -7,7 +7,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockDirt;
 import net.minecraft.server.BlockStone;
 import net.minecraft.server.IBlockData;
@@ -83,9 +83,9 @@ public class class_aax extends class_zt {
                            int var28 = var19 + var20 * 231871;
                            var28 = var28 * var28 * 31287121 + var28 * 11;
                            if((var28 >> 20 & 1) == 0) {
-                              var21.add(BlockStainedGlassPane.DIRT.getMapColor(BlockStainedGlassPane.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT)), 10);
+                              var21.add(Blocks.DIRT.getMapColor(Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.DIRT)), 10);
                            } else {
-                              var21.add(BlockStainedGlassPane.STONE.getMapColor(BlockStainedGlassPane.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE)), 100);
+                              var21.add(Blocks.STONE.getMapColor(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE)), 100);
                            }
 
                            var26 = 100.0D;
@@ -95,7 +95,7 @@ public class class_aax extends class_zt {
                            for(int var29 = 0; var29 < var4; ++var29) {
                               for(int var30 = 0; var30 < var4; ++var30) {
                                  int var31 = var22.b(var29 + var23, var30 + var24) + 1;
-                                 IBlockData var32 = BlockStainedGlassPane.AIR.getBlockData();
+                                 IBlockData var32 = Blocks.AIR.getBlockData();
                                  if(var31 > 1) {
                                     do {
                                        --var31;

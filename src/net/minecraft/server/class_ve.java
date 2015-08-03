@@ -9,7 +9,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.MovingObjectPosition;
@@ -91,9 +91,9 @@ public class class_ve extends Entity {
       var1 /= (double)var9;
       var3 /= (double)var9;
       var5 /= (double)var9;
-      var1 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
-      var3 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
-      var5 += this.V.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var1 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var3 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
+      var5 += this.random.nextGaussian() * 0.007499999832361937D * (double)var8;
       var1 *= (double)var7;
       var3 *= (double)var7;
       var5 *= (double)var7;
@@ -121,7 +121,7 @@ public class class_ve extends Entity {
       } else {
          if(!this.o.isClientSide) {
             ItemStack var1 = this.b.bA();
-            if(this.b.I || !this.b.ai() || var1 == null || var1.getItem() != Items.aT || this.h(this.b) > 1024.0D) {
+            if(this.b.I || !this.b.isAlive() || var1 == null || var1.getItem() != Items.aT || this.h(this.b) > 1024.0D) {
                this.J();
                this.b.bN = null;
                return;
@@ -155,9 +155,9 @@ public class class_ve extends Entity {
             }
 
             this.at = false;
-            this.v *= (double)(this.V.nextFloat() * 0.2F);
-            this.motY *= (double)(this.V.nextFloat() * 0.2F);
-            this.x *= (double)(this.V.nextFloat() * 0.2F);
+            this.v *= (double)(this.random.nextFloat() * 0.2F);
+            this.motY *= (double)(this.random.nextFloat() * 0.2F);
+            this.x *= (double)(this.random.nextFloat() * 0.2F);
             this.au = 0;
             this.av = 0;
          } else {
@@ -174,7 +174,7 @@ public class class_ve extends Entity {
          }
 
          Entity var4 = null;
-         List var5 = this.o.b((Entity)this, (AxisAlignedBB)this.aT().add(this.v, this.motY, this.x).grow(1.0D, 1.0D, 1.0D));
+         List var5 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT().add(this.v, this.motY, this.x).grow(1.0D, 1.0D, 1.0D));
          double var6 = 0.0D;
 
          double var13;
@@ -200,7 +200,7 @@ public class class_ve extends Entity {
 
          if(var3 != null) {
             if(var3.d != null) {
-               if(var3.d.a(class_pc.a((Entity)this, (Entity)this.b), 0.0F)) {
+               if(var3.d.damageEntity(class_pc.a((Entity)this, (Entity)this.b), 0.0F)) {
                   this.c = var3.d;
                }
             } else {
@@ -255,11 +255,11 @@ public class class_ve extends Entity {
                WorldServer var37 = (WorldServer)this.o;
                int var38 = 1;
                BlockPosition var39 = (new BlockPosition(this)).up();
-               if(this.V.nextFloat() < 0.25F && this.o.C(var39)) {
+               if(this.random.nextFloat() < 0.25F && this.o.C(var39)) {
                   var38 = 2;
                }
 
-               if(this.V.nextFloat() < 0.5F && !this.o.i(var39)) {
+               if(this.random.nextFloat() < 0.5F && !this.o.i(var39)) {
                   --var38;
                }
 
@@ -280,13 +280,13 @@ public class class_ve extends Entity {
                      this.ay -= var38;
                      if(this.ay <= 0) {
                         this.motY -= 0.20000000298023224D;
-                        this.a("random.splash", 0.25F, 1.0F + (this.V.nextFloat() - this.V.nextFloat()) * 0.4F);
+                        this.a("random.splash", 0.25F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
                         var16 = (float)MathHelper.floor(this.aT().yMin);
                         var37.a(class_cy.e, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
                         var37.a(class_cy.g, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
-                        this.aw = MathHelper.getRandomIntInRange((Random)this.V, 10, 30);
+                        this.aw = MathHelper.getRandomIntInRange((Random)this.random, 10, 30);
                      } else {
-                        this.az = (float)((double)this.az + this.V.nextGaussian() * 4.0D);
+                        this.az = (float)((double)this.az + this.random.nextGaussian() * 4.0D);
                         var16 = this.az * 0.017453292F;
                         var40 = MathHelper.sin(var16);
                         var18 = MathHelper.cos(var16);
@@ -294,8 +294,8 @@ public class class_ve extends Entity {
                         var41 = (double)((float)MathHelper.floor(this.aT().yMin) + 1.0F);
                         var23 = this.u + (double)(var18 * (float)this.ay * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
-                        if(var25 == BlockStainedGlassPane.WATER || var25 == BlockStainedGlassPane.FLOWING_WATER) {
-                           if(this.V.nextFloat() < 0.15F) {
+                        if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
+                           if(this.random.nextFloat() < 0.15F) {
                               var37.a(class_cy.e, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
                            }
 
@@ -316,30 +316,30 @@ public class class_ve extends Entity {
                         var16 = (float)((double)var16 + (double)(60 - this.ax) * 0.01D);
                      }
 
-                     if(this.V.nextFloat() < var16) {
-                        var40 = MathHelper.getRandomFloatInRange(this.V, 0.0F, 360.0F) * 0.017453292F;
-                        var18 = MathHelper.getRandomFloatInRange(this.V, 25.0F, 60.0F);
+                     if(this.random.nextFloat() < var16) {
+                        var40 = MathHelper.getRandomFloatInRange(this.random, 0.0F, 360.0F) * 0.017453292F;
+                        var18 = MathHelper.getRandomFloatInRange(this.random, 25.0F, 60.0F);
                         var19 = this.s + (double)(MathHelper.sin(var40) * var18 * 0.1F);
                         var41 = (double)((float)MathHelper.floor(this.aT().yMin) + 1.0F);
                         var23 = this.u + (double)(MathHelper.cos(var40) * var18 * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
-                        if(var25 == BlockStainedGlassPane.WATER || var25 == BlockStainedGlassPane.FLOWING_WATER) {
-                           var37.a(class_cy.f, var19, var41, var23, 2 + this.V.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
+                        if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
+                           var37.a(class_cy.f, var19, var41, var23, 2 + this.random.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                         }
                      }
 
                      if(this.ax <= 0) {
-                        this.az = MathHelper.getRandomFloatInRange(this.V, 0.0F, 360.0F);
-                        this.ay = MathHelper.getRandomIntInRange((Random)this.V, 20, 80);
+                        this.az = MathHelper.getRandomFloatInRange(this.random, 0.0F, 360.0F);
+                        this.ay = MathHelper.getRandomIntInRange((Random)this.random, 20, 80);
                      }
                   } else {
-                     this.ax = MathHelper.getRandomIntInRange((Random)this.V, 100, 900);
+                     this.ax = MathHelper.getRandomIntInRange((Random)this.random, 100, 900);
                      this.ax -= EnchantmentManager.g(this.b) * 20 * 5;
                   }
                }
 
                if(this.aw > 0) {
-                  this.motY -= (double)(this.V.nextFloat() * this.V.nextFloat() * this.V.nextFloat()) * 0.2D;
+                  this.motY -= (double)(this.random.nextFloat() * this.random.nextFloat() * this.random.nextFloat()) * 0.2D;
                }
             }
 
@@ -358,7 +358,7 @@ public class class_ve extends Entity {
       }
    }
 
-   public void b(NBTTagCompound var1) {
+   public void write(NBTTagCompound var1) {
       var1.put("xTile", (short)this.g);
       var1.put("yTile", (short)this.h);
       var1.put("zTile", (short)this.i);
@@ -368,7 +368,7 @@ public class class_ve extends Entity {
       var1.put("inGround", (byte)(this.at?1:0));
    }
 
-   public void a(NBTTagCompound var1) {
+   public void read(NBTTagCompound var1) {
       this.g = var1.getShort("xTile");
       this.h = var1.getShort("yTile");
       this.i = var1.getShort("zTile");
@@ -408,7 +408,7 @@ public class class_ve extends Entity {
             var13.motY = var5 * var11 + (double)MathHelper.sqrt(var9) * 0.08D;
             var13.x = var7 * var11;
             this.o.addEntity((Entity)var13);
-            this.b.o.addEntity((Entity)(new EntityExperienceOrb(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.V.nextInt(6) + 1)));
+            this.b.o.addEntity((Entity)(new EntityExperienceOrb(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.random.nextInt(6) + 1)));
             var1 = 1;
          }
 
@@ -432,16 +432,16 @@ public class class_ve extends Entity {
       var5 = MathHelper.clamp(var5, 0.0F, 1.0F);
       if(var1 < var4) {
          this.b.b(StatisticList.D);
-         return ((class_vf)class_oc.a(this.V, d)).a(this.V);
+         return ((class_vf)class_oc.a(this.random, d)).a(this.random);
       } else {
          var1 -= var4;
          if(var1 < var5) {
             this.b.b(StatisticList.E);
-            return ((class_vf)class_oc.a(this.V, e)).a(this.V);
+            return ((class_vf)class_oc.a(this.random, e)).a(this.random);
          } else {
             float var10000 = var1 - var5;
             this.b.b(StatisticList.C);
-            return ((class_vf)class_oc.a(this.V, f)).a(this.V);
+            return ((class_vf)class_oc.a(this.random, f)).a(this.random);
          }
       }
    }
@@ -455,8 +455,8 @@ public class class_ve extends Entity {
    }
 
    static {
-      d = Arrays.asList(new class_vf[]{(new class_vf(new ItemStack(Items.V), 10)).a(0.9F), new class_vf(new ItemStack(Items.aH), 10), new class_vf(new ItemStack(Items.aZ), 10), new class_vf(new ItemStack(Items.bB), 10), new class_vf(new ItemStack(Items.H), 5), (new class_vf(new ItemStack(Items.aT), 2)).a(0.9F), new class_vf(new ItemStack(Items.BOWL), 10), new class_vf(new ItemStack(Items.STICK), 5), new class_vf(new ItemStack(Items.aY, 10, EnumColor.p.b()), 1), new class_vf(new ItemStack(BlockStainedGlassPane.TRIPWIRE_HOOK), 10), new class_vf(new ItemStack(Items.bv), 10)});
-      e = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(BlockStainedGlassPane.WATERLILY), 1), new class_vf(new ItemStack(Items.cr), 1), new class_vf(new ItemStack(Items.aC), 1), (new class_vf(new ItemStack(Items.BOW), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aT), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aN), 1)).a()});
+      d = Arrays.asList(new class_vf[]{(new class_vf(new ItemStack(Items.V), 10)).a(0.9F), new class_vf(new ItemStack(Items.aH), 10), new class_vf(new ItemStack(Items.aZ), 10), new class_vf(new ItemStack(Items.bB), 10), new class_vf(new ItemStack(Items.H), 5), (new class_vf(new ItemStack(Items.aT), 2)).a(0.9F), new class_vf(new ItemStack(Items.B), 10), new class_vf(new ItemStack(Items.A), 5), new class_vf(new ItemStack(Items.aY, 10, EnumColor.p.b()), 1), new class_vf(new ItemStack(Blocks.TRIPWIRE_HOOK), 10), new class_vf(new ItemStack(Items.bv), 10)});
+      e = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Blocks.WATERLILY), 1), new class_vf(new ItemStack(Items.cr), 1), new class_vf(new ItemStack(Items.aC), 1), (new class_vf(new ItemStack(Items.f), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aT), 1)).a(0.25F).a(), (new class_vf(new ItemStack(Items.aN), 1)).a()});
       f = Arrays.asList(new class_vf[]{new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.a.a()), 60), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.b.a()), 25), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.c.a()), 2), new class_vf(new ItemStack(Items.aW, 1, class_aak.class_a_in_class_aak.d.a()), 13)});
    }
 }

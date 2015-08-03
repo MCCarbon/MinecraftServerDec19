@@ -250,7 +250,7 @@ public class class_bc extends class_i {
    }
 
    protected class_awn d() {
-      return MinecraftServer.N().a(0).aa();
+      return MinecraftServer.N().getWorldServer(0).aa();
    }
 
    protected class_awj a(String var1, boolean var2) throws class_bz {

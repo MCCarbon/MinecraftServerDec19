@@ -5,7 +5,7 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.IBlockData;
@@ -38,7 +38,7 @@ public class class_aqa extends class_aql {
          for(int var5 = 0; var5 < 4; ++var5) {
             BlockPosition var6 = var3.add(var2.nextInt(4) - var2.nextInt(4), var2.nextInt(3) - var2.nextInt(3), var2.nextInt(4) - var2.nextInt(4));
             if(var1.isEmpty(var6) && World.a((IBlockAccess)var1, (BlockPosition)var6.down())) {
-               var1.setTypeAndData((BlockPosition)var6, (IBlockData)BlockStainedGlassPane.CHEST.getBlockData(), 2);
+               var1.setTypeAndData((BlockPosition)var6, (IBlockData)Blocks.CHEST.getBlockData(), 2);
                TileEntity var7 = var1.getTileEntity(var6);
                if(var7 instanceof TileEntityChest) {
                   class_od.a(var2, this.a, (IInventory)((TileEntityChest)var7), this.b);
@@ -49,19 +49,19 @@ public class class_aqa extends class_aql {
                BlockPosition var10 = var6.north();
                BlockPosition var11 = var6.south();
                if(var1.isEmpty(var9) && World.a((IBlockAccess)var1, (BlockPosition)var9.down())) {
-                  var1.setTypeAndData((BlockPosition)var9, (IBlockData)BlockStainedGlassPane.TORCH.getBlockData(), 2);
+                  var1.setTypeAndData((BlockPosition)var9, (IBlockData)Blocks.TORCH.getBlockData(), 2);
                }
 
                if(var1.isEmpty(var8) && World.a((IBlockAccess)var1, (BlockPosition)var8.down())) {
-                  var1.setTypeAndData((BlockPosition)var8, (IBlockData)BlockStainedGlassPane.TORCH.getBlockData(), 2);
+                  var1.setTypeAndData((BlockPosition)var8, (IBlockData)Blocks.TORCH.getBlockData(), 2);
                }
 
                if(var1.isEmpty(var10) && World.a((IBlockAccess)var1, (BlockPosition)var10.down())) {
-                  var1.setTypeAndData((BlockPosition)var10, (IBlockData)BlockStainedGlassPane.TORCH.getBlockData(), 2);
+                  var1.setTypeAndData((BlockPosition)var10, (IBlockData)Blocks.TORCH.getBlockData(), 2);
                }
 
                if(var1.isEmpty(var11) && World.a((IBlockAccess)var1, (BlockPosition)var11.down())) {
-                  var1.setTypeAndData((BlockPosition)var11, (IBlockData)BlockStainedGlassPane.TORCH.getBlockData(), 2);
+                  var1.setTypeAndData((BlockPosition)var11, (IBlockData)Blocks.TORCH.getBlockData(), 2);
                }
 
                return true;

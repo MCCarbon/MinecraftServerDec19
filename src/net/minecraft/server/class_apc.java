@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.UUID;
 import net.minecraft.server.World;
 import net.minecraft.server.class_afx;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityEnderPortal;
 import net.minecraft.server.IBlockData;
@@ -40,7 +40,7 @@ import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_oh;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_pv;
+import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.class_uq;
 import net.minecraft.server.class_ur;
 import org.apache.logging.log4j.LogManager;
@@ -95,7 +95,7 @@ public class class_apc {
          Collections.shuffle(this.e, new Random(var1.K()));
       }
 
-      this.f = class_anq.a().a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"  ###  ", " #   # ", "#     #", "#  #  #", "#     #", " #   # ", "  ###  "}).a(new String[]{"       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       "}).a('#', class_ano.a(class_ans.a(BlockStainedGlassPane.BEDROCK))).b();
+      this.f = class_anq.a().a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"       ", "       ", "       ", "   #   ", "       ", "       ", "       "}).a(new String[]{"  ###  ", " #   # ", "#     #", "#  #  #", "#     #", " #   # ", "  ###  "}).a(new String[]{"       ", "  ###  ", " ##### ", " ##### ", " ##### ", "  ###  ", "       "}).a('#', class_ano.a(class_ans.a(Blocks.BEDROCK))).b();
    }
 
    public NBTTagCompound a() {
@@ -139,7 +139,7 @@ public class class_apc {
                this.l = false;
             }
 
-            var1 = this.d.a((Class)class_ur.class, (Predicate)class_pv.a);
+            var1 = this.d.getEntities((Class)class_ur.class, (Predicate)IEntitySelector.IS_ALIVE);
             if(!var1.isEmpty()) {
                class_ur var2 = (class_ur)var1.get(0);
                this.m = var2.aM();
@@ -157,7 +157,7 @@ public class class_apc {
          if(!this.k) {
             if(this.m == null || ++this.g >= 1200) {
                this.h();
-               var1 = this.d.a((Class)class_ur.class, (Predicate)class_pv.a);
+               var1 = this.d.getEntities((Class)class_ur.class, (Predicate)IEntitySelector.IS_ALIVE);
                if(!var1.isEmpty()) {
                   this.m = ((class_ur)var1.get(0)).aM();
                } else {
@@ -179,7 +179,7 @@ public class class_apc {
    private boolean f() {
       for(int var1 = 0; var1 < 8; ++var1) {
          for(int var2 = 0; var2 < 8; ++var2) {
-            Chunk var3 = this.d.a(var1, var2);
+            Chunk var3 = this.d.getChunkAt(var1, var2);
             Iterator var4 = var3.r().values().iterator();
 
             while(var4.hasNext()) {
@@ -197,7 +197,7 @@ public class class_apc {
    private class_anp.class_b_in_class_anp g() {
       for(int var1 = 0; var1 < 8; ++var1) {
          for(int var2 = 0; var2 < 8; ++var2) {
-            Chunk var3 = this.d.a(var1, var2);
+            Chunk var3 = this.d.getChunkAt(var1, var2);
             Iterator var4 = var3.r().values().iterator();
 
             while(var4.hasNext()) {
@@ -218,7 +218,7 @@ public class class_apc {
    private void h() {
       for(int var1 = 0; var1 < 8; ++var1) {
          for(int var2 = 0; var2 < 8; ++var2) {
-            this.d.a(var1, var2);
+            this.d.getChunkAt(var1, var2);
          }
       }
 
@@ -226,7 +226,7 @@ public class class_apc {
 
    private void i() {
       HashSet var1 = Sets.newHashSet();
-      Iterator var2 = this.d.b(EntityPlayer.class, b).iterator();
+      Iterator var2 = this.d.getPlayers(EntityPlayer.class, b).iterator();
 
       while(var2.hasNext()) {
          EntityPlayer var3 = (EntityPlayer)var2.next();
@@ -289,7 +289,7 @@ public class class_apc {
       class_aqk var2 = new class_aqk(var1);
 
       BlockPosition var3;
-      for(var3 = this.d.r(class_aqk.a).down(); this.d.getType(var3).getBlock() == BlockStainedGlassPane.BEDROCK && var3.getY() > this.d.G(); var3 = var3.down()) {
+      for(var3 = this.d.r(class_aqk.a).down(); this.d.getType(var3).getBlock() == Blocks.BEDROCK && var3.getY() > this.d.G(); var3 = var3.down()) {
          ;
       }
 
@@ -306,7 +306,7 @@ public class class_apc {
 
    public void b(class_ur var1) {
       if(var1.aM().equals(this.m)) {
-         this.c.a(var1.bo() / var1.bv());
+         this.c.a(var1.getHealth() / var1.bv());
          this.g = 0;
       }
 
@@ -336,8 +336,8 @@ public class class_apc {
                for(int var3 = 0; var3 < this.f.b(); ++var3) {
                   for(int var4 = 0; var4 < this.f.a(); ++var4) {
                      class_ano var5 = var1.a(var2, var3, var4);
-                     if(var5.a().getBlock() == BlockStainedGlassPane.BEDROCK || var5.a().getBlock() == BlockStainedGlassPane.END_PORTAL) {
-                        this.d.setTypeUpdate((BlockPosition)var5.d(), (IBlockData)BlockStainedGlassPane.END_STONE.getBlockData());
+                     if(var5.a().getBlock() == Blocks.BEDROCK || var5.a().getBlock() == Blocks.END_PORTAL) {
+                        this.d.setTypeUpdate((BlockPosition)var5.d(), (IBlockData)Blocks.END_STONE.getBlockData());
                      }
                   }
                }
@@ -351,6 +351,6 @@ public class class_apc {
    }
 
    static {
-      b = Predicates.and(class_pv.a, class_pv.a(0.0D, 128.0D, 0.0D, 192.0D));
+      b = Predicates.and(IEntitySelector.IS_ALIVE, IEntitySelector.a(0.0D, 128.0D, 0.0D, 192.0D));
    }
 }

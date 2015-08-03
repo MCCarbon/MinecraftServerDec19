@@ -8,7 +8,7 @@ import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityLightDetector;
 import net.minecraft.server.IBlockData;
@@ -23,11 +23,11 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.CreativeTab;
 
-public class BlockDaylightDetector extends BlockContainer {
+public class class_ahe extends BlockContainer {
    public static final BlockStateInteger a = BlockStateInteger.of("power", 0, 15);
    private final boolean b;
 
-   public BlockDaylightDetector(boolean var1) {
+   public class_ahe(boolean var1) {
       super(Material.WOOD);
       this.b = var1;
       this.setBlockData(this.blockStateList.getFirst().set(a, Integer.valueOf(0)));
@@ -72,11 +72,11 @@ public class BlockDaylightDetector extends BlockContainer {
             return true;
          } else {
             if(this.b) {
-               var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.DAYLIGHT_DETECTOR.getBlockData().set(a, var3.get(a)), 4);
-               BlockStainedGlassPane.DAYLIGHT_DETECTOR.f(var1, var2);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR.getBlockData().set(a, var3.get(a)), 4);
+               Blocks.DAYLIGHT_DETECTOR.f(var1, var2);
             } else {
-               var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.DAYLIGHT_DETECTOR_INVERTED.getBlockData().set(a, var3.get(a)), 4);
-               BlockStainedGlassPane.DAYLIGHT_DETECTOR_INVERTED.f(var1, var2);
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.DAYLIGHT_DETECTOR_INVERTED.getBlockData().set(a, var3.get(a)), 4);
+               Blocks.DAYLIGHT_DETECTOR_INVERTED.f(var1, var2);
             }
 
             return true;
@@ -87,7 +87,7 @@ public class BlockDaylightDetector extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Item.getItemOf((Block)BlockStainedGlassPane.DAYLIGHT_DETECTOR);
+      return Item.getItemOf((Block)Blocks.DAYLIGHT_DETECTOR);
    }
 
    public boolean isFullCube() {

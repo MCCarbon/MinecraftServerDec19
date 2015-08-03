@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_agy;
 import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.BlockLeaves1;
@@ -74,7 +74,7 @@ public class class_arn extends class_apw {
             return false;
          } else {
             Block var19 = var1.getType(var3.down()).getBlock();
-            if((var19 == BlockStainedGlassPane.GRASS || var19 == BlockStainedGlassPane.DIRT || var19 == BlockStainedGlassPane.FARMLAND) && var3.getY() < 256 - var4 - 1) {
+            if((var19 == Blocks.GRASS || var19 == Blocks.DIRT || var19 == Blocks.FARMLAND) && var3.getY() < 256 - var4 - 1) {
                this.a(var1, var3.down());
                var7 = 3;
                byte var20 = 0;
@@ -187,11 +187,11 @@ public class class_arn extends class_apw {
    }
 
    private void a(World var1, int var2, BlockPosition var3, EnumDirection var4) {
-      this.a(var1, var3, BlockStainedGlassPane.COCOA.getBlockData().set(class_agy.a, Integer.valueOf(var2)).set(class_agy.FACING, var4));
+      this.a(var1, var3, Blocks.COCOA.getBlockData().set(class_agy.a, Integer.valueOf(var2)).set(class_agy.FACING, var4));
    }
 
    private void a(World var1, BlockPosition var2, BlockStateBoolean var3) {
-      this.a(var1, var2, BlockStainedGlassPane.VINE.getBlockData().set(var3, Boolean.valueOf(true)));
+      this.a(var1, var2, Blocks.VINE.getBlockData().set(var3, Boolean.valueOf(true)));
    }
 
    private void b(World var1, BlockPosition var2, BlockStateBoolean var3) {
@@ -206,7 +206,7 @@ public class class_arn extends class_apw {
    }
 
    static {
-      a = BlockStainedGlassPane.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.OAK);
-      b = BlockStainedGlassPane.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.OAK).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      a = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.OAK);
+      b = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.OAK).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

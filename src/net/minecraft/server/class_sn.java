@@ -21,7 +21,7 @@ public class class_sn extends class_rm {
    }
 
    public boolean a() {
-      if(!this.a.cD() && this.a.l != null) {
+      if(!this.a.cD() && this.a.passenger != null) {
          Vec3D var1 = class_tm.a(this.a, 5, 4);
          if(var1 == null) {
             return false;
@@ -41,16 +41,16 @@ public class class_sn extends class_rm {
    }
 
    public boolean b() {
-      return !this.a.u().m() && this.a.l != null;
+      return !this.a.u().m() && this.a.passenger != null;
    }
 
    public void e() {
       if(this.a.bd().nextInt(50) == 0) {
-         if(this.a.l instanceof EntityHuman) {
+         if(this.a.passenger instanceof EntityHuman) {
             int var1 = this.a.cR();
             int var2 = this.a.cX();
             if(var2 > 0 && this.a.bd().nextInt(var2) < var1) {
-               this.a.f((EntityHuman)this.a.l);
+               this.a.f((EntityHuman)this.a.passenger);
                this.a.o.a((Entity)this.a, (byte)7);
                return;
             }
@@ -58,8 +58,8 @@ public class class_sn extends class_rm {
             this.a.p(5);
          }
 
-         this.a.l.a((Entity)null);
-         this.a.l = null;
+         this.a.passenger.a((Entity)null);
+         this.a.passenger = null;
          this.a.dl();
          this.a.o.a((Entity)this.a, (byte)6);
       }

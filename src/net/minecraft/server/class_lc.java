@@ -81,7 +81,7 @@ public class class_lc implements class_aep {
             double var8 = (double)var2.getY() - var5.t;
             double var10 = (double)var2.getZ() - var5.u;
             if(var6 * var6 + var8 * var8 + var10 * var10 < 1024.0D) {
-               var5.a.a((Packet)(new PacketPlayOutBlockBreakAnimation(var1, var2, var3)));
+               var5.playerConnection.sendPacket((Packet)(new PacketPlayOutBlockBreakAnimation(var1, var2, var3)));
             }
          }
       }

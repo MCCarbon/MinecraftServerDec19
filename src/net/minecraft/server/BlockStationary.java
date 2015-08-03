@@ -40,7 +40,7 @@ public class BlockStationary extends BlockFluids {
 						Block var8 = var1.getType(var6).getBlock();
 						if (var8.material == Material.AIR) {
 							if (this.f(var1, var6)) {
-								var1.setTypeUpdate(var6, BlockStainedGlassPane.FIRE.getBlockData());
+								var1.setTypeUpdate(var6, Blocks.FIRE.getBlockData());
 								return;
 							}
 						} else if (var8.material.isSolid()) {
@@ -51,7 +51,7 @@ public class BlockStationary extends BlockFluids {
 					for (int var9 = 0; var9 < 3; ++var9) {
 						BlockPosition var10 = var2.add(var4.nextInt(3) - 1, 0, var4.nextInt(3) - 1);
 						if (var1.isEmpty(var10.up()) && m(var1, var10)) {
-							var1.setTypeUpdate(var10.up(), BlockStainedGlassPane.FIRE.getBlockData());
+							var1.setTypeUpdate(var10.up(), Blocks.FIRE.getBlockData());
 						}
 					}
 				}

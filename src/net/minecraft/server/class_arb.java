@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
 import net.minecraft.server.class_aql;
@@ -16,7 +16,7 @@ public class class_arb extends class_aql {
    private final Predicate c;
 
    public class_arb(IBlockData var1, int var2) {
-      this(var1, var2, class_ans.a(BlockStainedGlassPane.STONE));
+      this(var1, var2, class_ans.a(Blocks.STONE));
    }
 
    public class_arb(IBlockData var1, int var2, Predicate var3) {

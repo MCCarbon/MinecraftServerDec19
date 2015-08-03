@@ -5,7 +5,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_acs;
 import net.minecraft.server.class_act;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntityBanner;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
@@ -20,7 +20,7 @@ public class class_acj {
 
       for(int var4 = 0; var4 < var3; ++var4) {
          EnumColor var5 = var2[var4];
-         var1.a(new ItemStack(Items.cH, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new ItemStack(BlockStainedGlassPane.WOOL, 1, var5.a()), Character.valueOf('|'), Items.STICK});
+         var1.a(new ItemStack(Items.cH, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new ItemStack(Blocks.WOOL, 1, var5.a()), Character.valueOf('|'), Items.A});
       }
 
       var1.a(new class_acj.class_b_in_class_acj());

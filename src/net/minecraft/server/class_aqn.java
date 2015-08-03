@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arn;
 import net.minecraft.server.Material;
@@ -26,7 +26,7 @@ public class class_aqn extends class_arn {
       }
 
       Block var5 = var1.getType(var3).getBlock();
-      if(var5 == BlockStainedGlassPane.DIRT || var5 == BlockStainedGlassPane.GRASS) {
+      if(var5 == Blocks.DIRT || var5 == Blocks.GRASS) {
          var3 = var3.up();
          this.a(var1, var3, this.b);
 

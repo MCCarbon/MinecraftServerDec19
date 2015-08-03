@@ -11,7 +11,7 @@ import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_qb;
 import net.minecraft.server.class_vb;
 import net.minecraft.server.EntityHuman;
@@ -22,17 +22,17 @@ public class class_aav extends Item {
       this.a(CreativeTab.TOOLS);
    }
 
-   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       Block var10 = var3.getType(var4).getBlock();
       if(var10 instanceof class_ahz) {
          if(var3.isClientSide) {
-            return class_oq.a;
+            return UseResult.SUCCESS;
          } else {
             a(var2, var3, var4);
-            return class_oq.a;
+            return UseResult.SUCCESS;
          }
       } else {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       }
    }
 

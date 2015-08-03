@@ -19,7 +19,7 @@ public class BlockLeaves1 extends BlockLeaves {
 	@Override
 	protected void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
 		if ((var3.get(VARIANT) == BlockWood.EnumLogVariant.OAK) && (var1.random.nextInt(var4) == 0)) {
-			dropItem(var1, var2, new ItemStack(Items.APPLE));
+			dropItem(var1, var2, new ItemStack(Items.e));
 		}
 
 	}

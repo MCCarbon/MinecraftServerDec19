@@ -58,7 +58,7 @@ public class class_xk extends Entity {
 		this.a(var4);
 	}
 
-	protected void b(NBTTagCompound var1) {
+	protected void write(NBTTagCompound var1) {
 		BlockPosition var2;
 		NBTTagCompound var3;
 		if (this.a != null) {
@@ -89,7 +89,7 @@ public class class_xk extends Entity {
 		var1.put("TZD", this.g);
 	}
 
-	protected void a(NBTTagCompound var1) {
+	protected void read(NBTTagCompound var1) {
 		this.d = var1.getInt("Steps");
 		this.e = var1.getDouble("TXD");
 		this.f = var1.getDouble("TYD");
@@ -160,12 +160,12 @@ public class class_xk extends Entity {
 				}
 			}
 
-			EnumDirection var13 = EnumDirection.getRandom(this.V);
+			EnumDirection var13 = EnumDirection.getRandom(this.random);
 			if (!var12.isEmpty()) {
-				var13 = (EnumDirection) var12.get(this.V.nextInt(var12.size()));
+				var13 = (EnumDirection) var12.get(this.random.nextInt(var12.size()));
 			} else {
 				for (int var14 = 5; !this.o.isEmpty(var11.shift(var13)) && var14 > 0; --var14) {
-					var13 = EnumDirection.getRandom(this.V);
+					var13 = EnumDirection.getRandom(this.random);
 				}
 			}
 
@@ -191,7 +191,7 @@ public class class_xk extends Entity {
 			this.g = var15 / var17 * 0.15;
 		}
 		this.ai = true;
-		this.d = 10 + this.V.nextInt(5) * 10;
+		this.d = 10 + this.random.nextInt(5) * 10;
 	}
 
 	public void t_() {
@@ -287,7 +287,7 @@ public class class_xk extends Entity {
 
 	protected void a(MovingObjectPosition var1) {
 		if (var1.d != null) {
-			boolean var2 = var1.d.a(class_pc.a((Entity) this, (EntityLiving) this.a), 4.0F);
+			boolean var2 = var1.d.damageEntity(class_pc.a((Entity) this, (EntityLiving) this.a), 4.0F);
 			if (var2) {
 				this.a(this.a, var1.d);
 				if (var1.d instanceof EntityLiving) {
@@ -306,7 +306,7 @@ public class class_xk extends Entity {
 		return true;
 	}
 
-	public boolean a(class_pc var1, float var2) {
+	public boolean damageEntity(class_pc var1, float var2) {
 		if (!this.o.isClientSide) {
 			this.a("mob.irongolem.hit", 1.0F, 1.0F);
 			((WorldServer) this.o).a(class_cy.j, this.s, this.t, this.u, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);

@@ -135,7 +135,7 @@ public class BlockPistonMoving extends BlockContainer {
 			}
 
 			var5.updateShape(var1, var2);
-			if ((var5 == BlockStainedGlassPane.PISTON) || (var5 == BlockStainedGlassPane.STICKY_PISTON)) {
+			if ((var5 == Blocks.PISTON) || (var5 == Blocks.STICKY_PISTON)) {
 				var6 = 0.0F;
 			}
 

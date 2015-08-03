@@ -8,7 +8,7 @@ import net.minecraft.server.class_abe;
 import net.minecraft.server.class_acd;
 import net.minecraft.server.class_acf;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockFluids;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.AxisAlignedBB;
@@ -112,14 +112,14 @@ public class class_xs extends class_xo {
    }
 
    private void a(BlockPosition var1) {
-      if(this.o.getType(var1).getBlock() == BlockStainedGlassPane.FIRE) {
-         this.o.setTypeAndData((BlockPosition)var1, (IBlockData)BlockStainedGlassPane.FLOWING_WATER.getBlockData().set(BlockFluids.LEVEL, Integer.valueOf(7)), 2);
+      if(this.o.getType(var1).getBlock() == Blocks.FIRE) {
+         this.o.setTypeAndData((BlockPosition)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(BlockFluids.LEVEL, Integer.valueOf(7)), 2);
       }
 
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.d = ItemStack.a(var1.getCompound("Potion"));
       if(this.d == null) {
          this.J();
@@ -127,8 +127,8 @@ public class class_xs extends class_xo {
 
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       if(this.d != null) {
          var1.put((String)"Potion", (NBTTag)this.d.write(new NBTTagCompound()));
       }

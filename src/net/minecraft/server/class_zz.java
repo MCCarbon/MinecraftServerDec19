@@ -4,14 +4,14 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockFragilePlantElement;
 import net.minecraft.server.BlockWood;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_uf;
 import net.minecraft.server.EntityHuman;
@@ -32,9 +32,9 @@ public class class_zz extends Item {
       return super.a() + "." + EnumColor.a(var2).d();
    }
 
-   public class_oq a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(!var2.a(var4.shift(var6), var6, var1)) {
-         return class_oq.b;
+         return UseResult.CANT_USE;
       } else {
          EnumColor var10 = EnumColor.a(var1.i());
          if(var10 == EnumColor.a) {
@@ -43,34 +43,34 @@ public class class_zz extends Item {
                   var3.b(2005, var4, 0);
                }
 
-               return class_oq.a;
+               return UseResult.SUCCESS;
             }
          } else if(var10 == EnumColor.m) {
             IBlockData var11 = var3.getType(var4);
             Block var12 = var11.getBlock();
-            if(var12 == BlockStainedGlassPane.LOG && var11.get(BlockLog1.b) == BlockWood.EnumLogVariant.JUNGLE) {
+            if(var12 == Blocks.LOG && var11.get(BlockLog1.b) == BlockWood.EnumLogVariant.JUNGLE) {
                if(var6 == EnumDirection.DOWN) {
-                  return class_oq.b;
+                  return UseResult.CANT_USE;
                }
 
                if(var6 == EnumDirection.UP) {
-                  return class_oq.b;
+                  return UseResult.CANT_USE;
                }
 
                var4 = var4.shift(var6);
                if(var3.isEmpty(var4)) {
-                  IBlockData var13 = BlockStainedGlassPane.COCOA.getPlacedState(var3, var4, var6, var7, var8, var9, 0, var2);
+                  IBlockData var13 = Blocks.COCOA.getPlacedState(var3, var4, var6, var7, var8, var9, 0, var2);
                   var3.setTypeAndData((BlockPosition)var4, (IBlockData)var13, 2);
-                  if(!var2.bH.instabuild) {
+                  if(!var2.abilities.instabuild) {
                      --var1.count;
                   }
                }
 
-               return class_oq.a;
+               return UseResult.SUCCESS;
             }
          }
 
-         return class_oq.b;
+         return UseResult.CANT_USE;
       }
    }
 

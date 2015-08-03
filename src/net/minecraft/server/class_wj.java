@@ -73,7 +73,7 @@ public class class_wj extends class_wr {
       }
 
       if(this.bt > 0 && --this.bt == 0) {
-         this.a("mob.zombiepig.zpigangry", this.bC() * 2.0F, ((this.V.nextFloat() - this.V.nextFloat()) * 0.2F + 1.0F) * 1.8F);
+         this.a("mob.zombiepig.zpigangry", this.bC() * 2.0F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 1.8F);
       }
 
       if(this.bs > 0 && this.bu != null && this.be() == null) {
@@ -94,8 +94,8 @@ public class class_wj extends class_wr {
       return this.o.a((AxisAlignedBB)this.aT(), (Entity)this) && this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.o.d(this.aT());
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Anger", (short)this.bs);
       if(this.bu != null) {
          var1.put("HurtBy", this.bu.toString());
@@ -105,8 +105,8 @@ public class class_wj extends class_wr {
 
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.bs = var1.getShort("Anger");
       String var2 = var1.getString("HurtBy");
       if(!var2.isEmpty()) {
@@ -121,7 +121,7 @@ public class class_wj extends class_wr {
 
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       if(this.b((class_pc)var1)) {
          return false;
       } else {
@@ -130,13 +130,13 @@ public class class_wj extends class_wr {
             this.b(var3);
          }
 
-         return super.a(var1, var2);
+         return super.damageEntity(var1, var2);
       }
    }
 
    private void b(Entity var1) {
-      this.bs = 400 + this.V.nextInt(400);
-      this.bt = this.V.nextInt(40);
+      this.bs = 400 + this.random.nextInt(400);
+      this.bt = this.random.nextInt(40);
       if(var1 instanceof EntityLiving) {
          this.b((EntityLiving)var1);
       }
@@ -160,14 +160,14 @@ public class class_wj extends class_wr {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(2 + var2);
+      int var3 = this.random.nextInt(2 + var2);
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
          this.a(Items.bv, 1);
       }
 
-      var3 = this.V.nextInt(2 + var2);
+      var3 = this.random.nextInt(2 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          this.a(Items.bz, 1);
@@ -180,11 +180,11 @@ public class class_wj extends class_wr {
    }
 
    protected void br() {
-      this.a(Items.GOLD_INGOT, 1);
+      this.a(Items.m, 1);
    }
 
    protected void a(class_on var1) {
-      this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.GOLDEN_SWORD)));
+      this.a((class_pw)class_pw.a, (ItemStack)(new ItemStack(Items.D)));
    }
 
    public class_qd a(class_on var1, class_qd var2) {

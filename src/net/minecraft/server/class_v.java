@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
@@ -60,7 +60,7 @@ public class class_v extends class_i {
                         var13.setPosition(var16 + var11.getX(), var15 + var11.getY(), var14 + var11.getZ());
                         boolean var17 = false;
                         IBlockData var18 = var9.getType(var12);
-                        if(!var10 || var18.getBlock() != BlockStainedGlassPane.AIR) {
+                        if(!var10 || var18.getBlock() != Blocks.AIR) {
                            if(var18 == var9.getType(var13)) {
                               TileEntity var19 = var9.getTileEntity(var12);
                               TileEntity var20 = var9.getTileEntity(var13);

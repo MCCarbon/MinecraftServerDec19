@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockDirt;
 import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.BlockLeaves1;
@@ -106,7 +106,7 @@ public class class_aqx extends class_aqy {
       for(int var3 = 2; var3 >= -3; --var3) {
          BlockPosition var4 = var2.up(var3);
          Block var5 = var1.getType(var4).getBlock();
-         if(var5 == BlockStainedGlassPane.GRASS || var5 == BlockStainedGlassPane.DIRT) {
+         if(var5 == Blocks.GRASS || var5 == Blocks.DIRT) {
             this.a(var1, var4, g);
             break;
          }
@@ -119,8 +119,8 @@ public class class_aqx extends class_aqy {
    }
 
    static {
-      e = BlockStainedGlassPane.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.SPRUCE);
-      f = BlockStainedGlassPane.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.SPRUCE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
-      g = BlockStainedGlassPane.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.PODZOL);
+      e = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.SPRUCE);
+      f = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.SPRUCE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      g = Blocks.DIRT.getBlockData().set(BlockDirt.VARIANT, BlockDirt.EnumDirtVariant.PODZOL);
    }
 }

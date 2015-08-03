@@ -4,7 +4,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Explosion;
 import net.minecraft.server.World;
 import net.minecraft.server.BlockMinecartTrackAbstract;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_cy;
@@ -30,7 +30,7 @@ public class class_vv extends class_vn {
    }
 
    public IBlockData u() {
-      return BlockStainedGlassPane.TNT.getBlockData();
+      return Blocks.TNT.getBlockData();
    }
 
    public void t_() {
@@ -51,7 +51,7 @@ public class class_vv extends class_vn {
 
    }
 
-   public boolean a(class_pc var1, float var2) {
+   public boolean damageEntity(class_pc var1, float var2) {
       Entity var3 = var1.i();
       if(var3 instanceof class_xd) {
          class_xd var4 = (class_xd)var3;
@@ -60,14 +60,14 @@ public class class_vv extends class_vn {
          }
       }
 
-      return super.a(var1, var2);
+      return super.damageEntity(var1, var2);
    }
 
    public void a(class_pc var1) {
       super.a(var1);
       double var2 = this.v * this.v + this.x * this.x;
       if(!var1.c() && this.o.R().b("doEntityDrops")) {
-         this.a(new ItemStack(BlockStainedGlassPane.TNT, 1), 0.0F);
+         this.a(new ItemStack(Blocks.TNT, 1), 0.0F);
       }
 
       if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {
@@ -83,7 +83,7 @@ public class class_vv extends class_vn {
             var3 = 5.0D;
          }
 
-         this.o.a(this, this.s, this.t, this.u, (float)(4.0D + this.V.nextDouble() * 1.5D * var3), true);
+         this.o.a(this, this.s, this.t, this.u, (float)(4.0D + this.random.nextDouble() * 1.5D * var3), true);
          this.J();
       }
 
@@ -128,16 +128,16 @@ public class class_vv extends class_vn {
       return !this.y() || !BlockMinecartTrackAbstract.d(var4) && !BlockMinecartTrackAbstract.e(var2, var3.up())?super.a(var1, var2, var3, var4, var5):false;
    }
 
-   protected void a(NBTTagCompound var1) {
-      super.a(var1);
+   protected void read(NBTTagCompound var1) {
+      super.read(var1);
       if(var1.hasOfType("TNTFuse", 99)) {
          this.a = var1.getInt("TNTFuse");
       }
 
    }
 
-   protected void b(NBTTagCompound var1) {
-      super.b(var1);
+   protected void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("TNTFuse", this.a);
    }
 }

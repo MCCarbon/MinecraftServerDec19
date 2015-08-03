@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -53,7 +53,7 @@ public class class_ahc extends Block {
       }
 
       public IChatBaseComponent getScoreboardDisplayName() {
-         return new ChatMessage(BlockStainedGlassPane.CRAFTING_TABLE.getInternalName() + ".name", new Object[0]);
+         return new ChatMessage(Blocks.CRAFTING_TABLE.getInternalName() + ".name", new Object[0]);
       }
 
       public Container createContainer(PlayerInventory var1, EntityHuman var2) {

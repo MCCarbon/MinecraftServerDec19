@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_bz;
@@ -109,7 +109,7 @@ public class class_af extends class_i {
                            }
                         } else if(var16 != var7.getX() && var16 != var8.getX() && var15 != var7.getY() && var15 != var8.getY() && var14 != var7.getZ() && var14 != var8.getZ()) {
                            if(var2[8].equals("hollow")) {
-                              var10.setTypeAndData((BlockPosition)var17, (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
+                              var10.setTypeAndData((BlockPosition)var17, (IBlockData)Blocks.AIR.getBlockData(), 2);
                               var24.add(var17);
                            }
                            continue;
@@ -122,7 +122,7 @@ public class class_af extends class_i {
                            ((IInventory)var29).remove();
                         }
 
-                        var10.setTypeAndData(var17, BlockStainedGlassPane.BARRIER.getBlockData(), var5 == BlockStainedGlassPane.BARRIER?2:4);
+                        var10.setTypeAndData(var17, Blocks.BARRIER.getBlockData(), var5 == Blocks.BARRIER?2:4);
                      }
 
                      var19 = var5.fromLegacyData(var6);

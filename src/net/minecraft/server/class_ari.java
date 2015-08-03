@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.BlockPosition;
@@ -27,7 +27,7 @@ public class class_ari extends class_aql {
          while(var4.hasNext()) {
             BlockPosition.MutableBlockPosition var5 = (BlockPosition.MutableBlockPosition)var4.next();
             if(var5.distanceSquared((double)var3.getX(), (double)var5.getY(), (double)var3.getZ()) <= (double)(this.a.c() * this.a.c() + 1)) {
-               this.a(var1, var5, BlockStainedGlassPane.OBSIDIAN.getBlockData());
+               this.a(var1, var5, Blocks.OBSIDIAN.getBlockData());
             }
          }
 
@@ -35,12 +35,12 @@ public class class_ari extends class_aql {
             for(int var6 = -2; var6 <= 2; ++var6) {
                for(int var8 = -2; var8 <= 2; ++var8) {
                   if(MathHelper.abs(var6) == 2 || MathHelper.abs(var8) == 2) {
-                     this.a(var1, var3.add(var6, this.a.d(), var8), BlockStainedGlassPane.IRON_BARS.getBlockData());
-                     this.a(var1, var3.add(var6, this.a.d() + 1, var8), BlockStainedGlassPane.IRON_BARS.getBlockData());
-                     this.a(var1, var3.add(var6, this.a.d() + 2, var8), BlockStainedGlassPane.IRON_BARS.getBlockData());
+                     this.a(var1, var3.add(var6, this.a.d(), var8), Blocks.IRON_BARS.getBlockData());
+                     this.a(var1, var3.add(var6, this.a.d() + 1, var8), Blocks.IRON_BARS.getBlockData());
+                     this.a(var1, var3.add(var6, this.a.d() + 2, var8), Blocks.IRON_BARS.getBlockData());
                   }
 
-                  this.a(var1, var3.add(var6, this.a.d() + 3, var8), BlockStainedGlassPane.IRON_BARS.getBlockData());
+                  this.a(var1, var3.add(var6, this.a.d() + 3, var8), Blocks.IRON_BARS.getBlockData());
                }
             }
          }
@@ -48,7 +48,7 @@ public class class_ari extends class_aql {
          class_uq var7 = new class_uq(var1);
          var7.b((double)((float)var3.getX() + 0.5F), (double)(var3.getY() + this.a.d() + 1), (double)((float)var3.getZ() + 0.5F), var2.nextFloat() * 360.0F, 0.0F);
          var1.addEntity((Entity)var7);
-         this.a(var1, var3.up(this.a.d()), BlockStainedGlassPane.BEDROCK.getBlockData());
+         this.a(var1, var3.up(this.a.d()), Blocks.BEDROCK.getBlockData());
          return true;
       }
    }

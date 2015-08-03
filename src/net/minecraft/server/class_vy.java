@@ -9,7 +9,7 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_pc;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_rr;
 import net.minecraft.server.class_ry;
@@ -25,7 +25,7 @@ import net.minecraft.server.class_xl;
 public class class_vy extends class_wi {
    private float a = 0.5F;
    private int b;
-   private static final int c = class_qi.a(class_vy.class);
+   private static final int c = Datawathcer.claimId(class_vy.class);
 
    public class_vy(World var1) {
       super(var1);
@@ -49,7 +49,7 @@ public class class_vy extends class_wi {
 
    protected void h() {
       super.h();
-      this.ac.a(c, new Byte((byte)0));
+      this.datawatcher.add(c, new Byte((byte)0));
    }
 
    protected String C() {
@@ -74,12 +74,12 @@ public class class_vy extends class_wi {
       }
 
       if(this.o.isClientSide) {
-         if(this.V.nextInt(24) == 0 && !this.R()) {
-            this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.fire", 1.0F + this.V.nextFloat(), this.V.nextFloat() * 0.7F + 0.3F, false);
+         if(this.random.nextInt(24) == 0 && !this.R()) {
+            this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.fire", 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
          }
 
          for(int var1 = 0; var1 < 2; ++var1) {
-            this.o.a(class_cy.m, this.s + (this.V.nextDouble() - 0.5D) * (double)this.J, this.t + this.V.nextDouble() * (double)this.K, this.u + (this.V.nextDouble() - 0.5D) * (double)this.J, 0.0D, 0.0D, 0.0D, new int[0]);
+            this.o.a(class_cy.m, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J, this.t + this.random.nextDouble() * (double)this.K, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J, 0.0D, 0.0D, 0.0D, new int[0]);
          }
       }
 
@@ -88,13 +88,13 @@ public class class_vy extends class_wi {
 
    protected void cc() {
       if(this.U()) {
-         this.a(class_pc.f, 1.0F);
+         this.damageEntity(class_pc.f, 1.0F);
       }
 
       --this.b;
       if(this.b <= 0) {
          this.b = 100;
-         this.a = 0.5F + (float)this.V.nextGaussian() * 3.0F;
+         this.a = 0.5F + (float)this.random.nextGaussian() * 3.0F;
       }
 
       EntityLiving var1 = this.w();
@@ -119,7 +119,7 @@ public class class_vy extends class_wi {
 
    protected void b(boolean var1, int var2) {
       if(var1) {
-         int var3 = this.V.nextInt(2 + var2);
+         int var3 = this.random.nextInt(2 + var2);
 
          for(int var4 = 0; var4 < var3; ++var4) {
             this.a(Items.bx, 1);
@@ -129,18 +129,18 @@ public class class_vy extends class_wi {
    }
 
    public boolean n() {
-      return (this.ac.a(c) & 1) != 0;
+      return (this.datawatcher.getByte(c) & 1) != 0;
    }
 
    public void a(boolean var1) {
-      byte var2 = this.ac.a(c);
+      byte var2 = this.datawatcher.getByte(c);
       if(var1) {
          var2 = (byte)(var2 | 1);
       } else {
          var2 &= -2;
       }
 
-      this.ac.b(c, Byte.valueOf(var2));
+      this.datawatcher.update(c, Byte.valueOf(var2));
    }
 
    protected boolean n_() {
@@ -159,7 +159,7 @@ public class class_vy extends class_wi {
 
       public boolean a() {
          EntityLiving var1 = this.a.w();
-         return var1 != null && var1.ai();
+         return var1 != null && var1.isAlive();
       }
 
       public void c() {

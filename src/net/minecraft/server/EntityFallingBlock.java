@@ -7,7 +7,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aga;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IContainer;
 import net.minecraft.server.BlockFalling;
 import net.minecraft.server.TileEntity;
@@ -93,7 +93,7 @@ public class EntityFallingBlock extends Entity {
                this.v *= 0.699999988079071D;
                this.x *= 0.699999988079071D;
                this.motY *= -0.5D;
-               if(this.o.getType(var2).getBlock() != BlockStainedGlassPane.PISTON_EXTENSION) {
+               if(this.o.getType(var2).getBlock() != Blocks.PISTON_EXTENSION) {
                   this.J();
                   if(!this.e) {
                      if(this.o.a(var1, var2, true, EnumDirection.UP, (Entity)null, (ItemStack)null) && !BlockFalling.canFall(this.o, var2.down()) && this.o.setTypeAndData((BlockPosition)var2, (IBlockData)this.d, 3)) {
@@ -142,17 +142,17 @@ public class EntityFallingBlock extends Entity {
       if(this.f) {
          int var4 = MathHelper.ceil(var1 - 1.0F);
          if(var4 > 0) {
-            ArrayList var5 = Lists.newArrayList((Iterable)this.o.b((Entity)this, (AxisAlignedBB)this.aT()));
-            boolean var6 = var3 == BlockStainedGlassPane.ANVIL;
+            ArrayList var5 = Lists.newArrayList((Iterable)this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT()));
+            boolean var6 = var3 == Blocks.ANVIL;
             class_pc var7 = var6?class_pc.n:class_pc.o;
             Iterator var8 = var5.iterator();
 
             while(var8.hasNext()) {
                Entity var9 = (Entity)var8.next();
-               var9.a(var7, (float)Math.min(MathHelper.floor((float)var4 * this.h), this.g));
+               var9.damageEntity(var7, (float)Math.min(MathHelper.floor((float)var4 * this.h), this.g));
             }
 
-            if(var6 && (double)this.V.nextFloat() < 0.05000000074505806D + (double)var4 * 0.05D) {
+            if(var6 && (double)this.random.nextFloat() < 0.05000000074505806D + (double)var4 * 0.05D) {
                int var10 = ((Integer)this.d.get(class_aga.b)).intValue();
                ++var10;
                if(var10 > 2) {
@@ -166,8 +166,8 @@ public class EntityFallingBlock extends Entity {
 
    }
 
-   protected void b(NBTTagCompound var1) {
-      Block var2 = this.d != null?this.d.getBlock():BlockStainedGlassPane.AIR;
+   protected void write(NBTTagCompound var1) {
+      Block var2 = this.d != null?this.d.getBlock():Blocks.AIR;
       MinecraftKey var3 = (MinecraftKey)Block.BLOCK_REGISTRY.getKey(var2);
       var1.put("Block", var3 == null?"":var3.toString());
       var1.put("Data", (byte)var2.toLegacyData(this.d));
@@ -182,7 +182,7 @@ public class EntityFallingBlock extends Entity {
 
    }
 
-   protected void a(NBTTagCompound var1) {
+   protected void read(NBTTagCompound var1) {
       int var2 = var1.getByte("Data") & 255;
       if(var1.hasOfType("Block", 8)) {
          this.d = Block.getByName(var1.getString("Block")).fromLegacyData(var2);
@@ -198,7 +198,7 @@ public class EntityFallingBlock extends Entity {
          this.f = var1.getBoolean("HurtEntities");
          this.h = var1.getFloat("FallHurtAmount");
          this.g = var1.getInt("FallHurtMax");
-      } else if(var3 == BlockStainedGlassPane.ANVIL) {
+      } else if(var3 == Blocks.ANVIL) {
          this.f = true;
       }
 
@@ -211,7 +211,7 @@ public class EntityFallingBlock extends Entity {
       }
 
       if(var3 == null || var3.getMaterial() == Material.AIR) {
-         this.d = BlockStainedGlassPane.SAND.getBlockData();
+         this.d = Blocks.SAND.getBlockData();
       }
 
    }

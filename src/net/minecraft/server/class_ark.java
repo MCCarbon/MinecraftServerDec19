@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockLeaves;
 import net.minecraft.server.BlockLeaves1;
 import net.minecraft.server.BlockLog1;
@@ -58,7 +58,7 @@ public class class_ark extends class_apw {
             return false;
          } else {
             Block var20 = var1.getType(var3.down()).getBlock();
-            if((var20 == BlockStainedGlassPane.GRASS || var20 == BlockStainedGlassPane.DIRT || var20 == BlockStainedGlassPane.FARMLAND) && var3.getY() < 256 - var4 - 1) {
+            if((var20 == Blocks.GRASS || var20 == Blocks.DIRT || var20 == Blocks.FARMLAND) && var3.getY() < 256 - var4 - 1) {
                this.a(var1, var3.down());
                var21 = var2.nextInt(2);
                int var22 = 1;
@@ -114,7 +114,7 @@ public class class_ark extends class_apw {
    }
 
    static {
-      a = BlockStainedGlassPane.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.SPRUCE);
-      b = BlockStainedGlassPane.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.SPRUCE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
+      a = Blocks.LOG.getBlockData().set(BlockLog1.b, BlockWood.EnumLogVariant.SPRUCE);
+      b = Blocks.LEAVES.getBlockData().set(BlockLeaves1.VARIANT, BlockWood.EnumLogVariant.SPRUCE).set(BlockLeaves.CHECK_DECAY, Boolean.valueOf(false));
    }
 }

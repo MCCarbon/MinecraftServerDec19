@@ -7,7 +7,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockDirectional;
 import net.minecraft.server.class_als;
 import net.minecraft.server.IBlockData;
@@ -22,13 +22,13 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.CreativeTab;
 
-public class BlockTripwireHook extends Block {
+public class class_alt extends Block {
    public static final BlockStateDirection a;
    public static final BlockStateBoolean b;
    public static final BlockStateBoolean N;
    public static final BlockStateBoolean O;
 
-   public BlockTripwireHook() {
+   public class_alt() {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Boolean.valueOf(false)).set(N, Boolean.valueOf(false)).set(O, Boolean.valueOf(false)));
       this.setCreativeTab(CreativeTab.REDSTONE);
@@ -110,14 +110,14 @@ public class BlockTripwireHook extends Block {
       for(int var16 = 1; var16 < 42; ++var16) {
          var17 = var2.shift(var8, var16);
          IBlockData var18 = var1.getType(var17);
-         if(var18.getBlock() == BlockStainedGlassPane.TRIPWIRE_HOOK) {
+         if(var18.getBlock() == Blocks.TRIPWIRE_HOOK) {
             if(var18.get(a) == var8.opposite()) {
                var14 = var16;
             }
             break;
          }
 
-         if(var18.getBlock() != BlockStainedGlassPane.TRIPWIRE && var16 != var6) {
+         if(var18.getBlock() != Blocks.TRIPWIRE && var16 != var6) {
             var15[var16] = null;
             var12 = false;
          } else {
@@ -161,7 +161,7 @@ public class BlockTripwireHook extends Block {
          for(int var23 = 1; var23 < var14; ++var23) {
             BlockPosition var25 = var2.shift(var8, var23);
             IBlockData var26 = var15[var23];
-            if(var26 != null && var1.getType(var25).getBlock() != BlockStainedGlassPane.AIR) {
+            if(var26 != null && var1.getType(var25).getBlock() != Blocks.AIR) {
                var1.setTypeAndData((BlockPosition)var25, (IBlockData)var26.set(N, Boolean.valueOf(var12)), 3);
             }
          }
@@ -206,7 +206,7 @@ public class BlockTripwireHook extends Block {
 
    public void updateShape(IBlockAccess var1, BlockPosition var2) {
       float var3 = 0.1875F;
-      switch(BlockTripwireHook.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
+      switch(class_alt.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
       case 1:
          this.setSizes(0.0F, 0.2F, 0.5F - var3, var3 * 2.0F, 0.8F, 0.5F + var3);
          break;

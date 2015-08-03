@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aee;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
@@ -37,16 +37,16 @@ public class class_vu extends class_vn {
    }
 
    public IBlockData u() {
-      return BlockStainedGlassPane.MOB_SPAWNER.getBlockData();
+      return Blocks.MOB_SPAWNER.getBlockData();
    }
 
-   protected void a(NBTTagCompound var1) {
-      super.a(var1);
+   protected void read(NBTTagCompound var1) {
+      super.read(var1);
       this.a.a(var1);
    }
 
-   protected void b(NBTTagCompound var1) {
-      super.b(var1);
+   protected void write(NBTTagCompound var1) {
+      super.write(var1);
       this.a.b(var1);
    }
 

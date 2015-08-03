@@ -68,7 +68,7 @@ public class class_ym extends class_yx {
       }
 
       this.b = 0;
-      if(var1.getItem() == Items.IRON_INGOT) {
+      if(var1.getItem() == Items.l) {
          this.a.b((class_my)class_mt.k);
       }
 

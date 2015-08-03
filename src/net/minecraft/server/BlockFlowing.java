@@ -83,7 +83,7 @@ public class BlockFlowing extends BlockFluids {
 		IBlockData var13 = var1.getType(var2.down());
 		if (this.h(var1, var2.down(), var13)) {
 			if ((material == Material.LAVA) && (var1.getType(var2.down()).getBlock().getMaterial() == Material.WATER)) {
-				var1.setTypeUpdate(var2.down(), BlockStainedGlassPane.STONE.getBlockData());
+				var1.setTypeUpdate(var2.down(), Blocks.STONE.getBlockData());
 				this.e(var1, var2.down());
 				return;
 			}
@@ -116,7 +116,7 @@ public class BlockFlowing extends BlockFluids {
 
 	private void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
 		if (this.h(var1, var2, var3)) {
-			if (var3.getBlock() != BlockStainedGlassPane.AIR) {
+			if (var3.getBlock() != Blocks.AIR) {
 				if (material == Material.LAVA) {
 					this.e(var1, var2);
 				} else {
@@ -206,7 +206,7 @@ public class BlockFlowing extends BlockFluids {
 
 	private boolean g(World var1, BlockPosition var2, IBlockData var3) {
 		Block var4 = var1.getType(var2).getBlock();
-		return !(var4 instanceof class_ahl) && (var4 != BlockStainedGlassPane.STANDING_SIGN) && (var4 != BlockStainedGlassPane.LADDER) && (var4 != BlockStainedGlassPane.REEDS) ? (var4.material == Material.PORTAL ? true : var4.material.isSolid()) : true;
+		return !(var4 instanceof class_ahl) && (var4 != Blocks.STANDING_SIGN) && (var4 != Blocks.LADDER) && (var4 != Blocks.REEDS) ? (var4.material == Material.PORTAL ? true : var4.material.isSolid()) : true;
 	}
 
 	protected int a(World var1, BlockPosition var2, int var3) {

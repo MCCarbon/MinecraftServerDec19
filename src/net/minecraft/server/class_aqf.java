@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aql;
 import net.minecraft.server.Material;
@@ -18,8 +18,8 @@ public class class_aqf extends class_aql {
 
       for(int var5 = 0; var5 < 4; ++var5) {
          BlockPosition var6 = var3.add(var2.nextInt(8) - var2.nextInt(8), var2.nextInt(4) - var2.nextInt(4), var2.nextInt(8) - var2.nextInt(8));
-         if(var1.isEmpty(var6) && BlockStainedGlassPane.DEADBUSH.f(var1, var6, BlockStainedGlassPane.DEADBUSH.getBlockData())) {
-            var1.setTypeAndData((BlockPosition)var6, (IBlockData)BlockStainedGlassPane.DEADBUSH.getBlockData(), 2);
+         if(var1.isEmpty(var6) && Blocks.DEADBUSH.f(var1, var6, Blocks.DEADBUSH.getBlockData())) {
+            var1.setTypeAndData((BlockPosition)var6, (IBlockData)Blocks.DEADBUSH.getBlockData(), 2);
          }
       }
 

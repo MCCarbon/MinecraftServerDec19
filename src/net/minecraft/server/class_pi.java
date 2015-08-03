@@ -11,7 +11,7 @@ public class class_pi extends class_pk {
 
    public void a(EntityLiving var1, class_qo var2, int var3) {
       super.a(var1, var2, var3);
-      if(var1.bo() > var1.bv()) {
+      if(var1.getHealth() > var1.bv()) {
          var1.i(var1.bv());
       }
 

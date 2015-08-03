@@ -40,7 +40,7 @@ public class class_sk extends class_rm {
    }
 
    protected boolean f() {
-      return this.a.bA() != null && this.a.bA().getItem() == Items.BOW;
+      return this.a.bA() != null && this.a.bA().getItem() == Items.f;
    }
 
    public boolean b() {

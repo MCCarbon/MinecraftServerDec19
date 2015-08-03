@@ -67,14 +67,14 @@ public class class_ty extends class_tw {
    }
 
    protected void b(boolean var1, int var2) {
-      int var3 = this.V.nextInt(3) + this.V.nextInt(1 + var2);
+      int var3 = this.random.nextInt(3) + this.random.nextInt(1 + var2);
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
          this.a(Items.aH, 1);
       }
 
-      var3 = this.V.nextInt(3) + 1 + this.V.nextInt(1 + var2);
+      var3 = this.random.nextInt(3) + 1 + this.random.nextInt(1 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
@@ -87,10 +87,10 @@ public class class_ty extends class_tw {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.ay && !var1.bH.instabuild && !this.j_()) {
+      if(var3 != null && var3.getItem() == Items.ay && !var1.abilities.instabuild && !this.j_()) {
          if(--var3.count == 0) {
             var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.aI)));
-         } else if(!var1.bp.a(new ItemStack(Items.aI))) {
+         } else if(!var1.inventory.a(new ItemStack(Items.aI))) {
             var1.a(new ItemStack(Items.aI), false);
          }
 

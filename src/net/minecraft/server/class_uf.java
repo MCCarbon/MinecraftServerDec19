@@ -9,7 +9,7 @@ import net.minecraft.server.Items;
 import net.minecraft.server.class_act;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_on;
@@ -17,7 +17,7 @@ import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_po;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qi;
+import net.minecraft.server.Datawathcer;
 import net.minecraft.server.class_qk;
 import net.minecraft.server.class_re;
 import net.minecraft.server.class_rh;
@@ -38,7 +38,7 @@ import net.minecraft.server.class_yg;
 import net.minecraft.server.EnumColor;
 
 public class class_uf extends class_tw {
-   private static final int bs = class_qi.a(class_uf.class);
+   private static final int bs = Datawathcer.claimId(class_uf.class);
    private final class_yg bt = new class_yg(new Container() {
       public boolean a(EntityHuman var1) {
          return false;
@@ -90,15 +90,15 @@ public class class_uf extends class_tw {
 
    protected void h() {
       super.h();
-      this.ac.a(bs, new Byte((byte)0));
+      this.datawatcher.add(bs, new Byte((byte)0));
    }
 
    protected void b(boolean var1, int var2) {
       if(!this.cB()) {
-         this.a(new ItemStack(Item.getItemOf(BlockStainedGlassPane.WOOL), 1, this.cA().a()), 0.0F);
+         this.a(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, this.cA().a()), 0.0F);
       }
 
-      int var3 = this.V.nextInt(2) + 1 + this.V.nextInt(1 + var2);
+      int var3 = this.random.nextInt(2) + 1 + this.random.nextInt(1 + var2);
 
       for(int var4 = 0; var4 < var3; ++var4) {
          if(this.av()) {
@@ -111,20 +111,20 @@ public class class_uf extends class_tw {
    }
 
    protected Item D() {
-      return Item.getItemOf(BlockStainedGlassPane.WOOL);
+      return Item.getItemOf(Blocks.WOOL);
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null && var3.getItem() == Items.bg && !this.cB() && !this.j_()) {
          if(!this.o.isClientSide) {
             this.m(true);
-            int var4 = 1 + this.V.nextInt(3);
+            int var4 = 1 + this.random.nextInt(3);
 
             for(int var5 = 0; var5 < var4; ++var5) {
-               EntityItem var6 = this.a(new ItemStack(Item.getItemOf(BlockStainedGlassPane.WOOL), 1, this.cA().a()), 1.0F);
-               var6.motY += (double)(this.V.nextFloat() * 0.05F);
-               var6.v += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
-               var6.x += (double)((this.V.nextFloat() - this.V.nextFloat()) * 0.1F);
+               EntityItem var6 = this.a(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, this.cA().a()), 1.0F);
+               var6.motY += (double)(this.random.nextFloat() * 0.05F);
+               var6.v += (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.1F);
+               var6.x += (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.1F);
             }
          }
 
@@ -135,14 +135,14 @@ public class class_uf extends class_tw {
       return super.a(var1, var2, var3);
    }
 
-   public void b(NBTTagCompound var1) {
-      super.b(var1);
+   public void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("Sheared", this.cB());
       var1.put("Color", (byte)this.cA().a());
    }
 
-   public void a(NBTTagCompound var1) {
-      super.a(var1);
+   public void read(NBTTagCompound var1) {
+      super.read(var1);
       this.m(var1.getBoolean("Sheared"));
       this.b(EnumColor.b(var1.getByte("Color")));
    }
@@ -164,24 +164,24 @@ public class class_uf extends class_tw {
    }
 
    public EnumColor cA() {
-      return EnumColor.b(this.ac.a(bs) & 15);
+      return EnumColor.b(this.datawatcher.getByte(bs) & 15);
    }
 
    public void b(EnumColor var1) {
-      byte var2 = this.ac.a(bs);
-      this.ac.b(bs, Byte.valueOf((byte)(var2 & 240 | var1.a() & 15)));
+      byte var2 = this.datawatcher.getByte(bs);
+      this.datawatcher.update(bs, Byte.valueOf((byte)(var2 & 240 | var1.a() & 15)));
    }
 
    public boolean cB() {
-      return (this.ac.a(bs) & 16) != 0;
+      return (this.datawatcher.getByte(bs) & 16) != 0;
    }
 
    public void m(boolean var1) {
-      byte var2 = this.ac.a(bs);
+      byte var2 = this.datawatcher.getByte(bs);
       if(var1) {
-         this.ac.b(bs, Byte.valueOf((byte)(var2 | 16)));
+         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 | 16)));
       } else {
-         this.ac.b(bs, Byte.valueOf((byte)(var2 & -17)));
+         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 & -17)));
       }
 
    }

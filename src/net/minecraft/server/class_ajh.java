@@ -4,7 +4,7 @@ import java.util.Random;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockStone;
 import net.minecraft.server.class_ali;
 import net.minecraft.server.IBlockData;
@@ -34,23 +34,23 @@ public class class_ajh extends Block {
 
    public static boolean d(IBlockData var0) {
       Block var1 = var0.getBlock();
-      return var0 == BlockStainedGlassPane.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE) || var1 == BlockStainedGlassPane.COBBLESTONE || var1 == BlockStainedGlassPane.STONEBRICK;
+      return var0 == Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE) || var1 == Blocks.COBBLESTONE || var1 == Blocks.STONEBRICK;
    }
 
    protected ItemStack createItemStack(IBlockData var1) {
       switch(class_ajh.SyntheticClass_1.a[((class_ajh.class_a_in_class_ajh)var1.get(a)).ordinal()]) {
       case 1:
-         return new ItemStack(BlockStainedGlassPane.COBBLESTONE);
+         return new ItemStack(Blocks.COBBLESTONE);
       case 2:
-         return new ItemStack(BlockStainedGlassPane.STONEBRICK);
+         return new ItemStack(Blocks.STONEBRICK);
       case 3:
-         return new ItemStack(BlockStainedGlassPane.STONEBRICK, 1, class_ali.class_a_in_class_ali.b.a());
+         return new ItemStack(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.b.a());
       case 4:
-         return new ItemStack(BlockStainedGlassPane.STONEBRICK, 1, class_ali.class_a_in_class_ali.c.a());
+         return new ItemStack(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.c.a());
       case 5:
-         return new ItemStack(BlockStainedGlassPane.STONEBRICK, 1, class_ali.class_a_in_class_ali.d.a());
+         return new ItemStack(Blocks.STONEBRICK, 1, class_ali.class_a_in_class_ali.d.a());
       default:
-         return new ItemStack(BlockStainedGlassPane.STONE);
+         return new ItemStack(Blocks.STONE);
       }
    }
 
@@ -123,32 +123,32 @@ public class class_ajh extends Block {
    public static enum class_a_in_class_ajh implements INamable {
       a(0, "stone") {
          public IBlockData d() {
-            return BlockStainedGlassPane.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE);
+            return Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.STONE);
          }
       },
       b(1, "cobblestone", "cobble") {
          public IBlockData d() {
-            return BlockStainedGlassPane.COBBLESTONE.getBlockData();
+            return Blocks.COBBLESTONE.getBlockData();
          }
       },
       c(2, "stone_brick", "brick") {
          public IBlockData d() {
-            return BlockStainedGlassPane.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.a);
+            return Blocks.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.a);
          }
       },
       d(3, "mossy_brick", "mossybrick") {
          public IBlockData d() {
-            return BlockStainedGlassPane.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.b);
+            return Blocks.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.b);
          }
       },
       e(4, "cracked_brick", "crackedbrick") {
          public IBlockData d() {
-            return BlockStainedGlassPane.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.c);
+            return Blocks.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.c);
          }
       },
       f(5, "chiseled_brick", "chiseledbrick") {
          public IBlockData d() {
-            return BlockStainedGlassPane.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.d);
+            return Blocks.STONEBRICK.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.d);
          }
       };
 

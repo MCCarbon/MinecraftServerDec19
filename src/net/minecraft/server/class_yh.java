@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.class_act;
 import net.minecraft.server.World;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IInventory;
 import net.minecraft.server.PlayerInventory;
@@ -64,7 +64,7 @@ public class class_yh extends Container {
    }
 
    public boolean a(EntityHuman var1) {
-      return this.g.getType(this.h).getBlock() != BlockStainedGlassPane.CRAFTING_TABLE?false:var1.e((double)this.h.getX() + 0.5D, (double)this.h.getY() + 0.5D, (double)this.h.getZ() + 0.5D) <= 64.0D;
+      return this.g.getType(this.h).getBlock() != Blocks.CRAFTING_TABLE?false:var1.e((double)this.h.getX() + 0.5D, (double)this.h.getY() + 0.5D, (double)this.h.getZ() + 0.5D) <= 64.0D;
    }
 
    public ItemStack b(EntityHuman var1, int var2) {

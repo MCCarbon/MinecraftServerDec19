@@ -8,7 +8,7 @@ import net.minecraft.server.class_avd;
 import net.minecraft.server.class_avf;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_oq;
+import net.minecraft.server.UseResult;
 import net.minecraft.server.class_or;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_zt;
@@ -30,14 +30,14 @@ public class class_aac extends class_zt {
       var7.c();
       --var1.count;
       if(var1.count <= 0) {
-         return new class_or(class_oq.a, var5);
+         return new class_or(UseResult.SUCCESS, var5);
       } else {
-         if(!var3.bp.a(var5.clone())) {
+         if(!var3.inventory.a(var5.clone())) {
             var3.a(var5, false);
          }
 
          var3.b(StatisticList.ad[Item.getId((Item)this)]);
-         return new class_or(class_oq.a, var1);
+         return new class_or(UseResult.SUCCESS, var1);
       }
    }
 }

@@ -4,7 +4,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.Items;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockCrops;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.BlockPosition;
@@ -59,7 +59,7 @@ public class class_ro extends class_rx {
          Block var4 = var3.getBlock();
          if(this.f == 0 && var4 instanceof BlockCrops && ((BlockCrops)var4).e(var3)) {
             var1.setAir(var2, true);
-         } else if(this.f == 1 && var4 == BlockStainedGlassPane.AIR) {
+         } else if(this.f == 1 && var4 == Blocks.AIR) {
             class_ow var5 = this.c.cF();
 
             for(int var6 = 0; var6 < var5.getSize(); ++var6) {
@@ -67,13 +67,13 @@ public class class_ro extends class_rx {
                boolean var8 = false;
                if(var7 != null) {
                   if(var7.getItem() == Items.P) {
-                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.WHEAT.getBlockData(), 3);
+                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.WHEAT.getBlockData(), 3);
                      var8 = true;
                   } else if(var7.getItem() == Items.bV) {
-                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.POTATOES.getBlockData(), 3);
+                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.POTATOES.getBlockData(), 3);
                      var8 = true;
                   } else if(var7.getItem() == Items.bU) {
-                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)BlockStainedGlassPane.CARROTS.getBlockData(), 3);
+                     var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.CARROTS.getBlockData(), 3);
                      var8 = true;
                   }
                }
@@ -96,7 +96,7 @@ public class class_ro extends class_rx {
 
    protected boolean a(World var1, BlockPosition var2) {
       Block var3 = var1.getType(var2).getBlock();
-      if(var3 == BlockStainedGlassPane.FARMLAND) {
+      if(var3 == Blocks.FARMLAND) {
          var2 = var2.up();
          IBlockData var4 = var1.getType(var2);
          var3 = var4.getBlock();
@@ -105,7 +105,7 @@ public class class_ro extends class_rx {
             return true;
          }
 
-         if(var3 == BlockStainedGlassPane.AIR && this.d && (this.f == 1 || this.f < 0)) {
+         if(var3 == Blocks.AIR && this.d && (this.f == 1 || this.f < 0)) {
             this.f = 1;
             return true;
          }

@@ -10,7 +10,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.IBlockAccess;
 import net.minecraft.server.BlockContainer;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ahi;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntitySkull;
@@ -40,14 +40,14 @@ import net.minecraft.server.EntityLiving;
 import net.minecraft.server.class_uw;
 import net.minecraft.server.EntityHuman;
 
-public class BlockSkull extends BlockContainer {
+public class class_akv extends BlockContainer {
    public static final BlockStateDirection a;
    public static final BlockStateBoolean b;
    private static final Predicate N;
    private class_anp O;
    private class_anp P;
 
-   protected BlockSkull() {
+   protected class_akv() {
       super(Material.ORIENTABLE);
       this.setBlockData(this.blockStateList.getFirst().set(a, EnumDirection.NORTH).set(b, Boolean.valueOf(false)));
       this.setSizes(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
@@ -66,7 +66,7 @@ public class BlockSkull extends BlockContainer {
    }
 
    public void updateShape(IBlockAccess var1, BlockPosition var2) {
-      switch(BlockSkull.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
+      switch(class_akv.SyntheticClass_1.a[((EnumDirection)var1.getType(var2).get(a)).ordinal()]) {
       case 1:
       default:
          this.setSizes(0.25F, 0.0F, 0.25F, 0.75F, 0.5F, 0.75F);
@@ -108,7 +108,7 @@ public class BlockSkull extends BlockContainer {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
-      if(var4.bH.instabuild) {
+      if(var4.abilities.instabuild) {
          var3 = var3.set(b, Boolean.valueOf(true));
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 4);
       }
@@ -160,7 +160,7 @@ public class BlockSkull extends BlockContainer {
             for(var6 = 0; var6 < var4.c(); ++var6) {
                for(int var13 = 0; var13 < var4.b(); ++var13) {
                   class_ano var8 = var5.a(var6, var13, 0);
-                  var1.setTypeAndData((BlockPosition)var8.d(), (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 2);
+                  var1.setTypeAndData((BlockPosition)var8.d(), (IBlockData)Blocks.AIR.getBlockData(), 2);
                }
             }
 
@@ -187,7 +187,7 @@ public class BlockSkull extends BlockContainer {
             for(var16 = 0; var16 < var4.c(); ++var16) {
                for(int var17 = 0; var17 < var4.b(); ++var17) {
                   class_ano var11 = var5.a(var16, var17, 0);
-                  var1.update(var11.d(), BlockStainedGlassPane.AIR);
+                  var1.update(var11.d(), Blocks.AIR);
                }
             }
 
@@ -223,7 +223,7 @@ public class BlockSkull extends BlockContainer {
 
    protected class_anp l() {
       if(this.O == null) {
-         this.O = class_anq.a().a(new String[]{"   ", "###", "~#~"}).a('#', class_ano.a(class_ant.a(BlockStainedGlassPane.SOUL_SAND))).a('~', class_ano.a(class_ant.a(BlockStainedGlassPane.AIR))).b();
+         this.O = class_anq.a().a(new String[]{"   ", "###", "~#~"}).a('#', class_ano.a(class_ant.a(Blocks.SOUL_SAND))).a('~', class_ano.a(class_ant.a(Blocks.AIR))).b();
       }
 
       return this.O;
@@ -231,7 +231,7 @@ public class BlockSkull extends BlockContainer {
 
    protected class_anp n() {
       if(this.P == null) {
-         this.P = class_anq.a().a(new String[]{"^^^", "###", "~#~"}).a('#', class_ano.a(class_ant.a(BlockStainedGlassPane.SOUL_SAND))).a('^', N).a('~', class_ano.a(class_ant.a(BlockStainedGlassPane.AIR))).b();
+         this.P = class_anq.a().a(new String[]{"^^^", "###", "~#~"}).a('#', class_ano.a(class_ant.a(Blocks.SOUL_SAND))).a('^', N).a('~', class_ano.a(class_ant.a(Blocks.AIR))).b();
       }
 
       return this.P;
@@ -242,7 +242,7 @@ public class BlockSkull extends BlockContainer {
       b = BlockStateBoolean.of("nodrop");
       N = new Predicate() {
          public boolean a(class_ano var1) {
-            return var1.a() != null && var1.a().getBlock() == BlockStainedGlassPane.SKULL && var1.b() instanceof TileEntitySkull && ((TileEntitySkull)var1.b()).d() == 1;
+            return var1.a() != null && var1.a().getBlock() == Blocks.SKULL && var1.b() instanceof TileEntitySkull && ((TileEntitySkull)var1.b()).d() == 1;
          }
 
          // $FF: synthetic method

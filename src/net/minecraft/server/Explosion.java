@@ -11,7 +11,7 @@ import java.util.Random;
 import net.minecraft.server.class_ads;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Material;
 import net.minecraft.server.AxisAlignedBB;
@@ -100,7 +100,7 @@ public class Explosion {
 		int var7 = MathHelper.floor(this.y + (double) var30 + 1.0D);
 		int var32 = MathHelper.floor(this.z - (double) var30 - 1.0D);
 		int var9 = MathHelper.floor(this.z + (double) var30 + 1.0D);
-		List<?> var33 = this.world.b(this.source, new AxisAlignedBB((double) var4, (double) var31, (double) var32, (double) var5, (double) var7, (double) var9));
+		List<?> var33 = this.world.getEntities(this.source, new AxisAlignedBB((double) var4, (double) var31, (double) var32, (double) var5, (double) var7, (double) var9));
 		Vec3D var11 = new Vec3D(this.x, this.y, this.z);
 
 		for (int var34 = 0; var34 < var33.size(); ++var34) {
@@ -118,7 +118,7 @@ public class Explosion {
 						var20 /= var36;
 						double var37 = (double) this.world.a(var11, var13.aT());
 						double var26 = (1.0D - var35) * var37;
-						var13.a(class_pc.a(this), (float) ((int) ((var26 * var26 + var26) / 2.0D * 8.0D * (double) var30 + 1.0D)));
+						var13.damageEntity(class_pc.a(this), (float) ((int) ((var26 * var26 + var26) / 2.0D * 8.0D * (double) var30 + 1.0D)));
 						double var28 = 1.0D;
 						if (var13 instanceof EntityLiving) {
 							var28 = class_ads.a((EntityLiving) var13, var26);
@@ -127,7 +127,7 @@ public class Explosion {
 						var13.v += var16 * var28;
 						var13.motY += var18 * var28;
 						var13.x += var20 * var28;
-						if (var13 instanceof EntityHuman && !((EntityHuman) var13).bH.invulnerable) {
+						if (var13 instanceof EntityHuman && !((EntityHuman) var13).abilities.invulnerable) {
 							this.affectedPlayers.put((EntityHuman) var13, new Vec3D(var16 * var26, var18 * var26, var20 * var26));
 						}
 					}
@@ -178,7 +178,7 @@ public class Explosion {
 						var4.dropNaturally(this.world, var3, this.world.getType(var3), 1.0F / this.size, 0);
 					}
 
-					this.world.setTypeAndData((BlockPosition) var3, (IBlockData) BlockStainedGlassPane.AIR.getBlockData(), 3);
+					this.world.setTypeAndData((BlockPosition) var3, (IBlockData) Blocks.AIR.getBlockData(), 3);
 					var4.wasExploded(this.world, var3, this);
 				}
 			}
@@ -190,7 +190,7 @@ public class Explosion {
 			while (var2.hasNext()) {
 				var3 = (BlockPosition) var2.next();
 				if (this.world.getType(var3).getBlock().getMaterial() == Material.AIR && this.world.getType(var3.down()).getBlock().isFullBlock() && this.random.nextInt(3) == 0) {
-					this.world.setTypeUpdate(var3, BlockStainedGlassPane.FIRE.getBlockData());
+					this.world.setTypeUpdate(var3, Blocks.FIRE.getBlockData());
 				}
 			}
 		}

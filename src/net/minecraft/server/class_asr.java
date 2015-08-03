@@ -11,7 +11,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockCrops;
 import net.minecraft.server.class_aiz;
 import net.minecraft.server.BlockSandStone;
@@ -264,15 +264,15 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 4 - 1, 0);
          }
 
-         this.a(var1, var3, 0, 0, 0, 2, 3, 1, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 0, 0, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.WOOL.fromLegacyData(EnumColor.a.b()), 1, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 2, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 1, 3, 1, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 0, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 1, 3, -1, var3);
+         this.a(var1, var3, 0, 0, 0, 2, 3, 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, Blocks.FENCE.getBlockData(), 1, 0, 0, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 1, 1, 0, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 1, 2, 0, var3);
+         this.a(var1, Blocks.WOOL.fromLegacyData(EnumColor.a.b()), 1, 3, 0, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 2, 3, 0, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 1, 3, 1, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 0, 3, 0, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 1, 3, -1, var3);
          return true;
       }
    }
@@ -316,14 +316,14 @@ public class class_asr {
          switch(var1.nextInt(10)) {
          case 0:
          case 1:
-            return BlockStainedGlassPane.CARROTS;
+            return Blocks.CARROTS;
          case 2:
          case 3:
-            return BlockStainedGlassPane.POTATOES;
+            return Blocks.POTATOES;
          case 4:
-            return BlockStainedGlassPane.BEETROOTS;
+            return Blocks.BEETROOTS;
          default:
-            return BlockStainedGlassPane.WHEAT;
+            return Blocks.WHEAT;
          }
       }
 
@@ -342,18 +342,18 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 4 - 1, 0);
          }
 
-         this.a(var1, var3, 0, 1, 0, 12, 4, 8, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 1, 2, 0, 7, BlockStainedGlassPane.FARMLAND.getBlockData(), BlockStainedGlassPane.FARMLAND.getBlockData(), false);
-         this.a(var1, var3, 4, 0, 1, 5, 0, 7, BlockStainedGlassPane.FARMLAND.getBlockData(), BlockStainedGlassPane.FARMLAND.getBlockData(), false);
-         this.a(var1, var3, 7, 0, 1, 8, 0, 7, BlockStainedGlassPane.FARMLAND.getBlockData(), BlockStainedGlassPane.FARMLAND.getBlockData(), false);
-         this.a(var1, var3, 10, 0, 1, 11, 0, 7, BlockStainedGlassPane.FARMLAND.getBlockData(), BlockStainedGlassPane.FARMLAND.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 0, 0, 0, 8, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 6, 0, 0, 6, 0, 8, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 12, 0, 0, 12, 0, 8, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 0, 11, 0, 0, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 8, 11, 0, 8, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 3, 0, 1, 3, 0, 7, BlockStainedGlassPane.WATER.getBlockData(), BlockStainedGlassPane.WATER.getBlockData(), false);
-         this.a(var1, var3, 9, 0, 1, 9, 0, 7, BlockStainedGlassPane.WATER.getBlockData(), BlockStainedGlassPane.WATER.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 0, 12, 4, 8, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 1, 2, 0, 7, Blocks.FARMLAND.getBlockData(), Blocks.FARMLAND.getBlockData(), false);
+         this.a(var1, var3, 4, 0, 1, 5, 0, 7, Blocks.FARMLAND.getBlockData(), Blocks.FARMLAND.getBlockData(), false);
+         this.a(var1, var3, 7, 0, 1, 8, 0, 7, Blocks.FARMLAND.getBlockData(), Blocks.FARMLAND.getBlockData(), false);
+         this.a(var1, var3, 10, 0, 1, 11, 0, 7, Blocks.FARMLAND.getBlockData(), Blocks.FARMLAND.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 0, 0, 8, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 6, 0, 0, 6, 0, 8, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 12, 0, 0, 12, 0, 8, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 0, 11, 0, 0, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 8, 11, 0, 8, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 3, 0, 1, 3, 0, 7, Blocks.WATER.getBlockData(), Blocks.WATER.getBlockData(), false);
+         this.a(var1, var3, 9, 0, 1, 9, 0, 7, Blocks.WATER.getBlockData(), Blocks.WATER.getBlockData(), false);
 
          int var4;
          int var5;
@@ -379,7 +379,7 @@ public class class_asr {
          for(var4 = 0; var4 < 9; ++var4) {
             for(var5 = 0; var5 < 13; ++var5) {
                this.b(var1, var5, 4, var4, var3);
-               this.b(var1, BlockStainedGlassPane.DIRT.getBlockData(), var5, -1, var4, var3);
+               this.b(var1, Blocks.DIRT.getBlockData(), var5, -1, var4, var3);
             }
          }
 
@@ -418,14 +418,14 @@ public class class_asr {
          switch(var1.nextInt(10)) {
          case 0:
          case 1:
-            return BlockStainedGlassPane.CARROTS;
+            return Blocks.CARROTS;
          case 2:
          case 3:
-            return BlockStainedGlassPane.POTATOES;
+            return Blocks.POTATOES;
          case 4:
-            return BlockStainedGlassPane.BEETROOTS;
+            return Blocks.BEETROOTS;
          default:
-            return BlockStainedGlassPane.WHEAT;
+            return Blocks.WHEAT;
          }
       }
 
@@ -444,14 +444,14 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 4 - 1, 0);
          }
 
-         this.a(var1, var3, 0, 1, 0, 6, 4, 8, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 1, 2, 0, 7, BlockStainedGlassPane.FARMLAND.getBlockData(), BlockStainedGlassPane.FARMLAND.getBlockData(), false);
-         this.a(var1, var3, 4, 0, 1, 5, 0, 7, BlockStainedGlassPane.FARMLAND.getBlockData(), BlockStainedGlassPane.FARMLAND.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 0, 0, 0, 8, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 6, 0, 0, 6, 0, 8, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 0, 5, 0, 0, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 8, 5, 0, 8, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 3, 0, 1, 3, 0, 7, BlockStainedGlassPane.WATER.getBlockData(), BlockStainedGlassPane.WATER.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 0, 6, 4, 8, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 1, 2, 0, 7, Blocks.FARMLAND.getBlockData(), Blocks.FARMLAND.getBlockData(), false);
+         this.a(var1, var3, 4, 0, 1, 5, 0, 7, Blocks.FARMLAND.getBlockData(), Blocks.FARMLAND.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 0, 0, 8, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 6, 0, 0, 6, 0, 8, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 0, 5, 0, 0, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 8, 5, 0, 8, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 3, 0, 1, 3, 0, 7, Blocks.WATER.getBlockData(), Blocks.WATER.getBlockData(), false);
 
          int var4;
          int var5;
@@ -469,7 +469,7 @@ public class class_asr {
          for(var4 = 0; var4 < 9; ++var4) {
             for(var5 = 0; var5 < 7; ++var5) {
                this.b(var1, var5, 4, var4, var3);
-               this.b(var1, BlockStainedGlassPane.DIRT.getBlockData(), var5, -1, var4, var3);
+               this.b(var1, Blocks.DIRT.getBlockData(), var5, -1, var4, var3);
             }
          }
 
@@ -515,41 +515,41 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 6 - 1, 0);
          }
 
-         this.a(var1, var3, 0, 1, 0, 9, 4, 6, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 0, 9, 0, 6, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 4, 0, 9, 4, 6, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 0, 9, 5, 6, BlockStainedGlassPane.STONE_SLAB.getBlockData(), BlockStainedGlassPane.STONE_SLAB.getBlockData(), false);
-         this.a(var1, var3, 1, 5, 1, 8, 5, 5, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 0, 2, 3, 0, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 1, 0, 0, 4, 0, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 3, 1, 0, 3, 4, 0, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 0, 1, 6, 0, 4, 6, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 3, 3, 1, var3);
-         this.a(var1, var3, 3, 1, 2, 3, 3, 2, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 4, 1, 3, 5, 3, 3, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 1, 1, 0, 3, 5, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 6, 5, 3, 6, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 5, 1, 0, 5, 3, 0, BlockStainedGlassPane.FENCE.getBlockData(), BlockStainedGlassPane.FENCE.getBlockData(), false);
-         this.a(var1, var3, 9, 1, 0, 9, 3, 0, BlockStainedGlassPane.FENCE.getBlockData(), BlockStainedGlassPane.FENCE.getBlockData(), false);
-         this.a(var1, var3, 6, 1, 4, 9, 4, 6, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.FLOWING_LAVA.getBlockData(), 7, 1, 5, var3);
-         this.a(var1, BlockStainedGlassPane.FLOWING_LAVA.getBlockData(), 8, 1, 5, var3);
-         this.a(var1, BlockStainedGlassPane.IRON_BARS.getBlockData(), 9, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.IRON_BARS.getBlockData(), 9, 2, 4, var3);
-         this.a(var1, var3, 7, 2, 4, 8, 2, 5, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 6, 1, 3, var3);
-         this.a(var1, BlockStainedGlassPane.FURNACE.getBlockData(), 6, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.FURNACE.getBlockData(), 6, 3, 3, var3);
-         this.a(var1, BlockStainedGlassPane.DOUBLE_SANDSTONE_SLAB.getBlockData(), 8, 1, 1, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 2, 6, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 2, 6, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 2, 1, 4, var3);
-         this.a(var1, BlockStainedGlassPane.WOODEN_PRESSURE_PLATE.getBlockData(), 2, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 1, 1, 5, var3);
-         this.a(var1, BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 2, 1, 5, var3);
-         this.a(var1, BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST), 1, 1, 4, var3);
+         this.a(var1, var3, 0, 1, 0, 9, 4, 6, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 9, 0, 6, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 4, 0, 9, 4, 6, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 0, 9, 5, 6, Blocks.STONE_SLAB.getBlockData(), Blocks.STONE_SLAB.getBlockData(), false);
+         this.a(var1, var3, 1, 5, 1, 8, 5, 5, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 0, 2, 3, 0, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 0, 0, 4, 0, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 3, 1, 0, 3, 4, 0, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 6, 0, 4, 6, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 3, 3, 1, var3);
+         this.a(var1, var3, 3, 1, 2, 3, 3, 2, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 4, 1, 3, 5, 3, 3, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 1, 0, 3, 5, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 6, 5, 3, 6, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 5, 1, 0, 5, 3, 0, Blocks.FENCE.getBlockData(), Blocks.FENCE.getBlockData(), false);
+         this.a(var1, var3, 9, 1, 0, 9, 3, 0, Blocks.FENCE.getBlockData(), Blocks.FENCE.getBlockData(), false);
+         this.a(var1, var3, 6, 1, 4, 9, 4, 6, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, Blocks.FLOWING_LAVA.getBlockData(), 7, 1, 5, var3);
+         this.a(var1, Blocks.FLOWING_LAVA.getBlockData(), 8, 1, 5, var3);
+         this.a(var1, Blocks.IRON_BARS.getBlockData(), 9, 2, 5, var3);
+         this.a(var1, Blocks.IRON_BARS.getBlockData(), 9, 2, 4, var3);
+         this.a(var1, var3, 7, 2, 4, 8, 2, 5, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 6, 1, 3, var3);
+         this.a(var1, Blocks.FURNACE.getBlockData(), 6, 2, 3, var3);
+         this.a(var1, Blocks.FURNACE.getBlockData(), 6, 3, 3, var3);
+         this.a(var1, Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), 8, 1, 1, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 4, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 2, 6, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 2, 6, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 2, 1, 4, var3);
+         this.a(var1, Blocks.WOODEN_PRESSURE_PLATE.getBlockData(), 2, 2, 4, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 1, 1, 5, var3);
+         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 2, 1, 5, var3);
+         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST), 1, 1, 4, var3);
          if(!this.b && var3.b((BaseBlockPosition)(new BlockPosition(this.a(5, 5), this.d(1), this.b(5, 5))))) {
             this.b = true;
             this.a(var1, var3, var2, 5, 1, 5, a, 3 + var2.nextInt(6));
@@ -558,14 +558,14 @@ public class class_asr {
          int var4;
          for(var4 = 6; var4 <= 8; ++var4) {
             if(this.a(var1, var4, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, var4, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
-               this.a(var1, BlockStainedGlassPane.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), var4, 0, -1, var3);
+               this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), var4, 0, -1, var3);
             }
          }
 
          for(var4 = 0; var4 < 7; ++var4) {
             for(int var5 = 0; var5 < 10; ++var5) {
                this.b(var1, var5, 6, var4, var3);
-               this.b(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), var5, -1, var4, var3);
+               this.b(var1, Blocks.COBBLESTONE.getBlockData(), var5, -1, var4, var3);
             }
          }
 
@@ -578,7 +578,7 @@ public class class_asr {
       }
 
       static {
-         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 1, 3, 3), new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 1, 3, 5), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.APPLE, 0, 1, 3, 15), new class_od(Items.IRON_PICKAXE, 0, 1, 1, 5), new class_od(Items.IRON_SWORD, 0, 1, 1, 5), new class_od(Items.ab, 0, 1, 1, 5), new class_od(Items.aa, 0, 1, 1, 5), new class_od(Items.ac, 0, 1, 1, 5), new class_od(Items.ad, 0, 1, 1, 5), new class_od(Item.getItemOf(BlockStainedGlassPane.OBSIDIAN), 0, 3, 7, 5), new class_od(Item.getItemOf(BlockStainedGlassPane.SAPLING), 0, 3, 7, 5), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
+         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 1, 3, 3), new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.e, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 5), new class_od(Items.n, 0, 1, 1, 5), new class_od(Items.ab, 0, 1, 1, 5), new class_od(Items.aa, 0, 1, 1, 5), new class_od(Items.ac, 0, 1, 1, 5), new class_od(Items.ad, 0, 1, 1, 5), new class_od(Item.getItemOf(Blocks.OBSIDIAN), 0, 3, 7, 5), new class_od(Item.getItemOf(Blocks.SAPLING), 0, 3, 7, 5), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
       }
    }
 
@@ -607,30 +607,30 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 7 - 1, 0);
          }
 
-         this.a(var1, var3, 1, 1, 1, 7, 4, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 2, 1, 6, 8, 4, 10, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 2, 0, 5, 8, 0, 10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 1, 7, 0, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 0, 0, 3, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 8, 0, 0, 8, 3, 10, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 0, 7, 2, 0, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 5, 2, 1, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 2, 0, 6, 2, 3, 10, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 3, 0, 10, 7, 3, 10, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 0, 7, 3, 0, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 5, 2, 3, 5, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 4, 1, 8, 4, 1, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 4, 4, 3, 4, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 2, 8, 5, 3, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 0, 4, 2, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 0, 4, 3, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 8, 4, 2, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 8, 4, 3, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 8, 4, 4, var3);
-         IBlockData var4 = BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
-         IBlockData var5 = BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
-         IBlockData var6 = BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
-         IBlockData var7 = BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
+         this.a(var1, var3, 1, 1, 1, 7, 4, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 2, 1, 6, 8, 4, 10, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 2, 0, 5, 8, 0, 10, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 1, 7, 0, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 0, 3, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 8, 0, 0, 8, 3, 10, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 0, 7, 2, 0, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 5, 2, 1, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 2, 0, 6, 2, 3, 10, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 3, 0, 10, 7, 3, 10, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 0, 7, 3, 0, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 5, 2, 3, 5, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 4, 1, 8, 4, 1, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 4, 4, 3, 4, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 2, 8, 5, 3, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 0, 4, 2, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 0, 4, 3, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 2, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 3, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 4, var3);
+         IBlockData var4 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         IBlockData var5 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
+         IBlockData var6 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
+         IBlockData var7 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
 
          int var8;
          int var9;
@@ -643,22 +643,22 @@ public class class_asr {
             }
          }
 
-         this.a(var1, var3, 3, 4, 5, 3, 4, 10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 7, 4, 2, 7, 4, 10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 4, 5, 4, 4, 5, 10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 6, 5, 4, 6, 5, 10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 5, 6, 3, 5, 6, 10, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 3, 4, 5, 3, 4, 10, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 7, 4, 2, 7, 4, 10, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 4, 5, 4, 4, 5, 10, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 6, 5, 4, 6, 5, 10, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 5, 6, 3, 5, 6, 10, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
 
          for(var8 = 4; var8 >= 1; --var8) {
-            this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), var8, 2 + var8, 7 - var8, var3);
+            this.a(var1, Blocks.PLANKS.getBlockData(), var8, 2 + var8, 7 - var8, var3);
 
             for(var9 = 8 - var8; var9 <= 10; ++var9) {
                this.a(var1, var7, var8, 2 + var8, var9, var3);
             }
          }
 
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 6, 6, 3, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 7, 5, 4, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 6, 6, 3, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 7, 5, 4, var3);
          this.a(var1, var6, 6, 6, 4, var3);
 
          for(var8 = 6; var8 <= 8; ++var8) {
@@ -667,35 +667,35 @@ public class class_asr {
             }
          }
 
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 0, 2, 1, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 0, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 4, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 5, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 6, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 8, 2, 1, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 8, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 8, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 8, 2, 6, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 2, 7, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 2, 8, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 8, 2, 9, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 2, 2, 6, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 2, 7, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 2, 8, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 2, 2, 9, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 4, 4, 10, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 5, 4, 10, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 6, 4, 10, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 5, 5, 10, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 2, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 2, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 0, 2, 1, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 0, 2, 4, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 3, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 4, 2, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 5, 2, 0, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 6, 2, 0, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 8, 2, 1, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 2, 3, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 8, 2, 4, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 8, 2, 5, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 8, 2, 6, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 2, 7, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 2, 8, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 8, 2, 9, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 2, 2, 6, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 2, 7, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 2, 8, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 2, 2, 9, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 4, 4, 10, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 5, 4, 10, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 6, 4, 10, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 5, 5, 10, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 2, 1, 0, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 2, 2, 0, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
          this.a(var1, var3, var2, 2, 1, 0, EnumDirection.NORTH);
-         this.a(var1, var3, 1, 0, -1, 3, 2, -1, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 1, 0, -1, 3, 2, -1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
          if(this.a(var1, 2, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 2, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
             this.a(var1, var4, 2, 0, -1, var3);
          }
@@ -703,14 +703,14 @@ public class class_asr {
          for(var8 = 0; var8 < 5; ++var8) {
             for(var9 = 0; var9 < 9; ++var9) {
                this.b(var1, var9, 7, var8, var3);
-               this.b(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), var9, -1, var8, var3);
+               this.b(var1, Blocks.COBBLESTONE.getBlockData(), var9, -1, var8, var3);
             }
          }
 
          for(var8 = 5; var8 < 11; ++var8) {
             for(var9 = 2; var9 < 9; ++var9) {
                this.b(var1, var9, 7, var8, var3);
-               this.b(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), var9, -1, var8, var3);
+               this.b(var1, Blocks.COBBLESTONE.getBlockData(), var9, -1, var8, var3);
             }
          }
 
@@ -744,30 +744,30 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 7 - 1, 0);
          }
 
-         this.a(var1, var3, 1, 1, 1, 7, 4, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 2, 1, 6, 8, 4, 10, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 2, 0, 6, 8, 0, 10, BlockStainedGlassPane.DIRT.getBlockData(), BlockStainedGlassPane.DIRT.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 6, 0, 6, var3);
-         this.a(var1, var3, 2, 1, 6, 2, 1, 10, BlockStainedGlassPane.FENCE.getBlockData(), BlockStainedGlassPane.FENCE.getBlockData(), false);
-         this.a(var1, var3, 8, 1, 6, 8, 1, 10, BlockStainedGlassPane.FENCE.getBlockData(), BlockStainedGlassPane.FENCE.getBlockData(), false);
-         this.a(var1, var3, 3, 1, 10, 7, 1, 10, BlockStainedGlassPane.FENCE.getBlockData(), BlockStainedGlassPane.FENCE.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 1, 7, 0, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 0, 0, 3, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 8, 0, 0, 8, 3, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 0, 7, 1, 0, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 5, 7, 1, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 0, 7, 3, 0, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 5, 7, 3, 5, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 4, 1, 8, 4, 1, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 4, 4, 8, 4, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 2, 8, 5, 3, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 0, 4, 2, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 0, 4, 3, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 8, 4, 2, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 8, 4, 3, var3);
-         IBlockData var4 = BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
-         IBlockData var5 = BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
-         IBlockData var6 = BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
+         this.a(var1, var3, 1, 1, 1, 7, 4, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 2, 1, 6, 8, 4, 10, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 2, 0, 6, 8, 0, 10, Blocks.DIRT.getBlockData(), Blocks.DIRT.getBlockData(), false);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 6, 0, 6, var3);
+         this.a(var1, var3, 2, 1, 6, 2, 1, 10, Blocks.FENCE.getBlockData(), Blocks.FENCE.getBlockData(), false);
+         this.a(var1, var3, 8, 1, 6, 8, 1, 10, Blocks.FENCE.getBlockData(), Blocks.FENCE.getBlockData(), false);
+         this.a(var1, var3, 3, 1, 10, 7, 1, 10, Blocks.FENCE.getBlockData(), Blocks.FENCE.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 1, 7, 0, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 0, 3, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 8, 0, 0, 8, 3, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 0, 7, 1, 0, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 5, 7, 1, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 0, 7, 3, 0, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 5, 7, 3, 5, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 4, 1, 8, 4, 1, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 4, 4, 8, 4, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 2, 8, 5, 3, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 0, 4, 2, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 0, 4, 3, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 2, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 8, 4, 3, var3);
+         IBlockData var4 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         IBlockData var5 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH);
+         IBlockData var6 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
 
          int var7;
          int var8;
@@ -778,43 +778,43 @@ public class class_asr {
             }
          }
 
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 0, 2, 1, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 0, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 8, 2, 1, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 8, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 3, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 5, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 6, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 2, 1, 3, var3);
-         this.a(var1, BlockStainedGlassPane.WOODEN_PRESSURE_PLATE.getBlockData(), 2, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 1, 1, 4, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 0, 2, 1, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 0, 2, 4, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 8, 2, 1, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 8, 2, 4, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 3, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 2, 3, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 2, 5, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 3, 2, 5, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 5, 2, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 6, 2, 5, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 2, 1, 3, var3);
+         this.a(var1, Blocks.WOODEN_PRESSURE_PLATE.getBlockData(), 2, 2, 3, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 1, 1, 4, var3);
          this.a(var1, var4, 2, 1, 4, var3);
          this.a(var1, var6, 1, 1, 3, var3);
-         this.a(var1, var3, 5, 0, 1, 7, 0, 3, BlockStainedGlassPane.DOUBLE_SANDSTONE_SLAB.getBlockData(), BlockStainedGlassPane.DOUBLE_SANDSTONE_SLAB.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.DOUBLE_SANDSTONE_SLAB.getBlockData(), 6, 1, 1, var3);
-         this.a(var1, BlockStainedGlassPane.DOUBLE_SANDSTONE_SLAB.getBlockData(), 6, 1, 2, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 2, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 2, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
+         this.a(var1, var3, 5, 0, 1, 7, 0, 3, Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), false);
+         this.a(var1, Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), 6, 1, 1, var3);
+         this.a(var1, Blocks.DOUBLE_SANDSTONE_SLAB.getBlockData(), 6, 1, 2, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 2, 1, 0, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 2, 2, 0, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
          this.a(var1, var3, var2, 2, 1, 0, EnumDirection.NORTH);
          if(this.a(var1, 2, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 2, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
             this.a(var1, var4, 2, 0, -1, var3);
          }
 
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 6, 1, 5, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 6, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 6, 3, 4, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 6, 1, 5, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 6, 2, 5, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 6, 3, 4, var3);
          this.a(var1, var3, var2, 6, 1, 5, EnumDirection.SOUTH);
 
          for(var7 = 0; var7 < 5; ++var7) {
             for(var8 = 0; var8 < 9; ++var8) {
                this.b(var1, var8, 7, var7, var3);
-               this.b(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), var8, -1, var7, var3);
+               this.b(var1, Blocks.COBBLESTONE.getBlockData(), var8, -1, var7, var3);
             }
          }
 
@@ -869,51 +869,51 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 6 - 1, 0);
          }
 
-         this.a(var1, var3, 1, 1, 1, 3, 5, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 0, 3, 0, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 1, 2, 0, 3, BlockStainedGlassPane.DIRT.getBlockData(), BlockStainedGlassPane.DIRT.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 1, 3, 5, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 3, 0, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 1, 2, 0, 3, Blocks.DIRT.getBlockData(), Blocks.DIRT.getBlockData(), false);
          if(this.a) {
-            this.a(var1, var3, 1, 4, 1, 2, 4, 3, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
+            this.a(var1, var3, 1, 4, 1, 2, 4, 3, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
          } else {
-            this.a(var1, var3, 1, 5, 1, 2, 5, 3, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
+            this.a(var1, var3, 1, 5, 1, 2, 5, 3, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
          }
 
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 1, 4, 0, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 2, 4, 0, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 1, 4, 4, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 2, 4, 4, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 0, 4, 1, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 0, 4, 2, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 0, 4, 3, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 3, 4, 1, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 3, 4, 2, var3);
-         this.a(var1, BlockStainedGlassPane.LOG.getBlockData(), 3, 4, 3, var3);
-         this.a(var1, var3, 0, 1, 0, 0, 3, 0, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 3, 1, 0, 3, 3, 0, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 0, 1, 4, 0, 3, 4, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 3, 1, 4, 3, 3, 4, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 0, 1, 1, 0, 3, 3, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 3, 1, 1, 3, 3, 3, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 0, 2, 3, 0, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 4, 2, 3, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 3, 2, 2, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 1, 4, 0, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 2, 4, 0, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 1, 4, 4, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 2, 4, 4, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 0, 4, 1, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 0, 4, 2, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 0, 4, 3, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 3, 4, 1, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 3, 4, 2, var3);
+         this.a(var1, Blocks.LOG.getBlockData(), 3, 4, 3, var3);
+         this.a(var1, var3, 0, 1, 0, 0, 3, 0, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 3, 1, 0, 3, 3, 0, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 4, 0, 3, 4, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 3, 1, 4, 3, 3, 4, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 1, 0, 3, 3, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 3, 1, 1, 3, 3, 3, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 0, 2, 3, 0, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 4, 2, 3, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 3, 2, 2, var3);
          if(this.b > 0) {
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), this.b, 1, 3, var3);
-            this.a(var1, BlockStainedGlassPane.WOODEN_PRESSURE_PLATE.getBlockData(), this.b, 2, 3, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), this.b, 1, 3, var3);
+            this.a(var1, Blocks.WOODEN_PRESSURE_PLATE.getBlockData(), this.b, 2, 3, var3);
          }
 
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 1, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 1, 2, 0, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 1, 1, 0, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 1, 2, 0, var3);
          this.a(var1, var3, var2, 1, 1, 0, EnumDirection.NORTH);
          if(this.a(var1, 1, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 1, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
-            this.a(var1, BlockStainedGlassPane.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 1, 0, -1, var3);
+            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 1, 0, -1, var3);
          }
 
          for(int var4 = 0; var4 < 5; ++var4) {
             for(int var5 = 0; var5 < 4; ++var5) {
                this.b(var1, var5, 6, var4, var3);
-               this.b(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), var5, -1, var4, var3);
+               this.b(var1, Blocks.COBBLESTONE.getBlockData(), var5, -1, var4, var3);
             }
          }
 
@@ -947,76 +947,76 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 9 - 1, 0);
          }
 
-         this.a(var1, var3, 1, 1, 1, 7, 5, 4, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 0, 8, 0, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 5, 0, 8, 5, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 6, 1, 8, 6, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 7, 2, 8, 7, 3, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 1, 7, 5, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 0, 8, 0, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 5, 0, 8, 5, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 6, 1, 8, 6, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 7, 2, 8, 7, 3, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
 
          int var5;
          for(int var4 = -1; var4 <= 2; ++var4) {
             for(var5 = 0; var5 <= 8; ++var5) {
-               this.a(var1, BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), var5, 6 + var4, var4, var3);
-               this.a(var1, BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH), var5, 6 + var4, 5 - var4, var3);
+               this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), var5, 6 + var4, var4, var3);
+               this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.SOUTH), var5, 6 + var4, 5 - var4, var3);
             }
          }
 
-         this.a(var1, var3, 0, 1, 0, 0, 1, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 5, 8, 1, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 8, 1, 0, 8, 1, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 2, 1, 0, 7, 1, 0, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 0, 0, 4, 0, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 5, 0, 4, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 8, 2, 5, 8, 4, 5, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 8, 2, 0, 8, 4, 0, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 2, 1, 0, 4, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 5, 7, 4, 5, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 8, 2, 1, 8, 4, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 2, 0, 7, 4, 0, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 5, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 6, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 5, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 6, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 3, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 3, 3, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 3, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 8, 3, 3, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 3, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 5, 2, 5, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 6, 2, 5, var3);
-         this.a(var1, var3, 1, 4, 1, 7, 4, 1, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 4, 4, 7, 4, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 3, 4, 7, 3, 4, BlockStainedGlassPane.BOOKSHELF.getBlockData(), BlockStainedGlassPane.BOOKSHELF.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 7, 1, 4, var3);
-         this.a(var1, BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST), 7, 1, 3, var3);
-         IBlockData var7 = BlockStainedGlassPane.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         this.a(var1, var3, 0, 1, 0, 0, 1, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 5, 8, 1, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 8, 1, 0, 8, 1, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 2, 1, 0, 7, 1, 0, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 0, 0, 4, 0, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 5, 0, 4, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 8, 2, 5, 8, 4, 5, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 8, 2, 0, 8, 4, 0, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 2, 1, 0, 4, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 5, 7, 4, 5, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 8, 2, 1, 8, 4, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 2, 0, 7, 4, 0, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 2, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 5, 2, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 6, 2, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 3, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 5, 3, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 6, 3, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 3, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 3, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 3, 3, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 2, 3, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 3, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 8, 3, 3, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 2, 5, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 3, 2, 5, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 5, 2, 5, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 6, 2, 5, var3);
+         this.a(var1, var3, 1, 4, 1, 7, 4, 1, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 4, 4, 7, 4, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 3, 4, 7, 3, 4, Blocks.BOOKSHELF.getBlockData(), Blocks.BOOKSHELF.getBlockData(), false);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 7, 1, 4, var3);
+         this.a(var1, Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST), 7, 1, 3, var3);
+         IBlockData var7 = Blocks.OAK_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
          this.a(var1, var7, 6, 1, 4, var3);
          this.a(var1, var7, 5, 1, 4, var3);
          this.a(var1, var7, 4, 1, 4, var3);
          this.a(var1, var7, 3, 1, 4, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 6, 1, 3, var3);
-         this.a(var1, BlockStainedGlassPane.WOODEN_PRESSURE_PLATE.getBlockData(), 6, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 1, 3, var3);
-         this.a(var1, BlockStainedGlassPane.WOODEN_PRESSURE_PLATE.getBlockData(), 4, 2, 3, var3);
-         this.a(var1, BlockStainedGlassPane.CRAFTING_TABLE.getBlockData(), 7, 1, 1, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 1, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 1, 2, 0, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 6, 1, 3, var3);
+         this.a(var1, Blocks.WOODEN_PRESSURE_PLATE.getBlockData(), 6, 2, 3, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 4, 1, 3, var3);
+         this.a(var1, Blocks.WOODEN_PRESSURE_PLATE.getBlockData(), 4, 2, 3, var3);
+         this.a(var1, Blocks.CRAFTING_TABLE.getBlockData(), 7, 1, 1, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 1, 1, 0, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 1, 2, 0, var3);
          this.a(var1, var3, var2, 1, 1, 0, EnumDirection.NORTH);
          if(this.a(var1, 1, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 1, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
-            this.a(var1, BlockStainedGlassPane.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 1, 0, -1, var3);
+            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 1, 0, -1, var3);
          }
 
          for(var5 = 0; var5 < 6; ++var5) {
             for(int var6 = 0; var6 < 9; ++var6) {
                this.b(var1, var6, 9, var5, var3);
-               this.b(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), var6, -1, var5, var3);
+               this.b(var1, Blocks.COBBLESTONE.getBlockData(), var6, -1, var5, var3);
             }
          }
 
@@ -1054,64 +1054,64 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 12 - 1, 0);
          }
 
-         this.a(var1, var3, 1, 1, 1, 3, 3, 7, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 1, 5, 1, 3, 9, 3, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
-         this.a(var1, var3, 1, 0, 0, 3, 0, 8, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 0, 3, 10, 0, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 1, 1, 0, 10, 3, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 4, 1, 1, 4, 10, 3, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 0, 4, 0, 4, 7, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 4, 0, 4, 4, 4, 7, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 8, 3, 4, 8, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 5, 4, 3, 10, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 1, 5, 5, 3, 5, 7, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 9, 0, 4, 9, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 4, 0, 4, 4, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 0, 11, 2, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 4, 11, 2, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 2, 11, 0, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 2, 11, 4, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 1, 1, 6, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 1, 1, 7, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 2, 1, 7, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 3, 1, 6, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 3, 1, 7, var3);
-         IBlockData var4 = BlockStainedGlassPane.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
-         IBlockData var5 = BlockStainedGlassPane.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
-         IBlockData var6 = BlockStainedGlassPane.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
+         this.a(var1, var3, 1, 1, 1, 3, 3, 7, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 1, 5, 1, 3, 9, 3, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 0, 3, 0, 8, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 0, 3, 10, 0, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 1, 1, 0, 10, 3, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 4, 1, 1, 4, 10, 3, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 0, 4, 0, 4, 7, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 4, 0, 4, 4, 4, 7, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 8, 3, 4, 8, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 5, 4, 3, 10, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 5, 5, 3, 5, 7, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 9, 0, 4, 9, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 4, 0, 4, 4, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 0, 11, 2, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 4, 11, 2, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 2, 11, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 2, 11, 4, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 1, 1, 6, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 1, 1, 7, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 2, 1, 7, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 3, 1, 6, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 3, 1, 7, var3);
+         IBlockData var4 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH);
+         IBlockData var5 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.WEST);
+         IBlockData var6 = Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.EAST);
          this.a(var1, var4, 1, 1, 5, var3);
          this.a(var1, var4, 2, 1, 6, var3);
          this.a(var1, var4, 3, 1, 5, var3);
          this.a(var1, var5, 1, 2, 7, var3);
          this.a(var1, var6, 3, 2, 7, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 3, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 3, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 6, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 7, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 6, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 7, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 6, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 7, 0, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 6, 4, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 7, 4, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 3, 6, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 3, 6, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 3, 8, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 2, 4, 7, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 1, 4, 6, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 3, 4, 6, var3);
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 4, 5, var3);
-         IBlockData var7 = BlockStainedGlassPane.LADDER.getBlockData().set(class_aiz.a, EnumDirection.WEST);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 3, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 3, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 6, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 7, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 6, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 7, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 6, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 7, 0, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 6, 4, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 7, 4, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 3, 6, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 3, 6, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 3, 8, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH), 2, 4, 7, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.EAST), 1, 4, 6, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.WEST), 3, 4, 6, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 4, 5, var3);
+         IBlockData var7 = Blocks.LADDER.getBlockData().set(class_aiz.a, EnumDirection.WEST);
 
          int var8;
          for(var8 = 1; var8 <= 9; ++var8) {
             this.a(var1, var7, 3, var8, 3, var3);
          }
 
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 2, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 2, 2, 0, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 2, 1, 0, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 2, 2, 0, var3);
          this.a(var1, var3, var2, 2, 1, 0, EnumDirection.NORTH);
          if(this.a(var1, 2, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 2, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
             this.a(var1, var4, 2, 0, -1, var3);
@@ -1120,7 +1120,7 @@ public class class_asr {
          for(var8 = 0; var8 < 9; ++var8) {
             for(int var9 = 0; var9 < 5; ++var9) {
                this.b(var1, var9, 12, var8, var3);
-               this.b(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), var9, -1, var8, var3);
+               this.b(var1, Blocks.COBBLESTONE.getBlockData(), var9, -1, var8, var3);
             }
          }
 
@@ -1171,72 +1171,72 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 6 - 1, 0);
          }
 
-         this.a(var1, var3, 0, 0, 0, 4, 0, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
-         this.a(var1, var3, 0, 4, 0, 4, 4, 4, BlockStainedGlassPane.LOG.getBlockData(), BlockStainedGlassPane.LOG.getBlockData(), false);
-         this.a(var1, var3, 1, 4, 1, 3, 4, 3, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 0, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 0, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 0, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 4, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 4, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 4, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 0, 1, 4, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 0, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 0, 3, 4, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 4, 1, 4, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 4, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), 4, 3, 4, var3);
-         this.a(var1, var3, 0, 1, 1, 0, 3, 3, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 4, 1, 1, 4, 3, 3, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, var3, 1, 1, 4, 3, 3, 4, BlockStainedGlassPane.PLANKS.getBlockData(), BlockStainedGlassPane.PLANKS.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 2, 2, 4, var3);
-         this.a(var1, BlockStainedGlassPane.GLASS_PANE.getBlockData(), 4, 2, 2, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 1, 1, 0, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 1, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 1, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 2, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 3, 3, 0, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 3, 2, 0, var3);
-         this.a(var1, BlockStainedGlassPane.PLANKS.getBlockData(), 3, 1, 0, var3);
+         this.a(var1, var3, 0, 0, 0, 4, 0, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 0, 4, 0, 4, 4, 4, Blocks.LOG.getBlockData(), Blocks.LOG.getBlockData(), false);
+         this.a(var1, var3, 1, 4, 1, 3, 4, 3, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 0, 1, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 0, 2, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 0, 3, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 4, 1, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 4, 2, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 4, 3, 0, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 0, 1, 4, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 0, 2, 4, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 0, 3, 4, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 4, 1, 4, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 4, 2, 4, var3);
+         this.a(var1, Blocks.COBBLESTONE.getBlockData(), 4, 3, 4, var3);
+         this.a(var1, var3, 0, 1, 1, 0, 3, 3, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 4, 1, 1, 4, 3, 3, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 4, 3, 3, 4, Blocks.PLANKS.getBlockData(), Blocks.PLANKS.getBlockData(), false);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 0, 2, 2, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 2, 2, 4, var3);
+         this.a(var1, Blocks.GLASS_PANE.getBlockData(), 4, 2, 2, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 1, 1, 0, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 1, 2, 0, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 1, 3, 0, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 2, 3, 0, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 3, 3, 0, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 3, 2, 0, var3);
+         this.a(var1, Blocks.PLANKS.getBlockData(), 3, 1, 0, var3);
          if(this.a(var1, 2, 0, -1, var3).getBlock().getMaterial() == Material.AIR && this.a(var1, 2, -1, -1, var3).getBlock().getMaterial() != Material.AIR) {
-            this.a(var1, BlockStainedGlassPane.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 2, 0, -1, var3);
+            this.a(var1, Blocks.STONE_STAIRS.getBlockData().set(BlockStairs.a, EnumDirection.NORTH), 2, 0, -1, var3);
          }
 
-         this.a(var1, var3, 1, 1, 1, 3, 3, 3, BlockStainedGlassPane.AIR.getBlockData(), BlockStainedGlassPane.AIR.getBlockData(), false);
+         this.a(var1, var3, 1, 1, 1, 3, 3, 3, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
          if(this.a) {
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 0, 5, 0, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 5, 0, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 2, 5, 0, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 3, 5, 0, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 5, 0, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 0, 5, 4, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 5, 4, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 2, 5, 4, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 3, 5, 4, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 5, 4, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 5, 1, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 5, 2, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 5, 3, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 0, 5, 1, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 0, 5, 2, var3);
-            this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 0, 5, 3, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 0, 5, 0, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 1, 5, 0, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 2, 5, 0, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 3, 5, 0, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 4, 5, 0, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 0, 5, 4, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 1, 5, 4, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 2, 5, 4, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 3, 5, 4, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 4, 5, 4, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 4, 5, 1, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 4, 5, 2, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 4, 5, 3, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 0, 5, 1, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 0, 5, 2, var3);
+            this.a(var1, Blocks.FENCE.getBlockData(), 0, 5, 3, var3);
          }
 
          if(this.a) {
-            IBlockData var4 = BlockStainedGlassPane.LADDER.getBlockData().set(class_aiz.a, EnumDirection.SOUTH);
+            IBlockData var4 = Blocks.LADDER.getBlockData().set(class_aiz.a, EnumDirection.SOUTH);
             this.a(var1, var4, 3, 1, 3, var3);
             this.a(var1, var4, 3, 2, 3, var3);
             this.a(var1, var4, 3, 3, 3, var3);
             this.a(var1, var4, 3, 4, 3, var3);
          }
 
-         this.a(var1, BlockStainedGlassPane.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
+         this.a(var1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH), 2, 3, 1, var3);
 
          for(int var6 = 0; var6 < 5; ++var6) {
             for(int var5 = 0; var5 < 5; ++var5) {
                this.b(var1, var5, 6, var6, var3);
-               this.b(var1, BlockStainedGlassPane.COBBLESTONE.getBlockData(), var5, -1, var6, var3);
+               this.b(var1, Blocks.COBBLESTONE.getBlockData(), var5, -1, var6, var3);
             }
          }
 
@@ -1336,8 +1336,8 @@ public class class_asr {
       }
 
       public boolean a(World var1, Random var2, class_arw var3) {
-         IBlockData var4 = this.a(BlockStainedGlassPane.GRAVEL.getBlockData());
-         IBlockData var5 = this.a(BlockStainedGlassPane.COBBLESTONE.getBlockData());
+         IBlockData var4 = this.a(Blocks.GRAVEL.getBlockData());
+         IBlockData var5 = this.a(Blocks.COBBLESTONE.getBlockData());
 
          for(int var6 = this.l.a; var6 <= this.l.d; ++var6) {
             for(int var7 = this.l.c; var7 <= this.l.f; ++var7) {
@@ -1422,25 +1422,25 @@ public class class_asr {
             this.l.a(0, this.h - this.l.e + 3, 0);
          }
 
-         this.a(var1, var3, 1, 0, 1, 4, 12, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.FLOWING_WATER.getBlockData(), false);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 2, 12, 2, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 3, 12, 2, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 2, 12, 3, var3);
-         this.a(var1, BlockStainedGlassPane.AIR.getBlockData(), 3, 12, 3, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 13, 1, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 14, 1, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 13, 1, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 14, 1, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 13, 4, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 1, 14, 4, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 13, 4, var3);
-         this.a(var1, BlockStainedGlassPane.FENCE.getBlockData(), 4, 14, 4, var3);
-         this.a(var1, var3, 1, 15, 1, 4, 15, 4, BlockStainedGlassPane.COBBLESTONE.getBlockData(), BlockStainedGlassPane.COBBLESTONE.getBlockData(), false);
+         this.a(var1, var3, 1, 0, 1, 4, 12, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.FLOWING_WATER.getBlockData(), false);
+         this.a(var1, Blocks.AIR.getBlockData(), 2, 12, 2, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 3, 12, 2, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 2, 12, 3, var3);
+         this.a(var1, Blocks.AIR.getBlockData(), 3, 12, 3, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 1, 13, 1, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 1, 14, 1, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 4, 13, 1, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 4, 14, 1, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 1, 13, 4, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 1, 14, 4, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 4, 13, 4, var3);
+         this.a(var1, Blocks.FENCE.getBlockData(), 4, 14, 4, var3);
+         this.a(var1, var3, 1, 15, 1, 4, 15, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
 
          for(int var4 = 0; var4 <= 5; ++var4) {
             for(int var5 = 0; var5 <= 5; ++var5) {
                if(var5 == 0 || var5 == 5 || var4 == 0 || var4 == 5) {
-                  this.a(var1, BlockStainedGlassPane.GRAVEL.getBlockData(), var5, 11, var4, var3);
+                  this.a(var1, Blocks.GRAVEL.getBlockData(), var5, 11, var4, var3);
                   this.b(var1, var5, 12, var4, var3);
                }
             }
@@ -1567,28 +1567,28 @@ public class class_asr {
 
       protected IBlockData a(IBlockData var1) {
          if(this.b) {
-            if(var1.getBlock() == BlockStainedGlassPane.LOG || var1.getBlock() == BlockStainedGlassPane.LOG2) {
-               return BlockStainedGlassPane.SANDSTONE.getBlockData();
+            if(var1.getBlock() == Blocks.LOG || var1.getBlock() == Blocks.LOG2) {
+               return Blocks.SANDSTONE.getBlockData();
             }
 
-            if(var1.getBlock() == BlockStainedGlassPane.COBBLESTONE) {
-               return BlockStainedGlassPane.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.DEFAULT.getId());
+            if(var1.getBlock() == Blocks.COBBLESTONE) {
+               return Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.DEFAULT.getId());
             }
 
-            if(var1.getBlock() == BlockStainedGlassPane.PLANKS) {
-               return BlockStainedGlassPane.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId());
+            if(var1.getBlock() == Blocks.PLANKS) {
+               return Blocks.SANDSTONE.fromLegacyData(BlockSandStone.EnumSandstoneVariant.SMOOTH.getId());
             }
 
-            if(var1.getBlock() == BlockStainedGlassPane.OAK_STAIRS) {
-               return BlockStainedGlassPane.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, var1.get(BlockStairs.a));
+            if(var1.getBlock() == Blocks.OAK_STAIRS) {
+               return Blocks.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, var1.get(BlockStairs.a));
             }
 
-            if(var1.getBlock() == BlockStainedGlassPane.STONE_STAIRS) {
-               return BlockStainedGlassPane.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, var1.get(BlockStairs.a));
+            if(var1.getBlock() == Blocks.STONE_STAIRS) {
+               return Blocks.SANDSTONE_STAIRS.getBlockData().set(BlockStairs.a, var1.get(BlockStairs.a));
             }
 
-            if(var1.getBlock() == BlockStainedGlassPane.GRAVEL) {
-               return BlockStainedGlassPane.SANDSTONE.getBlockData();
+            if(var1.getBlock() == Blocks.GRAVEL) {
+               return Blocks.SANDSTONE.getBlockData();
             }
          }
 

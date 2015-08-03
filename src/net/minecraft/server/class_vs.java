@@ -5,7 +5,7 @@ import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.class_ams;
 import net.minecraft.server.TileEntityHopper;
 import net.minecraft.server.IBlockData;
@@ -14,7 +14,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.IInventory;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pv;
+import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.EntityItem;
 import net.minecraft.server.class_vn;
 import net.minecraft.server.class_vq;
@@ -43,7 +43,7 @@ public class class_vs extends class_vq implements class_ams {
    }
 
    public IBlockData u() {
-      return BlockStainedGlassPane.HOPPER.getBlockData();
+      return Blocks.HOPPER.getBlockData();
    }
 
    public int w() {
@@ -96,7 +96,7 @@ public class class_vs extends class_vq implements class_ams {
 
    public void t_() {
       super.t_();
-      if(!this.o.isClientSide && this.ai() && this.y()) {
+      if(!this.o.isClientSide && this.isAlive() && this.y()) {
          BlockPosition var1 = new BlockPosition(this);
          if(var1.equals(this.c)) {
             --this.b;
@@ -119,7 +119,7 @@ public class class_vs extends class_vq implements class_ams {
       if(TileEntityHopper.a((class_ams)this)) {
          return true;
       } else {
-         List var1 = this.o.a(EntityItem.class, this.aT().grow(0.25D, 0.0D, 0.25D), class_pv.a);
+         List var1 = this.o.a(EntityItem.class, this.aT().grow(0.25D, 0.0D, 0.25D), IEntitySelector.IS_ALIVE);
          if(!var1.isEmpty()) {
             TileEntityHopper.a((IInventory)this, (EntityItem)((EntityItem)var1.get(0)));
          }
@@ -131,18 +131,18 @@ public class class_vs extends class_vq implements class_ams {
    public void a(class_pc var1) {
       super.a(var1);
       if(this.o.R().b("doEntityDrops")) {
-         this.a(Item.getItemOf((Block)BlockStainedGlassPane.HOPPER), 1, 0.0F);
+         this.a(Item.getItemOf((Block)Blocks.HOPPER), 1, 0.0F);
       }
 
    }
 
-   protected void b(NBTTagCompound var1) {
-      super.b(var1);
+   protected void write(NBTTagCompound var1) {
+      super.write(var1);
       var1.put("TransferCooldown", this.b);
    }
 
-   protected void a(NBTTagCompound var1) {
-      super.a(var1);
+   protected void read(NBTTagCompound var1) {
+      super.read(var1);
       this.b = var1.getInt("TransferCooldown");
    }
 

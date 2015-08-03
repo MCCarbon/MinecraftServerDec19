@@ -40,7 +40,7 @@ public class class_re extends class_rm {
    }
 
    public boolean b() {
-      return this.e.ai() && this.e.cG() && this.b < 60;
+      return this.e.isAlive() && this.e.cG() && this.b < 60;
    }
 
    public void d() {

@@ -154,7 +154,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 
 	public boolean m() {
 		if ((world != null) && !world.isClientSide) {
-			if (!n() && BlockHopper.f(getMetadata())) {
+			if (!n() && class_aiu.f(getMetadata())) {
 				boolean var1 = false;
 				if (!p()) {
 					var1 = r();
@@ -210,7 +210,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 		if (var1 == null) {
 			return false;
 		} else {
-			EnumDirection var2 = BlockHopper.b(getMetadata()).opposite();
+			EnumDirection var2 = class_aiu.b(getMetadata()).opposite();
 			if (this.a(var1, var2)) {
 				return false;
 			} else {
@@ -419,7 +419,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 	}
 
 	private IInventory H() {
-		EnumDirection var1 = BlockHopper.b(getMetadata());
+		EnumDirection var1 = class_aiu.b(getMetadata());
 		return b(getWorld(), position.getX() + var1.getAdjacentX(), position.getY() + var1.getAdjacentY(), position.getZ() + var1.getAdjacentZ());
 	}
 
@@ -428,7 +428,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 	}
 
 	public static List a(World var0, double var1, double var3, double var5) {
-		return var0.a(EntityItem.class, new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), class_pv.a);
+		return var0.a(EntityItem.class, new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), IEntitySelector.IS_ALIVE);
 	}
 
 	public static IInventory b(World var0, double var1, double var3, double var5) {
@@ -442,14 +442,14 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 			TileEntity var13 = var0.getTileEntity(var11);
 			if (var13 instanceof IInventory) {
 				var7 = var13;
-				if ((var7 instanceof TileEntityChest) && (var12 instanceof BlockChest)) {
-					var7 = ((BlockChest) var12).f(var0, var11);
+				if ((var7 instanceof TileEntityChest) && (var12 instanceof class_agu)) {
+					var7 = ((class_agu) var12).f(var0, var11);
 				}
 			}
 		}
 
 		if (var7 == null) {
-			List var14 = var0.a((Entity) null, (new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D)), class_pv.c);
+			List var14 = var0.a((Entity) null, (new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D)), IEntitySelector.IS_ALIVE_AND_HAS_INVENTORY);
 			if (!var14.isEmpty()) {
 				var7 = var14.get(var0.random.nextInt(var14.size()));
 			}

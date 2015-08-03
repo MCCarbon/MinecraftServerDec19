@@ -8,7 +8,7 @@ import java.util.List;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aex;
 import net.minecraft.server.Block;
-import net.minecraft.server.BlockStainedGlassPane;
+import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_arw;
@@ -90,7 +90,7 @@ public class class_u extends class_i {
                               BlockPosition var22 = new BlockPosition(var21, var20, var19);
                               BlockPosition var23 = var22.add((BaseBlockPosition)var18);
                               IBlockData var24 = var12.getType(var22);
-                              if((!var13 || var24.getBlock() != BlockStainedGlassPane.AIR) && (var10 == null || var24.getBlock() == var10 && (var11 < 0 || var24.getBlock().toLegacyData(var24) == var11))) {
+                              if((!var13 || var24.getBlock() != Blocks.AIR) && (var10 == null || var24.getBlock() == var10 && (var11 < 0 || var24.getBlock().toLegacyData(var24) == var11))) {
                                  TileEntity var25 = var12.getTileEntity(var22);
                                  if(var25 != null) {
                                     NBTTagCompound var26 = new NBTTagCompound();
@@ -112,7 +112,7 @@ public class class_u extends class_i {
                      if(var9) {
                         Iterator var27;
                         BlockPosition var29;
-                        for(var27 = var17.iterator(); var27.hasNext(); var12.setTypeAndData((BlockPosition)var29, (IBlockData)BlockStainedGlassPane.BARRIER.getBlockData(), 2)) {
+                        for(var27 = var17.iterator(); var27.hasNext(); var12.setTypeAndData((BlockPosition)var29, (IBlockData)Blocks.BARRIER.getBlockData(), 2)) {
                            var29 = (BlockPosition)var27.next();
                            TileEntity var31 = var12.getTileEntity(var29);
                            if(var31 instanceof IInventory) {
@@ -124,7 +124,7 @@ public class class_u extends class_i {
 
                         while(var27.hasNext()) {
                            var29 = (BlockPosition)var27.next();
-                           var12.setTypeAndData((BlockPosition)var29, (IBlockData)BlockStainedGlassPane.AIR.getBlockData(), 3);
+                           var12.setTypeAndData((BlockPosition)var29, (IBlockData)Blocks.AIR.getBlockData(), 3);
                         }
                      }
 
@@ -137,7 +137,7 @@ public class class_u extends class_i {
                      Iterator var32;
                      class_u.class_a_in_class_u var33;
                      TileEntity var34;
-                     for(var32 = var30.iterator(); var32.hasNext(); var12.setTypeAndData((BlockPosition)var33.a, (IBlockData)BlockStainedGlassPane.BARRIER.getBlockData(), 2)) {
+                     for(var32 = var30.iterator(); var32.hasNext(); var12.setTypeAndData((BlockPosition)var33.a, (IBlockData)Blocks.BARRIER.getBlockData(), 2)) {
                         var33 = (class_u.class_a_in_class_u)var32.next();
                         var34 = var12.getTileEntity(var33.a);
                         if(var34 instanceof IInventory) {

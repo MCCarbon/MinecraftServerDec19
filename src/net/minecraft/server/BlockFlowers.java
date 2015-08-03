@@ -127,7 +127,7 @@ public abstract class BlockFlowers extends BlockPlant {
 		YELLOW, RED;
 
 		public BlockFlowers isYellow() {
-			return this == YELLOW ? BlockStainedGlassPane.YELLOW_FLOWER : BlockStainedGlassPane.RED_FLOWER;
+			return this == YELLOW ? Blocks.YELLOW_FLOWER : Blocks.RED_FLOWER;
 		}
 	}
 
