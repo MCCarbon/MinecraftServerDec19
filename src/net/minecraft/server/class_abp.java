@@ -7,12 +7,12 @@ public class class_abp extends Item {
    private static final String[] a = new String[]{"skeleton", "wither", "zombie", "char", "creeper", "dragon"};
 
    public class_abp() {
-      this.a((CreativeTab)CreativeTab.DECORATIONS);
+      this.registerItemKey((CreativeTab) CreativeTab.DECORATIONS);
       this.e(0);
-      this.a(true);
+      this.registerItemKey(true);
    }
 
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return UseResult.CANT_USE;
       } else {
@@ -70,7 +70,7 @@ public class class_abp extends Item {
       }
    }
 
-   public int a(int var1) {
+   public int registerItemKey(int var1) {
       return var1;
    }
 
@@ -80,7 +80,7 @@ public class class_abp extends Item {
          var2 = 0;
       }
 
-      return super.a() + "." + a[var2];
+      return super.registerItemKey() + "." + a[var2];
    }
 
    public String getLocalizedName(ItemStack var1) {
@@ -100,8 +100,8 @@ public class class_abp extends Item {
       return super.getLocalizedName(var1);
    }
 
-   public boolean a(NBTTagCompound var1) {
-      super.a(var1);
+   public boolean registerItemKey(NBTTagCompound var1) {
+      super.registerItemKey(var1);
       if(var1.hasOfType("SkullOwner", 8) && !var1.getString("SkullOwner").isEmpty()) {
          GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
          var2 = TileEntitySkull.b(var2);

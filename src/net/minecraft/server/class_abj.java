@@ -10,7 +10,7 @@ public class class_abj extends ItemFood {
       this.c = var4;
    }
 
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 != EnumDirection.UP) {
          return UseResult.CANT_USE;
       } else if(!var2.a(var4.shift(var6), var6, var1)) {

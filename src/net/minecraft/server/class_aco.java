@@ -25,7 +25,7 @@ public class class_aco {
       this.a(Items.RABBIT, new ItemStack(Items.COOKED_RABBIT), 0.35F);
       this.a(Items.MUTTON, new ItemStack(Items.COOKED_MUTTON), 0.35F);
       this.a(Blocks.COBBLESTONE, new ItemStack(Blocks.STONE), 0.1F);
-      this.a(new ItemStack(Blocks.STONEBRICK, 1, class_ali.b), new ItemStack(Blocks.STONEBRICK, 1, class_ali.O), 0.1F);
+      this.a(new ItemStack(Blocks.STONEBRICK, 1, BlockSmoothBrick.b), new ItemStack(Blocks.STONEBRICK, 1, BlockSmoothBrick.O), 0.1F);
       this.a(Items.CLAY_BALL, new ItemStack(Items.BRICK), 0.3F);
       this.a(Blocks.CLAY, new ItemStack(Blocks.HARDENED_CLAY), 0.35F);
       this.a((Block)Blocks.CACTUS, new ItemStack(Items.DYE, 1, EnumColor.n.b()), 0.2F);

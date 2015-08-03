@@ -34,7 +34,7 @@ public class class_aak extends ItemFood {
 
    public String e_(ItemStack var1) {
       class_aak.class_a_in_class_aak var2 = class_aak.class_a_in_class_aak.a(var1);
-      return this.a() + "." + var2.b() + "." + (this.b && var2.g()?"cooked":"raw");
+      return this.registerItemKey() + "." + var2.b() + "." + (this.b && var2.g()?"cooked":"raw");
    }
 
    public static enum class_a_in_class_aak {

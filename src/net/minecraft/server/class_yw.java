@@ -58,7 +58,7 @@ public class class_yw extends class_yx {
          this.b.b((class_my)class_mt.n);
       }
 
-      if(var1.getItem() instanceof class_abc && ((class_abc)var1.getItem()).g() != Item.class_a_in_class_aar.a) {
+      if(var1.getItem() instanceof class_abc && ((class_abc)var1.getItem()).g() != Item.EnumToolMaterial.WOOD) {
          this.b.b((class_my)class_mt.o);
       }
 

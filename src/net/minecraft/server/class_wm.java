@@ -1,26 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ajh;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pd;
-import net.minecraft.server.class_qf;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_ru;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_wi;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
 
 public class class_wm extends class_wi {
    private class_wm.class_b_in_class_wm a;
@@ -135,7 +115,7 @@ public class class_wm extends class_wi {
                this.b = EnumDirection.getRandom(var1);
                BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
                IBlockData var3 = this.a.o.getType(var2);
-               if(class_ajh.d(var3)) {
+               if(BlockMonsterEggs.d(var3)) {
                   this.c = true;
                   return true;
                }
@@ -157,8 +137,8 @@ public class class_wm extends class_wi {
             World var1 = this.a.o;
             BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
             IBlockData var3 = var1.getType(var2);
-            if(class_ajh.d(var3)) {
-               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a(var3)), 3);
+            if(BlockMonsterEggs.d(var3)) {
+               var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(BlockMonsterEggs.a, BlockMonsterEggs.EnumMonsterEggVariant.a(var3)), 3);
                this.a.A();
                this.a.J();
             }
@@ -202,7 +182,7 @@ public class class_wm extends class_wi {
                         if(var1.R().b("mobGriefing")) {
                            var1.setAir(var7, true);
                         } else {
-                           var1.setTypeAndData((BlockPosition)var7, (IBlockData)((class_ajh.class_a_in_class_ajh)var8.get(class_ajh.a)).d(), 3);
+                           var1.setTypeAndData((BlockPosition)var7, (IBlockData)((BlockMonsterEggs.EnumMonsterEggVariant)var8.get(BlockMonsterEggs.a)).d(), 3);
                         }
 
                         if(var2.nextBoolean()) {

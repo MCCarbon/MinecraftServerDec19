@@ -9,8 +9,8 @@ import java.util.List;
 public class ItemPotion extends Item {
    public ItemPotion() {
       this.d(1);
-      this.a(true);
-      this.a((CreativeTab)CreativeTab.BREWING);
+      this.registerItemKey(true);
+      this.registerItemKey((CreativeTab) CreativeTab.BREWING);
    }
 
    public static List h(ItemStack var0) {
@@ -31,7 +31,7 @@ public class ItemPotion extends Item {
       return var1;
    }
 
-   public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
+   public ItemStack registerItemKey(ItemStack var1, World var2, EntityLiving var3) {
       EntityHuman var4 = var3 instanceof EntityHuman?(EntityHuman)var3:null;
       if(var4 == null || !var4.abilities.instabuild) {
          --var1.count;
@@ -72,7 +72,7 @@ public class ItemPotion extends Item {
       return class_abz.DRINK;
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
       return new class_or(UseResult.SUCCESS, var1);
    }

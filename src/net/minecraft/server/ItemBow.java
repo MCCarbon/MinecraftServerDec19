@@ -4,10 +4,10 @@ public class ItemBow extends Item {
    public ItemBow() {
       this.h = 1;
       this.e(384);
-      this.a(CreativeTab.COMBAT);
-      this.a(new MinecraftKey("pull"), new class_aat() {
+      this.registerItemKey(CreativeTab.COMBAT);
+      this.registerItemKey(new MinecraftKey("pull"), new class_aat() {
       });
-      this.a(new MinecraftKey("pulling"), new class_aat() {
+      this.registerItemKey(new MinecraftKey("pulling"), new class_aat() {
       });
    }
 
@@ -30,7 +30,7 @@ public class ItemBow extends Item {
       return var1 != null && var1.getItem() instanceof ItemArrow;
    }
 
-   public void a(ItemStack var1, World var2, EntityLiving var3, int var4) {
+   public void registerItemKey(ItemStack var1, World var2, EntityLiving var3, int var4) {
       if(var3 instanceof EntityHuman) {
          EntityHuman var5 = (EntityHuman)var3;
          boolean var6 = var5.abilities.instabuild || EnchantmentManager.getLevel(Enchantment.w, var1) > 0;
@@ -101,7 +101,7 @@ public class ItemBow extends Item {
       return class_abz.BOW;
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if((var3.abilities.instabuild || this.a(var3.inventory) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
          return new class_or(UseResult.SUCCESS, var1);

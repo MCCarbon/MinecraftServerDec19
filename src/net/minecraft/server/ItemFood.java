@@ -14,14 +14,14 @@ public class ItemFood extends Item {
       this.b = var1;
       this.d = var3;
       this.c = var2;
-      this.a(CreativeTab.FOOD);
+      this.registerItemKey(CreativeTab.FOOD);
    }
 
    public ItemFood(int var1, boolean var2) {
       this(var1, 0.6F, var2);
    }
 
-   public ItemStack a(ItemStack var1, World var2, EntityLiving var3) {
+   public ItemStack registerItemKey(ItemStack var1, World var2, EntityLiving var3) {
       --var1.count;
       if(var3 instanceof EntityHuman) {
          EntityHuman var4 = (EntityHuman)var3;
@@ -49,7 +49,7 @@ public class ItemFood extends Item {
       return class_abz.EAT;
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(var3.j(this.k)) {
          var3.c(var4);
          return new class_or(UseResult.SUCCESS, var1);

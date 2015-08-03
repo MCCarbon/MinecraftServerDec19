@@ -1,24 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_or;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xm;
-import net.minecraft.server.CreativeTab;
-
 public class class_abs extends Item {
    public class_abs() {
       this.h = 16;
-      this.a(CreativeTab.MISC);
+      this.registerItemKey(CreativeTab.MISC);
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(!var3.abilities.instabuild) {
          --var1.count;
       }

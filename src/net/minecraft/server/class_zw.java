@@ -5,10 +5,10 @@ public class class_zw extends Item {
 
    public class_zw(Block var1) {
       this.a = var1;
-      this.a(CreativeTab.REDSTONE);
+      this.registerItemKey(CreativeTab.REDSTONE);
    }
 
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 != EnumDirection.UP) {
          return UseResult.CANT_USE;
       } else {

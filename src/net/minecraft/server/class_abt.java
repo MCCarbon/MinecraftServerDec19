@@ -1,41 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_aee;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahz;
-import net.minecraft.server.BlockFluids;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityMobSpawner;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_on;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_or;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pt;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
-
 public class class_abt extends Item {
    public class_abt() {
-      this.a(true);
-      this.a(CreativeTab.MISC);
+      this.registerItemKey(true);
+      this.registerItemKey(CreativeTab.MISC);
    }
 
    public String getLocalizedName(ItemStack var1) {
-      String var2 = ("" + LocaleI18n.get(this.a() + ".name")).trim();
+      String var2 = ("" + LocaleI18n.get(this.registerItemKey() + ".name")).trim();
       String var3 = class_pt.b(var1.i());
       if(var3 != null) {
          var2 = var2 + " " + LocaleI18n.get("entity." + var3 + ".name");
@@ -44,7 +16,7 @@ public class class_abt extends Item {
       return var2;
    }
 
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var3.isClientSide) {
          return UseResult.SUCCESS;
       } else if(!var2.a(var4.shift(var6), var6, var1)) {
@@ -87,11 +59,11 @@ public class class_abt extends Item {
       }
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(var2.isClientSide) {
          return new class_or(UseResult.CANT_USE, var1);
       } else {
-         MovingObjectPosition var5 = this.a(var2, var3, true);
+         MovingObjectPosition var5 = this.registerItemKey(var2, var3, true);
          if(var5 == null) {
             return new class_or(UseResult.CANT_USE, var1);
          } else {

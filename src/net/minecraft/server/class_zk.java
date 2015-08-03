@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public class class_zk extends Item {
    public class_zk() {
-      this.a(CreativeTab.BREWING);
+      this.registerItemKey(CreativeTab.BREWING);
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-      MovingObjectPosition var5 = this.a(var2, var3, true);
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+      MovingObjectPosition var5 = this.registerItemKey(var2, var3, true);
       if(var5 == null) {
          return new class_or(UseResult.CANT_USE, var1);
       } else {

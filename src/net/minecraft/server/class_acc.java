@@ -55,7 +55,7 @@ public class class_acc extends Item {
       return super.getLocalizedName(var1);
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(!var2.isClientSide) {
          this.a(var1, var3);
       }

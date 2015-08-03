@@ -229,11 +229,11 @@ public class class_asj {
          if(var5) {
             float var6 = var1.nextFloat();
             if(var6 < 0.2F) {
-               this.a = Blocks.STONEBRICK.fromLegacyData(class_ali.O);
+               this.a = Blocks.STONEBRICK.fromLegacyData(BlockSmoothBrick.O);
             } else if(var6 < 0.5F) {
-               this.a = Blocks.STONEBRICK.fromLegacyData(class_ali.N);
+               this.a = Blocks.STONEBRICK.fromLegacyData(BlockSmoothBrick.N);
             } else if(var6 < 0.55F) {
-               this.a = Blocks.MONSTER_EGG.fromLegacyData(class_ajh.class_a_in_class_ajh.c.a());
+               this.a = Blocks.MONSTER_EGG.fromLegacyData(BlockMonsterEggs.EnumMonsterEggVariant.c.a());
             } else {
                this.a = Blocks.STONEBRICK.getBlockData();
             }

@@ -1,25 +1,15 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.CreativeTab;
-
 public class class_abl extends Item {
    public class_abl() {
       this.d(1);
       this.e(238);
-      this.a(CreativeTab.TOOLS);
+      this.registerItemKey(CreativeTab.TOOLS);
    }
 
-   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
+   public boolean registerItemKey(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
       if(var3.getMaterial() != Material.LEAVES && var3 != Blocks.WEB && var3 != Blocks.TALLGRASS && var3 != Blocks.VINE && var3 != Blocks.TRIPWIRE && var3 != Blocks.WOOL) {
-         return super.a(var1, var2, var3, var4, var5);
+         return super.registerItemKey(var1, var2, var3, var4, var5);
       } else {
          var1.a(1, (EntityLiving)var5);
          return true;
@@ -30,7 +20,7 @@ public class class_abl extends Item {
       return var1 == Blocks.WEB || var1 == Blocks.REDSTONE_WIRE || var1 == Blocks.TRIPWIRE;
    }
 
-   public float a(ItemStack var1, Block var2) {
-      return var2 != Blocks.WEB && var2.getMaterial() != Material.LEAVES?(var2 == Blocks.WOOL?5.0F:super.a(var1, var2)):15.0F;
+   public float registerItemKey(ItemStack var1, Block var2) {
+      return var2 != Blocks.WEB && var2.getMaterial() != Material.LEAVES?(var2 == Blocks.WOOL?5.0F:super.registerItemKey(var1, var2)):15.0F;
    }
 }

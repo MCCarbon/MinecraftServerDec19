@@ -116,7 +116,7 @@ public class class_yb extends Container {
             int var9;
             int var10;
             int var11;
-            if(var5.e() && var5.getItem().a(var1, var6)) {
+            if(var5.e() && var5.getItem().registerItemKey(var1, var6)) {
                var9 = Math.min(var5.h(), var5.j() / 4);
                if(var9 <= 0) {
                   this.g.setItem(0, (ItemStack)null);

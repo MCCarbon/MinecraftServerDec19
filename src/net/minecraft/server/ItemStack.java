@@ -82,7 +82,7 @@ public final class ItemStack {
 	}
 
 	public UseResult a(EntityHuman var1, World var2, BlockPosition var3, EnumUsedHand var4, EnumDirection var5, float var6, float var7, float var8) {
-		UseResult var9 = getItem().a(this, var1, var2, var3, var4, var5, var6, var7, var8);
+		UseResult var9 = getItem().registerItemKey(this, var1, var2, var3, var4, var5, var6, var7, var8);
 		if (var9 == UseResult.SUCCESS) {
 			var1.b(StatisticList.ad[Item.getId(item)]);
 		}
@@ -91,15 +91,15 @@ public final class ItemStack {
 	}
 
 	public float a(Block var1) {
-		return getItem().a(this, var1);
+		return getItem().registerItemKey(this, var1);
 	}
 
 	public class_or a(World var1, EntityHuman var2, EnumUsedHand var3) {
-		return getItem().a(this, var1, var2, var3);
+		return getItem().registerItemKey(this, var1, var2, var3);
 	}
 
 	public ItemStack a(World var1, EntityLiving var2) {
-		return getItem().a(this, var1, var2);
+		return getItem().registerItemKey(this, var1, var2);
 	}
 
 	public NBTTagCompound write(NBTTagCompound compound) {
@@ -130,7 +130,7 @@ public final class ItemStack {
 		if (compound.hasOfType("tag", 10)) {
 			tag = compound.getCompound("tag");
 			if (item != null) {
-				item.a(tag);
+				item.registerItemKey(tag);
 			}
 		}
 	}
@@ -222,7 +222,7 @@ public final class ItemStack {
 	}
 
 	public void a(EntityLiving var1, EntityHuman var2) {
-		boolean var3 = item.a(this, var1, var2);
+		boolean var3 = item.registerItemKey(this, var1, var2);
 		if (var3) {
 			var2.b(StatisticList.ad[Item.getId(item)]);
 		}
@@ -230,7 +230,7 @@ public final class ItemStack {
 	}
 
 	public void a(World var1, Block var2, BlockPosition var3, EntityHuman var4) {
-		boolean var5 = item.a(this, var1, var2, var3, var4);
+		boolean var5 = item.registerItemKey(this, var1, var2, var3, var4);
 		if (var5) {
 			var4.b(StatisticList.ad[Item.getId(item)]);
 		}
@@ -242,7 +242,7 @@ public final class ItemStack {
 	}
 
 	public boolean a(EntityHuman var1, EntityLiving var2, EnumUsedHand var3) {
-		return item.a(this, var1, var2, var3);
+		return item.registerItemKey(this, var1, var2, var3);
 	}
 
 	public ItemStack clone() {
@@ -283,7 +283,7 @@ public final class ItemStack {
 
 	@Override
 	public String toString() {
-		return count + "x" + item.a() + "@" + data;
+		return count + "x" + item.registerItemKey() + "@" + data;
 	}
 
 	public void a(World var1, Entity var2, int var3, boolean var4) {
@@ -291,7 +291,7 @@ public final class ItemStack {
 			--c;
 		}
 
-		item.a(this, var1, var2, var3, var4);
+		item.registerItemKey(this, var1, var2, var3, var4);
 	}
 
 	public void a(World var1, EntityHuman var2, int var3) {
@@ -308,7 +308,7 @@ public final class ItemStack {
 	}
 
 	public void a(World var1, EntityLiving var2, int var3) {
-		getItem().a(this, var1, var2, var3);
+		getItem().registerItemKey(this, var1, var2, var3);
 	}
 
 	public boolean hasTag() {
@@ -459,7 +459,7 @@ public final class ItemStack {
 				}
 			}
 		} else {
-			var2 = getItem().a(var1);
+			var2 = getItem().registerItemKey(var1);
 		}
 
 		return (Multimap) var2;

@@ -1,38 +1,20 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockFragilePlantElement;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_uf;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
-import net.minecraft.server.EnumColor;
-
 public class class_zz extends Item {
    public static final int[] a = new int[]{1973019, 11743532, 3887386, 5320730, 2437522, 8073150, 2651799, 11250603, 4408131, 14188952, 4312372, 14602026, 6719955, 12801229, 15435844, 15790320};
 
    public class_zz() {
-      this.a(true);
+      this.registerItemKey(true);
       this.e(0);
-      this.a(CreativeTab.MATERIALS);
+      this.registerItemKey(CreativeTab.MATERIALS);
    }
 
    public String e_(ItemStack var1) {
       int var2 = var1.i();
-      return super.a() + "." + EnumColor.a(var2).d();
+      return super.registerItemKey() + "." + EnumColor.a(var2).d();
    }
 
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(!var2.a(var4.shift(var6), var6, var1)) {
          return UseResult.CANT_USE;
       } else {
@@ -94,7 +76,7 @@ public class class_zz extends Item {
       return false;
    }
 
-   public boolean a(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
+   public boolean registerItemKey(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
       if(var3 instanceof class_uf) {
          class_uf var5 = (class_uf)var3;
          EnumColor var6 = EnumColor.a(var1.i());

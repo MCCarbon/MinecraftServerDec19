@@ -6,12 +6,12 @@ public class class_zn extends Item {
    public class_zn(Block var1) {
       this.h = 1;
       this.a = var1;
-      this.a(CreativeTab.MISC);
+      this.registerItemKey(CreativeTab.MISC);
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       boolean var5 = this.a == Blocks.AIR;
-      MovingObjectPosition var6 = this.a(var2, var3, var5);
+      MovingObjectPosition var6 = this.registerItemKey(var2, var3, var5);
       if(var6 == null) {
          return new class_or(UseResult.CANT_USE, var1);
       } else {

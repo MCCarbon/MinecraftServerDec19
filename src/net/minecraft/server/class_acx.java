@@ -16,8 +16,8 @@ public class class_acx {
       var1.a(new ItemStack(Blocks.QUARTZ_BLOCK, 1, class_akf.class_a_in_class_akf.b.a()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB, 1, BlockDoubleStepAbstract.EnumStoneSlabVariant.QUARTZ.getId())});
       var1.a(new ItemStack(Blocks.QUARTZ_BLOCK, 2, class_akf.class_a_in_class_akf.c.a()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.QUARTZ_BLOCK, 1, class_akf.class_a_in_class_akf.a.a())});
       var1.a(new ItemStack(Blocks.STONEBRICK, 4), new Object[]{"##", "##", Character.valueOf('#'), new ItemStack(Blocks.STONE, 1, BlockStone.EnumStoneVariant.STONE.getData())});
-      var1.a(new ItemStack(Blocks.STONEBRICK, 1, class_ali.P), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB, 1, BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId())});
-      var1.b(new ItemStack(Blocks.STONEBRICK, 1, class_ali.N), new Object[]{Blocks.STONEBRICK, Blocks.VINE});
+      var1.a(new ItemStack(Blocks.STONEBRICK, 1, BlockSmoothBrick.P), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB, 1, BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId())});
+      var1.b(new ItemStack(Blocks.STONEBRICK, 1, BlockSmoothBrick.N), new Object[]{Blocks.STONEBRICK, Blocks.VINE});
       var1.b(new ItemStack(Blocks.MOSSY_COBBLESTONE, 1), new Object[]{Blocks.COBBLESTONE, Blocks.VINE});
       var1.a(new ItemStack(Blocks.IRON_BARS, 16), new Object[]{"###", "###", Character.valueOf('#'), Items.IRON_INGOT});
       var1.a(new ItemStack(Blocks.GLASS_PANE, 16), new Object[]{"###", "###", Character.valueOf('#'), Blocks.GLASS});

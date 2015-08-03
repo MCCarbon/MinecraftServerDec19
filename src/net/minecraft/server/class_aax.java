@@ -6,7 +6,7 @@ import com.google.common.collect.Multisets;
 
 public class class_aax extends class_zt {
    protected class_aax() {
-      this.a(true);
+      this.registerItemKey(true);
    }
 
    public class_avf a(ItemStack var1, World var2) {
@@ -144,7 +144,7 @@ public class class_aax extends class_zt {
       }
    }
 
-   public void a(ItemStack var1, World var2, Entity var3, int var4, boolean var5) {
+   public void registerItemKey(ItemStack var1, World var2, Entity var3, int var4, boolean var5) {
       if(!var2.isClientSide) {
          class_avf var6 = this.a(var1, var2);
          if(var3 instanceof EntityHuman) {

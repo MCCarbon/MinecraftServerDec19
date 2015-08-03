@@ -2,25 +2,11 @@ package net.minecraft.server;
 
 import com.google.common.collect.Sets;
 import java.util.Set;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_zv;
 
 public class class_abm extends class_zv {
    private static final Set c;
 
-   public class_abm(Item.class_a_in_class_aar var1) {
+   public class_abm(EnumToolMaterial var1) {
       super(1.0F, var1, c);
    }
 
@@ -28,7 +14,7 @@ public class class_abm extends class_zv {
       return var1 == Blocks.SNOW_LAYER?true:var1 == Blocks.SNOW;
    }
 
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(!var2.a(var4.shift(var6), var6, var1)) {
          return UseResult.CANT_USE;
       } else {

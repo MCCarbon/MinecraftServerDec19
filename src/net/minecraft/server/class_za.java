@@ -43,7 +43,7 @@ public class class_za extends Item {
       this.c = var1.b(var3);
       this.e(var1.a(var3));
       this.h = 1;
-      this.a(CreativeTab.COMBAT);
+      this.registerItemKey(CreativeTab.COMBAT);
       BlockDispenser.REGISTRY.register(this, l);
    }
 
@@ -107,11 +107,11 @@ public class class_za extends Item {
       }
    }
 
-   public boolean a(ItemStack var1, ItemStack var2) {
-      return this.m.b() == var2.getItem()?true:super.a(var1, var2);
+   public boolean registerItemKey(ItemStack var1, ItemStack var2) {
+      return this.m.b() == var2.getItem()?true:super.registerItemKey(var1, var2);
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       class_pw var5 = class_qb.c(var1);
       ItemStack var6 = var3.a(var5);
       if(var6 == null) {

@@ -3,10 +3,10 @@ package net.minecraft.server;
 public class class_abn extends Item {
    public class_abn() {
       this.h = 16;
-      this.a(CreativeTab.DECORATIONS);
+      this.registerItemKey(CreativeTab.DECORATIONS);
    }
 
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return UseResult.CANT_USE;
       } else if(!var3.getType(var4).getBlock().getMaterial().isBuildable()) {

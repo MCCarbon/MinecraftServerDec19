@@ -1,30 +1,11 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aht;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_or;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xe;
-import net.minecraft.server.CreativeTab;
-
 public class class_aae extends Item {
    public class_aae() {
-      this.a(CreativeTab.MISC);
+      this.registerItemKey(CreativeTab.MISC);
    }
 
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.getType(var4);
       if(var2.a(var4.shift(var6), var6, var1) && var10.getBlock() == Blocks.END_PORTAL_FRAME && !((Boolean)var10.get(class_aht.b)).booleanValue()) {
          if(var3.isClientSide) {
@@ -115,8 +96,8 @@ public class class_aae extends Item {
       }
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-      MovingObjectPosition var5 = this.a(var2, var3, false);
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+      MovingObjectPosition var5 = this.registerItemKey(var2, var3, false);
       if(var5 != null && var5.a == MovingObjectPosition.class_a_in_class_awg.b && var2.getType(var5.a()).getBlock() == Blocks.END_PORTAL_FRAME) {
          return new class_or(UseResult.SUCCESS, var1);
       } else {

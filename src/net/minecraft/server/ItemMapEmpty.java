@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public class ItemMapEmpty extends class_zt {
    protected ItemMapEmpty() {
-      this.a(CreativeTab.MISC);
+      this.registerItemKey(CreativeTab.MISC);
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       ItemStack var5 = new ItemStack(Items.FILLED_MAP, 1, var2.b("map"));
       String var6 = "map_" + var5.i();
       class_avf var7 = new class_avf(var6);

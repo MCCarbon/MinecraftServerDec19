@@ -2,43 +2,33 @@ package net.minecraft.server;
 
 import com.google.common.collect.Multimap;
 import java.util.Set;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qm;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.CreativeTab;
 
 public class class_zv extends Item {
    private Set c;
    protected float a = 4.0F;
    private float d;
-   protected Item.class_a_in_class_aar b;
+   protected EnumToolMaterial b;
 
-   protected class_zv(float var1, Item.class_a_in_class_aar var2, Set var3) {
+   protected class_zv(float var1, EnumToolMaterial var2, Set var3) {
       this.b = var2;
       this.c = var3;
       this.h = 1;
       this.e(var2.a());
       this.a = var2.b();
       this.d = var1 + var2.c();
-      this.a(CreativeTab.TOOLS);
+      this.registerItemKey(CreativeTab.TOOLS);
    }
 
-   public float a(ItemStack var1, Block var2) {
+   public float registerItemKey(ItemStack var1, Block var2) {
       return this.c.contains(var2)?this.a:1.0F;
    }
 
-   public boolean a(ItemStack var1, EntityLiving var2, EntityLiving var3) {
+   public boolean registerItemKey(ItemStack var1, EntityLiving var2, EntityLiving var3) {
       var1.a(2, (EntityLiving)var3);
       return true;
    }
 
-   public boolean a(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
+   public boolean registerItemKey(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
       if((double)var3.getStrength(var2, var4) != 0.0D) {
          var1.a(1, (EntityLiving)var5);
       }
@@ -46,7 +36,7 @@ public class class_zv extends Item {
       return true;
    }
 
-   public Item.class_a_in_class_aar g() {
+   public EnumToolMaterial g() {
       return this.b;
    }
 
@@ -58,12 +48,12 @@ public class class_zv extends Item {
       return this.b.toString();
    }
 
-   public boolean a(ItemStack var1, ItemStack var2) {
-      return this.b.f() == var2.getItem()?true:super.a(var1, var2);
+   public boolean registerItemKey(ItemStack var1, ItemStack var2) {
+      return this.b.f() == var2.getItem()?true:super.registerItemKey(var1, var2);
    }
 
-   public Multimap a(class_pw var1) {
-      Multimap var2 = super.a(var1);
+   public Multimap registerItemKey(class_pw var1) {
+      Multimap var2 = super.registerItemKey(var1);
       if(var1 == class_pw.a) {
          var2.put(class_wl.e.a(), new class_qm(uuid, "Tool modifier", (double)this.d, 0));
       }

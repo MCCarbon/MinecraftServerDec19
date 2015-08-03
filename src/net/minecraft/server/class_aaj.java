@@ -12,7 +12,7 @@ import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_xg;
 
 public class class_aaj extends Item {
-   public UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(!var3.isClientSide) {
          class_xg var10 = new class_xg(var3, (double)((float)var4.getX() + var7), (double)((float)var4.getY() + var8), (double)((float)var4.getZ() + var9), var1);
          var3.addEntity((Entity)var10);

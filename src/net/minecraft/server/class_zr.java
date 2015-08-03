@@ -1,14 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.CreativeTab;
-
 public class class_zr extends Item {
    public class_zr() {
-      this.a(true);
+      this.registerItemKey(true);
       this.e(0);
-      this.a(CreativeTab.MATERIALS);
+      this.registerItemKey(CreativeTab.MATERIALS);
    }
 
    public String e_(ItemStack var1) {

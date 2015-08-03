@@ -809,8 +809,8 @@ public class Block {
 		register(94, "powered_repeater", (new BlockRedstoneRepeater(true)).setStrength(0.0F).setStepSound(STEP_SOUND_WOOD).setName("diode").disableBreakStat());
 		register(95, "stained_glass", (new BlockStainedGlass(Material.SHATTERABLE)).setStrength(0.3F).setStepSound(STEP_SOUND_STONE4).setName("stainedGlass"));
 		register(96, "trapdoor", (new class_alr(Material.WOOD)).setStrength(3.0F).setStepSound(STEP_SOUND_WOOD).setName("trapdoor").disableBreakStat());
-		register(97, "monster_egg", (new class_ajh()).setStrength(0.75F).setName("monsterStoneEgg"));
-		Block var8 = (new class_ali()).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stonebricksmooth");
+		register(97, "monster_egg", (new BlockMonsterEggs()).setStrength(0.75F).setName("monsterStoneEgg"));
+		Block var8 = (new BlockSmoothBrick()).setStrength(1.5F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("stonebricksmooth");
 		register(98, "stonebrick", var8);
 		register(99, "brown_mushroom_block", (new class_aiw(Material.WOOD, MaterialMapColor.COLOR11, brown_mush)).setStrength(0.2F).setStepSound(STEP_SOUND_WOOD).setName("mushroom"));
 		register(100, "red_mushroom_block", (new class_aiw(Material.WOOD, MaterialMapColor.COLOR29, red_mush)).setStrength(0.2F).setStepSound(STEP_SOUND_WOOD).setName("mushroom"));
@@ -823,7 +823,7 @@ public class Block {
 		register(106, "vine", (new class_alu()).setStrength(0.2F).setStepSound(STEP_SOUND_GRASS).setName("vine"));
 		register(107, "fence_gate", (new class_aia(BlockWood.EnumLogVariant.OAK)).setStrength(2.0F).setExplosionResist(5.0F).setStepSound(STEP_SOUND_WOOD).setName("fenceGate"));
 		register(108, "brick_stairs", (new BlockStairs(brick.getBlockData())).setName("stairsBrick"));
-		register(109, "stone_brick_stairs", (new BlockStairs(var8.getBlockData().set(class_ali.a, class_ali.class_a_in_class_ali.a))).setName("stairsStoneBrickSmooth"));
+		register(109, "stone_brick_stairs", (new BlockStairs(var8.getBlockData().set(BlockSmoothBrick.a, BlockSmoothBrick.EnumSmoothBrickType.a))).setName("stairsStoneBrickSmooth"));
 		register(110, "mycelium", (new BlockMycel()).setStrength(0.6F).setStepSound(STEP_SOUND_GRASS).setName("mycel"));
 		register(111, "waterlily", (new class_alx()).setStrength(0.0F).setStepSound(STEP_SOUND_GRASS).setName("waterlily"));
 		Block var10 = (new class_ajk()).setStrength(2.0F).setExplosionResist(10.0F).setStepSound(STEP_SOUND_STONE2).setName("netherBrick").setCreativeTab(CreativeTab.BUILDING_BLOCKS);

@@ -284,9 +284,9 @@ public class class_ash {
             this.a(var1, Blocks.MOSSY_COBBLESTONE.getBlockData(), 8, -3, 5, var3);
             this.a(var1, var3, 9, -1, 1, 9, -1, 5, false, var2, k);
             this.a(var1, var3, 8, -3, 8, 10, -1, 10);
-            this.a(var1, Blocks.STONEBRICK.fromLegacyData(class_ali.P), 8, -2, 11, var3);
-            this.a(var1, Blocks.STONEBRICK.fromLegacyData(class_ali.P), 9, -2, 11, var3);
-            this.a(var1, Blocks.STONEBRICK.fromLegacyData(class_ali.P), 10, -2, 11, var3);
+            this.a(var1, Blocks.STONEBRICK.fromLegacyData(BlockSmoothBrick.P), 8, -2, 11, var3);
+            this.a(var1, Blocks.STONEBRICK.fromLegacyData(BlockSmoothBrick.P), 9, -2, 11, var3);
+            this.a(var1, Blocks.STONEBRICK.fromLegacyData(BlockSmoothBrick.P), 10, -2, 11, var3);
             IBlockData var11 = Blocks.LEVER.getBlockData().set(BlockLever.a, BlockLever.class_a_in_class_ajc.e);
             this.a(var1, var11, 8, -2, 12, var3);
             this.a(var1, var11, 9, -2, 12, var3);

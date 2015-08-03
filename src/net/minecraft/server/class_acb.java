@@ -16,7 +16,7 @@ public class class_acb extends Item {
       this.d(1);
    }
 
-   public class_or a(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.a(var1);
       var3.b(StatisticList.ad[Item.getId((Item)this)]);
       return new class_or(UseResult.SUCCESS, var1);

@@ -1,17 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ajh;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aph;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.class_aql;
-import net.minecraft.server.class_arb;
-import net.minecraft.server.class_ark;
-import net.minecraft.server.BlockPosition;
 
 public class class_aff extends BiomeBase {
    private class_aql aD;
@@ -23,7 +12,7 @@ public class class_aff extends BiomeBase {
 
    protected class_aff(int var1, boolean var2) {
       super(var1);
-      this.aD = new class_arb(Blocks.MONSTER_EGG.getBlockData().set(class_ajh.a, class_ajh.class_a_in_class_ajh.a), 9);
+      this.aD = new class_arb(Blocks.MONSTER_EGG.getBlockData().set(BlockMonsterEggs.a, BlockMonsterEggs.EnumMonsterEggVariant.a), 9);
       this.aE = new class_ark(false);
       this.aF = 0;
       this.aG = 1;
