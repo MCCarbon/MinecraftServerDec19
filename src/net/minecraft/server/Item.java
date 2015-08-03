@@ -385,7 +385,7 @@ public class Item {
 		registerItemBlock(Blocks.RED_MUSHROOM);
 		registerItemBlock(Blocks.GOLD_BLOCK);
 		registerItemBlock(Blocks.IRON_BLOCK);
-		registerItemBlock(Blocks.STONE_SLAB, (new ItemBlockStep(Blocks.STONE_SLAB, Blocks.STONE_SLAB, Blocks.DOUBLE_SANDSTONE_SLAB)).b("stoneSlab"));
+		registerItemBlock(Blocks.STONE_SLAB, (new ItemStep(Blocks.STONE_SLAB, Blocks.STONE_SLAB, Blocks.DOUBLE_SANDSTONE_SLAB)).b("stoneSlab"));
 		registerItemBlock(Blocks.BRICK_BLOCK);
 		registerItemBlock(Blocks.TNT);
 		registerItemBlock(Blocks.BOOKSHELF);
@@ -399,7 +399,7 @@ public class Item {
 		registerItemBlock(Blocks.PURPUR_BLOCK);
 		registerItemBlock(Blocks.PURPUR_PILLAR);
 		registerItemBlock(Blocks.PURPUR_STAIRS);
-		registerItemBlock(Blocks.PURPUR_SLAB, (new ItemBlockStep(Blocks.PURPUR_SLAB, Blocks.PURPUR_SLAB, Blocks.PURPUR_DOUBLE_SLAB)).b("purpurSlab"));
+		registerItemBlock(Blocks.PURPUR_SLAB, (new ItemStep(Blocks.PURPUR_SLAB, Blocks.PURPUR_SLAB, Blocks.PURPUR_DOUBLE_SLAB)).b("purpurSlab"));
         //New stuff
 		registerItemBlock(Blocks.MOB_SPAWNER);
 		registerItemBlock(Blocks.OAK_STAIRS);
@@ -482,7 +482,7 @@ public class Item {
 		registerItemBlock(Blocks.END_BRICKS);
 		registerItemBlock(Blocks.DRAGON_EGG);
 		registerItemBlock(Blocks.REDSTONE_LAMP);
-		registerItemBlock(Blocks.WOODEN_SLAB, (new ItemBlockStep(Blocks.WOODEN_SLAB, Blocks.WOODEN_SLAB, Blocks.DOUBLE_WOODEN_SLAB)).b("woodSlab"));
+		registerItemBlock(Blocks.WOODEN_SLAB, (new ItemStep(Blocks.WOODEN_SLAB, Blocks.WOODEN_SLAB, Blocks.DOUBLE_WOODEN_SLAB)).b("woodSlab"));
 		registerItemBlock(Blocks.SANDSTONE_STAIRS);
 		registerItemBlock(Blocks.EMERALD_ORE);
 		registerItemBlock(Blocks.ENDER_CHEST);
@@ -562,7 +562,7 @@ public class Item {
             }
         })).b("redSandStone"));
 		registerItemBlock(Blocks.RED_SANDSTONE_STAIRS);
-		registerItemBlock(Blocks.STONE_SLAB2, (new ItemBlockStep(Blocks.STONE_SLAB2, Blocks.STONE_SLAB2, Blocks.DOUBLE_STONE_SLAB2)).b("stoneSlab2"));
+		registerItemBlock(Blocks.STONE_SLAB2, (new ItemStep(Blocks.STONE_SLAB2, Blocks.STONE_SLAB2, Blocks.DOUBLE_STONE_SLAB2)).b("stoneSlab2"));
 		registerItem(256, "iron_shovel", (new class_abm(EnumToolMaterial.IRON)).c("shovelIron"));
 		registerItem(257, "iron_pickaxe", (new class_abc(EnumToolMaterial.IRON)).c("pickaxeIron"));
 		registerItem(258, "iron_axe", (new class_zd(EnumToolMaterial.IRON)).c("hatchetIron"));

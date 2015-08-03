@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-public class ItemBlockStep extends ItemBlock {
+public class ItemStep extends ItemBlock {
 
 	private final BlockStepAbstract b;
 	private final BlockStepAbstract c;
 
-	public ItemBlockStep(Block var1, BlockStepAbstract var2, BlockStepAbstract var3) {
+	public ItemStep(Block var1, BlockStepAbstract var2, BlockStepAbstract var3) {
 		super(var1);
 		this.b = var2;
 		this.c = var3;
