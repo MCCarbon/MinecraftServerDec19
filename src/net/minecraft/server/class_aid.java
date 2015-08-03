@@ -1,33 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.BlockContainer;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockFlowers;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.BlockLongGrass;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityFlowerPot;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.BlockStateInteger;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.INamable;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.ItemBlock;
 
 public class class_aid extends BlockContainer {
    public static final BlockStateInteger a = BlockStateInteger.of("legacy_data", 0, 15);
@@ -131,7 +104,7 @@ public class class_aid extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.bT;
+      return Items.FLOWER_POT;
    }
 
    private TileEntityFlowerPot f(World var1, BlockPosition var2) {

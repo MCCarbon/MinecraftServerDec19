@@ -3,36 +3,6 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import java.util.UUID;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_abe;
-import net.minecraft.server.class_acd;
-import net.minecraft.server.class_acf;
-import net.minecraft.server.World;
-import net.minecraft.server.Material;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_qm;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sj;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_wi;
-import net.minecraft.server.class_wk;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xs;
 
 public class class_wq extends class_wi implements class_wk {
    private static final UUID a = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
@@ -91,8 +61,8 @@ public class class_wq extends class_wi implements class_wk {
                this.a(false);
                ItemStack var6 = this.bA();
                this.a(class_pw.a, (ItemStack)null);
-               if(var6 != null && var6.getItem() == Items.bB) {
-                  List var5 = class_abe.h(var6);
+               if(var6 != null && var6.getItem() == Items.POTION) {
+                  List var5 = ItemPotion.h(var6);
                   if(var5 != null) {
                      Iterator var3 = var5.iterator();
 
@@ -118,7 +88,7 @@ public class class_wq extends class_wi implements class_wk {
             }
 
             if(var1 != null) {
-               this.a(class_pw.a, class_abe.a(new ItemStack(Items.bB), var1));
+               this.a(class_pw.a, ItemPotion.a(new ItemStack(Items.POTION), var1));
                this.bt = this.bA().l();
                this.a(true);
                class_ql var2 = this.a(class_wl.d);
@@ -181,7 +151,7 @@ public class class_wq extends class_wi implements class_wk {
             var12 = class_acf.H;
          }
 
-         class_xs var13 = new class_xs(this.o, this, class_abe.a(new ItemStack(Items.bC), var12));
+         class_xs var13 = new class_xs(this.o, this, ItemPotion.a(new ItemStack(Items.SPLASH_POTION), var12));
          var13.z -= -20.0F;
          var13.c(var5, var7 + (double)(var11 * 0.2F), var9, 0.75F, 8.0F);
          this.o.addEntity((Entity)var13);
@@ -195,6 +165,6 @@ public class class_wq extends class_wi implements class_wk {
    static {
       b = (new class_qm(a, "Drinking speed penalty", -0.25D, 0)).a(false);
       c = Datawathcer.claimId(class_wq.class);
-      bs = new Item[]{Items.aV, Items.ba, Items.aE, Items.bE, Items.bD, Items.J, Items.A, Items.A};
+      bs = new Item[]{Items.GLOWSTONE_DUST, Items.SUGAR, Items.REDSTONE, Items.SPIDER_EYE, Items.GLASS_BOTTLE, Items.GUNPOWDER, Items.STICK, Items.STICK};
    }
 }

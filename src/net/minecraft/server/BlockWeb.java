@@ -31,7 +31,7 @@ public class BlockWeb extends Block {
 
 	@Override
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return Items.H;
+		return Items.STRING;
 	}
 
 	@Override

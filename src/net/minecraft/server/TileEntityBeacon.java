@@ -258,7 +258,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 
 	@Override
 	public boolean canPlaceItem(int var1, ItemStack var2) {
-		return (var2.getItem() == Items.bR) || (var2.getItem() == Items.k) || (var2.getItem() == Items.m) || (var2.getItem() == Items.l);
+		return (var2.getItem() == Items.EMERALD) || (var2.getItem() == Items.DIAMOND) || (var2.getItem() == Items.GOLD_INGOT) || (var2.getItem() == Items.IRON_INGOT);
 	}
 
 	@Override

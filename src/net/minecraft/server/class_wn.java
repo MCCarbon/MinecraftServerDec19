@@ -1,53 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Calendar;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_adi;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.Enchantment;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_apa;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_mt;
-import net.minecraft.server.class_my;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_on;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_qf;
-import net.minecraft.server.class_qh;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_rb;
-import net.minecraft.server.class_ri;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_ru;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sk;
-import net.minecraft.server.class_sm;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_ul;
-import net.minecraft.server.class_wa;
-import net.minecraft.server.class_wi;
-import net.minecraft.server.class_wk;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xd;
 
 public class class_wn extends class_wi implements class_wk {
    private static final int a = Datawathcer.claimId(class_wn.class);
@@ -178,13 +131,13 @@ public class class_wn extends class_wi implements class_wk {
          }
       } else if(var1.j() instanceof class_wa && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new ItemStack(Items.ca, 1, this.cB() == 1?1:0), 0.0F);
+         this.a(new ItemStack(Items.SKULL, 1, this.cB() == 1?1:0), 0.0F);
       }
 
    }
 
    protected Item D() {
-      return Items.g;
+      return Items.ARROW;
    }
 
    protected void b(boolean var1, int var2) {
@@ -194,34 +147,34 @@ public class class_wn extends class_wi implements class_wk {
          var3 = this.random.nextInt(3 + var2) - 1;
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(Items.j, 1);
+            this.a(Items.COAL, 1);
          }
       } else {
          var3 = this.random.nextInt(3 + var2);
 
          for(var4 = 0; var4 < var3; ++var4) {
-            this.a(Items.g, 1);
+            this.a(Items.ARROW, 1);
          }
       }
 
       var3 = this.random.nextInt(3 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.aZ, 1);
+         this.a(Items.BONE, 1);
       }
 
    }
 
    protected void br() {
       if(this.cB() == 1) {
-         this.a(new ItemStack(Items.ca, 1, 1), 0.0F);
+         this.a(new ItemStack(Items.SKULL, 1, 1), 0.0F);
       }
 
    }
 
    protected void a(class_on var1) {
       super.a(var1);
-      this.a(class_pw.a, new ItemStack(Items.f));
+      this.a(class_pw.a, new ItemStack(Items.BOW));
    }
 
    public class_qd a(class_on var1, class_qd var2) {
@@ -229,7 +182,7 @@ public class class_wn extends class_wi implements class_wk {
       if(this.o.worldProvider instanceof class_apa && this.bd().nextInt(5) > 0) {
          this.i.a(4, this.bs);
          this.a(1);
-         this.a(class_pw.a, new ItemStack(Items.s));
+         this.a(class_pw.a, new ItemStack(Items.STONE_SWORD));
          this.a((class_qk)class_wl.e).a(4.0D);
       } else {
          this.i.a(4, this.c);
@@ -253,7 +206,7 @@ public class class_wn extends class_wi implements class_wk {
       this.i.a((class_rm)this.bs);
       this.i.a((class_rm)this.c);
       ItemStack var1 = this.bA();
-      if(var1 != null && var1.getItem() == Items.f) {
+      if(var1 != null && var1.getItem() == Items.BOW) {
          this.i.a(4, this.c);
       } else {
          this.i.a(4, this.bs);

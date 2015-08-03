@@ -7,24 +7,6 @@ import java.util.EnumSet;
 import java.util.Iterator;
 import java.util.Random;
 import java.util.Set;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahh;
-import net.minecraft.server.class_ako;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.BlockStateInteger;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.INamable;
 
 public class class_akk extends Block {
    public static final BlockStateEnum a = BlockStateEnum.of("north", class_akk.class_a_in_class_akk.class);
@@ -259,7 +241,7 @@ public class class_akk extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.aE;
+      return Items.REDSTONE;
    }
 
    public int b(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {

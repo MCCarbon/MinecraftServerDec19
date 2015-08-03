@@ -3,39 +3,6 @@ package net.minecraft.server;
 import com.google.common.collect.Maps;
 import java.util.Iterator;
 import java.util.Map;
-import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.BlockMinecartTrackAbstract;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockPoweredRail;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.ChatComponentText;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.INamableTileEntity;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_vo;
-import net.minecraft.server.class_vp;
-import net.minecraft.server.class_vr;
-import net.minecraft.server.class_vs;
-import net.minecraft.server.class_vt;
-import net.minecraft.server.class_vu;
-import net.minecraft.server.class_vv;
-import net.minecraft.server.EntityHuman;
 
 public abstract class class_vn extends Entity implements INamableTileEntity {
    private static final int a = Datawathcer.claimId(class_vn.class);
@@ -151,7 +118,7 @@ public abstract class class_vn extends Entity implements INamableTileEntity {
    public void a(class_pc var1) {
       this.J();
       if(this.o.R().b("doEntityDrops")) {
-         ItemStack var2 = new ItemStack(Items.aB, 1);
+         ItemStack var2 = new ItemStack(Items.MINECART, 1);
          if(this.h != null) {
             var2.setDisplayName(this.h);
          }

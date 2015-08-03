@@ -3,24 +3,6 @@ package net.minecraft.server;
 import com.google.common.collect.HashMultiset;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Multisets;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockDirt;
-import net.minecraft.server.BlockStone;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Chunk;
-import net.minecraft.server.MaterialMapColor;
-import net.minecraft.server.class_avd;
-import net.minecraft.server.class_avf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.Packet;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_zt;
 
 public class class_aax extends class_zt {
    protected class_aax() {
@@ -183,7 +165,7 @@ public class class_aax extends class_zt {
 
    public void b(ItemStack var1, World var2, EntityHuman var3) {
       if(var1.hasTag() && var1.getTag().getBoolean("map_is_scaling")) {
-         class_avf var4 = Items.bf.a(var1, var2);
+         class_avf var4 = Items.FILLED_MAP.a(var1, var2);
          var1.setData(var2.b("map"));
          class_avf var5 = new class_avf("map_" + var1.i());
          var5.e = (byte)(var4.e + 1);

@@ -1,14 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aan;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_abf;
-import net.minecraft.server.World;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.EntityHuman;
-
-public class class_aao extends class_aan {
+public class class_aao extends ItemBeetroot {
    public class_aao(int var1, float var2, boolean var3) {
       super(var1, var2, var3);
       this.a(true);

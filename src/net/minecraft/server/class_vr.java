@@ -1,22 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aih;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_vn;
-import net.minecraft.server.EntityHuman;
-
 public class class_vr extends class_vn {
    private static final int c = Datawathcer.claimId(class_vr.class);
    private int d;
@@ -110,7 +93,7 @@ public class class_vr extends class_vn {
    }
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
-      if(var2 != null && var2.getItem() == Items.j) {
+      if(var2 != null && var2.getItem() == Items.COAL) {
          if(!var1.abilities.instabuild) {
             --var2.count;
          }

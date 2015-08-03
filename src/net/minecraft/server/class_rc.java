@@ -1,13 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_ul;
-import net.minecraft.server.EntityHuman;
-
 public class class_rc extends class_rm {
    private class_ul a;
    private EntityHuman b;
@@ -54,7 +46,7 @@ public class class_rc extends class_rm {
          EnumUsedHand var5 = var2[var4];
          ItemStack var6 = var1.getItemInHand((EnumUsedHand)var5);
          if(var6 != null) {
-            if(this.a.cA() && var6.getItem() == Items.aZ) {
+            if(this.a.cA() && var6.getItem() == Items.BONE) {
                return true;
             }
 

@@ -1,22 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_aax;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_avf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_uz;
-import net.minecraft.server.EntityHuman;
-
 public class class_va extends class_uz {
    private static final int c = Datawathcer.claimId(class_va.class);
    private static final int d = Datawathcer.claimId(class_va.class);
@@ -79,7 +62,7 @@ public class class_va extends class_uz {
          }
 
          if(var2) {
-            this.a(new ItemStack(Items.bS), 0.0F);
+            this.a(new ItemStack(Items.ITEM_FRAME), 0.0F);
          }
 
          if(var3 != null && this.random.nextFloat() < this.e) {
@@ -93,7 +76,7 @@ public class class_va extends class_uz {
 
    private void b(ItemStack var1) {
       if(var1 != null) {
-         if(var1.getItem() == Items.bf) {
+         if(var1.getItem() == Items.FILLED_MAP) {
             class_avf var2 = ((class_aax)var1.getItem()).a(var1, this.o);
             var2.h.remove("frame-" + this.getId());
          }

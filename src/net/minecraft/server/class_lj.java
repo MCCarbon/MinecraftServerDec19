@@ -5,68 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_aax;
-import net.minecraft.server.class_abe;
-import net.minecraft.server.class_acd;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.class_avf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutSpawnEntity;
-import net.minecraft.server.PacketPlayOutSpawnEntityExperienceOrb;
-import net.minecraft.server.PacketPlayOutSpawnEntityLiving;
-import net.minecraft.server.PacketPlayOutSpawnEntityPainting;
-import net.minecraft.server.PacketPlayOutNamedEntitySpawn;
-import net.minecraft.server.PacketPlayOutEntity;
-import net.minecraft.server.PacketPlayOutBed;
-import net.minecraft.server.PacketPlayOutEntityHeadRotation;
-import net.minecraft.server.PacketPlayOutEntityMetadata;
-import net.minecraft.server.PacketPlayOutAttachEntity;
-import net.minecraft.server.PacketPlayOutEntityVelocity;
-import net.minecraft.server.PacketPlayOutEntityEquipment;
-import net.minecraft.server.PacketPlayOutEntityTeleport;
-import net.minecraft.server.PacketPlayOutUpdateAttributes;
-import net.minecraft.server.PacketPlayOutEntityEffect;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pp;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityExperienceOrb;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qr;
-import net.minecraft.server.class_uq;
-import net.minecraft.server.class_uy;
-import net.minecraft.server.class_va;
-import net.minecraft.server.class_vb;
-import net.minecraft.server.class_vc;
-import net.minecraft.server.class_ve;
-import net.minecraft.server.class_vk;
-import net.minecraft.server.EntityFallingBlock;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.class_vn;
-import net.minecraft.server.EntityTNTPrimed;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xd;
-import net.minecraft.server.class_xe;
-import net.minecraft.server.class_xf;
-import net.minecraft.server.class_xg;
-import net.minecraft.server.class_xk;
-import net.minecraft.server.class_xl;
-import net.minecraft.server.class_xm;
-import net.minecraft.server.class_xn;
-import net.minecraft.server.class_xp;
-import net.minecraft.server.class_xq;
-import net.minecraft.server.class_xr;
-import net.minecraft.server.class_xs;
-import net.minecraft.server.class_xt;
-import net.minecraft.server.class_xu;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -139,14 +78,14 @@ public class class_lj {
          class_va var2 = (class_va)this.a;
          ItemStack var3 = var2.o();
          if(var3 != null && var3.getItem() instanceof class_aax) {
-            class_avf var4 = Items.bf.a(var3, this.a.o);
+            class_avf var4 = Items.FILLED_MAP.a(var3, this.a.o);
             Iterator var5 = var1.iterator();
 
             while(var5.hasNext()) {
                EntityHuman var6 = (EntityHuman)var5.next();
                EntityPlayer var7 = (EntityPlayer)var6;
                var4.a(var7, var3);
-               Packet var8 = Items.bf.a((ItemStack)var3, (World)this.a.o, (EntityHuman)var7);
+               Packet var8 = Items.FILLED_MAP.a((ItemStack)var3, (World)this.a.o, (EntityHuman)var7);
                if(var8 != null) {
                   var7.playerConnection.sendPacket(var8);
                }
@@ -437,7 +376,7 @@ public class class_lj {
          } else if(this.a instanceof class_xm) {
             return new PacketPlayOutSpawnEntity(this.a, 61);
          } else if(this.a instanceof class_xs) {
-            return new PacketPlayOutSpawnEntity(this.a, 73, class_acd.a(class_abe.i(((class_xs)this.a).m())));
+            return new PacketPlayOutSpawnEntity(this.a, 73, class_acd.a(ItemPotion.i(((class_xs) this.a).m())));
          } else if(this.a instanceof class_xr) {
             return new PacketPlayOutSpawnEntity(this.a, 75);
          } else if(this.a instanceof class_xq) {

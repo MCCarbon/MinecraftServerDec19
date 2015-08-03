@@ -1,21 +1,6 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.BlockLeaves;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.EntityHuman;
 
 public class class_ajn extends BlockLeaves {
    public static final BlockStateEnum Q = BlockStateEnum.of("variant", BlockWood.EnumLogVariant.class, new Predicate() {
@@ -35,7 +20,7 @@ public class class_ajn extends BlockLeaves {
 
    protected void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
       if(var3.get(Q) == BlockWood.EnumLogVariant.DARK_OAK && var1.random.nextInt(var4) == 0) {
-         dropItem(var1, var2, new ItemStack(Items.e));
+         dropItem(var1, var2, new ItemStack(Items.APPLE));
       }
 
    }
@@ -80,7 +65,7 @@ public class class_ajn extends BlockLeaves {
    }
 
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
-      if(!var1.isClientSide && var6 != null && var6.getItem() == Items.bg) {
+      if(!var1.isClientSide && var6 != null && var6.getItem() == Items.SHEARS) {
          var2.b(StatisticList.ab[Block.getId((Block)this)]);
          dropItem(var1, var3, new ItemStack(Item.getItemOf((Block)this), 1, ((BlockWood.EnumLogVariant)var4.get(Q)).getId() - 4));
       } else {

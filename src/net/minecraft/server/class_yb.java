@@ -2,23 +2,7 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Map;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_adi;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aga;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.class_ow;
-import net.minecraft.server.PlayerInventory;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-import net.minecraft.server.class_ye;
-import net.minecraft.server.class_yv;
-import net.minecraft.server.class_yx;
+
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -128,7 +112,7 @@ public class class_yb extends Container {
          int var17 = var3 + var1.getRepairCost() + (var6 == null?0:var6.getRepairCost());
          this.k = 0;
          if(var6 != null) {
-            boolean var8 = var6.getItem() == Items.cg && !Items.cg.h(var6).isEmpty();
+            boolean var8 = var6.getItem() == Items.ENCHANTED_BOOK && !Items.ENCHANTED_BOOK.h(var6).isEmpty();
             int var9;
             int var10;
             int var11;
@@ -191,7 +175,7 @@ public class class_yb extends Container {
                   var13 = ((Integer)var19.get(var21)).intValue();
                   var13 = var12 == var13?var13 + 1:Math.max(var13, var12);
                   boolean var14 = var21.a(var1);
-                  if(this.m.abilities.instabuild || var1.getItem() == Items.cg) {
+                  if(this.m.abilities.instabuild || var1.getItem() == Items.ENCHANTED_BOOK) {
                      var14 = true;
                   }
 

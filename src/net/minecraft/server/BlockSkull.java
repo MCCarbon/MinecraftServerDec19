@@ -3,42 +3,6 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.BlockContainer;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahi;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntitySkull;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.class_ano;
-import net.minecraft.server.class_anp;
-import net.minecraft.server.class_anq;
-import net.minecraft.server.class_ant;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.BlockStateDirection;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_dy;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_mt;
-import net.minecraft.server.class_my;
-import net.minecraft.server.class_om;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_uw;
-import net.minecraft.server.EntityHuman;
 
 public class class_akv extends BlockContainer {
    public static final BlockStateDirection a;
@@ -122,7 +86,7 @@ public class class_akv extends BlockContainer {
             TileEntity var4 = var1.getTileEntity(var2);
             if(var4 instanceof TileEntitySkull) {
                TileEntitySkull var5 = (TileEntitySkull)var4;
-               ItemStack var6 = new ItemStack(Items.ca, 1, this.getDropData(var1, var2));
+               ItemStack var6 = new ItemStack(Items.SKULL, 1, this.getDropData(var1, var2));
                if(var5.d() == 3 && var5.b() != null) {
                   var6.setTag(new NBTTagCompound());
                   NBTTagCompound var7 = new NBTTagCompound();
@@ -139,7 +103,7 @@ public class class_akv extends BlockContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.ca;
+      return Items.SKULL;
    }
 
    public boolean b(World var1, BlockPosition var2, ItemStack var3) {

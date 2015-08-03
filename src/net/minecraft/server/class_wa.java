@@ -1,32 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_rb;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_ru;
-import net.minecraft.server.class_sh;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sp;
-import net.minecraft.server.class_sw;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_uc;
-import net.minecraft.server.class_vi;
-import net.minecraft.server.class_wi;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.class_wn;
-import net.minecraft.server.EntityHuman;
-
 public class class_wa extends class_wi {
    private static final int a = Datawathcer.claimId(class_wa.class);
    private static final int b = Datawathcer.claimId(class_wa.class);
@@ -140,13 +113,13 @@ public class class_wa extends class_wi {
    public void a(class_pc var1) {
       super.a(var1);
       if(var1.j() instanceof class_wn) {
-         int var2 = Item.getId(Items.ct);
-         int var3 = Item.getId(Items.cE);
+         int var2 = Item.getId(Items.RECORD_13);
+         int var3 = Item.getId(Items.RECORD_WAIT);
          int var4 = var2 + this.random.nextInt(var3 - var2 + 1);
          this.a(Item.getById(var4), 1);
       } else if(var1.j() instanceof class_wa && var1.j() != this && ((class_wa)var1.j()).n() && ((class_wa)var1.j()).cE()) {
          ((class_wa)var1.j()).cF();
-         this.a(new ItemStack(Items.ca, 1, 4), 0.0F);
+         this.a(new ItemStack(Items.SKULL, 1, 4), 0.0F);
       }
 
    }
@@ -160,7 +133,7 @@ public class class_wa extends class_wi {
    }
 
    protected Item D() {
-      return Items.J;
+      return Items.GUNPOWDER;
    }
 
    public int cB() {
@@ -177,7 +150,7 @@ public class class_wa extends class_wi {
    }
 
    protected boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.d) {
+      if(var3 != null && var3.getItem() == Items.FLINT_AND_STEEL) {
          this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
          var1.a((EnumUsedHand)var2);
          if(!this.o.isClientSide) {

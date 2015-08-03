@@ -4,31 +4,6 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.BlockMinecartTrackAbstract;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_akg;
-import net.minecraft.server.class_alp;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityMobSpawner;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asl;
-import net.minecraft.server.class_asn;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_od;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_vo;
-import net.minecraft.server.EnumColor;
 
 public class class_asa {
    private static final List a;
@@ -80,7 +55,7 @@ public class class_asa {
    }
 
    static {
-      a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.aE, 0, 4, 9, 5), new class_od(Items.aY, EnumColor.l.b(), 4, 9, 5), new class_od(Items.k, 0, 1, 2, 3), new class_od(Items.j, 0, 3, 8, 10), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 1), new class_od(Item.getItemOf(Blocks.RAIL), 0, 4, 8, 1), new class_od(Items.bj, 0, 2, 4, 10), new class_od(Items.bi, 0, 2, 4, 10), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1)}));
+      a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 1, 3, 5), new class_od(Items.REDSTONE, 0, 4, 9, 5), new class_od(Items.DYE, EnumColor.l.b(), 4, 9, 5), new class_od(Items.DIAMOND, 0, 1, 2, 3), new class_od(Items.COAL, 0, 3, 8, 10), new class_od(Items.BREAD, 0, 1, 3, 15), new class_od(Items.IRON_PICKAXE, 0, 1, 1, 1), new class_od(Item.getItemOf(Blocks.RAIL), 0, 4, 8, 1), new class_od(Items.MELON_SEEDS, 0, 2, 4, 10), new class_od(Items.PUMPKIN_SEEDS, 0, 2, 4, 10), new class_od(Items.SADDLE, 0, 1, 1, 3), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 1)}));
    }
 
    // $FF: synthetic class
@@ -516,11 +491,11 @@ public class class_asa {
                this.a(var1, var3, var2, 0.05F, 1, 2, var10 - 1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.SOUTH));
                this.a(var1, var3, var2, 0.05F, 1, 2, var10 + 1, Blocks.TORCH.getBlockData().set(class_alp.a, EnumDirection.NORTH));
                if(var2.nextInt(100) == 0) {
-                  this.a(var1, var3, var2, 2, 0, var10 - 1, class_od.a(class_asa.a, new class_od[]{Items.cg.b(var2)}), 3 + var2.nextInt(4));
+                  this.a(var1, var3, var2, 2, 0, var10 - 1, class_od.a(class_asa.a, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 3 + var2.nextInt(4));
                }
 
                if(var2.nextInt(100) == 0) {
-                  this.a(var1, var3, var2, 0, 0, var10 + 1, class_od.a(class_asa.a, new class_od[]{Items.cg.b(var2)}), 3 + var2.nextInt(4));
+                  this.a(var1, var3, var2, 0, 0, var10 + 1, class_od.a(class_asa.a, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 3 + var2.nextInt(4));
                }
 
                if(this.b && !this.c) {

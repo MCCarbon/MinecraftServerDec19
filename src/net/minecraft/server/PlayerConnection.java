@@ -901,7 +901,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						return;
 					}
 
-					if ((var67.getItem() == Items.bP) && (var67.getItem() == var72.getItem())) {
+					if ((var67.getItem() == Items.WRITABLE_BOOK) && (var67.getItem() == var72.getItem())) {
 						var72.addTag("pages", var67.getTag().getList("pages", 8));
 					}
 
@@ -930,11 +930,11 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 
 				var72 = player.bA();
 				if (var72 != null) {
-					if ((var67.getItem() == Items.bQ) && (var72.getItem() == Items.bP)) {
+					if ((var67.getItem() == Items.WRITTEN_BOOK) && (var72.getItem() == Items.WRITABLE_BOOK)) {
 						var72.addTag("author", (new NBTTagString(player.getName())));
 						var72.addTag("title", (new NBTTagString(var67.getTag().getString("title"))));
 						var72.addTag("pages", var67.getTag().getList("pages", 8));
-						var72.a(Items.bQ);
+						var72.a(Items.WRITTEN_BOOK);
 					}
 
 					return;

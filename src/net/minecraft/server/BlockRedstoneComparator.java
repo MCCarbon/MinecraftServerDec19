@@ -3,33 +3,6 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_ahh;
-import net.minecraft.server.IContainer;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityComparator;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.INamable;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_va;
-import net.minecraft.server.EntityHuman;
 
 public class class_ahb extends class_ahh implements IContainer {
    public static final BlockStateBoolean a = BlockStateBoolean.of("powered");
@@ -46,7 +19,7 @@ public class class_ahb extends class_ahh implements IContainer {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.ch;
+      return Items.COMPARATOR;
    }
 
    protected int d(IBlockData var1) {

@@ -3,23 +3,6 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_alt;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityHuman;
 
 public class class_als extends Block {
    public static final BlockStateBoolean a = BlockStateBoolean.of("powered");
@@ -55,7 +38,7 @@ public class class_als extends Block {
    }
 
    public Item getDropType(IBlockData var1, Random var2, int var3) {
-      return Items.H;
+      return Items.STRING;
    }
 
    public void doPhysics(World var1, BlockPosition var2, IBlockData var3, Block var4) {
@@ -94,7 +77,7 @@ public class class_als extends Block {
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
       if(!var1.isClientSide) {
-         if(var4.bA() != null && var4.bA().getItem() == Items.bg) {
+         if(var4.bA() != null && var4.bA().getItem() == Items.SHEARS) {
             var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(O, Boolean.valueOf(true)), 4);
          }
 

@@ -5,18 +5,6 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_abe;
-import net.minecraft.server.World;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_xd;
 
 public class class_xt extends class_xd {
    private static final int f = Datawathcer.claimId(class_xt.class);
@@ -45,7 +33,7 @@ public class class_xt extends class_xd {
    }
 
    private void a(ItemStack var1) {
-      List var2 = class_abe.h(var1);
+      List var2 = ItemPotion.h(var1);
       if(!var2.isEmpty()) {
          Iterator var3 = var2.iterator();
 
@@ -54,7 +42,7 @@ public class class_xt extends class_xd {
             this.g.add(new class_pl(var4));
          }
 
-         this.datawatcher.update(f, Integer.valueOf(class_abe.a((Collection)this.g)));
+         this.datawatcher.update(f, Integer.valueOf(ItemPotion.a((Collection) this.g)));
       }
 
       this.h = var1.clone();
@@ -131,6 +119,6 @@ public class class_xt extends class_xd {
    }
 
    protected ItemStack j() {
-      return this.g.isEmpty()?new ItemStack(Items.g):this.h;
+      return this.g.isEmpty()?new ItemStack(Items.ARROW):this.h;
    }
 }

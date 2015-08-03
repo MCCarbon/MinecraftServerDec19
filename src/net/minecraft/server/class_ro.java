@@ -1,17 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockCrops;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_ow;
-import net.minecraft.server.class_rx;
-import net.minecraft.server.class_wv;
-
 public class class_ro extends class_rx {
    private final class_wv c;
    private boolean d;
@@ -66,13 +54,13 @@ public class class_ro extends class_rx {
                ItemStack var7 = var5.getItem(var6);
                boolean var8 = false;
                if(var7 != null) {
-                  if(var7.getItem() == Items.P) {
+                  if(var7.getItem() == Items.WHEAT_SEEDS) {
                      var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.WHEAT.getBlockData(), 3);
                      var8 = true;
-                  } else if(var7.getItem() == Items.bV) {
+                  } else if(var7.getItem() == Items.POTATO) {
                      var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.POTATOES.getBlockData(), 3);
                      var8 = true;
-                  } else if(var7.getItem() == Items.bU) {
+                  } else if(var7.getItem() == Items.CARROT) {
                      var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.CARROTS.getBlockData(), 3);
                      var8 = true;
                   }

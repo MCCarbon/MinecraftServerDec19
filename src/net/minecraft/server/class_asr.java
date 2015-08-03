@@ -5,34 +5,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afd;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockCrops;
-import net.minecraft.server.class_aiz;
-import net.minecraft.server.BlockSandStone;
-import net.minecraft.server.BlockStairs;
-import net.minecraft.server.class_alp;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asl;
-import net.minecraft.server.class_asn;
-import net.minecraft.server.class_asq;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_od;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_wv;
-import net.minecraft.server.EnumColor;
 
 public class class_asr {
    public static void a() {
@@ -578,7 +550,7 @@ public class class_asr {
       }
 
       static {
-         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 1, 3, 3), new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 1, 3, 5), new class_od(Items.R, 0, 1, 3, 15), new class_od(Items.e, 0, 1, 3, 15), new class_od(Items.b, 0, 1, 1, 5), new class_od(Items.n, 0, 1, 1, 5), new class_od(Items.ab, 0, 1, 1, 5), new class_od(Items.aa, 0, 1, 1, 5), new class_od(Items.ac, 0, 1, 1, 5), new class_od(Items.ad, 0, 1, 1, 5), new class_od(Item.getItemOf(Blocks.OBSIDIAN), 0, 3, 7, 5), new class_od(Item.getItemOf(Blocks.SAPLING), 0, 3, 7, 5), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
+         a = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 1, 3, 3), new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 1, 3, 5), new class_od(Items.BREAD, 0, 1, 3, 15), new class_od(Items.APPLE, 0, 1, 3, 15), new class_od(Items.IRON_PICKAXE, 0, 1, 1, 5), new class_od(Items.IRON_SWORD, 0, 1, 1, 5), new class_od(Items.IRON_CHESTPLATE, 0, 1, 1, 5), new class_od(Items.IRON_HELMET, 0, 1, 1, 5), new class_od(Items.IRON_LEGGINGS, 0, 1, 1, 5), new class_od(Items.IRON_BOOTS, 0, 1, 1, 5), new class_od(Item.getItemOf(Blocks.OBSIDIAN), 0, 3, 7, 5), new class_od(Item.getItemOf(Blocks.SAPLING), 0, 3, 7, 5), new class_od(Items.SADDLE, 0, 1, 1, 3), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.GOLDEN_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.DIAMOND_HORSE_ARMOR, 0, 1, 1, 1)}));
       }
    }
 

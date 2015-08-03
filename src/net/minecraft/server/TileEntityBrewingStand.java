@@ -224,7 +224,7 @@ public class TileEntityBrewingStand extends TileEntityContainer implements ITick
 			return class_ace.a(var2);
 		} else {
 			Item var3 = var2.getItem();
-			return (var3 == Items.bB) || (var3 == Items.bD);
+			return (var3 == Items.POTION) || (var3 == Items.GLASS_BOTTLE);
 		}
 	}
 

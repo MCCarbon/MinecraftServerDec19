@@ -1,13 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-import net.minecraft.server.class_ye;
-import net.minecraft.server.class_yx;
-
 public class class_yc extends Container {
    private IInventory a;
    private final class_yc.class_a_in_class_yc f;
@@ -105,7 +97,7 @@ public class class_yc extends Container {
       }
 
       public boolean a(ItemStack var1) {
-         return var1 == null?false:var1.getItem() == Items.bR || var1.getItem() == Items.k || var1.getItem() == Items.m || var1.getItem() == Items.l;
+         return var1 == null?false:var1.getItem() == Items.EMERALD || var1.getItem() == Items.DIAMOND || var1.getItem() == Items.GOLD_INGOT || var1.getItem() == Items.IRON_INGOT;
       }
 
       public int a() {

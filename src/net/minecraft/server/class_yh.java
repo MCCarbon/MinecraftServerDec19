@@ -1,19 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_act;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.PlayerInventory;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-import net.minecraft.server.class_yg;
-import net.minecraft.server.class_yv;
-import net.minecraft.server.class_yw;
-import net.minecraft.server.class_yx;
-
 public class class_yh extends Container {
    public class_yg a = new class_yg(this, 3, 3);
    public IInventory f = new class_yv();
@@ -47,7 +33,7 @@ public class class_yh extends Container {
    }
 
    public void a(IInventory var1) {
-      this.f.setItem(0, class_act.a().a(this.a, this.g));
+      this.f.setItem(0, RecipeManager.a().a(this.a, this.g));
    }
 
    public void b(EntityHuman var1) {

@@ -43,7 +43,7 @@ public class BlockChorusPlant extends Block {
 
 	@Override
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return Items.cI;
+		return Items.CHORUS_FRUIT;
 	}
 
 	@Override

@@ -1,30 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockDirectional;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.BlockStateDirection;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.MovingObjectPosition;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.INamable;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.EntityHuman;
 
 public class class_ahl extends Block {
    public static final BlockStateDirection a;
@@ -217,7 +193,7 @@ public class class_ahl extends Block {
    }
 
    private Item l() {
-      return this == Blocks.IRON_DOOR?Items.aD:(this == Blocks.SPRUCE_DOOR?Items.at:(this == Blocks.BIRCH_DOOR?Items.au:(this == Blocks.JUNGLE_DOOR?Items.av:(this == Blocks.ACACIA_DOOR?Items.aw:(this == Blocks.DARK_OAK_DOOR?Items.ax:Items.as)))));
+      return this == Blocks.IRON_DOOR?Items.IRON_DOOR :(this == Blocks.SPRUCE_DOOR?Items.SPRUCE_DOOR :(this == Blocks.BIRCH_DOOR?Items.BIRCH_DOOR :(this == Blocks.JUNGLE_DOOR?Items.JUNGLE_DOOR :(this == Blocks.ACACIA_DOOR?Items.ACACIA_DOOR :(this == Blocks.DARK_OAK_DOOR?Items.DARK_OAK_DOOR :Items.WOODEN_DOOR)))));
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {

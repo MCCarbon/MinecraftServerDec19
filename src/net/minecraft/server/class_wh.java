@@ -1,15 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.class_om;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.class_wo;
-
 public class class_wh extends class_wo {
    public class_wh(World var1) {
       super(var1);
@@ -46,7 +36,7 @@ public class class_wh extends class_wo {
    }
 
    protected Item D() {
-      return Items.bH;
+      return Items.MAGMA_CREAM;
    }
 
    protected void b(boolean var1, int var2) {

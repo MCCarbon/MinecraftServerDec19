@@ -1,26 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_acs;
-import net.minecraft.server.class_act;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntityBanner;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_yg;
-import net.minecraft.server.EnumColor;
-
 public class class_acj {
-   void a(class_act var1) {
+   void a(RecipeManager var1) {
       EnumColor[] var2 = EnumColor.values();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
          EnumColor var5 = var2[var4];
-         var1.a(new ItemStack(Items.cH, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new ItemStack(Blocks.WOOL, 1, var5.a()), Character.valueOf('|'), Items.A});
+         var1.a(new ItemStack(Items.BANNER, 1, var5.b()), new Object[]{"###", "###", " | ", Character.valueOf('#'), new ItemStack(Blocks.WOOL, 1, var5.a()), Character.valueOf('|'), Items.STICK});
       }
 
       var1.a(new class_acj.class_b_in_class_acj());
@@ -40,7 +27,7 @@ public class class_acj {
 
          for(int var4 = 0; var4 < var1.getSize(); ++var4) {
             ItemStack var5 = var1.getItem(var4);
-            if(var5 != null && var5.getItem() == Items.cH) {
+            if(var5 != null && var5.getItem() == Items.BANNER) {
                if(var3) {
                   return false;
                }
@@ -65,7 +52,7 @@ public class class_acj {
 
          for(int var3 = 0; var3 < var1.getSize(); ++var3) {
             ItemStack var4 = var1.getItem(var3);
-            if(var4 != null && var4.getItem() == Items.cH) {
+            if(var4 != null && var4.getItem() == Items.BANNER) {
                var2 = var4.clone();
                var2.count = 1;
                break;
@@ -79,7 +66,7 @@ public class class_acj {
             ItemStack var6;
             for(int var5 = 0; var5 < var1.getSize(); ++var5) {
                var6 = var1.getItem(var5);
-               if(var6 != null && var6.getItem() == Items.aY) {
+               if(var6 != null && var6.getItem() == Items.DYE) {
                   var9 = var6.i();
                   break;
                }
@@ -140,8 +127,8 @@ public class class_acj {
 
                   for(var9 = 0; var9 < var1.getSize() && var6; ++var9) {
                      ItemStack var10 = var1.getItem(var9);
-                     if(var10 != null && var10.getItem() != Items.cH) {
-                        if(var10.getItem() == Items.aY) {
+                     if(var10 != null && var10.getItem() != Items.BANNER) {
+                        if(var10.getItem() == Items.DYE) {
                            if(var8) {
                               var6 = false;
                               break;
@@ -169,8 +156,8 @@ public class class_acj {
                      var9 = var13 / 3;
                      int var14 = var13 % 3;
                      ItemStack var11 = var1.getItem(var13);
-                     if(var11 != null && var11.getItem() != Items.cH) {
-                        if(var11.getItem() != Items.aY) {
+                     if(var11 != null && var11.getItem() != Items.BANNER) {
+                        if(var11.getItem() != Items.DYE) {
                            var6 = false;
                            break;
                         }
@@ -221,7 +208,7 @@ public class class_acj {
          for(int var5 = 0; var5 < var1.getSize(); ++var5) {
             ItemStack var6 = var1.getItem(var5);
             if(var6 != null) {
-               if(var6.getItem() != Items.cH) {
+               if(var6.getItem() != Items.BANNER) {
                   return false;
                }
 

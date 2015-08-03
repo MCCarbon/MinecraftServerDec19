@@ -1,7 +1,5 @@
 package net.minecraft.server;
 
-import java.util.List;
-
 public class TileEntityBanner extends TileEntity {
 
 	private int a;
@@ -120,13 +118,13 @@ public class TileEntityBanner extends TileEntity {
 		D("half_horizontal_bottom", "hhb", "   ", "###", "###"),
 		E("border", "bo", "###", "# #", "###"),
 		F("curly_border", "cbo", new ItemStack(Blocks.VINE)),
-		G("creeper", "cre", new ItemStack(Items.ca, 1, 4)),
+		G("creeper", "cre", new ItemStack(Items.SKULL, 1, 4)),
 		H("gradient", "gra", "# #", " # ", " # "),
 		I("gradient_up", "gru", " # ", " # ", "# #"),
 		J("bricks", "bri", new ItemStack(Blocks.BRICK_BLOCK)),
-		K("skull", "sku", new ItemStack(Items.ca, 1, 1)),
+		K("skull", "sku", new ItemStack(Items.SKULL, 1, 1)),
 		L("flower", "flo", new ItemStack(Blocks.RED_FLOWER, 1, BlockFlowers.EnumFlowerVarient.OXEYE_DAISY.getId())),
-		M("mojang", "moj", new ItemStack(Items.aq, 1, 1));
+		M("mojang", "moj", new ItemStack(Items.GOLDEN_APPLE, 1, 1));
 
 		private String O;
 		private String[] P;

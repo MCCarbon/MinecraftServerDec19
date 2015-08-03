@@ -118,11 +118,11 @@ public class BlockCrops extends BlockPlant implements IBlockFragilePlantElement 
 	}
 
 	protected Item getSeedItem() {
-		return Items.P;
+		return Items.WHEAT_SEEDS;
 	}
 
 	protected Item getPlantItem() {
-		return Items.Q;
+		return Items.WHEAT;
 	}
 
 	@Override

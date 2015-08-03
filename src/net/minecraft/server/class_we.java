@@ -1,29 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_mt;
-import net.minecraft.server.class_my;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_om;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_py;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qz;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_sy;
-import net.minecraft.server.class_wd;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xh;
 
 public class class_we extends class_py implements class_wd {
    private static final int a = Datawathcer.claimId(class_we.class);
@@ -93,7 +70,7 @@ public class class_we extends class_py implements class_wd {
    }
 
    protected Item D() {
-      return Items.J;
+      return Items.GUNPOWDER;
    }
 
    protected void b(boolean var1, int var2) {
@@ -101,13 +78,13 @@ public class class_we extends class_py implements class_wd {
 
       int var4;
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.by, 1);
+         this.a(Items.GHAST_TEAR, 1);
       }
 
       var3 = this.random.nextInt(3) + this.random.nextInt(1 + var2);
 
       for(var4 = 0; var4 < var3; ++var4) {
-         this.a(Items.J, 1);
+         this.a(Items.GUNPOWDER, 1);
       }
 
    }

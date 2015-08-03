@@ -4,34 +4,6 @@ import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aid;
-import net.minecraft.server.class_ajc;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.class_ako;
-import net.minecraft.server.BlockSandStone;
-import net.minecraft.server.BlockStairs;
-import net.minecraft.server.class_ali;
-import net.minecraft.server.BlockDoubleStepAbstract;
-import net.minecraft.server.class_als;
-import net.minecraft.server.class_alt;
-import net.minecraft.server.class_alu;
-import net.minecraft.server.BlockPiston;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asl;
-import net.minecraft.server.class_asn;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_od;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_wq;
-import net.minecraft.server.EnumColor;
 
 public class class_ash {
    public static void a() {
@@ -298,7 +270,7 @@ public class class_ash {
             this.a(var1, Blocks.VINE.getBlockData().set(class_alu.N, Boolean.valueOf(true)), 8, -1, 3, var3);
             this.a(var1, Blocks.VINE.getBlockData().set(class_alu.N, Boolean.valueOf(true)), 8, -2, 3, var3);
             if(!this.e) {
-               this.e = this.a(var1, var3, var2, 8, -3, 3, class_od.a(i, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(5));
+               this.e = this.a(var1, var3, var2, 8, -3, 3, class_od.a(i, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 2 + var2.nextInt(5));
             }
 
             this.a(var1, Blocks.MOSSY_COBBLESTONE.getBlockData(), 9, -3, 2, var3);
@@ -330,7 +302,7 @@ public class class_ash {
             this.a(var1, Blocks.STICKY_PISTON.getBlockData().set(BlockPiston.FACING, EnumDirection.WEST), 10, -1, 8, var3);
             this.a(var1, Blocks.UNPOWERED_REPEATER.getBlockData().set(class_ako.FACING, EnumDirection.NORTH), 10, -2, 10, var3);
             if(!this.f) {
-               this.f = this.a(var1, var3, var2, 9, -3, 10, class_od.a(i, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(5));
+               this.f = this.a(var1, var3, var2, 9, -3, 10, class_od.a(i, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 2 + var2.nextInt(5));
             }
 
             return true;
@@ -338,8 +310,8 @@ public class class_ash {
       }
 
       static {
-         i = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 1, 3, 3), new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 2, 7, 15), new class_od(Items.bR, 0, 1, 3, 2), new class_od(Items.aZ, 0, 4, 6, 20), new class_od(Items.bv, 0, 3, 7, 16), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
-         j = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.g, 0, 2, 7, 30)}));
+         i = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 1, 3, 3), new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 2, 7, 15), new class_od(Items.EMERALD, 0, 1, 3, 2), new class_od(Items.BONE, 0, 4, 6, 20), new class_od(Items.ROTTEN_FLESH, 0, 3, 7, 16), new class_od(Items.SADDLE, 0, 1, 1, 3), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.GOLDEN_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.DIAMOND_HORSE_ARMOR, 0, 1, 1, 1)}));
+         j = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.ARROW, 0, 2, 7, 30)}));
          k = new class_ash.class_b_in_class_ash.class_b_in_class_ash$class_a_in_class_b_in_class_ash();
       }
 
@@ -580,7 +552,7 @@ public class class_ash {
             if(!this.e[var11.getHorizontalId()]) {
                int var12 = var11.getAdjacentX() * 2;
                int var13 = var11.getAdjacentZ() * 2;
-               this.e[var11.getHorizontalId()] = this.a(var1, var3, var2, 10 + var12, -11, 10 + var13, class_od.a(f, new class_od[]{Items.cg.b(var2)}), 2 + var2.nextInt(5));
+               this.e[var11.getHorizontalId()] = this.a(var1, var3, var2, 10 + var12, -11, 10 + var13, class_od.a(f, new class_od[]{Items.ENCHANTED_BOOK.b(var2)}), 2 + var2.nextInt(5));
             }
          }
 
@@ -588,7 +560,7 @@ public class class_ash {
       }
 
       static {
-         f = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.k, 0, 1, 3, 3), new class_od(Items.l, 0, 1, 5, 10), new class_od(Items.m, 0, 2, 7, 15), new class_od(Items.bR, 0, 1, 3, 2), new class_od(Items.aZ, 0, 4, 6, 20), new class_od(Items.bv, 0, 3, 7, 16), new class_od(Items.aC, 0, 1, 1, 3), new class_od(Items.cn, 0, 1, 1, 1), new class_od(Items.co, 0, 1, 1, 1), new class_od(Items.cp, 0, 1, 1, 1)}));
+         f = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 1, 3, 3), new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 2, 7, 15), new class_od(Items.EMERALD, 0, 1, 3, 2), new class_od(Items.BONE, 0, 4, 6, 20), new class_od(Items.ROTTEN_FLESH, 0, 3, 7, 16), new class_od(Items.SADDLE, 0, 1, 1, 3), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.GOLDEN_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.DIAMOND_HORSE_ARMOR, 0, 1, 1, 1)}));
       }
    }
 

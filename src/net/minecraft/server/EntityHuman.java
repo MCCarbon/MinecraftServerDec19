@@ -331,7 +331,7 @@ public abstract class EntityHuman extends EntityLiving {
 		this.b(s, t, u);
 		motY = 0.10000000149011612D;
 		if (getName().equals("Notch")) {
-			this.a(new ItemStack(Items.e, 1), true, false);
+			this.a(new ItemStack(Items.APPLE, 1), true, false);
 		}
 
 		if (!o.R().b("keepInventory")) {
@@ -1477,7 +1477,7 @@ public abstract class EntityHuman extends EntityLiving {
 						if (class_qb.c(var2) != var3) {
 							return false;
 						}
-					} else if ((var3 != class_pw.f) || ((var2.getItem() != Items.ca) && !(var2.getItem() instanceof ItemBlock))) {
+					} else if ((var3 != class_pw.f) || ((var2.getItem() != Items.SKULL) && !(var2.getItem() instanceof ItemBlock))) {
 						return false;
 					}
 				}

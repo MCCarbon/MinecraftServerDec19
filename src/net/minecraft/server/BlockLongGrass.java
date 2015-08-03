@@ -25,7 +25,7 @@ public class BlockLongGrass extends BlockPlant implements IBlockFragilePlantElem
 
 	@Override
 	public Item getDropType(IBlockData var1, Random var2, int var3) {
-		return var2.nextInt(8) == 0 ? Items.P : null;
+		return var2.nextInt(8) == 0 ? Items.WHEAT_SEEDS : null;
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class BlockLongGrass extends BlockPlant implements IBlockFragilePlantElem
 
 	@Override
 	public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
-		if (!var1.isClientSide && (var6 != null) && (var6.getItem() == Items.bg)) {
+		if (!var1.isClientSide && (var6 != null) && (var6.getItem() == Items.SHEARS)) {
 			var2.b(StatisticList.ab[Block.getId(this)]);
 			dropItem(var1, var3, new ItemStack(Blocks.TALLGRASS, 1, var4.get(TYPE).getId()));
 		} else {

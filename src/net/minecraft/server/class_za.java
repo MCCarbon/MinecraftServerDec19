@@ -2,27 +2,6 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicates;
 import java.util.List;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.BlockDispenser;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.ISourceBlock;
-import net.minecraft.server.DispenseBehaviorItem;
-import net.minecraft.server.IDispenseBehavior;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.UseResult;
-import net.minecraft.server.class_or;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.CreativeTab;
 
 public class class_za extends Item {
    private static final int[] k = new int[]{13, 15, 16, 11};
@@ -176,7 +155,7 @@ public class class_za extends Item {
       }
 
       public Item b() {
-         return this == a?Items.aH:(this == b?Items.l:(this == d?Items.m:(this == c?Items.l:(this == e?Items.k:null))));
+         return this == a?Items.LEATHER :(this == b?Items.IRON_INGOT :(this == d?Items.GOLD_INGOT :(this == c?Items.IRON_INGOT :(this == e?Items.DIAMOND :null))));
       }
    }
 }

@@ -9,23 +9,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.class_adi;
-import net.minecraft.server.class_adl;
-import net.minecraft.server.Enchantment;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_g;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_oc;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qf;
-import net.minecraft.server.EntityHuman;
 
 public class EnchantmentManager {
    private static final Random a = new Random();
@@ -57,7 +40,7 @@ public class EnchantmentManager {
 
    public static Map a(ItemStack var0) {
       LinkedHashMap var1 = Maps.newLinkedHashMap();
-      NBTTagList var2 = var0.getItem() == Items.cg?Items.cg.h(var0):var0.getEnchantments();
+      NBTTagList var2 = var0.getItem() == Items.ENCHANTED_BOOK ?Items.ENCHANTED_BOOK.h(var0):var0.getEnchantments();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.getSize(); ++var3) {
             class_adi var4 = class_adi.c(var2.getCompound(var3).getShort("id"));
@@ -82,8 +65,8 @@ public class EnchantmentManager {
             var7.put("id", (short)class_adi.b(var5));
             var7.put("lvl", (short)var6);
             var2.add((NBTTag)var7);
-            if(var1.getItem() == Items.cg) {
-               Items.cg.a(var1, new class_adl(var5, var6));
+            if(var1.getItem() == Items.ENCHANTED_BOOK) {
+               Items.ENCHANTED_BOOK.a(var1, new class_adl(var5, var6));
             }
          }
       }
@@ -92,7 +75,7 @@ public class EnchantmentManager {
          if(var1.hasTag()) {
             var1.getTag().remove("ench");
          }
-      } else if(var1.getItem() != Items.cg) {
+      } else if(var1.getItem() != Items.ENCHANTED_BOOK) {
          var1.addTag((String)"ench", (NBTTag)var2);
       }
 
@@ -257,9 +240,9 @@ public class EnchantmentManager {
    }
 
    public static ItemStack a(Random var0, ItemStack var1, int var2) {
-      boolean var3 = var1.getItem() == Items.aN;
+      boolean var3 = var1.getItem() == Items.BOOK;
       if(var3) {
-         var1.a((Item)Items.cg);
+         var1.a((Item)Items.ENCHANTED_BOOK);
       }
 
       List var4 = b(var0, var1, var2);
@@ -268,7 +251,7 @@ public class EnchantmentManager {
       while(var5.hasNext()) {
          class_adl var6 = (class_adl)var5.next();
          if(var3) {
-            Items.cg.a(var1, var6);
+            Items.ENCHANTED_BOOK.a(var1, var6);
          } else {
             var1.addEnchantment(var6.b, var6.c);
          }
@@ -315,7 +298,7 @@ public class EnchantmentManager {
    public static List a(int var0, ItemStack var1) {
       ArrayList var2 = Lists.newArrayList();
       Item var3 = var1.getItem();
-      boolean var4 = var1.getItem() == Items.aN;
+      boolean var4 = var1.getItem() == Items.BOOK;
       Iterator var5 = class_adi.b.iterator();
 
       while(true) {

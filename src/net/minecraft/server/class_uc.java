@@ -1,44 +1,6 @@
 package net.minecraft.server;
 
 import com.google.common.base.Predicate;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_on;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_po;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qj;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_rb;
-import net.minecraft.server.class_re;
-import net.minecraft.server.class_rj;
-import net.minecraft.server.class_rk;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_rq;
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_sa;
-import net.minecraft.server.class_sb;
-import net.minecraft.server.class_si;
-import net.minecraft.server.class_sr;
-import net.minecraft.server.class_ta;
-import net.minecraft.server.class_tf;
-import net.minecraft.server.class_tw;
-import net.minecraft.server.class_tx;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
 
 public class class_uc extends class_qj {
    private static final int bw = Datawathcer.claimId(class_uc.class);
@@ -51,7 +13,7 @@ public class class_uc extends class_qj {
       ((class_tf)this.u()).a(true);
       this.i.a(1, new class_rj(this));
       this.i.a(2, this.bu);
-      this.i.a(3, this.by = new class_sr(this, 0.6D, Items.aW, true));
+      this.i.a(3, this.by = new class_sr(this, 0.6D, Items.FISH, true));
       this.i.a(5, new class_rk(this, 1.0D, 10.0F, 5.0F));
       this.i.a(6, new class_sb(this, 0.8D));
       this.i.a(7, new class_rq(this, 0.3F));
@@ -127,7 +89,7 @@ public class class_uc extends class_qj {
    }
 
    protected Item D() {
-      return Items.aH;
+      return Items.LEATHER;
    }
 
    public boolean r(Entity var1) {
@@ -151,7 +113,7 @@ public class class_uc extends class_qj {
          if(this.e(var1) && !this.o.isClientSide && !this.d(var3)) {
             this.bu.a(!this.cC());
          }
-      } else if(this.by.f() && var3 != null && var3.getItem() == Items.aW && var1.h(this) < 9.0D) {
+      } else if(this.by.f() && var3 != null && var3.getItem() == Items.FISH && var1.h(this) < 9.0D) {
          if(!var1.abilities.instabuild) {
             --var3.count;
          }
@@ -188,7 +150,7 @@ public class class_uc extends class_qj {
    }
 
    public boolean d(ItemStack var1) {
-      return var1 != null && var1.getItem() == Items.aW;
+      return var1 != null && var1.getItem() == Items.FISH;
    }
 
    public boolean a(class_tw var1) {

@@ -1,29 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.IBlockFragilePlantElement;
-import net.minecraft.server.BlockPlant;
-import net.minecraft.server.BlockDirectional;
-import net.minecraft.server.BlockLongGrass;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateEnum;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.StatisticList;
-import net.minecraft.server.INamable;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
 
 public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
    public static final BlockStateEnum a = BlockStateEnum.of("variant", class_ahm.class_b_in_class_ahm.class);
@@ -101,7 +78,7 @@ public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
          return null;
       } else {
          class_ahm.class_b_in_class_ahm var4 = (class_ahm.class_b_in_class_ahm)var1.get(a);
-         return var4 == class_ahm.class_b_in_class_ahm.d?null:(var4 == class_ahm.class_b_in_class_ahm.c?(var2.nextInt(8) == 0?Items.P:null):Item.getItemOf((Block)this));
+         return var4 == class_ahm.class_b_in_class_ahm.d?null:(var4 == class_ahm.class_b_in_class_ahm.c?(var2.nextInt(8) == 0?Items.WHEAT_SEEDS :null):Item.getItemOf((Block)this));
       }
    }
 
@@ -119,7 +96,7 @@ public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
    }
 
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
-      if(var1.isClientSide || var6 == null || var6.getItem() != Items.bg || var4.get(b) != class_ahm.class_a_in_class_ahm.b || !this.b(var1, var3, var4, var2)) {
+      if(var1.isClientSide || var6 == null || var6.getItem() != Items.SHEARS || var4.get(b) != class_ahm.class_a_in_class_ahm.b || !this.b(var1, var3, var4, var2)) {
          super.breakBlockNaturally(var1, var2, var3, var4, var5, var6);
       }
    }
@@ -133,7 +110,7 @@ public class class_ahm extends BlockPlant implements IBlockFragilePlantElement {
                if(var6 != class_ahm.class_b_in_class_ahm.d && var6 != class_ahm.class_b_in_class_ahm.c) {
                   var1.setAir(var2.down(), true);
                } else if(!var1.isClientSide) {
-                  if(var4.bA() != null && var4.bA().getItem() == Items.bg) {
+                  if(var4.bA() != null && var4.bA().getItem() == Items.SHEARS) {
                      this.b(var1, var2, var5, var4);
                      var1.setAir(var2.down());
                   } else {

@@ -11,61 +11,6 @@ import java.util.Map;
 import java.util.Random;
 import java.util.UUID;
 
-import net.minecraft.server.Item;
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_abe;
-import net.minecraft.server.class_abz;
-import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.World;
-import net.minecraft.server.IBlockAccess;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aiz;
-import net.minecraft.server.class_alr;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_awp;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.NBTTagFloat;
-import net.minecraft.server.NBTTagList;
-import net.minecraft.server.NBTTagShort;
-import net.minecraft.server.NBTTag;
-import net.minecraft.server.Packet;
-import net.minecraft.server.PacketPlayOutAnimation;
-import net.minecraft.server.PacketPlayOutEntityEquipment;
-import net.minecraft.server.PacketPlayOutCollect;
-import net.minecraft.server.class_lb;
-import net.minecraft.server.WorldServer;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.class_pb;
-import net.minecraft.server.class_pc;
-import net.minecraft.server.class_pk;
-import net.minecraft.server.class_pl;
-import net.minecraft.server.class_pm;
-import net.minecraft.server.Entity;
-import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.class_pw;
-import net.minecraft.server.EntityExperienceOrb;
-import net.minecraft.server.class_qf;
-import net.minecraft.server.Datawathcer;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_qm;
-import net.minecraft.server.class_qo;
-import net.minecraft.server.class_qr;
-import net.minecraft.server.class_ul;
-import net.minecraft.server.EntityItem;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xd;
-import net.minecraft.server.class_za;
-
 public abstract class EntityLiving extends Entity {
 	private static final UUID a = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
 	private static final class_qm b;
@@ -512,7 +457,7 @@ public abstract class EntityLiving extends Entity {
 		} else {
 			Collection<class_pl> var1 = this.bo.values();
 			this.datawatcher.update(g, Byte.valueOf((byte) (a(var1) ? 1 : 0)));
-			this.datawatcher.update(f, Integer.valueOf(class_abe.a(var1)));
+			this.datawatcher.update(f, Integer.valueOf(ItemPotion.a(var1)));
 			this.f(this.a(class_pm.n));
 		}
 

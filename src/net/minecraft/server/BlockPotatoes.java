@@ -5,12 +5,12 @@ public class BlockPotatoes extends BlockCrops {
 
 	@Override
 	protected Item getSeedItem() {
-		return Items.bV;
+		return Items.POTATO;
 	}
 
 	@Override
 	protected Item getPlantItem() {
-		return Items.bV;
+		return Items.POTATO;
 	}
 
 	@Override
@@ -18,7 +18,7 @@ public class BlockPotatoes extends BlockCrops {
 		super.dropNaturally(var1, var2, var3, var4, var5);
 		if (!var1.isClientSide) {
 			if (this.e(var3) && (var1.random.nextInt(50) == 0)) {
-				dropItem(var1, var2, new ItemStack(Items.bX));
+				dropItem(var1, var2, new ItemStack(Items.POISONOUS_POTATO));
 			}
 
 		}

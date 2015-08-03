@@ -1,13 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.Items;
-import net.minecraft.server.EnumUsedHand;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_wn;
-import net.minecraft.server.class_zl;
-
 public class class_sk extends class_rm {
    private final class_wn a;
    private EntityLiving b;
@@ -40,7 +32,7 @@ public class class_sk extends class_rm {
    }
 
    protected boolean f() {
-      return this.a.bA() != null && this.a.bA().getItem() == Items.f;
+      return this.a.bA() != null && this.a.bA().getItem() == Items.BOW;
    }
 
    public boolean b() {
@@ -89,7 +81,7 @@ public class class_sk extends class_rm {
             int var5 = this.a.bX();
             if(var5 >= 20) {
                this.a.bZ();
-               this.a.a(this.b, class_zl.b(var5));
+               this.a.a(this.b, ItemBow.b(var5));
                this.c = this.f;
             }
          }

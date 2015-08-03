@@ -1,13 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.ItemStack;
-import net.minecraft.server.Items;
-import net.minecraft.server.IInventory;
-import net.minecraft.server.class_tz;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-import net.minecraft.server.class_yx;
-
 public class class_yo extends Container {
    private IInventory a;
    private class_tz f;
@@ -20,7 +12,7 @@ public class class_yo extends Container {
       int var6 = (var5 - 4) * 18;
       this.a(new class_yx(var2, 0, 8, 18) {
          public boolean a(ItemStack var1) {
-            return super.a(var1) && var1.getItem() == Items.aC && !this.e();
+            return super.a(var1) && var1.getItem() == Items.SADDLE && !this.e();
          }
       });
       this.a(new class_yx(var2, 1, 8, 36) {
