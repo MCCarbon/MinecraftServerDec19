@@ -62,11 +62,11 @@ public abstract class Entity implements class_m {
    protected boolean aa;
    protected boolean ab;
    protected Datawathcer datawatcher;
-   private static final int as = Datawathcer.claimId(Entity.class);
-   private static final int at = Datawathcer.claimId(Entity.class);
-   private static final int au = Datawathcer.claimId(Entity.class);
-   private static final int av = Datawathcer.claimId(Entity.class);
-   private static final int aw = Datawathcer.claimId(Entity.class);
+   private static final int FLAGS_DW_ID = Datawathcer.claimId(Entity.class); //value = 0
+   private static final int AIR_DW_ID = Datawathcer.claimId(Entity.class); //value = 1
+   private static final int NAMETAG_DW_ID = Datawathcer.claimId(Entity.class); //value = 2
+   private static final int NAMETAG_VISIBLE_DW_ID = Datawathcer.claimId(Entity.class); //value = 3
+   private static final int SILENT_DW_ID = Datawathcer.claimId(Entity.class); //value = 4
    private double ax;
    private double ay;
    public boolean ad;
@@ -120,11 +120,11 @@ public abstract class Entity implements class_m {
       }
 
       this.datawatcher = new Datawathcer(this);
-      this.datawatcher.add(as, Byte.valueOf((byte)0));
-      this.datawatcher.add(at, Short.valueOf((short)300));
-      this.datawatcher.add(av, Byte.valueOf((byte)0));
-      this.datawatcher.add(au, "");
-      this.datawatcher.add(aw, Byte.valueOf((byte)0));
+      this.datawatcher.add(FLAGS_DW_ID, Byte.valueOf((byte)0));
+      this.datawatcher.add(AIR_DW_ID, Short.valueOf((short)300));
+      this.datawatcher.add(NAMETAG_VISIBLE_DW_ID, Byte.valueOf((byte)0));
+      this.datawatcher.add(NAMETAG_DW_ID, "");
+      this.datawatcher.add(SILENT_DW_ID, Byte.valueOf((byte)0));
       this.initDatawatcher();
    }
 
@@ -630,11 +630,11 @@ public abstract class Entity implements class_m {
    }
 
    public boolean R() {
-      return this.datawatcher.getByte(aw) == 1;
+      return this.datawatcher.getByte(SILENT_DW_ID) == 1;
    }
 
    public void b(boolean var1) {
-      this.datawatcher.update(aw, Byte.valueOf((byte)(var1?1:0)));
+      this.datawatcher.update(SILENT_DW_ID, Byte.valueOf((byte)(var1?1:0)));
    }
 
    protected boolean s_() {
@@ -1356,25 +1356,25 @@ public abstract class Entity implements class_m {
    }
 
    protected boolean h(int var1) {
-      return (this.datawatcher.getByte(as) & 1 << var1) != 0;
+      return (this.datawatcher.getByte(FLAGS_DW_ID) & 1 << var1) != 0;
    }
 
    protected void b(int var1, boolean var2) {
-      byte var3 = this.datawatcher.getByte(as);
+      byte var3 = this.datawatcher.getByte(FLAGS_DW_ID);
       if(var2) {
-         this.datawatcher.update(as, Byte.valueOf((byte)(var3 | 1 << var1)));
+         this.datawatcher.update(FLAGS_DW_ID, Byte.valueOf((byte)(var3 | 1 << var1)));
       } else {
-         this.datawatcher.update(as, Byte.valueOf((byte)(var3 & ~(1 << var1))));
+         this.datawatcher.update(FLAGS_DW_ID, Byte.valueOf((byte)(var3 & ~(1 << var1))));
       }
 
    }
 
    public int aB() {
-      return this.datawatcher.getShort(at);
+      return this.datawatcher.getShort(AIR_DW_ID);
    }
 
    public void i(int var1) {
-      this.datawatcher.update(at, Short.valueOf((short)var1));
+      this.datawatcher.update(AIR_DW_ID, Short.valueOf((short)var1));
    }
 
    public void a(class_vi var1) {
@@ -1640,23 +1640,23 @@ public abstract class Entity implements class_m {
    }
 
    public void a(String var1) {
-      this.datawatcher.update(au, var1);
+      this.datawatcher.update(NAMETAG_DW_ID, var1);
    }
 
    public String aO() {
-      return this.datawatcher.getString(au);
+      return this.datawatcher.getString(NAMETAG_DW_ID);
    }
 
    public boolean hasCustomName() {
-      return !this.datawatcher.getString(au).isEmpty();
+      return !this.datawatcher.getString(NAMETAG_DW_ID).isEmpty();
    }
 
    public void g(boolean var1) {
-      this.datawatcher.update(av, Byte.valueOf((byte)(var1?1:0)));
+      this.datawatcher.update(NAMETAG_VISIBLE_DW_ID, Byte.valueOf((byte)(var1?1:0)));
    }
 
    public boolean aP() {
-      return this.datawatcher.getByte(av) == 1;
+      return this.datawatcher.getByte(NAMETAG_VISIBLE_DW_ID) == 1;
    }
 
    public void a(double var1, double var3, double var5) {
