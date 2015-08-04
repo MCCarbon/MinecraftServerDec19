@@ -18,15 +18,15 @@ public enum class_adj {
          return true;
       } else if(this == j && var1.m()) {
          return true;
-      } else if(var1 instanceof class_za) {
+      } else if(var1 instanceof ItemArmor) {
          if(this == b) {
             return true;
          } else {
-            class_za var2 = (class_za)var1;
-            return var2.b == class_pw.f?this == f:(var2.b == class_pw.d?this == d:(var2.b == class_pw.e?this == e:(var2.b == class_pw.c?this == c:false)));
+            ItemArmor var2 = (ItemArmor)var1;
+            return var2.b == EnumWearable.HEAD ?this == f:(var2.b == EnumWearable.LEGS ?this == d:(var2.b == EnumWearable.TORSO ?this == e:(var2.b == EnumWearable.FEET ?this == c:false)));
          }
       } else {
-         return var1 instanceof class_abw?this == g:(var1 instanceof class_zv?this == h:(var1 instanceof ItemBow ?this == k:(var1 instanceof class_aal?this == i:false)));
+         return var1 instanceof ItemSword ?this == g:(var1 instanceof class_zv?this == h:(var1 instanceof ItemBow ?this == k:(var1 instanceof ItemFishingRod ?this == i:false)));
       }
    }
 }

@@ -102,7 +102,7 @@ public class class_o {
 		var2 = var2 != null && var2.startsWith("!") ? var2.substring(1) : var2;
 		if (var2 != null && !EntityTypes.b(var2)) {
 			ChatMessage var3 = new ChatMessage("commands.generic.entity.invalidType", new Object[] { var2 });
-			var3.b().a(EnumChatFormat.RED);
+			var3.getChatModifier().a(EnumChatFormat.RED);
 			var0.a(var3);
 			return false;
 		} else {

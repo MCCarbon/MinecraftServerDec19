@@ -2,21 +2,6 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_agy;
-import net.minecraft.server.BlockLeaves;
-import net.minecraft.server.BlockLeaves1;
-import net.minecraft.server.BlockLog1;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.class_alu;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
 
 public class class_arn extends class_apw {
    private static final IBlockData a;
@@ -109,19 +94,19 @@ public class class_arn extends class_apw {
                      this.a(var1, var3.up(var9), this.e);
                      if(this.d && var9 > 0) {
                         if(var2.nextInt(3) > 0 && var1.isEmpty(var3.add(-1, var9, 0))) {
-                           this.a(var1, var3.add(-1, var9, 0), class_alu.N);
+                           this.a(var1, var3.add(-1, var9, 0), BlockVine.N);
                         }
 
                         if(var2.nextInt(3) > 0 && var1.isEmpty(var3.add(1, var9, 0))) {
-                           this.a(var1, var3.add(1, var9, 0), class_alu.P);
+                           this.a(var1, var3.add(1, var9, 0), BlockVine.P);
                         }
 
                         if(var2.nextInt(3) > 0 && var1.isEmpty(var3.add(0, var9, -1))) {
-                           this.a(var1, var3.add(0, var9, -1), class_alu.O);
+                           this.a(var1, var3.add(0, var9, -1), BlockVine.O);
                         }
 
                         if(var2.nextInt(3) > 0 && var1.isEmpty(var3.add(0, var9, 1))) {
-                           this.a(var1, var3.add(0, var9, 1), class_alu.b);
+                           this.a(var1, var3.add(0, var9, 1), BlockVine.b);
                         }
                      }
                   }
@@ -142,19 +127,19 @@ public class class_arn extends class_apw {
                               BlockPosition var27 = var24.north();
                               BlockPosition var18 = var24.south();
                               if(var2.nextInt(4) == 0 && var1.getType(var26).getBlock().getMaterial() == Material.AIR) {
-                                 this.b(var1, var26, class_alu.N);
+                                 this.b(var1, var26, BlockVine.N);
                               }
 
                               if(var2.nextInt(4) == 0 && var1.getType(var16).getBlock().getMaterial() == Material.AIR) {
-                                 this.b(var1, var16, class_alu.P);
+                                 this.b(var1, var16, BlockVine.P);
                               }
 
                               if(var2.nextInt(4) == 0 && var1.getType(var27).getBlock().getMaterial() == Material.AIR) {
-                                 this.b(var1, var27, class_alu.O);
+                                 this.b(var1, var27, BlockVine.O);
                               }
 
                               if(var2.nextInt(4) == 0 && var1.getType(var18).getBlock().getMaterial() == Material.AIR) {
-                                 this.b(var1, var18, class_alu.b);
+                                 this.b(var1, var18, BlockVine.b);
                               }
                            }
                         }
@@ -187,7 +172,7 @@ public class class_arn extends class_apw {
    }
 
    private void a(World var1, int var2, BlockPosition var3, EnumDirection var4) {
-      this.a(var1, var3, Blocks.COCOA.getBlockData().set(class_agy.a, Integer.valueOf(var2)).set(class_agy.FACING, var4));
+      this.a(var1, var3, Blocks.COCOA.getBlockData().set(BlockCocoa.a, Integer.valueOf(var2)).set(BlockCocoa.FACING, var4));
    }
 
    private void a(World var1, BlockPosition var2, BlockStateBoolean var3) {

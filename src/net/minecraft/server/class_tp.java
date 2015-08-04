@@ -56,7 +56,7 @@ public class class_tp {
       if(this.l < var2 && this.b.size() > 20 && this.a.random.nextInt(7000) == 0) {
          Vec3D var3 = this.a(this.d, 2, 4, 2);
          if(var3 != null) {
-            class_uj var4 = new class_uj(this.a);
+            EntityVillagerGolem var4 = new EntityVillagerGolem(this.a);
             var4.b(var3.x, var3.y, var3.z);
             this.a.addEntity((Entity)var4);
             ++this.l;
@@ -98,12 +98,12 @@ public class class_tp {
    }
 
    private void j() {
-      List var1 = this.a.getEntities(class_uj.class, new AxisAlignedBB((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
+      List var1 = this.a.getEntities(EntityVillagerGolem.class, new AxisAlignedBB((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
       this.l = var1.size();
    }
 
    private void k() {
-      List var1 = this.a.getEntities(class_wv.class, new AxisAlignedBB((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
+      List var1 = this.a.getEntities(EntityVillager.class, new AxisAlignedBB((double)(this.d.getX() - this.e), (double)(this.d.getY() - 4), (double)(this.d.getZ() - this.e), (double)(this.d.getX() + this.e), (double)(this.d.getY() + 4), (double)(this.d.getZ() + this.e)));
       this.h = var1.size();
       if(this.h == 0) {
          this.j.clear();

@@ -44,7 +44,7 @@ public class class_j implements class_l {
       ChatMessage var8;
       if(var5 == null) {
          var8 = new ChatMessage("commands.generic.notFound", new Object[0]);
-         var8.b().a(EnumChatFormat.RED);
+         var8.getChatModifier().a(EnumChatFormat.RED);
          var1.a(var8);
       } else if(var5.a(var1)) {
          if(var6 > -1) {
@@ -70,7 +70,7 @@ public class class_j implements class_l {
          }
       } else {
          var8 = new ChatMessage("commands.generic.permission", new Object[0]);
-         var8.b().a(EnumChatFormat.RED);
+         var8.getChatModifier().a(EnumChatFormat.RED);
          var1.a(var8);
       }
 
@@ -85,15 +85,15 @@ public class class_j implements class_l {
          return true;
       } catch (class_cf var7) {
          var6 = new ChatMessage("commands.generic.usage", new Object[]{new ChatMessage(var7.getMessage(), var7.a())});
-         var6.b().a(EnumChatFormat.RED);
+         var6.getChatModifier().a(EnumChatFormat.RED);
          var1.a(var6);
       } catch (class_bz var8) {
          var6 = new ChatMessage(var8.getMessage(), var8.a());
-         var6.b().a(EnumChatFormat.RED);
+         var6.getChatModifier().a(EnumChatFormat.RED);
          var1.a(var6);
       } catch (Throwable var9) {
          var6 = new ChatMessage("commands.generic.exception", new Object[0]);
-         var6.b().a(EnumChatFormat.RED);
+         var6.getChatModifier().a(EnumChatFormat.RED);
          var1.a(var6);
          a.warn("Couldn\'t process command: \'" + var4 + "\'");
       }

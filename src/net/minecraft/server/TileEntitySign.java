@@ -172,7 +172,7 @@ public class TileEntitySign extends TileEntity {
 		};
 
 		for (int var3 = 0; var3 < lines.length; ++var3) {
-			ChatModifier var4 = lines[var3] == null ? null : lines[var3].b();
+			ChatModifier var4 = lines[var3] == null ? null : lines[var3].getChatModifier();
 			if ((var4 != null) && (var4.h() != null)) {
 				class_et var5 = var4.h();
 				if (var5.a() == class_et.class_a_in_class_et.c) {

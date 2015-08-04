@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 public class ItemTippedArrow extends ItemArrow {
-   public class_xd a(World var1, ItemStack var2, EntityLiving var3) {
-      return new class_xt(var1, var3, var2);
+   public EntityArrow a(World var1, ItemStack var2, EntityLiving var3) {
+      return new EntityTippedArrow(var1, var3, var2);
    }
 
    public String getLocalizedName(ItemStack var1) {

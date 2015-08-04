@@ -72,7 +72,7 @@ public class class_ms extends class_my {
 
 	public IChatBaseComponent e() {
 		IChatBaseComponent var1 = super.e();
-		var1.b().a(this.g() ? EnumChatFormat.DARK_PURPLE : EnumChatFormat.GREEN);
+		var1.getChatModifier().a(this.g() ? EnumChatFormat.DARK_PURPLE : EnumChatFormat.GREEN);
 		return var1;
 	}
 

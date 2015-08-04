@@ -149,8 +149,8 @@ public class class_bd extends class_j implements class_h {
       }
 
       ChatMessage var8 = new ChatMessage("chat.type.admin", new Object[]{var1.getName(), new ChatMessage(var4, var5)});
-      var8.b().a(EnumChatFormat.GRAY);
-      var8.b().b(Boolean.valueOf(true));
+      var8.getChatModifier().a(EnumChatFormat.GRAY);
+      var8.getChatModifier().b(Boolean.valueOf(true));
       if(var6) {
          Iterator var9 = var7.getPlayerList().v().iterator();
 

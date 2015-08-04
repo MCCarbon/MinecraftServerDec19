@@ -4,7 +4,7 @@ public class class_rd extends class_rg {
    private int g;
    private int h = -1;
 
-   public class_rd(class_qb var1) {
+   public class_rd(EntityInsentient var1) {
       super(var1);
    }
 

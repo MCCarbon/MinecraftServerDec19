@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 public class class_adh extends class_adi {
-   protected class_adh(class_adi.class_a_in_class_adi var1, class_pw... var2) {
+   protected class_adh(class_adi.class_a_in_class_adi var1, EnumWearable... var2) {
       super(var1, class_adj.h, var2);
       this.c("digging");
    }

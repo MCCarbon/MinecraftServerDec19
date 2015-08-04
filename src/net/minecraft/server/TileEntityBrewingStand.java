@@ -58,12 +58,12 @@ public class TileEntityBrewingStand extends TileEntityContainer implements ITick
 			if (!Arrays.equals(var6, i)) {
 				i = var6;
 				IBlockData var4 = world.getType(getPosition());
-				if (!(var4.getBlock() instanceof class_agn)) {
+				if (!(var4.getBlock() instanceof BlockBrewingStand)) {
 					return;
 				}
 
-				for (int var5 = 0; var5 < class_agn.a.length; ++var5) {
-					var4 = var4.set(class_agn.a[var5], Boolean.valueOf(var6[var5]));
+				for (int var5 = 0; var5 < BlockBrewingStand.a.length; ++var5) {
+					var4 = var4.set(BlockBrewingStand.a[var5], Boolean.valueOf(var6[var5]));
 				}
 
 				world.setTypeAndData(position, var4, 2);

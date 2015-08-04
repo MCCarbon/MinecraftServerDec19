@@ -78,7 +78,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
          if(var7.isComplexRedstone()) {
             var4 = var7.getRedstonePower(var1, var6);
          } else if(var7.getMaterial() == Material.AIR) {
-            class_va var8 = this.a(var1, var5, var6);
+            EntityItemFrame var8 = this.a(var1, var5, var6);
             if(var8 != null) {
                var4 = var8.q();
             }
@@ -88,8 +88,8 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
       return var4;
    }
 
-   private class_va a(World var1, final EnumDirection var2, BlockPosition var3) {
-      List var4 = var1.a(class_va.class, new AxisAlignedBB((double)var3.getX(), (double)var3.getY(), (double)var3.getZ(), (double)(var3.getX() + 1), (double)(var3.getY() + 1), (double)(var3.getZ() + 1)), new Predicate() {
+   private EntityItemFrame a(World var1, final EnumDirection var2, BlockPosition var3) {
+      List var4 = var1.a(EntityItemFrame.class, new AxisAlignedBB((double)var3.getX(), (double)var3.getY(), (double)var3.getZ(), (double)(var3.getX() + 1), (double)(var3.getY() + 1), (double)(var3.getZ() + 1)), new Predicate() {
          public boolean a(Entity var1) {
             return var1 != null && var1.aR() == var2;
          }
@@ -99,7 +99,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
             return this.a((Entity)var1);
          }
       });
-      return var4.size() == 1?(class_va)var4.get(0):null;
+      return var4.size() == 1?(EntityItemFrame)var4.get(0):null;
    }
 
    public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {

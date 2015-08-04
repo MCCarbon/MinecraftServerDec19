@@ -2,23 +2,6 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.Random;
-import net.minecraft.server.Item;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockCrops;
-import net.minecraft.server.BlockDirt;
-import net.minecraft.server.class_alg;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateList;
-import net.minecraft.server.BlockStateInteger;
-import net.minecraft.server.IBlockState;
-import net.minecraft.server.Material;
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.EntityHuman;
 
 public class BlockSoil extends Block {
    public static final BlockStateInteger a = BlockStateInteger.of("moisture", 0, 7);
@@ -73,7 +56,7 @@ public class BlockSoil extends Block {
 
    private boolean e(World var1, BlockPosition var2) {
       Block var3 = var1.getType(var2.up()).getBlock();
-      return var3 instanceof BlockCrops || var3 instanceof class_alg;
+      return var3 instanceof BlockCrops || var3 instanceof BlockStem;
    }
 
    private boolean f(World var1, BlockPosition var2) {

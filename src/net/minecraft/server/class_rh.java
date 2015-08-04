@@ -2,24 +2,14 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockLongGrass;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_ant;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_rm;
 
 public class class_rh extends class_rm {
    private static final Predicate b;
-   private class_qb c;
+   private EntityInsentient c;
    private World d;
    int a;
 
-   public class_rh(class_qb var1) {
+   public class_rh(EntityInsentient var1) {
       this.c = var1;
       this.d = var1.o;
       this.a(7);

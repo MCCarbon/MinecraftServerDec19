@@ -1,17 +1,8 @@
 package net.minecraft.server;
 
 import java.util.UUID;
-import net.minecraft.server.World;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qj;
-import net.minecraft.server.class_qm;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_ry;
-import net.minecraft.server.class_tf;
 
-public abstract class class_qh extends class_qb {
+public abstract class class_qh extends EntityInsentient {
    public static final UUID bq = UUID.fromString("E199AD21-BA8A-4C53-8D13-6182D5C69D3A");
    public static final class_qm br;
    private BlockPosition a;

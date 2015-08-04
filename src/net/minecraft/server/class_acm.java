@@ -82,7 +82,7 @@ public class class_acm implements class_acs {
                ItemStack var14 = var1.getItem(var13);
                if(var14 != null) {
                   if(var14.getItem() == Items.DYE) {
-                     var12.add(Integer.valueOf(class_zz.a[var14.i() & 15]));
+                     var12.add(Integer.valueOf(ItemDye.a[var14.i() & 15]));
                   } else if(var14.getItem() == Items.GLOWSTONE_DUST) {
                      var19.put("Flicker", true);
                   } else if(var14.getItem() == Items.DIAMOND) {
@@ -117,7 +117,7 @@ public class class_acm implements class_acs {
                ItemStack var11 = var1.getItem(var17);
                if(var11 != null) {
                   if(var11.getItem() == Items.DYE) {
-                     var15.add(Integer.valueOf(class_zz.a[var11.i() & 15]));
+                     var15.add(Integer.valueOf(ItemDye.a[var11.i() & 15]));
                   } else if(var11.getItem() == Items.FIREWORK_CHARGE) {
                      this.a = var11.clone();
                      this.a.count = 1;

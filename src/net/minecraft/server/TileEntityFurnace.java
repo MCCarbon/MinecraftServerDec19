@@ -248,7 +248,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 				}
 			}
 
-			return (var1 instanceof class_zv) && ((class_zv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_abw) && ((class_abw) var1).h().equals("WOOD") ? 200 : ((var1 instanceof class_aaq) && ((class_aaq) var1).g().equals("WOOD") ? 200 : (var1 == Items.STICK ? 100 : (var1 == Items.COAL ? 1600 : (var1 == Items.LAVA_BUCKET ? 20000 : (var1 == Item.getItemOf(Blocks.SAPLING) ? 100 : (var1 == Items.BLAZE_ROD ? 2400 : 0)))))));
+			return (var1 instanceof class_zv) && ((class_zv) var1).h().equals("WOOD") ? 200 : ((var1 instanceof ItemSword) && ((ItemSword) var1).h().equals("WOOD") ? 200 : ((var1 instanceof ItemHoe) && ((ItemHoe) var1).g().equals("WOOD") ? 200 : (var1 == Items.STICK ? 100 : (var1 == Items.COAL ? 1600 : (var1 == Items.LAVA_BUCKET ? 20000 : (var1 == Item.getItemOf(Blocks.SAPLING) ? 100 : (var1 == Items.BLAZE_ROD ? 2400 : 0)))))));
 		}
 	}
 

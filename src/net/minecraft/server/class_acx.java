@@ -10,11 +10,11 @@ public class class_acx {
       var1.a(new ItemStack(Blocks.SANDSTONE), new Object[]{"##", "##", Character.valueOf('#'), new ItemStack(Blocks.SAND, 1, BlockSand.EnumSandVariant.SAND.getId())});
       var1.a(new ItemStack(Blocks.RED_SANDSTONE), new Object[]{"##", "##", Character.valueOf('#'), new ItemStack(Blocks.SAND, 1, BlockSand.EnumSandVariant.RED_SAND.getId())});
       var1.a(new ItemStack(Blocks.SANDSTONE, 4, BlockSandStone.EnumSandstoneVariant.SMOOTH.getId()), new Object[]{"##", "##", Character.valueOf('#'), new ItemStack(Blocks.SANDSTONE, 1, BlockSandStone.EnumSandstoneVariant.DEFAULT.getId())});
-      var1.a(new ItemStack(Blocks.RED_SANDSTONE, 4, class_aki.class_a_in_class_aki.c.a()), new Object[]{"##", "##", Character.valueOf('#'), new ItemStack(Blocks.RED_SANDSTONE, 1, class_aki.class_a_in_class_aki.a.a())});
+      var1.a(new ItemStack(Blocks.RED_SANDSTONE, 4, BlockRedSandstone.class_a_in_class_aki.c.a()), new Object[]{"##", "##", Character.valueOf('#'), new ItemStack(Blocks.RED_SANDSTONE, 1, BlockRedSandstone.class_a_in_class_aki.a.a())});
       var1.a(new ItemStack(Blocks.SANDSTONE, 1, BlockSandStone.EnumSandstoneVariant.CHISELED.getId()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB, 1, BlockDoubleStepAbstract.EnumStoneSlabVariant.SAND.getId())});
-      var1.a(new ItemStack(Blocks.RED_SANDSTONE, 1, class_aki.class_a_in_class_aki.b.a()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB2, 1, class_ajp.class_a_in_class_ajp.a.a())});
-      var1.a(new ItemStack(Blocks.QUARTZ_BLOCK, 1, class_akf.class_a_in_class_akf.b.a()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB, 1, BlockDoubleStepAbstract.EnumStoneSlabVariant.QUARTZ.getId())});
-      var1.a(new ItemStack(Blocks.QUARTZ_BLOCK, 2, class_akf.class_a_in_class_akf.c.a()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.QUARTZ_BLOCK, 1, class_akf.class_a_in_class_akf.a.a())});
+      var1.a(new ItemStack(Blocks.RED_SANDSTONE, 1, BlockRedSandstone.class_a_in_class_aki.b.a()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB2, 1, class_ajp.class_a_in_class_ajp.a.a())});
+      var1.a(new ItemStack(Blocks.QUARTZ_BLOCK, 1, BlockQuartz.class_a_in_class_akf.b.a()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB, 1, BlockDoubleStepAbstract.EnumStoneSlabVariant.QUARTZ.getId())});
+      var1.a(new ItemStack(Blocks.QUARTZ_BLOCK, 2, BlockQuartz.class_a_in_class_akf.c.a()), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.QUARTZ_BLOCK, 1, BlockQuartz.class_a_in_class_akf.a.a())});
       var1.a(new ItemStack(Blocks.STONEBRICK, 4), new Object[]{"##", "##", Character.valueOf('#'), new ItemStack(Blocks.STONE, 1, BlockStone.EnumStoneVariant.STONE.getData())});
       var1.a(new ItemStack(Blocks.STONEBRICK, 1, BlockSmoothBrick.P), new Object[]{"#", "#", Character.valueOf('#'), new ItemStack(Blocks.STONE_SLAB, 1, BlockDoubleStepAbstract.EnumStoneSlabVariant.SMOOTHBRICK.getId())});
       var1.b(new ItemStack(Blocks.STONEBRICK, 1, BlockSmoothBrick.N), new Object[]{Blocks.STONEBRICK, Blocks.VINE});
@@ -31,9 +31,9 @@ public class class_acx {
       var1.a(new ItemStack(Blocks.STONE, 4, BlockStone.EnumStoneVariant.DIORITE_SMOOTH.getData()), new Object[]{"SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.STONE, 1, BlockStone.EnumStoneVariant.DIORITE.getData())});
       var1.a(new ItemStack(Blocks.STONE, 4, BlockStone.EnumStoneVariant.GRANITE_SMOOTH.getData()), new Object[]{"SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.STONE, 1, BlockStone.EnumStoneVariant.GRANITE.getData())});
       var1.a(new ItemStack(Blocks.STONE, 4, BlockStone.EnumStoneVariant.ANDESITE_SMOOTH.getData()), new Object[]{"SS", "SS", Character.valueOf('S'), new ItemStack(Blocks.STONE, 1, BlockStone.EnumStoneVariant.ANDESITE.getData())});
-      var1.a(new ItemStack(Blocks.PRISMARINE, 1, class_akc.b), new Object[]{"SS", "SS", Character.valueOf('S'), Items.PRISMARINE_SHARD});
-      var1.a(new ItemStack(Blocks.PRISMARINE, 1, class_akc.N), new Object[]{"SSS", "SSS", "SSS", Character.valueOf('S'), Items.PRISMARINE_SHARD});
-      var1.a(new ItemStack(Blocks.PRISMARINE, 1, class_akc.O), new Object[]{"SSS", "SIS", "SSS", Character.valueOf('S'), Items.PRISMARINE_SHARD, Character.valueOf('I'), new ItemStack(Items.DYE, 1, EnumColor.p.b())});
+      var1.a(new ItemStack(Blocks.PRISMARINE, 1, BlockPrismarine.b), new Object[]{"SS", "SS", Character.valueOf('S'), Items.PRISMARINE_SHARD});
+      var1.a(new ItemStack(Blocks.PRISMARINE, 1, BlockPrismarine.N), new Object[]{"SSS", "SSS", "SSS", Character.valueOf('S'), Items.PRISMARINE_SHARD});
+      var1.a(new ItemStack(Blocks.PRISMARINE, 1, BlockPrismarine.O), new Object[]{"SSS", "SIS", "SSS", Character.valueOf('S'), Items.PRISMARINE_SHARD, Character.valueOf('I'), new ItemStack(Items.DYE, 1, EnumColor.p.b())});
       var1.a(new ItemStack(Blocks.SEA_LANTERN, 1, 0), new Object[]{"SCS", "CCC", "SCS", Character.valueOf('S'), Items.PRISMARINE_SHARD, Character.valueOf('C'), Items.PRISMARINE_CRYSTALS});
       var1.a(new ItemStack(Blocks.PURPUR_BLOCK, 4, 0), new Object[]{"FF", "FF", Character.valueOf('F'), Items.CHORUS_FRUIT_POPPED});
       var1.a(new ItemStack(Blocks.PURPUR_STAIRS, 4, 0), new Object[]{"#  ", "## ", "###", Character.valueOf('#'), Blocks.PURPUR_BLOCK});

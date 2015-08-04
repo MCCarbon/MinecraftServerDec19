@@ -52,9 +52,9 @@ public class class_zv extends Item {
       return this.b.f() == var2.getItem()?true:super.registerItemKey(var1, var2);
    }
 
-   public Multimap registerItemKey(class_pw var1) {
+   public Multimap registerItemKey(EnumWearable var1) {
       Multimap var2 = super.registerItemKey(var1);
-      if(var1 == class_pw.a) {
+      if(var1 == EnumWearable.MAINHAND) {
          var2.put(class_wl.e.a(), new class_qm(uuid, "Tool modifier", (double)this.d, 0));
       }
 

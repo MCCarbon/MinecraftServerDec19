@@ -28,7 +28,7 @@ public class class_afh extends BiomeBase {
       }
 
       if(this.aG == 0) {
-         this.au.add(new BiomeBase.class_c_in_class_aez(class_ul.class, 5, 4, 4));
+         this.au.add(new BiomeBase.class_c_in_class_aez(EntityWolf.class, 5, 4, 4));
       }
 
       if(this.aG == 3) {

@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
 public class class_rc extends class_rm {
-   private class_ul a;
+   private EntityWolf a;
    private EntityHuman b;
    private World c;
    private float d;
    private int e;
 
-   public class_rc(class_ul var1, float var2) {
+   public class_rc(EntityWolf var1, float var2) {
       this.a = var1;
       this.c = var1.o;
       this.d = var2;

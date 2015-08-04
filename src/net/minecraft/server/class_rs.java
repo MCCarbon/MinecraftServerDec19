@@ -1,13 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_rr;
-import net.minecraft.server.class_wv;
-import net.minecraft.server.EntityHuman;
-
 public class class_rs extends class_rr {
-   private final class_wv e;
+   private final EntityVillager e;
 
-   public class_rs(class_wv var1) {
+   public class_rs(EntityVillager var1) {
       super(var1, EntityHuman.class, 8.0F);
       this.e = var1;
    }

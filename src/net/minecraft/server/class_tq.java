@@ -2,18 +2,6 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aeu;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_on;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_tp;
-import net.minecraft.server.class_wr;
-import net.minecraft.server.EntityHuman;
 
 public class class_tq {
    private World a;
@@ -139,9 +127,9 @@ public class class_tq {
       if(var1 == null) {
          return false;
       } else {
-         class_wr var2;
+         EntityZombie var2;
          try {
-            var2 = new class_wr(this.a);
+            var2 = new EntityZombie(this.a);
             var2.a((class_on)this.a.E(new BlockPosition(var2)), (class_qd)null);
             var2.n(false);
          } catch (Exception var4) {
@@ -160,7 +148,7 @@ public class class_tq {
    private Vec3D a(BlockPosition var1) {
       for(int var2 = 0; var2 < 10; ++var2) {
          BlockPosition var3 = var1.add(this.a.random.nextInt(16) - 8, this.a.random.nextInt(6) - 3, this.a.random.nextInt(16) - 8);
-         if(this.f.a(var3) && class_aeu.a(class_qb.class_a_in_class_qb.a, this.a, var3)) {
+         if(this.f.a(var3) && class_aeu.a(EntityInsentient.class_a_in_class_qb.a, this.a, var3)) {
             return new Vec3D((double)var3.getX(), (double)var3.getY(), (double)var3.getZ());
          }
       }

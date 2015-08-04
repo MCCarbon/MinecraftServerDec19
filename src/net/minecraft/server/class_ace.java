@@ -128,7 +128,7 @@ public class class_ace {
       class_ace.class_a_in_class_ace var5 = new class_ace.class_a_in_class_ace(Items.GLOWSTONE_DUST);
       class_ace.class_a_in_class_ace var6 = new class_ace.class_a_in_class_ace(Items.MAGMA_CREAM);
       class_ace.class_a_in_class_ace var7 = new class_ace.class_a_in_class_ace(Items.SUGAR);
-      class_ace.class_a_in_class_ace var8 = new class_ace.class_a_in_class_ace(Items.FISH, class_aak.class_a_in_class_aak.d.a());
+      class_ace.class_a_in_class_ace var8 = new class_ace.class_a_in_class_ace(Items.FISH, ItemFish.class_a_in_class_aak.d.a());
       class_ace.class_a_in_class_ace var9 = new class_ace.class_a_in_class_ace(Items.SPECKLED_MELON);
       class_ace.class_a_in_class_ace var10 = new class_ace.class_a_in_class_ace(Items.SPIDER_EYE);
       class_ace.class_a_in_class_ace var11 = new class_ace.class_a_in_class_ace(Items.GHAST_TEAR);

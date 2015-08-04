@@ -1,14 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_alu;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockStateBoolean;
-import net.minecraft.server.class_aqy;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
 
 public class class_aqw extends class_aqy {
    public class_aqw(boolean var1, int var2, int var3, IBlockData var4, IBlockData var5) {
@@ -48,8 +40,8 @@ public class class_aqw extends class_aqy {
             if(this.a(var1.getType(var14).getBlock())) {
                this.a(var1, var14, this.b);
                if(var13 > 0) {
-                  this.a(var1, var2, var14.west(), class_alu.N);
-                  this.a(var1, var2, var14.north(), class_alu.O);
+                  this.a(var1, var2, var14.west(), BlockVine.N);
+                  this.a(var1, var2, var14.north(), BlockVine.O);
                }
             }
 
@@ -58,8 +50,8 @@ public class class_aqw extends class_aqy {
                if(this.a(var1.getType(var15).getBlock())) {
                   this.a(var1, var15, this.b);
                   if(var13 > 0) {
-                     this.a(var1, var2, var15.east(), class_alu.P);
-                     this.a(var1, var2, var15.north(), class_alu.O);
+                     this.a(var1, var2, var15.east(), BlockVine.P);
+                     this.a(var1, var2, var15.north(), BlockVine.O);
                   }
                }
 
@@ -67,8 +59,8 @@ public class class_aqw extends class_aqy {
                if(this.a(var1.getType(var16).getBlock())) {
                   this.a(var1, var16, this.b);
                   if(var13 > 0) {
-                     this.a(var1, var2, var16.east(), class_alu.P);
-                     this.a(var1, var2, var16.south(), class_alu.b);
+                     this.a(var1, var2, var16.east(), BlockVine.P);
+                     this.a(var1, var2, var16.south(), BlockVine.b);
                   }
                }
 
@@ -76,8 +68,8 @@ public class class_aqw extends class_aqy {
                if(this.a(var1.getType(var17).getBlock())) {
                   this.a(var1, var17, this.b);
                   if(var13 > 0) {
-                     this.a(var1, var2, var17.west(), class_alu.N);
-                     this.a(var1, var2, var17.south(), class_alu.b);
+                     this.a(var1, var2, var17.west(), BlockVine.N);
+                     this.a(var1, var2, var17.south(), BlockVine.b);
                   }
                }
             }

@@ -51,9 +51,10 @@ public class ItemStep extends ItemBlock {
 	private boolean a(ItemStack var1, World var2, BlockPosition var3, Object var4) {
 		IBlockData var5 = var2.getType(var3);
 		if (var5.getBlock() == this.b) {
-			Comparable<?> var6 = var5.get(this.b.getVariant());
+			Comparable var6 = var5.get(this.b.getVariant());
 			if (var6 == var4) {
-				IBlockData var7 = this.c.getBlockData().set((BlockState) this.b.getVariant(), var6);
+                BlockState state = (BlockState) this.b.getVariant();
+				IBlockData var7 = this.c.getBlockData().set(state, var6);
 				if (var2.b(this.c.getBoundingBox(var2, var3, var7)) && var2.setTypeAndData((BlockPosition) var3, (IBlockData) var7, 3)) {
 					var2.a((double) ((float) var3.getX() + 0.5F), (double) ((float) var3.getY() + 0.5F), (double) ((float) var3.getZ() + 0.5F), this.c.stepSound.getPlaceSound(), (this.c.stepSound.getVolume() + 1.0F) / 2.0F, this.c.stepSound.getPitch() * 0.8F);
 					--var1.count;

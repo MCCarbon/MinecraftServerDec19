@@ -299,7 +299,7 @@ public class class_ary {
                }
             }
          } else if(var1.startsWith("Sentry")) {
-            class_ug var11 = new class_ug(var3);
+            EntityShulker var11 = new EntityShulker(var3);
             var11.b((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D);
             var11.f(var2);
             var3.addEntity((Entity)var11);

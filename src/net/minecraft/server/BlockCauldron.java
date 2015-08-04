@@ -88,9 +88,9 @@ public class BlockCauldron extends Block {
 
                return true;
             } else {
-               if(var11 > 0 && var12 instanceof class_za) {
-                  class_za var13 = (class_za)var12;
-                  if(var13.d() == class_za.class_a_in_class_za.a && var13.d_(var6)) {
+               if(var11 > 0 && var12 instanceof ItemArmor) {
+                  ItemArmor var13 = (ItemArmor)var12;
+                  if(var13.d() == ItemArmor.EnumArmorMaterial.LEATHER && var13.d_(var6)) {
                      var13.c(var6);
                      this.a(var1, var2, var3, var11 - 1);
                      var4.b(StatisticList.K);
@@ -98,7 +98,7 @@ public class BlockCauldron extends Block {
                   }
                }
 
-               if(var11 > 0 && var12 instanceof class_ze && TileEntityBanner.c(var6) > 0) {
+               if(var11 > 0 && var12 instanceof ItemBanner && TileEntityBanner.c(var6) > 0) {
                   var14 = var6.clone();
                   var14.count = 1;
                   TileEntityBanner.e(var14);

@@ -97,7 +97,7 @@ public abstract class PlayerList {
 			var14 = new ChatMessage("multiplayer.player.joined", new Object[] { player.getScoreboardDisplayName() });
 		}
 
-		var14.b().a(EnumChatFormat.YELLOW);
+		var14.getChatModifier().a(EnumChatFormat.YELLOW);
 		this.a((IChatBaseComponent) var14);
 		this.c(player);
 		var12.a(player.s, player.t, player.u, player.y, player.z);

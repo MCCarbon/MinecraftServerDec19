@@ -400,7 +400,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 		player.z();
 		if ((position.getY() >= (minecraftServer.an() - 1)) && ((face == EnumDirection.UP) || (position.getY() >= minecraftServer.an()))) {
 			ChatMessage var7 = new ChatMessage("build.tooHigh", new Object[] { Integer.valueOf(minecraftServer.an()) });
-			var7.b().a(EnumChatFormat.RED);
+			var7.getChatModifier().a(EnumChatFormat.RED);
 			player.playerConnection.sendPacket((new PacketPlayOutChat(var7)));
 		} else if (r && (player.e(position.getX() + 0.5D, position.getY() + 0.5D, position.getZ() + 0.5D) < 64.0D) && !minecraftServer.a(worldserver, position, player) && worldserver.ag().a(position)) {
 			player.playerInteractManager.interact(player, worldserver, itemstack, hand, position, face, var1.getCursorX(), var1.getCursorY(), var1.getCursorZ());
@@ -492,7 +492,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 		logger.info(player.getName() + " lost connection: " + var1);
 		minecraftServer.aH();
 		ChatMessage var2 = new ChatMessage("multiplayer.player.left", new Object[] { player.getScoreboardDisplayName() });
-		var2.b().a(EnumChatFormat.YELLOW);
+		var2.getChatModifier().a(EnumChatFormat.YELLOW);
 		minecraftServer.getPlayerList().a(var2);
 		player.q();
 		minecraftServer.getPlayerList().e(player);
@@ -552,7 +552,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 		class_fh.a(var1, this, player.u());
 		if (player.y() == EntityHuman.ChatMode.HIDDEN) {
 			ChatMessage var4 = new ChatMessage("chat.cannotSend", new Object[0]);
-			var4.b().a(EnumChatFormat.RED);
+			var4.getChatModifier().a(EnumChatFormat.RED);
 			this.sendPacket((new PacketPlayOutChat(var4)));
 		} else {
 			player.z();
@@ -654,7 +654,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					var8 = player.getItemInHand(var7);
 					var3.a(player, var1.getInteractAt(), var8, var7);
 				} else if (var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.ATTACK) {
-					if ((var3 instanceof EntityItem) || (var3 instanceof EntityExperienceOrb) || (var3 instanceof class_xd) || (var3 == player)) {
+					if ((var3 instanceof EntityItem) || (var3 instanceof EntityExperienceOrb) || (var3 instanceof EntityArrow) || (var3 == player)) {
 						c("Attempting to attack an invalid entity");
 						minecraftServer.f("Player " + player.getName() + " tried to attack an invalid entity");
 						return;
@@ -892,7 +892,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 			try {
 				var67 = var61.readItemStack();
 				if (var67 != null) {
-					if (!class_acb.b(var67.getTag())) {
+					if (!ItemBookAndQuill.b(var67.getTag())) {
 						throw new IOException("Invalid book tag!");
 					}
 
@@ -924,7 +924,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					return;
 				}
 
-				if (!class_acc.b(var67.getTag())) {
+				if (!ItemWrittenBook.b(var67.getTag())) {
 					throw new IOException("Invalid book tag!");
 				}
 
@@ -973,8 +973,8 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						}
 					} else if (var63 == 1) {
 						Entity var69 = player.o.getEntityById(var61.readInt());
-						if (var69 instanceof class_vp) {
-							var4 = ((class_vp) var69).j();
+						if (var69 instanceof EntityMinecartCommandBlock) {
+							var4 = ((EntityMinecartCommandBlock) var69).j();
 						}
 					}
 

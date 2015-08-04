@@ -5,8 +5,8 @@ import java.util.List;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_ca;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_ex;
-import net.minecraft.server.class_ey;
+import net.minecraft.server.ChatComponentScore;
+import net.minecraft.server.ChatComponentSelector;
 import net.minecraft.server.ChatModifier;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.ChatMessage;
@@ -17,8 +17,8 @@ import net.minecraft.server.Entity;
 public class class_ev {
    public static IChatBaseComponent a(class_m var0, IChatBaseComponent var1, Entity var2) throws class_bz {
       Object var3 = null;
-      if(var1 instanceof class_ex) {
-         class_ex var4 = (class_ex)var1;
+      if(var1 instanceof ChatComponentScore) {
+         ChatComponentScore var4 = (ChatComponentScore)var1;
          String var5 = var4.g();
          if(class_o.b(var5)) {
             List var6 = class_o.b(var0, var5, Entity.class);
@@ -29,10 +29,10 @@ public class class_ev {
             var5 = ((Entity)var6.get(0)).getName();
          }
 
-         var3 = var2 != null && var5.equals("*")?new class_ex(var2.getName(), var4.h()):new class_ex(var5, var4.h());
-         ((class_ex)var3).b(var4.e());
-      } else if(var1 instanceof class_ey) {
-         String var7 = ((class_ey)var1).g();
+         var3 = var2 != null && var5.equals("*")?new ChatComponentScore(var2.getName(), var4.h()):new ChatComponentScore(var5, var4.h());
+         ((ChatComponentScore)var3).b(var4.getText());
+      } else if(var1 instanceof ChatComponentSelector) {
+         String var7 = ((ChatComponentSelector)var1).g();
          var3 = class_o.b(var0, var7);
          if(var3 == null) {
             var3 = new ChatComponentText("");
@@ -56,7 +56,7 @@ public class class_ev {
          var3 = new ChatMessage(((ChatMessage)var1).i(), var8);
       }
 
-      ChatModifier var9 = var1.b();
+      ChatModifier var9 = var1.getChatModifier();
       if(var9 != null) {
          ((IChatBaseComponent)var3).a(var9.m());
       }
@@ -65,7 +65,7 @@ public class class_ev {
 
       while(var13.hasNext()) {
          IChatBaseComponent var12 = (IChatBaseComponent)var13.next();
-         ((IChatBaseComponent)var3).a(a(var0, var12, var2));
+         ((IChatBaseComponent)var3).addSibling(a(var0, var12, var2));
       }
 
       return (IChatBaseComponent)var3;

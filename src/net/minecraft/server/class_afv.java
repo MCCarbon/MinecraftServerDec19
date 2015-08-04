@@ -13,7 +13,7 @@ public class class_afv extends BiomeBase {
    public class_afv(int var1, int var2) {
       super(var1);
       this.aI = var2;
-      this.au.add(new BiomeBase.class_c_in_class_aez(class_ul.class, 8, 4, 4));
+      this.au.add(new BiomeBase.class_c_in_class_aez(EntityWolf.class, 8, 4, 4));
       this.as.A = 10;
       if(var2 != 1 && var2 != 2) {
          this.as.C = 1;

@@ -340,8 +340,8 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 						return false;
 					}
 
-					if (var4 instanceof class_xd) {
-						class_xd var5 = (class_xd) var4;
+					if (var4 instanceof EntityArrow) {
+						EntityArrow var5 = (EntityArrow) var4;
 						if (var5.e instanceof EntityHuman && !this.a((EntityHuman) var5.e)) {
 							return false;
 						}
@@ -452,7 +452,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		Block var8 = this.o.getType(var7).getBlock();
 		if (var8.getMaterial() == Material.AIR) {
 			Block var9 = this.o.getType(var7.down()).getBlock();
-			if (var9 instanceof class_ahz || var9 instanceof class_alv || var9 instanceof class_aia) {
+			if (var9 instanceof BlockFence || var9 instanceof BlockCobbleWall || var9 instanceof BlockFenceGate) {
 				var7 = var7.down();
 				var8 = this.o.getType(var7).getBlock();
 			}

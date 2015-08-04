@@ -1,14 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_wv;
-import net.minecraft.server.EntityHuman;
-import net.minecraft.server.Container;
-
 public class class_ss extends class_rm {
-   private class_wv a;
+   private EntityVillager a;
 
-   public class_ss(class_wv var1) {
+   public class_ss(EntityVillager var1) {
       this.a = var1;
       this.a(5);
    }

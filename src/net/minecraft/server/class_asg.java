@@ -7,15 +7,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_ash;
-import net.minecraft.server.class_ask;
-import net.minecraft.server.class_asn;
-import net.minecraft.server.class_aso;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_wq;
 
 public class class_asg extends class_ask {
    private static final List d;
@@ -27,7 +18,7 @@ public class class_asg extends class_ask {
       this.f = Lists.newArrayList();
       this.g = 32;
       this.h = 8;
-      this.f.add(new BiomeBase.class_c_in_class_aez(class_wq.class, 1, 1, 1));
+      this.f.add(new BiomeBase.class_c_in_class_aez(EntityWitch.class, 1, 1, 1));
    }
 
    public class_asg(Map var1) {

@@ -3,28 +3,19 @@ package net.minecraft.server;
 import com.google.common.base.Predicate;
 import java.util.Collections;
 import java.util.List;
-import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qh;
-import net.minecraft.server.class_qk;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_sz;
-import net.minecraft.server.class_td;
-import net.minecraft.server.class_wl;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class class_sx extends class_rm {
    private static final Logger a = LogManager.getLogger();
-   private class_qb b;
+   private EntityInsentient b;
    private final Predicate c;
    private final class_sz.class_a_in_class_sz d;
    private EntityLiving e;
    private Class f;
 
-   public class_sx(class_qb var1, Class var2) {
+   public class_sx(EntityInsentient var1, Class var2) {
       this.b = var1;
       this.f = var2;
       if(var1 instanceof class_qh) {

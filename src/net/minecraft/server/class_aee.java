@@ -91,7 +91,7 @@ public abstract class class_aee {
                var6 = (double)var1.getX() + (this.a().random.nextDouble() - this.a().random.nextDouble()) * (double)this.m + 0.5D;
                double var8 = (double)(var1.getY() + this.a().random.nextInt(3) - 1);
                double var10 = (double)var1.getZ() + (this.a().random.nextDouble() - this.a().random.nextDouble()) * (double)this.m + 0.5D;
-               class_qb var12 = var4 instanceof class_qb?(class_qb)var4:null;
+               EntityInsentient var12 = var4 instanceof EntityInsentient ?(EntityInsentient)var4:null;
                var4.b(var6, var8, var10, this.a().random.nextFloat() * 360.0F, 0.0F);
                if(var12 == null || var12.cf() && var12.cg()) {
                   this.a(var4, true);
@@ -154,8 +154,8 @@ public abstract class class_aee {
             var11 = var13;
          }
       } else if(var1 instanceof EntityLiving && var1.o != null && var2) {
-         if(var1 instanceof class_qb) {
-            ((class_qb)var1).a((class_on)var1.o.E(new BlockPosition(var1)), (class_qd)null);
+         if(var1 instanceof EntityInsentient) {
+            ((EntityInsentient)var1).a((class_on)var1.o.E(new BlockPosition(var1)), (class_qd)null);
          }
 
          var1.o.addEntity(var1);
@@ -291,7 +291,7 @@ public abstract class class_aee {
          super(var4);
          if(var3.equals("Minecart")) {
             if(var2 != null) {
-               var3 = class_vn.class_a_in_class_vn.a(var2.getInt("Type")).b();
+               var3 = EntityMinecartAbstract.EnumMinecartType.a(var2.getInt("Type")).b();
             } else {
                var3 = "MinecartRideable";
             }

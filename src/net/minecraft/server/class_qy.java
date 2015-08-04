@@ -1,12 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-
 public class class_qy {
-   private class_qb a;
+   private EntityInsentient a;
    private float b;
    private float c;
    private boolean d;
@@ -14,7 +9,7 @@ public class class_qy {
    private double f;
    private double g;
 
-   public class_qy(class_qb var1) {
+   public class_qy(EntityInsentient var1) {
       this.a = var1;
    }
 

@@ -33,7 +33,7 @@ public class ItemArmorStand extends Item {
                   if(!var3.isClientSide) {
                      var3.setAir(var11);
                      var3.setAir(var12);
-                     class_uy var21 = new class_uy(var3, var14 + 0.5D, var16, var18 + 0.5D);
+                     EntityArmorStand var21 = new EntityArmorStand(var3, var14 + 0.5D, var16, var18 + 0.5D);
                      float var22 = (float)MathHelper.floor((MathHelper.clampAngle(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
                      var21.b(var14 + 0.5D, var16, var18 + 0.5D, var22, 0.0F);
                      this.a(var21, var3.random);
@@ -56,7 +56,7 @@ public class ItemArmorStand extends Item {
       }
    }
 
-   private void a(class_uy var1, Random var2) {
+   private void a(EntityArmorStand var1, Random var2) {
       class_dc var3 = var1.u();
       float var5 = var2.nextFloat() * 5.0F;
       float var6 = var2.nextFloat() * 20.0F - 10.0F;

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class class_adt extends class_adi {
-   public class_adt(class_adi.class_a_in_class_adi var1, class_pw... var2) {
+   public class_adt(class_adi.class_a_in_class_adi var1, EnumWearable... var2) {
       super(var1, class_adj.e, var2);
       this.c("thorns");
    }
@@ -21,7 +21,7 @@ public class class_adt extends class_adi {
    }
 
    public boolean a(ItemStack var1) {
-      return var1.getItem() instanceof class_za?true:super.a(var1);
+      return var1.getItem() instanceof ItemArmor ?true:super.a(var1);
    }
 
    public void b(EntityLiving var1, Entity var2, int var3) {

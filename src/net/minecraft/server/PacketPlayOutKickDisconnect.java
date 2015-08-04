@@ -23,6 +23,7 @@ public class PacketPlayOutKickDisconnect implements Packet {
 
    public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeChat(this.a);
+      System.out.println(IChatBaseComponent.ChatSerializer.toJson(a));
    }
 
    public void a(PacketListenerPlayOut var1) {

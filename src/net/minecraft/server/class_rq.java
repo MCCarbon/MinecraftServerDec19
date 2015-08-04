@@ -1,16 +1,11 @@
 package net.minecraft.server;
 
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_rm;
-
 public class class_rq extends class_rm {
-   class_qb a;
+   EntityInsentient a;
    EntityLiving b;
    float c;
 
-   public class_rq(class_qb var1, float var2) {
+   public class_rq(EntityInsentient var1, float var2) {
       this.a = var1;
       this.c = var2;
       this.a(5);

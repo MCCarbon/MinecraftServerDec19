@@ -1,13 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_rg;
-
 public class class_sd extends class_rg {
    boolean g;
    int h;
 
-   public class_sd(class_qb var1, boolean var2) {
+   public class_sd(EntityInsentient var1, boolean var2) {
       super(var1);
       this.a = var1;
       this.g = var2;

@@ -1,5 +1,9 @@
 package net.minecraft.server;
 
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map.Entry;
+
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -11,220 +15,184 @@ import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import com.google.gson.JsonSerializationContext;
 import com.google.gson.JsonSerializer;
-import java.lang.reflect.Type;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map.Entry;
-import net.minecraft.server.class_ex;
-import net.minecraft.server.class_ey;
-import net.minecraft.server.ChatModifier;
-import net.minecraft.server.ChatComponentText;
-import net.minecraft.server.ChatMessage;
-import net.minecraft.server.JsonHelper;
-import net.minecraft.server.ChatTypeAdapterFactory;
 
-public interface IChatBaseComponent extends Iterable {
-   IChatBaseComponent a(ChatModifier var1);
+public interface IChatBaseComponent extends Iterable<IChatBaseComponent> {
 
-   ChatModifier b();
+	IChatBaseComponent a(ChatModifier var1);
 
-   IChatBaseComponent a(String var1);
+	ChatModifier getChatModifier();
 
-   IChatBaseComponent a(IChatBaseComponent var1);
+	IChatBaseComponent a(String var1);
 
-   String e();
+	IChatBaseComponent addSibling(IChatBaseComponent var1);
 
-   String c();
+	String getText();
 
-   List a();
+	String c();
 
-   IChatBaseComponent f();
+	List<IChatBaseComponent> a();
 
-   public static class ChatSerializer implements JsonDeserializer, JsonSerializer {
-      private static final Gson a;
+	IChatBaseComponent f();
 
-      public IChatBaseComponent a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
-         if(var1.isJsonPrimitive()) {
-            return new ChatComponentText(var1.getAsString());
-         } else if(!var1.isJsonObject()) {
-            if(var1.isJsonArray()) {
-               JsonArray var11 = var1.getAsJsonArray();
-               IChatBaseComponent var15 = null;
-               Iterator var14 = var11.iterator();
+	public static class ChatSerializer implements JsonDeserializer<IChatBaseComponent>, JsonSerializer<IChatBaseComponent> {
 
-               while(var14.hasNext()) {
-                  JsonElement var17 = (JsonElement)var14.next();
-                  IChatBaseComponent var18 = this.a((JsonElement)var17, (Type)var17.getClass(), (JsonDeserializationContext)var3);
-                  if(var15 == null) {
-                     var15 = var18;
-                  } else {
-                     var15.a(var18);
-                  }
-               }
+		private static final Gson gson = new GsonBuilder()
+		.registerTypeHierarchyAdapter(IChatBaseComponent.class, new IChatBaseComponent.ChatSerializer())
+		.registerTypeHierarchyAdapter(ChatModifier.class, new ChatModifier.ChatModifierSerializer())
+		.registerTypeAdapterFactory(new ChatTypeAdapterFactory())
+		.create();
 
-               return var15;
-            } else {
-               throw new JsonParseException("Don\'t know how to turn " + var1.toString() + " into a Component");
-            }
-         } else {
-            JsonObject var4 = var1.getAsJsonObject();
-            Object var5;
-            if(var4.has("text")) {
-               var5 = new ChatComponentText(var4.get("text").getAsString());
-            } else if(var4.has("translate")) {
-               String var6 = var4.get("translate").getAsString();
-               if(var4.has("with")) {
-                  JsonArray var7 = var4.getAsJsonArray("with");
-                  Object[] var8 = new Object[var7.size()];
+		@Override
+		public IChatBaseComponent deserialize(JsonElement element, Type type, JsonDeserializationContext ctx) throws JsonParseException {
+			if (element.isJsonPrimitive()) {
+				return new ChatComponentText(element.getAsString());
+			} else if (!element.isJsonObject()) {
+				if (element.isJsonArray()) {
+					JsonArray jsonArray = element.getAsJsonArray();
+					IChatBaseComponent chatcomp = null;
+					for (JsonElement jsonElement : jsonArray) {
+						IChatBaseComponent innerchatcomp = deserialize(jsonElement, jsonElement.getClass(), ctx);
+						if (chatcomp == null) {
+							chatcomp = innerchatcomp;
+						} else {
+							chatcomp.addSibling(innerchatcomp);
+						}
+					}
+					return chatcomp;
+				} else {
+					throw new JsonParseException("Don\'t know how to turn " + element.toString() + " into a Component");
+				}
+			} else {
+				JsonObject jsonobject = element.getAsJsonObject();
+				IChatBaseComponent resultComp;
+				if (jsonobject.has("text")) {
+					resultComp = new ChatComponentText(jsonobject.get("text").getAsString());
+				} else if (jsonobject.has("translate")) {
+					String translate = jsonobject.get("translate").getAsString();
+					if (jsonobject.has("with")) {
+						JsonArray withJsonArray = jsonobject.getAsJsonArray("with");
+						Object[] array = new Object[withJsonArray.size()];
 
-                  for(int var9 = 0; var9 < var8.length; ++var9) {
-                     var8[var9] = this.a(var7.get(var9), var2, var3);
-                     if(var8[var9] instanceof ChatComponentText) {
-                        ChatComponentText var10 = (ChatComponentText)var8[var9];
-                        if(var10.b().g() && var10.a().isEmpty()) {
-                           var8[var9] = var10.g();
-                        }
-                     }
-                  }
+						for (int i = 0; i < array.length; ++i) {
+							array[i] = deserialize(withJsonArray.get(i), type, ctx);
+							if (array[i] instanceof ChatComponentText) {
+								ChatComponentText compText = (ChatComponentText) array[i];
+								if (compText.getChatModifier().g() && compText.a().isEmpty()) {
+									array[i] = compText.g();
+								}
+							}
+						}
 
-                  var5 = new ChatMessage(var6, var8);
-               } else {
-                  var5 = new ChatMessage(var6, new Object[0]);
-               }
-            } else if(var4.has("score")) {
-               JsonObject var12 = var4.getAsJsonObject("score");
-               if(!var12.has("name") || !var12.has("objective")) {
-                  throw new JsonParseException("A score component needs a least a name and an objective");
-               }
+						resultComp = new ChatMessage(translate, array);
+					} else {
+						resultComp = new ChatMessage(translate);
+					}
+				} else if (jsonobject.has("score")) {
+					JsonObject scoreJsonObject = jsonobject.getAsJsonObject("score");
+					if (!scoreJsonObject.has("name") || !scoreJsonObject.has("objective")) {
+						throw new JsonParseException("A score component needs a least a name and an objective");
+					}
 
-               var5 = new class_ex(JsonHelper.getString(var12, "name"), JsonHelper.getString(var12, "objective"));
-               if(var12.has("value")) {
-                  ((class_ex)var5).b(JsonHelper.getString(var12, "value"));
-               }
-            } else {
-               if(!var4.has("selector")) {
-                  throw new JsonParseException("Don\'t know how to turn " + var1.toString() + " into a Component");
-               }
+					resultComp = new ChatComponentScore(JsonHelper.getString(scoreJsonObject, "name"), JsonHelper.getString(scoreJsonObject, "objective"));
+					if (scoreJsonObject.has("value")) {
+						((ChatComponentScore) resultComp).b(JsonHelper.getString(scoreJsonObject, "value"));
+					}
+				} else {
+					if (!jsonobject.has("selector")) {
+						throw new JsonParseException("Don\'t know how to turn " + element.toString() + " into a Component");
+					}
 
-               var5 = new class_ey(JsonHelper.getString(var4, "selector"));
-            }
+					resultComp = new ChatComponentSelector(JsonHelper.getString(jsonobject, "selector"));
+				}
 
-            if(var4.has("extra")) {
-               JsonArray var13 = var4.getAsJsonArray("extra");
-               if(var13.size() <= 0) {
-                  throw new JsonParseException("Unexpected empty array of components");
-               }
+				if (jsonobject.has("extra")) {
+					JsonArray entryJsonArray = jsonobject.getAsJsonArray("extra");
+					if (entryJsonArray.size() <= 0) {
+						throw new JsonParseException("Unexpected empty array of components");
+					}
+					for (int i = 0; i < entryJsonArray.size(); ++i) {
+						resultComp.addSibling(deserialize(entryJsonArray.get(i), type, ctx));
+					}
+				}
 
-               for(int var16 = 0; var16 < var13.size(); ++var16) {
-                  ((IChatBaseComponent)var5).a(this.a(var13.get(var16), var2, var3));
-               }
-            }
+				resultComp.a((ChatModifier) ctx.deserialize(element, ChatModifier.class));
+				return resultComp;
+			}
+		}
 
-            ((IChatBaseComponent)var5).a((ChatModifier)var3.deserialize(var1, ChatModifier.class));
-            return (IChatBaseComponent)var5;
-         }
-      }
+		private void a(ChatModifier chatmodifier, JsonObject jsonobject, JsonSerializationContext ctx) {
+			JsonElement element = ctx.serialize(chatmodifier);
+			if (element.isJsonObject()) {
+				JsonObject objelement = (JsonObject) element;
+				for (Entry<String, JsonElement> entry : objelement.entrySet()) {
+					jsonobject.add(entry.getKey(), entry.getValue());
+				}
+			}
+		}
 
-      private void a(ChatModifier var1, JsonObject var2, JsonSerializationContext var3) {
-         JsonElement var4 = var3.serialize(var1);
-         if(var4.isJsonObject()) {
-            JsonObject var5 = (JsonObject)var4;
-            Iterator var6 = var5.entrySet().iterator();
+		@Override
+		public JsonElement serialize(IChatBaseComponent base, Type type, JsonSerializationContext ctx) {
+			JsonObject result = new JsonObject();
+			if (!base.getChatModifier().g()) {
+				this.a(base.getChatModifier(), result, ctx);
+			}
 
-            while(var6.hasNext()) {
-               Entry var7 = (Entry)var6.next();
-               var2.add((String)var7.getKey(), (JsonElement)var7.getValue());
-            }
-         }
+			if (!base.a().isEmpty()) {
+				JsonArray extrajson = new JsonArray();
+				for (IChatBaseComponent comp : base.a()) {
+					extrajson.add(serialize(comp, comp.getClass(), ctx));
+				}
+				result.add("extra", extrajson);
+			}
 
-      }
+			if (base instanceof ChatComponentText) {
+				result.addProperty("text", ((ChatComponentText) base).g());
+			} else if (base instanceof ChatMessage) {
+				ChatMessage chatmessage = (ChatMessage) base;
+				result.addProperty("translate", chatmessage.i());
+				if ((chatmessage.j() != null) && (chatmessage.j().length > 0)) {
+					JsonArray withjson = new JsonArray();
+					for (Object arg : chatmessage.j()) {
+						if (arg instanceof IChatBaseComponent) {
+							withjson.add(serialize(((IChatBaseComponent) arg), arg.getClass(), ctx));
+						} else {
+							withjson.add(new JsonPrimitive(String.valueOf(arg)));
+						}
+					}
 
-      public JsonElement a(IChatBaseComponent var1, Type var2, JsonSerializationContext var3) {
-        JsonObject var4 = new JsonObject();
-        if(!var1.b().g()) {
-           this.a(var1.b(), var4, var3);
-        }
+					result.add("with", withjson);
+				}
+			} else if (base instanceof ChatComponentScore) {
+				ChatComponentScore scorecomp = (ChatComponentScore) base;
+				JsonObject scorejson = new JsonObject();
+				scorejson.addProperty("name", scorecomp.g());
+				scorejson.addProperty("objective", scorecomp.h());
+				scorejson.addProperty("value", scorecomp.getText());
+				result.add("score", scorejson);
+			} else {
+				if (!(base instanceof ChatComponentSelector)) {
+					throw new IllegalArgumentException("Don\'t know how to serialize " + base + " as a Component");
+				}
 
-        if(!var1.a().isEmpty()) {
-           JsonArray var5 = new JsonArray();
-           Iterator var6 = var1.a().iterator();
+				ChatComponentSelector selectorcomp = (ChatComponentSelector) base;
+				result.addProperty("selector", selectorcomp.g());
+			}
 
-           while(var6.hasNext()) {
-              IChatBaseComponent var7 = (IChatBaseComponent)var6.next();
-              var5.add(this.a((IChatBaseComponent)var7, (Type)var7.getClass(), (JsonSerializationContext)var3));
-           }
+			return result;
+		}
 
-           var4.add("extra", var5);
-        }
+		public static String toJson(IChatBaseComponent var0) {
+			return gson.toJson(var0);
+		}
 
-        if(var1 instanceof ChatComponentText) {
-           var4.addProperty("text", ((ChatComponentText)var1).g());
-        } else if(var1 instanceof ChatMessage) {
-           ChatMessage var11 = (ChatMessage)var1;
-           var4.addProperty("translate", var11.i());
-           if(var11.j() != null && var11.j().length > 0) {
-              JsonArray var14 = new JsonArray();
-              Object[] var16 = var11.j();
-              int var8 = var16.length;
+		public static IChatBaseComponent fromJson(String var0) {
+			return JsonHelper.fromJson(gson, var0, IChatBaseComponent.class, true);
+		}
 
-              for(int var9 = 0; var9 < var8; ++var9) {
-                 Object var10 = var16[var9];
-                 if(var10 instanceof IChatBaseComponent) {
-                    var14.add(this.a((IChatBaseComponent)((IChatBaseComponent)var10), (Type)var10.getClass(), (JsonSerializationContext)var3));
-                 } else {
-                    var14.add(new JsonPrimitive(String.valueOf(var10)));
-                 }
-              }
+		public static IChatBaseComponent b(final String var0) {
+			return JsonHelper.fromJson(gson, var0, IChatBaseComponent.class, true);
+		}
 
-              var4.add("with", var14);
-           }
-        } else if(var1 instanceof class_ex) {
-           class_ex var12 = (class_ex)var1;
-           JsonObject var15 = new JsonObject();
-           var15.addProperty("name", var12.g());
-           var15.addProperty("objective", var12.h());
-           var15.addProperty("value", var12.e());
-           var4.add("score", var15);
-        } else {
-           if(!(var1 instanceof class_ey)) {
-              throw new IllegalArgumentException("Don\'t know how to serialize " + var1 + " as a Component");
-           }
+	}
 
-           class_ey var13 = (class_ey)var1;
-           var4.addProperty("selector", var13.g());
-        }
-
-        return var4;
-      }
-
-      public static String toJson(IChatBaseComponent var0) {
-         return a.toJson((Object)var0);
-      }
-
-      public static IChatBaseComponent fromJson(String var0) {
-         return (IChatBaseComponent)JsonHelper.fromJson(a, var0, IChatBaseComponent.class, true);
-      }
-
-      public static IChatBaseComponent b(final String var0) {
-    	 return (IChatBaseComponent)JsonHelper.fromJson(a, var0, IChatBaseComponent.class, true);
-	  }
-
-      // $FF: synthetic method
-      public JsonElement serialize(Object var1, Type var2, JsonSerializationContext var3) {
-         return this.a((IChatBaseComponent)var1, var2, var3);
-      }
-
-      // $FF: synthetic method
-      public Object deserialize(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
-         return this.a(var1, var2, var3);
-      }
-
-      static {
-         GsonBuilder var0 = new GsonBuilder();
-         var0.registerTypeHierarchyAdapter(IChatBaseComponent.class, new IChatBaseComponent.ChatSerializer());
-         var0.registerTypeHierarchyAdapter(ChatModifier.class, new ChatModifier.ChatModifierSerializer());
-         var0.registerTypeAdapterFactory(new ChatTypeAdapterFactory());
-         a = var0.create();
-      }
-   }
 }

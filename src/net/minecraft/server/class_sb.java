@@ -1,20 +1,9 @@
 package net.minecraft.server;
 
-import net.minecraft.server.World;
-import net.minecraft.server.BlockBed;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.TileEntityChest;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_rx;
-import net.minecraft.server.class_uc;
-
 public class class_sb extends class_rx {
-   private final class_uc c;
+   private final EntityOcelot c;
 
-   public class_sb(class_uc var1, double var2) {
+   public class_sb(EntityOcelot var1, double var2) {
       super(var1, var2, 8);
       this.c = var1;
    }

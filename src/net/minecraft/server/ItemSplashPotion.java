@@ -12,7 +12,7 @@ public class ItemSplashPotion extends ItemPotion {
 
       var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
       if(!var2.isClientSide) {
-         class_xs var5 = new class_xs(var2, var3, var1);
+         EntityPotion var5 = new EntityPotion(var2, var3, var1);
          var5.a(var3.z, var3.y, -20.0F, 0.5F, 1.0F);
          var2.addEntity((Entity)var5);
       }

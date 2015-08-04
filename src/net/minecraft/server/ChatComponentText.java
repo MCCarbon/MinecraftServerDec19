@@ -1,54 +1,55 @@
 package net.minecraft.server;
 
 import java.util.Iterator;
-import net.minecraft.server.class_es;
+import net.minecraft.server.ChatBaseComponent;
 import net.minecraft.server.IChatBaseComponent;
 
-public class ChatComponentText extends class_es {
-   private final String b;
+public class ChatComponentText extends ChatBaseComponent {
 
-   public ChatComponentText(String var1) {
-      this.b = var1;
-   }
+	private final String string;
 
-   public String g() {
-      return this.b;
-   }
+	public ChatComponentText(String var1) {
+		this.string = var1;
+	}
 
-   public String e() {
-      return this.b;
-   }
+	public String g() {
+		return this.string;
+	}
 
-   public ChatComponentText h() {
-      ChatComponentText var1 = new ChatComponentText(this.b);
-      var1.a(this.b().m());
-      Iterator var2 = this.a().iterator();
+	public String getText() {
+		return this.string;
+	}
 
-      while(var2.hasNext()) {
-         IChatBaseComponent var3 = (IChatBaseComponent)var2.next();
-         var1.a(var3.f());
-      }
+	public ChatComponentText h() {
+		ChatComponentText var1 = new ChatComponentText(this.string);
+		var1.a(this.getChatModifier().m());
+		Iterator var2 = this.a().iterator();
 
-      return var1;
-   }
+		while (var2.hasNext()) {
+			IChatBaseComponent var3 = (IChatBaseComponent) var2.next();
+			var1.addSibling(var3.f());
+		}
 
-   public boolean equals(Object var1) {
-      if(this == var1) {
-         return true;
-      } else if(!(var1 instanceof ChatComponentText)) {
-         return false;
-      } else {
-         ChatComponentText var2 = (ChatComponentText)var1;
-         return this.b.equals(var2.g()) && super.equals(var1);
-      }
-   }
+		return var1;
+	}
 
-   public String toString() {
-      return "TextComponent{text=\'" + this.b + '\'' + ", siblings=" + this.a + ", style=" + this.b() + '}';
-   }
+	public boolean equals(Object var1) {
+		if (this == var1) {
+			return true;
+		} else if (!(var1 instanceof ChatComponentText)) {
+			return false;
+		} else {
+			ChatComponentText var2 = (ChatComponentText) var1;
+			return this.string.equals(var2.g()) && super.equals(var1);
+		}
+	}
 
-   // $FF: synthetic method
-   public IChatBaseComponent f() {
-      return this.h();
-   }
+	public String toString() {
+		return "TextComponent{text=\'" + this.string + '\'' + ", siblings=" + this.a + ", style=" + this.getChatModifier() + '}';
+	}
+
+	// $FF: synthetic method
+	public IChatBaseComponent f() {
+		return this.h();
+	}
 }

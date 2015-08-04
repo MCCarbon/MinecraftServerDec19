@@ -2,16 +2,16 @@ package net.minecraft.server;
 
 public class class_st extends class_rp {
    private int e;
-   private class_wv f;
+   private EntityVillager f;
 
-   public class_st(class_wv var1) {
-      super(var1, class_wv.class, 3.0F, 0.02F);
+   public class_st(EntityVillager var1) {
+      super(var1, EntityVillager.class, 3.0F, 0.02F);
       this.f = var1;
    }
 
    public void c() {
       super.c();
-      if(this.f.cH() && this.b instanceof class_wv && ((class_wv)this.b).cI()) {
+      if(this.f.cH() && this.b instanceof EntityVillager && ((EntityVillager)this.b).cI()) {
          this.e = 10;
       } else {
          this.e = 0;

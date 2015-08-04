@@ -1,14 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_wa;
-
 public class class_sp extends class_rm {
-   class_wa a;
+   EntityCreeper a;
    EntityLiving b;
 
-   public class_sp(class_wa var1) {
+   public class_sp(EntityCreeper var1) {
       this.a = var1;
       this.a(1);
    }

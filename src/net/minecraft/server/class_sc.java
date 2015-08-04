@@ -1,17 +1,11 @@
 package net.minecraft.server;
 
-import net.minecraft.server.AxisAlignedBB;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_uj;
-import net.minecraft.server.class_wv;
-
 public class class_sc extends class_rm {
-   private class_uj a;
-   private class_wv b;
+   private EntityVillagerGolem a;
+   private EntityVillager b;
    private int c;
 
-   public class_sc(class_uj var1) {
+   public class_sc(EntityVillagerGolem var1) {
       this.a = var1;
       this.a(3);
    }
@@ -22,7 +16,7 @@ public class class_sc extends class_rm {
       } else if(this.a.bd().nextInt(8000) != 0) {
          return false;
       } else {
-         this.b = (class_wv)this.a.o.a((Class)class_wv.class, (AxisAlignedBB)this.a.aT().grow(6.0D, 2.0D, 6.0D), (Entity)this.a);
+         this.b = (EntityVillager)this.a.o.a((Class)EntityVillager.class, (AxisAlignedBB)this.a.aT().grow(6.0D, 2.0D, 6.0D), (Entity)this.a);
          return this.b != null;
       }
    }

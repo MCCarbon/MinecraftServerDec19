@@ -443,7 +443,7 @@ public class class_asa {
          if(var2.b((BaseBlockPosition)var9) && var1.getType(var9).getBlock().getMaterial() == Material.AIR) {
             IBlockData var10 = Blocks.RAIL.getBlockData().set(BlockMinecartTrack.b, var3.nextBoolean()?BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH:BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST);
             this.a(var1, var10, var4, var5, var6, var2);
-            class_vo var11 = new class_vo(var1, (double)((float)var9.getX() + 0.5F), (double)((float)var9.getY() + 0.5F), (double)((float)var9.getZ() + 0.5F));
+            EntityMinecartChest var11 = new EntityMinecartChest(var1, (double)((float)var9.getX() + 0.5F), (double)((float)var9.getY() + 0.5F), (double)((float)var9.getZ() + 0.5F));
             class_od.a(var3, var7, (IInventory)var11, var8);
             var1.addEntity((Entity)var11);
             return true;

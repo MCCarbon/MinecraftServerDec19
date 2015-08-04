@@ -6,21 +6,6 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.class_akc;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asl;
-import net.minecraft.server.class_asn;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.EnumDirection;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.Entity;
-import net.minecraft.server.class_qd;
-import net.minecraft.server.class_wg;
 
 public class class_asf {
    public static void a() {
@@ -1969,7 +1954,7 @@ public class class_asf {
          int var7 = this.d(var4);
          int var8 = this.b(var3, var5);
          if(var2.b((BaseBlockPosition)(new BlockPosition(var6, var7, var8)))) {
-            class_wg var9 = new class_wg(var1);
+            EntityGuardian var9 = new EntityGuardian(var1);
             var9.a(true);
             var9.h(var9.bv());
             var9.b((double)var6 + 0.5D, (double)var7, (double)var8 + 0.5D, 0.0F, 0.0F);
@@ -1982,9 +1967,9 @@ public class class_asf {
       }
 
       static {
-         a = Blocks.PRISMARINE.fromLegacyData(class_akc.b);
-         b = Blocks.PRISMARINE.fromLegacyData(class_akc.N);
-         c = Blocks.PRISMARINE.fromLegacyData(class_akc.O);
+         a = Blocks.PRISMARINE.fromLegacyData(BlockPrismarine.b);
+         b = Blocks.PRISMARINE.fromLegacyData(BlockPrismarine.N);
+         c = Blocks.PRISMARINE.fromLegacyData(BlockPrismarine.O);
          d = b;
          e = Blocks.SEA_LANTERN.getBlockData();
          f = Blocks.WATER.getBlockData();

@@ -1,19 +1,5 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aut;
-import net.minecraft.server.class_auv;
-import net.minecraft.server.class_awp;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.MathHelper;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_qg;
-import net.minecraft.server.class_qh;
-import net.minecraft.server.class_ql;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_wl;
-import net.minecraft.server.EntityHuman;
 import org.apache.commons.lang3.StringUtils;
 
 public abstract class class_td extends class_rm {
@@ -79,7 +65,7 @@ public abstract class class_td extends class_rm {
       this.e.d((EntityLiving)null);
    }
 
-   public static boolean a(class_qb var0, EntityLiving var1, boolean var2, boolean var3) {
+   public static boolean a(EntityInsentient var0, EntityLiving var1, boolean var2, boolean var3) {
       if(var1 == null) {
          return false;
       } else if(var1 == var0) {

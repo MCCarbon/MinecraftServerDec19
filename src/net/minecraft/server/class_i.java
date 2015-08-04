@@ -263,7 +263,7 @@ public abstract class class_i implements class_k {
             }
          }
 
-         var4.a((IChatBaseComponent)var6);
+         var4.addSibling((IChatBaseComponent)var6);
       }
 
       return var4;
@@ -411,7 +411,7 @@ public abstract class class_i implements class_k {
             }
          }
 
-         var1.a((IChatBaseComponent)var0.get(var2));
+         var1.addSibling((IChatBaseComponent)var0.get(var2));
       }
 
       return var1;

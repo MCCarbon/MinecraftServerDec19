@@ -23,7 +23,7 @@ public class Bootstrap {
 		BlockDispenser.REGISTRY.register(Items.ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
-				class_xd var4 = new class_xd(var1, var2.getX(), var2.getY(), var2.getZ());
+				EntityArrow var4 = new EntityArrow(var1, var2.getX(), var2.getY(), var2.getZ());
 				var4.c = 1;
 				return var4;
 			}
@@ -31,7 +31,7 @@ public class Bootstrap {
 		BlockDispenser.REGISTRY.register(Items.TIPPED_ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
-				class_xt var4 = new class_xt(var1, var2.getX(), var2.getY(), var2.getZ(), var3);
+				EntityTippedArrow var4 = new EntityTippedArrow(var1, var2.getX(), var2.getY(), var2.getZ(), var3);
 				var4.c = 1;
 				return var4;
 			}
@@ -39,7 +39,7 @@ public class Bootstrap {
 		BlockDispenser.REGISTRY.register(Items.SPECTRAL_ARROW, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
-				class_xn var4 = new class_xn(var1, var2.getX(), var2.getY(), var2.getZ());
+				EntitySpectralArrow var4 = new EntitySpectralArrow(var1, var2.getX(), var2.getY(), var2.getZ());
 				var4.c = 1;
 				return var4;
 			}
@@ -47,19 +47,19 @@ public class Bootstrap {
 		BlockDispenser.REGISTRY.register(Items.EGG, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
-				return new class_xp(var1, var2.getX(), var2.getY(), var2.getZ());
+				return new EntityEgg(var1, var2.getX(), var2.getY(), var2.getZ());
 			}
 		});
 		BlockDispenser.REGISTRY.register(Items.SNOWBALL, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
-				return new class_xm(var1, var2.getX(), var2.getY(), var2.getZ());
+				return new EntitySnowball(var1, var2.getX(), var2.getY(), var2.getZ());
 			}
 		});
 		BlockDispenser.REGISTRY.register(Items.EXPERIENCE_BOTTLE, new class_kb() {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
-				return new class_xr(var1, var2.getX(), var2.getY(), var2.getZ());
+				return new EntityThrownExpBottle(var1, var2.getX(), var2.getY(), var2.getZ());
 			}
 
 			@Override
@@ -80,7 +80,7 @@ public class Bootstrap {
 				return (new class_kb() {
 					@Override
 					protected class_xi a(World var1, class_cz var2x, ItemStack var3) {
-						return new class_xs(var1, var2x.getX(), var2x.getY(), var2x.getZ(), var2.clone());
+						return new EntityPotion(var1, var2x.getX(), var2x.getY(), var2x.getZ(), var2.clone());
 					}
 
 					@Override
@@ -102,9 +102,9 @@ public class Bootstrap {
 				double var4 = var1.getX() + var3.getAdjacentX();
 				double var6 = var1.getPosition().getY() + 0.2F;
 				double var8 = var1.getZ() + var3.getAdjacentZ();
-				Entity var10 = class_abt.a(var1.getWorld(), var2.i(), var4, var6, var8);
+				Entity var10 = ItemMonsterEgg.a(var1.getWorld(), var2.i(), var4, var6, var8);
 				if((var10 instanceof EntityLiving) && var2.hasDisplayName()) {
-					((class_qb)var10).a(var2.getDisplayName());
+					((EntityInsentient)var10).a(var2.getDisplayName());
 				}
 
 				var2.a(1);
@@ -118,7 +118,7 @@ public class Bootstrap {
 				double var4 = var1.getX() + var3.getAdjacentX();
 				double var6 = var1.getPosition().getY() + 0.2F;
 				double var8 = var1.getZ() + var3.getAdjacentZ();
-				class_xg var10 = new class_xg(var1.getWorld(), var4, var6, var8, var2);
+				EntityFireworks var10 = new EntityFireworks(var1.getWorld(), var4, var6, var8, var2);
 				var1.getWorld().addEntity(var10);
 				var2.a(1);
 				return var2;
@@ -142,7 +142,7 @@ public class Bootstrap {
 				double var13 = (var12.nextGaussian() * 0.05D) + var3.getAdjacentX();
 				double var15 = (var12.nextGaussian() * 0.05D) + var3.getAdjacentY();
 				double var17 = (var12.nextGaussian() * 0.05D) + var3.getAdjacentZ();
-				var11.addEntity((new class_xl(var11, var5, var7, var9, var13, var15, var17)));
+				var11.addEntity((new EntitySmallFireball(var11, var5, var7, var9, var13, var15, var17)));
 				var2.a(1);
 				return var2;
 			}
@@ -175,7 +175,7 @@ public class Bootstrap {
 					var13 = 0.0D;
 				}
 
-				class_vk var15 = new class_vk(var4, var5, var7 + var13, var9);
+				EntityBoat var15 = new EntityBoat(var4, var5, var7 + var13, var9);
 				var4.addEntity(var15);
 				var2.a(1);
 				return var2;
@@ -191,7 +191,7 @@ public class Bootstrap {
 
 			@Override
 			public ItemStack b(ISourceBlock var1, ItemStack var2) {
-				class_zn var3 = (class_zn)var2.getItem();
+				ItemBucket var3 = (ItemBucket)var2.getItem();
 				BlockPosition var4 = var1.getPosition().shift(BlockDispenser.b(var1.getData()));
 				if(var3.a(var1.getWorld(), var4)) {
 					var2.a(Items.BUCKET);
@@ -276,7 +276,7 @@ public class Bootstrap {
 				if(EnumColor.a == EnumColor.a(var2.i())) {
 					World var3 = var1.getWorld();
 					BlockPosition var4 = var1.getPosition().shift(BlockDispenser.b(var1.getData()));
-					if(class_zz.a(var2, var3, var4)) {
+					if(ItemDye.a(var2, var3, var4)) {
 						if(!var3.isClientSide) {
 							var3.b(2005, var4, 0);
 						}
@@ -375,7 +375,7 @@ public class Bootstrap {
 			protected ItemStack b(ISourceBlock var1, ItemStack var2) {
 				World var3 = var1.getWorld();
 				BlockPosition var4 = var1.getPosition().shift(BlockDispenser.b(var1.getData()));
-				class_akd var5 = (class_akd)Blocks.PUMPKIN;
+				BlockPumpkin var5 = (BlockPumpkin)Blocks.PUMPKIN;
 				if(var3.isEmpty(var4) && var5.e(var3, var4)) {
 					if(!var3.isClientSide) {
 						var3.setTypeAndData(var4, var5.getBlockData(), 3);

@@ -110,9 +110,9 @@ public class class_apc {
                this.l = false;
             }
 
-            var1 = this.d.getEntities((Class)class_ur.class, (Predicate)IEntitySelector.IS_ALIVE);
+            var1 = this.d.getEntities((Class)EntityEnderDragon.class, (Predicate)IEntitySelector.IS_ALIVE);
             if(!var1.isEmpty()) {
-               class_ur var2 = (class_ur)var1.get(0);
+               EntityEnderDragon var2 = (EntityEnderDragon)var1.get(0);
                this.m = var2.aM();
                a.info("Found that there\'s a dragon still alive (" + var2 + ")");
                this.k = false;
@@ -128,9 +128,9 @@ public class class_apc {
          if(!this.k) {
             if(this.m == null || ++this.g >= 1200) {
                this.h();
-               var1 = this.d.getEntities((Class)class_ur.class, (Predicate)IEntitySelector.IS_ALIVE);
+               var1 = this.d.getEntities((Class)EntityEnderDragon.class, (Predicate)IEntitySelector.IS_ALIVE);
                if(!var1.isEmpty()) {
-                  this.m = ((class_ur)var1.get(0)).aM();
+                  this.m = ((EntityEnderDragon)var1.get(0)).aM();
                } else {
                   this.l();
                }
@@ -224,13 +224,13 @@ public class class_apc {
 
       for(int var3 = 0; var3 < var2; ++var3) {
          class_ari.class_a_in_class_ari var4 = var1[var3];
-         this.h += this.d.getEntities((Class)class_uq.class, (AxisAlignedBB)var4.f()).size();
+         this.h += this.d.getEntities((Class)EntityEnderCrystal.class, (AxisAlignedBB)var4.f()).size();
       }
 
       a.debug("Found {} end crystals still alive", new Object[]{Integer.valueOf(this.h)});
    }
 
-   public void a(class_ur var1) {
+   public void a(EntityEnderDragon var1) {
       if(var1.aM().equals(this.m)) {
          this.l = true;
          this.k = true;
@@ -269,13 +269,13 @@ public class class_apc {
 
    private void l() {
       this.d.f(new BlockPosition(0, 128, 0));
-      class_ur var1 = new class_ur(this.d);
+      EntityEnderDragon var1 = new EntityEnderDragon(this.d);
       var1.b(0.0D, 128.0D, 0.0D, this.d.random.nextFloat() * 360.0F, 0.0F);
       this.d.addEntity((Entity)var1);
       this.m = var1.aM();
    }
 
-   public void b(class_ur var1) {
+   public void b(EntityEnderDragon var1) {
       if(var1.aM().equals(this.m)) {
          this.c.a(var1.getHealth() / var1.bv());
          this.g = 0;
@@ -287,11 +287,11 @@ public class class_apc {
       return this.h;
    }
 
-   public void a(class_uq var1, DamageSource var2) {
+   public void a(EntityEnderCrystal var1, DamageSource var2) {
       this.j();
       Entity var3 = this.d.getEntityByUUID(this.m);
-      if(var3 instanceof class_ur) {
-         ((class_ur)var3).a(new BlockPosition(var1), var2);
+      if(var3 instanceof EntityEnderDragon) {
+         ((EntityEnderDragon)var3).a(new BlockPosition(var1), var2);
       }
 
    }

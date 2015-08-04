@@ -3,25 +3,15 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_asd;
-import net.minecraft.server.class_ask;
-import net.minecraft.server.class_asn;
-import net.minecraft.server.class_aso;
-import net.minecraft.server.class_vy;
-import net.minecraft.server.class_wh;
-import net.minecraft.server.class_wj;
-import net.minecraft.server.class_wn;
 
 public class class_asc extends class_ask {
    private List d = Lists.newArrayList();
 
    public class_asc() {
-      this.d.add(new BiomeBase.class_c_in_class_aez(class_vy.class, 10, 2, 3));
-      this.d.add(new BiomeBase.class_c_in_class_aez(class_wj.class, 5, 4, 4));
-      this.d.add(new BiomeBase.class_c_in_class_aez(class_wn.class, 10, 4, 4));
-      this.d.add(new BiomeBase.class_c_in_class_aez(class_wh.class, 3, 4, 4));
+      this.d.add(new BiomeBase.class_c_in_class_aez(EntityBlaze.class, 10, 2, 3));
+      this.d.add(new BiomeBase.class_c_in_class_aez(EntityPigZombie.class, 5, 4, 4));
+      this.d.add(new BiomeBase.class_c_in_class_aez(EntitySkeleton.class, 10, 4, 4));
+      this.d.add(new BiomeBase.class_c_in_class_aez(EntityMagmaCube.class, 3, 4, 4));
    }
 
    public String a() {

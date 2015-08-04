@@ -15,7 +15,7 @@ public final class ItemStack {
 	private Item item;
 	private NBTTagCompound tag;
 	private int data;
-	private class_va itemFrame;
+	private EntityItemFrame itemFrame;
 	private Block h;
 	private boolean i;
 	private Block j;
@@ -425,11 +425,11 @@ public final class ItemStack {
 		return itemFrame != null;
 	}
 
-	public void setItemFrame(class_va var1) {
+	public void setItemFrame(EntityItemFrame var1) {
 		itemFrame = var1;
 	}
 
-	public class_va getItemFrame() {
+	public EntityItemFrame getItemFrame() {
 		return itemFrame;
 	}
 
@@ -445,7 +445,7 @@ public final class ItemStack {
 		tag.put("RepairCost", repaircost);
 	}
 
-	public Multimap a(class_pw var1) {
+	public Multimap a(EnumWearable var1) {
 		Object var2;
 		if (hasTag() && tag.hasOfType("AttributeModifiers", 9)) {
 			var2 = HashMultimap.create();
@@ -472,15 +472,15 @@ public final class ItemStack {
 	public IChatBaseComponent B() {
 		ChatComponentText var1 = new ChatComponentText(getDisplayName());
 		if (hasDisplayName()) {
-			var1.b().b(Boolean.valueOf(true));
+			var1.getChatModifier().b(Boolean.valueOf(true));
 		}
 
-		IChatBaseComponent var2 = (new ChatComponentText("[")).a(var1).a("]");
+		IChatBaseComponent var2 = (new ChatComponentText("[")).addSibling(var1).a("]");
 		if (item != null) {
 			NBTTagCompound var3 = new NBTTagCompound();
 			this.write(var3);
-			var2.b().a(new class_ew(class_ew.class_a_in_class_ew.c, new ChatComponentText(var3.toString())));
-			var2.b().a(u().e);
+			var2.getChatModifier().a(new class_ew(class_ew.class_a_in_class_ew.c, new ChatComponentText(var3.toString())));
+			var2.getChatModifier().a(u().e);
 		}
 
 		return var2;

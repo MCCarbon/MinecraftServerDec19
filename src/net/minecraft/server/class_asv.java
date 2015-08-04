@@ -95,8 +95,8 @@ public class class_asv {
          var7 = new Vec3D(var6.s - (double)var2.getX(), var6.t - (double)var2.getY(), var6.u - (double)var2.getZ());
          var8 = new NBTTagCompound();
          var6.d(var8);
-         if(var6 instanceof class_vc) {
-            var9 = ((class_vc)var6).n().substract(var2);
+         if(var6 instanceof EntityPainting) {
+            var9 = ((EntityPainting)var6).n().substract(var2);
          } else {
             var9 = new BlockPosition(var7);
          }
@@ -259,7 +259,7 @@ public class class_asv {
          }
 
          if(var14 != null) {
-            if(var14 instanceof class_vc) {
+            if(var14 instanceof EntityPainting) {
                var14.a(var3);
                var14.a(var4);
                var14.b((double)var8.getX(), (double)var8.getY(), (double)var8.getZ());

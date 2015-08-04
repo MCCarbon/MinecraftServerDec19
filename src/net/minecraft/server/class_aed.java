@@ -133,7 +133,7 @@ public abstract class class_aed implements class_m {
 
    public void a(IChatBaseComponent var1) {
       if(this.c && this.e() != null && !this.e().isClientSide) {
-         this.d = (new ChatComponentText("[" + a.format(new Date()) + "] ")).a(var1);
+         this.d = (new ChatComponentText("[" + a.format(new Date()) + "] ")).addSibling(var1);
          this.h();
       }
 

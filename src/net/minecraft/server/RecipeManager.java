@@ -42,8 +42,8 @@ public class RecipeManager {
       this.a(new ItemStack(Blocks.JUNGLE_FENCE, 3), "W#W", "W#W", Character.valueOf('#'), Items.STICK, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.JUNGLE.getId()));
       this.a(new ItemStack(Blocks.ACACIA_FENCE, 3), "W#W", "W#W", Character.valueOf('#'), Items.STICK, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.ACACIA.getId() - 4));
       this.a(new ItemStack(Blocks.DARK_OAK_FENCE, 3), "W#W", "W#W", Character.valueOf('#'), Items.STICK, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, 4 + BlockWood.EnumLogVariant.DARK_OAK.getId() - 4));
-      this.a(new ItemStack(Blocks.COBBLESTONE_WALL, 6, class_alv.class_a_in_class_alv.a.a()), "###", "###", Character.valueOf('#'), Blocks.COBBLESTONE);
-      this.a(new ItemStack(Blocks.COBBLESTONE_WALL, 6, class_alv.class_a_in_class_alv.b.a()), "###", "###", Character.valueOf('#'), Blocks.MOSSY_COBBLESTONE);
+      this.a(new ItemStack(Blocks.COBBLESTONE_WALL, 6, BlockCobbleWall.class_a_in_class_alv.a.a()), "###", "###", Character.valueOf('#'), Blocks.COBBLESTONE);
+      this.a(new ItemStack(Blocks.COBBLESTONE_WALL, 6, BlockCobbleWall.class_a_in_class_alv.b.a()), "###", "###", Character.valueOf('#'), Blocks.MOSSY_COBBLESTONE);
       this.a(new ItemStack(Blocks.NETHER_BRICK_FENCE, 6), "###", "###", Character.valueOf('#'), Blocks.NETHER_BRICK);
       this.a(new ItemStack(Blocks.FENCE_GATE, 1), "#W#", "#W#", Character.valueOf('#'), Items.STICK, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.OAK.getId()));
       this.a(new ItemStack(Blocks.BIRCH_FENCE_GATE, 1), "#W#", "#W#", Character.valueOf('#'), Items.STICK, Character.valueOf('W'), new ItemStack(Blocks.PLANKS, 1, BlockWood.EnumLogVariant.BIRCH.getId()));

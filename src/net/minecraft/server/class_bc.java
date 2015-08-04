@@ -234,7 +234,7 @@ public class class_bc extends class_i {
                var6.add(var8);
             } catch (class_bz var11) {
                ChatMessage var10 = new ChatMessage(var11.getMessage(), var11.a());
-               var10.b().a(EnumChatFormat.RED);
+               var10.getChatModifier().a(EnumChatFormat.RED);
                var1.a(var10);
             }
          }
@@ -426,7 +426,7 @@ public class class_bc extends class_i {
          }
 
          ChatMessage var7 = new ChatMessage("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.b()});
-         var7.b().a(EnumChatFormat.DARK_GREEN);
+         var7.getChatModifier().a(EnumChatFormat.DARK_GREEN);
          var1.a(var7);
          var1.a(new ChatComponentText(a(var6.toArray())));
       } else {
@@ -437,7 +437,7 @@ public class class_bc extends class_i {
          }
 
          ChatMessage var10 = new ChatMessage("commands.scoreboard.teams.list.count", new Object[]{Integer.valueOf(var9.size())});
-         var10.b().a(EnumChatFormat.DARK_GREEN);
+         var10.getChatModifier().a(EnumChatFormat.DARK_GREEN);
          var1.a(var10);
          Iterator var11 = var9.iterator();
 
@@ -597,7 +597,7 @@ public class class_bc extends class_i {
          throw new class_bz("commands.scoreboard.objectives.list.empty", new Object[0]);
       } else {
          ChatMessage var4 = new ChatMessage("commands.scoreboard.objectives.list.count", new Object[]{Integer.valueOf(var3.size())});
-         var4.b().a(EnumChatFormat.DARK_GREEN);
+         var4.getChatModifier().a(EnumChatFormat.DARK_GREEN);
          var1.a(var4);
          Iterator var5 = var3.iterator();
 
@@ -642,7 +642,7 @@ public class class_bc extends class_i {
          }
 
          ChatMessage var7 = new ChatMessage("commands.scoreboard.players.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5});
-         var7.b().a(EnumChatFormat.DARK_GREEN);
+         var7.getChatModifier().a(EnumChatFormat.DARK_GREEN);
          var1.a(var7);
          Iterator var8 = var6.values().iterator();
 
@@ -658,7 +658,7 @@ public class class_bc extends class_i {
          }
 
          ChatMessage var11 = new ChatMessage("commands.scoreboard.players.list.count", new Object[]{Integer.valueOf(var10.size())});
-         var11.b().a(EnumChatFormat.DARK_GREEN);
+         var11.getChatModifier().a(EnumChatFormat.DARK_GREEN);
          var1.a(var11);
          var1.a(new ChatComponentText(a(var10.toArray())));
       }

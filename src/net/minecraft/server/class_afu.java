@@ -1,15 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockFlowers;
-import net.minecraft.server.class_aph;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.Material;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_wo;
 
 public class class_afu extends BiomeBase {
    protected class_afu(int var1) {
@@ -25,7 +16,7 @@ public class class_afu extends BiomeBase {
       this.as.H = 0;
       this.as.C = 5;
       this.ar = 14745518;
-      this.at.add(new BiomeBase.class_c_in_class_aez(class_wo.class, 1, 1, 1));
+      this.at.add(new BiomeBase.class_c_in_class_aez(EntitySlime.class, 1, 1, 1));
    }
 
    public class_apw a(Random var1) {

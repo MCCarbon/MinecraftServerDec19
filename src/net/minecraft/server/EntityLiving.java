@@ -321,11 +321,11 @@ public abstract class EntityLiving extends Entity {
 		compound.put("HurtByTimestamp", this.hurtTimestamp);
 		compound.put("DeathTime", (short) this.deathTicks);
 		compound.put("AbsorptionAmount", this.getAbsorptionHearts());
-		class_pw[] var2 = class_pw.values();
+		EnumWearable[] var2 = EnumWearable.values();
 		int var3 = var2.length;
 
 		int var4;
-		class_pw var5;
+		EnumWearable var5;
 		ItemStack var6;
 		for (var4 = 0; var4 < var3; ++var4) {
 			var5 = var2[var4];
@@ -336,7 +336,7 @@ public abstract class EntityLiving extends Entity {
 		}
 
 		compound.put((String) "Attributes", (NBTTag) class_wl.a(this.by()));
-		var2 = class_pw.values();
+		var2 = EnumWearable.values();
 		var3 = var2.length;
 
 		for (var4 = 0; var4 < var3; ++var4) {
@@ -602,8 +602,8 @@ public abstract class EntityLiving extends Entity {
 			} else if (var1.o() && this.a(MobEffectList.l)) {
 				return false;
 			} else {
-				if ((var1 == DamageSource.n || var1 == DamageSource.o) && this.a(class_pw.f) != null) {
-					this.a(class_pw.f).a((int) (var2 * 4.0F + this.random.nextFloat() * var2 * 2.0F), this);
+				if ((var1 == DamageSource.n || var1 == DamageSource.o) && this.a(EnumWearable.HEAD) != null) {
+					this.a(EnumWearable.HEAD).a((int) (var2 * 4.0F + this.random.nextFloat() * var2 * 2.0F), this);
 					var2 *= 0.75F;
 				}
 
@@ -634,8 +634,8 @@ public abstract class EntityLiving extends Entity {
 					if (var4 instanceof EntityHuman) {
 						this.aR = 100;
 						this.aQ = (EntityHuman) var4;
-					} else if (var4 instanceof class_ul) {
-						class_ul var5 = (class_ul) var4;
+					} else if (var4 instanceof EntityWolf) {
+						EntityWolf var5 = (EntityWolf) var4;
 						if (var5.cA()) {
 							this.aR = 100;
 							this.aQ = null;
@@ -777,14 +777,14 @@ public abstract class EntityLiving extends Entity {
 			BlockPosition var4 = new BlockPosition(var1, var2, var3);
 			IBlockData var5 = this.o.getType(var4);
 			Block var6 = var5.getBlock();
-			return var6 != Blocks.LADDER && var6 != Blocks.VINE ? var6 instanceof class_alr && this.a(var4, var5) : true;
+			return var6 != Blocks.LADDER && var6 != Blocks.VINE ? var6 instanceof BlockTrapdoor && this.a(var4, var5) : true;
 		}
 	}
 
 	private boolean a(BlockPosition var1, IBlockData var2) {
-		if (((Boolean) var2.get(class_alr.b)).booleanValue()) {
+		if (((Boolean) var2.get(BlockTrapdoor.b)).booleanValue()) {
 			IBlockData var3 = this.o.getType(var1.down());
-			if (var3.getBlock() == Blocks.LADDER && var3.get(BlockLadder.a) == var2.get(class_alr.a)) {
+			if (var3.getBlock() == Blocks.LADDER && var3.get(BlockLadder.a) == var2.get(BlockTrapdoor.a)) {
 				return true;
 			}
 		}
@@ -826,8 +826,8 @@ public abstract class EntityLiving extends Entity {
 
 		while (var2.hasNext()) {
 			ItemStack var3 = (ItemStack) var2.next();
-			if (var3 != null && var3.getItem() instanceof class_za) {
-				int var4 = ((class_za) var3.getItem()).c;
+			if (var3 != null && var3.getItem() instanceof ItemArmor) {
+				int var4 = ((ItemArmor) var3.getItem()).c;
 				var1 += var4;
 			}
 		}
@@ -970,18 +970,18 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	public ItemStack bA() {
-		return this.a(class_pw.a);
+		return this.a(EnumWearable.MAINHAND);
 	}
 
 	public ItemStack bB() {
-		return this.a(class_pw.b);
+		return this.a(EnumWearable.OFFHAND);
 	}
 
 	public ItemStack getItemInHand(EnumUsedHand var1) {
 		if (var1 == EnumUsedHand.MAIN_HAND) {
-			return this.a(class_pw.a);
+			return this.a(EnumWearable.MAINHAND);
 		} else if (var1 == EnumUsedHand.OFF_HAND) {
-			return this.a(class_pw.b);
+			return this.a(EnumWearable.OFFHAND);
 		} else {
 			throw new IllegalArgumentException("Invalid hand " + var1);
 		}
@@ -989,22 +989,22 @@ public abstract class EntityLiving extends Entity {
 
 	public void a(EnumUsedHand var1, ItemStack var2) {
 		if (var1 == EnumUsedHand.MAIN_HAND) {
-			this.a(class_pw.a, var2);
+			this.a(EnumWearable.MAINHAND, var2);
 		} else {
 			if (var1 != EnumUsedHand.OFF_HAND) {
 				throw new IllegalArgumentException("Invalid hand " + var1);
 			}
 
-			this.a(class_pw.b, var2);
+			this.a(EnumWearable.OFFHAND, var2);
 		}
 
 	}
 
 	public abstract Iterable<?> at();
 
-	public abstract ItemStack a(class_pw var1);
+	public abstract ItemStack a(EnumWearable var1);
 
-	public abstract void a(class_pw var1, ItemStack var2);
+	public abstract void a(EnumWearable var1, ItemStack var2);
 
 	public void d(boolean var1) {
 		super.d(var1);
@@ -1233,18 +1233,18 @@ public abstract class EntityLiving extends Entity {
 				}
 			}
 
-			class_pw[] var2 = class_pw.values();
+			EnumWearable[] var2 = EnumWearable.values();
 			int var3 = var2.length;
 
 			for (int var4 = 0; var4 < var3; ++var4) {
-				class_pw var5 = var2[var4];
+				EnumWearable var5 = var2[var4];
 				ItemStack var6;
-				switch (EntityLiving.SyntheticClass_1.a[var5.a().ordinal()]) {
+				switch (EntityLiving.SyntheticClass_1.a[var5.getSlot().ordinal()]) {
 					case 1:
-						var6 = this.bp[var5.b()];
+						var6 = this.bp[var5.getRelative()];
 						break;
 					case 2:
-						var6 = this.bq[var5.b()];
+						var6 = this.bq[var5.getRelative()];
 						break;
 					default:
 						continue;
@@ -1261,12 +1261,12 @@ public abstract class EntityLiving extends Entity {
 						this.by().b(var7.a(var5));
 					}
 
-					switch (EntityLiving.SyntheticClass_1.a[var5.a().ordinal()]) {
+					switch (EntityLiving.SyntheticClass_1.a[var5.getSlot().ordinal()]) {
 						case 1:
-							this.bp[var5.b()] = var7 == null ? null : var7.clone();
+							this.bp[var5.getRelative()] = var7 == null ? null : var7.clone();
 							break;
 						case 2:
-							this.bq[var5.b()] = var7 == null ? null : var7.clone();
+							this.bq[var5.getRelative()] = var7 == null ? null : var7.clone();
 					}
 				}
 			}
@@ -1508,7 +1508,7 @@ public abstract class EntityLiving extends Entity {
 				var3.a((Entity) var1, (Packet<?>) (new PacketPlayOutCollect(var1.getId(), this.getId())));
 			}
 
-			if (var1 instanceof class_xd) {
+			if (var1 instanceof EntityArrow) {
 				var3.a((Entity) var1, (Packet<?>) (new PacketPlayOutCollect(var1.getId(), this.getId())));
 			}
 
@@ -1742,17 +1742,17 @@ public abstract class EntityLiving extends Entity {
 	// $FF: synthetic class
 	static class SyntheticClass_1 {
 		// $FF: synthetic field
-		static final int[] a = new int[class_pw.class_a_in_class_pw.values().length];
+		static final int[] a = new int[EnumWearable.SLOT.values().length];
 
 		static {
 			try {
-				a[class_pw.class_a_in_class_pw.a.ordinal()] = 1;
+				a[EnumWearable.SLOT.HAND.ordinal()] = 1;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_pw.class_a_in_class_pw.b.ordinal()] = 2;
+				a[EnumWearable.SLOT.ARMOR.ordinal()] = 2;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

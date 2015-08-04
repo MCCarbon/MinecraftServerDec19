@@ -497,7 +497,7 @@ public abstract class Entity implements class_m {
          Block var60 = this.o.getType(var26).getBlock();
          if(var60.getMaterial() == Material.AIR) {
             Block var28 = this.o.getType(var26.down()).getBlock();
-            if(var28 instanceof class_ahz || var28 instanceof class_alv || var28 instanceof class_aia) {
+            if(var28 instanceof BlockFence || var28 instanceof BlockCobbleWall || var28 instanceof BlockFenceGate) {
                var60 = var28;
                var26 = var26.down();
             }
@@ -1315,7 +1315,7 @@ public abstract class Entity implements class_m {
       return Iterables.concat(this.as(), this.at());
    }
 
-   public void a(class_pw var1, ItemStack var2) {
+   public void a(EnumWearable var1, ItemStack var2) {
    }
 
    public boolean av() {
@@ -1634,8 +1634,8 @@ public abstract class Entity implements class_m {
 
    public IChatBaseComponent getScoreboardDisplayName() {
       ChatComponentText var1 = new ChatComponentText(this.getName());
-      var1.b().a(this.aS());
-      var1.b().a(this.aM().toString());
+      var1.getChatModifier().a(this.aS());
+      var1.getChatModifier().a(this.aM().toString());
       return var1;
    }
 

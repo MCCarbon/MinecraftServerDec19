@@ -59,15 +59,15 @@ public class class_my {
 
    public IChatBaseComponent e() {
       IChatBaseComponent var1 = this.a.f();
-      var1.b().a(EnumChatFormat.GRAY);
-      var1.b().a(new class_ew(class_ew.class_a_in_class_ew.b, new ChatComponentText(this.e)));
+      var1.getChatModifier().a(EnumChatFormat.GRAY);
+      var1.getChatModifier().a(new class_ew(class_ew.class_a_in_class_ew.b, new ChatComponentText(this.e)));
       return var1;
    }
 
    public IChatBaseComponent j() {
       IChatBaseComponent var1 = this.e();
-      IChatBaseComponent var2 = (new ChatComponentText("[")).a(var1).a("]");
-      var2.a(var1.b());
+      IChatBaseComponent var2 = (new ChatComponentText("[")).addSibling(var1).a("]");
+      var2.a(var1.getChatModifier());
       return var2;
    }
 

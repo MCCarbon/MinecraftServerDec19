@@ -1,26 +1,6 @@
 package net.minecraft.server;
 
 import java.util.Random;
-import net.minecraft.server.World;
-import net.minecraft.server.BiomeBase;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.BlockLeaves;
-import net.minecraft.server.BlockLeaves1;
-import net.minecraft.server.BlockLog1;
-import net.minecraft.server.BlockWood;
-import net.minecraft.server.BlockLongGrass;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_apw;
-import net.minecraft.server.class_aql;
-import net.minecraft.server.class_aqn;
-import net.minecraft.server.class_aqw;
-import net.minecraft.server.class_aqz;
-import net.minecraft.server.class_arm;
-import net.minecraft.server.class_arn;
-import net.minecraft.server.class_aro;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_tx;
-import net.minecraft.server.class_uc;
 
 public class class_afk extends BiomeBase {
    private boolean aD;
@@ -40,10 +20,10 @@ public class class_afk extends BiomeBase {
       this.as.C = 25;
       this.as.B = 4;
       if(!var2) {
-         this.at.add(new BiomeBase.class_c_in_class_aez(class_uc.class, 2, 1, 1));
+         this.at.add(new BiomeBase.class_c_in_class_aez(EntityOcelot.class, 2, 1, 1));
       }
 
-      this.au.add(new BiomeBase.class_c_in_class_aez(class_tx.class, 10, 4, 4));
+      this.au.add(new BiomeBase.class_c_in_class_aez(EntityChicken.class, 10, 4, 4));
    }
 
    public class_apw a(Random var1) {

@@ -1,15 +1,12 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_qb;
-import net.minecraft.server.class_rm;
-
 public class class_sh extends class_rm {
-   private class_qb a;
+   private EntityInsentient a;
    private double b;
    private double c;
    private int d;
 
-   public class_sh(class_qb var1) {
+   public class_sh(EntityInsentient var1) {
       this.a = var1;
       this.a(3);
    }

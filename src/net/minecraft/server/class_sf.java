@@ -2,20 +2,14 @@ package net.minecraft.server;
 
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.Vec3D;
-import net.minecraft.server.Entity;
-import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_rm;
-import net.minecraft.server.class_tm;
-import net.minecraft.server.class_wv;
 
 public class class_sf extends class_rm {
-   private class_wv a;
+   private EntityVillager a;
    private EntityLiving b;
    private double c;
    private int d;
 
-   public class_sf(class_wv var1, double var2) {
+   public class_sf(EntityVillager var1, double var2) {
       this.a = var1;
       this.c = var2;
       this.a(1);
@@ -27,12 +21,12 @@ public class class_sf extends class_rm {
       } else if(this.a.bd().nextInt(400) != 0) {
          return false;
       } else {
-         List var1 = this.a.o.getEntities(class_wv.class, this.a.aT().grow(6.0D, 3.0D, 6.0D));
+         List var1 = this.a.o.getEntities(EntityVillager.class, this.a.aT().grow(6.0D, 3.0D, 6.0D));
          double var2 = Double.MAX_VALUE;
          Iterator var4 = var1.iterator();
 
          while(var4.hasNext()) {
-            class_wv var5 = (class_wv)var4.next();
+            EntityVillager var5 = (EntityVillager)var4.next();
             if(var5 != this.a && !var5.cC() && var5.l() < 0) {
                double var6 = var5.h(this.a);
                if(var6 <= var2) {

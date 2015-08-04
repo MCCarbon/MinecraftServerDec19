@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 public class class_yp extends Container {
-   private static final class_pw[] h;
+   private static final EnumWearable[] h;
    public class_yg a = new class_yg(this, 2, 2);
    public IInventory f = new class_yv();
    public boolean g;
@@ -21,14 +21,14 @@ public class class_yp extends Container {
       }
 
       for(var4 = 0; var4 < 4; ++var4) {
-         final class_pw var6 = h[var4];
+         final EnumWearable var6 = h[var4];
          this.a((class_yx)(new class_yx(var1, 36 + (3 - var4), 8, 8 + var4 * 18) {
             public int a() {
                return 1;
             }
 
             public boolean a(ItemStack var1) {
-               return var1 == null?false:(var1.getItem() instanceof class_za?((class_za)var1.getItem()).b == var6:(var1.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var1.getItem() != Items.SKULL ?false:var6 == class_pw.f));
+               return var1 == null?false:(var1.getItem() instanceof ItemArmor ?((ItemArmor)var1.getItem()).b == var6:(var1.getItem() != Item.getItemOf(Blocks.PUMPKIN) && var1.getItem() != Items.SKULL ?false:var6 == EnumWearable.HEAD));
             }
          }));
       }
@@ -92,8 +92,8 @@ public class class_yp extends Container {
             if(!this.a(var5, 9, 45, false)) {
                return null;
             }
-         } else if(var3.getItem() instanceof class_za && !((class_yx)this.c.get(8 - ((class_za)var3.getItem()).b.b())).e()) {
-            int var6 = 8 - ((class_za)var3.getItem()).b.b();
+         } else if(var3.getItem() instanceof ItemArmor && !((class_yx)this.c.get(8 - ((ItemArmor)var3.getItem()).b.getRelative())).e()) {
+            int var6 = 8 - ((ItemArmor)var3.getItem()).b.getRelative();
             if(!this.a(var5, var6, var6 + 1, false)) {
                return null;
             }
@@ -130,6 +130,6 @@ public class class_yp extends Container {
    }
 
    static {
-      h = new class_pw[]{class_pw.f, class_pw.e, class_pw.d, class_pw.c};
+      h = new EnumWearable[]{EnumWearable.HEAD, EnumWearable.TORSO, EnumWearable.LEGS, EnumWearable.FEET};
    }
 }

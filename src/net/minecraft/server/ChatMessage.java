@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import net.minecraft.server.LocaleI18n;
-import net.minecraft.server.class_es;
+import net.minecraft.server.ChatBaseComponent;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatModifier;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_fc;
 
-public class ChatMessage extends class_es {
+public class ChatMessage extends ChatBaseComponent {
    private final String d;
    private final Object[] e;
    private final Object f = new Object();
@@ -32,7 +32,7 @@ public class ChatMessage extends class_es {
       for(int var5 = 0; var5 < var4; ++var5) {
          Object var6 = var3[var5];
          if(var6 instanceof IChatBaseComponent) {
-            ((IChatBaseComponent)var6).b().a(this.b());
+            ((IChatBaseComponent)var6).getChatModifier().setChatModifier(this.getChatModifier());
          }
       }
 
@@ -77,7 +77,7 @@ public class ChatMessage extends class_es {
             var7 = var3.end();
             if(var6 > var5) {
                ChatComponentText var8 = new ChatComponentText(String.format(var1.substring(var5, var6), new Object[0]));
-               var8.b().a(this.b());
+               var8.getChatModifier().setChatModifier(this.getChatModifier());
                this.b.add(var8);
             }
 
@@ -85,7 +85,7 @@ public class ChatMessage extends class_es {
             String var9 = var1.substring(var6, var7);
             if("%".equals(var14) && "%%".equals(var9)) {
                ChatComponentText var15 = new ChatComponentText("%");
-               var15.b().a(this.b());
+               var15.getChatModifier().setChatModifier(this.getChatModifier());
                this.b.add(var15);
             } else {
                if(!"s".equals(var14)) {
@@ -102,7 +102,7 @@ public class ChatMessage extends class_es {
 
          if(var5 < var1.length()) {
             ChatComponentText var13 = new ChatComponentText(String.format(var1.substring(var5), new Object[0]));
-            var13.b().a(this.b());
+            var13.getChatModifier().setChatModifier(this.getChatModifier());
             this.b.add(var13);
          }
 
@@ -121,7 +121,7 @@ public class ChatMessage extends class_es {
             var3 = (IChatBaseComponent)var2;
          } else {
             var3 = new ChatComponentText(var2 == null?"null":var2.toString());
-            ((IChatBaseComponent)var3).b().a(this.b());
+            ((IChatBaseComponent)var3).getChatModifier().setChatModifier(this.getChatModifier());
          }
 
          return (IChatBaseComponent)var3;
@@ -136,7 +136,7 @@ public class ChatMessage extends class_es {
       for(int var4 = 0; var4 < var3; ++var4) {
          Object var5 = var2[var4];
          if(var5 instanceof IChatBaseComponent) {
-            ((IChatBaseComponent)var5).b().a(this.b());
+            ((IChatBaseComponent)var5).getChatModifier().setChatModifier(this.getChatModifier());
          }
       }
 
@@ -145,7 +145,7 @@ public class ChatMessage extends class_es {
 
          while(var6.hasNext()) {
             IChatBaseComponent var7 = (IChatBaseComponent)var6.next();
-            var7.b().a(var1);
+            var7.getChatModifier().setChatModifier(var1);
          }
       }
 
@@ -157,14 +157,14 @@ public class ChatMessage extends class_es {
       return Iterators.concat(a(this.b), a(this.a));
    }
 
-   public String e() {
+   public String getText() {
       this.g();
       StringBuilder var1 = new StringBuilder();
       Iterator var2 = this.b.iterator();
 
       while(var2.hasNext()) {
          IChatBaseComponent var3 = (IChatBaseComponent)var2.next();
-         var1.append(var3.e());
+         var1.append(var3.getText());
       }
 
       return var1.toString();
@@ -182,12 +182,12 @@ public class ChatMessage extends class_es {
       }
 
       ChatMessage var5 = new ChatMessage(this.d, var1);
-      var5.a(this.b().m());
+      var5.a(this.getChatModifier().m());
       Iterator var3 = this.a().iterator();
 
       while(var3.hasNext()) {
          IChatBaseComponent var4 = (IChatBaseComponent)var3.next();
-         var5.a(var4.f());
+         var5.addSibling(var4.f());
       }
 
       return var5;
@@ -212,7 +212,7 @@ public class ChatMessage extends class_es {
    }
 
    public String toString() {
-      return "TranslatableComponent{key=\'" + this.d + '\'' + ", args=" + Arrays.toString(this.e) + ", siblings=" + this.a + ", style=" + this.b() + '}';
+      return "TranslatableComponent{key=\'" + this.d + '\'' + ", args=" + Arrays.toString(this.e) + ", siblings=" + this.a + ", style=" + this.getChatModifier() + '}';
    }
 
    public String i() {
