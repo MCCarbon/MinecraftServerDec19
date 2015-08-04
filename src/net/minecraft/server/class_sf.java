@@ -16,7 +16,7 @@ public class class_sf extends class_rm {
    }
 
    public boolean a() {
-      if(this.a.l() >= 0) {
+      if(this.a.getAge() >= 0) {
          return false;
       } else if(this.a.bd().nextInt(400) != 0) {
          return false;
@@ -27,7 +27,7 @@ public class class_sf extends class_rm {
 
          while(var4.hasNext()) {
             EntityVillager var5 = (EntityVillager)var4.next();
-            if(var5 != this.a && !var5.cC() && var5.l() < 0) {
+            if(var5 != this.a && !var5.cC() && var5.getAge() < 0) {
                double var6 = var5.h(this.a);
                if(var6 <= var2) {
                   var2 = var6;

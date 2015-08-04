@@ -7,14 +7,14 @@ import net.minecraft.server.class_auv;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.Entity;
 import net.minecraft.server.IEntitySelector;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tg;
 import net.minecraft.server.class_tm;
 
 public class class_rb extends class_rm {
    private final Predicate c;
-   protected class_qh a;
+   protected EntityCreature a;
    private double d;
    private double e;
    protected Entity b;
@@ -24,11 +24,11 @@ public class class_rb extends class_rm {
    private Class i;
    private Predicate j;
 
-   public class_rb(class_qh var1, Class var2, float var3, double var4, double var6) {
+   public class_rb(EntityCreature var1, Class var2, float var3, double var4, double var6) {
       this(var1, var2, Predicates.alwaysTrue(), var3, var4, var6);
    }
 
-   public class_rb(class_qh var1, Class var2, Predicate var3, float var4, double var5, double var7) {
+   public class_rb(EntityCreature var1, Class var2, Predicate var3, float var4, double var5, double var7) {
       this.c = new Predicate() {
          public boolean a(Entity var1) {
             return var1.isAlive() && class_rb.this.a.v().a(var1);

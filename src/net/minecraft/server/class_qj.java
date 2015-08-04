@@ -12,8 +12,8 @@ public abstract class class_qj extends class_tw implements class_qg {
       this.cB();
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bs, Byte.valueOf((byte)0));
       this.datawatcher.add(bt, "");
    }

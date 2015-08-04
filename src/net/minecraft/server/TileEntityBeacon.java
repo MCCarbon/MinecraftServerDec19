@@ -8,12 +8,12 @@ import com.google.common.collect.Lists;
 
 public class TileEntityBeacon extends TileEntityContainer implements ITickAble, IInventory {
 
-	public static final MobEffect[][] a;
+	public static final MobEffectType[][] a;
 	private final List f = Lists.newArrayList();
 	private boolean i;
 	private int j = -1;
-	private MobEffect k;
-	private MobEffect l;
+	private MobEffectType k;
+	private MobEffectType l;
 	private ItemStack m;
 	private String n;
 
@@ -48,7 +48,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 			EntityHuman var10;
 			while (var9.hasNext()) {
 				var10 = (EntityHuman) var9.next();
-				var10.c(new class_pl(k, 180, var3, true, true));
+				var10.addEffect(new MobEffect(k, 180, var3, true, true));
 			}
 
 			if ((j >= 4) && (k != l) && (l != null)) {
@@ -56,7 +56,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 
 				while (var9.hasNext()) {
 					var10 = (EntityHuman) var9.next();
-					var10.c(new class_pl(l, 180, 0, true, true));
+					var10.addEffect(new MobEffect(l, 180, 0, true, true));
 				}
 			}
 		}
@@ -158,8 +158,8 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 		return new PacketPlayOutTileEntityData(position, 3, var1);
 	}
 
-	private static MobEffect f(int var0) {
-		MobEffect var1 = MobEffect.a(var0);
+	private static MobEffectType f(int var0) {
+		MobEffectType var1 = MobEffectType.a(var0);
 		return (var1 != MobEffectList.a) && (var1 != MobEffectList.c) && (var1 != MobEffectList.k) && (var1 != MobEffectList.h) && (var1 != MobEffectList.e) && (var1 != MobEffectList.j) ? null : var1;
 	}
 
@@ -174,8 +174,8 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 	@Override
 	public void write(NBTTagCompound var1) {
 		super.write(var1);
-		var1.put("Primary", MobEffect.a(k));
-		var1.put("Secondary", MobEffect.a(l));
+		var1.put("Primary", MobEffectType.a(k));
+		var1.put("Secondary", MobEffectType.a(l));
 		var1.put("Levels", j);
 	}
 
@@ -277,9 +277,9 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 			case 0:
 				return j;
 			case 1:
-				return MobEffect.a(k);
+				return MobEffectType.a(k);
 			case 2:
-				return MobEffect.a(l);
+				return MobEffectType.a(l);
 			default:
 				return 0;
 		}
@@ -321,7 +321,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 	}
 
 	static {
-		a = new MobEffect[][] { { MobEffectList.a, MobEffectList.c }, { MobEffectList.k, MobEffectList.h }, { MobEffectList.e }, { MobEffectList.j } };
+		a = new MobEffectType[][] { { MobEffectList.a, MobEffectList.c }, { MobEffectList.k, MobEffectList.h }, { MobEffectList.e }, { MobEffectList.j } };
 	}
 
 	public static class class_a_in_class_amf {

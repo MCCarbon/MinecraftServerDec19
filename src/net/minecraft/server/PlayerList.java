@@ -106,10 +106,10 @@ public abstract class PlayerList {
 			player.a(this.mcserver.ab(), this.mcserver.ac());
 		}
 
-		Iterator<?> var15 = player.bm().iterator();
+		Iterator<?> var15 = player.getEffects().iterator();
 
 		while (var15.hasNext()) {
-			class_pl var16 = (class_pl) var15.next();
+			MobEffect var16 = (MobEffect) var15.next();
 			var12.sendPacket((Packet<?>) (new PacketPlayOutEntityEffect(player.getId(), var16)));
 		}
 
@@ -389,10 +389,10 @@ public abstract class PlayerList {
 		var1.playerInteractManager.a(var5);
 		this.b(var1, var5);
 		this.f(var1);
-		Iterator<?> var6 = var1.bm().iterator();
+		Iterator<?> var6 = var1.getEffects().iterator();
 
 		while (var6.hasNext()) {
-			class_pl var7 = (class_pl) var6.next();
+			MobEffect var7 = (MobEffect) var6.next();
 			var1.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutEntityEffect(var1.getId(), var7)));
 		}
 

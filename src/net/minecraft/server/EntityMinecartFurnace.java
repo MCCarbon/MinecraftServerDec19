@@ -18,8 +18,8 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
       return EnumMinecartType.FURNACE;
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(c, new Byte((byte)0));
    }
 

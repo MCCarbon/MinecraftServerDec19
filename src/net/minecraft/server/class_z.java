@@ -21,18 +21,18 @@ public class class_z extends class_i {
       } else {
          EntityLiving var3 = (EntityLiving)a(var1, var2[0], EntityLiving.class);
          if(var2[1].equals("clear")) {
-            if(var3.bm().isEmpty()) {
+            if(var3.getEffects().isEmpty()) {
                throw new class_bz("commands.effect.failure.notActive.all", new Object[]{var3.getName()});
             } else {
                var3.bl();
                a(var1, this, "commands.effect.success.removed.all", new Object[]{var3.getName()});
             }
          } else {
-            MobEffect var4;
+            MobEffectType var4;
             try {
-               var4 = MobEffect.a(a(var2[1], 1));
+               var4 = MobEffectType.a(a(var2[1], 1));
             } catch (class_cb var10) {
-               var4 = MobEffect.b(var2[1]);
+               var4 = MobEffectType.b(var2[1]);
             }
 
             if(var4 == null) {
@@ -62,10 +62,10 @@ public class class_z extends class_i {
                }
 
                if(var6 > 0) {
-                  class_pl var9 = new class_pl(var4, var5, var7, false, var8);
-                  var3.c(var9);
-                  a(var1, this, "commands.effect.success", new Object[]{new ChatMessage(var9.f(), new Object[0]), Integer.valueOf(MobEffect.a(var4)), Integer.valueOf(var7), var3.getName(), Integer.valueOf(var6)});
-               } else if(var3.a(var4)) {
+                  MobEffect var9 = new MobEffect(var4, var5, var7, false, var8);
+                  var3.addEffect(var9);
+                  a(var1, this, "commands.effect.success", new Object[]{new ChatMessage(var9.f(), new Object[0]), Integer.valueOf(MobEffectType.a(var4)), Integer.valueOf(var7), var3.getName(), Integer.valueOf(var6)});
+               } else if(var3.hasEffect(var4)) {
                   var3.d(var4);
                   a(var1, this, "commands.effect.success.removed", new Object[]{new ChatMessage(var4.a(), new Object[0]), var3.getName()});
                } else {
@@ -77,7 +77,7 @@ public class class_z extends class_i {
    }
 
    public List a(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, MobEffect.b.getKeys()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, MobEffectType.b.getKeys()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
    }
 
    protected String[] d() {

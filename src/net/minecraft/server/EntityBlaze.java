@@ -25,8 +25,8 @@ public class EntityBlaze extends EntityMonster {
       this.a(class_wl.b).a(48.0D);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(c, new Byte((byte)0));
    }
 

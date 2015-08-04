@@ -1,34 +1,34 @@
 package net.minecraft.server;
 
 public class MobEffectList {
-   public static final MobEffect a;
-   public static final MobEffect b;
-   public static final MobEffect c;
-   public static final MobEffect d;
-   public static final MobEffect e;
-   public static final MobEffect f;
-   public static final MobEffect g;
-   public static final MobEffect h;
-   public static final MobEffect i;
-   public static final MobEffect j;
-   public static final MobEffect k;
-   public static final MobEffect l;
-   public static final MobEffect m;
-   public static final MobEffect n;
-   public static final MobEffect o;
-   public static final MobEffect p;
-   public static final MobEffect q;
-   public static final MobEffect r;
-   public static final MobEffect s;
-   public static final MobEffect t;
-   public static final MobEffect u;
-   public static final MobEffect v;
-   public static final MobEffect w;
-   public static final MobEffect x;
-   public static final MobEffect y;
+   public static final MobEffectType a;
+   public static final MobEffectType b;
+   public static final MobEffectType c;
+   public static final MobEffectType d;
+   public static final MobEffectType e;
+   public static final MobEffectType f;
+   public static final MobEffectType g;
+   public static final MobEffectType h;
+   public static final MobEffectType i;
+   public static final MobEffectType j;
+   public static final MobEffectType k;
+   public static final MobEffectType l;
+   public static final MobEffectType m;
+   public static final MobEffectType n;
+   public static final MobEffectType o;
+   public static final MobEffectType p;
+   public static final MobEffectType q;
+   public static final MobEffectType r;
+   public static final MobEffectType s;
+   public static final MobEffectType t;
+   public static final MobEffectType u;
+   public static final MobEffectType v;
+   public static final MobEffectType w;
+   public static final MobEffectType x;
+   public static final MobEffectType y;
 
-   private static MobEffect a(String var0) {
-      MobEffect var1 = (MobEffect) MobEffect.b.get(new MinecraftKey(var0));
+   private static MobEffectType a(String var0) {
+      MobEffectType var1 = (MobEffectType) MobEffectType.b.get(new MinecraftKey(var0));
       if(var1 == null) {
          throw new IllegalStateException("Invalid MobEffect requested: " + var0);
       } else {

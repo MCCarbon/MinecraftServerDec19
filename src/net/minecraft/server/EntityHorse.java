@@ -67,8 +67,8 @@ public class EntityHorse extends class_tw implements class_ok {
       this.dp();
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bA, Integer.valueOf(0));
       this.datawatcher.add(bB, Byte.valueOf((byte)0));
       this.datawatcher.add(bC, Integer.valueOf(0));
@@ -551,7 +551,7 @@ public class EntityHorse extends class_tw implements class_ok {
                   var5 = 4.0F;
                   var6 = 60;
                   var7 = 5;
-                  if(this.cD() && this.l() == 0) {
+                  if(this.cD() && this.getAge() == 0) {
                      var8 = true;
                      this.a((EntityHuman)var1);
                   }
@@ -559,7 +559,7 @@ public class EntityHorse extends class_tw implements class_ok {
                   var5 = 10.0F;
                   var6 = 240;
                   var7 = 10;
-                  if(this.cD() && this.l() == 0) {
+                  if(this.cD() && this.getAge() == 0) {
                      var8 = true;
                      this.a((EntityHuman)var1);
                   }
@@ -862,8 +862,8 @@ public class EntityHorse extends class_tw implements class_ok {
 
          if(this.bx > 0.0F && !this.cK() && this.C) {
             this.motY = this.cU() * (double)this.bx;
-            if(this.a((MobEffect) MobEffectList.h)) {
-               this.motY += (double)((float)(this.b((MobEffect) MobEffectList.h).c() + 1) * 0.1F);
+            if(this.hasEffect((MobEffectType) MobEffectList.h)) {
+               this.motY += (double)((float)(this.getEffect((MobEffectType) MobEffectList.h).c() + 1) * 0.1F);
             }
 
             this.n(true);
@@ -1022,7 +1022,7 @@ public class EntityHorse extends class_tw implements class_ok {
       }
    }
 
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       EntityHorse var2 = (EntityHorse)var1;
       EntityHorse var3 = new EntityHorse(this.o);
       int var4 = this.cA();

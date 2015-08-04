@@ -12,16 +12,18 @@ import java.util.Random;
 import java.util.UUID;
 
 public abstract class EntityLiving extends Entity {
+
 	private static final UUID a = UUID.fromString("662A6B8D-DA3E-4C1C-8813-96EA6097278D");
 	private static final class_qm b;
-	protected static final int as;
-	private static final int c;
-	private static final int f;
-	private static final int g;
-	private static final int h;
+	protected static final int USED_HAND_DW_ID = Datawathcer.claimId(EntityLiving.class); //value = 5
+	private static final int HEALTH_DW_ID = Datawathcer.claimId(EntityLiving.class); //value = 6
+	private static final int POTION_COLOR_DW_ID = Datawathcer.claimId(EntityLiving.class); //value = 7
+	private static final int POTION_AMBIENT_DW_ID = Datawathcer.claimId(EntityLiving.class); //value = 8
+	private static final int ARROWS_DW_ID = Datawathcer.claimId(EntityLiving.class); //value = 9
+
 	private class_qo i;
 	private final class_pb bn = new class_pb(this);
-	private final Map<MobEffect, class_pl> bo = Maps.newHashMap();
+	private final Map<MobEffectType, MobEffect> effects = Maps.newHashMap();
 	private final ItemStack[] bp = new ItemStack[2];
 	private final ItemStack[] bq = new ItemStack[4];
 	public boolean at;
@@ -96,12 +98,12 @@ public abstract class EntityLiving extends Entity {
 		this.S = 0.6F;
 	}
 
-	protected void h() {
-		this.datawatcher.add(as, Integer.valueOf(0));
-		this.datawatcher.add(f, Integer.valueOf(0));
-		this.datawatcher.add(g, Byte.valueOf((byte) 0));
-		this.datawatcher.add(h, Byte.valueOf((byte) 0));
-		this.datawatcher.add(c, Float.valueOf(1.0F));
+	protected void initDatawatcher() {
+		this.datawatcher.add(USED_HAND_DW_ID, Integer.valueOf(0));
+		this.datawatcher.add(POTION_COLOR_DW_ID, Integer.valueOf(0));
+		this.datawatcher.add(POTION_AMBIENT_DW_ID, Byte.valueOf((byte) 0));
+		this.datawatcher.add(ARROWS_DW_ID, Byte.valueOf((byte) 0));
+		this.datawatcher.add(HEALTH_DW_ID, Float.valueOf(1.0F));
 	}
 
 	protected void aY() {
@@ -160,7 +162,7 @@ public abstract class EntityLiving extends Entity {
 		boolean var7 = var1 && ((EntityHuman) this).abilities.invulnerable;
 		if (this.isAlive()) {
 			if (this.a((Material) Material.WATER)) {
-				if (!this.aZ() && !this.a(MobEffectList.m) && !var7) {
+				if (!this.aZ() && !this.hasEffect(MobEffectList.m) && !var7) {
 					this.i(this.j(this.aB()));
 					if (this.aB() == -20) {
 						this.i(0);
@@ -347,12 +349,12 @@ public abstract class EntityLiving extends Entity {
 			}
 		}
 
-		if (!this.bo.isEmpty()) {
+		if (!this.effects.isEmpty()) {
 			NBTTagList var7 = new NBTTagList();
-			Iterator<class_pl> var8 = this.bo.values().iterator();
+			Iterator<MobEffect> var8 = this.effects.values().iterator();
 
 			while (var8.hasNext()) {
-				class_pl var9 = (class_pl) var8.next();
+				MobEffect var9 = (MobEffect) var8.next();
 				var7.add((NBTTag) var9.a(new NBTTagCompound()));
 			}
 
@@ -372,9 +374,9 @@ public abstract class EntityLiving extends Entity {
 
 			for (int var3 = 0; var3 < var2.getSize(); ++var3) {
 				NBTTagCompound var4 = var2.getCompound(var3);
-				class_pl var5 = class_pl.b(var4);
+				MobEffect var5 = MobEffect.b(var4);
 				if (var5 != null) {
-					this.bo.put(var5.a(), var5);
+					this.effects.put(var5.a(), var5);
 				}
 			}
 		}
@@ -403,11 +405,11 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	protected void bj() {
-		Iterator<MobEffect> var1 = this.bo.keySet().iterator();
+		Iterator<MobEffectType> var1 = this.effects.keySet().iterator();
 
 		while (var1.hasNext()) {
-			MobEffect var2 = (MobEffect) var1.next();
-			class_pl var3 = (class_pl) this.bo.get(var2);
+			MobEffectType var2 = (MobEffectType) var1.next();
+			MobEffect var3 = (MobEffect) this.effects.get(var2);
 			if (!var3.a(this)) {
 				if (!this.o.isClientSide) {
 					var1.remove();
@@ -426,8 +428,8 @@ public abstract class EntityLiving extends Entity {
 			this.br = false;
 		}
 
-		int var11 = this.datawatcher.getInt(f);
-		boolean var12 = this.datawatcher.getByte(g) > 0;
+		int var11 = this.datawatcher.getInt(POTION_COLOR_DW_ID);
+		boolean var12 = this.datawatcher.getByte(POTION_AMBIENT_DW_ID) > 0;
 		if (var11 > 0) {
 			boolean var4 = false;
 			if (!this.aA()) {
@@ -451,67 +453,67 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	protected void B() {
-		if (this.bo.isEmpty()) {
+		if (this.effects.isEmpty()) {
 			this.bk();
 			this.f(false);
 		} else {
-			Collection<class_pl> var1 = this.bo.values();
-			this.datawatcher.update(g, Byte.valueOf((byte) (a(var1) ? 1 : 0)));
-			this.datawatcher.update(f, Integer.valueOf(ItemPotion.a(var1)));
-			this.f(this.a(MobEffectList.n));
+			Collection<MobEffect> var1 = this.effects.values();
+			this.datawatcher.update(POTION_AMBIENT_DW_ID, Byte.valueOf((byte) (a(var1) ? 1 : 0)));
+			this.datawatcher.update(POTION_COLOR_DW_ID, Integer.valueOf(ItemPotion.a(var1)));
+			this.f(this.hasEffect(MobEffectList.n));
 		}
 
 	}
 
-	public static boolean a(Collection<class_pl> var0) {
-		Iterator<class_pl> var1 = var0.iterator();
+	public static boolean a(Collection<MobEffect> var0) {
+		Iterator<MobEffect> var1 = var0.iterator();
 
-		class_pl var2;
+		MobEffect var2;
 		do {
 			if (!var1.hasNext()) {
 				return true;
 			}
 
-			var2 = (class_pl) var1.next();
+			var2 = (MobEffect) var1.next();
 		} while (var2.d());
 
 		return false;
 	}
 
 	protected void bk() {
-		this.datawatcher.update(g, Byte.valueOf((byte) 0));
-		this.datawatcher.update(f, Integer.valueOf(0));
+		this.datawatcher.update(POTION_AMBIENT_DW_ID, Byte.valueOf((byte) 0));
+		this.datawatcher.update(POTION_COLOR_DW_ID, Integer.valueOf(0));
 	}
 
 	public void bl() {
 		if (!this.o.isClientSide) {
-			Iterator<class_pl> var1 = this.bo.values().iterator();
+			Iterator<MobEffect> var1 = this.effects.values().iterator();
 
 			while (var1.hasNext()) {
-				this.b((class_pl) var1.next());
+				this.b((MobEffect) var1.next());
 				var1.remove();
 			}
 
 		}
 	}
 
-	public Collection<class_pl> bm() {
-		return this.bo.values();
+	public Collection<MobEffect> getEffects() {
+		return this.effects.values();
 	}
 
-	public boolean a(MobEffect var1) {
-		return this.bo.containsKey(var1);
+	public boolean hasEffect(MobEffectType var1) {
+		return this.effects.containsKey(var1);
 	}
 
-	public class_pl b(MobEffect var1) {
-		return (class_pl) this.bo.get(var1);
+	public MobEffect getEffect(MobEffectType var1) {
+		return this.effects.get(var1);
 	}
 
-	public void c(class_pl var1) {
+	public void addEffect(MobEffect var1) {
 		if (this.d(var1)) {
-			class_pl var2 = (class_pl) this.bo.get(var1.a());
+			MobEffect var2 = (MobEffect) this.effects.get(var1.a());
 			if (var2 == null) {
-				this.bo.put(var1.a(), var1);
+				this.effects.put(var1.a(), var1);
 				this.a(var1);
 			} else {
 				var2.a(var1);
@@ -521,9 +523,9 @@ public abstract class EntityLiving extends Entity {
 		}
 	}
 
-	public boolean d(class_pl var1) {
+	public boolean d(MobEffect var1) {
 		if (this.bz() == class_qf.b) {
-			MobEffect var2 = var1.a();
+			MobEffectType var2 = var1.a();
 			if (var2 == MobEffectList.j || var2 == MobEffectList.s) {
 				return false;
 			}
@@ -536,19 +538,19 @@ public abstract class EntityLiving extends Entity {
 		return this.bz() == class_qf.b;
 	}
 
-	public class_pl c(MobEffect var1) {
-		return (class_pl) this.bo.remove(var1);
+	public MobEffect c(MobEffectType var1) {
+		return (MobEffect) this.effects.remove(var1);
 	}
 
-	public void d(MobEffect var1) {
-		class_pl var2 = this.c(var1);
+	public void d(MobEffectType var1) {
+		MobEffect var2 = this.c(var1);
 		if (var2 != null) {
 			this.b(var2);
 		}
 
 	}
 
-	protected void a(class_pl var1) {
+	protected void a(MobEffect var1) {
 		this.br = true;
 		if (!this.o.isClientSide) {
 			var1.a().b(this, this.by(), var1.c());
@@ -556,17 +558,17 @@ public abstract class EntityLiving extends Entity {
 
 	}
 
-	protected void a(class_pl var1, boolean var2) {
+	protected void a(MobEffect var1, boolean var2) {
 		this.br = true;
 		if (var2 && !this.o.isClientSide) {
-			MobEffect var3 = var1.a();
+			MobEffectType var3 = var1.a();
 			var3.a(this, this.by(), var1.c());
 			var3.b(this, this.by(), var1.c());
 		}
 
 	}
 
-	protected void b(class_pl var1) {
+	protected void b(MobEffect var1) {
 		this.br = true;
 		if (!this.o.isClientSide) {
 			var1.a().a(this, this.by(), var1.c());
@@ -583,11 +585,11 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	public final float getHealth() {
-		return this.datawatcher.getFloat(c);
+		return this.datawatcher.getFloat(HEALTH_DW_ID);
 	}
 
 	public void i(float var1) {
-		this.datawatcher.update(c, Float.valueOf(MathHelper.clamp(var1, 0.0F, this.bv())));
+		this.datawatcher.update(HEALTH_DW_ID, Float.valueOf(MathHelper.clamp(var1, 0.0F, this.bv())));
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
@@ -599,7 +601,7 @@ public abstract class EntityLiving extends Entity {
 			this.aT = 0;
 			if (this.getHealth() <= 0.0F) {
 				return false;
-			} else if (var1.o() && this.a(MobEffectList.l)) {
+			} else if (var1.o() && this.hasEffect(MobEffectList.l)) {
 				return false;
 			} else {
 				if ((var1 == DamageSource.n || var1 == DamageSource.o) && this.a(EnumWearable.HEAD) != null) {
@@ -798,7 +800,7 @@ public abstract class EntityLiving extends Entity {
 
 	public void e(float var1, float var2) {
 		super.e(var1, var2);
-		class_pl var3 = this.b(MobEffectList.h);
+		MobEffect var3 = this.getEffect(MobEffectList.h);
 		float var4 = var3 != null ? (float) (var3.c() + 1) : 0.0F;
 		int var5 = MathHelper.ceil((var1 - 3.0F - var4) * var2);
 		if (var5 > 0) {
@@ -856,8 +858,8 @@ public abstract class EntityLiving extends Entity {
 			int var3;
 			int var4;
 			float var5;
-			if (this.a(MobEffectList.k) && var1 != DamageSource.j) {
-				var3 = (this.b(MobEffectList.k).c() + 1) * 5;
+			if (this.hasEffect(MobEffectList.k) && var1 != DamageSource.j) {
+				var3 = (this.getEffect(MobEffectList.k).c() + 1) * 5;
 				var4 = 25 - var3;
 				var5 = var2 * (float) var4;
 				var2 = var5 / 25.0F;
@@ -911,15 +913,15 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	public final int bw() {
-		return this.datawatcher.getByte(h);
+		return this.datawatcher.getByte(ARROWS_DW_ID);
 	}
 
 	public final void l(int var1) {
-		this.datawatcher.update(h, Byte.valueOf((byte) var1));
+		this.datawatcher.update(ARROWS_DW_ID, Byte.valueOf((byte) var1));
 	}
 
 	private int n() {
-		return this.a(MobEffectList.c) ? 6 - (1 + this.b(MobEffectList.c).c()) * 1 : (this.a(MobEffectList.d) ? 6 + (1 + this.b(MobEffectList.d).c()) * 2 : 6);
+		return this.hasEffect(MobEffectList.c) ? 6 - (1 + this.getEffect(MobEffectList.c).c()) * 1 : (this.hasEffect(MobEffectList.d) ? 6 + (1 + this.getEffect(MobEffectList.d).c()) * 2 : 6);
 	}
 
 	public void a(EnumUsedHand var1) {
@@ -1068,8 +1070,8 @@ public abstract class EntityLiving extends Entity {
 
 	protected void bG() {
 		this.motY = (double) this.bF();
-		if (this.a(MobEffectList.h)) {
-			this.motY += (double) ((float) (this.b(MobEffectList.h).c() + 1) * 0.1F);
+		if (this.hasEffect(MobEffectList.h)) {
+			this.motY += (double) ((float) (this.getEffect(MobEffectList.h).c() + 1) * 0.1F);
 		}
 
 		if (this.ay()) {
@@ -1161,8 +1163,8 @@ public abstract class EntityLiving extends Entity {
 					this.motY = 0.2D;
 				}
 
-				if (this.a(MobEffectList.y)) {
-					this.motY += (0.05D * (double) (this.b(MobEffectList.y).c() + 1) - this.motY) * 0.2D;
+				if (this.hasEffect(MobEffectList.y)) {
+					this.motY += (0.05D * (double) (this.getEffect(MobEffectList.y).c() + 1) - this.motY) * 0.2D;
 				} else if (!this.o.isClientSide || this.o.e(new BlockPosition((int) this.s, 0, (int) this.u)) && this.o.f(new BlockPosition((int) this.s, 0, (int) this.u)).o()) {
 					this.motY -= 0.08D;
 				} else if (this.t > 0.0D) {
@@ -1276,7 +1278,7 @@ public abstract class EntityLiving extends Entity {
 			}
 
 			if (!this.ar) {
-				boolean var10 = this.a(MobEffectList.x);
+				boolean var10 = this.hasEffect(MobEffectList.x);
 				if (this.h(6) != var10) {
 					this.b(6, var10);
 				}
@@ -1600,11 +1602,11 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	public boolean bS() {
-		return (this.datawatcher.getInt(as) & 1) > 0;
+		return (this.datawatcher.getInt(USED_HAND_DW_ID) & 1) > 0;
 	}
 
 	public EnumUsedHand bT() {
-		return (this.datawatcher.getInt(as) & 2) > 0 ? EnumUsedHand.OFF_HAND : EnumUsedHand.MAIN_HAND;
+		return (this.datawatcher.getInt(USED_HAND_DW_ID) & 2) > 0 ? EnumUsedHand.OFF_HAND : EnumUsedHand.MAIN_HAND;
 	}
 
 	protected void bU() {
@@ -1636,7 +1638,7 @@ public abstract class EntityLiving extends Entity {
 					var3 |= 2;
 				}
 
-				this.datawatcher.update(as, Integer.valueOf(var3));
+				this.datawatcher.update(USED_HAND_DW_ID, Integer.valueOf(var3));
 			}
 
 		}
@@ -1644,7 +1646,7 @@ public abstract class EntityLiving extends Entity {
 
 	public void d(int var1) {
 		super.d(var1);
-		if (var1 == as && this.o.isClientSide) {
+		if (var1 == USED_HAND_DW_ID && this.o.isClientSide) {
 			if (this.bS() && this.bl == null) {
 				this.bl = this.getItemInHand(this.bT());
 				if (this.bl != null) {
@@ -1719,7 +1721,7 @@ public abstract class EntityLiving extends Entity {
 
 	public void bZ() {
 		if (!this.o.isClientSide) {
-			this.datawatcher.update(as, Integer.valueOf(0));
+			this.datawatcher.update(USED_HAND_DW_ID, Integer.valueOf(0));
 		}
 
 		this.bl = null;
@@ -1732,11 +1734,6 @@ public abstract class EntityLiving extends Entity {
 
 	static {
 		b = (new class_qm(a, "Sprinting speed boost", 0.30000001192092896D, 2)).a(false);
-		as = Datawathcer.claimId(EntityLiving.class);
-		c = Datawathcer.claimId(EntityLiving.class);
-		f = Datawathcer.claimId(EntityLiving.class);
-		g = Datawathcer.claimId(EntityLiving.class);
-		h = Datawathcer.claimId(EntityLiving.class);
 	}
 
 	// $FF: synthetic class

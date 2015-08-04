@@ -30,7 +30,7 @@ public class EntityTNTPrimed extends Entity {
       this.b = var8;
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    protected boolean s_() {

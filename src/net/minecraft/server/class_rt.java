@@ -14,7 +14,7 @@ public class class_rt extends class_rm {
    }
 
    public boolean a() {
-      if(this.b.l() != 0) {
+      if(this.b.getAge() != 0) {
          return false;
       } else if(this.b.bd().nextInt(500) != 0) {
          return false;
@@ -28,7 +28,7 @@ public class class_rt extends class_rm {
                return false;
             } else {
                this.c = (EntityVillager)var1;
-               return this.c.l() == 0 && this.c.o(true);
+               return this.c.getAge() == 0 && this.c.o(true);
             }
          } else {
             return false;
@@ -48,7 +48,7 @@ public class class_rt extends class_rm {
    }
 
    public boolean b() {
-      return this.e >= 0 && this.f() && this.b.l() == 0 && this.b.o(false);
+      return this.e >= 0 && this.f() && this.b.getAge() == 0 && this.b.o(false);
    }
 
    public void e() {
@@ -76,7 +76,7 @@ public class class_rt extends class_rm {
    }
 
    private void g() {
-      EntityVillager var1 = this.b.b((class_po)this.c);
+      EntityVillager var1 = this.b.b((EntityAgeable)this.c);
       this.c.b(6000);
       this.b.b(6000);
       this.c.p(false);

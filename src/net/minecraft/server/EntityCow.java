@@ -79,7 +79,7 @@ public class EntityCow extends class_tw {
       }
    }
 
-   public EntityCow b(class_po var1) {
+   public EntityCow b(EntityAgeable var1) {
       return new EntityCow(this.o);
    }
 
@@ -88,7 +88,7 @@ public class EntityCow extends class_tw {
    }
 
    // $FF: synthetic method
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       return this.b(var1);
    }
 }

@@ -6,7 +6,7 @@ public class ItemFood extends Item {
    private final float c;
    private final boolean d;
    private boolean k;
-   private class_pl l;
+   private MobEffect l;
    private float m;
 
    public ItemFood(int var1, float var2, boolean var3) {
@@ -36,7 +36,7 @@ public class ItemFood extends Item {
 
    protected void a(ItemStack var1, World var2, EntityHuman var3) {
       if(!var2.isClientSide && this.l != null && var2.random.nextFloat() < this.m) {
-         var3.c(new class_pl(this.l));
+         var3.addEffect(new MobEffect(this.l));
       }
 
    }
@@ -70,7 +70,7 @@ public class ItemFood extends Item {
       return this.d;
    }
 
-   public ItemFood a(class_pl var1, float var2) {
+   public ItemFood a(MobEffect var1, float var2) {
       this.l = var1;
       this.m = var2;
       return this;

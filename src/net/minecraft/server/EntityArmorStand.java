@@ -60,8 +60,8 @@ public class EntityArmorStand extends EntityLiving {
       return super.bN() && !this.p();
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(g, Byte.valueOf((byte)0));
       this.datawatcher.add(h, br);
       this.datawatcher.add(i, bs);

@@ -15,7 +15,7 @@ public class class_sq extends class_rm {
    }
 
    public boolean a() {
-      if(this.a.l() >= 0) {
+      if(this.a.getAge() >= 0) {
          return false;
       } else if(!this.a.o.x()) {
          return false;

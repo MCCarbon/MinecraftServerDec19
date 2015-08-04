@@ -26,8 +26,8 @@ public class EntityVillagerGolem extends class_ua {
       this.bn.a(3, new EntityVillagerGolem.class_a_in_class_uj(this, EntityInsentient.class, 10, false, true, class_wd.e));
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, Byte.valueOf((byte)0));
    }
 
@@ -178,7 +178,7 @@ public class EntityVillagerGolem extends class_ua {
    }
 
    static class class_a_in_class_uj extends class_sz {
-      public class_a_in_class_uj(final class_qh var1, Class var2, int var3, boolean var4, boolean var5, final Predicate var6) {
+      public class_a_in_class_uj(final EntityCreature var1, Class var2, int var3, boolean var4, boolean var5, final Predicate var6) {
          super(var1, var2, var3, var4, var5, var6);
          this.c = new Predicate() {
             public boolean a(EntityLiving var1x) {

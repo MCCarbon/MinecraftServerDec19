@@ -55,8 +55,8 @@ public class EntitySheep extends class_tw {
       this.a((class_qk)class_wl.d).a(0.23000000417232513D);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bs, new Byte((byte)0));
    }
 
@@ -158,7 +158,7 @@ public class EntitySheep extends class_tw {
       return var1 < 5?EnumColor.p:(var1 < 10?EnumColor.h:(var1 < 15?EnumColor.i:(var1 < 18?EnumColor.m:(var0.nextInt(500) == 0?EnumColor.g:EnumColor.a))));
    }
 
-   public EntitySheep b(class_po var1) {
+   public EntitySheep b(EntityAgeable var1) {
       EntitySheep var2 = (EntitySheep)var1;
       EntitySheep var3 = new EntitySheep(this.o);
       var3.b(this.a((class_tw)this, (class_tw)var2));
@@ -200,7 +200,7 @@ public class EntitySheep extends class_tw {
    }
 
    // $FF: synthetic method
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       return this.b(var1);
    }
 

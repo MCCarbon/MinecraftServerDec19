@@ -30,8 +30,8 @@ public class EntityShulker extends class_ua implements class_wd {
       this.bn.a(3, new EntityShulker.class_c_in_class_ug(this));
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, Byte.valueOf((byte)EnumDirection.DOWN.getId()));
       this.datawatcher.add(b, bs);
       this.datawatcher.add(c, Byte.valueOf((byte)0));

@@ -96,7 +96,7 @@ public class EntityShulkerBullet extends Entity {
 
 	}
 
-	protected void h() {
+	protected void initDatawatcher() {
 	}
 
 	private void a(EnumDirection var1) {
@@ -274,7 +274,7 @@ public class EntityShulkerBullet extends Entity {
 			if (var2) {
 				this.a(this.a, var1.d);
 				if (var1.d instanceof EntityLiving) {
-					((EntityLiving) var1.d).c(new class_pl(MobEffectList.y, 200));
+					((EntityLiving) var1.d).addEffect(new MobEffect(MobEffectList.y, 200));
 				}
 			}
 		} else {

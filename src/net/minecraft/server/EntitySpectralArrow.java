@@ -29,8 +29,8 @@ public class EntitySpectralArrow extends EntityArrow {
 
    protected void b(EntityLiving var1) {
       super.b(var1);
-      class_pl var2 = new class_pl(MobEffectList.x, this.f, 0);
-      var1.c(var2);
+      MobEffect var2 = new MobEffect(MobEffectList.x, this.f, 0);
+      var1.addEffect(var2);
    }
 
    public void read(NBTTagCompound var1) {

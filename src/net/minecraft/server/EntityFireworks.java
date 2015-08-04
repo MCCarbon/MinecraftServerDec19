@@ -10,7 +10,7 @@ public class EntityFireworks extends Entity {
       this.a(0.25F, 0.25F);
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
       this.datawatcher.addNull(a, 5);
    }
 

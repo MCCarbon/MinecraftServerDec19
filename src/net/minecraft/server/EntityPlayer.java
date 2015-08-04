@@ -505,7 +505,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.br.a((class_ye) this);
 	}
 
-	public void a(class_adz var1) {
+	public void a(IMerchant var1) {
 		this.cu();
 		this.br = new class_ys(this.inventory, var1, this.o);
 		this.br.d = this.cc;
@@ -672,18 +672,18 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.bQ.addAll(((EntityPlayer) var1).bQ);
 	}
 
-	protected void a(class_pl var1) {
-		super.a((class_pl) var1);
+	protected void a(MobEffect var1) {
+		super.a((MobEffect) var1);
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutEntityEffect(this.getId(), var1)));
 	}
 
-	protected void a(class_pl var1, boolean var2) {
-		super.a((class_pl) var1, var2);
+	protected void a(MobEffect var1, boolean var2) {
+		super.a((MobEffect) var1, var2);
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutEntityEffect(this.getId(), var1)));
 	}
 
-	protected void b(class_pl var1) {
-		super.b((class_pl) var1);
+	protected void b(MobEffect var1) {
+		super.b((MobEffect) var1);
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutRemoveEntityEffect(this.getId(), var1.a())));
 	}
 

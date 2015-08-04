@@ -12,7 +12,7 @@ public class EntityEnderSignal extends Entity {
       this.a(0.25F, 0.25F);
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    public EntityEnderSignal(World var1, double var2, double var4, double var6) {

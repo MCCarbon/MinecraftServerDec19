@@ -7,7 +7,7 @@ import net.minecraft.server.class_auv;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tf;
 import net.minecraft.server.class_tm;
@@ -15,14 +15,14 @@ import net.minecraft.server.class_to;
 import net.minecraft.server.class_tp;
 
 public class class_rw extends class_rm {
-   private class_qh a;
+   private EntityCreature a;
    private double b;
    private class_auv c;
    private class_to d;
    private boolean e;
    private List f = Lists.newArrayList();
 
-   public class_rw(class_qh var1, double var2, boolean var4) {
+   public class_rw(EntityCreature var1, double var2, boolean var4) {
       this.a = var1;
       this.b = var2;
       this.e = var4;

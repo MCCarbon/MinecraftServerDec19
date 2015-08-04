@@ -125,10 +125,10 @@ public abstract class Entity implements class_m {
       this.datawatcher.add(av, Byte.valueOf((byte)0));
       this.datawatcher.add(au, "");
       this.datawatcher.add(aw, Byte.valueOf((byte)0));
-      this.h();
+      this.initDatawatcher();
    }
 
-   protected abstract void h();
+   protected abstract void initDatawatcher();
 
    public Datawathcer H() {
       return this.datawatcher;

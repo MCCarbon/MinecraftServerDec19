@@ -72,8 +72,8 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	@Override
-	protected void h() {
-		super.h();
+	protected void initDatawatcher() {
+		super.initDatawatcher();
 		datawatcher.add(ABS_HEARTS_DW_ID, Float.valueOf(0.0F));
 		datawatcher.add(SCORE_DW_ID, Integer.valueOf(0));
 		datawatcher.add(SKIN_PARTS_DW_ID, Byte.valueOf((byte) 0));
@@ -471,13 +471,13 @@ public abstract class EntityHuman extends EntityLiving {
 			}
 		}
 
-		if (this.a(MobEffectList.c)) {
-			var2 *= 1.0F + ((this.b(MobEffectList.c).c() + 1) * 0.2F);
+		if (this.hasEffect(MobEffectList.c)) {
+			var2 *= 1.0F + ((this.getEffect(MobEffectList.c).c() + 1) * 0.2F);
 		}
 
-		if (this.a(MobEffectList.d)) {
+		if (this.hasEffect(MobEffectList.d)) {
 			float var5 = 1.0F;
-			switch (this.b(MobEffectList.d).c()) {
+			switch (this.getEffect(MobEffectList.d).c()) {
 				case 0:
 					var5 = 0.3F;
 					break;
@@ -679,7 +679,7 @@ public abstract class EntityHuman extends EntityLiving {
 	public void a(class_aed var1) {
 	}
 
-	public void a(class_adz var1) {
+	public void a(IMerchant var1) {
 	}
 
 	public void openContainer(IInventory var1) {
@@ -756,7 +756,7 @@ public abstract class EntityHuman extends EntityLiving {
 				}
 
 				if ((var2 > 0.0F) || (var4 > 0.0F)) {
-					boolean var5 = (O > 0.0F) && !C && !k_() && !V() && !this.a(MobEffectList.o) && (vehicle == null) && (var1 instanceof EntityLiving);
+					boolean var5 = (O > 0.0F) && !C && !k_() && !V() && !this.hasEffect(MobEffectList.o) && (vehicle == null) && (var1 instanceof EntityLiving);
 					if (var5 && (var2 > 0.0F)) {
 						var2 *= 1.5F;
 					}

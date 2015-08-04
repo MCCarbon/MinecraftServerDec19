@@ -51,7 +51,7 @@ public abstract class class_xo extends Entity implements class_xi {
       this.h = var2;
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    public void a(float var1, float var2, float var3, float var4, float var5) {

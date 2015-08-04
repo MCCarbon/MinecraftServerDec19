@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_adz;
+import net.minecraft.server.IMerchant;
 import net.minecraft.server.class_aea;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EntityHuman;
@@ -12,9 +12,9 @@ public class class_yt extends class_yx {
    private final class_yr a;
    private EntityHuman b;
    private int c;
-   private final class_adz h;
+   private final IMerchant h;
 
-   public class_yt(EntityHuman var1, class_adz var2, class_yr var3, int var4, int var5, int var6) {
+   public class_yt(EntityHuman var1, IMerchant var2, class_yr var3, int var4, int var5, int var6) {
       super(var3, var4, var5, var6);
       this.b = var1;
       this.h = var2;

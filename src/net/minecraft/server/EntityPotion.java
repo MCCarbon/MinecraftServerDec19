@@ -71,14 +71,14 @@ public class EntityPotion extends class_xo {
                      Iterator var12 = var3.iterator();
 
                      while(var12.hasNext()) {
-                        class_pl var13 = (class_pl)var12.next();
-                        MobEffect var14 = var13.a();
+                        MobEffect var13 = (MobEffect)var12.next();
+                        MobEffectType var14 = var13.a();
                         if(var14.b()) {
                            var14.a(this, this.l(), var7, var13.c(), var10);
                         } else {
                            int var15 = (int)(var10 * (double)var13.b() + 0.5D);
                            if(var15 > 20) {
-                              var7.c(new class_pl(var14, var15, var13.c()));
+                              var7.addEffect(new MobEffect(var14, var15, var13.c()));
                            }
                         }
                      }

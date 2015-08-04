@@ -14,7 +14,7 @@ public class EntityItemFrame extends class_uz {
       this.a((EnumDirection)var3);
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
       this.H().addNull(c, 5);
       this.H().add(d, Byte.valueOf((byte)0));
    }

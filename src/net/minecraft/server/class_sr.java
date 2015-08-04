@@ -5,13 +5,13 @@ import java.util.Set;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.Entity;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tf;
 import net.minecraft.server.EntityHuman;
 
 public class class_sr extends class_rm {
-   private class_qh a;
+   private EntityCreature a;
    private double b;
    private double c;
    private double d;
@@ -25,11 +25,11 @@ public class class_sr extends class_rm {
    private boolean l;
    private boolean m;
 
-   public class_sr(class_qh var1, double var2, Item var4, boolean var5) {
+   public class_sr(EntityCreature var1, double var2, Item var4, boolean var5) {
       this(var1, var2, var5, Sets.newHashSet((Object[])(new Item[]{var4})));
    }
 
-   public class_sr(class_qh var1, double var2, boolean var4, Set var5) {
+   public class_sr(EntityCreature var1, double var2, boolean var4, Set var5) {
       this.a = var1;
       this.b = var2;
       this.k = var5;

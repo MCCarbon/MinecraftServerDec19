@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class class_ph extends MobEffect {
+public class class_ph extends MobEffectType {
    protected final double a;
 
    protected class_ph(boolean var1, int var2, double var3) {

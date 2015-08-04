@@ -29,7 +29,7 @@ public class EntityExperienceOrb extends Entity {
       this.a(0.25F, 0.25F);
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    public void t_() {

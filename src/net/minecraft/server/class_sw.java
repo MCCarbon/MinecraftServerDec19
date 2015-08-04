@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_td;
 
 public class class_sw extends class_td {
@@ -12,7 +12,7 @@ public class class_sw extends class_td {
    private int b;
    private final Class[] c;
 
-   public class_sw(class_qh var1, boolean var2, Class... var3) {
+   public class_sw(EntityCreature var1, boolean var2, Class... var3) {
       super(var1, false);
       this.a = var2;
       this.c = var3;
@@ -34,7 +34,7 @@ public class class_sw extends class_td {
 
          label46:
          while(true) {
-            class_qh var5;
+            EntityCreature var5;
             do {
                do {
                   do {
@@ -42,7 +42,7 @@ public class class_sw extends class_td {
                         break label46;
                      }
 
-                     var5 = (class_qh)var4.next();
+                     var5 = (EntityCreature)var4.next();
                   } while(this.e == var5);
                } while(var5.w() != null);
             } while(var5.c(this.e.be()));
@@ -68,7 +68,7 @@ public class class_sw extends class_td {
       super.c();
    }
 
-   protected void a(class_qh var1, EntityLiving var2) {
+   protected void a(EntityCreature var1, EntityLiving var2) {
       var1.d(var2);
    }
 }

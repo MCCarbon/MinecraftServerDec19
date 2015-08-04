@@ -9,7 +9,7 @@ import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.Entity;
 import net.minecraft.server.IEntitySelector;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_td;
 import net.minecraft.server.EntityHuman;
 
@@ -20,15 +20,15 @@ public class class_sz extends class_td {
    protected Predicate c;
    protected EntityLiving d;
 
-   public class_sz(class_qh var1, Class var2, boolean var3) {
+   public class_sz(EntityCreature var1, Class var2, boolean var3) {
       this(var1, var2, var3, false);
    }
 
-   public class_sz(class_qh var1, Class var2, boolean var3, boolean var4) {
+   public class_sz(EntityCreature var1, Class var2, boolean var3, boolean var4) {
       this(var1, var2, 10, var3, var4, (Predicate)null);
    }
 
-   public class_sz(class_qh var1, Class var2, int var3, boolean var4, boolean var5, final Predicate var6) {
+   public class_sz(EntityCreature var1, Class var2, int var3, boolean var4, boolean var5, final Predicate var6) {
       super(var1, var4, var5);
       this.a = var2;
       this.g = var3;

@@ -99,7 +99,7 @@ public class EntityChicken extends class_tw {
 
    }
 
-   public EntityChicken b(class_po var1) {
+   public EntityChicken b(EntityAgeable var1) {
       return new EntityChicken(this.o);
    }
 
@@ -152,7 +152,7 @@ public class EntityChicken extends class_tw {
    }
 
    // $FF: synthetic method
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       return this.b(var1);
    }
 

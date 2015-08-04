@@ -12,8 +12,8 @@ public class EntityBat extends class_tt {
       this.a(true);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, new Byte((byte)0));
    }
 

@@ -18,7 +18,7 @@ public abstract class class_xf extends Entity {
       this.a(1.0F, 1.0F);
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    public class_xf(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {

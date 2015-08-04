@@ -2,19 +2,19 @@ package net.minecraft.server;
 
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tm;
 import net.minecraft.server.class_to;
 import net.minecraft.server.class_tp;
 
 public class class_rv extends class_rm {
-   private class_qh a;
+   private EntityCreature a;
    private class_to b;
    private int c = -1;
    private int d = -1;
 
-   public class_rv(class_qh var1) {
+   public class_rv(EntityCreature var1) {
       this.a = var1;
       this.a(1);
    }

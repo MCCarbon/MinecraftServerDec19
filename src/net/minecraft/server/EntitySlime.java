@@ -18,8 +18,8 @@ public class EntitySlime extends EntityInsentient implements class_wd {
       this.bn.a(3, new class_sx(this, EntityVillagerGolem.class));
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bq, Byte.valueOf((byte)1));
    }
 

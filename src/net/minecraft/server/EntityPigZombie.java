@@ -190,7 +190,7 @@ public class EntityPigZombie extends EntityZombie {
          super(var1, true, new Class[0]);
       }
 
-      protected void a(class_qh var1, EntityLiving var2) {
+      protected void a(EntityCreature var1, EntityLiving var2) {
          super.a(var1, var2);
          if(var1 instanceof EntityPigZombie) {
             ((EntityPigZombie)var1).b((Entity)var2);

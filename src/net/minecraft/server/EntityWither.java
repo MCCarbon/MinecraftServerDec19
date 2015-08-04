@@ -46,8 +46,8 @@ public class EntityWither extends EntityMonster implements class_wk {
       this.b_ = 50;
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, new Integer(0));
       this.datawatcher.add(b, new Integer(0));
       this.datawatcher.add(c, new Integer(0));
@@ -424,7 +424,7 @@ public class EntityWither extends EntityMonster implements class_wk {
    public void e(float var1, float var2) {
    }
 
-   public void c(class_pl var1) {
+   public void addEffect(MobEffect var1) {
    }
 
    protected void aY() {

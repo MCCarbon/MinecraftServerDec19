@@ -46,7 +46,7 @@ public class EntityArrow extends Entity implements class_xi {
 
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
       this.datawatcher.add(g, Byte.valueOf((byte)0));
    }
 

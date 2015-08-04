@@ -45,7 +45,7 @@ public class class_adf extends class_adi {
          EntityLiving var4 = (EntityLiving)var2;
          if(this.a == 2 && var4.bz() == class_qf.c) {
             int var5 = 20 + var1.bd().nextInt(10 * var3);
-            var4.c(new class_pl(MobEffectList.b, var5, 3));
+            var4.addEffect(new MobEffect(MobEffectList.b, var5, 3));
          }
       }
 

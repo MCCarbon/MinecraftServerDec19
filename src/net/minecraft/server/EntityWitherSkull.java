@@ -55,7 +55,7 @@ public class EntityWitherSkull extends class_xf {
                }
 
                if(var2 > 0) {
-                  ((EntityLiving)var1.d).c(new class_pl(MobEffectList.t, 20 * var2, 1));
+                  ((EntityLiving)var1.d).addEffect(new MobEffect(MobEffectList.t, 20 * var2, 1));
                }
             }
          }
@@ -74,7 +74,7 @@ public class EntityWitherSkull extends class_xf {
       return false;
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
       this.datawatcher.add(e, Byte.valueOf((byte)0));
    }
 

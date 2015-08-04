@@ -12,9 +12,9 @@ public class PacketPlayOutEntityEffect implements Packet {
    public PacketPlayOutEntityEffect() {
    }
 
-   public PacketPlayOutEntityEffect(int var1, class_pl var2) {
+   public PacketPlayOutEntityEffect(int var1, MobEffect var2) {
       this.a = var1;
-      this.b = (byte)(MobEffect.a(var2.a()) & 255);
+      this.b = (byte)(MobEffectType.a(var2.a()) & 255);
       this.c = (byte)(var2.c() & 255);
       if(var2.b() > 32767) {
          this.d = 32767;

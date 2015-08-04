@@ -71,8 +71,8 @@ public class EntityWolf extends class_qj {
       this.datawatcher.update(bw, Float.valueOf(this.getHealth()));
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bw, new Float(this.getHealth()));
       this.datawatcher.add(bx, new Byte((byte)0));
       this.datawatcher.add(by, new Byte((byte)EnumColor.o.a()));
@@ -305,7 +305,7 @@ public class EntityWolf extends class_qj {
       this.datawatcher.update(by, Byte.valueOf((byte)(var1.b() & 15)));
    }
 
-   public EntityWolf b(class_po var1) {
+   public EntityWolf b(EntityAgeable var1) {
       EntityWolf var2 = new EntityWolf(this.o);
       String var3 = this.b();
       if(var3 != null && !var3.trim().isEmpty()) {
@@ -366,7 +366,7 @@ public class EntityWolf extends class_qj {
    }
 
    // $FF: synthetic method
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       return this.b(var1);
    }
 }

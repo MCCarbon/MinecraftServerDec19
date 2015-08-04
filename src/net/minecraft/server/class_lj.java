@@ -306,10 +306,10 @@ public class class_lj {
 
                if(this.a instanceof EntityLiving) {
                   EntityLiving var10 = (EntityLiving)this.a;
-                  Iterator var12 = var10.bm().iterator();
+                  Iterator var12 = var10.getEffects().iterator();
 
                   while(var12.hasNext()) {
-                     class_pl var13 = (class_pl)var12.next();
+                     MobEffect var13 = (MobEffect)var12.next();
                      var1.playerConnection.sendPacket((Packet)(new PacketPlayOutEntityEffect(this.a.getId(), var13)));
                   }
                }

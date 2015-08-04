@@ -50,7 +50,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
       return false;
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
       this.datawatcher.add(a, new Integer(0));
       this.datawatcher.add(b, new Integer(1));
       this.datawatcher.add(c, new Float(0.0F));

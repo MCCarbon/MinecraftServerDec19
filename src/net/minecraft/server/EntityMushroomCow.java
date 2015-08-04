@@ -8,7 +8,7 @@ public class EntityMushroomCow extends EntityCow {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.BOWL && this.l() >= 0 && !var1.abilities.instabuild) {
+      if(var3 != null && var3.getItem() == Items.BOWL && this.getAge() >= 0 && !var1.abilities.instabuild) {
          if(--var3.count == 0) {
             var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.MUSHROOM_STEW)));
          } else if(!var1.inventory.a(new ItemStack(Items.MUSHROOM_STEW))) {
@@ -16,7 +16,7 @@ public class EntityMushroomCow extends EntityCow {
          }
 
          return true;
-      } else if(var3 != null && var3.getItem() == Items.SHEARS && this.l() >= 0) {
+      } else if(var3 != null && var3.getItem() == Items.SHEARS && this.getAge() >= 0) {
          this.J();
          this.o.a(class_cy.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.o.isClientSide) {
@@ -44,17 +44,17 @@ public class EntityMushroomCow extends EntityCow {
       }
    }
 
-   public EntityMushroomCow c(class_po var1) {
+   public EntityMushroomCow c(EntityAgeable var1) {
       return new EntityMushroomCow(this.o);
    }
 
    // $FF: synthetic method
-   public EntityCow b(class_po var1) {
+   public EntityCow b(EntityAgeable var1) {
       return this.c(var1);
    }
 
    // $FF: synthetic method
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       return this.c(var1);
    }
 }

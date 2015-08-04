@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.class_pp;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 
-public abstract class class_ua extends class_qh implements class_pp {
+public abstract class class_ua extends EntityCreature implements class_pp {
    public class_ua(World var1) {
       super(var1);
    }

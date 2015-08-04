@@ -67,8 +67,8 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 		this.a((class_qk) class_wl.a).a(200.0D);
 	}
 
-	protected void h() {
-		super.h();
+	protected void initDatawatcher() {
+		super.initDatawatcher();
 		this.H().add(bI, Byte.valueOf((byte) class_us.a.a()));
 	}
 

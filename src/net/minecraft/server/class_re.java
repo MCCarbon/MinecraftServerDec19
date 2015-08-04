@@ -65,7 +65,7 @@ public class class_re extends class_rm {
    }
 
    private void g() {
-      class_po var1 = this.d.a((class_po)this.e);
+      EntityAgeable var1 = this.d.createChild((EntityAgeable)this.e);
       if(var1 != null) {
          EntityHuman var2 = this.d.cF();
          if(var2 == null && this.e.cF() != null) {

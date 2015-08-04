@@ -21,7 +21,7 @@ public class ItemPotion extends Item {
 
          for(int var3 = 0; var3 < var2.getSize(); ++var3) {
             NBTTagCompound var4 = var2.getCompound(var3);
-            class_pl var5 = class_pl.b(var4);
+            MobEffect var5 = MobEffect.b(var4);
             if(var5 != null) {
                var1.add(var5);
             }
@@ -42,8 +42,8 @@ public class ItemPotion extends Item {
          Iterator var6 = var5.iterator();
 
          while(var6.hasNext()) {
-            class_pl var7 = (class_pl)var6.next();
-            var3.c(new class_pl(var7));
+            MobEffect var7 = (MobEffect)var6.next();
+            var3.addEffect(new MobEffect(var7));
          }
       }
 
@@ -89,7 +89,7 @@ public class ItemPotion extends Item {
          Iterator var6 = var0.iterator();
 
          while(true) {
-            class_pl var7;
+            MobEffect var7;
             do {
                if(!var6.hasNext()) {
                   if(var5 == 0) {
@@ -102,7 +102,7 @@ public class ItemPotion extends Item {
                   return (int)var2 << 16 | (int)var3 << 8 | (int)var4;
                }
 
-               var7 = (class_pl)var6.next();
+               var7 = (MobEffect)var6.next();
             } while(!var7.e());
 
             int var8 = var7.a().g();

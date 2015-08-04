@@ -6,12 +6,12 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 
 public class class_ru extends class_rm {
    World a;
-   protected class_qh b;
+   protected EntityCreature b;
    int c;
    double d;
    boolean e;
@@ -22,12 +22,12 @@ public class class_ru extends class_rm {
    private double j;
    private double k;
 
-   public class_ru(class_qh var1, Class var2, double var3, boolean var5) {
+   public class_ru(EntityCreature var1, Class var2, double var3, boolean var5) {
       this(var1, var3, var5);
       this.g = var2;
    }
 
-   public class_ru(class_qh var1, double var2, boolean var4) {
+   public class_ru(EntityCreature var1, double var2, boolean var4) {
       this.b = var1;
       this.a = var1.o;
       this.d = var2;

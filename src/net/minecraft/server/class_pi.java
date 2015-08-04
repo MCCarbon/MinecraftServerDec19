@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class class_pi extends MobEffect {
+public class class_pi extends MobEffectType {
    public class_pi(boolean var1, int var2) {
       super(var1, var2);
    }

@@ -76,7 +76,7 @@ public class class_vi extends class_vh {
 
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    protected void read(NBTTagCompound var1) {

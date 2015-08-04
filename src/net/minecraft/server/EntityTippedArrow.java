@@ -38,8 +38,8 @@ public class EntityTippedArrow extends EntityArrow {
          Iterator var3 = var2.iterator();
 
          while(var3.hasNext()) {
-            class_pl var4 = (class_pl)var3.next();
-            this.g.add(new class_pl(var4));
+            MobEffect var4 = (MobEffect)var3.next();
+            this.g.add(new MobEffect(var4));
          }
 
          this.datawatcher.update(f, Integer.valueOf(ItemPotion.a((Collection) this.g)));
@@ -49,8 +49,8 @@ public class EntityTippedArrow extends EntityArrow {
       this.h.count = 1;
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(f, Integer.valueOf(0));
    }
 
@@ -111,8 +111,8 @@ public class EntityTippedArrow extends EntityArrow {
          Iterator var2 = this.g.iterator();
 
          while(var2.hasNext()) {
-            class_pl var3 = (class_pl)var2.next();
-            var1.c(var3);
+            MobEffect var3 = (MobEffect)var2.next();
+            var1.addEffect(var3);
          }
       }
 

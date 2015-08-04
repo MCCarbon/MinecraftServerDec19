@@ -23,8 +23,8 @@ public class EntityWitch extends EntityMonster implements class_wk {
       this.bn.a(2, new class_sz(this, EntityHuman.class, true));
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.H().add(c, Byte.valueOf((byte)0));
    }
 
@@ -67,8 +67,8 @@ public class EntityWitch extends EntityMonster implements class_wk {
                      Iterator var3 = var5.iterator();
 
                      while(var3.hasNext()) {
-                        class_pl var4 = (class_pl)var3.next();
-                        this.c(new class_pl(var4));
+                        MobEffect var4 = (MobEffect)var3.next();
+                        this.addEffect(new MobEffect(var4));
                      }
                   }
                }
@@ -77,13 +77,13 @@ public class EntityWitch extends EntityMonster implements class_wk {
             }
          } else {
             class_acd var1 = null;
-            if(this.random.nextFloat() < 0.15F && this.a(Material.WATER) && !this.a(MobEffectList.m)) {
+            if(this.random.nextFloat() < 0.15F && this.a(Material.WATER) && !this.hasEffect(MobEffectList.m)) {
                var1 = class_acf.s;
-            } else if(this.random.nextFloat() < 0.15F && this.av() && !this.a(MobEffectList.l)) {
+            } else if(this.random.nextFloat() < 0.15F && this.av() && !this.hasEffect(MobEffectList.l)) {
                var1 = class_acf.l;
             } else if(this.random.nextFloat() < 0.05F && this.getHealth() < this.bv()) {
                var1 = class_acf.u;
-            } else if(this.random.nextFloat() < 0.5F && this.w() != null && !this.a(MobEffectList.a) && this.w().h(this) > 121.0D) {
+            } else if(this.random.nextFloat() < 0.5F && this.w() != null && !this.hasEffect(MobEffectList.a) && this.w().h(this) > 121.0D) {
                var1 = class_acf.n;
             }
 
@@ -143,11 +143,11 @@ public class EntityWitch extends EntityMonster implements class_wk {
          double var9 = var1.u + var1.x - this.u;
          float var11 = MathHelper.sqrt(var5 * var5 + var9 * var9);
          class_acd var12 = class_acf.w;
-         if(var11 >= 8.0F && !var1.a(MobEffectList.b)) {
+         if(var11 >= 8.0F && !var1.hasEffect(MobEffectList.b)) {
             var12 = class_acf.q;
-         } else if(var1.getHealth() >= 8.0F && !var1.a(MobEffectList.s)) {
+         } else if(var1.getHealth() >= 8.0F && !var1.hasEffect(MobEffectList.s)) {
             var12 = class_acf.y;
-         } else if(var11 <= 3.0F && !var1.a(MobEffectList.r) && this.random.nextFloat() < 0.25F) {
+         } else if(var11 <= 3.0F && !var1.hasEffect(MobEffectList.r) && this.random.nextFloat() < 0.25F) {
             var12 = class_acf.H;
          }
 

@@ -4,26 +4,26 @@ import java.util.Random;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 
 public class class_tm {
    private static Vec3D a = new Vec3D(0.0D, 0.0D, 0.0D);
 
-   public static Vec3D a(class_qh var0, int var1, int var2) {
+   public static Vec3D a(EntityCreature var0, int var1, int var2) {
       return c(var0, var1, var2, (Vec3D)null);
    }
 
-   public static Vec3D a(class_qh var0, int var1, int var2, Vec3D var3) {
+   public static Vec3D a(EntityCreature var0, int var1, int var2, Vec3D var3) {
       a = var3.substract(var0.s, var0.t, var0.u);
       return c(var0, var1, var2, a);
    }
 
-   public static Vec3D b(class_qh var0, int var1, int var2, Vec3D var3) {
+   public static Vec3D b(EntityCreature var0, int var1, int var2, Vec3D var3) {
       a = (new Vec3D(var0.s, var0.t, var0.u)).d(var3);
       return c(var0, var1, var2, a);
    }
 
-   private static Vec3D c(class_qh var0, int var1, int var2, Vec3D var3) {
+   private static Vec3D c(EntityCreature var0, int var1, int var2, Vec3D var3) {
       Random var4 = var0.bd();
       boolean var5 = false;
       int var6 = 0;

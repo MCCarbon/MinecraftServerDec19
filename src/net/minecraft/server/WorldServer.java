@@ -483,7 +483,7 @@ public class WorldServer extends World implements class_of {
          var1.J();
       }
 
-      if(!this.ah() && var1 instanceof class_wu) {
+      if(!this.ah() && var1 instanceof NPC) {
          var1.J();
       }
 

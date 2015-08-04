@@ -57,8 +57,8 @@ public class EntityGuardian extends EntityMonster {
       return new class_ti(this, var1);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, Integer.valueOf(0));
       this.datawatcher.add(b, Integer.valueOf(0));
    }
@@ -270,7 +270,7 @@ public class EntityGuardian extends EntityMonster {
          boolean var3 = true;
          boolean var4 = true;
          if((this.W + this.getId()) % 1200 == 0) {
-            MobEffect var5 = MobEffectList.d;
+            MobEffectType var5 = MobEffectList.d;
             List var6 = this.o.getPlayers(EntityPlayer.class, new Predicate() {
                public boolean a(EntityPlayer var1) {
                   return EntityGuardian.this.h(var1) < 2500.0D && var1.playerInteractManager.c();
@@ -292,10 +292,10 @@ public class EntityGuardian extends EntityMonster {
                   }
 
                   var8 = (EntityPlayer)var7.next();
-               } while(var8.a((MobEffect)var5) && var8.b((MobEffect)var5).c() >= 2 && var8.b((MobEffect)var5).b() >= 1200);
+               } while(var8.hasEffect((MobEffectType)var5) && var8.getEffect((MobEffectType)var5).c() >= 2 && var8.getEffect((MobEffectType)var5).b() >= 1200);
 
                var8.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(10, 0.0F)));
-               var8.c(new class_pl(var5, 6000, 2));
+               var8.addEffect(new MobEffect(var5, 6000, 2));
             }
          }
 

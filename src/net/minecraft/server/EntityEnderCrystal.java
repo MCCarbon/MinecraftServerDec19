@@ -17,7 +17,7 @@ public class EntityEnderCrystal extends Entity {
       return false;
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
       this.datawatcher.add(c, Integer.valueOf(this.b));
    }
 

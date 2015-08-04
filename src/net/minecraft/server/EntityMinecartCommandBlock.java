@@ -35,8 +35,8 @@ public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
       super(var1, var2, var4, var6);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.H().add(a, "");
       this.H().add(b, "");
    }

@@ -55,8 +55,8 @@ public class EntityEnderman extends EntityMonster {
       this.a((class_qk)class_wl.b).a(64.0D);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bt, new Short((short)0));
       this.datawatcher.add(bu, new Byte((byte)0));
       this.datawatcher.add(bv, new Byte((byte)0));

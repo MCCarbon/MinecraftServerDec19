@@ -40,8 +40,8 @@ public class EntityPig extends class_tw {
       }
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bs, Byte.valueOf((byte)0));
    }
 
@@ -140,7 +140,7 @@ public class EntityPig extends class_tw {
 
    }
 
-   public EntityPig b(class_po var1) {
+   public EntityPig b(EntityAgeable var1) {
       return new EntityPig(this.o);
    }
 
@@ -153,7 +153,7 @@ public class EntityPig extends class_tw {
    }
 
    // $FF: synthetic method
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       return this.b(var1);
    }
 

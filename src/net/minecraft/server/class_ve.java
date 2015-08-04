@@ -57,7 +57,7 @@ public class class_ve extends Entity {
       this.c(this.v, this.motY, this.x, 1.5F, 1.0F);
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    public void c(double var1, double var3, double var5, float var7, float var8) {

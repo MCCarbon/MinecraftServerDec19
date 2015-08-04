@@ -24,8 +24,8 @@ public class EntityOcelot extends class_qj {
       this.bn.a(1, new class_ta(this, EntityChicken.class, false, (Predicate)null));
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bw, Byte.valueOf((byte)0));
    }
 
@@ -138,7 +138,7 @@ public class EntityOcelot extends class_qj {
       return super.a(var1, var2, var3);
    }
 
-   public EntityOcelot b(class_po var1) {
+   public EntityOcelot b(EntityAgeable var1) {
       EntityOcelot var2 = new EntityOcelot(this.o);
       if(this.cA()) {
          var2.b((String)this.b());
@@ -229,7 +229,7 @@ public class EntityOcelot extends class_qj {
    }
 
    // $FF: synthetic method
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       return this.b(var1);
    }
 }

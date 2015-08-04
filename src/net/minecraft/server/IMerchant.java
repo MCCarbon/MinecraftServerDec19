@@ -6,7 +6,7 @@ import net.minecraft.server.class_aeb;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.EntityHuman;
 
-public interface class_adz {
+public interface IMerchant {
    void a(EntityHuman var1);
 
    EntityHuman v_();

@@ -11,7 +11,7 @@ public class class_up extends Entity {
       this.b = var2;
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    protected void read(NBTTagCompound var1) {

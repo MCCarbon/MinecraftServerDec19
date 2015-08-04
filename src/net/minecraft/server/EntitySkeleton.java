@@ -41,8 +41,8 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
       this.a((class_qk)class_wl.d).a(0.25D);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, Byte.valueOf((byte)0));
       this.datawatcher.add(b, Byte.valueOf((byte)0));
    }
@@ -66,7 +66,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
    public boolean r(Entity var1) {
       if(super.r(var1)) {
          if(this.cB() == 1 && var1 instanceof EntityLiving) {
-            ((EntityLiving)var1).c(new class_pl(MobEffectList.t, 200));
+            ((EntityLiving)var1).addEffect(new MobEffect(MobEffectList.t, 200));
          }
 
          return true;
@@ -113,8 +113,8 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
    public void ak() {
       super.ak();
-      if(this.vehicle instanceof class_qh) {
-         class_qh var1 = (class_qh)this.vehicle;
+      if(this.vehicle instanceof EntityCreature) {
+         EntityCreature var1 = (EntityCreature)this.vehicle;
          this.aL = var1.aL;
       }
 

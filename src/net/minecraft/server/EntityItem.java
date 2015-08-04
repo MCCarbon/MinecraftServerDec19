@@ -44,7 +44,7 @@ public class EntityItem extends Entity {
 		this.a(new ItemStack(Blocks.AIR, 0));
 	}
 
-	protected void h() {
+	protected void initDatawatcher() {
 		this.H().addNull(c, 5);
 	}
 

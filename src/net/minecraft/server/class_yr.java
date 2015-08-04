@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_adz;
+import net.minecraft.server.IMerchant;
 import net.minecraft.server.class_aea;
 import net.minecraft.server.class_aeb;
 import net.minecraft.server.IChatBaseComponent;
@@ -11,13 +11,13 @@ import net.minecraft.server.IInventory;
 import net.minecraft.server.EntityHuman;
 
 public class class_yr implements IInventory {
-   private final class_adz a;
+   private final IMerchant a;
    private ItemStack[] b = new ItemStack[3];
    private final EntityHuman c;
    private class_aea d;
    private int e;
 
-   public class_yr(EntityHuman var1, class_adz var2) {
+   public class_yr(EntityHuman var1, IMerchant var2) {
       this.c = var1;
       this.a = var2;
    }

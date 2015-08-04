@@ -41,8 +41,8 @@ public class EntityCreeper extends EntityMonster {
 
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, Byte.valueOf((byte)-1));
       this.datawatcher.add(b, Byte.valueOf((byte)0));
       this.datawatcher.add(c, Byte.valueOf((byte)0));

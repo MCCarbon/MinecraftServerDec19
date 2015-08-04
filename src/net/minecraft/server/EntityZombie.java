@@ -49,8 +49,8 @@ public class EntityZombie extends EntityMonster {
       this.by().b(a).a(this.random.nextDouble() * 0.10000000149011612D);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.H().add(bs, Byte.valueOf((byte)0));
       this.H().add(bt, Byte.valueOf((byte)0));
       this.H().add(bu, Byte.valueOf((byte)0));
@@ -400,7 +400,7 @@ public class EntityZombie extends EntityMonster {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.GOLDEN_APPLE && var3.i() == 0 && this.cD() && this.a((MobEffect) MobEffectList.r)) {
+      if(var3 != null && var3.getItem() == Items.GOLDEN_APPLE && var3.i() == 0 && this.cD() && this.hasEffect((MobEffectType) MobEffectList.r)) {
          if(!var1.abilities.instabuild) {
             --var3.count;
          }
@@ -419,7 +419,7 @@ public class EntityZombie extends EntityMonster {
       this.bw = var1;
       this.H().update(bu, Byte.valueOf((byte)1));
       this.d(MobEffectList.r);
-      this.c(new class_pl(MobEffectList.e, var1, Math.min(this.o.ab().a() - 1, 0)));
+      this.addEffect(new MobEffect(MobEffectList.e, var1, Math.min(this.o.ab().a() - 1, 0)));
       this.o.a((Entity)this, (byte)16);
    }
 
@@ -448,7 +448,7 @@ public class EntityZombie extends EntityMonster {
       }
 
       this.o.addEntity((Entity)var1);
-      var1.c(new class_pl(MobEffectList.i, 200, 0));
+      var1.addEffect(new MobEffect(MobEffectList.i, 200, 0));
       this.o.a((EntityHuman)null, 1017, new BlockPosition((int)this.s, (int)this.t, (int)this.u), 0);
    }
 

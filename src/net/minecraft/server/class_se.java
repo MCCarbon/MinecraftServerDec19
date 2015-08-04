@@ -1,18 +1,18 @@
 package net.minecraft.server;
 
 import net.minecraft.server.Vec3D;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tm;
 
 public class class_se extends class_rm {
-   private class_qh b;
+   private EntityCreature b;
    protected double a;
    private double c;
    private double d;
    private double e;
 
-   public class_se(class_qh var1, double var2) {
+   public class_se(EntityCreature var1, double var2) {
       this.b = var1;
       this.a = var2;
       this.a(1);

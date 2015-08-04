@@ -36,7 +36,7 @@ public class EntityFallingBlock extends Entity {
       return false;
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    public boolean ad() {

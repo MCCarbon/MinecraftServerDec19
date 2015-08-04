@@ -1,13 +1,13 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tf;
 
 public class class_sm extends class_rm {
-   private class_qh a;
+   private EntityCreature a;
 
-   public class_sm(class_qh var1) {
+   public class_sm(EntityCreature var1) {
       this.a = var1;
    }
 

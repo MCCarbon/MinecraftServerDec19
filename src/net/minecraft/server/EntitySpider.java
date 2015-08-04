@@ -28,8 +28,8 @@ public class EntitySpider extends EntityMonster {
       return new class_th(this, var1);
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, new Byte((byte)0));
    }
 
@@ -86,7 +86,7 @@ public class EntitySpider extends EntityMonster {
       return class_qf.c;
    }
 
-   public boolean d(class_pl var1) {
+   public boolean d(MobEffect var1) {
       return var1.a() == MobEffectList.s?false:super.d(var1);
    }
 
@@ -123,9 +123,9 @@ public class EntitySpider extends EntityMonster {
       }
 
       if(var4 instanceof EntitySpider.class_b_in_class_wp) {
-         MobEffect var5 = ((EntitySpider.class_b_in_class_wp)var4).a;
+         MobEffectType var5 = ((EntitySpider.class_b_in_class_wp)var4).a;
          if(var5 != null) {
-            this.c(new class_pl(var5, Integer.MAX_VALUE));
+            this.addEffect(new MobEffect(var5, Integer.MAX_VALUE));
          }
       }
 
@@ -168,7 +168,7 @@ public class EntitySpider extends EntityMonster {
    }
 
    public static class class_b_in_class_wp implements class_qd {
-      public MobEffect a;
+      public MobEffectType a;
 
       public void a(Random var1) {
          int var2 = var1.nextInt(5);

@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tm;
 
 public class class_rz extends class_rm {
-   private class_qh a;
+   private EntityCreature a;
    private EntityLiving b;
    private double c;
    private double d;
@@ -15,7 +15,7 @@ public class class_rz extends class_rm {
    private double f;
    private float g;
 
-   public class_rz(class_qh var1, double var2, float var4) {
+   public class_rz(EntityCreature var1, double var2, float var4) {
       this.a = var1;
       this.f = var2;
       this.g = var4;

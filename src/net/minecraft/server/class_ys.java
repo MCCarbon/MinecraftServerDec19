@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_adz;
+import net.minecraft.server.IMerchant;
 import net.minecraft.server.World;
 import net.minecraft.server.IInventory;
 import net.minecraft.server.PlayerInventory;
@@ -13,11 +13,11 @@ import net.minecraft.server.class_yt;
 import net.minecraft.server.class_yx;
 
 public class class_ys extends Container {
-   private class_adz a;
+   private IMerchant a;
    private class_yr f;
    private final World g;
 
-   public class_ys(PlayerInventory var1, class_adz var2, World var3) {
+   public class_ys(PlayerInventory var1, IMerchant var2, World var3) {
       this.a = var2;
       this.g = var3;
       this.f = new class_yr(var1.e, var2);

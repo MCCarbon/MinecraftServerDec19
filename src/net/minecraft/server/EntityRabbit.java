@@ -73,8 +73,8 @@ public class EntityRabbit extends class_tw {
       return this.bx;
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(bs, Byte.valueOf((byte)0));
    }
 
@@ -250,7 +250,7 @@ public class EntityRabbit extends class_tw {
       return var1 == Items.CARROT || var1 == Items.GOLDEN_CARROT || var1 == Item.getItemOf((Block)Blocks.YELLOW_FLOWER);
    }
 
-   public EntityRabbit b(class_po var1) {
+   public EntityRabbit b(EntityAgeable var1) {
       EntityRabbit var2 = new EntityRabbit(this.o);
       if(var1 instanceof EntityRabbit) {
          var2.m(this.random.nextBoolean()?this.cC():((EntityRabbit)var1).cC());
@@ -317,7 +317,7 @@ public class EntityRabbit extends class_tw {
    }
 
    // $FF: synthetic method
-   public class_po a(class_po var1) {
+   public EntityAgeable createChild(EntityAgeable var1) {
       return this.b(var1);
    }
 

@@ -16,7 +16,7 @@ public class class_sy extends class_rm {
 
    public class_sy(EntityInsentient var1) {
       this.b = var1;
-      if(var1 instanceof class_qh) {
+      if(var1 instanceof EntityCreature) {
          a.warn("Use NearestAttackableTargetGoal.class for PathfinerMob mobs!");
       }
 

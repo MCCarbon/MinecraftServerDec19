@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class EntityMonster extends class_qh implements class_wd {
+public abstract class EntityMonster extends EntityCreature implements class_wd {
    public EntityMonster(World var1) {
       super(var1);
       this.b_ = 5;

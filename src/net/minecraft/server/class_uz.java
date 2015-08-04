@@ -20,7 +20,7 @@ public abstract class class_uz extends Entity {
       this.a = var2;
    }
 
-   protected void h() {
+   protected void initDatawatcher() {
    }
 
    protected void a(EnumDirection var1) {

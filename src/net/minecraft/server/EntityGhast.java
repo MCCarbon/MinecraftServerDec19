@@ -46,8 +46,8 @@ public class EntityGhast extends class_py implements class_wd {
       }
    }
 
-   protected void h() {
-      super.h();
+   protected void initDatawatcher() {
+      super.initDatawatcher();
       this.datawatcher.add(a, Byte.valueOf((byte)0));
    }
 

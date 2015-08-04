@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class class_tw extends class_po implements class_pp {
+public abstract class class_tw extends EntityAgeable implements class_pp {
    protected Block bv;
    private int bs;
    private EntityHuman bt;
@@ -11,7 +11,7 @@ public abstract class class_tw extends class_po implements class_pp {
    }
 
    protected void cc() {
-      if(this.l() != 0) {
+      if(this.getAge() != 0) {
          this.bs = 0;
       }
 
@@ -20,7 +20,7 @@ public abstract class class_tw extends class_po implements class_pp {
 
    public void m() {
       super.m();
-      if(this.l() != 0) {
+      if(this.getAge() != 0) {
          this.bs = 0;
       }
 
@@ -85,7 +85,7 @@ public abstract class class_tw extends class_po implements class_pp {
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
       if(var3 != null) {
-         if(this.d(var3) && this.l() == 0 && this.bs <= 0) {
+         if(this.d(var3) && this.getAge() == 0 && this.bs <= 0) {
             this.a(var1, var3);
             this.a(var1);
             return true;
@@ -93,7 +93,7 @@ public abstract class class_tw extends class_po implements class_pp {
 
          if(this.j_() && this.d(var3)) {
             this.a(var1, var3);
-            this.a((int)((float)(-this.l() / 20) * 0.1F), true);
+            this.setAge((int)((float)(-this.getAge() / 20) * 0.1F), true);
             return true;
          }
       }

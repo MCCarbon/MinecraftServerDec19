@@ -18,7 +18,7 @@ public class class_rl extends class_rm {
    }
 
    public boolean a() {
-      if(this.a.l() >= 0) {
+      if(this.a.getAge() >= 0) {
          return false;
       } else {
          List var1 = this.a.o.getEntities(this.a.getClass(), this.a.aT().grow(8.0D, 4.0D, 8.0D));
@@ -28,7 +28,7 @@ public class class_rl extends class_rm {
 
          while(var5.hasNext()) {
             class_tw var6 = (class_tw)var5.next();
-            if(var6.l() >= 0) {
+            if(var6.getAge() >= 0) {
                double var7 = this.a.h(var6);
                if(var7 <= var3) {
                   var3 = var7;
@@ -49,7 +49,7 @@ public class class_rl extends class_rm {
    }
 
    public boolean b() {
-      if(this.a.l() >= 0) {
+      if(this.a.getAge() >= 0) {
          return false;
       } else if(!this.b.isAlive()) {
          return false;

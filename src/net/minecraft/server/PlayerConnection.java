@@ -263,7 +263,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					}
 
 					AxisAlignedBB var43 = player.aT().grow(var37, var37, var37).add(0.0D, -0.55D, 0.0D);
-					if (!(minecraftServer.ak() || player.abilities.mayfly || var2.c(var43) || player.a(MobEffectList.y))) {
+					if (!(minecraftServer.ak() || player.abilities.mayfly || var2.c(var43) || player.hasEffect(MobEffectList.y))) {
 						if (var39 >= -0.03125D) {
 							++g;
 							if (g > 80) {

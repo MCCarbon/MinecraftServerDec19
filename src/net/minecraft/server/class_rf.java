@@ -29,7 +29,7 @@ public class class_rf extends class_rm {
 
    public void e() {
       EntityHuman var1 = (EntityHuman)this.a.passenger;
-      class_qh var2 = (class_qh)this.a;
+      EntityCreature var2 = (EntityCreature)this.a;
       float var3 = MathHelper.clampAngle(var1.y - this.a.y) * 0.5F;
       if(var3 > 5.0F) {
          var3 = 5.0F;

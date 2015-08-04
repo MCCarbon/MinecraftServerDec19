@@ -3,18 +3,18 @@ package net.minecraft.server;
 import org.apache.commons.lang3.StringUtils;
 
 public abstract class class_td extends class_rm {
-   protected final class_qh e;
+   protected final EntityCreature e;
    protected boolean f;
    private boolean a;
    private int b;
    private int c;
    private int d;
 
-   public class_td(class_qh var1, boolean var2) {
+   public class_td(EntityCreature var1, boolean var2) {
       this(var1, var2, false);
    }
 
-   public class_td(class_qh var1, boolean var2, boolean var3) {
+   public class_td(EntityCreature var1, boolean var2, boolean var3) {
       this.e = var1;
       this.f = var2;
       this.a = var3;

@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import net.minecraft.server.World;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_qh;
+import net.minecraft.server.EntityCreature;
 import net.minecraft.server.class_rm;
 
 public abstract class class_rx extends class_rm {
-   private final class_qh c;
+   private final EntityCreature c;
    private final double d;
    protected int a;
    private int e;
@@ -15,7 +15,7 @@ public abstract class class_rx extends class_rm {
    private boolean g;
    private int h;
 
-   public class_rx(class_qh var1, double var2, int var4) {
+   public class_rx(EntityCreature var1, double var2, int var4) {
       this.b = BlockPosition.ZERO;
       this.c = var1;
       this.d = var2;

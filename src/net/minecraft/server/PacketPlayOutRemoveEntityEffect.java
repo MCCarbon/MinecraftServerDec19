@@ -4,24 +4,24 @@ import java.io.IOException;
 
 public class PacketPlayOutRemoveEntityEffect implements Packet {
    private int a;
-   private MobEffect b;
+   private MobEffectType b;
 
    public PacketPlayOutRemoveEntityEffect() {
    }
 
-   public PacketPlayOutRemoveEntityEffect(int var1, MobEffect var2) {
+   public PacketPlayOutRemoveEntityEffect(int var1, MobEffectType var2) {
       this.a = var1;
       this.b = var2;
    }
 
    public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readVarInt();
-      this.b = MobEffect.a(var1.readUnsignedByte());
+      this.b = MobEffectType.a(var1.readUnsignedByte());
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeVarInt(this.a);
-      var1.writeByte(MobEffect.a(this.b));
+      var1.writeByte(MobEffectType.a(this.b));
    }
 
    public void a(PacketListenerPlayOut var1) {
