@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Sets;
 import java.util.Set;
 
-public class EntityPig extends class_tw {
+public class EntityPig extends EntityAnimal {
    private static final int bs = Datawathcer.claimId(EntityPig.class);
    private static final Set bt;
    private final class_rf bu;

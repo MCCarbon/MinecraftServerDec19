@@ -2,13 +2,13 @@ package net.minecraft.server;
 
 import net.minecraft.server.Material;
 import net.minecraft.server.class_tt;
-import net.minecraft.server.class_tw;
+import net.minecraft.server.EntityAnimal;
 import net.minecraft.server.class_uk;
 import net.minecraft.server.class_wd;
 
 public enum class_qc {
     a(class_wd.class, 70, Material.AIR, false, false),
-    b(class_tw.class, 10, Material.AIR, true, true),
+    b(EntityAnimal.class, 10, Material.AIR, true, true),
     c(class_tt.class, 15, Material.AIR, true, false),
     d(class_uk.class, 5, Material.WATER, true, false);
 

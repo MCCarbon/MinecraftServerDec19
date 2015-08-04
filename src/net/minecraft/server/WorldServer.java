@@ -479,7 +479,7 @@ public class WorldServer extends World implements class_of {
    }
 
    public void a(Entity var1, boolean var2) {
-      if(!this.ai() && (var1 instanceof class_tw || var1 instanceof class_uk)) {
+      if(!this.ai() && (var1 instanceof EntityAnimal || var1 instanceof class_uk)) {
          var1.J();
       }
 

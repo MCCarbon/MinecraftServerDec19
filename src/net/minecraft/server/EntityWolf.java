@@ -30,7 +30,7 @@ public class EntityWolf extends class_qj {
       this.bn.a(1, new class_tb(this));
       this.bn.a(2, new class_tc(this));
       this.bn.a(3, new class_sw(this, true, new Class[0]));
-      this.bn.a(4, new class_ta(this, class_tw.class, false, new Predicate() {
+      this.bn.a(4, new class_ta(this, EntityAnimal.class, false, new Predicate() {
          public boolean a(Entity var1) {
             return var1 instanceof EntitySheep || var1 instanceof EntityRabbit;
          }
@@ -325,7 +325,7 @@ public class EntityWolf extends class_qj {
 
    }
 
-   public boolean a(class_tw var1) {
+   public boolean a(EntityAnimal var1) {
       if(var1 == this) {
          return false;
       } else if(!this.cA()) {

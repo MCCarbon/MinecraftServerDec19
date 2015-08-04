@@ -7,7 +7,7 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.IInventory;
-import net.minecraft.server.class_ok;
+import net.minecraft.server.IInventoryListener;
 import net.minecraft.server.EntityHuman;
 
 public class class_ow implements IInventory {
@@ -24,7 +24,7 @@ public class class_ow implements IInventory {
       this.c = new ItemStack[var3];
    }
 
-   public void a(class_ok var1) {
+   public void a(IInventoryListener var1) {
       if(this.d == null) {
          this.d = Lists.newArrayList();
       }
@@ -32,7 +32,7 @@ public class class_ow implements IInventory {
       this.d.add(var1);
    }
 
-   public void b(class_ok var1) {
+   public void b(IInventoryListener var1) {
       this.d.remove(var1);
    }
 
@@ -141,7 +141,7 @@ public class class_ow implements IInventory {
    public void update() {
       if(this.d != null) {
          for(int var1 = 0; var1 < this.d.size(); ++var1) {
-            ((class_ok)this.d.get(var1)).a(this);
+            ((IInventoryListener)this.d.get(var1)).a(this);
          }
       }
 

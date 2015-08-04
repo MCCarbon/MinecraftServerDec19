@@ -4,15 +4,15 @@ import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.Entity;
 import net.minecraft.server.class_rm;
-import net.minecraft.server.class_tw;
+import net.minecraft.server.EntityAnimal;
 
 public class class_rl extends class_rm {
-   class_tw a;
-   class_tw b;
+   EntityAnimal a;
+   EntityAnimal b;
    double c;
    private int d;
 
-   public class_rl(class_tw var1, double var2) {
+   public class_rl(EntityAnimal var1, double var2) {
       this.a = var1;
       this.c = var2;
    }
@@ -22,12 +22,12 @@ public class class_rl extends class_rm {
          return false;
       } else {
          List var1 = this.a.o.getEntities(this.a.getClass(), this.a.aT().grow(8.0D, 4.0D, 8.0D));
-         class_tw var2 = null;
+         EntityAnimal var2 = null;
          double var3 = Double.MAX_VALUE;
          Iterator var5 = var1.iterator();
 
          while(var5.hasNext()) {
-            class_tw var6 = (class_tw)var5.next();
+            EntityAnimal var6 = (EntityAnimal)var5.next();
             if(var6.getAge() >= 0) {
                double var7 = this.a.h(var6);
                if(var7 <= var3) {

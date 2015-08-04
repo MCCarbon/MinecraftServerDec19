@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class EntityRabbit extends class_tw {
+public class EntityRabbit extends EntityAnimal {
    private static final int bs = Datawathcer.claimId(EntityRabbit.class);
    private EntityRabbit.class_c_in_class_ue bt;
    private int bu = 0;

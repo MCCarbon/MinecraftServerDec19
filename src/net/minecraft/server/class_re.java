@@ -5,13 +5,13 @@ import java.util.List;
 import java.util.Random;
 
 public class class_re extends class_rm {
-   private class_tw d;
+   private EntityAnimal d;
    World a;
-   private class_tw e;
+   private EntityAnimal e;
    int b;
    double c;
 
-   public class_re(class_tw var1, double var2) {
+   public class_re(EntityAnimal var1, double var2) {
       this.d = var1;
       this.a = var1.o;
       this.c = var2;
@@ -46,15 +46,15 @@ public class class_re extends class_rm {
 
    }
 
-   private class_tw f() {
+   private EntityAnimal f() {
       float var1 = 8.0F;
       List var2 = this.a.getEntities(this.d.getClass(), this.d.aT().grow((double)var1, (double)var1, (double)var1));
       double var3 = Double.MAX_VALUE;
-      class_tw var5 = null;
+      EntityAnimal var5 = null;
       Iterator var6 = var2.iterator();
 
       while(var6.hasNext()) {
-         class_tw var7 = (class_tw)var6.next();
+         EntityAnimal var7 = (EntityAnimal)var6.next();
          if(this.d.a(var7) && this.d.h(var7) < var3) {
             var5 = var7;
             var3 = this.d.h(var7);

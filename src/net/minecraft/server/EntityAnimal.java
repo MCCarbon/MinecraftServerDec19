@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-public abstract class class_tw extends EntityAgeable implements class_pp {
+public abstract class EntityAnimal extends EntityAgeable implements class_pp {
    protected Block bv;
    private int bs;
    private EntityHuman bt;
 
-   public class_tw(World var1) {
+   public EntityAnimal(World var1) {
       super(var1);
       this.bv = Blocks.GRASS;
    }
@@ -126,7 +126,7 @@ public abstract class class_tw extends EntityAgeable implements class_pp {
       this.bs = 0;
    }
 
-   public boolean a(class_tw var1) {
+   public boolean a(EntityAnimal var1) {
       return var1 == this?false:(var1.getClass() != this.getClass()?false:this.cG() && var1.cG());
    }
 }

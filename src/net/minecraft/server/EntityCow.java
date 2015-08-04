@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class EntityCow extends class_tw {
+public class EntityCow extends EntityAnimal {
    public EntityCow(World var1) {
       super(var1);
       this.a(0.9F, 1.3F);

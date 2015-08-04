@@ -4,7 +4,7 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import java.util.Random;
 
-public class EntitySheep extends class_tw {
+public class EntitySheep extends EntityAnimal {
    private static final int bs = Datawathcer.claimId(EntitySheep.class);
    private final class_yg bt = new class_yg(new Container() {
       public boolean a(EntityHuman var1) {
@@ -161,7 +161,7 @@ public class EntitySheep extends class_tw {
    public EntitySheep b(EntityAgeable var1) {
       EntitySheep var2 = (EntitySheep)var1;
       EntitySheep var3 = new EntitySheep(this.o);
-      var3.b(this.a((class_tw)this, (class_tw)var2));
+      var3.b(this.a((EntityAnimal)this, (EntityAnimal)var2));
       return var3;
    }
 
@@ -179,7 +179,7 @@ public class EntitySheep extends class_tw {
       return var2;
    }
 
-   private EnumColor a(class_tw var1, class_tw var2) {
+   private EnumColor a(EntityAnimal var1, EntityAnimal var2) {
       int var3 = ((EntitySheep)var1).cA().b();
       int var4 = ((EntitySheep)var2).cA().b();
       this.bt.getItem(0).setData(var3);

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.UUID;
 
-public abstract class class_qj extends class_tw implements class_qg {
+public abstract class class_qj extends EntityAnimal implements class_qg {
    protected static final int bs = Datawathcer.claimId(class_qj.class);
    protected static final int bt = Datawathcer.claimId(class_qj.class);
    protected class_so bu = new class_so(this);

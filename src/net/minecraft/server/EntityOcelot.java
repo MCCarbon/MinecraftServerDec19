@@ -153,7 +153,7 @@ public class EntityOcelot extends class_qj {
       return var1 != null && var1.getItem() == Items.FISH;
    }
 
-   public boolean a(class_tw var1) {
+   public boolean a(EntityAnimal var1) {
       if(var1 == this) {
          return false;
       } else if(!this.cA()) {

@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Sets;
 import java.util.Set;
 
-public class EntityChicken extends class_tw {
+public class EntityChicken extends EntityAnimal {
    private static final Set bA;
    public float bs;
    public float bt;
