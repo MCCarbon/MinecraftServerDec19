@@ -58,7 +58,7 @@ public class class_ev {
 
       ChatModifier var9 = var1.getChatModifier();
       if(var9 != null) {
-         ((IChatBaseComponent)var3).a(var9.m());
+         ((IChatBaseComponent)var3).setChatModifier(var9.m());
       }
 
       Iterator var13 = var1.a().iterator();

@@ -18,7 +18,7 @@ import com.google.gson.JsonSerializer;
 
 public interface IChatBaseComponent extends Iterable<IChatBaseComponent> {
 
-	IChatBaseComponent a(ChatModifier var1);
+	IChatBaseComponent setChatModifier(ChatModifier var1);
 
 	ChatModifier getChatModifier();
 
@@ -115,7 +115,7 @@ public interface IChatBaseComponent extends Iterable<IChatBaseComponent> {
 					}
 				}
 
-				resultComp.a((ChatModifier) ctx.deserialize(element, ChatModifier.class));
+				resultComp.setChatModifier((ChatModifier) ctx.deserialize(element, ChatModifier.class));
 				return resultComp;
 			}
 		}

@@ -21,7 +21,7 @@ public class ChatComponentSelector extends ChatBaseComponent {
 
    public ChatComponentSelector h() {
       ChatComponentSelector var1 = new ChatComponentSelector(this.b);
-      var1.a(this.getChatModifier().m());
+      var1.setChatModifier(this.getChatModifier().m());
       Iterator var2 = this.a().iterator();
 
       while(var2.hasNext()) {

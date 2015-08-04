@@ -128,8 +128,8 @@ public class ChatMessage extends ChatBaseComponent {
       }
    }
 
-   public IChatBaseComponent a(ChatModifier var1) {
-      super.a(var1);
+   public IChatBaseComponent setChatModifier(ChatModifier var1) {
+      super.setChatModifier(var1);
       Object[] var2 = this.e;
       int var3 = var2.length;
 
@@ -182,7 +182,7 @@ public class ChatMessage extends ChatBaseComponent {
       }
 
       ChatMessage var5 = new ChatMessage(this.d, var1);
-      var5.a(this.getChatModifier().m());
+      var5.setChatModifier(this.getChatModifier().m());
       Iterator var3 = this.a().iterator();
 
       while(var3.hasNext()) {

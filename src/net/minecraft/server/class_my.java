@@ -67,7 +67,7 @@ public class class_my {
    public IChatBaseComponent j() {
       IChatBaseComponent var1 = this.e();
       IChatBaseComponent var2 = (new ChatComponentText("[")).addSibling(var1).a("]");
-      var2.a(var1.getChatModifier());
+      var2.setChatModifier(var1.getChatModifier());
       return var2;
    }
 

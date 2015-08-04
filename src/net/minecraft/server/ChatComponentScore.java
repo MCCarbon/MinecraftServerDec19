@@ -50,7 +50,7 @@ public class ChatComponentScore extends ChatBaseComponent {
    public ChatComponentScore i() {
       ChatComponentScore var1 = new ChatComponentScore(this.b, this.c);
       var1.b(this.d);
-      var1.a(this.getChatModifier().m());
+      var1.setChatModifier(this.getChatModifier().m());
       Iterator var2 = this.a().iterator();
 
       while(var2.hasNext()) {

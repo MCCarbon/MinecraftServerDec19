@@ -28,7 +28,7 @@ public abstract class ChatBaseComponent implements IChatBaseComponent {
 		return this.addSibling((IChatBaseComponent) (new ChatComponentText(var1)));
 	}
 
-	public IChatBaseComponent a(ChatModifier var1) {
+	public IChatBaseComponent setChatModifier(ChatModifier var1) {
 		this.b = var1;
 		Iterator var2 = this.a.iterator();
 
@@ -84,7 +84,7 @@ public abstract class ChatBaseComponent implements IChatBaseComponent {
 		var1 = Iterators.transform(var1, new Function() {
 			public IChatBaseComponent a(IChatBaseComponent var1) {
 				IChatBaseComponent var2 = var1.f();
-				var2.a(var2.getChatModifier().n());
+				var2.setChatModifier(var2.getChatModifier().n());
 				return var2;
 			}
 

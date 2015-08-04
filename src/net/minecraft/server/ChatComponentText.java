@@ -22,7 +22,7 @@ public class ChatComponentText extends ChatBaseComponent {
 
 	public ChatComponentText h() {
 		ChatComponentText var1 = new ChatComponentText(this.string);
-		var1.a(this.getChatModifier().m());
+		var1.setChatModifier(this.getChatModifier().m());
 		Iterator var2 = this.a().iterator();
 
 		while (var2.hasNext()) {
