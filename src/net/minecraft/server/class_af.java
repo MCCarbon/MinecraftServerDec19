@@ -1,27 +1,10 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_ec;
-import net.minecraft.server.class_ed;
-import net.minecraft.server.class_i;
-import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
-import net.minecraft.server.IInventory;
 
-public class class_af extends class_i {
-   public String c() {
+public class class_af extends CommandAbstract {
+	
+   public String getCommand() {
       return "fill";
    }
 
@@ -33,7 +16,7 @@ public class class_af extends class_i {
       return "commands.fill.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 7) {
          throw new class_cf("commands.fill.usage", new Object[0]);
       } else {

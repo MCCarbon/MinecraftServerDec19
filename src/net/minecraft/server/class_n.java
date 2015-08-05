@@ -10,7 +10,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_i;
+import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
 import net.minecraft.server.Entity;
 
@@ -72,7 +72,7 @@ public class class_n {
 
          String var6;
          try {
-            var6 = class_i.e(var5, var4);
+            var6 = CommandAbstract.e(var5, var4);
          } catch (class_ca var11) {
             return;
          }
