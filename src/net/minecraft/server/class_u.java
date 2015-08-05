@@ -1,28 +1,8 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aex;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_i;
-import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
-import net.minecraft.server.IInventory;
 
-public class class_u extends class_i {
+public class class_u extends CommandAbstract {
    public String getCommand() {
       return "clone";
    }

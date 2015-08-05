@@ -46,7 +46,7 @@ public class class_o {
 				var3.add(var5.getScoreboardDisplayName());
 			}
 
-			return class_i.a((List) var3);
+			return CommandAbstract.a((List) var3);
 		}
 	}
 
