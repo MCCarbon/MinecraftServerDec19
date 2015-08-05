@@ -16,12 +16,12 @@ public class HandshakeListener implements PacketHandshakingInListener {
 			case LOGIN: {
 				networkManager.setProtocol(EnumProtocol.LOGIN);
 				ChatComponentText message;
-				if (packet.getProtocolVersion() > 51) {
-					message = new ChatComponentText("Outdated server! I\'m still on 15w31c");
+				if (packet.getProtocolVersion() > 52) {
+					message = new ChatComponentText("Outdated server! I\'m still on 15w32a");
 					networkManager.sendPacket(new PacketLoginOutDisconnect(message));
 					networkManager.close(message);
-				} else if (packet.getProtocolVersion() < 51) {
-					message = new ChatComponentText("Outdated client! Please use 15w31c");
+				} else if (packet.getProtocolVersion() < 52) {
+					message = new ChatComponentText("Outdated client! Please use 15w32a");
 					networkManager.sendPacket(new PacketLoginOutDisconnect(message));
 					networkManager.close(message);
 				} else {
