@@ -393,7 +393,7 @@ public class EntityRabbit extends EntityAnimal {
 
       public boolean a() {
          if(this.a <= 0) {
-            if(!this.c.o.R().b("mobGriefing")) {
+            if(!this.c.o.R().getBooleanValue("mobGriefing")) {
                return false;
             }
 

@@ -13,7 +13,7 @@ public class class_ro extends class_rx {
 
    public boolean a() {
       if(this.a <= 0) {
-         if(!this.c.o.R().b("mobGriefing")) {
+         if(!this.c.o.R().getBooleanValue("mobGriefing")) {
             return false;
          }
 

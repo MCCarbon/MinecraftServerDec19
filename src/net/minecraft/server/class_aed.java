@@ -141,7 +141,7 @@ public abstract class class_aed implements class_m {
 
    public boolean u_() {
       MinecraftServer var1 = MinecraftServer.N();
-      return var1 == null || !var1.O() || var1.d[0].R().b("commandBlockOutput");
+      return var1 == null || !var1.O() || var1.d[0].R().getBooleanValue("commandBlockOutput");
    }
 
    public void a(class_n.class_a_in_class_n var1, int var2) {

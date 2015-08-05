@@ -109,7 +109,7 @@ public class EntityMinecartHopper extends class_vq implements class_ams {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      if(this.o.R().b("doEntityDrops")) {
+      if(this.o.R().getBooleanValue("doEntityDrops")) {
          this.a(Item.getItemOf((Block)Blocks.HOPPER), 1, 0.0F);
       }
 

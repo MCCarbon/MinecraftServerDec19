@@ -324,7 +324,7 @@ public class EntityEnderman extends EntityMonster {
       }
 
       public boolean a() {
-         return this.a.cH()?false:(!this.a.o.R().b("mobGriefing")?false:this.a.bd().nextInt(20) == 0);
+         return this.a.cH()?false:(!this.a.o.R().getBooleanValue("mobGriefing")?false:this.a.bd().nextInt(20) == 0);
       }
 
       public void e() {
@@ -352,7 +352,7 @@ public class EntityEnderman extends EntityMonster {
       }
 
       public boolean a() {
-         return !this.a.cH()?false:(!this.a.o.R().b("mobGriefing")?false:this.a.bd().nextInt(2000) == 0);
+         return !this.a.cH()?false:(!this.a.o.R().getBooleanValue("mobGriefing")?false:this.a.bd().nextInt(2000) == 0);
       }
 
       public void e() {

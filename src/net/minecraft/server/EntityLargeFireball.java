@@ -18,7 +18,7 @@ public class EntityLargeFireball extends class_xf {
             this.a(this.a, var1.d);
          }
 
-         boolean var2 = this.o.R().b("mobGriefing");
+         boolean var2 = this.o.R().getBooleanValue("mobGriefing");
          this.o.createExplosion((Entity)null, this.s, this.t, this.u, (float)this.e, var2, var2);
          this.J();
       }

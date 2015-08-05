@@ -51,7 +51,7 @@ public class EntityItemFrame extends class_uz {
    }
 
    public void a(Entity var1, boolean var2) {
-      if(this.o.R().b("doEntityDrops")) {
+      if(this.o.R().getBooleanValue("doEntityDrops")) {
          ItemStack var3 = this.o();
          if(var1 instanceof EntityHuman) {
             EntityHuman var4 = (EntityHuman)var1;

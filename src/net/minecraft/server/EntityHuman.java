@@ -247,7 +247,7 @@ public abstract class EntityHuman extends EntityLiving {
 			--bt;
 		}
 
-		if ((o.ab() == class_om.a) && o.R().b("naturalRegeneration")) {
+		if ((o.ab() == class_om.a) && o.R().getBooleanValue("naturalRegeneration")) {
 			if ((getHealth() < bv()) && ((W % 20) == 0)) {
 				this.h(1.0F);
 			}
@@ -334,7 +334,7 @@ public abstract class EntityHuman extends EntityLiving {
 			this.a(new ItemStack(Items.APPLE, 1), true, false);
 		}
 
-		if (!o.R().b("keepInventory")) {
+		if (!o.R().getBooleanValue("keepInventory")) {
 			inventory.n();
 		}
 
@@ -1273,7 +1273,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 	@Override
 	protected int b(EntityHuman var1) {
-		if (o.R().b("keepInventory")) {
+		if (o.R().getBooleanValue("keepInventory")) {
 			return 0;
 		} else {
 			int var2 = expLevel * 7;
@@ -1298,7 +1298,7 @@ public abstract class EntityHuman extends EntityLiving {
 			an = var1.an;
 			ao = var1.ao;
 			ap = var1.ap;
-		} else if (o.R().b("keepInventory")) {
+		} else if (o.R().getBooleanValue("keepInventory")) {
 			inventory.a(var1.inventory);
 			expLevel = var1.expLevel;
 			expTotal = var1.expTotal;
@@ -1435,7 +1435,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 	@Override
 	public boolean u_() {
-		return MinecraftServer.N().d[0].R().b("sendCommandFeedback");
+		return MinecraftServer.N().d[0].R().getBooleanValue("sendCommandFeedback");
 	}
 
 	@Override

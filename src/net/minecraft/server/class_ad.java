@@ -91,7 +91,7 @@ public class class_ad extends class_i {
 
             public boolean u_() {
                MinecraftServer var1x = MinecraftServer.N();
-               return var1x == null || var1x.d[0].R().b("commandBlockOutput");
+               return var1x == null || var1x.d[0].R().getBooleanValue("commandBlockOutput");
             }
 
             public void a(class_n.class_a_in_class_n var1x, int var2) {

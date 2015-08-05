@@ -23,7 +23,7 @@ public class class_vi extends class_vh {
       this.a = this.random.nextLong();
       this.c = this.random.nextInt(3) + 1;
       BlockPosition var8 = new BlockPosition(this);
-      if(!var1.isClientSide && var1.R().b("doFireTick") && (var1.ab() == class_om.c || var1.ab() == class_om.d) && var1.a((BlockPosition)var8, (int)10)) {
+      if(!var1.isClientSide && var1.R().getBooleanValue("doFireTick") && (var1.ab() == class_om.c || var1.ab() == class_om.d) && var1.a((BlockPosition)var8, (int)10)) {
          if(var1.getType(var8).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(var1, var8)) {
             var1.setTypeUpdate(var8, Blocks.FIRE.getBlockData());
          }
@@ -54,7 +54,7 @@ public class class_vi extends class_vh {
             this.b = 1;
             this.a = this.random.nextLong();
             BlockPosition var1 = new BlockPosition(this);
-            if(!this.o.isClientSide && this.o.R().b("doFireTick") && this.o.a((BlockPosition)var1, (int)10) && this.o.getType(var1).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(this.o, var1)) {
+            if(!this.o.isClientSide && this.o.R().getBooleanValue("doFireTick") && this.o.a((BlockPosition)var1, (int)10) && this.o.getType(var1).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(this.o, var1)) {
                this.o.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
             }
          }

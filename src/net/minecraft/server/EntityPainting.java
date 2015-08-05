@@ -65,7 +65,7 @@ public class EntityPainting extends class_uz {
    }
 
    public void b(Entity var1) {
-      if(this.o.R().b("doEntityDrops")) {
+      if(this.o.R().getBooleanValue("doEntityDrops")) {
          if(var1 instanceof EntityHuman) {
             EntityHuman var2 = (EntityHuman)var1;
             if(var2.abilities.instabuild) {

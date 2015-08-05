@@ -117,7 +117,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 
    public void a(DamageSource var1) {
       this.J();
-      if(this.o.R().b("doEntityDrops")) {
+      if(this.o.R().getBooleanValue("doEntityDrops")) {
          ItemStack var2 = new ItemStack(Items.MINECART, 1);
          if(this.h != null) {
             var2.setDisplayName(this.h);

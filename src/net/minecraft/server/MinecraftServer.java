@@ -550,7 +550,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				this.c.a(var4.Q().k());
 				if (this.y % 20 == 0) {
 					this.c.a("timeSync");
-					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.L(), var4.M(), var4.R().b("doDaylightCycle"))), var4.worldProvider.p().a());
+					this.v.a((Packet) (new PacketPlayOutUpdateTime(var4.L(), var4.M(), var4.R().getBooleanValue("doDaylightCycle"))), var4.worldProvider.p().a());
 					this.c.b();
 				}
 
@@ -1191,7 +1191,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	public boolean u_() {
-		return N().d[0].R().b("sendCommandFeedback");
+		return N().d[0].R().getBooleanValue("sendCommandFeedback");
 	}
 
 	public void a(class_n.class_a_in_class_n var1, int var2) {

@@ -238,7 +238,7 @@ public abstract class EntityLiving extends Entity {
 		++this.deathTicks;
 		if (this.deathTicks == 20) {
 			int var1;
-			if (!this.o.isClientSide && (this.aR > 0 || this.bc()) && this.bb() && this.o.R().b("doMobLoot")) {
+			if (!this.o.isClientSide && (this.aR > 0 || this.bc()) && this.bb() && this.o.R().getBooleanValue("doMobLoot")) {
 				var1 = this.b(this.aQ);
 
 				while (var1 > 0) {
@@ -722,7 +722,7 @@ public abstract class EntityLiving extends Entity {
 				var4 = EnchantmentManager.h((EntityLiving) var2);
 			}
 
-			if (this.bb() && this.o.R().b("doMobLoot")) {
+			if (this.bb() && this.o.R().getBooleanValue("doMobLoot")) {
 				this.b(this.aR > 0, var4);
 				this.a(this.aR > 0, var4);
 				if (this.aR > 0 && this.random.nextFloat() < 0.025F + (float) var4 * 0.01F) {

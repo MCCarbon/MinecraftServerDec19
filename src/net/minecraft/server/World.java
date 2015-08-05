@@ -2319,7 +2319,7 @@ public abstract class World implements IBlockAccess {
 		return x;
 	}
 
-	public class_ael R() {
+	public GameRules R() {
 		return x.x();
 	}
 

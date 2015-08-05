@@ -11,7 +11,7 @@ public class EntityMinecartChest extends class_vq {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      if(this.o.R().b("doEntityDrops")) {
+      if(this.o.R().getBooleanValue("doEntityDrops")) {
          this.a(Item.getItemOf((Block)Blocks.CHEST), 1, 0.0F);
       }
 

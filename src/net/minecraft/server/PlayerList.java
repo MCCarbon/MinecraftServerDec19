@@ -76,7 +76,7 @@ public abstract class PlayerList {
 		BlockPosition var11 = var9.N();
 		this.a(player, (EntityPlayer) null, var9);
 		PlayerConnection var12 = new PlayerConnection(this.mcserver, networkManager, player);
-		var12.sendPacket((Packet<?>) (new PacketPlayOutLogin(player.getId(), player.playerInteractManager.getGameMode(), var10.t(), var9.worldProvider.p().a(), var9.ab(), this.getMaxPlayers(), var10.u(), var9.R().b("reducedDebugInfo"))));
+		var12.sendPacket((Packet<?>) (new PacketPlayOutLogin(player.getId(), player.playerInteractManager.getGameMode(), var10.t(), var9.worldProvider.p().a(), var9.ab(), this.getMaxPlayers(), var10.u(), var9.R().getBooleanValue("reducedDebugInfo"))));
 		var12.sendPacket((Packet<?>) (new PacketPlayOutCustomPayload("MC|Brand", (new PacketDataSerializer(Unpooled.buffer())).writeString(this.getMinecraftServer().getServerModName()))));
 		var12.sendPacket((Packet<?>) (new PacketPlayOutServerDifficulty(var10.y(), var10.z())));
 		var12.sendPacket((Packet<?>) (new PacketPlayOutSpawnPosition(var11)));
@@ -653,7 +653,7 @@ public abstract class PlayerList {
 	public void b(EntityPlayer var1, WorldServer var2) {
 		class_aoe var3 = this.mcserver.d[0].ag();
 		var1.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutWorldBorder(var3, PacketPlayOutWorldBorder.class_a_in_class_hg.d)));
-		var1.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutUpdateTime(var2.L(), var2.M(), var2.R().b("doDaylightCycle"))));
+		var1.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutUpdateTime(var2.L(), var2.M(), var2.R().getBooleanValue("doDaylightCycle"))));
 		if (var2.T()) {
 			var1.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutGameStateChange(1, 0.0F)));
 			var1.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutGameStateChange(7, var2.j(1.0F))));

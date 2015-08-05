@@ -360,7 +360,7 @@ public abstract class EntityInsentient extends EntityLiving {
 	public void m() {
 		super.m();
 		this.o.B.a("looting");
-		if (!this.o.isClientSide && this.cm() && !this.aS && this.o.R().b("mobGriefing")) {
+		if (!this.o.isClientSide && this.cm() && !this.aS && this.o.R().getBooleanValue("mobGriefing")) {
 			List var1 = this.o.getEntities(EntityItem.class, this.aT().grow(1.0D, 0.0D, 1.0D));
 			Iterator var2 = var1.iterator();
 

@@ -14,7 +14,7 @@ public abstract class class_vq extends EntityMinecartAbstract implements ITileIn
 
    public void a(DamageSource var1) {
       super.a(var1);
-      if(this.o.R().b("doEntityDrops")) {
+      if(this.o.R().getBooleanValue("doEntityDrops")) {
          class_ol.a(this.o, (Entity)this, this);
       }
 

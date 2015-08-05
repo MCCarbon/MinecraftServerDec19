@@ -46,7 +46,7 @@ public class EntityEnderpearl extends class_xo {
          if(var2 instanceof EntityPlayer) {
             EntityPlayer var7 = (EntityPlayer)var2;
             if(var7.playerConnection.a().isActive() && var7.o == this.o && !var7.isSleeping()) {
-               if(this.random.nextFloat() < 0.05F && this.o.R().b("doMobSpawning")) {
+               if(this.random.nextFloat() < 0.05F && this.o.R().getBooleanValue("doMobSpawning")) {
                   EntityEndermite var8 = new EntityEndermite(this.o);
                   var8.a(true);
                   var8.b(var2.s, var2.t, var2.u, var2.y, var2.z);

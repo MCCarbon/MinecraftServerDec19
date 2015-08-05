@@ -98,7 +98,7 @@ public class class_re extends class_rm {
             this.a.a(class_cy.I, this.d.s + var11, this.d.t + var13, this.d.u + var15, var5, var7, var9, new int[0]);
          }
 
-         if(this.a.R().b("doMobLoot")) {
+         if(this.a.R().getBooleanValue("doMobLoot")) {
             this.a.addEntity((Entity)(new EntityExperienceOrb(this.a, this.d.s, this.d.t, this.d.u, var3.nextInt(7) + 1)));
          }
 

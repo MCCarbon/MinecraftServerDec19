@@ -11,7 +11,7 @@ public class class_rd extends class_rg {
    public boolean a() {
       if(!super.a()) {
          return false;
-      } else if(!this.a.o.R().b("mobGriefing")) {
+      } else if(!this.a.o.R().getBooleanValue("mobGriefing")) {
          return false;
       } else {
          BlockDoor var10000 = this.c;

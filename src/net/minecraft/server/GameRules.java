@@ -3,148 +3,138 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeMap;
-import net.minecraft.server.NBTTagCompound;
 
 public class GameRules {
-   private TreeMap a = new TreeMap();
 
-   public GameRules() {
-      this.a("doFireTick", "true", GameRules.EnumGameRuleType.b);
-      this.a("mobGriefing", "true", GameRules.EnumGameRuleType.b);
-      this.a("keepInventory", "false", GameRules.EnumGameRuleType.b);
-      this.a("doMobSpawning", "true", GameRules.EnumGameRuleType.b);
-      this.a("doMobLoot", "true", GameRules.EnumGameRuleType.b);
-      this.a("doTileDrops", "true", GameRules.EnumGameRuleType.b);
-      this.a("doEntityDrops", "true", GameRules.EnumGameRuleType.b);
-      this.a("commandBlockOutput", "true", GameRules.EnumGameRuleType.b);
-      this.a("naturalRegeneration", "true", GameRules.EnumGameRuleType.b);
-      this.a("doDaylightCycle", "true", GameRules.EnumGameRuleType.b);
-      this.a("logAdminCommands", "true", GameRules.EnumGameRuleType.b);
-      this.a("showDeathMessages", "true", GameRules.EnumGameRuleType.b);
-      this.a("randomTickSpeed", "3", GameRules.EnumGameRuleType.c);
-      this.a("sendCommandFeedback", "true", GameRules.EnumGameRuleType.b);
-      this.a("reducedDebugInfo", "false", GameRules.EnumGameRuleType.b);
-   }
+	private TreeMap<String, GameRuleValue> rules = new TreeMap<String, GameRuleValue>();
 
-   public void a(String var1, String var2, GameRules.EnumGameRuleType var3) {
-      this.a.put(var1, new GameRules.GameRuleValue(var2, var3));
-   }
+	public GameRules() {
+		register("doFireTick", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("mobGriefing", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("keepInventory", "false", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("doMobSpawning", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("doMobLoot", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("doTileDrops", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("doEntityDrops", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("commandBlockOutput", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("naturalRegeneration", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("doDaylightCycle", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("logAdminCommands", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("showDeathMessages", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("randomTickSpeed", "3", GameRules.EnumGameRuleType.NUMERICAL_VALUE);
+		register("sendCommandFeedback", "true", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+		register("reducedDebugInfo", "false", GameRules.EnumGameRuleType.BOOLEAN_VALUE);
+	}
 
-   public void a(String var1, String var2) {
-      GameRules.GameRuleValue var3 = (GameRules.GameRuleValue)this.a.get(var1);
-      if(var3 != null) {
-         var3.a(var2);
-      } else {
-         this.a(var1, var2, GameRules.EnumGameRuleType.a);
-      }
+	public void register(String name, String value, EnumGameRuleType type) {
+		rules.put(name, new GameRuleValue(value, type));
+	}
 
-   }
+	public void setValue(String name, String value) {
+		GameRules.GameRuleValue var3 = rules.get(name);
+		if (var3 != null) {
+			var3.setValue(value);
+		} else {
+			register(name, value, GameRules.EnumGameRuleType.ANY_VALUE);
+		}
 
-   public String a(String var1) {
-      GameRules.GameRuleValue var2 = (GameRules.GameRuleValue)this.a.get(var1);
-      return var2 != null?var2.a():"";
-   }
+	}
 
-   public boolean b(String var1) {
-      GameRules.GameRuleValue var2 = (GameRules.GameRuleValue)this.a.get(var1);
-      return var2 != null?var2.b():false;
-   }
+	public String getStringValue(String name) {
+		GameRules.GameRuleValue var2 = rules.get(name);
+		return var2 != null ? var2.getStringValue() : "";
+	}
 
-   public int c(String var1) {
-      GameRules.GameRuleValue var2 = (GameRules.GameRuleValue)this.a.get(var1);
-      return var2 != null?var2.c():0;
-   }
+	public boolean getBooleanValue(String name) {
+		GameRules.GameRuleValue var2 = rules.get(name);
+		return var2 != null ? var2.getBooleanValue() : false;
+	}
 
-   public NBTTagCompound a() {
-      NBTTagCompound var1 = new NBTTagCompound();
-      Iterator var2 = this.a.keySet().iterator();
+	public int getIntValue(String name) {
+		GameRules.GameRuleValue var2 = rules.get(name);
+		return var2 != null ? var2.getIntValue() : 0;
+	}
 
-      while(var2.hasNext()) {
-         String var3 = (String)var2.next();
-         GameRules.GameRuleValue var4 = (GameRules.GameRuleValue)this.a.get(var3);
-         var1.put(var3, var4.a());
-      }
+	public NBTTagCompound a() {
+		NBTTagCompound var1 = new NBTTagCompound();
+		Iterator<String> var2 = rules.keySet().iterator();
 
-      return var1;
-   }
+		while (var2.hasNext()) {
+			String var3 = var2.next();
+			GameRules.GameRuleValue var4 = rules.get(var3);
+			var1.put(var3, var4.getStringValue());
+		}
 
-   public void a(NBTTagCompound var1) {
-      Set var2 = var1.getKeys();
-      Iterator var3 = var2.iterator();
+		return var1;
+	}
 
-      while(var3.hasNext()) {
-         String var4 = (String)var3.next();
-         String var6 = var1.getString(var4);
-         this.a(var4, var6);
-      }
+	public void a(NBTTagCompound var1) {
+		Set<?> var2 = var1.getKeys();
+		Iterator<?> var3 = var2.iterator();
 
-   }
+		while (var3.hasNext()) {
+			String var4 = (String) var3.next();
+			String var6 = var1.getString(var4);
+			setValue(var4, var6);
+		}
 
-   public String[] b() {
-      Set var1 = this.a.keySet();
-      return (String[])var1.toArray(new String[var1.size()]);
-   }
+	}
 
-   public boolean e(String var1) {
-      return this.a.containsKey(var1);
-   }
+	public String[] getGameRules() {
+		Set<String> var1 = rules.keySet();
+		return var1.toArray(new String[var1.size()]);
+	}
 
-   public boolean a(String var1, GameRules.EnumGameRuleType var2) {
-      GameRules.GameRuleValue var3 = (GameRules.GameRuleValue)this.a.get(var1);
-      return var3 != null && (var3.e() == var2 || var2 == GameRules.EnumGameRuleType.a);
-   }
+	public boolean hasGameRule(String name) {
+		return rules.containsKey(name);
+	}
 
-   public static enum EnumGameRuleType {
-      a,
-      b,
-      c;
-   }
+	public boolean a(String var1, GameRules.EnumGameRuleType var2) {
+		GameRules.GameRuleValue var3 = rules.get(var1);
+		return (var3 != null) && ((var3.getType() == var2) || (var2 == GameRules.EnumGameRuleType.ANY_VALUE));
+	}
 
-   static class GameRuleValue {
-      private String a;
-      private boolean b;
-      private int c;
-      private double d;
-      private final GameRules.EnumGameRuleType e;
+	public static enum EnumGameRuleType {
+		ANY_VALUE, BOOLEAN_VALUE, NUMERICAL_VALUE;
+	}
 
-      public GameRuleValue(String var1, GameRules.EnumGameRuleType var2) {
-         this.e = var2;
-         this.a(var1);
-      }
+	public static class GameRuleValue {
+		private String stringvalue;
+		private boolean booleanvalue;
+		private int intvalue;
+		private final EnumGameRuleType type;
 
-      public void a(String var1) {
-         this.a = var1;
-         this.b = Boolean.parseBoolean(var1);
-         this.c = this.b?1:0;
+		public GameRuleValue(String value, EnumGameRuleType type) {
+			this.type = type;
+			this.setValue(value);
+		}
 
-         try {
-            this.c = Integer.parseInt(var1);
-         } catch (NumberFormatException var4) {
-            ;
-         }
+		public void setValue(String value) {
+			stringvalue = value;
+			booleanvalue = Boolean.parseBoolean(value);
+			intvalue = booleanvalue ? 1 : 0;
 
-         try {
-            this.d = Double.parseDouble(var1);
-         } catch (NumberFormatException var3) {
-            ;
-         }
+			try {
+				intvalue = Integer.parseInt(value);
+			} catch (NumberFormatException e) {
+			}
+		}
 
-      }
+		public String getStringValue() {
+			return stringvalue;
+		}
 
-      public String a() {
-         return this.a;
-      }
+		public boolean getBooleanValue() {
+			return booleanvalue;
+		}
 
-      public boolean b() {
-         return this.b;
-      }
+		public int getIntValue() {
+			return intvalue;
+		}
 
-      public int c() {
-         return this.c;
-      }
+		public EnumGameRuleType getType() {
+			return type;
+		}
+	}
 
-      public GameRules.EnumGameRuleType e() {
-         return this.e;
-      }
-   }
 }

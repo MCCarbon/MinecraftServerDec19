@@ -30,7 +30,7 @@ public class BlockStationary extends BlockFluids {
 	@Override
 	public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
 		if (material == Material.LAVA) {
-			if (var1.R().b("doFireTick")) {
+			if (var1.R().getBooleanValue("doFireTick")) {
 				int var5 = var4.nextInt(3);
 				if (var5 > 0) {
 					BlockPosition var6 = var2;

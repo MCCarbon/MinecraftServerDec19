@@ -77,7 +77,7 @@ public class EntityBoat extends Entity {
                   this.passenger.a((Entity)this);
                }
 
-               if(!var3 && this.o.R().b("doEntityDrops")) {
+               if(!var3 && this.o.R().getBooleanValue("doEntityDrops")) {
                   this.a(Items.BOAT, 1, 0.0F);
                }
 
@@ -242,7 +242,7 @@ public class EntityBoat extends Entity {
          if(this.D && var19 > 0.2975D) {
             if(!this.o.isClientSide && !this.I) {
                this.J();
-               if(this.o.R().b("doEntityDrops")) {
+               if(this.o.R().getBooleanValue("doEntityDrops")) {
                   for(var22 = 0; var22 < 3; ++var22) {
                      this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);
                   }
@@ -328,7 +328,7 @@ public class EntityBoat extends Entity {
             this.e(this.O, 1.0F);
             if(!this.o.isClientSide && !this.I) {
                this.J();
-               if(this.o.R().b("doEntityDrops")) {
+               if(this.o.R().getBooleanValue("doEntityDrops")) {
                   int var6;
                   for(var6 = 0; var6 < 3; ++var6) {
                      this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);

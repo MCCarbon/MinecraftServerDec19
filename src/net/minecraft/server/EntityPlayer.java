@@ -285,7 +285,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	public void a(DamageSource var1) {
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutCombatEvent(this.bt(), PacketPlayOutCombatEvent.class_a_in_class_gy.c)));
-		if (this.o.R().b("showDeathMessages")) {
+		if (this.o.R().getBooleanValue("showDeathMessages")) {
 			class_awp var2 = this.bP();
 			if (var2 != null && var2.j() != class_awp.class_a_in_class_awp.a) {
 				if (var2.j() == class_awp.class_a_in_class_awp.c) {
@@ -298,7 +298,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 			}
 		}
 
-		if (!this.o.R().b("keepInventory")) {
+		if (!this.o.R().getBooleanValue("keepInventory")) {
 			this.inventory.n();
 		}
 

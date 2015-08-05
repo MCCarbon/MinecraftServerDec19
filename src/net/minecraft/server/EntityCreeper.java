@@ -165,7 +165,7 @@ public class EntityCreeper extends EntityMonster {
 
    private void cG() {
       if(!this.o.isClientSide) {
-         boolean var1 = this.o.R().b("mobGriefing");
+         boolean var1 = this.o.R().getBooleanValue("mobGriefing");
          float var2 = this.n()?2.0F:1.0F;
          this.o.a(this, this.s, this.t, this.u, (float)this.bv * var2, var1);
          this.J();
@@ -182,7 +182,7 @@ public class EntityCreeper extends EntityMonster {
    }
 
    public boolean cE() {
-      return this.bw < 1 && this.o.R().b("doMobLoot");
+      return this.bw < 1 && this.o.R().getBooleanValue("doMobLoot");
    }
 
    public void cF() {

@@ -88,7 +88,7 @@ public class BlockFire extends Block {
    }
 
    public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-      if(var1.R().b("doFireTick")) {
+      if(var1.R().getBooleanValue("doFireTick")) {
          if(!this.canPlace(var1, var2)) {
             var1.setAir(var2);
          }

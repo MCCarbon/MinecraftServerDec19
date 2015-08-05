@@ -94,7 +94,7 @@ public class WorldServer extends World implements class_of {
 
       this.worldProvider.k().b();
       if(this.g()) {
-         if(this.R().b("doDaylightCycle")) {
+         if(this.R().getBooleanValue("doDaylightCycle")) {
             long var1 = this.x.g() + 24000L;
             this.x.c(var1 - var1 % 24000L);
          }
@@ -103,7 +103,7 @@ public class WorldServer extends World implements class_of {
       }
 
       this.B.a("mobSpawner");
-      if(this.R().b("doMobSpawning") && this.x.u() != class_aes.g) {
+      if(this.R().getBooleanValue("doMobSpawning") && this.x.u() != class_aes.g) {
          this.R.a(this, this.F, this.G, this.x.f() % 400L == 0L);
       }
 
@@ -115,7 +115,7 @@ public class WorldServer extends World implements class_of {
       }
 
       this.x.b(this.x.f() + 1L);
-      if(this.R().b("doDaylightCycle")) {
+      if(this.R().getBooleanValue("doDaylightCycle")) {
          this.x.c(this.x.g() + 1L);
       }
 
@@ -260,7 +260,7 @@ public class WorldServer extends World implements class_of {
             }
 
             this.B.c("tickBlocks");
-            var8 = this.R().c("randomTickSpeed");
+            var8 = this.R().getIntValue("randomTickSpeed");
             if(var8 > 0) {
                ChunkSection[] var22 = var7.h();
                int var23 = var22.length;
@@ -559,7 +559,7 @@ public class WorldServer extends World implements class_of {
       this.x.g(false);
       this.x.a(class_om.a);
       this.x.e(true);
-      this.R().a("doDaylightCycle", "false");
+      this.R().setValue("doDaylightCycle", "false");
    }
 
    private void b(WorldSettings var1) {

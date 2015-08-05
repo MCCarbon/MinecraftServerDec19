@@ -100,13 +100,13 @@ public class EntityFallingBlock extends Entity {
                               var3.update();
                            }
                         }
-                     } else if(this.b && this.o.R().b("doEntityDrops")) {
+                     } else if(this.b && this.o.R().getBooleanValue("doEntityDrops")) {
                         this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                      }
                   }
                }
             } else if(this.a > 100 && !this.o.isClientSide && (var2.getY() < 1 || var2.getY() > 256) || this.a > 600) {
-               if(this.b && this.o.R().b("doEntityDrops")) {
+               if(this.b && this.o.R().getBooleanValue("doEntityDrops")) {
                   this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                }
 

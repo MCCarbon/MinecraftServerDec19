@@ -43,7 +43,7 @@ public class BlockSoil extends Block {
    public void fallOn(World var1, BlockPosition var2, Entity var3, float var4) {
       if(var3 instanceof EntityLiving) {
          if(!var1.isClientSide && var1.random.nextFloat() < var4 - 0.5F) {
-            if(!(var3 instanceof EntityHuman) && !var1.R().b("mobGriefing")) {
+            if(!(var3 instanceof EntityHuman) && !var1.R().getBooleanValue("mobGriefing")) {
                return;
             }
 

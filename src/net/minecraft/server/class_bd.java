@@ -180,11 +180,11 @@ public class class_bd extends class_j implements class_h {
          }
       }
 
-      if(var1 != var7 && var7.d[0].R().b("logAdminCommands")) {
+      if(var1 != var7 && var7.d[0].R().getBooleanValue("logAdminCommands")) {
          var7.a((IChatBaseComponent)var8);
       }
 
-      boolean var13 = var7.d[0].R().b("sendCommandFeedback");
+      boolean var13 = var7.d[0].R().getBooleanValue("sendCommandFeedback");
       if(var1 instanceof class_aed) {
          var13 = ((class_aed)var1).m();
       }

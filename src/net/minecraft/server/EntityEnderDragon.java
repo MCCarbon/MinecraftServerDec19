@@ -782,7 +782,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 					BlockPosition var13 = new BlockPosition(var10, var11, var12);
 					Block var14 = this.o.getType(var13).getBlock();
 					if (var14.getMaterial() != Material.AIR && var14.getMaterial() != Material.FIRE) {
-						if (var14 != Blocks.BARRIER && var14 != Blocks.OBSIDIAN && var14 != Blocks.END_STONE && var14 != Blocks.BEDROCK && var14 != Blocks.COMMAND_BLOCK && var14 != Blocks.IRON_BARS && this.o.R().b("mobGriefing")) {
+						if (var14 != Blocks.BARRIER && var14 != Blocks.OBSIDIAN && var14 != Blocks.END_STONE && var14 != Blocks.BEDROCK && var14 != Blocks.COMMAND_BLOCK && var14 != Blocks.IRON_BARS && this.o.R().getBooleanValue("mobGriefing")) {
 							var9 = this.o.setAir(var13) || var9;
 						} else {
 							var8 = true;
@@ -871,7 +871,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 
 			boolean var4 = false;
 			if (this.bK != null) {
-				var4 = !this.bK.d() && this.o.R().b("doMobLoot");
+				var4 = !this.bK.d() && this.o.R().getBooleanValue("doMobLoot");
 			}
 
 			int var5;

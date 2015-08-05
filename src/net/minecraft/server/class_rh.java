@@ -47,7 +47,7 @@ public class class_rh extends class_rm {
       if(this.a == 4) {
          BlockPosition var1 = new BlockPosition(this.c.s, this.c.t, this.c.u);
          if(b.apply(this.d.getType(var1))) {
-            if(this.d.R().b("mobGriefing")) {
+            if(this.d.R().getBooleanValue("mobGriefing")) {
                this.d.setAir(var1, false);
             }
 
@@ -55,7 +55,7 @@ public class class_rh extends class_rm {
          } else {
             BlockPosition var2 = var1.down();
             if(this.d.getType(var2).getBlock() == Blocks.GRASS) {
-               if(this.d.R().b("mobGriefing")) {
+               if(this.d.R().getBooleanValue("mobGriefing")) {
                   this.d.b(2001, var2, Block.getId((Block)Blocks.GRASS));
                   this.d.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.DIRT.getBlockData(), 2);
                }

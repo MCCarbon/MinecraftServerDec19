@@ -60,7 +60,7 @@ public class EntityWitherSkull extends class_xf {
             }
          }
 
-         this.o.createExplosion(this, this.s, this.t, this.u, 1.0F, false, this.o.R().b("mobGriefing"));
+         this.o.createExplosion(this, this.s, this.t, this.u, 1.0F, false, this.o.R().getBooleanValue("mobGriefing"));
          this.J();
       }
 

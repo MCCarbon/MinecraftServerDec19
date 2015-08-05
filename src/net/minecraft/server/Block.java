@@ -358,7 +358,7 @@ public class Block {
 	}
 
 	public static void dropItem(World world, BlockPosition position, ItemStack itemstack) {
-		if (!world.isClientSide && world.R().b("doTileDrops")) {
+		if (!world.isClientSide && world.R().getBooleanValue("doTileDrops")) {
 			float centerAdd = 0.5F;
 			double addX = (world.random.nextFloat() * centerAdd) + ((1.0F - centerAdd) * 0.5D);
 			double addY = (world.random.nextFloat() * centerAdd) + ((1.0F - centerAdd) * 0.5D);

@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_ael;
+import net.minecraft.server.GameRules;
 import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aoz;
@@ -136,7 +136,7 @@ public class class_avk extends class_avn {
    public void d(boolean var1) {
    }
 
-   public class_ael x() {
+   public GameRules x() {
       return this.b.x();
    }
 

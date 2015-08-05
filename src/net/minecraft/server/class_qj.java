@@ -151,7 +151,7 @@ public abstract class class_qj extends EntityAnimal implements class_qg {
    }
 
    public void a(DamageSource var1) {
-      if(!this.o.isClientSide && this.o.R().b("showDeathMessages") && this.hasCustomName() && this.cD() instanceof EntityPlayer) {
+      if(!this.o.isClientSide && this.o.R().getBooleanValue("showDeathMessages") && this.hasCustomName() && this.cD() instanceof EntityPlayer) {
          ((EntityPlayer)this.cD()).a(this.bt().b());
       }
 

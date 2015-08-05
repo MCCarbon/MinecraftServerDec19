@@ -30,7 +30,7 @@ public class EntitySmallFireball extends class_xf {
          } else {
             var2 = true;
             if(this.a != null && this.a instanceof EntityInsentient) {
-               var2 = this.o.R().b("mobGriefing");
+               var2 = this.o.R().getBooleanValue("mobGriefing");
             }
 
             if(var2) {

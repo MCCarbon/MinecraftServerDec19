@@ -165,7 +165,7 @@ public class EntityWither extends EntityMonster implements class_wk {
       if(this.cA() > 0) {
          var1 = this.cA() - 1;
          if(var1 <= 0) {
-            this.o.createExplosion(this, this.s, this.t + (double)this.aU(), this.u, 7.0F, false, this.o.R().b("mobGriefing"));
+            this.o.createExplosion(this, this.s, this.t + (double)this.aU(), this.u, 7.0F, false, this.o.R().getBooleanValue("mobGriefing"));
             this.o.a(1013, new BlockPosition(this), 0);
          }
 
@@ -240,7 +240,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 
          if(this.bz > 0) {
             --this.bz;
-            if(this.bz == 0 && this.o.R().b("mobGriefing")) {
+            if(this.bz == 0 && this.o.R().getBooleanValue("mobGriefing")) {
                var1 = MathHelper.floor(this.t);
                var13 = MathHelper.floor(this.s);
                int var16 = MathHelper.floor(this.u);

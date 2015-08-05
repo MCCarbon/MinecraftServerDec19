@@ -14,7 +14,7 @@ public class BlockPortal extends BlockHalfTransparent {
 
    public void tick(World var1, BlockPosition var2, IBlockData var3, Random var4) {
       super.tick(var1, var2, var3, var4);
-      if(var1.worldProvider.d() && var1.R().b("doMobSpawning") && var4.nextInt(2000) < var1.ab().a()) {
+      if(var1.worldProvider.d() && var1.R().getBooleanValue("doMobSpawning") && var4.nextInt(2000) < var1.ab().a()) {
          int var5 = var2.getY();
 
          BlockPosition var6;

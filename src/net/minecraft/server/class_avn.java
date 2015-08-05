@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_ael;
+import net.minecraft.server.GameRules;
 import net.minecraft.server.WorldSettings;
 import net.minecraft.server.class_aes;
 import net.minecraft.server.class_aoz;
@@ -54,7 +54,7 @@ public class class_avn {
    private int I;
    private int J;
    private final Map K;
-   private class_ael L;
+   private GameRules L;
 
    protected class_avn() {
       this.c = class_aes.b;
@@ -69,7 +69,7 @@ public class class_avn {
       this.I = 5;
       this.J = 15;
       this.K = Maps.newEnumMap(class_aoz.class);
-      this.L = new class_ael();
+      this.L = new GameRules();
    }
 
    public class_avn(NBTTagCompound var1) {
@@ -85,7 +85,7 @@ public class class_avn {
       this.I = 5;
       this.J = 15;
       this.K = Maps.newEnumMap(class_aoz.class);
-      this.L = new class_ael();
+      this.L = new GameRules();
       this.b = var1.getLong("RandomSeed");
       if(var1.hasOfType("generatorName", 8)) {
          String var2 = var1.getString("generatorName");
@@ -223,7 +223,7 @@ public class class_avn {
       this.I = 5;
       this.J = 15;
       this.K = Maps.newEnumMap(class_aoz.class);
-      this.L = new class_ael();
+      this.L = new GameRules();
       this.a(var1);
       this.n = var2;
       this.z = a;
@@ -253,7 +253,7 @@ public class class_avn {
       this.I = 5;
       this.J = 15;
       this.K = Maps.newEnumMap(class_aoz.class);
-      this.L = new class_ael();
+      this.L = new GameRules();
       this.b = var1.b;
       this.c = var1.c;
       this.d = var1.d;
@@ -507,7 +507,7 @@ public class class_avn {
       this.y = var1;
    }
 
-   public class_ael x() {
+   public GameRules x() {
       return this.L;
    }
 

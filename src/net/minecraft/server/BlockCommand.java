@@ -82,7 +82,7 @@ public class BlockCommand extends BlockContainer {
          }
 
          if(!var1.isClientSide) {
-            var7.a(var1.R().b("sendCommandFeedback"));
+            var7.a(var1.R().getBooleanValue("sendCommandFeedback"));
          }
 
       }

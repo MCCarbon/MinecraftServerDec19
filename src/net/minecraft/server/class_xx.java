@@ -28,7 +28,7 @@ public class class_xx {
          }
       }
 
-      if(var1.o.R().b("naturalRegeneration") && this.a >= 18 && var1.co()) {
+      if(var1.o.R().getBooleanValue("naturalRegeneration") && this.a >= 18 && var1.co()) {
          ++this.d;
          if(this.d >= 80) {
             var1.h(1.0F);

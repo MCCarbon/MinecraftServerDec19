@@ -179,7 +179,7 @@ public class EntitySilverfish extends EntityMonster {
                      BlockPosition var7 = var3.add(var5, var4, var6);
                      IBlockData var8 = var1.getType(var7);
                      if(var8.getBlock() == Blocks.MONSTER_EGG) {
-                        if(var1.R().b("mobGriefing")) {
+                        if(var1.R().getBooleanValue("mobGriefing")) {
                            var1.setAir(var7, true);
                         } else {
                            var1.setTypeAndData((BlockPosition)var7, (IBlockData)((BlockMonsterEggs.EnumMonsterEggVariant)var8.get(BlockMonsterEggs.a)).d(), 3);

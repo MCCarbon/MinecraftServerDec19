@@ -34,7 +34,7 @@ public class class_ah extends class_i {
          EntityPlayer var4 = var2.length >= 2?a(var1, var2[1]):b(var1);
          var4.a(var3);
          var4.O = 0.0F;
-         if(var1.e().R().b("sendCommandFeedback")) {
+         if(var1.e().R().getBooleanValue("sendCommandFeedback")) {
             var4.a((IChatBaseComponent)(new ChatMessage("gameMode.changed", new Object[0])));
          }
 
