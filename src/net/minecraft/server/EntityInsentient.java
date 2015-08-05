@@ -825,13 +825,13 @@ public abstract class EntityInsentient extends EntityLiving {
 			return true;
 		} else {
 			if (var2 != null && var2.getItem() == Items.LEAD && this.cp()) {
-				if (!(this instanceof class_qj) || !((class_qj) this).cA()) {
+				if (!(this instanceof EntityTameable) || !((EntityTameable) this).cA()) {
 					this.a(var1, true);
 					--var2.count;
 					return true;
 				}
 
-				if (((class_qj) this).e(var1)) {
+				if (((EntityTameable) this).e(var1)) {
 					this.a(var1, true);
 					--var2.count;
 					return true;

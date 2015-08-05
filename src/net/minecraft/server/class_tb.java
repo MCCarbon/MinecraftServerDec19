@@ -1,15 +1,15 @@
 package net.minecraft.server;
 
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qj;
+import net.minecraft.server.EntityTameable;
 import net.minecraft.server.class_td;
 
 public class class_tb extends class_td {
-   class_qj a;
+   EntityTameable a;
    EntityLiving b;
    private int c;
 
-   public class_tb(class_qj var1) {
+   public class_tb(EntityTameable var1) {
       super(var1, false);
       this.a = var1;
       this.a(1);

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 
-public class EntityOcelot extends class_qj {
+public class EntityOcelot extends EntityTameable {
    private static final int bw = Datawathcer.claimId(EntityOcelot.class);
    private class_rb bx;
    private class_sr by;

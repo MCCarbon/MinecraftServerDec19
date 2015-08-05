@@ -1,14 +1,14 @@
 package net.minecraft.server;
 
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qj;
+import net.minecraft.server.EntityTameable;
 import net.minecraft.server.class_rm;
 
 public class class_so extends class_rm {
-   private class_qj a;
+   private EntityTameable a;
    private boolean b;
 
-   public class_so(class_qj var1) {
+   public class_so(EntityTameable var1) {
       this.a = var1;
       this.a(5);
    }

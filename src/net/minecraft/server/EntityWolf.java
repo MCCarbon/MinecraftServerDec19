@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 
-public class EntityWolf extends class_qj {
+public class EntityWolf extends EntityTameable {
    private static final int bw = Datawathcer.claimId(EntityWolf.class);
    private static final int bx = Datawathcer.claimId(EntityWolf.class);
    private static final int by = Datawathcer.claimId(EntityWolf.class);
@@ -284,15 +284,15 @@ public class EntityWolf extends class_qj {
    }
 
    public boolean cK() {
-      return (this.datawatcher.getByte(bs) & 2) != 0;
+      return (this.datawatcher.getByte(TAME_FLAGS_DW_ID) & 2) != 0;
    }
 
    public void p(boolean var1) {
-      byte var2 = this.datawatcher.getByte(bs);
+      byte var2 = this.datawatcher.getByte(TAME_FLAGS_DW_ID);
       if(var1) {
-         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 | 2)));
+         this.datawatcher.update(TAME_FLAGS_DW_ID, Byte.valueOf((byte)(var2 | 2)));
       } else {
-         this.datawatcher.update(bs, Byte.valueOf((byte)(var2 & -3)));
+         this.datawatcher.update(TAME_FLAGS_DW_ID, Byte.valueOf((byte)(var2 & -3)));
       }
 
    }

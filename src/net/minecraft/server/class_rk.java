@@ -9,14 +9,14 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
-import net.minecraft.server.class_qj;
+import net.minecraft.server.EntityTameable;
 import net.minecraft.server.class_rm;
 import net.minecraft.server.class_tf;
 import net.minecraft.server.class_tg;
 import net.minecraft.server.EntityHuman;
 
 public class class_rk extends class_rm {
-   private class_qj d;
+   private EntityTameable d;
    private EntityLiving e;
    World a;
    private double f;
@@ -26,7 +26,7 @@ public class class_rk extends class_rm {
    float c;
    private boolean i;
 
-   public class_rk(class_qj var1, double var2, float var4, float var5) {
+   public class_rk(EntityTameable var1, double var2, float var4, float var5) {
       this.d = var1;
       this.a = var1.o;
       this.f = var2;

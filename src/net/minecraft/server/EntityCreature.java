@@ -65,7 +65,7 @@ public abstract class EntityCreature extends EntityInsentient {
 			Entity var1 = this.cr();
 			this.a(new BlockPosition((int) var1.s, (int) var1.t, (int) var1.u), 5);
 			float var2 = this.g(var1);
-			if (this instanceof class_qj && ((class_qj) this).cC()) {
+			if (this instanceof EntityTameable && ((EntityTameable) this).cC()) {
 				if (var2 > 10.0F) {
 					this.a(true, true);
 				}
