@@ -15,7 +15,7 @@ import net.minecraft.server.class_m;
 import org.apache.commons.lang3.exception.ExceptionUtils;
 
 public class class_aq extends class_i {
-   public String c() {
+   public String getCommand() {
       return "tellraw";
    }
 
@@ -27,7 +27,7 @@ public class class_aq extends class_i {
       return "commands.tellraw.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 2) {
          throw new class_cf("commands.tellraw.usage", new Object[0]);
       } else {
@@ -43,11 +43,11 @@ public class class_aq extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, MinecraftServer.N().K()):null;
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

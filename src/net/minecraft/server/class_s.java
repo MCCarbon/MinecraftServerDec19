@@ -14,7 +14,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
 public class class_s extends class_i {
-   public String c() {
+   public String getCommand() {
       return "blockdata";
    }
 
@@ -26,7 +26,7 @@ public class class_s extends class_i {
       return "commands.blockdata.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 4) {
          throw new class_cf("commands.blockdata.usage", new Object[0]);
       } else {
@@ -69,7 +69,7 @@ public class class_s extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

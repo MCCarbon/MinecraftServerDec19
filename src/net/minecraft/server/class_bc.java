@@ -35,7 +35,7 @@ import net.minecraft.server.Entity;
 import net.minecraft.server.EntityHuman;
 
 public class class_bc extends class_i {
-   public String c() {
+   public String getCommand() {
       return "scoreboard";
    }
 
@@ -47,7 +47,7 @@ public class class_bc extends class_i {
       return "commands.scoreboard.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(!this.b(var1, var2)) {
          if(var2.length < 1) {
             throw new class_cf("commands.scoreboard.usage", new Object[0]);
@@ -208,7 +208,7 @@ public class class_bc extends class_i {
       int var3 = -1;
 
       for(int var4 = 0; var4 < var2.length; ++var4) {
-         if(this.b(var2, var4) && "*".equals(var2[var4])) {
+         if(this.isListStart(var2, var4) && "*".equals(var2[var4])) {
             if(var3 >= 0) {
                throw new class_bz("commands.scoreboard.noMultiWildcard", new Object[0]);
             }
@@ -230,7 +230,7 @@ public class class_bc extends class_i {
             var2[var3] = var8;
 
             try {
-               this.a(var1, var2);
+               this.execute(var1, var2);
                var6.add(var8);
             } catch (class_bz var11) {
                ChatMessage var10 = new ChatMessage(var11.getMessage(), var11.a());
@@ -809,7 +809,7 @@ public class class_bc extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"objectives", "players", "teams"});
       } else {
@@ -978,7 +978,7 @@ public class class_bc extends class_i {
       return var2;
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return !var1[0].equalsIgnoreCase("players")?(var1[0].equalsIgnoreCase("teams")?var2 == 2:false):(var1.length > 1 && var1[1].equalsIgnoreCase("operation")?var2 == 2 || var2 == 5:var2 == 2);
    }
 }

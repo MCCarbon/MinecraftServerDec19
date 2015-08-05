@@ -21,7 +21,7 @@ import net.minecraft.server.class_n;
 import net.minecraft.server.IInventory;
 
 public class class_af extends class_i {
-   public String c() {
+   public String getCommand() {
       return "fill";
    }
 
@@ -33,7 +33,7 @@ public class class_af extends class_i {
       return "commands.fill.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 7) {
          throw new class_cf("commands.fill.usage", new Object[0]);
       } else {

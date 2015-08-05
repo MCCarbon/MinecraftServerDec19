@@ -15,7 +15,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_k;
+import net.minecraft.server.ICommand;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
@@ -38,7 +38,7 @@ public class class_j implements class_l {
       String[] var3 = var2.split(" ");
       String var4 = var3[0];
       var3 = a(var3);
-      class_k var5 = (class_k)this.b.get(var4);
+      ICommand var5 = (ICommand)this.b.get(var4);
       int var6 = this.a(var5, var3);
       int var7 = 0;
       ChatMessage var8;
@@ -46,7 +46,7 @@ public class class_j implements class_l {
          var8 = new ChatMessage("commands.generic.notFound", new Object[0]);
          var8.getChatModifier().a(EnumChatFormat.RED);
          var1.a(var8);
-      } else if(var5.a(var1)) {
+      } else if(var5.canUse(var1)) {
          if(var6 > -1) {
             List var12 = class_o.b(var1, var3[var6], Entity.class);
             String var9 = var3[var6];
@@ -78,10 +78,10 @@ public class class_j implements class_l {
       return var7;
    }
 
-   protected boolean a(class_m var1, String[] var2, class_k var3, String var4) {
+   protected boolean a(class_m var1, String[] var2, ICommand var3, String var4) {
       ChatMessage var6;
       try {
-         var3.a(var1, var2);
+         var3.execute(var1, var2);
          return true;
       } catch (class_cf var7) {
          var6 = new ChatMessage("commands.generic.usage", new Object[]{new ChatMessage(var7.getMessage(), var7.a())});
@@ -101,22 +101,22 @@ public class class_j implements class_l {
       return false;
    }
 
-   public class_k a(class_k var1) {
-      this.b.put(var1.c(), var1);
+   public ICommand a(ICommand var1) {
+      this.b.put(var1.getCommand(), var1);
       this.c.add(var1);
       Iterator var2 = var1.b().iterator();
 
       while(true) {
          String var3;
-         class_k var4;
+         ICommand var4;
          do {
             if(!var2.hasNext()) {
                return var1;
             }
 
             var3 = (String)var2.next();
-            var4 = (class_k)this.b.get(var3);
-         } while(var4 != null && var4.c().equals(var3));
+            var4 = (ICommand)this.b.get(var3);
+         } while(var4 != null && var4.getCommand().equals(var3));
 
          this.b.put(var3, var1);
       }
@@ -137,7 +137,7 @@ public class class_j implements class_l {
 
          while(var7.hasNext()) {
             Entry var8 = (Entry)var7.next();
-            if(class_i.a(var5, (String)var8.getKey()) && ((class_k)var8.getValue()).a(var1)) {
+            if(class_i.a(var5, (String)var8.getKey()) && ((ICommand)var8.getValue()).canUse(var1)) {
                var9.add(var8.getKey());
             }
          }
@@ -145,9 +145,9 @@ public class class_j implements class_l {
          return var9;
       } else {
          if(var4.length > 1) {
-            class_k var6 = (class_k)this.b.get(var5);
-            if(var6 != null && var6.a(var1)) {
-               return var6.a(var1, a(var4), var3);
+            ICommand var6 = (ICommand)this.b.get(var5);
+            if(var6 != null && var6.canUse(var1)) {
+               return var6.tabComplete(var1, a(var4), var3);
             }
          }
 
@@ -160,8 +160,8 @@ public class class_j implements class_l {
       Iterator var3 = this.c.iterator();
 
       while(var3.hasNext()) {
-         class_k var4 = (class_k)var3.next();
-         if(var4.a(var1)) {
+         ICommand var4 = (ICommand)var3.next();
+         if(var4.canUse(var1)) {
             var2.add(var4);
          }
       }
@@ -173,12 +173,12 @@ public class class_j implements class_l {
       return this.b;
    }
 
-   private int a(class_k var1, String[] var2) {
+   private int a(ICommand var1, String[] var2) {
       if(var1 == null) {
          return -1;
       } else {
          for(int var3 = 0; var3 < var2.length; ++var3) {
-            if(var1.b(var2, var3) && class_o.a(var2[var3])) {
+            if(var1.isListStart(var2, var3) && class_o.a(var2[var3])) {
                return var3;
             }
          }

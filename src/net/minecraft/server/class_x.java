@@ -20,7 +20,7 @@ public class class_x extends class_i {
    private long b;
    private int c;
 
-   public String c() {
+   public String getCommand() {
       return "debug";
    }
 
@@ -32,7 +32,7 @@ public class class_x extends class_i {
       return "commands.debug.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.debug.usage", new Object[0]);
       } else {
@@ -133,7 +133,7 @@ public class class_x extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"start", "stop"}):null;
    }
 }

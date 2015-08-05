@@ -57,7 +57,7 @@ import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_h;
 import net.minecraft.server.class_i;
 import net.minecraft.server.class_j;
-import net.minecraft.server.class_k;
+import net.minecraft.server.ICommand;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_ml;
 import net.minecraft.server.class_p;
@@ -141,7 +141,7 @@ public class class_bd extends class_j implements class_h {
       class_i.a((class_h)this);
    }
 
-   public void a(class_m var1, class_k var2, int var3, String var4, Object... var5) {
+   public void a(class_m var1, ICommand var2, int var3, String var4, Object... var5) {
       boolean var6 = true;
       MinecraftServer var7 = MinecraftServer.N();
       if(!var1.u_()) {
@@ -170,7 +170,7 @@ public class class_bd extends class_j implements class_h {
                         var10 = (EntityHuman)var9.next();
                      } while(var10 == var1);
                   } while(!var7.getPlayerList().h(var10.cf()));
-               } while(!var2.a(var1));
+               } while(!var2.canUse(var1));
 
                var11 = var1 instanceof MinecraftServer && MinecraftServer.N().r();
                var12 = var1 instanceof class_ml && MinecraftServer.N().q();

@@ -18,7 +18,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.Entity;
 
 public class class_bu extends class_i {
-   public String c() {
+   public String getCommand() {
       return "trigger";
    }
 
@@ -30,7 +30,7 @@ public class class_bu extends class_i {
       return "commands.trigger.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 3) {
          throw new class_cf("commands.trigger.usage", new Object[0]);
       } else {
@@ -80,7 +80,7 @@ public class class_bu extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          class_awn var4 = MinecraftServer.N().getWorldServer(0).aa();
          ArrayList var5 = Lists.newArrayList();

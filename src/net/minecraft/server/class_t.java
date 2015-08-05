@@ -15,7 +15,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
 public class class_t extends class_i {
-   public String c() {
+   public String getCommand() {
       return "clear";
    }
 
@@ -27,7 +27,7 @@ public class class_t extends class_i {
       return 2;
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       EntityPlayer var3 = var2.length == 0?b(var1):a(var1, var2[0]);
       Item var4 = var2.length >= 2?f(var1, var2[1]):null;
       int var5 = var2.length >= 3?a(var2[2], -1):-1;
@@ -64,7 +64,7 @@ public class class_t extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.ITEM_REGISTRY.getKeys()):null);
    }
 
@@ -72,7 +72,7 @@ public class class_t extends class_i {
       return MinecraftServer.N().K();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

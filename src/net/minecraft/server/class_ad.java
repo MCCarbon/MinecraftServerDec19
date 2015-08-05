@@ -17,7 +17,7 @@ import net.minecraft.server.class_n;
 import net.minecraft.server.Entity;
 
 public class class_ad extends class_i {
-   public String c() {
+   public String getCommand() {
       return "execute";
    }
 
@@ -29,7 +29,7 @@ public class class_ad extends class_i {
       return "commands.execute.usage";
    }
 
-   public void a(final class_m var1, String[] var2) throws class_bz {
+   public void execute(final class_m var1, String[] var2) throws class_bz {
       if(var2.length < 5) {
          throw new class_cf("commands.execute.usage", new Object[0]);
       } else {
@@ -111,11 +111,11 @@ public class class_ad extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)));
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

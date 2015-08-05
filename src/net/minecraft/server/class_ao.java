@@ -9,7 +9,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
 public class class_ao extends class_i {
-   public String c() {
+   public String getCommand() {
       return "list";
    }
 
@@ -21,7 +21,7 @@ public class class_ao extends class_i {
       return "commands.players.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       int var3 = MinecraftServer.N().I();
       var1.a(new ChatMessage("commands.players.list", new Object[]{Integer.valueOf(var3), Integer.valueOf(MinecraftServer.N().J())}));
       var1.a(new ChatComponentText(MinecraftServer.N().getPlayerList().b(var2.length > 0 && "uuids".equalsIgnoreCase(var2[0]))));

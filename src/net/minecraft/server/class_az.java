@@ -7,7 +7,7 @@ import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
 
 public class class_az extends class_i {
-   public String c() {
+   public String getCommand() {
       return "save-off";
    }
 
@@ -15,7 +15,7 @@ public class class_az extends class_i {
       return "commands.save-off.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       MinecraftServer var3 = MinecraftServer.N();
       boolean var4 = false;
 

@@ -18,7 +18,7 @@ import net.minecraft.server.class_n;
 import net.minecraft.server.IInventory;
 
 public class class_be extends class_i {
-   public String c() {
+   public String getCommand() {
       return "setblock";
    }
 
@@ -30,7 +30,7 @@ public class class_be extends class_i {
       return "commands.setblock.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 4) {
          throw new class_cf("commands.setblock.usage", new Object[0]);
       } else {
@@ -102,7 +102,7 @@ public class class_be extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.BLOCK_REGISTRY.getKeys()):(var2.length == 6?a(var2, new String[]{"replace", "destroy", "keep"}):null));
    }
 }

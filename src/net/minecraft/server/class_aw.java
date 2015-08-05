@@ -7,7 +7,7 @@ import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
 public class class_aw extends class_i {
-   public String c() {
+   public String getCommand() {
       return "publish";
    }
 
@@ -15,7 +15,7 @@ public class class_aw extends class_i {
       return "commands.publish.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       String var3 = MinecraftServer.N().a(WorldSettings.EnumGameMode.SURVIVAL, false);
       if(var3 != null) {
          a(var1, this, "commands.publish.started", new Object[]{var3});

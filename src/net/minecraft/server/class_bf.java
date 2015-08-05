@@ -11,7 +11,7 @@ import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
 public class class_bf extends class_i {
-   public String c() {
+   public String getCommand() {
       return "setworldspawn";
    }
 
@@ -23,7 +23,7 @@ public class class_bf extends class_i {
       return "commands.setworldspawn.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       BlockPosition var3;
       if(var2.length == 0) {
          var3 = b(var1).c();
@@ -40,7 +40,7 @@ public class class_bf extends class_i {
       a(var1, this, "commands.setworldspawn.success", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

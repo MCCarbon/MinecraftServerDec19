@@ -12,7 +12,7 @@ import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
 public class class_bw extends class_i {
-   public String c() {
+   public String getCommand() {
       return "whitelist";
    }
 
@@ -24,7 +24,7 @@ public class class_bw extends class_i {
       return "commands.whitelist.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.whitelist.usage", new Object[0]);
       } else {
@@ -74,7 +74,7 @@ public class class_bw extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"on", "off", "list", "add", "remove", "reload"});
       } else {

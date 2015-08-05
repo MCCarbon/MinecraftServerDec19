@@ -11,7 +11,7 @@ import net.minecraft.server.Entity;
 import net.minecraft.server.EntityHuman;
 
 public class class_ac extends class_i {
-   public String c() {
+   public String getCommand() {
       return "entitydata";
    }
 
@@ -23,7 +23,7 @@ public class class_ac extends class_i {
       return "commands.entitydata.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 2) {
          throw new class_cf("commands.entitydata.usage", new Object[0]);
       } else {
@@ -55,7 +55,7 @@ public class class_ac extends class_i {
       }
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

@@ -20,7 +20,7 @@ import net.minecraft.server.class_mc;
 public class class_q extends class_i {
    public static final Pattern a = Pattern.compile("^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
 
-   public String c() {
+   public String getCommand() {
       return "ban-ip";
    }
 
@@ -28,15 +28,15 @@ public class class_q extends class_i {
       return 3;
    }
 
-   public boolean a(class_m var1) {
-      return MinecraftServer.N().getPlayerList().i().b() && super.a(var1);
+   public boolean canUse(class_m var1) {
+      return MinecraftServer.N().getPlayerList().i().b() && super.canUse(var1);
    }
 
    public String c(class_m var1) {
       return "commands.banip.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].length() > 1) {
          IChatBaseComponent var3 = var2.length >= 2?a(var1, var2, 1):null;
          Matcher var4 = a.matcher(var2[0]);
@@ -56,7 +56,7 @@ public class class_q extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, MinecraftServer.N().K()):null;
    }
 

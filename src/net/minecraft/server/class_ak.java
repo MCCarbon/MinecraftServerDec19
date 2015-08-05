@@ -15,13 +15,13 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_et;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.class_i;
-import net.minecraft.server.class_k;
+import net.minecraft.server.ICommand;
 import net.minecraft.server.class_m;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.EntityHuman;
 
 public class class_ak extends class_i {
-   public String c() {
+   public String getCommand() {
       return "help";
    }
 
@@ -37,7 +37,7 @@ public class class_ak extends class_i {
       return Arrays.asList(new String[]{"?"});
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       List var3 = this.d(var1);
       boolean var4 = true;
       int var5 = (var3.size() - 1) / 7;
@@ -48,7 +48,7 @@ public class class_ak extends class_i {
          var13 = var2.length == 0?0:a(var2[0], 1, var5 + 1) - 1;
       } catch (class_cb var12) {
          Map var8 = this.d();
-         class_k var9 = (class_k)var8.get(var2[0]);
+         ICommand var9 = (ICommand)var8.get(var2[0]);
          if(var9 != null) {
             throw new class_cf(var9.c(var1), new Object[0]);
          }
@@ -66,9 +66,9 @@ public class class_ak extends class_i {
       var1.a(var14);
 
       for(int var15 = var13 * 7; var15 < var7; ++var15) {
-         class_k var10 = (class_k)var3.get(var15);
+         ICommand var10 = (ICommand)var3.get(var15);
          ChatMessage var11 = new ChatMessage(var10.c(var1), new Object[0]);
-         var11.getChatModifier().a(new class_et(class_et.class_a_in_class_et.d, "/" + var10.c() + " "));
+         var11.getChatModifier().a(new class_et(class_et.class_a_in_class_et.d, "/" + var10.getCommand() + " "));
          var1.a(var11);
       }
 
@@ -90,7 +90,7 @@ public class class_ak extends class_i {
       return MinecraftServer.N().P().a();
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          Set var4 = this.d().keySet();
          return a(var2, (String[])var4.toArray(new String[var4.size()]));

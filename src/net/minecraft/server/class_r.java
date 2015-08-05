@@ -14,7 +14,7 @@ import net.minecraft.server.class_mc;
 import net.minecraft.server.class_mf;
 
 public class class_r extends class_i {
-   public String c() {
+   public String getCommand() {
       return "ban";
    }
 
@@ -26,11 +26,11 @@ public class class_r extends class_i {
       return "commands.ban.usage";
    }
 
-   public boolean a(class_m var1) {
-      return MinecraftServer.N().getPlayerList().h().b() && super.a(var1);
+   public boolean canUse(class_m var1) {
+      return MinecraftServer.N().getPlayerList().h().b() && super.canUse(var1);
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.N();
          GameProfile var4 = var3.aF().a(var2[0]);
@@ -56,7 +56,7 @@ public class class_r extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length >= 1?a(var2, MinecraftServer.N().K()):null;
    }
 }

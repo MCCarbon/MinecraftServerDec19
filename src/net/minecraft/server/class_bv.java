@@ -12,7 +12,7 @@ import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
 
 public class class_bv extends class_i {
-   public String c() {
+   public String getCommand() {
       return "weather";
    }
 
@@ -24,7 +24,7 @@ public class class_bv extends class_i {
       return "commands.weather.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2.length <= 2) {
          int var3 = (300 + (new Random()).nextInt(600)) * 20;
          if(var2.length >= 2) {
@@ -65,7 +65,7 @@ public class class_bv extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"clear", "rain", "thunder"}):null;
    }
 }

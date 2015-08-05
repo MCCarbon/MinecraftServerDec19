@@ -28,13 +28,13 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_h;
 import net.minecraft.server.MinecraftKey;
-import net.minecraft.server.class_k;
+import net.minecraft.server.ICommand;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_o;
 import net.minecraft.server.Entity;
 
-public abstract class class_i implements class_k {
+public abstract class class_i implements ICommand {
    private static class_h a;
 
    protected static class_cc a(JsonParseException jsonParseException) {
@@ -53,11 +53,11 @@ public abstract class class_i implements class_k {
       return Collections.emptyList();
    }
 
-   public boolean a(class_m var1) {
-      return var1.a(this.a(), this.c());
+   public boolean canUse(class_m var1) {
+      return var1.a(this.a(), this.getCommand());
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return null;
    }
 
@@ -499,15 +499,15 @@ public abstract class class_i implements class_k {
       return var3;
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return false;
    }
 
-   public static void a(class_m var0, class_k var1, String var2, Object... var3) {
+   public static void a(class_m var0, ICommand var1, String var2, Object... var3) {
       a(var0, var1, 0, var2, var3);
    }
 
-   public static void a(class_m var0, class_k var1, int var2, String var3, Object... var4) {
+   public static void a(class_m var0, ICommand var1, int var2, String var3, Object... var4) {
       if(a != null) {
          a.a(var0, var1, var2, var3, var4);
       }
@@ -518,13 +518,13 @@ public abstract class class_i implements class_k {
       a = var0;
    }
 
-   public int a(class_k var1) {
-      return this.c().compareTo(var1.c());
+   public int a(ICommand var1) {
+      return this.getCommand().compareTo(var1.getCommand());
    }
 
    // $FF: synthetic method
    public int compareTo(Object var1) {
-      return this.a((class_k)var1);
+      return this.a((ICommand)var1);
    }
 
    public static class class_a_in_class_i {

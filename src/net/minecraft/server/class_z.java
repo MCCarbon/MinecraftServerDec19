@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 
 public class class_z extends class_i {
-   public String c() {
+   public String getCommand() {
       return "effect";
    }
 
@@ -15,7 +15,7 @@ public class class_z extends class_i {
       return "commands.effect.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 2) {
          throw new class_cf("commands.effect.usage", new Object[0]);
       } else {
@@ -76,7 +76,7 @@ public class class_z extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, MobEffectType.b.getKeys()):(var2.length == 5?a(var2, new String[]{"true", "false"}):null));
    }
 
@@ -84,7 +84,7 @@ public class class_z extends class_i {
       return MinecraftServer.N().K();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 }

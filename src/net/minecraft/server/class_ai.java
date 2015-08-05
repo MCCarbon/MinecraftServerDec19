@@ -15,7 +15,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
 public class class_ai extends class_i {
-   public String c() {
+   public String getCommand() {
       return "gamerule";
    }
 
@@ -27,7 +27,7 @@ public class class_ai extends class_i {
       return "commands.gamerule.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       class_ael var3 = this.d();
       String var4 = var2.length > 0?var2[0]:"";
       String var5 = var2.length > 1?a(var2, 1):"";
@@ -45,7 +45,7 @@ public class class_ai extends class_i {
          var1.a(class_n.class_a_in_class_n.e, var3.c(var4));
          break;
       default:
-         if(var3.a(var4, class_ael.class_b_in_class_ael.b) && !"true".equals(var5) && !"false".equals(var5)) {
+         if(var3.execute(var4, class_ael.class_ael.b) && !"true".equals(var5) && !"false".equals(var5)) {
             throw new class_bz("commands.generic.boolean.invalid", new Object[]{var5});
          }
 
@@ -69,13 +69,13 @@ public class class_ai extends class_i {
 
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a((String[])var2, (String[])this.d().b());
       } else {
          if(var2.length == 2) {
             class_ael var4 = this.d();
-            if(var4.a(var2[0], class_ael.class_b_in_class_ael.b)) {
+            if(var4.execute(var2[0], class_ael.class_ael.b)) {
                return a((String[])var2, (String[])(new String[]{"true", "false"}));
             }
          }

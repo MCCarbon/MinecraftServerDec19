@@ -12,7 +12,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.EntityHuman;
 
 public class class_aa extends class_i {
-   public String c() {
+   public String getCommand() {
       return "me";
    }
 
@@ -24,7 +24,7 @@ public class class_aa extends class_i {
       return "commands.me.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length <= 0) {
          throw new class_cf("commands.me.usage", new Object[0]);
       } else {
@@ -33,7 +33,7 @@ public class class_aa extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return a(var2, MinecraftServer.N().K());
    }
 }

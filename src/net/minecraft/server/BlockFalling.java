@@ -26,7 +26,7 @@ public class BlockFalling extends Block {
 	}
 
 	@Override
-	public void tick(World world, BlockPosition position, IBlockData blockdata, Random идщсл) {
+	public void tick(World world, BlockPosition position, IBlockData blockdata, Random random) {
 		if (!world.isClientSide) {
 			attemptFall(world, position);
 		}

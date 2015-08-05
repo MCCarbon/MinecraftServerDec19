@@ -10,7 +10,7 @@ import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
 public class class_w extends class_i {
-   public String c() {
+   public String getCommand() {
       return "deop";
    }
 
@@ -22,7 +22,7 @@ public class class_w extends class_i {
       return "commands.deop.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length == 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.N();
          GameProfile var4 = var3.getPlayerList().m().a(var2[0]);
@@ -37,7 +37,7 @@ public class class_w extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, MinecraftServer.N().getPlayerList().n()):null;
    }
 }

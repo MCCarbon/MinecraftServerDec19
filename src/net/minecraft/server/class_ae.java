@@ -11,7 +11,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
 public class class_ae extends class_i {
-   public String c() {
+   public String getCommand() {
       return "xp";
    }
 
@@ -23,7 +23,7 @@ public class class_ae extends class_i {
       return "commands.xp.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length <= 0) {
          throw new class_cf("commands.xp.usage", new Object[0]);
       } else {
@@ -62,7 +62,7 @@ public class class_ae extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 2?a(var2, this.d()):null;
    }
 
@@ -70,7 +70,7 @@ public class class_ae extends class_i {
       return MinecraftServer.N().K();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 1;
    }
 }

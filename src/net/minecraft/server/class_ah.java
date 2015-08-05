@@ -14,7 +14,7 @@ import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 
 public class class_ah extends class_i {
-   public String c() {
+   public String getCommand() {
       return "gamemode";
    }
 
@@ -26,7 +26,7 @@ public class class_ah extends class_i {
       return "commands.gamemode.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length <= 0) {
          throw new class_cf("commands.gamemode.usage", new Object[0]);
       } else {
@@ -52,7 +52,7 @@ public class class_ah extends class_i {
       return !var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SURVIVAL.getName()) && !var2.equalsIgnoreCase("s")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.CREATIVE.getName()) && !var2.equalsIgnoreCase("c")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.ADVENTURE.getName()) && !var2.equalsIgnoreCase("a")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SPECTATOR.getName()) && !var2.equalsIgnoreCase("sp")?WorldSettings.a(a(var2, 0, WorldSettings.EnumGameMode.values().length - 2)):WorldSettings.EnumGameMode.SPECTATOR):WorldSettings.EnumGameMode.ADVENTURE):WorldSettings.EnumGameMode.CREATIVE):WorldSettings.EnumGameMode.SURVIVAL;
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"survival", "creative", "adventure", "spectator"}):(var2.length == 2?a(var2, this.d()):null);
    }
 
@@ -60,7 +60,7 @@ public class class_ah extends class_i {
       return MinecraftServer.N().K();
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 1;
    }
 }

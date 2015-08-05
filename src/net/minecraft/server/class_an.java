@@ -10,7 +10,7 @@ import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
 public class class_an extends class_i {
-   public String c() {
+   public String getCommand() {
       return "banlist";
    }
 
@@ -18,15 +18,15 @@ public class class_an extends class_i {
       return 3;
    }
 
-   public boolean a(class_m var1) {
-      return (MinecraftServer.N().getPlayerList().i().b() || MinecraftServer.N().getPlayerList().h().b()) && super.a(var1);
+   public boolean canUse(class_m var1) {
+      return (MinecraftServer.N().getPlayerList().i().b() || MinecraftServer.N().getPlayerList().h().b()) && super.canUse(var1);
    }
 
    public String c(class_m var1) {
       return "commands.banlist.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].equalsIgnoreCase("ips")) {
          var1.a(new ChatMessage("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().i().a().length)}));
          var1.a(new ChatComponentText(a(MinecraftServer.N().getPlayerList().i().a())));
@@ -37,7 +37,7 @@ public class class_an extends class_i {
 
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"players", "ips"}):null;
    }
 }

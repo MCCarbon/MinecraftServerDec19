@@ -10,7 +10,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.Entity;
 
 public class class_am extends class_i {
-   public String c() {
+   public String getCommand() {
       return "kill";
    }
 
@@ -22,7 +22,7 @@ public class class_am extends class_i {
       return "commands.kill.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length == 0) {
          EntityPlayer var4 = b(var1);
          var4.G();
@@ -34,11 +34,11 @@ public class class_am extends class_i {
       }
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 0;
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, MinecraftServer.N().K()):null;
    }
 }

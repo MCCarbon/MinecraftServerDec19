@@ -11,7 +11,7 @@ import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
 
 public class class_y extends class_ah {
-   public String c() {
+   public String getCommand() {
       return "defaultgamemode";
    }
 
@@ -19,7 +19,7 @@ public class class_y extends class_ah {
       return "commands.defaultgamemode.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length <= 0) {
          throw new class_cf("commands.defaultgamemode.usage", new Object[0]);
       } else {

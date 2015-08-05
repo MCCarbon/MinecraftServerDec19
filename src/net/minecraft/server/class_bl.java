@@ -6,7 +6,7 @@ import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
 public class class_bl extends class_i {
-   public String c() {
+   public String getCommand() {
       return "stop";
    }
 
@@ -14,7 +14,7 @@ public class class_bl extends class_i {
       return "commands.stop.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(MinecraftServer.N().d != null) {
          a(var1, this, "commands.stop.start", new Object[0]);
       }

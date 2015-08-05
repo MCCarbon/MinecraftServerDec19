@@ -13,7 +13,7 @@ import net.minecraft.server.class_n;
 import net.minecraft.server.MathHelper;
 
 public class class_bx extends class_i {
-   public String c() {
+   public String getCommand() {
       return "worldborder";
    }
 
@@ -25,7 +25,7 @@ public class class_bx extends class_i {
       return "commands.worldborder.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.worldborder.usage", new Object[0]);
       } else {
@@ -146,7 +146,7 @@ public class class_bx extends class_i {
       return MinecraftServer.N().d[0].ag();
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"set", "center", "damage", "warning", "add", "get"}):(var2.length == 2 && var2[0].equals("damage")?a(var2, new String[]{"buffer", "amount"}):(var2.length >= 2 && var2.length <= 3 && var2[0].equals("center")?b(var2, 1, var3):(var2.length == 2 && var2[0].equals("warning")?a(var2, new String[]{"time", "distance"}):null)));
    }
 }

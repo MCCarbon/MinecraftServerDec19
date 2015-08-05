@@ -19,7 +19,7 @@ import net.minecraft.server.class_my;
 import net.minecraft.server.StatisticList;
 
 public class class_p extends class_i {
-   public String c() {
+   public String getCommand() {
       return "achievement";
    }
 
@@ -31,7 +31,7 @@ public class class_p extends class_i {
       return "commands.achievement.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 2) {
          throw new class_cf("commands.achievement.usage", new Object[0]);
       } else {
@@ -150,7 +150,7 @@ public class class_p extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"give", "take"});
       } else if(var2.length != 2) {
@@ -168,7 +168,7 @@ public class class_p extends class_i {
       }
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var2 == 2;
    }
 }

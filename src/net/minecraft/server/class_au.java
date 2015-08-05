@@ -12,7 +12,7 @@ import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
 
 public class class_au extends class_i {
-   public String c() {
+   public String getCommand() {
       return "particle";
    }
 
@@ -24,7 +24,7 @@ public class class_au extends class_i {
       return "commands.particle.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 8) {
          throw new class_cf("commands.particle.usage", new Object[0]);
       } else {
@@ -94,7 +94,7 @@ public class class_au extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, class_cy.a()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length == 10?a(var2, new String[]{"normal", "force"}):null));
    }
 }

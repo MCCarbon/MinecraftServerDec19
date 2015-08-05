@@ -18,7 +18,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_n;
 
 public class class_bp extends class_i {
-   public String c() {
+   public String getCommand() {
       return "testforblock";
    }
 
@@ -30,7 +30,7 @@ public class class_bp extends class_i {
       return "commands.testforblock.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 4) {
          throw new class_cf("commands.testforblock.usage", new Object[0]);
       } else {
@@ -95,7 +95,7 @@ public class class_bp extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length == 4?a(var2, Block.BLOCK_REGISTRY.getKeys()):null);
    }
 }

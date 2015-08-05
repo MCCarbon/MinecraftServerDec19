@@ -11,7 +11,7 @@ import net.minecraft.server.class_i;
 import net.minecraft.server.class_m;
 
 public class class_bb extends class_i {
-   public String c() {
+   public String getCommand() {
       return "say";
    }
 
@@ -23,7 +23,7 @@ public class class_bb extends class_i {
       return "commands.say.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length > 0 && var2[0].length() > 0) {
          IChatBaseComponent var3 = b(var1, var2, 0, true);
          MinecraftServer.N().getPlayerList().a((IChatBaseComponent)(new ChatMessage("chat.type.announcement", new Object[]{var1.getScoreboardDisplayName(), var3})));
@@ -32,7 +32,7 @@ public class class_bb extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length >= 1?a(var2, MinecraftServer.N().K()):null;
    }
 }

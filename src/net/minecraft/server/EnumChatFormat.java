@@ -41,7 +41,7 @@ public enum EnumChatFormat {
 			BY_NAME.put(toName(format.name), format);
 		}
 	}
-
+		
 	private static String toName(String name) {
 		return name.toLowerCase().replaceAll("[^a-z]", "");
 	}

@@ -20,7 +20,7 @@ import net.minecraft.server.class_n;
 import net.minecraft.server.Entity;
 
 public class class_bk extends class_i {
-   public String c() {
+   public String getCommand() {
       return "stats";
    }
 
@@ -32,7 +32,7 @@ public class class_bk extends class_i {
       return "commands.stats.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.stats.usage", new Object[0]);
       } else {
@@ -139,7 +139,7 @@ public class class_bk extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):(var2.length >= 2 && var2.length <= 4 && var2[0].equals("block")?a(var2, 1, var3):(var2.length == 3 && var2[0].equals("entity") || var2.length == 5 && var2[0].equals("block")?a(var2, new String[]{"set", "clear"}):((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?((var2.length != 6 || !var2[0].equals("entity")) && (var2.length != 8 || !var2[0].equals("block"))?null:a(var2, this.e())):a(var2, class_n.class_a_in_class_n.c())))));
    }
 
@@ -162,7 +162,7 @@ public class class_bk extends class_i {
       return var2;
    }
 
-   public boolean b(String[] var1, int var2) {
+   public boolean isListStart(String[] var1, int var2) {
       return var1.length > 0 && var1[0].equals("entity") && var2 == 1;
    }
 }

@@ -10,7 +10,7 @@ import net.minecraft.server.class_m;
 import net.minecraft.server.class_nw;
 
 public class class_ay extends class_i {
-   public String c() {
+   public String getCommand() {
       return "save-all";
    }
 
@@ -18,7 +18,7 @@ public class class_ay extends class_i {
       return "commands.save.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       MinecraftServer var3 = MinecraftServer.N();
       var1.a(new ChatMessage("commands.save.start", new Object[0]));
       if(var3.getPlayerList() != null) {
