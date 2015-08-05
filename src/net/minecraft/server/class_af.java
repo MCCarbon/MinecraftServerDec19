@@ -1,6 +1,10 @@
 package net.minecraft.server;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+
+import com.google.common.collect.Lists;
 
 public class class_af extends CommandAbstract {
 	
@@ -23,7 +27,7 @@ public class class_af extends CommandAbstract {
          var1.a(class_n.class_a_in_class_n.b, 0);
          BlockPosition var3 = a(var1, var2, 0, false);
          BlockPosition var4 = a(var1, var2, 3, false);
-         Block var5 = class_i.g(var1, var2[6]);
+         Block var5 = CommandAbstract.g(var1, var2[6]);
          int var6 = 0;
          if(var2.length >= 8) {
             var6 = a(var2[7], 0, 15);
@@ -76,14 +80,14 @@ public class class_af extends CommandAbstract {
                               }
                            } else if(var2[8].equals("replace") && !var5.isTileEntity()) {
                               if(var2.length > 9) {
-                                 Block var18 = class_i.g(var1, var2[9]);
+                                 Block var18 = CommandAbstract.g(var1, var2[9]);
                                  if(var10.getType(var17).getBlock() != var18) {
                                     continue;
                                  }
                               }
 
                               if(var2.length > 10) {
-                                 int var28 = class_i.a(var2[10]);
+                                 int var28 = CommandAbstract.a(var2[10]);
                                  var19 = var10.getType(var17);
                                  if(var19.getBlock().toLegacyData(var19) != var28) {
                                     continue;
