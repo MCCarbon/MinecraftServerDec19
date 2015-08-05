@@ -49,7 +49,7 @@ import net.minecraft.server.class_avo;
 import net.minecraft.server.class_avq;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_b;
-import net.minecraft.server.class_bd;
+import net.minecraft.server.CommandDispatcher;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
 import net.minecraft.server.IChatBaseComponent;
@@ -57,7 +57,7 @@ import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.Packet;
 import net.minecraft.server.class_g;
 import net.minecraft.server.PacketPlayOutUpdateTime;
-import net.minecraft.server.class_i;
+import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.ServerPing;
 import net.minecraft.server.Bootstrap;
 import net.minecraft.server.ITickAble;
@@ -156,8 +156,8 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.Y = this.V.createProfileRepository();
 	}
 
-	protected class_bd h() {
-		return new class_bd();
+	protected CommandDispatcher h() {
+		return new CommandDispatcher();
 	}
 
 	protected abstract boolean i() throws IOException;
@@ -816,7 +816,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 			for (int var9 = 0; var9 < var8; ++var9) {
 				String var10 = var7[var9];
-				if (class_i.a(var6, var10)) {
+				if (CommandAbstract.a(var6, var10)) {
 					var4.add(var10);
 				}
 			}

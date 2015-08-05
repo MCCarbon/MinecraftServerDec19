@@ -1,29 +1,10 @@
 package net.minecraft.server;
 
-import com.google.common.collect.Lists;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
-import net.minecraft.server.World;
-import net.minecraft.server.class_aex;
-import net.minecraft.server.Block;
-import net.minecraft.server.Blocks;
-import net.minecraft.server.TileEntity;
-import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_bz;
-import net.minecraft.server.class_cf;
-import net.minecraft.server.BlockPosition;
-import net.minecraft.server.BaseBlockPosition;
-import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_i;
-import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
-import net.minecraft.server.IInventory;
 
-public class class_u extends class_i {
-   public String c() {
+public class class_u extends CommandAbstract {
+	
+   public String getCommand() {
       return "clone";
    }
 
@@ -35,7 +16,7 @@ public class class_u extends class_i {
       return "commands.clone.usage";
    }
 
-   public void a(class_m var1, String[] var2) throws class_bz {
+   public void execute(class_m var1, String[] var2) throws class_bz {
       if(var2.length < 9) {
          throw new class_cf("commands.clone.usage", new Object[0]);
       } else {
@@ -204,7 +185,7 @@ public class class_u extends class_i {
       }
    }
 
-   public List a(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):(var2.length > 3 && var2.length <= 6?a(var2, 3, var3):(var2.length > 6 && var2.length <= 9?a(var2, 6, var3):(var2.length == 10?a(var2, new String[]{"replace", "masked", "filtered"}):(var2.length == 11?a(var2, new String[]{"normal", "force", "move"}):(var2.length == 12 && "filtered".equals(var2[9])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)))));
    }
 
@@ -219,4 +200,5 @@ public class class_u extends class_i {
          this.c = var3;
       }
    }
+
 }
