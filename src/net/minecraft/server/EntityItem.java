@@ -6,8 +6,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class EntityItem extends Entity {
+
 	private static final Logger b = LogManager.getLogger();
-	private static final int c = Datawathcer.claimId(EntityItem.class);
+	private static final int ITEM_DW_ID = Datawathcer.claimId(EntityItem.class); //value = 5
+
 	private int d;
 	private int pickupDelay;
 	private int f;
@@ -45,7 +47,7 @@ public class EntityItem extends Entity {
 	}
 
 	protected void initDatawatcher() {
-		this.H().addNull(c, 5);
+		this.H().addNull(ITEM_DW_ID, 5);
 	}
 
 	public void t_() {
@@ -293,7 +295,7 @@ public class EntityItem extends Entity {
 	}
 
 	public ItemStack l() {
-		ItemStack var1 = this.H().getItemStack(c);
+		ItemStack var1 = this.H().getItemStack(ITEM_DW_ID);
 		if (var1 == null) {
 			if (this.o != null) {
 				b.error("Item entity " + this.getId() + " has no item?!");
@@ -306,8 +308,8 @@ public class EntityItem extends Entity {
 	}
 
 	public void a(ItemStack var1) {
-		this.H().update(c, var1);
-		this.H().i(c);
+		this.H().update(ITEM_DW_ID, var1);
+		this.H().i(ITEM_DW_ID);
 	}
 
 	public String m() {
