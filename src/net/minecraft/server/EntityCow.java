@@ -66,7 +66,7 @@ public class EntityCow extends EntityAnimal {
    }
 
    public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-      if(var3 != null && var3.getItem() == Items.BUCKET && !var1.abilities.instabuild && !this.j_()) {
+      if(var3 != null && var3.getItem() == Items.BUCKET && !var1.abilities.instabuild && !this.isBaby()) {
          if(--var3.count == 0) {
             var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.MILK_BUCKET)));
          } else if(!var1.inventory.a(new ItemStack(Items.MILK_BUCKET))) {

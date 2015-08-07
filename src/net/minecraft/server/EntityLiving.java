@@ -230,7 +230,7 @@ public abstract class EntityLiving extends Entity {
 		this.o.B.b();
 	}
 
-	public boolean j_() {
+	public boolean isBaby() {
 		return false;
 	}
 
@@ -261,7 +261,7 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	protected boolean bb() {
-		return !this.j_();
+		return !this.isBaby();
 	}
 
 	protected int j(int var1) {
@@ -1026,7 +1026,7 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	protected float bD() {
-		return this.j_() ? (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.5F : (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F;
+		return this.isBaby() ? (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.5F : (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F;
 	}
 
 	protected boolean bE() {

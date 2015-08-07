@@ -9,7 +9,7 @@ public class ItemSaddle extends Item {
    public boolean registerItemKey(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
       if(var3 instanceof EntityPig) {
          EntityPig var5 = (EntityPig)var3;
-         if(!var5.cA() && !var5.j_()) {
+         if(!var5.cA() && !var5.isBaby()) {
             var5.m(true);
             var5.o.a((Entity)var5, "mob.horse.leather", 0.5F, 1.0F);
             --var1.count;

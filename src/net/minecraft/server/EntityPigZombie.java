@@ -41,7 +41,7 @@ public class EntityPigZombie extends EntityZombie {
    protected void cc() {
       class_ql var1 = this.a((class_qk)class_wl.d);
       if(this.cB()) {
-         if(!this.j_() && !var1.a(c)) {
+         if(!this.isBaby() && !var1.a(c)) {
             var1.b(c);
          }
 
@@ -167,7 +167,7 @@ public class EntityPigZombie extends EntityZombie {
 
    public class_qd a(class_on var1, class_qd var2) {
       super.a(var1, var2);
-      this.n(false);
+      this.setVillager(false);
       return var2;
    }
 

@@ -283,7 +283,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
    }
 
    public double am() {
-      return this.j_()?0.0D:-0.35D;
+      return this.isBaby()?0.0D:-0.35D;
    }
 
    public void a(boolean var1) {

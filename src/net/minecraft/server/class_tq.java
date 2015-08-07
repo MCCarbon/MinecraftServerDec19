@@ -131,7 +131,7 @@ public class class_tq {
          try {
             var2 = new EntityZombie(this.a);
             var2.a((class_on)this.a.E(new BlockPosition(var2)), (class_qd)null);
-            var2.n(false);
+            var2.setVillager(false);
          } catch (Exception var4) {
             var4.printStackTrace();
             return false;

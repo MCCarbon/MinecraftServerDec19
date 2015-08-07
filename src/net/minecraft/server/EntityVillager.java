@@ -56,7 +56,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	private void cK() {
 		if (!this.bH) {
 			this.bH = true;
-			if (this.j_()) {
+			if (this.isBaby()) {
 				this.i.a(8, new class_sf(this, 0.32D));
 			} else if (this.getProfession() == 0) {
 				this.i.a(6, new class_ro(this, 0.6D));
@@ -126,7 +126,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
 	public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
 		boolean var4 = var3 != null && var3.getItem() == Items.SPAWN_EGG;
-		if (!var4 && this.isAlive() && !this.cD() && !this.j_()) {
+		if (!var4 && this.isAlive() && !this.cD() && !this.isBaby()) {
 			if (!this.o.isClientSide && (this.by == null || !this.by.isEmpty())) {
 				this.a(var1);
 				var1.a((IMerchant) this);
@@ -238,7 +238,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			this.bs.a(var1);
 			if (var1 instanceof EntityHuman) {
 				byte var2 = -1;
-				if (this.j_()) {
+				if (this.isBaby()) {
 					var2 = -3;
 				}
 
@@ -452,7 +452,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
 	public float aU() {
 		float var1 = 1.62F;
-		if (this.j_()) {
+		if (this.isBaby()) {
 			var1 = (float) ((double) var1 - 0.81D);
 		}
 

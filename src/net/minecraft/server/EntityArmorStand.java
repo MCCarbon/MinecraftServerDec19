@@ -510,7 +510,7 @@ public class EntityArmorStand extends EntityLiving {
    }
 
    public float aU() {
-      return this.j_()?this.K * 0.5F:this.K * 0.9F;
+      return this.isBaby()?this.K * 0.5F:this.K * 0.9F;
    }
 
    public void g(float var1, float var2) {
@@ -587,7 +587,7 @@ public class EntityArmorStand extends EntityLiving {
       super.f(var1);
    }
 
-   public boolean j_() {
+   public boolean isBaby() {
       return this.n();
    }
 

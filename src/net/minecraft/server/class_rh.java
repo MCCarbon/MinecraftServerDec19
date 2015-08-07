@@ -16,7 +16,7 @@ public class class_rh extends class_rm {
    }
 
    public boolean a() {
-      if(this.c.bd().nextInt(this.c.j_()?50:1000) != 0) {
+      if(this.c.bd().nextInt(this.c.isBaby()?50:1000) != 0) {
          return false;
       } else {
          BlockPosition var1 = new BlockPosition(this.c.s, this.c.t, this.c.u);

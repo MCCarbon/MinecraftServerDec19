@@ -91,7 +91,7 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
             return true;
          }
 
-         if(this.j_() && this.d(var3)) {
+         if(this.isBaby() && this.d(var3)) {
             this.a(var1, var3);
             this.setAge((int)((float)(-this.getAge() / 20) * 0.1F), true);
             return true;

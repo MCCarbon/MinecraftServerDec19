@@ -126,7 +126,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	public boolean cC() {
-		return !this.j_();
+		return !this.isBaby();
 	}
 
 	public boolean cD() {

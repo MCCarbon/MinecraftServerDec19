@@ -85,7 +85,7 @@ public abstract class EntityAgeable extends EntityCreature {
 	public void b(int var1) {
 		this.datawatcher.update(AGE_DW_ID, Byte.valueOf((byte) MathHelper.clamp(var1, -1, 1)));
 		this.a = var1;
-		this.a(this.j_());
+		this.a(this.isBaby());
 	}
 
 	public void write(NBTTagCompound var1) {
@@ -102,7 +102,7 @@ public abstract class EntityAgeable extends EntityCreature {
 
 	public void d(int var1) {
 		if (var1 == AGE_DW_ID) {
-			this.a(this.j_());
+			this.a(this.isBaby());
 		}
 
 		super.d(var1);
@@ -137,7 +137,7 @@ public abstract class EntityAgeable extends EntityCreature {
 	protected void n() {
 	}
 
-	public boolean j_() {
+	public boolean isBaby() {
 		return this.getAge() < 0;
 	}
 
