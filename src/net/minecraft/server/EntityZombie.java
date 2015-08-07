@@ -503,7 +503,7 @@ public class EntityZombie extends EntityMonster {
 
 	public void a(DamageSource var1) {
 		super.a(var1);
-		if (var1.j() instanceof EntityCreeper && !(this instanceof EntityPigZombie) && ((EntityCreeper) var1.j()).n() && ((EntityCreeper) var1.j()).cE()) {
+		if (var1.j() instanceof EntityCreeper && !(this instanceof EntityPigZombie) && ((EntityCreeper) var1.j()).isPowered() && ((EntityCreeper) var1.j()).cE()) {
 			((EntityCreeper) var1.j()).cF();
 			this.a(new ItemStack(Items.SKULL, 1, 2), 0.0F);
 		}

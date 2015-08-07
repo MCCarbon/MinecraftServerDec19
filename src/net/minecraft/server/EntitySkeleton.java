@@ -129,7 +129,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
          if(var3 * var3 + var5 * var5 >= 2500.0D) {
             var2.b((class_my)class_mt.v);
          }
-      } else if(var1.j() instanceof EntityCreeper && ((EntityCreeper)var1.j()).n() && ((EntityCreeper)var1.j()).cE()) {
+      } else if(var1.j() instanceof EntityCreeper && ((EntityCreeper)var1.j()).isPowered() && ((EntityCreeper)var1.j()).cE()) {
          ((EntityCreeper)var1.j()).cF();
          this.a(new ItemStack(Items.SKULL, 1, this.cB() == 1?1:0), 0.0F);
       }
