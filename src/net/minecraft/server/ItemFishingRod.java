@@ -2,19 +2,19 @@ package net.minecraft.server;
 
 public class ItemFishingRod extends Item {
    public ItemFishingRod() {
-      this.e(64);
+      this.setMaxDurability(64);
       this.d(1);
-      this.registerItemKey(CreativeTab.TOOLS);
-      this.registerItemKey(new MinecraftKey("cast"), new class_aat() {
+      this.setCreativeTab(CreativeTab.TOOLS);
+      this.registerItemState(new MinecraftKey("cast"), new ItemState() {
       });
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(var3.bN != null) {
          int var5 = var3.bN.l();
          var1.a(var5, (EntityLiving)var3);
          var3.a((EnumUsedHand)var4);
-         return new class_or(UseResult.CANT_USE, var1);
+         return new UseResultWithValue(UseResult.CANT_USE, var1);
       } else {
          var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
          if(!var2.isClientSide) {
@@ -23,15 +23,15 @@ public class ItemFishingRod extends Item {
 
          var3.a((EnumUsedHand)var4);
          var3.b(StatisticList.ad[Item.getId((Item)this)]);
-         return new class_or(UseResult.SUCCESS, var1);
+         return new UseResultWithValue(UseResult.SUCCESS, var1);
       }
    }
 
-   public boolean f_(ItemStack var1) {
-      return super.f_(var1);
+   public boolean isTool(ItemStack var1) {
+      return super.isTool(var1);
    }
 
-   public int c() {
+   public int getItemEnchantability() {
       return 1;
    }
 }

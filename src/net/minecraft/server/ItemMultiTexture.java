@@ -10,8 +10,8 @@ public class ItemMultiTexture extends ItemBlock {
       super(var1);
       this.b = var2;
       this.c = var3;
-      this.e(0);
-      this.registerItemKey(true);
+      this.setMaxDurability(0);
+      this.setUsesData(true);
    }
 
    public ItemMultiTexture(Block var1, Block var2, final String[] var3) {
@@ -32,11 +32,11 @@ public class ItemMultiTexture extends ItemBlock {
       });
    }
 
-   public int registerItemKey(int var1) {
+   public int filterData(int var1) {
       return var1;
    }
 
-   public String e_(ItemStack var1) {
-      return super.registerItemKey() + "." + (String)this.c.apply(var1);
+   public String getName(ItemStack var1) {
+      return super.getName() + "." + (String)this.c.apply(var1);
    }
 }

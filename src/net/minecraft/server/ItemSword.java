@@ -8,17 +8,17 @@ public class ItemSword extends Item {
 
    public ItemSword(EnumToolMaterial var1) {
       this.b = var1;
-      this.h = 1;
-      this.e(var1.a());
-      this.registerItemKey(CreativeTab.COMBAT);
-      this.a = 4.0F + var1.c();
+      this.maxStackSize = 1;
+      this.setMaxDurability(var1.getMaxUses());
+      this.setCreativeTab(CreativeTab.COMBAT);
+      this.a = 4.0F + var1.getEntityDamage();
    }
 
    public float g() {
-      return this.b.c();
+      return this.b.getEntityDamage();
    }
 
-   public float registerItemKey(ItemStack var1, Block var2) {
+   public float getDestroySpeed(ItemStack var1, Block var2) {
       if(var2 == Blocks.WEB) {
          return 15.0F;
       } else {
@@ -27,12 +27,12 @@ public class ItemSword extends Item {
       }
    }
 
-   public boolean registerItemKey(ItemStack var1, EntityLiving var2, EntityLiving var3) {
+   public boolean hitEntity(ItemStack var1, EntityLiving var2, EntityLiving var3) {
       var1.a(1, (EntityLiving)var3);
       return true;
    }
 
-   public boolean registerItemKey(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
+   public boolean onBlockDestroyed(ItemStack var1, World var2, Block var3, BlockPosition var4, EntityLiving var5) {
       if((double)var3.getStrength(var2, var4) != 0.0D) {
          var1.a(2, (EntityLiving)var5);
       }
@@ -40,37 +40,37 @@ public class ItemSword extends Item {
       return true;
    }
 
-   public class_abz f(ItemStack var1) {
-      return class_abz.BLOCK;
+   public EnumAnimation getAnimation(ItemStack var1) {
+      return EnumAnimation.BLOCK;
    }
 
-   public int e(ItemStack var1) {
+   public int getUseDuration(ItemStack var1) {
       return 72000;
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
-      return new class_or(UseResult.SUCCESS, var1);
+      return new UseResultWithValue(UseResult.SUCCESS, var1);
    }
 
-   public boolean b(Block var1) {
+   public boolean canDestroySpecialBlock(Block var1) {
       return var1 == Blocks.WEB;
    }
 
-   public int c() {
-      return this.b.e();
+   public int getItemEnchantability() {
+      return this.b.getEnchantability();
    }
 
    public String h() {
       return this.b.toString();
    }
 
-   public boolean registerItemKey(ItemStack var1, ItemStack var2) {
-      return this.b.f() == var2.getItem()?true:super.registerItemKey(var1, var2);
+   public boolean canRepairWith(ItemStack var1, ItemStack var2) {
+      return this.b.getRepairResource() == var2.getItem()?true:super.canRepairWith(var1, var2);
    }
 
-   public Multimap registerItemKey(EnumWearable var1) {
-      Multimap var2 = super.registerItemKey(var1);
+   public Multimap getAttributeModifiers(EnumWearable var1) {
+      Multimap var2 = super.getAttributeModifiers(var1);
       if(var1 == EnumWearable.MAINHAND) {
          var2.put(class_wl.e.a(), new class_qm(uuid, "Weapon modifier", (double)this.a, 0));
       }

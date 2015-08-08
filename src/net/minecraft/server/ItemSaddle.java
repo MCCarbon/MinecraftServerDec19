@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public class ItemSaddle extends Item {
    public ItemSaddle() {
-      this.h = 1;
-      this.registerItemKey(CreativeTab.TRANSPORTATION);
+      this.maxStackSize = 1;
+      this.setCreativeTab(CreativeTab.TRANSPORTATION);
    }
 
-   public boolean registerItemKey(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
+   public boolean canUseOn(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
       if(var3 instanceof EntityPig) {
          EntityPig var5 = (EntityPig)var3;
          if(!var5.cA() && !var5.isBaby()) {
@@ -21,8 +21,8 @@ public class ItemSaddle extends Item {
       }
    }
 
-   public boolean registerItemKey(ItemStack var1, EntityLiving var2, EntityLiving var3) {
-      this.registerItemKey(var1, (EntityHuman) null, var2, EnumUsedHand.MAIN_HAND);
+   public boolean hitEntity(ItemStack var1, EntityLiving var2, EntityLiving var3) {
+      this.canUseOn(var1, (EntityHuman) null, var2, EnumUsedHand.MAIN_HAND);
       return true;
    }
 }

@@ -484,7 +484,7 @@ public abstract class Container {
          var2.count = 1;
          break;
       case 2:
-         var2.count = var2.getItem().j();
+         var2.count = var2.getItem().getMaxStackSize();
       }
 
       var2.count += var3;

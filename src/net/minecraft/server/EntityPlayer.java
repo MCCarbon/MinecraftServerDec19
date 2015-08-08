@@ -204,7 +204,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 			for (int var1 = 0; var1 < this.inventory.getSize(); ++var1) {
 				ItemStack var6 = this.inventory.getItem(var1);
-				if (var6 != null && var6.getItem().f()) {
+				if (var6 != null && var6.getItem().isMap()) {
 					Packet var8 = ((class_zt) var6.getItem()).a(var6, this.o, this);
 					if (var8 != null) {
 						this.playerConnection.sendPacket(var8);

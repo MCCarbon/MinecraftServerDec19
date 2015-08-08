@@ -41,13 +41,13 @@ public class ItemArmor extends Item {
       this.b = var3;
       this.d = var2;
       this.c = var1.b(var3);
-      this.e(var1.a(var3));
-      this.h = 1;
-      this.registerItemKey(CreativeTab.COMBAT);
+      this.setMaxDurability(var1.a(var3));
+      this.maxStackSize = 1;
+      this.setCreativeTab(CreativeTab.COMBAT);
       BlockDispenser.REGISTRY.register(this, l);
    }
 
-   public int c() {
+   public int getItemEnchantability() {
       return this.m.a();
    }
 
@@ -107,19 +107,19 @@ public class ItemArmor extends Item {
       }
    }
 
-   public boolean registerItemKey(ItemStack var1, ItemStack var2) {
-      return this.m.b() == var2.getItem()?true:super.registerItemKey(var1, var2);
+   public boolean canRepairWith(ItemStack var1, ItemStack var2) {
+      return this.m.b() == var2.getItem()?true:super.canRepairWith(var1, var2);
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       EnumWearable var5 = EntityInsentient.c(var1);
       ItemStack var6 = var3.a(var5);
       if(var6 == null) {
          var3.a(var5, var1.clone());
          var1.count = 0;
-         return new class_or(UseResult.SUCCESS, var1);
+         return new UseResultWithValue(UseResult.SUCCESS, var1);
       } else {
-         return new class_or(UseResult.CANT_USE, var1);
+         return new UseResultWithValue(UseResult.CANT_USE, var1);
       }
    }
 

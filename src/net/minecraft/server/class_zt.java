@@ -7,7 +7,7 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.EntityHuman;
 
 public class class_zt extends Item {
-   public boolean f() {
+   public boolean isMap() {
       return true;
    }
 

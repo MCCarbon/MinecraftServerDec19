@@ -51,13 +51,13 @@ public class ItemMinecart extends Item {
    private final EntityMinecartAbstract.EnumMinecartType b;
 
    public ItemMinecart(EntityMinecartAbstract.EnumMinecartType var1) {
-      this.h = 1;
+      this.maxStackSize = 1;
       this.b = var1;
-      this.registerItemKey(CreativeTab.TRANSPORTATION);
+      this.setCreativeTab(CreativeTab.TRANSPORTATION);
       BlockDispenser.REGISTRY.register(this, a);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.getType(var4);
       if(BlockMinecartTrackAbstract.d(var10)) {
          if(!var3.isClientSide) {

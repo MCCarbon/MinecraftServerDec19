@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class ItemCompass extends Item {
    public ItemCompass() {
-      this.registerItemKey(new MinecraftKey("angle"), new class_aat() {
+      this.registerItemState(new MinecraftKey("angle"), new ItemState() {
       });
    }
 }

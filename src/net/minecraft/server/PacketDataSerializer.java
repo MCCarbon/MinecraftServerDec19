@@ -160,7 +160,7 @@ public class PacketDataSerializer extends ByteBuf {
 			writeByte(var1.count);
 			writeShort(var1.i());
 			NBTTagCompound var2 = null;
-			if (var1.getItem().m() || var1.getItem().p()) {
+			if (var1.getItem().usesDurability() || var1.getItem().shouldSendNBT()) {
 				var2 = var1.getTag();
 			}
 

@@ -6,7 +6,7 @@ import com.google.common.collect.Multisets;
 
 public class ItemWorldMap extends class_zt {
    protected ItemWorldMap() {
-      this.registerItemKey(true);
+      this.setUsesData(true);
    }
 
    public class_avf a(ItemStack var1, World var2) {
@@ -144,7 +144,7 @@ public class ItemWorldMap extends class_zt {
       }
    }
 
-   public void registerItemKey(ItemStack var1, World var2, Entity var3, int var4, boolean var5) {
+   public void tick(ItemStack var1, World var2, Entity var3, int var4, boolean var5) {
       if(!var2.isClientSide) {
          class_avf var6 = this.a(var1, var2);
          if(var3 instanceof EntityHuman) {
@@ -163,7 +163,7 @@ public class ItemWorldMap extends class_zt {
       return this.a(var1, var2).a(var1, var2, var3);
    }
 
-   public void b(ItemStack var1, World var2, EntityHuman var3) {
+   public void onCrafted(ItemStack var1, World var2, EntityHuman var3) {
       if(var1.hasTag() && var1.getTag().getBoolean("map_is_scaling")) {
          class_avf var4 = Items.FILLED_MAP.a(var1, var2);
          var1.setData(var2.b("map"));

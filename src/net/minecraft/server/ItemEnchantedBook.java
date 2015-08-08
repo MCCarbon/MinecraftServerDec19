@@ -3,12 +3,12 @@ package net.minecraft.server;
 import java.util.Random;
 
 public class ItemEnchantedBook extends Item {
-   public boolean f_(ItemStack var1) {
+   public boolean isTool(ItemStack var1) {
       return false;
    }
 
-   public class_abf g(ItemStack var1) {
-      return !this.h(var1).isEmpty()?class_abf.b:super.g(var1);
+   public EnumItemRarity getRarity(ItemStack var1) {
+      return !this.h(var1).isEmpty()?EnumItemRarity.UNCOMMON:super.getRarity(var1);
    }
 
    public NBTTagList h(ItemStack var1) {

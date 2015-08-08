@@ -9,11 +9,11 @@ public class ItemBlock extends Item {
 	}
 
 	public ItemBlock b(String var1) {
-		super.c(var1);
+		super.setName(var1);
 		return this;
 	}
 
-	public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+	public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
 		IBlockData var10 = var3.getType(var4);
 		Block var11 = var10.getBlock();
 		if (!var11.isReplaceable(var3, var4)) {
@@ -25,7 +25,7 @@ public class ItemBlock extends Item {
 		} else if (!var2.a(var4, var6, var1)) {
 			return UseResult.CANT_USE;
 		} else if (var3.a(this.block, var4, false, var6, (Entity) null, var1)) {
-			int var12 = this.registerItemKey(var1.i());
+			int var12 = this.filterData(var1.i());
 			IBlockData var13 = this.block.getPlacedState(var3, var4, var6, var7, var8, var9, var12, var2);
 			if (var3.setTypeAndData((BlockPosition) var4, (IBlockData) var13, 3)) {
 				var13 = var3.getType(var4);
@@ -76,11 +76,11 @@ public class ItemBlock extends Item {
 		}
 	}
 
-	public String e_(ItemStack var1) {
+	public String getName(ItemStack var1) {
 		return this.block.getInternalName();
 	}
 
-	public String registerItemKey() {
+	public String getName() {
 		return this.block.getInternalName();
 	}
 
@@ -89,7 +89,7 @@ public class ItemBlock extends Item {
 	}
 
 	// $FF: synthetic method
-	public Item c(String var1) {
+	public Item setName(String var1) {
 		return this.b(var1);
 	}
 }

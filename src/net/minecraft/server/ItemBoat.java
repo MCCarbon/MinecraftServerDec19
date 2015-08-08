@@ -4,11 +4,11 @@ import java.util.List;
 
 public class ItemBoat extends Item {
    public ItemBoat() {
-      this.h = 1;
-      this.registerItemKey(CreativeTab.TRANSPORTATION);
+      this.maxStackSize = 1;
+      this.setCreativeTab(CreativeTab.TRANSPORTATION);
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       float var5 = 1.0F;
       float var6 = var3.B + (var3.z - var3.B) * var5;
       float var7 = var3.A + (var3.y - var3.A) * var5;
@@ -26,7 +26,7 @@ public class ItemBoat extends Item {
       Vec3D var24 = var14.add((double)var19 * var22, (double)var18 * var22, (double)var21 * var22);
       MovingObjectPosition var25 = var2.a(var14, var24, true);
       if(var25 == null) {
-         return new class_or(UseResult.CANT_USE, var1);
+         return new UseResultWithValue(UseResult.CANT_USE, var1);
       } else {
          Vec3D var26 = var3.d(var5);
          boolean var27 = false;
@@ -45,7 +45,7 @@ public class ItemBoat extends Item {
          }
 
          if(var27) {
-            return new class_or(UseResult.CANT_USE, var1);
+            return new UseResultWithValue(UseResult.CANT_USE, var1);
          } else if(var25.a == MovingObjectPosition.class_a_in_class_awg.b) {
             BlockPosition var34 = var25.a();
             if(var2.getType(var34).getBlock() == Blocks.SNOW_LAYER) {
@@ -55,7 +55,7 @@ public class ItemBoat extends Item {
             EntityBoat var35 = new EntityBoat(var2, (double)((float)var34.getX() + 0.5F), (double)((float)var34.getY() + 1.0F), (double)((float)var34.getZ() + 0.5F));
             var35.y = (float)(((MathHelper.floor((double)(var3.y * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
             if(!var2.a((Entity)var35, (AxisAlignedBB)var35.aT().grow(-0.1D, -0.1D, -0.1D)).isEmpty()) {
-               return new class_or(UseResult.CANT_USE, var1);
+               return new UseResultWithValue(UseResult.CANT_USE, var1);
             } else {
                if(!var2.isClientSide) {
                   var2.addEntity((Entity)var35);
@@ -66,10 +66,10 @@ public class ItemBoat extends Item {
                }
 
                var3.b(StatisticList.ad[Item.getId((Item)this)]);
-               return new class_or(UseResult.SUCCESS, var1);
+               return new UseResultWithValue(UseResult.SUCCESS, var1);
             }
          } else {
-            return new class_or(UseResult.CANT_USE, var1);
+            return new UseResultWithValue(UseResult.CANT_USE, var1);
          }
       }
    }

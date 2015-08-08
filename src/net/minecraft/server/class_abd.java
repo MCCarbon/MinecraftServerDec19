@@ -8,7 +8,7 @@ public class class_abd extends ItemBlock {
       super(var1);
    }
 
-   public int registerItemKey(int var1) {
+   public int filterData(int var1) {
       return 7;
    }
 }

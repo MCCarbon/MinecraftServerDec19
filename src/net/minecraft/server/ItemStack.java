@@ -82,7 +82,7 @@ public final class ItemStack {
 	}
 
 	public UseResult a(EntityHuman var1, World var2, BlockPosition var3, EnumUsedHand var4, EnumDirection var5, float var6, float var7, float var8) {
-		UseResult var9 = getItem().registerItemKey(this, var1, var2, var3, var4, var5, var6, var7, var8);
+		UseResult var9 = getItem().interactWith(this, var1, var2, var3, var4, var5, var6, var7, var8);
 		if (var9 == UseResult.SUCCESS) {
 			var1.b(StatisticList.ad[Item.getId(item)]);
 		}
@@ -91,15 +91,15 @@ public final class ItemStack {
 	}
 
 	public float a(Block var1) {
-		return getItem().registerItemKey(this, var1);
+		return getItem().getDestroySpeed(this, var1);
 	}
 
-	public class_or a(World var1, EntityHuman var2, EnumUsedHand var3) {
-		return getItem().registerItemKey(this, var1, var2, var3);
+	public UseResultWithValue a(World var1, EntityHuman var2, EnumUsedHand var3) {
+		return getItem().onUse(this, var1, var2, var3);
 	}
 
 	public ItemStack a(World var1, EntityLiving var2) {
-		return getItem().registerItemKey(this, var1, var2);
+		return getItem().onUseFinish(this, var1, var2);
 	}
 
 	public NBTTagCompound write(NBTTagCompound compound) {
@@ -130,13 +130,13 @@ public final class ItemStack {
 		if (compound.hasOfType("tag", 10)) {
 			tag = compound.getCompound("tag");
 			if (item != null) {
-				item.registerItemKey(tag);
+				item.updateNBT(tag);
 			}
 		}
 	}
 
 	public int c() {
-		return getItem().j();
+		return getItem().getMaxStackSize();
 	}
 
 	public boolean d() {
@@ -144,11 +144,11 @@ public final class ItemStack {
 	}
 
 	public boolean e() {
-		return item == null ? false : (item.l() <= 0 ? false : !hasTag() || !getTag().getBoolean("Unbreakable"));
+		return item == null ? false : (item.getMaxDurability() <= 0 ? false : !hasTag() || !getTag().getBoolean("Unbreakable"));
 	}
 
 	public boolean f() {
-		return item.k();
+		return item.usesData();
 	}
 
 	public boolean g() {
@@ -171,7 +171,7 @@ public final class ItemStack {
 	}
 
 	public int j() {
-		return item.l();
+		return item.getMaxDurability();
 	}
 
 	public boolean a(int var1, Random var2) {
@@ -222,7 +222,7 @@ public final class ItemStack {
 	}
 
 	public void a(EntityLiving var1, EntityHuman var2) {
-		boolean var3 = item.registerItemKey(this, var1, var2);
+		boolean var3 = item.hitEntity(this, var1, var2);
 		if (var3) {
 			var2.b(StatisticList.ad[Item.getId(item)]);
 		}
@@ -230,7 +230,7 @@ public final class ItemStack {
 	}
 
 	public void a(World var1, Block var2, BlockPosition var3, EntityHuman var4) {
-		boolean var5 = item.registerItemKey(this, var1, var2, var3, var4);
+		boolean var5 = item.onBlockDestroyed(this, var1, var2, var3, var4);
 		if (var5) {
 			var4.b(StatisticList.ad[Item.getId(item)]);
 		}
@@ -238,11 +238,11 @@ public final class ItemStack {
 	}
 
 	public boolean b(Block var1) {
-		return item.b(var1);
+		return item.canDestroySpecialBlock(var1);
 	}
 
 	public boolean a(EntityHuman var1, EntityLiving var2, EnumUsedHand var3) {
-		return item.registerItemKey(this, var1, var2, var3);
+		return item.canUseOn(this, var1, var2, var3);
 	}
 
 	public ItemStack clone() {
@@ -274,7 +274,7 @@ public final class ItemStack {
 	}
 
 	public String a() {
-		return item.e_(this);
+		return item.getName(this);
 	}
 
 	public static ItemStack b(ItemStack var0) {
@@ -283,7 +283,7 @@ public final class ItemStack {
 
 	@Override
 	public String toString() {
-		return count + "x" + item.registerItemKey() + "@" + data;
+		return count + "x" + item.getName() + "@" + data;
 	}
 
 	public void a(World var1, Entity var2, int var3, boolean var4) {
@@ -291,24 +291,24 @@ public final class ItemStack {
 			--c;
 		}
 
-		item.registerItemKey(this, var1, var2, var3, var4);
+		item.tick(this, var1, var2, var3, var4);
 	}
 
 	public void a(World var1, EntityHuman var2, int var3) {
 		var2.a(StatisticList.ac[Item.getId(item)], var3);
-		item.b(this, var1, var2);
+		item.onCrafted(this, var1, var2);
 	}
 
 	public int l() {
-		return getItem().e(this);
+		return getItem().getUseDuration(this);
 	}
 
-	public class_abz m() {
-		return getItem().f(this);
+	public EnumAnimation m() {
+		return getItem().getAnimation(this);
 	}
 
 	public void a(World var1, EntityLiving var2, int var3) {
-		getItem().registerItemKey(this, var1, var2, var3);
+		getItem().onStopUse(this, var1, var2, var3);
 	}
 
 	public boolean hasTag() {
@@ -382,12 +382,12 @@ public final class ItemStack {
 		return tag == null ? false : (!tag.hasOfType("display", 10) ? false : tag.getCompound("display").hasOfType("Name", 8));
 	}
 
-	public class_abf u() {
-		return getItem().g(this);
+	public EnumItemRarity u() {
+		return getItem().getRarity(this);
 	}
 
 	public boolean v() {
-		return !getItem().f_(this) ? false : !hasEnchantments();
+		return !getItem().isTool(this) ? false : !hasEnchantments();
 	}
 
 	public void addEnchantment(class_adi enchantment, int level) {
@@ -418,7 +418,7 @@ public final class ItemStack {
 	}
 
 	public boolean x() {
-		return getItem().s();
+		return getItem().canEditBlocks();
 	}
 
 	public boolean isInItemFrame() {
@@ -459,7 +459,7 @@ public final class ItemStack {
 				}
 			}
 		} else {
-			var2 = getItem().registerItemKey(var1);
+			var2 = getItem().getAttributeModifiers(var1);
 		}
 
 		return (Multimap) var2;
@@ -480,7 +480,7 @@ public final class ItemStack {
 			NBTTagCompound var3 = new NBTTagCompound();
 			this.write(var3);
 			var2.getChatModifier().a(new class_ew(class_ew.class_a_in_class_ew.c, new ChatComponentText(var3.toString())));
-			var2.getChatModifier().a(u().e);
+			var2.getChatModifier().a(u().color);
 		}
 
 		return var2;

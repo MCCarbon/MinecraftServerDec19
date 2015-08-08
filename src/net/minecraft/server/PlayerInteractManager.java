@@ -227,8 +227,8 @@ public class PlayerInteractManager {
 		} else {
 			int var5 = var3.count;
 			int var6 = var3.i();
-			class_or var7 = var3.a(var2, var1, var4);
-			ItemStack var8 = (ItemStack) var7.b();
+			UseResultWithValue var7 = var3.a(var2, var1, var4);
+			ItemStack var8 = (ItemStack) var7.getValue();
 			if ((var8 != var3) || (var8.count != var5) || (var8.l() > 0) || (var8.i() != var6)) {
 				var1.a(var4, var8);
 				if (d()) {
@@ -247,7 +247,7 @@ public class PlayerInteractManager {
 				}
 			}
 
-			return var7.a();
+			return var7.getResult();
 		}
 	}
 

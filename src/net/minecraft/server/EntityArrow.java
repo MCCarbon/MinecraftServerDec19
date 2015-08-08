@@ -124,7 +124,7 @@ public class EntityArrow extends Entity implements class_xi {
 			++this.aw;
 			Vec3D var14 = new Vec3D(this.s, this.t, this.u);
 			Vec3D var5 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
-			MovingObjectPosition var6 = this.o.a(var14, var5, false, true, false);
+			MovingObjectPosition var6 = this.o.rayTrace(var14, var5, false, true, false);
 			var14 = new Vec3D(this.s, this.t, this.u);
 			var5 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
 			if (var6 != null) {

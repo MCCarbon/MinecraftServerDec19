@@ -4,43 +4,43 @@ public class ItemBucket extends Item {
    private Block a;
 
    public ItemBucket(Block var1) {
-      this.h = 1;
+      this.maxStackSize = 1;
       this.a = var1;
-      this.registerItemKey(CreativeTab.MISC);
+      this.setCreativeTab(CreativeTab.MISC);
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       boolean var5 = this.a == Blocks.AIR;
-      MovingObjectPosition var6 = this.registerItemKey(var2, var3, var5);
+      MovingObjectPosition var6 = this.getMovingObjectPositionFromPlayer(var2, var3, var5);
       if(var6 == null) {
-         return new class_or(UseResult.CANT_USE, var1);
+         return new UseResultWithValue(UseResult.CANT_USE, var1);
       } else {
          if(var6.a == MovingObjectPosition.class_a_in_class_awg.b) {
             BlockPosition var7 = var6.a();
             if(!var2.a(var3, var7)) {
-               return new class_or(UseResult.CANT_USE, var1);
+               return new UseResultWithValue(UseResult.CANT_USE, var1);
             }
 
             if(!var5) {
                if(this.a == Blocks.AIR) {
-                  return new class_or(UseResult.SUCCESS, new ItemStack(Items.BUCKET));
+                  return new UseResultWithValue(UseResult.SUCCESS, new ItemStack(Items.BUCKET));
                }
 
                BlockPosition var10 = var7.shift(var6.b);
                if(!var3.a(var10, var6.b, var1)) {
-                  return new class_or(UseResult.CANT_USE, var1);
+                  return new UseResultWithValue(UseResult.CANT_USE, var1);
                }
 
                if(this.a(var2, var10) && !var3.abilities.instabuild) {
                   var3.b(StatisticList.ad[Item.getId((Item)this)]);
-                  return new class_or(UseResult.SUCCESS, new ItemStack(Items.BUCKET));
+                  return new UseResultWithValue(UseResult.SUCCESS, new ItemStack(Items.BUCKET));
                }
 
-               return new class_or(UseResult.SUCCESS, var1);
+               return new UseResultWithValue(UseResult.SUCCESS, var1);
             }
 
             if(!var3.a(var7.shift(var6.b), var6.b, var1)) {
-               return new class_or(UseResult.CANT_USE, var1);
+               return new UseResultWithValue(UseResult.CANT_USE, var1);
             }
 
             IBlockData var8 = var2.getType(var7);
@@ -48,17 +48,17 @@ public class ItemBucket extends Item {
             if(var9 == Material.WATER && ((Integer)var8.get(BlockFluids.LEVEL)).intValue() == 0) {
                var2.setAir(var7);
                var3.b(StatisticList.ad[Item.getId((Item)this)]);
-               return new class_or(UseResult.SUCCESS, this.a(var1, var3, Items.WATER_BUCKET));
+               return new UseResultWithValue(UseResult.SUCCESS, this.a(var1, var3, Items.WATER_BUCKET));
             }
 
             if(var9 == Material.LAVA && ((Integer)var8.get(BlockFluids.LEVEL)).intValue() == 0) {
                var2.setAir(var7);
                var3.b(StatisticList.ad[Item.getId((Item)this)]);
-               return new class_or(UseResult.SUCCESS, this.a(var1, var3, Items.LAVA_BUCKET));
+               return new UseResultWithValue(UseResult.SUCCESS, this.a(var1, var3, Items.LAVA_BUCKET));
             }
          }
 
-         return new class_or(UseResult.CANT_USE, var1);
+         return new UseResultWithValue(UseResult.CANT_USE, var1);
       }
    }
 

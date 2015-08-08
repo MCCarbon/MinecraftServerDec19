@@ -27,8 +27,8 @@ public class class_acw implements class_acs {
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
          ItemStack var4 = var1.getItem(var3);
-         if(var4 != null && var4.getItem().r()) {
-            var2[var3] = new ItemStack(var4.getItem().q());
+         if(var4 != null && var4.getItem().hasCraftingResult()) {
+            var2[var3] = new ItemStack(var4.getItem().getCraftingResult());
          }
       }
 

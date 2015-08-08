@@ -19,7 +19,7 @@ public final class class_xj {
       World var16 = var0.o;
       Vec3D var17 = new Vec3D(var4, var6, var8);
       Vec3D var18 = new Vec3D(var4 + var10, var6 + var12, var8 + var14);
-      MovingObjectPosition var19 = var16.a(var17, var18, false, true, false);
+      MovingObjectPosition var19 = var16.rayTrace(var17, var18, false, true, false);
       if(var1) {
          if(var19 != null) {
             var18 = new Vec3D(var19.c.x, var19.c.y, var19.c.z);

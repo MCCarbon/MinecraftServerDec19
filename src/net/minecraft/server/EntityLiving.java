@@ -1662,11 +1662,11 @@ public abstract class EntityLiving extends Entity {
 
 	protected void a(ItemStack var1, int var2) {
 		if (var1 != null && this.bS()) {
-			if (var1.m() == class_abz.DRINK) {
+			if (var1.m() == EnumAnimation.DRINK) {
 				this.a("random.drink", 0.5F, this.o.random.nextFloat() * 0.1F + 0.9F);
 			}
 
-			if (var1.m() == class_abz.EAT) {
+			if (var1.m() == EnumAnimation.EAT) {
 				for (int var3 = 0; var3 < var2; ++var3) {
 					Vec3D var4 = new Vec3D(((double) this.random.nextFloat() - 0.5D) * 0.1D, Math.random() * 0.1D + 0.1D, 0.0D);
 					var4 = var4.rotatePitch(-this.z * 3.1415927F / 180.0F);
@@ -1729,7 +1729,7 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	public boolean ca() {
-		return this.bS() && this.bl != null && this.bl.getItem().f(this.bl) == class_abz.BLOCK;
+		return this.bS() && this.bl != null && this.bl.getItem().getAnimation(this.bl) == EnumAnimation.BLOCK;
 	}
 
 	static {

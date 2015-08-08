@@ -32,9 +32,9 @@ public class ItemFish extends ItemFood {
       super.a(var1, var2, var3);
    }
 
-   public String e_(ItemStack var1) {
+   public String getName(ItemStack var1) {
       ItemFish.class_a_in_class_aak var2 = ItemFish.class_a_in_class_aak.a(var1);
-      return this.registerItemKey() + "." + var2.b() + "." + (this.b && var2.g()?"cooked":"raw");
+      return this.getName() + "." + var2.b() + "." + (this.b && var2.g()?"cooked":"raw");
    }
 
    public static enum class_a_in_class_aak {

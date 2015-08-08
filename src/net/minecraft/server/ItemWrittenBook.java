@@ -32,14 +32,14 @@ public class ItemWrittenBook extends Item {
       return super.getLocalizedName(var1);
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(!var2.isClientSide) {
          this.a(var1, var3);
       }
 
       var3.a(var1);
       var3.b(StatisticList.ad[Item.getId((Item)this)]);
-      return new class_or(UseResult.SUCCESS, var1);
+      return new UseResultWithValue(UseResult.SUCCESS, var1);
    }
 
    private void a(ItemStack var1, EntityHuman var2) {

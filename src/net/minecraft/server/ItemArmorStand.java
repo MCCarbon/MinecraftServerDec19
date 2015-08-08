@@ -5,10 +5,10 @@ import java.util.Random;
 
 public class ItemArmorStand extends Item {
    public ItemArmorStand() {
-      this.registerItemKey(CreativeTab.DECORATIONS);
+      this.setCreativeTab(CreativeTab.DECORATIONS);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return UseResult.CANT_USE;
       } else {

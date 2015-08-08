@@ -4,17 +4,17 @@ public class ItemDye extends Item {
    public static final int[] a = new int[]{1973019, 11743532, 3887386, 5320730, 2437522, 8073150, 2651799, 11250603, 4408131, 14188952, 4312372, 14602026, 6719955, 12801229, 15435844, 15790320};
 
    public ItemDye() {
-      this.registerItemKey(true);
-      this.e(0);
-      this.registerItemKey(CreativeTab.MATERIALS);
+      this.setUsesData(true);
+      this.setMaxDurability(0);
+      this.setCreativeTab(CreativeTab.MATERIALS);
    }
 
-   public String e_(ItemStack var1) {
+   public String getName(ItemStack var1) {
       int var2 = var1.i();
-      return super.registerItemKey() + "." + EnumColor.a(var2).d();
+      return super.getName() + "." + EnumColor.a(var2).d();
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(!var2.a(var4.shift(var6), var6, var1)) {
          return UseResult.CANT_USE;
       } else {
@@ -76,7 +76,7 @@ public class ItemDye extends Item {
       return false;
    }
 
-   public boolean registerItemKey(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
+   public boolean canUseOn(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
       if(var3 instanceof EntitySheep) {
          EntitySheep var5 = (EntitySheep)var3;
          EnumColor var6 = EnumColor.a(var1.i());

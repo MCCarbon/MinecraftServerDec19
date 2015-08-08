@@ -10,12 +10,12 @@ public class ItemPickaxe extends class_zv {
       super(2.0F, var1, c);
    }
 
-   public boolean b(Block var1) {
-      return var1 == Blocks.OBSIDIAN?this.b.d() == 3:(var1 != Blocks.DIAMOND_BLOCK && var1 != Blocks.DIAMOND_ORE?(var1 != Blocks.EMERALD_ORE && var1 != Blocks.EMERALD_BLOCK?(var1 != Blocks.GOLD_BLOCK && var1 != Blocks.GOLD_ORE?(var1 != Blocks.IRON_BLOCK && var1 != Blocks.IRON_ORE?(var1 != Blocks.LAPIS_BLOCK && var1 != Blocks.LAPIS_ORE?(var1 != Blocks.REDSTONE_ORE && var1 != Blocks.LIT_REDSTONE_ORE?(var1.getMaterial() == Material.STONE?true:(var1.getMaterial() == Material.ORE?true:var1.getMaterial() == Material.HEAVY)):this.b.d() >= 2):this.b.d() >= 1):this.b.d() >= 1):this.b.d() >= 2):this.b.d() >= 2):this.b.d() >= 2);
+   public boolean canDestroySpecialBlock(Block var1) {
+      return var1 == Blocks.OBSIDIAN?this.b.getHarvestLevel() == 3:(var1 != Blocks.DIAMOND_BLOCK && var1 != Blocks.DIAMOND_ORE?(var1 != Blocks.EMERALD_ORE && var1 != Blocks.EMERALD_BLOCK?(var1 != Blocks.GOLD_BLOCK && var1 != Blocks.GOLD_ORE?(var1 != Blocks.IRON_BLOCK && var1 != Blocks.IRON_ORE?(var1 != Blocks.LAPIS_BLOCK && var1 != Blocks.LAPIS_ORE?(var1 != Blocks.REDSTONE_ORE && var1 != Blocks.LIT_REDSTONE_ORE?(var1.getMaterial() == Material.STONE?true:(var1.getMaterial() == Material.ORE?true:var1.getMaterial() == Material.HEAVY)):this.b.getHarvestLevel() >= 2):this.b.getHarvestLevel() >= 1):this.b.getHarvestLevel() >= 1):this.b.getHarvestLevel() >= 2):this.b.getHarvestLevel() >= 2):this.b.getHarvestLevel() >= 2);
    }
 
-   public float registerItemKey(ItemStack var1, Block var2) {
-      return var2.getMaterial() != Material.ORE && var2.getMaterial() != Material.HEAVY && var2.getMaterial() != Material.STONE?super.registerItemKey(var1, var2):this.a;
+   public float getDestroySpeed(ItemStack var1, Block var2) {
+      return var2.getMaterial() != Material.ORE && var2.getMaterial() != Material.HEAVY && var2.getMaterial() != Material.STONE?super.getDestroySpeed(var1, var2):this.a;
    }
 
    static {

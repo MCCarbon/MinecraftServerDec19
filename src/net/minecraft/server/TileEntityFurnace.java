@@ -162,7 +162,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 						if (h[1] != null) {
 							--h[1].count;
 							if (h[1].count == 0) {
-								Item var3 = h[1].getItem().q();
+								Item var3 = h[1].getItem().getCraftingResult();
 								h[1] = var3 != null ? new ItemStack(var3) : null;
 							}
 						}

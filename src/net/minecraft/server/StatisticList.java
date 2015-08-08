@@ -157,7 +157,7 @@ public class StatisticList {
          if(var1 != null) {
             int var2 = Item.getId(var1);
             String var3 = a(var1);
-            if(var3 != null && var1.m()) {
+            if(var3 != null && var1.usesDurability()) {
                ae[var2] = (new class_mw("stat.breakItem.", var3, new ChatMessage("stat.breakItem", new Object[]{(new ItemStack(var1)).B()}), var1)).h();
             }
          }

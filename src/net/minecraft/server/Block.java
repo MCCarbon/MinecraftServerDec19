@@ -589,7 +589,7 @@ public class Block {
 	protected ItemStack createItemStack(IBlockData blockdata) {
 		int data = 0;
 		Item item = Item.getItemOf(this);
-		if ((item != null) && item.k()) {
+		if ((item != null) && item.usesData()) {
 			data = toLegacyData(blockdata);
 		}
 		return new ItemStack(item, 1, data);

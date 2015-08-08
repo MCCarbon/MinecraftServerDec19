@@ -9,19 +9,19 @@ public class ItemStep extends ItemBlock {
 		super(var1);
 		this.b = var2;
 		this.c = var3;
-		this.e(0);
-		this.registerItemKey(true);
+		this.setMaxDurability(0);
+		this.setUsesData(true);
 	}
 
-	public int registerItemKey(int var1) {
+	public int filterData(int var1) {
 		return var1;
 	}
 
-	public String e_(ItemStack var1) {
+	public String getName(ItemStack var1) {
 		return this.b.b(var1.i());
 	}
 
-	public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+	public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
 		if (var1.count == 0) {
 			return UseResult.CANT_USE;
 		} else if (!var2.a(var4.shift(var6), var6, var1)) {
@@ -44,7 +44,7 @@ public class ItemStep extends ItemBlock {
 				}
 			}
 
-			return this.a(var1, var3, var4.shift(var6), var10) ? UseResult.SUCCESS : super.registerItemKey(var1, var2, var3, var4, var5, var6, var7, var8, var9);
+			return this.a(var1, var3, var4.shift(var6), var10) ? UseResult.SUCCESS : super.interactWith(var1, var2, var3, var4, var5, var6, var7, var8, var9);
 		}
 	}
 

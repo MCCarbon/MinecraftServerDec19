@@ -111,8 +111,8 @@ public class TileEntityBrewingStand extends TileEntityContainer implements ITick
 			g[var2] = class_ace.d(var1, g[var2]);
 		}
 
-		if (var1.getItem().r()) {
-			g[3] = new ItemStack(var1.getItem().q());
+		if (var1.getItem().hasCraftingResult()) {
+			g[3] = new ItemStack(var1.getItem().getCraftingResult());
 		} else {
 			--g[3].count;
 			if (g[3].count <= 0) {

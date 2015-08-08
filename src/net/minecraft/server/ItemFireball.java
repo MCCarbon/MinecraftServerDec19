@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public class ItemFireball extends Item {
    public ItemFireball() {
-      this.registerItemKey(CreativeTab.MISC);
+      this.setCreativeTab(CreativeTab.MISC);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var3.isClientSide) {
          return UseResult.SUCCESS;
       } else {

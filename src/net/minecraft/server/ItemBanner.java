@@ -3,13 +3,13 @@ package net.minecraft.server;
 public class ItemBanner extends ItemBlock {
    public ItemBanner() {
       super(Blocks.STANDING_BANNER);
-      this.h = 16;
-      this.registerItemKey(CreativeTab.DECORATIONS);
-      this.registerItemKey(true);
-      this.e(0);
+      this.maxStackSize = 16;
+      this.setCreativeTab(CreativeTab.DECORATIONS);
+      this.setUsesData(true);
+      this.setMaxDurability(0);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return UseResult.CANT_USE;
       } else if(!var3.getType(var4).getBlock().getMaterial().isBuildable()) {

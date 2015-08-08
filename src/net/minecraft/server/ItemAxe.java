@@ -10,8 +10,8 @@ public class ItemAxe extends class_zv {
       super(3.0F, var1, c);
    }
 
-   public float registerItemKey(ItemStack var1, Block var2) {
-      return var2.getMaterial() != Material.WOOD && var2.getMaterial() != Material.PLANT && var2.getMaterial() != Material.REPLACEABLE_PLANT?super.registerItemKey(var1, var2):this.a;
+   public float getDestroySpeed(ItemStack var1, Block var2) {
+      return var2.getMaterial() != Material.WOOD && var2.getMaterial() != Material.PLANT && var2.getMaterial() != Material.REPLACEABLE_PLANT?super.getDestroySpeed(var1, var2):this.a;
    }
 
    static {

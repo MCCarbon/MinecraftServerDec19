@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public class ItemSnowball extends Item {
    public ItemSnowball() {
-      this.h = 16;
-      this.registerItemKey(CreativeTab.MISC);
+      this.maxStackSize = 16;
+      this.setCreativeTab(CreativeTab.MISC);
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(!var3.abilities.instabuild) {
          --var1.count;
       }
@@ -19,6 +19,6 @@ public class ItemSnowball extends Item {
       }
 
       var3.b(StatisticList.ad[Item.getId((Item)this)]);
-      return new class_or(UseResult.SUCCESS, var1);
+      return new UseResultWithValue(UseResult.SUCCESS, var1);
    }
 }

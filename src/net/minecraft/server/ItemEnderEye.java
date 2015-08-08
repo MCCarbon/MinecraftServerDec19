@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public class ItemEnderEye extends Item {
    public ItemEnderEye() {
-      this.registerItemKey(CreativeTab.MISC);
+      this.setCreativeTab(CreativeTab.MISC);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       IBlockData var10 = var3.getType(var4);
       if(var2.a(var4.shift(var6), var6, var1) && var10.getBlock() == Blocks.END_PORTAL_FRAME && !((Boolean)var10.get(BlockEnderPortalFrame.b)).booleanValue()) {
          if(var3.isClientSide) {
@@ -96,10 +96,10 @@ public class ItemEnderEye extends Item {
       }
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
-      MovingObjectPosition var5 = this.registerItemKey(var2, var3, false);
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+      MovingObjectPosition var5 = this.getMovingObjectPositionFromPlayer(var2, var3, false);
       if(var5 != null && var5.a == MovingObjectPosition.class_a_in_class_awg.b && var2.getType(var5.a()).getBlock() == Blocks.END_PORTAL_FRAME) {
-         return new class_or(UseResult.SUCCESS, var1);
+         return new UseResultWithValue(UseResult.SUCCESS, var1);
       } else {
          if(!var2.isClientSide) {
             BlockPosition var6 = var2.a("Stronghold", new BlockPosition(var3));
@@ -114,11 +114,11 @@ public class ItemEnderEye extends Item {
                }
 
                var3.b(StatisticList.ad[Item.getId((Item)this)]);
-               return new class_or(UseResult.SUCCESS, var1);
+               return new UseResultWithValue(UseResult.SUCCESS, var1);
             }
          }
 
-         return new class_or(UseResult.CANT_USE, var1);
+         return new UseResultWithValue(UseResult.CANT_USE, var1);
       }
    }
 }

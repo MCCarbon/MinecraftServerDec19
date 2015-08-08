@@ -9,8 +9,8 @@ import java.util.List;
 public class ItemPotion extends Item {
    public ItemPotion() {
       this.d(1);
-      this.registerItemKey(true);
-      this.registerItemKey((CreativeTab) CreativeTab.BREWING);
+      this.setUsesData(true);
+      this.setCreativeTab((CreativeTab) CreativeTab.BREWING);
    }
 
    public static List h(ItemStack var0) {
@@ -31,7 +31,7 @@ public class ItemPotion extends Item {
       return var1;
    }
 
-   public ItemStack registerItemKey(ItemStack var1, World var2, EntityLiving var3) {
+   public ItemStack onUseFinish(ItemStack var1, World var2, EntityLiving var3) {
       EntityHuman var4 = var3 instanceof EntityHuman?(EntityHuman)var3:null;
       if(var4 == null || !var4.abilities.instabuild) {
          --var1.count;
@@ -64,17 +64,17 @@ public class ItemPotion extends Item {
       return var1;
    }
 
-   public int e(ItemStack var1) {
+   public int getUseDuration(ItemStack var1) {
       return 32;
    }
 
-   public class_abz f(ItemStack var1) {
-      return class_abz.DRINK;
+   public EnumAnimation getAnimation(ItemStack var1) {
+      return EnumAnimation.DRINK;
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       var3.c(var4);
-      return new class_or(UseResult.SUCCESS, var1);
+      return new UseResultWithValue(UseResult.SUCCESS, var1);
    }
 
    public static int a(Collection var0) {
@@ -126,7 +126,7 @@ public class ItemPotion extends Item {
    }
 
    public static ItemStack a(ItemStack var0, class_acd var1) {
-      MinecraftKey var2 = (MinecraftKey)class_acd.a.getKey(var1);
+      MinecraftKey var2 = (MinecraftKey)class_acd.REGISTRY.getKey(var1);
       if(var2 != null) {
          NBTTagCompound var3 = var0.hasTag()?var0.getTag():new NBTTagCompound();
          var3.put("Potion", var2.toString());

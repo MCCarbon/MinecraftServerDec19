@@ -522,14 +522,14 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public MovingObjectPosition a(Vec3D var1, Vec3D var2) {
-		return this.a(var1, var2, false, false, false);
+		return this.rayTrace(var1, var2, false, false, false);
 	}
 
 	public MovingObjectPosition a(Vec3D var1, Vec3D var2, boolean var3) {
-		return this.a(var1, var2, var3, false, false);
+		return this.rayTrace(var1, var2, var3, false, false);
 	}
 
-	public MovingObjectPosition a(Vec3D var1, Vec3D var2, boolean var3, boolean var4, boolean var5) {
+	public MovingObjectPosition rayTrace(Vec3D var1, Vec3D var2, boolean var3, boolean var4, boolean var5) {
 		if (!Double.isNaN(var1.x) && !Double.isNaN(var1.y) && !Double.isNaN(var1.z)) {
 			if (!Double.isNaN(var2.x) && !Double.isNaN(var2.y) && !Double.isNaN(var2.z)) {
 				int var6 = MathHelper.floor(var2.x);

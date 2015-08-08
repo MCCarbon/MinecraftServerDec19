@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 public class ItemEnderPearl extends Item {
    public ItemEnderPearl() {
-      this.h = 16;
-      this.registerItemKey(CreativeTab.MISC);
+      this.maxStackSize = 16;
+      this.setCreativeTab(CreativeTab.MISC);
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       --var1.count;
       var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));
       if(!var2.isClientSide) {
@@ -16,6 +16,6 @@ public class ItemEnderPearl extends Item {
       }
 
       var3.b(StatisticList.ad[Item.getId((Item)this)]);
-      return new class_or(UseResult.SUCCESS, var1);
+      return new UseResultWithValue(UseResult.SUCCESS, var1);
    }
 }

@@ -5,10 +5,10 @@ public class ItemDoor extends Item {
 
    public ItemDoor(Block var1) {
       this.a = var1;
-      this.registerItemKey(CreativeTab.REDSTONE);
+      this.setCreativeTab(CreativeTab.REDSTONE);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 != EnumDirection.UP) {
          return UseResult.CANT_USE;
       } else {

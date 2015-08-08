@@ -1,22 +1,25 @@
 package net.minecraft.server;
 
 public class ItemChorusFruit extends ItemFood {
-   public ItemChorusFruit(int var1, float var2) {
-      super(var1, var2, false);
-   }
 
-   public ItemStack registerItemKey(ItemStack var1, World var2, EntityLiving var3) {
-      ItemStack var4 = super.registerItemKey(var1, var2, var3);
+	public ItemChorusFruit(int var1, float var2) {
+		super(var1, var2, false);
+	}
 
-      for(int var5 = 0; var5 < 16; ++var5) {
-         double var6 = var3.s + (var3.bd().nextDouble() - 0.5D) * 64.0D;
-         double var8 = var3.t + (double)(var3.bd().nextInt(64) - 32);
-         double var10 = var3.u + (var3.bd().nextDouble() - 0.5D) * 64.0D;
-         if(EntityEnderman.a(var3, var6, var8, var10)) {
-            break;
-         }
-      }
+	@Override
+	public ItemStack onUseFinish(ItemStack itemstack, World world, EntityLiving player) {
+		ItemStack var4 = super.onUseFinish(itemstack, world, player);
 
-      return var4;
-   }
+		for (int var5 = 0; var5 < 16; ++var5) {
+			double var6 = player.s + ((player.bd().nextDouble() - 0.5D) * 64.0D);
+			double var8 = player.t + (player.bd().nextInt(64) - 32);
+			double var10 = player.u + ((player.bd().nextDouble() - 0.5D) * 64.0D);
+			if (EntityEnderman.a(player, var6, var8, var10)) {
+				break;
+			}
+		}
+
+		return var4;
+	}
+
 }

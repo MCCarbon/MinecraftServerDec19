@@ -226,7 +226,7 @@ public class EnchantmentManager {
 
    public static int a(Random var0, int var1, int var2, ItemStack var3) {
       Item var4 = var3.getItem();
-      int var5 = var4.c();
+      int var5 = var4.getItemEnchantability();
       if(var5 <= 0) {
          return 0;
       } else {
@@ -264,7 +264,7 @@ public class EnchantmentManager {
    public static List<class_adl> b(Random random, ItemStack aas, int n) {
        ArrayList arrayList = Lists.newArrayList();
        Item aar = aas.getItem();
-       int n2 = aar.c();
+       int n2 = aar.getItemEnchantability();
        if (n2 <= 0) {
            return arrayList;
        }

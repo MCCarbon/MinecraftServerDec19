@@ -7,12 +7,12 @@ public class ItemSkull extends Item {
    private static final String[] a = new String[]{"skeleton", "wither", "zombie", "char", "creeper", "dragon"};
 
    public ItemSkull() {
-      this.registerItemKey((CreativeTab) CreativeTab.DECORATIONS);
-      this.e(0);
-      this.registerItemKey(true);
+      this.setCreativeTab((CreativeTab) CreativeTab.DECORATIONS);
+      this.setMaxDurability(0);
+      this.setUsesData(true);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var6 == EnumDirection.DOWN) {
          return UseResult.CANT_USE;
       } else {
@@ -70,17 +70,17 @@ public class ItemSkull extends Item {
       }
    }
 
-   public int registerItemKey(int var1) {
+   public int filterData(int var1) {
       return var1;
    }
 
-   public String e_(ItemStack var1) {
+   public String getName(ItemStack var1) {
       int var2 = var1.i();
       if(var2 < 0 || var2 >= a.length) {
          var2 = 0;
       }
 
-      return super.registerItemKey() + "." + a[var2];
+      return super.getName() + "." + a[var2];
    }
 
    public String getLocalizedName(ItemStack var1) {
@@ -100,8 +100,8 @@ public class ItemSkull extends Item {
       return super.getLocalizedName(var1);
    }
 
-   public boolean registerItemKey(NBTTagCompound var1) {
-      super.registerItemKey(var1);
+   public boolean updateNBT(NBTTagCompound var1) {
+      super.updateNBT(var1);
       if(var1.hasOfType("SkullOwner", 8) && !var1.getString("SkullOwner").isEmpty()) {
          GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
          var2 = TileEntitySkull.b(var2);

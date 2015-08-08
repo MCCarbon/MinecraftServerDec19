@@ -16,7 +16,7 @@ public enum class_adj {
    public boolean a(Item var1) {
       if(this == a) {
          return true;
-      } else if(this == j && var1.m()) {
+      } else if(this == j && var1.usesDurability()) {
          return true;
       } else if(var1 instanceof ItemArmor) {
          if(this == b) {

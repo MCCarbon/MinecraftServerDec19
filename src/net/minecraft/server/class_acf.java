@@ -42,7 +42,7 @@ public class class_acf {
    public static class_acd I;
 
    private static class_acd a(String var0) {
-      class_acd var1 = (class_acd)class_acd.a.get(new MinecraftKey(var0));
+      class_acd var1 = (class_acd)class_acd.REGISTRY.get(new MinecraftKey(var0));
       if(var1 == null) {
          throw new IllegalStateException("Invalid Potion requested: " + var0);
       } else {

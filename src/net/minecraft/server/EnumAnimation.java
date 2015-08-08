@@ -1,5 +1,5 @@
 package net.minecraft.server;
 
-public enum class_abz {
+public enum EnumAnimation {
 	NONE, EAT, DRINK, BLOCK, BOW;
 }

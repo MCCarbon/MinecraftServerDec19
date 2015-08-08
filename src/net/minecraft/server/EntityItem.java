@@ -129,7 +129,7 @@ public class EntityItem extends Entity {
 						return false;
 					} else if (var3.getItem() == null) {
 						return false;
-					} else if (var3.getItem().k() && var3.i() != var2.i()) {
+					} else if (var3.getItem().usesData() && var3.i() != var2.i()) {
 						return false;
 					} else if (var3.count < var2.count) {
 						return var1.a(this);

@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 public class ItemNameTage extends Item {
    public ItemNameTage() {
-      this.registerItemKey(CreativeTab.TOOLS);
+      this.setCreativeTab(CreativeTab.TOOLS);
    }
 
-   public boolean registerItemKey(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
+   public boolean canUseOn(ItemStack var1, EntityHuman var2, EntityLiving var3, EnumUsedHand var4) {
       if(!var1.hasDisplayName()) {
          return false;
       } else if(var3 instanceof EntityInsentient) {
@@ -15,7 +15,7 @@ public class ItemNameTage extends Item {
          --var1.count;
          return true;
       } else {
-         return super.registerItemKey(var1, var2, var3, var4);
+         return super.canUseOn(var1, var2, var3, var4);
       }
    }
 }

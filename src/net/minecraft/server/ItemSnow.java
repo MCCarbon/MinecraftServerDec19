@@ -3,11 +3,11 @@ package net.minecraft.server;
 public class ItemSnow extends ItemBlock {
    public ItemSnow(Block var1) {
       super(var1);
-      this.e(0);
-      this.registerItemKey(true);
+      this.setMaxDurability(0);
+      this.setUsesData(true);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var1.count == 0) {
          return UseResult.CANT_USE;
       } else if(!var2.a(var4, var6, var1)) {
@@ -35,11 +35,11 @@ public class ItemSnow extends ItemBlock {
             }
          }
 
-         return super.registerItemKey(var1, var2, var3, var12, var5, var6, var7, var8, var9);
+         return super.interactWith(var1, var2, var3, var12, var5, var6, var7, var8, var9);
       }
    }
 
-   public int registerItemKey(int var1) {
+   public int filterData(int var1) {
       return var1;
    }
 }

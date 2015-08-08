@@ -10,11 +10,11 @@ public class ItemSpade extends class_zv {
       super(1.0F, var1, c);
    }
 
-   public boolean b(Block var1) {
+   public boolean canDestroySpecialBlock(Block var1) {
       return var1 == Blocks.SNOW_LAYER?true:var1 == Blocks.SNOW;
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(!var2.a(var4.shift(var6), var6, var1)) {
          return UseResult.CANT_USE;
       } else {

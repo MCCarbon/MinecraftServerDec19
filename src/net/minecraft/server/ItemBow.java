@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 public class ItemBow extends Item {
    public ItemBow() {
-      this.h = 1;
-      this.e(384);
-      this.registerItemKey(CreativeTab.COMBAT);
-      this.registerItemKey(new MinecraftKey("pull"), new class_aat() {
+      this.maxStackSize = 1;
+      this.setMaxDurability(384);
+      this.setCreativeTab(CreativeTab.COMBAT);
+      this.registerItemState(new MinecraftKey("pull"), new ItemState() {
       });
-      this.registerItemKey(new MinecraftKey("pulling"), new class_aat() {
+      this.registerItemState(new MinecraftKey("pulling"), new ItemState() {
       });
    }
 
@@ -30,7 +30,7 @@ public class ItemBow extends Item {
       return var1 != null && var1.getItem() instanceof ItemArrow;
    }
 
-   public void registerItemKey(ItemStack var1, World var2, EntityLiving var3, int var4) {
+   public void onStopUse(ItemStack var1, World var2, EntityLiving var3, int var4) {
       if(var3 instanceof EntityHuman) {
          EntityHuman var5 = (EntityHuman)var3;
          boolean var6 = var5.abilities.instabuild || EnchantmentManager.getLevel(Enchantment.w, var1) > 0;
@@ -42,10 +42,10 @@ public class ItemBow extends Item {
             }
 
             ItemArrow var9 = (ItemArrow)((ItemArrow)(var8.getItem() instanceof ItemArrow ?var8.getItem():Items.ARROW));
-            int var10 = this.e(var1) - var4;
+            int var10 = this.getUseDuration(var1) - var4;
             float var11 = b(var10);
             if((double)var11 >= 0.1D) {
-               EntityArrow var12 = var9.a(var2, var8, var5);
+               EntityArrow var12 = var9.createArrowEntity(var2, var8, var5);
                var12.a(var5.z, var5.y, 0.0F, var11 * 3.0F, 1.0F);
                if(var11 == 1.0F) {
                   var12.a(true);
@@ -93,24 +93,24 @@ public class ItemBow extends Item {
       return var1;
    }
 
-   public int e(ItemStack var1) {
+   public int getUseDuration(ItemStack var1) {
       return 72000;
    }
 
-   public class_abz f(ItemStack var1) {
-      return class_abz.BOW;
+   public EnumAnimation getAnimation(ItemStack var1) {
+      return EnumAnimation.BOW;
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if((var3.abilities.instabuild || this.a(var3.inventory) > -1) && var4 == EnumUsedHand.MAIN_HAND) {
          var3.c(var4);
-         return new class_or(UseResult.SUCCESS, var1);
+         return new UseResultWithValue(UseResult.SUCCESS, var1);
       } else {
-         return new class_or(UseResult.CANT_USE, var1);
+         return new UseResultWithValue(UseResult.CANT_USE, var1);
       }
    }
 
-   public int c() {
+   public int getItemEnchantability() {
       return 1;
    }
 }

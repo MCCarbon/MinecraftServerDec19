@@ -5,10 +5,10 @@ import java.util.List;
 
 public class ItemLeash extends Item {
    public ItemLeash() {
-      this.registerItemKey(CreativeTab.TOOLS);
+      this.setCreativeTab(CreativeTab.TOOLS);
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       Block var10 = var3.getType(var4).getBlock();
       if(var10 instanceof BlockFence) {
          if(var3.isClientSide) {

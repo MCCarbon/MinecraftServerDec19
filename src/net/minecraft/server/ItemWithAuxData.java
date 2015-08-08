@@ -8,13 +8,13 @@ public class ItemWithAuxData extends ItemBlock {
       super(var1);
       this.b = var1;
       if(var2) {
-         this.e(0);
-         this.registerItemKey(true);
+         this.setMaxDurability(0);
+         this.setUsesData(true);
       }
 
    }
 
-   public int registerItemKey(int var1) {
+   public int filterData(int var1) {
       return var1;
    }
 
@@ -23,12 +23,12 @@ public class ItemWithAuxData extends ItemBlock {
       return this;
    }
 
-   public String e_(ItemStack var1) {
+   public String getName(ItemStack var1) {
       if(this.c == null) {
-         return super.e_(var1);
+         return super.getName(var1);
       } else {
          int var2 = var1.i();
-         return var2 >= 0 && var2 < this.c.length?super.e_(var1) + "." + this.c[var2]:super.e_(var1);
+         return var2 >= 0 && var2 < this.c.length?super.getName(var1) + "." + this.c[var2]:super.getName(var1);
       }
    }
 }

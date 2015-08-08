@@ -2,12 +2,12 @@ package net.minecraft.server;
 
 public class ItemMonsterEgg extends Item {
    public ItemMonsterEgg() {
-      this.registerItemKey(true);
-      this.registerItemKey(CreativeTab.MISC);
+      this.setUsesData(true);
+      this.setCreativeTab(CreativeTab.MISC);
    }
 
    public String getLocalizedName(ItemStack var1) {
-      String var2 = ("" + LocaleI18n.get(this.registerItemKey() + ".name")).trim();
+      String var2 = ("" + LocaleI18n.get(this.getName() + ".name")).trim();
       String var3 = EntityTypes.b(var1.i());
       if(var3 != null) {
          var2 = var2 + " " + LocaleI18n.get("entity." + var3 + ".name");
@@ -16,7 +16,7 @@ public class ItemMonsterEgg extends Item {
       return var2;
    }
 
-   public UseResult registerItemKey(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
+   public UseResult interactWith(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, EnumUsedHand var5, EnumDirection var6, float var7, float var8, float var9) {
       if(var3.isClientSide) {
          return UseResult.SUCCESS;
       } else if(!var2.a(var4.shift(var6), var6, var1)) {
@@ -59,22 +59,22 @@ public class ItemMonsterEgg extends Item {
       }
    }
 
-   public class_or registerItemKey(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
+   public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       if(var2.isClientSide) {
-         return new class_or(UseResult.CANT_USE, var1);
+         return new UseResultWithValue(UseResult.CANT_USE, var1);
       } else {
-         MovingObjectPosition var5 = this.registerItemKey(var2, var3, true);
+         MovingObjectPosition var5 = this.getMovingObjectPositionFromPlayer(var2, var3, true);
          if(var5 == null) {
-            return new class_or(UseResult.CANT_USE, var1);
+            return new UseResultWithValue(UseResult.CANT_USE, var1);
          } else {
             if(var5.a == MovingObjectPosition.class_a_in_class_awg.b) {
                BlockPosition var6 = var5.a();
                if(!var2.a(var3, var6)) {
-                  return new class_or(UseResult.CANT_USE, var1);
+                  return new UseResultWithValue(UseResult.CANT_USE, var1);
                }
 
                if(!var3.a(var6, var5.b, var1)) {
-                  return new class_or(UseResult.CANT_USE, var1);
+                  return new UseResultWithValue(UseResult.CANT_USE, var1);
                }
 
                if(var2.getType(var6).getBlock() instanceof BlockFluids) {
@@ -89,12 +89,12 @@ public class ItemMonsterEgg extends Item {
                      }
 
                      var3.b(StatisticList.ad[Item.getId((Item)this)]);
-                     return new class_or(UseResult.SUCCESS, var1);
+                     return new UseResultWithValue(UseResult.SUCCESS, var1);
                   }
                }
             }
 
-            return new class_or(UseResult.CANT_USE, var1);
+            return new UseResultWithValue(UseResult.CANT_USE, var1);
          }
       }
    }
