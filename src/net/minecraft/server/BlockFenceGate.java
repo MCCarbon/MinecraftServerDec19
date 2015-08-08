@@ -92,7 +92,7 @@ public class BlockFenceGate extends BlockDirectional {
          var3 = var3.set(a, Boolean.valueOf(false));
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 2);
       } else {
-         EnumDirection var11 = EnumDirection.fromAngle((double)var4.y);
+         EnumDirection var11 = EnumDirection.fromAngle((double)var4.yaw);
          if(var3.get(FACING) == var11.opposite()) {
             var3 = var3.set(FACING, var11);
          }

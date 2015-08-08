@@ -92,7 +92,7 @@ public class class_asv {
       BlockPosition var9;
       for(Iterator var5 = var4.iterator(); var5.hasNext(); this.b.add(new class_asv.class_b_in_class_asv(var7, var9, var8, null))) {
          Entity var6 = (Entity)var5.next();
-         var7 = new Vec3D(var6.s - (double)var2.getX(), var6.t - (double)var2.getY(), var6.u - (double)var2.getZ());
+         var7 = new Vec3D(var6.locX - (double)var2.getX(), var6.locY - (double)var2.getY(), var6.locZ - (double)var2.getZ());
          var8 = new NBTTagCompound();
          var6.d(var8);
          if(var6 instanceof EntityPainting) {
@@ -263,11 +263,11 @@ public class class_asv {
                var14.a(var3);
                var14.a(var4);
                var14.b((double)var8.getX(), (double)var8.getY(), (double)var8.getZ());
-               var14.b(var11.x, var11.y, var11.z, var14.y, var14.z);
+               var14.b(var11.x, var11.y, var11.z, var14.yaw, var14.pitch);
             } else {
                float var15 = var14.a(var3);
-               var15 += var14.y - var14.a(var4);
-               var14.b(var11.x, var11.y, var11.z, var15, var14.z);
+               var15 += var14.yaw - var14.a(var4);
+               var14.b(var11.x, var11.y, var11.z, var15, var14.pitch);
             }
 
             var1.addEntity(var14);

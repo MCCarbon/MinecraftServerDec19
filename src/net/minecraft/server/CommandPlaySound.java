@@ -71,14 +71,14 @@ public class CommandPlaySound extends CommandAbstract {
                throw new class_bz("commands.playsound.playerTooFar", new Object[]{var5.getName()});
             }
 
-            double var23 = var7 - var5.s;
-            double var25 = var9 - var5.t;
-            double var27 = var11 - var5.u;
+            double var23 = var7 - var5.locX;
+            double var25 = var9 - var5.locY;
+            double var27 = var11 - var5.locZ;
             double var29 = Math.sqrt(var23 * var23 + var25 * var25 + var27 * var27);
             if(var29 > 0.0D) {
-               var7 = var5.s + var23 / var29 * 2.0D;
-               var9 = var5.t + var25 / var29 * 2.0D;
-               var11 = var5.u + var27 / var29 * 2.0D;
+               var7 = var5.locX + var23 / var29 * 2.0D;
+               var9 = var5.locY + var25 / var29 * 2.0D;
+               var11 = var5.locZ + var27 / var29 * 2.0D;
             }
 
             var13 = var17;

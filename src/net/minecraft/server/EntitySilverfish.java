@@ -68,12 +68,12 @@ public class EntitySilverfish extends EntityMonster {
    }
 
    public void t_() {
-      this.aL = this.y;
+      this.aL = this.yaw;
       super.t_();
    }
 
    public float a(BlockPosition var1) {
-      return this.o.getType(var1.down()).getBlock() == Blocks.STONE?10.0F:super.a(var1);
+      return this.world.getType(var1.down()).getBlock() == Blocks.STONE?10.0F:super.a(var1);
    }
 
    protected boolean n_() {
@@ -82,7 +82,7 @@ public class EntitySilverfish extends EntityMonster {
 
    public boolean cf() {
       if(super.cf()) {
-         EntityHuman var1 = this.o.a(this, 5.0D);
+         EntityHuman var1 = this.world.a(this, 5.0D);
          return var1 == null;
       } else {
          return false;
@@ -113,8 +113,8 @@ public class EntitySilverfish extends EntityMonster {
             Random var1 = this.a.bd();
             if(var1.nextInt(10) == 0) {
                this.b = EnumDirection.getRandom(var1);
-               BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
-               IBlockData var3 = this.a.o.getType(var2);
+               BlockPosition var2 = (new BlockPosition(this.a.locX, this.a.locY + 0.5D, this.a.locZ)).shift(this.b);
+               IBlockData var3 = this.a.world.getType(var2);
                if(BlockMonsterEggs.d(var3)) {
                   this.c = true;
                   return true;
@@ -134,8 +134,8 @@ public class EntitySilverfish extends EntityMonster {
          if(!this.c) {
             super.c();
          } else {
-            World var1 = this.a.o;
-            BlockPosition var2 = (new BlockPosition(this.a.s, this.a.t + 0.5D, this.a.u)).shift(this.b);
+            World var1 = this.a.world;
+            BlockPosition var2 = (new BlockPosition(this.a.locX, this.a.locY + 0.5D, this.a.locZ)).shift(this.b);
             IBlockData var3 = var1.getType(var2);
             if(BlockMonsterEggs.d(var3)) {
                var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(BlockMonsterEggs.a, BlockMonsterEggs.EnumMonsterEggVariant.a(var3)), 3);
@@ -169,7 +169,7 @@ public class EntitySilverfish extends EntityMonster {
       public void e() {
          --this.b;
          if(this.b <= 0) {
-            World var1 = this.a.o;
+            World var1 = this.a.world;
             Random var2 = this.a.bd();
             BlockPosition var3 = new BlockPosition(this.a);
 

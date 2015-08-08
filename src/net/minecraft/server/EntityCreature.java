@@ -23,7 +23,7 @@ public abstract class EntityCreature extends EntityInsentient {
 	}
 
 	public boolean cf() {
-		return super.cf() && this.a(new BlockPosition(this.s, this.aT().yMin, this.u)) >= 0.0F;
+		return super.cf() && this.a(new BlockPosition(this.locX, this.aT().yMin, this.locZ)) >= 0.0F;
 	}
 
 	public boolean cu() {
@@ -61,9 +61,9 @@ public abstract class EntityCreature extends EntityInsentient {
 
 	protected void co() {
 		super.co();
-		if (this.cq() && this.cr() != null && this.cr().o == this.o) {
+		if (this.cq() && this.cr() != null && this.cr().world == this.world) {
 			Entity var1 = this.cr();
-			this.a(new BlockPosition((int) var1.s, (int) var1.t, (int) var1.u), 5);
+			this.a(new BlockPosition((int) var1.locX, (int) var1.locY, (int) var1.locZ), 5);
 			float var2 = this.g(var1);
 			if (this instanceof EntityTameable && ((EntityTameable) this).cC()) {
 				if (var2 > 10.0F) {
@@ -88,12 +88,12 @@ public abstract class EntityCreature extends EntityInsentient {
 			}
 
 			if (var2 > 6.0F) {
-				double var3 = (var1.s - this.s) / (double) var2;
-				double var5 = (var1.t - this.t) / (double) var2;
-				double var7 = (var1.u - this.u) / (double) var2;
-				this.v += var3 * Math.abs(var3) * 0.4D;
+				double var3 = (var1.locX - this.locX) / (double) var2;
+				double var5 = (var1.locY - this.locY) / (double) var2;
+				double var7 = (var1.locZ - this.locZ) / (double) var2;
+				this.motX += var3 * Math.abs(var3) * 0.4D;
 				this.motY += var5 * Math.abs(var5) * 0.4D;
-				this.x += var7 * Math.abs(var7) * 0.4D;
+				this.motZ += var7 * Math.abs(var7) * 0.4D;
 			}
 
 			if (var2 > 10.0F) {

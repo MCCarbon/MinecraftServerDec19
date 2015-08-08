@@ -8,7 +8,7 @@ public class class_sa extends class_rm {
 
    public class_sa(EntityInsentient var1) {
       this.b = var1;
-      this.a = var1.o;
+      this.a = var1.world;
       this.a(3);
    }
 
@@ -33,8 +33,8 @@ public class class_sa extends class_rm {
 
    public void e() {
       this.b.q().a(this.c, 30.0F, 30.0F);
-      double var1 = (double)(this.b.J * 2.0F * this.b.J * 2.0F);
-      double var3 = this.b.e(this.c.s, this.c.aT().yMin, this.c.u);
+      double var1 = (double)(this.b.width * 2.0F * this.b.width * 2.0F);
+      double var3 = this.b.e(this.c.locX, this.c.aT().yMin, this.c.locZ);
       double var5 = 0.8D;
       if(var3 > var1 && var3 < 16.0D) {
          var5 = 1.33D;

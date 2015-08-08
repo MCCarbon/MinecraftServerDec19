@@ -30,7 +30,7 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
             double var1 = this.random.nextGaussian() * 0.02D;
             double var3 = this.random.nextGaussian() * 0.02D;
             double var5 = this.random.nextGaussian() * 0.02D;
-            this.o.a(class_cy.I, this.s + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, this.t + 0.5D + (double)(this.random.nextFloat() * this.K), this.u + (double)(this.random.nextFloat() * this.J * 2.0F) - (double)this.J, var1, var3, var5, new int[0]);
+            this.world.a(class_cy.I, this.locX + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, this.locY + 0.5D + (double)(this.random.nextFloat() * this.length), this.locZ + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, var1, var3, var5, new int[0]);
          }
       }
 
@@ -46,7 +46,7 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
    }
 
    public float a(BlockPosition var1) {
-      return this.o.getType(var1.down()).getBlock() == Blocks.GRASS?10.0F:this.o.o(var1) - 0.5F;
+      return this.world.getType(var1.down()).getBlock() == Blocks.GRASS?10.0F:this.world.o(var1) - 0.5F;
    }
 
    public void write(NBTTagCompound var1) {
@@ -60,11 +60,11 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
    }
 
    public boolean cf() {
-      int var1 = MathHelper.floor(this.s);
+      int var1 = MathHelper.floor(this.locX);
       int var2 = MathHelper.floor(this.aT().yMin);
-      int var3 = MathHelper.floor(this.u);
+      int var3 = MathHelper.floor(this.locZ);
       BlockPosition var4 = new BlockPosition(var1, var2, var3);
-      return this.o.getType(var4.down()).getBlock() == this.bv && this.o.k(var4) > 8 && super.cf();
+      return this.world.getType(var4.down()).getBlock() == this.bv && this.world.k(var4) > 8 && super.cf();
    }
 
    public int y() {
@@ -76,7 +76,7 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
    }
 
    protected int b(EntityHuman var1) {
-      return 1 + this.o.random.nextInt(3);
+      return 1 + this.world.random.nextInt(3);
    }
 
    public boolean d(ItemStack var1) {
@@ -111,7 +111,7 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
    public void a(EntityHuman var1) {
       this.bs = 600;
       this.bt = var1;
-      this.o.a((Entity)this, (byte)18);
+      this.world.a((Entity)this, (byte)18);
    }
 
    public EntityHuman cF() {

@@ -24,7 +24,7 @@ public class EntityEnderpearl extends class_xo {
 
       if(var1.a == MovingObjectPosition.class_a_in_class_awg.b) {
          BlockPosition var3 = var1.a();
-         TileEntity var4 = this.o.getTileEntity(var3);
+         TileEntity var4 = this.world.getTileEntity(var3);
          if(var4 instanceof TileEntityEndGateway) {
             TileEntityEndGateway var5 = (TileEntityEndGateway)var4;
             if(var2 != null) {
@@ -39,31 +39,31 @@ public class EntityEnderpearl extends class_xo {
       }
 
       for(int var6 = 0; var6 < 32; ++var6) {
-         this.o.a(class_cy.y, this.s, this.t + this.random.nextDouble() * 2.0D, this.u, this.random.nextGaussian(), 0.0D, this.random.nextGaussian(), new int[0]);
+         this.world.a(class_cy.y, this.locX, this.locY + this.random.nextDouble() * 2.0D, this.locZ, this.random.nextGaussian(), 0.0D, this.random.nextGaussian(), new int[0]);
       }
 
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          if(var2 instanceof EntityPlayer) {
             EntityPlayer var7 = (EntityPlayer)var2;
-            if(var7.playerConnection.a().isActive() && var7.o == this.o && !var7.isSleeping()) {
-               if(this.random.nextFloat() < 0.05F && this.o.R().getBooleanValue("doMobSpawning")) {
-                  EntityEndermite var8 = new EntityEndermite(this.o);
+            if(var7.playerConnection.a().isActive() && var7.world == this.world && !var7.isSleeping()) {
+               if(this.random.nextFloat() < 0.05F && this.world.R().getBooleanValue("doMobSpawning")) {
+                  EntityEndermite var8 = new EntityEndermite(this.world);
                   var8.a(true);
-                  var8.b(var2.s, var2.t, var2.u, var2.y, var2.z);
-                  this.o.addEntity((Entity)var8);
+                  var8.b(var2.locX, var2.locY, var2.locZ, var2.yaw, var2.pitch);
+                  this.world.addEntity((Entity)var8);
                }
 
                if(var2.aw()) {
                   var2.a((Entity)null);
                }
 
-               var2.a(this.s, this.t, this.u);
-               var2.O = 0.0F;
+               var2.a(this.locX, this.locY, this.locZ);
+               var2.fallDistance = 0.0F;
                var2.damageEntity(DamageSource.i, 5.0F);
             }
          } else if(var2 != null) {
-            var2.a(this.s, this.t, this.u);
-            var2.O = 0.0F;
+            var2.a(this.locX, this.locY, this.locZ);
+            var2.fallDistance = 0.0F;
          }
 
          this.J();

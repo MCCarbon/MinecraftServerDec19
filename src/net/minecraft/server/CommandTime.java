@@ -8,7 +8,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandTime extends CommandAbstract {
    public String getCommand() {
@@ -50,14 +50,14 @@ public class CommandTime extends CommandAbstract {
          if(var2[0].equals("query")) {
             if(var2[1].equals("daytime")) {
                var3 = (int)(var1.e().M() % 2147483647L);
-               var1.a(class_n.class_a_in_class_n.e, var3);
+               var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var3);
                a(var1, this, "commands.time.query", new Object[]{Integer.valueOf(var3)});
                return;
             }
 
             if(var2[1].equals("gametime")) {
                var3 = (int)(var1.e().L() % 2147483647L);
-               var1.a(class_n.class_a_in_class_n.e, var3);
+               var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var3);
                a(var1, this, "commands.time.query", new Object[]{Integer.valueOf(var3)});
                return;
             }

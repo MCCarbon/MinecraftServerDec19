@@ -259,7 +259,7 @@ public class class_o {
 							return false;
 						}
 
-						String var8 = var1 instanceof EntityPlayer ? var1.getName() : var1.aM().toString();
+						String var8 = var1 instanceof EntityPlayer ? var1.getName() : var1.getUniqueId().toString();
 						if (!var2x.b(var8, var7)) {
 							return false;
 						}
@@ -342,7 +342,7 @@ public class class_o {
 			final int cvar3 = var3;
 			var1.add(new Predicate() {
 				public boolean a(Entity var1) {
-					int var2x = class_o.a((int) Math.floor((double) var1.y));
+					int var2x = class_o.a((int) Math.floor((double) var1.yaw));
 					return cvar2 > cvar3 ? var2x >= cvar2 || var2x <= cvar3 : var2x >= cvar2 && var2x <= cvar3;
 				}
 
@@ -360,7 +360,7 @@ public class class_o {
 			final int cvar3 = var3;
 			var1.add(new Predicate() {
 				public boolean a(Entity var1) {
-					int var2x = class_o.a((int) Math.floor((double) var1.z));
+					int var2x = class_o.a((int) Math.floor((double) var1.pitch));
 					return cvar2 > cvar3 ? var2x >= cvar2 || var2x <= cvar3 : var2x >= cvar2 && var2x <= cvar3;
 				}
 
@@ -411,7 +411,7 @@ public class class_o {
 				if (var8 && var18 && !var9) {
 					Predicate var20 = new Predicate() {
 						public boolean a(Entity var1) {
-							return var1.s >= var19.xMin && var1.t >= var19.yMin && var1.u >= var19.zMin ? var1.s < var19.xMax && var1.t < var19.yMax && var1.u < var19.zMax : false;
+							return var1.locX >= var19.xMin && var1.locY >= var19.yMin && var1.locZ >= var19.zMin ? var1.locX < var19.xMax && var1.locY < var19.yMax && var1.locZ < var19.zMax : false;
 						}
 
 						// $FF: synthetic method

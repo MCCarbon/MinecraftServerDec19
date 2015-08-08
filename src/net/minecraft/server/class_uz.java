@@ -27,7 +27,7 @@ public abstract class class_uz extends Entity {
       Validate.notNull(var1);
       Validate.isTrue(var1.getAxis().isHorizontal());
       this.b = var1;
-      this.A = this.y = (float)(this.b.getHorizontalId() * 90);
+      this.lastYaw = this.yaw = (float)(this.b.getHorizontalId() * 90);
       this.o();
    }
 
@@ -45,9 +45,9 @@ public abstract class class_uz extends Entity {
          EnumDirection var13 = this.b.rotateYCCW();
          var1 += var9 * (double)var13.getAdjacentX();
          var5 += var9 * (double)var13.getAdjacentZ();
-         this.s = var1;
-         this.t = var3;
-         this.u = var5;
+         this.locX = var1;
+         this.locY = var3;
+         this.locZ = var5;
          double var14 = (double)this.l();
          double var16 = (double)this.m();
          double var18 = (double)this.l();
@@ -69,12 +69,12 @@ public abstract class class_uz extends Entity {
    }
 
    public void t_() {
-      this.p = this.s;
-      this.q = this.t;
-      this.r = this.u;
-      if(this.c++ == 100 && !this.o.isClientSide) {
+      this.lastX = this.locX;
+      this.lastY = this.locY;
+      this.lastZ = this.locZ;
+      if(this.c++ == 100 && !this.world.isClientSide) {
          this.c = 0;
-         if(!this.I && !this.j()) {
+         if(!this.dead && !this.j()) {
             this.J();
             this.b((Entity)null);
          }
@@ -83,7 +83,7 @@ public abstract class class_uz extends Entity {
    }
 
    public boolean j() {
-      if(!this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty()) {
+      if(!this.world.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty()) {
          return false;
       } else {
          int var1 = Math.max(1, this.l() / 16);
@@ -94,14 +94,14 @@ public abstract class class_uz extends Entity {
          for(int var5 = 0; var5 < var1; ++var5) {
             for(int var6 = 0; var6 < var2; ++var6) {
                BlockPosition var7 = var3.shift(var4, var5).up(var6);
-               Block var8 = this.o.getType(var7).getBlock();
+               Block var8 = this.world.getType(var7).getBlock();
                if(!var8.getMaterial().isBuildable() && !class_ahh.d(var8)) {
                   return false;
                }
             }
          }
 
-         List var9 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT());
+         List var9 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT());
          Iterator var10 = var9.iterator();
 
          Entity var11;
@@ -133,7 +133,7 @@ public abstract class class_uz extends Entity {
       if(this.b((DamageSource)var1)) {
          return false;
       } else {
-         if(!this.I && !this.o.isClientSide) {
+         if(!this.dead && !this.world.isClientSide) {
             this.J();
             this.ac();
             this.b(var1.j());
@@ -144,7 +144,7 @@ public abstract class class_uz extends Entity {
    }
 
    public void d(double var1, double var3, double var5) {
-      if(!this.o.isClientSide && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
+      if(!this.world.isClientSide && !this.dead && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
          this.J();
          this.b((Entity)null);
       }
@@ -152,7 +152,7 @@ public abstract class class_uz extends Entity {
    }
 
    public void g(double var1, double var3, double var5) {
-      if(!this.o.isClientSide && !this.I && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
+      if(!this.world.isClientSide && !this.dead && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
          this.J();
          this.b((Entity)null);
       }
@@ -192,9 +192,9 @@ public abstract class class_uz extends Entity {
    }
 
    public void b(double var1, double var3, double var5) {
-      this.s = var1;
-      this.t = var3;
-      this.u = var5;
+      this.locX = var1;
+      this.locY = var3;
+      this.locZ = var5;
       BlockPosition var7 = this.a;
       this.a = new BlockPosition(var1, var3, var5);
       if(!this.a.equals(var7)) {

@@ -14,18 +14,18 @@ import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
 import net.minecraft.server.Entity;
 
-public class class_n {
-   private static final int a = class_n.class_a_in_class_n.values().length;
+public class CommandObjectiveExecutor {
+   private static final int a = CommandObjectiveExecutor.class_a_in_class_n.values().length;
    private static final String[] b;
    private String[] c;
    private String[] d;
 
-   public class_n() {
+   public CommandObjectiveExecutor() {
       this.c = b;
       this.d = b;
    }
 
-   public void a(final class_m var1, class_n.class_a_in_class_n var2, int var3) {
+   public void a(final class_m var1, CommandObjectiveExecutor.class_a_in_class_n var2, int var3) {
       String var4 = this.c[var2.a()];
       if(var4 != null) {
          class_m var5 = new class_m() {
@@ -65,7 +65,7 @@ public class class_n {
                return var1.u_();
             }
 
-            public void a(class_n.class_a_in_class_n var1x, int var2) {
+            public void a(CommandObjectiveExecutor.class_a_in_class_n var1x, int var2) {
                var1.a(var1x, var2);
             }
          };
@@ -94,11 +94,11 @@ public class class_n {
    public void a(NBTTagCompound var1) {
       if(var1.hasOfType("CommandStats", 10)) {
          NBTTagCompound var2 = var1.getCompound("CommandStats");
-         class_n.class_a_in_class_n[] var3 = class_n.class_a_in_class_n.values();
+         CommandObjectiveExecutor.class_a_in_class_n[] var3 = CommandObjectiveExecutor.class_a_in_class_n.values();
          int var4 = var3.length;
 
          for(int var5 = 0; var5 < var4; ++var5) {
-            class_n.class_a_in_class_n var6 = var3[var5];
+            CommandObjectiveExecutor.class_a_in_class_n var6 = var3[var5];
             String var7 = var6.b() + "Name";
             String var8 = var6.b() + "Objective";
             if(var2.hasOfType(var7, 8) && var2.hasOfType(var8, 8)) {
@@ -113,11 +113,11 @@ public class class_n {
 
    public void b(NBTTagCompound var1) {
       NBTTagCompound var2 = new NBTTagCompound();
-      class_n.class_a_in_class_n[] var3 = class_n.class_a_in_class_n.values();
+      CommandObjectiveExecutor.class_a_in_class_n[] var3 = CommandObjectiveExecutor.class_a_in_class_n.values();
       int var4 = var3.length;
 
       for(int var5 = 0; var5 < var4; ++var5) {
-         class_n.class_a_in_class_n var6 = var3[var5];
+         CommandObjectiveExecutor.class_a_in_class_n var6 = var3[var5];
          String var7 = this.c[var6.a()];
          String var8 = this.d[var6.a()];
          if(var7 != null && var8 != null) {
@@ -132,7 +132,7 @@ public class class_n {
 
    }
 
-   public static void a(class_n var0, class_n.class_a_in_class_n var1, String var2, String var3) {
+   public static void a(CommandObjectiveExecutor var0, CommandObjectiveExecutor.class_a_in_class_n var1, String var2, String var3) {
       if(var2 != null && !var2.isEmpty() && var3 != null && !var3.isEmpty()) {
          if(var0.c == b || var0.d == b) {
             var0.c = new String[a];
@@ -146,16 +146,16 @@ public class class_n {
       }
    }
 
-   private static void a(class_n var0, class_n.class_a_in_class_n var1) {
+   private static void a(CommandObjectiveExecutor var0, CommandObjectiveExecutor.class_a_in_class_n var1) {
       if(var0.c != b && var0.d != b) {
          var0.c[var1.a()] = null;
          var0.d[var1.a()] = null;
          boolean var2 = true;
-         class_n.class_a_in_class_n[] var3 = class_n.class_a_in_class_n.values();
+         CommandObjectiveExecutor.class_a_in_class_n[] var3 = CommandObjectiveExecutor.class_a_in_class_n.values();
          int var4 = var3.length;
 
          for(int var5 = 0; var5 < var4; ++var5) {
-            class_n.class_a_in_class_n var6 = var3[var5];
+            CommandObjectiveExecutor.class_a_in_class_n var6 = var3[var5];
             if(var0.c[var6.a()] != null && var0.d[var6.a()] != null) {
                var2 = false;
                break;
@@ -170,12 +170,12 @@ public class class_n {
       }
    }
 
-   public void a(class_n var1) {
-      class_n.class_a_in_class_n[] var2 = class_n.class_a_in_class_n.values();
+   public void a(CommandObjectiveExecutor var1) {
+      CommandObjectiveExecutor.class_a_in_class_n[] var2 = CommandObjectiveExecutor.class_a_in_class_n.values();
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         class_n.class_a_in_class_n var5 = var2[var4];
+         CommandObjectiveExecutor.class_a_in_class_n var5 = var2[var4];
          a(this, var5, var1.c[var5.a()], var1.d[var5.a()]);
       }
 
@@ -211,23 +211,23 @@ public class class_n {
       public static String[] c() {
          String[] var0 = new String[values().length];
          int var1 = 0;
-         class_n.class_a_in_class_n[] var2 = values();
+         CommandObjectiveExecutor.class_a_in_class_n[] var2 = values();
          int var3 = var2.length;
 
          for(int var4 = 0; var4 < var3; ++var4) {
-            class_n.class_a_in_class_n var5 = var2[var4];
+            CommandObjectiveExecutor.class_a_in_class_n var5 = var2[var4];
             var0[var1++] = var5.b();
          }
 
          return var0;
       }
 
-      public static class_n.class_a_in_class_n a(String var0) {
-         class_n.class_a_in_class_n[] var1 = values();
+      public static CommandObjectiveExecutor.class_a_in_class_n a(String var0) {
+         CommandObjectiveExecutor.class_a_in_class_n[] var1 = values();
          int var2 = var1.length;
 
          for(int var3 = 0; var3 < var2; ++var3) {
-            class_n.class_a_in_class_n var4 = var1[var3];
+            CommandObjectiveExecutor.class_a_in_class_n var4 = var1[var3];
             if(var4.b().equals(var0)) {
                return var4;
             }

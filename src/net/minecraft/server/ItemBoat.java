@@ -10,11 +10,11 @@ public class ItemBoat extends Item {
 
    public UseResultWithValue onUse(ItemStack var1, World var2, EntityHuman var3, EnumUsedHand var4) {
       float var5 = 1.0F;
-      float var6 = var3.B + (var3.z - var3.B) * var5;
-      float var7 = var3.A + (var3.y - var3.A) * var5;
-      double var8 = var3.p + (var3.s - var3.p) * (double)var5;
-      double var10 = var3.q + (var3.t - var3.q) * (double)var5 + (double)var3.aU();
-      double var12 = var3.r + (var3.u - var3.r) * (double)var5;
+      float var6 = var3.lastPitch + (var3.pitch - var3.lastPitch) * var5;
+      float var7 = var3.lastYaw + (var3.yaw - var3.lastYaw) * var5;
+      double var8 = var3.lastX + (var3.locX - var3.lastX) * (double)var5;
+      double var10 = var3.lastY + (var3.locY - var3.lastY) * (double)var5 + (double)var3.aU();
+      double var12 = var3.lastZ + (var3.locZ - var3.lastZ) * (double)var5;
       Vec3D var14 = new Vec3D(var8, var10, var12);
       float var15 = MathHelper.cos(-var7 * 0.017453292F - 3.1415927F);
       float var16 = MathHelper.sin(-var7 * 0.017453292F - 3.1415927F);
@@ -53,7 +53,7 @@ public class ItemBoat extends Item {
             }
 
             EntityBoat var35 = new EntityBoat(var2, (double)((float)var34.getX() + 0.5F), (double)((float)var34.getY() + 1.0F), (double)((float)var34.getZ() + 0.5F));
-            var35.y = (float)(((MathHelper.floor((double)(var3.y * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
+            var35.yaw = (float)(((MathHelper.floor((double)(var3.yaw * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
             if(!var2.a((Entity)var35, (AxisAlignedBB)var35.aT().grow(-0.1D, -0.1D, -0.1D)).isEmpty()) {
                return new UseResultWithValue(UseResult.CANT_USE, var1);
             } else {

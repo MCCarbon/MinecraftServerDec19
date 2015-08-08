@@ -12,10 +12,10 @@ import com.mojang.authlib.GameProfile;
 
 public abstract class EntityHuman extends EntityLiving {
 
-	private static final int ABS_HEARTS_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 10
-	private static final int SCORE_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 11
-	protected static final int SKIN_PARTS_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 12
-	protected static final int MAIN_HAND_DW_ID = Datawathcer.claimId(EntityHuman.class); //value = 13
+	private static final int ABS_HEARTS_DW_ID = DataWathcer.claimId(EntityHuman.class); //value = 10
+	private static final int SCORE_DW_ID = DataWathcer.claimId(EntityHuman.class); //value = 11
+	protected static final int SKIN_PARTS_DW_ID = DataWathcer.claimId(EntityHuman.class); //value = 12
+	protected static final int MAIN_HAND_DW_ID = DataWathcer.claimId(EntityHuman.class); //value = 13
 
 	public PlayerInventory inventory = new PlayerInventory(this);
 	private class_yu enderChest = new class_yu();
@@ -61,7 +61,7 @@ public abstract class EntityHuman extends EntityLiving {
 		BlockPosition var3 = var1.N();
 		this.b(var3.getX() + 0.5D, var3.getY() + 1, var3.getZ() + 0.5D, 0.0F, 0.0F);
 		aY = 180.0F;
-		X = 20;
+		maxFireTicks = 20;
 	}
 
 	@Override
@@ -82,9 +82,9 @@ public abstract class EntityHuman extends EntityLiving {
 
 	@Override
 	public void t_() {
-		T = isSpectator();
+		noclip = isSpectator();
 		if (isSpectator()) {
-			C = false;
+			onGround = false;
 		}
 
 		if (bw > 0) {
@@ -97,10 +97,10 @@ public abstract class EntityHuman extends EntityLiving {
 				sleepTicks = 100;
 			}
 
-			if (!o.isClientSide) {
+			if (!world.isClientSide) {
 				if (!this.p()) {
 					this.a(true, true, false);
-				} else if (o.x()) {
+				} else if (world.x()) {
 					this.a(false, true, true);
 				}
 			}
@@ -112,7 +112,7 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 
 		super.t_();
-		if (!o.isClientSide && (br != null) && !br.a(this)) {
+		if (!world.isClientSide && (br != null) && !br.a(this)) {
 			this.n();
 			br = bq;
 		}
@@ -124,32 +124,32 @@ public abstract class EntityHuman extends EntityLiving {
 		bx = bA;
 		by = bB;
 		bz = bC;
-		double var1 = s - bA;
-		double var3 = t - bB;
-		double var5 = u - bC;
+		double var1 = locX - bA;
+		double var3 = locY - bB;
+		double var5 = locZ - bC;
 		double var7 = 10.0D;
 		if (var1 > var7) {
-			bx = bA = s;
+			bx = bA = locX;
 		}
 
 		if (var5 > var7) {
-			bz = bC = u;
+			bz = bC = locZ;
 		}
 
 		if (var3 > var7) {
-			by = bB = t;
+			by = bB = locY;
 		}
 
 		if (var1 < -var7) {
-			bx = bA = s;
+			bx = bA = locX;
 		}
 
 		if (var5 < -var7) {
-			bz = bC = u;
+			bz = bC = locZ;
 		}
 
 		if (var3 < -var7) {
-			by = bB = t;
+			by = bB = locY;
 		}
 
 		bA += var1 * 0.25D;
@@ -159,7 +159,7 @@ public abstract class EntityHuman extends EntityLiving {
 			g = null;
 		}
 
-		if (!o.isClientSide) {
+		if (!world.isClientSide) {
 			foodData.a(this);
 			this.b(StatisticList.g);
 			if (isAlive()) {
@@ -168,10 +168,10 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 
 		int var9 = 29999999;
-		double var10 = MathHelper.clamp(s, -2.9999999E7D, 2.9999999E7D);
-		double var12 = MathHelper.clamp(u, -2.9999999E7D, 2.9999999E7D);
-		if ((var10 != s) || (var12 != u)) {
-			this.b(var10, t, var12);
+		double var10 = MathHelper.clamp(locX, -2.9999999E7D, 2.9999999E7D);
+		double var12 = MathHelper.clamp(locZ, -2.9999999E7D, 2.9999999E7D);
+		if ((var10 != locX) || (var12 != locZ)) {
+			this.b(var10, locY, var12);
 		}
 
 	}
@@ -198,7 +198,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 	@Override
 	public void a(String var1, float var2, float var3) {
-		o.a(this, var1, var2, var3);
+		world.a(this, var1, var2, var3);
 	}
 
 	@Override
@@ -212,22 +212,22 @@ public abstract class EntityHuman extends EntityLiving {
 
 	@Override
 	public void ak() {
-		if (!o.isClientSide && ax()) {
+		if (!world.isClientSide && ax()) {
 			this.a((Entity) null);
 			this.c(false);
 		} else {
-			double var1 = s;
-			double var3 = t;
-			double var5 = u;
-			float var7 = y;
-			float var8 = z;
+			double var1 = locX;
+			double var3 = locY;
+			double var5 = locZ;
+			float var7 = yaw;
+			float var8 = pitch;
 			super.ak();
 			bu = bv;
 			bv = 0.0F;
-			this.l(s - var1, t - var3, u - var5);
+			this.l(locX - var1, locY - var3, locZ - var5);
 			if (vehicle instanceof EntityPig) {
-				z = var8;
-				y = var7;
+				pitch = var8;
+				yaw = var7;
 				aL = ((EntityPig) vehicle).aL;
 			}
 
@@ -238,7 +238,7 @@ public abstract class EntityHuman extends EntityLiving {
 	protected void bL() {
 		super.bL();
 		bx();
-		aN = y;
+		aN = yaw;
 	}
 
 	@Override
@@ -247,12 +247,12 @@ public abstract class EntityHuman extends EntityLiving {
 			--bt;
 		}
 
-		if ((o.ab() == class_om.a) && o.R().getBooleanValue("naturalRegeneration")) {
-			if ((getHealth() < bv()) && ((W % 20) == 0)) {
+		if ((world.ab() == class_om.a) && world.R().getBooleanValue("naturalRegeneration")) {
+			if ((getHealth() < bv()) && ((ticksLived % 20) == 0)) {
 				this.h(1.0F);
 			}
 
-			if (foodData.c() && ((W % 10) == 0)) {
+			if (foodData.c() && ((ticksLived % 10) == 0)) {
 				foodData.a(foodData.a() + 1);
 			}
 		}
@@ -261,7 +261,7 @@ public abstract class EntityHuman extends EntityLiving {
 		bu = bv;
 		super.m();
 		class_ql var1 = this.a(class_wl.d);
-		if (!o.isClientSide) {
+		if (!world.isClientSide) {
 			var1.a(abilities.getWalkSpeed());
 		}
 
@@ -271,17 +271,17 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 
 		this.k((float) var1.e());
-		float var2 = MathHelper.sqrt((v * v) + (x * x));
+		float var2 = MathHelper.sqrt((motX * motX) + (motZ * motZ));
 		float var3 = (float) (Math.atan(-motY * 0.20000000298023224D) * 15.0D);
 		if (var2 > 0.1F) {
 			var2 = 0.1F;
 		}
 
-		if (!C || (getHealth() <= 0.0F)) {
+		if (!onGround || (getHealth() <= 0.0F)) {
 			var2 = 0.0F;
 		}
 
-		if (C || (getHealth() <= 0.0F)) {
+		if (onGround || (getHealth() <= 0.0F)) {
 			var3 = 0.0F;
 		}
 
@@ -289,17 +289,17 @@ public abstract class EntityHuman extends EntityLiving {
 		aI += (var3 - aI) * 0.8F;
 		if ((getHealth() > 0.0F) && !isSpectator()) {
 			AxisAlignedBB var4 = null;
-			if ((vehicle != null) && !vehicle.I) {
+			if ((vehicle != null) && !vehicle.dead) {
 				var4 = aT().a(vehicle.aT()).grow(1.0D, 0.0D, 1.0D);
 			} else {
 				var4 = aT().grow(1.0D, 0.5D, 1.0D);
 			}
 
-			List var5 = o.getEntities(this, var4);
+			List var5 = world.getEntities(this, var4);
 
 			for (int var6 = 0; var6 < var5.size(); ++var6) {
 				Entity var7 = (Entity) var5.get(var6);
-				if (!var7.I) {
+				if (!var7.dead) {
 					this.d(var7);
 				}
 			}
@@ -328,21 +328,21 @@ public abstract class EntityHuman extends EntityLiving {
 	public void a(DamageSource var1) {
 		super.a(var1);
 		this.a(0.2F, 0.2F);
-		this.b(s, t, u);
+		this.b(locX, locY, locZ);
 		motY = 0.10000000149011612D;
 		if (getName().equals("Notch")) {
 			this.a(new ItemStack(Items.APPLE, 1), true, false);
 		}
 
-		if (!o.R().getBooleanValue("keepInventory")) {
+		if (!world.R().getBooleanValue("keepInventory")) {
 			inventory.n();
 		}
 
 		if (var1 != null) {
-			v = -MathHelper.cos(((az + y) * 3.1415927F) / 180.0F) * 0.1F;
-			x = -MathHelper.sin(((az + y) * 3.1415927F) / 180.0F) * 0.1F;
+			motX = -MathHelper.cos(((az + yaw) * 3.1415927F) / 180.0F) * 0.1F;
+			motZ = -MathHelper.sin(((az + yaw) * 3.1415927F) / 180.0F) * 0.1F;
 		} else {
-			v = x = 0.0D;
+			motX = motZ = 0.0D;
 		}
 
 		this.b(StatisticList.y);
@@ -421,8 +421,8 @@ public abstract class EntityHuman extends EntityLiving {
 		} else if (var1.count == 0) {
 			return null;
 		} else {
-			double var4 = (t - 0.30000001192092896D) + aU();
-			EntityItem var6 = new EntityItem(o, s, var4, u, var1);
+			double var4 = (locY - 0.30000001192092896D) + aU();
+			EntityItem var6 = new EntityItem(world, locX, var4, locZ, var1);
 			var6.setPickupDelay(40);
 			if (var3) {
 				var6.c(getName());
@@ -433,19 +433,19 @@ public abstract class EntityHuman extends EntityLiving {
 			if (var2) {
 				var7 = random.nextFloat() * 0.5F;
 				var8 = random.nextFloat() * 3.1415927F * 2.0F;
-				var6.v = -MathHelper.sin(var8) * var7;
-				var6.x = MathHelper.cos(var8) * var7;
+				var6.motX = -MathHelper.sin(var8) * var7;
+				var6.motZ = MathHelper.cos(var8) * var7;
 				var6.motY = 0.20000000298023224D;
 			} else {
 				var7 = 0.3F;
-				var6.v = -MathHelper.sin((y / 180.0F) * 3.1415927F) * MathHelper.cos((z / 180.0F) * 3.1415927F) * var7;
-				var6.x = MathHelper.cos((y / 180.0F) * 3.1415927F) * MathHelper.cos((z / 180.0F) * 3.1415927F) * var7;
-				var6.motY = (-MathHelper.sin((z / 180.0F) * 3.1415927F) * var7) + 0.1F;
+				var6.motX = -MathHelper.sin((yaw / 180.0F) * 3.1415927F) * MathHelper.cos((pitch / 180.0F) * 3.1415927F) * var7;
+				var6.motZ = MathHelper.cos((yaw / 180.0F) * 3.1415927F) * MathHelper.cos((pitch / 180.0F) * 3.1415927F) * var7;
+				var6.motY = (-MathHelper.sin((pitch / 180.0F) * 3.1415927F) * var7) + 0.1F;
 				var8 = random.nextFloat() * 3.1415927F * 2.0F;
 				var7 = 0.02F * random.nextFloat();
-				var6.v += Math.cos(var8) * var7;
+				var6.motX += Math.cos(var8) * var7;
 				var6.motY += (random.nextFloat() - random.nextFloat()) * 0.1F;
-				var6.x += Math.sin(var8) * var7;
+				var6.motZ += Math.sin(var8) * var7;
 			}
 
 			this.a(var6);
@@ -458,7 +458,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	protected void a(EntityItem var1) {
-		o.addEntity(var1);
+		world.addEntity(var1);
 	}
 
 	public float a(Block var1) {
@@ -499,7 +499,7 @@ public abstract class EntityHuman extends EntityLiving {
 			var2 /= 5.0F;
 		}
 
-		if (!C) {
+		if (!onGround) {
 			var2 /= 5.0F;
 		}
 
@@ -585,20 +585,20 @@ public abstract class EntityHuman extends EntityLiving {
 			if (getHealth() <= 0.0F) {
 				return false;
 			} else {
-				if (isSleeping() && !o.isClientSide) {
+				if (isSleeping() && !world.isClientSide) {
 					this.a(true, true, false);
 				}
 
 				if (var1.r()) {
-					if (o.ab() == class_om.a) {
+					if (world.ab() == class_om.a) {
 						var2 = 0.0F;
 					}
 
-					if (o.ab() == class_om.b) {
+					if (world.ab() == class_om.b) {
 						var2 = (var2 / 2.0F) + 1.0F;
 					}
 
-					if (o.ab() == class_om.d) {
+					if (world.ab() == class_om.d) {
 						var2 = (var2 * 3.0F) / 2.0F;
 					}
 				}
@@ -756,7 +756,7 @@ public abstract class EntityHuman extends EntityLiving {
 				}
 
 				if ((var2 > 0.0F) || (var4 > 0.0F)) {
-					boolean var5 = (O > 0.0F) && !C && !k_() && !V() && !this.hasEffect(MobEffectList.o) && (vehicle == null) && (var1 instanceof EntityLiving);
+					boolean var5 = (fallDistance > 0.0F) && !onGround && !k_() && !V() && !this.hasEffect(MobEffectList.o) && (vehicle == null) && (var1 instanceof EntityLiving);
 					if (var5 && (var2 > 0.0F)) {
 						var2 *= 1.5F;
 					}
@@ -769,24 +769,24 @@ public abstract class EntityHuman extends EntityLiving {
 						var1.f(1);
 					}
 
-					double var8 = var1.v;
+					double var8 = var1.motX;
 					double var10 = var1.motY;
-					double var12 = var1.x;
+					double var12 = var1.motZ;
 					boolean var14 = var1.damageEntity(DamageSource.a(this), var2);
 					if (var14) {
 						if (var18 > 0) {
-							var1.g(-MathHelper.sin((y * 3.1415927F) / 180.0F) * var18 * 0.5F, 0.1D, MathHelper.cos((y * 3.1415927F) / 180.0F) * var18 * 0.5F);
-							v *= 0.6D;
-							x *= 0.6D;
+							var1.g(-MathHelper.sin((yaw * 3.1415927F) / 180.0F) * var18 * 0.5F, 0.1D, MathHelper.cos((yaw * 3.1415927F) / 180.0F) * var18 * 0.5F);
+							motX *= 0.6D;
+							motZ *= 0.6D;
 							this.d(false);
 						}
 
-						if ((var1 instanceof EntityPlayer) && var1.G) {
+						if ((var1 instanceof EntityPlayer) && var1.velocityChanged) {
 							((EntityPlayer) var1).playerConnection.sendPacket((new PacketPlayOutEntityVelocity(var1)));
-							var1.G = false;
-							var1.v = var8;
+							var1.velocityChanged = false;
+							var1.motX = var8;
 							var1.motY = var10;
-							var1.x = var12;
+							var1.motZ = var12;
 						}
 
 						if (var5) {
@@ -866,26 +866,26 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	public EntityHuman.EnumBedResult trySleepOnBed(BlockPosition var1) {
-		if (!o.isClientSide) {
+		if (!world.isClientSide) {
 			if (isSleeping() || !isAlive()) {
 				return EntityHuman.EnumBedResult.OTHER_PROBLEM;
 			}
 
-			if (!o.worldProvider.d()) {
+			if (!world.worldProvider.d()) {
 				return EntityHuman.EnumBedResult.NOT_POSSIBLE_HERE;
 			}
 
-			if (o.x()) {
+			if (world.x()) {
 				return EntityHuman.EnumBedResult.NOT_POSSIBLE_NOW;
 			}
 
-			if ((Math.abs(s - var1.getX()) > 3.0D) || (Math.abs(t - var1.getY()) > 2.0D) || (Math.abs(u - var1.getZ()) > 3.0D)) {
+			if ((Math.abs(locX - var1.getX()) > 3.0D) || (Math.abs(locY - var1.getY()) > 2.0D) || (Math.abs(locZ - var1.getZ()) > 3.0D)) {
 				return EntityHuman.EnumBedResult.TOO_FAR_AWAY;
 			}
 
 			double var2 = 8.0D;
 			double var4 = 5.0D;
-			List var6 = o.getEntities(EntityMonster.class, new AxisAlignedBB(var1.getX() - var2, var1.getY() - var4, var1.getZ() - var2, var1.getX() + var2, var1.getY() + var4, var1.getZ() + var2));
+			List var6 = world.getEntities(EntityMonster.class, new AxisAlignedBB(var1.getX() - var2, var1.getY() - var4, var1.getZ() - var2, var1.getX() + var2, var1.getY() + var4, var1.getZ() + var2));
 			if (!var6.isEmpty()) {
 				return EntityHuman.EnumBedResult.NOT_SAFE;
 			}
@@ -896,8 +896,8 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 
 		this.a(0.2F, 0.2F);
-		if (o.e(var1)) {
-			EnumDirection var7 = o.getType(var1).get(BlockDirectional.FACING);
+		if (world.e(var1)) {
+			EnumDirection var7 = world.getType(var1).get(BlockDirectional.FACING);
 			float var3 = 0.5F;
 			float var8 = 0.5F;
 			switch (EntityHuman.SyntheticClass_1.a[var7.ordinal()]) {
@@ -923,9 +923,9 @@ public abstract class EntityHuman extends EntityLiving {
 		sleeping = true;
 		sleepTicks = 0;
 		bedPosition = var1;
-		v = x = motY = 0.0D;
-		if (!o.isClientSide) {
-			o.e();
+		motX = motZ = motY = 0.0D;
+		if (!world.isClientSide) {
+			world.e();
 		}
 
 		return EntityHuman.EnumBedResult.OK;
@@ -952,10 +952,10 @@ public abstract class EntityHuman extends EntityLiving {
 
 	public void a(boolean var1, boolean var2, boolean var3) {
 		this.a(0.6F, 1.8F);
-		IBlockData var4 = o.getType(bedPosition);
+		IBlockData var4 = world.getType(bedPosition);
 		if ((bedPosition != null) && (var4.getBlock() == Blocks.BED)) {
-			o.setTypeAndData(bedPosition, var4.set(BlockBed.OCCUPIED, Boolean.valueOf(false)), 4);
-			BlockPosition var5 = BlockBed.a(o, bedPosition, 0);
+			world.setTypeAndData(bedPosition, var4.set(BlockBed.OCCUPIED, Boolean.valueOf(false)), 4);
+			BlockPosition var5 = BlockBed.a(world, bedPosition, 0);
 			if (var5 == null) {
 				var5 = bedPosition.up();
 			}
@@ -964,8 +964,8 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 
 		sleeping = false;
-		if (!o.isClientSide && var2) {
-			o.e();
+		if (!world.isClientSide && var2) {
+			world.e();
 		}
 
 		sleepTicks = var1 ? 0 : 100;
@@ -976,7 +976,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	private boolean p() {
-		return o.getType(bedPosition).getBlock() == Blocks.BED;
+		return world.getType(bedPosition).getBlock() == Blocks.BED;
 	}
 
 	public static BlockPosition a(World var0, BlockPosition var1, boolean var2) {
@@ -1049,9 +1049,9 @@ public abstract class EntityHuman extends EntityLiving {
 
 	@Override
 	public void g(float var1, float var2) {
-		double var3 = s;
-		double var5 = t;
-		double var7 = u;
+		double var3 = locX;
+		double var5 = locY;
+		double var7 = locZ;
 		if (abilities.flying && (vehicle == null)) {
 			double var9 = motY;
 			float var11 = aP;
@@ -1063,7 +1063,7 @@ public abstract class EntityHuman extends EntityLiving {
 			super.g(var1, var2);
 		}
 
-		this.k(s - var3, t - var5, u - var7);
+		this.k(locX - var3, locY - var5, locZ - var7);
 	}
 
 	@Override
@@ -1090,7 +1090,7 @@ public abstract class EntityHuman extends EntityLiving {
 				if (var3 > 0.0D) {
 					this.a(StatisticList.n, (int) Math.round(var3 * 100.0D));
 				}
-			} else if (C) {
+			} else if (onGround) {
 				var7 = Math.round(MathHelper.sqrt((var1 * var1) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
 					this.a(StatisticList.i, var7);
@@ -1123,7 +1123,7 @@ public abstract class EntityHuman extends EntityLiving {
 					this.a(StatisticList.q, var7);
 					if (g == null) {
 						g = new BlockPosition(this);
-					} else if (g.distanceSquared(MathHelper.floor(s), MathHelper.floor(t), MathHelper.floor(u)) >= 1000000.0D) {
+					} else if (g.distanceSquared(MathHelper.floor(locX), MathHelper.floor(locY), MathHelper.floor(locZ)) >= 1000000.0D) {
 						this.b(class_mt.q);
 					}
 				} else if (vehicle instanceof EntityBoat) {
@@ -1222,10 +1222,10 @@ public abstract class EntityHuman extends EntityLiving {
 			expTotal = 0;
 		}
 
-		if ((var1 > 0) && ((expLevel % 5) == 0) && (i < (W - 100.0F))) {
+		if ((var1 > 0) && ((expLevel % 5) == 0) && (i < (ticksLived - 100.0F))) {
 			float var2 = expLevel > 30 ? 1.0F : expLevel / 30.0F;
-			o.a((Entity) this, "random.levelup", var2 * 0.75F, 1.0F);
-			i = W;
+			world.a((Entity) this, "random.levelup", var2 * 0.75F, 1.0F);
+			i = ticksLived;
 		}
 
 	}
@@ -1236,7 +1236,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 	public void a(float var1) {
 		if (!abilities.invulnerable) {
-			if (!o.isClientSide) {
+			if (!world.isClientSide) {
 				foodData.a(var1);
 			}
 
@@ -1266,14 +1266,14 @@ public abstract class EntityHuman extends EntityLiving {
 			return false;
 		} else {
 			BlockPosition var4 = var1.shift(var2.opposite());
-			Block var5 = o.getType(var4).getBlock();
+			Block var5 = world.getType(var4).getBlock();
 			return var3.d(var5) || var3.x();
 		}
 	}
 
 	@Override
 	protected int b(EntityHuman var1) {
-		if (o.R().getBooleanValue("keepInventory")) {
+		if (world.R().getBooleanValue("keepInventory")) {
 			return 0;
 		} else {
 			int var2 = expLevel * 7;
@@ -1298,7 +1298,7 @@ public abstract class EntityHuman extends EntityLiving {
 			an = var1.an;
 			ao = var1.ao;
 			ap = var1.ap;
-		} else if (o.R().getBooleanValue("keepInventory")) {
+		} else if (world.R().getBooleanValue("keepInventory")) {
 			inventory.a(var1.inventory);
 			expLevel = var1.expLevel;
 			expTotal = var1.expTotal;
@@ -1366,7 +1366,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	public class_awn cr() {
-		return o.aa();
+		return world.aa();
 	}
 
 	@Override

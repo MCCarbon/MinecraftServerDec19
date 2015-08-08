@@ -31,8 +31,8 @@ public class ItemWorldMap extends class_zt {
          int var4 = 1 << var3.e;
          int var5 = var3.b;
          int var6 = var3.c;
-         int var7 = MathHelper.floor(var2.s - (double)var5) / var4 + 64;
-         int var8 = MathHelper.floor(var2.u - (double)var6) / var4 + 64;
+         int var7 = MathHelper.floor(var2.locX - (double)var5) / var4 + 64;
+         int var8 = MathHelper.floor(var2.locZ - (double)var6) / var4 + 64;
          int var9 = 128 / var4;
          if(var1.worldProvider.m()) {
             var9 /= 2;

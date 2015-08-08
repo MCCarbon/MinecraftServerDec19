@@ -11,11 +11,11 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 		}
 	};
 	private static final class_qk bz = (new class_qs((class_qk) null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true);
-	private static final int INFO_FLAGS_DW_ID = Datawathcer.claimId(EntityHorse.class); //value = 12
-	private static final int TYPE_DW_ID = Datawathcer.claimId(EntityHorse.class); //value = 13
-	private static final int COLOR_DW_ID = Datawathcer.claimId(EntityHorse.class); //value = 14
-	private static final int OWNER_NAME_DW_ID = Datawathcer.claimId(EntityHorse.class); //value = 15
-	private static final int ARMOR_DW_ID = Datawathcer.claimId(EntityHorse.class); //value = 16
+	private static final int INFO_FLAGS_DW_ID = DataWathcer.claimId(EntityHorse.class); //value = 12
+	private static final int TYPE_DW_ID = DataWathcer.claimId(EntityHorse.class); //value = 13
+	private static final int COLOR_DW_ID = DataWathcer.claimId(EntityHorse.class); //value = 14
+	private static final int OWNER_NAME_DW_ID = DataWathcer.claimId(EntityHorse.class); //value = 15
+	private static final int ARMOR_DW_ID = DataWathcer.claimId(EntityHorse.class); //value = 16
 	private static final String[] bF = new String[] { null, "textures/entity/horse/armor/horse_armor_iron.png", "textures/entity/horse/armor/horse_armor_gold.png", "textures/entity/horse/armor/horse_armor_diamond.png" };
 	private static final String[] bG = new String[] { "", "meo", "goo", "dio" };
 	private static final int[] bH = new int[] { 0, 5, 7, 11 };
@@ -49,7 +49,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	public EntityHorse(World var1) {
 		super(var1);
 		this.a(1.4F, 1.6F);
-		this.ab = false;
+		this.fireProof = false;
 		this.setHasChest(false);
 		((class_tf) this.u()).a(true);
 		this.i.a(0, new class_rj(this));
@@ -92,7 +92,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	public String getName() {
 		if (this.hasCustomName()) {
-			return this.aO();
+			return this.getCustomName();
 		} else {
 			int var1 = this.cA();
 			switch (var1) {
@@ -263,14 +263,14 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	public boolean cS() {
-		int var1 = MathHelper.floor(this.s);
-		int var2 = MathHelper.floor(this.u);
-		this.o.b(new BlockPosition(var1, 0, var2));
+		int var1 = MathHelper.floor(this.locX);
+		int var2 = MathHelper.floor(this.locZ);
+		this.world.b(new BlockPosition(var1, 0, var2));
 		return true;
 	}
 
 	public void cT() {
-		if (!this.o.isClientSide && this.cL()) {
+		if (!this.world.isClientSide && this.cL()) {
 			this.a(Item.getItemOf((Block) Blocks.CHEST), 1);
 			this.setHasChest(false);
 		}
@@ -278,8 +278,8 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	private void dn() {
 		this.du();
-		if (!this.R()) {
-			this.o.a((Entity) this, "eating", 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+		if (!this.isSilent()) {
+			this.world.a((Entity) this, "eating", 1.0F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
 		}
 
 	}
@@ -296,10 +296,10 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 				this.passenger.damageEntity(DamageSource.i, (float) var3);
 			}
 
-			Block var4 = this.o.getType(new BlockPosition(this.s, this.t - 0.2D - (double) this.A, this.u)).getBlock();
-			if (var4.getMaterial() != Material.AIR && !this.R()) {
+			Block var4 = this.world.getType(new BlockPosition(this.locX, this.locY - 0.2D - (double) this.lastYaw, this.locZ)).getBlock();
+			if (var4.getMaterial() != Material.AIR && !this.isSilent()) {
 				Block.Sound var5 = var4.stepSound;
-				this.o.a((Entity) this, var5.getStepSound(), var5.getVolume() * 0.5F, var5.getPitch() * 0.75F);
+				this.world.a((Entity) this, var5.getStepSound(), var5.getVolume() * 0.5F, var5.getPitch() * 0.75F);
 			}
 
 		}
@@ -331,7 +331,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	private void dq() {
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			this.r(this.bP.getItem(0) != null);
 			if (this.dd()) {
 				this.e(this.bP.getItem(1));
@@ -344,7 +344,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 		int var2 = this.cM();
 		boolean var3 = this.cV();
 		this.dq();
-		if (this.W > 20) {
+		if (this.ticksLived > 20) {
 			if (var2 == 0 && var2 != this.cM()) {
 				this.a("mob.horse.armor", 0.5F, 1.0F);
 			} else if (var2 != this.cM()) {
@@ -366,12 +366,12 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	protected EntityHorse a(Entity var1, double var2) {
 		double var4 = Double.MAX_VALUE;
 		Entity var6 = null;
-		List var7 = this.o.a(var1, var1.aT().add(var2, var2, var2), by);
+		List var7 = this.world.a(var1, var1.aT().add(var2, var2, var2), by);
 		Iterator var8 = var7.iterator();
 
 		while (var8.hasNext()) {
 			Entity var9 = (Entity) var8.next();
-			double var10 = var9.e(var1.s, var1.t, var1.u);
+			double var10 = var9.e(var1.locX, var1.locY, var1.locZ);
 			if (var10 < var4) {
 				var6 = var9;
 				var4 = var10;
@@ -430,7 +430,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	protected void a(BlockPosition var1, Block var2) {
 		Block.Sound var3 = var2.stepSound;
-		if (this.o.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
+		if (this.world.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
 			var3 = Blocks.SNOW_LAYER.stepSound;
 		}
 
@@ -483,7 +483,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	public void c(EntityHuman var1) {
-		if (!this.o.isClientSide && (this.passenger == null || this.passenger == var1) && this.cD()) {
+		if (!this.world.isClientSide && (this.passenger == null || this.passenger == var1) && this.cD()) {
 			this.bP.a(this.getName());
 			var1.a((EntityHorse) this, (IInventory) this.bP);
 		}
@@ -625,11 +625,11 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	private void g(EntityHuman var1) {
-		var1.y = this.y;
-		var1.z = this.z;
+		var1.yaw = this.yaw;
+		var1.pitch = this.pitch;
 		this.setEatingHayStack(false);
 		this.t(false);
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			var1.a((Entity) this);
 		}
 
@@ -667,7 +667,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	public void a(DamageSource var1) {
 		super.a((DamageSource) var1);
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			this.dm();
 		}
 
@@ -679,12 +679,12 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 		}
 
 		super.m();
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			if (this.random.nextInt(900) == 0 && this.deathTicks == 0) {
 				this.h(1.0F);
 			}
 
-			if (!this.cN() && this.passenger == null && this.random.nextInt(300) == 0 && this.o.getType(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.t) - 1, MathHelper.floor(this.u))).getBlock() == Blocks.GRASS) {
+			if (!this.cN() && this.passenger == null && this.random.nextInt(300) == 0 && this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.locY) - 1, MathHelper.floor(this.locZ))).getBlock() == Blocks.GRASS) {
 				this.setEatingHayStack(true);
 			}
 
@@ -705,7 +705,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	public void t_() {
 		super.t_();
-		if (this.o.isClientSide && this.datawatcher.a()) {
+		if (this.world.isClientSide && this.datawatcher.a()) {
 			this.datawatcher.e();
 			this.dr();
 		}
@@ -715,7 +715,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 			this.c(128, false);
 		}
 
-		if (!this.o.isClientSide && this.bO > 0 && ++this.bO > 20) {
+		if (!this.world.isClientSide && this.bO > 0 && ++this.bO > 20) {
 			this.bO = 0;
 			this.t(false);
 		}
@@ -775,7 +775,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	private void du() {
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			this.bN = 1;
 			this.c(128, true);
 		}
@@ -799,7 +799,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	private void dw() {
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			this.bO = 1;
 			this.t(true);
 		}
@@ -821,7 +821,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	private void a(Entity var1, class_ya var2) {
-		if (var2 != null && !this.o.isClientSide) {
+		if (var2 != null && !this.world.isClientSide) {
 			for (int var3 = 0; var3 < var2.getSize(); ++var3) {
 				ItemStack var4 = var2.getItem(var3);
 				if (var4 != null) {
@@ -833,17 +833,17 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	public boolean f(EntityHuman var1) {
-		this.b(var1.aM().toString());
+		this.b(var1.getUniqueId().toString());
 		this.setTame(true);
 		return true;
 	}
 
 	public void g(float var1, float var2) {
 		if (this.passenger != null && this.passenger instanceof EntityLiving && this.cV()) {
-			this.A = this.y = this.passenger.y;
-			this.z = this.passenger.z * 0.5F;
-			this.b(this.y, this.z);
-			this.aN = this.aL = this.y;
+			this.lastYaw = this.yaw = this.passenger.yaw;
+			this.pitch = this.passenger.pitch * 0.5F;
+			this.b(this.yaw, this.pitch);
+			this.aN = this.aL = this.yaw;
 			var1 = ((EntityLiving) this.passenger).bc * 0.5F;
 			var2 = ((EntityLiving) this.passenger).bd;
 			if (var2 <= 0.0F) {
@@ -851,12 +851,12 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 				this.bY = 0;
 			}
 
-			if (this.C && this.bx == 0.0F && this.cO() && !this.bR) {
+			if (this.onGround && this.bx == 0.0F && this.cO() && !this.bR) {
 				var1 = 0.0F;
 				var2 = 0.0F;
 			}
 
-			if (this.bx > 0.0F && !this.cK() && this.C) {
+			if (this.bx > 0.0F && !this.cK() && this.onGround) {
 				this.motY = this.cU() * (double) this.bx;
 				if (this.hasEffect((MobEffectType) MobEffectList.h)) {
 					this.motY += (double) ((float) (this.getEffect((MobEffectType) MobEffectList.h).c() + 1) * 0.1F);
@@ -865,10 +865,10 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 				this.n(true);
 				this.ai = true;
 				if (var2 > 0.0F) {
-					float var3 = MathHelper.sin(this.y * 3.1415927F / 180.0F);
-					float var4 = MathHelper.cos(this.y * 3.1415927F / 180.0F);
-					this.v += (double) (-0.4F * var3 * this.bx);
-					this.x += (double) (0.4F * var4 * this.bx);
+					float var3 = MathHelper.sin(this.yaw * 3.1415927F / 180.0F);
+					float var4 = MathHelper.cos(this.yaw * 3.1415927F / 180.0F);
+					this.motX += (double) (-0.4F * var3 * this.bx);
+					this.motZ += (double) (0.4F * var4 * this.bx);
 					this.a("mob.horse.jump", 0.4F, 1.0F);
 				}
 
@@ -877,19 +877,19 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 			this.S = 1.0F;
 			this.aP = this.bJ() * 0.1F;
-			if (!this.o.isClientSide) {
+			if (!this.world.isClientSide) {
 				this.k((float) this.a((class_qk) class_wl.d).e());
 				super.g(var1, var2);
 			}
 
-			if (this.C) {
+			if (this.onGround) {
 				this.bx = 0.0F;
 				this.n(false);
 			}
 
 			this.aD = this.aE;
-			double var8 = this.s - this.p;
-			double var5 = this.u - this.r;
+			double var8 = this.locX - this.lastX;
+			double var5 = this.locZ - this.lastZ;
 			float var7 = MathHelper.sqrt(var8 * var8 + var5 * var5) * 4.0F;
 			if (var7 > 1.0F) {
 				var7 = 1.0F;
@@ -1020,7 +1020,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	public EntityAgeable createChild(EntityAgeable var1) {
 		EntityHorse var2 = (EntityHorse) var1;
-		EntityHorse var3 = new EntityHorse(this.o);
+		EntityHorse var3 = new EntityHorse(this.world);
 		int var4 = this.cA();
 		int var5 = var2.cA();
 		int var6 = 0;
@@ -1137,7 +1137,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 			float var2 = MathHelper.cos(this.aL * 3.1415927F / 180.0F);
 			float var3 = 0.7F * this.bV;
 			float var4 = 0.15F * this.bV;
-			this.passenger.b(this.s + (double) (var3 * var1), this.t + this.an() + this.passenger.am() + (double) var4, this.u - (double) (var3 * var2));
+			this.passenger.b(this.locX + (double) (var3 * var1), this.locY + this.an() + this.passenger.am() + (double) var4, this.locZ - (double) (var3 * var2));
 			if (this.passenger instanceof EntityLiving) {
 				((EntityLiving) this.passenger).aL = this.aL;
 			}
@@ -1166,7 +1166,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	public float aU() {
-		return this.K;
+		return this.length;
 	}
 
 	public boolean c(int var1, ItemStack var2) {

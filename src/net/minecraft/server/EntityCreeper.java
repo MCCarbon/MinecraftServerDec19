@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 public class EntityCreeper extends EntityMonster {
 
-	private static final int STATE_DW_ID = Datawathcer.claimId(EntityCreeper.class); //value = 11
-	private static final int POWERED_DW_ID = Datawathcer.claimId(EntityCreeper.class); //value = 12
-	private static final int IGNITED_DW_ID = Datawathcer.claimId(EntityCreeper.class); //value = 13
+	private static final int STATE_DW_ID = DataWathcer.claimId(EntityCreeper.class); //value = 11
+	private static final int POWERED_DW_ID = DataWathcer.claimId(EntityCreeper.class); //value = 12
+	private static final int IGNITED_DW_ID = DataWathcer.claimId(EntityCreeper.class); //value = 13
 
 	private int bs;
 	private int bt;
@@ -153,9 +153,9 @@ public class EntityCreeper extends EntityMonster {
 
 	protected boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
 		if (var3 != null && var3.getItem() == Items.FLINT_AND_STEEL) {
-			this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.ignite", 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
+			this.world.a(this.locX + 0.5D, this.locY + 0.5D, this.locZ + 0.5D, "fire.ignite", 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
 			var1.a((EnumUsedHand) var2);
-			if (!this.o.isClientSide) {
+			if (!this.world.isClientSide) {
 				this.setIgnited();
 				var3.a(1, (EntityLiving) var1);
 				return true;
@@ -166,10 +166,10 @@ public class EntityCreeper extends EntityMonster {
 	}
 
 	private void cG() {
-		if (!this.o.isClientSide) {
-			boolean var1 = this.o.R().getBooleanValue("mobGriefing");
+		if (!this.world.isClientSide) {
+			boolean var1 = this.world.R().getBooleanValue("mobGriefing");
 			float var2 = this.isPowered() ? 2.0F : 1.0F;
-			this.o.a(this, this.s, this.t, this.u, (float) this.bv * var2, var1);
+			this.world.a(this, this.locX, this.locY, this.locZ, (float) this.bv * var2, var1);
 			this.J();
 		}
 
@@ -184,7 +184,7 @@ public class EntityCreeper extends EntityMonster {
 	}
 
 	public boolean cE() {
-		return this.bw < 1 && this.o.R().getBooleanValue("doMobLoot");
+		return this.bw < 1 && this.world.R().getBooleanValue("doMobLoot");
 	}
 
 	public void cF() {

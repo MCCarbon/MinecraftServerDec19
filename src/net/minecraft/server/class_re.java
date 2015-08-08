@@ -13,7 +13,7 @@ public class class_re extends class_rm {
 
    public class_re(EntityAnimal var1, double var2) {
       this.d = var1;
-      this.a = var1.o;
+      this.a = var1.world;
       this.c = var2;
       this.a(3);
    }
@@ -84,7 +84,7 @@ public class class_re extends class_rm {
          this.d.cH();
          this.e.cH();
          var1.b(-24000);
-         var1.b(this.d.s, this.d.t, this.d.u, 0.0F, 0.0F);
+         var1.b(this.d.locX, this.d.locY, this.d.locZ, 0.0F, 0.0F);
          this.a.addEntity((Entity)var1);
          Random var3 = this.d.bd();
 
@@ -92,14 +92,14 @@ public class class_re extends class_rm {
             double var5 = var3.nextGaussian() * 0.02D;
             double var7 = var3.nextGaussian() * 0.02D;
             double var9 = var3.nextGaussian() * 0.02D;
-            double var11 = var3.nextDouble() * (double)this.d.J * 2.0D - (double)this.d.J;
-            double var13 = 0.5D + var3.nextDouble() * (double)this.d.K;
-            double var15 = var3.nextDouble() * (double)this.d.J * 2.0D - (double)this.d.J;
-            this.a.a(class_cy.I, this.d.s + var11, this.d.t + var13, this.d.u + var15, var5, var7, var9, new int[0]);
+            double var11 = var3.nextDouble() * (double)this.d.width * 2.0D - (double)this.d.width;
+            double var13 = 0.5D + var3.nextDouble() * (double)this.d.length;
+            double var15 = var3.nextDouble() * (double)this.d.width * 2.0D - (double)this.d.width;
+            this.a.a(class_cy.I, this.d.locX + var11, this.d.locY + var13, this.d.locZ + var15, var5, var7, var9, new int[0]);
          }
 
          if(this.a.R().getBooleanValue("doMobLoot")) {
-            this.a.addEntity((Entity)(new EntityExperienceOrb(this.a, this.d.s, this.d.t, this.d.u, var3.nextInt(7) + 1)));
+            this.a.addEntity((Entity)(new EntityExperienceOrb(this.a, this.d.locX, this.d.locY, this.d.locZ, var3.nextInt(7) + 1)));
          }
 
       }

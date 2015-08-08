@@ -34,10 +34,10 @@ public class class_rw extends class_rm {
 
    public boolean a() {
       this.f();
-      if(this.e && this.a.o.x()) {
+      if(this.e && this.a.world.x()) {
          return false;
       } else {
-         class_tp var1 = this.a.o.af().a(new BlockPosition(this.a), 0);
+         class_tp var1 = this.a.world.af().a(new BlockPosition(this.a), 0);
          if(var1 == null) {
             return false;
          } else {
@@ -72,7 +72,7 @@ public class class_rw extends class_rm {
       if(this.a.u().m()) {
          return false;
       } else {
-         float var1 = this.a.J + 4.0F;
+         float var1 = this.a.width + 4.0F;
          return this.a.b(this.d.d()) > (double)(var1 * var1);
       }
    }
@@ -96,7 +96,7 @@ public class class_rw extends class_rm {
 
       while(var5.hasNext()) {
          class_to var6 = (class_to)var5.next();
-         int var7 = var6.b(MathHelper.floor(this.a.s), MathHelper.floor(this.a.t), MathHelper.floor(this.a.u));
+         int var7 = var6.b(MathHelper.floor(this.a.locX), MathHelper.floor(this.a.locY), MathHelper.floor(this.a.locZ));
          if(var7 < var3 && !this.a(var6)) {
             var2 = var6;
             var3 = var7;

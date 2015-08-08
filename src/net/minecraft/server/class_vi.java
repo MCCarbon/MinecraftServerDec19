@@ -41,8 +41,8 @@ public class class_vi extends class_vh {
    public void t_() {
       super.t_();
       if(this.b == 2) {
-         this.o.a(this.s, this.t, this.u, "ambient.weather.thunder", 10000.0F, 0.8F + this.random.nextFloat() * 0.2F);
-         this.o.a(this.s, this.t, this.u, "random.explode", 2.0F, 0.5F + this.random.nextFloat() * 0.2F);
+         this.world.a(this.locX, this.locY, this.locZ, "ambient.weather.thunder", 10000.0F, 0.8F + this.random.nextFloat() * 0.2F);
+         this.world.a(this.locX, this.locY, this.locZ, "random.explode", 2.0F, 0.5F + this.random.nextFloat() * 0.2F);
       }
 
       --this.b;
@@ -54,18 +54,18 @@ public class class_vi extends class_vh {
             this.b = 1;
             this.a = this.random.nextLong();
             BlockPosition var1 = new BlockPosition(this);
-            if(!this.o.isClientSide && this.o.R().getBooleanValue("doFireTick") && this.o.a((BlockPosition)var1, (int)10) && this.o.getType(var1).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(this.o, var1)) {
-               this.o.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
+            if(!this.world.isClientSide && this.world.R().getBooleanValue("doFireTick") && this.world.a((BlockPosition)var1, (int)10) && this.world.getType(var1).getBlock().getMaterial() == Material.AIR && Blocks.FIRE.canPlace(this.world, var1)) {
+               this.world.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
             }
          }
       }
 
       if(this.b >= 0) {
-         if(this.o.isClientSide) {
-            this.o.d(2);
+         if(this.world.isClientSide) {
+            this.world.d(2);
          } else {
             double var6 = 3.0D;
-            List var3 = this.o.getEntities((Entity)this, (AxisAlignedBB)(new AxisAlignedBB(this.s - var6, this.t - var6, this.u - var6, this.s + var6, this.t + 6.0D + var6, this.u + var6)));
+            List var3 = this.world.getEntities((Entity)this, (AxisAlignedBB)(new AxisAlignedBB(this.locX - var6, this.locY - var6, this.locZ - var6, this.locX + var6, this.locY + 6.0D + var6, this.locZ + var6)));
 
             for(int var4 = 0; var4 < var3.size(); ++var4) {
                Entity var5 = (Entity)var3.get(var4);

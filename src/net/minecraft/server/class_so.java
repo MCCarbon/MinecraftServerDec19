@@ -18,7 +18,7 @@ public class class_so extends class_rm {
          return false;
       } else if(this.a.V()) {
          return false;
-      } else if(!this.a.C) {
+      } else if(!this.a.onGround) {
          return false;
       } else {
          EntityLiving var1 = this.a.cD();

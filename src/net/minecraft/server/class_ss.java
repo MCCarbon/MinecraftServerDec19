@@ -13,9 +13,9 @@ public class class_ss extends class_rm {
          return false;
       } else if(this.a.V()) {
          return false;
-      } else if(!this.a.C) {
+      } else if(!this.a.onGround) {
          return false;
-      } else if(this.a.G) {
+      } else if(this.a.velocityChanged) {
          return false;
       } else {
          EntityHuman var1 = this.a.v_();

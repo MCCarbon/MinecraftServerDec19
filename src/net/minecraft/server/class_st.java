@@ -49,16 +49,16 @@ public class class_st extends class_rp {
                }
 
                if(var4 != null) {
-                  double var11 = this.f.t - 0.30000001192092896D + (double)this.f.aU();
-                  EntityItem var12 = new EntityItem(this.f.o, this.f.s, var11, this.f.u, var4);
+                  double var11 = this.f.locY - 0.30000001192092896D + (double)this.f.aU();
+                  EntityItem var12 = new EntityItem(this.f.world, this.f.locX, var11, this.f.locZ, var4);
                   float var8 = 0.3F;
                   float var9 = this.f.aN;
-                  float var10 = this.f.z;
-                  var12.v = (double)(-MathHelper.sin(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
-                  var12.x = (double)(MathHelper.cos(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
+                  float var10 = this.f.pitch;
+                  var12.motX = (double)(-MathHelper.sin(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
+                  var12.motZ = (double)(MathHelper.cos(var9 / 180.0F * 3.1415927F) * MathHelper.cos(var10 / 180.0F * 3.1415927F) * var8);
                   var12.motY = (double)(-MathHelper.sin(var10 / 180.0F * 3.1415927F) * var8 + 0.1F);
                   var12.setPickupDelay();
-                  this.f.o.addEntity((Entity)var12);
+                  this.f.world.addEntity((Entity)var12);
                   break;
                }
             }

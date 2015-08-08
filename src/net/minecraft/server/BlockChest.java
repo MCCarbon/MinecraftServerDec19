@@ -61,7 +61,7 @@ public class BlockChest extends BlockContainer {
    }
 
    public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      EnumDirection var6 = EnumDirection.getByHorizontalId(MathHelper.floor((double)(var4.y * 4.0F / 360.0F) + 0.5D) & 3).opposite();
+      EnumDirection var6 = EnumDirection.getByHorizontalId(MathHelper.floor((double)(var4.yaw * 4.0F / 360.0F) + 0.5D) & 3).opposite();
       var3 = var3.set(a, var6);
       BlockPosition var7 = var2.north();
       BlockPosition var8 = var2.south();

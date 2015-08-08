@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class EntitySheep extends EntityAnimal {
 
-	private static final int INFOFLAGS_DW_ID = Datawathcer.claimId(EntitySheep.class); //value = 12
+	private static final int INFOFLAGS_DW_ID = DataWathcer.claimId(EntitySheep.class); //value = 12
 
 	private final class_yg bt = new class_yg(new Container() {
 		public boolean a(EntityHuman var1) {
@@ -44,7 +44,7 @@ public class EntitySheep extends EntityAnimal {
 	}
 
 	public void m() {
-		if (this.o.isClientSide) {
+		if (this.world.isClientSide) {
 			this.bw = Math.max(0, this.bw - 1);
 		}
 
@@ -85,15 +85,15 @@ public class EntitySheep extends EntityAnimal {
 
 	public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
 		if (var3 != null && var3.getItem() == Items.SHEARS && !this.cB() && !this.isBaby()) {
-			if (!this.o.isClientSide) {
+			if (!this.world.isClientSide) {
 				this.m(true);
 				int var4 = 1 + this.random.nextInt(3);
 
 				for (int var5 = 0; var5 < var4; ++var5) {
 					EntityItem var6 = this.a(new ItemStack(Item.getItemOf(Blocks.WOOL), 1, this.cA().a()), 1.0F);
 					var6.motY += (double) (this.random.nextFloat() * 0.05F);
-					var6.v += (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.1F);
-					var6.x += (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.1F);
+					var6.motX += (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.1F);
+					var6.motZ += (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.1F);
 				}
 			}
 
@@ -162,7 +162,7 @@ public class EntitySheep extends EntityAnimal {
 
 	public EntitySheep b(EntityAgeable var1) {
 		EntitySheep var2 = (EntitySheep) var1;
-		EntitySheep var3 = new EntitySheep(this.o);
+		EntitySheep var3 = new EntitySheep(this.world);
 		var3.b(this.a((EntityAnimal) this, (EntityAnimal) var2));
 		return var3;
 	}
@@ -177,7 +177,7 @@ public class EntitySheep extends EntityAnimal {
 
 	public class_qd a(class_on var1, class_qd var2) {
 		var2 = super.a(var1, var2);
-		this.b(a(this.o.random));
+		this.b(a(this.world.random));
 		return var2;
 	}
 
@@ -186,19 +186,19 @@ public class EntitySheep extends EntityAnimal {
 		int var4 = ((EntitySheep) var2).cA().b();
 		this.bt.getItem(0).setData(var3);
 		this.bt.getItem(1).setData(var4);
-		ItemStack var5 = RecipeManager.a().a(this.bt, ((EntitySheep) var1).o);
+		ItemStack var5 = RecipeManager.a().a(this.bt, ((EntitySheep) var1).world);
 		int var6;
 		if (var5 != null && var5.getItem() == Items.DYE) {
 			var6 = var5.i();
 		} else {
-			var6 = this.o.random.nextBoolean() ? var3 : var4;
+			var6 = this.world.random.nextBoolean() ? var3 : var4;
 		}
 
 		return EnumColor.a(var6);
 	}
 
 	public float aU() {
-		return 0.95F * this.K;
+		return 0.95F * this.length;
 	}
 
 	// $FF: synthetic method

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntitySlime extends EntityInsentient implements class_wd {
 
-	private static final int SIZE_DW_ID = Datawathcer.claimId(EntitySlime.class);  //value = 11
+	private static final int SIZE_DW_ID = DataWathcer.claimId(EntitySlime.class);  //value = 11
 
 	public float a;
 	public float b;
@@ -28,7 +28,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	protected void a(int var1) {
 		this.datawatcher.update(SIZE_DW_ID, Byte.valueOf((byte) var1));
 		this.a(0.51000005F * (float) var1, 0.51000005F * (float) var1);
-		this.b(this.s, this.t, this.u);
+		this.b(this.locX, this.locY, this.locZ);
 		this.a(class_wl.a).a((double) (var1 * var1));
 		this.a(class_wl.d).a((double) (0.2F + 0.1F * (float) var1));
 		this.i(this.bv());
@@ -65,14 +65,14 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	}
 
 	public void t_() {
-		if (!this.o.isClientSide && this.o.ab() == class_om.a && this.cB() > 0) {
-			this.I = true;
+		if (!this.world.isClientSide && this.world.ab() == class_om.a && this.cB() > 0) {
+			this.dead = true;
 		}
 
 		this.b += (this.a - this.b) * 0.5F;
 		this.c = this.b;
 		super.t_();
-		if (this.C && !this.br) {
+		if (this.onGround && !this.br) {
 			int var1 = this.cB();
 
 			for (int var2 = 0; var2 < var1 * 8; ++var2) {
@@ -80,10 +80,10 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 				float var4 = this.random.nextFloat() * 0.5F + 0.5F;
 				float var5 = MathHelper.sin(var3) * (float) var1 * 0.5F * var4;
 				float var6 = MathHelper.cos(var3) * (float) var1 * 0.5F * var4;
-				World var10000 = this.o;
+				World var10000 = this.world;
 				class_cy var10001 = this.n();
-				double var10002 = this.s + (double) var5;
-				double var10004 = this.u + (double) var6;
+				double var10002 = this.locX + (double) var5;
+				double var10004 = this.locZ + (double) var6;
 				var10000.a(var10001, var10002, this.aT().yMin, var10004, 0.0D, 0.0D, 0.0D, new int[0]);
 			}
 
@@ -92,11 +92,11 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 			}
 
 			this.a = -0.5F;
-		} else if (!this.C && this.br) {
+		} else if (!this.onGround && this.br) {
 			this.a = 1.0F;
 		}
 
-		this.br = this.C;
+		this.br = this.onGround;
 		this.cw();
 	}
 
@@ -109,14 +109,14 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	}
 
 	protected EntitySlime cu() {
-		return new EntitySlime(this.o);
+		return new EntitySlime(this.world);
 	}
 
 	public void d(int var1) {
 		if (var1 == SIZE_DW_ID) {
 			int var2 = this.cB();
 			this.a(0.51000005F * (float) var2, 0.51000005F * (float) var2);
-			this.y = this.aN;
+			this.yaw = this.aN;
 			this.aL = this.aN;
 			if (this.V() && this.random.nextInt(20) == 0) {
 				this.X();
@@ -128,7 +128,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 
 	public void J() {
 		int var1 = this.cB();
-		if (!this.o.isClientSide && var1 > 1 && this.getHealth() <= 0.0F) {
+		if (!this.world.isClientSide && var1 > 1 && this.getHealth() <= 0.0F) {
 			int var2 = 2 + this.random.nextInt(3);
 
 			for (int var3 = 0; var3 < var2; ++var3) {
@@ -136,7 +136,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 				float var5 = ((float) (var3 / 2) - 0.5F) * (float) var1 / 4.0F;
 				EntitySlime var6 = this.cu();
 				if (this.hasCustomName()) {
-					var6.a(this.aO());
+					var6.a(this.getCustomName());
 				}
 
 				if (this.cn()) {
@@ -144,8 +144,8 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 				}
 
 				var6.a(var1 / 2);
-				var6.b(this.s + (double) var4, this.t + 0.5D, this.u + (double) var5, this.random.nextFloat() * 360.0F, 0.0F);
-				this.o.addEntity((Entity) var6);
+				var6.b(this.locX + (double) var4, this.locY + 0.5D, this.locZ + (double) var5, this.random.nextFloat() * 360.0F, 0.0F);
+				this.world.addEntity((Entity) var6);
 			}
 		}
 
@@ -177,7 +177,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	}
 
 	public float aU() {
-		return 0.625F * this.K;
+		return 0.625F * this.length;
 	}
 
 	protected boolean cx() {
@@ -201,18 +201,18 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	}
 
 	public boolean cf() {
-		BlockPosition var1 = new BlockPosition(MathHelper.floor(this.s), 0, MathHelper.floor(this.u));
-		Chunk var2 = this.o.f(var1);
-		if (this.o.Q().u() == class_aes.c && this.random.nextInt(4) != 1) {
+		BlockPosition var1 = new BlockPosition(MathHelper.floor(this.locX), 0, MathHelper.floor(this.locZ));
+		Chunk var2 = this.world.f(var1);
+		if (this.world.Q().u() == class_aes.c && this.random.nextInt(4) != 1) {
 			return false;
 		} else {
-			if (this.o.ab() != class_om.a) {
-				BiomeBase var3 = this.o.b(var1);
-				if (var3 == BiomeBase.v && this.t > 50.0D && this.t < 70.0D && this.random.nextFloat() < 0.5F && this.random.nextFloat() < this.o.z() && this.o.l(new BlockPosition(this)) <= this.random.nextInt(8)) {
+			if (this.world.ab() != class_om.a) {
+				BiomeBase var3 = this.world.b(var1);
+				if (var3 == BiomeBase.v && this.locY > 50.0D && this.locY < 70.0D && this.random.nextFloat() < 0.5F && this.random.nextFloat() < this.world.z() && this.world.l(new BlockPosition(this)) <= this.random.nextInt(8)) {
 					return super.cf();
 				}
 
-				if (this.random.nextInt(10) == 0 && var2.a(987234911L).nextInt(10) == 0 && this.t < 40.0D) {
+				if (this.random.nextInt(10) == 0 && var2.a(987234911L).nextInt(10) == 0 && this.locY < 40.0D) {
 					return super.cf();
 				}
 			}
@@ -303,7 +303,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 		}
 
 		public boolean a() {
-			return this.a.w() == null && (this.a.C || this.a.V() || this.a.ab());
+			return this.a.w() == null && (this.a.onGround || this.a.V() || this.a.ab());
 		}
 
 		public void e() {
@@ -342,7 +342,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 
 		public void e() {
 			this.a.a(this.a.w(), 10.0F, 10.0F);
-			((EntitySlime.class_d_in_class_wo) this.a.r()).a(this.a.y, this.a.cx());
+			((EntitySlime.class_d_in_class_wo) this.a.r()).a(this.a.yaw, this.a.cx());
 		}
 	}
 
@@ -368,14 +368,14 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 		}
 
 		public void c() {
-			this.a.y = this.a(this.a.y, this.g, 30.0F);
-			this.a.aN = this.a.y;
-			this.a.aL = this.a.y;
+			this.a.yaw = this.a(this.a.yaw, this.g, 30.0F);
+			this.a.aN = this.a.yaw;
+			this.a.aL = this.a.yaw;
 			if (!this.f) {
 				this.a.n(0.0F);
 			} else {
 				this.f = false;
-				if (this.a.C) {
+				if (this.a.onGround) {
 					this.a.k((float) (this.e * this.a.a((class_qk) class_wl.d).e()));
 					if (this.h-- <= 0) {
 						this.h = this.i.cv();

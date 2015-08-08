@@ -678,7 +678,7 @@ public class WorldServer extends World implements class_of {
    }
 
    public boolean addEntity(Entity var1) {
-      UUID var2 = var1.aM();
+      UUID var2 = var1.getUniqueId();
       if(this.N.containsKey(var2)) {
          a.warn("Tried to add entity with duplicate UUID " + var2.toString());
          return false;
@@ -692,7 +692,7 @@ public class WorldServer extends World implements class_of {
 
       while(var2.hasNext()) {
          Entity var3 = (Entity)var2.next();
-         UUID var4 = var3.aM();
+         UUID var4 = var3.getUniqueId();
          if(this.N.containsKey(var4)) {
             a.warn("Tried to add entity with duplicate UUID " + var4.toString());
          } else {
@@ -706,7 +706,7 @@ public class WorldServer extends World implements class_of {
    protected void b(Entity var1) {
       super.b(var1);
       this.entitiesById.a(var1.getId(), var1);
-      this.N.put(var1.aM(), var1);
+      this.N.put(var1.getUniqueId(), var1);
       Entity[] var2 = var1.aD();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.length; ++var3) {
@@ -719,7 +719,7 @@ public class WorldServer extends World implements class_of {
    protected void c(Entity var1) {
       super.c(var1);
       this.entitiesById.d(var1.getId());
-      this.N.remove(var1.aM());
+      this.N.remove(var1.getUniqueId());
       Entity[] var2 = var1.aD();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.length; ++var3) {
@@ -731,7 +731,7 @@ public class WorldServer extends World implements class_of {
 
    public boolean d(Entity var1) {
       if(super.d(var1)) {
-         this.I.getPlayerList().a(var1.s, var1.t, var1.u, 512.0D, this.worldProvider.p().a(), new PacketPlayOutSpawnEntityWeather(var1));
+         this.I.getPlayerList().a(var1.locX, var1.locY, var1.locZ, 512.0D, this.worldProvider.p().a(), new PacketPlayOutSpawnEntityWeather(var1));
          return true;
       } else {
          return false;

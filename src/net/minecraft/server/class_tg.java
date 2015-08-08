@@ -115,7 +115,7 @@ public abstract class class_tg {
          } else if(this.d != null && this.d.e() < this.d.d()) {
             var1 = this.c();
             Vec3D var2 = this.d.a(this.b, this.d.e());
-            if(var1.y > var2.y && !this.b.C && MathHelper.floor(var1.x) == MathHelper.floor(var2.x) && MathHelper.floor(var1.z) == MathHelper.floor(var2.z)) {
+            if(var1.y > var2.y && !this.b.onGround && MathHelper.floor(var1.x) == MathHelper.floor(var2.x) && MathHelper.floor(var1.z) == MathHelper.floor(var2.z)) {
                this.d.c(this.d.e() + 1);
             }
          }
@@ -150,7 +150,7 @@ public abstract class class_tg {
          }
       }
 
-      float var8 = this.b.J * this.b.J * this.i;
+      float var8 = this.b.width * this.b.width * this.i;
 
       int var4;
       for(var4 = this.d.e(); var4 < var2; ++var4) {
@@ -160,8 +160,8 @@ public abstract class class_tg {
          }
       }
 
-      var4 = MathHelper.ceil(this.b.J);
-      int var9 = (int)this.b.K + 1;
+      var4 = MathHelper.ceil(this.b.width);
+      int var9 = (int)this.b.length + 1;
       int var6 = var4;
 
       for(int var7 = var2 - 1; var7 >= this.d.e(); --var7) {

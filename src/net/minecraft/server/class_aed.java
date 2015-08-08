@@ -13,7 +13,7 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.EntityHuman;
 
 public abstract class class_aed implements class_m {
@@ -23,7 +23,7 @@ public abstract class class_aed implements class_m {
    private IChatBaseComponent d = null;
    private String e = "";
    private String f = "@";
-   private final class_n g = new class_n();
+   private final CommandObjectiveExecutor g = new CommandObjectiveExecutor();
 
    public int j() {
       return this.b;
@@ -144,7 +144,7 @@ public abstract class class_aed implements class_m {
       return var1 == null || !var1.O() || var1.d[0].R().getBooleanValue("commandBlockOutput");
    }
 
-   public void a(class_n.class_a_in_class_n var1, int var2) {
+   public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {
       this.g.a(this, var1, var2);
    }
 
@@ -174,7 +174,7 @@ public abstract class class_aed implements class_m {
       }
    }
 
-   public class_n n() {
+   public CommandObjectiveExecutor n() {
       return this.g;
    }
 }

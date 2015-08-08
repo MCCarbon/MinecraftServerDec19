@@ -2,14 +2,14 @@ package net.minecraft.server;
 
 public class EntityBlaze extends EntityMonster {
 
-	private static final int ONFIRE_DW_ID = Datawathcer.claimId(EntityBlaze.class); //value = 11
+	private static final int ONFIRE_DW_ID = DataWathcer.claimId(EntityBlaze.class); //value = 11
 
 	private float a = 0.5F;
 	private int b;
 
 	public EntityBlaze(World var1) {
 		super(var1);
-		this.ab = true;
+		this.fireProof = true;
 		this.b_ = 10;
 		this.i.a(4, new EntityBlaze.class_a_in_class_vy(this));
 		this.i.a(5, new class_ry(this, 1.0D));
@@ -49,17 +49,17 @@ public class EntityBlaze extends EntityMonster {
 	}
 
 	public void m() {
-		if (!this.C && this.motY < 0.0D) {
+		if (!this.onGround && this.motY < 0.0D) {
 			this.motY *= 0.6D;
 		}
 
-		if (this.o.isClientSide) {
-			if (this.random.nextInt(24) == 0 && !this.R()) {
-				this.o.a(this.s + 0.5D, this.t + 0.5D, this.u + 0.5D, "fire.fire", 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
+		if (this.world.isClientSide) {
+			if (this.random.nextInt(24) == 0 && !this.isSilent()) {
+				this.world.a(this.locX + 0.5D, this.locY + 0.5D, this.locZ + 0.5D, "fire.fire", 1.0F + this.random.nextFloat(), this.random.nextFloat() * 0.7F + 0.3F, false);
 			}
 
 			for (int var1 = 0; var1 < 2; ++var1) {
-				this.o.a(class_cy.m, this.s + (this.random.nextDouble() - 0.5D) * (double) this.J, this.t + this.random.nextDouble() * (double) this.K, this.u + (this.random.nextDouble() - 0.5D) * (double) this.J, 0.0D, 0.0D, 0.0D, new int[0]);
+				this.world.a(class_cy.m, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
 			}
 		}
 
@@ -78,7 +78,7 @@ public class EntityBlaze extends EntityMonster {
 		}
 
 		EntityLiving var1 = this.w();
-		if (var1 != null && var1.t + (double) var1.aU() > this.t + (double) this.aU() + (double) this.a) {
+		if (var1 != null && var1.locY + (double) var1.aU() > this.locY + (double) this.aU() + (double) this.a) {
 			this.motY += (0.30000001192092896D - this.motY) * 0.30000001192092896D;
 			this.ai = true;
 		}
@@ -160,11 +160,11 @@ public class EntityBlaze extends EntityMonster {
 					this.a.r(var1);
 				}
 
-				this.a.r().a(var1.s, var1.t, var1.u, 1.0D);
+				this.a.r().a(var1.locX, var1.locY, var1.locZ, 1.0D);
 			} else if (var2 < 256.0D) {
-				double var4 = var1.s - this.a.s;
-				double var6 = var1.aT().yMin + (double) (var1.K / 2.0F) - (this.a.t + (double) (this.a.K / 2.0F));
-				double var8 = var1.u - this.a.u;
+				double var4 = var1.locX - this.a.locX;
+				double var6 = var1.aT().yMin + (double) (var1.length / 2.0F) - (this.a.locY + (double) (this.a.length / 2.0F));
+				double var8 = var1.locZ - this.a.locZ;
 				if (this.c <= 0) {
 					++this.b;
 					if (this.b == 1) {
@@ -180,12 +180,12 @@ public class EntityBlaze extends EntityMonster {
 
 					if (this.b > 1) {
 						float var10 = MathHelper.sqrt(MathHelper.sqrt(var2)) * 0.5F;
-						this.a.o.a((EntityHuman) null, 1009, new BlockPosition((int) this.a.s, (int) this.a.t, (int) this.a.u), 0);
+						this.a.world.a((EntityHuman) null, 1009, new BlockPosition((int) this.a.locX, (int) this.a.locY, (int) this.a.locZ), 0);
 
 						for (int var11 = 0; var11 < 1; ++var11) {
-							EntitySmallFireball var12 = new EntitySmallFireball(this.a.o, this.a, var4 + this.a.bd().nextGaussian() * (double) var10, var6, var8 + this.a.bd().nextGaussian() * (double) var10);
-							var12.t = this.a.t + (double) (this.a.K / 2.0F) + 0.5D;
-							this.a.o.addEntity((Entity) var12);
+							EntitySmallFireball var12 = new EntitySmallFireball(this.a.world, this.a, var4 + this.a.bd().nextGaussian() * (double) var10, var6, var8 + this.a.bd().nextGaussian() * (double) var10);
+							var12.locY = this.a.locY + (double) (this.a.length / 2.0F) + 0.5D;
+							this.a.world.addEntity((Entity) var12);
 						}
 					}
 				}
@@ -193,7 +193,7 @@ public class EntityBlaze extends EntityMonster {
 				this.a.q().a(var1, 10.0F, 10.0F);
 			} else {
 				this.a.u().n();
-				this.a.r().a(var1.s, var1.t, var1.u, 1.0D);
+				this.a.r().a(var1.locX, var1.locY, var1.locZ, 1.0D);
 			}
 
 			super.e();

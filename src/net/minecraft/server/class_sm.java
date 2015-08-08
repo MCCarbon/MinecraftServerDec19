@@ -12,7 +12,7 @@ public class class_sm extends class_rm {
    }
 
    public boolean a() {
-      return this.a.o.x();
+      return this.a.world.x();
    }
 
    public void c() {

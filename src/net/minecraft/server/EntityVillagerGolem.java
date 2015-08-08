@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 
 public class EntityVillagerGolem extends class_ua {
 
-	protected static final int PLAYERCREATED_DW_ID = Datawathcer.claimId(EntityVillagerGolem.class); //value = 11
+	protected static final int PLAYERCREATED_DW_ID = DataWathcer.claimId(EntityVillagerGolem.class); //value = 11
 
 	private int c;
 	class_tp b;
@@ -36,7 +36,7 @@ public class EntityVillagerGolem extends class_ua {
 	protected void cc() {
 		if (--this.c <= 0) {
 			this.c = 70 + this.random.nextInt(50);
-			this.b = this.o.af().a(new BlockPosition(this), 32);
+			this.b = this.world.af().a(new BlockPosition(this), 32);
 			if (this.b == null) {
 				this.cy();
 			} else {
@@ -76,14 +76,14 @@ public class EntityVillagerGolem extends class_ua {
 			--this.bt;
 		}
 
-		if (this.v * this.v + this.x * this.x > 2.500000277905201E-7D && this.random.nextInt(5) == 0) {
-			int var1 = MathHelper.floor(this.s);
-			int var2 = MathHelper.floor(this.t - 0.20000000298023224D);
-			int var3 = MathHelper.floor(this.u);
-			IBlockData var4 = this.o.getType(new BlockPosition(var1, var2, var3));
+		if (this.motX * this.motX + this.motZ * this.motZ > 2.500000277905201E-7D && this.random.nextInt(5) == 0) {
+			int var1 = MathHelper.floor(this.locX);
+			int var2 = MathHelper.floor(this.locY - 0.20000000298023224D);
+			int var3 = MathHelper.floor(this.locZ);
+			IBlockData var4 = this.world.getType(new BlockPosition(var1, var2, var3));
 			Block var5 = var4.getBlock();
 			if (var5.getMaterial() != Material.AIR) {
-				this.o.a(class_cy.L, this.s + ((double) this.random.nextFloat() - 0.5D) * (double) this.J, this.aT().yMin + 0.1D, this.u + ((double) this.random.nextFloat() - 0.5D) * (double) this.J, 4.0D * ((double) this.random.nextFloat() - 0.5D), 0.5D, ((double) this.random.nextFloat() - 0.5D) * 4.0D, new int[] { Block.getCombinedId(var4) });
+				this.world.a(class_cy.L, this.locX + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, this.aT().yMin + 0.1D, this.locZ + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, 4.0D * ((double) this.random.nextFloat() - 0.5D), 0.5D, ((double) this.random.nextFloat() - 0.5D) * 4.0D, new int[] { Block.getCombinedId(var4) });
 			}
 		}
 
@@ -105,7 +105,7 @@ public class EntityVillagerGolem extends class_ua {
 
 	public boolean r(Entity var1) {
 		this.bs = 10;
-		this.o.a((Entity) this, (byte) 4);
+		this.world.a((Entity) this, (byte) 4);
 		boolean var2 = var1.damageEntity(DamageSource.a((EntityLiving) this), (float) (7 + this.random.nextInt(15)));
 		if (var2) {
 			var1.motY += 0.4000000059604645D;
@@ -122,7 +122,7 @@ public class EntityVillagerGolem extends class_ua {
 
 	public void a(boolean var1) {
 		this.bt = var1 ? 400 : 0;
-		this.o.a((Entity) this, (byte) 11);
+		this.world.a((Entity) this, (byte) 11);
 	}
 
 	protected String bp() {

@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public abstract class EntityTameable extends EntityAnimal implements class_qg {
 
-	protected static final int TAME_FLAGS_DW_ID = Datawathcer.claimId(EntityTameable.class); //value = 12
-	protected static final int OWNER_DW_ID = Datawathcer.claimId(EntityTameable.class); //value = 13
+	protected static final int TAME_FLAGS_DW_ID = DataWathcer.claimId(EntityTameable.class); //value = 12
+	protected static final int OWNER_DW_ID = DataWathcer.claimId(EntityTameable.class); //value = 13
 
 	protected class_so bu = new class_so(this);
 
@@ -60,7 +60,7 @@ public abstract class EntityTameable extends EntityAnimal implements class_qg {
 			double var4 = this.random.nextGaussian() * 0.02D;
 			double var6 = this.random.nextGaussian() * 0.02D;
 			double var8 = this.random.nextGaussian() * 0.02D;
-			this.o.a(var2, this.s + (double) (this.random.nextFloat() * this.J * 2.0F) - (double) this.J, this.t + 0.5D + (double) (this.random.nextFloat() * this.K), this.u + (double) (this.random.nextFloat() * this.J * 2.0F) - (double) this.J, var4, var6, var8, new int[0]);
+			this.world.a(var2, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, var4, var6, var8, new int[0]);
 		}
 
 	}
@@ -108,7 +108,7 @@ public abstract class EntityTameable extends EntityAnimal implements class_qg {
 	public EntityLiving cD() {
 		try {
 			UUID var1 = UUID.fromString(this.b());
-			return var1 == null ? null : this.o.b(var1);
+			return var1 == null ? null : this.world.b(var1);
 		} catch (IllegalArgumentException var2) {
 			return null;
 		}
@@ -153,7 +153,7 @@ public abstract class EntityTameable extends EntityAnimal implements class_qg {
 	}
 
 	public void a(DamageSource var1) {
-		if (!this.o.isClientSide && this.o.R().getBooleanValue("showDeathMessages") && this.hasCustomName() && this.cD() instanceof EntityPlayer) {
+		if (!this.world.isClientSide && this.world.R().getBooleanValue("showDeathMessages") && this.hasCustomName() && this.cD() instanceof EntityPlayer) {
 			((EntityPlayer) this.cD()).a(this.bt().b());
 		}
 

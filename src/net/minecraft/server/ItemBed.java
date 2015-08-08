@@ -18,7 +18,7 @@ public class ItemBed extends Item {
             var4 = var4.up();
          }
 
-         int var13 = MathHelper.floor((double)(var2.y * 4.0F / 360.0F) + 0.5D) & 3;
+         int var13 = MathHelper.floor((double)(var2.yaw * 4.0F / 360.0F) + 0.5D) & 3;
          EnumDirection var14 = EnumDirection.getByHorizontalId(var13);
          BlockPosition var15 = var4.shift(var14);
          if(var2.a(var4, var6, var1) && var2.a(var15, var6, var1)) {

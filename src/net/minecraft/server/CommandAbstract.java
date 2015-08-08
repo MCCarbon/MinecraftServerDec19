@@ -228,7 +228,7 @@ public abstract class CommandAbstract implements ICommand {
          return a(var0, var1).getName();
       } catch (class_cd var5) {
          try {
-            return b(var0, var1).aM().toString();
+            return b(var0, var1).getUniqueId().toString();
          } catch (class_ca var4) {
             if(class_o.b(var1)) {
                throw var4;

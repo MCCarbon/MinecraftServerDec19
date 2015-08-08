@@ -214,8 +214,8 @@ public class BlockPiston extends class_ahi {
 	}
 
 	public static EnumDirection a(World var0, BlockPosition var1, EntityLiving var2) {
-		if ((MathHelper.abs((float) var2.s - var1.getX()) < 2.0F) && (MathHelper.abs((float) var2.u - var1.getZ()) < 2.0F)) {
-			double var3 = var2.t + var2.aU();
+		if ((MathHelper.abs((float) var2.locX - var1.getX()) < 2.0F) && (MathHelper.abs((float) var2.locZ - var1.getZ()) < 2.0F)) {
+			double var3 = var2.locY + var2.aU();
 			if ((var3 - var1.getY()) > 2.0D) {
 				return EnumDirection.UP;
 			}

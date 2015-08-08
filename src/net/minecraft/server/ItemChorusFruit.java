@@ -11,9 +11,9 @@ public class ItemChorusFruit extends ItemFood {
 		ItemStack var4 = super.onUseFinish(itemstack, world, player);
 
 		for (int var5 = 0; var5 < 16; ++var5) {
-			double var6 = player.s + ((player.bd().nextDouble() - 0.5D) * 64.0D);
-			double var8 = player.t + (player.bd().nextInt(64) - 32);
-			double var10 = player.u + ((player.bd().nextDouble() - 0.5D) * 64.0D);
+			double var6 = player.locX + ((player.bd().nextDouble() - 0.5D) * 64.0D);
+			double var8 = player.locY + (player.bd().nextInt(64) - 32);
+			double var10 = player.locZ + ((player.bd().nextDouble() - 0.5D) * 64.0D);
 			if (EntityEnderman.a(player, var6, var8, var10)) {
 				break;
 			}

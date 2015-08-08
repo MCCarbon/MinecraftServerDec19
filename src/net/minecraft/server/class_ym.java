@@ -32,8 +32,8 @@ public class class_ym extends class_yx {
    }
 
    protected void c(ItemStack var1) {
-      var1.a(this.a.o, this.a, this.b);
-      if(!this.a.o.isClientSide) {
+      var1.a(this.a.world, this.a, this.b);
+      if(!this.a.world.isClientSide) {
          int var2 = this.b;
          float var3 = class_aco.a().b(var1);
          int var4;
@@ -51,7 +51,7 @@ public class class_ym extends class_yx {
          while(var2 > 0) {
             var4 = EntityExperienceOrb.getOrbValue(var2);
             var2 -= var4;
-            this.a.o.addEntity((Entity)(new EntityExperienceOrb(this.a.o, this.a.s, this.a.t + 0.5D, this.a.u + 0.5D, var4)));
+            this.a.world.addEntity((Entity)(new EntityExperienceOrb(this.a.world, this.a.locX, this.a.locY + 0.5D, this.a.locZ + 0.5D, var4)));
          }
       }
 

@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class EntityBat extends class_tt {
 
-	private static final int HANGING_DW_ID = Datawathcer.claimId(EntityBat.class); //value = 11
+	private static final int HANGING_DW_ID = DataWathcer.claimId(EntityBat.class); //value = 11
 
 	private BlockPosition b;
 
@@ -71,8 +71,8 @@ public class EntityBat extends class_tt {
 	public void t_() {
 		super.t_();
 		if (this.n()) {
-			this.v = this.motY = this.x = 0.0D;
-			this.t = (double) MathHelper.floor(this.t) + 1.0D - (double) this.K;
+			this.motX = this.motY = this.motZ = 0.0D;
+			this.locY = (double) MathHelper.floor(this.locY) + 1.0D - (double) this.length;
 		} else {
 			this.motY *= 0.6000000238418579D;
 		}
@@ -84,39 +84,39 @@ public class EntityBat extends class_tt {
 		BlockPosition var1 = new BlockPosition(this);
 		BlockPosition var2 = var1.up();
 		if (this.n()) {
-			if (!this.o.getType(var2).getBlock().isOccluding()) {
+			if (!this.world.getType(var2).getBlock().isOccluding()) {
 				this.a(false);
-				this.o.a((EntityHuman) null, 1015, var1, 0);
+				this.world.a((EntityHuman) null, 1015, var1, 0);
 			} else {
 				if (this.random.nextInt(200) == 0) {
 					this.aN = (float) this.random.nextInt(360);
 				}
 
-				if (this.o.a(this, 4.0D) != null) {
+				if (this.world.a(this, 4.0D) != null) {
 					this.a(false);
-					this.o.a((EntityHuman) null, 1015, var1, 0);
+					this.world.a((EntityHuman) null, 1015, var1, 0);
 				}
 			}
 		} else {
-			if (this.b != null && (!this.o.isEmpty(this.b) || this.b.getY() < 1)) {
+			if (this.b != null && (!this.world.isEmpty(this.b) || this.b.getY() < 1)) {
 				this.b = null;
 			}
 
-			if (this.b == null || this.random.nextInt(30) == 0 || this.b.distanceSquared((double) ((int) this.s), (double) ((int) this.t), (double) ((int) this.u)) < 4.0D) {
-				this.b = new BlockPosition((int) this.s + this.random.nextInt(7) - this.random.nextInt(7), (int) this.t + this.random.nextInt(6) - 2, (int) this.u + this.random.nextInt(7) - this.random.nextInt(7));
+			if (this.b == null || this.random.nextInt(30) == 0 || this.b.distanceSquared((double) ((int) this.locX), (double) ((int) this.locY), (double) ((int) this.locZ)) < 4.0D) {
+				this.b = new BlockPosition((int) this.locX + this.random.nextInt(7) - this.random.nextInt(7), (int) this.locY + this.random.nextInt(6) - 2, (int) this.locZ + this.random.nextInt(7) - this.random.nextInt(7));
 			}
 
-			double var3 = (double) this.b.getX() + 0.5D - this.s;
-			double var5 = (double) this.b.getY() + 0.1D - this.t;
-			double var7 = (double) this.b.getZ() + 0.5D - this.u;
-			this.v += (Math.signum(var3) * 0.5D - this.v) * 0.10000000149011612D;
+			double var3 = (double) this.b.getX() + 0.5D - this.locX;
+			double var5 = (double) this.b.getY() + 0.1D - this.locY;
+			double var7 = (double) this.b.getZ() + 0.5D - this.locZ;
+			this.motX += (Math.signum(var3) * 0.5D - this.motX) * 0.10000000149011612D;
 			this.motY += (Math.signum(var5) * 0.699999988079071D - this.motY) * 0.10000000149011612D;
-			this.x += (Math.signum(var7) * 0.5D - this.x) * 0.10000000149011612D;
-			float var9 = (float) (MathHelper.b(this.x, this.v) * 180.0D / 3.1415927410125732D) - 90.0F;
-			float var10 = MathHelper.clampAngle(var9 - this.y);
+			this.motZ += (Math.signum(var7) * 0.5D - this.motZ) * 0.10000000149011612D;
+			float var9 = (float) (MathHelper.b(this.motZ, this.motX) * 180.0D / 3.1415927410125732D) - 90.0F;
+			float var10 = MathHelper.clampAngle(var9 - this.yaw);
 			this.bd = 0.5F;
-			this.y += var10;
-			if (this.random.nextInt(100) == 0 && this.o.getType(var2).getBlock().isOccluding()) {
+			this.yaw += var10;
+			if (this.random.nextInt(100) == 0 && this.world.getType(var2).getBlock().isOccluding()) {
 				this.a(true);
 			}
 		}
@@ -141,7 +141,7 @@ public class EntityBat extends class_tt {
 		if (this.b(var1)) {
 			return false;
 		} else {
-			if (!this.o.isClientSide && this.n()) {
+			if (!this.world.isClientSide && this.n()) {
 				this.a(false);
 			}
 
@@ -160,13 +160,13 @@ public class EntityBat extends class_tt {
 	}
 
 	public boolean cf() {
-		BlockPosition var1 = new BlockPosition(this.s, this.aT().yMin, this.u);
-		if (var1.getY() >= this.o.G()) {
+		BlockPosition var1 = new BlockPosition(this.locX, this.aT().yMin, this.locZ);
+		if (var1.getY() >= this.world.G()) {
 			return false;
 		} else {
-			int var2 = this.o.l(var1);
+			int var2 = this.world.l(var1);
 			byte var3 = 4;
-			if (this.a(this.o.Z())) {
+			if (this.a(this.world.Z())) {
 				var3 = 7;
 			} else if (this.random.nextBoolean()) {
 				return false;
@@ -181,7 +181,7 @@ public class EntityBat extends class_tt {
 	}
 
 	public float aU() {
-		return this.K / 2.0F;
+		return this.length / 2.0F;
 	}
 
 }

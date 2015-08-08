@@ -11,13 +11,13 @@ public class EntityPigZombie extends EntityZombie {
 
    public EntityPigZombie(World var1) {
       super(var1);
-      this.ab = true;
+      this.fireProof = true;
    }
 
    public void b(EntityLiving var1) {
       super.b((EntityLiving)var1);
       if(var1 != null) {
-         this.bu = var1.aM();
+         this.bu = var1.getUniqueId();
       }
 
    }
@@ -55,7 +55,7 @@ public class EntityPigZombie extends EntityZombie {
       }
 
       if(this.bs > 0 && this.bu != null && this.be() == null) {
-         EntityHuman var2 = this.o.b(this.bu);
+         EntityHuman var2 = this.world.b(this.bu);
          this.b((EntityLiving)var2);
          this.aQ = var2;
          this.aR = this.bf();
@@ -65,11 +65,11 @@ public class EntityPigZombie extends EntityZombie {
    }
 
    public boolean cf() {
-      return this.o.ab() != class_om.a;
+      return this.world.ab() != class_om.a;
    }
 
    public boolean cg() {
-      return this.o.a((AxisAlignedBB)this.aT(), (Entity)this) && this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.o.d(this.aT());
+      return this.world.a((AxisAlignedBB)this.aT(), (Entity)this) && this.world.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.world.d(this.aT());
    }
 
    public void write(NBTTagCompound var1) {
@@ -89,7 +89,7 @@ public class EntityPigZombie extends EntityZombie {
       String var2 = var1.getString("HurtBy");
       if(!var2.isEmpty()) {
          this.bu = UUID.fromString(var2);
-         EntityHuman var3 = this.o.b(this.bu);
+         EntityHuman var3 = this.world.b(this.bu);
          this.b((EntityLiving)var3);
          if(var3 != null) {
             this.aQ = var3;

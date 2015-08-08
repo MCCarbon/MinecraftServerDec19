@@ -8,7 +8,7 @@ public class TileEntitySign extends TileEntity {
 	public int f = -1;
 	private boolean g = true;
 	private EntityHuman h;
-	private final class_n i = new class_n();
+	private final CommandObjectiveExecutor i = new CommandObjectiveExecutor();
 
 	@Override
 	public void write(NBTTagCompound var1) {
@@ -72,7 +72,7 @@ public class TileEntitySign extends TileEntity {
 			}
 
 			@Override
-			public void a(class_n.class_a_in_class_n var1, int var2) {
+			public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {
 			}
 		};
 
@@ -166,7 +166,7 @@ public class TileEntitySign extends TileEntity {
 			}
 
 			@Override
-			public void a(class_n.class_a_in_class_n var1x, int var2) {
+			public void a(CommandObjectiveExecutor.class_a_in_class_n var1x, int var2) {
 				i.a(this, var1x, var2);
 			}
 		};
@@ -184,7 +184,7 @@ public class TileEntitySign extends TileEntity {
 		return true;
 	}
 
-	public class_n d() {
+	public CommandObjectiveExecutor d() {
 		return i;
 	}
 }

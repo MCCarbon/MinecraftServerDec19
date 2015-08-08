@@ -11,7 +11,7 @@ public class ItemMapEmpty extends class_zt {
       class_avf var7 = new class_avf(var6);
       var2.a((String)var6, (class_avd)var7);
       var7.e = 0;
-      var7.a(var3.s, var3.u, var7.e);
+      var7.a(var3.locX, var3.locZ, var7.e);
       var7.d = (byte)var2.worldProvider.p().a();
       var7.c();
       --var1.count;

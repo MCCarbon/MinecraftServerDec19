@@ -9,7 +9,7 @@ public class class_rc extends class_rm {
 
    public class_rc(EntityWolf var1, float var2) {
       this.a = var1;
-      this.c = var1.o;
+      this.c = var1.world;
       this.d = var2;
       this.a(2);
    }
@@ -34,7 +34,7 @@ public class class_rc extends class_rm {
    }
 
    public void e() {
-      this.a.q().a(this.b.s, this.b.t + (double)this.b.aU(), this.b.u, 10.0F, (float)this.a.cd());
+      this.a.q().a(this.b.locX, this.b.locY + (double)this.b.aU(), this.b.locZ, 10.0F, (float)this.a.cd());
       --this.e;
    }
 

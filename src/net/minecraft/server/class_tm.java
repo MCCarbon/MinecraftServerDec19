@@ -14,12 +14,12 @@ public class class_tm {
    }
 
    public static Vec3D a(EntityCreature var0, int var1, int var2, Vec3D var3) {
-      a = var3.substract(var0.s, var0.t, var0.u);
+      a = var3.substract(var0.locX, var0.locY, var0.locZ);
       return c(var0, var1, var2, a);
    }
 
    public static Vec3D b(EntityCreature var0, int var1, int var2, Vec3D var3) {
-      a = (new Vec3D(var0.s, var0.t, var0.u)).d(var3);
+      a = (new Vec3D(var0.locX, var0.locY, var0.locZ)).d(var3);
       return c(var0, var1, var2, a);
    }
 
@@ -32,7 +32,7 @@ public class class_tm {
       float var9 = -99999.0F;
       boolean var10;
       if(var0.cz()) {
-         double var11 = var0.cw().distanceSquared((double)MathHelper.floor(var0.s), (double)MathHelper.floor(var0.t), (double)MathHelper.floor(var0.u)) + 4.0D;
+         double var11 = var0.cw().distanceSquared((double)MathHelper.floor(var0.locX), (double)MathHelper.floor(var0.locY), (double)MathHelper.floor(var0.locZ)) + 4.0D;
          double var13 = (double)(var0.cx() + (float)var1);
          var10 = var11 < var13 * var13;
       } else {
@@ -47,22 +47,22 @@ public class class_tm {
             BlockPosition var15;
             if(var0.cz() && var1 > 1) {
                var15 = var0.cw();
-               if(var0.s > (double)var15.getX()) {
+               if(var0.locX > (double)var15.getX()) {
                   var12 -= var4.nextInt(var1 / 2);
                } else {
                   var12 += var4.nextInt(var1 / 2);
                }
 
-               if(var0.u > (double)var15.getZ()) {
+               if(var0.locZ > (double)var15.getZ()) {
                   var14 -= var4.nextInt(var1 / 2);
                } else {
                   var14 += var4.nextInt(var1 / 2);
                }
             }
 
-            var12 += MathHelper.floor(var0.s);
-            var18 += MathHelper.floor(var0.t);
-            var14 += MathHelper.floor(var0.u);
+            var12 += MathHelper.floor(var0.locX);
+            var18 += MathHelper.floor(var0.locY);
+            var14 += MathHelper.floor(var0.locZ);
             var15 = new BlockPosition(var12, var18, var14);
             if(!var10 || var0.e(var15)) {
                float var16 = var0.a(var15);

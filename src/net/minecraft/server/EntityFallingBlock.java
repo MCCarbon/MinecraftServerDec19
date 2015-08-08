@@ -24,12 +24,12 @@ public class EntityFallingBlock extends Entity {
       this.k = true;
       this.a(0.98F, 0.98F);
       this.b(var2, var4, var6);
-      this.v = 0.0D;
+      this.motX = 0.0D;
       this.motY = 0.0D;
-      this.x = 0.0D;
-      this.p = var2;
-      this.q = var4;
-      this.r = var6;
+      this.motZ = 0.0D;
+      this.lastX = var2;
+      this.lastY = var4;
+      this.lastZ = var6;
    }
 
    protected boolean s_() {
@@ -40,7 +40,7 @@ public class EntityFallingBlock extends Entity {
    }
 
    public boolean ad() {
-      return !this.I;
+      return !this.dead;
    }
 
    public void t_() {
@@ -48,41 +48,41 @@ public class EntityFallingBlock extends Entity {
       if(var1.getMaterial() == Material.AIR) {
          this.J();
       } else {
-         this.p = this.s;
-         this.q = this.t;
-         this.r = this.u;
+         this.lastX = this.locX;
+         this.lastY = this.locY;
+         this.lastZ = this.locZ;
          BlockPosition var2;
          if(this.a++ == 0) {
             var2 = new BlockPosition(this);
-            if(this.o.getType(var2).getBlock() == var1) {
-               this.o.setAir(var2);
-            } else if(!this.o.isClientSide) {
+            if(this.world.getType(var2).getBlock() == var1) {
+               this.world.setAir(var2);
+            } else if(!this.world.isClientSide) {
                this.J();
                return;
             }
          }
 
          this.motY -= 0.03999999910593033D;
-         this.d(this.v, this.motY, this.x);
-         this.v *= 0.9800000190734863D;
+         this.d(this.motX, this.motY, this.motZ);
+         this.motX *= 0.9800000190734863D;
          this.motY *= 0.9800000190734863D;
-         this.x *= 0.9800000190734863D;
-         if(!this.o.isClientSide) {
+         this.motZ *= 0.9800000190734863D;
+         if(!this.world.isClientSide) {
             var2 = new BlockPosition(this);
-            if(this.C) {
-               this.v *= 0.699999988079071D;
-               this.x *= 0.699999988079071D;
+            if(this.onGround) {
+               this.motX *= 0.699999988079071D;
+               this.motZ *= 0.699999988079071D;
                this.motY *= -0.5D;
-               if(this.o.getType(var2).getBlock() != Blocks.PISTON_EXTENSION) {
+               if(this.world.getType(var2).getBlock() != Blocks.PISTON_EXTENSION) {
                   this.J();
                   if(!this.e) {
-                     if(this.o.a(var1, var2, true, EnumDirection.UP, (Entity)null, (ItemStack)null) && !BlockFalling.canFall(this.o, var2.down()) && this.o.setTypeAndData((BlockPosition)var2, (IBlockData)this.d, 3)) {
+                     if(this.world.a(var1, var2, true, EnumDirection.UP, (Entity)null, (ItemStack)null) && !BlockFalling.canFall(this.world, var2.down()) && this.world.setTypeAndData((BlockPosition)var2, (IBlockData)this.d, 3)) {
                         if(var1 instanceof BlockFalling) {
-                           ((BlockFalling)var1).a_(this.o, var2);
+                           ((BlockFalling)var1).a_(this.world, var2);
                         }
 
                         if(this.c != null && var1 instanceof IContainer) {
-                           TileEntity var3 = this.o.getTileEntity(var2);
+                           TileEntity var3 = this.world.getTileEntity(var2);
                            if(var3 != null) {
                               NBTTagCompound var4 = new NBTTagCompound();
                               var3.write(var4);
@@ -100,13 +100,13 @@ public class EntityFallingBlock extends Entity {
                               var3.update();
                            }
                         }
-                     } else if(this.b && this.o.R().getBooleanValue("doEntityDrops")) {
+                     } else if(this.b && this.world.R().getBooleanValue("doEntityDrops")) {
                         this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                      }
                   }
                }
-            } else if(this.a > 100 && !this.o.isClientSide && (var2.getY() < 1 || var2.getY() > 256) || this.a > 600) {
-               if(this.b && this.o.R().getBooleanValue("doEntityDrops")) {
+            } else if(this.a > 100 && !this.world.isClientSide && (var2.getY() < 1 || var2.getY() > 256) || this.a > 600) {
+               if(this.b && this.world.R().getBooleanValue("doEntityDrops")) {
                   this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                }
 
@@ -122,7 +122,7 @@ public class EntityFallingBlock extends Entity {
       if(this.f) {
          int var4 = MathHelper.ceil(var1 - 1.0F);
          if(var4 > 0) {
-            ArrayList var5 = Lists.newArrayList((Iterable)this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT()));
+            ArrayList var5 = Lists.newArrayList((Iterable)this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT()));
             boolean var6 = var3 == Blocks.ANVIL;
             DamageSource var7 = var6? DamageSource.n: DamageSource.o;
             Iterator var8 = var5.iterator();

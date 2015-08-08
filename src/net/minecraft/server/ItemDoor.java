@@ -23,7 +23,7 @@ public class ItemDoor extends Item {
          } else if(!this.a.canPlace(var3, var4)) {
             return UseResult.CANT_USE;
          } else {
-            a(var3, var4, EnumDirection.fromAngle((double)var2.y), this.a);
+            a(var3, var4, EnumDirection.fromAngle((double)var2.yaw), this.a);
             --var1.count;
             return UseResult.SUCCESS;
          }

@@ -30,7 +30,7 @@ import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityHuman;
 
@@ -240,7 +240,7 @@ public class CommandScoreboard extends CommandAbstract {
          }
 
          var2[var3] = var5;
-         var1.a(class_n.class_a_in_class_n.c, var6.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.c, var6.size());
          if(var6.isEmpty()) {
             throw new class_cf("commands.scoreboard.allMatchesFailed", new Object[0]);
          } else {
@@ -420,7 +420,7 @@ public class CommandScoreboard extends CommandAbstract {
          }
 
          Collection var6 = var5.d();
-         var1.a(class_n.class_a_in_class_n.e, var6.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var6.size());
          if(var6.isEmpty()) {
             throw new class_bz("commands.scoreboard.teams.list.player.empty", new Object[]{var5.b()});
          }
@@ -431,7 +431,7 @@ public class CommandScoreboard extends CommandAbstract {
          var1.a(new ChatComponentText(a(var6.toArray())));
       } else {
          Collection var9 = var4.g();
-         var1.a(class_n.class_a_in_class_n.e, var9.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var9.size());
          if(var9.isEmpty()) {
             throw new class_bz("commands.scoreboard.teams.list.empty", new Object[0]);
          }
@@ -477,7 +477,7 @@ public class CommandScoreboard extends CommandAbstract {
 
                   while(var10.hasNext()) {
                      Entity var11 = (Entity)var10.next();
-                     String var12 = e(var1, var11.aM().toString());
+                     String var12 = e(var1, var11.getUniqueId().toString());
                      if(var4.a(var12, var5)) {
                         var6.add(var12);
                      } else {
@@ -497,7 +497,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
 
       if(!var6.isEmpty()) {
-         var1.a(class_n.class_a_in_class_n.c, var6.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.c, var6.size());
          a(var1, this, "commands.scoreboard.teams.join.success", new Object[]{Integer.valueOf(var6.size()), var5, a(var6.toArray(new String[var6.size()]))});
       }
 
@@ -533,7 +533,7 @@ public class CommandScoreboard extends CommandAbstract {
 
                   while(var9.hasNext()) {
                      Entity var10 = (Entity)var9.next();
-                     String var11 = e(var1, var10.aM().toString());
+                     String var11 = e(var1, var10.getUniqueId().toString());
                      if(var4.f(var11)) {
                         var5.add(var11);
                      } else {
@@ -553,7 +553,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
 
       if(!var5.isEmpty()) {
-         var1.a(class_n.class_a_in_class_n.c, var5.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.c, var5.size());
          a(var1, this, "commands.scoreboard.teams.leave.success", new Object[]{Integer.valueOf(var5.size()), a(var5.toArray(new String[var5.size()]))});
       }
 
@@ -567,7 +567,7 @@ public class CommandScoreboard extends CommandAbstract {
       class_awk var5 = this.e(var2[var3]);
       if(var5 != null) {
          ArrayList var6 = Lists.newArrayList((Iterable)var5.d());
-         var1.a(class_n.class_a_in_class_n.c, var6.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.c, var6.size());
          if(var6.isEmpty()) {
             throw new class_bz("commands.scoreboard.teams.empty.alreadyEmpty", new Object[]{var5.b()});
          } else {
@@ -636,7 +636,7 @@ public class CommandScoreboard extends CommandAbstract {
       if(var2.length > var3) {
          String var5 = e(var1, var2[var3]);
          Map var6 = var4.c(var5);
-         var1.a(class_n.class_a_in_class_n.e, var6.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var6.size());
          if(var6.isEmpty()) {
             throw new class_bz("commands.scoreboard.players.list.player.empty", new Object[]{var5});
          }
@@ -652,7 +652,7 @@ public class CommandScoreboard extends CommandAbstract {
          }
       } else {
          Collection var10 = var4.d();
-         var1.a(class_n.class_a_in_class_n.e, var10.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var10.size());
          if(var10.isEmpty()) {
             throw new class_bz("commands.scoreboard.players.list.empty", new Object[0]);
          }

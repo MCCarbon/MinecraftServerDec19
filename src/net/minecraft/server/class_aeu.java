@@ -120,8 +120,8 @@ public final class class_aeu {
                var7 = (EntityHuman)var6.next();
             } while(var7.isSpectator());
 
-            int var8 = MathHelper.floor(var7.s / 16.0D);
-            var9 = MathHelper.floor(var7.u / 16.0D);
+            int var8 = MathHelper.floor(var7.locX / 16.0D);
+            var9 = MathHelper.floor(var7.locZ / 16.0D);
             byte var10 = 8;
 
             for(int var11 = -var10; var11 <= var10; ++var11) {

@@ -82,18 +82,18 @@ public class class_avf extends class_avd {
 
       for(int var6 = 0; var6 < this.g.size(); ++var6) {
          class_avf.class_a_in_class_avf var4 = (class_avf.class_a_in_class_avf)this.g.get(var6);
-         if(var4.a.I || !var4.a.inventory.c(var2) && !var2.isInItemFrame()) {
+         if(var4.a.dead || !var4.a.inventory.c(var2) && !var2.isInItemFrame()) {
             this.i.remove(var4.a);
             this.g.remove(var4);
-         } else if(!var2.isInItemFrame() && var4.a.am == this.d) {
-            this.a(0, var4.a.o, var4.a.getName(), var4.a.s, var4.a.u, (double)var4.a.y);
+         } else if(!var2.isInItemFrame() && var4.a.dimension == this.d) {
+            this.a(0, var4.a.world, var4.a.getName(), var4.a.locX, var4.a.locZ, (double)var4.a.yaw);
          }
       }
 
       if(var2.isInItemFrame()) {
          EntityItemFrame var7 = var2.getItemFrame();
          BlockPosition var8 = var7.n();
-         this.a(1, var1.o, "frame-" + var7.getId(), (double)var8.getX(), (double)var8.getZ(), (double)(var7.b.getHorizontalId() * 90));
+         this.a(1, var1.world, "frame-" + var7.getId(), (double)var8.getX(), (double)var8.getZ(), (double)(var7.b.getHorizontalId() * 90));
       }
 
       if(var2.hasTag() && var2.getTag().hasOfType("Decorations", 9)) {
@@ -102,7 +102,7 @@ public class class_avf extends class_avd {
          for(int var10 = 0; var10 < var9.getSize(); ++var10) {
             NBTTagCompound var5 = var9.getCompound(var10);
             if(!this.h.containsKey(var5.getString("id"))) {
-               this.a(var5.getByte("type"), var1.o, var5.getString("id"), var5.getDouble("x"), var5.getDouble("z"), var5.getDouble("rot"));
+               this.a(var5.getByte("type"), var1.world, var5.getString("id"), var5.getDouble("x"), var5.getDouble("z"), var5.getDouble("rot"));
             }
          }
       }

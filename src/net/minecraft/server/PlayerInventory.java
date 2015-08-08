@@ -142,7 +142,7 @@ public class PlayerInventory implements IInventory {
 
          for(int var3 = 0; var3 < var2.length; ++var3) {
             if(var2[var3] != null) {
-               var2[var3].a(this.e.o, this.e, var3, this.itemInHandIndex == var3);
+               var2[var3].a(this.e.world, this.e, var3, this.itemInHandIndex == var3);
             }
          }
       }
@@ -451,7 +451,7 @@ public class PlayerInventory implements IInventory {
    }
 
    public boolean isReachable(EntityHuman var1) {
-      return this.e.I?false:var1.h(this.e) <= 64.0D;
+      return this.e.dead?false:var1.h(this.e) <= 64.0D;
    }
 
    public boolean c(ItemStack var1) {

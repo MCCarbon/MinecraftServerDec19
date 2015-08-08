@@ -70,13 +70,13 @@ public class TileEntityPiston extends TileEntity implements ITickAble {
 						if ((a.getBlock() == Blocks.SLINE) && g) {
 							switch (TileEntityPiston.SyntheticClass_1.a[f.getAxis().ordinal()]) {
 								case 1:
-									var6.v = f.getAdjacentX();
+									var6.motX = f.getAdjacentX();
 									break;
 								case 2:
 									var6.motY = f.getAdjacentY();
 									break;
 								case 3:
-									var6.x = f.getAdjacentZ();
+									var6.motZ = f.getAdjacentZ();
 							}
 						} else {
 							var6.d(var2 * f.getAdjacentX(), var2 * f.getAdjacentY(), var2 * f.getAdjacentZ());

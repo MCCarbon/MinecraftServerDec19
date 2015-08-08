@@ -8,7 +8,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 
 	private static final UUID a = UUID.fromString("5CD17E52-A79A-43D3-A529-90FDE04B181E");
 	private static final class_qm b;
-	private static final int AGRESSIVE_DW_ID = Datawathcer.claimId(EntityWitch.class); //value = 11
+	private static final int AGRESSIVE_DW_ID = DataWathcer.claimId(EntityWitch.class); //value = 11
 	private static final Item[] bs;
 
 	private int bt;
@@ -57,7 +57,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 	}
 
 	public void m() {
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			if (this.n()) {
 				if (this.bt-- <= 0) {
 					this.a(false);
@@ -100,7 +100,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 			}
 
 			if (this.random.nextFloat() < 7.5E-4F) {
-				this.o.a((Entity) this, (byte) 15);
+				this.world.a((Entity) this, (byte) 15);
 			}
 		}
 
@@ -139,10 +139,10 @@ public class EntityWitch extends EntityMonster implements class_wk {
 
 	public void a(EntityLiving var1, float var2) {
 		if (!this.n()) {
-			double var3 = var1.t + (double) var1.aU() - 1.100000023841858D;
-			double var5 = var1.s + var1.v - this.s;
-			double var7 = var3 - this.t;
-			double var9 = var1.u + var1.x - this.u;
+			double var3 = var1.locY + (double) var1.aU() - 1.100000023841858D;
+			double var5 = var1.locX + var1.motX - this.locX;
+			double var7 = var3 - this.locY;
+			double var9 = var1.locZ + var1.motZ - this.locZ;
 			float var11 = MathHelper.sqrt(var5 * var5 + var9 * var9);
 			class_acd var12 = class_acf.w;
 			if (var11 >= 8.0F && !var1.hasEffect(MobEffectList.b)) {
@@ -153,10 +153,10 @@ public class EntityWitch extends EntityMonster implements class_wk {
 				var12 = class_acf.H;
 			}
 
-			EntityPotion var13 = new EntityPotion(this.o, this, ItemPotion.a(new ItemStack(Items.SPLASH_POTION), var12));
-			var13.z -= -20.0F;
+			EntityPotion var13 = new EntityPotion(this.world, this, ItemPotion.a(new ItemStack(Items.SPLASH_POTION), var12));
+			var13.pitch -= -20.0F;
 			var13.c(var5, var7 + (double) (var11 * 0.2F), var9, 0.75F, 8.0F);
-			this.o.addEntity((Entity) var13);
+			this.world.addEntity((Entity) var13);
 		}
 	}
 

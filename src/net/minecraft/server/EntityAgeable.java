@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public abstract class EntityAgeable extends EntityCreature {
 
-	private static final int AGE_DW_ID = Datawathcer.claimId(EntityAgeable.class); //value = 11
+	private static final int AGE_DW_ID = DataWathcer.claimId(EntityAgeable.class); //value = 11
 
 	protected int a;
 	protected int b;
@@ -18,14 +18,14 @@ public abstract class EntityAgeable extends EntityCreature {
 
 	public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
 		if (var3 != null && var3.getItem() == Items.SPAWN_EGG) {
-			if (!this.o.isClientSide) {
+			if (!this.world.isClientSide) {
 				Class var4 = EntityTypes.a(var3.i());
 				if (var4 != null && this.getClass() == var4) {
 					EntityAgeable var5 = this.createChild(this);
 					if (var5 != null) {
 						var5.b(-24000);
-						var5.b(this.s, this.t, this.u, 0.0F, 0.0F);
-						this.o.addEntity((Entity) var5);
+						var5.b(this.locX, this.locY, this.locZ, 0.0F, 0.0F);
+						this.world.addEntity((Entity) var5);
 						if (var3.hasDisplayName()) {
 							var5.a((String) var3.getDisplayName());
 						}
@@ -49,7 +49,7 @@ public abstract class EntityAgeable extends EntityCreature {
 	}
 
 	public int getAge() {
-		return this.o.isClientSide ? this.datawatcher.getByte(AGE_DW_ID) : this.a;
+		return this.world.isClientSide ? this.datawatcher.getByte(AGE_DW_ID) : this.a;
 	}
 
 	public void setAge(int var1, boolean var2) {
@@ -110,10 +110,10 @@ public abstract class EntityAgeable extends EntityCreature {
 
 	public void m() {
 		super.m();
-		if (this.o.isClientSide) {
+		if (this.world.isClientSide) {
 			if (this.c > 0) {
 				if (this.c % 4 == 0) {
-					this.o.a(class_cy.v, this.s + (double) (this.random.nextFloat() * this.J * 2.0F) - (double) this.J, this.t + 0.5D + (double) (this.random.nextFloat() * this.K), this.u + (double) (this.random.nextFloat() * this.J * 2.0F) - (double) this.J, 0.0D, 0.0D, 0.0D, new int[0]);
+					this.world.a(class_cy.v, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
 				}
 
 				--this.c;

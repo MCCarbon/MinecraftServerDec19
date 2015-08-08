@@ -21,7 +21,7 @@ public class MovingObjectPosition {
    }
 
    public MovingObjectPosition(Entity var1) {
-      this(var1, new Vec3D(var1.s, var1.t, var1.u));
+      this(var1, new Vec3D(var1.locX, var1.locY, var1.locZ));
    }
 
    public MovingObjectPosition(MovingObjectPosition.class_a_in_class_awg var1, Vec3D var2, EnumDirection var3, BlockPosition var4) {

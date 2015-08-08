@@ -11,12 +11,12 @@ public class class_sc extends class_rm {
    }
 
    public boolean a() {
-      if(!this.a.o.x()) {
+      if(!this.a.world.x()) {
          return false;
       } else if(this.a.bd().nextInt(8000) != 0) {
          return false;
       } else {
-         this.b = (EntityVillager)this.a.o.a((Class)EntityVillager.class, (AxisAlignedBB)this.a.aT().grow(6.0D, 2.0D, 6.0D), (Entity)this.a);
+         this.b = (EntityVillager)this.a.world.a((Class)EntityVillager.class, (AxisAlignedBB)this.a.aT().grow(6.0D, 2.0D, 6.0D), (Entity)this.a);
          return this.b != null;
       }
    }

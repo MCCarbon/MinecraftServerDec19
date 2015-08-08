@@ -17,20 +17,20 @@ public class class_rq extends class_rm {
          return false;
       } else {
          double var1 = this.a.h(this.b);
-         return var1 >= 4.0D && var1 <= 16.0D?(!this.a.C?false:this.a.bd().nextInt(5) == 0):false;
+         return var1 >= 4.0D && var1 <= 16.0D?(!this.a.onGround?false:this.a.bd().nextInt(5) == 0):false;
       }
    }
 
    public boolean b() {
-      return !this.a.C;
+      return !this.a.onGround;
    }
 
    public void c() {
-      double var1 = this.b.s - this.a.s;
-      double var3 = this.b.u - this.a.u;
+      double var1 = this.b.locX - this.a.locX;
+      double var3 = this.b.locZ - this.a.locZ;
       float var5 = MathHelper.sqrt(var1 * var1 + var3 * var3);
-      this.a.v += var1 / (double)var5 * 0.5D * 0.800000011920929D + this.a.v * 0.20000000298023224D;
-      this.a.x += var3 / (double)var5 * 0.5D * 0.800000011920929D + this.a.x * 0.20000000298023224D;
+      this.a.motX += var1 / (double)var5 * 0.5D * 0.800000011920929D + this.a.motX * 0.20000000298023224D;
+      this.a.motZ += var3 / (double)var5 * 0.5D * 0.800000011920929D + this.a.motZ * 0.20000000298023224D;
       this.a.motY = (double)this.c;
    }
 }

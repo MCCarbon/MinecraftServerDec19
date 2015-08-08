@@ -23,9 +23,9 @@ public class class_tk {
       } else if(this.c.contains(var1)) {
          return false;
       } else {
-         this.a.o.B.a("canSee");
+         this.a.world.B.a("canSee");
          boolean var2 = this.a.t(var1);
-         this.a.o.B.b();
+         this.a.world.B.b();
          if(var2) {
             this.b.add(var1);
          } else {

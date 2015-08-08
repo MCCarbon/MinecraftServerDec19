@@ -21,7 +21,7 @@ public class class_pb {
    public void a() {
       this.j();
       if(this.b.k_()) {
-         Block var1 = this.b.o.getType(new BlockPosition(this.b.s, this.b.aT().yMin, this.b.u)).getBlock();
+         Block var1 = this.b.world.getType(new BlockPosition(this.b.locX, this.b.aT().yMin, this.b.locZ)).getBlock();
          if(var1 == Blocks.LADDER) {
             this.h = "ladder";
          } else if(var1 == Blocks.VINE) {
@@ -36,13 +36,13 @@ public class class_pb {
    public void a(DamageSource var1, float var2, float var3) {
       this.g();
       this.a();
-      class_pa var4 = new class_pa(var1, this.b.W, var2, var3, this.h, this.b.O);
+      class_pa var4 = new class_pa(var1, this.b.ticksLived, var2, var3, this.h, this.b.fallDistance);
       this.a.add(var4);
-      this.c = this.b.W;
+      this.c = this.b.ticksLived;
       this.g = true;
       if(var4.f() && !this.f && this.b.isAlive()) {
          this.f = true;
-         this.d = this.b.W;
+         this.d = this.b.ticksLived;
          this.e = this.d;
          this.b.h_();
       }
@@ -163,7 +163,7 @@ public class class_pb {
    }
 
    public int f() {
-      return this.f?this.b.W - this.d:this.e - this.d;
+      return this.f?this.b.ticksLived - this.d:this.e - this.d;
    }
 
    private void j() {
@@ -172,11 +172,11 @@ public class class_pb {
 
    public void g() {
       int var1 = this.f?300:100;
-      if(this.g && (!this.b.isAlive() || this.b.W - this.c > var1)) {
+      if(this.g && (!this.b.isAlive() || this.b.ticksLived - this.c > var1)) {
          boolean var2 = this.f;
          this.g = false;
          this.f = false;
-         this.e = this.b.W;
+         this.e = this.b.ticksLived;
          if(var2) {
             this.b.j();
          }

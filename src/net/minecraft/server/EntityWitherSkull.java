@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 public class EntityWitherSkull extends class_xf {
-   private static final int e = Datawathcer.claimId(EntityWitherSkull.class);
+   private static final int e = DataWathcer.claimId(EntityWitherSkull.class);
 
    public EntityWitherSkull(World var1) {
       super(var1);
@@ -32,7 +32,7 @@ public class EntityWitherSkull extends class_xf {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          if(var1.d != null) {
             if(this.a != null) {
                if(var1.d.damageEntity(DamageSource.a(this.a), 8.0F)) {
@@ -48,9 +48,9 @@ public class EntityWitherSkull extends class_xf {
 
             if(var1.d instanceof EntityLiving) {
                byte var2 = 0;
-               if(this.o.ab() == class_om.c) {
+               if(this.world.ab() == class_om.c) {
                   var2 = 10;
-               } else if(this.o.ab() == class_om.d) {
+               } else if(this.world.ab() == class_om.d) {
                   var2 = 40;
                }
 
@@ -60,7 +60,7 @@ public class EntityWitherSkull extends class_xf {
             }
          }
 
-         this.o.createExplosion(this, this.s, this.t, this.u, 1.0F, false, this.o.R().getBooleanValue("mobGriefing"));
+         this.world.createExplosion(this, this.locX, this.locY, this.locZ, 1.0F, false, this.world.R().getBooleanValue("mobGriefing"));
          this.J();
       }
 

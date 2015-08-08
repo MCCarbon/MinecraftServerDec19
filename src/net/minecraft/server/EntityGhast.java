@@ -4,13 +4,13 @@ import java.util.Random;
 
 public class EntityGhast extends class_py implements class_wd {
 
-	private static final int ATTACKING_DW_ID = Datawathcer.claimId(EntityGhast.class); //value = 11
+	private static final int ATTACKING_DW_ID = DataWathcer.claimId(EntityGhast.class); //value = 11
 	private int b = 1;
 
 	public EntityGhast(World var1) {
 		super(var1);
 		this.a(4.0F, 4.0F);
-		this.ab = true;
+		this.fireProof = true;
 		this.b_ = 5;
 		this.f = new EntityGhast.class_b_in_class_we(this);
 		this.i.a(5, new EntityGhast.class_d_in_class_we(this));
@@ -29,7 +29,7 @@ public class EntityGhast extends class_py implements class_wd {
 
 	public void t_() {
 		super.t_();
-		if (!this.o.isClientSide && this.o.ab() == class_om.a) {
+		if (!this.world.isClientSide && this.world.ab() == class_om.a) {
 			this.J();
 		}
 
@@ -95,7 +95,7 @@ public class EntityGhast extends class_py implements class_wd {
 	}
 
 	public boolean cf() {
-		return this.random.nextInt(20) == 0 && super.cf() && this.o.ab() != class_om.a;
+		return this.random.nextInt(20) == 0 && super.cf() && this.world.ab() != class_om.a;
 	}
 
 	public int cj() {
@@ -143,7 +143,7 @@ public class EntityGhast extends class_py implements class_wd {
 			EntityLiving var1 = this.b.w();
 			double var2 = 64.0D;
 			if (var1.h(this.b) < var2 * var2 && this.b.t(var1)) {
-				World var4 = this.b.o;
+				World var4 = this.b.world;
 				++this.a;
 				if (this.a == 10) {
 					var4.a((EntityHuman) null, 1007, new BlockPosition(this.b), 0);
@@ -152,15 +152,15 @@ public class EntityGhast extends class_py implements class_wd {
 				if (this.a == 20) {
 					double var5 = 4.0D;
 					Vec3D var7 = this.b.d(1.0F);
-					double var8 = var1.s - (this.b.s + var7.x * var5);
-					double var10 = var1.aT().yMin + (double) (var1.K / 2.0F) - (0.5D + this.b.t + (double) (this.b.K / 2.0F));
-					double var12 = var1.u - (this.b.u + var7.z * var5);
+					double var8 = var1.locX - (this.b.locX + var7.x * var5);
+					double var10 = var1.aT().yMin + (double) (var1.length / 2.0F) - (0.5D + this.b.locY + (double) (this.b.length / 2.0F));
+					double var12 = var1.locZ - (this.b.locZ + var7.z * var5);
 					var4.a((EntityHuman) null, 1008, new BlockPosition(this.b), 0);
 					EntityLargeFireball var14 = new EntityLargeFireball(var4, this.b, var8, var10, var12);
 					var14.e = this.b.cu();
-					var14.s = this.b.s + var7.x * var5;
-					var14.t = this.b.t + (double) (this.b.K / 2.0F) + 0.5D;
-					var14.u = this.b.u + var7.z * var5;
+					var14.locX = this.b.locX + var7.x * var5;
+					var14.locY = this.b.locY + (double) (this.b.length / 2.0F) + 0.5D;
+					var14.locZ = this.b.locZ + var7.z * var5;
 					var4.addEntity((Entity) var14);
 					this.a = -40;
 				}
@@ -186,14 +186,14 @@ public class EntityGhast extends class_py implements class_wd {
 
 		public void e() {
 			if (this.a.w() == null) {
-				this.a.aL = this.a.y = -((float) MathHelper.b(this.a.v, this.a.x)) * 180.0F / 3.1415927F;
+				this.a.aL = this.a.yaw = -((float) MathHelper.b(this.a.motX, this.a.motZ)) * 180.0F / 3.1415927F;
 			} else {
 				EntityLiving var1 = this.a.w();
 				double var2 = 64.0D;
 				if (var1.h(this.a) < var2 * var2) {
-					double var4 = var1.s - this.a.s;
-					double var6 = var1.u - this.a.u;
-					this.a.aL = this.a.y = -((float) MathHelper.b(var4, var6)) * 180.0F / 3.1415927F;
+					double var4 = var1.locX - this.a.locX;
+					double var6 = var1.locZ - this.a.locZ;
+					this.a.aL = this.a.yaw = -((float) MathHelper.b(var4, var6)) * 180.0F / 3.1415927F;
 				}
 			}
 
@@ -213,9 +213,9 @@ public class EntityGhast extends class_py implements class_wd {
 			if (!var1.a()) {
 				return true;
 			} else {
-				double var2 = var1.d() - this.a.s;
-				double var4 = var1.e() - this.a.t;
-				double var6 = var1.f() - this.a.u;
+				double var2 = var1.d() - this.a.locX;
+				double var4 = var1.e() - this.a.locY;
+				double var6 = var1.f() - this.a.locZ;
 				double var8 = var2 * var2 + var4 * var4 + var6 * var6;
 				return var8 < 1.0D || var8 > 3600.0D;
 			}
@@ -227,9 +227,9 @@ public class EntityGhast extends class_py implements class_wd {
 
 		public void c() {
 			Random var1 = this.a.bd();
-			double var2 = this.a.s + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
-			double var4 = this.a.t + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
-			double var6 = this.a.u + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
+			double var2 = this.a.locX + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
+			double var4 = this.a.locY + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
+			double var6 = this.a.locZ + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
 			this.a.r().a(var2, var4, var6, 1.0D);
 		}
 	}
@@ -245,17 +245,17 @@ public class EntityGhast extends class_py implements class_wd {
 
 		public void c() {
 			if (this.f) {
-				double var1 = this.b - this.g.s;
-				double var3 = this.c - this.g.t;
-				double var5 = this.d - this.g.u;
+				double var1 = this.b - this.g.locX;
+				double var3 = this.c - this.g.locY;
+				double var5 = this.d - this.g.locZ;
 				double var7 = var1 * var1 + var3 * var3 + var5 * var5;
 				if (this.h-- <= 0) {
 					this.h += this.g.bd().nextInt(5) + 2;
 					var7 = (double) MathHelper.sqrt(var7);
 					if (this.b(this.b, this.c, this.d, var7)) {
-						this.g.v += var1 / var7 * 0.1D;
+						this.g.motX += var1 / var7 * 0.1D;
 						this.g.motY += var3 / var7 * 0.1D;
-						this.g.x += var5 / var7 * 0.1D;
+						this.g.motZ += var5 / var7 * 0.1D;
 					} else {
 						this.f = false;
 					}
@@ -265,14 +265,14 @@ public class EntityGhast extends class_py implements class_wd {
 		}
 
 		private boolean b(double var1, double var3, double var5, double var7) {
-			double var9 = (var1 - this.g.s) / var7;
-			double var11 = (var3 - this.g.t) / var7;
-			double var13 = (var5 - this.g.u) / var7;
+			double var9 = (var1 - this.g.locX) / var7;
+			double var11 = (var3 - this.g.locY) / var7;
+			double var13 = (var5 - this.g.locZ) / var7;
 			AxisAlignedBB var15 = this.g.aT();
 
 			for (int var16 = 1; (double) var16 < var7; ++var16) {
 				var15 = var15.c(var9, var11, var13);
-				if (!this.g.o.a((Entity) this.g, (AxisAlignedBB) var15).isEmpty()) {
+				if (!this.g.world.a((Entity) this.g, (AxisAlignedBB) var15).isEmpty()) {
 					return false;
 				}
 			}

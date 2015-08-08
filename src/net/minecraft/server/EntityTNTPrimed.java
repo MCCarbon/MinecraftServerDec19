@@ -20,13 +20,13 @@ public class EntityTNTPrimed extends Entity {
       this(var1);
       this.b(var2, var4, var6);
       float var9 = (float)(Math.random() * 3.1415927410125732D * 2.0D);
-      this.v = (double)(-((float)Math.sin((double)var9)) * 0.02F);
+      this.motX = (double)(-((float)Math.sin((double)var9)) * 0.02F);
       this.motY = 0.20000000298023224D;
-      this.x = (double)(-((float)Math.cos((double)var9)) * 0.02F);
+      this.motZ = (double)(-((float)Math.cos((double)var9)) * 0.02F);
       this.a = 80;
-      this.p = var2;
-      this.q = var4;
-      this.r = var6;
+      this.lastX = var2;
+      this.lastY = var4;
+      this.lastZ = var6;
       this.b = var8;
    }
 
@@ -38,39 +38,39 @@ public class EntityTNTPrimed extends Entity {
    }
 
    public boolean ad() {
-      return !this.I;
+      return !this.dead;
    }
 
    public void t_() {
-      this.p = this.s;
-      this.q = this.t;
-      this.r = this.u;
+      this.lastX = this.locX;
+      this.lastY = this.locY;
+      this.lastZ = this.locZ;
       this.motY -= 0.03999999910593033D;
-      this.d(this.v, this.motY, this.x);
-      this.v *= 0.9800000190734863D;
+      this.d(this.motX, this.motY, this.motZ);
+      this.motX *= 0.9800000190734863D;
       this.motY *= 0.9800000190734863D;
-      this.x *= 0.9800000190734863D;
-      if(this.C) {
-         this.v *= 0.699999988079071D;
-         this.x *= 0.699999988079071D;
+      this.motZ *= 0.9800000190734863D;
+      if(this.onGround) {
+         this.motX *= 0.699999988079071D;
+         this.motZ *= 0.699999988079071D;
          this.motY *= -0.5D;
       }
 
       if(this.a-- <= 0) {
          this.J();
-         if(!this.o.isClientSide) {
+         if(!this.world.isClientSide) {
             this.l();
          }
       } else {
          this.W();
-         this.o.a(class_cy.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.a(class_cy.l, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
    }
 
    private void l() {
       float var1 = 4.0F;
-      this.o.a(this, this.s, this.t + (double)(this.K / 16.0F), this.u, var1, true);
+      this.world.a(this, this.locX, this.locY + (double)(this.length / 16.0F), this.locZ, var1, true);
    }
 
    protected void write(NBTTagCompound var1) {

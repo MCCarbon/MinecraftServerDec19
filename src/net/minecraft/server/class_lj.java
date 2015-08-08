@@ -41,13 +41,13 @@ public class class_lj {
       this.b = var2;
       this.c = var3;
       this.u = var4;
-      this.d = MathHelper.floor(var1.s * 32.0D);
-      this.e = MathHelper.floor(var1.t * 32.0D);
-      this.f = MathHelper.floor(var1.u * 32.0D);
-      this.g = MathHelper.floor(var1.y * 256.0F / 360.0F);
-      this.h = MathHelper.floor(var1.z * 256.0F / 360.0F);
+      this.d = MathHelper.floor(var1.locX * 32.0D);
+      this.e = MathHelper.floor(var1.locY * 32.0D);
+      this.f = MathHelper.floor(var1.locZ * 32.0D);
+      this.g = MathHelper.floor(var1.yaw * 256.0F / 360.0F);
+      this.h = MathHelper.floor(var1.pitch * 256.0F / 360.0F);
       this.i = MathHelper.floor(var1.aE() * 256.0F / 360.0F);
-      this.y = var1.C;
+      this.y = var1.onGround;
    }
 
    public boolean equals(Object var1) {
@@ -61,9 +61,9 @@ public class class_lj {
    public void a(List var1) {
       this.n = false;
       if(!this.t || this.a.e(this.q, this.r, this.s) > 16.0D) {
-         this.q = this.a.s;
-         this.r = this.a.t;
-         this.s = this.a.u;
+         this.q = this.a.locX;
+         this.r = this.a.locY;
+         this.s = this.a.locZ;
          this.t = true;
          this.n = true;
          this.b(var1);
@@ -78,14 +78,14 @@ public class class_lj {
          EntityItemFrame var2 = (EntityItemFrame)this.a;
          ItemStack var3 = var2.o();
          if(var3 != null && var3.getItem() instanceof ItemWorldMap) {
-            class_avf var4 = Items.FILLED_MAP.a(var3, this.a.o);
+            class_avf var4 = Items.FILLED_MAP.a(var3, this.a.world);
             Iterator var5 = var1.iterator();
 
             while(var5.hasNext()) {
                EntityHuman var6 = (EntityHuman)var5.next();
                EntityPlayer var7 = (EntityPlayer)var6;
                var4.a(var7, var3);
-               Packet var8 = Items.FILLED_MAP.a((ItemStack)var3, (World)this.a.o, (EntityHuman)var7);
+               Packet var8 = Items.FILLED_MAP.a((ItemStack)var3, (World)this.a.world, (EntityHuman)var7);
                if(var8 != null) {
                   var7.playerConnection.sendPacket(var8);
                }
@@ -100,11 +100,11 @@ public class class_lj {
          int var24;
          if(this.a.vehicle == null) {
             ++this.v;
-            var23 = MathHelper.floor(this.a.s * 32.0D);
-            var24 = MathHelper.floor(this.a.t * 32.0D);
-            int var26 = MathHelper.floor(this.a.u * 32.0D);
-            int var27 = MathHelper.floor(this.a.y * 256.0F / 360.0F);
-            int var28 = MathHelper.floor(this.a.z * 256.0F / 360.0F);
+            var23 = MathHelper.floor(this.a.locX * 32.0D);
+            var24 = MathHelper.floor(this.a.locY * 32.0D);
+            int var26 = MathHelper.floor(this.a.locZ * 32.0D);
+            int var27 = MathHelper.floor(this.a.yaw * 256.0F / 360.0F);
+            int var28 = MathHelper.floor(this.a.pitch * 256.0F / 360.0F);
             int var29 = var23 - this.d;
             int var30 = var24 - this.e;
             int var9 = var26 - this.f;
@@ -112,33 +112,33 @@ public class class_lj {
             boolean var11 = Math.abs(var29) >= 4 || Math.abs(var30) >= 4 || Math.abs(var9) >= 4 || this.m % 60 == 0;
             boolean var12 = Math.abs(var27 - this.g) >= 4 || Math.abs(var28 - this.h) >= 4;
             if(this.m > 0 || this.a instanceof EntityArrow) {
-               if(var29 >= -128 && var29 < 128 && var30 >= -128 && var30 < 128 && var9 >= -128 && var9 < 128 && this.v <= 400 && !this.x && this.y == this.a.C) {
+               if(var29 >= -128 && var29 < 128 && var30 >= -128 && var30 < 128 && var9 >= -128 && var9 < 128 && this.v <= 400 && !this.x && this.y == this.a.onGround) {
                   if((!var11 || !var12) && !(this.a instanceof EntityArrow)) {
                      if(var11) {
-                        var10 = new PacketPlayOutEntity.PacketPlayOutRelEntityMove(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, this.a.C);
+                        var10 = new PacketPlayOutEntity.PacketPlayOutRelEntityMove(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, this.a.onGround);
                      } else if(var12) {
-                        var10 = new PacketPlayOutEntity.PacketPlayOutEntityLook(this.a.getId(), (byte)var27, (byte)var28, this.a.C);
+                        var10 = new PacketPlayOutEntity.PacketPlayOutEntityLook(this.a.getId(), (byte)var27, (byte)var28, this.a.onGround);
                      }
                   } else {
-                     var10 = new PacketPlayOutEntity.PacketPlayOutRelEntityMoveLook(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, (byte)var27, (byte)var28, this.a.C);
+                     var10 = new PacketPlayOutEntity.PacketPlayOutRelEntityMoveLook(this.a.getId(), (byte)var29, (byte)var30, (byte)var9, (byte)var27, (byte)var28, this.a.onGround);
                   }
                } else {
-                  this.y = this.a.C;
+                  this.y = this.a.onGround;
                   this.v = 0;
-                  var10 = new PacketPlayOutEntityTeleport(this.a.getId(), var23, var24, var26, (byte)var27, (byte)var28, this.a.C);
+                  var10 = new PacketPlayOutEntityTeleport(this.a.getId(), var23, var24, var26, (byte)var27, (byte)var28, this.a.onGround);
                }
             }
 
             if(this.u) {
-               double var13 = this.a.v - this.j;
+               double var13 = this.a.motX - this.j;
                double var15 = this.a.motY - this.k;
-               double var17 = this.a.x - this.l;
+               double var17 = this.a.motZ - this.l;
                double var19 = 0.02D;
                double var21 = var13 * var13 + var15 * var15 + var17 * var17;
-               if(var21 > var19 * var19 || var21 > 0.0D && this.a.v == 0.0D && this.a.motY == 0.0D && this.a.x == 0.0D) {
-                  this.j = this.a.v;
+               if(var21 > var19 * var19 || var21 > 0.0D && this.a.motX == 0.0D && this.a.motY == 0.0D && this.a.motZ == 0.0D) {
+                  this.j = this.a.motX;
                   this.k = this.a.motY;
-                  this.l = this.a.x;
+                  this.l = this.a.motZ;
                   this.a((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.j, this.k, this.l)));
                }
             }
@@ -161,18 +161,18 @@ public class class_lj {
 
             this.x = false;
          } else {
-            var23 = MathHelper.floor(this.a.y * 256.0F / 360.0F);
-            var24 = MathHelper.floor(this.a.z * 256.0F / 360.0F);
+            var23 = MathHelper.floor(this.a.yaw * 256.0F / 360.0F);
+            var24 = MathHelper.floor(this.a.pitch * 256.0F / 360.0F);
             boolean var25 = Math.abs(var23 - this.g) >= 4 || Math.abs(var24 - this.h) >= 4;
             if(var25) {
-               this.a((Packet)(new PacketPlayOutEntity.PacketPlayOutEntityLook(this.a.getId(), (byte)var23, (byte)var24, this.a.C)));
+               this.a((Packet)(new PacketPlayOutEntity.PacketPlayOutEntityLook(this.a.getId(), (byte)var23, (byte)var24, this.a.onGround)));
                this.g = var23;
                this.h = var24;
             }
 
-            this.d = MathHelper.floor(this.a.s * 32.0D);
-            this.e = MathHelper.floor(this.a.t * 32.0D);
-            this.f = MathHelper.floor(this.a.u * 32.0D);
+            this.d = MathHelper.floor(this.a.locX * 32.0D);
+            this.e = MathHelper.floor(this.a.locY * 32.0D);
+            this.f = MathHelper.floor(this.a.locZ * 32.0D);
             this.b();
             this.x = true;
          }
@@ -187,15 +187,15 @@ public class class_lj {
       }
 
       ++this.m;
-      if(this.a.G) {
+      if(this.a.velocityChanged) {
          this.b((Packet)(new PacketPlayOutEntityVelocity(this.a)));
-         this.a.G = false;
+         this.a.velocityChanged = false;
       }
 
    }
 
    private void b() {
-      Datawathcer var1 = this.a.H();
+      DataWathcer var1 = this.a.H();
       if(var1.a()) {
          this.b((Packet)(new PacketPlayOutEntityMetadata(this.a.getId(), var1, false)));
       }
@@ -253,7 +253,7 @@ public class class_lj {
    public void b(EntityPlayer var1) {
       if(var1 != this.a) {
          if(this.c(var1)) {
-            if(!this.o.contains(var1) && (this.e(var1) || this.a.n)) {
+            if(!this.o.contains(var1) && (this.e(var1) || this.a.attachedToPlayer)) {
                this.o.add(var1);
                Packet var2 = this.c();
                var1.playerConnection.sendPacket(var2);
@@ -269,11 +269,11 @@ public class class_lj {
                   }
                }
 
-               this.j = this.a.v;
+               this.j = this.a.motX;
                this.k = this.a.motY;
-               this.l = this.a.x;
+               this.l = this.a.motZ;
                if(this.u && !(var2 instanceof PacketPlayOutSpawnEntityLiving)) {
-                  var1.playerConnection.sendPacket((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.a.v, this.a.motY, this.a.x)));
+                  var1.playerConnection.sendPacket((Packet)(new PacketPlayOutEntityVelocity(this.a.getId(), this.a.motX, this.a.motY, this.a.motZ)));
                }
 
                if(this.a.vehicle != null) {
@@ -326,8 +326,8 @@ public class class_lj {
    }
 
    public boolean c(EntityPlayer var1) {
-      double var2 = var1.s - (double)(this.d / 32);
-      double var4 = var1.u - (double)(this.f / 32);
+      double var2 = var1.locX - (double)(this.d / 32);
+      double var4 = var1.locZ - (double)(this.f / 32);
       return var2 >= (double)(-this.b) && var2 <= (double)this.b && var4 >= (double)(-this.b) && var4 <= (double)this.b && this.a.a(var1);
    }
 
@@ -343,7 +343,7 @@ public class class_lj {
    }
 
    private Packet c() {
-      if(this.a.I) {
+      if(this.a.dead) {
          p.warn("Fetching addPacket for removed entity");
       }
 
@@ -409,9 +409,9 @@ public class class_lj {
                return var2;
             } else if(this.a instanceof EntityShulkerBullet) {
                PacketPlayOutSpawnEntity var6 = new PacketPlayOutSpawnEntity(this.a, 67, 0);
-               var6.d((int)(this.a.v * 8000.0D));
+               var6.d((int)(this.a.motX * 8000.0D));
                var6.e((int)(this.a.motY * 8000.0D));
-               var6.f((int)(this.a.x * 8000.0D));
+               var6.f((int)(this.a.motZ * 8000.0D));
                return var6;
             } else if(this.a instanceof EntityEgg) {
                return new PacketPlayOutSpawnEntity(this.a, 62);

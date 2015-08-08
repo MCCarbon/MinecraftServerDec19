@@ -22,7 +22,7 @@ import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_o;
 import net.minecraft.server.Entity;
@@ -75,12 +75,12 @@ public class CommandSpreadPlayers extends CommandAbstract {
             }
          }
 
-         var1.a(class_n.class_a_in_class_n.c, var14.size());
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.c, var14.size());
          if(var14.isEmpty()) {
             throw new class_ca();
          } else {
             var1.a(new ChatMessage("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
-            this.a(var1, var14, new CommandSpreadPlayers.class_a_in_class_bj(var5, var7), var9, var11, ((Entity)var14.get(0)).o, var13);
+            this.a(var1, var14, new CommandSpreadPlayers.class_a_in_class_bj(var5, var7), var9, var11, ((Entity)var14.get(0)).world, var13);
          }
       }
    }

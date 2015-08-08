@@ -29,7 +29,7 @@ public class class_ru extends class_rm {
 
    public class_ru(EntityCreature var1, double var2, boolean var4) {
       this.b = var1;
-      this.a = var1.o;
+      this.a = var1.world;
       this.d = var2;
       this.e = var4;
       this.a(3);
@@ -66,13 +66,13 @@ public class class_ru extends class_rm {
    public void e() {
       EntityLiving var1 = this.b.w();
       this.b.q().a(var1, 30.0F, 30.0F);
-      double var2 = this.b.e(var1.s, var1.aT().yMin, var1.u);
+      double var2 = this.b.e(var1.locX, var1.aT().yMin, var1.locZ);
       double var4 = this.a(var1);
       --this.h;
       if((this.e || this.b.v().a(var1)) && this.h <= 0 && (this.i == 0.0D && this.j == 0.0D && this.k == 0.0D || var1.e(this.i, this.j, this.k) >= 1.0D || this.b.bd().nextFloat() < 0.05F)) {
-         this.i = var1.s;
+         this.i = var1.locX;
          this.j = var1.aT().yMin;
-         this.k = var1.u;
+         this.k = var1.locZ;
          this.h = 4 + this.b.bd().nextInt(7);
          if(var2 > 1024.0D) {
             this.h += 10;
@@ -98,6 +98,6 @@ public class class_ru extends class_rm {
    }
 
    protected double a(EntityLiving var1) {
-      return (double)(this.b.J * 2.0F * this.b.J * 2.0F + var1.J);
+      return (double)(this.b.width * 2.0F * this.b.width * 2.0F + var1.width);
    }
 }

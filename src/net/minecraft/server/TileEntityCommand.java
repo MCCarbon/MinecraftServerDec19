@@ -64,7 +64,7 @@ public class TileEntityCommand extends TileEntity {
 		return a;
 	}
 
-	public class_n c() {
+	public CommandObjectiveExecutor c() {
 		return a.n();
 	}
 }

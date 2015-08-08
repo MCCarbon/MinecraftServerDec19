@@ -4,8 +4,8 @@ import java.util.Calendar;
 
 public class EntitySkeleton extends EntityMonster implements class_wk {
 
-	private static final int TYPE_DW_ID = Datawathcer.claimId(EntitySkeleton.class); //value = 11
-	private static final int ATTACKING_DW_ID = Datawathcer.claimId(EntitySkeleton.class); //value = 12
+	private static final int TYPE_DW_ID = DataWathcer.claimId(EntitySkeleton.class); //value = 11
+	private static final int ATTACKING_DW_ID = DataWathcer.claimId(EntitySkeleton.class); //value = 12
 
 	private class_sk c = new class_sk(this, 1.0D, 20, 60, 15.0F);
 	private class_ru bs = new class_ru(this, EntityHuman.class, 1.2D, false) {
@@ -82,10 +82,10 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 	}
 
 	public void m() {
-		if (this.o.x() && !this.o.isClientSide) {
+		if (this.world.x() && !this.world.isClientSide) {
 			float var1 = this.c(1.0F);
-			BlockPosition var2 = new BlockPosition(this.s, (double) Math.round(this.t), this.u);
-			if (var1 > 0.5F && this.random.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
+			BlockPosition var2 = new BlockPosition(this.locX, (double) Math.round(this.locY), this.locZ);
+			if (var1 > 0.5F && this.random.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.world.i(var2)) {
 				boolean var3 = true;
 				ItemStack var4 = this.a((EnumWearable) EnumWearable.HEAD);
 				if (var4 != null) {
@@ -106,7 +106,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 			}
 		}
 
-		if (this.o.isClientSide && this.cB() == 1) {
+		if (this.world.isClientSide && this.cB() == 1) {
 			this.a(0.72F, 2.535F);
 		}
 
@@ -126,8 +126,8 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 		super.a(var1);
 		if (var1.i() instanceof EntityArrow && var1.j() instanceof EntityHuman) {
 			EntityHuman var2 = (EntityHuman) var1.j();
-			double var3 = var2.s - this.s;
-			double var5 = var2.u - this.u;
+			double var3 = var2.locX - this.locX;
+			double var5 = var2.locZ - this.locZ;
 			if (var3 * var3 + var5 * var5 >= 2500.0D) {
 				var2.b((class_my) class_mt.v);
 			}
@@ -181,7 +181,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 	public class_qd a(class_on var1, class_qd var2) {
 		var2 = super.a(var1, var2);
-		if (this.o.worldProvider instanceof class_apa && this.bd().nextInt(5) > 0) {
+		if (this.world.worldProvider instanceof class_apa && this.bd().nextInt(5) > 0) {
 			this.i.a(4, this.bs);
 			this.setType(1);
 			this.a(EnumWearable.MAINHAND, new ItemStack(Items.STONE_SWORD));
@@ -194,7 +194,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 		this.j(this.random.nextFloat() < 0.55F * var1.c());
 		if (this.a((EnumWearable) EnumWearable.HEAD) == null) {
-			Calendar var3 = this.o.Z();
+			Calendar var3 = this.world.Z();
 			if (var3.get(2) + 1 == 10 && var3.get(5) == 31 && this.random.nextFloat() < 0.25F) {
 				this.a(EnumWearable.HEAD, new ItemStack(this.random.nextFloat() < 0.1F ? Blocks.LIT_PUMPKIN : Blocks.PUMPKIN));
 				this.bp[EnumWearable.HEAD.getRelative()] = 0.0F;
@@ -217,15 +217,15 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 	}
 
 	public void a(EntityLiving var1, float var2) {
-		EntityArrow var3 = new EntityArrow(this.o, this);
-		double var4 = var1.s - this.s;
-		double var6 = var1.aT().yMin + (double) (var1.K / 3.0F) - var3.t;
-		double var8 = var1.u - this.u;
+		EntityArrow var3 = new EntityArrow(this.world, this);
+		double var4 = var1.locX - this.locX;
+		double var6 = var1.aT().yMin + (double) (var1.length / 3.0F) - var3.locY;
+		double var8 = var1.locZ - this.locZ;
 		double var10 = (double) MathHelper.sqrt(var4 * var4 + var8 * var8);
-		var3.c(var4, var6 + var10 * 0.20000000298023224D, var8, 1.6F, (float) (14 - this.o.ab().a() * 4));
+		var3.c(var4, var6 + var10 * 0.20000000298023224D, var8, 1.6F, (float) (14 - this.world.ab().a() * 4));
 		int var12 = EnchantmentManager.a((class_adi) Enchantment.t, (EntityLiving) this);
 		int var13 = EnchantmentManager.a((class_adi) Enchantment.u, (EntityLiving) this);
-		var3.b((double) (var2 * 2.0F) + this.random.nextGaussian() * 0.25D + (double) ((float) this.o.ab().a() * 0.11F));
+		var3.b((double) (var2 * 2.0F) + this.random.nextGaussian() * 0.25D + (double) ((float) this.world.ab().a() * 0.11F));
 		if (var12 > 0) {
 			var3.b(var3.l() + (double) var12 * 0.5D + 0.5D);
 		}
@@ -239,7 +239,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 		}
 
 		this.a("random.bow", 1.0F, 1.0F / (this.bd().nextFloat() * 0.4F + 0.8F));
-		this.o.addEntity((Entity) var3);
+		this.world.addEntity((Entity) var3);
 	}
 
 	public int cB() {
@@ -248,7 +248,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 	public void setType(int var1) {
 		this.datawatcher.update(TYPE_DW_ID, Byte.valueOf((byte) var1));
-		this.ab = var1 == 1;
+		this.fireProof = var1 == 1;
 		if (var1 == 1) {
 			this.a(0.72F, 2.535F);
 		} else {
@@ -274,7 +274,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 	public void a(EnumWearable var1, ItemStack var2) {
 		super.a(var1, var2);
-		if (!this.o.isClientSide && var1 == EnumWearable.MAINHAND) {
+		if (!this.world.isClientSide && var1 == EnumWearable.MAINHAND) {
 			this.n();
 		}
 

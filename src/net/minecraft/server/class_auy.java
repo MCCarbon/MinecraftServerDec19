@@ -24,7 +24,7 @@ public class class_auy extends class_auu {
    }
 
    public class_aut a(Entity var1, double var2, double var4, double var6) {
-      return this.a(MathHelper.floor(var2 - (double)(var1.J / 2.0F)), MathHelper.floor(var4 + 0.5D), MathHelper.floor(var6 - (double)(var1.J / 2.0F)));
+      return this.a(MathHelper.floor(var2 - (double)(var1.width / 2.0F)), MathHelper.floor(var4 + 0.5D), MathHelper.floor(var6 - (double)(var1.width / 2.0F)));
    }
 
    public int a(class_aut[] var1, Entity var2, class_aut var3, class_aut var4, float var5) {

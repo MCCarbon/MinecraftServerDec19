@@ -74,7 +74,7 @@ public class BlockCocoa extends BlockDirectional implements IBlockFragilePlantEl
    }
 
    public void postPlace(World var1, BlockPosition var2, IBlockData var3, EntityLiving var4, ItemStack var5) {
-      EnumDirection var6 = EnumDirection.fromAngle((double)var4.y);
+      EnumDirection var6 = EnumDirection.fromAngle((double)var4.yaw);
       var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(FACING, var6), 2);
    }
 

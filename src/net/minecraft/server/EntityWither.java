@@ -7,10 +7,10 @@ import java.util.List;
 
 public class EntityWither extends EntityMonster implements class_wk {
 
-	private static final int TARGET1_DW_ID = Datawathcer.claimId(EntityWither.class); //value = 11
-	private static final int TARGET2_DW_ID = Datawathcer.claimId(EntityWither.class); //value = 12
-	private static final int TARGET3_DW_ID = Datawathcer.claimId(EntityWither.class); //value = 13
-	private static final int INVULNERABLETIME_DW_ID = Datawathcer.claimId(EntityWither.class); //value = 14
+	private static final int TARGET1_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 11
+	private static final int TARGET2_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 12
+	private static final int TARGET3_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 13
+	private static final int INVULNERABLETIME_DW_ID = DataWathcer.claimId(EntityWither.class); //value = 14
 
 	private float[] bt = new float[2];
 	private float[] bu = new float[2];
@@ -36,7 +36,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 		this.bA = new class_le(this.getScoreboardDisplayName(), class_oh.class_a_in_class_oh.f, class_oh.class_b_in_class_oh.a, true, false);
 		this.i(this.bv());
 		this.a(0.9F, 3.5F);
-		this.ab = true;
+		this.fireProof = true;
 		((class_tf) this.u()).d(true);
 		this.i.a(0, new class_rj(this));
 		this.i.a(2, new class_sj(this, 1.0D, 40, 20.0F));
@@ -83,10 +83,10 @@ public class EntityWither extends EntityMonster implements class_wk {
 		double var4;
 		double var6;
 		double var8;
-		if (!this.o.isClientSide && this.n(0) > 0) {
-			Entity var1 = this.o.getEntityById(this.n(0));
+		if (!this.world.isClientSide && this.n(0) > 0) {
+			Entity var1 = this.world.getEntityById(this.n(0));
 			if (var1 != null) {
-				if (this.t < var1.t || !this.cB() && this.t < var1.t + 5.0D) {
+				if (this.locY < var1.locY || !this.cB() && this.locY < var1.locY + 5.0D) {
 					if (this.motY < 0.0D) {
 						this.motY = 0.0D;
 					}
@@ -94,19 +94,19 @@ public class EntityWither extends EntityMonster implements class_wk {
 					this.motY += (0.5D - this.motY) * 0.6000000238418579D;
 				}
 
-				double var2 = var1.s - this.s;
-				var4 = var1.u - this.u;
+				double var2 = var1.locX - this.locX;
+				var4 = var1.locZ - this.locZ;
 				var6 = var2 * var2 + var4 * var4;
 				if (var6 > 9.0D) {
 					var8 = (double) MathHelper.sqrt(var6);
-					this.v += (var2 / var8 * 0.5D - this.v) * 0.6000000238418579D;
-					this.x += (var4 / var8 * 0.5D - this.x) * 0.6000000238418579D;
+					this.motX += (var2 / var8 * 0.5D - this.motX) * 0.6000000238418579D;
+					this.motZ += (var4 / var8 * 0.5D - this.motZ) * 0.6000000238418579D;
 				}
 			}
 		}
 
-		if (this.v * this.v + this.x * this.x > 0.05000000074505806D) {
-			this.y = (float) MathHelper.b(this.x, this.v) * 57.295776F - 90.0F;
+		if (this.motX * this.motX + this.motZ * this.motZ > 0.05000000074505806D) {
+			this.yaw = (float) MathHelper.b(this.motZ, this.motX) * 57.295776F - 90.0F;
 		}
 
 		super.m();
@@ -122,16 +122,16 @@ public class EntityWither extends EntityMonster implements class_wk {
 			var21 = this.n(var20 + 1);
 			Entity var3 = null;
 			if (var21 > 0) {
-				var3 = this.o.getEntityById(var21);
+				var3 = this.world.getEntityById(var21);
 			}
 
 			if (var3 != null) {
 				var4 = this.o(var20 + 1);
 				var6 = this.p(var20 + 1);
 				var8 = this.q(var20 + 1);
-				double var10 = var3.s - var4;
-				double var12 = var3.t + (double) var3.aU() - var6;
-				double var14 = var3.u - var8;
+				double var10 = var3.locX - var4;
+				double var12 = var3.locY + (double) var3.aU() - var6;
+				double var14 = var3.locZ - var8;
 				double var16 = (double) MathHelper.sqrt(var10 * var10 + var14 * var14);
 				float var18 = (float) (MathHelper.b(var14, var10) * 180.0D / 3.1415927410125732D) - 90.0F;
 				float var19 = (float) (-(MathHelper.b(var12, var16) * 180.0D / 3.1415927410125732D));
@@ -148,15 +148,15 @@ public class EntityWither extends EntityMonster implements class_wk {
 			double var23 = this.o(var21);
 			double var5 = this.p(var21);
 			double var7 = this.q(var21);
-			this.o.a(class_cy.l, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
-			if (var22 && this.o.random.nextInt(4) == 0) {
-				this.o.a(class_cy.p, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
+			this.world.a(class_cy.l, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
+			if (var22 && this.world.random.nextInt(4) == 0) {
+				this.world.a(class_cy.p, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
 			}
 		}
 
 		if (this.cA() > 0) {
 			for (var21 = 0; var21 < 3; ++var21) {
-				this.o.a(class_cy.p, this.s + this.random.nextGaussian() * 1.0D, this.t + (double) (this.random.nextFloat() * 3.3F), this.u + this.random.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D, new int[0]);
+				this.world.a(class_cy.p, this.locX + this.random.nextGaussian() * 1.0D, this.locY + (double) (this.random.nextFloat() * 3.3F), this.locZ + this.random.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D, new int[0]);
 			}
 		}
 
@@ -167,12 +167,12 @@ public class EntityWither extends EntityMonster implements class_wk {
 		if (this.cA() > 0) {
 			var1 = this.cA() - 1;
 			if (var1 <= 0) {
-				this.o.createExplosion(this, this.s, this.t + (double) this.aU(), this.u, 7.0F, false, this.o.R().getBooleanValue("mobGriefing"));
-				this.o.a(1013, new BlockPosition(this), 0);
+				this.world.createExplosion(this, this.locX, this.locY + (double) this.aU(), this.locZ, 7.0F, false, this.world.R().getBooleanValue("mobGriefing"));
+				this.world.a(1013, new BlockPosition(this), 0);
 			}
 
 			this.m(var1);
-			if (this.W % 10 == 0) {
+			if (this.ticksLived % 10 == 0) {
 				this.h(10.0F);
 			}
 
@@ -181,18 +181,18 @@ public class EntityWither extends EntityMonster implements class_wk {
 
 			int var13;
 			for (var1 = 1; var1 < 3; ++var1) {
-				if (this.W >= this.bx[var1 - 1]) {
-					this.bx[var1 - 1] = this.W + 10 + this.random.nextInt(10);
-					if (this.o.ab() == class_om.c || this.o.ab() == class_om.d) {
+				if (this.ticksLived >= this.bx[var1 - 1]) {
+					this.bx[var1 - 1] = this.ticksLived + 10 + this.random.nextInt(10);
+					if (this.world.ab() == class_om.c || this.world.ab() == class_om.d) {
 						int var10001 = var1 - 1;
 						int var10003 = this.by[var1 - 1];
 						this.by[var10001] = this.by[var1 - 1] + 1;
 						if (var10003 > 15) {
 							float var2 = 10.0F;
 							float var3 = 5.0F;
-							double var4 = MathHelper.getRandomDoubleInRange(this.random, this.s - (double) var2, this.s + (double) var2);
-							double var6 = MathHelper.getRandomDoubleInRange(this.random, this.t - (double) var3, this.t + (double) var3);
-							double var8 = MathHelper.getRandomDoubleInRange(this.random, this.u - (double) var2, this.u + (double) var2);
+							double var4 = MathHelper.getRandomDoubleInRange(this.random, this.locX - (double) var2, this.locX + (double) var2);
+							double var6 = MathHelper.getRandomDoubleInRange(this.random, this.locY - (double) var3, this.locY + (double) var3);
+							double var8 = MathHelper.getRandomDoubleInRange(this.random, this.locZ - (double) var2, this.locZ + (double) var2);
 							this.a(var1 + 1, var4, var6, var8, true);
 							this.by[var1 - 1] = 0;
 						}
@@ -200,20 +200,20 @@ public class EntityWither extends EntityMonster implements class_wk {
 
 					var13 = this.n(var1);
 					if (var13 > 0) {
-						Entity var15 = this.o.getEntityById(var13);
+						Entity var15 = this.world.getEntityById(var13);
 						if (var15 != null && var15.isAlive() && this.h(var15) <= 900.0D && this.t(var15)) {
 							if (var15 instanceof EntityHuman && ((EntityHuman) var15).abilities.invulnerable) {
 								this.a(var1, 0);
 							} else {
 								this.a(var1 + 1, (EntityLiving) var15);
-								this.bx[var1 - 1] = this.W + 40 + this.random.nextInt(20);
+								this.bx[var1 - 1] = this.ticksLived + 40 + this.random.nextInt(20);
 								this.by[var1 - 1] = 0;
 							}
 						} else {
 							this.a(var1, 0);
 						}
 					} else {
-						List var14 = this.o.a(EntityLiving.class, this.aT().grow(20.0D, 8.0D, 20.0D), Predicates.and(bB, IEntitySelector.NOT_PLAYER_SPECTATOR));
+						List var14 = this.world.a(EntityLiving.class, this.aT().grow(20.0D, 8.0D, 20.0D), Predicates.and(bB, IEntitySelector.NOT_PLAYER_SPECTATOR));
 
 						for (int var17 = 0; var17 < 10 && !var14.isEmpty(); ++var17) {
 							EntityLiving var5 = (EntityLiving) var14.get(this.random.nextInt(var14.size()));
@@ -242,10 +242,10 @@ public class EntityWither extends EntityMonster implements class_wk {
 
 			if (this.bz > 0) {
 				--this.bz;
-				if (this.bz == 0 && this.o.R().getBooleanValue("mobGriefing")) {
-					var1 = MathHelper.floor(this.t);
-					var13 = MathHelper.floor(this.s);
-					int var16 = MathHelper.floor(this.u);
+				if (this.bz == 0 && this.world.R().getBooleanValue("mobGriefing")) {
+					var1 = MathHelper.floor(this.locY);
+					var13 = MathHelper.floor(this.locX);
+					int var16 = MathHelper.floor(this.locZ);
 					boolean var18 = false;
 
 					for (int var19 = -1; var19 <= 1; ++var19) {
@@ -255,21 +255,21 @@ public class EntityWither extends EntityMonster implements class_wk {
 								int var9 = var1 + var7;
 								int var10 = var16 + var20;
 								BlockPosition var11 = new BlockPosition(var21, var9, var10);
-								Block var12 = this.o.getType(var11).getBlock();
+								Block var12 = this.world.getType(var11).getBlock();
 								if (var12.getMaterial() != Material.AIR && a(var12)) {
-									var18 = this.o.setAir(var11, true) || var18;
+									var18 = this.world.setAir(var11, true) || var18;
 								}
 							}
 						}
 					}
 
 					if (var18) {
-						this.o.a((EntityHuman) null, 1012, new BlockPosition(this), 0);
+						this.world.a((EntityHuman) null, 1012, new BlockPosition(this), 0);
 					}
 				}
 			}
 
-			if (this.W % 20 == 0) {
+			if (this.ticksLived % 20 == 0) {
 				this.h(1.0F);
 			}
 
@@ -305,25 +305,25 @@ public class EntityWither extends EntityMonster implements class_wk {
 
 	private double o(int var1) {
 		if (var1 <= 0) {
-			return this.s;
+			return this.locX;
 		} else {
 			float var2 = (this.aL + (float) (180 * (var1 - 1))) / 180.0F * 3.1415927F;
 			float var3 = MathHelper.cos(var2);
-			return this.s + (double) var3 * 1.3D;
+			return this.locX + (double) var3 * 1.3D;
 		}
 	}
 
 	private double p(int var1) {
-		return var1 <= 0 ? this.t + 3.0D : this.t + 2.2D;
+		return var1 <= 0 ? this.locY + 3.0D : this.locY + 2.2D;
 	}
 
 	private double q(int var1) {
 		if (var1 <= 0) {
-			return this.u;
+			return this.locZ;
 		} else {
 			float var2 = (this.aL + (float) (180 * (var1 - 1))) / 180.0F * 3.1415927F;
 			float var3 = MathHelper.sin(var2);
-			return this.u + (double) var3 * 1.3D;
+			return this.locZ + (double) var3 * 1.3D;
 		}
 	}
 
@@ -341,26 +341,26 @@ public class EntityWither extends EntityMonster implements class_wk {
 	}
 
 	private void a(int var1, EntityLiving var2) {
-		this.a(var1, var2.s, var2.t + (double) var2.aU() * 0.5D, var2.u, var1 == 0 && this.random.nextFloat() < 0.001F);
+		this.a(var1, var2.locX, var2.locY + (double) var2.aU() * 0.5D, var2.locZ, var1 == 0 && this.random.nextFloat() < 0.001F);
 	}
 
 	private void a(int var1, double var2, double var4, double var6, boolean var8) {
-		this.o.a((EntityHuman) null, 1014, new BlockPosition(this), 0);
+		this.world.a((EntityHuman) null, 1014, new BlockPosition(this), 0);
 		double var9 = this.o(var1);
 		double var11 = this.p(var1);
 		double var13 = this.q(var1);
 		double var15 = var2 - var9;
 		double var17 = var4 - var11;
 		double var19 = var6 - var13;
-		EntityWitherSkull var21 = new EntityWitherSkull(this.o, this, var15, var17, var19);
+		EntityWitherSkull var21 = new EntityWitherSkull(this.world, this, var15, var17, var19);
 		if (var8) {
 			var21.a(true);
 		}
 
-		var21.t = var11;
-		var21.s = var9;
-		var21.u = var13;
-		this.o.addEntity((Entity) var21);
+		var21.locY = var11;
+		var21.locX = var9;
+		var21.locZ = var13;
+		this.world.addEntity((Entity) var21);
 	}
 
 	public void a(EntityLiving var1, float var2) {
@@ -408,8 +408,8 @@ public class EntityWither extends EntityMonster implements class_wk {
 			var3.u();
 		}
 
-		if (!this.o.isClientSide) {
-			Iterator var4 = this.o.getEntities(EntityHuman.class, this.aT().grow(50.0D, 100.0D, 50.0D)).iterator();
+		if (!this.world.isClientSide) {
+			Iterator var4 = this.world.getEntities(EntityHuman.class, this.aT().grow(50.0D, 100.0D, 50.0D)).iterator();
 
 			while (var4.hasNext()) {
 				EntityHuman var5 = (EntityHuman) var4.next();

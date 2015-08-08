@@ -14,7 +14,7 @@ public abstract class class_uk extends EntityInsentient implements class_pp {
    }
 
    public boolean cg() {
-      return this.o.a((AxisAlignedBB)this.aT(), (Entity)this);
+      return this.world.a((AxisAlignedBB)this.aT(), (Entity)this);
    }
 
    public int y() {
@@ -26,7 +26,7 @@ public abstract class class_uk extends EntityInsentient implements class_pp {
    }
 
    protected int b(EntityHuman var1) {
-      return 1 + this.o.random.nextInt(3);
+      return 1 + this.world.random.nextInt(3);
    }
 
    public void K() {

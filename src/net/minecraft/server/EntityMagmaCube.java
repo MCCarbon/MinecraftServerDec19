@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class EntityMagmaCube extends EntitySlime {
    public EntityMagmaCube(World var1) {
       super(var1);
-      this.ab = true;
+      this.fireProof = true;
    }
 
    protected void aY() {
@@ -12,11 +12,11 @@ public class EntityMagmaCube extends EntitySlime {
    }
 
    public boolean cf() {
-      return this.o.ab() != class_om.a;
+      return this.world.ab() != class_om.a;
    }
 
    public boolean cg() {
-      return this.o.a((AxisAlignedBB)this.aT(), (Entity)this) && this.o.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.o.d(this.aT());
+      return this.world.a((AxisAlignedBB)this.aT(), (Entity)this) && this.world.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.world.d(this.aT());
    }
 
    public int bs() {
@@ -32,7 +32,7 @@ public class EntityMagmaCube extends EntitySlime {
    }
 
    protected EntitySlime cu() {
-      return new EntityMagmaCube(this.o);
+      return new EntityMagmaCube(this.world);
    }
 
    protected Item D() {

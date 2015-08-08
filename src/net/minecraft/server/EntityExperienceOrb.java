@@ -13,10 +13,10 @@ public class EntityExperienceOrb extends Entity {
       super(var1);
       this.a(0.5F, 0.5F);
       this.b(var2, var4, var6);
-      this.y = (float)(Math.random() * 360.0D);
-      this.v = (double)((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D) * 2.0F);
+      this.yaw = (float)(Math.random() * 360.0D);
+      this.motX = (double)((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D) * 2.0F);
       this.motY = (double)((float)(Math.random() * 0.2D) * 2.0F);
-      this.x = (double)((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D) * 2.0F);
+      this.motZ = (double)((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D) * 2.0F);
       this.e = var8;
    }
 
@@ -38,22 +38,22 @@ public class EntityExperienceOrb extends Entity {
          --this.c;
       }
 
-      this.p = this.s;
-      this.q = this.t;
-      this.r = this.u;
+      this.lastX = this.locX;
+      this.lastY = this.locY;
+      this.lastZ = this.locZ;
       this.motY -= 0.029999999329447746D;
-      if(this.o.getType(new BlockPosition(this)).getBlock().getMaterial() == Material.LAVA) {
+      if(this.world.getType(new BlockPosition(this)).getBlock().getMaterial() == Material.LAVA) {
          this.motY = 0.20000000298023224D;
-         this.v = (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
-         this.x = (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+         this.motX = (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+         this.motZ = (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
          this.a("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
       }
 
-      this.j(this.s, (this.aT().yMin + this.aT().yMax) / 2.0D, this.u);
+      this.j(this.locX, (this.aT().yMin + this.aT().yMax) / 2.0D, this.locZ);
       double var1 = 8.0D;
       if(this.g < this.a - 20 + this.getId() % 100) {
          if(this.f == null || this.f.h(this) > var1 * var1) {
-            this.f = this.o.a(this, var1);
+            this.f = this.world.a(this, var1);
          }
 
          this.g = this.a;
@@ -64,29 +64,29 @@ public class EntityExperienceOrb extends Entity {
       }
 
       if(this.f != null) {
-         double var3 = (this.f.s - this.s) / var1;
-         double var5 = (this.f.t + (double)this.f.aU() - this.t) / var1;
-         double var7 = (this.f.u - this.u) / var1;
+         double var3 = (this.f.locX - this.locX) / var1;
+         double var5 = (this.f.locY + (double)this.f.aU() - this.locY) / var1;
+         double var7 = (this.f.locZ - this.locZ) / var1;
          double var9 = Math.sqrt(var3 * var3 + var5 * var5 + var7 * var7);
          double var11 = 1.0D - var9;
          if(var11 > 0.0D) {
             var11 *= var11;
-            this.v += var3 / var9 * var11 * 0.1D;
+            this.motX += var3 / var9 * var11 * 0.1D;
             this.motY += var5 / var9 * var11 * 0.1D;
-            this.x += var7 / var9 * var11 * 0.1D;
+            this.motZ += var7 / var9 * var11 * 0.1D;
          }
       }
 
-      this.d(this.v, this.motY, this.x);
+      this.d(this.motX, this.motY, this.motZ);
       float var13 = 0.98F;
-      if(this.C) {
-         var13 = this.o.getType(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.98F;
+      if(this.onGround) {
+         var13 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.98F;
       }
 
-      this.v *= (double)var13;
+      this.motX *= (double)var13;
       this.motY *= 0.9800000190734863D;
-      this.x *= (double)var13;
-      if(this.C) {
+      this.motZ *= (double)var13;
+      if(this.onGround) {
          this.motY *= -0.8999999761581421D;
       }
 
@@ -99,7 +99,7 @@ public class EntityExperienceOrb extends Entity {
    }
 
    public boolean W() {
-      return this.o.a((AxisAlignedBB)this.aT(), (Material)Material.WATER, (Entity)this);
+      return this.world.a((AxisAlignedBB)this.aT(), (Material)Material.WATER, (Entity)this);
    }
 
    protected void g(int var1) {
@@ -133,10 +133,10 @@ public class EntityExperienceOrb extends Entity {
    }
 
    public void d(EntityHuman var1) {
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          if(this.c == 0 && var1.bw == 0) {
             var1.bw = 2;
-            this.o.a((Entity)var1, "random.orb", 0.1F, 0.5F * ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.8F));
+            this.world.a((Entity)var1, "random.orb", 0.1F, 0.5F * ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.8F));
             var1.a(this, 1);
             var1.o(this.e);
             this.J();

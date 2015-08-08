@@ -33,9 +33,9 @@ public class class_rr extends class_rm {
          }
 
          if(this.d == EntityHuman.class) {
-            this.b = this.a.o.a(this.a, (double)this.c);
+            this.b = this.a.world.a(this.a, (double)this.c);
          } else {
-            this.b = this.a.o.a((Class)this.d, (AxisAlignedBB)this.a.aT().grow((double)this.c, 3.0D, (double)this.c), (Entity)this.a);
+            this.b = this.a.world.a((Class)this.d, (AxisAlignedBB)this.a.aT().grow((double)this.c, 3.0D, (double)this.c), (Entity)this.a);
          }
 
          return this.b != null;
@@ -55,7 +55,7 @@ public class class_rr extends class_rm {
    }
 
    public void e() {
-      this.a.q().a(this.b.s, this.b.t + (double)this.b.aU(), this.b.u, (float)this.a.ce(), (float)this.a.cd());
+      this.a.q().a(this.b.locX, this.b.locY + (double)this.b.aU(), this.b.locZ, (float)this.a.ce(), (float)this.a.cd());
       --this.e;
    }
 }

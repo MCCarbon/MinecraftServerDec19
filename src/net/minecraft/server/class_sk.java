@@ -54,7 +54,7 @@ public class class_sk extends class_rm {
    }
 
    public void e() {
-      double var1 = this.a.e(this.b.s, this.b.aT().yMin, this.b.u);
+      double var1 = this.a.e(this.b.locX, this.b.aT().yMin, this.b.locZ);
       boolean var3 = this.a.v().a(this.b);
       boolean var4 = this.e > 0;
       if(var3 != var4) {

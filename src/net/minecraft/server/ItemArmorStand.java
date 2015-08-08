@@ -34,7 +34,7 @@ public class ItemArmorStand extends Item {
                      var3.setAir(var11);
                      var3.setAir(var12);
                      EntityArmorStand var21 = new EntityArmorStand(var3, var14 + 0.5D, var16, var18 + 0.5D);
-                     float var22 = (float)MathHelper.floor((MathHelper.clampAngle(var2.y - 180.0F) + 22.5F) / 45.0F) * 45.0F;
+                     float var22 = (float)MathHelper.floor((MathHelper.clampAngle(var2.yaw - 180.0F) + 22.5F) / 45.0F) * 45.0F;
                      var21.b(var14 + 0.5D, var16, var18 + 0.5D, var22, 0.0F);
                      this.a(var21, var3.random);
                      NBTTagCompound var23 = var1.getTag();

@@ -50,12 +50,12 @@ public class class_rb extends class_rm {
    }
 
    public boolean a() {
-      List var1 = this.a.o.a(this.i, this.a.aT().grow((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{IEntitySelector.NOT_PLAYER_SPECTATOR, this.c, this.j}));
+      List var1 = this.a.world.a(this.i, this.a.aT().grow((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{IEntitySelector.NOT_PLAYER_SPECTATOR, this.c, this.j}));
       if(var1.isEmpty()) {
          return false;
       } else {
          this.b = (Entity)var1.get(0);
-         Vec3D var2 = class_tm.b(this.a, 16, 7, new Vec3D(this.b.s, this.b.t, this.b.u));
+         Vec3D var2 = class_tm.b(this.a, 16, 7, new Vec3D(this.b.locX, this.b.locY, this.b.locZ));
          if(var2 == null) {
             return false;
          } else if(this.b.e(var2.x, var2.y, var2.z) < this.b.h(this.a)) {

@@ -113,7 +113,7 @@ public class class_apc {
             var1 = this.d.getEntities((Class)EntityEnderDragon.class, (Predicate)IEntitySelector.IS_ALIVE);
             if(!var1.isEmpty()) {
                EntityEnderDragon var2 = (EntityEnderDragon)var1.get(0);
-               this.m = var2.aM();
+               this.m = var2.getUniqueId();
                a.info("Found that there\'s a dragon still alive (" + var2 + ")");
                this.k = false;
             } else {
@@ -130,7 +130,7 @@ public class class_apc {
                this.h();
                var1 = this.d.getEntities((Class)EntityEnderDragon.class, (Predicate)IEntitySelector.IS_ALIVE);
                if(!var1.isEmpty()) {
-                  this.m = ((EntityEnderDragon)var1.get(0)).aM();
+                  this.m = ((EntityEnderDragon)var1.get(0)).getUniqueId();
                } else {
                   this.l();
                }
@@ -231,7 +231,7 @@ public class class_apc {
    }
 
    public void a(EntityEnderDragon var1) {
-      if(var1.aM().equals(this.m)) {
+      if(var1.getUniqueId().equals(this.m)) {
          this.l = true;
          this.k = true;
          this.c.a(0.0F);
@@ -272,11 +272,11 @@ public class class_apc {
       EntityEnderDragon var1 = new EntityEnderDragon(this.d);
       var1.b(0.0D, 128.0D, 0.0D, this.d.random.nextFloat() * 360.0F, 0.0F);
       this.d.addEntity((Entity)var1);
-      this.m = var1.aM();
+      this.m = var1.getUniqueId();
    }
 
    public void b(EntityEnderDragon var1) {
-      if(var1.aM().equals(this.m)) {
+      if(var1.getUniqueId().equals(this.m)) {
          this.c.a(var1.getHealth() / var1.bv());
          this.g = 0;
       }

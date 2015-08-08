@@ -13,7 +13,7 @@ import org.apache.commons.lang3.ObjectUtils;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
-public class Datawathcer {
+public class DataWathcer {
 
 	private static final Map<Class<?>, Integer> TYPE = Maps.newHashMap();
 	private static final Map<Class<?>, Integer> ENTITY_CLASS_TO_ID = Maps.newHashMap();
@@ -35,7 +35,7 @@ public class Datawathcer {
 	private boolean e;
 	private final ReadWriteLock lock = new ReentrantReadWriteLock();
 
-	public Datawathcer(Entity entity) {
+	public DataWathcer(Entity entity) {
 		this.entity = entity;
 	}
 
@@ -92,7 +92,7 @@ public class Datawathcer {
 	}
 
 	private void aad0(int id, int type, Object obj) {
-		Datawathcer.WatchableObject var4 = new Datawathcer.WatchableObject(type, id, obj);
+		DataWathcer.WatchableObject var4 = new DataWathcer.WatchableObject(type, id, obj);
 		lock.writeLock().lock();
 		watcheddata.put(Integer.valueOf(id), var4);
 		lock.writeLock().unlock();
@@ -123,10 +123,10 @@ public class Datawathcer {
 		return (ItemStack) get(id).getValue();
 	}
 
-	private Datawathcer.WatchableObject get(int id) {
+	private DataWathcer.WatchableObject get(int id) {
 		lock.readLock().lock();
 
-		Datawathcer.WatchableObject object;
+		DataWathcer.WatchableObject object;
 		try {
 			object = watcheddata.get(id);
 		} catch (Throwable var6) {
@@ -149,7 +149,7 @@ public class Datawathcer {
 	}
 
 	public void update(int id, Object obj) {
-		Datawathcer.WatchableObject watchable = get(id);
+		DataWathcer.WatchableObject watchable = get(id);
 		if (ObjectUtils.notEqual(obj, watchable.getValue())) {
 			watchable.setValue(obj);
 			entity.d(id);
@@ -172,7 +172,7 @@ public class Datawathcer {
 			Iterator<?> var2 = var0.iterator();
 
 			while (var2.hasNext()) {
-				Datawathcer.WatchableObject var3 = (Datawathcer.WatchableObject) var2.next();
+				DataWathcer.WatchableObject var3 = (DataWathcer.WatchableObject) var2.next();
 				a(var1, var3);
 			}
 		}
@@ -187,7 +187,7 @@ public class Datawathcer {
 			Iterator<WatchableObject> var2 = watcheddata.values().iterator();
 
 			while (var2.hasNext()) {
-				Datawathcer.WatchableObject var3 = var2.next();
+				DataWathcer.WatchableObject var3 = var2.next();
 				if (var3.d()) {
 					var3.a(false);
 					if (var1 == null) {
@@ -210,7 +210,7 @@ public class Datawathcer {
 		Iterator<WatchableObject> var2 = watcheddata.values().iterator();
 
 		while (var2.hasNext()) {
-			Datawathcer.WatchableObject var3 = var2.next();
+			DataWathcer.WatchableObject var3 = var2.next();
 			a(var1, var3);
 		}
 
@@ -222,7 +222,7 @@ public class Datawathcer {
 		ArrayList<WatchableObject> var1 = null;
 		lock.readLock().lock();
 
-		Datawathcer.WatchableObject var3;
+		DataWathcer.WatchableObject var3;
 		for (Iterator<WatchableObject> var2 = watcheddata.values().iterator(); var2.hasNext(); var1.add(var3)) {
 			var3 = var2.next();
 			if (var1 == null) {
@@ -234,7 +234,7 @@ public class Datawathcer {
 		return var1;
 	}
 
-	private static void a(PacketDataSerializer var0, Datawathcer.WatchableObject var1) throws IOException {
+	private static void a(PacketDataSerializer var0, DataWathcer.WatchableObject var1) throws IOException {
 		int var2 = ((var1.getType() << 5) | (var1.getId() & 31)) & 255;
 		var0.writeByte(var2);
 		switch (var1.getType()) {
@@ -282,37 +282,37 @@ public class Datawathcer {
 
 			int var3 = (var2 & 224) >> 5;
 			int var4 = var2 & 31;
-			Datawathcer.WatchableObject var5 = null;
+			DataWathcer.WatchableObject var5 = null;
 			switch (var3) {
 				case 0:
-					var5 = new Datawathcer.WatchableObject(var3, var4, Byte.valueOf(var0.readByte()));
+					var5 = new DataWathcer.WatchableObject(var3, var4, Byte.valueOf(var0.readByte()));
 					break;
 				case 1:
-					var5 = new Datawathcer.WatchableObject(var3, var4, Short.valueOf(var0.readShort()));
+					var5 = new DataWathcer.WatchableObject(var3, var4, Short.valueOf(var0.readShort()));
 					break;
 				case 2:
-					var5 = new Datawathcer.WatchableObject(var3, var4, Integer.valueOf(var0.readInt()));
+					var5 = new DataWathcer.WatchableObject(var3, var4, Integer.valueOf(var0.readInt()));
 					break;
 				case 3:
-					var5 = new Datawathcer.WatchableObject(var3, var4, Float.valueOf(var0.readFloat()));
+					var5 = new DataWathcer.WatchableObject(var3, var4, Float.valueOf(var0.readFloat()));
 					break;
 				case 4:
-					var5 = new Datawathcer.WatchableObject(var3, var4, var0.readString(32767));
+					var5 = new DataWathcer.WatchableObject(var3, var4, var0.readString(32767));
 					break;
 				case 5:
-					var5 = new Datawathcer.WatchableObject(var3, var4, var0.readItemStack());
+					var5 = new DataWathcer.WatchableObject(var3, var4, var0.readItemStack());
 					break;
 				case 6:
 					int var6 = var0.readInt();
 					int var7 = var0.readInt();
 					int var8 = var0.readInt();
-					var5 = new Datawathcer.WatchableObject(var3, var4, new BlockPosition(var6, var7, var8));
+					var5 = new DataWathcer.WatchableObject(var3, var4, new BlockPosition(var6, var7, var8));
 					break;
 				case 7:
 					float var9 = var0.readFloat();
 					float var10 = var0.readFloat();
 					float var11 = var0.readFloat();
-					var5 = new Datawathcer.WatchableObject(var3, var4, new class_dc(var9, var10, var11));
+					var5 = new DataWathcer.WatchableObject(var3, var4, new class_dc(var9, var10, var11));
 			}
 
 			var1.add(var5);

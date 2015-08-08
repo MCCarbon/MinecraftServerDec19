@@ -17,10 +17,10 @@ public class class_sq extends class_rm {
    public boolean a() {
       if(this.a.getAge() >= 0) {
          return false;
-      } else if(!this.a.o.x()) {
+      } else if(!this.a.world.x()) {
          return false;
       } else {
-         List var1 = this.a.o.getEntities(EntityVillagerGolem.class, this.a.aT().grow(6.0D, 2.0D, 6.0D));
+         List var1 = this.a.world.getEntities(EntityVillagerGolem.class, this.a.aT().grow(6.0D, 2.0D, 6.0D));
          if(var1.isEmpty()) {
             return false;
          } else {

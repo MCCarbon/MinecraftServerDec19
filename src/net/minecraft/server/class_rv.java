@@ -21,13 +21,13 @@ public class class_rv extends class_rm {
 
    public boolean a() {
       BlockPosition var1 = new BlockPosition(this.a);
-      if((!this.a.o.x() || this.a.o.T() && !this.a.o.b(var1).e()) && !this.a.o.worldProvider.m()) {
+      if((!this.a.world.x() || this.a.world.T() && !this.a.world.b(var1).e()) && !this.a.world.worldProvider.m()) {
          if(this.a.bd().nextInt(50) != 0) {
             return false;
-         } else if(this.c != -1 && this.a.e((double)this.c, this.a.t, (double)this.d) < 4.0D) {
+         } else if(this.c != -1 && this.a.e((double)this.c, this.a.locY, (double)this.d) < 4.0D) {
             return false;
          } else {
-            class_tp var2 = this.a.o.af().a(var1, 14);
+            class_tp var2 = this.a.world.af().a(var1, 14);
             if(var2 == null) {
                return false;
             } else {

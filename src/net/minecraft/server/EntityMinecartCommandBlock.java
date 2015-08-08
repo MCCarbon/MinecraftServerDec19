@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
-   private static final int a = Datawathcer.claimId(EntityMinecartCommandBlock.class);
-   private static final int b = Datawathcer.claimId(EntityMinecartCommandBlock.class);
+   private static final int a = DataWathcer.claimId(EntityMinecartCommandBlock.class);
+   private static final int b = DataWathcer.claimId(EntityMinecartCommandBlock.class);
    private final class_aed c = new class_aed() {
       public void h() {
          EntityMinecartCommandBlock.this.H().update(EntityMinecartCommandBlock.a, this.l());
@@ -10,15 +10,15 @@ public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
       }
 
       public BlockPosition c() {
-         return new BlockPosition(EntityMinecartCommandBlock.this.s, EntityMinecartCommandBlock.this.t + 0.5D, EntityMinecartCommandBlock.this.u);
+         return new BlockPosition(EntityMinecartCommandBlock.this.locX, EntityMinecartCommandBlock.this.locY + 0.5D, EntityMinecartCommandBlock.this.locZ);
       }
 
       public Vec3D d() {
-         return new Vec3D(EntityMinecartCommandBlock.this.s, EntityMinecartCommandBlock.this.t, EntityMinecartCommandBlock.this.u);
+         return new Vec3D(EntityMinecartCommandBlock.this.locX, EntityMinecartCommandBlock.this.locY, EntityMinecartCommandBlock.this.locZ);
       }
 
       public World e() {
-         return EntityMinecartCommandBlock.this.o;
+         return EntityMinecartCommandBlock.this.world;
       }
 
       public Entity f() {
@@ -66,9 +66,9 @@ public class EntityMinecartCommandBlock extends EntityMinecartAbstract {
    }
 
    public void a(int var1, int var2, int var3, boolean var4) {
-      if(var4 && this.W - this.d >= 4) {
-         this.j().a(this.o);
-         this.d = this.W;
+      if(var4 && this.ticksLived - this.d >= 4) {
+         this.j().a(this.world);
+         this.d = this.ticksLived;
       }
 
    }

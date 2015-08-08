@@ -6,8 +6,8 @@ import java.util.List;
 
 public class EntityGuardian extends EntityMonster {
 
-	private static final int INFOFLAGS_DW_ID = Datawathcer.claimId(EntityGuardian.class); //value = 11
-	private static final int TARGET_DW_ID = Datawathcer.claimId(EntityGuardian.class); //value = 12
+	private static final int INFOFLAGS_DW_ID = DataWathcer.claimId(EntityGuardian.class); //value = 11
+	private static final int TARGET_DW_ID = DataWathcer.claimId(EntityGuardian.class); //value = 12
 
 	private float c;
 	private float bs;
@@ -119,11 +119,11 @@ public class EntityGuardian extends EntityMonster {
 	public EntityLiving cF() {
 		if (!this.cE()) {
 			return null;
-		} else if (this.o.isClientSide) {
+		} else if (this.world.isClientSide) {
 			if (this.bw != null) {
 				return this.bw;
 			} else {
-				Entity var1 = this.o.getEntityById(this.datawatcher.getInt(TARGET_DW_ID));
+				Entity var1 = this.world.getEntityById(this.datawatcher.getInt(TARGET_DW_ID));
 				if (var1 instanceof EntityLiving) {
 					this.bw = (EntityLiving) var1;
 					return this.bw;
@@ -139,7 +139,7 @@ public class EntityGuardian extends EntityMonster {
 	public void d(int var1) {
 		super.d(var1);
 		if (var1 == INFOFLAGS_DW_ID) {
-			if (this.cC() && this.J < 1.0F) {
+			if (this.cC() && this.width < 1.0F) {
 				this.a(1.9975F, 1.9975F);
 			}
 		} else if (var1 == TARGET_DW_ID) {
@@ -170,23 +170,23 @@ public class EntityGuardian extends EntityMonster {
 	}
 
 	public float aU() {
-		return this.K * 0.5F;
+		return this.length * 0.5F;
 	}
 
 	public float a(BlockPosition var1) {
-		return this.o.getType(var1).getBlock().getMaterial() == Material.WATER ? 10.0F + this.o.o(var1) - 0.5F : super.a(var1);
+		return this.world.getType(var1).getBlock().getMaterial() == Material.WATER ? 10.0F + this.world.o(var1) - 0.5F : super.a(var1);
 	}
 
 	public void m() {
-		if (this.o.isClientSide) {
+		if (this.world.isClientSide) {
 			this.bs = this.c;
 			if (!this.V()) {
 				this.bt = 2.0F;
-				if (this.motY > 0.0D && this.by && !this.R()) {
-					this.o.a(this.s, this.t, this.u, "mob.guardian.flop", 1.0F, 1.0F, false);
+				if (this.motY > 0.0D && this.by && !this.isSilent()) {
+					this.world.a(this.locX, this.locY, this.locZ, "mob.guardian.flop", 1.0F, 1.0F, false);
 				}
 
-				this.by = this.motY < 0.0D && this.o.d((new BlockPosition(this)).down(), false);
+				this.by = this.motY < 0.0D && this.world.d((new BlockPosition(this)).down(), false);
 			} else if (this.n()) {
 				if (this.bt < 0.5F) {
 					this.bt = 4.0F;
@@ -211,7 +211,7 @@ public class EntityGuardian extends EntityMonster {
 				Vec3D var1 = this.d(0.0F);
 
 				for (int var2 = 0; var2 < 2; ++var2) {
-					this.o.a(class_cy.e, this.s + (this.random.nextDouble() - 0.5D) * (double) this.J - var1.x * 1.5D, this.t + this.random.nextDouble() * (double) this.K - var1.y * 1.5D, this.u + (this.random.nextDouble() - 0.5D) * (double) this.J - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
+					this.world.a(class_cy.e, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.x * 1.5D, this.locY + this.random.nextDouble() * (double) this.length - var1.y * 1.5D, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
 				}
 			}
 
@@ -225,9 +225,9 @@ public class EntityGuardian extends EntityMonster {
 					this.q().a(var14, 90.0F, 90.0F);
 					this.q().a();
 					double var15 = (double) this.q(0.0F);
-					double var4 = var14.s - this.s;
-					double var6 = var14.t + (double) (var14.K * 0.5F) - (this.t + (double) this.aU());
-					double var8 = var14.u - this.u;
+					double var4 = var14.locX - this.locX;
+					double var6 = var14.locY + (double) (var14.length * 0.5F) - (this.locY + (double) this.aU());
+					double var8 = var14.locZ - this.locZ;
 					double var10 = Math.sqrt(var4 * var4 + var6 * var6 + var8 * var8);
 					var4 /= var10;
 					var6 /= var10;
@@ -236,25 +236,25 @@ public class EntityGuardian extends EntityMonster {
 
 					while (var12 < var10) {
 						var12 += 1.8D - var15 + this.random.nextDouble() * (1.7D - var15);
-						this.o.a(class_cy.e, this.s + var4 * var12, this.t + var6 * var12 + (double) this.aU(), this.u + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
+						this.world.a(class_cy.e, this.locX + var4 * var12, this.locY + var6 * var12 + (double) this.aU(), this.locZ + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
 					}
 				}
 			}
 		}
 
-		if (this.Y) {
+		if (this.inWater) {
 			this.i(300);
-		} else if (this.C) {
+		} else if (this.onGround) {
 			this.motY += 0.5D;
-			this.v += (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.4F);
-			this.x += (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.4F);
-			this.y = this.random.nextFloat() * 360.0F;
-			this.C = false;
+			this.motX += (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.4F);
+			this.motZ += (double) ((this.random.nextFloat() * 2.0F - 1.0F) * 0.4F);
+			this.yaw = this.random.nextFloat() * 360.0F;
+			this.onGround = false;
 			this.ai = true;
 		}
 
 		if (this.cE()) {
-			this.y = this.aN;
+			this.yaw = this.aN;
 		}
 
 		super.m();
@@ -271,9 +271,9 @@ public class EntityGuardian extends EntityMonster {
 			boolean var2 = true;
 			boolean var3 = true;
 			boolean var4 = true;
-			if ((this.W + this.getId()) % 1200 == 0) {
+			if ((this.ticksLived + this.getId()) % 1200 == 0) {
 				MobEffectType var5 = MobEffectList.d;
-				List var6 = this.o.getPlayers(EntityPlayer.class, new Predicate() {
+				List var6 = this.world.getPlayers(EntityPlayer.class, new Predicate() {
 					public boolean a(EntityPlayer var1) {
 						return EntityGuardian.this.h(var1) < 2500.0D && var1.playerInteractManager.c();
 					}
@@ -335,11 +335,11 @@ public class EntityGuardian extends EntityMonster {
 	}
 
 	public boolean cg() {
-		return this.o.a((AxisAlignedBB) this.aT(), (Entity) this) && this.o.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty();
+		return this.world.a((AxisAlignedBB) this.aT(), (Entity) this) && this.world.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty();
 	}
 
 	public boolean cf() {
-		return (this.random.nextInt(20) == 0 || !this.o.j(new BlockPosition(this))) && super.cf();
+		return (this.random.nextInt(20) == 0 || !this.world.j(new BlockPosition(this))) && super.cf();
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
@@ -363,10 +363,10 @@ public class EntityGuardian extends EntityMonster {
 		if (this.bN()) {
 			if (this.V()) {
 				this.a(var1, var2, 0.1F);
-				this.d(this.v, this.motY, this.x);
-				this.v *= 0.8999999761581421D;
+				this.d(this.motX, this.motY, this.motZ);
+				this.motX *= 0.8999999761581421D;
 				this.motY *= 0.8999999761581421D;
-				this.x *= 0.8999999761581421D;
+				this.motZ *= 0.8999999761581421D;
 				if (!this.n() && this.w() == null) {
 					this.motY -= 0.005D;
 				}
@@ -389,29 +389,29 @@ public class EntityGuardian extends EntityMonster {
 
 		public void c() {
 			if (this.f && !this.g.u().m()) {
-				double var1 = this.b - this.g.s;
-				double var3 = this.c - this.g.t;
-				double var5 = this.d - this.g.u;
+				double var1 = this.b - this.g.locX;
+				double var3 = this.c - this.g.locY;
+				double var5 = this.d - this.g.locZ;
 				double var7 = var1 * var1 + var3 * var3 + var5 * var5;
 				var7 = (double) MathHelper.sqrt(var7);
 				var3 /= var7;
 				float var9 = (float) (MathHelper.b(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;
-				this.g.y = this.a(this.g.y, var9, 30.0F);
-				this.g.aL = this.g.y;
+				this.g.yaw = this.a(this.g.yaw, var9, 30.0F);
+				this.g.aL = this.g.yaw;
 				float var10 = (float) (this.e * this.g.a((class_qk) class_wl.d).e());
 				this.g.k(this.g.bJ() + (var10 - this.g.bJ()) * 0.125F);
-				double var11 = Math.sin((double) (this.g.W + this.g.getId()) * 0.5D) * 0.05D;
-				double var13 = Math.cos((double) (this.g.y * 3.1415927F / 180.0F));
-				double var15 = Math.sin((double) (this.g.y * 3.1415927F / 180.0F));
-				this.g.v += var11 * var13;
-				this.g.x += var11 * var15;
-				var11 = Math.sin((double) (this.g.W + this.g.getId()) * 0.75D) * 0.05D;
+				double var11 = Math.sin((double) (this.g.ticksLived + this.g.getId()) * 0.5D) * 0.05D;
+				double var13 = Math.cos((double) (this.g.yaw * 3.1415927F / 180.0F));
+				double var15 = Math.sin((double) (this.g.yaw * 3.1415927F / 180.0F));
+				this.g.motX += var11 * var13;
+				this.g.motZ += var11 * var15;
+				var11 = Math.sin((double) (this.g.ticksLived + this.g.getId()) * 0.75D) * 0.05D;
 				this.g.motY += var11 * (var15 + var13) * 0.25D;
 				this.g.motY += (double) this.g.bJ() * var3 * 0.1D;
 				class_qy var17 = this.g.q();
-				double var18 = this.g.s + var1 / var7 * 2.0D;
-				double var20 = (double) this.g.aU() + this.g.t + var3 / var7 * 1.0D;
-				double var22 = this.g.u + var5 / var7 * 2.0D;
+				double var18 = this.g.locX + var1 / var7 * 2.0D;
+				double var20 = (double) this.g.aU() + this.g.locY + var3 / var7 * 1.0D;
+				double var22 = this.g.locZ + var5 / var7 * 2.0D;
 				double var24 = var17.e();
 				double var26 = var17.f();
 				double var28 = var17.g();
@@ -471,10 +471,10 @@ public class EntityGuardian extends EntityMonster {
 				++this.b;
 				if (this.b == 0) {
 					this.a.b(this.a.w().getId());
-					this.a.o.a((Entity) this.a, (byte) 21);
+					this.a.world.a((Entity) this.a, (byte) 21);
 				} else if (this.b >= this.a.cB()) {
 					float var2 = 1.0F;
-					if (this.a.o.ab() == class_om.d) {
+					if (this.a.world.ab() == class_om.d) {
 						var2 += 2.0F;
 					}
 

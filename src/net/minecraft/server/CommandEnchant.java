@@ -12,7 +12,7 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandEnchant extends CommandAbstract {
    public String getCommand() {
@@ -32,7 +32,7 @@ public class CommandEnchant extends CommandAbstract {
          throw new class_cf("commands.enchant.usage", new Object[0]);
       } else {
          EntityPlayer var3 = a(var1, var2[0]);
-         var1.a(class_n.class_a_in_class_n.d, 0);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, 0);
 
          class_adi var4;
          try {
@@ -72,7 +72,7 @@ public class CommandEnchant extends CommandAbstract {
 
                var6.addEnchantment(var4, var5);
                a(var1, this, "commands.enchant.success", new Object[0]);
-               var1.a(class_n.class_a_in_class_n.d, 1);
+               var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, 1);
             }
          }
       }

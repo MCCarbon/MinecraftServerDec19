@@ -33,7 +33,7 @@ public class CommandGamemode extends CommandAbstract {
          WorldSettings.EnumGameMode var3 = this.h(var1, var2[0]);
          EntityPlayer var4 = var2.length >= 2?a(var1, var2[1]):b(var1);
          var4.a(var3);
-         var4.O = 0.0F;
+         var4.fallDistance = 0.0F;
          if(var1.e().R().getBooleanValue("sendCommandFeedback")) {
             var4.a((IChatBaseComponent)(new ChatMessage("gameMode.changed", new Object[0])));
          }

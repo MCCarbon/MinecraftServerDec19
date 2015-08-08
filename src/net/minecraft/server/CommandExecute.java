@@ -13,7 +13,7 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 
 public class CommandExecute extends CommandAbstract {
@@ -34,9 +34,9 @@ public class CommandExecute extends CommandAbstract {
          throw new class_cf("commands.execute.usage", new Object[0]);
       } else {
          final Entity var3 = a(var1, var2[0], Entity.class);
-         final double var4 = b(var3.s, var2[1], false);
-         final double var6 = b(var3.t, var2[2], false);
-         final double var8 = b(var3.u, var2[3], false);
+         final double var4 = b(var3.locX, var2[1], false);
+         final double var6 = b(var3.locY, var2[2], false);
+         final double var8 = b(var3.locZ, var2[3], false);
          final BlockPosition var10 = new BlockPosition(var4, var6, var8);
          byte var11 = 4;
          if("detect".equals(var2[4]) && var2.length > 10) {
@@ -82,7 +82,7 @@ public class CommandExecute extends CommandAbstract {
             }
 
             public World e() {
-               return var3.o;
+               return var3.world;
             }
 
             public Entity f() {
@@ -94,7 +94,7 @@ public class CommandExecute extends CommandAbstract {
                return var1x == null || var1x.d[0].R().getBooleanValue("commandBlockOutput");
             }
 
-            public void a(class_n.class_a_in_class_n var1x, int var2) {
+            public void a(CommandObjectiveExecutor.class_a_in_class_n var1x, int var2) {
                var3.a(var1x, var2);
             }
          };

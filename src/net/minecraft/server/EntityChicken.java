@@ -28,7 +28,7 @@ public class EntityChicken extends EntityAnimal {
    }
 
    public float aU() {
-      return this.K;
+      return this.length;
    }
 
    protected void aY() {
@@ -41,19 +41,19 @@ public class EntityChicken extends EntityAnimal {
       super.m();
       this.bw = this.bs;
       this.bu = this.bt;
-      this.bt = (float)((double)this.bt + (double)(this.C?-1:4) * 0.3D);
+      this.bt = (float)((double)this.bt + (double)(this.onGround?-1:4) * 0.3D);
       this.bt = MathHelper.clamp(this.bt, 0.0F, 1.0F);
-      if(!this.C && this.bx < 1.0F) {
+      if(!this.onGround && this.bx < 1.0F) {
          this.bx = 1.0F;
       }
 
       this.bx = (float)((double)this.bx * 0.9D);
-      if(!this.C && this.motY < 0.0D) {
+      if(!this.onGround && this.motY < 0.0D) {
          this.motY *= 0.6D;
       }
 
       this.bs += this.bx * 2.0F;
-      if(!this.o.isClientSide && !this.isBaby() && !this.cA() && --this.by <= 0) {
+      if(!this.world.isClientSide && !this.isBaby() && !this.cA() && --this.by <= 0) {
          this.a("mob.chicken.plop", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
          this.a(Items.EGG, 1);
          this.by = this.random.nextInt(6000) + 6000;
@@ -100,7 +100,7 @@ public class EntityChicken extends EntityAnimal {
    }
 
    public EntityChicken b(EntityAgeable var1) {
-      return new EntityChicken(this.o);
+      return new EntityChicken(this.world);
    }
 
    public boolean d(ItemStack var1) {
@@ -136,7 +136,7 @@ public class EntityChicken extends EntityAnimal {
       float var2 = MathHelper.cos(this.aL * 3.1415927F / 180.0F);
       float var3 = 0.1F;
       float var4 = 0.0F;
-      this.passenger.b(this.s + (double)(var3 * var1), this.t + (double)(this.K * 0.5F) + this.passenger.am() + (double)var4, this.u - (double)(var3 * var2));
+      this.passenger.b(this.locX + (double)(var3 * var1), this.locY + (double)(this.length * 0.5F) + this.passenger.am() + (double)var4, this.locZ - (double)(var3 * var2));
       if(this.passenger instanceof EntityLiving) {
          ((EntityLiving)this.passenger).aL = this.aL;
       }

@@ -17,17 +17,17 @@ public class class_tf extends class_tg {
    }
 
    protected boolean b() {
-      return this.b.C || this.h() && this.o() || this.b.aw() && this.b instanceof EntityZombie && this.b.vehicle instanceof EntityChicken;
+      return this.b.onGround || this.h() && this.o() || this.b.aw() && this.b instanceof EntityZombie && this.b.vehicle instanceof EntityChicken;
    }
 
    protected Vec3D c() {
-      return new Vec3D(this.b.s, (double)this.p(), this.b.u);
+      return new Vec3D(this.b.locX, (double)this.p(), this.b.locZ);
    }
 
    private int p() {
       if(this.b.V() && this.h()) {
          int var1 = (int)this.b.aT().yMin;
-         Block var2 = this.c.getType(new BlockPosition(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).getBlock();
+         Block var2 = this.c.getType(new BlockPosition(MathHelper.floor(this.b.locX), var1, MathHelper.floor(this.b.locZ))).getBlock();
          int var3 = 0;
 
          do {
@@ -36,7 +36,7 @@ public class class_tf extends class_tg {
             }
 
             ++var1;
-            var2 = this.c.getType(new BlockPosition(MathHelper.floor(this.b.s), var1, MathHelper.floor(this.b.u))).getBlock();
+            var2 = this.c.getType(new BlockPosition(MathHelper.floor(this.b.locX), var1, MathHelper.floor(this.b.locZ))).getBlock();
             ++var3;
          } while(var3 <= 16);
 
@@ -49,7 +49,7 @@ public class class_tf extends class_tg {
    protected void d() {
       super.d();
       if(this.f) {
-         if(this.c.i(new BlockPosition(MathHelper.floor(this.b.s), (int)(this.b.aT().yMin + 0.5D), MathHelper.floor(this.b.u)))) {
+         if(this.c.i(new BlockPosition(MathHelper.floor(this.b.locX), (int)(this.b.aT().yMin + 0.5D), MathHelper.floor(this.b.locZ)))) {
             return;
          }
 

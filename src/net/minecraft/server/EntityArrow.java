@@ -7,7 +7,7 @@ import java.util.List;
 public class EntityArrow extends Entity implements class_xi {
 
 	private static final Predicate f;
-	private static final int CRITICAL_DW_ID = Datawathcer.claimId(EntityArrow.class); // value = 5
+	private static final int CRITICAL_DW_ID = DataWathcer.claimId(EntityArrow.class); // value = 5
 
 	private int h;
 	private int i;
@@ -40,7 +40,7 @@ public class EntityArrow extends Entity implements class_xi {
 	}
 
 	public EntityArrow(World var1, EntityLiving var2) {
-		this(var1, var2.s, var2.t + (double) var2.aU() - 0.10000000149011612D, var2.u);
+		this(var1, var2.locX, var2.locY + (double) var2.aU() - 0.10000000149011612D, var2.locZ);
 		this.e = var2;
 		if (var2 instanceof EntityHuman) {
 			this.c = 1;
@@ -70,30 +70,30 @@ public class EntityArrow extends Entity implements class_xi {
 		var1 *= (double) var7;
 		var3 *= (double) var7;
 		var5 *= (double) var7;
-		this.v = var1;
+		this.motX = var1;
 		this.motY = var3;
-		this.x = var5;
+		this.motZ = var5;
 		float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
-		this.A = this.y = (float) (MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
-		this.B = this.z = (float) (MathHelper.b(var3, (double) var10) * 180.0D / 3.1415927410125732D);
+		this.lastYaw = this.yaw = (float) (MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
+		this.lastPitch = this.pitch = (float) (MathHelper.b(var3, (double) var10) * 180.0D / 3.1415927410125732D);
 		this.av = 0;
 	}
 
 	public void t_() {
 		super.t_();
-		if (this.B == 0.0F && this.A == 0.0F) {
-			float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
-			this.A = this.y = (float) (MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
-			this.B = this.z = (float) (MathHelper.b(this.motY, (double) var1) * 180.0D / 3.1415927410125732D);
+		if (this.lastPitch == 0.0F && this.lastYaw == 0.0F) {
+			float var1 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
+			this.lastYaw = this.yaw = (float) (MathHelper.b(this.motX, this.motZ) * 180.0D / 3.1415927410125732D);
+			this.lastPitch = this.pitch = (float) (MathHelper.b(this.motY, (double) var1) * 180.0D / 3.1415927410125732D);
 		}
 
 		BlockPosition var13 = new BlockPosition(this.h, this.i, this.as);
-		IBlockData var2 = this.o.getType(var13);
+		IBlockData var2 = this.world.getType(var13);
 		Block var3 = var2.getBlock();
 		if (var3.getMaterial() != Material.AIR) {
-			var3.updateShape((IBlockAccess) this.o, (BlockPosition) var13);
-			AxisAlignedBB var4 = var3.getBoundingBox(this.o, var13, var2);
-			if (var4 != null && var4.a(new Vec3D(this.s, this.t, this.u))) {
+			var3.updateShape((IBlockAccess) this.world, (BlockPosition) var13);
+			AxisAlignedBB var4 = var3.getBoundingBox(this.world, var13, var2);
+			if (var4 != null && var4.a(new Vec3D(this.locX, this.locY, this.locZ))) {
 				this.a = true;
 			}
 		}
@@ -111,9 +111,9 @@ public class EntityArrow extends Entity implements class_xi {
 				}
 			} else {
 				this.a = false;
-				this.v *= (double) (this.random.nextFloat() * 0.2F);
+				this.motX *= (double) (this.random.nextFloat() * 0.2F);
 				this.motY *= (double) (this.random.nextFloat() * 0.2F);
-				this.x *= (double) (this.random.nextFloat() * 0.2F);
+				this.motZ *= (double) (this.random.nextFloat() * 0.2F);
 				this.av = 0;
 				this.aw = 0;
 			}
@@ -122,11 +122,11 @@ public class EntityArrow extends Entity implements class_xi {
 		} else {
 			this.b = 0;
 			++this.aw;
-			Vec3D var14 = new Vec3D(this.s, this.t, this.u);
-			Vec3D var5 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
-			MovingObjectPosition var6 = this.o.rayTrace(var14, var5, false, true, false);
-			var14 = new Vec3D(this.s, this.t, this.u);
-			var5 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
+			Vec3D var14 = new Vec3D(this.locX, this.locY, this.locZ);
+			Vec3D var5 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
+			MovingObjectPosition var6 = this.world.rayTrace(var14, var5, false, true, false);
+			var14 = new Vec3D(this.locX, this.locY, this.locZ);
+			var5 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
 			if (var6 != null) {
 				var5 = new Vec3D(var6.c.x, var6.c.y, var6.c.z);
 			}
@@ -149,40 +149,40 @@ public class EntityArrow extends Entity implements class_xi {
 
 			if (this.m()) {
 				for (int var16 = 0; var16 < 4; ++var16) {
-					this.o.a(class_cy.j, this.s + this.v * (double) var16 / 4.0D, this.t + this.motY * (double) var16 / 4.0D, this.u + this.x * (double) var16 / 4.0D, -this.v, -this.motY + 0.2D, -this.x, new int[0]);
+					this.world.a(class_cy.j, this.locX + this.motX * (double) var16 / 4.0D, this.locY + this.motY * (double) var16 / 4.0D, this.locZ + this.motZ * (double) var16 / 4.0D, -this.motX, -this.motY + 0.2D, -this.motZ, new int[0]);
 				}
 			}
 
-			this.s += this.v;
-			this.t += this.motY;
-			this.u += this.x;
-			float var17 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
-			this.y = (float) (MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+			this.locX += this.motX;
+			this.locY += this.motY;
+			this.locZ += this.motZ;
+			float var17 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
+			this.yaw = (float) (MathHelper.b(this.motX, this.motZ) * 180.0D / 3.1415927410125732D);
 
-			for (this.z = (float) (MathHelper.b(this.motY, (double) var17) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+			for (this.pitch = (float) (MathHelper.b(this.motY, (double) var17) * 180.0D / 3.1415927410125732D); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
 				;
 			}
 
-			while (this.z - this.B >= 180.0F) {
-				this.B += 360.0F;
+			while (this.pitch - this.lastPitch >= 180.0F) {
+				this.lastPitch += 360.0F;
 			}
 
-			while (this.y - this.A < -180.0F) {
-				this.A -= 360.0F;
+			while (this.yaw - this.lastYaw < -180.0F) {
+				this.lastYaw -= 360.0F;
 			}
 
-			while (this.y - this.A >= 180.0F) {
-				this.A += 360.0F;
+			while (this.yaw - this.lastYaw >= 180.0F) {
+				this.lastYaw += 360.0F;
 			}
 
-			this.z = this.B + (this.z - this.B) * 0.2F;
-			this.y = this.A + (this.y - this.A) * 0.2F;
+			this.pitch = this.lastPitch + (this.pitch - this.lastPitch) * 0.2F;
+			this.yaw = this.lastYaw + (this.yaw - this.lastYaw) * 0.2F;
 			float var9 = 0.99F;
 			float var10 = 0.05F;
 			if (this.V()) {
 				for (int var11 = 0; var11 < 4; ++var11) {
 					float var12 = 0.25F;
-					this.o.a(class_cy.e, this.s - this.v * (double) var12, this.t - this.motY * (double) var12, this.u - this.x * (double) var12, this.v, this.motY, this.x, new int[0]);
+					this.world.a(class_cy.e, this.locX - this.motX * (double) var12, this.locY - this.motY * (double) var12, this.locZ - this.motZ * (double) var12, this.motX, this.motY, this.motZ, new int[0]);
 				}
 
 				var9 = 0.6F;
@@ -192,11 +192,11 @@ public class EntityArrow extends Entity implements class_xi {
 				this.N();
 			}
 
-			this.v *= (double) var9;
+			this.motX *= (double) var9;
 			this.motY *= (double) var9;
-			this.x *= (double) var9;
+			this.motZ *= (double) var9;
 			this.motY -= (double) var10;
-			this.b(this.s, this.t, this.u);
+			this.b(this.locX, this.locY, this.locZ);
 			this.Q();
 		}
 	}
@@ -204,7 +204,7 @@ public class EntityArrow extends Entity implements class_xi {
 	protected void a(MovingObjectPosition var1) {
 		Entity var2 = var1.d;
 		if (var2 != null) {
-			float var3 = MathHelper.sqrt(this.v * this.v + this.motY * this.motY + this.x * this.x);
+			float var3 = MathHelper.sqrt(this.motX * this.motX + this.motY * this.motY + this.motZ * this.motZ);
 			int var4 = MathHelper.ceil((double) var3 * this.ax);
 			if (this.m()) {
 				var4 += this.random.nextInt(var4 / 2 + 2);
@@ -224,14 +224,14 @@ public class EntityArrow extends Entity implements class_xi {
 			if (var2.damageEntity(var5, (float) var4)) {
 				if (var2 instanceof EntityLiving) {
 					EntityLiving var6 = (EntityLiving) var2;
-					if (!this.o.isClientSide) {
+					if (!this.world.isClientSide) {
 						var6.l(var6.bw() + 1);
 					}
 
 					if (this.ay > 0) {
-						float var7 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
+						float var7 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 						if (var7 > 0.0F) {
-							var6.g(this.v * (double) this.ay * 0.6000000238418579D / (double) var7, 0.1D, this.x * (double) this.ay * 0.6000000238418579D / (double) var7);
+							var6.g(this.motX * (double) this.ay * 0.6000000238418579D / (double) var7, 0.1D, this.motZ * (double) this.ay * 0.6000000238418579D / (double) var7);
 						}
 					}
 
@@ -251,11 +251,11 @@ public class EntityArrow extends Entity implements class_xi {
 					this.J();
 				}
 			} else {
-				this.v *= -0.10000000149011612D;
+				this.motX *= -0.10000000149011612D;
 				this.motY *= -0.10000000149011612D;
-				this.x *= -0.10000000149011612D;
-				this.y += 180.0F;
-				this.A += 180.0F;
+				this.motZ *= -0.10000000149011612D;
+				this.yaw += 180.0F;
+				this.lastYaw += 180.0F;
 				this.aw = 0;
 			}
 		} else {
@@ -263,22 +263,22 @@ public class EntityArrow extends Entity implements class_xi {
 			this.h = var8.getX();
 			this.i = var8.getY();
 			this.as = var8.getZ();
-			IBlockData var9 = this.o.getType(var8);
+			IBlockData var9 = this.world.getType(var8);
 			this.at = var9.getBlock();
 			this.au = this.at.toLegacyData(var9);
-			this.v = (double) ((float) (var1.c.x - this.s));
-			this.motY = (double) ((float) (var1.c.y - this.t));
-			this.x = (double) ((float) (var1.c.z - this.u));
-			float var10 = MathHelper.sqrt(this.v * this.v + this.motY * this.motY + this.x * this.x);
-			this.s -= this.v / (double) var10 * 0.05000000074505806D;
-			this.t -= this.motY / (double) var10 * 0.05000000074505806D;
-			this.u -= this.x / (double) var10 * 0.05000000074505806D;
+			this.motX = (double) ((float) (var1.c.x - this.locX));
+			this.motY = (double) ((float) (var1.c.y - this.locY));
+			this.motZ = (double) ((float) (var1.c.z - this.locZ));
+			float var10 = MathHelper.sqrt(this.motX * this.motX + this.motY * this.motY + this.motZ * this.motZ);
+			this.locX -= this.motX / (double) var10 * 0.05000000074505806D;
+			this.locY -= this.motY / (double) var10 * 0.05000000074505806D;
+			this.locZ -= this.motZ / (double) var10 * 0.05000000074505806D;
 			this.a("random.bowhit", 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
 			this.a = true;
 			this.d = 7;
 			this.a(false);
 			if (this.at.getMaterial() != Material.AIR) {
-				this.at.a((World) this.o, var8, (IBlockData) var9, (Entity) this);
+				this.at.a((World) this.world, var8, (IBlockData) var9, (Entity) this);
 			}
 		}
 
@@ -289,7 +289,7 @@ public class EntityArrow extends Entity implements class_xi {
 
 	protected Entity a(Vec3D var1, Vec3D var2) {
 		Entity var3 = null;
-		List var4 = this.o.a((Entity) this, (AxisAlignedBB) this.aT().add(this.v, this.motY, this.x).grow(1.0D, 1.0D, 1.0D), (Predicate) f);
+		List var4 = this.world.a((Entity) this, (AxisAlignedBB) this.aT().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D), (Predicate) f);
 		double var5 = 0.0D;
 
 		for (int var7 = 0; var7 < var4.size(); ++var7) {
@@ -352,7 +352,7 @@ public class EntityArrow extends Entity implements class_xi {
 	}
 
 	public void d(EntityHuman var1) {
-		if (!this.o.isClientSide && this.a && this.d <= 0) {
+		if (!this.world.isClientSide && this.a && this.d <= 0) {
 			boolean var2 = this.c == 1 || this.c == 2 && var1.abilities.instabuild;
 			if (this.c == 1 && !var1.inventory.a(this.j())) {
 				var2 = false;

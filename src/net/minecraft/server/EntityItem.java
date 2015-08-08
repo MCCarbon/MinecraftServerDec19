@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 public class EntityItem extends Entity {
 
 	private static final Logger b = LogManager.getLogger();
-	private static final int ITEM_DW_ID = Datawathcer.claimId(EntityItem.class); //value = 5
+	private static final int ITEM_DW_ID = DataWathcer.claimId(EntityItem.class); //value = 5
 
 	private int d;
 	private int pickupDelay;
@@ -23,10 +23,10 @@ public class EntityItem extends Entity {
 		this.a = (float) (Math.random() * 3.141592653589793D * 2.0D);
 		this.a(0.25F, 0.25F);
 		this.b(var2, var4, var6);
-		this.y = (float) (Math.random() * 360.0D);
-		this.v = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D));
+		this.yaw = (float) (Math.random() * 360.0D);
+		this.motX = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D));
 		this.motY = 0.20000000298023224D;
-		this.x = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D));
+		this.motZ = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D));
 	}
 
 	public EntityItem(World var1, double var2, double var4, double var6, ItemStack var8) {
@@ -59,35 +59,35 @@ public class EntityItem extends Entity {
 				--this.pickupDelay;
 			}
 
-			this.p = this.s;
-			this.q = this.t;
-			this.r = this.u;
+			this.lastX = this.locX;
+			this.lastY = this.locY;
+			this.lastZ = this.locZ;
 			this.motY -= 0.03999999910593033D;
-			this.T = this.j(this.s, (this.aT().yMin + this.aT().yMax) / 2.0D, this.u);
-			this.d(this.v, this.motY, this.x);
-			boolean var1 = (int) this.p != (int) this.s || (int) this.q != (int) this.t || (int) this.r != (int) this.u;
-			if (var1 || this.W % 25 == 0) {
-				if (this.o.getType(new BlockPosition(this)).getBlock().getMaterial() == Material.LAVA) {
+			this.noclip = this.j(this.locX, (this.aT().yMin + this.aT().yMax) / 2.0D, this.locZ);
+			this.d(this.motX, this.motY, this.motZ);
+			boolean var1 = (int) this.lastX != (int) this.locX || (int) this.lastY != (int) this.locY || (int) this.lastZ != (int) this.locZ;
+			if (var1 || this.ticksLived % 25 == 0) {
+				if (this.world.getType(new BlockPosition(this)).getBlock().getMaterial() == Material.LAVA) {
 					this.motY = 0.20000000298023224D;
-					this.v = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
-					this.x = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+					this.motX = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
+					this.motZ = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
 					this.a("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
 				}
 
-				if (!this.o.isClientSide) {
+				if (!this.world.isClientSide) {
 					this.w();
 				}
 			}
 
 			float var2 = 0.98F;
-			if (this.C) {
-				var2 = this.o.getType(new BlockPosition(MathHelper.floor(this.s), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.u))).getBlock().frictionFactor * 0.98F;
+			if (this.onGround) {
+				var2 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.98F;
 			}
 
-			this.v *= (double) var2;
+			this.motX *= (double) var2;
 			this.motY *= 0.9800000190734863D;
-			this.x *= (double) var2;
-			if (this.C) {
+			this.motZ *= (double) var2;
+			if (this.onGround) {
 				this.motY *= -0.5D;
 			}
 
@@ -96,7 +96,7 @@ public class EntityItem extends Entity {
 			}
 
 			this.W();
-			if (!this.o.isClientSide && this.d >= 6000) {
+			if (!this.world.isClientSide && this.d >= 6000) {
 				this.J();
 			}
 
@@ -104,7 +104,7 @@ public class EntityItem extends Entity {
 	}
 
 	private void w() {
-		Iterator var1 = this.o.getEntities(EntityItem.class, this.aT().grow(0.5D, 0.0D, 0.5D)).iterator();
+		Iterator var1 = this.world.getEntities(EntityItem.class, this.aT().grow(0.5D, 0.0D, 0.5D)).iterator();
 
 		while (var1.hasNext()) {
 			EntityItem var2 = (EntityItem) var1.next();
@@ -159,17 +159,17 @@ public class EntityItem extends Entity {
 	}
 
 	public boolean W() {
-		if (this.o.a((AxisAlignedBB) this.aT(), (Material) Material.WATER, (Entity) this)) {
-			if (!this.Y && !this.aa) {
+		if (this.world.a((AxisAlignedBB) this.aT(), (Material) Material.WATER, (Entity) this)) {
+			if (!this.inWater && !this.justCreated) {
 				this.X();
 			}
 
-			this.Y = true;
+			this.inWater = true;
 		} else {
-			this.Y = false;
+			this.inWater = false;
 		}
 
-		return this.Y;
+		return this.inWater;
 	}
 
 	protected void g(int var1) {
@@ -234,7 +234,7 @@ public class EntityItem extends Entity {
 	}
 
 	public void d(EntityHuman var1) {
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			ItemStack var2 = this.l();
 			int var3 = var2.count;
 			if (this.pickupDelay == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.getName())) && var1.inventory.a(var2)) {
@@ -259,14 +259,14 @@ public class EntityItem extends Entity {
 				}
 
 				if (var2.getItem() == Items.DIAMOND && this.n() != null) {
-					EntityHuman var4 = this.o.a(this.n());
+					EntityHuman var4 = this.world.a(this.n());
 					if (var4 != null && var4 != var1) {
 						var4.b((class_my) class_mt.x);
 					}
 				}
 
-				if (!this.R()) {
-					this.o.a((Entity) var1, "random.pop", 0.2F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+				if (!this.isSilent()) {
+					this.world.a((Entity) var1, "random.pop", 0.2F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 				}
 
 				var1.a(this, var3);
@@ -279,7 +279,7 @@ public class EntityItem extends Entity {
 	}
 
 	public String getName() {
-		return this.hasCustomName() ? this.aO() : LocaleI18n.get("item." + this.l().a());
+		return this.hasCustomName() ? this.getCustomName() : LocaleI18n.get("item." + this.l().a());
 	}
 
 	public boolean aF() {
@@ -288,7 +288,7 @@ public class EntityItem extends Entity {
 
 	public void c(int var1) {
 		super.c(var1);
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			this.w();
 		}
 
@@ -297,7 +297,7 @@ public class EntityItem extends Entity {
 	public ItemStack l() {
 		ItemStack var1 = this.H().getItemStack(ITEM_DW_ID);
 		if (var1 == null) {
-			if (this.o != null) {
+			if (this.world != null) {
 				b.error("Item entity " + this.getId() + " has no item?!");
 			}
 

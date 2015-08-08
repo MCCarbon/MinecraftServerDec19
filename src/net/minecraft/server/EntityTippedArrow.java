@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Set;
 
 public class EntityTippedArrow extends EntityArrow {
-   private static final int f = Datawathcer.claimId(EntityTippedArrow.class);
+   private static final int f = DataWathcer.claimId(EntityTippedArrow.class);
    private final Set g;
    private ItemStack h;
 
@@ -61,20 +61,20 @@ public class EntityTippedArrow extends EntityArrow {
       double var4;
       double var6;
       if(this.a) {
-         if(this.o.isClientSide) {
+         if(this.world.isClientSide) {
             var1 = this.datawatcher.getInt(f);
             if(var1 > 0 && this.b % 5 == 0) {
                var2 = (double)(var1 >> 16 & 255) / 255.0D;
                var4 = (double)(var1 >> 8 & 255) / 255.0D;
                var6 = (double)(var1 >> 0 & 255) / 255.0D;
-               this.o.a(class_cy.p, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J, this.t + this.random.nextDouble() * (double)this.K, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J, var2, var4, var6, new int[0]);
+               this.world.a(class_cy.p, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, var2, var4, var6, new int[0]);
             }
          } else if(!this.g.isEmpty() && this.b >= 200) {
-            this.o.a((Entity)this, (byte)0);
+            this.world.a((Entity)this, (byte)0);
             this.g.clear();
             this.datawatcher.update(f, Integer.valueOf(0));
          }
-      } else if(this.o.isClientSide) {
+      } else if(this.world.isClientSide) {
          var1 = this.datawatcher.getInt(f);
          if(var1 > 0) {
             var2 = (double)(var1 >> 16 & 255) / 255.0D;
@@ -82,7 +82,7 @@ public class EntityTippedArrow extends EntityArrow {
             var6 = (double)(var1 >> 0 & 255) / 255.0D;
 
             for(int var8 = 0; var8 < 2; ++var8) {
-               this.o.a(class_cy.p, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J, this.t + this.random.nextDouble() * (double)this.K, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J, var2, var4, var6, new int[0]);
+               this.world.a(class_cy.p, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, var2, var4, var6, new int[0]);
             }
          }
       }

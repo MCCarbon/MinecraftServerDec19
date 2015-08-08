@@ -12,7 +12,7 @@ import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandClear extends CommandAbstract {
    public String getCommand() {
@@ -50,7 +50,7 @@ public class CommandClear extends CommandAbstract {
             var3.o();
          }
 
-         var1.a(class_n.class_a_in_class_n.d, var8);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, var8);
          if(var8 == 0) {
             throw new class_bz("commands.clear.failure", new Object[]{var3.getName()});
          } else {

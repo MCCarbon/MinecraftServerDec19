@@ -45,7 +45,7 @@ public class class_sr extends class_rm {
          --this.i;
          return false;
       } else {
-         this.h = this.a.o.a(this.a, 10.0D);
+         this.h = this.a.world.a(this.a, 10.0D);
          return this.h == null?false:this.a(this.h.bA()) || this.a(this.h.bB());
       }
    }
@@ -61,26 +61,26 @@ public class class_sr extends class_rm {
                return false;
             }
 
-            if(Math.abs((double)this.h.z - this.f) > 5.0D || Math.abs((double)this.h.y - this.g) > 5.0D) {
+            if(Math.abs((double)this.h.pitch - this.f) > 5.0D || Math.abs((double)this.h.yaw - this.g) > 5.0D) {
                return false;
             }
          } else {
-            this.c = this.h.s;
-            this.d = this.h.t;
-            this.e = this.h.u;
+            this.c = this.h.locX;
+            this.d = this.h.locY;
+            this.e = this.h.locZ;
          }
 
-         this.f = (double)this.h.z;
-         this.g = (double)this.h.y;
+         this.f = (double)this.h.pitch;
+         this.g = (double)this.h.yaw;
       }
 
       return this.a();
    }
 
    public void c() {
-      this.c = this.h.s;
-      this.d = this.h.t;
-      this.e = this.h.u;
+      this.c = this.h.locX;
+      this.d = this.h.locY;
+      this.e = this.h.locZ;
       this.j = true;
       this.m = ((class_tf)this.a.u()).e();
       ((class_tf)this.a.u()).a(false);

@@ -36,8 +36,8 @@ public class BlockSlime extends BlockHalfTransparent {
    public void onCollide(World var1, BlockPosition var2, Entity var3) {
       if(Math.abs(var3.motY) < 0.1D && !var3.ax()) {
          double var4 = 0.4D + Math.abs(var3.motY) * 0.2D;
-         var3.v *= var4;
-         var3.x *= var4;
+         var3.motX *= var4;
+         var3.motZ *= var4;
       }
 
       super.onCollide(var1, var2, var3);

@@ -82,7 +82,7 @@ public class CommandReplaceItem extends CommandAbstract {
          }
 
          if(var3) {
-            var1.a(class_n.class_a_in_class_n.d, 0);
+            var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, 0);
             BlockPosition var18 = a(var1, var2, 1, false);
             World var11 = var1.e();
             TileEntity var12 = var11.getTileEntity(var18);
@@ -96,7 +96,7 @@ public class CommandReplaceItem extends CommandAbstract {
             }
          } else {
             Entity var17 = b(var1, var2[1]);
-            var1.a(class_n.class_a_in_class_n.d, 0);
+            var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, 0);
             if(var17 instanceof EntityHuman) {
                ((EntityHuman)var17).bq.b();
             }
@@ -110,7 +110,7 @@ public class CommandReplaceItem extends CommandAbstract {
             }
          }
 
-         var1.a(class_n.class_a_in_class_n.d, var7);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, var7);
          a(var1, this, "commands.replaceitem.success", new Object[]{Integer.valueOf(var5), Integer.valueOf(var7), var9 == null?"Air":var9.B()});
       }
    }

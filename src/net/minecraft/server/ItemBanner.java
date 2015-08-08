@@ -24,7 +24,7 @@ public class ItemBanner extends ItemBlock {
             return UseResult.SUCCESS;
          } else {
             if(var6 == EnumDirection.UP) {
-               int var10 = MathHelper.floor((double)((var2.y + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
+               int var10 = MathHelper.floor((double)((var2.yaw + 180.0F) * 16.0F / 360.0F) + 0.5D) & 15;
                var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.STANDING_BANNER.getBlockData().set(BlockFloorSign.a, Integer.valueOf(var10)), 3);
             } else {
                var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.WALL_BANNER.getBlockData().set(BlockWallSign.a, var6), 3);

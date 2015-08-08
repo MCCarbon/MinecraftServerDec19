@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
-	private static final int PROFESSION_DW_ID = Datawathcer.claimId(EntityVillager.class); //value = 12
+	private static final int PROFESSION_DW_ID = DataWathcer.claimId(EntityVillager.class); //value = 12
 
 	private int bu;
 	private boolean bv;
@@ -81,9 +81,9 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	protected void cc() {
 		if (--this.bu <= 0) {
 			BlockPosition var1 = new BlockPosition(this);
-			this.o.af().a(var1);
+			this.world.af().a(var1);
 			this.bu = 70 + this.random.nextInt(50);
-			this.bs = this.o.af().a(var1, 32);
+			this.bs = this.world.af().a(var1, 32);
 			if (this.bs == null) {
 				this.cy();
 			} else {
@@ -112,7 +112,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 					this.cL();
 					this.bA = false;
 					if (this.bs != null && this.bD != null) {
-						this.o.a((Entity) this, (byte) 14);
+						this.world.a((Entity) this, (byte) 14);
 						this.bs.a(this.bD, 1);
 					}
 				}
@@ -127,7 +127,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
 		boolean var4 = var3 != null && var3.getItem() == Items.SPAWN_EGG;
 		if (!var4 && this.isAlive() && !this.cD() && !this.isBaby()) {
-			if (!this.o.isClientSide && (this.by == null || !this.by.isEmpty())) {
+			if (!this.world.isClientSide && (this.by == null || !this.by.isEmpty())) {
 				this.a(var1);
 				var1.a((IMerchant) this);
 			}
@@ -244,7 +244,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
 				this.bs.a(var1.getName(), var2);
 				if (this.isAlive()) {
-					this.o.a((Entity) this, (byte) 13);
+					this.world.a((Entity) this, (byte) 13);
 				}
 			}
 		}
@@ -261,7 +261,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 					this.bs.h();
 				}
 			} else {
-				EntityHuman var3 = this.o.a(this, 16.0D);
+				EntityHuman var3 = this.world.a(this, 16.0D);
 				if (var3 != null) {
 					this.bs.h();
 				}
@@ -300,7 +300,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 				}
 
 				if (var2) {
-					this.o.a((Entity) this, (byte) 18);
+					this.world.a((Entity) this, (byte) 18);
 					this.bB = true;
 					break;
 				}
@@ -337,13 +337,13 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		}
 
 		if (var1.j()) {
-			this.o.addEntity((Entity) (new EntityExperienceOrb(this.o, this.s, this.t + 0.5D, this.u, var2)));
+			this.world.addEntity((Entity) (new EntityExperienceOrb(this.world, this.locX, this.locY + 0.5D, this.locZ, var2)));
 		}
 
 	}
 
 	public void a_(ItemStack var1) {
-		if (!this.o.isClientSide && this.a_ > -this.y() + 20) {
+		if (!this.world.isClientSide && this.a_ > -this.y() + 20) {
 			this.a_ = -this.y();
 			if (var1 != null) {
 				this.a("mob.villager.yes", this.bC(), this.bD());
@@ -392,11 +392,11 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	}
 
 	public IChatBaseComponent getScoreboardDisplayName() {
-		String var1 = this.aO();
+		String var1 = this.getCustomName();
 		if (var1 != null && !var1.isEmpty()) {
 			ChatComponentText var4 = new ChatComponentText(var1);
 			var4.getChatModifier().a(this.aS());
-			var4.getChatModifier().a(this.aM().toString());
+			var4.getChatModifier().a(this.getUniqueId().toString());
 			return var4;
 		} else {
 			if (this.by == null) {
@@ -442,7 +442,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			if (var2 != null) {
 				ChatMessage var3 = new ChatMessage("entity.Villager." + var2, new Object[0]);
 				var3.getChatModifier().a(this.aS());
-				var3.getChatModifier().a(this.aM().toString());
+				var3.getChatModifier().a(this.getUniqueId().toString());
 				return var3;
 			} else {
 				return super.getScoreboardDisplayName();
@@ -461,7 +461,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
 	public class_qd a(class_on var1, class_qd var2) {
 		var2 = super.a(var1, var2);
-		this.setProfession(this.o.random.nextInt(5));
+		this.setProfession(this.world.random.nextInt(5));
 		this.cK();
 		return var2;
 	}
@@ -471,8 +471,8 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	}
 
 	public EntityVillager b(EntityAgeable var1) {
-		EntityVillager var2 = new EntityVillager(this.o);
-		var2.a(this.o.E(new BlockPosition(var2)), (class_qd) null);
+		EntityVillager var2 = new EntityVillager(this.world);
+		var2.a(this.world.E(new BlockPosition(var2)), (class_qd) null);
 		return var2;
 	}
 
@@ -481,17 +481,17 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	}
 
 	public void a(class_vi var1) {
-		if (!this.o.isClientSide && !this.I) {
-			EntityWitch var2 = new EntityWitch(this.o);
-			var2.b(this.s, this.t, this.u, this.y, this.z);
-			var2.a(this.o.E(new BlockPosition(var2)), (class_qd) null);
+		if (!this.world.isClientSide && !this.dead) {
+			EntityWitch var2 = new EntityWitch(this.world);
+			var2.b(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
+			var2.a(this.world.E(new BlockPosition(var2)), (class_qd) null);
 			var2.k(this.cs());
 			if (this.hasCustomName()) {
-				var2.a(this.aO());
-				var2.g(this.aP());
+				var2.a(this.getCustomName());
+				var2.g(this.isCustomNameVisible());
 			}
 
-			this.o.addEntity((Entity) var2);
+			this.world.addEntity((Entity) var2);
 			this.J();
 		}
 	}

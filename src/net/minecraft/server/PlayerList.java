@@ -63,15 +63,15 @@ public abstract class PlayerList {
 		String var6 = var5 == null ? var3.getName() : var5.getName();
 		var4.a(var3);
 		NBTTagCompound var7 = this.a(player);
-		player.a((World) this.mcserver.getWorldServer(player.am));
-		player.playerInteractManager.a((WorldServer) player.o);
+		player.a((World) this.mcserver.getWorldServer(player.dimension));
+		player.playerInteractManager.a((WorldServer) player.world);
 		String var8 = "local";
 		if (networkManager.getAddress() != null) {
 			var8 = networkManager.getAddress().toString();
 		}
 
-		looger.info(player.getName() + "[" + var8 + "] logged in with entity id " + player.getId() + " at (" + player.s + ", " + player.t + ", " + player.u + ")");
-		WorldServer var9 = this.mcserver.getWorldServer(player.am);
+		looger.info(player.getName() + "[" + var8 + "] logged in with entity id " + player.getId() + " at (" + player.locX + ", " + player.locY + ", " + player.locZ + ")");
+		WorldServer var9 = this.mcserver.getWorldServer(player.dimension);
 		class_avn var10 = var9.Q();
 		BlockPosition var11 = var9.N();
 		this.a(player, (EntityPlayer) null, var9);
@@ -100,7 +100,7 @@ public abstract class PlayerList {
 		var14.getChatModifier().a(EnumChatFormat.YELLOW);
 		this.a((IChatBaseComponent) var14);
 		this.c(player);
-		var12.a(player.s, player.t, player.u, player.y, player.z);
+		var12.a(player.locX, player.locY, player.locZ, player.yaw, player.pitch);
 		this.b(player, var9);
 		if (!this.mcserver.ab().isEmpty()) {
 			player.a(this.mcserver.ab(), this.mcserver.ac());
@@ -117,10 +117,10 @@ public abstract class PlayerList {
 		if (var7 != null && var7.hasOfType("Riding", 10)) {
 			Entity var17 = EntityTypes.a((NBTTagCompound) var7.getCompound("Riding"), (World) var9);
 			if (var17 != null) {
-				var17.n = true;
+				var17.attachedToPlayer = true;
 				var9.addEntity(var17);
 				player.a(var17);
-				var17.n = false;
+				var17.attachedToPlayer = false;
 			}
 		}
 
@@ -190,7 +190,7 @@ public abstract class PlayerList {
 		}
 
 		var3.u().a(var1);
-		var3.b.c((int) var1.s >> 4, (int) var1.u >> 4);
+		var3.b.c((int) var1.locX >> 4, (int) var1.locZ >> 4);
 	}
 
 	public int d() {
@@ -213,7 +213,7 @@ public abstract class PlayerList {
 
 	protected void b(EntityPlayer var1) {
 		this.playerDataProvider.a(var1);
-		ServerStatisticManager var2 = (ServerStatisticManager) this.stats.get(var1.aM());
+		ServerStatisticManager var2 = (ServerStatisticManager) this.stats.get(var1.getUniqueId());
 		if (var2 != null) {
 			var2.b();
 		}
@@ -222,9 +222,9 @@ public abstract class PlayerList {
 
 	public void c(EntityPlayer var1) {
 		this.playerList.add(var1);
-		this.playerMap.put(var1.aM(), var1);
+		this.playerMap.put(var1.getUniqueId(), var1);
 		this.a((Packet<?>) (new PacketPlayOutPlayerInfo(PacketPlayOutPlayerInfo.class_a_in_class_gz.a, new EntityPlayer[] { var1 })));
-		WorldServer var2 = this.mcserver.getWorldServer(var1.am);
+		WorldServer var2 = this.mcserver.getWorldServer(var1.dimension);
 		var2.addEntity((Entity) var1);
 		this.a((EntityPlayer) var1, (WorldServer) null);
 
@@ -251,7 +251,7 @@ public abstract class PlayerList {
 		var2.e(var1);
 		var2.u().c(var1);
 		this.playerList.remove(var1);
-		UUID var3 = var1.aM();
+		UUID var3 = var1.getUniqueId();
 		EntityPlayer var4 = (EntityPlayer) this.playerMap.get(var3);
 		if (var4 == var1) {
 			this.playerMap.remove(var3);
@@ -292,7 +292,7 @@ public abstract class PlayerList {
 
 		for (int var4 = 0; var4 < this.playerList.size(); ++var4) {
 			EntityPlayer var5 = (EntityPlayer) this.playerList.get(var4);
-			if (var5.aM().equals(var2)) {
+			if (var5.getUniqueId().equals(var2)) {
 				var3.add(var5);
 			}
 		}
@@ -324,28 +324,28 @@ public abstract class PlayerList {
 		var1.u().t().b((Entity) var1);
 		var1.u().u().c(var1);
 		this.playerList.remove(var1);
-		this.mcserver.getWorldServer(var1.am).f(var1);
+		this.mcserver.getWorldServer(var1.dimension).f(var1);
 		BlockPosition var4 = var1.cj();
 		boolean var5 = var1.ck();
-		var1.am = var2;
+		var1.dimension = var2;
 		Object var6;
 		if (this.mcserver.X()) {
-			var6 = new class_kz(this.mcserver.getWorldServer(var1.am));
+			var6 = new class_kz(this.mcserver.getWorldServer(var1.dimension));
 		} else {
-			var6 = new PlayerInteractManager(this.mcserver.getWorldServer(var1.am));
+			var6 = new PlayerInteractManager(this.mcserver.getWorldServer(var1.dimension));
 		}
 
-		EntityPlayer var7 = new EntityPlayer(this.mcserver, this.mcserver.getWorldServer(var1.am), var1.cf(), (PlayerInteractManager) var6);
+		EntityPlayer var7 = new EntityPlayer(this.mcserver, this.mcserver.getWorldServer(var1.dimension), var1.cf(), (PlayerInteractManager) var6);
 		var7.playerConnection = var1.playerConnection;
 		var7.a((EntityHuman) var1, var3);
 		var7.e(var1.getId());
 		var7.o(var1);
 		var7.a(var1.bR());
-		WorldServer var8 = this.mcserver.getWorldServer(var1.am);
+		WorldServer var8 = this.mcserver.getWorldServer(var1.dimension);
 		this.a(var7, var1, var8);
 		BlockPosition var9;
 		if (var4 != null) {
-			var9 = EntityHuman.a(this.mcserver.getWorldServer(var1.am), var4, var5);
+			var9 = EntityHuman.a(this.mcserver.getWorldServer(var1.dimension), var4, var5);
 			if (var9 != null) {
 				var7.b((double) ((float) var9.getX() + 0.5F), (double) ((float) var9.getY() + 0.1F), (double) ((float) var9.getZ() + 0.5F), 0.0F, 0.0F);
 				var7.a((BlockPosition) var4, var5);
@@ -354,38 +354,38 @@ public abstract class PlayerList {
 			}
 		}
 
-		var8.b.c((int) var7.s >> 4, (int) var7.u >> 4);
+		var8.b.c((int) var7.locX >> 4, (int) var7.locZ >> 4);
 
-		while (!var8.a((Entity) var7, (AxisAlignedBB) var7.aT()).isEmpty() && var7.t < 256.0D) {
-			var7.b(var7.s, var7.t + 1.0D, var7.u);
+		while (!var8.a((Entity) var7, (AxisAlignedBB) var7.aT()).isEmpty() && var7.locY < 256.0D) {
+			var7.b(var7.locX, var7.locY + 1.0D, var7.locZ);
 		}
 
-		var7.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutRespawn(var7.am, var7.o.ab(), var7.o.Q().u(), var7.playerInteractManager.getGameMode())));
+		var7.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutRespawn(var7.dimension, var7.world.ab(), var7.world.Q().u(), var7.playerInteractManager.getGameMode())));
 		var9 = var8.N();
-		var7.playerConnection.a(var7.s, var7.t, var7.u, var7.y, var7.z);
+		var7.playerConnection.a(var7.locX, var7.locY, var7.locZ, var7.yaw, var7.pitch);
 		var7.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutSpawnPosition(var9)));
 		var7.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutExperience(var7.exp, var7.expTotal, var7.expLevel)));
 		this.b(var7, var8);
 		var8.u().a(var7);
 		var8.addEntity((Entity) var7);
 		this.playerList.add(var7);
-		this.playerMap.put(var7.aM(), var7);
+		this.playerMap.put(var7.getUniqueId(), var7);
 		var7.g_();
 		var7.i(var7.getHealth());
 		return var7;
 	}
 
 	public void a(EntityPlayer var1, int var2) {
-		int var3 = var1.am;
-		WorldServer var4 = this.mcserver.getWorldServer(var1.am);
-		var1.am = var2;
-		WorldServer var5 = this.mcserver.getWorldServer(var1.am);
-		var1.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutRespawn(var1.am, var1.o.ab(), var1.o.Q().u(), var1.playerInteractManager.getGameMode())));
+		int var3 = var1.dimension;
+		WorldServer var4 = this.mcserver.getWorldServer(var1.dimension);
+		var1.dimension = var2;
+		WorldServer var5 = this.mcserver.getWorldServer(var1.dimension);
+		var1.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutRespawn(var1.dimension, var1.world.ab(), var1.world.Q().u(), var1.playerInteractManager.getGameMode())));
 		var4.f(var1);
-		var1.I = false;
+		var1.dead = false;
 		this.a(var1, var3, var4, var5);
 		this.a(var1, var4);
-		var1.playerConnection.a(var1.s, var1.t, var1.u, var1.y, var1.z);
+		var1.playerConnection.a(var1.locX, var1.locY, var1.locZ, var1.yaw, var1.pitch);
 		var1.playerInteractManager.a(var5);
 		this.b(var1, var5);
 		this.f(var1);
@@ -399,22 +399,22 @@ public abstract class PlayerList {
 	}
 
 	public void a(Entity var1, int var2, WorldServer var3, WorldServer var4) {
-		double var5 = var1.s;
-		double var7 = var1.u;
+		double var5 = var1.locX;
+		double var7 = var1.locZ;
 		double var9 = 8.0D;
-		float var11 = var1.y;
+		float var11 = var1.yaw;
 		var3.B.a("moving");
-		if (var1.am == -1) {
+		if (var1.dimension == -1) {
 			var5 = MathHelper.clamp(var5 / var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
 			var7 = MathHelper.clamp(var7 / var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
-			var1.b(var5, var1.t, var7, var1.y, var1.z);
+			var1.b(var5, var1.locY, var7, var1.yaw, var1.pitch);
 			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
-		} else if (var1.am == 0) {
+		} else if (var1.dimension == 0) {
 			var5 = MathHelper.clamp(var5 * var9, var4.ag().b() + 16.0D, var4.ag().d() - 16.0D);
 			var7 = MathHelper.clamp(var7 * var9, var4.ag().c() + 16.0D, var4.ag().e() - 16.0D);
-			var1.b(var5, var1.t, var7, var1.y, var1.z);
+			var1.b(var5, var1.locY, var7, var1.yaw, var1.pitch);
 			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
@@ -427,9 +427,9 @@ public abstract class PlayerList {
 			}
 
 			var5 = (double) var12.getX();
-			var1.t = (double) var12.getY();
+			var1.locY = (double) var12.getY();
 			var7 = (double) var12.getZ();
-			var1.b(var5, var1.t, var7, 90.0F, 0.0F);
+			var1.b(var5, var1.locY, var7, 90.0F, 0.0F);
 			if (var1.isAlive()) {
 				var3.a(var1, false);
 			}
@@ -441,7 +441,7 @@ public abstract class PlayerList {
 			var5 = (double) MathHelper.clamp((int) var5, -29999872, 29999872);
 			var7 = (double) MathHelper.clamp((int) var7, -29999872, 29999872);
 			if (var1.isAlive()) {
-				var1.b(var5, var1.t, var7, var1.y, var1.z);
+				var1.b(var5, var1.locY, var7, var1.yaw, var1.pitch);
 				var4.v().a(var1, var11);
 				var4.addEntity(var1);
 				var4.a(var1, false);
@@ -470,7 +470,7 @@ public abstract class PlayerList {
 	public void a(Packet<?> var1, int var2) {
 		for (int var3 = 0; var3 < this.playerList.size(); ++var3) {
 			EntityPlayer var4 = (EntityPlayer) this.playerList.get(var3);
-			if (var4.am == var2) {
+			if (var4.dimension == var2) {
 				var4.playerConnection.sendPacket(var1);
 			}
 		}
@@ -520,7 +520,7 @@ public abstract class PlayerList {
 
 			var2 = var2 + ((EntityPlayer) var3.get(var4)).getName();
 			if (var1) {
-				var2 = var2 + " (" + ((EntityPlayer) var3.get(var4)).aM().toString() + ")";
+				var2 = var2 + " (" + ((EntityPlayer) var3.get(var4)).getUniqueId().toString() + ")";
 			}
 		}
 
@@ -604,10 +604,10 @@ public abstract class PlayerList {
 	public void a(EntityHuman var1, double var2, double var4, double var6, double var8, int var10, Packet<?> var11) {
 		for (int var12 = 0; var12 < this.playerList.size(); ++var12) {
 			EntityPlayer var13 = (EntityPlayer) this.playerList.get(var12);
-			if (var13 != var1 && var13.am == var10) {
-				double var14 = var2 - var13.s;
-				double var16 = var4 - var13.t;
-				double var18 = var6 - var13.u;
+			if (var13 != var1 && var13.dimension == var10) {
+				double var14 = var2 - var13.locX;
+				double var16 = var4 - var13.locY;
+				double var18 = var6 - var13.locZ;
 				if (var14 * var14 + var16 * var16 + var18 * var18 < var8 * var8) {
 					var13.playerConnection.sendPacket(var11);
 				}
@@ -742,7 +742,7 @@ public abstract class PlayerList {
 	}
 
 	public ServerStatisticManager a(EntityHuman var1) {
-		UUID var2 = var1.aM();
+		UUID var2 = var1.getUniqueId();
 		ServerStatisticManager var3 = var2 == null ? null : (ServerStatisticManager) this.stats.get(var2);
 		if (var3 == null) {
 			File var4 = new File(this.mcserver.getWorldServer(0).P().b(), "stats");

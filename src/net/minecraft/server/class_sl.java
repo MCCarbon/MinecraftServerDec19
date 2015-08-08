@@ -19,11 +19,11 @@ public class class_sl extends class_rm {
    }
 
    public boolean a() {
-      if(this.a.o.x()) {
+      if(this.a.world.x()) {
          return false;
       } else {
          BlockPosition var1 = new BlockPosition(this.a);
-         class_tp var2 = this.a.o.af().a(var1, 16);
+         class_tp var2 = this.a.world.af().a(var1, 16);
          if(var2 == null) {
             return false;
          } else {
@@ -34,7 +34,7 @@ public class class_sl extends class_rm {
    }
 
    public boolean b() {
-      return this.a.o.x()?false:!this.b.i() && this.b.c(new BlockPosition(this.a));
+      return this.a.world.x()?false:!this.b.i() && this.b.c(new BlockPosition(this.a));
    }
 
    public void c() {

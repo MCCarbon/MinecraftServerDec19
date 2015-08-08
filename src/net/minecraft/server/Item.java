@@ -210,11 +210,11 @@ public class Item {
 	}
 
 	protected MovingObjectPosition getMovingObjectPositionFromPlayer(World world, EntityHuman player, boolean var3) {
-		float var4 = player.z;
-		float var5 = player.y;
-		double var6 = player.s;
-		double var8 = player.t + (double) player.aU();
-		double var10 = player.u;
+		float var4 = player.pitch;
+		float var5 = player.yaw;
+		double var6 = player.locX;
+		double var8 = player.locY + (double) player.aU();
+		double var10 = player.locZ;
 		Vec3D var12 = new Vec3D(var6, var8, var10);
 		float var13 = MathHelper.cos(-var5 * 0.017453292F - 3.1415927F);
 		float var14 = MathHelper.sin(-var5 * 0.017453292F - 3.1415927F);

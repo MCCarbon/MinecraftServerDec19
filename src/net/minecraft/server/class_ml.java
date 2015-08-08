@@ -7,7 +7,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 
 public class class_ml implements class_m {
@@ -62,6 +62,6 @@ public class class_ml implements class_m {
       return true;
    }
 
-   public void a(class_n.class_a_in_class_n var1, int var2) {
+   public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {
    }
 }

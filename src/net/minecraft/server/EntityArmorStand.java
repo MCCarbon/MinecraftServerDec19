@@ -17,13 +17,13 @@ public class EntityArmorStand extends EntityLiving {
 	public static final int d = 1 << EnumWearable.TORSO.getAbsolute();
 	public static final int e = 1 << EnumWearable.HEAD.getAbsolute();
 	public static final int f = 1 << EnumWearable.OFFHAND.getAbsolute();
-	public static final int INFO_DW_ID = Datawathcer.claimId(EntityArmorStand.class); //value = 10
-	public static final int HEADPOS_DW_ID = Datawathcer.claimId(EntityArmorStand.class); //value = 11 
-	public static final int BODYPOS_DW_ID = Datawathcer.claimId(EntityArmorStand.class); //value = 12
-	public static final int LEFTARM_DW_ID = Datawathcer.claimId(EntityArmorStand.class); //value = 13
-	public static final int RIGHTARM_DW_ID = Datawathcer.claimId(EntityArmorStand.class); //value = 14
-	public static final int LEFTLEG_DW_ID = Datawathcer.claimId(EntityArmorStand.class); //value = 15
-	public static final int RIGHTLEG_DW_ID = Datawathcer.claimId(EntityArmorStand.class); //value = 16
+	public static final int INFO_DW_ID = DataWathcer.claimId(EntityArmorStand.class); //value = 10
+	public static final int HEADPOS_DW_ID = DataWathcer.claimId(EntityArmorStand.class); //value = 11 
+	public static final int BODYPOS_DW_ID = DataWathcer.claimId(EntityArmorStand.class); //value = 12
+	public static final int LEFTARM_DW_ID = DataWathcer.claimId(EntityArmorStand.class); //value = 13
+	public static final int RIGHTARM_DW_ID = DataWathcer.claimId(EntityArmorStand.class); //value = 14
+	public static final int LEFTLEG_DW_ID = DataWathcer.claimId(EntityArmorStand.class); //value = 15
+	public static final int RIGHTLEG_DW_ID = DataWathcer.claimId(EntityArmorStand.class); //value = 16
 
 	private final ItemStack[] bx;
 	private final ItemStack[] by;
@@ -49,7 +49,7 @@ public class EntityArmorStand extends EntityLiving {
 		this.bH = bv;
 		this.bI = bw;
 		this.b(true);
-		this.T = this.p();
+		this.noclip = this.p();
 		this.a(0.5F, 1.975F);
 	}
 
@@ -157,8 +157,8 @@ public class EntityArmorStand extends EntityLiving {
 		}
 
 		var1.put((String) "HandItems", (NBTTag) var6);
-		if (this.aP() && (this.aO() == null || this.aO().isEmpty())) {
-			var1.put("CustomNameVisible", this.aP());
+		if (this.isCustomNameVisible() && (this.getCustomName() == null || this.getCustomName().isEmpty())) {
+			var1.put("CustomNameVisible", this.isCustomNameVisible());
 		}
 
 		var1.put("Invisible", this.aA());
@@ -217,7 +217,7 @@ public class EntityArmorStand extends EntityLiving {
 		this.m(var1.getBoolean("NoBasePlate"));
 		this.n(var1.getBoolean("Marker"));
 		this.bC = !this.t();
-		this.T = this.p();
+		this.noclip = this.p();
 		NBTTagCompound var6 = var1.getCompound("Pose");
 		this.g(var6);
 	}
@@ -304,7 +304,7 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	protected void bM() {
-		List var1 = this.o.getEntities((Entity) this, (AxisAlignedBB) this.aT());
+		List var1 = this.world.getEntities((Entity) this, (AxisAlignedBB) this.aT());
 		if (var1 != null && !var1.isEmpty()) {
 			for (int var2 = 0; var2 < var1.size(); ++var2) {
 				Entity var3 = (Entity) var1.get(var2);
@@ -319,7 +319,7 @@ public class EntityArmorStand extends EntityLiving {
 	public UseResult a(EntityHuman var1, Vec3D var2, ItemStack var3, EnumUsedHand var4) {
 		if (this.t()) {
 			return UseResult.CANT_USE;
-		} else if (!this.o.isClientSide && !var1.isSpectator()) {
+		} else if (!this.world.isClientSide && !var1.isSpectator()) {
 			EnumWearable var5 = EnumWearable.MAINHAND;
 			boolean var6 = var3 != null;
 			Item var7 = var6 ? var3.getItem() : null;
@@ -401,7 +401,7 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
-		if (this.o.isClientSide) {
+		if (this.world.isClientSide) {
 			return false;
 		} else if (DamageSource.j.equals(var1)) {
 			this.J();
@@ -439,7 +439,7 @@ public class EntityArmorStand extends EntityLiving {
 						this.J();
 						return false;
 					} else {
-						long var5 = this.o.L();
+						long var5 = this.world.L();
 						if (var5 - this.bA > 5L && !var3) {
 							this.bA = var5;
 						} else {
@@ -458,8 +458,8 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	private void C() {
-		if (this.o instanceof WorldServer) {
-			((WorldServer) this.o).a(class_cy.M, this.s, this.t + (double) this.K / 1.5D, this.u, 10, (double) (this.J / 4.0F), (double) (this.K / 4.0F), (double) (this.J / 4.0F), 0.05D, new int[] { Block.getCombinedId(Blocks.PLANKS.getBlockData()) });
+		if (this.world instanceof WorldServer) {
+			((WorldServer) this.world).a(class_cy.M, this.locX, this.locY + (double) this.length / 1.5D, this.locZ, 10, (double) (this.width / 4.0F), (double) (this.length / 4.0F), (double) (this.width / 4.0F), 0.05D, new int[] { Block.getCombinedId(Blocks.PLANKS.getBlockData()) });
 		}
 
 	}
@@ -477,7 +477,7 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	private void D() {
-		Block.dropItem(this.o, new BlockPosition(this), new ItemStack(Items.ARMOR_STAND));
+		Block.dropItem(this.world, new BlockPosition(this), new ItemStack(Items.ARMOR_STAND));
 		this.E();
 	}
 
@@ -486,7 +486,7 @@ public class EntityArmorStand extends EntityLiving {
 		for (var1 = 0; var1 < this.bx.length; ++var1) {
 			if (this.bx[var1] != null && this.bx[var1].count > 0) {
 				if (this.bx[var1] != null) {
-					Block.dropItem(this.o, (new BlockPosition(this)).up(), this.bx[var1]);
+					Block.dropItem(this.world, (new BlockPosition(this)).up(), this.bx[var1]);
 				}
 
 				this.bx[var1] = null;
@@ -496,7 +496,7 @@ public class EntityArmorStand extends EntityLiving {
 		for (var1 = 0; var1 < this.by.length; ++var1) {
 			if (this.by[var1] != null && this.by[var1].count > 0) {
 				if (this.by[var1] != null) {
-					Block.dropItem(this.o, (new BlockPosition(this)).up(), this.by[var1]);
+					Block.dropItem(this.world, (new BlockPosition(this)).up(), this.by[var1]);
 				}
 
 				this.by[var1] = null;
@@ -506,13 +506,13 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	protected float h(float var1, float var2) {
-		this.aM = this.A;
-		this.aL = this.y;
+		this.aM = this.lastYaw;
+		this.aL = this.yaw;
 		return 0.0F;
 	}
 
 	public float aU() {
-		return this.isBaby() ? this.K * 0.5F : this.K * 0.9F;
+		return this.isBaby() ? this.length * 0.5F : this.length * 0.9F;
 	}
 
 	public void g(float var1, float var2) {
@@ -568,9 +568,9 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	private void a(boolean var1) {
-		double var2 = this.s;
-		double var4 = this.t;
-		double var6 = this.u;
+		double var2 = this.locX;
+		double var4 = this.locY;
+		double var6 = this.locZ;
 		if (var1) {
 			this.a(0.5F, 1.975F);
 		} else {

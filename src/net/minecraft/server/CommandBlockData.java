@@ -11,7 +11,7 @@ import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandBlockData extends CommandAbstract {
    public String getCommand() {
@@ -30,7 +30,7 @@ public class CommandBlockData extends CommandAbstract {
       if(var2.length < 4) {
          throw new class_cf("commands.blockdata.usage", new Object[0]);
       } else {
-         var1.a(class_n.class_a_in_class_n.b, 0);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 0);
          BlockPosition var3 = a(var1, var2, 0, false);
          World var4 = var1.e();
          if(!var4.e(var3)) {
@@ -61,7 +61,7 @@ public class CommandBlockData extends CommandAbstract {
                   var5.read(var6);
                   var5.update();
                   var4.notify(var3);
-                  var1.a(class_n.class_a_in_class_n.b, 1);
+                  var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 1);
                   a(var1, this, "commands.blockdata.success", new Object[]{var6.toString()});
                }
             }

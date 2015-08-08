@@ -29,7 +29,7 @@ public class class_sw extends class_td {
       this.b = this.e.bf();
       if(this.a) {
          double var1 = this.f();
-         List var3 = this.e.o.getEntities(this.e.getClass(), (new AxisAlignedBB(this.e.s, this.e.t, this.e.u, this.e.s + 1.0D, this.e.t + 1.0D, this.e.u + 1.0D)).grow(var1, 10.0D, var1));
+         List var3 = this.e.world.getEntities(this.e.getClass(), (new AxisAlignedBB(this.e.locX, this.e.locY, this.e.locZ, this.e.locX + 1.0D, this.e.locY + 1.0D, this.e.locZ + 1.0D)).grow(var1, 10.0D, var1));
          Iterator var4 = var3.iterator();
 
          label46:

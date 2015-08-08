@@ -12,7 +12,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandCompare extends CommandAbstract {
    public String getCommand() {
@@ -31,7 +31,7 @@ public class CommandCompare extends CommandAbstract {
       if(var2.length < 9) {
          throw new class_cf("commands.compare.usage", new Object[0]);
       } else {
-         var1.a(class_n.class_a_in_class_n.b, 0);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 0);
          BlockPosition var3 = a(var1, var2, 0, false);
          BlockPosition var4 = a(var1, var2, 3, false);
          BlockPosition var5 = a(var1, var2, 6, false);
@@ -94,7 +94,7 @@ public class CommandCompare extends CommandAbstract {
                   }
                }
 
-               var1.a(class_n.class_a_in_class_n.b, var8);
+               var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, var8);
                a(var1, this, "commands.compare.success", new Object[]{Integer.valueOf(var8)});
             } else {
                throw new class_bz("commands.compare.outOfWorld", new Object[0]);

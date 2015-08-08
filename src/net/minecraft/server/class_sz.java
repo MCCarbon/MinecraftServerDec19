@@ -75,7 +75,7 @@ public class class_sz extends class_td {
          return false;
       } else {
          double var1 = this.f();
-         List var3 = this.e.o.a(this.a, this.a(var1), Predicates.and(this.c, IEntitySelector.NOT_PLAYER_SPECTATOR));
+         List var3 = this.e.world.a(this.a, this.a(var1), Predicates.and(this.c, IEntitySelector.NOT_PLAYER_SPECTATOR));
          Collections.sort(var3, this.b);
          if(var3.isEmpty()) {
             return false;

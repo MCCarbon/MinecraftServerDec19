@@ -32,18 +32,18 @@ public class PacketPlayOutSpawnEntity implements Packet {
 
    public PacketPlayOutSpawnEntity(Entity var1, int var2, int var3) {
       this.a = var1.getId();
-      this.b = var1.aM();
-      this.c = MathHelper.floor(var1.s * 32.0D);
-      this.d = MathHelper.floor(var1.t * 32.0D);
-      this.e = MathHelper.floor(var1.u * 32.0D);
-      this.i = MathHelper.floor(var1.z * 256.0F / 360.0F);
-      this.j = MathHelper.floor(var1.y * 256.0F / 360.0F);
+      this.b = var1.getUniqueId();
+      this.c = MathHelper.floor(var1.locX * 32.0D);
+      this.d = MathHelper.floor(var1.locY * 32.0D);
+      this.e = MathHelper.floor(var1.locZ * 32.0D);
+      this.i = MathHelper.floor(var1.pitch * 256.0F / 360.0F);
+      this.j = MathHelper.floor(var1.yaw * 256.0F / 360.0F);
       this.k = var2;
       this.l = var3;
       double var4 = 3.9D;
-      this.f = (int)(MathHelper.clamp(var1.v, -3.9D, 3.9D) * 8000.0D);
+      this.f = (int)(MathHelper.clamp(var1.motX, -3.9D, 3.9D) * 8000.0D);
       this.g = (int)(MathHelper.clamp(var1.motY, -3.9D, 3.9D) * 8000.0D);
-      this.h = (int)(MathHelper.clamp(var1.x, -3.9D, 3.9D) * 8000.0D);
+      this.h = (int)(MathHelper.clamp(var1.motZ, -3.9D, 3.9D) * 8000.0D);
    }
 
    public void decode(PacketDataSerializer var1) throws IOException {

@@ -5,9 +5,9 @@ import java.util.Iterator;
 import java.util.List;
 
 public class EntityShulker extends class_ua implements class_wd {
-   protected static final int a = Datawathcer.claimId(EntityShulker.class);
-   protected static final int b = Datawathcer.claimId(EntityShulker.class);
-   protected static final int c = Datawathcer.claimId(EntityShulker.class);
+   protected static final int a = DataWathcer.claimId(EntityShulker.class);
+   protected static final int b = DataWathcer.claimId(EntityShulker.class);
+   protected static final int c = DataWathcer.claimId(EntityShulker.class);
    public static final BlockPosition bs = new BlockPosition(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
    private float bt;
    private float bu;
@@ -19,7 +19,7 @@ public class EntityShulker extends class_ua implements class_wd {
       this.a(1.0F, 1.0F);
       this.aM = 180.0F;
       this.aL = 180.0F;
-      this.ab = true;
+      this.fireProof = true;
       this.bv = bs;
       this.i.a(1, new class_rr(this, EntityHuman.class, 8.0F));
       this.i.a(4, new EntityShulker.class_a_in_class_ug());
@@ -64,13 +64,13 @@ public class EntityShulker extends class_ua implements class_wd {
    public void t_() {
       super.t_();
       BlockPosition var1 = this.datawatcher.getBlockPosition(b);
-      if((var1 == null || bs.equals(var1)) && !this.o.isClientSide) {
+      if((var1 == null || bs.equals(var1)) && !this.world.isClientSide) {
          var1 = new BlockPosition(this);
          this.datawatcher.update(b, var1);
       }
 
-      if(!this.o.isClientSide) {
-         IBlockData var2 = this.o.getType(var1);
+      if(!this.world.isClientSide) {
+         IBlockData var2 = this.world.getType(var1);
          if(var2.getBlock() != Blocks.AIR) {
             EnumDirection var3;
             if(var2.getBlock() == Blocks.PISTON_EXTENSION) {
@@ -87,9 +87,9 @@ public class EntityShulker extends class_ua implements class_wd {
          }
       }
 
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          BlockPosition var15 = var1.shift(this.cA());
-         if(!this.o.d(var15, false)) {
+         if(!this.world.d(var15, false)) {
             boolean var17 = false;
             EnumDirection[] var4 = EnumDirection.values();
             int var5 = var4.length;
@@ -97,7 +97,7 @@ public class EntityShulker extends class_ua implements class_wd {
             for(int var6 = 0; var6 < var5; ++var6) {
                EnumDirection var7 = var4[var6];
                var15 = var1.shift(var7);
-               if(this.o.d(var15, false)) {
+               if(this.world.d(var15, false)) {
                   this.datawatcher.update(a, Byte.valueOf((byte)var7.getId()));
                   var17 = true;
                   break;
@@ -123,7 +123,7 @@ public class EntityShulker extends class_ua implements class_wd {
          double var19 = 0.0D;
          double var20 = 0.0D;
          double var9 = 0.0D;
-         if(this.o.isClientSide) {
+         if(this.world.isClientSide) {
             if(this.bw > 0 && !bs.equals(this.bv)) {
                --this.bw;
             } else {
@@ -131,45 +131,45 @@ public class EntityShulker extends class_ua implements class_wd {
             }
          }
 
-         this.P = this.p = this.s = (double)var1.getX() + 0.5D;
-         this.Q = this.q = this.t = (double)var1.getY();
-         this.R = this.r = this.u = (double)var1.getZ() + 0.5D;
+         this.P = this.lastX = this.locX = (double)var1.getX() + 0.5D;
+         this.Q = this.lastY = this.locY = (double)var1.getY();
+         this.R = this.lastZ = this.locZ = (double)var1.getZ() + 0.5D;
          EnumDirection var11 = this.cA();
          switch(EntityShulker.SyntheticClass_1.a[var11.ordinal()]) {
          case 1:
          default:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D + (double)this.bu, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D + (double)this.bu, this.locZ + 0.5D)));
             var20 = var18;
             break;
          case 2:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t - (double)this.bu, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY - (double)this.bu, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
             var20 = -var18;
             break;
          case 3:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D + (double)this.bu)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D + (double)this.bu)));
             var9 = var18;
             break;
          case 4:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t, this.u - 0.5D - (double)this.bu, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D - (double)this.bu, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
             var9 = -var18;
             break;
          case 5:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D, this.t, this.u - 0.5D, this.s + 0.5D + (double)this.bu, this.t + 1.0D, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D + (double)this.bu, this.locY + 1.0D, this.locZ + 0.5D)));
             var19 = var18;
             break;
          case 6:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.5D - (double)this.bu, this.t, this.u - 0.5D, this.s + 0.5D, this.t + 1.0D, this.u + 0.5D)));
+            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D - (double)this.bu, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
             var19 = -var18;
          }
 
          if(var18 > 0.0D) {
-            List var12 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT());
+            List var12 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT());
             if(!var12.isEmpty()) {
                Iterator var13 = var12.iterator();
 
                while(var13.hasNext()) {
                   Entity var14 = (Entity)var13.next();
-                  if(!(var14 instanceof EntityShulker) && !var14.T) {
+                  if(!(var14 instanceof EntityShulker) && !var14.noclip) {
                      var14.d(var19, var20, var9);
                   }
                }
@@ -184,14 +184,14 @@ public class EntityShulker extends class_ua implements class_wd {
 
       for(int var2 = 0; var2 < 5; ++var2) {
          BlockPosition var3 = var1.add(8 - this.random.nextInt(17), 8 - this.random.nextInt(17), 8 - this.random.nextInt(17));
-         if(var3.getY() > 0 && this.o.isEmpty(var3) && this.o.a((class_aoe)this.o.ag(), (Entity)this)) {
+         if(var3.getY() > 0 && this.world.isEmpty(var3) && this.world.a((class_aoe)this.world.ag(), (Entity)this)) {
             boolean var4 = false;
             EnumDirection[] var5 = EnumDirection.values();
             int var6 = var5.length;
 
             for(int var7 = 0; var7 < var6; ++var7) {
                EnumDirection var8 = var5[var7];
-               if(this.o.d(var3.shift(var8), false)) {
+               if(this.world.d(var3.shift(var8), false)) {
                   this.datawatcher.update(a, Byte.valueOf((byte)var8.getId()));
                   var4 = true;
                   break;
@@ -213,16 +213,16 @@ public class EntityShulker extends class_ua implements class_wd {
 
    public void m() {
       super.m();
-      this.v = 0.0D;
+      this.motX = 0.0D;
       this.motY = 0.0D;
-      this.x = 0.0D;
+      this.motZ = 0.0D;
       this.aM = 180.0F;
       this.aL = 180.0F;
-      this.y = 180.0F;
+      this.yaw = 180.0F;
    }
 
    public void d(int var1) {
-      if(var1 == b && this.o.isClientSide) {
+      if(var1 == b && this.world.isClientSide) {
          BlockPosition var2 = this.cB();
          if(!bs.equals(var2)) {
             if(bs.equals(this.bv)) {
@@ -231,9 +231,9 @@ public class EntityShulker extends class_ua implements class_wd {
                this.bw = 6;
             }
 
-            this.P = this.p = this.s = (double)var2.getX() + 0.5D;
-            this.Q = this.q = this.t = (double)var2.getY();
-            this.R = this.r = this.u = (double)var2.getZ() + 0.5D;
+            this.P = this.lastX = this.locX = (double)var2.getX() + 0.5D;
+            this.Q = this.lastY = this.locY = (double)var2.getY();
+            this.R = this.lastZ = this.locZ = (double)var2.getZ() + 0.5D;
          }
       }
 
@@ -411,8 +411,8 @@ public class EntityShulker extends class_ua implements class_wd {
          if(var2 < 400.0D) {
             if(this.b <= 0) {
                this.b = 20 + EntityShulker.this.random.nextInt(10) * 20 / 2;
-               EntityShulkerBullet var4 = new EntityShulkerBullet(EntityShulker.this.o, EntityShulker.this, var1, EntityShulker.this.cA().getAxis());
-               EntityShulker.this.o.addEntity((Entity)var4);
+               EntityShulkerBullet var4 = new EntityShulkerBullet(EntityShulker.this.world, EntityShulker.this, var1, EntityShulker.this.cA().getAxis());
+               EntityShulker.this.world.addEntity((Entity)var4);
                EntityShulker.this.a("mob.ghast.fireball", 2.0F, (EntityShulker.this.random.nextFloat() - EntityShulker.this.random.nextFloat()) * 0.2F + 1.0F);
             }
          } else {

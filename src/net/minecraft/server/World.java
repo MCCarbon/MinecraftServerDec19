@@ -661,14 +661,14 @@ public abstract class World implements IBlockAccess {
 
 	public void a(Entity var1, String var2, float var3, float var4) {
 		for (int var5 = 0; var5 < u.size(); ++var5) {
-			((class_aep) u.get(var5)).a(var2, var1.s, var1.t, var1.u, var3, var4);
+			((class_aep) u.get(var5)).a(var2, var1.locX, var1.locY, var1.locZ, var3, var4);
 		}
 
 	}
 
 	public void a(EntityHuman var1, String var2, float var3, float var4) {
 		for (int var5 = 0; var5 < u.size(); ++var5) {
-			((class_aep) u.get(var5)).a(var1, var2, var1.s, var1.t, var1.u, var3, var4);
+			((class_aep) u.get(var5)).a(var1, var2, var1.locX, var1.locY, var1.locZ, var3, var4);
 		}
 
 	}
@@ -707,9 +707,9 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean addEntity(Entity var1) {
-		int var2 = MathHelper.floor(var1.s / 16.0D);
-		int var3 = MathHelper.floor(var1.u / 16.0D);
-		boolean var4 = var1.n;
+		int var2 = MathHelper.floor(var1.locX / 16.0D);
+		int var3 = MathHelper.floor(var1.locZ / 16.0D);
+		boolean var4 = var1.attachedToPlayer;
 		if (var1 instanceof EntityHuman) {
 			var4 = true;
 		}
@@ -857,7 +857,7 @@ public abstract class World implements IBlockAccess {
 			++var9;
 		}
 
-		return (var2.s > var3) && (var2.s < var7) && (var2.u > var5) && (var2.u < var9);
+		return (var2.locX > var3) && (var2.locX < var7) && (var2.locZ > var5) && (var2.locZ < var9);
 	}
 
 	public List a(AxisAlignedBB var1) {
@@ -956,7 +956,7 @@ public abstract class World implements IBlockAccess {
 			var2 = (Entity) k.get(var1);
 
 			try {
-				++var2.W;
+				++var2.ticksLived;
 				var2.t_();
 			} catch (Throwable var9) {
 				var4 = class_b.a(var9, "Ticking entity");
@@ -970,7 +970,7 @@ public abstract class World implements IBlockAccess {
 				throw new class_e(var4);
 			}
 
-			if (var2.I) {
+			if (var2.dead) {
 				k.remove(var1--);
 			}
 		}
@@ -999,7 +999,7 @@ public abstract class World implements IBlockAccess {
 		for (var1 = 0; var1 < entityList.size(); ++var1) {
 			var2 = (Entity) entityList.get(var1);
 			if (var2.vehicle != null) {
-				if (!var2.vehicle.I && (var2.vehicle.passenger == var2)) {
+				if (!var2.vehicle.dead && (var2.vehicle.passenger == var2)) {
 					continue;
 				}
 
@@ -1008,7 +1008,7 @@ public abstract class World implements IBlockAccess {
 			}
 
 			B.a("tick");
-			if (!var2.I) {
+			if (!var2.dead) {
 				try {
 					g(var2);
 				} catch (Throwable var8) {
@@ -1021,7 +1021,7 @@ public abstract class World implements IBlockAccess {
 
 			B.b();
 			B.a("remove");
-			if (var2.I) {
+			if (var2.dead) {
 				var3 = var2.ae;
 				var14 = var2.ag;
 				if (var2.ad && this.a(var3, var14, true)) {
@@ -1126,17 +1126,17 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public void a(Entity var1, boolean var2) {
-		int var3 = MathHelper.floor(var1.s);
-		int var4 = MathHelper.floor(var1.u);
+		int var3 = MathHelper.floor(var1.locX);
+		int var4 = MathHelper.floor(var1.locZ);
 		byte var5 = 32;
 		if (!var2 || this.a(var3 - var5, 0, var4 - var5, var3 + var5, 0, var4 + var5, true)) {
-			var1.P = var1.s;
-			var1.Q = var1.t;
-			var1.R = var1.u;
-			var1.A = var1.y;
-			var1.B = var1.z;
+			var1.P = var1.locX;
+			var1.Q = var1.locY;
+			var1.R = var1.locZ;
+			var1.lastYaw = var1.yaw;
+			var1.lastPitch = var1.pitch;
 			if (var2 && var1.ad) {
-				++var1.W;
+				++var1.ticksLived;
 				if (var1.vehicle != null) {
 					var1.ak();
 				} else {
@@ -1145,29 +1145,29 @@ public abstract class World implements IBlockAccess {
 			}
 
 			B.a("chunkCheck");
-			if (Double.isNaN(var1.s) || Double.isInfinite(var1.s)) {
-				var1.s = var1.P;
+			if (Double.isNaN(var1.locX) || Double.isInfinite(var1.locX)) {
+				var1.locX = var1.P;
 			}
 
-			if (Double.isNaN(var1.t) || Double.isInfinite(var1.t)) {
-				var1.t = var1.Q;
+			if (Double.isNaN(var1.locY) || Double.isInfinite(var1.locY)) {
+				var1.locY = var1.Q;
 			}
 
-			if (Double.isNaN(var1.u) || Double.isInfinite(var1.u)) {
-				var1.u = var1.R;
+			if (Double.isNaN(var1.locZ) || Double.isInfinite(var1.locZ)) {
+				var1.locZ = var1.R;
 			}
 
-			if (Double.isNaN(var1.z) || Double.isInfinite(var1.z)) {
-				var1.z = var1.B;
+			if (Double.isNaN(var1.pitch) || Double.isInfinite(var1.pitch)) {
+				var1.pitch = var1.lastPitch;
 			}
 
-			if (Double.isNaN(var1.y) || Double.isInfinite(var1.y)) {
-				var1.y = var1.A;
+			if (Double.isNaN(var1.yaw) || Double.isInfinite(var1.yaw)) {
+				var1.yaw = var1.lastYaw;
 			}
 
-			int var6 = MathHelper.floor(var1.s / 16.0D);
-			int var7 = MathHelper.floor(var1.t / 16.0D);
-			int var8 = MathHelper.floor(var1.u / 16.0D);
+			int var6 = MathHelper.floor(var1.locX / 16.0D);
+			int var7 = MathHelper.floor(var1.locY / 16.0D);
+			int var8 = MathHelper.floor(var1.locZ / 16.0D);
 			if (!var1.ad || (var1.ae != var6) || (var1.af != var7) || (var1.ag != var8)) {
 				if (var1.ad && this.a(var1.ae, var1.ag, true)) {
 					this.getChunkAt(var1.ae, var1.ag).a(var1, var1.af);
@@ -1183,7 +1183,7 @@ public abstract class World implements IBlockAccess {
 
 			B.b();
 			if (var2 && var1.ad && (var1.passenger != null)) {
-				if (!var1.passenger.I && (var1.passenger.vehicle == var1)) {
+				if (!var1.passenger.dead && (var1.passenger.vehicle == var1)) {
 					g(var1.passenger);
 				} else {
 					var1.passenger.vehicle = null;
@@ -1203,7 +1203,7 @@ public abstract class World implements IBlockAccess {
 
 		for (int var4 = 0; var4 < var3.size(); ++var4) {
 			Entity var5 = (Entity) var3.get(var4);
-			if (!var5.I && var5.k && (var5 != var2) && ((var2 == null) || ((var2.vehicle != var5) && (var2.passenger != var5)))) {
+			if (!var5.dead && var5.k && (var5 != var2) && ((var2 == null) || ((var2.vehicle != var5) && (var2.passenger != var5)))) {
 				return false;
 			}
 		}
@@ -1316,9 +1316,9 @@ public abstract class World implements IBlockAccess {
 			if ((var11.length() > 0.0D) && var3.aN()) {
 				var11 = var11.normalize();
 				double var20 = 0.014D;
-				var3.v += var11.x * var20;
+				var3.motX += var11.x * var20;
 				var3.motY += var11.y * var20;
-				var3.x += var11.z * var20;
+				var3.motZ += var11.z * var20;
 			}
 
 			return var10;
@@ -1637,8 +1637,8 @@ public abstract class World implements IBlockAccess {
 		int var5;
 		for (var1 = 0; var1 < players.size(); ++var1) {
 			var2 = players.get(var1);
-			var3 = MathHelper.floor(var2.s / 16.0D);
-			var4 = MathHelper.floor(var2.u / 16.0D);
+			var3 = MathHelper.floor(var2.locX / 16.0D);
+			var4 = MathHelper.floor(var2.locZ / 16.0D);
 			var5 = this.r();
 
 			for (int var6 = -var5; var6 <= var5; ++var6) {
@@ -1657,9 +1657,9 @@ public abstract class World implements IBlockAccess {
 		if (!players.isEmpty()) {
 			var1 = random.nextInt(players.size());
 			var2 = players.get(var1);
-			var3 = (MathHelper.floor(var2.s) + random.nextInt(11)) - 5;
-			var4 = (MathHelper.floor(var2.t) + random.nextInt(11)) - 5;
-			var5 = (MathHelper.floor(var2.u) + random.nextInt(11)) - 5;
+			var3 = (MathHelper.floor(var2.locX) + random.nextInt(11)) - 5;
+			var4 = (MathHelper.floor(var2.locY) + random.nextInt(11)) - 5;
+			var5 = (MathHelper.floor(var2.locZ) + random.nextInt(11)) - 5;
 			this.x(new BlockPosition(var3, var4, var5));
 		}
 
@@ -2166,7 +2166,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public EntityHuman a(Entity var1, double var2) {
-		return this.a(var1.s, var1.t, var1.u, var2);
+		return this.a(var1.locX, var1.locY, var1.locZ, var2);
 	}
 
 	public EntityHuman a(double var1, double var3, double var5, double var7) {
@@ -2202,7 +2202,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public EntityHuman a(Entity var1, double var2, double var4) {
-		return this.a(var1.s, var1.t, var1.u, var2, var4);
+		return this.a(var1.locX, var1.locY, var1.locZ, var2, var4);
 	}
 
 	public EntityHuman a(BlockPosition var1, double var2, double var4) {
@@ -2216,7 +2216,7 @@ public abstract class World implements IBlockAccess {
 		for (int var14 = 0; var14 < players.size(); ++var14) {
 			EntityHuman var15 = players.get(var14);
 			if (!var15.abilities.invulnerable && var15.isAlive() && !var15.isSpectator()) {
-				double var16 = var15.e(var1, var15.t, var5);
+				double var16 = var15.e(var1, var15.locY, var5);
 				double var18 = var7;
 				if (var15.ax()) {
 					var18 = var7 * 0.800000011920929D;
@@ -2231,7 +2231,7 @@ public abstract class World implements IBlockAccess {
 					var18 *= 0.7F * var20;
 				}
 
-				if (((var9 < 0.0D) || (Math.abs(var15.t - var3) < (var9 * var9))) && ((var7 < 0.0D) || (var16 < (var18 * var18))) && ((var11 == -1.0D) || (var16 < var11))) {
+				if (((var9 < 0.0D) || (Math.abs(var15.locY - var3) < (var9 * var9))) && ((var7 < 0.0D) || (var16 < (var18 * var18))) && ((var11 == -1.0D) || (var16 < var11))) {
 					var11 = var16;
 					var13 = var15;
 				}
@@ -2255,7 +2255,7 @@ public abstract class World implements IBlockAccess {
 	public EntityHuman b(UUID var1) {
 		for (int var2 = 0; var2 < players.size(); ++var2) {
 			EntityHuman var3 = players.get(var2);
-			if (var1.equals(var3.aM())) {
+			if (var1.equals(var3.getUniqueId())) {
 				return var3;
 			}
 		}

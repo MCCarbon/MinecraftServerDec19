@@ -64,7 +64,7 @@ public class CommandSummon extends CommandAbstract {
             if(var21 == null) {
                throw new class_bz("commands.summon.failed", new Object[0]);
             } else {
-               var21.b(var6, var8, var10, var21.y, var21.z);
+               var21.b(var6, var8, var10, var21.yaw, var21.pitch);
                if(!var14 && var21 instanceof EntityInsentient) {
                   ((EntityInsentient)var21).a((class_on)var12.E(new BlockPosition(var21)), (class_qd)null);
                }
@@ -77,7 +77,7 @@ public class CommandSummon extends CommandAbstract {
                   for(NBTTagCompound var17 = var13; var16 != null && var17.hasOfType("Riding", 10); var17 = var17.getCompound("Riding")) {
                      Entity var18 = EntityTypes.a(var17.getCompound("Riding"), var12);
                      if(var18 != null) {
-                        var18.b(var6, var8, var10, var18.y, var18.z);
+                        var18.b(var6, var8, var10, var18.yaw, var18.pitch);
                         var12.addEntity(var18);
                         var16.a(var18);
                      }

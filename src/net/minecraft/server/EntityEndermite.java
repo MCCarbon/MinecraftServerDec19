@@ -65,7 +65,7 @@ public class EntityEndermite extends EntityMonster {
    }
 
    public void t_() {
-      this.aL = this.y;
+      this.aL = this.yaw;
       super.t_();
    }
 
@@ -79,9 +79,9 @@ public class EntityEndermite extends EntityMonster {
 
    public void m() {
       super.m();
-      if(this.o.isClientSide) {
+      if(this.world.isClientSide) {
          for(int var1 = 0; var1 < 2; ++var1) {
-            this.o.a(class_cy.y, this.s + (this.random.nextDouble() - 0.5D) * (double)this.J, this.t + this.random.nextDouble() * (double)this.K, this.u + (this.random.nextDouble() - 0.5D) * (double)this.J, (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D, new int[0]);
+            this.world.a(class_cy.y, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
       } else {
          if(!this.cn()) {
@@ -101,7 +101,7 @@ public class EntityEndermite extends EntityMonster {
 
    public boolean cf() {
       if(super.cf()) {
-         EntityHuman var1 = this.o.a(this, 5.0D);
+         EntityHuman var1 = this.world.a(this, 5.0D);
          return var1 == null;
       } else {
          return false;

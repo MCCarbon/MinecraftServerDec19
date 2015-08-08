@@ -18,7 +18,7 @@ public class class_auw {
    }
 
    public class_auv a(IBlockAccess var1, Entity var2, Entity var3, float var4) {
-      return this.a(var1, var2, var3.s, var3.aT().yMin, var3.u, var4);
+      return this.a(var1, var2, var3.locX, var3.aT().yMin, var3.locZ, var4);
    }
 
    public class_auv a(IBlockAccess var1, Entity var2, BlockPosition var3, float var4) {

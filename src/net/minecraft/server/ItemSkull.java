@@ -36,7 +36,7 @@ public class ItemSkull extends Item {
                var3.setTypeAndData((BlockPosition)var4, (IBlockData)Blocks.SKULL.getBlockData().set(BlockSkull.a, var6), 3);
                int var13 = 0;
                if(var6 == EnumDirection.UP) {
-                  var13 = MathHelper.floor((double)(var2.y * 16.0F / 360.0F) + 0.5D) & 15;
+                  var13 = MathHelper.floor((double)(var2.yaw * 16.0F / 360.0F) + 0.5D) & 15;
                }
 
                TileEntity var14 = var3.getTileEntity(var4);

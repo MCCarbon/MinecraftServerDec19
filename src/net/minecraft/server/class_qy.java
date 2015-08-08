@@ -14,14 +14,14 @@ public class class_qy {
    }
 
    public void a(Entity var1, float var2, float var3) {
-      this.e = var1.s;
+      this.e = var1.locX;
       if(var1 instanceof EntityLiving) {
-         this.f = var1.t + (double)var1.aU();
+         this.f = var1.locY + (double)var1.aU();
       } else {
          this.f = (var1.aT().yMin + var1.aT().yMax) / 2.0D;
       }
 
-      this.g = var1.u;
+      this.g = var1.locZ;
       this.b = var2;
       this.c = var3;
       this.d = true;
@@ -37,16 +37,16 @@ public class class_qy {
    }
 
    public void a() {
-      this.a.z = 0.0F;
+      this.a.pitch = 0.0F;
       if(this.d) {
          this.d = false;
-         double var1 = this.e - this.a.s;
-         double var3 = this.f - (this.a.t + (double)this.a.aU());
-         double var5 = this.g - this.a.u;
+         double var1 = this.e - this.a.locX;
+         double var3 = this.f - (this.a.locY + (double)this.a.aU());
+         double var5 = this.g - this.a.locZ;
          double var7 = (double)MathHelper.sqrt(var1 * var1 + var5 * var5);
          float var9 = (float)(MathHelper.b(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;
          float var10 = (float)(-(MathHelper.b(var3, var7) * 180.0D / 3.1415927410125732D));
-         this.a.z = this.a(this.a.z, var10, this.c);
+         this.a.pitch = this.a(this.a.pitch, var10, this.c);
          this.a.aN = this.a(this.a.aN, var9, this.b);
       } else {
          this.a.aN = this.a(this.a.aN, this.a.aL, 10.0F);

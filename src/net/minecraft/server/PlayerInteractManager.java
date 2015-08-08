@@ -60,7 +60,7 @@ public class PlayerInteractManager {
 			if (var2.getMaterial() == Material.AIR) {
 				h = false;
 			} else {
-				var3 = var2.getDamage(player, player.o, i) * (var1 + 1);
+				var3 = var2.getDamage(player, player.world, i) * (var1 + 1);
 				var4 = (int) (var3 * 10.0F);
 				if (var4 != k) {
 					world.c(player.getId(), i, var4);
@@ -80,7 +80,7 @@ public class PlayerInteractManager {
 				d = false;
 			} else {
 				int var6 = currentTick - lastDigTick;
-				var3 = var5.getDamage(player, player.o, i) * (var6 + 1);
+				var3 = var5.getDamage(player, player.world, i) * (var6 + 1);
 				var4 = (int) (var3 * 10.0F);
 				if (var4 != k) {
 					world.c(player.getId(), f, var4);
@@ -121,7 +121,7 @@ public class PlayerInteractManager {
 			float var6 = 1.0F;
 			if (var3.getMaterial() != Material.AIR) {
 				var3.attack(world, var1, player);
-				var6 = var3.getDamage(player, player.o, var1);
+				var6 = var3.getDamage(player, player.world, var1);
 			}
 
 			if ((var3.getMaterial() != Material.AIR) && (var6 >= 1.0F)) {
@@ -142,7 +142,7 @@ public class PlayerInteractManager {
 			int var2 = currentTick - lastDigTick;
 			Block var3 = world.getType(var1).getBlock();
 			if (var3.getMaterial() != Material.AIR) {
-				float var4 = var3.getDamage(player, player.o, var1) * (var2 + 1);
+				float var4 = var3.getDamage(player, player.world, var1) * (var2 + 1);
 				if (var4 >= 0.7F) {
 					d = false;
 					world.c(player.getId(), var1, -1);

@@ -97,10 +97,10 @@ public class class_ld {
    }
 
    public void a(EntityPlayer var1) {
-      int var2 = (int)var1.s >> 4;
-      int var3 = (int)var1.u >> 4;
-      var1.d = var1.s;
-      var1.e = var1.u;
+      int var2 = (int)var1.locX >> 4;
+      int var3 = (int)var1.locZ >> 4;
+      var1.d = var1.locX;
+      var1.e = var1.locZ;
 
       for(int var4 = var2 - this.g; var4 <= var2 + this.g; ++var4) {
          for(int var5 = var3 - this.g; var5 <= var3 + this.g; ++var5) {
@@ -116,8 +116,8 @@ public class class_ld {
       ArrayList var2 = Lists.newArrayList((Iterable)var1.f);
       int var3 = 0;
       int var4 = this.g;
-      int var5 = (int)var1.s >> 4;
-      int var6 = (int)var1.u >> 4;
+      int var5 = (int)var1.locX >> 4;
+      int var6 = (int)var1.locZ >> 4;
       int var7 = 0;
       int var8 = 0;
       class_aeh var9 = this.a(var5, var6, true).c;
@@ -178,10 +178,10 @@ public class class_ld {
    }
 
    public void d(EntityPlayer var1) {
-      int var2 = (int)var1.s >> 4;
-      int var3 = (int)var1.u >> 4;
-      double var4 = var1.d - var1.s;
-      double var6 = var1.e - var1.u;
+      int var2 = (int)var1.locX >> 4;
+      int var3 = (int)var1.locZ >> 4;
+      double var4 = var1.d - var1.locX;
+      double var6 = var1.e - var1.locZ;
       double var8 = var4 * var4 + var6 * var6;
       if(var8 >= 64.0D) {
          int var10 = (int)var1.d >> 4;
@@ -206,8 +206,8 @@ public class class_ld {
             }
 
             this.b(var1);
-            var1.d = var1.s;
-            var1.e = var1.u;
+            var1.d = var1.locX;
+            var1.e = var1.locZ;
          }
       }
    }
@@ -227,8 +227,8 @@ public class class_ld {
          while(true) {
             while(var4.hasNext()) {
                EntityPlayer var5 = (EntityPlayer)var4.next();
-               int var6 = (int)var5.s >> 4;
-               int var7 = (int)var5.u >> 4;
+               int var6 = (int)var5.locX >> 4;
+               int var7 = (int)var5.locZ >> 4;
                int var8;
                int var9;
                if(var2 > 0) {

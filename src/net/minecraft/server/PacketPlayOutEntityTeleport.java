@@ -22,12 +22,12 @@ public class PacketPlayOutEntityTeleport implements Packet {
 
    public PacketPlayOutEntityTeleport(Entity var1) {
       this.a = var1.getId();
-      this.b = MathHelper.floor(var1.s * 32.0D);
-      this.c = MathHelper.floor(var1.t * 32.0D);
-      this.d = MathHelper.floor(var1.u * 32.0D);
-      this.e = (byte)((int)(var1.y * 256.0F / 360.0F));
-      this.f = (byte)((int)(var1.z * 256.0F / 360.0F));
-      this.g = var1.C;
+      this.b = MathHelper.floor(var1.locX * 32.0D);
+      this.c = MathHelper.floor(var1.locY * 32.0D);
+      this.d = MathHelper.floor(var1.locZ * 32.0D);
+      this.e = (byte)((int)(var1.yaw * 256.0F / 360.0F));
+      this.f = (byte)((int)(var1.pitch * 256.0F / 360.0F));
+      this.g = var1.onGround;
    }
 
    public PacketPlayOutEntityTeleport(int var1, int var2, int var3, int var4, byte var5, byte var6, boolean var7) {

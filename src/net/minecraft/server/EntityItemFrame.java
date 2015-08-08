@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 public class EntityItemFrame extends class_uz {
 
-	private static final int ITEM_DW_ID = Datawathcer.claimId(EntityItemFrame.class); //value = 5
-	private static final int ROTATION_DW_ID = Datawathcer.claimId(EntityItemFrame.class); //value = 6
+	private static final int ITEM_DW_ID = DataWathcer.claimId(EntityItemFrame.class); //value = 5
+	private static final int ROTATION_DW_ID = DataWathcer.claimId(EntityItemFrame.class); //value = 6
 	private float e = 1.0F;
 
 	public EntityItemFrame(World var1) {
@@ -28,7 +28,7 @@ public class EntityItemFrame extends class_uz {
 		if (this.b((DamageSource) var1)) {
 			return false;
 		} else if (!var1.c() && this.o() != null) {
-			if (!this.o.isClientSide) {
+			if (!this.world.isClientSide) {
 				this.a(var1.j(), false);
 				this.a((ItemStack) null);
 			}
@@ -52,7 +52,7 @@ public class EntityItemFrame extends class_uz {
 	}
 
 	public void a(Entity var1, boolean var2) {
-		if (this.o.R().getBooleanValue("doEntityDrops")) {
+		if (this.world.R().getBooleanValue("doEntityDrops")) {
 			ItemStack var3 = this.o();
 			if (var1 instanceof EntityHuman) {
 				EntityHuman var4 = (EntityHuman) var1;
@@ -78,7 +78,7 @@ public class EntityItemFrame extends class_uz {
 	private void b(ItemStack var1) {
 		if (var1 != null) {
 			if (var1.getItem() == Items.FILLED_MAP) {
-				class_avf var2 = ((ItemWorldMap) var1.getItem()).a(var1, this.o);
+				class_avf var2 = ((ItemWorldMap) var1.getItem()).a(var1, this.world);
 				var2.h.remove("frame-" + this.getId());
 			}
 
@@ -104,7 +104,7 @@ public class EntityItemFrame extends class_uz {
 		this.H().update(ITEM_DW_ID, var1);
 		this.H().i(ITEM_DW_ID);
 		if (var2 && this.a != null) {
-			this.o.e(this.a, Blocks.AIR);
+			this.world.e(this.a, Blocks.AIR);
 		}
 
 	}
@@ -120,7 +120,7 @@ public class EntityItemFrame extends class_uz {
 	private void a(int var1, boolean var2) {
 		this.H().update(ROTATION_DW_ID, Byte.valueOf((byte) (var1 % 8)));
 		if (var2 && this.a != null) {
-			this.o.e(this.a, Blocks.AIR);
+			this.world.e(this.a, Blocks.AIR);
 		}
 
 	}
@@ -154,13 +154,13 @@ public class EntityItemFrame extends class_uz {
 
 	public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
 		if (this.o() == null) {
-			if (var2 != null && !this.o.isClientSide) {
+			if (var2 != null && !this.world.isClientSide) {
 				this.a(var2);
 				if (!var1.abilities.instabuild) {
 					--var2.count;
 				}
 			}
-		} else if (!this.o.isClientSide) {
+		} else if (!this.world.isClientSide) {
 			this.a(this.p() + 1);
 		}
 

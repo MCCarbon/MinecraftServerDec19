@@ -25,7 +25,7 @@ public class class_u extends CommandAbstract {
       if(var2.length < 9) {
          throw new class_cf("commands.clone.usage", new Object[0]);
       } else {
-         var1.a(class_n.class_a_in_class_n.b, 0);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 0);
          BlockPosition var3 = a(var1, var2, 0, false);
          BlockPosition var4 = a(var1, var2, 3, false);
          BlockPosition var5 = a(var1, var2, 6, false);
@@ -176,7 +176,7 @@ public class class_u extends CommandAbstract {
                      if(var8 <= 0) {
                         throw new class_bz("commands.clone.failed", new Object[0]);
                      } else {
-                        var1.a(class_n.class_a_in_class_n.b, var8);
+                        var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, var8);
                         a(var1, this, "commands.clone.success", new Object[]{Integer.valueOf(var8)});
                      }
                   } else {

@@ -14,8 +14,8 @@ public abstract class class_vq extends EntityMinecartAbstract implements ITileIn
 
    public void a(DamageSource var1) {
       super.a(var1);
-      if(this.o.R().getBooleanValue("doEntityDrops")) {
-         class_ol.a(this.o, (Entity)this, this);
+      if(this.world.R().getBooleanValue("doEntityDrops")) {
+         class_ol.a(this.world, (Entity)this, this);
       }
 
    }
@@ -66,7 +66,7 @@ public abstract class class_vq extends EntityMinecartAbstract implements ITileIn
    }
 
    public boolean isReachable(EntityHuman var1) {
-      return this.I?false:var1.h(this) <= 64.0D;
+      return this.dead?false:var1.h(this) <= 64.0D;
    }
 
    public void startOpen(EntityHuman var1) {
@@ -80,7 +80,7 @@ public abstract class class_vq extends EntityMinecartAbstract implements ITileIn
    }
 
    public String getName() {
-      return this.hasCustomName()?this.aO():"container.minecart";
+      return this.hasCustomName()?this.getCustomName():"container.minecart";
    }
 
    public int getMaxStackSize() {
@@ -94,7 +94,7 @@ public abstract class class_vq extends EntityMinecartAbstract implements ITileIn
 
    public void J() {
       if(this.b) {
-         class_ol.a(this.o, (Entity)this, this);
+         class_ol.a(this.world, (Entity)this, this);
       }
 
       super.J();
@@ -132,7 +132,7 @@ public abstract class class_vq extends EntityMinecartAbstract implements ITileIn
    }
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          var1.openContainer((IInventory)this);
       }
 
@@ -142,9 +142,9 @@ public abstract class class_vq extends EntityMinecartAbstract implements ITileIn
    protected void o() {
       int var1 = 15 - Container.b((IInventory)this);
       float var2 = 0.98F + (float)var1 * 0.001F;
-      this.v *= (double)var2;
+      this.motX *= (double)var2;
       this.motY *= 0.0D;
-      this.x *= (double)var2;
+      this.motZ *= (double)var2;
    }
 
    public int getProperty(int var1) {

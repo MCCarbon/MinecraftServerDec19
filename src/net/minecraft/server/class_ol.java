@@ -17,7 +17,7 @@ public class class_ol {
    }
 
    public static void a(World var0, Entity var1, IInventory var2) {
-      a(var0, var1.s, var1.t, var1.u, var2);
+      a(var0, var1.locX, var1.locY, var1.locZ, var2);
    }
 
    private static void a(World var0, double var1, double var3, double var5, IInventory var7) {
@@ -48,9 +48,9 @@ public class class_ol {
          }
 
          float var13 = 0.05F;
-         var12.v = a.nextGaussian() * (double)var13;
+         var12.motX = a.nextGaussian() * (double)var13;
          var12.motY = a.nextGaussian() * (double)var13 + 0.20000000298023224D;
-         var12.x = a.nextGaussian() * (double)var13;
+         var12.motZ = a.nextGaussian() * (double)var13;
          var0.addEntity((Entity)var12);
       }
 

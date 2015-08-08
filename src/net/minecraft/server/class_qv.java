@@ -13,10 +13,10 @@ public class class_qv {
    }
 
    public void a() {
-      double var1 = this.a.s - this.a.p;
-      double var3 = this.a.u - this.a.r;
+      double var1 = this.a.locX - this.a.lastX;
+      double var3 = this.a.locZ - this.a.lastZ;
       if(var1 * var1 + var3 * var3 > 2.500000277905201E-7D) {
-         this.a.aL = this.a.y;
+         this.a.aL = this.a.yaw;
          this.a.aN = this.a(this.a.aL, this.a.aN, 75.0F);
          this.c = this.a.aN;
          this.b = 0;

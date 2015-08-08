@@ -14,7 +14,7 @@ public class EntityLeash extends class_uz {
       float var3 = 0.125F;
       float var4 = 0.1875F;
       float var5 = 0.25F;
-      this.a((AxisAlignedBB)(new AxisAlignedBB(this.s - 0.1875D, this.t - 0.25D + 0.125D, this.u - 0.1875D, this.s + 0.1875D, this.t + 0.25D + 0.125D, this.u + 0.1875D)));
+      this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.1875D, this.locY - 0.25D + 0.125D, this.locZ - 0.1875D, this.locX + 0.1875D, this.locY + 0.25D + 0.125D, this.locZ + 0.1875D)));
    }
 
    public void a(EnumDirection var1) {
@@ -46,7 +46,7 @@ public class EntityLeash extends class_uz {
    }
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
-      if(this.o.isClientSide) {
+      if(this.world.isClientSide) {
          return true;
       } else {
          boolean var4 = false;
@@ -56,7 +56,7 @@ public class EntityLeash extends class_uz {
          EntityInsentient var9;
          if(var2 != null && var2.getItem() == Items.LEAD) {
             var5 = 7.0D;
-            var7 = this.o.getEntities(EntityInsentient.class, new AxisAlignedBB(this.s - var5, this.t - var5, this.u - var5, this.s + var5, this.t + var5, this.u + var5));
+            var7 = this.world.getEntities(EntityInsentient.class, new AxisAlignedBB(this.locX - var5, this.locY - var5, this.locZ - var5, this.locX + var5, this.locY + var5, this.locZ + var5));
             var8 = var7.iterator();
 
             while(var8.hasNext()) {
@@ -72,7 +72,7 @@ public class EntityLeash extends class_uz {
             this.J();
             if(var1.abilities.instabuild) {
                var5 = 7.0D;
-               var7 = this.o.getEntities(EntityInsentient.class, new AxisAlignedBB(this.s - var5, this.t - var5, this.u - var5, this.s + var5, this.t + var5, this.u + var5));
+               var7 = this.world.getEntities(EntityInsentient.class, new AxisAlignedBB(this.locX - var5, this.locY - var5, this.locZ - var5, this.locX + var5, this.locY + var5, this.locZ + var5));
                var8 = var7.iterator();
 
                while(var8.hasNext()) {
@@ -89,12 +89,12 @@ public class EntityLeash extends class_uz {
    }
 
    public boolean j() {
-      return this.o.getType(this.a).getBlock() instanceof BlockFence;
+      return this.world.getType(this.a).getBlock() instanceof BlockFence;
    }
 
    public static EntityLeash a(World var0, BlockPosition var1) {
       EntityLeash var2 = new EntityLeash(var0, var1);
-      var2.n = true;
+      var2.attachedToPlayer = true;
       var0.addEntity((Entity)var2);
       return var2;
    }

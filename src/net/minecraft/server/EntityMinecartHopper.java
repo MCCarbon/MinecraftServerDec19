@@ -34,7 +34,7 @@ public class EntityMinecartHopper extends class_vq implements class_ams {
    }
 
    public boolean a(EntityHuman var1, ItemStack var2, EnumUsedHand var3) {
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          var1.openContainer((IInventory)this);
       }
 
@@ -58,24 +58,24 @@ public class EntityMinecartHopper extends class_vq implements class_ams {
    }
 
    public World getWorld() {
-      return this.o;
+      return this.world;
    }
 
    public double A() {
-      return this.s;
+      return this.locX;
    }
 
    public double B() {
-      return this.t + 0.5D;
+      return this.locY + 0.5D;
    }
 
    public double C() {
-      return this.u;
+      return this.locZ;
    }
 
    public void t_() {
       super.t_();
-      if(!this.o.isClientSide && this.isAlive() && this.y()) {
+      if(!this.world.isClientSide && this.isAlive() && this.y()) {
          BlockPosition var1 = new BlockPosition(this);
          if(var1.equals(this.c)) {
             --this.b;
@@ -98,7 +98,7 @@ public class EntityMinecartHopper extends class_vq implements class_ams {
       if(TileEntityHopper.a((class_ams)this)) {
          return true;
       } else {
-         List var1 = this.o.a(EntityItem.class, this.aT().grow(0.25D, 0.0D, 0.25D), IEntitySelector.IS_ALIVE);
+         List var1 = this.world.a(EntityItem.class, this.aT().grow(0.25D, 0.0D, 0.25D), IEntitySelector.IS_ALIVE);
          if(!var1.isEmpty()) {
             TileEntityHopper.a((IInventory)this, (EntityItem)((EntityItem)var1.get(0)));
          }
@@ -109,7 +109,7 @@ public class EntityMinecartHopper extends class_vq implements class_ams {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      if(this.o.R().getBooleanValue("doEntityDrops")) {
+      if(this.world.R().getBooleanValue("doEntityDrops")) {
          this.a(Item.getItemOf((Block)Blocks.HOPPER), 1, 0.0F);
       }
 

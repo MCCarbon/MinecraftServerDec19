@@ -41,8 +41,8 @@ public class TileEntityEnchantTable extends TileEntity implements ITickAble, ITi
 		m = l;
 		EntityHuman var1 = world.a(position.getX() + 0.5F, position.getY() + 0.5F, position.getZ() + 0.5F, 3.0D);
 		if (var1 != null) {
-			double var2 = var1.s - (position.getX() + 0.5F);
-			double var4 = var1.u - (position.getZ() + 0.5F);
+			double var2 = var1.locX - (position.getX() + 0.5F);
+			double var4 = var1.locZ - (position.getZ() + 0.5F);
 			n = (float) MathHelper.b(var4, var2);
 			j += 0.1F;
 			if ((j < 0.5F) || (o.nextInt(40) == 0)) {

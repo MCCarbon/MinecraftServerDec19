@@ -64,8 +64,8 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.S = 0.0F;
 		this.a(var5, 0.0F, 0.0F);
 
-		while (!var2.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && this.t < 255.0D) {
-			this.b(this.s, this.t + 1.0D, this.u);
+		while (!var2.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && this.locY < 255.0D) {
+			this.b(this.locX, this.locY + 1.0D, this.locZ);
 		}
 
 	}
@@ -114,12 +114,12 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	public void t_() {
 		this.playerInteractManager.a();
 		--this.bX;
-		if (this.Z > 0) {
-			--this.Z;
+		if (this.noDamageTicks > 0) {
+			--this.noDamageTicks;
 		}
 
 		this.br.b();
-		if (!this.o.isClientSide && !this.br.a((EntityHuman) this)) {
+		if (!this.world.isClientSide && !this.br.a((EntityHuman) this)) {
 			this.n();
 			this.br = this.bq;
 		}
@@ -147,11 +147,11 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 			while (var8.hasNext() && var6.size() < 10) {
 				class_aeh var10 = (class_aeh) var8.next();
 				if (var10 != null) {
-					if (this.o.e(new BlockPosition(var10.a << 4, 0, var10.b << 4))) {
-						var5 = this.o.getChunkAt(var10.a, var10.b);
+					if (this.world.e(new BlockPosition(var10.a << 4, 0, var10.b << 4))) {
+						var5 = this.world.getChunkAt(var10.a, var10.b);
 						if (var5.i()) {
 							var6.add(var5);
-							var9.addAll(((WorldServer) this.o).a(var10.a * 16, 0, var10.b * 16, var10.a * 16 + 16, 256, var10.b * 16 + 16));
+							var9.addAll(((WorldServer) this.world).a(var10.a * 16, 0, var10.b * 16, var10.a * 16 + 16, 256, var10.b * 16 + 16));
 							var8.remove();
 						}
 					}
@@ -188,7 +188,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 			if (!var7.isAlive()) {
 				this.e(this);
 			} else {
-				this.a(var7.s, var7.t, var7.u, var7.y, var7.z);
+				this.a(var7.locX, var7.locY, var7.locZ, var7.yaw, var7.pitch);
 				this.b.getPlayerList().d(this);
 				if (this.ax()) {
 					this.e(this);
@@ -205,7 +205,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 			for (int var1 = 0; var1 < this.inventory.getSize(); ++var1) {
 				ItemStack var6 = this.inventory.getItem(var1);
 				if (var6 != null && var6.getItem().isMap()) {
-					Packet var8 = ((class_zt) var6.getItem()).a(var6, this.o, this);
+					Packet var8 = ((class_zt) var6.getItem()).a(var6, this.world, this);
 					if (var8 != null) {
 						this.playerConnection.sendPacket(var8);
 					}
@@ -235,7 +235,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 				this.playerConnection.sendPacket((Packet) (new PacketPlayOutExperience(this.exp, this.expTotal, this.expLevel)));
 			}
 
-			if (this.W % 20 * 5 == 0 && !this.A().a((class_ms) class_mt.L)) {
+			if (this.ticksLived % 20 * 5 == 0 && !this.A().a((class_ms) class_mt.L)) {
 				this.i_();
 			}
 
@@ -248,7 +248,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	protected void i_() {
-		BiomeBase var1 = this.o.b(new BlockPosition(MathHelper.floor(this.s), 0, MathHelper.floor(this.u)));
+		BiomeBase var1 = this.world.b(new BlockPosition(MathHelper.floor(this.locX), 0, MathHelper.floor(this.locZ)));
 		String var2 = var1.ah;
 		class_ne var3 = (class_ne) this.A().b((class_my) class_mt.L);
 		if (var3 == null) {
@@ -285,7 +285,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	public void a(DamageSource var1) {
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutCombatEvent(this.bt(), PacketPlayOutCombatEvent.class_a_in_class_gy.c)));
-		if (this.o.R().getBooleanValue("showDeathMessages")) {
+		if (this.world.R().getBooleanValue("showDeathMessages")) {
 			class_awp var2 = this.bP();
 			if (var2 != null && var2.j() != class_awp.class_a_in_class_awp.a) {
 				if (var2.j() == class_awp.class_a_in_class_awp.c) {
@@ -298,11 +298,11 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 			}
 		}
 
-		if (!this.o.R().getBooleanValue("keepInventory")) {
+		if (!this.world.R().getBooleanValue("keepInventory")) {
 			this.inventory.n();
 		}
 
-		Collection var6 = this.o.aa().a(class_awt.d);
+		Collection var6 = this.world.aa().a(class_awt.d);
 		Iterator var3 = var6.iterator();
 
 		while (var3.hasNext()) {
@@ -362,13 +362,13 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public void c(int var1) {
-		if (this.am == 1 && var1 == 1) {
+		if (this.dimension == 1 && var1 == 1) {
 			this.b((class_my) class_mt.D);
-			this.o.e((Entity) this);
+			this.world.e((Entity) this);
 			this.i = true;
 			this.playerConnection.sendPacket((Packet) (new PacketPlayOutGameStateChange(4, 0.0F)));
 		} else {
-			if (this.am == 0 && var1 == 1) {
+			if (this.dimension == 0 && var1 == 1) {
 				this.b((class_my) class_mt.C);
 				BlockPosition var2 = this.b.getWorldServer(var1).n();
 				if (var2 != null) {
@@ -412,7 +412,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		if (var2 == EntityHuman.EnumBedResult.OK) {
 			PacketPlayOutBed var3 = new PacketPlayOutBed(this, var1);
 			this.u().t().a((Entity) this, (Packet) var3);
-			this.playerConnection.a(this.s, this.t, this.u, this.y, this.z);
+			this.playerConnection.a(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
 			this.playerConnection.sendPacket((Packet) var3);
 		}
 
@@ -426,7 +426,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 		super.a(var1, var2, var3);
 		if (this.playerConnection != null) {
-			this.playerConnection.a(this.s, this.t, this.u, this.y, this.z);
+			this.playerConnection.a(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
 		}
 
 	}
@@ -436,7 +436,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		super.a((Entity) var1);
 		if (var1 != var2) {
 			this.playerConnection.sendPacket((Packet) (new PacketPlayOutAttachEntity(0, this, this.vehicle)));
-			this.playerConnection.a(this.s, this.t, this.u, this.y, this.z);
+			this.playerConnection.a(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
 		}
 
 	}
@@ -445,16 +445,16 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public void a(double var1, boolean var3) {
-		int var4 = MathHelper.floor(this.s);
-		int var5 = MathHelper.floor(this.t - 0.20000000298023224D);
-		int var6 = MathHelper.floor(this.u);
+		int var4 = MathHelper.floor(this.locX);
+		int var5 = MathHelper.floor(this.locY - 0.20000000298023224D);
+		int var6 = MathHelper.floor(this.locZ);
 		BlockPosition var7 = new BlockPosition(var4, var5, var6);
-		Block var8 = this.o.getType(var7).getBlock();
+		Block var8 = this.world.getType(var7).getBlock();
 		if (var8.getMaterial() == Material.AIR) {
-			Block var9 = this.o.getType(var7.down()).getBlock();
+			Block var9 = this.world.getType(var7.down()).getBlock();
 			if (var9 instanceof BlockFence || var9 instanceof BlockCobbleWall || var9 instanceof BlockFenceGate) {
 				var7 = var7.down();
-				var8 = this.o.getType(var7).getBlock();
+				var8 = this.world.getType(var7).getBlock();
 			}
 		}
 
@@ -487,7 +487,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 			ITileInventory var2 = (ITileInventory) var1;
 			if (var2.isLocked() && !this.a((ChestLock) var2.getChestLock()) && !this.isSpectator()) {
 				this.playerConnection.sendPacket((Packet) (new PacketPlayOutChat(new ChatMessage("container.isLocked", new Object[] { var1.getScoreboardDisplayName() }), (byte) 2)));
-				this.playerConnection.sendPacket((Packet) (new PacketPlayOutNamedSoundEffect("random.door_close", this.s, this.t, this.u, 1.0F, 1.0F)));
+				this.playerConnection.sendPacket((Packet) (new PacketPlayOutNamedSoundEffect("random.door_close", this.locX, this.locY, this.locZ, 1.0F, 1.0F)));
 				return;
 			}
 		}
@@ -507,7 +507,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	public void a(IMerchant var1) {
 		this.cu();
-		this.br = new class_ys(this.inventory, var1, this.o);
+		this.br = new class_ys(this.inventory, var1, this.world);
 		this.br.d = this.cc;
 		this.br.a((class_ye) this);
 		class_yr var2 = ((class_ys) this.br).e();
@@ -688,7 +688,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public void a(double var1, double var3, double var5) {
-		this.playerConnection.a(var1, var3, var5, this.y, this.z);
+		this.playerConnection.a(var1, var3, var5, this.yaw, this.pitch);
 	}
 
 	public void b(Entity var1) {
@@ -707,7 +707,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public WorldServer u() {
-		return (WorldServer) this.o;
+		return (WorldServer) this.world;
 	}
 
 	public void a(WorldSettings.EnumGameMode var1) {
@@ -770,7 +770,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public BlockPosition c() {
-		return new BlockPosition(this.s, this.t + 0.5D, this.u);
+		return new BlockPosition(this.locX, this.locY + 0.5D, this.locZ);
 	}
 
 	public void z() {
@@ -810,7 +810,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.cb = (Entity) (var1 == null ? this : var1);
 		if (var2 != this.cb) {
 			this.playerConnection.sendPacket((Packet) (new PacketPlayOutCamera(this.cb)));
-			this.a(this.cb.s, this.cb.t, this.cb.u);
+			this.a(this.cb.locX, this.cb.locY, this.cb.locZ);
 		}
 
 	}

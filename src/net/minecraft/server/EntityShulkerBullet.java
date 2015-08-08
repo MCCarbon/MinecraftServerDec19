@@ -25,7 +25,7 @@ public class EntityShulkerBullet extends Entity {
 	public EntityShulkerBullet(World var1) {
 		super(var1);
 		this.a(0.3125F, 0.3125F);
-		this.T = true;
+		this.noclip = true;
 	}
 
 	public EntityShulkerBullet(World var1, EntityLiving var2, Entity var3, EnumDirection.EnumAxis var4) {
@@ -35,7 +35,7 @@ public class EntityShulkerBullet extends Entity {
 		double var6 = (double) var5.getX() + 0.5D;
 		double var8 = (double) var5.getY() + 0.5D;
 		double var10 = (double) var5.getZ() + 0.5D;
-		this.b(var6, var8, var10, this.y, this.z);
+		this.b(var6, var8, var10, this.yaw, this.pitch);
 		this.b = var3;
 		this.c = EnumDirection.UP;
 		this.a(var4);
@@ -46,7 +46,7 @@ public class EntityShulkerBullet extends Entity {
 		NBTTagCompound var3;
 		if (this.a != null) {
 			var2 = new BlockPosition(this.a);
-			var3 = class_dy.a(this.a.aM());
+			var3 = class_dy.a(this.a.getUniqueId());
 			var3.put("X", var2.getX());
 			var3.put("Y", var2.getY());
 			var3.put("Z", var2.getZ());
@@ -55,7 +55,7 @@ public class EntityShulkerBullet extends Entity {
 
 		if (this.b != null) {
 			var2 = new BlockPosition(this.b);
-			var3 = class_dy.a(this.b.aM());
+			var3 = class_dy.a(this.b.getUniqueId());
 			var3.put("X", var2.getX());
 			var3.put("Y", var2.getY());
 			var3.put("Z", var2.getZ());
@@ -107,8 +107,8 @@ public class EntityShulkerBullet extends Entity {
 		double var3 = 0.5D;
 		BlockPosition var2;
 		if (this.b != null) {
-			var3 = (double) this.b.K * 0.5D;
-			var2 = new BlockPosition(this.b.s, this.b.t + var3, this.b.u);
+			var3 = (double) this.b.length * 0.5D;
+			var2 = new BlockPosition(this.b.locX, this.b.locY + var3, this.b.locZ);
 		} else {
 			var2 = (new BlockPosition(this)).down();
 		}
@@ -116,29 +116,29 @@ public class EntityShulkerBullet extends Entity {
 		double var5 = (double) var2.getX() + 0.5D;
 		double var7 = (double) var2.getY() + var3;
 		double var9 = (double) var2.getZ() + 0.5D;
-		if (var2.distanceSquaredFromCenter(this.s, this.t, this.u) >= 4.0D) {
+		if (var2.distanceSquaredFromCenter(this.locX, this.locY, this.locZ) >= 4.0D) {
 			BlockPosition var11 = new BlockPosition(this);
 			ArrayList var12 = Lists.newArrayList();
 			if (var1 != EnumDirection.EnumAxis.X) {
-				if (var11.getX() < var2.getX() && this.o.isEmpty(var11.east())) {
+				if (var11.getX() < var2.getX() && this.world.isEmpty(var11.east())) {
 					var12.add(EnumDirection.EAST);
-				} else if (var11.getX() > var2.getX() && this.o.isEmpty(var11.west())) {
+				} else if (var11.getX() > var2.getX() && this.world.isEmpty(var11.west())) {
 					var12.add(EnumDirection.WEST);
 				}
 			}
 
 			if (var1 != EnumDirection.EnumAxis.Y) {
-				if (var11.getY() < var2.getY() && this.o.isEmpty(var11.up())) {
+				if (var11.getY() < var2.getY() && this.world.isEmpty(var11.up())) {
 					var12.add(EnumDirection.UP);
-				} else if (var11.getY() > var2.getY() && this.o.isEmpty(var11.down())) {
+				} else if (var11.getY() > var2.getY() && this.world.isEmpty(var11.down())) {
 					var12.add(EnumDirection.DOWN);
 				}
 			}
 
 			if (var1 != EnumDirection.EnumAxis.Z) {
-				if (var11.getZ() < var2.getZ() && this.o.isEmpty(var11.south())) {
+				if (var11.getZ() < var2.getZ() && this.world.isEmpty(var11.south())) {
 					var12.add(EnumDirection.SOUTH);
-				} else if (var11.getZ() > var2.getZ() && this.o.isEmpty(var11.north())) {
+				} else if (var11.getZ() > var2.getZ() && this.world.isEmpty(var11.north())) {
 					var12.add(EnumDirection.NORTH);
 				}
 			}
@@ -147,22 +147,22 @@ public class EntityShulkerBullet extends Entity {
 			if (!var12.isEmpty()) {
 				var13 = (EnumDirection) var12.get(this.random.nextInt(var12.size()));
 			} else {
-				for (int var14 = 5; !this.o.isEmpty(var11.shift(var13)) && var14 > 0; --var14) {
+				for (int var14 = 5; !this.world.isEmpty(var11.shift(var13)) && var14 > 0; --var14) {
 					var13 = EnumDirection.getRandom(this.random);
 				}
 			}
 
-			var5 = this.s + (double) var13.getAdjacentX();
-			var7 = this.t + (double) var13.getAdjacentY();
-			var9 = this.u + (double) var13.getAdjacentZ();
+			var5 = this.locX + (double) var13.getAdjacentX();
+			var7 = this.locY + (double) var13.getAdjacentY();
+			var9 = this.locZ + (double) var13.getAdjacentZ();
 			this.a(var13);
 		} else {
 			this.a((EnumDirection) null);
 		}
 
-		double var19 = var5 - this.s;
-		double var20 = var7 - this.t;
-		double var15 = var9 - this.u;
+		double var19 = var5 - this.locX;
+		double var20 = var7 - this.locY;
+		double var15 = var9 - this.locZ;
 		double var17 = (double) MathHelper.sqrt(var19 * var19 + var20 * var20 + var15 * var15);
 		if (var17 == 0.0) {
 			this.f = 0.0;
@@ -179,17 +179,17 @@ public class EntityShulkerBullet extends Entity {
 
 	public void t_() {
 		super.t_();
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			List var1;
 			Iterator var2;
 			EntityLiving var3;
 			if (this.b == null && this.as != null) {
-				var1 = this.o.getEntities(EntityLiving.class, new AxisAlignedBB(this.at.add(-2, -2, -2), this.at.add(2, 2, 2)));
+				var1 = this.world.getEntities(EntityLiving.class, new AxisAlignedBB(this.at.add(-2, -2, -2), this.at.add(2, 2, 2)));
 				var2 = var1.iterator();
 
 				while (var2.hasNext()) {
 					var3 = (EntityLiving) var2.next();
-					if (var3.aM().equals(this.as)) {
+					if (var3.getUniqueId().equals(this.as)) {
 						this.b = var3;
 						break;
 					}
@@ -199,12 +199,12 @@ public class EntityShulkerBullet extends Entity {
 			}
 
 			if (this.a == null && this.h != null) {
-				var1 = this.o.getEntities(EntityLiving.class, new AxisAlignedBB(this.i.add(-2, -2, -2), this.i.add(2, 2, 2)));
+				var1 = this.world.getEntities(EntityLiving.class, new AxisAlignedBB(this.i.add(-2, -2, -2), this.i.add(2, 2, 2)));
 				var2 = var1.iterator();
 
 				while (var2.hasNext()) {
 					var3 = (EntityLiving) var2.next();
-					if (var3.aM().equals(this.h)) {
+					if (var3.getUniqueId().equals(this.h)) {
 						this.a = var3;
 						break;
 					}
@@ -213,13 +213,13 @@ public class EntityShulkerBullet extends Entity {
 				this.h = null;
 			}
 
-			if (this.b != null && !this.b.I) {
+			if (this.b != null && !this.b.dead) {
 				this.e = MathHelper.clamp(this.e * 1.025D, -1.0D, 1.0D);
 				this.f = MathHelper.clamp(this.f * 1.025D, -1.0D, 1.0D);
 				this.g = MathHelper.clamp(this.g * 1.025D, -1.0D, 1.0D);
-				this.v += (this.e - this.v) * 0.2D;
+				this.motX += (this.e - this.motX) * 0.2D;
 				this.motY += (this.f - this.motY) * 0.2D;
-				this.x += (this.g - this.x) * 0.2D;
+				this.motZ += (this.g - this.motZ) * 0.2D;
 			} else {
 				this.motY -= 0.04D;
 			}
@@ -230,10 +230,10 @@ public class EntityShulkerBullet extends Entity {
 			}
 		}
 
-		this.b(this.s + this.v, this.t + this.motY, this.u + this.x);
+		this.b(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
 		class_xj.a(this, 0.5F);
-		if (!this.o.isClientSide) {
-			if (this.b != null && !this.b.I) {
+		if (!this.world.isClientSide) {
+			if (this.b != null && !this.b.dead) {
 				if (this.d > 0) {
 					--this.d;
 					if (this.d == 0) {
@@ -244,7 +244,7 @@ public class EntityShulkerBullet extends Entity {
 				if (this.c != null) {
 					BlockPosition var6 = new BlockPosition(this);
 					EnumAxis axis = c.getAxis();
-					if (this.o.d(var6.shift(c), false)) {
+					if (this.world.d(var6.shift(c), false)) {
 						this.a(axis);
 					} else {
 						BlockPosition var7 = new BlockPosition(this.b);
@@ -255,7 +255,7 @@ public class EntityShulkerBullet extends Entity {
 				}
 			}
 		} else {
-			this.o.a(class_cy.R, this.s - this.v, this.t - this.motY + 0.15D, this.u - this.x, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.a(class_cy.R, this.locX - this.motX, this.locY - this.motY + 0.15D, this.locZ - this.motZ, 0.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 	}
@@ -278,7 +278,7 @@ public class EntityShulkerBullet extends Entity {
 				}
 			}
 		} else {
-			((WorldServer) this.o).a(class_cy.b, this.s, this.t, this.u, 2, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
+			((WorldServer) this.world).a(class_cy.b, this.locX, this.locY, this.locZ, 2, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
 			this.a("mob.irongolem.hit", 1.0F, 1.0F);
 		}
 
@@ -290,9 +290,9 @@ public class EntityShulkerBullet extends Entity {
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			this.a("mob.irongolem.hit", 1.0F, 1.0F);
-			((WorldServer) this.o).a(class_cy.j, this.s, this.t, this.u, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
+			((WorldServer) this.world).a(class_cy.j, this.locX, this.locY, this.locZ, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
 			this.J();
 		}
 

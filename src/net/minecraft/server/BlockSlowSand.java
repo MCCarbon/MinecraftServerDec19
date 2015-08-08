@@ -12,7 +12,7 @@ public class BlockSlowSand extends Block {
    }
 
    public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
-      var4.v *= 0.4D;
-      var4.x *= 0.4D;
+      var4.motX *= 0.4D;
+      var4.motZ *= 0.4D;
    }
 }

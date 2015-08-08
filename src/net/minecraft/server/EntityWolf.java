@@ -4,9 +4,9 @@ import com.google.common.base.Predicate;
 
 public class EntityWolf extends EntityTameable {
 
-	private static final int HEALTH_DW_ID = Datawathcer.claimId(EntityWolf.class); //value = 14
-	private static final int BEGGING_DW_ID = Datawathcer.claimId(EntityWolf.class); //value = 15
-	private static final int COLLARCOLOR_DW_ID = Datawathcer.claimId(EntityWolf.class); //value = 16
+	private static final int HEALTH_DW_ID = DataWathcer.claimId(EntityWolf.class); //value = 14
+	private static final int BEGGING_DW_ID = DataWathcer.claimId(EntityWolf.class); //value = 15
+	private static final int COLLARCOLOR_DW_ID = DataWathcer.claimId(EntityWolf.class); //value = 16
 
 	private float bz;
 	private float bA;
@@ -121,14 +121,14 @@ public class EntityWolf extends EntityTameable {
 
 	public void m() {
 		super.m();
-		if (!this.o.isClientSide && this.bB && !this.bC && !this.cu() && this.C) {
+		if (!this.world.isClientSide && this.bB && !this.bC && !this.cu() && this.onGround) {
 			this.bC = true;
 			this.bD = 0.0F;
 			this.bE = 0.0F;
-			this.o.a((Entity) this, (byte) 8);
+			this.world.a((Entity) this, (byte) 8);
 		}
 
-		if (!this.o.isClientSide && this.w() == null && this.cK()) {
+		if (!this.world.isClientSide && this.w() == null && this.cK()) {
 			this.p(false);
 		}
 
@@ -167,9 +167,9 @@ public class EntityWolf extends EntityTameable {
 				int var2 = (int) (MathHelper.sin((this.bD - 0.4F) * 3.1415927F) * 7.0F);
 
 				for (int var3 = 0; var3 < var2; ++var3) {
-					float var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
-					float var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J * 0.5F;
-					this.o.a(class_cy.f, this.s + (double) var4, (double) (var1 + 0.8F), this.u + (double) var5, this.v, this.motY, this.x, new int[0]);
+					float var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
+					float var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
+					this.world.a(class_cy.f, this.locX + (double) var4, (double) (var1 + 0.8F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
 				}
 			}
 		}
@@ -177,7 +177,7 @@ public class EntityWolf extends EntityTameable {
 	}
 
 	public float aU() {
-		return this.K * 0.8F;
+		return this.length * 0.8F;
 	}
 
 	public int cd() {
@@ -244,7 +244,7 @@ public class EntityWolf extends EntityTameable {
 				}
 			}
 
-			if (this.e(var1) && !this.o.isClientSide && !this.d(var3)) {
+			if (this.e(var1) && !this.world.isClientSide && !this.d(var3)) {
 				this.bu.a(!this.cC());
 				this.bb = false;
 				this.h.n();
@@ -255,19 +255,19 @@ public class EntityWolf extends EntityTameable {
 				--var3.count;
 			}
 
-			if (!this.o.isClientSide) {
+			if (!this.world.isClientSide) {
 				if (this.random.nextInt(3) == 0) {
 					this.n(true);
 					this.h.n();
 					this.d((EntityLiving) null);
 					this.bu.a(true);
 					this.i(20.0F);
-					this.b((String) var1.aM().toString());
+					this.b((String) var1.getUniqueId().toString());
 					this.m(true);
-					this.o.a((Entity) this, (byte) 7);
+					this.world.a((Entity) this, (byte) 7);
 				} else {
 					this.m(false);
-					this.o.a((Entity) this, (byte) 6);
+					this.world.a((Entity) this, (byte) 6);
 				}
 			}
 
@@ -308,7 +308,7 @@ public class EntityWolf extends EntityTameable {
 	}
 
 	public EntityWolf b(EntityAgeable var1) {
-		EntityWolf var2 = new EntityWolf(this.o);
+		EntityWolf var2 = new EntityWolf(this.world);
 		String var3 = this.b();
 		if (var3 != null && !var3.trim().isEmpty()) {
 			var2.b((String) var3);
@@ -345,7 +345,7 @@ public class EntityWolf extends EntityTameable {
 	}
 
 	protected boolean E() {
-		return !this.cA() && this.W > 2400;
+		return !this.cA() && this.ticksLived > 2400;
 	}
 
 	public boolean a(EntityLiving var1, EntityLiving var2) {

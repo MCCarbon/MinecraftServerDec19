@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityFireworks extends Entity {
 
-	private static final int INFO_DW_ID = Datawathcer.claimId(EntityFireworks.class); //value = 5
+	private static final int INFO_DW_ID = DataWathcer.claimId(EntityFireworks.class); //value = 5
 
 	private int b;
 	private int c;
@@ -31,53 +31,53 @@ public class EntityFireworks extends Entity {
 			}
 		}
 
-		this.v = this.random.nextGaussian() * 0.001D;
-		this.x = this.random.nextGaussian() * 0.001D;
+		this.motX = this.random.nextGaussian() * 0.001D;
+		this.motZ = this.random.nextGaussian() * 0.001D;
 		this.motY = 0.05D;
 		this.c = 10 * var9 + this.random.nextInt(6) + this.random.nextInt(7);
 	}
 
 	public void t_() {
-		this.P = this.s;
-		this.Q = this.t;
-		this.R = this.u;
+		this.P = this.locX;
+		this.Q = this.locY;
+		this.R = this.locZ;
 		super.t_();
-		this.v *= 1.15D;
-		this.x *= 1.15D;
+		this.motX *= 1.15D;
+		this.motZ *= 1.15D;
 		this.motY += 0.04D;
-		this.d(this.v, this.motY, this.x);
-		float var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
-		this.y = (float) (MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+		this.d(this.motX, this.motY, this.motZ);
+		float var1 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
+		this.yaw = (float) (MathHelper.b(this.motX, this.motZ) * 180.0D / 3.1415927410125732D);
 
-		for (this.z = (float) (MathHelper.b(this.motY, (double) var1) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+		for (this.pitch = (float) (MathHelper.b(this.motY, (double) var1) * 180.0D / 3.1415927410125732D); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
 			;
 		}
 
-		while (this.z - this.B >= 180.0F) {
-			this.B += 360.0F;
+		while (this.pitch - this.lastPitch >= 180.0F) {
+			this.lastPitch += 360.0F;
 		}
 
-		while (this.y - this.A < -180.0F) {
-			this.A -= 360.0F;
+		while (this.yaw - this.lastYaw < -180.0F) {
+			this.lastYaw -= 360.0F;
 		}
 
-		while (this.y - this.A >= 180.0F) {
-			this.A += 360.0F;
+		while (this.yaw - this.lastYaw >= 180.0F) {
+			this.lastYaw += 360.0F;
 		}
 
-		this.z = this.B + (this.z - this.B) * 0.2F;
-		this.y = this.A + (this.y - this.A) * 0.2F;
-		if (this.b == 0 && !this.R()) {
-			this.o.a((Entity) this, "fireworks.launch", 3.0F, 1.0F);
+		this.pitch = this.lastPitch + (this.pitch - this.lastPitch) * 0.2F;
+		this.yaw = this.lastYaw + (this.yaw - this.lastYaw) * 0.2F;
+		if (this.b == 0 && !this.isSilent()) {
+			this.world.a((Entity) this, "fireworks.launch", 3.0F, 1.0F);
 		}
 
 		++this.b;
-		if (this.o.isClientSide && this.b % 2 < 2) {
-			this.o.a(class_cy.d, this.s, this.t - 0.3D, this.u, this.random.nextGaussian() * 0.05D, -this.motY * 0.5D, this.random.nextGaussian() * 0.05D, new int[0]);
+		if (this.world.isClientSide && this.b % 2 < 2) {
+			this.world.a(class_cy.d, this.locX, this.locY - 0.3D, this.locZ, this.random.nextGaussian() * 0.05D, -this.motY * 0.5D, this.random.nextGaussian() * 0.05D, new int[0]);
 		}
 
-		if (!this.o.isClientSide && this.b > this.c) {
-			this.o.a((Entity) this, (byte) 17);
+		if (!this.world.isClientSide && this.b > this.c) {
+			this.world.a((Entity) this, (byte) 17);
 			this.J();
 		}
 

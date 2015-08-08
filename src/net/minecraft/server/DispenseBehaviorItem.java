@@ -31,12 +31,12 @@ public class DispenseBehaviorItem implements IDispenseBehavior {
 
 		EntityItem var11 = new EntityItem(var0, var5, var7, var9, var1);
 		double var12 = (var0.random.nextDouble() * 0.1D) + 0.2D;
-		var11.v = var3.getAdjacentX() * var12;
+		var11.motX = var3.getAdjacentX() * var12;
 		var11.motY = 0.20000000298023224D;
-		var11.x = var3.getAdjacentZ() * var12;
-		var11.v += var0.random.nextGaussian() * 0.007499999832361937D * var2;
+		var11.motZ = var3.getAdjacentZ() * var12;
+		var11.motX += var0.random.nextGaussian() * 0.007499999832361937D * var2;
 		var11.motY += var0.random.nextGaussian() * 0.007499999832361937D * var2;
-		var11.x += var0.random.nextGaussian() * 0.007499999832361937D * var2;
+		var11.motZ += var0.random.nextGaussian() * 0.007499999832361937D * var2;
 		var0.addEntity(var11);
 	}
 

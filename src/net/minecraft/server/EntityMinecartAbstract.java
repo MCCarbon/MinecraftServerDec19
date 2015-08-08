@@ -6,12 +6,12 @@ import java.util.Map;
 
 public abstract class EntityMinecartAbstract extends Entity implements INamableTileEntity {
 
-	private static final int SHAKINGPOWER_DW_ID = Datawathcer.claimId(EntityMinecartAbstract.class); //value = 5
-	private static final int SHAKINGDIRECTION_DW_ID = Datawathcer.claimId(EntityMinecartAbstract.class); //value = 6
-	private static final int DAMAGETAKEN_DW_ID = Datawathcer.claimId(EntityMinecartAbstract.class); //value = 7
-	private static final int BLOCK_DW_ID = Datawathcer.claimId(EntityMinecartAbstract.class); //value = 8
-	private static final int BLOCKY_DW_ID = Datawathcer.claimId(EntityMinecartAbstract.class); //value = 9
-	private static final int SHOWBLOCK_DW_ID = Datawathcer.claimId(EntityMinecartAbstract.class); //value = 10
+	private static final int SHAKINGPOWER_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 5
+	private static final int SHAKINGDIRECTION_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 6
+	private static final int DAMAGETAKEN_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 7
+	private static final int BLOCK_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 8
+	private static final int BLOCKY_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 9
+	private static final int SHOWBLOCK_DW_ID = DataWathcer.claimId(EntityMinecartAbstract.class); //value = 10
 
 	private boolean g;
 	private String h;
@@ -76,12 +76,12 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 	public EntityMinecartAbstract(World var1, double var2, double var4, double var6) {
 		this(var1);
 		this.b(var2, var4, var6);
-		this.v = 0.0D;
+		this.motX = 0.0D;
 		this.motY = 0.0D;
-		this.x = 0.0D;
-		this.p = var2;
-		this.q = var4;
-		this.r = var6;
+		this.motZ = 0.0D;
+		this.lastX = var2;
+		this.lastY = var4;
+		this.lastZ = var6;
 	}
 
 	public double an() {
@@ -89,7 +89,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
-		if (!this.o.isClientSide && !this.I) {
+		if (!this.world.isClientSide && !this.dead) {
 			if (this.b(var1)) {
 				return false;
 			} else {
@@ -119,7 +119,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 
 	public void a(DamageSource var1) {
 		this.J();
-		if (this.o.R().getBooleanValue("doEntityDrops")) {
+		if (this.world.R().getBooleanValue("doEntityDrops")) {
 			ItemStack var2 = new ItemStack(Items.MINECART, 1);
 			if (this.h != null) {
 				var2.setDisplayName(this.h);
@@ -131,7 +131,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 	}
 
 	public boolean ad() {
-		return !this.I;
+		return !this.dead;
 	}
 
 	public void J() {
@@ -147,22 +147,22 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 			this.a(this.p() - 1.0F);
 		}
 
-		if (this.t < -64.0D) {
+		if (this.locY < -64.0D) {
 			this.O();
 		}
 
 		int var2;
-		if (!this.o.isClientSide && this.o instanceof WorldServer) {
-			this.o.B.a("portal");
-			MinecraftServer var1 = ((WorldServer) this.o).s();
+		if (!this.world.isClientSide && this.world instanceof WorldServer) {
+			this.world.B.a("portal");
+			MinecraftServer var1 = ((WorldServer) this.world).s();
 			var2 = this.L();
 			if (this.ak) {
 				if (var1.C()) {
 					if (this.vehicle == null && this.al++ >= var2) {
 						this.al = var2;
-						this.aj = this.aq();
+						this.portalCooldown = this.aq();
 						byte var3;
-						if (this.o.worldProvider.p().a() == -1) {
+						if (this.world.worldProvider.p().a() == -1) {
 							var3 = 0;
 						} else {
 							var3 = -1;
@@ -183,43 +183,43 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 				}
 			}
 
-			if (this.aj > 0) {
-				--this.aj;
+			if (this.portalCooldown > 0) {
+				--this.portalCooldown;
 			}
 
-			this.o.B.b();
+			this.world.B.b();
 		}
 
-		if (this.o.isClientSide) {
+		if (this.world.isClientSide) {
 			if (this.as > 0) {
-				double var15 = this.s + (this.at - this.s) / (double) this.as;
-				double var17 = this.t + (this.au - this.t) / (double) this.as;
-				double var18 = this.u + (this.av - this.u) / (double) this.as;
-				double var7 = MathHelper.clampAngle(this.aw - (double) this.y);
-				this.y = (float) ((double) this.y + var7 / (double) this.as);
-				this.z = (float) ((double) this.z + (this.ax - (double) this.z) / (double) this.as);
+				double var15 = this.locX + (this.at - this.locX) / (double) this.as;
+				double var17 = this.locY + (this.au - this.locY) / (double) this.as;
+				double var18 = this.locZ + (this.av - this.locZ) / (double) this.as;
+				double var7 = MathHelper.clampAngle(this.aw - (double) this.yaw);
+				this.yaw = (float) ((double) this.yaw + var7 / (double) this.as);
+				this.pitch = (float) ((double) this.pitch + (this.ax - (double) this.pitch) / (double) this.as);
 				--this.as;
 				this.b(var15, var17, var18);
-				this.b(this.y, this.z);
+				this.b(this.yaw, this.pitch);
 			} else {
-				this.b(this.s, this.t, this.u);
-				this.b(this.y, this.z);
+				this.b(this.locX, this.locY, this.locZ);
+				this.b(this.yaw, this.pitch);
 			}
 
 		} else {
-			this.p = this.s;
-			this.q = this.t;
-			this.r = this.u;
+			this.lastX = this.locX;
+			this.lastY = this.locY;
+			this.lastZ = this.locZ;
 			this.motY -= 0.03999999910593033D;
-			int var14 = MathHelper.floor(this.s);
-			var2 = MathHelper.floor(this.t);
-			int var16 = MathHelper.floor(this.u);
-			if (BlockMinecartTrackAbstract.e(this.o, new BlockPosition(var14, var2 - 1, var16))) {
+			int var14 = MathHelper.floor(this.locX);
+			var2 = MathHelper.floor(this.locY);
+			int var16 = MathHelper.floor(this.locZ);
+			if (BlockMinecartTrackAbstract.e(this.world, new BlockPosition(var14, var2 - 1, var16))) {
 				--var2;
 			}
 
 			BlockPosition var4 = new BlockPosition(var14, var2, var16);
-			IBlockData var5 = this.o.getType(var4);
+			IBlockData var5 = this.world.getType(var4);
 			if (BlockMinecartTrackAbstract.d(var5)) {
 				this.a(var4, var5);
 				if (var5.getBlock() == Blocks.ACTIVATOR_RAIL) {
@@ -230,24 +230,24 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 			}
 
 			this.Q();
-			this.z = 0.0F;
-			double var6 = this.p - this.s;
-			double var8 = this.r - this.u;
+			this.pitch = 0.0F;
+			double var6 = this.lastX - this.locX;
+			double var8 = this.lastZ - this.locZ;
 			if (var6 * var6 + var8 * var8 > 0.001D) {
-				this.y = (float) (MathHelper.b(var8, var6) * 180.0D / 3.141592653589793D);
+				this.yaw = (float) (MathHelper.b(var8, var6) * 180.0D / 3.141592653589793D);
 				if (this.g) {
-					this.y += 180.0F;
+					this.yaw += 180.0F;
 				}
 			}
 
-			double var10 = (double) MathHelper.clampAngle(this.y - this.A);
+			double var10 = (double) MathHelper.clampAngle(this.yaw - this.lastYaw);
 			if (var10 < -170.0D || var10 >= 170.0D) {
-				this.y += 180.0F;
+				this.yaw += 180.0F;
 				this.g = !this.g;
 			}
 
-			this.b(this.y, this.z);
-			Iterator var12 = this.o.getEntities((Entity) this, (AxisAlignedBB) this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
+			this.b(this.yaw, this.pitch);
+			Iterator var12 = this.world.getEntities((Entity) this, (AxisAlignedBB) this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
 
 			while (var12.hasNext()) {
 				Entity var13 = (Entity) var12.next();
@@ -256,7 +256,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 				}
 			}
 
-			if (this.passenger != null && this.passenger.I) {
+			if (this.passenger != null && this.passenger.dead) {
 				if (this.passenger.vehicle == this) {
 					this.passenger.vehicle = null;
 				}
@@ -277,27 +277,27 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 
 	protected void n() {
 		double var1 = this.m();
-		this.v = MathHelper.clamp(this.v, -var1, var1);
-		this.x = MathHelper.clamp(this.x, -var1, var1);
-		if (this.C) {
-			this.v *= 0.5D;
+		this.motX = MathHelper.clamp(this.motX, -var1, var1);
+		this.motZ = MathHelper.clamp(this.motZ, -var1, var1);
+		if (this.onGround) {
+			this.motX *= 0.5D;
 			this.motY *= 0.5D;
-			this.x *= 0.5D;
+			this.motZ *= 0.5D;
 		}
 
-		this.d(this.v, this.motY, this.x);
-		if (!this.C) {
-			this.v *= 0.949999988079071D;
+		this.d(this.motX, this.motY, this.motZ);
+		if (!this.onGround) {
+			this.motX *= 0.949999988079071D;
 			this.motY *= 0.949999988079071D;
-			this.x *= 0.949999988079071D;
+			this.motZ *= 0.949999988079071D;
 		}
 
 	}
 
 	protected void a(BlockPosition var1, IBlockData var2) {
-		this.O = 0.0F;
-		Vec3D var3 = this.k(this.s, this.t, this.u);
-		this.t = (double) var1.getY();
+		this.fallDistance = 0.0F;
+		Vec3D var3 = this.k(this.locX, this.locY, this.locZ);
+		this.locY = (double) var1.getY();
 		boolean var4 = false;
 		boolean var5 = false;
 		BlockMinecartTrackAbstract var6 = (BlockMinecartTrackAbstract) var2.getBlock();
@@ -310,39 +310,39 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		BlockMinecartTrackAbstract.EnumTrackPosition var9 = (BlockMinecartTrackAbstract.EnumTrackPosition) var2.get(var6.n());
 		switch (EntityMinecartAbstract.SyntheticClass_1.b[var9.ordinal()]) {
 			case 1:
-				this.v -= 0.0078125D;
-				++this.t;
+				this.motX -= 0.0078125D;
+				++this.locY;
 				break;
 			case 2:
-				this.v += 0.0078125D;
-				++this.t;
+				this.motX += 0.0078125D;
+				++this.locY;
 				break;
 			case 3:
-				this.x += 0.0078125D;
-				++this.t;
+				this.motZ += 0.0078125D;
+				++this.locY;
 				break;
 			case 4:
-				this.x -= 0.0078125D;
-				++this.t;
+				this.motZ -= 0.0078125D;
+				++this.locY;
 		}
 
 		int[][] var10 = i[var9.getId()];
 		double var11 = (double) (var10[1][0] - var10[0][0]);
 		double var13 = (double) (var10[1][2] - var10[0][2]);
 		double var15 = Math.sqrt(var11 * var11 + var13 * var13);
-		double var17 = this.v * var11 + this.x * var13;
+		double var17 = this.motX * var11 + this.motZ * var13;
 		if (var17 < 0.0D) {
 			var11 = -var11;
 			var13 = -var13;
 		}
 
-		double var19 = Math.sqrt(this.v * this.v + this.x * this.x);
+		double var19 = Math.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 		if (var19 > 2.0D) {
 			var19 = 2.0D;
 		}
 
-		this.v = var19 * var11 / var15;
-		this.x = var19 * var13 / var15;
+		this.motX = var19 * var11 / var15;
+		this.motZ = var19 * var13 / var15;
 		double var21;
 		double var23;
 		double var25;
@@ -350,27 +350,27 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		if (this.passenger instanceof EntityLiving) {
 			var21 = (double) ((EntityLiving) this.passenger).bd;
 			if (var21 > 0.0D) {
-				var23 = -Math.sin((double) (this.passenger.y * 3.1415927F / 180.0F));
-				var25 = Math.cos((double) (this.passenger.y * 3.1415927F / 180.0F));
-				var27 = this.v * this.v + this.x * this.x;
+				var23 = -Math.sin((double) (this.passenger.yaw * 3.1415927F / 180.0F));
+				var25 = Math.cos((double) (this.passenger.yaw * 3.1415927F / 180.0F));
+				var27 = this.motX * this.motX + this.motZ * this.motZ;
 				if (var27 < 0.01D) {
-					this.v += var23 * 0.1D;
-					this.x += var25 * 0.1D;
+					this.motX += var23 * 0.1D;
+					this.motZ += var25 * 0.1D;
 					var5 = false;
 				}
 			}
 		}
 
 		if (var5) {
-			var21 = Math.sqrt(this.v * this.v + this.x * this.x);
+			var21 = Math.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 			if (var21 < 0.03D) {
-				this.v *= 0.0D;
+				this.motX *= 0.0D;
 				this.motY *= 0.0D;
-				this.x *= 0.0D;
+				this.motZ *= 0.0D;
 			} else {
-				this.v *= 0.5D;
+				this.motX *= 0.5D;
 				this.motY *= 0.0D;
-				this.x *= 0.5D;
+				this.motZ *= 0.5D;
 			}
 		}
 
@@ -384,22 +384,22 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		double var31;
 		double var33;
 		if (var11 == 0.0D) {
-			this.s = (double) var1.getX() + 0.5D;
-			var21 = this.u - (double) var1.getZ();
+			this.locX = (double) var1.getX() + 0.5D;
+			var21 = this.locZ - (double) var1.getZ();
 		} else if (var13 == 0.0D) {
-			this.u = (double) var1.getZ() + 0.5D;
-			var21 = this.s - (double) var1.getX();
+			this.locZ = (double) var1.getZ() + 0.5D;
+			var21 = this.locX - (double) var1.getX();
 		} else {
-			var31 = this.s - var23;
-			var33 = this.u - var25;
+			var31 = this.locX - var23;
+			var33 = this.locZ - var25;
 			var21 = (var31 * var11 + var33 * var13) * 2.0D;
 		}
 
-		this.s = var23 + var11 * var21;
-		this.u = var25 + var13 * var21;
-		this.b(this.s, this.t, this.u);
-		var31 = this.v;
-		var33 = this.x;
+		this.locX = var23 + var11 * var21;
+		this.locZ = var25 + var13 * var21;
+		this.b(this.locX, this.locY, this.locZ);
+		var31 = this.motX;
+		var33 = this.motZ;
 		if (this.passenger != null) {
 			var31 *= 0.75D;
 			var33 *= 0.75D;
@@ -409,50 +409,50 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		var31 = MathHelper.clamp(var31, -var35, var35);
 		var33 = MathHelper.clamp(var33, -var35, var35);
 		this.d(var31, 0.0D, var33);
-		if (var10[0][1] != 0 && MathHelper.floor(this.s) - var1.getX() == var10[0][0] && MathHelper.floor(this.u) - var1.getZ() == var10[0][2]) {
-			this.b(this.s, this.t + (double) var10[0][1], this.u);
-		} else if (var10[1][1] != 0 && MathHelper.floor(this.s) - var1.getX() == var10[1][0] && MathHelper.floor(this.u) - var1.getZ() == var10[1][2]) {
-			this.b(this.s, this.t + (double) var10[1][1], this.u);
+		if (var10[0][1] != 0 && MathHelper.floor(this.locX) - var1.getX() == var10[0][0] && MathHelper.floor(this.locZ) - var1.getZ() == var10[0][2]) {
+			this.b(this.locX, this.locY + (double) var10[0][1], this.locZ);
+		} else if (var10[1][1] != 0 && MathHelper.floor(this.locX) - var1.getX() == var10[1][0] && MathHelper.floor(this.locZ) - var1.getZ() == var10[1][2]) {
+			this.b(this.locX, this.locY + (double) var10[1][1], this.locZ);
 		}
 
 		this.o();
-		Vec3D var37 = this.k(this.s, this.t, this.u);
+		Vec3D var37 = this.k(this.locX, this.locY, this.locZ);
 		if (var37 != null && var3 != null) {
 			double var38 = (var3.y - var37.y) * 0.05D;
-			var19 = Math.sqrt(this.v * this.v + this.x * this.x);
+			var19 = Math.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 			if (var19 > 0.0D) {
-				this.v = this.v / var19 * (var19 + var38);
-				this.x = this.x / var19 * (var19 + var38);
+				this.motX = this.motX / var19 * (var19 + var38);
+				this.motZ = this.motZ / var19 * (var19 + var38);
 			}
 
-			this.b(this.s, var37.y, this.u);
+			this.b(this.locX, var37.y, this.locZ);
 		}
 
-		int var44 = MathHelper.floor(this.s);
-		int var39 = MathHelper.floor(this.u);
+		int var44 = MathHelper.floor(this.locX);
+		int var39 = MathHelper.floor(this.locZ);
 		if (var44 != var1.getX() || var39 != var1.getZ()) {
-			var19 = Math.sqrt(this.v * this.v + this.x * this.x);
-			this.v = var19 * (double) (var44 - var1.getX());
-			this.x = var19 * (double) (var39 - var1.getZ());
+			var19 = Math.sqrt(this.motX * this.motX + this.motZ * this.motZ);
+			this.motX = var19 * (double) (var44 - var1.getX());
+			this.motZ = var19 * (double) (var39 - var1.getZ());
 		}
 
 		if (var4) {
-			double var40 = Math.sqrt(this.v * this.v + this.x * this.x);
+			double var40 = Math.sqrt(this.motX * this.motX + this.motZ * this.motZ);
 			if (var40 > 0.01D) {
 				double var42 = 0.06D;
-				this.v += this.v / var40 * var42;
-				this.x += this.x / var40 * var42;
+				this.motX += this.motX / var40 * var42;
+				this.motZ += this.motZ / var40 * var42;
 			} else if (var9 == BlockMinecartTrackAbstract.EnumTrackPosition.EAST_WEST) {
-				if (this.o.getType(var1.west()).getBlock().isOccluding()) {
-					this.v = 0.02D;
-				} else if (this.o.getType(var1.east()).getBlock().isOccluding()) {
-					this.v = -0.02D;
+				if (this.world.getType(var1.west()).getBlock().isOccluding()) {
+					this.motX = 0.02D;
+				} else if (this.world.getType(var1.east()).getBlock().isOccluding()) {
+					this.motX = -0.02D;
 				}
 			} else if (var9 == BlockMinecartTrackAbstract.EnumTrackPosition.NORTH_SOUTH) {
-				if (this.o.getType(var1.north()).getBlock().isOccluding()) {
-					this.x = 0.02D;
-				} else if (this.o.getType(var1.south()).getBlock().isOccluding()) {
-					this.x = -0.02D;
+				if (this.world.getType(var1.north()).getBlock().isOccluding()) {
+					this.motZ = 0.02D;
+				} else if (this.world.getType(var1.south()).getBlock().isOccluding()) {
+					this.motZ = -0.02D;
 				}
 			}
 		}
@@ -461,23 +461,23 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 
 	protected void o() {
 		if (this.passenger != null) {
-			this.v *= 0.996999979019165D;
+			this.motX *= 0.996999979019165D;
 			this.motY *= 0.0D;
-			this.x *= 0.996999979019165D;
+			this.motZ *= 0.996999979019165D;
 		} else {
-			this.v *= 0.9599999785423279D;
+			this.motX *= 0.9599999785423279D;
 			this.motY *= 0.0D;
-			this.x *= 0.9599999785423279D;
+			this.motZ *= 0.9599999785423279D;
 		}
 
 	}
 
 	public void b(double var1, double var3, double var5) {
-		this.s = var1;
-		this.t = var3;
-		this.u = var5;
-		float var7 = this.J / 2.0F;
-		float var8 = this.K;
+		this.locX = var1;
+		this.locY = var3;
+		this.locZ = var5;
+		float var7 = this.width / 2.0F;
+		float var8 = this.length;
 		this.a((AxisAlignedBB) (new AxisAlignedBB(var1 - (double) var7, var3, var5 - (double) var7, var1 + (double) var7, var3 + (double) var8, var5 + (double) var7)));
 	}
 
@@ -485,11 +485,11 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		int var7 = MathHelper.floor(var1);
 		int var8 = MathHelper.floor(var3);
 		int var9 = MathHelper.floor(var5);
-		if (BlockMinecartTrackAbstract.e(this.o, new BlockPosition(var7, var8 - 1, var9))) {
+		if (BlockMinecartTrackAbstract.e(this.world, new BlockPosition(var7, var8 - 1, var9))) {
 			--var8;
 		}
 
-		IBlockData var10 = this.o.getType(new BlockPosition(var7, var8, var9));
+		IBlockData var10 = this.world.getType(new BlockPosition(var7, var8, var9));
 		if (BlockMinecartTrackAbstract.d(var10)) {
 			BlockMinecartTrackAbstract.EnumTrackPosition var11 = (BlockMinecartTrackAbstract.EnumTrackPosition) var10.get(((BlockMinecartTrackAbstract) var10.getBlock()).n());
 			int[][] var12 = i[var11.getId()];
@@ -578,15 +578,15 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 	}
 
 	public void i(Entity var1) {
-		if (!this.o.isClientSide) {
-			if (!var1.T && !this.T) {
+		if (!this.world.isClientSide) {
+			if (!var1.noclip && !this.noclip) {
 				if (var1 != this.passenger) {
-					if (var1 instanceof EntityLiving && !(var1 instanceof EntityHuman) && !(var1 instanceof EntityVillagerGolem) && this.s() == EnumMinecartType.RIDEABLE && this.v * this.v + this.x * this.x > 0.01D && this.passenger == null && var1.vehicle == null) {
+					if (var1 instanceof EntityLiving && !(var1 instanceof EntityHuman) && !(var1 instanceof EntityVillagerGolem) && this.s() == EnumMinecartType.RIDEABLE && this.motX * this.motX + this.motZ * this.motZ > 0.01D && this.passenger == null && var1.vehicle == null) {
 						var1.a((Entity) this);
 					}
 
-					double var2 = var1.s - this.s;
-					double var4 = var1.u - this.u;
+					double var2 = var1.locX - this.locX;
+					double var4 = var1.locZ - this.locZ;
 					double var6 = var2 * var2 + var4 * var4;
 					if (var6 >= 9.999999747378752E-5D) {
 						var6 = (double) MathHelper.sqrt(var6);
@@ -606,37 +606,37 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 						var2 *= 0.5D;
 						var4 *= 0.5D;
 						if (var1 instanceof EntityMinecartAbstract) {
-							double var10 = var1.s - this.s;
-							double var12 = var1.u - this.u;
+							double var10 = var1.locX - this.locX;
+							double var12 = var1.locZ - this.locZ;
 							Vec3D var14 = (new Vec3D(var10, 0.0D, var12)).normalize();
-							Vec3D var15 = (new Vec3D((double) MathHelper.cos(this.y * 3.1415927F / 180.0F), 0.0D, (double) MathHelper.sin(this.y * 3.1415927F / 180.0F))).normalize();
+							Vec3D var15 = (new Vec3D((double) MathHelper.cos(this.yaw * 3.1415927F / 180.0F), 0.0D, (double) MathHelper.sin(this.yaw * 3.1415927F / 180.0F))).normalize();
 							double var16 = Math.abs(var14.dotProduct(var15));
 							if (var16 < 0.800000011920929D) {
 								return;
 							}
 
-							double var18 = var1.v + this.v;
-							double var20 = var1.x + this.x;
+							double var18 = var1.motX + this.motX;
+							double var20 = var1.motZ + this.motZ;
 							if (((EntityMinecartAbstract) var1).s() == EnumMinecartType.FURNACE && this.s() != EnumMinecartType.FURNACE) {
-								this.v *= 0.20000000298023224D;
-								this.x *= 0.20000000298023224D;
-								this.g(var1.v - var2, 0.0D, var1.x - var4);
-								var1.v *= 0.949999988079071D;
-								var1.x *= 0.949999988079071D;
+								this.motX *= 0.20000000298023224D;
+								this.motZ *= 0.20000000298023224D;
+								this.g(var1.motX - var2, 0.0D, var1.motZ - var4);
+								var1.motX *= 0.949999988079071D;
+								var1.motZ *= 0.949999988079071D;
 							} else if (((EntityMinecartAbstract) var1).s() != EnumMinecartType.FURNACE && this.s() == EnumMinecartType.FURNACE) {
-								var1.v *= 0.20000000298023224D;
-								var1.x *= 0.20000000298023224D;
-								var1.g(this.v + var2, 0.0D, this.x + var4);
-								this.v *= 0.949999988079071D;
-								this.x *= 0.949999988079071D;
+								var1.motX *= 0.20000000298023224D;
+								var1.motZ *= 0.20000000298023224D;
+								var1.g(this.motX + var2, 0.0D, this.motZ + var4);
+								this.motX *= 0.949999988079071D;
+								this.motZ *= 0.949999988079071D;
 							} else {
 								var18 /= 2.0D;
 								var20 /= 2.0D;
-								this.v *= 0.20000000298023224D;
-								this.x *= 0.20000000298023224D;
+								this.motX *= 0.20000000298023224D;
+								this.motZ *= 0.20000000298023224D;
 								this.g(var18 - var2, 0.0D, var20 - var4);
-								var1.v *= 0.20000000298023224D;
-								var1.x *= 0.20000000298023224D;
+								var1.motX *= 0.20000000298023224D;
+								var1.motZ *= 0.20000000298023224D;
 								var1.g(var18 + var2, 0.0D, var20 + var4);
 							}
 						} else {
@@ -722,7 +722,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		return this.h != null;
 	}
 
-	public String aO() {
+	public String getCustomName() {
 		return this.h;
 	}
 
@@ -730,12 +730,12 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		if (this.hasCustomName()) {
 			ChatComponentText var2 = new ChatComponentText(this.h);
 			var2.getChatModifier().a(this.aS());
-			var2.getChatModifier().a(this.aM().toString());
+			var2.getChatModifier().a(this.getUniqueId().toString());
 			return var2;
 		} else {
 			ChatMessage var1 = new ChatMessage(this.getName(), new Object[0]);
 			var1.getChatModifier().a(this.aS());
-			var1.getChatModifier().a(this.aM().toString());
+			var1.getChatModifier().a(this.getUniqueId().toString());
 			return var1;
 		}
 	}

@@ -9,7 +9,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.MathHelper;
 
 public class CommandWorldBorder extends CommandAbstract {
@@ -135,7 +135,7 @@ public class CommandWorldBorder extends CommandAbstract {
             }
 
             var4 = var3.h();
-            var1.a(class_n.class_a_in_class_n.e, MathHelper.floor(var4 + 0.5D));
+            var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, MathHelper.floor(var4 + 0.5D));
             var1.a(new ChatMessage("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
          }
 

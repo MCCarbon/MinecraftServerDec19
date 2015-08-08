@@ -104,7 +104,7 @@ public class ItemEnderEye extends Item {
          if(!var2.isClientSide) {
             BlockPosition var6 = var2.a("Stronghold", new BlockPosition(var3));
             if(var6 != null) {
-               EntityEnderSignal var7 = new EntityEnderSignal(var2, var3.s, var3.t, var3.u);
+               EntityEnderSignal var7 = new EntityEnderSignal(var2, var3.locX, var3.locY, var3.locZ);
                var7.a(var6);
                var2.addEntity((Entity)var7);
                var2.a((Entity)var3, "random.bow", 0.5F, 0.4F / (random.nextFloat() * 0.4F + 0.8F));

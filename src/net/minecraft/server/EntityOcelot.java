@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 
 public class EntityOcelot extends EntityTameable {
 
-	private static final int TYPE_DW_ID = Datawathcer.claimId(EntityOcelot.class); //value = 14
+	private static final int TYPE_DW_ID = DataWathcer.claimId(EntityOcelot.class); //value = 14
 
 	private class_rb bx;
 	private class_sr by;
@@ -52,7 +52,7 @@ public class EntityOcelot extends EntityTameable {
 	}
 
 	protected boolean E() {
-		return !this.cA() && this.W > 2400;
+		return !this.cA() && this.ticksLived > 2400;
 	}
 
 	protected void aY() {
@@ -112,7 +112,7 @@ public class EntityOcelot extends EntityTameable {
 
 	public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
 		if (this.cA()) {
-			if (this.e(var1) && !this.o.isClientSide && !this.d(var3)) {
+			if (this.e(var1) && !this.world.isClientSide && !this.d(var3)) {
 				this.bu.a(!this.cC());
 			}
 		} else if (this.by.f() && var3 != null && var3.getItem() == Items.FISH && var1.h(this) < 9.0D) {
@@ -120,17 +120,17 @@ public class EntityOcelot extends EntityTameable {
 				--var3.count;
 			}
 
-			if (!this.o.isClientSide) {
+			if (!this.world.isClientSide) {
 				if (this.random.nextInt(3) == 0) {
 					this.n(true);
-					this.m(1 + this.o.random.nextInt(3));
-					this.b((String) var1.aM().toString());
+					this.m(1 + this.world.random.nextInt(3));
+					this.b((String) var1.getUniqueId().toString());
 					this.m(true);
 					this.bu.a(true);
-					this.o.a((Entity) this, (byte) 7);
+					this.world.a((Entity) this, (byte) 7);
 				} else {
 					this.m(false);
-					this.o.a((Entity) this, (byte) 6);
+					this.world.a((Entity) this, (byte) 6);
 				}
 			}
 
@@ -141,7 +141,7 @@ public class EntityOcelot extends EntityTameable {
 	}
 
 	public EntityOcelot b(EntityAgeable var1) {
-		EntityOcelot var2 = new EntityOcelot(this.o);
+		EntityOcelot var2 = new EntityOcelot(this.world);
 		if (this.cA()) {
 			var2.b((String) this.b());
 			var2.n(true);
@@ -177,17 +177,17 @@ public class EntityOcelot extends EntityTameable {
 	}
 
 	public boolean cf() {
-		return this.o.random.nextInt(3) != 0;
+		return this.world.random.nextInt(3) != 0;
 	}
 
 	public boolean cg() {
-		if (this.o.a((AxisAlignedBB) this.aT(), (Entity) this) && this.o.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && !this.o.d(this.aT())) {
-			BlockPosition var1 = new BlockPosition(this.s, this.aT().yMin, this.u);
-			if (var1.getY() < this.o.G()) {
+		if (this.world.a((AxisAlignedBB) this.aT(), (Entity) this) && this.world.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && !this.world.d(this.aT())) {
+			BlockPosition var1 = new BlockPosition(this.locX, this.aT().yMin, this.locZ);
+			if (var1.getY() < this.world.G()) {
 				return false;
 			}
 
-			Block var2 = this.o.getType(var1.down()).getBlock();
+			Block var2 = this.world.getType(var1.down()).getBlock();
 			if (var2 == Blocks.GRASS || var2.getMaterial() == Material.LEAVES) {
 				return true;
 			}
@@ -197,7 +197,7 @@ public class EntityOcelot extends EntityTameable {
 	}
 
 	public String getName() {
-		return this.hasCustomName() ? this.aO() : (this.cA() ? LocaleI18n.get("entity.Cat.name") : super.getName());
+		return this.hasCustomName() ? this.getCustomName() : (this.cA() ? LocaleI18n.get("entity.Cat.name") : super.getName());
 	}
 
 	public void n(boolean var1) {
@@ -218,12 +218,12 @@ public class EntityOcelot extends EntityTameable {
 
 	public class_qd a(class_on var1, class_qd var2) {
 		var2 = super.a(var1, var2);
-		if (this.o.random.nextInt(7) == 0) {
+		if (this.world.random.nextInt(7) == 0) {
 			for (int var3 = 0; var3 < 2; ++var3) {
-				EntityOcelot var4 = new EntityOcelot(this.o);
-				var4.b(this.s, this.t, this.u, this.y, 0.0F);
+				EntityOcelot var4 = new EntityOcelot(this.world);
+				var4.b(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
 				var4.b(-24000);
-				this.o.addEntity((Entity) var4);
+				this.world.addEntity((Entity) var4);
 			}
 		}
 

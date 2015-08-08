@@ -11,7 +11,7 @@ public class class_rh extends class_rm {
 
    public class_rh(EntityInsentient var1) {
       this.c = var1;
-      this.d = var1.o;
+      this.d = var1.world;
       this.a(7);
    }
 
@@ -19,7 +19,7 @@ public class class_rh extends class_rm {
       if(this.c.bd().nextInt(this.c.isBaby()?50:1000) != 0) {
          return false;
       } else {
-         BlockPosition var1 = new BlockPosition(this.c.s, this.c.t, this.c.u);
+         BlockPosition var1 = new BlockPosition(this.c.locX, this.c.locY, this.c.locZ);
          return b.apply(this.d.getType(var1))?true:this.d.getType(var1.down()).getBlock() == Blocks.GRASS;
       }
    }
@@ -45,7 +45,7 @@ public class class_rh extends class_rm {
    public void e() {
       this.a = Math.max(0, this.a - 1);
       if(this.a == 4) {
-         BlockPosition var1 = new BlockPosition(this.c.s, this.c.t, this.c.u);
+         BlockPosition var1 = new BlockPosition(this.c.locX, this.c.locY, this.c.locZ);
          if(b.apply(this.d.getType(var1))) {
             if(this.d.R().getBooleanValue("mobGriefing")) {
                this.d.setAir(var1, false);

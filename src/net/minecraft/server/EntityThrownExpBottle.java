@@ -26,14 +26,14 @@ public class EntityThrownExpBottle extends class_xo {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.isClientSide) {
-         this.o.b(2002, new BlockPosition(this), 0);
-         int var2 = 3 + this.o.random.nextInt(5) + this.o.random.nextInt(5);
+      if(!this.world.isClientSide) {
+         this.world.b(2002, new BlockPosition(this), 0);
+         int var2 = 3 + this.world.random.nextInt(5) + this.world.random.nextInt(5);
 
          while(var2 > 0) {
             int var3 = EntityExperienceOrb.getOrbValue(var2);
             var2 -= var3;
-            this.o.addEntity((Entity)(new EntityExperienceOrb(this.o, this.s, this.t, this.u, var3)));
+            this.world.addEntity((Entity)(new EntityExperienceOrb(this.world, this.locX, this.locY, this.locZ, var3)));
          }
 
          this.J();

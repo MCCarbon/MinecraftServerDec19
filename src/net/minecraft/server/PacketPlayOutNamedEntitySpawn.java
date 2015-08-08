@@ -8,7 +8,7 @@ import net.minecraft.server.PacketListener;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.Datawathcer;
+import net.minecraft.server.DataWathcer;
 import net.minecraft.server.EntityHuman;
 
 public class PacketPlayOutNamedEntitySpawn implements Packet {
@@ -19,7 +19,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
    private int e;
    private byte f;
    private byte g;
-   private Datawathcer h;
+   private DataWathcer h;
    private List i;
 
    public PacketPlayOutNamedEntitySpawn() {
@@ -28,11 +28,11 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
    public PacketPlayOutNamedEntitySpawn(EntityHuman var1) {
       this.a = var1.getId();
       this.b = var1.cf().getId();
-      this.c = MathHelper.floor(var1.s * 32.0D);
-      this.d = MathHelper.floor(var1.t * 32.0D);
-      this.e = MathHelper.floor(var1.u * 32.0D);
-      this.f = (byte)((int)(var1.y * 256.0F / 360.0F));
-      this.g = (byte)((int)(var1.z * 256.0F / 360.0F));
+      this.c = MathHelper.floor(var1.locX * 32.0D);
+      this.d = MathHelper.floor(var1.locY * 32.0D);
+      this.e = MathHelper.floor(var1.locZ * 32.0D);
+      this.f = (byte)((int)(var1.yaw * 256.0F / 360.0F));
+      this.g = (byte)((int)(var1.pitch * 256.0F / 360.0F));
       this.h = var1.H();
    }
 
@@ -44,7 +44,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
       this.e = var1.readInt();
       this.f = var1.readByte();
       this.g = var1.readByte();
-      this.i = Datawathcer.b(var1);
+      this.i = DataWathcer.b(var1);
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {

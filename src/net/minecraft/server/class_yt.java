@@ -39,7 +39,7 @@ public class class_yt extends class_yx {
    }
 
    protected void c(ItemStack var1) {
-      var1.a(this.b.o, this.b, this.c);
+      var1.a(this.b.world, this.b, this.c);
       this.c = 0;
    }
 

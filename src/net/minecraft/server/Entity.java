@@ -10,65 +10,65 @@ import java.util.concurrent.Callable;
 
 public abstract class Entity implements class_m {
 
-	private static final int FLAGS_DW_ID = Datawathcer.claimId(Entity.class); // value = 0
-	private static final int AIR_DW_ID = Datawathcer.claimId(Entity.class); // value = 1
-	private static final int NAMETAG_DW_ID = Datawathcer.claimId(Entity.class); // value = 2
-	private static final int NAMETAG_VISIBLE_DW_ID = Datawathcer.claimId(Entity.class); // value = 3
-	private static final int SILENT_DW_ID = Datawathcer.claimId(Entity.class); // value = 4
+	private static final int FLAGS_DW_ID = DataWathcer.claimId(Entity.class); // value = 0
+	private static final int AIR_DW_ID = DataWathcer.claimId(Entity.class); // value = 1
+	private static final int NAMETAG_DW_ID = DataWathcer.claimId(Entity.class); // value = 2
+	private static final int NAMETAG_VISIBLE_DW_ID = DataWathcer.claimId(Entity.class); // value = 3
+	private static final int SILENT_DW_ID = DataWathcer.claimId(Entity.class); // value = 4
 	private static final AxisAlignedBB a = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
-	private static int b;
+	private static int entityCount;
 
 	private int c;
 	public double j;
 	public boolean k;
 	public Entity passenger;
 	public Entity vehicle;
-	public boolean n;
-	public World o;
-	public double p;
-	public double q;
-	public double r;
-	public double s;
-	public double t;
-	public double u;
-	public double v;
+	public boolean attachedToPlayer;
+	public World world;
+	public double lastX;
+	public double lastY;
+	public double lastZ;
+	public double locX;
+	public double locY;
+	public double locZ;
+	public double motX;
 	public double motY;
-	public double x;
-	public float y;
-	public float z;
-	public float A;
-	public float B;
-	private AxisAlignedBB f;
-	public boolean C;
-	public boolean D;
+	public double motZ;
+	public float yaw;
+	public float pitch;
+	public float lastYaw;
+	public float lastPitch;
+	private AxisAlignedBB boundingBox;
+	public boolean onGround;
+	public boolean positionChanged;
 	public boolean E;
 	public boolean F;
-	public boolean G;
+	public boolean velocityChanged;
 	protected boolean H;
 	private boolean g;
-	public boolean I;
-	public float J;
-	public float K;
+	public boolean dead;
+	public float width;
+	public float length;
 	public float L;
 	public float M;
 	public float N;
-	public float O;
+	public float fallDistance;
 	private int h;
 	public double P;
 	public double Q;
 	public double R;
 	public float S;
-	public boolean T;
+	public boolean noclip;
 	public float U;
 	protected Random random;
-	public int W;
-	public int X;
-	private int i;
-	protected boolean Y;
-	public int Z;
-	protected boolean aa;
-	protected boolean ab;
-	protected Datawathcer datawatcher;
+	public int ticksLived;
+	public int maxFireTicks;
+	private int fireTicks;
+	protected boolean inWater;
+	public int noDamageTicks;
+	protected boolean justCreated;
+	protected boolean fireProof;
+	protected DataWathcer datawatcher;
 	private double ax;
 	private double ay;
 	public boolean ad;
@@ -77,18 +77,18 @@ public abstract class Entity implements class_m {
 	public int ag;
 	public boolean ah;
 	public boolean ai;
-	public int aj;
+	public int portalCooldown;
 	protected boolean ak;
 	protected int al;
-	public int am;
+	public int dimension;
 	protected BlockPosition an;
 	protected Vec3D ao;
 	protected EnumDirection ap;
-	private boolean az;
+	private boolean invulnerable;
 	protected UUID uniqueID;
-	private final class_n aA;
+	private final CommandObjectiveExecutor aA;
 	private final List aB;
-	protected boolean ar;
+	protected boolean glowing;
 
 	public int getId() {
 		return this.c;
@@ -103,25 +103,25 @@ public abstract class Entity implements class_m {
 	}
 
 	public Entity(World var1) {
-		this.c = b++;
+		this.c = entityCount++;
 		this.j = 1.0D;
-		this.f = a;
-		this.J = 0.6F;
-		this.K = 1.8F;
+		this.boundingBox = a;
+		this.width = 0.6F;
+		this.length = 1.8F;
 		this.h = 1;
 		this.random = new Random();
-		this.X = 1;
-		this.aa = true;
+		this.maxFireTicks = 1;
+		this.justCreated = true;
 		this.uniqueID = MathHelper.getRandomUUID(this.random);
-		this.aA = new class_n();
+		this.aA = new CommandObjectiveExecutor();
 		this.aB = Lists.newArrayList();
-		this.o = var1;
+		this.world = var1;
 		this.b(0.0D, 0.0D, 0.0D);
 		if (var1 != null) {
-			this.am = var1.worldProvider.p().a();
+			this.dimension = var1.worldProvider.p().a();
 		}
 
-		this.datawatcher = new Datawathcer(this);
+		this.datawatcher = new DataWathcer(this);
 		this.datawatcher.add(FLAGS_DW_ID, Byte.valueOf((byte) 0));
 		this.datawatcher.add(AIR_DW_ID, Short.valueOf((short) 300));
 		this.datawatcher.add(NAMETAG_VISIBLE_DW_ID, Byte.valueOf((byte) 0));
@@ -132,7 +132,7 @@ public abstract class Entity implements class_m {
 
 	protected abstract void initDatawatcher();
 
-	public Datawathcer H() {
+	public DataWathcer H() {
 		return this.datawatcher;
 	}
 
@@ -145,38 +145,38 @@ public abstract class Entity implements class_m {
 	}
 
 	public void J() {
-		this.I = true;
+		this.dead = true;
 	}
 
 	protected void a(float var1, float var2) {
-		if (var1 != this.J || var2 != this.K) {
-			float var3 = this.J;
-			this.J = var1;
-			this.K = var2;
-			this.a(new AxisAlignedBB(this.aT().xMin, this.aT().yMin, this.aT().zMin, this.aT().xMin + (double) this.J, this.aT().yMin + (double) this.K, this.aT().zMin + (double) this.J));
-			if (this.J > var3 && !this.aa && !this.o.isClientSide) {
-				this.d((double) (var3 - this.J), 0.0D, (double) (var3 - this.J));
+		if (var1 != this.width || var2 != this.length) {
+			float var3 = this.width;
+			this.width = var1;
+			this.length = var2;
+			this.a(new AxisAlignedBB(this.aT().xMin, this.aT().yMin, this.aT().zMin, this.aT().xMin + (double) this.width, this.aT().yMin + (double) this.length, this.aT().zMin + (double) this.width));
+			if (this.width > var3 && !this.justCreated && !this.world.isClientSide) {
+				this.d((double) (var3 - this.width), 0.0D, (double) (var3 - this.width));
 			}
 		}
 
 	}
 
 	protected void b(float var1, float var2) {
-		this.y = var1 % 360.0F;
-		this.z = var2 % 360.0F;
+		this.yaw = var1 % 360.0F;
+		this.pitch = var2 % 360.0F;
 	}
 
 	public void b(double var1, double var3, double var5) {
-		this.s = var1;
-		this.t = var3;
-		this.u = var5;
-		float var7 = this.J / 2.0F;
-		float var8 = this.K;
+		this.locX = var1;
+		this.locY = var3;
+		this.locZ = var5;
+		float var7 = this.width / 2.0F;
+		float var8 = this.length;
 		this.a(new AxisAlignedBB(var1 - (double) var7, var3, var5 - (double) var7, var1 + (double) var7, var3 + (double) var8, var5 + (double) var7));
 	}
 
 	public void t_() {
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			this.b(6, this.az());
 		}
 
@@ -184,28 +184,28 @@ public abstract class Entity implements class_m {
 	}
 
 	public void K() {
-		this.o.B.a("entityBaseTick");
-		if (this.vehicle != null && this.vehicle.I) {
+		this.world.B.a("entityBaseTick");
+		if (this.vehicle != null && this.vehicle.dead) {
 			this.vehicle = null;
 		}
 
 		this.L = this.M;
-		this.p = this.s;
-		this.q = this.t;
-		this.r = this.u;
-		this.B = this.z;
-		this.A = this.y;
-		if (!this.o.isClientSide && this.o instanceof WorldServer) {
-			this.o.B.a("portal");
-			MinecraftServer var1 = ((WorldServer) this.o).s();
+		this.lastX = this.locX;
+		this.lastY = this.locY;
+		this.lastZ = this.locZ;
+		this.lastPitch = this.pitch;
+		this.lastYaw = this.yaw;
+		if (!this.world.isClientSide && this.world instanceof WorldServer) {
+			this.world.B.a("portal");
+			MinecraftServer var1 = ((WorldServer) this.world).s();
 			int var2 = this.L();
 			if (this.ak) {
 				if (var1.C()) {
 					if (this.vehicle == null && this.al++ >= var2) {
 						this.al = var2;
-						this.aj = this.aq();
+						this.portalCooldown = this.aq();
 						byte var3;
-						if (this.o.worldProvider.p().a() == -1) {
+						if (this.world.worldProvider.p().a() == -1) {
 							var3 = 0;
 						} else {
 							var3 = -1;
@@ -226,47 +226,47 @@ public abstract class Entity implements class_m {
 				}
 			}
 
-			if (this.aj > 0) {
-				--this.aj;
+			if (this.portalCooldown > 0) {
+				--this.portalCooldown;
 			}
 
-			this.o.B.b();
+			this.world.B.b();
 		}
 
 		this.Y();
 		this.W();
-		if (this.o.isClientSide) {
-			this.i = 0;
-		} else if (this.i > 0) {
-			if (this.ab) {
-				this.i -= 4;
-				if (this.i < 0) {
-					this.i = 0;
+		if (this.world.isClientSide) {
+			this.fireTicks = 0;
+		} else if (this.fireTicks > 0) {
+			if (this.fireProof) {
+				this.fireTicks -= 4;
+				if (this.fireTicks < 0) {
+					this.fireTicks = 0;
 				}
 			} else {
-				if (this.i % 20 == 0) {
+				if (this.fireTicks % 20 == 0) {
 					this.damageEntity(DamageSource.c, 1.0F);
 				}
 
-				--this.i;
+				--this.fireTicks;
 			}
 		}
 
 		if (this.ab()) {
 			this.M();
-			this.O *= 0.5F;
+			this.fallDistance *= 0.5F;
 		}
 
-		if (this.t < -64.0D) {
+		if (this.locY < -64.0D) {
 			this.O();
 		}
 
-		if (!this.o.isClientSide) {
-			this.b(0, this.i > 0);
+		if (!this.world.isClientSide) {
+			this.b(0, this.fireTicks > 0);
 		}
 
-		this.aa = false;
-		this.o.B.b();
+		this.justCreated = false;
+		this.world.B.b();
 	}
 
 	public int L() {
@@ -274,7 +274,7 @@ public abstract class Entity implements class_m {
 	}
 
 	protected void M() {
-		if (!this.ab) {
+		if (!this.fireProof) {
 			this.damageEntity(DamageSource.d, 4.0F);
 			this.f(15);
 		}
@@ -286,14 +286,14 @@ public abstract class Entity implements class_m {
 			var2 = class_ads.a((EntityLiving) this, var2);
 		}
 
-		if (this.i < var2) {
-			this.i = var2;
+		if (this.fireTicks < var2) {
+			this.fireTicks = var2;
 		}
 
 	}
 
 	public void N() {
-		this.i = 0;
+		this.fireTicks = 0;
 	}
 
 	protected void O() {
@@ -306,35 +306,35 @@ public abstract class Entity implements class_m {
 	}
 
 	private boolean b(AxisAlignedBB var1) {
-		return this.o.a(this, var1).isEmpty() && !this.o.d(var1);
+		return this.world.a(this, var1).isEmpty() && !this.world.d(var1);
 	}
 
 	public void d(double var1, double var3, double var5) {
-		if (this.T) {
+		if (this.noclip) {
 			this.a(this.aT().c(var1, var3, var5));
 			this.m();
 		} else {
-			this.o.B.a("move");
-			double var7 = this.s;
-			double var9 = this.t;
-			double var11 = this.u;
+			this.world.B.a("move");
+			double var7 = this.locX;
+			double var9 = this.locY;
+			double var11 = this.locZ;
 			if (this.H) {
 				this.H = false;
 				var1 *= 0.25D;
 				var3 *= 0.05000000074505806D;
 				var5 *= 0.25D;
-				this.v = 0.0D;
+				this.motX = 0.0D;
 				this.motY = 0.0D;
-				this.x = 0.0D;
+				this.motZ = 0.0D;
 			}
 
 			double var13 = var1;
 			double var15 = var3;
 			double var17 = var5;
-			boolean var19 = this.C && this.ax() && this instanceof EntityHuman;
+			boolean var19 = this.onGround && this.ax() && this instanceof EntityHuman;
 			if (var19) {
 				double var20;
-				for (var20 = 0.05D; var1 != 0.0D && this.o.a(this, this.aT().c(var1, -1.0D, 0.0D)).isEmpty(); var13 = var1) {
+				for (var20 = 0.05D; var1 != 0.0D && this.world.a(this, this.aT().c(var1, -1.0D, 0.0D)).isEmpty(); var13 = var1) {
 					if (var1 < var20 && var1 >= -var20) {
 						var1 = 0.0D;
 					} else if (var1 > 0.0D) {
@@ -344,7 +344,7 @@ public abstract class Entity implements class_m {
 					}
 				}
 
-				for (; var5 != 0.0D && this.o.a(this, this.aT().c(0.0D, -1.0D, var5)).isEmpty(); var17 = var5) {
+				for (; var5 != 0.0D && this.world.a(this, this.aT().c(0.0D, -1.0D, var5)).isEmpty(); var17 = var5) {
 					if (var5 < var20 && var5 >= -var20) {
 						var5 = 0.0D;
 					} else if (var5 > 0.0D) {
@@ -354,7 +354,7 @@ public abstract class Entity implements class_m {
 					}
 				}
 
-				for (; var1 != 0.0D && var5 != 0.0D && this.o.a(this, this.aT().c(var1, -1.0D, var5)).isEmpty(); var17 = var5) {
+				for (; var1 != 0.0D && var5 != 0.0D && this.world.a(this, this.aT().c(var1, -1.0D, var5)).isEmpty(); var17 = var5) {
 					if (var1 < var20 && var1 >= -var20) {
 						var1 = 0.0D;
 					} else if (var1 > 0.0D) {
@@ -374,7 +374,7 @@ public abstract class Entity implements class_m {
 				}
 			}
 
-			List var53 = this.o.a(this, this.aT().add(var1, var3, var5));
+			List var53 = this.world.a(this, this.aT().add(var1, var3, var5));
 			AxisAlignedBB var21 = this.aT();
 
 			AxisAlignedBB var23;
@@ -383,7 +383,7 @@ public abstract class Entity implements class_m {
 			}
 
 			this.a(this.aT().c(0.0D, var3, 0.0D));
-			boolean var54 = this.C || var15 != var3 && var15 < 0.0D;
+			boolean var54 = this.onGround || var15 != var3 && var15 < 0.0D;
 
 			AxisAlignedBB var24;
 			Iterator var55;
@@ -405,7 +405,7 @@ public abstract class Entity implements class_m {
 				AxisAlignedBB var29 = this.aT();
 				this.a(var21);
 				var3 = (double) this.S;
-				List var30 = this.o.a(this, this.aT().add(var13, var3, var17));
+				List var30 = this.world.a(this, this.aT().add(var13, var3, var17));
 				AxisAlignedBB var31 = this.aT();
 				AxisAlignedBB var32 = var31.add(var13, 0.0D, var17);
 				double var33 = var3;
@@ -485,49 +485,49 @@ public abstract class Entity implements class_m {
 				}
 			}
 
-			this.o.B.b();
-			this.o.B.a("rest");
+			this.world.B.b();
+			this.world.B.a("rest");
 			this.m();
-			this.D = var13 != var1 || var17 != var5;
+			this.positionChanged = var13 != var1 || var17 != var5;
 			this.E = var15 != var3;
-			this.C = this.E && var15 < 0.0D;
-			this.F = this.D || this.E;
-			int var57 = MathHelper.floor(this.s);
-			int var58 = MathHelper.floor(this.t - 0.20000000298023224D);
-			int var59 = MathHelper.floor(this.u);
+			this.onGround = this.E && var15 < 0.0D;
+			this.F = this.positionChanged || this.E;
+			int var57 = MathHelper.floor(this.locX);
+			int var58 = MathHelper.floor(this.locY - 0.20000000298023224D);
+			int var59 = MathHelper.floor(this.locZ);
 			BlockPosition var26 = new BlockPosition(var57, var58, var59);
-			Block var60 = this.o.getType(var26).getBlock();
+			Block var60 = this.world.getType(var26).getBlock();
 			if (var60.getMaterial() == Material.AIR) {
-				Block var28 = this.o.getType(var26.down()).getBlock();
+				Block var28 = this.world.getType(var26.down()).getBlock();
 				if (var28 instanceof BlockFence || var28 instanceof BlockCobbleWall || var28 instanceof BlockFenceGate) {
 					var60 = var28;
 					var26 = var26.down();
 				}
 			}
 
-			this.a(var3, this.C, var60, var26);
+			this.a(var3, this.onGround, var60, var26);
 			if (var13 != var1) {
-				this.v = 0.0D;
+				this.motX = 0.0D;
 			}
 
 			if (var17 != var5) {
-				this.x = 0.0D;
+				this.motZ = 0.0D;
 			}
 
 			if (var15 != var3) {
-				var60.landOn(this.o, this);
+				var60.landOn(this.world, this);
 			}
 
 			if (this.s_() && !var19 && this.vehicle == null) {
-				double var61 = this.s - var7;
-				double var64 = this.t - var9;
-				double var66 = this.u - var11;
+				double var61 = this.locX - var7;
+				double var64 = this.locY - var9;
+				double var66 = this.locZ - var11;
 				if (var60 != Blocks.LADDER) {
 					var64 = 0.0D;
 				}
 
-				if (var60 != null && this.C) {
-					var60.onCollide(this.o, var26, this);
+				if (var60 != null && this.onGround) {
+					var60.onCollide(this.world, var26, this);
 				}
 
 				this.M = (float) ((double) this.M + (double) MathHelper.sqrt(var61 * var61 + var66 * var66) * 0.6D);
@@ -535,7 +535,7 @@ public abstract class Entity implements class_m {
 				if (this.N > (float) this.h && var60.getMaterial() != Material.AIR) {
 					this.h = (int) this.N + 1;
 					if (this.V()) {
-						float var34 = MathHelper.sqrt(this.v * this.v * 0.20000000298023224D + this.motY * this.motY + this.x * this.x * 0.20000000298023224D) * 0.35F;
+						float var34 = MathHelper.sqrt(this.motX * this.motX * 0.20000000298023224D + this.motY * this.motY + this.motZ * this.motZ * 0.20000000298023224D) * 0.35F;
 						if (var34 > 1.0F) {
 							var34 = 1.0F;
 						}
@@ -557,31 +557,31 @@ public abstract class Entity implements class_m {
 			}
 
 			boolean var62 = this.U();
-			if (this.o.e(this.aT().d(0.001D, 0.001D, 0.001D))) {
+			if (this.world.e(this.aT().d(0.001D, 0.001D, 0.001D))) {
 				this.g(1);
 				if (!var62) {
-					++this.i;
-					if (this.i == 0) {
+					++this.fireTicks;
+					if (this.fireTicks == 0) {
 						this.f(8);
 					}
 				}
-			} else if (this.i <= 0) {
-				this.i = -this.X;
+			} else if (this.fireTicks <= 0) {
+				this.fireTicks = -this.maxFireTicks;
 			}
 
-			if (var62 && this.i > 0) {
+			if (var62 && this.fireTicks > 0) {
 				this.a("random.fizz", 0.7F, 1.6F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
-				this.i = -this.X;
+				this.fireTicks = -this.maxFireTicks;
 			}
 
-			this.o.B.b();
+			this.world.B.b();
 		}
 	}
 
 	private void m() {
-		this.s = (this.aT().xMin + this.aT().xMax) / 2.0D;
-		this.t = this.aT().yMin;
-		this.u = (this.aT().zMin + this.aT().zMax) / 2.0D;
+		this.locX = (this.aT().xMin + this.aT().xMax) / 2.0D;
+		this.locY = this.aT().yMin;
+		this.locZ = (this.aT().zMin + this.aT().zMax) / 2.0D;
 	}
 
 	protected String P() {
@@ -591,15 +591,15 @@ public abstract class Entity implements class_m {
 	protected void Q() {
 		BlockPosition var1 = new BlockPosition(this.aT().xMin + 0.001D, this.aT().yMin + 0.001D, this.aT().zMin + 0.001D);
 		BlockPosition var2 = new BlockPosition(this.aT().xMax - 0.001D, this.aT().yMax - 0.001D, this.aT().zMax - 0.001D);
-		if (this.o.areChunksLoadedBetween(var1, var2)) {
+		if (this.world.areChunksLoadedBetween(var1, var2)) {
 			for (int var3 = var1.getX(); var3 <= var2.getX(); ++var3) {
 				for (int var4 = var1.getY(); var4 <= var2.getY(); ++var4) {
 					for (int var5 = var1.getZ(); var5 <= var2.getZ(); ++var5) {
 						BlockPosition var6 = new BlockPosition(var3, var4, var5);
-						IBlockData var7 = this.o.getType(var6);
+						IBlockData var7 = this.world.getType(var6);
 
 						try {
-							var7.getBlock().a(this.o, var6, var7, this);
+							var7.getBlock().a(this.world, var6, var7, this);
 						} catch (Throwable var11) {
 							class_b var9 = class_b.a(var11, "Colliding entity with block");
 							class_c var10 = var9.a("Block being collided with");
@@ -615,7 +615,7 @@ public abstract class Entity implements class_m {
 
 	protected void a(BlockPosition var1, Block var2) {
 		Block.Sound var3 = var2.stepSound;
-		if (this.o.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
+		if (this.world.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
 			var3 = Blocks.SNOW_LAYER.stepSound;
 			this.a(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
 		} else if (!var2.getMaterial().isLiquid()) {
@@ -625,13 +625,13 @@ public abstract class Entity implements class_m {
 	}
 
 	public void a(String var1, float var2, float var3) {
-		if (!this.R()) {
-			this.o.a(this, var1, var2, var3);
+		if (!this.isSilent()) {
+			this.world.a(this, var1, var2, var3);
 		}
 
 	}
 
-	public boolean R() {
+	public boolean isSilent() {
 		return this.datawatcher.getByte(SILENT_DW_ID) == 1;
 	}
 
@@ -645,17 +645,17 @@ public abstract class Entity implements class_m {
 
 	protected void a(double var1, boolean var3, Block var4, BlockPosition var5) {
 		if (var3) {
-			if (this.O > 0.0F) {
+			if (this.fallDistance > 0.0F) {
 				if (var4 != null) {
-					var4.fallOn(this.o, var5, this, this.O);
+					var4.fallOn(this.world, var5, this, this.fallDistance);
 				} else {
-					this.e(this.O, 1.0F);
+					this.e(this.fallDistance, 1.0F);
 				}
 
-				this.O = 0.0F;
+				this.fallDistance = 0.0F;
 			}
 		} else if (var1 < 0.0D) {
-			this.O = (float) ((double) this.O - var1);
+			this.fallDistance = (float) ((double) this.fallDistance - var1);
 		}
 
 	}
@@ -665,14 +665,14 @@ public abstract class Entity implements class_m {
 	}
 
 	protected void g(int var1) {
-		if (!this.ab) {
+		if (!this.fireProof) {
 			this.damageEntity(DamageSource.a, (float) var1);
 		}
 
 	}
 
 	public final boolean T() {
-		return this.ab;
+		return this.fireProof;
 	}
 
 	public void e(float var1, float var2) {
@@ -683,31 +683,31 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean U() {
-		return this.Y || this.o.C(new BlockPosition(this.s, this.t, this.u)) || this.o.C(new BlockPosition(this.s, this.t + (double) this.K, this.u));
+		return this.inWater || this.world.C(new BlockPosition(this.locX, this.locY, this.locZ)) || this.world.C(new BlockPosition(this.locX, this.locY + (double) this.length, this.locZ));
 	}
 
 	public boolean V() {
-		return this.Y;
+		return this.inWater;
 	}
 
 	public boolean W() {
-		if (this.o.a(this.aT().grow(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.WATER, this)) {
-			if (!this.Y && !this.aa) {
+		if (this.world.a(this.aT().grow(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.WATER, this)) {
+			if (!this.inWater && !this.justCreated) {
 				this.X();
 			}
 
-			this.O = 0.0F;
-			this.Y = true;
-			this.i = 0;
+			this.fallDistance = 0.0F;
+			this.inWater = true;
+			this.fireTicks = 0;
 		} else {
-			this.Y = false;
+			this.inWater = false;
 		}
 
-		return this.Y;
+		return this.inWater;
 	}
 
 	protected void X() {
-		float var1 = MathHelper.sqrt(this.v * this.v * 0.20000000298023224D + this.motY * this.motY + this.x * this.x * 0.20000000298023224D) * 0.2F;
+		float var1 = MathHelper.sqrt(this.motX * this.motX * 0.20000000298023224D + this.motY * this.motY + this.motZ * this.motZ * 0.20000000298023224D) * 0.2F;
 		if (var1 > 1.0F) {
 			var1 = 1.0F;
 		}
@@ -718,16 +718,16 @@ public abstract class Entity implements class_m {
 		int var3;
 		float var4;
 		float var5;
-		for (var3 = 0; (float) var3 < 1.0F + this.J * 20.0F; ++var3) {
-			var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J;
-			var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J;
-			this.o.a(class_cy.e, this.s + (double) var4, (double) (var2 + 1.0F), this.u + (double) var5, this.v, this.motY - (double) (this.random.nextFloat() * 0.2F), this.x, new int[0]);
+		for (var3 = 0; (float) var3 < 1.0F + this.width * 20.0F; ++var3) {
+			var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
+			var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
+			this.world.a(class_cy.e, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY - (double) (this.random.nextFloat() * 0.2F), this.motZ, new int[0]);
 		}
 
-		for (var3 = 0; (float) var3 < 1.0F + this.J * 20.0F; ++var3) {
-			var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J;
-			var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.J;
-			this.o.a(class_cy.f, this.s + (double) var4, (double) (var2 + 1.0F), this.u + (double) var5, this.v, this.motY, this.x, new int[0]);
+		for (var3 = 0; (float) var3 < 1.0F + this.width * 20.0F; ++var3) {
+			var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
+			var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
+			this.world.a(class_cy.f, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
 		}
 
 	}
@@ -740,14 +740,14 @@ public abstract class Entity implements class_m {
 	}
 
 	protected void Z() {
-		int var1 = MathHelper.floor(this.s);
-		int var2 = MathHelper.floor(this.t - 0.20000000298023224D);
-		int var3 = MathHelper.floor(this.u);
+		int var1 = MathHelper.floor(this.locX);
+		int var2 = MathHelper.floor(this.locY - 0.20000000298023224D);
+		int var3 = MathHelper.floor(this.locZ);
 		BlockPosition var4 = new BlockPosition(var1, var2, var3);
-		IBlockData var5 = this.o.getType(var4);
+		IBlockData var5 = this.world.getType(var4);
 		Block var6 = var5.getBlock();
 		if (var6.getRenderType() != -1) {
-			this.o.a(class_cy.L, this.s + ((double) this.random.nextFloat() - 0.5D) * (double) this.J, this.aT().yMin + 0.1D, this.u + ((double) this.random.nextFloat() - 0.5D) * (double) this.J, -this.v * 4.0D, 1.5D, -this.x * 4.0D, new int[] { Block.getCombinedId(var5) });
+			this.world.a(class_cy.L, this.locX + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, this.aT().yMin + 0.1D, this.locZ + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, -this.motX * 4.0D, 1.5D, -this.motZ * 4.0D, new int[] { Block.getCombinedId(var5) });
 		}
 
 	}
@@ -757,9 +757,9 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean a(Material var1) {
-		double var2 = this.t + (double) this.aU();
-		BlockPosition var4 = new BlockPosition(this.s, var2, this.u);
-		IBlockData var5 = this.o.getType(var4);
+		double var2 = this.locY + (double) this.aU();
+		BlockPosition var4 = new BlockPosition(this.locX, var2, this.locZ);
+		IBlockData var5 = this.world.getType(var4);
 		Block var6 = var5.getBlock();
 		if (var6.getMaterial() == var1) {
 			float var7 = BlockFluids.b(var5.getBlock().toLegacyData(var5)) - 0.11111111F;
@@ -772,7 +772,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean ab() {
-		return this.o.a(this.aT().grow(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.LAVA);
+		return this.world.a(this.aT().grow(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.LAVA);
 	}
 
 	public void a(float var1, float var2, float var3) {
@@ -786,38 +786,38 @@ public abstract class Entity implements class_m {
 			var4 = var3 / var4;
 			var1 *= var4;
 			var2 *= var4;
-			float var5 = MathHelper.sin(this.y * 3.1415927F / 180.0F);
-			float var6 = MathHelper.cos(this.y * 3.1415927F / 180.0F);
-			this.v += (double) (var1 * var6 - var2 * var5);
-			this.x += (double) (var2 * var6 + var1 * var5);
+			float var5 = MathHelper.sin(this.yaw * 3.1415927F / 180.0F);
+			float var6 = MathHelper.cos(this.yaw * 3.1415927F / 180.0F);
+			this.motX += (double) (var1 * var6 - var2 * var5);
+			this.motZ += (double) (var2 * var6 + var1 * var5);
 		}
 	}
 
 	public float c(float var1) {
-		BlockPosition var2 = new BlockPosition(this.s, this.t + (double) this.aU(), this.u);
-		return this.o.e(var2) ? this.o.o(var2) : 0.0F;
+		BlockPosition var2 = new BlockPosition(this.locX, this.locY + (double) this.aU(), this.locZ);
+		return this.world.e(var2) ? this.world.o(var2) : 0.0F;
 	}
 
 	public void a(World var1) {
-		this.o = var1;
+		this.world = var1;
 	}
 
 	public void a(double var1, double var3, double var5, float var7, float var8) {
-		this.p = this.s = var1;
-		this.q = this.t = var3;
-		this.r = this.u = var5;
-		this.A = this.y = var7;
-		this.B = this.z = var8;
-		double var9 = (double) (this.A - var7);
+		this.lastX = this.locX = var1;
+		this.lastY = this.locY = var3;
+		this.lastZ = this.locZ = var5;
+		this.lastYaw = this.yaw = var7;
+		this.lastPitch = this.pitch = var8;
+		double var9 = (double) (this.lastYaw - var7);
 		if (var9 < -180.0D) {
-			this.A += 360.0F;
+			this.lastYaw += 360.0F;
 		}
 
 		if (var9 >= 180.0D) {
-			this.A -= 360.0F;
+			this.lastYaw -= 360.0F;
 		}
 
-		this.b(this.s, this.t, this.u);
+		this.b(this.locX, this.locY, this.locZ);
 		this.b(var7, var8);
 	}
 
@@ -826,47 +826,47 @@ public abstract class Entity implements class_m {
 	}
 
 	public void b(double var1, double var3, double var5, float var7, float var8) {
-		this.P = this.p = this.s = var1;
-		this.Q = this.q = this.t = var3;
-		this.R = this.r = this.u = var5;
-		this.y = var7;
-		this.z = var8;
-		this.b(this.s, this.t, this.u);
+		this.P = this.lastX = this.locX = var1;
+		this.Q = this.lastY = this.locY = var3;
+		this.R = this.lastZ = this.locZ = var5;
+		this.yaw = var7;
+		this.pitch = var8;
+		this.b(this.locX, this.locY, this.locZ);
 	}
 
 	public float g(Entity var1) {
-		float var2 = (float) (this.s - var1.s);
-		float var3 = (float) (this.t - var1.t);
-		float var4 = (float) (this.u - var1.u);
+		float var2 = (float) (this.locX - var1.locX);
+		float var3 = (float) (this.locY - var1.locY);
+		float var4 = (float) (this.locZ - var1.locZ);
 		return MathHelper.sqrt(var2 * var2 + var3 * var3 + var4 * var4);
 	}
 
 	public double e(double var1, double var3, double var5) {
-		double var7 = this.s - var1;
-		double var9 = this.t - var3;
-		double var11 = this.u - var5;
+		double var7 = this.locX - var1;
+		double var9 = this.locY - var3;
+		double var11 = this.locZ - var5;
 		return var7 * var7 + var9 * var9 + var11 * var11;
 	}
 
 	public double b(BlockPosition var1) {
-		return var1.distanceSquared(this.s, this.t, this.u);
+		return var1.distanceSquared(this.locX, this.locY, this.locZ);
 	}
 
 	public double c(BlockPosition var1) {
-		return var1.distanceSquaredFromCenter(this.s, this.t, this.u);
+		return var1.distanceSquaredFromCenter(this.locX, this.locY, this.locZ);
 	}
 
 	public double f(double var1, double var3, double var5) {
-		double var7 = this.s - var1;
-		double var9 = this.t - var3;
-		double var11 = this.u - var5;
+		double var7 = this.locX - var1;
+		double var9 = this.locY - var3;
+		double var11 = this.locZ - var5;
 		return (double) MathHelper.sqrt(var7 * var7 + var9 * var9 + var11 * var11);
 	}
 
 	public double h(Entity var1) {
-		double var2 = this.s - var1.s;
-		double var4 = this.t - var1.t;
-		double var6 = this.u - var1.u;
+		double var2 = this.locX - var1.locX;
+		double var4 = this.locY - var1.locY;
+		double var6 = this.locZ - var1.locZ;
 		return var2 * var2 + var4 * var4 + var6 * var6;
 	}
 
@@ -875,9 +875,9 @@ public abstract class Entity implements class_m {
 
 	public void i(Entity var1) {
 		if (var1.passenger != this && var1.vehicle != this) {
-			if (!var1.T && !this.T) {
-				double var2 = var1.s - this.s;
-				double var4 = var1.u - this.u;
+			if (!var1.noclip && !this.noclip) {
+				double var2 = var1.locX - this.locX;
+				double var4 = var1.locZ - this.locZ;
 				double var6 = MathHelper.maxAbs(var2, var4);
 				if (var6 >= 0.009999999776482582D) {
 					var6 = (double) MathHelper.sqrt(var6);
@@ -908,14 +908,14 @@ public abstract class Entity implements class_m {
 	}
 
 	public void g(double var1, double var3, double var5) {
-		this.v += var1;
+		this.motX += var1;
 		this.motY += var3;
-		this.x += var5;
+		this.motZ += var5;
 		this.ai = true;
 	}
 
 	protected void ac() {
-		this.G = true;
+		this.velocityChanged = true;
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
@@ -929,10 +929,10 @@ public abstract class Entity implements class_m {
 
 	public Vec3D d(float var1) {
 		if (var1 == 1.0F) {
-			return this.f(this.z, this.y);
+			return this.f(this.pitch, this.yaw);
 		} else {
-			float var2 = this.B + (this.z - this.B) * var1;
-			float var3 = this.A + (this.y - this.A) * var1;
+			float var2 = this.lastPitch + (this.pitch - this.lastPitch) * var1;
+			float var3 = this.lastYaw + (this.yaw - this.lastYaw) * var1;
 			return this.f(var2, var3);
 		}
 	}
@@ -958,7 +958,7 @@ public abstract class Entity implements class_m {
 
 	public boolean c(NBTTagCompound var1) {
 		String var2 = this.ag();
-		if (!this.I && var2 != null) {
+		if (!this.dead && var2 != null) {
 			var1.put("id", var2);
 			this.e(var1);
 			return true;
@@ -969,7 +969,7 @@ public abstract class Entity implements class_m {
 
 	public boolean d(NBTTagCompound var1) {
 		String var2 = this.ag();
-		if (!this.I && var2 != null && this.passenger == null) {
+		if (!this.dead && var2 != null && this.passenger == null) {
 			var1.put("id", var2);
 			this.e(var1);
 			return true;
@@ -980,29 +980,29 @@ public abstract class Entity implements class_m {
 
 	public void e(NBTTagCompound var1) {
 		try {
-			var1.put((String) "Pos", (NBTTag) this.a(new double[] { this.s, this.t, this.u }));
-			var1.put((String) "Motion", (NBTTag) this.a(new double[] { this.v, this.motY, this.x }));
-			var1.put((String) "Rotation", (NBTTag) this.a(new float[] { this.y, this.z }));
-			var1.put("FallDistance", this.O);
-			var1.put("Fire", (short) this.i);
+			var1.put((String) "Pos", (NBTTag) this.a(new double[] { this.locX, this.locY, this.locZ }));
+			var1.put((String) "Motion", (NBTTag) this.a(new double[] { this.motX, this.motY, this.motZ }));
+			var1.put((String) "Rotation", (NBTTag) this.a(new float[] { this.yaw, this.pitch }));
+			var1.put("FallDistance", this.fallDistance);
+			var1.put("Fire", (short) this.fireTicks);
 			var1.put("Air", (short) this.aB());
-			var1.put("OnGround", this.C);
-			var1.put("Dimension", this.am);
-			var1.put("Invulnerable", this.az);
-			var1.put("PortalCooldown", this.aj);
-			var1.put("UUID", this.aM());
-			if (this.aO() != null && !this.aO().isEmpty()) {
-				var1.put("CustomName", this.aO());
-				var1.put("CustomNameVisible", this.aP());
+			var1.put("OnGround", this.onGround);
+			var1.put("Dimension", this.dimension);
+			var1.put("Invulnerable", this.invulnerable);
+			var1.put("PortalCooldown", this.portalCooldown);
+			var1.put("UUID", this.getUniqueId());
+			if (this.getCustomName() != null && !this.getCustomName().isEmpty()) {
+				var1.put("CustomName", this.getCustomName());
+				var1.put("CustomNameVisible", this.isCustomNameVisible());
 			}
 
 			this.aA.b(var1);
-			if (this.R()) {
-				var1.put("Silent", this.R());
+			if (this.isSilent()) {
+				var1.put("Silent", this.isSilent());
 			}
 
-			if (this.ar) {
-				var1.put("Glowing", this.ar);
+			if (this.glowing) {
+				var1.put("Glowing", this.glowing);
 			}
 
 			this.write(var1);
@@ -1026,35 +1026,35 @@ public abstract class Entity implements class_m {
 			NBTTagList var2 = var1.getList("Pos", 6);
 			NBTTagList var7 = var1.getList("Motion", 6);
 			NBTTagList var8 = var1.getList("Rotation", 5);
-			this.v = var7.getDouble(0);
+			this.motX = var7.getDouble(0);
 			this.motY = var7.getDouble(1);
-			this.x = var7.getDouble(2);
-			if (Math.abs(this.v) > 10.0D) {
-				this.v = 0.0D;
+			this.motZ = var7.getDouble(2);
+			if (Math.abs(this.motX) > 10.0D) {
+				this.motX = 0.0D;
 			}
 
 			if (Math.abs(this.motY) > 10.0D) {
 				this.motY = 0.0D;
 			}
 
-			if (Math.abs(this.x) > 10.0D) {
-				this.x = 0.0D;
+			if (Math.abs(this.motZ) > 10.0D) {
+				this.motZ = 0.0D;
 			}
 
-			this.p = this.P = this.s = var2.getDouble(0);
-			this.q = this.Q = this.t = var2.getDouble(1);
-			this.r = this.R = this.u = var2.getDouble(2);
-			this.A = this.y = var8.getFloat(0);
-			this.B = this.z = var8.getFloat(1);
-			this.f(this.y);
-			this.g(this.y);
-			this.O = var1.getFloat("FallDistance");
-			this.i = var1.getShort("Fire");
+			this.lastX = this.P = this.locX = var2.getDouble(0);
+			this.lastY = this.Q = this.locY = var2.getDouble(1);
+			this.lastZ = this.R = this.locZ = var2.getDouble(2);
+			this.lastYaw = this.yaw = var8.getFloat(0);
+			this.lastPitch = this.pitch = var8.getFloat(1);
+			this.f(this.yaw);
+			this.g(this.yaw);
+			this.fallDistance = var1.getFloat("FallDistance");
+			this.fireTicks = var1.getShort("Fire");
 			this.i(var1.getShort("Air"));
-			this.C = var1.getBoolean("OnGround");
-			this.am = var1.getInt("Dimension");
-			this.az = var1.getBoolean("Invulnerable");
-			this.aj = var1.getInt("PortalCooldown");
+			this.onGround = var1.getBoolean("OnGround");
+			this.dimension = var1.getInt("Dimension");
+			this.invulnerable = var1.getBoolean("Invulnerable");
+			this.portalCooldown = var1.getInt("PortalCooldown");
 			UUID var5 = var1.getUUID("UUID");
 			if (var5 != null) {
 				this.uniqueID = var5;
@@ -1062,8 +1062,8 @@ public abstract class Entity implements class_m {
 				this.uniqueID = UUID.fromString(var1.getString("UUID"));
 			}
 
-			this.b(this.s, this.t, this.u);
-			this.b(this.y, this.z);
+			this.b(this.locX, this.locY, this.locZ);
+			this.b(this.yaw, this.pitch);
 			if (var1.hasOfType("CustomName", 8) && !var1.getString("CustomName").isEmpty()) {
 				this.a(var1.getString("CustomName"));
 			}
@@ -1071,10 +1071,10 @@ public abstract class Entity implements class_m {
 			this.g(var1.getBoolean("CustomNameVisible"));
 			this.aA.a(var1);
 			this.b(var1.getBoolean("Silent"));
-			this.ar = var1.getBoolean("Glowing");
+			this.glowing = var1.getBoolean("Glowing");
 			this.read(var1);
 			if (this.af()) {
-				this.b(this.s, this.t, this.u);
+				this.b(this.locX, this.locY, this.locZ);
 			}
 
 		} catch (Throwable var6) {
@@ -1136,9 +1136,9 @@ public abstract class Entity implements class_m {
 
 	public EntityItem a(ItemStack var1, float var2) {
 		if (var1.count != 0 && var1.getItem() != null) {
-			EntityItem var3 = new EntityItem(this.o, this.s, this.t + (double) var2, this.u, var1);
+			EntityItem var3 = new EntityItem(this.world, this.locX, this.locY + (double) var2, this.locZ, var1);
 			var3.setPickupDelay();
-			this.o.addEntity((Entity) var3);
+			this.world.addEntity((Entity) var3);
 			return var3;
 		} else {
 			return null;
@@ -1146,22 +1146,22 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean isAlive() {
-		return !this.I;
+		return !this.dead;
 	}
 
 	public boolean aj() {
-		if (this.T) {
+		if (this.noclip) {
 			return false;
 		} else {
 			BlockPosition.MutableBlockPosition var1 = new BlockPosition.MutableBlockPosition(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
 
 			for (int var2 = 0; var2 < 8; ++var2) {
-				int var3 = MathHelper.floor(this.t + (double) (((float) ((var2 >> 0) % 2) - 0.5F) * 0.1F) + (double) this.aU());
-				int var4 = MathHelper.floor(this.s + (double) (((float) ((var2 >> 1) % 2) - 0.5F) * this.J * 0.8F));
-				int var5 = MathHelper.floor(this.u + (double) (((float) ((var2 >> 2) % 2) - 0.5F) * this.J * 0.8F));
+				int var3 = MathHelper.floor(this.locY + (double) (((float) ((var2 >> 0) % 2) - 0.5F) * 0.1F) + (double) this.aU());
+				int var4 = MathHelper.floor(this.locX + (double) (((float) ((var2 >> 1) % 2) - 0.5F) * this.width * 0.8F));
+				int var5 = MathHelper.floor(this.locZ + (double) (((float) ((var2 >> 2) % 2) - 0.5F) * this.width * 0.8F));
 				if (var1.getX() != var4 || var1.getY() != var3 || var1.getZ() != var5) {
 					var1.setPosition(var4, var3, var5);
-					if (this.o.getType(var1).getBlock().isVisuallyOpaque()) {
+					if (this.world.getType(var1).getBlock().isVisuallyOpaque()) {
 						return true;
 					}
 				}
@@ -1180,18 +1180,18 @@ public abstract class Entity implements class_m {
 	}
 
 	public void ak() {
-		if (this.vehicle.I) {
+		if (this.vehicle.dead) {
 			this.vehicle = null;
 		} else {
-			this.v = 0.0D;
+			this.motX = 0.0D;
 			this.motY = 0.0D;
-			this.x = 0.0D;
+			this.motZ = 0.0D;
 			this.t_();
 			if (this.vehicle != null) {
 				this.vehicle.al();
-				this.ay += (double) (this.vehicle.y - this.vehicle.A);
+				this.ay += (double) (this.vehicle.yaw - this.vehicle.lastYaw);
 
-				for (this.ax += (double) (this.vehicle.z - this.vehicle.B); this.ay >= 180.0D; this.ay -= 360.0D) {
+				for (this.ax += (double) (this.vehicle.pitch - this.vehicle.lastPitch); this.ay >= 180.0D; this.ay -= 360.0D) {
 					;
 				}
 
@@ -1234,7 +1234,7 @@ public abstract class Entity implements class_m {
 
 	public void al() {
 		if (this.passenger != null) {
-			this.passenger.b(this.s, this.t + this.an() + this.passenger.am(), this.u);
+			this.passenger.b(this.locX, this.locY + this.an() + this.passenger.am(), this.locZ);
 		}
 	}
 
@@ -1243,7 +1243,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public double an() {
-		return (double) this.K * 0.75D;
+		return (double) this.length * 0.75D;
 	}
 
 	public void a(Entity var1) {
@@ -1251,7 +1251,7 @@ public abstract class Entity implements class_m {
 		this.ay = 0.0D;
 		if (var1 == null) {
 			if (this.vehicle != null) {
-				this.b(this.vehicle.s, this.vehicle.aT().yMin + (double) this.vehicle.K, this.vehicle.u, this.y, this.z);
+				this.b(this.vehicle.locX, this.vehicle.aT().yMin + (double) this.vehicle.length, this.vehicle.locZ, this.yaw, this.pitch);
 				this.vehicle.passenger = null;
 			}
 
@@ -1283,16 +1283,16 @@ public abstract class Entity implements class_m {
 	}
 
 	public void d(BlockPosition var1) {
-		if (this.aj > 0) {
-			this.aj = this.aq();
+		if (this.portalCooldown > 0) {
+			this.portalCooldown = this.aq();
 		} else {
-			if (!this.o.isClientSide && !var1.equals(this.an)) {
+			if (!this.world.isClientSide && !var1.equals(this.an)) {
 				this.an = var1;
-				class_anp.class_b_in_class_anp var2 = Blocks.PORTAL.f(this.o, var1);
+				class_anp.class_b_in_class_anp var2 = Blocks.PORTAL.f(this.world, var1);
 				double var3 = var2.b().getAxis() == EnumDirection.EnumAxis.X ? (double) var2.a().getZ() : (double) var2.a().getX();
-				double var5 = var2.b().getAxis() == EnumDirection.EnumAxis.X ? this.u : this.s;
+				double var5 = var2.b().getAxis() == EnumDirection.EnumAxis.X ? this.locZ : this.locX;
 				var5 = Math.abs(MathHelper.c(var5 - (double) (var2.b().rotateY().getAxisDirection() == EnumDirection.EnumAxisDirection.NEGATIVE ? 1 : 0), var3, var3 - (double) var2.d()));
-				double var7 = MathHelper.c(this.t - 1.0D, (double) var2.a().getY(), (double) (var2.a().getY() - var2.e()));
+				double var7 = MathHelper.c(this.locY - 1.0D, (double) var2.a().getY(), (double) (var2.a().getY() - var2.e()));
 				this.ao = new Vec3D(var5, var7, 0.0D);
 				this.ap = var2.b();
 			}
@@ -1321,8 +1321,8 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean av() {
-		boolean var1 = this.o != null && this.o.isClientSide;
-		return !this.ab && (this.i > 0 || var1 && this.h(0));
+		boolean var1 = this.world != null && this.world.isClientSide;
+		return !this.fireProof && (this.fireTicks > 0 || var1 && this.h(0));
 	}
 
 	public boolean aw() {
@@ -1346,7 +1346,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean az() {
-		return this.ar || this.o.isClientSide && this.h(6);
+		return this.glowing || this.world.isClientSide && this.h(6);
 	}
 
 	public boolean aA() {
@@ -1381,8 +1381,8 @@ public abstract class Entity implements class_m {
 
 	public void a(class_vi var1) {
 		this.damageEntity(DamageSource.b, 5.0F);
-		++this.i;
-		if (this.i == 0) {
+		++this.fireTicks;
+		if (this.fireTicks == 0) {
 			this.f(8);
 		}
 
@@ -1396,44 +1396,44 @@ public abstract class Entity implements class_m {
 		double var8 = var1 - (double) var7.getX();
 		double var10 = var3 - (double) var7.getY();
 		double var12 = var5 - (double) var7.getZ();
-		List var14 = this.o.a(this.aT());
-		if (var14.isEmpty() && !this.o.u(var7)) {
+		List var14 = this.world.a(this.aT());
+		if (var14.isEmpty() && !this.world.u(var7)) {
 			return false;
 		} else {
 			byte var15 = 3;
 			double var16 = 9999.0D;
-			if (!this.o.u(var7.west()) && var8 < var16) {
+			if (!this.world.u(var7.west()) && var8 < var16) {
 				var16 = var8;
 				var15 = 0;
 			}
 
-			if (!this.o.u(var7.east()) && 1.0D - var8 < var16) {
+			if (!this.world.u(var7.east()) && 1.0D - var8 < var16) {
 				var16 = 1.0D - var8;
 				var15 = 1;
 			}
 
-			if (!this.o.u(var7.up()) && 1.0D - var10 < var16) {
+			if (!this.world.u(var7.up()) && 1.0D - var10 < var16) {
 				var16 = 1.0D - var10;
 				var15 = 3;
 			}
 
-			if (!this.o.u(var7.north()) && var12 < var16) {
+			if (!this.world.u(var7.north()) && var12 < var16) {
 				var16 = var12;
 				var15 = 4;
 			}
 
-			if (!this.o.u(var7.south()) && 1.0D - var12 < var16) {
+			if (!this.world.u(var7.south()) && 1.0D - var12 < var16) {
 				var16 = 1.0D - var12;
 				var15 = 5;
 			}
 
 			float var18 = this.random.nextFloat() * 0.2F + 0.1F;
 			if (var15 == 0) {
-				this.v = (double) (-var18);
+				this.motX = (double) (-var18);
 			}
 
 			if (var15 == 1) {
-				this.v = (double) var18;
+				this.motX = (double) var18;
 			}
 
 			if (var15 == 3) {
@@ -1441,11 +1441,11 @@ public abstract class Entity implements class_m {
 			}
 
 			if (var15 == 4) {
-				this.x = (double) (-var18);
+				this.motZ = (double) (-var18);
 			}
 
 			if (var15 == 5) {
-				this.x = (double) var18;
+				this.motZ = (double) var18;
 			}
 
 			return true;
@@ -1454,12 +1454,12 @@ public abstract class Entity implements class_m {
 
 	public void aC() {
 		this.H = true;
-		this.O = 0.0F;
+		this.fallDistance = 0.0F;
 	}
 
 	public String getName() {
 		if (this.hasCustomName()) {
-			return this.aO();
+			return this.getCustomName();
 		} else {
 			String var1 = EntityTypes.b(this);
 			if (var1 == null) {
@@ -1497,61 +1497,61 @@ public abstract class Entity implements class_m {
 	}
 
 	public String toString() {
-		return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[] { this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.c), this.o == null ? "~NULL~" : this.o.Q().k(), Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u) });
+		return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[] { this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.c), this.world == null ? "~NULL~" : this.world.Q().k(), Double.valueOf(this.locX), Double.valueOf(this.locY), Double.valueOf(this.locZ) });
 	}
 
 	public boolean b(DamageSource var1) {
-		return this.az && var1 != DamageSource.j && !var1.u();
+		return this.invulnerable && var1 != DamageSource.j && !var1.u();
 	}
 
 	public void m(Entity var1) {
-		this.b(var1.s, var1.t, var1.u, var1.y, var1.z);
+		this.b(var1.locX, var1.locY, var1.locZ, var1.yaw, var1.pitch);
 	}
 
 	public void n(Entity var1) {
 		NBTTagCompound var2 = new NBTTagCompound();
 		var1.e(var2);
 		this.f(var2);
-		this.aj = var1.aj;
+		this.portalCooldown = var1.portalCooldown;
 		this.an = var1.an;
 		this.ao = var1.ao;
 		this.ap = var1.ap;
 	}
 
 	public void c(int var1) {
-		if (!this.o.isClientSide && !this.I) {
-			this.o.B.a("changeDimension");
+		if (!this.world.isClientSide && !this.dead) {
+			this.world.B.a("changeDimension");
 			MinecraftServer var2 = MinecraftServer.N();
-			int var3 = this.am;
+			int var3 = this.dimension;
 			WorldServer var4 = var2.getWorldServer(var3);
 			WorldServer var5 = var2.getWorldServer(var1);
-			this.am = var1;
+			this.dimension = var1;
 			if (var3 == 1 && var1 == 1) {
 				var5 = var2.getWorldServer(0);
-				this.am = 0;
+				this.dimension = 0;
 			}
 
-			this.o.e(this);
-			this.I = false;
-			this.o.B.a("reposition");
+			this.world.e(this);
+			this.dead = false;
+			this.world.B.a("reposition");
 			var2.getPlayerList().a(this, var3, var4, var5);
-			this.o.B.c("reloading");
+			this.world.B.c("reloading");
 			Entity var6 = EntityTypes.a((String) EntityTypes.b(this), (World) var5);
 			if (var6 != null) {
 				var6.n(this);
 				if (var3 == 1 && var1 == 1) {
-					BlockPosition var7 = this.o.r(var5.N());
-					var6.a(var7, var6.y, var6.z);
+					BlockPosition var7 = this.world.r(var5.N());
+					var6.a(var7, var6.yaw, var6.pitch);
 				}
 
 				var5.addEntity(var6);
 			}
 
-			this.I = true;
-			this.o.B.b();
+			this.dead = true;
+			this.world.B.b();
 			var4.k();
 			var5.k();
-			this.o.B.b();
+			this.world.B.b();
 		}
 	}
 
@@ -1601,9 +1601,9 @@ public abstract class Entity implements class_m {
 				return this.a();
 			}
 		});
-		var1.a((String) "Entity\'s Exact location", (Object) String.format("%.2f, %.2f, %.2f", new Object[] { Double.valueOf(this.s), Double.valueOf(this.t), Double.valueOf(this.u) }));
-		var1.a((String) "Entity\'s Block location", (Object) class_c.a((double) MathHelper.floor(this.s), (double) MathHelper.floor(this.t), (double) MathHelper.floor(this.u)));
-		var1.a((String) "Entity\'s Momentum", (Object) String.format("%.2f, %.2f, %.2f", new Object[] { Double.valueOf(this.v), Double.valueOf(this.motY), Double.valueOf(this.x) }));
+		var1.a((String) "Entity\'s Exact location", (Object) String.format("%.2f, %.2f, %.2f", new Object[] { Double.valueOf(this.locX), Double.valueOf(this.locY), Double.valueOf(this.locZ) }));
+		var1.a((String) "Entity\'s Block location", (Object) class_c.a((double) MathHelper.floor(this.locX), (double) MathHelper.floor(this.locY), (double) MathHelper.floor(this.locZ)));
+		var1.a((String) "Entity\'s Momentum", (Object) String.format("%.2f, %.2f, %.2f", new Object[] { Double.valueOf(this.motX), Double.valueOf(this.motY), Double.valueOf(this.motZ) }));
 		var1.a("Entity\'s Rider", new Callable() {
 			public String a() throws Exception {
 				return Entity.this.passenger.toString();
@@ -1626,7 +1626,7 @@ public abstract class Entity implements class_m {
 		});
 	}
 
-	public UUID aM() {
+	public UUID getUniqueId() {
 		return this.uniqueID;
 	}
 
@@ -1637,7 +1637,7 @@ public abstract class Entity implements class_m {
 	public IChatBaseComponent getScoreboardDisplayName() {
 		ChatComponentText var1 = new ChatComponentText(this.getName());
 		var1.getChatModifier().a(this.aS());
-		var1.getChatModifier().a(this.aM().toString());
+		var1.getChatModifier().a(this.getUniqueId().toString());
 		return var1;
 	}
 
@@ -1645,7 +1645,7 @@ public abstract class Entity implements class_m {
 		this.datawatcher.update(NAMETAG_DW_ID, var1);
 	}
 
-	public String aO() {
+	public String getCustomName() {
 		return this.datawatcher.getString(NAMETAG_DW_ID);
 	}
 
@@ -1657,25 +1657,25 @@ public abstract class Entity implements class_m {
 		this.datawatcher.update(NAMETAG_VISIBLE_DW_ID, Byte.valueOf((byte) (var1 ? 1 : 0)));
 	}
 
-	public boolean aP() {
+	public boolean isCustomNameVisible() {
 		return this.datawatcher.getByte(NAMETAG_VISIBLE_DW_ID) == 1;
 	}
 
 	public void a(double var1, double var3, double var5) {
-		this.b(var1, var3, var5, this.y, this.z);
+		this.b(var1, var3, var5, this.yaw, this.pitch);
 	}
 
 	public void d(int var1) {
 	}
 
 	public EnumDirection aR() {
-		return EnumDirection.getByHorizontalId(MathHelper.floor((double) (this.y * 4.0F / 360.0F) + 0.5D) & 3);
+		return EnumDirection.getByHorizontalId(MathHelper.floor((double) (this.yaw * 4.0F / 360.0F) + 0.5D) & 3);
 	}
 
 	protected class_ew aS() {
 		NBTTagCompound var1 = new NBTTagCompound();
 		String var2 = EntityTypes.b(this);
-		var1.put("id", this.aM().toString());
+		var1.put("id", this.getUniqueId().toString());
 		if (var2 != null) {
 			var1.put("type", var2);
 		}
@@ -1689,15 +1689,15 @@ public abstract class Entity implements class_m {
 	}
 
 	public AxisAlignedBB aT() {
-		return this.f;
+		return this.boundingBox;
 	}
 
 	public void a(AxisAlignedBB var1) {
-		this.f = var1;
+		this.boundingBox = var1;
 	}
 
 	public float aU() {
-		return this.K * 0.85F;
+		return this.length * 0.85F;
 	}
 
 	public boolean aV() {
@@ -1720,15 +1720,15 @@ public abstract class Entity implements class_m {
 	}
 
 	public BlockPosition c() {
-		return new BlockPosition(this.s, this.t + 0.5D, this.u);
+		return new BlockPosition(this.locX, this.locY + 0.5D, this.locZ);
 	}
 
 	public Vec3D d() {
-		return new Vec3D(this.s, this.t, this.u);
+		return new Vec3D(this.locX, this.locY, this.locZ);
 	}
 
 	public World e() {
-		return this.o;
+		return this.world;
 	}
 
 	public Entity f() {
@@ -1739,11 +1739,11 @@ public abstract class Entity implements class_m {
 		return false;
 	}
 
-	public void a(class_n.class_a_in_class_n var1, int var2) {
+	public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {
 		this.aA.a(this, var1, var2);
 	}
 
-	public class_n aW() {
+	public CommandObjectiveExecutor aW() {
 		return this.aA;
 	}
 
@@ -1774,7 +1774,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public float a(Block.EnumRotation var1) {
-		float var2 = MathHelper.clampAngle(this.y);
+		float var2 = MathHelper.clampAngle(this.yaw);
 		switch (Entity.SyntheticClass_1.a[var1.ordinal()]) {
 			case 1:
 				return var2 + 180.0F;
@@ -1788,7 +1788,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public float a(Block.class_a_in_class_agj var1) {
-		float var2 = MathHelper.clampAngle(this.y);
+		float var2 = MathHelper.clampAngle(this.yaw);
 		switch (Entity.SyntheticClass_1.b[var1.ordinal()]) {
 			case 1:
 				return -var2;

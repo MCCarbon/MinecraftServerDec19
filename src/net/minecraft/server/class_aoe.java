@@ -46,7 +46,7 @@ public class class_aoe {
    }
 
    public double a(Entity var1) {
-      return this.b(var1.s, var1.u);
+      return this.b(var1.locX, var1.locZ);
    }
 
    public double b(double var1, double var3) {

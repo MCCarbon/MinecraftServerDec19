@@ -572,14 +572,14 @@ public class Chunk {
 
 	public void a(Entity var1) {
 		r = true;
-		int var2 = MathHelper.floor(var1.s / 16.0D);
-		int var3 = MathHelper.floor(var1.u / 16.0D);
+		int var2 = MathHelper.floor(var1.locX / 16.0D);
+		int var3 = MathHelper.floor(var1.locZ / 16.0D);
 		if ((var2 != a) || (var3 != b)) {
 			logger.warn("Wrong location! (" + var2 + ", " + var3 + ") should be (" + a + ", " + b + "), " + var1, new Object[] { var1 });
 			var1.J();
 		}
 
-		int var4 = MathHelper.floor(var1.t / 16.0D);
+		int var4 = MathHelper.floor(var1.locY / 16.0D);
 		if (var4 < 0) {
 			var4 = 0;
 		}

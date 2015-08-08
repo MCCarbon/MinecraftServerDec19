@@ -12,7 +12,7 @@ import net.minecraft.server.PacketPlayOutEntityStatus;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandGamerule extends CommandAbstract {
    public String getCommand() {
@@ -42,7 +42,7 @@ public class CommandGamerule extends CommandAbstract {
 
          String var6 = var3.getStringValue(var4);
          var1.a((new ChatComponentText(var4)).a(" = ").a(var6));
-         var1.a(class_n.class_a_in_class_n.e, var3.getIntValue(var4));
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var3.getIntValue(var4));
          break;
       default:
          if(var3.a(var4, GameRules.EnumGameRuleType.BOOLEAN_VALUE) && !"true".equals(var5) && !"false".equals(var5)) {

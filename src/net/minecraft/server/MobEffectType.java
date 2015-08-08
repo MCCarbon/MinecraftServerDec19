@@ -59,7 +59,7 @@ public class MobEffectType {
 		} else if (this == MobEffectList.q && var1 instanceof EntityHuman) {
 			((EntityHuman) var1).a(0.025F * (float) (var2 + 1));
 		} else if (this == MobEffectList.w && var1 instanceof EntityHuman) {
-			if (!var1.o.isClientSide) {
+			if (!var1.world.isClientSide) {
 				((EntityHuman) var1).cn().a(var2 + 1, 1.0F);
 			}
 		} else if ((this != MobEffectList.f || var1.bn()) && (this != MobEffectList.g || !var1.bn())) {

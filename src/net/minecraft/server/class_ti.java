@@ -14,12 +14,12 @@ public class class_ti extends class_tg {
    }
 
    protected Vec3D c() {
-      return new Vec3D(this.b.s, this.b.t + (double)this.b.K * 0.5D, this.b.u);
+      return new Vec3D(this.b.locX, this.b.locY + (double)this.b.length * 0.5D, this.b.locZ);
    }
 
    protected void l() {
       Vec3D var1 = this.c();
-      float var2 = this.b.J * this.b.J;
+      float var2 = this.b.width * this.b.width;
       byte var3 = 6;
       if(var1.distanceSquared(this.d.a(this.b, this.d.e())) < (double)var2) {
          this.d.a();
@@ -41,7 +41,7 @@ public class class_ti extends class_tg {
    }
 
    protected boolean a(Vec3D var1, Vec3D var2, int var3, int var4, int var5) {
-      MovingObjectPosition var6 = this.c.rayTrace(var1, new Vec3D(var2.x, var2.y + (double)this.b.K * 0.5D, var2.z), false, true, false);
+      MovingObjectPosition var6 = this.c.rayTrace(var1, new Vec3D(var2.x, var2.y + (double)this.b.length * 0.5D, var2.z), false, true, false);
       return var6 == null || var6.a == MovingObjectPosition.class_a_in_class_awg.a;
    }
 }

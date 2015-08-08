@@ -14,7 +14,7 @@ import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.IInventory;
 
 public class CommandSetBlock extends CommandAbstract {
@@ -34,7 +34,7 @@ public class CommandSetBlock extends CommandAbstract {
       if(var2.length < 4) {
          throw new class_cf("commands.setblock.usage", new Object[0]);
       } else {
-         var1.a(class_n.class_a_in_class_n.b, 0);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 0);
          BlockPosition var3 = a(var1, var2, 0, false);
          Block var4 = CommandAbstract.g(var1, var2[3]);
          int var5 = 0;
@@ -95,7 +95,7 @@ public class CommandSetBlock extends CommandAbstract {
                }
 
                var6.update(var3, var10.getBlock());
-               var1.a(class_n.class_a_in_class_n.b, 1);
+               var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 1);
                a(var1, this, "commands.setblock.success", new Object[0]);
             }
          }

@@ -21,7 +21,7 @@ public class class_sf extends class_rm {
       } else if(this.a.bd().nextInt(400) != 0) {
          return false;
       } else {
-         List var1 = this.a.o.getEntities(EntityVillager.class, this.a.aT().grow(6.0D, 3.0D, 6.0D));
+         List var1 = this.a.world.getEntities(EntityVillager.class, this.a.aT().grow(6.0D, 3.0D, 6.0D));
          double var2 = Double.MAX_VALUE;
          Iterator var4 = var1.iterator();
 

@@ -350,7 +350,7 @@ public class class_awn {
 
    public void a(Entity var1) {
       if(var1 != null && !(var1 instanceof EntityHuman) && !var1.isAlive()) {
-         String var2 = var1.aM().toString();
+         String var2 = var1.getUniqueId().toString();
          this.d(var2, (class_awj)null);
          this.f(var2);
       }

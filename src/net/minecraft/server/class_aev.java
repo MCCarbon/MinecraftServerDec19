@@ -23,9 +23,9 @@ public class class_aev {
             this.b(var1, var2);
          }
       } else {
-         int var3 = MathHelper.floor(var1.s);
-         int var4 = MathHelper.floor(var1.t) - 1;
-         int var5 = MathHelper.floor(var1.u);
+         int var3 = MathHelper.floor(var1.locX);
+         int var4 = MathHelper.floor(var1.locY) - 1;
+         int var5 = MathHelper.floor(var1.locZ);
          byte var6 = 1;
          byte var7 = 0;
 
@@ -41,16 +41,16 @@ public class class_aev {
             }
          }
 
-         var1.b((double)var3, (double)var4, (double)var5, var1.y, 0.0F);
-         var1.v = var1.motY = var1.x = 0.0D;
+         var1.b((double)var3, (double)var4, (double)var5, var1.yaw, 0.0F);
+         var1.motX = var1.motY = var1.motZ = 0.0D;
       }
    }
 
    public boolean b(Entity var1, float var2) {
       boolean var3 = true;
       double var4 = -1.0D;
-      int var6 = MathHelper.floor(var1.s);
-      int var7 = MathHelper.floor(var1.u);
+      int var6 = MathHelper.floor(var1.locX);
+      int var7 = MathHelper.floor(var1.locZ);
       boolean var8 = true;
       Object var9 = BlockPosition.ZERO;
       long var10 = class_aeh.a(var6, var7);
@@ -125,12 +125,12 @@ public class class_aev {
             var25 = 1.0F;
          }
 
-         double var26 = var1.v;
-         double var28 = var1.x;
-         var1.v = var26 * (double)var22 + var28 * (double)var25;
-         var1.x = var26 * (double)var24 + var28 * (double)var23;
-         var1.y = var2 - (float)(var1.aJ().opposite().getHorizontalId() * 90) + (float)(var18.b().getHorizontalId() * 90);
-         var1.b(var31, var32, var33, var1.y, var1.z);
+         double var26 = var1.motX;
+         double var28 = var1.motZ;
+         var1.motX = var26 * (double)var22 + var28 * (double)var25;
+         var1.motZ = var26 * (double)var24 + var28 * (double)var23;
+         var1.yaw = var2 - (float)(var1.aJ().opposite().getHorizontalId() * 90) + (float)(var18.b().getHorizontalId() * 90);
+         var1.b(var31, var32, var33, var1.yaw, var1.pitch);
          return true;
       } else {
          return false;
@@ -140,9 +140,9 @@ public class class_aev {
    public boolean a(Entity var1) {
       byte var2 = 16;
       double var3 = -1.0D;
-      int var5 = MathHelper.floor(var1.s);
-      int var6 = MathHelper.floor(var1.t);
-      int var7 = MathHelper.floor(var1.u);
+      int var5 = MathHelper.floor(var1.locX);
+      int var6 = MathHelper.floor(var1.locY);
+      int var7 = MathHelper.floor(var1.locZ);
       int var8 = var5;
       int var9 = var6;
       int var10 = var7;
@@ -166,10 +166,10 @@ public class class_aev {
       double var33;
       double var34;
       for(var14 = var5 - var2; var14 <= var5 + var2; ++var14) {
-         var15 = (double)var14 + 0.5D - var1.s;
+         var15 = (double)var14 + 0.5D - var1.locX;
 
          for(var17 = var7 - var2; var17 <= var7 + var2; ++var17) {
-            var18 = (double)var17 + 0.5D - var1.u;
+            var18 = (double)var17 + 0.5D - var1.locZ;
 
             label293:
             for(var20 = this.a.W() - 1; var20 >= 0; --var20) {
@@ -200,7 +200,7 @@ public class class_aev {
                         }
                      }
 
-                     var33 = (double)var20 + 0.5D - var1.t;
+                     var33 = (double)var20 + 0.5D - var1.locY;
                      var34 = var15 * var15 + var33 * var33 + var18 * var18;
                      if(var3 < 0.0D || var34 < var3) {
                         var3 = var34;
@@ -217,10 +217,10 @@ public class class_aev {
 
       if(var3 < 0.0D) {
          for(var14 = var5 - var2; var14 <= var5 + var2; ++var14) {
-            var15 = (double)var14 + 0.5D - var1.s;
+            var15 = (double)var14 + 0.5D - var1.locX;
 
             for(var17 = var7 - var2; var17 <= var7 + var2; ++var17) {
-               var18 = (double)var17 + 0.5D - var1.u;
+               var18 = (double)var17 + 0.5D - var1.locZ;
 
                label231:
                for(var20 = this.a.W() - 1; var20 >= 0; --var20) {
@@ -245,7 +245,7 @@ public class class_aev {
                            }
                         }
 
-                        var33 = (double)var20 + 0.5D - var1.t;
+                        var33 = (double)var20 + 0.5D - var1.locY;
                         var34 = var15 * var15 + var33 * var33 + var18 * var18;
                         if(var3 < 0.0D || var34 < var3) {
                            var3 = var34;

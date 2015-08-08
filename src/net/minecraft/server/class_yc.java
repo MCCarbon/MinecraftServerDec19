@@ -34,7 +34,7 @@ public class class_yc extends Container {
 
    public void b(EntityHuman var1) {
       super.b(var1);
-      if(var1 != null && !var1.o.isClientSide) {
+      if(var1 != null && !var1.world.isClientSide) {
          ItemStack var2 = this.f.a(this.f.a());
          if(var2 != null) {
             var1.a(var2, false);

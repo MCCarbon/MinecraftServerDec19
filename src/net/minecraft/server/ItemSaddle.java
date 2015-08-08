@@ -11,7 +11,7 @@ public class ItemSaddle extends Item {
          EntityPig var5 = (EntityPig)var3;
          if(!var5.cA() && !var5.isBaby()) {
             var5.m(true);
-            var5.o.a((Entity)var5, "mob.horse.leather", 0.5F, 1.0F);
+            var5.world.a((Entity)var5, "mob.horse.leather", 0.5F, 1.0F);
             --var1.count;
          }
 

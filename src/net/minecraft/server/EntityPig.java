@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class EntityPig extends EntityAnimal {
 
-	private static final int HASSADDLE_DW_ID = Datawathcer.claimId(EntityPig.class); //value = 12
+	private static final int HASSADDLE_DW_ID = DataWathcer.claimId(EntityPig.class); //value = 12
 
 	private static final Set bt;
 	private final class_rf bu;
@@ -76,7 +76,7 @@ public class EntityPig extends EntityAnimal {
 	public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
 		if (super.a(var1, var2, var3)) {
 			return true;
-		} else if (!this.cA() || this.o.isClientSide || this.passenger != null && this.passenger != var1) {
+		} else if (!this.cA() || this.world.isClientSide || this.passenger != null && this.passenger != var1) {
 			return false;
 		} else {
 			var1.a((Entity) this);
@@ -119,17 +119,17 @@ public class EntityPig extends EntityAnimal {
 	}
 
 	public void a(class_vi var1) {
-		if (!this.o.isClientSide && !this.I) {
-			EntityPigZombie var2 = new EntityPigZombie(this.o);
+		if (!this.world.isClientSide && !this.dead) {
+			EntityPigZombie var2 = new EntityPigZombie(this.world);
 			var2.a((EnumWearable) EnumWearable.MAINHAND, (ItemStack) (new ItemStack(Items.GOLDEN_SWORD)));
-			var2.b(this.s, this.t, this.u, this.y, this.z);
+			var2.b(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
 			var2.k(this.cs());
 			if (this.hasCustomName()) {
-				var2.a((String) this.aO());
-				var2.g(this.aP());
+				var2.a((String) this.getCustomName());
+				var2.g(this.isCustomNameVisible());
 			}
 
-			this.o.addEntity((Entity) var2);
+			this.world.addEntity((Entity) var2);
 			this.J();
 		}
 	}
@@ -143,7 +143,7 @@ public class EntityPig extends EntityAnimal {
 	}
 
 	public EntityPig b(EntityAgeable var1) {
-		return new EntityPig(this.o);
+		return new EntityPig(this.world);
 	}
 
 	public boolean d(ItemStack var1) {

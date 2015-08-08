@@ -10,9 +10,9 @@ public class EntityZombie extends EntityMonster {
 	protected static final class_qk a = (new class_qs((class_qk) null, "zombie.spawnReinforcements", 0.0D, 0.0D, 1.0D)).a("Spawn Reinforcements Chance");
 	private static final UUID b = UUID.fromString("B9766B59-9566-4402-BC1F-2EE2A276D836");
 	private static final class_qm c;
-	private static final int BABY_DW_ID = Datawathcer.claimId(EntityZombie.class); //value = 11
-	private static final int VILLAGER_DW_ID = Datawathcer.claimId(EntityZombie.class); //value = 12
-	private static final int CONVERSION_DW_ID = Datawathcer.claimId(EntityZombie.class); //value = 13
+	private static final int BABY_DW_ID = DataWathcer.claimId(EntityZombie.class); //value = 11
+	private static final int VILLAGER_DW_ID = DataWathcer.claimId(EntityZombie.class); //value = 12
+	private static final int CONVERSION_DW_ID = DataWathcer.claimId(EntityZombie.class); //value = 13
 
 	private final class_rd bv = new class_rd(this);
 	private int bw;
@@ -97,7 +97,7 @@ public class EntityZombie extends EntityMonster {
 
 	public void setBaby(boolean var1) {
 		this.H().update(BABY_DW_ID, Byte.valueOf((byte) (var1 ? 1 : 0)));
-		if (this.o != null && !this.o.isClientSide) {
+		if (this.world != null && !this.world.isClientSide) {
 			class_ql var2 = this.a((class_qk) class_wl.d);
 			var2.c(c);
 			if (var1) {
@@ -125,10 +125,10 @@ public class EntityZombie extends EntityMonster {
 	}
 
 	public void m() {
-		if (this.o.x() && !this.o.isClientSide && !this.isBaby()) {
+		if (this.world.x() && !this.world.isClientSide && !this.isBaby()) {
 			float var1 = this.c(1.0F);
-			BlockPosition var2 = new BlockPosition(this.s, (double) Math.round(this.t), this.u);
-			if (var1 > 0.5F && this.random.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.o.i(var2)) {
+			BlockPosition var2 = new BlockPosition(this.locX, (double) Math.round(this.locY), this.locZ);
+			if (var1 > 0.5F && this.random.nextFloat() * 30.0F < (var1 - 0.4F) * 2.0F && this.world.i(var2)) {
 				boolean var3 = true;
 				ItemStack var4 = this.a((EnumWearable) EnumWearable.HEAD);
 				if (var4 != null) {
@@ -163,22 +163,22 @@ public class EntityZombie extends EntityMonster {
 				var3 = (EntityLiving) var1.j();
 			}
 
-			if (var3 != null && this.o.ab() == class_om.d && (double) this.random.nextFloat() < this.a((class_qk) a).e()) {
-				int var4 = MathHelper.floor(this.s);
-				int var5 = MathHelper.floor(this.t);
-				int var6 = MathHelper.floor(this.u);
-				EntityZombie var7 = new EntityZombie(this.o);
+			if (var3 != null && this.world.ab() == class_om.d && (double) this.random.nextFloat() < this.a((class_qk) a).e()) {
+				int var4 = MathHelper.floor(this.locX);
+				int var5 = MathHelper.floor(this.locY);
+				int var6 = MathHelper.floor(this.locZ);
+				EntityZombie var7 = new EntityZombie(this.world);
 
 				for (int var8 = 0; var8 < 50; ++var8) {
 					int var9 = var4 + MathHelper.getRandomIntInRange((Random) this.random, 7, 40) * MathHelper.getRandomIntInRange((Random) this.random, -1, 1);
 					int var10 = var5 + MathHelper.getRandomIntInRange((Random) this.random, 7, 40) * MathHelper.getRandomIntInRange((Random) this.random, -1, 1);
 					int var11 = var6 + MathHelper.getRandomIntInRange((Random) this.random, 7, 40) * MathHelper.getRandomIntInRange((Random) this.random, -1, 1);
-					if (World.a((IBlockAccess) this.o, (BlockPosition) (new BlockPosition(var9, var10 - 1, var11))) && this.o.l(new BlockPosition(var9, var10, var11)) < 10) {
+					if (World.a((IBlockAccess) this.world, (BlockPosition) (new BlockPosition(var9, var10 - 1, var11))) && this.world.l(new BlockPosition(var9, var10, var11)) < 10) {
 						var7.b((double) var9, (double) var10, (double) var11);
-						if (!this.o.b((double) var9, (double) var10, (double) var11, 7.0D) && this.o.a((AxisAlignedBB) var7.aT(), (Entity) var7) && this.o.a((Entity) var7, (AxisAlignedBB) var7.aT()).isEmpty() && !this.o.d(var7.aT())) {
-							this.o.addEntity((Entity) var7);
+						if (!this.world.b((double) var9, (double) var10, (double) var11, 7.0D) && this.world.a((AxisAlignedBB) var7.aT(), (Entity) var7) && this.world.a((Entity) var7, (AxisAlignedBB) var7.aT()).isEmpty() && !this.world.d(var7.aT())) {
+							this.world.addEntity((Entity) var7);
 							var7.d(var3);
-							var7.a((class_on) this.o.E(new BlockPosition(var7)), (class_qd) null);
+							var7.a((class_on) this.world.E(new BlockPosition(var7)), (class_qd) null);
 							this.a((class_qk) a).b(new class_qm("Zombie reinforcement caller charge", -0.05000000074505806D, 0));
 							var7.a((class_qk) a).b(new class_qm("Zombie reinforcement callee charge", -0.05000000074505806D, 0));
 							break;
@@ -194,7 +194,7 @@ public class EntityZombie extends EntityMonster {
 	}
 
 	public void t_() {
-		if (!this.o.isClientSide && this.isConversing()) {
+		if (!this.world.isClientSide && this.isConversing()) {
 			int var1 = this.cG();
 			this.bw -= var1;
 			if (this.bw <= 0) {
@@ -208,7 +208,7 @@ public class EntityZombie extends EntityMonster {
 	public boolean r(Entity var1) {
 		boolean var2 = super.r(var1);
 		if (var2) {
-			int var3 = this.o.ab().a();
+			int var3 = this.world.ab().a();
 			if (this.bA() == null && this.av() && this.random.nextFloat() < (float) var3 * 0.3F) {
 				var1.f(2 * var3);
 			}
@@ -257,7 +257,7 @@ public class EntityZombie extends EntityMonster {
 
 	protected void a(class_on var1) {
 		super.a(var1);
-		if (this.random.nextFloat() < (this.o.ab() == class_om.d ? 0.05F : 0.01F)) {
+		if (this.random.nextFloat() < (this.world.ab() == class_om.d ? 0.05F : 0.01F)) {
 			int var2 = this.random.nextInt(3);
 			if (var2 == 0) {
 				this.a((EnumWearable) EnumWearable.MAINHAND, (ItemStack) (new ItemStack(Items.IRON_SWORD)));
@@ -301,16 +301,16 @@ public class EntityZombie extends EntityMonster {
 
 	public void a(EntityLiving var1) {
 		super.a(var1);
-		if ((this.o.ab() == class_om.c || this.o.ab() == class_om.d) && var1 instanceof EntityVillager) {
-			if (this.o.ab() != class_om.d && this.random.nextBoolean()) {
+		if ((this.world.ab() == class_om.c || this.world.ab() == class_om.d) && var1 instanceof EntityVillager) {
+			if (this.world.ab() != class_om.d && this.random.nextBoolean()) {
 				return;
 			}
 
 			EntityInsentient var2 = (EntityInsentient) var1;
-			EntityZombie var3 = new EntityZombie(this.o);
+			EntityZombie var3 = new EntityZombie(this.world);
 			var3.m(var1);
-			this.o.e((Entity) var1);
-			var3.a((class_on) this.o.E(new BlockPosition(var3)), (class_qd) null);
+			this.world.e((Entity) var1);
+			var3.a((class_on) this.world.E(new BlockPosition(var3)), (class_qd) null);
 			var3.setVillager(true);
 			if (var1.isBaby()) {
 				var3.setBaby(true);
@@ -318,12 +318,12 @@ public class EntityZombie extends EntityMonster {
 
 			var3.k(var2.cs());
 			if (var2.hasCustomName()) {
-				var3.a((String) var2.aO());
-				var3.g(var2.aP());
+				var3.a((String) var2.getCustomName());
+				var3.g(var2.isCustomNameVisible());
 			}
 
-			this.o.addEntity((Entity) var3);
-			this.o.a((EntityHuman) null, 1016, new BlockPosition((int) this.s, (int) this.t, (int) this.u), 0);
+			this.world.addEntity((Entity) var3);
+			this.world.a((EntityHuman) null, 1016, new BlockPosition((int) this.locX, (int) this.locY, (int) this.locZ), 0);
 		}
 
 	}
@@ -346,7 +346,7 @@ public class EntityZombie extends EntityMonster {
 		float var3 = var1.c();
 		this.j(this.random.nextFloat() < 0.55F * var3);
 		if (var7 == null) {
-			var7 = new EntityZombie.class_a_in_class_wr(this.o.random.nextFloat() < 0.05F, this.o.random.nextFloat() < 0.05F);
+			var7 = new EntityZombie.class_a_in_class_wr(this.world.random.nextFloat() < 0.05F, this.world.random.nextFloat() < 0.05F);
 		}
 
 		if (var7 instanceof EntityZombie.class_a_in_class_wr) {
@@ -357,19 +357,19 @@ public class EntityZombie extends EntityMonster {
 
 			if (var4.a) {
 				this.setBaby(true);
-				if ((double) this.o.random.nextFloat() < 0.05D) {
-					List var5 = this.o.a(EntityChicken.class, this.aT().grow(5.0D, 3.0D, 5.0D), IEntitySelector.IS_ALIVE_AND_NOT_MOUNTED);
+				if ((double) this.world.random.nextFloat() < 0.05D) {
+					List var5 = this.world.a(EntityChicken.class, this.aT().grow(5.0D, 3.0D, 5.0D), IEntitySelector.IS_ALIVE_AND_NOT_MOUNTED);
 					if (!var5.isEmpty()) {
 						EntityChicken var6 = (EntityChicken) var5.get(0);
 						var6.m(true);
 						this.a((Entity) var6);
 					}
-				} else if ((double) this.o.random.nextFloat() < 0.05D) {
-					EntityChicken var10 = new EntityChicken(this.o);
-					var10.b(this.s, this.t, this.u, this.y, 0.0F);
+				} else if ((double) this.world.random.nextFloat() < 0.05D) {
+					EntityChicken var10 = new EntityChicken(this.world);
+					var10.b(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
 					var10.a(var1, (class_qd) null);
 					var10.m(true);
-					this.o.addEntity((Entity) var10);
+					this.world.addEntity((Entity) var10);
 					this.a((Entity) var10);
 				}
 			}
@@ -379,7 +379,7 @@ public class EntityZombie extends EntityMonster {
 		this.a(var1);
 		this.b((class_on) var1);
 		if (this.a((EnumWearable) EnumWearable.HEAD) == null) {
-			Calendar var8 = this.o.Z();
+			Calendar var8 = this.world.Z();
 			if (var8.get(2) + 1 == 10 && var8.get(5) == 31 && this.random.nextFloat() < 0.25F) {
 				this.a((EnumWearable) EnumWearable.HEAD, (ItemStack) (new ItemStack(this.random.nextFloat() < 0.1F ? Blocks.LIT_PUMPKIN : Blocks.PUMPKIN)));
 				this.bp[EnumWearable.HEAD.getRelative()] = 0.0F;
@@ -407,7 +407,7 @@ public class EntityZombie extends EntityMonster {
 				--var3.count;
 			}
 
-			if (!this.o.isClientSide) {
+			if (!this.world.isClientSide) {
 				this.setConversionTime(this.random.nextInt(2401) + 3600);
 			}
 
@@ -421,8 +421,8 @@ public class EntityZombie extends EntityMonster {
 		this.bw = var1;
 		this.H().update(CONVERSION_DW_ID, Byte.valueOf((byte) 1));
 		this.d(MobEffectList.r);
-		this.addEffect(new MobEffect(MobEffectList.e, var1, Math.min(this.o.ab().a() - 1, 0)));
-		this.o.a((Entity) this, (byte) 16);
+		this.addEffect(new MobEffect(MobEffectList.e, var1, Math.min(this.world.ab().a() - 1, 0)));
+		this.world.a((Entity) this, (byte) 16);
 	}
 
 	protected boolean E() {
@@ -434,24 +434,24 @@ public class EntityZombie extends EntityMonster {
 	}
 
 	protected void cF() {
-		EntityVillager var1 = new EntityVillager(this.o);
+		EntityVillager var1 = new EntityVillager(this.world);
 		var1.m(this);
-		var1.a(this.o.E(new BlockPosition(var1)), (class_qd) null);
+		var1.a(this.world.E(new BlockPosition(var1)), (class_qd) null);
 		var1.cE();
 		if (this.isBaby()) {
 			var1.b(-24000);
 		}
 
-		this.o.e((Entity) this);
+		this.world.e((Entity) this);
 		var1.k(this.cs());
 		if (this.hasCustomName()) {
-			var1.a((String) this.aO());
-			var1.g(this.aP());
+			var1.a((String) this.getCustomName());
+			var1.g(this.isCustomNameVisible());
 		}
 
-		this.o.addEntity((Entity) var1);
+		this.world.addEntity((Entity) var1);
 		var1.addEffect(new MobEffect(MobEffectList.i, 200, 0));
-		this.o.a((EntityHuman) null, 1017, new BlockPosition((int) this.s, (int) this.t, (int) this.u), 0);
+		this.world.a((EntityHuman) null, 1017, new BlockPosition((int) this.locX, (int) this.locY, (int) this.locZ), 0);
 	}
 
 	protected int cG() {
@@ -460,10 +460,10 @@ public class EntityZombie extends EntityMonster {
 			int var2 = 0;
 			BlockPosition.MutableBlockPosition var3 = new BlockPosition.MutableBlockPosition();
 
-			for (int var4 = (int) this.s - 4; var4 < (int) this.s + 4 && var2 < 14; ++var4) {
-				for (int var5 = (int) this.t - 4; var5 < (int) this.t + 4 && var2 < 14; ++var5) {
-					for (int var6 = (int) this.u - 4; var6 < (int) this.u + 4 && var2 < 14; ++var6) {
-						Block var7 = this.o.getType(var3.setPosition(var4, var5, var6)).getBlock();
+			for (int var4 = (int) this.locX - 4; var4 < (int) this.locX + 4 && var2 < 14; ++var4) {
+				for (int var5 = (int) this.locY - 4; var5 < (int) this.locY + 4 && var2 < 14; ++var5) {
+					for (int var6 = (int) this.locZ - 4; var6 < (int) this.locZ + 4 && var2 < 14; ++var6) {
+						Block var7 = this.world.getType(var3.setPosition(var4, var5, var6)).getBlock();
 						if (var7 == Blocks.IRON_BARS || var7 == Blocks.BED) {
 							if (this.random.nextFloat() < 0.3F) {
 								++var1;

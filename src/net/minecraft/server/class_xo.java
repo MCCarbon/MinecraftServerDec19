@@ -47,7 +47,7 @@ public abstract class class_xo extends Entity implements class_xi {
    }
 
    public class_xo(World var1, EntityLiving var2) {
-      this(var1, var2.s, var2.t + (double)var2.aU() - 0.10000000149011612D, var2.u);
+      this(var1, var2.locX, var2.locY + (double)var2.aU() - 0.10000000149011612D, var2.locZ);
       this.h = var2;
    }
 
@@ -72,26 +72,26 @@ public abstract class class_xo extends Entity implements class_xi {
       var1 *= (double)var7;
       var3 *= (double)var7;
       var5 *= (double)var7;
-      this.v = var1;
+      this.motX = var1;
       this.motY = var3;
-      this.x = var5;
+      this.motZ = var5;
       float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
-      this.A = this.y = (float)(MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
-      this.B = this.z = (float)(MathHelper.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
+      this.lastYaw = this.yaw = (float)(MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
+      this.lastPitch = this.pitch = (float)(MathHelper.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
       this.as = 0;
    }
 
    public void t_() {
-      this.P = this.s;
-      this.Q = this.t;
-      this.R = this.u;
+      this.P = this.locX;
+      this.Q = this.locY;
+      this.R = this.locZ;
       super.t_();
       if(this.b > 0) {
          --this.b;
       }
 
       if(this.a) {
-         if(this.o.getType(new BlockPosition(this.d, this.e, this.f)).getBlock() == this.g) {
+         if(this.world.getType(new BlockPosition(this.d, this.e, this.f)).getBlock() == this.g) {
             ++this.as;
             if(this.as == 1200) {
                this.J();
@@ -101,27 +101,27 @@ public abstract class class_xo extends Entity implements class_xi {
          }
 
          this.a = false;
-         this.v *= (double)(this.random.nextFloat() * 0.2F);
+         this.motX *= (double)(this.random.nextFloat() * 0.2F);
          this.motY *= (double)(this.random.nextFloat() * 0.2F);
-         this.x *= (double)(this.random.nextFloat() * 0.2F);
+         this.motZ *= (double)(this.random.nextFloat() * 0.2F);
          this.as = 0;
          this.at = 0;
       } else {
          ++this.at;
       }
 
-      Vec3D var1 = new Vec3D(this.s, this.t, this.u);
-      Vec3D var2 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
-      MovingObjectPosition var3 = this.o.a(var1, var2);
-      var1 = new Vec3D(this.s, this.t, this.u);
-      var2 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
+      Vec3D var1 = new Vec3D(this.locX, this.locY, this.locZ);
+      Vec3D var2 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
+      MovingObjectPosition var3 = this.world.a(var1, var2);
+      var1 = new Vec3D(this.locX, this.locY, this.locZ);
+      var2 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
       if(var3 != null) {
          var2 = new Vec3D(var3.c.x, var3.c.y, var3.c.z);
       }
 
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          Entity var4 = null;
-         List var5 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT().add(this.v, this.motY, this.x).grow(1.0D, 1.0D, 1.0D));
+         List var5 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D));
          double var6 = 0.0D;
          boolean var8 = false;
 
@@ -130,7 +130,7 @@ public abstract class class_xo extends Entity implements class_xi {
             if(var10.ad()) {
                if(var10 == this.c) {
                   var8 = true;
-               } else if(this.W < 2 && this.c == null) {
+               } else if(this.ticksLived < 2 && this.c == null) {
                   this.c = var10;
                   var8 = true;
                } else {
@@ -163,53 +163,53 @@ public abstract class class_xo extends Entity implements class_xi {
       }
 
       if(var3 != null) {
-         if(var3.a == MovingObjectPosition.class_a_in_class_awg.b && this.o.getType(var3.a()).getBlock() == Blocks.PORTAL) {
+         if(var3.a == MovingObjectPosition.class_a_in_class_awg.b && this.world.getType(var3.a()).getBlock() == Blocks.PORTAL) {
             this.d(var3.a());
          } else {
             this.a(var3);
          }
       }
 
-      this.s += this.v;
-      this.t += this.motY;
-      this.u += this.x;
-      float var16 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
-      this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+      this.locX += this.motX;
+      this.locY += this.motY;
+      this.locZ += this.motZ;
+      float var16 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
+      this.yaw = (float)(MathHelper.b(this.motX, this.motZ) * 180.0D / 3.1415927410125732D);
 
-      for(this.z = (float)(MathHelper.b(this.motY, (double)var16) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+      for(this.pitch = (float)(MathHelper.b(this.motY, (double)var16) * 180.0D / 3.1415927410125732D); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
          ;
       }
 
-      while(this.z - this.B >= 180.0F) {
-         this.B += 360.0F;
+      while(this.pitch - this.lastPitch >= 180.0F) {
+         this.lastPitch += 360.0F;
       }
 
-      while(this.y - this.A < -180.0F) {
-         this.A -= 360.0F;
+      while(this.yaw - this.lastYaw < -180.0F) {
+         this.lastYaw -= 360.0F;
       }
 
-      while(this.y - this.A >= 180.0F) {
-         this.A += 360.0F;
+      while(this.yaw - this.lastYaw >= 180.0F) {
+         this.lastYaw += 360.0F;
       }
 
-      this.z = this.B + (this.z - this.B) * 0.2F;
-      this.y = this.A + (this.y - this.A) * 0.2F;
+      this.pitch = this.lastPitch + (this.pitch - this.lastPitch) * 0.2F;
+      this.yaw = this.lastYaw + (this.yaw - this.lastYaw) * 0.2F;
       float var17 = 0.99F;
       float var18 = this.j();
       if(this.V()) {
          for(int var7 = 0; var7 < 4; ++var7) {
             float var19 = 0.25F;
-            this.o.a(class_cy.e, this.s - this.v * (double)var19, this.t - this.motY * (double)var19, this.u - this.x * (double)var19, this.v, this.motY, this.x, new int[0]);
+            this.world.a(class_cy.e, this.locX - this.motX * (double)var19, this.locY - this.motY * (double)var19, this.locZ - this.motZ * (double)var19, this.motX, this.motY, this.motZ, new int[0]);
          }
 
          var17 = 0.8F;
       }
 
-      this.v *= (double)var17;
+      this.motX *= (double)var17;
       this.motY *= (double)var17;
-      this.x *= (double)var17;
+      this.motZ *= (double)var17;
       this.motY -= (double)var18;
-      this.b(this.s, this.t, this.u);
+      this.b(this.locX, this.locY, this.locZ);
    }
 
    protected float j() {
@@ -256,10 +256,10 @@ public abstract class class_xo extends Entity implements class_xi {
 
    public EntityLiving l() {
       if(this.h == null && this.i != null && !this.i.isEmpty()) {
-         this.h = this.o.a(this.i);
-         if(this.h == null && this.o instanceof WorldServer) {
+         this.h = this.world.a(this.i);
+         if(this.h == null && this.world instanceof WorldServer) {
             try {
-               Entity var1 = ((WorldServer)this.o).getEntityByUUID(UUID.fromString(this.i));
+               Entity var1 = ((WorldServer)this.world).getEntityByUUID(UUID.fromString(this.i));
                if(var1 instanceof EntityLiving) {
                   this.h = (EntityLiving)var1;
                }

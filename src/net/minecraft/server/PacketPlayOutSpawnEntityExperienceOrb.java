@@ -20,9 +20,9 @@ public class PacketPlayOutSpawnEntityExperienceOrb implements Packet {
 
    public PacketPlayOutSpawnEntityExperienceOrb(EntityExperienceOrb var1) {
       this.a = var1.getId();
-      this.b = MathHelper.floor(var1.s * 32.0D);
-      this.c = MathHelper.floor(var1.t * 32.0D);
-      this.d = MathHelper.floor(var1.u * 32.0D);
+      this.b = MathHelper.floor(var1.locX * 32.0D);
+      this.c = MathHelper.floor(var1.locY * 32.0D);
+      this.d = MathHelper.floor(var1.locZ * 32.0D);
       this.e = var1.j();
    }
 

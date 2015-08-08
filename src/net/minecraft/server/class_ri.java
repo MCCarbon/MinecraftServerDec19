@@ -18,7 +18,7 @@ public class class_ri extends class_rm {
    public class_ri(EntityCreature var1, double var2) {
       this.a = var1;
       this.e = var2;
-      this.f = var1.o;
+      this.f = var1.world;
       this.a(1);
    }
 
@@ -27,7 +27,7 @@ public class class_ri extends class_rm {
          return false;
       } else if(!this.a.av()) {
          return false;
-      } else if(!this.f.i(new BlockPosition(this.a.s, this.a.aT().yMin, this.a.u))) {
+      } else if(!this.f.i(new BlockPosition(this.a.locX, this.a.aT().yMin, this.a.locZ))) {
          return false;
       } else {
          Vec3D var1 = this.f();
@@ -52,7 +52,7 @@ public class class_ri extends class_rm {
 
    private Vec3D f() {
       Random var1 = this.a.bd();
-      BlockPosition var2 = new BlockPosition(this.a.s, this.a.aT().yMin, this.a.u);
+      BlockPosition var2 = new BlockPosition(this.a.locX, this.a.aT().yMin, this.a.locZ);
 
       for(int var3 = 0; var3 < 10; ++var3) {
          BlockPosition var4 = var2.add(var1.nextInt(20) - 10, var1.nextInt(6) - 3, var1.nextInt(20) - 10);

@@ -28,7 +28,7 @@ public class CommandSpawnpoint extends CommandAbstract {
       } else {
          EntityPlayer var3 = var2.length > 0?a(var1, var2[0]):b(var1);
          BlockPosition var4 = var2.length > 3?a(var1, var2, 1, true):var3.c();
-         if(var3.o != null) {
+         if(var3.world != null) {
             var3.a((BlockPosition)var4, true);
             a(var1, this, "commands.spawnpoint.success", new Object[]{var3.getName(), Integer.valueOf(var4.getX()), Integer.valueOf(var4.getY()), Integer.valueOf(var4.getZ())});
          }

@@ -17,7 +17,7 @@ public class EntitySmallFireball extends class_xf {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          boolean var2;
          if(var1.d != null) {
             var2 = var1.d.damageEntity(DamageSource.a((class_xf) this, (Entity) this.a), 5.0F);
@@ -30,13 +30,13 @@ public class EntitySmallFireball extends class_xf {
          } else {
             var2 = true;
             if(this.a != null && this.a instanceof EntityInsentient) {
-               var2 = this.o.R().getBooleanValue("mobGriefing");
+               var2 = this.world.R().getBooleanValue("mobGriefing");
             }
 
             if(var2) {
                BlockPosition var3 = var1.a().shift(var1.b);
-               if(this.o.isEmpty(var3)) {
-                  this.o.setTypeUpdate(var3, Blocks.FIRE.getBlockData());
+               if(this.world.isEmpty(var3)) {
+                  this.world.setTypeUpdate(var3, Blocks.FIRE.getBlockData());
                }
             }
          }

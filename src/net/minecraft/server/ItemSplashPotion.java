@@ -16,7 +16,7 @@ public class ItemSplashPotion extends ItemPotion {
 		world.a((Entity) player, "random.bow", 0.5F, 0.4F / ((random.nextFloat() * 0.4F) + 0.8F));
 		if (!world.isClientSide) {
 			EntityPotion var5 = new EntityPotion(world, player, itemstack);
-			var5.a(player.z, player.y, -20.0F, 0.5F, 1.0F);
+			var5.a(player.pitch, player.yaw, -20.0F, 0.5F, 1.0F);
 			world.addEntity(var5);
 		}
 

@@ -123,14 +123,14 @@ public abstract class class_aee {
          }
 
          var1.f(var3);
-         if(var1.o != null && var2) {
-            var1.o.addEntity(var1);
+         if(var1.world != null && var2) {
+            var1.world.addEntity(var1);
          }
 
          NBTTagCompound var12;
          for(Entity var11 = var1; var3.hasOfType("Riding", 10); var3 = var12) {
             var12 = var3.getCompound("Riding");
-            Entity var13 = EntityTypes.a(var12.getString("id"), var1.o);
+            Entity var13 = EntityTypes.a(var12.getString("id"), var1.world);
             if(var13 != null) {
                NBTTagCompound var7 = new NBTTagCompound();
                var13.d(var7);
@@ -143,9 +143,9 @@ public abstract class class_aee {
                }
 
                var13.f(var7);
-               var13.b(var11.s, var11.t, var11.u, var11.y, var11.z);
-               if(var1.o != null && var2) {
-                  var1.o.addEntity(var13);
+               var13.b(var11.locX, var11.locY, var11.locZ, var11.yaw, var11.pitch);
+               if(var1.world != null && var2) {
+                  var1.world.addEntity(var13);
                }
 
                var11.a(var13);
@@ -153,12 +153,12 @@ public abstract class class_aee {
 
             var11 = var13;
          }
-      } else if(var1 instanceof EntityLiving && var1.o != null && var2) {
+      } else if(var1 instanceof EntityLiving && var1.world != null && var2) {
          if(var1 instanceof EntityInsentient) {
-            ((EntityInsentient)var1).a((class_on)var1.o.E(new BlockPosition(var1)), (class_qd)null);
+            ((EntityInsentient)var1).a((class_on)var1.world.E(new BlockPosition(var1)), (class_qd)null);
          }
 
-         var1.o.addEntity(var1);
+         var1.world.addEntity(var1);
       }
 
       return var1;

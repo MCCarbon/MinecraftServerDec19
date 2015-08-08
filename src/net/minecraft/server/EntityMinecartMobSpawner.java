@@ -3,11 +3,11 @@ package net.minecraft.server;
 public class EntityMinecartMobSpawner extends EntityMinecartAbstract {
    private final class_aee a = new class_aee() {
       public void a(int var1) {
-         EntityMinecartMobSpawner.this.o.a((Entity)EntityMinecartMobSpawner.this, (byte)((byte)var1));
+         EntityMinecartMobSpawner.this.world.a((Entity)EntityMinecartMobSpawner.this, (byte)((byte)var1));
       }
 
       public World a() {
-         return EntityMinecartMobSpawner.this.o;
+         return EntityMinecartMobSpawner.this.world;
       }
 
       public BlockPosition b() {

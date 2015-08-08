@@ -177,8 +177,8 @@ public class class_avl implements class_avo, IPlayerFileData {
       try {
          NBTTagCompound var2 = new NBTTagCompound();
          var1.e(var2);
-         File var3 = new File(this.c, var1.aM().toString() + ".dat.tmp");
-         File var4 = new File(this.c, var1.aM().toString() + ".dat");
+         File var3 = new File(this.c, var1.getUniqueId().toString() + ".dat.tmp");
+         File var4 = new File(this.c, var1.getUniqueId().toString() + ".dat");
          NBTCompressedStreamTools.writeToRawOutputStream((NBTTagCompound)var2, (OutputStream)(new FileOutputStream(var3)));
          if(var4.exists()) {
             var4.delete();
@@ -195,7 +195,7 @@ public class class_avl implements class_avo, IPlayerFileData {
       NBTTagCompound var2 = null;
 
       try {
-         File var3 = new File(this.c, var1.aM().toString() + ".dat");
+         File var3 = new File(this.c, var1.getUniqueId().toString() + ".dat");
          if(var3.exists() && var3.isFile()) {
             var2 = NBTCompressedStreamTools.fromRawInputStream((InputStream)(new FileInputStream(var3)));
          }

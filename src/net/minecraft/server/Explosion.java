@@ -92,9 +92,9 @@ public class Explosion {
 			if (!var13.aX()) {
 				double var35 = var13.f(this.x, this.y, this.z) / (double) var30;
 				if (var35 <= 1.0D) {
-					double var16 = var13.s - this.x;
-					double var18 = var13.t + (double) var13.aU() - this.y;
-					double var20 = var13.u - this.z;
+					double var16 = var13.locX - this.x;
+					double var18 = var13.locY + (double) var13.aU() - this.y;
+					double var20 = var13.locZ - this.z;
 					double var36 = (double) MathHelper.sqrt(var16 * var16 + var18 * var18 + var20 * var20);
 					if (var36 != 0.0D) {
 						var16 /= var36;
@@ -108,9 +108,9 @@ public class Explosion {
 							var28 = class_ads.a((EntityLiving) var13, var26);
 						}
 
-						var13.v += var16 * var28;
+						var13.motX += var16 * var28;
 						var13.motY += var18 * var28;
-						var13.x += var20 * var28;
+						var13.motZ += var20 * var28;
 						if (var13 instanceof EntityHuman && !((EntityHuman) var13).abilities.invulnerable) {
 							this.affectedPlayers.put((EntityHuman) var13, new Vec3D(var16 * var26, var18 * var26, var20 * var26));
 						}

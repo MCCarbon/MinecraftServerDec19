@@ -12,7 +12,7 @@ import net.minecraft.server.class_ed;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityItem;
 
@@ -50,20 +50,20 @@ public class CommandGive extends CommandAbstract {
 
          boolean var11 = var3.inventory.a(var7);
          if(var11) {
-            var3.o.a((Entity)var3, "random.pop", 0.2F, ((var3.bd().nextFloat() - var3.bd().nextFloat()) * 0.7F + 1.0F) * 2.0F);
+            var3.world.a((Entity)var3, "random.pop", 0.2F, ((var3.bd().nextFloat() - var3.bd().nextFloat()) * 0.7F + 1.0F) * 2.0F);
             var3.bq.b();
          }
 
          EntityItem var9;
          if(var11 && var7.count <= 0) {
             var7.count = 1;
-            var1.a(class_n.class_a_in_class_n.d, var5);
+            var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, var5);
             var9 = var3.a(var7, false);
             if(var9 != null) {
                var9.v();
             }
          } else {
-            var1.a(class_n.class_a_in_class_n.d, var5 - var7.count);
+            var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, var5 - var7.count);
             var9 = var3.a(var7, false);
             if(var9 != null) {
                var9.removePickupDelay();

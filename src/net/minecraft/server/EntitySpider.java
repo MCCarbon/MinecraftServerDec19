@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class EntitySpider extends EntityMonster {
 
-	private static final int CLIMBING_DW_ID = Datawathcer.claimId(EntitySpider.class); //value = 11
+	private static final int CLIMBING_DW_ID = DataWathcer.claimId(EntitySpider.class); //value = 11
 
 	public EntitySpider(World var1) {
 		super(var1);
@@ -22,7 +22,7 @@ public class EntitySpider extends EntityMonster {
 	}
 
 	public double an() {
-		return (double) (this.K * 0.5F);
+		return (double) (this.length * 0.5F);
 	}
 
 	protected class_tg b(World var1) {
@@ -36,8 +36,8 @@ public class EntitySpider extends EntityMonster {
 
 	public void t_() {
 		super.t_();
-		if (!this.o.isClientSide) {
-			this.a(this.D);
+		if (!this.world.isClientSide) {
+			this.a(this.positionChanged);
 		}
 
 	}
@@ -108,18 +108,18 @@ public class EntitySpider extends EntityMonster {
 
 	public class_qd a(class_on var1, class_qd var2) {
 		Object var4 = super.a(var1, var2);
-		if (this.o.random.nextInt(100) == 0) {
-			EntitySkeleton var3 = new EntitySkeleton(this.o);
-			var3.b(this.s, this.t, this.u, this.y, 0.0F);
+		if (this.world.random.nextInt(100) == 0) {
+			EntitySkeleton var3 = new EntitySkeleton(this.world);
+			var3.b(this.locX, this.locY, this.locZ, this.yaw, 0.0F);
 			var3.a((class_on) var1, (class_qd) null);
-			this.o.addEntity((Entity) var3);
+			this.world.addEntity((Entity) var3);
 			var3.a((Entity) this);
 		}
 
 		if (var4 == null) {
 			var4 = new EntitySpider.class_b_in_class_wp();
-			if (this.o.ab() == class_om.d && this.o.random.nextFloat() < 0.1F * var1.c()) {
-				((EntitySpider.class_b_in_class_wp) var4).a(this.o.random);
+			if (this.world.ab() == class_om.d && this.world.random.nextFloat() < 0.1F * var1.c()) {
+				((EntitySpider.class_b_in_class_wp) var4).a(this.world.random);
 			}
 		}
 
@@ -164,7 +164,7 @@ public class EntitySpider extends EntityMonster {
 		}
 
 		protected double a(EntityLiving var1) {
-			return (double) (4.0F + var1.J);
+			return (double) (4.0F + var1.width);
 		}
 	}
 

@@ -9,7 +9,7 @@ public class class_rt extends class_rm {
 
    public class_rt(EntityVillager var1) {
       this.b = var1;
-      this.d = var1.o;
+      this.d = var1.world;
       this.a(3);
    }
 
@@ -82,7 +82,7 @@ public class class_rt extends class_rm {
       this.c.p(false);
       this.b.p(false);
       var1.b(-24000);
-      var1.b(this.b.s, this.b.t, this.b.u, 0.0F, 0.0F);
+      var1.b(this.b.locX, this.b.locY, this.b.locZ, 0.0F, 0.0F);
       this.d.addEntity((Entity)var1);
       this.d.a((Entity)var1, (byte)12);
    }

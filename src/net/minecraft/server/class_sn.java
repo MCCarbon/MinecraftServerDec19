@@ -44,7 +44,7 @@ public class class_sn extends class_rm {
             int var2 = this.a.cX();
             if(var2 > 0 && this.a.bd().nextInt(var2) < var1) {
                this.a.f((EntityHuman)this.a.passenger);
-               this.a.o.a((Entity)this.a, (byte)7);
+               this.a.world.a((Entity)this.a, (byte)7);
                return;
             }
 
@@ -54,7 +54,7 @@ public class class_sn extends class_rm {
          this.a.passenger.a((Entity)null);
          this.a.passenger = null;
          this.a.dl();
-         this.a.o.a((Entity)this.a, (byte)6);
+         this.a.world.a((Entity)this.a, (byte)6);
       }
 
    }

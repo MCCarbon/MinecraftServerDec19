@@ -10,9 +10,9 @@ public class class_qz {
 
    public class_qz(EntityInsentient var1) {
       this.a = var1;
-      this.b = var1.s;
-      this.c = var1.t;
-      this.d = var1.u;
+      this.b = var1.locX;
+      this.c = var1.locY;
+      this.d = var1.locZ;
    }
 
    public boolean a() {
@@ -36,13 +36,13 @@ public class class_qz {
       if(this.f) {
          this.f = false;
          int var1 = MathHelper.floor(this.a.aT().yMin + 0.5D);
-         double var2 = this.b - this.a.s;
-         double var4 = this.d - this.a.u;
+         double var2 = this.b - this.a.locX;
+         double var4 = this.d - this.a.locZ;
          double var6 = this.c - (double)var1;
          double var8 = var2 * var2 + var6 * var6 + var4 * var4;
          if(var8 >= 2.500000277905201E-7D) {
             float var10 = (float)(MathHelper.b(var4, var2) * 180.0D / 3.1415927410125732D) - 90.0F;
-            this.a.y = this.a(this.a.y, var10, 30.0F);
+            this.a.yaw = this.a(this.a.yaw, var10, 30.0F);
             this.a.k((float)(this.e * this.a.a((class_qk)class_wl.d).e()));
             if(var6 > 0.0D && var2 * var2 + var4 * var4 < 1.0D) {
                this.a.t().a();

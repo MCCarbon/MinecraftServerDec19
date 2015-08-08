@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
-	private static final int POWERED_DWID = Datawathcer.claimId(EntityMinecartFurnace.class); //value = 11
+	private static final int POWERED_DWID = DataWathcer.claimId(EntityMinecartFurnace.class); //value = 11
 	private int d;
 	public double a;
 	public double b;
@@ -36,7 +36,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
 		this.i(this.d > 0);
 		if (this.j() && this.random.nextInt(4) == 0) {
-			this.o.a(class_cy.m, this.s, this.t + 0.8D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.a(class_cy.m, this.locX, this.locY + 0.8D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 	}
@@ -47,7 +47,7 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
 	public void a(DamageSource var1) {
 		super.a(var1);
-		if (!var1.c() && this.o.R().getBooleanValue("doEntityDrops")) {
+		if (!var1.c() && this.world.R().getBooleanValue("doEntityDrops")) {
 			this.a(new ItemStack(Blocks.FURNACE, 1), 0.0F);
 		}
 
@@ -56,11 +56,11 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 	protected void a(BlockPosition var1, IBlockData var2) {
 		super.a(var1, var2);
 		double var3 = this.a * this.a + this.b * this.b;
-		if (var3 > 1.0E-4D && this.v * this.v + this.x * this.x > 0.001D) {
+		if (var3 > 1.0E-4D && this.motX * this.motX + this.motZ * this.motZ > 0.001D) {
 			var3 = (double) MathHelper.sqrt(var3);
 			this.a /= var3;
 			this.b /= var3;
-			if (this.a * this.v + this.b * this.x < 0.0D) {
+			if (this.a * this.motX + this.b * this.motZ < 0.0D) {
 				this.a = 0.0D;
 				this.b = 0.0D;
 			} else {
@@ -79,15 +79,15 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 			this.a /= var1;
 			this.b /= var1;
 			double var3 = 1.0D;
-			this.v *= 0.800000011920929D;
+			this.motX *= 0.800000011920929D;
 			this.motY *= 0.0D;
-			this.x *= 0.800000011920929D;
-			this.v += this.a * var3;
-			this.x += this.b * var3;
+			this.motZ *= 0.800000011920929D;
+			this.motX += this.a * var3;
+			this.motZ += this.b * var3;
 		} else {
-			this.v *= 0.9800000190734863D;
+			this.motX *= 0.9800000190734863D;
 			this.motY *= 0.0D;
-			this.x *= 0.9800000190734863D;
+			this.motZ *= 0.9800000190734863D;
 		}
 
 		super.o();
@@ -102,8 +102,8 @@ public class EntityMinecartFurnace extends EntityMinecartAbstract {
 			this.d += 3600;
 		}
 
-		this.a = this.s - var1.s;
-		this.b = this.u - var1.u;
+		this.a = this.locX - var1.locX;
+		this.b = this.locZ - var1.locZ;
 		return true;
 	}
 

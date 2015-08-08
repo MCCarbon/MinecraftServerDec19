@@ -29,7 +29,7 @@ public class class_rz extends class_rm {
       } else if(this.b.h(this.a) > (double)(this.g * this.g)) {
          return false;
       } else {
-         Vec3D var1 = class_tm.a(this.a, 16, 7, new Vec3D(this.b.s, this.b.t, this.b.u));
+         Vec3D var1 = class_tm.a(this.a, 16, 7, new Vec3D(this.b.locX, this.b.locY, this.b.locZ));
          if(var1 == null) {
             return false;
          } else {

@@ -13,7 +13,7 @@ public class class_ro extends class_rx {
 
    public boolean a() {
       if(this.a <= 0) {
-         if(!this.c.o.R().getBooleanValue("mobGriefing")) {
+         if(!this.c.world.R().getBooleanValue("mobGriefing")) {
             return false;
          }
 
@@ -41,7 +41,7 @@ public class class_ro extends class_rx {
       super.e();
       this.c.q().a((double)this.b.getX() + 0.5D, (double)(this.b.getY() + 1), (double)this.b.getZ() + 0.5D, 10.0F, (float)this.c.cd());
       if(this.f()) {
-         World var1 = this.c.o;
+         World var1 = this.c.world;
          BlockPosition var2 = this.b.up();
          IBlockData var3 = var1.getType(var2);
          Block var4 = var3.getBlock();

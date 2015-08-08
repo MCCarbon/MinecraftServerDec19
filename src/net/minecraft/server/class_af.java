@@ -24,7 +24,7 @@ public class class_af extends CommandAbstract {
       if(var2.length < 7) {
          throw new class_cf("commands.fill.usage", new Object[0]);
       } else {
-         var1.a(class_n.class_a_in_class_n.b, 0);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 0);
          BlockPosition var3 = a(var1, var2, 0, false);
          BlockPosition var4 = a(var1, var2, 3, false);
          Block var5 = CommandAbstract.g(var1, var2[6]);
@@ -141,7 +141,7 @@ public class class_af extends CommandAbstract {
             if(var9 <= 0) {
                throw new class_bz("commands.fill.failed", new Object[0]);
             } else {
-               var1.a(class_n.class_a_in_class_n.b, var9);
+               var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, var9);
                a(var1, this, "commands.fill.success", new Object[]{Integer.valueOf(var9)});
             }
          } else {

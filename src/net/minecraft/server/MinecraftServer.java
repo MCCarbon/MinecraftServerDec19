@@ -72,7 +72,7 @@ import net.minecraft.server.ServerConnection;
 import net.minecraft.server.class_lv;
 import net.minecraft.server.PlayerList;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_nv;
 import net.minecraft.server.class_nw;
@@ -1194,7 +1194,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return N().d[0].R().getBooleanValue("sendCommandFeedback");
 	}
 
-	public void a(class_n.class_a_in_class_n var1, int var2) {
+	public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {
 	}
 
 	public int aI() {

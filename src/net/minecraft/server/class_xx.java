@@ -17,7 +17,7 @@ public class class_xx {
    }
 
    public void a(EntityHuman var1) {
-      class_om var2 = var1.o.ab();
+      class_om var2 = var1.world.ab();
       this.e = this.a;
       if(this.c > 4.0F) {
          this.c -= 4.0F;
@@ -28,7 +28,7 @@ public class class_xx {
          }
       }
 
-      if(var1.o.R().getBooleanValue("naturalRegeneration") && this.a >= 18 && var1.co()) {
+      if(var1.world.R().getBooleanValue("naturalRegeneration") && this.a >= 18 && var1.co()) {
          ++this.d;
          if(this.d >= 80) {
             var1.h(1.0F);

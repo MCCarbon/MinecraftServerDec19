@@ -65,7 +65,7 @@ public class EntityPainting extends class_uz {
    }
 
    public void b(Entity var1) {
-      if(this.o.R().getBooleanValue("doEntityDrops")) {
+      if(this.world.R().getBooleanValue("doEntityDrops")) {
          if(var1 instanceof EntityHuman) {
             EntityHuman var2 = (EntityHuman)var1;
             if(var2.abilities.instabuild) {
@@ -78,7 +78,7 @@ public class EntityPainting extends class_uz {
    }
 
    public void b(double var1, double var3, double var5, float var7, float var8) {
-      BlockPosition var9 = this.a.add(var1 - this.s, var3 - this.t, var5 - this.u);
+      BlockPosition var9 = this.a.add(var1 - this.locX, var3 - this.locY, var5 - this.locZ);
       this.b((double)var9.getX(), (double)var9.getY(), (double)var9.getZ());
    }
 

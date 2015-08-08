@@ -30,7 +30,7 @@ public class class_yw extends class_yx {
 
    protected void c(ItemStack var1) {
       if(this.c > 0) {
-         var1.a(this.b.o, this.b, this.c);
+         var1.a(this.b.world, this.b, this.c);
       }
 
       this.c = 0;
@@ -82,7 +82,7 @@ public class class_yw extends class_yx {
 
    public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
-      ItemStack[] var3 = RecipeManager.a().b(this.a, var1.o);
+      ItemStack[] var3 = RecipeManager.a().b(this.a, var1.world);
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
          ItemStack var5 = this.a.getItem(var4);

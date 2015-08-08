@@ -46,7 +46,7 @@ public class ItemBow extends Item {
             float var11 = b(var10);
             if((double)var11 >= 0.1D) {
                EntityArrow var12 = var9.createArrowEntity(var2, var8, var5);
-               var12.a(var5.z, var5.y, 0.0F, var11 * 3.0F, 1.0F);
+               var12.a(var5.pitch, var5.yaw, 0.0F, var11 * 3.0F, 1.0F);
                if(var11 == 1.0F) {
                   var12.a(true);
                }

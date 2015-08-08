@@ -30,7 +30,7 @@ public class EntitySquid extends class_uk {
    }
 
    public float aU() {
-      return this.K * 0.5F;
+      return this.length * 0.5F;
    }
 
    protected String C() {
@@ -67,7 +67,7 @@ public class EntitySquid extends class_uk {
    }
 
    public boolean V() {
-      return this.o.a((AxisAlignedBB)this.aT().grow(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.WATER, (Entity)this);
+      return this.world.a((AxisAlignedBB)this.aT().grow(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.WATER, (Entity)this);
    }
 
    public void m() {
@@ -78,7 +78,7 @@ public class EntitySquid extends class_uk {
       this.bu = this.bt;
       this.br += this.bw;
       if((double)this.br > 6.283185307179586D) {
-         if(this.o.isClientSide) {
+         if(this.world.isClientSide) {
             this.br = 6.2831855F;
          } else {
             this.br = (float)((double)this.br - 6.283185307179586D);
@@ -86,11 +86,11 @@ public class EntitySquid extends class_uk {
                this.bw = 1.0F / (this.random.nextFloat() + 1.0F) * 0.2F;
             }
 
-            this.o.a((Entity)this, (byte)19);
+            this.world.a((Entity)this, (byte)19);
          }
       }
 
-      if(this.Y) {
+      if(this.inWater) {
          float var1;
          if(this.br < 3.1415927F) {
             var1 = this.br / 3.1415927F;
@@ -107,24 +107,24 @@ public class EntitySquid extends class_uk {
             this.bx *= 0.99F;
          }
 
-         if(!this.o.isClientSide) {
-            this.v = (double)(this.by * this.bv);
+         if(!this.world.isClientSide) {
+            this.motX = (double)(this.by * this.bv);
             this.motY = (double)(this.bz * this.bv);
-            this.x = (double)(this.bA * this.bv);
+            this.motZ = (double)(this.bA * this.bv);
          }
 
-         var1 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
-         this.aL += (-((float)MathHelper.b(this.v, this.x)) * 180.0F / 3.1415927F - this.aL) * 0.1F;
-         this.y = this.aL;
+         var1 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
+         this.aL += (-((float)MathHelper.b(this.motX, this.motZ)) * 180.0F / 3.1415927F - this.aL) * 0.1F;
+         this.yaw = this.aL;
          this.c = (float)((double)this.c + 3.141592653589793D * (double)this.bx * 1.5D);
          this.a += (-((float)MathHelper.b((double)var1, this.motY)) * 180.0F / 3.1415927F - this.a) * 0.1F;
       } else {
          this.bt = MathHelper.abs(MathHelper.sin(this.br)) * 3.1415927F * 0.25F;
-         if(!this.o.isClientSide) {
-            this.v = 0.0D;
+         if(!this.world.isClientSide) {
+            this.motX = 0.0D;
             this.motY -= 0.08D;
             this.motY *= 0.9800000190734863D;
-            this.x = 0.0D;
+            this.motZ = 0.0D;
          }
 
          this.a = (float)((double)this.a + (double)(-90.0F - this.a) * 0.02D);
@@ -133,11 +133,11 @@ public class EntitySquid extends class_uk {
    }
 
    public void g(float var1, float var2) {
-      this.d(this.v, this.motY, this.x);
+      this.d(this.motX, this.motY, this.motZ);
    }
 
    public boolean cf() {
-      return this.t > 45.0D && this.t < (double)this.o.G() && super.cf();
+      return this.locY > 45.0D && this.locY < (double)this.world.G() && super.cf();
    }
 
    public void b(float var1, float var2, float var3) {
@@ -165,7 +165,7 @@ public class EntitySquid extends class_uk {
          int var1 = this.a.bi();
          if(var1 > 100) {
             this.a.b(0.0F, 0.0F, 0.0F);
-         } else if(this.a.bd().nextInt(50) == 0 || !this.a.Y || !this.a.n()) {
+         } else if(this.a.bd().nextInt(50) == 0 || !this.a.inWater || !this.a.n()) {
             float var2 = this.a.bd().nextFloat() * 3.1415927F * 2.0F;
             float var3 = MathHelper.cos(var2) * 0.2F;
             float var4 = -0.1F + this.a.bd().nextFloat() * 0.2F;

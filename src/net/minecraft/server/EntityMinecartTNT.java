@@ -23,13 +23,13 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       super.t_();
       if(this.a > 0) {
          --this.a;
-         this.o.a(class_cy.l, this.s, this.t + 0.5D, this.u, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.a(class_cy.l, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
       } else if(this.a == 0) {
-         this.b(this.v * this.v + this.x * this.x);
+         this.b(this.motX * this.motX + this.motZ * this.motZ);
       }
 
-      if(this.D) {
-         double var1 = this.v * this.v + this.x * this.x;
+      if(this.positionChanged) {
+         double var1 = this.motX * this.motX + this.motZ * this.motZ;
          if(var1 >= 0.009999999776482582D) {
             this.b(var1);
          }
@@ -42,7 +42,7 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
       if(var3 instanceof EntityArrow) {
          EntityArrow var4 = (EntityArrow)var3;
          if(var4.av()) {
-            this.b(var4.v * var4.v + var4.motY * var4.motY + var4.x * var4.x);
+            this.b(var4.motX * var4.motX + var4.motY * var4.motY + var4.motZ * var4.motZ);
          }
       }
 
@@ -51,8 +51,8 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
 
    public void a(DamageSource var1) {
       super.a(var1);
-      double var2 = this.v * this.v + this.x * this.x;
-      if(!var1.c() && this.o.R().getBooleanValue("doEntityDrops")) {
+      double var2 = this.motX * this.motX + this.motZ * this.motZ;
+      if(!var1.c() && this.world.R().getBooleanValue("doEntityDrops")) {
          this.a(new ItemStack(Blocks.TNT, 1), 0.0F);
       }
 
@@ -63,13 +63,13 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
    }
 
    protected void b(double var1) {
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          double var3 = Math.sqrt(var1);
          if(var3 > 5.0D) {
             var3 = 5.0D;
          }
 
-         this.o.a(this, this.s, this.t, this.u, (float)(4.0D + this.random.nextDouble() * 1.5D * var3), true);
+         this.world.a(this, this.locX, this.locY, this.locZ, (float)(4.0D + this.random.nextDouble() * 1.5D * var3), true);
          this.J();
       }
 
@@ -93,10 +93,10 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
 
    public void j() {
       this.a = 80;
-      if(!this.o.isClientSide) {
-         this.o.a((Entity)this, (byte)10);
-         if(!this.R()) {
-            this.o.a((Entity)this, "game.tnt.primed", 1.0F, 1.0F);
+      if(!this.world.isClientSide) {
+         this.world.a((Entity)this, (byte)10);
+         if(!this.isSilent()) {
+            this.world.a((Entity)this, "game.tnt.primed", 1.0F, 1.0F);
          }
       }
 

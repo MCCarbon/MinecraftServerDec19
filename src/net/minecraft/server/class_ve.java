@@ -45,16 +45,16 @@ public class class_ve extends Entity {
       this.b = var2;
       this.b.bN = this;
       this.a(0.25F, 0.25F);
-      this.b(var2.s, var2.t + (double)var2.aU(), var2.u, var2.y, var2.z);
-      this.s -= (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * 0.16F);
-      this.t -= 0.10000000149011612D;
-      this.u -= (double)(MathHelper.sin(this.y / 180.0F * 3.1415927F) * 0.16F);
-      this.b(this.s, this.t, this.u);
+      this.b(var2.locX, var2.locY + (double)var2.aU(), var2.locZ, var2.yaw, var2.pitch);
+      this.locX -= (double)(MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * 0.16F);
+      this.locY -= 0.10000000149011612D;
+      this.locZ -= (double)(MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * 0.16F);
+      this.b(this.locX, this.locY, this.locZ);
       float var3 = 0.4F;
-      this.v = (double)(-MathHelper.sin(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var3);
-      this.x = (double)(MathHelper.cos(this.y / 180.0F * 3.1415927F) * MathHelper.cos(this.z / 180.0F * 3.1415927F) * var3);
-      this.motY = (double)(-MathHelper.sin(this.z / 180.0F * 3.1415927F) * var3);
-      this.c(this.v, this.motY, this.x, 1.5F, 1.0F);
+      this.motX = (double)(-MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * MathHelper.cos(this.pitch / 180.0F * 3.1415927F) * var3);
+      this.motZ = (double)(MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * MathHelper.cos(this.pitch / 180.0F * 3.1415927F) * var3);
+      this.motY = (double)(-MathHelper.sin(this.pitch / 180.0F * 3.1415927F) * var3);
+      this.c(this.motX, this.motY, this.motZ, 1.5F, 1.0F);
    }
 
    protected void initDatawatcher() {
@@ -71,42 +71,42 @@ public class class_ve extends Entity {
       var1 *= (double)var7;
       var3 *= (double)var7;
       var5 *= (double)var7;
-      this.v = var1;
+      this.motX = var1;
       this.motY = var3;
-      this.x = var5;
+      this.motZ = var5;
       float var10 = MathHelper.sqrt(var1 * var1 + var5 * var5);
-      this.A = this.y = (float)(MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
-      this.B = this.z = (float)(MathHelper.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
+      this.lastYaw = this.yaw = (float)(MathHelper.b(var1, var5) * 180.0D / 3.1415927410125732D);
+      this.lastPitch = this.pitch = (float)(MathHelper.b(var3, (double)var10) * 180.0D / 3.1415927410125732D);
       this.au = 0;
    }
 
    public void t_() {
       super.t_();
       if(this.aA > 0) {
-         double var29 = this.s + (this.aB - this.s) / (double)this.aA;
-         double var30 = this.t + (this.aC - this.t) / (double)this.aA;
-         double var31 = this.u + (this.aD - this.u) / (double)this.aA;
-         double var7 = MathHelper.clampAngle(this.aE - (double)this.y);
-         this.y = (float)((double)this.y + var7 / (double)this.aA);
-         this.z = (float)((double)this.z + (this.aF - (double)this.z) / (double)this.aA);
+         double var29 = this.locX + (this.aB - this.locX) / (double)this.aA;
+         double var30 = this.locY + (this.aC - this.locY) / (double)this.aA;
+         double var31 = this.locZ + (this.aD - this.locZ) / (double)this.aA;
+         double var7 = MathHelper.clampAngle(this.aE - (double)this.yaw);
+         this.yaw = (float)((double)this.yaw + var7 / (double)this.aA);
+         this.pitch = (float)((double)this.pitch + (this.aF - (double)this.pitch) / (double)this.aA);
          --this.aA;
          this.b(var29, var30, var31);
-         this.b(this.y, this.z);
+         this.b(this.yaw, this.pitch);
       } else {
-         if(!this.o.isClientSide) {
+         if(!this.world.isClientSide) {
             ItemStack var1 = this.b.bA();
-            if(this.b.I || !this.b.isAlive() || var1 == null || var1.getItem() != Items.FISHING_ROD || this.h(this.b) > 1024.0D) {
+            if(this.b.dead || !this.b.isAlive() || var1 == null || var1.getItem() != Items.FISHING_ROD || this.h(this.b) > 1024.0D) {
                this.J();
                this.b.bN = null;
                return;
             }
 
             if(this.c != null) {
-               if(!this.c.I) {
-                  this.s = this.c.s;
-                  double var10002 = (double)this.c.K;
-                  this.t = this.c.aT().yMin + var10002 * 0.8D;
-                  this.u = this.c.u;
+               if(!this.c.dead) {
+                  this.locX = this.c.locX;
+                  double var10002 = (double)this.c.length;
+                  this.locY = this.c.aT().yMin + var10002 * 0.8D;
+                  this.locZ = this.c.locZ;
                   return;
                }
 
@@ -119,7 +119,7 @@ public class class_ve extends Entity {
          }
 
          if(this.at) {
-            if(this.o.getType(new BlockPosition(this.g, this.h, this.i)).getBlock() == this.as) {
+            if(this.world.getType(new BlockPosition(this.g, this.h, this.i)).getBlock() == this.as) {
                ++this.au;
                if(this.au == 1200) {
                   this.J();
@@ -129,26 +129,26 @@ public class class_ve extends Entity {
             }
 
             this.at = false;
-            this.v *= (double)(this.random.nextFloat() * 0.2F);
+            this.motX *= (double)(this.random.nextFloat() * 0.2F);
             this.motY *= (double)(this.random.nextFloat() * 0.2F);
-            this.x *= (double)(this.random.nextFloat() * 0.2F);
+            this.motZ *= (double)(this.random.nextFloat() * 0.2F);
             this.au = 0;
             this.av = 0;
          } else {
             ++this.av;
          }
 
-         Vec3D var28 = new Vec3D(this.s, this.t, this.u);
-         Vec3D var2 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
-         MovingObjectPosition var3 = this.o.a(var28, var2);
-         var28 = new Vec3D(this.s, this.t, this.u);
-         var2 = new Vec3D(this.s + this.v, this.t + this.motY, this.u + this.x);
+         Vec3D var28 = new Vec3D(this.locX, this.locY, this.locZ);
+         Vec3D var2 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
+         MovingObjectPosition var3 = this.world.a(var28, var2);
+         var28 = new Vec3D(this.locX, this.locY, this.locZ);
+         var2 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
          if(var3 != null) {
             var2 = new Vec3D(var3.c.x, var3.c.y, var3.c.z);
          }
 
          Entity var4 = null;
-         List var5 = this.o.getEntities((Entity)this, (AxisAlignedBB)this.aT().add(this.v, this.motY, this.x).grow(1.0D, 1.0D, 1.0D));
+         List var5 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D));
          double var6 = 0.0D;
 
          double var13;
@@ -183,30 +183,30 @@ public class class_ve extends Entity {
          }
 
          if(!this.at) {
-            this.d(this.v, this.motY, this.x);
-            float var32 = MathHelper.sqrt(this.v * this.v + this.x * this.x);
-            this.y = (float)(MathHelper.b(this.v, this.x) * 180.0D / 3.1415927410125732D);
+            this.d(this.motX, this.motY, this.motZ);
+            float var32 = MathHelper.sqrt(this.motX * this.motX + this.motZ * this.motZ);
+            this.yaw = (float)(MathHelper.b(this.motX, this.motZ) * 180.0D / 3.1415927410125732D);
 
-            for(this.z = (float)(MathHelper.b(this.motY, (double)var32) * 180.0D / 3.1415927410125732D); this.z - this.B < -180.0F; this.B -= 360.0F) {
+            for(this.pitch = (float)(MathHelper.b(this.motY, (double)var32) * 180.0D / 3.1415927410125732D); this.pitch - this.lastPitch < -180.0F; this.lastPitch -= 360.0F) {
                ;
             }
 
-            while(this.z - this.B >= 180.0F) {
-               this.B += 360.0F;
+            while(this.pitch - this.lastPitch >= 180.0F) {
+               this.lastPitch += 360.0F;
             }
 
-            while(this.y - this.A < -180.0F) {
-               this.A -= 360.0F;
+            while(this.yaw - this.lastYaw < -180.0F) {
+               this.lastYaw -= 360.0F;
             }
 
-            while(this.y - this.A >= 180.0F) {
-               this.A += 360.0F;
+            while(this.yaw - this.lastYaw >= 180.0F) {
+               this.lastYaw += 360.0F;
             }
 
-            this.z = this.B + (this.z - this.B) * 0.2F;
-            this.y = this.A + (this.y - this.A) * 0.2F;
+            this.pitch = this.lastPitch + (this.pitch - this.lastPitch) * 0.2F;
+            this.yaw = this.lastYaw + (this.yaw - this.lastYaw) * 0.2F;
             float var33 = 0.92F;
-            if(this.C || this.D) {
+            if(this.onGround || this.positionChanged) {
                var33 = 0.5F;
             }
 
@@ -220,20 +220,20 @@ public class class_ve extends Entity {
                double var17 = var14.yMin + var15 * (double)var36 / (double)var34;
                var19 = var14.yMin + var15 * (double)(var36 + 1) / (double)var34;
                AxisAlignedBB var21 = new AxisAlignedBB(var14.xMin, var17, var14.zMin, var14.xMax, var19, var14.zMax);
-               if(this.o.b(var21, Material.WATER)) {
+               if(this.world.b(var21, Material.WATER)) {
                   var35 += 1.0D / (double)var34;
                }
             }
 
-            if(!this.o.isClientSide && var35 > 0.0D) {
-               WorldServer var37 = (WorldServer)this.o;
+            if(!this.world.isClientSide && var35 > 0.0D) {
+               WorldServer var37 = (WorldServer)this.world;
                int var38 = 1;
                BlockPosition var39 = (new BlockPosition(this)).up();
-               if(this.random.nextFloat() < 0.25F && this.o.C(var39)) {
+               if(this.random.nextFloat() < 0.25F && this.world.C(var39)) {
                   var38 = 2;
                }
 
-               if(this.random.nextFloat() < 0.5F && !this.o.i(var39)) {
+               if(this.random.nextFloat() < 0.5F && !this.world.i(var39)) {
                   --var38;
                }
 
@@ -256,17 +256,17 @@ public class class_ve extends Entity {
                         this.motY -= 0.20000000298023224D;
                         this.a("random.splash", 0.25F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
                         var16 = (float)MathHelper.floor(this.aT().yMin);
-                        var37.a(class_cy.e, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
-                        var37.a(class_cy.g, this.s, (double)(var16 + 1.0F), this.u, (int)(1.0F + this.J * 20.0F), (double)this.J, 0.0D, (double)this.J, 0.20000000298023224D, new int[0]);
+                        var37.a(class_cy.e, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
+                        var37.a(class_cy.g, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
                         this.aw = MathHelper.getRandomIntInRange((Random)this.random, 10, 30);
                      } else {
                         this.az = (float)((double)this.az + this.random.nextGaussian() * 4.0D);
                         var16 = this.az * 0.017453292F;
                         var40 = MathHelper.sin(var16);
                         var18 = MathHelper.cos(var16);
-                        var19 = this.s + (double)(var40 * (float)this.ay * 0.1F);
+                        var19 = this.locX + (double)(var40 * (float)this.ay * 0.1F);
                         var41 = (double)((float)MathHelper.floor(this.aT().yMin) + 1.0F);
-                        var23 = this.u + (double)(var18 * (float)this.ay * 0.1F);
+                        var23 = this.locZ + (double)(var18 * (float)this.ay * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
                            if(this.random.nextFloat() < 0.15F) {
@@ -293,9 +293,9 @@ public class class_ve extends Entity {
                      if(this.random.nextFloat() < var16) {
                         var40 = MathHelper.getRandomFloatInRange(this.random, 0.0F, 360.0F) * 0.017453292F;
                         var18 = MathHelper.getRandomFloatInRange(this.random, 25.0F, 60.0F);
-                        var19 = this.s + (double)(MathHelper.sin(var40) * var18 * 0.1F);
+                        var19 = this.locX + (double)(MathHelper.sin(var40) * var18 * 0.1F);
                         var41 = (double)((float)MathHelper.floor(this.aT().yMin) + 1.0F);
-                        var23 = this.u + (double)(MathHelper.cos(var40) * var18 * 0.1F);
+                        var23 = this.locZ + (double)(MathHelper.cos(var40) * var18 * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
                            var37.a(class_cy.f, var19, var41, var23, 2 + this.random.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
@@ -324,10 +324,10 @@ public class class_ve extends Entity {
                this.motY *= 0.8D;
             }
 
-            this.v *= (double)var33;
+            this.motX *= (double)var33;
             this.motY *= (double)var33;
-            this.x *= (double)var33;
-            this.b(this.s, this.t, this.u);
+            this.motZ *= (double)var33;
+            this.b(this.locX, this.locY, this.locZ);
          }
       }
    }
@@ -357,32 +357,32 @@ public class class_ve extends Entity {
    }
 
    public int l() {
-      if(this.o.isClientSide) {
+      if(this.world.isClientSide) {
          return 0;
       } else {
          byte var1 = 0;
          if(this.c != null) {
-            double var2 = this.b.s - this.s;
-            double var4 = this.b.t - this.t;
-            double var6 = this.b.u - this.u;
+            double var2 = this.b.locX - this.locX;
+            double var4 = this.b.locY - this.locY;
+            double var6 = this.b.locZ - this.locZ;
             double var8 = (double)MathHelper.sqrt(var2 * var2 + var4 * var4 + var6 * var6);
             double var10 = 0.1D;
-            this.c.v += var2 * var10;
+            this.c.motX += var2 * var10;
             this.c.motY += var4 * var10 + (double)MathHelper.sqrt(var8) * 0.08D;
-            this.c.x += var6 * var10;
+            this.c.motZ += var6 * var10;
             var1 = 3;
          } else if(this.aw > 0) {
-            EntityItem var13 = new EntityItem(this.o, this.s, this.t, this.u, this.m());
-            double var3 = this.b.s - this.s;
-            double var5 = this.b.t - this.t;
-            double var7 = this.b.u - this.u;
+            EntityItem var13 = new EntityItem(this.world, this.locX, this.locY, this.locZ, this.m());
+            double var3 = this.b.locX - this.locX;
+            double var5 = this.b.locY - this.locY;
+            double var7 = this.b.locZ - this.locZ;
             double var9 = (double)MathHelper.sqrt(var3 * var3 + var5 * var5 + var7 * var7);
             double var11 = 0.1D;
-            var13.v = var3 * var11;
+            var13.motX = var3 * var11;
             var13.motY = var5 * var11 + (double)MathHelper.sqrt(var9) * 0.08D;
-            var13.x = var7 * var11;
-            this.o.addEntity((Entity)var13);
-            this.b.o.addEntity((Entity)(new EntityExperienceOrb(this.b.o, this.b.s, this.b.t + 0.5D, this.b.u + 0.5D, this.random.nextInt(6) + 1)));
+            var13.motZ = var7 * var11;
+            this.world.addEntity((Entity)var13);
+            this.b.world.addEntity((Entity)(new EntityExperienceOrb(this.b.world, this.b.locX, this.b.locY + 0.5D, this.b.locZ + 0.5D, this.random.nextInt(6) + 1)));
             var1 = 1;
          }
 
@@ -397,7 +397,7 @@ public class class_ve extends Entity {
    }
 
    private ItemStack m() {
-      float var1 = this.o.random.nextFloat();
+      float var1 = this.world.random.nextFloat();
       int var2 = EnchantmentManager.f(this.b);
       int var3 = EnchantmentManager.g(this.b);
       float var4 = 0.1F - (float)var2 * 0.025F - (float)var3 * 0.01F;

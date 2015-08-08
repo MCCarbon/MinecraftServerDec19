@@ -17,7 +17,7 @@ public abstract class class_rg extends class_rm {
    }
 
    public boolean a() {
-      if(!this.a.D) {
+      if(!this.a.positionChanged) {
          return false;
       } else {
          class_tf var1 = (class_tf)this.a.u();
@@ -26,7 +26,7 @@ public abstract class class_rg extends class_rm {
             for(int var3 = 0; var3 < Math.min(var2.e() + 2, var2.d()); ++var3) {
                class_aut var4 = var2.a(var3);
                this.b = new BlockPosition(var4.a, var4.b + 1, var4.c);
-               if(this.a.e((double)this.b.getX(), this.a.t, (double)this.b.getZ()) <= 2.25D) {
+               if(this.a.e((double)this.b.getX(), this.a.locY, (double)this.b.getZ()) <= 2.25D) {
                   this.c = this.a(this.b);
                   if(this.c != null) {
                      return true;
@@ -49,13 +49,13 @@ public abstract class class_rg extends class_rm {
 
    public void c() {
       this.d = false;
-      this.e = (float)((double)((float)this.b.getX() + 0.5F) - this.a.s);
-      this.f = (float)((double)((float)this.b.getZ() + 0.5F) - this.a.u);
+      this.e = (float)((double)((float)this.b.getX() + 0.5F) - this.a.locX);
+      this.f = (float)((double)((float)this.b.getZ() + 0.5F) - this.a.locZ);
    }
 
    public void e() {
-      float var1 = (float)((double)((float)this.b.getX() + 0.5F) - this.a.s);
-      float var2 = (float)((double)((float)this.b.getZ() + 0.5F) - this.a.u);
+      float var1 = (float)((double)((float)this.b.getX() + 0.5F) - this.a.locX);
+      float var2 = (float)((double)((float)this.b.getZ() + 0.5F) - this.a.locZ);
       float var3 = this.e * var1 + this.f * var2;
       if(var3 < 0.0F) {
          this.d = true;
@@ -64,7 +64,7 @@ public abstract class class_rg extends class_rm {
    }
 
    private BlockDoor a(BlockPosition var1) {
-      Block var2 = this.a.o.getType(var1).getBlock();
+      Block var2 = this.a.world.getType(var1).getBlock();
       return var2 instanceof BlockDoor && var2.getMaterial() == Material.WOOD?(BlockDoor)var2:null;
    }
 }

@@ -110,8 +110,8 @@ public class ItemMonsterEgg extends Item {
             if(var8 instanceof EntityLiving) {
                EntityInsentient var10 = (EntityInsentient)var8;
                var8.b(var2, var4, var6, MathHelper.clampAngle(var0.random.nextFloat() * 360.0F), 0.0F);
-               var10.aN = var10.y;
-               var10.aL = var10.y;
+               var10.aN = var10.yaw;
+               var10.aL = var10.yaw;
                var10.a((class_on)var0.E(new BlockPosition(var10)), (class_qd)null);
                var0.addEntity(var8);
                var10.z();

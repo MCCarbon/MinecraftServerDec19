@@ -17,7 +17,7 @@ public class PacketPlayOutEntityVelocity implements Packet {
    }
 
    public PacketPlayOutEntityVelocity(Entity var1) {
-      this(var1.getId(), var1.v, var1.motY, var1.x);
+      this(var1.getId(), var1.motX, var1.motY, var1.motZ);
    }
 
    public PacketPlayOutEntityVelocity(int var1, double var2, double var4, double var6) {

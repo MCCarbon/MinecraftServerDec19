@@ -15,7 +15,7 @@ import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandTestForBlock extends CommandAbstract {
    public String getCommand() {
@@ -34,7 +34,7 @@ public class CommandTestForBlock extends CommandAbstract {
       if(var2.length < 4) {
          throw new class_cf("commands.testforblock.usage", new Object[0]);
       } else {
-         var1.a(class_n.class_a_in_class_n.b, 0);
+         var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 0);
          BlockPosition var3 = a(var1, var2, 0, false);
          Block var4 = Block.getByName(var2[3]);
          if(var4 == null) {
@@ -87,7 +87,7 @@ public class CommandTestForBlock extends CommandAbstract {
                      }
                   }
 
-                  var1.a(class_n.class_a_in_class_n.b, 1);
+                  var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 1);
                   a(var1, this, "commands.testforblock.success", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
                }
             }

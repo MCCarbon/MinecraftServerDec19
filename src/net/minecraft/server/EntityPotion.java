@@ -28,7 +28,7 @@ public class EntityPotion extends class_xo {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          class_acd var2 = ItemPotion.i(this.d);
          if(var1.a == MovingObjectPosition.class_a_in_class_awg.b && var2 == class_acf.a) {
             BlockPosition var16 = var1.a().shift(var1.b);
@@ -40,13 +40,13 @@ public class EntityPotion extends class_xo {
                this.a(var16.shift(var18));
             }
 
-            this.o.b(2002, new BlockPosition(this), class_acd.a(var2));
+            this.world.b(2002, new BlockPosition(this), class_acd.a(var2));
             this.J();
          } else {
             List var3 = var2.b();
             if(!var3.isEmpty()) {
                AxisAlignedBB var4 = this.aT().grow(4.0D, 2.0D, 4.0D);
-               List var5 = this.o.getEntities(EntityLiving.class, var4);
+               List var5 = this.world.getEntities(EntityLiving.class, var4);
                if(!var5.isEmpty()) {
                   Iterator var6 = var5.iterator();
 
@@ -86,15 +86,15 @@ public class EntityPotion extends class_xo {
                }
             }
 
-            this.o.b(2002, new BlockPosition(this), class_acd.a(var2));
+            this.world.b(2002, new BlockPosition(this), class_acd.a(var2));
             this.J();
          }
       }
    }
 
    private void a(BlockPosition var1) {
-      if(this.o.getType(var1).getBlock() == Blocks.FIRE) {
-         this.o.setTypeAndData((BlockPosition)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(BlockFluids.LEVEL, Integer.valueOf(7)), 2);
+      if(this.world.getType(var1).getBlock() == Blocks.FIRE) {
+         this.world.setTypeAndData((BlockPosition)var1, (IBlockData)Blocks.FLOWING_WATER.getBlockData().set(BlockFluids.LEVEL, Integer.valueOf(7)), 2);
       }
 
    }

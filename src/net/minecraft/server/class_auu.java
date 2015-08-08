@@ -16,9 +16,9 @@ public abstract class class_auu {
    public void a(IBlockAccess var1, Entity var2) {
       this.a = var1;
       this.b.c();
-      this.c = MathHelper.floor(var2.J + 1.0F);
-      this.d = MathHelper.floor(var2.K + 1.0F);
-      this.e = MathHelper.floor(var2.J + 1.0F);
+      this.c = MathHelper.floor(var2.width + 1.0F);
+      this.d = MathHelper.floor(var2.length + 1.0F);
+      this.e = MathHelper.floor(var2.width + 1.0F);
    }
 
    public void a() {

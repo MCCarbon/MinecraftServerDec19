@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityEnderCrystal extends Entity {
 
-	private static final int HEALTH = Datawathcer.claimId(EntityEnderCrystal.class); //value = 5
+	private static final int HEALTH = DataWathcer.claimId(EntityEnderCrystal.class); //value = 5
 
 	public int a;
 	public int b;
@@ -24,15 +24,15 @@ public class EntityEnderCrystal extends Entity {
 	}
 
 	public void t_() {
-		this.p = this.s;
-		this.q = this.t;
-		this.r = this.u;
+		this.lastX = this.locX;
+		this.lastY = this.locY;
+		this.lastZ = this.locZ;
 		++this.a;
 		this.datawatcher.update(HEALTH, Integer.valueOf(this.b));
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			BlockPosition var1 = new BlockPosition(this);
-			if (this.o.worldProvider instanceof class_apd && this.o.getType(var1).getBlock() != Blocks.FIRE) {
-				this.o.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
+			if (this.world.worldProvider instanceof class_apd && this.world.getType(var1).getBlock() != Blocks.FIRE) {
+				this.world.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
 			}
 		}
 
@@ -54,13 +54,13 @@ public class EntityEnderCrystal extends Entity {
 		} else if (var1.j() instanceof EntityEnderDragon) {
 			return false;
 		} else {
-			if (!this.I && !this.o.isClientSide) {
+			if (!this.dead && !this.world.isClientSide) {
 				this.b = 0;
 				this.J();
-				if (!this.o.isClientSide) {
-					this.o.a((Entity) null, this.s, this.t, this.u, 6.0F, true);
-					if (this.o.worldProvider instanceof class_apd) {
-						class_apd var3 = (class_apd) this.o.worldProvider;
+				if (!this.world.isClientSide) {
+					this.world.a((Entity) null, this.locX, this.locY, this.locZ, 6.0F, true);
+					if (this.world.worldProvider instanceof class_apd) {
+						class_apd var3 = (class_apd) this.world.worldProvider;
 						class_apc var4 = var3.s();
 						if (var4 != null) {
 							var4.a(this, var1);

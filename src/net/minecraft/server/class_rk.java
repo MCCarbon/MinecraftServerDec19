@@ -28,7 +28,7 @@ public class class_rk extends class_rm {
 
    public class_rk(EntityTameable var1, double var2, float var4, float var5) {
       this.d = var1;
-      this.a = var1.o;
+      this.a = var1.world;
       this.f = var2;
       this.g = var1.u();
       this.c = var4;
@@ -85,14 +85,14 @@ public class class_rk extends class_rm {
             if(!this.g.a((Entity)this.e, this.f)) {
                if(!this.d.cq()) {
                   if(this.d.h(this.e) >= 144.0D) {
-                     int var1 = MathHelper.floor(this.e.s) - 2;
-                     int var2 = MathHelper.floor(this.e.u) - 2;
+                     int var1 = MathHelper.floor(this.e.locX) - 2;
+                     int var2 = MathHelper.floor(this.e.locZ) - 2;
                      int var3 = MathHelper.floor(this.e.aT().yMin);
 
                      for(int var4 = 0; var4 <= 4; ++var4) {
                         for(int var5 = 0; var5 <= 4; ++var5) {
                            if((var4 < 1 || var5 < 1 || var4 > 3 || var5 > 3) && World.a((IBlockAccess)this.a, (BlockPosition)(new BlockPosition(var1 + var4, var3 - 1, var2 + var5))) && this.a(new BlockPosition(var1 + var4, var3, var2 + var5)) && this.a(new BlockPosition(var1 + var4, var3 + 1, var2 + var5))) {
-                              this.d.b((double)((float)(var1 + var4) + 0.5F), (double)var3, (double)((float)(var2 + var5) + 0.5F), this.d.y, this.d.z);
+                              this.d.b((double)((float)(var1 + var4) + 0.5F), (double)var3, (double)((float)(var2 + var5) + 0.5F), this.d.yaw, this.d.pitch);
                               this.g.n();
                               return;
                            }

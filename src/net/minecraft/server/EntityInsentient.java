@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public abstract class EntityInsentient extends EntityLiving {
 
-	private static final int NOAI_DW_ID = Datawathcer.claimId(EntityInsentient.class); //value = 10
+	private static final int NOAI_DW_ID = DataWathcer.claimId(EntityInsentient.class); //value = 10
 	public int a_;
 	protected int b_;
 	private class_qy b;
@@ -118,13 +118,13 @@ public abstract class EntityInsentient extends EntityLiving {
 
 	public void K() {
 		super.K();
-		this.o.B.a("mobBaseTick");
+		this.world.B.a("mobBaseTick");
 		if (this.isAlive() && this.random.nextInt(1000) < this.a_++) {
 			this.a_ = -this.y();
 			this.z();
 		}
 
-		this.o.B.b();
+		this.world.B.b();
 	}
 
 	protected int b(EntityHuman var1) {
@@ -151,23 +151,23 @@ public abstract class EntityInsentient extends EntityLiving {
 	}
 
 	public void A() {
-		if (this.o.isClientSide) {
+		if (this.world.isClientSide) {
 			for (int var1 = 0; var1 < 20; ++var1) {
 				double var2 = this.random.nextGaussian() * 0.02D;
 				double var4 = this.random.nextGaussian() * 0.02D;
 				double var6 = this.random.nextGaussian() * 0.02D;
 				double var8 = 10.0D;
-				this.o.a(class_cy.a, this.s + (double) (this.random.nextFloat() * this.J * 2.0F) - (double) this.J - var2 * var8, this.t + (double) (this.random.nextFloat() * this.K) - var4 * var8, this.u + (double) (this.random.nextFloat() * this.J * 2.0F) - (double) this.J - var6 * var8, var2, var4, var6, new int[0]);
+				this.world.a(class_cy.a, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var2 * var8, this.locY + (double) (this.random.nextFloat() * this.length) - var4 * var8, this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var6 * var8, var2, var4, var6, new int[0]);
 			}
 		} else {
-			this.o.a((Entity) this, (byte) 20);
+			this.world.a((Entity) this, (byte) 20);
 		}
 
 	}
 
 	public void t_() {
 		super.t_();
-		if (!this.o.isClientSide) {
+		if (!this.world.isClientSide) {
 			this.co();
 		}
 
@@ -247,8 +247,8 @@ public abstract class EntityInsentient extends EntityLiving {
 		if (this.bx != null) {
 			NBTTagCompound var13 = new NBTTagCompound();
 			if (this.bx instanceof EntityLiving) {
-				var13.put("UUIDMost", this.bx.aM().getMostSignificantBits());
-				var13.put("UUIDLeast", this.bx.aM().getLeastSignificantBits());
+				var13.put("UUIDMost", this.bx.getUniqueId().getMostSignificantBits());
+				var13.put("UUIDLeast", this.bx.getUniqueId().getLeastSignificantBits());
 			} else if (this.bx instanceof class_uz) {
 				BlockPosition var7 = ((class_uz) this.bx).n();
 				var13.put("X", var7.getX());
@@ -359,20 +359,20 @@ public abstract class EntityInsentient extends EntityLiving {
 
 	public void m() {
 		super.m();
-		this.o.B.a("looting");
-		if (!this.o.isClientSide && this.cm() && !this.aS && this.o.R().getBooleanValue("mobGriefing")) {
-			List var1 = this.o.getEntities(EntityItem.class, this.aT().grow(1.0D, 0.0D, 1.0D));
+		this.world.B.a("looting");
+		if (!this.world.isClientSide && this.cm() && !this.aS && this.world.R().getBooleanValue("mobGriefing")) {
+			List var1 = this.world.getEntities(EntityItem.class, this.aT().grow(1.0D, 0.0D, 1.0D));
 			Iterator var2 = var1.iterator();
 
 			while (var2.hasNext()) {
 				EntityItem var3 = (EntityItem) var2.next();
-				if (!var3.I && var3.l() != null && !var3.isNotPickable()) {
+				if (!var3.dead && var3.l() != null && !var3.isNotPickable()) {
 					this.a(var3);
 				}
 			}
 		}
 
-		this.o.B.b();
+		this.world.B.b();
 	}
 
 	protected void a(EntityItem var1) {
@@ -430,7 +430,7 @@ public abstract class EntityInsentient extends EntityLiving {
 			}
 
 			if (var2.getItem() == Items.DIAMOND && var1.n() != null) {
-				EntityHuman var8 = this.o.a(var1.n());
+				EntityHuman var8 = this.world.a(var1.n());
 				if (var8 != null) {
 					var8.b((class_my) class_mt.x);
 				}
@@ -464,11 +464,11 @@ public abstract class EntityInsentient extends EntityLiving {
 		if (this.bv) {
 			this.aT = 0;
 		} else {
-			EntityHuman var1 = this.o.a(this, -1.0D);
+			EntityHuman var1 = this.world.a(this, -1.0D);
 			if (var1 != null) {
-				double var2 = var1.s - this.s;
-				double var4 = var1.t - this.t;
-				double var6 = var1.u - this.u;
+				double var2 = var1.locX - this.locX;
+				double var4 = var1.locY - this.locY;
+				double var6 = var1.locZ - this.locZ;
 				double var8 = var2 * var2 + var4 * var4 + var6 * var6;
 				if (this.E() && var8 > 16384.0D) {
 					this.J();
@@ -486,33 +486,33 @@ public abstract class EntityInsentient extends EntityLiving {
 
 	protected final void bL() {
 		++this.aT;
-		this.o.B.a("checkDespawn");
+		this.world.B.a("checkDespawn");
 		this.cb();
-		this.o.B.b();
-		this.o.B.a("sensing");
+		this.world.B.b();
+		this.world.B.a("sensing");
 		this.br.a();
-		this.o.B.b();
-		this.o.B.a("targetSelector");
+		this.world.B.b();
+		this.world.B.a("targetSelector");
 		this.bn.a();
-		this.o.B.b();
-		this.o.B.a("goalSelector");
+		this.world.B.b();
+		this.world.B.a("goalSelector");
 		this.i.a();
-		this.o.B.b();
-		this.o.B.a("navigation");
+		this.world.B.b();
+		this.world.B.a("navigation");
 		this.h.k();
-		this.o.B.b();
-		this.o.B.a("mob tick");
+		this.world.B.b();
+		this.world.B.a("mob tick");
 		this.cc();
-		this.o.B.b();
-		this.o.B.a("controls");
-		this.o.B.a("move");
+		this.world.B.b();
+		this.world.B.a("controls");
+		this.world.B.a("move");
 		this.f.c();
-		this.o.B.c("look");
+		this.world.B.c("look");
 		this.b.a();
-		this.o.B.c("jump");
+		this.world.B.c("jump");
 		this.g.b();
-		this.o.B.b();
-		this.o.B.b();
+		this.world.B.b();
+		this.world.B.b();
 	}
 
 	protected void cc() {
@@ -527,21 +527,21 @@ public abstract class EntityInsentient extends EntityLiving {
 	}
 
 	public void a(Entity var1, float var2, float var3) {
-		double var4 = var1.s - this.s;
-		double var8 = var1.u - this.u;
+		double var4 = var1.locX - this.locX;
+		double var8 = var1.locZ - this.locZ;
 		double var6;
 		if (var1 instanceof EntityLiving) {
 			EntityLiving var10 = (EntityLiving) var1;
-			var6 = var10.t + (double) var10.aU() - (this.t + (double) this.aU());
+			var6 = var10.locY + (double) var10.aU() - (this.locY + (double) this.aU());
 		} else {
-			var6 = (var1.aT().yMin + var1.aT().yMax) / 2.0D - (this.t + (double) this.aU());
+			var6 = (var1.aT().yMin + var1.aT().yMax) / 2.0D - (this.locY + (double) this.aU());
 		}
 
 		double var14 = (double) MathHelper.sqrt(var4 * var4 + var8 * var8);
 		float var12 = (float) (MathHelper.b(var8, var4) * 180.0D / 3.1415927410125732D) - 90.0F;
 		float var13 = (float) (-(MathHelper.b(var6, var14) * 180.0D / 3.1415927410125732D));
-		this.z = this.b(this.z, var13, var3);
-		this.y = this.b(this.y, var12, var2);
+		this.pitch = this.b(this.pitch, var13, var3);
+		this.yaw = this.b(this.yaw, var12, var2);
 	}
 
 	private float b(float var1, float var2, float var3) {
@@ -562,7 +562,7 @@ public abstract class EntityInsentient extends EntityLiving {
 	}
 
 	public boolean cg() {
-		return this.o.a((AxisAlignedBB) this.aT(), (Entity) this) && this.o.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && !this.o.d(this.aT());
+		return this.world.a((AxisAlignedBB) this.aT(), (Entity) this) && this.world.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && !this.world.d(this.aT());
 	}
 
 	public int cj() {
@@ -574,7 +574,7 @@ public abstract class EntityInsentient extends EntityLiving {
 			return 3;
 		} else {
 			int var1 = (int) (this.getHealth() - this.bv() * 0.33F);
-			var1 -= (3 - this.o.ab().a()) * 4;
+			var1 -= (3 - this.world.ab().a()) * 4;
 			if (var1 < 0) {
 				var1 = 0;
 			}
@@ -659,7 +659,7 @@ public abstract class EntityInsentient extends EntityLiving {
 	protected void a(class_on var1) {
 		if (this.random.nextFloat() < 0.15F * var1.c()) {
 			int var2 = this.random.nextInt(2);
-			float var3 = this.o.ab() == class_om.d ? 0.1F : 0.25F;
+			float var3 = this.world.ab() == class_om.d ? 0.1F : 0.25F;
 			if (this.random.nextFloat() < 0.095F) {
 				++var2;
 			}
@@ -856,7 +856,7 @@ public abstract class EntityInsentient extends EntityLiving {
 				this.a(true, true);
 			}
 
-			if (this.bx == null || this.bx.I) {
+			if (this.bx == null || this.bx.dead) {
 				this.a(true, true);
 			}
 		}
@@ -866,12 +866,12 @@ public abstract class EntityInsentient extends EntityLiving {
 		if (this.bw) {
 			this.bw = false;
 			this.bx = null;
-			if (!this.o.isClientSide && var2) {
+			if (!this.world.isClientSide && var2) {
 				this.a(Items.LEAD, 1);
 			}
 
-			if (!this.o.isClientSide && var1 && this.o instanceof WorldServer) {
-				((WorldServer) this.o).t().a((Entity) this, (Packet) (new PacketPlayOutAttachEntity(1, this, (Entity) null)));
+			if (!this.world.isClientSide && var1 && this.world instanceof WorldServer) {
+				((WorldServer) this.world).t().a((Entity) this, (Packet) (new PacketPlayOutAttachEntity(1, this, (Entity) null)));
 			}
 		}
 
@@ -892,8 +892,8 @@ public abstract class EntityInsentient extends EntityLiving {
 	public void a(Entity var1, boolean var2) {
 		this.bw = true;
 		this.bx = var1;
-		if (!this.o.isClientSide && var2 && this.o instanceof WorldServer) {
-			((WorldServer) this.o).t().a((Entity) this, (Packet) (new PacketPlayOutAttachEntity(1, this, this.bx)));
+		if (!this.world.isClientSide && var2 && this.world instanceof WorldServer) {
+			((WorldServer) this.world).t().a((Entity) this, (Packet) (new PacketPlayOutAttachEntity(1, this, this.bx)));
 		}
 
 	}
@@ -902,21 +902,21 @@ public abstract class EntityInsentient extends EntityLiving {
 		if (this.bw && this.by != null) {
 			if (this.by.hasOfType("UUIDMost", 4) && this.by.hasOfType("UUIDLeast", 4)) {
 				UUID var5 = new UUID(this.by.getLong("UUIDMost"), this.by.getLong("UUIDLeast"));
-				List var6 = this.o.getEntities(EntityLiving.class, this.aT().grow(10.0D, 10.0D, 10.0D));
+				List var6 = this.world.getEntities(EntityLiving.class, this.aT().grow(10.0D, 10.0D, 10.0D));
 				Iterator var3 = var6.iterator();
 
 				while (var3.hasNext()) {
 					EntityLiving var4 = (EntityLiving) var3.next();
-					if (var4.aM().equals(var5)) {
+					if (var4.getUniqueId().equals(var5)) {
 						this.bx = var4;
 						break;
 					}
 				}
 			} else if (this.by.hasOfType("X", 99) && this.by.hasOfType("Y", 99) && this.by.hasOfType("Z", 99)) {
 				BlockPosition var1 = new BlockPosition(this.by.getInt("X"), this.by.getInt("Y"), this.by.getInt("Z"));
-				EntityLeash var2 = EntityLeash.b(this.o, var1);
+				EntityLeash var2 = EntityLeash.b(this.world, var1);
 				if (var2 == null) {
-					var2 = EntityLeash.a(this.o, var1);
+					var2 = EntityLeash.a(this.world, var1);
 				}
 
 				this.bx = var2;

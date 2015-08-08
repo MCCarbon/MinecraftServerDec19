@@ -18,7 +18,7 @@ import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.ICommand;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.class_o;
 import net.minecraft.server.Entity;
 import org.apache.logging.log4j.LogManager;
@@ -50,12 +50,12 @@ public class CommandHandler implements class_l {
          if(var6 > -1) {
             List var12 = class_o.b(var1, var3[var6], Entity.class);
             String var9 = var3[var6];
-            var1.a(class_n.class_a_in_class_n.c, var12.size());
+            var1.a(CommandObjectiveExecutor.class_a_in_class_n.c, var12.size());
             Iterator var10 = var12.iterator();
 
             while(var10.hasNext()) {
                Entity var11 = (Entity)var10.next();
-               var3[var6] = var11.aM().toString();
+               var3[var6] = var11.getUniqueId().toString();
                if(this.a(var1, var3, var5, var2)) {
                   ++var7;
                }
@@ -63,7 +63,7 @@ public class CommandHandler implements class_l {
 
             var3[var6] = var9;
          } else {
-            var1.a(class_n.class_a_in_class_n.c, 1);
+            var1.a(CommandObjectiveExecutor.class_a_in_class_n.c, 1);
             if(this.a(var1, var3, var5, var2)) {
                ++var7;
             }
@@ -74,7 +74,7 @@ public class CommandHandler implements class_l {
          var1.a(var8);
       }
 
-      var1.a(class_n.class_a_in_class_n.a, var7);
+      var1.a(CommandObjectiveExecutor.class_a_in_class_n.a, var7);
       return var7;
    }
 

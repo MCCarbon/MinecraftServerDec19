@@ -12,14 +12,14 @@ public class EntityLargeFireball extends class_xf {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(!this.o.isClientSide) {
+      if(!this.world.isClientSide) {
          if(var1.d != null) {
             var1.d.damageEntity(DamageSource.a((class_xf) this, (Entity) this.a), 6.0F);
             this.a(this.a, var1.d);
          }
 
-         boolean var2 = this.o.R().getBooleanValue("mobGriefing");
-         this.o.createExplosion((Entity)null, this.s, this.t, this.u, (float)this.e, var2, var2);
+         boolean var2 = this.world.R().getBooleanValue("mobGriefing");
+         this.world.createExplosion((Entity)null, this.locX, this.locY, this.locZ, (float)this.e, var2, var2);
          this.J();
       }
 

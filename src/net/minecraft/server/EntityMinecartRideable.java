@@ -15,7 +15,7 @@ public class EntityMinecartRideable extends EntityMinecartAbstract {
       } else if(this.passenger != null && this.passenger != var1) {
          return false;
       } else {
-         if(!this.o.isClientSide) {
+         if(!this.world.isClientSide) {
             var1.a((Entity)this);
          }
 

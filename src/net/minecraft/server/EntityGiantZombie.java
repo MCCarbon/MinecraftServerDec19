@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class EntityGiantZombie extends EntityMonster {
    public EntityGiantZombie(World var1) {
       super(var1);
-      this.a(this.J * 6.0F, this.K * 6.0F);
+      this.a(this.width * 6.0F, this.length * 6.0F);
    }
 
    public float aU() {
@@ -18,6 +18,6 @@ public class EntityGiantZombie extends EntityMonster {
    }
 
    public float a(BlockPosition var1) {
-      return this.o.o(var1) - 0.5F;
+      return this.world.o(var1) - 0.5F;
    }
 }

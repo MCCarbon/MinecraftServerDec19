@@ -33,8 +33,8 @@ public class class_th extends class_tf {
          super.k();
       } else {
          if(this.f != null) {
-            double var1 = (double)(this.b.J * this.b.J);
-            if(this.b.c(this.f) >= var1 && (this.b.t <= (double)this.f.getY() || this.b.c(new BlockPosition(this.f.getX(), MathHelper.floor(this.b.t), this.f.getZ())) >= var1)) {
+            double var1 = (double)(this.b.width * this.b.width);
+            if(this.b.c(this.f) >= var1 && (this.b.locY <= (double)this.f.getY() || this.b.c(new BlockPosition(this.f.getX(), MathHelper.floor(this.b.locY), this.f.getZ())) >= var1)) {
                this.b.r().a((double)this.f.getX(), (double)this.f.getY(), (double)this.f.getZ(), this.e);
             } else {
                this.f = null;

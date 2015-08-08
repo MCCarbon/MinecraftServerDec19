@@ -17,7 +17,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
    private byte j;
    private byte k;
    private byte l;
-   private Datawathcer m;
+   private DataWathcer m;
    private List n;
 
    public PacketPlayOutSpawnEntityLiving() {
@@ -25,18 +25,18 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
 
    public PacketPlayOutSpawnEntityLiving(EntityLiving var1) {
       this.a = var1.getId();
-      this.b = var1.aM();
+      this.b = var1.getUniqueId();
       this.c = (byte) EntityTypes.a(var1);
-      this.d = MathHelper.floor(var1.s * 32.0D);
-      this.e = MathHelper.floor(var1.t * 32.0D);
-      this.f = MathHelper.floor(var1.u * 32.0D);
-      this.j = (byte)((int)(var1.y * 256.0F / 360.0F));
-      this.k = (byte)((int)(var1.z * 256.0F / 360.0F));
+      this.d = MathHelper.floor(var1.locX * 32.0D);
+      this.e = MathHelper.floor(var1.locY * 32.0D);
+      this.f = MathHelper.floor(var1.locZ * 32.0D);
+      this.j = (byte)((int)(var1.yaw * 256.0F / 360.0F));
+      this.k = (byte)((int)(var1.pitch * 256.0F / 360.0F));
       this.l = (byte)((int)(var1.aN * 256.0F / 360.0F));
       double var2 = 3.9D;
-      double var4 = var1.v;
+      double var4 = var1.motX;
       double var6 = var1.motY;
-      double var8 = var1.x;
+      double var8 = var1.motZ;
       if(var4 < -var2) {
          var4 = -var2;
       }
@@ -80,7 +80,7 @@ public class PacketPlayOutSpawnEntityLiving implements Packet {
       this.g = var1.readShort();
       this.h = var1.readShort();
       this.i = var1.readShort();
-      this.n = Datawathcer.b(var1);
+      this.n = DataWathcer.b(var1);
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {

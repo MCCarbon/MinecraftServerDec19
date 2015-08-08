@@ -42,13 +42,13 @@ public class CommandTp extends CommandAbstract {
          if(var2.length != 1 && var2.length != 2) {
             if(var2.length < var3 + 3) {
                throw new class_cf("commands.tp.usage", new Object[0]);
-            } else if(((Entity)var4).o != null) {
+            } else if(((Entity)var4).world != null) {
                int var14 = var3 + 1;
-               CommandAbstract.class_a_in_class_i var6 = a(((Entity)var4).s, var2[var3], true);
-               CommandAbstract.class_a_in_class_i var7 = a(((Entity)var4).t, var2[var14++], 0, 0, false);
-               CommandAbstract.class_a_in_class_i var8 = a(((Entity)var4).u, var2[var14++], true);
-               CommandAbstract.class_a_in_class_i var9 = a((double)((Entity)var4).y, var2.length > var14?var2[var14++]:"~", false);
-               CommandAbstract.class_a_in_class_i var10 = a((double)((Entity)var4).z, var2.length > var14?var2[var14]:"~", false);
+               CommandAbstract.class_a_in_class_i var6 = a(((Entity)var4).locX, var2[var3], true);
+               CommandAbstract.class_a_in_class_i var7 = a(((Entity)var4).locY, var2[var14++], 0, 0, false);
+               CommandAbstract.class_a_in_class_i var8 = a(((Entity)var4).locZ, var2[var14++], true);
+               CommandAbstract.class_a_in_class_i var9 = a((double)((Entity)var4).yaw, var2.length > var14?var2[var14++]:"~", false);
+               CommandAbstract.class_a_in_class_i var10 = a((double)((Entity)var4).pitch, var2.length > var14?var2[var14]:"~", false);
                float var12;
                if(var4 instanceof EntityPlayer) {
                   EnumSet var11 = EnumSet.noneOf(PacketPlayOutPosition.class_a_in_class_fi.class);
@@ -106,14 +106,14 @@ public class CommandTp extends CommandAbstract {
             }
          } else {
             Entity var5 = b(var1, var2[var2.length - 1]);
-            if(var5.o != ((Entity)var4).o) {
+            if(var5.world != ((Entity)var4).world) {
                throw new class_bz("commands.tp.notSameDimension", new Object[0]);
             } else {
                ((Entity)var4).a((Entity)null);
                if(var4 instanceof EntityPlayer) {
-                  ((EntityPlayer)var4).playerConnection.a(var5.s, var5.t, var5.u, var5.y, var5.z);
+                  ((EntityPlayer)var4).playerConnection.a(var5.locX, var5.locY, var5.locZ, var5.yaw, var5.pitch);
                } else {
-                  ((Entity)var4).b(var5.s, var5.t, var5.u, var5.y, var5.z);
+                  ((Entity)var4).b(var5.locX, var5.locY, var5.locZ, var5.yaw, var5.pitch);
                }
 
                a(var1, this, "commands.tp.success", new Object[]{((Entity)var4).getName(), var5.getName()});

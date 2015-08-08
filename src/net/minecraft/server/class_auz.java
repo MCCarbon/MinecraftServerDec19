@@ -21,11 +21,11 @@ public class class_auz extends class_auu {
       int var2;
       if(this.i && var1.V()) {
          var2 = (int)var1.aT().yMin;
-         BlockPosition.MutableBlockPosition var3 = new BlockPosition.MutableBlockPosition(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u));
+         BlockPosition.MutableBlockPosition var3 = new BlockPosition.MutableBlockPosition(MathHelper.floor(var1.locX), var2, MathHelper.floor(var1.locZ));
 
          for(Block var4 = this.a.getType(var3).getBlock(); var4 == Blocks.FLOWING_WATER || var4 == Blocks.WATER; var4 = this.a.getType(var3).getBlock()) {
             ++var2;
-            var3.setPosition(MathHelper.floor(var1.s), var2, MathHelper.floor(var1.u));
+            var3.setPosition(MathHelper.floor(var1.locX), var2, MathHelper.floor(var1.locZ));
          }
 
          this.h = false;
@@ -37,7 +37,7 @@ public class class_auz extends class_auu {
    }
 
    public class_aut a(Entity var1, double var2, double var4, double var6) {
-      return this.a(MathHelper.floor(var2 - (double)(var1.J / 2.0F)), MathHelper.floor(var4), MathHelper.floor(var6 - (double)(var1.J / 2.0F)));
+      return this.a(MathHelper.floor(var2 - (double)(var1.width / 2.0F)), MathHelper.floor(var4), MathHelper.floor(var6 - (double)(var1.width / 2.0F)));
    }
 
    public int a(class_aut[] var1, Entity var2, class_aut var3, class_aut var4, float var5) {
@@ -149,8 +149,8 @@ public class class_auz extends class_auu {
                      var11 = true;
                   }
 
-                  if(var1.o.getType(var13).getBlock() instanceof BlockMinecartTrackAbstract) {
-                     if(!(var1.o.getType(var12).getBlock() instanceof BlockMinecartTrackAbstract) && !(var1.o.getType(var12.down()).getBlock() instanceof BlockMinecartTrackAbstract)) {
+                  if(var1.world.getType(var13).getBlock() instanceof BlockMinecartTrackAbstract) {
+                     if(!(var1.world.getType(var12).getBlock() instanceof BlockMinecartTrackAbstract) && !(var1.world.getType(var12.down()).getBlock() instanceof BlockMinecartTrackAbstract)) {
                         return -3;
                      }
                   } else if(!var17.isPassable(var0, var13) && (!var9 || !(var17 instanceof BlockDoor) || var17.getMaterial() != Material.WOOD)) {

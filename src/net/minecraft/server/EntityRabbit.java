@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityRabbit extends EntityAnimal {
 
-	private static final int TYPE_DW_ID = Datawathcer.claimId(EntityRabbit.class); //value = 12
+	private static final int TYPE_DW_ID = DataWathcer.claimId(EntityRabbit.class); //value = 12
 
 	private EntityRabbit.class_c_in_class_ue bt;
 	private int bu = 0;
@@ -39,7 +39,7 @@ public class EntityRabbit extends EntityAnimal {
 	}
 
 	protected float bF() {
-		return this.f.a() && this.f.e() > this.t + 0.5D ? 0.5F : this.bA.b();
+		return this.f.a() && this.f.e() > this.locY + 0.5D ? 0.5F : this.bA.b();
 	}
 
 	public void a(EntityRabbit.class_b_in_class_ue var1) {
@@ -98,7 +98,7 @@ public class EntityRabbit extends EntityAnimal {
 			}
 		}
 
-		if (this.C) {
+		if (this.onGround) {
 			if (!this.by) {
 				this.a(false, EntityRabbit.class_b_in_class_ue.a);
 				this.cL();
@@ -107,8 +107,8 @@ public class EntityRabbit extends EntityAnimal {
 			if (this.cC() == 99 && this.bz == 0) {
 				EntityLiving var1 = this.w();
 				if (var1 != null && this.h(var1) < 16.0D) {
-					this.a(var1.s, var1.u);
-					this.f.a(var1.s, var1.t, var1.u, this.f.b());
+					this.a(var1.locX, var1.locZ);
+					this.f.a(var1.locX, var1.locY, var1.locZ, this.f.b());
 					this.b(EntityRabbit.class_b_in_class_ue.e);
 					this.by = true;
 				}
@@ -131,14 +131,14 @@ public class EntityRabbit extends EntityAnimal {
 			}
 		}
 
-		this.by = this.C;
+		this.by = this.onGround;
 	}
 
 	public void Y() {
 	}
 
 	private void a(double var1, double var3) {
-		this.y = (float) (MathHelper.b(var3 - this.u, var1 - this.s) * 180.0D / 3.1415927410125732D) - 90.0F;
+		this.yaw = (float) (MathHelper.b(var3 - this.locZ, var1 - this.locX) * 180.0D / 3.1415927410125732D) - 90.0F;
 	}
 
 	private void cI() {
@@ -161,8 +161,8 @@ public class EntityRabbit extends EntityAnimal {
 	public void m() {
 		super.m();
 		if (this.bu != this.bw) {
-			if (this.bu == 0 && !this.o.isClientSide) {
-				this.o.a((Entity) this, (byte) 1);
+			if (this.bu == 0 && !this.world.isClientSide) {
+				this.world.a((Entity) this, (byte) 1);
 			}
 
 			++this.bu;
@@ -253,7 +253,7 @@ public class EntityRabbit extends EntityAnimal {
 	}
 
 	public EntityRabbit b(EntityAgeable var1) {
-		EntityRabbit var2 = new EntityRabbit(this.o);
+		EntityRabbit var2 = new EntityRabbit(this.world);
 		if (var1 instanceof EntityRabbit) {
 			var2.m(this.random.nextBoolean() ? this.cC() : ((EntityRabbit) var1).cC());
 		}
@@ -314,7 +314,7 @@ public class EntityRabbit extends EntityAnimal {
 	protected void cE() {
 		BlockCarrots var1 = (BlockCarrots) Blocks.CARROTS;
 		IBlockData var2 = var1.b(var1.n());
-		this.o.a(class_cy.M, this.s + (double) (this.random.nextFloat() * this.J * 2.0F) - (double) this.J, this.t + 0.5D + (double) (this.random.nextFloat() * this.K), this.u + (double) (this.random.nextFloat() * this.J * 2.0F) - (double) this.J, 0.0D, 0.0D, 0.0D, new int[] { Block.getCombinedId(var2) });
+		this.world.a(class_cy.M, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[] { Block.getCombinedId(var2) });
 		this.bB = 100;
 	}
 
@@ -361,7 +361,7 @@ public class EntityRabbit extends EntityAnimal {
 		}
 
 		protected double a(EntityLiving var1) {
-			return (double) (4.0F + var1.J);
+			return (double) (4.0F + var1.width);
 		}
 	}
 
@@ -391,7 +391,7 @@ public class EntityRabbit extends EntityAnimal {
 
 		public boolean a() {
 			if (this.a <= 0) {
-				if (!this.c.o.R().getBooleanValue("mobGriefing")) {
+				if (!this.c.world.R().getBooleanValue("mobGriefing")) {
 					return false;
 				}
 
@@ -418,7 +418,7 @@ public class EntityRabbit extends EntityAnimal {
 			super.e();
 			this.c.q().a((double) this.b.getX() + 0.5D, (double) (this.b.getY() + 1), (double) this.b.getZ() + 0.5D, 10.0F, (float) this.c.cd());
 			if (this.f()) {
-				World var1 = this.c.o;
+				World var1 = this.c.world;
 				BlockPosition var2 = this.b.up();
 				IBlockData var3 = var1.getType(var2);
 				Block var4 = var3.getBlock();
@@ -472,7 +472,7 @@ public class EntityRabbit extends EntityAnimal {
 		}
 
 		public void c() {
-			if (this.g.C && !this.g.cA()) {
+			if (this.g.onGround && !this.g.cA()) {
 				this.g.b(0.0D);
 			}
 

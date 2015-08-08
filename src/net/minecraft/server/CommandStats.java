@@ -16,7 +16,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_n;
+import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 
 public class CommandStats extends CommandAbstract {
@@ -86,12 +86,12 @@ public class CommandStats extends CommandAbstract {
             }
          }
 
-         class_n.class_a_in_class_n var6 = class_n.class_a_in_class_n.a(var2[var11++]);
+         CommandObjectiveExecutor.class_a_in_class_n var6 = CommandObjectiveExecutor.class_a_in_class_n.a(var2[var11++]);
          if(var6 == null) {
             throw new class_bz("commands.stats.failed", new Object[0]);
          } else {
             World var7 = var1.e();
-            class_n var8;
+            CommandObjectiveExecutor var8;
             BlockPosition var9;
             TileEntity var10;
             if(var3) {
@@ -122,10 +122,10 @@ public class CommandStats extends CommandAbstract {
                   throw new class_bz("commands.stats.failed", new Object[0]);
                }
 
-               class_n.a(var8, var6, var13, var14);
+               CommandObjectiveExecutor.a(var8, var6, var13, var14);
                a(var1, this, "commands.stats.success", new Object[]{var6.b(), var14, var13});
             } else if("clear".equals(var5)) {
-               class_n.a(var8, var6, (String)null, (String)null);
+               CommandObjectiveExecutor.a(var8, var6, (String)null, (String)null);
                a(var1, this, "commands.stats.cleared", new Object[]{var6.b()});
             }
 
@@ -140,7 +140,7 @@ public class CommandStats extends CommandAbstract {
    }
 
    public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):(var2.length >= 2 && var2.length <= 4 && var2[0].equals("block")?a(var2, 1, var3):(var2.length == 3 && var2[0].equals("entity") || var2.length == 5 && var2[0].equals("block")?a(var2, new String[]{"set", "clear"}):((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?((var2.length != 6 || !var2[0].equals("entity")) && (var2.length != 8 || !var2[0].equals("block"))?null:a(var2, this.e())):a(var2, class_n.class_a_in_class_n.c())))));
+      return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):(var2.length >= 2 && var2.length <= 4 && var2[0].equals("block")?a(var2, 1, var3):(var2.length == 3 && var2[0].equals("entity") || var2.length == 5 && var2[0].equals("block")?a(var2, new String[]{"set", "clear"}):((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?((var2.length != 6 || !var2[0].equals("entity")) && (var2.length != 8 || !var2[0].equals("block"))?null:a(var2, this.e())):a(var2, CommandObjectiveExecutor.class_a_in_class_n.c())))));
    }
 
    protected String[] d() {

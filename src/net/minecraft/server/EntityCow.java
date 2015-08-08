@@ -80,11 +80,11 @@ public class EntityCow extends EntityAnimal {
    }
 
    public EntityCow b(EntityAgeable var1) {
-      return new EntityCow(this.o);
+      return new EntityCow(this.world);
    }
 
    public float aU() {
-      return this.K;
+      return this.length;
    }
 
    // $FF: synthetic method

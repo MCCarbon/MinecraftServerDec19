@@ -18,20 +18,20 @@ public class EntityMushroomCow extends EntityCow {
          return true;
       } else if(var3 != null && var3.getItem() == Items.SHEARS && this.getAge() >= 0) {
          this.J();
-         this.o.a(class_cy.b, this.s, this.t + (double)(this.K / 2.0F), this.u, 0.0D, 0.0D, 0.0D, new int[0]);
-         if(!this.o.isClientSide) {
-            EntityCow var4 = new EntityCow(this.o);
-            var4.b(this.s, this.t, this.u, this.y, this.z);
+         this.world.a(class_cy.b, this.locX, this.locY + (double)(this.length / 2.0F), this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+         if(!this.world.isClientSide) {
+            EntityCow var4 = new EntityCow(this.world);
+            var4.b(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
             var4.i(this.getHealth());
             var4.aL = this.aL;
             if(this.hasCustomName()) {
-               var4.a(this.aO());
+               var4.a(this.getCustomName());
             }
 
-            this.o.addEntity((Entity)var4);
+            this.world.addEntity((Entity)var4);
 
             for(int var5 = 0; var5 < 5; ++var5) {
-               this.o.addEntity((Entity)(new EntityItem(this.o, this.s, this.t + (double)this.K, this.u, new ItemStack(Blocks.RED_MUSHROOM))));
+               this.world.addEntity((Entity)(new EntityItem(this.world, this.locX, this.locY + (double)this.length, this.locZ, new ItemStack(Blocks.RED_MUSHROOM))));
             }
 
             var3.a(1, (EntityLiving)var1);
@@ -45,7 +45,7 @@ public class EntityMushroomCow extends EntityCow {
    }
 
    public EntityMushroomCow c(EntityAgeable var1) {
-      return new EntityMushroomCow(this.o);
+      return new EntityMushroomCow(this.world);
    }
 
    // $FF: synthetic method
