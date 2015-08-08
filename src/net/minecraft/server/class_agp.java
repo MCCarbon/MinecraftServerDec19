@@ -116,7 +116,7 @@ public abstract class class_agp extends class_ahi {
       } else {
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Boolean.valueOf(true)), 3);
          var1.b(var2, var2);
-         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
+         var1.makeSound((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
          this.c(var1, var2, (EnumDirection)var3.get(FACING));
          var1.a((BlockPosition)var2, (Block)this, this.tickInterval(var1));
          return true;
@@ -154,7 +154,7 @@ public abstract class class_agp extends class_ahi {
             } else {
                var1.setTypeUpdate(var2, var3.set(a, Boolean.valueOf(false)));
                this.c(var1, var2, (EnumDirection)var3.get(FACING));
-               var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
+               var1.makeSound((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
                var1.b(var2, var2);
             }
 
@@ -188,14 +188,14 @@ public abstract class class_agp extends class_ahi {
          var1.setTypeUpdate(var2, var3.set(a, Boolean.valueOf(true)));
          this.c(var1, var2, (EnumDirection)var3.get(FACING));
          var1.b(var2, var2);
-         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
+         var1.makeSound((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
       }
 
       if(!var5 && var6) {
          var1.setTypeUpdate(var2, var3.set(a, Boolean.valueOf(false)));
          this.c(var1, var2, (EnumDirection)var3.get(FACING));
          var1.b(var2, var2);
-         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
+         var1.makeSound((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
       }
 
       if(var5) {

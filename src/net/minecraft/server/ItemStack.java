@@ -202,7 +202,7 @@ public final class ItemStack {
 	public void a(int var1, EntityLiving var2) {
 		if (!(var2 instanceof EntityHuman) || !((EntityHuman) var2).abilities.instabuild) {
 			if (e()) {
-				if (this.a(var1, var2.bd())) {
+				if (this.a(var1, var2.getRandom())) {
 					var2.b(this);
 					--count;
 					if (var2 instanceof EntityHuman) {

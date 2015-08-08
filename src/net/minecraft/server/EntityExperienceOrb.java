@@ -46,10 +46,10 @@ public class EntityExperienceOrb extends Entity {
          this.motY = 0.20000000298023224D;
          this.motX = (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
          this.motZ = (double)((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
-         this.a("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
+         this.makeSound("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
       }
 
-      this.j(this.locX, (this.aT().yMin + this.aT().yMax) / 2.0D, this.locZ);
+      this.j(this.locX, (this.getBoundingBox().yMin + this.getBoundingBox().yMax) / 2.0D, this.locZ);
       double var1 = 8.0D;
       if(this.g < this.a - 20 + this.getId() % 100) {
          if(this.f == null || this.f.h(this) > var1 * var1) {
@@ -80,7 +80,7 @@ public class EntityExperienceOrb extends Entity {
       this.d(this.motX, this.motY, this.motZ);
       float var13 = 0.98F;
       if(this.onGround) {
-         var13 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.98F;
+         var13 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.getBoundingBox().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.98F;
       }
 
       this.motX *= (double)var13;
@@ -99,7 +99,7 @@ public class EntityExperienceOrb extends Entity {
    }
 
    public boolean W() {
-      return this.world.a((AxisAlignedBB)this.aT(), (Material)Material.WATER, (Entity)this);
+      return this.world.a((AxisAlignedBB)this.getBoundingBox(), (Material)Material.WATER, (Entity)this);
    }
 
    protected void g(int var1) {

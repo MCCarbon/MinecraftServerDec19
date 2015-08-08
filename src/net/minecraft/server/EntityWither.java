@@ -148,15 +148,15 @@ public class EntityWither extends EntityMonster implements class_wk {
 			double var23 = this.o(var21);
 			double var5 = this.p(var21);
 			double var7 = this.q(var21);
-			this.world.a(class_cy.l, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.l, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.0D, 0.0D, 0.0D, new int[0]);
 			if (var22 && this.world.random.nextInt(4) == 0) {
-				this.world.a(class_cy.p, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
+				this.world.addParticle(EnumParticle.p, var23 + this.random.nextGaussian() * 0.30000001192092896D, var5 + this.random.nextGaussian() * 0.30000001192092896D, var7 + this.random.nextGaussian() * 0.30000001192092896D, 0.699999988079071D, 0.699999988079071D, 0.5D, new int[0]);
 			}
 		}
 
 		if (this.cA() > 0) {
 			for (var21 = 0; var21 < 3; ++var21) {
-				this.world.a(class_cy.p, this.locX + this.random.nextGaussian() * 1.0D, this.locY + (double) (this.random.nextFloat() * 3.3F), this.locZ + this.random.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D, new int[0]);
+				this.world.addParticle(EnumParticle.p, this.locX + this.random.nextGaussian() * 1.0D, this.locY + (double) (this.random.nextFloat() * 3.3F), this.locZ + this.random.nextGaussian() * 1.0D, 0.699999988079071D, 0.699999988079071D, 0.8999999761581421D, new int[0]);
 			}
 		}
 
@@ -213,7 +213,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 							this.a(var1, 0);
 						}
 					} else {
-						List var14 = this.world.a(EntityLiving.class, this.aT().grow(20.0D, 8.0D, 20.0D), Predicates.and(bB, IEntitySelector.NOT_PLAYER_SPECTATOR));
+						List var14 = this.world.a(EntityLiving.class, this.getBoundingBox().grow(20.0D, 8.0D, 20.0D), Predicates.and(bB, IEntitySelector.NOT_PLAYER_SPECTATOR));
 
 						for (int var17 = 0; var17 < 10 && !var14.isEmpty(); ++var17) {
 							EntityLiving var5 = (EntityLiving) var14.get(this.random.nextInt(var14.size()));
@@ -409,7 +409,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 		}
 
 		if (!this.world.isClientSide) {
-			Iterator var4 = this.world.getEntities(EntityHuman.class, this.aT().grow(50.0D, 100.0D, 50.0D)).iterator();
+			Iterator var4 = this.world.getEntities(EntityHuman.class, this.getBoundingBox().grow(50.0D, 100.0D, 50.0D)).iterator();
 
 			while (var4.hasNext()) {
 				EntityHuman var5 = (EntityHuman) var4.next();

@@ -27,7 +27,7 @@ public class class_ri extends class_rm {
          return false;
       } else if(!this.a.av()) {
          return false;
-      } else if(!this.f.i(new BlockPosition(this.a.locX, this.a.aT().yMin, this.a.locZ))) {
+      } else if(!this.f.i(new BlockPosition(this.a.locX, this.a.getBoundingBox().yMin, this.a.locZ))) {
          return false;
       } else {
          Vec3D var1 = this.f();
@@ -51,8 +51,8 @@ public class class_ri extends class_rm {
    }
 
    private Vec3D f() {
-      Random var1 = this.a.bd();
-      BlockPosition var2 = new BlockPosition(this.a.locX, this.a.aT().yMin, this.a.locZ);
+      Random var1 = this.a.getRandom();
+      BlockPosition var2 = new BlockPosition(this.a.locX, this.a.getBoundingBox().yMin, this.a.locZ);
 
       for(int var3 = 0; var3 < 10; ++var3) {
          BlockPosition var4 = var2.add(var1.nextInt(20) - 10, var1.nextInt(6) - 3, var1.nextInt(20) - 10);

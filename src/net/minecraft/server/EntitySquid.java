@@ -67,7 +67,7 @@ public class EntitySquid extends class_uk {
    }
 
    public boolean V() {
-      return this.world.a((AxisAlignedBB)this.aT().grow(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.WATER, (Entity)this);
+      return this.world.a((AxisAlignedBB)this.getBoundingBox().grow(0.0D, -0.6000000238418579D, 0.0D), (Material)Material.WATER, (Entity)this);
    }
 
    public void m() {
@@ -165,10 +165,10 @@ public class EntitySquid extends class_uk {
          int var1 = this.a.bi();
          if(var1 > 100) {
             this.a.b(0.0F, 0.0F, 0.0F);
-         } else if(this.a.bd().nextInt(50) == 0 || !this.a.inWater || !this.a.n()) {
-            float var2 = this.a.bd().nextFloat() * 3.1415927F * 2.0F;
+         } else if(this.a.getRandom().nextInt(50) == 0 || !this.a.inWater || !this.a.n()) {
+            float var2 = this.a.getRandom().nextFloat() * 3.1415927F * 2.0F;
             float var3 = MathHelper.cos(var2) * 0.2F;
-            float var4 = -0.1F + this.a.bd().nextFloat() * 0.2F;
+            float var4 = -0.1F + this.a.getRandom().nextFloat() * 0.2F;
             float var5 = MathHelper.sin(var2) * 0.2F;
             this.a.b(var3, var4, var5);
          }

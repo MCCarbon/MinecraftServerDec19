@@ -17,7 +17,7 @@ public class class_rq extends class_rm {
          return false;
       } else {
          double var1 = this.a.h(this.b);
-         return var1 >= 4.0D && var1 <= 16.0D?(!this.a.onGround?false:this.a.bd().nextInt(5) == 0):false;
+         return var1 >= 4.0D && var1 <= 16.0D?(!this.a.onGround?false:this.a.getRandom().nextInt(5) == 0):false;
       }
    }
 

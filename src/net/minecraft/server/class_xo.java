@@ -9,7 +9,7 @@ import net.minecraft.server.AxisAlignedBB;
 import net.minecraft.server.MovingObjectPosition;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
+import net.minecraft.server.EnumParticle;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.WorldServer;
@@ -121,7 +121,7 @@ public abstract class class_xo extends Entity implements class_xi {
 
       if(!this.world.isClientSide) {
          Entity var4 = null;
-         List var5 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D));
+         List var5 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.getBoundingBox().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D));
          double var6 = 0.0D;
          boolean var8 = false;
 
@@ -136,7 +136,7 @@ public abstract class class_xo extends Entity implements class_xi {
                } else {
                   var8 = false;
                   float var11 = 0.3F;
-                  AxisAlignedBB var12 = var10.aT().grow((double)var11, (double)var11, (double)var11);
+                  AxisAlignedBB var12 = var10.getBoundingBox().grow((double)var11, (double)var11, (double)var11);
                   MovingObjectPosition var13 = var12.a(var1, var2);
                   if(var13 != null) {
                      double var14 = var1.distanceSquared(var13.c);
@@ -199,7 +199,7 @@ public abstract class class_xo extends Entity implements class_xi {
       if(this.V()) {
          for(int var7 = 0; var7 < 4; ++var7) {
             float var19 = 0.25F;
-            this.world.a(class_cy.e, this.locX - this.motX * (double)var19, this.locY - this.motY * (double)var19, this.locZ - this.motZ * (double)var19, this.motX, this.motY, this.motZ, new int[0]);
+            this.world.addParticle(EnumParticle.e, this.locX - this.motX * (double)var19, this.locY - this.motY * (double)var19, this.locZ - this.motZ * (double)var19, this.motX, this.motY, this.motZ, new int[0]);
          }
 
          var17 = 0.8F;

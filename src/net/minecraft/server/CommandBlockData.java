@@ -33,7 +33,7 @@ public class CommandBlockData extends CommandAbstract {
          var1.a(CommandObjectiveExecutor.class_a_in_class_n.b, 0);
          BlockPosition var3 = a(var1, var2, 0, false);
          World var4 = var1.e();
-         if(!var4.e(var3)) {
+         if(!var4.isLoaded(var3)) {
             throw new class_bz("commands.blockdata.outOfWorld", new Object[0]);
          } else {
             TileEntity var5 = var4.getTileEntity(var3);

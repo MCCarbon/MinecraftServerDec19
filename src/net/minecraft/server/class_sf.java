@@ -18,10 +18,10 @@ public class class_sf extends class_rm {
    public boolean a() {
       if(this.a.getAge() >= 0) {
          return false;
-      } else if(this.a.bd().nextInt(400) != 0) {
+      } else if(this.a.getRandom().nextInt(400) != 0) {
          return false;
       } else {
-         List var1 = this.a.world.getEntities(EntityVillager.class, this.a.aT().grow(6.0D, 3.0D, 6.0D));
+         List var1 = this.a.world.getEntities(EntityVillager.class, this.a.getBoundingBox().grow(6.0D, 3.0D, 6.0D));
          double var2 = Double.MAX_VALUE;
          Iterator var4 = var1.iterator();
 

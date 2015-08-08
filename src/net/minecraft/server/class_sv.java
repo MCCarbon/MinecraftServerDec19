@@ -19,7 +19,7 @@ public class class_sv extends class_td {
          if(this.b instanceof EntityCreeper) {
             return false;
          } else if(!this.a(this.b, false)) {
-            if(this.e.bd().nextInt(20) == 0) {
+            if(this.e.getRandom().nextInt(20) == 0) {
                this.b = var1.c((EntityLiving)this.a);
                return this.a(this.b, false);
             } else {

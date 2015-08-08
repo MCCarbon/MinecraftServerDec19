@@ -286,7 +286,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	public void e(float var1, float var2) {
 		if (var1 > 1.0F) {
-			this.a("mob.horse.land", 0.4F, 1.0F);
+			this.makeSound("mob.horse.land", 0.4F, 1.0F);
 		}
 
 		int var3 = MathHelper.ceil((var1 * 0.5F - 3.0F) * var2);
@@ -346,13 +346,13 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 		this.dq();
 		if (this.ticksLived > 20) {
 			if (var2 == 0 && var2 != this.cM()) {
-				this.a("mob.horse.armor", 0.5F, 1.0F);
+				this.makeSound("mob.horse.armor", 0.5F, 1.0F);
 			} else if (var2 != this.cM()) {
-				this.a("mob.horse.armor", 0.5F, 1.0F);
+				this.makeSound("mob.horse.armor", 0.5F, 1.0F);
 			}
 
 			if (!var3 && this.cV()) {
-				this.a("mob.horse.leather", 0.5F, 1.0F);
+				this.makeSound("mob.horse.leather", 0.5F, 1.0F);
 			}
 		}
 
@@ -366,7 +366,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	protected EntityHorse a(Entity var1, double var2) {
 		double var4 = Double.MAX_VALUE;
 		Entity var6 = null;
-		List var7 = this.world.a(var1, var1.aT().add(var2, var2, var2), by);
+		List var7 = this.world.a(var1, var1.getBoundingBox().add(var2, var2, var2), by);
 		Iterator var8 = var7.iterator();
 
 		while (var8.hasNext()) {
@@ -439,17 +439,17 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 			if (this.passenger != null && var4 != 1 && var4 != 2) {
 				++this.bY;
 				if (this.bY > 5 && this.bY % 3 == 0) {
-					this.a("mob.horse.gallop", var3.getVolume() * 0.15F, var3.getPitch());
+					this.makeSound("mob.horse.gallop", var3.getVolume() * 0.15F, var3.getPitch());
 					if (var4 == 0 && this.random.nextInt(10) == 0) {
-						this.a("mob.horse.breathe", var3.getVolume() * 0.6F, var3.getPitch());
+						this.makeSound("mob.horse.breathe", var3.getVolume() * 0.6F, var3.getPitch());
 					}
 				} else if (this.bY <= 5) {
-					this.a("mob.horse.wood", var3.getVolume() * 0.15F, var3.getPitch());
+					this.makeSound("mob.horse.wood", var3.getVolume() * 0.15F, var3.getPitch());
 				}
 			} else if (var3 == Block.STEP_SOUND_WOOD) {
-				this.a("mob.horse.wood", var3.getVolume() * 0.15F, var3.getPitch());
+				this.makeSound("mob.horse.wood", var3.getVolume() * 0.15F, var3.getPitch());
 			} else {
-				this.a("mob.horse.soft", var3.getVolume() * 0.15F, var3.getPitch());
+				this.makeSound("mob.horse.soft", var3.getVolume() * 0.15F, var3.getPitch());
 			}
 		}
 
@@ -592,7 +592,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 				if (!var8 && this.de() && !this.cL() && var3.getItem() == Item.getItemOf((Block) Blocks.CHEST)) {
 					this.setHasChest(true);
-					this.a("mob.chickenplop", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+					this.makeSound("mob.chickenplop", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 					var8 = true;
 					this.dp();
 				}
@@ -810,7 +810,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 		this.dw();
 		String var1 = this.cW();
 		if (var1 != null) {
-			this.a(var1, this.bC(), this.bD());
+			this.makeSound(var1, this.bC(), this.bD());
 		}
 
 	}
@@ -869,7 +869,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 					float var4 = MathHelper.cos(this.yaw * 3.1415927F / 180.0F);
 					this.motX += (double) (-0.4F * var3 * this.bx);
 					this.motZ += (double) (0.4F * var4 * this.bx);
-					this.a("mob.horse.jump", 0.4F, 1.0F);
+					this.makeSound("mob.horse.jump", 0.4F, 1.0F);
 				}
 
 				this.bx = 0.0F;

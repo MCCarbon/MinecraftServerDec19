@@ -20,7 +20,7 @@ public class class_auy extends class_auu {
    }
 
    public class_aut a(Entity var1) {
-      return this.a(MathHelper.floor(var1.aT().xMin), MathHelper.floor(var1.aT().yMin + 0.5D), MathHelper.floor(var1.aT().zMin));
+      return this.a(MathHelper.floor(var1.getBoundingBox().xMin), MathHelper.floor(var1.getBoundingBox().yMin + 0.5D), MathHelper.floor(var1.getBoundingBox().zMin));
    }
 
    public class_aut a(Entity var1, double var2, double var4, double var6) {

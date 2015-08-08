@@ -36,11 +36,11 @@ public class EntityBoat extends Entity {
 	}
 
 	public AxisAlignedBB j(Entity var1) {
-		return var1.aT();
+		return var1.getBoundingBox();
 	}
 
 	public AxisAlignedBB S() {
-		return this.aT();
+		return this.getBoundingBox();
 	}
 
 	public boolean ae() {
@@ -114,9 +114,9 @@ public class EntityBoat extends Entity {
 		double var2 = 0.0D;
 
 		for (int var4 = 0; var4 < var1; ++var4) {
-			double var5 = this.aT().yMin + (this.aT().yMax - this.aT().yMin) * (double) (var4 + 0) / (double) var1 - 0.125D;
-			double var7 = this.aT().yMin + (this.aT().yMax - this.aT().yMin) * (double) (var4 + 1) / (double) var1 - 0.125D;
-			AxisAlignedBB var9 = new AxisAlignedBB(this.aT().xMin, var5, this.aT().zMin, this.aT().xMax, var7, this.aT().zMax);
+			double var5 = this.getBoundingBox().yMin + (this.getBoundingBox().yMax - this.getBoundingBox().yMin) * (double) (var4 + 0) / (double) var1 - 0.125D;
+			double var7 = this.getBoundingBox().yMin + (this.getBoundingBox().yMax - this.getBoundingBox().yMin) * (double) (var4 + 1) / (double) var1 - 0.125D;
+			AxisAlignedBB var9 = new AxisAlignedBB(this.getBoundingBox().xMin, var5, this.getBoundingBox().zMin, this.getBoundingBox().xMax, var7, this.getBoundingBox().zMax);
 			if (this.world.b(var9, Material.WATER)) {
 				var2 += 1.0D / (double) var1;
 			}
@@ -138,11 +138,11 @@ public class EntityBoat extends Entity {
 				if (this.random.nextBoolean()) {
 					var15 = this.locX - var6 * var11 * 0.8D + var8 * var13;
 					var17 = this.locZ - var8 * var11 * 0.8D - var6 * var13;
-					this.world.a(class_cy.f, var15, this.locY - 0.125D, var17, this.motX, this.motY, this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.f, var15, this.locY - 0.125D, var17, this.motX, this.motY, this.motZ, new int[0]);
 				} else {
 					var15 = this.locX + var6 + var8 * var11 * 0.7D;
 					var17 = this.locZ + var8 - var6 * var11 * 0.7D;
-					this.world.a(class_cy.f, var15, this.locY - 0.125D, var17, this.motX, this.motY, this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.f, var15, this.locY - 0.125D, var17, this.motX, this.motY, this.motZ, new int[0]);
 				}
 			}
 		}
@@ -280,7 +280,7 @@ public class EntityBoat extends Entity {
 			this.yaw = (float) ((double) this.yaw + var28);
 			this.b(this.yaw, this.pitch);
 			if (!this.world.isClientSide) {
-				List var16 = this.world.getEntities((Entity) this, (AxisAlignedBB) this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D));
+				List var16 = this.world.getEntities((Entity) this, (AxisAlignedBB) this.getBoundingBox().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D));
 				if (var16 != null && !var16.isEmpty()) {
 					for (int var29 = 0; var29 < var16.size(); ++var29) {
 						Entity var18 = (Entity) var16.get(var29);

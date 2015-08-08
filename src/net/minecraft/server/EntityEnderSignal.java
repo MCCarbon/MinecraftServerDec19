@@ -95,10 +95,10 @@ public class EntityEnderSignal extends Entity {
       float var10 = 0.25F;
       if(this.V()) {
          for(int var3 = 0; var3 < 4; ++var3) {
-            this.world.a(class_cy.e, this.locX - this.motX * (double)var10, this.locY - this.motY * (double)var10, this.locZ - this.motZ * (double)var10, this.motX, this.motY, this.motZ, new int[0]);
+            this.world.addParticle(EnumParticle.e, this.locX - this.motX * (double)var10, this.locY - this.motY * (double)var10, this.locZ - this.motZ * (double)var10, this.motX, this.motY, this.motZ, new int[0]);
          }
       } else {
-         this.world.a(class_cy.y, this.locX - this.motX * (double)var10 + this.random.nextDouble() * 0.6D - 0.3D, this.locY - this.motY * (double)var10 - 0.5D, this.locZ - this.motZ * (double)var10 + this.random.nextDouble() * 0.6D - 0.3D, this.motX, this.motY, this.motZ, new int[0]);
+         this.world.addParticle(EnumParticle.PORTAL, this.locX - this.motX * (double)var10 + this.random.nextDouble() * 0.6D - 0.3D, this.locY - this.motY * (double)var10 - 0.5D, this.locZ - this.motZ * (double)var10 + this.random.nextDouble() * 0.6D - 0.3D, this.motX, this.motY, this.motZ, new int[0]);
       }
 
       if(!this.world.isClientSide) {

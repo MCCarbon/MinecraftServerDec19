@@ -111,7 +111,7 @@ public abstract class EntityInsentient extends EntityLiving {
 	public void z() {
 		String var1 = this.C();
 		if (var1 != null) {
-			this.a(var1, this.bC(), this.bD());
+			this.makeSound(var1, this.bC(), this.bD());
 		}
 
 	}
@@ -157,7 +157,7 @@ public abstract class EntityInsentient extends EntityLiving {
 				double var4 = this.random.nextGaussian() * 0.02D;
 				double var6 = this.random.nextGaussian() * 0.02D;
 				double var8 = 10.0D;
-				this.world.a(class_cy.a, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var2 * var8, this.locY + (double) (this.random.nextFloat() * this.length) - var4 * var8, this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var6 * var8, var2, var4, var6, new int[0]);
+				this.world.addParticle(EnumParticle.a, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var2 * var8, this.locY + (double) (this.random.nextFloat() * this.length) - var4 * var8, this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width - var6 * var8, var2, var4, var6, new int[0]);
 			}
 		} else {
 			this.world.a((Entity) this, (byte) 20);
@@ -361,7 +361,7 @@ public abstract class EntityInsentient extends EntityLiving {
 		super.m();
 		this.world.B.a("looting");
 		if (!this.world.isClientSide && this.cm() && !this.aS && this.world.R().getBooleanValue("mobGriefing")) {
-			List var1 = this.world.getEntities(EntityItem.class, this.aT().grow(1.0D, 0.0D, 1.0D));
+			List var1 = this.world.getEntities(EntityItem.class, this.getBoundingBox().grow(1.0D, 0.0D, 1.0D));
 			Iterator var2 = var1.iterator();
 
 			while (var2.hasNext()) {
@@ -534,7 +534,7 @@ public abstract class EntityInsentient extends EntityLiving {
 			EntityLiving var10 = (EntityLiving) var1;
 			var6 = var10.locY + (double) var10.aU() - (this.locY + (double) this.aU());
 		} else {
-			var6 = (var1.aT().yMin + var1.aT().yMax) / 2.0D - (this.locY + (double) this.aU());
+			var6 = (var1.getBoundingBox().yMin + var1.getBoundingBox().yMax) / 2.0D - (this.locY + (double) this.aU());
 		}
 
 		double var14 = (double) MathHelper.sqrt(var4 * var4 + var8 * var8);
@@ -562,7 +562,7 @@ public abstract class EntityInsentient extends EntityLiving {
 	}
 
 	public boolean cg() {
-		return this.world.a((AxisAlignedBB) this.aT(), (Entity) this) && this.world.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && !this.world.d(this.aT());
+		return this.world.a((AxisAlignedBB) this.getBoundingBox(), (Entity) this) && this.world.getCubes((Entity) this, (AxisAlignedBB) this.getBoundingBox()).isEmpty() && !this.world.containsLiquid(this.getBoundingBox());
 	}
 
 	public int cj() {
@@ -902,7 +902,7 @@ public abstract class EntityInsentient extends EntityLiving {
 		if (this.bw && this.by != null) {
 			if (this.by.hasOfType("UUIDMost", 4) && this.by.hasOfType("UUIDLeast", 4)) {
 				UUID var5 = new UUID(this.by.getLong("UUIDMost"), this.by.getLong("UUIDLeast"));
-				List var6 = this.world.getEntities(EntityLiving.class, this.aT().grow(10.0D, 10.0D, 10.0D));
+				List var6 = this.world.getEntities(EntityLiving.class, this.getBoundingBox().grow(10.0D, 10.0D, 10.0D));
 				Iterator var3 = var6.iterator();
 
 				while (var3.hasNext()) {

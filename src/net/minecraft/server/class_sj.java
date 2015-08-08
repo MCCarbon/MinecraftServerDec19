@@ -53,7 +53,7 @@ public class class_sj extends class_rm {
    }
 
    public void e() {
-      double var1 = this.a.e(this.c.locX, this.c.aT().yMin, this.c.locZ);
+      double var1 = this.a.e(this.c.locX, this.c.getBoundingBox().yMin, this.c.locZ);
       boolean var3 = this.a.v().a(this.c);
       if(var3) {
          ++this.f;

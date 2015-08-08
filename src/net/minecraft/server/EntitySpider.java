@@ -61,7 +61,7 @@ public class EntitySpider extends EntityMonster {
 	}
 
 	protected void a(BlockPosition var1, Block var2) {
-		this.a("mob.spider.step", 0.15F, 1.0F);
+		this.makeSound("mob.spider.step", 0.15F, 1.0F);
 	}
 
 	protected Item D() {
@@ -155,7 +155,7 @@ public class EntitySpider extends EntityMonster {
 
 		public boolean b() {
 			float var1 = this.b.c(1.0F);
-			if (var1 >= 0.5F && this.b.bd().nextInt(100) == 0) {
+			if (var1 >= 0.5F && this.b.getRandom().nextInt(100) == 0) {
 				this.b.d((EntityLiving) null);
 				return false;
 			} else {

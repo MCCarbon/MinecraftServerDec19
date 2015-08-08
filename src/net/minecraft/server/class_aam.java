@@ -13,7 +13,7 @@ public class class_aam extends Item {
          return UseResult.CANT_USE;
       } else {
          if(var3.getType(var4).getBlock().getMaterial() == Material.AIR) {
-            var3.a((double)var4.getX() + 0.5D, (double)var4.getY() + 0.5D, (double)var4.getZ() + 0.5D, "fire.ignite", 1.0F, random.nextFloat() * 0.4F + 0.8F);
+            var3.makeSound((double)var4.getX() + 0.5D, (double)var4.getY() + 0.5D, (double)var4.getZ() + 0.5D, "fire.ignite", 1.0F, random.nextFloat() * 0.4F + 0.8F);
             var3.setTypeUpdate(var4, Blocks.FIRE.getBlockData());
          }
 

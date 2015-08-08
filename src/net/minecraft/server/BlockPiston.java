@@ -116,7 +116,7 @@ public class BlockPiston extends class_ahi {
 			}
 
 			var1.setTypeAndData(var2, var3.set(EXTENDED, Boolean.valueOf(true)), 2);
-			var1.a(var2.getX() + 0.5D, var2.getY() + 0.5D, var2.getZ() + 0.5D, "tile.piston.out", 0.5F, (var1.random.nextFloat() * 0.25F) + 0.6F);
+			var1.makeSound(var2.getX() + 0.5D, var2.getY() + 0.5D, var2.getZ() + 0.5D, "tile.piston.out", 0.5F, (var1.random.nextFloat() * 0.25F) + 0.6F);
 		} else if (var4 == 1) {
 			TileEntity var13 = var1.getTileEntity(var2.shift(var6));
 			if (var13 instanceof TileEntityPiston) {
@@ -147,7 +147,7 @@ public class BlockPiston extends class_ahi {
 				var1.setAir(var2.shift(var6));
 			}
 
-			var1.a(var2.getX() + 0.5D, var2.getY() + 0.5D, var2.getZ() + 0.5D, "tile.piston.in", 0.5F, (var1.random.nextFloat() * 0.15F) + 0.6F);
+			var1.makeSound(var2.getX() + 0.5D, var2.getY() + 0.5D, var2.getZ() + 0.5D, "tile.piston.in", 0.5F, (var1.random.nextFloat() * 0.15F) + 0.6F);
 		}
 
 		return true;

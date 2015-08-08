@@ -14,7 +14,7 @@ public abstract class class_uk extends EntityInsentient implements class_pp {
    }
 
    public boolean cg() {
-      return this.world.a((AxisAlignedBB)this.aT(), (Entity)this);
+      return this.world.a((AxisAlignedBB)this.getBoundingBox(), (Entity)this);
    }
 
    public int y() {

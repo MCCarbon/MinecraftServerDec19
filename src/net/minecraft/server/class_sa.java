@@ -34,7 +34,7 @@ public class class_sa extends class_rm {
    public void e() {
       this.b.q().a(this.c, 30.0F, 30.0F);
       double var1 = (double)(this.b.width * 2.0F * this.b.width * 2.0F);
-      double var3 = this.b.e(this.c.locX, this.c.aT().yMin, this.c.locZ);
+      double var3 = this.b.e(this.c.locX, this.c.getBoundingBox().yMin, this.c.locZ);
       double var5 = 0.8D;
       if(var3 > var1 && var3 < 16.0D) {
          var5 = 1.33D;

@@ -56,8 +56,8 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 		this.br = var1.getBoolean("wasOnGround");
 	}
 
-	protected class_cy n() {
-		return class_cy.H;
+	protected EnumParticle n() {
+		return EnumParticle.H;
 	}
 
 	protected String cz() {
@@ -81,14 +81,14 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 				float var5 = MathHelper.sin(var3) * (float) var1 * 0.5F * var4;
 				float var6 = MathHelper.cos(var3) * (float) var1 * 0.5F * var4;
 				World var10000 = this.world;
-				class_cy var10001 = this.n();
+				EnumParticle var10001 = this.n();
 				double var10002 = this.locX + (double) var5;
 				double var10004 = this.locZ + (double) var6;
-				var10000.a(var10001, var10002, this.aT().yMin, var10004, 0.0D, 0.0D, 0.0D, new int[0]);
+				var10000.addParticle(var10001, var10002, this.getBoundingBox().yMin, var10004, 0.0D, 0.0D, 0.0D, new int[0]);
 			}
 
 			if (this.cA()) {
-				this.a(this.cz(), this.bC(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
+				this.makeSound(this.cz(), this.bC(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) / 0.8F);
 			}
 
 			this.a = -0.5F;
@@ -170,7 +170,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	protected void e(EntityLiving var1) {
 		int var2 = this.cB();
 		if (this.t(var1) && this.h(var1) < 0.6D * (double) var2 * 0.6D * (double) var2 && var1.damageEntity(DamageSource.a((EntityLiving) this), (float) this.cy())) {
-			this.a("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+			this.makeSound("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 			this.a(this, var1);
 		}
 
@@ -284,7 +284,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 		}
 
 		public void e() {
-			if (this.a.bd().nextFloat() < 0.8F) {
+			if (this.a.getRandom().nextFloat() < 0.8F) {
 				this.a.t().a();
 			}
 
@@ -308,8 +308,8 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 
 		public void e() {
 			if (--this.c <= 0) {
-				this.c = 40 + this.a.bd().nextInt(60);
-				this.b = (float) this.a.bd().nextInt(360);
+				this.c = 40 + this.a.getRandom().nextInt(60);
+				this.b = (float) this.a.getRandom().nextInt(360);
 			}
 
 			((EntitySlime.class_d_in_class_wo) this.a.r()).a(this.b, false);
@@ -385,7 +385,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 
 						this.i.t().a();
 						if (this.i.cC()) {
-							this.i.a(this.i.cz(), this.i.bC(), ((this.i.bd().nextFloat() - this.i.bd().nextFloat()) * 0.2F + 1.0F) * 0.8F);
+							this.i.makeSound(this.i.cz(), this.i.bC(), ((this.i.getRandom().nextFloat() - this.i.getRandom().nextFloat()) * 0.2F + 1.0F) * 0.8F);
 						}
 					} else {
 						this.i.bc = this.i.bd = 0.0F;

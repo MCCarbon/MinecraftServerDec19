@@ -36,7 +36,7 @@ public class ItemHoe extends Item {
    }
 
    protected UseResult a(ItemStack var1, EntityHuman var2, World var3, BlockPosition var4, IBlockData var5) {
-      var3.a((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), var5.getBlock().stepSound.getStepSound(), (var5.getBlock().stepSound.getVolume() + 1.0F) / 2.0F, var5.getBlock().stepSound.getPitch() * 0.8F);
+      var3.makeSound((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), var5.getBlock().stepSound.getStepSound(), (var5.getBlock().stepSound.getVolume() + 1.0F) / 2.0F, var5.getBlock().stepSound.getPitch() * 0.8F);
       if(var3.isClientSide) {
          return UseResult.SUCCESS;
       } else {

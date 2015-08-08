@@ -24,7 +24,7 @@ public class class_tm {
    }
 
    private static Vec3D c(EntityCreature var0, int var1, int var2, Vec3D var3) {
-      Random var4 = var0.bd();
+      Random var4 = var0.getRandom();
       boolean var5 = false;
       int var6 = 0;
       int var7 = 0;

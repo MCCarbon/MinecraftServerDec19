@@ -26,7 +26,7 @@ public class class_tf extends class_tg {
 
    private int p() {
       if(this.b.V() && this.h()) {
-         int var1 = (int)this.b.aT().yMin;
+         int var1 = (int)this.b.getBoundingBox().yMin;
          Block var2 = this.c.getType(new BlockPosition(MathHelper.floor(this.b.locX), var1, MathHelper.floor(this.b.locZ))).getBlock();
          int var3 = 0;
 
@@ -40,16 +40,16 @@ public class class_tf extends class_tg {
             ++var3;
          } while(var3 <= 16);
 
-         return (int)this.b.aT().yMin;
+         return (int)this.b.getBoundingBox().yMin;
       } else {
-         return (int)(this.b.aT().yMin + 0.5D);
+         return (int)(this.b.getBoundingBox().yMin + 0.5D);
       }
    }
 
    protected void d() {
       super.d();
       if(this.f) {
-         if(this.c.i(new BlockPosition(MathHelper.floor(this.b.locX), (int)(this.b.aT().yMin + 0.5D), MathHelper.floor(this.b.locZ)))) {
+         if(this.c.i(new BlockPosition(MathHelper.floor(this.b.locX), (int)(this.b.getBoundingBox().yMin + 0.5D), MathHelper.floor(this.b.locZ)))) {
             return;
          }
 

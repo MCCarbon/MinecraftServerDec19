@@ -153,7 +153,7 @@ public abstract class Entity implements class_m {
 			float var3 = this.width;
 			this.width = var1;
 			this.length = var2;
-			this.a(new AxisAlignedBB(this.aT().xMin, this.aT().yMin, this.aT().zMin, this.aT().xMin + (double) this.width, this.aT().yMin + (double) this.length, this.aT().zMin + (double) this.width));
+			this.a(new AxisAlignedBB(this.getBoundingBox().xMin, this.getBoundingBox().yMin, this.getBoundingBox().zMin, this.getBoundingBox().xMin + (double) this.width, this.getBoundingBox().yMin + (double) this.length, this.getBoundingBox().zMin + (double) this.width));
 			if (this.width > var3 && !this.justCreated && !this.world.isClientSide) {
 				this.d((double) (var3 - this.width), 0.0D, (double) (var3 - this.width));
 			}
@@ -301,17 +301,17 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean c(double var1, double var3, double var5) {
-		AxisAlignedBB var7 = this.aT().c(var1, var3, var5);
+		AxisAlignedBB var7 = this.getBoundingBox().c(var1, var3, var5);
 		return this.b(var7);
 	}
 
 	private boolean b(AxisAlignedBB var1) {
-		return this.world.a(this, var1).isEmpty() && !this.world.d(var1);
+		return this.world.getCubes(this, var1).isEmpty() && !this.world.containsLiquid(var1);
 	}
 
 	public void d(double var1, double var3, double var5) {
 		if (this.noclip) {
-			this.a(this.aT().c(var1, var3, var5));
+			this.a(this.getBoundingBox().c(var1, var3, var5));
 			this.m();
 		} else {
 			this.world.B.a("move");
@@ -334,7 +334,7 @@ public abstract class Entity implements class_m {
 			boolean var19 = this.onGround && this.ax() && this instanceof EntityHuman;
 			if (var19) {
 				double var20;
-				for (var20 = 0.05D; var1 != 0.0D && this.world.a(this, this.aT().c(var1, -1.0D, 0.0D)).isEmpty(); var13 = var1) {
+				for (var20 = 0.05D; var1 != 0.0D && this.world.getCubes(this, this.getBoundingBox().c(var1, -1.0D, 0.0D)).isEmpty(); var13 = var1) {
 					if (var1 < var20 && var1 >= -var20) {
 						var1 = 0.0D;
 					} else if (var1 > 0.0D) {
@@ -344,7 +344,7 @@ public abstract class Entity implements class_m {
 					}
 				}
 
-				for (; var5 != 0.0D && this.world.a(this, this.aT().c(0.0D, -1.0D, var5)).isEmpty(); var17 = var5) {
+				for (; var5 != 0.0D && this.world.getCubes(this, this.getBoundingBox().c(0.0D, -1.0D, var5)).isEmpty(); var17 = var5) {
 					if (var5 < var20 && var5 >= -var20) {
 						var5 = 0.0D;
 					} else if (var5 > 0.0D) {
@@ -354,7 +354,7 @@ public abstract class Entity implements class_m {
 					}
 				}
 
-				for (; var1 != 0.0D && var5 != 0.0D && this.world.a(this, this.aT().c(var1, -1.0D, var5)).isEmpty(); var17 = var5) {
+				for (; var1 != 0.0D && var5 != 0.0D && this.world.getCubes(this, this.getBoundingBox().c(var1, -1.0D, var5)).isEmpty(); var17 = var5) {
 					if (var1 < var20 && var1 >= -var20) {
 						var1 = 0.0D;
 					} else if (var1 > 0.0D) {
@@ -374,39 +374,39 @@ public abstract class Entity implements class_m {
 				}
 			}
 
-			List var53 = this.world.a(this, this.aT().add(var1, var3, var5));
-			AxisAlignedBB var21 = this.aT();
+			List var53 = this.world.getCubes(this, this.getBoundingBox().add(var1, var3, var5));
+			AxisAlignedBB var21 = this.getBoundingBox();
 
 			AxisAlignedBB var23;
-			for (Iterator var22 = var53.iterator(); var22.hasNext(); var3 = var23.b(this.aT(), var3)) {
+			for (Iterator var22 = var53.iterator(); var22.hasNext(); var3 = var23.b(this.getBoundingBox(), var3)) {
 				var23 = (AxisAlignedBB) var22.next();
 			}
 
-			this.a(this.aT().c(0.0D, var3, 0.0D));
+			this.a(this.getBoundingBox().c(0.0D, var3, 0.0D));
 			boolean var54 = this.onGround || var15 != var3 && var15 < 0.0D;
 
 			AxisAlignedBB var24;
 			Iterator var55;
-			for (var55 = var53.iterator(); var55.hasNext(); var1 = var24.a(this.aT(), var1)) {
+			for (var55 = var53.iterator(); var55.hasNext(); var1 = var24.a(this.getBoundingBox(), var1)) {
 				var24 = (AxisAlignedBB) var55.next();
 			}
 
-			this.a(this.aT().c(var1, 0.0D, 0.0D));
+			this.a(this.getBoundingBox().c(var1, 0.0D, 0.0D));
 
-			for (var55 = var53.iterator(); var55.hasNext(); var5 = var24.c(this.aT(), var5)) {
+			for (var55 = var53.iterator(); var55.hasNext(); var5 = var24.c(this.getBoundingBox(), var5)) {
 				var24 = (AxisAlignedBB) var55.next();
 			}
 
-			this.a(this.aT().c(0.0D, 0.0D, var5));
+			this.a(this.getBoundingBox().c(0.0D, 0.0D, var5));
 			if (this.S > 0.0F && var54 && (var13 != var1 || var17 != var5)) {
 				double var56 = var1;
 				double var25 = var3;
 				double var27 = var5;
-				AxisAlignedBB var29 = this.aT();
+				AxisAlignedBB var29 = this.getBoundingBox();
 				this.a(var21);
 				var3 = (double) this.S;
-				List var30 = this.world.a(this, this.aT().add(var13, var3, var17));
-				AxisAlignedBB var31 = this.aT();
+				List var30 = this.world.getCubes(this, this.getBoundingBox().add(var13, var3, var17));
+				AxisAlignedBB var31 = this.getBoundingBox();
 				AxisAlignedBB var32 = var31.add(var13, 0.0D, var17);
 				double var33 = var3;
 
@@ -432,7 +432,7 @@ public abstract class Entity implements class_m {
 				}
 
 				var31 = var31.c(0.0D, 0.0D, var68);
-				AxisAlignedBB var69 = this.aT();
+				AxisAlignedBB var69 = this.getBoundingBox();
 				double var70 = var3;
 
 				AxisAlignedBB var43;
@@ -472,11 +472,11 @@ public abstract class Entity implements class_m {
 				}
 
 				AxisAlignedBB var51;
-				for (Iterator var50 = var30.iterator(); var50.hasNext(); var3 = var51.b(this.aT(), var3)) {
+				for (Iterator var50 = var30.iterator(); var50.hasNext(); var3 = var51.b(this.getBoundingBox(), var3)) {
 					var51 = (AxisAlignedBB) var50.next();
 				}
 
-				this.a(this.aT().c(0.0D, var3, 0.0D));
+				this.a(this.getBoundingBox().c(0.0D, var3, 0.0D));
 				if (var56 * var56 + var27 * var27 >= var1 * var1 + var5 * var5) {
 					var1 = var56;
 					var3 = var25;
@@ -540,7 +540,7 @@ public abstract class Entity implements class_m {
 							var34 = 1.0F;
 						}
 
-						this.a(this.P(), var34, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
+						this.makeSound(this.P(), var34, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
 					}
 
 					this.a(var26, var60);
@@ -557,7 +557,7 @@ public abstract class Entity implements class_m {
 			}
 
 			boolean var62 = this.U();
-			if (this.world.e(this.aT().d(0.001D, 0.001D, 0.001D))) {
+			if (this.world.e(this.getBoundingBox().d(0.001D, 0.001D, 0.001D))) {
 				this.g(1);
 				if (!var62) {
 					++this.fireTicks;
@@ -570,7 +570,7 @@ public abstract class Entity implements class_m {
 			}
 
 			if (var62 && this.fireTicks > 0) {
-				this.a("random.fizz", 0.7F, 1.6F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
+				this.makeSound("random.fizz", 0.7F, 1.6F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
 				this.fireTicks = -this.maxFireTicks;
 			}
 
@@ -579,9 +579,9 @@ public abstract class Entity implements class_m {
 	}
 
 	private void m() {
-		this.locX = (this.aT().xMin + this.aT().xMax) / 2.0D;
-		this.locY = this.aT().yMin;
-		this.locZ = (this.aT().zMin + this.aT().zMax) / 2.0D;
+		this.locX = (this.getBoundingBox().xMin + this.getBoundingBox().xMax) / 2.0D;
+		this.locY = this.getBoundingBox().yMin;
+		this.locZ = (this.getBoundingBox().zMin + this.getBoundingBox().zMax) / 2.0D;
 	}
 
 	protected String P() {
@@ -589,8 +589,8 @@ public abstract class Entity implements class_m {
 	}
 
 	protected void Q() {
-		BlockPosition var1 = new BlockPosition(this.aT().xMin + 0.001D, this.aT().yMin + 0.001D, this.aT().zMin + 0.001D);
-		BlockPosition var2 = new BlockPosition(this.aT().xMax - 0.001D, this.aT().yMax - 0.001D, this.aT().zMax - 0.001D);
+		BlockPosition var1 = new BlockPosition(this.getBoundingBox().xMin + 0.001D, this.getBoundingBox().yMin + 0.001D, this.getBoundingBox().zMin + 0.001D);
+		BlockPosition var2 = new BlockPosition(this.getBoundingBox().xMax - 0.001D, this.getBoundingBox().yMax - 0.001D, this.getBoundingBox().zMax - 0.001D);
 		if (this.world.areChunksLoadedBetween(var1, var2)) {
 			for (int var3 = var1.getX(); var3 <= var2.getX(); ++var3) {
 				for (int var4 = var1.getY(); var4 <= var2.getY(); ++var4) {
@@ -617,14 +617,14 @@ public abstract class Entity implements class_m {
 		Block.Sound var3 = var2.stepSound;
 		if (this.world.getType(var1.up()).getBlock() == Blocks.SNOW_LAYER) {
 			var3 = Blocks.SNOW_LAYER.stepSound;
-			this.a(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
+			this.makeSound(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
 		} else if (!var2.getMaterial().isLiquid()) {
-			this.a(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
+			this.makeSound(var3.getStepSound(), var3.getVolume() * 0.15F, var3.getPitch());
 		}
 
 	}
 
-	public void a(String var1, float var2, float var3) {
+	public void makeSound(String var1, float var2, float var3) {
 		if (!this.isSilent()) {
 			this.world.a(this, var1, var2, var3);
 		}
@@ -691,7 +691,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean W() {
-		if (this.world.a(this.aT().grow(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.WATER, this)) {
+		if (this.world.a(this.getBoundingBox().grow(0.0D, -0.4000000059604645D, 0.0D).d(0.001D, 0.001D, 0.001D), Material.WATER, this)) {
 			if (!this.inWater && !this.justCreated) {
 				this.X();
 			}
@@ -712,8 +712,8 @@ public abstract class Entity implements class_m {
 			var1 = 1.0F;
 		}
 
-		this.a(this.aa(), var1, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
-		float var2 = (float) MathHelper.floor(this.aT().yMin);
+		this.makeSound(this.aa(), var1, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
+		float var2 = (float) MathHelper.floor(this.getBoundingBox().yMin);
 
 		int var3;
 		float var4;
@@ -721,13 +721,13 @@ public abstract class Entity implements class_m {
 		for (var3 = 0; (float) var3 < 1.0F + this.width * 20.0F; ++var3) {
 			var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
 			var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
-			this.world.a(class_cy.e, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY - (double) (this.random.nextFloat() * 0.2F), this.motZ, new int[0]);
+			this.world.addParticle(EnumParticle.e, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY - (double) (this.random.nextFloat() * 0.2F), this.motZ, new int[0]);
 		}
 
 		for (var3 = 0; (float) var3 < 1.0F + this.width * 20.0F; ++var3) {
 			var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
 			var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width;
-			this.world.a(class_cy.f, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
+			this.world.addParticle(EnumParticle.f, this.locX + (double) var4, (double) (var2 + 1.0F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
 		}
 
 	}
@@ -747,7 +747,7 @@ public abstract class Entity implements class_m {
 		IBlockData var5 = this.world.getType(var4);
 		Block var6 = var5.getBlock();
 		if (var6.getRenderType() != -1) {
-			this.world.a(class_cy.L, this.locX + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, this.aT().yMin + 0.1D, this.locZ + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, -this.motX * 4.0D, 1.5D, -this.motZ * 4.0D, new int[] { Block.getCombinedId(var5) });
+			this.world.addParticle(EnumParticle.L, this.locX + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, this.getBoundingBox().yMin + 0.1D, this.locZ + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, -this.motX * 4.0D, 1.5D, -this.motZ * 4.0D, new int[] { Block.getCombinedId(var5) });
 		}
 
 	}
@@ -772,7 +772,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean ab() {
-		return this.world.a(this.aT().grow(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.LAVA);
+		return this.world.a(this.getBoundingBox().grow(-0.10000000149011612D, -0.4000000059604645D, -0.10000000149011612D), Material.LAVA);
 	}
 
 	public void a(float var1, float var2, float var3) {
@@ -795,7 +795,7 @@ public abstract class Entity implements class_m {
 
 	public float c(float var1) {
 		BlockPosition var2 = new BlockPosition(this.locX, this.locY + (double) this.aU(), this.locZ);
-		return this.world.e(var2) ? this.world.o(var2) : 0.0F;
+		return this.world.isLoaded(var2) ? this.world.o(var2) : 0.0F;
 	}
 
 	public void a(World var1) {
@@ -1251,7 +1251,7 @@ public abstract class Entity implements class_m {
 		this.ay = 0.0D;
 		if (var1 == null) {
 			if (this.vehicle != null) {
-				this.b(this.vehicle.locX, this.vehicle.aT().yMin + (double) this.vehicle.length, this.vehicle.locZ, this.yaw, this.pitch);
+				this.b(this.vehicle.locX, this.vehicle.getBoundingBox().yMin + (double) this.vehicle.length, this.vehicle.locZ, this.yaw, this.pitch);
 				this.vehicle.passenger = null;
 			}
 
@@ -1396,7 +1396,7 @@ public abstract class Entity implements class_m {
 		double var8 = var1 - (double) var7.getX();
 		double var10 = var3 - (double) var7.getY();
 		double var12 = var5 - (double) var7.getZ();
-		List var14 = this.world.a(this.aT());
+		List var14 = this.world.a(this.getBoundingBox());
 		if (var14.isEmpty() && !this.world.u(var7)) {
 			return false;
 		} else {
@@ -1661,7 +1661,7 @@ public abstract class Entity implements class_m {
 		return this.datawatcher.getByte(NAMETAG_VISIBLE_DW_ID) == 1;
 	}
 
-	public void a(double var1, double var3, double var5) {
+	public void enderTeleportTo(double var1, double var3, double var5) {
 		this.b(var1, var3, var5, this.yaw, this.pitch);
 	}
 
@@ -1688,7 +1688,7 @@ public abstract class Entity implements class_m {
 		return true;
 	}
 
-	public AxisAlignedBB aT() {
+	public AxisAlignedBB getBoundingBox() {
 		return this.boundingBox;
 	}
 

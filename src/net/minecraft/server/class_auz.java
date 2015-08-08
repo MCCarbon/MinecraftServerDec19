@@ -20,7 +20,7 @@ public class class_auz extends class_auu {
    public class_aut a(Entity var1) {
       int var2;
       if(this.i && var1.V()) {
-         var2 = (int)var1.aT().yMin;
+         var2 = (int)var1.getBoundingBox().yMin;
          BlockPosition.MutableBlockPosition var3 = new BlockPosition.MutableBlockPosition(MathHelper.floor(var1.locX), var2, MathHelper.floor(var1.locZ));
 
          for(Block var4 = this.a.getType(var3).getBlock(); var4 == Blocks.FLOWING_WATER || var4 == Blocks.WATER; var4 = this.a.getType(var3).getBlock()) {
@@ -30,10 +30,10 @@ public class class_auz extends class_auu {
 
          this.h = false;
       } else {
-         var2 = MathHelper.floor(var1.aT().yMin + 0.5D);
+         var2 = MathHelper.floor(var1.getBoundingBox().yMin + 0.5D);
       }
 
-      return this.a(MathHelper.floor(var1.aT().xMin), var2, MathHelper.floor(var1.aT().zMin));
+      return this.a(MathHelper.floor(var1.getBoundingBox().xMin), var2, MathHelper.floor(var1.getBoundingBox().zMin));
    }
 
    public class_aut a(Entity var1, double var2, double var4, double var6) {

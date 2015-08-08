@@ -59,7 +59,7 @@ public class EntityRabbit extends EntityAnimal {
 			}
 		} else {
 			this.b(1.5D * (double) var2.a());
-			this.a(this.cB(), this.bC(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 0.8F);
+			this.makeSound(this.cB(), this.bC(), ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 0.8F);
 		}
 
 		this.bx = var1;
@@ -209,7 +209,7 @@ public class EntityRabbit extends EntityAnimal {
 
 	public boolean r(Entity var1) {
 		if (this.cC() == 99) {
-			this.a("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+			this.makeSound("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 			return var1.damageEntity(DamageSource.a((EntityLiving) this), 8.0F);
 		} else {
 			return var1.damageEntity(DamageSource.a((EntityLiving) this), 3.0F);
@@ -314,7 +314,7 @@ public class EntityRabbit extends EntityAnimal {
 	protected void cE() {
 		BlockCarrots var1 = (BlockCarrots) Blocks.CARROTS;
 		IBlockData var2 = var1.b(var1.n());
-		this.world.a(class_cy.M, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[] { Block.getCombinedId(var2) });
+		this.world.addParticle(EnumParticle.M, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[] { Block.getCombinedId(var2) });
 		this.bB = 100;
 	}
 

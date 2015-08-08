@@ -66,7 +66,7 @@ public class EntitySnowman extends class_ua implements class_wk {
       double var10 = var1.locZ - this.locZ;
       float var12 = MathHelper.sqrt(var6 * var6 + var10 * var10) * 0.2F;
       var3.c(var6, var8 + (double)var12, var10, 1.6F, 12.0F);
-      this.a("random.bow", 1.0F, 1.0F / (this.bd().nextFloat() * 0.4F + 0.8F));
+      this.makeSound("random.bow", 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
       this.world.addEntity((Entity)var3);
    }
 

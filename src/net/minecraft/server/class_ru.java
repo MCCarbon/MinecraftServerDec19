@@ -66,14 +66,14 @@ public class class_ru extends class_rm {
    public void e() {
       EntityLiving var1 = this.b.w();
       this.b.q().a(var1, 30.0F, 30.0F);
-      double var2 = this.b.e(var1.locX, var1.aT().yMin, var1.locZ);
+      double var2 = this.b.e(var1.locX, var1.getBoundingBox().yMin, var1.locZ);
       double var4 = this.a(var1);
       --this.h;
-      if((this.e || this.b.v().a(var1)) && this.h <= 0 && (this.i == 0.0D && this.j == 0.0D && this.k == 0.0D || var1.e(this.i, this.j, this.k) >= 1.0D || this.b.bd().nextFloat() < 0.05F)) {
+      if((this.e || this.b.v().a(var1)) && this.h <= 0 && (this.i == 0.0D && this.j == 0.0D && this.k == 0.0D || var1.e(this.i, this.j, this.k) >= 1.0D || this.b.getRandom().nextFloat() < 0.05F)) {
          this.i = var1.locX;
-         this.j = var1.aT().yMin;
+         this.j = var1.getBoundingBox().yMin;
          this.k = var1.locZ;
-         this.h = 4 + this.b.bd().nextInt(7);
+         this.h = 4 + this.b.getRandom().nextInt(7);
          if(var2 > 1024.0D) {
             this.h += 10;
          } else if(var2 > 256.0D) {

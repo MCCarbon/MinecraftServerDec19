@@ -33,7 +33,7 @@ public class CommandSummon extends CommandAbstract {
          }
 
          World var12 = var1.e();
-         if(!var12.e(var4)) {
+         if(!var12.isLoaded(var4)) {
             throw new class_bz("commands.summon.outOfWorld", new Object[0]);
          } else if("LightningBolt".equals(var3)) {
             var12.d((Entity)(new class_vi(var12, var6, var8, var10)));

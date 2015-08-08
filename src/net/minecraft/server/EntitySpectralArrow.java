@@ -18,7 +18,7 @@ public class EntitySpectralArrow extends EntityArrow {
    public void t_() {
       super.t_();
       if(this.world.isClientSide && !this.a) {
-         this.world.a(class_cy.o, this.locX, this.locY, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.addParticle(EnumParticle.o, this.locX, this.locY, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
    }

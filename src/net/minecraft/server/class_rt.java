@@ -16,14 +16,14 @@ public class class_rt extends class_rm {
    public boolean a() {
       if(this.b.getAge() != 0) {
          return false;
-      } else if(this.b.bd().nextInt(500) != 0) {
+      } else if(this.b.getRandom().nextInt(500) != 0) {
          return false;
       } else {
          this.a = this.d.af().a(new BlockPosition(this.b), 0);
          if(this.a == null) {
             return false;
          } else if(this.f() && this.b.o(true)) {
-            Entity var1 = this.d.a((Class)EntityVillager.class, (AxisAlignedBB)this.b.aT().grow(8.0D, 3.0D, 8.0D), (Entity)this.b);
+            Entity var1 = this.d.a((Class)EntityVillager.class, (AxisAlignedBB)this.b.getBoundingBox().grow(8.0D, 3.0D, 8.0D), (Entity)this.b);
             if(var1 == null) {
                return false;
             } else {
@@ -60,7 +60,7 @@ public class class_rt extends class_rm {
          this.g();
       }
 
-      if(this.b.bd().nextInt(35) == 0) {
+      if(this.b.getRandom().nextInt(35) == 0) {
          this.d.a((Entity)this.b, (byte)12);
       }
 

@@ -87,7 +87,7 @@ public abstract class EntityMonster extends EntityCreature implements class_wd {
    }
 
    protected boolean n_() {
-      BlockPosition var1 = new BlockPosition(this.locX, this.aT().yMin, this.locZ);
+      BlockPosition var1 = new BlockPosition(this.locX, this.getBoundingBox().yMin, this.locZ);
       if(this.world.b(class_aet.a, var1) > this.random.nextInt(32)) {
          return false;
       } else {

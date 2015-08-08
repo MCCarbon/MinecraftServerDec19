@@ -113,7 +113,7 @@ public abstract class EntityAgeable extends EntityCreature {
 		if (this.world.isClientSide) {
 			if (this.c > 0) {
 				if (this.c % 4 == 0) {
-					this.world.a(class_cy.v, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
+					this.world.addParticle(EnumParticle.v, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
 				}
 
 				--this.c;

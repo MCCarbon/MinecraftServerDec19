@@ -95,7 +95,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 
 			if (exitPos != null) {
 				BlockPosition var2 = i();
-				var1.a(var2.getX() + 0.5D, var2.getY() + 1.5D, var2.getZ() + 0.5D);
+				var1.enderTeleportTo(var2.getX() + 0.5D, var2.getY() + 1.5D, var2.getZ() + 0.5D);
 			}
 
 			h();

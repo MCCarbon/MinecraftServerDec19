@@ -5,7 +5,7 @@ import com.google.common.collect.Maps;
 import java.util.ArrayList;
 import java.util.Map;
 
-public enum class_cy {
+public enum EnumParticle {
    a("explode", 0, true),
    b("largeexplode", 1, true),
    c("hugeexplosion", 2, true),
@@ -30,7 +30,7 @@ public enum class_cy {
    v("happyVillager", 21, false),
    w("townaura", 22, false),
    x("note", 23, false),
-   y("portal", 24, false),
+   PORTAL("portal", 24, false),
    z("enchantmenttable", 25, false),
    A("flame", 26, false),
    B("lava", 27, false),
@@ -58,14 +58,14 @@ public enum class_cy {
    private static final Map W;
    private static final String[] X;
 
-   private class_cy(String var3, int var4, boolean var5, int var6) {
+   private EnumParticle(String var3, int var4, boolean var5, int var6) {
       this.S = var3;
       this.T = var4;
       this.U = var5;
       this.V = var6;
    }
 
-   private class_cy(String var3, int var4, boolean var5) {
+   private EnumParticle(String var3, int var4, boolean var5) {
       this(var3, var4, var5, 0);
    }
 
@@ -93,18 +93,18 @@ public enum class_cy {
       return this.V > 0;
    }
 
-   public static class_cy a(int var0) {
-      return (class_cy)W.get(Integer.valueOf(var0));
+   public static EnumParticle a(int var0) {
+      return (EnumParticle)W.get(Integer.valueOf(var0));
    }
 
    static {
       W = Maps.newHashMap();
       ArrayList var0 = Lists.newArrayList();
-      class_cy[] var1 = values();
+      EnumParticle[] var1 = values();
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
-         class_cy var4 = var1[var3];
+         EnumParticle var4 = var1[var3];
          W.put(Integer.valueOf(var4.c()), var4);
          if(!var4.b().endsWith("_")) {
             var0.add(var4.b());

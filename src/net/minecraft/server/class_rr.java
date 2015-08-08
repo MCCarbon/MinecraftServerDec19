@@ -25,7 +25,7 @@ public class class_rr extends class_rm {
    }
 
    public boolean a() {
-      if(this.a.bd().nextFloat() >= this.f) {
+      if(this.a.getRandom().nextFloat() >= this.f) {
          return false;
       } else {
          if(this.a.w() != null) {
@@ -35,7 +35,7 @@ public class class_rr extends class_rm {
          if(this.d == EntityHuman.class) {
             this.b = this.a.world.a(this.a, (double)this.c);
          } else {
-            this.b = this.a.world.a((Class)this.d, (AxisAlignedBB)this.a.aT().grow((double)this.c, 3.0D, (double)this.c), (Entity)this.a);
+            this.b = this.a.world.a((Class)this.d, (AxisAlignedBB)this.a.getBoundingBox().grow((double)this.c, 3.0D, (double)this.c), (Entity)this.a);
          }
 
          return this.b != null;
@@ -47,7 +47,7 @@ public class class_rr extends class_rm {
    }
 
    public void c() {
-      this.e = 40 + this.a.bd().nextInt(40);
+      this.e = 40 + this.a.getRandom().nextInt(40);
    }
 
    public void d() {

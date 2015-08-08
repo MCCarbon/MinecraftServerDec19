@@ -64,7 +64,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.S = 0.0F;
 		this.a(var5, 0.0F, 0.0F);
 
-		while (!var2.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && this.locY < 255.0D) {
+		while (!var2.getCubes((Entity) this, (AxisAlignedBB) this.getBoundingBox()).isEmpty() && this.locY < 255.0D) {
 			this.b(this.locX, this.locY + 1.0D, this.locZ);
 		}
 
@@ -147,7 +147,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 			while (var8.hasNext() && var6.size() < 10) {
 				class_aeh var10 = (class_aeh) var8.next();
 				if (var10 != null) {
-					if (this.world.e(new BlockPosition(var10.a << 4, 0, var10.b << 4))) {
+					if (this.world.isLoaded(new BlockPosition(var10.a << 4, 0, var10.b << 4))) {
 						var5 = this.world.getChunkAt(var10.a, var10.b);
 						if (var5.i()) {
 							var6.add(var5);
@@ -687,7 +687,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutRemoveEntityEffect(this.getId(), var1.a())));
 	}
 
-	public void a(double var1, double var3, double var5) {
+	public void enderTeleportTo(double var1, double var3, double var5) {
 		this.playerConnection.a(var1, var3, var5, this.yaw, this.pitch);
 	}
 
@@ -810,7 +810,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.cb = (Entity) (var1 == null ? this : var1);
 		if (var2 != this.cb) {
 			this.playerConnection.sendPacket((Packet) (new PacketPlayOutCamera(this.cb)));
-			this.a(this.cb.locX, this.cb.locY, this.cb.locZ);
+			this.enderTeleportTo(this.cb.locX, this.cb.locY, this.cb.locZ);
 		}
 
 	}

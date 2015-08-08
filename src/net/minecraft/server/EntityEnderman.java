@@ -2,6 +2,7 @@ package net.minecraft.server;
 
 import com.google.common.base.Predicate;
 import com.google.common.collect.Sets;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -12,7 +13,7 @@ public class EntityEnderman extends EntityMonster {
 
 	private static final UUID a = UUID.fromString("020E0DFB-87AE-4653-9556-831010E291A0");
 	private static final class_qm b;
-	private static final Set c;
+	private static final Set<Block> c;
 	private static final IBlockData bs;
 	private static final int CARRIEDID_DW_ID = DataWathcer.claimId(EntityEnderman.class); //value = 11
 	private static final int CARRIEDDATA_DW_ID = DataWathcer.claimId(EntityEnderman.class); //value = 12
@@ -33,14 +34,9 @@ public class EntityEnderman extends EntityMonster {
 		this.i.a(11, new EntityEnderman.class_c_in_class_wb(this));
 		this.bn.a(1, new class_sw(this, false, new Class[0]));
 		this.bn.a(2, new EntityEnderman.class_b_in_class_wb(this));
-		this.bn.a(3, new class_sz(this, EntityEndermite.class, 10, true, false, new Predicate() {
-			public boolean a(EntityEndermite var1) {
+		this.bn.a(3, new class_sz(this, EntityEndermite.class, 10, true, false, new Predicate<EntityEndermite>() {
+			public boolean apply(EntityEndermite var1) {
 				return var1.n();
-			}
-
-			// $FF: synthetic method
-			public boolean apply(Object var1) {
-				return this.a((EntityEndermite) var1);
 			}
 		}));
 	}
@@ -89,7 +85,7 @@ public class EntityEnderman extends EntityMonster {
 			return false;
 		} else {
 			Vec3D var3 = var1.d(1.0F).normalize();
-			Vec3D var4 = new Vec3D(this.locX - var1.locX, this.aT().yMin + (double) (this.length / 2.0F) - (var1.locY + (double) var1.aU()), this.locZ - var1.locZ);
+			Vec3D var4 = new Vec3D(this.locX - var1.locX, this.getBoundingBox().yMin + (double) (this.length / 2.0F) - (var1.locY + (double) var1.aU()), this.locZ - var1.locZ);
 			double var5 = var4.length();
 			var4 = var4.normalize();
 			double var7 = var3.dotProduct(var4);
@@ -104,7 +100,7 @@ public class EntityEnderman extends EntityMonster {
 	public void m() {
 		if (this.world.isClientSide) {
 			for (int var1 = 0; var1 < 2; ++var1) {
-				this.world.a(class_cy.y, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length - 0.25D, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D, new int[0]);
+				this.world.addParticle(EnumParticle.PORTAL, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length - 0.25D, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D, new int[0]);
 			}
 		}
 
@@ -138,71 +134,71 @@ public class EntityEnderman extends EntityMonster {
 		double var1 = this.locX + (this.random.nextDouble() - 0.5D) * 64.0D;
 		double var3 = this.locY + (double) (this.random.nextInt(64) - 32);
 		double var5 = this.locZ + (this.random.nextDouble() - 0.5D) * 64.0D;
-		return a(this, var1, var3, var5);
+		return attemptTeleportTo(this, var1, var3, var5);
 	}
 
 	protected boolean b(Entity var1) {
-		Vec3D var2 = new Vec3D(this.locX - var1.locX, this.aT().yMin + (double) (this.length / 2.0F) - var1.locY + (double) var1.aU(), this.locZ - var1.locZ);
+		Vec3D var2 = new Vec3D(this.locX - var1.locX, this.getBoundingBox().yMin + (double) (this.length / 2.0F) - var1.locY + (double) var1.aU(), this.locZ - var1.locZ);
 		var2 = var2.normalize();
 		double var3 = 16.0D;
 		double var5 = this.locX + (this.random.nextDouble() - 0.5D) * 8.0D - var2.x * var3;
 		double var7 = this.locY + (double) (this.random.nextInt(16) - 8) - var2.y * var3;
 		double var9 = this.locZ + (this.random.nextDouble() - 0.5D) * 8.0D - var2.z * var3;
-		return a(this, var5, var7, var9);
+		return attemptTeleportTo(this, var5, var7, var9);
 	}
 
-	public static boolean a(EntityLiving var0, double var1, double var3, double var5) {
-		double var7 = var0.locX;
-		double var9 = var0.locY;
-		double var11 = var0.locZ;
-		var0.locX = var1;
-		var0.locY = var3;
-		var0.locZ = var5;
-		boolean var13 = false;
-		BlockPosition var14 = new BlockPosition(var0);
-		World var15 = var0.world;
-		Random var16 = var0.bd();
-		if (var15.e(var14)) {
-			boolean var17 = false;
+	public static boolean attemptTeleportTo(EntityLiving entity, double x, double y, double z) {
+		double prevX = entity.locX;
+		double prevY = entity.locY;
+		double prevZ = entity.locZ;
+		entity.locX = x;
+		entity.locY = y;
+		entity.locZ = z;
+		boolean canteleport = false;
+		BlockPosition position = new BlockPosition(entity);
+		World world = entity.world;
+		Random rnd = entity.getRandom();
+		if (world.isLoaded(position)) {
+			boolean found = false;
 
-			while (!var17 && var14.getY() > 0) {
-				BlockPosition var18 = var14.down();
-				Block var19 = var15.getType(var18).getBlock();
-				if (var19.getMaterial().isSolid()) {
-					var17 = true;
+			while (!found && position.getY() > 0) {
+				BlockPosition posbelow = position.down();
+				Block block = world.getType(posbelow).getBlock();
+				if (block.getMaterial().isSolid()) {
+					found = true;
 				} else {
-					--var0.locY;
-					var14 = var18;
+					--entity.locY;
+					position = posbelow;
 				}
 			}
 
-			if (var17) {
-				var0.a(var0.locX, var0.locY, var0.locZ);
-				if (var15.a((Entity) var0, (AxisAlignedBB) var0.aT()).isEmpty() && !var15.d(var0.aT())) {
-					var13 = true;
+			if (found) {
+				entity.enderTeleportTo(entity.locX, entity.locY, entity.locZ);
+				if (world.getCubes(entity, entity.getBoundingBox()).isEmpty() && !world.containsLiquid(entity.getBoundingBox())) {
+					canteleport = true;
 				}
 			}
 		}
 
-		if (!var13) {
-			var0.a(var7, var9, var11);
+		if (!canteleport) {
+			entity.enderTeleportTo(prevX, prevY, prevZ);
 			return false;
 		} else {
 			short var30 = 128;
 
 			for (int var31 = 0; var31 < var30; ++var31) {
 				double var32 = (double) var31 / ((double) var30 - 1.0D);
-				float var21 = (var16.nextFloat() - 0.5F) * 0.2F;
-				float var22 = (var16.nextFloat() - 0.5F) * 0.2F;
-				float var23 = (var16.nextFloat() - 0.5F) * 0.2F;
-				double var24 = var7 + (var0.locX - var7) * var32 + (var16.nextDouble() - 0.5D) * (double) var0.width * 2.0D;
-				double var26 = var9 + (var0.locY - var9) * var32 + var16.nextDouble() * (double) var0.length;
-				double var28 = var11 + (var0.locZ - var11) * var32 + (var16.nextDouble() - 0.5D) * (double) var0.width * 2.0D;
-				var15.a(class_cy.y, var24, var26, var28, (double) var21, (double) var22, (double) var23, new int[0]);
+				float rndSpreadX = (rnd.nextFloat() - 0.5F) * 0.2F;
+				float rndSpreadY = (rnd.nextFloat() - 0.5F) * 0.2F;
+				float rndSpreadZ = (rnd.nextFloat() - 0.5F) * 0.2F;
+				double pX = prevX + (entity.locX - prevX) * var32 + (rnd.nextDouble() - 0.5D) * (double) entity.width * 2.0D;
+				double pY = prevY + (entity.locY - prevY) * var32 + rnd.nextDouble() * (double) entity.length;
+				double pZ = prevZ + (entity.locZ - prevZ) * var32 + (rnd.nextDouble() - 0.5D) * (double) entity.width * 2.0D;
+				world.addParticle(EnumParticle.PORTAL, pX, pY, pZ, rndSpreadX, rndSpreadY, rndSpreadZ);
 			}
 
-			var15.a(var7, var9, var11, "mob.endermen.portal", 1.0F, 1.0F);
-			var0.a("mob.endermen.portal", 1.0F, 1.0F);
+			world.makeSound(prevX, prevY, prevZ, "mob.endermen.portal", 1.0F, 1.0F);
+			entity.makeSound("mob.endermen.portal", 1.0F, 1.0F);
 			return true;
 		}
 	}
@@ -323,11 +319,11 @@ public class EntityEnderman extends EntityMonster {
 		}
 
 		public boolean a() {
-			return this.a.cH() ? false : (!this.a.world.R().getBooleanValue("mobGriefing") ? false : this.a.bd().nextInt(20) == 0);
+			return this.a.cH() ? false : (!this.a.world.R().getBooleanValue("mobGriefing") ? false : this.a.getRandom().nextInt(20) == 0);
 		}
 
 		public void e() {
-			Random var1 = this.a.bd();
+			Random var1 = this.a.getRandom();
 			World var2 = this.a.world;
 			int var3 = MathHelper.floor(this.a.locX - 2.0D + var1.nextDouble() * 4.0D);
 			int var4 = MathHelper.floor(this.a.locY + var1.nextDouble() * 3.0D);
@@ -351,11 +347,11 @@ public class EntityEnderman extends EntityMonster {
 		}
 
 		public boolean a() {
-			return !this.a.cH() ? false : (!this.a.world.R().getBooleanValue("mobGriefing") ? false : this.a.bd().nextInt(2000) == 0);
+			return !this.a.cH() ? false : (!this.a.world.R().getBooleanValue("mobGriefing") ? false : this.a.getRandom().nextInt(2000) == 0);
 		}
 
 		public void e() {
-			Random var1 = this.a.bd();
+			Random var1 = this.a.getRandom();
 			World var2 = this.a.world;
 			int var3 = MathHelper.floor(this.a.locX - 1.0D + var1.nextDouble() * 2.0D);
 			int var4 = MathHelper.floor(this.a.locY + var1.nextDouble() * 2.0D);
@@ -388,7 +384,7 @@ public class EntityEnderman extends EntityMonster {
 
 		public boolean a() {
 			double var1 = this.f();
-			List var3 = this.e.world.a(EntityHuman.class, this.e.aT().grow(var1, 4.0D, var1), this.c);
+			List<?> var3 = this.e.world.a(EntityHuman.class, this.e.getBoundingBox().grow(var1, 4.0D, var1), this.c);
 			Collections.sort(var3, this.b);
 			if (var3.isEmpty()) {
 				return false;
@@ -431,7 +427,7 @@ public class EntityEnderman extends EntityMonster {
 					this.d = this.g;
 					this.g = null;
 					super.c();
-					this.j.a("mob.endermen.stare", 1.0F, 1.0F);
+					this.j.makeSound("mob.endermen.stare", 1.0F, 1.0F);
 					this.j.a(true);
 					class_ql var1 = this.j.a((class_qk) class_wl.d);
 					var1.b(EntityEnderman.b);

@@ -124,7 +124,7 @@ public abstract class class_tg {
             var1 = this.d.a((Entity)this.b);
             if(var1 != null) {
                AxisAlignedBB var8 = (new AxisAlignedBB(var1.x, var1.y, var1.z, var1.x, var1.y, var1.z)).grow(0.5D, 0.5D, 0.5D);
-               List var3 = this.c.a((Entity)this.b, (AxisAlignedBB)var8.add(0.0D, -1.0D, 0.0D));
+               List var3 = this.c.getCubes((Entity)this.b, (AxisAlignedBB)var8.add(0.0D, -1.0D, 0.0D));
                double var4 = -1.0D;
                var8 = var8.c(0.0D, 1.0D, 0.0D);
 

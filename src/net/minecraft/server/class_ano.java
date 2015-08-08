@@ -21,7 +21,7 @@ public class class_ano {
    }
 
    public IBlockData a() {
-      if(this.d == null && (this.c || this.a.e(this.b))) {
+      if(this.d == null && (this.c || this.a.isLoaded(this.b))) {
          this.d = this.a.getType(this.b);
       }
 

@@ -30,7 +30,7 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
             double var1 = this.random.nextGaussian() * 0.02D;
             double var3 = this.random.nextGaussian() * 0.02D;
             double var5 = this.random.nextGaussian() * 0.02D;
-            this.world.a(class_cy.I, this.locX + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, this.locY + 0.5D + (double)(this.random.nextFloat() * this.length), this.locZ + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, var1, var3, var5, new int[0]);
+            this.world.addParticle(EnumParticle.I, this.locX + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, this.locY + 0.5D + (double)(this.random.nextFloat() * this.length), this.locZ + (double)(this.random.nextFloat() * this.width * 2.0F) - (double)this.width, var1, var3, var5, new int[0]);
          }
       }
 
@@ -61,7 +61,7 @@ public abstract class EntityAnimal extends EntityAgeable implements class_pp {
 
    public boolean cf() {
       int var1 = MathHelper.floor(this.locX);
-      int var2 = MathHelper.floor(this.aT().yMin);
+      int var2 = MathHelper.floor(this.getBoundingBox().yMin);
       int var3 = MathHelper.floor(this.locZ);
       BlockPosition var4 = new BlockPosition(var1, var2, var3);
       return this.world.getType(var4.down()).getBlock() == this.bv && this.world.k(var4) > 8 && super.cf();

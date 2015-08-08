@@ -46,7 +46,7 @@ public class class_rd extends class_rg {
 
    public void e() {
       super.e();
-      if(this.a.bd().nextInt(20) == 0) {
+      if(this.a.getRandom().nextInt(20) == 0) {
          this.a.world.b(1010, this.b, 0);
       }
 

@@ -160,7 +160,7 @@ public class EntityBat extends class_tt {
 	}
 
 	public boolean cf() {
-		BlockPosition var1 = new BlockPosition(this.locX, this.aT().yMin, this.locZ);
+		BlockPosition var1 = new BlockPosition(this.locX, this.getBoundingBox().yMin, this.locZ);
 		if (var1.getY() >= this.world.G()) {
 			return false;
 		} else {

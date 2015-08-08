@@ -10,7 +10,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.MaterialMapColor;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
-import net.minecraft.server.class_cy;
+import net.minecraft.server.EnumParticle;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityFallingBlock;
@@ -79,7 +79,7 @@ public class BlockDragonEgg extends Block {
                      double var12 = (double)var5.getX() + (double)(var2.getX() - var5.getX()) * var7 + (var1.random.nextDouble() - 0.5D) * 1.0D + 0.5D;
                      double var14 = (double)var5.getY() + (double)(var2.getY() - var5.getY()) * var7 + var1.random.nextDouble() * 1.0D - 0.5D;
                      double var16 = (double)var5.getZ() + (double)(var2.getZ() - var5.getZ()) * var7 + (var1.random.nextDouble() - 0.5D) * 1.0D + 0.5D;
-                     var1.a(class_cy.y, var12, var14, var16, (double)var9, (double)var10, (double)var11, new int[0]);
+                     var1.addParticle(EnumParticle.PORTAL, var12, var14, var16, (double)var9, (double)var10, (double)var11, new int[0]);
                   }
                } else {
                   var1.setTypeAndData((BlockPosition)var5, (IBlockData)var3, 2);

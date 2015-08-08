@@ -105,7 +105,7 @@ public class class_ve extends Entity {
                if(!this.c.dead) {
                   this.locX = this.c.locX;
                   double var10002 = (double)this.c.length;
-                  this.locY = this.c.aT().yMin + var10002 * 0.8D;
+                  this.locY = this.c.getBoundingBox().yMin + var10002 * 0.8D;
                   this.locZ = this.c.locZ;
                   return;
                }
@@ -148,7 +148,7 @@ public class class_ve extends Entity {
          }
 
          Entity var4 = null;
-         List var5 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D));
+         List var5 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.getBoundingBox().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D));
          double var6 = 0.0D;
 
          double var13;
@@ -156,7 +156,7 @@ public class class_ve extends Entity {
             Entity var9 = (Entity)var5.get(var8);
             if(var9.ad() && (var9 != this.b || this.av >= 5)) {
                float var10 = 0.3F;
-               AxisAlignedBB var11 = var9.aT().grow((double)var10, (double)var10, (double)var10);
+               AxisAlignedBB var11 = var9.getBoundingBox().grow((double)var10, (double)var10, (double)var10);
                MovingObjectPosition var12 = var11.a(var28, var2);
                if(var12 != null) {
                   var13 = var28.distanceSquared(var12.c);
@@ -215,7 +215,7 @@ public class class_ve extends Entity {
 
             double var19;
             for(int var36 = 0; var36 < var34; ++var36) {
-               AxisAlignedBB var14 = this.aT();
+               AxisAlignedBB var14 = this.getBoundingBox();
                double var15 = var14.yMax - var14.yMin;
                double var17 = var14.yMin + var15 * (double)var36 / (double)var34;
                var19 = var14.yMin + var15 * (double)(var36 + 1) / (double)var34;
@@ -254,10 +254,10 @@ public class class_ve extends Entity {
                      this.ay -= var38;
                      if(this.ay <= 0) {
                         this.motY -= 0.20000000298023224D;
-                        this.a("random.splash", 0.25F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
-                        var16 = (float)MathHelper.floor(this.aT().yMin);
-                        var37.a(class_cy.e, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
-                        var37.a(class_cy.g, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
+                        this.makeSound("random.splash", 0.25F, 1.0F + (this.random.nextFloat() - this.random.nextFloat()) * 0.4F);
+                        var16 = (float)MathHelper.floor(this.getBoundingBox().yMin);
+                        var37.a(EnumParticle.e, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
+                        var37.a(EnumParticle.g, this.locX, (double)(var16 + 1.0F), this.locZ, (int)(1.0F + this.width * 20.0F), (double)this.width, 0.0D, (double)this.width, 0.20000000298023224D, new int[0]);
                         this.aw = MathHelper.getRandomIntInRange((Random)this.random, 10, 30);
                      } else {
                         this.az = (float)((double)this.az + this.random.nextGaussian() * 4.0D);
@@ -265,18 +265,18 @@ public class class_ve extends Entity {
                         var40 = MathHelper.sin(var16);
                         var18 = MathHelper.cos(var16);
                         var19 = this.locX + (double)(var40 * (float)this.ay * 0.1F);
-                        var41 = (double)((float)MathHelper.floor(this.aT().yMin) + 1.0F);
+                        var41 = (double)((float)MathHelper.floor(this.getBoundingBox().yMin) + 1.0F);
                         var23 = this.locZ + (double)(var18 * (float)this.ay * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
                            if(this.random.nextFloat() < 0.15F) {
-                              var37.a(class_cy.e, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
+                              var37.a(EnumParticle.e, var19, var41 - 0.10000000149011612D, var23, 1, (double)var40, 0.1D, (double)var18, 0.0D, new int[0]);
                            }
 
                            float var26 = var40 * 0.04F;
                            float var27 = var18 * 0.04F;
-                           var37.a(class_cy.g, var19, var41, var23, 0, (double)var27, 0.01D, (double)(-var26), 1.0D, new int[0]);
-                           var37.a(class_cy.g, var19, var41, var23, 0, (double)(-var27), 0.01D, (double)var26, 1.0D, new int[0]);
+                           var37.a(EnumParticle.g, var19, var41, var23, 0, (double)var27, 0.01D, (double)(-var26), 1.0D, new int[0]);
+                           var37.a(EnumParticle.g, var19, var41, var23, 0, (double)(-var27), 0.01D, (double)var26, 1.0D, new int[0]);
                         }
                      }
                   } else if(this.ax > 0) {
@@ -294,11 +294,11 @@ public class class_ve extends Entity {
                         var40 = MathHelper.getRandomFloatInRange(this.random, 0.0F, 360.0F) * 0.017453292F;
                         var18 = MathHelper.getRandomFloatInRange(this.random, 25.0F, 60.0F);
                         var19 = this.locX + (double)(MathHelper.sin(var40) * var18 * 0.1F);
-                        var41 = (double)((float)MathHelper.floor(this.aT().yMin) + 1.0F);
+                        var41 = (double)((float)MathHelper.floor(this.getBoundingBox().yMin) + 1.0F);
                         var23 = this.locZ + (double)(MathHelper.cos(var40) * var18 * 0.1F);
                         var25 = var37.getType(new BlockPosition((int)var19, (int)var41 - 1, (int)var23)).getBlock();
                         if(var25 == Blocks.WATER || var25 == Blocks.FLOWING_WATER) {
-                           var37.a(class_cy.f, var19, var41, var23, 2 + this.random.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
+                           var37.a(EnumParticle.f, var19, var41, var23, 2 + this.random.nextInt(2), 0.10000000149011612D, 0.0D, 0.10000000149011612D, 0.0D, new int[0]);
                         }
                      }
 

@@ -49,7 +49,7 @@ public abstract class class_xf extends Entity {
    }
 
    public void t_() {
-      if(this.world.isClientSide || (this.a == null || !this.a.dead) && this.world.e(new BlockPosition(this))) {
+      if(this.world.isClientSide || (this.a == null || !this.a.dead) && this.world.isLoaded(new BlockPosition(this))) {
          super.t_();
          this.f(1);
          if(this.i) {
@@ -85,7 +85,7 @@ public abstract class class_xf extends Entity {
          if(this.V()) {
             for(int var3 = 0; var3 < 4; ++var3) {
                float var4 = 0.25F;
-               this.world.a(class_cy.e, this.locX - this.motX * (double)var4, this.locY - this.motY * (double)var4, this.locZ - this.motZ * (double)var4, this.motX, this.motY, this.motZ, new int[0]);
+               this.world.addParticle(EnumParticle.e, this.locX - this.motX * (double)var4, this.locY - this.motY * (double)var4, this.locZ - this.motZ * (double)var4, this.motX, this.motY, this.motZ, new int[0]);
             }
 
             var2 = 0.8F;
@@ -97,7 +97,7 @@ public abstract class class_xf extends Entity {
          this.motX *= (double)var2;
          this.motY *= (double)var2;
          this.motZ *= (double)var2;
-         this.world.a(class_cy.l, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.addParticle(EnumParticle.l, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
          this.b(this.locX, this.locY, this.locZ);
       } else {
          this.J();

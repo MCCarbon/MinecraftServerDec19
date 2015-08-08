@@ -205,7 +205,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
             var11 = var3[var7++];
          }
 
-         var10.a((double)((float)MathHelper.floor(var11.a) + 0.5F), (double)var11.a(var2), (double)MathHelper.floor(var11.b) + 0.5D);
+         var10.enderTeleportTo((double)((float)MathHelper.floor(var11.a) + 0.5F), (double)var11.a(var2), (double)MathHelper.floor(var11.b) + 0.5D);
          double var17 = Double.MAX_VALUE;
 
          for(int var14 = 0; var14 < var3.length; ++var14) {

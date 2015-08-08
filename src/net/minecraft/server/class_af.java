@@ -43,7 +43,7 @@ public class class_af extends CommandAbstract {
 
             for(int var11 = var7.getZ(); var11 < var8.getZ() + 16; var11 += 16) {
                for(int var12 = var7.getX(); var12 < var8.getX() + 16; var12 += 16) {
-                  if(!var10.e(new BlockPosition(var12, var8.getY() - var7.getY(), var11))) {
+                  if(!var10.isLoaded(new BlockPosition(var12, var8.getY() - var7.getY(), var11))) {
                      throw new class_bz("commands.fill.outOfWorld", new Object[0]);
                   }
                }

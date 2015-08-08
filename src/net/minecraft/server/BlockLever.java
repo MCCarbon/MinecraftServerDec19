@@ -122,7 +122,7 @@ public class BlockLever extends Block {
       } else {
          var3 = var3.a(b);
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 3);
-         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, ((Boolean)var3.get(b)).booleanValue()?0.6F:0.5F);
+         var1.makeSound((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, ((Boolean)var3.get(b)).booleanValue()?0.6F:0.5F);
          var1.c((BlockPosition)var2, (Block)this);
          EnumDirection var11 = ((BlockLever.class_a_in_class_ajc)var3.get(a)).c();
          var1.c((BlockPosition)var2.shift(var11.opposite()), (Block)this);

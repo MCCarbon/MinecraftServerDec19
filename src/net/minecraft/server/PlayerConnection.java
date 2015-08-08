@@ -230,7 +230,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					}
 
 					float var37 = 0.0625F;
-					boolean var38 = var2.a(player, player.aT().d(var37, var37, var37)).isEmpty();
+					boolean var38 = var2.getCubes(player, player.getBoundingBox().d(var37, var37, var37)).isEmpty();
 					if (player.onGround && !var1.isOnGround() && (var29 > 0.0D)) {
 						player.bG();
 					}
@@ -255,14 +255,14 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					player.a(var19, var21, var23, var25, var26);
 					player.k(player.locX - var3, player.locY - var5, player.locZ - var7);
 					if (!player.noclip) {
-						boolean var42 = var2.a(player, player.aT().d(var37, var37, var37)).isEmpty();
+						boolean var42 = var2.getCubes(player, player.getBoundingBox().d(var37, var37, var37)).isEmpty();
 						if (var38 && (var41 || !var42) && !player.isSleeping()) {
 							this.a(o, p, q, var25, var26);
 							return;
 						}
 					}
 
-					AxisAlignedBB var43 = player.aT().grow(var37, var37, var37).add(0.0D, -0.55D, 0.0D);
+					AxisAlignedBB var43 = player.getBoundingBox().grow(var37, var37, var37).add(0.0D, -0.55D, 0.0D);
 					if (!(minecraftServer.ak() || player.abilities.mayfly || var2.c(var43) || player.hasEffect(MobEffectList.y))) {
 						if (var39 >= -0.03125D) {
 							++g;
@@ -471,12 +471,12 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 
 					player.a(var8);
 					minecraftServer.getPlayerList().a(player, var7);
-					player.a(var2.locX, var2.locY, var2.locZ);
+					player.enderTeleportTo(var2.locX, var2.locY, var2.locZ);
 					player.playerInteractManager.a(var8);
 					minecraftServer.getPlayerList().b(player, var8);
 					minecraftServer.getPlayerList().f(player);
 				} else {
-					player.a(var2.locX, var2.locY, var2.locZ);
+					player.enderTeleportTo(var2.locX, var2.locY, var2.locZ);
 				}
 			}
 		}
@@ -817,7 +817,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 		player.z();
 		WorldServer var2 = minecraftServer.getWorldServer(player.dimension);
 		BlockPosition var3 = var1.getPosition();
-		if (var2.e(var3)) {
+		if (var2.isLoaded(var3)) {
 			TileEntity var4 = var2.getTileEntity(var3);
 			if (!(var4 instanceof TileEntitySign)) {
 				return;

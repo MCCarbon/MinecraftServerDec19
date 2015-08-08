@@ -71,7 +71,7 @@ public class class_sz extends class_td {
    }
 
    public boolean a() {
-      if(this.g > 0 && this.e.bd().nextInt(this.g) != 0) {
+      if(this.g > 0 && this.e.getRandom().nextInt(this.g) != 0) {
          return false;
       } else {
          double var1 = this.f();
@@ -87,7 +87,7 @@ public class class_sz extends class_td {
    }
 
    protected AxisAlignedBB a(double var1) {
-      return this.e.aT().grow(var1, 4.0D, var1);
+      return this.e.getBoundingBox().grow(var1, 4.0D, var1);
    }
 
    public void c() {

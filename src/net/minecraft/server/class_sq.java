@@ -20,7 +20,7 @@ public class class_sq extends class_rm {
       } else if(!this.a.world.x()) {
          return false;
       } else {
-         List var1 = this.a.world.getEntities(EntityVillagerGolem.class, this.a.aT().grow(6.0D, 2.0D, 6.0D));
+         List var1 = this.a.world.getEntities(EntityVillagerGolem.class, this.a.getBoundingBox().grow(6.0D, 2.0D, 6.0D));
          if(var1.isEmpty()) {
             return false;
          } else {
@@ -44,7 +44,7 @@ public class class_sq extends class_rm {
    }
 
    public void c() {
-      this.c = this.a.bd().nextInt(320);
+      this.c = this.a.getRandom().nextInt(320);
       this.d = false;
       this.b.u().n();
    }

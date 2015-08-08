@@ -83,7 +83,7 @@ public abstract class class_uz extends Entity {
    }
 
    public boolean j() {
-      if(!this.world.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty()) {
+      if(!this.world.getCubes((Entity)this, (AxisAlignedBB)this.getBoundingBox()).isEmpty()) {
          return false;
       } else {
          int var1 = Math.max(1, this.l() / 16);
@@ -101,7 +101,7 @@ public abstract class class_uz extends Entity {
             }
          }
 
-         List var9 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT());
+         List var9 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.getBoundingBox());
          Iterator var10 = var9.iterator();
 
          Entity var11;

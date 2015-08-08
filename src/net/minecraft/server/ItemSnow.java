@@ -28,7 +28,7 @@ public class ItemSnow extends ItemBlock {
                IBlockData var14 = var10.set(BlockSnow.a, Integer.valueOf(var13 + 1));
                AxisAlignedBB var15 = this.block.getBoundingBox(var3, var12, var14);
                if(var15 != null && var3.b(var15) && var3.setTypeAndData((BlockPosition)var12, (IBlockData)var14, 2)) {
-                  var3.a((double)((float)var12.getX() + 0.5F), (double)((float)var12.getY() + 0.5F), (double)((float)var12.getZ() + 0.5F), this.block.stepSound.getPlaceSound(), (this.block.stepSound.getVolume() + 1.0F) / 2.0F, this.block.stepSound.getPitch() * 0.8F);
+                  var3.makeSound((double)((float)var12.getX() + 0.5F), (double)((float)var12.getY() + 0.5F), (double)((float)var12.getZ() + 0.5F), this.block.stepSound.getPlaceSound(), (this.block.stepSound.getVolume() + 1.0F) / 2.0F, this.block.stepSound.getPitch() * 0.8F);
                   --var1.count;
                   return UseResult.SUCCESS;
                }

@@ -51,7 +51,7 @@ public class EntityPigZombie extends EntityZombie {
       }
 
       if(this.bt > 0 && --this.bt == 0) {
-         this.a("mob.zombiepig.zpigangry", this.bC() * 2.0F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 1.8F);
+         this.makeSound("mob.zombiepig.zpigangry", this.bC() * 2.0F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F) * 1.8F);
       }
 
       if(this.bs > 0 && this.bu != null && this.be() == null) {
@@ -69,7 +69,7 @@ public class EntityPigZombie extends EntityZombie {
    }
 
    public boolean cg() {
-      return this.world.a((AxisAlignedBB)this.aT(), (Entity)this) && this.world.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.world.d(this.aT());
+      return this.world.a((AxisAlignedBB)this.getBoundingBox(), (Entity)this) && this.world.getCubes((Entity)this, (AxisAlignedBB)this.getBoundingBox()).isEmpty() && !this.world.containsLiquid(this.getBoundingBox());
    }
 
    public void write(NBTTagCompound var1) {

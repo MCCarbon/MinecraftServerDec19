@@ -23,7 +23,7 @@ public class TileEntityEnderChest extends TileEntity implements ITickAble {
 		if ((g > 0) && (a == 0.0F)) {
 			double var5 = var1 + 0.5D;
 			var7 = var3 + 0.5D;
-			world.a(var5, var2 + 0.5D, var7, "random.chestopen", 0.5F, (world.random.nextFloat() * 0.1F) + 0.9F);
+			world.makeSound(var5, var2 + 0.5D, var7, "random.chestopen", 0.5F, (world.random.nextFloat() * 0.1F) + 0.9F);
 		}
 
 		if (((g == 0) && (a > 0.0F)) || ((g > 0) && (a < 1.0F))) {
@@ -42,7 +42,7 @@ public class TileEntityEnderChest extends TileEntity implements ITickAble {
 			if ((a < var6) && (var11 >= var6)) {
 				var7 = var1 + 0.5D;
 				double var9 = var3 + 0.5D;
-				world.a(var7, var2 + 0.5D, var9, "random.chestclosed", 0.5F, (world.random.nextFloat() * 0.1F) + 0.9F);
+				world.makeSound(var7, var2 + 0.5D, var9, "random.chestclosed", 0.5F, (world.random.nextFloat() * 0.1F) + 0.9F);
 			}
 
 			if (a < 0.0F) {

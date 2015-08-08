@@ -304,7 +304,7 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	protected void bM() {
-		List var1 = this.world.getEntities((Entity) this, (AxisAlignedBB) this.aT());
+		List var1 = this.world.getEntities((Entity) this, (AxisAlignedBB) this.getBoundingBox());
 		if (var1 != null && !var1.isEmpty()) {
 			for (int var2 = 0; var2 < var1.size(); ++var2) {
 				Entity var3 = (Entity) var1.get(var2);
@@ -459,7 +459,7 @@ public class EntityArmorStand extends EntityLiving {
 
 	private void C() {
 		if (this.world instanceof WorldServer) {
-			((WorldServer) this.world).a(class_cy.M, this.locX, this.locY + (double) this.length / 1.5D, this.locZ, 10, (double) (this.width / 4.0F), (double) (this.length / 4.0F), (double) (this.width / 4.0F), 0.05D, new int[] { Block.getCombinedId(Blocks.PLANKS.getBlockData()) });
+			((WorldServer) this.world).a(EnumParticle.M, this.locX, this.locY + (double) this.length / 1.5D, this.locZ, 10, (double) (this.width / 4.0F), (double) (this.length / 4.0F), (double) (this.width / 4.0F), 0.05D, new int[] { Block.getCombinedId(Blocks.PLANKS.getBlockData()) });
 		}
 
 	}

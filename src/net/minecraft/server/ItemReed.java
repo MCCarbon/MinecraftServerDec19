@@ -30,7 +30,7 @@ public class ItemReed extends Item {
                   var12.getBlock().postPlace(var3, var4, var12, var2, var1);
                }
 
-               var3.a((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), this.a.stepSound.getPlaceSound(), (this.a.stepSound.getVolume() + 1.0F) / 2.0F, this.a.stepSound.getPitch() * 0.8F);
+               var3.makeSound((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), this.a.stepSound.getPlaceSound(), (this.a.stepSound.getVolume() + 1.0F) / 2.0F, this.a.stepSound.getPitch() * 0.8F);
                --var1.count;
                return UseResult.SUCCESS;
             }

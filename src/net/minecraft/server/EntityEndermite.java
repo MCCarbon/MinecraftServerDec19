@@ -45,7 +45,7 @@ public class EntityEndermite extends EntityMonster {
    }
 
    protected void a(BlockPosition var1, Block var2) {
-      this.a("mob.silverfish.step", 0.15F, 1.0F);
+      this.makeSound("mob.silverfish.step", 0.15F, 1.0F);
    }
 
    protected Item D() {
@@ -81,7 +81,7 @@ public class EntityEndermite extends EntityMonster {
       super.m();
       if(this.world.isClientSide) {
          for(int var1 = 0; var1 < 2; ++var1) {
-            this.world.a(class_cy.y, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D, new int[0]);
+            this.world.addParticle(EnumParticle.PORTAL, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, (this.random.nextDouble() - 0.5D) * 2.0D, -this.random.nextDouble(), (this.random.nextDouble() - 0.5D) * 2.0D, new int[0]);
          }
       } else {
          if(!this.cn()) {

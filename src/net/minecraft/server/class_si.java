@@ -31,7 +31,7 @@ public class class_si extends class_rm {
             return false;
          }
 
-         if(this.a.bd().nextInt(this.f) != 0) {
+         if(this.a.getRandom().nextInt(this.f) != 0) {
             return false;
          }
       }

@@ -39,7 +39,7 @@ public class EntityEnderpearl extends class_xo {
       }
 
       for(int var6 = 0; var6 < 32; ++var6) {
-         this.world.a(class_cy.y, this.locX, this.locY + this.random.nextDouble() * 2.0D, this.locZ, this.random.nextGaussian(), 0.0D, this.random.nextGaussian(), new int[0]);
+         this.world.addParticle(EnumParticle.PORTAL, this.locX, this.locY + this.random.nextDouble() * 2.0D, this.locZ, this.random.nextGaussian(), 0.0D, this.random.nextGaussian(), new int[0]);
       }
 
       if(!this.world.isClientSide) {
@@ -57,12 +57,12 @@ public class EntityEnderpearl extends class_xo {
                   var2.a((Entity)null);
                }
 
-               var2.a(this.locX, this.locY, this.locZ);
+               var2.enderTeleportTo(this.locX, this.locY, this.locZ);
                var2.fallDistance = 0.0F;
                var2.damageEntity(DamageSource.i, 5.0F);
             }
          } else if(var2 != null) {
-            var2.a(this.locX, this.locY, this.locZ);
+            var2.enderTeleportTo(this.locX, this.locY, this.locZ);
             var2.fallDistance = 0.0F;
          }
 

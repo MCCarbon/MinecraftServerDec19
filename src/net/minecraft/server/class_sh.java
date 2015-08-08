@@ -12,7 +12,7 @@ public class class_sh extends class_rm {
    }
 
    public boolean a() {
-      return this.a.bd().nextFloat() < 0.02F;
+      return this.a.getRandom().nextFloat() < 0.02F;
    }
 
    public boolean b() {
@@ -20,10 +20,10 @@ public class class_sh extends class_rm {
    }
 
    public void c() {
-      double var1 = 6.283185307179586D * this.a.bd().nextDouble();
+      double var1 = 6.283185307179586D * this.a.getRandom().nextDouble();
       this.b = Math.cos(var1);
       this.c = Math.sin(var1);
-      this.d = 20 + this.a.bd().nextInt(20);
+      this.d = 20 + this.a.getRandom().nextInt(20);
    }
 
    public void e() {

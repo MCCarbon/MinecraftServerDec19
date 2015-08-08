@@ -98,7 +98,7 @@ public class EntitySheep extends EntityAnimal {
 			}
 
 			var3.a(1, (EntityLiving) var1);
-			this.a("mob.sheep.shear", 1.0F, 1.0F);
+			this.makeSound("mob.sheep.shear", 1.0F, 1.0F);
 		}
 
 		return super.a(var1, var2, var3);
@@ -129,7 +129,7 @@ public class EntitySheep extends EntityAnimal {
 	}
 
 	protected void a(BlockPosition var1, Block var2) {
-		this.a("mob.sheep.step", 0.15F, 1.0F);
+		this.makeSound("mob.sheep.step", 0.15F, 1.0F);
 	}
 
 	public EnumColor cA() {

@@ -58,7 +58,7 @@ public class class_yb extends Container {
 
             class_yb.this.a = 0;
             IBlockData var5 = var2.getType(var3);
-            if(!var1.abilities.instabuild && !var2.isClientSide && var5.getBlock() == Blocks.ANVIL && var1.bd().nextFloat() < 0.12F) {
+            if(!var1.abilities.instabuild && !var2.isClientSide && var5.getBlock() == Blocks.ANVIL && var1.getRandom().nextFloat() < 0.12F) {
                int var4 = ((Integer)var5.get(BlockAnvil.b)).intValue();
                ++var4;
                if(var4 > 2) {

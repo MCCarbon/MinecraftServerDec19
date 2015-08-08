@@ -38,11 +38,11 @@ public class class_sn extends class_rm {
    }
 
    public void e() {
-      if(this.a.bd().nextInt(50) == 0) {
+      if(this.a.getRandom().nextInt(50) == 0) {
          if(this.a.passenger instanceof EntityHuman) {
             int var1 = this.a.cR();
             int var2 = this.a.cX();
-            if(var2 > 0 && this.a.bd().nextInt(var2) < var1) {
+            if(var2 > 0 && this.a.getRandom().nextInt(var2) < var1) {
                this.a.f((EntityHuman)this.a.passenger);
                this.a.world.a((Entity)this.a, (byte)7);
                return;

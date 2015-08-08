@@ -6,7 +6,7 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_cy;
+import net.minecraft.server.EnumParticle;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
@@ -29,12 +29,12 @@ public class CommandParticle extends CommandAbstract {
          throw new class_cf("commands.particle.usage", new Object[0]);
       } else {
          boolean var3 = false;
-         class_cy var4 = null;
-         class_cy[] var5 = class_cy.values();
+         EnumParticle var4 = null;
+         EnumParticle[] var5 = EnumParticle.values();
          int var6 = var5.length;
 
          for(int var7 = 0; var7 < var6; ++var7) {
-            class_cy var8 = var5[var7];
+            EnumParticle var8 = var5[var7];
             if(var8.f()) {
                if(var2[0].startsWith(var8.b())) {
                   var3 = true;
@@ -95,6 +95,6 @@ public class CommandParticle extends CommandAbstract {
    }
 
    public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, class_cy.a()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length == 10?a(var2, new String[]{"normal", "force"}):null));
+      return var2.length == 1?a(var2, EnumParticle.a()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length == 10?a(var2, new String[]{"normal", "force"}):null));
    }
 }

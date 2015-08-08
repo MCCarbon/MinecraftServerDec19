@@ -16,7 +16,7 @@ public class EntityMagmaCube extends EntitySlime {
    }
 
    public boolean cg() {
-      return this.world.a((AxisAlignedBB)this.aT(), (Entity)this) && this.world.a((Entity)this, (AxisAlignedBB)this.aT()).isEmpty() && !this.world.d(this.aT());
+      return this.world.a((AxisAlignedBB)this.getBoundingBox(), (Entity)this) && this.world.getCubes((Entity)this, (AxisAlignedBB)this.getBoundingBox()).isEmpty() && !this.world.containsLiquid(this.getBoundingBox());
    }
 
    public int bs() {
@@ -27,8 +27,8 @@ public class EntityMagmaCube extends EntitySlime {
       return 1.0F;
    }
 
-   protected class_cy n() {
-      return class_cy.A;
+   protected EnumParticle n() {
+      return EnumParticle.A;
    }
 
    protected EntitySlime cu() {

@@ -27,14 +27,14 @@ public abstract class class_py extends EntityInsentient {
       } else {
          float var3 = 0.91F;
          if(this.onGround) {
-            var3 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.91F;
+            var3 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.getBoundingBox().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.91F;
          }
 
          float var4 = 0.16277136F / (var3 * var3 * var3);
          this.a(var1, var2, this.onGround?0.1F * var4:0.02F);
          var3 = 0.91F;
          if(this.onGround) {
-            var3 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.91F;
+            var3 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.getBoundingBox().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.91F;
          }
 
          this.d(this.motX, this.motY, this.motZ);

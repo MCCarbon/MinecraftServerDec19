@@ -122,7 +122,7 @@ public class EntityFallingBlock extends Entity {
       if(this.f) {
          int var4 = MathHelper.ceil(var1 - 1.0F);
          if(var4 > 0) {
-            ArrayList var5 = Lists.newArrayList((Iterable)this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT()));
+            ArrayList var5 = Lists.newArrayList((Iterable)this.world.getEntities((Entity)this, (AxisAlignedBB)this.getBoundingBox()));
             boolean var6 = var3 == Blocks.ANVIL;
             DamageSource var7 = var6? DamageSource.n: DamageSource.o;
             Iterator var8 = var5.iterator();

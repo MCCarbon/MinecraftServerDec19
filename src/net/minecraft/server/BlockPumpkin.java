@@ -50,7 +50,7 @@ public class BlockPumpkin extends BlockDirectional {
          var1.addEntity((Entity)var9);
 
          for(var6 = 0; var6 < 120; ++var6) {
-            var1.a(class_cy.G, (double)var10.getX() + var1.random.nextDouble(), (double)var10.getY() + var1.random.nextDouble() * 2.5D, (double)var10.getZ() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.addParticle(EnumParticle.G, (double)var10.getX() + var1.random.nextDouble(), (double)var10.getY() + var1.random.nextDouble() * 2.5D, (double)var10.getZ() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          for(var6 = 0; var6 < this.n().b(); ++var6) {
@@ -71,7 +71,7 @@ public class BlockPumpkin extends BlockDirectional {
          var1.addEntity((Entity)var13);
 
          for(var6 = 0; var6 < 120; ++var6) {
-            var1.a(class_cy.F, (double)var11.getX() + var1.random.nextDouble(), (double)var11.getY() + var1.random.nextDouble() * 3.9D, (double)var11.getZ() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
+            var1.addParticle(EnumParticle.F, (double)var11.getX() + var1.random.nextDouble(), (double)var11.getY() + var1.random.nextDouble() * 3.9D, (double)var11.getZ() + var1.random.nextDouble(), 0.0D, 0.0D, 0.0D, new int[0]);
          }
 
          for(var6 = 0; var6 < this.p().c(); ++var6) {

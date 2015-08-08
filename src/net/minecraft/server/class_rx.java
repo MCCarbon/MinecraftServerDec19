@@ -28,7 +28,7 @@ public abstract class class_rx extends class_rm {
          --this.a;
          return false;
       } else {
-         this.a = 200 + this.c.bd().nextInt(200);
+         this.a = 200 + this.c.getRandom().nextInt(200);
          return this.g();
       }
    }
@@ -40,7 +40,7 @@ public abstract class class_rx extends class_rm {
    public void c() {
       this.c.u().a((double)((float)this.b.getX()) + 0.5D, (double)(this.b.getY() + 1), (double)((float)this.b.getZ()) + 0.5D, this.d);
       this.e = 0;
-      this.f = this.c.bd().nextInt(this.c.bd().nextInt(1200) + 1200) + 1200;
+      this.f = this.c.getRandom().nextInt(this.c.getRandom().nextInt(1200) + 1200) + 1200;
    }
 
    public void d() {

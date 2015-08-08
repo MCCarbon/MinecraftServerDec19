@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_cy;
+import net.minecraft.server.EnumParticle;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
@@ -63,7 +63,7 @@ public class EntityTNTPrimed extends Entity {
          }
       } else {
          this.W();
-         this.world.a(class_cy.l, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.addParticle(EnumParticle.l, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
    }

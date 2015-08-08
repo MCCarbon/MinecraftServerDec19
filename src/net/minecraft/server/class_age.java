@@ -103,9 +103,9 @@ public abstract class class_age extends Block {
       }
 
       if(!var7 && var6) {
-         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.1D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
+         var1.makeSound((double)var2.getX() + 0.5D, (double)var2.getY() + 0.1D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.5F);
       } else if(var7 && !var6) {
-         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.1D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
+         var1.makeSound((double)var2.getX() + 0.5D, (double)var2.getY() + 0.1D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, 0.6F);
       }
 
       if(var7) {

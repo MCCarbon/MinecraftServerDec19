@@ -48,7 +48,7 @@ public class class_re extends class_rm {
 
    private EntityAnimal f() {
       float var1 = 8.0F;
-      List var2 = this.a.getEntities(this.d.getClass(), this.d.aT().grow((double)var1, (double)var1, (double)var1));
+      List var2 = this.a.getEntities(this.d.getClass(), this.d.getBoundingBox().grow((double)var1, (double)var1, (double)var1));
       double var3 = Double.MAX_VALUE;
       EntityAnimal var5 = null;
       Iterator var6 = var2.iterator();
@@ -86,7 +86,7 @@ public class class_re extends class_rm {
          var1.b(-24000);
          var1.b(this.d.locX, this.d.locY, this.d.locZ, 0.0F, 0.0F);
          this.a.addEntity((Entity)var1);
-         Random var3 = this.d.bd();
+         Random var3 = this.d.getRandom();
 
          for(int var4 = 0; var4 < 7; ++var4) {
             double var5 = var3.nextGaussian() * 0.02D;
@@ -95,7 +95,7 @@ public class class_re extends class_rm {
             double var11 = var3.nextDouble() * (double)this.d.width * 2.0D - (double)this.d.width;
             double var13 = 0.5D + var3.nextDouble() * (double)this.d.length;
             double var15 = var3.nextDouble() * (double)this.d.width * 2.0D - (double)this.d.width;
-            this.a.a(class_cy.I, this.d.locX + var11, this.d.locY + var13, this.d.locZ + var15, var5, var7, var9, new int[0]);
+            this.a.addParticle(EnumParticle.I, this.d.locX + var11, this.d.locY + var13, this.d.locZ + var15, var5, var7, var9, new int[0]);
          }
 
          if(this.a.R().getBooleanValue("doMobLoot")) {

@@ -728,7 +728,7 @@ public class Chunk {
 								}
 
 								var9 = (Entity) var8.next();
-							} while (!var9.aT().isInside(var2));
+							} while (!var9.getBoundingBox().isInside(var2));
 						} while (var9 == var1);
 
 						if ((var4 == null) || var4.apply(var9)) {
@@ -740,7 +740,7 @@ public class Chunk {
 
 					for (int var11 = 0; var11 < var10.length; ++var11) {
 						var9 = var10[var11];
-						if ((var9 != var1) && var9.aT().isInside(var2) && ((var4 == null) || var4.apply(var9))) {
+						if ((var9 != var1) && var9.getBoundingBox().isInside(var2) && ((var4 == null) || var4.apply(var9))) {
 							var3.add(var9);
 						}
 					}
@@ -768,7 +768,7 @@ public class Chunk {
 						}
 
 						var9 = (Entity) var8.next();
-					} while (!var9.aT().isInside(var2));
+					} while (!var9.getBoundingBox().isInside(var2));
 				} while ((var4 != null) && !var4.apply(var9));
 
 				var3.add(var9);

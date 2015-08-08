@@ -74,7 +74,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public BiomeBase b(final BlockPosition var1) {
-		if (this.e(var1)) {
+		if (this.isLoaded(var1)) {
 			Chunk var2 = this.f(var1);
 
 			try {
@@ -128,7 +128,7 @@ public abstract class World implements IBlockAccess {
 		return getType(position).getBlock().getMaterial() == Material.AIR;
 	}
 
-	public boolean e(BlockPosition var1) {
+	public boolean isLoaded(BlockPosition var1) {
 		return this.a(var1, true);
 	}
 
@@ -478,7 +478,7 @@ public abstract class World implements IBlockAccess {
 
 		if (!this.a(var2)) {
 			return var1.c;
-		} else if (!this.e(var2)) {
+		} else if (!this.isLoaded(var2)) {
 			return var1.c;
 		} else {
 			Chunk var3 = this.f(var2);
@@ -488,7 +488,7 @@ public abstract class World implements IBlockAccess {
 
 	public void a(class_aet var1, BlockPosition var2, int var3) {
 		if (this.a(var2)) {
-			if (this.e(var2)) {
+			if (this.isLoaded(var2)) {
 				Chunk var4 = this.f(var2);
 				var4.a(var1, var2, var3);
 				n(var2);
@@ -673,7 +673,7 @@ public abstract class World implements IBlockAccess {
 
 	}
 
-	public void a(double var1, double var3, double var5, String var7, float var8, float var9) {
+	public void makeSound(double var1, double var3, double var5, String var7, float var8, float var9) {
 		for (int var10 = 0; var10 < u.size(); ++var10) {
 			((class_aep) u.get(var10)).a(var7, var1, var3, var5, var8, var9);
 		}
@@ -690,7 +690,7 @@ public abstract class World implements IBlockAccess {
 
 	}
 
-	public void a(class_cy var1, double var2, double var4, double var6, double var8, double var10, double var12, int... var14) {
+	public void addParticle(EnumParticle var1, double var2, double var4, double var6, double var8, double var10, double var12, int... var14) {
 		this.a(var1.c(), var1.e(), var2, var4, var6, var8, var10, var12, var14);
 	}
 
@@ -783,7 +783,7 @@ public abstract class World implements IBlockAccess {
 		u.add(var1);
 	}
 
-	public List a(Entity var1, AxisAlignedBB var2) {
+	public List getCubes(Entity var1, AxisAlignedBB var2) {
 		ArrayList var3 = Lists.newArrayList();
 		int var4 = MathHelper.floor(var2.xMin);
 		int var5 = MathHelper.floor(var2.xMax + 1.0D);
@@ -799,7 +799,7 @@ public abstract class World implements IBlockAccess {
 
 		for (int var15 = var4; var15 < var5; ++var15) {
 			for (int var16 = var8; var16 < var9; ++var16) {
-				if (this.e(var14.setPosition(var15, 64, var16))) {
+				if (this.isLoaded(var14.setPosition(var15, 64, var16))) {
 					for (int var17 = var6 - 1; var17 < var7; ++var17) {
 						var14.setPosition(var15, var17, var16);
 						if (var11 && var12) {
@@ -872,7 +872,7 @@ public abstract class World implements IBlockAccess {
 
 		for (int var10 = var3; var10 < var4; ++var10) {
 			for (int var11 = var7; var11 < var8; ++var11) {
-				if (this.e(var9.setPosition(var10, 64, var11))) {
+				if (this.isLoaded(var9.setPosition(var10, 64, var11))) {
 					for (int var12 = var5 - 1; var12 < var6; ++var12) {
 						var9.setPosition(var10, var12, var11);
 						IBlockData var13;
@@ -1043,7 +1043,7 @@ public abstract class World implements IBlockAccess {
 			TileEntity var10 = (TileEntity) var15.next();
 			if (!var10.isInvalid() && var10.hasWorld()) {
 				BlockPosition var12 = var10.getPosition();
-				if (this.e(var12) && N.a(var12)) {
+				if (this.isLoaded(var12) && N.a(var12)) {
 					try {
 						((ITickAble) var10).tick();
 					} catch (Throwable var7) {
@@ -1058,7 +1058,7 @@ public abstract class World implements IBlockAccess {
 			if (var10.isInvalid()) {
 				var15.remove();
 				h.remove(var10);
-				if (this.e(var10.getPosition())) {
+				if (this.isLoaded(var10.getPosition())) {
 					this.f(var10.getPosition()).e(var10.getPosition());
 				}
 			}
@@ -1080,7 +1080,7 @@ public abstract class World implements IBlockAccess {
 						this.a(var13);
 					}
 
-					if (this.e(var13.getPosition())) {
+					if (this.isLoaded(var13.getPosition())) {
 						this.f(var13.getPosition()).a(var13.getPosition(), var13);
 					}
 
@@ -1234,7 +1234,7 @@ public abstract class World implements IBlockAccess {
 		return false;
 	}
 
-	public boolean d(AxisAlignedBB var1) {
+	public boolean containsLiquid(AxisAlignedBB var1) {
 		int var2 = MathHelper.floor(var1.xMin);
 		int var3 = MathHelper.floor(var1.xMax);
 		int var4 = MathHelper.floor(var1.yMin);
@@ -1683,7 +1683,7 @@ public abstract class World implements IBlockAccess {
 			if ((var9.getMaterial() == Material.AIR) && (k(var8) <= random.nextInt(8)) && (this.b(class_aet.a, var8) <= 0)) {
 				EntityHuman var10 = this.a(var5 + 0.5D, var7 + 0.5D, var6 + 0.5D, 8.0D);
 				if ((var10 != null) && (var10.e(var5 + 0.5D, var7 + 0.5D, var6 + 0.5D) > 4.0D)) {
-					this.a(var5 + 0.5D, var7 + 0.5D, var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + (random.nextFloat() * 0.2F));
+					this.makeSound(var5 + 0.5D, var7 + 0.5D, var6 + 0.5D, "ambient.cave.cave", 0.7F, 0.8F + (random.nextFloat() * 0.2F));
 					L = random.nextInt(12000) + 6000;
 				}
 			}
@@ -2035,7 +2035,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public void b(BlockPosition var1, TileEntity var2) {
-		if (this.e(var1)) {
+		if (this.isLoaded(var1)) {
 			this.f(var1).e();
 		}
 
@@ -2483,7 +2483,7 @@ public abstract class World implements IBlockAccess {
 		while (var3.hasNext()) {
 			EnumDirection var4 = (EnumDirection) var3.next();
 			BlockPosition var5 = var1.shift(var4);
-			if (this.e(var5)) {
+			if (this.isLoaded(var5)) {
 				IBlockData var6 = getType(var5);
 				if (Blocks.UNPOWERED_COMPARATOR.e(var6.getBlock())) {
 					var6.getBlock().doPhysics(this, var5, var6, var2);
@@ -2502,7 +2502,7 @@ public abstract class World implements IBlockAccess {
 	public class_on E(BlockPosition var1) {
 		long var2 = 0L;
 		float var4 = 0.0F;
-		if (this.e(var1)) {
+		if (this.isLoaded(var1)) {
 			var4 = z();
 			var2 = this.f(var1).w();
 		}

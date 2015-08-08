@@ -41,7 +41,7 @@ public class BlockCauldron extends Block {
    public void a(World var1, BlockPosition var2, IBlockData var3, Entity var4) {
       int var5 = ((Integer)var3.get(a)).intValue();
       float var6 = (float)var2.getY() + (6.0F + (float)(3 * var5)) / 16.0F;
-      if(!var1.isClientSide && var4.av() && var5 > 0 && var4.aT().yMin <= (double)var6) {
+      if(!var1.isClientSide && var4.av() && var5 > 0 && var4.getBoundingBox().yMin <= (double)var6) {
          var4.N();
          this.a(var1, var2, var3, var5 - 1);
       }

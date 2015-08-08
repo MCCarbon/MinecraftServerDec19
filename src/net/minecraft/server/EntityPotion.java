@@ -45,7 +45,7 @@ public class EntityPotion extends class_xo {
          } else {
             List var3 = var2.b();
             if(!var3.isEmpty()) {
-               AxisAlignedBB var4 = this.aT().grow(4.0D, 2.0D, 4.0D);
+               AxisAlignedBB var4 = this.getBoundingBox().grow(4.0D, 2.0D, 4.0D);
                List var5 = this.world.getEntities(EntityLiving.class, var4);
                if(!var5.isEmpty()) {
                   Iterator var6 = var5.iterator();

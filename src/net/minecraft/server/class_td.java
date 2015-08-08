@@ -118,7 +118,7 @@ public abstract class class_td extends class_rm {
    }
 
    private boolean a(EntityLiving var1) {
-      this.c = 10 + this.e.bd().nextInt(5);
+      this.c = 10 + this.e.getRandom().nextInt(5);
       class_auv var2 = this.e.u().a((Entity)var1);
       if(var2 == null) {
          return false;

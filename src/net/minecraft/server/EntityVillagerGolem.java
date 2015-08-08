@@ -59,7 +59,7 @@ public class EntityVillagerGolem extends class_ua {
 	}
 
 	protected void s(Entity var1) {
-		if (var1 instanceof class_wd && !(var1 instanceof EntityCreeper) && this.bd().nextInt(20) == 0) {
+		if (var1 instanceof class_wd && !(var1 instanceof EntityCreeper) && this.getRandom().nextInt(20) == 0) {
 			this.d((EntityLiving) var1);
 		}
 
@@ -83,7 +83,7 @@ public class EntityVillagerGolem extends class_ua {
 			IBlockData var4 = this.world.getType(new BlockPosition(var1, var2, var3));
 			Block var5 = var4.getBlock();
 			if (var5.getMaterial() != Material.AIR) {
-				this.world.a(class_cy.L, this.locX + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, this.aT().yMin + 0.1D, this.locZ + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, 4.0D * ((double) this.random.nextFloat() - 0.5D), 0.5D, ((double) this.random.nextFloat() - 0.5D) * 4.0D, new int[] { Block.getCombinedId(var4) });
+				this.world.addParticle(EnumParticle.L, this.locX + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, this.getBoundingBox().yMin + 0.1D, this.locZ + ((double) this.random.nextFloat() - 0.5D) * (double) this.width, 4.0D * ((double) this.random.nextFloat() - 0.5D), 0.5D, ((double) this.random.nextFloat() - 0.5D) * 4.0D, new int[] { Block.getCombinedId(var4) });
 			}
 		}
 
@@ -112,7 +112,7 @@ public class EntityVillagerGolem extends class_ua {
 			this.a(this, var1);
 		}
 
-		this.a("mob.irongolem.throw", 1.0F, 1.0F);
+		this.makeSound("mob.irongolem.throw", 1.0F, 1.0F);
 		return var2;
 	}
 
@@ -134,7 +134,7 @@ public class EntityVillagerGolem extends class_ua {
 	}
 
 	protected void a(BlockPosition var1, Block var2) {
-		this.a("mob.irongolem.walk", 1.0F, 1.0F);
+		this.makeSound("mob.irongolem.walk", 1.0F, 1.0F);
 	}
 
 	protected void b(boolean var1, int var2) {

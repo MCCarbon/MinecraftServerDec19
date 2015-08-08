@@ -46,7 +46,7 @@ public class CommandTestForBlock extends CommandAbstract {
             }
 
             World var6 = var1.e();
-            if(!var6.e(var3)) {
+            if(!var6.isLoaded(var3)) {
                throw new class_bz("commands.testforblock.outOfWorld", new Object[0]);
             } else {
                NBTTagCompound var7 = new NBTTagCompound();

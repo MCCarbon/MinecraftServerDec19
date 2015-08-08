@@ -51,16 +51,16 @@ public abstract class EntityTameable extends EntityAnimal implements class_qg {
 	}
 
 	protected void m(boolean var1) {
-		class_cy var2 = class_cy.I;
+		EnumParticle var2 = EnumParticle.I;
 		if (!var1) {
-			var2 = class_cy.l;
+			var2 = EnumParticle.l;
 		}
 
 		for (int var3 = 0; var3 < 7; ++var3) {
 			double var4 = this.random.nextGaussian() * 0.02D;
 			double var6 = this.random.nextGaussian() * 0.02D;
 			double var8 = this.random.nextGaussian() * 0.02D;
-			this.world.a(var2, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, var4, var6, var8, new int[0]);
+			this.world.addParticle(var2, this.locX + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, this.locY + 0.5D + (double) (this.random.nextFloat() * this.length), this.locZ + (double) (this.random.nextFloat() * this.width * 2.0F) - (double) this.width, var4, var6, var8, new int[0]);
 		}
 
 	}

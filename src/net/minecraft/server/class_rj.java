@@ -14,7 +14,7 @@ public class class_rj extends class_rm {
    }
 
    public void e() {
-      if(this.a.bd().nextFloat() < 0.8F) {
+      if(this.a.getRandom().nextFloat() < 0.8F) {
          this.a.t().a();
       }
 

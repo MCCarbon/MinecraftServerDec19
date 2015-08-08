@@ -849,11 +849,11 @@ public class WorldServer extends World implements class_of {
       return this.Q;
    }
 
-   public void a(class_cy var1, double var2, double var4, double var6, int var8, double var9, double var11, double var13, double var15, int... var17) {
+   public void a(EnumParticle var1, double var2, double var4, double var6, int var8, double var9, double var11, double var13, double var15, int... var17) {
       this.a(var1, false, var2, var4, var6, var8, var9, var11, var13, var15, var17);
    }
 
-   public void a(class_cy var1, boolean var2, double var3, double var5, double var7, int var9, double var10, double var12, double var14, double var16, int... var18) {
+   public void a(EnumParticle var1, boolean var2, double var3, double var5, double var7, int var9, double var10, double var12, double var14, double var16, int... var18) {
       PacketPlayOutWorldParticles var19 = new PacketPlayOutWorldParticles(var1, var2, (float)var3, (float)var5, (float)var7, (float)var10, (float)var12, (float)var14, (float)var16, var9, var18);
 
       for(int var20 = 0; var20 < this.players.size(); ++var20) {

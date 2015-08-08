@@ -211,7 +211,7 @@ public class EntityGuardian extends EntityMonster {
 				Vec3D var1 = this.d(0.0F);
 
 				for (int var2 = 0; var2 < 2; ++var2) {
-					this.world.a(class_cy.e, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.x * 1.5D, this.locY + this.random.nextDouble() * (double) this.length - var1.y * 1.5D, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
+					this.world.addParticle(EnumParticle.e, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.x * 1.5D, this.locY + this.random.nextDouble() * (double) this.length - var1.y * 1.5D, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width - var1.z * 1.5D, 0.0D, 0.0D, 0.0D, new int[0]);
 				}
 			}
 
@@ -236,7 +236,7 @@ public class EntityGuardian extends EntityMonster {
 
 					while (var12 < var10) {
 						var12 += 1.8D - var15 + this.random.nextDouble() * (1.7D - var15);
-						this.world.a(class_cy.e, this.locX + var4 * var12, this.locY + var6 * var12 + (double) this.aU(), this.locZ + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
+						this.world.addParticle(EnumParticle.e, this.locX + var4 * var12, this.locY + var6 * var12 + (double) this.aU(), this.locZ + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
 					}
 				}
 			}
@@ -335,7 +335,7 @@ public class EntityGuardian extends EntityMonster {
 	}
 
 	public boolean cg() {
-		return this.world.a((AxisAlignedBB) this.aT(), (Entity) this) && this.world.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty();
+		return this.world.a((AxisAlignedBB) this.getBoundingBox(), (Entity) this) && this.world.getCubes((Entity) this, (AxisAlignedBB) this.getBoundingBox()).isEmpty();
 	}
 
 	public boolean cf() {
@@ -347,7 +347,7 @@ public class EntityGuardian extends EntityMonster {
 			EntityLiving var3 = (EntityLiving) var1.i();
 			if (!var1.c()) {
 				var3.damageEntity(DamageSource.a((Entity) this), 2.0F);
-				var3.a("damage.thorns", 0.5F, 1.0F);
+				var3.makeSound("damage.thorns", 0.5F, 1.0F);
 			}
 		}
 

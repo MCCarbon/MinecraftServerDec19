@@ -107,7 +107,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
          return false;
       } else {
          var3 = var3.a(b);
-         var1.a((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, var3.get(b) == BlockRedstoneComparator.class_a_in_class_ahb.b?0.55F:0.5F);
+         var1.makeSound((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D, "random.click", 0.3F, var3.get(b) == BlockRedstoneComparator.class_a_in_class_ahb.b?0.55F:0.5F);
          var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3, 2);
          this.k(var1, var2, var3);
          return true;

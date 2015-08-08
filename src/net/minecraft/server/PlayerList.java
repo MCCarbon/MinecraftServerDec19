@@ -356,7 +356,7 @@ public abstract class PlayerList {
 
 		var8.b.c((int) var7.locX >> 4, (int) var7.locZ >> 4);
 
-		while (!var8.a((Entity) var7, (AxisAlignedBB) var7.aT()).isEmpty() && var7.locY < 256.0D) {
+		while (!var8.getCubes((Entity) var7, (AxisAlignedBB) var7.getBoundingBox()).isEmpty() && var7.locY < 256.0D) {
 			var7.b(var7.locX, var7.locY + 1.0D, var7.locZ);
 		}
 

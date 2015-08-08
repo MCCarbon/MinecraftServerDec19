@@ -63,7 +63,7 @@ public class EntityItem extends Entity {
 			this.lastY = this.locY;
 			this.lastZ = this.locZ;
 			this.motY -= 0.03999999910593033D;
-			this.noclip = this.j(this.locX, (this.aT().yMin + this.aT().yMax) / 2.0D, this.locZ);
+			this.noclip = this.j(this.locX, (this.getBoundingBox().yMin + this.getBoundingBox().yMax) / 2.0D, this.locZ);
 			this.d(this.motX, this.motY, this.motZ);
 			boolean var1 = (int) this.lastX != (int) this.locX || (int) this.lastY != (int) this.locY || (int) this.lastZ != (int) this.locZ;
 			if (var1 || this.ticksLived % 25 == 0) {
@@ -71,7 +71,7 @@ public class EntityItem extends Entity {
 					this.motY = 0.20000000298023224D;
 					this.motX = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
 					this.motZ = (double) ((this.random.nextFloat() - this.random.nextFloat()) * 0.2F);
-					this.a("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
+					this.makeSound("random.fizz", 0.4F, 2.0F + this.random.nextFloat() * 0.4F);
 				}
 
 				if (!this.world.isClientSide) {
@@ -81,7 +81,7 @@ public class EntityItem extends Entity {
 
 			float var2 = 0.98F;
 			if (this.onGround) {
-				var2 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.aT().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.98F;
+				var2 = this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.getBoundingBox().yMin) - 1, MathHelper.floor(this.locZ))).getBlock().frictionFactor * 0.98F;
 			}
 
 			this.motX *= (double) var2;
@@ -104,7 +104,7 @@ public class EntityItem extends Entity {
 	}
 
 	private void w() {
-		Iterator var1 = this.world.getEntities(EntityItem.class, this.aT().grow(0.5D, 0.0D, 0.5D)).iterator();
+		Iterator var1 = this.world.getEntities(EntityItem.class, this.getBoundingBox().grow(0.5D, 0.0D, 0.5D)).iterator();
 
 		while (var1.hasNext()) {
 			EntityItem var2 = (EntityItem) var1.next();
@@ -159,7 +159,7 @@ public class EntityItem extends Entity {
 	}
 
 	public boolean W() {
-		if (this.world.a((AxisAlignedBB) this.aT(), (Material) Material.WATER, (Entity) this)) {
+		if (this.world.a((AxisAlignedBB) this.getBoundingBox(), (Material) Material.WATER, (Entity) this)) {
 			if (!this.inWater && !this.justCreated) {
 				this.X();
 			}

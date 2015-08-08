@@ -153,7 +153,7 @@ public class EntityGhast extends class_py implements class_wd {
 					double var5 = 4.0D;
 					Vec3D var7 = this.b.d(1.0F);
 					double var8 = var1.locX - (this.b.locX + var7.x * var5);
-					double var10 = var1.aT().yMin + (double) (var1.length / 2.0F) - (0.5D + this.b.locY + (double) (this.b.length / 2.0F));
+					double var10 = var1.getBoundingBox().yMin + (double) (var1.length / 2.0F) - (0.5D + this.b.locY + (double) (this.b.length / 2.0F));
 					double var12 = var1.locZ - (this.b.locZ + var7.z * var5);
 					var4.a((EntityHuman) null, 1008, new BlockPosition(this.b), 0);
 					EntityLargeFireball var14 = new EntityLargeFireball(var4, this.b, var8, var10, var12);
@@ -226,7 +226,7 @@ public class EntityGhast extends class_py implements class_wd {
 		}
 
 		public void c() {
-			Random var1 = this.a.bd();
+			Random var1 = this.a.getRandom();
 			double var2 = this.a.locX + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
 			double var4 = this.a.locY + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
 			double var6 = this.a.locZ + (double) ((var1.nextFloat() * 2.0F - 1.0F) * 16.0F);
@@ -250,7 +250,7 @@ public class EntityGhast extends class_py implements class_wd {
 				double var5 = this.d - this.g.locZ;
 				double var7 = var1 * var1 + var3 * var3 + var5 * var5;
 				if (this.h-- <= 0) {
-					this.h += this.g.bd().nextInt(5) + 2;
+					this.h += this.g.getRandom().nextInt(5) + 2;
 					var7 = (double) MathHelper.sqrt(var7);
 					if (this.b(this.b, this.c, this.d, var7)) {
 						this.g.motX += var1 / var7 * 0.1D;
@@ -268,11 +268,11 @@ public class EntityGhast extends class_py implements class_wd {
 			double var9 = (var1 - this.g.locX) / var7;
 			double var11 = (var3 - this.g.locY) / var7;
 			double var13 = (var5 - this.g.locZ) / var7;
-			AxisAlignedBB var15 = this.g.aT();
+			AxisAlignedBB var15 = this.g.getBoundingBox();
 
 			for (int var16 = 1; (double) var16 < var7; ++var16) {
 				var15 = var15.c(var9, var11, var13);
-				if (!this.g.world.a((Entity) this.g, (AxisAlignedBB) var15).isEmpty()) {
+				if (!this.g.world.getCubes((Entity) this.g, (AxisAlignedBB) var15).isEmpty()) {
 					return false;
 				}
 			}

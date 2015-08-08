@@ -87,7 +87,7 @@ public class class_rk extends class_rm {
                   if(this.d.h(this.e) >= 144.0D) {
                      int var1 = MathHelper.floor(this.e.locX) - 2;
                      int var2 = MathHelper.floor(this.e.locZ) - 2;
-                     int var3 = MathHelper.floor(this.e.aT().yMin);
+                     int var3 = MathHelper.floor(this.e.getBoundingBox().yMin);
 
                      for(int var4 = 0; var4 <= 4; ++var4) {
                         for(int var5 = 0; var5 <= 4; ++var5) {

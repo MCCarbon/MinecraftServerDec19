@@ -95,13 +95,13 @@ public class BlockRedstoneTorch extends BlockTorch {
          if(var5) {
             var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.UNLIT_REDSTONE_TORCH.getBlockData().set(a, var3.get(a)), 3);
             if(this.a(var1, var2, true)) {
-               var1.a((double)((float)var2.getX() + 0.5F), (double)((float)var2.getY() + 0.5F), (double)((float)var2.getZ() + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
+               var1.makeSound((double)((float)var2.getX() + 0.5F), (double)((float)var2.getY() + 0.5F), (double)((float)var2.getZ() + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
                for(int var7 = 0; var7 < 5; ++var7) {
                   double var8 = (double)var2.getX() + var4.nextDouble() * 0.6D + 0.2D;
                   double var10 = (double)var2.getY() + var4.nextDouble() * 0.6D + 0.2D;
                   double var12 = (double)var2.getZ() + var4.nextDouble() * 0.6D + 0.2D;
-                  var1.a(class_cy.l, var8, var10, var12, 0.0D, 0.0D, 0.0D, new int[0]);
+                  var1.addParticle(EnumParticle.l, var8, var10, var12, 0.0D, 0.0D, 0.0D, new int[0]);
                }
 
                var1.a((BlockPosition)var2, (Block)var1.getType(var2).getBlock(), 160);

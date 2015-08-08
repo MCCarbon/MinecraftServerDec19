@@ -163,7 +163,7 @@ public class EntityShulker extends class_ua implements class_wd {
          }
 
          if(var18 > 0.0D) {
-            List var12 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.aT());
+            List var12 = this.world.getEntities((Entity)this, (AxisAlignedBB)this.getBoundingBox());
             if(!var12.isEmpty()) {
                Iterator var13 = var12.iterator();
 
@@ -199,7 +199,7 @@ public class EntityShulker extends class_ua implements class_wd {
             }
 
             if(var4) {
-               this.a("mob.endermen.portal", 1.0F, 1.0F);
+               this.makeSound("mob.endermen.portal", 1.0F, 1.0F);
                this.datawatcher.update(b, var3);
                this.datawatcher.update(c, Byte.valueOf((byte)0));
                this.d((EntityLiving)null);
@@ -264,7 +264,7 @@ public class EntityShulker extends class_ua implements class_wd {
    }
 
    public AxisAlignedBB S() {
-      return this.isAlive()?this.aT():null;
+      return this.isAlive()?this.getBoundingBox():null;
    }
 
    public EnumDirection cA() {
@@ -367,7 +367,7 @@ public class EntityShulker extends class_ua implements class_wd {
 
       protected AxisAlignedBB a(double var1) {
          EnumDirection var3 = ((EntityShulker)this.e).cA();
-         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.aT().grow(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.aT().grow(var1, var1, 4.0D):this.e.aT().grow(var1, 4.0D, var1));
+         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.getBoundingBox().grow(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.getBoundingBox().grow(var1, var1, 4.0D):this.e.getBoundingBox().grow(var1, 4.0D, var1));
       }
    }
 
@@ -378,7 +378,7 @@ public class EntityShulker extends class_ua implements class_wd {
 
       protected AxisAlignedBB a(double var1) {
          EnumDirection var3 = ((EntityShulker)this.e).cA();
-         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.aT().grow(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.aT().grow(var1, var1, 4.0D):this.e.aT().grow(var1, 4.0D, var1));
+         return var3.getAxis() == EnumDirection.EnumAxis.X?this.e.getBoundingBox().grow(4.0D, var1, var1):(var3.getAxis() == EnumDirection.EnumAxis.Z?this.e.getBoundingBox().grow(var1, var1, 4.0D):this.e.getBoundingBox().grow(var1, 4.0D, var1));
       }
    }
 
@@ -413,7 +413,7 @@ public class EntityShulker extends class_ua implements class_wd {
                this.b = 20 + EntityShulker.this.random.nextInt(10) * 20 / 2;
                EntityShulkerBullet var4 = new EntityShulkerBullet(EntityShulker.this.world, EntityShulker.this, var1, EntityShulker.this.cA().getAxis());
                EntityShulker.this.world.addEntity((Entity)var4);
-               EntityShulker.this.a("mob.ghast.fireball", 2.0F, (EntityShulker.this.random.nextFloat() - EntityShulker.this.random.nextFloat()) * 0.2F + 1.0F);
+               EntityShulker.this.makeSound("mob.ghast.fireball", 2.0F, (EntityShulker.this.random.nextFloat() - EntityShulker.this.random.nextFloat()) * 0.2F + 1.0F);
             }
          } else {
             EntityShulker.this.d((EntityLiving)null);

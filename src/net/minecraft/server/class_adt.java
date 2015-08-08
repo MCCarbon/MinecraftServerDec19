@@ -25,12 +25,12 @@ public class class_adt extends class_adi {
    }
 
    public void b(EntityLiving var1, Entity var2, int var3) {
-      Random var4 = var1.bd();
+      Random var4 = var1.getRandom();
       ItemStack var5 = EnchantmentManager.b(Enchantment.h, var1);
       if(a(var3, var4)) {
          if(var2 != null) {
             var2.damageEntity(DamageSource.a((Entity) var1), (float)b(var3, var4));
-            var2.a("damage.thorns", 0.5F, 1.0F);
+            var2.makeSound("damage.thorns", 0.5F, 1.0F);
          }
 
          if(var5 != null) {

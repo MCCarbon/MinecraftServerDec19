@@ -26,14 +26,14 @@ public final class class_xj {
          }
 
          Entity var20 = null;
-         List var21 = var16.getEntities(var0, var0.aT().add(var10, var12, var14).grow(1.0D, 1.0D, 1.0D));
+         List var21 = var16.getEntities(var0, var0.getBoundingBox().add(var10, var12, var14).grow(1.0D, 1.0D, 1.0D));
          double var22 = 0.0D;
 
          for(int var24 = 0; var24 < var21.size(); ++var24) {
             Entity var25 = (Entity)var21.get(var24);
             if(var25.ad() && (var2 || !var25.k(var3)) && !var25.noclip) {
                float var26 = 0.3F;
-               AxisAlignedBB var27 = var25.aT().grow((double)var26, (double)var26, (double)var26);
+               AxisAlignedBB var27 = var25.getBoundingBox().grow((double)var26, (double)var26, (double)var26);
                MovingObjectPosition var28 = var27.a(var17, var18);
                if(var28 != null) {
                   double var29 = var17.distanceSquared(var28.c);

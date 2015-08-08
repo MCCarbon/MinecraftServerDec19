@@ -34,7 +34,7 @@ public class EntityCow extends EntityAnimal {
    }
 
    protected void a(BlockPosition var1, Block var2) {
-      this.a("mob.cow.step", 0.15F, 1.0F);
+      this.makeSound("mob.cow.step", 0.15F, 1.0F);
    }
 
    protected float bC() {

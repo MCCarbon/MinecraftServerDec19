@@ -317,7 +317,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	public void a(class_aea var1) {
 		var1.g();
 		this.a_ = -this.y();
-		this.a("mob.villager.yes", this.bC(), this.bD());
+		this.makeSound("mob.villager.yes", this.bC(), this.bD());
 		int var2 = 3 + this.random.nextInt(4);
 		if (var1.e() == 1 || this.random.nextInt(5) == 0) {
 			this.bz = 40;
@@ -346,9 +346,9 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		if (!this.world.isClientSide && this.a_ > -this.y() + 20) {
 			this.a_ = -this.y();
 			if (var1 != null) {
-				this.a("mob.villager.yes", this.bC(), this.bD());
+				this.makeSound("mob.villager.yes", this.bC(), this.bD());
 			} else {
-				this.a("mob.villager.no", this.bC(), this.bD());
+				this.makeSound("mob.villager.no", this.bC(), this.bD());
 			}
 		}
 

@@ -25,7 +25,7 @@ public class class_rc extends class_rm {
 
    public void c() {
       this.a.q(true);
-      this.e = 40 + this.a.bd().nextInt(40);
+      this.e = 40 + this.a.getRandom().nextInt(40);
    }
 
    public void d() {

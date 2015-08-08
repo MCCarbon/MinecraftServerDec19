@@ -181,8 +181,8 @@ public class EntityOcelot extends EntityTameable {
 	}
 
 	public boolean cg() {
-		if (this.world.a((AxisAlignedBB) this.aT(), (Entity) this) && this.world.a((Entity) this, (AxisAlignedBB) this.aT()).isEmpty() && !this.world.d(this.aT())) {
-			BlockPosition var1 = new BlockPosition(this.locX, this.aT().yMin, this.locZ);
+		if (this.world.a((AxisAlignedBB) this.getBoundingBox(), (Entity) this) && this.world.getCubes((Entity) this, (AxisAlignedBB) this.getBoundingBox()).isEmpty() && !this.world.containsLiquid(this.getBoundingBox())) {
+			BlockPosition var1 = new BlockPosition(this.locX, this.getBoundingBox().yMin, this.locZ);
 			if (var1.getY() < this.world.G()) {
 				return false;
 			}

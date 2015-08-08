@@ -108,7 +108,7 @@ public class class_rf extends class_rm {
          }
       }
 
-      if(!var1.abilities.instabuild && this.c >= this.b * 0.5F && this.a.bd().nextFloat() < 0.006F && !this.d) {
+      if(!var1.abilities.instabuild && this.c >= this.b * 0.5F && this.a.getRandom().nextFloat() < 0.006F && !this.d) {
          EnumUsedHand var25 = this.a(var1);
          if(var25 != null) {
             ItemStack var26 = var1.getItemInHand((EnumUsedHand)var25);
@@ -152,7 +152,7 @@ public class class_rf extends class_rm {
    public void g() {
       this.d = true;
       this.e = 0;
-      this.f = this.a.bd().nextInt(841) + 140;
+      this.f = this.a.getRandom().nextInt(841) + 140;
    }
 
    public boolean h() {

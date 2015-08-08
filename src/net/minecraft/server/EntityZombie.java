@@ -175,7 +175,7 @@ public class EntityZombie extends EntityMonster {
 					int var11 = var6 + MathHelper.getRandomIntInRange((Random) this.random, 7, 40) * MathHelper.getRandomIntInRange((Random) this.random, -1, 1);
 					if (World.a((IBlockAccess) this.world, (BlockPosition) (new BlockPosition(var9, var10 - 1, var11))) && this.world.l(new BlockPosition(var9, var10, var11)) < 10) {
 						var7.b((double) var9, (double) var10, (double) var11);
-						if (!this.world.b((double) var9, (double) var10, (double) var11, 7.0D) && this.world.a((AxisAlignedBB) var7.aT(), (Entity) var7) && this.world.a((Entity) var7, (AxisAlignedBB) var7.aT()).isEmpty() && !this.world.d(var7.aT())) {
+						if (!this.world.b((double) var9, (double) var10, (double) var11, 7.0D) && this.world.a((AxisAlignedBB) var7.getBoundingBox(), (Entity) var7) && this.world.getCubes((Entity) var7, (AxisAlignedBB) var7.getBoundingBox()).isEmpty() && !this.world.containsLiquid(var7.getBoundingBox())) {
 							this.world.addEntity((Entity) var7);
 							var7.d(var3);
 							var7.a((class_on) this.world.E(new BlockPosition(var7)), (class_qd) null);
@@ -230,7 +230,7 @@ public class EntityZombie extends EntityMonster {
 	}
 
 	protected void a(BlockPosition var1, Block var2) {
-		this.a("mob.zombie.step", 0.15F, 1.0F);
+		this.makeSound("mob.zombie.step", 0.15F, 1.0F);
 	}
 
 	protected Item D() {
@@ -358,7 +358,7 @@ public class EntityZombie extends EntityMonster {
 			if (var4.a) {
 				this.setBaby(true);
 				if ((double) this.world.random.nextFloat() < 0.05D) {
-					List var5 = this.world.a(EntityChicken.class, this.aT().grow(5.0D, 3.0D, 5.0D), IEntitySelector.IS_ALIVE_AND_NOT_MOUNTED);
+					List var5 = this.world.a(EntityChicken.class, this.getBoundingBox().grow(5.0D, 3.0D, 5.0D), IEntitySelector.IS_ALIVE_AND_NOT_MOUNTED);
 					if (!var5.isEmpty()) {
 						EntityChicken var6 = (EntityChicken) var5.get(0);
 						var6.m(true);

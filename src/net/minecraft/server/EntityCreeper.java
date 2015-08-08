@@ -87,7 +87,7 @@ public class EntityCreeper extends EntityMonster {
 
 			int var1 = this.cB();
 			if (var1 > 0 && this.bt == 0) {
-				this.a("creeper.primed", 1.0F, 0.5F);
+				this.makeSound("creeper.primed", 1.0F, 0.5F);
 			}
 
 			this.bt += var1;
@@ -153,7 +153,7 @@ public class EntityCreeper extends EntityMonster {
 
 	protected boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
 		if (var3 != null && var3.getItem() == Items.FLINT_AND_STEEL) {
-			this.world.a(this.locX + 0.5D, this.locY + 0.5D, this.locZ + 0.5D, "fire.ignite", 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
+			this.world.makeSound(this.locX + 0.5D, this.locY + 0.5D, this.locZ + 0.5D, "fire.ignite", 1.0F, this.random.nextFloat() * 0.4F + 0.8F);
 			var1.a((EnumUsedHand) var2);
 			if (!this.world.isClientSide) {
 				this.setIgnited();

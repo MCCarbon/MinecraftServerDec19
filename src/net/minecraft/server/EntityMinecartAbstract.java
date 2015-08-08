@@ -62,7 +62,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 	}
 
 	public AxisAlignedBB j(Entity var1) {
-		return var1.ae() ? var1.aT() : null;
+		return var1.ae() ? var1.getBoundingBox() : null;
 	}
 
 	public AxisAlignedBB S() {
@@ -247,7 +247,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 			}
 
 			this.b(this.yaw, this.pitch);
-			Iterator var12 = this.world.getEntities((Entity) this, (AxisAlignedBB) this.aT().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
+			Iterator var12 = this.world.getEntities((Entity) this, (AxisAlignedBB) this.getBoundingBox().grow(0.20000000298023224D, 0.0D, 0.20000000298023224D)).iterator();
 
 			while (var12.hasNext()) {
 				Entity var13 = (Entity) var12.next();

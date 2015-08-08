@@ -89,10 +89,10 @@ public class ItemBucket extends Item {
                int var5 = var2.getX();
                int var6 = var2.getY();
                int var7 = var2.getZ();
-               var1.a((double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), (double)((float)var7 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
+               var1.makeSound((double)((float)var5 + 0.5F), (double)((float)var6 + 0.5F), (double)((float)var7 + 0.5F), "random.fizz", 0.5F, 2.6F + (var1.random.nextFloat() - var1.random.nextFloat()) * 0.8F);
 
                for(int var8 = 0; var8 < 8; ++var8) {
-                  var1.a(class_cy.m, (double)var5 + Math.random(), (double)var6 + Math.random(), (double)var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
+                  var1.addParticle(EnumParticle.m, (double)var5 + Math.random(), (double)var6 + Math.random(), (double)var7 + Math.random(), 0.0D, 0.0D, 0.0D, new int[0]);
                }
             } else {
                if(!var1.isClientSide && var4 && !var3.isLiquid()) {

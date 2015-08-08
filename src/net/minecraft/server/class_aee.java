@@ -48,8 +48,8 @@ public abstract class class_aee {
             double var13 = (double)((float)var1.getX() + this.a().random.nextFloat());
             double var14 = (double)((float)var1.getY() + this.a().random.nextFloat());
             var6 = (double)((float)var1.getZ() + this.a().random.nextFloat());
-            this.a().a(class_cy.l, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
-            this.a().a(class_cy.A, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
+            this.a().addParticle(EnumParticle.l, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
+            this.a().addParticle(EnumParticle.A, var13, var14, var6, 0.0D, 0.0D, 0.0D, new int[0]);
             if(this.a > 0) {
                --this.a;
             }

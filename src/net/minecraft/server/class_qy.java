@@ -18,7 +18,7 @@ public class class_qy {
       if(var1 instanceof EntityLiving) {
          this.f = var1.locY + (double)var1.aU();
       } else {
-         this.f = (var1.aT().yMin + var1.aT().yMax) / 2.0D;
+         this.f = (var1.getBoundingBox().yMin + var1.getBoundingBox().yMax) / 2.0D;
       }
 
       this.g = var1.locZ;

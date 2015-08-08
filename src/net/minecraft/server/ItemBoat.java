@@ -31,13 +31,13 @@ public class ItemBoat extends Item {
          Vec3D var26 = var3.d(var5);
          boolean var27 = false;
          float var28 = 1.0F;
-         List var29 = var2.getEntities((Entity)var3, (AxisAlignedBB)var3.aT().add(var26.x * var22, var26.y * var22, var26.z * var22).grow((double)var28, (double)var28, (double)var28));
+         List var29 = var2.getEntities((Entity)var3, (AxisAlignedBB)var3.getBoundingBox().add(var26.x * var22, var26.y * var22, var26.z * var22).grow((double)var28, (double)var28, (double)var28));
 
          for(int var30 = 0; var30 < var29.size(); ++var30) {
             Entity var31 = (Entity)var29.get(var30);
             if(var31.ad()) {
                float var32 = var31.ao();
-               AxisAlignedBB var33 = var31.aT().grow((double)var32, (double)var32, (double)var32);
+               AxisAlignedBB var33 = var31.getBoundingBox().grow((double)var32, (double)var32, (double)var32);
                if(var33.a(var14)) {
                   var27 = true;
                }
@@ -54,7 +54,7 @@ public class ItemBoat extends Item {
 
             EntityBoat var35 = new EntityBoat(var2, (double)((float)var34.getX() + 0.5F), (double)((float)var34.getY() + 1.0F), (double)((float)var34.getZ() + 0.5F));
             var35.yaw = (float)(((MathHelper.floor((double)(var3.yaw * 4.0F / 360.0F) + 0.5D) & 3) - 1) * 90);
-            if(!var2.a((Entity)var35, (AxisAlignedBB)var35.aT().grow(-0.1D, -0.1D, -0.1D)).isEmpty()) {
+            if(!var2.getCubes((Entity)var35, (AxisAlignedBB)var35.getBoundingBox().grow(-0.1D, -0.1D, -0.1D)).isEmpty()) {
                return new UseResultWithValue(UseResult.CANT_USE, var1);
             } else {
                if(!var2.isClientSide) {

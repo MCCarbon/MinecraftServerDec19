@@ -70,7 +70,7 @@ public class EntityPig extends EntityAnimal {
 	}
 
 	protected void a(BlockPosition var1, Block var2) {
-		this.a("mob.pig.step", 0.15F, 1.0F);
+		this.makeSound("mob.pig.step", 0.15F, 1.0F);
 	}
 
 	public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {

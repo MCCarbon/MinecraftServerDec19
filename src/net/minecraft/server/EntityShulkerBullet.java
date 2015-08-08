@@ -255,7 +255,7 @@ public class EntityShulkerBullet extends Entity {
 				}
 			}
 		} else {
-			this.world.a(class_cy.R, this.locX - this.motX, this.locY - this.motY + 0.15D, this.locZ - this.motZ, 0.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.R, this.locX - this.motX, this.locY - this.motY + 0.15D, this.locZ - this.motZ, 0.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 	}
@@ -278,8 +278,8 @@ public class EntityShulkerBullet extends Entity {
 				}
 			}
 		} else {
-			((WorldServer) this.world).a(class_cy.b, this.locX, this.locY, this.locZ, 2, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
-			this.a("mob.irongolem.hit", 1.0F, 1.0F);
+			((WorldServer) this.world).a(EnumParticle.b, this.locX, this.locY, this.locZ, 2, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
+			this.makeSound("mob.irongolem.hit", 1.0F, 1.0F);
 		}
 
 		this.J();
@@ -291,8 +291,8 @@ public class EntityShulkerBullet extends Entity {
 
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (!this.world.isClientSide) {
-			this.a("mob.irongolem.hit", 1.0F, 1.0F);
-			((WorldServer) this.world).a(class_cy.j, this.locX, this.locY, this.locZ, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
+			this.makeSound("mob.irongolem.hit", 1.0F, 1.0F);
+			((WorldServer) this.world).a(EnumParticle.j, this.locX, this.locY, this.locZ, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
 			this.J();
 		}
 

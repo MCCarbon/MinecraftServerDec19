@@ -26,7 +26,7 @@ public class ItemSpade extends class_zv {
             } else {
                IBlockData var12 = Blocks.GRASS_PATH.getBlockData();
                Block var13 = var12.getBlock();
-               var3.a((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), var13.stepSound.getStepSound(), (var13.stepSound.getVolume() + 1.0F) / 2.0F, var13.stepSound.getPitch() * 0.8F);
+               var3.makeSound((double)((float)var4.getX() + 0.5F), (double)((float)var4.getY() + 0.5F), (double)((float)var4.getZ() + 0.5F), var13.stepSound.getStepSound(), (var13.stepSound.getVolume() + 1.0F) / 2.0F, var13.stepSound.getPitch() * 0.8F);
                if(var3.isClientSide) {
                   return UseResult.SUCCESS;
                } else {

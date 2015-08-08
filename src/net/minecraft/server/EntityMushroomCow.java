@@ -18,7 +18,7 @@ public class EntityMushroomCow extends EntityCow {
          return true;
       } else if(var3 != null && var3.getItem() == Items.SHEARS && this.getAge() >= 0) {
          this.J();
-         this.world.a(class_cy.b, this.locX, this.locY + (double)(this.length / 2.0F), this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
+         this.world.addParticle(EnumParticle.b, this.locX, this.locY + (double)(this.length / 2.0F), this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.world.isClientSide) {
             EntityCow var4 = new EntityCow(this.world);
             var4.b(this.locX, this.locY, this.locZ, this.yaw, this.pitch);
@@ -35,7 +35,7 @@ public class EntityMushroomCow extends EntityCow {
             }
 
             var3.a(1, (EntityLiving)var1);
-            this.a("mob.sheep.shear", 1.0F, 1.0F);
+            this.makeSound("mob.sheep.shear", 1.0F, 1.0F);
          }
 
          return true;

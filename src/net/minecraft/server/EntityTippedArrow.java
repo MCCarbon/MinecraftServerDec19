@@ -67,7 +67,7 @@ public class EntityTippedArrow extends EntityArrow {
                var2 = (double)(var1 >> 16 & 255) / 255.0D;
                var4 = (double)(var1 >> 8 & 255) / 255.0D;
                var6 = (double)(var1 >> 0 & 255) / 255.0D;
-               this.world.a(class_cy.p, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, var2, var4, var6, new int[0]);
+               this.world.addParticle(EnumParticle.p, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, var2, var4, var6, new int[0]);
             }
          } else if(!this.g.isEmpty() && this.b >= 200) {
             this.world.a((Entity)this, (byte)0);
@@ -82,7 +82,7 @@ public class EntityTippedArrow extends EntityArrow {
             var6 = (double)(var1 >> 0 & 255) / 255.0D;
 
             for(int var8 = 0; var8 < 2; ++var8) {
-               this.world.a(class_cy.p, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, var2, var4, var6, new int[0]);
+               this.world.addParticle(EnumParticle.p, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, var2, var4, var6, new int[0]);
             }
          }
       }

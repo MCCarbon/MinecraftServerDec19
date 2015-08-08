@@ -21,7 +21,7 @@ public class class_pb {
    public void a() {
       this.j();
       if(this.b.k_()) {
-         Block var1 = this.b.world.getType(new BlockPosition(this.b.locX, this.b.aT().yMin, this.b.locZ)).getBlock();
+         Block var1 = this.b.world.getType(new BlockPosition(this.b.locX, this.b.getBoundingBox().yMin, this.b.locZ)).getBlock();
          if(var1 == Blocks.LADDER) {
             this.h = "ladder";
          } else if(var1 == Blocks.VINE) {

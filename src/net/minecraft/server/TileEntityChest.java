@@ -251,7 +251,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 				var11 += 0.5D;
 			}
 
-			world.a(var11, var2 + 0.5D, var14, "random.chestopen", 0.5F, (world.random.nextFloat() * 0.1F) + 0.9F);
+			world.makeSound(var11, var2 + 0.5D, var14, "random.chestopen", 0.5F, (world.random.nextFloat() * 0.1F) + 0.9F);
 		}
 
 		if (((l == 0) && (j > 0.0F)) || ((l > 0) && (j < 1.0F))) {
@@ -278,7 +278,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 					var14 += 0.5D;
 				}
 
-				world.a(var14, var2 + 0.5D, var9, "random.chestclosed", 0.5F, (world.random.nextFloat() * 0.1F) + 0.9F);
+				world.makeSound(var14, var2 + 0.5D, var9, "random.chestclosed", 0.5F, (world.random.nextFloat() * 0.1F) + 0.9F);
 			}
 
 			if (j < 0.0F) {

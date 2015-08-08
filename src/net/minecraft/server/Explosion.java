@@ -100,7 +100,7 @@ public class Explosion {
 						var16 /= var36;
 						var18 /= var36;
 						var20 /= var36;
-						double var37 = (double) this.world.a(var11, var13.aT());
+						double var37 = (double) this.world.a(var11, var13.getBoundingBox());
 						double var26 = (1.0D - var35) * var37;
 						var13.damageEntity(DamageSource.a(this), (float) ((int) ((var26 * var26 + var26) / 2.0D * 8.0D * (double) var30 + 1.0D)));
 						double var28 = 1.0D;
@@ -122,11 +122,11 @@ public class Explosion {
 	}
 
 	public void doStage2(boolean var1) {
-		this.world.a(this.x, this.y, this.z, "random.explode", 4.0F, (1.0F + (this.world.random.nextFloat() - this.world.random.nextFloat()) * 0.2F) * 0.7F);
+		this.world.makeSound(this.x, this.y, this.z, "random.explode", 4.0F, (1.0F + (this.world.random.nextFloat() - this.world.random.nextFloat()) * 0.2F) * 0.7F);
 		if (this.size >= 2.0F && this.b) {
-			this.world.a(class_cy.c, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.c, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D, new int[0]);
 		} else {
-			this.world.a(class_cy.b, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D, new int[0]);
+			this.world.addParticle(EnumParticle.b, this.x, this.y, this.z, 1.0D, 0.0D, 0.0D, new int[0]);
 		}
 
 		Iterator<BlockPosition> var2;
@@ -153,8 +153,8 @@ public class Explosion {
 					var11 *= var19;
 					var13 *= var19;
 					var15 *= var19;
-					this.world.a(class_cy.a, (var5 + this.x * 1.0D) / 2.0D, (var7 + this.y * 1.0D) / 2.0D, (var9 + this.z * 1.0D) / 2.0D, var11, var13, var15, new int[0]);
-					this.world.a(class_cy.l, var5, var7, var9, var11, var13, var15, new int[0]);
+					this.world.addParticle(EnumParticle.a, (var5 + this.x * 1.0D) / 2.0D, (var7 + this.y * 1.0D) / 2.0D, (var9 + this.z * 1.0D) / 2.0D, var11, var13, var15, new int[0]);
+					this.world.addParticle(EnumParticle.l, var5, var7, var9, var11, var13, var15, new int[0]);
 				}
 
 				if (var4.getMaterial() != Material.AIR) {

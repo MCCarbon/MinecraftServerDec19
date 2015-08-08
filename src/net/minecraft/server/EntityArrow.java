@@ -149,7 +149,7 @@ public class EntityArrow extends Entity implements class_xi {
 
 			if (this.m()) {
 				for (int var16 = 0; var16 < 4; ++var16) {
-					this.world.a(class_cy.j, this.locX + this.motX * (double) var16 / 4.0D, this.locY + this.motY * (double) var16 / 4.0D, this.locZ + this.motZ * (double) var16 / 4.0D, -this.motX, -this.motY + 0.2D, -this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.j, this.locX + this.motX * (double) var16 / 4.0D, this.locY + this.motY * (double) var16 / 4.0D, this.locZ + this.motZ * (double) var16 / 4.0D, -this.motX, -this.motY + 0.2D, -this.motZ, new int[0]);
 				}
 			}
 
@@ -182,7 +182,7 @@ public class EntityArrow extends Entity implements class_xi {
 			if (this.V()) {
 				for (int var11 = 0; var11 < 4; ++var11) {
 					float var12 = 0.25F;
-					this.world.a(class_cy.e, this.locX - this.motX * (double) var12, this.locY - this.motY * (double) var12, this.locZ - this.motZ * (double) var12, this.motX, this.motY, this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.e, this.locX - this.motX * (double) var12, this.locY - this.motY * (double) var12, this.locZ - this.motZ * (double) var12, this.motX, this.motY, this.motZ, new int[0]);
 				}
 
 				var9 = 0.6F;
@@ -246,7 +246,7 @@ public class EntityArrow extends Entity implements class_xi {
 					}
 				}
 
-				this.a("random.bowhit", 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
+				this.makeSound("random.bowhit", 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
 				if (!(var2 instanceof EntityEnderman)) {
 					this.J();
 				}
@@ -273,7 +273,7 @@ public class EntityArrow extends Entity implements class_xi {
 			this.locX -= this.motX / (double) var10 * 0.05000000074505806D;
 			this.locY -= this.motY / (double) var10 * 0.05000000074505806D;
 			this.locZ -= this.motZ / (double) var10 * 0.05000000074505806D;
-			this.a("random.bowhit", 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
+			this.makeSound("random.bowhit", 1.0F, 1.2F / (this.random.nextFloat() * 0.2F + 0.9F));
 			this.a = true;
 			this.d = 7;
 			this.a(false);
@@ -289,14 +289,14 @@ public class EntityArrow extends Entity implements class_xi {
 
 	protected Entity a(Vec3D var1, Vec3D var2) {
 		Entity var3 = null;
-		List var4 = this.world.a((Entity) this, (AxisAlignedBB) this.aT().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D), (Predicate) f);
+		List var4 = this.world.a((Entity) this, (AxisAlignedBB) this.getBoundingBox().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D), (Predicate) f);
 		double var5 = 0.0D;
 
 		for (int var7 = 0; var7 < var4.size(); ++var7) {
 			Entity var8 = (Entity) var4.get(var7);
 			if (var8 != this.e || this.aw >= 5) {
 				float var9 = 0.3F;
-				AxisAlignedBB var10 = var8.aT().grow((double) var9, (double) var9, (double) var9);
+				AxisAlignedBB var10 = var8.getBoundingBox().grow((double) var9, (double) var9, (double) var9);
 				MovingObjectPosition var11 = var10.a(var1, var2);
 				if (var11 != null) {
 					double var12 = var1.distanceSquared(var11.c);
@@ -359,7 +359,7 @@ public class EntityArrow extends Entity implements class_xi {
 			}
 
 			if (var2) {
-				this.a("random.pop", 0.2F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.0F) * 2.0F);
+				this.makeSound("random.pop", 0.2F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 				var1.a(this, 1);
 				this.J();
 			}

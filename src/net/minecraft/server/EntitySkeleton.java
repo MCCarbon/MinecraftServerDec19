@@ -62,7 +62,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 	}
 
 	protected void a(BlockPosition var1, Block var2) {
-		this.a("mob.skeleton.step", 0.15F, 1.0F);
+		this.makeSound("mob.skeleton.step", 0.15F, 1.0F);
 	}
 
 	public boolean r(Entity var1) {
@@ -181,7 +181,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 	public class_qd a(class_on var1, class_qd var2) {
 		var2 = super.a(var1, var2);
-		if (this.world.worldProvider instanceof class_apa && this.bd().nextInt(5) > 0) {
+		if (this.world.worldProvider instanceof class_apa && this.getRandom().nextInt(5) > 0) {
 			this.i.a(4, this.bs);
 			this.setType(1);
 			this.a(EnumWearable.MAINHAND, new ItemStack(Items.STONE_SWORD));
@@ -219,7 +219,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 	public void a(EntityLiving var1, float var2) {
 		EntityArrow var3 = new EntityArrow(this.world, this);
 		double var4 = var1.locX - this.locX;
-		double var6 = var1.aT().yMin + (double) (var1.length / 3.0F) - var3.locY;
+		double var6 = var1.getBoundingBox().yMin + (double) (var1.length / 3.0F) - var3.locY;
 		double var8 = var1.locZ - this.locZ;
 		double var10 = (double) MathHelper.sqrt(var4 * var4 + var8 * var8);
 		var3.c(var4, var6 + var10 * 0.20000000298023224D, var8, 1.6F, (float) (14 - this.world.ab().a() * 4));
@@ -238,7 +238,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 			var3.f(100);
 		}
 
-		this.a("random.bow", 1.0F, 1.0F / (this.bd().nextFloat() * 0.4F + 0.8F));
+		this.makeSound("random.bow", 1.0F, 1.0F / (this.getRandom().nextFloat() * 0.4F + 0.8F));
 		this.world.addEntity((Entity) var3);
 	}
 

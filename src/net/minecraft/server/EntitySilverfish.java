@@ -60,7 +60,7 @@ public class EntitySilverfish extends EntityMonster {
    }
 
    protected void a(BlockPosition var1, Block var2) {
-      this.a("mob.silverfish.step", 0.15F, 1.0F);
+      this.makeSound("mob.silverfish.step", 0.15F, 1.0F);
    }
 
    protected Item D() {
@@ -110,7 +110,7 @@ public class EntitySilverfish extends EntityMonster {
          } else if(!this.a.u().m()) {
             return false;
          } else {
-            Random var1 = this.a.bd();
+            Random var1 = this.a.getRandom();
             if(var1.nextInt(10) == 0) {
                this.b = EnumDirection.getRandom(var1);
                BlockPosition var2 = (new BlockPosition(this.a.locX, this.a.locY + 0.5D, this.a.locZ)).shift(this.b);
@@ -170,7 +170,7 @@ public class EntitySilverfish extends EntityMonster {
          --this.b;
          if(this.b <= 0) {
             World var1 = this.a.world;
-            Random var2 = this.a.bd();
+            Random var2 = this.a.getRandom();
             BlockPosition var3 = new BlockPosition(this.a);
 
             for(int var4 = 0; var4 <= 5 && var4 >= -5; var4 = var4 <= 0?1 - var4:0 - var4) {

@@ -197,7 +197,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	@Override
-	public void a(String var1, float var2, float var3) {
+	public void makeSound(String var1, float var2, float var3) {
 		world.a(this, var1, var2, var3);
 	}
 
@@ -290,9 +290,9 @@ public abstract class EntityHuman extends EntityLiving {
 		if ((getHealth() > 0.0F) && !isSpectator()) {
 			AxisAlignedBB var4 = null;
 			if ((vehicle != null) && !vehicle.dead) {
-				var4 = aT().a(vehicle.aT()).grow(1.0D, 0.0D, 1.0D);
+				var4 = getBoundingBox().a(vehicle.getBoundingBox()).grow(1.0D, 0.0D, 1.0D);
 			} else {
-				var4 = aT().grow(1.0D, 0.5D, 1.0D);
+				var4 = getBoundingBox().grow(1.0D, 0.5D, 1.0D);
 			}
 
 			List var5 = world.getEntities(this, var4);
@@ -896,7 +896,7 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 
 		this.a(0.2F, 0.2F);
-		if (world.e(var1)) {
+		if (world.isLoaded(var1)) {
 			EnumDirection var7 = world.getType(var1).get(BlockDirectional.FACING);
 			float var3 = 0.5F;
 			float var8 = 0.5F;

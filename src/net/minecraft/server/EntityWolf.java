@@ -81,7 +81,7 @@ public class EntityWolf extends EntityTameable {
 	}
 
 	protected void a(BlockPosition var1, Block var2) {
-		this.a("mob.wolf.step", 0.15F, 1.0F);
+		this.makeSound("mob.wolf.step", 0.15F, 1.0F);
 	}
 
 	public void write(NBTTagCompound var1) {
@@ -150,7 +150,7 @@ public class EntityWolf extends EntityTameable {
 			this.bE = 0.0F;
 		} else if ((this.bB || this.bC) && this.bC) {
 			if (this.bD == 0.0F) {
-				this.a("mob.wolf.shake", this.bC(), (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
+				this.makeSound("mob.wolf.shake", this.bC(), (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 			}
 
 			this.bE = this.bD;
@@ -163,13 +163,13 @@ public class EntityWolf extends EntityTameable {
 			}
 
 			if (this.bD > 0.4F) {
-				float var1 = (float) this.aT().yMin;
+				float var1 = (float) this.getBoundingBox().yMin;
 				int var2 = (int) (MathHelper.sin((this.bD - 0.4F) * 3.1415927F) * 7.0F);
 
 				for (int var3 = 0; var3 < var2; ++var3) {
 					float var4 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
 					float var5 = (this.random.nextFloat() * 2.0F - 1.0F) * this.width * 0.5F;
-					this.world.a(class_cy.f, this.locX + (double) var4, (double) (var1 + 0.8F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
+					this.world.addParticle(EnumParticle.f, this.locX + (double) var4, (double) (var1 + 0.8F), this.locZ + (double) var5, this.motX, this.motY, this.motZ, new int[0]);
 				}
 			}
 		}

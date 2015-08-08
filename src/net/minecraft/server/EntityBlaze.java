@@ -59,7 +59,7 @@ public class EntityBlaze extends EntityMonster {
 			}
 
 			for (int var1 = 0; var1 < 2; ++var1) {
-				this.world.a(class_cy.m, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
+				this.world.addParticle(EnumParticle.m, this.locX + (this.random.nextDouble() - 0.5D) * (double) this.width, this.locY + this.random.nextDouble() * (double) this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double) this.width, 0.0D, 0.0D, 0.0D, new int[0]);
 			}
 		}
 
@@ -163,7 +163,7 @@ public class EntityBlaze extends EntityMonster {
 				this.a.r().a(var1.locX, var1.locY, var1.locZ, 1.0D);
 			} else if (var2 < 256.0D) {
 				double var4 = var1.locX - this.a.locX;
-				double var6 = var1.aT().yMin + (double) (var1.length / 2.0F) - (this.a.locY + (double) (this.a.length / 2.0F));
+				double var6 = var1.getBoundingBox().yMin + (double) (var1.length / 2.0F) - (this.a.locY + (double) (this.a.length / 2.0F));
 				double var8 = var1.locZ - this.a.locZ;
 				if (this.c <= 0) {
 					++this.b;
@@ -183,7 +183,7 @@ public class EntityBlaze extends EntityMonster {
 						this.a.world.a((EntityHuman) null, 1009, new BlockPosition((int) this.a.locX, (int) this.a.locY, (int) this.a.locZ), 0);
 
 						for (int var11 = 0; var11 < 1; ++var11) {
-							EntitySmallFireball var12 = new EntitySmallFireball(this.a.world, this.a, var4 + this.a.bd().nextGaussian() * (double) var10, var6, var8 + this.a.bd().nextGaussian() * (double) var10);
+							EntitySmallFireball var12 = new EntitySmallFireball(this.a.world, this.a, var4 + this.a.getRandom().nextGaussian() * (double) var10, var6, var8 + this.a.getRandom().nextGaussian() * (double) var10);
 							var12.locY = this.a.locY + (double) (this.a.length / 2.0F) + 0.5D;
 							this.a.world.addEntity((Entity) var12);
 						}

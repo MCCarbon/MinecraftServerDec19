@@ -22,7 +22,7 @@ public class ItemEnderEye extends Item {
                double var18 = 0.0D;
                double var20 = 0.0D;
                double var22 = 0.0D;
-               var3.a(class_cy.l, var12, var14, var16, var18, var20, var22, new int[0]);
+               var3.addParticle(EnumParticle.l, var12, var14, var16, var18, var20, var22, new int[0]);
             }
 
             EnumDirection var24 = (EnumDirection)var10.get(BlockEnderPortalFrame.a);

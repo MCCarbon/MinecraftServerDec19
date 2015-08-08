@@ -36,7 +36,7 @@ public class ItemStep extends ItemBlock {
 				if ((var6 == EnumDirection.UP && var14 == BlockStepAbstract.EnumSlabHalf.BOTTOM || var6 == EnumDirection.DOWN && var14 == BlockStepAbstract.EnumSlabHalf.TOP) && var13 == var10) {
 					IBlockData var15 = this.c.getBlockData().set(var12, var13);
 					if (var3.b(this.c.getBoundingBox(var3, var4, var15)) && var3.setTypeAndData((BlockPosition) var4, (IBlockData) var15, 3)) {
-						var3.a((double) ((float) var4.getX() + 0.5F), (double) ((float) var4.getY() + 0.5F), (double) ((float) var4.getZ() + 0.5F), this.c.stepSound.getPlaceSound(), (this.c.stepSound.getVolume() + 1.0F) / 2.0F, this.c.stepSound.getPitch() * 0.8F);
+						var3.makeSound((double) ((float) var4.getX() + 0.5F), (double) ((float) var4.getY() + 0.5F), (double) ((float) var4.getZ() + 0.5F), this.c.stepSound.getPlaceSound(), (this.c.stepSound.getVolume() + 1.0F) / 2.0F, this.c.stepSound.getPitch() * 0.8F);
 						--var1.count;
 					}
 
@@ -56,7 +56,7 @@ public class ItemStep extends ItemBlock {
                 BlockState state = (BlockState) this.b.getVariant();
 				IBlockData var7 = this.c.getBlockData().set(state, var6);
 				if (var2.b(this.c.getBoundingBox(var2, var3, var7)) && var2.setTypeAndData((BlockPosition) var3, (IBlockData) var7, 3)) {
-					var2.a((double) ((float) var3.getX() + 0.5F), (double) ((float) var3.getY() + 0.5F), (double) ((float) var3.getZ() + 0.5F), this.c.stepSound.getPlaceSound(), (this.c.stepSound.getVolume() + 1.0F) / 2.0F, this.c.stepSound.getPitch() * 0.8F);
+					var2.makeSound((double) ((float) var3.getX() + 0.5F), (double) ((float) var3.getY() + 0.5F), (double) ((float) var3.getZ() + 0.5F), this.c.stepSound.getPlaceSound(), (this.c.stepSound.getVolume() + 1.0F) / 2.0F, this.c.stepSound.getPitch() * 0.8F);
 					--var1.count;
 				}
 
