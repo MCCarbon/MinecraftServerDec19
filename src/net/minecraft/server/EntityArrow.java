@@ -58,31 +58,31 @@ public class EntityArrow extends Entity implements class_xi {
 		this.datawatcher.add(CRITICAL_DW_ID, Byte.valueOf((byte) 0));
 	}
 
-	public void a(float var1, float var2, float var3, float var4, float var5) {
-		float var6 = -MathHelper.sin(var2 * 0.017453292F) * MathHelper.cos(var1 * 0.017453292F);
-		float var7 = -MathHelper.sin(var1 * 0.017453292F);
-		float var8 = MathHelper.cos(var2 * 0.017453292F) * MathHelper.cos(var1 * 0.017453292F);
-		this.shoot(var6, var7, var8, var4, var5);
+	public void startShoot(float aX, float aY, float aZ, float f1, float f2) {
+		float mX = -MathHelper.sin(aY * 0.017453292F) * MathHelper.cos(aX * 0.017453292F);
+		float mY = -MathHelper.sin(aX * 0.017453292F);
+		float mZ = MathHelper.cos(aY * 0.017453292F) * MathHelper.cos(aX * 0.017453292F);
+		this.shoot(mX, mY, mZ, f1, f2);
 	}
 
 	@Override
-	public void shoot(double var1, double var3, double var5, float var7, float var8) {
-		float var9 = MathHelper.sqrt((var1 * var1) + (var3 * var3) + (var5 * var5));
-		var1 /= var9;
-		var3 /= var9;
-		var5 /= var9;
-		var1 += this.random.nextGaussian() * 0.007499999832361937D * var8;
-		var3 += this.random.nextGaussian() * 0.007499999832361937D * var8;
-		var5 += this.random.nextGaussian() * 0.007499999832361937D * var8;
-		var1 *= var7;
-		var3 *= var7;
-		var5 *= var7;
-		this.motX = var1;
-		this.motY = var3;
-		this.motZ = var5;
-		float var10 = MathHelper.sqrt((var1 * var1) + (var5 * var5));
-		this.lastYaw = this.yaw = (float) ((MathHelper.b(var1, var5) * 180.0D) / 3.1415927410125732D);
-		this.lastPitch = this.pitch = (float) ((MathHelper.b(var3, var10) * 180.0D) / 3.1415927410125732D);
+	public void shoot(double mX, double mY, double mZ, float f1, float f2) {
+		float var9 = MathHelper.sqrt((mX * mX) + (mY * mY) + (mZ * mZ));
+		mX /= var9;
+		mY /= var9;
+		mZ /= var9;
+		mX += this.random.nextGaussian() * 0.007499999832361937D * f2;
+		mY += this.random.nextGaussian() * 0.007499999832361937D * f2;
+		mZ += this.random.nextGaussian() * 0.007499999832361937D * f2;
+		mX *= f1;
+		mY *= f1;
+		mZ *= f1;
+		this.motX = mX;
+		this.motY = mY;
+		this.motZ = mZ;
+		float var10 = MathHelper.sqrt((mX * mX) + (mZ * mZ));
+		this.lastYaw = this.yaw = (float) ((MathHelper.b(mX, mZ) * 180.0D) / 3.1415927410125732D);
+		this.lastPitch = this.pitch = (float) ((MathHelper.b(mY, var10) * 180.0D) / 3.1415927410125732D);
 		this.life = 0;
 	}
 
@@ -155,7 +155,7 @@ public class EntityArrow extends Entity implements class_xi {
 				this.a(var6);
 			}
 
-			if (this.m()) {
+			if (this.isCritical()) {
 				for (int var16 = 0; var16 < 4; ++var16) {
 					this.world.addParticle(EnumParticle.j, this.locX + ((this.motX * var16) / 4.0D), this.locY + ((this.motY * var16) / 4.0D), this.locZ + ((this.motZ * var16) / 4.0D), -this.motX, -this.motY + 0.2D, -this.motZ, new int[0]);
 				}
@@ -214,7 +214,7 @@ public class EntityArrow extends Entity implements class_xi {
 		if (var2 != null) {
 			float var3 = MathHelper.sqrt((this.motX * this.motX) + (this.motY * this.motY) + (this.motZ * this.motZ));
 			int var4 = MathHelper.ceil(var3 * this.damage);
-			if (this.m()) {
+			if (this.isCritical()) {
 				var4 += this.random.nextInt((var4 / 2) + 2);
 			}
 
@@ -284,7 +284,7 @@ public class EntityArrow extends Entity implements class_xi {
 			this.makeSound("random.bowhit", 1.0F, 1.2F / ((this.random.nextFloat() * 0.2F) + 0.9F));
 			this.inGround = true;
 			this.shake = 7;
-			this.a(false);
+			this.setCritical(false);
 			if (this.hitBlockId.getMaterial() != Material.AIR) {
 				this.hitBlockId.a(this.world, var8, var9, this);
 			}
@@ -408,17 +408,17 @@ public class EntityArrow extends Entity implements class_xi {
 		return 0.0F;
 	}
 
-	public void a(boolean var1) {
-		byte var2 = this.datawatcher.getByte(CRITICAL_DW_ID);
-		if (var1) {
-			this.datawatcher.update(CRITICAL_DW_ID, Byte.valueOf((byte) (var2 | 1)));
+	public void setCritical(boolean b) {
+		byte prev = this.datawatcher.getByte(CRITICAL_DW_ID);
+		if (b) {
+			this.datawatcher.update(CRITICAL_DW_ID, Byte.valueOf((byte) (prev | 1)));
 		} else {
-			this.datawatcher.update(CRITICAL_DW_ID, Byte.valueOf((byte) (var2 & -2)));
+			this.datawatcher.update(CRITICAL_DW_ID, Byte.valueOf((byte) (prev & -2)));
 		}
 
 	}
 
-	public boolean m() {
+	public boolean isCritical() {
 		byte var1 = this.datawatcher.getByte(CRITICAL_DW_ID);
 		return (var1 & 1) != 0;
 	}

@@ -81,7 +81,7 @@ public class class_sk extends class_rm {
             int var5 = this.a.bX();
             if(var5 >= 20) {
                this.a.bZ();
-               this.a.a(this.b, ItemBow.b(var5));
+               this.a.a(this.b, ItemBow.getPercentReady(var5));
                this.c = this.f;
             }
          }
