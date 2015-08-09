@@ -497,7 +497,7 @@ public class BlockStairs extends Block {
 		for (int var15 = 0; var15 < var14; ++var15) {
 			MovingObjectPosition var16 = var22[var15];
 			if (var16 != null) {
-				double var17 = var16.c.distanceSquared(var4);
+				double var17 = var16.pos.distanceSquared(var4);
 				if (var17 > var21) {
 					var20 = var16;
 					var21 = var17;

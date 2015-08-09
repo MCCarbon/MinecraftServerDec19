@@ -156,7 +156,7 @@ public abstract class EntityLiving extends Entity {
 		}
 
 		if (this.T() || this.world.isClientSide) {
-			this.N();
+			this.extinguish();
 		}
 
 		boolean var7 = var1 && ((EntityHuman) this).abilities.invulnerable;
@@ -187,7 +187,7 @@ public abstract class EntityLiving extends Entity {
 		}
 
 		if (this.isAlive() && this.U()) {
-			this.N();
+			this.extinguish();
 		}
 
 		this.aH = this.aI;

@@ -116,7 +116,7 @@ public abstract class class_xo extends Entity implements class_xi {
       var1 = new Vec3D(this.locX, this.locY, this.locZ);
       var2 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
       if(var3 != null) {
-         var2 = new Vec3D(var3.c.x, var3.c.y, var3.c.z);
+         var2 = new Vec3D(var3.pos.x, var3.pos.y, var3.pos.z);
       }
 
       if(!this.world.isClientSide) {
@@ -139,7 +139,7 @@ public abstract class class_xo extends Entity implements class_xi {
                   AxisAlignedBB var12 = var10.getBoundingBox().grow((double)var11, (double)var11, (double)var11);
                   MovingObjectPosition var13 = var12.a(var1, var2);
                   if(var13 != null) {
-                     double var14 = var1.distanceSquared(var13.c);
+                     double var14 = var1.distanceSquared(var13.pos);
                      if(var14 < var6 || var6 == 0.0D) {
                         var4 = var10;
                         var6 = var14;
@@ -163,7 +163,7 @@ public abstract class class_xo extends Entity implements class_xi {
       }
 
       if(var3 != null) {
-         if(var3.a == MovingObjectPosition.class_a_in_class_awg.b && this.world.getType(var3.a()).getBlock() == Blocks.PORTAL) {
+         if(var3.type == MovingObjectPosition.EnumMovingObjectType.BLOCK && this.world.getType(var3.a()).getBlock() == Blocks.PORTAL) {
             this.d(var3.a());
          } else {
             this.a(var3);

@@ -22,7 +22,7 @@ public final class class_xj {
       MovingObjectPosition var19 = var16.rayTrace(var17, var18, false, true, false);
       if(var1) {
          if(var19 != null) {
-            var18 = new Vec3D(var19.c.x, var19.c.y, var19.c.z);
+            var18 = new Vec3D(var19.pos.x, var19.pos.y, var19.pos.z);
          }
 
          Entity var20 = null;
@@ -36,7 +36,7 @@ public final class class_xj {
                AxisAlignedBB var27 = var25.getBoundingBox().grow((double)var26, (double)var26, (double)var26);
                MovingObjectPosition var28 = var27.a(var17, var18);
                if(var28 != null) {
-                  double var29 = var17.distanceSquared(var28.c);
+                  double var29 = var17.distanceSquared(var28.pos);
                   if(var29 < var22 || var22 == 0.0D) {
                      var20 = var25;
                      var22 = var29;

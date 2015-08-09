@@ -14,13 +14,13 @@ public class EntitySnowball extends class_xo {
    }
 
    protected void a(MovingObjectPosition var1) {
-      if(var1.d != null) {
+      if(var1.entity != null) {
          byte var2 = 0;
-         if(var1.d instanceof EntityBlaze) {
+         if(var1.entity instanceof EntityBlaze) {
             var2 = 3;
          }
 
-         var1.d.damageEntity(DamageSource.a((Entity) this, (Entity) this.l()), (float)var2);
+         var1.entity.damageEntity(DamageSource.a((Entity) this, (Entity) this.l()), (float)var2);
       }
 
       for(int var3 = 0; var3 < 8; ++var3) {

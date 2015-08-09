@@ -229,7 +229,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 				this.n();
 			}
 
-			this.Q();
+			this.checkBlockCollisions();
 			this.pitch = 0.0F;
 			double var6 = this.lastX - this.locX;
 			double var8 = this.lastZ - this.locZ;

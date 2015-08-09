@@ -132,27 +132,27 @@ public class EntityArrow extends Entity implements class_xi {
 			++this.ticksInAir;
 			Vec3D var14 = new Vec3D(this.locX, this.locY, this.locZ);
 			Vec3D var5 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
-			MovingObjectPosition var6 = this.world.rayTrace(var14, var5, false, true, false);
+			MovingObjectPosition targetPosition = this.world.rayTrace(var14, var5, false, true, false);
 			var14 = new Vec3D(this.locX, this.locY, this.locZ);
 			var5 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
-			if (var6 != null) {
-				var5 = new Vec3D(var6.c.x, var6.c.y, var6.c.z);
+			if (targetPosition != null) {
+				var5 = new Vec3D(targetPosition.pos.x, targetPosition.pos.y, targetPosition.pos.z);
 			}
 
-			Entity var7 = this.a(var14, var5);
-			if (var7 != null) {
-				var6 = new MovingObjectPosition(var7);
+			Entity target = this.findTarget(var14, var5);
+			if (target != null) {
+				targetPosition = new MovingObjectPosition(target);
 			}
 
-			if ((var6 != null) && (var6.d != null) && (var6.d instanceof EntityHuman)) {
-				EntityHuman var8 = (EntityHuman) var6.d;
+			if ((targetPosition != null) && (targetPosition.entity != null) && (targetPosition.entity instanceof EntityHuman)) {
+				EntityHuman var8 = (EntityHuman) targetPosition.entity;
 				if (var8.abilities.invulnerable || ((this.shooter instanceof EntityHuman) && !((EntityHuman) this.shooter).a(var8))) {
-					var6 = null;
+					targetPosition = null;
 				}
 			}
 
-			if (var6 != null) {
-				this.a(var6);
+			if (targetPosition != null) {
+				this.hit(targetPosition);
 			}
 
 			if (this.isCritical()) {
@@ -197,7 +197,7 @@ public class EntityArrow extends Entity implements class_xi {
 			}
 
 			if (this.U()) {
-				this.N();
+				this.extinguish();
 			}
 
 			this.motX *= var9;
@@ -205,13 +205,13 @@ public class EntityArrow extends Entity implements class_xi {
 			this.motZ *= var9;
 			this.motY -= var10;
 			this.setPosition(this.locX, this.locY, this.locZ);
-			this.Q();
+			this.checkBlockCollisions();
 		}
 	}
 
-	protected void a(MovingObjectPosition var1) {
-		Entity var2 = var1.d;
-		if (var2 != null) {
+	protected void hit(MovingObjectPosition mvpos) {
+		Entity hitEntity = mvpos.entity;
+		if (hitEntity != null) {
 			float var3 = MathHelper.sqrt((this.motX * this.motX) + (this.motY * this.motY) + (this.motZ * this.motZ));
 			int var4 = MathHelper.ceil(var3 * this.damage);
 			if (this.isCritical()) {
@@ -225,13 +225,13 @@ public class EntityArrow extends Entity implements class_xi {
 				var5 = DamageSource.a(this, this.shooter);
 			}
 
-			if (this.av() && !(var2 instanceof EntityEnderman)) {
-				var2.f(5);
+			if (this.av() && !(hitEntity instanceof EntityEnderman)) {
+				hitEntity.f(5);
 			}
 
-			if (var2.damageEntity(var5, var4)) {
-				if (var2 instanceof EntityLiving) {
-					EntityLiving var6 = (EntityLiving) var2;
+			if (hitEntity.damageEntity(var5, var4)) {
+				if (hitEntity instanceof EntityLiving) {
+					EntityLiving var6 = (EntityLiving) hitEntity;
 					if (!this.world.isClientSide) {
 						var6.l(var6.bw() + 1);
 					}
@@ -255,7 +255,7 @@ public class EntityArrow extends Entity implements class_xi {
 				}
 
 				this.makeSound("random.bowhit", 1.0F, 1.2F / ((this.random.nextFloat() * 0.2F) + 0.9F));
-				if (!(var2 instanceof EntityEnderman)) {
+				if (!(hitEntity instanceof EntityEnderman)) {
 					this.die();
 				}
 			} else {
@@ -267,16 +267,16 @@ public class EntityArrow extends Entity implements class_xi {
 				this.ticksInAir = 0;
 			}
 		} else {
-			BlockPosition var8 = var1.a();
+			BlockPosition var8 = mvpos.a();
 			this.hitBlockX = var8.getX();
 			this.hitBlockY = var8.getY();
 			this.hitBlockZ = var8.getZ();
 			IBlockData var9 = this.world.getType(var8);
 			this.hitBlockId = var9.getBlock();
 			this.hitBlockData = this.hitBlockId.toLegacyData(var9);
-			this.motX = ((float) (var1.c.x - this.locX));
-			this.motY = ((float) (var1.c.y - this.locY));
-			this.motZ = ((float) (var1.c.z - this.locZ));
+			this.motX = ((float) (mvpos.pos.x - this.locX));
+			this.motY = ((float) (mvpos.pos.y - this.locY));
+			this.motZ = ((float) (mvpos.pos.z - this.locZ));
 			float var10 = MathHelper.sqrt((this.motX * this.motX) + (this.motY * this.motY) + (this.motZ * this.motZ));
 			this.locX -= (this.motX / var10) * 0.05000000074505806D;
 			this.locY -= (this.motY / var10) * 0.05000000074505806D;
@@ -295,7 +295,7 @@ public class EntityArrow extends Entity implements class_xi {
 	protected void b(EntityLiving var1) {
 	}
 
-	protected Entity a(Vec3D var1, Vec3D var2) {
+	protected Entity findTarget(Vec3D var1, Vec3D var2) {
 		Entity var3 = null;
 		List var4 = this.world.a(this, this.getBoundingBox().add(this.motX, this.motY, this.motZ).grow(1.0D, 1.0D, 1.0D), TARGET_ENTITY_SELECTOR);
 		double var5 = 0.0D;
@@ -307,7 +307,7 @@ public class EntityArrow extends Entity implements class_xi {
 				AxisAlignedBB var10 = var8.getBoundingBox().grow(var9, var9, var9);
 				MovingObjectPosition var11 = var10.a(var1, var2);
 				if (var11 != null) {
-					double var12 = var1.distanceSquared(var11.c);
+					double var12 = var1.distanceSquared(var11.pos);
 					if ((var12 < var5) || (var5 == 0.0D)) {
 						var3 = var8;
 						var5 = var12;

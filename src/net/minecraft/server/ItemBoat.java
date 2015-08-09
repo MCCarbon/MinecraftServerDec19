@@ -46,7 +46,7 @@ public class ItemBoat extends Item {
 
          if(var27) {
             return new UseResultWithValue(UseResult.CANT_USE, var1);
-         } else if(var25.a == MovingObjectPosition.class_a_in_class_awg.b) {
+         } else if(var25.type == MovingObjectPosition.EnumMovingObjectType.BLOCK) {
             BlockPosition var34 = var25.a();
             if(var2.getType(var34).getBlock() == Blocks.SNOW_LAYER) {
                var34 = var34.down();

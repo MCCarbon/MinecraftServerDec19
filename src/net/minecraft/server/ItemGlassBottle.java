@@ -10,13 +10,13 @@ public class ItemGlassBottle extends Item {
       if(var5 == null) {
          return new UseResultWithValue(UseResult.CANT_USE, var1);
       } else {
-         if(var5.a == MovingObjectPosition.class_a_in_class_awg.b) {
+         if(var5.type == MovingObjectPosition.EnumMovingObjectType.BLOCK) {
             BlockPosition var6 = var5.a();
             if(!var2.a(var3, var6)) {
                return new UseResultWithValue(UseResult.CANT_USE, var1);
             }
 
-            if(!var3.a(var6.shift(var5.b), var5.b, var1)) {
+            if(!var3.a(var6.shift(var5.direction), var5.direction, var1)) {
                return new UseResultWithValue(UseResult.CANT_USE, var1);
             }
 

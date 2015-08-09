@@ -269,12 +269,12 @@ public class EntityShulkerBullet extends Entity {
 	}
 
 	protected void a(MovingObjectPosition var1) {
-		if (var1.d != null) {
-			boolean var2 = var1.d.damageEntity(DamageSource.a((Entity) this, (EntityLiving) this.a), 4.0F);
+		if (var1.entity != null) {
+			boolean var2 = var1.entity.damageEntity(DamageSource.a((Entity) this, (EntityLiving) this.a), 4.0F);
 			if (var2) {
-				this.a(this.a, var1.d);
-				if (var1.d instanceof EntityLiving) {
-					((EntityLiving) var1.d).addEffect(new MobEffect(MobEffectList.y, 200));
+				this.a(this.a, var1.entity);
+				if (var1.entity instanceof EntityLiving) {
+					((EntityLiving) var1.entity).addEffect(new MobEffect(MobEffectList.y, 200));
 				}
 			}
 		} else {

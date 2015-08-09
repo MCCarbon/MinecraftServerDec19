@@ -292,7 +292,7 @@ public abstract class Entity implements class_m {
 
 	}
 
-	public void N() {
+	public void extinguish() {
 		this.fireTicks = 0;
 	}
 
@@ -548,7 +548,7 @@ public abstract class Entity implements class_m {
 			}
 
 			try {
-				this.Q();
+				this.checkBlockCollisions();
 			} catch (Throwable var52) {
 				class_b var63 = class_b.a(var52, "Checking entity block collision");
 				class_c var65 = var63.a("Entity being checked for collision");
@@ -588,7 +588,7 @@ public abstract class Entity implements class_m {
 		return "game.neutral.swim";
 	}
 
-	protected void Q() {
+	protected void checkBlockCollisions() {
 		BlockPosition var1 = new BlockPosition(this.getBoundingBox().xMin + 0.001D, this.getBoundingBox().yMin + 0.001D, this.getBoundingBox().zMin + 0.001D);
 		BlockPosition var2 = new BlockPosition(this.getBoundingBox().xMax - 0.001D, this.getBoundingBox().yMax - 0.001D, this.getBoundingBox().zMax - 0.001D);
 		if (this.world.areChunksLoadedBetween(var1, var2)) {

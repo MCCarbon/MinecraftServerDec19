@@ -118,7 +118,7 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 
 		if (av() && abilities.invulnerable) {
-			N();
+			extinguish();
 		}
 
 		bx = bA;
@@ -832,7 +832,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 						this.a(0.3F);
 					} else if (var6) {
-						var1.N();
+						var1.extinguish();
 					}
 				}
 

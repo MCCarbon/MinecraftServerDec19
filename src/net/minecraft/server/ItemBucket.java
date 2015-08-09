@@ -15,7 +15,7 @@ public class ItemBucket extends Item {
       if(var6 == null) {
          return new UseResultWithValue(UseResult.CANT_USE, var1);
       } else {
-         if(var6.a == MovingObjectPosition.class_a_in_class_awg.b) {
+         if(var6.type == MovingObjectPosition.EnumMovingObjectType.BLOCK) {
             BlockPosition var7 = var6.a();
             if(!var2.a(var3, var7)) {
                return new UseResultWithValue(UseResult.CANT_USE, var1);
@@ -26,8 +26,8 @@ public class ItemBucket extends Item {
                   return new UseResultWithValue(UseResult.SUCCESS, new ItemStack(Items.BUCKET));
                }
 
-               BlockPosition var10 = var7.shift(var6.b);
-               if(!var3.a(var10, var6.b, var1)) {
+               BlockPosition var10 = var7.shift(var6.direction);
+               if(!var3.a(var10, var6.direction, var1)) {
                   return new UseResultWithValue(UseResult.CANT_USE, var1);
                }
 
@@ -39,7 +39,7 @@ public class ItemBucket extends Item {
                return new UseResultWithValue(UseResult.SUCCESS, var1);
             }
 
-            if(!var3.a(var7.shift(var6.b), var6.b, var1)) {
+            if(!var3.a(var7.shift(var6.direction), var6.direction, var1)) {
                return new UseResultWithValue(UseResult.CANT_USE, var1);
             }
 

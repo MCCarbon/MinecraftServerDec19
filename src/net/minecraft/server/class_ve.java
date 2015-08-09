@@ -144,7 +144,7 @@ public class class_ve extends Entity {
          var28 = new Vec3D(this.locX, this.locY, this.locZ);
          var2 = new Vec3D(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
          if(var3 != null) {
-            var2 = new Vec3D(var3.c.x, var3.c.y, var3.c.z);
+            var2 = new Vec3D(var3.pos.x, var3.pos.y, var3.pos.z);
          }
 
          Entity var4 = null;
@@ -159,7 +159,7 @@ public class class_ve extends Entity {
                AxisAlignedBB var11 = var9.getBoundingBox().grow((double)var10, (double)var10, (double)var10);
                MovingObjectPosition var12 = var11.a(var28, var2);
                if(var12 != null) {
-                  var13 = var28.distanceSquared(var12.c);
+                  var13 = var28.distanceSquared(var12.pos);
                   if(var13 < var6 || var6 == 0.0D) {
                      var4 = var9;
                      var6 = var13;
@@ -173,9 +173,9 @@ public class class_ve extends Entity {
          }
 
          if(var3 != null) {
-            if(var3.d != null) {
-               if(var3.d.damageEntity(DamageSource.a((Entity) this, (Entity) this.b), 0.0F)) {
-                  this.c = var3.d;
+            if(var3.entity != null) {
+               if(var3.entity.damageEntity(DamageSource.a((Entity) this, (Entity) this.b), 0.0F)) {
+                  this.c = var3.entity;
                }
             } else {
                this.at = true;

@@ -14,15 +14,15 @@ public class EntityEnderpearl extends class_xo {
 
    protected void a(MovingObjectPosition var1) {
       EntityLiving var2 = this.l();
-      if(var1.d != null) {
-         if(var1.d == this.d) {
+      if(var1.entity != null) {
+         if(var1.entity == this.d) {
             return;
          }
 
-         var1.d.damageEntity(DamageSource.a((Entity) this, (Entity) var2), 0.0F);
+         var1.entity.damageEntity(DamageSource.a((Entity) this, (Entity) var2), 0.0F);
       }
 
-      if(var1.a == MovingObjectPosition.class_a_in_class_awg.b) {
+      if(var1.type == MovingObjectPosition.EnumMovingObjectType.BLOCK) {
          BlockPosition var3 = var1.a();
          TileEntity var4 = this.world.getTileEntity(var3);
          if(var4 instanceof TileEntityEndGateway) {

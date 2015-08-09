@@ -30,8 +30,8 @@ public class EntityPotion extends class_xo {
    protected void a(MovingObjectPosition var1) {
       if(!this.world.isClientSide) {
          RegistryPotions var2 = ItemPotion.i(this.d);
-         if(var1.a == MovingObjectPosition.class_a_in_class_awg.b && var2 == class_acf.a) {
-            BlockPosition var16 = var1.a().shift(var1.b);
+         if(var1.type == MovingObjectPosition.EnumMovingObjectType.BLOCK && var2 == class_acf.a) {
+            BlockPosition var16 = var1.a().shift(var1.direction);
             this.a(var16);
             Iterator var17 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
@@ -64,7 +64,7 @@ public class EntityPotion extends class_xo {
                      } while(var8 >= 16.0D);
 
                      double var10 = 1.0D - Math.sqrt(var8) / 4.0D;
-                     if(var7 == var1.d) {
+                     if(var7 == var1.entity) {
                         var10 = 1.0D;
                      }
 

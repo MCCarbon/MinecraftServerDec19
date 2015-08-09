@@ -645,7 +645,7 @@ public abstract class World implements IBlockAccess {
 								return var39;
 							}
 						} else {
-							var40 = new MovingObjectPosition(MovingObjectPosition.class_a_in_class_awg.a, var1, var36, var12);
+							var40 = new MovingObjectPosition(MovingObjectPosition.EnumMovingObjectType.MISS, var1, var36, var12);
 						}
 					}
 				}

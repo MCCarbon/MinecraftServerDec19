@@ -6,48 +6,48 @@ import net.minecraft.server.EnumDirection;
 import net.minecraft.server.Entity;
 
 public class MovingObjectPosition {
-   private BlockPosition e;
-   public MovingObjectPosition.class_a_in_class_awg a;
-   public EnumDirection b;
-   public Vec3D c;
-   public Entity d;
 
-   public MovingObjectPosition(Vec3D var1, EnumDirection var2, BlockPosition var3) {
-      this(MovingObjectPosition.class_a_in_class_awg.b, var1, var2, var3);
-   }
+	private BlockPosition e;
+	public MovingObjectPosition.EnumMovingObjectType type;
+	public EnumDirection direction;
+	public Vec3D pos;
+	public Entity entity;
 
-   public MovingObjectPosition(Vec3D var1, EnumDirection var2) {
-      this(MovingObjectPosition.class_a_in_class_awg.b, var1, var2, BlockPosition.ZERO);
-   }
+	public MovingObjectPosition(Vec3D pos, EnumDirection direction, BlockPosition var3) {
+		this(MovingObjectPosition.EnumMovingObjectType.BLOCK, pos, direction, var3);
+	}
 
-   public MovingObjectPosition(Entity var1) {
-      this(var1, new Vec3D(var1.locX, var1.locY, var1.locZ));
-   }
+	public MovingObjectPosition(Vec3D pos, EnumDirection direction) {
+		this(MovingObjectPosition.EnumMovingObjectType.BLOCK, pos, direction, BlockPosition.ZERO);
+	}
 
-   public MovingObjectPosition(MovingObjectPosition.class_a_in_class_awg var1, Vec3D var2, EnumDirection var3, BlockPosition var4) {
-      this.a = var1;
-      this.e = var4;
-      this.b = var3;
-      this.c = new Vec3D(var2.x, var2.y, var2.z);
-   }
+	public MovingObjectPosition(Entity entity) {
+		this(entity, new Vec3D(entity.locX, entity.locY, entity.locZ));
+	}
 
-   public MovingObjectPosition(Entity var1, Vec3D var2) {
-      this.a = MovingObjectPosition.class_a_in_class_awg.c;
-      this.d = var1;
-      this.c = var2;
-   }
+	public MovingObjectPosition(MovingObjectPosition.EnumMovingObjectType var1, Vec3D var2, EnumDirection var3, BlockPosition var4) {
+		this.type = var1;
+		this.e = var4;
+		this.direction = var3;
+		this.pos = new Vec3D(var2.x, var2.y, var2.z);
+	}
 
-   public BlockPosition a() {
-      return this.e;
-   }
+	public MovingObjectPosition(Entity var1, Vec3D var2) {
+		this.type = MovingObjectPosition.EnumMovingObjectType.ENTITY;
+		this.entity = var1;
+		this.pos = var2;
+	}
 
-   public String toString() {
-      return "HitResult{type=" + this.a + ", blockpos=" + this.e + ", f=" + this.b + ", pos=" + this.c + ", entity=" + this.d + '}';
-   }
+	public BlockPosition a() {
+		return this.e;
+	}
 
-   public static enum class_a_in_class_awg {
-      a,
-      b,
-      c;
-   }
+	public String toString() {
+		return "HitResult{type=" + this.type + ", blockpos=" + this.e + ", f=" + this.direction + ", pos=" + this.pos + ", entity=" + this.entity + '}';
+	}
+
+	public static enum EnumMovingObjectType {
+		MISS, BLOCK, ENTITY;
+	}
+
 }

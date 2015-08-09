@@ -33,20 +33,20 @@ public class EntityWitherSkull extends class_xf {
 
    protected void a(MovingObjectPosition var1) {
       if(!this.world.isClientSide) {
-         if(var1.d != null) {
+         if(var1.entity != null) {
             if(this.a != null) {
-               if(var1.d.damageEntity(DamageSource.a(this.a), 8.0F)) {
-                  if(!var1.d.isAlive()) {
+               if(var1.entity.damageEntity(DamageSource.a(this.a), 8.0F)) {
+                  if(!var1.entity.isAlive()) {
                      this.a.h(5.0F);
                   } else {
-                     this.a(this.a, var1.d);
+                     this.a(this.a, var1.entity);
                   }
                }
             } else {
-               var1.d.damageEntity(DamageSource.l, 5.0F);
+               var1.entity.damageEntity(DamageSource.l, 5.0F);
             }
 
-            if(var1.d instanceof EntityLiving) {
+            if(var1.entity instanceof EntityLiving) {
                byte var2 = 0;
                if(this.world.ab() == class_om.c) {
                   var2 = 10;
@@ -55,7 +55,7 @@ public class EntityWitherSkull extends class_xf {
                }
 
                if(var2 > 0) {
-                  ((EntityLiving)var1.d).addEffect(new MobEffect(MobEffectList.t, 20 * var2, 1));
+                  ((EntityLiving)var1.entity).addEffect(new MobEffect(MobEffectList.t, 20 * var2, 1));
                }
             }
          }
