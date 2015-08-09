@@ -127,7 +127,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 		if (exitPos == null) {
 			exitPos = new BlockPosition(var2.x + 0.5D, 75.0D, var2.z + 0.5D);
 			looger.debug("Failed to find suitable block, settling on " + exitPos);
-			(new class_aqj()).b(world, new Random(exitPos.asLong()), exitPos);
+			(new class_aqj()).generate(world, new Random(exitPos.asLong()), exitPos);
 		} else {
 			looger.debug("Found block at " + exitPos);
 		}
@@ -199,7 +199,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 	}
 
 	private void b(BlockPosition var1) {
-		(new class_aqi()).b(world, new Random(), var1);
+		(new class_aqi()).generate(world, new Random(), var1);
 		TileEntity var2 = world.getTileEntity(var1);
 		if (var2 instanceof TileEntityEndGateway) {
 			TileEntityEndGateway var3 = (TileEntityEndGateway) var2;

@@ -42,7 +42,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aep;
 import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.class_avj;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
@@ -191,7 +191,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.S = var1;
 	}
 
-	protected void a(String var1, String var2, long var3, class_aes var5, String var6) {
+	protected void a(String var1, String var2, long var3, WorldType var5, String var6) {
 		this.a(var1);
 		this.b("menu.loadingLevel");
 		this.d = new WorldServer[3];

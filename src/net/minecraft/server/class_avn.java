@@ -8,7 +8,7 @@ import java.util.concurrent.Callable;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.GameRules;
 import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
@@ -19,7 +19,7 @@ import net.minecraft.server.class_om;
 public class class_avn {
    public static final class_om a;
    private long b;
-   private class_aes c;
+   private WorldType c;
    private String d;
    private int e;
    private int f;
@@ -57,7 +57,7 @@ public class class_avn {
    private GameRules L;
 
    protected class_avn() {
-      this.c = class_aes.b;
+      this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
       this.C = 0.0D;
@@ -73,7 +73,7 @@ public class class_avn {
    }
 
    public class_avn(NBTTagCompound var1) {
-      this.c = class_aes.b;
+      this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
       this.C = 0.0D;
@@ -89,9 +89,9 @@ public class class_avn {
       this.b = var1.getLong("RandomSeed");
       if(var1.hasOfType("generatorName", 8)) {
          String var2 = var1.getString("generatorName");
-         this.c = class_aes.a(var2);
+         this.c = WorldType.getType(var2);
          if(this.c == null) {
-            this.c = class_aes.b;
+            this.c = WorldType.NORMAL;
          } else if(this.c.f()) {
             int var3 = 0;
             if(var1.hasOfType("generatorVersion", 99)) {
@@ -211,7 +211,7 @@ public class class_avn {
    }
 
    public class_avn(WorldSettings var1, String var2) {
-      this.c = class_aes.b;
+      this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
       this.C = 0.0D;
@@ -241,7 +241,7 @@ public class class_avn {
    }
 
    public class_avn(class_avn var1) {
-      this.c = class_aes.b;
+      this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
       this.C = 0.0D;
@@ -479,11 +479,11 @@ public class class_avn {
       this.w = var1;
    }
 
-   public class_aes u() {
+   public WorldType u() {
       return this.c;
    }
 
-   public void a(class_aes var1) {
+   public void a(WorldType var1) {
       this.c = var1;
    }
 

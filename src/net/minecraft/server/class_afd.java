@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afa;
 import net.minecraft.server.class_aua;
@@ -25,16 +25,16 @@ public class class_afd {
       this.d = new class_afa(this);
       this.f = "";
       this.e = Lists.newArrayList();
-      this.e.add(BiomeBase.t);
-      this.e.add(BiomeBase.q);
-      this.e.add(BiomeBase.u);
-      this.e.add(BiomeBase.I);
-      this.e.add(BiomeBase.H);
-      this.e.add(BiomeBase.K);
-      this.e.add(BiomeBase.L);
+      this.e.add(BiomeBase.FOREST);
+      this.e.add(BiomeBase.PLAINS);
+      this.e.add(BiomeBase.TAIGA);
+      this.e.add(BiomeBase.TAIGA_HILLS);
+      this.e.add(BiomeBase.FOREST_HILLS);
+      this.e.add(BiomeBase.JUNGLE);
+      this.e.add(BiomeBase.JUNGLE_HILLS);
    }
 
-   public class_afd(long var1, class_aes var3, String var4) {
+   public class_afd(long var1, WorldType var3, String var4) {
       this();
       this.f = var4;
       class_auc[] var5 = class_auc.a(var1, var3, var4);

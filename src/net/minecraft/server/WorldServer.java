@@ -103,7 +103,7 @@ public class WorldServer extends World implements class_of {
       }
 
       this.B.a("mobSpawner");
-      if(this.R().getBooleanValue("doMobSpawning") && this.x.u() != class_aes.g) {
+      if(this.R().getBooleanValue("doMobSpawning") && this.x.u() != WorldType.DEBUG) {
          this.R.a(this, this.F, this.G, this.x.f() % 400L == 0L);
       }
 
@@ -207,7 +207,7 @@ public class WorldServer extends World implements class_of {
 
    protected void i() {
       super.i();
-      if(this.x.u() == class_aes.g) {
+      if(this.x.u() == WorldType.DEBUG) {
          Iterator var20 = this.E.iterator();
 
          while(var20.hasNext()) {
@@ -380,7 +380,7 @@ public class WorldServer extends World implements class_of {
    }
 
    public boolean a(boolean var1) {
-      if(this.x.u() == class_aes.g) {
+      if(this.x.u() == WorldType.DEBUG) {
          return false;
       } else {
          int var2 = this.M.size();
@@ -443,10 +443,10 @@ public class WorldServer extends World implements class_of {
       int var5 = var4 + 16 + 2;
       int var6 = (var3.b << 4) - 2;
       int var7 = var6 + 16 + 2;
-      return this.a(new class_arw(var4, 0, var6, var5, 256, var7), var2);
+      return this.a(new StructureBoundingBox(var4, 0, var6, var5, 256, var7), var2);
    }
 
-   public List a(class_arw var1, boolean var2) {
+   public List a(StructureBoundingBox var1, boolean var2) {
       ArrayList var3 = null;
 
       for(int var4 = 0; var4 < 2; ++var4) {
@@ -526,7 +526,7 @@ public class WorldServer extends World implements class_of {
       if(!this.x.w()) {
          try {
             this.b(var1);
-            if(this.x.u() == class_aes.g) {
+            if(this.x.u() == WorldType.DEBUG) {
                this.aj();
             }
 
@@ -565,7 +565,7 @@ public class WorldServer extends World implements class_of {
    private void b(WorldSettings var1) {
       if(!this.worldProvider.e()) {
          this.x.a(BlockPosition.ZERO.up(this.worldProvider.i()));
-      } else if(this.x.u() == class_aes.g) {
+      } else if(this.x.u() == WorldType.DEBUG) {
          this.x.a(BlockPosition.ZERO.up());
       } else {
          this.y = true;
@@ -610,7 +610,7 @@ public class WorldServer extends World implements class_of {
          int var3 = this.x.c() + this.random.nextInt(6) - this.random.nextInt(6);
          int var4 = this.x.e() + this.random.nextInt(6) - this.random.nextInt(6);
          BlockPosition var5 = this.r(new BlockPosition(var3, 0, var4)).up();
-         if(var1.b(this, this.random, var5)) {
+         if(var1.generate(this, this.random, var5)) {
             break;
          }
       }

@@ -5,11 +5,11 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
-import net.minecraft.server.class_apn;
+import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 
-public class class_apg extends class_apn {
+public class class_apg extends WorldGenBase {
    private float[] d = new float[1024];
 
    protected void a(long var1, int var3, int var4, class_aph var5, double var6, double var8, double var10, float var12, float var13, float var14, int var15, int var16, double var17) {

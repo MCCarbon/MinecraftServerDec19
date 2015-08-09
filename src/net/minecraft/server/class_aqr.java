@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aqr extends class_aql {
+public class class_aqr extends WorldGenerator {
    private Block a;
 
    public class_aqr(Block var1) {
@@ -14,7 +14,7 @@ public class class_aqr extends class_aql {
       super(false);
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       if(this.a == null) {
          this.a = var2.nextBoolean()?Blocks.BROWN_MUSHROOM_BLOCK:Blocks.RED_MUSHROOM_BLOCK;
       }
@@ -135,7 +135,7 @@ public class class_aqr extends class_aql {
                         if(var3.getY() >= var3.getY() + var4 - 1 || var17 != BlockHugeMushroom.class_a_in_class_aiw.k) {
                            BlockPosition var18 = new BlockPosition(var14, var21, var15);
                            if(!var1.getType(var18).getBlock().isFullBlock()) {
-                              this.a(var1, var18, this.a.getBlockData().set(BlockHugeMushroom.a, var17));
+                              this.setTypeAndData(var1, var18, this.a.getBlockData().set(BlockHugeMushroom.a, var17));
                            }
                         }
                      }
@@ -145,7 +145,7 @@ public class class_aqr extends class_aql {
                for(var21 = 0; var21 < var4; ++var21) {
                   Block var22 = var1.getType(var3.up(var21)).getBlock();
                   if(!var22.isFullBlock()) {
-                     this.a(var1, var3.up(var21), this.a.getBlockData().set(BlockHugeMushroom.a, BlockHugeMushroom.class_a_in_class_aiw.j));
+                     this.setTypeAndData(var1, var3.up(var21), this.a.getBlockData().set(BlockHugeMushroom.a, BlockHugeMushroom.class_a_in_class_aiw.j));
                   }
                }
 

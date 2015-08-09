@@ -9,13 +9,13 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.TileEntityChest;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_od;
 import net.minecraft.server.IInventory;
 
-public class class_aqa extends class_aql {
+public class class_aqa extends WorldGenerator {
    private final List a;
    private final int b;
 
@@ -24,7 +24,7 @@ public class class_aqa extends class_aql {
       this.b = var2;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       Block var4;
       while(((var4 = var1.getType(var3).getBlock()).getMaterial() == Material.AIR || var4.getMaterial() == Material.LEAVES) && var3.getY() > 1) {
          var3 = var3.down();

@@ -36,7 +36,7 @@ public class class_ash {
          this.e = var1.getBoolean("Witch");
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(!this.a(var1, var3, 0)) {
             return false;
          } else {
@@ -128,7 +128,7 @@ public class class_ash {
          this.h = var1.getBoolean("placedTrap2");
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(!this.a(var1, var3, 0)) {
             return false;
          } else {
@@ -315,7 +315,7 @@ public class class_ash {
          k = new class_ash.class_b_in_class_ash.class_b_in_class_ash$class_a_in_class_b_in_class_ash();
       }
 
-      static class class_b_in_class_ash$class_a_in_class_b_in_class_ash extends class_asn.class_a_in_class_asn {
+      static class class_b_in_class_ash$class_a_in_class_b_in_class_ash extends StructurePiece.class_a_in_class_asn {
          private class_b_in_class_ash$class_a_in_class_b_in_class_ash() {
          }
 
@@ -362,7 +362,7 @@ public class class_ash {
          this.e[3] = var1.getBoolean("hasPlacedChest3");
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          this.a(var1, var3, 0, -4, 0, this.a - 1, 0, this.c - 1, Blocks.SANDSTONE.getBlockData(), Blocks.SANDSTONE.getBlockData(), false);
 
          int var4;
@@ -564,7 +564,7 @@ public class class_ash {
       }
    }
 
-   abstract static class class_c_in_class_ash extends class_asn {
+   abstract static class class_c_in_class_ash extends StructurePiece {
       protected int a;
       protected int b;
       protected int c;
@@ -580,9 +580,9 @@ public class class_ash {
          this.c = var7;
          this.a(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var1));
          if(this.e().getAxis() == EnumDirection.EnumAxis.Z) {
-            this.l = new class_arw(var2, var3, var4, var2 + var5 - 1, var3 + var6 - 1, var4 + var7 - 1);
+            this.l = new StructureBoundingBox(var2, var3, var4, var2 + var5 - 1, var3 + var6 - 1, var4 + var7 - 1);
          } else {
-            this.l = new class_arw(var2, var3, var4, var2 + var7 - 1, var3 + var6 - 1, var4 + var5 - 1);
+            this.l = new StructureBoundingBox(var2, var3, var4, var2 + var7 - 1, var3 + var6 - 1, var4 + var5 - 1);
          }
 
       }
@@ -601,7 +601,7 @@ public class class_ash {
          this.d = var1.getInt("HPos");
       }
 
-      protected boolean a(World var1, class_arw var2, int var3) {
+      protected boolean a(World var1, StructureBoundingBox var2, int var3) {
          if(this.d >= 0) {
             return true;
          } else {

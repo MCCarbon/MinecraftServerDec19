@@ -11,11 +11,11 @@ import net.minecraft.server.BlockSand;
 import net.minecraft.server.BlockDoubleStepAbstract;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ant;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 
-public class class_aqg extends class_aql {
+public class class_aqg extends WorldGenerator {
    private static final class_ant a;
    private final IBlockData b;
    private final IBlockData c;
@@ -27,7 +27,7 @@ public class class_aqg extends class_aql {
       this.d = Blocks.FLOWING_WATER.getBlockData();
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       while(var1.isEmpty(var3) && var3.getY() > 2) {
          var3 = var3.down();
       }

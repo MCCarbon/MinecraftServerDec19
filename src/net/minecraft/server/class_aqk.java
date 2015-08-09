@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_aqk extends class_aql {
+public class class_aqk extends WorldGenerator {
    public static final BlockPosition a = new BlockPosition(0, 0, 0);
    public static final BlockPosition b;
    private final boolean c;
@@ -12,7 +12,7 @@ public class class_aqk extends class_aql {
       this.c = var1;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       Iterator var4 = BlockPosition.allInCubeM(new BlockPosition(var3.getX() - 4, var3.getY() - 1, var3.getZ() - 4), new BlockPosition(var3.getX() + 4, var3.getY() + 32, var3.getZ() + 4)).iterator();
 
       while(var4.hasNext()) {
@@ -21,24 +21,24 @@ public class class_aqk extends class_aql {
          if(var6 <= 3.5D) {
             if(var5.getY() < var3.getY()) {
                if(var6 <= 2.5D) {
-                  this.a(var1, var5, Blocks.BEDROCK.getBlockData());
+                  this.setTypeAndData(var1, var5, Blocks.BEDROCK.getBlockData());
                } else if(var5.getY() < var3.getY()) {
-                  this.a(var1, var5, Blocks.END_STONE.getBlockData());
+                  this.setTypeAndData(var1, var5, Blocks.END_STONE.getBlockData());
                }
             } else if(var5.getY() > var3.getY()) {
-               this.a(var1, var5, Blocks.AIR.getBlockData());
+               this.setTypeAndData(var1, var5, Blocks.AIR.getBlockData());
             } else if(var6 > 2.5D) {
-               this.a(var1, var5, Blocks.BEDROCK.getBlockData());
+               this.setTypeAndData(var1, var5, Blocks.BEDROCK.getBlockData());
             } else if(this.c) {
-               this.a(var1, new BlockPosition(var5), Blocks.END_PORTAL.getBlockData());
+               this.setTypeAndData(var1, new BlockPosition(var5), Blocks.END_PORTAL.getBlockData());
             } else {
-               this.a(var1, new BlockPosition(var5), Blocks.AIR.getBlockData());
+               this.setTypeAndData(var1, new BlockPosition(var5), Blocks.AIR.getBlockData());
             }
          }
       }
 
       for(int var8 = 0; var8 < 4; ++var8) {
-         this.a(var1, var3.up(var8), Blocks.BEDROCK.getBlockData());
+         this.setTypeAndData(var1, var3.up(var8), Blocks.BEDROCK.getBlockData());
       }
 
       BlockPosition var9 = var3.up(2);
@@ -46,11 +46,11 @@ public class class_aqk extends class_aql {
 
       while(var10.hasNext()) {
          EnumDirection var11 = (EnumDirection)var10.next();
-         this.a(var1, var9.shift(var11), Blocks.TORCH.getBlockData().set(BlockTorch.a, var11));
+         this.setTypeAndData(var1, var9.shift(var11), Blocks.TORCH.getBlockData().set(BlockTorch.a, var11));
       }
 
       if(this.c) {
-         this.a(var1, var3.up(4), Blocks.DRAGON_EGG.getBlockData());
+         this.setTypeAndData(var1, var3.up(4), Blocks.DRAGON_EGG.getBlockData());
       }
 
       return true;

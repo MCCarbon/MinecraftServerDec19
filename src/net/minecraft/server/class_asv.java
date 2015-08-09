@@ -106,7 +106,7 @@ public class class_asv {
 
    public Map a(BlockPosition var1, class_asu var2) {
       HashMap var3 = Maps.newHashMap();
-      class_arw var4 = var2.g();
+      StructureBoundingBox var4 = var2.g();
       Iterator var5 = this.a.iterator();
 
       while(true) {
@@ -148,7 +148,7 @@ public class class_asv {
 
    public void b(World var1, BlockPosition var2, class_asu var3) {
       if(!this.a.isEmpty() && this.c.getX() >= 1 && this.c.getY() >= 1 && this.c.getZ() >= 1) {
-         class_arw var4 = var3.g();
+         StructureBoundingBox var4 = var3.g();
          Iterator var5 = this.a.iterator();
 
          while(true) {
@@ -224,7 +224,7 @@ public class class_asv {
       }
    }
 
-   private void a(World var1, BlockPosition var2, Block.class_a_in_class_agj var3, Block.EnumRotation var4, class_arw var5) {
+   private void a(World var1, BlockPosition var2, Block.class_a_in_class_agj var3, Block.EnumRotation var4, StructureBoundingBox var5) {
       Iterator var6 = this.b.iterator();
 
       while(true) {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.class_avo;
 import net.minecraft.server.WorldServer;
@@ -18,6 +18,6 @@ public class class_ky extends WorldServer {
    }
 
    static {
-      a = (new WorldSettings(I, WorldSettings.EnumGameMode.SURVIVAL, true, false, class_aes.b)).a();
+      a = (new WorldSettings(I, WorldSettings.EnumGameMode.SURVIVAL, true, false, WorldType.NORMAL)).a();
    }
 }

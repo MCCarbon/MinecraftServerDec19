@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.class_afg;
@@ -19,7 +19,7 @@ import net.minecraft.server.EntityPlayer;
 public abstract class class_aoy {
    public static final float[] a = new float[]{1.0F, 0.75F, 0.5F, 0.25F, 0.0F, 0.25F, 0.5F, 0.75F};
    protected World b;
-   private class_aes g;
+   private WorldType g;
    private String h;
    protected class_afd c;
    protected boolean d;
@@ -46,12 +46,12 @@ public abstract class class_aoy {
    }
 
    protected void b() {
-      class_aes var1 = this.b.Q().u();
-      if(var1 == class_aes.c) {
+      WorldType var1 = this.b.Q().u();
+      if(var1 == WorldType.FLAT) {
          class_arr var2 = class_arr.a(this.b.Q().B());
          this.c = new class_afg(BiomeBase.a(var2.a(), BiomeBase.ad), 0.5F);
-      } else if(var1 == class_aes.g) {
-         this.c = new class_afg(BiomeBase.q, 0.0F);
+      } else if(var1 == WorldType.DEBUG) {
+         this.c = new class_afg(BiomeBase.PLAINS, 0.0F);
       } else {
          this.c = new class_afd(this.b);
       }
@@ -59,7 +59,7 @@ public abstract class class_aoy {
    }
 
    public class_aoh c() {
-      return (class_aoh)(this.g == class_aes.c?new class_apk(this.b, this.b.K(), this.b.Q().s(), this.h):(this.g == class_aes.g?new class_apj(this.b):(this.g == class_aes.f?new class_app(this.b, this.b.K(), this.b.Q().s(), this.h):new class_app(this.b, this.b.K(), this.b.Q().s(), this.h))));
+      return (class_aoh)(this.g == WorldType.FLAT?new class_apk(this.b, this.b.K(), this.b.Q().s(), this.h):(this.g == WorldType.DEBUG?new class_apj(this.b):(this.g == WorldType.CUSTOMIZED?new class_app(this.b, this.b.K(), this.b.Q().s(), this.h):new class_app(this.b, this.b.K(), this.b.Q().s(), this.h))));
    }
 
    public boolean a(int var1, int var2) {
@@ -100,7 +100,7 @@ public abstract class class_aoy {
    }
 
    public int i() {
-      return this.g == class_aes.c?4:this.b.G() + 1;
+      return this.g == WorldType.FLAT?4:this.b.G() + 1;
    }
 
    public class_afd k() {

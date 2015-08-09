@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_afd;
 import net.minecraft.server.class_afg;
@@ -75,18 +75,18 @@ public class class_avj extends class_avm {
       b.info("Total conversion count is " + var9);
       class_avn var10 = this.c(var1);
       Object var11 = null;
-      if(var10.u() == class_aes.c) {
-         var11 = new class_afg(BiomeBase.q, 0.5F);
+      if(var10.u() == WorldType.FLAT) {
+         var11 = new class_afg(BiomeBase.PLAINS, 0.5F);
       } else {
          var11 = new class_afd(var10.b(), var10.u(), var10.B());
       }
 
       this.a(new File(var6, "region"), (Iterable)var3, (class_afd)var11, 0, var9, var2);
-      this.a(new File(var7, "region"), (Iterable)var4, new class_afg(BiomeBase.x, 0.0F), var3.size(), var9, var2);
-      this.a(new File(var8, "region"), (Iterable)var5, new class_afg(BiomeBase.y, 0.0F), var3.size() + var4.size(), var9, var2);
+      this.a(new File(var7, "region"), (Iterable)var4, new class_afg(BiomeBase.HELL, 0.0F), var3.size(), var9, var2);
+      this.a(new File(var8, "region"), (Iterable)var5, new class_afg(BiomeBase.END, 0.0F), var3.size() + var4.size(), var9, var2);
       var10.e(19133);
-      if(var10.u() == class_aes.h) {
-         var10.a(class_aes.b);
+      if(var10.u() == WorldType.NORMAL_1_1) {
+         var10.a(WorldType.NORMAL);
       }
 
       this.g(var1);

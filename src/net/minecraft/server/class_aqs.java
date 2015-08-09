@@ -5,10 +5,10 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 
-public class class_aqs extends class_aql {
+public class class_aqs extends WorldGenerator {
    private Block a;
    private int b;
 
@@ -17,7 +17,7 @@ public class class_aqs extends class_aql {
       this.b = var1;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       while(var1.isEmpty(var3) && var3.getY() > 2) {
          var3 = var3.down();
       }

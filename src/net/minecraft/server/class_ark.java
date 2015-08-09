@@ -21,7 +21,7 @@ public class class_ark extends class_apw {
       super(var1);
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4 = var2.nextInt(4) + 6;
       int var5 = 1 + var2.nextInt(2);
       int var6 = var4 - var5;
@@ -76,7 +76,7 @@ public class class_ark extends class_apw {
                         if(Math.abs(var16) != var21 || Math.abs(var18) != var21 || var21 <= 0) {
                            BlockPosition var19 = new BlockPosition(var15, var24, var17);
                            if(!var1.getType(var19).getBlock().isFullBlock()) {
-                              this.a(var1, var19, b);
+                              this.setTypeAndData(var1, var19, b);
                            }
                         }
                      }
@@ -99,7 +99,7 @@ public class class_ark extends class_apw {
                for(var24 = 0; var24 < var4 - var13; ++var24) {
                   Block var25 = var1.getType(var3.up(var24)).getBlock();
                   if(var25.getMaterial() == Material.AIR || var25.getMaterial() == Material.LEAVES) {
-                     this.a(var1, var3.up(var24), a);
+                     this.setTypeAndData(var1, var3.up(var24), a);
                   }
                }
 

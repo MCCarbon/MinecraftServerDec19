@@ -21,7 +21,7 @@ public class class_arc extends class_apw {
       super(false);
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4 = var2.nextInt(5) + 7;
       int var5 = var4 - var2.nextInt(2) - 3;
       int var6 = var4 - var5;
@@ -72,7 +72,7 @@ public class class_arc extends class_apw {
                         if(Math.abs(var13) != var18 || Math.abs(var15) != var18 || var18 <= 0) {
                            BlockPosition var16 = new BlockPosition(var12, var19, var14);
                            if(!var1.getType(var16).getBlock().isFullBlock()) {
-                              this.a(var1, var16, b);
+                              this.setTypeAndData(var1, var16, b);
                            }
                         }
                      }
@@ -88,7 +88,7 @@ public class class_arc extends class_apw {
                for(var19 = 0; var19 < var4 - 1; ++var19) {
                   Block var20 = var1.getType(var3.up(var19)).getBlock();
                   if(var20.getMaterial() == Material.AIR || var20.getMaterial() == Material.LEAVES) {
-                     this.a(var1, var3.up(var19), a);
+                     this.setTypeAndData(var1, var3.up(var19), a);
                   }
                }
 

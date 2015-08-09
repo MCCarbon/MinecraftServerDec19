@@ -130,7 +130,7 @@ public class TileEntityStructure extends TileEntity {
 			if (var6.size() < 1) {
 				return false;
 			} else {
-				class_arw var7 = this.a(var1, var6);
+				StructureBoundingBox var7 = this.a(var1, var6);
 				if (((var7.d - var7.a) > 1) && ((var7.e - var7.b) > 1) && ((var7.f - var7.c) > 1)) {
 					pos = new BlockPosition((var7.a - var1.getX()) + 1, (var7.b - var1.getY()) + 1, (var7.c - var1.getZ()) + 1);
 					size = new BlockPosition(var7.d - var7.a - 1, var7.e - var7.b - 1, var7.f - var7.c - 1);
@@ -172,13 +172,13 @@ public class TileEntityStructure extends TileEntity {
 		return var3;
 	}
 
-	private class_arw a(BlockPosition var1, List<TileEntityStructure> var2) {
-		class_arw var3;
+	private StructureBoundingBox a(BlockPosition var1, List<TileEntityStructure> var2) {
+		StructureBoundingBox var3;
 		if (var2.size() > 1) {
 			BlockPosition var4 = var2.get(0).getPosition();
-			var3 = new class_arw(var4, var4);
+			var3 = new StructureBoundingBox(var4, var4);
 		} else {
-			var3 = new class_arw(var1, var1);
+			var3 = new StructureBoundingBox(var1, var1);
 		}
 
 		Iterator<TileEntityStructure> var7 = var2.iterator();

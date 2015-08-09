@@ -96,7 +96,7 @@ public abstract class World implements IBlockAccess {
 				throw new class_e(var4);
 			}
 		} else {
-			return worldProvider.k().a(var1, BiomeBase.q);
+			return worldProvider.k().a(var1, BiomeBase.PLAINS);
 		}
 	}
 
@@ -152,11 +152,11 @@ public abstract class World implements IBlockAccess {
 		return this.a(var1.getX(), var1.getY(), var1.getZ(), var2.getX(), var2.getY(), var2.getZ(), var3);
 	}
 
-	public boolean a(class_arw var1) {
+	public boolean a(StructureBoundingBox var1) {
 		return this.b(var1, true);
 	}
 
-	public boolean b(class_arw var1, boolean var2) {
+	public boolean b(StructureBoundingBox var1, boolean var2) {
 		return this.a(var1.a, var1.b, var1.c, var1.d, var1.e, var1.f, var2);
 	}
 
@@ -196,7 +196,7 @@ public abstract class World implements IBlockAccess {
 	public boolean setTypeAndData(BlockPosition var1, IBlockData var2, int var3) {
 		if (!this.a(var1)) {
 			return false;
-		} else if (!isClientSide && (x.u() == class_aes.g)) {
+		} else if (!isClientSide && (x.u() == WorldType.DEBUG)) {
 			return false;
 		} else {
 			Chunk var4 = this.f(var1);
@@ -259,7 +259,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public void update(BlockPosition var1, Block var2) {
-		if (x.u() != class_aes.g) {
+		if (x.u() != WorldType.DEBUG) {
 			this.c(var1, var2);
 		}
 
@@ -1942,7 +1942,7 @@ public abstract class World implements IBlockAccess {
 		return null;
 	}
 
-	public List a(class_arw var1, boolean var2) {
+	public List a(StructureBoundingBox var1, boolean var2) {
 		return null;
 	}
 
@@ -2096,7 +2096,7 @@ public abstract class World implements IBlockAccess {
 		return var3.getBlock().b(this, var1, var3, var2);
 	}
 
-	public class_aes H() {
+	public WorldType H() {
 		return x.u();
 	}
 

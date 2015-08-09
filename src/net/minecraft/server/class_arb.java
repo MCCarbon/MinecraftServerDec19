@@ -6,11 +6,11 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 
-public class class_arb extends class_aql {
+public class class_arb extends WorldGenerator {
    private final IBlockData a;
    private final int b;
    private final Predicate c;
@@ -25,7 +25,7 @@ public class class_arb extends class_aql {
       this.c = var3;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       float var4 = var2.nextFloat() * 3.1415927F;
       double var5 = (double)((float)(var3.getX() + 8) + MathHelper.sin(var4) * (float)this.b / 8.0F);
       double var7 = (double)((float)(var3.getX() + 8) - MathHelper.sin(var4) * (float)this.b / 8.0F);

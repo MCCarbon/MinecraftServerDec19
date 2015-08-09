@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Random;
 
-public class class_asc extends class_ask {
+public class class_asc extends StructureGenerator {
    private List d = Lists.newArrayList();
 
    public class_asc() {
@@ -30,11 +30,11 @@ public class class_asc extends class_ask {
       return this.b.nextInt(3) != 0?false:(var1 != (var3 << 4) + 4 + this.b.nextInt(8)?false:var2 == (var4 << 4) + 4 + this.b.nextInt(8));
    }
 
-   protected class_aso b(int var1, int var2) {
+   protected StructureStart b(int var1, int var2) {
       return new class_asc.class_a_in_class_asc(this.c, this.b, var1, var2);
    }
 
-   public static class class_a_in_class_asc extends class_aso {
+   public static class class_a_in_class_asc extends StructureStart {
       public class_a_in_class_asc() {
       }
 
@@ -47,8 +47,8 @@ public class class_asc extends class_ask {
 
          while(!var6.isEmpty()) {
             int var7 = var2.nextInt(var6.size());
-            class_asn var8 = (class_asn)var6.remove(var7);
-            var8.a((class_asn)var5, (List)this.a, (Random)var2);
+            StructurePiece var8 = (StructurePiece)var6.remove(var7);
+            var8.a((StructurePiece)var5, (List)this.a, (Random)var2);
          }
 
          this.d();

@@ -9,10 +9,10 @@ import net.minecraft.server.BlockStone;
 import net.minecraft.server.class_api;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.class_aqb;
-import net.minecraft.server.class_aqc;
+import net.minecraft.server.WorldGenCactus;
 import net.minecraft.server.class_aqe;
 import net.minecraft.server.class_aqf;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.class_aqm;
 import net.minecraft.server.class_aqr;
 import net.minecraft.server.class_arb;
@@ -29,27 +29,27 @@ public class class_afc {
    protected Random b;
    protected BlockPosition c;
    protected class_api d;
-   protected class_aql e = new class_aqe(4);
-   protected class_aql f;
-   protected class_aql g;
-   protected class_aql h;
-   protected class_aql i;
-   protected class_aql j;
-   protected class_aql k;
-   protected class_aql l;
-   protected class_aql m;
-   protected class_aql n;
-   protected class_aql o;
-   protected class_aql p;
-   protected class_aql q;
-   protected class_aql r;
+   protected WorldGenerator e = new class_aqe(4);
+   protected WorldGenerator f;
+   protected WorldGenerator g;
+   protected WorldGenerator h;
+   protected WorldGenerator i;
+   protected WorldGenerator j;
+   protected WorldGenerator k;
+   protected WorldGenerator l;
+   protected WorldGenerator m;
+   protected WorldGenerator n;
+   protected WorldGenerator o;
+   protected WorldGenerator p;
+   protected WorldGenerator q;
+   protected WorldGenerator r;
    protected class_aqm s;
-   protected class_aql t;
-   protected class_aql u;
-   protected class_aql v;
-   protected class_aql w;
-   protected class_aql x;
-   protected class_aql y;
+   protected WorldGenerator t;
+   protected WorldGenerator u;
+   protected WorldGenerator v;
+   protected WorldGenerator w;
+   protected WorldGenerator x;
+   protected WorldGenerator y;
    protected int z;
    protected int A;
    protected int B;
@@ -72,7 +72,7 @@ public class class_afc {
       this.u = new class_aqb(Blocks.RED_MUSHROOM);
       this.v = new class_aqr();
       this.w = new class_are();
-      this.x = new class_aqc();
+      this.x = new WorldGenCactus();
       this.y = new class_arp();
       this.B = 2;
       this.C = 1;
@@ -122,19 +122,19 @@ public class class_afc {
       for(var2 = 0; var2 < this.I; ++var2) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         this.f.b(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
+         this.f.generate(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
       }
 
       for(var2 = 0; var2 < this.J; ++var2) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         this.e.b(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
+         this.e.generate(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
       }
 
       for(var2 = 0; var2 < this.H; ++var2) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         this.g.b(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
+         this.g.generate(this.a, this.b, this.a.r(this.c.add(var3, 0, var4)));
       }
 
       var2 = this.A;
@@ -150,7 +150,7 @@ public class class_afc {
          class_apw var6 = var1.a(this.b);
          var6.e();
          var7 = this.a.m(this.c.add(var4, 0, var5));
-         if(var6.b(this.a, this.b, var7)) {
+         if(var6.generate(this.a, this.b, var7)) {
             var6.a(this.a, this.b, var7);
          }
       }
@@ -158,7 +158,7 @@ public class class_afc {
       for(var3 = 0; var3 < this.K; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         this.v.b(this.a, this.b, this.a.m(this.c.add(var4, 0, var5)));
+         this.v.generate(this.a, this.b, this.a.m(this.c.add(var4, 0, var5)));
       }
 
       BlockPosition var8;
@@ -175,7 +175,7 @@ public class class_afc {
             BlockFlowers var10 = var9.getType().isYellow();
             if(var10.getMaterial() != Material.AIR) {
                this.s.a(var10, var9);
-               this.s.b(this.a, this.b, var8);
+               this.s.generate(this.a, this.b, var8);
             }
          }
       }
@@ -186,7 +186,7 @@ public class class_afc {
          var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            var1.b(this.b).b(this.a, this.b, this.c.add(var4, var12, var5));
+            var1.b(this.b).generate(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
@@ -196,7 +196,7 @@ public class class_afc {
          var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            (new class_aqf()).b(this.a, this.b, this.c.add(var4, var12, var5));
+            (new class_aqf()).generate(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
@@ -215,7 +215,7 @@ public class class_afc {
                }
             }
 
-            this.y.b(this.a, this.b, var8);
+            this.y.generate(this.a, this.b, var8);
          }
       }
 
@@ -224,7 +224,7 @@ public class class_afc {
             var4 = this.b.nextInt(16) + 8;
             var5 = this.b.nextInt(16) + 8;
             BlockPosition var13 = this.a.m(this.c.add(var4, 0, var5));
-            this.t.b(this.a, this.b, var13);
+            this.t.generate(this.a, this.b, var13);
          }
 
          if(this.b.nextInt(8) == 0) {
@@ -234,7 +234,7 @@ public class class_afc {
             if(var11 > 0) {
                var12 = this.b.nextInt(var11);
                var8 = this.c.add(var4, var12, var5);
-               this.u.b(this.a, this.b, var8);
+               this.u.generate(this.a, this.b, var8);
             }
          }
       }
@@ -245,7 +245,7 @@ public class class_afc {
          var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
-            this.t.b(this.a, this.b, this.c.add(var3, var11, var4));
+            this.t.generate(this.a, this.b, this.c.add(var3, var11, var4));
          }
       }
 
@@ -255,7 +255,7 @@ public class class_afc {
          var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
-            this.u.b(this.a, this.b, this.c.add(var3, var11, var4));
+            this.u.generate(this.a, this.b, this.c.add(var3, var11, var4));
          }
       }
 
@@ -265,7 +265,7 @@ public class class_afc {
          var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            this.w.b(this.a, this.b, this.c.add(var4, var12, var5));
+            this.w.generate(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
@@ -275,7 +275,7 @@ public class class_afc {
          var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            this.w.b(this.a, this.b, this.c.add(var4, var12, var5));
+            this.w.generate(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
@@ -285,7 +285,7 @@ public class class_afc {
          var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
-            (new class_ard()).b(this.a, this.b, this.c.add(var3, var11, var4));
+            (new class_ard()).generate(this.a, this.b, this.c.add(var3, var11, var4));
          }
       }
 
@@ -295,7 +295,7 @@ public class class_afc {
          var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
-            this.x.b(this.a, this.b, this.c.add(var4, var12, var5));
+            this.x.generate(this.a, this.b, this.c.add(var4, var12, var5));
          }
       }
 
@@ -307,7 +307,7 @@ public class class_afc {
             if(var11 > 0) {
                var12 = this.b.nextInt(var11);
                var8 = this.c.add(var4, var12, var5);
-               (new class_arj(Blocks.FLOWING_WATER)).b(this.a, this.b, var8);
+               (new class_arj(Blocks.FLOWING_WATER)).generate(this.a, this.b, var8);
             }
          }
 
@@ -316,13 +316,13 @@ public class class_afc {
             var5 = this.b.nextInt(16) + 8;
             var11 = this.b.nextInt(this.b.nextInt(this.b.nextInt(240) + 8) + 8);
             var7 = this.c.add(var4, var11, var5);
-            (new class_arj(Blocks.FLOWING_LAVA)).b(this.a, this.b, var7);
+            (new class_arj(Blocks.FLOWING_LAVA)).generate(this.a, this.b, var7);
          }
       }
 
    }
 
-   protected void a(int var1, class_aql var2, int var3, int var4) {
+   protected void a(int var1, WorldGenerator var2, int var3, int var4) {
       int var5;
       if(var4 < var3) {
          var5 = var3;
@@ -338,15 +338,15 @@ public class class_afc {
 
       for(var5 = 0; var5 < var1; ++var5) {
          BlockPosition var6 = this.c.add(this.b.nextInt(16), this.b.nextInt(var4 - var3) + var3, this.b.nextInt(16));
-         var2.b(this.a, this.b, var6);
+         var2.generate(this.a, this.b, var6);
       }
 
    }
 
-   protected void b(int var1, class_aql var2, int var3, int var4) {
+   protected void b(int var1, WorldGenerator var2, int var3, int var4) {
       for(int var5 = 0; var5 < var1; ++var5) {
          BlockPosition var6 = this.c.add(this.b.nextInt(16), this.b.nextInt(var4) + this.b.nextInt(var4) + var3 - var4, this.b.nextInt(16));
-         var2.b(this.a, this.b, var6);
+         var2.generate(this.a, this.b, var6);
       }
 
    }

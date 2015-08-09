@@ -56,9 +56,9 @@ public class class_ary {
             Iterator var9 = var6.iterator();
 
             while(var9.hasNext()) {
-               class_asn var10 = (class_asn)var9.next();
+               StructurePiece var10 = (StructurePiece)var9.next();
                var10.m = var8;
-               class_asn var11 = class_asn.a(var4, var10.c());
+               StructurePiece var11 = StructurePiece.a(var4, var10.c());
                if(var11 != null && var11.m != var2.m) {
                   var7 = true;
                   break;
@@ -281,7 +281,7 @@ public class class_ary {
          this.a(this.c);
       }
 
-      protected void a(String var1, BlockPosition var2, World var3, Random var4, class_arw var5) {
+      protected void a(String var1, BlockPosition var2, World var3, Random var4, StructureBoundingBox var5) {
          if(var1.startsWith("Chest")) {
             BlockPosition var6 = var2.down();
             if(var5.b((BaseBlockPosition)var6)) {

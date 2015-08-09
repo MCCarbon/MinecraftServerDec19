@@ -22,7 +22,7 @@ public class class_apy extends class_apw {
       this.c = var2;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4 = var2.nextInt(3) + 5;
       if(this.c) {
          var4 += var2.nextInt(7);
@@ -78,7 +78,7 @@ public class class_apy extends class_apw {
                            BlockPosition var14 = new BlockPosition(var10, var17, var12);
                            Block var15 = var1.getType(var14).getBlock();
                            if(var15.getMaterial() == Material.AIR || var15.getMaterial() == Material.LEAVES) {
-                              this.a(var1, var14, b);
+                              this.setTypeAndData(var1, var14, b);
                            }
                         }
                      }
@@ -88,7 +88,7 @@ public class class_apy extends class_apw {
                for(var17 = 0; var17 < var4; ++var17) {
                   Block var19 = var1.getType(var3.up(var17)).getBlock();
                   if(var19.getMaterial() == Material.AIR || var19.getMaterial() == Material.LEAVES) {
-                     this.a(var1, var3.up(var17), a);
+                     this.setTypeAndData(var1, var3.up(var17), a);
                   }
                }
 

@@ -4,13 +4,13 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 
-public class class_aqv extends class_aql {
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+public class class_aqv extends WorldGenerator {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       if(!var1.isEmpty(var3)) {
          return false;
       } else if(var1.getType(var3.up()).getBlock() != Blocks.NETHERRACK) {

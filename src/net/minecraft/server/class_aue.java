@@ -42,44 +42,44 @@ public class class_aue extends class_auc {
             } else {
                int var13 = var10;
                int var14;
-               if(var10 == BiomeBase.r.az) {
-                  var13 = BiomeBase.G.az;
-               } else if(var10 == BiomeBase.t.az) {
-                  var13 = BiomeBase.H.az;
-               } else if(var10 == BiomeBase.Q.az) {
-                  var13 = BiomeBase.R.az;
-               } else if(var10 == BiomeBase.S.az) {
-                  var13 = BiomeBase.q.az;
-               } else if(var10 == BiomeBase.u.az) {
-                  var13 = BiomeBase.I.az;
-               } else if(var10 == BiomeBase.V.az) {
-                  var13 = BiomeBase.W.az;
-               } else if(var10 == BiomeBase.T.az) {
-                  var13 = BiomeBase.U.az;
-               } else if(var10 == BiomeBase.q.az) {
+               if(var10 == BiomeBase.DESERT.az) {
+                  var13 = BiomeBase.DESERT_HILLS.az;
+               } else if(var10 == BiomeBase.FOREST.az) {
+                  var13 = BiomeBase.FOREST_HILLS.az;
+               } else if(var10 == BiomeBase.BIRCH_FOREST.az) {
+                  var13 = BiomeBase.BIRCH_FOREST_HILLS.az;
+               } else if(var10 == BiomeBase.ROOFED_FOREST.az) {
+                  var13 = BiomeBase.PLAINS.az;
+               } else if(var10 == BiomeBase.TAIGA.az) {
+                  var13 = BiomeBase.TAIGA_HILLS.az;
+               } else if(var10 == BiomeBase.MEGA_TAIGA.az) {
+                  var13 = BiomeBase.MEGA_TAIGA_HILLS.az;
+               } else if(var10 == BiomeBase.COLD_TAIGA.az) {
+                  var13 = BiomeBase.COLD_TAIGA_HILLS.az;
+               } else if(var10 == BiomeBase.PLAINS.az) {
                   if(this.a(3) == 0) {
-                     var13 = BiomeBase.H.az;
+                     var13 = BiomeBase.FOREST_HILLS.az;
                   } else {
-                     var13 = BiomeBase.t.az;
+                     var13 = BiomeBase.FOREST.az;
                   }
-               } else if(var10 == BiomeBase.B.az) {
-                  var13 = BiomeBase.C.az;
-               } else if(var10 == BiomeBase.K.az) {
-                  var13 = BiomeBase.L.az;
-               } else if(var10 == BiomeBase.p.az) {
-                  var13 = BiomeBase.N.az;
-               } else if(var10 == BiomeBase.s.az) {
-                  var13 = BiomeBase.X.az;
-               } else if(var10 == BiomeBase.Y.az) {
-                  var13 = BiomeBase.Z.az;
-               } else if(a(var10, BiomeBase.ab.az)) {
-                  var13 = BiomeBase.aa.az;
-               } else if(var10 == BiomeBase.N.az && this.a(3) == 0) {
+               } else if(var10 == BiomeBase.ICE_PLAINS.az) {
+                  var13 = BiomeBase.ICE_MOUNTAINS.az;
+               } else if(var10 == BiomeBase.JUNGLE.az) {
+                  var13 = BiomeBase.JUNGLE_HILLS.az;
+               } else if(var10 == BiomeBase.OCEAN.az) {
+                  var13 = BiomeBase.DEEP_OCEAN.az;
+               } else if(var10 == BiomeBase.EXTREME_HILLS.az) {
+                  var13 = BiomeBase.EXTREME_HILLS_PLUS.az;
+               } else if(var10 == BiomeBase.SAVANNA.az) {
+                  var13 = BiomeBase.SAVANNA_PLATEU.az;
+               } else if(a(var10, BiomeBase.MESA_PLATEU_F.az)) {
+                  var13 = BiomeBase.MESA.az;
+               } else if(var10 == BiomeBase.DEEP_OCEAN.az && this.a(3) == 0) {
                   var14 = this.a(2);
                   if(var14 == 0) {
-                     var13 = BiomeBase.q.az;
+                     var13 = BiomeBase.PLAINS.az;
                   } else {
-                     var13 = BiomeBase.t.az;
+                     var13 = BiomeBase.FOREST.az;
                   }
                }
 

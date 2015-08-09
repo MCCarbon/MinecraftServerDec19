@@ -120,7 +120,7 @@ public class class_asr {
             }
          }
 
-         class_arw var14 = class_asr.class_d_in_class_asr.a(var0, var1, var2, var3, var4, var5, var6);
+         StructureBoundingBox var14 = class_asr.class_d_in_class_asr.a(var0, var1, var2, var3, var4, var5, var6);
          if(var14 != null) {
             return new class_asr.class_d_in_class_asr(var0, var7, var2, var14, var6);
          } else {
@@ -129,7 +129,7 @@ public class class_asr {
       }
    }
 
-   private static class_asn d(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+   private static StructurePiece d(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 50) {
          return null;
       } else if(Math.abs(var3 - var0.c().a) <= 112 && Math.abs(var5 - var0.c().c) <= 112) {
@@ -140,7 +140,7 @@ public class class_asr {
             int var11 = var8.l.d - var8.l.a;
             int var12 = var8.l.f - var8.l.c;
             int var13 = var11 > var12?var11:var12;
-            if(var0.h().a(var9, var10, var13 / 2 + 4, class_asq.d)) {
+            if(var0.h().a(var9, var10, var13 / 2 + 4, WorldGenVillage.d)) {
                var1.add(var8);
                var0.f.add(var8);
                return var8;
@@ -153,11 +153,11 @@ public class class_asr {
       }
    }
 
-   private static class_asn e(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+   private static StructurePiece e(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 3 + var0.c) {
          return null;
       } else if(Math.abs(var3 - var0.c().a) <= 112 && Math.abs(var5 - var0.c().c) <= 112) {
-         class_arw var8 = class_asr.class_l_in_class_asr.a(var0, var1, var2, var3, var4, var5, var6);
+         StructureBoundingBox var8 = class_asr.class_l_in_class_asr.a(var0, var1, var2, var3, var4, var5, var6);
          if(var8 != null && var8.b > 10) {
             class_asr.class_l_in_class_asr var9 = new class_asr.class_l_in_class_asr(var0, var7, var2, var8, var6);
             int var10 = (var9.l.a + var9.l.d) / 2;
@@ -165,7 +165,7 @@ public class class_asr {
             int var12 = var9.l.d - var9.l.a;
             int var13 = var9.l.f - var9.l.c;
             int var14 = var12 > var13?var12:var13;
-            if(var0.h().a(var10, var11, var14 / 2 + 4, class_asq.d)) {
+            if(var0.h().a(var10, var11, var14 / 2 + 4, WorldGenVillage.d)) {
                var1.add(var9);
                var0.g.add(var9);
                return var9;
@@ -215,18 +215,18 @@ public class class_asr {
       public class_d_in_class_asr() {
       }
 
-      public class_d_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_d_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
-      public static class_arw a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6) {
-         class_arw var7 = class_arw.a(var3, var4, var5, 0, 0, 0, 3, 4, 2, var6);
-         return class_asn.a(var1, var7) != null?null:var7;
+      public static StructureBoundingBox a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6) {
+         StructureBoundingBox var7 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 3, 4, 2, var6);
+         return StructurePiece.a(var1, var7) != null?null:var7;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -258,7 +258,7 @@ public class class_asr {
       public class_b_in_class_asr() {
       }
 
-      public class_b_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_b_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a((EnumDirection)var5);
          this.l = var4;
@@ -300,11 +300,11 @@ public class class_asr {
       }
 
       public static class_asr.class_b_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 13, 4, 9, var6);
-         return a((class_arw)var8) && class_asn.a(var1, var8) == null?new class_asr.class_b_in_class_asr(var0, var7, var2, var8, var6):null;
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 13, 4, 9, var6);
+         return a((StructureBoundingBox)var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_b_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -366,7 +366,7 @@ public class class_asr {
       public class_c_in_class_asr() {
       }
 
-      public class_c_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_c_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a((EnumDirection)var5);
          this.l = var4;
@@ -402,11 +402,11 @@ public class class_asr {
       }
 
       public static class_asr.class_c_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 7, 4, 9, var6);
-         return a((class_arw)var8) && class_asn.a(var1, var8) == null?new class_asr.class_c_in_class_asr(var0, var7, var2, var8, var6):null;
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 7, 4, 9, var6);
+         return a((StructureBoundingBox)var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_c_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -456,15 +456,15 @@ public class class_asr {
       public class_j_in_class_asr() {
       }
 
-      public class_j_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_j_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
       public static class_asr.class_j_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 10, 6, 7, var6);
-         return a(var8) && class_asn.a(var1, var8) == null?new class_asr.class_j_in_class_asr(var0, var7, var2, var8, var6):null;
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 10, 6, 7, var6);
+         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_j_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
       protected void a(NBTTagCompound var1) {
@@ -477,7 +477,7 @@ public class class_asr {
          this.b = var1.getBoolean("Chest");
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -558,18 +558,18 @@ public class class_asr {
       public class_m_in_class_asr() {
       }
 
-      public class_m_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_m_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
       public static class_asr.class_m_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 9, 7, 12, var6);
-         return a(var8) && class_asn.a(var1, var8) == null?new class_asr.class_m_in_class_asr(var0, var7, var2, var8, var6):null;
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 9, 7, 12, var6);
+         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_m_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -695,18 +695,18 @@ public class class_asr {
       public class_f_in_class_asr() {
       }
 
-      public class_f_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_f_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
       public static class_asr.class_f_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 9, 7, 11, var6);
-         return a(var8) && class_asn.a(var1, var8) == null?new class_asr.class_f_in_class_asr(var0, var7, var2, var8, var6):null;
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 9, 7, 11, var6);
+         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_f_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -806,7 +806,7 @@ public class class_asr {
       public class_h_in_class_asr() {
       }
 
-      public class_h_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_h_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
@@ -827,11 +827,11 @@ public class class_asr {
       }
 
       public static class_asr.class_h_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 4, 6, 5, var6);
-         return a(var8) && class_asn.a(var1, var8) == null?new class_asr.class_h_in_class_asr(var0, var7, var2, var8, var6):null;
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 4, 6, 5, var6);
+         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_h_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -898,18 +898,18 @@ public class class_asr {
       public class_a_in_class_asr() {
       }
 
-      public class_a_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_a_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
       public static class_asr.class_a_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 9, 9, 6, var6);
-         return a(var8) && class_asn.a(var1, var8) == null?new class_asr.class_a_in_class_asr(var0, var7, var2, var8, var6):null;
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 9, 9, 6, var6);
+         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_a_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -1005,18 +1005,18 @@ public class class_asr {
       public class_i_in_class_asr() {
       }
 
-      public class_i_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_i_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
       public static class_asr.class_i_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 5, 12, 9, var6);
-         return a(var8) && class_asn.a(var1, var8) == null?new class_asr.class_i_in_class_asr(var0, var7, var2, var8, var6):null;
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 5, 12, 9, var6);
+         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_i_in_class_asr(var0, var7, var2, var8, var6):null;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -1111,7 +1111,7 @@ public class class_asr {
       public class_g_in_class_asr() {
       }
 
-      public class_g_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_g_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
@@ -1129,11 +1129,11 @@ public class class_asr {
       }
 
       public static class_asr.class_g_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
-         class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 5, 6, 5, var6);
-         return class_asn.a(var1, var8) != null?null:new class_asr.class_g_in_class_asr(var0, var7, var2, var8, var6);
+         StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 5, 6, 5, var6);
+         return StructurePiece.a(var1, var8) != null?null:new class_asr.class_g_in_class_asr(var0, var7, var2, var8, var6);
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -1223,7 +1223,7 @@ public class class_asr {
       public class_l_in_class_asr() {
       }
 
-      public class_l_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, class_arw var4, EnumDirection var5) {
+      public class_l_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
@@ -1240,11 +1240,11 @@ public class class_asr {
          this.a = var1.getInt("Length");
       }
 
-      public void a(class_asn var1, List var2, Random var3) {
+      public void a(StructurePiece var1, List var2, Random var3) {
          boolean var4 = false;
 
          int var5;
-         class_asn var6;
+         StructurePiece var6;
          for(var5 = var3.nextInt(5); var5 < this.a - 8; var5 += 2 + var3.nextInt(5)) {
             var6 = this.a((class_asr.class_k_in_class_asr)var1, var2, var3, 0, var5);
             if(var6 != null) {
@@ -1296,10 +1296,10 @@ public class class_asr {
 
       }
 
-      public static class_arw a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6) {
+      public static StructureBoundingBox a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6) {
          for(int var7 = 7 * MathHelper.getRandomIntInRange((Random)var2, 3, 5); var7 >= 7; var7 -= 7) {
-            class_arw var8 = class_arw.a(var3, var4, var5, 0, 0, 0, 3, 3, var7, var6);
-            if(class_asn.a(var1, var8) == null) {
+            StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 3, 3, var7, var6);
+            if(StructurePiece.a(var1, var8) == null) {
                return var8;
             }
          }
@@ -1307,7 +1307,7 @@ public class class_asr {
          return null;
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          IBlockData var4 = this.a(Blocks.GRAVEL.getBlockData());
          IBlockData var5 = this.a(Blocks.COBBLESTONE.getBlockData());
 
@@ -1353,7 +1353,7 @@ public class class_asr {
          this.e = var6;
          this.c = var7;
          BiomeBase var8 = var1.a(new BlockPosition(var4, 0, var5), BiomeBase.ad);
-         this.b = var8 == BiomeBase.r || var8 == BiomeBase.G;
+         this.b = var8 == BiomeBase.DESERT || var8 == BiomeBase.DESERT_HILLS;
          this.a(this.b);
       }
 
@@ -1370,21 +1370,21 @@ public class class_asr {
          super(var1, var2);
          this.a(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var3));
          if(this.e().getAxis() == EnumDirection.EnumAxis.Z) {
-            this.l = new class_arw(var4, 64, var5, var4 + 6 - 1, 78, var5 + 6 - 1);
+            this.l = new StructureBoundingBox(var4, 64, var5, var4 + 6 - 1, 78, var5 + 6 - 1);
          } else {
-            this.l = new class_arw(var4, 64, var5, var4 + 6 - 1, 78, var5 + 6 - 1);
+            this.l = new StructureBoundingBox(var4, 64, var5, var4 + 6 - 1, 78, var5 + 6 - 1);
          }
 
       }
 
-      public void a(class_asn var1, List var2, Random var3) {
+      public void a(StructurePiece var1, List var2, Random var3) {
          class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a - 1, this.l.e - 4, this.l.c + 1, EnumDirection.WEST, this.d());
          class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.d + 1, this.l.e - 4, this.l.c + 1, EnumDirection.EAST, this.d());
          class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a + 1, this.l.e - 4, this.l.c - 1, EnumDirection.NORTH, this.d());
          class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a + 1, this.l.e - 4, this.l.f + 1, EnumDirection.SOUTH, this.d());
       }
 
-      public boolean a(World var1, Random var2, class_arw var3) {
+      public boolean a(World var1, Random var2, StructureBoundingBox var3) {
          if(this.h < 0) {
             this.h = this.b(var1, var3);
             if(this.h < 0) {
@@ -1422,7 +1422,7 @@ public class class_asr {
       }
    }
 
-   abstract static class class_n_in_class_asr extends class_asn {
+   abstract static class class_n_in_class_asr extends StructurePiece {
       protected int h = -1;
       private int a;
       private boolean b;
@@ -1450,7 +1450,7 @@ public class class_asr {
          this.b = var1.getBoolean("Desert");
       }
 
-      protected class_asn a(class_asr.class_k_in_class_asr var1, List var2, Random var3, int var4, int var5) {
+      protected StructurePiece a(class_asr.class_k_in_class_asr var1, List var2, Random var3, int var4, int var5) {
          EnumDirection var6 = this.e();
          if(var6 != null) {
             switch(class_asr.SyntheticClass_1.a[var6.ordinal()]) {
@@ -1468,7 +1468,7 @@ public class class_asr {
          return null;
       }
 
-      protected class_asn b(class_asr.class_k_in_class_asr var1, List var2, Random var3, int var4, int var5) {
+      protected StructurePiece b(class_asr.class_k_in_class_asr var1, List var2, Random var3, int var4, int var5) {
          EnumDirection var6 = this.e();
          if(var6 != null) {
             switch(class_asr.SyntheticClass_1.a[var6.ordinal()]) {
@@ -1486,7 +1486,7 @@ public class class_asr {
          return null;
       }
 
-      protected int b(World var1, class_arw var2) {
+      protected int b(World var1, StructureBoundingBox var2) {
          int var3 = 0;
          int var4 = 0;
          BlockPosition.MutableBlockPosition var5 = new BlockPosition.MutableBlockPosition();
@@ -1508,11 +1508,11 @@ public class class_asr {
          }
       }
 
-      protected static boolean a(class_arw var0) {
+      protected static boolean a(StructureBoundingBox var0) {
          return var0 != null && var0.b > 10;
       }
 
-      protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6) {
+      protected void a(World var1, StructureBoundingBox var2, int var3, int var4, int var5, int var6) {
          if(this.a < var6) {
             for(int var7 = this.a; var7 < var6; ++var7) {
                int var8 = this.a(var3 + var7, var5);
@@ -1567,18 +1567,18 @@ public class class_asr {
          return var1;
       }
 
-      protected void a(World var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
+      protected void a(World var1, IBlockData var2, int var3, int var4, int var5, StructureBoundingBox var6) {
          IBlockData var7 = this.a(var2);
          super.a(var1, var7, var3, var4, var5, var6);
       }
 
-      protected void a(World var1, class_arw var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, IBlockData var10, boolean var11) {
+      protected void a(World var1, StructureBoundingBox var2, int var3, int var4, int var5, int var6, int var7, int var8, IBlockData var9, IBlockData var10, boolean var11) {
          IBlockData var12 = this.a(var9);
          IBlockData var13 = this.a(var10);
          super.a(var1, var2, var3, var4, var5, var6, var7, var8, var12, var13, var11);
       }
 
-      protected void b(World var1, IBlockData var2, int var3, int var4, int var5, class_arw var6) {
+      protected void b(World var1, IBlockData var2, int var3, int var4, int var5, StructureBoundingBox var6) {
          IBlockData var7 = this.a(var2);
          super.b(var1, var7, var3, var4, var5, var6);
       }

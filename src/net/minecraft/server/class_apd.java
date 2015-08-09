@@ -16,7 +16,7 @@ public class class_apd extends class_aoy {
    private class_apc g = null;
 
    public void b() {
-      this.c = new class_afg(BiomeBase.y, 0.0F);
+      this.c = new class_afg(BiomeBase.END, 0.0F);
       this.e = true;
       NBTTagCompound var1 = this.b.Q().a(class_aoz.c);
       this.g = this.b instanceof WorldServer?new class_apc((WorldServer)this.b, var1.getCompound("DragonFight")):null;

@@ -27,7 +27,7 @@ public class class_atr extends class_auc {
             int var17 = var9[var12 + 1 + (var11 + 1) * var7];
             this.a((long)(var12 + var1), (long)(var11 + var2));
             if(var17 == 0 && var13 == 0 && var14 == 0 && var15 == 0 && var16 == 0 && this.a(100) == 0) {
-               var10[var12 + var11 * var3] = BiomeBase.D.az;
+               var10[var12 + var11 * var3] = BiomeBase.MUSHROOM_ISLAND.az;
             } else {
                var10[var12 + var11 * var3] = var17;
             }

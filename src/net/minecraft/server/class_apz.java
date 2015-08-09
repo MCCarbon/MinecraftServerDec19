@@ -6,10 +6,10 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 
-public class class_apz extends class_aql {
+public class class_apz extends WorldGenerator {
    private final Block a;
    private final int b;
 
@@ -19,7 +19,7 @@ public class class_apz extends class_aql {
       this.b = var2;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       while(true) {
          label50: {
             if(var3.getY() > 3) {

@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.util.concurrent.Callable;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_api;
 import net.minecraft.server.class_ato;
@@ -33,7 +33,7 @@ public abstract class class_auc {
    private long d;
    protected long b;
 
-   public static class_auc[] a(long var0, class_aes var2, String var3) {
+   public static class_auc[] a(long var0, WorldType var2, String var3) {
       class_aub var4 = new class_aub(1L);
       class_aty var13 = new class_aty(2000L, var4);
       class_atq var14 = new class_atq(1L, var13);
@@ -56,13 +56,13 @@ public abstract class class_auc {
       class_api var5 = null;
       int var6 = 4;
       int var7 = var6;
-      if(var2 == class_aes.f && !var3.isEmpty()) {
+      if(var2 == WorldType.CUSTOMIZED && !var3.isEmpty()) {
          var5 = class_api.class_a_in_class_api.a(var3).b();
          var6 = var5.G;
          var7 = var5.H;
       }
 
-      if(var2 == class_aes.d) {
+      if(var2 == WorldType.LARGE_BIOMES) {
          var6 = 6;
       }
 
@@ -150,7 +150,7 @@ public abstract class class_auc {
    protected static boolean a(int var0, int var1) {
       if(var0 == var1) {
          return true;
-      } else if(var0 != BiomeBase.ab.az && var0 != BiomeBase.ac.az) {
+      } else if(var0 != BiomeBase.MESA_PLATEU_F.az && var0 != BiomeBase.MESA_PLATEU.az) {
          final BiomeBase var2 = BiomeBase.e(var0);
          final BiomeBase var3 = BiomeBase.e(var1);
 
@@ -184,12 +184,12 @@ public abstract class class_auc {
             throw new class_e(var5);
          }
       } else {
-         return var1 == BiomeBase.ab.az || var1 == BiomeBase.ac.az;
+         return var1 == BiomeBase.MESA_PLATEU_F.az || var1 == BiomeBase.MESA_PLATEU.az;
       }
    }
 
    protected static boolean b(int var0) {
-      return var0 == BiomeBase.p.az || var0 == BiomeBase.N.az || var0 == BiomeBase.z.az;
+      return var0 == BiomeBase.OCEAN.az || var0 == BiomeBase.DEEP_OCEAN.az || var0 == BiomeBase.FROZEN_OCEAN.az;
    }
 
    protected int a(int... var1) {

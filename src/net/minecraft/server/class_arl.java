@@ -10,7 +10,7 @@ public class class_arl extends class_apw {
       super(false);
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4;
       for(var4 = var2.nextInt(4) + 5; var1.getType(var3.down()).getBlock().getMaterial() == Material.WATER; var3 = var3.down()) {
          ;
@@ -74,7 +74,7 @@ public class class_arl extends class_apw {
                         if(Math.abs(var21) != var9 || Math.abs(var13) != var9 || var2.nextInt(2) != 0 && var19 != 0) {
                            var14 = new BlockPosition(var10, var18, var12);
                            if(!var1.getType(var14).getBlock().isFullBlock()) {
-                              this.a(var1, var14, b);
+                              this.setTypeAndData(var1, var14, b);
                            }
                         }
                      }
@@ -84,7 +84,7 @@ public class class_arl extends class_apw {
                for(var18 = 0; var18 < var4; ++var18) {
                   Block var20 = var1.getType(var3.up(var18)).getBlock();
                   if(var20.getMaterial() == Material.AIR || var20.getMaterial() == Material.LEAVES || var20 == Blocks.FLOWING_WATER || var20 == Blocks.WATER) {
-                     this.a(var1, var3.up(var18), a);
+                     this.setTypeAndData(var1, var3.up(var18), a);
                   }
                }
 
@@ -133,11 +133,11 @@ public class class_arl extends class_apw {
 
    private void a(World var1, BlockPosition var2, BlockStateBoolean var3) {
       IBlockData var4 = Blocks.VINE.getBlockData().set(var3, Boolean.valueOf(true));
-      this.a(var1, var2, var4);
+      this.setTypeAndData(var1, var2, var4);
       int var5 = 4;
 
       for(var2 = var2.down(); var1.getType(var2).getBlock().getMaterial() == Material.AIR && var5 > 0; --var5) {
-         this.a(var1, var2, var4);
+         this.setTypeAndData(var1, var2, var4);
          var2 = var2.down();
       }
 

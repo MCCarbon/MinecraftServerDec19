@@ -13,7 +13,7 @@ import net.minecraft.server.class_aoh;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_aqj;
-import net.minecraft.server.class_arx;
+import net.minecraft.server.WorldGenEndCity;
 import net.minecraft.server.class_ata;
 import net.minecraft.server.class_ate;
 import net.minecraft.server.Material;
@@ -30,7 +30,7 @@ public class class_apq implements class_aoh {
    public class_ata a;
    public class_ata b;
    private World j;
-   private class_arx k = new class_arx(this);
+   private WorldGenEndCity k = new WorldGenEndCity(this);
    private class_ate l;
    private double[] m;
    private BiomeBase[] n;
@@ -276,9 +276,9 @@ public class class_apq implements class_aoh {
       if(var2 * var2 + var3 * var3 > 4096) {
          float var5 = this.a(var2, var3, 1, 1);
          if(var5 < -20.0F && this.f.nextInt(14) == 0) {
-            this.o.b(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
+            this.o.generate(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
             if(this.f.nextInt(4) == 0) {
-               this.o.b(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
+               this.o.generate(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
             }
          }
 

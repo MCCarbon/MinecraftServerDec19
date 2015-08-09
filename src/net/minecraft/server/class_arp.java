@@ -4,11 +4,11 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 
-public class class_arp extends class_aql {
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+public class class_arp extends WorldGenerator {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       for(int var4 = 0; var4 < 10; ++var4) {
          int var5 = var3.getX() + var2.nextInt(8) - var2.nextInt(8);
          int var6 = var3.getY() + var2.nextInt(4) - var2.nextInt(4);

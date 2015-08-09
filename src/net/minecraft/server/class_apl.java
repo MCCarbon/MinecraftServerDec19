@@ -12,13 +12,13 @@ import net.minecraft.server.class_ans;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
-import net.minecraft.server.class_apn;
+import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.class_apo;
 import net.minecraft.server.class_aqb;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.class_aqo;
 import net.minecraft.server.class_aqp;
-import net.minecraft.server.class_aqq;
+import net.minecraft.server.WorldGenHellLava;
 import net.minecraft.server.class_aqv;
 import net.minecraft.server.class_arb;
 import net.minecraft.server.class_asc;
@@ -47,13 +47,13 @@ public class class_apl implements class_aoh {
    private final class_aqo t = new class_aqo();
    private final class_aqv u = new class_aqv();
    private final class_aqp v = new class_aqp();
-   private final class_aql w;
-   private final class_aqq x;
-   private final class_aqq y;
+   private final WorldGenerator w;
+   private final WorldGenHellLava x;
+   private final WorldGenHellLava y;
    private final class_aqb z;
    private final class_aqb A;
    private final class_asc B;
-   private final class_apn C;
+   private final WorldGenBase C;
    double[] c;
    double[] d;
    double[] e;
@@ -62,8 +62,8 @@ public class class_apl implements class_aoh {
 
    public class_apl(World var1, boolean var2, long var3) {
       this.w = new class_arb(Blocks.QUARTZ_ORE.getBlockData(), 14, class_ans.a(Blocks.NETHERRACK));
-      this.x = new class_aqq(Blocks.FLOWING_LAVA, true);
-      this.y = new class_aqq(Blocks.FLOWING_LAVA, false);
+      this.x = new WorldGenHellLava(Blocks.FLOWING_LAVA, true);
+      this.y = new WorldGenHellLava(Blocks.FLOWING_LAVA, false);
       this.z = new class_aqb(Blocks.BROWN_MUSHROOM);
       this.A = new class_aqb(Blocks.RED_MUSHROOM);
       this.B = new class_asc();
@@ -315,35 +315,35 @@ public class class_apl implements class_aoh {
 
       int var6;
       for(var6 = 0; var6 < 8; ++var6) {
-         this.y.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.y.generate(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < this.j.nextInt(this.j.nextInt(10) + 1) + 1; ++var6) {
-         this.t.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.t.generate(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < this.j.nextInt(this.j.nextInt(10) + 1); ++var6) {
-         this.u.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
+         this.u.generate(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(120) + 4, this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < 10; ++var6) {
-         this.v.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.v.generate(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       if(this.j.nextBoolean()) {
-         this.z.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.z.generate(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       if(this.j.nextBoolean()) {
-         this.A.b(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
+         this.A.generate(this.h, this.j, var4.add(this.j.nextInt(16) + 8, this.j.nextInt(128), this.j.nextInt(16) + 8));
       }
 
       for(var6 = 0; var6 < 16; ++var6) {
-         this.w.b(this.h, this.j, var4.add(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
+         this.w.generate(this.h, this.j, var4.add(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
       }
 
       for(var6 = 0; var6 < 16; ++var6) {
-         this.x.b(this.h, this.j, var4.add(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
+         this.x.generate(this.h, this.j, var4.add(this.j.nextInt(16), this.j.nextInt(108) + 10, this.j.nextInt(16)));
       }
 
       BlockFalling.instaFall = false;

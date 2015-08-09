@@ -87,7 +87,7 @@ public abstract class class_aqy extends class_apw {
                BlockPosition var9 = var2.add(var5, 0, var6);
                Material var10 = var1.getType(var9).getBlock().getMaterial();
                if(var10 == Material.AIR || var10 == Material.LEAVES) {
-                  this.a(var1, var9, this.c);
+                  this.setTypeAndData(var1, var9, this.c);
                }
             }
          }
@@ -104,7 +104,7 @@ public abstract class class_aqy extends class_apw {
                BlockPosition var7 = var2.add(var5, 0, var6);
                Material var8 = var1.getType(var7).getBlock().getMaterial();
                if(var8 == Material.AIR || var8 == Material.LEAVES) {
-                  this.a(var1, var7, this.c);
+                  this.setTypeAndData(var1, var7, this.c);
                }
             }
          }

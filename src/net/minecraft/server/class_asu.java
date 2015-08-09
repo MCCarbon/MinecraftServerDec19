@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_arw;
+import net.minecraft.server.StructureBoundingBox;
 
 public class class_asu {
    private Block.class_a_in_class_agj a;
@@ -10,14 +10,14 @@ public class class_asu {
    private boolean c;
    private boolean d;
    private class_aeh e;
-   private class_arw f;
+   private StructureBoundingBox f;
    private boolean g;
 
    public class_asu() {
-      this(Block.class_a_in_class_agj.NONE, Block.EnumRotation.NONE, false, false, (class_arw)null);
+      this(Block.class_a_in_class_agj.NONE, Block.EnumRotation.NONE, false, false, (StructureBoundingBox)null);
    }
 
-   public class_asu(Block.class_a_in_class_agj var1, Block.EnumRotation var2, boolean var3, boolean var4, class_arw var5) {
+   public class_asu(Block.class_a_in_class_agj var1, Block.EnumRotation var2, boolean var3, boolean var4, StructureBoundingBox var5) {
       this.b = var2;
       this.a = var1;
       this.c = var3;
@@ -56,7 +56,7 @@ public class class_asu {
       return this;
    }
 
-   public class_asu a(class_arw var1) {
+   public class_asu a(StructureBoundingBox var1) {
       this.f = var1;
       return this;
    }
@@ -82,7 +82,7 @@ public class class_asu {
       return this.d;
    }
 
-   public class_arw g() {
+   public StructureBoundingBox g() {
       if(this.f == null && this.e != null) {
          this.i();
       }
@@ -98,13 +98,13 @@ public class class_asu {
       this.f = this.b(this.e);
    }
 
-   private class_arw b(class_aeh var1) {
+   private StructureBoundingBox b(class_aeh var1) {
       if(var1 == null) {
          return null;
       } else {
          int var2 = var1.a * 16;
          int var3 = var1.b * 16;
-         return new class_arw(var2, 0, var3, var2 + 16 - 1, 255, var3 + 16 - 1);
+         return new StructureBoundingBox(var2, 0, var3, var2 + 16 - 1, 255, var3 + 16 - 1);
       }
    }
 

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.GameRules;
 import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_avn;
 import net.minecraft.server.BlockPosition;
@@ -115,11 +115,11 @@ public class class_avk extends class_avn {
       return this.b.t();
    }
 
-   public class_aes u() {
+   public WorldType u() {
       return this.b.u();
    }
 
-   public void a(class_aes var1) {
+   public void a(WorldType var1) {
    }
 
    public boolean v() {

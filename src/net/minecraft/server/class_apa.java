@@ -10,7 +10,7 @@ import net.minecraft.server.class_apl;
 
 public class class_apa extends class_aoy {
    public void b() {
-      this.c = new class_afg(BiomeBase.x, 0.0F);
+      this.c = new class_afg(BiomeBase.HELL, 0.0F);
       this.d = true;
       this.e = true;
    }

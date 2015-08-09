@@ -13,17 +13,17 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aoh;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
-import net.minecraft.server.class_apn;
+import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.class_aqu;
 import net.minecraft.server.class_ara;
 import net.minecraft.server.class_arr;
 import net.minecraft.server.class_ars;
-import net.minecraft.server.class_arz;
-import net.minecraft.server.class_ase;
-import net.minecraft.server.class_asg;
-import net.minecraft.server.class_asi;
-import net.minecraft.server.class_ask;
-import net.minecraft.server.class_asq;
+import net.minecraft.server.WorldGenMineshaft;
+import net.minecraft.server.WorldGenGuardianTemple;
+import net.minecraft.server.WorldGenLargeFeature;
+import net.minecraft.server.WorldGenStronghold;
+import net.minecraft.server.StructureGenerator;
+import net.minecraft.server.WorldGenVillage;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_nw;
 import net.minecraft.server.class_qc;
@@ -51,23 +51,23 @@ public class class_apk implements class_aoh {
                var7.put("size", "1");
             }
 
-            this.e.add(new class_asq(var7));
+            this.e.add(new WorldGenVillage(var7));
          }
 
          if(var6.containsKey("biome_1")) {
-            this.e.add(new class_asg((Map)var6.get("biome_1")));
+            this.e.add(new WorldGenLargeFeature((Map)var6.get("biome_1")));
          }
 
          if(var6.containsKey("mineshaft")) {
-            this.e.add(new class_arz((Map)var6.get("mineshaft")));
+            this.e.add(new WorldGenMineshaft((Map)var6.get("mineshaft")));
          }
 
          if(var6.containsKey("stronghold")) {
-            this.e.add(new class_asi((Map)var6.get("stronghold")));
+            this.e.add(new WorldGenStronghold((Map)var6.get("stronghold")));
          }
 
          if(var6.containsKey("oceanmonument")) {
-            this.e.add(new class_ase((Map)var6.get("oceanmonument")));
+            this.e.add(new WorldGenGuardianTemple((Map)var6.get("oceanmonument")));
          }
       }
 
@@ -126,7 +126,7 @@ public class class_apk implements class_aoh {
       Iterator var8 = this.e.iterator();
 
       while(var8.hasNext()) {
-         class_apn var10 = (class_apn)var8.next();
+         WorldGenBase var10 = (WorldGenBase)var8.next();
          var10.a(this, this.a, var1, var2, var3);
       }
 
@@ -160,27 +160,27 @@ public class class_apk implements class_aoh {
       Iterator var14 = this.e.iterator();
 
       while(var14.hasNext()) {
-         class_ask var15 = (class_ask)var14.next();
+         StructureGenerator var15 = (StructureGenerator)var14.next();
          boolean var16 = var15.a(this.a, this.b, var13);
-         if(var15 instanceof class_asq) {
+         if(var15 instanceof WorldGenVillage) {
             var8 |= var16;
          }
       }
 
       if(this.h != null && !var8 && this.b.nextInt(4) == 0) {
-         this.h.b(this.a, this.b, var6.add(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
+         this.h.generate(this.a, this.b, var6.add(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
       }
 
       if(this.i != null && !var8 && this.b.nextInt(8) == 0) {
          BlockPosition var17 = var6.add(this.b.nextInt(16) + 8, this.b.nextInt(this.b.nextInt(248) + 8), this.b.nextInt(16) + 8);
          if(var17.getY() < this.a.G() || this.b.nextInt(10) == 0) {
-            this.i.b(this.a, this.b, var17);
+            this.i.generate(this.a, this.b, var17);
          }
       }
 
       if(this.g) {
          for(int var18 = 0; var18 < 8; ++var18) {
-            (new class_ara()).b(this.a, this.b, var6.add(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
+            (new class_ara()).generate(this.a, this.b, var6.add(this.b.nextInt(16) + 8, this.b.nextInt(256), this.b.nextInt(16) + 8));
          }
       }
 
@@ -223,8 +223,8 @@ public class class_apk implements class_aoh {
          Iterator var4 = this.e.iterator();
 
          while(var4.hasNext()) {
-            class_ask var5 = (class_ask)var4.next();
-            if(var5 instanceof class_asi) {
+            StructureGenerator var5 = (StructureGenerator)var4.next();
+            if(var5 instanceof WorldGenStronghold) {
                return var5.b(var1, var3);
             }
          }
@@ -241,7 +241,7 @@ public class class_apk implements class_aoh {
       Iterator var4 = this.e.iterator();
 
       while(var4.hasNext()) {
-         class_ask var5 = (class_ask)var4.next();
+         StructureGenerator var5 = (StructureGenerator)var4.next();
          var5.a(this, this.a, var2, var3, (class_aph)null);
       }
 
