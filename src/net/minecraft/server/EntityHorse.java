@@ -956,7 +956,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 			var2 = var1.getString("OwnerUUID");
 		} else {
 			String var3 = var1.getString("Owner");
-			var2 = class_ly.a(var3);
+			var2 = NameReferencingFileConverter.a(var3);
 		}
 
 		if (!var2.isEmpty()) {

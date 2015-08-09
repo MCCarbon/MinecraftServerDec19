@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_cz;
+import net.minecraft.server.IPosition;
 
-public interface class_cv extends class_cz {
+public interface class_cv extends IPosition {
    World getWorld();
 }

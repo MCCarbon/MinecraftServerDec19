@@ -557,7 +557,7 @@ public abstract class PlayerList {
 
 	public void a(GameProfile var1) {
 		int var2 = this.mcserver.p();
-		this.opList.a((class_mc) (new class_mb(var1, this.mcserver.p(), this.opList.b(var1))));
+		this.opList.a((JsonListEntry) (new class_mb(var1, this.mcserver.p(), this.opList.b(var1))));
 		this.b(this.getPlayer(var1.getId()), var2);
 	}
 
@@ -624,7 +624,7 @@ public abstract class PlayerList {
 	}
 
 	public void d(GameProfile var1) {
-		this.whiteList.a((class_mc) (new class_mh(var1)));
+		this.whiteList.a((JsonListEntry) (new class_mh(var1)));
 	}
 
 	public void c(GameProfile var1) {

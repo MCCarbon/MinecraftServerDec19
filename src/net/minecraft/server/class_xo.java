@@ -17,9 +17,9 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_xi;
+import net.minecraft.server.IProjectile;
 
-public abstract class class_xo extends Entity implements class_xi {
+public abstract class class_xo extends Entity implements IProjectile {
    private int d;
    private int e;
    private int f;

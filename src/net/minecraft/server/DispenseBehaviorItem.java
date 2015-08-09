@@ -13,13 +13,13 @@ public class DispenseBehaviorItem implements IDispenseBehavior {
 
 	protected ItemStack b(ISourceBlock var1, ItemStack var2) {
 		EnumDirection var3 = BlockDispenser.b(var1.getData());
-		class_cz var4 = BlockDispenser.a(var1);
+		IPosition var4 = BlockDispenser.a(var1);
 		ItemStack var5 = var2.a(1);
 		a(var1.getWorld(), var5, 6, var3, var4);
 		return var2;
 	}
 
-	public static void a(World var0, ItemStack var1, int var2, EnumDirection var3, class_cz var4) {
+	public static void a(World var0, ItemStack var1, int var2, EnumDirection var3, IPosition var4) {
 		double var5 = var4.getX();
 		double var7 = var4.getY();
 		double var9 = var4.getZ();

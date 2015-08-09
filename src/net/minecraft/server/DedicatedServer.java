@@ -20,13 +20,13 @@ import net.minecraft.server.WorldType;
 import net.minecraft.server.class_b;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ke;
-import net.minecraft.server.class_kg;
-import net.minecraft.server.class_kk;
-import net.minecraft.server.class_km;
+import net.minecraft.server.EULA;
+import net.minecraft.server.IMinecraftServer;
+import net.minecraft.server.PropertyManager;
 import net.minecraft.server.class_ko;
 import net.minecraft.server.class_kq;
 import net.minecraft.server.class_ks;
-import net.minecraft.server.class_ly;
+import net.minecraft.server.NameReferencingFileConverter;
 import net.minecraft.server.PlayerList;
 import net.minecraft.server.class_m;
 import net.minecraft.server.class_ml;
@@ -40,18 +40,18 @@ import net.minecraft.server.EntityHuman;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_kp extends MinecraftServer implements class_kk {
+public class DedicatedServer extends MinecraftServer implements IMinecraftServer {
    private static final Logger k = LogManager.getLogger();
    private final List l = Collections.synchronizedList(Lists.newArrayList());
    private class_mo m;
    private class_mq n;
-   private class_km o;
-   private class_kg p;
+   private PropertyManager o;
+   private EULA p;
    private boolean q;
    private WorldSettings.EnumGameMode r;
    private boolean s;
 
-   public class_kp(File var1) {
+   public DedicatedServer(File var1) {
       super(var1, Proxy.NO_PROXY, a);
       Thread var10001 = new Thread("Server Infinisleeper") {
          {
@@ -78,11 +78,11 @@ public class class_kp extends MinecraftServer implements class_kk {
 
             String var2;
             try {
-               while(!class_kp.this.ao() && class_kp.this.v() && (var2 = var1.readLine()) != null) {
-                  class_kp.this.a(var2, (class_m)class_kp.this);
+               while(!DedicatedServer.this.ao() && DedicatedServer.this.v() && (var2 = var1.readLine()) != null) {
+                  DedicatedServer.this.a(var2, (class_m)DedicatedServer.this);
                }
             } catch (IOException var4) {
-               class_kp.k.error((String)"Exception handling console input", (Throwable)var4);
+               DedicatedServer.k.error((String)"Exception handling console input", (Throwable)var4);
             }
 
          }
@@ -95,8 +95,8 @@ public class class_kp extends MinecraftServer implements class_kk {
       }
 
       k.info("Loading properties");
-      this.o = new class_km(new File("server.properties"));
-      this.p = new class_kg(new File("eula.txt"));
+      this.o = new PropertyManager(new File("server.properties"));
+      this.p = new EULA(new File("eula.txt"));
       if(!this.p.a()) {
          k.info("You need to agree to the EULA in order to run the server. Go to eula.txt for more info.");
          this.p.b();
@@ -160,7 +160,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             this.aF().c();
          }
 
-         if(!class_ly.a(this.o)) {
+         if(!NameReferencingFileConverter.a(this.o)) {
             return false;
          } else {
             this.a((PlayerList)(new class_ko(this)));
@@ -255,7 +255,7 @@ public class class_kp extends MinecraftServer implements class_kk {
       var1 = super.b(var1);
       var1.g().a("Is Modded", new Callable() {
          public String a() throws Exception {
-            String var1 = class_kp.this.getServerModName();
+            String var1 = DedicatedServer.this.getServerModName();
             return !var1.equals("vanilla")?"Definitely; Server brand changed to \'" + var1 + "\'":"Unknown (can\'t tell)";
          }
 
@@ -439,7 +439,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             this.aU();
          }
 
-         var2 = class_ly.a((MinecraftServer)this);
+         var2 = NameReferencingFileConverter.a((MinecraftServer)this);
       }
 
       boolean var3 = false;
@@ -450,7 +450,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             this.aU();
          }
 
-         var3 = class_ly.b((MinecraftServer)this);
+         var3 = NameReferencingFileConverter.b((MinecraftServer)this);
       }
 
       boolean var4 = false;
@@ -461,7 +461,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             this.aU();
          }
 
-         var4 = class_ly.c((MinecraftServer)this);
+         var4 = NameReferencingFileConverter.c((MinecraftServer)this);
       }
 
       boolean var5 = false;
@@ -472,7 +472,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             this.aU();
          }
 
-         var5 = class_ly.d((MinecraftServer)this);
+         var5 = NameReferencingFileConverter.d((MinecraftServer)this);
       }
 
       boolean var6 = false;
@@ -483,7 +483,7 @@ public class class_kp extends MinecraftServer implements class_kk {
             this.aU();
          }
 
-         var6 = class_ly.a(this, this.o);
+         var6 = NameReferencingFileConverter.a(this, this.o);
       }
 
       return var2 || var3 || var4 || var5 || var6;

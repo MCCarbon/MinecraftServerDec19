@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_kk;
+import net.minecraft.server.IMinecraftServer;
 import net.minecraft.server.class_mj;
 import net.minecraft.server.class_mk;
 import net.minecraft.server.class_mn;
@@ -39,7 +39,7 @@ public class class_mo extends class_mn {
    private class_mj v;
    private long w;
 
-   public class_mo(class_kk var1) {
+   public class_mo(IMinecraftServer var1) {
       super(var1, "Query Listener");
       this.i = var1.a("query.port", 0);
       this.s = var1.E();

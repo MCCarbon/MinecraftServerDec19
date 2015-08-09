@@ -1,8 +1,8 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_cz;
+import net.minecraft.server.IPosition;
 
-public class class_da implements class_cz {
+public class class_da implements IPosition {
    protected final double a;
    protected final double b;
    protected final double c;

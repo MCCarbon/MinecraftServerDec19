@@ -27,7 +27,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import net.minecraft.server.class_mc;
+import net.minecraft.server.JsonListEntry;
 import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -40,7 +40,7 @@ public class class_md {
    private boolean e = true;
    private static final ParameterizedType f = new ParameterizedType() {
       public Type[] getActualTypeArguments() {
-         return new Type[]{class_mc.class};
+         return new Type[]{JsonListEntry.class};
       }
 
       public Type getRawType() {
@@ -55,7 +55,7 @@ public class class_md {
    public class_md(File var1) {
       this.c = var1;
       GsonBuilder var2 = (new GsonBuilder()).setPrettyPrinting();
-      var2.registerTypeHierarchyAdapter(class_mc.class, new class_md.class_a_in_class_md(null));
+      var2.registerTypeHierarchyAdapter(JsonListEntry.class, new class_md.class_a_in_class_md(null));
       this.b = var2.create();
    }
 
@@ -71,7 +71,7 @@ public class class_md {
       return this.c;
    }
 
-   public void a(class_mc var1) {
+   public void a(JsonListEntry var1) {
       this.d.put(this.a(var1.f()), var1);
 
       try {
@@ -82,9 +82,9 @@ public class class_md {
 
    }
 
-   public class_mc b(Object var1) {
+   public JsonListEntry b(Object var1) {
       this.h();
-      return (class_mc)this.d.get(this.a(var1));
+      return (JsonListEntry)this.d.get(this.a(var1));
    }
 
    public void c(Object var1) {
@@ -119,8 +119,8 @@ public class class_md {
       Iterator var2 = this.d.values().iterator();
 
       while(var2.hasNext()) {
-         class_mc var3 = (class_mc)var2.next();
-         if(var3.e()) {
+         JsonListEntry var3 = (JsonListEntry)var2.next();
+         if(var3.hasExpired()) {
             var1.add(var3.f());
          }
       }
@@ -134,8 +134,8 @@ public class class_md {
 
    }
 
-   protected class_mc a(JsonObject var1) {
-      return new class_mc((Object)null, var1);
+   protected JsonListEntry a(JsonObject var1) {
+      return new JsonListEntry((Object)null, var1);
    }
 
    protected Map e() {
@@ -172,7 +172,7 @@ public class class_md {
          Iterator var3 = var1.iterator();
 
          while(var3.hasNext()) {
-            class_mc var4 = (class_mc)var3.next();
+            JsonListEntry var4 = (JsonListEntry)var3.next();
             if(var4.f() != null) {
                this.d.put(this.a(var4.f()), var4);
             }
@@ -185,16 +185,16 @@ public class class_md {
       private class_a_in_class_md() {
       }
 
-      public JsonElement a(class_mc var1, Type var2, JsonSerializationContext var3) {
+      public JsonElement a(JsonListEntry var1, Type var2, JsonSerializationContext var3) {
          JsonObject var4 = new JsonObject();
          var1.a(var4);
          return var4;
       }
 
-      public class_mc a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
+      public JsonListEntry a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
          if(var1.isJsonObject()) {
             JsonObject var4 = var1.getAsJsonObject();
-            class_mc var5 = class_md.this.a(var4);
+            JsonListEntry var5 = class_md.this.a(var4);
             return var5;
          } else {
             return null;
@@ -203,7 +203,7 @@ public class class_md {
 
       // $FF: synthetic method
       public JsonElement serialize(Object var1, Type var2, JsonSerializationContext var3) {
-         return this.a((class_mc)var1, var2, var3);
+         return this.a((JsonListEntry)var1, var2, var3);
       }
 
       // $FF: synthetic method

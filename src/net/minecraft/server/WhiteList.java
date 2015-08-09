@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
 import java.io.File;
 import java.util.Iterator;
-import net.minecraft.server.class_mc;
+import net.minecraft.server.JsonListEntry;
 import net.minecraft.server.class_md;
 import net.minecraft.server.class_mh;
 
@@ -13,7 +13,7 @@ public class WhiteList extends class_md {
       super(var1);
    }
 
-   protected class_mc a(JsonObject var1) {
+   protected JsonListEntry a(JsonObject var1) {
       return new class_mh(var1);
    }
 

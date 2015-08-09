@@ -7,7 +7,7 @@ import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awt;
 import net.minecraft.server.class_awu;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_ew;
+import net.minecraft.server.ChatHoverable;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_mz;
 import net.minecraft.server.StatisticList;
@@ -60,7 +60,7 @@ public class class_my {
    public IChatBaseComponent e() {
       IChatBaseComponent var1 = this.a.f();
       var1.getChatModifier().a(EnumChatFormat.GRAY);
-      var1.getChatModifier().a(new class_ew(class_ew.class_a_in_class_ew.b, new ChatComponentText(this.e)));
+      var1.getChatModifier().a(new ChatHoverable(ChatHoverable.class_a_in_class_ew.b, new ChatComponentText(this.e)));
       return var1;
    }
 

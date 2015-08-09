@@ -2,9 +2,9 @@ package net.minecraft.server;
 
 import com.google.gson.JsonObject;
 import java.util.Date;
-import net.minecraft.server.class_lu;
+import net.minecraft.server.ExpirableListEntry;
 
-public class class_lx extends class_lu {
+public class class_lx extends ExpirableListEntry {
    public class_lx(String var1) {
       this(var1, (Date)null, (String)null, (Date)null, (String)null);
    }

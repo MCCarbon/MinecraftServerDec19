@@ -26,7 +26,7 @@ import javax.swing.text.AttributeSet;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.Document;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_kp;
+import net.minecraft.server.DedicatedServer;
 import net.minecraft.server.class_kt;
 import net.minecraft.server.class_ku;
 import net.minecraft.server.class_m;
@@ -36,9 +36,9 @@ import org.apache.logging.log4j.Logger;
 public class class_ks extends JComponent {
    private static final Font a = new Font("Monospaced", 0, 12);
    private static final Logger b = LogManager.getLogger();
-   private class_kp c;
+   private DedicatedServer c;
 
-   public static void a(final class_kp var0) {
+   public static void a(final DedicatedServer var0) {
       try {
          UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
       } catch (Exception var3) {
@@ -68,7 +68,7 @@ public class class_ks extends JComponent {
       });
    }
 
-   public class_ks(class_kp var1) {
+   public class_ks(DedicatedServer var1) {
       this.c = var1;
       this.setPreferredSize(new Dimension(854, 480));
       this.setLayout(new BorderLayout());

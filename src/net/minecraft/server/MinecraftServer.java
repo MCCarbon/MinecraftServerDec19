@@ -61,7 +61,7 @@ import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.ServerPing;
 import net.minecraft.server.Bootstrap;
 import net.minecraft.server.ITickAble;
-import net.minecraft.server.class_kp;
+import net.minecraft.server.DedicatedServer;
 import net.minecraft.server.class_ky;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_la;
@@ -652,7 +652,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				}
 			}
 
-			final class_kp var15 = new class_kp(new File(var3));
+			final DedicatedServer var15 = new DedicatedServer(new File(var3));
 			if (var2 != null) {
 				var15.i(var2);
 			}

@@ -10,7 +10,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_mc;
+import net.minecraft.server.JsonListEntry;
 import net.minecraft.server.class_mf;
 
 public class CommandBan extends CommandAbstract {
@@ -43,7 +43,7 @@ public class CommandBan extends CommandAbstract {
             }
 
             class_mf var6 = new class_mf(var4, (Date)null, var1.getName(), (Date)null, var5);
-            var3.getPlayerList().h().a((class_mc)var6);
+            var3.getPlayerList().h().a((JsonListEntry)var6);
             EntityPlayer var7 = var3.getPlayerList().a(var2[0]);
             if(var7 != null) {
                var7.playerConnection.c("You are banned from this server.");

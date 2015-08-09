@@ -1672,7 +1672,7 @@ public abstract class Entity implements class_m {
 		return EnumDirection.getByHorizontalId(MathHelper.floor((double) (this.yaw * 4.0F / 360.0F) + 0.5D) & 3);
 	}
 
-	protected class_ew aS() {
+	protected ChatHoverable aS() {
 		NBTTagCompound var1 = new NBTTagCompound();
 		String var2 = EntityTypes.b(this);
 		var1.put("id", this.getUniqueId().toString());
@@ -1681,7 +1681,7 @@ public abstract class Entity implements class_m {
 		}
 
 		var1.put("name", this.getName());
-		return new class_ew(class_ew.class_a_in_class_ew.d, new ChatComponentText(var1.toString()));
+		return new ChatHoverable(ChatHoverable.class_a_in_class_ew.d, new ChatComponentText(var1.toString()));
 	}
 
 	public boolean a(EntityPlayer var1) {

@@ -4,7 +4,7 @@ import com.google.gson.JsonObject;
 import java.io.File;
 import java.net.SocketAddress;
 import net.minecraft.server.class_lx;
-import net.minecraft.server.class_mc;
+import net.minecraft.server.JsonListEntry;
 import net.minecraft.server.class_md;
 
 public class IpBanList extends class_md {
@@ -12,7 +12,7 @@ public class IpBanList extends class_md {
       super(var1);
    }
 
-   protected class_mc a(JsonObject var1) {
+   protected JsonListEntry a(JsonObject var1) {
       return new class_lx(var1);
    }
 

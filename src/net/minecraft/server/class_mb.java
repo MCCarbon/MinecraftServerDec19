@@ -3,9 +3,9 @@ package net.minecraft.server;
 import com.google.gson.JsonObject;
 import com.mojang.authlib.GameProfile;
 import java.util.UUID;
-import net.minecraft.server.class_mc;
+import net.minecraft.server.JsonListEntry;
 
-public class class_mb extends class_mc {
+public class class_mb extends JsonListEntry {
    private final int a;
    private final boolean b;
 
