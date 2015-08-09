@@ -5,11 +5,11 @@ import net.minecraft.server.class_asz;
 import net.minecraft.server.NoiseGenerator;
 import net.minecraft.server.MathHelper;
 
-public class class_ata extends NoiseGenerator {
+public class NoiseGeneratorOctaves extends NoiseGenerator {
    private class_asz[] a;
    private int b;
 
-   public class_ata(Random var1, int var2) {
+   public NoiseGeneratorOctaves(Random var1, int var2) {
       this.b = var2;
       this.a = new class_asz[var2];
 

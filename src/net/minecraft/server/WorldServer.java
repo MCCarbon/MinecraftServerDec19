@@ -26,7 +26,7 @@ public class WorldServer extends World implements class_of {
    private final Set L = Sets.newHashSet();
    private final TreeSet M = new TreeSet();
    private final Map N = Maps.newHashMap();
-   public class_lf b;
+   public ChunkProviderServer b;
    public boolean c;
    private boolean O;
    private int P;
@@ -500,7 +500,7 @@ public class WorldServer extends World implements class_of {
 
    protected IChunkProvider l() {
       IChunkLoader var1 = this.w.createChunkLoader(this.worldProvider);
-      this.b = new class_lf(this, var1, this.worldProvider.c());
+      this.b = new ChunkProviderServer(this, var1, this.worldProvider.c());
       return this.b;
    }
 

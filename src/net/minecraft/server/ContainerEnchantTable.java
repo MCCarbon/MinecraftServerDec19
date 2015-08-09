@@ -3,7 +3,8 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 
-public class class_yj extends Container {
+public class ContainerEnchantTable extends Container {
+	
    public IInventory a = new InventorySubContainer("Enchant", true, 2) {
       public int getMaxStackSize() {
          return 64;
@@ -11,7 +12,7 @@ public class class_yj extends Container {
 
       public void update() {
          super.update();
-         class_yj.this.a((IInventory)this);
+         ContainerEnchantTable.this.a((IInventory)this);
       }
    };
    private World j;
@@ -22,11 +23,11 @@ public class class_yj extends Container {
    public int[] h = new int[]{-1, -1, -1};
    public int[] i = new int[]{-1, -1, -1};
 
-   public class_yj(PlayerInventory var1, World var2, BlockPosition var3) {
+   public ContainerEnchantTable(PlayerInventory var1, World var2, BlockPosition var3) {
       this.j = var2;
       this.k = var3;
       this.f = var1.e.cl();
-      this.a((class_yx)(new class_yx(this.a, 0, 15, 47) {
+      this.a((Slot)(new Slot(this.a, 0, 15, 47) {
          public boolean a(ItemStack var1) {
             return true;
          }
@@ -35,7 +36,7 @@ public class class_yj extends Container {
             return 1;
          }
       }));
-      this.a((class_yx)(new class_yx(this.a, 1, 35, 47) {
+      this.a((Slot)(new Slot(this.a, 1, 35, 47) {
          public boolean a(ItemStack var1) {
             return var1.getItem() == Items.DYE && EnumColor.a(var1.i()) == EnumColor.l;
          }
@@ -44,17 +45,17 @@ public class class_yj extends Container {
       int var4;
       for(var4 = 0; var4 < 3; ++var4) {
          for(int var5 = 0; var5 < 9; ++var5) {
-            this.a((class_yx)(new class_yx(var1, var5 + var4 * 9 + 9, 8 + var5 * 18, 84 + var4 * 18)));
+            this.a((Slot)(new Slot(var1, var5 + var4 * 9 + 9, 8 + var5 * 18, 84 + var4 * 18)));
          }
       }
 
       for(var4 = 0; var4 < 9; ++var4) {
-         this.a((class_yx)(new class_yx(var1, var4, 8 + var4 * 18, 142)));
+         this.a((Slot)(new Slot(var1, var4, 8 + var4 * 18, 142)));
       }
 
    }
 
-   protected void c(class_ye var1) {
+   protected void c(ICrafting var1) {
       var1.a(this, 0, this.g[0]);
       var1.a(this, 1, this.g[1]);
       var1.a(this, 2, this.g[2]);
@@ -67,7 +68,7 @@ public class class_yj extends Container {
       var1.a(this, 9, this.i[2]);
    }
 
-   public void a(class_ye var1) {
+   public void a(ICrafting var1) {
       super.a(var1);
       this.c(var1);
    }
@@ -76,7 +77,7 @@ public class class_yj extends Container {
       super.b();
 
       for(int var1 = 0; var1 < this.e.size(); ++var1) {
-         class_ye var2 = (class_ye)this.e.get(var1);
+         ICrafting var2 = (ICrafting)this.e.get(var1);
          this.c(var2);
       }
 
@@ -232,7 +233,7 @@ public class class_yj extends Container {
 
    public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
-      class_yx var4 = (class_yx)this.c.get(var2);
+      Slot var4 = (Slot)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
          var3 = var5.clone();
@@ -249,15 +250,15 @@ public class class_yj extends Container {
                return null;
             }
          } else {
-            if(((class_yx)this.c.get(0)).e() || !((class_yx)this.c.get(0)).a(var5)) {
+            if(((Slot)this.c.get(0)).e() || !((Slot)this.c.get(0)).a(var5)) {
                return null;
             }
 
             if(var5.hasTag() && var5.count == 1) {
-               ((class_yx)this.c.get(0)).d(var5.clone());
+               ((Slot)this.c.get(0)).d(var5.clone());
                var5.count = 0;
             } else if(var5.count >= 1) {
-               ((class_yx)this.c.get(0)).d(new ItemStack(var5.getItem(), 1, var5.i()));
+               ((Slot)this.c.get(0)).d(new ItemStack(var5.getItem(), 1, var5.i()));
                --var5.count;
             }
          }

@@ -228,9 +228,9 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 						}
 
 						var7 = (EntityHuman) var6.next();
-					} while (!(var7.br instanceof class_yf));
+					} while (!(var7.br instanceof ContainerChest));
 
-					var8 = ((class_yf) var7.br).e();
+					var8 = ((ContainerChest) var7.br).e();
 				} while ((var8 != this) && (!(var8 instanceof class_oi) || !((class_oi) var8).a(this)));
 
 				++l;
@@ -355,7 +355,7 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 
 	@Override
 	public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-		return new class_yf(var1, this, var2);
+		return new ContainerChest(var1, this, var2);
 	}
 
 	@Override

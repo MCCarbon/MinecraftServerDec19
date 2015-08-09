@@ -7,13 +7,13 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_yb extends Container {
+public class ContainerAnvil extends Container {
    private static final Logger f = LogManager.getLogger();
-   private IInventory g = new class_yv();
+   private IInventory g = new InventoryCraftResult();
    private IInventory h = new InventorySubContainer("Repair", true, 2) {
       public void update() {
          super.update();
-         class_yb.this.a((IInventory)this);
+         ContainerAnvil.this.a((IInventory)this);
       }
    };
    private World i;
@@ -23,40 +23,40 @@ public class class_yb extends Container {
    private String l;
    private final EntityHuman m;
 
-   public class_yb(PlayerInventory var1, final World var2, final BlockPosition var3, EntityHuman var4) {
+   public ContainerAnvil(PlayerInventory var1, final World var2, final BlockPosition var3, EntityHuman var4) {
       this.j = var3;
       this.i = var2;
       this.m = var4;
-      this.a((class_yx)(new class_yx(this.h, 0, 27, 47)));
-      this.a((class_yx)(new class_yx(this.h, 1, 76, 47)));
-      this.a((class_yx)(new class_yx(this.g, 2, 134, 47) {
+      this.a((Slot)(new Slot(this.h, 0, 27, 47)));
+      this.a((Slot)(new Slot(this.h, 1, 76, 47)));
+      this.a((Slot)(new Slot(this.g, 2, 134, 47) {
          public boolean a(ItemStack var1) {
             return false;
          }
 
          public boolean a(EntityHuman var1) {
-            return (var1.abilities.instabuild || var1.expLevel >= class_yb.this.a) && class_yb.this.a > 0 && this.e();
+            return (var1.abilities.instabuild || var1.expLevel >= ContainerAnvil.this.a) && ContainerAnvil.this.a > 0 && this.e();
          }
 
          public void a(EntityHuman var1, ItemStack var2x) {
             if(!var1.abilities.instabuild) {
-               var1.a(-class_yb.this.a);
+               var1.a(-ContainerAnvil.this.a);
             }
 
-            class_yb.this.h.setItem(0, (ItemStack)null);
-            if(class_yb.this.k > 0) {
-               ItemStack var3x = class_yb.this.h.getItem(1);
-               if(var3x != null && var3x.count > class_yb.this.k) {
-                  var3x.count -= class_yb.this.k;
-                  class_yb.this.h.setItem(1, var3x);
+            ContainerAnvil.this.h.setItem(0, (ItemStack)null);
+            if(ContainerAnvil.this.k > 0) {
+               ItemStack var3x = ContainerAnvil.this.h.getItem(1);
+               if(var3x != null && var3x.count > ContainerAnvil.this.k) {
+                  var3x.count -= ContainerAnvil.this.k;
+                  ContainerAnvil.this.h.setItem(1, var3x);
                } else {
-                  class_yb.this.h.setItem(1, (ItemStack)null);
+                  ContainerAnvil.this.h.setItem(1, (ItemStack)null);
                }
             } else {
-               class_yb.this.h.setItem(1, (ItemStack)null);
+               ContainerAnvil.this.h.setItem(1, (ItemStack)null);
             }
 
-            class_yb.this.a = 0;
+            ContainerAnvil.this.a = 0;
             IBlockData var5 = var2.getType(var3);
             if(!var1.abilities.instabuild && !var2.isClientSide && var5.getBlock() == Blocks.ANVIL && var1.getRandom().nextFloat() < 0.12F) {
                int var4 = ((Integer)var5.get(BlockAnvil.b)).intValue();
@@ -78,12 +78,12 @@ public class class_yb extends Container {
       int var5;
       for(var5 = 0; var5 < 3; ++var5) {
          for(int var6 = 0; var6 < 9; ++var6) {
-            this.a((class_yx)(new class_yx(var1, var6 + var5 * 9 + 9, 8 + var6 * 18, 84 + var5 * 18)));
+            this.a((Slot)(new Slot(var1, var6 + var5 * 9 + 9, 8 + var6 * 18, 84 + var5 * 18)));
          }
       }
 
       for(var5 = 0; var5 < 9; ++var5) {
-         this.a((class_yx)(new class_yx(var1, var5, 8 + var5 * 18, 142)));
+         this.a((Slot)(new Slot(var1, var5, 8 + var5 * 18, 142)));
       }
 
    }
@@ -196,7 +196,7 @@ public class class_yb extends Container {
 
                      var7.put(var21, Integer.valueOf(var13));
                      int var22 = 0;
-                     switch(class_yb.SyntheticClass_1.a[var21.c().ordinal()]) {
+                     switch(ContainerAnvil.SyntheticClass_1.a[var21.c().ordinal()]) {
                      case 1:
                         var22 = 1;
                         break;
@@ -261,7 +261,7 @@ public class class_yb extends Container {
       }
    }
 
-   public void a(class_ye var1) {
+   public void a(ICrafting var1) {
       super.a(var1);
       var1.a(this, 0, this.a);
    }
@@ -285,7 +285,7 @@ public class class_yb extends Container {
 
    public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
-      class_yx var4 = (class_yx)this.c.get(var2);
+      Slot var4 = (Slot)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
          var3 = var5.clone();

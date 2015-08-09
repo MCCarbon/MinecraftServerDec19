@@ -717,7 +717,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 				ArrayList var2 = Lists.newArrayList();
 
 				for (int var3 = 0; var3 < player.br.c.size(); ++var3) {
-					var2.add(((class_yx) player.br.c.get(var3)).d());
+					var2.add(((Slot) player.br.c.get(var3)).d());
 				}
 
 				player.a(player.br, var2);
@@ -736,7 +736,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					ArrayList var6 = Lists.newArrayList();
 
 					for (int var4 = 0; var4 < player.br.c.size(); ++var4) {
-						var6.add(((class_yx) player.br.c.get(var4)).d());
+						var6.add(((Slot) player.br.c.get(var4)).d());
 					}
 
 					player.a(player.br, var6);
@@ -951,8 +951,8 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 			try {
 				int var2 = var1.getData().readInt();
 				Container var3 = player.br;
-				if (var3 instanceof class_ys) {
-					((class_ys) var3).d(var2);
+				if (var3 instanceof ContainerMerchant) {
+					((ContainerMerchant) var3).d(var2);
 				}
 			} catch (Exception var56) {
 				logger.error("Couldn\'t select trade", var56);
@@ -999,13 +999,13 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 				player.sendMessage((new ChatMessage("advMode.notAllowed", new Object[0])));
 			}
 		} else if ("MC|Beacon".equals(var1.getTag())) {
-			if (player.br instanceof class_yc) {
+			if (player.br instanceof ContainerBeacon) {
 				try {
 					var61 = var1.getData();
 					int var64 = var61.readInt();
 					int var68 = var61.readInt();
-					class_yc var73 = (class_yc) player.br;
-					class_yx var74 = var73.a(0);
+					ContainerBeacon var73 = (ContainerBeacon) player.br;
+					Slot var74 = var73.a(0);
 					if (var74.e()) {
 						var74.a(1);
 						IInventory var7 = var73.e();
@@ -1018,8 +1018,8 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 				}
 			}
 		} else if ("MC|ItemName".equals(var1.getTag())) {
-			if (player.br instanceof class_yb) {
-				class_yb var62 = (class_yb) player.br;
+			if (player.br instanceof ContainerAnvil) {
+				ContainerAnvil var62 = (ContainerAnvil) player.br;
 				if ((var1.getData() != null) && (var1.getData().readableBytes() >= 1)) {
 					String var65 = class_f.a(var1.getData().readString(32767));
 					if (var65.length() <= 30) {

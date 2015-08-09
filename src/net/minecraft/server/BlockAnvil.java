@@ -100,7 +100,7 @@ public class BlockAnvil extends BlockFalling {
       }
 
       public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-         return new class_yb(var1, this.a, this.b, var2);
+         return new ContainerAnvil(var1, this.a, this.b, var2);
       }
 
       public String getContainerName() {

@@ -66,7 +66,7 @@ public class ItemWrittenBook extends Item {
 
                var3.put((String)"pages", (NBTTag)var4);
                if(var2 instanceof EntityPlayer && var2.bA() == var1) {
-                  class_yx var10 = var2.br.a((IInventory)var2.inventory, var2.inventory.itemInHandIndex);
+                  Slot var10 = var2.br.a((IInventory)var2.inventory, var2.inventory.itemInHandIndex);
                   ((EntityPlayer)var2).playerConnection.sendPacket((Packet)(new PacketPlayOutSetSlot(0, var10.e, var1)));
                }
 

@@ -138,6 +138,6 @@ public class EntityMinecartHopper extends class_vq implements class_ams {
    }
 
    public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-      return new class_yn(var1, this, var2);
+      return new ContainerDispenser(var1, this, var2);
    }
 }

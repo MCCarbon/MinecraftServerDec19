@@ -250,7 +250,7 @@ public class TileEntityBrewingStand extends TileEntityContainer implements ITick
 
 	@Override
 	public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-		return new class_yd(var1, this);
+		return new ContainerBrewingStand(var1, this);
 	}
 
 	@Override

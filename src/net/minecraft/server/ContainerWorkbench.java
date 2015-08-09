@@ -1,32 +1,32 @@
 package net.minecraft.server;
 
-public class class_yh extends Container {
+public class ContainerWorkbench extends Container {
    public InventoryCrafting a = new InventoryCrafting(this, 3, 3);
-   public IInventory f = new class_yv();
+   public IInventory f = new InventoryCraftResult();
    private World g;
    private BlockPosition h;
 
-   public class_yh(PlayerInventory var1, World var2, BlockPosition var3) {
+   public ContainerWorkbench(PlayerInventory var1, World var2, BlockPosition var3) {
       this.g = var2;
       this.h = var3;
-      this.a((class_yx)(new class_yw(var1.e, this.a, this.f, 0, 124, 35)));
+      this.a((Slot)(new SlotResult(var1.e, this.a, this.f, 0, 124, 35)));
 
       int var4;
       int var5;
       for(var4 = 0; var4 < 3; ++var4) {
          for(var5 = 0; var5 < 3; ++var5) {
-            this.a((class_yx)(new class_yx(this.a, var5 + var4 * 3, 30 + var5 * 18, 17 + var4 * 18)));
+            this.a((Slot)(new Slot(this.a, var5 + var4 * 3, 30 + var5 * 18, 17 + var4 * 18)));
          }
       }
 
       for(var4 = 0; var4 < 3; ++var4) {
          for(var5 = 0; var5 < 9; ++var5) {
-            this.a((class_yx)(new class_yx(var1, var5 + var4 * 9 + 9, 8 + var5 * 18, 84 + var4 * 18)));
+            this.a((Slot)(new Slot(var1, var5 + var4 * 9 + 9, 8 + var5 * 18, 84 + var4 * 18)));
          }
       }
 
       for(var4 = 0; var4 < 9; ++var4) {
-         this.a((class_yx)(new class_yx(var1, var4, 8 + var4 * 18, 142)));
+         this.a((Slot)(new Slot(var1, var4, 8 + var4 * 18, 142)));
       }
 
       this.a((IInventory)this.a);
@@ -55,7 +55,7 @@ public class class_yh extends Container {
 
    public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
-      class_yx var4 = (class_yx)this.c.get(var2);
+      Slot var4 = (Slot)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
          var3 = var5.clone();
@@ -93,7 +93,7 @@ public class class_yh extends Container {
       return var3;
    }
 
-   public boolean a(ItemStack var1, class_yx var2) {
+   public boolean a(ItemStack var1, Slot var2) {
       return var2.d != this.f && super.a(var1, var2);
    }
 }

@@ -1,31 +1,31 @@
 package net.minecraft.server;
 
-public class class_yd extends Container {
+public class ContainerBrewingStand extends Container {
    private IInventory a;
-   private final class_yx f;
+   private final Slot f;
    private int g;
 
-   public class_yd(PlayerInventory var1, IInventory var2) {
+   public ContainerBrewingStand(PlayerInventory var1, IInventory var2) {
       this.a = var2;
-      this.a((class_yx)(new class_yd.class_b_in_class_yd(var1.e, var2, 0, 56, 46)));
-      this.a((class_yx)(new class_yd.class_b_in_class_yd(var1.e, var2, 1, 79, 53)));
-      this.a((class_yx)(new class_yd.class_b_in_class_yd(var1.e, var2, 2, 102, 46)));
-      this.f = this.a((class_yx)(new class_yd.class_a_in_class_yd(var2, 3, 79, 17)));
+      this.a((Slot)(new ContainerBrewingStand.SlotPotionBottle(var1.e, var2, 0, 56, 46)));
+      this.a((Slot)(new ContainerBrewingStand.SlotPotionBottle(var1.e, var2, 1, 79, 53)));
+      this.a((Slot)(new ContainerBrewingStand.SlotPotionBottle(var1.e, var2, 2, 102, 46)));
+      this.f = this.a((Slot)(new ContainerBrewingStand.SlotBrewing(var2, 3, 79, 17)));
 
       int var3;
       for(var3 = 0; var3 < 3; ++var3) {
          for(int var4 = 0; var4 < 9; ++var4) {
-            this.a((class_yx)(new class_yx(var1, var4 + var3 * 9 + 9, 8 + var4 * 18, 84 + var3 * 18)));
+            this.a((Slot)(new Slot(var1, var4 + var3 * 9 + 9, 8 + var4 * 18, 84 + var3 * 18)));
          }
       }
 
       for(var3 = 0; var3 < 9; ++var3) {
-         this.a((class_yx)(new class_yx(var1, var3, 8 + var3 * 18, 142)));
+         this.a((Slot)(new Slot(var1, var3, 8 + var3 * 18, 142)));
       }
 
    }
 
-   public void a(class_ye var1) {
+   public void a(ICrafting var1) {
       super.a(var1);
       var1.a(this, (IInventory)this.a);
    }
@@ -34,7 +34,7 @@ public class class_yd extends Container {
       super.b();
 
       for(int var1 = 0; var1 < this.e.size(); ++var1) {
-         class_ye var2 = (class_ye)this.e.get(var1);
+         ICrafting var2 = (ICrafting)this.e.get(var1);
          if(this.g != this.a.getProperty(0)) {
             var2.a(this, 0, this.a.getProperty(0));
          }
@@ -49,7 +49,7 @@ public class class_yd extends Container {
 
    public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
-      class_yx var4 = (class_yx)this.c.get(var2);
+      Slot var4 = (Slot)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
          var3 = var5.clone();
@@ -58,7 +58,7 @@ public class class_yd extends Container {
                if(!this.a(var5, 3, 4, false)) {
                   return null;
                }
-            } else if(class_yd.class_b_in_class_yd.b_(var3)) {
+            } else if(ContainerBrewingStand.SlotPotionBottle.b_(var3)) {
                if(!this.a(var5, 0, 3, false)) {
                   return null;
                }
@@ -97,8 +97,8 @@ public class class_yd extends Container {
       return var3;
    }
 
-   static class class_a_in_class_yd extends class_yx {
-      public class_a_in_class_yd(IInventory var1, int var2, int var3, int var4) {
+   static class SlotBrewing extends Slot {
+      public SlotBrewing(IInventory var1, int var2, int var3, int var4) {
          super(var1, var2, var3, var4);
       }
 
@@ -111,10 +111,10 @@ public class class_yd extends Container {
       }
    }
 
-   static class class_b_in_class_yd extends class_yx {
+   static class SlotPotionBottle extends Slot {
       private EntityHuman a;
 
-      public class_b_in_class_yd(EntityHuman var1, IInventory var2, int var3, int var4, int var5) {
+      public SlotPotionBottle(EntityHuman var1, IInventory var2, int var3, int var4, int var5) {
          super(var2, var3, var4, var5);
          this.a = var1;
       }

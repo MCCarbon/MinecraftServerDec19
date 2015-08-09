@@ -26,7 +26,7 @@ import net.minecraft.server.EnumCreatureType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_lf implements IChunkProvider {
+public class ChunkProviderServer implements IChunkProvider {
    private static final Logger b = LogManager.getLogger();
    private Set c = Collections.newSetFromMap(new ConcurrentHashMap());
    private Chunk d;
@@ -37,7 +37,7 @@ public class class_lf implements IChunkProvider {
    private List h = Lists.newArrayList();
    private WorldServer i;
 
-   public class_lf(WorldServer var1, IChunkLoader var2, IChunkProvider var3) {
+   public ChunkProviderServer(WorldServer var1, IChunkLoader var2, IChunkProvider var3) {
       this.d = new class_aoj(var1, 0, 0);
       this.i = var1;
       this.f = var2;

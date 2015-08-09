@@ -38,6 +38,6 @@ public class EntityMinecartChest extends class_vq {
    }
 
    public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-      return new class_yf(var1, this, var2);
+      return new ContainerChest(var1, this, var2);
    }
 }

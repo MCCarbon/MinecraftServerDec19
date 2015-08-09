@@ -14,7 +14,7 @@ import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_aqj;
 import net.minecraft.server.WorldGenEndCity;
-import net.minecraft.server.class_ata;
+import net.minecraft.server.NoiseGeneratorOctaves;
 import net.minecraft.server.class_ate;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -24,11 +24,11 @@ import net.minecraft.server.EnumCreatureType;
 
 public class class_apq implements IChunkProvider {
    private Random f;
-   private class_ata g;
-   private class_ata h;
-   private class_ata i;
-   public class_ata a;
-   public class_ata b;
+   private NoiseGeneratorOctaves g;
+   private NoiseGeneratorOctaves h;
+   private NoiseGeneratorOctaves i;
+   public NoiseGeneratorOctaves a;
+   public NoiseGeneratorOctaves b;
    private World j;
    private WorldGenEndCity k = new WorldGenEndCity(this);
    private class_ate l;
@@ -42,11 +42,11 @@ public class class_apq implements IChunkProvider {
    public class_apq(World var1, long var2) {
       this.j = var1;
       this.f = new Random(var2);
-      this.g = new class_ata(this.f, 16);
-      this.h = new class_ata(this.f, 16);
-      this.i = new class_ata(this.f, 8);
-      this.a = new class_ata(this.f, 10);
-      this.b = new class_ata(this.f, 16);
+      this.g = new NoiseGeneratorOctaves(this.f, 16);
+      this.h = new NoiseGeneratorOctaves(this.f, 16);
+      this.i = new NoiseGeneratorOctaves(this.f, 8);
+      this.a = new NoiseGeneratorOctaves(this.f, 10);
+      this.b = new NoiseGeneratorOctaves(this.f, 16);
       this.l = new class_ate(this.f);
    }
 

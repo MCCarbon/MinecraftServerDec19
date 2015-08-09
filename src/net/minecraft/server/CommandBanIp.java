@@ -13,7 +13,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_lx;
+import net.minecraft.server.IpBanEntry;
 import net.minecraft.server.ICommandListener;
 import net.minecraft.server.JsonListEntry;
 
@@ -61,7 +61,7 @@ public class CommandBanIp extends CommandAbstract {
    }
 
    protected void a(ICommandListener var1, String var2, String var3) {
-      class_lx var4 = new class_lx(var2, (Date)null, var1.getName(), (Date)null, var3);
+      IpBanEntry var4 = new IpBanEntry(var2, (Date)null, var1.getName(), (Date)null, var3);
       MinecraftServer.N().getPlayerList().i().a((JsonListEntry)var4);
       List var5 = MinecraftServer.N().getPlayerList().b(var2);
       String[] var6 = new String[var5.size()];

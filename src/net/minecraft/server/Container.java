@@ -13,8 +13,8 @@ import net.minecraft.server.MathHelper;
 import net.minecraft.server.IInventory;
 import net.minecraft.server.PlayerInventory;
 import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_ye;
-import net.minecraft.server.class_yx;
+import net.minecraft.server.ICrafting;
+import net.minecraft.server.Slot;
 
 public abstract class Container {
    public List b = Lists.newArrayList();
@@ -26,14 +26,14 @@ public abstract class Container {
    protected List e = Lists.newArrayList();
    private Set i = Sets.newHashSet();
 
-   protected class_yx a(class_yx var1) {
+   protected Slot a(Slot var1) {
       var1.e = this.c.size();
       this.c.add(var1);
       this.b.add((Object)null);
       return var1;
    }
 
-   public void a(class_ye var1) {
+   public void a(ICrafting var1) {
       if(this.e.contains(var1)) {
          throw new IllegalArgumentException("Listener already listening");
       } else {
@@ -47,7 +47,7 @@ public abstract class Container {
       ArrayList var1 = Lists.newArrayList();
 
       for(int var2 = 0; var2 < this.c.size(); ++var2) {
-         var1.add(((class_yx)this.c.get(var2)).d());
+         var1.add(((Slot)this.c.get(var2)).d());
       }
 
       return var1;
@@ -55,14 +55,14 @@ public abstract class Container {
 
    public void b() {
       for(int var1 = 0; var1 < this.c.size(); ++var1) {
-         ItemStack var2 = ((class_yx)this.c.get(var1)).d();
+         ItemStack var2 = ((Slot)this.c.get(var1)).d();
          ItemStack var3 = (ItemStack)this.b.get(var1);
          if(!ItemStack.b(var3, var2)) {
             var3 = var2 == null?null:var2.clone();
             this.b.set(var1, var3);
 
             for(int var4 = 0; var4 < this.e.size(); ++var4) {
-               ((class_ye)this.e.get(var4)).a(this, var1, var3);
+               ((ICrafting)this.e.get(var4)).a(this, var1, var3);
             }
          }
       }
@@ -73,9 +73,9 @@ public abstract class Container {
       return false;
    }
 
-   public class_yx a(IInventory var1, int var2) {
+   public Slot a(IInventory var1, int var2) {
       for(int var3 = 0; var3 < this.c.size(); ++var3) {
-         class_yx var4 = (class_yx)this.c.get(var3);
+         Slot var4 = (Slot)this.c.get(var3);
          if(var4.a(var1, var2)) {
             return var4;
          }
@@ -84,12 +84,12 @@ public abstract class Container {
       return null;
    }
 
-   public class_yx a(int var1) {
-      return (class_yx)this.c.get(var1);
+   public Slot a(int var1) {
+      return (Slot)this.c.get(var1);
    }
 
    public ItemStack b(EntityHuman var1, int var2) {
-      class_yx var3 = (class_yx)this.c.get(var2);
+      Slot var3 = (Slot)this.c.get(var2);
       return var3 != null?var3.d():null;
    }
 
@@ -114,7 +114,7 @@ public abstract class Container {
                this.d();
             }
          } else if(this.g == 1) {
-            class_yx var8 = (class_yx)this.c.get(var1);
+            Slot var8 = (Slot)this.c.get(var1);
             if(var8 != null && a(var8, var6.o(), true) && var8.a(var6.o()) && var6.o().count > this.h.size() && this.b(var8)) {
                this.h.add(var8);
             }
@@ -125,7 +125,7 @@ public abstract class Container {
                Iterator var10 = this.h.iterator();
 
                while(var10.hasNext()) {
-                  class_yx var11 = (class_yx)var10.next();
+                  Slot var11 = (Slot)var10.next();
                   if(var11 != null && a(var11, var6.o(), true) && var11.a(var6.o()) && var6.o().count >= this.h.size() && this.b(var11)) {
                      ItemStack var12 = var17.clone();
                      int var13 = var11.e()?var11.d().count:0;
@@ -158,7 +158,7 @@ public abstract class Container {
       } else if(this.g != 0) {
          this.d();
       } else {
-         class_yx var16;
+         Slot var16;
          int var19;
          ItemStack var23;
          if((var3 == 0 || var3 == 1) && (var2 == 0 || var2 == 1)) {
@@ -181,7 +181,7 @@ public abstract class Container {
                   return null;
                }
 
-               var16 = (class_yx)this.c.get(var1);
+               var16 = (Slot)this.c.get(var1);
                if(var16 != null && var16.a(var4)) {
                   var17 = this.b(var4, var1);
                   if(var17 != null) {
@@ -197,7 +197,7 @@ public abstract class Container {
                   return null;
                }
 
-               var16 = (class_yx)this.c.get(var1);
+               var16 = (Slot)this.c.get(var1);
                if(var16 != null) {
                   var17 = var16.d();
                   ItemStack var21 = var6.o();
@@ -269,7 +269,7 @@ public abstract class Container {
                }
             }
          } else if(var3 == 2 && var2 >= 0 && var2 < 9) {
-            var16 = (class_yx)this.c.get(var1);
+            var16 = (Slot)this.c.get(var1);
             if(var16.a(var4)) {
                var17 = var6.getItem(var2);
                boolean var18 = var17 == null || var16.d == var6 && var16.a(var17);
@@ -300,21 +300,21 @@ public abstract class Container {
                }
             }
          } else if(var3 == 3 && var4.abilities.instabuild && var6.o() == null && var1 >= 0) {
-            var16 = (class_yx)this.c.get(var1);
+            var16 = (Slot)this.c.get(var1);
             if(var16 != null && var16.e()) {
                var17 = var16.d().clone();
                var17.count = var17.c();
                var6.b(var17);
             }
          } else if(var3 == 4 && var6.o() == null && var1 >= 0) {
-            var16 = (class_yx)this.c.get(var1);
+            var16 = (Slot)this.c.get(var1);
             if(var16 != null && var16.e() && var16.a(var4)) {
                var17 = var16.a(var2 == 0?1:var16.d().count);
                var16.a(var4, var17);
                var4.a(var17, true);
             }
          } else if(var3 == 6 && var1 >= 0) {
-            var16 = (class_yx)this.c.get(var1);
+            var16 = (Slot)this.c.get(var1);
             var17 = var6.o();
             if(var17 != null && (var16 == null || !var16.e() || !var16.a(var4))) {
                var9 = var2 == 0?0:this.c.size() - 1;
@@ -322,7 +322,7 @@ public abstract class Container {
 
                for(int var22 = 0; var22 < 2; ++var22) {
                   for(int var24 = var9; var24 >= 0 && var24 < this.c.size() && var17.count < var17.c(); var24 += var19) {
-                     class_yx var25 = (class_yx)this.c.get(var24);
+                     Slot var25 = (Slot)this.c.get(var24);
                      if(var25.e() && a(var25, var17, true) && var25.a(var4) && this.a(var17, var25) && (var22 != 0 || var25.d().count != var25.d().c())) {
                         int var14 = Math.min(var17.c() - var17.count, var25.d().count);
                         ItemStack var15 = var25.a(var14);
@@ -344,7 +344,7 @@ public abstract class Container {
       return var5;
    }
 
-   public boolean a(ItemStack var1, class_yx var2) {
+   public boolean a(ItemStack var1, Slot var2) {
       return true;
    }
 
@@ -391,11 +391,11 @@ public abstract class Container {
          var6 = var3 - 1;
       }
 
-      class_yx var7;
+      Slot var7;
       ItemStack var8;
       if(var1.d()) {
          while(var1.count > 0 && (!var4 && var6 < var3 || var4 && var6 >= var2)) {
-            var7 = (class_yx)this.c.get(var6);
+            var7 = (Slot)this.c.get(var6);
             var8 = var7.d();
             if(var8 != null && var8.getItem() == var1.getItem() && (!var1.f() || var1.i() == var8.i()) && ItemStack.a(var1, var8)) {
                int var9 = var8.count + var1.count;
@@ -428,7 +428,7 @@ public abstract class Container {
          }
 
          while(!var4 && var6 < var3 || var4 && var6 >= var2) {
-            var7 = (class_yx)this.c.get(var6);
+            var7 = (Slot)this.c.get(var6);
             var8 = var7.d();
             if(var8 == null) {
                var7.d(var1.clone());
@@ -466,7 +466,7 @@ public abstract class Container {
       this.h.clear();
    }
 
-   public static boolean a(class_yx var0, ItemStack var1, boolean var2) {
+   public static boolean a(Slot var0, ItemStack var1, boolean var2) {
       boolean var3 = var0 == null || !var0.e();
       if(var0 != null && var0.e() && var1 != null && var1.a(var0.d()) && ItemStack.a(var0.d(), var1)) {
          var3 |= var0.d().count + (var2?0:var1.count) <= var1.c();
@@ -490,7 +490,7 @@ public abstract class Container {
       var2.count += var3;
    }
 
-   public boolean b(class_yx var1) {
+   public boolean b(Slot var1) {
       return true;
    }
 

@@ -10,14 +10,14 @@ import net.minecraft.server.ChatMessage;
 import net.minecraft.server.IInventory;
 import net.minecraft.server.EntityHuman;
 
-public class class_yr implements IInventory {
+public class InventoryMerchant implements IInventory {
    private final IMerchant a;
    private ItemStack[] b = new ItemStack[3];
    private final EntityHuman c;
    private MerchantRecipe d;
    private int e;
 
-   public class_yr(EntityHuman var1, IMerchant var2) {
+   public InventoryMerchant(EntityHuman var1, IMerchant var2) {
       this.c = var1;
       this.a = var2;
    }

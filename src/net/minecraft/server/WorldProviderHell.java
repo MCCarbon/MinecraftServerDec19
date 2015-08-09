@@ -6,7 +6,7 @@ import net.minecraft.server.class_aoe;
 import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.WorldProvider;
 import net.minecraft.server.class_aoz;
-import net.minecraft.server.class_apl;
+import net.minecraft.server.ChunkProviderHell;
 
 public class WorldProviderHell extends WorldProvider {
    public void b() {
@@ -26,7 +26,7 @@ public class WorldProviderHell extends WorldProvider {
    }
 
    public IChunkProvider c() {
-      return new class_apl(this.b, this.b.Q().s(), this.b.K());
+      return new ChunkProviderHell(this.b, this.b.Q().s(), this.b.K());
    }
 
    public boolean d() {

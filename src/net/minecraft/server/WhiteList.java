@@ -5,10 +5,10 @@ import com.mojang.authlib.GameProfile;
 import java.io.File;
 import java.util.Iterator;
 import net.minecraft.server.JsonListEntry;
-import net.minecraft.server.class_md;
+import net.minecraft.server.JsonList;
 import net.minecraft.server.class_mh;
 
-public class WhiteList extends class_md {
+public class WhiteList extends JsonList {
    public WhiteList(File var1) {
       super(var1);
    }

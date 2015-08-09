@@ -1,28 +1,28 @@
 package net.minecraft.server;
 
-public class class_yp extends Container {
+public class ContainerPlayer extends Container {
    private static final EnumWearable[] h;
    public InventoryCrafting a = new InventoryCrafting(this, 2, 2);
-   public IInventory f = new class_yv();
+   public IInventory f = new InventoryCraftResult();
    public boolean g;
    private final EntityHuman i;
 
-   public class_yp(final PlayerInventory var1, boolean var2, EntityHuman var3) {
+   public ContainerPlayer(final PlayerInventory var1, boolean var2, EntityHuman var3) {
       this.g = var2;
       this.i = var3;
-      this.a((class_yx)(new class_yw(var1.e, this.a, this.f, 0, 154, 28)));
+      this.a((Slot)(new SlotResult(var1.e, this.a, this.f, 0, 154, 28)));
 
       int var4;
       int var5;
       for(var4 = 0; var4 < 2; ++var4) {
          for(var5 = 0; var5 < 2; ++var5) {
-            this.a((class_yx)(new class_yx(this.a, var5 + var4 * 2, 98 + var5 * 18, 18 + var4 * 18)));
+            this.a((Slot)(new Slot(this.a, var5 + var4 * 2, 98 + var5 * 18, 18 + var4 * 18)));
          }
       }
 
       for(var4 = 0; var4 < 4; ++var4) {
          final EnumWearable var6 = h[var4];
-         this.a((class_yx)(new class_yx(var1, 36 + (3 - var4), 8, 8 + var4 * 18) {
+         this.a((Slot)(new Slot(var1, 36 + (3 - var4), 8, 8 + var4 * 18) {
             public int a() {
                return 1;
             }
@@ -35,15 +35,15 @@ public class class_yp extends Container {
 
       for(var4 = 0; var4 < 3; ++var4) {
          for(var5 = 0; var5 < 9; ++var5) {
-            this.a((class_yx)(new class_yx(var1, var5 + (var4 + 1) * 9, 8 + var5 * 18, 84 + var4 * 18)));
+            this.a((Slot)(new Slot(var1, var5 + (var4 + 1) * 9, 8 + var5 * 18, 84 + var4 * 18)));
          }
       }
 
       for(var4 = 0; var4 < 9; ++var4) {
-         this.a((class_yx)(new class_yx(var1, var4, 8 + var4 * 18, 142)));
+         this.a((Slot)(new Slot(var1, var4, 8 + var4 * 18, 142)));
       }
 
-      this.a((class_yx)(new class_yx(var1, 40, 77, 62) {
+      this.a((Slot)(new Slot(var1, 40, 77, 62) {
          public boolean a(ItemStack var1) {
             return super.a(var1);
          }
@@ -74,7 +74,7 @@ public class class_yp extends Container {
 
    public ItemStack b(EntityHuman var1, int var2) {
       ItemStack var3 = null;
-      class_yx var4 = (class_yx)this.c.get(var2);
+      Slot var4 = (Slot)this.c.get(var2);
       if(var4 != null && var4.e()) {
          ItemStack var5 = var4.d();
          var3 = var5.clone();
@@ -92,7 +92,7 @@ public class class_yp extends Container {
             if(!this.a(var5, 9, 45, false)) {
                return null;
             }
-         } else if(var3.getItem() instanceof ItemArmor && !((class_yx)this.c.get(8 - ((ItemArmor)var3.getItem()).b.getRelative())).e()) {
+         } else if(var3.getItem() instanceof ItemArmor && !((Slot)this.c.get(8 - ((ItemArmor)var3.getItem()).b.getRelative())).e()) {
             int var6 = 8 - ((ItemArmor)var3.getItem()).b.getRelative();
             if(!this.a(var5, var6, var6 + 1, false)) {
                return null;
@@ -125,7 +125,7 @@ public class class_yp extends Container {
       return var3;
    }
 
-   public boolean a(ItemStack var1, class_yx var2) {
+   public boolean a(ItemStack var1, Slot var2) {
       return var2.d != this.f && super.a(var1, var2);
    }
 

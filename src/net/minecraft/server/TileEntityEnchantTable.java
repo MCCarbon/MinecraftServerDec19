@@ -114,7 +114,7 @@ public class TileEntityEnchantTable extends TileEntity implements ITickAble, ITi
 
 	@Override
 	public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-		return new class_yj(var1, world, position);
+		return new ContainerEnchantTable(var1, world, position);
 	}
 
 	@Override

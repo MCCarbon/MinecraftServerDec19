@@ -32,7 +32,7 @@ import org.apache.commons.io.IOUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_md {
+public class JsonList {
    protected static final Logger a = LogManager.getLogger();
    protected final Gson b;
    private final File c;
@@ -52,10 +52,10 @@ public class class_md {
       }
    };
 
-   public class_md(File var1) {
+   public JsonList(File var1) {
       this.c = var1;
       GsonBuilder var2 = (new GsonBuilder()).setPrettyPrinting();
-      var2.registerTypeHierarchyAdapter(JsonListEntry.class, new class_md.class_a_in_class_md(null));
+      var2.registerTypeHierarchyAdapter(JsonListEntry.class, new JsonList.class_a_in_class_md(null));
       this.b = var2.create();
    }
 
@@ -194,7 +194,7 @@ public class class_md {
       public JsonListEntry a(JsonElement var1, Type var2, JsonDeserializationContext var3) throws JsonParseException {
          if(var1.isJsonObject()) {
             JsonObject var4 = var1.getAsJsonObject();
-            JsonListEntry var5 = class_md.this.a(var4);
+            JsonListEntry var5 = JsonList.this.a(var4);
             return var5;
          } else {
             return null;

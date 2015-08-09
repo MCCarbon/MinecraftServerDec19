@@ -172,7 +172,7 @@ public class TileEntityDispenser extends TileEntityContainer implements IInvento
 
 	@Override
 	public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-		return new class_yi(var1, this);
+		return new ContainerHopper(var1, this);
 	}
 
 	@Override

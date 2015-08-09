@@ -268,7 +268,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 
 	@Override
 	public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-		return new class_yc(var1, this);
+		return new ContainerBeacon(var1, this);
 	}
 
 	@Override

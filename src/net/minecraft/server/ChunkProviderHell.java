@@ -22,14 +22,14 @@ import net.minecraft.server.WorldGenHellLava;
 import net.minecraft.server.class_aqv;
 import net.minecraft.server.WorldGenMinable;
 import net.minecraft.server.WorldGenNether;
-import net.minecraft.server.class_ata;
+import net.minecraft.server.NoiseGeneratorOctaves;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.EnumCreatureType;
 
-public class class_apl implements IChunkProvider {
+public class ChunkProviderHell implements IChunkProvider {
    private final World h;
    private final boolean i;
    private final Random j;
@@ -37,13 +37,13 @@ public class class_apl implements IChunkProvider {
    private double[] l = new double[256];
    private double[] m = new double[256];
    private double[] n;
-   private final class_ata o;
-   private final class_ata p;
-   private final class_ata q;
-   private final class_ata r;
-   private final class_ata s;
-   public final class_ata a;
-   public final class_ata b;
+   private final NoiseGeneratorOctaves o;
+   private final NoiseGeneratorOctaves p;
+   private final NoiseGeneratorOctaves q;
+   private final NoiseGeneratorOctaves r;
+   private final NoiseGeneratorOctaves s;
+   public final NoiseGeneratorOctaves a;
+   public final NoiseGeneratorOctaves b;
    private final class_aqo t = new class_aqo();
    private final class_aqv u = new class_aqv();
    private final class_aqp v = new class_aqp();
@@ -60,7 +60,7 @@ public class class_apl implements IChunkProvider {
    double[] f;
    double[] g;
 
-   public class_apl(World var1, boolean var2, long var3) {
+   public ChunkProviderHell(World var1, boolean var2, long var3) {
       this.w = new WorldGenMinable(Blocks.QUARTZ_ORE.getBlockData(), 14, class_ans.a(Blocks.NETHERRACK));
       this.x = new WorldGenHellLava(Blocks.FLOWING_LAVA, true);
       this.y = new WorldGenHellLava(Blocks.FLOWING_LAVA, false);
@@ -71,13 +71,13 @@ public class class_apl implements IChunkProvider {
       this.h = var1;
       this.i = var2;
       this.j = new Random(var3);
-      this.o = new class_ata(this.j, 16);
-      this.p = new class_ata(this.j, 16);
-      this.q = new class_ata(this.j, 8);
-      this.r = new class_ata(this.j, 4);
-      this.s = new class_ata(this.j, 4);
-      this.a = new class_ata(this.j, 10);
-      this.b = new class_ata(this.j, 16);
+      this.o = new NoiseGeneratorOctaves(this.j, 16);
+      this.p = new NoiseGeneratorOctaves(this.j, 16);
+      this.q = new NoiseGeneratorOctaves(this.j, 8);
+      this.r = new NoiseGeneratorOctaves(this.j, 4);
+      this.s = new NoiseGeneratorOctaves(this.j, 4);
+      this.a = new NoiseGeneratorOctaves(this.j, 10);
+      this.b = new NoiseGeneratorOctaves(this.j, 16);
       var1.b(63);
    }
 

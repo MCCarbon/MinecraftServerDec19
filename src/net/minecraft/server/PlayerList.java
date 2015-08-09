@@ -273,8 +273,8 @@ public abstract class PlayerList {
 			return reason;
 		} else if (!this.e(profile)) {
 			return "You are not white-listed on this server!";
-		} else if (this.ipBanList.a(address)) {
-			class_lx var3 = this.ipBanList.b(address);
+		} else if (this.ipBanList.isBanned(address)) {
+			IpBanEntry var3 = this.ipBanList.get(address);
 			reason = "Your IP address is banned from this server!\nReason: " + var3.d();
 			if (var3.c() != null) {
 				reason = reason + "\nYour ban will be removed on " + format.format(var3.c());

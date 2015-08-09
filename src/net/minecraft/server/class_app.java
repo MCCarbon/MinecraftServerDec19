@@ -25,7 +25,7 @@ import net.minecraft.server.WorldGenMonument;
 import net.minecraft.server.WorldGenLargeFeature;
 import net.minecraft.server.WorldGenStronghold;
 import net.minecraft.server.WorldGenVillage;
-import net.minecraft.server.class_ata;
+import net.minecraft.server.NoiseGeneratorOctaves;
 import net.minecraft.server.NoiseGenerator3;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
@@ -34,13 +34,13 @@ import net.minecraft.server.EnumCreatureType;
 
 public class class_app implements IChunkProvider {
    private Random h;
-   private class_ata i;
-   private class_ata j;
-   private class_ata k;
+   private NoiseGeneratorOctaves i;
+   private NoiseGeneratorOctaves j;
+   private NoiseGeneratorOctaves k;
    private NoiseGenerator3 l;
-   public class_ata a;
-   public class_ata b;
-   public class_ata c;
+   public NoiseGeneratorOctaves a;
+   public NoiseGeneratorOctaves b;
+   public NoiseGeneratorOctaves c;
    private World m;
    private final boolean n;
    private WorldType o;
@@ -76,13 +76,13 @@ public class class_app implements IChunkProvider {
       this.n = var4;
       this.o = var1.Q().u();
       this.h = new Random(var2);
-      this.i = new class_ata(this.h, 16);
-      this.j = new class_ata(this.h, 16);
-      this.k = new class_ata(this.h, 8);
+      this.i = new NoiseGeneratorOctaves(this.h, 16);
+      this.j = new NoiseGeneratorOctaves(this.h, 16);
+      this.k = new NoiseGeneratorOctaves(this.h, 8);
       this.l = new NoiseGenerator3(this.h, 4);
-      this.a = new class_ata(this.h, 10);
-      this.b = new class_ata(this.h, 16);
-      this.c = new class_ata(this.h, 8);
+      this.a = new NoiseGeneratorOctaves(this.h, 10);
+      this.b = new NoiseGeneratorOctaves(this.h, 16);
+      this.c = new NoiseGeneratorOctaves(this.h, 8);
       this.p = new double[825];
       this.q = new float[25];
 

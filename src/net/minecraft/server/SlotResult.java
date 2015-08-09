@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
-public class class_yw extends class_yx {
+public class SlotResult extends Slot {
    private final InventoryCrafting a;
    private final EntityHuman b;
    private int c;
 
-   public class_yw(EntityHuman var1, InventoryCrafting var2, IInventory var3, int var4, int var5, int var6) {
+   public SlotResult(EntityHuman var1, InventoryCrafting var2, IInventory var3, int var4, int var5, int var6) {
       super(var3, var4, var5, var6);
       this.b = var1;
       this.a = var2;

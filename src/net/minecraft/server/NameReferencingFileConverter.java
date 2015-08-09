@@ -28,7 +28,7 @@ import net.minecraft.server.PropertyManager;
 import net.minecraft.server.DedicatedServer;
 import net.minecraft.server.ExpirableListEntry;
 import net.minecraft.server.IpBanList;
-import net.minecraft.server.class_lx;
+import net.minecraft.server.IpBanEntry;
 import net.minecraft.server.PlayerList;
 import net.minecraft.server.OpList;
 import net.minecraft.server.class_mb;
@@ -168,7 +168,7 @@ public class NameReferencingFileConverter {
                String var7 = var5.length > 2?var5[2]:null;
                Date var8 = var5.length > 3?b(var5[3], (Date)null):null;
                String var9 = var5.length > 4?var5[4]:null;
-               var1.a((JsonListEntry)(new class_lx(var4, var6, var7, var8, var9)));
+               var1.a((JsonListEntry)(new IpBanEntry(var4, var6, var7, var8, var9)));
             }
 
             var1.f();
