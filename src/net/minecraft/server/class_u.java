@@ -29,8 +29,8 @@ public class class_u extends CommandAbstract {
          BlockPosition var3 = a(var1, var2, 0, false);
          BlockPosition var4 = a(var1, var2, 3, false);
          BlockPosition var5 = a(var1, var2, 6, false);
-         class_arw var6 = new class_arw(var3, var4);
-         class_arw var7 = new class_arw(var5, var5.add(var6.b()));
+         StructureBoundingBox var6 = new StructureBoundingBox(var3, var4);
+         StructureBoundingBox var7 = new StructureBoundingBox(var5, var5.add(var6.b()));
          int var8 = var6.c() * var6.d() * var6.e();
          if(var8 > '耀') {
             throw new class_bz("commands.clone.tooManyBlocks", new Object[]{Integer.valueOf(var8), Integer.valueOf('耀')});

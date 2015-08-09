@@ -988,8 +988,8 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 			this.bT[1] = 8197;
 			this.bT[2] = 8202;
 			this.bT[3] = 16404;
-			this.bT[4] = 'è€¨';
-			this.bT[5] = 'è��';
+			this.bT[4] = '耨';
+			this.bT[5] = '聐';
 			this.bT[6] = 65696;
 			this.bT[7] = 131392;
 			this.bT[8] = 131712;
