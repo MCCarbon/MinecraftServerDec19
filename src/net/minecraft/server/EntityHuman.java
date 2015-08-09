@@ -18,7 +18,7 @@ public abstract class EntityHuman extends EntityLiving {
 	protected static final int MAIN_HAND_DW_ID = DataWathcer.claimId(EntityHuman.class); //value = 13
 
 	public PlayerInventory inventory = new PlayerInventory(this);
-	private class_yu enderChest = new class_yu();
+	private InventoryEnderChest enderChest = new InventoryEnderChest();
 	public Container bq;
 	public Container br;
 	protected class_xx foodData = new class_xx();
@@ -1327,7 +1327,7 @@ public abstract class EntityHuman extends EntityLiving {
 		return bO.getName();
 	}
 
-	public class_yu cq() {
+	public InventoryEnderChest cq() {
 		return enderChest;
 	}
 

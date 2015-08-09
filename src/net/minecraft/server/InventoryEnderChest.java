@@ -8,10 +8,10 @@ import net.minecraft.server.NBTTag;
 import net.minecraft.server.InventorySubContainer;
 import net.minecraft.server.EntityHuman;
 
-public class class_yu extends InventorySubContainer {
+public class InventoryEnderChest extends InventorySubContainer {
    private TileEntityEnderChest a;
 
-   public class_yu() {
+   public InventoryEnderChest() {
       super("container.enderchest", false, 27);
    }
 

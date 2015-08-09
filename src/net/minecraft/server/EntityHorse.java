@@ -30,7 +30,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	public int bs;
 	public int bt;
 	protected boolean bu;
-	private class_ya bP;
+	private InventoryHorseChest bP;
 	private boolean bQ;
 	protected int bw;
 	protected float bx;
@@ -311,8 +311,8 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	private void dp() {
-		class_ya var1 = this.bP;
-		this.bP = new class_ya("HorseChest", this.doRENAMED());
+		InventoryHorseChest var1 = this.bP;
+		this.bP = new InventoryHorseChest("HorseChest", this.doRENAMED());
 		this.bP.a(this.getName());
 		if (var1 != null) {
 			var1.b(this);
@@ -816,11 +816,11 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	public void dm() {
-		this.a((Entity) this, (class_ya) this.bP);
+		this.a((Entity) this, (InventoryHorseChest) this.bP);
 		this.cT();
 	}
 
-	private void a(Entity var1, class_ya var2) {
+	private void a(Entity var1, InventoryHorseChest var2) {
 		if (var2 != null && !this.world.isClientSide) {
 			for (int var3 = 0; var3 < var2.getSize(); ++var3) {
 				ItemStack var4 = var2.getItem(var3);
