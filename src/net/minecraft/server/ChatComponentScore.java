@@ -4,7 +4,7 @@ import java.util.Iterator;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 import net.minecraft.server.ChatBaseComponent;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.class_nz;
@@ -34,7 +34,7 @@ public class ChatComponentScore extends ChatBaseComponent {
    public String getText() {
       MinecraftServer var1 = MinecraftServer.N();
       if(var1 != null && var1.O() && class_nz.b(this.d)) {
-         class_awn var2 = var1.getWorldServer(0).aa();
+         Scoreboard var2 = var1.getWorldServer(0).aa();
          class_awj var3 = var2.b(this.c);
          if(var2.b(this.b, var3)) {
             class_awl var4 = var2.c(this.b, var3);

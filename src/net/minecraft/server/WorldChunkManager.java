@@ -14,14 +14,14 @@ import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
 
-public class class_afd {
+public class WorldChunkManager {
    private class_auc b;
    private class_auc c;
    private class_afa d;
    private List e;
    private String f;
 
-   protected class_afd() {
+   protected WorldChunkManager() {
       this.d = new class_afa(this);
       this.f = "";
       this.e = Lists.newArrayList();
@@ -34,7 +34,7 @@ public class class_afd {
       this.e.add(BiomeBase.JUNGLE_HILLS);
    }
 
-   public class_afd(long var1, WorldType var3, String var4) {
+   public WorldChunkManager(long var1, WorldType var3, String var4) {
       this();
       this.f = var4;
       class_auc[] var5 = class_auc.a(var1, var3, var4);
@@ -42,7 +42,7 @@ public class class_afd {
       this.c = var5[1];
    }
 
-   public class_afd(World var1) {
+   public WorldChunkManager(World var1) {
       this(var1.K(), var1.Q().u(), var1.Q().B());
    }
 

@@ -36,17 +36,17 @@ public abstract class World implements IBlockAccess {
 	protected float r;
 	private int J;
 	public final Random random = new Random();
-	public final class_aoy worldProvider;
+	public final WorldProvider worldProvider;
 	protected List u = Lists.newArrayList();
-	protected class_aoh v;
-	protected final class_avo w;
-	protected class_avn x;
+	protected IChunkProvider v;
+	protected final IDataManager w;
+	protected WorldData x;
 	protected boolean y;
-	protected class_avz z;
-	protected class_tr A;
-	public final class_nv B;
+	protected PersistentCollection z;
+	protected PersistentVillage A;
+	public final MethodProfiler B;
 	private final Calendar K = Calendar.getInstance();
-	protected class_awn C = new class_awn();
+	protected Scoreboard C = new Scoreboard();
 	public final boolean isClientSide;
 	protected Set E = Sets.newHashSet();
 	private int L;
@@ -56,7 +56,7 @@ public abstract class World implements IBlockAccess {
 	private final class_aoe N;
 	int[] H;
 
-	protected World(class_avo var1, class_avn var2, class_aoy var3, class_nv var4, boolean var5) {
+	protected World(IDataManager var1, WorldData var2, WorldProvider var3, MethodProfiler var4, boolean var5) {
 		L = random.nextInt(12000);
 		F = true;
 		G = true;
@@ -100,11 +100,11 @@ public abstract class World implements IBlockAccess {
 		}
 	}
 
-	public class_afd w() {
+	public WorldChunkManager w() {
 		return worldProvider.k();
 	}
 
-	protected abstract class_aoh l();
+	protected abstract IChunkProvider l();
 
 	public void a(WorldSettings var1) {
 		x.d(true);
@@ -907,7 +907,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public float z() {
-		return class_aoy.a[worldProvider.a(x.g())];
+		return WorldProvider.a[worldProvider.a(x.g())];
 	}
 
 	public float d(float var1) {
@@ -2303,7 +2303,7 @@ public abstract class World implements IBlockAccess {
 	public void a(Entity var1, byte var2) {
 	}
 
-	public class_aoh O() {
+	public IChunkProvider O() {
 		return v;
 	}
 
@@ -2311,11 +2311,11 @@ public abstract class World implements IBlockAccess {
 		var2.a(this, var1, getType(var1), var3, var4);
 	}
 
-	public class_avo P() {
+	public IDataManager P() {
 		return w;
 	}
 
-	public class_avn Q() {
+	public WorldData Q() {
 		return x;
 	}
 
@@ -2360,15 +2360,15 @@ public abstract class World implements IBlockAccess {
 		return var2.f();
 	}
 
-	public class_avz U() {
+	public PersistentCollection U() {
 		return z;
 	}
 
-	public void a(String var1, class_avd var2) {
+	public void a(String var1, PersistentBase var2) {
 		z.a(var1, var2);
 	}
 
-	public class_avd a(Class var1, String var2) {
+	public PersistentBase a(Class var1, String var2) {
 		return z.a(var1, var2);
 	}
 
@@ -2473,7 +2473,7 @@ public abstract class World implements IBlockAccess {
 		return K;
 	}
 
-	public class_awn aa() {
+	public Scoreboard aa() {
 		return C;
 	}
 
@@ -2530,7 +2530,7 @@ public abstract class World implements IBlockAccess {
 		return y;
 	}
 
-	public class_tr af() {
+	public PersistentVillage af() {
 		return A;
 	}
 

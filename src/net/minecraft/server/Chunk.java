@@ -386,7 +386,7 @@ public class Chunk {
 			}
 
 			if (var1.getY() == 70) {
-				var7 = class_apj.b(var1.getX(), var1.getZ());
+				var7 = ChunkProviderDebug.b(var1.getX(), var1.getZ());
 			}
 
 			return var7 == null ? Blocks.AIR.getBlockData() : var7;
@@ -797,7 +797,7 @@ public class Chunk {
 		return false;
 	}
 
-	public void a(class_aoh var1, class_aoh var2, int var3, int var4) {
+	public void a(IChunkProvider var1, IChunkProvider var2, int var3, int var4) {
 		boolean var5 = var1.a(var3, var4 - 1);
 		boolean var6 = var1.a(var3 + 1, var4);
 		boolean var7 = var1.a(var3, var4 + 1);
@@ -932,7 +932,7 @@ public class Chunk {
 		}
 	}
 
-	public BiomeBase a(BlockPosition var1, class_afd var2) {
+	public BiomeBase a(BlockPosition var1, WorldChunkManager var2) {
 		int var3 = var1.getX() & 15;
 		int var4 = var1.getZ() & 15;
 		int var5 = e[(var4 << 4) | var3] & 255;

@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_avd;
+import net.minecraft.server.PersistentBase;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 
-public class class_asm extends class_avd {
+public class class_asm extends PersistentBase {
    private NBTTagCompound b = new NBTTagCompound();
 
    public class_asm(String var1) {

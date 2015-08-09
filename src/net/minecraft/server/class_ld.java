@@ -7,7 +7,7 @@ import java.util.List;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.Chunk;
-import net.minecraft.server.class_aoy;
+import net.minecraft.server.WorldProvider;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutBlockChange;
@@ -61,7 +61,7 @@ public class class_ld {
 
       this.e.clear();
       if(this.c.isEmpty()) {
-         class_aoy var5 = this.b.worldProvider;
+         WorldProvider var5 = this.b.worldProvider;
          if(!var5.e()) {
             this.b.b.b();
          }

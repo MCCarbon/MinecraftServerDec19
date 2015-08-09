@@ -30,7 +30,7 @@ public class class_aov implements class_aop, class_awc {
       class_aeh var4 = new class_aeh(var2, var3);
       NBTTagCompound var5 = (NBTTagCompound)this.b.get(var4);
       if(var5 == null) {
-         DataInputStream var6 = class_aou.c(this.d, var2, var3);
+         DataInputStream var6 = RegionFileCache.c(this.d, var2, var3);
          if(var6 == null) {
             return null;
          }
@@ -119,7 +119,7 @@ public class class_aov implements class_aop, class_awc {
    }
 
    private void b(class_aeh var1, NBTTagCompound var2) throws IOException {
-      DataOutputStream var3 = class_aou.d(this.d, var1.a, var1.b);
+      DataOutputStream var3 = RegionFileCache.d(this.d, var1.a, var1.b);
       NBTCompressedStreamTools.writeToData((NBTTagCompound)var2, (DataOutput)var3);
       var3.close();
    }

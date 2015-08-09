@@ -7,7 +7,7 @@ import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 import net.minecraft.server.class_awt;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
@@ -46,7 +46,7 @@ public class CommandTrigger extends CommandAbstract {
             var3 = (EntityPlayer)var4;
          }
 
-         class_awn var8 = MinecraftServer.N().getWorldServer(0).aa();
+         Scoreboard var8 = MinecraftServer.N().getWorldServer(0).aa();
          class_awj var5 = var8.b(var2[0]);
          if(var5 != null && var5.c() == class_awt.c) {
             int var6 = a(var2[2]);
@@ -82,7 +82,7 @@ public class CommandTrigger extends CommandAbstract {
 
    public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
-         class_awn var4 = MinecraftServer.N().getWorldServer(0).aa();
+         Scoreboard var4 = MinecraftServer.N().getWorldServer(0).aa();
          ArrayList var5 = Lists.newArrayList();
          Iterator var6 = var4.c().iterator();
 

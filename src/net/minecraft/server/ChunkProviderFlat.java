@@ -10,7 +10,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aoh;
+import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.WorldGenBase;
@@ -25,10 +25,10 @@ import net.minecraft.server.WorldGenStronghold;
 import net.minecraft.server.StructureGenerator;
 import net.minecraft.server.WorldGenVillage;
 import net.minecraft.server.BlockPosition;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.class_qc;
 
-public class class_apk implements class_aoh {
+public class ChunkProviderFlat implements IChunkProvider {
    private World a;
    private Random b;
    private final IBlockData[] c = new IBlockData[256];
@@ -39,7 +39,7 @@ public class class_apk implements class_aoh {
    private class_aqu h;
    private class_aqu i;
 
-   public class_apk(World var1, long var2, boolean var4, String var5) {
+   public ChunkProviderFlat(World var1, long var2, boolean var4, String var5) {
       this.a = var1;
       this.b = new Random(var2);
       this.d = class_arr.a(var5);
@@ -146,7 +146,7 @@ public class class_apk implements class_aoh {
       return true;
    }
 
-   public void a(class_aoh var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       int var4 = var2 * 16;
       int var5 = var3 * 16;
       BlockPosition var6 = new BlockPosition(var4, 0, var5);
@@ -190,11 +190,11 @@ public class class_apk implements class_aoh {
 
    }
 
-   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
-   public boolean a(boolean var1, class_nw var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 

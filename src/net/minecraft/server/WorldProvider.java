@@ -3,25 +3,25 @@ package net.minecraft.server;
 import net.minecraft.server.World;
 import net.minecraft.server.WorldType;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afd;
-import net.minecraft.server.class_afg;
+import net.minecraft.server.WorldChunkManager;
+import net.minecraft.server.WorldChunkManagerHell;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.class_aoe;
-import net.minecraft.server.class_aoh;
+import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.class_aoz;
-import net.minecraft.server.class_apj;
-import net.minecraft.server.class_apk;
+import net.minecraft.server.ChunkProviderDebug;
+import net.minecraft.server.ChunkProviderFlat;
 import net.minecraft.server.class_app;
 import net.minecraft.server.class_arr;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EntityPlayer;
 
-public abstract class class_aoy {
+public abstract class WorldProvider {
    public static final float[] a = new float[]{1.0F, 0.75F, 0.5F, 0.25F, 0.0F, 0.25F, 0.5F, 0.75F};
    protected World b;
    private WorldType g;
    private String h;
-   protected class_afd c;
+   protected WorldChunkManager c;
    protected boolean d;
    protected boolean e;
    protected final float[] f = new float[16];
@@ -49,17 +49,17 @@ public abstract class class_aoy {
       WorldType var1 = this.b.Q().u();
       if(var1 == WorldType.FLAT) {
          class_arr var2 = class_arr.a(this.b.Q().B());
-         this.c = new class_afg(BiomeBase.a(var2.a(), BiomeBase.ad), 0.5F);
+         this.c = new WorldChunkManagerHell(BiomeBase.a(var2.a(), BiomeBase.ad), 0.5F);
       } else if(var1 == WorldType.DEBUG) {
-         this.c = new class_afg(BiomeBase.PLAINS, 0.0F);
+         this.c = new WorldChunkManagerHell(BiomeBase.PLAINS, 0.0F);
       } else {
-         this.c = new class_afd(this.b);
+         this.c = new WorldChunkManager(this.b);
       }
 
    }
 
-   public class_aoh c() {
-      return (class_aoh)(this.g == WorldType.FLAT?new class_apk(this.b, this.b.K(), this.b.Q().s(), this.h):(this.g == WorldType.DEBUG?new class_apj(this.b):(this.g == WorldType.CUSTOMIZED?new class_app(this.b, this.b.K(), this.b.Q().s(), this.h):new class_app(this.b, this.b.K(), this.b.Q().s(), this.h))));
+   public IChunkProvider c() {
+      return (IChunkProvider)(this.g == WorldType.FLAT?new ChunkProviderFlat(this.b, this.b.K(), this.b.Q().s(), this.h):(this.g == WorldType.DEBUG?new ChunkProviderDebug(this.b):(this.g == WorldType.CUSTOMIZED?new class_app(this.b, this.b.K(), this.b.Q().s(), this.h):new class_app(this.b, this.b.K(), this.b.Q().s(), this.h))));
    }
 
    public boolean a(int var1, int var2) {
@@ -103,7 +103,7 @@ public abstract class class_aoy {
       return this.g == WorldType.FLAT?4:this.b.G() + 1;
    }
 
-   public class_afd k() {
+   public WorldChunkManager k() {
       return this.c;
    }
 

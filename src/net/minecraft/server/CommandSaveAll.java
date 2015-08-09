@@ -7,7 +7,7 @@ import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IProgressUpdate;
 
 public class CommandSaveAll extends CommandAbstract {
    public String getCommand() {
@@ -34,7 +34,7 @@ public class CommandSaveAll extends CommandAbstract {
                var5 = var3.d[var4];
                var6 = var5.c;
                var5.c = false;
-               var5.a(true, (class_nw)null);
+               var5.a(true, (IProgressUpdate)null);
                var5.c = var6;
             }
          }

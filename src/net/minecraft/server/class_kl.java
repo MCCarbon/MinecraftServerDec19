@@ -11,7 +11,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awl;
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 import net.minecraft.server.class_awo;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutScoreboardDisplayObjective;
@@ -20,7 +20,7 @@ import net.minecraft.server.PacketPlayOutScoreboardTeam;
 import net.minecraft.server.PacketPlayOutScoreboardScore;
 import net.minecraft.server.EntityPlayer;
 
-public class class_kl extends class_awn {
+public class class_kl extends Scoreboard {
    private final MinecraftServer a;
    private final Set b = Sets.newHashSet();
    private class_awo c;

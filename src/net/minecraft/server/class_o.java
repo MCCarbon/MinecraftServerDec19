@@ -235,7 +235,7 @@ public class class_o {
 		if (var2 != null && !var2.isEmpty()) {
 			var1.add(new Predicate() {
 				public boolean a(Entity var1) {
-					class_awn var2x = MinecraftServer.N().getWorldServer(0).aa();
+					Scoreboard var2x = MinecraftServer.N().getWorldServer(0).aa();
 					Iterator var3 = var2.entrySet().iterator();
 
 					Entry var4;

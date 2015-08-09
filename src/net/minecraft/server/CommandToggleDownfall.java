@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_avn;
+import net.minecraft.server.WorldData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
@@ -25,7 +25,7 @@ public class CommandToggleDownfall extends CommandAbstract {
    }
 
    protected void d() {
-      class_avn var1 = MinecraftServer.N().d[0].Q();
+      WorldData var1 = MinecraftServer.N().d[0].Q();
       var1.b(!var1.p());
    }
 }

@@ -1,9 +1,9 @@
 package net.minecraft.server;
 
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afg;
-import net.minecraft.server.class_aoh;
-import net.minecraft.server.class_aoy;
+import net.minecraft.server.WorldChunkManagerHell;
+import net.minecraft.server.IChunkProvider;
+import net.minecraft.server.WorldProvider;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_apc;
 import net.minecraft.server.class_apq;
@@ -12,17 +12,17 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.WorldServer;
 
-public class class_apd extends class_aoy {
+public class WorldProviderTheEnd extends WorldProvider {
    private class_apc g = null;
 
    public void b() {
-      this.c = new class_afg(BiomeBase.END, 0.0F);
+      this.c = new WorldChunkManagerHell(BiomeBase.END, 0.0F);
       this.e = true;
       NBTTagCompound var1 = this.b.Q().a(class_aoz.c);
       this.g = this.b instanceof WorldServer?new class_apc((WorldServer)this.b, var1.getCompound("DragonFight")):null;
    }
 
-   public class_aoh c() {
+   public IChunkProvider c() {
       return new class_apq(this.b, this.b.K());
    }
 

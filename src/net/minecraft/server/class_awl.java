@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Comparator;
 import java.util.List;
 import net.minecraft.server.class_awj;
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 
 public class class_awl {
    public static final Comparator a = new Comparator() {
@@ -16,14 +16,14 @@ public class class_awl {
          return this.a((class_awl)var1, (class_awl)var2);
       }
    };
-   private final class_awn b;
+   private final Scoreboard b;
    private final class_awj c;
    private final String d;
    private int e;
    private boolean f;
    private boolean g;
 
-   public class_awl(class_awn var1, class_awj var2, String var3) {
+   public class_awl(Scoreboard var1, class_awj var2, String var3) {
       this.b = var1;
       this.c = var2;
       this.d = var3;
@@ -76,7 +76,7 @@ public class class_awl {
       return this.d;
    }
 
-   public class_awn f() {
+   public Scoreboard f() {
       return this.b;
    }
 

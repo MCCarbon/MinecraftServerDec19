@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import net.minecraft.server.WorldType;
-import net.minecraft.server.class_avn;
+import net.minecraft.server.WorldData;
 import net.minecraft.server.PlayerAbilities;
 
 public final class WorldSettings {
@@ -23,7 +23,7 @@ public final class WorldSettings {
 		this.e = var6;
 	}
 
-	public WorldSettings(class_avn var1) {
+	public WorldSettings(WorldData var1) {
 		this(var1.b(), var1.r(), var1.s(), var1.t(), var1.u());
 	}
 

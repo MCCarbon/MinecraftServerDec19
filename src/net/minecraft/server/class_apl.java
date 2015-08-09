@@ -9,7 +9,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockFalling;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
-import net.minecraft.server.class_aoh;
+import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.WorldGenBase;
@@ -26,10 +26,10 @@ import net.minecraft.server.class_ata;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.class_qc;
 
-public class class_apl implements class_aoh {
+public class class_apl implements IChunkProvider {
    private final World h;
    private final boolean i;
    private final Random j;
@@ -307,7 +307,7 @@ public class class_apl implements class_aoh {
       return true;
    }
 
-   public void a(class_aoh var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       BlockFalling.instaFall = true;
       BlockPosition var4 = new BlockPosition(var2 * 16, 0, var3 * 16);
       class_aeh var5 = new class_aeh(var2, var3);
@@ -349,11 +349,11 @@ public class class_apl implements class_aoh {
       BlockFalling.instaFall = false;
    }
 
-   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
-   public boolean a(boolean var1, class_nw var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 

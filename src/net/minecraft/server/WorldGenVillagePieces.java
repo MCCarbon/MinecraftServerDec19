@@ -1336,7 +1336,7 @@ public class WorldGenVillagePieces {
    }
 
    public static class WorldGenVillageStart extends WorldGenVillagePieces.WorldGenVillageWell {
-      public class_afd a;
+      public WorldChunkManager a;
       public boolean b;
       public int c;
       public WorldGenVillagePieces.class_e_in_class_asr d;
@@ -1347,7 +1347,7 @@ public class WorldGenVillagePieces {
       public WorldGenVillageStart() {
       }
 
-      public WorldGenVillageStart(class_afd var1, int var2, Random var3, int var4, int var5, List var6, int var7) {
+      public WorldGenVillageStart(WorldChunkManager var1, int var2, Random var3, int var4, int var5, List var6, int var7) {
          super((WorldGenVillagePieces.WorldGenVillageStart)null, 0, var3, var4, var5);
          this.a = var1;
          this.e = var6;
@@ -1357,7 +1357,7 @@ public class WorldGenVillagePieces {
          this.a(this.b);
       }
 
-      public class_afd h() {
+      public WorldChunkManager h() {
          return this.a;
       }
    }

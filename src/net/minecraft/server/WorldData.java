@@ -16,7 +16,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.class_om;
 
-public class class_avn {
+public class WorldData {
    public static final class_om a;
    private long b;
    private WorldType c;
@@ -56,7 +56,7 @@ public class class_avn {
    private final Map K;
    private GameRules L;
 
-   protected class_avn() {
+   protected WorldData() {
       this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
@@ -72,7 +72,7 @@ public class class_avn {
       this.L = new GameRules();
    }
 
-   public class_avn(NBTTagCompound var1) {
+   public WorldData(NBTTagCompound var1) {
       this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
@@ -210,7 +210,7 @@ public class class_avn {
 
    }
 
-   public class_avn(WorldSettings var1, String var2) {
+   public WorldData(WorldSettings var1, String var2) {
       this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
@@ -240,7 +240,7 @@ public class class_avn {
       this.x = var1.i();
    }
 
-   public class_avn(class_avn var1) {
+   public WorldData(WorldData var1) {
       this.c = WorldType.NORMAL;
       this.d = "";
       this.B = 0.0D;
@@ -602,7 +602,7 @@ public class class_avn {
    public void a(class_c var1) {
       var1.a("Level seed", new Callable() {
          public String a() throws Exception {
-            return String.valueOf(class_avn.this.b());
+            return String.valueOf(WorldData.this.b());
          }
 
          // $FF: synthetic method
@@ -612,7 +612,7 @@ public class class_avn {
       });
       var1.a("Level generator", new Callable() {
          public String a() throws Exception {
-            return String.format("ID %02d - %s, ver %d. Features enabled: %b", new Object[]{Integer.valueOf(class_avn.this.c.g()), class_avn.this.c.a(), Integer.valueOf(class_avn.this.c.d()), Boolean.valueOf(class_avn.this.v)});
+            return String.format("ID %02d - %s, ver %d. Features enabled: %b", new Object[]{Integer.valueOf(WorldData.this.c.g()), WorldData.this.c.a(), Integer.valueOf(WorldData.this.c.d()), Boolean.valueOf(WorldData.this.v)});
          }
 
          // $FF: synthetic method
@@ -622,7 +622,7 @@ public class class_avn {
       });
       var1.a("Level generator options", new Callable() {
          public String a() throws Exception {
-            return class_avn.this.d;
+            return WorldData.this.d;
          }
 
          // $FF: synthetic method
@@ -632,7 +632,7 @@ public class class_avn {
       });
       var1.a("Level spawn location", new Callable() {
          public String a() throws Exception {
-            return class_c.a((double)class_avn.this.e, (double)class_avn.this.f, (double)class_avn.this.g);
+            return class_c.a((double)WorldData.this.e, (double)WorldData.this.f, (double)WorldData.this.g);
          }
 
          // $FF: synthetic method
@@ -642,7 +642,7 @@ public class class_avn {
       });
       var1.a("Level time", new Callable() {
          public String a() throws Exception {
-            return String.format("%d game time, %d day time", new Object[]{Long.valueOf(class_avn.this.h), Long.valueOf(class_avn.this.i)});
+            return String.format("%d game time, %d day time", new Object[]{Long.valueOf(WorldData.this.h), Long.valueOf(WorldData.this.i)});
          }
 
          // $FF: synthetic method
@@ -652,7 +652,7 @@ public class class_avn {
       });
       var1.a("Level dimension", new Callable() {
          public String a() throws Exception {
-            return String.valueOf(class_avn.this.m);
+            return String.valueOf(WorldData.this.m);
          }
 
          // $FF: synthetic method
@@ -665,7 +665,7 @@ public class class_avn {
             String var1 = "Unknown?";
 
             try {
-               switch(class_avn.this.o) {
+               switch(WorldData.this.o) {
                case 19132:
                   var1 = "McRegion";
                   break;
@@ -676,7 +676,7 @@ public class class_avn {
                ;
             }
 
-            return String.format("0x%05X - %s", new Object[]{Integer.valueOf(class_avn.this.o), var1});
+            return String.format("0x%05X - %s", new Object[]{Integer.valueOf(WorldData.this.o), var1});
          }
 
          // $FF: synthetic method
@@ -686,7 +686,7 @@ public class class_avn {
       });
       var1.a("Level weather", new Callable() {
          public String a() throws Exception {
-            return String.format("Rain time: %d (now: %b), thunder time: %d (now: %b)", new Object[]{Integer.valueOf(class_avn.this.r), Boolean.valueOf(class_avn.this.q), Integer.valueOf(class_avn.this.t), Boolean.valueOf(class_avn.this.s)});
+            return String.format("Rain time: %d (now: %b), thunder time: %d (now: %b)", new Object[]{Integer.valueOf(WorldData.this.r), Boolean.valueOf(WorldData.this.q), Integer.valueOf(WorldData.this.t), Boolean.valueOf(WorldData.this.s)});
          }
 
          // $FF: synthetic method
@@ -696,7 +696,7 @@ public class class_avn {
       });
       var1.a("Level game mode", new Callable() {
          public String a() throws Exception {
-            return String.format("Game mode: %s (ID %d). Hardcore: %b. Cheats: %b", new Object[]{class_avn.this.u.getName(), Integer.valueOf(class_avn.this.u.getId()), Boolean.valueOf(class_avn.this.w), Boolean.valueOf(class_avn.this.x)});
+            return String.format("Game mode: %s (ID %d). Hardcore: %b. Cheats: %b", new Object[]{WorldData.this.u.getName(), Integer.valueOf(WorldData.this.u.getId()), Boolean.valueOf(WorldData.this.w), Boolean.valueOf(WorldData.this.x)});
          }
 
          // $FF: synthetic method

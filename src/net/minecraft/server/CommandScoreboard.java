@@ -15,7 +15,7 @@ import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awl;
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.class_awt;
 import net.minecraft.server.class_bz;
@@ -249,12 +249,12 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected class_awn d() {
+   protected Scoreboard d() {
       return MinecraftServer.N().getWorldServer(0).aa();
    }
 
    protected class_awj a(String var1, boolean var2) throws class_bz {
-      class_awn var3 = this.d();
+      Scoreboard var3 = this.d();
       class_awj var4 = var3.b(var1);
       if(var4 == null) {
          throw new class_bz("commands.scoreboard.objectiveNotFound", new Object[]{var1});
@@ -266,7 +266,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected class_awk e(String var1) throws class_bz {
-      class_awn var2 = this.d();
+      Scoreboard var2 = this.d();
       class_awk var3 = var2.d(var1);
       if(var3 == null) {
          throw new class_bz("commands.scoreboard.teamNotFound", new Object[]{var1});
@@ -278,7 +278,7 @@ public class CommandScoreboard extends CommandAbstract {
    protected void b(class_m var1, String[] var2, int var3) throws class_bz {
       String var4 = var2[var3++];
       String var5 = var2[var3++];
-      class_awn var6 = this.d();
+      Scoreboard var6 = this.d();
       class_awt var7 = (class_awt)class_awt.a.get(var5);
       if(var7 == null) {
          throw new class_cf("commands.scoreboard.objectives.add.wrongType", new Object[]{var5});
@@ -310,7 +310,7 @@ public class CommandScoreboard extends CommandAbstract {
 
    protected void c(class_m var1, String[] var2, int var3) throws class_bz {
       String var4 = var2[var3++];
-      class_awn var5 = this.d();
+      Scoreboard var5 = this.d();
       if(var5.d(var4) != null) {
          throw new class_bz("commands.scoreboard.teams.add.alreadyExists", new Object[]{var4});
       } else if(var4.length() > 16) {
@@ -403,7 +403,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void e(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       class_awk var5 = this.e(var2[var3]);
       if(var5 != null) {
          var4.d(var5);
@@ -412,7 +412,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void f(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       if(var2.length > var3) {
          class_awk var5 = this.e(var2[var3]);
          if(var5 == null) {
@@ -450,7 +450,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void g(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       String var5 = var2[var3++];
       HashSet var6 = Sets.newHashSet();
       HashSet var7 = Sets.newHashSet();
@@ -507,7 +507,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void h(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       HashSet var5 = Sets.newHashSet();
       HashSet var6 = Sets.newHashSet();
       String var7;
@@ -563,7 +563,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void i(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       class_awk var5 = this.e(var2[var3]);
       if(var5 != null) {
          ArrayList var6 = Lists.newArrayList((Iterable)var5.d());
@@ -584,14 +584,14 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void h(class_m var1, String var2) throws class_bz {
-      class_awn var3 = this.d();
+      Scoreboard var3 = this.d();
       class_awj var4 = this.a(var2, false);
       var3.k(var4);
       a(var1, this, "commands.scoreboard.objectives.remove.success", new Object[]{var2});
    }
 
    protected void d(class_m var1) throws class_bz {
-      class_awn var2 = this.d();
+      Scoreboard var2 = this.d();
       Collection var3 = var2.c();
       if(var3.isEmpty()) {
          throw new class_bz("commands.scoreboard.objectives.list.empty", new Object[0]);
@@ -610,9 +610,9 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void j(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       String var5 = var2[var3++];
-      int var6 = class_awn.i(var5);
+      int var6 = Scoreboard.i(var5);
       class_awj var7 = null;
       if(var2.length == 4) {
          var7 = this.a(var2[var3], false);
@@ -623,16 +623,16 @@ public class CommandScoreboard extends CommandAbstract {
       } else {
          var4.a(var6, var7);
          if(var7 != null) {
-            a(var1, this, "commands.scoreboard.objectives.setdisplay.successSet", new Object[]{class_awn.b(var6), var7.b()});
+            a(var1, this, "commands.scoreboard.objectives.setdisplay.successSet", new Object[]{Scoreboard.b(var6), var7.b()});
          } else {
-            a(var1, this, "commands.scoreboard.objectives.setdisplay.successCleared", new Object[]{class_awn.b(var6)});
+            a(var1, this, "commands.scoreboard.objectives.setdisplay.successCleared", new Object[]{Scoreboard.b(var6)});
          }
 
       }
    }
 
    protected void k(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       if(var2.length > var3) {
          String var5 = e(var1, var2[var3]);
          Map var6 = var4.c(var5);
@@ -689,7 +689,7 @@ public class CommandScoreboard extends CommandAbstract {
             }
          }
 
-         class_awn var13 = this.d();
+         Scoreboard var13 = this.d();
          class_awl var14 = var13.c(var6, var7);
          if(var4.equalsIgnoreCase("set")) {
             var14.c(var8);
@@ -704,7 +704,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void m(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       if(var2.length > var3) {
          class_awj var6 = this.a(var2[var3++], false);
@@ -718,7 +718,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void n(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       String var5 = d(var1, var2[var3++]);
       if(var5.length() > 40) {
          throw new class_cc("commands.scoreboard.players.name.tooLong", new Object[]{var5, Integer.valueOf(40)});
@@ -735,7 +735,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void o(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       if(var5.length() > 40) {
          throw new class_cc("commands.scoreboard.players.name.tooLong", new Object[]{var5, Integer.valueOf(40)});
@@ -758,7 +758,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected void p(class_m var1, String[] var2, int var3) throws class_bz {
-      class_awn var4 = this.d();
+      Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       class_awj var6 = this.a(var2[var3++], true);
       String var7 = var2[var3++];
@@ -829,7 +829,7 @@ public class CommandScoreboard extends CommandAbstract {
                }
             } else if(var2[1].equalsIgnoreCase("setdisplay")) {
                if(var2.length == 3) {
-                  return a(var2, class_awn.h());
+                  return a(var2, Scoreboard.h());
                }
 
                if(var2.length == 4) {

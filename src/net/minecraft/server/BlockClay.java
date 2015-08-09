@@ -42,8 +42,8 @@ public class BlockClay extends Block {
             }
          }
 
-         if(!var1.isClientSide && var1.worldProvider instanceof class_apd) {
-            class_apc var7 = ((class_apd)var1.worldProvider).s();
+         if(!var1.isClientSide && var1.worldProvider instanceof WorldProviderTheEnd) {
+            class_apc var7 = ((WorldProviderTheEnd)var1.worldProvider).s();
             if(var7 != null) {
                var7.e();
             }

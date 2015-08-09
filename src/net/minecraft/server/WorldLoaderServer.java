@@ -13,26 +13,26 @@ import java.util.Collections;
 import java.util.Iterator;
 import net.minecraft.server.WorldType;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afd;
-import net.minecraft.server.class_afg;
-import net.minecraft.server.class_aos;
-import net.minecraft.server.class_aot;
-import net.minecraft.server.class_aou;
-import net.minecraft.server.class_avi;
-import net.minecraft.server.class_avm;
-import net.minecraft.server.class_avn;
-import net.minecraft.server.class_avo;
+import net.minecraft.server.WorldChunkManager;
+import net.minecraft.server.WorldChunkManagerHell;
+import net.minecraft.server.OldChunkLoader;
+import net.minecraft.server.RegionFile;
+import net.minecraft.server.RegionFileCache;
+import net.minecraft.server.ServerNBTManager;
+import net.minecraft.server.WorldLoader;
+import net.minecraft.server.WorldData;
+import net.minecraft.server.IDataManager;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTCompressedStreamTools;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IProgressUpdate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_avj extends class_avm {
+public class WorldLoaderServer extends WorldLoader {
    private static final Logger b = LogManager.getLogger();
 
-   public class_avj(File var1) {
+   public WorldLoaderServer(File var1) {
       super(var1);
    }
 
@@ -41,19 +41,19 @@ public class class_avj extends class_avm {
    }
 
    public void d() {
-      class_aou.a();
+      RegionFileCache.a();
    }
 
-   public class_avo a(String var1, boolean var2) {
-      return new class_avi(this.a, var1, var2);
+   public IDataManager a(String var1, boolean var2) {
+      return new ServerNBTManager(this.a, var1, var2);
    }
 
    public boolean b(String var1) {
-      class_avn var2 = this.c(var1);
+      WorldData var2 = this.c(var1);
       return var2 != null && var2.l() != this.c();
    }
 
-   public boolean a(String var1, class_nw var2) {
+   public boolean a(String var1, IProgressUpdate var2) {
       var2.a(0);
       ArrayList var3 = Lists.newArrayList();
       ArrayList var4 = Lists.newArrayList();
@@ -73,24 +73,24 @@ public class class_avj extends class_avm {
 
       int var9 = var3.size() + var4.size() + var5.size();
       b.info("Total conversion count is " + var9);
-      class_avn var10 = this.c(var1);
+      WorldData var10 = this.c(var1);
       Object var11 = null;
       if(var10.u() == WorldType.FLAT) {
-         var11 = new class_afg(BiomeBase.PLAINS, 0.5F);
+         var11 = new WorldChunkManagerHell(BiomeBase.PLAINS, 0.5F);
       } else {
-         var11 = new class_afd(var10.b(), var10.u(), var10.B());
+         var11 = new WorldChunkManager(var10.b(), var10.u(), var10.B());
       }
 
-      this.a(new File(var6, "region"), (Iterable)var3, (class_afd)var11, 0, var9, var2);
-      this.a(new File(var7, "region"), (Iterable)var4, new class_afg(BiomeBase.HELL, 0.0F), var3.size(), var9, var2);
-      this.a(new File(var8, "region"), (Iterable)var5, new class_afg(BiomeBase.END, 0.0F), var3.size() + var4.size(), var9, var2);
+      this.a(new File(var6, "region"), (Iterable)var3, (WorldChunkManager)var11, 0, var9, var2);
+      this.a(new File(var7, "region"), (Iterable)var4, new WorldChunkManagerHell(BiomeBase.HELL, 0.0F), var3.size(), var9, var2);
+      this.a(new File(var8, "region"), (Iterable)var5, new WorldChunkManagerHell(BiomeBase.END, 0.0F), var3.size() + var4.size(), var9, var2);
       var10.e(19133);
       if(var10.u() == WorldType.NORMAL_1_1) {
          var10.a(WorldType.NORMAL);
       }
 
       this.g(var1);
-      class_avo var12 = this.a(var1, false);
+      IDataManager var12 = this.a(var1, false);
       var12.a(var10);
       return true;
    }
@@ -113,7 +113,7 @@ public class class_avj extends class_avm {
       }
    }
 
-   private void a(File var1, Iterable var2, class_afd var3, int var4, int var5, class_nw var6) {
+   private void a(File var1, Iterable var2, WorldChunkManager var3, int var4, int var5, IProgressUpdate var6) {
       Iterator var7 = var2.iterator();
 
       while(var7.hasNext()) {
@@ -126,11 +126,11 @@ public class class_avj extends class_avm {
 
    }
 
-   private void a(File var1, File var2, class_afd var3, int var4, int var5, class_nw var6) {
+   private void a(File var1, File var2, WorldChunkManager var3, int var4, int var5, IProgressUpdate var6) {
       try {
          String var7 = var2.getName();
-         class_aot var8 = new class_aot(var2);
-         class_aot var9 = new class_aot(new File(var1, var7.substring(0, var7.length() - ".mcr".length()) + ".mca"));
+         RegionFile var8 = new RegionFile(var2);
+         RegionFile var9 = new RegionFile(new File(var1, var7.substring(0, var7.length() - ".mcr".length()) + ".mca"));
 
          for(int var10 = 0; var10 < 32; ++var10) {
             int var11;
@@ -143,11 +143,11 @@ public class class_avj extends class_avm {
                      NBTTagCompound var13 = NBTCompressedStreamTools.fromDataStream(var12);
                      var12.close();
                      NBTTagCompound var14 = var13.getCompound("Level");
-                     class_aos.class_a_in_class_aos var15 = class_aos.a(var14);
+                     OldChunkLoader.OldChunk var15 = OldChunkLoader.a(var14);
                      NBTTagCompound var16 = new NBTTagCompound();
                      NBTTagCompound var17 = new NBTTagCompound();
                      var16.put((String)"Level", (NBTTag)var17);
-                     class_aos.a(var15, var17, var3);
+                     OldChunkLoader.a(var15, var17, var3);
                      DataOutputStream var18 = var9.b(var10, var11);
                      NBTCompressedStreamTools.writeToData((NBTTagCompound)var16, (DataOutput)var18);
                      var18.close();

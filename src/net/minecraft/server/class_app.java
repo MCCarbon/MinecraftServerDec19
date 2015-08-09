@@ -11,7 +11,7 @@ import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockFalling;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aoh;
+import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_apg;
 import net.minecraft.server.class_aph;
@@ -29,10 +29,10 @@ import net.minecraft.server.class_ata;
 import net.minecraft.server.NoiseGenerator3;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.class_qc;
 
-public class class_app implements class_aoh {
+public class class_app implements IChunkProvider {
    private Random h;
    private class_ata i;
    private class_ata j;
@@ -320,7 +320,7 @@ public class class_app implements class_aoh {
       return true;
    }
 
-   public void a(class_aoh var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       BlockFalling.instaFall = true;
       int var4 = var2 * 16;
       int var5 = var3 * 16;
@@ -401,7 +401,7 @@ public class class_app implements class_aoh {
       BlockFalling.instaFall = false;
    }
 
-   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       boolean var5 = false;
       if(this.r.y && this.n && var2.w() < 3600L) {
          var5 |= this.A.a(this.m, this.h, new class_aeh(var3, var4));
@@ -410,7 +410,7 @@ public class class_app implements class_aoh {
       return var5;
    }
 
-   public boolean a(boolean var1, class_nw var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 

@@ -15,7 +15,7 @@ import net.minecraft.server.WorldGenFactory;
 import net.minecraft.server.class_asm;
 import net.minecraft.server.StructurePiece;
 import net.minecraft.server.StructureStart;
-import net.minecraft.server.class_avd;
+import net.minecraft.server.PersistentBase;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
 import net.minecraft.server.BlockPosition;
@@ -212,7 +212,7 @@ public abstract class StructureGenerator extends WorldGenBase {
          this.d = (class_asm)var1.a(class_asm.class, this.a());
          if(this.d == null) {
             this.d = new class_asm(this.a());
-            var1.a((String)this.a(), (class_avd)this.d);
+            var1.a((String)this.a(), (PersistentBase)this.d);
          } else {
             NBTTagCompound var2 = this.d.a();
             Iterator var3 = var2.getKeys().iterator();

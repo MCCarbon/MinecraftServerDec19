@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afg;
+import net.minecraft.server.WorldChunkManagerHell;
 import net.minecraft.server.class_aoe;
-import net.minecraft.server.class_aoh;
-import net.minecraft.server.class_aoy;
+import net.minecraft.server.IChunkProvider;
+import net.minecraft.server.WorldProvider;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_apl;
 
-public class class_apa extends class_aoy {
+public class WorldProviderHell extends WorldProvider {
    public void b() {
-      this.c = new class_afg(BiomeBase.HELL, 0.0F);
+      this.c = new WorldChunkManagerHell(BiomeBase.HELL, 0.0F);
       this.d = true;
       this.e = true;
    }
@@ -25,7 +25,7 @@ public class class_apa extends class_aoy {
 
    }
 
-   public class_aoh c() {
+   public IChunkProvider c() {
       return new class_apl(this.b, this.b.Q().s(), this.b.K());
    }
 

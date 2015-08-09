@@ -95,7 +95,7 @@ public class BlockFire extends Block {
 
          Block var5 = var1.getType(var2.down()).getBlock();
          boolean var6 = var5 == Blocks.NETHERRACK;
-         if(var1.worldProvider instanceof class_apd && var5 == Blocks.BEDROCK) {
+         if(var1.worldProvider instanceof WorldProviderTheEnd && var5 == Blocks.BEDROCK) {
             var6 = true;
          }
 

@@ -181,7 +181,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 	public class_qd a(class_on var1, class_qd var2) {
 		var2 = super.a(var1, var2);
-		if (this.world.worldProvider instanceof class_apa && this.getRandom().nextInt(5) > 0) {
+		if (this.world.worldProvider instanceof WorldProviderHell && this.getRandom().nextInt(5) > 0) {
 			this.i.a(4, this.bs);
 			this.setType(1);
 			this.a(EnumWearable.MAINHAND, new ItemStack(Items.STONE_SWORD));

@@ -89,7 +89,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 	public void a(Entity var1) {
 		if (!world.isClientSide && !d()) {
 			g = 100;
-			if ((exitPos == null) && (world.worldProvider instanceof class_apd)) {
+			if ((exitPos == null) && (world.worldProvider instanceof WorldProviderTheEnd)) {
 				j();
 			}
 

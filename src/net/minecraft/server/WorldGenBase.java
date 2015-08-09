@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aoh;
+import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.class_aph;
 
 public class WorldGenBase {
@@ -10,7 +10,7 @@ public class WorldGenBase {
    protected Random b = new Random();
    protected World c;
 
-   public void a(class_aoh var1, World var2, int var3, int var4, class_aph var5) {
+   public void a(IChunkProvider var1, World var2, int var3, int var4, class_aph var5) {
       int var6 = this.a;
       this.c = var2;
       this.b.setSeed(var2.K());

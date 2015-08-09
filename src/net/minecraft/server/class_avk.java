@@ -4,15 +4,15 @@ import net.minecraft.server.GameRules;
 import net.minecraft.server.WorldSettings;
 import net.minecraft.server.WorldType;
 import net.minecraft.server.class_aoz;
-import net.minecraft.server.class_avn;
+import net.minecraft.server.WorldData;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_om;
 
-public class class_avk extends class_avn {
-   private final class_avn b;
+public class class_avk extends WorldData {
+   private final WorldData b;
 
-   public class_avk(class_avn var1) {
+   public class_avk(WorldData var1) {
       this.b = var1;
    }
 

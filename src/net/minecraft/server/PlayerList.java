@@ -72,7 +72,7 @@ public abstract class PlayerList {
 
 		looger.info(player.getName() + "[" + var8 + "] logged in with entity id " + player.getId() + " at (" + player.locX + ", " + player.locY + ", " + player.locZ + ")");
 		WorldServer var9 = this.mcserver.getWorldServer(player.dimension);
-		class_avn var10 = var9.Q();
+		WorldData var10 = var9.Q();
 		BlockPosition var11 = var9.N();
 		this.a(player, (EntityPlayer) null, var9);
 		PlayerConnection var12 = new PlayerConnection(this.mcserver, networkManager, player);
