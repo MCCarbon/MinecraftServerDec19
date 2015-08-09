@@ -68,7 +68,7 @@ public class ItemBucket extends Item {
       } else if(--var1.count <= 0) {
          return new ItemStack(var3);
       } else {
-         if(!var2.inventory.a(new ItemStack(var3))) {
+         if(!var2.inventory.pickup(new ItemStack(var3))) {
             var2.a(new ItemStack(var3), false);
          }
 

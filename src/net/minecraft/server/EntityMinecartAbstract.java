@@ -26,7 +26,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 	public EntityMinecartAbstract(World var1) {
 		super(var1);
 		this.k = true;
-		this.a(0.98F, 0.7F);
+		this.setSize(0.98F, 0.7F);
 	}
 
 	public static EntityMinecartAbstract a(World var0, double var1, double var3, double var5, EnumMinecartType var7) {
@@ -75,7 +75,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 
 	public EntityMinecartAbstract(World var1, double var2, double var4, double var6) {
 		this(var1);
-		this.b(var2, var4, var6);
+		this.setPosition(var2, var4, var6);
 		this.motX = 0.0D;
 		this.motY = 0.0D;
 		this.motZ = 0.0D;
@@ -104,7 +104,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 					}
 
 					if (var3 && !this.hasCustomName()) {
-						this.J();
+						this.die();
 					} else {
 						this.a(var1);
 					}
@@ -118,7 +118,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 	}
 
 	public void a(DamageSource var1) {
-		this.J();
+		this.die();
 		if (this.world.R().getBooleanValue("doEntityDrops")) {
 			ItemStack var2 = new ItemStack(Items.MINECART, 1);
 			if (this.h != null) {
@@ -134,8 +134,8 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		return !this.dead;
 	}
 
-	public void J() {
-		super.J();
+	public void die() {
+		super.die();
 	}
 
 	public void t_() {
@@ -199,10 +199,10 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 				this.yaw = (float) ((double) this.yaw + var7 / (double) this.as);
 				this.pitch = (float) ((double) this.pitch + (this.ax - (double) this.pitch) / (double) this.as);
 				--this.as;
-				this.b(var15, var17, var18);
+				this.setPosition(var15, var17, var18);
 				this.b(this.yaw, this.pitch);
 			} else {
-				this.b(this.locX, this.locY, this.locZ);
+				this.setPosition(this.locX, this.locY, this.locZ);
 				this.b(this.yaw, this.pitch);
 			}
 
@@ -397,7 +397,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 
 		this.locX = var23 + var11 * var21;
 		this.locZ = var25 + var13 * var21;
-		this.b(this.locX, this.locY, this.locZ);
+		this.setPosition(this.locX, this.locY, this.locZ);
 		var31 = this.motX;
 		var33 = this.motZ;
 		if (this.passenger != null) {
@@ -410,9 +410,9 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		var33 = MathHelper.clamp(var33, -var35, var35);
 		this.d(var31, 0.0D, var33);
 		if (var10[0][1] != 0 && MathHelper.floor(this.locX) - var1.getX() == var10[0][0] && MathHelper.floor(this.locZ) - var1.getZ() == var10[0][2]) {
-			this.b(this.locX, this.locY + (double) var10[0][1], this.locZ);
+			this.setPosition(this.locX, this.locY + (double) var10[0][1], this.locZ);
 		} else if (var10[1][1] != 0 && MathHelper.floor(this.locX) - var1.getX() == var10[1][0] && MathHelper.floor(this.locZ) - var1.getZ() == var10[1][2]) {
-			this.b(this.locX, this.locY + (double) var10[1][1], this.locZ);
+			this.setPosition(this.locX, this.locY + (double) var10[1][1], this.locZ);
 		}
 
 		this.o();
@@ -425,7 +425,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 				this.motZ = this.motZ / var19 * (var19 + var38);
 			}
 
-			this.b(this.locX, var37.y, this.locZ);
+			this.setPosition(this.locX, var37.y, this.locZ);
 		}
 
 		int var44 = MathHelper.floor(this.locX);
@@ -472,7 +472,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 
 	}
 
-	public void b(double var1, double var3, double var5) {
+	public void setPosition(double var1, double var3, double var5) {
 		this.locX = var1;
 		this.locY = var3;
 		this.locZ = var5;

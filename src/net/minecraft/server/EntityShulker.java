@@ -16,7 +16,7 @@ public class EntityShulker extends class_ua implements class_wd {
 
    public EntityShulker(World var1) {
       super(var1);
-      this.a(1.0F, 1.0F);
+      this.setSize(1.0F, 1.0F);
       this.aM = 180.0F;
       this.aL = 180.0F;
       this.fireProof = true;

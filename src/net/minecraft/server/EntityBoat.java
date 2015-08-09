@@ -22,7 +22,7 @@ public class EntityBoat extends Entity {
 		this.d = true;
 		this.e = 0.07D;
 		this.k = true;
-		this.a(1.5F, 0.6F);
+		this.setSize(1.5F, 0.6F);
 	}
 
 	protected boolean s_() {
@@ -49,7 +49,7 @@ public class EntityBoat extends Entity {
 
 	public EntityBoat(World var1, double var2, double var4, double var6) {
 		this(var1);
-		this.b(var2, var4, var6);
+		this.setPosition(var2, var4, var6);
 		this.motX = 0.0D;
 		this.motY = 0.0D;
 		this.motZ = 0.0D;
@@ -83,7 +83,7 @@ public class EntityBoat extends Entity {
 						this.a(Items.BOAT, 1, 0.0F);
 					}
 
-					this.J();
+					this.die();
 				}
 
 				return true;
@@ -158,13 +158,13 @@ public class EntityBoat extends Entity {
 				this.yaw = (float) ((double) this.yaw + var26 / (double) this.f);
 				this.pitch = (float) ((double) this.pitch + (this.at - (double) this.pitch) / (double) this.f);
 				--this.f;
-				this.b(var6, var8, var24);
+				this.setPosition(var6, var8, var24);
 				this.b(this.yaw, this.pitch);
 			} else {
 				var6 = this.locX + this.motX;
 				var8 = this.locY + this.motY;
 				var24 = this.locZ + this.motZ;
-				this.b(var6, var8, var24);
+				this.setPosition(var6, var8, var24);
 				if (this.onGround) {
 					this.motX *= 0.5D;
 					this.motY *= 0.5D;
@@ -243,7 +243,7 @@ public class EntityBoat extends Entity {
 			this.d(this.motX, this.motY, this.motZ);
 			if (this.positionChanged && var19 > 0.2975D) {
 				if (!this.world.isClientSide && !this.dead) {
-					this.J();
+					this.die();
 					if (this.world.R().getBooleanValue("doEntityDrops")) {
 						for (var22 = 0; var22 < 3; ++var22) {
 							this.a(Item.getItemOf(Blocks.PLANKS), 1, 0.0F);
@@ -302,7 +302,7 @@ public class EntityBoat extends Entity {
 		if (this.passenger != null) {
 			double var1 = Math.cos((double) this.yaw * 3.141592653589793D / 180.0D) * 0.4D;
 			double var3 = Math.sin((double) this.yaw * 3.141592653589793D / 180.0D) * 0.4D;
-			this.passenger.b(this.locX + var1, this.locY + this.an() + this.passenger.am(), this.locZ + var3);
+			this.passenger.setPosition(this.locX + var1, this.locY + this.an() + this.passenger.am(), this.locZ + var3);
 		}
 	}
 
@@ -329,7 +329,7 @@ public class EntityBoat extends Entity {
 			if (this.fallDistance > 3.0F) {
 				this.e(this.fallDistance, 1.0F);
 				if (!this.world.isClientSide && !this.dead) {
-					this.J();
+					this.die();
 					if (this.world.R().getBooleanValue("doEntityDrops")) {
 						int var6;
 						for (var6 = 0; var6 < 3; ++var6) {

@@ -19,7 +19,7 @@ public abstract class EntityMonster extends EntityCreature implements class_wd {
    public void t_() {
       super.t_();
       if(!this.world.isClientSide && this.world.ab() == class_om.a) {
-         this.J();
+         this.die();
       }
 
    }

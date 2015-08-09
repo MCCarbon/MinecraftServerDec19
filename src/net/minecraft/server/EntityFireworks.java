@@ -9,7 +9,7 @@ public class EntityFireworks extends Entity {
 
 	public EntityFireworks(World var1) {
 		super(var1);
-		this.a(0.25F, 0.25F);
+		this.setSize(0.25F, 0.25F);
 	}
 
 	protected void initDatawatcher() {
@@ -19,8 +19,8 @@ public class EntityFireworks extends Entity {
 	public EntityFireworks(World var1, double var2, double var4, double var6, ItemStack var8) {
 		super(var1);
 		this.b = 0;
-		this.a(0.25F, 0.25F);
-		this.b(var2, var4, var6);
+		this.setSize(0.25F, 0.25F);
+		this.setPosition(var2, var4, var6);
 		int var9 = 1;
 		if (var8 != null && var8.hasTag()) {
 			this.datawatcher.update(INFO_DW_ID, var8);
@@ -78,7 +78,7 @@ public class EntityFireworks extends Entity {
 
 		if (!this.world.isClientSide && this.b > this.c) {
 			this.world.a((Entity) this, (byte) 17);
-			this.J();
+			this.die();
 		}
 
 	}

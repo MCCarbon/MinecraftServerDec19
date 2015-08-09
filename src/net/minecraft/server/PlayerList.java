@@ -357,7 +357,7 @@ public abstract class PlayerList {
 		var8.b.c((int) var7.locX >> 4, (int) var7.locZ >> 4);
 
 		while (!var8.getCubes((Entity) var7, (AxisAlignedBB) var7.getBoundingBox()).isEmpty() && var7.locY < 256.0D) {
-			var7.b(var7.locX, var7.locY + 1.0D, var7.locZ);
+			var7.setPosition(var7.locX, var7.locY + 1.0D, var7.locZ);
 		}
 
 		var7.playerConnection.sendPacket((Packet<?>) (new PacketPlayOutRespawn(var7.dimension, var7.world.ab(), var7.world.Q().u(), var7.playerInteractManager.getGameMode())));

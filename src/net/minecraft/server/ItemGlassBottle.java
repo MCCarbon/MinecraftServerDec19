@@ -27,7 +27,7 @@ public class ItemGlassBottle extends Item {
                   return new UseResultWithValue(UseResult.SUCCESS, new ItemStack(Items.POTION));
                }
 
-               if(!var3.inventory.a(new ItemStack(Items.POTION))) {
+               if(!var3.inventory.pickup(new ItemStack(Items.POTION))) {
                   var3.a(new ItemStack(Items.POTION), false);
                }
 

@@ -13,7 +13,7 @@ public class EntityVillagerGolem extends class_ua {
 
 	public EntityVillagerGolem(World var1) {
 		super(var1);
-		this.a(1.4F, 2.9F);
+		this.setSize(1.4F, 2.9F);
 		((class_tf) this.u()).a(true);
 		this.i.a(1, new class_ru(this, 1.0D, true));
 		this.i.a(2, new class_rz(this, 0.9D, 32.0F));

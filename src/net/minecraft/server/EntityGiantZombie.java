@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class EntityGiantZombie extends EntityMonster {
    public EntityGiantZombie(World var1) {
       super(var1);
-      this.a(this.width * 6.0F, this.length * 6.0F);
+      this.setSize(this.width * 6.0F, this.length * 6.0F);
    }
 
    public float getHeadHeight() {

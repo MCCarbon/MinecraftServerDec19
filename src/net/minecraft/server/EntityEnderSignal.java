@@ -9,7 +9,7 @@ public class EntityEnderSignal extends Entity {
 
    public EntityEnderSignal(World var1) {
       super(var1);
-      this.a(0.25F, 0.25F);
+      this.setSize(0.25F, 0.25F);
    }
 
    protected void initDatawatcher() {
@@ -18,8 +18,8 @@ public class EntityEnderSignal extends Entity {
    public EntityEnderSignal(World var1, double var2, double var4, double var6) {
       super(var1);
       this.d = 0;
-      this.a(0.25F, 0.25F);
-      this.b(var2, var4, var6);
+      this.setSize(0.25F, 0.25F);
+      this.setPosition(var2, var4, var6);
    }
 
    public void a(BlockPosition var1) {
@@ -102,10 +102,10 @@ public class EntityEnderSignal extends Entity {
       }
 
       if(!this.world.isClientSide) {
-         this.b(this.locX, this.locY, this.locZ);
+         this.setPosition(this.locX, this.locY, this.locZ);
          ++this.d;
          if(this.d > 80 && !this.world.isClientSide) {
-            this.J();
+            this.die();
             if(this.e) {
                this.world.addEntity((Entity)(new EntityItem(this.world, this.locX, this.locY, this.locZ, new ItemStack(Items.ENDER_EYE))));
             } else {

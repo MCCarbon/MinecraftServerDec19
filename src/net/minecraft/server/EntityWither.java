@@ -35,7 +35,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 		super(var1);
 		this.bA = new class_le(this.getScoreboardDisplayName(), class_oh.class_a_in_class_oh.f, class_oh.class_b_in_class_oh.a, true, false);
 		this.i(this.bv());
-		this.a(0.9F, 3.5F);
+		this.setSize(0.9F, 3.5F);
 		this.fireProof = true;
 		((class_tf) this.u()).d(true);
 		this.i.a(0, new class_rj(this));

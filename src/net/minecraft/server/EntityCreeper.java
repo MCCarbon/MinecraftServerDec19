@@ -170,7 +170,7 @@ public class EntityCreeper extends EntityMonster {
 			boolean var1 = this.world.R().getBooleanValue("mobGriefing");
 			float var2 = this.isPowered() ? 2.0F : 1.0F;
 			this.world.a(this, this.locX, this.locY, this.locZ, (float) this.bv * var2, var1);
-			this.J();
+			this.die();
 		}
 
 	}

@@ -171,7 +171,7 @@ public abstract class EntityHuman extends EntityLiving {
 		double var10 = MathHelper.clamp(locX, -2.9999999E7D, 2.9999999E7D);
 		double var12 = MathHelper.clamp(locZ, -2.9999999E7D, 2.9999999E7D);
 		if ((var10 != locX) || (var12 != locZ)) {
-			this.b(var10, locY, var12);
+			this.setPosition(var10, locY, var12);
 		}
 
 	}
@@ -327,8 +327,8 @@ public abstract class EntityHuman extends EntityLiving {
 	@Override
 	public void a(DamageSource var1) {
 		super.a(var1);
-		this.a(0.2F, 0.2F);
-		this.b(locX, locY, locZ);
+		this.setSize(0.2F, 0.2F);
+		this.setPosition(locX, locY, locZ);
 		motY = 0.10000000149011612D;
 		if (getName().equals("Notch")) {
 			this.a(new ItemStack(Items.APPLE, 1), true, false);
@@ -607,8 +607,8 @@ public abstract class EntityHuman extends EntityLiving {
 					return false;
 				} else {
 					Entity var3 = var1.j();
-					if ((var3 instanceof EntityArrow) && (((EntityArrow) var3).e != null)) {
-						var3 = ((EntityArrow) var3).e;
+					if ((var3 instanceof EntityArrow) && (((EntityArrow) var3).shooter != null)) {
+						var3 = ((EntityArrow) var3).shooter;
 					}
 
 					return super.damageEntity(var1, var2);
@@ -847,8 +847,8 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	@Override
-	public void J() {
-		super.J();
+	public void die() {
+		super.die();
 		bq.b(this);
 		if (br != null) {
 			br.b(this);
@@ -895,7 +895,7 @@ public abstract class EntityHuman extends EntityLiving {
 			this.a((Entity) null);
 		}
 
-		this.a(0.2F, 0.2F);
+		this.setSize(0.2F, 0.2F);
 		if (world.isLoaded(var1)) {
 			EnumDirection var7 = world.getType(var1).get(BlockDirectional.FACING);
 			float var3 = 0.5F;
@@ -915,9 +915,9 @@ public abstract class EntityHuman extends EntityLiving {
 			}
 
 			this.a(var7);
-			this.b(var1.getX() + var3, var1.getY() + 0.6875F, var1.getZ() + var8);
+			this.setPosition(var1.getX() + var3, var1.getY() + 0.6875F, var1.getZ() + var8);
 		} else {
-			this.b(var1.getX() + 0.5F, var1.getY() + 0.6875F, var1.getZ() + 0.5F);
+			this.setPosition(var1.getX() + 0.5F, var1.getY() + 0.6875F, var1.getZ() + 0.5F);
 		}
 
 		sleeping = true;
@@ -951,7 +951,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	public void a(boolean var1, boolean var2, boolean var3) {
-		this.a(0.6F, 1.8F);
+		this.setSize(0.6F, 1.8F);
 		IBlockData var4 = world.getType(bedPosition);
 		if ((bedPosition != null) && (var4.getBlock() == Blocks.BED)) {
 			world.setTypeAndData(bedPosition, var4.set(BlockBed.OCCUPIED, Boolean.valueOf(false)), 4);
@@ -960,7 +960,7 @@ public abstract class EntityHuman extends EntityLiving {
 				var5 = bedPosition.up();
 			}
 
-			this.b(var5.getX() + 0.5F, var5.getY() + 0.1F, var5.getZ() + 0.5F);
+			this.setPosition(var5.getX() + 0.5F, var5.getY() + 0.1F, var5.getZ() + 0.5F);
 		}
 
 		sleeping = false;

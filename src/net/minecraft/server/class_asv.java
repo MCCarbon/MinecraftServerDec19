@@ -262,7 +262,7 @@ public class class_asv {
             if(var14 instanceof EntityPainting) {
                var14.a(var3);
                var14.a(var4);
-               var14.b((double)var8.getX(), (double)var8.getY(), (double)var8.getZ());
+               var14.setPosition((double)var8.getX(), (double)var8.getY(), (double)var8.getZ());
                var14.b(var11.x, var11.y, var11.z, var14.yaw, var14.pitch);
             } else {
                float var15 = var14.a(var3);

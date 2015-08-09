@@ -36,7 +36,7 @@ public class EntityThrownExpBottle extends class_xo {
             this.world.addEntity((Entity)(new EntityExperienceOrb(this.world, this.locX, this.locY, this.locZ, var3)));
          }
 
-         this.J();
+         this.die();
       }
 
    }

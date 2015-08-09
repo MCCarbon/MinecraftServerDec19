@@ -9,7 +9,7 @@ public class EntityGhast extends class_py implements class_wd {
 
 	public EntityGhast(World var1) {
 		super(var1);
-		this.a(4.0F, 4.0F);
+		this.setSize(4.0F, 4.0F);
 		this.fireProof = true;
 		this.b_ = 5;
 		this.f = new EntityGhast.class_b_in_class_we(this);
@@ -30,7 +30,7 @@ public class EntityGhast extends class_py implements class_wd {
 	public void t_() {
 		super.t_();
 		if (!this.world.isClientSide && this.world.ab() == class_om.a) {
-			this.J();
+			this.die();
 		}
 
 	}

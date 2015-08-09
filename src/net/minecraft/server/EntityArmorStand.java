@@ -50,12 +50,12 @@ public class EntityArmorStand extends EntityLiving {
 		this.bI = bw;
 		this.b(true);
 		this.noclip = this.p();
-		this.a(0.5F, 1.975F);
+		this.setSize(0.5F, 1.975F);
 	}
 
 	public EntityArmorStand(World var1, double var2, double var4, double var6) {
 		this(var1);
-		this.b(var2, var4, var6);
+		this.setPosition(var2, var4, var6);
 	}
 
 	public boolean bN() {
@@ -404,12 +404,12 @@ public class EntityArmorStand extends EntityLiving {
 		if (this.world.isClientSide) {
 			return false;
 		} else if (DamageSource.j.equals(var1)) {
-			this.J();
+			this.die();
 			return false;
 		} else if (!this.b((DamageSource) var1) && !this.bz && !this.t()) {
 			if (var1.c()) {
 				this.E();
-				this.J();
+				this.die();
 				return false;
 			} else if (DamageSource.a.equals(var1)) {
 				if (!this.av()) {
@@ -429,14 +429,14 @@ public class EntityArmorStand extends EntityLiving {
 					return false;
 				} else {
 					if (var1.i() instanceof EntityArrow) {
-						var1.i().J();
+						var1.i().die();
 					}
 
 					if (var1.j() instanceof EntityHuman && !((EntityHuman) var1.j()).abilities.mayBuild) {
 						return false;
 					} else if (var1.u()) {
 						this.C();
-						this.J();
+						this.die();
 						return false;
 					} else {
 						long var5 = this.world.L();
@@ -445,7 +445,7 @@ public class EntityArmorStand extends EntityLiving {
 						} else {
 							this.D();
 							this.C();
-							this.J();
+							this.die();
 						}
 
 						return false;
@@ -469,7 +469,7 @@ public class EntityArmorStand extends EntityLiving {
 		var2 -= var1;
 		if (var2 <= 0.5F) {
 			this.E();
-			this.J();
+			this.die();
 		} else {
 			this.i(var2);
 		}
@@ -572,12 +572,12 @@ public class EntityArmorStand extends EntityLiving {
 		double var4 = this.locY;
 		double var6 = this.locZ;
 		if (var1) {
-			this.a(0.5F, 1.975F);
+			this.setSize(0.5F, 1.975F);
 		} else {
-			this.a(0.0F, 0.0F);
+			this.setSize(0.0F, 0.0F);
 		}
 
-		this.b(var2, var4, var6);
+		this.setPosition(var2, var4, var6);
 	}
 
 	protected void B() {
@@ -594,7 +594,7 @@ public class EntityArmorStand extends EntityLiving {
 	}
 
 	public void G() {
-		this.J();
+		this.die();
 	}
 
 	public boolean aX() {

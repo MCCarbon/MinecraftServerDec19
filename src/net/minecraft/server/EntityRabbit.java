@@ -19,7 +19,7 @@ public class EntityRabbit extends EntityAnimal {
 		this.bA = EntityRabbit.class_b_in_class_ue.b;
 		this.bB = 0;
 		this.bC = null;
-		this.a(0.6F, 0.7F);
+		this.setSize(0.6F, 0.7F);
 		this.g = new EntityRabbit.class_e_in_class_ue(this);
 		this.f = new EntityRabbit.class_f_in_class_ue(this);
 		((class_tf) this.u()).a(true);

@@ -22,7 +22,7 @@ public class EntityGuardian extends EntityMonster {
 	public EntityGuardian(World var1) {
 		super(var1);
 		this.b_ = 10;
-		this.a(0.85F, 0.85F);
+		this.setSize(0.85F, 0.85F);
 		this.i.a(4, new EntityGuardian.class_a_in_class_wg(this));
 		class_ry var2;
 		this.i.a(5, var2 = new class_ry(this, 1.0D));
@@ -98,7 +98,7 @@ public class EntityGuardian extends EntityMonster {
 	public void a(boolean var1) {
 		this.a(4, var1);
 		if (var1) {
-			this.a(1.9975F, 1.9975F);
+			this.setSize(1.9975F, 1.9975F);
 			this.a((class_qk) class_wl.d).a(0.30000001192092896D);
 			this.a((class_qk) class_wl.e).a(8.0D);
 			this.a((class_qk) class_wl.a).a(80.0D);
@@ -140,7 +140,7 @@ public class EntityGuardian extends EntityMonster {
 		super.d(var1);
 		if (var1 == INFOFLAGS_DW_ID) {
 			if (this.cC() && this.width < 1.0F) {
-				this.a(1.9975F, 1.9975F);
+				this.setSize(1.9975F, 1.9975F);
 			}
 		} else if (var1 == TARGET_DW_ID) {
 			this.bx = 0;

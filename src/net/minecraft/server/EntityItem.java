@@ -21,8 +21,8 @@ public class EntityItem extends Entity {
 		super(var1);
 		this.f = 5;
 		this.a = (float) (Math.random() * 3.141592653589793D * 2.0D);
-		this.a(0.25F, 0.25F);
-		this.b(var2, var4, var6);
+		this.setSize(0.25F, 0.25F);
+		this.setPosition(var2, var4, var6);
 		this.yaw = (float) (Math.random() * 360.0D);
 		this.motX = (double) ((float) (Math.random() * 0.20000000298023224D - 0.10000000149011612D));
 		this.motY = 0.20000000298023224D;
@@ -42,7 +42,7 @@ public class EntityItem extends Entity {
 		super(var1);
 		this.f = 5;
 		this.a = (float) (Math.random() * 3.141592653589793D * 2.0D);
-		this.a(0.25F, 0.25F);
+		this.setSize(0.25F, 0.25F);
 		this.a(new ItemStack(Blocks.AIR, 0));
 	}
 
@@ -52,7 +52,7 @@ public class EntityItem extends Entity {
 
 	public void t_() {
 		if (this.l() == null) {
-			this.J();
+			this.die();
 		} else {
 			super.t_();
 			if (this.pickupDelay > 0 && this.pickupDelay != 32767) {
@@ -97,7 +97,7 @@ public class EntityItem extends Entity {
 
 			this.W();
 			if (!this.world.isClientSide && this.d >= 6000) {
-				this.J();
+				this.die();
 			}
 
 		}
@@ -140,7 +140,7 @@ public class EntityItem extends Entity {
 						var1.pickupDelay = Math.max(var1.pickupDelay, this.pickupDelay);
 						var1.d = Math.min(var1.d, this.d);
 						var1.a(var3);
-						this.J();
+						this.die();
 						return true;
 					}
 				} else {
@@ -185,7 +185,7 @@ public class EntityItem extends Entity {
 			this.ac();
 			this.f = (int) ((float) this.f - var2);
 			if (this.f <= 0) {
-				this.J();
+				this.die();
 			}
 
 			return false;
@@ -228,7 +228,7 @@ public class EntityItem extends Entity {
 		NBTTagCompound var2 = var1.getCompound("Item");
 		this.a(ItemStack.a(var2));
 		if (this.l() == null) {
-			this.J();
+			this.die();
 		}
 
 	}
@@ -237,7 +237,7 @@ public class EntityItem extends Entity {
 		if (!this.world.isClientSide) {
 			ItemStack var2 = this.l();
 			int var3 = var2.count;
-			if (this.pickupDelay == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.getName())) && var1.inventory.a(var2)) {
+			if (this.pickupDelay == 0 && (this.h == null || 6000 - this.d <= 200 || this.h.equals(var1.getName())) && var1.inventory.pickup(var2)) {
 				if (var2.getItem() == Item.getItemOf(Blocks.LOG)) {
 					var1.b((class_my) class_mt.g);
 				}
@@ -269,9 +269,9 @@ public class EntityItem extends Entity {
 					this.world.a((Entity) var1, "random.pop", 0.2F, ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.0F) * 2.0F);
 				}
 
-				var1.a(this, var3);
+				var1.receive(this, var3);
 				if (var2.count <= 0) {
-					this.J();
+					this.die();
 				}
 			}
 

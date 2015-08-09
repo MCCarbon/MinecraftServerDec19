@@ -17,13 +17,13 @@ public class EntitySpectralArrow extends EntityArrow {
 
    public void t_() {
       super.t_();
-      if(this.world.isClientSide && !this.a) {
+      if(this.world.isClientSide && !this.inGround) {
          this.world.addParticle(EnumParticle.o, this.locX, this.locY, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
       }
 
    }
 
-   protected ItemStack j() {
+   protected ItemStack getItemStack() {
       return new ItemStack(Items.SPECTRAL_ARROW);
    }
 

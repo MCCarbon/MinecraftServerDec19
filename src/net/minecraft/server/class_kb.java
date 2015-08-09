@@ -16,7 +16,7 @@ public abstract class class_kb extends DispenseBehaviorItem {
       class_cz var4 = BlockDispenser.a(var1);
       EnumDirection var5 = BlockDispenser.b(var1.getData());
       class_xi var6 = this.a(var3, var4, var2);
-      var6.c((double)var5.getAdjacentX(), (double)((float)var5.getAdjacentY() + 0.1F), (double)var5.getAdjacentZ(), this.b(), this.a());
+      var6.shoot((double)var5.getAdjacentX(), (double)((float)var5.getAdjacentY() + 0.1F), (double)var5.getAdjacentZ(), this.b(), this.a());
       var3.addEntity((Entity)var6);
       var2.a(1);
       return var2;

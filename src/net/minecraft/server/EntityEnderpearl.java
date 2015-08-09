@@ -29,7 +29,7 @@ public class EntityEnderpearl extends class_xo {
             TileEntityEndGateway var5 = (TileEntityEndGateway)var4;
             if(var2 != null) {
                var5.a((Entity)var2);
-               this.J();
+               this.die();
                return;
             }
 
@@ -66,7 +66,7 @@ public class EntityEnderpearl extends class_xo {
             var2.fallDistance = 0.0F;
          }
 
-         this.J();
+         this.die();
       }
 
    }
@@ -74,7 +74,7 @@ public class EntityEnderpearl extends class_xo {
    public void t_() {
       EntityLiving var1 = this.l();
       if(var1 != null && var1 instanceof EntityHuman && !var1.isAlive()) {
-         this.J();
+         this.die();
       } else {
          super.t_();
       }

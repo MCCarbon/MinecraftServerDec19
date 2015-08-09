@@ -10,7 +10,7 @@ public class EntityLeash extends class_uz {
 
    public EntityLeash(World var1, BlockPosition var2) {
       super(var1, var2);
-      this.b((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D);
+      this.setPosition((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D);
       float var3 = 0.125F;
       float var4 = 0.1875F;
       float var5 = 0.25F;
@@ -69,7 +69,7 @@ public class EntityLeash extends class_uz {
          }
 
          if(!var4) {
-            this.J();
+            this.die();
             if(var1.abilities.instabuild) {
                var5 = 7.0D;
                var7 = this.world.getEntities(EntityInsentient.class, new AxisAlignedBB(this.locX - var5, this.locY - var5, this.locZ - var5, this.locX + var5, this.locY + var5, this.locZ + var5));

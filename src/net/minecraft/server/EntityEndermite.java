@@ -7,7 +7,7 @@ public class EntityEndermite extends EntityMonster {
    public EntityEndermite(World var1) {
       super(var1);
       this.b_ = 3;
-      this.a(0.4F, 0.3F);
+      this.setSize(0.4F, 0.3F);
       this.i.a(1, new class_rj(this));
       this.i.a(2, new class_ru(this, EntityHuman.class, 1.0D, false));
       this.i.a(3, new class_si(this, 1.0D));
@@ -89,7 +89,7 @@ public class EntityEndermite extends EntityMonster {
          }
 
          if(this.a >= 2400) {
-            this.J();
+            this.die();
          }
       }
 

@@ -10,7 +10,7 @@ public class EntityEnderCrystal extends Entity {
 	public EntityEnderCrystal(World var1) {
 		super(var1);
 		this.k = true;
-		this.a(2.0F, 2.0F);
+		this.setSize(2.0F, 2.0F);
 		this.b = 5;
 		this.a = this.random.nextInt(100000);
 	}
@@ -56,7 +56,7 @@ public class EntityEnderCrystal extends Entity {
 		} else {
 			if (!this.dead && !this.world.isClientSide) {
 				this.b = 0;
-				this.J();
+				this.die();
 				if (!this.world.isClientSide) {
 					this.world.a((Entity) null, this.locX, this.locY, this.locZ, 6.0F, true);
 					if (this.world.worldProvider instanceof WorldProviderTheEnd) {

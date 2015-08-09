@@ -5,12 +5,12 @@ public class EntityWitherSkull extends class_xf {
 
    public EntityWitherSkull(World var1) {
       super(var1);
-      this.a(0.3125F, 0.3125F);
+      this.setSize(0.3125F, 0.3125F);
    }
 
    public EntityWitherSkull(World var1, EntityLiving var2, double var3, double var5, double var7) {
       super(var1, var2, var3, var5, var7);
-      this.a(0.3125F, 0.3125F);
+      this.setSize(0.3125F, 0.3125F);
    }
 
    protected float j() {
@@ -61,7 +61,7 @@ public class EntityWitherSkull extends class_xf {
          }
 
          this.world.createExplosion(this, this.locX, this.locY, this.locZ, 1.0F, false, this.world.R().getBooleanValue("mobGriefing"));
-         this.J();
+         this.die();
       }
 
    }

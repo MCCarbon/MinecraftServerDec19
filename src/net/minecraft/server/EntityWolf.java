@@ -17,7 +17,7 @@ public class EntityWolf extends EntityTameable {
 
 	public EntityWolf(World var1) {
 		super(var1);
-		this.a(0.6F, 0.8F);
+		this.setSize(0.6F, 0.8F);
 		((class_tf) this.u()).a(true);
 		this.i.a(1, new class_rj(this));
 		this.i.a(2, this.bu);

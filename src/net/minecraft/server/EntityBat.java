@@ -10,7 +10,7 @@ public class EntityBat extends class_tt {
 
 	public EntityBat(World var1) {
 		super(var1);
-		this.a(0.5F, 0.9F);
+		this.setSize(0.5F, 0.9F);
 		this.a(true);
 	}
 

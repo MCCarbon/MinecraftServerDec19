@@ -149,7 +149,7 @@ public class PlayerInventory implements IInventory {
 
    }
 
-   public boolean a(final ItemStack var1) {
+   public boolean pickup(final ItemStack var1) {
       if(var1 != null && var1.count != 0 && var1.getItem() != null) {
          try {
             int var2;

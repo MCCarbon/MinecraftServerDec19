@@ -76,7 +76,7 @@ public class BlockCauldron extends Block {
                      var4.b(StatisticList.J);
                      if(--var6.count == 0) {
                         var4.a((EnumUsedHand)var5, (ItemStack)var14);
-                     } else if(!var4.inventory.a(var14)) {
+                     } else if(!var4.inventory.pickup(var14)) {
                         var4.a(var14, false);
                      } else if(var4 instanceof EntityPlayer) {
                         ((EntityPlayer)var4).a(var4.bq);
@@ -109,7 +109,7 @@ public class BlockCauldron extends Block {
 
                   if(var6.count == 0) {
                      var4.a((EnumUsedHand)var5, (ItemStack)var14);
-                  } else if(!var4.inventory.a(var14)) {
+                  } else if(!var4.inventory.pickup(var14)) {
                      var4.a(var14, false);
                   } else if(var4 instanceof EntityPlayer) {
                      ((EntityPlayer)var4).a(var4.bq);

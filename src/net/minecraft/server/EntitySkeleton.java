@@ -107,7 +107,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 		}
 
 		if (this.world.isClientSide && this.cB() == 1) {
-			this.a(0.72F, 2.535F);
+			this.setSize(0.72F, 2.535F);
 		}
 
 		super.m();
@@ -222,7 +222,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 		double var6 = var1.getBoundingBox().yMin + (double) (var1.length / 3.0F) - var3.locY;
 		double var8 = var1.locZ - this.locZ;
 		double var10 = (double) MathHelper.sqrt(var4 * var4 + var8 * var8);
-		var3.c(var4, var6 + var10 * 0.20000000298023224D, var8, 1.6F, (float) (14 - this.world.ab().a() * 4));
+		var3.shoot(var4, var6 + var10 * 0.20000000298023224D, var8, 1.6F, (float) (14 - this.world.ab().a() * 4));
 		int var12 = EnchantmentManager.a((Enchantment) RegistryEnchantments.t, (EntityLiving) this);
 		int var13 = EnchantmentManager.a((Enchantment) RegistryEnchantments.u, (EntityLiving) this);
 		var3.b((double) (var2 * 2.0F) + this.random.nextGaussian() * 0.25D + (double) ((float) this.world.ab().a() * 0.11F));
@@ -250,9 +250,9 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 		this.datawatcher.update(TYPE_DW_ID, Byte.valueOf((byte) var1));
 		this.fireProof = var1 == 1;
 		if (var1 == 1) {
-			this.a(0.72F, 2.535F);
+			this.setSize(0.72F, 2.535F);
 		} else {
-			this.a(0.6F, 1.95F);
+			this.setSize(0.6F, 1.95F);
 		}
 
 	}

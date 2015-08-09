@@ -13,12 +13,12 @@ public class EntityTNTPrimed extends Entity {
    public EntityTNTPrimed(World var1) {
       super(var1);
       this.k = true;
-      this.a(0.98F, 0.98F);
+      this.setSize(0.98F, 0.98F);
    }
 
    public EntityTNTPrimed(World var1, double var2, double var4, double var6, EntityLiving var8) {
       this(var1);
-      this.b(var2, var4, var6);
+      this.setPosition(var2, var4, var6);
       float var9 = (float)(Math.random() * 3.1415927410125732D * 2.0D);
       this.motX = (double)(-((float)Math.sin((double)var9)) * 0.02F);
       this.motY = 0.20000000298023224D;
@@ -57,7 +57,7 @@ public class EntityTNTPrimed extends Entity {
       }
 
       if(this.a-- <= 0) {
-         this.J();
+         this.die();
          if(!this.world.isClientSide) {
             this.l();
          }

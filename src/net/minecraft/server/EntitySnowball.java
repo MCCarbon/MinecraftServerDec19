@@ -28,7 +28,7 @@ public class EntitySnowball extends class_xo {
       }
 
       if(!this.world.isClientSide) {
-         this.J();
+         this.die();
       }
 
    }

@@ -41,7 +41,7 @@ public class EntityPotion extends class_xo {
             }
 
             this.world.b(2002, new BlockPosition(this), RegistryPotions.a(var2));
-            this.J();
+            this.die();
          } else {
             List var3 = var2.b();
             if(!var3.isEmpty()) {
@@ -87,7 +87,7 @@ public class EntityPotion extends class_xo {
             }
 
             this.world.b(2002, new BlockPosition(this), RegistryPotions.a(var2));
-            this.J();
+            this.die();
          }
       }
    }
@@ -103,7 +103,7 @@ public class EntityPotion extends class_xo {
       super.read(var1);
       this.d = ItemStack.a(var1.getCompound("Potion"));
       if(this.d == null) {
-         this.J();
+         this.die();
       }
 
    }

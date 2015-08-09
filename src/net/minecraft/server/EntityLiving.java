@@ -91,7 +91,7 @@ public abstract class EntityLiving extends Entity {
 		this.i(this.bv());
 		this.k = true;
 		this.aK = (float) ((Math.random() + 1.0D) * 0.009999999776482582D);
-		this.b(this.locX, this.locY, this.locZ);
+		this.setPosition(this.locX, this.locY, this.locZ);
 		this.aJ = (float) Math.random() * 12398.0F;
 		this.yaw = (float) (Math.random() * 3.1415927410125732D * 2.0D);
 		this.aN = this.yaw;
@@ -248,7 +248,7 @@ public abstract class EntityLiving extends Entity {
 				}
 			}
 
-			this.J();
+			this.die();
 
 			for (var1 = 0; var1 < 20; ++var1) {
 				double var8 = this.random.nextGaussian() * 0.02D;
@@ -1387,7 +1387,7 @@ public abstract class EntityLiving extends Entity {
 			this.yaw = (float) ((double) this.yaw + var7 / (double) this.bf);
 			this.pitch = (float) ((double) this.pitch + (this.bk - (double) this.pitch) / (double) this.bf);
 			--this.bf;
-			this.b(var1, var3, var5);
+			this.setPosition(var1, var3, var5);
 			this.b(this.yaw, this.pitch);
 		} else if (!this.bN()) {
 			this.motX *= 0.98D;
@@ -1503,7 +1503,7 @@ public abstract class EntityLiving extends Entity {
 		this.bb = var1;
 	}
 
-	public void a(Entity var1, int var2) {
+	public void receive(Entity var1, int var2) {
 		if (!var1.dead && !this.world.isClientSide) {
 			class_lb var3 = ((WorldServer) this.world).t();
 			if (var1 instanceof EntityItem) {

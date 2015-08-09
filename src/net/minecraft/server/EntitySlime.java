@@ -27,8 +27,8 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 
 	protected void a(int var1) {
 		this.datawatcher.update(SIZE_DW_ID, Byte.valueOf((byte) var1));
-		this.a(0.51000005F * (float) var1, 0.51000005F * (float) var1);
-		this.b(this.locX, this.locY, this.locZ);
+		this.setSize(0.51000005F * (float) var1, 0.51000005F * (float) var1);
+		this.setPosition(this.locX, this.locY, this.locZ);
 		this.a(class_wl.a).a((double) (var1 * var1));
 		this.a(class_wl.d).a((double) (0.2F + 0.1F * (float) var1));
 		this.i(this.bv());
@@ -115,7 +115,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	public void d(int var1) {
 		if (var1 == SIZE_DW_ID) {
 			int var2 = this.cB();
-			this.a(0.51000005F * (float) var2, 0.51000005F * (float) var2);
+			this.setSize(0.51000005F * (float) var2, 0.51000005F * (float) var2);
 			this.yaw = this.aN;
 			this.aL = this.aN;
 			if (this.V() && this.random.nextInt(20) == 0) {
@@ -126,7 +126,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 		super.d(var1);
 	}
 
-	public void J() {
+	public void die() {
 		int var1 = this.cB();
 		if (!this.world.isClientSide && var1 > 1 && this.getHealth() <= 0.0F) {
 			int var2 = 2 + this.random.nextInt(3);
@@ -149,7 +149,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 			}
 		}
 
-		super.J();
+		super.die();
 	}
 
 	public void i(Entity var1) {

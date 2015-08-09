@@ -38,12 +38,12 @@ public abstract class class_xo extends Entity implements class_xi {
       this.d = -1;
       this.e = -1;
       this.f = -1;
-      this.a(0.25F, 0.25F);
+      this.setSize(0.25F, 0.25F);
    }
 
    public class_xo(World var1, double var2, double var4, double var6) {
       this(var1);
-      this.b(var2, var4, var6);
+      this.setPosition(var2, var4, var6);
    }
 
    public class_xo(World var1, EntityLiving var2) {
@@ -58,10 +58,10 @@ public abstract class class_xo extends Entity implements class_xi {
       float var6 = -MathHelper.sin(var2 * 0.017453292F) * MathHelper.cos(var1 * 0.017453292F);
       float var7 = -MathHelper.sin((var1 + var3) * 0.017453292F);
       float var8 = MathHelper.cos(var2 * 0.017453292F) * MathHelper.cos(var1 * 0.017453292F);
-      this.c((double)var6, (double)var7, (double)var8, var4, var5);
+      this.shoot((double)var6, (double)var7, (double)var8, var4, var5);
    }
 
-   public void c(double var1, double var3, double var5, float var7, float var8) {
+   public void shoot(double var1, double var3, double var5, float var7, float var8) {
       float var9 = MathHelper.sqrt(var1 * var1 + var3 * var3 + var5 * var5);
       var1 /= (double)var9;
       var3 /= (double)var9;
@@ -94,7 +94,7 @@ public abstract class class_xo extends Entity implements class_xi {
          if(this.world.getType(new BlockPosition(this.d, this.e, this.f)).getBlock() == this.g) {
             ++this.as;
             if(this.as == 1200) {
-               this.J();
+               this.die();
             }
 
             return;
@@ -209,7 +209,7 @@ public abstract class class_xo extends Entity implements class_xi {
       this.motY *= (double)var17;
       this.motZ *= (double)var17;
       this.motY -= (double)var18;
-      this.b(this.locX, this.locY, this.locZ);
+      this.setPosition(this.locX, this.locY, this.locZ);
    }
 
    protected float j() {

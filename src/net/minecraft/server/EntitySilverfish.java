@@ -7,7 +7,7 @@ public class EntitySilverfish extends EntityMonster {
 
    public EntitySilverfish(World var1) {
       super(var1);
-      this.a(0.4F, 0.3F);
+      this.setSize(0.4F, 0.3F);
       this.i.a(1, new class_rj(this));
       this.i.a(3, this.a = new EntitySilverfish.class_b_in_class_wm(this));
       this.i.a(4, new class_ru(this, EntityHuman.class, 1.0D, false));
@@ -140,7 +140,7 @@ public class EntitySilverfish extends EntityMonster {
             if(BlockMonsterEggs.d(var3)) {
                var1.setTypeAndData((BlockPosition)var2, (IBlockData)Blocks.MONSTER_EGG.getBlockData().set(BlockMonsterEggs.a, BlockMonsterEggs.EnumMonsterEggVariant.a(var3)), 3);
                this.a.A();
-               this.a.J();
+               this.a.die();
             }
 
          }

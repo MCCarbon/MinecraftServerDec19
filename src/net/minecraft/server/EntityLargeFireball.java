@@ -20,7 +20,7 @@ public class EntityLargeFireball extends class_xf {
 
          boolean var2 = this.world.R().getBooleanValue("mobGriefing");
          this.world.createExplosion((Entity)null, this.locX, this.locY, this.locZ, (float)this.e, var2, var2);
-         this.J();
+         this.die();
       }
 
    }

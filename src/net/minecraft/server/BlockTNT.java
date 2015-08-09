@@ -69,7 +69,7 @@ public class BlockTNT extends Block {
       if(!var1.isClientSide && var4 instanceof EntityArrow) {
          EntityArrow var5 = (EntityArrow)var4;
          if(var5.av()) {
-            this.a(var1, var2, var1.getType(var2).set(a, Boolean.valueOf(true)), var5.e instanceof EntityLiving?(EntityLiving)var5.e:null);
+            this.a(var1, var2, var1.getType(var2).set(a, Boolean.valueOf(true)), var5.shooter instanceof EntityLiving?(EntityLiving)var5.shooter:null);
             var1.setAir(var2);
          }
       }

@@ -284,7 +284,7 @@ public abstract class Container {
                   var6.setItem(var2, var23.clone());
                   if((var16.d != var6 || !var16.a(var17)) && var17 != null) {
                      if(var19 > -1) {
-                        var6.a(var17);
+                        var6.pickup(var17);
                         var16.a(var23.count);
                         var16.d((ItemStack)null);
                         var16.a(var4, var23);

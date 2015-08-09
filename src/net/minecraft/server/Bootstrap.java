@@ -24,7 +24,7 @@ public class Bootstrap {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				EntityArrow var4 = new EntityArrow(var1, var2.getX(), var2.getY(), var2.getZ());
-				var4.c = 1;
+				var4.fromPlayer = 1;
 				return var4;
 			}
 		});
@@ -32,7 +32,7 @@ public class Bootstrap {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				EntityTippedArrow var4 = new EntityTippedArrow(var1, var2.getX(), var2.getY(), var2.getZ(), var3);
-				var4.c = 1;
+				var4.fromPlayer = 1;
 				return var4;
 			}
 		});
@@ -40,7 +40,7 @@ public class Bootstrap {
 			@Override
 			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
 				EntitySpectralArrow var4 = new EntitySpectralArrow(var1, var2.getX(), var2.getY(), var2.getZ());
-				var4.c = 1;
+				var4.fromPlayer = 1;
 				return var4;
 			}
 		});

@@ -12,7 +12,7 @@ public class EntityPig extends EntityAnimal {
 
 	public EntityPig(World var1) {
 		super(var1);
-		this.a(0.9F, 0.9F);
+		this.setSize(0.9F, 0.9F);
 		((class_tf) this.u()).a(true);
 		this.i.a(0, new class_rj(this));
 		this.i.a(1, new class_se(this, 1.25D));
@@ -130,7 +130,7 @@ public class EntityPig extends EntityAnimal {
 			}
 
 			this.world.addEntity((Entity) var2);
-			this.J();
+			this.die();
 		}
 	}
 

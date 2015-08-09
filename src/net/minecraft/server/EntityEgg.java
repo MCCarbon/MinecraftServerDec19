@@ -39,7 +39,7 @@ public class EntityEgg extends class_xo {
       }
 
       if(!this.world.isClientSide) {
-         this.J();
+         this.die();
       }
 
    }

@@ -18,7 +18,7 @@ public abstract class Entity implements class_m {
 	private static final AxisAlignedBB a = new AxisAlignedBB(0.0D, 0.0D, 0.0D, 0.0D, 0.0D, 0.0D);
 	private static int entityCount;
 
-	private int c;
+	private int id;
 	public double j;
 	public boolean k;
 	public Entity passenger;
@@ -91,19 +91,19 @@ public abstract class Entity implements class_m {
 	protected boolean glowing;
 
 	public int getId() {
-		return this.c;
+		return this.id;
 	}
 
 	public void e(int var1) {
-		this.c = var1;
+		this.id = var1;
 	}
 
 	public void G() {
-		this.J();
+		this.die();
 	}
 
 	public Entity(World var1) {
-		this.c = entityCount++;
+		this.id = entityCount++;
 		this.j = 1.0D;
 		this.boundingBox = a;
 		this.width = 0.6F;
@@ -116,7 +116,7 @@ public abstract class Entity implements class_m {
 		this.aA = new CommandObjectiveExecutor();
 		this.aB = Lists.newArrayList();
 		this.world = var1;
-		this.b(0.0D, 0.0D, 0.0D);
+		this.setPosition(0.0D, 0.0D, 0.0D);
 		if (var1 != null) {
 			this.dimension = var1.worldProvider.p().a();
 		}
@@ -137,18 +137,18 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean equals(Object var1) {
-		return var1 instanceof Entity ? ((Entity) var1).c == this.c : false;
+		return var1 instanceof Entity ? ((Entity) var1).id == this.id : false;
 	}
 
 	public int hashCode() {
-		return this.c;
+		return this.id;
 	}
 
-	public void J() {
+	public void die() {
 		this.dead = true;
 	}
 
-	protected void a(float var1, float var2) {
+	protected void setSize(float var1, float var2) {
 		if (var1 != this.width || var2 != this.length) {
 			float var3 = this.width;
 			this.width = var1;
@@ -166,7 +166,7 @@ public abstract class Entity implements class_m {
 		this.pitch = var2 % 360.0F;
 	}
 
-	public void b(double var1, double var3, double var5) {
+	public void setPosition(double var1, double var3, double var5) {
 		this.locX = var1;
 		this.locY = var3;
 		this.locZ = var5;
@@ -297,7 +297,7 @@ public abstract class Entity implements class_m {
 	}
 
 	protected void O() {
-		this.J();
+		this.die();
 	}
 
 	public boolean c(double var1, double var3, double var5) {
@@ -817,7 +817,7 @@ public abstract class Entity implements class_m {
 			this.lastYaw -= 360.0F;
 		}
 
-		this.b(this.locX, this.locY, this.locZ);
+		this.setPosition(this.locX, this.locY, this.locZ);
 		this.b(var7, var8);
 	}
 
@@ -831,7 +831,7 @@ public abstract class Entity implements class_m {
 		this.R = this.lastZ = this.locZ = var5;
 		this.yaw = var7;
 		this.pitch = var8;
-		this.b(this.locX, this.locY, this.locZ);
+		this.setPosition(this.locX, this.locY, this.locZ);
 	}
 
 	public float g(Entity var1) {
@@ -1062,7 +1062,7 @@ public abstract class Entity implements class_m {
 				this.uniqueID = UUID.fromString(var1.getString("UUID"));
 			}
 
-			this.b(this.locX, this.locY, this.locZ);
+			this.setPosition(this.locX, this.locY, this.locZ);
 			this.b(this.yaw, this.pitch);
 			if (var1.hasOfType("CustomName", 8) && !var1.getString("CustomName").isEmpty()) {
 				this.a(var1.getString("CustomName"));
@@ -1074,7 +1074,7 @@ public abstract class Entity implements class_m {
 			this.glowing = var1.getBoolean("Glowing");
 			this.read(var1);
 			if (this.af()) {
-				this.b(this.locX, this.locY, this.locZ);
+				this.setPosition(this.locX, this.locY, this.locZ);
 			}
 
 		} catch (Throwable var6) {
@@ -1234,7 +1234,7 @@ public abstract class Entity implements class_m {
 
 	public void al() {
 		if (this.passenger != null) {
-			this.passenger.b(this.locX, this.locY + this.an() + this.passenger.am(), this.locZ);
+			this.passenger.setPosition(this.locX, this.locY + this.an() + this.passenger.am(), this.locZ);
 		}
 	}
 
@@ -1497,7 +1497,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public String toString() {
-		return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[] { this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.c), this.world == null ? "~NULL~" : this.world.Q().k(), Double.valueOf(this.locX), Double.valueOf(this.locY), Double.valueOf(this.locZ) });
+		return String.format("%s[\'%s\'/%d, l=\'%s\', x=%.2f, y=%.2f, z=%.2f]", new Object[] { this.getClass().getSimpleName(), this.getName(), Integer.valueOf(this.id), this.world == null ? "~NULL~" : this.world.Q().k(), Double.valueOf(this.locX), Double.valueOf(this.locY), Double.valueOf(this.locZ) });
 	}
 
 	public boolean b(DamageSource var1) {
@@ -1590,7 +1590,7 @@ public abstract class Entity implements class_m {
 				return this.a();
 			}
 		});
-		var1.a((String) "Entity ID", (Object) Integer.valueOf(this.c));
+		var1.a((String) "Entity ID", (Object) Integer.valueOf(this.id));
 		var1.a("Entity Name", new Callable() {
 			public String a() throws Exception {
 				return Entity.this.getName();

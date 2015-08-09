@@ -12,7 +12,7 @@ public abstract class class_uz extends Entity {
 
    public class_uz(World var1) {
       super(var1);
-      this.a(0.5F, 0.5F);
+      this.setSize(0.5F, 0.5F);
    }
 
    public class_uz(World var1, BlockPosition var2) {
@@ -75,7 +75,7 @@ public abstract class class_uz extends Entity {
       if(this.c++ == 100 && !this.world.isClientSide) {
          this.c = 0;
          if(!this.dead && !this.j()) {
-            this.J();
+            this.die();
             this.b((Entity)null);
          }
       }
@@ -134,7 +134,7 @@ public abstract class class_uz extends Entity {
          return false;
       } else {
          if(!this.dead && !this.world.isClientSide) {
-            this.J();
+            this.die();
             this.ac();
             this.b(var1.j());
          }
@@ -145,7 +145,7 @@ public abstract class class_uz extends Entity {
 
    public void d(double var1, double var3, double var5) {
       if(!this.world.isClientSide && !this.dead && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
-         this.J();
+         this.die();
          this.b((Entity)null);
       }
 
@@ -153,7 +153,7 @@ public abstract class class_uz extends Entity {
 
    public void g(double var1, double var3, double var5) {
       if(!this.world.isClientSide && !this.dead && var1 * var1 + var3 * var3 + var5 * var5 > 0.0D) {
-         this.J();
+         this.die();
          this.b((Entity)null);
       }
 
@@ -191,7 +191,7 @@ public abstract class class_uz extends Entity {
       return false;
    }
 
-   public void b(double var1, double var3, double var5) {
+   public void setPosition(double var1, double var3, double var5) {
       this.locX = var1;
       this.locY = var3;
       this.locZ = var5;

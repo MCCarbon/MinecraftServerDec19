@@ -65,7 +65,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.a(var5, 0.0F, 0.0F);
 
 		while (!var2.getCubes((Entity) this, (AxisAlignedBB) this.getBoundingBox()).isEmpty() && this.locY < 255.0D) {
-			this.b(this.locX, this.locY + 1.0D, this.locZ);
+			this.setPosition(this.locX, this.locY + 1.0D, this.locZ);
 		}
 
 	}
@@ -342,7 +342,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 					if (var4 instanceof EntityArrow) {
 						EntityArrow var5 = (EntityArrow) var4;
-						if (var5.e instanceof EntityHuman && !this.a((EntityHuman) var5.e)) {
+						if (var5.shooter instanceof EntityHuman && !this.a((EntityHuman) var5.shooter)) {
 							return false;
 						}
 					}
@@ -402,8 +402,8 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 	}
 
-	public void a(Entity var1, int var2) {
-		super.a(var1, var2);
+	public void receive(Entity var1, int var2) {
+		super.receive(var1, var2);
 		this.br.b();
 	}
 

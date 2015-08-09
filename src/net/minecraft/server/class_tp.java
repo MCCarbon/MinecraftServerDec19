@@ -57,7 +57,7 @@ public class class_tp {
          Vec3D var3 = this.a(this.d, 2, 4, 2);
          if(var3 != null) {
             EntityVillagerGolem var4 = new EntityVillagerGolem(this.a);
-            var4.b(var3.x, var3.y, var3.z);
+            var4.setPosition(var3.x, var3.y, var3.z);
             this.a.addEntity((Entity)var4);
             ++this.l;
          }

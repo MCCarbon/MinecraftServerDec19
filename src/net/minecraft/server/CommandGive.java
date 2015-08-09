@@ -48,7 +48,7 @@ public class CommandGive extends CommandAbstract {
             }
          }
 
-         boolean var11 = var3.inventory.a(var7);
+         boolean var11 = var3.inventory.pickup(var7);
          if(var11) {
             var3.world.a((Entity)var3, "random.pop", 0.2F, ((var3.getRandom().nextFloat() - var3.getRandom().nextFloat()) * 0.7F + 1.0F) * 2.0F);
             var3.bq.b();

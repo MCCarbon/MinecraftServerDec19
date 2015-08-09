@@ -753,7 +753,7 @@ public abstract class World implements IBlockAccess {
 			var1.a((Entity) null);
 		}
 
-		var1.J();
+		var1.die();
 		if (var1 instanceof EntityHuman) {
 			players.remove(var1);
 			this.e();
@@ -763,7 +763,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public void f(Entity var1) {
-		var1.J();
+		var1.die();
 		if (var1 instanceof EntityHuman) {
 			players.remove(var1);
 			this.e();

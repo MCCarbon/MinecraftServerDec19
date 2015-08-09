@@ -22,8 +22,8 @@ public class EntityFallingBlock extends Entity {
       super(var1);
       this.d = var8;
       this.k = true;
-      this.a(0.98F, 0.98F);
-      this.b(var2, var4, var6);
+      this.setSize(0.98F, 0.98F);
+      this.setPosition(var2, var4, var6);
       this.motX = 0.0D;
       this.motY = 0.0D;
       this.motZ = 0.0D;
@@ -46,7 +46,7 @@ public class EntityFallingBlock extends Entity {
    public void t_() {
       Block var1 = this.d.getBlock();
       if(var1.getMaterial() == Material.AIR) {
-         this.J();
+         this.die();
       } else {
          this.lastX = this.locX;
          this.lastY = this.locY;
@@ -57,7 +57,7 @@ public class EntityFallingBlock extends Entity {
             if(this.world.getType(var2).getBlock() == var1) {
                this.world.setAir(var2);
             } else if(!this.world.isClientSide) {
-               this.J();
+               this.die();
                return;
             }
          }
@@ -74,7 +74,7 @@ public class EntityFallingBlock extends Entity {
                this.motZ *= 0.699999988079071D;
                this.motY *= -0.5D;
                if(this.world.getType(var2).getBlock() != Blocks.PISTON_EXTENSION) {
-                  this.J();
+                  this.die();
                   if(!this.e) {
                      if(this.world.a(var1, var2, true, EnumDirection.UP, (Entity)null, (ItemStack)null) && !BlockFalling.canFall(this.world, var2.down()) && this.world.setTypeAndData((BlockPosition)var2, (IBlockData)this.d, 3)) {
                         if(var1 instanceof BlockFalling) {
@@ -110,7 +110,7 @@ public class EntityFallingBlock extends Entity {
                   this.a(new ItemStack(var1, 1, var1.getDropData(this.d)), 0.0F);
                }
 
-               this.J();
+               this.die();
             }
          }
 

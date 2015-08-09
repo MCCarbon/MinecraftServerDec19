@@ -23,7 +23,7 @@ public class EntityEnderman extends EntityMonster {
 
 	public EntityEnderman(World var1) {
 		super(var1);
-		this.a(0.6F, 2.9F);
+		this.setSize(0.6F, 2.9F);
 		this.S = 1.0F;
 		this.i.a(0, new class_rj(this));
 		this.i.a(2, new class_ru(this, 1.0D, false));

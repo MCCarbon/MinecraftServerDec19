@@ -300,7 +300,7 @@ public class WorldGenEndCityPieces {
             }
          } else if(var1.startsWith("Sentry")) {
             EntityShulker var11 = new EntityShulker(var3);
-            var11.b((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D);
+            var11.setPosition((double)var2.getX() + 0.5D, (double)var2.getY() + 0.5D, (double)var2.getZ() + 0.5D);
             var11.f(var2);
             var3.addEntity((Entity)var11);
          }

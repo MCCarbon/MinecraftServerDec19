@@ -60,16 +60,16 @@ public class EntityTippedArrow extends EntityArrow {
       double var2;
       double var4;
       double var6;
-      if(this.a) {
+      if(this.inGround) {
          if(this.world.isClientSide) {
             var1 = this.datawatcher.getInt(f);
-            if(var1 > 0 && this.b % 5 == 0) {
+            if(var1 > 0 && this.ticksInGround % 5 == 0) {
                var2 = (double)(var1 >> 16 & 255) / 255.0D;
                var4 = (double)(var1 >> 8 & 255) / 255.0D;
                var6 = (double)(var1 >> 0 & 255) / 255.0D;
                this.world.addParticle(EnumParticle.p, this.locX + (this.random.nextDouble() - 0.5D) * (double)this.width, this.locY + this.random.nextDouble() * (double)this.length, this.locZ + (this.random.nextDouble() - 0.5D) * (double)this.width, var2, var4, var6, new int[0]);
             }
-         } else if(!this.g.isEmpty() && this.b >= 200) {
+         } else if(!this.g.isEmpty() && this.ticksInGround >= 200) {
             this.world.a((Entity)this, (byte)0);
             this.g.clear();
             this.datawatcher.update(f, Integer.valueOf(0));
@@ -118,7 +118,7 @@ public class EntityTippedArrow extends EntityArrow {
 
    }
 
-   protected ItemStack j() {
+   protected ItemStack getItemStack() {
       return this.g.isEmpty()?new ItemStack(Items.ARROW):this.h;
    }
 }

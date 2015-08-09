@@ -15,7 +15,7 @@ public class EntityChicken extends EntityAnimal {
 
    public EntityChicken(World var1) {
       super(var1);
-      this.a(0.4F, 0.7F);
+      this.setSize(0.4F, 0.7F);
       this.by = this.random.nextInt(6000) + 6000;
       this.i.a(0, new class_rj(this));
       this.i.a(1, new class_se(this, 1.4D));
@@ -136,7 +136,7 @@ public class EntityChicken extends EntityAnimal {
       float var2 = MathHelper.cos(this.aL * 3.1415927F / 180.0F);
       float var3 = 0.1F;
       float var4 = 0.0F;
-      this.passenger.b(this.locX + (double)(var3 * var1), this.locY + (double)(this.length * 0.5F) + this.passenger.am() + (double)var4, this.locZ - (double)(var3 * var2));
+      this.passenger.setPosition(this.locX + (double)(var3 * var1), this.locY + (double)(this.length * 0.5F) + this.passenger.am() + (double)var4, this.locZ - (double)(var3 * var2));
       if(this.passenger instanceof EntityLiving) {
          ((EntityLiving)this.passenger).aL = this.aL;
       }

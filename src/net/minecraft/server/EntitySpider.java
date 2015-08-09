@@ -8,7 +8,7 @@ public class EntitySpider extends EntityMonster {
 
 	public EntitySpider(World var1) {
 		super(var1);
-		this.a(1.4F, 0.9F);
+		this.setSize(1.4F, 0.9F);
 		this.i.a(1, new class_rj(this));
 		this.i.a(3, new class_rq(this, 0.4F));
 		this.i.a(4, new EntitySpider.class_a_in_class_wp(this, EntityHuman.class));

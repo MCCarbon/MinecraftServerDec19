@@ -94,7 +94,7 @@ public class class_yw extends class_yx {
          if(var6 != null) {
             if(this.a.getItem(var4) == null) {
                this.a.setItem(var4, var6);
-            } else if(!this.b.inventory.a(var6)) {
+            } else if(!this.b.inventory.pickup(var6)) {
                this.b.a(var6, false);
             }
          }

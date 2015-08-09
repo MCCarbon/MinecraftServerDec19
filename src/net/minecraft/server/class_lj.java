@@ -365,13 +365,13 @@ public class class_lj {
       } else {
          Entity var8;
          if(this.a instanceof EntitySpectralArrow) {
-            var8 = ((EntitySpectralArrow)this.a).e;
+            var8 = ((EntitySpectralArrow)this.a).shooter;
             return new PacketPlayOutSpawnEntity(this.a, 91, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof EntityTippedArrow) {
-            var8 = ((EntityTippedArrow)this.a).e;
+            var8 = ((EntityTippedArrow)this.a).shooter;
             return new PacketPlayOutSpawnEntity(this.a, 92, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof EntityArrow) {
-            var8 = ((EntityArrow)this.a).e;
+            var8 = ((EntityArrow)this.a).shooter;
             return new PacketPlayOutSpawnEntity(this.a, 60, var8 != null?var8.getId():this.a.getId());
          } else if(this.a instanceof EntitySnowball) {
             return new PacketPlayOutSpawnEntity(this.a, 61);

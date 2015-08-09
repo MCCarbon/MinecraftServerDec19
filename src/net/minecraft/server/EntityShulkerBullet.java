@@ -24,7 +24,7 @@ public class EntityShulkerBullet extends Entity {
 
 	public EntityShulkerBullet(World var1) {
 		super(var1);
-		this.a(0.3125F, 0.3125F);
+		this.setSize(0.3125F, 0.3125F);
 		this.noclip = true;
 	}
 
@@ -230,7 +230,7 @@ public class EntityShulkerBullet extends Entity {
 			}
 		}
 
-		this.b(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
+		this.setPosition(this.locX + this.motX, this.locY + this.motY, this.locZ + this.motZ);
 		class_xj.a(this, 0.5F);
 		if (!this.world.isClientSide) {
 			if (this.b != null && !this.b.dead) {
@@ -282,7 +282,7 @@ public class EntityShulkerBullet extends Entity {
 			this.makeSound("mob.irongolem.hit", 1.0F, 1.0F);
 		}
 
-		this.J();
+		this.die();
 	}
 
 	public boolean ad() {
@@ -293,7 +293,7 @@ public class EntityShulkerBullet extends Entity {
 		if (!this.world.isClientSide) {
 			this.makeSound("mob.irongolem.hit", 1.0F, 1.0F);
 			((WorldServer) this.world).a(EnumParticle.j, this.locX, this.locY, this.locZ, 15, 0.2D, 0.2D, 0.2D, 0.0D, new int[0]);
-			this.J();
+			this.die();
 		}
 
 		return true;

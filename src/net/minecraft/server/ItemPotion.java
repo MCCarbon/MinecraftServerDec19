@@ -57,7 +57,7 @@ public class ItemPotion extends Item {
          }
 
          if(var4 != null) {
-            var4.inventory.a(new ItemStack(Items.GLASS_BOTTLE));
+            var4.inventory.pickup(new ItemStack(Items.GLASS_BOTTLE));
          }
       }
 

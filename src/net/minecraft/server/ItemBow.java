@@ -68,7 +68,7 @@ public class ItemBow extends Item {
 					itemstack.a(1, player);
 					world.a((Entity) player, "random.bow", 1.0F, (1.0F / ((random.nextFloat() * 0.4F) + 1.2F)) + (var11 * 0.5F));
 					if (infiniteArrows) {
-						var12.c = 2;
+						var12.fromPlayer = 2;
 					} else {
 						player.inventory.splitStack(arrowSlot, 1);
 					}

@@ -446,8 +446,8 @@ public abstract class EntityInsentient extends EntityLiving {
 			}
 
 			this.bv = true;
-			this.a(var1, 1);
-			var1.J();
+			this.receive(var1, 1);
+			var1.die();
 		}
 
 	}
@@ -471,11 +471,11 @@ public abstract class EntityInsentient extends EntityLiving {
 				double var6 = var1.locZ - this.locZ;
 				double var8 = var2 * var2 + var4 * var4 + var6 * var6;
 				if (this.E() && var8 > 16384.0D) {
-					this.J();
+					this.die();
 				}
 
 				if (this.aT > 600 && this.random.nextInt(800) == 0 && var8 > 1024.0D && this.E()) {
-					this.J();
+					this.die();
 				} else if (var8 < 1024.0D) {
 					this.aT = 0;
 				}

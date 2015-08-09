@@ -576,7 +576,7 @@ public class Chunk {
 		int var3 = MathHelper.floor(var1.locZ / 16.0D);
 		if ((var2 != a) || (var3 != b)) {
 			logger.warn("Wrong location! (" + var2 + ", " + var3 + ") should be (" + a + ", " + b + "), " + var1, new Object[] { var1 });
-			var1.J();
+			var1.die();
 		}
 
 		int var4 = MathHelper.floor(var1.locY / 16.0D);

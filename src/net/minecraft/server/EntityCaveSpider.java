@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class EntityCaveSpider extends EntitySpider {
    public EntityCaveSpider(World var1) {
       super(var1);
-      this.a(0.7F, 0.5F);
+      this.setSize(0.7F, 0.5F);
    }
 
    protected void aY() {

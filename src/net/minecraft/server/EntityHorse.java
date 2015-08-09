@@ -48,7 +48,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	public EntityHorse(World var1) {
 		super(var1);
-		this.a(1.4F, 1.6F);
+		this.setSize(1.4F, 1.6F);
 		this.fireProof = false;
 		this.setHasChest(false);
 		((class_tf) this.u()).a(true);
@@ -1137,7 +1137,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 			float var2 = MathHelper.cos(this.aL * 3.1415927F / 180.0F);
 			float var3 = 0.7F * this.bV;
 			float var4 = 0.15F * this.bV;
-			this.passenger.b(this.locX + (double) (var3 * var1), this.locY + this.an() + this.passenger.am() + (double) var4, this.locZ - (double) (var3 * var2));
+			this.passenger.setPosition(this.locX + (double) (var3 * var1), this.locY + this.an() + this.passenger.am() + (double) var4, this.locZ - (double) (var3 * var2));
 			if (this.passenger instanceof EntityLiving) {
 				((EntityLiving) this.passenger).aL = this.aL;
 			}

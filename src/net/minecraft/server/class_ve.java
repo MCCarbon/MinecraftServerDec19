@@ -35,7 +35,7 @@ public class class_ve extends Entity {
 
    public class_ve(World var1) {
       super(var1);
-      this.a(0.25F, 0.25F);
+      this.setSize(0.25F, 0.25F);
       this.ah = true;
    }
 
@@ -44,12 +44,12 @@ public class class_ve extends Entity {
       this.ah = true;
       this.b = var2;
       this.b.bN = this;
-      this.a(0.25F, 0.25F);
+      this.setSize(0.25F, 0.25F);
       this.b(var2.locX, var2.locY + (double)var2.getHeadHeight(), var2.locZ, var2.yaw, var2.pitch);
       this.locX -= (double)(MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * 0.16F);
       this.locY -= 0.10000000149011612D;
       this.locZ -= (double)(MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * 0.16F);
-      this.b(this.locX, this.locY, this.locZ);
+      this.setPosition(this.locX, this.locY, this.locZ);
       float var3 = 0.4F;
       this.motX = (double)(-MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * MathHelper.cos(this.pitch / 180.0F * 3.1415927F) * var3);
       this.motZ = (double)(MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * MathHelper.cos(this.pitch / 180.0F * 3.1415927F) * var3);
@@ -90,13 +90,13 @@ public class class_ve extends Entity {
          this.yaw = (float)((double)this.yaw + var7 / (double)this.aA);
          this.pitch = (float)((double)this.pitch + (this.aF - (double)this.pitch) / (double)this.aA);
          --this.aA;
-         this.b(var29, var30, var31);
+         this.setPosition(var29, var30, var31);
          this.b(this.yaw, this.pitch);
       } else {
          if(!this.world.isClientSide) {
             ItemStack var1 = this.b.bA();
             if(this.b.dead || !this.b.isAlive() || var1 == null || var1.getItem() != Items.FISHING_ROD || this.h(this.b) > 1024.0D) {
-               this.J();
+               this.die();
                this.b.bN = null;
                return;
             }
@@ -122,7 +122,7 @@ public class class_ve extends Entity {
             if(this.world.getType(new BlockPosition(this.g, this.h, this.i)).getBlock() == this.as) {
                ++this.au;
                if(this.au == 1200) {
-                  this.J();
+                  this.die();
                }
 
                return;
@@ -327,7 +327,7 @@ public class class_ve extends Entity {
             this.motX *= (double)var33;
             this.motY *= (double)var33;
             this.motZ *= (double)var33;
-            this.b(this.locX, this.locY, this.locZ);
+            this.setPosition(this.locX, this.locY, this.locZ);
          }
       }
    }
@@ -390,7 +390,7 @@ public class class_ve extends Entity {
             var1 = 2;
          }
 
-         this.J();
+         this.die();
          this.b.bN = null;
          return var1;
       }
@@ -420,8 +420,8 @@ public class class_ve extends Entity {
       }
    }
 
-   public void J() {
-      super.J();
+   public void die() {
+      super.die();
       if(this.b != null) {
          this.b.bN = null;
       }

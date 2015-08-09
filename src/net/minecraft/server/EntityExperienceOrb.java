@@ -11,8 +11,8 @@ public class EntityExperienceOrb extends Entity {
 
    public EntityExperienceOrb(World var1, double var2, double var4, double var6, int var8) {
       super(var1);
-      this.a(0.5F, 0.5F);
-      this.b(var2, var4, var6);
+      this.setSize(0.5F, 0.5F);
+      this.setPosition(var2, var4, var6);
       this.yaw = (float)(Math.random() * 360.0D);
       this.motX = (double)((float)(Math.random() * 0.20000000298023224D - 0.10000000149011612D) * 2.0F);
       this.motY = (double)((float)(Math.random() * 0.2D) * 2.0F);
@@ -26,7 +26,7 @@ public class EntityExperienceOrb extends Entity {
 
    public EntityExperienceOrb(World var1) {
       super(var1);
-      this.a(0.25F, 0.25F);
+      this.setSize(0.25F, 0.25F);
    }
 
    protected void initDatawatcher() {
@@ -93,7 +93,7 @@ public class EntityExperienceOrb extends Entity {
       ++this.a;
       ++this.b;
       if(this.b >= 6000) {
-         this.J();
+         this.die();
       }
 
    }
@@ -113,7 +113,7 @@ public class EntityExperienceOrb extends Entity {
          this.ac();
          this.d = (int)((float)this.d - var2);
          if(this.d <= 0) {
-            this.J();
+            this.die();
          }
 
          return false;
@@ -137,9 +137,9 @@ public class EntityExperienceOrb extends Entity {
          if(this.c == 0 && var1.bw == 0) {
             var1.bw = 2;
             this.world.a((Entity)var1, "random.orb", 0.1F, 0.5F * ((this.random.nextFloat() - this.random.nextFloat()) * 0.7F + 1.8F));
-            var1.a(this, 1);
+            var1.receive(this, 1);
             var1.o(this.e);
-            this.J();
+            this.die();
          }
 
       }

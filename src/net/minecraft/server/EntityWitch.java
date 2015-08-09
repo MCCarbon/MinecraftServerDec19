@@ -15,7 +15,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 
 	public EntityWitch(World var1) {
 		super(var1);
-		this.a(0.6F, 1.95F);
+		this.setSize(0.6F, 1.95F);
 		this.i.a(1, new class_rj(this));
 		this.i.a(2, new class_sj(this, 1.0D, 60, 10.0F));
 		this.i.a(2, new class_si(this, 1.0D));
@@ -155,7 +155,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 
 			EntityPotion var13 = new EntityPotion(this.world, this, ItemPotion.a(new ItemStack(Items.SPLASH_POTION), var12));
 			var13.pitch -= -20.0F;
-			var13.c(var5, var7 + (double) (var11 * 0.2F), var9, 0.75F, 8.0F);
+			var13.shoot(var5, var7 + (double) (var11 * 0.2F), var9, 0.75F, 8.0F);
 			this.world.addEntity((Entity) var13);
 		}
 	}

@@ -3,7 +3,7 @@ package net.minecraft.server;
 public class EntityMushroomCow extends EntityCow {
    public EntityMushroomCow(World var1) {
       super(var1);
-      this.a(0.9F, 1.3F);
+      this.setSize(0.9F, 1.3F);
       this.bv = Blocks.MYCELIM;
    }
 
@@ -11,13 +11,13 @@ public class EntityMushroomCow extends EntityCow {
       if(var3 != null && var3.getItem() == Items.BOWL && this.getAge() >= 0 && !var1.abilities.instabuild) {
          if(--var3.count == 0) {
             var1.a((EnumUsedHand)var2, (ItemStack)(new ItemStack(Items.MUSHROOM_STEW)));
-         } else if(!var1.inventory.a(new ItemStack(Items.MUSHROOM_STEW))) {
+         } else if(!var1.inventory.pickup(new ItemStack(Items.MUSHROOM_STEW))) {
             var1.a(new ItemStack(Items.MUSHROOM_STEW), false);
          }
 
          return true;
       } else if(var3 != null && var3.getItem() == Items.SHEARS && this.getAge() >= 0) {
-         this.J();
+         this.die();
          this.world.addParticle(EnumParticle.b, this.locX, this.locY + (double)(this.length / 2.0F), this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
          if(!this.world.isClientSide) {
             EntityCow var4 = new EntityCow(this.world);

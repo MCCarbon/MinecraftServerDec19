@@ -30,7 +30,7 @@ public class EntityZombie extends EntityMonster {
 		this.i.a(8, new class_rr(this, EntityHuman.class, 8.0F));
 		this.i.a(8, new class_sh(this));
 		this.n();
-		this.a(0.6F, 1.95F);
+		this.setSize(0.6F, 1.95F);
 	}
 
 	protected void n() {
@@ -174,7 +174,7 @@ public class EntityZombie extends EntityMonster {
 					int var10 = var5 + MathHelper.getRandomIntInRange((Random) this.random, 7, 40) * MathHelper.getRandomIntInRange((Random) this.random, -1, 1);
 					int var11 = var6 + MathHelper.getRandomIntInRange((Random) this.random, 7, 40) * MathHelper.getRandomIntInRange((Random) this.random, -1, 1);
 					if (World.a((IBlockAccess) this.world, (BlockPosition) (new BlockPosition(var9, var10 - 1, var11))) && this.world.l(new BlockPosition(var9, var10, var11)) < 10) {
-						var7.b((double) var9, (double) var10, (double) var11);
+						var7.setPosition((double) var9, (double) var10, (double) var11);
 						if (!this.world.b((double) var9, (double) var10, (double) var11, 7.0D) && this.world.a((AxisAlignedBB) var7.getBoundingBox(), (Entity) var7) && this.world.getCubes((Entity) var7, (AxisAlignedBB) var7.getBoundingBox()).isEmpty() && !this.world.containsLiquid(var7.getBoundingBox())) {
 							this.world.addEntity((Entity) var7);
 							var7.d(var3);
@@ -483,7 +483,7 @@ public class EntityZombie extends EntityMonster {
 		this.a(var1 ? 0.5F : 1.0F);
 	}
 
-	protected final void a(float var1, float var2) {
+	protected final void setSize(float var1, float var2) {
 		boolean var3 = this.by > 0.0F && this.bz > 0.0F;
 		this.by = var1;
 		this.bz = var2;
@@ -494,7 +494,7 @@ public class EntityZombie extends EntityMonster {
 	}
 
 	protected final void a(float var1) {
-		super.a(this.by * var1, this.bz * var1);
+		super.setSize(this.by * var1, this.bz * var1);
 	}
 
 	public double am() {

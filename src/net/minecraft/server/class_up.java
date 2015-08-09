@@ -6,7 +6,7 @@ public class class_up extends Entity {
 
    public class_up(class_uo var1, String var2, float var3, float var4) {
       super(var1.a());
-      this.a(var3, var4);
+      this.setSize(var3, var4);
       this.a = var1;
       this.b = var2;
    }

@@ -347,7 +347,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 				var1.a(var4);
 			} else {
 				var2 = true;
-				var1.J();
+				var1.die();
 			}
 
 			return var2;

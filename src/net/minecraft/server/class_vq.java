@@ -92,12 +92,12 @@ public abstract class class_vq extends EntityMinecartAbstract implements ITileIn
       super.c(var1);
    }
 
-   public void J() {
+   public void die() {
       if(this.b) {
          class_ol.a(this.world, (Entity)this, this);
       }
 
-      super.J();
+      super.die();
    }
 
    protected void write(NBTTagCompound var1) {

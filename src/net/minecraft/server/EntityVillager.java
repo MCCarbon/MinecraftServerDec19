@@ -33,7 +33,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		super(var1);
 		this.bI = new class_ow("Items", false, 8);
 		this.setProfession(var2);
-		this.a(0.6F, 1.8F);
+		this.setSize(0.6F, 1.8F);
 		((class_tf) this.u()).b(true);
 		((class_tf) this.u()).a(true);
 		this.i.a(0, new class_rj(this));
@@ -492,7 +492,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			}
 
 			this.world.addEntity((Entity) var2);
-			this.J();
+			this.die();
 		}
 	}
 
@@ -506,7 +506,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		if (this.a(var3)) {
 			ItemStack var4 = this.bI.a(var2);
 			if (var4 == null) {
-				var1.J();
+				var1.die();
 			} else {
 				var2.count = var4.count;
 			}

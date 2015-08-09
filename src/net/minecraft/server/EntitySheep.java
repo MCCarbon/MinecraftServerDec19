@@ -23,7 +23,7 @@ public class EntitySheep extends EntityAnimal {
 
 	public EntitySheep(World var1) {
 		super(var1);
-		this.a(0.9F, 1.3F);
+		this.setSize(0.9F, 1.3F);
 		((class_tf) this.u()).a(true);
 		this.i.a(0, new class_rj(this));
 		this.i.a(1, new class_se(this, 1.25D));

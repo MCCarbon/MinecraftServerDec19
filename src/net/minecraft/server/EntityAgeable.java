@@ -145,7 +145,7 @@ public abstract class EntityAgeable extends EntityCreature {
 		this.a(var1 ? 0.5F : 1.0F);
 	}
 
-	protected final void a(float var1, float var2) {
+	protected final void setSize(float var1, float var2) {
 		boolean var3 = this.bt > 0.0F;
 		this.bt = var1;
 		this.bu = var2;
@@ -156,6 +156,6 @@ public abstract class EntityAgeable extends EntityCreature {
 	}
 
 	protected final void a(float var1) {
-		super.a(this.bt * var1, this.bu * var1);
+		super.setSize(this.bt * var1, this.bu * var1);
 	}
 }

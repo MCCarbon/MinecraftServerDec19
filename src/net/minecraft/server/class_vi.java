@@ -48,7 +48,7 @@ public class class_vi extends class_vh {
       --this.b;
       if(this.b < 0) {
          if(this.c == 0) {
-            this.J();
+            this.die();
          } else if(this.b < -this.random.nextInt(10)) {
             --this.c;
             this.b = 1;

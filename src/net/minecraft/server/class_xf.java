@@ -15,7 +15,7 @@ public abstract class class_xf extends Entity {
 
    public class_xf(World var1) {
       super(var1);
-      this.a(1.0F, 1.0F);
+      this.setSize(1.0F, 1.0F);
    }
 
    protected void initDatawatcher() {
@@ -23,9 +23,9 @@ public abstract class class_xf extends Entity {
 
    public class_xf(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
       super(var1);
-      this.a(1.0F, 1.0F);
+      this.setSize(1.0F, 1.0F);
       this.b(var2, var4, var6, this.yaw, this.pitch);
-      this.b(var2, var4, var6);
+      this.setPosition(var2, var4, var6);
       double var14 = (double)MathHelper.sqrt(var8 * var8 + var10 * var10 + var12 * var12);
       this.b = var8 / var14 * 0.1D;
       this.c = var10 / var14 * 0.1D;
@@ -35,9 +35,9 @@ public abstract class class_xf extends Entity {
    public class_xf(World var1, EntityLiving var2, double var3, double var5, double var7) {
       super(var1);
       this.a = var2;
-      this.a(1.0F, 1.0F);
+      this.setSize(1.0F, 1.0F);
       this.b(var2.locX, var2.locY, var2.locZ, var2.yaw, var2.pitch);
-      this.b(this.locX, this.locY, this.locZ);
+      this.setPosition(this.locX, this.locY, this.locZ);
       this.motX = this.motY = this.motZ = 0.0D;
       var3 += this.random.nextGaussian() * 0.4D;
       var5 += this.random.nextGaussian() * 0.4D;
@@ -56,7 +56,7 @@ public abstract class class_xf extends Entity {
             if(this.world.getType(new BlockPosition(this.e, this.f, this.g)).getBlock() == this.h) {
                ++this.as;
                if(this.as == 600) {
-                  this.J();
+                  this.die();
                }
 
                return;
@@ -98,9 +98,9 @@ public abstract class class_xf extends Entity {
          this.motY *= (double)var2;
          this.motZ *= (double)var2;
          this.world.addParticle(EnumParticle.l, this.locX, this.locY + 0.5D, this.locZ, 0.0D, 0.0D, 0.0D, new int[0]);
-         this.b(this.locX, this.locY, this.locZ);
+         this.setPosition(this.locX, this.locY, this.locZ);
       } else {
-         this.J();
+         this.die();
       }
    }
 
@@ -137,7 +137,7 @@ public abstract class class_xf extends Entity {
          this.motY = var2.getDouble(1);
          this.motZ = var2.getDouble(2);
       } else {
-         this.J();
+         this.die();
       }
 
    }

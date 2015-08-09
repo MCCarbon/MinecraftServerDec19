@@ -48,7 +48,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 		super(var1);
 		this.bs = new class_up[] { this.bt = new class_up(this, "head", 6.0F, 6.0F), this.bu = new class_up(this, "neck", 6.0F, 6.0F), this.bv = new class_up(this, "body", 8.0F, 8.0F), this.bw = new class_up(this, "tail", 4.0F, 4.0F), this.bx = new class_up(this, "tail", 4.0F, 4.0F), this.by = new class_up(this, "tail", 4.0F, 4.0F), this.bz = new class_up(this, "wing", 4.0F, 4.0F), this.bA = new class_up(this, "wing", 4.0F, 4.0F) };
 		this.i(this.bv());
-		this.a(16.0F, 8.0F);
+		this.setSize(16.0F, 8.0F);
 		this.noclip = true;
 		this.fireProof = true;
 		this.b = 100.0D;
@@ -266,7 +266,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 						this.yaw = (float) ((double) this.yaw + var9 / (double) this.bf);
 						this.pitch = (float) ((double) this.pitch + (this.bk - (double) this.pitch) / (double) this.bf);
 						--this.bf;
-						this.b(var33, var5, var7);
+						this.setPosition(var33, var5, var7);
 						this.b(this.yaw, this.pitch);
 					}
 
@@ -850,7 +850,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 	}
 
 	public void G() {
-		this.J();
+		this.die();
 	}
 
 	protected void ba() {
@@ -909,7 +909,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 					this.bK.a(this);
 				}
 
-				this.J();
+				this.die();
 			}
 
 		}

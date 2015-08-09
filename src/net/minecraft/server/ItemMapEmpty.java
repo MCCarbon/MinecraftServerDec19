@@ -18,7 +18,7 @@ public class ItemMapEmpty extends class_zt {
       if(var1.count <= 0) {
          return new UseResultWithValue(UseResult.SUCCESS, var5);
       } else {
-         if(!var3.inventory.a(var5.clone())) {
+         if(!var3.inventory.pickup(var5.clone())) {
             var3.a(var5, false);
          }
 
