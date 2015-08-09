@@ -1,11 +1,11 @@
 package net.minecraft.server;
 
 public class class_yw extends class_yx {
-   private final class_yg a;
+   private final InventoryCrafting a;
    private final EntityHuman b;
    private int c;
 
-   public class_yw(EntityHuman var1, class_yg var2, IInventory var3, int var4, int var5, int var6) {
+   public class_yw(EntityHuman var1, InventoryCrafting var2, IInventory var3, int var4, int var5, int var6) {
       super(var3, var4, var5, var6);
       this.b = var1;
       this.a = var2;
@@ -82,7 +82,7 @@ public class class_yw extends class_yx {
 
    public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
-      ItemStack[] var3 = RecipeManager.a().b(this.a, var1.world);
+      ItemStack[] var3 = CraftingManager.a().craft1(this.a, var1.world);
 
       for(int var4 = 0; var4 < var3.length; ++var4) {
          ItemStack var5 = this.a.getItem(var4);

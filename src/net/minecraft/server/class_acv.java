@@ -1,12 +1,12 @@
 package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_acs;
+import net.minecraft.server.IRecipe;
 import net.minecraft.server.World;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_yg;
+import net.minecraft.server.InventoryCrafting;
 
-public class class_acv implements class_acs {
+public class class_acv implements IRecipe {
    private final int a;
    private final int b;
    private final ItemStack[] c;
@@ -24,7 +24,7 @@ public class class_acv implements class_acs {
       return this.d;
    }
 
-   public ItemStack[] b(class_yg var1) {
+   public ItemStack[] b(InventoryCrafting var1) {
       ItemStack[] var2 = new ItemStack[var1.getSize()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
@@ -37,7 +37,7 @@ public class class_acv implements class_acs {
       return var2;
    }
 
-   public boolean a(class_yg var1, World var2) {
+   public boolean a(InventoryCrafting var1, World var2) {
       for(int var3 = 0; var3 <= 3 - this.a; ++var3) {
          for(int var4 = 0; var4 <= 3 - this.b; ++var4) {
             if(this.a(var1, var3, var4, true)) {
@@ -53,7 +53,7 @@ public class class_acv implements class_acs {
       return false;
    }
 
-   private boolean a(class_yg var1, int var2, int var3, boolean var4) {
+   private boolean a(InventoryCrafting var1, int var2, int var3, boolean var4) {
       for(int var5 = 0; var5 < 3; ++var5) {
          for(int var6 = 0; var6 < 3; ++var6) {
             int var7 = var5 - var2;
@@ -87,7 +87,7 @@ public class class_acv implements class_acs {
       return true;
    }
 
-   public ItemStack a(class_yg var1) {
+   public ItemStack a(InventoryCrafting var1) {
       ItemStack var2 = this.b().clone();
       if(this.e) {
          for(int var3 = 0; var3 < var1.getSize(); ++var3) {

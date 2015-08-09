@@ -87,12 +87,12 @@ public class TileEntityBrewingStand extends TileEntityContainer implements ITick
 	private boolean n() {
 		if ((g[3] != null) && (g[3].count > 0)) {
 			ItemStack var1 = g[3];
-			if (!class_ace.a(var1)) {
+			if (!PotionBrewer.a(var1)) {
 				return false;
 			} else {
 				for (int var2 = 0; var2 < 3; ++var2) {
 					ItemStack var3 = g[var2];
-					if ((var3 != null) && class_ace.a(var3, var1)) {
+					if ((var3 != null) && PotionBrewer.a(var3, var1)) {
 						return true;
 					}
 				}
@@ -108,7 +108,7 @@ public class TileEntityBrewingStand extends TileEntityContainer implements ITick
 		ItemStack var1 = g[3];
 
 		for (int var2 = 0; var2 < 3; ++var2) {
-			g[var2] = class_ace.d(var1, g[var2]);
+			g[var2] = PotionBrewer.d(var1, g[var2]);
 		}
 
 		if (var1.getItem().hasCraftingResult()) {
@@ -221,7 +221,7 @@ public class TileEntityBrewingStand extends TileEntityContainer implements ITick
 	@Override
 	public boolean canPlaceItem(int var1, ItemStack var2) {
 		if (var1 == 3) {
-			return class_ace.a(var2);
+			return PotionBrewer.a(var2);
 		} else {
 			Item var3 = var2.getItem();
 			return (var3 == Items.POTION) || (var3 == Items.GLASS_BOTTLE);

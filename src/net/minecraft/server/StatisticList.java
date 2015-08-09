@@ -78,10 +78,10 @@ public class StatisticList {
 
    private static void b() {
       HashSet var0 = Sets.newHashSet();
-      Iterator var1 = RecipeManager.a().b().iterator();
+      Iterator var1 = CraftingManager.a().getRecipes().iterator();
 
       while(var1.hasNext()) {
-         class_acs var2 = (class_acs)var1.next();
+         IRecipe var2 = (IRecipe)var1.next();
          if(var2.b() != null) {
             var0.add(var2.b().getItem());
          }

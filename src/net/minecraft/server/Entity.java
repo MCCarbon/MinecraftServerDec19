@@ -283,7 +283,7 @@ public abstract class Entity implements class_m {
 	public void f(int var1) {
 		int var2 = var1 * 20;
 		if (this instanceof EntityLiving) {
-			var2 = class_ads.a((EntityLiving) this, var2);
+			var2 = EnchantmentProtection.a((EntityLiving) this, var2);
 		}
 
 		if (this.fireTicks < var2) {

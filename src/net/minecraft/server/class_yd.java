@@ -103,7 +103,7 @@ public class class_yd extends Container {
       }
 
       public boolean a(ItemStack var1) {
-         return var1 != null && class_ace.a(var1);
+         return var1 != null && PotionBrewer.a(var1);
       }
 
       public int a() {

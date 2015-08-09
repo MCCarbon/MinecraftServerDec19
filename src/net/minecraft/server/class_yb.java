@@ -162,13 +162,13 @@ public class class_yb extends Container {
 
                label144:
                while(true) {
-                  class_adi var21;
+                  Enchantment var21;
                   do {
                      if(!var20.hasNext()) {
                         break label144;
                      }
 
-                     var21 = (class_adi)var20.next();
+                     var21 = (Enchantment)var20.next();
                   } while(var21 == null);
 
                   var12 = var7.containsKey(var21)?((Integer)var7.get(var21)).intValue():0;
@@ -182,7 +182,7 @@ public class class_yb extends Container {
                   Iterator var15 = var7.keySet().iterator();
 
                   while(var15.hasNext()) {
-                     class_adi var16 = (class_adi)var15.next();
+                     Enchantment var16 = (Enchantment)var15.next();
                      if(var16 != var21 && !var21.a(var16)) {
                         var14 = false;
                         ++var2;
@@ -336,29 +336,29 @@ public class class_yb extends Container {
    // $FF: synthetic class
    static class SyntheticClass_1 {
       // $FF: synthetic field
-      static final int[] a = new int[class_adi.class_a_in_class_adi.values().length];
+      static final int[] a = new int[Enchantment.EnumMaxEnchant.values().length];
 
       static {
          try {
-            a[class_adi.class_a_in_class_adi.a.ordinal()] = 1;
+            a[Enchantment.EnumMaxEnchant.a.ordinal()] = 1;
          } catch (NoSuchFieldError var4) {
             ;
          }
 
          try {
-            a[class_adi.class_a_in_class_adi.b.ordinal()] = 2;
+            a[Enchantment.EnumMaxEnchant.b.ordinal()] = 2;
          } catch (NoSuchFieldError var3) {
             ;
          }
 
          try {
-            a[class_adi.class_a_in_class_adi.c.ordinal()] = 3;
+            a[Enchantment.EnumMaxEnchant.c.ordinal()] = 3;
          } catch (NoSuchFieldError var2) {
             ;
          }
 
          try {
-            a[class_adi.class_a_in_class_adi.d.ordinal()] = 4;
+            a[Enchantment.EnumMaxEnchant.d.ordinal()] = 4;
          } catch (NoSuchFieldError var1) {
             ;
          }

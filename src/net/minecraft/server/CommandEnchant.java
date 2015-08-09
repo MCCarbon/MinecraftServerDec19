@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_adi;
+import net.minecraft.server.Enchantment;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
@@ -34,15 +34,15 @@ public class CommandEnchant extends CommandAbstract {
          EntityPlayer var3 = a(var1, var2[0]);
          var1.a(CommandObjectiveExecutor.class_a_in_class_n.d, 0);
 
-         class_adi var4;
+         Enchantment var4;
          try {
-            var4 = class_adi.c(a(var2[1], 0));
+            var4 = Enchantment.c(a(var2[1], 0));
          } catch (class_cb var11) {
-            var4 = class_adi.b(var2[1]);
+            var4 = Enchantment.b(var2[1]);
          }
 
          if(var4 == null) {
-            throw new class_cb("commands.enchant.notFound", new Object[]{Integer.valueOf(class_adi.b(var4))});
+            throw new class_cb("commands.enchant.notFound", new Object[]{Integer.valueOf(Enchantment.b(var4))});
          } else {
             int var5 = 1;
             ItemStack var6 = var3.bA();
@@ -60,8 +60,8 @@ public class CommandEnchant extends CommandAbstract {
                   if(var7 != null) {
                      for(int var8 = 0; var8 < var7.getSize(); ++var8) {
                         short var9 = var7.getCompound(var8).getShort("id");
-                        if(class_adi.c(var9) != null) {
-                           class_adi var10 = class_adi.c(var9);
+                        if(Enchantment.c(var9) != null) {
+                           Enchantment var10 = Enchantment.c(var9);
                            if(!var4.a(var10)) {
                               throw new class_bz("commands.enchant.cantCombine", new Object[]{var4.d(var5), var10.d(var7.getCompound(var8).getShort("lvl"))});
                            }
@@ -79,7 +79,7 @@ public class CommandEnchant extends CommandAbstract {
    }
 
    public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, class_adi.b.getKeys()):null);
+      return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Enchantment.b.getKeys()):null);
    }
 
    protected String[] d() {

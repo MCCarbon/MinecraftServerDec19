@@ -7,7 +7,7 @@ public class ItemTippedArrow extends ItemArrow {
 	}
 
 	public String getLocalizedName(ItemStack var1) {
-		return LocaleI18n.get("tipped_arrow.effect." + ((MinecraftKey) class_acd.REGISTRY.getKey(ItemPotion.i(var1))).getName());
+		return LocaleI18n.get("tipped_arrow.effect." + ((MinecraftKey) RegistryPotions.REGISTRY.getKey(ItemPotion.i(var1))).getName());
 	}
 
 }

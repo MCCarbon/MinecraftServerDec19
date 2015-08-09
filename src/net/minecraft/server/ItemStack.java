@@ -179,11 +179,11 @@ public final class ItemStack {
 			return false;
 		} else {
 			if (var1 > 0) {
-				int var3 = EnchantmentManager.getLevel(Enchantment.r, this);
+				int var3 = EnchantmentManager.getLevel(RegistryEnchantments.r, this);
 				int var4 = 0;
 
 				for (int var5 = 0; (var3 > 0) && (var5 < var1); ++var5) {
-					if (class_adg.a(this, var3, var2)) {
+					if (EnchantmentDurability.a(this, var3, var2)) {
 						++var4;
 					}
 				}
@@ -390,7 +390,7 @@ public final class ItemStack {
 		return !getItem().isTool(this) ? false : !hasEnchantments();
 	}
 
-	public void addEnchantment(class_adi enchantment, int level) {
+	public void addEnchantment(Enchantment enchantment, int level) {
 		if (tag == null) {
 			setTag(new NBTTagCompound());
 		}
@@ -401,7 +401,7 @@ public final class ItemStack {
 
 		NBTTagList enchList = tag.getList("ench", 10);
 		NBTTagCompound enchCompound = new NBTTagCompound();
-		enchCompound.put("id", (short) class_adi.b(enchantment));
+		enchCompound.put("id", (short) Enchantment.b(enchantment));
 		enchCompound.put("lvl", (short) ((byte) level));
 		enchList.add(enchCompound);
 	}

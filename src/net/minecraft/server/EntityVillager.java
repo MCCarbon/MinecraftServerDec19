@@ -647,7 +647,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
 	static class class_b_in_class_wv implements EntityVillager.class_f_in_class_wv {
 		public void a(class_aeb var1, Random var2) {
-			class_adi var3 = (class_adi) class_adi.b.get(var2);
+			Enchantment var3 = (Enchantment) Enchantment.b.get(var2);
 			int var4 = MathHelper.getRandomIntInRange(var2, var3.d(), var3.b());
 			ItemStack var5 = Items.ENCHANTED_BOOK.a(new class_adl(var3, var4));
 			int var6 = 2 + var2.nextInt(5 + var4 * 10) + 3 * var4;

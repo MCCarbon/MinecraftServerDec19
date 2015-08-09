@@ -121,12 +121,12 @@ public class ItemPotion extends Item {
       return LocaleI18n.get(i(var1).a());
    }
 
-   public static class_acd i(ItemStack var0) {
-      return !var0.hasTag()?class_acf.a:class_acd.a(var0.getTag().getString("Potion"));
+   public static RegistryPotions i(ItemStack var0) {
+      return !var0.hasTag()?class_acf.a:RegistryPotions.a(var0.getTag().getString("Potion"));
    }
 
-   public static ItemStack a(ItemStack var0, class_acd var1) {
-      MinecraftKey var2 = (MinecraftKey)class_acd.REGISTRY.getKey(var1);
+   public static ItemStack a(ItemStack var0, RegistryPotions var1) {
+      MinecraftKey var2 = (MinecraftKey)RegistryPotions.REGISTRY.getKey(var1);
       if(var2 != null) {
          NBTTagCompound var3 = var0.hasTag()?var0.getTag():new NBTTagCompound();
          var3.put("Potion", var2.toString());

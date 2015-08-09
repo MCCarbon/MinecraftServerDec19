@@ -22,7 +22,7 @@ public class ItemEnchantedBook extends Item {
 
       for(int var5 = 0; var5 < var3.getSize(); ++var5) {
          NBTTagCompound var6 = var3.getCompound(var5);
-         if(class_adi.c(var6.getShort("id")) == var2.b) {
+         if(Enchantment.c(var6.getShort("id")) == var2.b) {
             if(var6.getShort("lvl") < var2.c) {
                var6.put("lvl", (short)var2.c);
             }
@@ -34,7 +34,7 @@ public class ItemEnchantedBook extends Item {
 
       if(var4) {
          NBTTagCompound var7 = new NBTTagCompound();
-         var7.put("id", (short)class_adi.b(var2.b));
+         var7.put("id", (short)Enchantment.b(var2.b));
          var7.put("lvl", (short)var2.c);
          var3.add((NBTTag)var7);
       }

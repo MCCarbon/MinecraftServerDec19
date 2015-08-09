@@ -5,11 +5,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_acs;
+import net.minecraft.server.IRecipe;
 import net.minecraft.server.World;
-import net.minecraft.server.class_yg;
+import net.minecraft.server.InventoryCrafting;
 
-public class class_acw implements class_acs {
+public class class_acw implements IRecipe {
    private final ItemStack a;
    private final List b;
 
@@ -22,7 +22,7 @@ public class class_acw implements class_acs {
       return this.a;
    }
 
-   public ItemStack[] b(class_yg var1) {
+   public ItemStack[] b(InventoryCrafting var1) {
       ItemStack[] var2 = new ItemStack[var1.getSize()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {
@@ -35,7 +35,7 @@ public class class_acw implements class_acs {
       return var2;
    }
 
-   public boolean a(class_yg var1, World var2) {
+   public boolean a(InventoryCrafting var1, World var2) {
       ArrayList var3 = Lists.newArrayList((Iterable)this.b);
 
       for(int var4 = 0; var4 < var1.h(); ++var4) {
@@ -64,7 +64,7 @@ public class class_acw implements class_acs {
       return var3.isEmpty();
    }
 
-   public ItemStack a(class_yg var1) {
+   public ItemStack a(InventoryCrafting var1) {
       return this.a.clone();
    }
 

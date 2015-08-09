@@ -78,7 +78,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 					this.a(class_wl.d).c(b);
 				}
 			} else {
-				class_acd var1 = null;
+				RegistryPotions var1 = null;
 				if (this.random.nextFloat() < 0.15F && this.a(Material.WATER) && !this.hasEffect(MobEffectList.m)) {
 					var1 = class_acf.s;
 				} else if (this.random.nextFloat() < 0.15F && this.av() && !this.hasEffect(MobEffectList.l)) {
@@ -144,7 +144,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 			double var7 = var3 - this.locY;
 			double var9 = var1.locZ + var1.motZ - this.locZ;
 			float var11 = MathHelper.sqrt(var5 * var5 + var9 * var9);
-			class_acd var12 = class_acf.w;
+			RegistryPotions var12 = class_acf.w;
 			if (var11 >= 8.0F && !var1.hasEffect(MobEffectList.b)) {
 				var12 = class_acf.q;
 			} else if (var1.getHealth() >= 8.0F && !var1.hasEffect(MobEffectList.s)) {

@@ -17,7 +17,7 @@ public class EnchantmentManager {
    private static final EnchantmentManager.class_b_in_class_adk d = new EnchantmentManager.class_b_in_class_adk();
    private static final EnchantmentManager.class_a_in_class_adk e = new EnchantmentManager.class_a_in_class_adk();
 
-   public static int getLevel(class_adi var0, ItemStack var1) {
+   public static int getLevel(Enchantment var0, ItemStack var1) {
       if(var1 == null) {
          return 0;
       } else {
@@ -26,7 +26,7 @@ public class EnchantmentManager {
             return 0;
          } else {
             for(int var3 = 0; var3 < var2.getSize(); ++var3) {
-               class_adi var4 = class_adi.c(var2.getCompound(var3).getShort("id"));
+               Enchantment var4 = Enchantment.c(var2.getCompound(var3).getShort("id"));
                short var5 = var2.getCompound(var3).getShort("lvl");
                if(var4 == var0) {
                   return var5;
@@ -43,7 +43,7 @@ public class EnchantmentManager {
       NBTTagList var2 = var0.getItem() == Items.ENCHANTED_BOOK ?Items.ENCHANTED_BOOK.h(var0):var0.getEnchantments();
       if(var2 != null) {
          for(int var3 = 0; var3 < var2.getSize(); ++var3) {
-            class_adi var4 = class_adi.c(var2.getCompound(var3).getShort("id"));
+            Enchantment var4 = Enchantment.c(var2.getCompound(var3).getShort("id"));
             short var5 = var2.getCompound(var3).getShort("lvl");
             var1.put(var4, Integer.valueOf(var5));
          }
@@ -58,11 +58,11 @@ public class EnchantmentManager {
 
       while(var3.hasNext()) {
          Entry var4 = (Entry)var3.next();
-         class_adi var5 = (class_adi)var4.getKey();
+         Enchantment var5 = (Enchantment)var4.getKey();
          if(var5 != null) {
             int var6 = ((Integer)var4.getValue()).intValue();
             NBTTagCompound var7 = new NBTTagCompound();
-            var7.put("id", (short)class_adi.b(var5));
+            var7.put("id", (short)Enchantment.b(var5));
             var7.put("lvl", (short)var6);
             var2.add((NBTTag)var7);
             if(var1.getItem() == Items.ENCHANTED_BOOK) {
@@ -88,8 +88,8 @@ public class EnchantmentManager {
             for(int var3 = 0; var3 < var2.getSize(); ++var3) {
                short var4 = var2.getCompound(var3).getShort("id");
                short var5 = var2.getCompound(var3).getShort("lvl");
-               if(class_adi.c(var4) != null) {
-                  var0.a(class_adi.c(var4), var5);
+               if(Enchantment.c(var4) != null) {
+                  var0.a(Enchantment.c(var4), var5);
                }
             }
 
@@ -153,7 +153,7 @@ public class EnchantmentManager {
 
    }
 
-   public static int a(class_adi var0, EntityLiving var1) {
+   public static int a(Enchantment var0, EntityLiving var1) {
       Iterable var2 = var0.a(var1);
       if(var2 == null) {
          return 0;
@@ -174,42 +174,42 @@ public class EnchantmentManager {
    }
 
    public static int a(EntityLiving var0) {
-      return a(Enchantment.m, var0);
+      return a(RegistryEnchantments.m, var0);
    }
 
    public static int b(EntityLiving var0) {
-      return a(Enchantment.n, var0);
+      return a(RegistryEnchantments.n, var0);
    }
 
    public static int c(EntityLiving var0) {
-      return a(Enchantment.f, var0);
+      return a(RegistryEnchantments.f, var0);
    }
 
    public static int d(EntityLiving var0) {
-      return a(Enchantment.i, var0);
+      return a(RegistryEnchantments.i, var0);
    }
 
    public static int e(EntityLiving var0) {
-      return a(Enchantment.p, var0);
+      return a(RegistryEnchantments.p, var0);
    }
 
    public static int f(EntityLiving var0) {
-      return a(Enchantment.x, var0);
+      return a(RegistryEnchantments.x, var0);
    }
 
    public static int g(EntityLiving var0) {
-      return a(Enchantment.y, var0);
+      return a(RegistryEnchantments.y, var0);
    }
 
    public static int h(EntityLiving var0) {
-      return a(Enchantment.o, var0);
+      return a(RegistryEnchantments.o, var0);
    }
 
    public static boolean i(EntityLiving var0) {
-      return a(Enchantment.g, var0) > 0;
+      return a(RegistryEnchantments.g, var0) > 0;
    }
 
-   public static ItemStack b(class_adi var0, EntityLiving var1) {
+   public static ItemStack b(Enchantment var0, EntityLiving var1) {
       Iterator var2 = var1.au().iterator();
 
       ItemStack var3;
@@ -299,16 +299,16 @@ public class EnchantmentManager {
       ArrayList var2 = Lists.newArrayList();
       Item var3 = var1.getItem();
       boolean var4 = var1.getItem() == Items.BOOK;
-      Iterator var5 = class_adi.b.iterator();
+      Iterator var5 = Enchantment.b.iterator();
 
       while(true) {
-         class_adi var6;
+         Enchantment var6;
          do {
             if(!var5.hasNext()) {
                return var2;
             }
 
-            var6 = (class_adi)var5.next();
+            var6 = (Enchantment)var5.next();
          } while(!var6.c.a(var3) && !var4);
 
          for(int var7 = var6.d(); var7 <= var6.b(); ++var7) {
@@ -330,7 +330,7 @@ public class EnchantmentManager {
       private class_a_in_class_adk() {
       }
 
-      public void a(class_adi var1, int var2) {
+      public void a(Enchantment var1, int var2) {
          var1.a(this.a, this.b, var2);
       }
 
@@ -347,7 +347,7 @@ public class EnchantmentManager {
       private class_b_in_class_adk() {
       }
 
-      public void a(class_adi var1, int var2) {
+      public void a(Enchantment var1, int var2) {
          var1.b(this.a, this.b, var2);
       }
 
@@ -364,7 +364,7 @@ public class EnchantmentManager {
       private class_d_in_class_adk() {
       }
 
-      public void a(class_adi var1, int var2) {
+      public void a(Enchantment var1, int var2) {
          this.a += var1.a(var2, this.b);
       }
 
@@ -381,7 +381,7 @@ public class EnchantmentManager {
       private class_e_in_class_adk() {
       }
 
-      public void a(class_adi var1, int var2) {
+      public void a(Enchantment var1, int var2) {
          this.a += var1.a(var2, this.b);
       }
 
@@ -392,6 +392,6 @@ public class EnchantmentManager {
    }
 
    interface class_c_in_class_adk {
-      void a(class_adi var1, int var2);
+      void a(Enchantment var1, int var2);
    }
 }

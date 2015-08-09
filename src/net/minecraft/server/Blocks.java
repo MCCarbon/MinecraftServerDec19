@@ -188,7 +188,7 @@ public class Blocks {
 	public static final Block PACKED_ICE;
 	public static final Block ACACIA_STAIRS;
 	public static final Block DARK_OAK_STAIRS;
-	public static final Block SLINE;
+	public static final Block SLIME;
 	public static final BlockTallPlant DOUBLE_PLANT;
 	public static final BlockStainedGlass STAINED_GLASS;
 	public static final BlockStainedGlassPane STAINED_GLASS_PANE;
@@ -413,7 +413,7 @@ public class Blocks {
 			PACKED_ICE = getByName("packed_ice");
 			ACACIA_STAIRS = getByName("acacia_stairs");
 			DARK_OAK_STAIRS = getByName("dark_oak_stairs");
-			SLINE = getByName("slime");
+			SLIME = getByName("slime");
 			DOUBLE_PLANT = (BlockTallPlant) getByName("double_plant");
 			STAINED_GLASS = (BlockStainedGlass) getByName("stained_glass");
 			STAINED_GLASS_PANE = (BlockStainedGlassPane) getByName("stained_glass_pane");
