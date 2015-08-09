@@ -14,14 +14,14 @@ import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.class_apo;
-import net.minecraft.server.class_aqb;
+import net.minecraft.server.WorldGenMushrooms;
 import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.class_aqo;
 import net.minecraft.server.class_aqp;
 import net.minecraft.server.WorldGenHellLava;
 import net.minecraft.server.class_aqv;
-import net.minecraft.server.class_arb;
-import net.minecraft.server.class_asc;
+import net.minecraft.server.WorldGenMinable;
+import net.minecraft.server.WorldGenNether;
 import net.minecraft.server.class_ata;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
@@ -50,9 +50,9 @@ public class class_apl implements class_aoh {
    private final WorldGenerator w;
    private final WorldGenHellLava x;
    private final WorldGenHellLava y;
-   private final class_aqb z;
-   private final class_aqb A;
-   private final class_asc B;
+   private final WorldGenMushrooms z;
+   private final WorldGenMushrooms A;
+   private final WorldGenNether B;
    private final WorldGenBase C;
    double[] c;
    double[] d;
@@ -61,12 +61,12 @@ public class class_apl implements class_aoh {
    double[] g;
 
    public class_apl(World var1, boolean var2, long var3) {
-      this.w = new class_arb(Blocks.QUARTZ_ORE.getBlockData(), 14, class_ans.a(Blocks.NETHERRACK));
+      this.w = new WorldGenMinable(Blocks.QUARTZ_ORE.getBlockData(), 14, class_ans.a(Blocks.NETHERRACK));
       this.x = new WorldGenHellLava(Blocks.FLOWING_LAVA, true);
       this.y = new WorldGenHellLava(Blocks.FLOWING_LAVA, false);
-      this.z = new class_aqb(Blocks.BROWN_MUSHROOM);
-      this.A = new class_aqb(Blocks.RED_MUSHROOM);
-      this.B = new class_asc();
+      this.z = new WorldGenMushrooms(Blocks.BROWN_MUSHROOM);
+      this.A = new WorldGenMushrooms(Blocks.RED_MUSHROOM);
+      this.B = new WorldGenNether();
       this.C = new class_apo();
       this.h = var1;
       this.i = var2;

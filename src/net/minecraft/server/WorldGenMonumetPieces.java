@@ -7,19 +7,19 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class class_asf {
+public class WorldGenMonumetPieces {
    public static void a() {
-      class_asl.a(class_asf.class_h_in_class_asf.class, "OMB");
-      class_asl.a(class_asf.class_j_in_class_asf.class, "OMCR");
-      class_asl.a(class_asf.class_k_in_class_asf.class, "OMDXR");
-      class_asl.a(class_asf.class_l_in_class_asf.class, "OMDXYR");
-      class_asl.a(class_asf.class_m_in_class_asf.class, "OMDYR");
-      class_asl.a(class_asf.class_n_in_class_asf.class, "OMDYZR");
-      class_asl.a(class_asf.class_o_in_class_asf.class, "OMDZR");
-      class_asl.a(class_asf.class_p_in_class_asf.class, "OMEntry");
-      class_asl.a(class_asf.class_q_in_class_asf.class, "OMPenthouse");
-      class_asl.a(class_asf.class_s_in_class_asf.class, "OMSimple");
-      class_asl.a(class_asf.class_t_in_class_asf.class, "OMSimpleT");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPiece1.class, "OMB");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPiece2.class, "OMCR");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPiece3.class, "OMDXR");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPiece4.class, "OMDXYR");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPiece5.class, "OMDYR");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPiece6.class, "OMDYZR");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPiece7.class, "OMDZR");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPieceEntry.class, "OMEntry");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPiecePenthouse.class, "OMPenthouse");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPieceSimple.class, "OMSimple");
+      WorldGenFactory.a(WorldGenMonumetPieces.WorldGenMonumentPieceSimpleT.class, "OMSimpleT");
    }
 
    // $FF: synthetic class
@@ -49,172 +49,172 @@ public class class_asf {
       }
    }
 
-   static class class_d_in_class_asf implements class_asf.class_i_in_class_asf {
+   static class class_d_in_class_asf implements WorldGenMonumetPieces.class_i_in_class_asf {
       private class_d_in_class_asf() {
       }
 
-      public boolean a(class_asf.class_v_in_class_asf var1) {
+      public boolean a(WorldGenMonumetPieces.class_v_in_class_asf var1) {
          if(var1.c[EnumDirection.NORTH.getId()] && !var1.b[EnumDirection.NORTH.getId()].d && var1.c[EnumDirection.UP.getId()] && !var1.b[EnumDirection.UP.getId()].d) {
-            class_asf.class_v_in_class_asf var2 = var1.b[EnumDirection.NORTH.getId()];
+            WorldGenMonumetPieces.class_v_in_class_asf var2 = var1.b[EnumDirection.NORTH.getId()];
             return var2.c[EnumDirection.UP.getId()] && !var2.b[EnumDirection.UP.getId()].d;
          } else {
             return false;
          }
       }
 
-      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumetPieces.class_r_in_class_asf a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
          var2.b[EnumDirection.NORTH.getId()].d = true;
          var2.b[EnumDirection.UP.getId()].d = true;
          var2.b[EnumDirection.NORTH.getId()].b[EnumDirection.UP.getId()].d = true;
-         return new class_asf.class_n_in_class_asf(var1, var2, var3);
+         return new WorldGenMonumetPieces.WorldGenMonumentPiece6(var1, var2, var3);
       }
 
       // $FF: synthetic method
-      class_d_in_class_asf(class_asf.SyntheticClass_1 var1) {
+      class_d_in_class_asf(WorldGenMonumetPieces.SyntheticClass_1 var1) {
          this();
       }
    }
 
-   static class class_b_in_class_asf implements class_asf.class_i_in_class_asf {
+   static class class_b_in_class_asf implements WorldGenMonumetPieces.class_i_in_class_asf {
       private class_b_in_class_asf() {
       }
 
-      public boolean a(class_asf.class_v_in_class_asf var1) {
+      public boolean a(WorldGenMonumetPieces.class_v_in_class_asf var1) {
          if(var1.c[EnumDirection.EAST.getId()] && !var1.b[EnumDirection.EAST.getId()].d && var1.c[EnumDirection.UP.getId()] && !var1.b[EnumDirection.UP.getId()].d) {
-            class_asf.class_v_in_class_asf var2 = var1.b[EnumDirection.EAST.getId()];
+            WorldGenMonumetPieces.class_v_in_class_asf var2 = var1.b[EnumDirection.EAST.getId()];
             return var2.c[EnumDirection.UP.getId()] && !var2.b[EnumDirection.UP.getId()].d;
          } else {
             return false;
          }
       }
 
-      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumetPieces.class_r_in_class_asf a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
          var2.b[EnumDirection.EAST.getId()].d = true;
          var2.b[EnumDirection.UP.getId()].d = true;
          var2.b[EnumDirection.EAST.getId()].b[EnumDirection.UP.getId()].d = true;
-         return new class_asf.class_l_in_class_asf(var1, var2, var3);
+         return new WorldGenMonumetPieces.WorldGenMonumentPiece4(var1, var2, var3);
       }
 
       // $FF: synthetic method
-      class_b_in_class_asf(class_asf.SyntheticClass_1 var1) {
+      class_b_in_class_asf(WorldGenMonumetPieces.SyntheticClass_1 var1) {
          this();
       }
    }
 
-   static class class_e_in_class_asf implements class_asf.class_i_in_class_asf {
+   static class class_e_in_class_asf implements WorldGenMonumetPieces.class_i_in_class_asf {
       private class_e_in_class_asf() {
       }
 
-      public boolean a(class_asf.class_v_in_class_asf var1) {
+      public boolean a(WorldGenMonumetPieces.class_v_in_class_asf var1) {
          return var1.c[EnumDirection.NORTH.getId()] && !var1.b[EnumDirection.NORTH.getId()].d;
       }
 
-      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
-         class_asf.class_v_in_class_asf var4 = var2;
+      public WorldGenMonumetPieces.class_r_in_class_asf a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
+         WorldGenMonumetPieces.class_v_in_class_asf var4 = var2;
          if(!var2.c[EnumDirection.NORTH.getId()] || var2.b[EnumDirection.NORTH.getId()].d) {
             var4 = var2.b[EnumDirection.SOUTH.getId()];
          }
 
          var4.d = true;
          var4.b[EnumDirection.NORTH.getId()].d = true;
-         return new class_asf.class_o_in_class_asf(var1, var4, var3);
+         return new WorldGenMonumetPieces.WorldGenMonumentPiece7(var1, var4, var3);
       }
 
       // $FF: synthetic method
-      class_e_in_class_asf(class_asf.SyntheticClass_1 var1) {
+      class_e_in_class_asf(WorldGenMonumetPieces.SyntheticClass_1 var1) {
          this();
       }
    }
 
-   static class class_a_in_class_asf implements class_asf.class_i_in_class_asf {
+   static class class_a_in_class_asf implements WorldGenMonumetPieces.class_i_in_class_asf {
       private class_a_in_class_asf() {
       }
 
-      public boolean a(class_asf.class_v_in_class_asf var1) {
+      public boolean a(WorldGenMonumetPieces.class_v_in_class_asf var1) {
          return var1.c[EnumDirection.EAST.getId()] && !var1.b[EnumDirection.EAST.getId()].d;
       }
 
-      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumetPieces.class_r_in_class_asf a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
          var2.b[EnumDirection.EAST.getId()].d = true;
-         return new class_asf.class_k_in_class_asf(var1, var2, var3);
+         return new WorldGenMonumetPieces.WorldGenMonumentPiece3(var1, var2, var3);
       }
 
       // $FF: synthetic method
-      class_a_in_class_asf(class_asf.SyntheticClass_1 var1) {
+      class_a_in_class_asf(WorldGenMonumetPieces.SyntheticClass_1 var1) {
          this();
       }
    }
 
-   static class class_c_in_class_asf implements class_asf.class_i_in_class_asf {
+   static class class_c_in_class_asf implements WorldGenMonumetPieces.class_i_in_class_asf {
       private class_c_in_class_asf() {
       }
 
-      public boolean a(class_asf.class_v_in_class_asf var1) {
+      public boolean a(WorldGenMonumetPieces.class_v_in_class_asf var1) {
          return var1.c[EnumDirection.UP.getId()] && !var1.b[EnumDirection.UP.getId()].d;
       }
 
-      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumetPieces.class_r_in_class_asf a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
          var2.b[EnumDirection.UP.getId()].d = true;
-         return new class_asf.class_m_in_class_asf(var1, var2, var3);
+         return new WorldGenMonumetPieces.WorldGenMonumentPiece5(var1, var2, var3);
       }
 
       // $FF: synthetic method
-      class_c_in_class_asf(class_asf.SyntheticClass_1 var1) {
+      class_c_in_class_asf(WorldGenMonumetPieces.SyntheticClass_1 var1) {
          this();
       }
    }
 
-   static class class_g_in_class_asf implements class_asf.class_i_in_class_asf {
+   static class class_g_in_class_asf implements WorldGenMonumetPieces.class_i_in_class_asf {
       private class_g_in_class_asf() {
       }
 
-      public boolean a(class_asf.class_v_in_class_asf var1) {
+      public boolean a(WorldGenMonumetPieces.class_v_in_class_asf var1) {
          return !var1.c[EnumDirection.WEST.getId()] && !var1.c[EnumDirection.EAST.getId()] && !var1.c[EnumDirection.NORTH.getId()] && !var1.c[EnumDirection.SOUTH.getId()] && !var1.c[EnumDirection.UP.getId()];
       }
 
-      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumetPieces.class_r_in_class_asf a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
-         return new class_asf.class_t_in_class_asf(var1, var2, var3);
+         return new WorldGenMonumetPieces.WorldGenMonumentPieceSimpleT(var1, var2, var3);
       }
 
       // $FF: synthetic method
-      class_g_in_class_asf(class_asf.SyntheticClass_1 var1) {
+      class_g_in_class_asf(WorldGenMonumetPieces.SyntheticClass_1 var1) {
          this();
       }
    }
 
-   static class class_f_in_class_asf implements class_asf.class_i_in_class_asf {
+   static class class_f_in_class_asf implements WorldGenMonumetPieces.class_i_in_class_asf {
       private class_f_in_class_asf() {
       }
 
-      public boolean a(class_asf.class_v_in_class_asf var1) {
+      public boolean a(WorldGenMonumetPieces.class_v_in_class_asf var1) {
          return true;
       }
 
-      public class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumetPieces.class_r_in_class_asf a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          var2.d = true;
-         return new class_asf.class_s_in_class_asf(var1, var2, var3);
+         return new WorldGenMonumetPieces.WorldGenMonumentPieceSimple(var1, var2, var3);
       }
 
       // $FF: synthetic method
-      class_f_in_class_asf(class_asf.SyntheticClass_1 var1) {
+      class_f_in_class_asf(WorldGenMonumetPieces.SyntheticClass_1 var1) {
          this();
       }
    }
 
    interface class_i_in_class_asf {
-      boolean a(class_asf.class_v_in_class_asf var1);
+      boolean a(WorldGenMonumetPieces.class_v_in_class_asf var1);
 
-      class_asf.class_r_in_class_asf a(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3);
+      WorldGenMonumetPieces.class_r_in_class_asf a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3);
    }
 
    static class class_v_in_class_asf {
       int a;
-      class_asf.class_v_in_class_asf[] b = new class_asf.class_v_in_class_asf[6];
+      WorldGenMonumetPieces.class_v_in_class_asf[] b = new WorldGenMonumetPieces.class_v_in_class_asf[6];
       boolean[] c = new boolean[6];
       boolean d;
       boolean e;
@@ -224,7 +224,7 @@ public class class_asf {
          this.a = var1;
       }
 
-      public void a(EnumDirection var1, class_asf.class_v_in_class_asf var2) {
+      public void a(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2) {
          this.b[var1.getId()] = var2;
          var2.b[var1.opposite().getId()] = this;
       }
@@ -269,11 +269,11 @@ public class class_asf {
       }
    }
 
-   public static class class_q_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_q_in_class_asf() {
+   public static class WorldGenMonumentPiecePenthouse extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPiecePenthouse() {
       }
 
-      public class_q_in_class_asf(EnumDirection var1, StructureBoundingBox var2) {
+      public WorldGenMonumentPiecePenthouse(EnumDirection var1, StructureBoundingBox var2) {
          super(var1, var2);
       }
 
@@ -323,7 +323,7 @@ public class class_asf {
       }
    }
 
-   public static class class_u_in_class_asf extends class_asf.class_r_in_class_asf {
+   public static class class_u_in_class_asf extends WorldGenMonumetPieces.class_r_in_class_asf {
       private int n;
 
       public class_u_in_class_asf() {
@@ -429,11 +429,11 @@ public class class_asf {
       }
    }
 
-   public static class class_j_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_j_in_class_asf() {
+   public static class WorldGenMonumentPiece2 extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPiece2() {
       }
 
-      public class_j_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumentPiece2(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 2, 2, 2);
       }
 
@@ -507,19 +507,19 @@ public class class_asf {
       }
    }
 
-   public static class class_n_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_n_in_class_asf() {
+   public static class WorldGenMonumentPiece6 extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPiece6() {
       }
 
-      public class_n_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumentPiece6(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 2, 2);
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
-         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.NORTH.getId()];
-         class_asf.class_v_in_class_asf var5 = this.k;
-         class_asf.class_v_in_class_asf var6 = var4.b[EnumDirection.UP.getId()];
-         class_asf.class_v_in_class_asf var7 = var5.b[EnumDirection.UP.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var4 = this.k.b[EnumDirection.NORTH.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var5 = this.k;
+         WorldGenMonumetPieces.class_v_in_class_asf var6 = var4.b[EnumDirection.UP.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var7 = var5.b[EnumDirection.UP.getId()];
          if(this.k.a / 25 > 0) {
             this.a(var1, var3, 0, 8, var4.c[EnumDirection.DOWN.getId()]);
             this.a(var1, var3, 0, 0, var5.c[EnumDirection.DOWN.getId()]);
@@ -620,19 +620,19 @@ public class class_asf {
       }
    }
 
-   public static class class_l_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_l_in_class_asf() {
+   public static class WorldGenMonumentPiece4 extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPiece4() {
       }
 
-      public class_l_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumentPiece4(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 2, 2, 1);
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
-         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.EAST.getId()];
-         class_asf.class_v_in_class_asf var5 = this.k;
-         class_asf.class_v_in_class_asf var6 = var5.b[EnumDirection.UP.getId()];
-         class_asf.class_v_in_class_asf var7 = var4.b[EnumDirection.UP.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var4 = this.k.b[EnumDirection.EAST.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var5 = this.k;
+         WorldGenMonumetPieces.class_v_in_class_asf var6 = var5.b[EnumDirection.UP.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var7 = var4.b[EnumDirection.UP.getId()];
          if(this.k.a / 25 > 0) {
             this.a(var1, var3, 8, 0, var4.c[EnumDirection.DOWN.getId()]);
             this.a(var1, var3, 0, 0, var5.c[EnumDirection.DOWN.getId()]);
@@ -733,17 +733,17 @@ public class class_asf {
       }
    }
 
-   public static class class_o_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_o_in_class_asf() {
+   public static class WorldGenMonumentPiece7 extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPiece7() {
       }
 
-      public class_o_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumentPiece7(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 1, 2);
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
-         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.NORTH.getId()];
-         class_asf.class_v_in_class_asf var5 = this.k;
+         WorldGenMonumetPieces.class_v_in_class_asf var4 = this.k.b[EnumDirection.NORTH.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var5 = this.k;
          if(this.k.a / 25 > 0) {
             this.a(var1, var3, 0, 8, var4.c[EnumDirection.DOWN.getId()]);
             this.a(var1, var3, 0, 0, var5.c[EnumDirection.DOWN.getId()]);
@@ -821,17 +821,17 @@ public class class_asf {
       }
    }
 
-   public static class class_k_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_k_in_class_asf() {
+   public static class WorldGenMonumentPiece3 extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPiece3() {
       }
 
-      public class_k_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumentPiece3(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 2, 1, 1);
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
-         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.EAST.getId()];
-         class_asf.class_v_in_class_asf var5 = this.k;
+         WorldGenMonumetPieces.class_v_in_class_asf var4 = this.k.b[EnumDirection.EAST.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var5 = this.k;
          if(this.k.a / 25 > 0) {
             this.a(var1, var3, 8, 0, var4.c[EnumDirection.DOWN.getId()]);
             this.a(var1, var3, 0, 0, var5.c[EnumDirection.DOWN.getId()]);
@@ -890,11 +890,11 @@ public class class_asf {
       }
    }
 
-   public static class class_m_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_m_in_class_asf() {
+   public static class WorldGenMonumentPiece5 extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPiece5() {
       }
 
-      public class_m_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumentPiece5(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 2, 1);
       }
 
@@ -903,7 +903,7 @@ public class class_asf {
             this.a(var1, var3, 0, 0, this.k.c[EnumDirection.DOWN.getId()]);
          }
 
-         class_asf.class_v_in_class_asf var4 = this.k.b[EnumDirection.UP.getId()];
+         WorldGenMonumetPieces.class_v_in_class_asf var4 = this.k.b[EnumDirection.UP.getId()];
          if(var4.b[EnumDirection.UP.getId()] == null) {
             this.a(var1, var3, 1, 8, 1, 6, 8, 6, a);
          }
@@ -920,7 +920,7 @@ public class class_asf {
          this.a(var1, var3, 1, 4, 5, 1, 4, 5, b, b, false);
          this.a(var1, var3, 5, 4, 5, 5, 4, 6, b, b, false);
          this.a(var1, var3, 6, 4, 5, 6, 4, 5, b, b, false);
-         class_asf.class_v_in_class_asf var5 = this.k;
+         WorldGenMonumetPieces.class_v_in_class_asf var5 = this.k;
 
          for(int var6 = 1; var6 <= 5; var6 += 4) {
             byte var7 = 0;
@@ -970,11 +970,11 @@ public class class_asf {
       }
    }
 
-   public static class class_t_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_t_in_class_asf() {
+   public static class WorldGenMonumentPieceSimpleT extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPieceSimpleT() {
       }
 
-      public class_t_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumentPieceSimpleT(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 1, 1);
       }
 
@@ -1020,13 +1020,13 @@ public class class_asf {
       }
    }
 
-   public static class class_s_in_class_asf extends class_asf.class_r_in_class_asf {
+   public static class WorldGenMonumentPieceSimple extends WorldGenMonumetPieces.class_r_in_class_asf {
       private int n;
 
-      public class_s_in_class_asf() {
+      public WorldGenMonumentPieceSimple() {
       }
 
-      public class_s_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2, Random var3) {
+      public WorldGenMonumentPieceSimple(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2, Random var3) {
          super(1, var1, var2, 1, 1, 1);
          this.n = var3.nextInt(3);
       }
@@ -1185,11 +1185,11 @@ public class class_asf {
       }
    }
 
-   public static class class_p_in_class_asf extends class_asf.class_r_in_class_asf {
-      public class_p_in_class_asf() {
+   public static class WorldGenMonumentPieceEntry extends WorldGenMonumetPieces.class_r_in_class_asf {
+      public WorldGenMonumentPieceEntry() {
       }
 
-      public class_p_in_class_asf(EnumDirection var1, class_asf.class_v_in_class_asf var2) {
+      public WorldGenMonumentPieceEntry(EnumDirection var1, WorldGenMonumetPieces.class_v_in_class_asf var2) {
          super(1, var1, var2, 1, 1, 1);
       }
 
@@ -1219,15 +1219,15 @@ public class class_asf {
       }
    }
 
-   public static class class_h_in_class_asf extends class_asf.class_r_in_class_asf {
-      private class_asf.class_v_in_class_asf n;
-      private class_asf.class_v_in_class_asf o;
+   public static class WorldGenMonumentPiece1 extends WorldGenMonumetPieces.class_r_in_class_asf {
+      private WorldGenMonumetPieces.class_v_in_class_asf n;
+      private WorldGenMonumetPieces.class_v_in_class_asf o;
       private List p = Lists.newArrayList();
 
-      public class_h_in_class_asf() {
+      public WorldGenMonumentPiece1() {
       }
 
-      public class_h_in_class_asf(Random var1, int var2, int var3, EnumDirection var4) {
+      public WorldGenMonumentPiece1(Random var1, int var2, int var3, EnumDirection var4) {
          super(0);
          this.a(var4);
          EnumDirection var5 = this.e();
@@ -1239,21 +1239,21 @@ public class class_asf {
 
          List var6 = this.a(var1);
          this.n.d = true;
-         this.p.add(new class_asf.class_p_in_class_asf(var5, this.n));
-         this.p.add(new class_asf.class_j_in_class_asf(var5, this.o, var1));
+         this.p.add(new WorldGenMonumetPieces.WorldGenMonumentPieceEntry(var5, this.n));
+         this.p.add(new WorldGenMonumetPieces.WorldGenMonumentPiece2(var5, this.o, var1));
          ArrayList var7 = Lists.newArrayList();
-         var7.add(new class_asf.class_b_in_class_asf((class_asf.SyntheticClass_1)null));
-         var7.add(new class_asf.class_d_in_class_asf((class_asf.SyntheticClass_1)null));
-         var7.add(new class_asf.class_e_in_class_asf((class_asf.SyntheticClass_1)null));
-         var7.add(new class_asf.class_a_in_class_asf((class_asf.SyntheticClass_1)null));
-         var7.add(new class_asf.class_c_in_class_asf((class_asf.SyntheticClass_1)null));
-         var7.add(new class_asf.class_g_in_class_asf((class_asf.SyntheticClass_1)null));
-         var7.add(new class_asf.class_f_in_class_asf((class_asf.SyntheticClass_1)null));
+         var7.add(new WorldGenMonumetPieces.class_b_in_class_asf((WorldGenMonumetPieces.SyntheticClass_1)null));
+         var7.add(new WorldGenMonumetPieces.class_d_in_class_asf((WorldGenMonumetPieces.SyntheticClass_1)null));
+         var7.add(new WorldGenMonumetPieces.class_e_in_class_asf((WorldGenMonumetPieces.SyntheticClass_1)null));
+         var7.add(new WorldGenMonumetPieces.class_a_in_class_asf((WorldGenMonumetPieces.SyntheticClass_1)null));
+         var7.add(new WorldGenMonumetPieces.class_c_in_class_asf((WorldGenMonumetPieces.SyntheticClass_1)null));
+         var7.add(new WorldGenMonumetPieces.class_g_in_class_asf((WorldGenMonumetPieces.SyntheticClass_1)null));
+         var7.add(new WorldGenMonumetPieces.class_f_in_class_asf((WorldGenMonumetPieces.SyntheticClass_1)null));
          Iterator var8 = var6.iterator();
 
          while(true) {
             while(true) {
-               class_asf.class_v_in_class_asf var9;
+               WorldGenMonumetPieces.class_v_in_class_asf var9;
                do {
                   do {
                      if(!var8.hasNext()) {
@@ -1263,7 +1263,7 @@ public class class_asf {
                         Iterator var18 = this.p.iterator();
 
                         while(var18.hasNext()) {
-                           class_asf.class_r_in_class_asf var12 = (class_asf.class_r_in_class_asf)var18.next();
+                           WorldGenMonumetPieces.class_r_in_class_asf var12 = (WorldGenMonumetPieces.class_r_in_class_asf)var18.next();
                            var12.c().a(var16, var15, var17);
                         }
 
@@ -1271,20 +1271,20 @@ public class class_asf {
                         StructureBoundingBox var20 = StructureBoundingBox.a(this.a(34, 1), this.d(1), this.b(34, 1), this.a(56, 21), this.d(8), this.b(56, 21));
                         StructureBoundingBox var13 = StructureBoundingBox.a(this.a(22, 22), this.d(13), this.b(22, 22), this.a(35, 35), this.d(17), this.b(35, 35));
                         int var14 = var1.nextInt();
-                        this.p.add(new class_asf.class_u_in_class_asf(var5, var19, var14++));
-                        this.p.add(new class_asf.class_u_in_class_asf(var5, var20, var14++));
-                        this.p.add(new class_asf.class_q_in_class_asf(var5, var13));
+                        this.p.add(new WorldGenMonumetPieces.class_u_in_class_asf(var5, var19, var14++));
+                        this.p.add(new WorldGenMonumetPieces.class_u_in_class_asf(var5, var20, var14++));
+                        this.p.add(new WorldGenMonumetPieces.WorldGenMonumentPiecePenthouse(var5, var13));
                         return;
                      }
 
-                     var9 = (class_asf.class_v_in_class_asf)var8.next();
+                     var9 = (WorldGenMonumetPieces.class_v_in_class_asf)var8.next();
                   } while(var9.d);
                } while(var9.b());
 
                Iterator var10 = var7.iterator();
 
                while(var10.hasNext()) {
-                  class_asf.class_i_in_class_asf var11 = (class_asf.class_i_in_class_asf)var10.next();
+                  WorldGenMonumetPieces.class_i_in_class_asf var11 = (WorldGenMonumetPieces.class_i_in_class_asf)var10.next();
                   if(var11.a(var9)) {
                      this.p.add(var11.a(var5, var9, var1));
                      break;
@@ -1295,7 +1295,7 @@ public class class_asf {
       }
 
       private List a(Random var1) {
-         class_asf.class_v_in_class_asf[] var2 = new class_asf.class_v_in_class_asf[75];
+         WorldGenMonumetPieces.class_v_in_class_asf[] var2 = new WorldGenMonumetPieces.class_v_in_class_asf[75];
 
          int var3;
          int var4;
@@ -1305,7 +1305,7 @@ public class class_asf {
             for(var4 = 0; var4 < 4; ++var4) {
                var5 = 0;
                var6 = b(var3, var5, var4);
-               var2[var6] = new class_asf.class_v_in_class_asf(var6);
+               var2[var6] = new WorldGenMonumetPieces.class_v_in_class_asf(var6);
             }
          }
 
@@ -1313,7 +1313,7 @@ public class class_asf {
             for(var4 = 0; var4 < 4; ++var4) {
                var5 = 1;
                var6 = b(var3, var5, var4);
-               var2[var6] = new class_asf.class_v_in_class_asf(var6);
+               var2[var6] = new WorldGenMonumetPieces.class_v_in_class_asf(var6);
             }
          }
 
@@ -1321,7 +1321,7 @@ public class class_asf {
             for(var4 = 0; var4 < 2; ++var4) {
                var5 = 2;
                var6 = b(var3, var5, var4);
-               var2[var6] = new class_asf.class_v_in_class_asf(var6);
+               var2[var6] = new WorldGenMonumetPieces.class_v_in_class_asf(var6);
             }
          }
 
@@ -1361,12 +1361,12 @@ public class class_asf {
             }
          }
 
-         class_asf.class_v_in_class_asf var15;
-         var2[h].a(EnumDirection.UP, var15 = new class_asf.class_v_in_class_asf(1003));
-         class_asf.class_v_in_class_asf var17;
-         var2[i].a(EnumDirection.SOUTH, var17 = new class_asf.class_v_in_class_asf(1001));
-         class_asf.class_v_in_class_asf var18;
-         var2[j].a(EnumDirection.SOUTH, var18 = new class_asf.class_v_in_class_asf(1002));
+         WorldGenMonumetPieces.class_v_in_class_asf var15;
+         var2[h].a(EnumDirection.UP, var15 = new WorldGenMonumetPieces.class_v_in_class_asf(1003));
+         WorldGenMonumetPieces.class_v_in_class_asf var17;
+         var2[i].a(EnumDirection.SOUTH, var17 = new WorldGenMonumetPieces.class_v_in_class_asf(1001));
+         WorldGenMonumetPieces.class_v_in_class_asf var18;
+         var2[j].a(EnumDirection.SOUTH, var18 = new WorldGenMonumetPieces.class_v_in_class_asf(1002));
          var15.d = true;
          var17.d = true;
          var18.d = true;
@@ -1381,11 +1381,11 @@ public class class_asf {
          this.o.b[EnumDirection.NORTH.getId()].b[EnumDirection.UP.getId()].d = true;
          this.o.b[EnumDirection.EAST.getId()].b[EnumDirection.NORTH.getId()].b[EnumDirection.UP.getId()].d = true;
          ArrayList var19 = Lists.newArrayList();
-         class_asf.class_v_in_class_asf[] var20 = var2;
+         WorldGenMonumetPieces.class_v_in_class_asf[] var20 = var2;
          var8 = var2.length;
 
          for(var9 = 0; var9 < var8; ++var9) {
-            class_asf.class_v_in_class_asf var23 = var20[var9];
+            WorldGenMonumetPieces.class_v_in_class_asf var23 = var20[var9];
             if(var23 != null) {
                var23.a();
                var19.add(var23);
@@ -1399,7 +1399,7 @@ public class class_asf {
 
          label95:
          while(var22.hasNext()) {
-            class_asf.class_v_in_class_asf var24 = (class_asf.class_v_in_class_asf)var22.next();
+            WorldGenMonumetPieces.class_v_in_class_asf var24 = (WorldGenMonumetPieces.class_v_in_class_asf)var22.next();
             int var25 = 0;
             var11 = 0;
 
@@ -1489,7 +1489,7 @@ public class class_asf {
          Iterator var11 = this.p.iterator();
 
          while(var11.hasNext()) {
-            class_asf.class_r_in_class_asf var12 = (class_asf.class_r_in_class_asf)var11.next();
+            WorldGenMonumetPieces.class_r_in_class_asf var12 = (WorldGenMonumetPieces.class_r_in_class_asf)var11.next();
             if(var12.c().a(var3)) {
                var12.a(var1, var2, var3);
             }
@@ -1839,7 +1839,7 @@ public class class_asf {
       protected static final int h;
       protected static final int i;
       protected static final int j;
-      protected class_asf.class_v_in_class_asf k;
+      protected WorldGenMonumetPieces.class_v_in_class_asf k;
 
       protected static final int b(int var0, int var1, int var2) {
          return var1 * 25 + var2 * 5 + var0;
@@ -1859,7 +1859,7 @@ public class class_asf {
          this.l = var2;
       }
 
-      protected class_r_in_class_asf(int var1, EnumDirection var2, class_asf.class_v_in_class_asf var3, int var4, int var5, int var6) {
+      protected class_r_in_class_asf(int var1, EnumDirection var2, WorldGenMonumetPieces.class_v_in_class_asf var3, int var4, int var5, int var6) {
          super(var1);
          this.a(var2);
          this.k = var3;
@@ -1873,7 +1873,7 @@ public class class_asf {
             this.l = new StructureBoundingBox(0, 0, 0, var4 * 8 - 1, var5 * 4 - 1, var6 * 8 - 1);
          }
 
-         switch(class_asf.SyntheticClass_1.a[var2.ordinal()]) {
+         switch(WorldGenMonumetPieces.SyntheticClass_1.a[var2.ordinal()]) {
          case 1:
             this.l.a(var8 * 8, var10 * 4, -(var9 + var6) * 8 + 1);
             break;

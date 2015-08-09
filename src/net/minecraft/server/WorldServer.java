@@ -134,12 +134,12 @@ public class WorldServer extends World implements class_of {
       this.ak();
    }
 
-   public BiomeBase.class_c_in_class_aez a(class_qc var1, BlockPosition var2) {
+   public BiomeBase.BiomeMeta a(class_qc var1, BlockPosition var2) {
       List var3 = this.O().a(var1, var2);
-      return var3 != null && !var3.isEmpty()?(BiomeBase.class_c_in_class_aez)class_oc.a(this.random, var3):null;
+      return var3 != null && !var3.isEmpty()?(BiomeBase.BiomeMeta)class_oc.a(this.random, var3):null;
    }
 
-   public boolean a(class_qc var1, BiomeBase.class_c_in_class_aez var2, BlockPosition var3) {
+   public boolean a(class_qc var1, BiomeBase.BiomeMeta var2, BlockPosition var3) {
       List var4 = this.O().a(var1, var3);
       return var4 != null && !var4.isEmpty()?var4.contains(var2):false;
    }

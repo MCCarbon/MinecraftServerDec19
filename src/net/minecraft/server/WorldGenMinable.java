@@ -10,16 +10,16 @@ import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 
-public class class_arb extends WorldGenerator {
+public class WorldGenMinable extends WorldGenerator {
    private final IBlockData a;
    private final int b;
    private final Predicate c;
 
-   public class_arb(IBlockData var1, int var2) {
+   public WorldGenMinable(IBlockData var1, int var2) {
       this(var1, var2, class_ans.a(Blocks.STONE));
    }
 
-   public class_arb(IBlockData var1, int var2, Predicate var3) {
+   public WorldGenMinable(IBlockData var1, int var2, Predicate var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

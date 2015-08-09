@@ -2,15 +2,15 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aqr extends WorldGenerator {
+public class WorldGenHugeMushroom extends WorldGenerator {
    private Block a;
 
-   public class_aqr(Block var1) {
+   public WorldGenHugeMushroom(Block var1) {
       super(true);
       this.a = var1;
    }
 
-   public class_aqr() {
+   public WorldGenHugeMushroom() {
       super(false);
    }
 

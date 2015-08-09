@@ -7,10 +7,10 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 
-public class class_aqb extends WorldGenerator {
+public class WorldGenMushrooms extends WorldGenerator {
    private BlockPlant a;
 
-   public class_aqb(BlockPlant var1) {
+   public WorldGenMushrooms(BlockPlant var1) {
       this.a = var1;
    }
 

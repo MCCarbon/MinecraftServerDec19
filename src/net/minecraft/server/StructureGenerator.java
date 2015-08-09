@@ -11,7 +11,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.StructureBoundingBox;
-import net.minecraft.server.class_asl;
+import net.minecraft.server.WorldGenFactory;
 import net.minecraft.server.class_asm;
 import net.minecraft.server.StructurePiece;
 import net.minecraft.server.StructureStart;
@@ -225,7 +225,7 @@ public abstract class StructureGenerator extends WorldGenBase {
                   if(var6.has("ChunkX") && var6.has("ChunkZ")) {
                      int var7 = var6.getInt("ChunkX");
                      int var8 = var6.getInt("ChunkZ");
-                     StructureStart var9 = class_asl.a(var6, var1);
+                     StructureStart var9 = WorldGenFactory.a(var6, var1);
                      if(var9 != null) {
                         this.e.put(Long.valueOf(class_aeh.a(var7, var8)), var9);
                      }

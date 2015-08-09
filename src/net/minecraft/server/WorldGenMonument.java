@@ -10,18 +10,18 @@ import java.util.Random;
 import java.util.Set;
 import java.util.Map.Entry;
 
-public class WorldGenGuardianTemple extends StructureGenerator {
+public class WorldGenMonument extends StructureGenerator {
    private int f;
    private int g;
    public static final List d;
    private static final List h;
 
-   public WorldGenGuardianTemple() {
+   public WorldGenMonument() {
       this.f = 32;
       this.g = 5;
    }
 
-   public WorldGenGuardianTemple(Map var1) {
+   public WorldGenMonument(Map var1) {
       this();
       Iterator var2 = var1.entrySet().iterator();
 
@@ -73,7 +73,7 @@ public class WorldGenGuardianTemple extends StructureGenerator {
    }
 
    protected StructureStart b(int var1, int var2) {
-      return new WorldGenGuardianTemple.class_a_in_class_ase(this.c, this.b, var1, var2);
+      return new WorldGenMonument.WorldGenMonumentStart(this.c, this.b, var1, var2);
    }
 
    public List b() {
@@ -83,17 +83,17 @@ public class WorldGenGuardianTemple extends StructureGenerator {
    static {
       d = Arrays.asList(new BiomeBase[]{BiomeBase.OCEAN, BiomeBase.DEEP_OCEAN, BiomeBase.RIVER, BiomeBase.FROZEN_OCEAN, BiomeBase.FROZEN_RIVER});
       h = Lists.newArrayList();
-      h.add(new BiomeBase.class_c_in_class_aez(EntityGuardian.class, 1, 2, 4));
+      h.add(new BiomeBase.BiomeMeta(EntityGuardian.class, 1, 2, 4));
    }
 
-   public static class class_a_in_class_ase extends StructureStart {
+   public static class WorldGenMonumentStart extends StructureStart {
       private Set c = Sets.newHashSet();
       private boolean d;
 
-      public class_a_in_class_ase() {
+      public WorldGenMonumentStart() {
       }
 
-      public class_a_in_class_ase(World var1, Random var2, int var3, int var4) {
+      public WorldGenMonumentStart(World var1, Random var2, int var3, int var4) {
          super(var3, var4);
          this.b(var1, var2, var3, var4);
       }
@@ -108,7 +108,7 @@ public class WorldGenGuardianTemple extends StructureGenerator {
          int var13 = var3 * 16 + 8 - 29;
          int var14 = var4 * 16 + 8 - 29;
          EnumDirection var15 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
-         this.a.add(new class_asf.class_h_in_class_asf(var2, var13, var14, var15));
+         this.a.add(new WorldGenMonumetPieces.WorldGenMonumentPiece1(var2, var13, var14, var15));
          this.d();
          this.d = true;
       }

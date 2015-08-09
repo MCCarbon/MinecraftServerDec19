@@ -8,7 +8,7 @@ import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
 import net.minecraft.server.StructureBoundingBox;
-import net.minecraft.server.class_asl;
+import net.minecraft.server.WorldGenFactory;
 import net.minecraft.server.StructurePiece;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
@@ -61,7 +61,7 @@ public abstract class StructureStart {
 
 	public NBTTagCompound a(int var1, int var2) {
 		NBTTagCompound var3 = new NBTTagCompound();
-		var3.put("id", class_asl.a(this));
+		var3.put("id", WorldGenFactory.a(this));
 		var3.put("ChunkX", var1);
 		var3.put("ChunkZ", var2);
 		var3.put((String) "BB", (NBTTag) this.b.g());
@@ -91,7 +91,7 @@ public abstract class StructureStart {
 		NBTTagList var3 = var2.getList("Children", 10);
 
 		for (int var4 = 0; var4 < var3.getSize(); ++var4) {
-			this.a.add(class_asl.b(var3.getCompound(var4), var1));
+			this.a.add(WorldGenFactory.b(var3.getCompound(var4), var1));
 		}
 
 		this.b(var2);

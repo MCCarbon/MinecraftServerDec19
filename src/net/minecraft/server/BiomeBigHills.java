@@ -12,7 +12,7 @@ public class BiomeBigHills extends BiomeBase {
 
    protected BiomeBigHills(int var1, boolean var2) {
       super(var1);
-      this.aD = new class_arb(Blocks.MONSTER_EGG.getBlockData().set(BlockMonsterEggs.a, BlockMonsterEggs.EnumMonsterEggVariant.a), 9);
+      this.aD = new WorldGenMinable(Blocks.MONSTER_EGG.getBlockData().set(BlockMonsterEggs.a, BlockMonsterEggs.EnumMonsterEggVariant.a), 9);
       this.aE = new class_ark(false);
       this.aF = 0;
       this.aG = 1;

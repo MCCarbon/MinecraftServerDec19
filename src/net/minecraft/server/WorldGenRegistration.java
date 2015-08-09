@@ -5,24 +5,24 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class class_ash {
+public class WorldGenRegistration {
    public static void a() {
-      class_asl.a(class_ash.class_a_in_class_ash.class, "TeDP");
-      class_asl.a(class_ash.class_b_in_class_ash.class, "TeJP");
-      class_asl.a(class_ash.class_d_in_class_ash.class, "TeSH");
+      WorldGenFactory.a(WorldGenRegistration.WorldGenPyramidPiece.class, "TeDP");
+      WorldGenFactory.a(WorldGenRegistration.WorldGenJungleTemple.class, "TeJP");
+      WorldGenFactory.a(WorldGenRegistration.WorldGenWitchHut.class, "TeSH");
    }
 
    // $FF: synthetic class
    static class SyntheticClass_1 {
    }
 
-   public static class class_d_in_class_ash extends class_ash.class_c_in_class_ash {
+   public static class WorldGenWitchHut extends WorldGenRegistration.WorldGenScatteredPiece {
       private boolean e;
 
-      public class_d_in_class_ash() {
+      public WorldGenWitchHut() {
       }
 
-      public class_d_in_class_ash(Random var1, int var2, int var3) {
+      public WorldGenWitchHut(Random var1, int var2, int var3) {
          super(var1, var2, 64, var3, 7, 7, 9);
       }
 
@@ -96,19 +96,19 @@ public class class_ash {
       }
    }
 
-   public static class class_b_in_class_ash extends class_ash.class_c_in_class_ash {
+   public static class WorldGenJungleTemple extends WorldGenRegistration.WorldGenScatteredPiece {
       private boolean e;
       private boolean f;
       private boolean g;
       private boolean h;
       private static final List i;
       private static final List j;
-      private static class_ash.class_b_in_class_ash.class_b_in_class_ash$class_a_in_class_b_in_class_ash k;
+      private static WorldGenRegistration.WorldGenJungleTemple.class_b_in_class_ash$class_a_in_class_b_in_class_ash k;
 
-      public class_b_in_class_ash() {
+      public WorldGenJungleTemple() {
       }
 
-      public class_b_in_class_ash(Random var1, int var2, int var3) {
+      public WorldGenJungleTemple(Random var1, int var2, int var3) {
          super(var1, var2, 64, var3, 12, 10, 15);
       }
 
@@ -312,7 +312,7 @@ public class class_ash {
       static {
          i = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.DIAMOND, 0, 1, 3, 3), new class_od(Items.IRON_INGOT, 0, 1, 5, 10), new class_od(Items.GOLD_INGOT, 0, 2, 7, 15), new class_od(Items.EMERALD, 0, 1, 3, 2), new class_od(Items.BONE, 0, 4, 6, 20), new class_od(Items.ROTTEN_FLESH, 0, 3, 7, 16), new class_od(Items.SADDLE, 0, 1, 1, 3), new class_od(Items.IRON_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.GOLDEN_HORSE_ARMOR, 0, 1, 1, 1), new class_od(Items.DIAMOND_HORSE_ARMOR, 0, 1, 1, 1)}));
          j = Lists.newArrayList((Object[])(new class_od[]{new class_od(Items.ARROW, 0, 2, 7, 30)}));
-         k = new class_ash.class_b_in_class_ash.class_b_in_class_ash$class_a_in_class_b_in_class_ash();
+         k = new WorldGenRegistration.WorldGenJungleTemple.class_b_in_class_ash$class_a_in_class_b_in_class_ash();
       }
 
       static class class_b_in_class_ash$class_a_in_class_b_in_class_ash extends StructurePiece.class_a_in_class_asn {
@@ -329,20 +329,20 @@ public class class_ash {
          }
 
          // $FF: synthetic method
-         class_b_in_class_ash$class_a_in_class_b_in_class_ash(class_ash.SyntheticClass_1 var1) {
+         class_b_in_class_ash$class_a_in_class_b_in_class_ash(WorldGenRegistration.SyntheticClass_1 var1) {
             this();
          }
       }
    }
 
-   public static class class_a_in_class_ash extends class_ash.class_c_in_class_ash {
+   public static class WorldGenPyramidPiece extends WorldGenRegistration.WorldGenScatteredPiece {
       private boolean[] e = new boolean[4];
       private static final List f;
 
-      public class_a_in_class_ash() {
+      public WorldGenPyramidPiece() {
       }
 
-      public class_a_in_class_ash(Random var1, int var2, int var3) {
+      public WorldGenPyramidPiece(Random var1, int var2, int var3) {
          super(var1, var2, 64, var3, 21, 15, 21);
       }
 
@@ -564,16 +564,16 @@ public class class_ash {
       }
    }
 
-   abstract static class class_c_in_class_ash extends StructurePiece {
+   abstract static class WorldGenScatteredPiece extends StructurePiece {
       protected int a;
       protected int b;
       protected int c;
       protected int d = -1;
 
-      public class_c_in_class_ash() {
+      public WorldGenScatteredPiece() {
       }
 
-      protected class_c_in_class_ash(Random var1, int var2, int var3, int var4, int var5, int var6, int var7) {
+      protected WorldGenScatteredPiece(Random var1, int var2, int var3, int var4, int var5, int var6, int var7) {
          super(0);
          this.a = var5;
          this.b = var6;

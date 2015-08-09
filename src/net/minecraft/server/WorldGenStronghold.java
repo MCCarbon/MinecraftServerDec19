@@ -10,7 +10,7 @@ import java.util.Map.Entry;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_asj;
+import net.minecraft.server.WorldGenStrongholdPieces;
 import net.minecraft.server.StructureGenerator;
 import net.minecraft.server.StructurePiece;
 import net.minecraft.server.StructureStart;
@@ -119,22 +119,22 @@ public class WorldGenStronghold extends StructureGenerator {
    }
 
    protected StructureStart b(int var1, int var2) {
-      WorldGenStronghold.class_a_in_class_asi var3;
-      for(var3 = new WorldGenStronghold.class_a_in_class_asi(this.c, this.b, var1, var2); var3.c().isEmpty() || ((class_asj.class_m_in_class_asj)var3.c().get(0)).b == null; var3 = new WorldGenStronghold.class_a_in_class_asi(this.c, this.b, var1, var2)) {
+      WorldGenStronghold.WorldGenStrongholdStart var3;
+      for(var3 = new WorldGenStronghold.WorldGenStrongholdStart(this.c, this.b, var1, var2); var3.c().isEmpty() || ((WorldGenStrongholdPieces.WorldGenStrongholdStart)var3.c().get(0)).b == null; var3 = new WorldGenStronghold.WorldGenStrongholdStart(this.c, this.b, var1, var2)) {
          ;
       }
 
       return var3;
    }
 
-   public static class class_a_in_class_asi extends StructureStart {
-      public class_a_in_class_asi() {
+   public static class WorldGenStrongholdStart extends StructureStart {
+      public WorldGenStrongholdStart() {
       }
 
-      public class_a_in_class_asi(World var1, Random var2, int var3, int var4) {
+      public WorldGenStrongholdStart(World var1, Random var2, int var3, int var4) {
          super(var3, var4);
-         class_asj.b();
-         class_asj.class_m_in_class_asj var5 = new class_asj.class_m_in_class_asj(0, var2, (var3 << 4) + 2, (var4 << 4) + 2);
+         WorldGenStrongholdPieces.b();
+         WorldGenStrongholdPieces.WorldGenStrongholdStart var5 = new WorldGenStrongholdPieces.WorldGenStrongholdStart(0, var2, (var3 << 4) + 2, (var4 << 4) + 2);
          this.a.add(var5);
          var5.a(var5, this.a, var2);
          List var6 = var5.c;

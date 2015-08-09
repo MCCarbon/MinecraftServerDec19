@@ -9,10 +9,10 @@ public class WorldGenMineshaftPieces {
    private static final List a;
 
    public static void a() {
-      class_asl.a(WorldGenMineshaftPieces.WorldGenMineshaftCorridor.class, "MSCorridor");
-      class_asl.a(WorldGenMineshaftPieces.WorldGenMineshaftCross.class, "MSCrossing");
-      class_asl.a(WorldGenMineshaftPieces.WorldGenMineshaftRoom.class, "MSRoom");
-      class_asl.a(WorldGenMineshaftPieces.WorldGenMineshaftStairs.class, "MSStairs");
+      WorldGenFactory.a(WorldGenMineshaftPieces.WorldGenMineshaftCorridor.class, "MSCorridor");
+      WorldGenFactory.a(WorldGenMineshaftPieces.WorldGenMineshaftCross.class, "MSCrossing");
+      WorldGenFactory.a(WorldGenMineshaftPieces.WorldGenMineshaftRoom.class, "MSRoom");
+      WorldGenFactory.a(WorldGenMineshaftPieces.WorldGenMineshaftStairs.class, "MSStairs");
    }
 
    private static StructurePiece a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {

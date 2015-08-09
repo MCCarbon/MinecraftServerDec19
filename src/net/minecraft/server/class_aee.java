@@ -275,7 +275,7 @@ public abstract class class_aee {
 
    public abstract BlockPosition b();
 
-   public class class_a_in_class_aee extends class_oc.class_a_in_class_oc {
+   public class class_a_in_class_aee extends class_oc.WeightedRandomChoice {
       private final NBTTagCompound c;
       private final String d;
 

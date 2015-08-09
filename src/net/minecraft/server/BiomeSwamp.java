@@ -16,7 +16,7 @@ public class BiomeSwamp extends BiomeBase {
       this.as.H = 0;
       this.as.C = 5;
       this.ar = 14745518;
-      this.at.add(new BiomeBase.class_c_in_class_aez(EntitySlime.class, 1, 1, 1));
+      this.at.add(new BiomeBase.BiomeMeta(EntitySlime.class, 1, 1, 1));
    }
 
    public class_apw a(Random var1) {

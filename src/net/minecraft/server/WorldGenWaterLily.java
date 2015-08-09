@@ -7,7 +7,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 
-public class class_arp extends WorldGenerator {
+public class WorldGenWaterLily extends WorldGenerator {
    public boolean generate(World var1, Random var2, BlockPosition var3) {
       for(int var4 = 0; var4 < 10; ++var4) {
          int var5 = var3.getX() + var2.nextInt(8) - var2.nextInt(8);

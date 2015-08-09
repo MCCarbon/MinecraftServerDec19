@@ -18,7 +18,7 @@ public class WorldGenLargeFeature extends StructureGenerator {
       this.f = Lists.newArrayList();
       this.g = 32;
       this.h = 8;
-      this.f.add(new BiomeBase.class_c_in_class_aez(EntityWitch.class, 1, 1, 1));
+      this.f.add(new BiomeBase.BiomeMeta(EntityWitch.class, 1, 1, 1));
    }
 
    public WorldGenLargeFeature(Map var1) {
@@ -76,14 +76,14 @@ public class WorldGenLargeFeature extends StructureGenerator {
    }
 
    protected StructureStart b(int var1, int var2) {
-      return new WorldGenLargeFeature.class_a_in_class_asg(this.c, this.b, var1, var2);
+      return new WorldGenLargeFeature.WorldGenLargeFeatureStart(this.c, this.b, var1, var2);
    }
 
    public boolean a(BlockPosition var1) {
       StructureStart var2 = this.c(var1);
-      if(var2 != null && var2 instanceof WorldGenLargeFeature.class_a_in_class_asg && !var2.a.isEmpty()) {
+      if(var2 != null && var2 instanceof WorldGenLargeFeature.WorldGenLargeFeatureStart && !var2.a.isEmpty()) {
          StructurePiece var3 = (StructurePiece)var2.a.get(0);
-         return var3 instanceof class_ash.class_d_in_class_ash;
+         return var3 instanceof WorldGenRegistration.WorldGenWitchHut;
       } else {
          return false;
       }
@@ -97,26 +97,26 @@ public class WorldGenLargeFeature extends StructureGenerator {
       d = Arrays.asList(new BiomeBase[]{BiomeBase.DESERT, BiomeBase.DESERT_HILLS, BiomeBase.JUNGLE, BiomeBase.JUNGLE_HILLS, BiomeBase.SWAMPLAND});
    }
 
-   public static class class_a_in_class_asg extends StructureStart {
-      public class_a_in_class_asg() {
+   public static class WorldGenLargeFeatureStart extends StructureStart {
+      public WorldGenLargeFeatureStart() {
       }
 
-      public class_a_in_class_asg(World var1, Random var2, int var3, int var4) {
+      public WorldGenLargeFeatureStart(World var1, Random var2, int var3, int var4) {
          this(var1, var2, var3, var4, var1.b(new BlockPosition(var3 * 16 + 8, 0, var4 * 16 + 8)));
       }
 
-      public class_a_in_class_asg(World var1, Random var2, int var3, int var4, BiomeBase var5) {
+      public WorldGenLargeFeatureStart(World var1, Random var2, int var3, int var4, BiomeBase var5) {
          super(var3, var4);
          if(var5 != BiomeBase.JUNGLE && var5 != BiomeBase.JUNGLE_HILLS) {
             if(var5 == BiomeBase.SWAMPLAND) {
-               class_ash.class_d_in_class_ash var7 = new class_ash.class_d_in_class_ash(var2, var3 * 16, var4 * 16);
+               WorldGenRegistration.WorldGenWitchHut var7 = new WorldGenRegistration.WorldGenWitchHut(var2, var3 * 16, var4 * 16);
                this.a.add(var7);
             } else if(var5 == BiomeBase.DESERT || var5 == BiomeBase.DESERT_HILLS) {
-               class_ash.class_a_in_class_ash var8 = new class_ash.class_a_in_class_ash(var2, var3 * 16, var4 * 16);
+               WorldGenRegistration.WorldGenPyramidPiece var8 = new WorldGenRegistration.WorldGenPyramidPiece(var2, var3 * 16, var4 * 16);
                this.a.add(var8);
             }
          } else {
-            class_ash.class_b_in_class_ash var6 = new class_ash.class_b_in_class_ash(var2, var3 * 16, var4 * 16);
+            WorldGenRegistration.WorldGenJungleTemple var6 = new WorldGenRegistration.WorldGenJungleTemple(var2, var3 * 16, var4 * 16);
             this.a.add(var6);
          }
 

@@ -4,14 +4,14 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Random;
 
-public class class_asc extends StructureGenerator {
+public class WorldGenNether extends StructureGenerator {
    private List d = Lists.newArrayList();
 
-   public class_asc() {
-      this.d.add(new BiomeBase.class_c_in_class_aez(EntityBlaze.class, 10, 2, 3));
-      this.d.add(new BiomeBase.class_c_in_class_aez(EntityPigZombie.class, 5, 4, 4));
-      this.d.add(new BiomeBase.class_c_in_class_aez(EntitySkeleton.class, 10, 4, 4));
-      this.d.add(new BiomeBase.class_c_in_class_aez(EntityMagmaCube.class, 3, 4, 4));
+   public WorldGenNether() {
+      this.d.add(new BiomeBase.BiomeMeta(EntityBlaze.class, 10, 2, 3));
+      this.d.add(new BiomeBase.BiomeMeta(EntityPigZombie.class, 5, 4, 4));
+      this.d.add(new BiomeBase.BiomeMeta(EntitySkeleton.class, 10, 4, 4));
+      this.d.add(new BiomeBase.BiomeMeta(EntityMagmaCube.class, 3, 4, 4));
    }
 
    public String a() {
@@ -31,16 +31,16 @@ public class class_asc extends StructureGenerator {
    }
 
    protected StructureStart b(int var1, int var2) {
-      return new class_asc.class_a_in_class_asc(this.c, this.b, var1, var2);
+      return new WorldGenNether.WorldGenNetherStart(this.c, this.b, var1, var2);
    }
 
-   public static class class_a_in_class_asc extends StructureStart {
-      public class_a_in_class_asc() {
+   public static class WorldGenNetherStart extends StructureStart {
+      public WorldGenNetherStart() {
       }
 
-      public class_a_in_class_asc(World var1, Random var2, int var3, int var4) {
+      public WorldGenNetherStart(World var1, Random var2, int var3, int var4) {
          super(var3, var4);
-         class_asd.class_q_in_class_asd var5 = new class_asd.class_q_in_class_asd(var2, (var3 << 4) + 2, (var4 << 4) + 2);
+         WorldGenNetherPieces.WorldGenNetherPiece15 var5 = new WorldGenNetherPieces.WorldGenNetherPiece15(var2, (var3 << 4) + 2, (var4 << 4) + 2);
          this.a.add(var5);
          var5.a(var5, this.a, var2);
          List var6 = var5.e;

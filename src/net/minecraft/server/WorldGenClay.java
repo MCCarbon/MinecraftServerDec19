@@ -9,11 +9,11 @@ import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public class class_aqe extends WorldGenerator {
+public class WorldGenClay extends WorldGenerator {
    private Block a;
    private int b;
 
-   public class_aqe(int var1) {
+   public WorldGenClay(int var1) {
       this.a = Blocks.CLAY;
       this.b = var1;
    }

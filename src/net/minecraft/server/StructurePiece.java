@@ -20,7 +20,7 @@ public abstract class StructurePiece {
 
    public final NBTTagCompound b() {
       NBTTagCompound var1 = new NBTTagCompound();
-      var1.put("id", class_asl.a(this));
+      var1.put("id", WorldGenFactory.a(this));
       var1.put((String)"BB", (NBTTag)this.l.g());
       EnumDirection var2 = this.e();
       var1.put("O", var2 == null?-1:var2.getHorizontalId());

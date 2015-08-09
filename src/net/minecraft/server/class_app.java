@@ -21,7 +21,7 @@ import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.class_aqu;
 import net.minecraft.server.class_ara;
 import net.minecraft.server.WorldGenMineshaft;
-import net.minecraft.server.WorldGenGuardianTemple;
+import net.minecraft.server.WorldGenMonument;
 import net.minecraft.server.WorldGenLargeFeature;
 import net.minecraft.server.WorldGenStronghold;
 import net.minecraft.server.WorldGenVillage;
@@ -55,7 +55,7 @@ public class class_app implements class_aoh {
    private WorldGenMineshaft x;
    private WorldGenLargeFeature y;
    private WorldGenBase z;
-   private WorldGenGuardianTemple A;
+   private WorldGenMonument A;
    private BiomeBase[] B;
    double[] d;
    double[] e;
@@ -71,7 +71,7 @@ public class class_app implements class_aoh {
       this.x = new WorldGenMineshaft();
       this.y = new WorldGenLargeFeature();
       this.z = new class_apg();
-      this.A = new WorldGenGuardianTemple();
+      this.A = new WorldGenMonument();
       this.m = var1;
       this.n = var4;
       this.o = var1.Q().u();

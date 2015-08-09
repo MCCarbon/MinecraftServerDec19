@@ -13,12 +13,12 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afc;
+import net.minecraft.server.BiomeDecorator;
 import net.minecraft.server.class_aqk;
 import net.minecraft.server.class_ari;
 import net.minecraft.server.BlockPosition;
 
-public class class_afx extends class_afc {
+public class class_afx extends BiomeDecorator {
    private static final LoadingCache M;
    private final class_ari N = new class_ari();
    private final class_aqk O = new class_aqk(false);

@@ -5,60 +5,60 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class class_asd {
-   private static final class_asd.class_n_in_class_asd[] a = new class_asd.class_n_in_class_asd[]{new class_asd.class_n_in_class_asd(class_asd.class_c_in_class_asd.class, 30, 0, true), new class_asd.class_n_in_class_asd(class_asd.class_a_in_class_asd.class, 10, 4), new class_asd.class_n_in_class_asd(class_asd.class_o_in_class_asd.class, 10, 4), new class_asd.class_n_in_class_asd(class_asd.class_p_in_class_asd.class, 10, 3), new class_asd.class_n_in_class_asd(class_asd.class_l_in_class_asd.class, 5, 2), new class_asd.class_n_in_class_asd(class_asd.class_f_in_class_asd.class, 5, 1)};
-   private static final class_asd.class_n_in_class_asd[] b = new class_asd.class_n_in_class_asd[]{new class_asd.class_n_in_class_asd(class_asd.class_i_in_class_asd.class, 25, 0, true), new class_asd.class_n_in_class_asd(class_asd.class_g_in_class_asd.class, 15, 5), new class_asd.class_n_in_class_asd(class_asd.class_j_in_class_asd.class, 5, 10), new class_asd.class_n_in_class_asd(class_asd.class_h_in_class_asd.class, 5, 10), new class_asd.class_n_in_class_asd(class_asd.class_d_in_class_asd.class, 10, 3, true), new class_asd.class_n_in_class_asd(class_asd.class_e_in_class_asd.class, 7, 2), new class_asd.class_n_in_class_asd(class_asd.class_k_in_class_asd.class, 5, 2)};
+public class WorldGenNetherPieces {
+   private static final WorldGenNetherPieces.class_n_in_class_asd[] a = new WorldGenNetherPieces.class_n_in_class_asd[]{new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece3.class, 30, 0, true), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece1.class, 10, 4), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece13.class, 10, 4), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece16.class, 10, 3), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece12.class, 5, 2), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece6.class, 5, 1)};
+   private static final WorldGenNetherPieces.class_n_in_class_asd[] b = new WorldGenNetherPieces.class_n_in_class_asd[]{new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece9.class, 25, 0, true), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece7.class, 15, 5), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece10.class, 5, 10), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece8.class, 5, 10), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece4.class, 10, 3, true), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece5.class, 7, 2), new WorldGenNetherPieces.class_n_in_class_asd(WorldGenNetherPieces.WorldGenNetherPiece11.class, 5, 2)};
 
    public static void a() {
-      class_asl.a(class_asd.class_a_in_class_asd.class, "NeBCr");
-      class_asl.a(class_asd.class_b_in_class_asd.class, "NeBEF");
-      class_asl.a(class_asd.class_c_in_class_asd.class, "NeBS");
-      class_asl.a(class_asd.class_d_in_class_asd.class, "NeCCS");
-      class_asl.a(class_asd.class_e_in_class_asd.class, "NeCTB");
-      class_asl.a(class_asd.class_f_in_class_asd.class, "NeCE");
-      class_asl.a(class_asd.class_g_in_class_asd.class, "NeSCSC");
-      class_asl.a(class_asd.class_h_in_class_asd.class, "NeSCLT");
-      class_asl.a(class_asd.class_i_in_class_asd.class, "NeSC");
-      class_asl.a(class_asd.class_j_in_class_asd.class, "NeSCRT");
-      class_asl.a(class_asd.class_k_in_class_asd.class, "NeCSR");
-      class_asl.a(class_asd.class_l_in_class_asd.class, "NeMT");
-      class_asl.a(class_asd.class_o_in_class_asd.class, "NeRC");
-      class_asl.a(class_asd.class_p_in_class_asd.class, "NeSR");
-      class_asl.a(class_asd.class_q_in_class_asd.class, "NeStart");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece1.class, "NeBCr");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece2.class, "NeBEF");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece3.class, "NeBS");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece4.class, "NeCCS");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece5.class, "NeCTB");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece6.class, "NeCE");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece7.class, "NeSCSC");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece8.class, "NeSCLT");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece9.class, "NeSC");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece10.class, "NeSCRT");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece11.class, "NeCSR");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece12.class, "NeMT");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece13.class, "NeRC");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece16.class, "NeSR");
+      WorldGenFactory.a(WorldGenNetherPieces.WorldGenNetherPiece15.class, "NeStart");
    }
 
-   private static class_asd.class_m_in_class_asd b(class_asd.class_n_in_class_asd var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+   private static WorldGenNetherPieces.class_m_in_class_asd b(WorldGenNetherPieces.class_n_in_class_asd var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       Class var8 = var0.a;
       Object var9 = null;
-      if(var8 == class_asd.class_c_in_class_asd.class) {
-         var9 = class_asd.class_c_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_a_in_class_asd.class) {
-         var9 = class_asd.class_a_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_o_in_class_asd.class) {
-         var9 = class_asd.class_o_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_p_in_class_asd.class) {
-         var9 = class_asd.class_p_in_class_asd.a(var1, var2, var3, var4, var5, var7, var6);
-      } else if(var8 == class_asd.class_l_in_class_asd.class) {
-         var9 = class_asd.class_l_in_class_asd.a(var1, var2, var3, var4, var5, var7, var6);
-      } else if(var8 == class_asd.class_f_in_class_asd.class) {
-         var9 = class_asd.class_f_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_i_in_class_asd.class) {
-         var9 = class_asd.class_i_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_j_in_class_asd.class) {
-         var9 = class_asd.class_j_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_h_in_class_asd.class) {
-         var9 = class_asd.class_h_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_d_in_class_asd.class) {
-         var9 = class_asd.class_d_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_e_in_class_asd.class) {
-         var9 = class_asd.class_e_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_g_in_class_asd.class) {
-         var9 = class_asd.class_g_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
-      } else if(var8 == class_asd.class_k_in_class_asd.class) {
-         var9 = class_asd.class_k_in_class_asd.a(var1, var2, var3, var4, var5, var6, var7);
+      if(var8 == WorldGenNetherPieces.WorldGenNetherPiece3.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece3.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece1.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece1.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece13.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece13.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece16.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece16.a(var1, var2, var3, var4, var5, var7, var6);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece12.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece12.a(var1, var2, var3, var4, var5, var7, var6);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece6.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece6.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece9.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece9.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece10.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece10.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece8.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece8.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece4.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece4.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece5.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece5.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece7.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece7.a(var1, var2, var3, var4, var5, var6, var7);
+      } else if(var8 == WorldGenNetherPieces.WorldGenNetherPiece11.class) {
+         var9 = WorldGenNetherPieces.WorldGenNetherPiece11.a(var1, var2, var3, var4, var5, var6, var7);
       }
 
-      return (class_asd.class_m_in_class_asd)var9;
+      return (WorldGenNetherPieces.class_m_in_class_asd)var9;
    }
 
    // $FF: synthetic class
@@ -94,11 +94,11 @@ public class class_asd {
       }
    }
 
-   public static class class_e_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_e_in_class_asd() {
+   public static class WorldGenNetherPiece5 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece5() {
       }
 
-      public class_e_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece5(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
@@ -111,13 +111,13 @@ public class class_asd {
             var4 = 5;
          }
 
-         this.b((class_asd.class_q_in_class_asd)var1, var2, var3, 0, var4, var3.nextInt(8) > 0);
-         this.c((class_asd.class_q_in_class_asd)var1, var2, var3, 0, var4, var3.nextInt(8) > 0);
+         this.b((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 0, var4, var3.nextInt(8) > 0);
+         this.c((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 0, var4, var3.nextInt(8) > 0);
       }
 
-      public static class_asd.class_e_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece5 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -3, 0, 0, 9, 7, 9, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_e_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece5(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -151,23 +151,23 @@ public class class_asd {
       }
    }
 
-   public static class class_d_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_d_in_class_asd() {
+   public static class WorldGenNetherPiece4 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece4() {
       }
 
-      public class_d_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece4(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 1, 0, true);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 1, 0, true);
       }
 
-      public static class_asd.class_d_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece4 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -1, -7, 0, 5, 14, 10, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_d_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece4(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -202,13 +202,13 @@ public class class_asd {
       }
    }
 
-   public static class class_h_in_class_asd extends class_asd.class_m_in_class_asd {
+   public static class WorldGenNetherPiece8 extends WorldGenNetherPieces.class_m_in_class_asd {
       private boolean b;
 
-      public class_h_in_class_asd() {
+      public WorldGenNetherPiece8() {
       }
 
-      public class_h_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece8(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
@@ -226,12 +226,12 @@ public class class_asd {
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.b((class_asd.class_q_in_class_asd)var1, var2, var3, 0, 1, true);
+         this.b((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 0, 1, true);
       }
 
-      public static class_asd.class_h_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece8 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -1, 0, 0, 5, 7, 5, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_h_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece8(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -261,13 +261,13 @@ public class class_asd {
       }
    }
 
-   public static class class_j_in_class_asd extends class_asd.class_m_in_class_asd {
+   public static class WorldGenNetherPiece10 extends WorldGenNetherPieces.class_m_in_class_asd {
       private boolean b;
 
-      public class_j_in_class_asd() {
+      public WorldGenNetherPiece10() {
       }
 
-      public class_j_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece10(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
@@ -285,12 +285,12 @@ public class class_asd {
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.c((class_asd.class_q_in_class_asd)var1, var2, var3, 0, 1, true);
+         this.c((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 0, 1, true);
       }
 
-      public static class_asd.class_j_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece10 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -1, 0, 0, 5, 7, 5, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_j_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece10(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -320,25 +320,25 @@ public class class_asd {
       }
    }
 
-   public static class class_g_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_g_in_class_asd() {
+   public static class WorldGenNetherPiece7 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece7() {
       }
 
-      public class_g_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece7(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 1, 0, true);
-         this.b((class_asd.class_q_in_class_asd)var1, var2, var3, 0, 1, true);
-         this.c((class_asd.class_q_in_class_asd)var1, var2, var3, 0, 1, true);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 1, 0, true);
+         this.b((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 0, 1, true);
+         this.c((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 0, 1, true);
       }
 
-      public static class_asd.class_g_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece7 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -1, 0, 0, 5, 7, 5, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_g_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece7(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -360,23 +360,23 @@ public class class_asd {
       }
    }
 
-   public static class class_i_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_i_in_class_asd() {
+   public static class WorldGenNetherPiece9 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece9() {
       }
 
-      public class_i_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece9(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 1, 0, true);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 1, 0, true);
       }
 
-      public static class_asd.class_i_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece9 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -1, 0, 0, 5, 7, 5, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_i_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece9(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -400,24 +400,24 @@ public class class_asd {
       }
    }
 
-   public static class class_k_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_k_in_class_asd() {
+   public static class WorldGenNetherPiece11 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece11() {
       }
 
-      public class_k_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece11(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 5, 3, true);
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 5, 11, true);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 5, 3, true);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 5, 11, true);
       }
 
-      public static class_asd.class_k_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece11 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -5, -3, 0, 13, 14, 13, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_k_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece11(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -534,23 +534,23 @@ public class class_asd {
       }
    }
 
-   public static class class_f_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_f_in_class_asd() {
+   public static class WorldGenNetherPiece6 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece6() {
       }
 
-      public class_f_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece6(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 5, 3, true);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 5, 3, true);
       }
 
-      public static class_asd.class_f_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece6 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -5, -3, 0, 13, 14, 13, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_f_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece6(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -628,13 +628,13 @@ public class class_asd {
       }
    }
 
-   public static class class_l_in_class_asd extends class_asd.class_m_in_class_asd {
+   public static class WorldGenNetherPiece12 extends WorldGenNetherPieces.class_m_in_class_asd {
       private boolean b;
 
-      public class_l_in_class_asd() {
+      public WorldGenNetherPiece12() {
       }
 
-      public class_l_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece12(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
@@ -650,9 +650,9 @@ public class class_asd {
          var1.put("Mob", this.b);
       }
 
-      public static class_asd.class_l_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, int var5, EnumDirection var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece12 a(List var0, Random var1, int var2, int var3, int var4, int var5, EnumDirection var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -2, 0, 0, 7, 8, 9, var6);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_l_in_class_asd(var5, var1, var7, var6):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece12(var5, var1, var7, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -696,23 +696,23 @@ public class class_asd {
       }
    }
 
-   public static class class_p_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_p_in_class_asd() {
+   public static class WorldGenNetherPiece16 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece16() {
       }
 
-      public class_p_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece16(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.c((class_asd.class_q_in_class_asd)var1, var2, var3, 6, 2, false);
+         this.c((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 6, 2, false);
       }
 
-      public static class_asd.class_p_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, int var5, EnumDirection var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece16 a(List var0, Random var1, int var2, int var3, int var4, int var5, EnumDirection var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -2, 0, 0, 7, 11, 7, var6);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_p_in_class_asd(var5, var1, var7, var6):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece16(var5, var1, var7, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -746,25 +746,25 @@ public class class_asd {
       }
    }
 
-   public static class class_o_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_o_in_class_asd() {
+   public static class WorldGenNetherPiece13 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece13() {
       }
 
-      public class_o_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece13(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 2, 0, false);
-         this.b((class_asd.class_q_in_class_asd)var1, var2, var3, 0, 2, false);
-         this.c((class_asd.class_q_in_class_asd)var1, var2, var3, 0, 2, false);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 2, 0, false);
+         this.b((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 0, 2, false);
+         this.c((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 0, 2, false);
       }
 
-      public static class_asd.class_o_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece13 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -2, 0, 0, 7, 9, 7, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_o_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece13(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -797,17 +797,17 @@ public class class_asd {
       }
    }
 
-   public static class class_a_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_a_in_class_asd() {
+   public static class WorldGenNetherPiece1 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece1() {
       }
 
-      public class_a_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece1(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
-      protected class_a_in_class_asd(Random var1, int var2, int var3) {
+      protected WorldGenNetherPiece1(Random var1, int var2, int var3) {
          super(0);
          this.a(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var1));
          if(this.e().getAxis() == EnumDirection.EnumAxis.Z) {
@@ -819,14 +819,14 @@ public class class_asd {
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 8, 3, false);
-         this.b((class_asd.class_q_in_class_asd)var1, var2, var3, 3, 8, false);
-         this.c((class_asd.class_q_in_class_asd)var1, var2, var3, 3, 8, false);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 8, 3, false);
+         this.b((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 3, 8, false);
+         this.c((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 3, 8, false);
       }
 
-      public static class_asd.class_a_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece1 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -8, -3, 0, 19, 10, 19, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_a_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece1(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -872,22 +872,22 @@ public class class_asd {
       }
    }
 
-   public static class class_b_in_class_asd extends class_asd.class_m_in_class_asd {
+   public static class WorldGenNetherPiece2 extends WorldGenNetherPieces.class_m_in_class_asd {
       private int b;
 
-      public class_b_in_class_asd() {
+      public WorldGenNetherPiece2() {
       }
 
-      public class_b_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece2(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
          this.b = var2.nextInt();
       }
 
-      public static class_asd.class_b_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece2 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -1, -3, 0, 5, 10, 8, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_b_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece2(var6, var1, var7, var5):null;
       }
 
       protected void b(NBTTagCompound var1) {
@@ -934,23 +934,23 @@ public class class_asd {
       }
    }
 
-   public static class class_c_in_class_asd extends class_asd.class_m_in_class_asd {
-      public class_c_in_class_asd() {
+   public static class WorldGenNetherPiece3 extends WorldGenNetherPieces.class_m_in_class_asd {
+      public WorldGenNetherPiece3() {
       }
 
-      public class_c_in_class_asd(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
+      public WorldGenNetherPiece3(int var1, Random var2, StructureBoundingBox var3, EnumDirection var4) {
          super(var1);
          this.a(var4);
          this.l = var3;
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         this.a((class_asd.class_q_in_class_asd)var1, var2, var3, 1, 3, false);
+         this.a((WorldGenNetherPieces.WorldGenNetherPiece15)var1, var2, var3, 1, 3, false);
       }
 
-      public static class_asd.class_c_in_class_asd a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
+      public static WorldGenNetherPieces.WorldGenNetherPiece3 a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5, int var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var2, var3, var4, -1, -3, 0, 5, 10, 19, var5);
-         return a(var7) && StructurePiece.a(var0, var7) == null?new class_asd.class_c_in_class_asd(var6, var1, var7, var5):null;
+         return a(var7) && StructurePiece.a(var0, var7) == null?new WorldGenNetherPieces.WorldGenNetherPiece3(var6, var1, var7, var5):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -982,23 +982,23 @@ public class class_asd {
       }
    }
 
-   public static class class_q_in_class_asd extends class_asd.class_a_in_class_asd {
-      public class_asd.class_n_in_class_asd b;
+   public static class WorldGenNetherPiece15 extends WorldGenNetherPieces.WorldGenNetherPiece1 {
+      public WorldGenNetherPieces.class_n_in_class_asd b;
       public List c;
       public List d;
       public List e = Lists.newArrayList();
 
-      public class_q_in_class_asd() {
+      public WorldGenNetherPiece15() {
       }
 
-      public class_q_in_class_asd(Random var1, int var2, int var3) {
+      public WorldGenNetherPiece15(Random var1, int var2, int var3) {
          super(var1, var2, var3);
          this.c = Lists.newArrayList();
-         class_asd.class_n_in_class_asd[] var4 = class_asd.a;
+         WorldGenNetherPieces.class_n_in_class_asd[] var4 = WorldGenNetherPieces.a;
          int var5 = var4.length;
 
          int var6;
-         class_asd.class_n_in_class_asd var7;
+         WorldGenNetherPieces.class_n_in_class_asd var7;
          for(var6 = 0; var6 < var5; ++var6) {
             var7 = var4[var6];
             var7.c = 0;
@@ -1006,7 +1006,7 @@ public class class_asd {
          }
 
          this.d = Lists.newArrayList();
-         var4 = class_asd.b;
+         var4 = WorldGenNetherPieces.b;
          var5 = var4.length;
 
          for(var6 = 0; var6 < var5; ++var6) {
@@ -1046,9 +1046,9 @@ public class class_asd {
          boolean var2 = false;
          int var3 = 0;
 
-         class_asd.class_n_in_class_asd var5;
+         WorldGenNetherPieces.class_n_in_class_asd var5;
          for(Iterator var4 = var1.iterator(); var4.hasNext(); var3 += var5.b) {
-            var5 = (class_asd.class_n_in_class_asd)var4.next();
+            var5 = (WorldGenNetherPieces.class_n_in_class_asd)var4.next();
             if(var5.d > 0 && var5.c < var5.d) {
                var2 = true;
             }
@@ -1057,7 +1057,7 @@ public class class_asd {
          return var2?var3:-1;
       }
 
-      private class_asd.class_m_in_class_asd a(class_asd.class_q_in_class_asd var1, List var2, List var3, Random var4, int var5, int var6, int var7, EnumDirection var8, int var9) {
+      private WorldGenNetherPieces.class_m_in_class_asd a(WorldGenNetherPieces.WorldGenNetherPiece15 var1, List var2, List var3, Random var4, int var5, int var6, int var7, EnumDirection var8, int var9) {
          int var10 = this.a(var2);
          boolean var11 = var10 > 0 && var9 <= 30;
          int var12 = 0;
@@ -1068,14 +1068,14 @@ public class class_asd {
             Iterator var14 = var2.iterator();
 
             while(var14.hasNext()) {
-               class_asd.class_n_in_class_asd var15 = (class_asd.class_n_in_class_asd)var14.next();
+               WorldGenNetherPieces.class_n_in_class_asd var15 = (WorldGenNetherPieces.class_n_in_class_asd)var14.next();
                var13 -= var15.b;
                if(var13 < 0) {
                   if(!var15.a(var9) || var15 == var1.b && !var15.e) {
                      break;
                   }
 
-                  class_asd.class_m_in_class_asd var16 = class_asd.b(var15, var3, var4, var5, var6, var7, var8, var9);
+                  WorldGenNetherPieces.class_m_in_class_asd var16 = WorldGenNetherPieces.b(var15, var3, var4, var5, var6, var7, var8, var9);
                   if(var16 != null) {
                      ++var15.c;
                      var1.b = var15;
@@ -1089,17 +1089,17 @@ public class class_asd {
             }
          }
 
-         return class_asd.class_b_in_class_asd.a(var3, var4, var5, var6, var7, var8, var9);
+         return WorldGenNetherPieces.WorldGenNetherPiece2.a(var3, var4, var5, var6, var7, var8, var9);
       }
 
-      private StructurePiece a(class_asd.class_q_in_class_asd var1, List var2, Random var3, int var4, int var5, int var6, EnumDirection var7, int var8, boolean var9) {
+      private StructurePiece a(WorldGenNetherPieces.WorldGenNetherPiece15 var1, List var2, Random var3, int var4, int var5, int var6, EnumDirection var7, int var8, boolean var9) {
          if(Math.abs(var4 - var1.c().a) <= 112 && Math.abs(var6 - var1.c().c) <= 112) {
             List var10 = var1.c;
             if(var9) {
                var10 = var1.d;
             }
 
-            class_asd.class_m_in_class_asd var11 = this.a(var1, var10, var2, var3, var4, var5, var6, var7, var8 + 1);
+            WorldGenNetherPieces.class_m_in_class_asd var11 = this.a(var1, var10, var2, var3, var4, var5, var6, var7, var8 + 1);
             if(var11 != null) {
                var2.add(var11);
                var1.e.add(var11);
@@ -1107,14 +1107,14 @@ public class class_asd {
 
             return var11;
          } else {
-            return class_asd.class_b_in_class_asd.a(var2, var3, var4, var5, var6, var7, var8);
+            return WorldGenNetherPieces.WorldGenNetherPiece2.a(var2, var3, var4, var5, var6, var7, var8);
          }
       }
 
-      protected StructurePiece a(class_asd.class_q_in_class_asd var1, List var2, Random var3, int var4, int var5, boolean var6) {
+      protected StructurePiece a(WorldGenNetherPieces.WorldGenNetherPiece15 var1, List var2, Random var3, int var4, int var5, boolean var6) {
          EnumDirection var7 = this.e();
          if(var7 != null) {
-            switch(class_asd.SyntheticClass_1.a[var7.ordinal()]) {
+            switch(WorldGenNetherPieces.SyntheticClass_1.a[var7.ordinal()]) {
             case 1:
                return this.a(var1, var2, var3, this.l.a + var4, this.l.b + var5, this.l.c - 1, var7, this.d(), var6);
             case 2:
@@ -1129,10 +1129,10 @@ public class class_asd {
          return null;
       }
 
-      protected StructurePiece b(class_asd.class_q_in_class_asd var1, List var2, Random var3, int var4, int var5, boolean var6) {
+      protected StructurePiece b(WorldGenNetherPieces.WorldGenNetherPiece15 var1, List var2, Random var3, int var4, int var5, boolean var6) {
          EnumDirection var7 = this.e();
          if(var7 != null) {
-            switch(class_asd.SyntheticClass_1.a[var7.ordinal()]) {
+            switch(WorldGenNetherPieces.SyntheticClass_1.a[var7.ordinal()]) {
             case 1:
                return this.a(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d(), var6);
             case 2:
@@ -1147,10 +1147,10 @@ public class class_asd {
          return null;
       }
 
-      protected StructurePiece c(class_asd.class_q_in_class_asd var1, List var2, Random var3, int var4, int var5, boolean var6) {
+      protected StructurePiece c(WorldGenNetherPieces.WorldGenNetherPiece15 var1, List var2, Random var3, int var4, int var5, boolean var6) {
          EnumDirection var7 = this.e();
          if(var7 != null) {
-            switch(class_asd.SyntheticClass_1.a[var7.ordinal()]) {
+            switch(WorldGenNetherPieces.SyntheticClass_1.a[var7.ordinal()]) {
             case 1:
                return this.a(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d(), var6);
             case 2:

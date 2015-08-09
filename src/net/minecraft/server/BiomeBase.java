@@ -85,7 +85,7 @@ public abstract class BiomeBase {
 	public float ap;
 	public float aq;
 	public int ar;
-	public class_afc as;
+	public BiomeDecorator as;
 	protected List at;
 	protected List au;
 	protected List av;
@@ -117,24 +117,24 @@ public abstract class BiomeBase {
 		this.az = var1;
 		aE[var1] = this;
 		this.as = this.a();
-		this.au.add(new BiomeBase.class_c_in_class_aez(EntitySheep.class, 12, 4, 4));
-		this.au.add(new BiomeBase.class_c_in_class_aez(EntityRabbit.class, 10, 3, 3));
-		this.au.add(new BiomeBase.class_c_in_class_aez(EntityPig.class, 10, 4, 4));
-		this.au.add(new BiomeBase.class_c_in_class_aez(EntityChicken.class, 10, 4, 4));
-		this.au.add(new BiomeBase.class_c_in_class_aez(EntityCow.class, 8, 4, 4));
-		this.at.add(new BiomeBase.class_c_in_class_aez(EntitySpider.class, 100, 4, 4));
-		this.at.add(new BiomeBase.class_c_in_class_aez(EntityZombie.class, 100, 4, 4));
-		this.at.add(new BiomeBase.class_c_in_class_aez(EntitySkeleton.class, 100, 4, 4));
-		this.at.add(new BiomeBase.class_c_in_class_aez(EntityCreeper.class, 100, 4, 4));
-		this.at.add(new BiomeBase.class_c_in_class_aez(EntitySlime.class, 100, 4, 4));
-		this.at.add(new BiomeBase.class_c_in_class_aez(EntityEnderman.class, 10, 1, 4));
-		this.at.add(new BiomeBase.class_c_in_class_aez(EntityWitch.class, 5, 1, 1));
-		this.av.add(new BiomeBase.class_c_in_class_aez(EntitySquid.class, 10, 4, 4));
-		this.aw.add(new BiomeBase.class_c_in_class_aez(EntityBat.class, 10, 8, 8));
+		this.au.add(new BiomeBase.BiomeMeta(EntitySheep.class, 12, 4, 4));
+		this.au.add(new BiomeBase.BiomeMeta(EntityRabbit.class, 10, 3, 3));
+		this.au.add(new BiomeBase.BiomeMeta(EntityPig.class, 10, 4, 4));
+		this.au.add(new BiomeBase.BiomeMeta(EntityChicken.class, 10, 4, 4));
+		this.au.add(new BiomeBase.BiomeMeta(EntityCow.class, 8, 4, 4));
+		this.at.add(new BiomeBase.BiomeMeta(EntitySpider.class, 100, 4, 4));
+		this.at.add(new BiomeBase.BiomeMeta(EntityZombie.class, 100, 4, 4));
+		this.at.add(new BiomeBase.BiomeMeta(EntitySkeleton.class, 100, 4, 4));
+		this.at.add(new BiomeBase.BiomeMeta(EntityCreeper.class, 100, 4, 4));
+		this.at.add(new BiomeBase.BiomeMeta(EntitySlime.class, 100, 4, 4));
+		this.at.add(new BiomeBase.BiomeMeta(EntityEnderman.class, 10, 1, 4));
+		this.at.add(new BiomeBase.BiomeMeta(EntityWitch.class, 5, 1, 1));
+		this.av.add(new BiomeBase.BiomeMeta(EntitySquid.class, 10, 4, 4));
+		this.aw.add(new BiomeBase.BiomeMeta(EntityBat.class, 10, 8, 8));
 	}
 
-	protected class_afc a() {
-		return new class_afc();
+	protected BiomeDecorator a() {
+		return new BiomeDecorator();
 	}
 
 	protected BiomeBase a(float var1, float var2) {
@@ -481,12 +481,12 @@ public abstract class BiomeBase {
 		}
 	}
 
-	public static class class_c_in_class_aez extends class_oc.class_a_in_class_oc {
+	public static class BiomeMeta extends class_oc.WeightedRandomChoice {
 		public Class b;
 		public int c;
 		public int d;
 
-		public class_c_in_class_aez(Class var1, int var2, int var3, int var4) {
+		public BiomeMeta(Class var1, int var2, int var3, int var4) {
 			super(var2);
 			this.b = var1;
 			this.c = var3;

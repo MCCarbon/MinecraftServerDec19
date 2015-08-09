@@ -11,7 +11,7 @@ import net.minecraft.server.TileEntityDispenser;
 import net.minecraft.server.class_oc;
 import net.minecraft.server.IInventory;
 
-public class class_od extends class_oc.class_a_in_class_oc {
+public class class_od extends class_oc.WeightedRandomChoice {
    private ItemStack b;
    private int c;
    private int d;

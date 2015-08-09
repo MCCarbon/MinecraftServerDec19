@@ -3,7 +3,7 @@ package net.minecraft.server;
 import net.minecraft.server.Enchantment;
 import net.minecraft.server.class_oc;
 
-public class class_adl extends class_oc.class_a_in_class_oc {
+public class class_adl extends class_oc.WeightedRandomChoice {
    public final Enchantment b;
    public final int c;
 

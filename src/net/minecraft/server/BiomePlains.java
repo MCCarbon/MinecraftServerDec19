@@ -9,7 +9,7 @@ public class BiomePlains extends BiomeBase {
       super(var1);
       this.a(0.8F, 0.4F);
       this.a(e);
-      this.au.add(new BiomeBase.class_c_in_class_aez(EntityHorse.class, 5, 2, 6));
+      this.au.add(new BiomeBase.BiomeMeta(EntityHorse.class, 5, 2, 6));
       this.as.A = -999;
       this.as.B = 4;
       this.as.C = 10;

@@ -28,7 +28,7 @@ public class BiomeForest extends BiomeBase {
       }
 
       if(this.aG == 0) {
-         this.au.add(new BiomeBase.class_c_in_class_aez(EntityWolf.class, 5, 4, 4));
+         this.au.add(new BiomeBase.BiomeMeta(EntityWolf.class, 5, 4, 4));
       }
 
       if(this.aG == 3) {
@@ -77,7 +77,7 @@ public class BiomeForest extends BiomeBase {
                var7 = var5 * 4 + 1 + 8 + var2.nextInt(3);
                BlockPosition var8 = var1.m(var3.add(var6, 0, var7));
                if(var2.nextInt(20) == 0) {
-                  class_aqr var9 = new class_aqr();
+                  WorldGenHugeMushroom var9 = new WorldGenHugeMushroom();
                   var9.generate(var1, var2, var8);
                } else {
                   class_apw var12 = this.a(var2);

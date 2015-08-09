@@ -8,7 +8,7 @@ import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public class class_are extends WorldGenerator {
+public class WorldGenReed extends WorldGenerator {
    public boolean generate(World var1, Random var2, BlockPosition var3) {
       for(int var4 = 0; var4 < 20; ++var4) {
          BlockPosition var5 = var3.add(var2.nextInt(4) - var2.nextInt(4), 0, var2.nextInt(4) - var2.nextInt(4));

@@ -5,7 +5,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_apq;
-import net.minecraft.server.class_ary;
+import net.minecraft.server.WorldGenEndCityPieces;
 import net.minecraft.server.StructureGenerator;
 import net.minecraft.server.StructureStart;
 import net.minecraft.server.BlockPosition;
@@ -46,16 +46,16 @@ public class WorldGenEndCity extends StructureGenerator {
    }
 
    protected StructureStart b(int var1, int var2) {
-      return new WorldGenEndCity.class_a_in_class_arx(this.c, this.g, this.b, var1, var2);
+      return new WorldGenEndCity.WorldGenEndCityStart(this.c, this.g, this.b, var1, var2);
    }
 
-   public static class class_a_in_class_arx extends StructureStart {
+   public static class WorldGenEndCityStart extends StructureStart {
       private boolean c;
 
-      public class_a_in_class_arx() {
+      public WorldGenEndCityStart() {
       }
 
-      public class_a_in_class_arx(World var1, class_apq var2, Random var3, int var4, int var5) {
+      public WorldGenEndCityStart(World var1, class_apq var2, Random var3, int var4, int var5) {
          super(var4, var5);
          this.a(var1, var2, var3, var4, var5);
       }
@@ -84,7 +84,7 @@ public class WorldGenEndCity extends StructureGenerator {
             this.c = false;
          } else {
             BlockPosition var15 = new BlockPosition(var4 * 16 + 8, var14, var5 * 16 + 8);
-            class_ary.a(var15, var6, this.a, var3);
+            WorldGenEndCityPieces.a(var15, var6, this.a, var3);
             this.d();
             this.c = true;
          }

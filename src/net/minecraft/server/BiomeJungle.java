@@ -20,10 +20,10 @@ public class BiomeJungle extends BiomeBase {
       this.as.C = 25;
       this.as.B = 4;
       if(!var2) {
-         this.at.add(new BiomeBase.class_c_in_class_aez(EntityOcelot.class, 2, 1, 1));
+         this.at.add(new BiomeBase.BiomeMeta(EntityOcelot.class, 2, 1, 1));
       }
 
-      this.au.add(new BiomeBase.class_c_in_class_aez(EntityChicken.class, 10, 4, 4));
+      this.au.add(new BiomeBase.BiomeMeta(EntityChicken.class, 10, 4, 4));
    }
 
    public class_apw a(Random var1) {

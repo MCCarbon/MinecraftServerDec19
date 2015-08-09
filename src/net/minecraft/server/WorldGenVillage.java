@@ -11,7 +11,7 @@ import net.minecraft.server.BiomeBase;
 import net.minecraft.server.StructureGenerator;
 import net.minecraft.server.StructurePiece;
 import net.minecraft.server.StructureStart;
-import net.minecraft.server.class_asr;
+import net.minecraft.server.WorldGenVillagePieces;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.MathHelper;
 
@@ -74,23 +74,23 @@ public class WorldGenVillage extends StructureGenerator {
    }
 
    protected StructureStart b(int var1, int var2) {
-      return new WorldGenVillage.class_a_in_class_asq(this.c, this.b, var1, var2, this.f);
+      return new WorldGenVillage.WorldGenVillageStart(this.c, this.b, var1, var2, this.f);
    }
 
    static {
       d = Arrays.asList(new BiomeBase[]{BiomeBase.PLAINS, BiomeBase.DESERT, BiomeBase.SAVANNA});
    }
 
-   public static class class_a_in_class_asq extends StructureStart {
+   public static class WorldGenVillageStart extends StructureStart {
       private boolean c;
 
-      public class_a_in_class_asq() {
+      public WorldGenVillageStart() {
       }
 
-      public class_a_in_class_asq(World var1, Random var2, int var3, int var4, int var5) {
+      public WorldGenVillageStart(World var1, Random var2, int var3, int var4, int var5) {
          super(var3, var4);
-         List var6 = class_asr.a(var2, var5);
-         class_asr.class_k_in_class_asr var7 = new class_asr.class_k_in_class_asr(var1.w(), 0, var2, (var3 << 4) + 2, (var4 << 4) + 2, var6, var5);
+         List var6 = WorldGenVillagePieces.a(var2, var5);
+         WorldGenVillagePieces.WorldGenVillageStart var7 = new WorldGenVillagePieces.WorldGenVillageStart(var1.w(), 0, var2, (var3 << 4) + 2, (var4 << 4) + 2, var6, var5);
          this.a.add(var7);
          var7.a(var7, this.a, var2);
          List var8 = var7.g;
@@ -116,7 +116,7 @@ public class WorldGenVillage extends StructureGenerator {
 
          while(var13.hasNext()) {
             StructurePiece var12 = (StructurePiece)var13.next();
-            if(!(var12 instanceof class_asr.class_o_in_class_asr)) {
+            if(!(var12 instanceof WorldGenVillagePieces.class_o_in_class_asr)) {
                ++var10;
             }
          }

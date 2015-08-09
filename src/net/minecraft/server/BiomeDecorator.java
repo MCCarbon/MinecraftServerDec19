@@ -8,28 +8,28 @@ import net.minecraft.server.BlockFlowers;
 import net.minecraft.server.BlockStone;
 import net.minecraft.server.class_api;
 import net.minecraft.server.class_apw;
-import net.minecraft.server.class_aqb;
+import net.minecraft.server.WorldGenMushrooms;
 import net.minecraft.server.WorldGenCactus;
-import net.minecraft.server.class_aqe;
+import net.minecraft.server.WorldGenClay;
 import net.minecraft.server.class_aqf;
 import net.minecraft.server.WorldGenerator;
-import net.minecraft.server.class_aqm;
-import net.minecraft.server.class_aqr;
-import net.minecraft.server.class_arb;
+import net.minecraft.server.WorldGenFlowers;
+import net.minecraft.server.WorldGenHugeMushroom;
+import net.minecraft.server.WorldGenMinable;
 import net.minecraft.server.class_ard;
-import net.minecraft.server.class_are;
-import net.minecraft.server.class_arg;
+import net.minecraft.server.WorldGenReed;
+import net.minecraft.server.WorldGenSand;
 import net.minecraft.server.class_arj;
-import net.minecraft.server.class_arp;
+import net.minecraft.server.WorldGenWaterLily;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public class class_afc {
+public class BiomeDecorator {
    protected World a;
    protected Random b;
    protected BlockPosition c;
    protected class_api d;
-   protected WorldGenerator e = new class_aqe(4);
+   protected WorldGenerator e = new WorldGenClay(4);
    protected WorldGenerator f;
    protected WorldGenerator g;
    protected WorldGenerator h;
@@ -43,7 +43,7 @@ public class class_afc {
    protected WorldGenerator p;
    protected WorldGenerator q;
    protected WorldGenerator r;
-   protected class_aqm s;
+   protected WorldGenFlowers s;
    protected WorldGenerator t;
    protected WorldGenerator u;
    protected WorldGenerator v;
@@ -64,16 +64,16 @@ public class class_afc {
    protected int K;
    public boolean L;
 
-   public class_afc() {
-      this.f = new class_arg(Blocks.SAND, 7);
-      this.g = new class_arg(Blocks.GRAVEL, 6);
-      this.s = new class_aqm(Blocks.YELLOW_FLOWER, BlockFlowers.EnumFlowerVarient.DANDELION);
-      this.t = new class_aqb(Blocks.BROWN_MUSHROOM);
-      this.u = new class_aqb(Blocks.RED_MUSHROOM);
-      this.v = new class_aqr();
-      this.w = new class_are();
+   public BiomeDecorator() {
+      this.f = new WorldGenSand(Blocks.SAND, 7);
+      this.g = new WorldGenSand(Blocks.GRAVEL, 6);
+      this.s = new WorldGenFlowers(Blocks.YELLOW_FLOWER, BlockFlowers.EnumFlowerVarient.DANDELION);
+      this.t = new WorldGenMushrooms(Blocks.BROWN_MUSHROOM);
+      this.u = new WorldGenMushrooms(Blocks.RED_MUSHROOM);
+      this.v = new WorldGenHugeMushroom();
+      this.w = new WorldGenReed();
       this.x = new WorldGenCactus();
-      this.y = new class_arp();
+      this.y = new WorldGenWaterLily();
       this.B = 2;
       this.C = 1;
       this.H = 1;
@@ -96,17 +96,17 @@ public class class_afc {
 
          this.b = var2;
          this.c = var4;
-         this.h = new class_arb(Blocks.DIRT.getBlockData(), this.d.I);
-         this.i = new class_arb(Blocks.GRAVEL.getBlockData(), this.d.M);
-         this.j = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.GRANITE), this.d.Q);
-         this.k = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.DIORITE), this.d.U);
-         this.l = new class_arb(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.ANDESITE), this.d.Y);
-         this.m = new class_arb(Blocks.COAL_ORE.getBlockData(), this.d.ac);
-         this.n = new class_arb(Blocks.IRON_ORE.getBlockData(), this.d.ag);
-         this.o = new class_arb(Blocks.GOLD_ORE.getBlockData(), this.d.ak);
-         this.p = new class_arb(Blocks.REDSTONE_ORE.getBlockData(), this.d.ao);
-         this.q = new class_arb(Blocks.DIAMOND_ORE.getBlockData(), this.d.as);
-         this.r = new class_arb(Blocks.LAPIS_ORE.getBlockData(), this.d.aw);
+         this.h = new WorldGenMinable(Blocks.DIRT.getBlockData(), this.d.I);
+         this.i = new WorldGenMinable(Blocks.GRAVEL.getBlockData(), this.d.M);
+         this.j = new WorldGenMinable(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.GRANITE), this.d.Q);
+         this.k = new WorldGenMinable(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.DIORITE), this.d.U);
+         this.l = new WorldGenMinable(Blocks.STONE.getBlockData().set(BlockStone.VARIANT, BlockStone.EnumStoneVariant.ANDESITE), this.d.Y);
+         this.m = new WorldGenMinable(Blocks.COAL_ORE.getBlockData(), this.d.ac);
+         this.n = new WorldGenMinable(Blocks.IRON_ORE.getBlockData(), this.d.ag);
+         this.o = new WorldGenMinable(Blocks.GOLD_ORE.getBlockData(), this.d.ak);
+         this.p = new WorldGenMinable(Blocks.REDSTONE_ORE.getBlockData(), this.d.ao);
+         this.q = new WorldGenMinable(Blocks.DIAMOND_ORE.getBlockData(), this.d.as);
+         this.r = new WorldGenMinable(Blocks.LAPIS_ORE.getBlockData(), this.d.aw);
          this.a(var3);
          this.a = null;
          this.b = null;

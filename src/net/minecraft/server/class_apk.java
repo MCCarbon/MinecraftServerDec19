@@ -19,7 +19,7 @@ import net.minecraft.server.class_ara;
 import net.minecraft.server.class_arr;
 import net.minecraft.server.class_ars;
 import net.minecraft.server.WorldGenMineshaft;
-import net.minecraft.server.WorldGenGuardianTemple;
+import net.minecraft.server.WorldGenMonument;
 import net.minecraft.server.WorldGenLargeFeature;
 import net.minecraft.server.WorldGenStronghold;
 import net.minecraft.server.StructureGenerator;
@@ -67,7 +67,7 @@ public class class_apk implements class_aoh {
          }
 
          if(var6.containsKey("oceanmonument")) {
-            this.e.add(new WorldGenGuardianTemple((Map)var6.get("oceanmonument")));
+            this.e.add(new WorldGenMonument((Map)var6.get("oceanmonument")));
          }
       }
 

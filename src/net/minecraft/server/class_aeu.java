@@ -64,7 +64,7 @@ public final class class_aeu {
                                  int var24 = var18;
                                  int var25 = var19;
                                  byte var26 = 6;
-                                 BiomeBase.class_c_in_class_aez var27 = null;
+                                 BiomeBase.BiomeMeta var27 = null;
                                  class_qd var28 = null;
 
                                  for(int var29 = 0; var29 < 4; ++var29) {
@@ -173,7 +173,7 @@ public final class class_aeu {
       List var7 = var1.a(class_qc.b);
       if(!var7.isEmpty()) {
          while(var6.nextFloat() < var1.g()) {
-            BiomeBase.class_c_in_class_aez var8 = (BiomeBase.class_c_in_class_aez)class_oc.a(var0.random, var7);
+            BiomeBase.BiomeMeta var8 = (BiomeBase.BiomeMeta)class_oc.a(var0.random, var7);
             int var9 = var8.c + var6.nextInt(1 + var8.d - var8.c);
             class_qd var10 = null;
             int var11 = var2 + var6.nextInt(var4);

@@ -6,38 +6,38 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
 
-public class class_asr {
+public class WorldGenVillagePieces {
    public static void a() {
-      class_asl.a(class_asr.class_a_in_class_asr.class, "ViBH");
-      class_asl.a(class_asr.class_b_in_class_asr.class, "ViDF");
-      class_asl.a(class_asr.class_c_in_class_asr.class, "ViF");
-      class_asl.a(class_asr.class_d_in_class_asr.class, "ViL");
-      class_asl.a(class_asr.class_f_in_class_asr.class, "ViPH");
-      class_asl.a(class_asr.class_g_in_class_asr.class, "ViSH");
-      class_asl.a(class_asr.class_h_in_class_asr.class, "ViSmH");
-      class_asl.a(class_asr.class_i_in_class_asr.class, "ViST");
-      class_asl.a(class_asr.class_j_in_class_asr.class, "ViS");
-      class_asl.a(class_asr.class_k_in_class_asr.class, "ViStart");
-      class_asl.a(class_asr.class_l_in_class_asr.class, "ViSR");
-      class_asl.a(class_asr.class_m_in_class_asr.class, "ViTRH");
-      class_asl.a(class_asr.class_p_in_class_asr.class, "ViW");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageLibrary.class, "ViBH");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageFarm2.class, "ViDF");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageFarm.class, "ViF");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageLight.class, "ViL");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageButcher.class, "ViPH");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageHouse.class, "ViSH");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageHut.class, "ViSmH");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageTemple.class, "ViST");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageBlacksmith.class, "ViS");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageStart.class, "ViStart");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageRoad.class, "ViSR");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageHouse2.class, "ViTRH");
+      WorldGenFactory.a(WorldGenVillagePieces.WorldGenVillageWell.class, "ViW");
    }
 
    public static List a(Random var0, int var1) {
       ArrayList var2 = Lists.newArrayList();
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_g_in_class_asr.class, 4, MathHelper.getRandomIntInRange(var0, 2 + var1, 4 + var1 * 2)));
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_i_in_class_asr.class, 20, MathHelper.getRandomIntInRange(var0, 0 + var1, 1 + var1)));
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_a_in_class_asr.class, 20, MathHelper.getRandomIntInRange(var0, 0 + var1, 2 + var1)));
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_h_in_class_asr.class, 3, MathHelper.getRandomIntInRange(var0, 2 + var1, 5 + var1 * 3)));
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_f_in_class_asr.class, 15, MathHelper.getRandomIntInRange(var0, 0 + var1, 2 + var1)));
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_b_in_class_asr.class, 3, MathHelper.getRandomIntInRange(var0, 1 + var1, 4 + var1)));
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_c_in_class_asr.class, 3, MathHelper.getRandomIntInRange(var0, 2 + var1, 4 + var1 * 2)));
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_j_in_class_asr.class, 15, MathHelper.getRandomIntInRange((Random)var0, 0, 1 + var1)));
-      var2.add(new class_asr.class_e_in_class_asr(class_asr.class_m_in_class_asr.class, 8, MathHelper.getRandomIntInRange(var0, 0 + var1, 3 + var1 * 2)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageHouse.class, 4, MathHelper.getRandomIntInRange(var0, 2 + var1, 4 + var1 * 2)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageTemple.class, 20, MathHelper.getRandomIntInRange(var0, 0 + var1, 1 + var1)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageLibrary.class, 20, MathHelper.getRandomIntInRange(var0, 0 + var1, 2 + var1)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageHut.class, 3, MathHelper.getRandomIntInRange(var0, 2 + var1, 5 + var1 * 3)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageButcher.class, 15, MathHelper.getRandomIntInRange(var0, 0 + var1, 2 + var1)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageFarm2.class, 3, MathHelper.getRandomIntInRange(var0, 1 + var1, 4 + var1)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageFarm.class, 3, MathHelper.getRandomIntInRange(var0, 2 + var1, 4 + var1 * 2)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageBlacksmith.class, 15, MathHelper.getRandomIntInRange((Random)var0, 0, 1 + var1)));
+      var2.add(new WorldGenVillagePieces.class_e_in_class_asr(WorldGenVillagePieces.WorldGenVillageHouse2.class, 8, MathHelper.getRandomIntInRange(var0, 0 + var1, 3 + var1 * 2)));
       Iterator var3 = var2.iterator();
 
       while(var3.hasNext()) {
-         if(((class_asr.class_e_in_class_asr)var3.next()).d == 0) {
+         if(((WorldGenVillagePieces.class_e_in_class_asr)var3.next()).d == 0) {
             var3.remove();
          }
       }
@@ -49,9 +49,9 @@ public class class_asr {
       boolean var1 = false;
       int var2 = 0;
 
-      class_asr.class_e_in_class_asr var4;
+      WorldGenVillagePieces.class_e_in_class_asr var4;
       for(Iterator var3 = var0.iterator(); var3.hasNext(); var2 += var4.b) {
-         var4 = (class_asr.class_e_in_class_asr)var3.next();
+         var4 = (WorldGenVillagePieces.class_e_in_class_asr)var3.next();
          if(var4.d > 0 && var4.c < var4.d) {
             var1 = true;
          }
@@ -60,33 +60,33 @@ public class class_asr {
       return var1?var2:-1;
    }
 
-   private static class_asr.class_n_in_class_asr a(class_asr.class_k_in_class_asr var0, class_asr.class_e_in_class_asr var1, List var2, Random var3, int var4, int var5, int var6, EnumDirection var7, int var8) {
+   private static WorldGenVillagePieces.class_n_in_class_asr a(WorldGenVillagePieces.WorldGenVillageStart var0, WorldGenVillagePieces.class_e_in_class_asr var1, List var2, Random var3, int var4, int var5, int var6, EnumDirection var7, int var8) {
       Class var9 = var1.a;
       Object var10 = null;
-      if(var9 == class_asr.class_g_in_class_asr.class) {
-         var10 = class_asr.class_g_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
-      } else if(var9 == class_asr.class_i_in_class_asr.class) {
-         var10 = class_asr.class_i_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
-      } else if(var9 == class_asr.class_a_in_class_asr.class) {
-         var10 = class_asr.class_a_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
-      } else if(var9 == class_asr.class_h_in_class_asr.class) {
-         var10 = class_asr.class_h_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
-      } else if(var9 == class_asr.class_f_in_class_asr.class) {
-         var10 = class_asr.class_f_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
-      } else if(var9 == class_asr.class_b_in_class_asr.class) {
-         var10 = class_asr.class_b_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
-      } else if(var9 == class_asr.class_c_in_class_asr.class) {
-         var10 = class_asr.class_c_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
-      } else if(var9 == class_asr.class_j_in_class_asr.class) {
-         var10 = class_asr.class_j_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
-      } else if(var9 == class_asr.class_m_in_class_asr.class) {
-         var10 = class_asr.class_m_in_class_asr.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      if(var9 == WorldGenVillagePieces.WorldGenVillageHouse.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageHouse.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      } else if(var9 == WorldGenVillagePieces.WorldGenVillageTemple.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageTemple.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      } else if(var9 == WorldGenVillagePieces.WorldGenVillageLibrary.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageLibrary.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      } else if(var9 == WorldGenVillagePieces.WorldGenVillageHut.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageHut.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      } else if(var9 == WorldGenVillagePieces.WorldGenVillageButcher.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageButcher.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      } else if(var9 == WorldGenVillagePieces.WorldGenVillageFarm2.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageFarm2.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      } else if(var9 == WorldGenVillagePieces.WorldGenVillageFarm.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageFarm.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      } else if(var9 == WorldGenVillagePieces.WorldGenVillageBlacksmith.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageBlacksmith.a(var0, var2, var3, var4, var5, var6, var7, var8);
+      } else if(var9 == WorldGenVillagePieces.WorldGenVillageHouse2.class) {
+         var10 = WorldGenVillagePieces.WorldGenVillageHouse2.a(var0, var2, var3, var4, var5, var6, var7, var8);
       }
 
-      return (class_asr.class_n_in_class_asr)var10;
+      return (WorldGenVillagePieces.class_n_in_class_asr)var10;
    }
 
-   private static class_asr.class_n_in_class_asr c(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+   private static WorldGenVillagePieces.class_n_in_class_asr c(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       int var8 = a(var0.e);
       if(var8 <= 0) {
          return null;
@@ -99,14 +99,14 @@ public class class_asr {
             Iterator var11 = var0.e.iterator();
 
             while(var11.hasNext()) {
-               class_asr.class_e_in_class_asr var12 = (class_asr.class_e_in_class_asr)var11.next();
+               WorldGenVillagePieces.class_e_in_class_asr var12 = (WorldGenVillagePieces.class_e_in_class_asr)var11.next();
                var10 -= var12.b;
                if(var10 < 0) {
                   if(!var12.a(var7) || var12 == var0.d && var0.e.size() > 1) {
                      break;
                   }
 
-                  class_asr.class_n_in_class_asr var13 = a(var0, var12, var1, var2, var3, var4, var5, var6, var7);
+                  WorldGenVillagePieces.class_n_in_class_asr var13 = a(var0, var12, var1, var2, var3, var4, var5, var6, var7);
                   if(var13 != null) {
                      ++var12.c;
                      var0.d = var12;
@@ -120,20 +120,20 @@ public class class_asr {
             }
          }
 
-         StructureBoundingBox var14 = class_asr.class_d_in_class_asr.a(var0, var1, var2, var3, var4, var5, var6);
+         StructureBoundingBox var14 = WorldGenVillagePieces.WorldGenVillageLight.a(var0, var1, var2, var3, var4, var5, var6);
          if(var14 != null) {
-            return new class_asr.class_d_in_class_asr(var0, var7, var2, var14, var6);
+            return new WorldGenVillagePieces.WorldGenVillageLight(var0, var7, var2, var14, var6);
          } else {
             return null;
          }
       }
    }
 
-   private static StructurePiece d(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+   private static StructurePiece d(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 50) {
          return null;
       } else if(Math.abs(var3 - var0.c().a) <= 112 && Math.abs(var5 - var0.c().c) <= 112) {
-         class_asr.class_n_in_class_asr var8 = c(var0, var1, var2, var3, var4, var5, var6, var7 + 1);
+         WorldGenVillagePieces.class_n_in_class_asr var8 = c(var0, var1, var2, var3, var4, var5, var6, var7 + 1);
          if(var8 != null) {
             int var9 = (var8.l.a + var8.l.d) / 2;
             int var10 = (var8.l.c + var8.l.f) / 2;
@@ -153,13 +153,13 @@ public class class_asr {
       }
    }
 
-   private static StructurePiece e(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+   private static StructurePiece e(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 3 + var0.c) {
          return null;
       } else if(Math.abs(var3 - var0.c().a) <= 112 && Math.abs(var5 - var0.c().c) <= 112) {
-         StructureBoundingBox var8 = class_asr.class_l_in_class_asr.a(var0, var1, var2, var3, var4, var5, var6);
+         StructureBoundingBox var8 = WorldGenVillagePieces.WorldGenVillageRoad.a(var0, var1, var2, var3, var4, var5, var6);
          if(var8 != null && var8.b > 10) {
-            class_asr.class_l_in_class_asr var9 = new class_asr.class_l_in_class_asr(var0, var7, var2, var8, var6);
+            WorldGenVillagePieces.WorldGenVillageRoad var9 = new WorldGenVillagePieces.WorldGenVillageRoad(var0, var7, var2, var8, var6);
             int var10 = (var9.l.a + var9.l.d) / 2;
             int var11 = (var9.l.c + var9.l.f) / 2;
             int var12 = var9.l.d - var9.l.a;
@@ -211,17 +211,17 @@ public class class_asr {
       }
    }
 
-   public static class class_d_in_class_asr extends class_asr.class_n_in_class_asr {
-      public class_d_in_class_asr() {
+   public static class WorldGenVillageLight extends WorldGenVillagePieces.class_n_in_class_asr {
+      public WorldGenVillageLight() {
       }
 
-      public class_d_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageLight(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
-      public static StructureBoundingBox a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6) {
+      public static StructureBoundingBox a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6) {
          StructureBoundingBox var7 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 3, 4, 2, var6);
          return StructurePiece.a(var1, var7) != null?null:var7;
       }
@@ -249,16 +249,16 @@ public class class_asr {
       }
    }
 
-   public static class class_b_in_class_asr extends class_asr.class_n_in_class_asr {
+   public static class WorldGenVillageFarm2 extends WorldGenVillagePieces.class_n_in_class_asr {
       private Block a;
       private Block b;
       private Block c;
       private Block d;
 
-      public class_b_in_class_asr() {
+      public WorldGenVillageFarm2() {
       }
 
-      public class_b_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageFarm2(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a((EnumDirection)var5);
          this.l = var4;
@@ -299,9 +299,9 @@ public class class_asr {
          }
       }
 
-      public static class_asr.class_b_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageFarm2 a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 13, 4, 9, var6);
-         return a((StructureBoundingBox)var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_b_in_class_asr(var0, var7, var2, var8, var6):null;
+         return a((StructureBoundingBox)var8) && StructurePiece.a(var1, var8) == null?new WorldGenVillagePieces.WorldGenVillageFarm2(var0, var7, var2, var8, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -359,14 +359,14 @@ public class class_asr {
       }
    }
 
-   public static class class_c_in_class_asr extends class_asr.class_n_in_class_asr {
+   public static class WorldGenVillageFarm extends WorldGenVillagePieces.class_n_in_class_asr {
       private Block a;
       private Block b;
 
-      public class_c_in_class_asr() {
+      public WorldGenVillageFarm() {
       }
 
-      public class_c_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageFarm(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a((EnumDirection)var5);
          this.l = var4;
@@ -401,9 +401,9 @@ public class class_asr {
          }
       }
 
-      public static class_asr.class_c_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageFarm a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 7, 4, 9, var6);
-         return a((StructureBoundingBox)var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_c_in_class_asr(var0, var7, var2, var8, var6):null;
+         return a((StructureBoundingBox)var8) && StructurePiece.a(var1, var8) == null?new WorldGenVillagePieces.WorldGenVillageFarm(var0, var7, var2, var8, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -449,22 +449,22 @@ public class class_asr {
       }
    }
 
-   public static class class_j_in_class_asr extends class_asr.class_n_in_class_asr {
+   public static class WorldGenVillageBlacksmith extends WorldGenVillagePieces.class_n_in_class_asr {
       private static final List a;
       private boolean b;
 
-      public class_j_in_class_asr() {
+      public WorldGenVillageBlacksmith() {
       }
 
-      public class_j_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageBlacksmith(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
-      public static class_asr.class_j_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageBlacksmith a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 10, 6, 7, var6);
-         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_j_in_class_asr(var0, var7, var2, var8, var6):null;
+         return a(var8) && StructurePiece.a(var1, var8) == null?new WorldGenVillagePieces.WorldGenVillageBlacksmith(var0, var7, var2, var8, var6):null;
       }
 
       protected void a(NBTTagCompound var1) {
@@ -554,19 +554,19 @@ public class class_asr {
       }
    }
 
-   public static class class_m_in_class_asr extends class_asr.class_n_in_class_asr {
-      public class_m_in_class_asr() {
+   public static class WorldGenVillageHouse2 extends WorldGenVillagePieces.class_n_in_class_asr {
+      public WorldGenVillageHouse2() {
       }
 
-      public class_m_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageHouse2(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
-      public static class_asr.class_m_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageHouse2 a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 9, 7, 12, var6);
-         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_m_in_class_asr(var0, var7, var2, var8, var6):null;
+         return a(var8) && StructurePiece.a(var1, var8) == null?new WorldGenVillagePieces.WorldGenVillageHouse2(var0, var7, var2, var8, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -691,19 +691,19 @@ public class class_asr {
       }
    }
 
-   public static class class_f_in_class_asr extends class_asr.class_n_in_class_asr {
-      public class_f_in_class_asr() {
+   public static class WorldGenVillageButcher extends WorldGenVillagePieces.class_n_in_class_asr {
+      public WorldGenVillageButcher() {
       }
 
-      public class_f_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageButcher(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
-      public static class_asr.class_f_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageButcher a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 9, 7, 11, var6);
-         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_f_in_class_asr(var0, var7, var2, var8, var6):null;
+         return a(var8) && StructurePiece.a(var1, var8) == null?new WorldGenVillagePieces.WorldGenVillageButcher(var0, var7, var2, var8, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -799,14 +799,14 @@ public class class_asr {
       }
    }
 
-   public static class class_h_in_class_asr extends class_asr.class_n_in_class_asr {
+   public static class WorldGenVillageHut extends WorldGenVillagePieces.class_n_in_class_asr {
       private boolean a;
       private int b;
 
-      public class_h_in_class_asr() {
+      public WorldGenVillageHut() {
       }
 
-      public class_h_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageHut(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
@@ -826,9 +826,9 @@ public class class_asr {
          this.a = var1.getBoolean("C");
       }
 
-      public static class_asr.class_h_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageHut a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 4, 6, 5, var6);
-         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_h_in_class_asr(var0, var7, var2, var8, var6):null;
+         return a(var8) && StructurePiece.a(var1, var8) == null?new WorldGenVillagePieces.WorldGenVillageHut(var0, var7, var2, var8, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -894,19 +894,19 @@ public class class_asr {
       }
    }
 
-   public static class class_a_in_class_asr extends class_asr.class_n_in_class_asr {
-      public class_a_in_class_asr() {
+   public static class WorldGenVillageLibrary extends WorldGenVillagePieces.class_n_in_class_asr {
+      public WorldGenVillageLibrary() {
       }
 
-      public class_a_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageLibrary(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
-      public static class_asr.class_a_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageLibrary a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 9, 9, 6, var6);
-         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_a_in_class_asr(var0, var7, var2, var8, var6):null;
+         return a(var8) && StructurePiece.a(var1, var8) == null?new WorldGenVillagePieces.WorldGenVillageLibrary(var0, var7, var2, var8, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -1001,19 +1001,19 @@ public class class_asr {
       }
    }
 
-   public static class class_i_in_class_asr extends class_asr.class_n_in_class_asr {
-      public class_i_in_class_asr() {
+   public static class WorldGenVillageTemple extends WorldGenVillagePieces.class_n_in_class_asr {
+      public WorldGenVillageTemple() {
       }
 
-      public class_i_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageTemple(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
       }
 
-      public static class_asr.class_i_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageTemple a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 5, 12, 9, var6);
-         return a(var8) && StructurePiece.a(var1, var8) == null?new class_asr.class_i_in_class_asr(var0, var7, var2, var8, var6):null;
+         return a(var8) && StructurePiece.a(var1, var8) == null?new WorldGenVillagePieces.WorldGenVillageTemple(var0, var7, var2, var8, var6):null;
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -1105,13 +1105,13 @@ public class class_asr {
       }
    }
 
-   public static class class_g_in_class_asr extends class_asr.class_n_in_class_asr {
+   public static class WorldGenVillageHouse extends WorldGenVillagePieces.class_n_in_class_asr {
       private boolean a;
 
-      public class_g_in_class_asr() {
+      public WorldGenVillageHouse() {
       }
 
-      public class_g_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageHouse(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
@@ -1128,9 +1128,9 @@ public class class_asr {
          this.a = var1.getBoolean("Terrace");
       }
 
-      public static class_asr.class_g_in_class_asr a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
+      public static WorldGenVillagePieces.WorldGenVillageHouse a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
          StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 5, 6, 5, var6);
-         return StructurePiece.a(var1, var8) != null?null:new class_asr.class_g_in_class_asr(var0, var7, var2, var8, var6);
+         return StructurePiece.a(var1, var8) != null?null:new WorldGenVillagePieces.WorldGenVillageHouse(var0, var7, var2, var8, var6);
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -1217,13 +1217,13 @@ public class class_asr {
       }
    }
 
-   public static class class_l_in_class_asr extends class_asr.class_o_in_class_asr {
+   public static class WorldGenVillageRoad extends WorldGenVillagePieces.class_o_in_class_asr {
       private int a;
 
-      public class_l_in_class_asr() {
+      public WorldGenVillageRoad() {
       }
 
-      public class_l_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
+      public WorldGenVillageRoad(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, StructureBoundingBox var4, EnumDirection var5) {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
@@ -1246,7 +1246,7 @@ public class class_asr {
          int var5;
          StructurePiece var6;
          for(var5 = var3.nextInt(5); var5 < this.a - 8; var5 += 2 + var3.nextInt(5)) {
-            var6 = this.a((class_asr.class_k_in_class_asr)var1, var2, var3, 0, var5);
+            var6 = this.a((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, 0, var5);
             if(var6 != null) {
                var5 += Math.max(var6.l.c(), var6.l.e());
                var4 = true;
@@ -1254,7 +1254,7 @@ public class class_asr {
          }
 
          for(var5 = var3.nextInt(5); var5 < this.a - 8; var5 += 2 + var3.nextInt(5)) {
-            var6 = this.b((class_asr.class_k_in_class_asr)var1, var2, var3, 0, var5);
+            var6 = this.b((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, 0, var5);
             if(var6 != null) {
                var5 += Math.max(var6.l.c(), var6.l.e());
                var4 = true;
@@ -1263,40 +1263,40 @@ public class class_asr {
 
          EnumDirection var7 = this.e();
          if(var4 && var3.nextInt(3) > 0 && var7 != null) {
-            switch(class_asr.SyntheticClass_1.a[var7.ordinal()]) {
+            switch(WorldGenVillagePieces.SyntheticClass_1.a[var7.ordinal()]) {
             case 1:
-               class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a - 1, this.l.b, this.l.c, EnumDirection.WEST, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a - 1, this.l.b, this.l.c, EnumDirection.WEST, this.d());
                break;
             case 2:
-               class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a - 1, this.l.b, this.l.f - 2, EnumDirection.WEST, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a - 1, this.l.b, this.l.f - 2, EnumDirection.WEST, this.d());
                break;
             case 3:
-               class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a, this.l.b, this.l.c - 1, EnumDirection.NORTH, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a, this.l.b, this.l.c - 1, EnumDirection.NORTH, this.d());
                break;
             case 4:
-               class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.d - 2, this.l.b, this.l.c - 1, EnumDirection.NORTH, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d - 2, this.l.b, this.l.c - 1, EnumDirection.NORTH, this.d());
             }
          }
 
          if(var4 && var3.nextInt(3) > 0 && var7 != null) {
-            switch(class_asr.SyntheticClass_1.a[var7.ordinal()]) {
+            switch(WorldGenVillagePieces.SyntheticClass_1.a[var7.ordinal()]) {
             case 1:
-               class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.d + 1, this.l.b, this.l.c, EnumDirection.EAST, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d + 1, this.l.b, this.l.c, EnumDirection.EAST, this.d());
                break;
             case 2:
-               class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.d + 1, this.l.b, this.l.f - 2, EnumDirection.EAST, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d + 1, this.l.b, this.l.f - 2, EnumDirection.EAST, this.d());
                break;
             case 3:
-               class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a, this.l.b, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a, this.l.b, this.l.f + 1, EnumDirection.SOUTH, this.d());
                break;
             case 4:
-               class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.d - 2, this.l.b, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d - 2, this.l.b, this.l.f + 1, EnumDirection.SOUTH, this.d());
             }
          }
 
       }
 
-      public static StructureBoundingBox a(class_asr.class_k_in_class_asr var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6) {
+      public static StructureBoundingBox a(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6) {
          for(int var7 = 7 * MathHelper.getRandomIntInRange((Random)var2, 3, 5); var7 >= 7; var7 -= 7) {
             StructureBoundingBox var8 = StructureBoundingBox.a(var3, var4, var5, 0, 0, 0, 3, 3, var7, var6);
             if(StructurePiece.a(var1, var8) == null) {
@@ -1326,29 +1326,29 @@ public class class_asr {
       }
    }
 
-   public abstract static class class_o_in_class_asr extends class_asr.class_n_in_class_asr {
+   public abstract static class class_o_in_class_asr extends WorldGenVillagePieces.class_n_in_class_asr {
       public class_o_in_class_asr() {
       }
 
-      protected class_o_in_class_asr(class_asr.class_k_in_class_asr var1, int var2) {
+      protected class_o_in_class_asr(WorldGenVillagePieces.WorldGenVillageStart var1, int var2) {
          super(var1, var2);
       }
    }
 
-   public static class class_k_in_class_asr extends class_asr.class_p_in_class_asr {
+   public static class WorldGenVillageStart extends WorldGenVillagePieces.WorldGenVillageWell {
       public class_afd a;
       public boolean b;
       public int c;
-      public class_asr.class_e_in_class_asr d;
+      public WorldGenVillagePieces.class_e_in_class_asr d;
       public List e;
       public List f = Lists.newArrayList();
       public List g = Lists.newArrayList();
 
-      public class_k_in_class_asr() {
+      public WorldGenVillageStart() {
       }
 
-      public class_k_in_class_asr(class_afd var1, int var2, Random var3, int var4, int var5, List var6, int var7) {
-         super((class_asr.class_k_in_class_asr)null, 0, var3, var4, var5);
+      public WorldGenVillageStart(class_afd var1, int var2, Random var3, int var4, int var5, List var6, int var7) {
+         super((WorldGenVillagePieces.WorldGenVillageStart)null, 0, var3, var4, var5);
          this.a = var1;
          this.e = var6;
          this.c = var7;
@@ -1362,11 +1362,11 @@ public class class_asr {
       }
    }
 
-   public static class class_p_in_class_asr extends class_asr.class_n_in_class_asr {
-      public class_p_in_class_asr() {
+   public static class WorldGenVillageWell extends WorldGenVillagePieces.class_n_in_class_asr {
+      public WorldGenVillageWell() {
       }
 
-      public class_p_in_class_asr(class_asr.class_k_in_class_asr var1, int var2, Random var3, int var4, int var5) {
+      public WorldGenVillageWell(WorldGenVillagePieces.WorldGenVillageStart var1, int var2, Random var3, int var4, int var5) {
          super(var1, var2);
          this.a(EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var3));
          if(this.e().getAxis() == EnumDirection.EnumAxis.Z) {
@@ -1378,10 +1378,10 @@ public class class_asr {
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a - 1, this.l.e - 4, this.l.c + 1, EnumDirection.WEST, this.d());
-         class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.d + 1, this.l.e - 4, this.l.c + 1, EnumDirection.EAST, this.d());
-         class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a + 1, this.l.e - 4, this.l.c - 1, EnumDirection.NORTH, this.d());
-         class_asr.e((class_asr.class_k_in_class_asr)var1, var2, var3, this.l.a + 1, this.l.e - 4, this.l.f + 1, EnumDirection.SOUTH, this.d());
+         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a - 1, this.l.e - 4, this.l.c + 1, EnumDirection.WEST, this.d());
+         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d + 1, this.l.e - 4, this.l.c + 1, EnumDirection.EAST, this.d());
+         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a + 1, this.l.e - 4, this.l.c - 1, EnumDirection.NORTH, this.d());
+         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a + 1, this.l.e - 4, this.l.f + 1, EnumDirection.SOUTH, this.d());
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -1430,7 +1430,7 @@ public class class_asr {
       public class_n_in_class_asr() {
       }
 
-      protected class_n_in_class_asr(class_asr.class_k_in_class_asr var1, int var2) {
+      protected class_n_in_class_asr(WorldGenVillagePieces.WorldGenVillageStart var1, int var2) {
          super(var2);
          if(var1 != null) {
             this.b = var1.b;
@@ -1450,36 +1450,36 @@ public class class_asr {
          this.b = var1.getBoolean("Desert");
       }
 
-      protected StructurePiece a(class_asr.class_k_in_class_asr var1, List var2, Random var3, int var4, int var5) {
+      protected StructurePiece a(WorldGenVillagePieces.WorldGenVillageStart var1, List var2, Random var3, int var4, int var5) {
          EnumDirection var6 = this.e();
          if(var6 != null) {
-            switch(class_asr.SyntheticClass_1.a[var6.ordinal()]) {
+            switch(WorldGenVillagePieces.SyntheticClass_1.a[var6.ordinal()]) {
             case 1:
-               return class_asr.d(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
             case 2:
-               return class_asr.d(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
             case 3:
-               return class_asr.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
             case 4:
-               return class_asr.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
             }
          }
 
          return null;
       }
 
-      protected StructurePiece b(class_asr.class_k_in_class_asr var1, List var2, Random var3, int var4, int var5) {
+      protected StructurePiece b(WorldGenVillagePieces.WorldGenVillageStart var1, List var2, Random var3, int var4, int var5) {
          EnumDirection var6 = this.e();
          if(var6 != null) {
-            switch(class_asr.SyntheticClass_1.a[var6.ordinal()]) {
+            switch(WorldGenVillagePieces.SyntheticClass_1.a[var6.ordinal()]) {
             case 1:
-               return class_asr.d(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
             case 2:
-               return class_asr.d(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
             case 3:
-               return class_asr.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
             case 4:
-               return class_asr.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
             }
          }
 

@@ -4,26 +4,26 @@ import com.google.common.collect.Maps;
 import java.util.Map;
 import net.minecraft.server.World;
 import net.minecraft.server.WorldGenEndCity;
-import net.minecraft.server.class_ary;
+import net.minecraft.server.WorldGenEndCityPieces;
 import net.minecraft.server.WorldGenMineshaftPieces;
 import net.minecraft.server.WorldGenMineshaftStart;
-import net.minecraft.server.class_asc;
-import net.minecraft.server.class_asd;
-import net.minecraft.server.WorldGenGuardianTemple;
-import net.minecraft.server.class_asf;
+import net.minecraft.server.WorldGenNether;
+import net.minecraft.server.WorldGenNetherPieces;
+import net.minecraft.server.WorldGenMonument;
+import net.minecraft.server.WorldGenMonumetPieces;
 import net.minecraft.server.WorldGenLargeFeature;
-import net.minecraft.server.class_ash;
+import net.minecraft.server.WorldGenRegistration;
 import net.minecraft.server.WorldGenStronghold;
-import net.minecraft.server.class_asj;
+import net.minecraft.server.WorldGenStrongholdPieces;
 import net.minecraft.server.StructurePiece;
 import net.minecraft.server.StructureStart;
 import net.minecraft.server.WorldGenVillage;
-import net.minecraft.server.class_asr;
+import net.minecraft.server.WorldGenVillagePieces;
 import net.minecraft.server.NBTTagCompound;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_asl {
+public class WorldGenFactory {
    private static final Logger a = LogManager.getLogger();
    private static Map b = Maps.newHashMap();
    private static Map c = Maps.newHashMap();
@@ -94,18 +94,18 @@ public class class_asl {
 
    static {
       b(WorldGenMineshaftStart.class, "Mineshaft");
-      b(WorldGenVillage.class_a_in_class_asq.class, "Village");
-      b(class_asc.class_a_in_class_asc.class, "Fortress");
-      b(WorldGenStronghold.class_a_in_class_asi.class, "Stronghold");
-      b(WorldGenLargeFeature.class_a_in_class_asg.class, "Temple");
-      b(WorldGenGuardianTemple.class_a_in_class_ase.class, "Monument");
-      b(WorldGenEndCity.class_a_in_class_arx.class, "EndCity");
+      b(WorldGenVillage.WorldGenVillageStart.class, "Village");
+      b(WorldGenNether.WorldGenNetherStart.class, "Fortress");
+      b(WorldGenStronghold.WorldGenStrongholdStart.class, "Stronghold");
+      b(WorldGenLargeFeature.WorldGenLargeFeatureStart.class, "Temple");
+      b(WorldGenMonument.WorldGenMonumentStart.class, "Monument");
+      b(WorldGenEndCity.WorldGenEndCityStart.class, "EndCity");
       WorldGenMineshaftPieces.a();
-      class_asr.a();
-      class_asd.a();
-      class_asj.a();
-      class_ash.a();
-      class_asf.a();
-      class_ary.a();
+      WorldGenVillagePieces.a();
+      WorldGenNetherPieces.a();
+      WorldGenStrongholdPieces.a();
+      WorldGenRegistration.a();
+      WorldGenMonumetPieces.a();
+      WorldGenEndCityPieces.a();
    }
 }

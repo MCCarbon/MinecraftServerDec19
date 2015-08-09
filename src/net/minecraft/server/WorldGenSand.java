@@ -9,11 +9,11 @@ import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public class class_arg extends WorldGenerator {
+public class WorldGenSand extends WorldGenerator {
    private Block a;
    private int b;
 
-   public class_arg(Block var1, int var2) {
+   public WorldGenSand(Block var1, int var2) {
       this.a = var1;
       this.b = var2;
    }

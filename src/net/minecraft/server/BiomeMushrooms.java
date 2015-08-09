@@ -12,6 +12,6 @@ public class BiomeMushrooms extends BiomeBase {
       this.at.clear();
       this.au.clear();
       this.av.clear();
-      this.au.add(new BiomeBase.class_c_in_class_aez(EntityMushroomCow.class, 8, 4, 8));
+      this.au.add(new BiomeBase.BiomeMeta(EntityMushroomCow.class, 8, 4, 8));
    }
 }

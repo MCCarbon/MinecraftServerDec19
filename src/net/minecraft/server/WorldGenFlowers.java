@@ -7,11 +7,11 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 
-public class class_aqm extends WorldGenerator {
+public class WorldGenFlowers extends WorldGenerator {
    private BlockFlowers a;
    private IBlockData b;
 
-   public class_aqm(BlockFlowers var1, BlockFlowers.EnumFlowerVarient var2) {
+   public WorldGenFlowers(BlockFlowers var1, BlockFlowers.EnumFlowerVarient var2) {
       this.a(var1, var2);
    }
 
