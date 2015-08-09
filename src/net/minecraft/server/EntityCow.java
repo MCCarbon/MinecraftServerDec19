@@ -83,7 +83,7 @@ public class EntityCow extends EntityAnimal {
       return new EntityCow(this.world);
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return this.length;
    }
 

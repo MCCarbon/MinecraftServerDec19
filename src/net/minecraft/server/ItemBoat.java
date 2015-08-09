@@ -13,7 +13,7 @@ public class ItemBoat extends Item {
       float var6 = var3.lastPitch + (var3.pitch - var3.lastPitch) * var5;
       float var7 = var3.lastYaw + (var3.yaw - var3.lastYaw) * var5;
       double var8 = var3.lastX + (var3.locX - var3.lastX) * (double)var5;
-      double var10 = var3.lastY + (var3.locY - var3.lastY) * (double)var5 + (double)var3.aU();
+      double var10 = var3.lastY + (var3.locY - var3.lastY) * (double)var5 + (double)var3.getHeadHeight();
       double var12 = var3.lastZ + (var3.locZ - var3.lastZ) * (double)var5;
       Vec3D var14 = new Vec3D(var8, var10, var12);
       float var15 = MathHelper.cos(-var7 * 0.017453292F - 3.1415927F);

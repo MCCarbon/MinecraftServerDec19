@@ -60,7 +60,7 @@ public abstract class class_uz extends Entity {
          var14 /= 32.0D;
          var16 /= 32.0D;
          var18 /= 32.0D;
-         this.a((AxisAlignedBB)(new AxisAlignedBB(var1 - var14, var3 - var16, var5 - var18, var1 + var14, var3 + var16, var5 + var18)));
+         this.setBoundingBox((AxisAlignedBB)(new AxisAlignedBB(var1 - var14, var3 - var16, var5 - var18, var1 + var14, var3 + var16, var5 + var18)));
       }
    }
 

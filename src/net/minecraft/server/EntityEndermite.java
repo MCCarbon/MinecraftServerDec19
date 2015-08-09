@@ -17,7 +17,7 @@ public class EntityEndermite extends EntityMonster {
       this.bn.a(2, new class_sz(this, EntityHuman.class, true));
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return 0.1F;
    }
 

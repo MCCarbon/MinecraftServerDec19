@@ -78,7 +78,7 @@ public class EntityBlaze extends EntityMonster {
 		}
 
 		EntityLiving var1 = this.w();
-		if (var1 != null && var1.locY + (double) var1.aU() > this.locY + (double) this.aU() + (double) this.a) {
+		if (var1 != null && var1.locY + (double) var1.getHeadHeight() > this.locY + (double) this.getHeadHeight() + (double) this.a) {
 			this.motY += (0.30000001192092896D - this.motY) * 0.30000001192092896D;
 			this.ai = true;
 		}

@@ -478,7 +478,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 		this.locZ = var5;
 		float var7 = this.width / 2.0F;
 		float var8 = this.length;
-		this.a((AxisAlignedBB) (new AxisAlignedBB(var1 - (double) var7, var3, var5 - (double) var7, var1 + (double) var7, var3 + (double) var8, var5 + (double) var7)));
+		this.setBoundingBox((AxisAlignedBB) (new AxisAlignedBB(var1 - (double) var7, var3, var5 - (double) var7, var1 + (double) var7, var3 + (double) var8, var5 + (double) var7)));
 	}
 
 	public Vec3D k(double var1, double var3, double var5) {

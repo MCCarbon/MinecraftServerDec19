@@ -34,7 +34,7 @@ public class class_rc extends class_rm {
    }
 
    public void e() {
-      this.a.q().a(this.b.locX, this.b.locY + (double)this.b.aU(), this.b.locZ, 10.0F, (float)this.a.cd());
+      this.a.q().a(this.b.locX, this.b.locY + (double)this.b.getHeadHeight(), this.b.locZ, 10.0F, (float)this.a.cd());
       --this.e;
    }
 

@@ -153,7 +153,7 @@ public abstract class Entity implements class_m {
 			float var3 = this.width;
 			this.width = var1;
 			this.length = var2;
-			this.a(new AxisAlignedBB(this.getBoundingBox().xMin, this.getBoundingBox().yMin, this.getBoundingBox().zMin, this.getBoundingBox().xMin + (double) this.width, this.getBoundingBox().yMin + (double) this.length, this.getBoundingBox().zMin + (double) this.width));
+			this.setBoundingBox(new AxisAlignedBB(this.getBoundingBox().xMin, this.getBoundingBox().yMin, this.getBoundingBox().zMin, this.getBoundingBox().xMin + (double) this.width, this.getBoundingBox().yMin + (double) this.length, this.getBoundingBox().zMin + (double) this.width));
 			if (this.width > var3 && !this.justCreated && !this.world.isClientSide) {
 				this.d((double) (var3 - this.width), 0.0D, (double) (var3 - this.width));
 			}
@@ -172,7 +172,7 @@ public abstract class Entity implements class_m {
 		this.locZ = var5;
 		float var7 = this.width / 2.0F;
 		float var8 = this.length;
-		this.a(new AxisAlignedBB(var1 - (double) var7, var3, var5 - (double) var7, var1 + (double) var7, var3 + (double) var8, var5 + (double) var7));
+		this.setBoundingBox(new AxisAlignedBB(var1 - (double) var7, var3, var5 - (double) var7, var1 + (double) var7, var3 + (double) var8, var5 + (double) var7));
 	}
 
 	public void t_() {
@@ -311,7 +311,7 @@ public abstract class Entity implements class_m {
 
 	public void d(double var1, double var3, double var5) {
 		if (this.noclip) {
-			this.a(this.getBoundingBox().c(var1, var3, var5));
+			this.setBoundingBox(this.getBoundingBox().c(var1, var3, var5));
 			this.m();
 		} else {
 			this.world.B.a("move");
@@ -382,7 +382,7 @@ public abstract class Entity implements class_m {
 				var23 = (AxisAlignedBB) var22.next();
 			}
 
-			this.a(this.getBoundingBox().c(0.0D, var3, 0.0D));
+			this.setBoundingBox(this.getBoundingBox().c(0.0D, var3, 0.0D));
 			boolean var54 = this.onGround || var15 != var3 && var15 < 0.0D;
 
 			AxisAlignedBB var24;
@@ -391,19 +391,19 @@ public abstract class Entity implements class_m {
 				var24 = (AxisAlignedBB) var55.next();
 			}
 
-			this.a(this.getBoundingBox().c(var1, 0.0D, 0.0D));
+			this.setBoundingBox(this.getBoundingBox().c(var1, 0.0D, 0.0D));
 
 			for (var55 = var53.iterator(); var55.hasNext(); var5 = var24.c(this.getBoundingBox(), var5)) {
 				var24 = (AxisAlignedBB) var55.next();
 			}
 
-			this.a(this.getBoundingBox().c(0.0D, 0.0D, var5));
+			this.setBoundingBox(this.getBoundingBox().c(0.0D, 0.0D, var5));
 			if (this.S > 0.0F && var54 && (var13 != var1 || var17 != var5)) {
 				double var56 = var1;
 				double var25 = var3;
 				double var27 = var5;
 				AxisAlignedBB var29 = this.getBoundingBox();
-				this.a(var21);
+				this.setBoundingBox(var21);
 				var3 = (double) this.S;
 				List var30 = this.world.getCubes(this, this.getBoundingBox().add(var13, var3, var17));
 				AxisAlignedBB var31 = this.getBoundingBox();
@@ -463,12 +463,12 @@ public abstract class Entity implements class_m {
 					var1 = var67;
 					var5 = var68;
 					var3 = -var33;
-					this.a(var31);
+					this.setBoundingBox(var31);
 				} else {
 					var1 = var71;
 					var5 = var72;
 					var3 = -var70;
-					this.a(var69);
+					this.setBoundingBox(var69);
 				}
 
 				AxisAlignedBB var51;
@@ -476,12 +476,12 @@ public abstract class Entity implements class_m {
 					var51 = (AxisAlignedBB) var50.next();
 				}
 
-				this.a(this.getBoundingBox().c(0.0D, var3, 0.0D));
+				this.setBoundingBox(this.getBoundingBox().c(0.0D, var3, 0.0D));
 				if (var56 * var56 + var27 * var27 >= var1 * var1 + var5 * var5) {
 					var1 = var56;
 					var3 = var25;
 					var5 = var27;
-					this.a(var29);
+					this.setBoundingBox(var29);
 				}
 			}
 
@@ -757,7 +757,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public boolean a(Material var1) {
-		double var2 = this.locY + (double) this.aU();
+		double var2 = this.locY + (double) this.getHeadHeight();
 		BlockPosition var4 = new BlockPosition(this.locX, var2, this.locZ);
 		IBlockData var5 = this.world.getType(var4);
 		Block var6 = var5.getBlock();
@@ -794,7 +794,7 @@ public abstract class Entity implements class_m {
 	}
 
 	public float c(float var1) {
-		BlockPosition var2 = new BlockPosition(this.locX, this.locY + (double) this.aU(), this.locZ);
+		BlockPosition var2 = new BlockPosition(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ);
 		return this.world.isLoaded(var2) ? this.world.o(var2) : 0.0F;
 	}
 
@@ -1156,7 +1156,7 @@ public abstract class Entity implements class_m {
 			BlockPosition.MutableBlockPosition var1 = new BlockPosition.MutableBlockPosition(Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
 
 			for (int var2 = 0; var2 < 8; ++var2) {
-				int var3 = MathHelper.floor(this.locY + (double) (((float) ((var2 >> 0) % 2) - 0.5F) * 0.1F) + (double) this.aU());
+				int var3 = MathHelper.floor(this.locY + (double) (((float) ((var2 >> 0) % 2) - 0.5F) * 0.1F) + (double) this.getHeadHeight());
 				int var4 = MathHelper.floor(this.locX + (double) (((float) ((var2 >> 1) % 2) - 0.5F) * this.width * 0.8F));
 				int var5 = MathHelper.floor(this.locZ + (double) (((float) ((var2 >> 2) % 2) - 0.5F) * this.width * 0.8F));
 				if (var1.getX() != var4 || var1.getY() != var3 || var1.getZ() != var5) {
@@ -1692,11 +1692,11 @@ public abstract class Entity implements class_m {
 		return this.boundingBox;
 	}
 
-	public void a(AxisAlignedBB var1) {
+	public void setBoundingBox(AxisAlignedBB var1) {
 		this.boundingBox = var1;
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return this.length * 0.85F;
 	}
 

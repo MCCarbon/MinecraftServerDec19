@@ -197,7 +197,7 @@ public class EntitySheep extends EntityAnimal {
 		return EnumColor.a(var6);
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return 0.95F * this.length;
 	}
 

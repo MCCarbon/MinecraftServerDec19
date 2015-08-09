@@ -1165,7 +1165,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 		return false;
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return this.length;
 	}
 

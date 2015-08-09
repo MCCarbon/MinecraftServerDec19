@@ -511,7 +511,7 @@ public class EntityArmorStand extends EntityLiving {
 		return 0.0F;
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return this.isBaby() ? this.length * 0.5F : this.length * 0.9F;
 	}
 

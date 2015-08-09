@@ -176,7 +176,7 @@ public class EntityWolf extends EntityTameable {
 
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return this.length * 0.8F;
 	}
 

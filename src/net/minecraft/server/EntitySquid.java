@@ -29,7 +29,7 @@ public class EntitySquid extends class_uk {
       this.a(class_wl.a).a(10.0D);
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return this.length * 0.5F;
    }
 

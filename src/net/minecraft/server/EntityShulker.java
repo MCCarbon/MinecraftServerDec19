@@ -138,27 +138,27 @@ public class EntityShulker extends class_ua implements class_wd {
          switch(EntityShulker.SyntheticClass_1.a[var11.ordinal()]) {
          case 1:
          default:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D + (double)this.bu, this.locZ + 0.5D)));
+            this.setBoundingBox((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D + (double)this.bu, this.locZ + 0.5D)));
             var20 = var18;
             break;
          case 2:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY - (double)this.bu, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
+            this.setBoundingBox((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY - (double)this.bu, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
             var20 = -var18;
             break;
          case 3:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D + (double)this.bu)));
+            this.setBoundingBox((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D + (double)this.bu)));
             var9 = var18;
             break;
          case 4:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D - (double)this.bu, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
+            this.setBoundingBox((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D - (double)this.bu, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
             var9 = -var18;
             break;
          case 5:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D + (double)this.bu, this.locY + 1.0D, this.locZ + 0.5D)));
+            this.setBoundingBox((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D, this.locY, this.locZ - 0.5D, this.locX + 0.5D + (double)this.bu, this.locY + 1.0D, this.locZ + 0.5D)));
             var19 = var18;
             break;
          case 6:
-            this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D - (double)this.bu, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
+            this.setBoundingBox((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.5D - (double)this.bu, this.locY, this.locZ - 0.5D, this.locX + 0.5D, this.locY + 1.0D, this.locZ + 0.5D)));
             var19 = -var18;
          }
 
@@ -287,7 +287,7 @@ public class EntityShulker extends class_ua implements class_wd {
       this.datawatcher.update(c, Byte.valueOf((byte)var1));
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return 0.5F;
    }
 

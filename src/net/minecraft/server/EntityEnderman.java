@@ -85,7 +85,7 @@ public class EntityEnderman extends EntityMonster {
 			return false;
 		} else {
 			Vec3D var3 = var1.d(1.0F).normalize();
-			Vec3D var4 = new Vec3D(this.locX - var1.locX, this.getBoundingBox().yMin + (double) (this.length / 2.0F) - (var1.locY + (double) var1.aU()), this.locZ - var1.locZ);
+			Vec3D var4 = new Vec3D(this.locX - var1.locX, this.getBoundingBox().yMin + (double) (this.length / 2.0F) - (var1.locY + (double) var1.getHeadHeight()), this.locZ - var1.locZ);
 			double var5 = var4.length();
 			var4 = var4.normalize();
 			double var7 = var3.dotProduct(var4);
@@ -93,7 +93,7 @@ public class EntityEnderman extends EntityMonster {
 		}
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return 2.55F;
 	}
 
@@ -138,7 +138,7 @@ public class EntityEnderman extends EntityMonster {
 	}
 
 	protected boolean b(Entity var1) {
-		Vec3D var2 = new Vec3D(this.locX - var1.locX, this.getBoundingBox().yMin + (double) (this.length / 2.0F) - var1.locY + (double) var1.aU(), this.locZ - var1.locZ);
+		Vec3D var2 = new Vec3D(this.locX - var1.locX, this.getBoundingBox().yMin + (double) (this.length / 2.0F) - var1.locY + (double) var1.getHeadHeight(), this.locZ - var1.locZ);
 		var2 = var2.normalize();
 		double var3 = 16.0D;
 		double var5 = this.locX + (this.random.nextDouble() - 0.5D) * 8.0D - var2.x * var3;

@@ -60,7 +60,7 @@ public class EntitySnowman extends class_ua implements class_wk {
 
    public void a(EntityLiving var1, float var2) {
       EntitySnowball var3 = new EntitySnowball(this.world, this);
-      double var4 = var1.locY + (double)var1.aU() - 1.100000023841858D;
+      double var4 = var1.locY + (double)var1.getHeadHeight() - 1.100000023841858D;
       double var6 = var1.locX - this.locX;
       double var8 = var4 - var3.locY;
       double var10 = var1.locZ - this.locZ;
@@ -70,7 +70,7 @@ public class EntitySnowman extends class_ua implements class_wk {
       this.world.addEntity((Entity)var3);
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return 1.7F;
    }
 }

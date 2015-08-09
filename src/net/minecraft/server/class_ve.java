@@ -45,7 +45,7 @@ public class class_ve extends Entity {
       this.b = var2;
       this.b.bN = this;
       this.a(0.25F, 0.25F);
-      this.b(var2.locX, var2.locY + (double)var2.aU(), var2.locZ, var2.yaw, var2.pitch);
+      this.b(var2.locX, var2.locY + (double)var2.getHeadHeight(), var2.locZ, var2.yaw, var2.pitch);
       this.locX -= (double)(MathHelper.cos(this.yaw / 180.0F * 3.1415927F) * 0.16F);
       this.locY -= 0.10000000149011612D;
       this.locZ -= (double)(MathHelper.sin(this.yaw / 180.0F * 3.1415927F) * 0.16F);

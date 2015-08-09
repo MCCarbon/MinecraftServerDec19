@@ -697,7 +697,7 @@ public abstract class EntityLiving extends Entity {
 			Vec3D var6 = new Vec3D(((double) this.random.nextFloat() - 0.5D) * 0.3D, var4, 0.6D);
 			var6 = var6.rotatePitch(-this.pitch * 3.1415927F / 180.0F);
 			var6 = var6.rotateYaw(-this.yaw * 3.1415927F / 180.0F);
-			var6 = var6.add(this.locX, this.locY + (double) this.aU(), this.locZ);
+			var6 = var6.add(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ);
 			this.world.addParticle(EnumParticle.K, var6.x, var6.y, var6.z, var3.x, var3.y + 0.05D, var3.z, new int[] { Item.getId(var1.getItem()) });
 		}
 
@@ -1522,7 +1522,7 @@ public abstract class EntityLiving extends Entity {
 	}
 
 	public boolean t(Entity var1) {
-		return this.world.a(new Vec3D(this.locX, this.locY + (double) this.aU(), this.locZ), new Vec3D(var1.locX, var1.locY + (double) var1.aU(), var1.locZ)) == null;
+		return this.world.a(new Vec3D(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ), new Vec3D(var1.locX, var1.locY + (double) var1.getHeadHeight(), var1.locZ)) == null;
 	}
 
 	public Vec3D ap() {
@@ -1675,7 +1675,7 @@ public abstract class EntityLiving extends Entity {
 					Vec3D var7 = new Vec3D(((double) this.random.nextFloat() - 0.5D) * 0.3D, var5, 0.6D);
 					var7 = var7.rotatePitch(-this.pitch * 3.1415927F / 180.0F);
 					var7 = var7.rotateYaw(-this.yaw * 3.1415927F / 180.0F);
-					var7 = var7.add(this.locX, this.locY + (double) this.aU(), this.locZ);
+					var7 = var7.add(this.locX, this.locY + (double) this.getHeadHeight(), this.locZ);
 					if (var1.f()) {
 						this.world.addParticle(EnumParticle.K, var7.x, var7.y, var7.z, var4.x, var4.y + 0.05D, var4.z, new int[] { Item.getId(var1.getItem()), var1.i() });
 					} else {

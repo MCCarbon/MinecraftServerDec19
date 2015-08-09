@@ -450,7 +450,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		}
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		float var1 = 1.62F;
 		if (this.isBaby()) {
 			var1 = (float) ((double) var1 - 0.81D);

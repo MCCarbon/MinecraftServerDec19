@@ -28,6 +28,6 @@ public class class_sh extends class_rm {
 
    public void e() {
       --this.d;
-      this.a.q().a(this.a.locX + this.b, this.a.locY + (double)this.a.aU(), this.a.locZ + this.c, (float)this.a.ce(), (float)this.a.cd());
+      this.a.q().a(this.a.locX + this.b, this.a.locY + (double)this.a.getHeadHeight(), this.a.locZ + this.c, (float)this.a.ce(), (float)this.a.cd());
    }
 }

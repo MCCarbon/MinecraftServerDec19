@@ -14,7 +14,7 @@ public class EntityLeash extends class_uz {
       float var3 = 0.125F;
       float var4 = 0.1875F;
       float var5 = 0.25F;
-      this.a((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.1875D, this.locY - 0.25D + 0.125D, this.locZ - 0.1875D, this.locX + 0.1875D, this.locY + 0.25D + 0.125D, this.locZ + 0.1875D)));
+      this.setBoundingBox((AxisAlignedBB)(new AxisAlignedBB(this.locX - 0.1875D, this.locY - 0.25D + 0.125D, this.locZ - 0.1875D, this.locX + 0.1875D, this.locY + 0.25D + 0.125D, this.locZ + 0.1875D)));
    }
 
    public void a(EnumDirection var1) {
@@ -28,7 +28,7 @@ public class EntityLeash extends class_uz {
       return 9;
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return -0.0625F;
    }
 

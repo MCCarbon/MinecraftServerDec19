@@ -180,7 +180,7 @@ public class EntityBat extends class_tt {
 		return var1.get(2) + 1 == 10 && var1.get(5) >= 20 || var1.get(2) + 1 == 11 && var1.get(5) <= 3;
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return this.length / 2.0F;
 	}
 

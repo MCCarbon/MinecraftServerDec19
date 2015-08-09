@@ -65,7 +65,7 @@ public class EntityExperienceOrb extends Entity {
 
       if(this.f != null) {
          double var3 = (this.f.locX - this.locX) / var1;
-         double var5 = (this.f.locY + (double)this.f.aU() - this.locY) / var1;
+         double var5 = (this.f.locY + (double)this.f.getHeadHeight() - this.locY) / var1;
          double var7 = (this.f.locZ - this.locZ) / var1;
          double var9 = Math.sqrt(var3 * var3 + var5 * var5 + var7 * var7);
          double var11 = 1.0D - var9;

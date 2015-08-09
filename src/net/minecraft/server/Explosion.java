@@ -93,7 +93,7 @@ public class Explosion {
 				double var35 = var13.f(this.x, this.y, this.z) / (double) var30;
 				if (var35 <= 1.0D) {
 					double var16 = var13.locX - this.x;
-					double var18 = var13.locY + (double) var13.aU() - this.y;
+					double var18 = var13.locY + (double) var13.getHeadHeight() - this.y;
 					double var20 = var13.locZ - this.z;
 					double var36 = (double) MathHelper.sqrt(var16 * var16 + var18 * var18 + var20 * var20);
 					if (var36 != 0.0D) {

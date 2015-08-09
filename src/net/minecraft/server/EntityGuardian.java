@@ -169,7 +169,7 @@ public class EntityGuardian extends EntityMonster {
 		return false;
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return this.length * 0.5F;
 	}
 
@@ -226,7 +226,7 @@ public class EntityGuardian extends EntityMonster {
 					this.q().a();
 					double var15 = (double) this.q(0.0F);
 					double var4 = var14.locX - this.locX;
-					double var6 = var14.locY + (double) (var14.length * 0.5F) - (this.locY + (double) this.aU());
+					double var6 = var14.locY + (double) (var14.length * 0.5F) - (this.locY + (double) this.getHeadHeight());
 					double var8 = var14.locZ - this.locZ;
 					double var10 = Math.sqrt(var4 * var4 + var6 * var6 + var8 * var8);
 					var4 /= var10;
@@ -236,7 +236,7 @@ public class EntityGuardian extends EntityMonster {
 
 					while (var12 < var10) {
 						var12 += 1.8D - var15 + this.random.nextDouble() * (1.7D - var15);
-						this.world.addParticle(EnumParticle.e, this.locX + var4 * var12, this.locY + var6 * var12 + (double) this.aU(), this.locZ + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
+						this.world.addParticle(EnumParticle.e, this.locX + var4 * var12, this.locY + var6 * var12 + (double) this.getHeadHeight(), this.locZ + var8 * var12, 0.0D, 0.0D, 0.0D, new int[0]);
 					}
 				}
 			}
@@ -410,7 +410,7 @@ public class EntityGuardian extends EntityMonster {
 				this.g.motY += (double) this.g.bJ() * var3 * 0.1D;
 				class_qy var17 = this.g.q();
 				double var18 = this.g.locX + var1 / var7 * 2.0D;
-				double var20 = (double) this.g.aU() + this.g.locY + var3 / var7 * 1.0D;
+				double var20 = (double) this.g.getHeadHeight() + this.g.locY + var3 / var7 * 1.0D;
 				double var22 = this.g.locZ + var5 / var7 * 2.0D;
 				double var24 = var17.e();
 				double var26 = var17.f();

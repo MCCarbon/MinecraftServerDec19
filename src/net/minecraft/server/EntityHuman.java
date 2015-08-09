@@ -421,7 +421,7 @@ public abstract class EntityHuman extends EntityLiving {
 		} else if (var1.count == 0) {
 			return null;
 		} else {
-			double var4 = (locY - 0.30000001192092896D) + aU();
+			double var4 = (locY - 0.30000001192092896D) + getHeadHeight();
 			EntityItem var6 = new EntityItem(world, locX, var4, locZ, var1);
 			var6.setPickupDelay(40);
 			if (var3) {
@@ -1384,7 +1384,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	@Override
-	public float aU() {
+	public float getHeadHeight() {
 		float var1 = 1.62F;
 		if (isSleeping()) {
 			var1 = 0.2F;

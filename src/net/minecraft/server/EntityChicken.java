@@ -27,7 +27,7 @@ public class EntityChicken extends EntityAnimal {
       this.i.a(7, new class_sh(this));
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return this.length;
    }
 

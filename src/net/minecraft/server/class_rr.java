@@ -55,7 +55,7 @@ public class class_rr extends class_rm {
    }
 
    public void e() {
-      this.a.q().a(this.b.locX, this.b.locY + (double)this.b.aU(), this.b.locZ, (float)this.a.ce(), (float)this.a.cd());
+      this.a.q().a(this.b.locX, this.b.locY + (double)this.b.getHeadHeight(), this.b.locZ, (float)this.a.ce(), (float)this.a.cd());
       --this.e;
    }
 }

@@ -133,7 +133,7 @@ public class EntitySpider extends EntityMonster {
 		return (class_qd) var4;
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return 0.65F;
 	}
 

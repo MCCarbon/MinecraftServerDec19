@@ -36,7 +36,7 @@ public class EntityCaveSpider extends EntitySpider {
       return var2;
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return 0.45F;
    }
 }

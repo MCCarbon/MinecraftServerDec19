@@ -328,7 +328,7 @@ public class EntityZombie extends EntityMonster {
 
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		float var1 = 1.74F;
 		if (this.isBaby()) {
 			var1 = (float) ((double) var1 - 0.81D);

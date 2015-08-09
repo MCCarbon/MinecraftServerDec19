@@ -532,9 +532,9 @@ public abstract class EntityInsentient extends EntityLiving {
 		double var6;
 		if (var1 instanceof EntityLiving) {
 			EntityLiving var10 = (EntityLiving) var1;
-			var6 = var10.locY + (double) var10.aU() - (this.locY + (double) this.aU());
+			var6 = var10.locY + (double) var10.getHeadHeight() - (this.locY + (double) this.getHeadHeight());
 		} else {
-			var6 = (var1.getBoundingBox().yMin + var1.getBoundingBox().yMax) / 2.0D - (this.locY + (double) this.aU());
+			var6 = (var1.getBoundingBox().yMin + var1.getBoundingBox().yMax) / 2.0D - (this.locY + (double) this.getHeadHeight());
 		}
 
 		double var14 = (double) MathHelper.sqrt(var4 * var4 + var8 * var8);

@@ -176,7 +176,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return 0.625F * this.length;
 	}
 

@@ -139,7 +139,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 
 	public void a(EntityLiving var1, float var2) {
 		if (!this.n()) {
-			double var3 = var1.locY + (double) var1.aU() - 1.100000023841858D;
+			double var3 = var1.locY + (double) var1.getHeadHeight() - 1.100000023841858D;
 			double var5 = var1.locX + var1.motX - this.locX;
 			double var7 = var3 - this.locY;
 			double var9 = var1.locZ + var1.motZ - this.locZ;
@@ -160,7 +160,7 @@ public class EntityWitch extends EntityMonster implements class_wk {
 		}
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return 1.62F;
 	}
 

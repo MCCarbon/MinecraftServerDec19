@@ -16,7 +16,7 @@ public class class_qy {
    public void a(Entity var1, float var2, float var3) {
       this.e = var1.locX;
       if(var1 instanceof EntityLiving) {
-         this.f = var1.locY + (double)var1.aU();
+         this.f = var1.locY + (double)var1.getHeadHeight();
       } else {
          this.f = (var1.getBoundingBox().yMin + var1.getBoundingBox().yMax) / 2.0D;
       }
@@ -41,7 +41,7 @@ public class class_qy {
       if(this.d) {
          this.d = false;
          double var1 = this.e - this.a.locX;
-         double var3 = this.f - (this.a.locY + (double)this.a.aU());
+         double var3 = this.f - (this.a.locY + (double)this.a.getHeadHeight());
          double var5 = this.g - this.a.locZ;
          double var7 = (double)MathHelper.sqrt(var1 * var1 + var5 * var5);
          float var9 = (float)(MathHelper.b(var5, var1) * 180.0D / 3.1415927410125732D) - 90.0F;

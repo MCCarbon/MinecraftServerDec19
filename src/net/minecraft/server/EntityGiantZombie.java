@@ -6,7 +6,7 @@ public class EntityGiantZombie extends EntityMonster {
       this.a(this.width * 6.0F, this.length * 6.0F);
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return 10.440001F;
    }
 

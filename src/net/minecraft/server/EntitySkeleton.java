@@ -280,8 +280,8 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 	}
 
-	public float aU() {
-		return this.cB() == 1 ? super.aU() : 1.74F;
+	public float getHeadHeight() {
+		return this.cB() == 1 ? super.getHeadHeight() : 1.74F;
 	}
 
 	public double am() {

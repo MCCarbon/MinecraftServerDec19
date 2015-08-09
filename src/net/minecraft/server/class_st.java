@@ -49,7 +49,7 @@ public class class_st extends class_rp {
                }
 
                if(var4 != null) {
-                  double var11 = this.f.locY - 0.30000001192092896D + (double)this.f.aU();
+                  double var11 = this.f.locY - 0.30000001192092896D + (double)this.f.getHeadHeight();
                   EntityItem var12 = new EntityItem(this.f.world, this.f.locX, var11, this.f.locZ, var4);
                   float var8 = 0.3F;
                   float var9 = this.f.aN;

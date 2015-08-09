@@ -20,7 +20,7 @@ public class EntitySilverfish extends EntityMonster {
       return 0.2D;
    }
 
-   public float aU() {
+   public float getHeadHeight() {
       return 0.1F;
    }
 

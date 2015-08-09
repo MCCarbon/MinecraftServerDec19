@@ -47,7 +47,7 @@ public abstract class class_xo extends Entity implements class_xi {
    }
 
    public class_xo(World var1, EntityLiving var2) {
-      this(var1, var2.locX, var2.locY + (double)var2.aU() - 0.10000000149011612D, var2.locZ);
+      this(var1, var2.locX, var2.locY + (double)var2.getHeadHeight() - 0.10000000149011612D, var2.locZ);
       this.h = var2;
    }
 

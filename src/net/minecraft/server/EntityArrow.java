@@ -40,7 +40,7 @@ public class EntityArrow extends Entity implements class_xi {
 	}
 
 	public EntityArrow(World var1, EntityLiving var2) {
-		this(var1, var2.locX, var2.locY + (double) var2.aU() - 0.10000000149011612D, var2.locZ);
+		this(var1, var2.locX, var2.locY + (double) var2.getHeadHeight() - 0.10000000149011612D, var2.locZ);
 		this.e = var2;
 		if (var2 instanceof EntityHuman) {
 			this.c = 1;
@@ -391,7 +391,7 @@ public class EntityArrow extends Entity implements class_xi {
 		return false;
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return 0.0F;
 	}
 

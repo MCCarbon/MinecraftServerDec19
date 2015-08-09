@@ -130,7 +130,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 				var6 = this.p(var20 + 1);
 				var8 = this.q(var20 + 1);
 				double var10 = var3.locX - var4;
-				double var12 = var3.locY + (double) var3.aU() - var6;
+				double var12 = var3.locY + (double) var3.getHeadHeight() - var6;
 				double var14 = var3.locZ - var8;
 				double var16 = (double) MathHelper.sqrt(var10 * var10 + var14 * var14);
 				float var18 = (float) (MathHelper.b(var14, var10) * 180.0D / 3.1415927410125732D) - 90.0F;
@@ -167,7 +167,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 		if (this.cA() > 0) {
 			var1 = this.cA() - 1;
 			if (var1 <= 0) {
-				this.world.createExplosion(this, this.locX, this.locY + (double) this.aU(), this.locZ, 7.0F, false, this.world.R().getBooleanValue("mobGriefing"));
+				this.world.createExplosion(this, this.locX, this.locY + (double) this.getHeadHeight(), this.locZ, 7.0F, false, this.world.R().getBooleanValue("mobGriefing"));
 				this.world.a(1013, new BlockPosition(this), 0);
 			}
 
@@ -341,7 +341,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 	}
 
 	private void a(int var1, EntityLiving var2) {
-		this.a(var1, var2.locX, var2.locY + (double) var2.aU() * 0.5D, var2.locZ, var1 == 0 && this.random.nextFloat() < 0.001F);
+		this.a(var1, var2.locX, var2.locY + (double) var2.getHeadHeight() * 0.5D, var2.locZ, var1 == 0 && this.random.nextFloat() < 0.001F);
 	}
 
 	private void a(int var1, double var2, double var4, double var6, boolean var8) {

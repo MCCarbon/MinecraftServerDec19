@@ -115,7 +115,7 @@ public class EntityGhast extends class_py implements class_wd {
 
 	}
 
-	public float aU() {
+	public float getHeadHeight() {
 		return 2.6F;
 	}
 
