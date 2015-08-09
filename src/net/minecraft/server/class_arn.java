@@ -23,7 +23,7 @@ public class class_arn extends class_apw {
       this.d = var5;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4 = var2.nextInt(3) + this.c;
       boolean var5 = true;
       if(var3.getY() >= 1 && var3.getY() + var4 + 1 <= 256) {
@@ -81,7 +81,7 @@ public class class_arn extends class_apw {
                            var16 = new BlockPosition(var12, var9, var14);
                            Block var17 = var1.getType(var16).getBlock();
                            if(var17.getMaterial() == Material.AIR || var17.getMaterial() == Material.LEAVES || var17.getMaterial() == Material.REPLACEABLE_PLANT) {
-                              this.a(var1, var16, this.f);
+                              this.setTypeAndData(var1, var16, this.f);
                            }
                         }
                      }
@@ -91,7 +91,7 @@ public class class_arn extends class_apw {
                for(var9 = 0; var9 < var4; ++var9) {
                   Block var21 = var1.getType(var3.up(var9)).getBlock();
                   if(var21.getMaterial() == Material.AIR || var21.getMaterial() == Material.LEAVES || var21.getMaterial() == Material.REPLACEABLE_PLANT) {
-                     this.a(var1, var3.up(var9), this.e);
+                     this.setTypeAndData(var1, var3.up(var9), this.e);
                      if(this.d && var9 > 0) {
                         if(var2.nextInt(3) > 0 && var1.isEmpty(var3.add(-1, var9, 0))) {
                            this.a(var1, var3.add(-1, var9, 0), BlockVine.N);
@@ -172,11 +172,11 @@ public class class_arn extends class_apw {
    }
 
    private void a(World var1, int var2, BlockPosition var3, EnumDirection var4) {
-      this.a(var1, var3, Blocks.COCOA.getBlockData().set(BlockCocoa.a, Integer.valueOf(var2)).set(BlockCocoa.FACING, var4));
+      this.setTypeAndData(var1, var3, Blocks.COCOA.getBlockData().set(BlockCocoa.a, Integer.valueOf(var2)).set(BlockCocoa.FACING, var4));
    }
 
    private void a(World var1, BlockPosition var2, BlockStateBoolean var3) {
-      this.a(var1, var2, Blocks.VINE.getBlockData().set(var3, Boolean.valueOf(true)));
+      this.setTypeAndData(var1, var2, Blocks.VINE.getBlockData().set(var3, Boolean.valueOf(true)));
    }
 
    private void b(World var1, BlockPosition var2, BlockStateBoolean var3) {

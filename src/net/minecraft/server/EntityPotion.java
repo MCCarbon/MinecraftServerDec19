@@ -29,7 +29,7 @@ public class EntityPotion extends class_xo {
 
    protected void a(MovingObjectPosition var1) {
       if(!this.world.isClientSide) {
-         class_acd var2 = ItemPotion.i(this.d);
+         RegistryPotions var2 = ItemPotion.i(this.d);
          if(var1.a == MovingObjectPosition.class_a_in_class_awg.b && var2 == class_acf.a) {
             BlockPosition var16 = var1.a().shift(var1.b);
             this.a(var16);
@@ -40,7 +40,7 @@ public class EntityPotion extends class_xo {
                this.a(var16.shift(var18));
             }
 
-            this.world.b(2002, new BlockPosition(this), class_acd.a(var2));
+            this.world.b(2002, new BlockPosition(this), RegistryPotions.a(var2));
             this.J();
          } else {
             List var3 = var2.b();
@@ -86,7 +86,7 @@ public class EntityPotion extends class_xo {
                }
             }
 
-            this.world.b(2002, new BlockPosition(this), class_acd.a(var2));
+            this.world.b(2002, new BlockPosition(this), RegistryPotions.a(var2));
             this.J();
          }
       }

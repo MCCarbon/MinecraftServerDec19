@@ -42,10 +42,10 @@ import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
 import net.minecraft.server.class_aep;
 import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_aes;
-import net.minecraft.server.class_avj;
-import net.minecraft.server.class_avn;
-import net.minecraft.server.class_avo;
+import net.minecraft.server.WorldType;
+import net.minecraft.server.WorldLoaderServer;
+import net.minecraft.server.WorldData;
+import net.minecraft.server.IDataManager;
 import net.minecraft.server.class_avq;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_b;
@@ -74,8 +74,8 @@ import net.minecraft.server.PlayerList;
 import net.minecraft.server.class_m;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_nv;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.MethodProfiler;
+import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.class_of;
 import net.minecraft.server.class_om;
 import net.minecraft.server.class_ox;
@@ -97,7 +97,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	private final File o;
 	private final List<ITickAble> p = Lists.newArrayList();
 	protected final class_l b;
-	public final class_nv c = new class_nv();
+	public final MethodProfiler c = new MethodProfiler();
 	private final ServerConnection q;
 	private final ServerPing r = new ServerPing();
 	private final Random s = new Random();
@@ -150,7 +150,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.q = new ServerConnection(this);
 		this.Z = new class_lv(this, var3);
 		this.b = this.h();
-		this.m = new class_avj(var1);
+		this.m = new WorldLoaderServer(var1);
 		this.V = new YggdrasilAuthenticationService(var2, UUID.randomUUID().toString());
 		this.W = this.V.createMinecraftSessionService();
 		this.Y = this.V.createProfileRepository();
@@ -166,7 +166,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		if (this.Y().b(var1)) {
 			k.info("Converting map!");
 			this.b("menu.convertingLevel");
-			this.Y().a(var1, new class_nw() {
+			this.Y().a(var1, new IProgressUpdate() {
 				private long b = System.currentTimeMillis();
 
 				public void a(String var1) {
@@ -191,14 +191,14 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.S = var1;
 	}
 
-	protected void a(String var1, String var2, long var3, class_aes var5, String var6) {
+	protected void a(String var1, String var2, long var3, WorldType var5, String var6) {
 		this.a(var1);
 		this.b("menu.loadingLevel");
 		this.d = new WorldServer[3];
 		this.i = new long[this.d.length][100];
-		class_avo var7 = this.m.a(var1, true);
+		IDataManager var7 = this.m.a(var1, true);
 		this.a(this.U(), var7);
-		class_avn var9 = var7.d();
+		WorldData var9 = var7.d();
 		WorldSettings var8;
 		if (var9 == null) {
 			if (this.X()) {
@@ -211,7 +211,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				}
 			}
 
-			var9 = new class_avn(var8, var2);
+			var9 = new WorldData(var8, var2);
 		} else {
 			var9.a(var2);
 			var8 = new WorldSettings(var9);
@@ -279,7 +279,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.s();
 	}
 
-	protected void a(String var1, class_avo var2) {
+	protected void a(String var1, IDataManager var2) {
 		File var3 = new File(var2.b(), "resources.zip");
 		if (var3.isFile()) {
 			this.a_("level://" + var1 + "/" + var3.getName(), "");
@@ -325,7 +325,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 					}
 
 					try {
-						var5.a(true, (class_nw) null);
+						var5.a(true, (IProgressUpdate) null);
 					} catch (class_aeo var7) {
 						k.warn(var7.getMessage());
 					}
@@ -970,7 +970,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 			for (int var3 = 0; var3 < this.d.length; ++var3) {
 				if (this.d[var3] != null) {
 					WorldServer var4 = this.d[var3];
-					class_avn var5 = var4.Q();
+					WorldData var5 = var4.Q();
 					var1.a("world[" + var2 + "][dimension]", Integer.valueOf(var4.worldProvider.p().a()));
 					var1.a("world[" + var2 + "][mode]", var5.r());
 					var1.a("world[" + var2 + "][difficulty]", var4.ab());

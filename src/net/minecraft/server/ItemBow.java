@@ -33,7 +33,7 @@ public class ItemBow extends Item {
    public void onStopUse(ItemStack var1, World var2, EntityLiving var3, int var4) {
       if(var3 instanceof EntityHuman) {
          EntityHuman var5 = (EntityHuman)var3;
-         boolean var6 = var5.abilities.instabuild || EnchantmentManager.getLevel(Enchantment.w, var1) > 0;
+         boolean var6 = var5.abilities.instabuild || EnchantmentManager.getLevel(RegistryEnchantments.w, var1) > 0;
          int var7 = this.a(var5.inventory);
          if(var6 || var7 > -1) {
             ItemStack var8 = var7 > -1?var5.inventory.getItem(var7):null;
@@ -51,17 +51,17 @@ public class ItemBow extends Item {
                   var12.a(true);
                }
 
-               int var13 = EnchantmentManager.getLevel(Enchantment.t, var1);
+               int var13 = EnchantmentManager.getLevel(RegistryEnchantments.t, var1);
                if(var13 > 0) {
                   var12.b(var12.l() + (double)var13 * 0.5D + 0.5D);
                }
 
-               int var14 = EnchantmentManager.getLevel(Enchantment.u, var1);
+               int var14 = EnchantmentManager.getLevel(RegistryEnchantments.u, var1);
                if(var14 > 0) {
                   var12.a(var14);
                }
 
-               if(EnchantmentManager.getLevel(Enchantment.v, var1) > 0) {
+               if(EnchantmentManager.getLevel(RegistryEnchantments.v, var1) > 0) {
                   var12.f(100);
                }
 

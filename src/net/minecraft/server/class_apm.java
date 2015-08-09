@@ -7,12 +7,12 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockSand;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_aph;
-import net.minecraft.server.class_apn;
+import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 
-public class class_apm extends class_apn {
+public class class_apm extends WorldGenBase {
    protected void a(long var1, int var3, int var4, class_aph var5, double var6, double var8, double var10) {
       this.a(var1, var3, var4, var5, var6, var8, var10, 1.0F + this.b.nextFloat() * 6.0F, 0.0F, 0.0F, -1, -1, 0.5D);
    }

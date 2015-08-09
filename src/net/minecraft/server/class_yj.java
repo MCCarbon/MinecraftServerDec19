@@ -139,7 +139,7 @@ public class class_yj extends Container {
                      List var7 = this.a(var2, var4, this.g[var4]);
                      if(var7 != null && !var7.isEmpty()) {
                         class_adl var6 = (class_adl)var7.get(this.l.nextInt(var7.size()));
-                        this.h[var4] = class_adi.b(var6.b);
+                        this.h[var4] = Enchantment.b(var6.b);
                         this.i[var4] = var6.c;
                      }
                   }

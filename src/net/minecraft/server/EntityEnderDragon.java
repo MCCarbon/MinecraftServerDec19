@@ -54,8 +54,8 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 		this.b = 100.0D;
 		this.bL = 100;
 		this.ah = true;
-		if (!var1.isClientSide && var1.worldProvider instanceof class_apd) {
-			this.bK = ((class_apd) var1.worldProvider).s();
+		if (!var1.isClientSide && var1.worldProvider instanceof WorldProviderTheEnd) {
+			this.bK = ((WorldProviderTheEnd) var1.worldProvider).s();
 		} else {
 			this.bK = null;
 		}
@@ -988,8 +988,8 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 			this.bT[1] = 8197;
 			this.bT[2] = 8202;
 			this.bT[3] = 16404;
-			this.bT[4] = '耨';
-			this.bT[5] = '聐';
+			this.bT[4] = 'è€¨';
+			this.bT[5] = 'è��';
 			this.bT[6] = 65696;
 			this.bT[7] = 131392;
 			this.bT[8] = 131712;

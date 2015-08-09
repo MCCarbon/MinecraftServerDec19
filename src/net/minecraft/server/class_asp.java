@@ -5,15 +5,15 @@ import java.util.Map;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
-import net.minecraft.server.class_arw;
-import net.minecraft.server.class_asn;
+import net.minecraft.server.StructureBoundingBox;
+import net.minecraft.server.StructurePiece;
 import net.minecraft.server.class_asu;
 import net.minecraft.server.class_asv;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 import net.minecraft.server.NBTTagCompound;
 
-public abstract class class_asp extends class_asn {
+public abstract class class_asp extends StructurePiece {
    private static final class_asu d = new class_asu();
    protected class_asv a;
    protected class_asu b;
@@ -46,7 +46,7 @@ public abstract class class_asp extends class_asn {
       this.c = new BlockPosition(var1.getInt("TPX"), var1.getInt("TPY"), var1.getInt("TPZ"));
    }
 
-   public boolean a(World var1, Random var2, class_arw var3) {
+   public boolean a(World var1, Random var2, StructureBoundingBox var3) {
       this.b.a(var3);
       this.a.b(var1, this.c, this.b);
       Map var4 = this.a.a(this.c, this.b);
@@ -61,12 +61,12 @@ public abstract class class_asp extends class_asn {
       return true;
    }
 
-   protected abstract void a(String var1, BlockPosition var2, World var3, Random var4, class_arw var5);
+   protected abstract void a(String var1, BlockPosition var2, World var3, Random var4, StructureBoundingBox var5);
 
    private void h() {
       Block.EnumRotation var1 = this.b.c();
       BlockPosition var2 = this.a.a(var1);
-      this.l = new class_arw(0, 0, 0, var2.getX(), var2.getY() - 1, var2.getZ());
+      this.l = new StructureBoundingBox(0, 0, 0, var2.getX(), var2.getY() - 1, var2.getZ());
       switch(class_asp.SyntheticClass_1.a[var1.ordinal()]) {
       case 1:
       default:

@@ -13,12 +13,12 @@ import java.util.Random;
 import java.util.concurrent.TimeUnit;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afc;
+import net.minecraft.server.BiomeDecorator;
 import net.minecraft.server.class_aqk;
 import net.minecraft.server.class_ari;
 import net.minecraft.server.BlockPosition;
 
-public class class_afx extends class_afc {
+public class class_afx extends BiomeDecorator {
    private static final LoadingCache M;
    private final class_ari N = new class_ari();
    private final class_aqk O = new class_aqk(false);
@@ -33,12 +33,12 @@ public class class_afx extends class_afc {
          class_ari.class_a_in_class_ari var6 = var3[var5];
          if(var6.a(this.c)) {
             this.N.a(var6);
-            this.N.b(this.a, this.b, this.a.m(new BlockPosition(var6.a(), 0, var6.b())));
+            this.N.generate(this.a, this.b, this.a.m(new BlockPosition(var6.a(), 0, var6.b())));
          }
       }
 
       if(this.c.getX() == class_aqk.b.getX() && this.c.getZ() == class_aqk.b.getZ()) {
-         this.O.b(this.a, this.b, this.a.m(class_aqk.a));
+         this.O.generate(this.a, this.b, this.a.m(class_aqk.a));
       }
 
    }

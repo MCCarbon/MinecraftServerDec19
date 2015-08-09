@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.io.IOException;
 import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.PacketDataSerializer;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
@@ -16,13 +16,13 @@ public class PacketPlayOutLogin implements Packet<PacketListenerPlayOut> {
 	private int dimension;
 	private class_om difficulty;
 	private int maxplayers;
-	private class_aes levelType;
+	private WorldType levelType;
 	private boolean reducedDebug;
 
 	public PacketPlayOutLogin() {
 	}
 
-	public PacketPlayOutLogin(int entityId, WorldSettings.EnumGameMode gameMode, boolean hardcore, int dimension, class_om difficulty, int maxplayers, class_aes levelType, boolean reducedDebug) {
+	public PacketPlayOutLogin(int entityId, WorldSettings.EnumGameMode gameMode, boolean hardcore, int dimension, class_om difficulty, int maxplayers, WorldType levelType, boolean reducedDebug) {
 		this.entityId = entityId;
 		this.dimension = dimension;
 		this.difficulty = difficulty;
@@ -42,9 +42,9 @@ public class PacketPlayOutLogin implements Packet<PacketListenerPlayOut> {
 		this.dimension = serializer.readByte();
 		this.difficulty = class_om.a(serializer.readUnsignedByte());
 		this.maxplayers = serializer.readUnsignedByte();
-		this.levelType = class_aes.a(serializer.readString(16));
+		this.levelType = WorldType.getType(serializer.readString(16));
 		if (this.levelType == null) {
-			this.levelType = class_aes.b;
+			this.levelType = WorldType.NORMAL;
 		}
 
 		this.reducedDebug = serializer.readBoolean();

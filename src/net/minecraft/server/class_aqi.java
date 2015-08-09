@@ -4,11 +4,11 @@ import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.BlockPosition;
 
-public class class_aqi extends class_aql {
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+public class class_aqi extends WorldGenerator {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       Iterator var4 = BlockPosition.allInCubeM(var3.add(-1, -2, -1), var3.add(1, 2, 1)).iterator();
 
       while(true) {
@@ -19,15 +19,15 @@ public class class_aqi extends class_aql {
             boolean var8 = var5.getZ() == var3.getZ();
             boolean var9 = Math.abs(var5.getY() - var3.getY()) == 2;
             if(var6 && var7 && var8) {
-               this.a(var1, new BlockPosition(var5), Blocks.END_GATEWAY.getBlockData());
+               this.setTypeAndData(var1, new BlockPosition(var5), Blocks.END_GATEWAY.getBlockData());
             } else if(var7) {
-               this.a(var1, var5, Blocks.AIR.getBlockData());
+               this.setTypeAndData(var1, var5, Blocks.AIR.getBlockData());
             } else if(var9 && var6 && var8) {
-               this.a(var1, var5, Blocks.BEDROCK.getBlockData());
+               this.setTypeAndData(var1, var5, Blocks.BEDROCK.getBlockData());
             } else if((var6 || var8) && !var9) {
-               this.a(var1, var5, Blocks.BEDROCK.getBlockData());
+               this.setTypeAndData(var1, var5, Blocks.BEDROCK.getBlockData());
             } else {
-               this.a(var1, var5, Blocks.AIR.getBlockData());
+               this.setTypeAndData(var1, var5, Blocks.AIR.getBlockData());
             }
          }
 

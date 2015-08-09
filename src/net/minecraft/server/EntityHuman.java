@@ -1365,7 +1365,7 @@ public abstract class EntityHuman extends EntityLiving {
 		return !abilities.flying;
 	}
 
-	public class_awn cr() {
+	public Scoreboard cr() {
 		return world.aa();
 	}
 

@@ -3,14 +3,14 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_ari extends class_aql {
+public class class_ari extends WorldGenerator {
    private class_ari.class_a_in_class_ari a = null;
 
    public void a(class_ari.class_a_in_class_ari var1) {
       this.a = var1;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       if(this.a == null) {
          throw new IllegalStateException("Decoration requires priming with a spike");
       } else {
@@ -19,7 +19,7 @@ public class class_ari extends class_aql {
          while(var4.hasNext()) {
             BlockPosition.MutableBlockPosition var5 = (BlockPosition.MutableBlockPosition)var4.next();
             if(var5.distanceSquared((double)var3.getX(), (double)var5.getY(), (double)var3.getZ()) <= (double)(this.a.c() * this.a.c() + 1)) {
-               this.a(var1, var5, Blocks.OBSIDIAN.getBlockData());
+               this.setTypeAndData(var1, var5, Blocks.OBSIDIAN.getBlockData());
             }
          }
 
@@ -27,12 +27,12 @@ public class class_ari extends class_aql {
             for(int var6 = -2; var6 <= 2; ++var6) {
                for(int var8 = -2; var8 <= 2; ++var8) {
                   if(MathHelper.abs(var6) == 2 || MathHelper.abs(var8) == 2) {
-                     this.a(var1, var3.add(var6, this.a.d(), var8), Blocks.IRON_BARS.getBlockData());
-                     this.a(var1, var3.add(var6, this.a.d() + 1, var8), Blocks.IRON_BARS.getBlockData());
-                     this.a(var1, var3.add(var6, this.a.d() + 2, var8), Blocks.IRON_BARS.getBlockData());
+                     this.setTypeAndData(var1, var3.add(var6, this.a.d(), var8), Blocks.IRON_BARS.getBlockData());
+                     this.setTypeAndData(var1, var3.add(var6, this.a.d() + 1, var8), Blocks.IRON_BARS.getBlockData());
+                     this.setTypeAndData(var1, var3.add(var6, this.a.d() + 2, var8), Blocks.IRON_BARS.getBlockData());
                   }
 
-                  this.a(var1, var3.add(var6, this.a.d() + 3, var8), Blocks.IRON_BARS.getBlockData());
+                  this.setTypeAndData(var1, var3.add(var6, this.a.d() + 3, var8), Blocks.IRON_BARS.getBlockData());
                }
             }
          }
@@ -40,7 +40,7 @@ public class class_ari extends class_aql {
          EntityEnderCrystal var7 = new EntityEnderCrystal(var1);
          var7.b((double)((float)var3.getX() + 0.5F), (double)(var3.getY() + this.a.d() + 1), (double)((float)var3.getZ() + 0.5F), var2.nextFloat() * 360.0F, 0.0F);
          var1.addEntity((Entity)var7);
-         this.a(var1, var3.up(this.a.d()), Blocks.BEDROCK.getBlockData());
+         this.setTypeAndData(var1, var3.up(this.a.d()), Blocks.BEDROCK.getBlockData());
          return true;
       }
    }

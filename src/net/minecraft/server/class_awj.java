@@ -1,16 +1,16 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 import net.minecraft.server.class_awt;
 
 public class class_awj {
-   private final class_awn a;
+   private final Scoreboard a;
    private final String b;
    private final class_awt c;
    private class_awt.class_a_in_class_awt d;
    private String e;
 
-   public class_awj(class_awn var1, String var2, class_awt var3) {
+   public class_awj(Scoreboard var1, String var2, class_awt var3) {
       this.a = var1;
       this.b = var2;
       this.c = var3;

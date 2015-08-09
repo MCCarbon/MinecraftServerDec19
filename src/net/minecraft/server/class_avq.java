@@ -1,10 +1,10 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_avo;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IDataManager;
+import net.minecraft.server.IProgressUpdate;
 
 public interface class_avq {
-   class_avo a(String var1, boolean var2);
+   IDataManager a(String var1, boolean var2);
 
    void d();
 
@@ -12,5 +12,5 @@ public interface class_avq {
 
    boolean b(String var1);
 
-   boolean a(String var1, class_nw var2);
+   boolean a(String var1, IProgressUpdate var2);
 }

@@ -11,7 +11,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_m;
-import net.minecraft.server.class_nv;
+import net.minecraft.server.MethodProfiler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -103,7 +103,7 @@ public class CommandDebug extends CommandAbstract {
       List var4 = MinecraftServer.N().c.b(var2);
       if(var4 != null && var4.size() >= 3) {
          for(int var5 = 1; var5 < var4.size(); ++var5) {
-            class_nv.class_a_in_class_nv var6 = (class_nv.class_a_in_class_nv)var4.get(var5);
+            MethodProfiler.class_a_in_class_nv var6 = (MethodProfiler.class_a_in_class_nv)var4.get(var5);
             var3.append(String.format("[%02d] ", new Object[]{Integer.valueOf(var1)}));
 
             for(int var7 = 0; var7 < var1; ++var7) {

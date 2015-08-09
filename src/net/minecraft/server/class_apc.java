@@ -253,7 +253,7 @@ public class class_apc {
 
    private void a(BlockPosition var1) {
       this.d.b(3000, var1, 0);
-      (new class_aqi()).b(this.d, new Random(), var1);
+      (new class_aqi()).generate(this.d, new Random(), var1);
    }
 
    private void a(boolean var1) {
@@ -264,7 +264,7 @@ public class class_apc {
          ;
       }
 
-      var2.b(this.d, new Random(), var3);
+      var2.generate(this.d, new Random(), var3);
    }
 
    private void l() {

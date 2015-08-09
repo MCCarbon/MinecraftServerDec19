@@ -8,12 +8,12 @@ import java.util.Random;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_ara extends class_aql {
+public class class_ara extends WorldGenerator {
    private static final Logger a = LogManager.getLogger();
    private static final String[] b = new String[]{"Skeleton", "Zombie", "Zombie", "Spider"};
    private static final List c;
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       boolean var4 = true;
       int var5 = var2.nextInt(2) + 2;
       int var6 = -var5 - 1;

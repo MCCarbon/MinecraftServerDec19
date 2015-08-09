@@ -67,7 +67,7 @@ public class TileEntityPiston extends TileEntity implements ITickAble {
 				while (true) {
 					while (var5.hasNext()) {
 						Entity var6 = (Entity) var5.next();
-						if ((a.getBlock() == Blocks.SLINE) && g) {
+						if ((a.getBlock() == Blocks.SLIME) && g) {
 							switch (TileEntityPiston.SyntheticClass_1.a[f.getAxis().ordinal()]) {
 								case 1:
 									var6.motX = f.getAdjacentX();

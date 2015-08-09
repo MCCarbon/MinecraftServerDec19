@@ -203,12 +203,12 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 	public boolean cf() {
 		BlockPosition var1 = new BlockPosition(MathHelper.floor(this.locX), 0, MathHelper.floor(this.locZ));
 		Chunk var2 = this.world.f(var1);
-		if (this.world.Q().u() == class_aes.c && this.random.nextInt(4) != 1) {
+		if (this.world.Q().u() == WorldType.FLAT && this.random.nextInt(4) != 1) {
 			return false;
 		} else {
 			if (this.world.ab() != class_om.a) {
 				BiomeBase var3 = this.world.b(var1);
-				if (var3 == BiomeBase.v && this.locY > 50.0D && this.locY < 70.0D && this.random.nextFloat() < 0.5F && this.random.nextFloat() < this.world.z() && this.world.l(new BlockPosition(this)) <= this.random.nextInt(8)) {
+				if (var3 == BiomeBase.SWAMPLAND && this.locY > 50.0D && this.locY < 70.0D && this.random.nextFloat() < 0.5F && this.random.nextFloat() < this.world.z() && this.world.l(new BlockPosition(this)) <= this.random.nextInt(8)) {
 					return super.cf();
 				}
 

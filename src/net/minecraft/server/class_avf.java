@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
-public class class_avf extends class_avd {
+public class class_avf extends PersistentBase {
    public int b;
    public int c;
    public byte d;

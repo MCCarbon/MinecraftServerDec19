@@ -2,10 +2,10 @@ package net.minecraft.server;
 
 import java.util.Random;
 import net.minecraft.server.class_asz;
-import net.minecraft.server.class_atf;
+import net.minecraft.server.NoiseGenerator;
 import net.minecraft.server.MathHelper;
 
-public class class_ata extends class_atf {
+public class class_ata extends NoiseGenerator {
    private class_asz[] a;
    private int b;
 

@@ -7,18 +7,18 @@ import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public class class_aqu extends class_aql {
+public class class_aqu extends WorldGenerator {
    private Block a;
 
    public class_aqu(Block var1) {
       this.a = var1;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       for(var3 = var3.add(-8, 0, -8); var3.getY() > 5 && var1.isEmpty(var3); var3 = var3.down()) {
          ;
       }

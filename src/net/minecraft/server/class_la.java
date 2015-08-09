@@ -4,17 +4,17 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aoc;
 import net.minecraft.server.class_aoe;
-import net.minecraft.server.class_avd;
+import net.minecraft.server.PersistentBase;
 import net.minecraft.server.class_avk;
-import net.minecraft.server.class_avo;
+import net.minecraft.server.IDataManager;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_nv;
-import net.minecraft.server.class_tr;
+import net.minecraft.server.MethodProfiler;
+import net.minecraft.server.PersistentVillage;
 
 public class class_la extends WorldServer {
    private WorldServer a;
 
-   public class_la(MinecraftServer var1, class_avo var2, int var3, WorldServer var4, class_nv var5) {
+   public class_la(MinecraftServer var1, IDataManager var2, int var3, WorldServer var4, MethodProfiler var5) {
       super(var1, var2, new class_avk(var4.Q()), var3, var5);
       this.a = var4;
       var4.ag().a(new class_aoc() {
@@ -54,11 +54,11 @@ public class class_la extends WorldServer {
    public World b() {
       this.z = this.a.U();
       this.C = this.a.aa();
-      String var1 = class_tr.a(this.worldProvider);
-      class_tr var2 = (class_tr)this.z.a(class_tr.class, var1);
+      String var1 = PersistentVillage.a(this.worldProvider);
+      PersistentVillage var2 = (PersistentVillage)this.z.a(PersistentVillage.class, var1);
       if(var2 == null) {
-         this.A = new class_tr(this);
-         this.z.a((String)var1, (class_avd)this.A);
+         this.A = new PersistentVillage(this);
+         this.z.a((String)var1, (PersistentBase)this.A);
       } else {
          this.A = var2;
          this.A.a((World)this);

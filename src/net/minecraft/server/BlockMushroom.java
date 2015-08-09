@@ -68,14 +68,14 @@ public class BlockMushroom extends BlockPlant implements IBlockFragilePlantEleme
 
 	public boolean d(World var1, BlockPosition var2, IBlockData var3, Random var4) {
 		var1.setAir(var2);
-		class_aqr var5 = null;
+		WorldGenHugeMushroom var5 = null;
 		if (this == Blocks.BROWN_MUSHROOM) {
-			var5 = new class_aqr(Blocks.BROWN_MUSHROOM_BLOCK);
+			var5 = new WorldGenHugeMushroom(Blocks.BROWN_MUSHROOM_BLOCK);
 		} else if (this == Blocks.RED_MUSHROOM) {
-			var5 = new class_aqr(Blocks.RED_MUSHROOM_BLOCK);
+			var5 = new WorldGenHugeMushroom(Blocks.RED_MUSHROOM_BLOCK);
 		}
 
-		if ((var5 != null) && var5.b(var1, var4, var2)) {
+		if ((var5 != null) && var5.generate(var1, var4, var2)) {
 			return true;
 		} else {
 			var1.setTypeAndData(var2, var3, 3);

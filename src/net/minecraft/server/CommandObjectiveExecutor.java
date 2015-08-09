@@ -4,7 +4,7 @@ import net.minecraft.server.World;
 import net.minecraft.server.Vec3D;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awl;
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 import net.minecraft.server.class_ca;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
@@ -79,7 +79,7 @@ public class CommandObjectiveExecutor {
 
          String var7 = this.d[var2.a()];
          if(var7 != null) {
-            class_awn var8 = var1.e().aa();
+            Scoreboard var8 = var1.e().aa();
             class_awj var9 = var8.b(var7);
             if(var9 != null) {
                if(var8.b(var6, var9)) {

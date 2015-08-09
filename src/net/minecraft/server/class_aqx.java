@@ -26,7 +26,7 @@ public class class_aqx extends class_aqy {
       this.h = var2;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4 = this.a(var2);
       if(!this.a(var1, var2, var3, var4)) {
          return false;
@@ -36,23 +36,23 @@ public class class_aqx extends class_aqy {
          for(int var5 = 0; var5 < var4; ++var5) {
             Block var6 = var1.getType(var3.up(var5)).getBlock();
             if(var6.getMaterial() == Material.AIR || var6.getMaterial() == Material.LEAVES) {
-               this.a(var1, var3.up(var5), this.b);
+               this.setTypeAndData(var1, var3.up(var5), this.b);
             }
 
             if(var5 < var4 - 1) {
                var6 = var1.getType(var3.add(1, var5, 0)).getBlock();
                if(var6.getMaterial() == Material.AIR || var6.getMaterial() == Material.LEAVES) {
-                  this.a(var1, var3.add(1, var5, 0), this.b);
+                  this.setTypeAndData(var1, var3.add(1, var5, 0), this.b);
                }
 
                var6 = var1.getType(var3.add(1, var5, 1)).getBlock();
                if(var6.getMaterial() == Material.AIR || var6.getMaterial() == Material.LEAVES) {
-                  this.a(var1, var3.add(1, var5, 1), this.b);
+                  this.setTypeAndData(var1, var3.add(1, var5, 1), this.b);
                }
 
                var6 = var1.getType(var3.add(0, var5, 1)).getBlock();
                if(var6.getMaterial() == Material.AIR || var6.getMaterial() == Material.LEAVES) {
-                  this.a(var1, var3.add(0, var5, 1), this.b);
+                  this.setTypeAndData(var1, var3.add(0, var5, 1), this.b);
                }
             }
          }
@@ -107,7 +107,7 @@ public class class_aqx extends class_aqy {
          BlockPosition var4 = var2.up(var3);
          Block var5 = var1.getType(var4).getBlock();
          if(var5 == Blocks.GRASS || var5 == Blocks.DIRT) {
-            this.a(var1, var4, g);
+            this.setTypeAndData(var1, var4, g);
             break;
          }
 

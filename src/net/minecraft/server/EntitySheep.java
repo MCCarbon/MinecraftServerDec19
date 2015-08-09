@@ -8,7 +8,7 @@ public class EntitySheep extends EntityAnimal {
 
 	private static final int INFOFLAGS_DW_ID = DataWathcer.claimId(EntitySheep.class); //value = 12
 
-	private final class_yg bt = new class_yg(new Container() {
+	private final InventoryCrafting bt = new InventoryCrafting(new Container() {
 		public boolean a(EntityHuman var1) {
 			return false;
 		}
@@ -186,7 +186,7 @@ public class EntitySheep extends EntityAnimal {
 		int var4 = ((EntitySheep) var2).cA().b();
 		this.bt.getItem(0).setData(var3);
 		this.bt.getItem(1).setData(var4);
-		ItemStack var5 = RecipeManager.a().a(this.bt, ((EntitySheep) var1).world);
+		ItemStack var5 = CraftingManager.a().craft(this.bt, ((EntitySheep) var1).world);
 		int var6;
 		if (var5 != null && var5.getItem() == Items.DYE) {
 			var6 = var5.i();

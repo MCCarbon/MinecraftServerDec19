@@ -4,11 +4,11 @@ import com.google.common.collect.Sets;
 import java.util.Collection;
 import java.util.Set;
 import net.minecraft.server.EnumChatFormat;
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 import net.minecraft.server.class_awp;
 
 public class class_awk extends class_awp {
-   private final class_awn a;
+   private final Scoreboard a;
    private final String b;
    private final Set c = Sets.newHashSet();
    private String d;
@@ -20,7 +20,7 @@ public class class_awk extends class_awp {
    private class_awp.class_a_in_class_awp j;
    private EnumChatFormat k;
 
-   public class_awk(class_awn var1, String var2) {
+   public class_awk(Scoreboard var1, String var2) {
       this.i = class_awp.class_a_in_class_awp.a;
       this.j = class_awp.class_a_in_class_awp.a;
       this.k = EnumChatFormat.RESET;

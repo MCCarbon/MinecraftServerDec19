@@ -571,13 +571,13 @@ public class Block {
 	public void breakBlockNaturally(World world, EntityHuman entityhuman, BlockPosition blockposition, IBlockData iblockdata, TileEntity te, ItemStack itemstack) {
 		entityhuman.b(StatisticList.ab[getId(this)]);
 		entityhuman.a(0.025F);
-		if (canApplySilkTouch() && (EnchantmentManager.getLevel(Enchantment.q, itemstack) > 0)) {
+		if (canApplySilkTouch() && (EnchantmentManager.getLevel(RegistryEnchantments.q, itemstack) > 0)) {
 			ItemStack drop = createItemStack(iblockdata);
 			if (drop != null) {
 				dropItem(world, blockposition, drop);
 			}
 		} else {
-			int fortuneLevel = EnchantmentManager.getLevel(Enchantment.s, itemstack);
+			int fortuneLevel = EnchantmentManager.getLevel(RegistryEnchantments.s, itemstack);
 			dropNaturallyForSure(world, blockposition, iblockdata, fortuneLevel);
 		}
 	}

@@ -455,7 +455,7 @@ public class Item {
 		registerItemBlock(Blocks.PACKED_ICE);
 		registerItemBlock(Blocks.ACACIA_STAIRS);
 		registerItemBlock(Blocks.DARK_OAK_STAIRS);
-		registerItemBlock(Blocks.SLINE);
+		registerItemBlock(Blocks.SLIME);
 		registerItemBlock(Blocks.GRASS_PATH);
 		registerItemBlock(Blocks.DOUBLE_PLANT, (new class_zx(Blocks.DOUBLE_PLANT, Blocks.DOUBLE_PLANT, new Function<ItemStack, String>() {
             public String apply(ItemStack var1) {

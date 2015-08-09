@@ -4,58 +4,58 @@ import java.util.List;
 import java.util.Random;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.class_aeu;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockFalling;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aoh;
+import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_apg;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_api;
 import net.minecraft.server.class_apm;
-import net.minecraft.server.class_apn;
+import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.class_aqu;
 import net.minecraft.server.class_ara;
-import net.minecraft.server.class_arz;
-import net.minecraft.server.class_ase;
-import net.minecraft.server.class_asg;
-import net.minecraft.server.class_asi;
-import net.minecraft.server.class_asq;
+import net.minecraft.server.WorldGenMineshaft;
+import net.minecraft.server.WorldGenMonument;
+import net.minecraft.server.WorldGenLargeFeature;
+import net.minecraft.server.WorldGenStronghold;
+import net.minecraft.server.WorldGenVillage;
 import net.minecraft.server.class_ata;
-import net.minecraft.server.class_atb;
+import net.minecraft.server.NoiseGenerator3;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.class_qc;
 
-public class class_app implements class_aoh {
+public class class_app implements IChunkProvider {
    private Random h;
    private class_ata i;
    private class_ata j;
    private class_ata k;
-   private class_atb l;
+   private NoiseGenerator3 l;
    public class_ata a;
    public class_ata b;
    public class_ata c;
    private World m;
    private final boolean n;
-   private class_aes o;
+   private WorldType o;
    private final double[] p;
    private final float[] q;
    private class_api r;
    private Block s;
    private double[] t;
-   private class_apn u;
-   private class_asi v;
-   private class_asq w;
-   private class_arz x;
-   private class_asg y;
-   private class_apn z;
-   private class_ase A;
+   private WorldGenBase u;
+   private WorldGenStronghold v;
+   private WorldGenVillage w;
+   private WorldGenMineshaft x;
+   private WorldGenLargeFeature y;
+   private WorldGenBase z;
+   private WorldGenMonument A;
    private BiomeBase[] B;
    double[] d;
    double[] e;
@@ -66,12 +66,12 @@ public class class_app implements class_aoh {
       this.s = Blocks.WATER;
       this.t = new double[256];
       this.u = new class_apm();
-      this.v = new class_asi();
-      this.w = new class_asq();
-      this.x = new class_arz();
-      this.y = new class_asg();
+      this.v = new WorldGenStronghold();
+      this.w = new WorldGenVillage();
+      this.x = new WorldGenMineshaft();
+      this.y = new WorldGenLargeFeature();
       this.z = new class_apg();
-      this.A = new class_ase();
+      this.A = new WorldGenMonument();
       this.m = var1;
       this.n = var4;
       this.o = var1.Q().u();
@@ -79,7 +79,7 @@ public class class_app implements class_aoh {
       this.i = new class_ata(this.h, 16);
       this.j = new class_ata(this.h, 16);
       this.k = new class_ata(this.h, 8);
-      this.l = new class_atb(this.h, 4);
+      this.l = new NoiseGenerator3(this.h, 4);
       this.a = new class_ata(this.h, 10);
       this.b = new class_ata(this.h, 16);
       this.c = new class_ata(this.h, 8);
@@ -244,7 +244,7 @@ public class class_app implements class_aoh {
                   BiomeBase var17 = this.B[var8 + var15 + 2 + (var9 + var16 + 2) * 10];
                   float var18 = this.r.n + var17.an * this.r.m;
                   float var19 = this.r.p + var17.ao * this.r.o;
-                  if(this.o == class_aes.e && var18 > 0.0F) {
+                  if(this.o == WorldType.AMPLIFIED && var18 > 0.0F) {
                      var18 = 1.0F + var18 * 2.0F;
                      var19 = 1.0F + var19 * 4.0F;
                   }
@@ -320,7 +320,7 @@ public class class_app implements class_aoh {
       return true;
    }
 
-   public void a(class_aoh var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       BlockFalling.instaFall = true;
       int var4 = var2 * 16;
       int var5 = var3 * 16;
@@ -355,11 +355,11 @@ public class class_app implements class_aoh {
       int var14;
       int var15;
       int var16;
-      if(var7 != BiomeBase.r && var7 != BiomeBase.G && this.r.A && !var12 && this.h.nextInt(this.r.B) == 0) {
+      if(var7 != BiomeBase.DESERT && var7 != BiomeBase.DESERT_HILLS && this.r.A && !var12 && this.h.nextInt(this.r.B) == 0) {
          var14 = this.h.nextInt(16) + 8;
          var15 = this.h.nextInt(256);
          var16 = this.h.nextInt(16) + 8;
-         (new class_aqu(Blocks.WATER)).b(this.m, this.h, var6.add(var14, var15, var16));
+         (new class_aqu(Blocks.WATER)).generate(this.m, this.h, var6.add(var14, var15, var16));
       }
 
       if(!var12 && this.h.nextInt(this.r.D / 10) == 0 && this.r.C) {
@@ -367,7 +367,7 @@ public class class_app implements class_aoh {
          var15 = this.h.nextInt(this.h.nextInt(248) + 8);
          var16 = this.h.nextInt(16) + 8;
          if(var15 < this.m.G() || this.h.nextInt(this.r.D / 8) == 0) {
-            (new class_aqu(Blocks.LAVA)).b(this.m, this.h, var6.add(var14, var15, var16));
+            (new class_aqu(Blocks.LAVA)).generate(this.m, this.h, var6.add(var14, var15, var16));
          }
       }
 
@@ -376,7 +376,7 @@ public class class_app implements class_aoh {
             var15 = this.h.nextInt(16) + 8;
             var16 = this.h.nextInt(256);
             int var17 = this.h.nextInt(16) + 8;
-            (new class_ara()).b(this.m, this.h, var6.add(var15, var16, var17));
+            (new class_ara()).generate(this.m, this.h, var6.add(var15, var16, var17));
          }
       }
 
@@ -401,7 +401,7 @@ public class class_app implements class_aoh {
       BlockFalling.instaFall = false;
    }
 
-   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       boolean var5 = false;
       if(this.r.y && this.n && var2.w() < 3600L) {
          var5 |= this.A.a(this.m, this.h, new class_aeh(var3, var4));
@@ -410,7 +410,7 @@ public class class_app implements class_aoh {
       return var5;
    }
 
-   public boolean a(boolean var1, class_nw var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 

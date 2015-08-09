@@ -93,7 +93,7 @@ public class class_apx extends class_apw {
                BlockPosition var7 = var1.add(var5, 0, var6);
                Material var8 = this.l.getType(var7).getBlock().getMaterial();
                if(var8 == Material.AIR || var8 == Material.LEAVES) {
-                  this.a(this.l, var7, var3);
+                  this.setTypeAndData(this.l, var7, var3);
                }
             }
          }
@@ -139,7 +139,7 @@ public class class_apx extends class_apw {
       for(int var9 = 0; var9 <= var5; ++var9) {
          BlockPosition var10 = var1.add((double)(0.5F + (float)var9 * var6), (double)(0.5F + (float)var9 * var7), (double)(0.5F + (float)var9 * var8));
          BlockLogAbstract.EnumLogRotation var11 = this.b(var1, var10);
-         this.a(this.l, var10, var3.getBlockData().set(BlockLogAbstract.AXIS, var11));
+         this.setTypeAndData(this.l, var10, var3.getBlockData().set(BlockLogAbstract.AXIS, var11));
       }
 
    }
@@ -232,7 +232,7 @@ public class class_apx extends class_apw {
       this.i = 5;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       this.l = var1;
       this.m = var3;
       this.k = new Random(var2.nextLong());

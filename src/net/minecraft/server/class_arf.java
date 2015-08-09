@@ -10,7 +10,7 @@ public class class_arf extends class_apw {
       super(var1);
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4 = var2.nextInt(3) + var2.nextInt(2) + 6;
       int var5 = var3.getX();
       int var6 = var3.getY();
@@ -151,7 +151,7 @@ public class class_arf extends class_apw {
 
    private void b(World var1, BlockPosition var2) {
       if(this.a(var1.getType(var2).getBlock())) {
-         this.a(var1, var2, a);
+         this.setTypeAndData(var1, var2, a);
       }
 
    }
@@ -160,7 +160,7 @@ public class class_arf extends class_apw {
       BlockPosition var5 = new BlockPosition(var2, var3, var4);
       Block var6 = var1.getType(var5).getBlock();
       if(var6.getMaterial() == Material.AIR) {
-         this.a(var1, var5, b);
+         this.setTypeAndData(var1, var5, b);
       }
 
    }

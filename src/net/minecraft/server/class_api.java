@@ -222,7 +222,7 @@ public class class_api {
             var5.F = JsonHelper.getBoolean(var4, "useLavaOceans", var5.F);
             var5.G = JsonHelper.getInt(var4, "fixedBiome", var5.G);
             if(var5.G < 38 && var5.G >= -1) {
-               if(var5.G >= BiomeBase.x.az) {
+               if(var5.G >= BiomeBase.HELL.az) {
                   var5.G += 2;
                }
             } else {

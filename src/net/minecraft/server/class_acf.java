@@ -1,48 +1,48 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_acd;
+import net.minecraft.server.RegistryPotions;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.Bootstrap;
 
 public class class_acf {
-   public static class_acd a;
-   public static class_acd b;
-   public static class_acd c;
-   public static class_acd d;
-   public static class_acd e;
-   public static class_acd f;
-   public static class_acd g;
-   public static class_acd h;
-   public static class_acd i;
-   public static class_acd j;
-   public static class_acd k;
-   public static class_acd l;
-   public static class_acd m;
-   public static class_acd n;
-   public static class_acd o;
-   public static class_acd p;
-   public static class_acd q;
-   public static class_acd r;
-   public static class_acd s;
-   public static class_acd t;
-   public static class_acd u;
-   public static class_acd v;
-   public static class_acd w;
-   public static class_acd x;
-   public static class_acd y;
-   public static class_acd z;
-   public static class_acd A;
-   public static class_acd B;
-   public static class_acd C;
-   public static class_acd D;
-   public static class_acd E;
-   public static class_acd F;
-   public static class_acd G;
-   public static class_acd H;
-   public static class_acd I;
+   public static RegistryPotions a;
+   public static RegistryPotions b;
+   public static RegistryPotions c;
+   public static RegistryPotions d;
+   public static RegistryPotions e;
+   public static RegistryPotions f;
+   public static RegistryPotions g;
+   public static RegistryPotions h;
+   public static RegistryPotions i;
+   public static RegistryPotions j;
+   public static RegistryPotions k;
+   public static RegistryPotions l;
+   public static RegistryPotions m;
+   public static RegistryPotions n;
+   public static RegistryPotions o;
+   public static RegistryPotions p;
+   public static RegistryPotions q;
+   public static RegistryPotions r;
+   public static RegistryPotions s;
+   public static RegistryPotions t;
+   public static RegistryPotions u;
+   public static RegistryPotions v;
+   public static RegistryPotions w;
+   public static RegistryPotions x;
+   public static RegistryPotions y;
+   public static RegistryPotions z;
+   public static RegistryPotions A;
+   public static RegistryPotions B;
+   public static RegistryPotions C;
+   public static RegistryPotions D;
+   public static RegistryPotions E;
+   public static RegistryPotions F;
+   public static RegistryPotions G;
+   public static RegistryPotions H;
+   public static RegistryPotions I;
 
-   private static class_acd a(String var0) {
-      class_acd var1 = (class_acd)class_acd.REGISTRY.get(new MinecraftKey(var0));
+   private static RegistryPotions a(String var0) {
+      RegistryPotions var1 = (RegistryPotions)RegistryPotions.REGISTRY.get(new MinecraftKey(var0));
       if(var1 == null) {
          throw new IllegalStateException("Invalid Potion requested: " + var0);
       } else {

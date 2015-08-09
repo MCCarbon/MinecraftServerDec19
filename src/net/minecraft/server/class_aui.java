@@ -26,14 +26,14 @@ public class class_aui extends class_auc {
       int[] var7 = class_aua.a(var3 * var4);
 
       for(int var8 = 0; var8 < var3 * var4; ++var8) {
-         if(var5[var8] != BiomeBase.p.az && var5[var8] != BiomeBase.N.az) {
-            if(var6[var8] == BiomeBase.w.az) {
-               if(var5[var8] == BiomeBase.B.az) {
-                  var7[var8] = BiomeBase.A.az;
-               } else if(var5[var8] != BiomeBase.D.az && var5[var8] != BiomeBase.E.az) {
+         if(var5[var8] != BiomeBase.OCEAN.az && var5[var8] != BiomeBase.DEEP_OCEAN.az) {
+            if(var6[var8] == BiomeBase.RIVER.az) {
+               if(var5[var8] == BiomeBase.ICE_PLAINS.az) {
+                  var7[var8] = BiomeBase.FROZEN_RIVER.az;
+               } else if(var5[var8] != BiomeBase.MUSHROOM_ISLAND.az && var5[var8] != BiomeBase.MUSHROOM_SHORE.az) {
                   var7[var8] = var6[var8] & 255;
                } else {
-                  var7[var8] = BiomeBase.E.az;
+                  var7[var8] = BiomeBase.MUSHROOM_SHORE.az;
                }
             } else {
                var7[var8] = var5[var8];

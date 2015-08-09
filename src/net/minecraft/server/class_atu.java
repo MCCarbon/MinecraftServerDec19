@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.class_api;
 import net.minecraft.server.class_aua;
@@ -13,17 +13,17 @@ public class class_atu extends class_auc {
    private BiomeBase[] f;
    private final class_api g;
 
-   public class_atu(long var1, class_auc var3, class_aes var4, String var5) {
+   public class_atu(long var1, class_auc var3, WorldType var4, String var5) {
       super(var1);
-      this.c = new BiomeBase[]{BiomeBase.r, BiomeBase.r, BiomeBase.r, BiomeBase.Y, BiomeBase.Y, BiomeBase.q};
-      this.d = new BiomeBase[]{BiomeBase.t, BiomeBase.S, BiomeBase.s, BiomeBase.q, BiomeBase.Q, BiomeBase.v};
-      this.e = new BiomeBase[]{BiomeBase.t, BiomeBase.s, BiomeBase.u, BiomeBase.q};
-      this.f = new BiomeBase[]{BiomeBase.B, BiomeBase.B, BiomeBase.B, BiomeBase.T};
+      this.c = new BiomeBase[]{BiomeBase.DESERT, BiomeBase.DESERT, BiomeBase.DESERT, BiomeBase.SAVANNA, BiomeBase.SAVANNA, BiomeBase.PLAINS};
+      this.d = new BiomeBase[]{BiomeBase.FOREST, BiomeBase.ROOFED_FOREST, BiomeBase.EXTREME_HILLS, BiomeBase.PLAINS, BiomeBase.BIRCH_FOREST, BiomeBase.SWAMPLAND};
+      this.e = new BiomeBase[]{BiomeBase.FOREST, BiomeBase.EXTREME_HILLS, BiomeBase.TAIGA, BiomeBase.PLAINS};
+      this.f = new BiomeBase[]{BiomeBase.ICE_PLAINS, BiomeBase.ICE_PLAINS, BiomeBase.ICE_PLAINS, BiomeBase.COLD_TAIGA};
       this.a = var3;
-      if(var4 == class_aes.h) {
-         this.c = new BiomeBase[]{BiomeBase.r, BiomeBase.t, BiomeBase.s, BiomeBase.v, BiomeBase.q, BiomeBase.u};
+      if(var4 == WorldType.NORMAL_1_1) {
+         this.c = new BiomeBase[]{BiomeBase.DESERT, BiomeBase.FOREST, BiomeBase.EXTREME_HILLS, BiomeBase.SWAMPLAND, BiomeBase.PLAINS, BiomeBase.TAIGA};
          this.g = null;
-      } else if(var4 == class_aes.f) {
+      } else if(var4 == WorldType.CUSTOMIZED) {
          this.g = class_api.class_a_in_class_api.a(var5).b();
       } else {
          this.g = null;
@@ -45,34 +45,34 @@ public class class_atu extends class_auc {
                var6[var8 + var7 * var3] = this.g.F;
             } else if(b(var9)) {
                var6[var8 + var7 * var3] = var9;
-            } else if(var9 == BiomeBase.D.az) {
+            } else if(var9 == BiomeBase.MUSHROOM_ISLAND.az) {
                var6[var8 + var7 * var3] = var9;
             } else if(var9 == 1) {
                if(var10 > 0) {
                   if(this.a(3) == 0) {
-                     var6[var8 + var7 * var3] = BiomeBase.ac.az;
+                     var6[var8 + var7 * var3] = BiomeBase.MESA_PLATEU.az;
                   } else {
-                     var6[var8 + var7 * var3] = BiomeBase.ab.az;
+                     var6[var8 + var7 * var3] = BiomeBase.MESA_PLATEU_F.az;
                   }
                } else {
                   var6[var8 + var7 * var3] = this.c[this.a(this.c.length)].az;
                }
             } else if(var9 == 2) {
                if(var10 > 0) {
-                  var6[var8 + var7 * var3] = BiomeBase.K.az;
+                  var6[var8 + var7 * var3] = BiomeBase.JUNGLE.az;
                } else {
                   var6[var8 + var7 * var3] = this.d[this.a(this.d.length)].az;
                }
             } else if(var9 == 3) {
                if(var10 > 0) {
-                  var6[var8 + var7 * var3] = BiomeBase.V.az;
+                  var6[var8 + var7 * var3] = BiomeBase.MEGA_TAIGA.az;
                } else {
                   var6[var8 + var7 * var3] = this.e[this.a(this.e.length)].az;
                }
             } else if(var9 == 4) {
                var6[var8 + var7 * var3] = this.f[this.a(this.f.length)].az;
             } else {
-               var6[var8 + var7 * var3] = BiomeBase.D.az;
+               var6[var8 + var7 * var3] = BiomeBase.MUSHROOM_ISLAND.az;
             }
          }
       }

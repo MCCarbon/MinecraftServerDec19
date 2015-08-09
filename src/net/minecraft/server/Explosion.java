@@ -105,7 +105,7 @@ public class Explosion {
 						var13.damageEntity(DamageSource.a(this), (float) ((int) ((var26 * var26 + var26) / 2.0D * 8.0D * (double) var30 + 1.0D)));
 						double var28 = 1.0D;
 						if (var13 instanceof EntityLiving) {
-							var28 = class_ads.a((EntityLiving) var13, var26);
+							var28 = EnchantmentProtection.a((EntityLiving) var13, var26);
 						}
 
 						var13.motX += var16 * var28;

@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_aro extends class_aql {
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+public class class_aro extends WorldGenerator {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       for(; var3.getY() < 128; var3 = var3.up()) {
          if(var1.isEmpty(var3)) {
             EnumDirection[] var4 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getDirections();

@@ -411,10 +411,10 @@ public class Bootstrap {
 			Block.init();
 			BlockFire.l();
 			MobEffectType.k();
-			class_adi.e();
+			Enchantment.e();
 			Item.init();
-			class_acd.c();
-			class_ace.a();
+			RegistryPotions.c();
+			PotionBrewer.a();
 			StatisticList.a();
 			b();
 		}

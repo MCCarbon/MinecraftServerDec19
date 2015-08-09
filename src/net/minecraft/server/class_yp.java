@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class class_yp extends Container {
    private static final EnumWearable[] h;
-   public class_yg a = new class_yg(this, 2, 2);
+   public InventoryCrafting a = new InventoryCrafting(this, 2, 2);
    public IInventory f = new class_yv();
    public boolean g;
    private final EntityHuman i;
@@ -52,7 +52,7 @@ public class class_yp extends Container {
    }
 
    public void a(IInventory var1) {
-      this.f.setItem(0, RecipeManager.a().a(this.a, this.i.world));
+      this.f.setItem(0, CraftingManager.a().craft(this.a, this.i.world));
    }
 
    public void b(EntityHuman var1) {

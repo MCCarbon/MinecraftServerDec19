@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.World;
 import net.minecraft.server.WorldSettings;
-import net.minecraft.server.class_aes;
+import net.minecraft.server.WorldType;
 import net.minecraft.server.class_b;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_ke;
@@ -184,9 +184,9 @@ public class class_kp extends MinecraftServer implements class_kk {
                }
             }
 
-            class_aes var18 = class_aes.a(var7);
+            WorldType var18 = WorldType.getType(var7);
             if(var18 == null) {
-               var18 = class_aes.b;
+               var18 = WorldType.NORMAL;
             }
 
             this.aB();

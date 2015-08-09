@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.List;
 import java.util.Random;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_avn;
+import net.minecraft.server.WorldData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
@@ -32,7 +32,7 @@ public class CommandWeather extends CommandAbstract {
          }
 
          WorldServer var4 = MinecraftServer.N().d[0];
-         class_avn var5 = var4.Q();
+         WorldData var5 = var4.Q();
          if("clear".equalsIgnoreCase(var2[0])) {
             var5.i(var3);
             var5.g(0);

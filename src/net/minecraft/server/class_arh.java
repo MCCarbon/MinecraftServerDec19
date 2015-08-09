@@ -10,7 +10,7 @@ public class class_arh extends class_apw {
       super(var1);
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4 = var2.nextInt(3) + var2.nextInt(3) + 5;
       boolean var5 = true;
       if(var3.getY() >= 1 && var3.getY() + var4 + 1 <= 256) {
@@ -152,13 +152,13 @@ public class class_arh extends class_apw {
    }
 
    private void b(World var1, BlockPosition var2) {
-      this.a(var1, var2, a);
+      this.setTypeAndData(var1, var2, a);
    }
 
    private void c(World var1, BlockPosition var2) {
       Material var3 = var1.getType(var2).getBlock().getMaterial();
       if(var3 == Material.AIR || var3 == Material.LEAVES) {
-         this.a(var1, var2, b);
+         this.setTypeAndData(var1, var2, b);
       }
 
    }

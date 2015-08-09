@@ -4,13 +4,13 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 
-public class class_aqt extends class_aql {
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+public class class_aqt extends WorldGenerator {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       while(var1.isEmpty(var3) && var3.getY() > 2) {
          var3 = var3.down();
       }
@@ -39,13 +39,13 @@ public class class_aqt extends class_aql {
                   if((var9 == 0 && var11 == 0 || var10 * var10 + var12 * var12 <= var7 * var7) && (var9 != -var8 && var9 != var8 && var11 != -var8 && var11 != var8 || var2.nextFloat() <= 0.75F)) {
                      Block var13 = var1.getType(var3.add(var9, var6, var11)).getBlock();
                      if(var13.getMaterial() == Material.AIR || var13 == Blocks.DIRT || var13 == Blocks.SNOW || var13 == Blocks.ICE) {
-                        this.a(var1, var3.add(var9, var6, var11), Blocks.PACKED_ICE.getBlockData());
+                        this.setTypeAndData(var1, var3.add(var9, var6, var11), Blocks.PACKED_ICE.getBlockData());
                      }
 
                      if(var6 != 0 && var8 > 1) {
                         var13 = var1.getType(var3.add(var9, -var6, var11)).getBlock();
                         if(var13.getMaterial() == Material.AIR || var13 == Blocks.DIRT || var13 == Blocks.SNOW || var13 == Blocks.ICE) {
-                           this.a(var1, var3.add(var9, -var6, var11), Blocks.PACKED_ICE.getBlockData());
+                           this.setTypeAndData(var1, var3.add(var9, -var6, var11), Blocks.PACKED_ICE.getBlockData());
                         }
                      }
                   }
@@ -74,7 +74,7 @@ public class class_aqt extends class_aql {
                      break;
                   }
 
-                  this.a(var1, var15, Blocks.PACKED_ICE.getBlockData());
+                  this.setTypeAndData(var1, var15, Blocks.PACKED_ICE.getBlockData());
                   var15 = var15.down();
                   --var16;
                   if(var16 <= 0) {

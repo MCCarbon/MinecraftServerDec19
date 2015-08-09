@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.EnchantmentManager;
 import net.minecraft.server.class_oc;
 
-public class class_vf extends class_oc.class_a_in_class_oc {
+public class class_vf extends class_oc.WeightedRandomChoice {
    private final ItemStack b;
    private float c;
    private boolean d;

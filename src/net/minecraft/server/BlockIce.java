@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Random;
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.EnchantmentManager;
-import net.minecraft.server.Enchantment;
+import net.minecraft.server.RegistryEnchantments;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aet;
 import net.minecraft.server.Block;
@@ -28,7 +28,7 @@ public class BlockIce extends BlockHalfTransparent {
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
       var2.b(StatisticList.ab[Block.getId((Block)this)]);
       var2.a(0.025F);
-      if(this.canApplySilkTouch() && EnchantmentManager.getLevel(Enchantment.q, var6) > 0) {
+      if(this.canApplySilkTouch() && EnchantmentManager.getLevel(RegistryEnchantments.q, var6) > 0) {
          ItemStack var9 = this.createItemStack(var4);
          if(var9 != null) {
             dropItem(var1, var3, var9);
@@ -39,7 +39,7 @@ public class BlockIce extends BlockHalfTransparent {
             return;
          }
 
-         int var7 = EnchantmentManager.getLevel(Enchantment.s, var6);
+         int var7 = EnchantmentManager.getLevel(RegistryEnchantments.s, var6);
          this.dropNaturallyForSure(var1, var3, var4, var7);
          Material var8 = var1.getType(var3.down()).getBlock().getMaterial();
          if(var8.isSolid() || var8.isLiquid()) {

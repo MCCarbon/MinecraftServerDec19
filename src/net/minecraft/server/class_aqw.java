@@ -7,7 +7,7 @@ public class class_aqw extends class_aqy {
       super(var1, var2, var3, var4, var5);
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       int var4 = this.a(var2);
       if(!this.a(var1, var2, var3, var4)) {
          return false;
@@ -23,7 +23,7 @@ public class class_aqw extends class_aqy {
             for(var9 = 0; var9 < 5; ++var9) {
                var7 = var3.getX() + (int)(1.5F + MathHelper.cos(var6) * (float)var9);
                var8 = var3.getZ() + (int)(1.5F + MathHelper.sin(var6) * (float)var9);
-               this.a(var1, new BlockPosition(var7, var5 - 3 + var9 / 2, var8), this.b);
+               this.setTypeAndData(var1, new BlockPosition(var7, var5 - 3 + var9 / 2, var8), this.b);
             }
 
             var9 = 1 + var2.nextInt(2);
@@ -38,7 +38,7 @@ public class class_aqw extends class_aqy {
          for(int var13 = 0; var13 < var4; ++var13) {
             BlockPosition var14 = var3.up(var13);
             if(this.a(var1.getType(var14).getBlock())) {
-               this.a(var1, var14, this.b);
+               this.setTypeAndData(var1, var14, this.b);
                if(var13 > 0) {
                   this.a(var1, var2, var14.west(), BlockVine.N);
                   this.a(var1, var2, var14.north(), BlockVine.O);
@@ -48,7 +48,7 @@ public class class_aqw extends class_aqy {
             if(var13 < var4 - 1) {
                BlockPosition var15 = var14.east();
                if(this.a(var1.getType(var15).getBlock())) {
-                  this.a(var1, var15, this.b);
+                  this.setTypeAndData(var1, var15, this.b);
                   if(var13 > 0) {
                      this.a(var1, var2, var15.east(), BlockVine.P);
                      this.a(var1, var2, var15.north(), BlockVine.O);
@@ -57,7 +57,7 @@ public class class_aqw extends class_aqy {
 
                BlockPosition var16 = var14.south().east();
                if(this.a(var1.getType(var16).getBlock())) {
-                  this.a(var1, var16, this.b);
+                  this.setTypeAndData(var1, var16, this.b);
                   if(var13 > 0) {
                      this.a(var1, var2, var16.east(), BlockVine.P);
                      this.a(var1, var2, var16.south(), BlockVine.b);
@@ -66,7 +66,7 @@ public class class_aqw extends class_aqy {
 
                BlockPosition var17 = var14.south();
                if(this.a(var1.getType(var17).getBlock())) {
-                  this.a(var1, var17, this.b);
+                  this.setTypeAndData(var1, var17, this.b);
                   if(var13 > 0) {
                      this.a(var1, var2, var17.west(), BlockVine.N);
                      this.a(var1, var2, var17.south(), BlockVine.b);
@@ -81,7 +81,7 @@ public class class_aqw extends class_aqy {
 
    private void a(World var1, Random var2, BlockPosition var3, BlockStateBoolean var4) {
       if(var2.nextInt(3) > 0 && var1.isEmpty(var3)) {
-         this.a(var1, var3, Blocks.VINE.getBlockData().set(var4, Boolean.valueOf(true)));
+         this.setTypeAndData(var1, var3, Blocks.VINE.getBlockData().set(var4, Boolean.valueOf(true)));
       }
 
    }

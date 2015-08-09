@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_nv;
+import net.minecraft.server.MethodProfiler;
 import net.minecraft.server.class_rm;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,11 +12,11 @@ public class class_rn {
    private static final Logger a = LogManager.getLogger();
    private List b = Lists.newArrayList();
    private List c = Lists.newArrayList();
-   private final class_nv d;
+   private final MethodProfiler d;
    private int e;
    private int f = 3;
 
-   public class_rn(class_nv var1) {
+   public class_rn(MethodProfiler var1) {
       this.d = var1;
    }
 

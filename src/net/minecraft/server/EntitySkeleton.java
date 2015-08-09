@@ -181,7 +181,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 	public class_qd a(class_on var1, class_qd var2) {
 		var2 = super.a(var1, var2);
-		if (this.world.worldProvider instanceof class_apa && this.getRandom().nextInt(5) > 0) {
+		if (this.world.worldProvider instanceof WorldProviderHell && this.getRandom().nextInt(5) > 0) {
 			this.i.a(4, this.bs);
 			this.setType(1);
 			this.a(EnumWearable.MAINHAND, new ItemStack(Items.STONE_SWORD));
@@ -223,8 +223,8 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 		double var8 = var1.locZ - this.locZ;
 		double var10 = (double) MathHelper.sqrt(var4 * var4 + var8 * var8);
 		var3.c(var4, var6 + var10 * 0.20000000298023224D, var8, 1.6F, (float) (14 - this.world.ab().a() * 4));
-		int var12 = EnchantmentManager.a((class_adi) Enchantment.t, (EntityLiving) this);
-		int var13 = EnchantmentManager.a((class_adi) Enchantment.u, (EntityLiving) this);
+		int var12 = EnchantmentManager.a((Enchantment) RegistryEnchantments.t, (EntityLiving) this);
+		int var13 = EnchantmentManager.a((Enchantment) RegistryEnchantments.u, (EntityLiving) this);
 		var3.b((double) (var2 * 2.0F) + this.random.nextGaussian() * 0.25D + (double) ((float) this.world.ab().a() * 0.11F));
 		if (var12 > 0) {
 			var3.b(var3.l() + (double) var12 * 0.5D + 0.5D);
@@ -234,7 +234,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 			var3.a(var13);
 		}
 
-		if (EnchantmentManager.a((class_adi) Enchantment.v, (EntityLiving) this) > 0 || this.cB() == 1) {
+		if (EnchantmentManager.a((Enchantment) RegistryEnchantments.v, (EntityLiving) this) > 0 || this.cB() == 1) {
 			var3.f(100);
 		}
 

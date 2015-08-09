@@ -4,16 +4,16 @@ import com.google.common.collect.Lists;
 import java.util.List;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_afd;
+import net.minecraft.server.WorldChunkManager;
 import net.minecraft.server.class_ns;
 
 public class class_afa {
-   private final class_afd a;
+   private final WorldChunkManager a;
    private long b;
    private class_ns c = new class_ns();
    private List d = Lists.newArrayList();
 
-   public class_afa(class_afd var1) {
+   public class_afa(WorldChunkManager var1) {
       this.a = var1;
    }
 

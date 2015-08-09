@@ -5,18 +5,18 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public class class_arj extends class_aql {
+public class class_arj extends WorldGenerator {
    private Block a;
 
    public class_arj(Block var1) {
       this.a = var1;
    }
 
-   public boolean b(World var1, Random var2, BlockPosition var3) {
+   public boolean generate(World var1, Random var2, BlockPosition var3) {
       if(var1.getType(var3.up()).getBlock() != Blocks.STONE) {
          return false;
       } else if(var1.getType(var3.down()).getBlock() != Blocks.STONE) {

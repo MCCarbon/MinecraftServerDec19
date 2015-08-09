@@ -4,12 +4,12 @@ import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import net.minecraft.server.Item;
 import net.minecraft.server.ItemStack;
-import net.minecraft.server.class_acs;
+import net.minecraft.server.IRecipe;
 import net.minecraft.server.World;
-import net.minecraft.server.class_yg;
+import net.minecraft.server.InventoryCrafting;
 
-public class class_acu implements class_acs {
-   public boolean a(class_yg var1, World var2) {
+public class class_acu implements IRecipe {
+   public boolean a(InventoryCrafting var1, World var2) {
       ArrayList var3 = Lists.newArrayList();
 
       for(int var4 = 0; var4 < var1.getSize(); ++var4) {
@@ -28,7 +28,7 @@ public class class_acu implements class_acs {
       return var3.size() == 2;
    }
 
-   public ItemStack a(class_yg var1) {
+   public ItemStack a(InventoryCrafting var1) {
       ArrayList var2 = Lists.newArrayList();
 
       ItemStack var4;
@@ -73,7 +73,7 @@ public class class_acu implements class_acs {
       return null;
    }
 
-   public ItemStack[] b(class_yg var1) {
+   public ItemStack[] b(InventoryCrafting var1) {
       ItemStack[] var2 = new ItemStack[var1.getSize()];
 
       for(int var3 = 0; var3 < var2.length; ++var3) {

@@ -3,11 +3,11 @@ package net.minecraft.server;
 import java.util.Collection;
 import java.util.Iterator;
 import net.minecraft.server.EnumChatFormat;
-import net.minecraft.server.class_avd;
+import net.minecraft.server.PersistentBase;
 import net.minecraft.server.class_awj;
 import net.minecraft.server.class_awk;
 import net.minecraft.server.class_awl;
-import net.minecraft.server.class_awn;
+import net.minecraft.server.Scoreboard;
 import net.minecraft.server.class_awp;
 import net.minecraft.server.class_awt;
 import net.minecraft.server.NBTTagCompound;
@@ -17,9 +17,9 @@ import net.minecraft.server.NBTTag;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_awo extends class_avd {
+public class class_awo extends PersistentBase {
    private static final Logger b = LogManager.getLogger();
-   private class_awn c;
+   private Scoreboard c;
    private NBTTagCompound d;
 
    public class_awo() {
@@ -30,7 +30,7 @@ public class class_awo extends class_avd {
       super(var1);
    }
 
-   public void a(class_awn var1) {
+   public void a(Scoreboard var1) {
       this.c = var1;
       if(this.d != null) {
          this.a(this.d);

@@ -38,7 +38,7 @@ public class WorldServer extends World implements class_of {
    private static final List U;
    private List V = Lists.newArrayList();
 
-   public WorldServer(MinecraftServer var1, class_avo var2, class_avn var3, int var4, class_nv var5) {
+   public WorldServer(MinecraftServer var1, IDataManager var2, WorldData var3, int var4, MethodProfiler var5) {
       super(var2, var3, class_aoz.a(var4).d(), var5, false);
       this.I = var1;
       this.J = new class_lb(this);
@@ -52,12 +52,12 @@ public class WorldServer extends World implements class_of {
    }
 
    public World b() {
-      this.z = new class_avz(this.w);
-      String var1 = class_tr.a(this.worldProvider);
-      class_tr var2 = (class_tr)this.z.a(class_tr.class, var1);
+      this.z = new PersistentCollection(this.w);
+      String var1 = PersistentVillage.a(this.worldProvider);
+      PersistentVillage var2 = (PersistentVillage)this.z.a(PersistentVillage.class, var1);
       if(var2 == null) {
-         this.A = new class_tr(this);
-         this.z.a((String)var1, (class_avd)this.A);
+         this.A = new PersistentVillage(this);
+         this.z.a((String)var1, (PersistentBase)this.A);
       } else {
          this.A = var2;
          this.A.a((World)this);
@@ -67,7 +67,7 @@ public class WorldServer extends World implements class_of {
       class_awo var3 = (class_awo)this.z.a(class_awo.class, "scoreboard");
       if(var3 == null) {
          var3 = new class_awo();
-         this.z.a((String)"scoreboard", (class_avd)var3);
+         this.z.a((String)"scoreboard", (PersistentBase)var3);
       }
 
       var3.a(this.C);
@@ -103,7 +103,7 @@ public class WorldServer extends World implements class_of {
       }
 
       this.B.a("mobSpawner");
-      if(this.R().getBooleanValue("doMobSpawning") && this.x.u() != class_aes.g) {
+      if(this.R().getBooleanValue("doMobSpawning") && this.x.u() != WorldType.DEBUG) {
          this.R.a(this, this.F, this.G, this.x.f() % 400L == 0L);
       }
 
@@ -134,12 +134,12 @@ public class WorldServer extends World implements class_of {
       this.ak();
    }
 
-   public BiomeBase.class_c_in_class_aez a(class_qc var1, BlockPosition var2) {
+   public BiomeBase.BiomeMeta a(class_qc var1, BlockPosition var2) {
       List var3 = this.O().a(var1, var2);
-      return var3 != null && !var3.isEmpty()?(BiomeBase.class_c_in_class_aez)class_oc.a(this.random, var3):null;
+      return var3 != null && !var3.isEmpty()?(BiomeBase.BiomeMeta)class_oc.a(this.random, var3):null;
    }
 
-   public boolean a(class_qc var1, BiomeBase.class_c_in_class_aez var2, BlockPosition var3) {
+   public boolean a(class_qc var1, BiomeBase.BiomeMeta var2, BlockPosition var3) {
       List var4 = this.O().a(var1, var3);
       return var4 != null && !var4.isEmpty()?var4.contains(var2):false;
    }
@@ -207,7 +207,7 @@ public class WorldServer extends World implements class_of {
 
    protected void i() {
       super.i();
-      if(this.x.u() == class_aes.g) {
+      if(this.x.u() == WorldType.DEBUG) {
          Iterator var20 = this.E.iterator();
 
          while(var20.hasNext()) {
@@ -380,7 +380,7 @@ public class WorldServer extends World implements class_of {
    }
 
    public boolean a(boolean var1) {
-      if(this.x.u() == class_aes.g) {
+      if(this.x.u() == WorldType.DEBUG) {
          return false;
       } else {
          int var2 = this.M.size();
@@ -443,10 +443,10 @@ public class WorldServer extends World implements class_of {
       int var5 = var4 + 16 + 2;
       int var6 = (var3.b << 4) - 2;
       int var7 = var6 + 16 + 2;
-      return this.a(new class_arw(var4, 0, var6, var5, 256, var7), var2);
+      return this.a(new StructureBoundingBox(var4, 0, var6, var5, 256, var7), var2);
    }
 
-   public List a(class_arw var1, boolean var2) {
+   public List a(StructureBoundingBox var1, boolean var2) {
       ArrayList var3 = null;
 
       for(int var4 = 0; var4 < 2; ++var4) {
@@ -498,7 +498,7 @@ public class WorldServer extends World implements class_of {
       return this.I.ag();
    }
 
-   protected class_aoh l() {
+   protected IChunkProvider l() {
       class_aop var1 = this.w.a(this.worldProvider);
       this.b = new class_lf(this, var1, this.worldProvider.c());
       return this.b;
@@ -526,7 +526,7 @@ public class WorldServer extends World implements class_of {
       if(!this.x.w()) {
          try {
             this.b(var1);
-            if(this.x.u() == class_aes.g) {
+            if(this.x.u() == WorldType.DEBUG) {
                this.aj();
             }
 
@@ -565,11 +565,11 @@ public class WorldServer extends World implements class_of {
    private void b(WorldSettings var1) {
       if(!this.worldProvider.e()) {
          this.x.a(BlockPosition.ZERO.up(this.worldProvider.i()));
-      } else if(this.x.u() == class_aes.g) {
+      } else if(this.x.u() == WorldType.DEBUG) {
          this.x.a(BlockPosition.ZERO.up());
       } else {
          this.y = true;
-         class_afd var2 = this.worldProvider.k();
+         WorldChunkManager var2 = this.worldProvider.k();
          List var3 = var2.a();
          Random var4 = new Random(this.K());
          BlockPosition var5 = var2.a(0, 0, 256, var3, var4);
@@ -610,7 +610,7 @@ public class WorldServer extends World implements class_of {
          int var3 = this.x.c() + this.random.nextInt(6) - this.random.nextInt(6);
          int var4 = this.x.e() + this.random.nextInt(6) - this.random.nextInt(6);
          BlockPosition var5 = this.r(new BlockPosition(var3, 0, var4)).up();
-         if(var1.b(this, this.random, var5)) {
+         if(var1.generate(this, this.random, var5)) {
             break;
          }
       }
@@ -621,7 +621,7 @@ public class WorldServer extends World implements class_of {
       return this.worldProvider.h();
    }
 
-   public void a(boolean var1, class_nw var2) throws class_aeo {
+   public void a(boolean var1, IProgressUpdate var2) throws class_aeo {
       if(this.v.e()) {
          if(var2 != null) {
             var2.a("Saving level");

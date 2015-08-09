@@ -4,11 +4,11 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
-import net.minecraft.server.class_aql;
+import net.minecraft.server.WorldGenerator;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public abstract class class_apw extends class_aql {
+public abstract class class_apw extends WorldGenerator {
    public class_apw(boolean var1) {
       super(var1);
    }
@@ -23,7 +23,7 @@ public abstract class class_apw extends class_aql {
 
    protected void a(World var1, BlockPosition var2) {
       if(var1.getType(var2).getBlock() != Blocks.DIRT) {
-         this.a(var1, var2, Blocks.DIRT.getBlockData());
+         this.setTypeAndData(var1, var2, Blocks.DIRT.getBlockData());
       }
 
    }

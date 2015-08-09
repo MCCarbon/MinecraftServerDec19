@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aes;
-import net.minecraft.server.class_avn;
+import net.minecraft.server.WorldType;
+import net.minecraft.server.WorldData;
 import net.minecraft.server.PlayerAbilities;
 
 public final class WorldSettings {
@@ -9,12 +9,12 @@ public final class WorldSettings {
 	private final WorldSettings.EnumGameMode b;
 	private final boolean c;
 	private final boolean d;
-	private final class_aes e;
+	private final WorldType e;
 	private boolean f;
 	private boolean g;
 	private String h;
 
-	public WorldSettings(long var1, WorldSettings.EnumGameMode var3, boolean var4, boolean var5, class_aes var6) {
+	public WorldSettings(long var1, WorldSettings.EnumGameMode var3, boolean var4, boolean var5, WorldType var6) {
 		this.h = "";
 		this.a = var1;
 		this.b = var3;
@@ -23,7 +23,7 @@ public final class WorldSettings {
 		this.e = var6;
 	}
 
-	public WorldSettings(class_avn var1) {
+	public WorldSettings(WorldData var1) {
 		this(var1.b(), var1.r(), var1.s(), var1.t(), var1.u());
 	}
 
@@ -57,7 +57,7 @@ public final class WorldSettings {
 		return this.c;
 	}
 
-	public class_aes h() {
+	public WorldType h() {
 		return this.e;
 	}
 

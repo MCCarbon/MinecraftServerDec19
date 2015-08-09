@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.server.class_aeh;
 import net.minecraft.server.World;
 import net.minecraft.server.class_aeo;
-import net.minecraft.server.class_aoh;
+import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.class_aoj;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aop;
@@ -21,23 +21,23 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.class_e;
 import net.minecraft.server.WorldServer;
 import net.minecraft.server.class_ns;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.class_qc;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_lf implements class_aoh {
+public class class_lf implements IChunkProvider {
    private static final Logger b = LogManager.getLogger();
    private Set c = Collections.newSetFromMap(new ConcurrentHashMap());
    private Chunk d;
-   private class_aoh e;
+   private IChunkProvider e;
    private class_aop f;
    public boolean a = true;
    private class_ns g = new class_ns();
    private List h = Lists.newArrayList();
    private WorldServer i;
 
-   public class_lf(WorldServer var1, class_aop var2, class_aoh var3) {
+   public class_lf(WorldServer var1, class_aop var2, IChunkProvider var3) {
       this.d = new class_aoj(var1, 0, 0);
       this.i = var1;
       this.f = var2;
@@ -152,7 +152,7 @@ public class class_lf implements class_aoh {
       }
    }
 
-   public void a(class_aoh var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       Chunk var4 = this.d(var2, var3);
       if(!var4.t()) {
          var4.n();
@@ -164,7 +164,7 @@ public class class_lf implements class_aoh {
 
    }
 
-   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       if(this.e != null && this.e.a(var1, var2, var3, var4)) {
          Chunk var5 = this.d(var3, var4);
          var5.e();
@@ -174,7 +174,7 @@ public class class_lf implements class_aoh {
       }
    }
 
-   public boolean a(boolean var1, class_nw var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       int var3 = 0;
       ArrayList var4 = Lists.newArrayList((Iterable)this.h);
 

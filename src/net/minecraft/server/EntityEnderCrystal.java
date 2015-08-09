@@ -31,7 +31,7 @@ public class EntityEnderCrystal extends Entity {
 		this.datawatcher.update(HEALTH, Integer.valueOf(this.b));
 		if (!this.world.isClientSide) {
 			BlockPosition var1 = new BlockPosition(this);
-			if (this.world.worldProvider instanceof class_apd && this.world.getType(var1).getBlock() != Blocks.FIRE) {
+			if (this.world.worldProvider instanceof WorldProviderTheEnd && this.world.getType(var1).getBlock() != Blocks.FIRE) {
 				this.world.setTypeUpdate(var1, Blocks.FIRE.getBlockData());
 			}
 		}
@@ -59,8 +59,8 @@ public class EntityEnderCrystal extends Entity {
 				this.J();
 				if (!this.world.isClientSide) {
 					this.world.a((Entity) null, this.locX, this.locY, this.locZ, 6.0F, true);
-					if (this.world.worldProvider instanceof class_apd) {
-						class_apd var3 = (class_apd) this.world.worldProvider;
+					if (this.world.worldProvider instanceof WorldProviderTheEnd) {
+						WorldProviderTheEnd var3 = (WorldProviderTheEnd) this.world.worldProvider;
 						class_apc var4 = var3.s();
 						if (var4 != null) {
 							var4.a(this, var1);

@@ -43,7 +43,7 @@ public class class_ato extends class_auc {
             }
 
             if(var17 == 0 && var18 > 3) {
-               var10[var12 + var11 * var3] = BiomeBase.N.az;
+               var10[var12 + var11 * var3] = BiomeBase.DEEP_OCEAN.az;
             } else {
                var10[var12 + var11 * var3] = var17;
             }

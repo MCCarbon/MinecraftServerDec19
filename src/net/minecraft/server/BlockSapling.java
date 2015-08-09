@@ -117,7 +117,7 @@ public class BlockSapling extends BlockPlant implements IBlockFragilePlantElemen
 			var1.setTypeAndData(var2, var9, 4);
 		}
 
-		if (!((class_aql) var5).b(var1, var4, var2.add(var6, 0, var7))) {
+		if (!((WorldGenerator) var5).generate(var1, var4, var2.add(var6, 0, var7))) {
 			if (var8) {
 				var1.setTypeAndData(var2.add(var6, 0, var7), var3, 4);
 				var1.setTypeAndData(var2.add(var6 + 1, 0, var7), var3, 4);

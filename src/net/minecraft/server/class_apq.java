@@ -9,20 +9,20 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockChorusFlower;
 import net.minecraft.server.BlockFalling;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aoh;
+import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
 import net.minecraft.server.class_aqj;
-import net.minecraft.server.class_arx;
+import net.minecraft.server.WorldGenEndCity;
 import net.minecraft.server.class_ata;
 import net.minecraft.server.class_ate;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
-import net.minecraft.server.class_nw;
+import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.class_qc;
 
-public class class_apq implements class_aoh {
+public class class_apq implements IChunkProvider {
    private Random f;
    private class_ata g;
    private class_ata h;
@@ -30,7 +30,7 @@ public class class_apq implements class_aoh {
    public class_ata a;
    public class_ata b;
    private World j;
-   private class_arx k = new class_arx(this);
+   private WorldGenEndCity k = new WorldGenEndCity(this);
    private class_ate l;
    private double[] m;
    private BiomeBase[] n;
@@ -268,7 +268,7 @@ public class class_apq implements class_aoh {
       return true;
    }
 
-   public void a(class_aoh var1, int var2, int var3) {
+   public void a(IChunkProvider var1, int var2, int var3) {
       BlockFalling.instaFall = true;
       BlockPosition var4 = new BlockPosition(var2 * 16, 0, var3 * 16);
       this.k.a(this.j, this.f, new class_aeh(var2, var3));
@@ -276,9 +276,9 @@ public class class_apq implements class_aoh {
       if(var2 * var2 + var3 * var3 > 4096) {
          float var5 = this.a(var2, var3, 1, 1);
          if(var5 < -20.0F && this.f.nextInt(14) == 0) {
-            this.o.b(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
+            this.o.generate(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
             if(this.f.nextInt(4) == 0) {
-               this.o.b(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
+               this.o.generate(this.j, this.f, var4.add(this.f.nextInt(16) + 8, 55 + this.f.nextInt(16), this.f.nextInt(16) + 8));
             }
          }
 
@@ -300,11 +300,11 @@ public class class_apq implements class_aoh {
       BlockFalling.instaFall = false;
    }
 
-   public boolean a(class_aoh var1, Chunk var2, int var3, int var4) {
+   public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
       return false;
    }
 
-   public boolean a(boolean var1, class_nw var2) {
+   public boolean a(boolean var1, IProgressUpdate var2) {
       return true;
    }
 

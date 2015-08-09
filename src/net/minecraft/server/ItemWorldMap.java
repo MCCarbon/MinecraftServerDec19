@@ -20,7 +20,7 @@ public class ItemWorldMap extends class_zt {
          var4.a((double)var2.Q().c(), (double)var2.Q().e(), var4.e);
          var4.d = (byte)var2.worldProvider.p().a();
          var4.c();
-         var2.a((String)var3, (class_avd)var4);
+         var2.a((String)var3, (PersistentBase)var4);
       }
 
       return var4;
@@ -176,7 +176,7 @@ public class ItemWorldMap extends class_zt {
          var5.a((double)var4.b, (double)var4.c, var5.e);
          var5.d = var4.d;
          var5.c();
-         var2.a((String)("map_" + var1.i()), (class_avd)var5);
+         var2.a((String)("map_" + var1.i()), (PersistentBase)var5);
       }
 
    }
