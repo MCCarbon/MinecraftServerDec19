@@ -16,7 +16,7 @@ import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_kk;
+import net.minecraft.server.IMinecraftServer;
 import net.minecraft.server.class_mj;
 import net.minecraft.server.class_mk;
 import net.minecraft.server.class_mn;
@@ -39,7 +39,7 @@ public class class_mo extends class_mn {
    private class_mj v;
    private long w;
 
-   public class_mo(class_kk var1) {
+   public class_mo(IMinecraftServer var1) {
       super(var1, "Query Listener");
       this.i = var1.a("query.port", 0);
       this.s = var1.E();
@@ -147,9 +147,9 @@ public class class_mo extends class_mn {
          this.v.a("game_id");
          this.v.a("MINECRAFT");
          this.v.a("version");
-         this.v.a(this.b.H());
+         this.v.a(this.b.getVersion());
          this.v.a("plugins");
-         this.v.a(this.b.d_());
+         this.v.a(this.b.getPlugins());
          this.v.a("map");
          this.v.a(this.m);
          this.v.a("numplayers");
@@ -164,7 +164,7 @@ public class class_mo extends class_mn {
          this.v.a((int)1);
          this.v.a("player_");
          this.v.a((int)0);
-         String[] var4 = this.b.K();
+         String[] var4 = this.b.getPlayers();
          String[] var5 = var4;
          int var6 = var4.length;
 

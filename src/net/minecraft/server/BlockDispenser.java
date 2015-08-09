@@ -143,7 +143,7 @@ public class BlockDispenser extends BlockContainer {
 		super.remove(var1, var2, var3);
 	}
 
-	public static class_cz a(ISourceBlock var0) {
+	public static IPosition a(ISourceBlock var0) {
 		EnumDirection var1 = b(var0.getData());
 		double var2 = var0.getX() + (0.7D * var1.getAdjacentX());
 		double var4 = var0.getY() + (0.7D * var1.getAdjacentY());

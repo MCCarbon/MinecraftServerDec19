@@ -9,7 +9,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.PacketPlayOutPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.Entity;
 
@@ -22,11 +22,11 @@ public class CommandTp extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.tp.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.tp.usage", new Object[0]);
       } else {
@@ -122,8 +122,8 @@ public class CommandTp extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length != 1 && var2.length != 2?null:a(var2, MinecraftServer.N().K());
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
+      return var2.length != 1 && var2.length != 2?null:a(var2, MinecraftServer.N().getPlayers());
    }
 
    public boolean isListStart(String[] var1, int var2) {

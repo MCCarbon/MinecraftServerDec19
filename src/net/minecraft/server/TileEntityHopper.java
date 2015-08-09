@@ -496,7 +496,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 
 	@Override
 	public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-		return new class_yn(var1, this, var2);
+		return new ContainerDispenser(var1, this, var2);
 	}
 
 	@Override

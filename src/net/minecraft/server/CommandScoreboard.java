@@ -29,7 +29,7 @@ import net.minecraft.server.class_ed;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityHuman;
@@ -43,11 +43,11 @@ public class CommandScoreboard extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.scoreboard.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(!this.b(var1, var2)) {
          if(var2.length < 1) {
             throw new class_cf("commands.scoreboard.usage", new Object[0]);
@@ -204,7 +204,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   private boolean b(class_m var1, String[] var2) throws class_bz {
+   private boolean b(ICommandListener var1, String[] var2) throws class_bz {
       int var3 = -1;
 
       for(int var4 = 0; var4 < var2.length; ++var4) {
@@ -235,7 +235,7 @@ public class CommandScoreboard extends CommandAbstract {
             } catch (class_bz var11) {
                ChatMessage var10 = new ChatMessage(var11.getMessage(), var11.a());
                var10.getChatModifier().a(EnumChatFormat.RED);
-               var1.a(var10);
+               var1.sendMessage(var10);
             }
          }
 
@@ -275,7 +275,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void b(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void b(ICommandListener var1, String[] var2, int var3) throws class_bz {
       String var4 = var2[var3++];
       String var5 = var2[var3++];
       Scoreboard var6 = this.d();
@@ -308,7 +308,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void c(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void c(ICommandListener var1, String[] var2, int var3) throws class_bz {
       String var4 = var2[var3++];
       Scoreboard var5 = this.d();
       if(var5.d(var4) != null) {
@@ -337,7 +337,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void d(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void d(ICommandListener var1, String[] var2, int var3) throws class_bz {
       class_awk var4 = this.e(var2[var3++]);
       if(var4 != null) {
          String var5 = var2[var3++].toLowerCase();
@@ -402,7 +402,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void e(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void e(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       class_awk var5 = this.e(var2[var3]);
       if(var5 != null) {
@@ -411,7 +411,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void f(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void f(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       if(var2.length > var3) {
          class_awk var5 = this.e(var2[var3]);
@@ -427,8 +427,8 @@ public class CommandScoreboard extends CommandAbstract {
 
          ChatMessage var7 = new ChatMessage("commands.scoreboard.teams.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5.b()});
          var7.getChatModifier().a(EnumChatFormat.DARK_GREEN);
-         var1.a(var7);
-         var1.a(new ChatComponentText(a(var6.toArray())));
+         var1.sendMessage(var7);
+         var1.sendMessage(new ChatComponentText(a(var6.toArray())));
       } else {
          Collection var9 = var4.g();
          var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var9.size());
@@ -438,18 +438,18 @@ public class CommandScoreboard extends CommandAbstract {
 
          ChatMessage var10 = new ChatMessage("commands.scoreboard.teams.list.count", new Object[]{Integer.valueOf(var9.size())});
          var10.getChatModifier().a(EnumChatFormat.DARK_GREEN);
-         var1.a(var10);
+         var1.sendMessage(var10);
          Iterator var11 = var9.iterator();
 
          while(var11.hasNext()) {
             class_awk var8 = (class_awk)var11.next();
-            var1.a(new ChatMessage("commands.scoreboard.teams.list.entry", new Object[]{var8.b(), var8.c(), Integer.valueOf(var8.d().size())}));
+            var1.sendMessage(new ChatMessage("commands.scoreboard.teams.list.entry", new Object[]{var8.b(), var8.c(), Integer.valueOf(var8.d().size())}));
          }
       }
 
    }
 
-   protected void g(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void g(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       String var5 = var2[var3++];
       HashSet var6 = Sets.newHashSet();
@@ -506,7 +506,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void h(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void h(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       HashSet var5 = Sets.newHashSet();
       HashSet var6 = Sets.newHashSet();
@@ -562,7 +562,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void i(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void i(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       class_awk var5 = this.e(var2[var3]);
       if(var5 != null) {
@@ -583,14 +583,14 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void h(class_m var1, String var2) throws class_bz {
+   protected void h(ICommandListener var1, String var2) throws class_bz {
       Scoreboard var3 = this.d();
       class_awj var4 = this.a(var2, false);
       var3.k(var4);
       a(var1, this, "commands.scoreboard.objectives.remove.success", new Object[]{var2});
    }
 
-   protected void d(class_m var1) throws class_bz {
+   protected void d(ICommandListener var1) throws class_bz {
       Scoreboard var2 = this.d();
       Collection var3 = var2.c();
       if(var3.isEmpty()) {
@@ -598,18 +598,18 @@ public class CommandScoreboard extends CommandAbstract {
       } else {
          ChatMessage var4 = new ChatMessage("commands.scoreboard.objectives.list.count", new Object[]{Integer.valueOf(var3.size())});
          var4.getChatModifier().a(EnumChatFormat.DARK_GREEN);
-         var1.a(var4);
+         var1.sendMessage(var4);
          Iterator var5 = var3.iterator();
 
          while(var5.hasNext()) {
             class_awj var6 = (class_awj)var5.next();
-            var1.a(new ChatMessage("commands.scoreboard.objectives.list.entry", new Object[]{var6.b(), var6.d(), var6.c().a()}));
+            var1.sendMessage(new ChatMessage("commands.scoreboard.objectives.list.entry", new Object[]{var6.b(), var6.d(), var6.c().a()}));
          }
 
       }
    }
 
-   protected void j(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void j(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       String var5 = var2[var3++];
       int var6 = Scoreboard.i(var5);
@@ -631,7 +631,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void k(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void k(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       if(var2.length > var3) {
          String var5 = e(var1, var2[var3]);
@@ -643,12 +643,12 @@ public class CommandScoreboard extends CommandAbstract {
 
          ChatMessage var7 = new ChatMessage("commands.scoreboard.players.list.player.count", new Object[]{Integer.valueOf(var6.size()), var5});
          var7.getChatModifier().a(EnumChatFormat.DARK_GREEN);
-         var1.a(var7);
+         var1.sendMessage(var7);
          Iterator var8 = var6.values().iterator();
 
          while(var8.hasNext()) {
             class_awl var9 = (class_awl)var8.next();
-            var1.a(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.c()), var9.d().d(), var9.d().b()}));
+            var1.sendMessage(new ChatMessage("commands.scoreboard.players.list.player.entry", new Object[]{Integer.valueOf(var9.c()), var9.d().d(), var9.d().b()}));
          }
       } else {
          Collection var10 = var4.d();
@@ -659,13 +659,13 @@ public class CommandScoreboard extends CommandAbstract {
 
          ChatMessage var11 = new ChatMessage("commands.scoreboard.players.list.count", new Object[]{Integer.valueOf(var10.size())});
          var11.getChatModifier().a(EnumChatFormat.DARK_GREEN);
-         var1.a(var11);
-         var1.a(new ChatComponentText(a(var10.toArray())));
+         var1.sendMessage(var11);
+         var1.sendMessage(new ChatComponentText(a(var10.toArray())));
       }
 
    }
 
-   protected void l(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void l(ICommandListener var1, String[] var2, int var3) throws class_bz {
       String var4 = var2[var3 - 1];
       int var5 = var3;
       String var6 = e(var1, var2[var3++]);
@@ -703,7 +703,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void m(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void m(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       if(var2.length > var3) {
@@ -717,7 +717,7 @@ public class CommandScoreboard extends CommandAbstract {
 
    }
 
-   protected void n(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void n(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       String var5 = d(var1, var2[var3++]);
       if(var5.length() > 40) {
@@ -734,7 +734,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void o(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void o(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       if(var5.length() > 40) {
@@ -757,7 +757,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   protected void p(class_m var1, String[] var2, int var3) throws class_bz {
+   protected void p(ICommandListener var1, String[] var2, int var3) throws class_bz {
       Scoreboard var4 = this.d();
       String var5 = e(var1, var2[var3++]);
       class_awj var6 = this.a(var2[var3++], true);
@@ -809,7 +809,7 @@ public class CommandScoreboard extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"objectives", "players", "teams"});
       } else {
@@ -844,7 +844,7 @@ public class CommandScoreboard extends CommandAbstract {
             if(!var2[1].equalsIgnoreCase("set") && !var2[1].equalsIgnoreCase("add") && !var2[1].equalsIgnoreCase("remove") && !var2[1].equalsIgnoreCase("reset")) {
                if(var2[1].equalsIgnoreCase("enable")) {
                   if(var2.length == 3) {
-                     return a(var2, MinecraftServer.N().K());
+                     return a(var2, MinecraftServer.N().getPlayers());
                   }
 
                   if(var2.length == 4) {
@@ -865,7 +865,7 @@ public class CommandScoreboard extends CommandAbstract {
                      }
 
                      if(var2.length == 6) {
-                        return a(var2, MinecraftServer.N().K());
+                        return a(var2, MinecraftServer.N().getPlayers());
                      }
 
                      if(var2.length == 7) {
@@ -883,7 +883,7 @@ public class CommandScoreboard extends CommandAbstract {
                }
             } else {
                if(var2.length == 3) {
-                  return a(var2, MinecraftServer.N().K());
+                  return a(var2, MinecraftServer.N().getPlayers());
                }
 
                if(var2.length == 4) {
@@ -901,11 +901,11 @@ public class CommandScoreboard extends CommandAbstract {
                }
 
                if(var2.length >= 4) {
-                  return a(var2, MinecraftServer.N().K());
+                  return a(var2, MinecraftServer.N().getPlayers());
                }
             } else {
                if(var2[1].equalsIgnoreCase("leave")) {
-                  return a(var2, MinecraftServer.N().K());
+                  return a(var2, MinecraftServer.N().getPlayers());
                }
 
                if(!var2[1].equalsIgnoreCase("empty") && !var2[1].equalsIgnoreCase("list") && !var2[1].equalsIgnoreCase("remove")) {

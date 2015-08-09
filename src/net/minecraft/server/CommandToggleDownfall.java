@@ -4,7 +4,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.WorldData;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 
 public class CommandToggleDownfall extends CommandAbstract {
    public String getCommand() {
@@ -15,11 +15,11 @@ public class CommandToggleDownfall extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.downfall.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       this.d();
       a(var1, this, "commands.downfall.success", new Object[0]);
    }

@@ -26,7 +26,7 @@ public class TileEntitySign extends TileEntity {
 	public void read(NBTTagCompound var1) {
 		g = false;
 		super.read(var1);
-		class_m var2 = new class_m() {
+		ICommandListener var2 = new ICommandListener() {
 			@Override
 			public String getName() {
 				return "Sign";
@@ -38,7 +38,7 @@ public class TileEntitySign extends TileEntity {
 			}
 
 			@Override
-			public void a(IChatBaseComponent var1) {
+			public void sendMessage(IChatBaseComponent var1) {
 			}
 
 			@Override
@@ -120,7 +120,7 @@ public class TileEntitySign extends TileEntity {
 	}
 
 	public boolean b(final EntityHuman var1) {
-		class_m var2 = new class_m() {
+		ICommandListener var2 = new ICommandListener() {
 			@Override
 			public String getName() {
 				return var1.getName();
@@ -132,7 +132,7 @@ public class TileEntitySign extends TileEntity {
 			}
 
 			@Override
-			public void a(IChatBaseComponent var1x) {
+			public void sendMessage(IChatBaseComponent var1x) {
 			}
 
 			@Override

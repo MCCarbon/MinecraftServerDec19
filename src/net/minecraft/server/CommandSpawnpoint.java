@@ -7,7 +7,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 
 public class CommandSpawnpoint extends CommandAbstract {
    public String getCommand() {
@@ -18,11 +18,11 @@ public class CommandSpawnpoint extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.spawnpoint.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length > 1 && var2.length < 4) {
          throw new class_cf("commands.spawnpoint.usage", new Object[0]);
       } else {
@@ -36,8 +36,8 @@ public class CommandSpawnpoint extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
+      return var2.length == 1?a(var2, MinecraftServer.N().getPlayers()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 
    public boolean isListStart(String[] var1, int var2) {

@@ -7,7 +7,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandTime extends CommandAbstract {
@@ -19,11 +19,11 @@ public class CommandTime extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.time.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length > 1) {
          int var3;
          if(var2[0].equals("set")) {
@@ -67,18 +67,18 @@ public class CommandTime extends CommandAbstract {
       throw new class_cf("commands.time.usage", new Object[0]);
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"set", "add", "query"}):(var2.length == 2 && var2[0].equals("set")?a(var2, new String[]{"day", "night"}):(var2.length == 2 && var2[0].equals("query")?a(var2, new String[]{"daytime", "gametime"}):null));
    }
 
-   protected void a(class_m var1, int var2) {
+   protected void a(ICommandListener var1, int var2) {
       for(int var3 = 0; var3 < MinecraftServer.N().d.length; ++var3) {
          MinecraftServer.N().d[var3].b((long)var2);
       }
 
    }
 
-   protected void b(class_m var1, int var2) {
+   protected void b(ICommandListener var1, int var2) {
       for(int var3 = 0; var3 < MinecraftServer.N().d.length; ++var3) {
          WorldServer var4 = MinecraftServer.N().d[var3];
          var4.b(var4.M() + (long)var2);

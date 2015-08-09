@@ -21,7 +21,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.class_o;
@@ -37,11 +37,11 @@ public class CommandSpreadPlayers extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.spreadplayers.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 6) {
          throw new class_cf("commands.spreadplayers.usage", new Object[0]);
       } else {
@@ -79,13 +79,13 @@ public class CommandSpreadPlayers extends CommandAbstract {
          if(var14.isEmpty()) {
             throw new class_ca();
          } else {
-            var1.a(new ChatMessage("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
+            var1.sendMessage(new ChatMessage("commands.spreadplayers.spreading." + (var13?"teams":"players"), new Object[]{Integer.valueOf(var14.size()), Double.valueOf(var11), Double.valueOf(var5), Double.valueOf(var7), Double.valueOf(var9)}));
             this.a(var1, var14, new CommandSpreadPlayers.class_a_in_class_bj(var5, var7), var9, var11, ((Entity)var14.get(0)).world, var13);
          }
       }
    }
 
-   private void a(class_m var1, List var2, CommandSpreadPlayers.class_a_in_class_bj var3, double var4, double var6, World var8, boolean var9) throws class_bz {
+   private void a(ICommandListener var1, List var2, CommandSpreadPlayers.class_a_in_class_bj var3, double var4, double var6, World var8, boolean var9) throws class_bz {
       Random var10 = new Random();
       double var11 = var3.a - var6;
       double var13 = var3.b - var6;
@@ -96,7 +96,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
       double var21 = this.a(var2, var8, var19, var9);
       a(var1, this, "commands.spreadplayers.success." + (var9?"teams":"players"), new Object[]{Integer.valueOf(var19.length), Double.valueOf(var3.a), Double.valueOf(var3.b)});
       if(var19.length > 1) {
-         var1.a(new ChatMessage("commands.spreadplayers.info." + (var9?"teams":"players"), new Object[]{String.format("%.2f", new Object[]{Double.valueOf(var21)}), Integer.valueOf(var20)}));
+         var1.sendMessage(new ChatMessage("commands.spreadplayers.info." + (var9?"teams":"players"), new Object[]{String.format("%.2f", new Object[]{Double.valueOf(var21)}), Integer.valueOf(var20)}));
       }
 
    }
@@ -234,7 +234,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
       return var11;
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length >= 1 && var2.length <= 2?b(var2, 0, var3):null;
    }
 

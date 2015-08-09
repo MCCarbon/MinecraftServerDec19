@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.mojang.authlib.GameProfile;
 import java.io.IOException;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_kp;
+import net.minecraft.server.DedicatedServer;
 import net.minecraft.server.PlayerList;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,7 +11,7 @@ import org.apache.logging.log4j.Logger;
 public class class_ko extends PlayerList {
    private static final Logger f = LogManager.getLogger();
 
-   public class_ko(class_kp var1) {
+   public class_ko(DedicatedServer var1) {
       super(var1);
       this.a(var1.a("view-distance", 10));
       this.maxPlayers = var1.a("max-players", 20);
@@ -140,8 +140,8 @@ public class class_ko extends PlayerList {
       return !this.hasWhitelist() || this.h(var1) || this.k().a(var1);
    }
 
-   public class_kp b() {
-      return (class_kp)super.getMinecraftServer();
+   public DedicatedServer b() {
+      return (DedicatedServer)super.getMinecraftServer();
    }
 
    public boolean f(GameProfile var1) {

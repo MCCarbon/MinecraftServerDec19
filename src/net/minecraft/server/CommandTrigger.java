@@ -14,7 +14,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.Entity;
 
 public class CommandTrigger extends CommandAbstract {
@@ -26,11 +26,11 @@ public class CommandTrigger extends CommandAbstract {
       return 0;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.trigger.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 3) {
          throw new class_cf("commands.trigger.usage", new Object[0]);
       } else {
@@ -80,7 +80,7 @@ public class CommandTrigger extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          Scoreboard var4 = MinecraftServer.N().getWorldServer(0).aa();
          ArrayList var5 = Lists.newArrayList();

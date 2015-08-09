@@ -10,7 +10,7 @@ import net.minecraft.server.ITileInventory;
 import net.minecraft.server.PlayerInventory;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.Container;
-import net.minecraft.server.class_yf;
+import net.minecraft.server.ContainerChest;
 
 public class class_oi implements ITileInventory {
    private String a;
@@ -134,7 +134,7 @@ public class class_oi implements ITileInventory {
    }
 
    public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-      return new class_yf(var1, this, var2);
+      return new ContainerChest(var1, this, var2);
    }
 
    public void remove() {

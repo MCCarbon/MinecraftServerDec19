@@ -11,16 +11,16 @@ import java.util.TimerTask;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_b;
 import net.minecraft.server.class_c;
-import net.minecraft.server.class_kp;
+import net.minecraft.server.DedicatedServer;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class class_kq implements Runnable {
    private static final Logger a = LogManager.getLogger();
-   private final class_kp b;
+   private final DedicatedServer b;
    private final long c;
 
-   public class_kq(class_kp var1) {
+   public class_kq(DedicatedServer var1) {
       this.b = var1;
       this.c = var1.aS();
    }

@@ -5,7 +5,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandList extends CommandAbstract {
@@ -17,14 +17,14 @@ public class CommandList extends CommandAbstract {
       return 0;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.players.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       int var3 = MinecraftServer.N().I();
-      var1.a(new ChatMessage("commands.players.list", new Object[]{Integer.valueOf(var3), Integer.valueOf(MinecraftServer.N().J())}));
-      var1.a(new ChatComponentText(MinecraftServer.N().getPlayerList().b(var2.length > 0 && "uuids".equalsIgnoreCase(var2[0]))));
+      var1.sendMessage(new ChatMessage("commands.players.list", new Object[]{Integer.valueOf(var3), Integer.valueOf(MinecraftServer.N().J())}));
+      var1.sendMessage(new ChatComponentText(MinecraftServer.N().getPlayerList().b(var2.length > 0 && "uuids".equalsIgnoreCase(var2[0]))));
       var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var3);
    }
 }

@@ -6,7 +6,7 @@ import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
-import net.minecraft.server.class_kk;
+import net.minecraft.server.IMinecraftServer;
 import net.minecraft.server.class_mk;
 import net.minecraft.server.class_mn;
 import org.apache.logging.log4j.LogManager;
@@ -19,7 +19,7 @@ public class class_mp extends class_mn {
    private byte[] k = new byte[1460];
    private String l;
 
-   class_mp(class_kk var1, Socket var2) {
+   class_mp(IMinecraftServer var1, Socket var2) {
       super(var1, "RCON Client");
       this.j = var2;
 

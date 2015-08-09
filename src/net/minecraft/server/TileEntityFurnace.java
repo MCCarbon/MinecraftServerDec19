@@ -271,7 +271,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 
 	@Override
 	public boolean canPlaceItem(int var1, ItemStack var2) {
-		return var1 == 2 ? false : (var1 != 1 ? true : c(var2) || class_yk.c_(var2));
+		return var1 == 2 ? false : (var1 != 1 ? true : c(var2) || SlotFurnaceFuel.c_(var2));
 	}
 
 	@Override
@@ -303,7 +303,7 @@ public class TileEntityFurnace extends TileEntityContainer implements ITickAble,
 
 	@Override
 	public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-		return new class_yl(var1, this);
+		return new ContainerFurnace(var1, this);
 	}
 
 	@Override

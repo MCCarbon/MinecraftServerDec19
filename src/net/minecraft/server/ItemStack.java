@@ -479,7 +479,7 @@ public final class ItemStack {
 		if (item != null) {
 			NBTTagCompound var3 = new NBTTagCompound();
 			this.write(var3);
-			var2.getChatModifier().a(new class_ew(class_ew.class_a_in_class_ew.c, new ChatComponentText(var3.toString())));
+			var2.getChatModifier().a(new ChatHoverable(ChatHoverable.class_a_in_class_ew.c, new ChatComponentText(var3.toString())));
 			var2.getChatModifier().a(u().color);
 		}
 

@@ -38,7 +38,7 @@ public abstract class EntityTameable extends EntityAnimal implements class_qg {
 			var2 = var1.getString("OwnerUUID");
 		} else {
 			String var3 = var1.getString("Owner");
-			var2 = class_ly.a(var3);
+			var2 = NameReferencingFileConverter.a(var3);
 		}
 
 		if (!var2.isEmpty()) {
@@ -154,7 +154,7 @@ public abstract class EntityTameable extends EntityAnimal implements class_qg {
 
 	public void a(DamageSource var1) {
 		if (!this.world.isClientSide && this.world.R().getBooleanValue("showDeathMessages") && this.hasCustomName() && this.cD() instanceof EntityPlayer) {
-			((EntityPlayer) this.cD()).a(this.bt().b());
+			((EntityPlayer) this.cD()).sendMessage(this.bt().b());
 		}
 
 		super.a((DamageSource) var1);

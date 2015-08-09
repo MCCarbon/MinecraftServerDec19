@@ -8,7 +8,7 @@ import java.util.Random;
 import java.util.UUID;
 import java.util.concurrent.Callable;
 
-public abstract class Entity implements class_m {
+public abstract class Entity implements ICommandListener {
 
 	private static final int FLAGS_DW_ID = DataWathcer.claimId(Entity.class); // value = 0
 	private static final int AIR_DW_ID = DataWathcer.claimId(Entity.class); // value = 1
@@ -1672,7 +1672,7 @@ public abstract class Entity implements class_m {
 		return EnumDirection.getByHorizontalId(MathHelper.floor((double) (this.yaw * 4.0F / 360.0F) + 0.5D) & 3);
 	}
 
-	protected class_ew aS() {
+	protected ChatHoverable aS() {
 		NBTTagCompound var1 = new NBTTagCompound();
 		String var2 = EntityTypes.b(this);
 		var1.put("id", this.getUniqueId().toString());
@@ -1681,7 +1681,7 @@ public abstract class Entity implements class_m {
 		}
 
 		var1.put("name", this.getName());
-		return new class_ew(class_ew.class_a_in_class_ew.d, new ChatComponentText(var1.toString()));
+		return new ChatHoverable(ChatHoverable.class_a_in_class_ew.d, new ChatComponentText(var1.toString()));
 	}
 
 	public boolean a(EntityPlayer var1) {
@@ -1712,7 +1712,7 @@ public abstract class Entity implements class_m {
 		return false;
 	}
 
-	public void a(IChatBaseComponent var1) {
+	public void sendMessage(IChatBaseComponent var1) {
 	}
 
 	public boolean a(int var1, String var2) {

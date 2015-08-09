@@ -26,12 +26,12 @@ public final class class_aeu {
                if(!var6.hasNext()) {
                   int var36 = 0;
                   BlockPosition var37 = var1.N();
-                  class_qc[] var38 = class_qc.values();
+                  EnumCreatureType[] var38 = EnumCreatureType.values();
                   var9 = var38.length;
 
                   label132:
                   for(int var39 = 0; var39 < var9; ++var39) {
-                     class_qc var40 = var38[var39];
+                     EnumCreatureType var40 = var38[var39];
                      if((!var40.d() || var3) && (var40.d() || var2) && (!var40.e() || var4)) {
                         var12 = var1.a((Class)var40.a());
                         int var41 = var40.b() * var5 / a;
@@ -170,7 +170,7 @@ public final class class_aeu {
    }
 
    public static void a(World var0, BiomeBase var1, int var2, int var3, int var4, int var5, Random var6) {
-      List var7 = var1.a(class_qc.b);
+      List var7 = var1.a(EnumCreatureType.b);
       if(!var7.isEmpty()) {
          while(var6.nextFloat() < var1.g()) {
             BiomeBase.BiomeMeta var8 = (BiomeBase.BiomeMeta)class_oc.a(var0.random, var7);

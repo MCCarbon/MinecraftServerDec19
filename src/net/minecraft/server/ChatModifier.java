@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import net.minecraft.server.EnumChatFormat;
 import net.minecraft.server.class_et;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_ew;
+import net.minecraft.server.ChatHoverable;
 
 public class ChatModifier {
 	private ChatModifier a;
@@ -23,7 +23,7 @@ public class ChatModifier {
 	private Boolean f;
 	private Boolean g;
 	private class_et h;
-	private class_ew i;
+	private ChatHoverable i;
 	private String j;
 	private static final ChatModifier k = new ChatModifier() {
 		public EnumChatFormat a() {
@@ -54,7 +54,7 @@ public class ChatModifier {
 			return null;
 		}
 
-		public class_ew i() {
+		public ChatHoverable i() {
 			return null;
 		}
 
@@ -90,7 +90,7 @@ public class ChatModifier {
 			throw new UnsupportedOperationException();
 		}
 
-		public ChatModifier a(class_ew var1) {
+		public ChatModifier a(ChatHoverable var1) {
 			throw new UnsupportedOperationException();
 		}
 
@@ -143,7 +143,7 @@ public class ChatModifier {
 		return this.h == null ? this.o().h() : this.h;
 	}
 
-	public class_ew i() {
+	public ChatHoverable i() {
 		return this.i == null ? this.o().i() : this.i;
 	}
 
@@ -186,7 +186,7 @@ public class ChatModifier {
 		return this;
 	}
 
-	public ChatModifier a(class_ew var1) {
+	public ChatModifier a(ChatHoverable var1) {
 		this.i = var1;
 		return this;
 	}
@@ -353,10 +353,10 @@ public class ChatModifier {
 						var6 = var5.getAsJsonObject("hoverEvent");
 						if (var6 != null) {
 							var7 = var6.getAsJsonPrimitive("action");
-							class_ew.class_a_in_class_ew var11 = var7 == null ? null : class_ew.class_a_in_class_ew.a(var7.getAsString());
+							ChatHoverable.class_a_in_class_ew var11 = var7 == null ? null : ChatHoverable.class_a_in_class_ew.a(var7.getAsString());
 							IChatBaseComponent var12 = (IChatBaseComponent) var3.deserialize(var6.get("value"), IChatBaseComponent.class);
 							if (var11 != null && var12 != null && var11.a()) {
-								var4.i = new class_ew(var11, var12);
+								var4.i = new ChatHoverable(var11, var12);
 							}
 						}
 					}

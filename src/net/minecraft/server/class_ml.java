@@ -6,11 +6,11 @@ import net.minecraft.server.Vec3D;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatComponentText;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 
-public class class_ml implements class_m {
+public class class_ml implements ICommandListener {
    private static final class_ml a = new class_ml();
    private StringBuffer b = new StringBuffer();
 
@@ -34,7 +34,7 @@ public class class_ml implements class_m {
       return new ChatComponentText(this.getName());
    }
 
-   public void a(IChatBaseComponent var1) {
+   public void sendMessage(IChatBaseComponent var1) {
       this.b.append(var1.c());
    }
 

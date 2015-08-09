@@ -7,22 +7,22 @@ import java.net.ServerSocket;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-import net.minecraft.server.class_kk;
+import net.minecraft.server.IMinecraftServer;
 
 public abstract class class_mn implements Runnable {
    private static final AtomicInteger h = new AtomicInteger(0);
    protected boolean a;
-   protected class_kk b;
+   protected IMinecraftServer b;
    protected final String c;
    protected Thread d;
    protected int e = 5;
    protected List f = Lists.newArrayList();
    protected List g = Lists.newArrayList();
 
-   protected class_mn(class_kk var1, String var2) {
+   protected class_mn(IMinecraftServer var1, String var2) {
       this.b = var1;
       this.c = var2;
-      if(this.b.M()) {
+      if(this.b.isDebugging()) {
          this.c("Debugging is enabled, performance maybe reduced!");
       }
 
@@ -43,11 +43,11 @@ public abstract class class_mn implements Runnable {
    }
 
    protected void b(String var1) {
-      this.b.e(var1);
+      this.b.info(var1);
    }
 
    protected void c(String var1) {
-      this.b.f(var1);
+      this.b.warning(var1);
    }
 
    protected void d(String var1) {

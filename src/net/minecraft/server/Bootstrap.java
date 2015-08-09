@@ -20,45 +20,45 @@ public class Bootstrap {
 	}
 
 	static void b() {
-		BlockDispenser.REGISTRY.register(Items.ARROW, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.ARROW, new DispenserBehaviorProjectile() {
 			@Override
-			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
+			protected IProjectile a(World var1, IPosition var2, ItemStack var3) {
 				EntityArrow var4 = new EntityArrow(var1, var2.getX(), var2.getY(), var2.getZ());
 				var4.fromPlayer = 1;
 				return var4;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.TIPPED_ARROW, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.TIPPED_ARROW, new DispenserBehaviorProjectile() {
 			@Override
-			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
+			protected IProjectile a(World var1, IPosition var2, ItemStack var3) {
 				EntityTippedArrow var4 = new EntityTippedArrow(var1, var2.getX(), var2.getY(), var2.getZ(), var3);
 				var4.fromPlayer = 1;
 				return var4;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.SPECTRAL_ARROW, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.SPECTRAL_ARROW, new DispenserBehaviorProjectile() {
 			@Override
-			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
+			protected IProjectile a(World var1, IPosition var2, ItemStack var3) {
 				EntitySpectralArrow var4 = new EntitySpectralArrow(var1, var2.getX(), var2.getY(), var2.getZ());
 				var4.fromPlayer = 1;
 				return var4;
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.EGG, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.EGG, new DispenserBehaviorProjectile() {
 			@Override
-			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
+			protected IProjectile a(World var1, IPosition var2, ItemStack var3) {
 				return new EntityEgg(var1, var2.getX(), var2.getY(), var2.getZ());
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.SNOWBALL, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.SNOWBALL, new DispenserBehaviorProjectile() {
 			@Override
-			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
+			protected IProjectile a(World var1, IPosition var2, ItemStack var3) {
 				return new EntitySnowball(var1, var2.getX(), var2.getY(), var2.getZ());
 			}
 		});
-		BlockDispenser.REGISTRY.register(Items.EXPERIENCE_BOTTLE, new class_kb() {
+		BlockDispenser.REGISTRY.register(Items.EXPERIENCE_BOTTLE, new DispenserBehaviorProjectile() {
 			@Override
-			protected class_xi a(World var1, class_cz var2, ItemStack var3) {
+			protected IProjectile a(World var1, IPosition var2, ItemStack var3) {
 				return new EntityThrownExpBottle(var1, var2.getX(), var2.getY(), var2.getZ());
 			}
 
@@ -77,9 +77,9 @@ public class Bootstrap {
 
 			@Override
 			public ItemStack a(ISourceBlock var1, final ItemStack var2) {
-				return (new class_kb() {
+				return (new DispenserBehaviorProjectile() {
 					@Override
-					protected class_xi a(World var1, class_cz var2x, ItemStack var3) {
+					protected IProjectile a(World var1, IPosition var2x, ItemStack var3) {
 						return new EntityPotion(var1, var2x.getX(), var2x.getY(), var2x.getZ(), var2.clone());
 					}
 
@@ -133,7 +133,7 @@ public class Bootstrap {
 			@Override
 			public ItemStack b(ISourceBlock var1, ItemStack var2) {
 				EnumDirection var3 = BlockDispenser.b(var1.getData());
-				class_cz var4 = BlockDispenser.a(var1);
+				IPosition var4 = BlockDispenser.a(var1);
 				double var5 = var4.getX() + var3.getAdjacentX() * 0.3F;
 				double var7 = var4.getY() + var3.getAdjacentY() * 0.3F;
 				double var9 = var4.getZ() + var3.getAdjacentZ() * 0.3F;

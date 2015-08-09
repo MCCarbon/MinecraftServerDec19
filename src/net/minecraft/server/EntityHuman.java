@@ -18,7 +18,7 @@ public abstract class EntityHuman extends EntityLiving {
 	protected static final int MAIN_HAND_DW_ID = DataWathcer.claimId(EntityHuman.class); //value = 13
 
 	public PlayerInventory inventory = new PlayerInventory(this);
-	private class_yu enderChest = new class_yu();
+	private InventoryEnderChest enderChest = new InventoryEnderChest();
 	public Container bq;
 	public Container br;
 	protected class_xx foodData = new class_xx();
@@ -56,7 +56,7 @@ public abstract class EntityHuman extends EntityLiving {
 		super(var1);
 		uniqueID = a(var2);
 		bO = var2;
-		bq = new class_yp(inventory, !var1.isClientSide, this);
+		bq = new ContainerPlayer(inventory, !var1.isClientSide, this);
 		br = bq;
 		BlockPosition var3 = var1.N();
 		this.b(var3.getX() + 0.5D, var3.getY() + 1, var3.getZ() + 0.5D, 0.0F, 0.0F);
@@ -1327,7 +1327,7 @@ public abstract class EntityHuman extends EntityLiving {
 		return bO.getName();
 	}
 
-	public class_yu cq() {
+	public InventoryEnderChest cq() {
 		return enderChest;
 	}
 

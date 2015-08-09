@@ -6,6 +6,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.EnumDirection;
 
 public interface IBlockAccess {
+	
    TileEntity getTileEntity(BlockPosition var1);
 
    IBlockData getType(BlockPosition var1);

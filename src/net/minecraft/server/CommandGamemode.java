@@ -11,7 +11,7 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 
 public class CommandGamemode extends CommandAbstract {
    public String getCommand() {
@@ -22,11 +22,11 @@ public class CommandGamemode extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.gamemode.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length <= 0) {
          throw new class_cf("commands.gamemode.usage", new Object[0]);
       } else {
@@ -35,7 +35,7 @@ public class CommandGamemode extends CommandAbstract {
          var4.a(var3);
          var4.fallDistance = 0.0F;
          if(var1.e().R().getBooleanValue("sendCommandFeedback")) {
-            var4.a((IChatBaseComponent)(new ChatMessage("gameMode.changed", new Object[0])));
+            var4.sendMessage((IChatBaseComponent)(new ChatMessage("gameMode.changed", new Object[0])));
          }
 
          ChatMessage var5 = new ChatMessage("gameMode." + var3.getName(), new Object[0]);
@@ -48,16 +48,16 @@ public class CommandGamemode extends CommandAbstract {
       }
    }
 
-   protected WorldSettings.EnumGameMode h(class_m var1, String var2) throws class_cb {
+   protected WorldSettings.EnumGameMode h(ICommandListener var1, String var2) throws class_cb {
       return !var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SURVIVAL.getName()) && !var2.equalsIgnoreCase("s")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.CREATIVE.getName()) && !var2.equalsIgnoreCase("c")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.ADVENTURE.getName()) && !var2.equalsIgnoreCase("a")?(!var2.equalsIgnoreCase(WorldSettings.EnumGameMode.SPECTATOR.getName()) && !var2.equalsIgnoreCase("sp")?WorldSettings.a(a(var2, 0, WorldSettings.EnumGameMode.values().length - 2)):WorldSettings.EnumGameMode.SPECTATOR):WorldSettings.EnumGameMode.ADVENTURE):WorldSettings.EnumGameMode.CREATIVE):WorldSettings.EnumGameMode.SURVIVAL;
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"survival", "creative", "adventure", "spectator"}):(var2.length == 2?a(var2, this.d()):null);
    }
 
    protected String[] d() {
-      return MinecraftServer.N().K();
+      return MinecraftServer.N().getPlayers();
    }
 
    public boolean isListStart(String[] var1, int var2) {

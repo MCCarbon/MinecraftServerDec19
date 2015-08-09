@@ -153,7 +153,7 @@ public abstract class PlayerList {
 	}
 
 	public void a(WorldServer[] var1) {
-		this.playerDataProvider = var1[0].P().e();
+		this.playerDataProvider = var1[0].P().getPlayerFileData();
 		var1[0].ag().a(new class_aoc() {
 			public void a(class_aoe var1, double var2) {
 				PlayerList.this.a((Packet<?>) (new PacketPlayOutWorldBorder(var1, PacketPlayOutWorldBorder.class_a_in_class_hg.a)));
@@ -205,14 +205,14 @@ public abstract class PlayerList {
 			var3 = var2;
 			looger.debug("loading single player");
 		} else {
-			var3 = this.playerDataProvider.b(var1);
+			var3 = this.playerDataProvider.load(var1);
 		}
 
 		return var3;
 	}
 
 	protected void b(EntityPlayer var1) {
-		this.playerDataProvider.a(var1);
+		this.playerDataProvider.save(var1);
 		ServerStatisticManager var2 = (ServerStatisticManager) this.stats.get(var1.getUniqueId());
 		if (var2 != null) {
 			var2.b();
@@ -273,8 +273,8 @@ public abstract class PlayerList {
 			return reason;
 		} else if (!this.e(profile)) {
 			return "You are not white-listed on this server!";
-		} else if (this.ipBanList.a(address)) {
-			class_lx var3 = this.ipBanList.b(address);
+		} else if (this.ipBanList.isBanned(address)) {
+			IpBanEntry var3 = this.ipBanList.get(address);
 			reason = "Your IP address is banned from this server!\nReason: " + var3.d();
 			if (var3.c() != null) {
 				reason = reason + "\nYour ban will be removed on " + format.format(var3.c());
@@ -487,7 +487,7 @@ public abstract class PlayerList {
 				String var6 = (String) var5.next();
 				EntityPlayer var7 = this.a(var6);
 				if (var7 != null && var7 != var1) {
-					var7.a(var2);
+					var7.sendMessage(var2);
 				}
 			}
 
@@ -502,7 +502,7 @@ public abstract class PlayerList {
 			for (int var4 = 0; var4 < this.playerList.size(); ++var4) {
 				EntityPlayer var5 = (EntityPlayer) this.playerList.get(var4);
 				if (var5.bP() != var3) {
-					var5.a(var2);
+					var5.sendMessage(var2);
 				}
 			}
 
@@ -557,7 +557,7 @@ public abstract class PlayerList {
 
 	public void a(GameProfile var1) {
 		int var2 = this.mcserver.p();
-		this.opList.a((class_mc) (new class_mb(var1, this.mcserver.p(), this.opList.b(var1))));
+		this.opList.a((JsonListEntry) (new class_mb(var1, this.mcserver.p(), this.opList.b(var1))));
 		this.b(this.getPlayer(var1.getId()), var2);
 	}
 
@@ -624,7 +624,7 @@ public abstract class PlayerList {
 	}
 
 	public void d(GameProfile var1) {
-		this.whiteList.a((class_mc) (new class_mh(var1)));
+		this.whiteList.a((JsonListEntry) (new class_mh(var1)));
 	}
 
 	public void c(GameProfile var1) {
@@ -677,7 +677,7 @@ public abstract class PlayerList {
 	}
 
 	public String[] q() {
-		return this.mcserver.d[0].P().e().f();
+		return this.mcserver.d[0].P().getPlayerFileData().getSeenPlayers();
 	}
 
 	public boolean hasWhitelist() {
@@ -732,7 +732,7 @@ public abstract class PlayerList {
 	}
 
 	public void a(IChatBaseComponent var1, boolean var2) {
-		this.mcserver.a(var1);
+		this.mcserver.sendMessage(var1);
 		int var3 = var2 ? 1 : 0;
 		this.a((Packet<?>) (new PacketPlayOutChat(var1, (byte) var3)));
 	}
@@ -745,7 +745,7 @@ public abstract class PlayerList {
 		UUID var2 = var1.getUniqueId();
 		ServerStatisticManager var3 = var2 == null ? null : (ServerStatisticManager) this.stats.get(var2);
 		if (var3 == null) {
-			File var4 = new File(this.mcserver.getWorldServer(0).P().b(), "stats");
+			File var4 = new File(this.mcserver.getWorldServer(0).P().getDirectory(), "stats");
 			File var5 = new File(var4, var2.toString() + ".json");
 			if (!var5.exists()) {
 				File var6 = new File(var4, var1.getName() + ".json");

@@ -58,7 +58,7 @@ import net.minecraft.server.ICommandDispatcher;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.CommandHandler;
 import net.minecraft.server.ICommand;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.class_ml;
 import net.minecraft.server.CommandAchievment;
 import net.minecraft.server.CommandBanIp;
@@ -141,7 +141,7 @@ public class CommandDispatcher extends CommandHandler implements ICommandDispatc
       CommandAbstract.a((ICommandDispatcher)this);
    }
 
-   public void a(class_m var1, ICommand var2, int var3, String var4, Object... var5) {
+   public void a(ICommandListener var1, ICommand var2, int var3, String var4, Object... var5) {
       boolean var6 = true;
       MinecraftServer var7 = MinecraftServer.N();
       if(!var1.u_()) {
@@ -176,12 +176,12 @@ public class CommandDispatcher extends CommandHandler implements ICommandDispatc
                var12 = var1 instanceof class_ml && MinecraftServer.N().q();
             } while(!var11 && !var12 && (var1 instanceof class_ml || var1 instanceof MinecraftServer));
 
-            var10.a((IChatBaseComponent)var8);
+            var10.sendMessage((IChatBaseComponent)var8);
          }
       }
 
       if(var1 != var7 && var7.d[0].R().getBooleanValue("logAdminCommands")) {
-         var7.a((IChatBaseComponent)var8);
+         var7.sendMessage((IChatBaseComponent)var8);
       }
 
       boolean var13 = var7.d[0].R().getBooleanValue("sendCommandFeedback");
@@ -190,7 +190,7 @@ public class CommandDispatcher extends CommandHandler implements ICommandDispatc
       }
 
       if((var3 & 1) != 1 && var13 || var1 instanceof MinecraftServer) {
-         var1.a(new ChatMessage(var4, var5));
+         var1.sendMessage(new ChatMessage(var4, var5));
       }
 
    }

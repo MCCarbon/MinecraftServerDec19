@@ -14,7 +14,7 @@ import java.util.List;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class EntityPlayer extends EntityHuman implements class_ye {
+public class EntityPlayer extends EntityHuman implements ICrafting {
 	private static final Logger bO = LogManager.getLogger();
 	private String bP = "en_US";
 	public PlayerConnection playerConnection;
@@ -98,7 +98,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public void g_() {
-		this.br.a((class_ye) this);
+		this.br.a((ICrafting) this);
 	}
 
 	public void h_() {
@@ -475,7 +475,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutOpenWindow(this.cc, var1.getContainerName(), var1.getScoreboardDisplayName())));
 		this.br = var1.createContainer(this.inventory, this);
 		this.br.d = this.cc;
-		this.br.a((class_ye) this);
+		this.br.a((ICrafting) this);
 	}
 
 	public void openContainer(IInventory var1) {
@@ -498,22 +498,22 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 			this.br = ((ITileEntityContainer) var1).createContainer(this.inventory, this);
 		} else {
 			this.playerConnection.sendPacket((Packet) (new PacketPlayOutOpenWindow(this.cc, "minecraft:container", var1.getScoreboardDisplayName(), var1.getSize())));
-			this.br = new class_yf(this.inventory, var1, this);
+			this.br = new ContainerChest(this.inventory, var1, this);
 		}
 
 		this.br.d = this.cc;
-		this.br.a((class_ye) this);
+		this.br.a((ICrafting) this);
 	}
 
 	public void a(IMerchant var1) {
 		this.cu();
-		this.br = new class_ys(this.inventory, var1, this.world);
+		this.br = new ContainerMerchant(this.inventory, var1, this.world);
 		this.br.d = this.cc;
-		this.br.a((class_ye) this);
-		class_yr var2 = ((class_ys) this.br).e();
+		this.br.a((ICrafting) this);
+		InventoryMerchant var2 = ((ContainerMerchant) this.br).e();
 		IChatBaseComponent var3 = var1.getScoreboardDisplayName();
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutOpenWindow(this.cc, "minecraft:villager", var3, var2.getSize())));
-		class_aeb var4 = var1.a_((EntityHuman) this);
+		MerchantRecipeList var4 = var1.getOffers((EntityHuman) this);
 		if (var4 != null) {
 			PacketDataSerializer var5 = new PacketDataSerializer(Unpooled.buffer());
 			var5.writeInt(this.cc);
@@ -530,9 +530,9 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 
 		this.cu();
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutOpenWindow(this.cc, "EntityHorse", var2.getScoreboardDisplayName(), var2.getSize(), var1.getId())));
-		this.br = new class_yo(this.inventory, var2, var1, this);
+		this.br = new ContainerHorse(this.inventory, var2, var1, this);
 		this.br.d = this.cc;
-		this.br.a((class_ye) this);
+		this.br.a((ICrafting) this);
 	}
 
 	public void a(ItemStack var1) {
@@ -544,7 +544,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 	}
 
 	public void a(Container var1, int var2, ItemStack var3) {
-		if (!(var1.a(var2) instanceof class_yw)) {
+		if (!(var1.a(var2) instanceof SlotResult)) {
 			if (!this.g) {
 				this.playerConnection.sendPacket((Packet) (new PacketPlayOutSetSlot(var1.d, var2, var3)));
 			}
@@ -727,7 +727,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		return this.playerInteractManager.getGameMode() == WorldSettings.EnumGameMode.SPECTATOR;
 	}
 
-	public void a(IChatBaseComponent var1) {
+	public void sendMessage(IChatBaseComponent var1) {
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutChat(var1)));
 	}
 

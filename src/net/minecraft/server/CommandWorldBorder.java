@@ -8,7 +8,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.MathHelper;
 
@@ -21,11 +21,11 @@ public class CommandWorldBorder extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.worldborder.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.worldborder.usage", new Object[0]);
       } else {
@@ -136,7 +136,7 @@ public class CommandWorldBorder extends CommandAbstract {
 
             var4 = var3.h();
             var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, MathHelper.floor(var4 + 0.5D));
-            var1.a(new ChatMessage("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
+            var1.sendMessage(new ChatMessage("commands.worldborder.get.success", new Object[]{String.format("%.0f", new Object[]{Double.valueOf(var4)})}));
          }
 
       }
@@ -146,7 +146,7 @@ public class CommandWorldBorder extends CommandAbstract {
       return MinecraftServer.N().d[0].ag();
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"set", "center", "damage", "warning", "add", "get"}):(var2.length == 2 && var2[0].equals("damage")?a(var2, new String[]{"buffer", "amount"}):(var2.length >= 2 && var2.length <= 3 && var2[0].equals("center")?b(var2, 1, var3):(var2.length == 2 && var2[0].equals("warning")?a(var2, new String[]{"time", "distance"}):null)));
    }
 }

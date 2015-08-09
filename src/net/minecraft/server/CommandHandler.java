@@ -17,7 +17,7 @@ import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.ICommand;
 import net.minecraft.server.class_l;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.class_o;
 import net.minecraft.server.Entity;
@@ -29,7 +29,7 @@ public class CommandHandler implements class_l {
    private final Map b = Maps.newHashMap();
    private final Set c = Sets.newHashSet();
 
-   public int a(class_m var1, String var2) {
+   public int a(ICommandListener var1, String var2) {
       var2 = var2.trim();
       if(var2.startsWith("/")) {
          var2 = var2.substring(1);
@@ -45,7 +45,7 @@ public class CommandHandler implements class_l {
       if(var5 == null) {
          var8 = new ChatMessage("commands.generic.notFound", new Object[0]);
          var8.getChatModifier().a(EnumChatFormat.RED);
-         var1.a(var8);
+         var1.sendMessage(var8);
       } else if(var5.canUse(var1)) {
          if(var6 > -1) {
             List var12 = class_o.b(var1, var3[var6], Entity.class);
@@ -71,14 +71,14 @@ public class CommandHandler implements class_l {
       } else {
          var8 = new ChatMessage("commands.generic.permission", new Object[0]);
          var8.getChatModifier().a(EnumChatFormat.RED);
-         var1.a(var8);
+         var1.sendMessage(var8);
       }
 
       var1.a(CommandObjectiveExecutor.class_a_in_class_n.a, var7);
       return var7;
    }
 
-   protected boolean a(class_m var1, String[] var2, ICommand var3, String var4) {
+   protected boolean a(ICommandListener var1, String[] var2, ICommand var3, String var4) {
       ChatMessage var6;
       try {
          var3.execute(var1, var2);
@@ -86,15 +86,15 @@ public class CommandHandler implements class_l {
       } catch (class_cf var7) {
          var6 = new ChatMessage("commands.generic.usage", new Object[]{new ChatMessage(var7.getMessage(), var7.a())});
          var6.getChatModifier().a(EnumChatFormat.RED);
-         var1.a(var6);
+         var1.sendMessage(var6);
       } catch (class_bz var8) {
          var6 = new ChatMessage(var8.getMessage(), var8.a());
          var6.getChatModifier().a(EnumChatFormat.RED);
-         var1.a(var6);
+         var1.sendMessage(var6);
       } catch (Throwable var9) {
          var6 = new ChatMessage("commands.generic.exception", new Object[0]);
          var6.getChatModifier().a(EnumChatFormat.RED);
-         var1.a(var6);
+         var1.sendMessage(var6);
          a.warn("Couldn\'t process command: \'" + var4 + "\'");
       }
 
@@ -128,7 +128,7 @@ public class CommandHandler implements class_l {
       return var1;
    }
 
-   public List a(class_m var1, String var2, BlockPosition var3) {
+   public List a(ICommandListener var1, String var2, BlockPosition var3) {
       String[] var4 = var2.split(" ", -1);
       String var5 = var4[0];
       if(var4.length == 1) {
@@ -155,7 +155,7 @@ public class CommandHandler implements class_l {
       }
    }
 
-   public List a(class_m var1) {
+   public List a(ICommandListener var1) {
       ArrayList var2 = Lists.newArrayList();
       Iterator var3 = this.c.iterator();
 

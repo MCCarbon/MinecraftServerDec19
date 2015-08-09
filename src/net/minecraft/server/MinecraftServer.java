@@ -39,7 +39,7 @@ import java.util.concurrent.FutureTask;
 import javax.imageio.ImageIO;
 
 import net.minecraft.server.World;
-import net.minecraft.server.class_aeo;
+import net.minecraft.server.SessionException;
 import net.minecraft.server.class_aep;
 import net.minecraft.server.WorldSettings;
 import net.minecraft.server.WorldType;
@@ -61,7 +61,7 @@ import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.ServerPing;
 import net.minecraft.server.Bootstrap;
 import net.minecraft.server.ITickAble;
-import net.minecraft.server.class_kp;
+import net.minecraft.server.DedicatedServer;
 import net.minecraft.server.class_ky;
 import net.minecraft.server.class_l;
 import net.minecraft.server.class_la;
@@ -71,7 +71,7 @@ import net.minecraft.server.EntityPlayer;
 import net.minecraft.server.ServerConnection;
 import net.minecraft.server.class_lv;
 import net.minecraft.server.PlayerList;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.MethodProfiler;
@@ -87,7 +87,7 @@ import org.apache.commons.lang3.Validate;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public abstract class MinecraftServer implements Runnable, class_m, class_of, class_oy {
+public abstract class MinecraftServer implements Runnable, ICommandListener, class_of, class_oy {
 
 	private static final Logger k = LogManager.getLogger();
 	public static final File a = new File("usercache.json");
@@ -198,7 +198,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		this.i = new long[this.d.length][100];
 		IDataManager var7 = this.m.a(var1, true);
 		this.a(this.U(), var7);
-		WorldData var9 = var7.d();
+		WorldData var9 = var7.getWorldData();
 		WorldSettings var8;
 		if (var9 == null) {
 			if (this.X()) {
@@ -280,7 +280,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	protected void a(String var1, IDataManager var2) {
-		File var3 = new File(var2.b(), "resources.zip");
+		File var3 = new File(var2.getDirectory(), "resources.zip");
 		if (var3.isFile()) {
 			this.a_("level://" + var1 + "/" + var3.getName(), "");
 		}
@@ -326,7 +326,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 
 					try {
 						var5.a(true, (IProgressUpdate) null);
-					} catch (class_aeo var7) {
+					} catch (SessionException var7) {
 						k.warn(var7.getMessage());
 					}
 				}
@@ -652,7 +652,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 				}
 			}
 
-			final class_kp var15 = new class_kp(new File(var3));
+			final DedicatedServer var15 = new DedicatedServer(new File(var3));
 			if (var2 != null) {
 				var15.i(var2);
 			}
@@ -698,11 +698,11 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return new File(this.y(), var1);
 	}
 
-	public void e(String var1) {
+	public void info(String var1) {
 		k.info(var1);
 	}
 
-	public void f(String var1) {
+	public void warning(String var1) {
 		k.warn(var1);
 	}
 
@@ -722,7 +722,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.E;
 	}
 
-	public String H() {
+	public String getVersion() {
 		return "15w31c";
 	}
 
@@ -734,7 +734,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.v.getMaxPlayers();
 	}
 
-	public String[] K() {
+	public String[] getPlayers() {
 		return this.v.f();
 	}
 
@@ -742,7 +742,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return this.v.g();
 	}
 
-	public boolean M() {
+	public boolean isDebugging() {
 		return false;
 	}
 
@@ -751,7 +751,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 	}
 
 	public void h(String var1) {
-		if (this.M()) {
+		if (this.isDebugging()) {
 			k.info(var1);
 		}
 
@@ -788,7 +788,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return var1;
 	}
 
-	public List<String> a(class_m var1, String var2, BlockPosition var3) {
+	public List<String> a(ICommandListener var1, String var2, BlockPosition var3) {
 		ArrayList<String> var4 = Lists.newArrayList();
 		if (var2.startsWith("/")) {
 			var2 = var2.substring(1);
@@ -837,7 +837,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 		return "Server";
 	}
 
-	public void a(IChatBaseComponent var1) {
+	public void sendMessage(IChatBaseComponent var1) {
 		k.info(var1.c());
 	}
 
@@ -978,7 +978,7 @@ public abstract class MinecraftServer implements Runnable, class_m, class_of, cl
 					var1.a("world[" + var2 + "][generator_name]", var5.u().a());
 					var1.a("world[" + var2 + "][generator_version]", Integer.valueOf(var5.u().d()));
 					var1.a("world[" + var2 + "][height]", Integer.valueOf(this.F));
-					var1.a("world[" + var2 + "][chunks_loaded]", Integer.valueOf(var4.O().g()));
+					var1.a("world[" + var2 + "][chunks_loaded]", Integer.valueOf(var4.O().getLoadedChunks()));
 					++var2;
 				}
 			}

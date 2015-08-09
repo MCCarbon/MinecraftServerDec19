@@ -4,18 +4,18 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.class_bz;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.WorldServer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 
 public class CommandSaveOn extends CommandAbstract {
    public String getCommand() {
       return "save-on";
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.save-on.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       MinecraftServer var3 = MinecraftServer.N();
       boolean var4 = false;
 

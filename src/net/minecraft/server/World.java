@@ -182,7 +182,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	protected boolean a(int var1, int var2, boolean var3) {
-		return v.a(var1, var2) && (var3 || !v.d(var1, var2).f());
+		return v.isChunkLoaded(var1, var2) && (var3 || !v.getOrCreateChunk(var1, var2).f());
 	}
 
 	public Chunk f(BlockPosition var1) {
@@ -190,7 +190,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public Chunk getChunkAt(int var1, int var2) {
-		return v.d(var1, var2);
+		return v.getOrCreateChunk(var1, var2);
 	}
 
 	public boolean setTypeAndData(BlockPosition var1, IBlockData var2, int var3) {
@@ -1528,7 +1528,7 @@ public abstract class World implements IBlockAccess {
 		if (!this.a(var1)) {
 			return var2;
 		} else {
-			Chunk var3 = v.a(var1);
+			Chunk var3 = v.getChunkAt(var1);
 			if (var3.f()) {
 				return var2;
 			} else {
@@ -2263,8 +2263,8 @@ public abstract class World implements IBlockAccess {
 		return null;
 	}
 
-	public void J() throws class_aeo {
-		w.c();
+	public void J() throws SessionException {
+		w.checkSession();
 	}
 
 	public long K() {
@@ -2438,7 +2438,7 @@ public abstract class World implements IBlockAccess {
 		});
 		var2.a("Chunk stats", new Callable() {
 			public String a() {
-				return v.f();
+				return v.getName();
 			}
 
 			// $FF: synthetic method

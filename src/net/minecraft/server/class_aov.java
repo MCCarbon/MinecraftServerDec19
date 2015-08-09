@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class class_aov implements class_aop, class_awc {
+public class class_aov implements IChunkLoader, class_awc {
    private static final Logger a = LogManager.getLogger();
    private Map b = new ConcurrentHashMap();
    private Set c = Collections.newSetFromMap(new ConcurrentHashMap());
@@ -64,7 +64,7 @@ public class class_aov implements class_aop, class_awc {
       }
    }
 
-   public void a(World var1, Chunk var2) throws IOException, class_aeo {
+   public void a(World var1, Chunk var2) throws IOException, SessionException {
       var1.J();
 
       try {

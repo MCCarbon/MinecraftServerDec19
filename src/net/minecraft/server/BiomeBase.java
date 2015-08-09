@@ -206,7 +206,7 @@ public abstract class BiomeBase {
 		return this;
 	}
 
-	public List a(class_qc var1) {
+	public List a(EnumCreatureType var1) {
 		switch (BiomeBase.SyntheticClass_1.a[var1.ordinal()]) {
 			case 1:
 				return this.at;
@@ -451,29 +451,29 @@ public abstract class BiomeBase {
 	// $FF: synthetic class
 	static class SyntheticClass_1 {
 		// $FF: synthetic field
-		static final int[] a = new int[class_qc.values().length];
+		static final int[] a = new int[EnumCreatureType.values().length];
 
 		static {
 			try {
-				a[class_qc.a.ordinal()] = 1;
+				a[EnumCreatureType.a.ordinal()] = 1;
 			} catch (NoSuchFieldError var4) {
 				;
 			}
 
 			try {
-				a[class_qc.b.ordinal()] = 2;
+				a[EnumCreatureType.b.ordinal()] = 2;
 			} catch (NoSuchFieldError var3) {
 				;
 			}
 
 			try {
-				a[class_qc.d.ordinal()] = 3;
+				a[EnumCreatureType.d.ordinal()] = 3;
 			} catch (NoSuchFieldError var2) {
 				;
 			}
 
 			try {
-				a[class_qc.c.ordinal()] = 4;
+				a[EnumCreatureType.c.ordinal()] = 4;
 			} catch (NoSuchFieldError var1) {
 				;
 			}

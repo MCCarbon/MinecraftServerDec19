@@ -11,7 +11,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.Entity;
 
 public class CommandObjectiveExecutor {
@@ -25,10 +25,10 @@ public class CommandObjectiveExecutor {
       this.d = b;
    }
 
-   public void a(final class_m var1, CommandObjectiveExecutor.class_a_in_class_n var2, int var3) {
+   public void a(final ICommandListener var1, CommandObjectiveExecutor.class_a_in_class_n var2, int var3) {
       String var4 = this.c[var2.a()];
       if(var4 != null) {
-         class_m var5 = new class_m() {
+         ICommandListener var5 = new ICommandListener() {
             public String getName() {
                return var1.getName();
             }
@@ -37,8 +37,8 @@ public class CommandObjectiveExecutor {
                return var1.getScoreboardDisplayName();
             }
 
-            public void a(IChatBaseComponent var1x) {
-               var1.a(var1x);
+            public void sendMessage(IChatBaseComponent var1x) {
+               var1.sendMessage(var1x);
             }
 
             public boolean a(int var1x, String var2) {

@@ -5,7 +5,7 @@ import java.util.List;
 import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
-public class EntityArrow extends Entity implements class_xi {
+public class EntityArrow extends Entity implements IProjectile {
 
 	@SuppressWarnings("unchecked")
 	private static final Predicate<Entity> TARGET_ENTITY_SELECTOR = Predicates.and(IEntitySelector.NOT_PLAYER_SPECTATOR, IEntitySelector.IS_ALIVE, new Predicate<Entity>() {

@@ -13,9 +13,9 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_lx;
-import net.minecraft.server.class_m;
-import net.minecraft.server.class_mc;
+import net.minecraft.server.IpBanEntry;
+import net.minecraft.server.ICommandListener;
+import net.minecraft.server.JsonListEntry;
 
 public class CommandBanIp extends CommandAbstract {
    public static final Pattern a = Pattern.compile("^([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])\\.([01]?\\d\\d?|2[0-4]\\d|25[0-5])$");
@@ -28,15 +28,15 @@ public class CommandBanIp extends CommandAbstract {
       return 3;
    }
 
-   public boolean canUse(class_m var1) {
+   public boolean canUse(ICommandListener var1) {
       return MinecraftServer.N().getPlayerList().i().b() && super.canUse(var1);
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.banip.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].length() > 1) {
          IChatBaseComponent var3 = var2.length >= 2?a(var1, var2, 1):null;
          Matcher var4 = a.matcher(var2[0]);
@@ -56,13 +56,13 @@ public class CommandBanIp extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().K()):null;
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
+      return var2.length == 1?a(var2, MinecraftServer.N().getPlayers()):null;
    }
 
-   protected void a(class_m var1, String var2, String var3) {
-      class_lx var4 = new class_lx(var2, (Date)null, var1.getName(), (Date)null, var3);
-      MinecraftServer.N().getPlayerList().i().a((class_mc)var4);
+   protected void a(ICommandListener var1, String var2, String var3) {
+      IpBanEntry var4 = new IpBanEntry(var2, (Date)null, var1.getName(), (Date)null, var3);
+      MinecraftServer.N().getPlayerList().i().a((JsonListEntry)var4);
       List var5 = MinecraftServer.N().getPlayerList().b(var2);
       String[] var6 = new String[var5.size()];
       int var7 = 0;

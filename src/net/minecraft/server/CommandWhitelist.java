@@ -9,7 +9,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 
 public class CommandWhitelist extends CommandAbstract {
    public String getCommand() {
@@ -20,11 +20,11 @@ public class CommandWhitelist extends CommandAbstract {
       return 3;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.whitelist.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.whitelist.usage", new Object[0]);
       } else {
@@ -36,9 +36,9 @@ public class CommandWhitelist extends CommandAbstract {
             var3.getPlayerList().setHasWhitelist(false);
             a(var1, this, "commands.whitelist.disabled", new Object[0]);
          } else if(var2[0].equals("list")) {
-            var1.a(new ChatMessage("commands.whitelist.list", new Object[]{Integer.valueOf(var3.getPlayerList().l().length), Integer.valueOf(var3.getPlayerList().q().length)}));
+            var1.sendMessage(new ChatMessage("commands.whitelist.list", new Object[]{Integer.valueOf(var3.getPlayerList().l().length), Integer.valueOf(var3.getPlayerList().q().length)}));
             String[] var4 = var3.getPlayerList().l();
-            var1.a(new ChatComponentText(a(var4)));
+            var1.sendMessage(new ChatComponentText(a(var4)));
          } else {
             GameProfile var5;
             if(var2[0].equals("add")) {
@@ -74,7 +74,7 @@ public class CommandWhitelist extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"on", "off", "list", "add", "remove", "reload"});
       } else {

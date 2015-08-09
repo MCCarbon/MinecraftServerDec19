@@ -7,7 +7,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 
 public class CommandPardon extends CommandAbstract {
    public String getCommand() {
@@ -18,15 +18,15 @@ public class CommandPardon extends CommandAbstract {
       return 3;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.unban.usage";
    }
 
-   public boolean canUse(class_m var1) {
+   public boolean canUse(ICommandListener var1) {
       return MinecraftServer.N().getPlayerList().h().b() && super.canUse(var1);
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length == 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.N();
          GameProfile var4 = var3.getPlayerList().h().a(var2[0]);
@@ -41,7 +41,7 @@ public class CommandPardon extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, MinecraftServer.N().getPlayerList().h().a()):null;
    }
 }

@@ -25,22 +25,22 @@ import net.minecraft.server.WorldGenMonument;
 import net.minecraft.server.WorldGenLargeFeature;
 import net.minecraft.server.WorldGenStronghold;
 import net.minecraft.server.WorldGenVillage;
-import net.minecraft.server.class_ata;
+import net.minecraft.server.NoiseGeneratorOctaves;
 import net.minecraft.server.NoiseGenerator3;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.IProgressUpdate;
-import net.minecraft.server.class_qc;
+import net.minecraft.server.EnumCreatureType;
 
 public class class_app implements IChunkProvider {
    private Random h;
-   private class_ata i;
-   private class_ata j;
-   private class_ata k;
+   private NoiseGeneratorOctaves i;
+   private NoiseGeneratorOctaves j;
+   private NoiseGeneratorOctaves k;
    private NoiseGenerator3 l;
-   public class_ata a;
-   public class_ata b;
-   public class_ata c;
+   public NoiseGeneratorOctaves a;
+   public NoiseGeneratorOctaves b;
+   public NoiseGeneratorOctaves c;
    private World m;
    private final boolean n;
    private WorldType o;
@@ -76,13 +76,13 @@ public class class_app implements IChunkProvider {
       this.n = var4;
       this.o = var1.Q().u();
       this.h = new Random(var2);
-      this.i = new class_ata(this.h, 16);
-      this.j = new class_ata(this.h, 16);
-      this.k = new class_ata(this.h, 8);
+      this.i = new NoiseGeneratorOctaves(this.h, 16);
+      this.j = new NoiseGeneratorOctaves(this.h, 16);
+      this.k = new NoiseGeneratorOctaves(this.h, 8);
       this.l = new NoiseGenerator3(this.h, 4);
-      this.a = new class_ata(this.h, 10);
-      this.b = new class_ata(this.h, 16);
-      this.c = new class_ata(this.h, 8);
+      this.a = new NoiseGeneratorOctaves(this.h, 10);
+      this.b = new NoiseGeneratorOctaves(this.h, 16);
+      this.c = new NoiseGeneratorOctaves(this.h, 8);
       this.p = new double[825];
       this.q = new float[25];
 
@@ -174,7 +174,7 @@ public class class_app implements IChunkProvider {
 
    }
 
-   public Chunk d(int var1, int var2) {
+   public Chunk getOrCreateChunk(int var1, int var2) {
       this.h.setSeed((long)var1 * 341873128712L + (long)var2 * 132897987541L);
       class_aph var3 = new class_aph();
       this.a(var1, var2, var3);
@@ -316,7 +316,7 @@ public class class_app implements IChunkProvider {
 
    }
 
-   public boolean a(int var1, int var2) {
+   public boolean isChunkLoaded(int var1, int var2) {
       return true;
    }
 
@@ -410,33 +410,33 @@ public class class_app implements IChunkProvider {
       return var5;
    }
 
-   public boolean a(boolean var1, IProgressUpdate var2) {
+   public boolean saveChunks(boolean var1, IProgressUpdate var2) {
       return true;
    }
 
    public void c() {
    }
 
-   public boolean d() {
+   public boolean unloadChunks() {
       return false;
    }
 
-   public boolean e() {
+   public boolean canSave() {
       return true;
    }
 
-   public String f() {
+   public String getName() {
       return "RandomLevelSource";
    }
 
-   public List a(class_qc var1, BlockPosition var2) {
+   public List getMobsFor(EnumCreatureType var1, BlockPosition var2) {
       BiomeBase var3 = this.m.b(var2);
       if(this.n) {
-         if(var1 == class_qc.a && this.y.a(var2)) {
+         if(var1 == EnumCreatureType.a && this.y.a(var2)) {
             return this.y.b();
          }
 
-         if(var1 == class_qc.a && this.r.y && this.A.a(this.m, var2)) {
+         if(var1 == EnumCreatureType.a && this.r.y && this.A.a(this.m, var2)) {
             return this.A.b();
          }
       }
@@ -448,11 +448,11 @@ public class class_app implements IChunkProvider {
       return "Stronghold".equals(var2) && this.v != null?this.v.b(var1, var3):null;
    }
 
-   public int g() {
+   public int getLoadedChunks() {
       return 0;
    }
 
-   public void a(Chunk var1, int var2, int var3) {
+   public void recreateStructures(Chunk var1, int var2, int var3) {
       if(this.r.w && this.n) {
          this.x.a(this, this.m, var2, var3, (class_aph)null);
       }
@@ -475,7 +475,7 @@ public class class_app implements IChunkProvider {
 
    }
 
-   public Chunk a(BlockPosition var1) {
-      return this.d(var1.getX() >> 4, var1.getZ() >> 4);
+   public Chunk getChunkAt(BlockPosition var1) {
+      return this.getOrCreateChunk(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

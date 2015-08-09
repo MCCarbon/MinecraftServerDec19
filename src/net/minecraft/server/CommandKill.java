@@ -6,7 +6,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.Entity;
 
 public class CommandKill extends CommandAbstract {
@@ -18,11 +18,11 @@ public class CommandKill extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.kill.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length == 0) {
          EntityPlayer var4 = b(var1);
          var4.G();
@@ -38,7 +38,7 @@ public class CommandKill extends CommandAbstract {
       return var2 == 0;
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().K()):null;
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
+      return var2.length == 1?a(var2, MinecraftServer.N().getPlayers()):null;
    }
 }

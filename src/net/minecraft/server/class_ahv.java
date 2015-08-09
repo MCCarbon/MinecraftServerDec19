@@ -22,7 +22,7 @@ import net.minecraft.server.IInventory;
 import net.minecraft.server.EnumUsedHand;
 import net.minecraft.server.EntityLiving;
 import net.minecraft.server.EntityHuman;
-import net.minecraft.server.class_yu;
+import net.minecraft.server.InventoryEnderChest;
 import net.minecraft.server.CreativeTab;
 
 public class class_ahv extends BlockContainer {
@@ -68,7 +68,7 @@ public class class_ahv extends BlockContainer {
    }
 
    public boolean interact(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4, EnumUsedHand var5, ItemStack var6, EnumDirection var7, float var8, float var9, float var10) {
-      class_yu var11 = var4.cq();
+      InventoryEnderChest var11 = var4.cq();
       TileEntity var12 = var1.getTileEntity(var2);
       if(var11 != null && var12 instanceof TileEntityEnderChest) {
          if(var1.getType(var2.up()).getBlock().isOccluding()) {

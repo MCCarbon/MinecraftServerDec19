@@ -48,7 +48,7 @@ public class class_ro extends class_rx {
          if(this.f == 0 && var4 instanceof BlockCrops && ((BlockCrops)var4).e(var3)) {
             var1.setAir(var2, true);
          } else if(this.f == 1 && var4 == Blocks.AIR) {
-            class_ow var5 = this.c.cF();
+            InventorySubContainer var5 = this.c.cF();
 
             for(int var6 = 0; var6 < var5.getSize(); ++var6) {
                ItemStack var7 = var5.getItem(var6);

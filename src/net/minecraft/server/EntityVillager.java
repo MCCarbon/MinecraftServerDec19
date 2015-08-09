@@ -12,7 +12,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	private boolean bw;
 	class_tp bs;
 	private EntityHuman bx;
-	private class_aeb by;
+	private MerchantRecipeList by;
 	private int bz;
 	private boolean bA;
 	private boolean bB;
@@ -22,7 +22,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 	private int bF;
 	private boolean bG;
 	private boolean bH;
-	private class_ow bI;
+	private InventorySubContainer bI;
 	private static final EntityVillager.class_f_in_class_wv[][][][] bJ;
 
 	public EntityVillager(World var1) {
@@ -31,7 +31,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
 	public EntityVillager(World var1, int var2) {
 		super(var1);
-		this.bI = new class_ow("Items", false, 8);
+		this.bI = new InventorySubContainer("Items", false, 8);
 		this.setProfession(var2);
 		this.setSize(0.6F, 1.8F);
 		((class_tf) this.u()).b(true);
@@ -103,7 +103,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 					Iterator var3 = this.by.iterator();
 
 					while (var3.hasNext()) {
-						class_aea var4 = (class_aea) var3.next();
+						MerchantRecipe var4 = (MerchantRecipe) var3.next();
 						if (var4.h()) {
 							var4.a(this.random.nextInt(6) + this.random.nextInt(6) + 2);
 						}
@@ -176,7 +176,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		this.bB = var1.getBoolean("Willing");
 		if (var1.hasOfType("Offers", 10)) {
 			NBTTagCompound var2 = var1.getCompound("Offers");
-			this.by = new class_aeb(var2);
+			this.by = new MerchantRecipeList(var2);
 		}
 
 		NBTTagList var5 = var1.getList("Inventory", 10);
@@ -314,7 +314,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		this.bB = var1;
 	}
 
-	public void a(class_aea var1) {
+	public void a(MerchantRecipe var1) {
 		var1.g();
 		this.a_ = -this.y();
 		this.makeSound("mob.villager.yes", this.bC(), this.bD());
@@ -354,7 +354,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
 	}
 
-	public class_aeb a_(EntityHuman var1) {
+	public MerchantRecipeList getOffers(EntityHuman var1) {
 		if (this.by == null) {
 			this.cL();
 		}
@@ -372,7 +372,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		}
 
 		if (this.by == null) {
-			this.by = new class_aeb();
+			this.by = new MerchantRecipeList();
 		}
 
 		int var2 = this.bE - 1;
@@ -496,7 +496,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 		}
 	}
 
-	public class_ow cF() {
+	public InventorySubContainer cF() {
 		return this.bI;
 	}
 
@@ -630,7 +630,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			this.d = var4;
 		}
 
-		public void a(class_aeb var1, Random var2) {
+		public void a(MerchantRecipeList var1, Random var2) {
 			int var3 = 1;
 			if (this.b != null) {
 				var3 = this.b.a(var2);
@@ -641,12 +641,12 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 				var4 = this.d.a(var2);
 			}
 
-			var1.add(new class_aea(new ItemStack(this.a.getItem(), var3, this.a.i()), new ItemStack(Items.EMERALD), new ItemStack(this.c.getItem(), var4, this.c.i())));
+			var1.add(new MerchantRecipe(new ItemStack(this.a.getItem(), var3, this.a.i()), new ItemStack(Items.EMERALD), new ItemStack(this.c.getItem(), var4, this.c.i())));
 		}
 	}
 
 	static class class_b_in_class_wv implements EntityVillager.class_f_in_class_wv {
-		public void a(class_aeb var1, Random var2) {
+		public void a(MerchantRecipeList var1, Random var2) {
 			Enchantment var3 = (Enchantment) Enchantment.b.get(var2);
 			int var4 = MathHelper.getRandomIntInRange(var2, var3.d(), var3.b());
 			ItemStack var5 = Items.ENCHANTED_BOOK.a(new class_adl(var3, var4));
@@ -655,7 +655,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 				var6 = 64;
 			}
 
-			var1.add(new class_aea(new ItemStack(Items.BOOK), new ItemStack(Items.EMERALD, var6), var5));
+			var1.add(new MerchantRecipe(new ItemStack(Items.BOOK), new ItemStack(Items.EMERALD, var6), var5));
 		}
 	}
 
@@ -668,7 +668,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			this.b = var2;
 		}
 
-		public void a(class_aeb var1, Random var2) {
+		public void a(MerchantRecipeList var1, Random var2) {
 			int var3 = 1;
 			if (this.b != null) {
 				var3 = this.b.a(var2);
@@ -677,7 +677,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			ItemStack var4 = new ItemStack(Items.EMERALD, var3, 0);
 			ItemStack var5 = new ItemStack(this.a.getItem(), 1, this.a.i());
 			var5 = EnchantmentManager.a(var2, var5, 5 + var2.nextInt(15));
-			var1.add(new class_aea(var4, var5));
+			var1.add(new MerchantRecipe(var4, var5));
 		}
 	}
 
@@ -695,7 +695,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			this.b = var2;
 		}
 
-		public void a(class_aeb var1, Random var2) {
+		public void a(MerchantRecipeList var1, Random var2) {
 			int var3 = 1;
 			if (this.b != null) {
 				var3 = this.b.a(var2);
@@ -711,7 +711,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 				var5 = new ItemStack(this.a.getItem(), 1, this.a.i());
 			}
 
-			var1.add(new class_aea(var4, var5));
+			var1.add(new MerchantRecipe(var4, var5));
 		}
 	}
 
@@ -724,18 +724,18 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 			this.b = var2;
 		}
 
-		public void a(class_aeb var1, Random var2) {
+		public void a(MerchantRecipeList var1, Random var2) {
 			int var3 = 1;
 			if (this.b != null) {
 				var3 = this.b.a(var2);
 			}
 
-			var1.add(new class_aea(new ItemStack(this.a, var3, 0), Items.EMERALD));
+			var1.add(new MerchantRecipe(new ItemStack(this.a, var3, 0), Items.EMERALD));
 		}
 	}
 
 	interface class_f_in_class_wv {
-		void a(class_aeb var1, Random var2);
+		void a(MerchantRecipeList var1, Random var2);
 	}
 
 	static class class_g_in_class_wv extends Tuple {

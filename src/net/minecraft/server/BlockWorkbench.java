@@ -38,7 +38,7 @@ public class BlockWorkbench extends Block {
       }
 
       public Container createContainer(PlayerInventory var1, EntityHuman var2) {
-         return new class_yh(var1, this.a, this.b);
+         return new ContainerWorkbench(var1, this.a, this.b);
       }
 
       public String getContainerName() {
