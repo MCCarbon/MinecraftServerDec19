@@ -154,7 +154,7 @@ public abstract class EntityTameable extends EntityAnimal implements class_qg {
 
 	public void a(DamageSource var1) {
 		if (!this.world.isClientSide && this.world.R().getBooleanValue("showDeathMessages") && this.hasCustomName() && this.cD() instanceof EntityPlayer) {
-			((EntityPlayer) this.cD()).a(this.bt().b());
+			((EntityPlayer) this.cD()).sendMessage(this.bt().b());
 		}
 
 		super.a((DamageSource) var1);

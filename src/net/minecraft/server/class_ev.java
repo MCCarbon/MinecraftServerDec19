@@ -10,12 +10,12 @@ import net.minecraft.server.ChatComponentSelector;
 import net.minecraft.server.ChatModifier;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.ChatMessage;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.class_o;
 import net.minecraft.server.Entity;
 
 public class class_ev {
-   public static IChatBaseComponent a(class_m var0, IChatBaseComponent var1, Entity var2) throws class_bz {
+   public static IChatBaseComponent a(ICommandListener var0, IChatBaseComponent var1, Entity var2) throws class_bz {
       Object var3 = null;
       if(var1 instanceof ChatComponentScore) {
          ChatComponentScore var4 = (ChatComponentScore)var1;

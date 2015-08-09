@@ -22,7 +22,7 @@ public abstract class class_mn implements Runnable {
    protected class_mn(IMinecraftServer var1, String var2) {
       this.b = var1;
       this.c = var2;
-      if(this.b.M()) {
+      if(this.b.isDebugging()) {
          this.c("Debugging is enabled, performance maybe reduced!");
       }
 
@@ -43,11 +43,11 @@ public abstract class class_mn implements Runnable {
    }
 
    protected void b(String var1) {
-      this.b.e(var1);
+      this.b.info(var1);
    }
 
    protected void c(String var1) {
-      this.b.f(var1);
+      this.b.warning(var1);
    }
 
    protected void d(String var1) {

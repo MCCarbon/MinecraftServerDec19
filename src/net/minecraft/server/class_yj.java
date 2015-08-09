@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 public class class_yj extends Container {
-   public IInventory a = new class_ow("Enchant", true, 2) {
+   public IInventory a = new InventorySubContainer("Enchant", true, 2) {
       public int getMaxStackSize() {
          return 64;
       }

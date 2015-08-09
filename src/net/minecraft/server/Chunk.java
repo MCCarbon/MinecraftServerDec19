@@ -798,14 +798,14 @@ public class Chunk {
 	}
 
 	public void a(IChunkProvider var1, IChunkProvider var2, int var3, int var4) {
-		boolean var5 = var1.a(var3, var4 - 1);
-		boolean var6 = var1.a(var3 + 1, var4);
-		boolean var7 = var1.a(var3, var4 + 1);
-		boolean var8 = var1.a(var3 - 1, var4);
-		boolean var9 = var1.a(var3 - 1, var4 - 1);
-		boolean var10 = var1.a(var3 + 1, var4 + 1);
-		boolean var11 = var1.a(var3 - 1, var4 + 1);
-		boolean var12 = var1.a(var3 + 1, var4 - 1);
+		boolean var5 = var1.isChunkLoaded(var3, var4 - 1);
+		boolean var6 = var1.isChunkLoaded(var3 + 1, var4);
+		boolean var7 = var1.isChunkLoaded(var3, var4 + 1);
+		boolean var8 = var1.isChunkLoaded(var3 - 1, var4);
+		boolean var9 = var1.isChunkLoaded(var3 - 1, var4 - 1);
+		boolean var10 = var1.isChunkLoaded(var3 + 1, var4 + 1);
+		boolean var11 = var1.isChunkLoaded(var3 - 1, var4 + 1);
+		boolean var12 = var1.isChunkLoaded(var3 + 1, var4 - 1);
 		if (var6 && var7 && var10) {
 			if (!n) {
 				var1.a(var2, var3, var4);
@@ -816,7 +816,7 @@ public class Chunk {
 
 		Chunk var13;
 		if (var8 && var7 && var11) {
-			var13 = var1.d(var3 - 1, var4);
+			var13 = var1.getOrCreateChunk(var3 - 1, var4);
 			if (!var13.n) {
 				var1.a(var2, var3 - 1, var4);
 			} else {
@@ -825,7 +825,7 @@ public class Chunk {
 		}
 
 		if (var5 && var6 && var12) {
-			var13 = var1.d(var3, var4 - 1);
+			var13 = var1.getOrCreateChunk(var3, var4 - 1);
 			if (!var13.n) {
 				var1.a(var2, var3, var4 - 1);
 			} else {
@@ -834,7 +834,7 @@ public class Chunk {
 		}
 
 		if (var9 && var5 && var8) {
-			var13 = var1.d(var3 - 1, var4 - 1);
+			var13 = var1.getOrCreateChunk(var3 - 1, var4 - 1);
 			if (!var13.n) {
 				var1.a(var2, var3 - 1, var4 - 1);
 			} else {

@@ -147,9 +147,9 @@ public class class_mo extends class_mn {
          this.v.a("game_id");
          this.v.a("MINECRAFT");
          this.v.a("version");
-         this.v.a(this.b.H());
+         this.v.a(this.b.getVersion());
          this.v.a("plugins");
-         this.v.a(this.b.d_());
+         this.v.a(this.b.getPlugins());
          this.v.a("map");
          this.v.a(this.m);
          this.v.a("numplayers");
@@ -164,7 +164,7 @@ public class class_mo extends class_mn {
          this.v.a((int)1);
          this.v.a("player_");
          this.v.a((int)0);
-         String[] var4 = this.b.K();
+         String[] var4 = this.b.getPlayers();
          String[] var5 = var4;
          int var6 = var4.length;
 

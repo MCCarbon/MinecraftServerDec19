@@ -12,7 +12,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.class_ms;
 import net.minecraft.server.class_mt;
 import net.minecraft.server.class_my;
@@ -27,11 +27,11 @@ public class CommandAchievment extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.achievement.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 2) {
          throw new class_cf("commands.achievement.usage", new Object[0]);
       } else {
@@ -150,11 +150,11 @@ public class CommandAchievment extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a(var2, new String[]{"give", "take"});
       } else if(var2.length != 2) {
-         return var2.length == 3?a(var2, MinecraftServer.N().K()):null;
+         return var2.length == 3?a(var2, MinecraftServer.N().getPlayers()):null;
       } else {
          ArrayList var4 = Lists.newArrayList();
          Iterator var5 = StatisticList.b.iterator();

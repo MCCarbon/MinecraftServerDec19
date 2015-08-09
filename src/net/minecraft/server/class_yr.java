@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.IMerchant;
-import net.minecraft.server.class_aea;
-import net.minecraft.server.class_aeb;
+import net.minecraft.server.MerchantRecipe;
+import net.minecraft.server.MerchantRecipeList;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.ChatMessage;
@@ -14,7 +14,7 @@ public class class_yr implements IInventory {
    private final IMerchant a;
    private ItemStack[] b = new ItemStack[3];
    private final EntityHuman c;
-   private class_aea d;
+   private MerchantRecipe d;
    private int e;
 
    public class_yr(EntityHuman var1, IMerchant var2) {
@@ -134,9 +134,9 @@ public class class_yr implements IInventory {
       if(var1 == null) {
          this.setItem(2, (ItemStack)null);
       } else {
-         class_aeb var3 = this.a.a_(this.c);
+         MerchantRecipeList var3 = this.a.getOffers(this.c);
          if(var3 != null) {
-            class_aea var4 = var3.a(var1, var2, this.e);
+            MerchantRecipe var4 = var3.a(var1, var2, this.e);
             if(var4 != null && !var4.h()) {
                this.d = var4;
                this.setItem(2, var4.d().clone());
@@ -157,7 +157,7 @@ public class class_yr implements IInventory {
       this.a.a_(this.getItem(2));
    }
 
-   public class_aea i() {
+   public MerchantRecipe i() {
       return this.d;
    }
 

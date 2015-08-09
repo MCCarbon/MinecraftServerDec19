@@ -513,7 +513,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		class_yr var2 = ((class_ys) this.br).e();
 		IChatBaseComponent var3 = var1.getScoreboardDisplayName();
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutOpenWindow(this.cc, "minecraft:villager", var3, var2.getSize())));
-		class_aeb var4 = var1.a_((EntityHuman) this);
+		MerchantRecipeList var4 = var1.getOffers((EntityHuman) this);
 		if (var4 != null) {
 			PacketDataSerializer var5 = new PacketDataSerializer(Unpooled.buffer());
 			var5.writeInt(this.cc);
@@ -727,7 +727,7 @@ public class EntityPlayer extends EntityHuman implements class_ye {
 		return this.playerInteractManager.getGameMode() == WorldSettings.EnumGameMode.SPECTATOR;
 	}
 
-	public void a(IChatBaseComponent var1) {
+	public void sendMessage(IChatBaseComponent var1) {
 		this.playerConnection.sendPacket((Packet) (new PacketPlayOutChat(var1)));
 	}
 

@@ -10,7 +10,7 @@ import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandBlockData extends CommandAbstract {
@@ -22,11 +22,11 @@ public class CommandBlockData extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.blockdata.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 4) {
          throw new class_cf("commands.blockdata.usage", new Object[0]);
       } else {
@@ -69,7 +69,7 @@ public class CommandBlockData extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

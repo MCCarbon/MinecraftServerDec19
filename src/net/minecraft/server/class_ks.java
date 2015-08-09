@@ -29,7 +29,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.DedicatedServer;
 import net.minecraft.server.class_kt;
 import net.minecraft.server.class_ku;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -108,7 +108,7 @@ public class class_ks extends JComponent {
          public void actionPerformed(ActionEvent var1) {
             String var2 = var4.getText().trim();
             if(!var2.isEmpty()) {
-               class_ks.this.c.a(var2, (class_m)MinecraftServer.N());
+               class_ks.this.c.a(var2, (ICommandListener)MinecraftServer.N());
             }
 
             var4.setText("");

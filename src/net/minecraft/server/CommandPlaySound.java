@@ -10,7 +10,7 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutNamedSoundEffect;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 
 public class CommandPlaySound extends CommandAbstract {
    public String getCommand() {
@@ -21,11 +21,11 @@ public class CommandPlaySound extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.playsound.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 2) {
          throw new class_cf(this.c(var1), new Object[0]);
       } else {
@@ -89,8 +89,8 @@ public class CommandPlaySound extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 2?a(var2, MinecraftServer.N().K()):(var2.length > 2 && var2.length <= 5?a(var2, 2, var3):null);
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
+      return var2.length == 2?a(var2, MinecraftServer.N().getPlayers()):(var2.length > 2 && var2.length <= 5?a(var2, 2, var3):null);
    }
 
    public boolean isListStart(String[] var1, int var2) {

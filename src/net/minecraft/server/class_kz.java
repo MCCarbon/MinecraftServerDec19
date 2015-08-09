@@ -40,7 +40,7 @@ public class class_kz extends PlayerInteractManager {
 
       if(var1 % 24000L == 500L) {
          if(var3 <= 6L) {
-            this.player.a((IChatBaseComponent)(new ChatMessage("demo.day." + var3, new Object[0])));
+            this.player.sendMessage((IChatBaseComponent)(new ChatMessage("demo.day." + var3, new Object[0])));
          }
       } else if(var3 == 1L) {
          if(var1 == 100L) {
@@ -51,14 +51,14 @@ public class class_kz extends PlayerInteractManager {
             this.player.playerConnection.sendPacket((Packet)(new PacketPlayOutGameStateChange(5, 103.0F)));
          }
       } else if(var3 == 5L && var1 % 24000L == 22000L) {
-         this.player.a((IChatBaseComponent)(new ChatMessage("demo.day.warning", new Object[0])));
+         this.player.sendMessage((IChatBaseComponent)(new ChatMessage("demo.day.warning", new Object[0])));
       }
 
    }
 
    private void f() {
       if(this.e > 100) {
-         this.player.a((IChatBaseComponent)(new ChatMessage("demo.reminder", new Object[0])));
+         this.player.sendMessage((IChatBaseComponent)(new ChatMessage("demo.reminder", new Object[0])));
          this.e = 0;
       }
 

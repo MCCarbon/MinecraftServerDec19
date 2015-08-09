@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.File;
-import net.minecraft.server.class_aop;
+import net.minecraft.server.IChunkLoader;
 import net.minecraft.server.RegionFileCache;
 import net.minecraft.server.class_aov;
 import net.minecraft.server.WorldProvider;
@@ -17,8 +17,8 @@ public class ServerNBTManager extends WorldNBTStorage {
       super(var1, var2, var3);
    }
 
-   public class_aop a(WorldProvider var1) {
-      File var2 = this.b();
+   public IChunkLoader createChunkLoader(WorldProvider var1) {
+      File var2 = this.getDirectory();
       File var3;
       if(var1 instanceof WorldProviderHell) {
          var3 = new File(var2, "DIM-1");
@@ -33,9 +33,9 @@ public class ServerNBTManager extends WorldNBTStorage {
       }
    }
 
-   public void a(WorldData var1, NBTTagCompound var2) {
+   public void saveWorldData(WorldData var1, NBTTagCompound var2) {
       var1.e(19133);
-      super.a(var1, var2);
+      super.saveWorldData(var1, var2);
    }
 
    public void a() {

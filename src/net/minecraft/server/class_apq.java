@@ -20,7 +20,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.IProgressUpdate;
-import net.minecraft.server.class_qc;
+import net.minecraft.server.EnumCreatureType;
 
 public class class_apq implements IChunkProvider {
    private Random f;
@@ -146,7 +146,7 @@ public class class_apq implements IChunkProvider {
 
    }
 
-   public Chunk d(int var1, int var2) {
+   public Chunk getOrCreateChunk(int var1, int var2) {
       this.f.setSeed((long)var1 * 341873128712L + (long)var2 * 132897987541L);
       class_aph var3 = new class_aph();
       this.n = this.j.w().b(this.n, var1 * 16, var2 * 16, 16, 16);
@@ -264,7 +264,7 @@ public class class_apq implements IChunkProvider {
       return var1;
    }
 
-   public boolean a(int var1, int var2) {
+   public boolean isChunkLoaded(int var1, int var2) {
       return true;
    }
 
@@ -304,26 +304,26 @@ public class class_apq implements IChunkProvider {
       return false;
    }
 
-   public boolean a(boolean var1, IProgressUpdate var2) {
+   public boolean saveChunks(boolean var1, IProgressUpdate var2) {
       return true;
    }
 
    public void c() {
    }
 
-   public boolean d() {
+   public boolean unloadChunks() {
       return false;
    }
 
-   public boolean e() {
+   public boolean canSave() {
       return true;
    }
 
-   public String f() {
+   public String getName() {
       return "RandomLevelSource";
    }
 
-   public List a(class_qc var1, BlockPosition var2) {
+   public List getMobsFor(EnumCreatureType var1, BlockPosition var2) {
       return this.j.b(var2).a(var1);
    }
 
@@ -331,14 +331,14 @@ public class class_apq implements IChunkProvider {
       return null;
    }
 
-   public int g() {
+   public int getLoadedChunks() {
       return 0;
    }
 
-   public void a(Chunk var1, int var2, int var3) {
+   public void recreateStructures(Chunk var1, int var2, int var3) {
    }
 
-   public Chunk a(BlockPosition var1) {
-      return this.d(var1.getX() >> 4, var1.getZ() >> 4);
+   public Chunk getChunkAt(BlockPosition var1) {
+      return this.getOrCreateChunk(var1.getX() >> 4, var1.getZ() >> 4);
    }
 }

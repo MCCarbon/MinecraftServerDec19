@@ -11,11 +11,11 @@ public class CommandSummon extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.summon.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.summon.usage", new Object[0]);
       } else {
@@ -92,7 +92,7 @@ public class CommandSummon extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, EntityTypes.b()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 }

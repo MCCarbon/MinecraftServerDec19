@@ -17,25 +17,25 @@ public interface IMinecraftServer {
 
    String G();
 
-   String H();
+   String getVersion();
 
    int I();
 
    int J();
 
-   String[] K();
+   String[] getPlayers();
 
    String U();
 
-   String d_();
+   String getPlugins();
 
    String a_(String var1);
 
-   boolean M();
+   boolean isDebugging();
 
-   void e(String var1);
+   void info(String var1);
 
-   void f(String var1);
+   void warning(String var1);
 
    void g(String var1);
 

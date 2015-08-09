@@ -656,7 +656,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 				} else if (var1.getUseAction() == PacketPlayInUseEntity.EnumEntityUseAction.ATTACK) {
 					if ((var3 instanceof EntityItem) || (var3 instanceof EntityExperienceOrb) || (var3 instanceof EntityArrow) || (var3 == player)) {
 						c("Attempting to attack an invalid entity");
-						minecraftServer.f("Player " + player.getName() + " tried to attack an invalid entity");
+						minecraftServer.warning("Player " + player.getName() + " tried to attack an invalid entity");
 						return;
 					}
 
@@ -825,7 +825,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 
 			TileEntitySign var5 = (TileEntitySign) var4;
 			if (!var5.b() || (var5.c() != player)) {
-				minecraftServer.f("Player " + player.getName() + " just tried to change non-editable sign");
+				minecraftServer.warning("Player " + player.getName() + " just tried to change non-editable sign");
 				return;
 			}
 
@@ -959,7 +959,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 			}
 		} else if ("MC|AdvCdm".equals(var1.getTag())) {
 			if (!minecraftServer.al()) {
-				player.a((new ChatMessage("advMode.notEnabled", new Object[0])));
+				player.sendMessage((new ChatMessage("advMode.notEnabled", new Object[0])));
 			} else if (player.a(2, "") && player.abilities.instabuild) {
 				var61 = var1.getData();
 
@@ -988,7 +988,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						}
 
 						var4.h();
-						player.a((new ChatMessage("advMode.setCommand.success", new Object[] { var71 })));
+						player.sendMessage((new ChatMessage("advMode.setCommand.success", new Object[] { var71 })));
 					}
 				} catch (Exception var54) {
 					logger.error("Couldn\'t set command block", var54);
@@ -996,7 +996,7 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 					var61.release();
 				}
 			} else {
-				player.a((new ChatMessage("advMode.notAllowed", new Object[0])));
+				player.sendMessage((new ChatMessage("advMode.notAllowed", new Object[0])));
 			}
 		} else if ("MC|Beacon".equals(var1.getTag())) {
 			if (player.br instanceof class_yc) {

@@ -15,7 +15,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 
@@ -28,11 +28,11 @@ public class CommandStats extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.stats.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 1) {
          throw new class_cf("commands.stats.usage", new Object[0]);
       } else {
@@ -139,12 +139,12 @@ public class CommandStats extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, new String[]{"entity", "block"}):(var2.length == 2 && var2[0].equals("entity")?a(var2, this.d()):(var2.length >= 2 && var2.length <= 4 && var2[0].equals("block")?a(var2, 1, var3):(var2.length == 3 && var2[0].equals("entity") || var2.length == 5 && var2[0].equals("block")?a(var2, new String[]{"set", "clear"}):((var2.length != 4 || !var2[0].equals("entity")) && (var2.length != 6 || !var2[0].equals("block"))?((var2.length != 6 || !var2[0].equals("entity")) && (var2.length != 8 || !var2[0].equals("block"))?null:a(var2, this.e())):a(var2, CommandObjectiveExecutor.class_a_in_class_n.c())))));
    }
 
    protected String[] d() {
-      return MinecraftServer.N().K();
+      return MinecraftServer.N().getPlayers();
    }
 
    protected List e() {

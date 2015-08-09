@@ -108,7 +108,7 @@ public class WorldServer extends World implements class_of {
       }
 
       this.B.c("chunkSource");
-      this.v.d();
+      this.v.unloadChunks();
       int var3 = this.a(1.0F);
       if(var3 != this.ac()) {
          this.c(var3);
@@ -134,13 +134,13 @@ public class WorldServer extends World implements class_of {
       this.ak();
    }
 
-   public BiomeBase.BiomeMeta a(class_qc var1, BlockPosition var2) {
-      List var3 = this.O().a(var1, var2);
+   public BiomeBase.BiomeMeta a(EnumCreatureType var1, BlockPosition var2) {
+      List var3 = this.O().getMobsFor(var1, var2);
       return var3 != null && !var3.isEmpty()?(BiomeBase.BiomeMeta)class_oc.a(this.random, var3):null;
    }
 
-   public boolean a(class_qc var1, BiomeBase.BiomeMeta var2, BlockPosition var3) {
-      List var4 = this.O().a(var1, var3);
+   public boolean a(EnumCreatureType var1, BiomeBase.BiomeMeta var2, BlockPosition var3) {
+      List var4 = this.O().getMobsFor(var1, var3);
       return var4 != null && !var4.isEmpty()?var4.contains(var2):false;
    }
 
@@ -499,7 +499,7 @@ public class WorldServer extends World implements class_of {
    }
 
    protected IChunkProvider l() {
-      class_aop var1 = this.w.a(this.worldProvider);
+      IChunkLoader var1 = this.w.createChunkLoader(this.worldProvider);
       this.b = new class_lf(this, var1, this.worldProvider.c());
       return this.b;
    }
@@ -621,8 +621,8 @@ public class WorldServer extends World implements class_of {
       return this.worldProvider.h();
    }
 
-   public void a(boolean var1, IProgressUpdate var2) throws class_aeo {
-      if(this.v.e()) {
+   public void a(boolean var1, IProgressUpdate var2) throws SessionException {
+      if(this.v.canSave()) {
          if(var2 != null) {
             var2.a("Saving level");
          }
@@ -632,7 +632,7 @@ public class WorldServer extends World implements class_of {
             var2.c("Saving chunks");
          }
 
-         this.v.a(var1, var2);
+         this.v.saveChunks(var1, var2);
          ArrayList var3 = Lists.newArrayList((Iterable)this.b.a());
          Iterator var4 = var3.iterator();
 
@@ -647,12 +647,12 @@ public class WorldServer extends World implements class_of {
    }
 
    public void o() {
-      if(this.v.e()) {
+      if(this.v.canSave()) {
          this.v.c();
       }
    }
 
-   protected void a() throws class_aeo {
+   protected void a() throws SessionException {
       this.J();
       WorldServer[] var1 = this.I.d;
       int var2 = var1.length;
@@ -673,7 +673,7 @@ public class WorldServer extends World implements class_of {
       this.x.k(this.ag().p());
       this.x.b(this.ag().j());
       this.x.e(this.ag().i());
-      this.w.a(this.x, this.I.getPlayerList().t());
+      this.w.saveWorldData(this.x, this.I.getPlayerList().t());
       this.z.a();
    }
 

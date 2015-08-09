@@ -91,7 +91,7 @@ public class WorldLoaderServer extends WorldLoader {
 
       this.g(var1);
       IDataManager var12 = this.a(var1, false);
-      var12.a(var10);
+      var12.saveWorldData(var10);
       return true;
    }
 

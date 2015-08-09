@@ -11,7 +11,7 @@ import net.minecraft.server.class_ed;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandClear extends CommandAbstract {
@@ -19,7 +19,7 @@ public class CommandClear extends CommandAbstract {
       return "clear";
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.clear.usage";
    }
 
@@ -27,7 +27,7 @@ public class CommandClear extends CommandAbstract {
       return 2;
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       EntityPlayer var3 = var2.length == 0?b(var1):a(var1, var2[0]);
       Item var4 = var2.length >= 2?f(var1, var2[1]):null;
       int var5 = var2.length >= 3?a(var2[2], -1):-1;
@@ -55,7 +55,7 @@ public class CommandClear extends CommandAbstract {
             throw new class_bz("commands.clear.failure", new Object[]{var3.getName()});
          } else {
             if(var6 == 0) {
-               var1.a(new ChatMessage("commands.clear.testing", new Object[]{var3.getName(), Integer.valueOf(var8)}));
+               var1.sendMessage(new ChatMessage("commands.clear.testing", new Object[]{var3.getName(), Integer.valueOf(var8)}));
             } else {
                a(var1, this, "commands.clear.success", new Object[]{var3.getName(), Integer.valueOf(var8)});
             }
@@ -64,12 +64,12 @@ public class CommandClear extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.ITEM_REGISTRY.getKeys()):null);
    }
 
    protected String[] d() {
-      return MinecraftServer.N().K();
+      return MinecraftServer.N().getPlayers();
    }
 
    public boolean isListStart(String[] var1, int var2) {

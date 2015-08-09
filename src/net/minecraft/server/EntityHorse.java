@@ -340,7 +340,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 	}
 
-	public void a(class_ow var1) {
+	public void a(InventorySubContainer var1) {
 		int var2 = this.cM();
 		boolean var3 = this.cV();
 		this.dq();

@@ -12,11 +12,11 @@ import net.minecraft.server.class_e;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatComponentText;
 import net.minecraft.server.class_l;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.EntityHuman;
 
-public abstract class class_aed implements class_m {
+public abstract class class_aed implements ICommandListener {
    private static final SimpleDateFormat a = new SimpleDateFormat("HH:mm:ss");
    private int b;
    private boolean c = true;
@@ -131,7 +131,7 @@ public abstract class class_aed implements class_m {
       this.f = var1;
    }
 
-   public void a(IChatBaseComponent var1) {
+   public void sendMessage(IChatBaseComponent var1) {
       if(this.c && this.e() != null && !this.e().isClientSide) {
          this.d = (new ChatComponentText("[" + a.format(new Date()) + "] ")).addSibling(var1);
          this.h();

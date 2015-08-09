@@ -11,7 +11,7 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutEntityStatus;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 
 public class CommandGamerule extends CommandAbstract {
@@ -23,17 +23,17 @@ public class CommandGamerule extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.gamerule.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       GameRules var3 = this.d();
       String var4 = var2.length > 0?var2[0]:"";
       String var5 = var2.length > 1?a(var2, 1):"";
       switch(var2.length) {
       case 0:
-         var1.a(new ChatComponentText(a(var3.getGameRules())));
+         var1.sendMessage(new ChatComponentText(a(var3.getGameRules())));
          break;
       case 1:
          if(!var3.hasGameRule(var4)) {
@@ -41,7 +41,7 @@ public class CommandGamerule extends CommandAbstract {
          }
 
          String var6 = var3.getStringValue(var4);
-         var1.a((new ChatComponentText(var4)).a(" = ").a(var6));
+         var1.sendMessage((new ChatComponentText(var4)).a(" = ").a(var6));
          var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var3.getIntValue(var4));
          break;
       default:
@@ -69,7 +69,7 @@ public class CommandGamerule extends CommandAbstract {
 
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
          return a((String[])var2, (String[])this.d().getGameRules());
       } else {

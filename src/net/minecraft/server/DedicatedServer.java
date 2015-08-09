@@ -28,7 +28,7 @@ import net.minecraft.server.class_kq;
 import net.minecraft.server.class_ks;
 import net.minecraft.server.NameReferencingFileConverter;
 import net.minecraft.server.PlayerList;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.class_ml;
 import net.minecraft.server.class_mo;
 import net.minecraft.server.class_mq;
@@ -79,7 +79,7 @@ public class DedicatedServer extends MinecraftServer implements IMinecraftServer
             String var2;
             try {
                while(!DedicatedServer.this.ao() && DedicatedServer.this.v() && (var2 = var1.readLine()) != null) {
-                  DedicatedServer.this.a(var2, (class_m)DedicatedServer.this);
+                  DedicatedServer.this.a(var2, (ICommandListener)DedicatedServer.this);
                }
             } catch (IOException var4) {
                DedicatedServer.k.error((String)"Exception handling console input", (Throwable)var4);
@@ -304,7 +304,7 @@ public class DedicatedServer extends MinecraftServer implements IMinecraftServer
       return this.o.a("snooper-enabled", true);
    }
 
-   public void a(String var1, class_m var2) {
+   public void a(String var1, ICommandListener var2) {
       this.l.add(new class_ke(var1, var2));
    }
 
@@ -501,7 +501,7 @@ public class DedicatedServer extends MinecraftServer implements IMinecraftServer
       return this.o.a("max-tick-time", TimeUnit.MINUTES.toMillis(1L));
    }
 
-   public String d_() {
+   public String getPlugins() {
       return "";
    }
 

@@ -9,8 +9,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.server.class_aeo;
-import net.minecraft.server.class_aop;
+import net.minecraft.server.SessionException;
+import net.minecraft.server.IChunkLoader;
 import net.minecraft.server.WorldProvider;
 import net.minecraft.server.WorldData;
 import net.minecraft.server.IDataManager;
@@ -61,33 +61,33 @@ public class WorldNBTStorage implements IDataManager, IPlayerFileData {
       }
    }
 
-   public File b() {
+   public File getDirectory() {
       return this.b;
    }
 
-   public void c() throws class_aeo {
+   public void checkSession() throws SessionException {
       try {
          File var1 = new File(this.b, "session.lock");
          DataInputStream var2 = new DataInputStream(new FileInputStream(var1));
 
          try {
             if(var2.readLong() != this.e) {
-               throw new class_aeo("The save is being accessed from another location, aborting");
+               throw new SessionException("The save is being accessed from another location, aborting");
             }
          } finally {
             var2.close();
          }
 
       } catch (IOException var7) {
-         throw new class_aeo("Failed to check session lock, aborting");
+         throw new SessionException("Failed to check session lock, aborting");
       }
    }
 
-   public class_aop a(WorldProvider var1) {
+   public IChunkLoader createChunkLoader(WorldProvider var1) {
       throw new RuntimeException("Old Chunk Storage is no longer supported.");
    }
 
-   public WorldData d() {
+   public WorldData getWorldData() {
       File var1 = new File(this.b, "level.dat");
       NBTTagCompound var2;
       NBTTagCompound var3;
@@ -115,7 +115,7 @@ public class WorldNBTStorage implements IDataManager, IPlayerFileData {
       return null;
    }
 
-   public void a(WorldData var1, NBTTagCompound var2) {
+   public void saveWorldData(WorldData var1, NBTTagCompound var2) {
       NBTTagCompound var3 = var1.a(var2);
       NBTTagCompound var4 = new NBTTagCompound();
       var4.put((String)"Data", (NBTTag)var3);
@@ -144,7 +144,7 @@ public class WorldNBTStorage implements IDataManager, IPlayerFileData {
 
    }
 
-   public void a(WorldData var1) {
+   public void saveWorldData(WorldData var1) {
       NBTTagCompound var2 = var1.a();
       NBTTagCompound var3 = new NBTTagCompound();
       var3.put((String)"Data", (NBTTag)var2);
@@ -173,7 +173,7 @@ public class WorldNBTStorage implements IDataManager, IPlayerFileData {
 
    }
 
-   public void a(EntityHuman var1) {
+   public void save(EntityHuman var1) {
       try {
          NBTTagCompound var2 = new NBTTagCompound();
          var1.e(var2);
@@ -191,7 +191,7 @@ public class WorldNBTStorage implements IDataManager, IPlayerFileData {
 
    }
 
-   public NBTTagCompound b(EntityHuman var1) {
+   public NBTTagCompound load(EntityHuman var1) {
       NBTTagCompound var2 = null;
 
       try {
@@ -210,11 +210,11 @@ public class WorldNBTStorage implements IDataManager, IPlayerFileData {
       return var2;
    }
 
-   public IPlayerFileData e() {
+   public IPlayerFileData getPlayerFileData() {
       return this;
    }
 
-   public String[] f() {
+   public String[] getSeenPlayers() {
       String[] var1 = this.c.list();
       if(var1 == null) {
          var1 = new String[0];
@@ -232,7 +232,7 @@ public class WorldNBTStorage implements IDataManager, IPlayerFileData {
    public void a() {
    }
 
-   public File a(String var1) {
+   public File getDataFile(String var1) {
       return new File(this.d, var1 + ".dat");
    }
 

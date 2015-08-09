@@ -12,7 +12,7 @@ import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatMessage;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.EntityHuman;
 
 public class CommandTell extends CommandAbstract {
@@ -28,11 +28,11 @@ public class CommandTell extends CommandAbstract {
       return 0;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.message.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 2) {
          throw new class_cf("commands.message.usage", new Object[0]);
       } else {
@@ -45,14 +45,14 @@ public class CommandTell extends CommandAbstract {
             ChatMessage var6 = new ChatMessage("commands.message.display.outgoing", new Object[]{var3.getScoreboardDisplayName(), var4.f()});
             var5.getChatModifier().a(EnumChatFormat.GRAY).b(Boolean.valueOf(true));
             var6.getChatModifier().a(EnumChatFormat.GRAY).b(Boolean.valueOf(true));
-            var3.a((IChatBaseComponent)var5);
-            var1.a(var6);
+            var3.sendMessage((IChatBaseComponent)var5);
+            var1.sendMessage(var6);
          }
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return a(var2, MinecraftServer.N().K());
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
+      return a(var2, MinecraftServer.N().getPlayers());
    }
 
    public boolean isListStart(String[] var1, int var2) {

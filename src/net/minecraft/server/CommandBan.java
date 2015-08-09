@@ -9,7 +9,7 @@ import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.JsonListEntry;
 import net.minecraft.server.class_mf;
 
@@ -22,15 +22,15 @@ public class CommandBan extends CommandAbstract {
       return 3;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.ban.usage";
    }
 
-   public boolean canUse(class_m var1) {
+   public boolean canUse(ICommandListener var1) {
       return MinecraftServer.N().getPlayerList().h().b() && super.canUse(var1);
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].length() > 0) {
          MinecraftServer var3 = MinecraftServer.N();
          GameProfile var4 = var3.aF().a(var2[0]);
@@ -56,7 +56,7 @@ public class CommandBan extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length >= 1?a(var2, MinecraftServer.N().K()):null;
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
+      return var2.length >= 1?a(var2, MinecraftServer.N().getPlayers()):null;
    }
 }

@@ -30,7 +30,7 @@ import net.minecraft.server.ICommandDispatcher;
 import net.minecraft.server.MinecraftKey;
 import net.minecraft.server.ICommand;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.class_o;
 import net.minecraft.server.Entity;
 
@@ -53,11 +53,11 @@ public abstract class CommandAbstract implements ICommand {
       return Collections.emptyList();
    }
 
-   public boolean canUse(class_m var1) {
+   public boolean canUse(ICommandListener var1) {
       return var1.a(this.a(), this.getCommand());
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return null;
    }
 
@@ -103,7 +103,7 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static BlockPosition a(class_m var0, String[] var1, int var2, boolean var3) throws class_cb {
+   public static BlockPosition a(ICommandListener var0, String[] var1, int var2, boolean var3) throws class_cb {
       BlockPosition var4 = var0.c();
       return new BlockPosition(b((double)var4.getX(), var1[var2], -30000000, 30000000, var3), b((double)var4.getY(), var1[var2 + 1], 0, 256, false), b((double)var4.getZ(), var1[var2 + 2], -30000000, 30000000, var3));
    }
@@ -148,7 +148,7 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static EntityPlayer b(class_m var0) throws class_cd {
+   public static EntityPlayer b(ICommandListener var0) throws class_cd {
       if(var0 instanceof EntityPlayer) {
          return (EntityPlayer)var0;
       } else {
@@ -156,7 +156,7 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static EntityPlayer a(class_m var0, String var1) throws class_cd {
+   public static EntityPlayer a(ICommandListener var0, String var1) throws class_cd {
       EntityPlayer var2 = class_o.a(var0, var1);
       if(var2 == null) {
          try {
@@ -177,11 +177,11 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static Entity b(class_m var0, String var1) throws class_ca {
+   public static Entity b(ICommandListener var0, String var1) throws class_ca {
       return a(var0, var1, Entity.class);
    }
 
-   public static Entity a(class_m var0, String var1, Class var2) throws class_ca {
+   public static Entity a(ICommandListener var0, String var1, Class var2) throws class_ca {
       Object var3 = class_o.a(var0, var1, var2);
       MinecraftServer var4 = MinecraftServer.N();
       if(var3 == null) {
@@ -207,11 +207,11 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static List c(class_m var0, String var1) throws class_ca {
+   public static List c(ICommandListener var0, String var1) throws class_ca {
       return (List)(class_o.b(var1)?class_o.b(var0, var1, Entity.class):Lists.newArrayList((Object[])(new Entity[]{b(var0, var1)})));
    }
 
-   public static String d(class_m var0, String var1) throws class_cd {
+   public static String d(ICommandListener var0, String var1) throws class_cd {
       try {
          return a(var0, var1).getName();
       } catch (class_cd var3) {
@@ -223,7 +223,7 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static String e(class_m var0, String var1) throws class_ca {
+   public static String e(ICommandListener var0, String var1) throws class_ca {
       try {
          return a(var0, var1).getName();
       } catch (class_cd var5) {
@@ -239,11 +239,11 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static IChatBaseComponent a(class_m var0, String[] var1, int var2) throws class_cd {
+   public static IChatBaseComponent a(ICommandListener var0, String[] var1, int var2) throws class_cd {
       return b(var0, var1, var2, false);
    }
 
-   public static IChatBaseComponent b(class_m var0, String[] var1, int var2, boolean var3) throws class_cd {
+   public static IChatBaseComponent b(ICommandListener var0, String[] var1, int var2, boolean var3) throws class_cd {
       ChatComponentText var4 = new ChatComponentText("");
 
       for(int var5 = var2; var5 < var1.length; ++var5) {
@@ -356,7 +356,7 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static Item f(class_m var0, String var1) throws class_cb {
+   public static Item f(ICommandListener var0, String var1) throws class_cb {
       MinecraftKey var2 = new MinecraftKey(var1);
       Item var3 = (Item)Item.ITEM_REGISTRY.get(var2);
       if(var3 == null) {
@@ -366,7 +366,7 @@ public abstract class CommandAbstract implements ICommand {
       }
    }
 
-   public static Block g(class_m var0, String var1) throws class_cb {
+   public static Block g(ICommandListener var0, String var1) throws class_cb {
       MinecraftKey var2 = new MinecraftKey(var1);
       if(!Block.BLOCK_REGISTRY.has(var2)) {
          throw new class_cb("commands.give.block.notFound", new Object[]{var2});
@@ -503,11 +503,11 @@ public abstract class CommandAbstract implements ICommand {
       return false;
    }
 
-   public static void a(class_m var0, ICommand var1, String var2, Object... var3) {
+   public static void a(ICommandListener var0, ICommand var1, String var2, Object... var3) {
       a(var0, var1, 0, var2, var3);
    }
 
-   public static void a(class_m var0, ICommand var1, int var2, String var3, Object... var4) {
+   public static void a(ICommandListener var0, ICommand var1, int var2, String var3, Object... var4) {
       if(a != null) {
          a.a(var0, var1, var2, var3, var4);
       }

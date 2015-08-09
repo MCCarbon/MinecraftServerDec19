@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import net.minecraft.server.ItemStack;
 import net.minecraft.server.IMerchant;
-import net.minecraft.server.class_aea;
+import net.minecraft.server.MerchantRecipe;
 import net.minecraft.server.StatisticList;
 import net.minecraft.server.EntityHuman;
 import net.minecraft.server.class_yr;
@@ -45,7 +45,7 @@ public class class_yt extends class_yx {
 
    public void a(EntityHuman var1, ItemStack var2) {
       this.c(var2);
-      class_aea var3 = this.a.i();
+      MerchantRecipe var3 = this.a.i();
       if(var3 != null) {
          ItemStack var4 = this.a.getItem(0);
          ItemStack var5 = this.a.getItem(1);
@@ -67,7 +67,7 @@ public class class_yt extends class_yx {
 
    }
 
-   private boolean a(class_aea var1, ItemStack var2, ItemStack var3) {
+   private boolean a(MerchantRecipe var1, ItemStack var2, ItemStack var3) {
       ItemStack var4 = var1.a();
       ItemStack var5 = var1.b();
       if(var2 != null && var2.getItem() == var4.getItem()) {

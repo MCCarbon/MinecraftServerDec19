@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_ow;
+import net.minecraft.server.InventorySubContainer;
 
 public interface IInventoryListener {
-   void a(class_ow var1);
+   void a(InventorySubContainer var1);
 }

@@ -11,7 +11,7 @@ import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.EntityPlayer;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityItem;
@@ -25,11 +25,11 @@ public class CommandGive extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.give.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 2) {
          throw new class_cf("commands.give.usage", new Object[0]);
       } else {
@@ -75,12 +75,12 @@ public class CommandGive extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length == 1?a(var2, this.d()):(var2.length == 2?a(var2, Item.ITEM_REGISTRY.getKeys()):null);
    }
 
    protected String[] d() {
-      return MinecraftServer.N().K();
+      return MinecraftServer.N().getPlayers();
    }
 
    public boolean isListStart(String[] var1, int var2) {

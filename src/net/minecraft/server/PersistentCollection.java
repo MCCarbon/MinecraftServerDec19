@@ -38,7 +38,7 @@ public class PersistentCollection {
       } else {
          if(this.b != null) {
             try {
-               File var4 = this.b.a(var2);
+               File var4 = this.b.getDataFile(var2);
                if(var4 != null && var4.exists()) {
                   try {
                      var3 = (PersistentBase)var1.getConstructor(new Class[]{String.class}).newInstance(new Object[]{var2});
@@ -88,7 +88,7 @@ public class PersistentCollection {
    private void a(PersistentBase var1) {
       if(this.b != null) {
          try {
-            File var2 = this.b.a(var1.a);
+            File var2 = this.b.getDataFile(var1.a);
             if(var2 != null) {
                NBTTagCompound var3 = new NBTTagCompound();
                var1.b(var3);
@@ -112,7 +112,7 @@ public class PersistentCollection {
             return;
          }
 
-         File var1 = this.b.a("idcounts");
+         File var1 = this.b.getDataFile("idcounts");
          if(var1 != null && var1.exists()) {
             DataInputStream var2 = new DataInputStream(new FileInputStream(var1));
             NBTTagCompound var3 = NBTCompressedStreamTools.fromDataStream(var2);
@@ -148,7 +148,7 @@ public class PersistentCollection {
          return var2.shortValue();
       } else {
          try {
-            File var3 = this.b.a("idcounts");
+            File var3 = this.b.getDataFile("idcounts");
             if(var3 != null) {
                NBTTagCompound var4 = new NBTTagCompound();
                Iterator var5 = this.d.keySet().iterator();

@@ -8,7 +8,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.Packet;
 import net.minecraft.server.PacketPlayOutSpawnPosition;
 import net.minecraft.server.CommandAbstract;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 
 public class CommandSetWorldSpawn extends CommandAbstract {
    public String getCommand() {
@@ -19,11 +19,11 @@ public class CommandSetWorldSpawn extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.setworldspawn.usage";
    }
 
-   public void execute(class_m var1, String[] var2) throws class_bz {
+   public void execute(ICommandListener var1, String[] var2) throws class_bz {
       BlockPosition var3;
       if(var2.length == 0) {
          var3 = b(var1).c();
@@ -40,7 +40,7 @@ public class CommandSetWorldSpawn extends CommandAbstract {
       a(var1, this, "commands.setworldspawn.success", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       return var2.length > 0 && var2.length <= 3?a(var2, 0, var3):null;
    }
 }

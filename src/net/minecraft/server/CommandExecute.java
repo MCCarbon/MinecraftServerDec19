@@ -12,7 +12,7 @@ import net.minecraft.server.BlockPosition;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.CommandAbstract;
 import net.minecraft.server.class_l;
-import net.minecraft.server.class_m;
+import net.minecraft.server.ICommandListener;
 import net.minecraft.server.CommandObjectiveExecutor;
 import net.minecraft.server.Entity;
 
@@ -25,11 +25,11 @@ public class CommandExecute extends CommandAbstract {
       return 2;
    }
 
-   public String c(class_m var1) {
+   public String c(ICommandListener var1) {
       return "commands.execute.usage";
    }
 
-   public void execute(final class_m var1, String[] var2) throws class_bz {
+   public void execute(final ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length < 5) {
          throw new class_cf("commands.execute.usage", new Object[0]);
       } else {
@@ -56,7 +56,7 @@ public class CommandExecute extends CommandAbstract {
          }
 
          String var24 = a(var2, var11);
-         class_m var14 = new class_m() {
+         ICommandListener var14 = new ICommandListener() {
             public String getName() {
                return var3.getName();
             }
@@ -65,8 +65,8 @@ public class CommandExecute extends CommandAbstract {
                return var3.getScoreboardDisplayName();
             }
 
-            public void a(IChatBaseComponent var1x) {
-               var1.a(var1x);
+            public void sendMessage(IChatBaseComponent var1x) {
+               var1.sendMessage(var1x);
             }
 
             public boolean a(int var1x, String var2) {
@@ -111,8 +111,8 @@ public class CommandExecute extends CommandAbstract {
       }
    }
 
-   public List tabComplete(class_m var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().K()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)));
+   public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
+      return var2.length == 1?a(var2, MinecraftServer.N().getPlayers()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)));
    }
 
    public boolean isListStart(String[] var1, int var2) {

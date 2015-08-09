@@ -5,10 +5,10 @@ import net.minecraft.server.TileEntityEnderChest;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
-import net.minecraft.server.class_ow;
+import net.minecraft.server.InventorySubContainer;
 import net.minecraft.server.EntityHuman;
 
-public class class_yu extends class_ow {
+public class class_yu extends InventorySubContainer {
    private TileEntityEnderChest a;
 
    public class_yu() {

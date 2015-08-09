@@ -24,7 +24,7 @@ public class class_st extends class_rp {
       if(this.e > 0) {
          --this.e;
          if(this.e == 0) {
-            class_ow var1 = this.f.cF();
+            InventorySubContainer var1 = this.f.cF();
 
             for(int var2 = 0; var2 < var1.getSize(); ++var2) {
                ItemStack var3 = var1.getItem(var2);

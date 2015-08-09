@@ -10,7 +10,7 @@ import org.apache.logging.log4j.Logger;
 public class class_yb extends Container {
    private static final Logger f = LogManager.getLogger();
    private IInventory g = new class_yv();
-   private IInventory h = new class_ow("Repair", true, 2) {
+   private IInventory h = new InventorySubContainer("Repair", true, 2) {
       public void update() {
          super.update();
          class_yb.this.a((IInventory)this);
