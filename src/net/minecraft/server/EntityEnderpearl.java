@@ -19,7 +19,7 @@ public class EntityEnderpearl extends class_xo {
             return;
          }
 
-         var1.entity.damageEntity(DamageSource.a((Entity) this, (Entity) var2), 0.0F);
+         var1.entity.damageEntity(DamageSource.projectile((Entity) this, (Entity) var2), 0.0F);
       }
 
       if(var1.type == MovingObjectPosition.EnumMovingObjectType.BLOCK) {
@@ -59,7 +59,7 @@ public class EntityEnderpearl extends class_xo {
 
                var2.enderTeleportTo(this.locX, this.locY, this.locZ);
                var2.fallDistance = 0.0F;
-               var2.damageEntity(DamageSource.i, 5.0F);
+               var2.damageEntity(DamageSource.FALL, 5.0F);
             }
          } else if(var2 != null) {
             var2.enderTeleportTo(this.locX, this.locY, this.locZ);

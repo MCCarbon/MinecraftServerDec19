@@ -51,7 +51,7 @@ public class EntitySilverfish extends EntityMonster {
       if(this.b(var1)) {
          return false;
       } else {
-         if(var1 instanceof class_pd || var1 == DamageSource.l) {
+         if(var1 instanceof EntityDamageSource || var1 == DamageSource.MAGIC) {
             this.a.f();
          }
 

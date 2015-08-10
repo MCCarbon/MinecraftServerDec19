@@ -79,13 +79,13 @@ public class EntityWitch extends EntityMonster implements class_wk {
 				}
 			} else {
 				RegistryPotions var1 = null;
-				if (this.random.nextFloat() < 0.15F && this.a(Material.WATER) && !this.hasEffect(MobEffectList.m)) {
+				if (this.random.nextFloat() < 0.15F && this.a(Material.WATER) && !this.hasEffect(MobEffectList.WATER_BREATHING)) {
 					var1 = class_acf.s;
-				} else if (this.random.nextFloat() < 0.15F && this.av() && !this.hasEffect(MobEffectList.l)) {
+				} else if (this.random.nextFloat() < 0.15F && this.av() && !this.hasEffect(MobEffectList.FIRE_RESISTANCE)) {
 					var1 = class_acf.l;
-				} else if (this.random.nextFloat() < 0.05F && this.getHealth() < this.bv()) {
+				} else if (this.random.nextFloat() < 0.05F && this.getHealth() < this.getMaxHealth()) {
 					var1 = class_acf.u;
-				} else if (this.random.nextFloat() < 0.5F && this.w() != null && !this.hasEffect(MobEffectList.a) && this.w().h(this) > 121.0D) {
+				} else if (this.random.nextFloat() < 0.5F && this.w() != null && !this.hasEffect(MobEffectList.FASTER_MOVEMENT) && this.w().h(this) > 121.0D) {
 					var1 = class_acf.n;
 				}
 
@@ -109,11 +109,11 @@ public class EntityWitch extends EntityMonster implements class_wk {
 
 	protected float c(DamageSource var1, float var2) {
 		var2 = super.c(var1, var2);
-		if (var1.j() == this) {
+		if (var1.getEntity() == this) {
 			var2 = 0.0F;
 		}
 
-		if (var1.s()) {
+		if (var1.isMagic()) {
 			var2 = (float) ((double) var2 * 0.15D);
 		}
 
@@ -145,11 +145,11 @@ public class EntityWitch extends EntityMonster implements class_wk {
 			double var9 = var1.locZ + var1.motZ - this.locZ;
 			float var11 = MathHelper.sqrt(var5 * var5 + var9 * var9);
 			RegistryPotions var12 = class_acf.w;
-			if (var11 >= 8.0F && !var1.hasEffect(MobEffectList.b)) {
+			if (var11 >= 8.0F && !var1.hasEffect(MobEffectList.SLOWER_MOVEMENT)) {
 				var12 = class_acf.q;
-			} else if (var1.getHealth() >= 8.0F && !var1.hasEffect(MobEffectList.s)) {
+			} else if (var1.getHealth() >= 8.0F && !var1.hasEffect(MobEffectList.POISON)) {
 				var12 = class_acf.y;
-			} else if (var11 <= 3.0F && !var1.hasEffect(MobEffectList.r) && this.random.nextFloat() < 0.25F) {
+			} else if (var11 <= 3.0F && !var1.hasEffect(MobEffectList.WEAKNESS) && this.random.nextFloat() < 0.25F) {
 				var12 = class_acf.H;
 			}
 

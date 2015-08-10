@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class class_xx {
+public class FoodData {
    private int a = 20;
    private float b = 5.0F;
    private float c;
@@ -31,7 +31,7 @@ public class class_xx {
       if(var1.world.R().getBooleanValue("naturalRegeneration") && this.a >= 18 && var1.co()) {
          ++this.d;
          if(this.d >= 80) {
-            var1.h(1.0F);
+            var1.heal(1.0F);
             this.a(3.0F);
             this.d = 0;
          }
@@ -39,7 +39,7 @@ public class class_xx {
          ++this.d;
          if(this.d >= 80) {
             if(var1.getHealth() > 10.0F || var2 == class_om.d || var1.getHealth() > 1.0F && var2 == class_om.c) {
-               var1.damageEntity(DamageSource.g, 1.0F);
+               var1.damageEntity(DamageSource.STARVE, 1.0F);
             }
 
             this.d = 0;

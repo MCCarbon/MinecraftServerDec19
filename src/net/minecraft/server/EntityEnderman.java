@@ -110,7 +110,7 @@ public class EntityEnderman extends EntityMonster {
 
 	protected void cc() {
 		if (this.U()) {
-			this.damageEntity(DamageSource.f, 1.0F);
+			this.damageEntity(DamageSource.DROWN, 1.0F);
 		}
 
 		if (this.cD() && !this.bw && this.random.nextInt(100) == 0) {
@@ -248,20 +248,20 @@ public class EntityEnderman extends EntityMonster {
 		if (this.b((DamageSource) var1)) {
 			return false;
 		} else {
-			if (var1.j() == null || !(var1.j() instanceof EntityEndermite)) {
+			if (var1.getEntity() == null || !(var1.getEntity() instanceof EntityEndermite)) {
 				if (!this.world.isClientSide) {
 					this.a(true);
 				}
 
-				if (var1 instanceof class_pd && var1.j() instanceof EntityHuman) {
-					if (var1.j() instanceof EntityPlayer && ((EntityPlayer) var1.j()).playerInteractManager.d()) {
+				if (var1 instanceof EntityDamageSource && var1.getEntity() instanceof EntityHuman) {
+					if (var1.getEntity() instanceof EntityPlayer && ((EntityPlayer) var1.getEntity()).playerInteractManager.d()) {
 						this.a(false);
 					} else {
 						this.bw = true;
 					}
 				}
 
-				if (var1 instanceof class_pe) {
+				if (var1 instanceof EntityDamageSourceIndirect) {
 					this.bw = false;
 
 					for (int var4 = 0; var4 < 64; ++var4) {
@@ -275,7 +275,7 @@ public class EntityEnderman extends EntityMonster {
 			}
 
 			boolean var3 = super.damageEntity(var1, var2);
-			if (var1.e() && this.random.nextInt(10) != 0) {
+			if (var1.ignoresArmor() && this.random.nextInt(10) != 0) {
 				this.n();
 			}
 

@@ -26,7 +26,7 @@ public class class_pa {
    }
 
    public boolean f() {
-      return this.a.j() instanceof EntityLiving;
+      return this.a.getEntity() instanceof EntityLiving;
    }
 
    public String g() {
@@ -34,10 +34,10 @@ public class class_pa {
    }
 
    public IChatBaseComponent h() {
-      return this.a().j() == null?null:this.a().j().getScoreboardDisplayName();
+      return this.a().getEntity() == null?null:this.a().getEntity().getScoreboardDisplayName();
    }
 
    public float i() {
-      return this.a == DamageSource.j?Float.MAX_VALUE:this.f;
+      return this.a == DamageSource.OUT_OF_WORLD?Float.MAX_VALUE:this.f;
    }
 }

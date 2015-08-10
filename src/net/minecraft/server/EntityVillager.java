@@ -117,7 +117,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 					}
 				}
 
-				this.addEffect(new MobEffect(MobEffectList.j, 200, 0));
+				this.addEffect(new MobEffect(MobEffectList.REGENERATION, 200, 0));
 			}
 		}
 
@@ -253,7 +253,7 @@ public class EntityVillager extends EntityAgeable implements IMerchant, NPC {
 
 	public void a(DamageSource var1) {
 		if (this.bs != null) {
-			Entity var2 = var1.j();
+			Entity var2 = var1.getEntity();
 			if (var2 != null) {
 				if (var2 instanceof EntityHuman) {
 					this.bs.a(var2.getName(), -2);

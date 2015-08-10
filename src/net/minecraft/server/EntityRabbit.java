@@ -210,9 +210,9 @@ public class EntityRabbit extends EntityAnimal {
 	public boolean r(Entity var1) {
 		if (this.cC() == 99) {
 			this.makeSound("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
-			return var1.damageEntity(DamageSource.a((EntityLiving) this), 8.0F);
+			return var1.damageEntity(DamageSource.mobAttack((EntityLiving) this), 8.0F);
 		} else {
-			return var1.damageEntity(DamageSource.a((EntityLiving) this), 3.0F);
+			return var1.damageEntity(DamageSource.mobAttack((EntityLiving) this), 3.0F);
 		}
 	}
 

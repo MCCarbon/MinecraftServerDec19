@@ -272,7 +272,7 @@ public class EntityGuardian extends EntityMonster {
 			boolean var3 = true;
 			boolean var4 = true;
 			if ((this.ticksLived + this.getId()) % 1200 == 0) {
-				MobEffectType var5 = MobEffectList.d;
+				MobEffectType var5 = MobEffectList.SLOWER_DIG;
 				List var6 = this.world.getPlayers(EntityPlayer.class, new Predicate() {
 					public boolean a(EntityPlayer var1) {
 						return EntityGuardian.this.h(var1) < 2500.0D && var1.playerInteractManager.c();
@@ -293,7 +293,7 @@ public class EntityGuardian extends EntityMonster {
 						}
 
 						var8 = (EntityPlayer) var7.next();
-					} while (var8.hasEffect((MobEffectType) var5) && var8.getEffect((MobEffectType) var5).c() >= 2 && var8.getEffect((MobEffectType) var5).b() >= 1200);
+					} while (var8.hasEffect((MobEffectType) var5) && var8.getEffect((MobEffectType) var5).getAmplifier() >= 2 && var8.getEffect((MobEffectType) var5).getDuration() >= 1200);
 
 					var8.playerConnection.sendPacket((Packet) (new PacketPlayOutGameStateChange(10, 0.0F)));
 					var8.addEffect(new MobEffect(var5, 6000, 2));
@@ -343,9 +343,9 @@ public class EntityGuardian extends EntityMonster {
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
-		if (!this.n() && !var1.s() && var1.i() instanceof EntityLiving) {
+		if (!this.n() && !var1.isMagic() && var1.i() instanceof EntityLiving) {
 			EntityLiving var3 = (EntityLiving) var1.i();
-			if (!var1.c()) {
+			if (!var1.isExplosion()) {
 				var3.damageEntity(DamageSource.a((Entity) this), 2.0F);
 				var3.makeSound("damage.thorns", 0.5F, 1.0F);
 			}
@@ -483,7 +483,7 @@ public class EntityGuardian extends EntityMonster {
 					}
 
 					var1.damageEntity(DamageSource.b(this.a, this.a), var2);
-					var1.damageEntity(DamageSource.a((EntityLiving) this.a), (float) this.a.a((class_qk) class_wl.e).e());
+					var1.damageEntity(DamageSource.mobAttack((EntityLiving) this.a), (float) this.a.a((class_qk) class_wl.e).e());
 					this.a.d((EntityLiving) null);
 				} else if (this.b >= 60 && this.b % 20 == 0) {
 					;

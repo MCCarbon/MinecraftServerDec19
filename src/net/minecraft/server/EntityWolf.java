@@ -188,7 +188,7 @@ public class EntityWolf extends EntityTameable {
 		if (this.b((DamageSource) var1)) {
 			return false;
 		} else {
-			Entity var3 = var1.j();
+			Entity var3 = var1.getEntity();
 			this.bu.a(false);
 			if (var3 != null && !(var3 instanceof EntityHuman) && !(var3 instanceof EntityArrow)) {
 				var2 = (var2 + 1.0F) / 2.0F;
@@ -199,7 +199,7 @@ public class EntityWolf extends EntityTameable {
 	}
 
 	public boolean r(Entity var1) {
-		boolean var2 = var1.damageEntity(DamageSource.a((EntityLiving) this), (float) ((int) this.a((class_qk) class_wl.e).e()));
+		boolean var2 = var1.damageEntity(DamageSource.mobAttack((EntityLiving) this), (float) ((int) this.a((class_qk) class_wl.e).e()));
 		if (var2) {
 			this.a((EntityLiving) this, (Entity) var1);
 		}
@@ -228,7 +228,7 @@ public class EntityWolf extends EntityTameable {
 							--var3.count;
 						}
 
-						this.h((float) var4.h(var3));
+						this.heal((float) var4.h(var3));
 						return true;
 					}
 				} else if (var3.getItem() == Items.DYE) {

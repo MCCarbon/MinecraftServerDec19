@@ -51,7 +51,7 @@ public class EntityEnderCrystal extends Entity {
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (this.b(var1)) {
 			return false;
-		} else if (var1.j() instanceof EntityEnderDragon) {
+		} else if (var1.getEntity() instanceof EntityEnderDragon) {
 			return false;
 		} else {
 			if (!this.dead && !this.world.isClientSide) {

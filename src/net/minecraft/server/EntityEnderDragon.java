@@ -47,7 +47,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 	public EntityEnderDragon(World var1) {
 		super(var1);
 		this.bs = new class_up[] { this.bt = new class_up(this, "head", 6.0F, 6.0F), this.bu = new class_up(this, "neck", 6.0F, 6.0F), this.bv = new class_up(this, "body", 8.0F, 8.0F), this.bw = new class_up(this, "tail", 4.0F, 4.0F), this.bx = new class_up(this, "tail", 4.0F, 4.0F), this.by = new class_up(this, "tail", 4.0F, 4.0F), this.bz = new class_up(this, "wing", 4.0F, 4.0F), this.bA = new class_up(this, "wing", 4.0F, 4.0F) };
-		this.i(this.bv());
+		this.i(this.getMaxHealth());
 		this.setSize(16.0F, 8.0F);
 		this.noclip = true;
 		this.fireProof = true;
@@ -588,11 +588,11 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 		if (this.bG != null) {
 			if (this.bG.dead) {
 				if (!this.world.isClientSide) {
-					this.a(this.bt, DamageSource.a((Explosion) null), 10.0F);
+					this.a(this.bt, DamageSource.explosion((Explosion) null), 10.0F);
 				}
 
 				this.bG = null;
-			} else if (this.ticksLived % 10 == 0 && this.getHealth() < this.bv()) {
+			} else if (this.ticksLived % 10 == 0 && this.getHealth() < this.getMaxHealth()) {
 				this.i(this.getHealth() + 1.0F);
 			}
 		}
@@ -639,7 +639,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 		for (int var2 = 0; var2 < var1.size(); ++var2) {
 			Entity var3 = (Entity) var1.get(var2);
 			if (var3 instanceof EntityLiving) {
-				var3.damageEntity(DamageSource.a((EntityLiving) this), 10.0F);
+				var3.damageEntity(DamageSource.mobAttack((EntityLiving) this), 10.0F);
 				this.a((EntityLiving) this, (Entity) var3);
 			}
 		}
@@ -807,7 +807,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 			var3 = var3 / 4.0F + 1.0F;
 		}
 
-		if (var2.j() instanceof EntityHuman || var2.c()) {
+		if (var2.getEntity() instanceof EntityHuman || var2.isExplosion()) {
 			float var4 = this.getHealth();
 			this.e(var2, var3);
 			if (this.getHealth() <= 0.0F && !this.n().b()) {
@@ -825,7 +825,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 
 				if (this.n().b()) {
 					this.bP = (int) ((float) this.bP + (var4 - this.getHealth()));
-					if ((float) this.bP > 0.25F * this.bv()) {
+					if ((float) this.bP > 0.25F * this.getMaxHealth()) {
 						this.bP = 0;
 						this.a(class_us.e);
 						this.bD = true;
@@ -838,7 +838,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
-		if (var1 instanceof class_pd && ((class_pd) var1).w()) {
+		if (var1 instanceof EntityDamageSource && ((EntityDamageSource) var1).w()) {
 			this.a(this.bv, var1, var2);
 		}
 
@@ -1207,8 +1207,8 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 
 	public void a(BlockPosition var1, DamageSource var2) {
 		EntityHuman var3;
-		if (var2.j() instanceof EntityHuman) {
-			var3 = (EntityHuman) var2.j();
+		if (var2.getEntity() instanceof EntityHuman) {
+			var3 = (EntityHuman) var2.getEntity();
 		} else {
 			var3 = this.world.a(var1, 64.0D, 64.0D);
 		}

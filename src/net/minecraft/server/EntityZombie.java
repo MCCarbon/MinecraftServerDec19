@@ -159,8 +159,8 @@ public class EntityZombie extends EntityMonster {
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (super.damageEntity(var1, var2)) {
 			EntityLiving var3 = this.w();
-			if (var3 == null && var1.j() instanceof EntityLiving) {
-				var3 = (EntityLiving) var1.j();
+			if (var3 == null && var1.getEntity() instanceof EntityLiving) {
+				var3 = (EntityLiving) var1.getEntity();
 			}
 
 			if (var3 != null && this.world.ab() == class_om.d && (double) this.random.nextFloat() < this.a((class_qk) a).e()) {
@@ -402,7 +402,7 @@ public class EntityZombie extends EntityMonster {
 	}
 
 	public boolean a(EntityHuman var1, EnumUsedHand var2, ItemStack var3) {
-		if (var3 != null && var3.getItem() == Items.GOLDEN_APPLE && var3.i() == 0 && this.isVillager() && this.hasEffect((MobEffectType) MobEffectList.r)) {
+		if (var3 != null && var3.getItem() == Items.GOLDEN_APPLE && var3.i() == 0 && this.isVillager() && this.hasEffect((MobEffectType) MobEffectList.WEAKNESS)) {
 			if (!var1.abilities.instabuild) {
 				--var3.count;
 			}
@@ -420,8 +420,8 @@ public class EntityZombie extends EntityMonster {
 	protected void setConversionTime(int var1) {
 		this.bw = var1;
 		this.H().update(CONVERSION_DW_ID, Byte.valueOf((byte) 1));
-		this.d(MobEffectList.r);
-		this.addEffect(new MobEffect(MobEffectList.e, var1, Math.min(this.world.ab().a() - 1, 0)));
+		this.d(MobEffectList.WEAKNESS);
+		this.addEffect(new MobEffect(MobEffectList.INCREASE_DAMAGE, var1, Math.min(this.world.ab().a() - 1, 0)));
 		this.world.a((Entity) this, (byte) 16);
 	}
 
@@ -450,7 +450,7 @@ public class EntityZombie extends EntityMonster {
 		}
 
 		this.world.addEntity((Entity) var1);
-		var1.addEffect(new MobEffect(MobEffectList.i, 200, 0));
+		var1.addEffect(new MobEffect(MobEffectList.CONFUSION, 200, 0));
 		this.world.a((EntityHuman) null, 1017, new BlockPosition((int) this.locX, (int) this.locY, (int) this.locZ), 0);
 	}
 
@@ -503,8 +503,8 @@ public class EntityZombie extends EntityMonster {
 
 	public void a(DamageSource var1) {
 		super.a(var1);
-		if (var1.j() instanceof EntityCreeper && !(this instanceof EntityPigZombie) && ((EntityCreeper) var1.j()).isPowered() && ((EntityCreeper) var1.j()).cE()) {
-			((EntityCreeper) var1.j()).cF();
+		if (var1.getEntity() instanceof EntityCreeper && !(this instanceof EntityPigZombie) && ((EntityCreeper) var1.getEntity()).isPowered() && ((EntityCreeper) var1.getEntity()).cE()) {
+			((EntityCreeper) var1.getEntity()).cF();
 			this.a(new ItemStack(Items.SKULL, 1, 2), 0.0F);
 		}
 

@@ -274,7 +274,7 @@ public class EntityShulkerBullet extends Entity {
 			if (var2) {
 				this.a(this.a, var1.entity);
 				if (var1.entity instanceof EntityLiving) {
-					((EntityLiving) var1.entity).addEffect(new MobEffect(MobEffectList.y, 200));
+					((EntityLiving) var1.entity).addEffect(new MobEffect(MobEffectList.LEVITATION, 200));
 				}
 			}
 		} else {

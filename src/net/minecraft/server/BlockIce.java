@@ -27,7 +27,7 @@ public class BlockIce extends BlockHalfTransparent {
 
    public void breakBlockNaturally(World var1, EntityHuman var2, BlockPosition var3, IBlockData var4, TileEntity var5, ItemStack var6) {
       var2.b(StatisticList.ab[Block.getId((Block)this)]);
-      var2.a(0.025F);
+      var2.applyExhaustion(0.025F);
       if(this.canApplySilkTouch() && EnchantmentManager.getLevel(RegistryEnchantments.q, var6) > 0) {
          ItemStack var9 = this.createItemStack(var4);
          if(var9 != null) {

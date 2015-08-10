@@ -1,182 +1,184 @@
 package net.minecraft.server;
 
-import com.google.common.collect.ComparisonChain;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class MobEffect implements Comparable {
-   private static final Logger a = LogManager.getLogger();
-   private final MobEffectType b;
-   private int c;
-   private int d;
-   private boolean e;
-   private boolean f;
-   private boolean h;
+import com.google.common.collect.ComparisonChain;
 
-   public MobEffect(MobEffectType var1) {
-      this(var1, 0, 0);
-   }
+public class MobEffect implements Comparable<MobEffect> {
 
-   public MobEffect(MobEffectType var1, int var2) {
-      this(var1, var2, 0);
-   }
+	private static final Logger logger = LogManager.getLogger();
 
-   public MobEffect(MobEffectType var1, int var2, int var3) {
-      this(var1, var2, var3, false, true);
-   }
+	private final MobEffectType type;
+	private int duration;
+	private int amplification;
+	private boolean splash;
+	private boolean ambient;
+	private boolean particles;
 
-   public MobEffect(MobEffectType var1, int var2, int var3, boolean var4, boolean var5) {
-      this.b = var1;
-      this.c = var2;
-      this.d = var3;
-      this.f = var4;
-      this.h = var5;
-   }
+	public MobEffect(MobEffectType type) {
+		this(type, 0, 0);
+	}
 
-   public MobEffect(MobEffect var1) {
-      this.b = var1.b;
-      this.c = var1.c;
-      this.d = var1.d;
-      this.f = var1.f;
-      this.h = var1.h;
-   }
+	public MobEffect(MobEffectType type, int duration) {
+		this(type, duration, 0);
+	}
 
-   public void a(MobEffect var1) {
-      if(this.b != var1.b) {
-         a.warn("This method should only be called for matching effects!");
-      }
+	public MobEffect(MobEffectType type, int duration, int amplification) {
+		this(type, duration, amplification, false, true);
+	}
 
-      if(var1.d > this.d) {
-         this.d = var1.d;
-         this.c = var1.c;
-      } else if(var1.d == this.d && this.c < var1.c) {
-         this.c = var1.c;
-      } else if(!var1.f && this.f) {
-         this.f = var1.f;
-      }
+	public MobEffect(MobEffectType type, int duration, int amplification, boolean ambient, boolean particles) {
+		this.type = type;
+		this.duration = duration;
+		this.amplification = amplification;
+		this.ambient = ambient;
+		this.particles = particles;
+	}
 
-      this.h = var1.h;
-   }
+	public MobEffect(MobEffect other) {
+		this.type = other.type;
+		this.duration = other.duration;
+		this.amplification = other.amplification;
+		this.ambient = other.ambient;
+		this.particles = other.particles;
+	}
 
-   public MobEffectType a() {
-      return this.b;
-   }
+	public void a(MobEffect other) {
+		if (this.type != other.type) {
+			logger.warn("This method should only be called for matching effects!");
+		}
 
-   public int b() {
-      return this.c;
-   }
+		if (other.amplification > this.amplification) {
+			this.amplification = other.amplification;
+			this.duration = other.duration;
+		} else if ((other.amplification == this.amplification) && (this.duration < other.duration)) {
+			this.duration = other.duration;
+		} else if (!other.ambient && this.ambient) {
+			this.ambient = other.ambient;
+		}
 
-   public int c() {
-      return this.d;
-   }
+		this.particles = other.particles;
+	}
 
-   public boolean d() {
-      return this.f;
-   }
+	public MobEffectType getEffectType() {
+		return this.type;
+	}
 
-   public boolean e() {
-      return this.h;
-   }
+	public int getDuration() {
+		return this.duration;
+	}
 
-   public boolean a(EntityLiving var1) {
-      if(this.c > 0) {
-         if(this.b.a(this.c, this.d)) {
-            this.b(var1);
-         }
+	public int getAmplifier() {
+		return this.amplification;
+	}
 
-         this.h();
-      }
+	public boolean isAmbient() {
+		return this.ambient;
+	}
 
-      return this.c > 0;
-   }
+	public boolean isShowParticles() {
+		return this.particles;
+	}
 
-   private int h() {
-      return --this.c;
-   }
+	public boolean tick(EntityLiving var1) {
+		if (this.duration > 0) {
+			if (this.type.a(this.duration, this.amplification)) {
+				this.b(var1);
+			}
 
-   public void b(EntityLiving var1) {
-      if(this.c > 0) {
-         this.b.a(var1, this.d);
-      }
+			this.decreaseDuration();
+		}
 
-   }
+		return this.duration > 0;
+	}
 
-   public String f() {
-      return this.b.a();
-   }
+	private int decreaseDuration() {
+		return --this.duration;
+	}
 
-   public String toString() {
-      String var1 = "";
-      if(this.d > 0) {
-         var1 = this.f() + " x " + (this.d + 1) + ", Duration: " + this.c;
-      } else {
-         var1 = this.f() + ", Duration: " + this.c;
-      }
+	public void b(EntityLiving var1) {
+		if (this.duration > 0) {
+			this.type.tick(var1, this.amplification);
+		}
+	}
 
-      if(this.e) {
-         var1 = var1 + ", Splash: true";
-      }
+	public String getName() {
+		return this.type.getName();
+	}
 
-      if(!this.h) {
-         var1 = var1 + ", Particles: false";
-      }
+	@Override
+	public String toString() {
+		String string = "";
+		if (this.amplification > 0) {
+			string = this.getName() + " x " + (this.amplification + 1) + ", Duration: " + this.duration;
+		} else {
+			string = this.getName() + ", Duration: " + this.duration;
+		}
 
-      return var1;
-   }
+		if (this.splash) {
+			string = string + ", Splash: true";
+		}
 
-   public boolean equals(Object var1) {
-      if(this == var1) {
-         return true;
-      } else if(!(var1 instanceof MobEffect)) {
-         return false;
-      } else {
-         MobEffect var2 = (MobEffect)var1;
-         return this.c != var2.c?false:(this.d != var2.d?false:(this.e != var2.e?false:(this.f != var2.f?false:this.b.equals(var2.b))));
-      }
-   }
+		if (!this.particles) {
+			string = string + ", Particles: false";
+		}
 
-   public int hashCode() {
-      int var1 = this.b.hashCode();
-      var1 = 31 * var1 + this.c;
-      var1 = 31 * var1 + this.d;
-      var1 = 31 * var1 + (this.e?1:0);
-      var1 = 31 * var1 + (this.f?1:0);
-      return var1;
-   }
+		return string;
+	}
 
-   public NBTTagCompound a(NBTTagCompound var1) {
-      var1.put("Id", (byte) MobEffectType.a(this.a()));
-      var1.put("Amplifier", (byte)this.c());
-      var1.put("Duration", this.b());
-      var1.put("Ambient", this.d());
-      var1.put("ShowParticles", this.e());
-      return var1;
-   }
+	@Override
+	public boolean equals(Object otherObj) {
+		if (this == otherObj) {
+			return true;
+		} else if (!(otherObj instanceof MobEffect)) {
+			return false;
+		} else {
+			MobEffect var2 = (MobEffect) otherObj;
+			return this.duration != var2.duration ? false : (this.amplification != var2.amplification ? false : (this.splash != var2.splash ? false : (this.ambient != var2.ambient ? false : this.type.equals(var2.type))));
+		}
+	}
 
-   public static MobEffect b(NBTTagCompound var0) {
-      byte var1 = var0.getByte("Id");
-      MobEffectType var2 = MobEffectType.a(var1);
-      if(var2 == null) {
-         return null;
-      } else {
-         byte var3 = var0.getByte("Amplifier");
-         int var4 = var0.getInt("Duration");
-         boolean var5 = var0.getBoolean("Ambient");
-         boolean var6 = true;
-         if(var0.hasOfType("ShowParticles", 1)) {
-            var6 = var0.getBoolean("ShowParticles");
-         }
+	@Override
+	public int hashCode() {
+		int var1 = this.type.hashCode();
+		var1 = (31 * var1) + this.duration;
+		var1 = (31 * var1) + this.amplification;
+		var1 = (31 * var1) + (this.splash ? 1 : 0);
+		var1 = (31 * var1) + (this.ambient ? 1 : 0);
+		return var1;
+	}
 
-         return new MobEffect(var2, var4, var3, var5, var6);
-      }
-   }
+	public NBTTagCompound a(NBTTagCompound compound) {
+		compound.put("Id", (byte) MobEffectType.getId(this.getEffectType()));
+		compound.put("Amplifier", (byte) this.getAmplifier());
+		compound.put("Duration", this.getDuration());
+		compound.put("Ambient", this.isAmbient());
+		compound.put("ShowParticles", this.isShowParticles());
+		return compound;
+	}
 
-   public int b(MobEffect var1) {
-      return ComparisonChain.start().compare(this.b(), var1.b()).compare(this.a().g(), var1.a().g()).result();
-   }
+	public static MobEffect fromTag(NBTTagCompound compound) {
+		byte id = compound.getByte("Id");
+		MobEffectType type = MobEffectType.getById(id);
+		if (type == null) {
+			return null;
+		} else {
+			byte amplifier = compound.getByte("Amplifier");
+			int duration = compound.getInt("Duration");
+			boolean ambient = compound.getBoolean("Ambient");
+			boolean particles = true;
+			if (compound.hasOfType("ShowParticles", 1)) {
+				particles = compound.getBoolean("ShowParticles");
+			}
 
-   // $FF: synthetic method
-   public int compareTo(Object var1) {
-      return this.b((MobEffect)var1);
-   }
+			return new MobEffect(type, duration, amplifier, ambient, particles);
+		}
+	}
+
+	@Override
+	public int compareTo(MobEffect other) {
+		return ComparisonChain.start().compare(this.getDuration(), other.getDuration()).compare(this.getEffectType().g(), other.getEffectType().g()).result();
+	}
+
 }

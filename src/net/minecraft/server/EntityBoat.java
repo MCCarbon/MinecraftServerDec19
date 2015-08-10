@@ -66,14 +66,14 @@ public class EntityBoat extends Entity {
 		if (this.b(var1)) {
 			return false;
 		} else if (!this.world.isClientSide && !this.dead) {
-			if (this.passenger != null && this.passenger == var1.j() && var1 instanceof class_pe) {
+			if (this.passenger != null && this.passenger == var1.getEntity() && var1 instanceof EntityDamageSourceIndirect) {
 				return false;
 			} else {
 				this.b(-this.m());
 				this.a(10);
 				this.a(this.j() + var2 * 10.0F);
 				this.ac();
-				boolean var3 = var1.j() instanceof EntityHuman && ((EntityHuman) var1.j()).abilities.instabuild;
+				boolean var3 = var1.getEntity() instanceof EntityHuman && ((EntityHuman) var1.getEntity()).abilities.instabuild;
 				if (var3 || this.j() > 40.0F) {
 					if (this.passenger != null) {
 						this.passenger.a((Entity) this);

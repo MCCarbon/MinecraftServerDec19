@@ -403,15 +403,15 @@ public class EntityArmorStand extends EntityLiving {
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (this.world.isClientSide) {
 			return false;
-		} else if (DamageSource.j.equals(var1)) {
+		} else if (DamageSource.OUT_OF_WORLD.equals(var1)) {
 			this.die();
 			return false;
 		} else if (!this.b((DamageSource) var1) && !this.bz && !this.t()) {
-			if (var1.c()) {
+			if (var1.isExplosion()) {
 				this.E();
 				this.die();
 				return false;
-			} else if (DamageSource.a.equals(var1)) {
+			} else if (DamageSource.FIRE.equals(var1)) {
 				if (!this.av()) {
 					this.f(5);
 				} else {
@@ -419,7 +419,7 @@ public class EntityArmorStand extends EntityLiving {
 				}
 
 				return false;
-			} else if (DamageSource.c.equals(var1) && this.getHealth() > 0.5F) {
+			} else if (DamageSource.BURN.equals(var1) && this.getHealth() > 0.5F) {
 				this.a(4.0F);
 				return false;
 			} else {
@@ -432,7 +432,7 @@ public class EntityArmorStand extends EntityLiving {
 						var1.i().die();
 					}
 
-					if (var1.j() instanceof EntityHuman && !((EntityHuman) var1.j()).abilities.mayBuild) {
+					if (var1.getEntity() instanceof EntityHuman && !((EntityHuman) var1.getEntity()).abilities.mayBuild) {
 						return false;
 					} else if (var1.u()) {
 						this.C();

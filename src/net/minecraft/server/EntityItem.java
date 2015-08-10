@@ -173,13 +173,13 @@ public class EntityItem extends Entity {
 	}
 
 	protected void g(int var1) {
-		this.damageEntity(DamageSource.a, (float) var1);
+		this.damageEntity(DamageSource.FIRE, (float) var1);
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (this.b((DamageSource) var1)) {
 			return false;
-		} else if (this.l() != null && this.l().getItem() == Items.NETHER_STAR && var1.c()) {
+		} else if (this.l() != null && this.l().getItem() == Items.NETHER_STAR && var1.isExplosion()) {
 			return false;
 		} else {
 			this.ac();

@@ -570,7 +570,7 @@ public class Block {
 
 	public void breakBlockNaturally(World world, EntityHuman entityhuman, BlockPosition blockposition, IBlockData iblockdata, TileEntity te, ItemStack itemstack) {
 		entityhuman.b(StatisticList.ab[getId(this)]);
-		entityhuman.a(0.025F);
+		entityhuman.applyExhaustion(0.025F);
 		if (canApplySilkTouch() && (EnchantmentManager.getLevel(RegistryEnchantments.q, itemstack) > 0)) {
 			ItemStack drop = createItemStack(iblockdata);
 			if (drop != null) {

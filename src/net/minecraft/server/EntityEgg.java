@@ -15,7 +15,7 @@ public class EntityEgg extends class_xo {
 
    protected void a(MovingObjectPosition var1) {
       if(var1.entity != null) {
-         var1.entity.damageEntity(DamageSource.a((Entity) this, (Entity) this.l()), 0.0F);
+         var1.entity.damageEntity(DamageSource.projectile((Entity) this, (Entity) this.l()), 0.0F);
       }
 
       if(!this.world.isClientSide && this.random.nextInt(8) == 0) {

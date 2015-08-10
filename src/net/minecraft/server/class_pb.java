@@ -56,11 +56,11 @@ public class class_pb {
          class_pa var1 = this.i();
          class_pa var2 = (class_pa)this.a.get(this.a.size() - 1);
          IChatBaseComponent var4 = var2.h();
-         Entity var5 = var2.a().j();
+         Entity var5 = var2.a().getEntity();
          Object var3;
-         if(var1 != null && var2.a() == DamageSource.i) {
+         if(var1 != null && var2.a() == DamageSource.FALL) {
             IChatBaseComponent var6 = var1.h();
-            if(var1.a() != DamageSource.i && var1.a() != DamageSource.j) {
+            if(var1.a() != DamageSource.FALL && var1.a() != DamageSource.OUT_OF_WORLD) {
                if(var6 == null || var4 != null && var6.equals(var4)) {
                   if(var4 != null) {
                      ItemStack var9 = var5 instanceof EntityLiving?((EntityLiving)var5).bA():null;
@@ -73,7 +73,7 @@ public class class_pb {
                      var3 = new ChatMessage("death.fell.killer", new Object[]{this.b.getScoreboardDisplayName()});
                   }
                } else {
-                  Entity var7 = var1.a().j();
+                  Entity var7 = var1.a().getEntity();
                   ItemStack var8 = var7 instanceof EntityLiving?((EntityLiving)var7).bA():null;
                   if(var8 != null && var8.hasDisplayName()) {
                      var3 = new ChatMessage("death.fell.assist.item", new Object[]{this.b.getScoreboardDisplayName(), var6, var8.B()});
@@ -112,15 +112,15 @@ public class class_pb {
                }
 
                var6 = (class_pa)var5.next();
-               if(var6.a().j() instanceof EntityHuman && (var2 == null || var6.c() > var4)) {
+               if(var6.a().getEntity() instanceof EntityHuman && (var2 == null || var6.c() > var4)) {
                   var4 = var6.c();
-                  var2 = (EntityHuman)var6.a().j();
+                  var2 = (EntityHuman)var6.a().getEntity();
                }
-            } while(!(var6.a().j() instanceof EntityLiving));
+            } while(!(var6.a().getEntity() instanceof EntityLiving));
          } while(var1 != null && var6.c() <= var3);
 
          var3 = var6.c();
-         var1 = (EntityLiving)var6.a().j();
+         var1 = (EntityLiving)var6.a().getEntity();
       }
    }
 
@@ -133,7 +133,7 @@ public class class_pb {
       for(int var5 = 0; var5 < this.a.size(); ++var5) {
          class_pa var6 = (class_pa)this.a.get(var5);
          class_pa var7 = var5 > 0?(class_pa)this.a.get(var5 - 1):null;
-         if((var6.a() == DamageSource.i || var6.a() == DamageSource.j) && var6.i() > 0.0F && (var1 == null || var6.i() > var4)) {
+         if((var6.a() == DamageSource.FALL || var6.a() == DamageSource.OUT_OF_WORLD) && var6.i() > 0.0F && (var1 == null || var6.i() > var4)) {
             if(var5 > 0) {
                var1 = var7;
             } else {

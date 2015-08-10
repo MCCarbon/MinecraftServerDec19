@@ -37,7 +37,7 @@ public abstract class class_uk extends EntityInsentient implements class_pp {
          this.i(var1);
          if(this.aB() == -20) {
             this.i(0);
-            this.damageEntity(DamageSource.f, 2.0F);
+            this.damageEntity(DamageSource.DROWN, 2.0F);
          }
       } else {
          this.i(300);

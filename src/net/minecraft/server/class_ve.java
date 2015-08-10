@@ -174,7 +174,7 @@ public class class_ve extends Entity {
 
          if(var3 != null) {
             if(var3.entity != null) {
-               if(var3.entity.damageEntity(DamageSource.a((Entity) this, (Entity) this.b), 0.0F)) {
+               if(var3.entity.damageEntity(DamageSource.projectile((Entity) this, (Entity) this.b), 0.0F)) {
                   this.c = var3.entity;
                }
             } else {

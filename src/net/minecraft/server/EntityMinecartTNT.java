@@ -52,11 +52,11 @@ public class EntityMinecartTNT extends EntityMinecartAbstract {
    public void a(DamageSource var1) {
       super.a(var1);
       double var2 = this.motX * this.motX + this.motZ * this.motZ;
-      if(!var1.c() && this.world.R().getBooleanValue("doEntityDrops")) {
+      if(!var1.isExplosion() && this.world.R().getBooleanValue("doEntityDrops")) {
          this.a(new ItemStack(Blocks.TNT, 1), 0.0F);
       }
 
-      if(var1.o() || var1.c() || var2 >= 0.009999999776482582D) {
+      if(var1.o() || var1.isExplosion() || var2 >= 0.009999999776482582D) {
          this.b(var2);
       }
 

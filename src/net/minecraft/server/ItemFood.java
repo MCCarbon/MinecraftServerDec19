@@ -27,7 +27,7 @@ public class ItemFood extends Item {
 		--var1.count;
 		if (var3 instanceof EntityHuman) {
 			EntityHuman var4 = (EntityHuman) var3;
-			var4.cn().a(this, var1);
+			var4.getFoodData().a(this, var1);
 			var2.a((Entity) var4, "random.burp", 0.5F, (var2.random.nextFloat() * 0.1F) + 0.9F);
 			this.a(var1, var2, var4);
 			var4.b(StatisticList.ad[Item.getId(this)]);

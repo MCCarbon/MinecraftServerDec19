@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 public class ItemTippedArrow extends ItemArrow {
 
-	public EntityArrow createArrowEntity(World var1, ItemStack var2, EntityLiving var3) {
-		return new EntityTippedArrow(var1, var3, var2);
+	public EntityArrow createArrowEntity(World world, ItemStack itemstack, EntityLiving entity) {
+		return new EntityTippedArrow(world, entity, itemstack);
 	}
 
 	public String getLocalizedName(ItemStack var1) {

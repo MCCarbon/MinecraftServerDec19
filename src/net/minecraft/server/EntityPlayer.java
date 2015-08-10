@@ -331,11 +331,11 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 			return false;
 		} else {
 			boolean var3 = this.b.ae() && this.ct() && "fall".equals(var1.p);
-			if (!var3 && this.bX > 0 && var1 != DamageSource.j) {
+			if (!var3 && this.bX > 0 && var1 != DamageSource.OUT_OF_WORLD) {
 				return false;
 			} else {
-				if (var1 instanceof class_pd) {
-					Entity var4 = var1.j();
+				if (var1 instanceof EntityDamageSource) {
+					Entity var4 = var1.getEntity();
 					if (var4 instanceof EntityHuman && !this.a((EntityHuman) var4)) {
 						return false;
 					}
@@ -684,7 +684,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 
 	protected void b(MobEffect var1) {
 		super.b((MobEffect) var1);
-		this.playerConnection.sendPacket((Packet) (new PacketPlayOutRemoveEntityEffect(this.getId(), var1.a())));
+		this.playerConnection.sendPacket((Packet) (new PacketPlayOutRemoveEntityEffect(this.getId(), var1.getEffectType())));
 	}
 
 	public void enderTeleportTo(double var1, double var3, double var5) {

@@ -14,15 +14,15 @@ public class PacketPlayOutEntityEffect implements Packet {
 
    public PacketPlayOutEntityEffect(int var1, MobEffect var2) {
       this.a = var1;
-      this.b = (byte)(MobEffectType.a(var2.a()) & 255);
-      this.c = (byte)(var2.c() & 255);
-      if(var2.b() > 32767) {
+      this.b = (byte)(MobEffectType.getId(var2.getEffectType()) & 255);
+      this.c = (byte)(var2.getAmplifier() & 255);
+      if(var2.getDuration() > 32767) {
          this.d = 32767;
       } else {
-         this.d = var2.b();
+         this.d = var2.getDuration();
       }
 
-      this.e = (byte)(var2.e()?1:0);
+      this.e = (byte)(var2.isShowParticles()?1:0);
    }
 
    public void decode(PacketDataSerializer var1) throws IOException {

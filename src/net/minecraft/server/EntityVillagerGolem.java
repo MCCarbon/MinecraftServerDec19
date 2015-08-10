@@ -106,7 +106,7 @@ public class EntityVillagerGolem extends class_ua {
 	public boolean r(Entity var1) {
 		this.bs = 10;
 		this.world.a((Entity) this, (byte) 4);
-		boolean var2 = var1.damageEntity(DamageSource.a((EntityLiving) this), (float) (7 + this.random.nextInt(15)));
+		boolean var2 = var1.damageEntity(DamageSource.mobAttack((EntityLiving) this), (float) (7 + this.random.nextInt(15)));
 		if (var2) {
 			var1.motY += 0.4000000059604645D;
 			this.a(this, var1);

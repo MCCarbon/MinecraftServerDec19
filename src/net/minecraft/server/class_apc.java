@@ -277,7 +277,7 @@ public class class_apc {
 
    public void b(EntityEnderDragon var1) {
       if(var1.getUniqueId().equals(this.m)) {
-         this.c.a(var1.getHealth() / var1.bv());
+         this.c.a(var1.getHealth() / var1.getMaxHealth());
          this.g = 0;
       }
 

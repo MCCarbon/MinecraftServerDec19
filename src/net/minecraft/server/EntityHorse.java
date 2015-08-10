@@ -250,7 +250,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {
-		Entity var3 = var1.j();
+		Entity var3 = var1.getEntity();
 		return this.passenger != null && this.passenger.equals(var3) ? false : super.damageEntity(var1, var2);
 	}
 
@@ -291,9 +291,9 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 		int var3 = MathHelper.ceil((var1 * 0.5F - 3.0F) * var2);
 		if (var3 > 0) {
-			this.damageEntity(DamageSource.i, (float) var3);
+			this.damageEntity(DamageSource.FALL, (float) var3);
 			if (this.passenger != null) {
-				this.passenger.damageEntity(DamageSource.i, (float) var3);
+				this.passenger.damageEntity(DamageSource.FALL, (float) var3);
 			}
 
 			Block var4 = this.world.getType(new BlockPosition(this.locX, this.locY - 0.2D - (double) this.lastYaw, this.locZ)).getBlock();
@@ -561,8 +561,8 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 						}
 					}
 
-					if (this.getHealth() < this.bv() && var5 > 0.0F) {
-						this.h(var5);
+					if (this.getHealth() < this.getMaxHealth() && var5 > 0.0F) {
+						this.heal(var5);
 						var8 = true;
 					}
 
@@ -681,7 +681,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 		super.m();
 		if (!this.world.isClientSide) {
 			if (this.random.nextInt(900) == 0 && this.deathTicks == 0) {
-				this.h(1.0F);
+				this.heal(1.0F);
 			}
 
 			if (!this.cN() && this.passenger == null && this.random.nextInt(300) == 0 && this.world.getType(new BlockPosition(MathHelper.floor(this.locX), MathHelper.floor(this.locY) - 1, MathHelper.floor(this.locZ))).getBlock() == Blocks.GRASS) {
@@ -783,7 +783,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	}
 
 	private boolean dv() {
-		return this.passenger == null && this.vehicle == null && this.cD() && this.cC() && !this.dh() && this.getHealth() >= this.bv() && this.cG();
+		return this.passenger == null && this.vehicle == null && this.cD() && this.cC() && !this.dh() && this.getHealth() >= this.getMaxHealth() && this.cG();
 	}
 
 	public void setEatingHayStack(boolean var1) {
@@ -858,8 +858,8 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 
 			if (this.bx > 0.0F && !this.cK() && this.onGround) {
 				this.motY = this.cU() * (double) this.bx;
-				if (this.hasEffect((MobEffectType) MobEffectList.h)) {
-					this.motY += (double) ((float) (this.getEffect((MobEffectType) MobEffectList.h).c() + 1) * 0.1F);
+				if (this.hasEffect((MobEffectType) MobEffectList.JUMP)) {
+					this.motY += (double) ((float) (this.getEffect((MobEffectType) MobEffectList.JUMP).getAmplifier() + 1) * 0.1F);
 				}
 
 				this.n(true);
@@ -1108,7 +1108,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 			this.a((class_qk) bz).a(0.5D);
 		}
 
-		this.i(this.bv());
+		this.i(this.getMaxHealth());
 		return (class_qd) var7;
 	}
 

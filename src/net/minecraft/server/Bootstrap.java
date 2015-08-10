@@ -410,7 +410,7 @@ public class Bootstrap {
 
 			Block.init();
 			BlockFire.l();
-			MobEffectType.k();
+			MobEffectType.init();
 			Enchantment.e();
 			Item.init();
 			RegistryPotions.c();

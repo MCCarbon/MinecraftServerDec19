@@ -88,7 +88,7 @@ public class EntitySpider extends EntityMonster {
 	}
 
 	public boolean d(MobEffect var1) {
-		return var1.a() == MobEffectList.s ? false : super.d(var1);
+		return var1.getEffectType() == MobEffectList.POISON ? false : super.d(var1);
 	}
 
 	public boolean n() {
@@ -174,13 +174,13 @@ public class EntitySpider extends EntityMonster {
 		public void a(Random var1) {
 			int var2 = var1.nextInt(5);
 			if (var2 <= 1) {
-				this.a = MobEffectList.a;
+				this.a = MobEffectList.FASTER_MOVEMENT;
 			} else if (var2 <= 2) {
-				this.a = MobEffectList.e;
+				this.a = MobEffectList.INCREASE_DAMAGE;
 			} else if (var2 <= 3) {
-				this.a = MobEffectList.j;
+				this.a = MobEffectList.REGENERATION;
 			} else if (var2 <= 4) {
-				this.a = MobEffectList.n;
+				this.a = MobEffectList.INVISIBILITY;
 			}
 
 		}

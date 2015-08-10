@@ -16,12 +16,12 @@ public class PacketPlayOutRemoveEntityEffect implements Packet {
 
    public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readVarInt();
-      this.b = MobEffectType.a(var1.readUnsignedByte());
+      this.b = MobEffectType.getById(var1.readUnsignedByte());
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeVarInt(this.a);
-      var1.writeByte(MobEffectType.a(this.b));
+      var1.writeByte(MobEffectType.getId(this.b));
    }
 
    public void a(PacketListenerPlayOut var1) {

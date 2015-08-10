@@ -220,9 +220,9 @@ public class EntityArrow extends Entity implements IProjectile {
 
 			DamageSource var5;
 			if (this.shooter == null) {
-				var5 = DamageSource.a(this, this);
+				var5 = DamageSource.arrow(this, this);
 			} else {
-				var5 = DamageSource.a(this, this.shooter);
+				var5 = DamageSource.arrow(this, this.shooter);
 			}
 
 			if (this.av() && !(hitEntity instanceof EntityEnderman)) {
@@ -248,7 +248,7 @@ public class EntityArrow extends Entity implements IProjectile {
 						EnchantmentManager.b(((EntityLiving) this.shooter), var6);
 					}
 
-					this.b(var6);
+					this.onEntityHit(var6);
 					if ((this.shooter != null) && (var6 != this.shooter) && (var6 instanceof EntityHuman) && (this.shooter instanceof EntityPlayer)) {
 						((EntityPlayer) this.shooter).playerConnection.sendPacket((new PacketPlayOutGameStateChange(6, 0.0F)));
 					}
@@ -292,7 +292,7 @@ public class EntityArrow extends Entity implements IProjectile {
 
 	}
 
-	protected void b(EntityLiving var1) {
+	protected void onEntityHit(EntityLiving var1) {
 	}
 
 	protected Entity findTarget(Vec3D var1, Vec3D var2) {

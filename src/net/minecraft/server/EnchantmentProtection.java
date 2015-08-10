@@ -25,11 +25,11 @@ public class EnchantmentProtection extends Enchantment {
    }
 
    public int a(int var1, DamageSource var2) {
-      if(var2.g()) {
+      if(var2.ignoresInvulnerability()) {
          return 0;
       } else {
          float var3 = (float)(6 + var1 * var1) / 3.0F;
-         return this.a == EnchantmentProtection.class_a_in_class_ads.a?MathHelper.floor(var3 * 0.75F):(this.a == EnchantmentProtection.class_a_in_class_ads.b && var2.o()?MathHelper.floor(var3 * 1.25F):(this.a == EnchantmentProtection.class_a_in_class_ads.c && var2 == DamageSource.i?MathHelper.floor(var3 * 2.5F):(this.a == EnchantmentProtection.class_a_in_class_ads.d && var2.c()?MathHelper.floor(var3 * 1.5F):(this.a == EnchantmentProtection.class_a_in_class_ads.e && var2.a()?MathHelper.floor(var3 * 1.5F):0))));
+         return this.a == EnchantmentProtection.class_a_in_class_ads.a?MathHelper.floor(var3 * 0.75F):(this.a == EnchantmentProtection.class_a_in_class_ads.b && var2.o()?MathHelper.floor(var3 * 1.25F):(this.a == EnchantmentProtection.class_a_in_class_ads.c && var2 == DamageSource.FALL?MathHelper.floor(var3 * 2.5F):(this.a == EnchantmentProtection.class_a_in_class_ads.d && var2.isExplosion()?MathHelper.floor(var3 * 1.5F):(this.a == EnchantmentProtection.class_a_in_class_ads.e && var2.a()?MathHelper.floor(var3 * 1.5F):0))));
       }
    }
 

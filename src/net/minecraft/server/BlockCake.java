@@ -67,7 +67,7 @@ public class BlockCake extends Block {
    private void b(World var1, BlockPosition var2, IBlockData var3, EntityHuman var4) {
       if(var4.j(false)) {
          var4.b(StatisticList.H);
-         var4.cn().a(2, 0.1F);
+         var4.getFoodData().a(2, 0.1F);
          int var5 = ((Integer)var3.get(a)).intValue();
          if(var5 < 6) {
             var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(var5 + 1)), 3);

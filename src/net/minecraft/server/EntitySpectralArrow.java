@@ -27,9 +27,9 @@ public class EntitySpectralArrow extends EntityArrow {
       return new ItemStack(Items.SPECTRAL_ARROW);
    }
 
-   protected void b(EntityLiving var1) {
-      super.b(var1);
-      MobEffect var2 = new MobEffect(MobEffectList.x, this.f, 0);
+   protected void onEntityHit(EntityLiving var1) {
+      super.onEntityHit(var1);
+      MobEffect var2 = new MobEffect(MobEffectList.GLOWING, this.f, 0);
       var1.addEffect(var2);
    }
 

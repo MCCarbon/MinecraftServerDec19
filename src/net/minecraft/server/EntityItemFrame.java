@@ -27,9 +27,9 @@ public class EntityItemFrame extends class_uz {
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (this.b((DamageSource) var1)) {
 			return false;
-		} else if (!var1.c() && this.o() != null) {
+		} else if (!var1.isExplosion() && this.o() != null) {
 			if (!this.world.isClientSide) {
-				this.a(var1.j(), false);
+				this.a(var1.getEntity(), false);
 				this.a((ItemStack) null);
 			}
 

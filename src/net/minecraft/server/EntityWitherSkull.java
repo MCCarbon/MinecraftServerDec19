@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class EntityWitherSkull extends class_xf {
+public class EntityWitherSkull extends EntityFireball {
    private static final int e = DataWathcer.claimId(EntityWitherSkull.class);
 
    public EntityWitherSkull(World var1) {
@@ -35,15 +35,15 @@ public class EntityWitherSkull extends class_xf {
       if(!this.world.isClientSide) {
          if(var1.entity != null) {
             if(this.a != null) {
-               if(var1.entity.damageEntity(DamageSource.a(this.a), 8.0F)) {
+               if(var1.entity.damageEntity(DamageSource.mobAttack(this.a), 8.0F)) {
                   if(!var1.entity.isAlive()) {
-                     this.a.h(5.0F);
+                     this.a.heal(5.0F);
                   } else {
                      this.a(this.a, var1.entity);
                   }
                }
             } else {
-               var1.entity.damageEntity(DamageSource.l, 5.0F);
+               var1.entity.damageEntity(DamageSource.MAGIC, 5.0F);
             }
 
             if(var1.entity instanceof EntityLiving) {
@@ -55,7 +55,7 @@ public class EntityWitherSkull extends class_xf {
                }
 
                if(var2 > 0) {
-                  ((EntityLiving)var1.entity).addEffect(new MobEffect(MobEffectList.t, 20 * var2, 1));
+                  ((EntityLiving)var1.entity).addEffect(new MobEffect(MobEffectList.WITHER, 20 * var2, 1));
                }
             }
          }

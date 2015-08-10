@@ -68,7 +68,7 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 	public boolean r(Entity var1) {
 		if (super.r(var1)) {
 			if (this.cB() == 1 && var1 instanceof EntityLiving) {
-				((EntityLiving) var1).addEffect(new MobEffect(MobEffectList.t, 200));
+				((EntityLiving) var1).addEffect(new MobEffect(MobEffectList.WITHER, 200));
 			}
 
 			return true;
@@ -124,15 +124,15 @@ public class EntitySkeleton extends EntityMonster implements class_wk {
 
 	public void a(DamageSource var1) {
 		super.a(var1);
-		if (var1.i() instanceof EntityArrow && var1.j() instanceof EntityHuman) {
-			EntityHuman var2 = (EntityHuman) var1.j();
+		if (var1.i() instanceof EntityArrow && var1.getEntity() instanceof EntityHuman) {
+			EntityHuman var2 = (EntityHuman) var1.getEntity();
 			double var3 = var2.locX - this.locX;
 			double var5 = var2.locZ - this.locZ;
 			if (var3 * var3 + var5 * var5 >= 2500.0D) {
 				var2.b((class_my) class_mt.v);
 			}
-		} else if (var1.j() instanceof EntityCreeper && ((EntityCreeper) var1.j()).isPowered() && ((EntityCreeper) var1.j()).cE()) {
-			((EntityCreeper) var1.j()).cF();
+		} else if (var1.getEntity() instanceof EntityCreeper && ((EntityCreeper) var1.getEntity()).isPowered() && ((EntityCreeper) var1.getEntity()).cE()) {
+			((EntityCreeper) var1.getEntity()).cF();
 			this.a(new ItemStack(Items.SKULL, 1, this.cB() == 1 ? 1 : 0), 0.0F);
 		}
 

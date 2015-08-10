@@ -114,13 +114,13 @@ public class EntityCreeper extends EntityMonster {
 
 	public void a(DamageSource var1) {
 		super.a(var1);
-		if (var1.j() instanceof EntitySkeleton) {
+		if (var1.getEntity() instanceof EntitySkeleton) {
 			int var2 = Item.getId(Items.RECORD_13);
 			int var3 = Item.getId(Items.RECORD_WAIT);
 			int var4 = var2 + this.random.nextInt(var3 - var2 + 1);
 			this.a(Item.getById(var4), 1);
-		} else if (var1.j() instanceof EntityCreeper && var1.j() != this && ((EntityCreeper) var1.j()).isPowered() && ((EntityCreeper) var1.j()).cE()) {
-			((EntityCreeper) var1.j()).cF();
+		} else if (var1.getEntity() instanceof EntityCreeper && var1.getEntity() != this && ((EntityCreeper) var1.getEntity()).isPowered() && ((EntityCreeper) var1.getEntity()).cE()) {
+			((EntityCreeper) var1.getEntity()).cF();
 			this.a(new ItemStack(Items.SKULL, 1, 4), 0.0F);
 		}
 

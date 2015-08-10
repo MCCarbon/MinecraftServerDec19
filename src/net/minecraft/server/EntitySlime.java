@@ -31,7 +31,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 		this.setPosition(this.locX, this.locY, this.locZ);
 		this.a(class_wl.a).a((double) (var1 * var1));
 		this.a(class_wl.d).a((double) (0.2F + 0.1F * (float) var1));
-		this.i(this.bv());
+		this.i(this.getMaxHealth());
 		this.b_ = var1;
 	}
 
@@ -169,7 +169,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 
 	protected void e(EntityLiving var1) {
 		int var2 = this.cB();
-		if (this.t(var1) && this.h(var1) < 0.6D * (double) var2 * 0.6D * (double) var2 && var1.damageEntity(DamageSource.a((EntityLiving) this), (float) this.cy())) {
+		if (this.t(var1) && this.h(var1) < 0.6D * (double) var2 * 0.6D * (double) var2 && var1.damageEntity(DamageSource.mobAttack((EntityLiving) this), (float) this.cy())) {
 			this.makeSound("mob.attack", 1.0F, (this.random.nextFloat() - this.random.nextFloat()) * 0.2F + 1.0F);
 			this.a(this, var1);
 		}

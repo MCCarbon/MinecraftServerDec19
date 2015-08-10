@@ -253,7 +253,7 @@ public class EntityShulker extends class_ua implements class_wd {
       }
 
       if(super.damageEntity(var1, var2)) {
-         if((double)this.getHealth() < (double)this.bv() * 0.5D && this.random.nextInt(4) == 0) {
+         if((double)this.getHealth() < (double)this.getMaxHealth() * 0.5D && this.random.nextInt(4) == 0) {
             this.n();
          }
 

@@ -103,7 +103,7 @@ public class EntityExperienceOrb extends Entity {
    }
 
    protected void g(int var1) {
-      this.damageEntity(DamageSource.a, (float)var1);
+      this.damageEntity(DamageSource.FIRE, (float)var1);
    }
 
    public boolean damageEntity(DamageSource var1, float var2) {

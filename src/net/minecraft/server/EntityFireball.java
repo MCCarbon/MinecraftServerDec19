@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public abstract class class_xf extends Entity {
+public abstract class EntityFireball extends Entity {
    private int e = -1;
    private int f = -1;
    private int g = -1;
@@ -13,7 +13,7 @@ public abstract class class_xf extends Entity {
    public double c;
    public double d;
 
-   public class_xf(World var1) {
+   public EntityFireball(World var1) {
       super(var1);
       this.setSize(1.0F, 1.0F);
    }
@@ -21,7 +21,7 @@ public abstract class class_xf extends Entity {
    protected void initDatawatcher() {
    }
 
-   public class_xf(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
+   public EntityFireball(World var1, double var2, double var4, double var6, double var8, double var10, double var12) {
       super(var1);
       this.setSize(1.0F, 1.0F);
       this.b(var2, var4, var6, this.yaw, this.pitch);
@@ -32,7 +32,7 @@ public abstract class class_xf extends Entity {
       this.d = var12 / var14 * 0.1D;
    }
 
-   public class_xf(World var1, EntityLiving var2, double var3, double var5, double var7) {
+   public EntityFireball(World var1, EntityLiving var2, double var3, double var5, double var7) {
       super(var1);
       this.a = var2;
       this.setSize(1.0F, 1.0F);
@@ -155,8 +155,8 @@ public abstract class class_xf extends Entity {
          return false;
       } else {
          this.ac();
-         if(var1.j() != null) {
-            Vec3D var3 = var1.j().ap();
+         if(var1.getEntity() != null) {
+            Vec3D var3 = var1.getEntity().ap();
             if(var3 != null) {
                this.motX = var3.x;
                this.motY = var3.y;
@@ -166,8 +166,8 @@ public abstract class class_xf extends Entity {
                this.d = this.motZ * 0.1D;
             }
 
-            if(var1.j() instanceof EntityLiving) {
-               this.a = (EntityLiving)var1.j();
+            if(var1.getEntity() instanceof EntityLiving) {
+               this.a = (EntityLiving)var1.getEntity();
             }
 
             return true;

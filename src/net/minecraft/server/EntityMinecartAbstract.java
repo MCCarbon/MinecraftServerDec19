@@ -97,7 +97,7 @@ public abstract class EntityMinecartAbstract extends Entity implements INamableT
 				this.j(10);
 				this.ac();
 				this.a(this.p() + var2 * 10.0F);
-				boolean var3 = var1.j() instanceof EntityHuman && ((EntityHuman) var1.j()).abilities.instabuild;
+				boolean var3 = var1.getEntity() instanceof EntityHuman && ((EntityHuman) var1.getEntity()).abilities.instabuild;
 				if (var3 || this.p() > 40.0F) {
 					if (this.passenger != null) {
 						this.passenger.a((Entity) null);

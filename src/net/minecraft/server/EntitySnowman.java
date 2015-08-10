@@ -25,11 +25,11 @@ public class EntitySnowman extends class_ua implements class_wk {
          int var2 = MathHelper.floor(this.locY);
          int var3 = MathHelper.floor(this.locZ);
          if(this.U()) {
-            this.damageEntity(DamageSource.f, 1.0F);
+            this.damageEntity(DamageSource.DROWN, 1.0F);
          }
 
          if(this.world.b(new BlockPosition(var1, 0, var3)).a(new BlockPosition(var1, var2, var3)) > 1.0F) {
-            this.damageEntity(DamageSource.c, 1.0F);
+            this.damageEntity(DamageSource.BURN, 1.0F);
          }
 
          for(int var4 = 0; var4 < 4; ++var4) {

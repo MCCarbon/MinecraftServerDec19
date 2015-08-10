@@ -4,14 +4,14 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.LocaleI18n;
 import net.minecraft.server.IChatBaseComponent;
 import net.minecraft.server.ChatMessage;
-import net.minecraft.server.class_pd;
+import net.minecraft.server.EntityDamageSource;
 import net.minecraft.server.Entity;
 import net.minecraft.server.EntityLiving;
 
-public class class_pe extends class_pd {
+public class EntityDamageSourceIndirect extends EntityDamageSource {
    private Entity r;
 
-   public class_pe(String var1, Entity var2, Entity var3) {
+   public EntityDamageSourceIndirect(String var1, Entity var2, Entity var3) {
       super(var1, var2);
       this.r = var3;
    }
@@ -20,7 +20,7 @@ public class class_pe extends class_pd {
       return this.q;
    }
 
-   public Entity j() {
+   public Entity getEntity() {
       return this.r;
    }
 

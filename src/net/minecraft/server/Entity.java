@@ -245,7 +245,7 @@ public abstract class Entity implements ICommandListener {
 				}
 			} else {
 				if (this.fireTicks % 20 == 0) {
-					this.damageEntity(DamageSource.c, 1.0F);
+					this.damageEntity(DamageSource.BURN, 1.0F);
 				}
 
 				--this.fireTicks;
@@ -275,7 +275,7 @@ public abstract class Entity implements ICommandListener {
 
 	protected void M() {
 		if (!this.fireProof) {
-			this.damageEntity(DamageSource.d, 4.0F);
+			this.damageEntity(DamageSource.LAVA, 4.0F);
 			this.f(15);
 		}
 	}
@@ -666,7 +666,7 @@ public abstract class Entity implements ICommandListener {
 
 	protected void g(int var1) {
 		if (!this.fireProof) {
-			this.damageEntity(DamageSource.a, (float) var1);
+			this.damageEntity(DamageSource.FIRE, (float) var1);
 		}
 
 	}
@@ -1380,7 +1380,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public void a(class_vi var1) {
-		this.damageEntity(DamageSource.b, 5.0F);
+		this.damageEntity(DamageSource.LIGHTNING, 5.0F);
 		++this.fireTicks;
 		if (this.fireTicks == 0) {
 			this.f(8);
@@ -1501,7 +1501,7 @@ public abstract class Entity implements ICommandListener {
 	}
 
 	public boolean b(DamageSource var1) {
-		return this.invulnerable && var1 != DamageSource.j && !var1.u();
+		return this.invulnerable && var1 != DamageSource.OUT_OF_WORLD && !var1.u();
 	}
 
 	public void m(Entity var1) {

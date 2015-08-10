@@ -159,8 +159,8 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 	}
 
 	private static MobEffectType f(int var0) {
-		MobEffectType var1 = MobEffectType.a(var0);
-		return (var1 != MobEffectList.a) && (var1 != MobEffectList.c) && (var1 != MobEffectList.k) && (var1 != MobEffectList.h) && (var1 != MobEffectList.e) && (var1 != MobEffectList.j) ? null : var1;
+		MobEffectType var1 = MobEffectType.getById(var0);
+		return (var1 != MobEffectList.FASTER_MOVEMENT) && (var1 != MobEffectList.FASTER_DIG) && (var1 != MobEffectList.RESISTANCE) && (var1 != MobEffectList.JUMP) && (var1 != MobEffectList.INCREASE_DAMAGE) && (var1 != MobEffectList.REGENERATION) ? null : var1;
 	}
 
 	@Override
@@ -174,8 +174,8 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 	@Override
 	public void write(NBTTagCompound var1) {
 		super.write(var1);
-		var1.put("Primary", MobEffectType.a(k));
-		var1.put("Secondary", MobEffectType.a(l));
+		var1.put("Primary", MobEffectType.getId(k));
+		var1.put("Secondary", MobEffectType.getId(l));
 		var1.put("Levels", j);
 	}
 
@@ -277,9 +277,9 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 			case 0:
 				return j;
 			case 1:
-				return MobEffectType.a(k);
+				return MobEffectType.getId(k);
 			case 2:
-				return MobEffectType.a(l);
+				return MobEffectType.getId(l);
 			default:
 				return 0;
 		}
@@ -321,7 +321,7 @@ public class TileEntityBeacon extends TileEntityContainer implements ITickAble, 
 	}
 
 	static {
-		a = new MobEffectType[][] { { MobEffectList.a, MobEffectList.c }, { MobEffectList.k, MobEffectList.h }, { MobEffectList.e }, { MobEffectList.j } };
+		a = new MobEffectType[][] { { MobEffectList.FASTER_MOVEMENT, MobEffectList.FASTER_DIG }, { MobEffectList.RESISTANCE, MobEffectList.JUMP }, { MobEffectList.INCREASE_DAMAGE }, { MobEffectList.REGENERATION } };
 	}
 
 	public static class class_a_in_class_amf {

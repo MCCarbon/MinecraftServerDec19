@@ -36,7 +36,7 @@ public abstract class EntityMonster extends EntityCreature implements class_wd {
       if(this.b(var1)) {
          return false;
       } else if(super.damageEntity(var1, var2)) {
-         Entity var3 = var1.j();
+         Entity var3 = var1.getEntity();
          return this.passenger != var3 && this.vehicle != var3?true:true;
       } else {
          return false;
@@ -63,7 +63,7 @@ public abstract class EntityMonster extends EntityCreature implements class_wd {
          var3 += EnchantmentManager.a((EntityLiving)this);
       }
 
-      boolean var4 = var1.damageEntity(DamageSource.a((EntityLiving) this), var2);
+      boolean var4 = var1.damageEntity(DamageSource.mobAttack((EntityLiving) this), var2);
       if(var4) {
          if(var3 > 0) {
             var1.g((double)(-MathHelper.sin(this.yaw * 3.1415927F / 180.0F) * (float)var3 * 0.5F), 0.1D, (double)(MathHelper.cos(this.yaw * 3.1415927F / 180.0F) * (float)var3 * 0.5F));

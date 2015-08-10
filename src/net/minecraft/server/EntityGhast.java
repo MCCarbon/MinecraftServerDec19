@@ -38,9 +38,9 @@ public class EntityGhast extends class_py implements class_wd {
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (this.b(var1)) {
 			return false;
-		} else if ("fireball".equals(var1.p()) && var1.j() instanceof EntityHuman) {
+		} else if ("fireball".equals(var1.p()) && var1.getEntity() instanceof EntityHuman) {
 			super.damageEntity(var1, 1000.0F);
-			((EntityHuman) var1.j()).b((class_my) class_mt.z);
+			((EntityHuman) var1.getEntity()).b((class_my) class_mt.z);
 			return true;
 		} else {
 			return super.damageEntity(var1, var2);

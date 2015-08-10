@@ -34,7 +34,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 	public EntityWither(World var1) {
 		super(var1);
 		this.bA = new class_le(this.getScoreboardDisplayName(), class_oh.class_a_in_class_oh.f, class_oh.class_b_in_class_oh.a, true, false);
-		this.i(this.bv());
+		this.i(this.getMaxHealth());
 		this.setSize(0.9F, 3.5F);
 		this.fireProof = true;
 		((class_tf) this.u()).d(true);
@@ -173,7 +173,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 
 			this.m(var1);
 			if (this.ticksLived % 10 == 0) {
-				this.h(10.0F);
+				this.heal(10.0F);
 			}
 
 		} else {
@@ -270,10 +270,10 @@ public class EntityWither extends EntityMonster implements class_wk {
 			}
 
 			if (this.ticksLived % 20 == 0) {
-				this.h(1.0F);
+				this.heal(1.0F);
 			}
 
-			this.bA.a(this.getHealth() / this.bv());
+			this.bA.a(this.getHealth() / this.getMaxHealth());
 		}
 	}
 
@@ -283,7 +283,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 
 	public void n() {
 		this.m(220);
-		this.i(this.bv() / 3.0F);
+		this.i(this.getMaxHealth() / 3.0F);
 	}
 
 	public void aC() {
@@ -370,8 +370,8 @@ public class EntityWither extends EntityMonster implements class_wk {
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (this.b((DamageSource) var1)) {
 			return false;
-		} else if (var1 != DamageSource.f && !(var1.j() instanceof EntityWither)) {
-			if (this.cA() > 0 && var1 != DamageSource.j) {
+		} else if (var1 != DamageSource.DROWN && !(var1.getEntity() instanceof EntityWither)) {
+			if (this.cA() > 0 && var1 != DamageSource.OUT_OF_WORLD) {
 				return false;
 			} else {
 				Entity var3;
@@ -382,7 +382,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 					}
 				}
 
-				var3 = var1.j();
+				var3 = var1.getEntity();
 				if (var3 != null && !(var3 instanceof EntityHuman) && var3 instanceof EntityLiving && ((EntityLiving) var3).bz() == this.bz()) {
 					return false;
 				} else {
@@ -453,7 +453,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 	}
 
 	public boolean cB() {
-		return this.getHealth() <= this.bv() / 2.0F;
+		return this.getHealth() <= this.getMaxHealth() / 2.0F;
 	}
 
 	public class_qf bz() {

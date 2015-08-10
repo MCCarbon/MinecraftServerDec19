@@ -103,7 +103,7 @@ public class EntityPigZombie extends EntityZombie {
       if(this.b((DamageSource)var1)) {
          return false;
       } else {
-         Entity var3 = var1.j();
+         Entity var3 = var1.getEntity();
          if(var3 instanceof EntityHuman) {
             this.b(var3);
          }

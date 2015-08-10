@@ -573,7 +573,7 @@ public abstract class EntityInsentient extends EntityLiving {
 		if (this.w() == null) {
 			return 3;
 		} else {
-			int var1 = (int) (this.getHealth() - this.bv() * 0.33F);
+			int var1 = (int) (this.getHealth() - this.getMaxHealth() * 0.33F);
 			var1 -= (3 - this.world.ab().a()) * 4;
 			if (var1 < 0) {
 				var1 = 0;

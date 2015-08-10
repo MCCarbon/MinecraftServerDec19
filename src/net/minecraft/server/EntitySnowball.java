@@ -20,7 +20,7 @@ public class EntitySnowball extends class_xo {
             var2 = 3;
          }
 
-         var1.entity.damageEntity(DamageSource.a((Entity) this, (Entity) this.l()), (float)var2);
+         var1.entity.damageEntity(DamageSource.projectile((Entity) this, (Entity) this.l()), (float)var2);
       }
 
       for(int var3 = 0; var3 < 8; ++var3) {

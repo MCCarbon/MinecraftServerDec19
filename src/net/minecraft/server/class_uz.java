@@ -122,7 +122,7 @@ public abstract class class_uz extends Entity {
    }
 
    public boolean l(Entity var1) {
-      return var1 instanceof EntityHuman?this.damageEntity(DamageSource.a((EntityHuman) var1), 0.0F):false;
+      return var1 instanceof EntityHuman?this.damageEntity(DamageSource.playerAttack((EntityHuman) var1), 0.0F):false;
    }
 
    public EnumDirection aR() {
@@ -136,7 +136,7 @@ public abstract class class_uz extends Entity {
          if(!this.dead && !this.world.isClientSide) {
             this.die();
             this.ac();
-            this.b(var1.j());
+            this.b(var1.getEntity());
          }
 
          return true;

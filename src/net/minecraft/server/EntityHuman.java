@@ -21,7 +21,7 @@ public abstract class EntityHuman extends EntityLiving {
 	private InventoryEnderChest enderChest = new InventoryEnderChest();
 	public Container bq;
 	public Container br;
-	protected class_xx foodData = new class_xx();
+	protected FoodData foodData = new FoodData();
 	protected int bt;
 	public float bu;
 	public float bv;
@@ -248,8 +248,8 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 
 		if ((world.ab() == class_om.a) && world.R().getBooleanValue("naturalRegeneration")) {
-			if ((getHealth() < bv()) && ((ticksLived % 20) == 0)) {
-				this.h(1.0F);
+			if ((getHealth() < getMaxHealth()) && ((ticksLived % 20) == 0)) {
+				this.heal(1.0F);
 			}
 
 			if (foodData.c() && ((ticksLived % 10) == 0)) {
@@ -471,13 +471,13 @@ public abstract class EntityHuman extends EntityLiving {
 			}
 		}
 
-		if (this.hasEffect(MobEffectList.c)) {
-			var2 *= 1.0F + ((this.getEffect(MobEffectList.c).c() + 1) * 0.2F);
+		if (this.hasEffect(MobEffectList.FASTER_DIG)) {
+			var2 *= 1.0F + ((this.getEffect(MobEffectList.FASTER_DIG).getAmplifier() + 1) * 0.2F);
 		}
 
-		if (this.hasEffect(MobEffectList.d)) {
+		if (this.hasEffect(MobEffectList.SLOWER_DIG)) {
 			float var5 = 1.0F;
-			switch (this.getEffect(MobEffectList.d).c()) {
+			switch (this.getEffect(MobEffectList.SLOWER_DIG).getAmplifier()) {
 				case 0:
 					var5 = 0.3F;
 					break;
@@ -578,7 +578,7 @@ public abstract class EntityHuman extends EntityLiving {
 	public boolean damageEntity(DamageSource var1, float var2) {
 		if (this.b(var1)) {
 			return false;
-		} else if (abilities.invulnerable && !var1.g()) {
+		} else if (abilities.invulnerable && !var1.ignoresInvulnerability()) {
 			return false;
 		} else {
 			aT = 0;
@@ -606,7 +606,7 @@ public abstract class EntityHuman extends EntityLiving {
 				if (var2 == 0.0F) {
 					return false;
 				} else {
-					Entity var3 = var1.j();
+					Entity var3 = var1.getEntity();
 					if ((var3 instanceof EntityArrow) && (((EntityArrow) var3).shooter != null)) {
 						var3 = ((EntityArrow) var3).shooter;
 					}
@@ -651,7 +651,7 @@ public abstract class EntityHuman extends EntityLiving {
 	@Override
 	protected void d(DamageSource var1, float var2) {
 		if (!this.b(var1)) {
-			if (!var1.e() && ca() && (var2 > 0.0F)) {
+			if (!var1.ignoresArmor() && ca() && (var2 > 0.0F)) {
 				var2 = (1.0F + var2) * 0.5F;
 			}
 
@@ -661,7 +661,7 @@ public abstract class EntityHuman extends EntityLiving {
 			var2 = Math.max(var2 - getAbsorptionHearts(), 0.0F);
 			setAbsorptionHearts(getAbsorptionHearts() - (var3 - var2));
 			if (var2 != 0.0F) {
-				this.a(var1.f());
+				this.applyExhaustion(var1.getExhaustionCost());
 				float var4 = getHealth();
 				this.i(getHealth() - var2);
 				bt().a(var1, var4, var2);
@@ -756,7 +756,7 @@ public abstract class EntityHuman extends EntityLiving {
 				}
 
 				if ((var2 > 0.0F) || (var4 > 0.0F)) {
-					boolean var5 = (fallDistance > 0.0F) && !onGround && !k_() && !V() && !this.hasEffect(MobEffectList.o) && (vehicle == null) && (var1 instanceof EntityLiving);
+					boolean var5 = (fallDistance > 0.0F) && !onGround && !k_() && !V() && !this.hasEffect(MobEffectList.BLINDNESS) && (vehicle == null) && (var1 instanceof EntityLiving);
 					if (var5 && (var2 > 0.0F)) {
 						var2 *= 1.5F;
 					}
@@ -772,7 +772,7 @@ public abstract class EntityHuman extends EntityLiving {
 					double var8 = var1.motX;
 					double var10 = var1.motY;
 					double var12 = var1.motZ;
-					boolean var14 = var1.damageEntity(DamageSource.a(this), var2);
+					boolean var14 = var1.damageEntity(DamageSource.playerAttack(this), var2);
 					if (var14) {
 						if (var18 > 0) {
 							var1.g(-MathHelper.sin((yaw * 3.1415927F) / 180.0F) * var18 * 0.5F, 0.1D, MathHelper.cos((yaw * 3.1415927F) / 180.0F) * var18 * 0.5F);
@@ -830,7 +830,7 @@ public abstract class EntityHuman extends EntityLiving {
 							}
 						}
 
-						this.a(0.3F);
+						this.applyExhaustion(0.3F);
 					} else if (var6) {
 						var1.extinguish();
 					}
@@ -1040,9 +1040,9 @@ public abstract class EntityHuman extends EntityLiving {
 		super.bG();
 		this.b(StatisticList.u);
 		if (ay()) {
-			this.a(0.8F);
+			this.applyExhaustion(0.8F);
 		} else {
-			this.a(0.2F);
+			this.applyExhaustion(0.2F);
 		}
 
 	}
@@ -1078,13 +1078,13 @@ public abstract class EntityHuman extends EntityLiving {
 				var7 = Math.round(MathHelper.sqrt((var1 * var1) + (var3 * var3) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
 					this.a(StatisticList.p, var7);
-					this.a(0.015F * var7 * 0.01F);
+					this.applyExhaustion(0.015F * var7 * 0.01F);
 				}
 			} else if (V()) {
 				var7 = Math.round(MathHelper.sqrt((var1 * var1) + (var5 * var5)) * 100.0F);
 				if (var7 > 0) {
 					this.a(StatisticList.l, var7);
-					this.a(0.015F * var7 * 0.01F);
+					this.applyExhaustion(0.015F * var7 * 0.01F);
 				}
 			} else if (k_()) {
 				if (var3 > 0.0D) {
@@ -1096,13 +1096,13 @@ public abstract class EntityHuman extends EntityLiving {
 					this.a(StatisticList.i, var7);
 					if (ay()) {
 						this.a(StatisticList.k, var7);
-						this.a(0.099999994F * var7 * 0.01F);
+						this.applyExhaustion(0.099999994F * var7 * 0.01F);
 					} else {
 						if (ax()) {
 							this.a(StatisticList.j, var7);
 						}
 
-						this.a(0.01F * var7 * 0.01F);
+						this.applyExhaustion(0.01F * var7 * 0.01F);
 					}
 				}
 			} else {
@@ -1234,7 +1234,7 @@ public abstract class EntityHuman extends EntityLiving {
 		return expLevel >= 30 ? 112 + ((expLevel - 30) * 9) : (expLevel >= 15 ? 37 + ((expLevel - 15) * 5) : 7 + (expLevel * 2));
 	}
 
-	public void a(float var1) {
+	public void applyExhaustion(float var1) {
 		if (!abilities.invulnerable) {
 			if (!world.isClientSide) {
 				foodData.a(var1);
@@ -1243,7 +1243,7 @@ public abstract class EntityHuman extends EntityLiving {
 		}
 	}
 
-	public class_xx cn() {
+	public FoodData getFoodData() {
 		return foodData;
 	}
 
@@ -1252,7 +1252,7 @@ public abstract class EntityHuman extends EntityLiving {
 	}
 
 	public boolean co() {
-		return (getHealth() > 0.0F) && (getHealth() < bv());
+		return (getHealth() > 0.0F) && (getHealth() < getMaxHealth());
 	}
 
 	public boolean cp() {

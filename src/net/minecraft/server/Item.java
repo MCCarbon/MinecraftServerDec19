@@ -543,7 +543,7 @@ public class Item {
 		registerItem(319, "porkchop", (new ItemFood(3, 0.3F, true)).setName("porkchopRaw"));
 		registerItem(320, "cooked_porkchop", (new ItemFood(8, 0.8F, true)).setName("porkchopCooked"));
 		registerItem(321, "painting", (new EntityHanging(EntityPainting.class)).setName("painting"));
-		registerItem(322, "golden_apple", (new ItemGoldenApple(4, 1.2F, false)).h().a(new MobEffect(MobEffectList.j, 100, 1), 1.0F).setName("appleGold"));
+		registerItem(322, "golden_apple", (new ItemGoldenApple(4, 1.2F, false)).h().a(new MobEffect(MobEffectList.REGENERATION, 100, 1), 1.0F).setName("appleGold"));
 		registerItem(323, "sign", (new ItemSign()).setName("sign"));
 		registerItem(324, "wooden_door", (new ItemDoor(Blocks.WOODEN_DOOR)).setName("doorOak"));
 		Item bucket = (new ItemBucket(Blocks.AIR)).setName("bucket").d(16);
@@ -587,9 +587,9 @@ public class Item {
 		registerItem(362, "melon_seeds", (new ItemSeeds(Blocks.MELON_STEM, Blocks.FARMLAND)).setName("seeds_melon"));
 		registerItem(363, "beef", (new ItemFood(3, 0.3F, true)).setName("beefRaw"));
 		registerItem(364, "cooked_beef", (new ItemFood(8, 0.8F, true)).setName("beefCooked"));
-		registerItem(365, "chicken", (new ItemFood(2, 0.3F, true)).a(new MobEffect(MobEffectList.q, 600, 0), 0.3F).setName("chickenRaw"));
+		registerItem(365, "chicken", (new ItemFood(2, 0.3F, true)).a(new MobEffect(MobEffectList.HUNGER, 600, 0), 0.3F).setName("chickenRaw"));
 		registerItem(366, "cooked_chicken", (new ItemFood(6, 0.6F, true)).setName("chickenCooked"));
-		registerItem(367, "rotten_flesh", (new ItemFood(4, 0.1F, true)).a(new MobEffect(MobEffectList.q, 600, 0), 0.8F).setName("rottenFlesh"));
+		registerItem(367, "rotten_flesh", (new ItemFood(4, 0.1F, true)).a(new MobEffect(MobEffectList.HUNGER, 600, 0), 0.8F).setName("rottenFlesh"));
 		registerItem(368, "ender_pearl", (new ItemEnderPearl()).setName("enderPearl"));
 		registerItem(369, "blaze_rod", (new Item()).setName("blazeRod").setCreativeTab(CreativeTab.MATERIALS).setUnusedField());
 		registerItem(370, "ghast_tear", (new Item()).setName("ghastTear").setCreativeTab(CreativeTab.BREWING));
@@ -597,7 +597,7 @@ public class Item {
 		registerItem(372, "nether_wart", (new ItemSeeds(Blocks.NETHER_WART, Blocks.SOUL_SAND)).setName("netherStalkSeeds"));
 		registerItem(373, "potion", (new ItemPotion()).setName("potion"));
 		registerItem(374, "glass_bottle", (new ItemGlassBottle()).setName("glassBottle"));
-		registerItem(375, "spider_eye", (new ItemFood(2, 0.8F, false)).a(new MobEffect(MobEffectList.s, 100, 0), 1.0F).setName("spiderEye"));
+		registerItem(375, "spider_eye", (new ItemFood(2, 0.8F, false)).a(new MobEffect(MobEffectList.POISON, 100, 0), 1.0F).setName("spiderEye"));
 		registerItem(376, "fermented_spider_eye", (new Item()).setName("fermentedSpiderEye").setCreativeTab(CreativeTab.BREWING));
 		registerItem(377, "blaze_powder", (new Item()).setName("blazePowder").setCreativeTab(CreativeTab.BREWING));
 		registerItem(378, "magma_cream", (new Item()).setName("magmaCream").setCreativeTab(CreativeTab.BREWING));
@@ -616,7 +616,7 @@ public class Item {
 		registerItem(391, "carrot", (new ItemSeedFood(3, 0.6F, Blocks.CARROTS, Blocks.FARMLAND)).setName("carrots"));
 		registerItem(392, "potato", (new ItemSeedFood(1, 0.3F, Blocks.POTATOES, Blocks.FARMLAND)).setName("potato"));
 		registerItem(393, "baked_potato", (new ItemFood(5, 0.6F, false)).setName("potatoBaked"));
-		registerItem(394, "poisonous_potato", (new ItemFood(2, 0.3F, false)).a(new MobEffect(MobEffectList.s, 100, 0), 0.6F).setName("potatoPoisonous"));
+		registerItem(394, "poisonous_potato", (new ItemFood(2, 0.3F, false)).a(new MobEffect(MobEffectList.POISON, 100, 0), 0.6F).setName("potatoPoisonous"));
 		registerItem(395, "map", (new ItemMapEmpty()).setName("emptyMap"));
 		registerItem(396, "golden_carrot", (new ItemFood(6, 1.2F, false)).setName("carrotGolden").setCreativeTab(CreativeTab.BREWING));
 		registerItem(397, "skull", (new ItemSkull()).setName("skull"));

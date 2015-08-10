@@ -68,7 +68,7 @@ public class EntityBlaze extends EntityMonster {
 
 	protected void cc() {
 		if (this.U()) {
-			this.damageEntity(DamageSource.f, 1.0F);
+			this.damageEntity(DamageSource.DROWN, 1.0F);
 		}
 
 		--this.b;

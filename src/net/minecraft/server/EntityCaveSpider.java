@@ -22,7 +22,7 @@ public class EntityCaveSpider extends EntitySpider {
             }
 
             if(var2 > 0) {
-               ((EntityLiving)var1).addEffect(new MobEffect(MobEffectList.s, var2 * 20, 0));
+               ((EntityLiving)var1).addEffect(new MobEffect(MobEffectList.POISON, var2 * 20, 0));
             }
          }
 

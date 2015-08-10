@@ -45,7 +45,7 @@ public class EnchantmentWeaponDamage extends Enchantment {
          EntityLiving var4 = (EntityLiving)var2;
          if(this.a == 2 && var4.bz() == class_qf.c) {
             int var5 = 20 + var1.getRandom().nextInt(10 * var3);
-            var4.addEffect(new MobEffect(MobEffectList.b, var5, 3));
+            var4.addEffect(new MobEffect(MobEffectList.SLOWER_MOVEMENT, var5, 3));
          }
       }
 

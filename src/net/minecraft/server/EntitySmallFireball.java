@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-public class EntitySmallFireball extends class_xf {
+public class EntitySmallFireball extends EntityFireball {
    public EntitySmallFireball(World var1) {
       super(var1);
       this.setSize(0.3125F, 0.3125F);
@@ -20,7 +20,7 @@ public class EntitySmallFireball extends class_xf {
       if(!this.world.isClientSide) {
          boolean var2;
          if(var1.entity != null) {
-            var2 = var1.entity.damageEntity(DamageSource.a((class_xf) this, (Entity) this.a), 5.0F);
+            var2 = var1.entity.damageEntity(DamageSource.fireball((EntityFireball) this, (Entity) this.a), 5.0F);
             if(var2) {
                this.a(this.a, var1.entity);
                if(!var1.entity.T()) {

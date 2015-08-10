@@ -95,7 +95,7 @@ public class EntityOcelot extends EntityTameable {
 	}
 
 	public boolean r(Entity var1) {
-		return var1.damageEntity(DamageSource.a((EntityLiving) this), 3.0F);
+		return var1.damageEntity(DamageSource.mobAttack((EntityLiving) this), 3.0F);
 	}
 
 	public boolean damageEntity(DamageSource var1, float var2) {

@@ -40,7 +40,7 @@ public class class_lb {
          this.a(var1, 64, 20, false);
       } else if(var1 instanceof EntitySmallFireball) {
          this.a(var1, 64, 10, false);
-      } else if(var1 instanceof class_xf) {
+      } else if(var1 instanceof EntityFireball) {
          this.a(var1, 64, 10, false);
       } else if(var1 instanceof EntitySnowball) {
          this.a(var1, 64, 10, true);

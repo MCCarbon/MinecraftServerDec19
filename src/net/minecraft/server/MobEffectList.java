@@ -1,70 +1,72 @@
 package net.minecraft.server;
 
 public class MobEffectList {
-   public static final MobEffectType a;
-   public static final MobEffectType b;
-   public static final MobEffectType c;
-   public static final MobEffectType d;
-   public static final MobEffectType e;
-   public static final MobEffectType f;
-   public static final MobEffectType g;
-   public static final MobEffectType h;
-   public static final MobEffectType i;
-   public static final MobEffectType j;
-   public static final MobEffectType k;
-   public static final MobEffectType l;
-   public static final MobEffectType m;
-   public static final MobEffectType n;
-   public static final MobEffectType o;
-   public static final MobEffectType p;
-   public static final MobEffectType q;
-   public static final MobEffectType r;
-   public static final MobEffectType s;
-   public static final MobEffectType t;
-   public static final MobEffectType u;
-   public static final MobEffectType v;
-   public static final MobEffectType w;
-   public static final MobEffectType x;
-   public static final MobEffectType y;
 
-   private static MobEffectType a(String var0) {
-      MobEffectType var1 = (MobEffectType) MobEffectType.b.get(new MinecraftKey(var0));
-      if(var1 == null) {
-         throw new IllegalStateException("Invalid MobEffect requested: " + var0);
-      } else {
-         return var1;
-      }
-   }
+	public static final MobEffectType FASTER_MOVEMENT;
+	public static final MobEffectType SLOWER_MOVEMENT;
+	public static final MobEffectType FASTER_DIG;
+	public static final MobEffectType SLOWER_DIG;
+	public static final MobEffectType INCREASE_DAMAGE;
+	public static final MobEffectType HEAL;
+	public static final MobEffectType HARM;
+	public static final MobEffectType JUMP;
+	public static final MobEffectType CONFUSION;
+	public static final MobEffectType REGENERATION;
+	public static final MobEffectType RESISTANCE;
+	public static final MobEffectType FIRE_RESISTANCE;
+	public static final MobEffectType WATER_BREATHING;
+	public static final MobEffectType INVISIBILITY;
+	public static final MobEffectType BLINDNESS;
+	public static final MobEffectType NIGHT_VISION;
+	public static final MobEffectType HUNGER;
+	public static final MobEffectType WEAKNESS;
+	public static final MobEffectType POISON;
+	public static final MobEffectType WITHER;
+	public static final MobEffectType HEALTH_BOOST;
+	public static final MobEffectType ABSORBTION;
+	public static final MobEffectType SATURATION;
+	public static final MobEffectType GLOWING;
+	public static final MobEffectType LEVITATION;
 
-   static {
-      if(!Bootstrap.isInitDone()) {
-         throw new RuntimeException("Accessed MobEffects before Bootstrap!");
-      } else {
-         a = a("speed");
-         b = a("slowness");
-         c = a("haste");
-         d = a("mining_fatigue");
-         e = a("strength");
-         f = a("instant_health");
-         g = a("instant_damage");
-         h = a("jump_boost");
-         i = a("nausea");
-         j = a("regeneration");
-         k = a("resistance");
-         l = a("fire_resistance");
-         m = a("water_breathing");
-         n = a("invisibility");
-         o = a("blindness");
-         p = a("night_vision");
-         q = a("hunger");
-         r = a("weakness");
-         s = a("poison");
-         t = a("wither");
-         u = a("health_boost");
-         v = a("absorption");
-         w = a("saturation");
-         x = a("glowing");
-         y = a("levitation");
-      }
-   }
+	private static MobEffectType getByName(String name) {
+		MobEffectType type = MobEffectType.REGISTRY.get(new MinecraftKey(name));
+		if (type == null) {
+			throw new IllegalStateException("Invalid MobEffect requested: " + name);
+		} else {
+			return type;
+		}
+	}
+
+	static {
+		if (!Bootstrap.isInitDone()) {
+			throw new RuntimeException("Accessed MobEffects before Bootstrap!");
+		} else {
+			FASTER_MOVEMENT = getByName("speed");
+			SLOWER_MOVEMENT = getByName("slowness");
+			FASTER_DIG = getByName("haste");
+			SLOWER_DIG = getByName("mining_fatigue");
+			INCREASE_DAMAGE = getByName("strength");
+			HEAL = getByName("instant_health");
+			HARM = getByName("instant_damage");
+			JUMP = getByName("jump_boost");
+			CONFUSION = getByName("nausea");
+			REGENERATION = getByName("regeneration");
+			RESISTANCE = getByName("resistance");
+			FIRE_RESISTANCE = getByName("fire_resistance");
+			WATER_BREATHING = getByName("water_breathing");
+			INVISIBILITY = getByName("invisibility");
+			BLINDNESS = getByName("blindness");
+			NIGHT_VISION = getByName("night_vision");
+			HUNGER = getByName("hunger");
+			WEAKNESS = getByName("weakness");
+			POISON = getByName("poison");
+			WITHER = getByName("wither");
+			HEALTH_BOOST = getByName("health_boost");
+			ABSORBTION = getByName("absorption");
+			SATURATION = getByName("saturation");
+			GLOWING = getByName("glowing");
+			LEVITATION = getByName("levitation");
+		}
+	}
+
 }
