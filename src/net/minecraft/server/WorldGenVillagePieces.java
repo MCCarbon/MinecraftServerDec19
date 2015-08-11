@@ -132,13 +132,13 @@ public class WorldGenVillagePieces {
    private static StructurePiece d(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 50) {
          return null;
-      } else if(Math.abs(var3 - var0.c().a) <= 112 && Math.abs(var5 - var0.c().c) <= 112) {
+      } else if(Math.abs(var3 - var0.c().minX) <= 112 && Math.abs(var5 - var0.c().minZ) <= 112) {
          WorldGenVillagePieces.class_n_in_class_asr var8 = c(var0, var1, var2, var3, var4, var5, var6, var7 + 1);
          if(var8 != null) {
-            int var9 = (var8.l.a + var8.l.d) / 2;
-            int var10 = (var8.l.c + var8.l.f) / 2;
-            int var11 = var8.l.d - var8.l.a;
-            int var12 = var8.l.f - var8.l.c;
+            int var9 = (var8.l.minX + var8.l.maxX) / 2;
+            int var10 = (var8.l.minZ + var8.l.maxZ) / 2;
+            int var11 = var8.l.maxX - var8.l.minX;
+            int var12 = var8.l.maxZ - var8.l.minZ;
             int var13 = var11 > var12?var11:var12;
             if(var0.h().a(var9, var10, var13 / 2 + 4, WorldGenVillage.d)) {
                var1.add(var8);
@@ -156,14 +156,14 @@ public class WorldGenVillagePieces {
    private static StructurePiece e(WorldGenVillagePieces.WorldGenVillageStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 3 + var0.c) {
          return null;
-      } else if(Math.abs(var3 - var0.c().a) <= 112 && Math.abs(var5 - var0.c().c) <= 112) {
+      } else if(Math.abs(var3 - var0.c().minX) <= 112 && Math.abs(var5 - var0.c().minZ) <= 112) {
          StructureBoundingBox var8 = WorldGenVillagePieces.WorldGenVillageRoad.a(var0, var1, var2, var3, var4, var5, var6);
-         if(var8 != null && var8.b > 10) {
+         if(var8 != null && var8.minY > 10) {
             WorldGenVillagePieces.WorldGenVillageRoad var9 = new WorldGenVillagePieces.WorldGenVillageRoad(var0, var7, var2, var8, var6);
-            int var10 = (var9.l.a + var9.l.d) / 2;
-            int var11 = (var9.l.c + var9.l.f) / 2;
-            int var12 = var9.l.d - var9.l.a;
-            int var13 = var9.l.f - var9.l.c;
+            int var10 = (var9.l.minX + var9.l.maxX) / 2;
+            int var11 = (var9.l.minZ + var9.l.maxZ) / 2;
+            int var12 = var9.l.maxX - var9.l.minX;
+            int var13 = var9.l.maxZ - var9.l.minZ;
             int var14 = var12 > var13?var12:var13;
             if(var0.h().a(var10, var11, var14 / 2 + 4, WorldGenVillage.d)) {
                var1.add(var9);
@@ -233,7 +233,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 4 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 4 - 1, 0);
          }
 
          this.a(var1, var3, 0, 0, 0, 2, 3, 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -311,7 +311,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 4 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 4 - 1, 0);
          }
 
          this.a(var1, var3, 0, 1, 0, 12, 4, 8, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -413,7 +413,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 4 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 4 - 1, 0);
          }
 
          this.a(var1, var3, 0, 1, 0, 6, 4, 8, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -484,7 +484,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 6 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 6 - 1, 0);
          }
 
          this.a(var1, var3, 0, 1, 0, 9, 4, 6, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -576,7 +576,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 7 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 7 - 1, 0);
          }
 
          this.a(var1, var3, 1, 1, 1, 7, 4, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -713,7 +713,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 7 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 7 - 1, 0);
          }
 
          this.a(var1, var3, 1, 1, 1, 7, 4, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -838,7 +838,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 6 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 6 - 1, 0);
          }
 
          this.a(var1, var3, 1, 1, 1, 3, 5, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -916,7 +916,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 9 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 9 - 1, 0);
          }
 
          this.a(var1, var3, 1, 1, 1, 7, 5, 4, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -1023,7 +1023,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 12 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 12 - 1, 0);
          }
 
          this.a(var1, var3, 1, 1, 1, 3, 3, 7, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
@@ -1140,7 +1140,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 6 - 1, 0);
+            this.l.a(0, this.h - this.l.maxY + 6 - 1, 0);
          }
 
          this.a(var1, var3, 0, 0, 0, 4, 0, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.COBBLESTONE.getBlockData(), false);
@@ -1227,7 +1227,7 @@ public class WorldGenVillagePieces {
          super(var1, var2);
          this.a(var5);
          this.l = var4;
-         this.a = Math.max(var4.c(), var4.e());
+         this.a = Math.max(var4.getXLength(), var4.getZLength());
       }
 
       protected void a(NBTTagCompound var1) {
@@ -1248,7 +1248,7 @@ public class WorldGenVillagePieces {
          for(var5 = var3.nextInt(5); var5 < this.a - 8; var5 += 2 + var3.nextInt(5)) {
             var6 = this.a((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, 0, var5);
             if(var6 != null) {
-               var5 += Math.max(var6.l.c(), var6.l.e());
+               var5 += Math.max(var6.l.getXLength(), var6.l.getZLength());
                var4 = true;
             }
          }
@@ -1256,7 +1256,7 @@ public class WorldGenVillagePieces {
          for(var5 = var3.nextInt(5); var5 < this.a - 8; var5 += 2 + var3.nextInt(5)) {
             var6 = this.b((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, 0, var5);
             if(var6 != null) {
-               var5 += Math.max(var6.l.c(), var6.l.e());
+               var5 += Math.max(var6.l.getXLength(), var6.l.getZLength());
                var4 = true;
             }
          }
@@ -1265,32 +1265,32 @@ public class WorldGenVillagePieces {
          if(var4 && var3.nextInt(3) > 0 && var7 != null) {
             switch(WorldGenVillagePieces.SyntheticClass_1.a[var7.ordinal()]) {
             case 1:
-               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a - 1, this.l.b, this.l.c, EnumDirection.WEST, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.minX - 1, this.l.minY, this.l.minZ, EnumDirection.WEST, this.d());
                break;
             case 2:
-               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a - 1, this.l.b, this.l.f - 2, EnumDirection.WEST, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.minX - 1, this.l.minY, this.l.maxZ - 2, EnumDirection.WEST, this.d());
                break;
             case 3:
-               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a, this.l.b, this.l.c - 1, EnumDirection.NORTH, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.minX, this.l.minY, this.l.minZ - 1, EnumDirection.NORTH, this.d());
                break;
             case 4:
-               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d - 2, this.l.b, this.l.c - 1, EnumDirection.NORTH, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.maxX - 2, this.l.minY, this.l.minZ - 1, EnumDirection.NORTH, this.d());
             }
          }
 
          if(var4 && var3.nextInt(3) > 0 && var7 != null) {
             switch(WorldGenVillagePieces.SyntheticClass_1.a[var7.ordinal()]) {
             case 1:
-               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d + 1, this.l.b, this.l.c, EnumDirection.EAST, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.maxX + 1, this.l.minY, this.l.minZ, EnumDirection.EAST, this.d());
                break;
             case 2:
-               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d + 1, this.l.b, this.l.f - 2, EnumDirection.EAST, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.maxX + 1, this.l.minY, this.l.maxZ - 2, EnumDirection.EAST, this.d());
                break;
             case 3:
-               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a, this.l.b, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.minX, this.l.minY, this.l.maxZ + 1, EnumDirection.SOUTH, this.d());
                break;
             case 4:
-               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d - 2, this.l.b, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.maxX - 2, this.l.minY, this.l.maxZ + 1, EnumDirection.SOUTH, this.d());
             }
          }
 
@@ -1311,8 +1311,8 @@ public class WorldGenVillagePieces {
          IBlockData var4 = this.a(Blocks.GRAVEL.getBlockData());
          IBlockData var5 = this.a(Blocks.COBBLESTONE.getBlockData());
 
-         for(int var6 = this.l.a; var6 <= this.l.d; ++var6) {
-            for(int var7 = this.l.c; var7 <= this.l.f; ++var7) {
+         for(int var6 = this.l.minX; var6 <= this.l.maxX; ++var6) {
+            for(int var7 = this.l.minZ; var7 <= this.l.maxZ; ++var7) {
                BlockPosition var8 = new BlockPosition(var6, 64, var7);
                if(var3.b((BaseBlockPosition)var8)) {
                   var8 = var1.r(var8).down();
@@ -1378,10 +1378,10 @@ public class WorldGenVillagePieces {
       }
 
       public void a(StructurePiece var1, List var2, Random var3) {
-         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a - 1, this.l.e - 4, this.l.c + 1, EnumDirection.WEST, this.d());
-         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.d + 1, this.l.e - 4, this.l.c + 1, EnumDirection.EAST, this.d());
-         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a + 1, this.l.e - 4, this.l.c - 1, EnumDirection.NORTH, this.d());
-         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.a + 1, this.l.e - 4, this.l.f + 1, EnumDirection.SOUTH, this.d());
+         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.minX - 1, this.l.maxY - 4, this.l.minZ + 1, EnumDirection.WEST, this.d());
+         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.maxX + 1, this.l.maxY - 4, this.l.minZ + 1, EnumDirection.EAST, this.d());
+         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.minX + 1, this.l.maxY - 4, this.l.minZ - 1, EnumDirection.NORTH, this.d());
+         WorldGenVillagePieces.e((WorldGenVillagePieces.WorldGenVillageStart)var1, var2, var3, this.l.minX + 1, this.l.maxY - 4, this.l.maxZ + 1, EnumDirection.SOUTH, this.d());
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
@@ -1391,7 +1391,7 @@ public class WorldGenVillagePieces {
                return true;
             }
 
-            this.l.a(0, this.h - this.l.e + 3, 0);
+            this.l.a(0, this.h - this.l.maxY + 3, 0);
          }
 
          this.a(var1, var3, 1, 0, 1, 4, 12, 4, Blocks.COBBLESTONE.getBlockData(), Blocks.FLOWING_WATER.getBlockData(), false);
@@ -1455,13 +1455,13 @@ public class WorldGenVillagePieces {
          if(var6 != null) {
             switch(WorldGenVillagePieces.SyntheticClass_1.a[var6.ordinal()]) {
             case 1:
-               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.minX - 1, this.l.minY + var4, this.l.minZ + var5, EnumDirection.WEST, this.d());
             case 2:
-               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.minX - 1, this.l.minY + var4, this.l.minZ + var5, EnumDirection.WEST, this.d());
             case 3:
-               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.minX + var5, this.l.minY + var4, this.l.minZ - 1, EnumDirection.NORTH, this.d());
             case 4:
-               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.minX + var5, this.l.minY + var4, this.l.minZ - 1, EnumDirection.NORTH, this.d());
             }
          }
 
@@ -1473,13 +1473,13 @@ public class WorldGenVillagePieces {
          if(var6 != null) {
             switch(WorldGenVillagePieces.SyntheticClass_1.a[var6.ordinal()]) {
             case 1:
-               return WorldGenVillagePieces.d(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.maxX + 1, this.l.minY + var4, this.l.minZ + var5, EnumDirection.EAST, this.d());
             case 2:
-               return WorldGenVillagePieces.d(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.maxX + 1, this.l.minY + var4, this.l.minZ + var5, EnumDirection.EAST, this.d());
             case 3:
-               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.minX + var5, this.l.minY + var4, this.l.maxZ + 1, EnumDirection.SOUTH, this.d());
             case 4:
-               return WorldGenVillagePieces.d(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               return WorldGenVillagePieces.d(var1, var2, var3, this.l.minX + var5, this.l.minY + var4, this.l.maxZ + 1, EnumDirection.SOUTH, this.d());
             }
          }
 
@@ -1491,8 +1491,8 @@ public class WorldGenVillagePieces {
          int var4 = 0;
          BlockPosition.MutableBlockPosition var5 = new BlockPosition.MutableBlockPosition();
 
-         for(int var6 = this.l.c; var6 <= this.l.f; ++var6) {
-            for(int var7 = this.l.a; var7 <= this.l.d; ++var7) {
+         for(int var6 = this.l.minZ; var6 <= this.l.maxZ; ++var6) {
+            for(int var7 = this.l.minX; var7 <= this.l.maxX; ++var7) {
                var5.setPosition(var7, 64, var6);
                if(var2.b((BaseBlockPosition)var5)) {
                   var3 += Math.max(var1.r(var5).getY(), var1.worldProvider.i());
@@ -1509,7 +1509,7 @@ public class WorldGenVillagePieces {
       }
 
       protected static boolean a(StructureBoundingBox var0) {
-         return var0 != null && var0.b > 10;
+         return var0 != null && var0.minY > 10;
       }
 
       protected void a(World var1, StructureBoundingBox var2, int var3, int var4, int var5, int var6) {

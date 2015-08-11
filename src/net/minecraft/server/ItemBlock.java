@@ -52,7 +52,7 @@ public class ItemBlock extends Item {
 			if (var3.hasTag() && var3.getTag().hasOfType("BlockEntityTag", 10)) {
 				TileEntity var5 = var0.getTileEntity(var2);
 				if (var5 != null) {
-					if (!var0.isClientSide && var5.F() && !var4.getPlayerList().h(var1.cf())) {
+					if (!var0.isClientSide && var5.doNotCopyNBTDataToItem() && !var4.getPlayerList().h(var1.cf())) {
 						return false;
 					}
 

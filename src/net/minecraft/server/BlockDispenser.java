@@ -137,7 +137,7 @@ public class BlockDispenser extends BlockContainer {
 		TileEntity var4 = var1.getTileEntity(var2);
 		if (var4 instanceof TileEntityDispenser) {
 			class_ol.a(var1, var2, (TileEntityDispenser) var4);
-			var1.e(var2, this);
+			var1.updateAdjacentComparators(var2, this);
 		}
 
 		super.remove(var1, var2, var3);

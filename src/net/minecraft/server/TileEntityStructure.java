@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import net.minecraft.server.BlockPosition.MutableBlockPosition;
+
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
@@ -27,115 +29,114 @@ public class TileEntityStructure extends TileEntity {
 	}
 
 	@Override
-	public void write(NBTTagCompound var1) {
-		super.write(var1);
-		var1.put("name", name);
-		var1.put("author", author);
-		var1.put("metadata", metadata);
-		var1.put("posX", pos.getX());
-		var1.put("posY", pos.getY());
-		var1.put("posZ", pos.getZ());
-		var1.put("sizeX", size.getX());
-		var1.put("sizeY", size.getY());
-		var1.put("sizeZ", size.getZ());
-		var1.put("rotation", rotation.toString());
-		var1.put("mirror", mirror.toString());
-		var1.put("mode", mode.toString());
-		var1.put("ignoreEntities", ignoreEntities);
+	public void write(NBTTagCompound compound) {
+		super.write(compound);
+		compound.put("name", name);
+		compound.put("author", author);
+		compound.put("metadata", metadata);
+		compound.put("posX", pos.getX());
+		compound.put("posY", pos.getY());
+		compound.put("posZ", pos.getZ());
+		compound.put("sizeX", size.getX());
+		compound.put("sizeY", size.getY());
+		compound.put("sizeZ", size.getZ());
+		compound.put("rotation", rotation.toString());
+		compound.put("mirror", mirror.toString());
+		compound.put("mode", mode.toString());
+		compound.put("ignoreEntities", ignoreEntities);
 	}
 
 	@Override
-	public void read(NBTTagCompound var1) {
-		super.read(var1);
-		name = var1.getString("name");
-		author = var1.getString("author");
-		metadata = var1.getString("metadata");
-		pos = new BlockPosition(var1.getInt("posX"), var1.getInt("posY"), var1.getInt("posZ"));
-		size = new BlockPosition(var1.getInt("sizeX"), var1.getInt("sizeY"), var1.getInt("sizeZ"));
+	public void read(NBTTagCompound compound) {
+		super.read(compound);
+		name = compound.getString("name");
+		author = compound.getString("author");
+		metadata = compound.getString("metadata");
+		pos = new BlockPosition(compound.getInt("posX"), compound.getInt("posY"), compound.getInt("posZ"));
+		size = new BlockPosition(compound.getInt("sizeX"), compound.getInt("sizeY"), compound.getInt("sizeZ"));
 
 		try {
-			rotation = Block.EnumRotation.valueOf(var1.getString("rotation"));
+			rotation = Block.EnumRotation.valueOf(compound.getString("rotation"));
 		} catch (IllegalArgumentException var5) {
 			rotation = Block.EnumRotation.NONE;
 		}
 
 		try {
-			mirror = Block.class_a_in_class_agj.valueOf(var1.getString("mirror"));
+			mirror = Block.class_a_in_class_agj.valueOf(compound.getString("mirror"));
 		} catch (IllegalArgumentException var4) {
 			mirror = Block.class_a_in_class_agj.NONE;
 		}
 
 		try {
-			mode = TileEntityStructure.EnumMode.valueOf(var1.getString("mode"));
+			mode = TileEntityStructure.EnumMode.valueOf(compound.getString("mode"));
 		} catch (IllegalArgumentException var3) {
 			mode = TileEntityStructure.EnumMode.DATA;
 		}
 
-		ignoreEntities = var1.getBoolean("ignoreEntities");
+		ignoreEntities = compound.getBoolean("ignoreEntities");
 	}
 
 	@Override
 	public Packet<? extends PacketListener> getUpdatePacket() {
-		NBTTagCompound var1 = new NBTTagCompound();
-		write(var1);
-		return new PacketPlayOutTileEntityData(position, 7, var1);
+		NBTTagCompound compound = new NBTTagCompound();
+		write(compound);
+		return new PacketPlayOutTileEntityData(position, 7, compound);
 	}
 
-	public void a(String var1) {
-		name = var1;
+	public void setName(String name) {
+		this.name = name;
 	}
 
-	public void b(BlockPosition var1) {
-		pos = var1;
+	public void setPos(BlockPosition pos) {
+		this.pos = pos;
 	}
 
-	public void c(BlockPosition var1) {
-		size = var1;
+	public void setSize(BlockPosition size) {
+		this.size = size;
 	}
 
-	public void a(Block.class_a_in_class_agj var1) {
-		mirror = var1;
+	public void setMirror(Block.class_a_in_class_agj mirror) {
+		this.mirror = mirror;
 	}
 
-	public void a(Block.EnumRotation var1) {
-		rotation = var1;
+	public void setRotation(Block.EnumRotation rotation) {
+		this.rotation = rotation;
 	}
 
-	public void b(String var1) {
-		metadata = var1;
+	public void setMetadata(String metadata) {
+		this.metadata = metadata;
 	}
 
-	public void a(TileEntityStructure.EnumMode var1) {
-		mode = var1;
-		IBlockData var2 = world.getType(getPosition());
-		if (var2.getBlock() == Blocks.STRUCTURE_BLOCK) {
-			world.setTypeAndData(getPosition(), var2.set(BlockStructureBlock.MODE, var1), 2);
+	public void setMode(EnumMode mode) {
+		this.mode = mode;
+		IBlockData blockdata = world.getType(getPosition());
+		if (blockdata.getBlock() == Blocks.STRUCTURE_BLOCK) {
+			world.setTypeAndData(getPosition(), blockdata.set(BlockStructureBlock.MODE, mode), 2);
 		}
-
 	}
 
-	public void a(boolean var1) {
-		ignoreEntities = var1;
+	public void setIgnoreEntities(boolean ignoreEntities) {
+		this.ignoreEntities = ignoreEntities;
 	}
 
-	public boolean l() {
+	public boolean updateStructureSize() {
 		if (mode != TileEntityStructure.EnumMode.SAVE) {
 			return false;
 		} else {
-			BlockPosition var1 = getPosition();
-			BlockPosition var3 = new BlockPosition(var1.getX() - 128, 0, var1.getZ() - 128);
-			BlockPosition var4 = new BlockPosition(var1.getX() + 128, 255, var1.getZ() + 128);
-			List<TileEntityStructure> var5 = this.a(var3, var4);
-			List<TileEntityStructure> var6 = this.a(var5);
-			if (var6.size() < 1) {
+			BlockPosition lpos = getPosition();
+			BlockPosition min = new BlockPosition(lpos.getX() - 128, 0, lpos.getZ() - 128);
+			BlockPosition max = new BlockPosition(lpos.getX() + 128, 255, lpos.getZ() + 128);
+			List<TileEntityStructure> structuresInCube = this.getStructureBlocksInCube(min, max);
+			List<TileEntityStructure> filtered = this.filterSameAsThis(structuresInCube);
+			if (filtered.size() < 1) {
 				return false;
 			} else {
-				StructureBoundingBox var7 = this.a(var1, var6);
-				if (((var7.d - var7.a) > 1) && ((var7.e - var7.b) > 1) && ((var7.f - var7.c) > 1)) {
-					pos = new BlockPosition((var7.a - var1.getX()) + 1, (var7.b - var1.getY()) + 1, (var7.c - var1.getZ()) + 1);
-					size = new BlockPosition(var7.d - var7.a - 1, var7.e - var7.b - 1, var7.f - var7.c - 1);
-					update();
-					world.notify(var1);
+				StructureBoundingBox stuctureBB = this.getStructureBoundingBox(lpos, filtered);
+				if (((stuctureBB.maxX - stuctureBB.minX) > 1) && ((stuctureBB.maxY - stuctureBB.minY) > 1) && ((stuctureBB.maxZ - stuctureBB.minZ) > 1)) {
+					this.pos = new BlockPosition((stuctureBB.minX - lpos.getX()) + 1, (stuctureBB.minY - lpos.getY()) + 1, (stuctureBB.minZ - lpos.getZ()) + 1);
+					this.size = new BlockPosition(stuctureBB.maxX - stuctureBB.minX - 1, stuctureBB.maxY - stuctureBB.minY - 1, stuctureBB.maxZ - stuctureBB.minZ - 1);
+					this.update();
+					this.world.notify(lpos);
 					return true;
 				} else {
 					return false;
@@ -144,71 +145,66 @@ public class TileEntityStructure extends TileEntity {
 		}
 	}
 
-	private List<TileEntityStructure> a(List<TileEntityStructure> var1) {
-		Iterable<TileEntityStructure> var2 = Iterables.filter(var1, (new Predicate<TileEntityStructure>() {
+	private List<TileEntityStructure> filterSameAsThis(List<TileEntityStructure> var1) {
+		Iterable<TileEntityStructure> iterable = Iterables.filter(var1, (new Predicate<TileEntityStructure>() {
 			@Override
-			public boolean apply(TileEntityStructure var1) {
-				return (var1.mode == TileEntityStructure.EnumMode.CORNER) && name.equals(var1.name);
+			public boolean apply(TileEntityStructure structure) {
+				return (structure.mode == EnumMode.CORNER) && name.equals(structure.name);
 			}
 		}));
-		return Lists.newArrayList(var2);
+		return Lists.newArrayList(iterable);
 	}
 
-	private List<TileEntityStructure> a(BlockPosition var1, BlockPosition var2) {
-		ArrayList<TileEntityStructure> var3 = Lists.newArrayList();
-		Iterator<?> var4 = BlockPosition.allInCubeM(var1, var2).iterator();
+	private List<TileEntityStructure> getStructureBlocksInCube(BlockPosition min, BlockPosition max) {
+		ArrayList<TileEntityStructure> structureblocks = Lists.newArrayList();
 
-		while (var4.hasNext()) {
-			BlockPosition.MutableBlockPosition var5 = (BlockPosition.MutableBlockPosition) var4.next();
-			IBlockData var6 = world.getType(var5);
-			if (var6.getBlock() == Blocks.STRUCTURE_BLOCK) {
-				TileEntity var7 = world.getTileEntity(var5);
-				if ((var7 != null) && (var7 instanceof TileEntityStructure)) {
-					var3.add((TileEntityStructure) var7);
+		for (MutableBlockPosition position : BlockPosition.allInCubeM(min, max)) {
+			IBlockData blockdata = world.getType(position);
+			if (blockdata.getBlock() == Blocks.STRUCTURE_BLOCK) {
+				TileEntity tileentity = world.getTileEntity(position);
+				if (tileentity instanceof TileEntityStructure) {
+					structureblocks.add((TileEntityStructure) tileentity);
 				}
 			}
 		}
 
-		return var3;
+		return structureblocks;
 	}
 
-	private StructureBoundingBox a(BlockPosition var1, List<TileEntityStructure> var2) {
-		StructureBoundingBox var3;
-		if (var2.size() > 1) {
-			BlockPosition var4 = var2.get(0).getPosition();
-			var3 = new StructureBoundingBox(var4, var4);
+	private StructureBoundingBox getStructureBoundingBox(BlockPosition mainpos, List<TileEntityStructure> stuctures) {
+		StructureBoundingBox structbb;
+		if (stuctures.size() > 1) {
+			BlockPosition realpos = stuctures.get(0).getPosition();
+			structbb = new StructureBoundingBox(realpos, realpos);
 		} else {
-			var3 = new StructureBoundingBox(var1, var1);
+			structbb = new StructureBoundingBox(mainpos, mainpos);
 		}
 
-		Iterator<TileEntityStructure> var7 = var2.iterator();
-
-		while (var7.hasNext()) {
-			TileEntityStructure var5 = var7.next();
-			BlockPosition var6 = var5.getPosition();
-			if (var6.getX() < var3.a) {
-				var3.a = var6.getX();
-			} else if (var6.getX() > var3.d) {
-				var3.d = var6.getX();
+		for (TileEntityStructure structure : stuctures) {
+			BlockPosition structurePosition = structure.getPosition();
+			if (structurePosition.getX() < structbb.minX) {
+				structbb.minX = structurePosition.getX();
+			} else if (structurePosition.getX() > structbb.maxX) {
+				structbb.maxX = structurePosition.getX();
 			}
 
-			if (var6.getY() < var3.b) {
-				var3.b = var6.getY();
-			} else if (var6.getY() > var3.e) {
-				var3.e = var6.getY();
+			if (structurePosition.getY() < structbb.minY) {
+				structbb.minY = structurePosition.getY();
+			} else if (structurePosition.getY() > structbb.maxY) {
+				structbb.maxY = structurePosition.getY();
 			}
 
-			if (var6.getZ() < var3.c) {
-				var3.c = var6.getZ();
-			} else if (var6.getZ() > var3.f) {
-				var3.f = var6.getZ();
+			if (structurePosition.getZ() < structbb.minZ) {
+				structbb.minZ = structurePosition.getZ();
+			} else if (structurePosition.getZ() > structbb.maxZ) {
+				structbb.maxZ = structurePosition.getZ();
 			}
 		}
 
-		return var3;
+		return structbb;
 	}
 
-	public boolean m() {
+	public boolean saveStructure() {
 		if (mode != TileEntityStructure.EnumMode.SAVE) {
 			return false;
 		} else {
@@ -222,7 +218,7 @@ public class TileEntityStructure extends TileEntity {
 		}
 	}
 
-	public boolean n() {
+	public boolean loadStucture() {
 		if (mode != TileEntityStructure.EnumMode.LOAD) {
 			return false;
 		} else {
@@ -255,7 +251,13 @@ public class TileEntityStructure extends TileEntity {
 	public static enum EnumMode implements INamable {
 		SAVE("save", 0), LOAD("load", 1), CORNER("corner", 2), DATA("data", 3);
 
-		private static final TileEntityStructure.EnumMode[] BY_ID;
+		private static final TileEntityStructure.EnumMode[] BY_ID = new TileEntityStructure.EnumMode[values().length];
+		static {
+			for (EnumMode mode : values()) {
+				BY_ID[mode.getId()] = mode;
+			}
+		}
+
 		private final String name;
 		private final int id;
 
@@ -273,24 +275,12 @@ public class TileEntityStructure extends TileEntity {
 			return id;
 		}
 
-		public static TileEntityStructure.EnumMode getById(int var0) {
-			if ((var0 < 0) || (var0 >= BY_ID.length)) {
-				var0 = 0;
+		public static TileEntityStructure.EnumMode getById(int id) {
+			if ((id < 0) || (id >= BY_ID.length)) {
+				id = 0;
 			}
 
-			return BY_ID[var0];
-		}
-
-		static {
-			BY_ID = new TileEntityStructure.EnumMode[values().length];
-			TileEntityStructure.EnumMode[] var0 = values();
-			int var1 = var0.length;
-
-			for (int var2 = 0; var2 < var1; ++var2) {
-				TileEntityStructure.EnumMode var3 = var0[var2];
-				BY_ID[var3.getId()] = var3;
-			}
-
+			return BY_ID[id];
 		}
 
 	}

@@ -56,11 +56,11 @@ public class BlockPiston extends class_ahi {
 		boolean var5 = this.a(var1, var2, var4);
 		if (var5 && !var3.get(EXTENDED).booleanValue()) {
 			if ((new class_ani(var1, var2, var4, true)).a()) {
-				var1.c(var2, this, 0, var4.getId());
+				var1.playBlockAction(var2, this, 0, var4.getId());
 			}
 		} else if (!var5 && var3.get(EXTENDED).booleanValue()) {
 			var1.setTypeAndData(var2, var3.set(EXTENDED, Boolean.valueOf(false)), 2);
-			var1.c(var2, this, 1, var4.getId());
+			var1.playBlockAction(var2, this, 1, var4.getId());
 		}
 
 	}
@@ -313,16 +313,16 @@ public class BlockPiston extends class_ahi {
 
 			int var19;
 			for (var19 = var7.size() - 1; var19 >= 0; --var19) {
-				var1.c((BlockPosition) var7.get(var19), var9[var8++]);
+				var1.applyPhysics((BlockPosition) var7.get(var19), var9[var8++]);
 			}
 
 			for (var19 = var6.size() - 1; var19 >= 0; --var19) {
-				var1.c((BlockPosition) var6.get(var19), var9[var8++]);
+				var1.applyPhysics((BlockPosition) var6.get(var19), var9[var8++]);
 			}
 
 			if (var4) {
-				var1.c(var16, Blocks.PISTON_HEAD);
-				var1.c(var2, this);
+				var1.applyPhysics(var16, Blocks.PISTON_HEAD);
+				var1.applyPhysics(var2, this);
 			}
 
 			return true;

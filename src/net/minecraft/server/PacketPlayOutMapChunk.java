@@ -21,8 +21,8 @@ public class PacketPlayOutMapChunk implements Packet {
    }
 
    public PacketPlayOutMapChunk(Chunk var1, boolean var2, int var3) {
-      this.a = var1.a;
-      this.b = var1.b;
+      this.a = var1.locX;
+      this.b = var1.locZ;
       this.d = var2;
       this.c = a(var1, var2, !var1.p().worldProvider.m(), var3);
    }
@@ -57,7 +57,7 @@ public class PacketPlayOutMapChunk implements Packet {
    }
 
    public static PacketPlayOutMapChunk.class_a_in_class_go a(Chunk var0, boolean var1, boolean var2, int var3) {
-      ChunkSection[] var4 = var0.h();
+      ChunkSection[] var4 = var0.getSections();
       PacketPlayOutMapChunk.class_a_in_class_go var5 = new PacketPlayOutMapChunk.class_a_in_class_go();
       ArrayList var6 = Lists.newArrayList();
 

@@ -126,7 +126,7 @@ public class BlockHopper extends BlockContainer {
       TileEntity var4 = var1.getTileEntity(var2);
       if(var4 instanceof TileEntityHopper) {
          class_ol.a(var1, (BlockPosition)var2, (TileEntityHopper)var4);
-         var1.e(var2, this);
+         var1.updateAdjacentComparators(var2, this);
       }
 
       super.remove(var1, var2, var3);

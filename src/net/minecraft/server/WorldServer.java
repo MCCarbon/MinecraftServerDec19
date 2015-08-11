@@ -262,7 +262,7 @@ public class WorldServer extends World implements class_of {
             this.B.c("tickBlocks");
             var8 = this.R().getIntValue("randomTickSpeed");
             if(var8 > 0) {
-               ChunkSection[] var22 = var7.h();
+               ChunkSection[] var22 = var7.getSections();
                int var23 = var22.length;
 
                for(int var11 = 0; var11 < var23; ++var11) {
@@ -279,7 +279,7 @@ public class WorldServer extends World implements class_of {
                         Block var19 = var18.getBlock();
                         if(var19.isTicking()) {
                            ++var1;
-                           var19.randomTick((World)this, new BlockPosition(var15 + var5, var17 + var12.d(), var16 + var6), (IBlockData)var18, (Random)this.random);
+                           var19.randomTick((World)this, new BlockPosition(var15 + var5, var17 + var12.getYPosition(), var16 + var6), (IBlockData)var18, (Random)this.random);
                         }
                      }
                   }
@@ -460,7 +460,7 @@ public class WorldServer extends World implements class_of {
          while(var5.hasNext()) {
             class_aex var6 = (class_aex)var5.next();
             BlockPosition var7 = var6.a;
-            if(var7.getX() >= var1.a && var7.getX() < var1.d && var7.getZ() >= var1.c && var7.getZ() < var1.f) {
+            if(var7.getX() >= var1.minX && var7.getX() < var1.maxX && var7.getZ() >= var1.minZ && var7.getZ() < var1.maxZ) {
                if(var2) {
                   this.L.remove(var6);
                   var5.remove();
@@ -638,8 +638,8 @@ public class WorldServer extends World implements class_of {
 
          while(var4.hasNext()) {
             Chunk var5 = (Chunk)var4.next();
-            if(var5 != null && !this.K.a(var5.a, var5.b)) {
-               this.b.b(var5.a, var5.b);
+            if(var5 != null && !this.K.a(var5.locX, var5.locZ)) {
+               this.b.b(var5.locX, var5.locZ);
             }
          }
 
@@ -762,7 +762,7 @@ public class WorldServer extends World implements class_of {
       return var11;
    }
 
-   public void c(BlockPosition var1, Block var2, int var3, int var4) {
+   public void playBlockAction(BlockPosition var1, Block var2, int var3, int var4) {
       class_aef var5 = new class_aef(var1, var2, var3, var4);
       Iterator var6 = this.S[this.T].iterator();
 

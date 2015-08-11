@@ -56,7 +56,7 @@ public class TileEntityCommand extends TileEntity {
 	}
 
 	@Override
-	public boolean F() {
+	public boolean doNotCopyNBTDataToItem() {
 		return true;
 	}
 

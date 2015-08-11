@@ -119,12 +119,12 @@ public abstract class BlockMinecartTrackAbstract extends Block {
 	public void remove(World var1, BlockPosition var2, IBlockData var3) {
 		super.remove(var1, var2, var3);
 		if (var3.get(n()).isAscending()) {
-			var1.c(var2.up(), this);
+			var1.applyPhysics(var2.up(), this);
 		}
 
 		if (a) {
-			var1.c(var2, this);
-			var1.c(var2.down(), this);
+			var1.applyPhysics(var2, this);
+			var1.applyPhysics(var2.down(), this);
 		}
 
 	}

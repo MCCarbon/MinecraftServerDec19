@@ -66,7 +66,7 @@ public class BlockRedstoneWire extends Block {
 
       while(var5.hasNext()) {
          BlockPosition var6 = (BlockPosition)var5.next();
-         var1.c((BlockPosition)var6, (Block)this);
+         var1.applyPhysics((BlockPosition)var6, (Block)this);
       }
 
       return var3;
@@ -139,13 +139,13 @@ public class BlockRedstoneWire extends Block {
 
    private void e(World var1, BlockPosition var2) {
       if(var1.getType(var2).getBlock() == this) {
-         var1.c((BlockPosition)var2, (Block)this);
+         var1.applyPhysics((BlockPosition)var2, (Block)this);
          EnumDirection[] var3 = EnumDirection.values();
          int var4 = var3.length;
 
          for(int var5 = 0; var5 < var4; ++var5) {
             EnumDirection var6 = var3[var5];
-            var1.c((BlockPosition)var2.shift(var6), (Block)this);
+            var1.applyPhysics((BlockPosition)var2.shift(var6), (Block)this);
          }
 
       }
@@ -159,7 +159,7 @@ public class BlockRedstoneWire extends Block {
          EnumDirection var5;
          while(var4.hasNext()) {
             var5 = (EnumDirection)var4.next();
-            var1.c((BlockPosition)var2.shift(var5), (Block)this);
+            var1.applyPhysics((BlockPosition)var2.shift(var5), (Block)this);
          }
 
          var4 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
@@ -192,7 +192,7 @@ public class BlockRedstoneWire extends Block {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             EnumDirection var7 = var4[var6];
-            var1.c((BlockPosition)var2.shift(var7), (Block)this);
+            var1.applyPhysics((BlockPosition)var2.shift(var7), (Block)this);
          }
 
          this.e(var1, var2, var3);

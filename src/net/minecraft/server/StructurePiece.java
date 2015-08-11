@@ -21,7 +21,7 @@ public abstract class StructurePiece {
    public final NBTTagCompound b() {
       NBTTagCompound var1 = new NBTTagCompound();
       var1.put("id", WorldGenFactory.a(this));
-      var1.put((String)"BB", (NBTTag)this.l.g());
+      var1.put((String)"BB", (NBTTag)this.l.toNBT());
       EnumDirection var2 = this.e();
       var1.put("O", var2 == null?-1:var2.getHorizontalId());
       var1.put("GD", this.m);
@@ -73,16 +73,16 @@ public abstract class StructurePiece {
    }
 
    public BlockPosition a() {
-      return new BlockPosition(this.l.f());
+      return new BlockPosition(this.l.getCenter());
    }
 
    protected boolean a(World var1, StructureBoundingBox var2) {
-      int var3 = Math.max(this.l.a - 1, var2.a);
-      int var4 = Math.max(this.l.b - 1, var2.b);
-      int var5 = Math.max(this.l.c - 1, var2.c);
-      int var6 = Math.min(this.l.d + 1, var2.d);
-      int var7 = Math.min(this.l.e + 1, var2.e);
-      int var8 = Math.min(this.l.f + 1, var2.f);
+      int var3 = Math.max(this.l.minX - 1, var2.minX);
+      int var4 = Math.max(this.l.minY - 1, var2.minY);
+      int var5 = Math.max(this.l.minZ - 1, var2.minZ);
+      int var6 = Math.min(this.l.maxX + 1, var2.maxX);
+      int var7 = Math.min(this.l.maxY + 1, var2.maxY);
+      int var8 = Math.min(this.l.maxZ + 1, var2.maxZ);
       BlockPosition.MutableBlockPosition var9 = new BlockPosition.MutableBlockPosition();
 
       int var10;
@@ -134,11 +134,11 @@ public abstract class StructurePiece {
          switch(StructurePiece.SyntheticClass_1.a[var3.ordinal()]) {
          case 1:
          case 2:
-            return this.l.a + var1;
+            return this.l.minX + var1;
          case 3:
-            return this.l.d - var2;
+            return this.l.maxX - var2;
          case 4:
-            return this.l.a + var2;
+            return this.l.minX + var2;
          default:
             return var1;
          }
@@ -146,7 +146,7 @@ public abstract class StructurePiece {
    }
 
    protected int d(int var1) {
-      return this.e() == null?var1:var1 + this.l.b;
+      return this.e() == null?var1:var1 + this.l.minY;
    }
 
    protected int b(int var1, int var2) {
@@ -156,12 +156,12 @@ public abstract class StructurePiece {
       } else {
          switch(StructurePiece.SyntheticClass_1.a[var3.ordinal()]) {
          case 1:
-            return this.l.f - var2;
+            return this.l.maxZ - var2;
          case 2:
-            return this.l.c + var2;
+            return this.l.minZ + var2;
          case 3:
          case 4:
-            return this.l.c + var1;
+            return this.l.minZ + var1;
          default:
             return var2;
          }

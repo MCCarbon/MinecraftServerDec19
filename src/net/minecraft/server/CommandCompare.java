@@ -37,10 +37,10 @@ public class CommandCompare extends CommandAbstract {
          BlockPosition var5 = a(var1, var2, 6, false);
          StructureBoundingBox var6 = new StructureBoundingBox(var3, var4);
          StructureBoundingBox var7 = new StructureBoundingBox(var5, var5.add(var6.b()));
-         int var8 = var6.c() * var6.d() * var6.e();
+         int var8 = var6.getXLength() * var6.getYLength() * var6.getZLength();
          if(var8 > 524288) {
             throw new class_bz("commands.compare.tooManyBlocks", new Object[]{Integer.valueOf(var8), Integer.valueOf(524288)});
-         } else if(var6.b >= 0 && var6.e < 256 && var7.b >= 0 && var7.e < 256) {
+         } else if(var6.minY >= 0 && var6.maxY < 256 && var7.minY >= 0 && var7.maxY < 256) {
             World var9 = var1.e();
             if(var9.a(var6) && var9.a(var7)) {
                boolean var10 = false;
@@ -49,13 +49,13 @@ public class CommandCompare extends CommandAbstract {
                }
 
                var8 = 0;
-               BlockPosition var11 = new BlockPosition(var7.a - var6.a, var7.b - var6.b, var7.c - var6.c);
+               BlockPosition var11 = new BlockPosition(var7.minX - var6.minX, var7.minY - var6.minY, var7.minZ - var6.minZ);
                BlockPosition.MutableBlockPosition var12 = new BlockPosition.MutableBlockPosition();
                BlockPosition.MutableBlockPosition var13 = new BlockPosition.MutableBlockPosition();
 
-               for(int var14 = var6.c; var14 <= var6.f; ++var14) {
-                  for(int var15 = var6.b; var15 <= var6.e; ++var15) {
-                     for(int var16 = var6.a; var16 <= var6.d; ++var16) {
+               for(int var14 = var6.minZ; var14 <= var6.maxZ; ++var14) {
+                  for(int var15 = var6.minY; var15 <= var6.maxY; ++var15) {
+                     for(int var16 = var6.minX; var16 <= var6.maxX; ++var16) {
                         var12.setPosition(var16, var15, var14);
                         var13.setPosition(var16 + var11.getX(), var15 + var11.getY(), var14 + var11.getZ());
                         boolean var17 = false;

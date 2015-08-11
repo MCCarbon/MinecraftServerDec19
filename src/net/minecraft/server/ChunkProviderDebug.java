@@ -43,7 +43,7 @@ public class ChunkProviderDebug implements IChunkProvider {
       }
 
       Chunk var9 = new Chunk(this.d, var3, var1, var2);
-      var9.b();
+      var9.initLighting();
       BiomeBase[] var10 = this.d.w().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
       byte[] var11 = var9.k();
 
@@ -51,7 +51,7 @@ public class ChunkProviderDebug implements IChunkProvider {
          var11[var7] = (byte)var10[var7].az;
       }
 
-      var9.b();
+      var9.initLighting();
       return var9;
    }
 

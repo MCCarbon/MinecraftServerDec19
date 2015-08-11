@@ -7,175 +7,143 @@ import net.minecraft.server.BaseBlockPosition;
 import net.minecraft.server.NBTTagIntArray;
 
 public class StructureBoundingBox {
-   public int a;
-   public int b;
-   public int c;
-   public int d;
-   public int e;
-   public int f;
 
-   public StructureBoundingBox() {
-   }
+	public int minX;
+	public int minY;
+	public int minZ;
+	public int maxX;
+	public int maxY;
+	public int maxZ;
 
-   public StructureBoundingBox(int[] var1) {
-      if(var1.length == 6) {
-         this.a = var1[0];
-         this.b = var1[1];
-         this.c = var1[2];
-         this.d = var1[3];
-         this.e = var1[4];
-         this.f = var1[5];
-      }
+	public StructureBoundingBox() {
+	}
 
-   }
+	public StructureBoundingBox(int[] coordArray) {
+		if (coordArray.length == 6) {
+			this.minX = coordArray[0];
+			this.minY = coordArray[1];
+			this.minZ = coordArray[2];
+			this.maxX = coordArray[3];
+			this.maxY = coordArray[4];
+			this.maxZ = coordArray[5];
+		}
+	}
 
-   public static StructureBoundingBox a() {
-      return new StructureBoundingBox(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
-   }
+	public static StructureBoundingBox createMax() {
+		return new StructureBoundingBox(Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE, Integer.MIN_VALUE);
+	}
 
-   public static StructureBoundingBox a(int var0, int var1, int var2, int var3, int var4, int var5, int var6, int var7, int var8, EnumDirection var9) {
-      switch(StructureBoundingBox.SyntheticClass_1.a[var9.ordinal()]) {
-      case 1:
-         return new StructureBoundingBox(var0 + var3, var1 + var4, var2 - var8 + 1 + var5, var0 + var6 - 1 + var3, var1 + var7 - 1 + var4, var2 + var5);
-      case 2:
-         return new StructureBoundingBox(var0 + var3, var1 + var4, var2 + var5, var0 + var6 - 1 + var3, var1 + var7 - 1 + var4, var2 + var8 - 1 + var5);
-      case 3:
-         return new StructureBoundingBox(var0 - var8 + 1 + var5, var1 + var4, var2 + var3, var0 + var5, var1 + var7 - 1 + var4, var2 + var6 - 1 + var3);
-      case 4:
-         return new StructureBoundingBox(var0 + var5, var1 + var4, var2 + var3, var0 + var8 - 1 + var5, var1 + var7 - 1 + var4, var2 + var6 - 1 + var3);
-      default:
-         return new StructureBoundingBox(var0 + var3, var1 + var4, var2 + var5, var0 + var6 - 1 + var3, var1 + var7 - 1 + var4, var2 + var8 - 1 + var5);
-      }
-   }
+	public static StructureBoundingBox a(int x1, int y1, int z1, int x2, int y2, int z2, int x3, int y3, int z3, EnumDirection direction) {
+		switch (direction) {
+			case NORTH:
+				return new StructureBoundingBox(x1 + x2, y1 + y2, z1 - z3 + 1 + z2, x1 + x3 - 1 + x2, y1 + y3 - 1 + y2, z1 + z2);
+			case SOUTH:
+				return new StructureBoundingBox(x1 + x2, y1 + y2, z1 + z2, x1 + x3 - 1 + x2, y1 + y3 - 1 + y2, z1 + z3 - 1 + z2);
+			case WEST:
+				return new StructureBoundingBox(x1 - z3 + 1 + z2, y1 + y2, z1 + x2, x1 + z2, y1 + y3 - 1 + y2, z1 + x3 - 1 + x2);
+			case EAST:
+				return new StructureBoundingBox(x1 + z2, y1 + y2, z1 + x2, x1 + z3 - 1 + z2, y1 + y3 - 1 + y2, z1 + x3 - 1 + x2);
+			default:
+				return new StructureBoundingBox(x1 + x2, y1 + y2, z1 + z2, x1 + x3 - 1 + x2, y1 + y3 - 1 + y2, z1 + z3 - 1 + z2);
+		}
+	}
 
-   public static StructureBoundingBox a(int var0, int var1, int var2, int var3, int var4, int var5) {
-      return new StructureBoundingBox(Math.min(var0, var3), Math.min(var1, var4), Math.min(var2, var5), Math.max(var0, var3), Math.max(var1, var4), Math.max(var2, var5));
-   }
+	public static StructureBoundingBox create(int x1, int y1, int z1, int x2, int y2, int z2) {
+		return new StructureBoundingBox(Math.min(x1, x2), Math.min(y1, y2), Math.min(z1, z2), Math.max(x1, x2), Math.max(y1, y2), Math.max(z1, z2));
+	}
 
-   public StructureBoundingBox(StructureBoundingBox var1) {
-      this.a = var1.a;
-      this.b = var1.b;
-      this.c = var1.c;
-      this.d = var1.d;
-      this.e = var1.e;
-      this.f = var1.f;
-   }
+	public StructureBoundingBox(StructureBoundingBox var1) {
+		this.minX = var1.minX;
+		this.minY = var1.minY;
+		this.minZ = var1.minZ;
+		this.maxX = var1.maxX;
+		this.maxY = var1.maxY;
+		this.maxZ = var1.maxZ;
+	}
 
-   public StructureBoundingBox(int var1, int var2, int var3, int var4, int var5, int var6) {
-      this.a = var1;
-      this.b = var2;
-      this.c = var3;
-      this.d = var4;
-      this.e = var5;
-      this.f = var6;
-   }
+	public StructureBoundingBox(int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
+		this.minX = minX;
+		this.minY = minY;
+		this.minZ = minZ;
+		this.maxX = maxX;
+		this.maxY = maxY;
+		this.maxZ = maxZ;
+	}
 
-   public StructureBoundingBox(BaseBlockPosition var1, BaseBlockPosition var2) {
-      this.a = Math.min(var1.getX(), var2.getX());
-      this.b = Math.min(var1.getY(), var2.getY());
-      this.c = Math.min(var1.getZ(), var2.getZ());
-      this.d = Math.max(var1.getX(), var2.getX());
-      this.e = Math.max(var1.getY(), var2.getY());
-      this.f = Math.max(var1.getZ(), var2.getZ());
-   }
+	public StructureBoundingBox(BaseBlockPosition min, BaseBlockPosition max) {
+		this.minX = Math.min(min.getX(), max.getX());
+		this.minY = Math.min(min.getY(), max.getY());
+		this.minZ = Math.min(min.getZ(), max.getZ());
+		this.maxX = Math.max(min.getX(), max.getX());
+		this.maxY = Math.max(min.getY(), max.getY());
+		this.maxZ = Math.max(min.getZ(), max.getZ());
+	}
 
-   public StructureBoundingBox(int var1, int var2, int var3, int var4) {
-      this.a = var1;
-      this.c = var2;
-      this.d = var3;
-      this.f = var4;
-      this.b = 1;
-      this.e = 512;
-   }
+	public StructureBoundingBox(int minX, int minZ, int maxX, int maxZ) {
+		this.minX = minX;
+		this.minZ = minZ;
+		this.maxX = maxX;
+		this.maxZ = maxZ;
+		this.minY = 1;
+		this.maxY = 512;
+	}
 
-   public boolean a(StructureBoundingBox var1) {
-      return this.d >= var1.a && this.a <= var1.d && this.f >= var1.c && this.c <= var1.f && this.e >= var1.b && this.b <= var1.e;
-   }
+	public boolean a(StructureBoundingBox var1) {
+		return this.maxX >= var1.minX && this.minX <= var1.maxX && this.maxZ >= var1.minZ && this.minZ <= var1.maxZ && this.maxY >= var1.minY && this.minY <= var1.maxY;
+	}
 
-   public boolean a(int var1, int var2, int var3, int var4) {
-      return this.d >= var1 && this.a <= var3 && this.f >= var2 && this.c <= var4;
-   }
+	public boolean a(int var1, int var2, int var3, int var4) {
+		return this.maxX >= var1 && this.minX <= var3 && this.maxZ >= var2 && this.minZ <= var4;
+	}
 
-   public void b(StructureBoundingBox var1) {
-      this.a = Math.min(this.a, var1.a);
-      this.b = Math.min(this.b, var1.b);
-      this.c = Math.min(this.c, var1.c);
-      this.d = Math.max(this.d, var1.d);
-      this.e = Math.max(this.e, var1.e);
-      this.f = Math.max(this.f, var1.f);
-   }
+	public void b(StructureBoundingBox var1) {
+		this.minX = Math.min(this.minX, var1.minX);
+		this.minY = Math.min(this.minY, var1.minY);
+		this.minZ = Math.min(this.minZ, var1.minZ);
+		this.maxX = Math.max(this.maxX, var1.maxX);
+		this.maxY = Math.max(this.maxY, var1.maxY);
+		this.maxZ = Math.max(this.maxZ, var1.maxZ);
+	}
 
-   public void a(int var1, int var2, int var3) {
-      this.a += var1;
-      this.b += var2;
-      this.c += var3;
-      this.d += var1;
-      this.e += var2;
-      this.f += var3;
-   }
+	public void a(int var1, int var2, int var3) {
+		this.minX += var1;
+		this.minY += var2;
+		this.minZ += var3;
+		this.maxX += var1;
+		this.maxY += var2;
+		this.maxZ += var3;
+	}
 
-   public boolean b(BaseBlockPosition var1) {
-      return var1.getX() >= this.a && var1.getX() <= this.d && var1.getZ() >= this.c && var1.getZ() <= this.f && var1.getY() >= this.b && var1.getY() <= this.e;
-   }
+	public boolean b(BaseBlockPosition var1) {
+		return var1.getX() >= this.minX && var1.getX() <= this.maxX && var1.getZ() >= this.minZ && var1.getZ() <= this.maxZ && var1.getY() >= this.minY && var1.getY() <= this.maxY;
+	}
 
-   public BaseBlockPosition b() {
-      return new BaseBlockPosition(this.d - this.a, this.e - this.b, this.f - this.c);
-   }
+	public BaseBlockPosition b() {
+		return new BaseBlockPosition(this.maxX - this.minX, this.maxY - this.minY, this.maxZ - this.minZ);
+	}
 
-   public int c() {
-      return this.d - this.a + 1;
-   }
+	public int getXLength() {
+		return this.maxX - this.minX + 1;
+	}
 
-   public int d() {
-      return this.e - this.b + 1;
-   }
+	public int getYLength() {
+		return this.maxY - this.minY + 1;
+	}
 
-   public int e() {
-      return this.f - this.c + 1;
-   }
+	public int getZLength() {
+		return this.maxZ - this.minZ + 1;
+	}
 
-   public BaseBlockPosition f() {
-      return new BlockPosition(this.a + (this.d - this.a + 1) / 2, this.b + (this.e - this.b + 1) / 2, this.c + (this.f - this.c + 1) / 2);
-   }
+	public BaseBlockPosition getCenter() {
+		return new BlockPosition(this.minX + (this.maxX - this.minX + 1) / 2, this.minY + (this.maxY - this.minY + 1) / 2, this.minZ + (this.maxZ - this.minZ + 1) / 2);
+	}
 
-   public String toString() {
-      return Objects.toStringHelper((Object)this).add("x0", this.a).add("y0", this.b).add("z0", this.c).add("x1", this.d).add("y1", this.e).add("z1", this.f).toString();
-   }
+	public String toString() {
+		return Objects.toStringHelper((Object) this).add("x0", this.minX).add("y0", this.minY).add("z0", this.minZ).add("x1", this.maxX).add("y1", this.maxY).add("z1", this.maxZ).toString();
+	}
 
-   public NBTTagIntArray g() {
-      return new NBTTagIntArray(new int[]{this.a, this.b, this.c, this.d, this.e, this.f});
-   }
+	public NBTTagIntArray toNBT() {
+		return new NBTTagIntArray(new int[] { this.minX, this.minY, this.minZ, this.maxX, this.maxY, this.maxZ });
+	}
 
-   // $FF: synthetic class
-   static class SyntheticClass_1 {
-      // $FF: synthetic field
-      static final int[] a = new int[EnumDirection.values().length];
-
-      static {
-         try {
-            a[EnumDirection.NORTH.ordinal()] = 1;
-         } catch (NoSuchFieldError var4) {
-            ;
-         }
-
-         try {
-            a[EnumDirection.SOUTH.ordinal()] = 2;
-         } catch (NoSuchFieldError var3) {
-            ;
-         }
-
-         try {
-            a[EnumDirection.WEST.ordinal()] = 3;
-         } catch (NoSuchFieldError var2) {
-            ;
-         }
-
-         try {
-            a[EnumDirection.EAST.ordinal()] = 4;
-         } catch (NoSuchFieldError var1) {
-            ;
-         }
-
-      }
-   }
 }

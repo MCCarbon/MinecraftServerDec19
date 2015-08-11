@@ -104,7 +104,7 @@ public class EntityItemFrame extends class_uz {
 		this.H().update(ITEM_DW_ID, var1);
 		this.H().i(ITEM_DW_ID);
 		if (var2 && this.a != null) {
-			this.world.e(this.a, Blocks.AIR);
+			this.world.updateAdjacentComparators(this.a, Blocks.AIR);
 		}
 
 	}
@@ -120,7 +120,7 @@ public class EntityItemFrame extends class_uz {
 	private void a(int var1, boolean var2) {
 		this.H().update(ROTATION_DW_ID, Byte.valueOf((byte) (var1 % 8)));
 		if (var2 && this.a != null) {
-			this.world.e(this.a, Blocks.AIR);
+			this.world.updateAdjacentComparators(this.a, Blocks.AIR);
 		}
 
 	}

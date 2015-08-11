@@ -609,8 +609,8 @@ public class WorldGenRegistration {
             int var5 = 0;
             BlockPosition.MutableBlockPosition var6 = new BlockPosition.MutableBlockPosition();
 
-            for(int var7 = this.l.c; var7 <= this.l.f; ++var7) {
-               for(int var8 = this.l.a; var8 <= this.l.d; ++var8) {
+            for(int var7 = this.l.minZ; var7 <= this.l.maxZ; ++var7) {
+               for(int var8 = this.l.minX; var8 <= this.l.maxX; ++var8) {
                   var6.setPosition(var8, 64, var7);
                   if(var2.b((BaseBlockPosition)var6)) {
                      var4 += Math.max(var1.r(var6).getY(), var1.worldProvider.i());
@@ -623,7 +623,7 @@ public class WorldGenRegistration {
                return false;
             } else {
                this.d = var4 / var5;
-               this.l.a(0, this.d - this.l.b + var3, 0);
+               this.l.a(0, this.d - this.l.minY + var3, 0);
                return true;
             }
          }

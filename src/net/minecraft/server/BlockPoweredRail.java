@@ -106,9 +106,9 @@ public class BlockPoweredRail extends BlockMinecartTrackAbstract {
 		boolean var6 = var1.isBlockIndirectlyPowered(var2) || this.a(var1, var2, var3, true, 0) || this.a(var1, var2, var3, false, 0);
 		if (var6 != var5) {
 			var1.setTypeAndData(var2, var3.set(POWERED, Boolean.valueOf(var6)), 3);
-			var1.c(var2.down(), this);
+			var1.applyPhysics(var2.down(), this);
 			if (var3.get(SHAPE).isAscending()) {
-				var1.c(var2.up(), this);
+				var1.applyPhysics(var2.up(), this);
 			}
 		}
 

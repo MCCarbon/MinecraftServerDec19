@@ -28,12 +28,12 @@ public class EntityEnderpearl extends class_xo {
          if(var4 instanceof TileEntityEndGateway) {
             TileEntityEndGateway var5 = (TileEntityEndGateway)var4;
             if(var2 != null) {
-               var5.a((Entity)var2);
+               var5.teleport((Entity)var2);
                this.die();
                return;
             }
 
-            var5.a((Entity)this);
+            var5.teleport((Entity)this);
             return;
          }
       }

@@ -136,7 +136,7 @@ public class WorldGenStrongholdPieces {
          }
 
          StructureBoundingBox var14 = WorldGenStrongholdPieces.WorldGenStrongholdCorridor.a(var1, var2, var3, var4, var5, var6);
-         if(var14 != null && var14.b > 1) {
+         if(var14 != null && var14.minY > 1) {
             return new WorldGenStrongholdPieces.WorldGenStrongholdCorridor(var7, var2, var14, var6);
          } else {
             return null;
@@ -147,7 +147,7 @@ public class WorldGenStrongholdPieces {
    private static StructurePiece c(WorldGenStrongholdPieces.WorldGenStrongholdStart var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 50) {
          return null;
-      } else if(Math.abs(var3 - var0.c().a) <= 112 && Math.abs(var5 - var0.c().c) <= 112) {
+      } else if(Math.abs(var3 - var0.c().minX) <= 112 && Math.abs(var5 - var0.c().minZ) <= 112) {
          WorldGenStrongholdPieces.class_p_in_class_asj var8 = b(var0, var1, var2, var3, var4, var5, var6, var7 + 1);
          if(var8 != null) {
             var1.add(var8);
@@ -475,7 +475,7 @@ public class WorldGenStrongholdPieces {
          this.a(var4);
          this.d = this.a(var2);
          this.l = var3;
-         this.b = var3.d() > 6;
+         this.b = var3.getYLength() > 6;
       }
 
       protected void a(NBTTagCompound var1) {
@@ -1143,7 +1143,7 @@ public class WorldGenStrongholdPieces {
          super(var1);
          this.a(var4);
          this.l = var3;
-         this.a = var4 != EnumDirection.NORTH && var4 != EnumDirection.SOUTH?var3.c():var3.e();
+         this.a = var4 != EnumDirection.NORTH && var4 != EnumDirection.SOUTH?var3.getXLength():var3.getZLength();
       }
 
       protected void a(NBTTagCompound var1) {
@@ -1163,7 +1163,7 @@ public class WorldGenStrongholdPieces {
          if(var8 == null) {
             return null;
          } else {
-            if(var8.c().b == var7.b) {
+            if(var8.c().minY == var7.minY) {
                for(int var9 = 3; var9 >= 1; --var9) {
                   var7 = StructureBoundingBox.a(var2, var3, var4, -1, -1, 0, 5, 5, var9 - 1, var5);
                   if(!var8.c().a(var7)) {
@@ -1292,13 +1292,13 @@ public class WorldGenStrongholdPieces {
          if(var6 != null) {
             switch(WorldGenStrongholdPieces.SyntheticClass_1.b[var6.ordinal()]) {
             case 1:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a + var4, this.l.b + var5, this.l.c - 1, var6, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX + var4, this.l.minY + var5, this.l.minZ - 1, var6, this.d());
             case 2:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a + var4, this.l.b + var5, this.l.f + 1, var6, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX + var4, this.l.minY + var5, this.l.maxZ + 1, var6, this.d());
             case 3:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a - 1, this.l.b + var5, this.l.c + var4, var6, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX - 1, this.l.minY + var5, this.l.minZ + var4, var6, this.d());
             case 4:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.d + 1, this.l.b + var5, this.l.c + var4, var6, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.maxX + 1, this.l.minY + var5, this.l.minZ + var4, var6, this.d());
             }
          }
 
@@ -1310,13 +1310,13 @@ public class WorldGenStrongholdPieces {
          if(var6 != null) {
             switch(WorldGenStrongholdPieces.SyntheticClass_1.b[var6.ordinal()]) {
             case 1:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX - 1, this.l.minY + var4, this.l.minZ + var5, EnumDirection.WEST, this.d());
             case 2:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a - 1, this.l.b + var4, this.l.c + var5, EnumDirection.WEST, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX - 1, this.l.minY + var4, this.l.minZ + var5, EnumDirection.WEST, this.d());
             case 3:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX + var5, this.l.minY + var4, this.l.minZ - 1, EnumDirection.NORTH, this.d());
             case 4:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.c - 1, EnumDirection.NORTH, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX + var5, this.l.minY + var4, this.l.minZ - 1, EnumDirection.NORTH, this.d());
             }
          }
 
@@ -1328,13 +1328,13 @@ public class WorldGenStrongholdPieces {
          if(var6 != null) {
             switch(WorldGenStrongholdPieces.SyntheticClass_1.b[var6.ordinal()]) {
             case 1:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.maxX + 1, this.l.minY + var4, this.l.minZ + var5, EnumDirection.EAST, this.d());
             case 2:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.d + 1, this.l.b + var4, this.l.c + var5, EnumDirection.EAST, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.maxX + 1, this.l.minY + var4, this.l.minZ + var5, EnumDirection.EAST, this.d());
             case 3:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX + var5, this.l.minY + var4, this.l.maxZ + 1, EnumDirection.SOUTH, this.d());
             case 4:
-               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.a + var5, this.l.b + var4, this.l.f + 1, EnumDirection.SOUTH, this.d());
+               return WorldGenStrongholdPieces.c(var1, var2, var3, this.l.minX + var5, this.l.minY + var4, this.l.maxZ + 1, EnumDirection.SOUTH, this.d());
             }
          }
 
@@ -1342,7 +1342,7 @@ public class WorldGenStrongholdPieces {
       }
 
       protected static boolean a(StructureBoundingBox var0) {
-         return var0 != null && var0.b > 10;
+         return var0 != null && var0.minY > 10;
       }
 
       public static enum class_p_in_class_asj$class_a_in_class_p_in_class_asj {

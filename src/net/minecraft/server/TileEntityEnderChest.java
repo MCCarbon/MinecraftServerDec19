@@ -11,7 +11,7 @@ public class TileEntityEnderChest extends TileEntity implements ITickAble {
 	@Override
 	public void tick() {
 		if (((++h % 20) * 4) == 0) {
-			world.c(position, Blocks.ENDER_CHEST, 1, g);
+			world.playBlockAction(position, Blocks.ENDER_CHEST, 1, g);
 		}
 
 		f = a;
@@ -70,12 +70,12 @@ public class TileEntityEnderChest extends TileEntity implements ITickAble {
 
 	public void b() {
 		++g;
-		world.c(position, Blocks.ENDER_CHEST, 1, g);
+		world.playBlockAction(position, Blocks.ENDER_CHEST, 1, g);
 	}
 
 	public void d() {
 		--g;
-		world.c(position, Blocks.ENDER_CHEST, 1, g);
+		world.playBlockAction(position, Blocks.ENDER_CHEST, 1, g);
 	}
 
 	public boolean a(EntityHuman var1) {

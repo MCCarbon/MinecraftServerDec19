@@ -19,7 +19,7 @@ public class PacketPlayOutMultiBlockChange implements Packet {
    }
 
    public PacketPlayOutMultiBlockChange(int var1, short[] var2, Chunk var3) {
-      this.a = new class_aeh(var3.a, var3.b);
+      this.a = new class_aeh(var3.locX, var3.locZ);
       this.b = new PacketPlayOutMultiBlockChange.class_a_in_class_ga[var1];
 
       for(int var4 = 0; var4 < this.b.length; ++var4) {
@@ -74,7 +74,7 @@ public class PacketPlayOutMultiBlockChange implements Packet {
 
       public class_a_in_class_ga(short var2, Chunk var3) {
          this.b = var2;
-         this.c = var3.g(this.a());
+         this.c = var3.getBlockData(this.a());
       }
 
       public BlockPosition a() {

@@ -123,7 +123,7 @@ public class BlockFurnace extends BlockContainer {
          TileEntity var4 = var1.getTileEntity(var2);
          if(var4 instanceof TileEntityFurnace) {
             class_ol.a(var1, (BlockPosition)var2, (TileEntityFurnace)var4);
-            var1.e(var2, this);
+            var1.updateAdjacentComparators(var2, this);
          }
       }
 

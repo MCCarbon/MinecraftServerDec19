@@ -53,7 +53,7 @@ public class class_aov implements IChunkLoader, class_awc {
          } else {
             Chunk var6 = this.a(var1, var5);
             if(!var6.a(var2, var3)) {
-               a.error("Chunk file at " + var2 + "," + var3 + " is in the wrong location; relocating. (Expected " + var2 + ", " + var3 + ", got " + var6.a + ", " + var6.b + ")");
+               a.error("Chunk file at " + var2 + "," + var3 + " is in the wrong location; relocating. (Expected " + var2 + ", " + var3 + ", got " + var6.locX + ", " + var6.locZ + ")");
                var5.put("xPos", var2);
                var5.put("zPos", var3);
                var6 = this.a(var1, var5);
@@ -147,14 +147,14 @@ public class class_aov implements IChunkLoader, class_awc {
 
    private void a(Chunk var1, World var2, NBTTagCompound var3) {
       var3.put("V", (byte)1);
-      var3.put("xPos", var1.a);
-      var3.put("zPos", var1.b);
+      var3.put("xPos", var1.locX);
+      var3.put("zPos", var1.locZ);
       var3.put("LastUpdate", var2.L());
       var3.put("HeightMap", var1.q());
       var3.put("TerrainPopulated", var1.t());
       var3.put("LightPopulated", var1.u());
       var3.put("InhabitedTime", var1.w());
-      ChunkSection[] var4 = var1.h();
+      ChunkSection[] var4 = var1.getSections();
       NBTTagList var5 = new NBTTagList();
       boolean var6 = !var2.worldProvider.m();
       ChunkSection[] var7 = var4;
@@ -165,7 +165,7 @@ public class class_aov implements IChunkLoader, class_awc {
          ChunkSection var10 = var7[var9];
          if(var10 != null) {
             var11 = new NBTTagCompound();
-            var11.put("Y", (byte)(var10.d() >> 4 & 255));
+            var11.put("Y", (byte)(var10.getYPosition() >> 4 & 255));
             byte[] var12 = new byte[var10.g().length];
             class_aoi var13 = new class_aoi();
             class_aoi var14 = null;

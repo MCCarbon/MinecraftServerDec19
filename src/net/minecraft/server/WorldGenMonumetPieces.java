@@ -1257,7 +1257,7 @@ public class WorldGenMonumetPieces {
                do {
                   do {
                      if(!var8.hasNext()) {
-                        int var15 = this.l.b;
+                        int var15 = this.l.minY;
                         int var16 = this.a(9, 22);
                         int var17 = this.b(9, 22);
                         Iterator var18 = this.p.iterator();
@@ -1267,9 +1267,9 @@ public class WorldGenMonumetPieces {
                            var12.c().a(var16, var15, var17);
                         }
 
-                        StructureBoundingBox var19 = StructureBoundingBox.a(this.a(1, 1), this.d(1), this.b(1, 1), this.a(23, 21), this.d(8), this.b(23, 21));
-                        StructureBoundingBox var20 = StructureBoundingBox.a(this.a(34, 1), this.d(1), this.b(34, 1), this.a(56, 21), this.d(8), this.b(56, 21));
-                        StructureBoundingBox var13 = StructureBoundingBox.a(this.a(22, 22), this.d(13), this.b(22, 22), this.a(35, 35), this.d(17), this.b(35, 35));
+                        StructureBoundingBox var19 = StructureBoundingBox.create(this.a(1, 1), this.d(1), this.b(1, 1), this.a(23, 21), this.d(8), this.b(23, 21));
+                        StructureBoundingBox var20 = StructureBoundingBox.create(this.a(34, 1), this.d(1), this.b(34, 1), this.a(56, 21), this.d(8), this.b(56, 21));
+                        StructureBoundingBox var13 = StructureBoundingBox.create(this.a(22, 22), this.d(13), this.b(22, 22), this.a(35, 35), this.d(17), this.b(35, 35));
                         int var14 = var1.nextInt();
                         this.p.add(new WorldGenMonumetPieces.class_u_in_class_asf(var5, var19, var14++));
                         this.p.add(new WorldGenMonumetPieces.class_u_in_class_asf(var5, var20, var14++));
@@ -1434,7 +1434,7 @@ public class WorldGenMonumetPieces {
       }
 
       public boolean a(World var1, Random var2, StructureBoundingBox var3) {
-         int var4 = Math.max(var1.G(), 64) - this.l.b;
+         int var4 = Math.max(var1.G(), 64) - this.l.minY;
          this.a(var1, var3, 0, 0, 0, 58, var4, 58, false);
          this.a(false, 0, var1, var2, var3);
          this.a(true, 33, var1, var2, var3);

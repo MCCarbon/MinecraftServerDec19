@@ -49,7 +49,7 @@ public abstract class StructureStart {
 	}
 
 	protected void d() {
-		this.b = StructureBoundingBox.a();
+		this.b = StructureBoundingBox.createMax();
 		Iterator<StructurePiece> var1 = this.a.iterator();
 
 		while (var1.hasNext()) {
@@ -64,7 +64,7 @@ public abstract class StructureStart {
 		var3.put("id", WorldGenFactory.a(this));
 		var3.put("ChunkX", var1);
 		var3.put("ChunkZ", var2);
-		var3.put((String) "BB", (NBTTag) this.b.g());
+		var3.put((String) "BB", (NBTTag) this.b.toNBT());
 		NBTTagList var4 = new NBTTagList();
 		Iterator<StructurePiece> var5 = this.a.iterator();
 
@@ -102,12 +102,12 @@ public abstract class StructureStart {
 
 	protected void a(World var1, Random var2, int var3) {
 		int var4 = var1.G() - var3;
-		int var5 = this.b.d() + 1;
+		int var5 = this.b.getYLength() + 1;
 		if (var5 < var4) {
 			var5 += var2.nextInt(var4 - var5);
 		}
 
-		int var6 = var5 - this.b.e;
+		int var6 = var5 - this.b.maxY;
 		this.b.a(0, var6, 0);
 		Iterator<StructurePiece> var7 = this.a.iterator();
 
@@ -119,7 +119,7 @@ public abstract class StructureStart {
 	}
 
 	protected void a(World var1, Random var2, int var3, int var4) {
-		int var5 = var4 - var3 + 1 - this.b.d();
+		int var5 = var4 - var3 + 1 - this.b.getYLength();
 		boolean var6 = true;
 		int var10;
 		if (var5 > 1) {
@@ -128,7 +128,7 @@ public abstract class StructureStart {
 			var10 = var3;
 		}
 
-		int var7 = var10 - this.b.b;
+		int var7 = var10 - this.b.minY;
 		this.b.a(0, var7, 0);
 		Iterator<StructurePiece> var8 = this.a.iterator();
 

@@ -307,7 +307,7 @@ public class class_aev {
                var25 = var16 + var23;
                var26 = var17 + (var22 - 1) * var19;
                BlockPosition var37 = new BlockPosition(var24, var25, var26);
-               this.a.c(var37, this.a.getType(var37).getBlock());
+               this.a.applyPhysics(var37, this.a.getType(var37).getBlock());
             }
          }
       }

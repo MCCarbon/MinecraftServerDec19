@@ -58,7 +58,7 @@ public class class_aew implements IBlockAccess {
          if(var2 >= 0 && var2 < this.c.length && var3 >= 0 && var3 < this.c[var2].length) {
             Chunk var4 = this.c[var2][var3];
             if(var4 != null) {
-               return var4.g(var1);
+               return var4.getBlockData(var1);
             }
          }
       }

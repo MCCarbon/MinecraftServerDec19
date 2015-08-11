@@ -6,7 +6,7 @@ public class TileEntityMobSpawner extends TileEntity implements ITickAble {
 	private final class_aee a = new class_aee() {
 		@Override
 		public void a(int var1) {
-			TileEntityMobSpawner.this.world.c(TileEntityMobSpawner.this.position, Blocks.MOB_SPAWNER, var1, 0);
+			TileEntityMobSpawner.this.world.playBlockAction(TileEntityMobSpawner.this.position, Blocks.MOB_SPAWNER, var1, 0);
 		}
 
 		@Override
@@ -60,7 +60,7 @@ public class TileEntityMobSpawner extends TileEntity implements ITickAble {
 	}
 
 	@Override
-	public boolean F() {
+	public boolean doNotCopyNBTDataToItem() {
 		return true;
 	}
 

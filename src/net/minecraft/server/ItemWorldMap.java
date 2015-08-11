@@ -81,7 +81,7 @@ public class ItemWorldMap extends class_zt {
                                  if(var31 > 1) {
                                     do {
                                        --var31;
-                                       var32 = var22.g(var35.setPosition(var29 + var23, var31, var30 + var24));
+                                       var32 = var22.getBlockData(var35.setPosition(var29 + var23, var31, var30 + var24));
                                     } while(var32.getBlock().getMapColor(var32) == MaterialMapColor.COLOR1 && var31 > 0);
 
                                     if(var31 > 0 && var32.getBlock().getMaterial().isLiquid()) {
@@ -89,7 +89,7 @@ public class ItemWorldMap extends class_zt {
 
                                        Block var34;
                                        do {
-                                          var34 = var22.a(var29 + var23, var33--, var30 + var24);
+                                          var34 = var22.getTypeAbs(var29 + var23, var33--, var30 + var24);
                                           ++var25;
                                        } while(var33 > 0 && var34.getMaterial().isLiquid());
                                     }

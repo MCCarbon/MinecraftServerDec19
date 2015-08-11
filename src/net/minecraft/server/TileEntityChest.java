@@ -299,27 +299,27 @@ public class TileEntityChest extends TileEntityContainer implements ITickAble, I
 	}
 
 	@Override
-	public void startOpen(EntityHuman var1) {
-		if (!var1.isSpectator()) {
+	public void startOpen(EntityHuman player) {
+		if (!player.isSpectator()) {
 			if (l < 0) {
 				l = 0;
 			}
 
 			++l;
-			world.c(position, getBlock(), 1, l);
-			world.c(position, getBlock());
-			world.c(position.down(), getBlock());
+			world.playBlockAction(position, getBlock(), 1, l);
+			world.applyPhysics(position, getBlock());
+			world.applyPhysics(position.down(), getBlock());
 		}
 
 	}
 
 	@Override
-	public void closeContainer(EntityHuman var1) {
-		if (!var1.isSpectator() && (getBlock() instanceof BlockChest)) {
+	public void closeContainer(EntityHuman player) {
+		if (!player.isSpectator() && (getBlock() instanceof BlockChest)) {
 			--l;
-			world.c(position, getBlock(), 1, l);
-			world.c(position, getBlock());
-			world.c(position.down(), getBlock());
+			world.playBlockAction(position, getBlock(), 1, l);
+			world.applyPhysics(position, getBlock());
+			world.applyPhysics(position.down(), getBlock());
 		}
 
 	}

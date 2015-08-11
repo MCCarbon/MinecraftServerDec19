@@ -41,7 +41,7 @@ public class WorldGenMineshaftPieces {
    private static StructurePiece b(StructurePiece var0, List var1, Random var2, int var3, int var4, int var5, EnumDirection var6, int var7) {
       if(var7 > 8) {
          return null;
-      } else if(Math.abs(var3 - var0.c().a) <= 80 && Math.abs(var5 - var0.c().c) <= 80) {
+      } else if(Math.abs(var3 - var0.c().minX) <= 80 && Math.abs(var5 - var0.c().minZ) <= 80) {
          StructurePiece var8 = a(var1, var2, var3, var4, var5, var6, var7 + 1);
          if(var8 != null) {
             var1.add(var8);
@@ -111,20 +111,20 @@ public class WorldGenMineshaftPieces {
          StructureBoundingBox var6 = new StructureBoundingBox(var2, var3 - 5, var4, var2, var3 + 2, var4);
          switch(WorldGenMineshaftPieces.SyntheticClass_1.a[var5.ordinal()]) {
          case 1:
-            var6.d = var2 + 2;
-            var6.c = var4 - 8;
+            var6.maxX = var2 + 2;
+            var6.minZ = var4 - 8;
             break;
          case 2:
-            var6.d = var2 + 2;
-            var6.f = var4 + 8;
+            var6.maxX = var2 + 2;
+            var6.maxZ = var4 + 8;
             break;
          case 3:
-            var6.a = var2 - 8;
-            var6.f = var4 + 2;
+            var6.minX = var2 - 8;
+            var6.maxZ = var4 + 2;
             break;
          case 4:
-            var6.d = var2 + 8;
-            var6.f = var4 + 2;
+            var6.maxX = var2 + 8;
+            var6.maxZ = var4 + 2;
          }
 
          return StructurePiece.a(var0, var6) != null?null:var6;
@@ -136,16 +136,16 @@ public class WorldGenMineshaftPieces {
          if(var5 != null) {
             switch(WorldGenMineshaftPieces.SyntheticClass_1.a[var5.ordinal()]) {
             case 1:
-               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4);
+               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX, this.l.minY, this.l.minZ - 1, EnumDirection.NORTH, var4);
                break;
             case 2:
-               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4);
+               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX, this.l.minY, this.l.maxZ + 1, EnumDirection.SOUTH, var4);
                break;
             case 3:
-               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c, EnumDirection.WEST, var4);
+               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY, this.l.minZ, EnumDirection.WEST, var4);
                break;
             case 4:
-               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c, EnumDirection.EAST, var4);
+               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY, this.l.minZ, EnumDirection.EAST, var4);
             }
          }
 
@@ -188,35 +188,35 @@ public class WorldGenMineshaftPieces {
          super(var1);
          this.a = var4;
          this.l = var3;
-         this.b = var3.d() > 3;
+         this.b = var3.getYLength() > 3;
       }
 
       public static StructureBoundingBox a(List var0, Random var1, int var2, int var3, int var4, EnumDirection var5) {
          StructureBoundingBox var6 = new StructureBoundingBox(var2, var3, var4, var2, var3 + 2, var4);
          if(var1.nextInt(4) == 0) {
-            var6.e += 4;
+            var6.maxY += 4;
          }
 
          switch(WorldGenMineshaftPieces.SyntheticClass_1.a[var5.ordinal()]) {
          case 1:
-            var6.a = var2 - 1;
-            var6.d = var2 + 3;
-            var6.c = var4 - 4;
+            var6.minX = var2 - 1;
+            var6.maxX = var2 + 3;
+            var6.minZ = var4 - 4;
             break;
          case 2:
-            var6.a = var2 - 1;
-            var6.d = var2 + 3;
-            var6.f = var4 + 4;
+            var6.minX = var2 - 1;
+            var6.maxX = var2 + 3;
+            var6.maxZ = var4 + 4;
             break;
          case 3:
-            var6.a = var2 - 4;
-            var6.c = var4 - 1;
-            var6.f = var4 + 3;
+            var6.minX = var2 - 4;
+            var6.minZ = var4 - 1;
+            var6.maxZ = var4 + 3;
             break;
          case 4:
-            var6.d = var2 + 4;
-            var6.c = var4 - 1;
-            var6.f = var4 + 3;
+            var6.maxX = var2 + 4;
+            var6.minZ = var4 - 1;
+            var6.maxZ = var4 + 3;
          }
 
          return StructurePiece.a(var0, var6) != null?null:var6;
@@ -226,41 +226,41 @@ public class WorldGenMineshaftPieces {
          int var4 = this.d();
          switch(WorldGenMineshaftPieces.SyntheticClass_1.a[this.a.ordinal()]) {
          case 1:
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4);
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, EnumDirection.WEST, var4);
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, EnumDirection.EAST, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + 1, this.l.minY, this.l.minZ - 1, EnumDirection.NORTH, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY, this.l.minZ + 1, EnumDirection.WEST, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY, this.l.minZ + 1, EnumDirection.EAST, var4);
             break;
          case 2:
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4);
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, EnumDirection.WEST, var4);
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, EnumDirection.EAST, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + 1, this.l.minY, this.l.maxZ + 1, EnumDirection.SOUTH, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY, this.l.minZ + 1, EnumDirection.WEST, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY, this.l.minZ + 1, EnumDirection.EAST, var4);
             break;
          case 3:
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4);
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4);
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b, this.l.c + 1, EnumDirection.WEST, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + 1, this.l.minY, this.l.minZ - 1, EnumDirection.NORTH, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + 1, this.l.minY, this.l.maxZ + 1, EnumDirection.SOUTH, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY, this.l.minZ + 1, EnumDirection.WEST, var4);
             break;
          case 4:
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4);
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + 1, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4);
-            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b, this.l.c + 1, EnumDirection.EAST, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + 1, this.l.minY, this.l.minZ - 1, EnumDirection.NORTH, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + 1, this.l.minY, this.l.maxZ + 1, EnumDirection.SOUTH, var4);
+            WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY, this.l.minZ + 1, EnumDirection.EAST, var4);
          }
 
          if(this.b) {
             if(var3.nextBoolean()) {
-               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + 1, this.l.b + 3 + 1, this.l.c - 1, EnumDirection.NORTH, var4);
+               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + 1, this.l.minY + 3 + 1, this.l.minZ - 1, EnumDirection.NORTH, var4);
             }
 
             if(var3.nextBoolean()) {
-               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b + 3 + 1, this.l.c + 1, EnumDirection.WEST, var4);
+               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY + 3 + 1, this.l.minZ + 1, EnumDirection.WEST, var4);
             }
 
             if(var3.nextBoolean()) {
-               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b + 3 + 1, this.l.c + 1, EnumDirection.EAST, var4);
+               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY + 3 + 1, this.l.minZ + 1, EnumDirection.EAST, var4);
             }
 
             if(var3.nextBoolean()) {
-               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + 1, this.l.b + 3 + 1, this.l.f + 1, EnumDirection.SOUTH, var4);
+               WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + 1, this.l.minY + 3 + 1, this.l.maxZ + 1, EnumDirection.SOUTH, var4);
             }
          }
 
@@ -271,25 +271,25 @@ public class WorldGenMineshaftPieces {
             return false;
          } else {
             if(this.b) {
-               this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.b + 3 - 1, this.l.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.b + 3 - 1, this.l.f - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a + 1, this.l.e - 2, this.l.c, this.l.d - 1, this.l.e, this.l.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a, this.l.e - 2, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a + 1, this.l.b + 3, this.l.c + 1, this.l.d - 1, this.l.b + 3, this.l.f - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.minX + 1, this.l.minY, this.l.minZ, this.l.maxX - 1, this.l.minY + 3 - 1, this.l.maxZ, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.minX, this.l.minY, this.l.minZ + 1, this.l.maxX, this.l.minY + 3 - 1, this.l.maxZ - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.minX + 1, this.l.maxY - 2, this.l.minZ, this.l.maxX - 1, this.l.maxY, this.l.maxZ, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.minX, this.l.maxY - 2, this.l.minZ + 1, this.l.maxX, this.l.maxY, this.l.maxZ - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.minX + 1, this.l.minY + 3, this.l.minZ + 1, this.l.maxX - 1, this.l.minY + 3, this.l.maxZ - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
             } else {
-               this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c, this.l.d - 1, this.l.e, this.l.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
-               this.a(var1, var3, this.l.a, this.l.b, this.l.c + 1, this.l.d, this.l.e, this.l.f - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.minX + 1, this.l.minY, this.l.minZ, this.l.maxX - 1, this.l.maxY, this.l.maxZ, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, this.l.minX, this.l.minY, this.l.minZ + 1, this.l.maxX, this.l.maxY, this.l.maxZ - 1, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
             }
 
-            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.c + 1, this.l.a + 1, this.l.e, this.l.c + 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
-            this.a(var1, var3, this.l.a + 1, this.l.b, this.l.f - 1, this.l.a + 1, this.l.e, this.l.f - 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
-            this.a(var1, var3, this.l.d - 1, this.l.b, this.l.c + 1, this.l.d - 1, this.l.e, this.l.c + 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
-            this.a(var1, var3, this.l.d - 1, this.l.b, this.l.f - 1, this.l.d - 1, this.l.e, this.l.f - 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.minX + 1, this.l.minY, this.l.minZ + 1, this.l.minX + 1, this.l.maxY, this.l.minZ + 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.minX + 1, this.l.minY, this.l.maxZ - 1, this.l.minX + 1, this.l.maxY, this.l.maxZ - 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.maxX - 1, this.l.minY, this.l.minZ + 1, this.l.maxX - 1, this.l.maxY, this.l.minZ + 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.maxX - 1, this.l.minY, this.l.maxZ - 1, this.l.maxX - 1, this.l.maxY, this.l.maxZ - 1, Blocks.PLANKS.getBlockData(), Blocks.AIR.getBlockData(), false);
 
-            for(int var4 = this.l.a; var4 <= this.l.d; ++var4) {
-               for(int var5 = this.l.c; var5 <= this.l.f; ++var5) {
-                  if(this.a(var1, var4, this.l.b - 1, var5, var3).getBlock().getMaterial() == Material.AIR) {
-                     this.a(var1, Blocks.PLANKS.getBlockData(), var4, this.l.b - 1, var5, var3);
+            for(int var4 = this.l.minX; var4 <= this.l.maxX; ++var4) {
+               for(int var5 = this.l.minZ; var5 <= this.l.maxZ; ++var5) {
+                  if(this.a(var1, var4, this.l.minY - 1, var5, var3).getBlock().getMaterial() == Material.AIR) {
+                     this.a(var1, Blocks.PLANKS.getBlockData(), var4, this.l.minY - 1, var5, var3);
                   }
                }
             }
@@ -329,9 +329,9 @@ public class WorldGenMineshaftPieces {
          this.a = var2.nextInt(3) == 0;
          this.b = !this.a && var2.nextInt(23) == 0;
          if(this.e().getAxis() == EnumDirection.EnumAxis.Z) {
-            this.d = var3.e() / 5;
+            this.d = var3.getZLength() / 5;
          } else {
-            this.d = var3.c() / 5;
+            this.d = var3.getXLength() / 5;
          }
 
       }
@@ -344,20 +344,20 @@ public class WorldGenMineshaftPieces {
             int var8 = var7 * 5;
             switch(WorldGenMineshaftPieces.SyntheticClass_1.a[var5.ordinal()]) {
             case 1:
-               var6.d = var2 + 2;
-               var6.c = var4 - (var8 - 1);
+               var6.maxX = var2 + 2;
+               var6.minZ = var4 - (var8 - 1);
                break;
             case 2:
-               var6.d = var2 + 2;
-               var6.f = var4 + (var8 - 1);
+               var6.maxX = var2 + 2;
+               var6.maxZ = var4 + (var8 - 1);
                break;
             case 3:
-               var6.a = var2 - (var8 - 1);
-               var6.f = var4 + 2;
+               var6.minX = var2 - (var8 - 1);
+               var6.maxZ = var4 + 2;
                break;
             case 4:
-               var6.d = var2 + (var8 - 1);
-               var6.f = var4 + 2;
+               var6.maxX = var2 + (var8 - 1);
+               var6.maxZ = var4 + 2;
             }
 
             if(StructurePiece.a(var0, var6) == null) {
@@ -376,38 +376,38 @@ public class WorldGenMineshaftPieces {
             switch(WorldGenMineshaftPieces.SyntheticClass_1.a[var6.ordinal()]) {
             case 1:
                if(var5 <= 1) {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, var6, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX, this.l.minY - 1 + var3.nextInt(3), this.l.minZ - 1, var6, var4);
                } else if(var5 == 2) {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.c, EnumDirection.WEST, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY - 1 + var3.nextInt(3), this.l.minZ, EnumDirection.WEST, var4);
                } else {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.c, EnumDirection.EAST, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY - 1 + var3.nextInt(3), this.l.minZ, EnumDirection.EAST, var4);
                }
                break;
             case 2:
                if(var5 <= 1) {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, var6, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX, this.l.minY - 1 + var3.nextInt(3), this.l.maxZ + 1, var6, var4);
                } else if(var5 == 2) {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, EnumDirection.WEST, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY - 1 + var3.nextInt(3), this.l.maxZ - 3, EnumDirection.WEST, var4);
                } else {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.f - 3, EnumDirection.EAST, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY - 1 + var3.nextInt(3), this.l.maxZ - 3, EnumDirection.EAST, var4);
                }
                break;
             case 3:
                if(var5 <= 1) {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b - 1 + var3.nextInt(3), this.l.c, var6, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY - 1 + var3.nextInt(3), this.l.minZ, var6, var4);
                } else if(var5 == 2) {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, EnumDirection.NORTH, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX, this.l.minY - 1 + var3.nextInt(3), this.l.minZ - 1, EnumDirection.NORTH, var4);
                } else {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, EnumDirection.SOUTH, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX, this.l.minY - 1 + var3.nextInt(3), this.l.maxZ + 1, EnumDirection.SOUTH, var4);
                }
                break;
             case 4:
                if(var5 <= 1) {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b - 1 + var3.nextInt(3), this.l.c, var6, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY - 1 + var3.nextInt(3), this.l.minZ, var6, var4);
                } else if(var5 == 2) {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.c - 1, EnumDirection.NORTH, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX - 3, this.l.minY - 1 + var3.nextInt(3), this.l.minZ - 1, EnumDirection.NORTH, var4);
                } else {
-                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d - 3, this.l.b - 1 + var3.nextInt(3), this.l.f + 1, EnumDirection.SOUTH, var4);
+                  WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX - 3, this.l.minY - 1 + var3.nextInt(3), this.l.maxZ + 1, EnumDirection.SOUTH, var4);
                }
             }
          }
@@ -416,21 +416,21 @@ public class WorldGenMineshaftPieces {
             int var7;
             int var8;
             if(var6 != EnumDirection.NORTH && var6 != EnumDirection.SOUTH) {
-               for(var7 = this.l.a + 3; var7 + 3 <= this.l.d; var7 += 5) {
+               for(var7 = this.l.minX + 3; var7 + 3 <= this.l.maxX; var7 += 5) {
                   var8 = var3.nextInt(5);
                   if(var8 == 0) {
-                     WorldGenMineshaftPieces.b(var1, var2, var3, var7, this.l.b, this.l.c - 1, EnumDirection.NORTH, var4 + 1);
+                     WorldGenMineshaftPieces.b(var1, var2, var3, var7, this.l.minY, this.l.minZ - 1, EnumDirection.NORTH, var4 + 1);
                   } else if(var8 == 1) {
-                     WorldGenMineshaftPieces.b(var1, var2, var3, var7, this.l.b, this.l.f + 1, EnumDirection.SOUTH, var4 + 1);
+                     WorldGenMineshaftPieces.b(var1, var2, var3, var7, this.l.minY, this.l.maxZ + 1, EnumDirection.SOUTH, var4 + 1);
                   }
                }
             } else {
-               for(var7 = this.l.c + 3; var7 + 3 <= this.l.f; var7 += 5) {
+               for(var7 = this.l.minZ + 3; var7 + 3 <= this.l.maxZ; var7 += 5) {
                   var8 = var3.nextInt(5);
                   if(var8 == 0) {
-                     WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b, var7, EnumDirection.WEST, var4 + 1);
+                     WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY, var7, EnumDirection.WEST, var4 + 1);
                   } else if(var8 == 1) {
-                     WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b, var7, EnumDirection.EAST, var4 + 1);
+                     WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY, var7, EnumDirection.EAST, var4 + 1);
                   }
                }
             }
@@ -555,7 +555,7 @@ public class WorldGenMineshaftPieces {
 
       public void a(StructurePiece var1, List var2, Random var3) {
          int var4 = this.d();
-         int var6 = this.l.d() - 3 - 1;
+         int var6 = this.l.getYLength() - 3 - 1;
          if(var6 <= 0) {
             var6 = 1;
          }
@@ -563,55 +563,55 @@ public class WorldGenMineshaftPieces {
          int var5;
          StructurePiece var7;
          StructureBoundingBox var8;
-         for(var5 = 0; var5 < this.l.c(); var5 += 4) {
-            var5 += var3.nextInt(this.l.c());
-            if(var5 + 3 > this.l.c()) {
+         for(var5 = 0; var5 < this.l.getXLength(); var5 += 4) {
+            var5 += var3.nextInt(this.l.getXLength());
+            if(var5 + 3 > this.l.getXLength()) {
                break;
             }
 
-            var7 = WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.c - 1, EnumDirection.NORTH, var4);
+            var7 = WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + var5, this.l.minY + var3.nextInt(var6) + 1, this.l.minZ - 1, EnumDirection.NORTH, var4);
             if(var7 != null) {
                var8 = var7.c();
-               this.a.add(new StructureBoundingBox(var8.a, var8.b, this.l.c, var8.d, var8.e, this.l.c + 1));
+               this.a.add(new StructureBoundingBox(var8.minX, var8.minY, this.l.minZ, var8.maxX, var8.maxY, this.l.minZ + 1));
             }
          }
 
-         for(var5 = 0; var5 < this.l.c(); var5 += 4) {
-            var5 += var3.nextInt(this.l.c());
-            if(var5 + 3 > this.l.c()) {
+         for(var5 = 0; var5 < this.l.getXLength(); var5 += 4) {
+            var5 += var3.nextInt(this.l.getXLength());
+            if(var5 + 3 > this.l.getXLength()) {
                break;
             }
 
-            var7 = WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a + var5, this.l.b + var3.nextInt(var6) + 1, this.l.f + 1, EnumDirection.SOUTH, var4);
+            var7 = WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX + var5, this.l.minY + var3.nextInt(var6) + 1, this.l.maxZ + 1, EnumDirection.SOUTH, var4);
             if(var7 != null) {
                var8 = var7.c();
-               this.a.add(new StructureBoundingBox(var8.a, var8.b, this.l.f - 1, var8.d, var8.e, this.l.f));
+               this.a.add(new StructureBoundingBox(var8.minX, var8.minY, this.l.maxZ - 1, var8.maxX, var8.maxY, this.l.maxZ));
             }
          }
 
-         for(var5 = 0; var5 < this.l.e(); var5 += 4) {
-            var5 += var3.nextInt(this.l.e());
-            if(var5 + 3 > this.l.e()) {
+         for(var5 = 0; var5 < this.l.getZLength(); var5 += 4) {
+            var5 += var3.nextInt(this.l.getZLength());
+            if(var5 + 3 > this.l.getZLength()) {
                break;
             }
 
-            var7 = WorldGenMineshaftPieces.b(var1, var2, var3, this.l.a - 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, EnumDirection.WEST, var4);
+            var7 = WorldGenMineshaftPieces.b(var1, var2, var3, this.l.minX - 1, this.l.minY + var3.nextInt(var6) + 1, this.l.minZ + var5, EnumDirection.WEST, var4);
             if(var7 != null) {
                var8 = var7.c();
-               this.a.add(new StructureBoundingBox(this.l.a, var8.b, var8.c, this.l.a + 1, var8.e, var8.f));
+               this.a.add(new StructureBoundingBox(this.l.minX, var8.minY, var8.minZ, this.l.minX + 1, var8.maxY, var8.maxZ));
             }
          }
 
-         for(var5 = 0; var5 < this.l.e(); var5 += 4) {
-            var5 += var3.nextInt(this.l.e());
-            if(var5 + 3 > this.l.e()) {
+         for(var5 = 0; var5 < this.l.getZLength(); var5 += 4) {
+            var5 += var3.nextInt(this.l.getZLength());
+            if(var5 + 3 > this.l.getZLength()) {
                break;
             }
 
-            var7 = WorldGenMineshaftPieces.b(var1, var2, var3, this.l.d + 1, this.l.b + var3.nextInt(var6) + 1, this.l.c + var5, EnumDirection.EAST, var4);
+            var7 = WorldGenMineshaftPieces.b(var1, var2, var3, this.l.maxX + 1, this.l.minY + var3.nextInt(var6) + 1, this.l.minZ + var5, EnumDirection.EAST, var4);
             if(var7 != null) {
                var8 = var7.c();
-               this.a.add(new StructureBoundingBox(this.l.d - 1, var8.b, var8.c, this.l.d, var8.e, var8.f));
+               this.a.add(new StructureBoundingBox(this.l.maxX - 1, var8.minY, var8.minZ, this.l.maxX, var8.maxY, var8.maxZ));
             }
          }
 
@@ -621,16 +621,16 @@ public class WorldGenMineshaftPieces {
          if(this.a(var1, var3)) {
             return false;
          } else {
-            this.a(var1, var3, this.l.a, this.l.b, this.l.c, this.l.d, this.l.b, this.l.f, Blocks.DIRT.getBlockData(), Blocks.AIR.getBlockData(), true);
-            this.a(var1, var3, this.l.a, this.l.b + 1, this.l.c, this.l.d, Math.min(this.l.b + 3, this.l.e), this.l.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.minX, this.l.minY, this.l.minZ, this.l.maxX, this.l.minY, this.l.maxZ, Blocks.DIRT.getBlockData(), Blocks.AIR.getBlockData(), true);
+            this.a(var1, var3, this.l.minX, this.l.minY + 1, this.l.minZ, this.l.maxX, Math.min(this.l.minY + 3, this.l.maxY), this.l.maxZ, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
             Iterator var4 = this.a.iterator();
 
             while(var4.hasNext()) {
                StructureBoundingBox var5 = (StructureBoundingBox)var4.next();
-               this.a(var1, var3, var5.a, var5.e - 2, var5.c, var5.d, var5.e, var5.f, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
+               this.a(var1, var3, var5.minX, var5.maxY - 2, var5.minZ, var5.maxX, var5.maxY, var5.maxZ, Blocks.AIR.getBlockData(), Blocks.AIR.getBlockData(), false);
             }
 
-            this.a(var1, var3, this.l.a, this.l.b + 4, this.l.c, this.l.d, this.l.e, this.l.f, Blocks.AIR.getBlockData(), false);
+            this.a(var1, var3, this.l.minX, this.l.minY + 4, this.l.minZ, this.l.maxX, this.l.maxY, this.l.maxZ, Blocks.AIR.getBlockData(), false);
             return true;
          }
       }
@@ -652,7 +652,7 @@ public class WorldGenMineshaftPieces {
 
          while(var3.hasNext()) {
             StructureBoundingBox var4 = (StructureBoundingBox)var3.next();
-            var2.add((NBTTag)var4.g());
+            var2.add((NBTTag)var4.toNBT());
          }
 
          var1.put((String)"Entrances", (NBTTag)var2);

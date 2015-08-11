@@ -128,8 +128,8 @@ public abstract class class_age extends Block {
    }
 
    protected void e(World var1, BlockPosition var2) {
-      var1.c((BlockPosition)var2, (Block)this);
-      var1.c((BlockPosition)var2.down(), (Block)this);
+      var1.applyPhysics((BlockPosition)var2, (Block)this);
+      var1.applyPhysics((BlockPosition)var2.down(), (Block)this);
    }
 
    public int a(IBlockAccess var1, BlockPosition var2, IBlockData var3, EnumDirection var4) {

@@ -46,7 +46,7 @@ public class ItemDoor extends Item {
       IBlockData var12 = var3.getBlockData().set(BlockDoor.a, var2).set(BlockDoor.N, var10? BlockDoor.class_b_in_class_ahl.b: BlockDoor.class_b_in_class_ahl.a);
       var0.setTypeAndData((BlockPosition)var1, (IBlockData)var12.set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.b), 2);
       var0.setTypeAndData((BlockPosition)var11, (IBlockData)var12.set(BlockDoor.P, BlockDoor.class_a_in_class_ahl.a), 2);
-      var0.c(var1, var3);
-      var0.c(var11, var3);
+      var0.applyPhysics(var1, var3);
+      var0.applyPhysics(var11, var3);
    }
 }

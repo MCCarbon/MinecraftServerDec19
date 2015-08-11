@@ -253,7 +253,7 @@ public class class_apc {
 
    private void a(BlockPosition var1) {
       this.d.b(3000, var1, 0);
-      (new class_aqi()).generate(this.d, new Random(), var1);
+      (new EndGatewayGenerator()).generate(this.d, new Random(), var1);
    }
 
    private void a(boolean var1) {

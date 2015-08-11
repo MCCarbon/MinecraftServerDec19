@@ -1040,29 +1040,29 @@ public class PlayerConnection implements PacketListenerPlayIn, ITickAble {
 						TileEntityStructure var75 = (TileEntityStructure) var70;
 						byte var76 = var61.readByte();
 						String var77 = var61.readString(32);
-						var75.a(TileEntityStructure.EnumMode.valueOf(var77));
-						var75.a(var61.readString(64));
-						var75.b(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
-						var75.c(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
+						var75.setMode(TileEntityStructure.EnumMode.valueOf(var77));
+						var75.setName(var61.readString(64));
+						var75.setPos(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
+						var75.setSize(new BlockPosition(var61.readInt(), var61.readInt(), var61.readInt()));
 						String var8 = var61.readString(32);
-						var75.a(Block.class_a_in_class_agj.valueOf(var8));
+						var75.setMirror(Block.class_a_in_class_agj.valueOf(var8));
 						String var9 = var61.readString(32);
-						var75.a(Block.EnumRotation.valueOf(var9));
-						var75.b(var61.readString(128));
-						var75.a(var61.readBoolean());
+						var75.setRotation(Block.EnumRotation.valueOf(var9));
+						var75.setMetadata(var61.readString(128));
+						var75.setIgnoreEntities(var61.readBoolean());
 						if (var76 == 2) {
-							if (var75.m()) {
+							if (var75.saveStructure()) {
 								player.b((new ChatComponentText("Structure saved")));
 							} else {
 								player.b((new ChatComponentText("Structure NOT saved")));
 							}
 						} else if (var76 == 3) {
-							if (var75.n()) {
+							if (var75.loadStucture()) {
 								player.b((new ChatComponentText("Structure loaded")));
 							} else {
 								player.b((new ChatComponentText("Structure prepared")));
 							}
-						} else if ((var76 == 4) && var75.l()) {
+						} else if ((var76 == 4) && var75.updateStructureSize()) {
 							player.b((new ChatComponentText("Size detected")));
 						}
 

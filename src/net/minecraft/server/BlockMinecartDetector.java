@@ -71,15 +71,15 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
 
 		if (var5 && !var4) {
 			var1.setTypeAndData(var2, var3.set(N, Boolean.valueOf(true)), 3);
-			var1.c(var2, this);
-			var1.c(var2.down(), this);
+			var1.applyPhysics(var2, this);
+			var1.applyPhysics(var2.down(), this);
 			var1.b(var2, var2);
 		}
 
 		if (!var5 && var4) {
 			var1.setTypeAndData(var2, var3.set(N, Boolean.valueOf(false)), 3);
-			var1.c(var2, this);
-			var1.c(var2.down(), this);
+			var1.applyPhysics(var2, this);
+			var1.applyPhysics(var2.down(), this);
 			var1.b(var2, var2);
 		}
 
@@ -87,7 +87,7 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
 			var1.a(var2, this, tickInterval(var1));
 		}
 
-		var1.e(var2, this);
+		var1.updateAdjacentComparators(var2, this);
 	}
 
 	@Override

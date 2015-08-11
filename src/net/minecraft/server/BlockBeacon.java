@@ -74,7 +74,7 @@ public class BlockBeacon extends BlockContainer {
       TileEntity var5 = var1.getTileEntity(var2);
       if(var5 instanceof TileEntityBeacon) {
          ((TileEntityBeacon)var5).m();
-         var1.c(var2, this, 1, 0);
+         var1.playBlockAction(var2, this, 1, 0);
       }
 
    }
@@ -97,7 +97,7 @@ public class BlockBeacon extends BlockContainer {
                         TileEntity var1x = var0.getTileEntity(var3);
                         if(var1x instanceof TileEntityBeacon) {
                            ((TileEntityBeacon)var1x).m();
-                           var0.c(var3, Blocks.BEACON, 1, 0);
+                           var0.playBlockAction(var3, Blocks.BEACON, 1, 0);
                         }
 
                      }

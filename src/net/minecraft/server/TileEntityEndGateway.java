@@ -11,54 +11,52 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 
 	private static final Logger looger = LogManager.getLogger();
 	private long life = 0L;
-	private int g = 0;
+	private int teleporCooldown = 0;
 	private BlockPosition exitPos;
 
 	@Override
-	public void write(NBTTagCompound var1) {
-		super.write(var1);
-		var1.put("Life", life);
+	public void write(NBTTagCompound compound) {
+		super.write(compound);
+		compound.put("Life", life);
 		if (exitPos != null) {
-			var1.put("ExitPortal", class_dy.a(exitPos));
+			compound.put("ExitPortal", class_dy.a(exitPos));
 		}
 	}
 
 	@Override
-	public void read(NBTTagCompound var1) {
-		super.read(var1);
-		life = var1.getLong("Life");
-		if (var1.hasOfType("ExitPortal", 10)) {
-			exitPos = class_dy.c(var1.getCompound("ExitPortal"));
+	public void read(NBTTagCompound compound) {
+		super.read(compound);
+		life = compound.getLong("Life");
+		if (compound.hasOfType("ExitPortal", 10)) {
+			exitPos = class_dy.c(compound.getCompound("ExitPortal"));
 		}
-
 	}
 
 	@Override
 	public void tick() {
-		boolean var1 = this.b();
-		boolean var2 = d();
+		boolean justSpawned = this.justSpawned();
+		boolean atCooddown = isAtCooldown();
 		++life;
-		if (var2) {
-			--g;
+		if (atCooddown) {
+			--teleporCooldown;
 		} else if (!world.isClientSide) {
 			List<Entity> list = world.getEntities(Entity.class, new AxisAlignedBB(getPosition()));
 			if (!list.isEmpty()) {
-				this.a((Entity) list.get(0));
+				this.teleport(list.get(0));
 			}
 		}
 
-		if ((var1 != this.b()) || (var2 != d())) {
-			update();
+		if ((justSpawned != this.justSpawned()) || (atCooddown != isAtCooldown())) {
+			this.update();
 		}
-
 	}
 
-	public boolean b() {
+	public boolean justSpawned() {
 		return life < 200L;
 	}
 
-	public boolean d() {
-		return g > 0;
+	public boolean isAtCooldown() {
+		return teleporCooldown > 0;
 	}
 
 	@Override
@@ -68,88 +66,86 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 		return new PacketPlayOutTileEntityData(position, 8, data);
 	}
 
-	public void h() {
+	public void afterTeleport() {
 		if (!world.isClientSide) {
-			g = 20;
-			world.c(getPosition(), getBlock(), 1, 0);
+			teleporCooldown = 20;
+			world.playBlockAction(getPosition(), getBlock(), 1, 0);
 			update();
 		}
 	}
 
 	@Override
-	public boolean handleClientInput(int var1, int var2) {
-		if (var1 == 1) {
-			g = 20;
+	public boolean handleClientInput(int id, int value) {
+		if (id == 1) {
+			teleporCooldown = 20;
 			return true;
 		} else {
-			return super.handleClientInput(var1, var2);
+			return super.handleClientInput(id, value);
 		}
 	}
 
-	public void a(Entity var1) {
-		if (!world.isClientSide && !d()) {
-			g = 100;
+	public void teleport(Entity entity) {
+		if (!world.isClientSide && !isAtCooldown()) {
+			teleporCooldown = 100;
 			if ((exitPos == null) && (world.worldProvider instanceof WorldProviderTheEnd)) {
-				j();
+				generateExitPosition();
 			}
 
 			if (exitPos != null) {
-				BlockPosition var2 = i();
-				var1.enderTeleportTo(var2.getX() + 0.5D, var2.getY() + 1.5D, var2.getZ() + 0.5D);
+				BlockPosition position = findExitPosition();
+				entity.enderTeleportTo(position.getX() + 0.5D, position.getY() + 1.5D, position.getZ() + 0.5D);
 			}
 
-			h();
+			afterTeleport();
 		}
 	}
 
-	private BlockPosition i() {
-		BlockPosition var1 = a(world, exitPos, 5, false);
-		looger.debug("Best exit position for portal at " + exitPos + " is " + var1);
-		return var1.up();
+	private BlockPosition findExitPosition() {
+		BlockPosition position = findExitPosition(world, exitPos, 5, false);
+		looger.debug("Best exit position for portal at " + exitPos + " is " + position);
+		return position.up();
 	}
 
-	private void j() {
-		Vec3D var1 = (new Vec3D(getPosition().getX(), 0.0D, getPosition().getZ())).normalize();
-		Vec3D var2 = var1.multiply(1024.0D);
+	private void generateExitPosition() {
+		Vec3D normalized = (new Vec3D(getPosition().getX(), 0.0D, getPosition().getZ())).normalize();
+		Vec3D mul = normalized.multiply(1024.0D);
 
-		int var3;
-		for (var3 = 16; (a(world, var2).g() > 0) && (var3-- > 0); var2 = var2.add(var1.multiply(-16.0D))) {
-			looger.debug("Skipping backwards past nonempty chunk at " + var2);
+		for (int i = 16; (getChunkAtWorldCoords(world, mul).getHighestChunkSectionY() > 0) && (i-- > 0); mul = mul.add(normalized.multiply(-16.0D))) {
+			looger.debug("Skipping backwards past nonempty chunk at " + mul);
 		}
 
-		for (var3 = 16; (a(world, var2).g() == 0) && (var3-- > 0); var2 = var2.add(var1.multiply(16.0D))) {
-			looger.debug("Skipping forward past empty chunk at " + var2);
+		for (int i = 16; (getChunkAtWorldCoords(world, mul).getHighestChunkSectionY() == 0) && (i-- > 0); mul = mul.add(normalized.multiply(16.0D))) {
+			looger.debug("Skipping forward past empty chunk at " + mul);
 		}
 
-		looger.debug("Found chunk at " + var2);
-		Chunk var4 = a(world, var2);
-		exitPos = a(var4);
+		looger.debug("Found chunk at " + mul);
+		Chunk chunk = getChunkAtWorldCoords(world, mul);
+		exitPos = findPlatformPosition(chunk);
 		if (exitPos == null) {
-			exitPos = new BlockPosition(var2.x + 0.5D, 75.0D, var2.z + 0.5D);
+			exitPos = new BlockPosition(mul.x + 0.5D, 75.0D, mul.z + 0.5D);
 			looger.debug("Failed to find suitable block, settling on " + exitPos);
-			(new class_aqj()).generate(world, new Random(exitPos.asLong()), exitPos);
+			new EndGatewayPlatformGenerator().generate(world, new Random(exitPos.asLong()), exitPos);
 		} else {
 			looger.debug("Found block at " + exitPos);
 		}
 
-		exitPos = a(world, exitPos, 16, true);
+		exitPos = findExitPosition(world, exitPos, 16, true);
 		looger.debug("Creating portal at " + exitPos);
 		exitPos = exitPos.up(10);
-		this.b(exitPos);
+		this.generateGateway(exitPos);
 		update();
 	}
 
-	private static BlockPosition a(World var0, BlockPosition var1, int var2, boolean var3) {
-		BlockPosition var4 = null;
-
-		for (int var5 = -var2; var5 <= var2; ++var5) {
-			for (int var6 = -var2; var6 <= var2; ++var6) {
-				if ((var5 != 0) || (var6 != 0) || var3) {
-					for (int var7 = 255; var7 > (var4 == null ? 0 : var4.getY()); --var7) {
-						BlockPosition var8 = new BlockPosition(var1.getX() + var5, var7, var1.getZ() + var6);
-						IBlockData var9 = var0.getType(var8);
-						if (var9.getBlock().isSoildFullCube() && (var3 || (var9.getBlock() != Blocks.BEDROCK))) {
-							var4 = var8;
+	private static BlockPosition findExitPosition(World world, BlockPosition startPoint, int radius, boolean anyY) {
+		BlockPosition result = null;
+		for (int x = -radius; x <= radius; ++x) {
+			for (int z = -radius; z <= radius; ++z) {
+				if ((x != 0) || (z != 0) || anyY) {
+					for (int y = 255; y > (result == null ? 0 : result.getY()); --y) {
+						BlockPosition search = new BlockPosition(startPoint.getX() + x, y, startPoint.getZ() + z);
+						IBlockData blockdata = world.getType(search);
+						if (blockdata.getBlock().isSoildFullCube() && (anyY || (blockdata.getBlock() != Blocks.BEDROCK))) {
+							result = search;
 							break;
 						}
 					}
@@ -157,56 +153,57 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 			}
 		}
 
-		return var4 == null ? var1 : var4;
+		return result == null ? startPoint : result;
 	}
 
-	private static Chunk a(World var0, Vec3D var1) {
-		return var0.getChunkAt(MathHelper.floor(var1.x / 16.0D), MathHelper.floor(var1.z / 16.0D));
+	private static Chunk getChunkAtWorldCoords(World world, Vec3D vec) {
+		return world.getChunkAt(MathHelper.floor(vec.x / 16.0D), MathHelper.floor(vec.z / 16.0D));
 	}
 
-	private static BlockPosition a(Chunk var0) {
-		BlockPosition var1 = new BlockPosition(var0.a * 16, 30, var0.b * 16);
-		int var2 = (var0.g() + 16) - 1;
-		BlockPosition var3 = new BlockPosition(((var0.a * 16) + 16) - 1, var2, ((var0.b * 16) + 16) - 1);
-		BlockPosition var4 = null;
-		double var5 = 0.0D;
-		Iterator<?> var7 = BlockPosition.allInCube(var1, var3).iterator();
+	private static BlockPosition findPlatformPosition(Chunk chunk) {
+		BlockPosition chunkStart = new BlockPosition(chunk.locX * 16, 30, chunk.locZ * 16);
+		int highestSectY = (chunk.getHighestChunkSectionY() + 16) - 1;
+		BlockPosition searchEnd = new BlockPosition(((chunk.locX * 16) + 16) - 1, highestSectY, ((chunk.locZ * 16) + 16) - 1);
+
+		BlockPosition platformPosition = null;
+		double dist = 0.0D;
+		Iterator<BlockPosition> iterator = BlockPosition.allInCube(chunkStart, searchEnd).iterator();
 
 		while (true) {
-			BlockPosition var8;
-			double var10;
+			BlockPosition nextPosition;
+			double sqDist;
 			do {
 				do {
-					IBlockData var9;
+					IBlockData blockdata;
 					do {
 						do {
-							if (!var7.hasNext()) {
-								return var4;
+							if (!iterator.hasNext()) {
+								return platformPosition;
 							}
 
-							var8 = (BlockPosition) var7.next();
-							var9 = var0.g(var8);
-						} while (var9.getBlock() != Blocks.END_STONE);
-					} while (var0.a(var8.up(1)).isSoildFullCube());
-				} while (var0.a(var8.up(2)).isSoildFullCube());
+							nextPosition = iterator.next();
+							blockdata = chunk.getBlockData(nextPosition);
+						} while (blockdata.getBlock() != Blocks.END_STONE);
+					} while (chunk.getType(nextPosition.up(1)).isSoildFullCube());
+				} while (chunk.getType(nextPosition.up(2)).isSoildFullCube());
 
-				var10 = var8.distanceSquaredFromCenter(0.0D, 0.0D, 0.0D);
-			} while ((var4 != null) && (var10 >= var5));
+				sqDist = nextPosition.distanceSquaredFromCenter(0.0D, 0.0D, 0.0D);
+			} while ((platformPosition != null) && (sqDist >= dist));
 
-			var4 = var8;
-			var5 = var10;
+			platformPosition = nextPosition;
+			dist = sqDist;
 		}
 	}
 
-	private void b(BlockPosition var1) {
-		(new class_aqi()).generate(world, new Random(), var1);
-		TileEntity var2 = world.getTileEntity(var1);
-		if (var2 instanceof TileEntityEndGateway) {
-			TileEntityEndGateway var3 = (TileEntityEndGateway) var2;
-			var3.exitPos = new BlockPosition(getPosition());
-			var3.update();
+	private void generateGateway(BlockPosition position) {
+		new EndGatewayGenerator().generate(world, new Random(), position);
+		TileEntity te = world.getTileEntity(position);
+		if (te instanceof TileEntityEndGateway) {
+			TileEntityEndGateway gateway = (TileEntityEndGateway) te;
+			gateway.exitPos = new BlockPosition(getPosition());
+			gateway.update();
 		} else {
-			looger.warn("Couldn\'t save exit portal at " + var1);
+			looger.warn("Couldn\'t save exit portal at " + position);
 		}
 	}
 

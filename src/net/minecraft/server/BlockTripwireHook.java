@@ -172,8 +172,8 @@ public class BlockTripwireHook extends Block {
    }
 
    private void a(World var1, BlockPosition var2, EnumDirection var3) {
-      var1.c((BlockPosition)var2, (Block)this);
-      var1.c((BlockPosition)var2.shift(var3.opposite()), (Block)this);
+      var1.applyPhysics((BlockPosition)var2, (Block)this);
+      var1.applyPhysics((BlockPosition)var2.shift(var3.opposite()), (Block)this);
    }
 
    private boolean e(World var1, BlockPosition var2, IBlockData var3) {
@@ -212,8 +212,8 @@ public class BlockTripwireHook extends Block {
       }
 
       if(var5) {
-         var1.c((BlockPosition)var2, (Block)this);
-         var1.c((BlockPosition)var2.shift(((EnumDirection)var3.get(a)).opposite()), (Block)this);
+         var1.applyPhysics((BlockPosition)var2, (Block)this);
+         var1.applyPhysics((BlockPosition)var2.shift(((EnumDirection)var3.get(a)).opposite()), (Block)this);
       }
 
       super.remove(var1, var2, var3);

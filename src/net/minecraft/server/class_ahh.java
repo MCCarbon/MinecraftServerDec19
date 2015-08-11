@@ -64,7 +64,7 @@ public abstract class class_ahh extends BlockDirectional {
 
          for(int var7 = 0; var7 < var6; ++var7) {
             EnumDirection var8 = var5[var7];
-            var1.c((BlockPosition)var2.shift(var8), (Block)this);
+            var1.applyPhysics((BlockPosition)var2.shift(var8), (Block)this);
          }
 
       }
@@ -153,7 +153,7 @@ public abstract class class_ahh extends BlockDirectional {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             EnumDirection var7 = var4[var6];
-            var1.c((BlockPosition)var2.shift(var7), (Block)this);
+            var1.applyPhysics((BlockPosition)var2.shift(var7), (Block)this);
          }
       }
 

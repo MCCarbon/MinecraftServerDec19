@@ -230,7 +230,7 @@ public class class_lb {
 
       while(var3.hasNext()) {
          class_lj var4 = (class_lj)var3.next();
-         if(var4.a != var1 && var4.a.ae == var2.a && var4.a.ag == var2.b) {
+         if(var4.a != var1 && var4.a.ae == var2.locX && var4.a.ag == var2.locZ) {
             var4.b(var1);
          }
       }

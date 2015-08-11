@@ -138,7 +138,7 @@ public class ChunkProviderFlat implements IChunkProvider {
          var12[var7] = (byte)var11[var7].az;
       }
 
-      var9.b();
+      var9.initLighting();
       return var9;
    }
 

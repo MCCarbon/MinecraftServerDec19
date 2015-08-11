@@ -28,8 +28,8 @@ public class PacketPlayOutMapChunkBulk implements Packet {
       for(int var3 = 0; var3 < var2; ++var3) {
          Chunk var4 = (Chunk)var1.get(var3);
          PacketPlayOutMapChunk.class_a_in_class_go var5 = PacketPlayOutMapChunk.a(var4, true, this.d, '\uffff');
-         this.a[var3] = var4.a;
-         this.b[var3] = var4.b;
+         this.a[var3] = var4.locX;
+         this.b[var3] = var4.locZ;
          this.c[var3] = var5;
       }
 

@@ -215,7 +215,7 @@ public class class_app implements IChunkProvider {
          var5[var6] = (byte)this.B[var6].az;
       }
 
-      var4.b();
+      var4.initLighting();
       return var4;
    }
 

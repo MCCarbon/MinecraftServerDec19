@@ -145,7 +145,7 @@ public final class class_aeu {
       int var4 = var1 * 16 + var0.random.nextInt(16);
       int var5 = var2 * 16 + var0.random.nextInt(16);
       int var6 = MathHelper.ceilByBase(var3.f(new BlockPosition(var4, 0, var5)) + 1, 16);
-      int var7 = var0.random.nextInt(var6 > 0?var6:var3.g() + 16 - 1);
+      int var7 = var0.random.nextInt(var6 > 0?var6:var3.getHighestChunkSectionY() + 16 - 1);
       return new BlockPosition(var4, var7, var5);
    }
 

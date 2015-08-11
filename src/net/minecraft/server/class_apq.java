@@ -12,7 +12,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.class_aph;
-import net.minecraft.server.class_aqj;
+import net.minecraft.server.EndGatewayPlatformGenerator;
 import net.minecraft.server.WorldGenEndCity;
 import net.minecraft.server.NoiseGeneratorOctaves;
 import net.minecraft.server.class_ate;
@@ -37,7 +37,7 @@ public class class_apq implements IChunkProvider {
    double[] c;
    double[] d;
    double[] e;
-   private class_aqj o = new class_aqj();
+   private EndGatewayPlatformGenerator o = new EndGatewayPlatformGenerator();
 
    public class_apq(World var1, long var2) {
       this.j = var1;
@@ -160,7 +160,7 @@ public class class_apq implements IChunkProvider {
          var5[var6] = (byte)this.n[var6].az;
       }
 
-      var4.b();
+      var4.initLighting();
       return var4;
    }
 

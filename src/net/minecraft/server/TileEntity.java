@@ -126,7 +126,7 @@ public abstract class TileEntity {
 			metadata = blockdata.getBlock().toLegacyData(blockdata);
 			world.b(position, this);
 			if (getBlock() != Blocks.AIR) {
-				world.e(position, getBlock());
+				world.updateAdjacentComparators(position, getBlock());
 			}
 		}
 	}
@@ -214,7 +214,7 @@ public abstract class TileEntity {
 		this.position = position;
 	}
 
-	public boolean F() {
+	public boolean doNotCopyNBTDataToItem() {
 		return false;
 	}
 

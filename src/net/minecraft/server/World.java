@@ -157,7 +157,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean b(StructureBoundingBox var1, boolean var2) {
-		return this.a(var1.a, var1.b, var1.c, var1.d, var1.e, var1.f, var2);
+		return this.a(var1.minX, var1.minY, var1.minZ, var1.maxX, var1.maxY, var1.maxZ, var2);
 	}
 
 	private boolean a(int var1, int var2, int var3, int var4, int var5, int var6, boolean var7) {
@@ -219,7 +219,7 @@ public abstract class World implements IBlockAccess {
 				if (!isClientSide && ((var3 & 1) != 0)) {
 					this.update(var1, var6.getBlock());
 					if (var5.isComplexRedstone()) {
-						this.e(var1, var5);
+						this.updateAdjacentComparators(var1, var5);
 					}
 				}
 
@@ -260,7 +260,7 @@ public abstract class World implements IBlockAccess {
 
 	public void update(BlockPosition var1, Block var2) {
 		if (x.u() != WorldType.DEBUG) {
-			this.c(var1, var2);
+			this.applyPhysics(var1, var2);
 		}
 
 	}
@@ -293,7 +293,7 @@ public abstract class World implements IBlockAccess {
 
 	}
 
-	public void c(BlockPosition var1, Block var2) {
+	public void applyPhysics(BlockPosition var1, Block var2) {
 		this.d(var1.west(), var2);
 		this.d(var1.east(), var2);
 		this.d(var1.down(), var2);
@@ -513,7 +513,7 @@ public abstract class World implements IBlockAccess {
 			return Blocks.AIR.getBlockData();
 		} else {
 			Chunk var2 = this.f(var1);
-			return var2.g(var1);
+			return var2.getBlockData(var1);
 		}
 	}
 
@@ -924,9 +924,9 @@ public abstract class World implements IBlockAccess {
 
 		BlockPosition var3;
 		BlockPosition var4;
-		for (var3 = new BlockPosition(var1.getX(), var2.g() + 16, var1.getZ()); var3.getY() >= 0; var3 = var4) {
+		for (var3 = new BlockPosition(var1.getX(), var2.getHighestChunkSectionY() + 16, var1.getZ()); var3.getY() >= 0; var3 = var4) {
 			var4 = var3.down();
-			Material var5 = var2.a(var4).getMaterial();
+			Material var5 = var2.getType(var4).getMaterial();
 			if (var5.isSolid() && (var5 != Material.LEAVES)) {
 				break;
 			}
@@ -1677,7 +1677,7 @@ public abstract class World implements IBlockAccess {
 			int var6 = (var4 >> 8) & 15;
 			int var7 = (var4 >> 16) & 255;
 			BlockPosition var8 = new BlockPosition(var5, var7, var6);
-			Block var9 = var3.a(var8);
+			Block var9 = var3.getType(var8);
 			var5 += var1;
 			var6 += var2;
 			if ((var9.getMaterial() == Material.AIR) && (k(var8) <= random.nextInt(8)) && (this.b(class_aet.a, var8) <= 0)) {
@@ -2307,7 +2307,7 @@ public abstract class World implements IBlockAccess {
 		return v;
 	}
 
-	public void c(BlockPosition var1, Block var2, int var3, int var4) {
+	public void playBlockAction(BlockPosition var1, Block var2, int var3, int var4) {
 		var2.a(this, var1, getType(var1), var3, var4);
 	}
 
@@ -2477,7 +2477,7 @@ public abstract class World implements IBlockAccess {
 		return C;
 	}
 
-	public void e(BlockPosition var1, Block var2) {
+	public void updateAdjacentComparators(BlockPosition var1, Block var2) {
 		Iterator var3 = EnumDirection.EnumDirectionLimit.HORIZONTAL.iterator();
 
 		while (var3.hasNext()) {

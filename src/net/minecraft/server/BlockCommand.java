@@ -50,7 +50,7 @@ public class BlockCommand extends BlockContainer {
       TileEntity var5 = var1.getTileEntity(var2);
       if(var5 instanceof TileEntityCommand) {
          ((TileEntityCommand)var5).b().a(var1);
-         var1.e(var2, this);
+         var1.updateAdjacentComparators(var2, this);
       }
 
    }

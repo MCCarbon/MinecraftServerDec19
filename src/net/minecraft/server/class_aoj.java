@@ -19,17 +19,17 @@ public class class_aoj extends Chunk {
    }
 
    public boolean a(int var1, int var2) {
-      return var1 == this.a && var2 == this.b;
+      return var1 == this.locX && var2 == this.locZ;
    }
 
    public int b(int var1, int var2) {
       return 0;
    }
 
-   public void b() {
+   public void initLighting() {
    }
 
-   public Block a(BlockPosition var1) {
+   public Block getType(BlockPosition var1) {
       return Blocks.AIR;
    }
 
@@ -98,7 +98,7 @@ public class class_aoj extends Chunk {
    }
 
    public Random a(long var1) {
-      return new Random(this.p().K() + (long)(this.a * this.a * 4987142) + (long)(this.a * 5947611) + (long)(this.b * this.b) * 4392871L + (long)(this.b * 389711) ^ var1);
+      return new Random(this.p().K() + (long)(this.locX * this.locX * 4987142) + (long)(this.locX * 5947611) + (long)(this.locZ * this.locZ) * 4392871L + (long)(this.locZ * 389711) ^ var1);
    }
 
    public boolean f() {

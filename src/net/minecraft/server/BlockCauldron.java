@@ -130,7 +130,7 @@ public class BlockCauldron extends Block {
 
    public void a(World var1, BlockPosition var2, IBlockData var3, int var4) {
       var1.setTypeAndData((BlockPosition)var2, (IBlockData)var3.set(a, Integer.valueOf(MathHelper.clamp(var4, 0, 3))), 2);
-      var1.e(var2, this);
+      var1.updateAdjacentComparators(var2, this);
    }
 
    public void rainTick(World var1, BlockPosition var2) {

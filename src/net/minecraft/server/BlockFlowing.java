@@ -73,7 +73,7 @@ public class BlockFlowing extends BlockFluids {
 					var3 = var3.set(LEVEL, Integer.valueOf(var14));
 					var1.setTypeAndData(var2, var3, 2);
 					var1.a(var2, this, var7);
-					var1.c(var2, this);
+					var1.applyPhysics(var2, this);
 				}
 			}
 		} else {

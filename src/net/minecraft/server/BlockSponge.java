@@ -81,7 +81,7 @@ public class BlockSponge extends Block {
 
 		while (var14.hasNext()) {
 			var7 = (BlockPosition) var14.next();
-			var1.c(var7, Blocks.AIR);
+			var1.applyPhysics(var7, Blocks.AIR);
 		}
 
 		return var5 > 0;

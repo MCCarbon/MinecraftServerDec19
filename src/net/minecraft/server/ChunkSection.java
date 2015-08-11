@@ -63,7 +63,7 @@ public class ChunkSection {
 		return c > 0;
 	}
 
-	public int d() {
+	public int getYPosition() {
 		return a;
 	}
 

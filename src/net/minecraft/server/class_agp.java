@@ -205,8 +205,8 @@ public abstract class class_agp extends class_ahi {
    }
 
    private void c(World var1, BlockPosition var2, EnumDirection var3) {
-      var1.c((BlockPosition)var2, (Block)this);
-      var1.c((BlockPosition)var2.shift(var3.opposite()), (Block)this);
+      var1.applyPhysics((BlockPosition)var2, (Block)this);
+      var1.applyPhysics((BlockPosition)var2.shift(var3.opposite()), (Block)this);
    }
 
    public IBlockData fromLegacyData(int var1) {

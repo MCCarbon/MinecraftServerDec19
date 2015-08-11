@@ -52,7 +52,7 @@ public class BlockRedstoneTorch extends BlockTorch {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             EnumDirection var7 = var4[var6];
-            var1.c((BlockPosition)var2.shift(var7), (Block)this);
+            var1.applyPhysics((BlockPosition)var2.shift(var7), (Block)this);
          }
       }
 
@@ -65,7 +65,7 @@ public class BlockRedstoneTorch extends BlockTorch {
 
          for(int var6 = 0; var6 < var5; ++var6) {
             EnumDirection var7 = var4[var6];
-            var1.c((BlockPosition)var2.shift(var7), (Block)this);
+            var1.applyPhysics((BlockPosition)var2.shift(var7), (Block)this);
          }
       }
 

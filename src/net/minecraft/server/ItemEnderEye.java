@@ -12,7 +12,7 @@ public class ItemEnderEye extends Item {
             return UseResult.SUCCESS;
          } else {
             var3.setTypeAndData((BlockPosition)var4, (IBlockData)var10.set(BlockEnderPortalFrame.b, Boolean.valueOf(true)), 2);
-            var3.e(var4, Blocks.END_PORTAL_FRAME);
+            var3.updateAdjacentComparators(var4, Blocks.END_PORTAL_FRAME);
             --var1.count;
 
             for(int var11 = 0; var11 < 16; ++var11) {

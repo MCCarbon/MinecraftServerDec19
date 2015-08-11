@@ -31,7 +31,7 @@ public class class_u extends CommandAbstract {
          BlockPosition var5 = a(var1, var2, 6, false);
          StructureBoundingBox var6 = new StructureBoundingBox(var3, var4);
          StructureBoundingBox var7 = new StructureBoundingBox(var5, var5.add(var6.b()));
-         int var8 = var6.c() * var6.d() * var6.e();
+         int var8 = var6.getXLength() * var6.getYLength() * var6.getZLength();
          if(var8 > '耀') {
             throw new class_bz("commands.clone.tooManyBlocks", new Object[]{Integer.valueOf(var8), Integer.valueOf('耀')});
          } else {
@@ -45,7 +45,7 @@ public class class_u extends CommandAbstract {
                   var9 = true;
                }
 
-               if(var6.b >= 0 && var6.e < 256 && var7.b >= 0 && var7.e < 256) {
+               if(var6.minY >= 0 && var6.maxY < 256 && var7.minY >= 0 && var7.maxY < 256) {
                   World var12 = var1.e();
                   if(var12.a(var6) && var12.a(var7)) {
                      boolean var13 = false;
@@ -68,11 +68,11 @@ public class class_u extends CommandAbstract {
                      ArrayList var15 = Lists.newArrayList();
                      ArrayList var16 = Lists.newArrayList();
                      LinkedList var17 = Lists.newLinkedList();
-                     BlockPosition var18 = new BlockPosition(var7.a - var6.a, var7.b - var6.b, var7.c - var6.c);
+                     BlockPosition var18 = new BlockPosition(var7.minX - var6.minX, var7.minY - var6.minY, var7.minZ - var6.minZ);
 
-                     for(int var19 = var6.c; var19 <= var6.f; ++var19) {
-                        for(int var20 = var6.b; var20 <= var6.e; ++var20) {
-                           for(int var21 = var6.a; var21 <= var6.d; ++var21) {
+                     for(int var19 = var6.minZ; var19 <= var6.maxZ; ++var19) {
+                        for(int var20 = var6.minY; var20 <= var6.maxY; ++var20) {
+                           for(int var21 = var6.minX; var21 <= var6.maxX; ++var21) {
                               BlockPosition var22 = new BlockPosition(var21, var20, var19);
                               BlockPosition var23 = var22.add((BaseBlockPosition)var18);
                               IBlockData var24 = var12.getType(var22);

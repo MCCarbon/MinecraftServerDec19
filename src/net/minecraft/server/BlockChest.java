@@ -289,7 +289,7 @@ public class BlockChest extends BlockContainer {
       TileEntity var4 = var1.getTileEntity(var2);
       if(var4 instanceof IInventory) {
          class_ol.a(var1, var2, (IInventory)var4);
-         var1.e(var2, this);
+         var1.updateAdjacentComparators(var2, this);
       }
 
       super.remove(var1, var2, var3);

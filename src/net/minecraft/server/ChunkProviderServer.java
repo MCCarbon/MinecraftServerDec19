@@ -64,7 +64,7 @@ public class ChunkProviderServer implements IChunkProvider {
 
       while(var1.hasNext()) {
          Chunk var2 = (Chunk)var1.next();
-         this.b(var2.a, var2.b);
+         this.b(var2.locX, var2.locZ);
       }
 
    }
