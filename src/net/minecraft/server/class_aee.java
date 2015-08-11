@@ -220,7 +220,7 @@ public abstract class class_aee {
 
    public void b(NBTTagCompound var1) {
       String var2 = this.f();
-      if(!class_nz.b(var2)) {
+      if(!UtilColor.isStringEmpty(var2)) {
          var1.put("EntityId", var2);
          var1.put("Delay", (short)this.a);
          var1.put("MinSpawnDelay", (short)this.g);

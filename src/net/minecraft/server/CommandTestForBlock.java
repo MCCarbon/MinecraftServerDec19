@@ -10,7 +10,7 @@ import net.minecraft.server.class_cb;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_dy;
+import net.minecraft.server.NBTStructSerializer;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.CommandAbstract;
@@ -82,7 +82,7 @@ public class CommandTestForBlock extends CommandAbstract {
 
                      NBTTagCompound var12 = new NBTTagCompound();
                      var15.write(var12);
-                     if(!class_dy.a(var7, var12, true)) {
+                     if(!NBTStructSerializer.a(var7, var12, true)) {
                         throw new class_bz("commands.testforblock.failed.nbt", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
                      }
                   }

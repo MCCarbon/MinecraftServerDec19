@@ -225,7 +225,7 @@ public class TileEntityStructure extends TileEntity {
 			BlockPosition var1 = getPosition().add(pos);
 			class_ast var2 = ((BlockStructureBlock) getBlock()).l();
 			class_asv var3 = var2.a(new MinecraftKey(name));
-			if (!class_nz.b(var3.b())) {
+			if (!UtilColor.isStringEmpty(var3.b())) {
 				author = var3.b();
 			}
 

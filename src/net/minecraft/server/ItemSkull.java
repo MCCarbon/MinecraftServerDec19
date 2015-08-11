@@ -47,7 +47,7 @@ public class ItemSkull extends Item {
                      if(var1.hasTag()) {
                         NBTTagCompound var17 = var1.getTag();
                         if(var17.hasOfType("SkullOwner", 10)) {
-                           var16 = class_dy.a(var17.getCompound("SkullOwner"));
+                           var16 = NBTStructSerializer.getGameProfile(var17.getCompound("SkullOwner"));
                         } else if(var17.hasOfType("SkullOwner", 8) && !var17.getString("SkullOwner").isEmpty()) {
                            var16 = new GameProfile((UUID)null, var17.getString("SkullOwner"));
                         }
@@ -105,7 +105,7 @@ public class ItemSkull extends Item {
       if(var1.hasOfType("SkullOwner", 8) && !var1.getString("SkullOwner").isEmpty()) {
          GameProfile var2 = new GameProfile((UUID)null, var1.getString("SkullOwner"));
          var2 = TileEntitySkull.b(var2);
-         var1.put((String)"SkullOwner", (NBTTag)class_dy.a(new NBTTagCompound(), var2));
+         var1.put((String)"SkullOwner", (NBTTag)NBTStructSerializer.writeGameProfile(new NBTTagCompound(), var2));
          return true;
       } else {
          return false;

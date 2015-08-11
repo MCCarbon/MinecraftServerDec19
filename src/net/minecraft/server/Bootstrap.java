@@ -331,10 +331,10 @@ public class Bootstrap {
 								if(var2.hasTag()) {
 									NBTTagCompound var9 = var2.getTag();
 									if(var9.hasOfType("SkullOwner", 10)) {
-										var8 = class_dy.a(var9.getCompound("SkullOwner"));
+										var8 = NBTStructSerializer.getGameProfile(var9.getCompound("SkullOwner"));
 									} else if(var9.hasOfType("SkullOwner", 8)) {
 										String var10 = var9.getString("SkullOwner");
-										if(!class_nz.b(var10)) {
+										if(!UtilColor.isStringEmpty(var10)) {
 											var8 = new GameProfile((UUID)null, var10);
 										}
 									}

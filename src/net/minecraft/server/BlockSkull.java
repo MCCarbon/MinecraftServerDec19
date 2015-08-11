@@ -90,7 +90,7 @@ public class BlockSkull extends BlockContainer {
                if(var5.d() == 3 && var5.b() != null) {
                   var6.setTag(new NBTTagCompound());
                   NBTTagCompound var7 = new NBTTagCompound();
-                  class_dy.a(var7, var5.b());
+                  NBTStructSerializer.writeGameProfile(var7, var5.b());
                   var6.getTag().put((String)"SkullOwner", (NBTTag)var7);
                }
 

@@ -21,7 +21,7 @@ public class TileEntitySkull extends TileEntity implements ITickAble {
 		var1.put("Rot", (byte) (f & 255));
 		if (g != null) {
 			NBTTagCompound var2 = new NBTTagCompound();
-			class_dy.a(var2, g);
+			NBTStructSerializer.writeGameProfile(var2, g);
 			var1.put("Owner", var2);
 		}
 
@@ -34,10 +34,10 @@ public class TileEntitySkull extends TileEntity implements ITickAble {
 		f = var1.getByte("Rot");
 		if (a == 3) {
 			if (var1.hasOfType("Owner", 10)) {
-				g = class_dy.a(var1.getCompound("Owner"));
+				g = NBTStructSerializer.getGameProfile(var1.getCompound("Owner"));
 			} else if (var1.hasOfType("ExtraType", 8)) {
 				String var2 = var1.getString("ExtraType");
-				if (!class_nz.b(var2)) {
+				if (!UtilColor.isStringEmpty(var2)) {
 					g = new GameProfile((UUID) null, var2);
 					g();
 				}
@@ -87,7 +87,7 @@ public class TileEntitySkull extends TileEntity implements ITickAble {
 	}
 
 	public static GameProfile b(GameProfile var0) {
-		if ((var0 != null) && !class_nz.b(var0.getName())) {
+		if ((var0 != null) && !UtilColor.isStringEmpty(var0.getName())) {
 			if (var0.isComplete() && var0.getProperties().containsKey("textures")) {
 				return var0;
 			} else if (MinecraftServer.N() == null) {

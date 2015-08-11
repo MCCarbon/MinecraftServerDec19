@@ -5,7 +5,7 @@ import net.minecraft.server.ItemStack;
 import net.minecraft.server.MerchantRecipe;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTagList;
-import net.minecraft.server.class_dy;
+import net.minecraft.server.NBTStructSerializer;
 import net.minecraft.server.NBTTag;
 import net.minecraft.server.PacketDataSerializer;
 
@@ -34,7 +34,7 @@ public class MerchantRecipeList extends ArrayList {
    }
 
    private boolean a(ItemStack var1, ItemStack var2) {
-      return ItemStack.c(var1, var2) && (!var2.hasTag() || var1.hasTag() && class_dy.a(var2.getTag(), var1.getTag(), false));
+      return ItemStack.c(var1, var2) && (!var2.hasTag() || var1.hasTag() && NBTStructSerializer.a(var2.getTag(), var1.getTag(), false));
    }
 
    public void a(PacketDataSerializer var1) {

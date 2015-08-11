@@ -37,7 +37,7 @@ import net.minecraft.server.GameProfileBanList;
 import net.minecraft.server.class_mf;
 import net.minecraft.server.WhiteList;
 import net.minecraft.server.class_mh;
-import net.minecraft.server.class_nz;
+import net.minecraft.server.UtilColor;
 import net.minecraft.server.EntityHuman;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -68,7 +68,7 @@ public class NameReferencingFileConverter {
    private static void a(MinecraftServer var0, Collection var1, ProfileLookupCallback var2) {
       String[] var3 = (String[])Iterators.toArray(Iterators.filter(var1.iterator(), new Predicate() {
          public boolean a(String var1) {
-            return !class_nz.b(var1);
+            return !UtilColor.isStringEmpty(var1);
          }
 
          // $FF: synthetic method
@@ -268,7 +268,7 @@ public class NameReferencingFileConverter {
    }
 
    public static String a(String var0) {
-      if(!class_nz.b(var0) && var0.length() <= 16) {
+      if(!UtilColor.isStringEmpty(var0) && var0.length() <= 16) {
          final MinecraftServer var1 = MinecraftServer.N();
          GameProfile var2 = var1.aF().a(var0);
          if(var2 != null && var2.getId() != null) {

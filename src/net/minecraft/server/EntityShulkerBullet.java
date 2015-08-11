@@ -46,7 +46,7 @@ public class EntityShulkerBullet extends Entity {
 		NBTTagCompound var3;
 		if (this.a != null) {
 			var2 = new BlockPosition(this.a);
-			var3 = class_dy.a(this.a.getUniqueId());
+			var3 = NBTStructSerializer.toNBT(this.a.getUniqueId());
 			var3.put("X", var2.getX());
 			var3.put("Y", var2.getY());
 			var3.put("Z", var2.getZ());
@@ -55,7 +55,7 @@ public class EntityShulkerBullet extends Entity {
 
 		if (this.b != null) {
 			var2 = new BlockPosition(this.b);
-			var3 = class_dy.a(this.b.getUniqueId());
+			var3 = NBTStructSerializer.toNBT(this.b.getUniqueId());
 			var3.put("X", var2.getX());
 			var3.put("Y", var2.getY());
 			var3.put("Z", var2.getZ());
@@ -84,13 +84,13 @@ public class EntityShulkerBullet extends Entity {
 		NBTTagCompound var2;
 		if (var1.hasOfType("Owner", 10)) {
 			var2 = var1.getCompound("Owner");
-			this.h = class_dy.b(var2);
+			this.h = NBTStructSerializer.getUUID(var2);
 			this.i = new BlockPosition(var2.getInt("X"), var2.getInt("Y"), var2.getInt("Z"));
 		}
 
 		if (var1.hasOfType("Target", 10)) {
 			var2 = var1.getCompound("Target");
-			this.as = class_dy.b(var2);
+			this.as = NBTStructSerializer.getUUID(var2);
 			this.at = new BlockPosition(var2.getInt("X"), var2.getInt("Y"), var2.getInt("Z"));
 		}
 

@@ -19,7 +19,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 		super.write(compound);
 		compound.put("Life", life);
 		if (exitPos != null) {
-			compound.put("ExitPortal", class_dy.a(exitPos));
+			compound.put("ExitPortal", NBTStructSerializer.toNBT(exitPos));
 		}
 	}
 
@@ -28,7 +28,7 @@ public class TileEntityEndGateway extends TileEntity implements ITickAble {
 		super.read(compound);
 		life = compound.getLong("Life");
 		if (compound.hasOfType("ExitPortal", 10)) {
-			exitPos = class_dy.c(compound.getCompound("ExitPortal"));
+			exitPos = NBTStructSerializer.getBlockPosition(compound.getCompound("ExitPortal"));
 		}
 	}
 

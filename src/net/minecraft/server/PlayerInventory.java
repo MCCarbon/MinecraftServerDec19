@@ -52,7 +52,7 @@ public class PlayerInventory implements IInventory {
       int var6;
       for(var6 = 0; var6 < this.getSize(); ++var6) {
          ItemStack var7 = this.getItem(var6);
-         if(var7 != null && (var1 == null || var7.getItem() == var1) && (var2 <= -1 || var7.i() == var2) && (var4 == null || class_dy.a(var4, var7.getTag(), true))) {
+         if(var7 != null && (var1 == null || var7.getItem() == var1) && (var2 <= -1 || var7.i() == var2) && (var4 == null || NBTStructSerializer.a(var4, var7.getTag(), true))) {
             int var8 = var3 <= 0?var7.count:Math.min(var3 - var5, var7.count);
             var5 += var8;
             if(var3 != 0) {
@@ -77,7 +77,7 @@ public class PlayerInventory implements IInventory {
             return var5;
          }
 
-         if(var4 != null && !class_dy.a(var4, this.h.getTag(), true)) {
+         if(var4 != null && !NBTStructSerializer.a(var4, this.h.getTag(), true)) {
             return var5;
          }
 

@@ -6,7 +6,7 @@ import net.minecraft.server.class_bz;
 import net.minecraft.server.class_cf;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
-import net.minecraft.server.class_dy;
+import net.minecraft.server.NBTStructSerializer;
 import net.minecraft.server.class_ec;
 import net.minecraft.server.class_ed;
 import net.minecraft.server.CommandAbstract;
@@ -43,7 +43,7 @@ public class CommandTestFor extends CommandAbstract {
          if(var4 != null) {
             NBTTagCompound var5 = new NBTTagCompound();
             var3.e(var5);
-            if(!class_dy.a(var4, var5, true)) {
+            if(!NBTStructSerializer.a(var4, var5, true)) {
                throw new class_bz("commands.testfor.failure", new Object[]{var3.getName()});
             }
          }

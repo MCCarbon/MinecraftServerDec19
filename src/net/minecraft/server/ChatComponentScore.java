@@ -7,7 +7,7 @@ import net.minecraft.server.class_awl;
 import net.minecraft.server.Scoreboard;
 import net.minecraft.server.ChatBaseComponent;
 import net.minecraft.server.IChatBaseComponent;
-import net.minecraft.server.class_nz;
+import net.minecraft.server.UtilColor;
 
 public class ChatComponentScore extends ChatBaseComponent {
    private final String b;
@@ -33,7 +33,7 @@ public class ChatComponentScore extends ChatBaseComponent {
 
    public String getText() {
       MinecraftServer var1 = MinecraftServer.N();
-      if(var1 != null && var1.O() && class_nz.b(this.d)) {
+      if(var1 != null && var1.O() && UtilColor.isStringEmpty(this.d)) {
          Scoreboard var2 = var1.getWorldServer(0).aa();
          class_awj var3 = var2.b(this.c);
          if(var2.b(this.b, var3)) {

@@ -24,7 +24,7 @@ public class ItemWrittenBook extends Item {
       if(var1.hasTag()) {
          NBTTagCompound var2 = var1.getTag();
          String var3 = var2.getString("title");
-         if(!class_nz.b(var3)) {
+         if(!UtilColor.isStringEmpty(var3)) {
             return var3;
          }
       }
