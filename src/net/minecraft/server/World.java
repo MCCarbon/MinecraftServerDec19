@@ -443,7 +443,7 @@ public abstract class World implements IBlockAccess {
 		}
 	}
 
-	public BlockPosition m(BlockPosition var1) {
+	public BlockPosition getHighestBlockYAt(BlockPosition var1) {
 		int var2;
 		if ((var1.getX() >= -30000000) && (var1.getZ() >= -30000000) && (var1.getX() < 30000000) && (var1.getZ() < 30000000)) {
 			if (this.a(var1.getX() >> 4, var1.getZ() >> 4, true)) {
@@ -2286,7 +2286,7 @@ public abstract class World implements IBlockAccess {
 	public BlockPosition N() {
 		BlockPosition var1 = new BlockPosition(x.c(), x.d(), x.e());
 		if (!ag().a(var1)) {
-			var1 = m(new BlockPosition(ag().f(), 0.0D, ag().g()));
+			var1 = getHighestBlockYAt(new BlockPosition(ag().f(), 0.0D, ag().g()));
 		}
 
 		return var1;

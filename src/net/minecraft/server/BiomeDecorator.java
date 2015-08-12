@@ -149,7 +149,7 @@ public class BiomeDecorator {
          var5 = this.b.nextInt(16) + 8;
          class_apw var6 = var1.a(this.b);
          var6.e();
-         var7 = this.a.m(this.c.add(var4, 0, var5));
+         var7 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5));
          if(var6.generate(this.a, this.b, var7)) {
             var6.a(this.a, this.b, var7);
          }
@@ -158,7 +158,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < this.K; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         this.v.generate(this.a, this.b, this.a.m(this.c.add(var4, 0, var5)));
+         this.v.generate(this.a, this.b, this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)));
       }
 
       BlockPosition var8;
@@ -167,7 +167,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < this.B; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() + 32;
+         var11 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)).getY() + 32;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
             var8 = this.c.add(var4, var12, var5);
@@ -183,7 +183,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < this.C; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
+         var11 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
             var1.b(this.b).generate(this.a, this.b, this.c.add(var4, var12, var5));
@@ -193,7 +193,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < this.D; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
+         var11 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
             (new class_aqf()).generate(this.a, this.b, this.c.add(var4, var12, var5));
@@ -203,7 +203,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < this.z; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
+         var11 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
 
@@ -223,14 +223,14 @@ public class BiomeDecorator {
          if(this.b.nextInt(4) == 0) {
             var4 = this.b.nextInt(16) + 8;
             var5 = this.b.nextInt(16) + 8;
-            BlockPosition var13 = this.a.m(this.c.add(var4, 0, var5));
+            BlockPosition var13 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5));
             this.t.generate(this.a, this.b, var13);
          }
 
          if(this.b.nextInt(8) == 0) {
             var4 = this.b.nextInt(16) + 8;
             var5 = this.b.nextInt(16) + 8;
-            var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
+            var11 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)).getY() * 2;
             if(var11 > 0) {
                var12 = this.b.nextInt(var11);
                var8 = this.c.add(var4, var12, var5);
@@ -242,7 +242,7 @@ public class BiomeDecorator {
       if(this.b.nextInt(4) == 0) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
+         var5 = this.a.getHighestBlockYAt(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
             this.t.generate(this.a, this.b, this.c.add(var3, var11, var4));
@@ -252,7 +252,7 @@ public class BiomeDecorator {
       if(this.b.nextInt(8) == 0) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
+         var5 = this.a.getHighestBlockYAt(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
             this.u.generate(this.a, this.b, this.c.add(var3, var11, var4));
@@ -262,7 +262,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < this.F; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
+         var11 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
             this.w.generate(this.a, this.b, this.c.add(var4, var12, var5));
@@ -272,7 +272,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < 10; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
+         var11 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
             this.w.generate(this.a, this.b, this.c.add(var4, var12, var5));
@@ -282,7 +282,7 @@ public class BiomeDecorator {
       if(this.b.nextInt(32) == 0) {
          var3 = this.b.nextInt(16) + 8;
          var4 = this.b.nextInt(16) + 8;
-         var5 = this.a.m(this.c.add(var3, 0, var4)).getY() * 2;
+         var5 = this.a.getHighestBlockYAt(this.c.add(var3, 0, var4)).getY() * 2;
          if(var5 > 0) {
             var11 = this.b.nextInt(var5);
             (new class_ard()).generate(this.a, this.b, this.c.add(var3, var11, var4));
@@ -292,7 +292,7 @@ public class BiomeDecorator {
       for(var3 = 0; var3 < this.G; ++var3) {
          var4 = this.b.nextInt(16) + 8;
          var5 = this.b.nextInt(16) + 8;
-         var11 = this.a.m(this.c.add(var4, 0, var5)).getY() * 2;
+         var11 = this.a.getHighestBlockYAt(this.c.add(var4, 0, var5)).getY() * 2;
          if(var11 > 0) {
             var12 = this.b.nextInt(var11);
             this.x.generate(this.a, this.b, this.c.add(var4, var12, var5));

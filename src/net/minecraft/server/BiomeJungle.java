@@ -38,7 +38,7 @@ public class BiomeJungle extends BiomeBase {
       super.a(var1, var2, var3);
       int var4 = var2.nextInt(16) + 8;
       int var5 = var2.nextInt(16) + 8;
-      int var6 = var2.nextInt(var1.m(var3.add(var4, 0, var5)).getY() * 2);
+      int var6 = var2.nextInt(var1.getHighestBlockYAt(var3.add(var4, 0, var5)).getY() * 2);
       (new class_aqz()).generate(var1, var2, var3.add(var4, var6, var5));
       class_aro var9 = new class_aro();
 

@@ -75,7 +75,7 @@ public class BiomeForest extends BiomeBase {
             for(var5 = 0; var5 < 4; ++var5) {
                var6 = var4 * 4 + 1 + 8 + var2.nextInt(3);
                var7 = var5 * 4 + 1 + 8 + var2.nextInt(3);
-               BlockPosition var8 = var1.m(var3.add(var6, 0, var7));
+               BlockPosition var8 = var1.getHighestBlockYAt(var3.add(var6, 0, var7));
                if(var2.nextInt(20) == 0) {
                   WorldGenHugeMushroom var9 = new WorldGenHugeMushroom();
                   var9.generate(var1, var2, var8);
@@ -108,7 +108,7 @@ public class BiomeForest extends BiomeBase {
          for(var7 = 0; var7 < 5; ++var7) {
             int var11 = var2.nextInt(16) + 8;
             int var13 = var2.nextInt(16) + 8;
-            int var10 = var2.nextInt(var1.m(var3.add(var11, 0, var13)).getY() + 32);
+            int var10 = var2.nextInt(var1.getHighestBlockYAt(var3.add(var11, 0, var13)).getY() + 32);
             if(ag.generate(var1, var2, new BlockPosition(var3.getX() + var11, var10, var3.getZ() + var13))) {
                break;
             }

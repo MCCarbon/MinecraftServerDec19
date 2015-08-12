@@ -33,12 +33,12 @@ public class class_afx extends BiomeDecorator {
          class_ari.class_a_in_class_ari var6 = var3[var5];
          if(var6.a(this.c)) {
             this.N.a(var6);
-            this.N.generate(this.a, this.b, this.a.m(new BlockPosition(var6.a(), 0, var6.b())));
+            this.N.generate(this.a, this.b, this.a.getHighestBlockYAt(new BlockPosition(var6.a(), 0, var6.b())));
          }
       }
 
       if(this.c.getX() == class_aqk.b.getX() && this.c.getZ() == class_aqk.b.getZ()) {
-         this.O.generate(this.a, this.b, this.a.m(class_aqk.a));
+         this.O.generate(this.a, this.b, this.a.getHighestBlockYAt(class_aqk.a));
       }
 
    }

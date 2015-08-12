@@ -270,7 +270,7 @@ public class ChunkProviderTheEnd implements IChunkProvider {
 			for (int i = 0; i < rndi; ++i) {
 				int rndX = this.random.nextInt(16) + 8;
 				int rndZ = this.random.nextInt(16) + 8;
-				int rndY = this.world.m(position.add(rndX, 0, rndZ)).getY();
+				int rndY = this.world.getHighestBlockYAt(position.add(rndX, 0, rndZ)).getY();
 				if (rndY > 0) {
 					int rRndY = rndY - 1;
 					if (this.world.isEmpty(position.add(rndX, rRndY + 1, rndZ)) && (this.world.getType(position.add(rndX, rRndY, rndZ)).getBlock() == Blocks.END_STONE)) {

@@ -45,7 +45,7 @@ public class BiomeTaiga extends BiomeBase {
          for(var5 = 0; var5 < var4; ++var5) {
             var6 = var2.nextInt(16) + 8;
             var7 = var2.nextInt(16) + 8;
-            BlockPosition var8 = var1.m(var3.add(var6, 0, var7));
+            BlockPosition var8 = var1.getHighestBlockYAt(var3.add(var6, 0, var7));
             aH.generate(var1, var2, var8);
          }
       }
@@ -55,7 +55,7 @@ public class BiomeTaiga extends BiomeBase {
       for(var4 = 0; var4 < 7; ++var4) {
          var5 = var2.nextInt(16) + 8;
          var6 = var2.nextInt(16) + 8;
-         var7 = var2.nextInt(var1.m(var3.add(var5, 0, var6)).getY() + 32);
+         var7 = var2.nextInt(var1.getHighestBlockYAt(var3.add(var5, 0, var6)).getY() + 32);
          ag.generate(var1, var2, var3.add(var5, var7, var6));
       }
 

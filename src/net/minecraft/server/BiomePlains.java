@@ -56,7 +56,7 @@ public class BiomePlains extends BiomeBase {
          for(var6 = 0; var6 < 7; ++var6) {
             var7 = var2.nextInt(16) + 8;
             var8 = var2.nextInt(16) + 8;
-            var9 = var2.nextInt(var1.m(var3.add(var7, 0, var8)).getY() + 32);
+            var9 = var2.nextInt(var1.getHighestBlockYAt(var3.add(var7, 0, var8)).getY() + 32);
             ag.generate(var1, var2, var3.add(var7, var9, var8));
          }
       }
@@ -67,7 +67,7 @@ public class BiomePlains extends BiomeBase {
          for(var6 = 0; var6 < 10; ++var6) {
             var7 = var2.nextInt(16) + 8;
             var8 = var2.nextInt(16) + 8;
-            var9 = var2.nextInt(var1.m(var3.add(var7, 0, var8)).getY() + 32);
+            var9 = var2.nextInt(var1.getHighestBlockYAt(var3.add(var7, 0, var8)).getY() + 32);
             ag.generate(var1, var2, var3.add(var7, var9, var8));
          }
       }

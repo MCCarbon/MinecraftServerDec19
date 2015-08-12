@@ -31,7 +31,7 @@ public class BiomeSavanna extends BiomeBase {
       for(int var4 = 0; var4 < 7; ++var4) {
          int var5 = var2.nextInt(16) + 8;
          int var6 = var2.nextInt(16) + 8;
-         int var7 = var2.nextInt(var1.m(var3.add(var5, 0, var6)).getY() + 32);
+         int var7 = var2.nextInt(var1.getHighestBlockYAt(var3.add(var5, 0, var6)).getY() + 32);
          ag.generate(var1, var2, var3.add(var5, var7, var6));
       }
 

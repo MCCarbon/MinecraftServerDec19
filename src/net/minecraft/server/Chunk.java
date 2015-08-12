@@ -207,7 +207,7 @@ public class Chunk {
 	}
 
 	private void c(int var1, int var2, int var3) {
-		int var4 = world.m(new BlockPosition(var1, 0, var2)).getY();
+		int var4 = world.getHighestBlockYAt(new BlockPosition(var1, 0, var2)).getY();
 		if (var4 > var3) {
 			this.a(var1, var2, var3, var4 + 1);
 		} else if (var4 < var3) {

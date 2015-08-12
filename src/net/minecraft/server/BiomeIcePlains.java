@@ -33,13 +33,13 @@ public class BiomeIcePlains extends BiomeBase {
          for(var4 = 0; var4 < 3; ++var4) {
             var5 = var2.nextInt(16) + 8;
             var6 = var2.nextInt(16) + 8;
-            this.aE.generate(var1, var2, var1.m(var3.add(var5, 0, var6)));
+            this.aE.generate(var1, var2, var1.getHighestBlockYAt(var3.add(var5, 0, var6)));
          }
 
          for(var4 = 0; var4 < 2; ++var4) {
             var5 = var2.nextInt(16) + 8;
             var6 = var2.nextInt(16) + 8;
-            this.aF.generate(var1, var2, var1.m(var3.add(var5, 0, var6)));
+            this.aF.generate(var1, var2, var1.getHighestBlockYAt(var3.add(var5, 0, var6)));
          }
       }
 
