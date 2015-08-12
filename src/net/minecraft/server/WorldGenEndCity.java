@@ -80,13 +80,13 @@ public class WorldGenEndCity extends StructureGenerator {
 			} else {
 				BlockPosition var15 = new BlockPosition((x * 16) + 8, var14, (z * 16) + 8);
 				WorldGenEndCityPieces.a(var15, rotation, this.a, rnd);
-				this.d();
+				this.c();
 				this.c = true;
 			}
 		}
 
 		@Override
-		public boolean a() {
+		public boolean d() {
 			return this.c;
 		}
 

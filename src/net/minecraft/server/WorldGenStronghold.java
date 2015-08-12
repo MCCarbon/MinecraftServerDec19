@@ -120,7 +120,7 @@ public class WorldGenStronghold extends StructureGenerator {
 
    protected StructureStart b(int var1, int var2) {
       WorldGenStronghold.WorldGenStrongholdStart var3;
-      for(var3 = new WorldGenStronghold.WorldGenStrongholdStart(this.c, this.b, var1, var2); var3.c().isEmpty() || ((WorldGenStrongholdPieces.WorldGenStrongholdStart)var3.c().get(0)).b == null; var3 = new WorldGenStronghold.WorldGenStrongholdStart(this.c, this.b, var1, var2)) {
+      for(var3 = new WorldGenStronghold.WorldGenStrongholdStart(this.c, this.b, var1, var2); var3.b().isEmpty() || ((WorldGenStrongholdPieces.WorldGenStrongholdStart)var3.b().get(0)).b == null; var3 = new WorldGenStronghold.WorldGenStrongholdStart(this.c, this.b, var1, var2)) {
          ;
       }
 
@@ -145,7 +145,7 @@ public class WorldGenStronghold extends StructureGenerator {
             var8.a((StructurePiece)var5, (List)this.a, (Random)var2);
          }
 
-         this.d();
+         this.c();
          this.a(var1, var2, 10);
       }
    }

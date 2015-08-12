@@ -42,7 +42,7 @@ public abstract class StructureGenerator extends WorldGenBase {
 				if (this.a(var2, var3)) {
 					StructureStart var7 = this.b(var2, var3);
 					this.e.put(Long.valueOf(ChunkCoordIntPair.a(var2, var3)), var7);
-					if (var7.a()) {
+					if (var7.d()) {
 						this.a(var2, var3, var7);
 					}
 				}
@@ -95,7 +95,7 @@ public abstract class StructureGenerator extends WorldGenBase {
 
 		while (var7.hasNext()) {
 			StructureStart var8 = (StructureStart) var7.next();
-			if (var8.a() && var8.a(var3) && var8.b().a(var4, var5, var4 + 15, var5 + 15)) {
+			if (var8.d() && var8.a(var3) && var8.a().a(var4, var5, var4 + 15, var5 + 15)) {
 				var8.a(var1, var2, new StructureBoundingBox(var4, var5, var4 + 15, var5 + 15));
 				var8.b(var3);
 				var6 = true;
@@ -123,10 +123,10 @@ public abstract class StructureGenerator extends WorldGenBase {
 					}
 
 					var3 = (StructureStart) var2.next();
-				} while (!var3.a());
-			} while (!var3.b().b((BaseBlockPosition) var1));
+				} while (!var3.d());
+			} while (!var3.a().b((BaseBlockPosition) var1));
 
-			Iterator<?> var4 = var3.c().iterator();
+			Iterator<?> var4 = var3.b().iterator();
 
 			while (var4.hasNext()) {
 				StructurePiece var5 = (StructurePiece) var4.next();
@@ -148,7 +148,7 @@ public abstract class StructureGenerator extends WorldGenBase {
 			}
 
 			var4 = (StructureStart) var3.next();
-		} while (!var4.a() || !var4.b().b((BaseBlockPosition) var2));
+		} while (!var4.d() || !var4.a().b((BaseBlockPosition) var2));
 
 		return true;
 	}
@@ -171,8 +171,8 @@ public abstract class StructureGenerator extends WorldGenBase {
 		double var18;
 		while (var14.hasNext()) {
 			StructureStart var15 = (StructureStart) var14.next();
-			if (var15.a()) {
-				StructurePiece var16 = (StructurePiece) var15.c().get(0);
+			if (var15.d()) {
+				StructurePiece var16 = (StructurePiece) var15.b().get(0);
 				var17 = var16.a();
 				var18 = var17.distanceSquared(var2);
 				if (var18 < var11) {

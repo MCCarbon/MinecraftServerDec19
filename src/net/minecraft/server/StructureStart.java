@@ -29,11 +29,11 @@ public abstract class StructureStart {
 		this.d = var2;
 	}
 
-	public StructureBoundingBox b() {
+	public StructureBoundingBox a() {
 		return this.b;
 	}
 
-	public List<StructurePiece> c() {
+	public List<StructurePiece> b() {
 		return this.a;
 	}
 
@@ -49,7 +49,7 @@ public abstract class StructureStart {
 
 	}
 
-	protected void d() {
+	protected void c() {
 		this.b = StructureBoundingBox.createMax();
 		Iterator<StructurePiece> var1 = this.a.iterator();
 
@@ -139,7 +139,7 @@ public abstract class StructureStart {
 
 	}
 
-	public boolean a() {
+	public boolean d() {
 		return true;
 	}
 

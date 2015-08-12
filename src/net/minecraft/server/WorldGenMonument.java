@@ -109,7 +109,7 @@ public class WorldGenMonument extends StructureGenerator {
          int var14 = var4 * 16 + 8 - 29;
          EnumDirection var15 = EnumDirection.EnumDirectionLimit.HORIZONTAL.getRandomDirection(var2);
          this.a.add(new WorldGenMonumetPieces.WorldGenMonumentPiece1(var2, var13, var14, var15));
-         this.d();
+         this.c();
          this.d = true;
       }
 

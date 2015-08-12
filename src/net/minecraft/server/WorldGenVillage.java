@@ -110,7 +110,7 @@ public class WorldGenVillage extends StructureGenerator {
             }
          }
 
-         this.d();
+         this.c();
          var10 = 0;
          Iterator var13 = this.a.iterator();
 
@@ -124,7 +124,7 @@ public class WorldGenVillage extends StructureGenerator {
          this.c = var10 > 2;
       }
 
-      public boolean a() {
+      public boolean d() {
          return this.c;
       }
 

@@ -120,7 +120,7 @@ public class WorldGenLargeFeature extends StructureGenerator {
             this.a.add(var6);
          }
 
-         this.d();
+         this.c();
       }
    }
 }

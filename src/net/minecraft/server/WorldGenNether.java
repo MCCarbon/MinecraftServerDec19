@@ -51,7 +51,7 @@ public class WorldGenNether extends StructureGenerator {
             var8.a((StructurePiece)var5, (List)this.a, (Random)var2);
          }
 
-         this.d();
+         this.c();
          this.a(var1, var2, 48, 70);
       }
    }
