@@ -7,7 +7,7 @@ import net.minecraft.server.TileEntityStructure.EnumMode;
 public class BlockStructureBlock extends BlockContainer {
 
 	public static final BlockStateEnum<EnumMode> MODE = BlockStateEnum.of("mode", TileEntityStructure.EnumMode.class);
-	private final class_ast b = new class_ast();
+	private final StructureSchematicNBTLoader b = new StructureSchematicNBTLoader();
 
 	public BlockStructureBlock() {
 		super(Material.ORE, MaterialMapColor.COLOR23);
@@ -43,7 +43,7 @@ public class BlockStructureBlock extends BlockContainer {
 		return getBlockData().set(MODE, TileEntityStructure.EnumMode.DATA);
 	}
 
-	public class_ast l() {
+	public StructureSchematicNBTLoader l() {
 		return b;
 	}
 

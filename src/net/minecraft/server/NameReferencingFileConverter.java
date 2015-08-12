@@ -269,7 +269,7 @@ public class NameReferencingFileConverter {
 
    public static String a(String var0) {
       if(!UtilColor.isStringEmpty(var0) && var0.length() <= 16) {
-         final MinecraftServer var1 = MinecraftServer.N();
+         final MinecraftServer var1 = MinecraftServer.getServer();
          GameProfile var2 = var1.aF().a(var0);
          if(var2 != null && var2.getId() != null) {
             return var2.getId().toString();

@@ -10,7 +10,7 @@ import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.Chunk;
-import net.minecraft.server.class_aph;
+import net.minecraft.server.ChunkSnapshot;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 import net.minecraft.server.IProgressUpdate;
@@ -27,7 +27,7 @@ public class ChunkProviderDebug implements IChunkProvider {
    }
 
    public Chunk getOrCreateChunk(int var1, int var2) {
-      class_aph var3 = new class_aph();
+      ChunkSnapshot var3 = new ChunkSnapshot();
 
       int var7;
       for(int var4 = 0; var4 < 16; ++var4) {
@@ -44,11 +44,11 @@ public class ChunkProviderDebug implements IChunkProvider {
 
       Chunk var9 = new Chunk(this.d, var3, var1, var2);
       var9.initLighting();
-      BiomeBase[] var10 = this.d.w().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
-      byte[] var11 = var9.k();
+      BiomeBase[] var10 = this.d.getWorldChunkManager().getBiomeBlock((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
+      byte[] var11 = var9.getBiomeIndex();
 
       for(var7 = 0; var7 < var11.length; ++var7) {
-         var11[var7] = (byte)var10[var7].az;
+         var11[var7] = (byte)var10[var7].id;
       }
 
       var9.initLighting();
@@ -75,7 +75,7 @@ public class ChunkProviderDebug implements IChunkProvider {
       return true;
    }
 
-   public void a(IChunkProvider var1, int var2, int var3) {
+   public void getChunkAt(IChunkProvider var1, int var2, int var3) {
    }
 
    public boolean a(IChunkProvider var1, Chunk var2, int var3, int var4) {
@@ -102,8 +102,8 @@ public class ChunkProviderDebug implements IChunkProvider {
    }
 
    public List getMobsFor(EnumCreatureType var1, BlockPosition var2) {
-      BiomeBase var3 = this.d.b(var2);
-      return var3.a(var1);
+      BiomeBase var3 = this.d.getBiome(var2);
+      return var3.getMobs(var1);
    }
 
    public BlockPosition a(World var1, String var2, BlockPosition var3) {

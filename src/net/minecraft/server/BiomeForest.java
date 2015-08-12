@@ -119,15 +119,15 @@ public class BiomeForest extends BiomeBase {
    }
 
    protected BiomeBase d(final int var1) {
-      if(this.az == BiomeBase.FOREST.az) {
+      if(this.id == BiomeBase.FOREST.id) {
          BiomeForest var2 = new BiomeForest(var1, 1);
-         var2.a(new BiomeBase.class_a_in_class_aez(this.an, this.ao + 0.2F));
+         var2.a(new BiomeBase.BiomeTemperature(this.an, this.ao + 0.2F));
          var2.a("Flower Forest");
          var2.a(6976549, true);
          var2.a(8233509);
          return var2;
       } else {
-         return this.az != BiomeBase.BIRCH_FOREST.az && this.az != BiomeBase.BIRCH_FOREST_HILLS.az?new class_afn(var1, this) {
+         return this.id != BiomeBase.BIRCH_FOREST.id && this.id != BiomeBase.BIRCH_FOREST_HILLS.id?new class_afn(var1, this) {
             public void a(World var1, Random var2, BlockPosition var3) {
                this.aE.a(var1, var2, var3);
             }

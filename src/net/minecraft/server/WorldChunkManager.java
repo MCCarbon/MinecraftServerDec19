@@ -68,7 +68,7 @@ public class WorldChunkManager {
 
       for(int var7 = 0; var7 < var4 * var5; ++var7) {
          try {
-            float var8 = (float)BiomeBase.a(var6[var7], BiomeBase.ad).h() / 65536.0F;
+            float var8 = (float)BiomeBase.getBiome(var6[var7], BiomeBase.ad).h() / 65536.0F;
             if(var8 > 1.0F) {
                var8 = 1.0F;
             }
@@ -100,7 +100,7 @@ public class WorldChunkManager {
 
       try {
          for(int var7 = 0; var7 < var4 * var5; ++var7) {
-            var1[var7] = BiomeBase.a(var6[var7], BiomeBase.ad);
+            var1[var7] = BiomeBase.getBiome(var6[var7], BiomeBase.ad);
          }
 
          return var1;
@@ -116,7 +116,7 @@ public class WorldChunkManager {
       }
    }
 
-   public BiomeBase[] b(BiomeBase[] var1, int var2, int var3, int var4, int var5) {
+   public BiomeBase[] getBiomeBlock(BiomeBase[] var1, int var2, int var3, int var4, int var5) {
       return this.a(var1, var2, var3, var4, var5, true);
    }
 
@@ -134,7 +134,7 @@ public class WorldChunkManager {
          int[] var7 = this.c.a(var2, var3, var4, var5);
 
          for(int var8 = 0; var8 < var4 * var5; ++var8) {
-            var1[var8] = BiomeBase.a(var7[var8], BiomeBase.ad);
+            var1[var8] = BiomeBase.getBiome(var7[var8], BiomeBase.ad);
          }
 
          return var1;
@@ -153,7 +153,7 @@ public class WorldChunkManager {
 
       try {
          for(int var12 = 0; var12 < var9 * var10; ++var12) {
-            BiomeBase var16 = BiomeBase.e(var11[var12]);
+            BiomeBase var16 = BiomeBase.getBiome(var11[var12]);
             if(!var4.contains(var16)) {
                return false;
             }
@@ -187,7 +187,7 @@ public class WorldChunkManager {
       for(int var15 = 0; var15 < var10 * var11; ++var15) {
          int var16 = var6 + var15 % var10 << 2;
          int var17 = var7 + var15 / var10 << 2;
-         BiomeBase var18 = BiomeBase.e(var12[var15]);
+         BiomeBase var18 = BiomeBase.getBiome(var12[var15]);
          if(var4.contains(var18) && (var13 == null || var5.nextInt(var14 + 1) == 0)) {
             var13 = new BlockPosition(var16, 0, var17);
             ++var14;

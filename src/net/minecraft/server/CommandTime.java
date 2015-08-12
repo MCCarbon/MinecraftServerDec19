@@ -72,15 +72,15 @@ public class CommandTime extends CommandAbstract {
    }
 
    protected void a(ICommandListener var1, int var2) {
-      for(int var3 = 0; var3 < MinecraftServer.N().d.length; ++var3) {
-         MinecraftServer.N().d[var3].b((long)var2);
+      for(int var3 = 0; var3 < MinecraftServer.getServer().d.length; ++var3) {
+         MinecraftServer.getServer().d[var3].b((long)var2);
       }
 
    }
 
    protected void b(ICommandListener var1, int var2) {
-      for(int var3 = 0; var3 < MinecraftServer.N().d.length; ++var3) {
-         WorldServer var4 = MinecraftServer.N().d[var3];
+      for(int var3 = 0; var3 < MinecraftServer.getServer().d.length; ++var3) {
+         WorldServer var4 = MinecraftServer.getServer().d[var3];
          var4.b(var4.M() + (long)var2);
       }
 

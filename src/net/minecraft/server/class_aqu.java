@@ -91,7 +91,7 @@ public class class_aqu extends WorldGenerator {
                   if(var4[(var6 * 16 + var30) * 8 + var8]) {
                      BlockPosition var32 = var3.add(var6, var8 - 1, var30);
                      if(var1.getType(var32).getBlock() == Blocks.DIRT && var1.b(class_aet.a, var3.add(var6, var8, var30)) > 0) {
-                        BiomeBase var33 = var1.b(var32);
+                        BiomeBase var33 = var1.getBiome(var32);
                         if(var33.ak.getBlock() == Blocks.MYCELIM) {
                            var1.setTypeAndData((BlockPosition)var32, (IBlockData)Blocks.MYCELIM.getBlockData(), 2);
                         } else {

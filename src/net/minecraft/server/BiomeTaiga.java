@@ -62,7 +62,7 @@ public class BiomeTaiga extends BiomeBase {
       super.a(var1, var2, var3);
    }
 
-   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
       if(this.aI == 1 || this.aI == 2) {
          this.ak = Blocks.GRASS.getBlockData();
          this.al = Blocks.DIRT.getBlockData();
@@ -77,7 +77,7 @@ public class BiomeTaiga extends BiomeBase {
    }
 
    protected BiomeBase d(int var1) {
-      return this.az == BiomeBase.MEGA_TAIGA.az?(new BiomeTaiga(var1, 2)).a(5858897, true).a("Mega Spruce Taiga").a(5159473).a(0.25F, 0.8F).a(new BiomeBase.class_a_in_class_aez(this.an, this.ao)):super.d(var1);
+      return this.id == BiomeBase.MEGA_TAIGA.id?(new BiomeTaiga(var1, 2)).a(5858897, true).a("Mega Spruce Taiga").a(5159473).a(0.25F, 0.8F).a(new BiomeBase.BiomeTemperature(this.an, this.ao)):super.d(var1);
    }
 
    static {

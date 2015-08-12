@@ -59,7 +59,7 @@ public class CommandGamerule extends CommandAbstract {
    public static void a(GameRules var0, String var1) {
       if("reducedDebugInfo".equals(var1)) {
          int var2 = var0.getBooleanValue(var1)?22:23;
-         Iterator var3 = MinecraftServer.N().getPlayerList().v().iterator();
+         Iterator var3 = MinecraftServer.getServer().getPlayerList().v().iterator();
 
          while(var3.hasNext()) {
             EntityPlayer var4 = (EntityPlayer)var3.next();
@@ -85,6 +85,6 @@ public class CommandGamerule extends CommandAbstract {
    }
 
    private GameRules d() {
-      return MinecraftServer.N().getWorldServer(0).R();
+      return MinecraftServer.getServer().getWorldServer(0).R();
    }
 }

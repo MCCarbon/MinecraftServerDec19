@@ -39,6 +39,6 @@ public class CommandKill extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().getPlayers()):null;
+      return var2.length == 1?a(var2, MinecraftServer.getServer().getPlayers()):null;
    }
 }

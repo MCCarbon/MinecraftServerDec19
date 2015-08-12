@@ -1,7 +1,7 @@
 package net.minecraft.server;
 
 import java.io.IOException;
-import net.minecraft.server.class_aeh;
+import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.Block;
 import net.minecraft.server.IBlockData;
 import net.minecraft.server.Chunk;
@@ -12,14 +12,14 @@ import net.minecraft.server.Packet;
 import net.minecraft.server.PacketListenerPlayOut;
 
 public class PacketPlayOutMultiBlockChange implements Packet {
-   private class_aeh a;
+   private ChunkCoordIntPair a;
    private PacketPlayOutMultiBlockChange.class_a_in_class_ga[] b;
 
    public PacketPlayOutMultiBlockChange() {
    }
 
    public PacketPlayOutMultiBlockChange(int var1, short[] var2, Chunk var3) {
-      this.a = new class_aeh(var3.locX, var3.locZ);
+      this.a = new ChunkCoordIntPair(var3.locX, var3.locZ);
       this.b = new PacketPlayOutMultiBlockChange.class_a_in_class_ga[var1];
 
       for(int var4 = 0; var4 < this.b.length; ++var4) {
@@ -29,7 +29,7 @@ public class PacketPlayOutMultiBlockChange implements Packet {
    }
 
    public void decode(PacketDataSerializer var1) throws IOException {
-      this.a = new class_aeh(var1.readInt(), var1.readInt());
+      this.a = new ChunkCoordIntPair(var1.readInt(), var1.readInt());
       this.b = new PacketPlayOutMultiBlockChange.class_a_in_class_ga[var1.readVarInt()];
 
       for(int var2 = 0; var2 < this.b.length; ++var2) {

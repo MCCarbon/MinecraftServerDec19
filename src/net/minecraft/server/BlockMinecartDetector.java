@@ -123,9 +123,9 @@ public class BlockMinecartDetector extends BlockMinecartTrackAbstract {
 		return 0;
 	}
 
-	protected List<?> a(World var1, BlockPosition var2, Class<?> var3, Predicate<?>... var4) {
+	protected <T extends Entity> List<T> a(World var1, BlockPosition var2, Class<T> var3, Predicate<? super Entity>... var4) {
 		AxisAlignedBB var5 = this.a(var2);
-		return var4.length != 1 ? var1.getEntities(var3, var5) : var1.a(var3, var5, var4[0]);
+		return var4.length != 1 ? var1.getEntities(var3, var5) : var1.getEntities(var3, var5, var4[0]);
 	}
 
 	private AxisAlignedBB a(BlockPosition var1) {

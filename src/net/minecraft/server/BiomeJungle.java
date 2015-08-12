@@ -27,7 +27,7 @@ public class BiomeJungle extends BiomeBase {
    }
 
    public class_apw a(Random var1) {
-      return (class_apw)(var1.nextInt(10) == 0?this.aB:(var1.nextInt(2) == 0?new class_aqn(aE, aG):(!this.aD && var1.nextInt(3) == 0?new class_aqw(false, 10, 20, aE, aF):new class_arn(false, 4 + var1.nextInt(7), aE, aF, true))));
+      return (class_apw)(var1.nextInt(10) == 0?this.aB:(var1.nextInt(2) == 0?new class_aqn(aE, aG):(!this.aD && var1.nextInt(3) == 0?new class_aqw(false, 10, 20, aE, aF):new WorldGenTrees(false, 4 + var1.nextInt(7), aE, aF, true))));
    }
 
    public WorldGenerator b(Random var1) {

@@ -27,7 +27,7 @@ public class class_aov implements IChunkLoader, class_awc {
    }
 
    public Chunk a(World var1, int var2, int var3) throws IOException {
-      class_aeh var4 = new class_aeh(var2, var3);
+      ChunkCoordIntPair var4 = new ChunkCoordIntPair(var2, var3);
       NBTTagCompound var5 = (NBTTagCompound)this.b.get(var4);
       if(var5 == null) {
          DataInputStream var6 = RegionFileCache.c(this.d, var2, var3);
@@ -79,7 +79,7 @@ public class class_aov implements IChunkLoader, class_awc {
 
    }
 
-   protected void a(class_aeh var1, NBTTagCompound var2) {
+   protected void a(ChunkCoordIntPair var1, NBTTagCompound var2) {
       if(!this.c.contains(var1)) {
          this.b.put(var1, var2);
       }
@@ -95,7 +95,7 @@ public class class_aov implements IChunkLoader, class_awc {
 
          return false;
       } else {
-         class_aeh var1 = (class_aeh)this.b.keySet().iterator().next();
+         ChunkCoordIntPair var1 = (ChunkCoordIntPair)this.b.keySet().iterator().next();
 
          boolean var3;
          try {
@@ -118,7 +118,7 @@ public class class_aov implements IChunkLoader, class_awc {
       }
    }
 
-   private void b(class_aeh var1, NBTTagCompound var2) throws IOException {
+   private void b(ChunkCoordIntPair var1, NBTTagCompound var2) throws IOException {
       DataOutputStream var3 = RegionFileCache.d(this.d, var1.a, var1.b);
       NBTCompressedStreamTools.writeToData((NBTTagCompound)var2, (DataOutput)var3);
       var3.close();
@@ -205,7 +205,7 @@ public class class_aov implements IChunkLoader, class_awc {
       }
 
       var3.put((String)"Sections", (NBTTag)var5);
-      var3.put("Biomes", var1.k());
+      var3.put("Biomes", var1.getBiomeIndex());
       var1.g(false);
       NBTTagList var20 = new NBTTagList();
 

@@ -15,7 +15,7 @@ public interface IChunkProvider {
 
    Chunk getChunkAt(BlockPosition var1);
 
-   void a(IChunkProvider var1, int var2, int var3);
+   void getChunkAt(IChunkProvider var1, int var2, int var3);
 
    boolean a(IChunkProvider var1, Chunk var2, int var3, int var4);
 

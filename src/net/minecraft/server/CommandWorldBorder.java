@@ -143,7 +143,7 @@ public class CommandWorldBorder extends CommandAbstract {
    }
 
    protected class_aoe d() {
-      return MinecraftServer.N().d[0].ag();
+      return MinecraftServer.getServer().d[0].ag();
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {

@@ -2,11 +2,11 @@ package net.minecraft.server;
 
 import java.util.Random;
 
-public class class_arl extends class_apw {
+public class WorldGenSwampTree extends class_apw {
    private static final IBlockData a;
    private static final IBlockData b;
 
-   public class_arl() {
+   public WorldGenSwampTree() {
       super(false);
    }
 

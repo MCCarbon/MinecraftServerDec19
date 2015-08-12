@@ -91,7 +91,7 @@ public class class_o {
 		if (h(var1)) {
 			var2.add(var0.e());
 		} else {
-			Collections.addAll(var2, MinecraftServer.N().d);
+			Collections.addAll(var2, MinecraftServer.getServer().d);
 		}
 
 		return var2;
@@ -235,7 +235,7 @@ public class class_o {
 		if (var2 != null && !var2.isEmpty()) {
 			var1.add(new Predicate() {
 				public boolean a(Entity var1) {
-					Scoreboard var2x = MinecraftServer.N().getWorldServer(0).aa();
+					Scoreboard var2x = MinecraftServer.getServer().getWorldServer(0).aa();
 					Iterator var3 = var2.entrySet().iterator();
 
 					Entry var4;
@@ -397,7 +397,7 @@ public class class_o {
 					if (var8 && var18 && !var9) {
 						var6.addAll(var4.getPlayers(var1, var15));
 					} else {
-						var6.addAll(var4.a(var1, var19, var15));
+						var6.addAll(var4.getEntities(var1, var19, var15));
 					}
 				} else if (var3.equals("a")) {
 					var6.addAll(var4.getPlayers(var1, var14));
@@ -421,7 +421,7 @@ public class class_o {
 					};
 					var6.addAll(var4.getPlayers(var1, Predicates.and(var15, var20)));
 				} else {
-					var6.addAll(var4.a(var1, var19, var15));
+					var6.addAll(var4.getEntities(var1, var19, var15));
 				}
 			}
 		} else if (var3.equals("a")) {

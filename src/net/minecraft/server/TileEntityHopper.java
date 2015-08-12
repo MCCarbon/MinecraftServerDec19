@@ -428,7 +428,7 @@ public class TileEntityHopper extends TileEntityContainer implements class_ams, 
 	}
 
 	public static List a(World var0, double var1, double var3, double var5) {
-		return var0.a(EntityItem.class, new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), IEntitySelector.IS_ALIVE);
+		return var0.getEntities(EntityItem.class, new AxisAlignedBB(var1 - 0.5D, var3 - 0.5D, var5 - 0.5D, var1 + 0.5D, var3 + 0.5D, var5 + 0.5D), IEntitySelector.IS_ALIVE);
 	}
 
 	public static IInventory b(World var0, double var1, double var3, double var5) {

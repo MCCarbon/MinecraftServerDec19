@@ -38,7 +38,7 @@ public class WorldChunkManagerHell extends WorldChunkManager {
       return var1;
    }
 
-   public BiomeBase[] b(BiomeBase[] var1, int var2, int var3, int var4, int var5) {
+   public BiomeBase[] getBiomeBlock(BiomeBase[] var1, int var2, int var3, int var4, int var5) {
       if(var1 == null || var1.length < var4 * var5) {
          var1 = new BiomeBase[var4 * var5];
       }
@@ -48,7 +48,7 @@ public class WorldChunkManagerHell extends WorldChunkManager {
    }
 
    public BiomeBase[] a(BiomeBase[] var1, int var2, int var3, int var4, int var5, boolean var6) {
-      return this.b(var1, var2, var3, var4, var5);
+      return this.getBiomeBlock(var1, var2, var3, var4, var5);
    }
 
    public BlockPosition a(int var1, int var2, int var3, List var4, Random var5) {

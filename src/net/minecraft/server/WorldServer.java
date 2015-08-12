@@ -211,7 +211,7 @@ public class WorldServer extends World implements class_of {
          Iterator var20 = this.E.iterator();
 
          while(var20.hasNext()) {
-            class_aeh var21 = (class_aeh)var20.next();
+            ChunkCoordIntPair var21 = (ChunkCoordIntPair)var20.next();
             this.getChunkAt(var21.a, var21.b).b(false);
          }
 
@@ -220,7 +220,7 @@ public class WorldServer extends World implements class_of {
          int var2 = 0;
 
          for(Iterator var3 = this.E.iterator(); var3.hasNext(); this.B.b()) {
-            class_aeh var4 = (class_aeh)var3.next();
+            ChunkCoordIntPair var4 = (ChunkCoordIntPair)var3.next();
             int var5 = var4.a * 16;
             int var6 = var4.b * 16;
             this.B.a("getChunk");
@@ -254,7 +254,7 @@ public class WorldServer extends World implements class_of {
                   this.setTypeUpdate((BlockPosition)var9, (IBlockData)Blocks.SNOW_LAYER.getBlockData());
                }
 
-               if(this.T() && this.b((BlockPosition)var10).e()) {
+               if(this.T() && this.getBiome((BlockPosition)var10).e()) {
                   this.getType(var10).getBlock().rainTick(this, var10);
                }
             }
@@ -293,7 +293,7 @@ public class WorldServer extends World implements class_of {
    protected BlockPosition a(BlockPosition var1) {
       BlockPosition var2 = this.q(var1);
       AxisAlignedBB var3 = (new AxisAlignedBB(var2, new BlockPosition(var2.getX(), this.V(), var2.getZ()))).grow(3.0D, 3.0D, 3.0D);
-      List var4 = this.a(EntityLiving.class, var3, new Predicate() {
+      List var4 = this.getEntities(EntityLiving.class, var3, new Predicate() {
          public boolean a(EntityLiving var1) {
             return var1 != null && var1.isAlive() && WorldServer.this.i(var1.c());
          }
@@ -438,7 +438,7 @@ public class WorldServer extends World implements class_of {
    }
 
    public List a(Chunk var1, boolean var2) {
-      class_aeh var3 = var1.j();
+      ChunkCoordIntPair var3 = var1.j();
       int var4 = (var3.a << 4) - 2;
       int var5 = var4 + 16 + 2;
       int var6 = (var3.b << 4) - 2;

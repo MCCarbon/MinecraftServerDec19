@@ -36,7 +36,7 @@ public class CommandSetWorldSpawn extends CommandAbstract {
       }
 
       var1.e().B(var3);
-      MinecraftServer.N().getPlayerList().a((Packet)(new PacketPlayOutSpawnPosition(var3)));
+      MinecraftServer.getServer().getPlayerList().a((Packet)(new PacketPlayOutSpawnPosition(var3)));
       a(var1, this, "commands.setworldspawn.success", new Object[]{Integer.valueOf(var3.getX()), Integer.valueOf(var3.getY()), Integer.valueOf(var3.getZ())});
    }
 

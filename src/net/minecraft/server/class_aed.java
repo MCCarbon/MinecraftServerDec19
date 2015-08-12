@@ -81,7 +81,7 @@ public abstract class class_aed implements ICommandListener {
          this.b = 0;
       }
 
-      MinecraftServer var2 = MinecraftServer.N();
+      MinecraftServer var2 = MinecraftServer.getServer();
       if(var2 != null && var2.O() && var2.al()) {
          class_l var3 = var2.P();
 
@@ -140,7 +140,7 @@ public abstract class class_aed implements ICommandListener {
    }
 
    public boolean u_() {
-      MinecraftServer var1 = MinecraftServer.N();
+      MinecraftServer var1 = MinecraftServer.getServer();
       return var1 == null || !var1.O() || var1.d[0].R().getBooleanValue("commandBlockOutput");
    }
 

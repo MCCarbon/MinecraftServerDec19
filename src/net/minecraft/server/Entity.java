@@ -1521,7 +1521,7 @@ public abstract class Entity implements ICommandListener {
 	public void c(int var1) {
 		if (!this.world.isClientSide && !this.dead) {
 			this.world.B.a("changeDimension");
-			MinecraftServer var2 = MinecraftServer.N();
+			MinecraftServer var2 = MinecraftServer.getServer();
 			int var3 = this.dimension;
 			WorldServer var4 = var2.getWorldServer(var3);
 			WorldServer var5 = var2.getWorldServer(var1);

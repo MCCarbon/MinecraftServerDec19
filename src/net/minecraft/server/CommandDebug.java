@@ -42,9 +42,9 @@ public class CommandDebug extends CommandAbstract {
             }
 
             a(var1, this, "commands.debug.start", new Object[0]);
-            MinecraftServer.N().au();
+            MinecraftServer.getServer().au();
             this.b = MinecraftServer.az();
-            this.c = MinecraftServer.N().at();
+            this.c = MinecraftServer.getServer().at();
          } else {
             if(!var2[0].equals("stop")) {
                throw new class_cf("commands.debug.usage", new Object[0]);
@@ -54,16 +54,16 @@ public class CommandDebug extends CommandAbstract {
                throw new class_cf("commands.debug.usage", new Object[0]);
             }
 
-            if(!MinecraftServer.N().c.a) {
+            if(!MinecraftServer.getServer().c.a) {
                throw new class_bz("commands.debug.notStarted", new Object[0]);
             }
 
             long var3 = MinecraftServer.az();
-            int var5 = MinecraftServer.N().at();
+            int var5 = MinecraftServer.getServer().at();
             long var6 = var3 - this.b;
             int var8 = var5 - this.c;
             this.a(var6, var8);
-            MinecraftServer.N().c.a = false;
+            MinecraftServer.getServer().c.a = false;
             a(var1, this, "commands.debug.stop", new Object[]{Float.valueOf((float)var6 / 1000.0F), Integer.valueOf(var8)});
          }
 
@@ -71,7 +71,7 @@ public class CommandDebug extends CommandAbstract {
    }
 
    private void a(long var1, int var3) {
-      File var4 = new File(MinecraftServer.N().d("debug"), "profile-results-" + (new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss")).format(new Date()) + ".txt");
+      File var4 = new File(MinecraftServer.getServer().d("debug"), "profile-results-" + (new SimpleDateFormat("yyyy-MM-dd_HH.mm.ss")).format(new Date()) + ".txt");
       var4.getParentFile().mkdirs();
 
       try {
@@ -100,7 +100,7 @@ public class CommandDebug extends CommandAbstract {
    }
 
    private void a(int var1, String var2, StringBuilder var3) {
-      List var4 = MinecraftServer.N().c.b(var2);
+      List var4 = MinecraftServer.getServer().c.b(var2);
       if(var4 != null && var4.size() >= 3) {
          for(int var5 = 1; var5 < var4.size(); ++var5) {
             MethodProfiler.class_a_in_class_nv var6 = (MethodProfiler.class_a_in_class_nv)var4.get(var5);

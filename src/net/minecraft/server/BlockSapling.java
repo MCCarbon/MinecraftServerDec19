@@ -40,7 +40,7 @@ public class BlockSapling extends BlockPlant implements IBlockFragilePlantElemen
 	}
 
 	public void growTree(World var1, BlockPosition var2, IBlockData var3, Random var4) {
-		Object var5 = var4.nextInt(10) == 0 ? new class_apx(true) : new class_arn(true);
+		Object var5 = var4.nextInt(10) == 0 ? new WorldGenBigTree(true) : new WorldGenTrees(true);
 		int var6 = 0;
 		int var7 = 0;
 		boolean var8 = false;
@@ -83,7 +83,7 @@ public class BlockSapling extends BlockPlant implements IBlockFragilePlantElemen
 				if (!var8) {
 					var7 = 0;
 					var6 = 0;
-					var5 = new class_arn(true, 4 + var4.nextInt(7), var9, var10, false);
+					var5 = new WorldGenTrees(true, 4 + var4.nextInt(7), var9, var10, false);
 				}
 				break;
 			case ACACIA:

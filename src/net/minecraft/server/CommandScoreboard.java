@@ -250,7 +250,7 @@ public class CommandScoreboard extends CommandAbstract {
    }
 
    protected Scoreboard d() {
-      return MinecraftServer.N().getWorldServer(0).aa();
+      return MinecraftServer.getServer().getWorldServer(0).aa();
    }
 
    protected class_awj a(String var1, boolean var2) throws class_bz {
@@ -844,7 +844,7 @@ public class CommandScoreboard extends CommandAbstract {
             if(!var2[1].equalsIgnoreCase("set") && !var2[1].equalsIgnoreCase("add") && !var2[1].equalsIgnoreCase("remove") && !var2[1].equalsIgnoreCase("reset")) {
                if(var2[1].equalsIgnoreCase("enable")) {
                   if(var2.length == 3) {
-                     return a(var2, MinecraftServer.N().getPlayers());
+                     return a(var2, MinecraftServer.getServer().getPlayers());
                   }
 
                   if(var2.length == 4) {
@@ -865,7 +865,7 @@ public class CommandScoreboard extends CommandAbstract {
                      }
 
                      if(var2.length == 6) {
-                        return a(var2, MinecraftServer.N().getPlayers());
+                        return a(var2, MinecraftServer.getServer().getPlayers());
                      }
 
                      if(var2.length == 7) {
@@ -883,7 +883,7 @@ public class CommandScoreboard extends CommandAbstract {
                }
             } else {
                if(var2.length == 3) {
-                  return a(var2, MinecraftServer.N().getPlayers());
+                  return a(var2, MinecraftServer.getServer().getPlayers());
                }
 
                if(var2.length == 4) {
@@ -901,11 +901,11 @@ public class CommandScoreboard extends CommandAbstract {
                }
 
                if(var2.length >= 4) {
-                  return a(var2, MinecraftServer.N().getPlayers());
+                  return a(var2, MinecraftServer.getServer().getPlayers());
                }
             } else {
                if(var2[1].equalsIgnoreCase("leave")) {
-                  return a(var2, MinecraftServer.N().getPlayers());
+                  return a(var2, MinecraftServer.getServer().getPlayers());
                }
 
                if(!var2[1].equalsIgnoreCase("empty") && !var2[1].equalsIgnoreCase("list") && !var2[1].equalsIgnoreCase("remove")) {

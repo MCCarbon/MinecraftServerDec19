@@ -64,7 +64,7 @@ public class Chunk {
 		Arrays.fill(e, (byte) -1);
 	}
 
-	public Chunk(World var1, class_aph var2, int var3, int var4) {
+	public Chunk(World var1, ChunkSnapshot var2, int var3, int var4) {
 		this(var1, var3, var4);
 		short var5 = 256;
 		boolean var6 = !var1.worldProvider.m();
@@ -732,7 +732,7 @@ public class Chunk {
 
 	}
 
-	public void a(Class<?> var1, AxisAlignedBB var2, List<Entity> var3, Predicate<Entity> var4) {
+	public void a(Class<? extends Entity> var1, AxisAlignedBB var2, List<Entity> var3, Predicate<? super Entity> var4) {
 		int var5 = MathHelper.floor((var2.yMin - 2.0D) / 16.0D);
 		int var6 = MathHelper.floor((var2.yMax + 2.0D) / 16.0D);
 		var5 = MathHelper.clamp(var5, 0, entitySlices.length - 1);
@@ -790,7 +790,7 @@ public class Chunk {
 		boolean var12 = var1.isChunkLoaded(var3 + 1, var4 - 1);
 		if (var6 && var7 && var10) {
 			if (!done) {
-				var1.a(var2, var3, var4);
+				var1.getChunkAt(var2, var3, var4);
 			} else {
 				var1.a(var2, this, var3, var4);
 			}
@@ -800,7 +800,7 @@ public class Chunk {
 		if (var8 && var7 && var11) {
 			var13 = var1.getOrCreateChunk(var3 - 1, var4);
 			if (!var13.done) {
-				var1.a(var2, var3 - 1, var4);
+				var1.getChunkAt(var2, var3 - 1, var4);
 			} else {
 				var1.a(var2, var13, var3 - 1, var4);
 			}
@@ -809,7 +809,7 @@ public class Chunk {
 		if (var5 && var6 && var12) {
 			var13 = var1.getOrCreateChunk(var3, var4 - 1);
 			if (!var13.done) {
-				var1.a(var2, var3, var4 - 1);
+				var1.getChunkAt(var2, var3, var4 - 1);
 			} else {
 				var1.a(var2, var13, var3, var4 - 1);
 			}
@@ -818,7 +818,7 @@ public class Chunk {
 		if (var9 && var5 && var8) {
 			var13 = var1.getOrCreateChunk(var3 - 1, var4 - 1);
 			if (!var13.done) {
-				var1.a(var2, var3 - 1, var4 - 1);
+				var1.getChunkAt(var2, var3 - 1, var4 - 1);
 			} else {
 				var1.a(var2, var13, var3 - 1, var4 - 1);
 			}
@@ -880,8 +880,8 @@ public class Chunk {
 		return p && done && lit;
 	}
 
-	public class_aeh j() {
-		return new class_aeh(locX, locZ);
+	public ChunkCoordIntPair j() {
+		return new ChunkCoordIntPair(locX, locZ);
 	}
 
 	public boolean c(int var1, int var2) {
@@ -921,15 +921,15 @@ public class Chunk {
 		BiomeBase var6;
 		if (var5 == 255) {
 			var6 = var2.a(var1, BiomeBase.PLAINS);
-			var5 = var6.az;
+			var5 = var6.id;
 			e[(var4 << 4) | var3] = (byte) (var5 & 255);
 		}
 
-		var6 = BiomeBase.e(var5);
+		var6 = BiomeBase.getBiome(var5);
 		return var6 == null ? BiomeBase.PLAINS : var6;
 	}
 
-	public byte[] k() {
+	public byte[] getBiomeIndex() {
 		return e;
 	}
 

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 import java.util.List;
 import java.util.Random;
-import net.minecraft.server.class_aeh;
+import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.Blocks;
@@ -11,7 +11,7 @@ import net.minecraft.server.IBlockData;
 import net.minecraft.server.class_ans;
 import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.Chunk;
-import net.minecraft.server.class_aph;
+import net.minecraft.server.ChunkSnapshot;
 import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.class_apo;
 import net.minecraft.server.WorldGenMushrooms;
@@ -81,7 +81,7 @@ public class ChunkProviderHell implements IChunkProvider {
       var1.b(63);
    }
 
-   public void a(int var1, int var2, class_aph var3) {
+   public void a(int var1, int var2, ChunkSnapshot var3) {
       byte var4 = 4;
       int var5 = this.h.G() / 2 + 1;
       int var6 = var4 + 1;
@@ -146,7 +146,7 @@ public class ChunkProviderHell implements IChunkProvider {
 
    }
 
-   public void b(int var1, int var2, class_aph var3) {
+   public void b(int var1, int var2, ChunkSnapshot var3) {
       int var4 = this.h.G() + 1;
       double var5 = 0.03125D;
       this.k = this.r.a(this.k, var1 * 16, var2 * 16, 0, 16, 16, 1, var5, var5, 1.0D);
@@ -214,7 +214,7 @@ public class ChunkProviderHell implements IChunkProvider {
 
    public Chunk getOrCreateChunk(int var1, int var2) {
       this.j.setSeed((long)var1 * 341873128712L + (long)var2 * 132897987541L);
-      class_aph var3 = new class_aph();
+      ChunkSnapshot var3 = new ChunkSnapshot();
       this.a(var1, var2, var3);
       this.b(var1, var2, var3);
       this.C.a(this, this.h, var1, var2, var3);
@@ -223,11 +223,11 @@ public class ChunkProviderHell implements IChunkProvider {
       }
 
       Chunk var4 = new Chunk(this.h, var3, var1, var2);
-      BiomeBase[] var5 = this.h.w().b((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
-      byte[] var6 = var4.k();
+      BiomeBase[] var5 = this.h.getWorldChunkManager().getBiomeBlock((BiomeBase[])null, var1 * 16, var2 * 16, 16, 16);
+      byte[] var6 = var4.getBiomeIndex();
 
       for(int var7 = 0; var7 < var6.length; ++var7) {
-         var6[var7] = (byte)var5[var7].az;
+         var6[var7] = (byte)var5[var7].id;
       }
 
       var4.l();
@@ -307,10 +307,10 @@ public class ChunkProviderHell implements IChunkProvider {
       return true;
    }
 
-   public void a(IChunkProvider var1, int var2, int var3) {
+   public void getChunkAt(IChunkProvider var1, int var2, int var3) {
       BlockFalling.instaFall = true;
       BlockPosition var4 = new BlockPosition(var2 * 16, 0, var3 * 16);
-      class_aeh var5 = new class_aeh(var2, var3);
+      ChunkCoordIntPair var5 = new ChunkCoordIntPair(var2, var3);
       this.B.a(this.h, this.j, var5);
 
       int var6;
@@ -383,8 +383,8 @@ public class ChunkProviderHell implements IChunkProvider {
          }
       }
 
-      BiomeBase var3 = this.h.b(var2);
-      return var3.a(var1);
+      BiomeBase var3 = this.h.getBiome(var2);
+      return var3.getMobs(var1);
    }
 
    public BlockPosition a(World var1, String var2, BlockPosition var3) {
@@ -396,7 +396,7 @@ public class ChunkProviderHell implements IChunkProvider {
    }
 
    public void recreateStructures(Chunk var1, int var2, int var3) {
-      this.B.a(this, this.h, var2, var3, (class_aph)null);
+      this.B.a(this, this.h, var2, var3, (ChunkSnapshot)null);
    }
 
    public Chunk getChunkAt(BlockPosition var1) {

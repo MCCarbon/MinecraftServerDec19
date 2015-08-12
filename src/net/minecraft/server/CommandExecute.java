@@ -90,7 +90,7 @@ public class CommandExecute extends CommandAbstract {
             }
 
             public boolean u_() {
-               MinecraftServer var1x = MinecraftServer.N();
+               MinecraftServer var1x = MinecraftServer.getServer();
                return var1x == null || var1x.d[0].R().getBooleanValue("commandBlockOutput");
             }
 
@@ -98,7 +98,7 @@ public class CommandExecute extends CommandAbstract {
                var3.a(var1x, var2);
             }
          };
-         class_l var25 = MinecraftServer.N().P();
+         class_l var25 = MinecraftServer.getServer().P();
 
          try {
             int var16 = var25.a(var14, var24);
@@ -112,7 +112,7 @@ public class CommandExecute extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().getPlayers()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)));
+      return var2.length == 1?a(var2, MinecraftServer.getServer().getPlayers()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):(var2.length > 5 && var2.length <= 8 && "detect".equals(var2[4])?a(var2, 5, var3):(var2.length == 9 && "detect".equals(var2[4])?a(var2, Block.BLOCK_REGISTRY.getKeys()):null)));
    }
 
    public boolean isListStart(String[] var1, int var2) {

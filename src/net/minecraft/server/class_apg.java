@@ -4,7 +4,7 @@ import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aph;
+import net.minecraft.server.ChunkSnapshot;
 import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
@@ -12,7 +12,7 @@ import net.minecraft.server.MathHelper;
 public class class_apg extends WorldGenBase {
    private float[] d = new float[1024];
 
-   protected void a(long var1, int var3, int var4, class_aph var5, double var6, double var8, double var10, float var12, float var13, float var14, int var15, int var16, double var17) {
+   protected void a(long var1, int var3, int var4, ChunkSnapshot var5, double var6, double var8, double var10, float var12, float var13, float var14, int var15, int var16, double var17) {
       Random var19 = new Random(var1);
       double var20 = (double)(var3 * 16 + 8);
       double var22 = (double)(var4 * 16 + 8);
@@ -141,7 +141,7 @@ public class class_apg extends WorldGenBase {
                                        var5.a(var42, var49, var45, Blocks.AIR.getBlockData());
                                        if(var48 && var5.a(var42, var49 - 1, var45).getBlock() == Blocks.DIRT) {
                                           var59.setPosition(var42 + var3 * 16, 0, var45 + var4 * 16);
-                                          var5.a(var42, var49 - 1, var45, this.c.b((BlockPosition)var59).ak);
+                                          var5.a(var42, var49 - 1, var45, this.c.getBiome((BlockPosition)var59).ak);
                                        }
                                     }
                                  }
@@ -161,7 +161,7 @@ public class class_apg extends WorldGenBase {
 
    }
 
-   protected void a(World var1, int var2, int var3, int var4, int var5, class_aph var6) {
+   protected void a(World var1, int var2, int var3, int var4, int var5, ChunkSnapshot var6) {
       if(this.b.nextInt(50) == 0) {
          double var7 = (double)(var2 * 16 + this.b.nextInt(16));
          double var9 = (double)(this.b.nextInt(this.b.nextInt(40) + 8) + 20);

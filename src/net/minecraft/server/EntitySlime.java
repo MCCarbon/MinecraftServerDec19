@@ -207,7 +207,7 @@ public class EntitySlime extends EntityInsentient implements class_wd {
 			return false;
 		} else {
 			if (this.world.ab() != class_om.a) {
-				BiomeBase var3 = this.world.b(var1);
+				BiomeBase var3 = this.world.getBiome(var1);
 				if (var3 == BiomeBase.SWAMPLAND && this.locY > 50.0D && this.locY < 70.0D && this.random.nextFloat() < 0.5F && this.random.nextFloat() < this.world.z() && this.world.l(new BlockPosition(this)) <= this.random.nextInt(8)) {
 					return super.cf();
 				}

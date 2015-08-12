@@ -176,7 +176,7 @@ public class TileEntitySign extends TileEntity {
 			if ((var4 != null) && (var4.h() != null)) {
 				class_et var5 = var4.h();
 				if (var5.a() == class_et.class_a_in_class_et.c) {
-					MinecraftServer.N().P().a(var2, var5.b());
+					MinecraftServer.getServer().P().a(var2, var5.b());
 				}
 			}
 		}

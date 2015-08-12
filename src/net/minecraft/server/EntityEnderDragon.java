@@ -361,7 +361,7 @@ public class EntityEnderDragon extends EntityInsentient implements class_uo, cla
 
 					var1 = this.n();
 					if ((var1 == class_us.f || var1 == class_us.d) && this.bO < 50) {
-						List var44 = this.world.a(EntityLiving.class, this.bR, IEntitySelector.NOT_PLAYER_SPECTATOR);
+						List var44 = this.world.getEntities(EntityLiving.class, this.bR, IEntitySelector.NOT_PLAYER_SPECTATOR);
 						if (!var44.isEmpty()) {
 							Iterator var48 = var44.iterator();
 

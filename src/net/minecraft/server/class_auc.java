@@ -150,9 +150,9 @@ public abstract class class_auc {
    protected static boolean a(int var0, int var1) {
       if(var0 == var1) {
          return true;
-      } else if(var0 != BiomeBase.MESA_PLATEU_F.az && var0 != BiomeBase.MESA_PLATEU.az) {
-         final BiomeBase var2 = BiomeBase.e(var0);
-         final BiomeBase var3 = BiomeBase.e(var1);
+      } else if(var0 != BiomeBase.MESA_PLATEU_F.id && var0 != BiomeBase.MESA_PLATEU.id) {
+         final BiomeBase var2 = BiomeBase.getBiome(var0);
+         final BiomeBase var3 = BiomeBase.getBiome(var1);
 
          try {
             return var2 != null && var3 != null?var2.a(var3):false;
@@ -184,12 +184,12 @@ public abstract class class_auc {
             throw new class_e(var5);
          }
       } else {
-         return var1 == BiomeBase.MESA_PLATEU_F.az || var1 == BiomeBase.MESA_PLATEU.az;
+         return var1 == BiomeBase.MESA_PLATEU_F.id || var1 == BiomeBase.MESA_PLATEU.id;
       }
    }
 
    protected static boolean b(int var0) {
-      return var0 == BiomeBase.OCEAN.az || var0 == BiomeBase.DEEP_OCEAN.az || var0 == BiomeBase.FROZEN_OCEAN.az;
+      return var0 == BiomeBase.OCEAN.id || var0 == BiomeBase.DEEP_OCEAN.id || var0 == BiomeBase.FROZEN_OCEAN.id;
    }
 
    protected int a(int... var1) {

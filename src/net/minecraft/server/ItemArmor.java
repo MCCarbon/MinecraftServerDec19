@@ -13,7 +13,7 @@ public class ItemArmor extends Item {
          int var5 = var3.getY();
          int var6 = var3.getZ();
          AxisAlignedBB var7 = new AxisAlignedBB((double)var4, (double)var5, (double)var6, (double)(var4 + 1), (double)(var5 + 1), (double)(var6 + 1));
-         List var8 = var1.getWorld().a(EntityLiving.class, var7, Predicates.and(IEntitySelector.NOT_PLAYER_SPECTATOR, new IEntitySelector.class_a_in_class_pv(var2)));
+         List var8 = var1.getWorld().getEntities(EntityLiving.class, var7, Predicates.and(IEntitySelector.NOT_PLAYER_SPECTATOR, new IEntitySelector.class_a_in_class_pv(var2)));
          if(!var8.isEmpty()) {
             EntityLiving var9 = (EntityLiving)var8.get(0);
             EnumWearable var10 = EntityInsentient.c(var2);

@@ -21,7 +21,7 @@ public class CommandPardonIp extends CommandAbstract {
    }
 
    public boolean canUse(ICommandListener var1) {
-      return MinecraftServer.N().getPlayerList().i().b() && super.canUse(var1);
+      return MinecraftServer.getServer().getPlayerList().i().b() && super.canUse(var1);
    }
 
    public String c(ICommandListener var1) {
@@ -32,7 +32,7 @@ public class CommandPardonIp extends CommandAbstract {
       if(var2.length == 1 && var2[0].length() > 1) {
          Matcher var3 = CommandBanIp.a.matcher(var2[0]);
          if(var3.matches()) {
-            MinecraftServer.N().getPlayerList().i().c(var2[0]);
+            MinecraftServer.getServer().getPlayerList().i().c(var2[0]);
             a(var1, this, "commands.unbanip.success", new Object[]{var2[0]});
          } else {
             throw new class_cc("commands.unbanip.invalid", new Object[0]);
@@ -43,6 +43,6 @@ public class CommandPardonIp extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().getPlayerList().i().a()):null;
+      return var2.length == 1?a(var2, MinecraftServer.getServer().getPlayerList().i().a()):null;
    }
 }

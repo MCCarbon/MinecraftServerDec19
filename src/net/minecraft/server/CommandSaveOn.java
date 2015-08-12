@@ -16,7 +16,7 @@ public class CommandSaveOn extends CommandAbstract {
    }
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
-      MinecraftServer var3 = MinecraftServer.N();
+      MinecraftServer var3 = MinecraftServer.getServer();
       boolean var4 = false;
 
       for(int var5 = 0; var5 < var3.d.length; ++var5) {

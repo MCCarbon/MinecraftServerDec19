@@ -30,11 +30,11 @@ public class CommandGamemodeDefault extends CommandGamemode {
    }
 
    protected void a(WorldSettings.EnumGameMode var1) {
-      MinecraftServer var2 = MinecraftServer.N();
+      MinecraftServer var2 = MinecraftServer.getServer();
       var2.a(var1);
       EntityPlayer var4;
       if(var2.ax()) {
-         for(Iterator var3 = MinecraftServer.N().getPlayerList().v().iterator(); var3.hasNext(); var4.fallDistance = 0.0F) {
+         for(Iterator var3 = MinecraftServer.getServer().getPlayerList().v().iterator(); var3.hasNext(); var4.fallDistance = 0.0F) {
             var4 = (EntityPlayer)var3.next();
             var4.a(var1);
          }

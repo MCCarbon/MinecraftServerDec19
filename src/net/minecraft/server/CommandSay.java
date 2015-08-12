@@ -26,13 +26,13 @@ public class CommandSay extends CommandAbstract {
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length > 0 && var2[0].length() > 0) {
          IChatBaseComponent var3 = b(var1, var2, 0, true);
-         MinecraftServer.N().getPlayerList().a((IChatBaseComponent)(new ChatMessage("chat.type.announcement", new Object[]{var1.getScoreboardDisplayName(), var3})));
+         MinecraftServer.getServer().getPlayerList().a((IChatBaseComponent)(new ChatMessage("chat.type.announcement", new Object[]{var1.getScoreboardDisplayName(), var3})));
       } else {
          throw new class_cf("commands.say.usage", new Object[0]);
       }
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return var2.length >= 1?a(var2, MinecraftServer.N().getPlayers()):null;
+      return var2.length >= 1?a(var2, MinecraftServer.getServer().getPlayers()):null;
    }
 }

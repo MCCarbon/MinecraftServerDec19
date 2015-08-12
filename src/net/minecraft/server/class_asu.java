@@ -1,6 +1,6 @@
 package net.minecraft.server;
 
-import net.minecraft.server.class_aeh;
+import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.Block;
 import net.minecraft.server.StructureBoundingBox;
 
@@ -9,7 +9,7 @@ public class class_asu {
    private Block.EnumRotation b;
    private boolean c;
    private boolean d;
-   private class_aeh e;
+   private ChunkCoordIntPair e;
    private StructureBoundingBox f;
    private boolean g;
 
@@ -51,7 +51,7 @@ public class class_asu {
       return this;
    }
 
-   public class_asu a(class_aeh var1) {
+   public class_asu a(ChunkCoordIntPair var1) {
       this.e = var1;
       return this;
    }
@@ -98,7 +98,7 @@ public class class_asu {
       this.f = this.b(this.e);
    }
 
-   private StructureBoundingBox b(class_aeh var1) {
+   private StructureBoundingBox b(ChunkCoordIntPair var1) {
       if(var1 == null) {
          return null;
       } else {

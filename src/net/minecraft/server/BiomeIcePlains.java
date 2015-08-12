@@ -51,7 +51,7 @@ public class BiomeIcePlains extends BiomeBase {
    }
 
    protected BiomeBase d(int var1) {
-      BiomeBase var2 = (new BiomeIcePlains(var1, true)).a(13828095, true).a(this.ah + " Spikes").c().a(0.0F, 0.5F).a(new BiomeBase.class_a_in_class_aez(this.an + 0.1F, this.ao + 0.1F));
+      BiomeBase var2 = (new BiomeIcePlains(var1, true)).a(13828095, true).a(this.ah + " Spikes").c().a(0.0F, 0.5F).a(new BiomeBase.BiomeTemperature(this.an + 0.1F, this.ao + 0.1F));
       var2.an = this.an + 0.3F;
       var2.ao = this.ao + 0.4F;
       return var2;

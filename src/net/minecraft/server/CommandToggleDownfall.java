@@ -25,7 +25,7 @@ public class CommandToggleDownfall extends CommandAbstract {
    }
 
    protected void d() {
-      WorldData var1 = MinecraftServer.N().d[0].Q();
+      WorldData var1 = MinecraftServer.getServer().d[0].Q();
       var1.b(!var1.p());
    }
 }

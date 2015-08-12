@@ -50,7 +50,7 @@ public class class_rb extends class_rm {
    }
 
    public boolean a() {
-      List var1 = this.a.world.a(this.i, this.a.getBoundingBox().grow((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{IEntitySelector.NOT_PLAYER_SPECTATOR, this.c, this.j}));
+      List var1 = this.a.world.getEntities(this.i, this.a.getBoundingBox().grow((double)this.f, 3.0D, (double)this.f), Predicates.and(new Predicate[]{IEntitySelector.NOT_PLAYER_SPECTATOR, this.c, this.j}));
       if(var1.isEmpty()) {
          return false;
       } else {

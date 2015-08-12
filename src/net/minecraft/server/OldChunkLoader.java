@@ -101,7 +101,7 @@ public class OldChunkLoader {
       for(var7 = 0; var7 < 16; ++var7) {
          for(var8 = 0; var8 < 16; ++var8) {
             var18.setPosition(var0.k << 4 | var7, 0, var0.l << 4 | var8);
-            var17[var8 << 4 | var7] = (byte)(var2.a(var18, BiomeBase.ad).az & 255);
+            var17[var8 << 4 | var7] = (byte)(var2.a(var18, BiomeBase.ad).id & 255);
          }
       }
 

@@ -29,11 +29,11 @@ public class CommandMe extends CommandAbstract {
          throw new class_cf("commands.me.usage", new Object[0]);
       } else {
          IChatBaseComponent var3 = b(var1, var2, 0, !(var1 instanceof EntityHuman));
-         MinecraftServer.N().getPlayerList().a((IChatBaseComponent)(new ChatMessage("chat.type.emote", new Object[]{var1.getScoreboardDisplayName(), var3})));
+         MinecraftServer.getServer().getPlayerList().a((IChatBaseComponent)(new ChatMessage("chat.type.emote", new Object[]{var1.getScoreboardDisplayName(), var3})));
       }
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return a(var2, MinecraftServer.N().getPlayers());
+      return a(var2, MinecraftServer.getServer().getPlayers());
    }
 }

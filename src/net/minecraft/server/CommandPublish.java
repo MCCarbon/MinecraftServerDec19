@@ -16,7 +16,7 @@ public class CommandPublish extends CommandAbstract {
    }
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
-      String var3 = MinecraftServer.N().a(WorldSettings.EnumGameMode.SURVIVAL, false);
+      String var3 = MinecraftServer.getServer().a(WorldSettings.EnumGameMode.SURVIVAL, false);
       if(var3 != null) {
          a(var1, this, "commands.publish.started", new Object[]{var3});
       } else {

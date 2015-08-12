@@ -160,14 +160,14 @@ public abstract class CommandAbstract implements ICommand {
       EntityPlayer var2 = class_o.a(var0, var1);
       if(var2 == null) {
          try {
-            var2 = MinecraftServer.N().getPlayerList().getPlayer(UUID.fromString(var1));
+            var2 = MinecraftServer.getServer().getPlayerList().getPlayer(UUID.fromString(var1));
          } catch (IllegalArgumentException var4) {
             ;
          }
       }
 
       if(var2 == null) {
-         var2 = MinecraftServer.N().getPlayerList().a(var1);
+         var2 = MinecraftServer.getServer().getPlayerList().a(var1);
       }
 
       if(var2 == null) {
@@ -183,7 +183,7 @@ public abstract class CommandAbstract implements ICommand {
 
    public static Entity a(ICommandListener var0, String var1, Class var2) throws class_ca {
       Object var3 = class_o.a(var0, var1, var2);
-      MinecraftServer var4 = MinecraftServer.N();
+      MinecraftServer var4 = MinecraftServer.getServer();
       if(var3 == null) {
          var3 = var4.getPlayerList().a(var1);
       }

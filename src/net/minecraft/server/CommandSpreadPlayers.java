@@ -66,7 +66,7 @@ public class CommandSpreadPlayers extends CommandAbstract {
 
                var14.addAll(var16);
             } else {
-               EntityPlayer var18 = MinecraftServer.N().getPlayerList().a(var15);
+               EntityPlayer var18 = MinecraftServer.getServer().getPlayerList().a(var15);
                if(var18 == null) {
                   throw new class_cd();
                }

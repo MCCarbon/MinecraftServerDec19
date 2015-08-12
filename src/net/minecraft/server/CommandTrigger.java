@@ -46,7 +46,7 @@ public class CommandTrigger extends CommandAbstract {
             var3 = (EntityPlayer)var4;
          }
 
-         Scoreboard var8 = MinecraftServer.N().getWorldServer(0).aa();
+         Scoreboard var8 = MinecraftServer.getServer().getWorldServer(0).aa();
          class_awj var5 = var8.b(var2[0]);
          if(var5 != null && var5.c() == class_awt.c) {
             int var6 = a(var2[2]);
@@ -82,7 +82,7 @@ public class CommandTrigger extends CommandAbstract {
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
       if(var2.length == 1) {
-         Scoreboard var4 = MinecraftServer.N().getWorldServer(0).aa();
+         Scoreboard var4 = MinecraftServer.getServer().getWorldServer(0).aa();
          ArrayList var5 = Lists.newArrayList();
          Iterator var6 = var4.c().iterator();
 

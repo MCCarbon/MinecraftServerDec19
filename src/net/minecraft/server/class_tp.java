@@ -370,7 +370,7 @@ public class class_tp {
       for(int var9 = 0; var9 < var8.getSize(); ++var9) {
          NBTTagCompound var10 = var8.getCompound(var9);
          if(var10.has("UUID")) {
-            class_lv var6 = MinecraftServer.N().aF();
+            class_lv var6 = MinecraftServer.getServer().aF();
             GameProfile var7 = var6.a(UUID.fromString(var10.getString("UUID")));
             if(var7 != null) {
                this.j.put(var7.getName(), Integer.valueOf(var10.getInt("S")));
@@ -417,7 +417,7 @@ public class class_tp {
       while(var10.hasNext()) {
          String var11 = (String)var10.next();
          NBTTagCompound var6 = new NBTTagCompound();
-         class_lv var7 = MinecraftServer.N().aF();
+         class_lv var7 = MinecraftServer.getServer().aF();
          GameProfile var8 = var7.a(var11);
          if(var8 != null) {
             var6.put("UUID", var8.getId().toString());

@@ -358,7 +358,7 @@ public class EntityZombie extends EntityMonster {
 			if (var4.a) {
 				this.setBaby(true);
 				if ((double) this.world.random.nextFloat() < 0.05D) {
-					List var5 = this.world.a(EntityChicken.class, this.getBoundingBox().grow(5.0D, 3.0D, 5.0D), IEntitySelector.IS_ALIVE_AND_NOT_MOUNTED);
+					List var5 = this.world.getEntities(EntityChicken.class, this.getBoundingBox().grow(5.0D, 3.0D, 5.0D), IEntitySelector.IS_ALIVE_AND_NOT_MOUNTED);
 					if (!var5.isEmpty()) {
 						EntityChicken var6 = (EntityChicken) var5.get(0);
 						var6.m(true);

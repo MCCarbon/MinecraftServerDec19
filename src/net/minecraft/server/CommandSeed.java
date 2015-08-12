@@ -10,7 +10,7 @@ import net.minecraft.server.EntityHuman;
 
 public class CommandSeed extends CommandAbstract {
    public boolean canUse(ICommandListener var1) {
-      return MinecraftServer.N().isLocal() || super.canUse(var1);
+      return MinecraftServer.getServer().isLocal() || super.canUse(var1);
    }
 
    public String getCommand() {
@@ -26,7 +26,7 @@ public class CommandSeed extends CommandAbstract {
    }
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
-      Object var3 = var1 instanceof EntityHuman?((EntityHuman)var1).world:MinecraftServer.N().getWorldServer(0);
+      Object var3 = var1 instanceof EntityHuman?((EntityHuman)var1).world:MinecraftServer.getServer().getWorldServer(0);
       var1.sendMessage(new ChatMessage("commands.seed.success", new Object[]{Long.valueOf(((World)var3).K())}));
    }
 }

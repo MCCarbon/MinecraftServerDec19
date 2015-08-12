@@ -19,7 +19,7 @@ public class CommandBanList extends CommandAbstract {
    }
 
    public boolean canUse(ICommandListener var1) {
-      return (MinecraftServer.N().getPlayerList().i().b() || MinecraftServer.N().getPlayerList().h().b()) && super.canUse(var1);
+      return (MinecraftServer.getServer().getPlayerList().i().b() || MinecraftServer.getServer().getPlayerList().h().b()) && super.canUse(var1);
    }
 
    public String c(ICommandListener var1) {
@@ -28,11 +28,11 @@ public class CommandBanList extends CommandAbstract {
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length >= 1 && var2[0].equalsIgnoreCase("ips")) {
-         var1.sendMessage(new ChatMessage("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().i().a().length)}));
-         var1.sendMessage(new ChatComponentText(a(MinecraftServer.N().getPlayerList().i().a())));
+         var1.sendMessage(new ChatMessage("commands.banlist.ips", new Object[]{Integer.valueOf(MinecraftServer.getServer().getPlayerList().i().a().length)}));
+         var1.sendMessage(new ChatComponentText(a(MinecraftServer.getServer().getPlayerList().i().a())));
       } else {
-         var1.sendMessage(new ChatMessage("commands.banlist.players", new Object[]{Integer.valueOf(MinecraftServer.N().getPlayerList().h().a().length)}));
-         var1.sendMessage(new ChatComponentText(a(MinecraftServer.N().getPlayerList().h().a())));
+         var1.sendMessage(new ChatMessage("commands.banlist.players", new Object[]{Integer.valueOf(MinecraftServer.getServer().getPlayerList().h().a().length)}));
+         var1.sendMessage(new ChatComponentText(a(MinecraftServer.getServer().getPlayerList().h().a())));
       }
 
    }

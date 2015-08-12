@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aeh;
+import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.TileEntity;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.WorldProvider;
@@ -120,7 +120,7 @@ public class class_ld {
       int var6 = (int)var1.locZ >> 4;
       int var7 = 0;
       int var8 = 0;
-      class_aeh var9 = this.a(var5, var6, true).c;
+      ChunkCoordIntPair var9 = this.a(var5, var6, true).c;
       var1.f.clear();
       if(var2.contains(var9)) {
          var1.f.add(var9);
@@ -263,14 +263,14 @@ public class class_ld {
 
    class class_a_in_class_ld {
       private final List b = Lists.newArrayList();
-      private final class_aeh c;
+      private final ChunkCoordIntPair c;
       private short[] d = new short[64];
       private int e;
       private int f;
       private long g;
 
       public class_a_in_class_ld(int var2, int var3) {
-         this.c = new class_aeh(var2, var3);
+         this.c = new ChunkCoordIntPair(var2, var3);
          class_ld.this.a().b.c(var2, var3);
       }
 

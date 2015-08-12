@@ -19,7 +19,7 @@ public class BiomeSavanna extends BiomeBase {
 
    protected BiomeBase d(int var1) {
       BiomeSavanna.class_a_in_class_afs var2 = new BiomeSavanna.class_a_in_class_afs(var1, this);
-      var2.ap = (this.ap + 1.0F) * 0.5F;
+      var2.temperature = (this.temperature + 1.0F) * 0.5F;
       var2.an = this.an * 0.5F + 0.3F;
       var2.ao = this.ao * 0.5F + 1.2F;
       return var2;
@@ -46,7 +46,7 @@ public class BiomeSavanna extends BiomeBase {
          this.as.C = 5;
       }
 
-      public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+      public void a(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
          this.ak = Blocks.GRASS.getBlockData();
          this.al = Blocks.DIRT.getBlockData();
          if(var6 > 1.75D) {

@@ -26,7 +26,7 @@ public class CommandOp extends CommandAbstract {
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length == 1 && var2[0].length() > 0) {
-         MinecraftServer var3 = MinecraftServer.N();
+         MinecraftServer var3 = MinecraftServer.getServer();
          GameProfile var4 = var3.aF().a(var2[0]);
          if(var4 == null) {
             throw new class_bz("commands.op.failed", new Object[]{var2[0]});
@@ -43,12 +43,12 @@ public class CommandOp extends CommandAbstract {
       if(var2.length == 1) {
          String var4 = var2[var2.length - 1];
          ArrayList var5 = Lists.newArrayList();
-         GameProfile[] var6 = MinecraftServer.N().L();
+         GameProfile[] var6 = MinecraftServer.getServer().L();
          int var7 = var6.length;
 
          for(int var8 = 0; var8 < var7; ++var8) {
             GameProfile var9 = var6[var8];
-            if(!MinecraftServer.N().getPlayerList().h(var9) && a(var4, var9.getName())) {
+            if(!MinecraftServer.getServer().getPlayerList().h(var9) && a(var4, var9.getName())) {
                var5.add(var9.getName());
             }
          }

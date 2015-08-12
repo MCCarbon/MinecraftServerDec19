@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
-import net.minecraft.server.class_aeh;
+import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.World;
 import net.minecraft.server.StructureBoundingBox;
 import net.minecraft.server.WorldGenFactory;
@@ -15,6 +15,7 @@ import net.minecraft.server.NBTTagList;
 import net.minecraft.server.NBTTag;
 
 public abstract class StructureStart {
+
 	protected List<StructurePiece> a = new LinkedList<StructurePiece>();
 	protected StructureBoundingBox b;
 	private int c;
@@ -120,7 +121,6 @@ public abstract class StructureStart {
 
 	protected void a(World var1, Random var2, int var3, int var4) {
 		int var5 = var4 - var3 + 1 - this.b.getYLength();
-		boolean var6 = true;
 		int var10;
 		if (var5 > 1) {
 			var10 = var3 + var2.nextInt(var5);
@@ -143,11 +143,11 @@ public abstract class StructureStart {
 		return true;
 	}
 
-	public boolean a(class_aeh var1) {
+	public boolean a(ChunkCoordIntPair var1) {
 		return true;
 	}
 
-	public void b(class_aeh var1) {
+	public void b(ChunkCoordIntPair var1) {
 	}
 
 	public int e() {

@@ -59,11 +59,11 @@ public class WorldGenMonument extends StructureGenerator {
       var5 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       var6 += (var7.nextInt(this.f - this.g) + var7.nextInt(this.f - this.g)) / 2;
       if(var3 == var5 && var4 == var6) {
-         if(this.c.w().a(new BlockPosition(var3 * 16 + 8, 64, var4 * 16 + 8), (BiomeBase)null) != BiomeBase.DEEP_OCEAN) {
+         if(this.c.getWorldChunkManager().a(new BlockPosition(var3 * 16 + 8, 64, var4 * 16 + 8), (BiomeBase)null) != BiomeBase.DEEP_OCEAN) {
             return false;
          }
 
-         boolean var8 = this.c.w().a(var3 * 16 + 8, var4 * 16 + 8, 29, d);
+         boolean var8 = this.c.getWorldChunkManager().a(var3 * 16 + 8, var4 * 16 + 8, 29, d);
          if(var8) {
             return true;
          }
@@ -122,11 +122,11 @@ public class WorldGenMonument extends StructureGenerator {
          super.a(var1, var2, var3);
       }
 
-      public boolean a(class_aeh var1) {
+      public boolean a(ChunkCoordIntPair var1) {
          return this.c.contains(var1)?false:super.a(var1);
       }
 
-      public void b(class_aeh var1) {
+      public void b(ChunkCoordIntPair var1) {
          super.b(var1);
          this.c.add(var1);
       }
@@ -137,7 +137,7 @@ public class WorldGenMonument extends StructureGenerator {
          Iterator var3 = this.c.iterator();
 
          while(var3.hasNext()) {
-            class_aeh var4 = (class_aeh)var3.next();
+            ChunkCoordIntPair var4 = (ChunkCoordIntPair)var3.next();
             NBTTagCompound var5 = new NBTTagCompound();
             var5.put("X", var4.a);
             var5.put("Z", var4.b);
@@ -154,7 +154,7 @@ public class WorldGenMonument extends StructureGenerator {
 
             for(int var3 = 0; var3 < var2.getSize(); ++var3) {
                NBTTagCompound var4 = var2.getCompound(var3);
-               this.c.add(new class_aeh(var4.getInt("X"), var4.getInt("Z")));
+               this.c.add(new ChunkCoordIntPair(var4.getInt("X"), var4.getInt("Z")));
             }
          }
 

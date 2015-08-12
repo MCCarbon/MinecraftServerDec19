@@ -73,7 +73,7 @@ public abstract class World implements IBlockAccess {
 		return this;
 	}
 
-	public BiomeBase b(final BlockPosition var1) {
+	public BiomeBase getBiome(final BlockPosition var1) {
 		if (this.isLoaded(var1)) {
 			Chunk var2 = this.f(var1);
 
@@ -100,7 +100,7 @@ public abstract class World implements IBlockAccess {
 		}
 	}
 
-	public WorldChunkManager w() {
+	public WorldChunkManager getWorldChunkManager() {
 		return worldProvider.k();
 	}
 
@@ -1643,7 +1643,7 @@ public abstract class World implements IBlockAccess {
 
 			for (int var6 = -var5; var6 <= var5; ++var6) {
 				for (int var7 = -var5; var7 <= var5; ++var7) {
-					E.add(new class_aeh(var6 + var3, var7 + var4));
+					E.add(new ChunkCoordIntPair(var6 + var3, var7 + var4));
 				}
 			}
 		}
@@ -1712,7 +1712,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean e(BlockPosition var1, boolean var2) {
-		BiomeBase var3 = this.b(var1);
+		BiomeBase var3 = this.getBiome(var1);
 		float var4 = var3.a(var1);
 		if (var4 > 0.15F) {
 			return false;
@@ -1741,7 +1741,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public boolean f(BlockPosition var1, boolean var2) {
-		BiomeBase var3 = this.b(var1);
+		BiomeBase var3 = this.getBiome(var1);
 		float var4 = var3.a(var1);
 		if (var4 > 0.15F) {
 			return false;
@@ -1989,11 +1989,11 @@ public abstract class World implements IBlockAccess {
         return arraylist;
     }
 
-	public <T> List<T> getEntities(Class<T> entityClass, AxisAlignedBB bb) {
-		return this.a(entityClass, bb, IEntitySelector.NOT_PLAYER_SPECTATOR);
+	public <T extends Entity> List<T> getEntities(Class<T> entityClass, AxisAlignedBB bb) {
+		return this.getEntities(entityClass, bb, IEntitySelector.NOT_PLAYER_SPECTATOR);
 	}
 
-	public List a(Class var1, AxisAlignedBB var2, Predicate var3) {
+	public <T extends Entity> List<T> getEntities(Class<T> var1, AxisAlignedBB var2, Predicate<? super Entity> var3) {
 		int var4 = MathHelper.floor((var2.xMin - 2.0D) / 16.0D);
 		int var5 = MathHelper.floor((var2.xMax + 2.0D) / 16.0D);
 		int var6 = MathHelper.floor((var2.zMin - 2.0D) / 16.0D);
@@ -2350,13 +2350,13 @@ public abstract class World implements IBlockAccess {
 		} else if (this.q(var1).getY() > var1.getY()) {
 			return false;
 		} else {
-			BiomeBase var2 = this.b(var1);
+			BiomeBase var2 = this.getBiome(var1);
 			return var2.d() ? false : (this.f(var1, false) ? false : var2.e());
 		}
 	}
 
 	public boolean D(BlockPosition var1) {
-		BiomeBase var2 = this.b(var1);
+		BiomeBase var2 = this.getBiome(var1);
 		return var2.f();
 	}
 

@@ -37,7 +37,7 @@ public class CommandSpawnpoint extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().getPlayers()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
+      return var2.length == 1?a(var2, MinecraftServer.getServer().getPlayers()):(var2.length > 1 && var2.length <= 4?a(var2, 1, var3):null);
    }
 
    public boolean isListStart(String[] var1, int var2) {

@@ -98,7 +98,7 @@ public class EntityMinecartHopper extends class_vq implements class_ams {
       if(TileEntityHopper.a((class_ams)this)) {
          return true;
       } else {
-         List var1 = this.world.a(EntityItem.class, this.getBoundingBox().grow(0.25D, 0.0D, 0.25D), IEntitySelector.IS_ALIVE);
+         List var1 = this.world.getEntities(EntityItem.class, this.getBoundingBox().grow(0.25D, 0.0D, 0.25D), IEntitySelector.IS_ALIVE);
          if(!var1.isEmpty()) {
             TileEntityHopper.a((IInventory)this, (EntityItem)((EntityItem)var1.get(0)));
          }

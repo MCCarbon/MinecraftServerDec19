@@ -51,7 +51,7 @@ public class class_ml implements ICommandListener {
    }
 
    public World e() {
-      return MinecraftServer.N().e();
+      return MinecraftServer.getServer().e();
    }
 
    public Entity f() {

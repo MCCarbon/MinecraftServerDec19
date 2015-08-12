@@ -26,7 +26,7 @@ public class BlockBed extends BlockDirectional {
 				}
 			}
 
-			if (world.worldProvider.e() && (world.b(position) != BiomeBase.HELL)) {
+			if (world.worldProvider.e() && (world.getBiome(position) != BiomeBase.HELL)) {
 				if (blockdata.get(OCCUPIED).booleanValue()) {
 					EntityHuman otherplayer = findPlayerOnBed(world, position);
 					if (otherplayer != null) {

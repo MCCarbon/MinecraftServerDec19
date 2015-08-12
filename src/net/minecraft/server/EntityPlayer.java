@@ -73,8 +73,8 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 	public void read(NBTTagCompound var1) {
 		super.read(var1);
 		if (var1.hasOfType("playerGameType", 99)) {
-			if (MinecraftServer.N().ax()) {
-				this.playerInteractManager.setGameMode(MinecraftServer.N().m());
+			if (MinecraftServer.getServer().ax()) {
+				this.playerInteractManager.setGameMode(MinecraftServer.getServer().m());
 			} else {
 				this.playerInteractManager.setGameMode(WorldSettings.EnumGameMode.getById(var1.getInt("playerGameType")));
 			}
@@ -145,7 +145,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 
 			Chunk var5;
 			while (var8.hasNext() && var6.size() < 10) {
-				class_aeh var10 = (class_aeh) var8.next();
+				ChunkCoordIntPair var10 = (ChunkCoordIntPair) var8.next();
 				if (var10 != null) {
 					if (this.world.isLoaded(new BlockPosition(var10.a << 4, 0, var10.b << 4))) {
 						var5 = this.world.getChunkAt(var10.a, var10.b);
@@ -248,7 +248,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
 	}
 
 	protected void i_() {
-		BiomeBase var1 = this.world.b(new BlockPosition(MathHelper.floor(this.locX), 0, MathHelper.floor(this.locZ)));
+		BiomeBase var1 = this.world.getBiome(new BlockPosition(MathHelper.floor(this.locX), 0, MathHelper.floor(this.locZ)));
 		String var2 = var1.ah;
 		class_ne var3 = (class_ne) this.A().b((class_my) class_mt.L);
 		if (var3 == null) {

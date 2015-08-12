@@ -81,13 +81,13 @@ public class CommandHelp extends CommandAbstract {
    }
 
    protected List d(ICommandListener var1) {
-      List var2 = MinecraftServer.N().P().a(var1);
+      List var2 = MinecraftServer.getServer().P().a(var1);
       Collections.sort(var2);
       return var2;
    }
 
    protected Map d() {
-      return MinecraftServer.N().P().a();
+      return MinecraftServer.getServer().P().a();
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {

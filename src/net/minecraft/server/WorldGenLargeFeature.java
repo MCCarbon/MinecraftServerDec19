@@ -57,7 +57,7 @@ public class WorldGenLargeFeature extends StructureGenerator {
       var5 += var7.nextInt(this.g - this.h);
       var6 += var7.nextInt(this.g - this.h);
       if(var3 == var5 && var4 == var6) {
-         BiomeBase var8 = this.c.w().a(new BlockPosition(var3 * 16 + 8, 0, var4 * 16 + 8));
+         BiomeBase var8 = this.c.getWorldChunkManager().a(new BlockPosition(var3 * 16 + 8, 0, var4 * 16 + 8));
          if(var8 == null) {
             return false;
          }
@@ -102,7 +102,7 @@ public class WorldGenLargeFeature extends StructureGenerator {
       }
 
       public WorldGenLargeFeatureStart(World var1, Random var2, int var3, int var4) {
-         this(var1, var2, var3, var4, var1.b(new BlockPosition(var3 * 16 + 8, 0, var4 * 16 + 8)));
+         this(var1, var2, var3, var4, var1.getBiome(new BlockPosition(var3 * 16 + 8, 0, var4 * 16 + 8)));
       }
 
       public WorldGenLargeFeatureStart(World var1, Random var2, int var3, int var4, BiomeBase var5) {

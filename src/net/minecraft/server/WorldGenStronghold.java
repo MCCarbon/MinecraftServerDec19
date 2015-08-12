@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.Map.Entry;
-import net.minecraft.server.class_aeh;
+import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
 import net.minecraft.server.WorldGenStrongholdPieces;
@@ -20,16 +20,16 @@ import net.minecraft.server.MathHelper;
 public class WorldGenStronghold extends StructureGenerator {
    private List d;
    private boolean f;
-   private class_aeh[] g;
+   private ChunkCoordIntPair[] g;
    private double h;
    private int i;
 
    public WorldGenStronghold() {
-      this.g = new class_aeh[3];
+      this.g = new ChunkCoordIntPair[3];
       this.h = 32.0D;
       this.i = 3;
       this.d = Lists.newArrayList();
-      BiomeBase[] var1 = BiomeBase.n();
+      BiomeBase[] var1 = BiomeBase.getBiomes();
       int var2 = var1.length;
 
       for(int var3 = 0; var3 < var2; ++var3) {
@@ -50,7 +50,7 @@ public class WorldGenStronghold extends StructureGenerator {
          if(((String)var3.getKey()).equals("distance")) {
             this.h = MathHelper.max((String)var3.getValue(), this.h, 1.0D);
          } else if(((String)var3.getKey()).equals("count")) {
-            this.g = new class_aeh[MathHelper.max((String)((String)var3.getValue()), this.g.length, 1)];
+            this.g = new ChunkCoordIntPair[MathHelper.max((String)((String)var3.getValue()), this.g.length, 1)];
          } else if(((String)var3.getKey()).equals("spread")) {
             this.i = MathHelper.max((String)((String)var3.getValue()), this.i, 1);
          }
@@ -73,13 +73,13 @@ public class WorldGenStronghold extends StructureGenerator {
             double var8 = (1.25D * (double)var6 + var3.nextDouble()) * this.h * (double)var6;
             int var10 = (int)Math.round(Math.cos(var4) * var8);
             int var11 = (int)Math.round(Math.sin(var4) * var8);
-            BlockPosition var12 = this.c.w().a((var10 << 4) + 8, (var11 << 4) + 8, 112, this.d, var3);
+            BlockPosition var12 = this.c.getWorldChunkManager().a((var10 << 4) + 8, (var11 << 4) + 8, 112, this.d, var3);
             if(var12 != null) {
                var10 = var12.getX() >> 4;
                var11 = var12.getZ() >> 4;
             }
 
-            this.g[var7] = new class_aeh(var10, var11);
+            this.g[var7] = new ChunkCoordIntPair(var10, var11);
             var4 += 6.283185307179586D * (double)var6 / (double)this.i;
             if(var7 == this.i) {
                var6 += 2 + var3.nextInt(5);
@@ -90,11 +90,11 @@ public class WorldGenStronghold extends StructureGenerator {
          this.f = true;
       }
 
-      class_aeh[] var13 = this.g;
+      ChunkCoordIntPair[] var13 = this.g;
       int var14 = var13.length;
 
       for(int var5 = 0; var5 < var14; ++var5) {
-         class_aeh var15 = var13[var5];
+         ChunkCoordIntPair var15 = var13[var5];
          if(var1 == var15.a && var2 == var15.b) {
             return true;
          }
@@ -105,11 +105,11 @@ public class WorldGenStronghold extends StructureGenerator {
 
    protected List A_() {
       ArrayList var1 = Lists.newArrayList();
-      class_aeh[] var2 = this.g;
+      ChunkCoordIntPair[] var2 = this.g;
       int var3 = var2.length;
 
       for(int var4 = 0; var4 < var3; ++var4) {
-         class_aeh var5 = var2[var4];
+         ChunkCoordIntPair var5 = var2[var4];
          if(var5 != null) {
             var1.add(var5.a(64));
          }

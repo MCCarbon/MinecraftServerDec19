@@ -88,7 +88,7 @@ public class CommandTitle extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return var2.length == 1?a(var2, MinecraftServer.N().getPlayers()):(var2.length == 2?a(var2, PacketPlayOutTitle.class_a_in_class_hv.a()):null);
+      return var2.length == 1?a(var2, MinecraftServer.getServer().getPlayers()):(var2.length == 2?a(var2, PacketPlayOutTitle.class_a_in_class_hv.a()):null);
    }
 
    public boolean isListStart(String[] var1, int var2) {

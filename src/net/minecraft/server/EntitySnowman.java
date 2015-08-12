@@ -28,7 +28,7 @@ public class EntitySnowman extends class_ua implements class_wk {
             this.damageEntity(DamageSource.DROWN, 1.0F);
          }
 
-         if(this.world.b(new BlockPosition(var1, 0, var3)).a(new BlockPosition(var1, var2, var3)) > 1.0F) {
+         if(this.world.getBiome(new BlockPosition(var1, 0, var3)).a(new BlockPosition(var1, var2, var3)) > 1.0F) {
             this.damageEntity(DamageSource.BURN, 1.0F);
          }
 
@@ -37,7 +37,7 @@ public class EntitySnowman extends class_ua implements class_wk {
             var2 = MathHelper.floor(this.locY);
             var3 = MathHelper.floor(this.locZ + (double)((float)(var4 / 2 % 2 * 2 - 1) * 0.25F));
             BlockPosition var5 = new BlockPosition(var1, var2, var3);
-            if(this.world.getType(var5).getBlock().getMaterial() == Material.AIR && this.world.b(new BlockPosition(var1, 0, var3)).a(var5) < 0.8F && Blocks.SNOW_LAYER.canPlace(this.world, var5)) {
+            if(this.world.getType(var5).getBlock().getMaterial() == Material.AIR && this.world.getBiome(new BlockPosition(var1, 0, var3)).a(var5) < 0.8F && Blocks.SNOW_LAYER.canPlace(this.world, var5)) {
                this.world.setTypeUpdate(var5, Blocks.SNOW_LAYER.getBlockData());
             }
          }

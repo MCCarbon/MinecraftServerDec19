@@ -8,7 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-import net.minecraft.server.class_aeh;
+import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.World;
 import net.minecraft.server.SessionException;
 import net.minecraft.server.IChunkProvider;
@@ -45,7 +45,7 @@ public class ChunkProviderServer implements IChunkProvider {
    }
 
    public boolean isChunkLoaded(int var1, int var2) {
-      return this.g.b(class_aeh.a(var1, var2));
+      return this.g.b(ChunkCoordIntPair.a(var1, var2));
    }
 
    public List a() {
@@ -54,7 +54,7 @@ public class ChunkProviderServer implements IChunkProvider {
 
    public void b(int var1, int var2) {
       if(this.i.worldProvider.c(var1, var2)) {
-         this.c.add(Long.valueOf(class_aeh.a(var1, var2)));
+         this.c.add(Long.valueOf(ChunkCoordIntPair.a(var1, var2)));
       }
 
    }
@@ -70,7 +70,7 @@ public class ChunkProviderServer implements IChunkProvider {
    }
 
    public Chunk c(int var1, int var2) {
-      long var3 = class_aeh.a(var1, var2);
+      long var3 = ChunkCoordIntPair.a(var1, var2);
       this.c.remove(Long.valueOf(var3));
       Chunk var5 = (Chunk)this.g.a(var3);
       if(var5 == null) {
@@ -102,7 +102,7 @@ public class ChunkProviderServer implements IChunkProvider {
    }
 
    public Chunk getOrCreateChunk(int var1, int var2) {
-      Chunk var3 = (Chunk)this.g.a(class_aeh.a(var1, var2));
+      Chunk var3 = (Chunk)this.g.a(ChunkCoordIntPair.a(var1, var2));
       return var3 == null?(!this.i.ae() && !this.a?this.d:this.c(var1, var2)):var3;
    }
 
@@ -152,12 +152,12 @@ public class ChunkProviderServer implements IChunkProvider {
       }
    }
 
-   public void a(IChunkProvider var1, int var2, int var3) {
+   public void getChunkAt(IChunkProvider var1, int var2, int var3) {
       Chunk var4 = this.getOrCreateChunk(var2, var3);
       if(!var4.t()) {
          var4.n();
          if(this.e != null) {
-            this.e.a(var1, var2, var3);
+            this.e.getChunkAt(var1, var2, var3);
             var4.e();
          }
       }

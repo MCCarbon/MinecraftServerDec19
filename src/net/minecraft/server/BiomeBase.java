@@ -3,6 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
+
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -13,23 +14,24 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public abstract class BiomeBase {
-	private static final Logger aD = LogManager.getLogger();
-	protected static final BiomeBase.class_a_in_class_aez a = new BiomeBase.class_a_in_class_aez(0.1F, 0.2F);
-	protected static final BiomeBase.class_a_in_class_aez b = new BiomeBase.class_a_in_class_aez(-0.5F, 0.0F);
-	protected static final BiomeBase.class_a_in_class_aez c = new BiomeBase.class_a_in_class_aez(-1.0F, 0.1F);
-	protected static final BiomeBase.class_a_in_class_aez d = new BiomeBase.class_a_in_class_aez(-1.8F, 0.1F);
-	protected static final BiomeBase.class_a_in_class_aez e = new BiomeBase.class_a_in_class_aez(0.125F, 0.05F);
-	protected static final BiomeBase.class_a_in_class_aez f = new BiomeBase.class_a_in_class_aez(0.2F, 0.2F);
-	protected static final BiomeBase.class_a_in_class_aez g = new BiomeBase.class_a_in_class_aez(0.45F, 0.3F);
-	protected static final BiomeBase.class_a_in_class_aez h = new BiomeBase.class_a_in_class_aez(1.5F, 0.025F);
-	protected static final BiomeBase.class_a_in_class_aez i = new BiomeBase.class_a_in_class_aez(1.0F, 0.5F);
-	protected static final BiomeBase.class_a_in_class_aez j = new BiomeBase.class_a_in_class_aez(0.0F, 0.025F);
-	protected static final BiomeBase.class_a_in_class_aez k = new BiomeBase.class_a_in_class_aez(0.1F, 0.8F);
-	protected static final BiomeBase.class_a_in_class_aez l = new BiomeBase.class_a_in_class_aez(0.2F, 0.3F);
-	protected static final BiomeBase.class_a_in_class_aez m = new BiomeBase.class_a_in_class_aez(-0.2F, 0.1F);
-	private static final BiomeBase[] aE = new BiomeBase[256];
-	public static final Set n = Sets.newHashSet();
-	public static final Map o = Maps.newHashMap();
+
+	private static final Logger logger = LogManager.getLogger();
+	protected static final BiomeBase.BiomeTemperature a = new BiomeBase.BiomeTemperature(0.1F, 0.2F);
+	protected static final BiomeBase.BiomeTemperature b = new BiomeBase.BiomeTemperature(-0.5F, 0.0F);
+	protected static final BiomeBase.BiomeTemperature c = new BiomeBase.BiomeTemperature(-1.0F, 0.1F);
+	protected static final BiomeBase.BiomeTemperature d = new BiomeBase.BiomeTemperature(-1.8F, 0.1F);
+	protected static final BiomeBase.BiomeTemperature e = new BiomeBase.BiomeTemperature(0.125F, 0.05F);
+	protected static final BiomeBase.BiomeTemperature f = new BiomeBase.BiomeTemperature(0.2F, 0.2F);
+	protected static final BiomeBase.BiomeTemperature g = new BiomeBase.BiomeTemperature(0.45F, 0.3F);
+	protected static final BiomeBase.BiomeTemperature h = new BiomeBase.BiomeTemperature(1.5F, 0.025F);
+	protected static final BiomeBase.BiomeTemperature i = new BiomeBase.BiomeTemperature(1.0F, 0.5F);
+	protected static final BiomeBase.BiomeTemperature j = new BiomeBase.BiomeTemperature(0.0F, 0.025F);
+	protected static final BiomeBase.BiomeTemperature k = new BiomeBase.BiomeTemperature(0.1F, 0.8F);
+	protected static final BiomeBase.BiomeTemperature l = new BiomeBase.BiomeTemperature(0.2F, 0.3F);
+	protected static final BiomeBase.BiomeTemperature m = new BiomeBase.BiomeTemperature(-0.2F, 0.1F);
+	private static final BiomeBase[] biomes = new BiomeBase[256];
+	public static final Set<BiomeBase> n = Sets.newHashSet();
+	public static final Map<String, BiomeBase> o = Maps.newHashMap();
 	public static final BiomeBase OCEAN;
 	public static final BiomeBase PLAINS;
 	public static final BiomeBase DESERT;
@@ -82,20 +84,20 @@ public abstract class BiomeBase {
 	public int am;
 	public float an;
 	public float ao;
-	public float ap;
-	public float aq;
+	public float temperature;
+	public float humidity;
 	public int ar;
 	public BiomeDecorator as;
-	protected List at;
-	protected List au;
-	protected List av;
-	protected List aw;
+	protected List<BiomeMeta> at;
+	protected List<BiomeMeta> au;
+	protected List<BiomeMeta> av;
+	protected List<BiomeMeta> aw;
 	protected boolean ax;
 	protected boolean ay;
-	public final int az;
-	protected class_arn aA;
-	protected class_apx aB;
-	protected class_arl aC;
+	public final int id;
+	protected WorldGenTrees aA;
+	protected WorldGenBigTree aB;
+	protected WorldGenSwampTree aC;
 
 	protected BiomeBase(int var1) {
 		this.ak = Blocks.GRASS.getBlockData();
@@ -103,19 +105,19 @@ public abstract class BiomeBase {
 		this.am = 5169201;
 		this.an = a.a;
 		this.ao = a.b;
-		this.ap = 0.5F;
-		this.aq = 0.5F;
+		this.temperature = 0.5F;
+		this.humidity = 0.5F;
 		this.ar = 16777215;
 		this.at = Lists.newArrayList();
 		this.au = Lists.newArrayList();
 		this.av = Lists.newArrayList();
 		this.aw = Lists.newArrayList();
 		this.ay = true;
-		this.aA = new class_arn(false);
-		this.aB = new class_apx(false);
-		this.aC = new class_arl();
-		this.az = var1;
-		aE[var1] = this;
+		this.aA = new WorldGenTrees(false);
+		this.aB = new WorldGenBigTree(false);
+		this.aC = new WorldGenSwampTree();
+		this.id = var1;
+		biomes[var1] = this;
 		this.as = this.a();
 		this.au.add(new BiomeBase.BiomeMeta(EntitySheep.class, 12, 4, 4));
 		this.au.add(new BiomeBase.BiomeMeta(EntityRabbit.class, 10, 3, 3));
@@ -141,13 +143,13 @@ public abstract class BiomeBase {
 		if (var1 > 0.1F && var1 < 0.2F) {
 			throw new IllegalArgumentException("Please avoid temperatures in the range 0.1 - 0.2 because of snow");
 		} else {
-			this.ap = var1;
-			this.aq = var2;
+			this.temperature = var1;
+			this.humidity = var2;
 			return this;
 		}
 	}
 
-	protected final BiomeBase a(BiomeBase.class_a_in_class_aez var1) {
+	protected final BiomeBase a(BiomeBase.BiomeTemperature var1) {
 		this.an = var1.a;
 		this.ao = var1.b;
 		return this;
@@ -206,7 +208,7 @@ public abstract class BiomeBase {
 		return this;
 	}
 
-	public List a(EnumCreatureType var1) {
+	public List<BiomeMeta> getMobs(EnumCreatureType var1) {
 		switch (BiomeBase.SyntheticClass_1.a[var1.ordinal()]) {
 			case 1:
 				return this.at;
@@ -230,7 +232,7 @@ public abstract class BiomeBase {
 	}
 
 	public boolean f() {
-		return this.aq > 0.85F;
+		return this.humidity > 0.85F;
 	}
 
 	public float g() {
@@ -238,15 +240,15 @@ public abstract class BiomeBase {
 	}
 
 	public final int h() {
-		return (int) (this.aq * 65536.0F);
+		return (int) (this.humidity * 65536.0F);
 	}
 
 	public final float a(BlockPosition var1) {
 		if (var1.getY() > 64) {
 			float var2 = (float) (ae.a((double) var1.getX() * 1.0D / 8.0D, (double) var1.getZ() * 1.0D / 8.0D) * 4.0D);
-			return this.ap - (var2 + (float) var1.getY() - 64.0F) * 0.05F / 30.0F;
+			return this.temperature - (var2 + (float) var1.getY() - 64.0F) * 0.05F / 30.0F;
 		} else {
-			return this.ap;
+			return this.temperature;
 		}
 	}
 
@@ -258,11 +260,11 @@ public abstract class BiomeBase {
 		return this.ax;
 	}
 
-	public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+	public void a(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
 		this.b(var1, var2, var3, var4, var5, var6);
 	}
 
-	public final void b(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+	public final void b(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
 		int var8 = var1.G();
 		IBlockData var9 = this.ak;
 		IBlockData var10 = this.al;
@@ -322,14 +324,14 @@ public abstract class BiomeBase {
 	}
 
 	protected BiomeBase k() {
-		return this.d(this.az + 128);
+		return this.d(this.id + 128);
 	}
 
 	protected BiomeBase d(int var1) {
 		return new class_afn(var1, this);
 	}
 
-	public Class l() {
+	public Class<? extends BiomeBase> l() {
 		return this.getClass();
 	}
 
@@ -337,24 +339,24 @@ public abstract class BiomeBase {
 		return var1 == this ? true : (var1 == null ? false : this.l() == var1.l());
 	}
 
-	public BiomeBase.class_b_in_class_aez m() {
-		return (double) this.ap < 0.2D ? BiomeBase.class_b_in_class_aez.b : ((double) this.ap < 1.0D ? BiomeBase.class_b_in_class_aez.c : BiomeBase.class_b_in_class_aez.d);
+	public BiomeBase.EnumTemperature m() {
+		return (double) this.temperature < 0.2D ? BiomeBase.EnumTemperature.COLD : ((double) this.temperature < 1.0D ? BiomeBase.EnumTemperature.MEDIUM : BiomeBase.EnumTemperature.WARM);
 	}
 
-	public static BiomeBase[] n() {
-		return aE;
+	public static BiomeBase[] getBiomes() {
+		return biomes;
 	}
 
-	public static BiomeBase e(int var0) {
-		return a(var0, (BiomeBase) null);
+	public static BiomeBase getBiome(int id) {
+		return getBiome(id, (BiomeBase) null);
 	}
 
-	public static BiomeBase a(int var0, BiomeBase var1) {
-		if (var0 >= 0 && var0 <= aE.length) {
-			BiomeBase var2 = aE[var0];
-			return var2 == null ? var1 : var2;
+	public static BiomeBase getBiome(int id, BiomeBase def) {
+		if (id >= 0 && id <= biomes.length) {
+			BiomeBase biome = biomes[id];
+			return biome == null ? def : biome;
 		} else {
-			aD.warn("Biome ID is out of bounds: " + var0 + ", defaulting to 0 (Ocean)");
+			logger.warn("Biome ID is out of bounds: " + id + ", defaulting to 0 (Ocean)");
 			return OCEAN;
 		}
 	}
@@ -421,19 +423,19 @@ public abstract class BiomeBase {
 		MEGA_TAIGA.k();
 		EXTREME_HILLS.k();
 		EXTREME_HILLS_PLUS.k();
-		MEGA_TAIGA.d(MEGA_TAIGA_HILLS.az + 128).a("Redwood Taiga Hills M");
-		BiomeBase[] var0 = aE;
+		MEGA_TAIGA.d(MEGA_TAIGA_HILLS.id + 128).a("Redwood Taiga Hills M");
+		BiomeBase[] var0 = biomes;
 		int var1 = var0.length;
 
 		for (int var2 = 0; var2 < var1; ++var2) {
 			BiomeBase var3 = var0[var2];
 			if (var3 != null) {
 				if (o.containsKey(var3.ah)) {
-					throw new Error("Biome \"" + var3.ah + "\" is defined as both ID " + ((BiomeBase) o.get(var3.ah)).az + " and " + var3.az);
+					throw new Error("Biome \"" + var3.ah + "\" is defined as both ID " + ((BiomeBase) o.get(var3.ah)).id + " and " + var3.id);
 				}
 
 				o.put(var3.ah, var3);
-				if (var3.az < 128) {
+				if (var3.id < 128) {
 					n.add(var3);
 				}
 			}
@@ -482,11 +484,11 @@ public abstract class BiomeBase {
 	}
 
 	public static class BiomeMeta extends class_oc.WeightedRandomChoice {
-		public Class b;
+		public Class<?> b;
 		public int c;
 		public int d;
 
-		public BiomeMeta(Class var1, int var2, int var3, int var4) {
+		public BiomeMeta(Class<?> var1, int var2, int var3, int var4) {
 			super(var2);
 			this.b = var1;
 			this.c = var3;
@@ -498,21 +500,21 @@ public abstract class BiomeBase {
 		}
 	}
 
-	public static class class_a_in_class_aez {
+	public static class BiomeTemperature {
 		public float a;
 		public float b;
 
-		public class_a_in_class_aez(float var1, float var2) {
+		public BiomeTemperature(float var1, float var2) {
 			this.a = var1;
 			this.b = var2;
 		}
 
-		public BiomeBase.class_a_in_class_aez a() {
-			return new BiomeBase.class_a_in_class_aez(this.a * 0.8F, this.b * 0.6F);
+		public BiomeBase.BiomeTemperature a() {
+			return new BiomeBase.BiomeTemperature(this.a * 0.8F, this.b * 0.6F);
 		}
 	}
 
-	public static enum class_b_in_class_aez {
-		a, b, c, d;
+	public static enum EnumTemperature {
+		OCEAN, COLD, MEDIUM, WARM;
 	}
 }

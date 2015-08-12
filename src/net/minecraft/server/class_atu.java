@@ -45,34 +45,34 @@ public class class_atu extends class_auc {
                var6[var8 + var7 * var3] = this.g.F;
             } else if(b(var9)) {
                var6[var8 + var7 * var3] = var9;
-            } else if(var9 == BiomeBase.MUSHROOM_ISLAND.az) {
+            } else if(var9 == BiomeBase.MUSHROOM_ISLAND.id) {
                var6[var8 + var7 * var3] = var9;
             } else if(var9 == 1) {
                if(var10 > 0) {
                   if(this.a(3) == 0) {
-                     var6[var8 + var7 * var3] = BiomeBase.MESA_PLATEU.az;
+                     var6[var8 + var7 * var3] = BiomeBase.MESA_PLATEU.id;
                   } else {
-                     var6[var8 + var7 * var3] = BiomeBase.MESA_PLATEU_F.az;
+                     var6[var8 + var7 * var3] = BiomeBase.MESA_PLATEU_F.id;
                   }
                } else {
-                  var6[var8 + var7 * var3] = this.c[this.a(this.c.length)].az;
+                  var6[var8 + var7 * var3] = this.c[this.a(this.c.length)].id;
                }
             } else if(var9 == 2) {
                if(var10 > 0) {
-                  var6[var8 + var7 * var3] = BiomeBase.JUNGLE.az;
+                  var6[var8 + var7 * var3] = BiomeBase.JUNGLE.id;
                } else {
-                  var6[var8 + var7 * var3] = this.d[this.a(this.d.length)].az;
+                  var6[var8 + var7 * var3] = this.d[this.a(this.d.length)].id;
                }
             } else if(var9 == 3) {
                if(var10 > 0) {
-                  var6[var8 + var7 * var3] = BiomeBase.MEGA_TAIGA.az;
+                  var6[var8 + var7 * var3] = BiomeBase.MEGA_TAIGA.id;
                } else {
-                  var6[var8 + var7 * var3] = this.e[this.a(this.e.length)].az;
+                  var6[var8 + var7 * var3] = this.e[this.a(this.e.length)].id;
                }
             } else if(var9 == 4) {
-               var6[var8 + var7 * var3] = this.f[this.a(this.f.length)].az;
+               var6[var8 + var7 * var3] = this.f[this.a(this.f.length)].id;
             } else {
-               var6[var8 + var7 * var3] = BiomeBase.MUSHROOM_ISLAND.az;
+               var6[var8 + var7 * var3] = BiomeBase.MUSHROOM_ISLAND.id;
             }
          }
       }

@@ -21,7 +21,7 @@ public class class_rv extends class_rm {
 
    public boolean a() {
       BlockPosition var1 = new BlockPosition(this.a);
-      if((!this.a.world.x() || this.a.world.T() && !this.a.world.b(var1).e()) && !this.a.world.worldProvider.m()) {
+      if((!this.a.world.x() || this.a.world.T() && !this.a.world.getBiome(var1).e()) && !this.a.world.worldProvider.m()) {
          if(this.a.getRandom().nextInt(50) != 0) {
             return false;
          } else if(this.c != -1 && this.a.e((double)this.c, this.a.locY, (double)this.d) < 4.0D) {

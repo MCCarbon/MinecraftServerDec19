@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import java.util.Random;
 import net.minecraft.server.World;
 import net.minecraft.server.BiomeBase;
-import net.minecraft.server.class_aph;
+import net.minecraft.server.ChunkSnapshot;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.BlockPosition;
 
@@ -21,8 +21,8 @@ public class class_afn extends BiomeBase {
       this.am = var2.am;
       this.an = var2.an;
       this.ao = var2.ao;
-      this.ap = var2.ap;
-      this.aq = var2.aq;
+      this.temperature = var2.temperature;
+      this.humidity = var2.humidity;
       this.ar = var2.ar;
       this.ax = var2.ax;
       this.ay = var2.ay;
@@ -30,8 +30,8 @@ public class class_afn extends BiomeBase {
       this.at = Lists.newArrayList((Iterable)var2.at);
       this.aw = Lists.newArrayList((Iterable)var2.aw);
       this.av = Lists.newArrayList((Iterable)var2.av);
-      this.ap = var2.ap;
-      this.aq = var2.aq;
+      this.temperature = var2.temperature;
+      this.humidity = var2.humidity;
       this.an = var2.an + 0.1F;
       this.ao = var2.ao + 0.2F;
    }
@@ -40,7 +40,7 @@ public class class_afn extends BiomeBase {
       this.aE.as.a(var1, var2, this, var3);
    }
 
-   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
       this.aE.a(var1, var2, var3, var4, var5, var6);
    }
 
@@ -60,7 +60,7 @@ public class class_afn extends BiomeBase {
       return this.aE.a(var1);
    }
 
-   public BiomeBase.class_b_in_class_aez m() {
+   public BiomeBase.EnumTemperature m() {
       return this.aE.m();
    }
 }

@@ -28,7 +28,7 @@ public class CommandWhitelist extends CommandAbstract {
       if(var2.length < 1) {
          throw new class_cf("commands.whitelist.usage", new Object[0]);
       } else {
-         MinecraftServer var3 = MinecraftServer.N();
+         MinecraftServer var3 = MinecraftServer.getServer();
          if(var2[0].equals("on")) {
             var3.getPlayerList().setHasWhitelist(true);
             a(var1, this, "commands.whitelist.enabled", new Object[0]);
@@ -80,11 +80,11 @@ public class CommandWhitelist extends CommandAbstract {
       } else {
          if(var2.length == 2) {
             if(var2[0].equals("remove")) {
-               return a(var2, MinecraftServer.N().getPlayerList().l());
+               return a(var2, MinecraftServer.getServer().getPlayerList().l());
             }
 
             if(var2[0].equals("add")) {
-               return a(var2, MinecraftServer.N().aF().a());
+               return a(var2, MinecraftServer.getServer().aF().a());
             }
          }
 

@@ -15,10 +15,10 @@ public class CommandStop extends CommandAbstract {
    }
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
-      if(MinecraftServer.N().d != null) {
+      if(MinecraftServer.getServer().d != null) {
          a(var1, this, "commands.stop.start", new Object[0]);
       }
 
-      MinecraftServer.N().w();
+      MinecraftServer.getServer().w();
    }
 }

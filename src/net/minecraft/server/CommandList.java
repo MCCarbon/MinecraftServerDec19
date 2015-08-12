@@ -22,9 +22,9 @@ public class CommandList extends CommandAbstract {
    }
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
-      int var3 = MinecraftServer.N().I();
-      var1.sendMessage(new ChatMessage("commands.players.list", new Object[]{Integer.valueOf(var3), Integer.valueOf(MinecraftServer.N().J())}));
-      var1.sendMessage(new ChatComponentText(MinecraftServer.N().getPlayerList().b(var2.length > 0 && "uuids".equalsIgnoreCase(var2[0]))));
+      int var3 = MinecraftServer.getServer().I();
+      var1.sendMessage(new ChatMessage("commands.players.list", new Object[]{Integer.valueOf(var3), Integer.valueOf(MinecraftServer.getServer().J())}));
+      var1.sendMessage(new ChatComponentText(MinecraftServer.getServer().getPlayerList().b(var2.length > 0 && "uuids".equalsIgnoreCase(var2[0]))));
       var1.a(CommandObjectiveExecutor.class_a_in_class_n.e, var3);
    }
 }

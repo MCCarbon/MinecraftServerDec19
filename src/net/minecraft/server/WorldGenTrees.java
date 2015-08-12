@@ -3,7 +3,7 @@ package net.minecraft.server;
 import java.util.Iterator;
 import java.util.Random;
 
-public class class_arn extends class_apw {
+public class WorldGenTrees extends class_apw {
    private static final IBlockData a;
    private static final IBlockData b;
    private final int c;
@@ -11,11 +11,11 @@ public class class_arn extends class_apw {
    private final IBlockData e;
    private final IBlockData f;
 
-   public class_arn(boolean var1) {
+   public WorldGenTrees(boolean var1) {
       this(var1, 4, a, b, false);
    }
 
-   public class_arn(boolean var1, int var2, IBlockData var3, IBlockData var4, boolean var5) {
+   public WorldGenTrees(boolean var1, int var2, IBlockData var3, IBlockData var4, boolean var5) {
       super(var1);
       this.c = var2;
       this.e = var3;

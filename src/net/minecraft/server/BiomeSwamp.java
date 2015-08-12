@@ -27,7 +27,7 @@ public class BiomeSwamp extends BiomeBase {
       return BlockFlowers.EnumFlowerVarient.BLUE_ORCHID;
    }
 
-   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
       double var8 = af.a((double)var4 * 0.25D, (double)var5 * 0.25D);
       if(var8 > 0.0D) {
          int var10 = var4 & 15;

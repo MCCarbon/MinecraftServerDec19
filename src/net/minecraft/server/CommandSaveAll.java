@@ -19,7 +19,7 @@ public class CommandSaveAll extends CommandAbstract {
    }
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
-      MinecraftServer var3 = MinecraftServer.N();
+      MinecraftServer var3 = MinecraftServer.getServer();
       var1.sendMessage(new ChatMessage("commands.save.start", new Object[0]));
       if(var3.getPlayerList() != null) {
          var3.getPlayerList().j();

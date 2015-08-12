@@ -32,7 +32,7 @@ public class class_aue extends class_auc {
             }
 
             if(var10 != 0 && var11 >= 2 && (var11 - 2) % 29 == 1 && var10 < 128) {
-               if(BiomeBase.e(var10 + 128) != null) {
+               if(BiomeBase.getBiome(var10 + 128) != null) {
                   var7[var9 + var8 * var3] = var10 + 128;
                } else {
                   var7[var9 + var8 * var3] = var10;
@@ -42,49 +42,49 @@ public class class_aue extends class_auc {
             } else {
                int var13 = var10;
                int var14;
-               if(var10 == BiomeBase.DESERT.az) {
-                  var13 = BiomeBase.DESERT_HILLS.az;
-               } else if(var10 == BiomeBase.FOREST.az) {
-                  var13 = BiomeBase.FOREST_HILLS.az;
-               } else if(var10 == BiomeBase.BIRCH_FOREST.az) {
-                  var13 = BiomeBase.BIRCH_FOREST_HILLS.az;
-               } else if(var10 == BiomeBase.ROOFED_FOREST.az) {
-                  var13 = BiomeBase.PLAINS.az;
-               } else if(var10 == BiomeBase.TAIGA.az) {
-                  var13 = BiomeBase.TAIGA_HILLS.az;
-               } else if(var10 == BiomeBase.MEGA_TAIGA.az) {
-                  var13 = BiomeBase.MEGA_TAIGA_HILLS.az;
-               } else if(var10 == BiomeBase.COLD_TAIGA.az) {
-                  var13 = BiomeBase.COLD_TAIGA_HILLS.az;
-               } else if(var10 == BiomeBase.PLAINS.az) {
+               if(var10 == BiomeBase.DESERT.id) {
+                  var13 = BiomeBase.DESERT_HILLS.id;
+               } else if(var10 == BiomeBase.FOREST.id) {
+                  var13 = BiomeBase.FOREST_HILLS.id;
+               } else if(var10 == BiomeBase.BIRCH_FOREST.id) {
+                  var13 = BiomeBase.BIRCH_FOREST_HILLS.id;
+               } else if(var10 == BiomeBase.ROOFED_FOREST.id) {
+                  var13 = BiomeBase.PLAINS.id;
+               } else if(var10 == BiomeBase.TAIGA.id) {
+                  var13 = BiomeBase.TAIGA_HILLS.id;
+               } else if(var10 == BiomeBase.MEGA_TAIGA.id) {
+                  var13 = BiomeBase.MEGA_TAIGA_HILLS.id;
+               } else if(var10 == BiomeBase.COLD_TAIGA.id) {
+                  var13 = BiomeBase.COLD_TAIGA_HILLS.id;
+               } else if(var10 == BiomeBase.PLAINS.id) {
                   if(this.a(3) == 0) {
-                     var13 = BiomeBase.FOREST_HILLS.az;
+                     var13 = BiomeBase.FOREST_HILLS.id;
                   } else {
-                     var13 = BiomeBase.FOREST.az;
+                     var13 = BiomeBase.FOREST.id;
                   }
-               } else if(var10 == BiomeBase.ICE_PLAINS.az) {
-                  var13 = BiomeBase.ICE_MOUNTAINS.az;
-               } else if(var10 == BiomeBase.JUNGLE.az) {
-                  var13 = BiomeBase.JUNGLE_HILLS.az;
-               } else if(var10 == BiomeBase.OCEAN.az) {
-                  var13 = BiomeBase.DEEP_OCEAN.az;
-               } else if(var10 == BiomeBase.EXTREME_HILLS.az) {
-                  var13 = BiomeBase.EXTREME_HILLS_PLUS.az;
-               } else if(var10 == BiomeBase.SAVANNA.az) {
-                  var13 = BiomeBase.SAVANNA_PLATEU.az;
-               } else if(a(var10, BiomeBase.MESA_PLATEU_F.az)) {
-                  var13 = BiomeBase.MESA.az;
-               } else if(var10 == BiomeBase.DEEP_OCEAN.az && this.a(3) == 0) {
+               } else if(var10 == BiomeBase.ICE_PLAINS.id) {
+                  var13 = BiomeBase.ICE_MOUNTAINS.id;
+               } else if(var10 == BiomeBase.JUNGLE.id) {
+                  var13 = BiomeBase.JUNGLE_HILLS.id;
+               } else if(var10 == BiomeBase.OCEAN.id) {
+                  var13 = BiomeBase.DEEP_OCEAN.id;
+               } else if(var10 == BiomeBase.EXTREME_HILLS.id) {
+                  var13 = BiomeBase.EXTREME_HILLS_PLUS.id;
+               } else if(var10 == BiomeBase.SAVANNA.id) {
+                  var13 = BiomeBase.SAVANNA_PLATEU.id;
+               } else if(a(var10, BiomeBase.MESA_PLATEU_F.id)) {
+                  var13 = BiomeBase.MESA.id;
+               } else if(var10 == BiomeBase.DEEP_OCEAN.id && this.a(3) == 0) {
                   var14 = this.a(2);
                   if(var14 == 0) {
-                     var13 = BiomeBase.PLAINS.az;
+                     var13 = BiomeBase.PLAINS.id;
                   } else {
-                     var13 = BiomeBase.FOREST.az;
+                     var13 = BiomeBase.FOREST.id;
                   }
                }
 
                if(var12 && var13 != var10) {
-                  if(BiomeBase.e(var13 + 128) != null) {
+                  if(BiomeBase.getBiome(var13 + 128) != null) {
                      var13 += 128;
                   } else {
                      var13 = var10;

@@ -25,7 +25,7 @@ public class CommandKick extends CommandAbstract {
 
    public void execute(ICommandListener var1, String[] var2) throws class_bz {
       if(var2.length > 0 && var2[0].length() > 1) {
-         EntityPlayer var3 = MinecraftServer.N().getPlayerList().a(var2[0]);
+         EntityPlayer var3 = MinecraftServer.getServer().getPlayerList().a(var2[0]);
          String var4 = "Kicked by an operator.";
          boolean var5 = false;
          if(var3 == null) {
@@ -50,6 +50,6 @@ public class CommandKick extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return var2.length >= 1?a(var2, MinecraftServer.N().getPlayers()):null;
+      return var2.length >= 1?a(var2, MinecraftServer.getServer().getPlayers()):null;
    }
 }

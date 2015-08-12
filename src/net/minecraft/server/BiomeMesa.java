@@ -9,7 +9,7 @@ import net.minecraft.server.BlockCloth;
 import net.minecraft.server.BlockDirt;
 import net.minecraft.server.BlockSand;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aph;
+import net.minecraft.server.ChunkSnapshot;
 import net.minecraft.server.class_apw;
 import net.minecraft.server.NoiseGenerator3;
 import net.minecraft.server.Material;
@@ -54,7 +54,7 @@ public class BiomeMesa extends BiomeBase {
       super.a(var1, var2, var3);
    }
 
-   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
       if(this.aD == null || this.aE != var1.K()) {
          this.a(var1.K());
       }
@@ -245,7 +245,7 @@ public class BiomeMesa extends BiomeBase {
    }
 
    protected BiomeBase d(int var1) {
-      boolean var2 = this.az == BiomeBase.MESA.az;
+      boolean var2 = this.id == BiomeBase.MESA.id;
       BiomeMesa var3 = new BiomeMesa(var1, var2, this.aJ);
       if(!var2) {
          var3.a(g);

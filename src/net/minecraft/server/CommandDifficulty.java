@@ -29,7 +29,7 @@ public class CommandDifficulty extends CommandAbstract {
          throw new class_cf("commands.difficulty.usage", new Object[0]);
       } else {
          class_om var3 = this.e(var2[0]);
-         MinecraftServer.N().a(var3);
+         MinecraftServer.getServer().a(var3);
          a(var1, this, "commands.difficulty.success", new Object[]{new ChatMessage(var3.b(), new Object[0])});
       }
    }

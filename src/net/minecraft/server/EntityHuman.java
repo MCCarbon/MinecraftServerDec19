@@ -1435,7 +1435,7 @@ public abstract class EntityHuman extends EntityLiving {
 
 	@Override
 	public boolean u_() {
-		return MinecraftServer.N().d[0].R().getBooleanValue("sendCommandFeedback");
+		return MinecraftServer.getServer().d[0].R().getBooleanValue("sendCommandFeedback");
 	}
 
 	@Override

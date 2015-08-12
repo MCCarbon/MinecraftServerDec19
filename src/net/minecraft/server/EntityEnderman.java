@@ -384,7 +384,7 @@ public class EntityEnderman extends EntityMonster {
 
 		public boolean a() {
 			double var1 = this.f();
-			List<?> var3 = this.e.world.a(EntityHuman.class, this.e.getBoundingBox().grow(var1, 4.0D, var1), this.c);
+			List<?> var3 = this.e.world.getEntities(EntityHuman.class, this.e.getBoundingBox().grow(var1, 4.0D, var1), this.c);
 			Collections.sort(var3, this.b);
 			if (var3.isEmpty()) {
 				return false;

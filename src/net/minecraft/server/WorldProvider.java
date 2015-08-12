@@ -49,7 +49,7 @@ public abstract class WorldProvider {
       WorldType var1 = this.b.Q().u();
       if(var1 == WorldType.FLAT) {
          class_arr var2 = class_arr.a(this.b.Q().B());
-         this.c = new WorldChunkManagerHell(BiomeBase.a(var2.a(), BiomeBase.ad), 0.5F);
+         this.c = new WorldChunkManagerHell(BiomeBase.getBiome(var2.a(), BiomeBase.ad), 0.5F);
       } else if(var1 == WorldType.DEBUG) {
          this.c = new WorldChunkManagerHell(BiomeBase.PLAINS, 0.0F);
       } else {

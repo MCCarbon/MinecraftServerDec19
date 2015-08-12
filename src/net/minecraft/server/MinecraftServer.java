@@ -825,7 +825,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 		}
 	}
 
-	public static MinecraftServer N() {
+	public static MinecraftServer getServer() {
 		return l;
 	}
 
@@ -1074,7 +1074,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 
 	public void a(WorldSettings.EnumGameMode var1) {
 		for (int var2 = 0; var2 < this.d.length; ++var2) {
-			N().d[var2].Q().a(var1);
+			getServer().d[var2].Q().a(var1);
 		}
 
 	}
@@ -1191,7 +1191,7 @@ public abstract class MinecraftServer implements Runnable, ICommandListener, cla
 	}
 
 	public boolean u_() {
-		return N().d[0].R().getBooleanValue("sendCommandFeedback");
+		return getServer().d[0].R().getBooleanValue("sendCommandFeedback");
 	}
 
 	public void a(CommandObjectiveExecutor.class_a_in_class_n var1, int var2) {

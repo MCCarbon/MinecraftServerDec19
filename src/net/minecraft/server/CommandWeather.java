@@ -31,7 +31,7 @@ public class CommandWeather extends CommandAbstract {
             var3 = a(var2[1], 1, 1000000) * 20;
          }
 
-         WorldServer var4 = MinecraftServer.N().d[0];
+         WorldServer var4 = MinecraftServer.getServer().d[0];
          WorldData var5 = var4.Q();
          if("clear".equalsIgnoreCase(var2[0])) {
             var5.i(var3);

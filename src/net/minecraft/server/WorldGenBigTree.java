@@ -15,7 +15,7 @@ import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 
-public class class_apx extends class_apw {
+public class WorldGenBigTree extends class_apw {
    private Random k;
    private World l;
    private BlockPosition m;
@@ -30,7 +30,7 @@ public class class_apx extends class_apw {
    int i;
    List j;
 
-   public class_apx(boolean var1) {
+   public WorldGenBigTree(boolean var1) {
       super(var1);
       this.m = BlockPosition.ZERO;
       this.c = 0.618D;
@@ -56,7 +56,7 @@ public class class_apx extends class_apw {
       int var2 = this.m.getY() + this.b;
       int var3 = this.a - this.i;
       this.j = Lists.newArrayList();
-      this.j.add(new class_apx.class_a_in_class_apx(this.m.up(var3), var2));
+      this.j.add(new WorldGenBigTree.class_a_in_class_apx(this.m.up(var3), var2));
 
       for(; var3 >= 0; --var3) {
          float var4 = this.a(var3);
@@ -75,7 +75,7 @@ public class class_apx extends class_apw {
                   int var20 = var18 > (double)var2?var2:(int)var18;
                   BlockPosition var21 = new BlockPosition(this.m.getX(), var20, this.m.getZ());
                   if(this.a(var21, var14) == -1) {
-                     this.j.add(new class_apx.class_a_in_class_apx(var14, var21.getY()));
+                     this.j.add(new WorldGenBigTree.class_a_in_class_apx(var14, var21.getY()));
                   }
                }
             }
@@ -171,7 +171,7 @@ public class class_apx extends class_apw {
       Iterator var1 = this.j.iterator();
 
       while(var1.hasNext()) {
-         class_apx.class_a_in_class_apx var2 = (class_apx.class_a_in_class_apx)var1.next();
+         WorldGenBigTree.class_a_in_class_apx var2 = (WorldGenBigTree.class_a_in_class_apx)var1.next();
          this.a(var2);
       }
 
@@ -198,7 +198,7 @@ public class class_apx extends class_apw {
       Iterator var1 = this.j.iterator();
 
       while(var1.hasNext()) {
-         class_apx.class_a_in_class_apx var2 = (class_apx.class_a_in_class_apx)var1.next();
+         WorldGenBigTree.class_a_in_class_apx var2 = (WorldGenBigTree.class_a_in_class_apx)var1.next();
          int var3 = var2.q();
          BlockPosition var4 = new BlockPosition(this.m.getX(), var3, this.m.getZ());
          if(!var4.equals(var2) && this.c(var3 - this.m.getY())) {

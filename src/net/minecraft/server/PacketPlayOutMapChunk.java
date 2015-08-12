@@ -99,7 +99,7 @@ public class PacketPlayOutMapChunk implements Packet {
       }
 
       if(var1) {
-         a(var0.k(), var5.a, var7);
+         a(var0.getBiomeIndex(), var5.a, var7);
       }
 
       return var5;

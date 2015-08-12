@@ -3,7 +3,7 @@ package net.minecraft.server;
 import com.google.common.collect.Lists;
 import java.util.Iterator;
 import java.util.List;
-import net.minecraft.server.class_aeh;
+import net.minecraft.server.ChunkCoordIntPair;
 import net.minecraft.server.class_aoc;
 import net.minecraft.server.class_aod;
 import net.minecraft.server.AxisAlignedBB;
@@ -37,7 +37,7 @@ public class class_aoe {
       return (double)(var1.getX() + 1) > this.b() && (double)var1.getX() < this.d() && (double)(var1.getZ() + 1) > this.c() && (double)var1.getZ() < this.e();
    }
 
-   public boolean a(class_aeh var1) {
+   public boolean a(ChunkCoordIntPair var1) {
       return (double)var1.e() > this.b() && (double)var1.c() < this.d() && (double)var1.f() > this.c() && (double)var1.d() < this.e();
    }
 

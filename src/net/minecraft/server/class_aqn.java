@@ -5,11 +5,11 @@ import net.minecraft.server.World;
 import net.minecraft.server.Block;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_arn;
+import net.minecraft.server.WorldGenTrees;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 
-public class class_aqn extends class_arn {
+public class class_aqn extends WorldGenTrees {
    private final IBlockData a;
    private final IBlockData b;
 

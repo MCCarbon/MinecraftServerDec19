@@ -123,7 +123,7 @@ public class CommandTp extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return var2.length != 1 && var2.length != 2?null:a(var2, MinecraftServer.N().getPlayers());
+      return var2.length != 1 && var2.length != 2?null:a(var2, MinecraftServer.getServer().getPlayers());
    }
 
    public boolean isListStart(String[] var1, int var2) {

@@ -265,7 +265,7 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 	public boolean cS() {
 		int var1 = MathHelper.floor(this.locX);
 		int var2 = MathHelper.floor(this.locZ);
-		this.world.b(new BlockPosition(var1, 0, var2));
+		this.world.getBiome(new BlockPosition(var1, 0, var2));
 		return true;
 	}
 

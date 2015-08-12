@@ -19,8 +19,8 @@ public class class_aud extends class_auc {
             this.a((long)(var8 + var1), (long)(var7 + var2));
             int var9 = var5[var8 + 1 + (var7 + 1) * (var3 + 2)];
             if(this.a(57) == 0) {
-               if(var9 == BiomeBase.PLAINS.az) {
-                  var6[var8 + var7 * var3] = BiomeBase.PLAINS.az + 128;
+               if(var9 == BiomeBase.PLAINS.id) {
+                  var6[var8 + var7 * var3] = BiomeBase.PLAINS.id + 128;
                } else {
                   var6[var8 + var7 * var3] = var9;
                }

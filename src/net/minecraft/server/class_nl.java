@@ -61,7 +61,7 @@ public class class_nl {
 
    private static String a(URL var0, String var1, boolean var2) {
       try {
-         Proxy var3 = MinecraftServer.N() == null?null:MinecraftServer.N().ay();
+         Proxy var3 = MinecraftServer.getServer() == null?null:MinecraftServer.getServer().ay();
          if(var3 == null) {
             var3 = Proxy.NO_PROXY;
          }

@@ -154,7 +154,7 @@ public class CommandAchievment extends CommandAbstract {
       if(var2.length == 1) {
          return a(var2, new String[]{"give", "take"});
       } else if(var2.length != 2) {
-         return var2.length == 3?a(var2, MinecraftServer.N().getPlayers()):null;
+         return var2.length == 3?a(var2, MinecraftServer.getServer().getPlayers()):null;
       } else {
          ArrayList var4 = Lists.newArrayList();
          Iterator var5 = StatisticList.b.iterator();

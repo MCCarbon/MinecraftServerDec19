@@ -90,16 +90,16 @@ public class TileEntitySkull extends TileEntity implements ITickAble {
 		if ((var0 != null) && !UtilColor.isStringEmpty(var0.getName())) {
 			if (var0.isComplete() && var0.getProperties().containsKey("textures")) {
 				return var0;
-			} else if (MinecraftServer.N() == null) {
+			} else if (MinecraftServer.getServer() == null) {
 				return var0;
 			} else {
-				GameProfile var1 = MinecraftServer.N().aF().a(var0.getName());
+				GameProfile var1 = MinecraftServer.getServer().aF().a(var0.getName());
 				if (var1 == null) {
 					return var0;
 				} else {
 					Property var2 = (Property) Iterables.getFirst(var1.getProperties().get("textures"), (Object) null);
 					if (var2 == null) {
-						var1 = MinecraftServer.N().aD().fillProfileProperties(var1, true);
+						var1 = MinecraftServer.getServer().aD().fillProfileProperties(var1, true);
 					}
 
 					return var1;

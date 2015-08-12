@@ -24,7 +24,7 @@ public class CommandSetIdleTimeout extends CommandAbstract {
          throw new class_cf("commands.setidletimeout.usage", new Object[0]);
       } else {
          int var3 = a(var2[0], 0);
-         MinecraftServer.N().d(var3);
+         MinecraftServer.getServer().d(var3);
          a(var1, this, "commands.setidletimeout.success", new Object[]{Integer.valueOf(var3)});
       }
    }

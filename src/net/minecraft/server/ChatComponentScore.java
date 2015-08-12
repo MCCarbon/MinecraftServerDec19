@@ -32,7 +32,7 @@ public class ChatComponentScore extends ChatBaseComponent {
    }
 
    public String getText() {
-      MinecraftServer var1 = MinecraftServer.N();
+      MinecraftServer var1 = MinecraftServer.getServer();
       if(var1 != null && var1.O() && UtilColor.isStringEmpty(this.d)) {
          Scoreboard var2 = var1.getWorldServer(0).aa();
          class_awj var3 = var2.b(this.c);

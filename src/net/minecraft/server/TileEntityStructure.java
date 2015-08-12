@@ -209,11 +209,11 @@ public class TileEntityStructure extends TileEntity {
 			return false;
 		} else {
 			BlockPosition var1 = getPosition().add(pos);
-			class_ast var2 = ((BlockStructureBlock) getBlock()).l();
-			class_asv var3 = var2.a(new MinecraftKey(name));
-			var3.a(world, var1, size, !ignoreEntities);
-			var3.a(author);
-			var2.c(new MinecraftKey(name));
+			StructureSchematicNBTLoader var2 = ((BlockStructureBlock) getBlock()).l();
+			SctructureSchmeatic schematic = var2.getSchematic(new MinecraftKey(name));
+			schematic.setData(world, var1, size, !ignoreEntities);
+			schematic.setAuthor(author);
+			var2.saveSchematic(new MinecraftKey(name));
 			return true;
 		}
 	}
@@ -223,14 +223,14 @@ public class TileEntityStructure extends TileEntity {
 			return false;
 		} else {
 			BlockPosition var1 = getPosition().add(pos);
-			class_ast var2 = ((BlockStructureBlock) getBlock()).l();
-			class_asv var3 = var2.a(new MinecraftKey(name));
-			if (!UtilColor.isStringEmpty(var3.b())) {
-				author = var3.b();
+			StructureSchematicNBTLoader var2 = ((BlockStructureBlock) getBlock()).l();
+			SctructureSchmeatic var3 = var2.getSchematic(new MinecraftKey(name));
+			if (!UtilColor.isStringEmpty(var3.getAuthor())) {
+				author = var3.getAuthor();
 			}
 
-			if (!size.equals(var3.a())) {
-				size = var3.a();
+			if (!size.equals(var3.getSize())) {
+				size = var3.getSize();
 				return false;
 			} else {
 				BlockPosition var4 = var3.a(rotation);
@@ -241,7 +241,7 @@ public class TileEntityStructure extends TileEntity {
 					world.f(var6);
 				}
 
-				class_asu var7 = (new class_asu()).a(mirror).a(rotation).a(ignoreEntities).a((class_aeh) null).b(false).c(false);
+				class_asu var7 = (new class_asu()).a(mirror).a(rotation).a(ignoreEntities).a((ChunkCoordIntPair) null).b(false).c(false);
 				var3.a(world, var1, var7);
 				return true;
 			}

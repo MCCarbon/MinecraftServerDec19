@@ -45,7 +45,7 @@ public class ItemBlock extends Item {
 	}
 
 	public static boolean a(World var0, EntityHuman var1, BlockPosition var2, ItemStack var3) {
-		MinecraftServer var4 = MinecraftServer.N();
+		MinecraftServer var4 = MinecraftServer.getServer();
 		if (var4 == null) {
 			return false;
 		} else {

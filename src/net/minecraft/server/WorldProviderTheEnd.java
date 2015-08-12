@@ -6,7 +6,7 @@ import net.minecraft.server.IChunkProvider;
 import net.minecraft.server.WorldProvider;
 import net.minecraft.server.class_aoz;
 import net.minecraft.server.class_apc;
-import net.minecraft.server.class_apq;
+import net.minecraft.server.ChunkProviderTheEnd;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.NBTTagCompound;
 import net.minecraft.server.NBTTag;
@@ -23,7 +23,7 @@ public class WorldProviderTheEnd extends WorldProvider {
    }
 
    public IChunkProvider c() {
-      return new class_apq(this.b, this.b.K());
+      return new ChunkProviderTheEnd(this.b, this.b.K());
    }
 
    public float a(long var1, float var3) {

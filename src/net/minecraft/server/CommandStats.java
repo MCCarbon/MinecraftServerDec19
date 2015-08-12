@@ -144,11 +144,11 @@ public class CommandStats extends CommandAbstract {
    }
 
    protected String[] d() {
-      return MinecraftServer.N().getPlayers();
+      return MinecraftServer.getServer().getPlayers();
    }
 
    protected List e() {
-      Collection var1 = MinecraftServer.N().getWorldServer(0).aa().c();
+      Collection var1 = MinecraftServer.getServer().getWorldServer(0).aa().c();
       ArrayList var2 = Lists.newArrayList();
       Iterator var3 = var1.iterator();
 

@@ -108,7 +108,7 @@ public class class_ks extends JComponent {
          public void actionPerformed(ActionEvent var1) {
             String var2 = var4.getText().trim();
             if(!var2.isEmpty()) {
-               class_ks.this.c.a(var2, (ICommandListener)MinecraftServer.N());
+               class_ks.this.c.a(var2, (ICommandListener)MinecraftServer.getServer());
             }
 
             var4.setText("");

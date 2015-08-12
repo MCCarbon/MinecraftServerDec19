@@ -49,7 +49,7 @@ public final class class_aeu {
                                     continue label132;
                                  }
 
-                                 class_aeh var15 = (class_aeh)var42.next();
+                                 ChunkCoordIntPair var15 = (ChunkCoordIntPair)var42.next();
                                  BlockPosition var16 = a(var1, var15.a, var15.b);
                                  var17 = var16.getX();
                                  var18 = var16.getY();
@@ -127,7 +127,7 @@ public final class class_aeu {
             for(int var11 = -var10; var11 <= var10; ++var11) {
                for(var12 = -var10; var12 <= var10; ++var12) {
                   boolean var13 = var11 == -var10 || var11 == var10 || var12 == -var10 || var12 == var10;
-                  class_aeh var14 = new class_aeh(var11 + var8, var12 + var9);
+                  ChunkCoordIntPair var14 = new ChunkCoordIntPair(var11 + var8, var12 + var9);
                   if(!this.b.contains(var14)) {
                      ++var5;
                      if(!var13 && var1.ag().a(var14)) {
@@ -170,7 +170,7 @@ public final class class_aeu {
    }
 
    public static void a(World var0, BiomeBase var1, int var2, int var3, int var4, int var5, Random var6) {
-      List var7 = var1.a(EnumCreatureType.b);
+      List var7 = var1.getMobs(EnumCreatureType.b);
       if(!var7.isEmpty()) {
          while(var6.nextFloat() < var1.g()) {
             BiomeBase.BiomeMeta var8 = (BiomeBase.BiomeMeta)class_oc.a(var0.random, var7);

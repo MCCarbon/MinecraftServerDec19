@@ -64,7 +64,7 @@ public class WorldGenVillage extends StructureGenerator {
       var5 += var7.nextInt(this.g - this.h);
       var6 += var7.nextInt(this.g - this.h);
       if(var3 == var5 && var4 == var6) {
-         boolean var8 = this.c.w().a(var3 * 16 + 8, var4 * 16 + 8, 0, d);
+         boolean var8 = this.c.getWorldChunkManager().a(var3 * 16 + 8, var4 * 16 + 8, 0, d);
          if(var8) {
             return true;
          }
@@ -90,7 +90,7 @@ public class WorldGenVillage extends StructureGenerator {
       public WorldGenVillageStart(World var1, Random var2, int var3, int var4, int var5) {
          super(var3, var4);
          List var6 = WorldGenVillagePieces.a(var2, var5);
-         WorldGenVillagePieces.WorldGenVillageStart var7 = new WorldGenVillagePieces.WorldGenVillageStart(var1.w(), 0, var2, (var3 << 4) + 2, (var4 << 4) + 2, var6, var5);
+         WorldGenVillagePieces.WorldGenVillageStart var7 = new WorldGenVillagePieces.WorldGenVillageStart(var1.getWorldChunkManager(), 0, var2, (var3 << 4) + 2, (var4 << 4) + 2, var6, var5);
          this.a.add(var7);
          var7.a(var7, this.a, var2);
          List var8 = var7.g;

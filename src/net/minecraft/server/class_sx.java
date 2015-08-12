@@ -42,7 +42,7 @@ public class class_sx extends class_rm {
 
    public boolean a() {
       double var1 = this.f();
-      List var3 = this.b.world.a(this.f, this.b.getBoundingBox().grow(var1, 4.0D, var1), this.c);
+      List var3 = this.b.world.getEntities(this.f, this.b.getBoundingBox().grow(var1, 4.0D, var1), this.c);
       Collections.sort(var3, this.d);
       if(var3.isEmpty()) {
          return false;

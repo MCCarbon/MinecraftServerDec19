@@ -53,7 +53,7 @@ public class class_aev {
       int var7 = MathHelper.floor(var1.locZ);
       boolean var8 = true;
       Object var9 = BlockPosition.ZERO;
-      long var10 = class_aeh.a(var6, var7);
+      long var10 = ChunkCoordIntPair.a(var6, var7);
       if(this.c.b(var10)) {
          class_aev.class_a_in_class_aev var12 = (class_aev.class_a_in_class_aev)this.c.a(var10);
          var4 = 0.0D;

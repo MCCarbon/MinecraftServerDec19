@@ -6,18 +6,18 @@ import net.minecraft.server.World;
 import net.minecraft.server.Blocks;
 import net.minecraft.server.BlockSand;
 import net.minecraft.server.IBlockData;
-import net.minecraft.server.class_aph;
+import net.minecraft.server.ChunkSnapshot;
 import net.minecraft.server.WorldGenBase;
 import net.minecraft.server.Material;
 import net.minecraft.server.BlockPosition;
 import net.minecraft.server.MathHelper;
 
 public class class_apm extends WorldGenBase {
-   protected void a(long var1, int var3, int var4, class_aph var5, double var6, double var8, double var10) {
+   protected void a(long var1, int var3, int var4, ChunkSnapshot var5, double var6, double var8, double var10) {
       this.a(var1, var3, var4, var5, var6, var8, var10, 1.0F + this.b.nextFloat() * 6.0F, 0.0F, 0.0F, -1, -1, 0.5D);
    }
 
-   protected void a(long var1, int var3, int var4, class_aph var5, double var6, double var8, double var10, float var12, float var13, float var14, int var15, int var16, double var17) {
+   protected void a(long var1, int var3, int var4, ChunkSnapshot var5, double var6, double var8, double var10, float var12, float var13, float var14, int var15, int var16, double var17) {
       double var19 = (double)(var3 * 16 + 8);
       double var21 = (double)(var4 * 16 + 8);
       float var23 = 0.0F;
@@ -152,7 +152,7 @@ public class class_apm extends WorldGenBase {
 
                                        if(var49 && var5.a(var43, var50 - 1, var46).getBlock() == Blocks.DIRT) {
                                           var60.setPosition(var43 + var3 * 16, 0, var46 + var4 * 16);
-                                          var5.a(var43, var50 - 1, var46, this.c.b((BlockPosition)var60).ak.getBlock().getBlockData());
+                                          var5.a(var43, var50 - 1, var46, this.c.getBiome((BlockPosition)var60).ak.getBlock().getBlockData());
                                        }
                                     }
                                  }
@@ -176,7 +176,7 @@ public class class_apm extends WorldGenBase {
       return var1.getBlock() == Blocks.STONE?true:(var1.getBlock() == Blocks.DIRT?true:(var1.getBlock() == Blocks.GRASS?true:(var1.getBlock() == Blocks.HARDENED_CLAY?true:(var1.getBlock() == Blocks.STAINED_HARDENED_CLAY?true:(var1.getBlock() == Blocks.SANDSTONE?true:(var1.getBlock() == Blocks.RED_SANDSTONE?true:(var1.getBlock() == Blocks.MYCELIM?true:(var1.getBlock() == Blocks.SNOW_LAYER?true:(var1.getBlock() == Blocks.SAND || var1.getBlock() == Blocks.GRAVEL) && var2.getBlock().getMaterial() != Material.WATER))))))));
    }
 
-   protected void a(World var1, int var2, int var3, int var4, int var5, class_aph var6) {
+   protected void a(World var1, int var2, int var3, int var4, int var5, ChunkSnapshot var6) {
       int var7 = this.b.nextInt(this.b.nextInt(this.b.nextInt(15) + 1) + 1);
       if(this.b.nextInt(7) != 0) {
          var7 = 0;

@@ -83,7 +83,7 @@ public class CommandEnchant extends CommandAbstract {
    }
 
    protected String[] d() {
-      return MinecraftServer.N().getPlayers();
+      return MinecraftServer.getServer().getPlayers();
    }
 
    public boolean isListStart(String[] var1, int var2) {

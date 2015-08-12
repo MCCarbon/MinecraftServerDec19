@@ -55,7 +55,7 @@ public class BiomeBigHills extends BiomeBase {
 
    }
 
-   public void a(World var1, Random var2, class_aph var3, int var4, int var5, double var6) {
+   public void a(World var1, Random var2, ChunkSnapshot var3, int var4, int var5, double var6) {
       this.ak = Blocks.GRASS.getBlockData();
       this.al = Blocks.DIRT.getBlockData();
       if((var6 < -1.0D || var6 > 2.0D) && this.aI == this.aH) {
@@ -73,8 +73,8 @@ public class BiomeBigHills extends BiomeBase {
       this.aI = this.aH;
       this.a(var1.ai, true);
       this.a(var1.ah + " M");
-      this.a(new BiomeBase.class_a_in_class_aez(var1.an, var1.ao));
-      this.a(var1.ap, var1.aq);
+      this.a(new BiomeBase.BiomeTemperature(var1.an, var1.ao));
+      this.a(var1.temperature, var1.humidity);
       return this;
    }
 

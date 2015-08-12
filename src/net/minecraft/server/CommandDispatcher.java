@@ -118,7 +118,7 @@ public class CommandDispatcher extends CommandHandler implements ICommandDispatc
       this.a(new CommandWorldBorder());
       this.a(new CommandTitle());
       this.a(new CommandEntityData());
-      if(MinecraftServer.N().ae()) {
+      if(MinecraftServer.getServer().ae()) {
          this.a(new CommandOp());
          this.a(new CommandDeop());
          this.a(new CommandStop());
@@ -143,7 +143,7 @@ public class CommandDispatcher extends CommandHandler implements ICommandDispatc
 
    public void a(ICommandListener var1, ICommand var2, int var3, String var4, Object... var5) {
       boolean var6 = true;
-      MinecraftServer var7 = MinecraftServer.N();
+      MinecraftServer var7 = MinecraftServer.getServer();
       if(!var1.u_()) {
          var6 = false;
       }
@@ -172,8 +172,8 @@ public class CommandDispatcher extends CommandHandler implements ICommandDispatc
                   } while(!var7.getPlayerList().h(var10.cf()));
                } while(!var2.canUse(var1));
 
-               var11 = var1 instanceof MinecraftServer && MinecraftServer.N().r();
-               var12 = var1 instanceof class_ml && MinecraftServer.N().q();
+               var11 = var1 instanceof MinecraftServer && MinecraftServer.getServer().r();
+               var12 = var1 instanceof class_ml && MinecraftServer.getServer().q();
             } while(!var11 && !var12 && (var1 instanceof class_ml || var1 instanceof MinecraftServer));
 
             var10.sendMessage((IChatBaseComponent)var8);

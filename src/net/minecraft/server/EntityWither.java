@@ -213,7 +213,7 @@ public class EntityWither extends EntityMonster implements class_wk {
 							this.a(var1, 0);
 						}
 					} else {
-						List var14 = this.world.a(EntityLiving.class, this.getBoundingBox().grow(20.0D, 8.0D, 20.0D), Predicates.and(bB, IEntitySelector.NOT_PLAYER_SPECTATOR));
+						List var14 = this.world.getEntities(EntityLiving.class, this.getBoundingBox().grow(20.0D, 8.0D, 20.0D), Predicates.and(bB, IEntitySelector.NOT_PLAYER_SPECTATOR));
 
 						for (int var17 = 0; var17 < 10 && !var14.isEmpty(); ++var17) {
 							EntityLiving var5 = (EntityLiving) var14.get(this.random.nextInt(var14.size()));

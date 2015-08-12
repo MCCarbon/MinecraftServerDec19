@@ -52,7 +52,7 @@ public class CommandTell extends CommandAbstract {
    }
 
    public List tabComplete(ICommandListener var1, String[] var2, BlockPosition var3) {
-      return a(var2, MinecraftServer.N().getPlayers());
+      return a(var2, MinecraftServer.getServer().getPlayers());
    }
 
    public boolean isListStart(String[] var1, int var2) {

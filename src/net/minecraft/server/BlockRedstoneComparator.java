@@ -89,7 +89,7 @@ public class BlockRedstoneComparator extends class_ahh implements IContainer {
    }
 
    private EntityItemFrame a(World var1, final EnumDirection var2, BlockPosition var3) {
-      List var4 = var1.a(EntityItemFrame.class, new AxisAlignedBB((double)var3.getX(), (double)var3.getY(), (double)var3.getZ(), (double)(var3.getX() + 1), (double)(var3.getY() + 1), (double)(var3.getZ() + 1)), new Predicate() {
+      List var4 = var1.getEntities(EntityItemFrame.class, new AxisAlignedBB((double)var3.getX(), (double)var3.getY(), (double)var3.getZ(), (double)(var3.getX() + 1), (double)(var3.getY() + 1), (double)(var3.getZ() + 1)), new Predicate() {
          public boolean a(Entity var1) {
             return var1 != null && var1.aR() == var2;
          }

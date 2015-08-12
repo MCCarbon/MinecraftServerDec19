@@ -80,7 +80,7 @@ public class BlockGrass extends Block implements IBlockFragilePlantElement {
 
 			if (var1.getType(var7).getBlock().material == Material.AIR) {
 				if (var2.nextInt(8) == 0) {
-					BlockFlowers.EnumFlowerVarient var11 = var1.b(var7).a(var2, var7);
+					BlockFlowers.EnumFlowerVarient var11 = var1.getBiome(var7).a(var2, var7);
 					BlockFlowers var9 = var11.getType().isYellow();
 					IBlockData var10 = var9.getBlockData().set(var9.getFlowerVarients(), var11);
 					if (var9.f(var1, var7, var10)) {
