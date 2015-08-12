@@ -2419,7 +2419,7 @@ public abstract class World implements IBlockAccess {
 	}
 
 	public BlockPosition a(String var1, BlockPosition var2) {
-		return O().a(this, var1, var2);
+		return O().findNearestMapFeature(this, var1, var2);
 	}
 
 	public class_c a(class_b var1) {

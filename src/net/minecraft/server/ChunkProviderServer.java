@@ -242,8 +242,8 @@ public class ChunkProviderServer implements IChunkProvider {
       return this.e.getMobsFor(var1, var2);
    }
 
-   public BlockPosition a(World var1, String var2, BlockPosition var3) {
-      return this.e.a(var1, var2, var3);
+   public BlockPosition findNearestMapFeature(World var1, String var2, BlockPosition var3) {
+      return this.e.findNearestMapFeature(var1, var2, var3);
    }
 
    public int getLoadedChunks() {

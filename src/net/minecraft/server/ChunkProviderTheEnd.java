@@ -318,7 +318,7 @@ public class ChunkProviderTheEnd implements IChunkProvider {
 	}
 
 	@Override
-	public BlockPosition a(World world, String string, BlockPosition position) {
+	public BlockPosition findNearestMapFeature(World world, String string, BlockPosition position) {
 		return null;
 	}
 

@@ -8,7 +8,8 @@ import java.util.Random;
 
 public class WorldGenEndCityPieces {
 
-	public static final StructureSchematicNBTLoader a = new StructureSchematicNBTLoader();
+	public static final StructureSchematicNBTLoader LOADER = new StructureSchematicNBTLoader();
+
 	private static final class_asu b = (new class_asu()).a(true);
 	private static final class_asu c = (new class_asu()).a(true).b(true);
 	private static final List d;
@@ -256,7 +257,7 @@ public class WorldGenEndCityPieces {
 		}
 
 		private void a(BlockPosition var1) {
-			SctructureSchmeatic var2 = WorldGenEndCityPieces.a.getSchematic(new MinecraftKey("endcity/" + this.d));
+			SctructureSchmeatic var2 = WorldGenEndCityPieces.LOADER.getSchematic(new MinecraftKey("endcity/" + this.d));
 			class_asu var3 = null;
 			if (this.f) {
 				var3 = WorldGenEndCityPieces.b.a().a(this.e);

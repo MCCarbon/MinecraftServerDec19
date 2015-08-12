@@ -106,7 +106,7 @@ public class ChunkProviderDebug implements IChunkProvider {
       return var3.getMobs(var1);
    }
 
-   public BlockPosition a(World var1, String var2, BlockPosition var3) {
+   public BlockPosition findNearestMapFeature(World var1, String var2, BlockPosition var3) {
       return null;
    }
 

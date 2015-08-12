@@ -218,7 +218,7 @@ public class ChunkProviderFlat implements IChunkProvider {
       return var3.getMobs(var1);
    }
 
-   public BlockPosition a(World var1, String var2, BlockPosition var3) {
+   public BlockPosition findNearestMapFeature(World var1, String var2, BlockPosition var3) {
       if("Stronghold".equals(var2)) {
          Iterator var4 = this.e.iterator();
 

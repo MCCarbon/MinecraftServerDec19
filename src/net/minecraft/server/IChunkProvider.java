@@ -1,6 +1,8 @@
 package net.minecraft.server;
 
 import java.util.List;
+
+import net.minecraft.server.BiomeBase.BiomeMeta;
 import net.minecraft.server.World;
 import net.minecraft.server.Chunk;
 import net.minecraft.server.BlockPosition;
@@ -8,32 +10,33 @@ import net.minecraft.server.IProgressUpdate;
 import net.minecraft.server.EnumCreatureType;
 
 public interface IChunkProvider {
-	
-   boolean isChunkLoaded(int var1, int var2);
 
-   Chunk getOrCreateChunk(int var1, int var2);
+	boolean isChunkLoaded(int var1, int var2);
 
-   Chunk getChunkAt(BlockPosition var1);
+	Chunk getOrCreateChunk(int var1, int var2);
 
-   void getChunkAt(IChunkProvider var1, int var2, int var3);
+	Chunk getChunkAt(BlockPosition var1);
 
-   boolean a(IChunkProvider var1, Chunk var2, int var3, int var4);
+	void getChunkAt(IChunkProvider var1, int var2, int var3);
 
-   boolean saveChunks(boolean var1, IProgressUpdate var2);
+	boolean a(IChunkProvider var1, Chunk var2, int var3, int var4);
 
-   boolean unloadChunks();
+	boolean saveChunks(boolean var1, IProgressUpdate var2);
 
-   boolean canSave();
+	boolean unloadChunks();
 
-   String getName();
+	boolean canSave();
 
-   List getMobsFor(EnumCreatureType var1, BlockPosition var2);
+	String getName();
 
-   BlockPosition a(World var1, String var2, BlockPosition var3);
+	List<BiomeMeta> getMobsFor(EnumCreatureType var1, BlockPosition var2);
 
-   int getLoadedChunks();
+	BlockPosition findNearestMapFeature(World var1, String var2, BlockPosition var3);
 
-   void recreateStructures(Chunk var1, int var2, int var3);
+	int getLoadedChunks();
 
-   void c();
+	void recreateStructures(Chunk var1, int var2, int var3);
+
+	void c();
+
 }
