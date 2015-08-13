@@ -12,7 +12,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
    private int e;
    private byte f;
    private byte g;
-   private Datawatcher h;
+   private DataWatcher h;
    private List i;
 
    public PacketPlayOutNamedEntitySpawn() {
@@ -37,7 +37,7 @@ public class PacketPlayOutNamedEntitySpawn implements Packet {
       this.e = var1.readInt();
       this.f = var1.readByte();
       this.g = var1.readByte();
-      this.i = Datawatcher.b(var1);
+      this.i = DataWatcher.b(var1);
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {

@@ -11,11 +11,11 @@ public class EntityHorse extends EntityAnimal implements IInventoryListener {
 		}
 	};
 	private static final class_qk bz = (new class_qs((class_qk) null, "horse.jumpStrength", 0.7D, 0.0D, 2.0D)).a("Jump Strength").a(true);
-	private static final int INFO_FLAGS_DW_ID = Datawatcher.claimId(EntityHorse.class); //value = 12
-	private static final int TYPE_DW_ID = Datawatcher.claimId(EntityHorse.class); //value = 13
-	private static final int COLOR_DW_ID = Datawatcher.claimId(EntityHorse.class); //value = 14
-	private static final int OWNER_NAME_DW_ID = Datawatcher.claimId(EntityHorse.class); //value = 15
-	private static final int ARMOR_DW_ID = Datawatcher.claimId(EntityHorse.class); //value = 16
+	private static final int INFO_FLAGS_DW_ID = DataWatcher.claimId(EntityHorse.class); //value = 12
+	private static final int TYPE_DW_ID = DataWatcher.claimId(EntityHorse.class); //value = 13
+	private static final int COLOR_DW_ID = DataWatcher.claimId(EntityHorse.class); //value = 14
+	private static final int OWNER_NAME_DW_ID = DataWatcher.claimId(EntityHorse.class); //value = 15
+	private static final int ARMOR_DW_ID = DataWatcher.claimId(EntityHorse.class); //value = 16
 	private static final String[] bF = new String[] { null, "textures/entity/horse/armor/horse_armor_iron.png", "textures/entity/horse/armor/horse_armor_gold.png", "textures/entity/horse/armor/horse_armor_diamond.png" };
 	private static final String[] bG = new String[] { "", "meo", "goo", "dio" };
 	private static final int[] bH = new int[] { 0, 5, 7, 11 };

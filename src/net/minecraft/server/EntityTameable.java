@@ -4,8 +4,8 @@ import java.util.UUID;
 
 public abstract class EntityTameable extends EntityAnimal implements class_qg {
 
-	protected static final int TAME_FLAGS_DW_ID = Datawatcher.claimId(EntityTameable.class); //value = 12
-	protected static final int OWNER_DW_ID = Datawatcher.claimId(EntityTameable.class); //value = 13
+	protected static final int TAME_FLAGS_DW_ID = DataWatcher.claimId(EntityTameable.class); //value = 12
+	protected static final int OWNER_DW_ID = DataWatcher.claimId(EntityTameable.class); //value = 13
 
 	protected class_so bu = new class_so(this);
 

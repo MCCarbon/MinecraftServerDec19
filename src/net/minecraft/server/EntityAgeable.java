@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public abstract class EntityAgeable extends EntityCreature {
 
-	private static final int AGE_DW_ID = Datawatcher.claimId(EntityAgeable.class); //value = 11
+	private static final int AGE_DW_ID = DataWatcher.claimId(EntityAgeable.class); //value = 11
 
 	protected int a;
 	protected int b;

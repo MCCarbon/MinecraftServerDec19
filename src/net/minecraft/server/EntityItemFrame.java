@@ -2,8 +2,8 @@ package net.minecraft.server;
 
 public class EntityItemFrame extends class_uz {
 
-	private static final int ITEM_DW_ID = Datawatcher.claimId(EntityItemFrame.class); //value = 5
-	private static final int ROTATION_DW_ID = Datawatcher.claimId(EntityItemFrame.class); //value = 6
+	private static final int ITEM_DW_ID = DataWatcher.claimId(EntityItemFrame.class); //value = 5
+	private static final int ROTATION_DW_ID = DataWatcher.claimId(EntityItemFrame.class); //value = 6
 	private float e = 1.0F;
 
 	public EntityItemFrame(World var1) {

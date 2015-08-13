@@ -12,10 +12,10 @@ import com.mojang.authlib.GameProfile;
 
 public abstract class EntityHuman extends EntityLiving {
 
-	private static final int ABS_HEARTS_DW_ID = Datawatcher.claimId(EntityHuman.class); //value = 10
-	private static final int SCORE_DW_ID = Datawatcher.claimId(EntityHuman.class); //value = 11
-	protected static final int SKIN_PARTS_DW_ID = Datawatcher.claimId(EntityHuman.class); //value = 12
-	protected static final int MAIN_HAND_DW_ID = Datawatcher.claimId(EntityHuman.class); //value = 13
+	private static final int ABS_HEARTS_DW_ID = DataWatcher.claimId(EntityHuman.class); //value = 10
+	private static final int SCORE_DW_ID = DataWatcher.claimId(EntityHuman.class); //value = 11
+	protected static final int SKIN_PARTS_DW_ID = DataWatcher.claimId(EntityHuman.class); //value = 12
+	protected static final int MAIN_HAND_DW_ID = DataWatcher.claimId(EntityHuman.class); //value = 13
 
 	public PlayerInventory inventory = new PlayerInventory(this);
 	private InventoryEnderChest enderChest = new InventoryEnderChest();

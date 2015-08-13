@@ -7,7 +7,7 @@ import com.google.common.collect.Sets;
 
 public class EntityTippedArrow extends EntityArrow {
 
-	private static final int POTIONTYPE_DW_ID = Datawatcher.claimId(EntityTippedArrow.class); // value = 6
+	private static final int POTIONTYPE_DW_ID = DataWatcher.claimId(EntityTippedArrow.class); // value = 6
 
 	private final Set<MobEffect> effects;
 	private ItemStack item;

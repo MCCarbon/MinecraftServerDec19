@@ -17,13 +17,13 @@ public class EntityArmorStand extends EntityLiving {
 	public static final int d = 1 << EnumWearable.TORSO.getAbsolute();
 	public static final int e = 1 << EnumWearable.HEAD.getAbsolute();
 	public static final int f = 1 << EnumWearable.OFFHAND.getAbsolute();
-	public static final int INFO_DW_ID = Datawatcher.claimId(EntityArmorStand.class); //value = 10
-	public static final int HEADPOS_DW_ID = Datawatcher.claimId(EntityArmorStand.class); //value = 11
-	public static final int BODYPOS_DW_ID = Datawatcher.claimId(EntityArmorStand.class); //value = 12
-	public static final int LEFTARM_DW_ID = Datawatcher.claimId(EntityArmorStand.class); //value = 13
-	public static final int RIGHTARM_DW_ID = Datawatcher.claimId(EntityArmorStand.class); //value = 14
-	public static final int LEFTLEG_DW_ID = Datawatcher.claimId(EntityArmorStand.class); //value = 15
-	public static final int RIGHTLEG_DW_ID = Datawatcher.claimId(EntityArmorStand.class); //value = 16
+	public static final int INFO_DW_ID = DataWatcher.claimId(EntityArmorStand.class); //value = 10
+	public static final int HEADPOS_DW_ID = DataWatcher.claimId(EntityArmorStand.class); //value = 11
+	public static final int BODYPOS_DW_ID = DataWatcher.claimId(EntityArmorStand.class); //value = 12
+	public static final int LEFTARM_DW_ID = DataWatcher.claimId(EntityArmorStand.class); //value = 13
+	public static final int RIGHTARM_DW_ID = DataWatcher.claimId(EntityArmorStand.class); //value = 14
+	public static final int LEFTLEG_DW_ID = DataWatcher.claimId(EntityArmorStand.class); //value = 15
+	public static final int RIGHTLEG_DW_ID = DataWatcher.claimId(EntityArmorStand.class); //value = 16
 
 	private final ItemStack[] bx;
 	private final ItemStack[] by;

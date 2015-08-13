@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 public class EntityBat extends class_tt {
 
-	private static final int HANGING_DW_ID = Datawatcher.claimId(EntityBat.class); //value = 11
+	private static final int HANGING_DW_ID = DataWatcher.claimId(EntityBat.class); //value = 11
 
 	private BlockPosition b;
 

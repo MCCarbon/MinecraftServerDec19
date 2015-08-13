@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 
 public class EntityOcelot extends EntityTameable {
 
-	private static final int TYPE_DW_ID = Datawatcher.claimId(EntityOcelot.class); //value = 14
+	private static final int TYPE_DW_ID = DataWatcher.claimId(EntityOcelot.class); //value = 14
 
 	private class_rb bx;
 	private class_sr by;

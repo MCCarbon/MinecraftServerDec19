@@ -4,7 +4,7 @@ import com.google.common.base.Predicate;
 
 public class EntityVillagerGolem extends EntityGolem {
 
-	protected static final int PLAYERCREATED_DW_ID = Datawatcher.claimId(EntityVillagerGolem.class); //value = 11
+	protected static final int PLAYERCREATED_DW_ID = DataWatcher.claimId(EntityVillagerGolem.class); //value = 11
 
 	private int c;
 	class_tp b;

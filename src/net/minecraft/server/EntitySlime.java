@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntitySlime extends EntityInsentient implements class_wd {
 
-	private static final int SIZE_DW_ID = Datawatcher.claimId(EntitySlime.class);  //value = 11
+	private static final int SIZE_DW_ID = DataWatcher.claimId(EntitySlime.class);  //value = 11
 
 	public float a;
 	public float b;

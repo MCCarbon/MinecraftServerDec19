@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityFireworks extends Entity {
 
-	private static final int INFO_DW_ID = Datawatcher.claimId(EntityFireworks.class); //value = 5
+	private static final int INFO_DW_ID = DataWatcher.claimId(EntityFireworks.class); //value = 5
 
 	private int b;
 	private int c;

@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class EntitySheep extends EntityAnimal {
 
-	private static final int INFOFLAGS_DW_ID = Datawatcher.claimId(EntitySheep.class); //value = 12
+	private static final int INFOFLAGS_DW_ID = DataWatcher.claimId(EntitySheep.class); //value = 12
 
 	private final InventoryCrafting bt = new InventoryCrafting(new Container() {
 		public boolean a(EntityHuman var1) {

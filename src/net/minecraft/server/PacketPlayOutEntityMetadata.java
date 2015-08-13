@@ -10,7 +10,7 @@ public class PacketPlayOutEntityMetadata implements Packet {
    public PacketPlayOutEntityMetadata() {
    }
 
-   public PacketPlayOutEntityMetadata(int var1, Datawatcher var2, boolean var3) {
+   public PacketPlayOutEntityMetadata(int var1, DataWatcher var2, boolean var3) {
       this.a = var1;
       if(var3) {
          this.b = var2.getObjects();
@@ -22,12 +22,12 @@ public class PacketPlayOutEntityMetadata implements Packet {
 
    public void decode(PacketDataSerializer var1) throws IOException {
       this.a = var1.readVarInt();
-      this.b = Datawatcher.b(var1);
+      this.b = DataWatcher.b(var1);
    }
 
    public void encode(PacketDataSerializer var1) throws IOException {
       var1.writeVarInt(this.a);
-      Datawatcher.a(this.b, var1);
+      DataWatcher.a(this.b, var1);
    }
 
    public void a(PacketListenerPlayOut var1) {

@@ -2,7 +2,7 @@ package net.minecraft.server;
 
 public class EntityMinecartFurnace extends EntityMinecartAbstract {
 
-	private static final int POWERED_DWID = Datawatcher.claimId(EntityMinecartFurnace.class); //value = 11
+	private static final int POWERED_DWID = DataWatcher.claimId(EntityMinecartFurnace.class); //value = 11
 	private int d;
 	public double a;
 	public double b;
